@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670838"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273144"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스란?
 
@@ -156,7 +156,7 @@ SQL Database 및 Azure Portal에서 제공하는 모든 사용 가능한 도구 
 SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-database-security-overview.md)을 제공하여 애플리케이션이 다양한 보안 및 규정 준수 요구 사항을 충족할 수 있도록 합니다.
 
 > [!IMPORTANT]
-> Azure SQL Database (모든 배포 옵션)을 여러 규정 준수 표준에 대해 인증 받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
+> Azure SQL Database (모든 배포 옵션)을 여러 규정 준수 표준에 대해 인증 받았습니다. 자세한 내용은 참조는 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
 
 ### <a name="advance-threat-protection"></a>고급 위협 방지
 
@@ -186,7 +186,7 @@ SQL Database를 사용하면 [Azure Active Directory 통합](sql-database-aad-au
 
 ### <a name="compliance-certification"></a>규정 준수 인증
 
-SQL Database는 일반 감사에 참여하고 몇 가지 준수 표준에 대해 인증됩니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://azure.microsoft.com/support/trust-center/services/) 목록을 찾을 수 있습니다.
+SQL Database는 일반 감사에 참여하고 몇 가지 준수 표준에 대해 인증됩니다. 자세한 내용은 참조는 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
 
 ## <a name="easy-to-use-tools"></a>사용하기 쉬운 도구
 
@@ -255,10 +255,10 @@ SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database �
 - 단일 데이터베이스 및 탄력적 풀의 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 - 이러한 빠른 시작을 참조하여 다음 항목을 시작하세요.
 
-  - [Azure Portal에서 SQL Database 만들기](sql-database-single-database-get-started.md)  
-  - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-get-started-cli.md)
-  - [PowerShell을 사용하여 SQL Database 만들기](sql-database-get-started-powershell.md)
+  - [Azure portal에서 SQL database 만들기](sql-database-single-database-get-started.md)  
+  - [Azure CLI를 사용 하 여 SQL database 만들기](sql-database-get-started-cli.md)
+  - [PowerShell을 사용 하 여 SQL database 만들기](sql-database-get-started-powershell.md)
 
 - 일련의 Azure CLI 및 PowerShell 샘플은 다음을 참조하세요.
-  - [SQL Database에 대한 Azure CLI 샘플](sql-database-cli-samples.md)
-  - [SQL Database에 대한 Azure PowerShell 샘플](sql-database-powershell-samples.md)
+  - [SQL Database에 대 한 azure CLI 샘플](sql-database-cli-samples.md)
+  - [SQL Database에 대 한 azure PowerShell 샘플](sql-database-powershell-samples.md)

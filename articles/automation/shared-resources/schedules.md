@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623170"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008649"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 예약
 
@@ -156,6 +156,9 @@ Azure Automation에서 일정에 구성할 수 있는 가장 빈번한 간격은
 1. Azure Portal의 Automation 계정에서 왼쪽의 **공유 리소스** 섹션 아래에 있는 **일정**을 선택합니다.
 2. 일정 이름을 클릭하여 해당 세부 정보 창을 엽니다.
 3. **사용**을 **아니오**로 변경합니다.
+
+> [!NOTE]
+> 시작 시간이 과거에는 일정을 사용 하지 않도록 설정 하려는 경우 나중에 저장 하기 전에 한 번에 시작 날짜를 변경 해야 합니다.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>PowerShell 사용 하 여 일정을 사용 하지 않도록 설정
 

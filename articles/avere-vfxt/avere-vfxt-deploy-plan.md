@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990988"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056727"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
@@ -130,6 +130,17 @@ Avere vFXT for Azure 클러스터는 개인 서브넷에 있으며 공용 IP 주
 
 * 새 가상 네트워크나 서브넷을 만드는 경우 클러스터 컨트롤러에 공용 IP 주소가 할당됩니다.
 * 기존 가상 네트워크 및 서브넷을 선택하는 경우에는 클러스터 컨트롤러에 개인 IP 주소만 포함됩니다. 
+
+## <a name="vm-access-roles"></a>VM 액세스 역할 
+
+Azure 사용 [역할 기반 액세스 제어](../role-based-access-control/index.yml) (RBAC) 특정 작업을 수행 하는 Vm 클러스터 권한을 부여 합니다. 예를 들어, 클러스터 컨트롤러는 권한 부여를 만들고 클러스터 노드 Vm을 구성 해야 합니다. 클러스터 노드를 할당 하거나 IP 주소를 다른 클러스터 노드로 재할당 수 해야 합니다.
+
+두 개의 기본 제공 Azure 역할 Avere vFXT virtual machines에 사용 됩니다. 
+
+* 기본 제공 역할을 사용 하는 클러스터 컨트롤러 [Avere 참가자](../role-based-access-control/built-in-roles.md#avere-contributor)합니다. 
+* 기본 제공 역할을 사용 하는 클러스터 노드 [Avere 연산자](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Avere vFXT 구성 요소에 대 한 액세스 역할을 사용자 지정 하는 경우 사용자 고유의 역할을 정의 하 고 만들어질 때 Vm에 할당 해야 합니다. Azure Marketplace에서 배포 템플릿을 사용할 수 없습니다. 에 설명 된 대로 Azure portal에서 티켓을 열어 Microsoft 고객 서비스 및 지원 센터를 참조 하세요 [시스템을 사용 하 여 도움말을 보려면](avere-vfxt-open-ticket.md)합니다. 
 
 ## <a name="next-step-understand-the-deployment-process"></a>다음 단계: 배포 프로세스 이해
 

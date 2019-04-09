@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15b37c4845526227799173b09f468701954fc7b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449306"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009872"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용 하는 Azure 가상 머신 확장에서 Azure 리소스에 대 한 관리 되는 id를 구성 합니다.
 
@@ -60,7 +60,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정합니다.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>가상 머신 확장 집합을 만드는 동안 또는 기존 가상 머신 확장 집합을 사용하는 동안 시스템 할당 관리 ID를 사용하도록 설정
+### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>시스템이 할당 하는 사용 하도록 설정 관리 id를 만드는 동안 가상 머신 확장 집합을 만들거나 기존 가상 머신 확장 집합의
 
 1. Azure에 로컬로 로그인하든지, 아니면 Azure Portal을 통해 로그인하든지 간에 가상 머신 확장 집합이 포함된 Azure 구독과 연결된 계정을 사용합니다.
 2. 시스템 할당 관리 ID를 사용하도록 설정하려면 편집기에 템플릿을 로드하고 리소스 섹션 내에서 관심이 있는 `Microsoft.Compute/virtualMachinesScaleSets` 리소스를 찾아서 `"type": "Microsoft.Compute/virtualMachinesScaleSets"` 속성과 같은 수준으로 `identity` 속성을 추가합니다. 다음 구문을 사용합니다.
@@ -123,11 +123,11 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고 `resources` 섹션 내에서 관심 있는 `Microsoft.Compute/virtualMachineScaleSets` 리소스를 찾습니다. VM에 시스템 할당 관리 ID만 있는 경우, ID 형식을 `None`으로 변경하여 VM을 사용하지 않도록 설정할 수 있습니다.
 
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
+   **Microsoft.compute/virtualmachinescalesets API-VERSION 2018-06-01**
 
    apiVersion이 `2018-06-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 userAssignedIdentities 사전 값과 함께 `UserAssigned`를 유지합니다.
 
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
+   **Microsoft.compute/virtualmachinescalesets API-VERSION 2018-06-01**
 
    apiVersion이 `2017-12-01`이고 가상 머신 확장 집합에 시스템 할당 관리 ID와 사용자 할당 ID가 둘 다 있는 경우 ID 형식에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다. 
    
@@ -158,7 +158,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 1. `resources` 요소 아래에 다음 항목을 추가하여 사용자 할당 관리 ID를 가상 머신 확장 집합에 할당합니다.  `<USERASSIGNEDIDENTITY>`를 직접 만든 사용자 할당 관리 ID의 이름으로 바꿔야 합니다.
    
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
+   **Microsoft.compute/virtualmachinescalesets API-VERSION 2018-06-01**
 
    apiVersion이 `2018-06-01`이고 사용자 할당 관리 ID가 `userAssignedIdentities` 사전 형식으로 저장되는 경우에는 템플릿의 `variables` 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
 
@@ -177,7 +177,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    }
    ```   
 
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2017-12-01**
+   **Microsoft.compute/virtualmachinescalesets API 버전 2017-12-01**
     
    `apiVersion`이 `2017-12-01` 또는 이전 버전이고 사용자 할당 관리 ID가 `identityIds` 배열에 저장되는 경우에는 템플릿의 변수 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
 
@@ -200,7 +200,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 3. 완료되면 템플릿은 다음과 같이 표시됩니다.
    
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**   
+   **Microsoft.compute/virtualmachinescalesets API-VERSION 2018-06-01**   
 
    ```json
    "resources": [
@@ -243,7 +243,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
+   **Microsoft.compute/virtualmachines API 버전 2017-12-01**
 
    ```json
    "resources": [
@@ -306,13 +306,13 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    }
    ```
    
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
+   **Microsoft.compute/virtualmachinescalesets API-VERSION 2018-06-01**
     
    가상 머신 확장 집합에서 단일 사용자 할당 관리 ID를 제거하려면 `userAssignedIdentities` 사전에서 제거합니다.
 
    시스템 할당 ID가 있는 경우에는 `identity` 값 아래 `type` 값에 보관합니다.
 
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2017-12-01**
+   **Microsoft.compute/virtualmachinescalesets API 버전 2017-12-01**
 
    가상 머신 확장 집합에서 단일 사용자 할당 관리 ID를 제거하려면 `identityIds` 배열에서 제거합니다.
 

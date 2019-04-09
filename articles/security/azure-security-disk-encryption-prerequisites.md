@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ce1bb6df0a4c062ee41d2a58adf1b7fc93d9805
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286247"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010094"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
 
@@ -29,7 +29,7 @@ ms.locfileid: "58286247"
 ## <a name="bkmk_OSs"></a> 지원되는 운영 체제
 Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
-- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016
+- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows의 큰 버전 Azure 갤러리에서 찾을 수 있습니다.
   - Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. Windows 업데이트에서 선택적 업데이트인 Windows Server 2008 R2 x64 기반 시스템용 Microsoft .NET Framework 4.5.2([KB2901983](https://support.microsoft.com/kb/2901983))를 사용하여 설치합니다.    
 - Windows 클라이언트 버전: Windows 8 클라이언트 및 Windows 10 클라이언트
 - Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다. 현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)를 참조하세요.
@@ -50,7 +50,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
 ## <a name="bkmk_GPO"></a> 네트워킹 및 그룹 정책
 
-**Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM에서 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.**
+**Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.**
   - Key Vault에 연결할 토큰을 얻으려면 IaaS VM에서 Azure Active Directory 엔드포인트인 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
   - 암호화 키를 고객 Key Vault에 쓰려면 IaaS VM에서 Key Vault 엔드포인트에 연결할 수 있어야 합니다.
   - IaaS VM은 Azure 확장 리포지토리를 호스팅하는 Azure Storage 엔드포인트 및 VHD 파일을 호스팅하는 Azure Storage 계정에 연결할 수 있어야 합니다.
@@ -301,8 +301,8 @@ PowerShell 스크립트를 사용하기 전에 스크립트의 단계를 이해�
  
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Windows용 Azure Disk Encryption 사용](azure-security-disk-encryption-windows.md)
+> [Windows 용 Azure Disk Encryption을 사용 하도록 설정](azure-security-disk-encryption-windows.md)
 
 > [!div class="nextstepaction"]
-> [Linux용 Azure Disk Encryption 사용](azure-security-disk-encryption-linux.md)
+> [Linux 용 Azure Disk Encryption을 사용 하도록 설정](azure-security-disk-encryption-linux.md)
 

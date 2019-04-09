@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011160"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282698"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
@@ -25,7 +25,7 @@ Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 D
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
-* **Docker CLI** - 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux]시스템에서 쉽게 Docker를 구성하는 패키지를 제공합니다.
+* **Docker CLI** - 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
 
 ## <a name="log-in-to-a-registry"></a>레지스트리에 로그인
 
@@ -129,3 +129,11 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 * [AKS(Azure Kubernetes Service)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+
+필요에 따라 설치를 [Visual Studio Code 용 Docker 확장](https://code.visualstudio.com/docs/azure/docker) 하며 [Azure 계정](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) 에 Azure 컨테이너 레지스트리를 사용 하는 확장 합니다. 끌어오기 및 이미지를 Azure container registry에 푸시 또는 Visual Studio Code 내에서 모든 ACR 태스크를 실행 합니다.
+
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

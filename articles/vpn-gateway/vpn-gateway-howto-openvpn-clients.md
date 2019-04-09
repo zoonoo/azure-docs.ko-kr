@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: f7288202eb6dd66aee0bb38bb3611e8b319b50f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010550"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274675"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Azure VPN Gateway(미리 보기)에 대해 OpenVPN 클라이언트 구성
 
-이 문서는 OpenVPN 클라이언트를 구성하는 데 도움이 됩니다.
+이 문서를 통해 구성한 **OpenVPN® 프로토콜** 클라이언트입니다.
 
 > [!IMPORTANT]
 > 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -49,7 +49,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. 메모장에서 *profileinfo.txt*를 엽니다. 개인 키를 가져오려면 텍스트(포함 및 사이) "-----BEGIN PRIVATE KEY-----" 및 "-----BEGIN PRIVATE KEY-----"를 선택하고 복사합니다.
+8. 메모장에서 *profileinfo.txt*를 엽니다. 개인 키를 가져오려면 텍스트를 선택 합니다. (포함 및 사이) "---BEGIN PRIVATE KEY---" 및 "---END PRIVATE KEY---" 복사 합니다.
 9. 메모장의 vpnconfig.ovpn 파일로 돌아가서 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 개인 키를 붙여넣습니다.
 
    ```
@@ -109,7 +109,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. 텍스트 편집기에서 profileinfo.txt를 엽니다. 개인 키를 가져오려면 "-----BEGIN PRIVATE KEY-----" 및 "-----BEGIN PRIVATE KEY-----"를 포함하는 해당 항목 사이의 텍스트를 선택하고 복사합니다.
+8. 텍스트 편집기에서 profileinfo.txt를 엽니다. 개인 키를 가져오려면 "---BEGIN PRIVATE KEY---" 간 및 포함 하 여 텍스트를 선택 하 고 "---END PRIVATE KEY---" 복사 합니다.
 
 9. 텍스트 편집기에서 vpnconfig.ovpn 파일을 열고 이 섹션을 찾습니다. "key" 및 "/key" 사이의 모든 항목을 바꾸는 개인 키를 붙여넣습니다.
 
@@ -138,4 +138,6 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 
 ## <a name="next-steps"></a>다음 단계
 
-VPN 클라이언트가 다른 vnet(프로덕션)의 리소스에 액세스할 수 있게 하려면 [VNet 간](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 문서의 지침에 따라 vnet 간 연결을 설정합니다. 게이트웨이 및 연결에서 BGP를 사용하도록 설정해야 합니다. 그렇지 않으면 트래픽이 흐르지 않습니다.
+VPN 클라이언트 (프로덕션) 다른 VNet의 리소스에 액세스할 수 있게 되기를 원하는 경우 다음의 지침에 따라 합니다 [VNet 대 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) vnet 대 vnet 연결을 설정 하는 문서입니다. 게이트웨이 및 연결에서 BGP를 사용하도록 설정해야 합니다. 그렇지 않으면 트래픽이 흐르지 않습니다.
+
+**"OpenVPN"는 OpenVPN i n c.의 상표**

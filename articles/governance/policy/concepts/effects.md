@@ -1,7 +1,6 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의는 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/29/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802646"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256858"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 

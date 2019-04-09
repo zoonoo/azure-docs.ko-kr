@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307193"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006798"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>관리 이벤트에 대한 Azure 경고를 활동 로그 경고로 마이그레이션
 
@@ -104,7 +104,7 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 * [Azure Portal에서 경고를 만드는 방법에 대한 지침](../../azure-monitor/platform/activity-log-alerts.md)을 따릅니다.
 * [Resource Manager 템플릿을 사용하여 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)을 알아봅니다.
  
-이전에 만든 관리 이벤트에 대한 경고는 자동으로 활동 로그 경고로 마이그레이션되지 않습니다. 위의 PowerShell 스크립트를 사용하여 현재 구성한 관리 이벤트에 대한 경고를 나열하고 이를 활동 로그 경고로 수동으로 다시 만들어야 합니다. 이 작업은 10월 1일 전에 완료해야 합니다. 그 후에는 더 이상 관리 이벤트에 대한 경고를 Azure 구독에서 볼 수 없습니다. Azure Monitor 메트릭 경고, Application Insights 경고 및 Log Analytics 경고를 포함한 다른 유형의 Azure 경고는 이 변경으로 인해 영향을 받지 않습니다. 질문이 있으시면 아래에서 의견을 게시해 주세요.
+이전에 만든 관리 이벤트에 대한 경고는 자동으로 활동 로그 경고로 마이그레이션되지 않습니다. 위의 PowerShell 스크립트를 사용하여 현재 구성한 관리 이벤트에 대한 경고를 나열하고 이를 활동 로그 경고로 수동으로 다시 만들어야 합니다. 이 작업은 10월 1일 전에 완료해야 합니다. 그 후에는 더 이상 관리 이벤트에 대한 경고를 Azure 구독에서 볼 수 없습니다. 다른 유형의 Azure 경고, 메트릭 경고 Azure Monitor, Application Insights 경고 및 로그 검색에서 경고를 포함 하 여이 변경의 영향을 받지 않습니다. 질문이 있으시면 아래에서 의견을 게시해 주세요.
 
 
 ## <a name="next-steps"></a>다음 단계

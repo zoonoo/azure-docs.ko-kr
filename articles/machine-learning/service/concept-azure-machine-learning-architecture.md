@@ -12,7 +12,7 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
 ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2019
 ms.locfileid: "58577325"
@@ -127,7 +127,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Field-programmable Gate Array) | &nbsp; | ✓ |
 
-계산 대상은 작업 영역에 연결됩니다. 작업 영역의 사용자가 로컬 컴퓨터 이외의 계산 대상을 공유합니다.
+계산 대상은 작업 영역에 연결됩니다. 작업 영역의 사용자가 로컬 머신 이외의 계산 대상을 공유합니다.
 
 ### <a name="managed-and-unmanaged-compute-targets"></a>관리형 및 비관리형 컴퓨팅 대상
 

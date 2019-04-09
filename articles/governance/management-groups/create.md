@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801269"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057441"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "58801269"
 
 1. 관리 그룹 ID 필드를 채웁니다.
 
-   - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다.
+   - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 합니다 [루트 관리 그룹](index.md#root-management-group-for-each-directory) Azure Active Directory ID는 ID를 사용 하 여 자동으로 생성 됩니다 다른 모든 관리 그룹에 대 한 고유 ID 할당
    - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
    ![새 관리 그룹을 만들기 위한 옵션 창](./media/create_context_menu.png)  
@@ -56,7 +56,7 @@ ms.locfileid: "58801269"
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName**은 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
+**GroupName**은 생성되는 고유 식별자입니다. 이 ID는 데 다른 명령을 사용 하 여이 그룹을 참조 하 고 나중에 변경할 수 없습니다.
 
 관리 그룹이 Azure Portal 내에서 다른 이름을 표시하도록 하려면 해당 문자열의 **DisplayName** 매개 변수를 추가합니다. 예를 들어, GroupName이 Contoso이고 표시 이름이 "Contoso Group"인 관리 그룹을 만들려면 다음 cmdlet을 사용합니다.
 
@@ -79,7 +79,7 @@ az account management-group create --name 'Contoso'
 관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 - [관리 그룹을 만들어 Azure 리소스 구성](create.md)
-- [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)
+- [변경, 삭제 또는 관리 그룹을 관리 하는 방법](manage.md)
 - [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](/powershell/module/az.resources#resources)
-- [REST API에서 관리 그룹 검토](/rest/api/resources/managementgroups)
+- [REST API에서 관리 그룹을 검토](/rest/api/resources/managementgroups)
 - [Azure CLI에서 관리 그룹 검토](/cli/azure/account/management-group)

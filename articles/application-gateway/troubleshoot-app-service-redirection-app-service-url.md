@@ -7,18 +7,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123184"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274540"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>App Service로 애플리케이션 게이트웨이 문제 해결 - App Service의 URL로 리디렉션
+# <a name="troubleshoot-application-gateway-with-app-service"></a>App Service를 사용 하 여 응용 프로그램 게이트웨이 문제 해결
 
- App Service의 URL을 노출 시작 되는 Application Gateway를 사용 하 여 리디렉션 문제를 진단 하는 방법을 알아봅니다.
+진단 및 응용 프로그램 게이트웨이와 백 엔드 서버와 App Service를 사용 하 여 발생 하는 문제를 해결 하는 방법에 알아봅니다.
 
 ## <a name="overview"></a>개요
+
+이 문서에서는 다음과 같은 문제를 해결 하는 방법에 배웁니다.
+
+> [!div class="checklist"]
+> * App Service의 URL 리디렉션 때 브라우저에 노출 하기
+> * App Service 호스트 이름 대신 원래 호스트 (example.azurewebsites.net)로 설정 하는 app Service의 ARRAffinity 쿠키 도메인
 
 공용 응용 프로그램 게이트웨이의 백 엔드 풀에서 App Service를 구성 하 고 리디렉션을 응용 프로그램 코드에 구성 된 경우 표시 될 수 있습니다 하는 Application Gateway를 액세스 하는 경우, 리디렉션됩니다 브라우저에서 앱에 직접 서비스 URL입니다.
 
@@ -28,6 +34,8 @@ ms.locfileid: "58123184"
 - 리디렉션되는 Azure AD 인증을 해야 합니다.
 - Application Gateway의 HTTP 설정에서 "백 엔드 주소에서 호스트 이름을 선택" 스위치를 설정한 경우.
 - 앱 서비스에 등록 된 사용자 지정 도메인이 필요는 없습니다.
+
+또한 Application Gateway 뒤의 App Services를 사용 하는 사용자 지정 도메인을 사용 하 여 응용 프로그램 게이트웨이에 액세스 하는 경우 App Service에서 설정한 ARRAffinity 쿠키에 대 한 도메인 값 "example.azurewebsites.net" 도메인 이름에 전달 됩니다 표시 될 수 있습니다. 쿠키 도메인도 되도록 원래 호스트 이름, 원하는 경우이 문서에서 솔루션을 수행 합니다.
 
 ## <a name="sample-configuration"></a>샘플 구성
 
@@ -94,6 +102,16 @@ X-Powered-By: ASP.NET
 - 사용자 지정 프로브는 백 엔드 HTTP 설정으로 다시 연결 하 고 정상 상태 이면 백 엔드 상태를 확인 합니다.
 
 - 이 작업이 완료 되 면 Application Gateway App Service에 이제 동일한 호스트 이름 "www.contoso.com"을 전달 해야 및 동일한 호스트에서 리디렉션이 발생 합니다. 아래 예제 요청 및 응답 헤더를 확인할 수 있습니다.
+
+기존 설치에 대 한 PowerShell을 사용 하 여 위에서 언급 한 단계를 구현 하려면 아래 샘플 PowerShell 스크립트를 수행 합니다. Note 방법에서는 사용 하지 않은-PickHostname 스위치 프로브 및 HTTP 설정을 구성 합니다.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 

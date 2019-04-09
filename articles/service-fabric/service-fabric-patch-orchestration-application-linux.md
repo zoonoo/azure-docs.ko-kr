@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668197"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057645"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 
@@ -76,7 +76,7 @@ ms.locfileid: "58668197"
 
 ##### <a name="azure-portal"></a>Azure portal
 클러스터를 설정할 때 Azure Portal에서 복구 관리자를 설정할 수 있습니다. 클러스터를 구성할 때 **추가 기능**에서 **복구 관리자 포함** 옵션을 선택합니다.
-![Azure Portal에서 복구 관리자 사용 이미지](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
+![Azure portal에서 복구 관리자 사용 이미지](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델
 또는 [Azure Resource Manager 배포 모델](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 사용하여 신규 및 기존 Service Fabric 클러스터에서 복구 관리자 서비스를 사용하도록 설정할 수 있습니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 Azure Resource Manager 배포 모델을 만들 수 있습니다. 
@@ -121,13 +121,13 @@ Ubuntu의 경우 [무인 업그레이드](https://help.ubuntu.com/community/Auto
 
 설치 스크립트와 함께 애플리케이션을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 다운로드할 수 있습니다.
 
-sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0.2.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0.3.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 
 요구 사항에 맞게 패치 오케스트레이션 앱의 동작을 구성할 수 있습니다. 애플리케이션 만들기 또는 업데이트 중에 애플리케이션 매개 변수를 전달하여 기본값을 재정의합니다. 애플리케이션 매개 변수는 `Start-ServiceFabricApplicationUpgrade` 또는 `New-ServiceFabricApplication` cmdlet에 `ApplicationParameter`를 지정하여 제공될 수 있습니다.
 
-|**매개 변수**        |**형식**                          | **세부 정보**|
+|**매개 변수**        |**Type**                          | **세부 정보**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | 캐시되어야 하는 업데이트 결과의 최대 수입니다. <br>기본값은 3000입니다. <br> - 노드 수는 20입니다. <br> - 매월 노드에서 발생하는 업데이트 수는 5입니다. <br> - 작업당 결과 수는 10일 수 있습니다. <br> - 지난 3개월 동안의 결과를 저장해야 합니다. |
 |TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. (최대, 한 업그레이드 도메인에 속하는 모든 노드가 업데이트에 해당될 수 있습니다.)
@@ -173,7 +173,8 @@ sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0
 
 ## <a name="view-the-update-results"></a>업데이트 결과 보기
 
-패치 오케스트레이션 앱은 사용자에게 기록 결과를 표시하는 REST API를 노출합니다. 다음은 샘플 결과입니다. ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+패치 오케스트레이션 앱은 사용자에게 기록 결과를 표시하는 REST API를 노출합니다. 다음은 샘플 결과:
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -271,7 +272,7 @@ Service Fabric 런타임 로그의 일부로 패치 오케스트레이션 앱 �
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-Q. **패치 오케스트레이션 앱이 실행 중인 경우 오류 상태인 클러스터가 표시되는 이유는 무엇인가요?**
+Q. **패치 오케스트레이션 앱은 실행 중인 경우 오류 상태인 클러스터가 나타나는 이유는 무엇입니까?**
 
 a. 설치 과정에서 패치 오케스트레이션 앱은 노드를 비활성화하거나 다시 시작합니다. 이 작업으로 일시적으로 클러스터가 중지 상태가 될 수 있습니다.
 
@@ -285,15 +286,15 @@ a. 설치 과정에서 패치 오케스트레이션 앱은 노드를 비활성�
 
 문제가 계속되는 경우 문제 해결 섹션을 참조하세요.
 
-Q. **패치 오케스트레이션 앱이 경고 상태입니다.**
+Q. **패치 오케스트레이션 앱이 경고 상태**
 
 a. 애플리케이션에 대해 게시된 상태 보고서가 근본 원인인지 확인합니다. 일반적으로 경고에는 문제에 대한 세부 정보가 포함되어 있습니다. 문제가 일시적인 경우 애플리케이션은 이 상태에서 자동으로 복구됩니다.
 
-Q. **클러스터가 비정상 상태이나 긴급한 운영 체제 업데이트를 수행해야 하는 경우 어떻게 해야 하나요?**
+Q. **내 클러스터 상태가 정상이 아닌 경우 긴급 한 운영 체제 업데이트를 수행 해야 하는 경우 어떻게 해야 합니까?**
 
 a. 클러스터 상태가 정상이 아닌 경우 패치 오케스트레이션 앱은 업데이트를 설치하지 않습니다. 패치 오케스트레이션 앱 워크플로의 차단을 해제하기 위해 클러스터를 정상 상태로 전환합니다.
 
-Q. **클러스터에 패치를 실행하는 데 시간이 너무 오래 걸리는 이유는 무엇인가요?**
+Q. **이유는 클러스터의 패치 적용 하는 데 너무 오래 실행?**
 
 a. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같은 요인에 따라 달라집니다.
 
@@ -303,26 +304,26 @@ a. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같�
 - 업데이트를 다운로드하고 설치하는 데 필요한 평균 시간, 1-2시간을 넘지 않아야 함
 - VM 및 네트워크 대역폭의 성능
 
-Q. **패치 오케스트레이션 앱에서 보안 업데이트인 업데이트를 어떻게 결정하나요?**
+Q. **보안 업데이트는 패치 오케스트레이션 앱에서 업데이트를 결정 하는 방법입니다.**
 
 a. 패치 오케스트레이션 앱은 사용 가능한 업데이트 중에 보안 업데이트인 업데이트를 확인하기 위해 배포별 논리를 사용합니다. 예를 들면 다음과 같습니다. Ubuntu에서 앱 $RELEASE에서 업데이트에 대 한 검색-보안, $RELEASE-업데이트 ($RELEASE = xenial 또는 linux 표준 기준 릴리스 버전). 
 
  
-Q. **특정 버전의 패키지로 어떻게 잠그나요?**
+Q. **패키지의 특정 버전을 잠 수는 방법**
 
 a. ApprovedPatches 설정을 사용하여 패키지를 특정 버전으로 잠급니다. 
 
 
-Q. **Ubuntu에서 활성화된 자동 업데이트는 어떻게 되나요?**
+Q. **Ubuntu에서 활성화 된 자동 업데이트 되나요?**
 
 a. 클러스터에 패치 오케스트레이션 앱을 설치하는 즉시 클러스터 노드의 무인 업그레이드는 사용할 수 없습니다. 모든 정기적 업데이트 워크플로는 패치 오케스트레이션 앱에서 파생됩니다.
 클러스터에서 환경의 일관성을 가지려면 패치 오케스트레이션 앱만을 통해 업데이트를 설치하는 것이 좋습니다. 
  
-Q. **업그레이드 후 패치 오케스트레이션 앱은 사용되지 않는 패키지의 정리를 수행하나요?**
+Q. **Post 업그레이드 오케스트레이션 앱 사용 되지 않는 패키지의 정리를 수행 패치는?**
 
 a. 예, 정리는 설치 후 단계의 일부로 발생합니다. 
 
-Q. **패치 오케스트레이션 앱을 사용하여 개발자 클러스터(1노드 클러스터)에 패치를 적용할 수 있나요?**
+Q. **패치 오케스트레이션 앱 데 사용할 수 있습니다 (1 개 노드 클러스터) 개발 클러스터를 패치?**
 
 a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스터에 패치를 적용할 수 없습니다. 이 제한은 기본적으로 [Service Fabric 시스템 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) 또는 고객 앱이 가동 중지되고 패치에 대한 모든 복구 작업이 복구 관리자에서 승인되지 않으므로 이 제한은 기본적으로 적용됩니다.
 
@@ -373,5 +374,10 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 ### <a name="version-201"></a>버전 2.0.1
 - 최신 Service Fabric SDK를 사용하여 앱을 다시 컴파일함
 
-### <a name="version-202-latest"></a>버전 2.0.2(최신)
+### <a name="version-202"></a>버전 2.0.2 
 - 다시 시작하는 동안 상태 경고가 남아 있는 문제가 해결되었습니다.
+
+### <a name="version-203-latest"></a>버전 2.0.3 (최신)
+- 문제를 해결 하 고 있는 노드 에이전트 디먼 서비스의 CPU 사용량에 도달 하면 최대 99% Standard_D1_v2 Vm에서 키를 누릅니다.
+- 현재 노드 이름의 하위 집합 이름 사용 하는 노드가 없는 경우에 영향을 노드에서 패치 수명 주기는 문제를 해결 합니다. 그러한 노드의 경우 패치가 누락되거나 다시 부팅이 보류 중일 수 있습니다.
+- 가 손상 설정 서비스에 전달 되 면 노드 에이전트 디먼 충돌 유지 하는 버그가 수정 되었습니다.

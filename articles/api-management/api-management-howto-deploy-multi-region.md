@@ -11,20 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 82ae0ef72bb4f546a1f946f3127aa5d74bec3c3b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957762"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058042"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 
 Azure API Management는 원하는 Azure 지역의 수에 상관 없이 단일 Azure API Management 서비스를 배포하기 위해 API 게시자를 사용할 수 있는 여러 지역 배포를 지원합니다. 이를 통해 지역적으로 배포된 API 소비자가 느끼는 요청 대기 시간을 줄일 수 있으며 한 지역이 오프라인인 경우 가능한 서비스를 개선할 수도 있습니다.
 
-새 Azure API Management 서비스는 처음에 단일 Azure 지역인 주 지역에 [단위][unit]를 하나만 포함합니다. 추가 지역은 Azure Portal을 통해 쉽게 추가할 수 있습니다. API Management 게이트웨이 서버는 각 지역에 배포되고 호출 트래픽이 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다.
+새 Azure API Management 서비스는 처음에 단일 Azure 지역인 주 지역에 [단위][unit]를 하나만 포함합니다. 추가 지역은 Azure Portal을 통해 쉽게 추가할 수 있습니다. API Management 게이트웨이 서버는 각 지역에 배포 되 고 호출 트래픽 대기 시간 측면에서 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다.
 
 > [!NOTE]
 > Azure API Management는 여러 지역에서 API 게이트웨이 구성 요소만 복제합니다. 서비스 관리 구성 요소는 주 영역에서만 호스팅됩니다. 주 지역에서 중단이 발생하는 경우 Azure API Management 서비스 인스턴스에 구성 변경 사항(설정 또는 정책 업데이트 포함)을 적용할 수 없습니다.
@@ -105,6 +105,20 @@ Azure API Management는 백 엔드 서비스 URL을 하나만 제공합니다. �
         </on-error>
     </policies>
     ```
+
+> [!TIP]
+> 사용 하 여 백 엔드 서비스 프런트 수도 있습니다 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), Traffic Manager에 API 호출을 직접 및 라우팅을 자동으로 해결 되도록 합니다.
+
+## <a name="custom-routing"> </a>지역 API Management 게이트웨이에 사용자 지정 라우팅을 사용 하 여
+
+API Management는 지역에 요청을 라우트하 *게이트웨이* 기준 [최저 대기 시간](../traffic-manager/traffic-manager-routing-methods.md#performance)합니다. API Management에서이 설정을 재정의할 수는 없지만 사용자 지정 라우팅 규칙을 사용 하 여 사용자 고유의 Traffic Manager를 사용할 수 있습니다.
+
+1. 직접 만들어보십시오 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)합니다.
+1. 사용자 지정 도메인을 사용 하는 경우 [Traffic Manager와 함께 사용할](../traffic-manager/traffic-manager-point-internet-domain.md) API Management 서비스를 대신 합니다.
+1. [Traffic Manager에서 끝점을 지역 API Management를 구성](../traffic-manager/traffic-manager-manage-endpoints.md)합니다. 지역별 끝점의 URL 패턴을 따릅니다 `https://<service-name>-<region>-01.regional.azure-api.net`예를 들어 `https://contoso-westus2-01.regional.azure-api.net`합니다.
+1. [API Management 지역 상태 끝점을 Traffic Manager에서 구성](../traffic-manager/traffic-manager-monitoring.md)합니다. 지역 상태 끝점의 URL 패턴을 따릅니다 `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`예를 들어 `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`합니다.
+1. 지정할 [라우팅 방법을](../traffic-manager/traffic-manager-routing-methods.md) Traffic Manager의 합니다.
+
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

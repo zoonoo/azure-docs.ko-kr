@@ -16,16 +16,16 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048812"
+ms.locfileid: "59057056"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 업데이트
 
-*적용 대상: Azure Stack 통합 시스템*
+*적용 대상 Azure Stack 통합 시스템*
 
 이 문서에서는 1903 업데이트 패키지의 내용을 설명 합니다. 업데이트는 향상 된 기능, 수정 및 Azure Stack의이 버전에 대 한 새로운 기능을 포함합니다. 또한이 문서는이 릴리스의 알려진된 문제를 설명 하 고 업데이트를 다운로드 하려면 링크를 포함 합니다. 알려진된 문제는 업데이트 프로세스를 직접 관련 된 문제 및 문제 (설치 후) 빌드를 사용 하 여으로 구분 됩니다.
 
@@ -156,6 +156,9 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
    - 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
 
 - 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM는 SSH 키를 사용 하 여 로그인 할 수 없습니다. 이 문제를 해결 하려면 Linux 확장에 대 한 VM 액세스 프로 비전 한 후 SSH 키를 구현 하는 데 또는 암호 기반 인증을 사용 합니다.
+
+- 이제 azure Stack 2.2.20 버전 보다 높은 경우 Windows Azure Linux 에이전트를 지원합니다. 이 지원은 1901 및 1902 핫픽스 속해와 고객은 Azure 및 Azure Stack 간의 일관 된 linux 이미지를 유지 관리할 수 있습니다.
+
 
 - 하드웨어 수명 주기 호스트 (HLH) 없는 경우: 1902 빌드 전에 그룹 정책 설정 해야 **컴퓨터 구성 설정 \ 보안 설정 \ 로컬 정책 \ 보안 옵션** 에 **lm NTLM – 협상 하는 경우 NTLMv2 세션 보안을 사용 하 여**입니다. 1902 빌드 후 두어야 그대로 **정의 되어 있지** 로 설정 하거나 **NTLMv2 응답만 보내기** (기본값은)는입니다. 그렇지 않으면 PowerShell 원격 세션을 설정할 수 없습니다 하 고 표시 됩니다는 **액세스가 거부 되었습니다.** 오류:
 

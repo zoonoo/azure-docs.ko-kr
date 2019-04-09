@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991804"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056234"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT for Azure - 배포 개요
 
@@ -32,14 +32,6 @@ vFXT 클러스터가 가동되고 실행된 후에 클라이언트를 연결하�
 1. 필수 조건 구성 
 
    VM을 만들기 전에 Avere vFXT 프로젝트에 대한 새 구독을 만들고, 구독 소유권을 구성하고, 할당량을 확인하고, 필요한 경우 증가를 요청하고, Avere vFXT 소프트웨어 사용 약관에 동의해야 합니다. 자세한 지침은 [Avere vFXT 만들기 준비](avere-vfxt-prereqs.md)를 참조하세요.
-
-1. 클러스터 노드에 대한 액세스 역할 만들기
-
-   Azure는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/index.yml)를 사용하여 클러스터 노드 VM에 특정 작업을 수행할 수 있는 권한을 부여합니다. 예를 들어 클러스터 노드에서 IP 주소를 다른 클러스터 노드에 할당하거나 다시 할당할 수 있어야 합니다. 클러스터를 만들기 전에 적절한 권한을 부여하는 역할을 정의해야 합니다.
-
-   지침은 [클러스터 노드 액세스 역할 만들기](avere-vfxt-prereqs.md#create-the-cluster-node-access-role)를 참조하세요.
-
-   클러스터 컨트롤러는 액세스 역할을 사용하지만, 직접 만드는 대신 기본 역할인 소유자를 적용할 수도 있습니다. 클러스터 컨트롤러에 대한 사용자 지정 역할을 만들려는 경우 [사용자 지정된 컨트롤러 액세스 역할](avere-vfxt-controller-role.md)을 참조하세요. 
 
 1. Avere vFXT 클러스터 만들기 
 
@@ -65,7 +57,7 @@ vFXT 클러스터가 가동되고 실행된 후에 클라이언트를 연결하�
    Avere vFXT 구성 인터페이스(Avere 제어판)에 연결하여 클러스터 설정을 사용자 지정합니다. 지원 모니터링을 선택하고, 온-프레미스 데이터 센터를 사용하는 경우 저장소 시스템을 추가합니다.
 
    * [vFXT 클러스터에 액세스](avere-vfxt-cluster-gui.md)
-   * [지원 사용](avere-vfxt-enable-support.md)
+   * [지원을 사용 하도록 설정](avere-vfxt-enable-support.md)
    * [저장소 구성](avere-vfxt-add-storage.md)(필요한 경우)
 
 1. 클라이언트 탑재

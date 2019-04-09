@@ -1,7 +1,7 @@
 ---
-title: 만들기, 로드 및 PowerShell 및 REST API-Azure Search를 사용 하 여 인덱스 쿼리
-description: 만들기, 로드 및 PowerShell, Invoke-restmethod, 및 Azure Search REST API를 사용 하 여 인덱스를 쿼리 합니다.
-ms.date: 03/15/2019
+title: '빠른 시작: 만들기, 로드 및 PowerShell 및 REST API-Azure Search를 사용 하 여 인덱스 쿼리'
+description: 만들기, 로드 및 PowerShell의를 사용 하 여 인덱스 쿼리 Invoke-restmethod 및 Azure Search REST API입니다.
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372117"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268027"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>빠른 시작: PowerShell 및 REST API를 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -29,19 +29,23 @@ ms.locfileid: "58372117"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Azure Search 서비스 만들기](search-create-service-portal.md) 나 [기존 서비스를 찾을](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 현재 구독에서. 이 빠른 시작을 위한 무료 서비스를 사용할 수 있습니다. 기타 필수 구성 요소에 다음 항목을 포함 합니다.
+다음 서비스 및 도구는이 빠른 시작에서 사용 됩니다. 
+
+[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 [PowerShell 5.1 이상](https://github.com/PowerShell/PowerShell)를 사용 하 여 [Invoke-restmethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 순차적이 고 대화형 단계에 대 한 합니다.
 
-URL 끝점 및 관리자 검색 서비스의 api 키입니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+## <a name="get-a-key-and-url"></a>키 및 URL을 가져옵니다.
 
-1. Search 서비스에서 Azure portal의 **개요** 페이지에서 URL을 가져옵니다. Https 끝점의 예는 비슷합니다:\//my-service-name.search.windows.net 합니다.
+REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-2. **설정을** > **키**, 서비스에 대 한 모든 권한 관리자 키를 가져옵니다. 두 개의 서로 바꿔 사용할 수 관리자 키를 하나를 롤오버 해야 할 경우 비즈니스 연속성을 제공 합니다. 요청에 추가, 수정 및 삭제 하는 개체에 대 한 기본 또는 보조 키를 사용할 수 있습니다.
+1. [Azure portal에 로그인](https://portal.azure.com/), 및 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-   ![HTTP 끝점 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 끝점 및 액세스 키 가져오기")
+2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-   모든 요청에는 서비스에 보내는 모든 요청에 api 키 필요 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+
+모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 ## <a name="connect-to-azure-search"></a>Azure Search에 연결
 
@@ -165,7 +169,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertT
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2-문서를 로드 합니다.
+## <a name="2---load-documents"></a>2 - 문서 로드
 
 문서를 푸시 하려면 인덱스의 URL 끝점에 HTTP POST 요청을 사용 합니다. 이 작업에 대 한 REST api [추가, 업데이트 또는 삭제 문서](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)합니다.
 

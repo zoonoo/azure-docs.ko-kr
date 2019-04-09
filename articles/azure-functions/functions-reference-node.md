@@ -5,19 +5,19 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437580"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010119"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -110,13 +110,13 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 ### <a name="inputs"></a>입력
 입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. 트리거 및 기타 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
- - **_[권장]_  함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. 합니다 `name` 에 정의 된 속성 *function.json* 해야 하지만, 매개 변수의 이름과 일치 하도록 필요 하지 않습니다.
+ - **_[권장]_  함수에 전달 된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. 합니다 `name` 에 정의 된 속성 *function.json* 해야 하지만, 매개 변수의 이름과 일치 하도록 필요 하지 않습니다.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 *function.json*에서 정의된 `name` 속성으로 이름이 지정됩니다.
+ - **멤버로 합니다 [ `context.bindings` ](#contextbindings-property) 개체입니다.** 각 멤버는 *function.json*에서 정의된 `name` 속성으로 이름이 지정됩니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -126,7 +126,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
    
- - **입력으로 JavaScript[`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
+ - **JavaScript를 사용 하 여 입력으로 [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) 개체입니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -141,7 +141,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 (이러한 메서드를 결합 하지 마세요) 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다.
 
-- **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 함수를 반환하는 비동기/Promise를 사용하는 경우 할당된 출력 데이터를 사용하여 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
+- **_[여러 출력에 대 한 권장]_  개체를 반환 합니다.** 함수를 반환 하는 비동기/프라미스를 사용 하는 경우에 할당 된 출력 데이터를 사용 하 여 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
   ```
 
   동기 함수를 사용하는 경우 [`context.done`](#contextdone-method)을 사용하여 이 개체를 반환할 수 있습니다(예제 참조).
-- **_[단일 출력에 대한 권장]_ 직접 값을 반환하고 $return 바인딩 이름을 사용합니다.** 함수를 반환하는 비동기/Promise에서 작동합니다. [비동기 함수 내보내기](#exporting-an-async-function)에서 예제를 참조하세요. 
+- **_[단일 출력에 대 한 권장]_  직접 값을 반환 하 고 $return 바인딩 이름을 사용 합니다.** 함수를 반환하는 비동기/Promise에서 작동합니다. [비동기 함수 내보내기](#exporting-an-async-function)에서 예제를 참조하세요. 
 - **`context.bindings`에 대한 값을 할당합니다.** context.bindings에 직접 값을 할당할 수 있습니다.
 
   ```javascript
@@ -350,12 +350,12 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 자산      | 설명                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | 요청의 본문을 포함하는 개체입니다.               |
+| _본문_        | 요청의 본문을 포함하는 개체입니다.               |
 | _headers_     | 요청 헤더를 포함하는 개체입니다.                   |
-| _method_      | 요청의 HTTP 메서드입니다.                                |
+| _메서드_      | 요청의 HTTP 메서드입니다.                                |
 | _originalUrl_ | 요청의 URL입니다.                                        |
-| _params_      | 요청의 라우팅 매개 변수를 포함하는 개체입니다. |
-| _query_       | 쿼리 매개 변수를 포함하는 개체입니다.                  |
+| _매개 변수_      | 요청의 라우팅 매개 변수를 포함하는 개체입니다. |
+| _쿼리_       | 쿼리 매개 변수를 포함하는 개체입니다.                  |
 | _rawBody_     | 문자열 형식의 메시지 본문입니다.                           |
 
 
@@ -365,7 +365,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 | 자산  | 설명                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | 응답의 본문을 포함하는 개체입니다.         |
+| _본문_    | 응답의 본문을 포함하는 개체입니다.         |
 | _headers_ | 응답 헤더를 포함하는 개체입니다.             |
 | _isRaw_   | 응답에 대한 서식 지정을 건너뜀을 나타냅니다.    |
 | _status_  | 응답의 HTTP 상태 코드입니다.                     |
@@ -395,9 +395,9 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[응답 전용]_ `context.res.send(body?: any)`를 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()`은 암시적으로 호출됩니다.
++ **_[응답 전용]_ `context.res.send(body?: any)`을 호출합니다.** HTTP 응답은 입력 `body`를 응답 본문으로 작성합니다. `context.done()` 가 암시적으로 호출 합니다.
 
-+ **_[응답 전용]_ `context.done()`를 호출합니다.** `context.done()` 메서드에 전달되는 응답을 반환하는 특별한 종류의 HTTP 바인딩이 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
++ **_[응답 전용]_ `context.done()`을 호출합니다.** `context.done()` 메서드에 전달되는 응답을 반환하는 특별한 종류의 HTTP 바인딩이 있습니다. 다음 HTTP 출력 바인딩은 `$return` 출력 매개 변수를 정의합니다.
 
     ```json
     {
@@ -494,7 +494,7 @@ function GetEnvironmentVariable(name)
 
 기본적으로 JavaScript 함수는 해당하는 `function.json`과 동일한 부모 디렉터리를 공유하는 `index.js` 파일에서 실행됩니다.
 
-`scriptFile`은 다음 예제와 같은 폴더 구조를 가져오는 데 사용할 수 있습니다.
+`scriptFile` 다음 예제와 같이 폴더 구조를 가져오려는 사용할 수 있습니다.
 
 ```
 FunctionApp
@@ -628,4 +628,4 @@ Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용
 + [Azure Functions 개발자 참조](functions-reference.md)
 + [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment
+[' func azure functionapp publish']: functions-run-local.md#project-file-deployment

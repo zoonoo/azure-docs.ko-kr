@@ -34,7 +34,7 @@ ms.locfileid: "58885460"
 ## <a name="what-is-a-replicated-table"></a>복제 테이블이란?
 복제 테이블에는 각 Compute 노드에서 액세스할 수 있는 테이블의 전체 복사본이 있습니다. 테이블을 복제하면 조인 또는 집계 전에 Compute 노드 간에 데이터를 전송하지 않아도 됩니다. 테이블에 여러 복사본이 있으므로 복제 테이블은 테이블 크기가 2GB 미만으로 압축되어 있을 때 가장 효과적입니다.  2GB 하드 제한은 없습니다.  데이터는 정적 이며 변경 되지 않습니다, 경우에 더 큰 테이블을 복제할 수 있습니다.
 
-다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여 주는 다이어그램입니다. SQL Data Warehouse에서 복제 테이블은 각 Compute 노드의 배포 데이터베이스로 완벽하게 복사됩니다. 
+다음은 각 Compute 노드에서 액세스할 수 있는 복제 테이블을 보여주는 다이어그램입니다. SQL Data Warehouse에서 복제 테이블은 각 Compute 노드의 배포 데이터베이스로 완벽하게 복사됩니다. 
 
 ![복제 테이블](media/guidance-for-using-replicated-tables/replicated-table.png "복제 테이블")  
 

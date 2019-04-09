@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878029"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59010575"
 ---
-# <a name="saas-fulfillment-api"></a>SaaS Fulfillment API
+# <a name="saas-fulfillment-apis-version-2"></a>SaaS Fulfillment Api 버전 2 
 
 이 문서에서는 독립 소프트웨어 공급 업체 (Isv) SaaS 응용 프로그램을 통합할 수 있도록 Azure Marketplace를 사용 하 여 API를 자세히 설명 합니다. 이 API를 사용 하면 모든 사용 하도록 설정 하는 전자 상거래 채널에 참여 하려면 ISV 응용 프로그램: 직접 파트너 주도 (대리점) 필드 주도하 고 있습니다.  이 API는 Azure Marketplace에서 transactable SaaS 제공 목록에 대 한 요구 사항입니다.
 
@@ -73,14 +73,34 @@ SaaS 서비스에서
 
 구독 미납으로 인해의 응답으로 또는 명시적 고객 요청에 대 한 응답으로이 상태에 도달 합니다. ISV에서 기대 하는 경우 고객의 데이터가 최소 X 일에 대 한 요청에 대 한 복구를 위해 보관 및 삭제 한 다음 
 
+
 ## <a name="api-reference"></a>API 참조
 
-이 섹션에서는 설명 SaaS *구독 API* 하 고 *Operations API*합니다.
+이 섹션에서는 설명 SaaS *구독 API* 하 고 *Operations API*합니다.  값을 `api-version` 버전 2에 대 한 매개 변수 Api는 `2018-08-31`합니다.  
+
+
+### <a name="parameter-and-entity-definitions"></a>매개 변수 및 엔터티 정의
+
+다음 표에서 일반적인 매개 변수 및 Fulfillment Api에서 사용 하는 엔터티에 대 한 정의 나열 합니다.
+
+|     엔터티/매개 변수     |     정의                         |
+|     ----------------     |     ----------                         |
+| `subscriptionId`         | SaaS 리소스에 대 한 GUID 식별자  |
+| `name`                   | 고객이 제공한이 리소스에 대 한 이름 |
+| `publisherId`            | 예를 들어 "conotosocorporation" 각 출판사에 대해 자동으로 생성 된 고유한 문자열 식별자 |
+| `offerId`                | 예를 들어 "contosooffer1" 각 제품에 대 한 자동으로 생성 된 고유한 문자열 식별자  |
+| `planId`                 | 각 계획/sku에 대 한 예를 들어 "contosobasicplan" 자동으로 생성 된 고유한 문자열 식별자 |
+| `operationId`            | 특정 작업에 대 한 GUID 식별자  |
+|  `action`                | 하거나 리소스에서 수행 되는 작업 `subscribe`, `unsubscribe`하십시오 `suspend`, `reinstate`, 또는 `changePlan`  |
+|   |   |
+
+전역적으로 고유 식별자 ([Guid](https://en.wikipedia.org/wiki/Universally_unique_identifier))는 일반적으로 자동으로 생성 된 128 비트 (32 16 진수) 숫자입니다. 
 
 
 ### <a name="subscription-api"></a>구독 API
 
 API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**를 **패치**, 및 **삭제**합니다.
+
 
 #### <a name="list-subscriptions"></a>구독 목록 표시
 
@@ -106,34 +126,37 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 *응답 코드:*
 
 코드: 200<br>
-게시자 및 게시자의 모든 제품에 대 한 해당 구독을 인증 토큰 가져오기 기반으로 합니다.<br> 응답 페이로드:<br>
+인증 토큰을 기준, 게시자 및 게시자의 모든 제품에 대 한 해당 구독을 얻게 됩니다.<br> 응답 페이로드:<br>
 
 ```json
 {
-  "subscriptions": [
+  [
       {
-          "id": "",
-          "name": "CloudEndure for Production use",
-          "publisherId": "cloudendure",
-          "offerId": "ce-dr-tier2",
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "cont-cld-tier2",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "status": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
 }
 ```
+
+연속 토큰 추가 "페이지"를 검색 하는 계획의 경우에 있게 됩니다. 
+
 
 코드: 403 <br>
 권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다. 
@@ -174,22 +197,22 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 *응답 코드:*
 
 코드: 200<br>
-Saas 구독을 식별자를 가져옵니다.<br> 응답 페이로드:<br>
+SaaS 구독을 식별자를 가져옵니다.<br> 응답 페이로드:<br>
 
 ```json
 Response Body:
 { 
         "id":"",
-        "name":"CloudEndure for Production use",
-        "publisherId": "cloudendure",
-        "offerId": "ce-dr-tier2",
+        "name":"Contoso Cloud Solution",
+        "publisherId": "contoso",
+        "offerId": "cont-cld-tier2",
         "planId": "silver",
         "quantity": "10"",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
@@ -240,25 +263,23 @@ Response Body:
 코드: 200<br>
 고객에 대 한 사용 가능한 계획의 목록을 가져옵니다.<br>
 
+응답 본문:
+
 ```json
-Response Body:
-[{
-    "planId": "silver",
-    "displayName": "Silver",
-    "isPrivate": false
-},
 {
-    "planId": "silver-private",
-    "displayName": "Silver-private",
-    "isPrivate": true
-}]
+    "plans": [{
+        "planId": "Platinum001",
+        "displayName": "Private platinum plan for Contoso",
+        "isPrivate": true
+    }]
+}
 ```
 
 코드: 404<br>
 찾을 수 없음<br> 
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 올바르지 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다. <br> 
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다. <br> 
 
 코드: 500<br>
 내부 서버 오류<br>
@@ -301,12 +322,12 @@ SaaS 구독으로 불투명 토큰을 확인합니다.<br>
 ```json
 Response body:
 {
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",  
-    "subscriptionName": "My Saas application",
-    "offerId": "ce-dr-tier2",
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "cont-cld-tier2",
     "planId": "silver",
     "quantity": "20",
-    "operationId": " be750acb-00aa-4a02-86bc-476cbe66d7fa"  
+    "operationId": "<guid>"  
 }
 ```
 
@@ -348,7 +369,7 @@ Response body:
 |  ---------------   |  ---------------  |
 |  콘텐츠 형식      | `application/json`  |
 |  x-ms-requestid    | 가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-|  x-ms-correlationid  | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 값은 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
+|  x-ms-correlationid  | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 문자열에서 서버 쪽 이벤트를 사용 하 여 클라이언트 작업의 모든 이벤트를 상호 연결합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
 |  권한 부여     |  JSON 웹 토큰 (JWT) 전달자 토큰 |
 
 *요청:*
@@ -511,7 +532,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 
 제공 된 값을 사용 하 여 구독을 업데이트 합니다.
 
-**패치 합니다.<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operation/<operationId>?api-version=<ApiVersion>`**
+**패치 합니다.<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *쿼리 매개 변수:*
 
@@ -534,15 +555,15 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 
 ```json
 {
-    "planId": "",
-    "quantity": "",
+    "planId": "cont-cld-tier2",
+    "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
 ```
 
 *응답 코드:*
 
-코드: 200<br> ISV 측면에 대 한 작업의 완료를 알리기 위해 호출 합니다. 예를 들어, 사용자/계획 변경 수 있습니다.
+코드: 200<br> ISV 측면에 대 한 작업의 완료를 알리기 위해 호출 합니다. 예를 들어이 응답 사용자/계획을 변경 하 여 신호를 보낼 수 있습니다.
 
 코드: 404<br>
 찾을 수 없음
@@ -551,7 +572,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 잘못 된 요청 유효성 검사 오류
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 올바르지 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 409<br>
 충돌 합니다. 예를 들어 최신 트랜잭션이 이미 충족
@@ -597,11 +618,11 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 
 ```json
 [{
-    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",  
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
@@ -634,7 +655,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 
 #### <a name="get-operation-status"></a>작업 상태 가져오기
 
-트리거된 비동기 작업 (구독/구독 취소/변경 계획)의 상태를 추적할 수 있습니다.
+사용자가 지정된 트리거된 비동기 작업 (구독/구독 취소/변경 계획)의 상태를 추적할 수 있습니다.
 
 **가져오기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -653,23 +674,23 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
 |  권한 부여     | JWT(JSON Web Token) 전달자 토큰입니다.  |
 
-*응답 코드:* 코드: 200<br> 보류 중인 모든 SaaS 작업 목록을 가져옵니다.<br>
+*응답 코드:* 코드: 200<br> SaaS 작업 보류 된 가져옵니다.<br>
 응답 페이로드:
 
 ```json
 Response body:
-[{
-    "id  ": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
     "timeStamp": "2018-12-01T00:00:00",
     "status": "NotStarted"
-}]
+}
 
 ```
 
@@ -700,11 +721,11 @@ Response body:
 
 ```json
 {
-    "operationId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",
+    "operationId": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
     "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
@@ -713,14 +734,12 @@ Response body:
 
 ```
 
-<!-- Review following, might not be needed when this publishes -->
-
 
 ## <a name="mock-api"></a>Mock API
 
-모의 Api를 개발, 특히 프로토타입 및 테스트 프로젝트를 사용 하 여 시작 하는 데 사용할 수 있습니다. 
+프로젝트 테스트 및 개발, 특히 프로토타입 생성을 사용 하 여 시작 하는 데 모의 Api를 사용할 수 있습니다. 
 
-호스트 끝점: https://marketplaceapi.microsoft.com/api API 버전: 2018-09-15 인증 필요 없음 예제 Uri: https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15
+호스트 끝점: `https://marketplaceapi.microsoft.com/api` API 버전: `2018-09-15` 인증 안 함 샘플 Uri 필요합니다. `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
 
 이 문서에서는 API 호출의 모의 호스트 끝점을 만들 수 있습니다. 응답으로 다시 모의 데이터를 가져오는 예상할 수 있습니다.
 

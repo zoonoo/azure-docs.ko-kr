@@ -13,28 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: baac3ca65558f2a67a3aecabd4b253f23ea94ad9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888018"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057526"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
-
-이 자습서의 목적은 사용자 계정을 Azure AD에서 GitHub로 자동으로 프로비전하고 프로비전 해제하기 위해 GitHub 및 Azure AD에서 수행해야 하는 단계를 보여주는 것입니다. 
+이 자습서의 목적은 사용자 계정을 Azure AD에서 GitHub로 자동으로 프로비전하고 프로비전 해제하기 위해 GitHub 및 Azure AD에서 수행해야 하는 단계를 보여주는 것입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-*   Azure Active Directory 테넌트
-*   [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
-*   조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
+* Azure Active Directory 테넌트
+* [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
+* 조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
 
 > [!NOTE]
 > Azure AD 프로 비전 통합에 의존 합니다 [GitHub SCIM API](https://developer.github.com/v3/scim/)를 사용할 수 있는 [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) 고객에 게를 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
@@ -49,21 +48,18 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>GitHub에 사용자를 할당하기 위한 주요 팁
 
-*   프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 GitHub에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+* 프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 GitHub에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*   GitHub에 사용자를 할당할 때 할당 대화 상자에서 **사용자** 역할이나 다른 유효한 애플리케이션 관련 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할은 프로비전에 적합하지 않으므로 이러한 사용자는 건너뜁니다.
+* GitHub에 사용자를 할당할 때 할당 대화 상자에서 **사용자** 역할이나 다른 유효한 애플리케이션 관련 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할은 프로비전에 적합하지 않으므로 이러한 사용자는 건너뜁니다.
 
-
-## <a name="configuring-user-provisioning-to-github"></a>GitHub에 사용자 프로비전 구성 
+## <a name="configuring-user-provisioning-to-github"></a>GitHub에 사용자 프로비전 구성
 
 이 섹션에서는 Azure AD를 GitHub의 사용자 계정 프로비전 API에 연결하고 Azure AD의 사용자 및 그룹 할당을 기반으로 GitHub에서 할당된 사용자 계정을 만들고, 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 과정을 안내합니다.
 
 > [!TIP]
 > [Azure Portal](https://portal.azure.com)에 제공된 지침에 따라 GitHub에 대해 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
-
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Azure AD에서 GitHub에 자동 사용자 계정 프로비전 구성
-
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
@@ -87,7 +83,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 8. **알림 전자 메일** 필드에 프로비전 오류 알림을 받아야 하는 사람이나 그룹의 이메일 주소를 입력하고 "오류가 발생할 경우 전자 메일 알림 보내기"확인란을 선택합니다.
 
-9. **저장**을 클릭합니다. 
+9. **저장**을 클릭합니다.
 
 10. 매핑 섹션에서 **Synchronize Azure Active Directory Users to GitHub**(Azure Active Directory 사용자를 GitHub에 동기화)를 선택합니다.
 
@@ -95,18 +91,17 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 12. GitHub에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-13. **저장**을 클릭합니다. 
+13. **저장**을 클릭합니다.
 
 사용자 및 그룹 섹션의 GitHub에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 활동 로그에 연결된 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
-
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [로그를 검토 하 고 프로 비전 활동에 대 한 보고서를 확인 하는 방법에 알아봅니다](../manage-apps/check-status-user-account-provisioning.md)

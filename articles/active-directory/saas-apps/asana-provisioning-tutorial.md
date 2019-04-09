@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f35de1865f2e02331b8455bbdce92e8fe2f9a1b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210478"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057849"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Asana 구성
 
@@ -32,16 +32,16 @@ ms.locfileid: "56210478"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-*   Azure AD 테넌트
-*   [Enterprise](https://www.asana.com/pricing) 계획 이상을 사용하도록 설정된 Asana 테넌트 
-*   관리자 권한이 있는 Asana의 사용자 계정 
+* Azure AD 테넌트
+* [Enterprise](https://www.asana.com/pricing) 계획 이상을 사용하도록 설정된 Asana 테넌트
+* 관리자 권한이 있는 Asana의 사용자 계정
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD 프로비전 통합에는 Asana에 제공되는 [Asana API](https://asana.com/developers/api-reference/users)가 사용됩니다.
 
 ## <a name="assign-users-to-asana"></a>Asana에 사용자 할당
 
-Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 할당된 사용자만 동기화됩니다. 
+이라는 개념을 사용 하 여 azure AD *할당* 어떤 사용자가 선택한 앱에 대 한 액세스를 받아야 하는지를 판단 합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 할당된 사용자만 동기화됩니다.
 
 프로비전 서비스를 구성 및 사용하도록 설정하기 전에 Azure AD에서 Asana 앱에 액세스해야 하는 사용자를 결정해야 합니다. 그런 후에 다음 지침에 따라 해당 사용자를 Asana 앱에 할당할 수 있습니다.
 
@@ -51,7 +51,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 프로비전 구성을 테스트하기 위해 한 명의 Azure AD 사용자를 Asana에 할당하는 것이 좋습니다. 추가 사용자를 나중에 할당할 수 있습니다.
 
-## <a name="configure-user-provisioning-to-asana"></a>Asana에 사용자 프로비전 구성 
+## <a name="configure-user-provisioning-to-asana"></a>Asana에 사용자 프로비전 구성
 
 이 섹션은 Azure AD를 Asana의 사용자 계정 프로비전 API에 연결하는 단계를 안내합니다. 또한 Azure AD의 사용자 할당을 기반으로 Asana에 할당된 사용자 계정을 만들고 업데이트하며 사용하지 않도록 프로비전 서비스를 구성할 수도 있습니다.
 
@@ -86,7 +86,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
 
-1. **저장**을 선택합니다. 
+1. **저장**을 선택합니다.
 
 1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Asana에 동기화**를 선택합니다.
 
@@ -94,7 +94,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. Asana에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-1. **저장**을 선택합니다. 
+1. **저장**을 선택합니다.
 
 이제 **사용자** 섹션에서 Asana에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인합니다. 감사 로그에서는 Asana 앱에서 프로비전 서비스가 수행하는 모든 작업을 설명합니다.
 
@@ -102,6 +102,6 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-on 구성](asana-tutorial.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [Single Sign-On 구성](asana-tutorial.md)

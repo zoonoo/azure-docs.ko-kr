@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa740a558015b28e6d3fa7245c9041dc4167f832
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 6d8fedb372fb245b7bc35cb440bd758336ab2a68
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110361"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057628"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 BlueJeans 구성
 
@@ -34,53 +34,48 @@ ms.locfileid: "58110361"
 
 이 자습서에서 설명한 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-*   Azure AD 테넌트
-*   [My Company](https://www.BlueJeans.com/pricing)(내 회사) 플랜 또는 그 이상이 사용되도록 설정된 BlueJeans 테넌트
-*   관리자 권한이 있는 BlueJeans의 사용자 계정
+* Azure AD 테넌트
+* [My Company](https://www.BlueJeans.com/pricing)(내 회사) 플랜 또는 그 이상이 사용되도록 설정된 BlueJeans 테넌트
+* 관리자 권한이 있는 BlueJeans의 사용자 계정
 
 > [!NOTE]
 > Azure AD 프로비전 통합에서는 [BlueJeans API](https://BlueJeans.github.io/developer)를 사용하며, 이 API는 BlueJeans 팀이 표준 플랜 이상에서 사용할 수 있습니다.
 
 ## <a name="adding-bluejeans-from-the-gallery"></a>갤러리에서 BlueJeans 추가
+
 Azure AD를 사용하여 자동 사용자 프로비전을 위해 BlueJeans를 구성하기 전에 BlueJeans를 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
-**Azure AD 애플리케이션 갤러리에서 BlueJeans를 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 응용 프로그램 갤러리에서 BlueJeans를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. 에  **[Azure portal](https://portal.azure.com)**, 왼쪽된 탐색 패널에서 선택 **Azure Active Directory**합니다.
 
-    ![Azure Active Directory 단추][1]
+    ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 섹션][2]
-    
-3. BlueJeans를 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-    ![새 애플리케이션 단추][3]
+3. 새 응용 프로그램을 추가 하려면 선택 합니다 **새 응용 프로그램** 창의 맨 위에 있는 단추입니다.
 
-4. 검색 상자에 **BlueJeans**를 입력합니다.
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansAppSearch.png)
+4. 검색 상자에 입력 **BlueJeans**를 선택 **BlueJeans** 선택 확인 하 고 결과 패널에서 합니다 **추가** 단추는 응용 프로그램을 추가 합니다.
 
-5. 결과 패널에서 **BlueJeans**를 선택한 다음, **추가** 단추를 클릭하여 SaaS 애플리케이션 목록에 BlueJeans를 추가합니다.
+    ![결과 목록의 BlueJeans](common/search-new-app.png)
 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansAppSearchResults.png)
-
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/BluejeansAppCreate.png)
-    
 ## <a name="assigning-users-to-bluejeans"></a>BlueJeans에 사용자 할당
 
 Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 "할당된" 사용자 및/또는 그룹만 동기화됩니다.
 
 자동 사용자 프로비전을 구성하고 사용하도록 설정하기 전에 BlueJeans에 대한 액세스가 필요한 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 일단 결정되면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 BlueJeans에 할당할 수 있습니다.
 
-*   [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
+* [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-bluejeans"></a>BlueJeans에 사용자를 할당하기 위한 주요 팁
 
-*   자동 사용자 프로비전 구성을 테스트하려면 단일 Azure AD 사용자를 BlueJeans에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+* 자동 사용자 프로비전 구성을 테스트하려면 단일 Azure AD 사용자를 BlueJeans에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*   사용자를 BlueJeans에 할당할 때 할당 대화 상자에서 유효한 애플리케이션 특정 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
+* 사용자를 BlueJeans에 할당할 때 할당 대화 상자에서 유효한 애플리케이션 특정 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="configuring-automatic-user-provisioning-to-bluejeans"></a>BlueJeans에 대한 자동 사용자 프로비전 구성
 
@@ -91,11 +86,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Azure AD에서 BlueJeans에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션**으로 차례로 이동합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 선택한 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **BlueJeans**합니다.
 
-2. SaaS 애플리케이션 목록에서 BlueJeans를 선택합니다.
- 
-    ![BlueJeans 프로비저닝](./media/bluejeans-provisioning-tutorial/Bluejeans2.png)
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+
+2. 애플리케이션 목록에서 **BlueJeans**를 선택합니다.
+
+    ![애플리케이션 목록의 BlueJeans 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
@@ -153,14 +150,15 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [로그를 검토 하 고 프로 비전 활동에 대 한 보고서를 확인 하는 방법에 알아봅니다](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
+
 [1]: ./media/bluejeans-provisioning-tutorial/tutorial_general_01.png
 [2]: ./media/bluejeans-tutorial/tutorial_general_02.png
 [3]: ./media/bluejeans-tutorial/tutorial_general_03.png

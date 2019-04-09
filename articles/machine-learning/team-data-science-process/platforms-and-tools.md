@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281270"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
@@ -44,7 +44,7 @@ Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상
 - Windows용 Power BI Desktop
 - Windows의 SQL Server 2016 Developer Edition 및 Linux의 Postgres
 
-또한 CNTK(Microsoft의 오픈 소스 심층 학습 도구 키트), xgboost, mxnet 및 Vowpal Wabbit과 같은 **ML 및 AI 도구**도 포함됩니다.
+또한 **ML 및 AI 도구** xgboost, mxnet 및 Vowpal Wabbit 등입니다.
 
 현재 DSVM은 **Windows** 및 **Linux CentOS** 운영 체제에서 사용할 수 있습니다. 실행하려는 데이터 과학 프로젝트의 요구 사항에 따라 DSVM의 크기(CPU 코어 수 및 메모리 양)를 선택합니다. 
 

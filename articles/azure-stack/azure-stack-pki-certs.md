@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d3cb99a55ae5eb8276391f22675a88e8b3d072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660122"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276442"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 공개 키 인프라 인증서 요구 사항
 
@@ -38,7 +38,7 @@ Azure Stack에는 소수의 Azure Stack 서비스 및 테 넌 트 Vm에 할당 �
 다음 목록에서는 Azure Stack을 배포 하는 데 필요한 인증서 요구 사항을 설명 합니다. 
 - 인증서는 내부 인증 기관 또는 공용 인증 기관에서 발급 되어야 합니다. 공용 인증 기관에서 사용 하는 경우에 Microsoft 신뢰할 수 있는 루트 인증 기관 프로그램의 일부로 기본 운영 체제 이미지에 포함 되어야 합니다. 여기서 전체 목록을 찾을 수 있습니다. https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - Azure Stack 인프라에는 인증서에 게시 하는 인증 기관의 인증서 해지 목록 (CRL) 위치에 네트워크 액세스를 권한이 있어야 합니다. 이 CRL http 끝점이 있어야 합니다.
-- 인증서 배포 또는 위의 모든 공용 인증 기관에서 제공 하는 인증서에 서명 하는 데 사용 되는 동일한 내부 인증 기관에서 발급 하거나 해야 인증서를 회전 하는 경우
+- 인증서를 회전 하는 경우 사전 1903 빌드를 하나 배포 또는 위의 모든 공용 인증 기관에서 제공 하는 인증서에 서명 하는 데 사용 되는 동일한 내부 인증 기관에서 발급 한 인증서 여야 합니다. 1903 & 이상 인증서에 대 한 모든 엔터프라이즈 또는 공용 인증 기관에서 발급할 수 있습니다.
 - 자체 서명 된 인증서의 사용은 지원 되지 않습니다.
 - 배포 및 회전 하거나 인증서의 주체 이름과 주체 대체 이름 (SAN) 필드에서 모든 네임 스페이스를 포함 하는 단일 인증서를 사용 하거나 사용할 수에 대 한 개인 인증서 아래에 네임 스페이스의 각 Azure Stack 서비스를 활용 하려면 필요 합니다. 두 방법 모두는와 같은 필요한 끝점에 대 한 와일드 카드를 사용 해야 **KeyVault** 하 고 **KeyVaultInternal**합니다. 
 - 인증서의 PFX 암호화에 3DES 이어야 합니다. 

@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2를 사용하면 [HDFS(Hadoop 분산 파일 시스�
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDInsight를 사용한 HDFS CLI
 
-HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 이 파일 시스템은 Hadoop이 지원하는 HDFS 및 기타 파일 시스템과 직접 상호 작용하는 셸을 사용하여 액세스할 수 있습니다. 다음은 일반적으로 사용되는 명령 및 유용한 리소스 링크입니다.
+HDInsight는 계산 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 이 파일 시스템은 Hadoop이 지원하는 HDFS 및 기타 파일 시스템과 직접 상호 작용하는 셸을 사용하여 액세스할 수 있습니다. 다음은 일반적으로 사용되는 명령 및 유용한 리소스 링크입니다.
 
 >[!IMPORTANT]
 >클러스터가 만들어지면 HDInsight 클러스터 요금 청구가 시작되고 클러스터가 삭제되면 요금 청구가 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. 클러스터를 삭제하는 방법은 [토픽에 대한 문서](../../hdinsight/hdinsight-delete-cluster.md)를 참조하세요. 그러나 Data Lake Storage Gen2가 사용되는 스토리지 계정에 저장된 데이터는 HDInsight 클러스터가 삭제된 후에도 유지됩니다.

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774560"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268010"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
 
@@ -95,7 +95,7 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 
 | 항목 종류 | 설명 | 명령 동작 |
 | --- | --- | --- |
-| **Notebook** | Jupyter Notebook입니다. | Notebook의 파일 이름 및 언어를 지정하는 팝업을 표시합니다. |
+| **노트북** | Jupyter Notebook입니다. | Notebook의 파일 이름 및 언어를 지정하는 팝업을 표시합니다. |
 | **폴더** | 하위 폴더입니다. | 프로젝트의 파일 목록에 폴더 이름을 입력하는 편집 필드를 만듭니다. |
 | **빈 파일** | 텍스트, 데이터 등의 콘텐츠를 저장할 수 있는 파일입니다. | 프로젝트의 파일 목록에 파일 이름을 입력하는 편집 필드를 만듭니다. |
 | **Markdown** | Markdown 파일입니다. | 프로젝트의 파일 목록에 파일 이름을 입력하는 편집 필드를 만듭니다. |
@@ -110,7 +110,7 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 
 ![파일 팝업 메뉴의 명령](media/project-file-commands.png)
 
-| 명령 | 바로 가기 키 | 조치 |
+| 명령 | 바로 가기 키 | 액션(Action) |
 | --- | --- | --- |
 | 실행 | r(또는 클릭) | Notebook 파일을 실행합니다. 다른 파일 형식은 보는 용도로 열립니다.  |
 | 링크 복사 | y | 파일 링크를 클립보드에 복사합니다. |
@@ -128,7 +128,7 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 
 미리 보기 페이지는 바로 가기 키를 사용하여 여러 도구 모음 명령을 지원합니다.
 
-| 명령 | 바로 가기 키 | 조치 |
+| 명령 | 바로 가기 키 | 액션(Action) |
 | --- | --- | --- |
 | 공유 | s | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
 | 복제 | C  | Notebook을 계정에 복제합니다. |
@@ -222,5 +222,5 @@ Python Notebook의 코드 셀에서 명령을 사용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일을 사용 하 여 작동 합니다.](work-with-project-data-files.md)
 - [Notebook에서 클라우드 데이터 액세스](access-data-resources-jupyter-notebooks.md)

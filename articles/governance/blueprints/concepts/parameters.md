@@ -1,7 +1,6 @@
 ---
 title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수란 무엇이며 동적 청사진을 만드는 데 사용하는 방법을 알아봅니다.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805575"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279978"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -77,8 +76,8 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{YourMG}` - 사용자의 관리 그룹 이름으로 대체
-- `{subscriptionId}` - 사용자의 구독 ID로 대체
+- `{YourMG}` -관리 그룹의 이름으로 대체 합니다.
+- `{subscriptionId}` -구독 ID로 대체 합니다.
 
 ##### <a name="blueprint-level-parameter"></a>청사진 수준 매개 변수
 

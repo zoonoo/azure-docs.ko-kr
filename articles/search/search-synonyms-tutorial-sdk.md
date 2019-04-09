@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202370"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008978"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>예제: C#에서 Azure Search에 대한 동의어 추가
 
@@ -168,11 +168,11 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure Search 서비스를 포함 하는 리소스 그룹을 삭제 된 경우 예제를 정리 하는 가장 빠른 방법입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
+에 예제는 Azure Search 서비스를 포함 하는 리소스 그룹을 삭제 하 여 정리 하는 가장 빠른 방법입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 예에서는 합니다 [동의어 REST API](https://aka.ms/rgm6rq) 에서 C# 를 만들고 및 매핑 규칙을 게시 한 다음 쿼리에서 동의어 맵을 호출 하는 코드입니다. 추가 정보는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 참조 설명서에서 찾을 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Search에서 동의어를 사용하는 방법](search-synonyms.md)
+> [Azure Search에서 동의어를 사용 하는 방법](search-synonyms.md)

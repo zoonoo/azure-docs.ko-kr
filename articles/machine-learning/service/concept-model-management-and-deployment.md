@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403693"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275445"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
@@ -28,12 +28,12 @@ ms.locfileid: "57403693"
 1. Azure Machine Learning Service 작업 영역에서 호스팅되는 레지스트리에 **모델 등록**
 1. 이식 가능한 컨테이너에서 점수 매기기 스크립트 및 종속성과 모델이 쌍을 이루는 **이미지 등록** 
 1. 클라우드 또는 에지 디바이스에서 웹 서비스로 이미지 **배포**
-1. **모니터링 및 데이터 수집**
+1. **모니터링 하 고 데이터를 수집 합니다.**
 1. 새 이미지를 사용하도록 배포를 **업데이트**합니다.
 
 각 단계는 독립적으로 또는 단일 배포 명령의 일환으로 수행할 수 있습니다. 또한 이 그래픽에서 보여 주듯이 배포를 **CI/CD 워크플로**에 통합할 수 있습니다.
 
-[![' Azure Machine Learning 지속적인 통합/지속적인 배포 (CI/CD) 주기 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning 지속적인 통합/지속적인 배포 (CI/CD) 주기 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>1단계: 모델 등록
 
@@ -63,7 +63,9 @@ ONNX 모델을 사용하는 방법에 대한 자세한 내용은 [ONNX 및 Azure
 Azure Machine Learning은 가장 인기 있는 프레임워크를 지원하지만, 일반적으로 PIP 설치가 가능한 모든 프레임워크에서 작동할 수 있습니다.
 
 작업 영역이 만들어지면 해당 작업 영역에서 사용하는 몇 가지 다른 Azure 리소스도 만들어집니다.
-이미지를 만드는 데 사용된 모든 개체는 작업 영역의 Azure 저장소 계정에 저장됩니다. 이미지를 만들 때 추가 메타데이터 태그를 제공할 수 있습니다. 메타데이터 태그 역시 이미지 레지스트리에 저장되며, 쿼리하여 이미지를 찾을 수 있습니다.
+기본 이미지를 만드는 데 사용 되는 모든 개체는 작업 영역에서 Azure storage 계정에 저장 됩니다. 이미지를 만들 때 추가 메타데이터 태그를 제공할 수 있습니다. 메타데이터 태그 역시 이미지 레지스트리에 저장되며, 쿼리하여 이미지를 찾을 수 있습니다.
+
+Azure Container Registry에 업로드 하 고 Azure Machine Learning 서비스에서 사용할 수 있는 사용자 지정 이미지를 사용할 수도 있습니다.
 
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#configureimage)의 이미지 구성 및 등록 섹션을 참조하세요.
 
@@ -73,7 +75,7 @@ Azure Machine Learning은 가장 인기 있는 프레임워크를 지원하지�
 
 또한 웹 서비스 배포도 검색할 수 있습니다. 예를 들어 특정 모델 또는 이미지의 모든 배포를 검색할 수 있습니다.
 
-[![추론 대상](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Inferencing 대상](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 클라우드의 다음 배포 대상에 이미지를 배포할 수 있습니다.
 

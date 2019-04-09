@@ -4,7 +4,7 @@ title: Azure Media Services v3 설명서
 metadata:
   document_id: null
   title: 'Azure Media Services v3 설명서 - 자습서, API 참조 | Microsoft Docs'
-  description: 'Media Services를 사용하여 주문형 스트리밍, 라이브 브로드캐스팅 및 비디오 분석을 수행하는 방법을 알아봅니다. 자습서, API 참조 등입니다.'
+  description: 'Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.'
   services: media-services
   author: Juliako
   manager: femila
@@ -24,13 +24,13 @@ sections:
         className: cardImageOuter
         items:
           - title: 개념 알아보기
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">클라우드 업로드 및 스토리지</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">모니터링</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">미디어 분석</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">패키징</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">보호</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">라이브 스트리밍</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">플레이어 클라이언트</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">클라우드 업로드 및 저장</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">모니터링</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">미디어 분석</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">패키징</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">보호</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">라이브 스트리밍</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">플레이어 클라이언트</a></p>'
           - title: v3 API로 개발
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK를 사용하여 개발 시작</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST를 사용하여 개발</a></p>'
   - title: 5분 빠른 시작
     items:
       - type: paragraph
-        text: 'Media Services 계정을 만들고, 비디오 인코딩을 시작하고, Azure Media Player를 사용하여 재생하는 방법을 알아봅니다.'
+        text: 'Media Services 계정을 만들고, 비디오를 인코딩, 패키징 및 스트림하는 방법을 알아봅니다.'
       - type: list
         style: icon48
         items:
@@ -49,7 +49,7 @@ sections:
   - title: 단계별 자습서
     items:
       - type: paragraph
-        text: Media Services v3을 사용하여 주문형 파일 및 라이브 브로드캐스팅을 스트리밍하고 비디오를 분석하는 방법을 알아봅니다.
+        text: 자습서에서는 통합된 Azure CDN의 기능을 사용하여 주문형 및 라이브 비디오를 안전하게 JIT(Just-In-Time) 방식으로 패키지하고 크기를 조정하는 방법을 보여 줍니다.
       - type: list
         style: cards
         className: cardsM
@@ -123,6 +123,6 @@ sections:
           - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
           - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST (영문)</a>'
           - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
-          - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
+          - html: '<a href="https://aka.ms/ams-v3-java-ref">자바</a>'
           - html: '<a href="https://aka.ms/ams-v3-python-ref">Python</a>'
-          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.JS</a>'
+          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>'

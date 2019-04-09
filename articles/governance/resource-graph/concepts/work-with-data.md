@@ -4,16 +4,16 @@ description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트를
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889038"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058394"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -63,7 +63,7 @@ Search-AzGraph -Query "project name | order by name asc" -Skip 10
 
 ## <a name="paging-results"></a>페이징 결과
 
-처리를 위해 결과 집합을 작은 레코드 집합으로 나누어야 하는 경우 또는 결과 집합이 허용된 최댓값인 _5000_을 초과하기 때문에 페이징을 사용합니다. [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse**는 결과 집합이 분할되었음을 나타내는 값(**resultTruncated** 및 **$skipToken**)을 제공합니다.
+결과 집합 처리에 대 한 레코드의 더 작은 집합으로 분할 해야 할 때 또는 결과 집합의 허용 되는 최대값을 초과 하므로 _1000_ 페이징을 사용 하 여 레코드를 반환 합니다. [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse**는 결과 집합이 분할되었음을 나타내는 값(**resultTruncated** 및 **$skipToken**)을 제공합니다.
 **resultTruncated**는 응답에 반환되지 않은 추가 레코드가 있는지 여부를 소비자에게 알리는 부울 값입니다. **count** 속성이 **totalRecords** 속성보다 작은 경우에도 이 조건을 식별할 수 있습니다. **totalRecords**는 쿼리와 일치하는 레코드 수를 정의합니다.
 
 **resultTruncated**가 **true**이면 **$skipToken** 속성이 응답에 설정됩니다. 이 값은 동일한 쿼리 및 구독 값과 함께 사용되어 쿼리와 일치하는 다음 레코드 집합을 가져옵니다.

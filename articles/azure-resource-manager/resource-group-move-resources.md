@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521095"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058767"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -133,6 +133,7 @@ ms.locfileid: "58521095"
 * Azure Database Migration
 * Azure Databricks
 * Azure Firewall
+* AKS(Azure Kubernetes Service)
 * Azure Migrate
 * Azure NetApp Files
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
@@ -143,7 +144,6 @@ ms.locfileid: "58521095"
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes 서비스
 * Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
 * Managed Applications
 * Microsoft Genomics
@@ -158,7 +158,7 @@ ms.locfileid: "58521095"
 
 * [Virtual Machines 제한 사항](#virtual-machines-limitations)
 * [Virtual Networks 제한 사항](#virtual-networks-limitations)
-* [App Service 제한 사항](#app-service-limitations)
+* [App Service 제한](#app-service-limitations)
 * [App Service Certificate 제한 사항](#app-service-certificate-limitations)
 * [클래식 배포 제한 사항](#classic-deployment-limitations)
 * [Recovery Services 제한 사항](#recovery-services-limitations)
@@ -180,8 +180,8 @@ Azure Backup으로 구성한 가상 머신을 이동하려면 다음 해결 방�
 * 명명 패턴이 `AzureBackupRG_<location of your VM>_1`인 리소스 그룹을 찾습니다(예: AzureBackupRG_westus2_1).
 * Azure Portal에서 작업하는 경우 “숨겨진 형식 표시”를 선택합니다.
 * PowerShell에서 작업하는 경우에는 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet을 사용합니다.
-* CLI에서 작업하는 경우에는 `az resource list -g AzureBackupRG_<location of your VM>_1`을 사용합니다.
-* 종류가 `Microsoft.Compute/restorePointCollections`이고 명명 패턴이 `AzureBackup_<name of your VM that you're trying to move>_###########`인 리소스를 찾습니다.
+* CLI에서 작업 하는 경우 사용 합니다 `az resource list -g AzureBackupRG_<location of your VM>_1`
+* 형식을 사용 하 여 리소스를 찾을 `Microsoft.Compute/restorePointCollections` 명명 패턴 포함 `AzureBackup_<name of your VM that you're trying to move>_###########`
 * 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
 * 삭제가 완료되면 가상 머신을 이동할 수 있습니다. 자격 증명 모음 및 가상 머신을 대상 구독으로 이동할 수 있습니다. 이동 후 데이터 손실 없이 백업을 계속할 수 있습니다.
 * 백업용 Recovery Service 자격 증명 모음 이동에 대한 내용은 [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
@@ -361,7 +361,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
    원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다.
 
-   * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
+   * [Azure 구독의 소유권을 다른 계정으로 양도](../billing/billing-subscription-transfer.md)
    * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 오류가 표시될 수 있습니다.

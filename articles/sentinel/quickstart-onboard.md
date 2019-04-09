@@ -14,43 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399690"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006595"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Azure 등록 Sentinel 미리 보기
 
 > [!IMPORTANT]
-> Azure Sentinel 현재 공개 미리 보기 중입니다.
+> Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 빠른 시작에서는 알아봅니다 Azure Sentinel 온보드 하는 방법입니다. 
 
-Azure Sentinel 온보드에 먼저 데이터 원본에 연결 해야 합니다. Azure Sentinel 여러 상자 및 Microsoft Threat Protection 솔루션을 Office 365, Azure AD에서 Azure ATP를 포함 하 여 Microsoft 365 원본을 포함 하 여 실시간 통합을 사용할 수 있는 Microsoft 솔루션에 대 한 커넥터와 함께 제공 하 고 Microsoft Cloud App Security 및 더 합니다. 또한 타사 솔루션에 대 한 광범위 한 보안 에코 시스템에 기본 제공 커넥터가 있습니다. 또한 일반적인 이벤트 형식으로 데이터 원본을 사용 하 여 Azure Sentinel 연결할 Syslog 또는 REST API를 사용할 수 있습니다.  
+Azure Sentinel을 온보딩하려면 먼저 데이터 원본에 연결해야 합니다. Azure Sentinel 여러 상자 및 Microsoft Threat Protection 솔루션을 Office 365, Azure AD에서 Azure ATP를 포함 하 여 Microsoft 365 원본을 포함 하 여 실시간 통합을 사용할 수 있는 Microsoft 솔루션에 대 한 커넥터와 함께 제공 하 고 Microsoft Cloud App Security 및 더 합니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. 또한 일반적인 이벤트 형식으로 데이터 원본을 사용 하 여 Azure Sentinel 연결할 Syslog 또는 REST API를 사용할 수 있습니다.  
 
 데이터 원본에 연결한 후에 데이터를 기반으로 하는 정보는 전문적 만든 대시보드를 갤러리에서 선택 합니다. 이러한 대시보드 요구 사항에 맞게 쉽게 사용자 지정할 수 있습니다.
 
 
 ## <a name="global-prerequisites"></a>전역 필수 구성 요소
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+- 계정이 없는 경우 활성 Azure 구독 만들기를 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 시작 하기 전에 합니다.
 
 - Log Analytics 작업 영역입니다. 자세한 방법 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)
 
-- Azure Sentinel 사용 하도록 설정 하려면 테 넌 트에 참가자 권한
-
-- 테 넌 트 전역 또는 보안 관리자 권한
- 
+    - 리소스 그룹에 대 한 참가자 권한을 Azure Sentinel에 연결
+    - 참가자 권한을 리소스 그룹에 Azure Sentinel 사용 하도록 설정 하려면 
 
 ## Azure Sentinel를 사용 하도록 설정 <a name="enable"></a>
 
 1. Azure portal로 이동 합니다.
 2. Azure Sentinel 만들어지면 구독 선택 되어 있는지 확인 합니다. 
 3. Azure Sentinel 검색 합니다. 
-   ![search](./media/quickstart-onboard/search-product.png)
+   ![검색](./media/quickstart-onboard/search-product.png)
 
 1. **+추가**를 클릭합니다.
 1. 사용 하거나 새로 만들 작업 영역을 선택 합니다. 둘 이상의 작업 영역에 Azure Sentinel를 실행할 수 있지만 데이터는 단일 작업 영역에 격리 되어 있습니다.
@@ -79,7 +77,7 @@ Azure Sentinel 서비스에 연결 하 고 Azure Sentinel 이벤트 및 로그�
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel를 데이터 원본 연결에 대해 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+이 문서에서는 Azure Sentinel를 데이터 원본 연결에 대해 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
 - 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
 - 데이터로 Stream [공통 오류 형식을 어플라이언스](connect-common-event-format.md) Azure Sentinel에 있습니다.

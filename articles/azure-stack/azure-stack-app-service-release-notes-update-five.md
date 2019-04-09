@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 192ac256f013498e57ecf7939d29796af073b948
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500205"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260564"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service에서 Azure Stack 업데이트 5 릴리스 정보
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 이러한 릴리스 정보는 Azure Stack 업데이트 5에 알려진된 문제는 향상 된 기능 및 Azure App Service에서 수정 설명 합니다. 알려진된 문제를 직접 배포, 업데이트 프로세스 및 빌드 (사후 설치)를 사용 하 여 문제에 관련 된 문제 나뉩니다.
 
@@ -77,7 +77,7 @@ Azure Stack 업데이트 5의 azure App Service는 다음과 같은 향상 된 �
 ### <a name="post-deployment-steps"></a>배포 후 단계
 
 > [!IMPORTANT]  
-> SQL Always에서 인스턴스를 사용 하 여 앱 서비스 RP를 제공한 경우 해야 [appservice_hosting 및 appservice_metering 데이터베이스를 가용성 그룹에 추가](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) 에서 서비스의 손실을 방지 하기 위해 데이터베이스를 동기화 하 고는 데이터베이스 장애 조치의 이벤트입니다.
+> SQL Always에서 인스턴스를 사용 하 여 App Service 리소스 공급자를 제공한 경우 해야 [appservice_hosting 및 appservice_metering 데이터베이스를 가용성 그룹에 추가](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) 의 손실을 방지 하기 위해 데이터베이스를 동기화 하 고 데이터베이스 장애 조치 시 서비스입니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 

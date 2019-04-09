@@ -12,20 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 11bbd87eb283dca2c7da19e32833221c7320a79f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f18a1b05e5a38a79945d8df6706dd2147d6b43df
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817799"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009719"
 ---
-# <a name="power-bi-app-offer"></a>Power BI 앱 제공
+# <a name="power-bi-app-offer"></a>Power BI 앱 제품
 
 |              |                                |
-|-|--------------------------------|
-| 이 문서에서는 microsoft Power BI 앱을 게시 하는 방법 설명 [AppSource marketplace](https://appsource.microsoft.com/)합니다. Power BI 앱을 Power BI 콘텐츠를 패키지 하 고 보고서 및 대시보드 공통 데이터 저장소에서 데이터에 연결할 데이터 흐름을 사용 합니다. 그런 다음 AppSource 통해 다른 테 넌 트에 앱을 배포할 수 있습니다. | ![Power BI 아이콘](./media/powerbi-icon.png) |
+|--------------|--------------------------------|
+| 이 문서에서는 microsoft Power BI 앱을 게시 하는 방법 설명 [AppSource marketplace](https://appsource.microsoft.com/)합니다.  Power BI 앱을 데이터 집합, 보고서 및 대시보드를 포함 하 여 사용자 지정 가능한 Power BI 콘텐츠를 패키지 합니다. AppSource 통해 다른 Power BI 테 넌 트에 앱을 배포 하 고 조정 및 개발자가 허용 하는 사용자 지정을 수행 여러분 자신의 데이터에 연결 합니다. | ![Power BI 아이콘](./media/powerbi-icon.png) |
 
 
 이 문서는 세 가지 주요 부분으로 구분 됩니다.
@@ -43,16 +43,15 @@ Power BI 앱 제품을 게시 하는 대략적인 단계는 다음과 같습니�
 
 Power BI 앱 제품 게시 프로세스는 다음과 같습니다.
 
-1. Power BI의 서비스 응용 프로그램을 만듭니다. 이 작업에는 제품에 대 한 기술 자산을 나타내는 패키지 설치 URL을 생성 합니다. 자세한 내용은 [Power BI 란?](https://go.microsoft.com/fwlink/?linkid=2028636)합니다.
-2. 다음을 비롯한 비즈니스 자산을 수집하거나 만듭니다.
-    - 마케팅 자료입니다.
-    - 법률 문서를 지원 합니다.
-3.  제품을 만듭니다. 마케팅 자료, 법적 정보, 지원 정보 및 자산 사양이 제품 설명을 포함 하 여 제품의 세부 정보를 구성 하려면 클라우드 파트너 포털을 사용 합니다.
-4.  인증 하 고 제품을 게시 합니다. 이 게시 프로세스를 시작합니다.
-    - AppSource 온보딩 팀에서 사용자의 애플리케이션을 테스트, 유효성 검사 및 인증합니다. 
-    - 제품 인증 된 경우 해당 테스트 환경에서 검토 후 해제 합니다.
+1. Power BI에서 템플릿 응용 프로그램을 만듭니다. 이 작업에는 제품에 대 한 기본 기술 자산을 나타내는 패키지 설치 URL을 생성 합니다. 이때 사전 프로덕션 테스트 패키지를 승격할 수도 있습니다. 자세한 내용은 [Power BI 템플릿 앱 이란 무엇 인가요?](https://docs.microsoft.com/power-bi/service-template-apps-overview)합니다. 
+2. 등의 제품의 마케팅 자료를 만들거나 수집: 공식 이름, 설명, 로고 등입니다. 
+3. 수집 되 고이 상태 또는 제품의 법적 만들고 문서를 지원: *사용 약관*, *개인 정보 취급 방침*를 *지원 정책*, 사용자 도움말 등입니다.
+4. 제품 만들기: 클라우드 파트너 포털을 사용 하 여 마케팅 자료, 법적 정보, 지원 정보 및 자산 사양이 제품 설명을 포함 하 여 제품의 세부 정보를 구성 합니다.  제품에 완벽 하 게 설정 된 후 게시를 위해 제출 합니다.
+5. 클라우드 파트너 포털의 게시 프로세스를 모니터링 합니다.  이 단계에서는 AppSource 온 보 딩 팀 테스트 유효성을 검사 하며 응용 프로그램을 인증 하 합니다. 
+6. 앱이 성공적으로 인증을 테스트 환경에서 검토 후 해제 합니다. 
+7. Power BI 앱 (해당 "되 면 라이브")는 AppSource에 나열 됩니다.
+8. Power BI에서 사전 프로덕션 패키지를 프로덕션으로 승격 합니다. 자세한 내용은 [템플릿 앱 릴리스 관리](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release)합니다.
 
-다음이 단계를 완료 한 후 AppSource에 사용자 Power BI 앱 제품이 라이브 상태가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

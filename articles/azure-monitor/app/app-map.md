@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622113"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009198"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -36,7 +36,7 @@ ms.locfileid: "58622113"
 
 여러 수준의 관련된 애플리케이션 구성 요소의 전체 애플리케이션 토폴로지를 볼 수 있습니다. 구성 요소는 다른 Application Insights 리소스이거나 단일 리소스 내의 다른 역할일 수 있습니다. 앱은 Application Insights SDK가 설치된 서버 간에 수행된 HTTP 종속성 호출에 따라 구성 요소를 찾습니다. 
 
-이러한 환경은 구성 요소를 점진적으로 검색으로 시작됩니다. 애플리케이션 맵을 처음 로드할 때 이 구성 요소와 관련된 구성 요소를 검색하기 위해 쿼리 집합이 트리거됩니다. 왼쪽 위 구석에 있는 단추는 검색된 애플리케이션의 구성 요소 수로 업데이트됩니다. 
+이러한 환경은 구성 요소를 점진적으로 검색으로 시작됩니다. Application map을 처음 로드 하면이 구성 요소와 관련 된 구성 요소를 검색 쿼리 집합이 트리거됩니다. 왼쪽 위 구석에 있는 단추는 검색된 애플리케이션의 구성 요소 수로 업데이트됩니다. 
 
 "맵 구성 요소 업데이트"를 클릭하면 맵이 해당 시점까지 검색된 모든 구성 요소로 새로 고쳐집니다. 애플리케이션의 복잡성에 따라, 로드하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -109,7 +109,8 @@ namespace CustomInitializer.Telemetry
             if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
             {
                 //set custom role name here
-                telemetry.Context.Cloud.RoleName = "RoleName";
+                telemetry.Context.Cloud.RoleName = "Custom RoleName";
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
             }
         }
     }
@@ -184,6 +185,32 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+
+### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>응용 프로그램 맵의 컨텍스트 내에서 Cloud.RoleName 이해
+
+Cloud.RoleName에 대해 생각 하는 응용 프로그램 맵 확인에 유용할 수 있습니다 방법과 먼 있는 여러 Cloud.RoleNames 포함:
+
+![애플리케이션 맵 스크린샷](media/app-map/cloud-rolename.png)
+
+각 녹색 상자에 이름 위에 응용 프로그램 구조의 Cloud.RoleName/role 값이 특정 배포 응용 프로그램의 다양 한 측면입니다. 이 앱에 대해 해당 역할의 구성 되므로: `Authentication`, `acmefrontend`를 `Inventory Management`, `Payment Processing Worker Role`합니다. 
+
+이 앱의 경우이 각 해당 `Cloud.RoleNames` 자체 계측 키를 사용 하 여 다른 고유한 Application Insights 리소스를 나타냅니다. 이 응용 프로그램의 소유자가 각 네 개의 서로 다른 Application Insights 리소스에 대 한 액세스를 응용 프로그램 맵 이므로 기본 관계의 맵을 함께 연결할 수 있습니다.
+
+에 대 한 합니다 [공식 정의](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+
+```
+   [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
+    [MaxStringLength("256")]
+    705: string      CloudRole = "ai.cloud.role";
+    
+    [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
+    [MaxStringLength("256")]
+    715: string      CloudRoleInstance = "ai.cloud.roleInstance";
+```
+
+또는 Cloud.RoleInstance 여기서 Cloud.RoleName 알려 문제는 웹 프런트 엔드에 위치 하지만 실행 중일 수 있습니다. 웹 프런트 엔드에서 부하 분산 된 여러 서버에서 더 깊은 계층을 드릴 수 있도록 하는 시나리오에 유용할 수 있습니다. Kusto 쿼리 및 파악을 통해 문제에 영향을 하는 경우 모든 웹 프런트 엔드 서버/인스턴스 또는 하나만 수 매우 중요 합니다.
+
+Cloud.RoleInstance에 대 한 값을 재정의 하려는 경우 앱 실행 되 고 있는지를 컨테이너 화 된 환경에서 개별 서버 아는 하지 수 있는 충분 한 정보를 특정된 문제를 찾을 수 있습니다.
 
 원격 분석 이니셜라이저를 사용하여 cloud_RoleName 속성을 재정의하는 방법에 대한 자세한 내용은 [속성: ITelemetryInitializer 추가](api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조하세요.
 

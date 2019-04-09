@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 15dd878b7ff322ac8243b37649f16fed4e068af4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 67e0ccfa883e79d66eb9ca38a6cf15f00154c487
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091718"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056180"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Windows Server 가상 머신 만들기
 
@@ -62,7 +62,6 @@ az vm create \
   --image "Win2016Datacenter" \
   --admin-username "Demouser" \
   --admin-password "Demouser@123" \
-  --use-unmanaged-disk \
   --location local
 ```
 
@@ -78,7 +77,7 @@ VM을 만든 경우 합니다 **PublicIPAddress** 출력에서 매개 변수는 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
 다음 명령을 사용 하 여 가상 컴퓨터에 원격 데스크톱 연결을 만듭니다. 가상 컴퓨터의 IP 주소를 사용 하 여 "공용 IP 주소"를 대체 합니다. 메시지가 표시 되 면 사용자 이름 및 가상 컴퓨터에 사용한 암호를 입력 합니다.
 

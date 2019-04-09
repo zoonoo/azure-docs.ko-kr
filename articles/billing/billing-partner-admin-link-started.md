@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904834"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270186"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -151,9 +151,9 @@ MPN id입니다. 가상 orgnization(v-org) 제외 하 고 모든 유효한 MPN I
 
 다음과 같은 이유로 인해 보고서에 있는 고객을 볼 수 없습니다.
 
-1. 연결 된 사용자 계정이 없는 [역할 기반 액세스 ](https://docs.microsoft.com/azure/role-based-access-control/overview) 고객 Azure 구독 또는 리소스에서.
+1. 연결 된 사용자 계정이 없는 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 고객 Azure 구독 또는 리소스에서.
 
-2. 사용자가 있는 Azure 구독 [역할 기반 액세스 ](https://docs.microsoft.com/azure/role-based-access-control/overview) 액세스는 사용량에 없습니다.
+2. 사용자가 있는 Azure 구독 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 액세스는 사용량에 없습니다.
 
 **ID는 Azure Stack과 함께 작동 하는 파트너 링크가?**
 

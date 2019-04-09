@@ -13,21 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/01/2019
+ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b186aa2692033a774d1d8f294315fcc0f5e874d5
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763191"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009371"
 ---
-# <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure portal 통해 azure HANA 큰 인스턴스 제어
+# <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 이 문서에서는 방식 [HANA 큰 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 사항은 [Azure portal](https://portal.azure.com) 및 수에 대 한 배포 된 HANA 큰 인스턴스 단위를 사용 하 여 Azure portal을 통해 어떤 작업을 수행할 수 있습니다. Azure portal에서 HANA 큰 인스턴스 표시 여부는 현재 공개 미리 보기로 제공 되는 HANA 큰 인스턴스에 대 한 Azure 리소스 공급자를 통해 제공 됩니다.
 
+## <a name="register-hana-large-instance-resource-provider"></a>HANA 큰 인스턴스 리소스 공급자 등록
+일반적으로 HANA 큰 인스턴스 배포에 사용할 Azure 구독에는 HANA 큰 인스턴스 리소스 공급자에 등록 됩니다. 그러나 HANA 큰 인스턴스 단위를 배포 하는 것이 보이지, Azure 구독에서 리소스 공급자를 등록 해야 합니다. HANA 큰 인스턴스 리소스 공급자를 등록 하는 중에 두 가지가 있습니다.
+
+### <a name="register-through-cli-interface"></a>CLI 인터페이스를 통해 등록
+Azure CLI 인터페이스를 통해 HANA 큰 인스턴스 배포에 사용 되는 Azure 구독에 로그인 해야 합니다. (다시) 등록을 HANA 큰 인스턴스 공급자이 명령 사용 하 여 수행할 수 있습니다.
+    
+    az provider register --namespace Microsoft.HanaOnAzure
+
+자세한 내용은 문서를 참조 하세요. [Azure 리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+
+
+### <a name="register-through-azure-portal"></a>Azure portal을 통해 등록
+(다시) 등록을 Azure portal 통해 HANA 큰 인스턴스 리소스 공급자 수 있습니다. Azure portal에서 구독을 나열 하 고 HANA 큰 인스턴스 단위에 배포 하는 데 사용 된 구독에서 두 번 클릭 해야 합니다. 구독 개요 페이지에서 하나 아래와 같이 "리소스 공급자"를 선택 하 고 검색 창에 "HANA"를 입력 합니다. 
+
+![Azure portal을 통해 HLI RP 등록](./media/hana-li-portal/portal-register-hli-rp.png)
+
+표시 된 스크린샷에서 리소스 공급자를 이미 등록 되었습니다. 리소스 공급자를 아직 등록 되지 않은 경우에 "re-register" 또는 "register"를 누릅니다.
+
+자세한 내용은 문서를 참조 하세요. [Azure 리소스 공급자 및 형식](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+
+
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>Azure portal에서 HANA 큰 인스턴스 단위의 표시
-HANA 큰 인스턴스 배포 요청을 제출할 때도 HANA 큰 인스턴스에 연결 하는 Azure 구독을 지정 하 라는 메시지가 표시 합니다. HANA 큰 인스턴스 단위에 대해 작동 하는 SAP 응용 프로그램 계층을 배포 하는 데 사용할 동일한 구독을 사용 하는 것이 좋습니다.
+HANA 큰 인스턴스 배포 요청을 제출할 때도 HANA 큰 인스턴스에 연결 하는 Azure 구독을 지정 하 라는 메시지가 표시 합니다. 것이 좋습니다, HANA 큰 인스턴스 단위에 대해 작동 하는 SAP 응용 프로그램 계층을 배포 하는 데 사용할 동일한 구독을 사용 합니다.
 처음으로 HANA 큰 인스턴스 배포를 새 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) 에 HANA 큰 인스턴스에 대 한 배포 요청에 제출 된 Azure 구독에 만들어집니다.  새 리소스 그룹에는 모든 HANA 큰 인스턴스 단위 사용 하 여 특정 구독에 배포한 경우 나열 됩니다.
 
 새 Azure 리소스 그룹을 찾기 위해 나열할 수는 리소스 그룹 구독에서 탐색을 통해 Azure portal의 왼쪽된 탐색 창
@@ -46,6 +67,8 @@ HANA 큰 인스턴스 배포 요청을 제출할 때도 HANA 큰 인스턴스에
 
 나열 된 모든 장치를 구독에 배포 된 단일 HANA 큰 인스턴스 단위를 나타내는입니다. 이 경우 보면 8 명의 서로 다른 HANA 큰 인스턴스 단위를 구독에 배포 된 합니다.
 
+동일한 Azure 구독에서 여러 HANA 큰 인스턴스 테 넌 트를 배포한 경우에 여러 Azure 리소스 그룹을 찾을 수 있습니다. 
+
 
 ## <a name="look-at-attributes-of-single-hli-unit"></a>단일 HLI 단위의 특성 확인
 HANA 큰 인스턴스 단위의 목록에서 단일 장치를 클릭 하 고 단일 HANA 큰 인스턴스 단위의 세부 정보를 가져올 수 있습니다. 
@@ -54,10 +77,10 @@ HANA 큰 인스턴스 단위의 목록에서 단일 장치를 클릭 하 고 단
 
 ![HLI 단위의 개요를 보여 줍니다.](./media/hana-li-portal/portal-show-overview.png)
 
-해당 특성이 표시 된 다른 특성을 보고 Azure VM 특성 보다 거의 다르게 보입니다. 왼쪽 쪽 머리글을 추가 하는 몇 가지 태그 뿐만 아니라 리소스 그룹, Azure 지역, 구독 이름 및 ID 표시 됩니다. 기본적으로 HANA 큰 인스턴스 단위 경우 할당 된 태그가 없습니다. 헤더의 오른쪽 위 쪽에서 배포가 완료 된 경우 할당 단위의 이름을 나열 됩니다. 운영 체제와 함께 IP 주소가 표시 됩니다. 로 CPU의 수를 사용 하 여 HANA 큰 인스턴스 단위를 입력 하는 Vm을 사용 하 여 스레드 및 메모리 같습니다도 합니다. 서로 다른 HANA 큰 인스턴스 단위에 대 한 자세한 내용은 다음과 같습니다.
+해당 특성이 표시 된 다른 특성을 보고 Azure VM 특성 보다 거의 다르게 보입니다. 왼쪽에 있는 머리글을 추가 하는 몇 가지 태그 뿐만 아니라 리소스 그룹, Azure 지역, 구독 이름 및 ID 표시 됩니다. 기본적으로 HANA 큰 인스턴스 단위 경우 할당 된 태그가 없습니다. 헤더의 오른쪽에 배포가 완료 된 경우 할당 단위의 이름을 나열 됩니다. 운영 체제와 함께 IP 주소가 표시 됩니다. 로 CPU의 수를 사용 하 여 HANA 큰 인스턴스 단위를 입력 하는 Vm을 사용 하 여 스레드 및 메모리 같습니다도 합니다. 서로 다른 HANA 큰 인스턴스 단위에 대 한 자세한 내용은 다음과 같습니다.
 
 - [HLI에 사용 가능한 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [SAP HANA (큰 인스턴스) 저장소 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [SAP HANA(대규모 인스턴스) 저장소 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 헤더의 오른쪽 열에서 추가 필드를 HANA 큰 인스턴스 단위의 전원 상태를 알립니다.
 
@@ -86,7 +109,7 @@ HANA 큰 인스턴스 단위에 간략하게 그치지 단위의 특정 활동�
 
 ![Azure portal에서 HLI 속성 위쪽](./media/hana-li-portal/portal-properties-top.png)
 
-첫 번째 몇 가지 데이터 항목 살펴보았습니다 개요 화면에 이미 있습니다. 하지만 시 중요 한 부분은 데이터는 인계 하는 첫 번째 배포 단위 되었을 때를 표시 하는 ExpressRoute 회로 ID입니다. 일부 지원의 경우에서 해당 데이터에 대해 해야 가져올 수도 있습니다. 중요 한 데이터 항목은 스크린샷에서 맨 아래에 표시 됩니다. 표시 되는 데이터 저장소를 격리 하는 NFS 저장소 헤드의 IP 주소인 하 **테 넌 트** HANA 큰 인스턴스 스택의 합니다. 이 IP 주소를 편집할 때 필요 합니다 [저장소에 대 한 구성 파일 스냅숏 백업은](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)합니다. 
+첫 번째 몇 가지 데이터 항목 살펴보았습니다 개요 화면에 이미 있습니다. 하지만 시 중요 한 부분은 데이터는 첫 번째 배포 단위를 통해 전달 된 대로 얻은 ExpressRoute 회로 ID입니다. 일부 지원의 경우에서 해당 데이터에 대해 해야 가져올 수도 있습니다. 중요 한 데이터 항목은 스크린샷에서 맨 아래에 표시 됩니다. 표시 되는 데이터 저장소를 격리 하는 NFS 저장소 헤드의 IP 주소인 하 **테 넌 트** HANA 큰 인스턴스 스택의 합니다. 이 IP 주소를 편집할 때 필요 합니다 [저장소에 대 한 구성 파일 스냅숏 백업은](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)합니다. 
 
 속성 창에서 아래로 스크롤하면에 HANA 큰 인스턴스 단위에 대해 고유한 리소스 ID 또는 배포에 할당 된 구독 ID와 같은 추가 데이터를 가져옵니다.
 
@@ -99,6 +122,9 @@ HANA 큰 인스턴스 단위에 간략하게 그치지 단위의 특정 활동�
 
 > [!NOTE]
 > 다시 시작 과정에서 장치의 상태에 변경 되는 짧은 시간 경험할 **시작** 의 상태로 이동할 **시작**합니다. 상태의 되 **시작** OS 시작 되는 OS가 시작 된 완전히 의미 합니다. 결과적으로, 단위, 다시 시작 된 후 기대할 수는 없지만 상태 전환 하는 즉시 단위를 즉시 로그인 **Started**합니다.
+
+> [!IMPORTANT]
+> HANA 큰 인스턴스 단위에는 메모리의 양에 따라, 하드웨어와 운영 체제의 다시 부팅을 다시 시작 수 최대 1 시간이 소요
 
 
 ## <a name="open-a-support-request-for-hana-large-instances"></a>HANA 큰 인스턴스에 대 한 지원 요청을 여세요.
@@ -115,7 +141,7 @@ HANA 큰 인스턴스 단위의 Azure 포털 표시에서 HANA 큰 인스턴스 
 
 ![Azure 포털에서 문제 클래스를 선택 합니다.](./media/hana-li-portal/portal-select-problem-class.png)
 
-다른 문제 유형 각각에서 다양 한 문제가 하위 문제를 더 자세히 특징을 결정 하기 위해 선택 해야 제공 됩니다. 하위 형식을 선택한 후 이제 주체를 이름을 수 있습니다. 선택 프로세스를 사용 하 여 완료 되 면 생성의 다음 단계로 이동할 수 있습니다. 에 **솔루션** 지정 하려는 섹션에서는 HANA 큰 인스턴스에 대 한 설명서를 문제의 솔루션에 대 한 포인터를 지정할 수 있습니다는. 제안 된 설명서에서 문제에 대 한 솔루션을 찾을 수 없으면, 다음 단계로 이동 합니다. 다음 단계에서는 HANA 큰 인스턴스 단위 또는 Vm을 사용 하 여 문제 인지 여부를 묻는 하려고 합니다. 이렇게 하면 올바른 전문가 위한 지원 요청을 보낼 수 있습니다. 
+다른 문제 유형 각각에서 다양 한 문제가 하위 문제를 더 자세히 특징을 결정 하기 위해 선택 해야 제공 됩니다. 하위 형식을 선택한 후 이제 주체를 이름을 수 있습니다. 선택 프로세스를 사용 하 여 완료 되 면 생성의 다음 단계로 이동할 수 있습니다. 에 **솔루션** 지정 하려는 섹션에서는 HANA 큰 인스턴스에 대 한 설명서를 문제의 솔루션에 대 한 포인터를 지정할 수 있습니다는. 제안 된 설명서에서 문제에 대 한 솔루션을 찾을 수 없으면, 다음 단계로 이동 합니다. 다음 단계에서는 HANA 큰 인스턴스 단위 또는 Vm을 사용 하 여 문제 인지 여부를 묻는 하려고 합니다. 이 정보는 올바른 전문가 지원 요청을 보낼 수 있습니다. 
 
 ![Azure portal에서 지원 사례의 세부 정보](./media/hana-li-portal/portal-support-request-details.png)
 
@@ -123,6 +149,6 @@ HANA 큰 인스턴스 단위의 Azure 포털 표시에서 HANA 큰 인스턴스 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 SAP HANA (큰 인스턴스)를 모니터링 하는 방법](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [Azure의 SAP HANA(대규모 인스턴스)를 모니터링하는 방법](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 - [HANA 쪽에서 모니터링 및 문제 해결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
 

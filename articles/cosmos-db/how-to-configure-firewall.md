@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 308d4527c9ea56a408ddaf05532f5a0b36136262
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451770"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281117"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 
@@ -104,9 +104,10 @@ Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Ma
      "name": "[parameters('databaseAccountName')]",
      "location": "[resourceGroup().location]",
      "properties": {
-     "databaseAccountOfferType": "Standard",
-     "name": "[parameters('databaseAccountName')]",
-     "ipRangeFilter":"183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+       "databaseAccountOfferType": "Standard",
+       "name": "[parameters('databaseAccountName')]",
+       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+     }
    }
 ```
 
@@ -125,7 +126,7 @@ az cosmosdb create \
   --resource-group $resourceGroupName \
   --max-interval 10 \
   --max-staleness-prefix 200 \
-  --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+  --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 기존 계정에 대한 방화벽 설정을 업데이트하려면 다음 명령을 실행합니다.
@@ -134,7 +135,7 @@ az cosmosdb create \
 az cosmosdb update \
       --name $name \
       --resource-group $resourceGroupName \
-      --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+      --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 ## <a id="troubleshoot-ip-firewall"></a>IP 액세스 제어 정책 관련 문제 해결
@@ -158,7 +159,7 @@ Azure Cosmos DB에 대한 서비스 엔드포인트가 활성화된 가상 네�
 
 Azure Cosmos DB 계정에 대한 가상 네트워크 서비스 엔드포인트를 구성하려면 다음 문서를 참조하세요.
 
-* [Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 액세스 제어](vnet-service-endpoint.md)
+* [Azure Cosmos DB 계정에 대 한 가상 네트워크 및 서브넷 액세스 제어](vnet-service-endpoint.md)
 * [Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 기반 액세스 구성](how-to-configure-vnet-service-endpoint.md)
 
 

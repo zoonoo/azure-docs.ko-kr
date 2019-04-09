@@ -100,7 +100,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
 - [Azure Reservations에서 SUSE 소프트웨어 플랜에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+- [Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Reserved VM Instances에 대한 최적화 설정 변경
 
@@ -130,7 +130,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 서비스 계획을 구입 합니다.
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
+- [Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Cosmos DB 예약 용량을 사용 하 여 Azure Cosmos DB 리소스에 대 한 요금을 선불합니다](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 소프트웨어 플랜을 구입 합니다.

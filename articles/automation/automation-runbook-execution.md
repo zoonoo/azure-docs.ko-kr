@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/18/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dbb50ba703221c28576b4c3614c77bbac7eeabb9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519122"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268503"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -43,7 +43,7 @@ Azure Automation의 Runbook은 Azure의 샌드박스 또는 [Hybrid Runbook Work
 |Runbook으로 파일 또는 폴더 모니터링|Hybrid Runbook Worker|Hybrid Runbook Worker에서 [감시자 작업](automation-watchers-tutorial.md)을 사용합니다.|
 |리소스 사용량이 많은 스크립트|Hybrid Runbook Worker| Azure 샌드박스는 [리소스에 제한](../azure-subscription-service-limits.md#automation-limits)이 있습니다.|
 |특정 요구 사항이 있는 모듈 사용| Hybrid Runbook Worker|일부 사례:</br> **WinSCP** - winscp.exe에 대한 종속성 </br> **IISAdministration** - IIS를 사용하도록 설정해야 함|
-|설치 관리자가 필요한 모듈 설치|Hybrid Runbook Worker|샌드박스용 모듈은 xcopyable이어야 합니다.|
+|설치 관리자가 필요한 모듈 설치|Hybrid Runbook Worker|샌드박스 용 모듈 copiable 있어야 합니다.|
 |4.7.2와 다른 .NET 프레임워크가 필요한 Runbook 또는 모듈 사용|Hybrid Runbook Worker|Automation 샌드박스에는 NET Framework 4.7.2가 있으며, 업그레이드할 수 있는 방법이 없습니다.|
 |권한 상승 해야 하는 스크립트|Hybrid Runbook Worker|샌드박스 권한 상승을 허용 하지 않습니다. 이 해결 하기 위해 Hybrid Runbook Worker를 사용 하 고 UAC를 사용 하 여 해제할 수 있습니다 `Invoke-Command` 경우 권한 상승이 필요한 있는 명령을 실행|
 |WMI에 대 한 액세스를 필요로 하는 스크립트|Hybrid Runbook Worker|클라우드 샌드박스에서 실행 중인 작업 [WMI 액세스할 수 없으며](#device-and-application-characteristics)|
@@ -51,6 +51,8 @@ Azure Automation의 Runbook은 Azure의 샌드박스 또는 [Hybrid Runbook Work
 ## <a name="runbook-behavior"></a>Runbook 동작
 
 Runbook은 내부에 정의된 논리에 따라 실행됩니다. Runbook이 중단되면 해당 Runbook이 처음부터 다시 시작됩니다. 일시적인 문제가 있는 경우 이 동작을 수행하려면 다시 시작을 지원하는 방식으로 Runbook을 작성해야 합니다.
+
+Azure에서 실행 하는 Runbook에서 시작 하는 PowerShell 작업 샌드박스 전체 언어 모드에서 실행 되지 않을 수 있습니다. PowerShell 언어 모드에 대 한 자세한 내용은 참조 하세요 [PowerShell 언어 모드](/powershell/module/microsoft.powershell.core/about/about_language_modes)합니다. Azure Automation에서 작업과 상호 작용 하는 방법에 대 한 자세한 내용은 참조 하세요. [PowerShell 사용 하 여 작업 상태를 검색 합니다.](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>리소스 만들기
 
@@ -246,9 +248,9 @@ Azure 샌드박스에서 실행 되는 Runbook 작업에는 장치 또는 응용
 3. 선택한 Runbook에 대한 페이지에서 **작업** 타일을 클릭합니다.
 4. 목록에 있는 작업 중 하나를 클릭하면 Runbook 작업 세부 정보 페이지에서 세부 정보와 출력을 확인할 수 있습니다.
 
-## <a name="retrieving-job-status-using-windows-powershell"></a>Windows PowerShell을 사용하여 작업 상태 검색
+## <a name="retrieving-job-status-using-powershell"></a>PowerShell을 사용 하 여 작업 상태 검색
 
-[Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob)을 사용하여 Runbook에 대해 생성된 작업 및 특정 작업을 검색할 수 있습니다. Windows PowerShell에서 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 Runbook을 시작하는 경우 결과 작업이 반환됩니다. 작업의 출력을 얻으려면 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput)을 사용합니다.
+[Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob)을 사용하여 Runbook에 대해 생성된 작업 및 특정 작업을 검색할 수 있습니다. PowerShell을 사용 하 여 runbook을 시작 하는 경우 [Start-azurermautomationrunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), 결과 작업이 반환 됩니다. 작업의 출력을 얻으려면 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput)을 사용합니다.
 
 다음 명령 예제는 샘플 Runbook에 대한 마지막 작업을 검색하고 작업의 상태, Runbook 매개 변수에 제공된 값, 작업의 출력을 표시합니다.
 
@@ -285,11 +287,30 @@ Runbook을 시작한 사용자 또는 계정과 같은 기타 세부 정보는 A
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
-$rg = "ResourceGroup01"
-$AutomationAccount = "MyAutomationAccount"
-$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+$AutomationResourceGroupName = "MyResourceGroup"
+$AutomationAccountName = "MyAutomationAccount"
+$RunbookName = "MyRunbook"
+$StartTime = (Get-Date).AddDays(-1)
+$JobActivityLogs = Get-AzureRmLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
+                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
 
-Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+$JobInfo = @{}
+foreach ($log in $JobActivityLogs)
+{
+    # Get job resource
+    $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
+
+    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
+    { 
+        # Get runbook
+        $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
+                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
+
+        # Add job information to hash table
+        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
+    }
+}
+$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
 ## <a name="fair-share"></a>공평 분배

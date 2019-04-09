@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371812"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278992"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. Azure Storage 계정의 데이터는 지속성 있고 안전하며 가용성과 확장성이 높으며 전세계 어디서나 HTTP 또는 HTTPS를 통해 액세스할 수 있습니다. 
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. Azure Storage 계정의 데이터는 지속성 있고 안전하며 가용성과 확장성이 높으며 전세계 어디서나 HTTP 또는 HTTPS를 통해 액세스할 수 있습니다.
 
 Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
@@ -52,7 +52,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 - 큐
 - 테이블
 
-대부분의 경우 범용 v2 계정이 권장되나 다음 시나리오에서는 범용 v1 계정이 가장 적합합니다. 
+대부분의 경우 범용 v2 계정이 권장되나 다음 시나리오에서는 범용 v1 계정이 가장 적합합니다.
 
 * 애플리케이션에 Azure 클래식 배포 모델이 필요합니다. 범용 v2 계정 및 Blob Storage 계정은 Azure Resource Manager 배포 모델만 지원합니다. 
 
@@ -64,6 +64,10 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 블록 blob storage 계정은 블록 blob으로 구조화 되지 않은 개체 데이터를 저장 하기 위한 특수 storage 계정 되었거나 추가 blob입니다. 블록 blob storage 계정 사용 패턴을 기반으로 데이터를 저장 하는 것에 대 한 여러 액세스 계층을 제공 합니다. 자세한 내용은 [블록 Blob 데이터에 대한 액세스 계층](#access-tiers-for-block-blob-data)을 참조하세요.
 
+### <a name="filestorage-preview-storage-accounts"></a>저장소 계정 FileStorage (미리 보기)
+
+FileStorage 저장소 계정에는 premium 파일 공유를 만들고 저장 하는 데 특수화 된 저장소 계정이입니다. FileStorage 저장소 계정은 IOPS 버스팅 하는 등의 전용 고유한 성능 특성을 제공합니다. 이러한 특성에 대 한 자세한 내용은 참조는 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 계획 가이드 파일의 섹션입니다.
+
 ## <a name="naming-storage-accounts"></a>저장소 계정 이름 지정
 
 저장소 계정의 이름을 지정할 때는 다음 규칙에 유의하세요.
@@ -71,7 +75,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 - Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
 - 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 두 개의 저장소 계정이 같은 이름을 사용할 수 없습니다.
 
-## <a name="performance-tiers"></a>성능 계층
+## <a name="general-purpose-performance-tiers"></a>범용 성능 계층
 
 다음 성능 계층 중 하나에 대해 범용 저장소 계정을 구성할 수 있습니다.
 
@@ -84,9 +88,9 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 사용 가능한 액세스 계층은 다음과 같습니다.
 
-* **핫** 액세스 계층은 저장소 계층의 개체에 자주 액세스하는 데 최적화되어 있습니다. 핫 계층의 데이터 액세스는 가장 비용 효율적이지만, 저장소 비용이 다소 높습니다. 새 저장소 계정은 기본적으로 핫 계층에 만들어집니다.
-* **쿨** 액세스 계층은 자주 액세스하지 않고 최소 30일 동안 저장된 많은 양의 데이터를 저장하는 데 최적화되어 있습니다. 쿨 계층에 데이터를 저장하는 것은 상당히 비용 효율적이지만, 데이터 액세스 비용이 핫 계층의 데이터에 액세스하는 것보다 다소 높을 수 있습니다.
-* **보관** 계층은 개별 블록 Blob에만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고, 최소 180일 동안 보관 계층에 남아 있는 데이터에 맞게 최적화되어 있습니다. 보관 계층에 데이터를 저장하는 것이 가장 비용 효율적이지만, 데이터 액세스 비용이 핫 또는 쿨 계층의 데이터에 액세스하는 것보다 높을 수 있습니다. 
+* **핫** 액세스 계층은 저장소 계층의 개체에 자주 액세스하는 데 최적화되어 있습니다. 핫 계층의 데이터에 액세스 하는 가장 비용 효율적인 저장소 비용이 높습니다. 새 저장소 계정은 기본적으로 핫 계층에 만들어집니다.
+* **쿨** 액세스 계층은 자주 액세스하지 않고 최소 30일 동안 저장된 많은 양의 데이터를 저장하는 데 최적화되어 있습니다. 쿨 계층에서 데이터를 저장 하는 것이 더 비용 효율적인 하지만 해당 데이터에 액세스 하는 핫 계층의 데이터에 액세스 하는 보다 비용이 높을 수 있습니다.
+* **보관** 계층은 개별 블록 Blob에만 사용할 수 있습니다. 보관 계층은 몇 시간의 검색 대기 시간을 허용할 수 있고, 최소 180일 동안 보관 계층에 남아 있는 데이터에 맞게 최적화되어 있습니다. 보관 계층에 데이터를 저장하는 것이 가장 비용 효율적이지만, 데이터 액세스 비용이 핫 또는 쿨 계층의 데이터에 액세스하는 것보다 높을 수 있습니다.
 
 데이터의 사용 패턴에 변화가 있으면 언제든 이 액세스 계층 간을 전환할 수 있습니다. 액세스 계층에 대 한 자세한 내용은 참조 하세요. [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)합니다.
 

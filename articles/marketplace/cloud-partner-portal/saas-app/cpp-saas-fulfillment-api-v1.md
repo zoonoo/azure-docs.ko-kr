@@ -12,27 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579464"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009737"
 ---
-# <a name="saas-fulfillment-apis-version-1"></a>SaaS Fulfillment Api 버전 1
+# <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Fulfillment Api 버전 1 (사용 되지 않음)
 
-이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. 이 API는 Azure를 통한 판매를 선택한 경우 SaaS 제안 구독을 허용하는 데 필요합니다.  
+이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. REST 메서드 및 끝점 구성된 Api는 선택한 Azure를 통해 판매 하는 경우 SaaS 제품에 대 한 구독을 허용 하는 데 필요 합니다.  
 
 > [!WARNING]
-> 이 초기 버전의 SaaS Fulfillment API는 사용 되지 않습니다. 대신 [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md)합니다.
-
-
-이 문서는 다음 두 개의 섹션으로 구분됩니다.
-
--   SaaS 서비스와 Azure Marketplace 간의 서비스 간 인증
--   API 메서드 및 엔드포인트
+> 이 초기 버전의 SaaS Fulfillment API는 사용 되지 않습니다. 대신 [SaaS Fulfillment API V2](./cpp-saas-fulfillment-api-v2.md)합니다.  이 API는 기존 게시자를 사용 하기 위해서만 유지 되 고 현재 됩니다. 
 
 다음 API는 Azure와 SaaS 서비스를 통합하는 데 도움을 주기 위해 제공됩니다.
 
@@ -41,112 +36,11 @@ ms.locfileid: "58579464"
 -   변환
 -   구독 취소
 
-다음 다이어그램은 새 고객에게 구독 흐름과 이러한 API가 사용되는 경우를 보여 줍니다.
 
-![SaaS 제안 API 흐름](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>SaaS 서비스와 Azure Marketplace 간의 서비스 간 인증
-
-Azure는 해당 최종 사용자에게 SaaS 서비스가 노출하는 인증을 제한하지 않습니다. 그러나 SaaS 서비스가 Azure Marketplace API와 통신하게 되면 Azure AD(Azure Active Directory) 애플리케이션의 컨텍스트에서 인증이 수행됩니다.
-
-다음 섹션에서는 Azure AD 애플리케이션을 만드는 방법을 설명합니다.
-
-
-### <a name="register-an-azure-ad-application"></a>Azure AD 애플리케이션 등록
-
-Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 애플리케이션이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 애플리케이션에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
-
-Azure Portal을 사용하여 새 애플리케이션을 등록하려면 다음 단계를 수행합니다.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 애플리케이션 등록**을 차례로 클릭합니다.
-
-   ![SaaS AD 앱 등록](./media/saas-offer-app-registration-v1.png)
-
-4. 만들기 페이지에서 애플리케이션의 등록\' 정보를 입력합니다.
-   - **이름**: 의미 있는 애플리케이션 이름을 입력합니다.
-   - **애플리케이션 형식**: 
-     - 장치에 로컬로 설치된 [클라이언트 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)에 사용됩니다.
-     - 보안 서버에 설치된 [클라이언트 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) 및 [리소스/API 애플리케이션](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)의 경우 **웹앱/API**를 선택합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) 및 공용 [사용자 에이전트 기반 클라이언트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)에 사용됩니다.
-     동일한 애플리케이션이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
-   - **로그온 URL**: 웹앱/API 애플리케이션에서 앱의 기준 URL을 제공합니다.웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 **http:\//localhost:31544** 로컬 컴퓨터에서 실행 되는 웹 앱에 대 한 일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
-   - **리디렉션 URI**: 네이티브 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 예를 들어 응용 프로그램에 특정 값을 입력 **http:\//MyFirstAADApp**합니다.
-
-     ![SaaS AD 앱 등록](./media/saas-offer-app-registration-v1-2.png)
-
-     웹 응용 프로그램 또는 네이티브 응용 프로그램에 대 한 구체적인 예에 대 한 빠른 시작을 확인해 단계별 시작 부분에서 사용할 수 있는 설치 된 [Azure AD 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)합니다.
-
-5. 작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD가 애플리케이션에 고유한 애플리케이션 ID를 할당하면 애플리케이션의 기본 등록 페이지로 이동합니다. 애플리케이션이 웹 또는 네이티브 애플리케이션인지에 따라 애플리케이션에 기능을 추가하기 위해 다른 옵션이 제공됩니다.
-
->[!Note]
->기본적으로 새로 등록된 된 응용 프로그램은 응용 프로그램에 로그인 하는 동일한 테 넌 트의 사용자만을 허용 하도록 구성 됩니다.
-
-<a name="api-methods-and-endpoints"></a>API 메서드 및 엔드포인트
--------------------------
+## <a name="api-methods-and-endpoints"></a>API 메서드 및 끝점
 
 다음 섹션에서는 SaaS 제안 구독을 사용하도록 설정하는 데 사용할 수 있는 API 메서드 및 엔드포인트에 대해 설명합니다.
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Azure AD 앱에 따라 토큰 가져오기
-
-HTTP 메서드
-
-`GET`
-
-*요청 URL*
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*URI 매개 변수*
-
-|  **매개 변수 이름**  | **필수**  | **설명**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | 등록된 AAD 애플리케이션의 테넌트 ID입니다.   |
-|  |  |  |
-
-
-*요청 헤더*
-
-|  **헤더 이름**  | **필수** |  **설명**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  콘텐츠 형식     | True         | 요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다.  |
-|  |  |  |
-
-
-*요청 본문*
-
-| **속성 이름**   | **필수** |  **설명**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | 권한 부여 유형입니다. 기본값은 `client_credentials`입니다.                    |
-|  Client_id          | True         |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.                  |
-|  client_secret      | True         |  Azure AD 앱과 연결된 암호입니다.                               |
-|  리소스           | True         |  토큰이 요청된 대상 리소스입니다. 기본값은 `62d94f6c-d599-489b-a797-3e10e42fbe22`입니다. |
-|  |  |  |
-
-
-*응답*
-
-|  **Name**  | **형식**       |  **설명**    |
-| ---------- | -------------  | ------------------- |
-| 200 정상    | TokenResponse  | 요청 성공   |
-|  |  |  |
-
-*TokenResponse*
-
-샘플 응답 토큰:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Marketplace API 엔드포인트 및 API 버전
 
@@ -223,7 +117,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | 예          | 클라이언트에서 받은 요청 ID입니다.                                                                   |
 | x-ms-correlationid | 예          | 클라이언트가 전달한 경우 상관관계 ID이고, 그렇지 않은 경우 서버 상관관계 ID입니다.                   |
-| x-ms-activityid    | 예          | 서비스의 요청을 추적하기 위한 고유한 문자열 값입니다. 모든 조정에 사용됩니다. |
+| x-ms-activityid    | 예          | 서비스의 요청을 추적하기 위한 고유한 문자열 값입니다. 이 ID는 모든 조정에 사용 됩니다. |
 | Retry-After        | 아닙니다.           | 이 값은 429 응답에 대해서만 설정됩니다.                                                                   |
 |  |  |  |
 
@@ -238,7 +132,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 | **매개 변수 이름**  | **설명**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | 확인 API를 통해 토큰을 확인한 후 획득한 SaaS 구독의 고유 ID입니다.                              |
+| subscriptionId      | 해결 API를 통해 토큰을 해결 한 후에 얻은 고유한 ID의 SaaS 구독입니다.                              |
 | api-version         | 이 요청에 사용할 작업의 버전입니다. |
 |  |  |
 
@@ -297,7 +191,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 엔드포인트 변경을 통해 현재 구독한 요금제를 새 요금제로 변환할 수 있습니다.
 
-**PATCH**
+**패치**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
@@ -361,7 +255,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 *요청*
 
-**DELETE**
+**삭제**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 

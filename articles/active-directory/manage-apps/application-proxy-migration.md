@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e831bbcb956401149d8c33fce4d00a3be5a11d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170876"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279315"
 ---
 # <a name="compare-remote-access-solutions"></a>원격 액세스 솔루션 비교
 
@@ -50,7 +50,7 @@ Azure Active Directory 애플리케이션 프록시는 Microsoft에서 제공하
 | DMZ(완충 영역)에 구성 요소 없음 | - | - | - | 예 |
 | 인바운드 연결 없음 | - | - | - | 예 |
 
-대부분의 시나리오에서 Azure AD 애플리케이션을 최신 솔루션으로 사용하는 것이 좋습니다. 웹 애플리케이션 프록시는 AD FS용 프록시 서버가 필요한 시나리오에서만 사용할 수 있으며, Azure Active Directory에서는 사용자 지정 도메인을 사용할 수 없습니다. 
+대부분의 시나리오에 대 한 최신 솔루션으로 Azure AD Application Proxy 권장 합니다. 웹 애플리케이션 프록시는 AD FS용 프록시 서버가 필요한 시나리오에서만 사용할 수 있으며, Azure Active Directory에서는 사용자 지정 도메인을 사용할 수 없습니다. 
 
 Azure AD 애플리케이션 프록시는 유사한 제품과 비교할 때 다음을 포함한 특유의 이점을 제공합니다.
 
@@ -64,5 +64,5 @@ Azure AD 애플리케이션 프록시는 유사한 제품과 비교할 때 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 애플리케이션을 사용하여 온-프레미스 애플리케이션에 대한 보안된 원격 액세스를 제공하는 방법](application-proxy.md)
+- [Azure AD 응용 프로그램을 사용 하 여 온-프레미스 응용 프로그램에 대 한 보안 원격 액세스를 제공 합니다.](application-proxy.md)
 - [Forefront TMG 및 UAG에서 애플리케이션 프록시로 전환(영문)](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/)

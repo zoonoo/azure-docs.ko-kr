@@ -77,7 +77,7 @@ Azure Site Recovery를 사용하는 동안 [가격 계산기](https://aka.ms/asr
 
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 부과되나요?
 
-예, 보호된 인스턴스를 처음으로 사용하는 31일 동안 Azure Site Recovery는 무료이지만, Azure Storage, Storage 트랜잭션 및 데이터 전송 요금이 부과될 수 있습니다. 복구된 가상 머신에도 Azure Compute 요금이 부과될 수 있습니다.
+예, 보호된 인스턴스를 처음으로 사용하는 31일 동안 Azure Site Recovery는 무료이지만, Azure Storage, Storage 트랜잭션 및 데이터 전송 요금이 부과될 수 있습니다. 복구된 가상 머신도 Azure Compute 요금이 발생할 수 있습니다.
 
 ### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Azure Site Recovery를 사용하는 동안 어떤 요금이 발생하나요?
 

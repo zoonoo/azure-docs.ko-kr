@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313023"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277786"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>관리 액세스에 대한 RBAC 역할 설정
 
@@ -32,7 +32,7 @@ Azure Search의 경우 역할은 다음 관리 작업을 지원하는 사용 권
 | 소유자 |api-key, 인덱스, 인덱서, 인덱서 데이터 원본 및 인덱서 일정 등 서비스 또는 해당 서비스의 개체를 만들거나 삭제합니다.<p>개수 및 저장소 크기를 포함하여 서비스 상태를 봅니다.<p>역할 멤버 자격을 추가하거나 삭제합니다(소유자만 역할 멤버 자격을 관리할 수 있음).<p>구독 관리자 및 서비스 소유자는 소유자 역할의 자동 멤버 자격을 갖습니다. |
 | 참가자 |RBAC 역할 관리를 제외하고 소유자와 같은 수준의 액세스 권한입니다. 예를 들어, 참여자는 개체를 만들거나 삭제하거나, [api-keys](search-security-api-keys.md)를 보고 다시 생성할 수 있지만 역할 멤버 자격을 수정할 수는 없습니다. |
 | [Search 서비스 참여자 기본 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | 참가자 역할과 동일합니다. |
-| 읽기 권한자 |서비스 기본 정보 및 메트릭을 봅니다. 이 역할의 멤버는 인덱스, 인덱서, 데이터 원본 또는 주요 정보를 볼 수 없습니다.  |
+| 판독기 |서비스 기본 정보 및 메트릭을 봅니다. 이 역할의 멤버는 인덱스, 인덱서, 데이터 원본 또는 주요 정보를 볼 수 없습니다.  |
 
 역할은 서비스 엔드포인트에 대한 액세스 권한을 부여하지 않습니다. 인덱스 관리, 인덱스 채우기 및 검색 데이터 쿼리와 같은 Search 서비스 작업은 역할이 아니라 api-key를 통해 제어합니다. 자세한 내용은 [api-key 관리](search-security-api-keys.md)를 참조하세요.
 

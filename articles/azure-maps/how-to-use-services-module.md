@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e614758a91cb3ff02822eeeeb8ae7e80d2123e5d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578733"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278601"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Azure Maps 서비스 모듈을 사용 하 여
 
@@ -27,7 +27,7 @@ Azure Maps 웹 SDK 서비스 모듈을 손쉽게 웹 또는 JavaScript 또는 Ty
     a. Azure Maps 서비스 모듈의 전역적으로 호스팅되는 CDN 버전에 대 한 스크립트 참조를 추가 하 여 사용 된 <head> 파일의 요소:
     
     ```html
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
     
     b. 또는 사용 하 여 로컬로 Azure 매핑합니다 웹 SDK 소스 코드를 로드 합니다 [azure-맵-rest](https://www.npmjs.com/package/azure-maps-rest) NPM 패키지 및 응용 프로그램을 사용 하 여 호스트 합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.

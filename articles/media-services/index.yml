@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 52a18203e5c6973822f52a65364ae2786913d4f0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803853"
 documentType: LandingData
 title: Azure Media Services 설명서
 metadata:
-  document_id: 
+  document_id: null
   title: Azure Media Services 설명서 | Microsoft Docs
-  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  meta.description: 'Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.'
   services: media-services
   author: juliako
   manager: femila
@@ -21,36 +15,36 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Media Services는 클라우드 기반 플랫폼입니다. 이를 사용하면 대부분의 인기 있는 디바이스에서 대상 그룹에 도달하는 고화질 비디오 인코딩 및 브로드캐스트 품질 비디오 스트리밍을 수행하는 솔루션을 구축할 수 있습니다. 또한 Media Services v3을 사용하면 Video Indexer에서 Media Services v3 분석기 미리 설정을 통해 비디오 및 오디오 파일의 인사이트를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요.
+  description: 'Azure Media Services는 인코딩, 패키징, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 구축할 수 있는 클라우드 기반 미디어 워크플로 플랫폼입니다. Azure Media Services는 Azure CDN과 완벽하게 통합되어 Akamai 및 Verizon의 CDN 서비스를 통해 전송 크기를 조정함으로써 고객이 자신의 요구 사항(예: 콘텐츠 전송 네트워크 간의 부하 분산)에 적합한 솔루션을 선택할 수 있도록 합니다. Azure Media Services Video Indexer를 사용하면 기본 제공 비디오 및 오디오 분석기가 미리 설정된 AI를 사용하여 메타데이터와 인사이트를 추출할 수 있습니다. Video Indexer API를 통해 제공된 AI 모델을 사용자 고유의 콘텐츠로 학습하여 정확도를 쉽게 향상시킬 수 있습니다.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: /azure/media-services/latest/
-      html: <p>Media Services v3를 사용하여 콘텐츠를 인코딩/패키징/보호하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석할 수 있습니다.</p>
-      image:
-        src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
-      title: Azure Media Services v3
-    - href: /azure/media-services/previous/
-      html: <p>Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. </p>
-      image:
-        src: 
-      title: Azure Media Services v2(레거시)
-    - href: /azure/cdn/
-      html: <p>CDN을 사용하여 정적 개체를 캐시하고 캐시할 수 없는 동적 콘텐츠를 가속화할 수 있습니다.</p>
-      image:
-        src: /azure/cdn/media/index/cdn.svg
-      title: CDN
-    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
-      html: <p>다양한 브라우저 및 디바이스의 Microsoft Azure Media Services에서 미디어 콘텐츠를 재생할 수 있습니다.</p>
-      image:
-        src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
-      title: Azure Media Player
-    - href: /azure/media-services/video-indexer/
-      html: <p>Video Indexer를 사용하여 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다.</p>
-      image:
-        src: media/index/AMSIcons-media_analytics.svg
-      title: 비디오 인덱서
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/media-services/latest/
+            html: '<p>Media Services v3를 사용하여 콘텐츠를 인코딩/패키징/보호하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석할 수 있습니다.</p>'
+            image:
+              src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
+            title: Azure Media Services v3
+          - href: /azure/media-services/previous/
+            html: '<p>인코딩, 패키지, 보호 등을 수행합니다. 유지 관리 중인 레거시 서비스입니다. 고객은 새로운 기능과 향상된 기능을 갖춘 Media Services v3으로 마이그레이션하는 것이 좋습니다.</p>'
+            image:
+              src: null
+            title: Azure Media Services v2(레거시)
+          - href: /azure/cdn/
+            html: <p>Azure CDN의 기능을 사용하여 Akamai 및 Verizon의 서비스를 통해 규모에 맞게 콘텐츠를 스트림하거나 여러 콘텐츠 전송 네트워크에서 부하를 분산시킬 수 있습니다.</p>
+            image:
+              src: /azure/cdn/media/index/cdn.svg
+            title: CDN
+          - href: 'http://amp.azure.net/libs/amp/latest/docs/index.html'
+            html: <p>다양한 브라우저 및 디바이스의 Microsoft Azure Media Services에서 미디어 콘텐츠를 재생할 수 있습니다.</p>
+            image:
+              src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
+            title: Azure Media Player
+          - href: /azure/media-services/video-indexer/
+            html: <p>Video Indexer를 사용하여 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다.</p>
+            image:
+              src: media/index/AMSIcons-media_analytics.svg
+            title: Azure Media Services Video Indexer

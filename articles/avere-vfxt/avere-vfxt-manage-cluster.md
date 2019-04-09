@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745557"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058053"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -26,8 +26,8 @@ ms.locfileid: "55745557"
 | 클러스터 노드 추가 | no | 예 | no |
 | 클러스터 노드 제거 | 예 | no | no |
 | 클러스터 노드 중지 | 예(서비스를 다시 시작하거나 다시 부팅할 수도 있음) | no | 포털에서 노드 VM의 작동을 중지하면 노드 실패로 해석됩니다. |
-| 중지된 노드 시작 | no | no | 예 |
-| 단일 클러스터 노드 삭제 | no | no | 예 |
+| 중지된 노드 시작 | no | 아니요 | 예 |
+| 단일 클러스터 노드 삭제 | no | 아니요 | 예 |
 | 클러스터 다시 부팅 |  |  |  |
 | 안전하게 클러스터 종료 또는 중지 | 예 | 예 | no |
 | 클러스터 삭제  | no | 예 | 예, 하지만 데이터 무결성은 보장되지 않습니다. |
@@ -36,9 +36,9 @@ ms.locfileid: "55745557"
 
 ## <a name="about-stopped-instances-in-azure"></a>Azure에서 중지된 인스턴스 정보
 
-Azure VM을 종료하거나 중지하면 계산 비용이 발생하지 않지만 저장소 비용은 계속 지불해야 합니다. vFXT 노드 또는 전체 vFXT 클러스터를 종료하고 다시 시작하지 않으려면 Azure Portal을 사용하여 관련 VM을 삭제해야 합니다. 
+Azure VM을 종료하거나 중지하면 계산 비용이 발생하지 않지만 스토리지 비용은 계속 지불해야 합니다. vFXT 노드 또는 전체 vFXT 클러스터를 종료하고 다시 시작하지 않으려면 Azure Portal을 사용하여 관련 VM을 삭제해야 합니다. 
 
-Azure Portal에서 *중지된* 노드(다시 시작할 수 있음)는 Azure Portal에서 **중지됨** 상태를 표시하고, *삭제된* 노드는 **중지됨(할당 취소됨)** 상태를 표시하며, 더 이상 계산 또는 저장소 요금이 발생되지 않습니다.
+Azure Portal에서 *중지된* 노드(다시 시작할 수 있음)는 Azure Portal에서 **중지됨** 상태를 표시하고, *삭제된* 노드는 **중지됨(할당 취소됨)** 상태를 표시하며, 더 이상 계산 또는 스토리지 요금이 발생되지 않습니다.
 
 VM을 삭제하기 전에 Avere 제어판 또는 vfxt.py 옵션을 통해 클러스터를 중지하거나 종료하여 변경된 모든 데이터가 캐시에서 백 엔드 저장소로 기록되었는지 확인합니다.
 
@@ -98,7 +98,7 @@ Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드
 * 클러스터에 대한 리소스 그룹 이름 및 클러스터와 동일하지 않은 경우 네트워크 및 저장소 리소스에 대한 리소스 그룹 이름
 * 클러스터 위치
 * 클러스터 네트워크 및 서브넷 
-* 클러스터 노드 액세스 역할 
+* 클러스터 노드 액세스 역할 (기본 제공 역할을 사용 하 여 [Avere 연산자](../role-based-access-control/built-in-roles.md#avere-operator))
 * 클러스터 관리 IP 주소 및 관리 암호 
 * 추가할 노드 수(1, 2 또는 3)
 * 노드 인스턴스 유형 및 캐시 크기 값 
@@ -113,7 +113,7 @@ Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -187,7 +187,7 @@ vFXT 노드로 사용되는 하나 이상의 인스턴스를 영구적으로 삭
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Azure Portal에서 추가 클러스터 리소스 삭제
 
-vFXT 클러스터에 대해 특별히 추가 리소스를 만든 경우 클러스터 분해의 일환으로 해당 리소스를 제거하는 것이 좋습니다. 필요한 데이터 또는 다른 프로젝트와 공유되는 항목이 포함된 요소는 삭제하면 안됩니다.
+vFXT 클러스터에 대해 특별히 추가 리소스를 만든 경우 클러스터 분해의 일환으로 해당 리소스를 제거하는 것이 좋습니다. 필요한 데이터를 또는 다른 프로젝트와 공유 되는 모든 항목을 포함 하는 요소를 제거 하지 않습니다.
 
 클러스터 노드를 삭제하는 것 외에도 다음 구성 요소를 제거하는 것이 좋습니다. 
 

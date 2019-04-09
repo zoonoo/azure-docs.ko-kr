@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 04/03/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cce1883295277f6c6c36d686d90370238265dbf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3df092377a29492facd972745933cd5f4a1ae3bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775852"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275524"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Files의 저장소 계층 구조 이해
 
@@ -36,18 +36,15 @@ Azure NetApp Files에서 볼륨을 만들기 전에 프로비전된 용량에 �
 
 - 용량 풀은 해당 프로비전된 용량에 의해 측정됩니다.  
 - 용량은 구입한 고정 SKU(예: 4TiB 용량)를 통해 프로비전됩니다.
-- 단일 용량 풀의 최소 크기는 4TiB이고, 최대 크기는 500TiB입니다. 
 - 용량 풀은 하나의 서비스 수준만 가질 수 있습니다.  
-  현재 프리미엄 서비스 수준만 제공됩니다.
 - 각 용량 풀은 하나의 NetApp 계정에만 속할 수 있습니다. 그러나 NetApp 계정에는 여러 개의 용량 풀이 있을 수 있습니다.  
 - 용량 풀은 NetApp 계정 간에 이동할 수 없습니다.   
   예를 들어 아래 [저장소 계층 구조의 개념 다이어그램](#conceptual_diagram_of_storage_hierarchy)에서 용량 풀 1은 미국 동부 NetApp 계정에서 미국 서부 2 NetApp 계정으로 이동할 수 없습니다.  
 
 ## <a name="volumes"></a>볼륨
 
-- 볼륨은 논리적 용량 사용량으로 측정되며 확장 가능합니다. 단일 볼륨의 최소 크기는 100GiB이고, 최대 크기는 92TiB입니다.
+- 볼륨은 논리적 용량 사용량으로 측정되며 확장 가능합니다. 
 - 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다.
--   Azure 구독당 지역당 최대 100개의 볼륨을 갖출 수 있습니다. 
 - 각 볼륨은 하나의 풀에만 속하지만 풀은 여러 볼륨을 포함할 수 있습니다. 
 - 동일한 NetApp 계정 내에서 풀 간에 볼륨을 이동할 수 있습니다.    
   예를 들어 아래 [저장소 계층 구조의 개념 다이어그램](#conceptual_diagram_of_storage_hierarchy)에서 용량 풀 1에서 용량 풀 2로 볼륨을 이동할 수 있습니다.

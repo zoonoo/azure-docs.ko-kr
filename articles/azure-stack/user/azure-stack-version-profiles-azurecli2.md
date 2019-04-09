@@ -14,16 +14,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487586"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057781"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 Linux, Mac 및 Windows 클라이언트 플랫폼에서 Azure Stack 개발 키트 (ASDK) 리소스를 관리 하는 Azure 명령줄 인터페이스 (CLI)를 설정 하려면이 문서의 단계를 수행할 수 있습니다.
 
@@ -99,7 +99,7 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
     python -m pip install --upgrade pip
     ```
 
-3. 설치 합니다 **로** 모듈입니다. [로](https://pypi.org/project/certifi/) 모듈 및 TLS 호스트의 id를 확인 하는 동안 SSL 인증서를 신뢰할 수 있는지 유효성을 검사 하는 것에 대 한 루트 인증서의 컬렉션입니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
+3. 설치 합니다 **로** 모듈입니다. [로](https://pypi.org/project/certifi/) 모듈 이며 TLS 호스트의 id를 확인 하는 동안 SSL 인증서를 신뢰할 수 있는지 유효성을 검사 하는 것에 대 한 루트 인증서의 컬렉션입니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
     ```powershell
     pip install certifi
@@ -139,7 +139,7 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
     sudo -H pip3 install --upgrade pip
     ```
 
-3. 설치 합니다 **로** 모듈입니다. [로](https://pypi.org/project/certifi/) 모듈 및 TLS 호스트의 id를 확인 하는 동안 SSL 인증서를 신뢰할 수 있는지 유효성을 검사 하는 것에 대 한 루트 인증서의 컬렉션입니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
+3. 설치 합니다 **로** 모듈입니다. [로](https://pypi.org/project/certifi/) 모듈 이며 TLS 호스트의 id를 확인 하는 동안 SSL 인증서를 신뢰할 수 있는지 유효성을 검사 하는 것에 대 한 루트 인증서의 컬렉션입니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
     ```bash
     pip3 install certifi
@@ -634,6 +634,6 @@ Azure Stack에서 CLI를 사용 하는 경우 발견 된 문제 들입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
+- [Azure CLI를 사용 하 여 템플릿 배포](azure-stack-deploy-template-command-line.md)
 - [Azure Stack 사용자 (운영자)에 대 한 Azure CLI를 사용 하도록 설정](../azure-stack-cli-admin.md)
 - [사용자 권한 관리](azure-stack-manage-permissions.md) 

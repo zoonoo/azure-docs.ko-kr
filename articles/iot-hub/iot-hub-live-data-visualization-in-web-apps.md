@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub에서 센서 데이터의 실시간 데이터 시각화 – Web Apps | Microsoft Docs
 description: Microsoft Azure App Service의 Web Apps 기능을 사용하여 센서에서 수집하여 IoT Hub로 보낸 온도 및 습도 데이터를 시각화할 수 있습니다.
-author: rangv
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: c43431cd6ddbbbf8f6cb709b8c1783179d6cf760
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.author: robinsh
+ms.openlocfilehash: b870c432ea8021d9eeb14eec85ff9912b96ddc96
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158723"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270883"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Azure App Service의 Web Apps 기능을 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -35,7 +35,7 @@ ms.locfileid: "50158723"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* 다음 요구 사항을 다루는 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md)
+* 다음 요구 사항을 다루는 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md)
 
   * 활성 Azure 구독
   * 구독 중인 IoT Hub
@@ -59,7 +59,7 @@ ms.locfileid: "50158723"
 
 1. 방금 프로비전한 웹앱을 엽니다.
 
-2. **응용 프로그램 설정**을 클릭한 다음 **앱 설정** 아래에서 다음 키/값 쌍을 추가합니다.
+2. **애플리케이션 설정**을 클릭한 다음 **앱 설정** 아래에서 다음 키/값 쌍을 추가합니다.
 
    | 키                                   | 값                                                        |
    |---------------------------------------|--------------------------------------------------------------|
@@ -69,7 +69,7 @@ ms.locfileid: "50158723"
 
    ![키/값 쌍을 사용하여 Azure 웹앱에 설정 추가](./media/iot-hub-live-data-visualization-in-web-apps/3_web-app-settings-key-value-azure.png)
 
-3. **응용 프로그램 설정**을 클릭하고 **일반 설정**에서 **웹 소켓** 옵션을 설정/해제한 후 **저장**을 클릭합니다.
+3. **애플리케이션 설정**을 클릭하고 **일반 설정**에서 **웹 소켓** 옵션을 설정/해제한 후 **저장**을 클릭합니다.
 
    ![웹 소켓 옵션 설정/해제](./media/iot-hub-live-data-visualization-in-web-apps/4_toggle_web_sockets.png)
 
@@ -112,7 +112,7 @@ IoT Hub에서 실시간 온도 및 습도 데이터를 볼 수 있습니다.
 ![실시간 온도 및 습도를 보여 주는 웹앱 페이지](./media/iot-hub-live-data-visualization-in-web-apps/8_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 > [!NOTE]
-> 응용 프로그램 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 빈 차트를 받습니다. [사용자 디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
+> 애플리케이션 예제가 사용자 장치에서 실행 중인지 확인합니다. 그렇지 않은 경우 빈 차트를 받습니다. [사용자 디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

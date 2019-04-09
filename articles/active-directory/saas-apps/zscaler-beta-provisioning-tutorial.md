@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 83db6b8d-503b-48f3-b918-f9fba1369d53
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 47cfa5b2d97148c6b925a071f46518afd3ec8d5e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 54cf2924a94dda1d29baf048c866f019b82e1402
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109647"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056455"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>자습서: Zscaler Beta에 자동 사용자 프로 비전 구성
 
@@ -27,46 +28,42 @@ ms.locfileid: "58109647"
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
-> 
+>
+
 > 이 커넥터는 현재 공개 미리 보기로 제공 됩니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [사용 특약 조건의 Microsoft Azure 미리 보기에 대 한](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서 설명한 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-*   Azure AD 테넌트
-*   Zscaler Beta 테 넌 트
-*   관리자 권한으로 Zscaler Beta의 사용자 계정
+* Azure AD 테넌트
+* Zscaler Beta 테 넌 트
+* 관리자 권한으로 Zscaler Beta의 사용자 계정
 
 > [!NOTE]
 > Azure AD 프로 비전 통합은 엔터프라이즈 패키지를 사용 하 여 계정에 대 한 Zscaler Beta 개발자에 게 제공 되는 Zscaler Beta SCIM API를 사용 합니다.
 
 ## <a name="adding-zscaler-beta-from-the-gallery"></a>갤러리에서 Zscaler Beta 추가
+
 Zscaler Beta에 대 한 자동 사용자를 Azure AD 프로 비전을 구성 하기 전에 Azure AD 응용 프로그램 갤러리에서 Zscaler Beta를 관리 되는 SaaS 응용 프로그램의 목록에 추가 해야 합니다.
 
 **Azure AD 응용 프로그램 갤러리에서 Zscaler Beta를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
-    ![Azure Active Directory 단추][1]
+    ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 섹션][2]
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. Zscaler Beta를 추가 하려면 클릭 합니다 **새 응용 프로그램** 대화 상자의 위쪽 단추입니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 애플리케이션 단추][3]
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Zscaler Beta**를 입력합니다.
+4. 검색 상자에 **Zscaler Beta**를 입력하고 결과 패널에서 **Zscaler Beta**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-    ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/app-search.png)
-
-5. 결과 패널에서 선택 **Zscaler Beta**를 클릭 하 고는 **추가** Zscaler Beta SaaS 응용 프로그램 목록에 추가 하려면 단추입니다.
-
-    ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/app-search-results.png)
-
-    ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/app-creation.png)
+    ![결과 목록의 Zscaler Beta](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler-beta"></a>Zscaler Beta에 사용자 할당
 
@@ -74,13 +71,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 를 구성 하 고 자동 사용자 프로 비전을 사용 하도록 설정 하기 전에 Zscaler Beta에 대 한 액세스를 해야 하는 사용자 및/또는 Azure AD의 그룹 결정 해야 합니다. 결정 했으면 할당할 수 있습니다 이러한 사용자 및/또는 그룹 Zscaler Beta에 여기의 지침에 따라.
 
-*   [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-beta"></a>사용자가 Zscaler Beta에 할당 하기 위한 주요 팁
 
-*   것이 좋습니다는 단일 Azure AD 사용자는 자동 사용자 프로 비전 구성을 테스트 하려면 Zscaler Beta에 할당 됩니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+* 것이 좋습니다는 단일 Azure AD 사용자는 자동 사용자 프로 비전 구성을 테스트 하려면 Zscaler Beta에 할당 됩니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*   사용자를 Zscaler Beta에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)를 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
+* 사용자를 Zscaler Beta에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할 (사용 가능한 경우)를 선택 해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-beta"></a>Zscaler Beta에 자동 사용자 프로비저닝 구성
 
@@ -91,11 +88,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Azure AD에서 Zscaler Beta에 대 한 자동 사용자 프로 비전을 구성 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션**으로 차례로 이동합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 선택한 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **Zscaler Beta**합니다.
 
-2. SaaS 응용 프로그램 목록에서 Zscaler Beta를 선택 합니다.
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-    ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/app-instance-search.png)
+2. 애플리케이션 목록에서 **Zscaler Beta**를 선택합니다.
+
+    ![애플리케이션 목록의 Zscaler Beta 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
@@ -107,20 +106,20 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. 아래는 **관리자 자격 증명** 섹션에서는 입력 합니다 **테 넌 트 URL** 및 **비밀 토큰** 6 단계에에서 설명 된 대로 Zscaler Beta 계정.
 
-6. 가져오려고 합니다 **테 넌 트 URL** 및 **비밀 토큰**, 이동할 **관리 > 인증 설정을** 클릭확인하고ZscalerBeta포털사용자인터페이스 **SAML** 아래에서 **인증 유형**합니다. 
+6. 가져오려고 합니다 **테 넌 트 URL** 및 **비밀 토큰**, 이동할 **관리 > 인증 설정을** 클릭확인하고ZscalerBeta포털사용자인터페이스 **SAML** 아래에서 **인증 유형**합니다.
 
     ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
-    
-    클릭할 **SAML 구성** 열려는 합니다 **구성 SAML** 옵션입니다. 
+
+    클릭할 **SAML 구성** 열려는 합니다 **구성 SAML** 옵션입니다.
 
     ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
-    
+
     선택 **Enable SCIM-Based 프로 비전** 검색할 **기준 URL** 하 고 **전달자 토큰**, 다음 설정을 저장 합니다. 복사 합니다 **기준 URL** 하 **테 넌 트 URL**, 및 **전달자 토큰** 에 **비밀 토큰** Azure portal에서.
 
 7. 5 단계에서에서 표시 된 필드를 채우면 클릭 **연결 테스트** 를 azure AD가 Zscaler Beta에 연결할 수 있습니다. 연결에 실패 하면, Zscaler 베타 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/test-connection.png)
-    
+
 8. **알림 이메일** 필드에 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
 
     ![프로 비전 하는 Zscaler Beta](./media/zscaler-beta-provisioning-tutorial/notification.png)
@@ -163,12 +162,12 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../active-directory-saas-provisioning-reporting.md).
+* [로그를 검토 하 고 프로 비전 활동에 대 한 보고서를 확인 하는 방법에 알아봅니다](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-beta-provisioning-tutorial/tutorial-general-01.png

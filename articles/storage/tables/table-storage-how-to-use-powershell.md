@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 840c2793928816c6346e2039a38678585f8e0bc7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540230"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273127"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,16 +32,19 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 
 이 아티클에서는 새 리소스 그룹에 새 Azure Storage 계정을 만드는 방법을 보여주며, 이 경우에 작업을 완료할 때 쉽게 제거할 수 있습니다. 기존 Storage 계정을 사용하려는 경우 해당 스토리지 계정을 대신 사용할 수 있습니다.
 
-Az PowerShell 모듈 필요 `Az.Storage (1.1.3 or greater)` 고 `Az.Resources (1.2.0 or greater)`입니다. PowerShell 창에서 `Get-Module -ListAvailable Az*`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
+Az PowerShell 모듈 필요 `Az.Storage (1.1.0 or greater)` 고 `Az.Resources (1.2.0 or greater)`입니다. PowerShell 창에서 `Get-Module -ListAvailable Az*`을 실행하여 버전을 확인합니다. 표시되는 항목이 없거나 업그레이드가 필요한 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!IMPORTANT]
-> PowerShell에서 이 Azure 기능을 사용하려면 `Az` 모듈이 설치되어 있어야 합니다. 현재 버전의 AzureRmStorageTable 이전 AzureRM 모듈을 사용 하 여 호환 되지 않습니다.
+> PowerShell에서 이 Azure 기능을 사용하려면 `Az` 모듈이 설치되어 있어야 합니다. 현재 버전의 `AzTable` 이전 AzureRM 모듈은 호환 되지 않습니다.
 > 수행 합니다 [최신 설치 Az 모듈을 설치 하기 위한 지침](/powershell/azure/install-az-ps) 필요한 경우.
 
-Azure PowerShell을 설치하거나 업데이트한 후에 엔터티 관리 명령이 있는 **AzureRmStorageTable** 모듈을 설치해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
+Azure PowerShell을 설치 하거나 업데이트 한 후에 모듈을 설치 해야 합니다 **AzTable**, 엔터티를 관리 하기 위한 명령이 있습니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
+
+> [!IMPORTANT]
+> 모듈에 대 한 이름 호환성 이유로 이전 이름으로이 동일한 모듈 게시 여전히 `AzureRmStorageTables` PowerShell 갤러리에 있습니다. 이 문서는 새 이름만을 참조 합니다.
 
 ```powershell
-Install-Module AzureRmStorageTable
+Install-Module AzTable
 ```
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -115,9 +118,9 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>특정 테이블의 참조 CloudTable 속성
 
 > [!IMPORTANT]
-> CloudTable 사용 작업을 할 때 반드시 **AzureRmStorageTable** PowerShell 모듈. 호출 된 **Get AzTableTable** 이 개체에 대 한 참조를 가져오려면 명령을 합니다. 이 명령은 이미 존재 하지 않는 경우에 테이블을 만듭니다.
+> CloudTable 사용 작업을 할 때 반드시 **AzTable** PowerShell 모듈. 호출 된 **Get AzTableTable** 이 개체에 대 한 참조를 가져오려면 명령을 합니다. 이 명령은 이미 존재 하지 않는 경우에 테이블을 만듭니다.
 
-사용 하 여 테이블에서 작업을 수행할 **AzureRmStorageTable**, 특정 테이블의 CloudTable 속성에 대 한 참조 해야 합니다.
+사용 하 여 테이블에서 작업을 수행할 **AzTable**, 특정 테이블의 CloudTable 속성에 대 한 참조 해야 합니다.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
@@ -160,6 +163,6 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 * [Storage PowerShell cmdlet](/powershell/module/az.storage#storage)
 
-* [PowerShell-AzureRmStorageTable PS 모듈 v2.0에서에서 Azure 테이블 작업](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
+* [PowerShell-AzureRmStorageTable/AzTable PS 모듈 v2.0에서에서 Azure 테이블 작업](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.

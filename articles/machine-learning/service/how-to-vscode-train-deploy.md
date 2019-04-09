@@ -59,7 +59,7 @@ VS Code용 Azure Machine Learning을 사용하여 데이터를 준비하고, 모
 
 8. 컴퓨팅 대상 구성을 마치면 화면의 오른쪽 하단 모서리에 있는 **제출**을 클릭합니다.
 
-Azure Machine Learning Compute(AMLCompute)를 만드는 예제는 다음과 같습니다. [![VS Code에서 AML 컴퓨팅 만들기](./media/vscode-tools-for-ai/CreateARemoteCompute.gif)](./media/vscode-tools-for-ai/CreateARemoteCompute.gif#lightbox)
+Azure Machine Learning 컴퓨팅(AMLCompute)을 만드는 예제는 다음과 같습니다. [![VS Code에서 AML 컴퓨팅 만들기](./media/vscode-tools-for-ai/CreateARemoteCompute.gif)](./media/vscode-tools-for-ai/CreateARemoteCompute.gif#lightbox)
 
 #### <a name="the-run-configuration-file"></a>‘실행 구성’ 파일
 

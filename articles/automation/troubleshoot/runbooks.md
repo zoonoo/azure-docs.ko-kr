@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805077"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267347"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -137,7 +137,7 @@ Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서�
 
 #### <a name="issue"></a>문제
 
-`-Wait` 스위치를 사용하여 자식 Runbook을 호출하면 다음 오류가 발생하며 출력 스트림에 개체가 포함되어 있습니다.
+사용 하 여 자식 runbook을 호출할 때 다음 오류가 표시 된 `-Wait` 스위치 및 출력 스트림을 포함 하 고 개체:
 
 ```error
 Object reference not set to an instance of an object
@@ -483,6 +483,29 @@ webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성
 
 * Runbook을 편집하고 내보내는 작업 스트림 수를 줄입니다.
 * cmdlet을 실행할 때 검색할 스트림 수를 줄입니다. 이 동작을 수행하려면 `Get-AzureRmAutomationJobOutput` cmdlet에 대해 `-Stream Output` 매개 변수를 지정하여 출력 스트림만 검색할 수 있습니다. 
+
+### <a name="cannot-invoke-method"></a>시나리오: PowerShell 작업 오류로 인해 실패 합니다. 메서드를 호출할 수 없습니다.
+
+#### <a name="issue"></a>문제
+
+Azure에서 실행 되는 runbook에서 PowerShell 작업을 시작할 때 다음 오류 메시지가 나타날 있습니다.
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>원인
+
+Runbook의 작업이 Azure에서 실행 하는 PowerShell을 시작할 때이 오류가 발생할 수 있습니다. Azure에서 runbook 실행 때문에이 동작이 발생할 수 있습니다 샌드박스 실행 되지 않을 수는 [전체 언어 모드](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### <a name="resolution"></a>해결 방법
+
+이 오류를 해결하는 방법은 두 가지가 있습니다.
+
+* 사용 하는 대신 `Start-Job`를 사용 하 여 `Start-AzureRmAutomationRunbook` runbook을 시작 하려면
+* Runbook이 오류 메시지에 있는 경우 Hybrid Runbook Worker에서 실행
+
+Azure Automation Runbook의 다른 동작과이 동작에 대 한 자세한 내용은 참조 하세요 [Runbook 동작](../automation-runbook-execution.md#runbook-behavior)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

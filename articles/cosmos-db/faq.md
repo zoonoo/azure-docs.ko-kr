@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881044"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010620"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -95,8 +95,9 @@ Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆�
 * MongoDB 계정의 경우 구독당 최대 3개의 컬렉션
 * 10GB 저장소 용량
 * 전역 복제는 [Azure 지역](https://azure.microsoft.com/regions/) 미국 중부, 북유럽 및 동남 아시아에서 사용할 수 있습니다.
-* 최대 처리량 5K RU/s
-* 구독은 24시간 후에 만료되고 최대 총 48시간까지 확장될 수 있습니다.
+* 5 5k RU/s 컨테이너 수준에서 프로 비전 하는 경우의 최대 처리량입니다.
+* 20 5k RU/s 데이터베이스 수준에서 프로 비전 하는 경우의 최대 처리량입니다.
+* 구독에는 30 일 후 만료 및 최대 31 일 동안 총 확장할 수 있습니다.
 * Azure Cosmos DB 체험 계정용으로 Azure 지원 티켓을 만들 수 없습니다. 단, 기존 지원 플랜을 사용하는 구독자에게는 지원이 제공됩니다.
 
 ## <a name="set-up-azure-cosmos-db"></a>Azure Cosmos DB 설정

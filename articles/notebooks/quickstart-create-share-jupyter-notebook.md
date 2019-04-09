@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104406"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273671"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>빠른 시작: Notebook 만들기 및 공유
 
@@ -43,7 +43,7 @@ ms.locfileid: "58104406"
 
 1. 잠시 후 Azure Notebooks는 새 프로젝트로 이동합니다. **+ 새로 만들기** 드롭다운 목록 (**+** 만 나타날 수 있음)을 선택하여 Notebook에 이 프로젝트를 추가한 다음, **Notebook**을 선택합니다.
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "빈 새 프로젝트 및 Notebook 명령 추가")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "새 프로젝트에 빈 데이터 요소 및 notebook 명령 추가")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. **새 Notebook 만들기** 팝업이 나타나면 *HelloWorldInPython.ipynb* (*.ipynb*은 IronPython (Jupyter) Notebook을 의미함) 같은 Notebook 파일 이름을 입력한 다음, **Python 3.6** 언어 (*커널*이라고도 함)를 선택합니다.
 
@@ -106,4 +106,4 @@ Notebook을 공유하려면 필요한 경우 프로젝트 페이지로 다시 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 위해 Jupyter notebook을 실행 만들기](tutorial-create-run-jupyter-notebook.md)

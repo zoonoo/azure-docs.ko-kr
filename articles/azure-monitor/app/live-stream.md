@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814948"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009968"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -34,9 +34,9 @@ ms.locfileid: "55814948"
 * 모든 Windows 성능 카운터를 실시간 모니터링합니다.
 * 문제가 있는 서버를 쉽게 식별하고 해당 서버로의 모든 KPI/라이브 피드만 필터링합니다.
 
-[![라이브 메트릭 스트림 비디오](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![L수동 메트릭 Stream 비디오](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions 및 Java 앱에 대해 지원됩니다.
+라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions, Java 및 Node.js 앱에 대 한 지원 됩니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -60,7 +60,7 @@ ms.locfileid: "55814948"
 | |라이브 스트림 | 메트릭 탐색기 및 분석 |
 |---|---|---|
 |대기 시간|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
-|보존 없음|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|보존 없음|데이터가 차트에 있는 동안 지속된 후 삭제됨|[90 일 동안 보존 된 데이터](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |주문형|라이브 메트릭을 여는 동안 데이터가 스트리밍됨|SDK가 설치되고 사용될 때마다 데이터가 전송됨|
 |무료|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
 |샘플링|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
@@ -207,7 +207,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights를 사용하여 사용량 모니터링](../../azure-monitor/app/usage-overview.md)
+* [Application Insights를 사용 하 여 사용량 모니터링](../../azure-monitor/app/usage-overview.md)
 * [진단 검색 사용](../../azure-monitor/app/diagnostic-search.md)
 * [프로파일러](../../azure-monitor/app/profiler.md)
 * [스냅숏 디버거](../../azure-monitor/app/snapshot-debugger.md)

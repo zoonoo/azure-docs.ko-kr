@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 OAuth2.0 On-Behalf-Of 흐름 | Microsoft Docs
+title: Microsoft id 플랫폼 및 oauth 2.0에서-대리 흐름 | Azure
 description: 이 문서는 OAuth 2.0 On-Behalf-Of 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -13,30 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576933"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058682"
 ---
-# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 On-Behalf-Of 흐름
+# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-OAuth 2.0 OBO(On-Behalf-Of) 흐름은 애플리케이션이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
+OAuth 2.0 OBO(On-Behalf-Of) 흐름은 애플리케이션이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 다운스트림 서비스에 인증 된 요청을 하려면 중간 계층 서비스에 대 한 Microsoft id 플랫폼에서 사용자 대신 액세스 토큰을 보호 해야 합니다.
 
 > [!NOTE]
-> v2.0 엔드포인트는 일부 Azure AD 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요. 특히, 알려진 클라이언트 애플리케이션이 MSA(Microsoft 계정) 및 Azure AD 대상 사용자의 앱에서 지원되지 않습니다. 따라서 OBO의 일반적인 동의 패턴이 개인 계정과 회사 또는 학교 계정 둘 다로 로그인하는 클라이언트에는 작동하지 않습니다. 이 흐름 단계를 처리하는 방법에 대한 자세한 내용은 [중간 계층 애플리케이션에 대한 동의 얻기](#gaining-consent-for-the-middle-tier-application)를 참조하세요.
-
-
-> [!IMPORTANT]
-> 2018년 5월을 기준으로 일부 암시적 흐름 파생 `id_token`은 OBO 흐름에 사용할 수 없습니다. SPA(단일 페이지 앱)는 OBO 흐름을 수행하려면, 대신 중간 계층 기밀 클라이언트에 **액세스** 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [제한 사항](#client-limitations)을 참조하세요.
+>
+> - Microsoft id 플랫폼 끝점에는 일부 시나리오 및 기능만 지원 하지 않습니다. 에 대 한 자세한 내용은 Microsoft id 플랫폼 끝점을 사용 해야 하는지 여부를 확인 합니다 [Microsoft identity 플랫폼 제한](active-directory-v2-limitations.md)합니다. 특히, 알려진 클라이언트 애플리케이션이 MSA(Microsoft 계정) 및 Azure AD 대상 사용자의 앱에서 지원되지 않습니다. 따라서 OBO의 일반적인 동의 패턴이 개인 계정과 회사 또는 학교 계정 둘 다로 로그인하는 클라이언트에는 작동하지 않습니다. 이 흐름 단계를 처리하는 방법에 대한 자세한 내용은 [중간 계층 애플리케이션에 대한 동의 얻기](#gaining-consent-for-the-middle-tier-application)를 참조하세요.
+> - 2018년 5월을 기준으로 일부 암시적 흐름 파생 `id_token`은 OBO 흐름에 사용할 수 없습니다. SPA(단일 페이지 앱)는 OBO 흐름을 수행하려면, 대신 중간 계층 기밀 클라이언트에 **액세스** 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [제한 사항](#client-limitations)을 참조하세요.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -44,16 +42,16 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름은 애플리케이션이 서비스/웹 API를
 
 다음 단계는 OBO 흐름을 구성하며 다음 다이어그램을 통해 쉽게 이해할 수 있습니다.
 
-![OAuth 2.0 On-Behalf-Of 흐름](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth 2.0 On-Behalf-Of 흐름](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. 클라이언트 애플리케이션은 토큰 A(API A의 `aud` 클레임 포함)를 사용하여 API A에 요청합니다.
-1. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
-1. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
+1. API는 Microsoft id 플랫폼 토큰 발급 끝점을 인증 하 고 2. API에 액세스 하는 토큰 요청
+1. Microsoft id 플랫폼 토큰 발급 끝점 토큰 A와 함께 API A의 자격 증명의 유효성을 검사 하 고 API B (토큰 B)에 대 한 액세스 토큰을 발급 합니다.
 1. 토큰 B는 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
 1. 보안 리소스의 데이터가 API B에 의해 반환됩니다.
 
 > [!NOTE]
-> 이 시나리오에서는 중간 계층 서비스에서 다운스트림 API에 액세스하기 위해 사용자 동의를 얻기 위한 사용자 상호 작용이 없습니다. 따라서 다운스트림 API에 대한 액세스를 부여할 수 있는 옵션이 인증 과정에서 동의 단계 중 일부로 미리 제공됩니다. 앱에 대해 이를 설정하는 방법을 알아보려면 [중간 계층 애플리케이션에 대한 동의 얻기](#gaining-consent-for-the-middle-tier-application)를 참조하세요. 
+> 이 시나리오에서는 중간 계층 서비스에서 다운스트림 API에 액세스하기 위해 사용자 동의를 얻기 위한 사용자 상호 작용이 없습니다. 따라서 다운스트림 API에 대한 액세스를 부여할 수 있는 옵션이 인증 과정에서 동의 단계 중 일부로 미리 제공됩니다. 앱에 대해 이를 설정하는 방법을 알아보려면 [중간 계층 애플리케이션에 대한 동의 얻기](#gaining-consent-for-the-middle-tier-application)를 참조하세요.
 
 ## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
 
@@ -139,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| `token_type` | 토큰 유형 값을 나타냅니다. Azure AD는 `Bearer` 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
+| `token_type` | 토큰 유형 값을 나타냅니다. Microsoft identity 플랫폼에서는 유일한 입력 `Bearer`합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 | `scope` | 토큰에 부여된 액세스 범위입니다. |
 | `expires_in` | 액세스 토큰이 유효한 시간(초)입니다. |
 | `access_token` | 요청된 액세스 토큰입니다. 호출 서비스는 이 토큰을 사용하여 수신 서비스에 인증할 수 있습니다. |
@@ -161,7 +159,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 > [!NOTE]
-> 위의 액세스 토큰은 v1.0 형식의 토큰입니다. 이는 토큰이 액세스되는 리소스에 따라 제공되기 때문입니다. Microsoft Graph는 v1.0 토큰을 요청하므로 클라이언트에서 Microsoft Graph용 토큰을 요청할 때 Azure AD에서 v1.0 액세스 토큰을 생성합니다. 애플리케이션에만 액세스 토큰이 표시되어야 합니다. 클라이언트는 액세스 토큰을 검사할 필요가 없습니다. 
+> 위의 액세스 토큰은 v1.0 형식의 토큰입니다. 이는 토큰이 액세스되는 리소스에 따라 제공되기 때문입니다. Microsoft Graph는 클라이언트가 Microsoft Graph 용 토큰을 요청 하면 Microsoft id 플랫폼 v1.0 액세스 토큰을 생성 하므로 v1.0 토큰을 요청 합니다. 애플리케이션에만 액세스 토큰이 표시되어야 합니다. 클라이언트는 액세스 토큰을 검사할 필요가 없습니다.
 
 ### <a name="error-response-example"></a>오류 응답 예제
 
@@ -199,9 +197,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 #### <a name="default-and-combined-consent"></a>/.default 및 결합된 승인
 
-회사 또는 학교 계정으로 로그인해야 하는 애플리케이션에서는 기존의 "알려진 클라이언트 애플리케이션" 접근 방식으로 충분합니다. 중간 계층 애플리케이션이 해당 매니페스트의 알려진 클라이언트 애플리케이션 목록에 클라이언트를 추가하면, 클라이언트는 자기 자신과 중간 계층 애플리케이션을 위해 결합된 동의 흐름을 트리거할 수 있습니다. v2.0 엔드포인트에서 이 작업은 [`/.default` 범위](v2-permissions-and-consent.md#the-default-scope)를 사용하여 수행됩니다. 알려진 클라이언트 애플리케이션 및 `/.default`를 사용하여 동의 화면을 트리거하는 경우 동의 화면은 중간 계층 API에 대한 두 클라이언트의 사용 권한을 표시하고, 중간 계층 API에 필요한 권한을 요청합니다. 사용자가 두 애플리케이션에 대한 동의를 제공하면 OBO 흐름이 작동합니다. 
+회사 또는 학교 계정으로 로그인해야 하는 애플리케이션에서는 기존의 "알려진 클라이언트 애플리케이션" 접근 방식으로 충분합니다. 중간 계층 애플리케이션이 해당 매니페스트의 알려진 클라이언트 애플리케이션 목록에 클라이언트를 추가하면, 클라이언트는 자기 자신과 중간 계층 애플리케이션을 위해 결합된 동의 흐름을 트리거할 수 있습니다. v2.0 엔드포인트에서 이 작업은 [`/.default` 범위](v2-permissions-and-consent.md#the-default-scope)를 사용하여 수행됩니다. 알려진 클라이언트 애플리케이션 및 `/.default`를 사용하여 동의 화면을 트리거하는 경우 동의 화면은 중간 계층 API에 대한 두 클라이언트의 사용 권한을 표시하고, 중간 계층 API에 필요한 권한을 요청합니다. 사용자가 두 애플리케이션에 대한 동의를 제공하면 OBO 흐름이 작동합니다.
 
-현재, 개인 Microsoft 계정 시스템은 결합된 동의를 지원하지 않으므로 이 방법은 특히 개인 계정으로 로그인하려는 앱에는 작동하지 않습니다. 테넌트에서 게스트 계정으로 사용되는 개인 Microsoft 계정은 Azure AD 시스템을 사용하여 처리되며 결합된 동의를 거칠 수 있습니다. 
+현재, 개인 Microsoft 계정 시스템은 결합된 동의를 지원하지 않으므로 이 방법은 특히 개인 계정으로 로그인하려는 앱에는 작동하지 않습니다. 테넌트에서 게스트 계정으로 사용되는 개인 Microsoft 계정은 Azure AD 시스템을 사용하여 처리되며 결합된 동의를 거칠 수 있습니다.
 
 #### <a name="pre-authorized-applications"></a>사전 승인된 애플리케이션
 
@@ -209,24 +207,24 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 #### <a name="admin-consent"></a>관리자 동의
 
-테넌트 관리자는 중간 계층 애플리케이션에 대한 관리자 동의를 제공하여 애플리케이션이 필요한 해당 API를 호출할 수 있는 권한을 갖도록 보장할 수 있습니다. 이렇게 하기 위해 관리자는 해당 테넌트에서 중간 계층 애플리케이션을 찾고, 필수 사용 권한 페이지를 열고, 앱에 대한 권한을 부여하도록 선택할 수 있습니다. 관리자 동의에 대한 자세한 내용은 [동의 및 권한 설명서](v2-permissions-and-consent.md)를 참조하세요. 
+테넌트 관리자는 중간 계층 애플리케이션에 대한 관리자 동의를 제공하여 애플리케이션이 필요한 해당 API를 호출할 수 있는 권한을 갖도록 보장할 수 있습니다. 이렇게 하기 위해 관리자는 해당 테넌트에서 중간 계층 애플리케이션을 찾고, 필수 사용 권한 페이지를 열고, 앱에 대한 권한을 부여하도록 선택할 수 있습니다. 관리자 동의에 대한 자세한 내용은 [동의 및 권한 설명서](v2-permissions-and-consent.md)를 참조하세요.
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Azure AD + Microsoft 계정 애플리케이션에 대한 동의
 
-개인 계정에 대한 권한 모델의 제한과 관리 테넌트의 부족으로 인해, 개인 계정에 대한 동의 요구는 Azure AD의 경우와 약간 다릅니다. 테넌트 수준 동의를 제공할 수 있는 테넌트도 없고, 결합된 동의를 수행할 수 있는 기능도 없습니다. 따라서 이러한 기능은 다른 전략을 통해 충족됩니다. 이러한 전략은 Azure AD 계정만 지원하면 되는 애플리케이션에 작동합니다. 
+개인 계정에 대한 권한 모델의 제한과 관리 테넌트의 부족으로 인해, 개인 계정에 대한 동의 요구는 Azure AD의 경우와 약간 다릅니다. 테넌트 수준 동의를 제공할 수 있는 테넌트도 없고, 결합된 동의를 수행할 수 있는 기능도 없습니다. 따라서 이러한 기능은 다른 전략을 통해 충족됩니다. 이러한 전략은 Azure AD 계정만 지원하면 되는 애플리케이션에 작동합니다.
 
 #### <a name="use-of-a-single-application"></a>단일 애플리케이션 사용
 
-일부 시나리오에서는 중간 계층 및 프런트 엔드 클라이언트의 단일 페어링만 유지할 수 있습니다. 이 시나리오에서는 이러한 항목을 보다 쉽게 단일 애플리케이션으로 만들 수 있으므로 중간 계층 애플리케이션이 전혀 필요하지 않습니다. 프런트 엔드 및 Web API 간에 인증을 수행하기 위해 쿠키, id_token 또는 애플리케이션 자체에서 요청한 액세스 토큰을 사용할 수 있습니다. 그런 다음 이 단일 애플리케이션에서 백 엔드 리소스로의 동의를 요청합니다. 
+일부 시나리오에서는 중간 계층 및 프런트 엔드 클라이언트의 단일 페어링만 유지할 수 있습니다. 이 시나리오에서는 이러한 항목을 보다 쉽게 단일 애플리케이션으로 만들 수 있으므로 중간 계층 애플리케이션이 전혀 필요하지 않습니다. 프런트 엔드 및 Web API 간에 인증을 수행하기 위해 쿠키, id_token 또는 애플리케이션 자체에서 요청한 액세스 토큰을 사용할 수 있습니다. 그런 다음 이 단일 애플리케이션에서 백 엔드 리소스로의 동의를 요청합니다.
 
 ## <a name="client-limitations"></a>클라이언트 제한 사항
 
-클라이언트가 암시적 흐름을 사용하여 id_token을 가져오는 경우 해당 클라이언트에는 회신 URL에 와일드카드가 있어야 하며 id_token은 OBO 흐름에 사용할 수 없습니다.  그러나 암시적 권한 부여 흐름을 통해 획득한 액세스 토큰은 시작하는 클라이언트에 등록된 와일드카드 회신 URL이 경우에도 기밀 클라이언트에서 계속 회수될 수 있습니다. 
+클라이언트가 암시적 흐름을 사용하여 id_token을 가져오는 경우 해당 클라이언트에는 회신 URL에 와일드카드가 있어야 하며 id_token은 OBO 흐름에 사용할 수 없습니다.  그러나 암시적 권한 부여 흐름을 통해 획득한 액세스 토큰은 시작하는 클라이언트에 등록된 와일드카드 회신 URL이 경우에도 기밀 클라이언트에서 계속 회수될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하여 서비스 간 인증을 수행하는 다른 방법에 대해 자세히 알아보세요.
 
-* [Azure AD v2.0에서 OAuth 2.0 클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md)
-* [Azure AD v2.0의 OAuth 2.0 코드 흐름](v2-oauth2-auth-code-flow.md)
-* [`/.default` 범위](v2-permissions-and-consent.md#the-default-scope) 사용 
+* [Microsoft id 플랫폼에서 OAuth 2.0 클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md)
+* [Microsoft id 플랫폼에서 OAuth 2.0 코드 흐름](v2-oauth2-auth-code-flow.md)
+* [사용 하 여 `/.default` 범위](v2-permissions-and-consent.md#the-default-scope)

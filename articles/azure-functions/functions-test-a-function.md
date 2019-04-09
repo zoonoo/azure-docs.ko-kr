@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: HT
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439331"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283038"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -26,8 +26,8 @@ ms.locfileid: "58439331"
 
 다음에 나오는 내용은 서로 다른 언어 및 환경을 대상으로 하는 두 가지 섹션으로 분할됩니다. 테스트를 빌드하는 방법은 다음을 참조하세요.
 
-- [xUnit을 사용한 Visual Studio의 C#](#c-in-visual-studio)
-- [Jest를 사용한 VS Code의 JavaScript](#javascript-in-vs-code)
+- [C#xUnit 사용한 Visual Studio에서](#c-in-visual-studio)
+- [Jest 사용 하 여 VS Code의 JavaScript](#javascript-in-vs-code)
 
 샘플 리포지토리는 [GitHub](https://github.com/Azure-Samples/azure-functions-tests)에서 사용할 수 있습니다.
 
@@ -252,6 +252,8 @@ namespace Functions.Tests
 - **Http_trigger_should_return_string_from_member_data**: 이 테스트는 xUnit 특성을 사용하여 HTTP 함수에 샘플 데이터를 제공합니다.
 
 - **Timer_should_log_message**: 이 테스트는 `ListLogger` 인스턴스를 만들고 타이머 함수에 전달합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
+
+테스트에서 응용 프로그램 설정에 액세스 하려는 경우 사용할 수 있습니다 [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)합니다.
 
 ### <a name="run-tests"></a>테스트 실행
 

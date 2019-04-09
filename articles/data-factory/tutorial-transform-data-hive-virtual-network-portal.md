@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![편집 탭](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
-Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 네트워크에 자체 호스팅 IR(통합 런타임)을 설치해야 합니다. 이 섹션에서는 새 VM을 만들고, 동일한 가상 네트워크에 조인하고, 자체 호스팅 IR을 설치합니다. 자체 호스팅 IR을 통해 Data Factory 서비스에서 처리 요청을 가상 네트워크 내의 HDInsight와 같은 계산 서비스에 디스패치할 수 있습니다. 또한 가상 네트워크 내의 데이터 저장소에서 Azure로 데이터를 이동할 수 있습니다. 데이터 저장소 또는 계산이 온-프레미스 환경에 있는 경우에도 자체 호스팅 IR을 사용합니다. 
+Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 네트워크에 자체 호스팅 IR(통합 런타임)을 설치해야 합니다. 이 섹션에서는 새 VM을 만들고, 동일한 가상 네트워크에 조인하고, 자체 호스팅 IR을 설치합니다. 자체 호스팅 IR을 통해 Data Factory 서비스에서 처리 요청을 가상 네트워크 내의 HDInsight와 같은 컴퓨팅 서비스에 디스패치할 수 있습니다. 또한 가상 네트워크 내의 데이터 저장소에서 Azure로 데이터를 이동할 수 있습니다. 데이터 저장소 또는 컴퓨팅이 온-프레미스 환경에 있는 경우에도 자체 호스팅 IR을 사용합니다. 
 
 1. Azure Data Factory UI의 창 아래쪽에서 **연결**을 클릭하고, **Integration Runtime** 탭으로 전환한 다음, 도구 모음에서 **+ 새로 만들기** 단추를 클릭합니다. 
 

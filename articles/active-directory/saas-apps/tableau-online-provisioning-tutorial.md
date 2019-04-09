@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 0be9c435-f9a1-484d-8059-e578d5797d8e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077822"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057492"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Tableau Online 구성
 
@@ -43,29 +44,23 @@ ms.locfileid: "58077822"
 ## <a name="adding-tableau-online-from-the-gallery"></a>갤러리에서 Tableau Online 추가
 Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Tableau Online을 구성하기 전에 Tableau Online을 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
-**Azure AD 애플리케이션 갤러리에서 Tableau Online을 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 응용 프로그램 갤러리에서 Tableau Online 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
-    ![Azure Active Directory 단추][1]
+    ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동한 다음, **모든 응용 프로그램** 옵션을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 섹션][2]
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. Tableau Online을 추가하려면 대화 상자의 위쪽에서 **새 애플리케이션** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 애플리케이션 단추][3]
+    ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Tableau Online**을 입력합니다.
+4. 검색 상자에 입력 **Tableau Online**를 선택 **Tableau Online** 결과 패널에서 클릭 **추가** 단추는 응용 프로그램을 추가 합니다.
 
-    ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/AppSearch.png)
-
-5. 결과 패널에서 **Tableau Online**을 선택한 다음, **추가** 단추를 클릭하여 SaaS 애플리케이션의 목록에 Tableau Online을 추가합니다.
-
-    ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/AppSearchResults.png)
-
-    ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/AppCreation.png)
+    ![결과 목록에서 tableau Online](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>Tableau Online에 사용자 할당
 
@@ -90,11 +85,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Azure AD에서 Tableau Online에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션**으로 차례로 이동합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 선택한 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **Tableau Online**합니다.
 
-2. SaaS 애플리케이션 목록에서 Tableau Online을 선택합니다.
+    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-    ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/AppInstanceSearch.png)
+2. 애플리케이션 목록에서 **Tableau Online**을 선택합니다.
+
+    ![응용 프로그램 목록에서 Tableau Online 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
@@ -116,13 +113,16 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 6. Tableau Online에 대한 관리 계정에 로그인한 후에 **도메인** 및 **콘텐츠 URL**에 대한 값을 관리 페이지의 URL에서 추출할 수 있습니다.
 
-    *   Tableau Online 계정에 대한 **도메인**을 URL의 이 부분에서 복사할 수 있습니다. ![Tableau Online 프로비저닝](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    * Tableau Online 계정에 대한 **도메인**을 URL의 이 부분에서 복사할 수 있습니다.
 
-    *   Tableau Online 계정에 대한 **콘텐츠 URL**을 이 섹션에서 복사할 수 있고 계정을 설정하는 동안 정의된 값입니다. 이 예제에서 값은 “contoso”입니다. ![Tableau Online 프로비저닝](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+        ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+
+    * Tableau Online 계정에 대한 **콘텐츠 URL**을 이 섹션에서 복사할 수 있고 계정을 설정하는 동안 정의된 값입니다. 이 예제에서 값은 “contoso”입니다.
+
+        ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
-        > **도메인**은 여기에 표시된 것과 다를 수 있습니다. 
-
+        > **도메인**은 여기에 표시된 것과 다를 수 있습니다.
 
 7. 5단계에 표시된 필드를 채운 후 **연결 테스트**를 클릭하여 Azure AD에서 Tableau Online에 연결할 수 있는지 확인합니다. 연결에 실패하면 Tableau Online 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
@@ -132,35 +132,35 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-10. **저장**을 클릭합니다.
+9. **저장**을 클릭합니다.
 
-11. **매핑** 섹션에서 **Azure Active Directory 사용자를 Tableau Online에 동기화**를 선택합니다.
+10. **매핑** 섹션에서 **Azure Active Directory 사용자를 Tableau Online에 동기화**를 선택합니다.
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
-12. **특성 매핑** 섹션에서 Azure AD에서 Tableau Online으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Tableau Online의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 Tableau Online으로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Tableau Online의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
 
-13. **매핑** 섹션에서 **Azure Active Directory 그룹을 Tableau에 동기화**를 선택합니다.
+12. **매핑** 섹션에서 **Azure Active Directory 그룹을 Tableau에 동기화**를 선택합니다.
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
-14. **특성 매핑** 섹션에서 Azure AD에서 Tableau Online으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Tableau Online의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+13. **특성 매핑** 섹션에서 Azure AD에서 Tableau Online으로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Tableau Online의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
-16. Tableau Online에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+15. Tableau Online에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-17. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Tableau Online에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
+16. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Tableau Online에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-18. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+17. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
     ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
@@ -170,13 +170,12 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [로그를 검토 하 고 프로 비전 활동에 대 한 보고서를 확인 하는 방법에 알아봅니다](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

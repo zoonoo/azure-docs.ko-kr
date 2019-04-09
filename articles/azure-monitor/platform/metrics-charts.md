@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor 메트릭 탐색기
-description: Azure Monitor 메트릭 탐색기의 새로운 기능 알아보기
+title: Azure 메트릭 탐색기의 고급 기능
+description: Azure Monitor 메트릭 탐색기의 고급 기능에 대해 알아보기
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,51 +8,46 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916345"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271682"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
-Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이며 차트를 그리고, 추세의 상관 관계를 시각적으로 지정하고, 메트릭 값에서 급증 및 하락을 조사할 수 있습니다. 메트릭 탐색기는 Azure에서 호스트되거나 Azure Monitor 서비스에서 모니터링되는 애플리케이션 및 인프라와 관련된 다양한 성능 및 가용성 문제를 조사하는 데 필수적인 시작점입니다.
+> [!NOTE]
+> 이 문서에서는 메트릭 탐색기의 기본 기능을 사용 하 여 잘 알고 있다고 가정 합니다. 새 사용자를 첫 번째 메트릭 차트를 만들고 참조 하는 방법을 알아 보 려 [Azure 메트릭 탐색기를 사용 하 여 시작](metrics-getting-started.md)합니다.
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
 [Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭을 사용 하 여 응용 프로그램에서 Azure로 전송 됩니다 반면 합니다 [사용자 지정 이벤트 및 메트릭 용 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 [Windows Azure 진단 (WAD) 확장](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), 또는 [Azure REST API 모니터링](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)합니다.
 
-## <a name="create-a-new-chart"></a>새 차트 만들기
+## <a name="create-views-with-multiple-metrics-and-charts"></a>여러 메트릭 및 차트를 사용 하 여 뷰 만들기
 
-1. Azure 포털 열기
-2. 새 **모니터** 탭으로 이동하여 **메트릭**을 선택합니다.
+한 번에 여러 메트릭 차트를 표시 또는 여러 메트릭을 줄을 그릴 차트를 만들 수 있습니다. 이 기능을 사용 하면 수 있습니다.
 
-   ![메트릭 이미지](./media/metrics-charts/00001.png)
+- 상관 관계를 지정 관련된 메트릭의 방법을 값을 확인 하려면 동일한 그래프에는 다른 관련이
+- 다른 인접에서 측정 단위를 사용 하 여 메트릭을 표시합니다
+- 시각적으로 집계 하 고 여러 리소스의 메트릭을 비교합니다
 
-3. **메트릭 선택기**가 자동으로 열립니다. 해당 관련 메트릭을 보려면 목록에서 리소스를 선택합니다. 메트릭을 포함한 리소스만이 목록에 표시됩니다.
+예를 들어 5 개의 저장소 계정을 있고 서로 되는 총 공간을 확인 하려는 시간에서 특정 지점에서 개별 및 모든 값의 합계를 보여 주는 (누적된) 영역형 차트를 만들면 됩니다.
 
-   ![메트릭 이미지](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>동일한 차트에 여러 메트릭
 
-   > [!NOTE]
-   >Azure 구독이 여러 개 있는 경우 메트릭 탐색기는 포털 설정 -> 구독 목록별 필터에서 선택된 모든 구독에 걸쳐 리소스를 끌어옵니다. 이를 변경하려면 화면 맨 위에서 포털 설정 기어 아이콘을 클릭하고 사용하려는 구독을 선택합니다.
-
-4. 저장소 계정 및 가상 머신과 같은 일부 리소스 종류의 경우에는 메트릭을 선택하기 전에 **네임스페이스**를 선택해야 합니다. 각 네임스페이스는 이 네임스페이스에만 관련이 있고 다른 네임스페이스에는 관련이 없는 고유한 메트릭 집합을 포함합니다.
-
-   예를 들어 각 Azure Storage에는 스토리지 계정의 모든 부분인 하위 서비스 "Blob", "파일", "큐" 및 "테이블"에 대한 메트릭이 있습니다. 그러나 "큐 메시지 수" 메트릭은 다른 저장소 계정 하위 서비스가 아닌 "큐" 하위 서비스에 자연스럽 게 적용됩니다.
-
-   ![메트릭 이미지](./media/metrics-charts/00003.png)
-
-5. 목록에서 메트릭을 선택합니다. 원하는 메트릭의 이름을 일부 알고 있는 경우 입력하여 사용 가능한 메트릭의 필터링된 목록을 볼 수 있습니다.
-
-   ![메트릭 이미지](./media/metrics-charts/00004.png)
-
-6. 메트릭을 선택한 후에 차트는 선택한 메트릭에 대한 기본 집계로 렌더링됩니다. 이 시점에서 **메트릭 선택기**를 닫으려면 바깥쪽을 클릭하면 됩니다. 또한 선택적으로 다른 집계로 차트를 전환할 수 있습니다. 일부 메트릭의 경우 집계를 전환하면 차트에 표시하려는 값을 선택할 수 있습니다. 예를 들어 평균, 최소 및 최대 값을 전환할 수 있습니다. 
-
-7. **메트릭 추가**를 클릭하고 3~6단계를 반복하여 동일한 차트에서 메트릭을 추가할 수 있습니다.
+먼저 [새 차트를 만들려면](metrics-getting-started.md#create-your-first-metric-chart)합니다. 클릭 **메트릭을 추가** 하 고 다른 메트릭을 같은 차트에 추가 하는 단계를 반복 합니다.
 
    > [!NOTE]
    > 일반적으로 하나의 차트에서 다른 단위의 측정값(예: "밀리초" 및 "킬로바이트") 또는 크게 다른 규모를 갖는 메트릭을 사용하지 않습니다. 대신, 여러 차트를 사용하는 것이 좋습니다. [차트 추가] 단추를 클릭하여 메트릭 탐색기에서 여러 개의 차트를 만듭니다.
+
+### <a name="multiple-charts"></a>여러 개의 차트
+
+클릭 합니다 **차트 추가** 하 고 다른 메트릭을 사용 하 여 다른 차트를 만듭니다.
+
+### <a name="order-or-delete-multiple-charts"></a>여러 차트를 삭제 하거나 다시 정렬
+
+를 주문 하거나 여러 차트를 삭제 하려면 줄임표를 클릭 ( **...**  ) 차트 메뉴를 열고 적절 한 메뉴 항목의 기호 **위로**를 **아래로 이동**, 또는 **삭제**합니다.
 
 ## <a name="apply-filters-to-charts"></a>차트에 필터 적용
 
@@ -76,27 +71,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 5. 동일한 차트에 여러 필터를 적용하려면 1~4단계를 반복하면 됩니다.
 
-## <a name="multiple-metrics-and-charts"></a>여러 메트릭 및 차트
 
-또한 여러 개의 메트릭을 그릴 또는 한 번에 여러 메트릭 차트를 표시 하는 차트를 만들 수 있습니다. 이 기능을 사용 하면 수 있습니다.
-
-- 상관 관계를 지정 관련된 메트릭의 방법을 값을 확인 하려면 동일한 그래프에는 다른 관련이
-- 다른 인접에서 측정 단위를 사용 하 여 메트릭을 표시합니다
-- 시각적으로 집계 하 고 여러 리소스의 메트릭을 비교합니다
-
-예를 들어 5 개의 저장소 계정을 있고 서로 되는 총 공간을 확인 하려는 시간에서 특정 지점에서 개별 및 모든 값의 합계를 보여 주는 (누적된) 영역형 차트를 만들면 됩니다.
-
-### <a name="multiple-metrics-on-a-chart"></a>차트에 여러 메트릭
-
-먼저 [새 차트를 만들려면](#create-a-new-chart)합니다. 클릭 **메트릭을 추가** 하 고 다른 메트릭을 같은 차트에 추가 하는 단계를 반복 합니다.
-
-### <a name="multiple-charts"></a>여러 개의 차트
-
-클릭 합니다 **차트 추가** 하 고 다른 메트릭을 사용 하 여 다른 차트를 만듭니다.
-
-### <a name="order-or-delete-multiple-charts"></a>여러 차트를 삭제 하거나 다시 정렬
-
-를 주문 하거나 여러 차트를 삭제 하려면 줄임표를 클릭 ( **...**  ) 차트 메뉴를 열고 적절 한 메뉴 항목의 기호 **위로**를 **아래로 이동**, 또는 **삭제**합니다.
 
 ## <a name="apply-splitting-to-a-chart"></a>차트에 분할 적용
 

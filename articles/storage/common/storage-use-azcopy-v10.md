@@ -2,18 +2,18 @@
 title: V10 AzCopy를 사용 하 여 Azure Storage에 데이터를 이동 또는 복사 (미리 보기) | Microsoft Docs
 description: AzCopy v10를 사용 하 여 이동 하거나 blob에서 data lake 및 파일 콘텐츠에서 데이터를 복사 하려면 명령줄 유틸리티 (미리 보기). 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-author: artemuwka
+author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 02/24/2019
-ms.author: artemuwka
+ms.date: 04/05/2019
+ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574980"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278431"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>V10 AzCopy 사용 하 여 데이터 전송 (미리 보기)
 
@@ -24,6 +24,7 @@ AzCopy v10 (미리 보기)는 Microsoft Azure Blob 및 File storage 간에 데�
 - Azure Blob storage로 또는 그 반대로 파일 시스템을 동기화합니다. `azcopy sync <source> <destination>`를 사용합니다. 증분 복사 시나리오에 적합합니다.
 - Azure Data Lake Storage Gen2 API를 지원합니다. 사용 하 여 `myaccount.dfs.core.windows.net` Data Lake 저장소 Gen2 Api를 호출 하는 URI로 합니다.
 - 계정 전체를 다른 계정으로 복사하는 기능을 지원합니다(Blob 서비스만 해당).
+- Amazon 웹 서비스 S3 버킷에서 데이터 복사를 지원 합니다.
 - 새로운 [URL에서 블록 배치](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) Api 계정에 복사를 지원 하도록 합니다. 데이터 전송이 빠르고 이므로 클라이언트에 전송에는 필요 하지 않습니다.입니다.
 - 나열 하거나 지정된 된 경로에서 파일 및 blob을 제거 합니다.
 - 경로 및--제외 플래그의 와일드 카드 패턴을 지원합니다.
@@ -79,8 +80,8 @@ AzCopy v10 자체 문서화 된 구문이 있습니다. Azure Active Directory�
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
 # Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
 ```
 
 다음과 같은 방법으로 사용 가능한 명령 목록을 가져올 수 있습니다.
@@ -135,16 +136,16 @@ Blob 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 �
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-폴더 아래에 있는 모든 파일을 업로드 하는 명령을 `C:\local\path` 컨테이너에 재귀적으로 `mycontainer1`만들기, `path` 컨테이너에 디렉터리:
+폴더 아래에 있는 모든 파일을 업로드 하는 명령을 `C:\local\path` 컨테이너에 재귀적으로 `mycontainer1`만들기, `path` 컨테이너의 디렉터리입니다. 때 `--put-md5` 플래그가 제공 된, 계산 하 고 각 파일의 md5 해시를 저장 하는 AzCopy `Content-md5` 나중에 사용할 해당 blob의 속성입니다.
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 다음 명령은 `C:\local\path` 폴더의 모든 파일을 `mycontainer1` 컨테이너에 업로드합니다(하위 디렉터리로 반복하지 않고).
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 더 많은 예제를 찾으려면 다음 명령을 사용 합니다.
@@ -153,21 +154,27 @@ Blob 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 �
 .\azcopy cp -h
 ```
 
-## <a name="copy-data-between-two-storage-accounts"></a>두 저장소 계정 간에 데이터 복사
+## <a name="copy-blob-data-between-two-storage-accounts"></a>두 저장소 계정 간에 Blob 데이터를 복사 합니다.
 
 사용 하 여 두 개의 저장소 계정 간에 데이터를 복사 합니다 [URL에서 블록 배치](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API를 클라이언트 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다. AzCopy는 단순히 복사 작업을 오케스트레이션 하는 동안 데이터가 두 Azure 저장소 서버를 직접 복사 됩니다. 이 옵션은 현재 Blob 저장소에 사용할 수만 있습니다.
 
-두 저장소 계정 간에 데이터를 복사하려면 다음 명령을 사용합니다.
+모든 두 저장소 계정 간에 Blob 데이터를 복사 하려면 다음 명령을 사용 합니다.
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> 이 명령은 모든 blob 컨테이너를 열거 하 고 대상 계정으로 복사 됩니다. 이때 AzCopy v10 두 저장소 계정 간에 블록 blob만 복사를 지원 합니다. 모든 다른 저장소 계정 개체 (예: blob, 페이지 blob, 파일, 테이블 및 큐 추가) 건너뜁니다.
+Blob 컨테이너에 다른 Blob 컨테이너를 복사 하려면 다음 명령을 사용 합니다.
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
+```
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>VHD 이미지를 저장소 계정에 복사
 
-AzCopy v10은 기본적으로 블록 Blob에 데이터를 업로드합니다. 그러나 소스 파일에 있는 경우는 `.vhd` 확장 AzCopy v10 기본적으로 페이지 blob에 업로드 합니다. 지금은이 작업은 구성할 수 없습니다.
+기본적으로 AzCopy는 블록 blob으로 데이터를 업로드합니다. 플래그를 사용 하는 추가 Blob 또는 페이지 Blob 파일을 업로드할 `--blob-type=[BlockBlob|PageBlob|AppendBlob]`합니다.
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>동기화: 증분 복사 및 삭제(Blob 스토리지만)
 
@@ -192,6 +199,30 @@ AzCopy v10은 기본적으로 블록 Blob에 데이터를 업로드합니다. �
 ```
 
 이 명령은 마지막으로 수정 된 타임 스탬프에 따라 대상에 소스를 증분 방식으로 동기화 합니다. 원본에서 파일이 추가 또는 삭제되면 AzCopy v10이 대상에서 똑같은 작업을 수행합니다. 삭제 하기 전에 AzCopy 것인지 묻습니다.
+
+## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Amazon Web Services (AWS) S3에서 데이터 복사
+
+AWS S3 버킷을 사용 하 여 인증 하려면 다음 환경 변수를 설정 합니다.
+
+```
+# For Windows:
+set AWS_ACCESS_KEY_ID=<your AWS access key>
+set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For Linux:
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For MacOS
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+```
+
+버킷에 Blob 컨테이너를 복사 하려면 다음 명령을 실행 합니다.
+
+```
+.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
+```
+
+AzCopy를 사용 하 여 AWS S3에서 데이터를 복사 하는 방법은 페이지를 참조 하세요 [여기](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3)합니다.
 
 ## <a name="advanced-configuration"></a>고급 구성
 
@@ -277,10 +308,11 @@ AzCopy v10까지 모든 작업에 대 한 계획 파일과 로그 파일을 만�
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-다음 명령을 사용 하 여 실패/취소 작업을 다시 시작 합니다. 이 명령은 SAS 토큰과 함께 해당 id를 사용합니다. 보안상의 이유로 영구 없습니다.
+다음 명령을 사용 하 여 실패/취소 작업을 다시 시작 합니다. 이 명령은 보안상의 이유로 영구 아니므로 SAS 토큰과 함께 해당 id를 사용 합니다.
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404640"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057152"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
@@ -25,7 +25,7 @@ Avere vFXT for Azure는 중요한 워크로드를 효율적으로 처리하기 �
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT는 스토리지 솔루션인가요?
 
- 아니요. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다. Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
+아니요. Avere vFXT는 EMC, NetApp NAS 또는 Azure Blob 컨테이너와 같은 스토리지 환경에 연결되는 파일 시스템 ‘캐시’입니다. Avere vFXT는 클라이언트의 데이터 요청을 간소화하고, 규모와 시간 경과에 따라 성능을 향상하기 위해 제공되는 데이터를 캐시합니다. Avere vFXT 자체는 데이터를 저장하지 않습니다. 백그라운드에서 저장된 데이터의 양에 대한 정보가 없습니다.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT는 계층화 솔루션인가요?
 
@@ -106,7 +106,7 @@ Avere vFXT 클러스터는 3개의 가상 머신 노드만큼 작거나 24개의
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>Avere vFXT 환경은 "자동으로 크기 조정"할 수 있나요?
 
- 아니요. 클러스터 크기는 확장하거나 축소할 수 있지만, 클러스터 노드를 추가하거나 제거하는 작업은 수동 단계입니다.
+아니요. 클러스터 크기는 확장하거나 축소할 수 있지만, 클러스터 노드를 추가하거나 제거하는 작업은 수동 단계입니다.
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>Avere vFXT 클러스터를 가상 머신 확장 집합으로 실행할 수 있나요?
 
@@ -126,7 +126,7 @@ Avere vFXT는 가상 머신 확장 집합 배포를 지원하지 않습니다. �
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>다른 가용성 영역에서 Avere vFXT 클러스터 머신을 실행할 수 있나요?
 
- 아니요. Avere vFXT의 고가용성 모델은 현재 서로 다른 가용성 영역에 있는 개별 Avere vFXT 클러스터 멤버를 지원하지 않습니다.
+아니요. Avere vFXT의 고가용성 모델은 현재 서로 다른 가용성 영역에 있는 개별 Avere vFXT 클러스터 멤버를 지원하지 않습니다.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Avere vFXT 가상 머신을 복제할 수 있나요?
 
@@ -171,7 +171,7 @@ Avere vFXT에서 온-프레미스 스토리지를 사용하는 경우 1Gbps 이�
 > [!TIP] 
 > 네트워크 연결이 느릴수록 초기 콜드 읽기가 느려집니다. 느린 읽기는 작업 파이프라인의 대기 시간을 늘립니다. 
 
-### <a name="can-i-run-avere-vfxt-in-a-different-virtual-network-than-my-compute-cluster"></a>Avere vFXT는 계산 클러스터와 다른 가상 네트워크에서 실행할 수 있나요?
+### <a name="can-i-run-avere-vfxt-in-a-different-virtual-network-than-my-compute-cluster"></a>Avere vFXT는 컴퓨팅 클러스터와 다른 가상 네트워크에서 실행할 수 있나요?
 
 예, 다른 가상 네트워크에서 Avere vFXT 시스템을 만들면 됩니다. 자세한 내용은 [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md)을 참조하세요.
 
@@ -199,6 +199,14 @@ Avere vFXT 환경은 네트워크 게이트웨이 또는 VPN을 통해 고객 �
 ### <a name="can-i-run-avere-vfxt-with-public-ip-addresses"></a>공용 IP 주소를 사용하여 Avere vFXT를 실행할 수 있나요?
 
 아니요, Avere vFXT는 모범 사례를 적용하여 보호된 네트워크 환경 내에서 작동해야 합니다.  
+
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>내 클러스터의 가상 네트워크에서 인터넷 액세스를 제한할 수 있습니까? 
+
+일반적으로 필요에 따라 추가 보안 vnet에서 구성할 수 있지만 몇 가지 제한 사항이 클러스터의 작동을 방해할 수 있습니다.
+
+예를 들어, vnet의 아웃 바운드 인터넷 액세스를 제한도 명시적으로 AzureCloud AzureConnectors에 대 한 액세스를 허용 하는 규칙을 추가 하지 않는 경우 클러스터에 대 한 문제가 발생 합니다. 이 상황에서 설명한 [GitHub에 대 한 보충 설명서](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)합니다.
+
+에 설명 된 대로 사용자 지정된 보안을 사용 하 여 도움말에 대 한 지원에 문의 [시스템을 사용 하 여 도움말을 보려면](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)합니다.
 
 ## <a name="technical-back-end-storage-core-filers"></a>기술: 백 엔드 스토리지(코어 파일러)
 
@@ -246,7 +254,7 @@ Avere vFXT는 개인 개체 저장소를 지원하지 않습니다.
 
 ### <a name="can-i-use-archive-blob-storage"></a>보관 Blob Storage를 사용할 수 있나요?
 
- 아니요. 보관 스토리지에 대한 SLA(서비스 수준 약정)는 Avere vFXT 시스템의 실시간 디렉터리 및 파일 액세스 요구 사항과 호환되지 않습니다. 
+아니요. 보관 스토리지에 대한 SLA(서비스 수준 약정)는 Avere vFXT 시스템의 실시간 디렉터리 및 파일 액세스 요구 사항과 호환되지 않습니다. 
 
 ### <a name="can-i-use-cool-blob-storage"></a>쿨 Blob Storage를 사용할 수 있나요?
 
@@ -280,7 +288,7 @@ Avere vFXT for Azure를 시작하려면 다음 문서를 참조하여 사용자 
 
 * [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md)
 * [배포 개요](avere-vfxt-deploy-overview.md)
-* [Avere vFXT 클러스터 만들기 준비](avere-vfxt-prereqs.md)
+* [Avere vFXT 클러스터를 작성 하기 위한 준비](avere-vfxt-prereqs.md)
 * [Avere vFXT 클러스터 배포](avere-vfxt-deploy.md)
 
 Avere vFXT의 기능 및 사용 사례에 대해 자세히 알아보려면 [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/)를 참조하세요.
