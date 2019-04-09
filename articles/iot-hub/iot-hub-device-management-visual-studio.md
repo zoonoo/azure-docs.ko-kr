@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109228"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269574"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Azure IoT Hub 디바이스 관리를 위해 Visual Studio용 클라우드 탐색기 사용
 
-![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
+![종단 간 다이어그램](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS)는 Azure 리소스를 보고, 해당 속성을 검사하고, Visual Studio 내에서 핵심 개발자 작업을 수행할 수 있는 유용한 Visual Studio 확장입니다. 다양한 작업을 수행하는 데 사용할 수 있는 관리 옵션이 제공됩니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "54109228"
 
 ## <a name="what-you-learn"></a>학습 내용
 
-배포 머신에서 다양한 관리 옵션으로 Visual Studio용 클라우드 탐색기를 사용하는 방법에 대해 알아봅니다.
+개발 컴퓨터에서 다양 한 관리 옵션을 사용 하 여 Visual studio 클라우드 탐색기를 사용 하는 방법에 알아봅니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 
@@ -43,8 +43,8 @@ ms.locfileid: "54109228"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 활성 Azure 구독.
-- 구독 중인 Azure IoT Hub
+- 활성 Azure 구독
+- 구독에서 Azure IoT Hub
 - Microsoft Visual Studio 2017 업데이트 8 이상
 - Visual Studio 설치 관리자의 클라우드 탐색기 구성 요소(Azure 워크로드를 사용하여 기본적으로 선택됨)
 

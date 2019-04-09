@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184175"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792504"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 사용해보기
 
 이 빠른 시작에서는 Azure IoT 원격 모니터링 솔루션 가속기를 배포하는 방법을 보여줍니다. 이 클라우드 기반 솔루션에서 **대시보드** 페이지를 사용하여 시뮬레이션된 디바이스를 맵에서 시각화하면 **유지 관리** 페이지가 시뮬레이션된 냉각기 디바이스의 압력 경고에 응답합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
 
 초기 배포에서는 Contoso라는 회사의 솔루션 가속기를 구성합니다. Contoso의 운영자는 다양한 물리적 환경에 배포된 냉각기와 같이 선별된 다양한 디바이스 유형을 관리합니다. 냉각기는 원격 모니터링 솔루션 가속기에 온도, 습도 및 압력 원격 분석 데이터를 보냅니다.
+
+이 빠른 시작은 비용을 최소화하는 테스트 및 데모용 솔루션 가속기의 **기본** 버전입니다. 배포할 수 있는 다른 버전에 대한 자세한 내용은 [기본 및 표준 배포](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments)를 참조하세요.
 
 이 빠른 시작을 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -36,9 +38,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 ![원격 모니터링 선택](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-**원격 모니터링 솔루션 만들기** 페이지에서 **기본** 배포를 선택합니다. 작동 방법을 알아보거나 데모 실행을 위해 솔루션 가속기를 배포하는 경우 **기본** 옵션을 선택하여 비용을 최소화합니다.
-
-**.NET**을 언어로 선택합니다. Java 및 .NET 구현에는 동일한 기능이 있습니다.
+**C# 마이크로서비스**를 **배포 옵션**으로 선택합니다. Java 및 C# 구현에는 동일한 기능이 있습니다.
 
 원격 모니터링 솔루션 가속기에 **솔루션 이름** 을 입력합니다. 이 빠른 시작에서는 **contoso-rm**을 호출합니다.
 
@@ -111,7 +111,7 @@ Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 �
 
 **작업** 패널에서 **메서드 실행**, **EmergencyValveRelease** 메서드를 차례로 합니다. 작업 이름**ChillerPressureRelease**을 추가하고 **적용**을 클릭합니다. 이 설정은 즉시 실행되는 작업을 자동으로 만듭니다.
 
-작업 상태를 확인하려면 **유지 관리** 페이지로 돌아가서 **작업** 보기에서 작업 목록을 봅니다. 몇 초 정도 기다리면 냉각기에 대한 밸브 압력을 해제하기 위해 작업이 실행된 것을 확인할 수 있습니다.
+작업 상태를 확인하려면 **유지 관리** 페이지로 돌아가서 **작업** 보기에서 작업 목록을 봅니다. 몇 초 정도 기다리면 작업이 실행된 것을 확인할 수 있습니다.
 
 [![작업 보기의 작업 상태](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

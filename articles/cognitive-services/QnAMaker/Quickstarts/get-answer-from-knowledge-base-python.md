@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 7da861b240d0502d62c1344b1927c3c05a9086ac
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f74d43d90a288a145887878305a95e1052ab8c05
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313891"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880018"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Python을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
@@ -58,7 +58,7 @@ QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. 이러한 
 
 [!code-python[Add a POST request to send question to knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=27-48 "Add a POST request to send question to knowledge base")]
 
-`Authorization` 헤더의 값에는 문자열 `EndpointKey `가 포함됩니다. 
+`Authorization` 헤더의 값에는 문자열 `EndpointKey`가 포함됩니다. 
 
 ## <a name="run-the-program"></a>프로그램 실행
 

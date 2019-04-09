@@ -4,22 +4,20 @@ description: 앱을 다른 Azure 구독과 통합하기 위한 Azure Resource Ma
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
-editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/22/2019
+ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805519"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264338"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 
@@ -31,8 +29,6 @@ ms.locfileid: "58805519"
 2. **앱 전용 액세스**: 디먼 서비스 및 예약된 작업을 실행하는 앱. 리소스에 대한 직접 액세스 권한을 앱의 ID에 부여합니다. 이 방법은 Azure에 대한 장기적인 헤드리스 액세스(자동)가 필요한 앱에 작동합니다.
 
 이 문서에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API를 사용 하 여 각 단계를 수행 하는 방법을 보여 줍니다 또는 C#입니다. 전체 ASP.NET MVC 애플리케이션은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-the-web-app-does"></a>웹앱이 수행하는 작업
 
@@ -72,27 +68,9 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 ## <a name="register-application"></a>애플리케이션 등록
 코딩을 시작하기 전에 Azure Active Directory(AD)를 사용하여 웹앱을 등록합니다. 앱 등록은 Azure AD의 사용자 앱에 대한 중앙 ID를 만듭니다. 이는 애플리케이션이 Azure Resource Manager API를 인증하고 액세스하는 데 사용하는 OAuth 클라이언트 ID, 회신 URL 및 자격 증명 등 애플리케이션에 관한 기본 정보를 저장합니다. 앱 등록에는 또한 응용 프로그램에 필요한 사용자에 대 한 Microsoft Api에 액세스할 때 다양 한 위임 된 권한을 기록 합니다.
 
-앱에서 다른 구독에 액세스하므로 다중 테넌트 애플리케이션으로 구성해야 합니다. 유효성 검사를 통과하려면 Azure Active Directory와 연결된 도메인을 제공하세요. Azure Active Directory와 연결된 도메인을 보려면 포털에 로그인합니다.
+앱을 등록 하려면 참조 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 등록](../active-directory/develop/quickstart-register-app.md)합니다. 선택한 앱에 이름을 **모든 조직 디렉터리의 계정** 지원 되는 계정 유형에 대 한 합니다. 리디렉션 URL에 대 한 Azure Active Directory와 연결 된 도메인을 제공 합니다.
 
-다음 예에서는 Azure PowerShell을 사용하여 앱을 등록하는 방법을 보여 줍니다. 이 명령이 작동하려면 최신 버전(2016년 8월)의 Azure PowerShell이 있어야 합니다.
-
-```azurepowershell-interactive
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-AD 애플리케이션으로 로그인하려면 애플리케이션 ID 및 암호가 필요합니다. 이전 명령에서 반환된 애플리케이션 ID를 보려면 다음을 사용합니다.
-
-```azurepowershell-interactive
-$app.ApplicationId
-```
-
-다음 예에서는 Azure CLI를 사용하여 앱을 등록하는 방법을 보여 줍니다.
-
-```azurecli-interactive
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-결과에는 애플리케이션으로 인증을 수행할 때 필요한 AppId가 포함됩니다.
+AD 응용 프로그램으로 로그인 한 응용 프로그램 ID 및 암호 필요 합니다. 응용 프로그램 ID는 응용 프로그램에 대 한 개요에 표시 됩니다. 비밀 만들기 API 사용 권한 요청을 참조 하세요. [빠른 시작: 웹 Api에 액세스 하는 클라이언트 응용 프로그램 구성](../active-directory/develop/quickstart-configure-app-access-web-apis.md)합니다. 새 클라이언트 암호를 제공 합니다. API 사용 권한 선택 **Azure Service Management**합니다. 선택 **위임 된 권한** 하 고 **user_impersonation**합니다.
 
 ### <a name="optional-configuration---certificate-credential"></a>선택적 구성 - 인증서 자격 증명
 또한 Azure AD는 애플리케이션에 대한 인증서 자격 증명을 지원합니다. 즉, 자체 서명된 인증서를 만들고, 개인 키를 유지하고, Azure AD 애플리케이션 등록에 공개 키를 추가합니다. 인증을 위해 애플리케이션이 개인 키를 사용하여 서명한 Azure AD에 작은 페이로드를 보내면 Azure AD가 등록된 공개 키를 사용하여 서명의 유효성을 검사합니다.

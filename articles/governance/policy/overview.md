@@ -8,14 +8,14 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7b5d9d483d05ac8225ea4b7497922192be44f1bc
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7440c9bbfce801ffcfc5c4e0f800f6f4f9d34f8c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731678"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805128"
 ---
-# <a name="what-is-azure-policy"></a>Azure Policy이란?
+# <a name="overview-of-the-azure-policy-service"></a>Azure Policy 서비스 개요
 
 거버넌스는 조직이 효과적이고 효율적으로 IT를 사용하여 목표를 달성할 수 있는지 확인합니다. 비즈니스 목표와 IT 프로젝트를 구분하여 이 요구를 충족합니다.
 
@@ -46,7 +46,7 @@ Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에
 
 Azure Policy에서 정책을 만들고 구현하는 과정은 정책 정의 만들기로 시작합니다. 모든 정책 정의에는 정책이 적용되는 조건이 있습니다. 또한 조건이 충족되면 발생하는 정의된 효과가 있습니다.
 
-Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예를 들면 다음과 같습니다.
+Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예: 
 
 - **SQL Server 12.0 필요**: 모든 SQL Server가 버전 12.0을 사용하는지 확인합니다. 이 기준에 부합하지 않는 모든 서버를 거부하게 됩니다.
 - **허용되는 스토리지 계정 SKU** 배포 중인 스토리지 계정이 SKU 크기 세트 내에 있는지 여부를 확인합니다. 정의된 SKU 크기 세트를 준수하지 않는 모든 스토리지 계정을 거부하게 됩니다.

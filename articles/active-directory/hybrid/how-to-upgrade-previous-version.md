@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193758"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267041"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
+
+>[!NOTE]
+> 모든 버전의 Azure AD Connect에서 현재 버전으로 업그레이드 하려면 현재 지원 됩니다. ADSync 또는 DirSync 전체 업그레이드가 지원 되지 않습니다 및 스윙 마이그레이션을 필요 합니다.  DirSync에서 업그레이드 하려는 경우 참조 [에서 Azure AD 동기화 도구 (DirSync) 업그레이드](how-to-dirsync-upgrade-get-started.md) 또는 [스윙 마이그레이션](#swing-migration) 섹션입니다.  </br>실제로 매우 오래 된 버전에서 고객이 직접 Azure AD Connect와 관련 된 문제를 발생할 수 있습니다. 몇 년 동안 프로덕션 환경에 있던 서버 일반적으로 여러 패치를 적용 하며이 중 일부에 대해 설명할 수 있습니다.  12-18 개월 내에 업그레이드 하지 않은 고객 스윙 업그레이드를 고려해 야는 일반적으로이 가장 보수적인 이상 위험한 옵션 대신 합니다.
 
 DirSync에서 업그레이드하려는 경우 대신 [Azure AD 동기화 도구(DirSync)에서 업그레이드](how-to-dirsync-upgrade-get-started.md) 를 참조하세요.
 
@@ -105,7 +108,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. 업그레이드가 완료된 후 다음 cmdlet을 실행하여 추가된 재정의를 확인합니다. `Get-ADSyncSchedulerConnectorOverride | fl`
+2. 업그레이드가 완료 된 후에 재정의 추가 되었는지 확인 하려면 다음 cmdlet을 실행 합니다. `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > 재정의는 커넥터마다 다릅니다. 다음 예제에서는 전체 가져오기 단계와 전체 동기화 단계가 온-프레미스 AD 커넥터 및 Azure AD 커넥터 둘 다에 추가되었습니다.
@@ -114,7 +117,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 3. 추가된 기존 재정의를 적어둡니다.
    
-4. 임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 제거하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. 전체 가져오기 및 임의 커넥터에서 전체 동기화 둘 다에 대 한 재정의 제거 하려면 다음 cmdlet을 실행 합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    모든 커넥터에서 재정의를 제거하려면 다음 PowerShell 스크립트를 실행합니다.
 
@@ -125,12 +128,12 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
    }
    ```
 
-5. 스케줄러를 다시 시작하려면 다음 cmdlet을 실행합니다. `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. 스케줄러를 다시 시작 하려면 다음 cmdlet을 실행 합니다. `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > 가능한 한 빨리 필수 동기화 단계를 실행해야 합니다. Synchronization Service Manager를 사용하여 수동으로 이 단계를 실행하거나, ADSyncSchedulerConnectorOverride cmdlet을 사용하여 재정의를 다시 추가할 수 있습니다.
 
-임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 추가하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대 한 재정의 추가 하려면 다음 cmdlet을 실행 합니다.  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>문제 해결
 다음 섹션에는 Azure AD Connect 업그레이드 문제가 발생할 때 사용할 수 있는 문제 해결 정보가 포함되어 있습니다.
@@ -141,7 +144,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 ![오류](./media/how-to-upgrade-previous-version/error1.png)
 
-이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이러한 경우인지 확인하려면 PowerShell 창을 열고 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`를 실행합니다.
+이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이 경우를 확인 하려면 PowerShell 창을 열고 Cmdlet을 실행 `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

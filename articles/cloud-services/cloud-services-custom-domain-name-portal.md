@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121624"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267149"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://contoso.cloudapp.net과 같은 URL에서 애플리케이션에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
@@ -64,11 +64,11 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
 
 1. 이러한 방법 중 하나를 사용하여 클라우드 서비스에 할당된 **.cloudapp.net** 도메인 이름을 찾습니다.
 
-   * [Azure Portal]에 로그인하여 클라우드 서비스를 선택하고 **Essentials** 섹션에서 **사이트 URL** 항목을 찾습니다.
+   * 에 로그인 합니다 [Azure portal]살펴봅니다를 클라우드 서비스를 선택는 **개요** 섹션을 찾아서 다음를 **사이트 URL** 항목.
 
        ![사이트 URL을 표시하는 한눈에 보기 섹션][csurl]
 
-       **OR**
+       **또는**
    * [Azure Powershell](/powershell/azure/overview)을 설치 및 구성하고 다음 명령을 사용합니다.
 
        ```powershell
@@ -97,7 +97,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
 1. 다음 방법 중 하나를 사용하여 클라우드 서비스의 IP 주소를 가져옵니다.
 
-   * [Azure Portal]에 로그인하여 클라우드 서비스를 선택하고 **Essentials** 섹션에서 **공용 IP 주소** 항목을 찾습니다.
+   * 에 로그인 합니다 [Azure portal]살펴봅니다를 클라우드 서비스를 선택는 **개요** 섹션을 찾아서 다음를 **공용 IP 주소** 항목.
 
        ![VIP를 표시하는 한눈에 보기 섹션][vip]
 
@@ -131,7 +131,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
 ## <a name="next-steps"></a>다음 단계
 * [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)
-* [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
+* [사용자 지정 도메인에 CDN 콘텐츠를 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
@@ -141,6 +141,6 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

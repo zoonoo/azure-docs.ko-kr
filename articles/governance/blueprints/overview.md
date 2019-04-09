@@ -1,6 +1,6 @@
 ---
 title: Azure Blueprints 개요
-description: Azure Blueprints는 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 데 사용하는 Azure의 서비스입니다.
+description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf3801381359bb973d126e2ee946cdb51e5aecb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823096"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802578"
 ---
-# <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
+# <a name="overview-of-the-azure-blueprints-service"></a>Azure Blueprints 서비스 요약
 
 엔지니어나 설계자가 청사진을 통해 프로젝트의 설계 매개 변수를 스케치하는 것과 마찬가지로, 클라우드 설계자와 중앙 정보 기술 그룹은 Azure Blueprints를 통해 조직의 표준, 패턴 및 요구 사항을 구현하고 준수하는 반복 가능한 Azure 리소스 집합을 정의할 수 있습니다. 개발 팀은 Azure Blueprints를 통해 네트워킹 등의 기본 제공 구성 요소 집합을 사용하여 조직의 규정을 준수하면서 작성한 믿을 수 있는 새 환경을 빠르게 빌드하고 구축할 수 있으므로 개발 및 제공 시간을 단축할 수 있습니다.
 

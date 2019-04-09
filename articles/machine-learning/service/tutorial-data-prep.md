@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: sihhu
 ms.author: MayMSFT
 ms.reviewer: trbye
-ms.date: 02/04/2019
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: d85f1ddcfe264e027a0f9d6c5f291d0005cad67c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361390"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665018"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
@@ -84,7 +84,7 @@ Azure Notebooks로 시작하는 것이 쉽습니다! Azure Machine Learning Data
 패키지가 아직 없는 경우 다음을 사용하여 필요한 패키지를 설치합니다.
 
 ```shell
-pip install azureml-dataprep
+pip install azureml-dataprep==1.0.17
 ```
 
 SDK를 가져옵니다.
@@ -92,6 +92,9 @@ SDK를 가져옵니다.
 ```python
 import azureml.dataprep as dprep
 ```
+
+> [!IMPORTANT]
+> 버전 1.0.17을 설치했는지 확인합니다. 이 자습서는 최신 버전 1.1.0에서 작동하지 않습니다.
 
 ## <a name="load-data"></a>데이터 로드
 
@@ -1082,8 +1085,8 @@ final_df = final_df.filter(dprep.col("cost") > 0)
 
 ```python
 import os
-file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
 package = dprep.Package([final_df])
 package.save(file_path)
 ```

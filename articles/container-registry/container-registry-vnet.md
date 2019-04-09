@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517932"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268426"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure 가상 네트워크 또는 방화벽 규칙을 사용 하 여 Azure container registry에 대 한 액세스 제한
 
@@ -29,6 +29,8 @@ ms.locfileid: "58517932"
 * 만 **Premium** 네트워크 액세스 규칙을 사용 하 여 컨테이너 레지스트리를 구성할 수 있습니다. 레지스트리 서비스 계층에 대 한 자세한 내용은 [Azure Container Registry Sku](container-registry-skus.md)합니다. 
 
 * 만 [Azure Kubernetes Service](../aks/intro-kubernetes.md) 클러스터 또는 Azure [가상 머신](../virtual-machines/linux/overview.md) 가상 네트워크에 컨테이너 레지스트리를 액세스 하는 호스트로 사용할 수 있습니다. *Azure Container Instances를 포함 하 여 다른 Azure 서비스는 현재 지원 되지 않습니다.*
+
+* [ACR 작업](container-registry-tasks-overview.md) 작업 가상 네트워크에 배포 된 컨테이너 레지스트리에 현재 지원 되지 않습니다.
 
 * 각 레지스트리는 최대 100 개의 가상 네트워크 규칙을 지원합니다.
 

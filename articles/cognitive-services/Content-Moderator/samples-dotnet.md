@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4049211acd760f74fbb4a725f878e5c51acbe7dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2b5fb5c44cbb2e0d766c49ed6b715484c22f62e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875945"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756734"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK 샘플
 
@@ -31,7 +31,7 @@ ms.locfileid: "55875945"
 > 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
 >
 
-- **텍스트 조정**: [욕설 및 PII(개인 식별 정보)에 대한 텍스트를 차단합니다](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). [빠른 시작](text-moderation-quickstart-dotnet.md)을 참조하세요.
+- **텍스트 조정**: [텍스트에서 불경한 언어 및 개인 데이터를 검색합니다](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). [빠른 시작](text-moderation-quickstart-dotnet.md)을 참조하세요.
 - **사용자 지정 용어**: [사용자 지정 용어 목록을 사용하여 조정합니다](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). [빠른 시작](term-lists-quickstart-dotnet.md)을 참조하세요.
 
 > [!NOTE]

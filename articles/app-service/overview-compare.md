@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: aac2a0b102d50c8d3f0506c2cc1469a838706703
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322030"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793858"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 비교
 
@@ -29,7 +29,7 @@ Azure는 웹 사이트를 호스트하는 여러 가지 방법을 제공하며 [
 
 Service Fabric은 새 앱을 만들거나 마이크로 서비스 아키텍처를 사용하도록 기존 앱을 다시 작성하는 경우에 적합합니다. 컴퓨터의 공유 풀에서 실행하는 앱은 작게 시작하고 필요에 따라 수백 또는 수천 대의 컴퓨터로 대규모로 확장할 수 있습니다. 상태 저장 서비스를 통해 일관되고 안정적으로 앱 상태를 손쉽게 저장하고 Service Fabric은 서비스 분할, 크기 조정 및 가용성을 자동으로 관리합니다.  Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용하여 WebAPI를 지원합니다.  App Service에 비해 Service Fabric은 기본 인프라에 대한 더 많은 제어 기능 또는 직접 액세스를 지원합니다. 서버로 원격으로 연결하거나 서버 시작 작업을 구성할 수 있습니다. Cloud Services는 제어 수준과 사용 편이성에서 Service Fabric과 비슷하지만 이제는 레거시 서비스이므로 Service Fabric을 새로운 개발에 사용하는 것이 좋습니다.
 
-App Service 또는 Service Fabric에서 실행하려면 기존 애플리케이션을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 Virtual Machines를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure App Service와 Service Fabric에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure Virtual Machines를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다. Azure Virtual Machines는 IaaS(Infrastructure-as-a-Service)이지만 App Service 및 Service Fabric은 PaaS(Platform-as-a-Service)입니다. 
+App Service 또는 Service Fabric에서 실행하려면 기존 애플리케이션을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 Virtual Machines를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure App Service와 Service Fabric에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure Virtual Machines를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다. Azure Virtual Machines는 IaaS(Infrastructure-as-a-Service)이지만 App Service 및 Service Fabric은 PaaS(Platform-as-a-Service)입니다.
 
 ## <a name="features"></a>기능 비교
 다음 표에서는 최상의 옵션 선택에 도움이 되도록 App Service, Cloud Services, Virtual Machines 및 Service Fabric의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure Service Level Agreements(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
@@ -78,7 +78,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 애플리케이�
 * [모바일 클라이언트를 위해 REST API 또는 웹 서비스를 호스트하려는 경우](#mobile)
 
 ### <a id="onprem"></a>온-프레미스 자산과 통합된 비즈니스 애플리케이션을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우
-Azure App Service는 복잡한 비즈니스 애플리케이션에 적합한 솔루션입니다. 부하 분산된 플랫폼에서 자동으로 확장되고 Active Directory를 통해 보호되며 온-프레미스 리소스에 연결되는 앱을 개발할 수 있습니다. 또한 최고 수준의 포털과 API를 통해 이러한 앱을 쉽게 관리할 수 있으며 앱 정보 도구를 사용하여 고객이 앱을 사용하는 방법을 파악할 수 있습니다. [Webjobs][Webjobs] 기능을 사용하면 웹 계층의 일부분으로 백그라운드 프로세스와 작업을 실행할 수 있으며 하이브리드 연결 및 VNET 기능을 사용하면 온-프레미스 리소스에 쉽게 다시 연결할 수 있습니다. Azure App Service는 웹앱에 대해 9의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
+Azure App Service는 복잡한 비즈니스 애플리케이션에 적합한 솔루션입니다. 부하 분산된 플랫폼에서 자동으로 확장되고 Active Directory를 통해 보호되며 온-프레미스 리소스에 연결되는 앱을 개발할 수 있습니다. 또한 최고 수준의 포털과 API를 통해 이러한 앱을 쉽게 관리할 수 있으며 앱 정보 도구를 사용하여 고객이 앱을 사용하는 방법을 파악할 수 있습니다. [Webjobs][Webjobs] 기능을 사용하면 웹 계층의 일부분으로 백그라운드 프로세스와 작업을 실행할 수 있으며 하이브리드 연결 및 VNet 기능을 사용하면 온-프레미스 리소스에 쉽게 다시 연결할 수 있습니다. Azure App Service는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
 * 자동 복구 및 패치되는 클라우드 플랫폼에서 애플리케이션을 안정적으로 실행할 수 있습니다.
 * 전 세계 데이터 센터 네트워크로 자동 확장할 수 있습니다.
@@ -145,7 +145,7 @@ App Service에서 오픈 소스 프레임워크가 지원되는 경우 애플리
 App Service에서 오픈 소스 프레임워크가 지원되지 않는 경우에는 나머지 Azure 웹 호스팅 옵션 중 하나에서 해당 프레임워크를 실행할 수 있습니다. Virtual Machines를 선택하는 경우 Windows 또는 Linux 기반일 수 있는 컴퓨터 이미지에 소프트웨어를 설치 및 구성합니다.
 
 ### <a id="lob"></a>회사 네트워크에 연결해야 하는 LOB(기간 업무) 애플리케이션이 있는 경우
-LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. App Service, 서비스 패브릭 및 Virtual Machines에서 [Azure Virtual Network 서비스](/azure/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. App Service에서 [VNET 통합 기능](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용하면 Azure 애플리케이션을 회사 네트워크에서와 같이 실행할 수 있습니다.
+LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. App Service, 서비스 패브릭 및 Virtual Machines에서 [Azure Virtual Network 서비스](/azure/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. App Service에서 [VNet 통합 기능](/azure/app-service/web-sites-integrate-with-vnet)을 사용하면 Azure 애플리케이션을 회사 네트워크에서와 같이 실행할 수 있습니다.
 
 ### <a id="mobile"></a>모바일 클라이언트를 위해 REST API 또는 웹 서비스를 호스트하려는 경우
 HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하여 다양한 클라이언트를 지원할 수 있습니다. ASP.NET Web API와 같은 프레임워크는 REST 서비스를 더 쉽게 만들고 소비할 수 있도록 Visual Studio와 통합됩니다.  이러한 서비스는 웹 엔드포인트에서 노출되므로 Azure의 모든 웹 호스팅 기법을 사용하여 이 시나리오를 지원할 수 있습니다. 그러나 REST API를 호스트하는 데 적합한 옵션은 App Service입니다. App Service를 통해 다음 작업을 수행할 수 있습니다.
@@ -157,8 +157,6 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 
 > [!NOTE]
 > 계정을 등록하기 전에 Azure App Service를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>로 이동합니다. Azure App Service에서 무료로 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-> 
-> 
 
 ## <a id="nextsteps"></a> 다음 단계
 세 가지 웹 호스팅 옵션에 대한 자세한 내용은 [Azure 소개](../fundamentals-introduction-to-azure.md)를 참조하세요.

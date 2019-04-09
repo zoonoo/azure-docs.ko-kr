@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891021"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849244"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>자습서: Netop Portal과 Azure Active Directory 통합
 
@@ -128,7 +128,7 @@ Netop Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
-    다. **네임스페이스**를 비워 둡니다.
+    다. **네임스페이스** 텍스트 상자에 https:\//secure.netop.com을 입력합니다.
 
     d. 원본을 **특성**으로 선택합니다.
 
@@ -154,7 +154,7 @@ Netop Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ### <a name="configure-netop-portal-single-sign-on"></a>Netop Portal Single Sign-On 구성
 
-**Netop Portal** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Netop Portal 지원 팀](mailto:casemanager@netop.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Netop Portal** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 로그인 URL이 필요합니다. Azure AD 인증용 NetOp Portal을 구성하려면 [여기](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf)에 있는 문서의 3단계 지침을 따르세요.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -174,7 +174,7 @@ Netop Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에서 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

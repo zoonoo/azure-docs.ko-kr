@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842948"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876329"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 ExpressRoute 연결 만들기(미리 보기)
 
@@ -47,8 +47,7 @@ Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 �
 
 **미리 보기 고려 사항:**
 
-* 지역 가용성: 미국 중서부
-* ExpressRoute 회로는 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)를 지원하는 국가에서 사용하도록 설정해야 합니다.
+ExpressRoute 회로는 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)를 지원하는 국가에서 사용하도록 설정해야 합니다.
 
 ## <a name="vnet"></a>1. 가상 네트워크 만들기
 
@@ -79,7 +78,7 @@ Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 �
 1. **피어 회로 URI** -회로 소유자가 제공하고 회로의 고유 ID인 회로 URI
 1. **라우팅 가중치** - [라우팅 가중치](../expressroute/expressroute-optimize-routing.md)를 사용하면 여러 다른 피어링 lcoations의 여러 회로가 동일한 허브에 연결될 때 특정 경로를 기본으로 설정할 수 있습니다.
 1. **회로 찾기**를 클릭하고 찾으면 회로를 선택합니다.
-1. 드롭다운에서 하나 이상의 허브를 선택하고 **저장**을 클릭합니다.
+1. 드롭다운에서 1개 이상의 허브를 선택하고 **저장**을 클릭합니다.
 
 ## <a name="vnet"></a>5. 허브에 VNet 연결
 
@@ -112,7 +111,7 @@ Azure VM과 원격 사이트 간의 통신을 모니터링하는 연결을 만�
 
 ## <a name="cleanup"></a>9. 리소스 정리
 
-리소스가 더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
+이러한 리소스가 더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹과 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

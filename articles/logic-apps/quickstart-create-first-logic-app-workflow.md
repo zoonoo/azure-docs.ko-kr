@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065191"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884240"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 만들기 - Azure Portal
 
@@ -47,7 +47,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **Name** | MyFirstLogicApp | 논리 앱의 이름 | 
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독의 이름 | 
    | **리소스 그룹** | My-First-LA-RG | 관련 리소스를 구성하는 데 사용된 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름 | 
-   | **위치**: | 미국 서부 | 논리 앱 정보를 저장할 지역 | 
+   | **위치** | 미국 서부 | 논리 앱 정보를 저장할 지역 | 
    | **Log Analytics** | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. | 
    |||| 
 
@@ -114,7 +114,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
       지금은 나타나는 **동적 콘텐츠 추가** 목록을 무시합니다. 
       일부 편집 상자 내부를 클릭하면 이 목록이 나타나고 워크플로에 입력으로 포함할 수 있는 이전 단계의 사용 가능한 매개 변수가 표시됩니다. 
 
-   2. **제목** 상자에 ```New RSS item: ``` 텍스트를 입력하고 후행 공백을 하나 둡니다.
+   2. **제목** 상자에 ```New RSS item:``` 텍스트를 입력하고 후행 공백을 하나 둡니다.
 
       ![전자 메일 제목 입력](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  

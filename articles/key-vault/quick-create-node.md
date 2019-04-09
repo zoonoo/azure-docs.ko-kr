@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 1e234b599325da0626c83a57d86ff977b88b5577
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991277"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882753"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>빠른 시작: Node 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 
 
@@ -38,7 +38,7 @@ ms.locfileid: "56991277"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Node.JS](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 이상. 이 빠른 시작에서는 Azure CLI를 로컬에서 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest)를 참조하세요.
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -183,7 +183,7 @@ az webapp identity assign --name <app_name> --resource-group "<YourResourceGroup
 그런 다음, Key Vault의 이름 및 **principalId** 값을 사용하여 다음 명령을 실행합니다.
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
 ```
 
 ## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Azure에 Node 앱을 배포하고 비밀 값 검색

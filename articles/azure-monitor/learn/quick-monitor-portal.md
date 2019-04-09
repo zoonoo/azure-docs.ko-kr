@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437512"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805349"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET 웹 애플리케이션 모니터링 시작
 
@@ -61,21 +61,21 @@ Application Insights는 실행 중인 위치에 관계 없이 애플리케이션
 
 이제 Azure Portal에서 Application Insights를 열어 실행 중인 애플리케이션에 대한 다양한 세부 정보를 볼 수 있습니다.
 
-1. 솔루션 탐색기에서 **연결된 서비스 Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기**를 클릭합니다.  애플리케이션에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
+1. 솔루션 탐색기에서 **연결된 서비스** 폴더(구름과 플러그 모양의 아이콘)를 확장한 후 **Application Insights** 폴더를 마우스 오른쪽 단추로 클릭하고 **Application Insights 포털 열기**를 클릭합니다.  애플리케이션에 대한 몇 가지 정보와 다양한 옵션이 표시됩니다.
 
-    ![애플리케이션 맵](media/quick-monitor-portal/overview-001.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/4overview.png)
 
 2. **애플리케이션 맵**을 클릭하여 애플리케이션 구성 요소 간의 종속 관계에 대한 시각적 레이아웃을 봅니다.  각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-    ![애플리케이션 맵](media/quick-monitor-portal/application-map-001.png)
+    ![애플리케이션 맵](media/quick-monitor-portal/5appmap.png)
 
-3. 애플리케이션 구성 요소 중 하나에서 **앱 분석** 아이콘 ![Application Map](media/quick-monitor-portal/app-analytics-icon.png)을 클릭합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다.  사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. 애플리케이션 구성 요소 중 하나에서 **앱 분석** 아이콘 ![애플리케이션 맵](media/quick-monitor-portal/app-analytics-icon.png) **Analytics에서 보기**를 클릭합니다. 그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다.  이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
-    ![분석](media/quick-monitor-portal/analytics.png)
+    ![분석](media/quick-monitor-portal/6viewanalytics.png)
 
-4. **개요** 페이지로 돌아와서 **라이브 스트림**을 클릭합니다.  그러면 애플리케이션이 실행될 때 이에 대한 실시간 통계가 표시됩니다.  여기에는 들어오는 요청 수, 그러한 요청의 기간 및 발생하는 모든 오류와 같은 정보가 포함됩니다.  또한 프로세서 및 메모리와 같은 중요한 성능 메트릭을 검사할 수 있습니다.
+4. 왼쪽의 조사 아래에 있는 **라이브 메트릭 스트림**을 클릭합니다. 그러면 애플리케이션이 실행될 때 이에 대한 실시간 통계가 표시됩니다. 여기에는 들어오는 요청 수, 그러한 요청의 기간 및 발생하는 모든 오류와 같은 정보가 포함됩니다. 또한 프로세서 및 메모리와 같은 중요한 성능 메트릭을 검사할 수 있습니다.
 
-    ![라이브 스트림](media/quick-monitor-portal/live-stream.png)
+    ![라이브 스트림](media/quick-monitor-portal/7livemetrics.png)
 
     Azure에서 애플리케이션을 호스팅할 준비가 되었으면 이제 게시할 수 있습니다. [ASP.NET 웹앱 빠른 시작 만들기](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy)에 설명된 단계를 따릅니다.
 
@@ -105,6 +105,11 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ## <a name="video"></a>비디오
 
 * [처음부터 .NET 애플리케이션으로 Application Insight 구성](https://www.youtube.com/watch?v=blnGAVgMAfA)에 대한 외부의 단계별 비디오입니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+테스트를 완료하면 리소스 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 이 작업을 수행하려면 다음 단계를 따르세요.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**과 **myResourceGroup**을 차례로 클릭합니다.
+2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에 **myResourceGroup**을 입력한 후 **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 Azure Application Insights로 모니터링하기 위해 애플리케이션을 활성화했습니다.  애플리케이션에서 통계를 모니터링하고 문제를 감지하는 방법을 알아보려면 이 자습서를 계속합니다.

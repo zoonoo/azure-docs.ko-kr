@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312245"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756540"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>빠른 시작: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>빠른 시작: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
 이 문서에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 시작할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다. 잠재적으로 불쾌한 자료를 조정할 목적으로 텍스트 콘텐츠의 용어 기반 필터링 및 분류를 실행하는 방법을 배웁니다.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 **Main** 메서드에 다음 코드를 추가합니다. **ScreenText** 메서드는 필수 작업입니다. 해당 매개 변수는 어떤 콘텐츠 조정 작업을 수행할지 지정합니다. 이 예제에서는 다음을 수행할 메서드를 구성합니다.
 - 텍스트에서 잠재적으로 불경한 언어를 검색합니다.
 - 텍스트를 정규화하고 오타를 자동으로 고칩니다.
-- 미국 및 영국 전화 번호, 메일 주소, 미국 우편 주소와 같은 PII(개인 식별 정보) 검색
+- 미국 및 영국 전화 번호, 이메일 주소, 미국 우편 주소와 같은 개인 데이터를 검색합니다.
 - 머신 러닝 기반 모델을 사용하여 세 가지 범주로 텍스트를 분류합니다.
 
 수행할 작업에 대해 자세히 알아보려면 [다음 단계](#next-steps) 섹션에 있는 링크를 따라가세요.

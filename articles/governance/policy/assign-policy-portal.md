@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342714"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803989"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -31,15 +31,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-   ![정책 검색](./media/assign-policy-portal/search-policy.png)
+   ![모든 서비스에서 정책 검색](./media/assign-policy-portal/search-policy.png)
 
 1. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
 
-   ![할당 선택](./media/assign-policy-portal/select-assignments.png)
+   ![정책 개요 페이지의 할당 선택 페이지](./media/assign-policy-portal/select-assignments.png)
 
 1. **정책 - 할당** 창의 위쪽에서 **정책 할당**을 선택합니다.
 
-   ![정책 정의 할당](./media/assign-policy-portal/select-assign-policy.png)
+   ![할당 페이지에서 정책 정의 할당](./media/assign-policy-portal/select-assign-policy.png)
 
 1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다.  그 후 **범위** 페이지의 맨 위에서 **선택**을 클릭합니다.
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 페이지 왼쪽에서 **준수**를 선택합니다. 그런 다음, 앞에서 만든 **관리 디스크를 사용하지 않는 감사 VM** 정책 할당을 찾습니다.
 
-![정책 준수](./media/assign-policy-portal/policy-compliance.png)
+![정책 규정 준수 페이지의 규정 준수 세부 정보](./media/assign-policy-portal/policy-compliance.png)
 
 이 새로운 할당을 준수하지 않는 기존 리소스가 있는 경우 **비준수 리소스** 아래에 표시됩니다.
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **관리 디스크를 사용하지 않는 VM 감사** 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제**를 선택합니다.
 
-   ![할당 삭제](./media/assign-policy-portal/delete-assignment.png)
+   ![규정 준수 페이지에서 할당 삭제](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>다음 단계
 

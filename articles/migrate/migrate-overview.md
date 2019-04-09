@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 04/03/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999960"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894972"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -37,7 +37,7 @@ Azure Migrate의 기능:
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
 -  다음 지역에서만 Azure Migrate 프로젝트를 만들 수 있지만, 여전히 다른 대상 Azure 위치를 평가할 수 있습니다.
 
-    **지리** | **스토리지 위치**
+    **Geography** | **저장 위치**
     --- | ---
     Azure Government | 미국 정부 버지니아
     아시아 | 동남 아시아 또는 동아시아
@@ -57,7 +57,7 @@ Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.
 
 평가 설정은 필요에 따라 사용자 지정할 수 있습니다. 평가 속성은 다음 표에 요약되어 있습니다.
 
-**속성** | **세부 정보**
+**자산** | **세부 정보**
 --- | ---
 **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>현재 Azure Migrate는 마이그레이션 대상 위치로 33개 지역을 지원합니다. [지역을 확인합니다](https://azure.microsoft.com/global-infrastructure/services/). 기본적으로 대상 지역은 미국 동부로 설정되어 있습니다.
 **저장소 유형** | 평가의 일부인 모든 VM에 대해 할당하려는 관리형 디스크의 형식입니다. 크기 조정 기준이 *온-프레미스 크기 조정으로*인 경우 프리미엄 디스크(기본값), 표준 SSD 디스크 또는 표준 HDD 디스크 중에서 대상 디스크 종류를 지정할 수 있습니다. *성능 기반 크기 조정*의 경우, 위의 옵션과 함께 자동화를 선택할 수 있는 옵션이 있습니다. 이는 VM의 성능 데이터에 따라 디스크 크기 권장 사항이 자동으로 이루어집니다. 예를 들어 [99.9%의 단일 인스턴스 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 달성하려는 경우, 저장소 유형을 프리미엄 관리 디스크로 지정하고자 할 수도 있습니다. 즉, 평가 시 모든 디스크가 프리미엄 관리 디스크로 권장됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다.
@@ -103,6 +103,12 @@ Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.
 
 - **Azure Site Recovery**: Azure Site Recovery를 사용하여 Azure에 마이그레이션할 수 있습니다. 이렇게 하려면 저장소 계정 및 가상 네트워크를 비롯하여 필요한 [Azure 구성 요소를 준비합니다](../site-recovery/tutorial-prepare-azure.md). 온-프레미스에서 [VMware 환경을 준비합니다](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). 모든 준비가 완료되면 Azure로 복제를 설정하고 사용하여 VM을 마이그레이션합니다. [자세히 알아보기](../site-recovery/vmware-azure-tutorial.md).
 - **Azure Database Migration**: 온-프레미스 머신이 SQL Server, MySQL 또는 Oracle과 같은 데이터베이스를 실행 중인 경우 [Azure Database Migration Service](../dms/dms-overview.md)를 사용하여 Azure로 마이그레이션할 수 있습니다.
+
+## <a name="want-to-learn-more-from-community-experts"></a>커뮤니티 전문가에게 자세히 알아보고 싶습니까?
+[Azure Migrate MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc) 또는 [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate) 방문
+
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.  
+질문이 있거나 도움이 필요한 경우 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만드세요. 심층적인 기술 지침이 필요한 지원 요청의 경우 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/)으로 이동하세요.     
 
 
 ## <a name="next-steps"></a>다음 단계

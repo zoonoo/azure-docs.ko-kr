@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112090"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802273"
 ---
 # <a name="create-a-custom-policy-definition"></a>사용자 지정 정책 정의 만들기
 
@@ -72,7 +72,7 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 속성을 찾는 가장 간단한 방법은 동일한 형식의 기존 리소스를 살펴보는 것입니다. 적용하려는 설정을 사용하여 이미 구성된 리소스는 비교 값을 제공합니다.
 해당 리소스에 대한 Azure Portal에서 **Automation 스크립트** 페이지(**설정** 아래)를 확인하세요.
 
-![Automation 스크립트 페이지](../media/create-custom-policy-definition/automation-script.png)
+![기존 리소스에서 템플릿 페이지 내보내기](../media/create-custom-policy-definition/automation-script.png)
 
 스토리지 계정에 대해 이렇게 하면 다음 예제와 비슷한 템플릿이 표시됩니다.
 

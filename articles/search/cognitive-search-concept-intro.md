@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133062"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882502"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
@@ -38,7 +38,7 @@ Azure Search의 인식 기술은 [Computer Vision](https://docs.microsoft.com/az
 
 ## <a name="components-of-cognitive-search"></a>Cognitive Search의 구성 요소
 
-Cognitive Search는 [해당 지역](#where-do-i-start)에서 지원되는 [Azure Search](search-what-is-azure-search.md)의 미리 보기 기능입니다. 
+Cognitive Search는 [Azure Search](search-what-is-azure-search.md)의 미리 보기 기능입니다.
 
 Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 인덱스 프로세싱을 제공하는 [Azure Search *인덱서*](search-indexer-overview.md)를 기반으로 합니다. 기술이 인덱서에 연결되어 문서를 가로채서 사용자가 정의한 기술에 따라 문서를 보강합니다. 인덱스가 완료되면 [Azure Search에서 지원하는 모든 쿼리 유형](search-query-overview.md)에서 검색 요청을 통해 콘텐츠에 액세스할 수 있습니다.  인덱서를 처음 접하는 경우, 이 섹션의 단계별 안내를 참조하세요.
 
@@ -107,7 +107,7 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 | REST API | 설명 |
 |-----|-------------|
 | [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 보강된 문서를 만드는 데 사용되는 원본 데이터를 제공하는 외부 데이터 원본을 식별하는 리소스입니다.  |
-| [기술 집합 만들기(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 인덱싱 중에 강화 파이프라인에 사용되는 [미리 정의된 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인지 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. |
+| [기능 만들기(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 인덱싱 중에 강화 파이프라인에 사용되는 [미리 정의된 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인지 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. |
 | [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Azure Search 인덱스를 표현하는 스키마입니다. 원본 데이터 또는 보강 단계에서 생성되는 필드에 매핑되는 인덱스의 필드(예: 엔터티 인식으로 생성된 조직 이름에 대한 필드)입니다. |
 | [인덱서 만들기(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 데이터 원본, 기술 집합, 원본 및 중간 데이터 구조에서 대상 인덱스로 필드 연결 및 인덱스 자체를 포함하는 인덱싱 중에 사용되는 리소스를 정의하는 구성 요소입니다. 데이터 수집 및 보강을 위한 트리거가 인덱서를 실행합니다. 출력은 기술 집합을 통해 보강된 원본 데이터로 채워진 인덱스 스키마를 기반으로 하는 검색 모음입니다.  |
 
@@ -135,6 +135,6 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Cognitive Search 설명서](cognitive-search-resources-documentation.md)
-+ [빠른 시작: 포털 연습에서 Cognitive Search 시도](cognitive-search-quickstart-blob.md)
++ [인지 검색 설명서](cognitive-search-resources-documentation.md)
++ [빠른 시작: 포털 연습에서 Cognitive Search 사용해 보기](cognitive-search-quickstart-blob.md)
 + [자습서: Cognitive Search API 알아보기](cognitive-search-tutorial-blob.md)

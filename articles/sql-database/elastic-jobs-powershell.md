@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840820"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666795"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
@@ -129,7 +129,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>구독에 대해 탄력적 작업 미리 보기 사용
 
-탄력적 작업을 사용하려면 다음 명령을 사용하여 Azure 구독에서 기능을 등록합니다(이 명령은 탄력적 작업을 사용하려는 각 구독에서 한 번만 실행해야 함).
+탄력적 작업을 사용하려면 다음 명령을 실행하여 Azure 구독에서 해당 기능을 등록합니다. 탄력적 작업 에이전트를 프로비저닝하려는 구독에 대해 이 명령을 한 번씩 실행합니다. 작업 대상인 데이터베이스만 포함하는 구독은 등록할 필요가 없습니다.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql

@@ -3,17 +3,17 @@ title: '빠른 시작: Power BI에서 SQL 쿼리를 사용하여 데이터 시�
 description: 이 빠른 시작에서는 Power BI에서 데이터를 시각화하기 위한 세 가지 옵션 중 하나인 Azure Data Explorer 클러스터에 대한 SQL 쿼리 사용 방법을 알아봅니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977287"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756350"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>빠른 시작: Power BI용 Azure Data Explorer 커넥터를 사용하여 데이터 시각화
 

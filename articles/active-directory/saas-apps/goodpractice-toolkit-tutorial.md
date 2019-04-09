@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864408"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885352"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>자습서: Azure Active Directory와 GoodPractice Toolkit 통합
 
@@ -52,7 +52,7 @@ GoodPractice Toolkit와 Azure AD의 통합을 구성하려면 다음 항목이 �
 
 GoodPractice Toolkit가 Azure AD에 통합되도록 구성하려면 갤러리의 GoodPractice Toolkit를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 GoodPractice Toolkit를 추가하려면 다음 단계를 수행합니다.**
+**갤러리의 GoodPractice Toolkit를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -105,7 +105,7 @@ GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     ![GoodPractice Toolkit 도메인 및 URL Single Sign-On 정보](common/sp-intiated.png)
 
-    **로그온 URL** 텍스트 상자에 `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> ` 패턴을 사용하여 URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에 `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!Note]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 해당 값을 얻으려면 [GoodPractice Toolkit 클라이언트 지원 팀](mailto:support@goodpractice.com)에 문의하세요.
@@ -193,7 +193,7 @@ GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

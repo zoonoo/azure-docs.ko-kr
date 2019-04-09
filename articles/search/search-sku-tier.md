@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621273"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270957"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
-Azure Search에서 서비스 수명 동안 수정되는 가격 책정 계층 또는 SKU에서 [리소스가 만들어집니다](search-create-service-portal.md). 계층을 포함 **무료**, **기본**합니다 **표준**, 또는 **저장소 액세스에 최적화 된**합니다.  **표준** 하 고 **저장소에 최적화 된** 여러 구성 및 용량에서 사용할 수 있습니다. 대부분의 고객이 사용 하 여 시작 합니다 **무료** 평가 대 한 계층 및 개발 및 프로덕션 배포에 대 한 더 높은 유료 계층 중 하나로 졸업 후 합니다. 리소스 집약적 인식 검색의 경우를 비롯한 모든 빠른 시작 및 자습서를 **무료** 계층에서 완료할 수 있습니다.
+Azure Search에서 서비스 수명 동안 수정되는 가격 책정 계층 또는 SKU에서 [리소스가 만들어집니다](search-create-service-portal.md). 계층을 포함 **무료**, **기본**합니다 **표준**, 또는 **저장소 액세스에 최적화 된**합니다.  **표준** 하 고 **저장소에 최적화 된** 여러 구성 및 용량에서 사용할 수 있습니다. 
+
+대부분의 고객이 사용 하 여 시작 합니다 **무료** 평가 대 한 계층 및 개발 및 프로덕션 배포에 대 한 더 높은 유료 계층 중 하나로 졸업 후 합니다. 리소스 집약적 인식 검색의 경우를 비롯한 모든 빠른 시작 및 자습서를 **무료** 계층에서 완료할 수 있습니다.
 
 > [!NOTE]
 > 저장소 액세스에 최적화 된 서비스 계층은 현재 미리 보기 피드백을 수집 하는 것을 목표로 테스트 및 실험 목적에 대 한 할인 된 가격으로 사용할 수 있습니다. 최종 가격은 나중에 발표할 예정 경우 이러한 계층은 일반적으로 사용할 수 있습니다. 이러한 계층을 사용 하 여 프로덕션 응용 프로그램에 대 한 것이 좋습니다.
@@ -29,7 +31,7 @@ Azure Search에서 서비스 수명 동안 수정되는 가격 책정 계층 또
 + 만들 수 있는 인덱스 수
 + 파티션(실제 저장소)의 크기와 속도
 
-**무료** 계층을 포함하는 모든 계층은 일반적으로 기능 패리티를 제공하지만, 더 큰 워크로드에 더 높은 계층이 필요할 수 있습니다. 예를 들어 [인식 검색](cognitive-search-concept-intro.md) 인덱싱에는 데이터 세트가 작지 않으면 무료 서비스에서 시간이 초과되는 장기 실행 기술이 있습니다.
+**무료** 계층을 포함하는 모든 계층은 일반적으로 기능 패리티를 제공하지만, 더 큰 워크로드에 더 높은 계층이 필요할 수 있습니다. 예를 들어 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md) 에 장기 실행 기술을 시간 초과 되는 무료 서비스 데이터 집합으로 발생 하지 않는 한 합니다.
 
 > [!NOTE] 
 > 기능 패리티의 예외는 S3HD에서 사용할 수 없는 [인덱서](search-indexer-overview.md)입니다.
@@ -53,7 +55,7 @@ Azure Search에서 서비스 수명 동안 수정되는 가격 책정 계층 또
 |저장소 최적화 L2 (2) | 2 TB/파티션 (서비스 당 최대 24 TB) |
 
 > [!NOTE] 
-> 저장소 액세스에 최적화 된 계층 보다 표준 계층 TB 당 더 낮은 가격으로 더 큰 저장소 용량을 제공합니다.  기본 단점은 특정 응용 프로그램 요구 사항에 대 한 유효성을 검사 해야 하는 더 높은 쿼리 대기 시간을 보여 줍니다.  이 계층의 성능 고려 사항에 대 한 자세한 내용은 참조 하세요 [성능 및 최적화 고려 사항](search-performance-optimization.md)합니다.
+> 저장소 액세스에 최적화 된 계층 보다 표준 계층 TB 당 더 낮은 가격으로 더 큰 저장소 용량을 제공합니다. 기본 단점은 특정 응용 프로그램 요구 사항에 대 한 유효성을 검사 해야 하는 더 높은 쿼리 대기 시간을 보여 줍니다.  이 계층의 성능 고려 사항에 대 한 자세한 내용은 참조 하세요 [성능 및 최적화 고려 사항](search-performance-optimization.md)합니다.
 >
 
 ## <a name="how-billing-works"></a>청구 방법
@@ -70,17 +72,27 @@ Azure search에서 비용이 Aure 검색에서 발생 하는 방법은 세 가�
 
 추가 복제본 및 파티션의 초기 비용에 추가 된 기능입니다. 검색 서비스에 복제본 및 파티션 최소 구성으로 각 중 하나 이므로 필요 합니다. 최소, 추가한 하지 복제본과 파티션을 독립적으로 합니다. 예를 들어, 복제본 또는 파티션으로 추가할 수 있습니다. 
 
-추가 복제본 및 파티션의 따라 요금이 청구 되는 [수식을](#search-units)합니다. 비용 (double 비용 보다 더 많은 용량이 두 배로) 선형있지 않습니다. 수식 작동 하는 방법의 예제를 참조 하세요. ["복제본 및 파티션의 할당 하는 방법"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+추가 복제본 및 파티션의 따라 요금이 청구 되는 [수식을](#search-units)합니다. 비용 (double 비용 보다 더 많은 용량이 두 배로) 선형있지 않습니다. 수식 작동 하는 방법의 예제를 참조 하세요 ["복제본 및 파티션의 할당 하는 방법"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)합니다.
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. 인덱싱 중 데이터 송신 요금이 발생 합니다.
 
-Azure SQL Database 또는 Cosmos DB 데이터 원본에서 데이터를 끌어올 경우 해당 리소스의 청구서에 트랜잭션 요금이 표시됩니다. 이러한 요금은 Azure Search 미터 없지만 해당 요금이 청구서에 표시 됩니다 인덱서를 Azure SQL Database 또는 Azure Cosmos DB에서 데이터를 사용 하는 경우 여기 언급 됩니다.
+이용 [Azure Search 인덱서](search-indexer-overview.md) 영향 서비스가 있는 위치에 따라 청구 될 수 있습니다. 데이터와 동일한 지역에서 Azure Search 서비스를 만든 경우에 완전 하 게 데이터 송신 요금을 제거할 수 있습니다.
+
++ Azure에서 서비스에 모든 인바운드 데이터에 대 한 요금이 없습니다.
+
++ Azure Search에서 모든 아웃 바운드 데이터에 대 한 요금이 없습니다.
+
++ 데이터 또는 파일 SQL DB, Cosmos, Blob storage에서에서 아웃 바운드 무료로 (Azure Search에 인바운드)으로 모든 서비스가 동일한 지역에 있습니다.
+
++ Storage 및 Azure Search 다른 지역의 경우 아웃 바운드 데이터 또는 파일에 대 한 요금이 적용지 않습니다.
+
+Azure 지역 간에 데이터를 라우팅, 대역폭 요금은 해당 리소스에 대 한 청구서에 표시 됩니다. 이러한 요금은 Azure Search 청구서의 일부가 아닌 이지만 전체 청구 금액에서 해당 요금 인덱서를 데이터 또는 파일 연결을 통해 끌어오기를 사용 하는 경우 표시 됩니다 때문에 여기 언급 됩니다.
+
+인덱서를 사용 하지 않는 경우 대역폭 요금이 없습니다. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI 보강 Cognitive Services를 사용 하 여 인덱싱
 
-[Cognitive Search](cognitive-search-concept-intro.md)의 경우에만 문서 해독 동안의 이미지 추출에 대해 문서에서 추출된 이미지 수에 따라 요금이 청구됩니다. 텍스트 추출은 현재 무료입니다. 에 따라 다른 원칙이 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) Cognitive Services 리소스에 대해 요금이 청구 됩니다. 보강에는 Cognitive Services를 사용하여 직접 작업을 수행한 경우와 동일한 요금이 청구됩니다.
-
-[Cognitive Search](cognitive-search-concept-intro.md) 또는 [Azure Search 인덱서](search-indexer-overview.md)를 사용하지 않는 경우 일반 인덱싱 및 쿼리 워크로드에 사용되는 복제본 및 파티션에 대해서만 비용이 청구됩니다.
+에 대 한 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md) 만 문서 해독 하는 동안 이미지 추출 문서에서 추출 된 이미지의 수에 따라 청구 됩니다. 텍스트 추출은 현재 무료입니다. 자연어 처리와 같은 다른 강화에 기반한 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) Cognitive Services 리소스에 대해 요금이 청구 됩니다. 보강에는 Cognitive Services를 사용하여 직접 작업을 수행한 경우와 동일한 요금이 청구됩니다.
 
 <a name="search-units"></a>
 

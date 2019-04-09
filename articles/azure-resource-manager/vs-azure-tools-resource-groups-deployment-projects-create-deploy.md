@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097460"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905854"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
 Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 앱에 대한 웹 호스트, 웹 사이트 및 데이터베이스를 정의하고 코드와 함께 해당 인프라를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱 및 SQL Database를 배포합니다.  
 
 이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2017](/dotnet/azure/dotnet-tools) 사용 방법을 보여줍니다. Visual Studio 2015 업데이트 2 및 Microsoft Azure SDK for .NET 2.9 또는 Azure SDK 2.9와 함께 Visual Studio 2013을 사용하는 경우 환경은 대부분 동일합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Azure 리소스 그룹 프로젝트 만들기
 
@@ -148,7 +150,7 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
    > [!NOTE]
    > Visual Studio에서는 Azure PowerShell cmdlet을 설치하도록 요청할 수 있습니다. 메시지가 표시되면 설치합니다. 리소스 그룹을 성공적으로 배포하려면 Azure PowerShell 모듈이 필요합니다. 프로젝트의 PowerShell 스크립트는 새 [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az)에서 작동하지 않습니다. 
    >
-   > 자세한 내용은 [Azure PowerShell 모듈 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)을 참조하세요.
+   > 자세한 내용은 [Azure PowerShell 모듈 설치 및 구성](/powershell/azure/install-Az-ps)을 참조하세요.
    > 
    > 
 6. 배포는 몇 분 정도가 걸릴 수 있습니다. **출력** 창에 배포의 상태가 표시됩니다. 배포가 완료되면 마지막 메시지는 다음과 유사한 내용으로 성공적인 배포를 나타냅니다.

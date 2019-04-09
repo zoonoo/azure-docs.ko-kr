@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259621"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881633"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출(미리 보기)
 
@@ -129,9 +129,6 @@ api-key: [admin key]
   ![포털의 데이터 원본 타일](./media/cognitive-search-tutorial-blob/data-source-tile.png "포털의 데이터 원본 타일")
 
 403 또는 404 오류가 있다면 요청 구조를 확인합니다. `api-version=2017-11-11-Preview`는 엔드포인트에 있어야 하고, `api-key`는 `Content-Type` 뒤에 나오는 헤더에 있어야 하고, 그 값이 검색 서비스에 대해 유효해야 합니다. 이 자습서의 나머지 단계에서 헤더를 다시 사용할 수 있습니다.
-
-> [!TIP]
-> 이제 많은 작업을 수행하기 전에 미리 보기 기능을 제공하도록 지원되는 위치 중 하나인 미국 중남부 또는 유럽 서부에서 검색 서비스가 실행되는지 확인합니다.
 
 ## <a name="create-a-skillset"></a>기술 집합 만들기
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958986"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877264"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 및 메트릭 모니터링
 
@@ -41,7 +41,7 @@ ms.locfileid: "56958986"
 진단 로깅을 켜는 이 절차를 완료한 후 데이터가 로그에 표시되는 데 몇 분 정도 걸릴 수 있습니다. 처음에 아무 것도 표시되지 않으면 몇 분 후에 다시 확인합니다.
 
 1. Azure Portal에서 방화벽 리소스 그룹을 열고 방화벽을 클릭합니다.
-2. **모니터링**에서 **진단 로그**를 클릭합니다.
+2. **모니터링**에서 **진단 설정**을 클릭합니다.
 
    Azure Firewall의 경우 두 개의 서비스 관련 로그를 사용할 수 있습니다.
 

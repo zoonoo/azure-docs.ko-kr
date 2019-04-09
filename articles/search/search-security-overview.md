@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342425"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269557"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search의 보안 및 데이터 프라이버시
 
@@ -28,11 +28,11 @@ Azure Search는 [2018년 6월에 발표](https://azure.microsoft.com/blog/azure-
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [SOC 2 Type 2 준수](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) 전체 보고서를 보려면 [Azure - 및 Azure Government SOC 2 Type II 보고서](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)로 이동하세요. 
-+ [HIPAA(Health Insurance Portability and Accountability Act)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
-+ [GxP(21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
++ [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
++ [오스트레일리아 IRAP 미분류 DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 표준 규정 준수는 일반적으로 사용 가능한 기능에 적용됩니다. 미리 보기 기능은 일반적인 가용성으로 전환될 때 인증되며 엄격한 표준 요구 사항이 있는 솔루션에는 사용하면 안 됩니다. 규정 준수 인증은 [Microsoft Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 및 [보안 센터](https://www.microsoft.com/en-us/trustcenter)에 설명되어 있습니다. 
 
@@ -53,10 +53,12 @@ Azure Search는 [2018년 6월에 발표](https://azure.microsoft.com/blog/azure-
 
 Azure 전체에서 여러 보안 메커니즘을 사용할 수 있으며, 따라서 사용자가 만드는 Azure Search 리소스에 자동으로 사용할 수 있습니다.
 
-+ [삭제를 방지하기 위해 구독 또는 리소스 수준 잠금](../azure-resource-manager/resource-group-lock-resources.md)
-+ [정보 및 관리 작업에 대한 액세스를 제어하는 RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)
++ [구독 또는 리소스 수준 삭제를 방지 하기 위해 잠금](../azure-resource-manager/resource-group-lock-resources.md)
++ [역할 기반 Access Control (RBAC) 정보 및 관리 작업에 대 한 액세스를 제어 하려면](../role-based-access-control/overview.md)
 
 모든 Azure 서비스는 모든 서비스에서 일관된 수준의 액세스를 설정하기 위해 RBAC(역할 기반 액세스 제어)를 지원합니다. 예를 들어 관리 키와 같은 중요한 데이터는 소유자 및 참가자 역할에서만 확인할 수 있는 반면 서비스 상태는 역할에 관계없이 모든 구성원이 확인할 수 있습니다. RBAC는 소유자, 참가자 및 독자 역할을 제공합니다. 기본적으로 모든 서비스 관리자는 소유자 역할의 구성원입니다.
+
+<a name="service-access-and-authentication"></a>
 
 ## <a name="service-access-and-authentication"></a>서비스 액세스 및 인증
 
@@ -65,11 +67,11 @@ Azure Search이 Azure 플랫폼의 보안 보호 기능을 상속하는 동시�
 검색 서비스에 대한 두 가지 액세스 수준이 있으며, 다음과 같은 두 가지 유형의 키를 통해 설정됩니다.
 
 * 관리자 액세스(서비스에 대한 모든 읽기-쓰기 작업에 유효)
-* 쿼리 액세스(인덱스에 대한 쿼리와 같은 읽기 전용 작업에 유효)
+* 쿼리 (인덱스의 문서 컬렉션에 대 한 쿼리와 같은 읽기 전용 작업에 유효) 액세스
 
-*관리자 키*는 서비스가 프로비저닝될 때 만들어집니다. 두 개의 관리 키가 있으며 단순하게 유지하기 위해 *주* 및 *보조*로 지정되지만 실제로는 서로 바꿔 사용할 수 있습니다. 각 서비스에는 서비스에 대한 액세스 권한을 잃지 않고 롤오버할 수 있는 두 개의 관리 키가 있습니다. 관리 키를 다시 생성할 수 있지만 총 관리 키 수에 추가할 수는 없습니다. 검색 서비스당 최대 두 개의 관리 키가 있습니다.
+*관리자 키*는 서비스가 프로비저닝될 때 만들어집니다. 두 개의 관리 키가 있으며 단순하게 유지하기 위해 *주* 및 *보조*로 지정되지만 실제로는 서로 바꿔 사용할 수 있습니다. 각 서비스에는 서비스에 대한 액세스 권한을 잃지 않고 롤오버할 수 있는 두 개의 관리 키가 있습니다. 할 수 있습니다 [다시 생성 하는 관리자 키](search-security-api-keys.md#regenerate-admin-keys) 주기적으로 Azure 보안 당 수 있지만 모범 사례를 추가할 수 없습니다 총 관리 키 수입니다. Search 서비스 당 두 개의 관리자 키는 최대가 있습니다.
 
-*쿼리 키*는 필요에 따라 생성되며, 검색을 직접 호출하는 클라이언트 애플리케이션을 위해 설계되었습니다. 최대 50개까지 쿼리 키를 만들 수 있습니다. 애플리케이션 코드에서 서비스에 대한 읽기 전용 액세스를 허용하도록 검색 URL 및 쿼리 api-key를 지정합니다. 또한 애플리케이션 코드는 애플리케이션에 사용된 인덱스도 지정합니다. 동시에, 엔드포인트, 읽기 전용 액세스를 위한 api-key 및 대상 인덱스는 클라이언트 애플리케이션에서 연결의 액세스 수준 및 범위를 정의합니다.
+*쿼리 키* 필요에 따라 생성 되 고 쿼리를 실행 하는 클라이언트 응용 프로그램에 대 한 설계 되었습니다. 최대 50개까지 쿼리 키를 만들 수 있습니다. 응용 프로그램 코드에서 특정 인덱스의 문서 컬렉션에 대 한 읽기 전용 액세스를 허용 하도록 검색 URL 및 쿼리 api 키를 지정 합니다. 동시에, 엔드포인트, 읽기 전용 액세스를 위한 api-key 및 대상 인덱스는 클라이언트 애플리케이션에서 연결의 액세스 수준 및 범위를 정의합니다.
 
 인증은 필수 키, 작업 및 개체로 구성된 각 요청에 필요합니다. 함께 연결하는 경우 두 개의 사용 권한 수준(전체 및 읽기 전용) 및 컨텍스트(예: 인덱스에서의 쿼리 작업)는 서비스 작업에 전체 스펙트럼 보안을 충분히 제공할 수 있습니다. 키에 대 한 자세한 내용은 [api-key 만들기 및 관리](search-security-api-keys.md)를 참조하세요.
 
@@ -83,17 +85,11 @@ Azure Search에서 개별 인덱스는 보안 개체가 아닙니다. 대신 인
 
 인덱스 수준에서 보안 경계를 요구하는 다중 테넌트 솔루션의 경우 이러한 솔루션에는 일반적으로 중간 계층이 포함됩니다. 고객은 인덱스 격리를 처리하기 위해 이를 사용합니다. 다중 테넌트 사용 사례에 대한 자세한 내용은 [다중 테넌트 SaaS 애플리케이션 및 Azure Search에 대한 디자인 패턴](search-modeling-multitenant-saas-applications.md)을 참조하세요.
 
-## <a name="admin-access-from-client-apps"></a>클라이언트 앱에서 관리자 액세스
+## <a name="admin-access"></a>관리자 액세스
 
-Azure Search 관리 REST API는 Azure 리소스 관리자의 확장이며 종속성을 공유합니다. 이와 같이 Active Directory는 Azure Search 서비스 관리의 필수 구성 요소입니다. 클라이언트 코드의 모든 관리 요청은 요청이 리소스 관리자에 도달하기 전에 Azure Active Directory를 사용하여 인증되어야 합니다.
+[역할 기반 액세스 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 서비스 및 해당 콘텐츠를 통해 컨트롤에 액세스할 수 있는지 여부를 결정 합니다. 포털 또는 PowerShell 인 경우 소유자 또는 참가자 Azure Search 서비스에서 사용할 수 있습니다 **Az.Search** 모듈 만들기, 업데이트 또는 서비스에서 개체를 삭제 합니다. 사용할 수도 있습니다는 [Azure Search 관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)합니다.
 
-인덱스 만들기(Azure Search Service REST API) 또는 문서 검색(Azure Search Service REST API)과 같은 Azure Search Service 엔드포인트에 대한 데이터 요청은 요청 헤더에서 api-key를 사용합니다.
-
-애플리케이션 코드가 검색 인덱스나 문서에 대한 데이터 작업뿐만 아니라 서비스 관리 작업을 처리하는 경우 코드에서 Azure Search에 고유한 액세스 키 및 리소스 관리자에서 필요한 Active Directory 인증 방법과 같은 두 가지 인증 방식을 구현합니다. 
-
-Azure Search에서 요청을 구성하는 방법에 대한 정보는 [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)를 참조하세요. 리소스 관리자를 위한 인증 요구 사항에 대한 자세한 내용은 [리소스 관리자 인증 API를 사용하여 구독에 액세스](../azure-resource-manager/resource-manager-api-authentication.md)를 참조하세요.
-
-## <a name="user-access-to-index-content"></a>인덱스 콘텐츠에 대한 사용자 액세스
+## <a name="user-access"></a>사용자 액세스
 
 기본적으로 인덱스에 대한 사용자 액세스는 쿼리 요청의 액세스 키에 따라 결정됩니다. 대부분의 개발자는 클라이언트 쪽 검색 요청에 대한 [*쿼리 키*](search-security-api-keys.md)를 만들어서 할당합니다. 쿼리 키는 인덱스의 모든 콘텐츠에 대한 읽기 액세스 권한을 부여합니다.
 
@@ -101,8 +97,8 @@ Azure Search에서 요청을 구성하는 방법에 대한 정보는 [Azure Sear
 
 | 접근 방식 | 설명 |
 |----------|-------------|
-|[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
-|[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 이전 문서에서 확장되어 Azure 클라우드 플랫폼에서 제공하는 [체험 서비스](https://azure.microsoft.com/free/) 중 하나인 AAD(Azure Active Directory)에서 ID를 검색하는 단계를 제공합니다. |
+|[Id 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
+|[Azure Active Directory id에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 이전 문서에서 확장되어 Azure 클라우드 플랫폼에서 제공하는 [체험 서비스](https://azure.microsoft.com/free/) 중 하나인 AAD(Azure Active Directory)에서 ID를 검색하는 단계를 제공합니다. |
 
 ## <a name="table-permissioned-operations"></a>표: 권한이 지정된 작업
 
@@ -128,8 +124,8 @@ Microsoft 데이터 센터는 업계 최고의 물리적 보안을 제공하고 
 
 ## <a name="see-also"></a>참고 항목
 
-+ [.NET 시작(관리자 키를 사용하여 인덱스를 만드는 방법을 보여줍니다.)](search-create-index-dotnet.md)
-+ [REST 시작(관리자 키를 사용하여 인덱스를 만드는 방법을 보여줍니다.)](search-create-index-rest-api.md)
-+ [Azure Search 필터를 사용하여 ID 기반 액세스 제어](search-security-trimming-for-azure-search.md)
-+ [Azure Search 필터를 사용하여 Active Directory ID 기반 액세스 제어](search-security-trimming-for-azure-search-with-aad.md)
++ [가져오기 (관리자 키를 사용 하 여 인덱스를 만드는 방법을 보여줍니다.)는.NET 시작](search-create-index-dotnet.md)
++ [가져오기 시작 REST (관리 키를 사용 하 여 인덱스를 만드는 방법을 보여줍니다.)](search-create-index-rest-api.md)
++ [Azure Search 필터를 사용 하 여 id 기반 액세스 제어](search-security-trimming-for-azure-search.md)
++ [Azure Search 필터를 사용 하 여 active Directory id 기반 액세스 제어](search-security-trimming-for-azure-search-with-aad.md)
 + [Azure Search의 필터](search-filters.md)

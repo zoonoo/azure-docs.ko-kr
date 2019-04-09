@@ -92,7 +92,7 @@ items:
       href: vmware-azure-about-disaster-recovery.md
     - name: 일반적인 질문
       href: vmware-azure-common-questions.md
-    - name: 지원 매트릭스
+    - name: VMware/Physical 서버에서 Azure로 지원 매트릭스
       href: vmware-physical-azure-support-matrix.md
     - name: 구성 서버 배포에 대한 지원 요구 사항
       href: vmware-azure-configuration-server-requirements.md
@@ -112,7 +112,7 @@ items:
       href: hyper-v-azure-architecture.md
   - name: Azure로 물리적 서버 재해 복구 정보
     items:
-    - name: 지원 매트릭스
+    - name: VMware/Physical 서버에서 Azure로 지원 매트릭스
       href: vmware-physical-azure-support-matrix.md
     - name: 물리적 서버에서 Azure로 아키텍처
       href: physical-azure-architecture.md
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: d41716875c4fa91a9cb044746fd6610ea87b560f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: f9105e36a6e2cb1f803d65912f1d8e45cd731b20
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847699"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006847"

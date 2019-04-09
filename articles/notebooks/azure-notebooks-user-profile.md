@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 4186abd215509e0ae9ced50340fb1f3d3b5f9676
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765920"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265613"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure Notebooks에 대한 프로필 및 사용자 ID
 
 Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에서는 공용 이미지를 다른 사용자에게 보여줍니다.
 
-[![Azure Notebooks 프로필 페이지](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
+[![AAzure Notebooks 프로필 페이지 n](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 사용자 ID는 프로젝트와 Notebook을 공유하는 데 사용하는 URL의 일부입니다. 다음 목록에서는 다른 URL 패턴을 설명합니다.
 
@@ -69,4 +69,4 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 ## <a name="next-steps"></a>다음 단계  
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 위해 Jupyter notebook을 실행 만들기](tutorial-create-run-jupyter-notebook.md)

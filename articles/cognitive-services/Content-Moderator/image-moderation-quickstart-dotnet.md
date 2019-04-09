@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 03/20/2019
 ms.author: sajagtap
-ms.openlocfilehash: bd281191deb1a82d4b1b5247a011d9867f0c9bc4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879295"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757226"
 ---
-# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>빠른 시작: C#에서 불쾌한 자료에 대한 이미지 콘텐츠 분석
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>빠른 시작: C#으로 이미지에서 불쾌한 콘텐츠 분석
 
 이 문서에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 시작할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다. 잠재적으로 불쾌한 자료를 조정할 목적으로 성인/외설 콘텐츠, 압축 풀기 텍스트 및 사람 얼굴을 검사하는 방법을 배웁니다.
 

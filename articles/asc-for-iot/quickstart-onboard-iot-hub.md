@@ -1,37 +1,37 @@
 ---
-title: IoT Hub에서 IoT용 ASC 서비스 사용 - 미리 보기 | Microsoft Docs
-description: IoT Hub에서 IoT용 ASC 서비스를 사용하도록 설정하는 방법을 알아봅니다.
-services: ascforiot
+title: IoT Hub에서 IoT용 Azure Security Center 서비스 사용 - 미리 보기 | Microsoft Docs
+description: IoT Hub에서 IoT용 Azure Security Center 서비스를 사용하도록 설정하는 방법을 알아봅니다.
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 4fd7fb68fd2eb8be0c1c109d76cff341faba9391
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541766"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862389"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 서비스 사용
 
 > [!IMPORTANT]
-> IoT용 ASC는 현재 공개 미리 보기에 있습니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 문서에서는 IoT Hub에서 IoT용 ASC 미리 보기 서비스를 사용하도록 설정하는 방법에 대해 설명합니다.  
+이 문서에서는 IoT Hub에서 IoT용 Azure Security Center(ASC) 미리 보기 서비스를 사용하도록 설정하는 방법에 대해 설명합니다.  
 
 > [!NOTE]
-> IoT용 ASC는 현재 표준 계층 이상의 IoT Hub만 지원합니다.
->IoT용 ASC는 단일 허브 솔루션입니다. 여러 개의 허브가 필요한 경우 여러 개의 솔루션도 필요합니다. 
+> IoT용 Azure Security Center는 현재 표준 계층 이상의 IoT Hub만 지원합니다.
+> IoT용 Azure Security Center는 단일 허브 솔루션입니다. 여러 개의 허브가 필요한 경우 여러 개의 솔루션도 필요합니다. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>서비스를 사용하도록 설정하기 위한 필수 구성 요소
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dca14f4c74c130145ba6792d2a3ee5c43f3c72b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874799"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ SharePoint 온-프레미스와 Azure AD 통합을 구성하려면 다음 항목�
 
 SharePoint 온-프레미스의 Azure AD 통합을 구성하려면 갤러리의 SharePoint 온-프레미스를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 SharePoint 온-프레미스를 추가하려면 다음 단계를 수행합니다.**
+**갤러리의 SharePoint 온-프레미스를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -106,11 +106,11 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 
     ![SharePoint 온-프레미스 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<YourSharePointServerURL>/_trust/default.aspx` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. **식별자** 텍스트 상자에서 `urn:sharepoint:federation` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다. `urn:sharepoint:federation`
 
-    다. **회신 URL** 텍스트 상자에서 `https://<YourSharePointServerURL>/_trust/default.aspx` 패턴을 사용하여 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [SharePoint 온-프레미스 클라이언트 지원 팀](https://support.office.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -149,7 +149,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
     > [!TIP]
     > PowerShell을 처음 사용하거나 PowerShell 작동 방법에 대해 자세히 알아보려면 [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps)을 참조하세요.
 
-    ```
+    ```powershell
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
     $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
@@ -220,7 +220,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
     ![Azure AD 보안 그룹 만들기](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
     > [!NOTE]
-    > Azure Active Directory 보안 그룹을 SharePoint 온-프레미스에 할당하기 위해 온-프레미스 SharePoint 팜에서 [AzureCP](https://yvand.github.io/AzureCP/)를 설치 및 구성하거나 SharePoint용 대체 사용자 지정 클레임 공급자를 개발 및 구성해야 합니다.  AzureCP를 사용하지 않는 경우, 이 문서 끝에서 사용자 고유의 사용자 지정 클레임 공급자 생성에 대한 섹션을 참조하세요.
+    > Azure Active Directory 보안 그룹을 SharePoint 온-프레미스에 할당하려면 온-프레미스 SharePoint 팜에서 [AzureCP](https://yvand.github.io/AzureCP/)를 설치 및 구성하거나 SharePoint용 대체 사용자 지정 클레임 공급자를 개발 및 구성해야 합니다.  AzureCP를 사용하지 않는 경우, 이 문서 끝에서 사용자 고유의 사용자 지정 클레임 공급자 생성에 대한 섹션을 참조하세요.
 
 ### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>SharePoint 온-프레미스 보안 그룹에 대한 액세스 권한 부여
 
@@ -310,11 +310,12 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 
 5. SharePoint Server에서 **SharePoint 2016 관리 셸**을 열고 다음 명령을 실행하여 이전에 사용한 신뢰할 수 있는 ID 토큰 발급자의 이름을 사용합니다.
 
-    ```
+    ```powershell
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
+
 6. 중앙 관리에서 웹 애플리케이션으로 이동하고 기존의 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다. 로그인 페이지 URL을 사용자 지정 로그인 페이지 `/_trust/`로 구성해야합니다.
 
 7. 중앙 관리에서 웹 애플리케이션을 클릭하고 **사용자 정책**을 선택합니다. 이 아티클에서 이전에 설명한 대로 적절한 사용 권한이 있는 사용자를 추가합니다.
@@ -368,6 +369,6 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5d9e33e5cf4c8a7d5b8085e1e2ff8f4bde3274b7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770904"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793484"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 실제 장치 추가
 
@@ -50,7 +50,7 @@ ms.locfileid: "57770904"
 
    ![연결된 공조 디바이스를 표시하는 Device Explorer 페이지](media/tutorial-add-device/explorer.png)
 
-   **Device Explorer**는 작성기가 디바이스 템플릿을 만들 때 자동으로 생성된 시뮬레이션된 디바이스 및 **연결된 공조 디바이스**를 표시합니다.
+   **디바이스 탐색기**에 **연결된 공조** 디바이스 템플릿 및 시뮬레이션된 디바이스가 표시됩니다. 디바이스 템플릿을 만들면 IoT Central에서 시뮬레이션된 디바이스를 자동으로 만듭니다.
 
 2. 실제 연결된 공조 디바이스에 연결을 시작하려면 **+** 를 선택한 후 **실제**를 선택합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "57770904"
 
     ![설정 동기화 표시](media/tutorial-add-device/settingssyncing.png)
 
-2. 실제 연결된 새 공조 디바이스에 대한 **속성** 페이지에서 서비스의 위치와 마지막 서비스 날짜는 모두 편집 가능한 디바이스 속성입니다. 일련 번호 및 펌웨어 버전 필드는 장치가 애플리케이션에 연결될 때까지 비어 있습니다. 이들은 디바이스에서 보내는 읽기 전용 값으로, 편집할 수 없습니다.
+2. 실제 새 디바이스에 대한 **속성** 페이지에서 서비스의 위치와 마지막 서비스 날짜는 모두 편집 가능한 속성입니다. 일련 번호 및 펌웨어 버전 필드는 장치가 애플리케이션에 연결될 때까지 비어 있습니다. 이들은 디바이스에서 보내는 읽기 전용 값으로, 편집할 수 없습니다.
 
     ![실제 디바이스에 대한 디바이스 속성](media/tutorial-add-device/setproperties1.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "57770904"
 
 ## <a name="generate-connection-string"></a>연결 문자열 생성
 
-디바이스 개발자는 디바이스에서 실행되는 코드에서 실제 디바이스에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 장치를 Azure IoT Central 애플리케이션에 안전하게 연결할 수 있습니다. 다음 단계에서는 Node.js로 작성한 클라이언트 노드 준비의 일환으로 연결 문자열을 생성합니다. Node.js 애플리케이션은 실제 연결된 공조를 나타냅니다. 
+디바이스 개발자는 디바이스에서 실행되는 코드에서 실제 디바이스에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 디바이스를 애플리케이션에 안전하게 연결할 수 있습니다. 다음 단계에서는 연결 문자열을 생성하고 클라이언트 Node.js 코드를 준비합니다.
 
 ## <a name="prepare-the-client-code"></a>클라이언트 코드 준비
 
@@ -88,7 +88,7 @@ ms.locfileid: "57770904"
 * **온도 설정** 설정을 사용하는 운영자에게 응답합니다.
 * Azure IoT Central 애플리케이션에서 Echo 명령을 처리합니다.
 
-[다음 단계](#next-steps)에서 참조하는 "방법" 문서는 더 완벽한 샘플을 제공하고 다른 프로그래밍 언어의 사용을 보여줍니다. 디바이스를 Azure IoT Central에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity.md) 문서를 참조하세요.
+[다음 단계](#next-steps) 섹션에서 나열된 문서에는 더 완벽한 샘플이 포함되며 다른 프로그래밍 언어를 보여줍니다. 디바이스를 Azure IoT Central에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity.md) 문서를 참조하세요.
 
 다음 단계에서는 [Node.js](https://nodejs.org/) 샘플을 준비하는 방법을 보여줍니다.
 
@@ -163,7 +163,7 @@ ms.locfileid: "57770904"
 
 ## <a name="review-client-code"></a>클라이언트 코드 검토
 
-이전 섹션에서는 Azure IoT Central 애플리케이션에 연결하는 애플리케이션에 대한 기본 Node.js 프로젝트를 만들었습니다. 이 섹션에서는 다음에 코드를 추가합니다.
+이전 섹션에서는 Azure IoT Central 애플리케이션에 연결하는 애플리케이션에 대한 기본 Node.js 프로젝트를 만들었습니다. 다음 단계는 코드를 추가하여 다음을 수행하는 것입니다.
 
 * Azure IoT Central 애플리케이션에 연결합니다.
 * Azure IoT Central 애플리케이션에 원격 분석을 보냅니다.
@@ -300,7 +300,8 @@ ms.locfileid: "57770904"
 
 ## <a name="configure-client-code"></a>클라이언트 코드 구성
 
-<!-- Add the connection string to the sample code, build, and run --> Azure IoT Central 애플리케이션에 연결할 클라이언트 코드를 구성하려면 이 자습서의 앞부분에서 언급한 실제 장치에 대한 연결 문자열을 추가해야 합니다.
+<!-- Add the connection string to the sample code, build, and run -->
+Azure IoT Central 애플리케이션에 연결할 클라이언트 코드를 구성하려면 이 자습서의 앞부분에서 언급한 실제 장치에 대한 연결 문자열을 추가해야 합니다.
 
 1. **ConnectedAirConditioner.js** 파일에서 다음 코드 줄을 찾습니다.
 
@@ -355,7 +356,7 @@ ms.locfileid: "57770904"
 > * 클라이언트 코드가 애플리케이션에 매핑되는 방법 이해
 > * 실제 디바이스에 대한 클라이언트 코드 구성
 
-Azure IoT Central 애플리케이션에 실제 장치를 연결했으므로 제안된 다음 단계는 다음과 같습니다.
+Azure IoT Central 애플리케이션에 실제 디바이스를 연결했으므로 제안된 다음 단계는 다음과 같습니다.
 
 운영자로서 방법을 알아볼 수 있습니다.
 
@@ -365,10 +366,8 @@ Azure IoT Central 애플리케이션에 실제 장치를 연결했으므로 제�
 
 디바이스 개발자로서 다음 작업 방법을 알아볼 수 있습니다.
 
-* [DevKit 준비 및 연결](howto-connect-devkit.md)
-* [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)
+* [DevKit 디바이스 준비 및 연결(C)](howto-connect-devkit.md)
+* [Raspberry Pi 준비 및 연결(Python)](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi 준비 및 연결(C#)](howto-connect-raspberry-pi-csharp.md)
+* [Windows 10 IoT Core 디바이스 준비 및 연결(C#)](howto-connect-windowsiotcore.md)
 * [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
-* [코드 사용자 지정][lnk-nodejs-device-ref]
-
-
-[lnk-nodejs-device-ref]: /javascript/api/azure-iot-device/?view=azure-iot-typescript-latest

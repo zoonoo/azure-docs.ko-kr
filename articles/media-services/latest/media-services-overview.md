@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351459"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755913"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
 
@@ -44,38 +44,41 @@ Media Services를 사용하면 클라우드에서 다양한 미디어 워크플�
 * [Azure Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai)와 함께 Azure Media Services를 사용하여 더 많은 청중(예: 청각 장애인 또는 다른 언어로 따라 읽기를 원하는 사람들)을 수용하기 위해 자막 및 캡션을 비디오에 추가합니다.
 * Azure CDN을 사용하여 순간적인 높은 부하(예: 제품 런칭 이벤트 시작)를 더 효율적으로 처리하기 위한 대규모 크기 조정을 구현합니다. 
 
-## <a name="v3-capabilities"></a>v3 기능
+## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요? 
 
-v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. 
+Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 
-이 버전은 다음과 같은 기능을 제공합니다.  
+개발을 시작하기 전에 [기본 개념](concepts-overview.md)을 검토합니다.<br/>
 
-* 미디어 처리 또는 분석 작업의 간단한 워크플로를 정의하는 데 도움이 되는 **변환**. 변환은 비디오 및 오디오 파일을 처리하는 방법입니다. 그런 다음 작업을 변환에 제출하여 콘텐츠 라이브러리에 있는 모든 파일을 처리하도록 이를 반복적으로 적용할 수 있습니다.
-* 비디오를 처리(인코딩 또는 분석)하는 **작업**. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일 경로를 사용하여 작업에 지정할 수 있습니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
-* 작업 진행률이나 상태 또는 라이브 이벤트 시작/중지 및 오류 이벤트를 모니터링하는 **알림**. 알림은 Azure Event Grid 알림 시스템과 통합됩니다. Azure Media Services에서 여러 리소스의 이벤트를 쉽게 구독할 수 있습니다. 
-* **Azure Resource 관리** 템플릿을 사용하여 변환, 스트리밍 엔드포인트, 라이브 이벤트 등을 만들고 배포할 수 있습니다.
-* **역할 기반 액세스 제어**는 리소스 수준에서 설정할 수 있으므로 변환, 라이브 이벤트 등과 같은 특정 리소스에 대한 액세스를 잠글 수 있습니다.
-* 여러 언어로 된 **클라이언트 SDK**: .NET, .NET core, Python, Go, Java, 및 Node.js.
+### <a name="quickstarts"></a>빠른 시작  
 
-## <a name="naming-conventions"></a>명명 규칙
+빠른 시작에서는 신규 고객이 Media Services를 빠르게 사용해 볼 수 있는 기본적인 1일차 지침을 보여줍니다.
 
-Azure Media Services v3 리소스 이름(예: 자산, 작업, 변환)은 Azure Resource Manager 명명 제약 조건에 따라 달라집니다. Azure Resource Manager에 따라 리소스 이름은 항상 고유합니다. 따라서 리소스 이름에 대해 고유 식별자 문자열(예: GUID)을 사용할 수 있습니다. 
+* [비디오 파일 스트리밍 - .NET](stream-files-dotnet-quickstart.md)
+* [비디오 파일 스트리밍 - CLI](stream-files-cli-quickstart.md)
+* [비디오 파일 스트리밍 - Node.js](stream-files-nodejs-quickstart.md)
+    
+### <a name="tutorials"></a>자습서 
 
-Media Services 리소스 이름에는 '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', 작은 따옴표 또는 제어 문자가 포함될 수 없습니다. 다른 문자를 모두 허용합니다. 리소스 이름의 최대 길이는 260자입니다. 
+자습서에서는 일부 주요 Media Services 작업에 대한 시나리오 기반 프로시저를 보여줍니다.
 
-Azure Resource Manager 이름 지정에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
+* [원격 파일 및 스트림 비디오 인코딩 – REST](stream-files-tutorial-with-rest.md)
+* [업로드된 파일 및 스트림 비디오 인코딩 – .NET](stream-files-tutorial-with-api.md)
+* [라이브 스트리밍 - .NET](stream-live-tutorial-with-api.md)
+* [비디오 분석 - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 동적 암호화 - .NET](protect-with-aes128.md)
+    
+### <a name="how-to-guides"></a>방법 가이드
 
-## <a name="v3-api-design-principles"></a>v3 API 디자인 원칙
+작업을 완료하는 방법을 설명하는 코드 샘플이 포함되어 있습니다. 이 섹션에서는 많은 예제를 찾을 수 있으며, 여기에는 그 중 몇 가지만 나와 있습니다.
 
-v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 API는 **가져오기** 또는 **나열** 작업에서 비밀 또는 자격 증명을 반환하지 않습니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 비밀 또는 자격 증명을 가져오는 별도 작업 메서드를 호출해야 합니다. 다른 API와 달리 일부 API가 비밀을 검색/표시하는 경우에 별도 동작을 사용하면 다른 RBAC 보안 권한을 설정할 수 있습니다. RBAC를 사용하여 액세스를 관리하는 방법에 대한 정보는 [RBAC를 사용하여 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)를 참조하세요.
-
-이 예제에는 다음이 포함됩니다. 
-
-* StreamingLocator의 Get에 ContentKey 값을 반환하지 않음 
-* ContentKeyPolicy의 Get에서 제한 키를 반환하지 않음 
-* 작업 HTTP 입력 URL의 서명을 제거할 쿼리 문자열의 URL 부분을 반환하지 않음
-
-[콘텐츠 키 정책 가져오기 - .NET](get-content-key-policy-dotnet-howto.md) 예제를 참조합니다.
+* [계정 만들기 - CLI](create-account-cli-how-to.md)
+* [API 액세스 - CLI](access-api-cli-how-to.md)
+* [SDK를 사용하여 개발 시작](developers-guide.md)
+* [HTTPS를 작업 입력으로 인코딩 - .NET](job-input-from-http-how-to.md)  
+* [이벤트 모니터링 - 포털](monitor-events-portal-how-to.md)
+* [다중 DRM으로 동적으로 암호화 - .NET](protect-with-drm.md) 
+* [사용자 지정 변환을 사용하여 인코딩하는 방법 - CLI](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>다음 단계
 

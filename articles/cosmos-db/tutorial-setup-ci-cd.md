@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d6250b778cdaec47ccbe2f45d35adea0b676a20a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285516"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882015"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
@@ -31,7 +31,7 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 다음으로, 확장을 설치할 조직을 선택합니다. 
 
 > [!NOTE]
-> Azure DevOps 조직에 확장을 설치하려면 계정 소유자 또는 프로젝트 컬렉션 관리자여야 합니다. 사용 권한이 없지만 계정 멤버인 경우 대신 확장을 요청할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Azure DevOps 조직에 확장을 설치하려면 계정 소유자 또는 프로젝트 컬렉션 관리자여야 합니다. 사용 권한이 없지만 계정 멤버인 경우 대신 확장을 요청할 수 있습니다. [자세히 알아봅니다.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
 ![확장을 설치할 Azure DevOps 조직을 선택합니다.](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
@@ -130,7 +130,7 @@ namespace todo.Tests
 }
 ```
 
-Visual Studio 테스트 작업의 실행 옵션으로 이동합니다. **설정 파일** 옵션에서 **.runsettings** 파일을 사용하여 테스트를 구성하도록 지정합니다. **테스트 실행 매개 변수 재정의** 옵션에서 ` -endpoint $(CosmosDbEmulator.Endpoint)`에 추가합니다. 이렇게 하면 **.runsettings** 파일에 정의된 작업 대신 에뮬레이터 빌드 작업의 엔드포인트를 참조하도록 테스트 작업을 구성합니다.  
+Visual Studio 테스트 작업의 실행 옵션으로 이동합니다. **설정 파일** 옵션에서 **.runsettings** 파일을 사용하여 테스트를 구성하도록 지정합니다. **테스트 실행 매개 변수 재정의** 옵션에서 `-endpoint $(CosmosDbEmulator.Endpoint)`에 추가합니다. 이렇게 하면 **.runsettings** 파일에 정의된 작업 대신 에뮬레이터 빌드 작업의 엔드포인트를 참조하도록 테스트 작업을 구성합니다.  
 
 ![에뮬레이터 빌드 작업 엔드포인트를 사용하여 엔드포인트 변수 재정의](./media/tutorial-setup-ci-cd/addExtension_5.png)
 

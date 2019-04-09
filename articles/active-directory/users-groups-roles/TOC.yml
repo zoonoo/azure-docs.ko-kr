@@ -66,8 +66,6 @@ items:
       href: domains-admin-takeover.md
     - name: Azure AD Connect
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 회사 브랜딩 구성
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 그룹 관리
     items:
     - name: 그룹에서 액세스 관리
@@ -140,6 +138,12 @@ items:
         href: directory-emergency-access.md
     - name: 관리 단위
       href: directory-administrative-units.md
+  - name: 로그인 관리
+    items:
+    - name: 회사 브랜딩 사용자 지정
+      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 홈 영역 검색
+      href: signin-realm-discovery.md
   - name: Azure AD와 서비스 통합
     items:
     - name: Azure AD와 LinkedIn 통합
@@ -165,9 +169,9 @@ items:
     href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
   - name: Azure AD 서비스 제한
     href: directory-service-limits-restrictions.md
-ms.openlocfilehash: 34c4dcef7b986fdec7a3d611c6f42917542b4271
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 7bf7fa66c5e12660bc0dd56d4b52a9ba7638826e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509255"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006971"

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455249"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758136"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
@@ -41,24 +41,23 @@ Content Moderator 서비스는 REST 호출 및 .NET SDK 둘 다를 통해 사용
 
 Content Moderator 서비스에는 다음 시나리오를 위한 API가 포함됩니다.
 
-| 조치 | 설명 |
+| API 그룹 | 설명 |
 | ------ | ----------- |
-|[**텍스트 조정**](text-moderation-api.md)| 텍스트에서 불쾌감을 주는 콘텐츠, 외설적이거나 선정적인 콘텐츠, 불경한 언어 및 PII(개인 식별 정보)를 검사합니다.|
+|[**텍스트 조정**](text-moderation-api.md)| 텍스트에서 불쾌감을 주는 콘텐츠, 외설적이거나 선정적인 콘텐츠, 불경한 언어 및 개인 데이터를 검사합니다.|
 |[**사용자 지정 용어 목록**](try-terms-list-api.md)| 기본 제공 용어 외에 사용자 지정 용어 목록을 기준으로 검사합니다. 사용자 지정 콘텐츠 정책에 따라 사용자 지정 목록을 사용하여 콘텐츠를 차단하거나 허용합니다.|  
 |[**이미지 조정**](image-moderation-api.md)| 이미지에서 성인 또는 외설 콘텐츠를 검사하고, OCR(광학 문자 인식) 기능을 사용하여 이미지에서 텍스트를 감지하고, 얼굴을 감지합니다.|
 |[**사용자 지정 이미지 목록**](try-image-list-api.md)| 사용자 지정 이미지 목록을 기준으로 이미지를 검사합니다. 사용자 지정 이미지 목록을 사용하여 다시 분류하지 않으려는 일반적인 반복 콘텐츠의 인스턴스를 필터링합니다.|
 |[**비디오 조정**](video-moderation-api.md)| 비디오에서 성인 또는 외설 콘텐츠를 검사하고 언급된 콘텐츠의 시간 마커를 반환합니다.|
-|[**검토**](try-review-api-job.md)| [작업](try-review-api-job.md), [검토](try-review-api-review.md) 및 [워크플로](try-review-api-workflow.md) 작업을 사용하여 사용자 검토 도구 내에서 인간 참여형 워크플로를 만들고 자동화합니다. Workflow API는 아직 .NET SDK를 통해 사용할 수 없습니다.|
+|[**API 검토**](try-review-api-job.md)| [작업](try-review-api-job.md), [검토](try-review-api-review.md) 및 [워크플로](try-review-api-workflow.md) 작업을 사용하여 사용자 검토 도구 내에서 인간 참여형 워크플로를 만들고 자동화합니다. Workflow API는 아직 .NET SDK에서 사용할 수 없습니다.|
 
-### <a name="human-review-tool"></a>사용자 검토 도구
+### <a name="review-tool"></a>검토 도구
 
-Content Moderator 서비스에는 웹 기반 [사용자 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함됩니다. 
+Content Moderator 서비스에는 웹 기반 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)도 포함되어 있습니다. 이 도구는 사용자 중재자가 처리할 콘텐츠 검토를 호스팅합니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다. 검토 도구는 다양한 Content Moderator 리소스에 대해 간단한 프런트 엔드도 제공합니다.
 
 ![Content Moderator 사용자 검토 도구 홈 페이지](images/homepage.PNG)
 
-Review API를 사용하면 팀이 지정된 필터에 따라 텍스트, 이미지 및 비디오 콘텐츠를 검토하도록 설정할 수 있습니다. 그런 다음, 조정자 역할을 맡은 사람이 최종 조정 결정을 내릴 수 있습니다. 사용자 입력은 서비스를 학습시키지 않지만 서비스 및 사용자 검토 팀의 협업을 통해 개발자는 효율성과 정확성 사이에 적절히 균형을 이룰 수 있습니다.
-
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
+
 모든 Cognitive Services와 마찬가지로 Content Moderator 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft의 정책에 대해 알고 있어야 합니다. Microsoft Trust Center의 [Cognitive Services 페이지](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계

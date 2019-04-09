@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53efe44f17f174073ea5ed39f94c9dc8078a9779
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206772"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879967"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>빠른 시작: iOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -112,13 +112,13 @@ Azure AD에서 애플리케이션이 있으므로 ADAL을 설치하고 ID 관련
 
 1. 빠른 시작 프로젝트에서.plist 파일 `settings.plist`을 엽니다.
 1. Azure Portal에 입력한 동일한 값을 사용하도록 섹션의 요소 값을 바꿉니다. 코드에서 ADAL을 사용할 때마다 이러한 값을 참조합니다.
-    * `tenant`는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
-    * `clientId`는 포털에서 복사한 애플리케이션의 클라이언트 ID입니다.
-    * `redirectUri`는 포털에 등록한 리디렉션 URL입니다.
+    * `tenant` 은(는) Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
+    * `clientId` 은(는) 포털에서 복사한 애플리케이션의 클라이언트 ID입니다.
+    * `redirectUri` 은(는) 포털에 등록한 리디렉션 URL입니다.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4단계: ADAL을 사용하여 Azure AD에서 토큰 가져오기
 
-ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다 앱이 completionBlock `+(void) getToken : `을 호출하고 나머지 작업은 ADAL이 수행한다는 것입니다.
+ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다 앱이 completionBlock `+(void) getToken :`을 호출하고 나머지 작업은 ADAL이 수행한다는 것입니다.
 
 1. `QuickStart` 프로젝트에서 `GraphAPICaller.m`를 열고 위쪽의 `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` 주석을 찾습니다.
 
