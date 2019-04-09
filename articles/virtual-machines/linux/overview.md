@@ -1,6 +1,6 @@
 ---
 title: Azure의 Linux VM 개요 | Microsoft Docs
-description: Linux 가상 컴퓨터를 사용하여 Azure Compute, Storage 및 네트워킹 서비스를 설명합니다.
+description: Linux 가상 머신을 사용하여 Azure Compute, Storage 및 네트워킹 서비스를 설명합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn

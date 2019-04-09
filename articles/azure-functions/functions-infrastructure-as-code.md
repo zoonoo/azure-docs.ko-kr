@@ -15,7 +15,7 @@ ms.date: 05/25/2017
 ms.author: glenga
 ms.openlocfilehash: 9fc55e2b3ebb1e932a991e0da2c78a980abbc953
 ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2019
 ms.locfileid: "57792500"

@@ -235,9 +235,9 @@ Terraform이 새 리소스 그룹을 성공적으로 제거했는지 확인하�
 
     ![리소스 그룹이 제거되었는지 확인](media/terraform-vscode-extension/tf-refresh-resource-groups-button.png)
 
-## <a name="exercise-2-terraform-compute-module"></a>연습 2: Terraform *compute* 모듈
+## <a name="exercise-2-terraform-compute-module"></a>연습 2: Terraform *컴퓨팅* 모듈
 
-이 연습에서는 Terraform *compute* 모듈을 Visual Studio Code 환경에 로드하는 방법을 알아봅니다.
+이 연습에서는 Terraform *컴퓨팅* 모듈을 Visual Studio Code 환경에 로드하는 방법을 알아봅니다.
 
 ### <a name="clone-the-terraform-azurerm-compute-module"></a>terraform-azurerm-compute 모듈 복제
 

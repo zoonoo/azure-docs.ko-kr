@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 서비스 - vCore | Microsoft Docs
-description: vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다.
+description: vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -21,7 +21,7 @@ ms.locfileid: "57888505"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
-vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. 또한 다음과 같은 하드웨어 생성을 선택할 수 있습니다.
+vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. 또한 다음과 같은 하드웨어 생성을 선택할 수 있습니다.
 
 - Gen4(4세대) - 최대 24개 논리적 CPU(Intel E5-2673 v3(Haswell) 2.4GHz 프로세서 기반), vCore = 1PP(물리적 코어), 코어당 7GB, SSD 연결
 - Gen5(5세대) - 최대 80개 논리적 CPU(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.1GB, 고속 eNVM SSD
@@ -33,13 +33,13 @@ vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크
 
 ## <a name="service-tier-characteristics"></a>서비스 계층 특성
 
-vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 세 가지 서비스 계층을 제공합니다. 서비스 계층은 다양한 컴퓨터 크기, 고가용성 설계, 오류 격리, 스토리지의 유형과 크기, IO 범위로 구분됩니다. 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. Azure Portal에서 서버(데이터베이스 아님) > 관리되는 백업 > 정책 구성 > 특정 시점 복원 구성 > 7 - 35일로 이동합니다.
+vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 세 가지 서비스 계층을 제공합니다. 서비스 계층은 다양한 계산 크기, 고가용성 설계, 오류 격리, 스토리지의 유형과 크기, IO 범위로 구분됩니다. 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. Azure Portal에서 서버(데이터베이스 아님) > 관리되는 백업 > 정책 구성 > 특정 시점 복원 구성 > 7 - 35일로 이동합니다.
 
 다음 표는 이러한 세 계층 간의 차이점을 이해하는 데 도움이 됩니다.
 
 ||**범용**|**중요 비즈니스**|**하이퍼스케일(미리 보기)**|
 |---|---|---|---|
-|적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 애플리케이션입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
+|적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 스토리지 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 애플리케이션입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
 |컴퓨팅|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|
 |메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB|
 |Storage|원격 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
@@ -130,5 +130,5 @@ DTU 기반 모델에서 vCore 기반 모델로 마이그레이션하는 것은 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
-- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 옵션에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 옵션에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.

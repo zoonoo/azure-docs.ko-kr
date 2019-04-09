@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891025"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291784"
 ---
 다음 표에서는 Azure Storage에 대한 기본 제한을 설명합니다. 합니다 *수신* 제한은 저장소 계정에 전송 되는 요청에서 모든 데이터를 가리킵니다. 합니다 *송신* 제한은 저장소 계정에서 수신 되는 응답에서 모든 데이터를 가리킵니다.
 
@@ -22,10 +22,15 @@ ms.locfileid: "58891025"
 | 표준 및 프리미엄 계정 모두를 포함하는 구독당 지역당 저장소 계정 수 | 250 |
 | 최대 저장소 계정 용량 | 2 PB 미국 및 유럽, 영국을 포함 하는 다른 모든 지역의 경우 500 TB |
 | Blob 컨테이너, blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지 저장소 계정당 최대 수 | 제한 없음 |
+| FileStorage (미리 보기) 저장소 계정의 최대 크기 | 100,000 giB |
+| FileStorage (미리 보기) 저장소 계정에 대 한 최대 IOPS | 100,000 |
+| FileStorage (미리 보기) 저장소 계정에 대 한 최대 대역폭 | 5 GB/s |
 | 저장소 계정당 최대 요청 속도<sup>1</sup> | 초당 20,000회 요청 |
 | 최대 수신<sup>1</sup> 저장소 계정당 (미국 지역) | RA-GRS/GRS를 사용 하는 경우 10gbps, LRS/ZRS의 경우 20gbps<sup>2</sup> |
 | 최대 수신<sup>1</sup> 저장소 계정당 (미국 이외 지역) | RA-GRS/GRS를 사용 하는 경우 5gbps, LRS/ZRS의 경우 10gbps<sup>2</sup> |
-| 범용 v2 및 Blob storage 계정 (모든 영역)에 대 한 최대 송신 | 50Gbps |
+| 최대 수신 (미리 보기) FileStorage 저장소 계정당 (미국 지역) | 20gbps (LRS에만 해당) |
+| 최대 수신 (미리 보기) FileStorage 저장소 계정당 (미국 이외 지역) | 10gbps (LRS에만 해당)|
+| 범용 v2, FileStorage (미리 보기) 및 Blob storage에 대 한 최대 송신 (모든 영역) 계정 | 50Gbps |
 | 범용 v1 storage 계정 (미국 지역)에 대 한 최대 송신 | RA-GRS/GRS를 사용 하는 경우 20gbps, LRS/ZRS의 경우 30gbps<sup>2</sup> |
 | 범용 v1 storage 계정 (미국 이외 지역)에 대 한 최대 송신 | RA-GRS/GRS를 사용 하는 경우 10gbps, LRS/ZRS 경우 15gbps<sup>2</sup> |
 

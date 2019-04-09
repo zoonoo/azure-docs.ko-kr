@@ -14,19 +14,19 @@ ms.date: 06/14/2018
 ms.author: jingwang
 ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57893053"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
-IR(Integration Runtime)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
+IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
 
 - **데이터 이동**: 공용 네트워크의 데이터 저장소 및 개인 네트워크(온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
 - **작업 디스패치**:  통합 런타임은 Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양한 컴퓨팅 서비스에서 실행하는 변환 작업을 디스패치 및 모니터링합니다.
 - **SSIS 패키지 실행**: SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
 
-Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 계산 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  이는 연결된 서비스에 의해 참조되며 작업이 실행하거나 디스패치되는 계산 환경을 제공합니다.  이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 계산 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
+Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  이는 연결된 서비스에 의해 참조되며 작업이 실행하거나 디스패치되는 컴퓨팅 환경을 제공합니다.  이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
 
 ## <a name="integration-runtime-types"></a>통합 런타임 유형
 Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합 기능 및 원하는 네트워크 환경 요구에 가장 적합한 유형을 선택해야 합니다.  세 유형은 다음과 같습니다.
@@ -54,14 +54,14 @@ Azure 통합 런타임은 다음을 수행할 수 있습니다.
 - 공용 네트워크에서 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업, HDInsight Pig 작업, HDInsight MapReduce 작업, HDInsight Spark 작업, HDInsight 스트리밍 작업, Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 활동, 저장 프로시저 작업 Data Lake Analytics U-SQL 작업,.NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
-Azure 통합 런타임은 공개 액세스 가능한 엔드포인트가 있는 공용 네트워크에서 데이터 소스에 연결 및 계산 서비스를 지원합니다. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
+Azure 통합 런타임은 공개 액세스 가능한 엔드포인트가 있는 공용 네트워크에서 데이터 소스에 연결 및 컴퓨팅 서비스를 지원합니다. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Azure IR 계산 리소스 및 크기 조정
-Azure 통합 런타임은 Azure에서 완전히 관리되고 서버를 사용하지 않는 계산을 제공합니다.  인프라 프로비전, 소프트웨어 설치, 패치 또는 용량 크기 조정을 걱정할 필요가 없습니다.  또한 실제 사용 기간에 대해서만 지불합니다.
+Azure 통합 런타임은 Azure에서 완전히 관리되고, 서버리스 계산을 제공합니다.  인프라 프로비전, 소프트웨어 설치, 패치 또는 용량 크기 조정을 걱정할 필요가 없습니다.  또한 실제 사용 기간에 대해서만 지불합니다.
 
 Azure 통합 런타임은 안전하고 안정적이고 고성능의 방법으로 클라우드 데이터 저장소 간에 데이터를 이동하는 고유 계산을 제공합니다.  Azure 통합 런타임의 크기를 명시적으로 조정할 필요 없이 복사 작업에 사용할 데이터 통합 단위 수를 설정할 수 있으며 Azure IR의 계산 크기는 그에 따라 탄력적으로 확장됩니다.
 
-작업 디스패치는 작업을 대상 계산 서비스에 경로 설정하는 간단한 작업이므로 이 시나리오를 위해 계산 크기를 확장할 필요가 없습니다.
+작업 디스패치는 작업을 대상 컴퓨팅 서비스에 경로 설정하는 간단한 작업이므로 이 시나리오를 위해 계산 크기를 확장할 필요가 없습니다.
 
 Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아래의 Azure IR 만들기 및 구성 방법을 참조하세요. 
 
@@ -102,7 +102,7 @@ Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세
 - [Azure-SSIS IR을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서에서는 Azure-SSIS IR을 Azure 가상 네트워크에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 가상 네트워크에 조인할 수 있도록 가상 네트워크를 구성하는 단계도 제공합니다. 
 
 ## <a name="integration-runtime-location"></a>통합 런타임 위치
-Data Factory 위치는 Data Factory의 메타데이터가 저장되는 곳이며 파이프라인 트리거가 시작되는 곳입니다. 그 동안 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다. 이 동작은 데이터 준수, 효율성 및 네트워크 송신 비용 절감을 위해 [전역적으로 사용할 수 있는 IR](https://azure.microsoft.com/global-infrastructure/services/)을 통해 실현됩니다.
+Data Factory 위치는 Data Factory의 메타데이터가 저장되는 곳이며 파이프라인 트리거가 시작되는 곳입니다. 그 동안 데이터 팩터리는 컴퓨팅 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 컴퓨팅 서비스에 액세스할 수 있습니다. 이 동작은 데이터 준수, 효율성 및 네트워크 송신 비용 절감을 위해 [전역적으로 사용할 수 있는 IR](https://azure.microsoft.com/global-infrastructure/services/)을 통해 실현됩니다.
 
 IR 위치는 해당 백 엔드 계산의 위치, 즉 기본적으로 데이터 이동, 작업 디스패치 및 SSIS 패키지 실행이 수행되는 위치를 정의합니다. IR 위치는 자신이 속한 데이터 팩터의 위치와 다를 수 있습니다. 
 
@@ -151,7 +151,7 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 
 ### <a name="transformation-activity"></a>변환 작업
 
-각 변환 작업에는 통합 런타임을 가리키는 대상 계산 연결된 서비스가 있습니다. 이 통합 런타임 인스턴스는 변환 작업이 디스패치되는 곳입니다.
+각 변환 작업에는 통합 런타임을 가리키는 대상 컴퓨팅 연결 서비스가 있습니다. 이 통합 런타임 인스턴스는 변환 작업이 디스패치되는 곳입니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

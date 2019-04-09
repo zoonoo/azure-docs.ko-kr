@@ -278,7 +278,7 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국(21Vianet) 및 
 | 문서 ID |선택 사항입니다. 삽입 또는 업데이트 작업이 기반으로 하는 기본 키를 지정하는 데 사용되는 출력 이벤트의 필드 이름입니다.
 
 ## <a name="azure-functions"></a>Azure 기능
-Azure Functions는 인프라를 명시적으로 프로비전 또는 관리하지 않고도 필요 시 코드를 실행할 수 있는 서버를 사용하지 않는 계산 서비스입니다. Azure 또는 타사 서비스에서 발생하는 이벤트에 의해 트리거되는 코드를 구현할 수 있습니다. 트리거에 응답하는 이러한 Azure Functions 기능 때문에 Azure Stream Analytics에 대한 출력이 자연스럽게 제공될 수 있습니다. 이 출력 어댑터를 사용하여 Stream Analytics를 Azure Functions에 연결하고, 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
+Azure Functions는 인프라를 명시적으로 프로비전 또는 관리하지 않고도 필요 시 코드를 실행할 수 있는 서버리스 컴퓨팅 서비스입니다. Azure 또는 타사 서비스에서 발생하는 이벤트에 의해 트리거되는 코드를 구현할 수 있습니다. 트리거에 응답하는 이러한 Azure Functions 기능 때문에 Azure Stream Analytics에 대한 출력이 자연스럽게 제공될 수 있습니다. 이 출력 어댑터를 사용하여 Stream Analytics를 Azure Functions에 연결하고, 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
 
 Stream Analytics의 Azure Functions 출력은 현재 Azure 중국(21Vianet) 및 Azure 독일(T-Systems International) 영역에서 사용할 수 없습니다.
 

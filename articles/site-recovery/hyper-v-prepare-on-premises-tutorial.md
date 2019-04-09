@@ -36,7 +36,7 @@ Hyper-V 호스트 및 VM이 요구 사항을 준수하는지 확인합니다.
 1. 온-프레미스 서버 요구 사항을 [확인](hyper-v-azure-support-matrix.md#on-premises-servers)합니다.
 2. Azure로 복제하려는 Hyper-V VM에 대한 [요구 사항을 확인](hyper-v-azure-support-matrix.md#replicated-vms)합니다.
 3. 온-프레미스 Hyper-V 호스트에 대한 Hyper-V 호스트 [네트워킹](hyper-v-azure-support-matrix.md#hyper-v-network-configuration) 및 호스트와 게스트 [저장소](hyper-v-azure-support-matrix.md#hyper-v-host-storage) 지원을 확인합니다.
-4. 장애 조치(failover) 후 [Azure 네트워킹](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [저장소](hyper-v-azure-support-matrix.md#azure-storage) 및 [계산](hyper-v-azure-support-matrix.md#azure-compute-features)에 대해 지원되는 기능을 확인합니다.
+4. 장애 조치(failover) 후 [Azure 네트워킹](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [스토리지](hyper-v-azure-support-matrix.md#azure-storage) 및 [계산](hyper-v-azure-support-matrix.md#azure-compute-features)에 대해 지원되는 기능을 확인합니다.
 5. Azure에 복제하려는 온-프레미스 VM은 [Azure VM 요구 사항](hyper-v-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
 
 

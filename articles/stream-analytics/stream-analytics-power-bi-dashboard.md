@@ -212,7 +212,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 다음 수식을 사용하여 값을 초 단위로 계산하여 창에 제공할 수 있습니다.
 
-![값을 계산하여 기간(초)을 제공하는 수식](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
+![값을 컴퓨팅하여 기간(초)을 제공하는 수식](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
 예를 들면 다음과 같습니다.
 

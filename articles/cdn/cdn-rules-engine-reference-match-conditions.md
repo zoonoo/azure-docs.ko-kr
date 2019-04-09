@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087196"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283480"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 규칙 엔진 일치 조건 
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건에 대해 자세히 설명합니다.
@@ -101,7 +101,7 @@ URL 일치 조건은 해당 URL에 따라 요청을 식별합니다.
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>규칙 엔진 일치 조건에 대한 참조
-
+<a name="main"></a>
 ---
 ### <a name="always"></a>항상
 
@@ -974,5 +974,5 @@ user=joe              | 이 패턴은 요청된 URL의 쿼리 문자열이 "?use
 * [규칙 엔진 참조](cdn-rules-engine-reference.md)
 * [규칙 엔진 조건식](cdn-rules-engine-reference-conditional-expressions.md)
 * [규칙 엔진 기능](cdn-rules-engine-reference-features.md)
-* [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
+* [규칙 엔진을 사용 하 여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
 

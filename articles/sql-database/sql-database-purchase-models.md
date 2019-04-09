@@ -38,8 +38,8 @@ Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 
 
 |**구매 모델**|**설명**|**적합한 대상**|
 |---|---|---|
-|DTU 기반 모델|계산, 저장소 및 IO 리소스를 번들로 묶은 측정값을 기반으로 합니다. 계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.|간단하고 미리 구성된 리소스 옵션을 원하는 고객에게 가장 적합합니다.|
-|vCore 기반 모델|이 모델을 사용하면 계산 및 저장소 리소스를 독립적으로 선택할 수 있습니다. vCore 기반 구매 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 비용을 절약할 수도 있습니다.|유연성, 제어 및 투명성을 중요시하는 고객에게 가장 적합합니다.|
+|DTU 기반 모델|계산, 스토리지 및 IO 리소스를 번들로 묶은 측정값을 기반으로 합니다. 계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.|간단하고 미리 구성된 리소스 옵션을 원하는 고객에게 가장 적합합니다.|
+|vCore 기반 모델|이 모델을 사용하면 계산 및 스토리지 리소스를 독립적으로 선택할 수 있습니다. vCore 기반 구매 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 비용을 절약할 수도 있습니다.|유연성, 제어 및 투명성을 중요시하는 고객에게 가장 적합합니다.|
 ||||  
 
 ![가격 책정 모델](./media/sql-database-service-tiers/pricing-model.png)
@@ -58,16 +58,16 @@ Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 
 
 ## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
-가상 코어는 하드웨어 세대와 하드웨어의 물리적 특성(예: 코어의 수, 메모리, 저장소 크기) 간에 선택할 수 있는 옵션이 함께 제공되는 논리적 CPU를 나타냅니다. vCore 기반 구매 모델은 개별 리소스 사용에 대한 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소를 선택할 수 있습니다. vCore 기반 구매 모델에서는 [단일 데이터베이스](sql-database-single-database-scale.md), [탄력적 풀](sql-database-elastic-pool.md) 및 [관리되는 인스턴스](sql-database-managed-instance.md)에 대해 [범용](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 및 [중요 비즈니스](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 서비스 계층 중에서 선택할 수 있습니다. 단일 데이터베이스의 경우 [하이퍼스케일 서비스 계층(미리 보기)](sql-database-service-tier-hyperscale.md)을 선택할 수도 있습니다.
+가상 코어는 하드웨어 세대와 하드웨어의 물리적 특성(예: 코어의 수, 메모리, 저장소 크기) 간에 선택할 수 있는 옵션이 함께 제공되는 논리적 CPU를 나타냅니다. vCore 기반 구매 모델은 개별 리소스 사용에 대한 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 스토리지를 선택할 수 있습니다. vCore 기반 구매 모델에서는 [단일 데이터베이스](sql-database-single-database-scale.md), [탄력적 풀](sql-database-elastic-pool.md) 및 [관리되는 인스턴스](sql-database-managed-instance.md)에 대해 [범용](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 및 [중요 비즈니스](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 서비스 계층 중에서 선택할 수 있습니다. 단일 데이터베이스의 경우 [하이퍼스케일 서비스 계층(미리 보기)](sql-database-service-tier-hyperscale.md)을 선택할 수도 있습니다.
 
-vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스를 독립적으로 선택하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. vCore 기반 구매 모델에서 고객이 지불하는 비용은 다음과 같습니다.
+vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스를 독립적으로 선택하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. vCore 기반 구매 모델에서 고객이 지불하는 비용은 다음과 같습니다.
 
-- 계산(서비스 계층 + vCore 수 및 메모리 양 + 하드웨어 세대)
+- 컴퓨팅(서비스 계층 + vCore 수 및 메모리 양 + 하드웨어 세대)
 - 데이터 저장소 및 로그 저장소의 유형 및 크기
 - 백업 저장소(RA-GRS)
 
 > [!IMPORTANT]
-> 계산, IO, 데이터 저장소 및 로그 저장소는 데이터베이스 또는 탄력적 풀당 요금이 부과됩니다. 백업 저장소는 각 데이터베이스당 요금이 부과됩니다. 관리되는 인스턴스에 대한 자세한 내용은 [관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
+> 계산, IO, 데이터 및 로그 스토리지는 데이터베이스 또는 탄력적 풀당 요금이 부과됩니다. 백업 저장소는 각 데이터베이스당 요금이 부과됩니다. 관리되는 인스턴스에 대한 자세한 내용은 [관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
 > **지역 제한 사항:** 현재 지원되는 하위 지역 목록은 [하위 지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)을 참조하세요. 현재 지원되지 않는 지역에서 Managed Instance를 만들려면 [Azure Portal을 통해 지원 요청을 보낼 수 있습니다](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
@@ -78,15 +78,15 @@ vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스를 독
 
 ## <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
-DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 다양한 수준의 애플리케이션 성능을 구동하기 위해 계산 리소스 및 포함된 저장소를 미리 구성된 번들로 묶은 집합을 제공합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
+DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 다양한 수준의 애플리케이션 성능을 구동하기 위해 계산 리소스 및 포함된 스토리지를 미리 구성된 번들로 묶은 집합을 제공합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
 
 ### <a name="database-transaction-units-dtus"></a>DTU(데이터베이스 트랜잭션 단위)
 
-[서비스 계층](sql-database-single-database-scale.md) 내 특정 컴퓨팅 크기의 단일 데이터베이스에 대해 Microsoft는 해당 데이터베이스(Azure 클라우드의 다른 데이터베이스와는 무관)에 대해 특정 수준의 리소스를 보장하며 예측 가능한 성능 수준을 제공합니다. 리소스 양은 DTU(데이터베이스 트랜잭션 단위) 수로 계산되며 계산, 저장소 및 IO 리소스를 번들로 묶은 측정값입니다. 원래 이러한 리소스 간의 비율은 일반적인 실제 OLTP 워크로드에 맞게 디자인된 [OLTP 벤치마크 워크로드](sql-database-benchmark-overview.md)에 따라 결정되었습니다. 워크로드가 이러한 리소스의 양을 초과하면 처리량이 제한되어 성능이 느려지고 시간이 초과됩니다. 워크로드에서 사용되는 리소스는 Azure 클라우드의 다른 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않고, 다른 워크로드에서 사용되는 리소스는 사용자의 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다.
+[서비스 계층](sql-database-single-database-scale.md) 내 특정 컴퓨팅 크기의 단일 데이터베이스에 대해 Microsoft는 해당 데이터베이스(Azure 클라우드의 다른 데이터베이스와는 무관)에 대해 특정 수준의 리소스를 보장하며 예측 가능한 성능 수준을 제공합니다. 리소스 양은 DTU(데이터베이스 트랜잭션 단위) 수로 계산되며 계산, 스토리지 및 IO 리소스를 번들로 묶은 측정값입니다. 원래 이러한 리소스 간의 비율은 일반적인 실제 OLTP 워크로드에 맞게 디자인된 [OLTP 벤치마크 워크로드](sql-database-benchmark-overview.md)에 따라 결정되었습니다. 워크로드가 이러한 리소스의 양을 초과하면 처리량이 제한되어 성능이 느려지고 시간이 초과됩니다. 워크로드에서 사용되는 리소스는 Azure 클라우드의 다른 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않고, 다른 워크로드에서 사용되는 리소스는 사용자의 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다.
 
 ![경계 상자](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU는 여러 계산 크기 및 서비스 계층에서 Azure SQL Database 간의 리소스의 상대적 크기를 이해하는 데 가장 유용합니다. 예를 들어 데이터베이스의 계산 크기를 늘려 DTU를 두 배로 높이면 해당 데이터베이스에 사용할 수 있는 리소스 집합도 똑같이 두 배로 높아집니다. 예를 들어 1750 DTU를 사용하는 프리미엄 P11 데이터베이스는 5개의 DTU를 사용하는 기본 데이터베이스보다 350배 더 많은 DTU 계산 기능을 제공합니다.  
+DTU는 여러 계산 크기 및 서비스 계층에서 Azure SQL Database 간의 리소스의 상대적 크기를 이해하는 데 가장 유용합니다. 예를 들어 데이터베이스의 계산 크기를 늘려 DTU를 두 배로 높이면 해당 데이터베이스에 사용할 수 있는 리소스 세트도 똑같이 두 배로 높아집니다. 예를 들어 1750 DTU를 사용하는 프리미엄 P11 데이터베이스는 5개의 DTU를 사용하는 기본 데이터베이스보다 350배 더 많은 DTU 계산 기능을 제공합니다.  
 
 워크로드의 리소스 사용량(DTU)에 대해 더 자세히 이해하려면 [쿼리 성능 Insight](sql-database-query-performance.md)를 사용하여 다음을 수행합니다.
 

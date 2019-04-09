@@ -40,13 +40,13 @@ ms.locfileid: "58540672"
 
 vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 기반으로 차별화됩니다.
 
-- 범용 서비스 계층은 대부분의 비즈니스 워크로드에 적합하며 IO 대기 시간 또는 장애 조치(failover) 시간이 최우선 순위가 아니고 균형 잡힌 계산 및 저장소 옵션 집합을 제공합니다.
+- 범용 서비스 계층은 대부분의 비즈니스 워크로드에 적합하며 IO 대기 시간 또는 장애 조치(failover) 시간이 최우선 순위가 아니고 균형 잡힌 계산 및 스토리지 옵션 세트를 제공합니다.
 - 하이퍼스케일 서비스 계층은 매우 큰 데이터베이스 워크로드에 최적화되어 있습니다.
 - 중요 비즈니스용 서비스 계층은 IO 대기 시간이 최우선인 비즈니스 워크로드에 적합합니다.
 
 | | 리소스 종류 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---|:---:|:---:|:---:|:---:|
-| **적합한 대상** |모두|  대부분의 비즈니스 워크로드. 예산 중심의 균형 잡힌 계산 및 저장소 옵션을 제공합니다. | 대용량 데이터 요구 사항 및 유동적인 저장소 크기 자동 조정 및 계산 규모 조정 기능이 있는 데이터 애플리케이션. | 트랜잭션 속도가 높고 지연 시간이 적은 OLTP 애플리케이션. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.|
+| **적합한 대상** |모두|  대부분의 비즈니스 워크로드. 예산 중심의 균형 잡힌 계산 및 스토리지 옵션을 제공합니다. | 대용량 데이터 요구 사항 및 유동적인 스토리지 크기 자동 조정 및 계산 규모 조정 기능이 있는 데이터 애플리케이션. | 트랜잭션 속도가 높고 지연 시간이 적은 OLTP 애플리케이션. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.|
 |  **리소스 종류** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **계산 크기**|단일 데이터베이스/탄력적 풀* | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
 | |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | N/A | vCore 8, 16, 24, 32, 40, 64, 80개 |
@@ -132,9 +132,9 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>메모리 사용량이 많은 워크로드를 위해 계산에 추가 RAM을 프로비전할 수 있나요?
 
-아니요. RAM을 더 확보하려면 더 큰 계산 규모로 업그레이드해야 합니다. Gen4 하드웨어는 Gen5 하드웨어에 비해 더 많은 RAM을 제공합니다. 자세한 내용은 [하이퍼스케일 저장소 및 계산 규모](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview)를 참조하세요.
+아니요. RAM을 더 확보하려면 더 큰 계산 크기로 업그레이드해야 합니다. Gen4 하드웨어는 Gen5 하드웨어에 비해 더 많은 RAM을 제공합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 계산 크기](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview)를 참조하세요.
 
-### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>크기가 다른 계산 노드를 여러 개 프로비전할 수 있나요?
+### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>크기가 다른 계산 노드를 여러 개 프로비저닝할 수 있나요?
 
 아니요.
 
@@ -142,7 +142,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 공개 미리 보기에서 하이퍼스케일 데이터베이스는 읽기-확장 복제본 하나(총 2개의 복제본)로 생성됩니다. 읽기-확장 복제본을 추가 또는 제거하려면 Azure Portal을 사용하여 지원 요청을 제출하세요.
 
-### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>고가용성을 위해 계산 노드를 추가로 프로비전해야 하나요?
+### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>고가용성을 위해 계산 노드를 추가로 프로비저닝해야 하나요?
 
 하이퍼스케일 데이터베이스에서는 고가용성이 저장소 수준에서 제공됩니다. 고가용성을 제공하려면 복제본이 하나만 있으면 됩니다. 계산 복제본이 다운되면 데이터가 손실되지 않고 새로운 복제본이 자동으로 생성됩니다.
 
@@ -178,7 +178,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="is-the-storage-in-sql-database-hyperscale-local-or-remote"></a>SQL Database 하이퍼스케일의 저장소는 로컬인가요 아니면 원격인가요?
 
-하이퍼스케일에서 데이터 파일은 Azure 표준 저장소에 저장됩니다. 계산 노드와 가까운 머신의 로컬 SSD 저장소에 데이터가 많이 캐시됩니다. 또한, 원격 노드에서 데이터를 가져 오는 빈도를 줄이기 위해 계산 노드는 로컬 SSD 및 메모리(버퍼 풀 등)에 캐시를 포함합니다.
+하이퍼스케일에서 데이터 파일은 Azure 표준 저장소에 저장됩니다. 계산 노드와 가까운 머신의 로컬 SSD 스토리지에 데이터가 많이 캐시됩니다. 또한, 원격 노드에서 데이터를 가져 오는 빈도를 줄이기 위해 계산 노드는 로컬 SSD 및 메모리(버퍼 풀 등)에 캐시를 포함합니다.
 
 ### <a name="can-i-manage-or-define-files-or-filegroups-with-hyperscale"></a>하이퍼스케일로 파일이나 파일 그룹을 관리하거나 정의할 수 있나요?
 
@@ -307,7 +307,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="are-the-compute-nodes-containerized"></a>계산 노드가 컨테이너화되나요?
 
-아니요. 데이터베이스는 컨테이너가 아닌 계산 VM에 상주합니다.
+아니요. 데이터베이스는 컨테이너가 아닌 컴퓨팅 VM에 상주합니다.
 
 ## <a name="performance-questions"></a>성능 질문
 
@@ -321,11 +321,11 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>처리량이 백업의 영향을 받나요?
 
-아니요. 계산 계층에 영향을 주지 않도록 계산은 저장소 계층에서 분리됩니다.
+아니요. 계산 계층에 영향을 주지 않도록 계산은 스토리지 계층에서 분리됩니다.
 
-### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>계산 노드를 추가로 프로비전하면 처리량이 영향을 받나요?
+### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>계산 노드를 추가로 프로비저닝할 때 처리량이 영향을 받나요?
 
-저장소가 공유되고 기본 계산 노드와 보조 계산 노드 간에 직접적인 물리적 복제가 발생하지 않기 때문에 기술적으로, 읽기-확장 노드를 추가하면 기본 노드의 처리량이 영향을 받습니다. 하지만 지속적이며 공격적인 워크로드를 제한하여 보조 노드와 페이지 서버에서 로그 적용을 따라 잡아서 보조 노드의 잘못된 읽기 성능을 방지할 수 있습니다.
+스토리지가 공유되고 기본 계산 노드와 보조 계산 노드 간에 직접적인 물리적 복제가 발생하지 않기 때문에 기술적으로, 읽기-확장 노드를 추가하면 기본 노드의 처리량이 영향을 받습니다. 하지만 지속적이며 공격적인 워크로드를 제한하여 보조 노드와 페이지 서버에서 로그 적용을 따라 잡아서 보조 노드의 잘못된 읽기 성능을 방지할 수 있습니다.
 
 ## <a name="scalability-questions"></a>확장성 질문
 
@@ -349,7 +349,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 예. 계산이 증가하면 Temp db가 자동으로 강화됩니다.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>기본 계산 헤드가 여러 개여서 높은 수준의 동시성이 가능한 다중 마스터 시스템과 같이 여러 개의 기본 계산을 프로비전할 수 있나요?
+### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>기본 계산 헤드가 여러 개여서 높은 수준의 동시성이 가능한 다중 마스터 시스템과 같이 여러 개의 기본 계산을 프로비저닝할 수 있나요?
 
 아니요. 기본 계산 노드만 읽기/쓰기 요청을 수락합니다. 보조 계산 노드는 읽기 전용 요청만 수락합니다.
 
@@ -381,7 +381,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>보조 계산 노드에 인덱스와 보기를 추가할 수 있나요?
 
-아니요. 하이퍼스케일 데이터베이스에는 공유 저장소가 포함됩니다. 즉, 모든 계산 노드에는 동일한 테이블, 인덱스, 보기가 표시됩니다. 보조 노드 읽기에 최적화된 추가 인덱스가 필요하면 먼저 기본 노드에 인덱스를 추가해야 합니다.
+아니요. 하이퍼스케일 데이터베이스에는 공유 스토리지가 포함됩니다. 즉, 모든 계산 노드에는 동일한 테이블, 인덱스, 보기가 표시됩니다. 보조 노드 읽기에 최적화된 추가 인덱스가 필요하면 먼저 기본 노드에 인덱스를 추가해야 합니다.
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-node"></a>기본 및 보조 계산 노드 사이의 지연 시간은 얼마나 되나요?
 

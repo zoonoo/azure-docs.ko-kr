@@ -78,7 +78,7 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 1. VMware 서버 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers)합니다.
 2. Linux VM의 경우 파일 시스템 및 저장소 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)합니다. 
 3. 온-프레미스 [네트워크](vmware-physical-azure-support-matrix.md#network) 및 [저장소](vmware-physical-azure-support-matrix.md#storage) 지원을 확인합니다. 
-4. 장애 조치(failover) 후 [Azure 네트워킹](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [저장소](vmware-physical-azure-support-matrix.md#azure-storage) 및 [계산](vmware-physical-azure-support-matrix.md#azure-compute)에 대해 지원되는 기능을 확인합니다.
+4. 장애 조치(failover) 후 [Azure 네트워킹](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [스토리지](vmware-physical-azure-support-matrix.md#azure-storage) 및 [계산](vmware-physical-azure-support-matrix.md#azure-compute)에 대해 지원되는 기능을 확인합니다.
 5. Azure에 복제하려는 온-프레미스 VM은 [Azure VM 요구 사항](vmware-physical-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
 6. Linux Virtual Machines에서 디바이스 이름과 탑재 지점 이름은 고유해야 합니다. 이름이 같은 두 개의 디바이스/탑재 지점 이름이 없어야 합니다. 이름은 대/소문자를 구분하지 않습니다. 예를 들어 동일한 VM의 두 디바이스에 _device1_과 _Device1_로 이름을 지정하는 것이 허용되지 않습니다.
 

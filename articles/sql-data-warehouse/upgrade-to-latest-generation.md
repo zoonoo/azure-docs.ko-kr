@@ -23,13 +23,13 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
 ## <a name="why-upgrade"></a>업그레이드가 필요한 이유
 
-이제 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 Azure Portal에서 SQL Data Warehouse 계산에 최적화된 Gen2 계층으로 원활하게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 최신 세대 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 비롯한 향상된 스토리지 아키텍처를 활용하세요. 
+이제 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 Azure Portal에서 SQL Data Warehouse 컴퓨팅 최적화 Gen2 계층으로 원활하게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 최신 세대 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 비롯한 향상된 스토리지 아키텍처를 활용하세요. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>적용 대상
 
-이 업그레이드는 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 계산에 최적화된 Gen1 계층 데이터 웨어하우스에 적용됩니다.
+이 업그레이드는 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 컴퓨팅 최적화 Gen1 계층 데이터 웨어하우스에 적용됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -38,7 +38,7 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 3. 사용자의 지역이 지원되는 [Azure Portal을 통해 업그레이드](#upgrade-in-a-supported-region-using-the-azure-portal)합니다.
 4. 데이터 웨어하우스에 대한 **제안된 성능 수준 선택**은 아래에 있는 매핑을 사용하여 계산에 최적화된 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
 
-   | 계산에 최적화된 Gen1 계층 | 계산에 최적화된 Gen2 계층 |
+   | 컴퓨팅 최적화 Gen1 계층 | 컴퓨팅 최적화 Gen2 계층 |
    | :-------------------------: | :-------------------------: |
    |            DW100            |           DW100c            |
    |            DW200            |           DW200c            |
@@ -69,14 +69,14 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 업그레이드 대상인 계산에 최적화된 Gen1 계층 데이터 웨어하우스가 일시 중지된 경우 [데이터 웨어하우스를 다시 시작](pause-and-resume-compute-portal.md)합니다.
+1. 업그레이드 대상인 컴퓨팅 최적화 Gen1 계층 데이터 웨어하우스가 일시 중지된 경우 [데이터 웨어하우스를 다시 시작](pause-and-resume-compute-portal.md)합니다.
 
    > [!NOTE]
    > Gen2로 마이그레이션하려면 Azure SQL Data Warehouse를 실행해야 합니다.
 
 2. 몇 분 정도의 가동 중지 시간에 대비합니다. 
 
-3. Compute에 최적화된 Gen1 성능 수준에 대한 코드 참조를 식별하고, 동등한 Compute에 최적화된 Gen2 성능 레벨로 수정합니다. 아래에는 업그레이드 전에 코드 참조를 업데이트해야 는 두 가지 예제입니다.
+3. 컴퓨팅 최적화 Gen1 성능 수준에 대한 코드 참조를 식별하고, 동등한 컴퓨팅 최적화 Gen2 성능 레벨로 수정합니다. 아래에는 업그레이드 전에 코드 참조를 업데이트해야 는 두 가지 예제입니다.
 
    원래 Gen1 PowerShell 명령:
 
@@ -110,14 +110,14 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
 ## <a name="start-the-upgrade"></a>업그레이드 시작
 
-1. Azure Portal에서 계산에 최적화된 Gen1 계층 데이터 웨어하우스로 이동합니다. 업그레이드 대상인 계산에 최적화된 Gen1 계층 데이터 웨어하우스가 일시 중지된 경우 [데이터 웨어하우스를 다시 시작](pause-and-resume-compute-portal.md)합니다. 
+1. Azure Portal에서 컴퓨팅 최적화 Gen1 계층 데이터 웨어하우스로 이동합니다. 업그레이드 대상인 컴퓨팅 최적화 Gen1 계층 데이터 웨어하우스가 일시 중지된 경우 [데이터 웨어하우스를 다시 시작](pause-and-resume-compute-portal.md)합니다. 
 2. 작업 탭에서 **Gen2로 업그레이드** 카드를 선택합니다.  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > [작업] 탭 아래 **Gen2로 업그레이드** 카드가 표시되지 않으면 구독 유형이 현재 지역으로 제한됩니다.
     > [지원 티켓을 제출](sql-data-warehouse-get-started-create-support-ticket.md)하여 구독을 허용 목록으로 가져옵니다.
 
-3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. 데이터 웨어하우스가 계산에 최적화된 Gen2 계층 데이터 웨어하우스로 다시 온라인 상태가 되기 전에 몇 분 동안 가동 중지 시간이 발생합니다. **업그레이드를 선택합니다**.
+3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. 데이터 웨어하우스가 컴퓨팅 최적화 Gen2 계층 데이터 웨어하우스로 다시 온라인 상태가 되기 전에 몇 분 동안 가동 중지 시간이 발생합니다. **업그레이드를 선택합니다**.
 
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 

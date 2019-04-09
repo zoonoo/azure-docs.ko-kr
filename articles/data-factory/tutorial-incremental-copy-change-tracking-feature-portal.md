@@ -186,7 +186,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![파이프라인 만들기 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 Azure Storage 계정과 Azure SQL 데이터베이스에 연결된 서비스를 만듭니다. 
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 Azure Storage 계정과 Azure SQL 데이터베이스에 연결된 서비스를 만듭니다. 
 
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스를 만듭니다.
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.

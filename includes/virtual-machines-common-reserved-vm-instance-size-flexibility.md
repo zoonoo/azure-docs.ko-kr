@@ -228,7 +228,7 @@ ms.locfileid: "58114133"
 |Standard_F8|8|
 Standard_F16|16|
 
-자세한 내용은 [계산 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#f-series)를 참조하세요.
+자세한 내용은 [컴퓨팅 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#f-series)를 참조하세요.
 
 ## <a name="fs-series"></a>FS 시리즈
 
@@ -240,7 +240,7 @@ Standard_F16|16|
 |Standard_F8s|8|
 |Standard_F16s|16|
 
-자세한 내용은 [계산 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fs-series-1)를 참조하세요.
+자세한 내용은 [컴퓨팅 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fs-series-1)를 참조하세요.
 
 ## <a name="fsv2-series"></a>Fsv2 시리즈
 
@@ -254,7 +254,7 @@ Standard_F16|16|
 |Standard_F64s_v2|32|
 |Standard_F72s_v2|36|
 
-자세한 내용은 [계산 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-1)를 참조하세요.
+자세한 내용은 [컴퓨팅 최적화 가상 머신 크기](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-1)를 참조하세요.
 
 ## <a name="h-series"></a>H 시리즈
 

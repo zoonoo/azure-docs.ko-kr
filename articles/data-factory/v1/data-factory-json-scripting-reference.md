@@ -92,7 +92,7 @@ ms.locfileid: "58317547"
 | 형식 |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | inputs |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming 및 SqlServerStoredProcedure 작업의 경우 아니요 <br/> <br/> 다른 모든 사용자의 경우 예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |예 |
-| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 계산 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 활동, Azure Machine Learning 활동 및 저장 프로시저 활동의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요 |
+| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 활동, Azure Machine Learning 활동 및 저장 프로시저 활동의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요 |
 | typeProperties |typeProperties 섹션의 속성은 작업의 종류에 따라 달라 집니다. |아닙니다. |
 | policy |작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. |아닙니다. |
 | scheduler |"scheduler" 속성은 작업에 원하는 일정을 정의하는 데 사용됩니다. 하위 속성은 [데이터 세트에서 가용성 속성](data-factory-create-datasets.md#dataset-availability)에 있는 속성과 같습니다. |아닙니다. |
@@ -249,7 +249,7 @@ typeProperties 섹션은 각 활동마다 다릅니다. 변환 활동에는 type
 | -------- | ----------- | -------- |
 | 이름 | 연결된 서비스의 이름입니다. | 예 |
 | properties - type | 연결된 서비스의 형식입니다. 예를 들면 다음과 같습니다. Azure Storage, Azure SQL Database. |
-| typeProperties | typeProperties 섹션에는 각 데이터 저장소 또는 계산 환경마다 다른 요소가 있습니다. 모든 데이터 저장소 연결 서비스는 데이터 저장소 섹션을, 모든 컴퓨팅 연결 서비스는 [컴퓨팅 환경](#compute-environments)을 참조하세요. |
+| typeProperties | typeProperties 섹션에는 각 데이터 저장소 또는 컴퓨팅 환경마다 다른 요소가 있습니다. 모든 데이터 저장소 연결 서비스는 데이터 저장소 섹션을, 모든 컴퓨팅 연결 서비스는 [컴퓨팅 환경](#compute-environments)을 참조하세요. |
 
 ## <a name="dataset"></a>데이터 세트
 Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
@@ -4819,10 +4819,10 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 
 자세한 내용은 [웹 테이블 커넥터](data-factory-web-table-connector.md#copy-activity-properties) 문서를 참조하세요.
 
-## <a name="compute-environments"></a>계산 환경
-다음 표에서는 Data Factory에서 지원하는 계산 환경과 이러한 환경에서 실행할 수 있는 변환 활동을 나열합니다. 관심 있는 계산 링크를 클릭하여 연결된 서비스에서 데이터 팩터리에 연결하기 위한 JSON 스키마를 확인하세요.
+## <a name="compute-environments"></a>컴퓨팅 환경
+다음 표에서는 Data Factory에서 지원하는 컴퓨팅 환경과 이러한 환경에서 실행할 수 있는 변환 활동을 나열합니다. 관심 있는 계산 링크를 클릭하여 연결된 서비스에서 데이터 팩터리에 연결하기 위한 JSON 스키마를 확인하세요.
 
-| Compute 환경 | 활동 |
+| 컴퓨팅 환경 | 활동 |
 | --- | --- |
 | [주문형 HDInsight 클러스터](#on-demand-azure-hdinsight-cluster) 또는 [사용자 고유의 HDInsight 클러스터](#existing-azure-hdinsight-cluster) |[.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET 사용자 지정 작업](#net-custom-activity) |
@@ -4866,7 +4866,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 }
 ```
 
-자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md)을 참조하세요.
+자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md)을 참조하세요.
 
 ## <a name="existing-azure-hdinsight-cluster"></a>기존 Azure HDInsight 클러스터
 Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사용하는 사용자 고유의 HDInsight 클러스터를 등록할 수 있습니다. 이 연결된 서비스에서는 데이터 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
@@ -4961,7 +4961,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 ```
 
 ## <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
-파이프 라인에서 **데이터 레이크 분석 U-SQL 작업** 을 사용하기 전에 Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연결하는 [Azure 데이터 레이크 분석](data-factory-usql-activity.md) 연결된 서비스를 만듭니다.
+파이프 라인에서 **데이터 레이크 분석 U-SQL 작업**을 사용하기 전에 Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 연결하는 [Azure 데이터 레이크 분석](data-factory-usql-activity.md) 연결 서비스를 만듭니다.
 
 ### <a name="linked-service"></a>연결된 서비스
 

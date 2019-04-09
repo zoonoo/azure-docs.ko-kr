@@ -245,7 +245,7 @@ Contoso에서 고려해야 하는 요소는 다음과 같습니다.
 이제 Contoso 관리자는 SQL Database Managed Instance를 프로비전할 수 있습니다.
 
 1. Managed Instance에서 비즈니스 앱을 제공하므로 회사의 미국 동부 2 주 지역에 Managed Instance를 배포합니다. Managed Instance를 **ContosoRG** 리소스 그룹에 추가합니다.
-2. 인스턴스에 대한 가격 책정 계층, 크기 계산 및 저장소를 선택합니다. [Managed Instance 가격](https://azure.microsoft.com/pricing/details/sql-database/managed/)에 대해 자세히 알아보세요.
+2. 인스턴스에 대한 가격 책정 계층, 크기 계산 및 스토리지를 선택합니다. [Managed Instance 가격](https://azure.microsoft.com/pricing/details/sql-database/managed/)에 대해 자세히 알아보세요.
 
     ![관리되는 인스턴스](media/contoso-migration-rehost-vm-sql-managed-instance/mi-create.png)
 

@@ -45,7 +45,7 @@ Azure Data Factory는 오케스트레이션 기능을 PaaS(Platform as a Service
 Azure Data Factory를 사용하면 다음을 수행할 수 있습니다.
 
 1. 서로 다른 데이터 저장소의 데이터를 수집하는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약합니다.
-2. Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, Azure Batch 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리하고 변환합니다.
+2. Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, Azure Batch 및 Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리하고 변환합니다.
 3. 사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.
 
 Azure Data Factory에 대한 자세한 내용은 [이 설명서](../../data-factory/introduction.md)를 참조하세요.

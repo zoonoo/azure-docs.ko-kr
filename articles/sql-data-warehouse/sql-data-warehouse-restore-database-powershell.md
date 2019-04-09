@@ -125,7 +125,7 @@ $RestoredDatabase.status
 데이터베이스를 복구 하려면 사용 합니다 [복원 AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet.
 
 > [!NOTE]
-> 계산에 최적화된 성능 계층에 지역 복원을 수행할 수 있습니다. 이렇게 하려면 선택적 매개 변수로 계산에 최적화된 ServiceObjectiveName을 지정합니다. 
+> 컴퓨팅 최적화 성능 계층에 지역 복원을 수행할 수 있습니다. 이렇게 하려면 선택적 매개 변수로 컴퓨팅에 최적화된 ServiceObjectiveName을 지정합니다. 
 >
 > 
 

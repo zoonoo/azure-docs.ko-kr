@@ -15,7 +15,7 @@ manager: craigg
 ms.date: 03/29/2019
 ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
 ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58670838"
@@ -66,7 +66,7 @@ SQL Database는 가동 중지 시간이 없는 동적 확장성, 기본 제공 �
 
 SQL Database는 다음 두 가지 구매 모델을 제공합니다.
 
-- [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)에서는 경량부터 중량까지의 데이터베이스 워크로드를 지원하기 위해 세 가지 서비스 계층으로 컴퓨팅, 메모리, IO 리소스를 함께 제공합니다. 각 계층 내의 계산 크기는 이러한 리소스의 다양한 조합을 제공하여 추가 저장소 리소스를 추가할 수 있습니다.
+- [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)에서는 경량부터 중량까지의 데이터베이스 워크로드를 지원하기 위해 세 가지 서비스 계층으로 컴퓨팅, 메모리, IO 리소스를 함께 제공합니다. 각 계층 내의 계산 크기는 이러한 리소스의 다양한 조합을 제공하여 추가 스토리지 리소스를 추가할 수 있습니다.
 - [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 통해 vCore 개수, 크기나 메모리 및 저장소의 크기와 속도를 선택할 수 있습니다. vCore 기반 구매 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 비용을 절약할 수도 있습니다. Azure 하이브리드 혜택에 대한 자세한 내용은 [질문과 대답](#sql-database-frequently-asked-questions-faq)을 참조하세요.
 
   > [!IMPORTANT]
@@ -109,7 +109,7 @@ SQL Database는 다음 두 가지 구매 모델을 제공합니다.
 
 Azure 가용성 영역은 고가용성 문제입니다.  단일 지역 내에서 빌드하면 단일 데이터 센터 중단 으로부터 보호 하려고 합니다.  따라서 전원 또는 네트워크를 구성 하려면의 손실을 방지 하려고 합니다. SQL Azure 다른 가용성 영역에서 서로 다른 복제본을 배치 하 여 작동 (건물, 효과적으로) 그렇지 않은 경우 이전 처럼 작동 합니다. 
 
-사실, Azure의 업계 선도적인 99.99% 가용성 서비스 수준 계약 [(SLA)](https://azure.microsoft.com/support/legal/sla/), 전 세계 Microsoft 관리 데이터 센터의 지원을 받아 24/7을 실행 중인 앱을 유지 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 저장소 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 저장소를 단일 고성능 노드에 통합한 후 내부적으로 AlwaysOn 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
+사실, Azure의 업계 선도적인 99.99% 가용성 서비스 수준 계약 [(SLA)](https://azure.microsoft.com/support/legal/sla/), 전 세계 Microsoft 관리 데이터 센터의 지원을 받아 24/7을 실행 중인 앱을 유지 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 스토리지를 단일 고성능 노드에 통합한 후 내부적으로 Always On 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
 
 - **[자동 백업](sql-database-automated-backups.md)**:
 

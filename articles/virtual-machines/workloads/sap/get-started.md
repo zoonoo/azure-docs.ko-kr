@@ -67,7 +67,7 @@ Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directo
 
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA
-설명서의이 섹션에서는 SAP HANA의 다양한 측면을 다룹니다. 전제 조건으로 Azure 계산, 저장소 및 네트워킹에 대한 대부분의 지식을 비롯한 Azure IaaS 기본 서비스를 제공하는 Azure의 주요 서비스와 친숙해야 합니다. 이러한 토픽 중 대부분은 SAP NetWeaver 관련 [Azure 계획 지침](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)에서 다룹니다. 
+설명서의이 섹션에서는 SAP HANA의 다양한 측면을 다룹니다. 전제 조건으로 Azure 계산, 스토리지 및 네트워킹에 대한 대부분의 지식을 비롯한 Azure IaaS 기본 서비스를 제공하는 Azure의 주요 서비스와 친숙해야 합니다. 이러한 토픽 중 대부분은 SAP NetWeaver 관련 [Azure 계획 지침](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)에서 다룹니다. 
 
 Azure의 HANA 관련 설명서는 문서 및 해당 하위 문서의 목록으로 이루어져 있습니다.
 

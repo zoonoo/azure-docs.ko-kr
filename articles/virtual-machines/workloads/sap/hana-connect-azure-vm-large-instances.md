@@ -142,7 +142,7 @@ IP 주소 범위를 정의한 후에는 다음 작업이 수행되어야 합니�
 2. ExpressRoute 회로는 Microsoft가 Azure 구독과 HANA 대규모 인스턴스 스탬프 사이에 만듭니다.
 3. 테넌트 네트워크는 Microsoft의 큰 인스턴스 스탬프에서 생성됩니다.
 4. Microsoft는 HANA 대규모 인스턴스와 통신할 Azure Virtual Network 주소 공간의 IP 주소를 허용하도록 Azure(큰 인스턴스)의 SAP HANA에 네트워킹을 구성합니다.
-5. Microsoft는 사용자가 구매한 Azure(대규모 인스턴스) SKU의 특정 SAP HANA에 따라 테넌트 네트워크의 계산 단위를 지정합니다. 또한 스토리지를 할당 및 탑재하고 운영 체제(SUSE 또는 Red Hat Linux)를 설치합니다. 이러한 단위에 대한 IP 주소는 Microsoft에 제출한 서버 IP 풀 주소 범위를 벗어나는 주소를 지정합니다.
+5. Microsoft는 사용자가 구매한 Azure(대규모 인스턴스) SKU의 특정 SAP HANA에 따라 테넌트 네트워크의 컴퓨팅 단위를 지정합니다. 또한 스토리지를 할당 및 탑재하고 운영 체제(SUSE 또는 Red Hat Linux)를 설치합니다. 이러한 단위에 대한 IP 주소는 Microsoft에 제출한 서버 IP 풀 주소 범위를 벗어나는 주소를 지정합니다.
 
 배포 프로세스의 끝부분에는 Microsoft에서 다음 데이터를 사용자에게 제공합니다.
 - HANA 대규모 인스턴스에 Azure Virtual Network를 연결하는 ExpressRoute 회로에 Azure Virtual Network를 연결하는 데 필요한 정보:

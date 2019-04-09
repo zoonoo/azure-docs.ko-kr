@@ -2059,7 +2059,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
-                                                    <p>모든 규모의 HPC 및 큰 계산 클러스터 만들기, 관리, 작동 및 최적화</p>
+                                                    <p>모든 규모의 HPC 및 빅 컴퓨팅 클러스터 만들기, 관리, 작동 및 최적화</p>
                                                 </div>
                                             </div>
                                         </div>

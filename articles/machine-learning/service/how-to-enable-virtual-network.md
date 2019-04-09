@@ -38,21 +38,21 @@ Azure Machine Learning 서비스 작업 영역을 만들 때는 Azure Storage �
 
 관련 설정을 수정했는지 여부를 잘 모르는 경우 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)에서 __기본 네트워크 액세스 규칙 변경__을 참조하세요. 제시된 단계에 따라 모든 네트워크의 액세스를 허용합니다.
 
-## <a name="use-machine-learning-compute"></a>Machine Learning Compute 사용
+## <a name="use-machine-learning-compute"></a>Machine Learning 컴퓨팅 사용
 
 가상 네트워크에서 Azure Machine Learning 컴퓨팅을 사용하려면 아래의 네트워크 요구 사항을 충족해야 합니다.
 
 - 가상 네트워크는 Azure Machine Learning 서비스 작업 영역과 동일한 구독 및 지역에 있어야 합니다.
 
-- Machine Learning Compute 클러스터에 대해 지정한 서브넷에는 클러스터의 대상이 되는 VM 수를 수용할 만큼 충분한 할당되지 않은 IP 주소가 있어야 합니다. 서브넷에 충분한 할당되지 않은 IP 주소가 없으면 클러스터는 부분적으로 할당됩니다.
+- Machine Learning 컴퓨팅 클러스터에 대해 지정한 서브넷에는 클러스터의 대상이 되는 VM 수를 수용할 만큼 충분한 할당되지 않은 IP 주소가 있어야 합니다. 서브넷에 충분한 할당되지 않은 IP 주소가 없으면 클러스터는 부분적으로 할당됩니다.
 
 - 트래픽을 제한하여 가상 네트워크를 보호하려는 경우 Machine Learning 컴퓨팅 서비스를 위해 일부 포트를 열어 둡니다. 자세한 내용은 [필수 포트](#mlcports)를 참조하세요.
 
 - 가상 네트워크 구독 또는 리소스 그룹의 보안 정책이나 잠금이 가상 네트워크 관리를 위한 사용자 권한을 제한하고 있는지 확인합니다.
 
-- 하나의 가상 네트워크에 여러 개의 Machine Learning 계산 클러스터를 배치하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청해야 할 수 있습니다.
+- 하나의 가상 네트워크에 여러 개의 Machine Learning 컴퓨팅 클러스터를 배치하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청해야 할 수 있습니다.
 
-    Machine Learning 컴퓨팅은 가상 네트워크를 포함하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당합니다. Azure Machine Learning Service는 각 Machine Learning 계산 클러스터에 다음 리소스를 할당합니다.
+    Machine Learning 컴퓨팅은 가상 네트워크를 포함하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당합니다. Azure Machine Learning Service는 각 Machine Learning 컴퓨팅 클러스터에 다음 리소스를 할당합니다.
 
     - 하나의 NSG(네트워크 보안 그룹)
 
@@ -80,13 +80,13 @@ Batch 구성 NSG에서 인바운드/아웃바운드 규칙을 수정하거나 �
 
 Batch가 자체 NSG를 구성하므로 서브넷 수준에서 NSG를 지정할 필요는 없습니다. 그러나 지정된 서브넷에 연결된 NSG 및/또는 방화벽이 있는 경우 앞서 언급한 것처럼 인바운드 및 아웃바운드 보안 규칙을 구성합니다. 다음 스크린샷은 Azure Portal에서 규칙 구성이 표시되는 방식을 보여 줍니다.
 
-![Machine Learning Compute에 대한 인바운드 NSG 규칙 스크린샷](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
+![Machine Learning 컴퓨팅에 대한 인바운드 NSG 규칙 스크린샷](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
 
-![Machine Learning Compute에 대한 아웃바운드 NSG 규칙 스크린샷](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
+![Machine Learning 컴퓨팅에 대한 아웃바운드 NSG 규칙 스크린샷](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
-### <a name="create-machine-learning-compute-in-a-virtual-network"></a>가상 네트워크에서 Machine Learning Compute 만들기
+### <a name="create-machine-learning-compute-in-a-virtual-network"></a>가상 네트워크에서 Machine Learning 컴퓨팅 만들기
 
-Azure Portal을 사용하여 Machine Learning 계산 클러스터를 만들려면 다음 단계를 수행합니다.
+Azure Portal을 사용하여 Machine Learning 컴퓨팅 클러스터를 만들려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning Service 작업 영역을 선택합니다.
 
@@ -104,9 +104,9 @@ Azure Portal을 사용하여 Machine Learning 계산 클러스터를 만들려�
 
     - __서브넷__: 사용할 서브넷을 선택합니다.
 
-   ![Machine learning Compute에 대한 가상 네트워크 설정을 보여 주는 스크린샷](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
+   ![Machine learning 컴퓨팅에 대한 가상 네트워크 설정을 보여주는 스크린샷](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
-Azure Machine Learning SDK를 사용하여 Machine Learning 계산 클러스터를 만들 수도 있습니다. 다음 코드에서는 `mynetwork`라는 가상 네트워크의 `default` 서브넷에 새 Machine Learning Compute 클러스터를 만듭니다.
+Azure Machine Learning SDK를 사용하여 Machine Learning 컴퓨팅 클러스터를 만들 수도 있습니다. 다음 코드에서는 `mynetwork`라는 가상 네트워크의 `default` 서브넷에 새 Machine Learning 컴퓨팅 클러스터를 만듭니다.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute

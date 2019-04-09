@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 78d82f7604d86b50ee5e05e5c3b5b9802a9559e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877941"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283412"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 >[!TIP]
 >"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
 
-**예 1: SQL 인증 사용**
+**예제 1: SQL 인증 사용**
 
 ```json
 {
@@ -85,7 +85,7 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-**예제 2: Azure Key Vault의 암호를 사용하는 SQL 인증 사용**
+**예제 2: Azure Key Vault에 암호를 사용 하 여 SQL 인증 사용**
 
 ```json
 {
@@ -114,7 +114,7 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-**예 3: Windows 인증 사용**
+**예제 3: Windows 인증 사용**
 
 ```json
 {
@@ -190,7 +190,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 - **sqlReaderQuery**가 SqlSource에 지정되면 복사 작업은 데이터를 가져오는 SQL Server 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
 - "sqlReaderQuery" 또는 "sqlReaderStoredProcedureName" 중 하나를 지정하지 않으면 JSON 데이터 세트의 "structure" 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 SQL Server에 대해 실행합니다. 데이터 세트 정의에 "structure"가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
-**예: SQL 쿼리 사용**
+**예: SQL 쿼리를 사용 하 여**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 ]
 ```
 
-**예: 저장 프로시저 사용**
+**예: 저장된 프로시저를 사용합니다.**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 ]
 ```
 
-**저장 프로시저 정의:**
+**저장된 프로시저 정의:**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -284,7 +284,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 싱크의 type 속성을 다음으로 설정해야 합니다. **SqlSink** | 예 |
-| writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
+| writeBatchSize |SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예제: “00:30:00”(30분) |아닙니다. |
 | preCopyScript |SQL Server에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아닙니다. |
 | sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법(예: 사용자 고유의 비즈니스 논리를 사용하여 upsert 또는 transform 수행)을 정의하는 저장 프로시저의 이름입니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아닙니다. |
@@ -294,7 +294,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 > [!TIP]
 > SQL Server로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. UPSERT 또는 추가 비즈니스 논리를 수행하려면 SqlSink에서 저장 프로시저를 사용합니다. 자세한 내용은 [SQL 싱크에 대한 저장 프로시저 호출](#invoking-stored-procedure-for-sql-sink)을 참조하세요.
 
-**예 1: 데이터 추가**
+**예제 1: 데이터 추가**
 
 ```json
 "activities":[
@@ -326,7 +326,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 ]
 ```
 
-**예 2: upsert에 대해 복사 중 저장 프로시저 호출**
+**예제 2: upsert에 대해 복사 중 저장된 프로시저를 호출**
 
 자세한 내용은 [SQL 싱크에 대한 저장 프로시저 호출](#invoking-stored-procedure-for-sql-sink)을 참조하세요.
 
@@ -440,9 +440,9 @@ SQL Server 데이터베이스로 데이터를 복사할 때 사용자 지정 저
 
 기본 제공 메커니즘이 용도에 적합하지 않을 때는 저장 프로시저를 사용할 수 있습니다. 보통은 대상 테이블에서 원본 데이터의 최종 삽입 전에 upsert(insert + update, 삽입 + 업데이트) 또는 추가 처리(열 합병, 추가 값 검색, 여러 테이블에 삽입 등)를 수행해야 할 때 저장 프로시저를 사용합니다.
 
-다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 각기 다음과 같은 세 개 열을 갖는 입력 데이터와 싱크 "Marketing" 테이블을 가정해 보겠습니다. ProfileID, State 및 Category. “ProfileID” 열을 기준으로 upsert를 수행하고 특정 범주에 대해서만 적용합니다.
+다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 각기 다음과 같은 세 개 열을 갖는 입력 데이터와 싱크 **Marketing** 테이블을 가정해 보겠습니다. **ProfileID**, **State** 및 **Category**. **ProfileID** 열을 기준으로 upsert(업데이트/삽입)를 수행하고 특정 범주에 대해서만 적용합니다.
 
-**출력 데이터 세트**
+**출력 데이터 집합:** "tableName" 저장된 프로시저 (저장된 프로시저 스크립트 아래 참조)의 동일한 테이블 형식 매개 변수 이름 이어야 합니다.
 
 ```json
 {
@@ -461,7 +461,7 @@ SQL Server 데이터베이스로 데이터를 복사할 때 사용자 지정 저
 }
 ```
 
-복사 작업의 SqlSink 섹션을 다음과 같이 정의합니다.
+정의 된 **SQL 싱크** 다음과 같이 복사 활동의 섹션입니다.
 
 ```json
 "sink": {
@@ -476,7 +476,7 @@ SQL Server 데이터베이스로 데이터를 복사할 때 사용자 지정 저
 }
 ```
 
-데이터베이스에서  SqlWriterStoredProcedureName과 동일한 이름으로 저장 프로시저를 정의합니다. 지정된 원본에서 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 세트에 정의된 "tableName"과 동일해야 합니다.
+데이터베이스에서 **SqlWriterStoredProcedureName**과 동일한 이름의 저장 프로시저를 정의합니다. 지정된 원본의 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 세트에 정의된 **tableName**과 동일해야 합니다.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -535,7 +535,7 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 | smallint |Int16 |
 | smallmoney |10진수 |
 | sql_variant |Object |
-| text |String, Char[] |
+| 텍스트 |String, Char[] |
 | 실시간 |timespan |
 | timestamp |Byte[] |
 | tinyint |Int16 |

@@ -25,7 +25,7 @@ ms.locfileid: "58668673"
 Reliable Actors는 [가상의 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 애플리케이션 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
 
 ## <a name="what-are-actors"></a>행위자(Actor)란?
-하나의 행위자(actor)는 독립적이며 격리된 연산의 단위이며 단일 스레드로 실행되는 상태를 가리킵니다. 많은 수의 행위자가 모여 동시에 상호독립적으로 실행할 수 있게 되는 동시 또는 분산 시스템을 위한 컴퓨팅 모델을 [행위자 패턴](https://en.wikipedia.org/wiki/Actor_model)이라고 합니다. 행위자 간에는 통신이 가능할 뿐 아니라 더 많은 행위자를 만들어 낼 수도 있습니다.
+하나의 행위자(actor)는 독립적이며 격리된 컴퓨팅 단위이며 단일 스레드로 실행되는 상태를 가리킵니다. 많은 수의 행위자가 모여 동시에 상호독립적으로 실행할 수 있게 되는 동시 또는 분산 시스템을 위한 컴퓨팅 모델을 [행위자 패턴](https://en.wikipedia.org/wiki/Actor_model)이라고 합니다. 행위자 간에는 통신이 가능할 뿐 아니라 더 많은 행위자를 만들어 낼 수도 있습니다.
 
 ### <a name="when-to-use-reliable-actors"></a>Reliable Actors 활용 시나리오
 Service Fabric Reliable Actors는 행위자 디자인 패턴을 구현한 것입니다. 소프트웨어 디자인 패턴처럼 특정 패턴을 사용하도록 결정하는 것은 소프트웨어 디자인 문제가 패턴에 맞는지 여부에 따라 이루어집니다.

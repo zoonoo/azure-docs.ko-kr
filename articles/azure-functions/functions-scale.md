@@ -15,7 +15,7 @@ ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
 ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2019
 ms.locfileid: "58893591"
@@ -40,7 +40,7 @@ Azure Functions에 익숙하지 않으면 [Azure Functions 개요](functions-ove
 
 ## <a name="consumption-plan"></a>소비 계획
 
-소비 계획을 사용 하는 경우 Azure Functions 호스트 인스턴스가 동적으로 추가 및 제거 들어오는 이벤트의 수를 기준으로 합니다. 이 서버를 사용하지 않는 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 계산 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
+소비 계획을 사용 하는 경우 Azure Functions 호스트 인스턴스가 동적으로 추가 및 제거 들어오는 이벤트의 수를 기준으로 합니다. 이 서버리스 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 계산 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
 청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, 함수 앱 내의 모든 함수에 대해 집계됩니다. 자세한 내용은 [Azure Functions 가격 책정 페이지]를 참조하세요.
 

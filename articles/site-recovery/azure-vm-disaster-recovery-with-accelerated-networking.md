@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: ff772d4f53b279d8d048720beaa62cfdeb6401eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850417"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283361"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Azure 가상 머신 장애 복구에서 가속화된 네트워킹
 
@@ -36,7 +36,7 @@ Azure Site Recovery를 사용하면 다른 Azure 지역에 장애 조치된 Azur
 Azure Site Recovery는 원본 가상 머신에 가속화된 네트워킹이 활성화된 경우에만 복제된 가상 머신에 대한 가속화된 네트워킹 활성화를 지원합니다. 원본 가상 머신에 가속화된 네트워킹이 활성화되지 않은 경우 [여기](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms)에서 Windows 가상 머신에 대해 가속화된 네트워킹을 활성화하는 방법을 알아볼 수 있습니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
-다음 분포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
+다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다.
 * **Windows Server 2016 Datacenter**
 * **Windows Server 2012 R2 Datacenter**
 
@@ -58,7 +58,7 @@ Azure Site Recovery는 원본 가상 머신에 가속화된 네트워킹이 활�
 * **RHEL 7.4**
 * **CentOS 7.4**
 * **CoreOS Linux**
-* **Debian “Stretch”(백포트 커널 포함)**
+* **Debian "Stretch" backports 커널**
 * **Oracle Linux 7.4**
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
@@ -88,4 +88,4 @@ Azure 가상 머신에 대해 [복제를 활성화](azure-to-azure-tutorial-enab
 ## <a name="next-steps"></a>다음 단계
 - [가속화된 네트워킹의 이점](../virtual-network/create-vm-accelerated-networking-powershell.md#benefits)에 대해 자세히 알아봅니다.
 - [Windows 가상 머신](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) 및 [Linux 가상 머신](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints)에 대한 가속화된 네트워킹의 제한 사항 및 제약 조건에 대해 자세히 알아봅니다.
-- 응용 프로그램 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.
+- 애플리케이션 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

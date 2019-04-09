@@ -49,7 +49,7 @@ ASP.NET Core는 웹앱, IoT 앱 및 모바일 백 엔드와 같은 최신 클라
 [첫 번째 ASP.NET Core Service Fabric 애플리케이션을 작성](service-fabric-tutorial-create-dotnet-app.md)하여 [Service Fabric의 ASP.NET Core에 대해 자세히 알아보세요](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
-Reliable Services의 최상위에 구축되는 Reliable Actor 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 애플리케이션 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 계산 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
+Reliable Services의 최상위에 구축되는 Reliable Actor 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 애플리케이션 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 컴퓨팅 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
 
 Reliable Actors 자체는 Reliable Services에 구축된 애플리케이션 프레임워크이므로 Service Fabric 플랫폼과 완전히 통합되며 플랫폼이 제공하는 모든 기능을 완벽히 활용할 수 있습니다.
 

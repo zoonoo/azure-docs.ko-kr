@@ -24,7 +24,7 @@ ms.locfileid: "58805230"
 
 ## <a name="provisioned-infrastructure"></a>프로비전된 인프라
 
-다른 모든 네트워크, 계산 및 저장소 제한은 프로비전된 인프라에 적용됩니다. 관련 제한은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)을 참조하세요.
+다른 모든 네트워크, 계산 및 스토리지 제한은 프로비전된 인프라에 적용됩니다. 관련 제한은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)을 참조하세요.
 
 ## <a name="region-availability"></a>지역 가용성
 

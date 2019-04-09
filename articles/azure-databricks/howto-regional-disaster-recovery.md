@@ -27,11 +27,11 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 ![Databricks 아키텍처](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
-이 아키텍처의 장점 중 하나는 사용자가 Azure Databricks를 본인 계정의 저장소 리소스에 연결할 수 있다는 것입니다. 주요 장점은 계산(Azure Databricks) 및 저장소를 서로 독립적으로 크기 조정할 수 있다는 것입니다.
+이 아키텍처의 장점 중 하나는 사용자가 Azure Databricks를 본인 계정의 저장소 리소스에 연결할 수 있다는 것입니다. 주요 장점은 계산(Azure Databricks) 및 스토리지를 서로 독립적으로 크기 조정할 수 있다는 것입니다.
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>지역 재해 복구 토폴로지를 만드는 방법
 
-이전 아키텍처 설명에 표시 된 대로 Azure Databricks를 사용 하 여 빅 데이터 파이프라인에 사용 되는 구성 요소는 여러 가지가 있습니다.  Azure Storage, Azure 데이터베이스 및 기타 데이터 원본입니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *계산*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 계산이 필요 없을 때 불필요한 비용이 발생하지 않도록 *계산*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *계산*(Azure Databricks) 및 저장소 소스가 같은 지역에 있어야 합니다.  
+이전 아키텍처 설명에 표시 된 대로 Azure Databricks를 사용 하 여 빅 데이터 파이프라인에 사용 되는 구성 요소는 여러 가지가 있습니다.  Azure Storage, Azure 데이터베이스 및 기타 데이터 원본입니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *계산*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 계산이 필요 없을 때 불필요한 비용이 발생하지 않도록 *계산*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *계산*(Azure Databricks) 및 스토리지 소스가 같은 지역에 있어야 합니다.  
 
 고유한 지역 재해 복구 토폴로지를 만들려면 다음 요구 사항을 따릅니다.
 

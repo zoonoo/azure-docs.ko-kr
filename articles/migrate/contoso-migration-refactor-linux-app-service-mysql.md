@@ -110,7 +110,7 @@ Contoso는 다음과 같이 마이그레이션 프로세스를 완료합니다.
 --- | --- | ---
 [Azure App Service](https://azure.microsoft.com/services/app-service/) | 이 서비스는 웹 사이트에 대해 Azure PaaS 서비스를 사용하여 애플리케이션을 실행하고 규모를 조정합니다.  | 인스턴스의 크기와 필요한 기능에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | DNS를 사용하여 사용자를 Azure 또는 외부 웹 사이트 및 서비스로 보내는 부하 분산 장치입니다. | 수신한 DNS 쿼리의 수와 모니터링되는 엔드포인트 수에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/traffic-manager/).
-[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | 데이터베이스는 오픈 소스 MySQL 서버 엔진을 기반으로 합니다. 완전히 관리되는 엔터프라이즈용 커뮤니티 MySQL 데이터베이스를 앱 개발 및 배포용 서비스로 제공합니다. | 계산, 저장소 및 백업 요구 사항에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/mysql/).
+[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | 데이터베이스는 오픈 소스 MySQL 서버 엔진을 기반으로 합니다. 완전히 관리되는 엔터프라이즈용 커뮤니티 MySQL 데이터베이스를 앱 개발 및 배포용 서비스로 제공합니다. | 계산, 스토리지 및 백업 요구 사항에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/mysql/).
 
  
 ## <a name="prerequisites"></a>필수 조건

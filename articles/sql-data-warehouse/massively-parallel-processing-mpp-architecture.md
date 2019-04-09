@@ -23,17 +23,17 @@ Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massi
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="mpp-architecture-components"></a>MPP 아키텍처 구성 요소
-SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 계산 성능의 추상화입니다. SQL Data Warehouse는 시스템의 데이터와 독립적으로 계산을 확장할 수 있도록 저장소에서 계산을 분리합니다.
+SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 계산 능력의 추상화입니다. SQL Data Warehouse는 시스템의 데이터와 독립적으로 계산을 확장할 수 있도록 스토리지에서 계산을 분리합니다.
 
 ![SQL Data Warehouse 아키텍처](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 애플리케이션은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
+SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 애플리케이션은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음, 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
 
-분리된 저장소 및 계산을 사용하여 SQL Data Warehouse는 다음을 수행할 수 있습니다.
+분리된 스토리지 및 계산을 통해 SQL Data Warehouse는 다음을 수행할 수 있습니다.
 
-* 저장소 요구 사항에 관계없이 계산 성능을 독립적으로 조정합니다.
+* 스토리지 요구 사항에 관계없이 계산 능력을 독립적으로 조정합니다.
 * 데이터를 이동하지 않고 계산을 확장 또는 축소합니다.
-* 데이터를 그대로 둔 채 계산 용량을 일시 중지하여 저장소 비용만 지불합니다.
+* 데이터를 그대로 둔 채 계산 용량을 일시 중지하여 스토리지 비용만 지불합니다.
 * 운영 시간 동안 계산 용량을 다시 시작합니다.
 
 ### <a name="azure-storage"></a>Azure 저장소
@@ -49,7 +49,7 @@ SQL Data Warehouse는 Azure 저장소를 사용하여 사용자 데이터를 안
 
 ### <a name="compute-nodes"></a>계산 노드
 
-계산 노드는 계산 성능을 제공합니다. 분산은 처리를 위해 계산 노드로 매핑됩니다. 비용을 지불하는 계산 리소스가 많을수록 SQL Data Warehouse는 사용 가능한 계산 노드에 분산을 다시 매핑합니다. 계산 노드의 수는 1~60 사이이며 데이터 웨어하우스의 서비스 수준에 따라 결정됩니다.
+계산 노드는 계산 능력을 제공합니다. 분산은 처리를 위해 계산 노드로 매핑됩니다. 비용을 지불하는 계산 리소스가 많을수록 SQL Data Warehouse는 사용 가능한 계산 노드에 분산을 다시 매핑합니다. 계산 노드의 수는 1~60 사이이며 데이터 웨어하우스의 서비스 수준에 따라 결정됩니다.
 
 각 계산 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)를 참조하세요.
 

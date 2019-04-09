@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58480263"
 ---
-# <a name="high-performance-compute-vm-sizes"></a>고성능 계산 VM 크기
+# <a name="high-performance-compute-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
 [!INCLUDE [virtual-machines-common-sizes-hpc](../../../includes/virtual-machines-common-sizes-hpc.md)]
 
