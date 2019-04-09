@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056854"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269489"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
@@ -76,13 +76,16 @@ ms.locfileid: "59056854"
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [팝업 추가](./map-add-popup.md)
+> [팝업 추가](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [도형 추가](./map-add-shape.md)
+> [사용 하 여 데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [거품형 계층 추가](./map-add-bubble-layer.md)
+> [도형 추가](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [HTML 작성자를 추가 합니다.](./map-add-bubble-layer.md)
+> [거품형 계층 추가](map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [HTML 작성자를 추가 합니다.](map-add-bubble-layer.md)

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101553"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269353"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 종단 간 SSL 구성
 
@@ -52,20 +52,17 @@ Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게�
 
 이 섹션에서는 Application Gateway를 포함하는 리소스 그룹을 만드는 과정을 안내합니다.
 
-
 1. Azure 계정에 로그인합니다.
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. 이 시나리오에 사용할 구독을 선택합니다.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. 리소스 그룹을 만듭니다. (기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뜁니다.)
 
@@ -77,7 +74,6 @@ Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게�
 
 다음 예제에서는 가상 네트워크 및 두 개의 서브넷을 만듭니다. 하나의 서브넷은 Application Gateway를 보관하는 데 사용되고 다른 서브넷은 웹 애플리케이션을 호스트하는 백 엔드 서버에 사용됩니다.
 
-
 1. Application Gateway에 사용할 서브넷의 주소 범위를 할당합니다.
 
    ```powershell
@@ -86,8 +82,7 @@ Application Gateway를 사용하여 엔드투엔드 SSL을 구성하려면 게�
 
    > [!NOTE]
    > Application Gateway를 구성하는 서브넷은 크기가 적절해야 합니다. Application Gateway는 최대 10개의 인스턴스로 구성할 수 있습니다. 각 인스턴스는 서브넷에서 1개의 IP 주소를 사용합니다. 서브넷이 너무 적으면 Application Gateway의 크기에 불리한 영향을 미칠 수 있습니다.
-   > 
-   > 
+   >
 
 2. 백 엔드 주소 풀에 사용할 주소 범위를 할당합니다.
 
@@ -130,7 +125,6 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. 프런트 엔드 IP 구성을 만듭니다. 이 설정은 개인 또는 공용 IP 주소를 Application Gateway의 프런트 엔드에 매핑합니다. 다음 단계는 이전 단계의 공용 IP 주소를 프런트 엔드 IP 구성과 연결합니다.
 
    ```powershell
@@ -145,7 +139,6 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
 
    > [!NOTE]
    > FQDN(정규화된 도메인 이름) 역시 백 엔드 서버의 IP 주소를 대체하는 데 사용할 수 있는 유효한 값입니다. **-BackendFqdns** 스위치를 사용하여 활성화합니다. 
-
 
 4. 공용 IP 엔드포인트에 대한 프런트 엔드 IP 포트를 구성합니다. 이 포트는 최종 사용자가 연결하는 포트입니다.
 
@@ -177,7 +170,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    > 백 엔드에서 호스트 헤더와 SNI(서버 이름 표시)를 사용하는 경우 검색된 공개 키는 트래픽이 흐르는 의도된 사이트가 아닐 수 있습니다. 확실하지 않은 경우 백 엔드 서버에서 https://127.0.0.1/을 방문하여 *기본* SSL 바인딩에 사용되는 인증서를 확인하세요. 이 섹션에서는 해당 요청에서 공개 키를 사용합니다. HTTPS 바인딩에서 호스트 헤더 및 SNI를 사용하고, 수동 브라우저 요청에서 백 엔드 서버의 https://127.0.0.1/로 응답 및 인증서를 받지 않은 경우 기본 SSL 바인딩을 설정해야 합니다. 그렇게 하지 않으면 프로브가 실패하고 백 엔드가 허용 목록에 추가되지 않습니다.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
     다음 예제에서는 최소 프로토콜 버전을 **TLSv1_2**로 설정하고 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 및 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**만 사용하도록 설정합니다.
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기

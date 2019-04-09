@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dacf58760d353eea3c552a9113589259148f3558
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1bb1370b2d828aaddae61c32a663bd032b18e7b1
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447900"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801896"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스
 
@@ -76,7 +76,7 @@ VM의 시스템 할당 관리 ID를 사용하여 Azure 저장소 Blob에서 데�
 1. 새로 만든 저장소 계정으로 다시 이동합니다.
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.
 3. 페이지의 위쪽에서 **+ 역할 할당 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
-4. **역할** 아래의 드롭다운에서 **Storage Blob 데이터 판독기(미리 보기)** 를 선택합니다.
+4. **역할**의 드롭다운에서 **Storage Blob 데이터 판독기**를 선택합니다.
 5. 다음 드롭다운의 **다음에 대한 액세스 할당** 아래에서 **가상 머신**을 선택합니다.
 6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인한 다음, **리소스 그룹**을 **모든 리소스 그룹**으로 설정합니다.
 7. **선택** 아래에서 VM을 선택한 다음, **저장**을 클릭합니다.

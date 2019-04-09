@@ -8,18 +8,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046430"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276238"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>IoT Hub에 대한 추가 프로토콜 지원
+
 Azure IoT Hub는 MQTT, AMQP, HTTPS 프로토콜을 통한 통신을 기본적으로 지원합니다. 일부 경우 디바이스 또는 필드 게이트웨이에서 이러한 표준 프로토콜 중 하나를 사용하지 못할 수 있으므로 프로토콜 적응이 필요합니다. 이러한 경우 사용자 지정 게이트웨이를 사용할 수 있습니다. 사용자 지정 게이트웨이에서 IoT Hub로(부터)의 트래픽을 브리징하여 IoT Hub 엔드포인트에 대한 프로토콜 적응을 사용할 수 있습니다. [Azure IoT 프로토콜 게이트웨이](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) 를 사용자 지정 게이트웨이로 사용하여 IoT Hub에 대한 프로토콜 적응을 사용할 수 있습니다.
 
 ## <a name="azure-iot-protocol-gateway"></a>Azure IoT 프로토콜 게이트웨이
-Azure IoT 프로토콜 게이트웨이는 프로토콜 적응을 위한 프레임워크로 IoT Hub와 확장성이 뛰어난 양방향 디바이스 통신을 위해 디자인되었습니다. 프로토콜 게이트웨이는 특정 프로토콜을 통한 디바이스 연결을 수락하는 통과 구성 요소입니다. AMQP 1.0을 통해 IoT Hub에 트래픽을 브리징합니다. 
+
+Azure IoT 프로토콜 게이트웨이는 프로토콜 적응을 위한 프레임워크로 IoT Hub와 확장성이 뛰어난 양방향 디바이스 통신을 위해 디자인되었습니다. 프로토콜 게이트웨이는 특정 프로토콜을 통한 디바이스 연결을 수락하는 통과 구성 요소입니다. AMQP 1.0을 통해 IoT Hub에 트래픽을 브리징합니다.
 
 Azure Service Fabric, Azure Cloud Services 작업자 역할 또는 Windows Virtual Machines를 사용하여 확장성이 뛰어난 방식으로 Azure에서 프로토콜 게이트웨이를 배포할 수 있습니다. 또한 프로토콜 게이트웨이는 필드 게이트웨이와 같은 온-프레미스 환경에서 배포될 수 있습니다.
 
@@ -30,17 +32,17 @@ Azure IoT 프로토콜 게이트웨이는 필요한 경우 MQTT 프로토콜 동
 유연성을 위해 Azure IoT 프로토콜 게이트웨이 및 MQTT 구현은 오픈 소스 소프트웨어 프로젝트에서 제공됩니다. 오픈 소스 프로젝트를 사용하여 다양한 프로토콜 및 프로토콜 버전에 대한 지원을 추가하거나 시나리오에 맞게 구현을 사용자 지정할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
+
 Azure IoT 프로토콜 게이트웨이와 이를 IoT 솔루션의 일부로 사용하고 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [GitHub에서 azure IoT 프로토콜 게이트웨이 리포지토리](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+
 * [Azure IoT 프로토콜 게이트웨이 개발자 가이드](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Event Hubs와 비교][lnk-compare]
-* [크기 조정, 고가용성 및 재해 복구][lnk-scaling]
-* [IoT Hub 개발자 가이드][lnk-devguide]
+* [Event Hubs와 비교](iot-hub-compare-event-hubs.md)
 
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-devguide]: iot-hub-devguide.md
+* [크기 조정, 고가용성 및 재해 복구](iot-hub-scaling.md)
+
+* [IoT Hub 개발자 가이드](iot-hub-devguide.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868568"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893013"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 컨테이너 이미지 빌드 자동화
 
@@ -52,7 +52,7 @@ ACR 작업에서 현재 지원하는 트리거는 다음과 같습니다.
 * Git 리포지토리에 커밋
 * 기본 이미지 업데이트
 
-이 자습서에서는 ACR 작업이 Dockerfile에 지정된 단일 컨테이너 이미지를 빌드하고 푸시합니다. ACR 작업은 YAML 파일을 사용하여 [여러 단계 작업](container-registry-tasks-multi-step.md)을 실행하여 빌드, 푸시 및 선택적으로 여러 컨테이너를 테스트하는 단계를 정의할 수 있습니다.
+이 자습서의 ACR 작업은 Dockerfile에 지정된 단일 컨테이너 이미지를 빌드하고 푸시합니다. 또한 ACR 작업은 [다단계 작업](container-registry-tasks-multi-step.md)을 실행하고, YAML 파일을 사용하여 여러 컨테이너를 빌드하고, 푸시하고, 필요에 따라 테스트하는 단계를 정의할 수 있습니다.
 
 ## <a name="create-a-build-task"></a>빌드 작업 만들기
 

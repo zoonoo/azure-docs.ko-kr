@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 879636b9db2d7c2c48c7a4a194b43985785d2623
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780289"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878266"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -34,15 +34,15 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-   ![정책 검색](../media/create-and-manage/search-policy.png)
+   ![모든 서비스의 정책 검색](../media/create-and-manage/search-policy.png)
 
 1. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
 
-   ![할당 선택](../media/create-and-manage/select-assignments.png)
+   ![정책 개요 페이지에서 할당 선택](../media/create-and-manage/select-assignments.png)
 
 1. **정책 - 할당** 창의 위쪽에서 **정책 할당**을 선택합니다.
 
-   ![정책 정의 할당](../media/create-and-manage/select-assign-policy.png)
+   ![할당 페이지에서 정책 정의 할당](../media/create-and-manage/select-assign-policy.png)
 
 1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다.  그 후 **범위** 페이지의 맨 위에서 **선택**을 클릭합니다.
 
@@ -54,7 +54,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. **SQL Server 버전 12.0 필요**를 선택합니다. 즉시 찾을 수 없는 경우 검색 상자에 **sql server 필요**를 입력하고 Enter 키를 누르거나 검색 상자 바깥쪽을 클릭합니다. 정책 정의를 찾아서 선택했으면 **사용 가능한 정의** 페이지의 맨 아래에서 **선택**을 클릭합니다.
 
-   ![정책 찾기](../media/create-and-manage/select-available-definition.png)
+   ![검색 필터를 사용하여 정책 찾기](../media/create-and-manage/select-available-definition.png)
 
 1. 선택한 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예에서는 *SQL Server 버전 12.0 필요*를 사용하겠습니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.  **할당한 사람**은 로그인한 사용자를 기준으로 자동 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. Azure Policy 페이지의 왼쪽에 있는 **작성**에서 **정의**를 선택합니다.
 
-   ![제작 아래의 정의](../media/create-and-manage/definition-under-authoring.png)
+   ![제작 그룹의 정의 페이지](../media/create-and-manage/definition-under-authoring.png)
 
 1. 페이지 위쪽에서 **+ 정책 정의**를 선택합니다. 이 단추를 선택하면 **정책 정의** 페이지가 열립니다.
 
@@ -120,7 +120,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 정책 정의에 대한 REST API를 사용하여 정책을 만들 수 있습니다. REST API를 사용하여 정책 정의를 만들고, 삭제하고, 기존 정의에 관한 정보를 가져올 수 있습니다. 정책 정의를 만들려면 다음 예제를 사용합니다.
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
@@ -158,7 +158,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ## <a name="create-a-policy-definition-with-powershell"></a>PowerShell을 사용하여 정책 정의 만들기
 
-PowerShell 예제를 진행하기 전에 최신 버전의 Azure PowerShell을 설치했는지 확인합니다. 정책 매개 변수가 버전 3.6.0에 추가되었습니다. 이전 버전이 있는 경우 예제에서는 매개 변수를 찾을 수 없음을 나타내는 오류를 반환합니다.
+PowerShell 예제를 진행하기 전에 최신 버전의 Azure PowerShell Az 모듈을 설치했는지 확인합니다. 
 
 `New-AzPolicyDefinition` cmdlet을 사용하여 정책 정의를 만들 수 있습니다.
 
@@ -328,11 +328,11 @@ az policy definition list
 
 1. Azure Policy 페이지의 왼쪽에 있는 **작성**에서 **정의**를 선택합니다.
 
-   ![정의 선택](../media/create-and-manage/definition-under-authoring.png)
+   ![정의 페이지에서 정의 선택](../media/create-and-manage/definition-under-authoring.png)
 
 1. 페이지 위쪽에서 **+ 이니셔티브 정의**를 선택하여 **이니셔티브 정의** 페이지를 엽니다.
 
-   ![이니셔티브 정의](../media/create-and-manage/initiative-definition.png)
+   ![이니셔티브 정의 페이지 검토](../media/create-and-manage/initiative-definition.png)
 
 1. **정의 위치** 줄임표를 사용하여 해당 정의를 저장할 관리 그룹 또는 구독을 선택합니다. 이전 페이지의 범위를 단일 관리 그룹 또는 구독으로 지정한 경우 **정의 위치**가 자동으로 채워집니다.
 
@@ -352,11 +352,11 @@ az policy definition list
 
    목록에서 정책 정의를 선택하면 **정책 및 매개 변수** 아래에 추가됩니다.
 
-   ![이니셔티브 정의](../media/create-and-manage/initiative-definition-2.png)
+   ![이니셔티브 정의 매개 변수 검토](../media/create-and-manage/initiative-definition-2.png)
 
 1. 매개 변수가 이니셔티브에 추가되는 정책 정의에 있으면 **정책 및 매개 변수** 영역의 정책 이름 아래에 표시됩니다. _값_은 '값 설정'(이 이니셔티브의 모든 할당에 대해 하드 코드됨) 또는 '이니셔티브 매개 변수 사용'(각 이니셔티브 할당 중에 설정됨)으로 설정할 수 있습니다. ‘값 설정’을 선택하면 _값_ 오른쪽의 드롭다운에서 값을 입력하거나 선택할 수 있습니다. '이니셔티브 매개 변수 사용'을 선택하면 새 **이니셔티브 매개 변수** 섹션이 표시되어 이니셔티브 할당 중에 설정될 매개 변수를 정의할 수 있습니다. 이니셔티브 매개 변수에 허용되는 값은 이니셔티브 할당 중에 설정될 수 있는 값을 더 자세히 제한할 수 있습니다.
 
-   ![이니셔티브 정의 매개 변수](../media/create-and-manage/initiative-definition-3.png)
+   ![허용되는 값에서 이니셔티브 정의 매개 변수 변경](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > 일부 `strongType` 매개 변수의 경우 값 목록은 자동으로 결정할 수 없습니다. 이러한 경우 매개 변수 행의 오른쪽에 줄임표가 표시됩니다. 이를 클릭하면 '매개 변수 범위(&lt;매개 변수 이름&gt;)' 페이지가 열립니다. 이 페이지에서 값 옵션을 제공하는 데 사용할 구독을 선택합니다. 이 매개 변수 범위는 이니셔티브 정의를 만드는 중에 사용되며, 할당되는 경우 정책 평가 또는 이니셔티브의 범위에는 영향을 주지 않습니다.
@@ -369,11 +369,11 @@ az policy definition list
 
 1. 앞에서 만든 **보안 강화** 이니셔티브 정의를 찾아서 클릭합니다. 페이지 위쪽에서 **할당**을 선택하여 **보안 강화: 이니셔티브 할당** 페이지를 엽니다.
 
-   ![정의 할당](../media/create-and-manage/assign-definition.png)
+   ![이니셔티브 정의 페이지에서 정의 할당](../media/create-and-manage/assign-definition.png)
 
    또한 선택한 행을 마우스 오른쪽 단추로 클릭하거나 행 끝에 있는 줄임표(...)를 마우스 왼쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시할 수 있습니다.  그리고 **할당**을 선택합니다.
 
-   ![행을 마우스 오른쪽 단추로 클릭](../media/create-and-manage/select-right-click.png)
+   ![이니셔티브의 대체 옵션](../media/create-and-manage/select-right-click.png)
 
 1. 다음 예제 정보를 입력하여 **보안 강화: 이니셔티브 할당** 페이지를 채웁니다. 사용자 고유의 정보를 사용해도 됩니다.
 
@@ -393,11 +393,11 @@ az policy definition list
 
 1. **원본 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 **시작되지 않음**일 가능성이 여전히 있습니다. 이니셔티브를 클릭하여 할당 진행 상황에 대한 자세한 내용을 가져옵니다.
 
-   ![규정 준수 - 시작되지 않음](../media/create-and-manage/compliance-status-not-started.png)
+   ![이니셔티브 규정 준수 페이지 - 평가가 시작되지 않음](../media/create-and-manage/compliance-status-not-started.png)
 
 1. 이니셔티브 할당이 완료되었으면 규정 준수 페이지에서 **준수 상태**가 _준수_로 업데이트됩니다
 
-   ![규정 준수 - 준수](../media/create-and-manage/compliance-status-compliant.png)
+   ![이니셔티브 규정 준수 페이지 - 리소스 규정 준수](../media/create-and-manage/compliance-status-compliant.png)
 
 1. 이니셔티브 규정 준수 페이지에서 정책을 클릭하면 정책에 대한 규정 준수 세부 정보 페이지가 열립니다. 이 페이지는 규정 준수에 대한 리소스 수준의 세부 정보를 제공합니다.
 
@@ -426,7 +426,7 @@ az policy definition list
 
 1. 줄임표를 클릭하고 제외할 리소스 그룹(이 예에서는 *SQLServers_Excluded*)을 선택하여 **제외**를 설정합니다.
 
-   ![제외 요청](../media/create-and-manage/request-exclusion.png)
+   ![제외된 리소스 그룹을 정책 할당에 추가](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > 정책 및 그 영향에 따라 할당 범위 내의 리소스 그룹에 속한 특정 리소스에 제외를 부여할 수도 있습니다. 이 자습서에서 사용한 **거부** 효과와 마찬가지로, 이미 있는 특정 리소스에 제외를 설정하는 것은 의미가 없습니다.

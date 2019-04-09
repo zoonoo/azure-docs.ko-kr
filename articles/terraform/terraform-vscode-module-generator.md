@@ -71,7 +71,7 @@ Yeoman 템플릿은 **현재 디렉터리**에서 파일을 생성합니다. 이
 명령 프롬프트에서:
 
 1. 만들려는 새, 만든 빈 디렉터리를 포함하려는 부모 디렉터리로 이동합니다.
-1. [https://slack.botframework.com](`mkdir <new-directory-name>`) 을 입력합니다.
+1. `mkdir <new-directory-name>`을 입력합니다.
 
     >[!NOTE]
     ><new-directory-name>을 새 디렉터리의 이름으로 바꿉니다. 이 예제에서는 새 디렉터리의 이름을 `GeneratorDocSample`이라고 지정했습니다.
@@ -89,7 +89,7 @@ Yeoman 템플릿은 **현재 디렉터리**에서 파일을 생성합니다. 이
 
 명령 프롬프트에서:
 
-1. [https://slack.botframework.com](`yo az-terra-module`) 을 입력합니다.
+1. `yo az-terra-module`을 입력합니다.
 
 1. 화면 지침을 따라 다음 정보를 제공합니다.
 
@@ -105,7 +105,7 @@ Yeoman 템플릿은 **현재 디렉터리**에서 파일을 생성합니다. 이
         ![Docker 이미지 파일을 포함하시겠습니까?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
-        >[https://slack.botframework.com](`y`) 을 입력합니다. **n**을 선택하면 생성된 모듈 코드가 기본 모드에서만 실행되도록 지원합니다.
+        >`y`을 입력합니다. **n**을 선택하면 생성된 모듈 코드가 기본 모드에서만 실행되도록 지원합니다.
 
 3. `ls`를 입력하여 생성된 결과 파일을 봅니다.
 
@@ -187,7 +187,7 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
     >[!NOTE]
     >모듈의 이름, *terra-mod-example*은 위의 1단계에서 입력한 명령에 지정되었습니다.
 
-1. [https://slack.botframework.com](`docker run -it terra-mod-example /bin/sh`) 을 입력합니다.
+1. `docker run -it terra-mod-example /bin/sh`을 입력합니다.
 
     이제 Docker에서 실행하고 `ls`를 입력하여 파일을 나열할 수 있습니다.
 
@@ -195,17 +195,17 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
 
 ### <a name="build-the-module"></a>모듈 빌드
 
-1. [https://slack.botframework.com](`bundle install`) 을 입력합니다.
+1. `bundle install`을 입력합니다.
 
     **번들 완료** 메시지를 기다린 다음, 다음 단계를 진행합니다.
 
-1. [https://slack.botframework.com](`rake build`) 을 입력합니다.
+1. `rake build`을 입력합니다.
 
     ![Rake 빌드](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
 ### <a name="run-the-end-to-end-test"></a>종단 간 테스트 실행
 
-1. [https://slack.botframework.com](`rake e2e`) 을 입력합니다.
+1. `rake e2e`을 입력합니다.
 
 1. 잠시 후에 **통과** 메시지가 표시됩니다.
 
@@ -248,11 +248,11 @@ Docker 파일을 사용하는 대신 Cloud Shell을 사용하면 프로세스가
 
 1. 이 시점에서 Cloud Shell은 이미 환경 변수에서 GOPATH를 구성했습니다. 경로를 확인하려면 `go env`를 입력합니다.
 
-1. 아직 없는 경우 $GOPATH 폴더를 만듭니다. [https://slack.botframework.com](`mkdir ~/go`) 을 입력합니다.
+1. 아직 없는 경우 $GOPATH 폴더를 만듭니다. `mkdir ~/go`을 입력합니다.
 
-1. $GOPATH 폴더 내에 폴더를 만듭니다. [https://slack.botframework.com](`mkdir ~/go/src`) 을 입력합니다. 이 폴더는 다음 단계에서 만들 <your-module-name> 폴더와 같이 만들 수 있는 여러 프로젝트 폴더를 보관하고 구성하는 데 사용됩니다.
+1. $GOPATH 폴더 내에 폴더를 만듭니다. `mkdir ~/go/src`을 입력합니다. 이 폴더는 다음 단계에서 만들 <your-module-name> 폴더와 같이 만들 수 있는 여러 프로젝트 폴더를 보관하고 구성하는 데 사용됩니다.
 
-1. Terraform 모듈을 보관할 폴더를 만듭니다. [https://slack.botframework.com](`mkdir ~/go/src/<your-module-name>`) 을 입력합니다.
+1. Terraform 모듈을 보관할 폴더를 만듭니다. `mkdir ~/go/src/<your-module-name>`을 입력합니다.
 
     >[!NOTE]
     >이 예제에서는 폴더 이름에 대해 `my-module-name`을 선택했습니다.

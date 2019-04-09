@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226218"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882058"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리되는 인스턴스 보안
 
@@ -50,13 +50,13 @@ ms.locfileid: "58226218"
 - Azure SQL Database 관리되는 인스턴스
   - 다음 문서를 수행합니다. [빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md)
 - 관리되는 인스턴스에 액세스하여 [관리되는 인스턴스에 대한 Azure AD 관리자를 프로비저닝](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)할 수 있습니다. 자세한 내용은 다음을 참조하세요.
-    - [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 
-    - [관리되는 인스턴스 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)
+    - [애플리케이션을 관리형 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 
+    - [관리형 인스턴스 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)
     - [SQL을 사용하여 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)
 
 ## <a name="limiting-access-to-your-managed-instance"></a>관리되는 인스턴스에 대한 액세스 제한
 
-관리되는 인스턴스는 사설 IP 주소를 통해서만 액세스할 수 있습니다. 관리되는 인스턴스 네트워크 외부에서 관리되는 인스턴스에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게, 연결을 설정하려면 애플리케이션 또는 사용자가 관리되는 인스턴스 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
+관리되는 인스턴스는 사설 IP 주소를 통해서만 액세스할 수 있습니다. 관리되는 인스턴스 네트워크 외부에서 관리되는 인스턴스에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게 연결을 설정하려면 애플리케이션 또는 사용자가 관리형 인스턴스 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
 
 > [!NOTE] 
 > 관리되는 인스턴스는 내부 VNET에만 액세스할 수 있으므로 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)이 적용되지 않습니다. 관리되는 인스턴스는 자체적인 [기본 방화벽](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)을 갖추고 있습니다.
@@ -65,11 +65,11 @@ ms.locfileid: "58226218"
 
 첫 번째 Azure AD 서버 보안 주체(로그인)는 `sysadmin`인 표준 SQL Server 계정(비 Azure AD)에서 만들어야 합니다. 관리되는 인스턴스에 연결하는 예제는 다음 문서를 참조하세요.
 
-- [빠른 시작: 관리되는 인스턴스에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md)
-- [빠른 시작: 온-프레미스에서 관리되는 인스턴스로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)
+- [빠른 시작: 관리형 인스턴스에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md)
+- [빠른 시작: 온-프레미스에서 관리형 인스턴스로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> 관리되는 인스턴스를 설정하는 데 사용된 Azure AD 관리자는 관리되는 인스턴스 내에 Azure AD 서버 보안 주체(로그인)를 만드는 데 사용할 수 없습니다. `sysadmin` SQL Server 계정을 사용하여 첫 번째 Azure AD 서버 보안 주체(로그인)를 만들어야 합니다. 이는 Azure AD 서버 보안 주체(로그인)가 GA(일반 공급)되면 제거될 임시적인 제한입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.` 오류가 발생합니다.
+> 관리되는 인스턴스를 설정하는 데 사용된 Azure AD 관리자는 관리되는 인스턴스 내에 Azure AD 서버 보안 주체(로그인)를 만드는 데 사용할 수 없습니다. `sysadmin` SQL Server 계정을 사용하여 첫 번째 Azure AD 서버 보안 주체(로그인)를 만들어야 합니다. 이는 Azure AD 서버 보안 주체(로그인)가 GA(일반 공급)되면 제거될 일시적인 제한입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 다음 오류가 발생합니다. `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. 표준 SQL Server 계정(비 azure AD)인 `sysadmin`을 사용하여 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)를 통해 관리되는 인스턴스에 로그인합니다.
 
@@ -172,7 +172,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
 
     이 예제에서는 Azure AD 사용자 bob@aadsqlmi.net에 대한 로그인을 만들며, 이 사용자의 도메인 aadsqlmi.net은 Azure AD aadsqlmi.onmicrosoft.com과 페더레이션됩니다.
 
-    다음 T-SQL 명령을 실행합니다. 페더레이션된 Azure AD 계정은 온-프레미스 Windows 로그인 및 사용자의 관리되는 인스턴스를 대체합니다.
+    다음 T-SQL 명령을 실행합니다. 페더레이션된 Azure AD 계정은 온-프레미스 Windows 로그인 및 사용자의 관리형 인스턴스를 대체합니다.
 
     ```sql
     USE master
@@ -441,16 +441,16 @@ Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 �
 
 다음 [관리되는 인스턴스 기능 보안 기능](sql-database-managed-instance.md#azure-sql-database-security-features) 문서에서 데이터베이스를 보호하는 방법에 대한 전체 목록을 확인하세요. 다음과 같은 보안 기능을 설명합니다.
 
-- [관리되는 인스턴스 감사](sql-database-managed-instance-auditing.md) 
-- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [관리형 인스턴스 감사](sql-database-managed-instance-auditing.md) 
+- [상시 암호화](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [위협 감지](sql-database-managed-instance-threat-detection.md) 
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)
 - [행 수준 보안](/sql/relational-databases/security/row-level-security) 
-- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [투명한 데이터 암호화(TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>관리되는 인스턴스 기능
 
 관리되는 인스턴스 기능의 전체 개요는
 
 > [!div class="nextstepaction"]
-> [관리되는 인스턴스 기능](sql-database-managed-instance.md)을 참조하세요.
+> [관리되는 인스턴스 기능](sql-database-managed-instance.md)

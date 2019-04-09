@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 485a386210458d57b87aaa0537b1c58a6adab2c7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58342730"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58616492"
 ---
-1. **모든 서비스**로 이동하여 가상 WAN을 검색하면 가상 WAN을 찾을 수 있습니다. 또는 Azure Portal 맨 위에 있는 검색 상자에서 가상 WAN을 검색할 수 있습니다. **가상 WAN**을 클릭하여 페이지를 엽니다.
-2. **+추가**를 클릭하여 **WAN 만들기** 페이지를 엽니다.
-3. **WAN 만들기** 페이지에서 다음 필드를 채웁니다.
+1. Virtual WAN 페이지로 이동합니다. 이 페이지로 이동하는 한 가지 방법은 **모든 서비스**로 이동한 다음, Virtual WAN을 검색하는 것입니다.
+1. **+추가**를 클릭하여 **WAN 만들기** 페이지를 엽니다.
+1. **WAN 만들기** 페이지에서 다음 필드를 채웁니다.
 
    * **이름** - WAN을 호출할 이름을 선택합니다.
    * **구독** - 사용할 Azure 구독을 선택합니다.

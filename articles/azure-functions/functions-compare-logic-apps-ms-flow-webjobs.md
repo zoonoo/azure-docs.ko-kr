@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: de83cc80d64fb1862f1fdec32b704d0948ef9fc8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820521"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895650"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
 
@@ -84,11 +84,11 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|[자동 크기 조정](functions-scale.md#how-the-consumption-plan-works)이 가능한 [서버 없는 응용 프로그램 모델](https://azure.microsoft.com/solutions/serverless/)|✔||
+|[자동 크기 조정](functions-scale.md#how-the-consumption-and-premium-plans-work)이 가능한 [서버 없는 응용 프로그램 모델](https://azure.microsoft.com/solutions/serverless/)|✔||
 |[브라우저에서 개발 및 테스트](functions-create-first-azure-function.md) |✔||
 |[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)|✔||
 |[Logic Apps와 통합](functions-twitter-email.md)|✔||
-| 트리거 이벤트 |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| 트리거 이벤트 |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 항목](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 항목](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | 지원되는 언어  |C#<br>F#<br>JavaScript<br>Java(미리 보기) |C#<sup>1</sup>|
 |패키지 관리자|NPM 및 NuGet|NuGet<sup>2</sup>|
 
@@ -119,8 +119,8 @@ Microsoft Flow, Logic Apps 및 Functions 간의 통합은 계속해서 점차 �
 
 다음 링크를 사용하여 통합 서비스에 대해 자세히 알아볼 수 있습니다.
 
-* [Christopher Anderson의 통합 시나리오에 대한 Azure Functions 및 Azure App Service 활용](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [통합 시나리오에 Azure Functions 및 Azure App Service 활용 - Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [간단하게 통합 - Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps 라이브 웹캐스트](https://aka.ms/logicappslive)
 * [Microsoft Flow 질문과 대답](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

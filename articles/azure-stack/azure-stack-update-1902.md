@@ -16,16 +16,16 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051685"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271835"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 업데이트
 
-*적용 대상: Azure Stack 통합 시스템*
+*적용 대상 Azure Stack 통합 시스템*
 
 이 문서에서는 1902 업데이트 패키지의 내용을 설명 합니다. 업데이트는 향상 된 기능, 수정 및 Azure Stack의이 버전에 대 한 새로운 기능을 포함합니다. 또한이 문서는이 릴리스의 알려진된 문제를 설명 하 고 업데이트를 다운로드 하려면 링크를 포함 합니다. 알려진된 문제는 업데이트 프로세스를 직접 관련 된 문제 및 문제 (설치 후) 빌드를 사용 하 여으로 구분 됩니다.
 
@@ -80,7 +80,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 - 1902 빌드 계획, 제안, 할당량 및 추가 기능 계획을 만들기 위한 Azure Stack 관리자 포털에서 새로운 사용자 인터페이스를 소개 합니다. 스크린샷을 포함 한 자세한 내용은 참조 하세요. [계획, 제품 및 할당량 만들기](azure-stack-create-plan.md)합니다.
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- 실행 상태를 "늘리는 저장소"에서 배율 단위 상태를 전환 하는 경우 노드를 추가 하는 동안 용량 확장의 안정성 개선 합니다.
+- "Running"를 "늘리는 저장소"에서 배율 단위 상태를 전환 하는 경우 추가 노드 작업 중 용량 확장의 안정성 향상 되었습니다.
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -104,9 +104,6 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
     - 응급 복구 콘솔 서비스 (ERCS) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
     - XRP 서비스 패브릭 노드의 상태를 확인 하 고 필요에 따라 복구
     - 일관 된 저장소 ACS (Azure) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
-
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- 실행 상태를 "늘리는 저장소"에서 배율 단위 상태를 전환 하는 경우 노드를 추가 하는 동안 용량 확장의 안정성 개선 합니다.    
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -259,6 +256,10 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog 
+- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 해당 구성과 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트에서 결과. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다.
+Azure Stack 업데이트를 적용 한 후 클라이언트를 syslog를 다시 구성 하려면이 문제를 해결 합니다.
 
 ## <a name="download-the-update"></a>업데이트 다운로드
 

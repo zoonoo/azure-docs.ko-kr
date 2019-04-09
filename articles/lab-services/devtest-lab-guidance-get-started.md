@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs 사용 시작
+title: Azure DevTest Labs를 사용 하는 인기 있는 시나리오
 description: 이 문서에서는 Azure DevTest Labs 및 두 가지 일반적인 경로 사용 하 여 조직에서 서비스 사용을 시작 하는 기본 시나리오를 제공 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803802"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272388"
 ---
-# <a name="get-started-with-using-azure-devtest-labs"></a>Azure DevTest Labs 사용 시작
+# <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Azure DevTest Labs를 사용 하는 인기 있는 시나리오
 엔터프라이즈의 요구에 따라 DevTest Labs는 서로 다른 요구 사항을 충족 하도록 구성할 수 있습니다.  이 문서에서는 널리 사용 되는 시나리오를 설명합니다. 각 시나리오에서는 이러한 시나리오를 구현 하는 데 DevTest Labs 및 리소스를 사용 하 여 가져온 혜택을 설명 합니다.  
 
 - 개발자 데스크톱
@@ -85,5 +85,5 @@ A **개념 증명** 배포 조직 값을 설정 하는 단일 팀에서 집중�
 다음 문서를 읽어보세요.
 
 - [DevTest Lab 개념](devtest-lab-concepts.md)
-- [DevTest Labs FAQ](devtest-lab-faq.md)
+- [DevTest Lab FAQ](devtest-lab-faq.md)
 

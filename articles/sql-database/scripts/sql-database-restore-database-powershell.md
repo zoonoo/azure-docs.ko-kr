@@ -1,6 +1,6 @@
 ---
 title: PowerShell 예제 복원 백업 Azure SQL database | Microsoft Docs
-description: 지역 중복 백업에서 Azure SQL 단일 데이터베이스를 복원하는 Azure PowerShell 예제 스크립트
+description: 자동 백업에서 이전 시점으로 Azure SQL 단일 데이터베이스를 복원하는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883613"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621348"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>PowerShell을 사용하여 백업에서 Azure SQL 단일 데이터베이스 복원
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>PowerShell을 사용하여 Azure SQL 단일 데이터베이스를 이전 시점으로 복원
 
-이 PowerShell 스크립트 예제는 지역 중복 백업에서 Azure SQL Database를 복원하고 삭제된 Azure SQL Database를 최신 백업으로 복원하며 Azure SQL Database를 특정 시점으로 복원합니다.  
+이 PowerShell 스크립트 예제는 Azure SQL 데이터베이스를 특정 시점으로 복원합니다.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

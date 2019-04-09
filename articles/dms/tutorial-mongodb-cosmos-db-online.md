@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 1e1cb509f296d8bed8efc3a3d520a1c480c1f775
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008638"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885301"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>자습서: DMS를 사용하여 온라인 방식으로 MongoDB를 Azure Cosmos DB의 MongoDB API로 마이그레이션(미리 보기)
 Azure Database Migration Service를 사용하여 온라인(최소 가동 중지 시간) 방식으로 데이터베이스를 온-프레미스 또는 클라우드 인스턴스의 MongoDB에서 Azure Cosmos DB의 MongoDB API로 마이그레이션할 수 있습니다.
@@ -50,11 +50,11 @@ Azure Database Migration Service를 사용하여 온라인(최소 가동 중지 
     > VNET을 설정하는 중에 Microsoft에 대한 네트워크 피어링에서 ExpressRoute를 사용하는 경우 서비스가 프로비저닝되는 서브넷에 다음 서비스 [엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 추가합니다.
     > - 대상 데이터베이스 엔드포인트(예: SQL 엔드포인트, Cosmos DB 엔드포인트 등)
     > - 스토리지 엔드포인트
-    > - 서비스 버스 엔드포인트
+    > - Service Bus 엔드포인트
     >
-    > Azure Database Migration Service에는 인터넷 연결이 부족하기 때문에 이 구성이 필요합니다.
+    > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-- Azure VNET 네트워크 보안 그룹 규칙에서 443, 53, 9354, 445 및 12000 Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
+- VNET 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대한 다음과 같은 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 - Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 원본 서버의 방화벽을 변경합니다.
 - 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860476"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893710"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "55860476"
 > * Azure에서 컨테이너 이미지 빌드
 > * Azure Container Instances에 컨테이너 배포
 
-후속 자습서에서는 코드 커밋 및 기본 이미지 업데이트 시 자동화된 컨테이너 이미지 빌드에 ACR 작업을 사용하는 방법에 대해 알아봅니다. ACR 작업은 YAML 파일을 사용하여 [여러 단계 작업](container-registry-tasks-multi-step.md)을 실행하여 빌드, 푸시 및 선택적으로 여러 컨테이너를 테스트하는 단계를 정의할 수 있습니다.
+후속 자습서에서는 코드 커밋 및 기본 이미지 업데이트 시 자동화된 컨테이너 이미지 빌드에 ACR 작업을 사용하는 방법에 대해 알아봅니다. 또한 ACR 작업은 [다단계 작업](container-registry-tasks-multi-step.md)을 실행하고, YAML 파일을 사용하여 여러 컨테이너를 빌드하고, 푸시하고, 필요에 따라 테스트하는 단계를 정의할 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

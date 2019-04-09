@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533241"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904766"
 ---
 # <a name="what-is-text-analytics-api"></a>Text Analytics API란?
 
@@ -77,7 +77,7 @@ ms.locfileid: "57533241"
 | 전체 요청의 최대 크기 | 1MB |
 | 요청의 최대 문서 수 | 1,000개 문서 |
 
-속도 제한은 분당 100개 호출입니다. 단일 호출에서 많은 수의 문서를 제출할 수 있습니다(최대 1,000개 문서).
+속도는 초당 100개 요청 및 분당 1,000개 요청으로 제한됩니다. 단일 호출에서 많은 수의 문서를 제출할 수 있습니다(최대 1,000개 문서).
 
 ## <a name="unicode-encoding"></a>유니코드 인코딩
 

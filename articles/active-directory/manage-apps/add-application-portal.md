@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af30568d3ab35b35d2a0e0bef00921debb1ea451
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110123"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917807"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>빠른 시작: 애플리케이션을 Azure Active Directory 테넌트에 추가합니다.
 
@@ -42,38 +42,29 @@ Azure AD 테넌트에 애플리케이션을 추가하면 다음과 같은 작업
 
 Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
 
-2. **Azure Active Directory** 블레이드에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+2. **Azure Active Directory** 창에서 **엔터프라이즈 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 열기](media/add-application-portal/open-enterprise-apps.png)
 
-3. Azure AD 테넌트에 있는 임의의 애플리케이션 샘플을 보여주는 **모든 애플리케이션** 블레이드가 열립니다.
-
-    ![모든 애플리케이션 블레이드](media/add-application-portal/applications-blade.png)
-
-
-4. **모든 애플리케이션** 블레이드 맨 위에서 **새 애플리케이션**을 클릭합니다.
+3. Azure AD 테넌트에 있는 임의의 애플리케이션 샘플을 보여주는 **모든 애플리케이션** 창이 열립니다. **모든 애플리케이션** 창의 맨 위에서 **새 애플리케이션**을 클릭합니다.
 
     ![새 애플리케이션](media/add-application-portal/new-application.png)
 
-5. 갤러리의 애플리케이션 목록을 보려면 **범주**를 사용하는 것이 더 쉽습니다. **주요 애플리케이션** 아래의 아이콘은 갤러리 애플리케이션의 임의의 샘플이기 때문입니다.
+4. **범주** 창을 보면 갤러리 애플리케이션의 임의 샘플인 **주요 애플리케이션** 영역 아래에 아이콘이 보일 것입니다.  더 많은 애플리케이션을 보려면 **자세히 보기**를 선택합니다. 하지만 갤러리에 애플리케이션 수천 개가 있으므로 이 검색 방법을 권장하지 않습니다.
 
     ![이름 또는 범주로 검색](media/add-application-portal/categories.png)
 
-    더 많은 애플리케이션을 보려면 **자세히 보기**를 클릭합니다. 갤러리에 애플리케이션 수천 개가 있으므로 이 검색 방법을 권장하지 않습니다.
-
-6. 애플리케이션을 검색하려면 **갤러리에서 추가** 아래에서 추가할 애플리케이션 이름을 입력합니다. 결과에서 애플리케이션을 선택하고 **추가**를 클릭합니다. 다음 예제는 github.com 검색 후 나타나는 **앱 추가** 양식을 보여줍니다.
+5. 애플리케이션을 검색하려면 **갤러리에서 추가** 아래에 추가하려는 애플리케이션 이름을 입력합니다. 결과에서 애플리케이션을 선택하고 **추가**를 선택합니다. 다음 예제는 github.com 검색 후 나타나는 **앱 추가** 양식을 보여줍니다.
 
     ![애플리케이션 추가](media/add-application-portal/add-an-application.png)
 
 6. 애플리케이션별 양식에서 속성 정보를 변경할 수 있습니다. 예를 들어 조직의 요구에 맞게 애플리케이션 이름을 편집할 수 있습니다. 이 예에서는 이름으로 **GitHub-test**를 사용합니다.
 
-8. 속성 변경을 마쳤으면 **추가**를 클릭합니다.
+7. 속성 변경을 마쳤으면 **추가**를 선택합니다.
 
-9. 시작 페이지가 열리고 조직의 애플리케이션을 구성하는 옵션이 제공됩니다.
-
-    ![시작 메뉴](media/add-application-portal/get-started.png)
+8. 시작 페이지가 열리고 조직의 애플리케이션을 구성하는 옵션이 제공됩니다.
 
 애플리케이션 추가를 마쳤습니다. 편하게 휴식을 취하세요. 그 다음 섹션에서는 애플리케이션의 로고를 변경하고 다른 속성을 편집하는 방법을 보여줍니다.
 
@@ -81,15 +72,15 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 
 여러분이 잠시 자리를 비웠다가 애플리케이션을 계속 구성하기 위해 돌아왔다고 가정해 봅시다. 가장 먼저 할 일은 애플리케이션을 찾는 것입니다.
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 Azure **Active Directory**를 선택합니다.
 
-2. Azure Active Directory 블레이드에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+2. **Azure Active Directory** 창에서 **엔터프라이즈 애플리케이션**을 선택합니다.
 
-3. **애플리케이션 종류** 드롭다운 메뉴에서 **모든 애플리케이션**을 선택하고 **적용**을 클릭합니다. 보기 옵션에 대한 자세한 내용은 [테넌트 애플리케이션 보기](view-applications-portal.md)를 참조하세요.
+3. **애플리케이션 종류** 드롭다운 메뉴에서 **모든 애플리케이션**을 선택하고 **적용**을 선택합니다. 보기 옵션에 대한 자세한 내용은 [테넌트 애플리케이션 보기](view-applications-portal.md)를 참조하세요.
 
-4. 이제 Azure AD 테넌트에서 모든 애플리케이션 목록을 볼 수 있습니다. 목록은 임의의 샘플입니다. 더 많은 애플리케이션을 보려면 **자세히 보기**를 한 번 이상 클릭합니다.
+4. 이제 Azure AD 테넌트에서 모든 애플리케이션 목록을 볼 수 있습니다. 목록은 임의의 샘플입니다. 더 많은 애플리케이션을 보려면 **자세히 보기**를 한 번 이상 선택합니다.
 
-5. 테넌트의 애플리케이션을 신속하게 찾으려면 검색 상자에 애플리케이션 이름을 입력하고 **적용**을 클릭합니다. 이 예제에서는 앞에서 추가한 GitHub-test 애플리케이션을 찾습니다.
+5. 테넌트의 애플리케이션을 신속하게 찾으려면 검색 상자에 애플리케이션 이름을 입력하고 **적용**을 선택합니다. 이 예제는 우리가 앞에서 추가한 GitHub-test 애플리케이션을 찾습니다.
 
     ![애플리케이션 검색](media/add-application-portal/find-application.png)
 
@@ -98,14 +89,14 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 
 애플리케이션을 찾았으니, 애플리케이션을 열고 속성을 구성할 수 있습니다.
 
-애플리케이션 속성을 편집하려면
+애플리케이션 속성을 편집하려면:
 
-1. 애플리케이션을 클릭하여 엽니다.
-2. **속성**을 클릭하여 편집할 속성 블레이드를 엽니다.
+1. 애플리케이션을 선택하여 엽니다.
+2. **속성**을 선택하여 편집할 속성 창을 엽니다.
 
-    ![속성 편집 블레이드](media/add-application-portal/edit-properties.png)
+    ![속성 창 블레이드](media/add-application-portal/edit-properties.png)
 
-3. 잠시 로그인 옵션을 살펴보면서 이해합니다. **사용자가 로그인할 수 있습니까**, **사용자 할당 필요** 및 **사용자에게 표시** 옵션에 따라 애플리케이션에 할당된 또는 할당되지 않은 사용자가 로그인할 수 있는지 여부가 결정됩니다. 사용자가 액세스 패널에서 애플리케이션을 볼 수 있는지 여부도 결정합니다.
+3. 잠시 로그인 옵션을 살펴보면서 이해합니다. 이 옵션은 애플리케이션에 할당된 또는 할당되지 않은 사용자가 애플리케이션에 로그인하는 방법을 결정합니다. 사용자가 액세스 패널에서 애플리케이션을 볼 수 있는지 여부도 결정합니다.
 
     - **사용자가 로그인할 수 있습니까**는 애플리케이션에 할당된 사용자가 로그인할 수 있는지 여부를 결정합니다.
     - **사용자 할당 필요**는 애플리케이션에 할당되지 않은 사용자가 로그인할 수 있는지 여부를 결정합니다.
@@ -148,10 +139,10 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 사용자 지정 로고를 사용하려면:
 
 1. 215 x 215 픽셀 로고를 만들고, PNG 형식으로 저장합니다.
-2. 이미 애플리케이션을 찾았으니, 해당 애플리케이션을 클릭합니다.
-2. 왼쪽 블레이드에서 **속성**을 클릭합니다.
+2. 이미 애플리케이션을 찾았으니, 해당 애플리케이션을 선택합니다.
+2. 왼쪽 창에서 **속성**을 선택합니다.
 4. 로고를 업로드합니다.
-5. 작업을 완료하면 **저장**을 클릭합니다.
+5. 완료되면 **저장**을 선택합니다.
 
     ![로고 변경](media/add-application-portal/change-logo.png)
 
@@ -163,6 +154,6 @@ Azure AD 테넌트에 갤러리 애플리케이션을 추가하려면:
 이제 애플리케이션에 Single Sign-On을 구성할 준비가 완료되었습니다.
 
 > [!div class="nextstepaction"]
-> [Single Sign-on 구성](configure-single-sign-on-portal.md)
+> [Single Sign-On 구성](configure-single-sign-on-portal.md)
 
 

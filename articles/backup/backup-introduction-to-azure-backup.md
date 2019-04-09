@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994423"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621654"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 애플리케이션 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -37,7 +37,11 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 **무제한 데이터 전송** - Azure Backup은 인바운드 또는 아웃바운드 데이터를 무제한으로 전송할 수 있습니다. 또한 전송되는 데이터에 대해 요금을 청구하지 않습니다. 그러나 Azure Import/Export 서비스를 통해 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련 된 비용이 발생합니다. 이 비용에 대한 자세한 내용은 [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md)를 참조하세요. 아웃바운드 데이터는 복원 작업 중에 Recovery Services 자격 증명 모음에서 전송된 데이터입니다.
 
-**데이터 암호화** - 공용 클라우드에서 데이터의 전송 및 저장을 보호합니다. 암호화 암호는 로컬에서 저장되며, Azure에서 전송되거나 저장되지는 않습니다. 데이터를 복원해야 하는 경우 암호화 암호 또는 키만 이으면 됩니다.
+**데이터 암호화**:
+- 온-프레미스에서 전송되는 데이터는 AES256을 사용하여 온-프레미스 머신에서 암호화됩니다. 전송되는 데이터는 스토리지와 백업 사이에 HTTPS로 보호됩니다. iSCSI 프로토콜은 백업 및 사용자 머신 간에 전송되는 데이터를 보호합니다. 보안 터널링은 iSCSI 채널을 보호하는 데 사용됩니다.
+- 온-프레미스에서 Azure 백업의 경우, Azure의 데이터는 백업을 설정할 때 사용자가 제공한 암호를 사용하여 미사용 시 암호화됩니다. 암호나 키는 Azure에 절대 전송되거나 저장되지 않습니다. 데이터를 복원해야 하는 경우 암호화 암호 또는 키만 이으면 됩니다.
+- Azure VM의 경우 SSE(스토리지 서비스 암호화)를 사용하여 미사용 데이터가 암호화됩니다. Backup은 데이터를 저장하기 전에 자동으로 암호화합니다. Azure Storage는 데이터를 검색하기 전에 데이터의 암호를 해독합니다.
+- Backup은 ADE(Azure Disk Encryption)를 사용하여 암호화된 Azure VM도 지원합니다. [자세히 알아보기](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 **애플리케이션 일치 백업** - 복구 지점에 백업 복사본을 복원하는 데 필요한 모든 데이터가 있음을 의미합니다. Azure Backup에서 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
 
@@ -86,7 +90,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 Azure Backup(MARS) 에이전트 | 아니요(Windows 기반 에이전트만)
 System Center DPM | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음
 Azure Backup 서버 | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음
-Azure IaaS VM Backup | [사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 앱 일치 백업<br/><br/> [파일 수준 복구](backup-azure-restore-files-from-vm.md)<br/><br/> [복원된 디스크에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [복원된 지점에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
+Azure IaaS VM Backup | [사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 앱 일치 백업<br/><br/> [파일 수준 복구](backup-azure-restore-files-from-vm.md)<br/><br/> [복원된 디스크에서 VM 만들기](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [복원된 지점에서 VM 만들기](backup-azure-arm-restore-vms.md#create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup에서 Premium Storage지 VM 사용
 Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집약적 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 스토리지입니다. Premium Storage는 VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage 및 다른 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../virtual-machines/windows/disks-types.md) 문서를 참조하세요.
@@ -210,7 +214,7 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 
 ## <a name="what-is-a-protected-instance"></a>보호된 인스턴스란 무엇인가요?
 보호된 인스턴스는 Azure에 백업하도록 구성된 Windows 컴퓨터, 서버(실제 또는 가상) 또는 SQL Database에 대한 일반 참조입니다. 컴퓨터, 서버 또는 데이터베이스에 대한 백업 정책을 구성하고 데이터의 백업 복사본을 만들면 인스턴스가 보호됩니다. 해당 보호된 인스턴스(복구 지점이라고 함)에 대한 백업 데이터의 후속 복사본으로 인해 저장소 사용량이 늘어납니다. 보호된 인스턴스에 대해 최대 9999개의 복구 지점을 만들 수 있습니다. 저장소에서 복구 지점을 삭제하더라도 9999개의 복구 지점 전체 개수에는 영향을 주지 않습니다.
-보호된 인스턴스의 몇 가지 일반적인 예로는 Windows 운영 체제를 실행하는 가상 머신, 애플리케이션 서버, 데이터베이스 및 개인용 컴퓨터가 있습니다. 예를 들면 다음과 같습니다.
+보호된 인스턴스의 몇 가지 일반적인 예로는 Windows 운영 체제를 실행하는 가상 머신, 애플리케이션 서버, 데이터베이스 및 개인용 컴퓨터가 있습니다. 예: 
 
 * Hyper-V 또는 Azure IaaS 하이퍼바이저 패브릭을 실행하는 가상 머신. 가상 머신의 게스트 운영 체제는 Windows Server 또는 Linux가 될 수 있습니다.
 * 애플리케이션 서버: 애플리케이션 서버는 Windows Server를 실행하는 실제 또는 가상 머신과 백업해야 하는 데이터 워크로드가 될 수 있습니다. 일반적인 워크로드로는 Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server 및 Windows Server의 파일 서버 역할이 있습니다. 이러한 워크로드를 백업하려면 System Center Data Protection Manager(DPM) 또는 Azure Backup Server가 필요합니다.

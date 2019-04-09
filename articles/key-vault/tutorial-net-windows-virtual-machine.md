@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437500"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885420"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>자습서: .NET에서 Windows 가상 머신에 Azure Key Vault 사용
 
@@ -148,7 +148,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 다음 명령을 실행하여 "Hello World"를 콘솔에 출력할 수 있습니다.
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -158,7 +158,7 @@ dotnet run
 
 *Program.cs* 파일을 열고 다음 패키지를 추가합니다.
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -172,7 +172,7 @@ using Newtonsoft.Json.Linq;
 1. VM의 로컬 MSI 엔드포인트에서 토큰을 페치합니다. 이렇게 하면 Azure AD에서 토큰도 페치됩니다.
 1. 토큰을 Key Vault에 전달하고 비밀을 페치합니다. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)

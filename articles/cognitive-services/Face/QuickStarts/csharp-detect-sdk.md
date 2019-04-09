@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372134"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630696"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>빠른 시작: Face .NET SDK를 사용하여 이미지에서 얼굴 감지
 
@@ -32,11 +32,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **FaceDetection**으로 이름을 지정합니다. 
 1. 솔루션에 다른 프로젝트가 있는 경우 이것을 단일 시작 프로젝트로 선택합니다.
-1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭을 클릭하고 **시험판 포함**을 선택한 다음, 다음 패키지를 설치합니다.
+1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭을 클릭하고 **시험판 포함**을 선택한 후, 다음 패키지를 설치합니다.
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-    - Microsoft.Rest.ClientRuntime
-    - Microsoft.Rest.ClientRuntime.Azure
-    - Newtonsoft.Json
+1. 프로젝트에 대한 최신 버전의 NuGet 패키지를 모두 설치했는지 확인합니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **업데이트** 탭을 클릭하고 나타나는 패키지의 최신 버전을 설치합니다.
 
 ## <a name="add-face-detection-code"></a>얼굴 감지 코드 추가
 
@@ -50,21 +48,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="add-essential-fields"></a>필수 필드 추가
 
-**Program** 클래스에 다음 필드를 추가합니다. 이 데이터는 Face 서비스에 연결하는 방법과 입력 데이터를 가져올 위치를 지정합니다. `subscriptionKey` 필드를 구독 키의 값으로 업데이트해야 하며 올바른 지역 식별자가 포함되도록 `faceEndpoint` 문자열을 변경해야 할 수도 있습니다. 또한 `localImagePath` 및/또는 `remoteImageUrl` 값을 실제 이미지 파일을 가리키는 경로로 설정해야 합니다.
+다음 필드가 있는 **Program** 클래스를 추가합니다. 이 데이터는 Face 서비스에 연결하는 방법과 입력 데이터를 가져올 위치를 지정합니다. `subscriptionKey` 필드를 구독 키의 값으로 업데이트해야 하며 올바른 지역 식별자가 포함되도록 `faceEndpoint` 문자열을 변경해야 할 수도 있습니다. 또한 `localImagePath` 및/또는 `remoteImageUrl` 값을 실제 이미지 파일을 가리키는 경로로 설정해야 합니다.
 
 `faceAttributes` 필드는 단순히 특정 유형의 특성 배열입니다. 감지된 얼굴에 대해 검색할 정보를 지정합니다.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=9-34)]
 
 ### <a name="create-and-use-the-face-client"></a>Face 클라이언트 만들기 및 사용
 
 다음으로, **Program** 클래스의 **Main** 메서드에 다음 코드를 추가합니다. 그러면 Face API 클라이언트를 설정합니다.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
 또한 **Main** 메서드에서 다음 코드를 추가하여 새로 생성된 Face 클라이언트를 사용하여 원격 및 로컬 이미지에서 얼굴을 감지합니다. 검지 메서드는 다음에 정의합니다. 
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>얼굴 감지
 
@@ -82,9 +80,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-마지막으로, **DisplayAttributes** 메서드를 정의하여 얼굴 특성 데이터를 콘솔 출력에 기록합니다.
+마지막으로, **DisplayAttributes** 메서드를 정의하여 얼굴 특성 데이터를 콘솔 출력에 기록합니다. 그런 다음, 클래스와 네임스페이스를 닫습니다.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-125)]
 
 ## <a name="run-the-app"></a>앱 실행
 

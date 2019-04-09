@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: HT
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905922"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274793"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum 인증 증명 컨소시엄
 
@@ -279,7 +279,7 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
 관리자 Ethereum 주소|PoA 거버넌스 참여에 사용되는 Ethereum 계정 주소입니다.  Ethereum 주소를 생성하는 경우 MetaMask를 사용하는 것이 좋습니다.|0x로 시작하는 42자의 영숫자 문자|해당 없음
 고급 옵션|Ethereum 설정에 대한 고급 옵션|사용 또는 사용 안 함|사용 안 함
 공용 IP(고급 옵션 = 사용)|VNet 게이트웨이 뒤에 네트워크를 배포하고 피어링 액세스를 제거합니다. 이 옵션을 선택하면 모든 멤버가 VNet 게이트웨이를 사용해야 연결이 호환됩니다.|공용 IP 사설 VNet|공용 IP
-블록 가스 제한(고급 옵션 = 사용)|네트워크의 시작 블록 가스 제한입니다.|임의의 숫자|50,000,00
+블록 가스 제한(고급 옵션 = 사용)|네트워크의 시작 블록 가스 제한입니다.|임의의 숫자|50000000
 블록 다시 봉인 기간(초)|네트워크에 트랜잭션이 없을 때 빈 블록이 작성되는 빈도입니다. 빈도가 높으면 블록이 더 빨리 작성되지만 저장소 비용이 증가합니다.|임의의 숫자|15
 트랜잭션 권한 계약(고급 옵션 = 사용)|트랜잭션 권한 지정 계약에 대한 바이트 코드입니다. 스마트 계약 배포 및 Ethereum 계정의 허용된 목록에 실행을 제한합니다.|계약 바이트 코드|해당 없음
 

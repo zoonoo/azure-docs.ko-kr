@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487552"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578121"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -93,13 +93,15 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
 
     이 비밀은 구성 API를 사용하여 액세스됩니다. 콜론(:)은 지원되는 모든 플랫폼에서 구성 API를 통해 구성 이름으로 작동합니다. [환경별 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)을 참조하세요.
 
-4. Program.cs를 열고, `config.AddAzureAppConfiguration()` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.
+4. *Program.cs*를 열고, App Configuration .NET Core 구성 공급자에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+5. `config.AddAzureAppConfiguration()` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.
 
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -113,7 +115,7 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
             .UseStartup<Startup>();
     ```
 
-5. 보기 > 홈 디렉터리에서 Index.cshtml을 열고, 해당 콘텐츠를 다음 코드로 바꿉니다.
+6. 보기 > 홈 디렉터리에서 Index.cshtml을 열고, 해당 콘텐츠를 다음 코드로 바꿉니다.
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -139,7 +141,7 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
     </html>
     ```
 
-6. 보기 > 공유 디렉터리에서 _Layout.cshtml을 열고, 해당 콘텐츠를 다음 코드로 바꿉니다.
+7. 보기 > 공유 디렉터리에서 _Layout.cshtml을 열고, 해당 콘텐츠를 다음 코드로 바꿉니다.
 
     ```html
     <!DOCTYPE html>
@@ -189,4 +191,4 @@ ASP.NET Core는 애플리케이션에서 지정한 하나 이상의 데이터 �
 이 빠른 시작에서는 새 앱 구성 저장소를 만들고, [앱 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 리소스 통합을 위한 관리 ID](./integrate-azure-managed-service-identity.md)
+> [Azure 리소스 통합용 관리 ID](./integrate-azure-managed-service-identity.md)

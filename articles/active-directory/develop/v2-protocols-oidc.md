@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1527a326ca0107df33857284774252b327b7d8bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112707"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273263"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 및 OpenID Connect 프로토콜
 
@@ -57,26 +57,28 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 | `common` |개인 Microsoft 계정과 Azure AD(Azure Active Directory)의 회사 또는 학교 계정이 둘 다 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` |Azure AD의 회사 또는 학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
 | `consumers` |개인 Microsoft 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 또는 `contoso.onmicrosoft.com` |특정 Azure AD 테넌트의 회사 또는 학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. Azure AD 테넌트의 친숙한 도메인 이름 또는 테넌트의 GUID 식별자를 사용할 수 있습니다. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 또는 `contoso.onmicrosoft.com` | 특정 Azure AD 테넌트의 회사 또는 학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. Azure AD 테넌트의 친숙한 도메인 이름 또는 테넌트의 GUID 식별자를 사용할 수 있습니다. 소비자 테 넌 트를 사용할 수도 있습니다 `9188040d-6c67-4c5b-b112-36a304b66dad`를 대신 합니다 `consumers` 테 넌 트입니다.  |
 
 메타데이터는 간단한 JSON(JavaScript Object Notation) 문서입니다. 예제를 보려면 다음 코드 조각을 참조하세요. 이 조각의 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2)에 자세히 설명되어 있습니다.
 
 ```
 {
-  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
-  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
     "private_key_jwt"
   ],
-  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/{tenant}\/discovery\/v2.0\/keys",
 
   ...
 
 }
 ```
+앱에 사용자 지정 서명 키를 사용 하 여 결과로 경우 합니다 [클레임 매핑](active-directory-claims-mapping.md) 해야 추가 기능을는 `appid` 쿼리 얻으려면 앱 ID를 포함 하는 매개 변수는 `jwks_uri` 앱을 가리키는 서명 키 정보입니다. 예를 들어: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 포함 된 `jwks_uri` 의 `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`합니다.
 
-일반적으로 이 메타데이터 문서를 사용하여 OpenID Connect 라이브러리 또는 SDK를 구성하고 라이브러리는 작업을 수행하기 위해 메타데이터를 사용합니다. 그러나 빌드 전 OpenID Connect 라이브러리를 사용하지 않는 경우 v2.0 엔드포인트를 사용하여 웹 앱에서 로그인을 수행 하려면 이 문서의 나머지 부분에 나와 있는 단계를 수행하면 됩니다.
+
+일반적으로 이 메타데이터 문서를 사용하여 OpenID Connect 라이브러리 또는 SDK를 구성하고 라이브러리는 작업을 수행하기 위해 메타데이터를 사용합니다. 그러나 미리 빌드된 OpenID Connect 라이브러리를 사용 하지 않는 경우 v2.0 끝점을 사용 하 여 웹 앱에서 로그인 수행 하려면이 문서의 나머지 부분에서는 단계를 따르면 됩니다.
 
 ## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
 
@@ -87,7 +89,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 * 요청은 `nonce` 매개 변수를 포함해야 합니다.
 
 > [!IMPORTANT]
-> ID 토큰을 올바르게 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **[암시적 허용](v2-oauth2-implicit-grant-flow.md)** 이 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. "입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
+> 성공적으로 앱 등록 /authorization 끝점에서 ID 토큰을 요청 하기 위해 합니다 [등록 포털](https://portal.azure.com) 암시적 부여 인증 탭에서 사용 하도록 설정 하는 id_token에 있어야 합니다. (설정 된 `oauth2AllowIdTokenImplicitFlow`플래그를 [응용 프로그램 매니페스트](reference-app-manifest.md) 에 `true`). 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. "입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
 
 예를 들면 다음과 같습니다.
 
@@ -113,14 +115,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | client_id |필수 |[애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 애플리케이션 ID입니다. |
 | response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code`와 같은 다른 `response_type` 값을 포함할 수도 있습니다. |
-| redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
+| redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. 하지 않으면 현재 끝점은 임의로 사용자를 보낼 하나의 등록 된 redirect_uri 선택 다시 합니다. |
 | scope |필수 |공백으로 구분된 범위 목록입니다. OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
 | nonce |필수 |앱에서 생성한 요청에 포함되는 값이며, 결과 id_token 값에 클레임으로 포함됩니다. 앱은 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | response_mode |권장 |결과 권한 부여 코드를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. `form_post` 또는 `fragment`일 수 있습니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. |
 | state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
 | prompt |옵션 |필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 클레임은 반대입니다. 이 클레임은 사용자에게 어떤 대화형 메시지도 표시되지 않도록 합니다. Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 v2.0 엔드포인트는 오류를 반환합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. |
 | login_hint |옵션 |사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
-| domain_hint |옵션 |이 값은 `consumers` 또는 `organizations`일 수 있습니다. 포함된 경우, v2.0 로그인 페이지를 거친 사용자가 좀 더 효율적인 사용자 경험을 가질 수 있도록 전자 메일 기반 검색 프로세스를 건너뜁니다. 앱에서는 종종 ID 토큰에서 `tid` 클레임을 추출하여 재인증 과정에서 이 매개 변수를 사용합니다. `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`(Microsoft 계정 소비자 테넌트)인 경우 `domain_hint=consumers`를 사용합니다. 그렇지 않으면 `domain_hint=organizations`를 사용합니다. |
+| domain_hint |옵션 | 페더레이션된 디렉터리에서는 사용자의 영역입니다.  이 사용자가 좀 더 효율적인된 사용자 환경을 위해 v2.0 로그인 페이지에서 진행 되는 전자 메일 기반 검색 프로세스를 건너뜁니다. ADFS와 같은 온-프레미스 디렉터리를 통해 페더레이션 되는 테 넌 트,이 인해 기존 로그인 세션으로 인해 원활한 로그인 합니다. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. v2.0 엔드포인트는 사용자가 `scope` 쿼리 매개 변수에 표시된 사용 권한에 동의했는지도 확인합니다. 사용자가 이러한 사용 권한 중 하나에 동의하지 않은 경우 v2.0 엔드포인트는 필요한 사용 권한에 동의하라는 메시지를 표시합니다. [권한, 동의 및 다중 테넌트 앱](v2-permissions-and-consent.md)에 대해 자세히 알아볼 수 있습니다.
 
@@ -179,7 +181,6 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 id_token을 받는 것만으로는 사용자를 인증하는 데 충분하지 않습니다. id_token의 서명 유효성을 검사하고 앱의 요구 사항에 따라 토큰의 클레임을 확인해야 합니다. v2.0 엔드포인트는 [JWT(JSON 웹 토큰)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다.
 
 클라이언트 코드에서 `id_token`의 유효성을 검사하도록 선택할 수 있지만, 일반적으로 `id_token`을 백 엔드 서버에 보내서 그 곳에서 유효성 검사를 수행합니다. id_token의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다. [토큰 유효성 검사](id-tokens.md#validating-an-id_token) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)를 포함한 자세한 내용은 [`id_token` 참조](id-tokens.md)를 확인하세요. 대부분의 언어 및 플랫폼에서 사용할 수 있는 하나 이상의 토큰의 구문 분석 및 유효성 검사에 대한 라이브러리를 사용하는 것이 좋습니다.
-<!--TODO: Improve the information on this-->
 
 시나리오에 따라 추가 클레임의 유효성을 검사할 수도 있습니다. 몇 가지 일반적인 유효성 검사는 다음과 같습니다.
 

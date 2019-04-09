@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090324"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649725"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -48,8 +48,8 @@ ms.locfileid: "58090324"
 
         ![클래스룸 랩 만들기](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **가상 머신 사양 선택** 페이지에서 다음 단계를 수행합니다.
-    1. 랩에서 만드는 VM(가상 머신)의 **크기**를 선택합니다. 
-    3. 랩에서 VM을 만드는 데 사용할 **VM 이미지**를 선택합니다. 
+    1. 랩에서 만드는 VM(가상 머신)의 **크기**를 선택합니다. 현재, **소형**, **중형**, **대형** 및 **GPU** 크기가 허용됩니다.
+    3. 랩에서 VM을 만드는 데 사용할 **VM 이미지**를 선택합니다. Linux 이미지를 선택하면, 이에 대한 원격 데스크톱 연결을 사용하도록 설정하는 옵션이 표시됩니다. 자세한 내용은 [Linux에 대한 원격 데스크톱 연결을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요.
     4. **다음**을 선택합니다.
 
         ![VM 사양 지정](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -69,7 +69,7 @@ ms.locfileid: "58090324"
 
     ![완료된 템플릿 페이지 구성](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. **템플릿 구성** 페이지에서 다음 단계를 수행합니다. 이 자습서에서는 이러한 단계가 **선택 사항**입니다.
-    1. **연결**을 선택하여 템플릿 VM에 연결합니다. 
+    1. **연결**을 선택하여 템플릿 VM에 연결합니다. Linux 템플릿 VM인 경우, SSH 또는 RDP(RDP가 활성화된 경우) 중 무엇을 사용하여 연결할지 선택합니다.
     2. 템플릿 VM에 소프트웨어를 설치하고 구성합니다.     
     3. 템플릿에 대한 **설명**을 입력합니다.
 9. 템플릿 페이지에서 **다음**을 선택합니다. 
@@ -78,7 +78,7 @@ ms.locfileid: "58090324"
 
         > [!WARNING]
         > 게시한 후에는 게시를 취소할 수 없습니다. 
-    2. 나중에 게시하려면 **나중을 위해 저장**을 선택합니다. 마법사가 완료되면 템플릿 VM을 게시할 수 있습니다. 마법사가 완료된 후에 템플릿을 구성하고 게시하는 방법에 대한 자세한 내용은 [클래스룸 랩을 관리하는 방법](how-to-manage-classroom-labs.md) 문서의 [템플릿 게시](how-to-create-manage-template.md#publish-the-template-vm) 섹션을 참조하세요.
+    2. 나중에 게시하려면 **나중을 위해 저장**을 선택합니다. 마법사를 마치면 템플릿 VM을 게시할 수 있습니다. 마법사를 마친 후에 템플릿을 구성하고 게시하는 방법에 대한 자세한 내용은 [클래스룸 랩을 관리하는 방법](how-to-manage-classroom-labs.md) 문서의 [템플릿 게시](how-to-create-manage-template.md#publish-the-template-vm) 섹션을 참조하세요.
 
         ![템플릿 게시](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. 템플릿 **게시 진행률**이 표시됩니다. 이 프로세스는 최대 1시간이 걸릴 수 있습니다. 
@@ -109,14 +109,19 @@ ms.locfileid: "58090324"
 
 
 ## <a name="send-an-email-with-the-registration-link"></a>등록 링크가 포함된 이메일 보내기
+
 1. 페이지에 아직 표시되지 않으면 **사용자** 보기로 전환합니다. 
-2. 목록에서 특정 또는 모든 사용자를 선택합니다. 특정 사용자를 선택하려면 목록 첫 번째 열의 확인란을 선택하세요. 모든 사용자를 선택하려면 첫 번째 열의 제목 앞에 있는 확인란(**이름**)을 선택하거나 목록에 있는 모든 사용자에 대한 확인란을 모두 선택하세요.
-3. 도구 모음에서 **초대 보내기**를 선택합니다. 또한 목록의 학생 이름에 마우스를 올려 놓고 이메일 보내기 아이콘으로 보낼 수도 있습니다. 
+2. 목록에서 특정 또는 모든 사용자를 선택합니다. 특정 사용자를 선택하려면 목록 첫 번째 열의 확인란을 선택하세요. 모든 사용자를 선택하려면 첫 번째 열의 제목 앞에 있는 확인란(**이름**)을 선택하거나 목록에 있는 모든 사용자에 대한 확인란을 모두 선택하세요. 목록에서 **초대 상태**의 상태를 볼 수 있습니다.  다음 이미지는 모든 학생의 초대 상태가 **초대를 보내지 않음**으로 설정되어 있습니다. 
+
+    ![학생 선택](../media/tutorial-setup-classroom-lab/select-students.png)
+1. 행 중 하나에서 **이메일 아이콘(봉투)** 를 선택하거나 도구 모음에서 **초대 보내기**를 선택합니다. 목록의 학생 이름을 마우스로 가리켜서 이메일 아이콘을 표시할 수도 있습니다. 
 
     ![이메일로 등록 링크 보내기](../media/tutorial-setup-classroom-lab/send-email.png)
 4. **이메일로 등록 링크 보내기** 페이지에서 다음 단계를 수행하세요. 
     1. 학생들에게 보내려는 **선택적 메시지**를 입력합니다. 이메일에는 등록 링크가 자동으로 포함됩니다. 
-    2. **이메일로 등록 링크 보내기** 페이지에서 **보내기**를 선택합니다. 
+    2. **이메일로 등록 링크 보내기** 페이지에서 **보내기**를 선택합니다. 초대의 상태가 **초대를 보내는 중**에서 **초대 보냄**으로 차례로 변하는 것을 볼 수 있습니다. 
+        
+        ![초대 전송됨](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 클래스룸 랩을 만들고 랩을 구성했습니다. 학생이 등록 링크를 사용하여 랩에서 VM에 액세스하는 방법을 알아보려면 다음 자습서로 이동하십시오.

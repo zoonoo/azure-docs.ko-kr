@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877856"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892333"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -42,7 +42,7 @@ a. Azure Data Box Disk를 사용하면 Azure에서 테라바이트 단위의 데
 a. Azure로 전송하려는 데이터가 40TB 이하이면 Data Box Disk를 사용하는 것이 좋습니다.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>Q. Data Box Disk 가격은 어떻게 되나요?
-a. Data Box Disk 가격 정보를 보려면 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/databox/disk/)를 방문하세요.
+a. Data Box Disk 가격 정보를 보려면 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/databox/disk/)를 방문하세요.
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>Q. Data Box Disk를 얻으려면 어떻게 할까요? 
 a.  Azure Data Box Disk를 얻으려면 Azure Portal에 로그인하고 디스크에 대한 Data Box 주문을 작성합니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 가용성을 기준으로 주문이 확정되면 디스크가 10일 이내에 배송됩니다.
@@ -170,6 +170,6 @@ a. 예. 데이터가 Azure로 업로드되었지만 지정된 리소스 그룹�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Data Box 시스템 요구 사항](data-box-disk-system-requirements.md)을 검토합니다.
-- [Data Box 제한](data-box-disk-limits.md)을 알아봅니다.
+- [Data Box Disk 시스템 요구 사항](data-box-disk-system-requirements.md)을 검토합니다.
+- [Data Box Disk 제한](data-box-disk-limits.md)을 알아봅니다.
 - Azure Portal에서 [Azure Data Box Disk](data-box-disk-quickstart-portal.md)를 빠르게 배포합니다.

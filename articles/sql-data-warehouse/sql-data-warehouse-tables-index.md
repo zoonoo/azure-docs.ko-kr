@@ -9,30 +9,33 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 03/18/2019
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190042"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270050"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 인덱싱
+
 Azure SQL Data Warehouse의 테이블 인덱싱을 사용하기 위한 권장 사항 및 예제입니다.
 
-## <a name="what-are-index-choices"></a>인덱싱 옵션이란?
+## <a name="index-types"></a>인덱스 형식
 
 SQL Data Warehouse는 [클러스터형 columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview), [클러스터형 인덱스 및 비클러스터형 인덱스](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)를 비롯한 몇 가지 인덱싱 옵션과 [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes)이라고 하는 색인되지 않은 옵션을 제공합니다.  
 
 인덱스가 있는 테이블을 만들려면, [CREATE TABLE(Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) 설명서를 참조하세요.
 
 ## <a name="clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스
+
 기본적으로 SQL Data Warehouse는 테이블에 대해 인덱스 옵션이 지정되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
 
 클러스터형 columnstore 테이블을 만들려면 WITH 절에 CLUSTERED COLUMNSTORE INDEX를 지정하거나 WITH 절을 제외합니다.
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -48,6 +51,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 - 보다 작거나 60 백만 행이 있는 작은 테이블. 힙 테이블을 고려합니다.
 
 ## <a name="heap-tables"></a>힙 테이블
+
 SQL Data Warehouse에서 데이터를 일시적으로 방문 됩니다을 하는 경우는 힙 테이블을 사용 하 여 사용 하면 전체 프로세스가 더 빨라지는 것을 알 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 저장소에 로드하는 것보다 빠릅니다.  
 
 작은 조회 테이블, 보다 작거나 60 백만 행 힙 테이블 종종 적합합니다.  클러스터 columnstore 테이블 60 백만 개 이상의 행이 있으면 최적의 압축을 달성 하기 시작 합니다.
@@ -55,7 +59,7 @@ SQL Data Warehouse에서 데이터를 일시적으로 방문 됩니다을 하는
 힙 테이블을 만들려면 WITH 절에서 HEAP을 지정하면 됩니다.
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -65,12 +69,13 @@ WITH ( HEAP );
 ```
 
 ## <a name="clustered-and-nonclustered-indexes"></a>클러스터형 및 비클러스터형 인덱스
+
 클러스터형 인덱스는 단일 행을 빠르게 검색해야 하는 경우 클러스터형 columnstore 테이블보다 더 나은 성능을 제공할 수 있습니다. 하나 또는 매우 적은 수의 행을 아주 빠른 속도로 쿼리해야 하는 경우 클러스터 인덱스 또는 비클러스터형 보조 인덱스를 고려합니다. 클러스터형 인덱스를 사용할 때의 단점은 클러스터형 인덱스 열에 고도의 선택 필터를 사용하는 쿼리에만 도움이 된다는 것입니다. 다른 열에 대한 필터를 향상시키기 위해 비클러스터형 인덱스를 다른 열에 추가할 수 있습니다. 그러나 테이블에 각 인덱스가 추가될 때마다 차지하는 공간이 늘어나고 로드 처리 시간도 늘어납니다.
 
 클러스터형 인덱스 테이블을 만들려는 경우 WITH 절에서 CLUSTERED INDEX를 지정하면 됩니다.
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -86,6 +91,7 @@ CREATE INDEX zipCodeIndex ON myTable (zipCode);
 ```
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스 최적화
+
 클러스터형 columnstore 테이블은 데이터가 세그먼트로 구성됩니다.  columnstore 테이블에 대해 최적의 쿼리 성능을 구현하려면 높은 세그먼트 품질을 유지하는 것이 중요합니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  세그먼트 품질은 압축된 행 그룹마다 100,000개 이상의 행이 있을 때 가장 최적 상태가 되며, 행 그룹당 행 수가 행 그룹이 포함할 수 있는 최대 수인 1,048,576개일 때 성능이 향상됩니다.
 
 아래 뷰를 만들어 시스템에서 행 그룹당 평균 행 수를 계산하고 차선에 해당하는 클러스터 columnstore 인덱스를 식별하는 데 사용할 수 있습니다.  이 뷰의 마지막 열은 인덱스를 다시 구성하는 데 사용할 수 있는 SQL 문으로 생성됩니다.
@@ -137,7 +143,7 @@ GROUP BY
 ;
 ```
 
-뷰를 만들었으므로 이제 다음 쿼리를 실행하여 행 수가 100,000개 미만인 행 그룹이 있는 테이블을 식별합니다. 물론 좀 더 최적 상태의 세그먼트 품질을 원할 경우 임계값인 100,000개를 늘릴 수도 있습니다. 
+뷰를 만들었으므로 이제 다음 쿼리를 실행하여 행 수가 100,000개 미만인 행 그룹이 있는 테이블을 식별합니다. 물론 좀 더 최적 상태의 세그먼트 품질을 원할 경우 임계값인 100,000개를 늘릴 수도 있습니다.
 
 ```sql
 SELECT    *
@@ -172,6 +178,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 | [Rebuild_Index_SQL] |테이블에 대해 columnstore 인덱스를 다시 작성하기 위한 SQL |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>columnstore 인덱스 품질 저하의 원인
+
 세그먼트 품질이 저하된 테이블을 식별한 경우 근본 원인을 확인할 수 있습니다.  다음은 세그먼트 품질 저하의 일반적인 몇 가지 원인입니다.
 
 1. 인덱스를 작성했을 때 메모리 부족
@@ -179,33 +186,39 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 3. 작거나 지속적인 로드 작업
 4. 너무 많은 파티션
 
-다음 요소로 인해 columnstore 인덱스가 행 그룹당 1백만 개보다 훨씬 적은 행을 가질 수 있으며 행이 압축된 행 그룹 대신 델타 행 그룹으로 이동할 수도 있습니다. 
+다음 요소로 인해 columnstore 인덱스가 행 그룹당 1백만 개보다 훨씬 적은 행을 가질 수 있으며 행이 압축된 행 그룹 대신 델타 행 그룹으로 이동할 수도 있습니다.
 
 ### <a name="memory-pressure-when-index-was-built"></a>인덱스를 작성했을 때 메모리 부족
+
 압축된 행 그룹당 행 수는 행의 너비와 행 그룹을 처리하는 데 사용할 수 있는 메모리 양에 직접적으로 관련되어 있습니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  따라서 columnstore 인덱스가 테이블에 쓰는 세션에 가능한 한 많은 메모리에 대한 액세스 권한을 부여하는 것이 가장 좋습니다.  메모리 및 동시성은 서로 상쇄되므로 적합한 메모리 할당 지침은 테이블의 각 행에 포함된 데이터, 시스템에 할당한 데이터 웨어하우스 단위 및 테이블에 데이터를 쓰는 세션에 제공할 수 있는 동시 슬롯 수에 따라 좌우됩니다.
 
 ### <a name="high-volume-of-dml-operations"></a>많은 양의 DML 작업
+
 행을 업데이트 또는 삭제하는 많은 고용량 DML 작업은 columnstore에 비효율적일 수 있습니다. 특히 행 그룹 내 대부분의 행이 수정될 때 더욱 그렇습니다.
 
 - 압축 행 그룹에서 하나의 행을 삭제하는 것은 논리적으로 행을 삭제된 것으로 표시하는 것입니다. 이 행은 파티션 또는 테이블이 다시 빌드될 때까지 압축 행 그룹에 남아 있습니다.
-- 행 삽입은 행을 델타 행 그룹이라 불리는 내부 rowstore 테이블에 추가합니다. 삽입된 행은 델타 행 그룹이 꽉 차서 닫힌 것으로 표시될 때까지 columnstore로 변환되지 않습니다. 행 그룹은 최대 용량인 1,048,576개 행에 도달하면 닫힙니다. 
+- 행 삽입은 행을 델타 행 그룹이라 불리는 내부 rowstore 테이블에 추가합니다. 삽입된 행은 델타 행 그룹이 꽉 차서 닫힌 것으로 표시될 때까지 columnstore로 변환되지 않습니다. 행 그룹은 최대 용량인 1,048,576개 행에 도달하면 닫힙니다.
 - Columnstore 형식에서 행을 업데이트하면 논리적 삭제 후 삽입으로 처리됩니다. 삽입된 행은 델타 저장소에 저장될 수 있습니다.
 
-파티션 정렬 배포당 102,400개 행의 대량 임계값을 초과하는 일괄 처리된 업데이트 및 삽입 작업은 columnstore 형식으로 직접 기록됩니다. 그러나 균일한 배포를 가정하여 한 작업에서 614만 4천 개 이상의 행을 수정해야 할 수 있습니다. 지정된 파티션 정렬 배포당 행 수가 102,400개보다 적은 경우 행이 델타 저장소로 이동하며 충분한 수의 행이 삽입될 때까지 또는 행 그룹을 닫도록 수정하거나 인덱스가 다시 빌드될 때까지 이곳에 유지됩니다.
+파티션 정렬 배포당 102,400개 행의 대량 임계값을 초과하는 일괄 처리된 업데이트 및 삽입 작업은 columnstore 형식으로 직접 기록됩니다. 그러나 균일한 배포를 가정하여 한 작업에서 614만 4천 개 이상의 행을 수정해야 할 수 있습니다. 지정 된 파티션 정렬 배포당 행 수가 102,400 개 보다 적은 경우 행 델타 저장소로 이동 하며 충분 한 행이 삽입 되거나 행 그룹을 닫도록 수정 하거나 인덱스가 다시 작성 되었습니다 때까지 이곳에 유지 합니다.
 
 ### <a name="small-or-trickle-load-operations"></a>작거나 지속적인 로드 작업
+
 SQL Data Warehouse로 유입되는 작은 부하는 지속적인 부하라고도 합니다. 이들은 일반적으로 시스템에 의해 수집되는 거의 일정한 데이터 스트림을 나타냅니다. 그러나 이 스트림은 거의 지속적이므로 행의 볼륨은 특별히 크지 않습니다. 종종 데이터가 columnstore 형식으로 직접 로드하는 데 필요한 임계값보다 훨씬 큽니다.
 
 이러한 상황에서는 데이터를 로드하기 전에 Azure Blob Storage에 먼저 데이터를 배치하고 누적되도록 합니다. 이 기술을 *마이크로 일괄 처리*라고 합니다.
 
 ### <a name="too-many-partitions"></a>너무 많은 파티션
-클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 전에 미리 SQL Data Warehouse는 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore 인덱스에서 이점을 얻으려면 테이블에 60억 개 이상의 행을 포함해야 합니다(60개 배포 * 100개 파티션 * 1백만 개 행). 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
+
+클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 전에 미리 SQL Data Warehouse는 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블 파티션 수가 100 분할할 경우 테이블을 클러스터형된 columnstore 인덱스의 이점을 활용 하도록 6 십억 이상 행이 필요 (60 개의 배포판 *100 개 파티션* 1 백만 행). 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
 
 테이블에 일부 데이터가 로드된 경우 아래 단계에 따라 테이블을 식별한 후 차선에 해당하는 클러스터형 columnstore 인덱스로 테이블을 다시 작성합니다.
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>인덱스를 다시 작성하여 세그먼트 품질 개선
+
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1단계: 적합한 리소스 클래스를 사용하는 사용자 식별 또는 만들기
-세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다.  이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다. 
+
+세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다.  이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다.
 
 다음은 사용자의 리소스 클래스를 늘려 사용자에게 더 많은 메모리를 할당하는 방법의 예입니다. 리소스 클래스를 사용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
 
@@ -214,9 +227,10 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 상위 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
-이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(예: LoadUser)로 로그인하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
-또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다. 
+1 단계의 사용자 (예: LoadUser) 인 더 높은 리소스 클래스를 사용 하 여 이제으로 로그인 하 고 ALTER INDEX 문을 실행 합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
+
+또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -241,10 +255,12 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 SQL Data Warehouse에서 인덱스를 다시 작성하는 작업은 오프라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)의 ALTER INDEX REBUILD 섹션을 참조하세요.
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3단계: 클러스터형 columnstore 세그먼트 품질이 향상되었는지 확인
+
 세그먼트 품질이 저하된 테이블을 식별하는 쿼리를 다시 실행하고 세그먼트 품질이 향상되었는지 확인합니다.  세그먼트 품질이 개선되지 않은 경우 테이블의 행이 아주 넓은 것일 수 있습니다.  인덱스를 다시 작성할 때 더 높은 리소스 클래스 또는 DWU를 사용하는 것이 좋습니다.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드
-이 예제에서는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문 및 파티션 전환을 사용하여 테이블 파티션을 다시 작성합니다. 
+
+이 예제에서는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문 및 파티션 전환을 사용하여 테이블 파티션을 다시 작성합니다.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -270,5 +286,5 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 CTAS를 사용하여 파티션을 다시 만드는 방법에 대한 자세한 내용은 [SQL Data Warehouse에서 파티션 사용](sql-data-warehouse-tables-partition.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-테이블 개발에 대한 자세한 내용은 [테이블 개발](sql-data-warehouse-tables-overview.md)을 참조하세요.
 
+테이블 개발에 대한 자세한 내용은 [테이블 개발](sql-data-warehouse-tables-overview.md)을 참조하세요.

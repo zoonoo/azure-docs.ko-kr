@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102165"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877281"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>자습서: C#을 사용하여 기술 자료를 만든 후 질문에 답변하기
 
@@ -158,7 +158,7 @@ _기본 엔드포인트_는 답변 생성 요청을 인증하는 헤더로 전�
 
 |헤더 이름|헤더 값|
 |--|--|
-|권한 부여|`Endpoint ` + **기본 엔드포인트**<br>예제: `Endpoint xxxxxxx`<br>`Endpoint` 텍스트와 기본 엔드포인트 값 사이의 공백에 주목하세요. 
+|권한 부여|`Endpoint` + **기본 엔드포인트**<br>예제: `Endpoint xxxxxxx`<br>`Endpoint` 텍스트와 기본 엔드포인트 값 사이의 공백에 주목하세요. 
 
 요청 본문은 적절한 JSON을 전달해야 합니다.
 

@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c5e05faa37baf3c25be70a9500f1131cc0ea9f66
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202863"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629405"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -37,7 +37,7 @@ ms.locfileid: "58202863"
 
 ## <a name="how-this-guide-works"></a>이 가이드의 작동 방식
 
-![이 자습서에서 생성 된 샘플 앱은 작동 하는 방법을 보여 줍니다.](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
+![이 자습서에서 생성된 샘플 앱의 작동 방식 표시](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 이 가이드는 Azure Active Directory v2.0 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하는 샘플 UWP 애플리케이션을 만듭니다. 이 시나리오에서는 토큰은 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
 

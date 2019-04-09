@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577249"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276414"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>로그 데이터 및 Azure Monitor에서 작업 영역 관리
 Azure Monitor는 기본적으로 데이터 및 구성 정보가 포함된 컨테이너 인 Log Analytics 작업 영역에 로그 데이터를 저장합니다. 로그 데이터에 대한 액세스를 관리하려면 작업 영역에 관련된 다양한 관리 태스크를 수행합니다. 사용자나 조직의 다른 구성원이 여러 개의 작업 영역을 사용하여 IT 인프라 전체 또는 일부에서 수집되는 각 데이터 집합을 관리할 수 있습니다.
@@ -35,9 +35,9 @@ Log Analytics 작업 영역을 만들려면 해야 합니다.
 
 작업 영역 만들기에 대 한 내용은 다음 문서를 참조 하세요.
 
-- [Azure portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)
-- [Azure CLI 2.0을 사용 하 여 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-cli.md)
-- [Azure PowerShell을 사용 하 여 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-posh.md)
+- [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)
+- [Azure CLI 2.0으로 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-cli.md)
+- [Azure PowerShell로 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>필요한 작업 영역의 수 결정
 Log Analytics 작업 영역은 Azure 리소스이며 Azure Monitor에서 데이터가 수집, 집계, 분석 및 표시되는 컨테이너입니다. Azure 구독당 여러 작업 영역을 포함할 수 있으며 이들 간의 손쉬운 쿼리 기능을 사용하여 두 개 이상의 작업 영역에 액세스할 수 있습니다. 이 섹션에서는 둘 이상의 작업 영역을 만들 때 유용할 수 있는 시기를 설명합니다.
@@ -102,7 +102,6 @@ Log Analytics 작업 영역에서 데이터를 분석 하는 동안 합니다 **
 > - Service Fabric
 > - Application Insights
 > - 컨테이너
-> - HTTP 데이터 수집기 API에 의해 생성 된 사용자 지정 로그
 >
 > 로그는 쿼리를 실행 하 여 해당 리소스를 사용 하 여 올바르게 연결 하 고 레코드를 검사 하려는 경우를 테스트할 수 있습니다. 올바른 리소스 ID의 경우는 [_ResourceId](log-standard-properties.md#_resourceid) 속성 데이터는 리소스 중심 쿼리에서 사용할 수 있습니다.
 
@@ -193,7 +192,7 @@ Azure Resource Manager 템플릿에서 액세스 모드를 구성 하려면 설�
 
 다음 활동에도 Azure 권한이 필요합니다.
 
-| 조치                                                          | 필요한 Azure 권한 | 메모 |
+| 액션(Action)                                                          | 필요한 Azure 권한 | 메모 |
 |-----------------------------------------------------------------|--------------------------|-------|
 | 추가 및 제거 모니터링 솔루션                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | 이러한 사용 권한은 리소스 그룹 또는 구독 수준에서 권한을 부여 받아야 합니다. |
 | 가격 책정 계층 변경                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -216,10 +215,10 @@ Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
 | Type    | 사용 권한 | 설명 |
 | ------- | ---------- | ----------- |
-| 조치 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정 |
-| 조치 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 로그 검색 v2 쿼리를 수행할 수 있습니다. |
-| 조치 | `Microsoft.OperationalInsights/workspaces/search/action` | 로그 검색 v1 쿼리를 수행할 수 있습니다. |
-| 조치 | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
+| 액션(Action) | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정 |
+| 액션(Action) | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 로그 검색 v2 쿼리를 수행할 수 있습니다. |
+| 액션(Action) | `Microsoft.OperationalInsights/workspaces/search/action` | 로그 검색 v1 쿼리를 수행할 수 있습니다. |
+| 액션(Action) | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
 |동작 없음 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 데이터 컬렉션 API를 사용하고 에이전트를 설치하는 데 필요한 작업 영역 키 읽는 것 방지. 사용자가 작업 영역에 새 리소스 추가 방지 |
 
 

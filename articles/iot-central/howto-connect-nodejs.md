@@ -3,17 +3,17 @@ title: Azure IoT Central에 일반 Node.js 클라이언트 애플리케이션 �
 description: 장치 개발자가 제네릭 Node.js 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법입니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/04/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4c04d9dbaf0065f2e68182c9ad84181845dee3e9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905327"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259969"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 

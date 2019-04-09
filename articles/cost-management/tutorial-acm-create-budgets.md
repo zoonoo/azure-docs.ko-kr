@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013044"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273586"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -39,7 +39,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
  Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다.
 
-다음 Azure 사용 권한 또는 범위는 사용자 및 그룹에서 예산에 대 한 구독 당 지원 됩니다. 범위에 대 한 자세한 내용은 참조 하세요. [이해 및 작업 범위를 사용 하 여](understand-work-scopes.md)입니다.
+다음 Azure 사용 권한 또는 범위는 사용자 및 그룹에서 예산에 대 한 구독 당 지원 됩니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 - 소유자 – 구독에 대한 예산을 만들고, 수정하거나 삭제할 수 있습니다.
 - 기여자 및 Cost Management 기여자 – 자신의 예산을 만들거나, 수정하거나, 삭제할 수 있습니다. 다른 사용자가 만든 예산에 대한 예산 금액을 수정할 수 있습니다.
@@ -49,13 +49,13 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
 월별, 분기별 또는 연간 기간에 대한 Azure 구독 예산을 만들 수 있습니다. Azure portal의 탐색 내용을 만든 예산에 대 한 구독 또는 관리 그룹에 있는지 여부를 결정 합니다.
 
-을 만들거나는 예산 범위를 확인 하려면 Azure portal 선택에서 원하는 범위를 엽니다 **예산을** 메뉴에서. 예를 들어, 이동할 **구독**, 목록에서 구독을 선택 하 고 선택한 **예산을** 메뉴에서. 사용 합니다 **범위** 필 다른 범위에서는 예산에는 관리 그룹으로 전환 합니다. 범위에 대 한 자세한 내용은 참조 하세요. [이해 및 작업 범위를 사용 하 여](understand-work-scopes.md)입니다.
+을 만들거나는 예산 범위를 확인 하려면 Azure portal 선택에서 원하는 범위를 엽니다 **예산을** 메뉴에서. 예를 들어, 이동할 **구독**, 목록에서 구독을 선택 하 고 선택한 **예산을** 메뉴에서. 사용 합니다 **범위** 필 다른 범위에서는 예산에는 관리 그룹으로 전환 합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 예산을 만들면 예산 대비 현재 지출을 간단하게 보여 줍니다.
 
@@ -63,7 +63,9 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![Azure Portal에 표시된 비용 관리 예산](./media/tutorial-acm-create-budgets/budgets01.png)
 
-**예산 만들기** 창에서 예산 이름 및 예산 금액을 입력합니다. 그런 다음 월별, 분기별 또는 연간 기간 중에서 선택합니다. 다음으로, 종료 날짜를 선택합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 메일 알림은 일반적으로 8시간 이내에 수신됩니다. 알림에 대한 자세한 내용은 [비용 경고 사용](cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
+**예산 만들기** 창에서 예산 이름 및 예산 금액을 입력합니다. 를 선택한 매월, 분기별, 또는 연간 기간이<sup>1</sup>합니다. 다음으로, 종료 날짜를 선택합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 메일 알림은 일반적으로 8시간 이내에 수신됩니다. 알림에 대한 자세한 내용은 [비용 경고 사용](cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
+
+<sup>1</sup> 에 청구서는 청구 기간에 대 한 구독을 종 량 제, MSDN 또는 Visual Studio 고객은 월에 맞지 않을 수도 있습니다. 구독 및이 집합에 속하는 리소스 그룹에 대 한 달력 월 또는 청구서에 정렬 되는 예산 범위를 만들 수 있습니다. 청구서에 정렬 하는 예산 범위를 만들려면 재설정 청구 월, 청구 분기 또는 생성 시 청구 연도 기간을 선택 합니다. 월에 정렬 하는 예산 범위를 만들려면 매월, 분기별 또는 매년 생성 시 재설정 기간을 선택 합니다.
 
 예로, 월별 4,500달러의 예산을 만들어 보겠습니다. 예산의 90%에 도달하면 이메일 경고가 생성됩니다.
 
@@ -112,7 +114,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 방법을 학습했습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 예산 만들기
@@ -121,4 +123,4 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 비용 관리 데이터에 대한 되풀이 내보내기를 만들려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [내보낸 데이터를 만들고 관리](tutorial-export-acm-data.md)
+> [내보낸 데이터 만들기 및 관리](tutorial-export-acm-data.md)

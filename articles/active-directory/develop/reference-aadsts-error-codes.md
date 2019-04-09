@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295456"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271801"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
 
@@ -58,7 +58,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 이 앱에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 Microsoft에서 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50008 | InvalidSamlToken - 토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요. |
 | AADSTS50010 | AudienceUriValidationFailed - 토큰 대상 그룹이 구성되지 않았으므로 앱에 대한 대상 그룹 URI 유효성 검사가 실패했습니다. |
-| AADSTS50011 | InvalidReplyTo - 회신 주소가 누락되었거나, 잘못 구성되었거나, 앱에 대해 구성된 회신 주소와 일치하지 않습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)에 나열된 해결 방법을 사용해 보세요. 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
+| AADSTS50011 | InvalidReplyTo - 회신 주소가 누락되었거나, 잘못 구성되었거나, 앱에 대해 구성된 회신 주소와 일치하지 않습니다.  해상도와 Azure Active Directory 응용 프로그램에이 누락 된 회신 주소를 추가 하거나 Active Directory에서 응용 프로그램을 관리할 수 있는 권한을 가진 사람이이 작업을 수행 하 게 확인 합니다.|
 | AADSTS50012 | AuthenticationFailed - 다음 이유 중 하나로 인해 인증에 실패했습니다.<ul><li>서명 인증서의 주체 이름이 인증되지 않았습니다.</li><li>인증된 주체 이름에 대해 일치하는 신뢰할 수 있는 인증 기관 정책을 찾을 수 없습니다.</li><li>인증서 체인이 유효하지 않습니다.</li><li>서명 인증서가 유효하지 않습니다.</li><li>테넌트에서 정책이 구성되지 않았습니다.</li><li>서명 인증서의 지문이 인증되지 않았습니다.</li><li>클라이언트 어설션에 잘못된 서명이 들어 있습니다.</li></ul> |
 | AADSTS50013 | InvalidAssertion - 어설션이 여러 가지 이유로 유효하지 않습니다. 즉 토큰 발급자가 유효한 시간 범위 내의 API 버전과 일치하지 않거나, 만료되었거나, 잘못된 형식으로 되어 있습니다. 또는 어설션의 새로 고침 토큰이 주 새로 고침 토큰이 아닙니다. |
 | AADSTS50014 | GuestUserInPendingState - 사용자의 사용이 보류 상태입니다. 게스트 사용자 계정이 아직 완전히 생성되지 않았습니다. |
@@ -153,7 +153,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS70007 | UnsupportedResponseMode - 앱에서 토큰을 요청할 때 지원되지 않는 `response_mode` 값을 반환했습니다.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - 비활성 상태로 인해 새로 고침 토큰이 만료되었습니다. 토큰이 XXX에서 발행되었으며 일정 기간 동안 비활성 상태였습니다. |
 | AADSTS70011 | InvalidScope - 앱에서 요청한 범위가 잘못되었습니다. |
-| AADSTS70012 | MsaServerError - MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
+| AADSTS70012 | MsaServerError - MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 디바이스 흐름 오류입니다. 권한 부여 보류 중입니다. 디바이스가 요청 폴링을 다시 시도합니다. |
 | AADSTS70018 | BadVerificationCode - 사용자가 디바이스 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다. |
 | AADSTS70019 | CodeExpired - 확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다. |

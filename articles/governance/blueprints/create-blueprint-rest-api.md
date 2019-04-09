@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994857"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885964"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API로 Azure Blueprint 정의 및 할당
 
@@ -40,10 +40,10 @@ Blueprints 사양은 [Azure Blueprints REST API](/rest/api/blueprints/)를 참�
 
 REST API 호출을 만드는 도구가 없는 경우 지침에 대해 PowerShell을 사용하는 것이 좋습니다. 다음은 Azure로 인증을 수행하기 위한 샘플 헤더입니다. 인증 헤더(다른 이름: **전달자 토큰**)를 생성하고 모든 매개 변수 또는 **요청 본문**에 연결할 REST API URI를 제공합니다.
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -68,8 +68,8 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{YourMG}` - 사용자의 관리 그룹 ID로 대체
-- `{subscriptionId}` - 사용자의 구독 ID로 대체
+- `{YourMG}` - 사용자의 관리 그룹 ID로 바꾸기
+- `{subscriptionId}` - 사용자의 구독 ID로 바꾸기
 
 > [!NOTE]
 > 청사진을 구독 수준에서 만들 수도 있습니다. 예를 보려면 [구독 수준에서 청사진 만들기 예제](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)를 참조하세요.
@@ -334,9 +334,9 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{tenantId}` - 테넌트 ID로 대체
-- `{YourMG}` - 사용자의 관리 그룹 ID로 대체
-- `{subscriptionId}` - 사용자의 구독 ID로 대체
+- `{tenantId}` - 테넌트 ID로 바꾸기
+- `{YourMG}` - 사용자의 관리 그룹 ID로 바꾸기
+- `{subscriptionId}` - 사용자의 구독 ID로 바꾸기
 
 1. Azure Blueprint 서비스 주체에게 대상 구독에서 **소유자** 역할을 제공합니다. AppId는 정적(`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)이지만 서비스 주체 ID는 테넌트별로 다릅니다. 테넌트에 대한 세부 정보는 다음 REST API를 사용하여 요청할 수 있습니다. 여기에는 권한 부여가 다른 [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)가 사용됩니다.
 

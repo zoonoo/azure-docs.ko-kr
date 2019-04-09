@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: eb162e51a6091b22abd4a8d12275423d726b1785
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763948"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263284"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Notebook에서 Azure Machine Learning Service 사용
 
@@ -47,9 +47,9 @@ Azure Notebooks는 [Azure Machine Learning Service](/azure/machine-learning/serv
 
 Azure Machine Learning Services 문서에는 노트북 내의 Machine Learning Service 작업을 안내하는 기타 다양한 리소스가 포함되어 있습니다.
 
-- [빠른 시작: Python을 사용하여 Azure Machine Learning 시작](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [자습서 #1: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [자습서 #2: ACI(Azure Container Instance)에서 이미지 분류 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [자습서: Azure Machine Learning Service에서 자동화된 기계 학습을 사용하여 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [빠른 시작: Python을 사용 하 여 Azure Machine Learning을 사용 하 여 시작 하려면](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [자습서 1: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [자습서 2: 이미지 분류 모델에서 컨테이너 인스턴스 ACI (Azure)에 배포](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [자습서: Azure Machine Learning 서비스에서 자동화 된 machine learning 사용 하 여 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 문서도 참조하세요.

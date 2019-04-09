@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203631"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919290"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -27,7 +27,7 @@ Visual Studio에서 애플리케이션을 테스트하려면 **F5** 키를 눌�
 
 테스트를 실행할 준비가 되면, Microsoft Azure Active Directory(Azure AD) 계정(회사 또는 학교 계정) 또는 개인 Microsoft 계정(<span>live.</span>com 또는 <span>outlook.</span>com)을 사용해 로그인합니다.
 
-![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Microsoft에 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -82,12 +82,12 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>옵션 1: 한 조직의 Active Directory 인스턴스에 속한 사용자만 애플리케이션에 로그인하도록 제한(단일 테넌트)
 
-이 옵션에 대 한 일반적인 시나리오입니다 *LOB 응용 프로그램*: 응용 프로그램을 특정 Azure Active Directory 인스턴스에 속한 계정 에서만에서 로그인 허용 하려는 경우 (포함 *게스트 계정* 해당 인스턴스의) 다음을 수행 합니다.
+이 옵션은 *LOB(기간 업무) 애플리케이션*에 대한 일반적인 시나리오입니다. 애플리케이션에서 특정 Azure Active Directory 인스턴스에 속한 계정의 로그인만 수락하려면(해당 인스턴스의 *게스트 계정* 포함) 다음 단계를 수행합니다.
 
 1. **web.config** 파일에서 `Tenant` 매개 변수의 값을 `Common`에서 조직의 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 변경합니다.
 2. [OWIN 스타트업 클래스](#configure-the-authentication-pipeline)에서 `ValidateIssuer` 인수를 `true`로 설정합니다.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>옵션 2: 조직의 특정 목록에서 사용자에 게 응용 프로그램에 대 한 액세스 제한
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>옵션 2: 애플리케이션 액세스를 조직의 특정 목록에 포함된 사용자로 제한
 
 로그인 액세스를 허용된 조직 목록에 들어 있는 Azure AD 조직에 있는 사용자 계정으로만 국한할 수 있습니다.
 1. [OWIN 스타트업 클래스](#configure-the-authentication-pipeline)에서 `ValidateIssuer` 인수를 `true`로 설정합니다.
@@ -95,6 +95,6 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>옵션 3: 사용자 지정 메서드를 사용하여 발급자 유효성 검사
 
-**IssuerValidator** 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수를 사용하는 방법에 관한 자세한 내용은 MSDN에서 [TokenValidationParameters 클래스](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx)에 관해 알아보세요.
+**IssuerValidator** 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수를 사용하는 방법에 대해 자세히 알아보려면 [TokenValidationParameters 클래스](/previous-versions/visualstudio/dn464192(v=vs.114))를 알아보세요.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

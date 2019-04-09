@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118598"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262553"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -82,6 +82,31 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 - **상대 내부 링크** - `/claims/claims.html` 같은 로컬 파일 구조에서 공유 리소스를 가리킵니다. 이러한 링크는 애플리케이션 프록시를 통해 게시되는 앱에서 자동으로 작동하며 링크 변환과 관계없이 계속 작동합니다. 
 - **하드 코드된 내부 링크** - `http://expenses` 같은 다른 온-프레미스 앱이나 `http://expenses/logo.jpg` 같은 게시된 파일에 대한 링크입니다. 링크 변환 기능은 하드 코드된 내부 링크에서 작동하며 해당 링크를 원격 사용자가 통과해야 하는 외부 URL을 가리키도록 변경합니다.
 
+포함에 대 한 응용 프로그램 프록시 링크 변환 지 HTML 코드 태그의 전체 목록:
+* a
+* audio
+* 자료
+* button
+* div
+* 포함
+* 폼
+* 프레임
+* head
+* html
+* iframe
+* 이미지
+* input
+* link
+* menuitem
+* meta
+* object
+* script
+* 원본
+* 추적
+* video
+
+또한 CSS 내 URL 특성 또한 변환 됩니다.
+
 ### <a name="how-do-apps-link-to-each-other"></a>앱이 서로 연결되는 방식
 
 링크 변환은 각 애플리케이션에 대해 사용되므로 앱별 수준에서 사용자 환경을 제어할 수 있습니다. 변환할 앱의 *대상* 링크가 아니라 해당 앱의 *원본* 링크를 원하는 경우 앱에 대해 링크 변환을 설정합니다. 
@@ -123,4 +148,4 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 ## <a name="next-steps"></a>다음 단계
 동일한 내부 및 외부 URL을 사용하도록 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 사용](application-proxy-configure-custom-domain.md)
 
-[SharePoint 2013에 대한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)
+[SharePoint 2013에 대 한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)

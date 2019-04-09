@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122015"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621671"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup이란?
 
@@ -28,10 +28,14 @@ Azure Backup에서 제공하는 주요 이점은 다음과 같습니다.
 - **온-프레미스 백업 오프로드**: Azure Backup은 온-프레미스 리소스를 클라우드에 백업할 수 있는 간단한 솔루션을 제공합니다. 복잡한 온-프레미스 백업 솔루션을 배포할 필요 없이 장단기 백업을 수행합니다. 
 - **Azure IaaS VM 백업**: Azure Backup은 실수로 데이터가 삭제되지 않도록 방지하기 위해 독립적이고 격리된 백업을 제공합니다. 백업은 복구 지점이 기본적으로 관리되는 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 확장성이 간단하고, 백업이 최적화되어 있으며, 필요에 따라 쉽게 복원할 수 있습니다.
 - **손쉬운 크기 조정** - Azure Backup은 유지 관리 또는 모니터링 오버헤드 없이 기본 성능과 Azure 클라우드의 무제한 크기 조정을 사용하여 고가용성을 제공합니다. 
-- **무제한 데이터 전송** - Azure Backup은 사용자가 전송하는 인바운드 또는 아웃바운드 데이터의 양 또는 전송되는 데이터의 변경을 제한하지 않습니다.
+- **무제한 데이터 전송**: Azure Backup은 사용자가 전송하는 인바운드 또는 아웃바운드 데이터의 양을 제한하거나, 전송되는 데이터에 대해 요금을 부과하지 않습니다.
     - 아웃바운드 데이터는 복원 작업 중에 Recovery Services 자격 증명 모음에서 전송된 데이터입니다.
     - Azure Import/Export 서비스를 통해 오프라인 초기 백업을 수행하여 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련된 비용이 발생합니다.  [자세히 알아보기](backup-azure-backup-import-export.md). 
-- **안전한 데이터 유지**: 데이터 암호화를 통해 공용 클라우드에서 데이터를 안전하게 전송하고 저장할 수 있습니다. 암호화 암호는 로컬에서 저장되며, Azure에서 전송되거나 저장되지는 않습니다. 데이터를 복원해야 하는 경우 암호화 암호 또는 키만 이으면 됩니다.
+- **안전한 데이터 유지**:
+    - 온-프레미스에서 전송되는 데이터는 AES256을 사용하여 온-프레미스 머신에서 암호화됩니다. 전송되는 데이터는 스토리지와 백업 사이에 HTTPS로 보호됩니다. iSCSI 프로토콜은 백업 및 사용자 머신 간에 전송되는 데이터를 보호합니다. 보안 터널링은 iSCSI 채널을 보호하는 데 사용됩니다.
+    - 온-프레미스에서 Azure 백업의 경우, Azure의 데이터는 백업을 설정할 때 사용자가 제공한 암호를 사용하여 미사용 시 암호화됩니다. 암호나 키는 Azure에 절대 전송되거나 저장되지 않습니다. 데이터를 복원해야 하는 경우 암호화 암호 또는 키만 이으면 됩니다.
+    - Azure VM의 경우 SSE(스토리지 서비스 암호화)를 사용하여 미사용 데이터가 암호화됩니다. Backup은 데이터를 저장하기 전에 자동으로 암호화합니다. Azure Storage는 데이터를 검색하기 전에 데이터의 암호를 해독합니다.
+    - Backup은 ADE(Azure Disk Encryption)를 사용하여 암호화된 Azure VM도 지원합니다. [자세히 알아보기](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **애플리케이션 일치 백업 가져오기**: 애플리케이션 일치 백업은 백업 복사본을 복원하는 데 필요한 모든 데이터가 복구 지점에 있음을 의미합니다. Azure Backup에서 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
 - **단기 및 장기 데이터 보존**: 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 요구 사항에 미치는 영향에 대한 [자세한 정보](backup-introduction-to-azure-backup.md#backup-and-retention)를 확인하세요.
 - **자동 저장소 관리** - 일부는 온-프레미스, 일부는 클라우드인 하이브리드 환경에는 종종 다른 유형의 저장소가 필요합니다. Azure Backup을 사용하면 온-프레미스 저장소 디바이스를 사용하기 위한 비용이 들지 않습니다. Azure Backup은 백업 스토리지를 자동으로 할당하고 관리하며, 종량제 모델을 사용하므로 사용한 스토리지 비용만 지불하면 됩니다. 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/backup).

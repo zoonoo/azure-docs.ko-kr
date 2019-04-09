@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 1/4/2019
+ms.date: 03/28/2019
 ms.author: jowargo
-ms.openlocfilehash: f7088179f43c69fb9f72eacd6ff3703a926cabe2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79913fc300f2ca66a84cf47c0e5b650b9ea2cc59
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886561"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878777"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시
 
@@ -28,7 +28,7 @@ ms.locfileid: "57886561"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 Xamarin.Android 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다. FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트합니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 Xamarin.Android 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다. FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트합니다. 완성된 코드는 [NotificationHubs 앱](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) 샘플에서 사용할 수 있습니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -112,8 +112,15 @@ ms.locfileid: "57886561"
         </intent-filter>
     </receiver>
     ```
+2. **애플리케이션 요소 앞**에 다음 명령문을 추가합니다. 
 
-2. Android 앱 및 알림 허브에 대해 다음 정보를 수집합니다.
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    ```
+1. Android 앱 및 알림 허브에 대해 다음 정보를 수집합니다.
 
    * **연결 문자열 수신 대기**: [Azure Portal]의 대시보드에서 **연결 문자열 보기**를 선택합니다. 이 값에 대한 `DefaultListenSharedAccessSignature` 연결 문자열을 복사합니다.
    * **허브 이름**: [Azure Portal]의 허브 이름입니다. 예를 들어 *mynotificationhub2*입니다.
@@ -131,13 +138,61 @@ ms.locfileid: "57886561"
 
     ```csharp
     using Android.Util;
+    using Android.Gms.Common;
     ```
-6. 앱 실행 중에 경고 대화 상자를 표시하는 데 사용할 `MainActivity.cs*`에 인스턴스 변수를 추가합니다.
+6. 다음 속성을 MainActivity 클래스에 추가합니다. 앱 실행 중에 경고 대화 상자를 표시하는 데 사용할 TAG 변수입니다.
 
     ```csharp
     public const string TAG = "MainActivity";
+    internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
-7. `MainActivity.cs`에서 다음 코드를 `base.OnCreate(savedInstanceState)` 다음에 있는 `OnCreate`에 추가합니다.
+7. 다음 메서드를 MainActivity 클래스에 추가합니다. 디바이스에서 **Google Play 서비스**를 사용할 수 있는지 확인합니다. 
+
+    ```csharp
+    public bool IsPlayServicesAvailable()
+    {
+        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.Success)
+        {
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
+            else
+            {
+                Log.Debug(TAG, "This device is not supported");
+                Finish();
+            }
+            return false;
+        }
+     
+        Log.Debug(TAG, "Google Play Services is available.");
+        return true;
+    }
+    ```
+1. 알림 채널을 만드는 MainActivity 클래스에 다음 메서드를 추가합니다.
+
+    ```csharp
+    private void CreateNotificationChannel()
+    {
+        if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+        {
+            // Notification channels are new in API 26 (and not a part of the
+            // support library). There is no need to create a notification
+            // channel on older versions of Android.
+            return;
+        }
+     
+        var channelName = CHANNEL_ID;
+        var channelDescription = string.Empty;
+        var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
+        {
+            Description = channelDescription
+        };
+     
+        var notificationManager = (NotificationManager)GetSystemService(NotificationService);
+        notificationManager.CreateNotificationChannel(channel);
+    }
+    ```
+1. `MainActivity.cs`에서 다음 코드를 `base.OnCreate(savedInstanceState)` 다음에 있는 `OnCreate`에 추가합니다.
 
     ```csharp
     if (Intent.Extras != null)
@@ -151,6 +206,9 @@ ms.locfileid: "57886561"
             }
         }
     }
+    
+    IsPlayServicesAvailable();
+    CreateNotificationChannel();
     ```
 8. `Constants` 클래스를 만들었던 것처럼 새 클래스 `MyFirebaseIIDService`를 만듭니다.
 9. 명령문을 사용하여 다음 항목을 `MyFirebaseIIDService.cs`에 추가합니다.
@@ -201,6 +259,9 @@ ms.locfileid: "57886561"
     using Android.App;
     using Android.Util;
     using Firebase.Messaging;
+    using Android.OS;
+    using Android.Support.V4.App;
+    using Build = Android.OS.Build;
     ```
 14. 클래스 선언 위에 다음을 추가하고, 클래스가 `FirebaseMessagingService`에서 상속되도록 합니다.
 
@@ -236,12 +297,18 @@ ms.locfileid: "57886561"
         intent.AddFlags(ActivityFlags.ClearTop);
         var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-        var notificationBuilder = new Notification.Builder(this)
+        var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetContentTitle("FCM Message")
                     .SetSmallIcon(Resource.Drawable.ic_launcher)
                     .SetContentText(messageBody)
                     .SetAutoCancel(true)
+                    .SetShowWhen(false)
                     .SetContentIntent(pendingIntent);
+
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+        {
+            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
+        }
 
         var notificationManager = NotificationManager.FromContext(this);
 
@@ -264,7 +331,7 @@ ms.locfileid: "57886561"
 이 자습서에서는 백 엔드에 등록된 모든 Android 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 Android 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[특정 디바이스에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[특정 디바이스에 푸시 알림](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Anchors. -->
 [Enable Google Cloud Messaging]: #register
@@ -296,10 +363,10 @@ ms.locfileid: "57886561"
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Xamarin이 포함된 Visual Studio]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Mac용 Visual Studio]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid
+[GitHub]: https://github.com/Azure/azure-notificationhubs-android

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075632"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275898"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -102,6 +102,17 @@ ms.locfileid: "58075632"
 
 -   또한 사용자는 가져오기 시 사용할 수 있지만 가져오기 시 정보가 지정되지 않은 기본값을 포함하는 정책을 편집할 수 있습니다. 예: 발급자 정보 없음  
 
+### <a name="formats-of-import-we-support"></a>지원 되는 가져오기 형식
+PEM 파일 형식에 대 한 다음과 같은 유형의 가져오기 지원합니다. PKCS # 8로 인코딩된, 다음에는 암호화 되지 않은 키와 함께 단일 PEM 인코딩 인증서
+
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+
+---BEGIN PRIVATE KEY------END PRIVATE KEY--
+
+인증서 병합 2 기반 PEM 형식을 지원합니다. 단일 PKCS # 8로 인코딩된 인증서를 하거나 병합할 수 있습니다 또는 base64로 인코딩된 P7B 파일입니다. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
+
+현재 PEM 형식으로 EC 키를 지원 하지 않습니다.
+
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Key Vault와 협력하지 않는 CA를 통해 인증서 만들기  
  이 방법을 통해 Key Vault의 파트너 공급자가 아닌 다른 CA와 작업할 수 있습니다. 즉, 조직은 선택한 CA와 작업할 수 있습니다.  
 
@@ -121,4 +132,4 @@ ms.locfileid: "58075632"
 
 ## <a name="see-also"></a>관련 항목
 
-- [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)
+- [키, 비밀 및 인증서 정보](about-keys-secrets-and-certificates.md)

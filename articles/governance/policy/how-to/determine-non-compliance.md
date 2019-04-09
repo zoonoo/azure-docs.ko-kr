@@ -1,19 +1,18 @@
 ---
 title: 규정 비준수의 원인 확인
 description: 리소스를 호환 되지 않는 경우 여러 가지 가능한 이유가 있습니다. 비 호환성을 일으킨 원인을 확인 하는 방법을 알아봅니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802748"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276102"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -21,7 +20,7 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
 
 > [!div class="checklist"]
 > - [준수 세부 정보](#compliance-details)
-> - [변경 내용 (미리 보기)](#change-history-preview)
+> - [변경 기록(미리 보기)](#change-history-preview)
 
 ## <a name="compliance-details"></a>준수 세부 정보
 

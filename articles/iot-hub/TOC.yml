@@ -298,13 +298,13 @@ items:
       href: iot-hub-distributed-tracing.md
     - name: IP 필터링 구성
       href: iot-hub-ip-filtering.md
-    - name: 규모에 맞게 디바이스 구성
+    - name: 규모에 따른 자동 디바이스 관리
       items:
       - name: Azure Portal 사용
-        href: iot-hub-auto-device-config.md
+        href: iot-hub-automatic-device-management.md
       - name: Azure CLI 사용
-        href: iot-hub-auto-device-config-cli.md
-    - name: IoT 디바이스 대량 관리
+        href: iot-hub-automatic-device-management-cli.md
+    - name: IoT 디바이스 대량 가져오기 및 내보내기
       href: iot-hub-bulk-identity-mgmt.md
   - name: 실제 디바이스 사용
     items:
@@ -457,9 +457,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 1360a16f6b8fe786eb933de991e45f9f6d0ce825
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d1aa4f75ce01f4169418f54fc19dfca6588fb751
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630745"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010705"

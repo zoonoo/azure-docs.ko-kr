@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570456"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801847"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기
 
@@ -48,6 +48,9 @@ mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
+
+> [!NOTE]
+> 명령 실행에 문제가 발생하는 경우 `maven-archetype-plugin` 버전이 사용되는지 살펴보시기 바랍니다. `.pom` 파일이 없는 빈 디렉터리에서 명령을 실행하고 있으므로 이전 버전에서 Maven을 업그레이드한 경우 `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin`에서 이전 버전의 플러그 인을 사용을 시도할 수도 있습니다. 그렇다면 `maven-archetype-plugin` 디렉터리를 삭제하고 명령을 다시 실행해보세요.
 
 ### <a name="windows"></a> Windows
 
@@ -150,6 +153,9 @@ az login
 ```
 
 `azure-functions:deploy` Maven 대상을 사용하여 새 함수 앱에 코드를 배포합니다.
+
+> [!NOTE]
+> Visual Studio Code를 사용하여 함수 앱을 배포하는 경우 체험판이 아닌 구독을 선택해야 합니다. 그렇지 않으면 오류가 표시됩니다. IDE의 왼쪽에 구독이 표시됩니다.
 
 ```
 mvn azure-functions:deploy

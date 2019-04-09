@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Spatial Anchors를 사용하여 세션과 디바이스 간 공유 | Microsoft Docs
+title: 자습서 - 세션 및 디바이스 간에 Azure Spatial Anchors 공유 | Microsoft Docs
 description: 이 자습서에서는 백 엔드 서비스가 있는 Unity의 Android/iOS 디바이스 간에 Azure Spatial Anchors 식별자를 공유하는 방법을 알아봅니다.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff9868dd7347812eb6ef566288ec364bc89b6955
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901307"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629317"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 세션과 디바이스 간 공유
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>자습서: 세션 및 디바이스에서 Azure Spatial Anchors 공유
 
-이 자습서에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 다음을 수행하는 방법을 보여줍니다.
-
-1. 한 세션에서 앵커를 만든 다음, 동일하거나 다른 디바이스의 다른 세션에서 앵커를 찾습니다. 다른 날이 그 예입니다.
-2. 여러 디바이스가 동시에 같은 위치에 있을 수 있는 앵커를 만듭니다.
+이 자습서에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 한 세션에서 앵커를 만든 다음, 동일한 디바이스나 다른 디바이스에서 이 세션을 찾는 방법을 알아봅니다. 동시에 같은 위치에 있는 여러 디바이스에서 동일한 앵커를 찾을 수도 있습니다.
 
 ![지속성](./media/persistence.gif)
 
@@ -51,10 +48,6 @@ Visual Studio를 열고 `Sharing\SharingServiceSample` 폴더에서 프로젝트
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Unity에서 샘플 프로젝트 열기
-
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
-
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
@@ -63,7 +56,7 @@ Visual Studio를 열고 `Sharing\SharingServiceSample` 폴더에서 프로젝트
 
 이 자습서에서는 Azure에서 ASP.NET Core 웹앱을 배포한 다음, Unity 앱을 구성하고 배포했습니다. 앱으로 Spatial Anchors를 만들고 ASP.NET Core 웹앱을 사용하여 다른 디바이스와 공유했습니다.
 
-Azure Cosmos DB를 사용하여 공유된 Spatial Anchors를 저장하기 위해 ASP.NET Core 웹앱을 개선하는 방법을 자세히 알아보려면 다음 자습서를 계속 진행하세요.
+Azure Cosmos DB를 사용하여 공유된 Spatial Anchors 식별자를 저장하도록 ASP.NET Core 웹앱을 개선하는 방법을 자세히 알아보려면 다음 자습서를 계속 진행하세요. Azure Cosmos DB는 ASP.NET Core 웹앱에 지속성을 제공합니다. 이렇게 하면 오늘 앱에서 앵커를 만들고 며칠 후 돌아와서 웹앱에 저장된 앵커 식별자를 사용하여 다시 찾을 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure Cosmos DB를 사용하여 앵커 저장](./tutorial-use-cosmos-db-to-store-anchors.md)

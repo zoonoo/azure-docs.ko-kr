@@ -1,24 +1,25 @@
 ---
-title: 자습서 - 사용자 지정 Python 모듈 만들기 - Azure IoT Edge | Microsoft Docs
+title: 사용자 지정 Python 모듈 만들기 - Azure IoT Edge | Microsoft Docs
 description: 이 자습서에서는 Python 코드를 사용하여 IoT Edge 모듈을 만들고, 에지 디바이스에 배포하는 방법을 보여줍니다.
 services: iot-edge
 author: shizn
 manager: philmea
+ms.reviewer: kgremban
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0affd965bbfc587933a9cdbf5b96c470a6e4dd6a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565771"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578291"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>자습서: Python IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
-비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 빠른 시작에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용하겠습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
+비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 빠른 시작에서 설정한 IoT Edge 디바이스에서 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
 
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 IoT Edge Python 모듈 만들기
@@ -36,8 +37,8 @@ ms.locfileid: "55565771"
 
 Azure IoT Edge 디바이스:
 
-* [Linux](quickstart-linux.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 디바이스로 사용할 수 있습니다.
-* IoT Edge용 Python 모듈은 Windows 디바이스를 지원하지 않습니다.
+* [Linux](quickstart-linux.md)의 빠른 시작에 설명된 단계에 따라 Azure 가상 머신을 IoT Edge 디바이스로 사용할 수 있습니다.
+* IoT Edge용 Python 모듈은 Windows 컨테이너를 지원하지 않습니다.
 
 클라우드 리소스:
 
@@ -48,9 +49,10 @@ Azure IoT Edge 디바이스:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
 * Visual Studio Code용 [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
-* [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * Python 패키지 설치를 위한 [Pip](https://pip.pypa.io/en/stable/installing/#installation)(일반적으로 Python 설치와 함께 포함됨)
+* [Docker CE](https://docs.docker.com/install/). 
+  * Windows 머신에서 개발하는 경우 Docker가 [Linux 컨테이너를 사용하도록 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)되어 있는지 확인합니다. 
 
 >[!Note]
 >`bin` 폴더는 플랫폼 경로에 있어야 합니다. 일반적으로 UNIX 및 macOS에서는 `~/.local/`이고, Windows에서는 `%APPDATA%\Python`입니다.
@@ -91,7 +93,7 @@ Azure IoT Edge 디바이스:
 
 1. Visual Studio Code에서 **보기** > **터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
 
-2. 통합 터미널에서 다음 명령을 입력하여 VS Code에서 IoT Edge 솔루션 템플릿을 만드는 데 사용하는 **cookiecutter**를 설치하거나 업데이트합니다.
+2. 터미널에서 다음 명령을 입력하여 IoT Edge 솔루션 템플릿을 만드는 데 사용하는 **cookiecutter**를 설치하거나 업데이트합니다.
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
@@ -105,7 +107,7 @@ Azure IoT Edge 디바이스:
 
 4. 명령 팔레트에서 **Azure: 로그인** 명령을 입력하고 실행한 다음, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
 
-5. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트의 프롬프트에 따라 솔루션을 만듭니다.
+5. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 프롬프트에 따라 다음 정보를 제공하여 솔루션을 만듭니다.
 
    | 필드 | 값 |
    | ----- | ----- |
@@ -129,9 +131,9 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 환경 파일은 컨테이너 리포지토리에 대한 자격 증명을 저장하고 IoT Edge 런타임과 이를 공유합니다. 이러한 자격 증명은 런타임에서 개인 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다. 
 
-1. VS Code 탐색기에서 .env 파일을 엽니다. 
+1. VS Code 탐색기에서 **.env** 파일을 엽니다. 
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다. 
-3. 이 파일을 저장합니다. 
+3. .env 파일을 저장합니다. 
 
 ### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
@@ -206,7 +208,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 8. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 배포할 모듈(이 경우 **tempSensor** 및 **PythonModule**)을 IoT Edge 에이전트에 알려주고, 메시지를 라우팅하는 방법을 IoT Edge 허브에 알려줍니다. Visual Studio Code 확장은 배포 템플릿에 필요한 대부분의 정보를 자동으로 채우지만 솔루션에 대한 모든 정보가 정확한지 확인합니다. 
 
-   1. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되므로 **PythonModule**은 Linux amd64 버전의 이미지로 설정됩니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7** 또는 **windows-amd64**로 변경하세요. 
+   1. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되므로 **PythonModule**은 Linux amd64 버전의 이미지로 설정됩니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7**로 변경하세요. 
 
       ![모듈 이미지 플랫폼 업데이트](./media/tutorial-python-module/image-platform.png)
 
@@ -241,6 +243,9 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
    ```
    첫 번째 섹션에서 복사한 Azure 컨테이너 레지스트리의 사용자 이름, 암호 및 로그인 서버를 사용합니다. 또는 Azure Portal에서 레지스트리의 **액세스 키** 섹션에서 이러한 값을 다시 검색할 수 있습니다.
 
+   --password-stdin 매개 변수를 사용하도록 권장하는 보안 경고가 표시될 수 있습니다. 이 문서의 범위 외부에서 사용하는 경우 이 모범 사례를 따르는 것이 좋습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 명령 참조를 참조하세요. 
+
+
 2. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
 
 솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 **config**라는 새 폴더에 deployment.json 파일을 생성합니다. 그런 다음, 통합 터미널에서 두 개의 명령, 즉 `docker build`과 `docker push`를 실행합니다. 이 두 명령은 코드를 빌드하고, Python 코드를 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다. 
@@ -250,7 +255,7 @@ VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그�
 >[!TIP]
 >모듈을 빌드하고 푸시하는 동안 오류가 발생하는 경우 다음 사항을 확인하세요.
 >* Visual Studio Code에서 컨테이너 레지스트리의 자격 증명을 사용하여 Docker에 로그인했나요? 이러한 자격 증명은 Azure Portal에 로그인하는 데 사용하는 자격 증명과 다릅니다.
->* 컨테이너 리포지토리가 올바른가요? **modules** > **cmodule** > **module.json**을 열고 **리포지토리** 필드를 찾습니다. 이미지 리포지토리는 **\<registryname\>.azurecr.io/pythonmodule**과 같습니다. 
+>* 컨테이너 리포지토리가 올바른가요? **modules** > **PythonModule** > **module.json**을 열고 **리포지토리** 필드를 찾습니다. 이미지 리포지토리는 **\<registryname\>.azurecr.io/pythonmodule**과 같습니다. 
 >* 개발 머신이 실행 중인 컨테이너와 동일한 유형의 컨테이너를 빌드하고 있나요? Visual Studio Code의 기본값은 Linux amd64 컨테이너입니다. 개발 머신이 Linux arm32v7 컨테이너인 경우 VS Code 창의 하단에 있는 파란색 상태 표시줄에서 플랫폼을 일치하도록 업데이트합니다. Python 모듈은 Windows 컨테이너를 지원하지 않습니다. 
 
 ## <a name="deploy-and-run-the-solution"></a>솔루션 배포 및 실행
@@ -267,7 +272,7 @@ IoT Edge 디바이스를 설정할 때 사용한 빠른 시작 문서에서는 A
 
    ![단일 디바이스용 배포 만들기](./media/tutorial-python-module/create-deployment.png)
 
-5. **config** 폴더에서 **deployment.json** 파일을 선택한 다음, **에지 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요. 
+5. **config** 폴더에서 **deployment.amd64** 또는 **deployment.arm32v7** 파일(대상 아키텍처에 따라)을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요. 
 
 6. 새로고침 단추를 클릭합니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **PythonModule**이 표시됩니다. 
 
@@ -277,7 +282,7 @@ IoT Edge 디바이스에 배포 매니페스트를 적용한 후에는 디바이
 
 Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 IoT Edge 디바이스 상태를 확인할 수 있습니다. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 상세 정보를 확장합니다. 
 
-IoT Edge 디바이스 자체에서 `iotedge list` 명령을 사용하여 배포 모듈 상태를 확인할 수 있습니다. 두 IoT Edge 런타임 모듈과 tempSensor, 이 자습서에서 만든 사용자 지정 모듈 등, 4개 모듈이 표시됩니다. 모든 모듈이 시작되려면 몇 분 정도 걸릴 수 있으므로 처음에 일부가 표시되지 않는다면 명령을 다시 실행합니다. 
+IoT Edge 디바이스 자체에서 `iotedge list` 명령을 사용하여 배포 모듈의 상태를 볼 수 있습니다. 두 IoT Edge 런타임 모듈과 tempSensor, 이 자습서에서 만든 사용자 지정 모듈 등, 4개 모듈이 표시됩니다. 모든 모듈이 시작되려면 몇 분 정도 걸릴 수 있으므로 처음에 일부가 표시되지 않는다면 명령을 다시 실행합니다. 
 
 모든 모듈에서 생성되는 메시지를 보려면 `iotedge logs <module name>` 명령을 사용합니다. 
 
@@ -287,7 +292,7 @@ IoT Edge 디바이스 자체에서 `iotedge list` 명령을 사용하여 배포 
 2. 특정 디바이스에 대한 D2C 메시지를 모니터링하려면 목록에서 해당 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
 3. 데이터 모니터링을 중지하려면 명령 팔레트에서 **Azure IoT Hub: D2C 메시지 모니터링 중지** 명령을 실행합니다. 
 4. 모듈 쌍을 보거나 업데이트하려면 목록에서 해당 모듈을 마우스 오른쪽 단추로 클릭하고 **모듈 쌍 편집**을 선택합니다. 모듈 쌍을 업데이트하려면 쌍 JSON 파일을 저장하고, 편집기 영역을 마우스 오른쪽 단추로 클릭하고, **모듈 쌍** 업데이트를 선택합니다.
-5. Docker 로그를 보려면 VS Code에 대한 [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)를 설치합니다. Docker 탐색기에서 로컬로 실행 중인 모듈을 찾을 수 있습니다. 통합 터미널에서 보려면 상황에 맞는 메뉴에서 **로그 표시**를 클릭합니다. 
+5. Docker 로그를 보려면 [Visual Studio Code용 Docker 확장](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 설치합니다. Docker 탐색기에서 로컬로 실행 중인 모듈을 찾을 수 있습니다. 통합 터미널에서 보려면 상황에 맞는 메뉴에서 **로그 표시**를 클릭합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
@@ -297,36 +302,6 @@ IoT Edge 디바이스 자체에서 `iotedge list` 명령을 사용하여 배포 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-### <a name="delete-local-resources"></a>로컬 리소스 삭제
-
-디바이스에서 IoT Edge 런타임 및 관련 리소스를 제거하려면 다음 명령을 사용합니다. 
-
-IoT Edge 런타임을 제거합니다.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치에는 계속 남아 있습니다. 모든 컨테이너를 봅니다.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-디바이스에서 만들어진 런타임 컨테이너를 삭제합니다.
-
-   ```bash
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
-   ```
-
-컨테이너 이름을 참조하여 `docker ps` 출력에 나열된 추가 컨테이너를 삭제합니다. 
-
-컨테이너 런타임을 제거합니다.
-
-   ```bash
-   sudo apt-get remove --purge moby
-   ```
 
 ## <a name="next-steps"></a>다음 단계
 

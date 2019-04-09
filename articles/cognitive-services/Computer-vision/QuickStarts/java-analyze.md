@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 98eb2574ab427f2d5727d74a077628d3a7f829bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 213b227c4ab3f97d9f8787f4e84348e36c43a6e6
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311461"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630501"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>빠른 시작: Computer Vision REST API 및 Java를 사용하여 원격 이미지 분석
 
@@ -56,9 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. `Main` 공용 클래스를 다음 코드로 바꾼 다음, 필요한 코드에 다음 변경 내용을 만듭니다.
    1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
    1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드에 대한 엔드포인트 URL로 바꿉니다.
-   1. 필요한 경우 `imageToAnalyze`의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 저장한 다음, Java 프로젝트를 빌드합니다.
-1. IDE를 사용하는 경우 `Main`을 실행합니다. 그렇지 않은 경우 명령 프롬프트 창을 연 다음, `java` 명령을 사용하여 컴파일된 클래스를 실행합니다. 예: `java Main`
+   1. 필요에 따라 `imageToAnalyze` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
 
 ```java
 public class Main {
@@ -125,6 +123,25 @@ public class Main {
     }
 }
 ```
+
+## <a name="compile-and-run-the-program"></a>프로그램 컴파일 및 실행
+
+1. 저장한 다음, Java 프로젝트를 빌드합니다.
+1. IDE를 사용하는 경우 `Main`을 실행합니다.
+
+또는 명령줄 창에서 프로그램을 실행하는 경우, 다음 명령을 실행합니다. 이러한 명령은 라이브러리가 `Main.java`와 동일한 폴더에 있는 `libs`라는 폴더에 있는 것으로 가정하며, 그렇지 않은 경우, `libs`를 라이브러리 경로와 바꿔야 합니다.
+
+1. `Main.java` 파일을 컴파일합니다.
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. 프로그램을 실행합니다. 그러면 KB를 만들기 위한 요청을 QnA Maker API에 보낸 다음, 30초마다 결과를 폴링합니다. 각 응답이 명령줄 창에 출력됩니다.
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## <a name="examine-the-response"></a>응답 검사
 

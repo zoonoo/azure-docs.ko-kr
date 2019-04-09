@@ -1,19 +1,18 @@
 ---
 title: Azure 리소스의 배열 속성에 대해 작성자 정책
 description: 배열 매개 변수를 만들고, 언어 식을 배열에 대 한 규칙을 만들, [*] 별칭을 평가 하는 데 Azure Policy 정의 규칙을 사용 하 여 기존 배열에 요소를 추가 알아봅니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 62267a4549355212a18654ff9781b2164ba19fa9
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57860267"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274726"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대해 작성자 정책
 

@@ -1,18 +1,18 @@
 ---
 title: 일관성 수준 및 Azure Cosmos DB API
 description: Azure Cosmos DB에서 API에 대한 일관성 수준 이해
-author: markjbrown
-ms.author: mjbrown
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7a8617ae2b01fc89a4c957b8610164a2b53a16f5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620668"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274776"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
@@ -33,7 +33,7 @@ Cassandra API 또는 Azure Cosmos DB API에 MongoDB를 사용 하는 경우 응�
 
 다음 표에서 네이티브 Cassandra 일관성 수준에 매핑되는 방법을 Azure Cosmos DB의 일관성 수준 Cassandra API를 사용 하는 경우를 보여 줍니다.  
 
-[ ![Cassandra 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cassandra 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>MongoDB 및 Azure Cosmos DB 일관성 수준 간의 매핑
 
@@ -51,12 +51,12 @@ MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 동안:
 
 다음 표에서 설명 하는 방법을 네이티브 MongoDB 쓰기/읽기 문제 MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 Azure Cosmos 일관성 수준에 매핑됩니다.
 
-[ ![MongoDB 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![MongoDB 일관성 모델 매핑](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
 오픈 소스 API 및 Cosmos DB API 간의 일관성 수준 및 호환성에 대해 자세히 알아봅니다. 다음 문서를 참조하세요.
 
 * [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [Azure Cosmos DB의 API for MongoDB에서 지원되는 MongoDB 기능](mongodb-feature-support.md)
-* [Azure Cosmos DB Cassandra API에서 지원된 Apache Cassandra 기능](cassandra-support.md)
+* [MongoDB에 대 한 Azure Cosmos DB API를 지 원하는 MongoDB 기능](mongodb-feature-support.md)
+* [Azure Cosmos DB Cassandra API를 지 원하는 Apache Cassandra 기능](cassandra-support.md)

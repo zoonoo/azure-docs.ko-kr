@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cac685cc3f5a19e9da134df87076299e3f38fe11
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403632"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>자습서: Periscope Data와 Azure Active Directory 통합
 
@@ -109,9 +109,9 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     | |
     |--|
     | `https://app.periscopedata.com/` |
-    | ` https://app.periscopedata.com/app/<SITENAME>` |
+    | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://app.periscopedata.com/<SITENAME>/sso` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL로 업데이트합니다. 이 값 및 **Periscope Data Single Sign-On 구성**에서 필요한 식별자 값(자습서 뒷부분에서 설명됨)을 얻으려면 [Periscope Data 클라이언트 지원 팀](mailto:support@periscopedata.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -203,7 +203,7 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 Azure AD 사용자가 Periscope Data에 로그인할 수 있도록 하려면 이 사용자를 Periscope Data로 프로비저닝해야 합니다. Periscope Data에서는 수동으로 프로비저닝합니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. Periscope Data에 관리자로 로그인합니다.
 
@@ -231,9 +231,9 @@ Azure AD 사용자가 Periscope Data에 로그인할 수 있도록 하려면 이
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800440"
 documentType: LandingData
 title: Azure Blueprints 서비스에 대한 설명서
 metadata:
-  title: Azure Blueprints 설명서 - 자습서, API 참조
+  title: 'Azure Blueprints 설명서 - 자습서, API 참조'
   description: Azure Blueprints는 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 데 사용하는 Azure의 서비스입니다.
-  services: blueprints
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints
@@ -18,34 +11,34 @@ metadata:
   ms.date: 03/26/2019
   ms.author: dacoulte
 abstract:
-  description: Azure Blueprint를 사용하면 리소스, 역할 기반 액세스 제어 및 정책을 프로비저닝하는 Azure Resource Manager 템플릿과 같은 구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경을 배포하고 업데이트할 수 있습니다.
+  description: 'Azure Blueprint를 사용하면 리소스, 역할 기반 액세스 제어 및 정책을 프로비저닝하는 Azure Resource Manager 템플릿과 같은 구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경을 배포하고 업데이트할 수 있습니다.'
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Azure에서 청사진 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        alt: Azure Portal
-        src: ./media/portal.svg
-      text: Azure Portal
-      href: create-blueprint-portal.md
-    - image:
-        alt: REST (영문)
-        src: ./media/rest.svg
-      text: REST (영문)
-      href: create-blueprint-rest-api.md
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Azure에서 청사진 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure Portal
+              src: ./media/portal.svg
+            text: Azure Portal
+            href: create-blueprint-portal.md
+          - image:
+              alt: REST (영문)
+              src: ./media/rest.svg
+            text: REST (영문)
+            href: create-blueprint-rest-api.md
+  - title: 참고 자료
     items:
-    - title: 명령줄
-      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
-    - title: REST (영문)
-      html: <p><a href="/rest/api/blueprints/">API 참조</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+          - title: Languages
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
+          - title: REST (영문)
+            html: <p><a href="/rest/api/blueprints/">API 참조</a></p>

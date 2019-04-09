@@ -1,7 +1,6 @@
 ---
 title: 청사진의 수명 주기 이해
 description: 청사진이 거치는 수명 주기 및 각 단계의 세부 정보를 알아봅니다.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001563"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266616"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 
@@ -103,8 +102,8 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 사용 하는 방법 이해 [정적 및 동적 매개 변수](parameters.md)합니다.
-- 사용자 지정 하는 방법을 알아봅니다 합니다 [시퀀싱 순서 blueprint](sequencing-order.md)합니다.
-- 확인 하는 방법을 알아봅니다 이용 [리소스 잠금 blueprint](resource-locking.md)합니다.
-- 설명 하는 방법 [기존 할당을 업데이트할](../how-to/update-existing-assignments.md)합니다.
-- 사용 하 여 청사진의 할당 하는 동안 문제를 해결 [일반 문제 해결](../troubleshoot/general.md)합니다.
+- [정적 및 동적 매개 변수](parameters.md) 사용 방법 이해
+- [청사진 시퀀싱 순서](sequencing-order.md)를 사용자 지정하는 방법 알아보기
+- [청사진 리소스 잠금](resource-locking.md)을 활용하는 방법 알아보기
+- [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기
+- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결

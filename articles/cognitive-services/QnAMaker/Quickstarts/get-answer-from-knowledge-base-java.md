@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9b80222acfc1104c184fc9cfb4711c16e7bb8dd2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312990"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884944"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Java를 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
@@ -70,7 +70,7 @@ public class GetAnswer {
 
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
-`Authorization` 헤더의 값에는 문자열 `EndpointKey `가 포함됩니다. 
+`Authorization` 헤더의 값에는 문자열 `EndpointKey`가 포함됩니다. 
 
 [요청](../how-to/metadata-generateanswer-usage.md#generateanswer-request) 및 [응답](../how-to/metadata-generateanswer-usage.md#generateanswer-response)에 대한 자세한 정보
 

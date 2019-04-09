@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087876"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272770"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -104,7 +104,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 
 #### <a name="spoke-to-hub"></a>스포크-허브
 
-**방향** | **설정** | **State**
+**방향** | **설정** | **시스템 상태**
 --- | --- | ---
 스포크-허브 | 가상 네트워크 주소 허용 | 사용
 스포크-허브 | 전달된 트래픽 허용 | 사용
@@ -115,7 +115,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 
 #### <a name="hub-to-spoke"></a>허브-스포크
 
-**방향** | **설정** | **State**
+**방향** | **설정** | **시스템 상태**
 --- | --- | ---
 허브-스포크 | 가상 네트워크 주소 허용 | 사용
 허브-스포크 | 전달된 트래픽 허용 | 사용

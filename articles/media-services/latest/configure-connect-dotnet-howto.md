@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 9fad5874a0e595ee2c275f06504665ce143266f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759578"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273977"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>.NET으로 Media Services v3 API에 연결
 
@@ -40,7 +40,7 @@ ms.locfileid: "58759578"
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
 1. Visual Studio에서 선택 **도구가** > **NuGet 패키지 관리자** > **NuGet 관리자 콘솔**합니다.
-2. 에 **패키지 관리자 콘솔** 창을 사용 하 여 `Install-Package` 다음 NuGet 패키지를 추가 하는 명령입니다. 예: `Install-Package Microsoft.Azure.Management.Media`
+2. 에 **패키지 관리자 콘솔** 창을 사용 하 여 `Install-Package` 다음 NuGet 패키지를 추가 하는 명령입니다. 예: `Install-Package Microsoft.Azure.Management.Media`.
 
 |패키지|설명|
 |---|---|
@@ -200,10 +200,6 @@ namespace ConsoleApp1
  
         private static async Task<ServiceClientCredentials> GetCredentialsAsync(ConfigWrapper config)
         {
-            // Use UserTokenProvider.LoginWithPromptAsync or UserTokenProvider.LoginSilentAsync to get a token using user authentication
-            //// ActiveDirectoryClientSettings.UsePromptOnly
-            //// UserTokenProvider.LoginWithPromptAsync
-
             // Use ApplicationTokenProvider.LoginSilentWithCertificateAsync or UserTokenProvider.LoginSilentAsync to get a token using service principal with certificate
             //// ClientAssertionCertificate
             //// ApplicationTokenProvider.LoginSilentWithCertificateAsync
@@ -229,17 +225,17 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>참고 항목
 
-- [자습서: 비디오 업로드, 인코딩 및 스트리밍 - .NET](stream-files-tutorial-with-api.md) 
-- [자습서: Media Services v3으로 라이브 스트리밍 - .NET](stream-live-tutorial-with-api.md)
-- [자습서: Media Services v3으로 비디오 분석 - .NET](analyze-videos-tutorial-with-api.md)
-- [로컬 파일에서 작업 입력 만들기 - .NET](job-input-from-local-file-how-to.md)
-- [HTTPS URL에서 작업 입력 만들기 - .NET](job-input-from-http-how-to.md)
-- [사용자 지정 변환으로 인코딩 - .NET](customize-encoder-presets-how-to.md)
-- [AES-128 동적 암호화 및 키 전달 서비스 사용 - .NET](protect-with-aes128.md)
-- [DRM 동적 암호화 및 라이선스 배달 서비스 사용 - .NET](protect-with-drm.md)
-- [기존 정책에서 서명 키 가져오기 - .NET](get-content-key-policy-dotnet-howto.md)
-- [Media Services로 필터 만들기 - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Media Services v3 및 Azure Functions v2의 고급 비디오 주문형 예제](https://aka.ms/ams3functions)
+- [자습서: 업로드, 인코딩 및 스트리밍 비디오-.NET](stream-files-tutorial-with-api.md) 
+- [자습서: Media Services v3-.NET을 사용 하 여 live Stream](stream-live-tutorial-with-api.md)
+- [자습서: Media Services v3-.NET을 사용 하 여 비디오를 분석 합니다.](analyze-videos-tutorial-with-api.md)
+- [로컬 파일-.NET에서에서 작업 입력 만들기](job-input-from-local-file-how-to.md)
+- [HTTPS URL-.NET에서에서 작업 입력 만들기](job-input-from-http-how-to.md)
+- [사용자 지정 변환-.NET을 사용 하 여 인코딩](customize-encoder-presets-how-to.md)
+- [AES-128 동적 암호화 및 키 배달 서비스-.NET 사용](protect-with-aes128.md)
+- [DRM 동적 암호화 및 라이선스 배달 서비스 사용-.NET](protect-with-drm.md)
+- [기존 정책-.NET에서에서 서명 키 가져오기](get-content-key-policy-dotnet-howto.md)
+- [Media Services-.NET을 사용 하 여 필터 만들기](filters-dynamic-manifest-dotnet-howto.md)
+- [Media Services v3 사용 하 여 Azure Functions v2의 비디오-주문형 예제를 고급](https://aka.ms/ams3functions)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights의 종속성 추적 | Microsoft Docs
-description: Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 애플리케이션의 사용량, 가용성 및 성능을 분석합니다.
+description: 사용량, 가용성 및 온-프레미스 또는 Application Insights를 사용 하 여 Microsoft Azure 웹 응용 프로그램의 성능을 분석 합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888086"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273110"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
 *종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 애플리케이션이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "56888086"
 
 ## <a name="where-to-find-dependency-data"></a>종속성 데이터를 찾을 수 있는 위치
 * [애플리케이션 맵](#application-map)은 앱과 인접 구성 요소 간의 종속성을 시각화합니다.
-* [성능, 브라우저 및 실패 블레이드](#performance-and-failure-blades): 서버 종속성 데이터를 표시합니다.
+* [성능, 브라우저 및 실패 블레이드](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance): 서버 종속성 데이터를 표시합니다.
 * [브라우저 블레이드](#ajax-calls): 사용자 브라우저에서의 AJAX 호출을 표시합니다.
 * 느리거나 실패한 요청 클릭: 해당 종속성 호출을 확인합니다.
 * [분석](#analytics): 종속성 데이터를 쿼리하는 데 사용됩니다.
@@ -58,7 +58,7 @@ ms.locfileid: "56888086"
 ## <a name="application-map"></a>애플리케이션 맵
 애플리케이션 맵은 애플리케이션의 구성 요소 간에 종속성을 검색하는 시각화 보조 도구의 역할을 합니다. 앱의 원격 분석에서 자동으로 생성됩니다. 이 예제에서는 두 외부 서비스에 대한 브라우저 스크립트에서의 AJAX 호출과 서버 앱에서의 REST 호출을 보여 줍니다.
 
-![애플리케이션 맵](./media/asp-net-dependencies/08.png)
+![애플리케이션 맵](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **상자에서 관련 종속성 및 기타 차트로 이동**합니다.
 * [대시보드](../../azure-monitor/app/app-insights-dashboards.md)에 **맵을 고정**하면 완벽하게 작동될 수 있습니다.
@@ -66,13 +66,7 @@ ms.locfileid: "56888086"
 [자세히 알아보세요](../../azure-monitor/app/app-map.md)을 확인하세요.
 
 ## <a name="performance-and-failure-blades"></a>성능 및 실패 블레이드
-성능 블레이드에는 서버 앱에 실행한 종속성 호출 기간이 표시됩니다. 호출별로 구분된 요약 차트와 테이블이 있습니다.
-
-![성능 블레이드 종속성 차트](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-요약 차트 또는 테이블 항목을 클릭하여 이러한 호출의 원시 발생을 검색합니다.
-
-![종속성 호출 인스턴스](./media/asp-net-dependencies/dependency-call-instance.png)
+성능 블레이드에는 서버 앱에 실행한 종속성 호출 기간이 표시됩니다.
 
 **실패 횟수**는 **실패** 블레이드에 표시됩니다. 실패는 200~399 범위에 없거나 알 수 없는 반환 코드입니다.
 
@@ -85,52 +79,11 @@ ms.locfileid: "56888086"
 브라우저 블레이드에는 [웹 페이지의 JavaScript](../../azure-monitor/app/javascript.md)에서 실행한 AJAX 호출의 기간 및 실패율이 표시됩니다. 이는 종속성으로 표시됩니다.
 
 ## <a name="diagnosis"></a> 느린 요청 진단
-각 요청 이벤트는 종속성 호출, 예외 및 기타 앱에서 요청을 처리하는 동안 추적된 이벤트와 연결됩니다. 따라서 일부 요청이 잘못 수행되는 경우 종속성의 느린 응답 때문인지 여부를 확인할 수 있습니다.
-
-이에 대한 예제를 살펴보겠습니다.
-
-### <a name="tracing-from-requests-to-dependencies"></a>요청에서 종속성까지 추적
-성능 블레이드를 열고 요청 표를 확인합니다.
-
-![평균 및 개수가 포함된 요청 목록](./media/asp-net-dependencies/02-reqs.png)
-
-맨 위의 요청은 시간이 아주 오래 걸립니다. 시간이 어디에 소비되는지 확인해 보겠습니다.
-
-개별 요청 이벤트를 보려면 해당 행을 클릭합니다.
-
-![요청 항목 목록](./media/asp-net-dependencies/03-instances.png)
-
-장기 실행 인스턴스를 클릭하여 세부 사항을 조사합니다. 이 요청과 관련된 원격 종속성 호출까지 스크롤합니다.
-
-![원격 종속성에 대한 호출 찾기, 특별한 기간 식별](./media/asp-net-dependencies/04-dependencies.png)
-
-이 요청을 서비스하는 데 걸린 시간은 대부분 로컬 서비스 호출에 소요된 시간인 것 같습니다.
-
-해당 행을 선택하여 자세한 정보를 봅니다.
-
-![해당 원격 종속성을 클릭하여 원인 식별](./media/asp-net-dependencies/05-detail.png)
-
-여기에 문제가 있는 것 같습니다. 문제를 확인했으므로 이제 호출에 시간이 오래 걸리는 이유를 확인하면 됩니다.
-
-### <a name="request-timeline"></a>요청 시간 표시 막대
-다른 경우에는 특별히 긴 종속성 호출이 없습니다. 그러나 시간 표시 막대 뷰로 전환하면 내부 처리에 지연이 발생하는 것을 확인할 수 있습니다.
-
-![원격 종속성에 대한 호출 찾기, 특별한 기간 식별](./media/asp-net-dependencies/04-1.png)
-
-첫 번째 종속성 호출 후 큰 간격이 있어 보이므로 코드를 보고 그 이유를 확인해야 합니다.
+각 요청 이벤트는 종속성 호출, 예외 및 앱은 요청을 처리 하는 동안 추적 되는 다른 이벤트와 연결 합니다. 따라서 일부 요청이 잘못 수행되는 경우 종속성의 느린 응답 때문인지 여부를 확인할 수 있습니다.
 
 ### <a name="profile-your-live-site"></a>라이브 사이트 프로파일링
 
-시간에 따른 위치를 알 수 없나요? [Application Insights 프로파일러](../../azure-monitor/app/profiler.md)는 라이브 사이트에 대한 HTTP 호출을 추적하고 가장 오래 걸린 코드의 함수를 표시합니다.
-
-## <a name="failed-requests"></a>실패한 요청
-실패한 요청은 종속성에 대한 실패한 호출과 연관이 있을 수도 있습니다. 문제를 클릭하여 추적할 수 있습니다.
-
-![실패한 요청 차트 클릭](./media/asp-net-dependencies/06-fail.png)
-
-실패한 요청 발생을 클릭하고 연관된 이벤트를 확인합니다.
-
-![요청 유형을 클릭하고, 인스턴스를 클릭하여 동일한 인스턴스의 다른 보기로 이동하고, 클릭하여 예외 세부 정보를 표시합니다.](./media/asp-net-dependencies/07-faildetail.png)
+시간에 따른 위치를 알 수 없나요? 합니다 [Application Insights profiler](../../azure-monitor/app/profiler.md) 추적 HTTP 라이브 사이트에 대 한 호출 및 함수 코드에서 가장 오래 걸린 보여 줍니다.
 
 ## <a name="analytics"></a>분석
 [Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
@@ -199,9 +152,9 @@ ms.locfileid: "56888086"
 표준 종속성 추적 모듈을 해제하려는 경우, [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 DependencyTrackingTelemetryModule에 대한 참조를 삭제합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
-*종속성 성공 플래그는 항상 true 또는 false로 표시됩니다.*
+*종속성 성공 플래그는 항상 true 또는 false 보여 줍니다.*
 
-*SQL 쿼리가 일부만 표시됩니다.*
+*SQL 쿼리를 전체에 표시 되지 않습니다.*
 
 애플리케이션에 대한 종속성 모니터링을 사용하도록 설정하려면 올바른 구성을 선택했는지 확인하고 아래 표를 참조하십시오.
 
@@ -212,11 +165,7 @@ ms.locfileid: "56888086"
 | Azure 웹앱 |웹앱 제어판에서 [Application Insights 블레이드를 열고](../../azure-monitor/app/azure-web-apps.md) 메시지가 표시되면 설치를 선택합니다. |
 | Azure 클라우드 서비스 |[시작 작업을 사용](../../azure-monitor/app/cloudservices.md)하거나 [.NET Framework 4.6 이상을 설치](../../cloud-services/cloud-services-dotnet-install-dotnet.md)합니다. |
 
-## <a name="video"></a>비디오
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
-
 ## <a name="next-steps"></a>다음 단계
 * [예외](../../azure-monitor/app/asp-net-exceptions.md)
 * [사용자 및 페이지 데이터](../../azure-monitor/app/javascript.md)
-* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
+* [가용성](../../azure-monitor/app/monitor-web-app-availability.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca9c4c959d21f26369600129f3897b7624dd84f2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371177"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267704"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>저장소 계정에 대 한 azure Storage 확장성 및 성능 목표
 
@@ -23,7 +23,7 @@ ms.locfileid: "58371177"
 
 애플리케이션이 파티션의 작업 처리 가능한 제한에 도달하면 Azure Storage는 오류 코드 503(서버 작업 중) 또는 오류 코드 500(작업 시간 제한) 응답을 반송하기 시작합니다. 503 오류가 발생하는 경우 재시도를 위해 지수 백오프 정책을 사용하도록 애플리케이션을 수정하는 것이 좋습니다. 지수 백오프는 파티션에 대한 부하를 감소시키고 해당 파티션에 트래픽의 급증을 완화할 수 있습니다.
 
-## <a name="standard-performance-storage-account-scale-limits"></a>표준 성능 저장소 계정 크기 한도
+## <a name="storage-account-scale-limits"></a>저장소 계정 크기 한도
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
@@ -45,6 +45,36 @@ Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대�
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+### <a name="premium-files-scale-targets"></a>프리미엄 파일 확장 대상
+
+세 가지 종류의 프리미엄 파일용 고려할 제한 사항: 저장소 계정, 공유 및 파일입니다.
+
+예를 들면 다음과 같습니다. 단일 공유 100,000 IOPS를 달성할 수 있습니다 및 단일 파일에서 최대 5,000 개의 IOPS를 확장할 수 있습니다. 따라서 예를 들어, 하나의 공유에 3 개의 파일에 있는 경우 해당 공유에서 가져올 수 있습니다 최대 IOPs는 15,000입니다.
+
+#### <a name="premium-file-share-limits"></a>프리미엄 파일 공유 제한
+
+> [!IMPORTANT]
+> 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 저장소 계정에 대 한 최대 크기 조정은 경우 저장소 계정당 하나의 공유 달성 합니다.
+
+|영역  |대상  |
+|---------|---------|
+|최소 크기                        |100GiB      |
+|최대 크기                        |100tib      |
+|최소 크기 증가/감소    |1 GiB      |
+|기준 IOPS    |최대 100,000 개 GiB 당 1 개 IOPS|
+|버스팅 IOPS    |최대 100,000 개 GiB 당 3 x IOPS|
+|최소 대역폭                     |100        |
+|대역폭 |0.1 5 초까지 GiB 당 MB/s     |
+|최대 스냅숏 수        |200       |
+
+#### <a name="premium-file-limits"></a>프리미엄 파일 제한
+
+|영역  |대상  |
+|---------|---------|
+|크기                  |1TiB         |
+|파일당 최대 IOPS     |5,000         |
+|동시 핸들 수    |2,000         |
+
 ### <a name="azure-file-sync-scale-targets"></a>Azure 파일 동기화의 크기 조정 목표
 
 Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 무제한 사용이 가능하지 않은 경우도 있습니다. 아래 표에는 Microsoft의 테스트 경계와 하드 한도인 목표가 표시되어 있습니다.
@@ -61,7 +91,7 @@ Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 �
 
 ## <a name="see-also"></a>관련 항목
 
-- [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
+- [Storage 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)
 - [Azure Storage 복제](../storage-redundancy.md)
 - [Microsoft Azure Storage 성능 및 확장성 검사 목록](../storage-performance-checklist.md)

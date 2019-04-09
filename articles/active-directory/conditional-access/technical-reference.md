@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051125"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273042"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -63,7 +63,7 @@ Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 
 - Microsoft Bing 검색
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft Teams
+- Microsoft 팀
 - Office 365 Exchange Online
 - Office 365 SharePoint Online
 - Office 365 Yammer
@@ -117,7 +117,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 | OS                     | 브라우저                                      |
 | :--                    | :--                                           |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| 윈도우 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, 크롬                     |
 | Windows 7              | Internet Explorer, 크롬                     |
 | iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
@@ -169,11 +169,11 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 | --- | --- | --- |
 | Azure 원격 앱 | Azure 원격 앱 서비스 | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | Windows 10 |
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | 윈도우 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS |
-| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft 팀 | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다. | Office 365 SharePoint Online | Windows 10 |
+| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다. | Office 365 SharePoint Online | 윈도우 10 |
 | Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원| Office 365 SharePoint Online| macOS|
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Office 모바일 앱 | Office 365 SharePoint Online | Android, iOS |
@@ -221,7 +221,7 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 - 비즈니스용 Microsoft Skype
 - Microsoft StaffHub
 - Microsoft Stream
-- Microsoft Teams
+- Microsoft 팀
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
@@ -232,6 +232,23 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 - 승인된 클라이언트 앱은 Intune 모바일 애플리케이션 관리 기능을 지원합니다.
 - **승인된 클라이언트 앱 필요** 요구 사항:
    - [디바이스 플랫폼 조건](#device-platform-condition)에서는 iOS 및 Android만 지원됩니다.
+
+## <a name="app-protection-policy-requirement"></a>앱 보호 정책 요구 사항 
+
+조건부 액세스 정책에서 앱 보호 정책에 포함 되어 있어야 클라이언트 앱 액세스를 선택한 클라우드 앱에 사용할 요구할 수 있습니다. 
+
+![앱 보호 정책 사용 하 여 액세스 제어](./media/technical-reference/22.png)
+
+이 설정은 다음 클라이언트 앱에 적용됩니다.
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**설명**
+
+- 앱 보호 정책에 대 한 앱 정책 보호를 사용 하 여 Intune 모바일 응용 프로그램 관리 기능을 지원합니다.
+- 합니다 **앱 보호 정책 필요** 요구 사항:
+    - [디바이스 플랫폼 조건](#device-platform-condition)에서는 iOS 및 Android만 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

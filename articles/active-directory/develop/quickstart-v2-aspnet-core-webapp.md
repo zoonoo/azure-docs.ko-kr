@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200993"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903593"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -40,7 +40,7 @@ ms.locfileid: "58200993"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 앱 등록(미리 보기)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)으로 이동합니다.
+> 1. [Azure Portal - 앱 등록](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -51,7 +51,8 @@ ms.locfileid: "58200993"
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
+> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+> 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `AspNetCore-Quickstart`)을 입력합니다.
 >    - **회신 URL**에 `https://localhost:44321/`을 추가하고 **등록**을 선택합니다.
@@ -78,7 +79,7 @@ ms.locfileid: "58200993"
 
 1. Zip 파일을 루트 폴더 안의 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio 2017을 사용하는 경우 Visual Studio에서 솔루션을 엽니다(선택 사항).
-1. **appsettings.json** 파일을 편집합니다. `ClientId`를 찾아 `Enter_the_Application_Id_here`를 방금 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 바꿉니다. 
+1. **appsettings.json** 파일을 편집합니다. `ClientId`를 찾아 `ClientId` 값을 방금 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 바꿉니다. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -90,8 +91,8 @@ ms.locfileid: "58200993"
 > - `Enter_the_Application_Id_here` - Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID**를 찾을 수 있습니다.
 > - `Enter_the_Tenant_Info_Here` - 다음 옵션 중 하나입니다.
 >   - 애플리케이션이 **이 조직 디렉터리의 계정만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
->   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
+>   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 다음으로 바꾸세요. `organizations`
+>   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 다음으로 바꾸세요. `common`
 >
 > > [!TIP]
 > > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.

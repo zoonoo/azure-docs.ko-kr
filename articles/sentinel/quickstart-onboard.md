@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/12/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006595"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276646"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Azure 등록 Sentinel 미리 보기
 
@@ -29,7 +29,7 @@ ms.locfileid: "59006595"
 
 이 빠른 시작에서는 알아봅니다 Azure Sentinel 온보드 하는 방법입니다. 
 
-Azure Sentinel을 온보딩하려면 먼저 데이터 원본에 연결해야 합니다. Azure Sentinel 여러 상자 및 Microsoft Threat Protection 솔루션을 Office 365, Azure AD에서 Azure ATP를 포함 하 여 Microsoft 365 원본을 포함 하 여 실시간 통합을 사용할 수 있는 Microsoft 솔루션에 대 한 커넥터와 함께 제공 하 고 Microsoft Cloud App Security 및 더 합니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. 또한 일반적인 이벤트 형식으로 데이터 원본을 사용 하 여 Azure Sentinel 연결할 Syslog 또는 REST API를 사용할 수 있습니다.  
+Azure 등록 Sentinel 먼저 하려면 Azure Sentinel 사용 하도록 설정 하 고 데이터 원본에 연결 합니다. Azure Sentinel 여러 상자 및 Microsoft Threat Protection 솔루션을 Office 365, Azure AD에서 Azure ATP를 포함 하 여 Microsoft 365 원본을 포함 하 여 실시간 통합을 사용할 수 있는 Microsoft 솔루션에 대 한 커넥터와 함께 제공 하 고 Microsoft Cloud App Security 및 더 합니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. 또한 일반적인 이벤트 형식으로 데이터 원본을 사용 하 여 Azure Sentinel 연결할 Syslog 또는 REST API를 사용할 수 있습니다.  
 
 데이터 원본에 연결한 후에 데이터를 기반으로 하는 정보는 전문적 만든 대시보드를 갤러리에서 선택 합니다. 이러한 대시보드 요구 사항에 맞게 쉽게 사용자 지정할 수 있습니다.
 
@@ -40,9 +40,10 @@ Azure Sentinel을 온보딩하려면 먼저 데이터 원본에 연결해야 합
 
 - Log Analytics 작업 영역입니다. 자세한 방법 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)
 
-    - 리소스 그룹에 대 한 참가자 권한을 Azure Sentinel에 연결
-    - 참가자 권한을 리소스 그룹에 Azure Sentinel 사용 하도록 설정 하려면 
-
+-  Azure Sentinel 사용, Azure Sentinel 작업 영역 상주 하는 구독에 대 한 참가자 권한이 필요 합니다. 
+- Azure Sentinel를 사용 하려면 작업 영역에 속하는 리소스 그룹 참가자 또는 뷰어 권한이 필요
+- 특정 데이터 원본에 연결할 추가 권한이 필요할 수
+ 
 ## Azure Sentinel를 사용 하도록 설정 <a name="enable"></a>
 
 1. Azure portal로 이동 합니다.

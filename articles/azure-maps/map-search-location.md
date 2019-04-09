@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8ae6c8a20a05df723d3f6b394e0639f218896a85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845140"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271597"
 ---
 # <a name="show-search-results-on-the-map"></a>지도에 검색 결과 표시
 
@@ -29,11 +29,11 @@ ms.locfileid: "57845140"
 
 위의 코드에서 첫 번째 코드 블록은 map 개체를 생성 하 고 구독 키를 사용 하는 인증 메커니즘을 설정 합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록을 만듭니다는 **SubscriptionKeyCredentialPolicy** 구독 키를 사용 하 여 Azure Maps로 HTTP 요청을 인증 합니다. 그런 다음 **atlas.service.MapsURL.newPipeline()** 에서는 합니다 **SubscriptionKeyCredential** 정책 만들고를 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스. 합니다 **searchURL** Azure Maps로 URL을 나타내는 [검색](https://docs.microsoft.com/rest/api/maps/search) 작업 합니다.
+두 번째 코드 블록을 만듭니다는 `SubscriptionKeyCredentialPolicy` 구독 키를 사용 하 여 Azure Maps로 HTTP 요청을 인증 합니다. 그런 다음 `atlas.service.MapsURL.newPipeline()` 에서는 합니다 `SubscriptionKeyCredential` 정책 만들고를 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스. 합니다 `searchURL` Azure Maps로 URL을 나타내는 [검색](https://docs.microsoft.com/rest/api/maps/search) 작업 합니다.
 
 세 번째 코드 블록에서는[DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 데이터 원본 개체를 만들고 검색 결과를 추가합니다. [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  기호 계층이 생성되고 데이터 원본이 기호 계층에 추가된 다음, 맵에 추가됩니다.
 
-네 번째 코드 블록을 사용 하는 [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) 에서 메서드는 [서비스 모듈](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2)합니다. 자유 형식 텍스트 검색을 통해 수행할 수 있습니다 합니다 [유사 항목 검색 가져오기 rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 관심 지점 검색 합니다. Get 검색 퍼지 API 어떠한 조합의 입력 유사 항목을 처리할 수 있습니다. 응답에서 GeoJSON 기능 컬렉션을 사용 하 여 추출 됩니다는 **geojson.getFeatures()** 메서드 기호 계층을 통해 지도에서 렌더링 되는 데이터를 자동으로 발생 하는 데이터 원본에 추가 합니다.
+네 번째 코드 블록을 사용 하는 [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) 에서 메서드는 [서비스 모듈](https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js)합니다. 자유 형식 텍스트 검색을 통해 수행할 수 있습니다 합니다 [유사 항목 검색 가져오기 rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 관심 지점 검색 합니다. Get 검색 퍼지 API 어떠한 조합의 입력 유사 항목을 처리할 수 있습니다. 응답에서 GeoJSON 기능 컬렉션을 사용 하 여 추출 됩니다는 `geojson.getFeatures()` 메서드 기호 계층을 통해 지도에서 렌더링 되는 데이터를 자동으로 발생 하는 데이터 원본에 추가 합니다.
 
 마지막 코드 블록은 Map의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 맵에 대한 카메라 범위를 조정합니다.
 

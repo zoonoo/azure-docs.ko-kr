@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/06/2019
 ms.author: heidist
-ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286604"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273416"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Azure Search 서비스에 대한 api-key 만들기 및 관리
 
@@ -53,30 +53,37 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 
 ## <a name="create-query-keys"></a>쿼리 키 만들기
 
-쿼리 키는 인덱스 내의 문서에 대 한 읽기 전용 액세스에 사용 됩니다. 액세스 및 클라이언트 앱에서 작업을 제한 하는 것이 서비스에서 검색 자산을 보호 하기 위해 중요 합니다. 항상 클라이언트 앱에서 생성 된 쿼리에 대 한 관리자 키를 사용 하지 않고 쿼리 키를 사용 합니다.
+쿼리 키는 문서 컬렉션을 대상으로 하는 작업에 대 한 인덱스 내의 문서를 읽기 전용 액세스에 사용 됩니다. 검색, 필터 및 제안 쿼리는 쿼리 키를 사용 하는 모든 작업입니다. 시스템 인덱스 정의 또는 인덱서 상태 같은 데이터 또는 개체 정의 반환 하는 모든 읽기 전용 작업 관리자 키가 필요 합니다.
+
+액세스 및 클라이언트 앱에서 작업을 제한 하는 것이 서비스에서 검색 자산을 보호 하기 위해 중요 합니다. 항상 클라이언트 앱에서 생성 된 쿼리에 대 한 관리자 키를 사용 하지 않고 쿼리 키를 사용 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 구독에 대한 [검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 나열합니다.
 3. 서비스를 선택 하 고 개요 페이지에서 클릭 **설정을** >**키**합니다.
 4. 클릭 **쿼리 키 관리**합니다.
-5. 서비스에 대해 이미 생성 한 쿼리를 사용 하거나 새 최대 50 개의 쿼리 키를 만듭니다. 기본 쿼리 키 이름을 지정 하지는 않지만 추가 쿼리 키 관리 효율성에 대 한 이름을 지정할 수 있습니다.
+5. 서비스에 대 한 이미 생성 된 쿼리 키를 사용 하거나 새 최대 50 개의 쿼리 키를 만듭니다. 기본 쿼리 키 이름을 지정 하지는 않지만 추가 쿼리 키 관리 효율성에 대 한 이름을 지정할 수 있습니다.
 
    ![만들기 또는 쿼리 키를 사용 합니다.](media/search-security-overview/create-query-key.png) 
-
 
 > [!Note]
 > 쿼리 키 사용을 보여 주는 코드 예제에서 확인할 수 있습니다 [에서 Azure Search 인덱스 쿼리 C# ](search-query-dotnet.md)합니다.
 
+<a name="regenerate-admin-keys"></a>
+
 ## <a name="regenerate-admin-keys"></a>관리자 키 다시 생성
 
-지속적인된 액세스에 대 한 보조 키를 사용 하 여 기본 키를 회전할 수 있도록 두 개의 관리자 키는 각 서비스에 대해 생성 됩니다.
-
-기본 및 보조 키를 동시에 다시 생성하는 경우 서비스 작업에 액세스하기 위해 두 키 중 하나를 사용하는 모든 애플리케이션은 더 이상 서비스에 대한 액세스를 갖지 않습니다.
+보조 키를 사용 하 여 비즈니스 연속성에 대 한 기본 키를 회전할 수 있도록 두 개의 관리자 키는 각 서비스에 대해 생성 됩니다.
 
 1. **설정** >**키** 페이지에서 보조 키를 복사합니다.
 2. 모든 애플리케이션의 경우 보조 키를 사용하도록 api-key 설정을 업데이트합니다.
 3. 기본 키를 다시 생성합니다.
 4. 새 기본 키를 사용하도록 모든 애플리케이션을 업데이트합니다.
+
+실수로 키 다시 생성 하면 모두 동시에, 해당 키를 사용 하 여 모든 클라이언트 요청 실패 하며 HTTP 403 사용할 수 없음. 그러나 콘텐츠는 삭제 되지 않습니다 및 수는 잠겨 있지 영구적으로 합니다. 
+
+포털 또는 관리 계층을 통해 서비스에 액세스할 수 있습니다 ([REST API](https://docs.microsoft.com/rest/api/searchmanagement/)하십시오 [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell), 또는 Azure Resource Manager). 관리 함수는 하지는 서비스 api 키, 구독 ID를 통해 운영에 api 키가 없는 경우에 따라서 계속 사용할 수 있습니다. 
+
+(인덱스, 인덱서, 데이터 원본, 동의어 맵을) 콘텐츠에 액세스 권한이 복원 됩니다 포털 또는 관리 계층을 통해 새 키를 만든 후 새 키를 하 고 요청에 이러한 키를 제공 합니다.
 
 ## <a name="secure-api-keys"></a>api-key 보안
 키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 api-key를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.

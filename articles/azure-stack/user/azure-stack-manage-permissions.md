@@ -16,16 +16,16 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767212"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264712"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Azure Stack Role-Based Access Control을 사용한 리소스에 대 한 액세스 관리
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 Azure Stack에 동일한 역할 기반 액세스 제어 (RBAC)를 지 원하는 [액세스 관리에 대 한 보안 모델](https://docs.microsoft.com/azure/role-based-access-control/overview) Microsoft Azure를 사용 하는 합니다. RBAC를 사용 하 여 사용자, 그룹 또는 구독, 리소스 및 서비스에 대 한 응용 프로그램 액세스를 관리할 수 있습니다.
 
@@ -40,28 +40,6 @@ Azure Stack에는 모든 리소스 형식에 적용할 수 있는 세 가지 기
 * **소유자** 모든 리소스에 대 한 액세스를 포함 하 여 관리할 수 있습니다.
 * **참가자** 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다.
 * **판독기** 모든 항목을 볼 수 있지만 변경할 수 없습니다.
-
-### <a name="resource-hierarchy-and-inheritance"></a>리소스 계층 구조 및 상속
-
-Azure Stack에는 다음과 같은 리소스 계층 구조에 있습니다.
-
-* 각 구독은 하나의 디렉터리에 속합니다.
-* 각 리소스 그룹 구독 하나에 속합니다.
-* 각 리소스는 하나의 리소스 그룹에 속합니다.
-
-부모 범위에서 부여 되는 액세스 자식 범위에서 상속 됩니다. 예를 들면 다음과 같습니다.
-
-* 구독 범위에서 Azure AD 그룹에 읽기 권한자 역할을 할당합니다. 해당 그룹의 멤버는 구독에서 모든 리소스 그룹 및 리소스를 볼 수 있습니다.
-* 리소스 그룹 범위에서 애플리케이션에 참가자 역할을 할당합니다. 응용 프로그램에서 해당 리소스 그룹에 있지만 구독에서 다른 리소스 그룹이 아닌 모든 종류의 리소스를 관리할 수 있습니다.
-
-### <a name="assigning-roles"></a>역할 할당
-
-사용자에 게 둘 이상의 역할을 할당할 수 있습니다 하 고 각 역할의 다른 범위를 연결할 수 있습니다. 예를 들면 다음과 같습니다.
-
-* 구독 1에 TestUser-A the 읽기 권한자 역할을 할당합니다.
-* TestVM 1 TestUser-A 소유자 역할을 할당합니다.
-
-Azure [역할 할당](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 문서 보기, 할당 및 역할을 삭제 하는 방법에 대 한 자세한 정보를 제공 합니다.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>리소스 계층 구조 및 상속
 

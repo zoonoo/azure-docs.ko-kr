@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50349d008e3c2a7a8a09fd3e2d9e96097acc0c9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855821"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>자습서: Azure Active Directory와 Jamf Pro 통합
 
@@ -105,9 +105,9 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Jamf Pro 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<subdomain>.jamfcloud.com/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.jamfcloud.com/saml/metadata`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.jamfcloud.com/saml/SSO` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.jamfcloud.com/saml/SSO`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -228,7 +228,7 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 하려면 Jamf Pro로 프로비전되어야 합니다. Jamf Pro의 경우 프로비전은 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. Jamf Pro 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -276,6 +276,6 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 하려면 Jamf Pro�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

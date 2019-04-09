@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2baabe6837d25cce5e9f5d9e1071af8417fe5f4d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401865"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578752"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop Preview의 앱 그룹 관리
 
@@ -28,13 +28,13 @@ ms.locfileid: "58401865"
 
 ## <a name="create-a-remoteapp-group"></a>RemoteApp 그룹 만들기
 
-1. 다음 PowerShell cmdlet을 실행하여 빈 RemoteApp 그룹을 새로 만듭니다.
+1. 다음 PowerShell cmdlet을 실행하여 빈 RemoteApp 앱 그룹을 새로 만듭니다.
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
    ```
 
-2. (선택 사항) 애플리케이션 그룹이 생성되었는지 확인하려면 다음 cmdlet을 실행하여 호스트 풀에 대한 모든 애플리케이션 그룹 목록을 살펴보면 됩니다.
+2. (선택 사항) 앱 그룹이 생성되었는지 확인하려면 다음 cmdlet을 실행하여 호스트 풀에 대한 모든 앱 그룹 목록을 살펴보면 됩니다.
 
    ```powershell
    Get-RdsAppGroup <tenantname> <hostpoolname>
@@ -45,17 +45,17 @@ ms.locfileid: "58401865"
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. 다음 cmdlet을 실행하여 새 RemoteApp을 1단계에서 만든 애플리케이션 그룹에 게시합니다.
+   
+4. 다음 cmdlet을 실행하여 appalias를 기반으로 애플리케이션을 설치합니다. 3단계의 출력을 실행하면 appalias를 볼 수 있습니다.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (선택 사항) appalias를 기반으로 애플리케이션을 설치하려면 다음 cmdlet을 실행합니다. 3단계의 출력을 실행하면 appalias를 볼 수 있습니다.
+5. (선택 사항) 새 RemoteApp을 1단계에서 만든 애플리케이션 그룹에 게시하려면 다음 cmdlet을 실행합니다.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. 앱이 게시되었는지 확인하려면 다음 cmdlet을 실행합니다.

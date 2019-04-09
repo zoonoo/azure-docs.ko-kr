@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: 496c033e3df096cdada2b3facba3e73092ffd755
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/07/2019
+ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051498"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273076"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 시계열 분석
 
@@ -36,15 +36,15 @@ demo_make_series1 | take 10
 | --- | --- | --- | --- | --- |
 |   | TimeStamp | BrowserVer | OsVer | 국가 |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | 영국 |
-|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
+|   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | 윈도우 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | 영국 |
-|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | Windows 10 | 영국 |
-|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | 리투아니아 |
+|   | 2016-08-25 09:12:46.5100000 | Chrome 52.0 | 윈도우 10 | 영국 |
+|   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | 윈도우 10 | 리투아니아 |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | 인도 |
-|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | 영국 |
+|   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | 윈도우 10 | 영국 |
 |   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | 네덜란드 |
-|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | 영국 |
-|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | 인도 |
+|   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | 윈도우 10 | 영국 |
+|   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | 윈도우 10 | 인도 |
 
 메트릭이 없으므로 다음과 같은 쿼리를 사용하여 OS로 분할된 트래픽 개수 자체를 나타내는 시계열 집합만 빌드할 수 있습니다.
 
@@ -136,13 +136,13 @@ demo_series3
 ```kusto
 demo_series3
 | project (periods, scores) = series_periods_detect(num, 0., 14d/2h, 2) //to detect the periods in the time series
-| mvexpand periods, scores
+| mv-expand periods, scores
 | extend days=2h*todouble(periods)/1d
 ```
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | 기간 | 점수 | 일 |
+|   | 기간 | 점수 | days |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 

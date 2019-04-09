@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851197"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261992"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>OpenID Connect 및 Azure Active Directory를 사용하여 웹 애플리케이션에 대한 액세스 권한 부여
 
@@ -47,12 +47,12 @@ OpenID Connect는 앱이 로그인을 수행하는 데 필요한 대부분의 �
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-메타데이터는 간단한 JSON(JavaScript Object Notation) 문서입니다. 예제를 보려면 다음 코드 조각을 참조하세요. 이 조각의 내용은 [OpenID Connect 사양](https://openid.net)에 자세히 설명되어 있습니다. 위의 {tenant} 위치에 `common`이 아닌 테넌트를 제공하면 JSON 개체의 테넌트 특정 URI가 반환됩니다.
+메타데이터는 간단한 JSON(JavaScript Object Notation) 문서입니다. 예제를 보려면 다음 코드 조각을 참조하세요. 이 조각의 내용은 [OpenID Connect 사양](https://openid.net)에 자세히 설명되어 있습니다. 해당 테 넌 트 ID를 제공 하는 참고 대신 `common` 위의 {tenant}의 위치에서 반환 되는 JSON 개체의 테 넌 트 별 Uri에서 발생 합니다.
 
 ```
 {
-    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -64,6 +64,8 @@ https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
     ...
 }
 ```
+
+앱에 사용자 지정 서명 키를 사용 하 여 결과로 경우 합니다 [클레임 매핑](active-directory-claims-mapping.md) 해야 추가 기능을는 `appid` 쿼리 얻으려면 앱 ID를 포함 하는 매개 변수는 `jwks_uri` 앱을 가리키는 서명 키 정보입니다. 예를 들어: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 포함 된 `jwks_uri` 의 `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`합니다.
 
 ## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
 
@@ -91,14 +93,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
-| client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. **Azure Active Directory**를 클릭하고 **앱 등록**을 클릭하고 애플리케이션을 선택하여 애플리케이션 페이지에서 애플리케이션 ID를 찾습니다. |
+| client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. 클릭 **Azure Active Directory**, 클릭 **앱 등록**, 응용 프로그램을 선택 하 고 응용 프로그램 페이지에서 응용 프로그램 ID를 찾습니다. |
 | response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code` 또는 `token`과 같은 다른 response_types을 포함할 수도 있습니다. |
 | scope | 권장 | OpenID Connect 사양에 범위 `openid`, 동의 UI에서 "로그인" 권한으로 변환 하는 합니다. 이 및 다른 OIDC 범위 v1.0 끝점에서 무시 됩니다 있지만 여전히 표준을 준수 하는 클라이언트에 대 한 모범 사례입니다. |
 | nonce |필수 |결과 `id_token`에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다. 그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열 또는 GUID입니다. |
 | redirect_uri | 권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 누락 된 경우 사용자 에이전트를 등록 한 리디렉션 Uri는 앱을 임의로 중 하나를 다시 전송 됩니다. 최대 길이 255 바이트 |
 | response_mode |선택 사항 |결과 authorization_code를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 지원되는 값은 *HTTP 폼 게시*의 경우 `form_post`이고, *URL 조각*의 경우 `fragment`입니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. id_token을 포함하는 모든 흐름의 기본값은 `fragment`입니다.|
 | state |권장 |토큰 응답에 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
-| prompt |선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다. 현재 유효한 값은 'login', 'none', 'consent'뿐입니다. `prompt=login`은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다. `prompt=none`은 그 반대로 사용자에게 어떠한 대화형 프롬프트도 표시되지 않도록 합니다. Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 엔드포인트는 오류를 반환합니다. `prompt=consent`는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
+| prompt |선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다. 현재 유효한 값은 'login', 'none', 'consent'뿐입니다. `prompt=login` 사용자로 하여금 single-sign에서 요청에 자격 증명을 입력 합니다. `prompt=none` 그 반대로 사용자가 어떠한 대화형 프롬프트도 표시 되지 않습니다 되도록 보장 합니다. Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 엔드포인트는 오류를 반환합니다. `prompt=consent` 사용자가 로그인 한 후, 사용자에 게 앱에 권한을 부여 하 여 트리거 OAuth 동의 대화 상자. |
 | login_hint |선택 사항 |사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다.
@@ -179,7 +181,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| post_logout_redirect_uri |권장 |성공적으로 로그아웃한 후에 사용자가 리디렉션되는 URL입니다. 포함되지 않은 경우 사용자에게 일반 메시지를 표시합니다. |
+| post_logout_redirect_uri |권장 |정상적으로 로그 아웃 후 사용자를 리디렉션할 수 해야 하는 URL입니다. 포함되지 않은 경우 사용자에게 일반 메시지를 표시합니다. |
 
 ## <a name="single-sign-out"></a>Single Sign-Out
 
@@ -200,7 +202,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'

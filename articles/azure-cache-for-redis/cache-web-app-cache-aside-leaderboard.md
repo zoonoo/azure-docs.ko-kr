@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234869"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893744"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
@@ -79,7 +79,7 @@ ms.locfileid: "56234869"
     using System.Data.Entity.SqlServer;
     ```
 
-1. `Team` 클래스의 정의를 업데이트된 `Team` 클래스 정의뿐만 아니라 몇몇 다른 Entity Framework 도우미 클래스도 포함하고 있는 다음 코드 조각으로 바꿉니다. 이 자습서는 Entity Framework를 통해 코드의 첫 번째 방법을 사용하고 있습니다. Entity Framework는 이 방법으로 사용자 코드에서 데이터베이스를 만들 수 있습니다. 이 자습서에 사용되는 Entity Framework에 대한 Code First 접근방식에 대한 자세한 내용은 [새 데이터베이스에 대한 Code First](https://msdn.microsoft.com/data/jj193542)를 참조하세요.
+1. `Team` 클래스의 정의를 업데이트된 `Team` 클래스 정의뿐만 아니라 몇몇 다른 Entity Framework 도우미 클래스도 포함하고 있는 다음 코드 조각으로 바꿉니다. 이 자습서는 Entity Framework를 통해 코드의 첫 번째 방법을 사용하고 있습니다. Entity Framework는 이 방법으로 사용자 코드에서 데이터베이스를 만들 수 있습니다. 이 자습서에 사용되는 Entity Framework에 대한 Code First 접근방식에 대한 자세한 내용은 [새 데이터베이스에 대한 Code First](/ef/ef6/modeling/code-first/workflows/new-database)를 참조하세요.
 
     ```csharp
     public class Team
@@ -663,7 +663,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
    | 설정       | 제안 값 | 설명 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **데이터베이스 이름** | *ContosoTeamsDatabase* | 유효한 데이터베이스 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
-   | **구독** | *구독*  | 캐시를 만들고 App Service를 호스팅하는 데 사용한 것과 동일한 구독을 선택합니다. |
+   | **구독** | *사용자의 구독*  | 캐시를 만들고 App Service를 호스팅하는 데 사용한 것과 동일한 구독을 선택합니다. |
    | **리소스 그룹**  | *TestResourceGroup* | **기존 항목 사용**을 클릭하고 캐시와 App Service를 배치한 위치와 동일한 리소스 그룹을 사용합니다. |
    | **원본 선택** | **빈 데이터베이스** | 빈 데이터베이스에서 시작합니다. |
 
@@ -674,7 +674,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
    | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-   | **위치**: | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |
+   | **위치** | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |
 
 1. **대시보드에 고정**을 클릭한 다음, **만들기**를 클릭하여 새 데이터베이스와 서버를 만듭니다.
 
@@ -744,4 +744,4 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Cache for Redis의 크기를 조정하는 방법](./cache-how-to-scale.md)
+> [Azure Cache for Redis 크기를 조정하는 방법](./cache-how-to-scale.md)

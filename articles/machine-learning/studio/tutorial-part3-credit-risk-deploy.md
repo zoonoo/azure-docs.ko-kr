@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839020"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620517"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 결과가 웹 서비스로부터 **웹 서비스 출력** 모듈을 거쳐 사용자에게 반환됩니다.
 
 > [!TIP]
-> 예측 실험을 구성한 방법대로, [모델 점수 매기기][score-model] 모듈의 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 하지만 원하는 경우 다른 것을 반환할 수 있습니다. 예를 들어 신용 위험 값만 반환할 수 있습니다. 이를 수행하려면 [모델 점수 매기기][score-model] 및 **웹 서비스 출력** 사이에 [프로젝트 열][project-columns] 모듈을 삽입하여 웹 서비스에서 반환하지 않으려는 열을 제거합니다. 
+> 예측 실험을 구성한 방법대로, [모델 점수 매기기][score-model] 모듈의 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 하지만 원하는 경우 다른 것을 반환할 수 있습니다. 예를 들어 신용 위험 값만 반환할 수 있습니다. 이를 수행하려면 [모델 점수 매기기][score-model]와 **웹 서비스 출력** 사이에 [열 선택][select-columns] 모듈을 삽입하여 웹 서비스에서 반환하지 않으려는 열을 제거합니다. 
 > 
 > 
 
@@ -267,4 +267,4 @@ Machine Learning 웹 서비스 포털에서만 새 웹 서비스를 테스트할
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

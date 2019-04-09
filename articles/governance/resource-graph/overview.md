@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Graph 개요
-description: Azure Resource Graph는 대규모의 복잡한 리소스 쿼리를 지원하는 Azure의 서비스입니다.
+description: Azure Resource Graph 서비스가 어떻게 대규모의 복잡한 리소스 쿼리를 지원하는지 알아봅니다.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 15cfdc87fafa25e9f37c63c8159289b25a547817
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193571"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802325"
 ---
-# <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
+# <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
 Azure Resource Graph는 모든 구독 및 관리 그룹에서 대규모로 쿼리를 수행할 수 있는 효율적인 고성능 리소스 탐색 기능을 제공하여 작업 환경을 효과적으로 관리할 수 있도록 Azure 리소스 관리를 확장할 수 있게 디자인된 Azure의 서비스입니다. 이러한 쿼리는 다음 기능을 제공합니다.
 

@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050257"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271733"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack에서 암호를 회전 합니다.
 
@@ -300,11 +300,11 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 | 매개 변수 | Type | 필수 | Position | 기본값 | 설명 |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | 문자열  | False  | named  | 없음  | 파일 공유 경로 **\Certificates** 디렉터리 포함 된 모든 외부 네트워크 끝점 인증서입니다. 외부 암호를 회전 하는 경우에 필요 합니다. 최종 디렉터리 여야 합니다 **\Certificates**합니다. |
-| CertificatePassword | SecureString | False  | named  | 없음  | -PfXFilesPath에서 제공 하는 모든 인증서에 대 한 암호입니다. 외부 암호 회전 하는 경우 PfxFilesPath가 제공 하는 경우 필수 값입니다. |
-| 내부 | 문자열 | False | named | 없음 | Azure Stack 운영자가 내부 인프라 암호를 회전 하려면 언제 든 지 내부 플래그를 사용 해야 합니다. |
-| PathAccessCredential | PSCredential | False  | named  | 없음  | 파일 공유에 대 한 PowerShell 자격 증명을 **\Certificates** 디렉터리 포함 된 모든 외부 네트워크 끝점 인증서입니다. 외부 암호를 회전 하는 경우에 필요 합니다.  |
-| ReRun | SwitchParameter | False  | named  | 없음  | 비밀 회전 시도 실패 후 다시 시도 언제 든 지 다시 실행을 사용 해야 합니다. |
+| `PfxFilesPath` | 문자열  | False  | named  | 없음  | 파일 공유 경로 **\Certificates** 디렉터리 포함 된 모든 외부 네트워크 끝점 인증서입니다. 외부 암호를 회전 하는 경우에 필요 합니다. 최종 디렉터리 여야 합니다 **\Certificates**합니다. |
+| `CertificatePassword` | SecureString | False  | named  | 없음  | -PfXFilesPath에서 제공 하는 모든 인증서에 대 한 암호입니다. 외부 암호 회전 하는 경우 PfxFilesPath가 제공 하는 경우 필수 값입니다. |
+| `Internal` | 문자열 | False | named | 없음 | Azure Stack 운영자가 내부 인프라 암호를 회전 하려면 언제 든 지 내부 플래그를 사용 해야 합니다. |
+| `PathAccessCredential` | PSCredential | False  | named  | 없음  | 파일 공유에 대 한 PowerShell 자격 증명을 **\Certificates** 디렉터리 포함 된 모든 외부 네트워크 끝점 인증서입니다. 외부 암호를 회전 하는 경우에 필요 합니다.  |
+| `ReRun` | SwitchParameter | False  | named  | 없음  | 비밀 회전 시도 실패 후 다시 시도 언제 든 지 다시 실행을 사용 해야 합니다. |
 
 ### <a name="examples"></a>예
 

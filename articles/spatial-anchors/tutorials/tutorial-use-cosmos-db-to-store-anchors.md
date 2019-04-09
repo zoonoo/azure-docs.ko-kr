@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Spatial Anchors 및 Azure Cosmos DB 백 엔드를 사용하여 세션과 디바이스 간 공유 | Microsoft Docs
+title: 자습서 - Azure Cosmos DB 백 엔드를 사용하여 세션 및 디바이스에서 Azure Spatial Anchors 공유 | Microsoft Docs
 description: 이 자습서에서는 백 엔드 서비스와 Azure Cosmos DB가 있는 Unity의 Android/iOS 디바이스 간에 Azure Spatial Anchors 식별자를 공유하는 방법을 알아봅니다.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286400"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915258"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>자습서: Azure Spatial Anchors 및 Azure Cosmos DB 백 엔드를 사용하여 세션과 디바이스 간 공유
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>자습서: Azure Cosmos DB 백 엔드를 사용하여 세션 및 디바이스에서 Azure Spatial Anchors 공유
 
-이 자습서에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 다음 작업을 수행하는 방법을 알아봅니다.
-
-- 한 세션에서 앵커를 만든 다음, 다른 세션을 진행하는 동안 동일한 디바이스 또는 다른 디바이스에서 해당 앵커를 찾습니다. 예를 들어 두 번째 세션은 다른 요일에 진행될 수 있습니다.
-- 여러 디바이스가 같은 장소에서 동시에 찾을 수 있는 앵커를 만듭니다.
+이 자습서에서는 한 세션에서 [Azure Spatial Anchors](../overview.md)를 사용하여 앵커를 만든 다음, 또 다른 세션의 동일한 디바이스 또는 다른 디바이스에서 앵커를 찾는 방법을 알아봅니다. 예를 들어 두 번째 세션은 다른 요일에 진행될 수 있습니다. 같은 위치에 있는 여러 디바이스에서 동시에 동일한 앵커를 찾을 수도 있습니다.
 
 ![개체 지속성을 보여주는 GIF](./media/persistence.gif)
 
@@ -73,7 +70,7 @@ Visual Studio를 열고, `Sharing\SharingServiceSample` 폴더의 프로젝트�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Cosmos DB를 사용하여 디바이스 간에 앵커 식별자를 공유했습니다. Azure Spatial Anchors 라이브러리에 대한 자세한 내용을 알아보려면 앵커를 만들고 찾는 방법에 대한 가이드를 계속 참조하세요.
+이 자습서에서는 Azure Cosmos DB를 사용하여 디바이스 간에 앵커 식별자를 공유했습니다. 새 Android 앱에서 Azure Spatial Anchors를 사용하는 방법을 자세히 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Spatial Anchors를 사용하여 앵커 만들기 및 찾기](../create-locate-anchors-overview.md)
+> [새 Android 앱 시작](./tutorial-new-android-app.md)

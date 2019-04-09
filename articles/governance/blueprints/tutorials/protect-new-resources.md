@@ -4,16 +4,16 @@ description: Azure Blueprints 리소스 잠금 읽기 전용 및 삭제 안 함�
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855766"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629225"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
@@ -40,7 +40,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 
 1. **시작** 페이지 왼쪽에서 _청사진 만들기_ 아래의 **만들기** 단추를 선택합니다.
 
-1. 페이지 맨 위에 있는 **빈 샘플** 청사진 샘플을 찾은 후 **이 샘플 사용**을 선택합니다.
+1. 페이지 맨 위에 있는 **빈 청사진** 청사진 샘플을 찾은 후 **빈 청사진으로 시작**을 선택합니다.
 
 1. 청사진 샘플의 _기본 사항_을 입력합니다.
 
@@ -81,7 +81,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -181,6 +181,8 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 1. **거부 할당** 탭을 선택합니다.
 
    청사진 할당은 _읽기 전용_ 청사진 잠금 모드를 적용하기 위해 배포된 리소스 그룹에서 [거부 할당](../../../role-based-access-control/deny-assignments.md)을 만들었습니다. 거부 할당은 _역할 할당_ 탭에서 적절한 권한이 있는 사람이 특정 작업을 수행하지 못하게 합니다. 거부 할당은 _모든 보안 주체_에 영향을 미칩니다.
+
+   거부 할당에서 보안 주체를 제외하는 방법에 대한 자세한 내용은 [청사진 리소스 잠금](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment)을 참조하세요.
 
 1. 거부 할당을 선택한 다음, 왼쪽의 **거부된 사용 권한** 페이지를 선택합니다.
 

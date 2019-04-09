@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402901"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801682"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>자습서: Windows Virtual Desktop 미리 보기에서 테넌트 만들기
 
@@ -30,6 +30,8 @@ Windows Virtual Desktop 테넌트를 설정하는 데 필요한 것은 다음과
 * Windows Virtual Desktop 사용자의 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 테넌트 ID
 * Azure Active Directory 테넌트 내 글로벌 관리자 계정
    * 이는 또한 고객의 Windows Virtual Desktop 테넌트를 만드는 CSP(클라우드 솔루션 공급자) 조직에도 적용됩니다. CSP 조직일 경우 고객 Azure Active Directory의 글로벌 관리자로 로그인할 수 있어야 합니다.
+   * Windows Virtual Desktop 테넌트를 만들려는 경우 Azure Active Directory 테넌트에서 관리자 계정을 가져와야 합니다. 이 프로세스는 Azure Active Directory B2B(게스트) 계정을 지원하지 않습니다.
+   * 관리자 계정은 회사 또는 학교 계정이어야 합니다.
 * Azure 구독 ID
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Windows Virtual Desktop 미리 보기 서비스에 Azure Active Directory 권한 부여
@@ -75,7 +77,7 @@ Windows Virtual Desktop 서비스에 Azure Active Directory 쿼리 권한을 부
 이 cmdlet에 TenantCreator 사용자 계정을 사용하여 Windows Virtual Desktop에 로그인합니다.
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 그 후 Azure Active Directory 테넌트와 연결된 새로운 Windows Virtual Desktop 테넌트를 만듭니다.

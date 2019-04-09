@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93990a11860e8b8181bee0ba67351b095d940878
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893580"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>자습서: Azure Active Directory와 UltiPro 통합
 
@@ -51,7 +51,7 @@ Ultipro와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 Ultipro의 Azure AD 통합을 구성하려면 갤러리의 Ultipro를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Ultipro를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 UltiPro를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -111,7 +111,7 @@ UltiPro에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
     |--|
     | `https://<companyname>.ultipro.com/`|
     | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-    | ` https://<companyname>.ultipro.ca`|
+    | `https://<companyname>.ultipro.ca`|
     
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
@@ -215,7 +215,7 @@ UltiPro에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

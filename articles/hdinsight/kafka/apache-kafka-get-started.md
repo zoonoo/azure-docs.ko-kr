@@ -1,19 +1,18 @@
 ---
-title: Apache Kafka 시작 - Azure HDInsight 빠른 시작
+title: Azure Portal을 사용하여 HDInsight에 Apache Kafka 설정
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.custom: mvc,hdinsightactive
+ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/26/2019
-ms.openlocfilehash: c2e4b5b1b56ef7940b0774845af5b06661c5e8bf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/01/2019
+ms.openlocfilehash: 4099d6ea12774fec2b24895b42d8e780bd36e2a4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522114"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917348"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
@@ -32,18 +31,7 @@ Apache Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-
 
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-* SSH 클라이언트. 이 문서의 단계는 SSH를 사용하여 클러스터에 연결합니다.
-
-    `ssh` 명령은 Linux, Unix 및 macOS 시스템에서 기본적으로 제공됩니다. Windows 10에서 다음 방법 중 하나를 사용하여 `ssh` 명령을 설치합니다.
-
-  * [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)을 사용합니다. Cloud Shell은 `ssh` 명령을 제공하며, 셸 환경으로 Bash 또는 PowerShell을 사용하도록 구성할 수 있습니다.
-
-  * [Linux용 Windows 하위 시스템을 설치](https://docs.microsoft.com/windows/wsl/install-win10)합니다. Microsoft Store를 통해 사용할 수 있는 Linux 배포판은 `ssh` 명령을 제공합니다.
-
-    > [!IMPORTANT]  
-    > 이 문서의 단계는 사용자가 위에서 언급한 SSH 클라이언트 중 하나를 사용한다고 가정합니다. 다른 SSH 클라이언트를 사용하는 중에 문제가 발생하는 경우에는 SSH 클라이언트에 대한 설명서를 참조하세요.
-    >
-    > 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
+* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka 클러스터 만들기
 
@@ -51,15 +39,11 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 메뉴에서 **+ 리소스 만들기**를 선택합니다.
-
-1. **Azure Marketplace**에서 **Analytics**를 선택합니다.
-
-1. **추천**에서 **HDInsight**를 선택합니다.
+2. 왼쪽 메뉴에서 **+ 리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
    
     ![HDInsight 클러스터 만들기](./media/apache-kafka-get-started/create-hdinsight.png)
 
-2. **기본**에서 다음 정보를 입력하거나 선택합니다.
+3. **기본**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
@@ -70,7 +54,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
    
    ![HDInsight 기본 구성의 Apache Kafka 클러스터](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-3. __클러스터 구성__에서 다음 값을 선택합니다.
+4. __클러스터 구성__에서 다음 값을 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
@@ -81,7 +65,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
     ![클러스터 유형 선택](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
-4. __기본__에서 다음 정보를 입력하거나 선택합니다.
+5. __기본__에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
@@ -98,21 +82,21 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
    ![구독 선택](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    __다음__ 단추를 사용하여 기본 구성을 완료합니다.
+    __다음__을 선택하여 기본 구성을 완료합니다.
 
-5. 이 빠른 시작에서는 기본 보안 설정을 유지합니다. Enterprise Security 패키지에 대해 자세히 알아보려면 [Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)을 참조하세요. Apache Kafka 디스크 암호화에 고유한 키를 사용하는 방법을 알아보려면 [Azure HDInsight에서 Apache Kafka에 대한 고유한 키 가져오기](apache-kafka-byok.md)를 참조하세요.
+6. 이 빠른 시작에서는 기본 보안 설정을 유지합니다. Enterprise Security 패키지에 대해 자세히 알아보려면 [Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)을 참조하세요. Apache Kafka 디스크 암호화에 고유한 키를 사용하는 방법을 알아보려면 [Azure HDInsight에서 Apache Kafka에 대한 고유한 키 가져오기](apache-kafka-byok.md)를 참조하세요.
 
    클러스터를 가상 네트워크에 연결하려는 경우에는 **가상 네트워크** 드롭다운에서 가상 네트워크를 선택합니다.
 
    ![가상 네트워크에 클러스터 추가](./media/apache-kafka-get-started/kafka-security-config.png)
 
-6. **Storage**에서 Storage 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+7. **Storage**에서 Storage 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
    ![HDInsight에 대한 저장소 계정 설정 지정](./media/apache-kafka-get-started/storage-configuration.png)
 
-7. __애플리케이션(선택 사항)__ 에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+8. __애플리케이션(선택 사항)__ 에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
 
-8. __클러스터 크기__에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+9. __클러스터 크기__에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
 
     > [!IMPORTANT]  
     > HDInsight에서 Apache Kafka의 가용성을 보장하려면 __작업자 노드 수__ 항목을 3 이상으로 설정해야 합니다. 기본값은 4입니다.
@@ -122,9 +106,9 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
    ![Apache Kafka 클러스터 크기 설정](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-9. __고급 설정__에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
+10. __고급 설정__에서 __다음__을 선택하여 기본 설정을 사용해서 계속 진행합니다.
 
-10. **요약**에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로 __만들기__ 단추를 사용하여 클러스터를 만듭니다.
+11. **요약**에서 클러스터에 대한 구성을 검토합니다. __편집__ 링크를 사용하여 올바르지 않은 설정을 변경합니다. 마지막으로, **만들기**를 선택하여 클러스터를 만듭니다.
    
     ![클러스터 구성 요약](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
@@ -143,29 +127,28 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
 3. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
-연결되면 다음 텍스트와 유사한 정보가 표시됩니다.
+    연결되면 다음 텍스트와 유사한 정보가 표시됩니다.
+    
+    ```text
+    Authorized uses only. All activity may be monitored and reported.
+    Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
+    
+     * Documentation:  https://help.ubuntu.com
+     * Management:     https://landscape.canonical.com
+     * Support:        https://ubuntu.com/advantage
+    
+      Get cloud support with Ubuntu Advantage Cloud Guest:
+        https://www.ubuntu.com/business/services/cloud
+    
+    83 packages can be updated.
+    37 updates are security updates.
 
-```text
-Authorized uses only. All activity may be monitored and reported.
-Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  Get cloud support with Ubuntu Advantage Cloud Guest:
-    https://www.ubuntu.com/business/services/cloud
-
-83 packages can be updated.
-37 updates are security updates.
-
-
-
-Welcome to Apache Kafka on HDInsight.
-
-Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
-```
+    Welcome to Apache Kafka on HDInsight.
+    
+    Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
+    ssuhuser@hn0-mykafk:~$
+    ```
 
 ## <a id="getkafkainfo"></a>Apache Zookeeper 및 Broker 호스트 정보 가져오기
 
@@ -173,59 +156,58 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 
 이 섹션에서는 클러스터에서 Apache Ambari REST API에서 호스트 정보를 가져옵니다.
 
-1. 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 `jq` 유틸리티를 설치합니다. 이 유틸리티는 JSON 문서를 구문 분석하는 데 사용되며 호스트 정보 검색에 유용합니다.
+1. 간단한 명령줄 JSON 프로세서인 [jq](https://stedolan.github.io/jq/)를 설치합니다. 이 유틸리티는 JSON 문서를 구문 분석하는 데 사용되며, 호스트 정보를 구문 분석할 때 유용합니다. 열린 SSH 연결에서 다음 명령을 실행하여 `jq`를 설치합니다.
    
     ```bash
     sudo apt -y install jq
     ```
 
-2. 환경 변수를 클러스터 이름으로 설정하려면 다음 명령을 사용합니다.
-
-    > [!Important]
-    > 이름에 대문자를 사용하여 프로비저닝된 경우에도, 이 명령에 대해 클러스터 이름을 모두 소문자로 입력합니다. 대문자 이름은 Zookeeper 또는 broker 정보에 사용할 수 없습니다.
+2. 환경 변수를 설정합니다. `PASSWORD` 및 `CLUSTERNAME`을 각각 클러스터 로그인 암호와 클러스터 이름으로 바꾸고 다음 명령을 입력합니다.
 
     ```bash
-    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-    메시지가 표시되면 Apache Kafka 클러스터 이름을 입력합니다.
+3. 대/소문자가 올바르게 입력된 클러스터 이름을 추출합니다. 클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다. 이 명령은 실제 대/소문자를 가져와서 변수에 저장한 다음, 올바른 대/소문자 이름과 여러분이 앞에서 입력한 이름을 표시합니다. 다음 명령을 입력합니다.
 
-3. Zookeeper 호스트 정보를 사용하여 환경 변수를 설정하려면 다음 명령을 사용합니다.
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+4. Zookeeper 호스트 정보를 사용하여 환경 변수를 설정하려면 다음 명령을 사용합니다.
     
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    > [!TIP]
-    > 이 명령은 클러스터 헤드 노드에서 Ambari 서비스를 직접 쿼리합니다. `https://$CLUSTERNAME.azurehdinsight.net:80/`의 공용 주소를 사용하여 ambari에 액세스할 수도 있습니다. 일부 네트워크 구성은 공용 주소에 대한 액세스를 방지할 수 있습니다. 예를 들어 NSG(네트워크 보안 그룹)를 사용하여 가상 네트워크에서 HDInsight에 대한 액세스를 제한합니다.
+    > [!TIP]  
+    > 이 명령은 클러스터 헤드 노드에서 Ambari 서비스를 직접 쿼리합니다. `https://$CLUSTERNAME.azurehdinsight.net:80/`의 공용 주소를 사용하여 Ambari에 액세스할 수도 있습니다. 일부 네트워크 구성은 공용 주소에 대한 액세스를 방지할 수 있습니다. 예를 들어 NSG(네트워크 보안 그룹)를 사용하여 가상 네트워크에서 HDInsight에 대한 액세스를 제한합니다.
 
-    메시지가 표시되면 클러스터 로그인 계정(SSH 계정 아님)에 대한 암호를 입력합니다.
-
-    > [!NOTE]
+    > [!NOTE]  
     > 이 명령은 모든 Zookeeper 호스트를 검색한 다음, 처음 두 개의 항목만 반환합니다. 하나의 호스트에 연결할 수 없는 경우 일부 중복이 필요하기 때문입니다.
 
-4. 환경 변수가 올바르게 설정되었는지 확인하려면 다음 명령을 사용합니다.
+5. 환경 변수가 올바르게 설정되었는지 확인하려면 다음 명령을 사용합니다.
 
     ```bash
-     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    echo $KAFKAZKHOSTS
     ```
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Apache Kafka broker 호스트 정보를 사용하여 환경 변수를 설정하려면 다음 명령을 사용합니다.
+6. Apache Kafka broker 호스트 정보를 사용하여 환경 변수를 설정하려면 다음 명령을 사용합니다.
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    메시지가 표시되면 클러스터 로그인 계정(SSH 계정 아님)에 대한 암호를 입력합니다.
-
-6. 환경 변수가 올바르게 설정되었는지 확인하려면 다음 명령을 사용합니다.
+7. 환경 변수가 올바르게 설정되었는지 확인하려면 다음 명령을 사용합니다.
 
     ```bash   
-    echo '$KAFKABROKERS='$KAFKABROKERS
+    echo $KAFKABROKERS
     ```
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
@@ -248,14 +230,14 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
 
     * 각 파티션은 클러스터에서 세 개의 작업자 노드에 복제됩니다.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 세 개의 장애 도메인을 제공하는 Azure 지역에서 클러스터를 만든 경우 3의 복제 인수를 사용합니다. 그렇지 않으면 4의 복제 요소를 사용합니다.
         
         세 개의 장애 도메인 지역에서는 3의 복제 인수를 사용하면 복제본을 오류 도메인에 분산할 수 있습니다. 두 개의 장애 도메인 지역에서는 4의 복제 인수로 복제본을 도메인에 동일하게 분산할 수 있습니다.
         
         영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]  
         > Apache Kafka는 Azure 장애 도메인을 인식하지 않습니다. 항목에 대한 파티션 복제본을 만들 때 고가용성에 대해 복제본을 제대로 배포하지 않을 수 있습니다.
 
         고가용성을 보장하려면 [Apache Kafka 파티션 재조정 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용합니다. 이 도구는 Apache Kafka 클러스터의 헤드 노드에 대한 SSH 연결에서 실행되어야 합니다.
@@ -282,7 +264,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
 
     이 명령은 `topicname`이라고 명명된 토픽을 삭제합니다.
 
-    > [!WARNING]
+    > [!WARNING]  
     > 이전에 만든 `test` 토픽을 삭제하는 경우에는 다시 만들어야 합니다. 이는 이 문서의 뒷부분에서 사용됩니다.
 
 `kafka-topics.sh` 유틸리티에서 사용할 수 있는 명령에 대한 자세한 정보는 다음 명령을 사용합니다.
@@ -332,7 +314,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
 
-> [!WARNING]
+> [!WARNING]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
 > 
 > HDInsight 클러스터의 Apache Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.
@@ -341,4 +323,3 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
 > [!div class="nextstepaction"]
 > [Apache Kafka에서 Apache Spark 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)
-

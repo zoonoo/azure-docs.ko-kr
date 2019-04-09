@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045307"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268288"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager의 메트릭 및 경고
 
@@ -65,4 +65,4 @@ Azure Monitor는 Traffic Manager의 메트릭 처리 및 표시 외에도 고객
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Monitor 서비스](../azure-monitor/platform/metrics-supported.md)에 대해 자세히 알아봅니다.
-- [Azure Monitor를 사용하여 차트를 만드는 방법](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)을 알아봅니다.
+- [Azure Monitor를 사용하여 차트를 만드는 방법](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)을 알아봅니다.

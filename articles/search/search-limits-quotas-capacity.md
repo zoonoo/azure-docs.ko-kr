@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620652"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273399"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크 로드 및 인덱스, 문서, 수량에 대 한 최대 제한은 및 다른 개체가 있는지 여부에 종속 되어 있습니다 [Azure Search를 프로 비전](search-create-service-portal.md) 에 **무료**, **기본**합니다  **표준**, 또는 **저장소에 최적화 된** 가격 책정 계층입니다.
@@ -114,7 +114,7 @@ Azure Blob 인덱싱의 이미지 분석이나 인식 검색의 자연어 처리
 | Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |400만 |400만 |400만 |N/A |400만 |400만 |
 
-<sup>1</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다.
+<sup>1</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다. Cognitive Services를 호출 하는 인덱싱 AI에 대 한 무료 서비스 제한 됩니다 하루 20 무료 트랜잭션이 여기서 트랜잭션이 성공적으로 보강 파이프라인을 통과 하는 문서로 정의 됩니다.
 
 <sup>2</sup> 2017년 후반 이후에 생성된 기본 서비스는 인덱스, 데이터 원본 및 인덱서 한도가 15개로 증가되었습니다. 앞에서 만든 서비스는 5개입니다.
 

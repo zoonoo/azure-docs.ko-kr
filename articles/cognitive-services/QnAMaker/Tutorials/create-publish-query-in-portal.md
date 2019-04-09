@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121420"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884128"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>자습서: 기술 자료를 만든 후 QnA Maker 포털을 통해 질문의 답변 만들기
 
@@ -105,7 +105,7 @@ KB가 게시되면 엔드포인트가 표시됩니다.
 
     ![Curl 명령](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. **Curl** 탭의 텍스트를 복사하고 Curl 지원 터미널 또는 명령줄에서 실행합니다. 인증 헤더의 값에 `Endpoint ` 텍스트와 후행 공백이 포함된 후 키가 포함됩니다.
+1. **Curl** 탭의 텍스트를 복사하고 Curl 지원 터미널 또는 명령줄에서 실행합니다. 인증 헤더의 값에 `Endpoint` 텍스트와 후행 공백이 포함된 후 키가 포함됩니다.
 
 1. `<Your question>`을 `How large can my KB be?`로 바꿉니다. 이는 `How large a knowledge base can I create?`라는 질문과 가깝지만 똑같지는 않습니다. QnA Maker는 자연어 처리를 적용하여 두 질문이 동일한지 확인합니다.     
 

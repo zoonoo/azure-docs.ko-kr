@@ -3,21 +3,21 @@ title: '자습서: Power BI에서 Azure Data Explorer의 데이터 시각화'
 description: 이 자습서에서는 Power BI를 사용하여 Azure Data Explorer에 연결하여 데이터를 시각화하는 방법을 알아봅니다.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854104"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757750"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>자습서: Power BI에서 Azure Data Explorer의 데이터 시각화
 
-Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Power BI는 데이터를 시각화하고 조직 전체에서 결과를 공유할 수 있는 비즈니스 분석 솔루션입니다. 이 자습서에서는 먼저 Azure Data Explorer에서 시각적 개체를 렌더링하는 방법을 알아봅니다. 그 다음, 연결 Power BI를 사용하여 Azure Data Explorer에 연결하고, 샘플 데이터를 기반으로 보고서를 작성하고, Power BI 서비스에 보고서를 게시합니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Power BI는 데이터를 시각화하고 조직 전체에서 결과를 공유할 수 있는 비즈니스 분석 솔루션입니다. 이 자습서에서는 먼저 Azure Data Explorer에서 시각적 개체를 렌더링하는 방법을 알아봅니다. 그 다음, 연결 Power BI를 사용하여 Azure Data Explorer에 연결하고, 샘플 데이터를 기반으로 보고서를 작성하고, Power BI 서비스에 보고서를 게시합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Power BI Pro에 등록하지 않은 경우 시작하기 전에 [평가판에 등록](https://app.powerbi.com/signupredirect?pbi_source=web)합니다.
 

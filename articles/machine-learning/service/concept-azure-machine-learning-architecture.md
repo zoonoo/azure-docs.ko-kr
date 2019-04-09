@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
+ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577325"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269132"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
 이 문서에서는 Azure Machine Learning 서비스에 대한 아키텍처 및 개념을 설명합니다. 다음 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용하기 위한 일반적인 워크플로를 보여줍니다.
 
-[![Azure Machine Learning Service 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning 서비스 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 일반적으로 워크플로는 다음 순서를 따릅니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "58577325"
 
 다음은 작업 영역의 분류 체계를 보여주는 다이어그램입니다.
 
-[![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>실험
 
@@ -80,7 +80,7 @@ ms.locfileid: "58577325"
 
 모델은 Azure Machine Learning에서 실행을 통해 생성됩니다. Azure Machine Learning 외부에서 학습된 모델을 사용할 수도 있습니다. Azure Machine Learning Service 작업 영역에 모델을 등록할 수 있습니다.
 
-Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 있습니다. 모델을 만드는 경우 Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer 및 Microsoft Cognitive Toolkit(전의 CNTK)와 같은 인기 있는 기계 학습 프레임워크를 사용할 수 있습니다.
+Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 있습니다. 모델을 만들 때 모든 인기 있는 기계 학습 프레임 워크 등 Scikit-학습, XGBoost, PyTorch, TensorFlow, Chainer를 사용할 수 있습니다.
 
 모델 학습 예제를 참조 하세요. [자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.
 
@@ -186,6 +186,10 @@ Azure Machine Learning은 다음과 같은 두 가지 유형의 이미지를 만
 * **FPGA 이미지**: Azure의 FPGA(Field-Programmable Gate Array)에 배포할 때 사용됩니다.
 * **Docker 이미지**: FPGA 이외의 컴퓨팅 대상에 배포할 때 사용됩니다. 예제로는 Azure Container Instances 및 Azure Kubernetes Service가 있습니다.
 
+Azure Machine Learning 서비스는 기본적으로 사용 되는 기본 이미지를 제공 합니다. 또한 사용자 고유의 사용자 지정 이미지를 제공할 수 있습니다.
+
+자세한 내용은 [모델 배포](how-to-deploy-and-where.md#configureimage)의 이미지 구성 및 등록 섹션을 참조하세요.
+
 이미지를 만드는 예제는 [Azure Container Instance에 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조하세요.
 
 ### <a name="image-registry"></a>이미지 레지스트리
@@ -228,7 +232,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 Azure Machine Learning Service를 시작하려면 다음을 참조하세요.
 
-* [Azure Machine Learning Service란?](overview-what-is-azure-ml.md)
+* [Azure Machine Learning 서비스란?](overview-what-is-azure-ml.md)
 * [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)
 * [Resource Manager 템플릿을 사용 하 여 작업 영역 만들기](how-to-create-workspace-template.md)

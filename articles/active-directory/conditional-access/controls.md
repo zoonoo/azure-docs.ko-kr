@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521978"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258745"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란?
 
@@ -58,7 +58,7 @@ ms.locfileid: "58521978"
 - 충족되도록 선택한 모든 컨트롤(*AND*)
 - 충족되도록 선택한 하나의 컨트롤(*OR*)
 
-![제어](./media/controls/17.png)
+![제어](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -78,7 +78,7 @@ ms.locfileid: "58521978"
 
 - [Azure AD 등록 디바이스](../devices/overview.md#azure-ad-registered-devices)
 - [Azure AD 조인 디바이스](../devices/overview.md#azure-ad-joined-devices)  
-- [하이브리드 Azure AD 조인 디바이스](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [하이브리드 Azure AD 가입 디바이스](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스를 요구하는 방법](require-managed-devices.md)을 참조하세요.
 
@@ -94,6 +94,18 @@ ms.locfileid: "58521978"
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 모든 MDM(모바일 장치 관리) 솔루션과는 별도로 회사의 데이터를 보호할 수 있습니다.
 
 승인된 클라이언트 앱을 사용하여 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 지원하도록 클라우드 앱에 액세스를 시도하는 클라이언트 앱을 요구할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다. 승인된 클라이언트 앱을 요구하는 조건부 액세스 정책을 [앱 기반 조건부 액세스 정책](app-based-conditional-access.md)이라고도 합니다. 지원되는 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement)을 참조하세요.
+
+### <a name="app-protection-policy-preview"></a>앱 보호 정책 (미리 보기)
+
+직원이 개인 및 회사 작업 모두에 모바일 디바이스를 사용하므로 관리되지 않는 경우에도 디바이스를 사용하여 액세스되는 회사 데이터를 보호하는 기능이 있어야 합니다.
+[Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 모든 MDM(모바일 장치 관리) 솔루션과는 별도로 회사의 데이터를 보호할 수 있습니다.
+
+앱 보호 정책을 사용 하 여 Azure에 보고 하는 클라이언트 응용 프로그램에 대 한 액세스를 제한할 수 있습니다 AD에는 받은 [Intune 앱 보호 정책을](https://docs.microsoft.com/intune/app-protection-policy)합니다. 예를 들어 있는 Intune 앱 보호 정책을 Outlook 앱에 Exchange Online에 대 한 액세스를 제한할 수 있습니다. 앱 보호 정책을 요구 하는 조건부 액세스 정책을 라고도 [앱 보호 기반 조건부 액세스 정책](app-protection-based-conditional-access.md)합니다. 
+
+응용 프로그램 보호 정책으로 표시 될 수 있습니다 전에 Azure AD에 장치를 등록 되어야 합니다.
+
+지원 되는 정책 목록을 보호 된 클라이언트 앱을 참조 하세요 [앱 보호 정책 요구 사항을](technical-reference.md#app-protection-policy-requirement)합니다.
+
 
 ### <a name="terms-of-use"></a>사용 약관
 
@@ -162,9 +174,9 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 자세한 내용은 다음을 참조하세요.
 
-- [SharePoint Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/spolimitedaccessdocs)
+- [SharePoint Online을 사용 하 여 제한 된 액세스를 사용 하도록 설정](https://aka.ms/spolimitedaccessdocs)
 
-- [Exchange Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/owalimitedaccess)
+- [Exchange Online을 사용 하 여 제한 된 액세스를 사용 하도록 설정](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>다음 단계
 

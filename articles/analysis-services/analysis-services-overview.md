@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444160"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893132"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -144,6 +144,11 @@ DirectQuery 모드*는 저장소 및 쿼리 실행에 백 엔드 관계형 데�
 
 Azure Analysis Services에서 테이블 형식 모델은 간단한 텍스트 파일부터 Azure Data Lake Store의 빅 데이터까지 다양한 데이터 원본을 지원합니다. 자세한 내용은 [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)을 참조하세요.
 
+## <a name="compatibility-level"></a>호환성 수준
+
+호환성 수준은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 자세히 알아보려면 [Analysis Services 테이블 형식 모델의 호환성 수준](analysis-services-compat-level.md)을 참조하세요.
+
+
 ## <a name="your-data-is-secure"></a>데이터가 안전함
 
 Azure Analysis Services는 여러 수준에서 중요한 데이터에 대한 보안을 제공합니다. Azure 서비스인 Analysis Services는 Azure 플랫폼의 일부로 자동으로 사용하도록 설정된 **기본** 수준의 DDoS(배포된 서비스 거부) 공격을 제공합니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](../virtual-network/ddos-protection-overview.md)를 참조하세요. 
@@ -193,7 +198,7 @@ Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www
 
 ### <a name="visual-studio"></a>Visual Studio
 
-[Visual Studio용 SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
+[Visual Studio용 SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
 
 Visual Studio 2017을 사용하는 경우 Microsoft Analysis Services Projects는 무료 설치 가능한 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
@@ -207,7 +212,7 @@ Visual Studio 2017을 사용하는 경우 Microsoft Analysis Services Projects�
 
 ### <a name="object-model-and-scripting"></a>개체 모델 및 스크립팅
 
-테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 테이블 형식 모델에는 모델 개체를 설명하는 TOM([테이블 형식 개체 모델](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo))이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 및 AMO 데이터 정의 언어로 공개되어 있습니다. 
+테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 테이블 형식 모델에는 모델 개체를 설명하는 TOM([테이블 형식 개체 모델](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo))이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 및 AMO 데이터 정의 언어로 공개되어 있습니다. 
 
 ## <a name="supports-the-latest-client-tools"></a>최신 클라이언트 도구 지원
 
@@ -225,7 +230,7 @@ Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/s
 
 Azure Analysis Services에 관련된 설명서는 여기에 포함됩니다. 브라우저 화면 왼쪽에 있는 목차를 사용하여 아티클을 찾습니다. 
 
-Azure Analysis Services 테이블 형식 모델이 SQL Server Analysis Services의 테이블 형식 모델과 거의 동일하기 때문에 [SQL Server Analysis Services 설명서](https://docs.microsoft.com/sql/analysis-services/analysis-services)에 광범위한 라이브러리 공유 개념, 절차, 개발자 및 참조 아티클이 있습니다. SQL Server Analysis Services 설명서의 아티클은 제목 아래에서 적용 대상 배너에 의해 Azure Analysis Services에 적용되는지를 보여줍니다.
+Azure Analysis Services 테이블 형식 모델이 SQL Server Analysis Services의 테이블 형식 모델과 거의 동일하기 때문에 [SQL Server Analysis Services 설명서](https://docs.microsoft.com/sql/analysis-services/analysis-services)에 광범위한 라이브러리 공유 개념, 절차, 개발자 및 참조 문서가 있습니다. SQL Server Analysis Services 설명서의 아티클은 제목 아래에서 적용 대상 배너에 의해 Azure Analysis Services에 적용되는지를 보여줍니다.
 
 ![공유 설명서](./media/analysis-services-overview/aas-overview-applies-to.png)
 
@@ -250,7 +255,7 @@ Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure 평가판 등록](https://azure.microsoft.com/offers/ms-azr-0044p/)   
+> [Azure 평가판 가입](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
 > [빠른 시작: 서버 만들기 - 포털](analysis-services-create-server.md)   

@@ -1,30 +1,30 @@
 ---
-title: IoT용 ASC 사용자 지정 경고 만들기 - 미리 보기 | Microsoft Docs
-description: IoT용 ASC 사용자 지정 디바이스 경고를 만들고 할당합니다.
-services: ascforiot
+title: IoT용 Azure Security Center 사용자 지정 경고 만들기 - 미리 보기 | Microsoft Docs
+description: IoT용 Azure Security Center 사용자 지정 디바이스 경고를 만들고 할당합니다.
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 591000f251d384b961569f9d7ca09ae93edea617
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d793b105e6d73c98739cd05d6e19a218413d7813
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541774"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861998"
 ---
 # <a name="quickstart-create-custom-alerts"></a>빠른 시작: 사용자 지정 경고 만들기
 
 > [!IMPORTANT]
-> IoT용 ASC는 현재 공개 미리 보기에 있습니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 사용자 지정 보안 그룹 및 경고를 사용하면 엔드투엔드 보안 정보와 범주별 디바이스 지식을 최대한 활용하여 IoT 솔루션 전체의 보안을 강화할 수 있습니다. 
@@ -33,7 +33,7 @@ ms.locfileid: "58541774"
 
 사용자가 자신의 IoT 디바이스에 대해 가장 잘 알고 있습니다.
 
-예상되는 디바이스 동작을 완전히 이해하고 있는 고객을 위해 IoT용 ASC를 사용하면 이러한 이해를 디바이스 동작 정책으로 변환하고 예상되는 정상적인 동작으로부터의 이탈에 대해 경고할 수 있습니다.
+IoT용 Azure Security Center(ASC)는 올바른 디바이스 동작을 완전히 이해하고 있는 고객이 자신이 알고 있는 지식을 디바이스 동작 정책에 적용하고 예상되는 정상적인 동작으로부터의 이탈에 대해 경고할 수 있습니다.
 
 ## <a name="security-groups"></a>보안 그룹
 
@@ -90,4 +90,4 @@ IoT Hub의 각 IoT 솔루션에는 기본적으로 **default**라는 하나의 �
 보안 에이전트를 배포하는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [보안 에이전트 배포](select-deploy-agent.md)
+> [보안 에이전트 배포](how-to-deploy-agent.md)

@@ -1,19 +1,19 @@
 ---
-title: NoSQL 데이터베이스의 문서 데이터 모델링
+title: Azure Cosmos DB에서 데이터 모델링
 titleSuffix: Azure Cosmos DB
 description: NoSQL 데이터베이스의 데이터 모델링과 관계형 데이터베이스 및 문서 데이터베이스의 데이터 모델링 간 차이점에 대해 알아봅니다.
-author: aliuy
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: andrl
-ms.custom: seodec18
-ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.custom: rimman
+ms.openlocfilehash: e8581cb130c8b2d7ac044838f0ae922b9b5e86cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762585"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275694"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 모델링
 

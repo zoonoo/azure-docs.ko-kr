@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760276"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271291"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Azure Stack에 대 한 저장소 인프라 관리
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 이 문서에서는 Azure Stack 저장소 인프라 리소스의 작동 상태를 설명 합니다. 이러한 리소스는 저장소 드라이브 및 볼륨을 포함 합니다. 이 항목의 내용은 풀에 드라이브를 추가할 수 없습니다 같은 다양 한 문제를 해결 하려고 할 때 중요 없습니다 수 있습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "57760276"
 
 ### <a name="drives"></a>드라이브
 
-Azure Stack Windows Server 소프트웨어 정의 저장소 기능, 저장소 공간 다이렉트 (s2d) 및 Windows Server 장애 조치 클러스터링의 조합 사용 하 여 고성능 및 확장성과 복원 력이 저장소 서비스를 제공할 수 있습니다.
+Windows Server 소프트웨어에서 제공 하는, Azure Stack 저장소 공간 다이렉트 (s2d) 및 Windows Server 장애 조치 클러스터링 성능이 나 확장성을 제공 하 고 복원 가능 저장소 서비스의 조합으로 저장소 기능을 정의 합니다.
 
 Azure Stack 통합 시스템 파트너는 다양 한 저장소 유연성을 비롯 한 다양 한 솔루션 변형을 제공 합니다. 현재 세 가지 드라이브 유형의 조합을 선택할 수 있습니다.: NVMe (비휘발성 메모리 Express), SATA/SSD (반도체 드라이브)를 SAS HDD (하드 디스크 드라이브).
 

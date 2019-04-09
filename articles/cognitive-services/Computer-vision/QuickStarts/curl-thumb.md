@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0b6430a31f31f85f01f67994f6b6fa0f30af9575
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20a438f4eb932596647002bf9d3072c651ac969c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57879925"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630649"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 cURL을 사용하여 썸네일 생성
 
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="examine-the-response"></a>응답 검사
 
-성공한 응답은 `<thumbnailFile>`에 지정된 파일에 썸네일 이미지를 기록합니다. 요청이 실패하면 무엇이 잘못되었는지 확인할 수 있도록 응답에 오류 코드 및 메시지가 포함됩니다.
+성공한 응답은 `<thumbnailFile>`에 지정된 파일에 썸네일 이미지를 기록합니다. 요청이 실패하면 무엇이 잘못되었는지 확인할 수 있도록 응답에 오류 코드 및 메시지가 포함됩니다. 요청이 성공한 것으로 보이지만 생성된 썸네일이 유효한 이미지 파일이 아닌 경우, 구독 키가 유효하지 않을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

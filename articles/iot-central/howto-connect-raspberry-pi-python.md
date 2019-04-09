@@ -1,19 +1,19 @@
 ---
 title: Raspberry Pi를 Azure IoT Central 애플리케이션에 연결(Python) | Microsoft Docs
-description: 장치 개발자로서 Python을 사용하여 Raspberry Pi를 Azure IoT Central 애플리케이션에 연결하는 방법을 알아봅니다.
+description: 장치 개발자가 Python을 사용 하 여 Azure IoT Central 응용 프로그램을 Raspberry Pi를 연결 하는 방법입니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/23/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 9f39832b50ed983e7d8a0bfc0a06366870717fa3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6ac16651e2d49dd903ff994b18a8f571bd92fbf6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272362"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(Python)
 
@@ -26,36 +26,33 @@ ms.locfileid: "54051988"
 이 문서의 단계를 완료하려면 다음 구성 요소가 필요합니다.
 
 * **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 참조는 [애플리케이션 빠른 시작 만들기](quick-deploy-iot-central.md)를 참조하세요.
-* Raspbian 운영 체제를 실행하는 Raspberry Pi 디바이스. GUI 환경에 액세스하려면 Raspberry Pi에 연결된 모니터, 키보드 및 마우스가 필요합니다. Raspberry Pi가 [인터넷에 연결](https://www.raspberrypi.org/learning/software-guide/wifi/)할 수 있어야 합니다.
-* 필요에 따라 Raspberry Pi용 [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) 추가 항목 보드를 사용할 수도 있습니다. 이 보드는 다양한 센서에서 원격 분석 데이터를 수집하여 Azure IoT Central 애플리케이션에 보냅니다. **Sense Hat** 보드가 없는 경우 Raspberry Pi 이미지의 일부분으로 제공되는 에뮬레이터를 대신 사용해도 됩니다.
+* Raspbian 운영 체제를 실행하는 Raspberry Pi 디바이스. Raspberry Pi를 인터넷에 연결할 수 있어야 합니다. 자세한 내용은 [Raspberry Pi 설정](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3)합니다.
 
 ## <a name="sample-devkits-application"></a>**샘플 Devkits** 애플리케이션
 
-**샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다. 
+**샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다.
 
 - 디바이스가 수집하는 다음 측정값을 포함하는 원격 분석입니다.
-    - 습도
-    - 온도
-    - 압력
-    - 지자기 센터(X, Y, Z)
-    - 가속도계(X, Y, Z)
-    - 자이로스코프(X, Y, Z)
+  - 습도
+  - 온도
+  - 압력
+  - 지자기 센터(X, Y, Z)
+  - 가속도계(X, Y, Z)
+  - 자이로스코프(X, Y, Z)
 - 설정
-    - 전압
-    - Current
-    - 팬 속도
-    - IR 토글.
+  - 전압
+  - Current
+  - 팬 속도
+  - IR 토글.
 - properties
-    - Die 번호 디바이스 속성
-    - 위치 클라우드 속성
+  - Die 번호 디바이스 속성
+  - 위치 클라우드 속성
 
-디바이스 템플릿 구성에 대한 자세한 내용은 [Raspberry PI 디바이스 템플릿 세부 정보](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details) 참조
-    
+장치 템플릿 구성의 전체 세부 정보를 참조 하세요. 합니다 [Raspberry Pi 장치 템플릿 세부 정보](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)합니다.
 
 ## <a name="add-a-real-device"></a>실제 디바이스 추가
 
-Azure IoT Central 애플리케이션에서 **Raspberry Pi** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 정보(**범위 ID, 디바이스 ID, 기본 키**)를 계속 추적합니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
-
+Azure IoT Central 응용 프로그램에서 실제 장치를 추가 합니다 **Raspberry Pi** 장치 템플릿. 기록해 장치 연결 세부 정보 (**범위 ID**를 **장치 ID**, 및 **기본 키**). 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
 
 ### <a name="configure-the-raspberry-pi"></a>Raspberry Pi 구성
 
@@ -64,22 +61,15 @@ Azure IoT Central 애플리케이션에서 **Raspberry Pi** 디바이스 템플�
 * Azure IoT Central에 원격 분석 데이터 및 속성 값을 보냅니다.
 * Azure IoT Central에서 수행된 설정 변경에 응답합니다.
 
-디바이스를 구성하려면 [GitHub의 단계별 지침을 따르세요.](https://aka.ms/iotcentral-docs-Raspi-releases)
+장치를 구성 하려면 [GitHub의 단계별 지침에 따라](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md)합니다.
 
+1. 장치를 구성할 때 장치는 Azure IoT Central을 원격 분석 측정을 보내기 시작 합니다.
+1. Azure IoT Central 애플리케이션에서, Raspberry Pi에서 실행되는 코드가 애플리케이션과 상호 작용하는 방식을 살펴볼 수 있습니다.
 
-> [!NOTE]
-> Raspberry Pi Python 샘플에 대한 자세한 내용은 GitHub의 [README](https://aka.ms/iotcentral-docs-Raspi-releases) 파일을 참조하세요.
+    * 실제 디바이스의 **측정값** 페이지에서, Raspberry Pi가 보낸 원격 분석 데이터를 볼 수 있습니다.
+    * 에 **설정을** 페이지 전압 및 팬 속도 같은 Raspberry Pi에서 설정을 변경할 수 있습니다. Raspberry Pi의 변경으로 인해, 설정으로 표시 **동기화**합니다.
 
-
-1. 구성된 디바이스는 잠시 후부터 Azure IoT Central에 데이터 전송을 시작합니다.
-1. Azure IoT Central 애플리케이션에서, Raspberry Pi에서 실행되는 코드가 애플리케이션과 상호 작용하는 방식을 살펴봅니다.
-
-    * 실제 디바이스의 **측정값** 페이지에서, Raspberry Pi가 보낸 원격 분석 데이터를 볼 수 있습니다. **Sense HAT 에뮬레이터**를 사용하는 경우 Raspberry Pi의 GUI에서 원격 분석 값을 수정할 수 있습니다.
-    * **속성** 페이지에서, 보고된 **다이 번호** 속성 값을 볼 수 있습니다.
-    * **설정** 페이지에서, 전압, 팬 속도 등 Raspberry Pi의 다양한 설정을 변경할 수 있습니다. Raspberry Pi가 변경 내용을 확인하면 Azure IoT Central에서 설정이 **동기화됨**으로 표시됩니다.
-
-
-## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 디바이스 템플릿 세부 정보
+## <a name="raspberry-pi-device-template-details"></a>Raspberry Pi 장치 템플릿 세부 정보
 
 **샘플 Devkits** 애플리케이션 템플릿으로 만든 애플리케이션에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다.
 
@@ -118,13 +108,13 @@ Azure IoT Central 애플리케이션에서 **Raspberry Pi** 디바이스 템플�
 
 ### <a name="properties"></a>properties
 
-| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | location   | 해당 없음       |
+| 텍스트            | 위치     | location   | N/A       |
 
 ## <a name="next-steps"></a>다음 단계
 
-Raspberry Pi를 Azure IoT Central 애플리케이션에 연결하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+이제 Raspberry Pi Azure IoT Central 응용 프로그램에 연결 하는 방법을 배웠으므로 제안 된 다음 단계는 다음과 같습니다.
 
-* [Azure IoT Central에 일반 Node.js 클라이언트 애플리케이션 연결](howto-connect-nodejs.md)
+* [Azure IoT Central을 제네릭 Node.js 클라이언트 응용 프로그램 연결](howto-connect-nodejs.md)

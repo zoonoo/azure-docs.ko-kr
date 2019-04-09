@@ -16,12 +16,20 @@ items:
   expanded: true
 - name: 자습서
   items:
-  - name: 1 - 컨테이너 이미지 만들기
-    href: container-instances-tutorial-prepare-app.md
-  - name: 2 - 컨테이너 레지스트리 만들기
-    href: container-instances-tutorial-prepare-acr.md
-  - name: 3 - 애플리케이션 배포
-    href: container-instances-tutorial-deploy-app.md
+  - name: 컨테이너 이미지 만들기 및 배포
+    items:
+    - name: 1 - 컨테이너 이미지 만들기
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2 - 컨테이너 레지스트리 만들기
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3 - 애플리케이션 배포
+      href: container-instances-tutorial-deploy-app.md
+  - name: 다중 컨테이너 그룹 배포
+    items:
+    - name: 컨테이너 그룹 배포 - YAML
+      href: container-instances-multi-container-yaml.md
+    - name: 컨테이너 그룹 배포 - Resource Manager
+      href: container-instances-multi-container-group.md
 - name: 샘플
   items:
   - name: 코드 샘플
@@ -42,10 +50,6 @@ items:
   items:
   - name: 배포
     items:
-    - name: 다중 컨테이너 그룹 - YAML
-      href: container-instances-multi-container-yaml.md
-    - name: 다중 컨테이너 그룹 - Resource Manager
-      href: container-instances-multi-container-group.md
     - name: 가상 네트워크에 배포(미리 보기)
       href: container-instances-vnet.md
     - name: Azure Container Registry에서 배포
@@ -126,9 +130,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 94d16ad208cbe5c5cffbcab9e09cf62a05a399ce
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4a2f2f48232bc78aa636934b0ac3a38bec2c1a23
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851209"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006040"

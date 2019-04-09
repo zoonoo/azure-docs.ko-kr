@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8ded7a86c1b4fb53ca81fc4e7b0c0d794c515ddf
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884004"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886348"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>C#을 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
@@ -57,7 +57,7 @@ Program.cs 파일의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 �
 
 [!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
 
-`Authorization` 헤더의 값에는 문자열 `EndpointKey `가 포함됩니다. 
+`Authorization` 헤더의 값에는 문자열 `EndpointKey`가 포함됩니다. 
 
 [요청](../how-to/metadata-generateanswer-usage.md#generateanswer-request) 및 [응답](../how-to/metadata-generateanswer-usage.md#generateanswer-response)에 대한 자세한 정보 
 

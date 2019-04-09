@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895565"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261543"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
 
@@ -138,6 +138,7 @@ Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, 
 
 - **도메인 가입 필요** - 이 정책 차단 액세스에도 도메인에 가입된 디바이스가 아직 없는 경우에 조직의 모든 사용자에 대한 액세스를 차단할 가능성이 있습니다.
 
+- **앱 보호 정책 필요** -이 정책 차단 액세스에도 Intune 정책이 없는 경우 조직의 모든 사용자에 대 한 액세스를 차단할 수 있습니다. Intune 앱 보호 정책에는 클라이언트 응용 프로그램을 없는 관리자 인 경우이 정책은 Intune 및 Azure와 같은 포털으로 다시 돌아가지 않도록 차단 합니다.
 
 **모든 사용자에 대 한 모든 클라우드 앱, 모든 장치 플랫폼:**
 

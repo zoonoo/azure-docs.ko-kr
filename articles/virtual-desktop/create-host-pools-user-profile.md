@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056098"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276391"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>호스트 풀에 대한 사용자 프로필 공유 설정
 
@@ -66,3 +66,6 @@ FSLogix 소프트웨어를 사용 하 여 가상 컴퓨터를 구성 하려면 �
 |---------------------|--------------------|-----------------------------------|
 | 사용             | DWORD              | 1                                 |
 | VHDLocations        | 다중 문자열 값 | "파일 공유에 대 한 네트워크 경로"     |
+
+>[!IMPORTANT]
+>보안 유지를 위해 Azure에서 Windows 가상 데스크톱 환경의 좋습니다 Vm에서 인바운드 포트 3389를 열지 마십시오. Windows 가상 데스크톱에 열려 있는 인바운드 포트 3389 호스트 풀의 Vm에 액세스 하는 사용자에 대 한 필요 하지 않습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 사용 하는 것이 좋습니다 [just in time VM 액세스](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)합니다.
