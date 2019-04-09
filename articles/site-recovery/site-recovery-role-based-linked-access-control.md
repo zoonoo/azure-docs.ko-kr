@@ -2,16 +2,16 @@
 title: RBAC(역할 기반 액세스 제어)를 사용하여 Azure Site Recovery 액세스 관리 | Microsoft Docs
 description: 이 문서에서는 RBAC(역할 기반 액세스 제어)를 적용하여 Azure Site Recovery 액세스를 관리하는 방법을 설명합니다.
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 5a6ef10f03bb5e108c226fe3d68f1dec67e6164a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218073"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281712"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
