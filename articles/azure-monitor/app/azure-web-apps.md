@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905837"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262502"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
 .NET 및.NET Core에서 Azure App Service에서 실행 하는 기반된 웹 응용 프로그램 모니터링을 사용 하도록 설정 하면 그 어느 때 보다 쉽게 되었습니다. 수동으로 사이트 확장을 설치 해야 하는 이전에, 하지만 최신 확장/에이전트에 빌드된 앱 서비스 이미지를 기본적으로 합니다. 이 문서는 Application Insights 모니터링을 사용 하는 과정을 안내해 뿐만 아니라 대규모 배포에 대 한 프로세스를 자동화 하는 것에 대 한 예비 지침을 제공 합니다.
 
 > [!NOTE]
-> Application Insights 사이트 확장을 통해 수동으로 추가 **개발 도구** > **확장** 는 사용 되지 않습니다. 확장의 안정적인 최신 릴리스는 이제 [사전](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service 이미지의 일부로. 파일에 위치한 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 안정적인 릴리스마다 자동으로 업데이트 됩니다. 모니터링을 사용 하도록 에이전트 기반 지침을 따르는 경우를 사용 되지 않는 확장을 자동으로 제거 됩니다 아래.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Application Insights 사이트 확장을 통해 수동으로 추가 **개발 도구** > **확장** 는 사용 되지 않습니다. 이러한 방식의 확장을 설치 된 각 새 버전에 대 한 수동 업데이트에 따라 달라 집니다. 확장의 안정적인 최신 릴리스는 이제 [사전](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service 이미지의 일부로. 파일에 위치한 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 안정적인 릴리스마다 자동으로 업데이트 됩니다. 모니터링을 사용 하도록 에이전트 기반 지침을 따르는 경우를 사용 되지 않는 확장을 자동으로 제거 됩니다 아래.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
@@ -285,6 +282,8 @@ Application Insights에 대해 구성 된 응용 프로그램 설정 사용 하 
 
 PowerShell을 통해 모니터링 응용 프로그램을 사용 하도록 설정 하기 위해 기본 응용 프로그램 설정만 변경 해야 합니다. 다음은 샘플 응용 프로그램의 리소스 그룹 "AppMonitoredRG"에서 "AppMonitoredSite" 이라는 웹 사이트에 대 한 모니터링을 사용 하도록 설정할 하 고 "012345678-abcd-ef01-2345-6789abcd" 계측 키를 전송할 수 있도록 데이터를 구성 합니다.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -348,6 +347,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 |문제 값|설명|해결
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 이 값은 확장 SDK의 일부 응용 프로그램에서 이미 하는 백오프 있음을 나타냅니다. 에 대 한 참조로 인해 하기란 `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, 또는 `Microsoft.ApplicationInsights`  | 참조를 제거 합니다. 이러한 참조의 일부 특정 Visual Studio 템플릿에서 기본적으로 추가 되 고 이전 버전의 Visual Studio에 대 한 참조를 추가할 수 있습니다 `Microsoft.ApplicationInsights`합니다.
+|`AppAlreadyInstrumented:true` | 응용 프로그램이.NET Core 2.1 또는 2.2를 대상으로 하는 고 가리킵니다 [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 메타 패키지를 Application Insights에서 다음을 제공 하 고 확장은 백오프. | .NET Core 2.1,2.2에서 고객이 [권장](https://github.com/aspnet/Announcements/issues/287) Microsoft.AspNetCore.App 메타 패키지를 대신 사용 하도록 합니다.|
 |`AppAlreadyInstrumented:true` | 이 값은 이전 배포의 앱 폴더에서 위의 dll로 발생할 수 있습니다. | 이러한 dll 제거 되도록 하려면 앱 폴더를 정리 합니다.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | 이 값이 확장에 대 한 참조가 있음을 나타냅니다 `Microsoft.AspNet.TelemetryCorrelation` 응용 프로그램에 백오프 하 고 있습니다. | 참조를 제거 합니다.
 |`AppContainsDiagnosticSourceAssembly**:true`|이 값이 확장에 대 한 참조가 있음을 나타냅니다 `System.Diagnostics.DiagnosticSource` 응용 프로그램에 백오프 하 고 있습니다.| 참조를 제거 합니다.

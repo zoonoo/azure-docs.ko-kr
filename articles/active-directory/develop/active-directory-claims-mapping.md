@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884080"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260309"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -177,7 +177,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| 사용자 이름 |
 | uti |
 | ver |
 | verified_primary_email |
@@ -415,7 +415,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 ### <a name="custom-signing-key"></a>사용자 지정 서명 키
 
-클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 정책이 적용되어 발급된 모든 토큰은 사용자 지정 서명 키로 서명되며, 해당 서명 키로 서명된 토큰을 수락하도록 애플리케이션을 구성해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다.
+클레임 매핑 정책을 적용하려면 사용자 지정 서명 키를 서비스 사용자 개체에 할당해야 합니다. 이렇게 하면 클레임 매핑 정책의 생성자가 토큰을 수정한 것을 인정하게 되며, 악의적인 행위자가 만든 클레임 매핑 정책을 사용하지 않도록 애플리케이션을 보호할 수 있습니다.  매핑을 사용 서명 키를 추가 하 여 해당 토큰에 대 한 특별 한 URI를 확인 해야 하는 클레임을 포함 하는 앱 `appid={client_id}` 에 해당 [OpenID Connect 메타 데이터 요청](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)합니다.  
 
 ### <a name="cross-tenant-scenarios"></a>교차 테넌트 시나리오
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441001"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278828"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 보고서를 구성하기 위해 수행해야 하는 단계를 설명합니다. 또한 Power BI를 사용하여 보고서에 액세스하는 방법도 설명합니다. 이러한 단계를 완료한 후에는 Power BI로 직접 이동하여 보고서를 확인, 사용자 지정 및 작성할 수 있습니다.
@@ -43,9 +43,6 @@ Azure Portal을 사용하여 Recovery Services 자격 증명 모음용 저장소
 
    * 리소스 목록에서 **Recovery Services**를 입력합니다.
    * 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
-
-      ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * Recovery Services 자격 증명 모음의 목록이 표시됩니다. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
 
      선택한 자격 증명 모음 대시보드가 열립니다.
@@ -153,6 +150,6 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 �
 ## <a name="next-steps"></a>다음 단계
 저장소 계정을 구성하고 Azure Backup 콘텐츠 팩을 가져온 후에 수행할 수 있는 다음 단계는 보고서를 사용자 지정하고 보고 데이터 모델을 사용하여 보고서를 만드는 것입니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Backup 보고 데이터 모델 사용](backup-azure-reports-data-model.md)
+* [Azure Backup 보고 데이터 모델을 사용 하 여](backup-azure-reports-data-model.md)
 * [Power BI에서 보고서 필터링](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Power BI에서 보고서 만들기](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

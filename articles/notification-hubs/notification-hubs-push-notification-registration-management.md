@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166772"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260460"
 ---
 # <a name="registration-management"></a>등록 관리
 
@@ -45,12 +45,12 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 
 - 설치 만들기 또는 업데이트가 완전히 멱등 상태입니다. 따라서 중복 등록을 걱정할 필요 없이 재시도할 수 있습니다.
-- 설치 모델은 개별 푸시 - 특정 디바이스 대상 지정이 쉽게 해줍니다. 시스템 태그 **"$InstallationId:[installationId]"** 는 각 설치 기반 등록에 자동으로 추가됩니다. 따라서 추가 코딩을 수행할 필요 없이 이 태그 보내기를 호출하여 특정 디바이스를 대상 지정할 수 있습니다.
+- 설치 모델 특수 태그 형식을 지원 (`$InstallationId:{INSTALLATION_ID}`) 알림을 특정 장치에 직접 보낼 수 있도록 합니다. 예를 들어, 앱의 코드의 설치 ID를 설정 하는 경우 `joe93developer` 이 특정 장치에 대 한 개발자에 대 한 알림을 보낼 때이 장치를 대상 수를 `$InstallationId:{joe93developer}` 태그입니다. 따라서 추가 코딩 하지 않고도 특정 장치를 선택할 수 있습니다.
 - 또한 설치를 사용하여 부분적인 등록 업데이트를 수행할 수도 있습니다. 설치의 부분 업데이트는 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902)을 사용하여 PATCH 메서드에서 요청됩니다. 이는 등록 시 태그를 업데이트하려고 할 때 유용합니다. 전체 등록을 풀다운한 다음 모든 이전 태그를 다시 보낼 필요가 없습니다.
 
 설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://msdn.microsoft.com/library/azure/mt621153.aspx) 또는 [설치 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)을 참조하세요.
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 
 Windows 스토어 클라이언트 애플리케이션의 경우 보조 타일에 알림을 보내는 것은 기본 타일에 보내는 것과 같습니다. 이 기능은 설치에서도 지원됩니다. 보조 타일에는 클라이언트 앱의 SDK가 투명하게 처리하는 다른 ChannelUri가 있습니다.
 
-SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 만드는 데 사용하는 것과 같은 TileId를 사용합니다.
-기본 ChannelUri와 마찬가지로 보조 타일의 ChannelUris도 언제든지 변경할 수 있습니다. 알림 허브의 설치를 계속 업데이트되게 하려면 디바이스가 설치를 보조 타일의 현재 ChannelUris로 새로 고쳐야 합니다.
+SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 만드는 데 사용하는 것과 같은 TileId를 사용합니다. 기본 ChannelUri와 마찬가지로 보조 타일의 ChannelUris도 언제든지 변경할 수 있습니다. 알림 허브의 설치를 계속 업데이트되게 하려면 디바이스가 설치를 보조 타일의 현재 ChannelUris로 새로 고쳐야 합니다.
 
 ## <a name="registration-management-from-the-device"></a>디바이스에서 등록 관리
 

@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d71df99096e58b3ac7adc920b91891b9a50cd6f7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479584"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262298"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack에 템플릿 배포
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 PowerShell을 사용할 수 있습니다. 이 문서에서는 PowerShell를 사용 하 여 템플릿을 배포 하는 방법을 설명 합니다.
 
@@ -34,9 +34,9 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 PowerShell�
 이 예제에서는 **AzureRM** GitHub에서 PowerShell cmdlet 및 템플릿을 저장 합니다. 이 템플릿은 Windows Server 2012 R2 Datacenter 가상 컴퓨터를 만듭니다.
 
 >[!NOTE]
->이 예제를 시도 하기 전에 확인 되었는지 [PowerShell 구성](azure-stack-powershell-configure-user.md) Azure Stack 사용자에 대 한 합니다.
+> 이 예제를 시도 하기 전에 확인 되었는지 [PowerShell 구성](azure-stack-powershell-configure-user.md) Azure Stack 사용자에 대 한 합니다.
 
-1. 로 이동 [ https://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) 찾고 합니다 **101-간단한-windows-vm** 템플릿. 이 위치에 템플릿을 저장할: `C:\templates\azuredeploy-101-simple-windows-vm.json`합니다.
+1. 찾아보기 합니다 [AzureStackGitHub 리포지토리](https://aka.ms/AzureStackGitHub) 찾고 합니다 **101 간단한-windows vm** 템플릿. 이 위치에 템플릿을 저장할: `C:\templates\azuredeploy-101-simple-windows-vm.json`합니다.
 2. 관리자 권한 PowerShell 명령 프롬프트를 엽니다.
 3. 바꿉니다 `username` 고 `password` 와 사용자 이름 및 암호를 스크립트를 실행 한 후 다음 스크립트에서:
 
@@ -45,10 +45,10 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 PowerShell�
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"
     $myLocation = "local"
-   
+
     # Create resource group for template deployment
     New-AzureRmResourceGroup -Name $RGName -Location $myLocation
-   
+
     # Deploy simple IaaS template
     New-AzureRmResourceGroupDeployment `
         -Name myDeployment$myNum `
@@ -63,7 +63,7 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 PowerShell�
     ```
 
     >[!IMPORTANT]
-    >이 스크립트를 실행할 때마다 값이 증가 된 `$myNum` 배포를 덮어쓰지 않도록 매개 변수입니다.
+    > 이 스크립트를 실행할 때마다 값이 증가 된 `$myNum` 배포를 덮어쓰지 않도록 매개 변수입니다.
 
 4. Azure Stack 포털 선택 **찾아보기**를 선택한 후 **가상 머신** 새 가상 컴퓨터를 찾으려면 (**myDeployment001**).
 

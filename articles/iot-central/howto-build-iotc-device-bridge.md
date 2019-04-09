@@ -5,19 +5,19 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/4/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730327"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263573"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>다른 IoT 클라우드를 IoT Central에 연결하는 IoT Central 디바이스 브리지 빌드
 
-*이 항목의 내용은 관리자에게 적용됩니다.*
+*이 항목에서는 관리자에 게 적용 됩니다.*
 
 IoT Central 디바이스 브리지는 Sigfox, Particle, The Things Network 및 다른 클라우드를 사용자의 IoT Central 앱에 연결하는 오픈 소스 솔루션입니다. Sigfox의 저전력 장거리 네트워크에 연결된 자산 추적 디바이스를 사용하거나 Particle Device Cloud에서 대기질 모니터링 디바이스를 사용하거나 TTN에서 토양 수분 모니터링 디바이스를 사용하는 경우 IoT Central 디바이스 브리지를 사용하여 직접 IoT Central의 기능을 활용할 수 있습니다. 디바이스 브리지는 디바이스가 보내는 데이터를 IoT Central 앱을 통해 다른 클라우드로 전달하여 다른 IoT 클라우드를 IoT Central과 연결합니다. IoT Central 앱에서 해당 데이터에 대해 규칙을 빌드하고 분석을 실행하며, Microsoft Flow 및 Azure Logic Apps에서 워크플로를 만들고, 해당 데이터를 내보내는 등의 작업을 수행할 수 있습니다. GitHub에서 [IoT Central 디바이스 브리지](https://aka.ms/iotcentralgithubdevicebridge) 가져오기
 
@@ -38,7 +38,7 @@ IoT Central 앱에서 디바이스를 전달된 메시지에 있는 디바이스
 ## <a name="how-do-i-set-it-up"></a>설정하려면 어떻게 해야 하나요?
 GitHub 리포지토리의 README 파일에 지침이 자세히 나열되어 있습니다. 
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 Azure 리소스를 Azure 구독에서 호스트합니다. [README 파일](https://aka.ms/iotcentralgithubdevicebridge)에서 가격 책정에 대한 자세한 정보를 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

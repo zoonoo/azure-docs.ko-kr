@@ -11,29 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 04/5/2019
 ms.author: banders
-ms.openlocfilehash: 229b5a0948a81c9b5d78dd49f304e7b6891f95ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653097"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281984"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure 예약에 대 한 환불 및 셀프 서비스 교환
 
 Azure 예약에 변화 하는 요구를 충족 하기 위해 유연성을 제공 합니다. 동일한 형식의 다른 예약에 대 한 예약을 교환할 수 있습니다. 더 이상 필요한 경우에 최대 50,000 USD 연간 예약을 환불 수 없습니다.
+
+셀프 서비스 교환 및 취소 기능이 미국 정부 기업 계약 고객에 대해 사용할 수 없습니다. 종 량 제 및 CSP를 포함 한 다른 US Government 구독 유형은 지원 됩니다.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>기존 예약 된 인스턴스를 교환 합니다.
 
 세 가지 빠른 단계를 사용 하 여 예약을 교환할 수 있습니다 합니다 [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)합니다.
 
 1. 환불 및 클릭 하려는 예약을 선택 **Exchange**합니다.  
-    ![반환할 예약을 보여 주는 예제 이미지 ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
+    ![반환할 예약을 보여 주는 예제 이미지](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
 2. 구매 수량을 입력 하 고 원하는 VM 제품을 선택 합니다. 새 구매 합계 반환 총 이상 인지 확인 합니다. [구입 하기 전에 적절 한 크기 결정](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)합니다.  
-    ![Exchange를 사용 하 여 구매할 VM 제품을 보여 주는 예제 이미지 ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
+    ![Exchange를 사용 하 여 구매할 VM 제품을 보여 주는 예제 이미지](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. 검토 하 고 트랜잭션을 완료 합니다.  
-    ![VM 제품 반환을 완료 하는 exchange를 사용 하 여 구매를 보여 주는 예제 이미지 ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+    ![VM 제품 반환을 완료 하는 exchange를 사용 하 여 구매를 보여 주는 예제 이미지](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 예약을 환불로 이동 **예약 세부 정보** 누릅니다 **환불**합니다.
 
@@ -83,11 +85,11 @@ Premium storage는 해당 VM 크기를 지원 하지 않는 VM 크기에 대해 
 ## <a name="next-steps"></a>다음 단계
 
 - 예약을 관리하는 방법을 알아보려면 [Azure Reservations 관리](billing-manage-reserved-vm-instance.md)를 참조하세요.
-- Azure Reservations에 대한 자세한 내용은 다음 문서를 참조하세요.
+- Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
     - [Azure Reservations란?](billing-save-compute-costs-reservations.md)
-    - [Azure에서 Reservations 관리](billing-manage-reserved-vm-instance.md)
-    - [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
-    - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
-    - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
-    - [예약에 포함되지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
-    - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)
+    - [Azure에서 예약 관리](billing-manage-reserved-vm-instance.md)
+    - [예약 할인은 적용 하는 방법 이해](billing-understand-vm-reservation-charges.md)
+    - [종 량 제 구독에 대 한 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
+    - [Enterprise 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+    - [예약을 사용 하 여 포함 하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
+    - [파트너 센터 클라우드 솔루션 공급자 (CSP) 프로그램에서 azure 예약](/partner-center/azure-reservations)

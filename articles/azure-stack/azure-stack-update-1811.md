@@ -16,16 +16,16 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: c9f43eb1623ec784bd960fb182dffec48e7b0833
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0fe5b055665ef5a770fba71fdefcfd13b9809e37
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481249"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282273"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
-*적용 대상: Azure Stack 통합 시스템*
+*적용 대상 Azure Stack 통합 시스템*
 
 이 문서에서는 1811 업데이트 패키지의 내용을 설명 합니다. 업데이트 패키지에는 향상 된 기능, 수정 및 Azure Stack의이 버전에 대 한 새 기능이 포함 됩니다. 이 문서는 또한이 릴리스의 알려진된 문제를 설명 하 고 업데이트를 다운로드할 수 있도록 링크가 포함 되어 있습니다. 알려진된 문제는 업데이트 프로세스를 직접 관련 된 문제 및 문제 (설치 후) 빌드를 사용 하 여으로 구분 됩니다.
 
@@ -391,6 +391,9 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
+### <a name="syslog"></a>syslog 
+- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 해당 구성과 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트에서 결과. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다.
+Azure Stack 업데이트를 적용 한 후 클라이언트를 syslog를 다시 구성 하려면이 문제를 해결 합니다.
 
 ## <a name="download-the-update"></a>업데이트 다운로드
 

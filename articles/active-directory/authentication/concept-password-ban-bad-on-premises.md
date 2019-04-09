@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862890"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264474"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -31,7 +31,8 @@ Azure AD 암호 보호는 사항에 따라 이러한 원칙을 사용 하 여 �
 * Active Directory 스키마 변경이 필요하지 않습니다. 기존 Active Directory를 사용 하는 소프트웨어 **컨테이너** 하 고 **serviceConnectionPoint** 스키마 개체입니다.
 * 없는 최소 Active Directory 도메인 또는 포리스트 기능 수준을 (DFL/FFL)가 필요 합니다.
 * 소프트웨어를 만들거나 보호 되는 Active Directory 도메인의 계정이 필요 하지 않습니다.
-* 암호 유효성 검사 작업 중 또는 언제 든 지 사용자 일반 텍스트 암호는 도메인 컨트롤러를 종료 하지.
+* 사용자 일반 텍스트 암호를 벗어나지 않습니다 도메인 컨트롤러 또는 언제 든 지 암호 유효성 검사 작업 중입니다.
+* 소프트웨어를 다른 Azure AD 기능에 종속 되지 않습니다. 예를 들어 Azure AD 암호 해시 동기화 관련 되지 않은 및 작동 하려면 Azure AD 암호 보호를 위해 필요 하지 않습니다.
 * 도메인 컨트롤러 (DC Agent) 에이전트를 설치한 암호 정책 에서만 적용 되지만 증분 배포가 지원 됩니다. 자세한 내용은 다음 항목을 참조 하세요.
 
 ## <a name="incremental-deployment"></a>증분 배포
@@ -62,7 +63,7 @@ DC 에이전트 서비스는 Azure AD에서 새 암호 정책 다운로드를 �
 
 서비스 루트 도메인의 전용된 폴더에 정책을 저장 DC 에이전트 서비스를 Azure AD에서 새 암호 정책을 받으면 *sysvol* 폴더 공유 합니다. 또한 DC 에이전트 서비스를 도메인에 다른 DC 에이전트 서비스의 최신 정책을 복제 하는 경우이 폴더를 모니터링 합니다.
 
-DC 에이전트 서비스는 항상 서비스 시작 시 새 정책을 요청합니다. DC 에이전트 서비스가 시작 된 후 현재 로컬로 사용할 수 있는 정책의 기간 1 시간 마다 확인 합니다. 1 시간 보다 오래 된 정책, 앞에서 설명한 대로 Azure AD에서 새 정책을 요청 DC 에이전트. 현재 정책이 1 시간 보다 오래 없으면 DC 에이전트에서 해당 정책을 사용 하 여 계속 합니다.
+DC 에이전트 서비스는 항상 서비스 시작 시 새 정책을 요청합니다. DC 에이전트 서비스가 시작 된 후 현재 로컬로 사용할 수 있는 정책의 기간 1 시간 마다 확인 합니다. 1 시간 보다 오래 된 정책, 앞에서 설명한 대로 프록시 서비스를 통해 Azure AD에서 새 정책을 요청 DC 에이전트. 현재 정책이 1 시간 보다 오래 없으면 DC 에이전트에서 해당 정책을 사용 하 여 계속 합니다.
 
 Azure AD 암호 보호 암호 정책 다운로드 될 때마다 해당 정책은 테 넌 트 특정입니다. 즉, 암호 정책은 항상 Microsoft 글로벌 차단 암호 목록을 목록과 테 넌 트 당 사용자 지정 차단 암호의 조합입니다.
 
@@ -77,6 +78,8 @@ DC 에이전트는 되지 네트워크에서 사용 가능한 포트에서 수�
 DC 에이전트 서비스를 사용자의 암호를 평가 하려면 최신 로컬로 사용 가능 암호 정책을 항상 사용 합니다. 암호 정책이 없고 로컬 DC에서 사용 가능한 경우 암호를 자동으로 적용 됩니다. 이 경우, 이벤트 메시지는 경고 관리자에 기록 됩니다.
 
 Azure AD 암호 보호 실시간 정책 응용 프로그램 엔진을 하지 않습니다. Azure AD에서 암호 정책 구성 변경을 수행 때 및에 도달 하면 변경 및 모든 도메인 컨트롤러에 적용 되는 사이 지연이 있을 수 있습니다.
+
+Azure AD 암호 보호는 기존 Active Directory 암호 정책에 대체 되지 보완 처럼 작동합니다. 여기에 다른 타사 암호 필터 dll 설치할 수 있습니다. Active Directory는 모든 암호 유효성 검사 구성 요소는 암호를 수락 하기 전에 동의 하는지 항상 필요 합니다.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>포리스트/테 넌 트 바인딩 암호 보호
 

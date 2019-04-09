@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849949"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281950"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Azure CLI를 사용하여 표준 Load Balancer에서 부하 분산 및 아웃바운드 규칙 구성
 
@@ -99,7 +99,7 @@ Load Balancer를 사용 하 여 인바운드 IP 주소 만들기 [az network lb 
 풀을 사용 하 여 Vm에 대 한 아웃 바운드 연결을 정의 하려면 추가 백 엔드 주소 풀을 만듭니다 [az network lb address-pool-만듭니다](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 이름의 *bepooloutbound*합니다.  최대한의 유연성을 제공 하는 별도 아웃 바운드 풀 만들기 하지만이 단계를 생략 하 고만 인바운드를 사용할 수 있습니다 *bepoolinbound* 도 합니다.
 
 ```azurecli-interactive
-  az network lb address-pool \
+  az network lb address-pool create \
     --resource-group myresourcegroupoutbound \
     --lb-name lb \
     --name bepooloutbound

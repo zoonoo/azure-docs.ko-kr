@@ -27,8 +27,6 @@ items:
   items:
   - name: 역할 정의 이해
     href: role-definitions.md
-  - name: 거부 할당 이해
-    href: deny-assignments.md
   - name: Azure Resource용 PIM
     href: pim-azure-resource.md
   - name: Azure 관리에 대한 조건부 액세스
@@ -49,13 +47,16 @@ items:
       href: role-assignments-template.md
   - name: 액세스 거부
     items:
+    - name: 거부 할당
+      href: deny-assignments.md
     - name: 포털
       href: deny-assignments-portal.md
     - name: REST API
       href: deny-assignments-rest.md
   - name: 사용자 지정 역할
-    href: custom-roles.md
     items:
+    - name: 개요
+      href: custom-roles.md
     - name: PowerShell
       href: custom-roles-powershell.md
     - name: Azure CLI
@@ -96,9 +97,9 @@ items:
   items:
   - name: Microsoft Learn을 통해 기술 쌓기
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 30bd7deb2a0845288999a09912e48700d3182b9b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408768"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007022"

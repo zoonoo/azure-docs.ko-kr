@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448923"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256790"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 데이터 복사
 
@@ -34,11 +34,11 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 데이터가 있는 Azure Data Lake Storage Gen1 계정
-* Data Lake Storage Gen2가 사용하도록 설정된 Azure Storage 계정: Storage 계정이 없으면 [여기](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)를 클릭하여 하나 만듭니다.
+* Data Lake Storage Gen2가 사용하도록 설정된 Azure Storage 계정: 저장소 계정에 없다면 [계정을 만들](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. 왼쪽된 메뉴에서 선택 **리소스 만들기** > **데이터 + 분석** > **Data Factory**:
+1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -104,7 +104,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
    
    ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfromadlsgen1**을 입력하고, **다음**을 선택합니다. 
+9. 에 **출력 파일 또는 폴더 선택** 페이지에서 입력 **copyfromadlsgen1** 출력 폴더 이름 및 선택 **다음**합니다. ADF 만들어집니다 해당 ADLS Gen2 파일 시스템 및 하위 폴더를 복사 하는 동안 존재 하지 않는 경우.
 
     ![출력 폴더 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
@@ -140,4 +140,4 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 ## <a name="next-steps"></a>다음 단계
 
 * [복사 작업 개요](copy-activity-overview.md)
-* [Azure Data Lake Storage Gen2 커넥터](connector-azure-data-lake-storage.md)
+* [Azure Data Lake 저장소 Gen2 커넥터](connector-azure-data-lake-storage.md)

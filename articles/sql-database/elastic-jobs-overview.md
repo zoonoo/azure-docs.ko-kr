@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773582"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264423"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>탄력적 작업 만들기, 구성 및 관리
 
@@ -76,6 +76,8 @@ ms.locfileid: "57773582"
 
 SQL 탄력적인 풀에서 데이터베이스에 대해 작업을 실행할 때 리소스에 작업 부하를 주지 않도록 하려면 작업이 동시에 실행될 수 있는 데이터베이스의 수를 제한하도록 작업을 구성할 수 있습니다.
 
+작업에서 설정 하 여 실행 하는 동시 데이터베이스 수를 설정 합니다 `sp_add_jobstep` 저장 프로시저의 `@max_parallelism` T-SQL에서 매개 변수 또는 `Add-AzSqlElasticJobStep -MaxParallelism` PowerShell에서.
+
 ## <a name="best-practices-for-creating-jobs"></a>작업을 만들기 위한 모범 사례
 
 ### <a name="idempotent-scripts"></a>Idempotent 스크립트
@@ -96,5 +98,5 @@ IF NOT EXIST (some_object)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PowerShell을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md)
-- [T-SQL(Transact-SQL)을 사용하여 탄력적 작업 만들기 및 관리](elastic-jobs-tsql.md)
+- [PowerShell을 사용 하 여 탄력적 작업 만들기 및 관리](elastic-jobs-powershell.md)
+- [TRANSACT-SQL (T-SQL)을 사용 하 여 탄력적 작업 만들기 및 관리](elastic-jobs-tsql.md)

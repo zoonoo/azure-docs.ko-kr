@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894768"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256892"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -93,7 +93,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 ![Azure Portal: Azure AD Connect 창](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO 만듭니다 라는 컴퓨터 계정이 `AZUREADSSOACC` 온-프레미스 각 AD 포리스트에 있는 Active Directory (AD). `AZUREADSSOACC` 보안상 강력 하 게 보호 해야 하는 컴퓨터 계정입니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에서 Kerberos 위임을 해제 되어 있는지 확인 합니다. 컴퓨터 계정에는 OU (조직 단위)는 실수로 인 한 삭제 로부터 안전 하 게 저장 합니다.
+> Seamless SSO 만듭니다 라는 컴퓨터 계정이 `AZUREADSSOACC` 온-프레미스 각 AD 포리스트에 있는 Active Directory (AD). `AZUREADSSOACC` 보안상 강력 하 게 보호 해야 하는 컴퓨터 계정입니다. 도메인 관리자만 컴퓨터 계정을 관리할 수 있어야 합니다. 컴퓨터 계정에서 Kerberos 위임을 해제 되어 있는지 확인 합니다. 실수로 인 한 삭제 로부터 안전 하 게 하는 경우 및 도메인 관리자만 액세스할 수 있는 컴퓨터 계정에는 OU (조직 단위)를 저장 합니다.
 
 >[!NOTE]
 > Pass-the-hash 및 자격 증명 도난 완화 아키텍처를 온-프레미스 환경에서 사용 하는 경우 적절 하 게 변경 하도록는 `AZUREADSSOACC` 격리 컨테이너의 컴퓨터 계정 종료 하지 않습니다. 

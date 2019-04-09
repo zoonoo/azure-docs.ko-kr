@@ -1,7 +1,6 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 청사진 만들기, 할당 및 제거와 관련된 문제를 해결하는 방법을 알아봅니다.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/11/2018
@@ -9,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3621ca198ec2bac24791a2515ade51b990194bf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 42fdd6645a7a0e7cd9a2f0a7bc969e8eee62758c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003862"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267194"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 

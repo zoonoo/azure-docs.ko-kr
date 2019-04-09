@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484290"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266208"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ ms.locfileid: "58484290"
 * 모니터링 및 진단 설정
 * 공용 인증서
 * WebJob 콘텐츠
-* 하이브리드 연결
+* 하이브리드 연결 *
+* VNet 통합 *
+* 서비스 끝점 *
+* Azure CDN *
+
+기능으로 표시 된 * 슬롯에 고정 될 예정입니다. 
 
 **교환되지 않은 설정**:
 
@@ -93,10 +98,15 @@ ms.locfileid: "58484290"
 * 개인 인증서 및 SSL 바인딩
 * 크기 조정 설정
 * WebJob 스케줄러
+* IP 제한
+* Always On
+* 프로토콜 설정 (HTTP**S**, TLS 버전, 클라이언트 인증서)
+* 진단 로그 설정
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-슬롯에 고정되어 교환되지 않도록 앱 설정 또는 연결 문자열을 구성하려면 슬롯의 **애플리케이션 설정** 페이지로 이동한 후 슬롯에 고정해야 하는 구성 요소의 **슬롯 설정** 상자를 선택합니다. 구성 요소를 슬롯별 요소로 표시하면 App Service는 교환 가능하지 않은 것으로 인식합니다.
+슬롯에 고정되어 교환되지 않도록 앱 설정 또는 연결 문자열을 구성하려면 슬롯의 **애플리케이션 설정** 페이지로 이동한 후 슬롯에 고정해야 하는 구성 요소의 **슬롯 설정** 상자를 선택합니다. 구성 요소를 슬롯별 요소로 표시하면 App Service는 교환 가능하지 않은 것으로 인식합니다. 
 
 ![슬롯 설정](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -122,7 +132,7 @@ ms.locfileid: "58484290"
 
 2. 원하는 **원본** 및 **대상** 슬롯을 선택합니다. 일반적으로 대상은 프로덕션 슬롯입니다. 또한 **원본 변경** 및 **대상 변경** 탭을 클릭하고 구성 변경이 예상대로 수행되었는지 확인합니다. 완료되면 **교환**을 클릭하여 슬롯을 즉시 교환할 수 있습니다.
 
-    ![전체 교환](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![교환 완료](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     교환이 실제로 발생하기 전에 대상 슬롯을 새 설정으로 실행하는 방법을 보려면 **교환**을 클릭하지 말고 [미리 보기가 있는 교환](#Multi-Phase)의 지침을 따릅니다.
 
@@ -209,7 +219,7 @@ ms.locfileid: "58484290"
 
 또한 다음 [앱 설정](web-sites-configure.md) 중 하나 이상을 사용하여 준비 동작을 사용자 지정할 수 있습니다.
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트 준비를 ping할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예: `/statuscheck` 기본값은 `/`입니다. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트 준비를 ping할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예: `/statuscheck`. 기본값은 `/`입니다. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. `200,202`를 예로 들 수 있습니다. 반환된 상태 코드가 목록에 없는 경우 준비 및 교환 작업이 중지됩니다. 기본적으로 모든 응답 코드는 유효합니다.
 
 ## <a name="monitor-swap"></a>교환 모니터링
@@ -329,4 +339,4 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 배포 슬롯에 대한 [Azure CLI](https://github.com/Azure/azure-cli) 명령은 [az webapp deployment slot](/cli/azure/webapp/deployment/slot)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[비프로덕션 슬롯에 대한 액세스 차단](app-service-ip-restrictions.md)
+[비-프로덕션 슬롯에 대 한 액세스 차단](app-service-ip-restrictions.md)

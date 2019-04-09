@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226575"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268724"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure에서 가용성 영역이란?
 가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 단일 지점 오류에서 보호하기 위해 가용성 영역에서 애플리케이션 및 데이터를 복제합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
@@ -45,6 +45,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 - 프랑스 중부
 - 북유럽
 - 동남아시아 
+- 영국 남부&#42;
 - 서유럽
 - 미국 서부 2
 
@@ -57,8 +58,8 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 - Windows 가상 머신
 - Virtual Machine Scale Sets
 - Managed Disks
-- Load Balancer
-- 공용 IP 주소
+- 표준 Load Balancer&#42;
+- 표준 공용 IP 주소&#42;
 - 영역 중복 저장소
 - SQL Database
 - Event Hubs
@@ -66,6 +67,8 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 - VPN Gateway
 - ExpressRoute
 - Application Gateway(미리 보기)
+
+&#42;2019 년 3 월 25 일 전에 영국 남부에서 만든 리소스를 영역 중복 곧 변환 됩니다. 2019 년 3 월 25 일 이후에 만들어진 리소스 즉시 영역 중복 됩니다.
 
 ## <a name="services-resiliency"></a>서비스 복원 력
 모든 Azure 관리 서비스는 지역 수준 오류 로부터 복원 되도록 설계 됩니다. 다양 한 오류는 지역 내에서 하나 이상의 가용성 영역 오류는 전체 지역 장애에 비해 실패 반지름이 보다 작은 경우 Azure는 다른 Azure 지역 또는 지역 내에서 관리 서비스의 영역 수준 오류 로부터 복구할 수 있습니다. Azure 지역 내에서 가용성 영역에 걸쳐 배포 하는 고객 리소스에 영향을 주는 모든 오류를 방지 하기 위해 지역 내에서 한 번에 하나의 영역이 중요 한 유지 관리를 수행 합니다.
@@ -76,10 +79,10 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 ## <a name="get-started-with-availability-zones"></a>가용성 영역 시작하기
 - [가상 머신 만들기](../virtual-machines/windows/create-portal-availability-zone.md)
-- [PowerShell을 사용하여 Managed Disk 추가](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [PowerShell을 사용 하 여 관리 디스크를 추가 합니다.](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [영역 중복 가상 머신 확장 집합 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM 부하 분산](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM 부하 분산](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [표준 Load Balancer를 사용 하 여 영역 중복 프런트 엔드를 사용 하 여 영역 간 부하 분산](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [표준 Load Balancer를 사용 하 여 영역별 프런트 엔드가 영역 내부의 Vm 부하 분산](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [영역 중복 저장소](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Event Hubs 지리적 재해 복구](../event-hubs/event-hubs-geo-dr.md#availability-zones)

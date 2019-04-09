@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0a24228f1437fbb23c11070b3e99cea60489c071
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482267"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264991"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -46,7 +46,7 @@ Azure Stack에서 Service Fabric 클러스터는 Microsoft.ServiceFabric 리소�
 
 1. **Azure Stack Marketplace에서 다음 항목을 사용할 수 있어야 합니다.**
     - **Windows Server 2016** – 템플릿은 Windows Server 2016 이미지를 사용 하 여 클러스터를 만듭니다.  
-    - **고객 스크립트 확장** -Microsoft에서 가상 머신 확장 합니다.  
+    - **사용자 지정 스크립트 확장** -Microsoft에서 가상 머신 확장 합니다.  
     - **PowerShell 필요한 구성 단계** -Microsoft에서 가상 머신 확장 합니다.
 
 

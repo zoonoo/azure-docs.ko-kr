@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878301"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280896"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -87,6 +87,8 @@ model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
 
 **Azure Container Instance** **Azure Kubernetes Service** 및 **Azure IoT Edge** 배포의 경우 [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용하여 이미지 구성을 만듭니다. 이 이미지 구성은 새 Docker 이미지를 만드는 데 사용됩니다.
 
+이미지 구성을 만들 때 사용할 수 있습니다는 __기본 이미지__ Azure Machine Learning 서비스에서 제공 또는 __사용자 지정 이미지__ 제공 하는 합니다.
+
 다음 코드는 새 이미지 구성을 만드는 방법을 보여 줍니다.
 
 ```python
@@ -112,6 +114,36 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 이미지 구성 프로그램을 만드는 예제를 참조 하세요 [이미지 분류자를 배포](tutorial-deploy-models-with-aml.md)합니다.
 
 자세한 내용은 [ContainerImage 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
+
+### <a id="customimage"></a> 사용자 지정 이미지를 사용 하 여
+
+사용자 지정 이미지를 사용 하는 경우 이미지에는 다음 요구 사항을 충족 해야 합니다.
+
+* Ubuntu 16.04 이상입니다.
+* Conda 4.5. # 이상.
+* Python 3.5. # 또는 3.6. #.
+
+사용자 지정 이미지를 사용 하려면 설정의 `base_image` 이미지의 주소로 이미지 구성의 속성입니다. 다음 예제에서는 두 공용 및 개인 Azure 컨테이너 레지스트리에서 이미지를 사용 하는 방법을 보여 줍니다.
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+Azure Container Registry에 이미지 업로드에 대 한 자세한 내용은 참조 하세요. [개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)합니다.
+
+모델은 Azure Machine Learning Compute에서 학습을 사용 하 여 __1.0.22 버전 이상__ Azure Machine Learning SDK의 이미지를 학습 하는 동안 만들어집니다. 다음 예제에서는이 이미지를 사용 하는 방법을 보여 줍니다.
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> 실행 스크립트
 
@@ -396,7 +428,7 @@ Project Brainwave를 사용하여 모델을 배포하는 방법에 대한 연습
 
 ## <a name="define-schema"></a>스키마를 정의 합니다.
 
-사용자 지정 데코레이터에 사용할 수 있습니다 [OpenAPI](https://swagger.io/docs/specification/about/) 사양 생성 및 입력 웹 서비스를 배포 하는 경우 조작을 입력 합니다. 에 `score.py` 파일에 정의 된 형식 개체 중 하나에 대 한 입력 및/또는 생성자에서 출력 샘플을 제공 및 형식 및 예제를 사용 하 여 스키마를 자동으로 생성 합니다. 형식은 현재 지원 됩니다.
+사용자 지정 데코레이터에 사용할 수 있습니다 [OpenAPI](https://swagger.io/docs/specification/about/) 사양 생성 및 입력 웹 서비스를 배포 하는 경우 조작을 입력 합니다. 에 `score.py` 파일에 정의 된 형식 개체 중 하나에 대 한 입력 및/또는 생성자에서 출력 샘플을 제공 및 유형 및 샘플은 자동으로 스키마를 만드는 데 사용 됩니다. 형식은 현재 지원 됩니다.
 
 * `pandas`
 * `numpy`

@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877366"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260394"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 공동 작업 FAQ
 
@@ -60,7 +60,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 예! 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
 [Azure Portal](https://portal.azure.com)에 대한 게스트 사용자의 액세스를 차단하려면 Microsoft Azure 클래식 배포 모델 API에서 조건부 액세스 정책을 사용합니다.
 1. **모든 사용자** 그룹을 수정하여 구성원만 포함되도록 합니다.
-   ![UserType이 같은 게스트 되지 모든 사용자 그룹을 보여 주는 스크린샷 ](media/faq/modify-all-users-group.png)
+   ![UserType이 같은 게스트 되지 모든 사용자 그룹을 보여 주는 스크린샷](media/faq/modify-all-users-group.png)
 2. 게스트 사용자를 포함하는 동적 그룹을 만듭니다.
    ![새 모든 게스트 사용자 그룹을 보여 주는 스크린샷](media/faq/group-with-guest-users.png)
 3. 다음 비디오에서 보여준 대로 조건부 액세스 정책을 설정하여 게스트 사용자가 포털에 액세스하지 못하도록 차단합니다.

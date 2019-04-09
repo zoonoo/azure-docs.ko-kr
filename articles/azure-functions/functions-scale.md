@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: HT
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893591"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266939"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
 Azure Functions는 두 개의 다른 계획에서 실행 됩니다. 소비 계획 및 프리미엄 요금제 (공개 미리 보기). 소비 계획은 코드가 실행 될 때 계산 능력을 자동으로 추가 합니다. 앱 부하를 처리 하는 데 필요한 경우 규모 확장 이며 코드 실행이 중지 되 면 축소 됩니다. 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다.  프리미엄 요금제는 자동으로 확장 하 고 코드를 실행 하는 경우 추가 계산 능력을 추가 합니다.  프리미엄 요금제는 프리미엄 계산 인스턴스, 인스턴스를 무기한으로 웜 보관 하는 기능 및 vnet 대 VNet 연결 기능을 추가로 제공 됩니다.  기존 App Service 계획에 있는 경우에 내에서 함수 앱을 실행할 수 있습니다.
 
 > [!NOTE]  
-> 둘 다 [프리미엄 요금제](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) 하 고 [Linux에 대 한 소비 계획](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) 는 현재 미리 보기로 제공 합니다.
+> 둘 다 [프리미엄 요금제](https://aka.ms/functions-premiumplan) 하 고 [Linux에 대 한 소비 계획](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) 는 현재 미리 보기로 제공 합니다.
 
 Azure Functions에 익숙하지 않으면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 

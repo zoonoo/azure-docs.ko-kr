@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: ca898f36b09d09cb7e0d67d373c54c46e15e0264
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842568"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282154"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure Traffic Manager
 
@@ -25,9 +25,9 @@ Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요�
 
 ## <a name="on-premises-to-azure-failover"></a>온-프레미스에서 Azure로 장애 조치(failover)
 
-첫 번째 시나리오에서는 **A사**의 모든 애플리케이션 인프라가 온-프레미스 환경에서 실행 중이라고 가정합니다. **A사**는 비즈니스 연속성 및 규정 준수를 위해 Azure Site Recovery를 사용하여 자사의 응용 프로그램을 보호하기로 결정했습니다.
+첫 번째 시나리오에서는 **A사**의 모든 애플리케이션 인프라가 온-프레미스 환경에서 실행 중이라고 가정합니다. **A사**는 비즈니스 연속성 및 규정 준수를 위해 Azure Site Recovery를 사용하여 자사의 애플리케이션을 보호하기로 결정했습니다.
 
-**A사**는 공용 엔드포인트를 사용하여 응용 프로그램을 실행 중이며 재해 발생 시 원활하게 트래픽을 Azure로 리디렉션하는 기능을 원합니다. A사는 Azure Traffic Manager의 [우선 순위](../traffic-manager/traffic-manager-configure-priority-routing-method.md) 트래픽 라우팅 메서드를 사용하면 이 장애 조치(Failover) 패턴을 쉽게 구현할 수 있습니다.
+**A사**는 공용 엔드포인트를 사용하여 애플리케이션을 실행 중이며 재해 발생 시 원활하게 트래픽을 Azure로 리디렉션하는 기능을 원합니다. A사는 Azure Traffic Manager의 [우선 순위](../traffic-manager/traffic-manager-configure-priority-routing-method.md) 트래픽 라우팅 메서드를 사용하면 이 장애 조치(Failover) 패턴을 쉽게 구현할 수 있습니다.
 
 설정 방법은 다음과 같습니다.
 - **A사**에서 [Traffic Manager 프로필](../traffic-manager/traffic-manager-create-profile.md)을 만듭니다.
@@ -60,9 +60,9 @@ Azure Traffic Manager의 [가중치](../traffic-manager/traffic-manager-configur
 
 ## <a name="azure-to-azure-failover"></a>Azure에서 Azure로 장애 조치(failover)
 
-이 예에서는 **C사**의 모든 애플리케이션 인프라가 Azure에서 실행 중이라고 가정합니다. **C사**는 비즈니스 연속성 및 규정 준수를 위해 Azure Site Recovery를 사용하여 자사의 응용 프로그램을 보호하기로 결정했습니다.
+이 예에서는 **C사**의 모든 애플리케이션 인프라가 Azure에서 실행 중이라고 가정합니다. **C사**는 비즈니스 연속성 및 규정 준수를 위해 Azure Site Recovery를 사용하여 자사의 애플리케이션을 보호하기로 결정했습니다.
 
-**C사**는 공용 엔드포인트를 사용하여 응용 프로그램을 실행 중이며 재해 발생 시 원활하게 트래픽을 다른 Azure 지역으로 리디렉션하는 기능을 원합니다. [우선 순위](../traffic-manager/traffic-manager-configure-priority-routing-method.md) 트래픽 라우팅 메서드를 사용하여 **C사**는 이러한 장애 조치(Failover) 패턴을 쉽게 구현할 수 있습니다.
+**C사**는 공용 엔드포인트를 사용하여 애플리케이션을 실행 중이며 재해 발생 시 원활하게 트래픽을 다른 Azure 지역으로 리디렉션하는 기능을 원합니다. [우선 순위](../traffic-manager/traffic-manager-configure-priority-routing-method.md) 트래픽 라우팅 메서드를 사용하여 **C사**는 이러한 장애 조치(Failover) 패턴을 쉽게 구현할 수 있습니다.
 
 설정 방법은 다음과 같습니다.
 - **C사**에서 [Traffic Manager 프로필](../traffic-manager/traffic-manager-create-profile.md)을 만듭니다.

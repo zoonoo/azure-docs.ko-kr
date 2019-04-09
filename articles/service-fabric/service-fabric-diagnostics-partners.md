@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e9bfb835a1dea240573c21ccbbe13088561851ab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c2f953c98e41291951f07556bd0cd441d2793d1d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661414"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259136"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric 모니터링 파트너
 
@@ -43,8 +43,11 @@ New Relic은 Service Fabric 애플리케이션과 잘 통합되는 다른 애플
 
 ## <a name="elk"></a>ELK 
 
-ELK 스택은 Elasticsearch, Logstash, Kibana를 의미하는 오픈 소스 기술 컬렉션입니다. 이를 조합으로 사용하여 Service Fabric 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 응용 프로그램을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
+ELK 스택은 Elasticsearch, Logstash, Kibana를 의미하는 오픈 소스 기술 컬렉션입니다. 이를 조합으로 사용하여 Service Fabric 모니터링 및 진단 데이터를 수집, 저장 및 분석할 수 있습니다. [여기](service-fabric-tutorial-java-elk.md)에 Service Fabric 네이티브 Java 애플리케이션을 사용하여 이 작업을 수행하는 방법에 대한 자습서가 있습니다. 
 
+## <a name="humio"></a>Humio
+
+Humio는 응용 프로그램에서 실시간으로 온-프레미스 또는 클라우드에서 Service Fabric에서 이벤트 로그를 수집할 수 있는 로그 컬렉션 서비스. 라이브 관찰성 외에도 Humio insights 진단에서 수집 및 보기에 대 한 최신 분석 및 시각화 기능을 제공 합니다. Humio에 경제적인 가격 책정 및 기본 제공 확장 유지 해야 하는 동안 빠른 속도 밝게 됩니다. Service Fabric 플랫폼 이벤트 및 응용 프로그램 원격 분석을 사용 하 여 직접 통합 됩니다. 자세한 내용은 Humio 및 Service Fabric 통합에 대 한 [여기](https://github.com/humio/service-fabric-humio)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

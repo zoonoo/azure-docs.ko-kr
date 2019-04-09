@@ -3,21 +3,21 @@ title: Azure IoT Central에서 웹후크를 사용하여 Azure Functions 트리�
 description: Azure IoT Central에서 규칙이 트리거될 때마다 실행되는 함수 앱을 만듭니다.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c80b007c3c9c1a35540e690554603a5ae8f16d62
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 0d92e9bdf8ec207e5ef0e3f891c162182b5a4fff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284632"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264848"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Azure IoT Central에서 웹후크를 사용하여 Azure Functions 트리거
 
-*이 항목은 빌더 및 관리자에게 적용됩니다.*
+*이 항목에서는 작성기와 관리자에 게 적용 됩니다.*
 
 Azure Functions를 사용하여 서버리스 코드를 IoT Central 규칙의 웹후크 출력에서 실행합니다. VM을 프로 비전 하거나 Azure Functions를 사용 하도록 웹 앱을 게시 하려면 없지만 대신 서버 리스이 코드를 실행할 수 있습니다. Azure Functions를 사용하여 SQL Database 또는 Event Grid와 같은 최종 대상에 보내기 전에 웹후크 페이로드를 변환합니다.
 

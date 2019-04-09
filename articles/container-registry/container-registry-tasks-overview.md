@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915928"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256195"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화
 
@@ -78,7 +78,7 @@ ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성
 > [!NOTE]
 > 기본 이미지와 애플리케이션 이미지가 모두 동일한 Azure 컨테이너 레지스트리 또는 공용 Docker 허브 리포지토리에 있는 경우에만 기본 이미지 업데이트에서 빌드를 트리거합니다.
 
-## <a name="multi-step-tasks"></a>다중 단계 작업
+## <a name="multi-step-tasks"></a>다단계 작업
 
 다중 단계 작업 단계 기반 작업 정의와 구축, 테스트 및 클라우드의 패치 컨테이너 이미지에 대 한 실행을 제공 합니다. 작업 단계는 개별 컨테이너 이미지 빌드 및 푸시 작업을 정의합니다. 해당 실행 환경으로 컨테이너를 사용하여 각 단계로 하나 이상의 컨테이너 실행을 정의할 수도 있습니다.
 
@@ -97,10 +97,9 @@ ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성
 
 ## <a name="next-steps"></a>다음 단계
 
-클라우드에서 컨테이너 이미지를 빌드하여 OS 및 프레임워크 패치를 자동화할 준비가 되면 세 부분으로 구성된 ACR 작업 자습서 시리즈를 확인합니다.
+OS 및 프레임 워크는 클라우드에서 컨테이너 이미지를 작성 하 여 패치를 자동화 하는 준비 된 경우 3 부작 확인해 [ACR 작업 자습서 시리즈](container-registry-tutorial-quick-task.md)합니다.
 
-> [!div class="nextstepaction"]
-> [Azure 컨테이너 레지스트리 작업을 사용 하 여 클라우드에서 컨테이너 이미지 빌드](container-registry-tutorial-quick-task.md)
+필요에 따라 설치를 [Visual Studio Code 용 Docker 확장](https://code.visualstudio.com/docs/azure/docker) 하며 [Azure 계정](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) 에 Azure 컨테이너 레지스트리를 사용 하는 확장 합니다. 끌어오기 및 이미지를 Azure container registry에 푸시 또는 Visual Studio Code 내에서 모든 ACR 태스크를 실행 합니다.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

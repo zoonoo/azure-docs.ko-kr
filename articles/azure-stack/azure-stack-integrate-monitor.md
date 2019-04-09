@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904001"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257300"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure Stack을 사용 하 여 외부 모니터링 솔루션 통합
 
@@ -30,7 +30,7 @@ Azure Stack 인프라의 외부 모니터링에 대 한 Azure Stack 소프트웨
 - 물리적 컴퓨터 가능 상태 및 경고 정보 베이스 보드 관리 컨트롤러 (Bmc)를 통해 사용할 수 있습니다.
 - 실제 네트워크 장치 가능 상태 및 경고 정보 SNMP 프로토콜을 통해 사용할 수 있습니다.
 
-하드웨어 수명 주기 호스트와 각 Azure Stack 솔루션 제공 됩니다. 이 호스트는 물리적 서버 및 네트워크 장치에 대 한 원래 장비 제조업체 (OEM) 하드웨어 공급 업체의 모니터링 소프트웨어를 실행합니다. 원한다 면 무시 하는 솔루션을 모니터링 하 고 직접 데이터 센터에서 기존 모니터링 솔루션을 사용 하 여을 통합할 수 있습니다.
+하드웨어 수명 주기 호스트와 각 Azure Stack 솔루션 제공 됩니다. 이 호스트는 물리적 서버 및 네트워크 장치에 대 한 원래 장비 제조업체 (OEM) 하드웨어 공급 업체의 모니터링 소프트웨어를 실행합니다. 모니터링 솔루션은 데이터 센터에서 기존 모니터링 솔루션과 통합 하는 경우 OEM 공급자를 사용 하 여 확인 하세요.
 
 > [!IMPORTANT]
 > 사용할 외부 모니터링 솔루션은 에이전트 없는 이어야 합니다. Azure Stack 구성 요소 내에서 타사 에이전트를 설치할 수 없습니다.
@@ -40,7 +40,7 @@ Azure Stack 인프라의 외부 모니터링에 대 한 Azure Stack 소프트웨
 ![Azure Stack, 모니터링 및 티켓팅 솔루션 간의 트래픽을 보여 주는 다이어그램입니다.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> 네트워크 장치 및 물리적 서버와 직접 외부 Monitoring Integration 허용 및 액세스 제어 목록 (Acl)에 의해 적극적으로 차단 합니다. 
+> 물리적 서버를 사용 하 여 직접 외부 Monitoring Integration 허용 및 액세스 제어 목록 (Acl)에 의해 적극적으로 차단 되지 않습니다.  실제 네트워크 장치를 사용 하 여 직접 외부 모니터링 통합은 지원,이 기능을 사용 하는 방법에 OEM 공급자를 사용 하 여 확인 하세요.
 
 이 문서에서는 System Center Operations Manager 및 Nagios와 같은 외부 모니터링 솔루션과 Azure Stack을 통합 하는 방법에 설명 합니다. 또한 REST API 호출을 통해 또는 PowerShell을 사용 하 여 경고를 사용 하 여 프로그래밍 방식으로 작업 하는 방법을 포함 합니다.
 

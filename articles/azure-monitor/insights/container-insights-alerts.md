@@ -1,6 +1,6 @@
 ---
-title: 컨테이너용 Azure Monitor를 사용하여 성능 경고 만들기 | Microsoft Docs
-description: 이 문서에서는 컨테이너용 Azure Monitor에서 메모리 및 CPU 사용률에 대한 로그 쿼리를 기준으로 사용자 지정 Azure 경고를 만드는 방법을 설명합니다.
+title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기 | Microsoft Docs
+description: 이 문서에서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 메모리 및 CPU 사용률에 대 한 로그 쿼리를 기반으로 하는 사용자 지정 경고를 만드는 방법을 설명 합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,31 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804827"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282290"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor에서 성능 문제에 대 한 경고를 설정 하는 방법
-컨테이너용 Azure Monitor는 AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. 
+컨테이너에 대 한 azure Monitor 관리 되는 Kubernetes 클러스터 호스트 되는 Azure Kubernetes Service (AKS)에서 또는 Azure Container Instances에 배포 되는 컨테이너 워크 로드의 성능을 모니터링 합니다.
 
 이 문서에서는 다음과 같은 경우에 대 한 경고를 사용 하도록 설정 하는 방법을 설명 합니다.
 
-* 클러스터의 노드에서 CPU 또는 메모리 사용률이 정의 된 임계값 초과 하는 경우.
-* CPU 또는 메모리 사용률 컨트롤러 내 컨테이너 중 하나에 해당 하는 리소스에 설정 된 한계를 비교 하 여 정의 된 임계값 초과 하는 경우.
-* **NotReady** 상태 노드 계산
-* Pod 단계 수가 **실패**를 **보류 중인**를 **알 수 없는**를 **실행**, 또는 **성공**
+* 클러스터 노드에서 CPU 또는 메모리 사용률이 정의 된 임계값을 초과 하는 경우
+* CPU 또는 메모리 사용률을 컨트롤러 내의 모든 컨테이너에 해당 하는 리소스에 설정 된 한계를 비교 하 여 정의 된 임계값을 초과 하는 경우
+* *NotReady* 상태 노드 계산
+*  *실패*, *보류 중*, *알 수 없는*를 *실행*, 또는 *성공* pod 단계 수
 
-CPU 또는 메모리 사용률이 높은 클러스터의 노드에서 다음을 할 수 있습니다 하는 경우 경고를 하나 만들거나 메트릭 경고를 제공 하는 로그 쿼리를 사용 하 여 메트릭 측정 경고 규칙을 합니다. 메트릭 경고의 로그 경고 보다 대기 시간이 낮은 반면 고급 쿼리 및 메트릭 경고를 보다 정교 성이 로그 경고를 제공 합니다. 로그 경고에 대 한 쿼리는 이제 연산자를 사용 하는 현재 날짜/시간을 비교 하 고 1 돌아갑니다. 컨테이너용 Azure Monitor에서 저장하는 모든 날짜는 UTC 형식입니다.
+높은 CPU 또는 클러스터 노드에서 메모리 사용률에 대 한 경고, 메트릭 경고를 만들거나 메트릭 측정 경고를 제공 하는 쿼리를 사용 합니다. 메트릭 경고의 로그 경고 보다 대기 시간이 낮은 경우 하지만 로그 경고 고급 쿼리 및 큰 정교함을 제공 합니다. 로그 쿼리를 사용 하 여 현재 날짜/시간을 비교 하는 경고는 *이제* 연산자 및 1을 다시 이동 합니다. (컨테이너에 대 한 azure Monitor 저장 모든 날짜 (UTC) 협정 세계시 형식으로 합니다.)
 
-를 시작 하기 전에 Azure Monitor에서 경고를 사용 하 여 잘 모르는 경우 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md)합니다. 로그 쿼리를 사용 하 여 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)합니다. 메트릭 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)합니다.
+Azure Monitor 경고를 사용 하 여 잘 모르는 경우 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 시작 하기 전에 합니다. 로그 쿼리를 사용 하는 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)합니다. 메트릭 경고에 대 한 자세한 내용은 참조 하세요 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)합니다.
 
 ## <a name="resource-utilization-log-search-queries"></a>리소스 사용률 로그 검색 쿼리
-이 섹션의 쿼리는 각 경고 시나리오를 지원 하기 위해 제공 됩니다. 쿼리는 아래에서 7 단계에 필요 합니다 [경고 만들기](#create-alert-rule) 섹션 아래.  
+이 섹션의 쿼리는 각 경고 시나리오를 지원 합니다. 7 단계에서 사용 하 여 [경고 만들기](#create-an-alert-rule) 이 문서의 섹션입니다.
 
-다음 쿼리는 평균 CPU 활용률을 분당 멤버 노드 CPU 활용률의 평균으로 계산합니다.  
+다음 쿼리는 평균 1 분 마다 멤버 노드의 CPU 사용률의 평균 CPU 사용률을 계산합니다.  
 
 ```kusto
 let endDateTime = now();
@@ -72,7 +72,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-다음 쿼리는 평균 메모리 활용률을 분당 멤버 노드 메모리 활용률의 평균으로 계산합니다.
+다음 쿼리는 멤버 노드의 메모리 사용률이 1 분 마다의 평균으로 평균 메모리 사용률을 계산합니다.
 
 ```kusto
 let endDateTime = now();
@@ -107,10 +107,9 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->클러스터 이름과 컨트롤러 이름-에 대 한 자리 표시자 문자열 값을 포함 하는 아래 쿼리에서 <-클러스터-이름 > 및 < your 컨트롤러-이름 >. 경고를 설정 하기 전에 환경에 특정 값을 사용 하 여 자리 표시자를 대체 합니다. 
+>다음 쿼리를 사용 하 여 자리 표시자 값 \<-클러스터-이름 > 및 \<컨트롤러 사용자 이름 > 클러스터 및 컨트롤러를 나타냅니다. 경고를 설정할 때 해당 환경에 특정 값으로 대체 합니다.
 
-
-다음 쿼리는 컨테이너에 대 한 설정도의 백분율로 매분 컨트롤러의 모든 컨테이너 인스턴스의 CPU 사용률의 평균으로 컨트롤러의 모든 컨테이너의 평균 CPU 사용률을 계산 합니다.
+다음 쿼리는 1 분 마다 컨트롤러의 모든 컨테이너 인스턴스의 CPU 사용률의 평균으로 컨트롤러의 모든 컨테이너의 평균 CPU 사용률을 계산합니다. 컨테이너에 대 한 설정도의 백분율입니다.
 
 ```kusto
 let endDateTime = now();
@@ -150,7 +149,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-다음 쿼리는 컨테이너에 대 한 설정도의 백분율로 매분 컨트롤러의 모든 컨테이너 인스턴스의 메모리 사용률의 평균으로 컨트롤러의 모든 컨테이너의 평균 메모리 사용률을 계산 합니다.
+다음 쿼리는 1 분 마다 컨트롤러의 모든 컨테이너 인스턴스의 메모리 사용률의 평균으로 컨트롤러의 모든 컨테이너의 평균 메모리 사용률을 계산합니다. 컨테이너에 대 한 설정도의 백분율입니다.
 
 ```kusto
 let endDateTime = now();
@@ -190,7 +189,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-모든 노드 및 수의 상태를 사용 하 여 다음 쿼리는 반환 **준비** 하 고 **NotReady**합니다.
+다음 쿼리는 모든 노드 및 상태에 있는 개수 반환 *준비* 하 고 *NotReady*합니다.
 
 ```kusto
 let endDateTime = now();
@@ -217,7 +216,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-Pod 단계 계산 다음 쿼리는 모든 단계-기반 **실패**를 **보류 중인**를 **알 수 없는**를 **실행**, 또는 **성공**합니다.  
+모든 단계를 기반으로 다음 쿼리 반환 pod 단계 수를 계산 합니다. *실패*, *보류 중*를 *알 수 없는*를 *실행*, 또는 *성공*합니다.  
 
 ```kusto
 let endDateTime = now();
@@ -254,38 +253,37 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->와 같은 특정 pod 단계에서 경고를 발생 시 **보류 중인**, **실패**, 또는 **알 수 없는**, 쿼리의 마지막 줄을 수정 해야 합니다. 에 대 한 경고를 예를 들어 *개의 작업이* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`합니다.  
+>와 같은 특정 pod 단계에서 경고를 발생 시 *보류 중인*, *실패*, 또는 *알 수 없는*, 쿼리의 마지막 줄을 수정 합니다. 에 대 한 경고를 예를 들어 *개의 작업이* 사용: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-## <a name="create-alert-rule"></a>경고 규칙 만들기
-이전에 제공 되는 로그 검색 규칙 중 하나를 사용 하 여 Azure Monitor의 로그 경고를 만들려면 다음 단계를 수행 합니다.  
+## <a name="create-an-alert-rule"></a>경고 규칙 만들기
+앞서 제공한 로그 검색 규칙 중 하나를 사용 하 여 Azure Monitor의 로그 경고를 만들려면 다음이 단계를 수행 합니다.  
 
 >[!NOTE]
->다음 절차에 설명 된 대로 새 로그 경고 API로 전환 해야 [로그 경고에 대 한 기본 설정 전환 API](../platform/alerts-log-api-switch.md) 컨테이너 리소스 사용률에 대 한 경고 규칙을 만들려는 경우입니다. 
+>컨테이너 리소스 사용률을 사용 하면 새 로그도 전환 해야에 대 한 경고 규칙을 만들려면 다음 절차에 설명 된 대로 API 경고 [로그 경고에 대 한 기본 설정 전환 API](../platform/alerts-log-api-switch.md)합니다.
 >
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal의 왼쪽 창에서 **모니터**를 선택합니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다.    
-3. **모니터링된 클러스터** 탭의 목록에서 클러스터 이름을 클릭하여 클러스터를 선택합니다.
-4. **모니터링** 섹션 아래의 왼쪽 창에서 **로그**를 선택하여 Azure Monitor 로그 페이지를 엽니다. 이 페이지는 Azure Log Analytics 쿼리를 작성하고 실행하는 데 사용됩니다.
-5. **로그** 페이지에서 **+ 새 경고 규칙**을 클릭합니다.
-6. **조건** 섹션에서 미리 정의된 사용자 지정 로그 조건인 **사용자 지정 로그 검색이 <logic undefined>일 때마다**를 클릭합니다. Azure Monitor 로그 페이지에서 직접 경고 규칙을 만들기 시작했기 때문에 **사용자 지정 로그 검색** 신호 유형이 자동으로 선택됩니다.  
-7. 중 하나를 붙여 넣습니다를 [쿼리](#resource-utilization-log-search-queries) 이전에 제공 합니다 **검색 쿼리** 필드. 
+2. 선택 **모니터** 왼쪽 창에서. 아래 **Insights**를 선택 **컨테이너**합니다.
+3. 에 **클러스터 모니터링** 탭 목록에서 클러스터를 선택 합니다.
+4. 아래 왼쪽 창에서 **모니터링**를 선택 **로그** Azure Monitor 로그 페이지를 엽니다. 이 페이지를 사용 하 여 작성 하 고 Azure Log Analytics 쿼리를 실행 합니다.
+5. 에 **로그** 페이지에서 **+ 새로운 경고 규칙**합니다.
+6. **조건** 섹션에서를 **때마다의 사용자 지정 로그 검색은 \<논리 정의 안 됨 >** 사전 사용자 지정 로그 상태를 정의 합니다. 합니다 **사용자 지정 로그 검색** 신호 유형은 직접 Azure Monitor 로그 페이지에서에서 경고 규칙을 만들고 있기 때문에 자동으로 선택 됩니다.  
+7. 중 하나를 붙여 넣습니다를 [쿼리](#resource-utilization-log-search-queries) 이전에 제공 합니다 **검색 쿼리** 필드.
+8. 다음과 같이 경고를 구성 합니다.
 
-8. 다음 정보로 경고를 구성합니다.
+    1. **기준** 드롭다운 목록에서 **미터법**을 선택합니다. 메트릭 측정 값이 지정한 임계값 보다 값이 있는 쿼리에서 각 개체에 대 한 경고를 만듭니다.
+    1. 에 대 한 **조건**를 선택 **보다 큰**를 입력 하 고 **75** 는 초기 기준선으로 **임계값**합니다. 또는 조건을 충족 하는 다른 값을 입력 합니다.
+    1. 에 **트리거 경고 기준** 섹션에서 **연속 위반**합니다. 드롭다운 목록에서 선택 **보다 큰**를 입력 하 고 **2**합니다.
+    1. 아래에 있는 컨테이너 CPU 또는 메모리 사용률에 대 한 경고를 구성 하려면 **집계**를 선택 **ContainerName**합니다. 
+    1. 에 **평가에 따라** 으로 설정 합니다 **기간** 값을 **60 분**합니다. 규칙은 5 분 마다 실행 되며 현재 시간에서 지난 1 시간 내에서 생성 된 레코드를 반환 합니다. 잠재적인 데이터 대기 시간에 대 한 와이드 창 계정에는 기간을 설정합니다. 또한 쿼리가 반환 하는 경고 하지 않습니다 발생 하는 거짓 부정 하지 않으려면 데이터는 확인 합니다.
 
-    a. **기준** 드롭다운 목록에서 **미터법**을 선택합니다. 메트릭 측정값은 쿼리에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 경고를 만듭니다.  
-    b. **조건**에서 **보다 큼**을 선택한 다음, 초기 기준선 **임계값**으로 **75**를 입력하거나 기준에 맞는 값을 입력합니다.  
-    다. **경고 트리거 기준** 섹션에서 **연속 위반**을 선택한 다음, 드롭다운 목록에서 **보다 큼**을 선택하고 값 **2**를 입력합니다.  
-    d. 아래에 있는 컨테이너 CPU 또는 메모리 사용률에 대 한 경고를 구성 하는 경우 **집계** 선택 **ContainerName** 드롭 다운 목록에서.  
-    e. **평가 기준** 섹션에서 **기간 값**을 60분으로 수정합니다. 규칙이 5분마다 실행되고 최근 1시간 이내에 만들어진 레코드를 반환합니다. 기간을 더 넓은 기간으로 설정하면 잠재적인 데이터 대기 시간이 발생할 수 있으므로 경고가 발생하지 않는 거짓 부정을 방지하기 위해 쿼리에서 데이터를 반환하도록 합니다. 
-
-9. **완료**를 클릭하여 경고 규칙을 완료합니다.
-10. **경고 규칙 이름** 필드에 경고 이름을 입력합니다. 경고의 세부 사항을 자세히 설명하는 **설명**을 지정하고, 제공된 옵션에서 적절한 심각도를 선택합니다.
-11. 생성 시 경고 규칙을 즉시 활성화하려면 **규칙을 만들면 바로 사용**에 기본값을 적용합니다.
-12. 최종 단계에서는 경고가 트리거될 때마다 동일한 작업이 수행되고 정의한 각 규칙에 대해 사용할 수 있도록 기존 **작업 그룹**을 선택하거나 새 작업 그룹을 만듭니다. IT 또는 DevOps 작업이 인시던트를 관리하는 방식에 따라 구성합니다. 
-13. **경고 규칙 만들기**를 클릭하여 경고 규칙을 완료합니다. 그 즉시 실행이 시작됩니다.
+9. 선택 **수행** 경고 규칙을 완료 합니다.
+10. 에 이름을 입력 합니다 **경고 규칙 이름** 필드입니다. 지정 된 **설명을** 경고에 대 한 정보를 제공 하는 합니다. 및 제공 된 옵션에서 적절 한 심각도 수준을 선택 합니다.
+11. 경고 규칙을 즉시 활성화 하려면에 대 한 기본값을 그대로 **활성화 규칙을 만들면**합니다.
+12. 기존 선택 **작업 그룹** 하거나 새 그룹을 만듭니다. 이 단계를 수행 하면 동일한 작업에는 경고가 트리거될 때마다 수행 되는 합니다. 구성 하는 방법에 따라 IT 하거나 인시던트를 관리 하는 DevOps 운영 팀입니다.
+13. 선택 **경고 규칙 만들기** 경고 규칙을 완료 합니다. 그 즉시 실행이 시작됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [로그 쿼리 예제](container-insights-analyze.md#search-logs-to-analyze-data)의 일부를 검토하여 다른 경고 시나리오에 대해 평가하고 사용하거나 사용자 지정할 수 있는 미리 정의된 쿼리 또는 예제를 알아봅니다. 
-* Azure Monitor를 사용하고 AKS 클러스터의 다른 측면을 모니터링하는 방법을 계속 알아보려면 [Azure Kubernetes Service 상태 보기](container-insights-analyze.md)를 참조하세요.
+* 뷰 [쿼리 예제 로그](container-insights-analyze.md#search-logs-to-analyze-data) 미리 정의 된 쿼리 및 평가 하거나 다른 경고 시나리오에 대 한 사용자 지정 하는 예제에 대해 알아보십시오.
+* Azure Monitor 및 AKS 클러스터의 다른 측면을 모니터링 하는 방법에 대 한 자세한 내용은 참조 하세요 [보기 Azure Kubernetes Service 상태](container-insights-analyze.md)합니다.

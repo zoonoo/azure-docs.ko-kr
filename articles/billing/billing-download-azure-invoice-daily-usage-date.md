@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224637"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281185"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
 
@@ -197,12 +197,12 @@ Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에
 
 - [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)
 - [Azure 청구서에서 용어 이해](billing-understand-your-invoice.md)
-- [Microsoft Azure 세부 사용량의 용어 이해](billing-understand-your-usage.md)
+- [용어를 이해 하 여 Microsoft Azure의 자세한 사용 현황](billing-understand-your-usage.md)
 - [조직의 Azure 가격을 확인합니다](billing-ea-pricing.md)
 
 Microsoft 고객 계약에 있는 경우 참조 하세요.
 
-- [청구 프로필에 대 한 청구서 요금 이해 ](billing-mca-understand-your-bill.md)
+- [청구 프로필에 대 한 청구서 요금 이해](billing-mca-understand-your-bill.md)
 - [청구 프로필에 대 한 청구서에서 용어 이해](billing-mca-understand-your-invoice.md)
 - [청구 프로필에 대 한 Azure 사용량 및 요금 파일 이해](billing-mca-understand-your-usage.md)
 - [보기 및 요금 청구 프로필에 대 한 세금 문서를 다운로드 합니다.](billing-mca-download-tax-document.md)

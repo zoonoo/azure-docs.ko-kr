@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905888"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261040"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -39,7 +39,9 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 3. 인증 키를 검색한 다음 해당 키를 사용하여 자체 호스팅 통합 런타임을 등록합니다. 다음은 PowerShell 예제입니다.
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Azure Resource Manager 템플릿(자동화)을 사용하여 Azure VM에 자체 호스팅 IR 설정
@@ -110,7 +112,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 
 ## <a name="high-availability-and-scalability"></a>고가용성 및 확장성
-자체 호스팅 통합 런타임은 여러 온-프레미스 컴퓨터에 연결할 수 있습니다. 이러한 컴퓨터를 노드라고 합니다. 최대 4개의 노드를 자체 호스팅 통합 런타임에 연결할 수 있습니다. 논리 게이트웨이에 여러 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 경우의 이점은 다음과 같습니다.
+자체 호스팅된 통합 런타임을 여러 온-프레미스 컴퓨터나 Azure에서 가상 컴퓨터를 사용 하 여 연결할 수 있습니다. 이러한 컴퓨터를 노드라고 합니다. 최대 4개의 노드를 자체 호스팅 통합 런타임에 연결할 수 있습니다. 논리 게이트웨이에 여러 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 경우의 이점은 다음과 같습니다.
 * 최대 4개의 노드를 연결하여 장애 시에도 작업을 계속할 수 있으므로 클라우드 데이터와 Azure Data Factory 통합 또는 빅 데이터 솔루션에서 더 이상 단일 장애 지점이 발생하지 않습니다. 따라서 자체 호스팅 통합 런타임의 가용성이 높아집니다.
 * 온-프레미스 및 클라우드 데이터 저장소 간의 데이터 이동 성능 및 처리량을 향상시킵니다. 자세한 내용은 [성능 비교](copy-activity-performance.md)를 참조하세요.
 

@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057441"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259814"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "59057441"
 
 ### <a name="create-in-powershell"></a>PowerShell에서 열기
 
-새로 만들기-AzManagementGroup cmdlet을 사용 하면 PowerShell 내에서:
+PowerShell을 사용 합니다 [새로 만들기-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) 새 관리 그룹을 만드는 cmdlet입니다.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
@@ -58,20 +58,39 @@ New-AzManagementGroup -GroupName 'Contoso'
 
 **GroupName**은 생성되는 고유 식별자입니다. 이 ID는 데 다른 명령을 사용 하 여이 그룹을 참조 하 고 나중에 변경할 수 없습니다.
 
-관리 그룹이 Azure Portal 내에서 다른 이름을 표시하도록 하려면 해당 문자열의 **DisplayName** 매개 변수를 추가합니다. 예를 들어, GroupName이 Contoso이고 표시 이름이 "Contoso Group"인 관리 그룹을 만들려면 다음 cmdlet을 사용합니다.
+Azure portal 내에서 다른 이름을 표시 하는 관리 그룹을 추가 합니다 **DisplayName** 매개 변수입니다. 예를 들어, GroupName이 Contoso이 고 "Contoso Group"의 표시 이름을 사용 하 여 관리 그룹을 만들려면 다음 cmdlet을 사용 합니다.
 
 ```azurepowershell-interactive
-New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-이 관리 그룹을 다른 관리 아래에 만들려면 **ParentId** 매개 변수를 사용합니다.
+앞의 예제에서 새 관리 그룹의 루트 관리 그룹에서 만들어집니다. 부모와 다른 관리 그룹을 지정 하려면 사용 합니다 **ParentId** 매개 변수입니다.
+
+```azurepowershell-interactive
+$parentGroup = Get-AzManagementGroup -GroupName Contoso
+New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
+```
 
 ### <a name="create-in-azure-cli"></a>Azure CLI에서 만들기
 
-Azure CLI에서 az account management-group create 명령을 사용합니다.
+Azure CLI를 사용 합니다 [az 계정 관리 그룹 만들기](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) 새 관리 그룹을 만드는 명령입니다.
 
 ```azurecli-interactive
-az account management-group create --name 'Contoso'
+az account management-group create --name Contoso
+```
+
+합니다 **이름을** 만들어지는 고유 식별자입니다. 이 ID는 데 다른 명령을 사용 하 여이 그룹을 참조 하 고 나중에 변경할 수 없습니다.
+
+Azure portal 내에서 다른 이름을 표시 하는 관리 그룹을 추가 합니다 **표시 이름** 매개 변수입니다. 예를 들어, GroupName이 Contoso이 고 "Contoso Group"의 표시 이름을 사용 하 여 관리 그룹을 만들려면 다음 명령을 사용 합니다.
+
+```azurecli-interactive
+az account management-group create --name Contoso --display-name 'Contoso Group'
+```
+
+앞의 예제에서 새 관리 그룹의 루트 관리 그룹에서 만들어집니다. 부모와 다른 관리 그룹을 지정 하려면 사용 합니다 **부모** 매개 변수 부모 그룹의 이름을 제공 합니다.
+
+```azurecli-interactive
+az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
 ## <a name="next-steps"></a>다음 단계

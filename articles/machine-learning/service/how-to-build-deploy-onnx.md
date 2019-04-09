@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 349f2c4eea743c3e44e492dfa76be4a70f2c37d6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362028"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259187"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 및 Azure Machine Learning: 상호 운용 가능한 AI 모델 만들기 및 배포
 
@@ -28,15 +28,16 @@ ONNX([Open Neural Network Exchange](https://onnx.ai)) 형식은 Machine Learning
 Microsoft는 사용자가 이러한 목표를 달성할 수 있도록 Azure와 Windows를 포함한 자사 제품에서 ONNX를 지원합니다.  
 
 ## <a name="why-choose-onnx"></a>ONNX를 선택해야 하는 이유
+
 ONNX는 상호 운용성이 뛰어나므로 기발한 아이디어를 프로덕션 환경에서 더 빠르게 구현할 수 있습니다. 데이터 과학자는 ONNX를 통해 작업에서 원하는 프레임워크를 선택할 수 있습니다. 마찬가지로 개발자는 프로덕션 환경용으로 모델을 준비하는 시간을 줄이고 클라우드와 에지로 모델을 배포할 수 있습니다.  
 
-PyTorch, Chainer, Microsoft Cognitive Toolkit(CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn 등의 여러 프레임워크에서 ONNX 모델을 만들 수 있습니다.
+PyTorch, Chainer, MXNet, ML.Net, TensorFlow, Keras, Scikit-learn, Microsoft Cognitive Toolkit 등을 비롯 한 여러 프레임 워크에서 ONNX 모델을 만들 수 있습니다.
 
 ONNX 모델을 시각화하고 더 빠르게 작성하기 위한 도구 에코시스템도 갖춰져 있습니다. 일반 시나리오용으로 미리 학습된 여러 ONNX 모델도 제공됩니다.
 
 Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX 모델을 배포](#deploy)할 수 있습니다. [Windows ML](https://docs.microsoft.com/windows/ai/)을 사용해 Windows 10 디바이스로 ONNX 모델을 배포할 수도 있습니다. ONNX 커뮤니티에서 제공되는 변환기를 사용하면 다른 플랫폼으로도 배포가 가능합니다. 
 
-[![교육, 변환기 및 배포를 보여 주는 ONNX 흐름 다이어그램](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![O교육, 변환기 및 배포를 보여 주는 NNX 흐름 다이어그램](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>ONNX 모델 가져오기
 
@@ -53,11 +54,11 @@ Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX �
 |모델에 대한 프레임워크|변환 예제 또는 도구|
 |-----|-------|
 |PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|Microsoft&nbsp;CNTK(Cognitive&nbsp;Toolkit&nbsp;)|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
-|TensorFlow|[tensorflow-onnx 변환기](https://github.com/onnx/tensorflow-onnx)|
+|TensorFlow|[tensorflow onnx 변환기](https://github.com/onnx/tensorflow-onnx)|
 |Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
 |MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit-Learn, CoreML<br/>XGBoost 및 libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 지원되는 프레임워크 및 변환기의 최신 목록은 [ONNX 자습서 사이트](https://github.com/onnx/tutorials)에서 확인할 수 있습니다.
 
@@ -144,6 +145,9 @@ results = session.run([], {"input1": indata1, "input2": indata2})
    image.wait_for_creation(show_output = True)
    ```
 
+   > [!TIP]
+   > 이전 예제에는 Azure Machine Learning 서비스에서 제공 하는 기본 이미지를 사용 합니다. 또한 사용자 지정 이미지를 사용할 수 있습니다. 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#configureimage)의 이미지 구성 및 등록 섹션을 참조하세요.
+
    점수 매기기 논리가 들어 있는 `score.py` 파일을 이미지에 포함해야 합니다. 이 파일은 이미지에서 모델을 실행하는 데 사용됩니다. 점수 매기기 스크립트를 만드는 방법에 대한 지침은 이 [자습서](tutorial-deploy-models-with-aml.md#create-scoring-script)를 참조하세요. 아래에는 ONNX 모델의 예제 파일이 나와 있습니다.
 
    ```python
@@ -204,9 +208,9 @@ ONNX 모델을 만들고 배포하는 예제 노트는 [how-to-use-azureml/deplo
 ONNX에 대해 자세히 알아보거나 프로젝트에 참가합니다.
 + [ONNX 프로젝트 웹 사이트](https://onnx.ai)
 
-+ [GitHub의 ONNX 코드](https://github.com/onnx/onnx)
++ [GitHub에서 ONNX 코드](https://github.com/onnx/onnx)
 
 ONNX Runtime에 대해 자세히 알아보거나 프로젝트에 참가합니다.
-+ [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
++ [ONNX 런타임 GitHub 리포지토리](https://github.com/Microsoft/onnxruntime)
 
 

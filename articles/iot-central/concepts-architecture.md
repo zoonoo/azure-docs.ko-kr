@@ -3,17 +3,17 @@ title: Azure IoT Central의 아키텍처 개념 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 아키텍처와 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 564ea3efe35a1054b8c905cff4b7f4c739cc9216
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156377"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260955"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
 
@@ -23,14 +23,14 @@ ms.locfileid: "50156377"
 
 ## <a name="devices"></a>디바이스
 
-디바이스는 Azure IoT Central 응용 프로그램과 데이터를 교환합니다. 디바이스는 다음을 수행할 수 있습니다.
+장치는 Azure IoT Central 애플리케이션과 데이터를 교환합니다. 디바이스는 다음을 수행할 수 있습니다.
 
 - 원격 분석 데이터 같은 측정값을 보냅니다.
 - 애플리케이션과 설정을 동기화합니다.
 
-Azure IoT Central에서, 디바이스가 응용 프로그램과 교환할 수 있는 데이터는 디바이스 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
+Azure IoT Central에서, 장치가 애플리케이션과 교환할 수 있는 데이터는 장치 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
 
-디바이스가 Azure IoT Central 응용 프로그램에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity.md)을 참조하세요.
+장치가 Azure IoT Central 애플리케이션에 연결하는 방법에 대한 자세한 내용은 [장치 연결](concepts-connectivity.md)을 참조하세요.
 
 ## <a name="cloud-gateway"></a>클라우드 게이트웨이
 
@@ -61,23 +61,23 @@ Azure IoT Central은 디바이스에서 보낸 측정값 데이터에 시계열 
 
 ## <a name="rules-and-actions"></a>규칙 및 동작
 
-[규칙 및 동작](howto-create-telemetry-rules.md)은 서로 긴밀하게 작동하여 응용 프로그램 내의 작업을 자동화합니다. 작성자는 정의된 임계값을 초과하는 온도 같은 디바이스 원격 분석 데이터를 기반으로 규칙을 정의할 수 있습니다. Azure IoT Central은 스트림 프로세서를 사용하여 규칙 조건 충족 여부를 확인합니다. 규칙 조건이 충족되면 작성자가 정의한 작업을 트리거합니다. 예를 들어 디바이스 온도가 너무 높다고 엔지니어에게 알리는 이메일을 작업에서 보낼 수 있습니다.
+[규칙 및 동작](howto-create-telemetry-rules.md)은 서로 긴밀하게 작동하여 애플리케이션 내의 작업을 자동화합니다. 작성자는 정의된 임계값을 초과하는 온도 같은 디바이스 원격 분석 데이터를 기반으로 규칙을 정의할 수 있습니다. Azure IoT Central은 스트림 프로세서를 사용하여 규칙 조건 충족 여부를 확인합니다. 규칙 조건이 충족되면 작성자가 정의한 작업을 트리거합니다. 예를 들어 디바이스 온도가 너무 높다고 엔지니어에게 알리는 이메일을 작업에서 보낼 수 있습니다.
 
 ## <a name="metadata-management"></a>메타데이터 관리
 
-Azure IoT Central 응용 프로그램에서 디바이스 템플릿은 디바이스 유형의 동작 및 기능을 정의합니다. 예를 들어 냉장고 디바이스 템플릿은 냉장고가 응용 프로그램에 보내는 원격 분석 데이터를 지정합니다.
+Azure IoT Central 애플리케이션에서 장치 템플릿은 장치 유형의 동작 및 기능을 정의합니다. 예를 들어 냉장고 장치 템플릿은 냉장고가 애플리케이션에 보내는 원격 분석 데이터를 지정합니다.
 
 ![템플릿 아키텍처](media/concepts-architecture/template_architecture.png)
 
 디바이스 템플릿에서:
 
-- **측정값**은 장치가 원격 분석 응용 프로그램으로 보내는 원격 분석 데이터를 지정합니다.
+- **측정값**은 장치가 원격 분석 애플리케이션으로 보내는 원격 분석 데이터를 지정합니다.
 - **설정**은 운영자가 설정할 수 있는 구성을 지정합니다.
 - **속성**은 운영자가 설정할 수 있는 메타데이터를 지정합니다.
-- **규칙**은 장치에서 보낸 데이터를 기반으로 응용 프로그램의 동작을 자동화합니다.
-- **대시보드**는 응용 프로그램에서 장치를 볼 수 있는 사용자 지정 가능한 보기입니다.
+- **규칙**은 장치에서 보낸 데이터를 기반으로 애플리케이션의 동작을 자동화합니다.
+- **대시보드**는 애플리케이션에서 장치를 볼 수 있는 사용자 지정 가능한 보기입니다.
 
-각 디바이스 템플릿에 따라 한 응용 프로그램에서 시뮬레이션된 디바이스 및 실제 디바이스를 하나 이상 사용할 수 있습니다.
+각 장치 템플릿에 따라 한 애플리케이션에서 시뮬레이션된 장치 및 실제 장치를 하나 이상 사용할 수 있습니다.
 
 ## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
 
