@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549149"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260751"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -46,7 +46,7 @@ Data Factory에 대 한 관리 되는 id는 다음과 같이 생성 됩니다.
 
 - [PowerShell을 사용 하 여 관리 되는 id를 생성 합니다.](#generate-managed-identity-using-powershell)
 - [REST API를 사용 하 여 관리 되는 id를 생성 합니다.](#generate-managed-identity-using-rest-api)
-- Azure Resource Manager 템플릿을 사용 하는 관리 되는 id를 생성 합니다.
+- [Azure Resource Manager 템플릿을 사용 하는 관리 되는 id를 생성 합니다.](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [SDK를 사용 하 여 관리 되는 id를 생성 합니다.](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Azure portal에서 또는 프로그래밍 방식으로 관리 되는 id를 검�
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Azure portal을 사용 하 여 관리 되는 id를 검색 합니다.
 
--> Azure portal에서 관리 되는 id 정보를 찾을 수 있습니다 데이터 팩터리-> 설정-> 속성:
+-> Azure portal에서 관리 되는 id 정보를 찾을 수 있습니다 데이터 팩터리-> 속성:
 
-- 서비스 ID ID
-- 서비스 ID 테넌트
-- **SERVICE IDENTITY APPLICATION ID** &gt; 이 값 복사
+- 관리 ID 개체 ID
+- 관리 ID 테넌트
+- **응용 프로그램 ID를 관리 되는** >이 값을 복사
 
 ![관리 되는 id를 검색 합니다.](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 소개 하는 경우는 다음 항목을 참조 하 고 data factory를 사용 하는 방법을 관리 id:
 
 - [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)
-- [Azure 리소스 인증을 위해 관리 ID를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)
+- [관리 되는 id를 사용 하 여 Azure 리소스 인증을 위해 Azure Data Lake Store에서 데이터 복사](connector-azure-data-lake-store.md)
 
 참조 [Azure 리소스 개요에 대 한 Id 관리](/azure/active-directory/managed-identities-azure-resources/overview) 에 Azure 리소스를 관리 되는 id는 data factory에 대 한 관리 되는 id에 대 한 자세한 배경 기반으로 합니다. 

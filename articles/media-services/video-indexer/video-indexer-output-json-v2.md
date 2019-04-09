@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892578"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280216"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>API에 의해 생성 된 비디오 인덱서 출력 검토
 
@@ -79,7 +79,7 @@ ms.locfileid: "58892578"
 |privacyMode|분석에는 다음 모드 중 하나가 있을 수 있습니다. **Private**, **Public**. **Public** - 비디오가 계정의 모든 사용자와 비디오에 대한 링크가 있는 모든 사용자에게 표시됩니다. **Private** - 비디오가 계정의 모든 사용자에게 표시됩니다.|
 |duration|인사이트가 발생한 시간을 설명하는 하나의 기간이 포함됩니다. 기간은 초 단위입니다.|
 |thumbnailVideoId|썸네일을 가져온 비디오의 ID입니다.
-|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 Get-Thumbnail(https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail)을 호출하고 thumbnailVideoId 및 thumbnailId를 전달합니다.|
+|thumbnailId|비디오의 썸네일 ID입니다. 실제 미리 보기를 가져오려면 호출 [Get-미리 보기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) thumbnailVideoId 및 thumbnailId 전달 합니다.|
 |얼굴|0개 이상의 얼굴이 포함될 수 있습니다. 자세한 내용은 [faces](#faces)를 참조하세요.|
 |키워드|0개 이상의 키워드가 포함될 수 있습니다. 자세한 내용은 [keywords](#keywords)를 참조하세요.|
 |감정|0개 이상의 감정이 포함될 수 있습니다. 자세한 내용은 [sentiments](#sentiments)를 참조하세요.|
@@ -106,7 +106,7 @@ ms.locfileid: "58892578"
 |metadata|비디오의 외부 메타데이터입니다(사용자가 지정한 경우).|
 |isAdult|비디오가 수동으로 검토되고 성인 비디오로 식별되었는지 여부를 나타냅니다.|
 |insights|인사이트 개체입니다. 자세한 내용은 [insights](#insights)를 참조하세요.|
-|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일을 가져오려면 Get-Thumbnail(https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail)을 호출하고 비디오 ID 및 thumbnailId를 전달합니다.|
+|thumbnailId|비디오의 썸네일 ID입니다. 실제 썸네일 호출을 가져오려는 [Get-미리 보기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) 비디오 ID 및 thumbnailId 전달 합니다.|
 |publishedUrl|비디오를 스트림하는 URL입니다.|
 |publishedUrlProxy|비디오를 스트림하는 URL입니다(Apple 디바이스용).|
 |viewToken|비디오를 스트림하기 위한 단기 보기 토큰입니다.|

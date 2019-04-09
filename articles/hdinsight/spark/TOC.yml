@@ -26,6 +26,7 @@ items:
     href: apache-spark-load-data-run-query.md
   - name: VSCode를 사용하여 Apache Spark 쿼리 실행
     href: ../hdinsight-for-vscode.md
+    maintainContext: true
   - name: IntelliJ를 사용하여 Apache Spark 쿼리 실행
     href: apache-spark-intellij-tool-plugin.md
   - name: BI 도구를 사용하여 데이터 분석
@@ -38,6 +39,7 @@ items:
     href: apache-spark-create-standalone-application.md
   - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
     href: ../hdinsight-cluster-availability.md
+    maintainContext: true
 - name: 방법
   items:
   - name: 클러스터 저장소 사용
@@ -105,6 +107,7 @@ items:
       href: apache-spark-connect-to-sql-database.md
     - name: Apache Spark 및 Cosmos DB를 사용하여 람다 아키텍처 구현
       href: ../../cosmos-db/lambda-architecture.md
+      maintainContext: true
     - name: AutoML로 Azure ML 워크로드 실행
       href: apache-spark-run-machine-learning-automl.md
       maintainContext: true
@@ -442,9 +445,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9775c1da15b5ac5e675e84487006339b1c9701ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 973adb6fb1c8761ff03935d09faf699040604544
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670173"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058903"

@@ -11,16 +11,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 987d28470b8a848755cdd7d1264ba7f7f66544df
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4c330e36210e97172c8f06bbfc3850210e200777
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918946"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260343"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 Azure 가상 머신의 상태 이해하기
+# <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure virtual machines의 상태를 이해 합니다. 
 Azure에는 모니터링 공간에서 개별적으로 특정 역할이나 작업을 수행하는 여러 서비스가 포함되지만, Azure 가상 머신에서 호스팅되는 운영 체제에 대한 심층적인 상태 관점 뷰는 제공되지 않았습니다.  Azure Monitor를 사용 하 여 다른 조건을 모니터링할 수 있습니다, 있지만 모델 및 핵심 구성 요소 상태 또는 가상 컴퓨터의 전반적인 상태를 나타내는 설계 되지 않은 것입니다.  VM용 Azure Monitor 상태 기능을 사용하면 주요 구성 요소와 이들의 관계, 구성 요소의 상태를 측정하는 방법을 지정하는 기준이 되는 모델을 사용하여 Windows 또는 Linux 게스트 OS의 가용성 및 성능을 사전에 모니터링하고 비정상 상태가 감지되면 경고를 표시합니다.  
 
 Azure VM 및 기본 운영 체제의 전반적인 상태를 보려면 VM용 Azure Monitor 상태의 두 가지 관점 보기에서 관찰할 수 있습니다. 가상 머신에서 직접 관찰하거나 Azure Monitor의 리소스 그룹에 있는 모든 VM에서 관찰할 수 있습니다.
@@ -92,16 +92,16 @@ Azure VM의 상태를 보려면 가상 머신의 왼쪽 창에서 **인사이트
 
 |아이콘 |성능 상태 |의미 |
 |-----|-------------|------------|
-| |Healthy |성능 상태는 정의된 상태에 있으면 정상입니다. 이는 VM에 대해 검색된 문제가 없음을 나타내며 필요에 따라 작동합니다. 상위 롤업 모니터의 경우 상태가 롤업되고 하위 항목의 최상 또는 최악의 상태가 반영됩니다.|
-| |중요 |성능 상태는 정의된 상태 조건 범위 내에 있지 않은 경우 위험입니다. 이 상태는 하나 이상의 위험한 문제가 검색되었으며 정상 기능을 복원하려면 해당 문제를 해결해야 함을 나타냅니다. 상위 롤업 모니터의 경우 상태가 롤업되고 하위 항목의 최상 또는 최악의 상태가 반영됩니다.|
-| |Warning |성능 상태는 정의된 상태 조건의 두 임계값 사이에 있으면 경고입니다. 두 임계값 중 하나는 *경고* 상태를, 다른 하나는 *위험* 상태를 나타냅니다(세 가지 성능 상태 임계값을 구성할 수 있음). 또는 해결되지 않으면 위험한 문제가 발생할 수 있는 위험하지 않은 문제가 검색된 경우가 있습니다. 부모 롤업 모니터의 경우 자식 하나 이상이 경고 상태이면 부모에도 *경고* 상태가 반영됩니다. 하위 항목이 *위험* 상태이고 다른 하위 항목이 *경고* 상태이면 상위 롤업의 성능 상태는 *위험*으로 표시됩니다.|
+| |Healthy |성능 상태는 정의된 상태에 있으면 정상입니다. 이는 VM에 대해 검색된 문제가 없음을 나타내며 필요에 따라 작동합니다. 부모 롤업 모니터를 사용 하 여 상태 롤업 하 고 자식 최상의 또는 최악의 상태를 반영 합니다.|
+| |중요 |성능 상태는 정의된 상태 조건 범위 내에 있지 않은 경우 위험입니다. 이 상태는 하나 이상의 위험한 문제가 검색되었으며 정상 기능을 복원하려면 해당 문제를 해결해야 함을 나타냅니다. 부모 롤업 모니터를 사용 하 여 상태 롤업 하 고 자식 최상의 또는 최악의 상태를 반영 합니다.|
+| |Warning |성능 상태는 정의된 상태 조건의 두 임계값 사이에 있으면 경고입니다. 두 임계값 중 하나는 *경고* 상태를, 다른 하나는 *위험* 상태를 나타냅니다(세 가지 성능 상태 임계값을 구성할 수 있음). 또는 해결되지 않으면 위험한 문제가 발생할 수 있는 위험하지 않은 문제가 검색된 경우가 있습니다. 부모 롤업 모니터를 하나 이상의 자식에 경고 상태를 부모 반영 *경고* 상태입니다. 하위 항목이 *위험* 상태이고 다른 하위 항목이 *경고* 상태이면 상위 롤업의 성능 상태는 *위험*으로 표시됩니다.|
 | |알 수 없음 |데이터를 수집할 수 없거나 서비스가 초기화되지 않는 등의 여러 가지 이유로 인해 성능 상태를 계산할 수 없는 경우 성능 상태는 *알 수 없음* 상태입니다. 이 상태는 구성할 수 없습니다.| 
 
 **상태 진단 보기**를 선택하면 VM의 모든 구성 요소, 연결된 상태 조건, 상태 변경 및 VM과 관련된 구성 요소를 모니터링하여 찾은 기타 중요한 문제가 표시되는 페이지가 열립니다. 자세한 내용은 [상태 진단](#health-diagnostics)을 참조하세요. 
 
 **구성 요소 상태** 섹션 아래 테이블에는 해당 영역 특히, **CPU**, **메모리**, **디스크** 및 **네트워크**의 상태 조건으로 모니터링 되는 기본 성능 범주의 상태 롤업 상태가 표시됩니다.  구성 요소 중 하나를 선택하면 구성 요소의 개별적인 상태 기준 모니터링 측면과 각각의 성능 상태가 나열된 페이지가 열립니다.  
 
-Windows 운영 체제를 실행하는 Azure VM에서 상태에 액세스하면 상위 5개 핵심 Windows 서비스의 성능 상태가 **Core Services 상태** 섹션에 표시됩니다.  서비스 중 하나를 선택하면 해당 구성 요소 및 성능 상태를 모니터링하는 성능 상태가 나열된 페이지가 열립니다.  상태 조건의 이름을 클릭하면 속성 창이 열리고, 여기에서 상태 조건에 해당하는 구성 세부 정보(예: Azure Monitor 경고가 정의되어 있는지 여부)를 검토할 수 있습니다. 자세한 내용은 [상태 진단 및 상태 조건 사용](#health-diagnostics)을 참조하세요.  
+Windows 운영 체제를 실행 하는 Azure VM의 상태에 액세스할 때 위의 상태 5 핵심 Windows 서비스 섹션 아래에 표시 됩니다 **Core services 상태**합니다.  서비스 중 하나를 선택하면 해당 구성 요소 및 성능 상태를 모니터링하는 성능 상태가 나열된 페이지가 열립니다.  상태 조건의 이름을 클릭하면 속성 창이 열리고, 여기에서 상태 조건에 해당하는 구성 세부 정보(예: Azure Monitor 경고가 정의되어 있는지 여부)를 검토할 수 있습니다. 자세한 내용은 [상태 진단 및 상태 조건 사용](#health-diagnostics)을 참조하세요.  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>집계 가상 머신 관점
 리소스 그룹에 있는 모든 가상 머신의 상태 컬렉션을 보려면 포털의 탐색 목록에서 **Azure Monitor**를 선택한 다음 **Virtual Machines(미리 보기)** 를 선택합니다.  
@@ -133,7 +133,7 @@ VM 목록 보기에서 VM의 이름을 클릭하면 선택한 VM에 해당하는
 
 ![선택한 Azure 가상 머신에 대한 VM 인사이트](./media/vminsights-health/vminsights-directvm-health.png)
 
-여기에는 가상 머신에 대한 롤업 **상태**와 심각도별로 분류된 **경고**가 표시됩니다. 이것은 성능 상태의 상태 조건이 정상에서 비정상으로 변경되면 발생하는 VM 상태 경고를 나타냅니다.  **위험 상태에 있는 VM**을 선택하면 위험 상태에 있는 VM이 하나 이상 포함된 목록이 있는 페이지가 열립니다.  목록에 있는 VM 중 하나의 상태를 클릭하면 VM의 **상태 진단** 보기가 표시됩니다.  여기에서 어떤 상태 조건이 상태 문제를 반영하는지 확인할 수 있습니다. **상태 진단** 페이지가 열리면 VM의 모든 구성 요소 및 이 구성 요소와 연결된 상태 조건이 현재 상태와 함께 표시됩니다.  자세한 내용은 [상태 진단](#health-diagnostics) 섹션을 참조하세요.  
+여기에는 가상 머신에 대한 롤업 **상태**와 심각도별로 분류된 **경고**가 표시됩니다. 이것은 성능 상태의 상태 조건이 정상에서 비정상으로 변경되면 발생하는 VM 상태 경고를 나타냅니다.  **위험 상태에 있는 VM**을 선택하면 위험 상태에 있는 VM이 하나 이상 포함된 목록이 있는 페이지가 열립니다.  목록에 있는 VM 중 하나의 상태를 클릭하면 VM의 **상태 진단** 보기가 표시됩니다.  여기에서 어떤 상태 조건이 상태 문제를 반영하는지 확인할 수 있습니다. **상태 진단** 페이지가 열리면 VM의 모든 구성 요소 및 이 구성 요소와 연결된 상태 조건이 현재 상태와 함께 표시됩니다. 자세한 내용은 [상태 진단](#health-diagnostics)합니다.  
 
 **모든 상태 조건 보기**를 선택하면 이 기능으로 사용할 수 있는 모든 상태 조건의 목록을 보여주는 페이지가 열립니다.  이 정보는 다음과 같은 옵션을 기반으로 추가로 필터링할 수 있습니다.
 
@@ -164,7 +164,7 @@ VM 목록 보기에서 VM의 이름을 클릭하면 선택한 VM에 해당하는
 * 가용성
 * 성능
  
-모든 상태 조건은 논리 디스크, CPU 등의 특정 구성 요소에 대해 정의됩니다. 또한 **상태 조건** 열에서 해당 구성 요소 옆에 표시되는 모니터 범주를 확인할 수 있습니다.  
+논리 디스크와 같은 특정 구성 요소에 대해 정의 된 모든 상태 조건 (즉, 모든 조건의 전체 보기를) 두 개의 범주를 필터링 하지 않고 볼 수 있습니다 또는 선택 하는 경우 두 범주별으로 결과 필터링 등 CPU **가용성**  나 **성능** 페이지의 옵션입니다. 또한에서 옆에 있는 조건의 범주를 볼 수 있습니다 합니다 **상태 조건을** 열입니다. 조건에는 선택한 범주와 일치 하지 않으면, 메시지가 표시 됩니다 **선택한 범주에 사용할 수 없는 상태 조건을** 에 **상태 조건을** 열입니다.  
 
 상태 조건의 상태는 네 가지 상태(*위험*, *경고*, *정상*, *알 수 없음*) 중 하나로 정의됩니다. 처음 3개 상태는 구성이 가능합니다. 즉, [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)를 사용해 모니터의 임계값을 수정할 수 있습니다. *알 수 없음*은 특정 시나리오에 맞게 구성 및 예약할 수 없습니다.  
 
@@ -190,7 +190,7 @@ VM 목록 보기에서 VM의 이름을 클릭하면 선택한 VM에 해당하는
 
 상태 조건은 몇 가지 조건(예: 임계값, 엔터티의 상태 등)을 사용하여 모니터링되는 인스턴스의 상태를 측정합니다. 앞에서 설명한 것처럼 상태 조건에는 구성 가능한 성능 상태 임계값 2~3개가 있습니다. 어느 시점이든 상태 조건은 잠재적인 상태 중 하나에만 해당될 수 있습니다. 
 
-대상의 전반적인 상태는 상태 모델에 정의된 각 상태 조건의 상태에 따라 결정됩니다. 이 상태는 대상에 직접 해당되는 상태 조건과, 집계 상태 조건을 통해 대상으로 롤업되는 구성 요소를 대상으로 하는 상태 조건의 조합입니다. 이 계층 구조는 상태 진단 페이지의 **상태 조건** 섹션에 예시되어 있습니다. 상태 롤업 정책은 집계 상태 조건 구성에 포함되며 기본값은 *최악*으로 설정됩니다. [모니터링 구성 세부 정보](#monitoring-configuration-details) 섹션에서 이 기능의 일부로 실행되는 기본 상태 조건 집합 목록을 찾을 수 있습니다.  
+대상의 전반적인 상태는 상태 모델에 정의된 각 상태 조건의 상태에 따라 결정됩니다. 이 상태 조건 대상에서 직접 대상이 되는 집계 상태 조건을 통해 대상에 롤업 하는 구성 요소를 대상으로 하는 상태 조건의 조합입니다. 이 계층 구조는 상태 진단 페이지의 **상태 조건** 섹션에 예시되어 있습니다. 상태 롤업 정책은 집계 상태 조건 구성에 포함되며 기본값은 *최악*으로 설정됩니다. [모니터링 구성 세부 정보](#monitoring-configuration-details) 섹션에서 이 기능의 일부로 실행되는 기본 상태 조건 집합 목록을 찾을 수 있습니다.  
 
 **단위** 상태 조건 유형은 자체 구성을 포함할 수 있습니다. 맨 오른쪽 엤는 줄임표 링크를 클릭하고 **자세한 정보 표시**를 선택하여 구성 창을 열면 이 구성을 수정할 수 있습니다. 
 
@@ -256,6 +256,64 @@ VM용 Azure Monitor 상태 기능은 [Azure 경고](../../azure-monitor/platform
 ![선택한 경고에 대한 경고 세부 정보 창](./media/vminsights-health/alert-details-pane-01.png)
 
 경고를 선택한 다음, 왼쪽 상단에 있는 **모든 경고** 페이지에서 **상태 변경**을 선택하면 하나 이상의 경고에 대해서도 경고 상태를 변경할 수 있습니다. **경고 상태 변경** 창에서 상태 중 하나를 선택하고 **설명** 필드에 변경 내용에 대한 설명을 추가한 다음, **확인**을 클릭하여 변경 내용을 적용합니다. 정보가 확인되고 변경 내용이 적용되는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.  
+
+### <a name="configure-alerts"></a>경고 구성
+특정 경고 관리 작업을 Azure portal에서 관리할 수 없습니다 및 사용 하 여 수행 해야 합니다 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)합니다. 구체적으로 살펴보면 다음과 같습니다.
+
+- 상태 조건에 대 한 경고 사용 여부 설정 
+- 상태 조건 경고에 대 한 알림 설정 
+
+각 예제에 사용 되는 접근 방식을 사용 하 여 [ARMClient](https://github.com/projectkudu/armclient) Windows 컴퓨터에 있습니다. 이 메서드를 사용 하 여 잘 모르는 경우 [ARMClient를 사용 하 여](../platform/rest-api-walkthrough.md#use-armclient)입니다.  
+
+#### <a name="enable-or-disable-alert-rule"></a>경고 규칙을 사용할지 설정 합니다.
+
+특정 상태 조건 상태 조건 속성에 대 한 경고 규칙을 사용할지 *alertGeneration* 의 값을 사용 하 여 수정 해야 **사용 안 함** 또는 **사용**. 식별 하는 *monitorId* 는 특정 상태 조건을의 다음 예제에서는 조건에 대 한 해당 값에 대해 쿼리 하는 방법을 표시 됩니다 **LogicalDisk\Avg Disk 초 Per Transfer**합니다.
+
+1. 터미널 창에서 **armclient.exe login**을 입력합니다. 이렇게 Azure에 로그인 하 라는 메시지가 표시 됩니다.
+
+2. 특정 가상 컴퓨터에서 활성 상태 조건을 검색 하 고에 대 한 값을 식별 하려면 다음 명령을 입력 *monitorId* 속성입니다. 
+
+    ```
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    ```
+
+    다음 예제에서는 해당 명령의 출력을 보여줍니다. 값을 기록해 *MonitorId* 빨간색으로 강조 표시 합니다. 이 값은 다음 단계에 필요한 상태 조건의 ID를 지정 하 고 경고를 만들려면 해당 속성을 수정 해야 할 경우.
+
+    ![상태 조건에 대 한 모니터 ID를 검색 하는 예제](./media/vminsights-health/get-monitor-identifier-01.png)
+
+3. 수정 하려면 다음 명령을 입력 합니다 *alertGeneration* 속성입니다.
+
+    ```
+    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"
+    ```   
+
+4. 명령을 입력 하 여 GET 속성의 값으로 설정 되었는지 확인 하려면 2 단계에서 사용한 **사용 안 함**합니다.  
+
+#### <a name="associate-action-group-with-health-criteria"></a>상태 조건을 사용 하 여 작업 그룹에 연결
+
+경고가 생성 되 면 Vm 상태에 대 한 azure Monitor SMS 및 전자 메일 알림을 지 원하는 상태 조건을 비정상 상태가 되는 경우. 에 알림을 구성 하려면 SMS 또는 전자 메일 알림을 보내도록 구성 된 작업 그룹의 이름을 확인 해야 합니다. 
+
+>[!NOTE]
+>이 작업에 대 한 알림을 수신 하려는 모니터링 하는 각 VM에 대해 수행 해야 합니다.
+
+1. 터미널 창에서 **armclient.exe login**을 입력합니다. 이렇게 Azure에 로그인 하 라는 메시지가 표시 됩니다.
+
+2. 경고 규칙을 사용 하 여 작업 그룹을 연결 하려면 다음 명령을 입력 합니다.
+ 
+    ```
+    $payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}" 
+    armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
+    ```
+
+3. 속성의 값을 확인 하려면 **actionGroupResourceIds** 를 성공적으로 업데이트 하 고, 다음 명령을 입력 합니다.
+
+    ```
+    armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
+    ```
+
+    출력은 다음과 유사합니다.
+    
+    ![Get notificationSettings의 출력 예](./media/vminsights-health/get-notification-config-status.png)
 
 ## <a name="next-steps"></a>다음 단계
 병목 상태 및 VM 성능에 대한 전반적인 사용률을 확인하려면 [Azure VM 성능 보기](vminsights-performance.md)를 참조하세요. 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요. 

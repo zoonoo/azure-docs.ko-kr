@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 5e93a8fbcd603e5c52141a2a883bd7371ee50221
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: c635f228229a9afae8a7e325c4ead5a51a0767c8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445381"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056370"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure Stack에서 PowerShell을 사용 하 여 Linux 서버 가상 머신 만들기
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 Azure Stack PowerShell을 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를 만들 수 있습니다. 만들고 가상 머신을 사용 하려면이 문서의 단계를 수행 합니다.  이 문서에서는 단계를 제공 합니다.
 
@@ -78,11 +78,6 @@ Set-AzureRmCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
-# Create a storage container to store the virtual machine image
-$containerName = 'osdisks'
-$container = New-AzureStorageContainer `
-  -Name $containerName `
-  -Permission Blob
 ```
 
 ## <a name="create-networking-resources"></a>네트워킹 리소스 만들기
@@ -184,19 +179,14 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "16.04-LTS" `
   -Version "latest"
 
-$osDiskName = "OsDisk"
-$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
-  $StorageAccount.PrimaryEndpoints.Blob.ToString(),`
-  $vmName.ToLower(), `
-  $osDiskName
-
 # Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
-  -Name $osDiskName `
-  -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
+  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  -StorageAccountName $StorageAccountName -Enable |`
   Add-AzureRmVMNetworkInterface -Id $nic.Id
+
 
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e186effb63c1ca96ace33ec389c2487448e4d20d
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 686c91669e5eccd7979c248db42d6f5b5079308b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407100"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280913"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>컴퓨터 종속성 매핑을 사용하여 컴퓨터 그룹화
 
@@ -132,6 +132,44 @@ Kusto 쿼리를 실행 합니다.
 5. [실행]을 클릭하여 쿼리를 실행합니다. 
 
 [자세한](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Kusto 쿼리를 작성 하는 방법에 대 한 합니다. 
+
+### <a name="sample-azure-monitor-logs-queries"></a>샘플 Azure Monitor 로그 쿼리
+
+다음은 샘플 쿼리 종속성 데이터를 추출 하는 데 사용할 수 있습니다. 참고에 기본 데이터 요소를 추출 하는 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 제품은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+
+#### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
+
+연결 메트릭, VMConnection, 테이블에 레코드를 개별 물리적 네트워크 연결을 나타내지 않으면 참고 합니다. 여러 실제 네트워크 연결 연결을 논리적으로 그룹화 됩니다. [자세한](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) VMConnection의 단일 논리적 레코드에 데이터를 집계 하는 방법의 실제 네트워크 연결에 대 한 합니다. 
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
+
+#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>컴퓨터의 집합 간에 인바운드 연결에서 보내거나 받는 데이터의 볼륨 요약
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,32 +12,33 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 0357b7f421da753f102d2f05eaf8021cfc74aa2c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792041"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057197"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
+
 SSO(Single Sign-On)는 사용자가 Azure AD(Azure Active Directory)의 애플리케이션에 로그인할 때 보안 및 편리함을 제공합니다. 이 문서는 Single Sign-On 방법을 설명하고, 애플리케이션을 구성할 때 가장 적합한 SSO 방법을 선택하는 데 유용합니다.
 
-- **Single Sign-On을 사용하면** 사용자는 하나의 계정으로 한 번 로그인으로 도메인 가입 디바이스, 회사 리소스, SaaS(Software as a Service) 애플리케이션 및 웹 애플리케이션에 액세스할 수 있습니다. 로그인한 후 사용자는 Office 365 포털 또는 Azure AD MyApps 액세스 패널에서 애플리케이션을 시작할 수 있습니다. 관리자는 사용자 계정 관리를 중앙 집중화하고, 그룹 멤버 자격에 따라 애플리케이션에 대한 사용자 액세스를 자동으로 추가하거나 제거할 수 있습니다. 
+- **Single Sign-On을 사용하면** 사용자는 하나의 계정으로 한 번 로그인으로 도메인 가입 디바이스, 회사 리소스, SaaS(Software as a Service) 애플리케이션 및 웹 애플리케이션에 액세스할 수 있습니다. 로그인한 후 사용자는 Office 365 포털 또는 Azure AD MyApps 액세스 패널에서 애플리케이션을 시작할 수 있습니다. 관리자는 사용자 계정 관리를 중앙 집중화하고, 그룹 멤버 자격에 따라 애플리케이션에 대한 사용자 액세스를 자동으로 추가하거나 제거할 수 있습니다.
 
 - **Single Sign-On을 사용하지 않으면** 사용자는 애플리케이션별 암호를 기억하고 각 애플리케이션마다 로그인해야 합니다. IT 직원은 Office 365, Box 및 Salesforce와 같은 각 애플리케이션에 대한 사용자 계정을 만들고 업데이트해야 합니다. 사용자가 암호를 기억해야 하는 것과 동시에 각 애플리케이션에 로그인하는 시간도 소비됩니다.
 
 ## <a name="choosing-a-single-sign-on-method"></a>Single Sign-On 방법 선택
 
-Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가지가 있습니다. Single Sign-On 방법을 선택하는 것은 애플리케이션이 인증에 대해 어떻게 구성되었는지에 따라 달라집니다. 
+Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가지가 있습니다. Single Sign-On 방법을 선택하는 것은 애플리케이션이 인증에 대해 어떻게 구성되었는지에 따라 달라집니다.
 
 - 클라우드 애플리케이션은 Single Sign-On에 대해 OpenID Connect, OAuth, SAML, 암호 기반, 연결됨 또는 사용 안 함 방법을 사용할 수 있습니다. 
 - 온-프레미스 애플리케이션은 Single Sign-On에 대해 암호 기반, Windows 통합 인증, 헤더 기반, 연결됨 또는 사용 안 함 방법을 사용할 수 있습니다. 온-프레미스 선택은 애플리케이션 프록시에 대해 애플리케이션을 구성할 때 작동합니다.
 
-이 순서도는 사용자 상황에 가장 적합한 Single Sign-On 방법을 결정하는 데 도움이 됩니다. 
+이 순서도는 사용자 상황에 가장 적합한 Single Sign-On 방법을 결정하는 데 도움이 됩니다.
 
-![Single Sign-On 방법 선택](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
+![Single Sign-On 방법 선택](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
 
-다음 표에는 Single Sign-On 방법이 요약되어 있으며 더 자세한 정보로 이어집니다. 
+다음 표에는 Single Sign-On 방법이 요약되어 있으며 더 자세한 정보로 이어집니다.
 
 | Single Sign-On 방법 | 애플리케이션 형식 | 사용하는 경우 |
 | :------ | :------- | :----- |
@@ -186,9 +187,9 @@ Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용�
 
 
 ## <a name="related-articles"></a>관련 문서
-* [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
-* [Single Sign-On 구성을 위한](configure-single-sign-on-portal.md)
-* [애플리케이션에 대한 액세스 관리 소개](what-is-access-management.md)
+* [SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서](../saas-apps/tutorial-list.md)
+* [Single sign-on을 구성 하기 위한 자습서](configure-single-sign-on-portal.md)
+* [응용 프로그램 액세스 관리 소개](what-is-access-management.md)
 * 다운로드 링크: [Single Sign-On 배포 계획](https://aka.ms/SSODeploymentPlan)
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540128"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256093"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -30,8 +30,8 @@ ms.locfileid: "58540128"
     a. 파일의 `<head>` 요소에 있는 스타일시트 및 스크립트 참조에 URL 엔드포인트를 추가하여 Azure Maps 웹 SDK의 글로벌 호스팅 CDN 버전을 사용합니다.
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
     b. 아니면 [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM 패키지를 사용하여 로컬에서 Azure Maps 웹 SDK 소스 코드를 로드하여 앱으로 호스트합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.
@@ -102,7 +102,7 @@ ms.locfileid: "58540128"
     </script>
     ```
 
-    참조 [Azure Maps를 사용 하 여 인증](azure-maps-authentication.md) 대 한 자세한 내용은 합니다.
+    자세한 내용은 [Azure Maps를 사용 하 여 인증](azure-maps-authentication.md) 대 한 자세한 내용은 합니다.
 
 6. 선택적으로 다음 메타 태그 요소를 페이지 머리글에 추가하는 것이 도움이 될 수 있습니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "58540128"
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. HTML 파일을 모두 모으면 다음과 같은 모양입니다.
+7. 전체 과정 HTML 파일에 표시 됩니다 다음 코드와 비슷합니다.
 
     ```HTML
     <!DOCTYPE html>
@@ -131,8 +131,8 @@ ms.locfileid: "58540128"
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <style>
             html, body {
@@ -164,7 +164,7 @@ ms.locfileid: "58540128"
     </html>
     ```
 
-8. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다. 다음과 같아야 합니다.
+8. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다. 다음 코드와 같아야 합니다.
 
     <iframe height="700" style="width: 100%;" scrolling="no" title="맵 컨트롤을 사용하는 방법" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>맵 컨트롤을 사용하는 방법</a>를 참조하세요.
@@ -180,4 +180,4 @@ ms.locfileid: "58540128"
 맵 스타일을 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [지도 스타일 선택](choose-map-style.md)
+> [맵 스타일 선택](choose-map-style.md)

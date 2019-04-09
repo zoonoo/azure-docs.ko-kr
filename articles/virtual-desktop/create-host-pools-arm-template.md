@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401428"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279230"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 호스트 풀 만들기
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 호스트 풀 만들기
 
-호스트 풀은 Windows 가상 데스크톱 미리 보기 테 넌 트 환경 내에서 하나 이상의 동일한 가상 컴퓨터의 컬렉션입니다. 각 호스트 풀에는 사용자는 실제 데스크톱에서 일관 되 게 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
+호스트 풀은 Windows Virtual Desktop 미리 보기 테넌트 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
 Microsoft에서 제공 하는 Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 테 넌 트에 대 한 호스트 풀을 만들려면이 섹션의이 지침을 따릅니다. 이 문서에서는 Windows 가상 데스크톱에 호스트 풀을 만듭니다, Azure 구독에서 Vm을 사용 하 여 리소스 그룹 만들기, AD 도메인에 Vm 가입 및 Windows 가상 데스크톱을 사용 하 여 Vm을 등록 하는 방법을 알려줍니다.
 
@@ -52,7 +52,7 @@ Windows 가상 데스크톱이 표시는 매개 변수에 대 한 시나리오�
 
 GitHub의 Azure Resource Manager 템플릿을 완료 된 후 가상 머신에서 전체 세션 데스크톱을 테스트 하려면 먼저 사용자 액세스를 할당 합니다.
 
-먼저 [다운로드 하 여 Windows 가상 데스크톱 PowerShell 모듈을 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 아직 없는 경우 PowerShell 세션에서 사용 하도록 합니다.
+먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우).
 
 데스크톱 응용 프로그램 그룹에 사용자를 할당 하려면 PowerShell 창을 열고 Windows 가상 데스크톱 환경에 로그인 하려면이 cmdlet을 실행 합니다.
 
@@ -72,6 +72,9 @@ Set-RdsContext -TenantGroupName <Tenant Group name>
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-사용자의 UPN에는 Azure Active Directory에서 사용자의 id는 같아야 합니다. (예를 들어 user1@contoso.com). 여러 사용자를 추가 하려는 경우 각 사용자에 대해이 cmdlet을 실행 해야 합니다.
+사용자의 UPN은 Azure Active Directory의 사용자 ID와 일치해야 합니다(예: user1@contoso.com). 여러 사용자를 추가하려는 경우 각 사용자에 대해 이 cmdlet을 실행해야 합니다.
 
-다음이 단계를 완료 한 후 데스크톱 응용 프로그램 그룹에 추가 된 사용자는 지원 되는 원격 데스크톱 클라이언트를 사용 하 여 Windows 가상 데스크톱에 로그인 하 고 세션 데스크톱에 대 한 리소스를 참조 하세요. 수 있습니다.
+이러한 단계를 완료하면 데스크톱 애플리케이션 그룹에 추가된 사용자가 지원되는 원격 데스크톱 클라이언트를 사용하여 Windows Virtual Desktop에 로그인하고 세션 데스크톱에 대한 리소스를 확인할 수 있습니다.
+
+>[!IMPORTANT]
+>보안 유지를 위해 Azure에서 Windows 가상 데스크톱 환경의 좋습니다 Vm에서 인바운드 포트 3389를 열지 마십시오. Windows 가상 데스크톱에 열려 있는 인바운드 포트 3389 호스트 풀의 Vm에 액세스 하는 사용자에 대 한 필요 하지 않습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 사용 하는 것이 좋습니다 [just in time VM 액세스](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)합니다.

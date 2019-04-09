@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/8/2019
 ms.custom: seodec18
-ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895869"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257980"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리 되는 id를 사용 하 여 Azure 데이터 레이크 저장소 Gen1를 Stream Analytics를 인증 합니다.
 
@@ -71,7 +71,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    ![Stream Analytics 작업 구성 관리 ID](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. ADLS Gen1 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 클릭하고 **관리 ID(미리 보기)** 를 선택합니다.
+2. ADLS Gen1 출력 싱크로의 출력 속성 창에서 드롭 다운 선택한 인증 모드를 클릭 합니다 * * 관리 Id * * 합니다.
 
    ![ADLS 출력 관리 ID](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

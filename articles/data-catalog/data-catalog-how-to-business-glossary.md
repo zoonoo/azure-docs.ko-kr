@@ -1,22 +1,22 @@
 ---
-title: Azure Data Catalog에서 관리 태그 지정을 위한 비즈니스 용어집 설정
+title: Azure Data Catalog의 비즈니스 용어집 설정
 description: Azure Data Catalog의 비즈니스 용어집에서 일반적인 비즈니스 어휘를 정의하고 등록된 데이터 자산에 태그를 지정하는 데 사용하는 방법을 안내하는 문서.
-services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: b3d63dbe-1ae7-499f-bc46-42124e950cd6
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 9c5d7ac792f2a68d6187c7c2831b1e7404f41f30
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 0337b2a7a228052dacfb35982ee6e8d62372fb29
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409425"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264219"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>관리 태그 지정을 위한 비즈니스 용어집 설정
+
 ## <a name="introduction"></a>소개
+
 Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분석을 수행하고 결정을 내리는 데 필요한 데이터 원본을 쉽게 검색하고 이해할 수 있습니다. 이러한 기능은 사용자가 가장 넓은 범위의 사용 가능한 데이터 원본을 이해하고 찾을 수 있는 경우 엄청난 영향을 가집니다.
 
 자산 데이터에 대한 이해를 크게 증진하는 데이터 카탈로그의 한 가지 기능이 태그 지정합니다. 태그 지정을 사용하여 검색을 통해 자산을 쉽게 검색할 수 있도록 하는 키워드를 자산 또는 열과 연결할 수 있습니다. 또한 태그를 지정하면 컨텍스트 및 자산의 의도를 쉽게 이해할 수 있습니다.
@@ -31,7 +31,8 @@ Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분�
 데이터 카탈로그 비즈니스 용어집을 사용하여 조직은 주요 비즈니스 용어와 그에 대한 정의를 문서화하여 일반적인 비즈니스 어휘를 만들 수 있습니다. 이러한 관리 방식은 조직 전체의 일관적인 데이터 사용을 가능하게 합니다. 비즈니스 용어집에서 용어를 정의한 후 카탈로그의 데이터 자산에 할당할 수 있습니다. 이 방법, *관리 태그 지정*은 태그 지정과 동일한 방식입니다.
 
 ## <a name="glossary-availability-and-privileges"></a>용어집 가용성 및 권한
-비즈니스 용어집은 Azure Data Catalog 표준 버전에서만 사용할 수 있습니다. 데이터 카탈로그의 무료 버전은 용어집을 포함하지 않으며 관리 태그 지정에 대한 기능을 제공하지 않습니다.
+
+비즈니스 용어집은 Azure Data Catalog 표준 버전에서만 사용할 수 있습니다. 데이터 카탈로그의 무료 버전 용어집을 포함 하지 않습니다 하 고 관리 태그 지정에 대 한 기능을 제공 하지 않습니다.
 
 데이터 카탈로그 포털의 탐색 메뉴에서 **용어집** 옵션을 통해 비즈니스 용어집에 액세스할 수 있습니다.  
 
@@ -42,6 +43,7 @@ Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분�
 ![새 용어 추가](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>용어 만들기
+
 데이터 카탈로그 관리자 및 용어집 관리자는 **새 용어** 단추를 클릭하여 용어를 만들 수 있습니다. 각 용어는 다음 필드를 포함합니다.
 
 * 용어에 대한 비즈니스 정의
@@ -50,30 +52,34 @@ Azure Data Catalog는 데이터 원본 검색을 제공하여 사용자가 분�
 * 용어가 구성되는 계층 구조를 정의하는 상위 용어
 
 ## <a name="glossary-term-hierarchies"></a>용어 계층 구조
+
 데이터 카탈로그 비즈니스 용어집을 사용하여 조직은 용어의 계층 구조로 해당 비즈니스 용어 모음을 설명하고 해당 비즈니스 분류를 보다 잘 나타내는 용어의 분류를 만들 수 있습니다.
 
-용어는 지정된 수준의 계층 구조에서 고유해야 합니다. 중복 이름은 허용되지 않습니다. 계층 구조 내 수준의 수에는 제한이 없지만, 계층 구조 내의 수준이 3개 이하인 경우에 보다 쉽게 이해할 수 있습니다.
+용어는 지정된 수준의 계층 구조에서 고유해야 합니다. 중복 이름이 허용 되지 않습니다. 계층 구조 내 수준의 수에는 제한이 없지만, 계층 구조 내의 수준이 3개 이하인 경우에 보다 쉽게 이해할 수 있습니다.
 
 비즈니스 용어집에 계층 구조를 사용하는 것은 선택 사항입니다. 용어에 대한 상위 용어 필드를 비워두면 용어집 내에 단순(비계층적인) 용어 목록이 생성됩니다.  
 
 ## <a name="tagging-assets-with-glossary-terms"></a>용어를 사용하여 자산에 태그 지정
+
 카탈로그 내에 용어가 정의되고 나면, 자산에 태그를 지정하는 환경은 사용자가 태그를 입력하여 용어를 검색하도록 최적화됩니다. 데이터 카탈로그 포털에 사용자가 선택할 수 있도록 일치하는 용어 목록이 표시됩니다. 사용자가 목록에서 용어를 선택하면, 용어는 자산에 태그로 추가됩니다(용어집 태그라고도 함). 사용자는 용어집에 없는 용어를 입력하여 새 태그를 만들 수도 있습니다(사용자 태그라고도 함).
 
 ![사용자 태그 하나와 용어집 태그 두 개가 지정된 데이터 자산](./media/data-catalog-how-to-business-glossary/03-tagged-asset.png)
 
 > [!NOTE]
 > 사용자 태그는 데이터 카탈로그 무료 버전에서 유일하게 지원되는 태그 유형입니다.
->
->
 
 ### <a name="hover-behavior-on-tags"></a>태그 가리키기 동작
+
 데이터 카탈로그 포털에서, 두 가지 유형의 태그는 시각적으로 구분되며 서로 다른 가리키기 동작을 나타냅니다. 사용자 태그를 가리키면 태그 텍스트와 태그를 추가한 사용자(한 명 또는 여러 명)가 표시됩니다. 용어집 태그를 가리키면, 용어에 대한 정의와 링크(비즈니스 용어집을 열어서 용어에 대한 전체 정의를 표시하는)가 표시됩니다.
 
 ### <a name="search-filters-for-tags"></a>태그에 대한 검색 필터
+
 용어집 태그와 사용자 태그 모두 검색이 가능하며, 검색에 필터로 적용할 수 있습니다.
 
 ## <a name="summary"></a>요약
+
 Azure Data Catalog의 비즈니스 용어집과 여기에서 사용할 수 있는 관리 태그 지정을 사용하면, 일관된 방식으로 데이터 자산을 식별, 관리, 검색할 수 있습니다. 비즈니스 용어집은 조직 구성원에 의해 비즈니스 용어 모음의 활용을 승격할 수 있습니다. 또한 용어집은 자산 검색 및 이해를 간소화하는 의미 있는 메타데이터 캡처를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [비즈니스 용어집 작업에 대한 REST API 설명서](https://msdn.microsoft.com/library/mt708855.aspx)
+
+* [비즈니스 용어집 작업에 대 한 REST API 설명서](/rest/api/datacatalog/data-catalog-glossary)

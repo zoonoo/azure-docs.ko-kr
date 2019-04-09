@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670390"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280556"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
 Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(사설 또는 Azure).
@@ -55,18 +55,18 @@ Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리
 > 
 
 ## <a name="health-client"></a>상태 클라이언트
-상태 보고서는 패브릭 클라이언트 내에 있는 상태 클라이언트를 통해 Health 스토어로 전송됩니다. 상태 클라이언트는 다음 설정으로 구성될 수 있습니다.
+상태 보고서는 패브릭 클라이언트 내에 있는 상태 클라이언트를 통해 상태 관리자에 게 전송 됩니다. 상태 관리자는 health 스토어에서 보고서를 저장합니다. 상태 클라이언트는 다음 설정으로 구성될 수 있습니다.
 
-* **HealthReportSendInterval**: 보고서가 클라이언트에 추가되는 시간과 보고서가 Health 스토어로 전송되는 시간 사이의 지연 간격입니다. 각 보고서에 메시지를 하나씩 전송하는 대신 보고서를 하나의 메시지로 일괄 처리하는데 사용됩니다. 일괄 처리를 하면 성능이 향상됩니다. Default: 30초
-* **HealthReportRetrySendInterval**: 상태 클라이언트가 축적된 상태 보고서를 Health 스토어에 재전송하는 간격입니다. Default: 30초
-* **HealthOperationTimeout**: Health 스토어로 전송된 보고서 메시지의 제한 시간입니다. 메시지 시간이 초과되면 상태 클라이언트는 Health 스토어에서 보고서 처리를 확인할 때까지 재시도합니다. 기본값: 2분.
+* **HealthReportSendInterval**: 시간과 클라이언트에는 보고서가 추가 하는 시간 사이의 지연 상태 관리자에 게 전송 됩니다. 각 보고서에 메시지를 하나씩 전송하는 대신 보고서를 하나의 메시지로 일괄 처리하는데 사용됩니다. 일괄 처리를 하면 성능이 향상됩니다. Default: 30초
+* **HealthReportRetrySendInterval**: 상태 클라이언트는 누적 된 상태를 다시 전송 간격을 상태 관리자에 게 보고 합니다. Default: 30 초, 최소: 1 초입니다.
+* **HealthOperationTimeout**: 상태 관리자에 게 전송 된 보고서 메시지에 대 한 제한 시간입니다. 메시지 시간 초과 되 면 상태 관리자는 보고서가 처리 되었는지 확인할 때까지 상태 클라이언트 재시도 합니다. 기본값: 2분.
 
 > [!NOTE]
-> 보고서가 일괄 처리되는 경우 보고서가 전송될 수 있도록 적어도 HealthReportSendInterval 동안 패브릭 클라이언트가 유지되어야 합니다. 일시적인 오류로 인하여 메시지가 손실되거나 Health 스토어가 메시지를 적용할 수 없는 경우 작업을 다시 시도할 수 있도록 패브릭 클라이언트가 더 오래 유지되어야 합니다.
+> 보고서가 일괄 처리되는 경우 보고서가 전송될 수 있도록 적어도 HealthReportSendInterval 동안 패브릭 클라이언트가 유지되어야 합니다. 메시지가 손실 된 경우 상태 관리자를 일시적인 오류로 인해 적용할 수 없는 패브릭 클라이언트가 유지 되어야 합니다 더 이상 다시 시도 하 고 제공할 수 있도록 합니다.
 > 
 > 
 
-클라이언트에서의 버퍼링은 보고서의 고유성을 고려합니다. 예를 들어 어떤 악성 보고자가 동일한 엔터티의 동일한 속성에 대해 초당 100개의 보고서를 보내는 경우 해당 보고서는 최신 버전으로 교체됩니다. 이러한 보고서는 기껏해야 클라이언트 큐에 하나 존재합니다. 일괄 작업이 구성되면 Health 스토어에 전송되는 보고서의 개수는 전송 간격당 하나뿐이며, 이 보고서가 엔터티의 최신 상태를 반영하는 맨 마지막으로 추가된 보고서입니다.
+클라이언트에서의 버퍼링은 보고서의 고유성을 고려합니다. 예를 들어 어떤 악성 보고자가 동일한 엔터티의 동일한 속성에 대해 초당 100개의 보고서를 보내는 경우 해당 보고서는 최신 버전으로 교체됩니다. 이러한 보고서는 기껏해야 클라이언트 큐에 하나 존재합니다. 일괄 처리를 구성 하는 경우 상태 관리자에 게 전송 되는 보고서 개수는 전송 간격당 하나 뿐입니다. 이 보고서가 엔터티의 최신 상태를 반영하는 맨 마지막으로 추가된 보고서입니다.
 상태 관련 항목에 원하는 값을 포함한 [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings)를 전달하여 `FabricClient`를 만들 때 구성 매개 변수를 지정합니다.
 
 다음 코드 예제에서는 패브릭 클라이언트를 생성하고 보고서가 추가되면 전송되도록 지정합니다. 시간이 초과되거나 재시도 가능한 오류가 발생할 경우 40초마다 재시도가 이뤄집니다.
@@ -304,13 +304,13 @@ HealthEvents          :
 ## <a name="next-steps"></a>다음 단계
 상태 데이터를 기반으로 서비스 작성자 및 클러스터/응용 프로그램 관리자는 정보를 소비하는 방식에 대해 생각할 수 있습니다. 예를 들어 성능 상태를 기반으로 경고를 설정하면 서비스가 중단되기 전에 심각한 문제를 포착할 수 있습니다. 또한 관리자는 자동으로 문제를 해결하는 복구 시스템을 설정할 수 있습니다.
 
-[서비스 패브릭 상태 모니터링 소개](service-fabric-health-introduction.md)
+[서비스 패브릭 상태 소개 모니터링](service-fabric-health-introduction.md)
 
 [서비스 패브릭 상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
 
-[서비스 상태를 보고 및 확인하는 방법](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[서비스 상태 보고 및 확인 하는 방법](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[시스템 상태 보고서를 문제 해결에 사용](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[시스템 상태 보고서를 사용 하 여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

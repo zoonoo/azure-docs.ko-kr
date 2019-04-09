@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf747fb75ea663d2c64038d73f48adb19d9fb804
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056591"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278584"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝에 대한 Zendesk 구성
 

@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010671"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281219"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -121,7 +121,6 @@ ms.locfileid: "59010671"
 | [Spatial Anchors 계정 소유자](#spatial-anchors-account-owner) | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
 | [Spatial Anchors 계정 판독기](#spatial-anchors-account-reader) | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
 | [SQL DB 참가자](#sql-db-contributor) | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
-| [SQL 관리 인스턴스에 참가자](#sql-managed-instance-contributor) | SQL 관리 되는 인스턴스를 관리할 수 있지만 다른 사용자에 게 액세스할 수 없습니다. |
 | [SQL 보안 관리자](#sql-security-manager) | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [SQL Server 참가자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
 | [Storage 계정 참가자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
@@ -442,7 +441,7 @@ ms.locfileid: "59010671"
 > | Microsoft.Automation/automationAccounts/jobs/write | Azure Automation 작업을 만듭니다. |
 > | Microsoft.Automation/automationAccounts/jobSchedules/read | Azure Automation 작업 일정을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/jobSchedules/write | Azure Automation 작업 일정을 만듭니다. |
-> | Microsoft.Automation/automationAccounts/linkedWorkspace/read | 자동화 계정에 연결된 작업 영역 가져오기 |
+> | Microsoft.Automation/automationAccounts/linkedWorkspace/read | 자동화 계정에 연결된 작업 영역을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/read | Azure Automation 계정을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Azure Automation Runbook을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/schedules/read | Azure Automation 일정 자산을 가져옵니다. |
@@ -2229,31 +2228,6 @@ ms.locfileid: "59010671"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *없음* |  |
-> | **NotDataActions** |  |
-> | *없음* |  |
-
-## <a name="sql-managed-instance-contributor"></a>SQL 관리 인스턴스에 참가자
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **설명** | SQL 관리 되는 인스턴스를 관리할 수 있지만 다른 사용자에 게 액세스할 수 없습니다. |
-> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **작업** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
-> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
-> | Microsoft.Network/networkSecurityGroups/write | 네트워크 보안 그룹을 만들거나 기존 네트워크 보안 그룹을 업데이트합니다. |
-> | Microsoft.Network/routeTables/write | 경로 테이블을 만들거나 기존 경로 테이블을 업데이트합니다. |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
-> | Microsoft.Network/virtualNetworks/subnets/write | 가상 네트워크 서브넷을 만들거나 기존 가상 네트워크 서브넷을 업데이트합니다. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인합니다. 진행 되지 않습니다. |
-> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
-> | **NotActions** |  |
-> | *없음* |  |
 > | **DataActions** |  |
 > | *없음* |  |
 > | **NotDataActions** |  |

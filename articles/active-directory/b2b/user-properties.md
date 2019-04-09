@@ -1,27 +1,27 @@
 ---
-title: Azure Active Directory B2B 공동 작업 사용자-의 속성 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업 사용자 속성은 구성 가능합니다.
+title: 속성의 B2B 게스트 사용자-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B 게스트 사용자 속성 및 상태 전과 초대 상환 후
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294657"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257606"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 공동 작업 사용자 속성
 
-Azure AD(Azure Active Directory) B2B 공동 작업 사용자는 UserType이 Guest인 사용자입니다. 이 게스트 사용자는 일반적으로 파트너 조직에 소속되어 있으며, 기본적으로 초대 디렉터리에서 제한된 권한을 가집니다.
+이 문서에서는 초대 상환 전후 속성 및 Azure Active Directory (Azure AD)에서 B2B 게스트 사용자 개체의 상태를 설명 합니다. Azure AD 기업 간 B2B 공동 작업 사용자가 사용자 usertype = Guest 합니다. 이 게스트 사용자는 일반적으로 파트너 조직에 소속되어 있으며, 기본적으로 초대 디렉터리에서 제한된 권한을 가집니다.
 
 초대 조직의 요구에 따라 Azure AD B2B 공동 작업 사용자는 다음 계정 상태 중 하나일 수 있습니다.
 

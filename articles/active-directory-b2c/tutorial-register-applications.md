@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f79ecd96b15ff4ff96a3bb93061f0c9d7598191f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338160"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278397"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 애플리케이션 등록
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
-애플리케이션이 코드를 토큰으로 교환하는 경우 애플리케이션 비밀을 만들어야 합니다.
+응용 프로그램 토큰에 대 한 코드를 교환 하는 경우 응용 프로그램 비밀을 만들려고 해야 합니다.
 
 1. **키**를 선택한 다음, **키 생성**을 클릭합니다.
 2. **저장**을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.

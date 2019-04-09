@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203746"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280335"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
@@ -32,11 +32,11 @@ ms.locfileid: "56203746"
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-*   Azure AD 테넌트
-*   Pingboard 테넌트 [Pro 계정](https://pingboard.com/pricing) 
-*   관리자 권한이 있는 Pingboard의 사용자 계정 
+* Azure AD 테넌트
+* Pingboard 테넌트 [Pro 계정](https://pingboard.com/pricing)
+* 관리자 권한이 있는 Pingboard의 사용자 계정
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD 프로비전 통합은 사용자 계정에 제공되는 [Pingboard API](https://pingboard.docs.apiary.io/#)를 사용합니다.
 
 ## <a name="assign-users-to-pingboard"></a>Pingboard에 사용자 할당
@@ -69,7 +69,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 1. **프로비전 모드**를 **자동**으로 설정합니다.
 
     ![Pingboard 프로비전](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. **관리자 자격 증명** 섹션에서 다음 단계를 수행합니다.
 
     a. **테넌트 URL**에 `https://your_domain.pingboard.com/scim/v2`를 입력하고 your_domain을 실제 도메인으로 바꿉니다.
@@ -86,7 +86,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
 
-1. **저장**을 선택합니다. 
+1. **저장**을 선택합니다.
 
 1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Pingboard에 동기화**를 선택합니다.
 
@@ -102,6 +102,6 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-on 구성](pingboard-tutorial.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [Single Sign-On 구성](pingboard-tutorial.md)

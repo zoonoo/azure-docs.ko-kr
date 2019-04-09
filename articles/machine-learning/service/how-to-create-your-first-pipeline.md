@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1ace13b8802c86b3ad40725554c698851ff421b0
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360523"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278550"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -35,6 +35,8 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-configure-environment.md#workspace)을 만듭니다. 
 
   ```python
+  from azureml.core import Workspace
+  
   ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
@@ -91,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-중간 데이터(또는 단계의 출력)는 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 개체로 표시됩니다. `output_data1`은 단계의 출력으로 생성되며 하나 이상 후속 단계의 입력으로 사용됩니다. `PipelineData`는 단계 간에 데이터 종속성을 도입하고 파이프라인에 암시적 실행 순서를 만듭니다.
+중간 데이터(또는 단계의 출력)는 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 개체로 표시됩니다. `output_data1` 단계 출력으로 생성 되며 하나 이상의 이후 단계의 입력으로 사용 합니다. `PipelineData` 데이터 종속성 단계를 소개 하 고 파이프라인에서의 암시적 실행 순서를 만듭니다.
 
 ```python
 output_data1 = PipelineData(
@@ -118,6 +120,8 @@ Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__�
 단계를 실행하기 위한 Azure Machine Learning 컴퓨팅을 만들 수 있습니다.
 
 ```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+
 compute_name = "aml-compute"
  if compute_name in ws.compute_targets:
     compute_target = ws.compute_targets[compute_name]
@@ -357,7 +361,7 @@ response = requests.post(published_pipeline1.endpoint,
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
 
 1. [작업 영역을 보고](how-to-manage-workspace.md#view) 파이프라인 목록을 찾습니다.
- ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![기계 학습 파이프라인의 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 특정 파이프라인을 선택하여 실행 결과를 확인합니다.
 

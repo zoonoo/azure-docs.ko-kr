@@ -1,19 +1,18 @@
 ---
 title: PowerShell 사용 하 여 할당을 관리 하는 방법
 description: 공식 Azure 청사진 PowerShell 모듈을 Az.Blueprint blueprint 할당을 관리 하는 방법을 알아봅니다.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 47026975a5142760f90a1a5712b532519f969fd7
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57997629"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256875"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell 사용 하 여 할당을 관리 하는 방법
 
@@ -333,8 +332,8 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대 한 자세한 합니다 [수명 주기 blueprint](../concepts/lifecycle.md)합니다.
-- 사용 하는 방법 이해 [정적 및 동적 매개 변수](../concepts/parameters.md)합니다.
-- 사용자 지정 하는 방법을 알아봅니다 합니다 [시퀀싱 순서 blueprint](../concepts/sequencing-order.md)합니다.
-- 확인 하는 방법을 알아봅니다 이용 [리소스 잠금 blueprint](../concepts/resource-locking.md)합니다.
-- 사용 하 여 청사진의 할당 하는 동안 문제를 해결 [일반 문제 해결](../troubleshoot/general.md)합니다.
+- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아보기
+- [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
+- [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
+- [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기
+- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결

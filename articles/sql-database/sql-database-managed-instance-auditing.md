@@ -13,20 +13,20 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/08/2019
+ms.openlocfilehash: fc8b300cea714ee44f826a78ce8c7a10c1443414
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086057"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282120"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리되는 인스턴스 감사 시작
 
 [관리되는 인스턴스](sql-database-managed-instance.md) 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 기록합니다. 또한
 
 - 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
-- 감사를 사용하면 규정을 완전히 준수한다고 보장할 수는 없지만 규정 표준을 보다 쉽게 준수할 수 있습니다. 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
+- 감사를 사용하면 규정을 완전히 준수한다고 보장할 수는 없지만 규정 표준을 보다 쉽게 준수할 수 있습니다. Azure에 대 한 자세한 내용은 지원 표준 규정 준수 프로그램에 대 한 참조를 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Azure Storage로 서버에 대한 감사 설정
 
@@ -60,7 +60,7 @@ ms.locfileid: "58086057"
 
         ![Blob 컨테이너 속성 단추](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. 복사 아이콘을 클릭하여 컨테이너 URL을 복사하고 나중에 사용할 수 있도록 메모장 등에서 URL을 저장합니다. 컨테이너 URL 형식은 `https://<StorageName>.blob.core.windows.net/<ContainerName>`이어야 합니다.
+     1. 복사 아이콘을 클릭하여 컨테이너 URL을 복사하고 나중에 사용할 수 있도록 메모장 등에서 URL을 저장합니다. 컨테이너 URL 형식 이어야 합니다. `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![Blob 컨테이너 URL 복사](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "58086057"
 
 추가 정보는 다음을 참조하세요.
 
-- [Azure SQL Database 및 SQL Server의 데이터베이스에서 단일 데이터베이스, 탄력적 풀 및 관리되는 인스턴스 간의 감사 차이점](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Azure SQL Database 및 SQL Server에서 데이터베이스의 단일 데이터베이스, 탄력적 풀, s 및 관리 되는 인스턴스 간의 감사 차이점](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -237,12 +237,12 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 - 새로운 구문 `TO EXTERNAL MONITOR` 도 허브 및 Azure Monitor 로그 대상으로 사용할 수 있도록 제공 됩니다.
 - SQL Database에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 **지원되지 않습니다**.
 - 종료 옵션은 **지원되지 않습니다**.
-- `queue_delay` 0은 **지원되지 않습니다**.
+- `queue_delay` 0은 **지원 되지 않습니다**합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 감사 로그 사용 방법의 전체 목록은 [SQL 데이터베이스 감사 시작](sql-database-auditing.md)을 참조하세요.
-- 표준 규정 준수를 지원하는 Azure 프로그램에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/)를 참조하세요.
+- Azure에 대 한 자세한 내용은 지원 표준 규정 준수 프로그램에 대 한 참조를 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
 
 <!--Image references-->
 

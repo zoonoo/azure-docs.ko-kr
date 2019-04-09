@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446712"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010586"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 및 AppSource Marketplace 제품
 
@@ -29,7 +29,7 @@ ms.locfileid: "57446712"
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
-**Azure Marketplace 및 AppSource에 대한 앱 및 서비스 빌드 - 빌드 2018**
+**앱 빌드 및 Azure Marketplace 및 AppSource-서비스 빌드 2018**
 
 이러한 Marketplace에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](../marketplace-publishers-guide.md)를 참조하세요.
 
@@ -52,15 +52,15 @@ ms.locfileid: "57446712"
 
 |                제품 유형                |  Marketplace  |   설명                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
-| [Azure 애플리케이션](./azure-applications/cpp-azure-app-offer.md) | Azure | 솔루션이 Azure Resource Manger 템플릿을 통해 배포된 하나 이상의 VM(가상 머신) 및 선택적 사용자 지정 Azure 코드로 구성됩니다.  배포는 고객이 솔루션 템플릿을 통해 수행하거나 게시자가 관리할 수 있습니다. 이 유형은 제공된 가상 머신 제품 유형보다 많은 유연성을 제공하는 데 사용됩니다.  |
+| [Azure 응용 프로그램](./azure-applications/cpp-azure-app-offer.md) | Azure | 솔루션이 Azure Resource Manger 템플릿을 통해 배포된 하나 이상의 VM(가상 머신) 및 선택적 사용자 지정 Azure 코드로 구성됩니다.  배포는 고객이 솔루션 템플릿을 통해 수행하거나 게시자가 관리할 수 있습니다. 이 유형은 제공된 가상 머신 제품 유형보다 많은 유연성을 제공하는 데 사용됩니다.  |
 | [컨설팅 서비스](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | 둘 다 | Microsoft 인증 컨설턴트는 Azure Marketplace 또는 AppSource의 목록에 도메인 특정 서비스를 추가할 수 있습니다.  컨설턴트의 전문 지식은 고객이 문제를 평가하고 비즈니스 목표 달성을 위한 올바른 솔루션을 만들고 배포하는 데 도움이 됩니다.  |
 | [컨테이너](./containers/cpp-containers-offer.md)  | Azure | 솔루션이 Kubernetes 기반 서비스 또는 Azure Container Instances로 프로비전된 Docker 컨테이너 이미지입니다. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | 이 ERP(전사적 자원 관리) 및 비즈니스 관리 시스템을 확장하는 패키지입니다. |
-| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | 해당 판매, 서비스, 프로젝트 서비스 및 필드 서비스 모듈을 통해 이 CRM(고객 리소스 관리) 시스템을 확장하는 패키지입니다.  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | 고급 재무, 운영, 제조 및 공급망 관리를 지원하는 이 ERP(전사적 자원 관리) 서비스를 확장하는 패키지입니다. |
+| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | 이 고객을 확장 하는 패키지의 sales, 서비스, 프로젝트 서비스 및 필드 서비스 모듈을 통해 리소스 관리 (CRM) 시스템,  |
+| [재무 및 운영을 위한 Dynamics 365](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | 해당 고급 지원 finance, operations, 제조 및 공급망 관리가 엔터프라이즈 리소스 계획 (ERP) 서비스를 확장 하는 패키지 |
 | [IoT Edge 모듈](./iot-edge-module/cpp-offer-process-parts.md) | Azure | IoT Edge 디바이스에서 실행되는 Docker 호환 컨테이너입니다.  여기에는 사용자 지정 코드, 다른 Azure 서비스 및 타사 서비스의 조합을 사용하는 작은 계산 모듈이 포함되어 있습니다. |
-| [Power BI 앱](./power-bi/cpp-power-bi-offer.md) | AppSource | 데이터 흐름을 사용하여 보고서 및 대시보드를 공통 데이터 스토리지의 데이터에 연결하는 패키지입니다. |
-| [SaaS 앱](./saas-app/cpp-saas-offer.md) | Azure | 솔루션이 게시자가 관리하는 SaaS(Software as a Service) 구독이며, 사용자는 Azure Active Directory를 활용하는 사용자 지정 인터페이스를 통해 로그온합니다. |
+| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | 데이터 집합, 보고서 및 대시보드를 포함 하 여 사용자 지정 가능한 Power BI 콘텐츠를 패키지 하는 Power BI 앱 |
+| [SaaS 앱](./saas-app/cpp-saas-offer.md) | Azure | 솔루션은 사용자가 Azure Active Directory를 사용 하는 사용자 지정된 인터페이스를 통해 로그인 하는 게시자가 관리 소프트웨어-as a service 구독입니다. |
 | [가상 머신](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | 솔루션이 고객의 구독에 배포된 단일 가상 머신 내에 포함됩니다.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -69,4 +69,4 @@ ms.locfileid: "57446712"
 
 ## <a name="next-steps"></a>다음 단계
 
-[제품 관리](./manage-offers/cpp-manage-offers.md) 항목에서 마켓플레이스 제품에 대해 수행할 수 있는 일반적인 작업 및 공통된 기술 특성 및 자산에 대해 알아봅니다.
+Marketplace 제품 및 기술 공통 특성 및 문서에는 자산에 수행할 수 있는 일반 작업에 대해 배웁니다 [제품 관리](./manage-offers/cpp-manage-offers.md)합니다.

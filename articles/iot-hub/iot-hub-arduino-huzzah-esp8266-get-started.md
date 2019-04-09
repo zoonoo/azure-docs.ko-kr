@@ -1,20 +1,20 @@
 ---
 title: ESP8266에서 클라우드로 - Feather HUZZAH ESP8266을 Azure IoT Hub에 연결 | Microsoft Docs
 description: 이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Adafruit Feather HUZZAH ESP8266를 설정하고 해당 Azure IoT Hub에 연결하는 방법을 알아봅니다.
-author: rangv
-manager: nasing
+author: wesmc7777
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 82e31c498c6148454a5790a6eb4b82e3a2300a92
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847056"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259391"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266을 클라우드의 Azure IoT Hub에 연결
 
@@ -128,7 +128,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`은 이전 단계에서 얻은 그룹 소유자 이름입니다. `<username>`은 Ubuntu 사용자 이름입니다.
+   `<group-owner-name>` 이전 단계에서 얻은 그룹 소유자 이름이입니다. `<username>` Ubuntu 사용자 이름입니다.
 
 3. Ubuntu에서 로그아웃한 다음 다시 로그인하면 변경 내용이 표시됩니다.
 

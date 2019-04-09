@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518788"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279876"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업 계약에서 Microsoft 고객 계약 Api로 마이그레이션
 
@@ -81,7 +81,7 @@ EA Api 인증 및 권한 부여에 대 한 API 키를 사용합니다. MCA Api�
 | 목적 | 이전 제품 | 새로운 혜택 |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) 콘텐츠 팩 및 커넥터 | [Microsoft Azure 소비 Insights Power BI 앱](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) 고 [ Azure Consumption Insights 커넥터](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) 콘텐츠 팩 및 커넥터 | [Microsoft Azure 소비 Insights Power BI 앱](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) 고 [Azure Consumption Insights 커넥터](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>Api를 잔액 및 크레딧
 
@@ -369,11 +369,11 @@ HTTP Status 200
 
 | 이전 속성 | 새 속성 | 메모 |
 | --- | --- | --- |
-| billingPeriodId  | _해당 사항 없음_ | 사용할 수 없습니다. Microsoft 고객 계약에 대 한 송장 및 연결 된 가격표 billingPeriodId의 개념을 대체 합니다. |
+| billingPeriodId  | _해당 없음_ | 사용할 수 없습니다. Microsoft 고객 계약에 대 한 송장 및 연결 된 가격표 billingPeriodId의 개념을 대체 합니다. |
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | 정확한 문자열 값이 달라질 수 있습니다. |
 | includedQuantity  | includedQuantity | Microsoft 고객 계약의 서비스에 대 한 적용 되지 않습니다. |
-| partNumber  | _해당 사항 없음_ | 대신, productOrderName (offerId 동일) 및 meterid의 조합을 사용 합니다. |
+| partNumber  | _해당 없음_ | 대신, productOrderName (offerId 동일) 및 meterid의 조합을 사용 합니다. |
 | unitPrice  | unitPrice | 단가는 Microsoft 고객 계약에서 사용 하는 서비스에 적용 됩니다. |
 | currencyCode  | pricingCurrency | Microsoft 고객 계약에서 통화 가격 책정 및 대금 청구 통화 가격 표현이 있습니다. currencyCode Microsoft 고객 계약의 pricingCurrency에 해당합니다. |
 | offerId | productOrderName | OfferId, 대신 productOrderName를 사용할 수 있지만 OfferId 동일 하지는 않습니다. 그러나 productOrderName 및 미터 Microsoft 고객 계약의 가격 책정 및 관련 된 meterId Offerid 레거시 등록에서 결정 합니다. |
@@ -435,9 +435,9 @@ EA의 등록 범위의 API 응답 및 속성은 동일 합니다. 속성을 동�
 | 미터 범주  | 서비스 | 측정기에 대 한 분류 범주 이름입니다. Microsoft 고객 계약 가격표에서 서비스와 동일 합니다. 정확한 문자열 값이 다릅니다. |
 | 미터 하위 범주 | meterSubCategory | 미터 subclassification 범주의 이름입니다. 서비스의 고급 기능 집합 차별화의 분류를 기반으로 합니다. 예를 들어, 기본 SQL DB은 표준 SQL DB를 vs. |
 | 요금제 지역 | meterRegion | &nbsp;  |
-| 단위 | _해당 사항 없음_ | UnitOfMeasure에서 구문 분석할 수 있습니다. |
+| 단위 | _해당 없음_ | UnitOfMeasure에서 구문 분석할 수 있습니다. |
 | 측정 단위 | unitOfMeasure | &nbsp;  |
-| 부품 번호 | _해당 사항 없음_ | 대신 partNumber, 사용 하 여 productOrderName 및 MeterId 청구 프로필에 대 한 가격을 고유 하 게 식별 합니다. 필드는 MCA 청구서에서 partNumber 대신 MCA 청구서에 표시 됩니다. |
+| 부품 번호 | _해당 없음_ | 대신 partNumber, 사용 하 여 productOrderName 및 MeterId 청구 프로필에 대 한 가격을 고유 하 게 식별 합니다. 필드는 MCA 청구서에서 partNumber 대신 MCA 청구서에 표시 됩니다. |
 | 단가 | unitPrice | Microsoft 고객 계약 단위 가격입니다. |
 | 통화 코드 | pricingCurrency | Microsoft 고객 계약에서 통화 가격 책정 및 청구 통화 가격을 나타냅니다. 통화 코드 Microsoft 고객 계약의 pricingCurrency와 같습니다. |
 | 포함된 용량 | includedQuantity | Microsoft 고객 계약의 서비스에는 적용 되지 않습니다. 값이 0 인을 사용 하 여 보여 줍니다. |

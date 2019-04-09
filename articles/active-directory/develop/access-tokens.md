@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878420"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259867"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 액세스 토큰
 
@@ -148,7 +148,7 @@ Microsoft ID는 다양한 방법으로 인증할 수 있으며 사용자 애플�
 
 ## <a name="validating-tokens"></a>토큰 유효성 검사
 
-id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 문서의 테넌트 독립적 버전은 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)에 위치합니다. 
+id_token 또는 access_token의 유효성을 검사하려면 앱이 토큰의 서명과 클레임의 유효성을 모두 검사해야 합니다. 액세스 토큰의 유효성을 검사하려면 앱에서 발급자, 대상 그룹 및 서명 토큰의 유효성을 검사해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어, 테 넌 트 독립적 버전의 문서에 위치한 [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration)합니다. 
 
 Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본 제공 기능이 있으며 [샘플](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)을 탐색하여 원하는 언어로 찾을 수 있습니다. JWT 토큰의 유효성 검사를 명시적으로 수행하는 방법은 [수동 JWT 유효성 검사 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)을 참조하세요. 
 
@@ -173,14 +173,14 @@ Azure AD에서 발급된 토큰은 RSA 256 등의 업계 표준 비대칭 암호
 
 특정 시점에 Azure AD는 공개-개인 키 쌍의 특정 집합 중 하나를 사용하여 id_token에 서명할 수 있습니다. Azure AD는 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. Azure AD에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 24시간마다입니다.
 
-다음 위치에 있는 OpenID Connect 메타데이터 문서를 사용하여 서명 유효성 검사에 필요한 서명 키 데이터를 얻을 수 있습니다.
+사용 하 여 서명을 확인 하는 데 필요한 서명 키 데이터를 얻을 수 있습니다 합니다 [OpenID Connect 메타 데이터 문서](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) 위치한:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> 브라우저에서 이 [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration)을 사용해 보세요!
+> 브라우저에서 이 [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration)을 사용해 보세요!
 
 이 메타데이터 문서는 다음과 같은 특징이 있습니다.
 
@@ -190,7 +190,9 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > [!NOTE]
 > v1.0 엔드포인트는 `x5t` 및 `kid` 클레임을 둘 다 반환하지만, v2.0 끝점은 `kid` 클레임으로만 응답합니다. 앞으로는 `kid` 클레임을 사용하여 토큰의 유효성을 검사하는 것이 좋습니다.
 
-서명 유효성 검사는 이 문서의 범위를 벗어납니다. 필요한 경우 이 작업에 도움이 되는 다양한 오픈 소스 라이브러리가 있습니다.
+서명 유효성 검사는 이 문서의 범위를 벗어납니다. 필요한 경우 이 작업에 도움이 되는 다양한 오픈 소스 라이브러리가 있습니다.  그러나 Microsoft Id 플랫폼에 확장 표준을-사용자 지정 서명 키를 서명 하는 하나의 토큰이 있습니다.  
+
+앱에 사용자 지정 서명 키를 사용 하 여 결과로 경우 합니다 [클레임 매핑](active-directory-claims-mapping.md) 해야 추가 기능을는 `appid` 쿼리 얻으려면 앱 ID를 포함 하는 매개 변수는 `jwks_uri` 앱을 가리키는 서명 키 유효성 검사에 사용 해야 하는 정보입니다. 예를 들어: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` 포함 된 `jwks_uri` 의 `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`합니다.
 
 ### <a name="claims-based-authorization"></a>클레임 기반 권한 부여
 

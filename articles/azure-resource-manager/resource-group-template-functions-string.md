@@ -4,22 +4,20 @@ description: Azure Resource Manager 템플릿에서 문자열 작업을 수행�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621416"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278788"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -35,18 +33,19 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
-* [guid](#guid)
-* [indexOf](#indexof)
+* [format](#format)
+* [GUID](#guid)
+* [indexof](#indexof)
 * [last](#last)
-* [lastIndexOf](#lastindexof)
+* [lastindexof](#lastindexof)
 * [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
 * [split](#split)
-* [startsWith](#startswith)
-* [string](#string)
+* [startswith](#startswith)
+* [문자열](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -419,7 +418,7 @@ base64 표현을 문자열로 변환합니다.
 | objectTrue | Bool | True |
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | 거짓 |
 
 ## <a name="datauri"></a>dataUri
 
@@ -594,7 +593,7 @@ base64 표현을 문자열로 변환합니다.
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| stringEmpty | Bool | True  |
 
 ## <a name="endswith"></a>endsWith
 
@@ -660,7 +659,7 @@ base64 표현을 문자열로 변환합니다.
 | startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | False |
+| endsFalse | Bool | 거짓 |
 
 ## <a name="first"></a>first
 
@@ -714,9 +713,66 @@ base64 표현을 문자열로 변환합니다.
 | arrayOutput | 문자열 | one |
 | stringOutput | 문자열 | O |
 
+## <a name="format"></a>format
+
+`format(formatString, arg1, arg2, ...)`
+
+입력된 값의 서식이 지정 된 문자열을 만듭니다.
+
+### <a name="parameters"></a>매개 변수
+
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|:--- |:--- |:--- |:--- |
+| formatString | 예 | 문자열 | 합성 형식 문자열입니다. |
+| arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
+| 추가 인수 | 아닙니다. | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
+
+### <a name="remarks"></a>설명
+
+이 함수를 사용 하 여 템플릿에서 문자열의 형식을 지정 합니다. 동일한 서식 지정 옵션을 사용 합니다 [System.String.Format](/dotnet/api/system.string.format) .net에서 메서드.
+
+### <a name="examples"></a>예
+
+다음 예제 템플릿은 format 함수를 사용 하는 방법을 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | type | 값 |
+| ---- | ---- | ----- |
+| formatTest | 문자열 | Hello, 사용자입니다. 서식이 지정 된 수: 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 매개 변수로 제공된 값을 기반으로 전역 고유 식별자 형식으로 값을 만듭니다.
 
@@ -731,7 +787,7 @@ base64 표현을 문자열로 변환합니다.
 
 이 함수는 전역 고유 식별자 형식으로 값을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다.
 
-반환된 된 값이 임의의 문자열이 있지만 매개 변수에 대 한 해시 함수 결과 대신 아닙니다. 반환된 값은 36자입니다. 전역적으로 고유하지 않습니다. 매개 변수를 해시 값을 기반으로 하지 않는 하는 새 GUID를 만들려면 사용 합니다 [newGuid](#newguid) 함수입니다.
+임의 문자열 이지만 매개 변수에 대 한 해시 함수의 결과 대신 반환된 값이 아닙니다. 반환된 값은 36자입니다. 전역적으로 고유 하지 않습니다. 매개 변수를 해시 값에 기반 하지 않는 새 GUID를 만들려면 사용 합니다 [newGuid](#newguid) 함수입니다.
 
 다음 예제에서는 guid를 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
 
@@ -800,7 +856,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="return-value"></a>반환 값
 
-찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목이 없는 경우 -1이 반환됩니다.
+찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없으면-1이 반환 됩니다.
 
 ### <a name="examples"></a>예
 
@@ -913,7 +969,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="return-value"></a>반환 값
 
-찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목이 없는 경우 -1이 반환됩니다.
+찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없으면-1이 반환 됩니다.
 
 ### <a name="examples"></a>예
 
@@ -1067,7 +1123,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1110,7 +1166,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -1229,7 +1285,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
-| numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
+| numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 배열 또는 문자열의 길이 보다 클 경우 빈 배열 또는 문자열이 반환 됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1409,7 +1465,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 | startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | False |
+| endsFalse | Bool | 거짓 |
 
 ## <a name="string"></a>문자열
 
@@ -1554,7 +1610,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
-| numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
+| numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정 된 배열 또는 문자열의 길이 보다 큰 경우에 배열 또는 문자열의 모든 요소가 반환 됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1776,7 +1832,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 이 함수는 리소스의 고유한 이름을 만들어야 할 때 유용합니다. 결과의 고유성 범위를 제한하는 매개 변수 값을 제공합니다. 구독, 리소스 그룹 또는 배포까지 해당 이름이 고유한지 여부를 지정할 수 있습니다. 
 
-반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 실제 값은 제공된 매개 변수에 따라 달라집니다.
+임의 문자열 이지만 해시 함수의 결과 대신 반환된 값이 아닙니다. 반환된 값은 13자입니다. 전역적으로 고유 하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 실제 값은 제공된 매개 변수에 따라 달라집니다.
 
     tcvhiyu5h2o5o
 
@@ -1800,7 +1856,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-다음 예제에서는 리소스 그룹에 따라 저장소 계정에 고유한 이름을 만드는 방법을 보여 줍니다. 리소스 그룹의 내부에서 같은 방식으로 생성된 경우 이름은 고유하지 않습니다.
+다음 예제에서는 리소스 그룹에 따라 저장소 계정에 고유한 이름을 만드는 방법을 보여 줍니다. 리소스 그룹 내에서 이름이 동일한 방식으로 생성 된 경우 고유 아닙니다.
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
     ...
 ```
 
-사용할 수 있습니다, 템플릿을 배포 하 고 리소스를 업데이트 하려면 인하지 않으려는 될 때마다 새 고유 이름을 생성 해야 하는 경우는 [utcNow](#utcnow) uniqueString 사용 하 여 함수입니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예를 들어 참조 [utcNow](#utcnow)합니다.
+사용할 수 있습니다, 템플릿을 배포 하 고 리소스를 업데이트 하지 않을 때마다 새 고유 이름을 생성 해야 하는 경우는 [utcNow](#utcnow) uniqueString 사용 하 여 함수입니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예를 들어 참조 [utcNow](#utcnow)합니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -2078,7 +2134,7 @@ UtcNow 함수에 대 한 기본값을 사용 하는 템플릿을 다시 배포 �
 
 출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | utcOutput | 문자열 | 20190305T175318Z |
 | utcShortOutput | 문자열 | 03/05/2019 |

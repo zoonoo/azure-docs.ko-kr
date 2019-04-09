@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 86821e2082deb500f050eeab827dcee593082661
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776362"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279893"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>샘플 Notebook 검색 및 사용
 
@@ -41,7 +41,7 @@ ms.locfileid: "57776362"
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
+- [방법: 구성 및 프로젝트 관리](configure-manage-azure-notebooks-projects.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
 - [방법: 데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
 - [방법: Azure Machine Learning Services 사용](use-machine-learning-services-jupyter-notebooks.md)

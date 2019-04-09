@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 78b21e686d6ee6109ccf142dc4ca9956dc4d36ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047809"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>자습서: eDigitalResearch와 Azure Active Directory 통합
 
@@ -40,7 +40,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 eDigitalResearch와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- eDigitalResearch Single Sign-On이 설정된 구독
+- eDigitalResearch에서 single sign-on이 설정 된 구독
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.

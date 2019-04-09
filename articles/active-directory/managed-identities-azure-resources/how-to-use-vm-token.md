@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7354ed8362412c40d52a3895a9b4118eb7c1544
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449389"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258915"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -79,10 +79,11 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | SSRF(서버 쪽 요청 위조) 공격에 대한 완화 수단으로 Azure 리소스에 대한 관리 ID에서 HTTP 요청 헤더 필드가 필요합니다. 이 값은 모두 소문자이며 "true"로 설정되어야 합니다. |
 | `object_id` | (선택 사항) 토큰을 원하는 관리 ID의 object_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
 | `client_id` | (선택 사항) 토큰을 원하는 관리 ID의 client_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
+| `mi_res_id` | (선택 사항) 쿼리 문자열 매개 변수, 토큰에 원하는 관리 되는 id의 mi_res_id (Azure 리소스 ID)를 나타내는입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다. |
 
 Azure 리소스에 대한 관리 ID VM 확장 엔드포인트를 사용하는 요청 샘플 *(2019년 1월에 사용 중단될 예정)*:
 
-```
+```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
@@ -96,10 +97,9 @@ Metadata: true
 | `object_id` | (선택 사항) 토큰을 원하는 관리 ID의 object_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
 | `client_id` | (선택 사항) 토큰을 원하는 관리 ID의 client_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
 
-
 샘플 응답:
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -365,7 +365,7 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 | 요소 | 설명 |
 | ------- | ----------- |
 | error   | 오류 식별자 |
-| error_description | 오류의 자세한 설명입니다. **오류 설명은 언제든지 변경할 수 있습니다. 오류 설명의 값을 기반으로 분기하는 코드를 작성하지 마세요.**|
+| error_description | 오류의 자세한 설명입니다. **오류 설명은 언제 든 지 변경할 수 있습니다. 오류 설명의 값을 기반으로 분기 하는 코드를 작성 하지 마십시오.**|
 
 ### <a name="http-response-reference"></a>HTTP 응답 참조
 

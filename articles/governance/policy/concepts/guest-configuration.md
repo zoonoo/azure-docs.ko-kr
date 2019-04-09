@@ -1,7 +1,6 @@
 ---
 title: 가상 머신의 내용을 감사 하는 방법 이해
 description: Azure Policy가 게스트 구성을 사용하여 Azure 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 045339ec0a725359593797bda172a2e93f7c2890
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339026"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277729"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 

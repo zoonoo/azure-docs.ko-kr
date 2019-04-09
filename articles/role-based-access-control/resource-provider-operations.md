@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010739"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278873"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -384,7 +384,7 @@ ms.locfileid: "59010739"
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/write | 애플리케이션에 첨부 파일을 추가합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/delete | 기존 애플리케이션을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/read | 모든 사용자 애플리케이션 목록을 가져오거나 API Management 애플리케이션 세부 정보를 가져옵니다. |
-> | 조치 | Microsoft.ApiManagement/service/users/applications/write | API Management에 애플리케이션을 등록하거나 애플리케이션 세부 정보를 업데이트합니다. |
+> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/write | API Management에 애플리케이션을 등록하거나 애플리케이션 세부 정보를 업데이트합니다. |
 > | 조치 | Microsoft.ApiManagement/service/users/confirmations/send/action | 확인을 보냅니다. |
 > | 조치 | Microsoft.ApiManagement/service/users/delete | 사용자 계정을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/generateSsoUrl/action | SSO URL을 생성합니다. 이 URL은 관리 포털에 액세스하는 데 사용할 수 있습니다. |
@@ -786,7 +786,7 @@ ms.locfileid: "59010739"
 > | 액션(Action) | Microsoft.Cdn/profiles/endpoints/CheckResourceUsage/action |  |
 > | 액션(Action) | Microsoft.Cdn/profiles/endpoints/customdomains/delete |  |
 > | 액션(Action) | Microsoft.Cdn/profiles/endpoints/customdomains/DisableCustomHttps/action |  |
-> | 조치 | Microsoft.Cdn/profiles/endpoints/customdomains/EnableCustomHttps/action |  |
+> | 액션(Action) | Microsoft.Cdn/profiles/endpoints/customdomains/EnableCustomHttps/action |  |
 > | 액션(Action) | Microsoft.Cdn/profiles/endpoints/customdomains/read |  |
 > | 액션(Action) | Microsoft.Cdn/profiles/endpoints/customdomains/write |  |
 > | 액션(Action) | Microsoft.Cdn/profiles/endpoints/delete |  |
@@ -1515,7 +1515,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/interactions/suggestrelationshiplinks/action | Azure Customer Insights 상호 작용에 대한 관계 링크를 추천합니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/interactions/write | Azure Customer Insights 상호 작용을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/delete | 모든 Azure Customer Insights 핵심 성과 지표를 삭제합니다. |
-> | 조치 | Microsoft.CustomerInsights/hubs/kpi/operations/read | Azure Customer Insights 핵심 성과 지표 작업 결과를 읽습니다. |
+> | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/operations/read | Azure Customer Insights 핵심 성과 지표 작업 결과를 읽습니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/read | 모든 Azure Customer Insights 핵심 성과 지표를 읽습니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/reprocess/action | Azure Customer Insights 핵심 성과 지표를 다시 처리합니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/write | 모든 Azure Customer Insights 핵심 성과 지표를 만들거나 업데이트합니다. |
@@ -1891,7 +1891,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.DBforMariaDB/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/configurations/write | 지정된 구성의 값을 업데이트합니다. |
-> | 조치 | Microsoft.DBforMariaDB/servers/delete | 기존 서버를 삭제합니다. |
+> | 액션(Action) | Microsoft.DBforMariaDB/servers/delete | 기존 서버를 삭제합니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/firewallRules/delete | 기존 방화벽 규칙을 삭제합니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/firewallRules/write | 지정된 매개 변수를 사용하여 방화벽 규칙을 만들거나 기존 규칙을 업데이트합니다. |
@@ -2262,15 +2262,15 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | 도메인에 사용 가능한 메트릭을 가져옵니다. |
 > | 조치 | Microsoft.EventGrid/domains/read | 도메인을 읽습니다. |
 > | 조치 | Microsoft.EventGrid/domains/regenerateKey/action | 도메인에 대한 키를 다시 생성합니다. |
-> | 조치 | Microsoft.EventGrid/domains/topics/read | 도메인 토픽을 읽습니다. |
+> | 액션(Action) | Microsoft.EventGrid/domains/topics/read | 도메인 토픽을 읽습니다. |
 > | 조치 | Microsoft.EventGrid/domains/write | 도메인을 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.EventGrid/eventSubscriptions/delete | EventSubscription을 삭제 합니다. |
 > | 조치 | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | 이벤트 구독의 전체 url을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | 이벤트 구독에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | 이벤트 구독에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | eventSubscription에 사용 가능한 메트릭을 가져옵니다. |
-> | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/read | eventSubscription을 읽습니다. |
-> | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/write | eventSubscription을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription을 읽습니다. |
+> | 조치 | Microsoft.EventGrid/eventSubscriptions/write | 만들거나는 eventSubscription을 업데이트 합니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | 토픽에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | 토픽에 사용 가능한 메트릭을 가져옵니다. |
@@ -2451,7 +2451,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Action | Application Insights 분석 테이블 작업입니다. |
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Delete | Application Insights 분석 테이블 스키마를 삭제합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Read | Application Insights 분석 테이블 스키마를 읽습니다. |
-> | 조치 | Microsoft.Insights/Components/AnalyticsTables/Write | Application Insights 분석 테이블 스키마를 작성합니다. |
+> | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Write | Application Insights 분석 테이블 스키마를 작성합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/Annotations/Delete | Application Insights 주석을 삭제합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/Annotations/Read | Application Insights 주석을 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Components/Annotations/Write | Application Insights 주석을 작성합니다. |
@@ -2618,7 +2618,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | SCOMAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityAlert/Read | SecurityAlert 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityBaseline/Read | SecurityBaseline 테이블에서 데이터를 읽습니다. |
-> | 조치 | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | SecurityBaselineSummary 테이블에서 데이터를 읽습니다. |
+> | 액션(Action) | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | SecurityBaselineSummary 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityDetection/Read | SecurityDetection 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityEvent/Read | SecurityEvent 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | ServiceFabricOperationalEvent 테이블에서 데이터를 읽습니다. |
@@ -2766,7 +2766,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.Kusto/Clusters/Databases/delete | 데이터베이스 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | 이벤트 허브 연결 리소스를 삭제합니다. |
 > | 조치 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | 이벤트 허브 연결 리소스를 읽습니다. |
-> | 조치 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | 이벤트 허브 연결 리소스를 씁니다. |
+> | 액션(Action) | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | 이벤트 허브 연결 리소스를 씁니다. |
 > | 조치 | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | 데이터베이스 이벤트 허브 연결의 유효성을 검사 합니다. |
 > | 조치 | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | 데이터베이스 보안 주체를 나열 합니다. |
 > | 조치 | Microsoft.Kusto/Clusters/Databases/read | 데이터베이스 리소스를 읽습니다. |
@@ -3561,7 +3561,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.Network/expressRoutePorts/read | ExpressRoutePorts를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRoutePorts/write | ExpressRoutePorts를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/expressRoutePortsLocations/read | Express 경로 포트 위치를 가져옵니다. |
-> | 조치 | Microsoft.Network/expressRouteServiceProviders/read | Express Route 서비스 공급자를 가져옵니다. |
+> | 액션(Action) | Microsoft.Network/expressRouteServiceProviders/read | Express Route 서비스 공급자를 가져옵니다. |
 > | 조치 | Microsoft.Network/frontDoors/backendPools/delete | 백 엔드 풀 삭제 |
 > | 조치 | Microsoft.Network/frontDoors/backendPools/read | 백 엔드 풀 가져오기 |
 > | 조치 | Microsoft.Network/frontDoors/backendPools/write | 백 엔드 풀 만들기 또는 업데이트 |
@@ -4252,7 +4252,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 보호 가능한 컨테이너를 모두 가져옵니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | 등록된 컨테이너를 삭제합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | 컨테이너 내의 워크로드를 조회합니다. |
-> | 조치 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
+> | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 보호 컨테이너에 대해 수행된 작업의 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 보호 항목 Backup을 수행합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | 보호된 항목을 삭제합니다. |

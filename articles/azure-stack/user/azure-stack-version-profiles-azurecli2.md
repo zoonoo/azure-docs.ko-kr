@@ -15,11 +15,11 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
 ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057781"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257572"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -161,7 +161,7 @@ Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 �
       python -c "import certifi; print(certifi.where())"
     ```
 
-    인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem` 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
+    인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem`. 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
 
 2. 기존 Python 인증서를 추가 하 여 Azure Stack CA 루트 인증서를 신뢰 합니다.
 
@@ -281,7 +281,7 @@ ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신�
       python -c "import certifi; print(certifi.where())"
     ```
 
-    인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem` 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
+    인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem`. 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
 
 2. 기존 Python 인증서를 추가 하 여 Azure Stack CA 루트 인증서를 신뢰 합니다.
 
