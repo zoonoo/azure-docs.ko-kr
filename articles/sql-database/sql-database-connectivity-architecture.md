@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 및 SQL Data Warehouse로 Azure 트래픽 전달 | Microsoft Doc
-description: 이 문서에서는 Azure 내부 또는 Azure 외부의 Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처에 대해 설명합니다.
+description: 이 문서에서 또는 Azure 내에서 데이터베이스 연결에 대 한 Azcure SQL onnectivity 아키텍처를 설명 합니다. Azure 외부에서.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918606"
+ms.locfileid: "59006784"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
 이 문서에서는 Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처와 다양한 구성 요소가 Azure SQL 인스턴스에 트래픽을 전달하는 방법을 설명합니다. 이러한 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure SQL Database 또는 SQL Data Warehouse에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다.
-
-> [!IMPORTANT]
-> **[예정 된 변경 내용] Azure SQL 서버에 서비스 끝점 연결에는 `Default` 연결 동작 변경 내용 `Redirect`합니다.**
-> 고객은 연결 아키텍처에 따라 새 서버를 만들고, 연결 유형이 명시적으로 설정된 기존 서버를 리디렉션(선호) 또는 프록시로 설정하는 것이 좋습니다.
->
-> 기존 환경에서 연결 서비스 엔드포인트를 통한 연결이 이러한 변경으로 인해 중단되지 않도록 하기 위해 원격 분석을 통해 다음을 수행할 것입니다.
->
-> - 변경 이전에 서비스 엔드포인트를 통해 액세스한 것으로 확인된 서버의 경우, 연결 유형을 `Proxy`로 전환합니다.
-> - 다른 모든 서버에서는 연결 유형을 `Redirect`로 전환합니다.
->
-> 서비스 엔드포인트 사용자는 다음과 같은 시나리오에서 계속 영향을 받을 수 있습니다.
->
-> - 애플리케이션이 기존 서버에 자주 연결하지 않아 원격 분석을 통해 해당 애플리케이션에 대한 정보를 캡처하지 못했습니다.
-> - 자동화 된 배포 논리는 서비스 끝점 연결에 대 한 기본 동작은 가정 하 고 SQL Database 서버를 만듭니다. `Proxy`
->
-> Azure SQL Server로의 서비스 엔드포인트 연결을 설정할 수 없습니다. 이 변경의 영향을 받을 것으로 의심될 경우 해당 연결 유형이 명시적으로 `Redirect`로 설정되어 있는지 확인하세요. 이 경우 경우 지역에서 Sql에 속해 있는 모든 Azure IP 주소를 VM 방화벽 규칙과 네트워크 보안 그룹 (NSG)를 열어야 할 [서비스 태그](../virtual-network/security-overview.md#service-tags) 11000-11999 포트에 대 한 합니다. 이 방법을 사용할 수 없는 경우 서버를 명시적으로 `Proxy`로 전환합니다.
-> [!NOTE]
-> 이 항목에서는 단일 데이터베이스 및 탄력적 풀, SQL Data Warehouse 데이터베이스, Azure Database for MySQL, Azure Database for MariaDB, 및 Azure Database for PostgreSQL 호스트 하는 Azure SQL Database 서버에 적용 됩니다. 간단히 하기 위해 SQL Database는 SQL Database, SQL Data Warehouse, Azure Database for MySQL, Azure Database for MariaDB, 및 Azure Database for PostgreSQL 참조할 때 사용 됩니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 

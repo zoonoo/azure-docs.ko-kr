@@ -99,7 +99,7 @@ Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있�
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage 및 Data Lake Storage
 
-대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 저장소에 의해 되돌아갑니다. 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 저장소를 사용하면 비용이 많이 들 수 있습니다.
+대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 저장소에 의해 되돌아갑니다. 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 스토리지를 사용하면 비용이 많이 들 수 있습니다.
 
 HDInsight를 사용할 때는 Azure Blob Storage와, 선택적으로 Azure Data Lake Storage를 통해 데이터 파일이 확장성 있고 탄력적인 방식으로 클라우드에 저장됩니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6c38591aa283491369562db8ea840ef7e5b17e6d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402629"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009838"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -136,7 +136,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-별도의 설명이 없으면 `func init`는 다음 옵션(버전 2.x 전용)을 지원합니다.
+`func init` 다른 설명이 없는 한 2.x 전용 버전을 사용 하는 다음 옵션을 지원 합니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
@@ -192,10 +192,10 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 
 이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
 
-* [미리 컴파일된 C#](functions-dotnet-class-library.md#environment-variables)
+* [C#미리 컴파일된](functions-dotnet-class-library.md#environment-variables)
 * [C# 스크립트(.csx)](functions-reference-csharp.md#environment-variables)
-* [F# 스크립트(.fsx)](functions-reference-fsharp.md#environment-variables)
-* [Java](functions-reference-java.md#environment-variables)
+* [F#스크립트 (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [자바](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
 올바른 저장소 연결 문자열 설정 된 경우 [ `AzureWebJobsStorage` ] 에뮬레이터를 사용 하지 않을, 다음 오류 메시지가 표시 됩니다.
@@ -294,7 +294,7 @@ func host start
 
 `host` 명령은 버전 1.x에서만 필요합니다.
 
-`func host start`은 다음 옵션을 지원합니다.
+`func host start` 다음 옵션을 지원합니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
@@ -386,7 +386,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run <FunctionName>`을 사용하여 함수를 직접 호출하고 함수에 대한 입력 데이터를 제공할 수도 있습니다. 이 명령은 Azure Portal에서 **테스트** 탭을 사용하여 함수를 실행하는 것과 비슷합니다.
 
-`func run`은 다음 옵션을 지원합니다.
+`func run` 다음 옵션을 지원합니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
@@ -461,7 +461,7 @@ func deploy
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 현재 사용자가 로그인되어 있는 Docker 레지스트리의 이름입니다. |
-| **`--platform`** | 함수 앱의 호스팅 플랫폼입니다. 유효한 옵션은 `kubernetes`입니다. |
+| **`--platform`** | 함수 앱의 호스팅 플랫폼입니다. 유효한 옵션은 `kubernetes` |
 | **`--name`** | 함수 앱 이름입니다. |
 | **`--max`**  | 필요한 경우 배포할 함수 앱 인스턴스의 최대 수를 설정합니다. |
 | **`--min`**  | 필요한 경우 배포할 함수 앱 인스턴스의 최소 수를 설정합니다. |
@@ -475,7 +475,7 @@ Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](ht
 <!-- LINKS -->
 
 [Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
-[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Azure portal]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

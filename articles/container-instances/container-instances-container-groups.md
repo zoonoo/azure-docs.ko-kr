@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202013"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005541"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -41,7 +41,9 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 ## <a name="deployment"></a>배포
 
-다중 컨테이너 그룹을 배포 하는 두 가지 일반적인 방법은 다음과 같습니다: 사용 된 [Resource Manager 템플릿을] [ resource-manager template] 또는 [YAML 파일][yaml-file]합니다. 추가 Azure 서비스 리소스를 배포 해야 하는 경우 Resource Manager 템플릿을 사용 하 여 (예를 들어를 [Azure 파일 공유][azure-files]) 시 container instances를 배포 합니다. YAML 형식의 더 간결한 특성상 YAML 파일을이 배포에만 컨테이너 인스턴스를 포함 하는 경우 좋습니다.
+다중 컨테이너 그룹을 배포 하는 두 가지 일반적인 방법은 다음과 같습니다: 사용 된 [Resource Manager 템플릿을] [ resource-manager template] 또는 [YAML 파일][yaml-file]합니다. 추가 Azure 서비스 리소스를 배포 해야 하는 경우 Resource Manager 템플릿을 것이 좋습니다 (예를 들어, 한 [Azure 파일 공유][azure-files]) container instances를 배포 하는 경우. YAML 형식의 더 간결한 특성상 YAML 파일을이 배포에만 컨테이너 인스턴스를 포함 하는 경우 좋습니다.
+
+컨테이너 그룹의 구성, 유지 하기 위해 구성을 내보낼 수 있습니다는 YAML 파일에 Azure CLI 명령을 사용 하 여 [az 컨테이너 내보내기][az-container-export]합니다. 내보내기 "코드로 구성"에 대 한 버전 제어에서 컨테이너 그룹 구성을 저장 하도록 허용 또는 YAML에서 새 구성을 개발할 때 내보낸 파일을 시작점으로 사용할 수 있습니다.
 
 ## <a name="resource-allocation"></a>리소스 할당
 
@@ -110,3 +112,4 @@ Azure Resource Manager 템플릿을 통해 다중 컨테이너 그룹 배포 방
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

@@ -65,7 +65,7 @@ Stream Analytics 쿼리 언어는 스트리밍 데이터 분석 및 처리를 �
 
 ## <a name="fully-managed"></a>완전히 관리 
 
-Azure Stream Analytics는 Azure에서 완벽하게 관리되는 서버가 없는(PaaS) 제품입니다. 즉, 모든 하드웨어를 프로비전하거나 작업을 실행하는 클러스터를 관리할 필요가 없습니다. Azure Stream Analytics는 클라우드에서 복잡한 계산 클러스터 설정 및 작업 실행에 필요한 성능 조정을 처리하여 완벽하게 작업을 관리합니다. Azure Event Hubs 및 Azure IoT Hub와 통합하면 작업에서 연결된 디바이스, 클릭 스트림 및 로그 파일에서 발생하는 초당 수백만 개의 이벤트를 수집할 수 있습니다. 이벤트 허브의 파티션 기능을 사용하면 계산을 논리 단계로 분할할 수 있고, 좀 더 분할하면 확장성을 높일 수 있습니다.
+Azure Stream Analytics는 Azure에서 완벽하게 관리되는 서버가 없는(PaaS) 제품입니다. 즉, 모든 하드웨어를 프로비전하거나 작업을 실행하는 클러스터를 관리할 필요가 없습니다. Azure Stream Analytics는 클라우드에서 복잡한 컴퓨팅 클러스터 설정 및 작업 실행에 필요한 성능 조정을 처리하여 완벽하게 작업을 관리합니다. Azure Event Hubs 및 Azure IoT Hub와 통합하면 작업에서 연결된 디바이스, 클릭 스트림 및 로그 파일에서 발생하는 초당 수백만 개의 이벤트를 수집할 수 있습니다. 이벤트 허브의 파티션 기능을 사용하면 계산을 논리 단계로 분할할 수 있고, 좀 더 분할하면 확장성을 높일 수 있습니다.
 
 ## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>클라우드 또는 인텔리전트 에지에서 실행
 

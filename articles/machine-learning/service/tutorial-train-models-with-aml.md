@@ -241,7 +241,7 @@ ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progres
 
 ## <a name="train-on-a-remote-cluster"></a>원격 클러스터에서 학습
 
-이 태스크의 경우 이전에 설정한 원격 학습 클러스터로 작업을 제출하세요. 작업을 제출하는 방법은 아래와 같습니다.
+이 태스크의 경우 이전에 설정한 원격 학습 클러스터로 작업을 제출하세요.  작업을 제출하는 방법은 아래와 같습니다.
 * 디렉터리 만들기
 * 학습 스크립트 만들기
 * Estimator 개체 만들기

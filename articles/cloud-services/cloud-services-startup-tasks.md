@@ -134,7 +134,7 @@ EXIT /B 0
 
 RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변수** 요소의 [값] 특성을 사용하지 않습니다. 대신 적절한 **XPath** 특성 값이 있는 [RoleInstanceValue] 자식 요소는 [RoleEnvironment] 클래스의 특정 멤버에 따라 환경 변수를 만드는데 사용됩니다. 다양한 [RoleEnvironment] 값에 액세스하는 **XPath** 특성에 대한 값은 [여기](cloud-services-role-config-xpath.md)에서 찾을 수 있습니다.
 
-예를 들어 인스턴스가 계산 에뮬레이터에서 실행되는 경우 "**true**"이고 클라우드에서 실행되는 경우 "**false**"인 환경 변수를 만들려면 다음 [변수] 및 [RoleInstanceValue] 요소를 사용합니다.
+예를 들어 인스턴스가 컴퓨팅 에뮬레이터에서 실행되는 경우 "**true**"이고 클라우드에서 실행되는 경우 "**false**"인 환경 변수를 만들려면 다음 [변수] 및 [RoleInstanceValue] 요소를 사용합니다.
 
 ```xml
 <Startup>

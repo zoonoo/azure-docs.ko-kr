@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498811"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009821"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>예제: Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
 
-이 예제에서 사용 하는 방법에 알아봅니다 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 검색---입력할 때 동작을 지 원하는 강력한 검색 상자를 빌드할 수 있습니다.
+이 문서의 사용 방법 알아보기 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 검색---입력할 때 동작을 지 원하는 강력한 검색 상자를 빌드할 수 있습니다.
 
-+ *제안* 입력할 때 각 제안이 지금까지 입력 한 내용을 일치 하는 인덱스에서 단일 결과 생성 하는 제안 된 결과의 목록입니다. 
++ *제안* 제안 결과가 입력할 때 각 제안이 지금까지 입력 한 내용을 일치 하는 인덱스에서 단일 결과 생성 합니다. 
 
-+ *자동 완성*, [미리 보기 기능](search-api-preview.md)를 "완료" 단어 또는 구 사용자가 현재 입력입니다. 제안 사항이 있는 경우와 마찬가지로 완료 된 단어나 구를 않음에서 서술 된 인덱스에서 일치 항목을 합니다. 
++ *자동 완성*, [미리 보기 기능](search-api-preview.md)를 "완료" 단어 또는 구 사용자가 현재 입력입니다. 결과 반환 하는 대신 실행할 결과 반환할 수 있습니다 하는 쿼리를 완료 합니다. 제안 사항이 있는 경우와 마찬가지로 완료 된 단어 또는 구 쿼리에서 않음에서 서술 된 인덱스에서 일치 항목을 합니다. 서비스는 인덱스에 0 개 결과 반환 하는 쿼리를 제공 하지 않습니다.
 
 다운로드 하 고 샘플 코드 실행할 수 **DotNetHowToAutocomplete** 이러한 기능을 평가 합니다. 채워진 미리 작성 된 인덱스를 대상으로 하는 샘플 코드 [NYCJobs 데모 데이터](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)입니다. NYCJobs 인덱스에 포함 되어는 [Suggester 구문을](index-add-suggesters.md), 제안 또는 자동 완성을 사용 하 여에 대 한 요구 사항인 합니다. 샌드박스 서비스에서 호스트 되는 준비 된 인덱스를 사용할 수 있습니다 또는 [고유한 인덱스를 채우지](#configure-app) NYCJobs 샘플 솔루션에서 데이터 로더를 사용 합니다. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "58498811"
 
 Azure Search 서비스를 준비 된 NYCJobs 데모 인덱스를 호스트 하는 라이브 샌드박스 서비스를 사용 하는 솔루션 이므로이 연습의 선택 사항입니다. 이 예제에서는 사용자 고유의 search 서비스에서 실행 하려는 경우 참조 [NYC 작업 구성 인덱스](#configure-app) 지침에 대 한 합니다.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), 모든 버전. 샘플 코드 및 지침 무료 Community edition에서 테스트 했습니다.
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
 * 다운로드 합니다 [DotNetHowToAutoComplete 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)합니다.
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-위의 코드는 jQuery UI 자동 완성 "example1a" 입력된 상자에 대 한 구성 페이지 로드 시 브라우저에서 실행 됩니다.  `minLength: 3`은 검색 상자에 3자 이상이 입력되었을 때만 권장 사항을 표시하도록 합니다.  원본 값이 중요합니다.
+위의 코드는 jQuery UI 자동 완성 "example1a" 입력된 상자에 대 한 구성 페이지 로드 시 브라우저에서 실행 됩니다.  `minLength: 3` 검색 상자에 3 개 이상의 문자가 있는 경우 권장 사항 표시만 확인 합니다.  원본 값이 중요합니다.
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#버전
+## <a name="c-example"></a>C# 예제
 
 이제 웹 페이지의 JavaScript 코드를 검토 했습니다 살펴보겠습니다 합니다 C# 실제로 Azure Search.NET SDK를 사용 하 여 제안 된 일치 항목을 검색 하는 서버 쪽 컨트롤러 코드입니다.
 
@@ -229,9 +229,11 @@ public ActionResult AutoComplete(string term)
 
 페이지의 다른 예제 패싯 자동 완성 결과의 클라이언트쪽 캐싱을 지원 하 고 적중 항목 강조 표시를 추가 하려면 동일한 패턴을 따릅니다. 각각을 검토하여 작동 방식과 검색 환경에서의 활용 방법을 살펴봅니다.
 
-## <a name="javascript-version-with-rest"></a>REST 사용 하 여 JavaScript 버전
+## <a name="javascript-example"></a>JavaScript 예제
 
-JavaScript 구현은 엽니다 **IndexJavaScript.cshtml**합니다. JQuery UI 자동 완성 함수는 검색 용어 입력을 수집, 검색 상자에도 사용을 검색 하려면 Azure Search에 대 한 비동기 호출 일치를 제안 하거나 용어 완료를 확인 합니다. 
+Javascript 자동 완성 기능 및 제안을 구현의 원본으로 URI를 사용 하 여 인덱스 및 작업을 지정 하는 REST API를 호출 합니다. 
+
+JavaScript 구현은 검토 하려면 엽니다 **IndexJavaScript.cshtml**합니다. JQuery UI 자동 완성 함수는 검색 용어 입력을 수집, 검색 상자에도 사용을 검색 하려면 Azure Search에 대 한 비동기 호출 일치를 제안 하거나 용어 완료를 확인 합니다. 
 
 첫 번째 예제의 JavaScript 코드를 살펴보겠습니다.
 
@@ -291,7 +293,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 
 지금까지 호스 티 드 NYCJobs 데모 인덱스를 사용 했습니다. 전체 하려는 경우 모든 인덱스를 포함 하 여 코드에 대 한 가시성을 만들고 고유한 검색 서비스에서 인덱스를 로드 하려면 다음이 지침을 따릅니다.
 
-1. [Azure Search 서비스 만들기](search-create-service-portal.md) 나 [기존 서비스를 찾을](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 현재 구독에서. 이 예제에 대 한 무료 서비스를 사용할 수 있습니다. 
+1. [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 예제에 대 한 무료 서비스를 사용할 수 있습니다. 
 
    > [!Note]
    > 체험 Azure Search 서비스를 사용하는 경우 세 가지 인덱스로 제한됩니다. NYCJobs 데이터 로더는 두 개의 인덱스를 만듭니다. 서비스에 새 인덱스를 허용하는 공간이 있는지 확인합니다.

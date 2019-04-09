@@ -250,7 +250,7 @@ ms.locfileid: "58001403"
 | Standard_DS3 | Intel(R) Xeon(R) CPU E5-2673 v3 \@ 2.40GHz | 4 | 1 | 14.0 | 55,664 | 385 | 0.69% | 7 |
 | Standard_DS4 | Intel(R) Xeon(R) CPU E5-2660 0 \@ 2.20GHz | 8 | 1 | 28.1 | 84,956 | 1,087 | 1.28% | 105 |
 
-## <a name="fsv2---compute--storage-optimized"></a>Fsv2 - 계산 + 저장소 최적화
+## <a name="fsv2---compute--storage-optimized"></a>Fsv2 - 컴퓨팅 + 스토리지 최적화
 (3/23/2018 7:33:11 PM pbi 2050259)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -263,7 +263,7 @@ ms.locfileid: "58001403"
 | Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU \@ 2.70GHz | 64 | 2 | 128.9 | 741,859 | 5,954 | 0.80% | 49 |
 | Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU \@ 2.70GHz | 72 | 2 | 145.0 | 831,616 | 4,867 | 0.59% | 42 |
 
-## <a name="f---compute-optimized"></a>F - 계산 최적화
+## <a name="f---compute-optimized"></a>F - 컴퓨팅 최적화
 (3/23/2018 7:28:54 PM pbi 2050259)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -280,7 +280,7 @@ ms.locfileid: "58001403"
 | Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v3 \@ 2.40GHz | 16 | 2 | 32.1 | 217,174 | 4,952 | 2.28% | 28 |
 | Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v4 \@ 2.30GHz | 16 | 1 | 32.1 | 226,457 | 5,507 | 2.43% | 49 |
 
-## <a name="fs---compute-and-storage-optimized"></a>Fs - 계산 및 저장소 최적화
+## <a name="fs---compute-and-storage-optimized"></a>Fs - 컴퓨팅 및 스토리지 최적화
 (3/23/2018 7:30:14 PM pbi 2050259)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |
@@ -297,7 +297,7 @@ ms.locfileid: "58001403"
 | Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v3 \@ 2.40GHz | 16 | 2 | 32.1 | 218,297 | 4,284 | 1.96% | 14 |
 | Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v4 \@ 2.30GHz | 16 | 1 | 32.1 | 225,001 | 3,033 | 1.35% | 98 |
 
-## <a name="g---compute-optimized"></a>G - 계산 최적화
+## <a name="g---compute-optimized"></a>G - 컴퓨팅 최적화
 (3/23/2018 7:27:25 PM pbi 2050259)
 
 | VM 크기 | CPU | vCPU | NUMA 노드 | 메모리(GiB) | Avg 점수 | StdDev | StdDev% | #실행 |

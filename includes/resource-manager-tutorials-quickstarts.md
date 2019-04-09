@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334360"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291649"
 ---
 ## <a name="quickstarts-and-tutorials"></a>빠른 시작 및 자습서
 
@@ -39,10 +39,9 @@ Resource Manager 템플릿을 개발하는 방법을 알아보려면 다음 빠�
     |------|-----|
     |[템플릿 참조 활용](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|템플릿 참조 설명서를 활용하여 템플릿을 개발합니다. 이 자습서에서는 저장소 계정 스키마를 찾고 해당 정보를 사용하여 암호화된 저장소 계정을 만듭니다.|
     |[여러 인스턴스 만들기](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Azure 리소스의 여러 인스턴스를 만듭니다. 이 자습서에서는 저장소 계정의 여러 인스턴스를 만듭니다.|
-    |[리소스 이동](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|한 리소스 그룹에서 다른 리소스 그룹으로 리소스를 이동합니다. 자습서에서 기존 템플릿을 실행하여 리소스 그룹 두 개와 스토리지 계정 하나를 만든 다음, Azure PowerShell cmdlet을 실행하여 스토리지 계정을 다른 리소스 그룹으로 이동합니다.|
     |[리소스 배포 순서 설정](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|리소스 종속성을 정의합니다. 이 자습서에서는 가상 네트워크, 가상 머신 및 종속 Azure 리소스를 만듭니다. 종속성을 정의하는 방법을 알아봅니다.|
     |[조건 사용](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|일부 매개 변수 값에 따라 리소스를 배포합니다. 이 자습서에서는 새 저장소 계정을 만드는 템플릿을 정의하거나 매개 변수 값을 기준으로 기존 저장소 계정을 사용합니다.|
-    |[Key Vault 통합](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Azure Key Vault에서 비밀/암호를 검색합니다. 이 자습서에서는 가상 머신을 만듭니다.  가상 머신 관리자 암호는 Key Vault에서 검색됩니다.|
+    |[Key vault 통합](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Azure Key Vault에서 비밀/암호를 검색합니다. 이 자습서에서는 가상 머신을 만듭니다.  가상 머신 관리자 암호는 Key Vault에서 검색됩니다.|
     |[연결된 템플릿 만들기](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|템플릿을 모듈화하고 템플릿에서 다른 템플릿을 호출합니다. 이 자습서에서는 가상 네트워크, 가상 머신 및 종속 리소스를 만듭니다.  종속 저장소 계정은 연결된 템플릿에서 정의됩니다. |
     |[가상 머신 확장 배포](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|확장을 사용하여 배포 후 작업을 수행합니다. 자습서에서 고객 스크립트 확장을 배포하여 가상 머신에서 웹 서버를 설치합니다. |
     |[SQL 확장 배포](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|확장을 사용하여 배포 후 작업을 수행합니다. 자습서에서 고객 스크립트 확장을 배포하여 가상 머신에서 웹 서버를 설치합니다. |

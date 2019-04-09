@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905242"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006351"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure 데이터 상자 가장자리에 대 한 시스템 요구 사항
 
@@ -101,6 +101,37 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 ## <a name="internet-bandwidth"></a>인터넷 대역폭
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>계산 크기 조정 고려 사항
+
+데이터 상자 Edge 장치에 충분 한 용량이 및 장치에서 최적의 성능을 얻을 수 있도록 개발 하 고 솔루션을 테스트 하는 동안 경험을 사용 합니다.
+
+고려해 야 할 요소는 다음과 같습니다.
+
+- **컨테이너 세부 사항을** -다음을 고려 합니다.
+
+    - 워크 로드에 얼마나 많은 컨테이너가? 몇 가지 리소스를 많이 사용 된 및 경량 컨테이너 많이 있을 수 있습니다.
+    - 이란 현재 사용 중인 리소스와 이러한 컨테이너에 할당 된 리소스는 무엇입니까?
+    - 컨테이너에는 얼마나 많은 계층이 공유 하나요?
+    - 사용 하지 않는 컨테이너 있습니까? 여전히 중지 된 컨테이너 디스크 공간을 차지 합니다.
+    - 어떤 언어로 컨테이너를 작성은?
+- **처리 된 데이터의 크기** -데이터의 양을 컨테이너 처리할? 이 데이터 디스크 공간을 사용 하면 메모리에 데이터를 처리할지 여부
+- **예상 성능** -솔루션의 원하는 성능 특징은 무엇입니까? 
+
+이해 하 고 솔루션의 성능을 구체화, 다음을 사용할 수 있습니다.
+
+- 계산 메트릭을 Azure portal에서 사용할 수 있습니다. 가장자리가 상자의 데이터 리소스를 이동 하 고 이동 **모니터링 > 메트릭**합니다. 확인 합니다 **Edge 계산-메모리 사용량** 및 **Edge 계산-CPU 백분율** 사용 가능한 리소스를 이해 하려면 어떻게 리소스 가져오기 사용 됩니다.
+- 모니터링 명령와 같은 장치의 PowerShell 인터페이스를 통해 사용할 수 있습니다.
+
+    - `dkr` 컨테이너의 라이브 스트림 리소스 사용 통계를 통계입니다. 명령에는 CPU, 메모리 사용량, 메모리 제한 및 네트워크 IO 메트릭 지원합니다.
+    - `dkr system df` 사용 하는 디스크 공간의 크기에 대 한 정보를 가져옵니다. 
+    - `dkr image [prune]` 사용 되지 않는 이미지를 정리 및 공간을 확보 합니다.
+    - `dkr ps --size` 실행 중인 컨테이너의 대략적인 크기를 표시 합니다. 
+
+    사용 가능한 명령에 대 한 자세한 내용은 이동 [모니터 계산 모듈 문제를 해결 하 고](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)입니다.
+
+마지막으로, 데이터 집합에서 솔루션을 유효성을 검사 하 고 프로덕션 환경에 배포 하기 전에 데이터 상자 가장자리에서 성능을 정량화 해야 합니다.
+
 
 ## <a name="next-step"></a>다음 단계
 

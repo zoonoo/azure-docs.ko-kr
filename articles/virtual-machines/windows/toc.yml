@@ -66,7 +66,7 @@ items:
       items:
       - name: B-시리즈 버스터블
         href: b-series-burstable.md
-    - name: Compute에 최적화
+    - name: 컴퓨팅 최적화
       displayName: Fsv2 Fs F-series
       href: sizes-compute.md
     - name: 메모리에 최적화
@@ -90,7 +90,7 @@ items:
     - name: 이전 세대
       displayName: D-series Ds-series A-series Basic
       href: sizes-previous-gen.md
-    - name: Azure 계산 단위(ACU)
+    - name: ACU(Azure 컴퓨팅 단위)
       href: acu.md
     - name: 벤치마크 점수
       href: compute-benchmark-scores.md

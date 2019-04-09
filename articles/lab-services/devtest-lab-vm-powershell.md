@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: df6d7e59c6c569a56162a738924b4ffd05b47da6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 0e68958070e9c35e12dd9446b351f880dfea6f69
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896623"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009345"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 DevTest Labs를 사용 하 여 가상 머신 만들기
 이 문서에서는 Azure PowerShell을 사용 하 여 Azure DevTest Labs에서 가상 컴퓨터를 만드는 방법을 보여 줍니다. Azure DevTest Labs에서 랩의 가상 머신 만들기를 자동화 하려면 PowerShell 스크립트를 사용할 수 있습니다. 
@@ -72,6 +72,7 @@ try {
     # The properties will be slightly different depending on the base of the vm
     # (a marketplace image, custom image or formula).
     # The setup of the virtual network to be used may also affect the properties.
+    # This sample includes the properties to add an additional disk under dataDiskParameters
     
     $parameters = @{
        "name"      = $NewVmName;
@@ -92,6 +93,14 @@ try {
           "userName"                = $UserName;
           "password"                = $Password;
           "disallowPublicIpAddress" = $true;
+          "dataDiskParameters" = @(@{
+            "attachNewDataDiskOptions" = @{
+                "diskName" = "adddatadisk"
+                "diskSizeGiB" = "1023"
+                "diskType" = "Standard"
+                }
+          "hostCaching" = "ReadWrite"
+          })
        }
     }
     

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4f558d8d1e5e4e743e6d44cca1a804b3e5898b30
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443428"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006804"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Azure에 대한 VMware 재해 복구의 복제 정책 구성 및 관리
 이 아티클에서는 VMware VM을 Azure에 복제할 때 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 복제 정책을 구성하는 방법을 설명합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "58443428"
 1. 선택 **관리할** > **Site Recovery 인프라** > **복제 정책**합니다.
 2. 수정 하려는 복제 정책을 선택 합니다.
 3. 클릭 **설정 편집**, 필요에 따라 RPO 임계값/복구 지점 보존 시간/앱 일치 스냅숏 빈도 필드를 업데이트 합니다.
-4. 응용 프로그램 일관성 지점 생성을 해제 하려는 경우 "Off" 값은 필드의 드롭다운 목록에서 선택 **앱 일치 스냅숏 빈도**합니다.
+4. 응용 프로그램 일관성 지점 생성을 해제 하려는 경우 "꺼짐" 필드의 드롭다운 목록에서 값 선택 **앱 일치 스냅숏 빈도**합니다.
 5. **저장**을 클릭합니다. 정책은 30 ~ 60 초 내에 업데이트 되어야 합니다.
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>복제 정책 분리 또는 삭제

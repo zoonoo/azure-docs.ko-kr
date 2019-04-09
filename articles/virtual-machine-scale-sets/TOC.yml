@@ -83,7 +83,7 @@ items:
         href: ../virtual-machines/windows/b-series-burstable.md
         maintainContext: true
       maintainContext: true
-    - name: Compute에 최적화
+    - name: 컴퓨팅 최적화
       href: ../virtual-machines/windows/sizes-compute.md
       maintainContext: true
     - name: 메모리에 최적화
@@ -106,7 +106,7 @@ items:
     - name: 고성능 계산
       href: ../virtual-machines/windows/sizes-hpc.md
       maintainContext: true
-    - name: Azure 계산 단위(ACU)
+    - name: ACU(Azure 컴퓨팅 단위)
       href: ../virtual-machines/windows/acu.md
       maintainContext: true
     - name: 벤치마크 점수

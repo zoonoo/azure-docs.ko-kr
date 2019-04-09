@@ -320,7 +320,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 
 9. 다음 AD 정책을 확인하여 다음의 필수 액세스 계정을 제거하지 않는지 검토해야 합니다.
 
-   - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this compute from the network
+   - 컴퓨터 구성\Windows Settings\Security Settings\Local Policies\User Rights Assignment\네트워크에서 이 컴퓨팅에 액세스
 
      다음 그룹이 이 정책에 나열되어야 합니다.
 

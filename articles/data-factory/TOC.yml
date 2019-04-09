@@ -399,7 +399,7 @@ items:
       href: transform-data-databricks-python.md
     - name: 사용자 지정 작업
       href: transform-data-using-dotnet-custom-activity.md
-    - name: Compute 연결된 서비스
+    - name: 컴퓨팅 연결 서비스
       href: compute-linked-services.md
   - name: 흐름 제어
     items:

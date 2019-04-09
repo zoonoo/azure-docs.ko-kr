@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58650260"
 ---
-# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
+# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
 
 종량제 가격에 비해 컴퓨팅 리소스 비용을 선결제하면 Azure SQL Database에서의 비용을 절약할 수 있습니다. Azure SQL Database 예약된 용량을 사용하면 1년이나 3년 동안 SQL Database에 선불 약정을 체결하여 계산 비용에서 상당한 할인을 받을 수 있습니다. SQL Database 예약된 용량을 구입하려면 Azure 지역, 배포 유형, 성능 계층 및 용어를 지정해야 합니다.
 

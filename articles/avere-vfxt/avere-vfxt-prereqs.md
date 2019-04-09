@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417975"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056744"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -30,23 +30,16 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
 ## <a name="configure-subscription-owner-permissions"></a>구독 소유자 권한 구성
 
-구독에 대한 소유자 권한이 있는 사용자는 vFXT 클러스터를 만들어야 합니다. 특히 다음과 같은 작업에는 구독 소유자 권한이 필요합니다.
+구독에 대한 소유자 권한이 있는 사용자는 vFXT 클러스터를 만들어야 합니다. 소프트웨어 서비스 약관에 동의 하 고 다른 작업을 수행 하려면 구독 소유자 권한이 필요 합니다. 
 
-* Avere vFXT 소프트웨어 사용 약관에 동의
-* 클러스터 노드 액세스 역할 만들기 
+몇 가지 해결 방법 시나리오가 Azure 클러스터에 대 한는 Avere vFTX 만들려면 비 소유자 수 있도록 합니다. 이러한 시나리오에는 리소스를 제한 하 고는 생성기에 대 한 추가 역할 할당 포함 됩니다. 두 경우 모두, 구독 소유자는 또한 해야 [Avere vFXT 소프트웨어 조건에 동의](#accept-software-terms) 미리 합니다. 
 
-vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않으려면 다음 두 가지 해결 방법이 있습니다.
-
-* 다음 조건이 충족되는 경우 리소스 그룹 소유자가 클러스터를 만들 수 있습니다.
-
-  * 구독 소유자는 [Avere vFXT 소프트웨어 사용 약관에 동의](#accept-software-terms)하고 [클러스터 노드 액세스 역할을 만들어야](#create-the-cluster-node-access-role) 합니다. 
-  * 다음을 포함한 모든 Avere vFXT 리소스는 리소스 그룹 내에 배포해야 합니다.
-    * 클러스터 컨트롤러
-    * 클러스터 노드
-    * Blob 저장소
-    * 네트워크 요소
+| 시나리오 | 제한 | Avere vFXT 클러스터를 만드는 데 필요한 액세스 역할 | 
+|----------|--------|-------|
+| 리소스 그룹 관리자 | 가상 네트워크, 클러스터 컨트롤러 및 클러스터 노드를 리소스 그룹 내에서 만들어야 합니다. | [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 하 고 [참가자](../role-based-access-control/built-in-roles.md#contributor) 대상 리소스 그룹으로 범위가 지정 둘 다 역할 | 
+| 외부 vnet | 클러스터 컨트롤러와 클러스터 노드는 리소스 그룹 내에서 생성 되지만 다른 리소스 그룹에 기존 가상 네트워크는 | (1) [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 하 고 [참가자](../role-based-access-control/built-in-roles.md#contributor) vFXT 리소스 그룹 및 (2) 범위의 역할 [Virtual Machine 참여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [사용자 액세스 관리자 권한](../role-based-access-control/built-in-roles.md#user-access-administrator), 및 [Avere 참가자](../role-based-access-control/built-in-roles.md#avere-contributor) VNET 리소스 그룹으로 범위가 지정 된 역할입니다. |
  
-* RBAC(역할 기반 액세스 제어)를 미리 사용하여 사용자에게 권한을 할당하면 소유자 권한이 없는 사용자가 vFXT 클러스터를 만들 수 있습니다. 이 방법을 사용하는 경우 해당 사용자에게 매우 많은 권한이 제공됩니다. 액세스 역할을 만들어 소유자가 아닌 사용자에게 클러스터 만들기 권한을 부여하는 방법에 대한 설명은 [이 문서](avere-vfxt-non-owner.md)에 나와 있습니다.
+에 설명 된 대로 미리 사용자 지정 역할 기반 액세스 제어 (RBAC) 역할을 만드는 사용자에 게 권한을 할당 하는 대안 [이 문서에서는](avere-vfxt-non-owner.md)합니다. 이 방법을 사용하는 경우 해당 사용자에게 매우 많은 권한이 제공됩니다. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>vFXT 클러스터에 대한 할당량
 
@@ -57,7 +50,7 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
 
 |Azure 구성 요소|할당량|
 |----------|-----------|
-|가상 머신|3 개 이상의 e32s_v3와|
+|가상 머신|3개 이상의 E32s_v3|
 |프리미엄 SSD 저장소|노드당 200GB OS 공간 + 1TB-4TB 캐시 공간 |
 |저장소 계정(선택 사항) |v2|
 |데이터 백 엔드 저장소(선택 사항) |새 LRS Blob 컨테이너 1개 |
@@ -83,75 +76,6 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
-
-## <a name="create-access-roles"></a>액세스 역할 만들기 
-
-[RBAC(역할 기반 액세스 제어)](../role-based-access-control/index.yml)는 필요한 작업을 수행할 수 있는 권한을 vFXT 클러스터 컨트롤러 및 클러스터 노드에 부여합니다.
-
-* 클러스터를 만들려면 클러스터 컨트롤러에 VM을 만들고 수정하는 권한이 필요합니다. 
-
-* 개별 vFXT 노드는 일반적인 클러스터 작업의 일환으로 Azure 리소스 속성 읽기, 스토리지 관리, 다른 노드의 네트워크 인터페이스 설정 제어 등의 작업을 수행해야 합니다.
-
-Avere vFXT 클러스터를 만들려면 먼저 클러스터 노드에 사용할 사용자 지정 역할을 정의해야 합니다. 
-
-클러스터 컨트롤러의 경우 템플릿에서 기본 역할을 수락할 수 있습니다. 기본 역할은 클러스터 컨트롤러에 리소스 그룹 소유자 권한을 제공합니다. 컨트롤러용으로 사용자 지정 역할을 만들려는 경우 [사용자 지정된 컨트롤러 액세스 역할](avere-vfxt-controller-role.md)을 참조하세요.
-
-> [!NOTE] 
-> 구독 소유자 또는 소유자/사용자 액세스 관리자 역할의 사용자만 역할을 만들 수 있습니다. 이러한 역할은 미리 만들 수 있습니다.  
-
-### <a name="create-the-cluster-node-access-role"></a>클러스터 노드 액세스 역할 만들기
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-클러스터 노드 역할을 만들어야 용 Avere vFXT for Azure 클러스터를 만들 수 있습니다.
-
-> [!TIP] 
-> Microsoft 내부 사용자는 새로 만들려고 시도하는 대신 “Avere 클러스터 런타임 운영자”라는 기존 역할을 사용해야 합니다. 
-
-1. 이 파일을 복사합니다. AssignableScopes 줄에 구독 ID를 추가합니다.
-
-   이 파일의 최신 버전은 github.com/Azure/Avere 리포지토리에 [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt)로 저장되어 있습니다.  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. 파일을 ``avere-operator.json`` 또는 쉽게 기억할 수 있는 비슷한 파일 이름으로 저장합니다. 
-
-
-1. Azure Cloud Shell을 열고 [이 문서 앞부분에서 설명](#accept-software-terms)한 구독 ID로 로그인합니다. 다음 명령을 사용하여 역할을 만듭니다.
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-역할 이름은 클러스터를 만들 때 사용됩니다. 이 예제에서 이름은 ``avere-operator``입니다.
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>가상 네트워크 (필요한 경우)에서 저장소 서비스 끝점 만들기
 

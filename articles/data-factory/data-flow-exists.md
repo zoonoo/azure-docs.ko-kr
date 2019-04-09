@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 18d8a0e231e8b4dbe33911dd6267966674366904
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734492"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006149"
 ---
 # <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Azure Data Factory Mapping Data Flow 있음 변환
 
@@ -25,3 +25,10 @@ ms.locfileid: "56734492"
 Data Flow가 스트림 1의 값을 스트림 2와 비교할 수 있도록 있음의 두 번째 원본을 선택합니다.
 
 있음 또는 없음에 대해 값을 확인하려는 원본 1과 원본 2의 열을 선택합니다.
+
+## <a name="multiple-exists-conditions"></a>여러 조건을 존재합니다
+
+Exsits에 대 한 열 조건에서 각 행에 옆에 있는 것을 + 도달 행을 마우스로 가리킬 때 기호를 사용할 수 있습니다. 이렇게 하면 Exists 조건에 대 한 여러 행을 추가할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+

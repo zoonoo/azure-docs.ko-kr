@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858146"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008841"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure에서 지역 인공 지능 Virtual Machine 프로비전 
 
@@ -87,7 +87,7 @@ Geo-DSVM에는 ArcGIS Pro 데스크톱이 미리 설치되어 있고 DSVM의 모
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-유료 또는 평가판 ArcGIS 계정 중 하나에 등록하면 [ArcGIS Pro 설명서 시작](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf)의 지침에 따라 계정에서 ArcGIS Pro에 권한을 부여할 수 있습니다. 
+중 하나를 유료 또는 무료 평가판 ArcGIS 계정에 대 한 등록 권한을 부여할 수 있습니다 ArcGIS Pro 사용자 계정에 대 한의 지침에 따라 [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf)합니다. 
 
 ArcGIS 계정을 사용하여 ArcGIS Pro 데스크톱에 로그인하면 지리 공간적 분석 및 기계 학습 프로젝트를 위해 VM에 설치되고 구성되는 데이터 과학 도구를 사용할 준비가 됩니다.
 
@@ -95,4 +95,4 @@ ArcGIS 계정을 사용하여 ArcGIS Pro 데스크톱에 로그인하면 지리 
 
 다음 항목의 지침을 따라 지역 AI 데이터 과학 VM을 사용하기 시작합니다.
 
-* [지역 AI 데이터 과학 VM 사용](use-geo-ai-dsvm.md)
+* [지리적 AI 데이터 과학 VM 사용](use-geo-ai-dsvm.md)

@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: 개발자 가이드, Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
+keywords: 개발자 가이드, Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: azure-functions
 ms.devlang: multiple

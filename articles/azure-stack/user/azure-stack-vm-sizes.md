@@ -107,7 +107,7 @@ ms.locfileid: "58886474"
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 |
 
 
-## <a name="compute-optimized"></a>Compute에 최적화
+## <a name="compute-optimized"></a>컴퓨팅 최적화
 ### <a name="f-series"></a>F 시리즈
 *Azure Stack 버전 1804 이상이 필요합니다.*
 

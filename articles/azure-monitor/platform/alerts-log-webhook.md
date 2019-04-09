@@ -1,6 +1,6 @@
 ---
 title: Azure Alerts의 로그 경고에 대한 웹후크 작업
-description: 이 문서에서는 Log Analytics 또는 Application Insights를 사용하는 로그 경고 규칙이 HTTP 웹후크 및 다른 가능한 사용자 지정의 세부 정보로 데이터를 푸시하는 방법을 설명합니다.
+description: 이 문서에서는 어떻게 로그 경고 규칙에 log analytics 작업 영역 또는 application insights를 사용 하 여 가능한 데이터를 푸시하 HTTP 웹 후크 및 다른 사용자 지정의 세부 사항으로 설명 합니다.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a592dc150d535df775a62c157f76f327b54240fd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496091"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006625"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고를 생성](alerts-log.md)할 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -202,5 +202,5 @@ ms.locfileid: "58496091"
 - [Azure에서 로그 경고 관리](alerts-log.md)를 파악합니다.
 - [Azure에서 작업 그룹](action-groups.md) 만들기 및 관리
 - [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기
-- [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보기 
+- 에 대해 자세히 알아보세요 [쿼리를 로깅](../log-query/log-query-overview.md)합니다. 
 

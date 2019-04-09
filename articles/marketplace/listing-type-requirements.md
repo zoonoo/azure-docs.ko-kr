@@ -50,7 +50,7 @@ ms.locfileid: "58650209"
 | 요구 사항 | 세부 정보 | 열거 유형 |  
 |:--- |:--- |:--- |  
 | ***참가 정책*** | 앱은 Azure Marketplace 참가 정책을 따라야 합니다.<ul> <li>참가 정책에 대한 자세한 내용은 [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)에 있는 Azure Marketplace 참가 정책 페이지를 참조하세요.</li></ul> | list<br />거래<br />체험 |  
-| ***Microsoft와의 통합*** | 제품은 계산, 네트워킹 또는 저장소 등 Microsoft Azure 서비스 유형을 사용하거나 확장해야 합니다. 또한 데이터베이스, 보안 및 네트워킹 등 기존 Azure Marketplace 범주에 맞추어야 합니다.<ul> <li>Marketplace 제품에 대한 자세한 내용은 [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps)에 있는 Marketplace 앱 페이지를 참조하세요.</li> </ul> | list<br />거래<br />체험 |  
+| ***Microsoft와의 통합*** | 제품은 계산, 네트워킹 또는 스토리지 등 Microsoft Azure 서비스 유형을 사용하거나 확장해야 합니다. 또한 데이터베이스, 보안 및 네트워킹 등 기존 Azure Marketplace 범주에 맞추어야 합니다.<ul> <li>Marketplace 제품에 대한 자세한 내용은 [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps)에 있는 Marketplace 앱 페이지를 참조하세요.</li> </ul> | list<br />거래<br />체험 |  
 | ***대상*** | 제품은 IT 전문가, 클라우드 개발자 또는 기타 고객 기술 역할에 대한 것이어야 합니다. | list<br />거래<br />체험 |  
 | ***잠재 고객 관리*** | 상점의 잠재 고객을 받기 전에 CRM(Marketo, Microsoft Dynamics 또는 Salesforce)에서 잠재 고객 데이터를 허용하도록 설정합니다. | list<br />거래<br />체험 |  
 | ***개인 정보 취급 방침 및 사용 약관*** | 앱은 공용 URL을 사용하여 개인정보처리방침 방침 페이지의 링크를 제공해야 합니다. 텍스트로 게시하는 동안 사용 약관을 제공해야 합니다. | list<br />거래<br />체험 |  

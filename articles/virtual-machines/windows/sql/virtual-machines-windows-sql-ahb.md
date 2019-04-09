@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bc3e2955049188b0794367d5391762f5eb50b1c0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850181"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005785"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법
 이 문서에서는 새 SQL VM 리소스 공급자(**Microsoft.SqlVirtualMachine**)를 사용하여 Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법에 대해 설명합니다. 두 개의 SQL Server-종 량 제를 호스팅하는 가상 머신 (VM)에 대 한 모델 라이선스 및 라이선스 (BYOL). 이제 PowerShell 또는 Azure CLI를 사용하여 SQL Server VM에서 사용하는 라이선스 모델을 수정할 수 있습니다. 
@@ -35,12 +35,17 @@ ms.locfileid: "58850181"
 
 ## <a name="remarks"></a>설명
 
- - 현재 라이선스 모델을 변환하는 기능은 종량제 SQL Server VM 이미지를 시작할 때만 사용할 수 있습니다. 포털에서 사용자 라이선스 필요 이미지로 시작하는 경우 해당 이미지를 종량제로 변환할 수 없습니다.
  - CSP 고객은 먼저 종량제 VM을 배포한 후 사용자 라이선스 필요로 변환하여 AHB 혜택을 활용할 수 있습니다. 
- - 현재이 기능은 공용 클라우드 설치에만 활성화 됩니다.
  - SQL Server VM 이미지를 사용자 지정 리소스 공급자에 등록 하는 경우 'AHUB' = 라이선스 유형을 지정 합니다. 라이선스 종료 빈 값으로 입력 하거나 '종 량 제'를 지정 하면 등록이 실패 합니다. 
+ 
+## <a name="limitations"></a>제한 사항
+
+ - 현재 라이선스 모델을 변환하는 기능은 종량제 SQL Server VM 이미지를 시작할 때만 사용할 수 있습니다. 포털에서 사용자 라이선스 필요 이미지로 시작하는 경우 해당 이미지를 종량제로 변환할 수 없습니다.
+  - 현재 라이선스 모델을 변경 Resource Manager 모델을 사용 하 여 배포 된 virtual machines에 대 한 지원만 됩니다. 클래식 모델을 사용 하 여 배포 된 Vm 지원 되지 않습니다. 
+   - 라이선스 모델을 변경 하는 현재 공용 클라우드 설치에만 활성화 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 SQL VM 리소스 공급자를 사용하려면 SQL IaaS 확장이 필요합니다. 따라서 SQL VM 리소스 공급자를 계속 사용하려면 다음이 필요합니다.
 - [Azure 구독](https://azure.microsoft.com/free/).
 - [Software assurance가 포함](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)합니다. 
@@ -232,8 +237,8 @@ Get-Module -ListAvailable -Name Azure -Refresh
 자세한 내용은 다음 문서를 참조하세요. 
 
 * [Windows VM에서 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)
-* [Windows VM의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
-* [Windows VM의 SQL Server 가격 책정 가이드](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [Windows VM의 SQL Server 릴리스 정보](virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [SQL Server는 Windows VM FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
+* [가격 책정 지침 Windows VM에서 SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [Windows VM 릴리스 노트의 SQL Server](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

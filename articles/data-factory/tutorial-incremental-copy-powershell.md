@@ -194,7 +194,7 @@ END
 
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 저장소 계정과 SQL 데이터베이스에 연결된 서비스를 만듭니다. 
+데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 저장소 계정과 SQL 데이터베이스에 연결된 서비스를 만듭니다. 
 
 ### <a name="create-a-storage-linked-service"></a>Storage 연결된 서비스 만들기
 1. C:\ADF 폴더에 다음 내용이 포함된 AzureStorageLinkedService.json이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 저장소 계정의 이름과 키로 `<accountName>`과 `<accountKey>`를 바꿉니다.

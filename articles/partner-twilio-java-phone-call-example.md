@@ -171,8 +171,8 @@ ms.locfileid: "58010555"
 
 1. TwilioCloud WAR을 Azure **approot** 폴더로 내보냅니다. 
 2. **startup.cmd** 를 수정하여 TwilioCloud WAR의 압축을 풉니다.
-3. 계산 에뮬레이터에 대해 애플리케이션을 컴파일합니다.
-4. 계산 에뮬레이터에서 배포를 시작합니다.
+3. 컴퓨팅 에뮬레이터에 대해 애플리케이션을 컴파일합니다.
+4. 컴퓨팅 에뮬레이터에서 배포를 시작합니다.
 5. 브라우저를 열고 실행 `http://localhost:8080/TwilioCloud/callform.jsp`합니다.
 6. 양식에 값을 입력하고 **Make this call**을 클릭한 다음 makecall.jsp의 결과를 확인합니다.
 

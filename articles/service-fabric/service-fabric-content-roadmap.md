@@ -82,7 +82,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 [Reliable Services](service-fabric-reliable-services-introduction.md)는 Service Fabric 플랫폼과 통합하여 전체 플랫폼 기능을 활용하는 서비스 작성을 위한 간단한 프레임워크입니다. Reliable Services는 웹 서버나 Azure Cloud Services의 작업자 역할 등, 대부분의 서비스 플랫폼과 유사하게 상태 비저장이 될 수 있습니다. 여기서는 상태가 Azure DB나 Azure Table Storage 같은 외부 솔루션에서 유지됩니다. Reliable Services는 Reliable Collections를 사용하여 서비스 자체에 직접 유지되게 상태를 저장할 수도 있습니다. 상태는 복제를 통해 [고가용성](service-fabric-availability-services.md)이 유지되고 [분할](service-fabric-concepts-partitioning.md)을 통해 배포되며, 모두 Service Fabric에서 자동으로 관리합니다.
 
 ### <a name="reliable-actors"></a>Reliable Actors
-Reliable Services의 최상위에 구축되는 [Reliable Actor](service-fabric-reliable-actors-introduction.md) 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 애플리케이션 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 계산 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
+Reliable Services의 최상위에 구축되는 [Reliable Actor](service-fabric-reliable-actors-introduction.md) 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 애플리케이션 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 컴퓨팅 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
 
 ### <a name="aspnet-core"></a>ASP.NET Core
 Service Fabric은 웹 및 API 애플리케이션 빌드를 위한 첫 번째 클래스 프로그래밍 모델로 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)와 통합됩니다.  ASP.NET Core는 Service Fabric에서 다음 두 가지 방식으로 사용할 수 있습니다.

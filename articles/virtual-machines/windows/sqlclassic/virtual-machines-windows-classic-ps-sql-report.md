@@ -600,7 +600,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 ### <a name="resources"></a>리소스
 * SQL Server Business Intelligence 및 SharePoint 2013의 단일 서버 배포와 관련된 유사한 내용은 [Windows PowerShell을 사용하여 SQL Server BI 및 SharePoint 2013에서 Azure VM 만들기](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/)를 참조하세요.
 * Azure Virtual Machines에서 SQL Server Business Intelligence 배포와 관련된 일반 정보는 [Azure Virtual Machines에서 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)를 참조하세요.
-* Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 Virtual Machines 탭을 참조하세요.
+* Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 Virtual Machines 탭을 참조하세요.
 
 ### <a name="community-content"></a>커뮤니티 콘텐츠
 * 스크립트를 사용하지 않고 Reporting Services 기본 모드 보고서 서버를 만드는 방법에 대한 단계별 지침은 [Azure Virtual Machine에 SQL Reporting Services 호스트](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html)를 참조하세요.

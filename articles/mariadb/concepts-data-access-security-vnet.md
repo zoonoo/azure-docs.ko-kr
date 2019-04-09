@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958918"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006696"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -106,6 +106,8 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 
 Azure Database for MariaDB의 경우 가상 네트워크 규칙 기능에는 다음과 같은 제한 사항이 있습니다.
 
+- 웹앱을 VNet/서브넷의 개인 IP에 매핑할 수 있습니다. 서비스 엔드포인트가 지정된 VNet/서브넷에서 ON으로 설정되어 있는 경우에도 웹앱과 서버 간 연결은 VNet/서브넷 원본이 아닌 Azure 공용 IP 원본을 가집니다. VNet 방화벽 규칙이 있는 서버에 웹 앱에서 연결을 사용 하려면 허용 Azure 서비스가 서버에서 서버에 액세스 해야 합니다.
+
 - Azure Database for MariaDB에 대한 방화벽에서 각 가상 네트워크 규칙은 서브넷을 참조합니다. 이처럼 참조되는 모든 서브넷은 Azure Database for MariaDB를 호스팅하는 동일한 지리적 지역에서 호스팅되어야 합니다.
 
 - 각 Azure Database for MariaDB 서버에는 특정 가상 네트워크에 대해 최대 128개의 ACL 항목이 포함될 수 있습니다.
@@ -138,7 +140,7 @@ Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** �
 
 ## <a name="next-steps"></a>다음 단계
 VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
-- [Azure Portal을 사용하여 Azure Database for MariaDB VNet 규칙 만들기 및 관리](howto-manage-vnet-portal.md)
+- [Azure portal을 사용 하 여 MariaDB VNet 규칙에 대 한 Azure Database를 만들고](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor에서 로그 경고 문제 해결
+title: Azure Monitor의 로그 경고 문제 해결 | Microsoft Docs
 description: Azure의 로그 경고 규칙에 대한 일반적인 문제, 오류 및 해결 방법입니다.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429449"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005296"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure Monitor에서 로그 경고 문제 해결  
 
 ## <a name="overview"></a>개요
 
-이 문서에서는 Azure Monitor 내에서 로그 경고를 설정할 때 발생하는 일반적인 문제를 해결하는 방법을 보여줍니다. 또한 로그 경고의 기능 또는 구성과 관련하여 자주 묻는 질문에 대한 솔루션을 제공합니다. 
+이 문서에서는 Azure Monitor의 로그 경고를 설정할 때 나타나는 일반적인 문제를 해결 하는 방법을 보여 줍니다. 또한 로그 경고의 기능 또는 구성과 관련하여 자주 묻는 질문에 대한 솔루션을 제공합니다. 
 
-**로그 경고**라는 용어는 [Log Analytics](../learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/analytics.md)에서 사용자 지정 쿼리를 기준으로 발생하는 경고를 설명합니다. [로그 경고 - 개요](../platform/alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아봅니다.
+용어 **로그 경고** fire의 로그 쿼리 기반 경고에 설명 합니다.는 [Log Analytics 작업 영역](../learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/analytics.md)합니다. [로그 경고 - 개요](../platform/alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아봅니다.
 
 > [!NOTE]
 > 이 문서에서는 Azure Portal이 표시되는 경우 및 트리거된 경고 규칙 및 연결된 작업 그룹에서 수행된 알림을 고려하지 않습니다. 이러한 경우 [작업 그룹](../platform/action-groups.md)의 문서에 있는 자세한 내용을 참조하세요.
@@ -33,7 +33,7 @@ ms.locfileid: "54429449"
 
 ### <a name="data-ingestion-time-for-logs"></a>로그에 대한 데이터 수집 시간
 
-로그 경고는 [Log Analytics](../learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/analytics.md)에 기반한 쿼리를 주기적으로 실행합니다. Log Analytics는 전 세계의 다양한 원본에서 수천 명의 고객의 수 테라바이트의 데이터를 처리하므로 다양한 시간 지연에 취약합니다. 자세한 내용은 [Log Analytics의 데이터 수집 시간](../platform/data-ingestion-time.md)을 참조하세요.
+로그 경고는 [Log Analytics](../learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/analytics.md)에 기반한 쿼리를 주기적으로 실행합니다. 전 세계에서 많은 테라바이트의에서 수천 명의 고객이 다양 한 원본의 데이터를 처리 하는 Azure Monitor 서비스 이므로 다양 한 지연 시간에 취약 합니다. 자세한 내용은 [Azure Monitor 로그에서 데이터 수집 시간](../platform/data-ingestion-time.md)합니다.
 
 데이터 수집 지연을 완화하려면 시스템은 필요한 데이터가 아직 수집되지 않은 것을 발견하는 경우 기다린 다음, 경고 쿼리를 여러 번 다시 시도합니다. 시스템에는 기하급수적으로 증가하는 대기 시간이 설정되어 있습니다. 로그 경고는 데이터를 사용할 수 있는 경우에만 트리거되므로 지연은 느린 로그 데이터 수집 때문일 수 있습니다. 
 
@@ -57,7 +57,7 @@ ms.locfileid: "54429449"
 
 예를 들어 메트릭 측정 로그 경고 규칙이 다음과 같이 구성되었다고 가정합니다.
 
-- 쿼리: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- 쿼리는 다음과 같습니다. `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - 기간: 6시간
 - 임계값: 50
 - 경고 논리: 3회 연속 위반
@@ -84,7 +84,7 @@ ms.locfileid: "54429449"
 
 ### <a name="alert-triggered-by-partial-data"></a>부분 데이터로 인해 경고가 트리거됨
 
-Log Analytics 및 Application Insights를 구동하는 분석은 수집 지연 및 처리의 영향을 받을 수 있습니다. 이로 인해 제공된 로그 경고 쿼리가 실행될 때 데이터를 사용할 수 없거나 일부 데이터만 사용할 수 있는 경우가 있을 수 있습니다. 자세한 내용은 [Log Analytics의 데이터 수집 시간](../platform/data-ingestion-time.md)을 참조하세요.
+Log Analytics 및 Application Insights를 구동하는 분석은 수집 지연 및 처리의 영향을 받을 수 있습니다. 이로 인해 제공된 로그 경고 쿼리가 실행될 때 데이터를 사용할 수 없거나 일부 데이터만 사용할 수 있는 경우가 있을 수 있습니다. 자세한 내용은 [Azure Monitor의 로그 데이터 수집 시간](../platform/data-ingestion-time.md)합니다.
 
 경고 규칙이 구성된 방식에 따라 경고 실행 시 로그에 데이터가 없거나 일부가 없는 경우 잘못 발생하는 것일 수 있습니다. 이러한 경우 경고 쿼리 또는 구성을 변경하는 것이 좋습니다. 
 
@@ -92,7 +92,7 @@ Log Analytics 및 Application Insights를 구동하는 분석은 수집 지연 �
 
 ### <a name="alert-query-output-misunderstood"></a>경고 쿼리 출력이 잘못 이해됨
 
-분석 쿼리에서 로그 경고에 대한 논리를 제공합니다. 분석 쿼리는 다양한 빅 데이터 및 수학 함수를 사용할 수 있습니다.  경고 서비스는 지정된 기간에 대한 데이터를 사용하여 지정된 간격으로 쿼리를 실행합니다. 경고 서비스는 선택한 경고 유형에 따라 제공된 쿼리를 약간 변경합니다. 이 내용은 아래와 같이 *신호 논리 구성* 화면의 "실행될 쿼리" 섹션에서 볼 수 있습니다. ![실행될 쿼리](media/alert-log-troubleshoot/LogAlertPreview.png)
+분석 쿼리에서 로그 경고에 대한 논리를 제공합니다. 분석 쿼리는 다양한 빅 데이터 및 수학 함수를 사용할 수 있습니다.  경고 서비스는 지정된 기간에 대한 데이터를 사용하여 지정된 간격으로 쿼리를 실행합니다. 경고 서비스는 선택한 경고 유형에 따라 제공된 쿼리를 약간 변경합니다. 이 내용은 아래와 같이 *신호 논리 구성* 화면의 "실행될 쿼리" 섹션에서 볼 수 있습니다. ![쿼리를 실행할 수](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 **실행될 쿼리** 상자에는 로그 경고 서비스가 실행하는 쿼리가 표시됩니다. 실제로 경고를 만들기 이전의 경고 쿼리 출력을 이해하려면 [Analytics 포털](../log-query/portals.md) 또는 [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/)를 통해 시간 범위 뿐만 아니라 명시된 쿼리를 실행할 수 있습니다.
 
@@ -100,4 +100,4 @@ Log Analytics 및 Application Insights를 구동하는 분석은 수집 지연 �
 
 - [Azure Alerts의 로그 경고](../platform/alerts-unified-log.md)에 대해 알아보기
 - [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기
-- [Log Analytics](../../log-analytics/log-analytics-overview.md)에 대한 자세한 정보
+- 자세한 내용은 [로그 쿼리](../log-query/log-query-overview.md)

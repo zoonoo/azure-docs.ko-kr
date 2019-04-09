@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
+title: 만들기, 보기 및 관리 로그를 사용 하 여 Azure Monitor 경고 | Microsoft Docs
 description: Azure Monitor를 사용하여 Azure에서 로그 경고를 작성, 보기 및 관리합니다.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873794"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006943"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -23,10 +23,10 @@ ms.locfileid: "57873794"
 - 조건: 신호에서 표시될 때 작업을 트리거해야 하는 특정 조건 또는 논리
 - 작업: 알림의 받는 사람에게 보내는 특정 호출 - 이메일, SMS, 웹후크 등
 
-**로그 경고**라는 용어는 신호가 [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/analytics.md)를 기준으로 하는 사용자 지정 쿼리인 경고를 설명합니다. [로그 경고 - 개요](../../azure-monitor/platform/alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아보세요.
+용어 **로그 경고** 신호는 로그 쿼리에서 경고를 설명 하는 [Log Analytics 작업 영역](../learn/tutorial-viewdata.md) 하거나 [Application Insights](../app/analytics.md)합니다. [로그 경고 - 개요](alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)에서 인기 있는 로그 데이터를 이제 Azure Monitor의 메트릭 플랫폼에서도 사용할 수 있습니다. 세부 정보 보기의 경우 [로그에 대한 메트릭 경고](../../azure-monitor/platform/alerts-metric-logs.md)를 참조하세요.
+> 인기 있는 로그 데이터를 [Log Analytics 작업 영역을](../../azure-monitor/learn/tutorial-viewdata.md) 이기도 이제 Azure Monitor에서 메트릭 플랫폼에서 사용할 수 있습니다. 세부 정보 보기의 경우 [로그에 대한 메트릭 경고](alerts-metric-logs.md)를 참조하세요.
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Azure Portal에서 로그 경고 관리
 
@@ -58,7 +58,7 @@ ms.locfileid: "57873794"
 
    > [!NOTE]
    > 
-   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 따라서 사용자는 Analytics에서 쿼리를 완료한 후 경고에서 나중에 사용할 수 있게 저장합니다. 쿼리 저장 방법에 대한 자세한 내용은 [Log Analytics에서 로그 검색 사용](../../azure-monitor/log-query/log-query-overview.md) 또는 [Application Insights 분석의 공유 쿼리](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 자세한 내용은에서 사용 가능한 쿼리 저장을 사용 하 여 사용자는 Analytics에서 쿼리를 완료 하 고 다음 경고에서 나중에 사용할 저장할 수 있도록 [Azure Monitor에서 로그 쿼리를 사용 하 여](../log-query/log-query-overview.md) 또는 [application insights 분석의 공유 쿼리 ](../log-query/log-query-overview.md).
 
 1. *로그 경고*: 선택한 후에 경고에 대한 쿼리를 **검색 쿼리** 필드에서 정의할 수 있습니다. 쿼리 구문이 올바르지 않을 경우 필드는 빨간색으로 오류를 표시합니다. 쿼리 구문이 올바른 경우 참조를 위해 정의된 쿼리의 기록 데이터가 마지막 6시간에서 지난 주까지 시간 창을 조정하는 옵션과 함께 그래프로 표시됩니다.
 
@@ -119,19 +119,19 @@ ms.locfileid: "57873794"
     > 로그 경고 규칙은 사용자가 제공한 사용자 지정 쿼리 기반 논리로 구성되므로 확인된 상태를 사용하지 않습니다. 로그 경고 규칙에 지정된 조건이 충족되므로 해당 경고 규칙이 발생합니다.
 
 1. 위쪽 표시줄에서 **규칙 관리** 단추를 선택하여 규칙 관리 섹션으로 이동합니다. 여기에 비활성화된 경고를 포함한 만들어진 모든 경고 규칙이 나열됩니다.
-    ![경고 규칙 관리](media/alerts-log/manage-alert-rules.png)
+    ![ 경고 규칙 관리](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 로그 경고 관리
 
 Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduledQueryRules/`와 연결되어 있습니다. 이 리소스 종류에 대한 자세한 내용은 [Azure Monitor - 예약된 쿼리 규칙 API 참조](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 참조하세요. Application Insights 또는 Log Analytics에 대한 로그 경고는 [예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 사용하여 만들 수 있습니다.
 
 > [!NOTE]
-> Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](../../azure-monitor/platform/api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../../azure-monitor/insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
+> Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 샘플 로그 경고 만들기
 
-다음은 변수로 샘플 데이터 세트가 있는 [결과 유형 로그 경고 수](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules)의 표준 로그 검색 쿼리를 사용하여 [예약된 쿼리 규칙 만들기](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
+다음은 변수로 샘플 데이터 세트가 있는 [결과 유형 로그 경고 수](alerts-unified-log.md#number-of-results-alert-rules)의 표준 로그 검색 쿼리를 사용하여 [예약된 쿼리 규칙 만들기](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
 
 ```json
 {
@@ -316,7 +316,7 @@ Azure Monitor - 예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api
 
 
 > [!NOTE]
-> Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](../../azure-monitor/platform/api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../../azure-monitor/insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
+> Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
 
 로그 경고 현재 없는 전용된 PowerShell 또는 CLI 명령을 현재; 하지만 아래와 같이 사용할 수 있는 Azure Resource Manager PowerShell cmdlet을 통해 앞에 표시 된 리소스 템플릿 (sampleScheduledQueryRule.json) 샘플에 대 한 리소스 템플릿 섹션에서:
 
@@ -335,4 +335,4 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [log queries](../log-query/log-query-overview.md).

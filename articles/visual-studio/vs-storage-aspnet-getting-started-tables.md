@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444636"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010144"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure Table Storage 및 Visual Studio 연결 서비스 시작
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -31,7 +31,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
 ## <a name="prerequisites"></a>필수 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)
+* [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -537,7 +537,7 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. **TableQuery** 개체를 인스턴스화하고 **Where** 절에 쿼리를 지정합니다. 다음 코드 조각은 **CustomerEntity** 클래스 및 [테이블에 엔터티를 일괄로 추가](#add-a-batch-of-entities-to-a-table) 섹션에 표시되는 데이터를 사용하여 **PartitionKey**(고객의 성) 값이 "Smith"인 모든 엔터티를 테이블에서 쿼리합니다.
+1. **TableQuery** 개체를 인스턴스화하고 **Where** 절에 쿼리를 지정합니다. 사용 하 여 합니다 **CustomerEntity** 클래스 및 데이터 섹션에 나와 [테이블에 엔터티를 일괄으로 추가](#add-a-batch-of-entities-to-a-table), 모든 엔터티에 대 한 테이블을 쿼리 하는 다음 코드 조각은 여기서는 **PartitionKey**  (고객의 마지막) 이름이 "Smith"의 값:
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -710,5 +710,5 @@ Azure Table Storage를 사용하면 많은 양의 구조화된 데이터를 저�
 ## <a name="next-steps"></a>다음 단계
 Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
 
-  * PowerShell cmdlet 및 Azure CLI를 사용하여 Azure 응용 프로그램 관리의 일부로 File Storage 공유를 만들고, 탑재하고, 관리할 수 있습니다. Azure Portal 및 Azure 스토리지 탐색기를 사용하여 Azure 파일 공유를 만들고 관리할 수 있습니다.
-  * [Azure Queue Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

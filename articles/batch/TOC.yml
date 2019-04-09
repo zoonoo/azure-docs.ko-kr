@@ -68,7 +68,7 @@ items:
     href: batch-application-packages.md
   - name: 풀 만들기 및 관리
     items:
-    - name: 자동 크기 조정 컴퓨터 노드
+    - name: 자동 크기 조정 계산 노드
       href: batch-automatic-scaling.md
     - name: 계산 노드에 대한 VM 크기 선택
       href: batch-pool-vm-sizes.md

@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: jeconnoc
-keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처, 테스트
+keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버리스 아키텍처, 테스트
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.date: 030/25/2019
 ms.author: cshoe
 ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
 ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58439331"
