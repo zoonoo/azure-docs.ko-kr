@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: ef021bc9a4f3cb8b49ab3b455e00dfa8dc27dc76
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58910002"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255923"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 질문과 대답
 
@@ -77,5 +77,5 @@ Azure 프런트 도어 수 Azure 네트워크 가장자리에서 전체적으로
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대 한 자세한 [ Azure 웹 응용 프로그램 방화벽](waf-overview.md)합니다.
+- 에 대 한 자세한 [Azure 웹 응용 프로그램 방화벽](waf-overview.md)합니다.
 - 에 대해 자세히 알아보세요 [Azure 프런트 도어](front-door-overview.md)합니다.

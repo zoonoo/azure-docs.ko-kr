@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905276"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263764"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET Core ILogger에 대 한 ApplicationInsightsLoggerProvider 로그
 
@@ -208,10 +208,10 @@ public class Startup
 1. 이전 공급자의 지원이 없었습니다 [범위](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes)합니다. 새 공급자의 범위에서 속성은 자동으로 사용자 지정 속성으로 수집된 된 원격 분석에 추가 됩니다.
 2. 로그는 이제 응용 프로그램 시작 파이프라인에서 훨씬 더 빨리 캡처할 수 있습니다. 예: 이제 프로그램 및 시작 클래스에서 로그를 캡처할 수 있습니다.
 3. 새 공급자를 사용 하 여 필터링 자체 프레임 워크 수준에서 수행 됩니다. 로그 필터링 Application Insights 공급자를 콘솔에 디버그와 같은 기본 제공 공급자를 비롯 한 다른 공급자의 경우와 정확히 동일한 방식으로 수행할 수 등에입니다. 여러 공급자에 게 동일한 필터를 적용 하는 것도 가능 합니다.
-4. 합니다 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/255) Asp.Net Core (2.0 이상)에서 로깅을 사용 하도록 설정 하려면 것에서 ILoggingBuilder에서 확장 메서드를 사용 하 여 `Program.cs` 자체입니다.
+4. 합니다 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/255) ASP.NET Core (2.0 이상)에서 로깅을 사용 하도록 설정 하려면 것에서 ILoggingBuilder에서 확장 메서드를 사용 하 여 `Program.cs` 자체입니다.
 
 > [!Note]
-새 공급자가 대상 응용 프로그램에 사용할 수 있는 `NETSTANDARD2.0` 이상. 응용 프로그램의.NET Core 1.1과 같은.NET Core 버전을 대상 또는.NET Framework를 대상으로 하는 경우 계속 이전 공급자를 사용 합니다.
+> 새 공급자가 대상 응용 프로그램에 사용할 수 있는 `NETSTANDARD2.0` 이상. 응용 프로그램의.NET Core 1.1과 같은.NET Core 버전을 대상 또는.NET Framework를 대상으로 하는 경우 계속 이전 공급자를 사용 합니다.
 
 ## <a name="console-application"></a>콘솔 애플리케이션
 

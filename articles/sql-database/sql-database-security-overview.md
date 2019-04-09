@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: 7fc69c3d0b6820db2227b241d63e4304152d99bf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/08/2019
+ms.openlocfilehash: 7c01e8132cc8fe8fcc01e468973a273dbfcfad64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664678"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261057"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -157,7 +157,7 @@ SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 �
 
 ### <a name="compliance"></a>규정 준수
 
-Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
+Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 참조는 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/compliance/) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,10 +1,9 @@
 ---
-title: Azure SQL Database Managed Instance T-SQL 차이점 | Microsoft Docs
+title: Azure SQL Database 관리 되는 인스턴스 T-SQL 차이점 | Microsoft Docs
 description: 이 문서에서는 Azure SQL Database의 Managed Instance 및 SQL Server 간의 T-SQL 차이점을 설명합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010603"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260496"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
-Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공합니다. 대부분의 SQL Server 데이터베이스 엔진 기능은 Managed Instance에서 지원됩니다.
-
-![마이그레이션](./media/sql-database-managed-instance/migration.png)
-
-구문과 동작에는 여전히 몇 가지 차이점이 있으므로 이 문서에서는 이러한 차이점을 요약하고 설명합니다. <a name="Differences"></a>
+이 문서에서는 요약 하 고 구문과 동작에 Azure SQL Database 관리 되는 인스턴스 및 온-프레미스 SQL Server 데이터베이스 엔진 간의 차이점을 설명 합니다. <a name="Differences"></a>
 
 - [Always-On](#always-on-availability) 및 [백업](#backup)의 차이점을 비롯한 [가용성](#availability),
 - [감사](#auditing), [인증서](#certificates), [자격 증명](#credential), [암호화 공급자](#cryptographic-providers), [로그인 / 사용자](#logins--users), [서비스 키 및 서비스 마스터 키](#service-key-and-service-master-key)의 차이점을 비롯한 [보안](#security),
@@ -33,6 +29,10 @@ Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스
 - [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [분산 트랜잭션](#distributed-transactions), [확장 이벤트](#extended-events), [외부 라이브러리](#external-libraries), [파일 스트림 및 파일 테이블](#filestream-and-filetable), [전체 텍스트 의미 체계 검색](#full-text-semantic-search), [연결된 서버](#linked-servers), [Polybase](#polybase), [복제](#replication), [복원](#restore-statement), [Service Broker](#service-broker), [저장 프로시저, 함수 및 트리거](#stored-procedures-functions-triggers)를 비롯한 [기능](#functionalities),
 - [관리 되는 인스턴스에서 동작이 다는 기능](#Changes)
 - [임시 제한 사항 및 알려진된 문제](#Issues)
+
+Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공합니다. 대부분의 SQL Server 데이터베이스 엔진 기능은 Managed Instance에서 지원됩니다.
+
+![마이그레이션](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>가용성
 
@@ -473,7 +473,7 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 
 ### <a name="tempdb-size"></a>TEMPDB 크기
 
-최대 파일 크기인 `tempdb` 24GB/core 범용 계층에서 보다 큼이 하 여야 합니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 항상 12 데이터 파일로 분할 됩니다. 이 파일당 최대 크기는 변경할 수 없으며, 새 파일을 `tempdb`에 추가할 수 있습니다. 24GB 이상 필요한 경우 일부 쿼리는 오류를 반환할 수 있습니다에 핵심 / `tempdb`합니다.
+최대 파일 크기인 `tempdb` 일반적인 용도 계층에서 24GB/core 보다 클 수 없습니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 항상 12 데이터 파일로 분할 됩니다. 이 파일당 최대 크기는 변경할 수 없으며, 새 파일을 `tempdb`에 추가할 수 있습니다. 24GB 이상 필요한 경우 일부 쿼리는 오류를 반환할 수 있습니다에 핵심 / `tempdb`합니다.
 
 ### <a name="cannot-restore-contained-database"></a>포함 된 데이터베이스를 복원할 수 없습니다.
 
@@ -494,7 +494,7 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 
 이 예제에서 기존 데이터베이스는 계속 작동하며, 새 파일이 추가되지 않으면 문제 없이 커질 수 있습니다. 그러나 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 디스크 드라이브에 대한 충분한 공간이 없기 때문에 새 데이터베이스를 만들거나 복원할 수 없습니다. 이 경우 반환되는 오류가 명확하지 않습니다.
 
-할 수 있습니다 [나머지 파일 수가 식별](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) 시스템 뷰를 사용 하 여 합니다. 이 제한 하려고 도달 하는 경우 [빈 데이터 요소 및 일부 DBCC SHRINKFILE 문을 사용 하 여 더 작은 파일을 삭제](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) 또는를 shitch [하지 않는 중요 비즈니스 계층에이 제한이](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
+할 수 있습니다 [나머지 파일 수가 식별](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) 시스템 뷰를 사용 하 여 합니다. 이 제한 하려고 도달 하는 경우 [빈 데이터 요소 및 일부 DBCC SHRINKFILE 문을 사용 하 여 더 작은 파일을 삭제](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) 으로 전환 하거나 [하지 않는 중요 비즈니스 계층에이 제한이](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>데이터베이스 복원 중 잘못된 SAS 키 구성
 

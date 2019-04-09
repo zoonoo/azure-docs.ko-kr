@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903388"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272209"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
 
@@ -83,7 +83,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 }
 ```
 
-**예제 2: Azure Key Vault의 암호를 사용하는 SQL 인증 사용**
+**예 2: Azure Key Vault에 암호를 사용 하 여 SQL 인증을 사용 합니다.**
 
 ```json
 {
@@ -112,7 +112,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 }
 ```
 
-**예제 3: Windows 인증 사용**
+**예 3: Windows 인증 사용**
 
 ```json
 {
@@ -149,7 +149,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사하려면 데이�
 | 형식 | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예. |
 | tableName |이 속성은 연결된 서비스가 참조하는 데이터베이스 인스턴스의 테이블이나 뷰 이름입니다. | 값은 원본의 경우 No이고 싱크의 경우 Yes입니다. |
 
-**예제**
+**예**
 
 ```json
 {
@@ -188,7 +188,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 - **SqlSource**에 대해 **sqlReaderQuery**가 지정되어 있으면 복사 작업은 Managed Instance 원본에 대해 이 쿼리를 실행하여 데이터를 가져옵니다. 저장 프로시저가 매개 변수를 사용하는 경우에는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수도 있습니다.
 - **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 세트 JSON의 "structure" 섹션에 정의된 열이 쿼리를 생성하는 데 사용됩니다. `select column1, column2 from mytable` 쿼리는 Managed Instance에 대해 실행됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
-**예제: SQL 쿼리 사용**
+**예제: SQL 쿼리를 사용 하 여**
 
 ```json
 "activities":[
@@ -220,7 +220,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 ]
 ```
 
-**예제: 저장 프로시저 사용**
+**예제: 저장된 프로시저를 사용 합니다.**
 
 ```json
 "activities":[
@@ -256,7 +256,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 ]
 ```
 
-**저장 프로시저 정의**
+**저장된 프로시저 정의**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -282,7 +282,7 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 싱크의 type 속성은 **SqlSink**로 설정해야 합니다. | 예. |
-| writeBatchSize |이 속성은 버퍼 크기가 writeBatchSize에 도달하면 SQL 테이블에 데이터를 삽입합니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. |아니요(기본값: 10,000) |
+| writeBatchSize |SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. |아니요(기본값: 10,000) |
 | writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)을 지정할 수 있습니다. |아니요. |
 | preCopyScript |이 속성은 Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업용 SQL 쿼리를 지정하며 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요. |
 | sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 고유한 비즈니스 논리를 사용하여 upsert 또는 변환을 수행하는 프로시저를 예로 들 수 있습니다. <br/><br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행되며 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아니요. |
@@ -292,7 +292,7 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 > [!TIP]
 > Azure SQL Database Managed Instance로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. upsert 또는 추가 비즈니스 논리를 수행하려면 SqlSink에서 저장 프로시저를 사용합니다. 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 
-**예제 1: 데이터 추가**
+**예제 1: 데이터를 추가 합니다.**
 
 ```json
 "activities":[
@@ -324,7 +324,7 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 ]
 ```
 
-**예제 2: upsert를 위한 복사 중에 저장 프로시저 호출**
+**예 2: Upsert에 대해 복사 중 저장된 프로시저를 호출 합니다.**
 
 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 
@@ -438,9 +438,9 @@ Azure SQL Database Managed Instance로 데이터를 복사할 때 저장 프로�
 
 기본 제공 복사 메커니즘이 용도에 적합하지 않은 경우, 저장 프로시저를 사용할 수 있습니다. 저장 프로시저는 일반적으로 대상 테이블에 원본 데이터를 최종 삽입하기 전에 upsert(업데이트+삽입) 또는 추가 처리를 수행해야 할 때 사용됩니다. 추가 처리에는 열 병합, 추가 값 조회, 여러 테이블에 삽입 등이 포함될 수 있습니다.
 
-다음 샘플에서는 저장 프로시저를 사용하여 Managed Instance 내 테이블에 upsert를 수행하는 방법을 보여 줍니다. 이 샘플에서는 입력 데이터와 싱크 "Marketing" 테이블에 각각 열이 3개씩 있다고 가정합니다. ProfileID, State 및 Category. upsert는 ProfileID 열을 기준으로 수행하고 특정 범주에만 적용합니다.
+다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 각기 다음과 같은 세 개 열을 갖는 입력 데이터와 싱크 **Marketing** 테이블을 가정해 보겠습니다. **ProfileID**, **State** 및 **Category**. **ProfileID** 열을 기준으로 upsert(업데이트/삽입)를 수행하고 특정 범주에 대해서만 적용합니다.
 
-**출력 데이터 세트**
+**출력 데이터 집합:** "tableName" 저장된 프로시저 (저장된 프로시저 스크립트 아래 참조)의 동일한 테이블 형식 매개 변수 이름 이어야 합니다.
 
 ```json
 {
@@ -459,7 +459,7 @@ Azure SQL Database Managed Instance로 데이터를 복사할 때 저장 프로�
 }
 ```
 
-다음과 같이 복사 작업에서 SqlSink 섹션을 정의합니다.
+정의 된 **SQL 싱크** 다음과 같이 복사 활동의 섹션입니다.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ Azure SQL Database Managed Instance로 데이터를 복사할 때 저장 프로�
 }
 ```
 
-데이터베이스에서  SqlWriterStoredProcedureName과 동일한 이름으로 저장 프로시저를 정의합니다. 이 저장 프로시저는 지정된 원본의 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 세트에 정의된 "tableName"과 같아야 합니다.
+데이터베이스에서 **SqlWriterStoredProcedureName**과 동일한 이름의 저장 프로시저를 정의합니다. 지정된 원본의 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 세트에 정의된 **tableName**과 동일해야 합니다.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -533,7 +533,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사할 때는 Managed
 | smallint |Int16 |
 | smallmoney |10진수 |
 | sql_variant |Object |
-| text |String, Char[] |
+| 텍스트 |String, Char[] |
 | 실시간 |timespan |
 | timestamp |Byte[] |
 | tinyint |Int16 |

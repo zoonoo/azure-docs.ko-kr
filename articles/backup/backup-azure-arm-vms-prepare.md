@@ -1,32 +1,32 @@
 ---
 title: Azure Backup을 사용 하 여 Recovery Services 자격 증명 모음에 Azure Vm 백업
-description: Azure Backup을 사용 하 여 Azure Vm을 Recovery Services 자격 증명 모음에 백업 하는 방법을 설명 합니다.
-services: backup
+description: Azure Backup을 사용 하 여 Recovery Services 자격 증명 모음에 Azure Vm을 백업 하는 방법을 설명 합니다.
+service: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 3342b15511305ab337d9b5032080e205e36150d3
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049816"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264559"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
-이 문서를 사용 하 여 Azure Vm을 Recovery Services 자격 증명 모음에 백업 하는 방법에 설명 합니다 [Azure Backup](backup-overview.md) 서비스입니다. 
+이 문서에서는 Recovery Services 자격 증명 모음에 Azure Vm을 백업 하는 방법을 설명를 사용 하는 [Azure Backup](backup-overview.md) 서비스입니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * 지원 및 백업에 대 한 필수 구성 요소를 확인 합니다.
-> * Azure VM을 준비합니다. 필요한 경우 Azure VM 에이전트를 설치하고 VM에 대한 아웃바운드 액세스를 확인합니다.
+> * Azure VM을 준비합니다.
 > * 자격 증명 모음을 만듭니다.
 > * Vm을 검색 하 고 백업 정책을 구성 합니다.
 > * Azure Vm에 대 한 backup을 사용 합니다.
+> * 초기 백업을 실행합니다.
 
 
 > [!NOTE]
@@ -37,14 +37,128 @@ ms.locfileid: "59049816"
 
 - [검토](backup-architecture.md#architecture-direct-backup-of-azure-vms) Azure VM 백업 아키텍처입니다.
 - Azure VM 백업 및 백업 확장에 대해 [자세히 알아봅니다](backup-azure-vms-introduction.md).
-- Azure VM 백업에 대한 [지원 매트릭스를 검토](backup-support-matrix-iaas.md)합니다.
+- [지원 매트릭스 검토.](backup-support-matrix-iaas.md) backup을 구성 하기 전에 합니다.
+
+또한 일부 상황에서 작업을 수행 해야 할 수 있는 작업의 두 가지가 있습니다.
+
+- **VM에 VM 에이전트 설치**: Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을 설치하여 Azure VM을 백업합니다. VM을 만든 경우 Azure marketplace 이미지에서 에이전트를 설치 하 고 실행. 사용자 지정 VM을 만들거나 온-프레미스 컴퓨터를 마이그레이션한 경우 해야 [에이전트를 수동으로 설치](#install-the-vm-agent)합니다.
+- **아웃 바운드 액세스를 명시적으로 허용**: 일반적으로 명시적으로 Azure Backup을 사용 하 여 통신을 위해에서 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 허용 하도록 필요가 없습니다. 그러나 일부 Vm 발생할 연결 문제를 보여 주는 합니다 **ExtensionSnapshotFailedNoNetwork** 연결 하려고 하는 동안 오류가 발생 했습니다. 이 경우 수행 해야 합니다 [아웃 바운드 액세스를 명시적으로 허용](#explicitly-allow-outbound-access), 백업 트래픽에 대해 Azure 공용 IP 주소를 사용 하 여 Azure Backup 확장 통신할 수 있도록 합니다.
 
 
-## <a name="prepare-azure-vms"></a>Azure VM 준비
+## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
-경우에 따라 Azure Vm에서 Azure VM 에이전트를 설정 하거나 명시적으로 VM에서 아웃 바운드 액세스를 허용 해야 합니다.
+ 자격 증명 모음은 백업과 시간 경과에 따라 생성된 복구 지점을 저장하고 백업된 머신과 연결된 백업 정책을 저장합니다. 다음과 같이 자격 증명 모음을 만듭니다.    
 
-### <a name="install-the-vm-agent"></a>VM 에이전트 설치 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.    
+2. 검색에서 입력 **Recovery Services**합니다. 아래 **Services**, 클릭 **Recovery Services 자격 증명 모음**합니다.   
+
+     ![Recovery Services 자격 증명 모음에 대 한 검색](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/> 
+
+3. **Recovery Services 자격 증명 모음** 메뉴에서 클릭 **+ 추가**합니다.    
+
+     ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
+
+4. **Recovery Services 자격 증명 모음**, 자격 증명 모음을 식별 하는 친숙 한 이름 입력 합니다.   
+    - 이름은 Azure 구독에 대해 고유해야 합니다.   
+    - 2~50자를 포함할 수 있습니다.    
+    - 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.   
+5. Azure 구독, 리소스 그룹 및 자격 증명 모음을 만들 지역을 선택 합니다. 그런 다음, **만들기**를 클릭합니다.    
+    - 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다.  
+    - 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다.   
+
+
+ 자격 증명 모음을 만든 후 Recovery Services 자격 증명 모음 목록에 나타납니다. 자격 증명 모음이 표시되지 않으면 **새로 고침**을 선택합니다.
+ 
+![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+
+### <a name="modify-storage-replication"></a>저장소 복제를 수정 합니다.
+
+기본적으로 사용 하 여 자격 증명 모음 [지역 중복 저장소 (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)합니다.
+
+- 기본 백업 메커니즘 자격 증명 모음을 사용 하는 경우에 GRS를 사용 하는 것이 좋습니다.
+- 사용할 수 있습니다 [로컬 중복 저장소 (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 저렴 한 옵션에 대 한 합니다.
+
+저장소 복제 유형을 다음과 같이 수정 합니다.
+
+1. 새 자격 증명 모음에서 클릭 **속성** 에 **설정** 섹션입니다.
+2. **속성**아래에 있는 **Backup 구성**, 클릭 **업데이트**합니다.
+3. 저장소 복제 유형을 선택 하 고 클릭 **저장할**합니다.
+
+      ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+> [!NOTE]
+   > 자격 증명 모음 설정 되 고 백업 항목을 포함 한 후에 저장소 복제 유형을 수정할 수 없습니다. 이 작업을 수행 하려는 경우에 자격 증명 모음을 다시 해야 합니다. 
+
+## <a name="apply-a-backup-policy"></a>백업 정책 적용
+
+자격 증명 모음에 대 한 백업 정책을 구성 합니다.
+
+1. 자격 증명 모음에서 클릭 **+ 백업** 에 **개요** 섹션입니다.
+
+   ![백업 단추](./media/backup-azure-arm-vms-prepare/backup-button.png)
+
+
+2. **Backup 목표** > **작업이 실행 되는 위치?** 선택 **Azure**합니다. **무엇을 백업 하 시겠습니까?** 선택 **가상 머신** >  **확인**합니다. 이렇게 하면 자격 증명 모음에 VM 확장을 등록합니다.
+
+   ![백업 및 백업 목표 창](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+
+3. **백업 정책**에서 자격 증명 모음과 연결하려는 정책을 선택합니다. 
+    - 기본 정책 하루에 한 번 VM을 백업합니다. 일별 백업 30 일 동안 유지 됩니다. 인스턴트 복구 스냅숏은 2 일 동안 보존 됩니다.
+    - 기본 정책을 사용 하지 않으려는 경우 선택 **새로 만들기**, 다음 절차에 설명 된 대로 사용자 지정 정책을 만듭니다.
+
+      ![기본 백업 정책](./media/backup-azure-arm-vms-prepare/default-policy.png)
+
+4. **가상 머신 선택**, 정책을 사용 하 여 백업 하려는 Vm을 선택 합니다. 그런 후 **OK**를 클릭합니다.
+
+   - 선택한 Vm 유효성이 검사 됩니다.
+   - 자격 증명 모음과 동일한 지역에만 VM을 선택할 수 있습니다.
+   - VM은 단일 자격 증명 모음에만 백업할 수 있습니다.
+
+     !["가상 머신 선택" 창](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+
+5. **백업**, 클릭 **백업 사용**합니다. 이렇게 하면 자격 증명 모음과 VM에 정책을 배포하고 Azure VM에서 실행되는 VM 에이전트에 백업 확장을 설치합니다.
+     
+     !["백업 사용" 단추](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+
+백업 사용 단추를 클릭한 후 다음을 수행합니다.
+
+- 백업 서비스는 VM의 실행 여부와 상관 없이 백업 확장을 설치합니다.
+- 백업 일정에 따라 초기 백업을 실행 됩니다.
+- 백업을 실행 하는 경우는 note:
+    - 실행 중인 VM을 캡처하는 응용 프로그램 일치 복구 지점에 대 한 가장 큰 기회를 경우
+    - 그러나 VM를 해제 하는 경우에 백업 합니다. 이러한 VM은 오프 라인 VM 이라고 합니다. 이 경우 복구 지점은 크래시 일치 됩니다.
+    
+
+### <a name="create-a-custom-policy"></a>사용자 지정 정책 만들기
+
+새 백업 정책 만들기를 선택한 경우 정책 설정을 입력 합니다.
+
+1. **정책 이름**, 의미 있는 이름을 지정 합니다.
+2. **백업 일정** 백업을 수행할 시기를 지정 합니다. Azure Vm에 대 한 매일 또는 매주 백업을 수행할 수 있습니다.
+2. **즉시 복원을**, 빠른 복원에 대 한 로컬 스냅숏을 유지 하려는 기간을 지정 합니다.
+    - 를 복원 하면 백업 vm 디스크는 저장소에서 복사를 네트워크에서 복구 저장소 위치를 통해. 즉시 복원을 사용 하 여 로컬로 저장 된 스냅숏을 백업 작업을 하는 동안 백업 데이터를 자격 증명 모음으로 전송 될 때까지 기다리지 않고를 활용할 수 있습니다.
+    - 1-5 일 사이 대 한 인스턴트 복원에 대 한 스냅숏을 유지할 수 있습니다. 2 일에는 기본 설정입니다.
+3. **보존 범위**, 매일 또는 매주 백업 지점을 유지 하려는 기간을 지정 합니다.
+4. **월간 백업 지점 보존**, 월간 일별 또는 주별 백업의 백업 보관 것인지 여부를 지정 합니다. 
+5. **확인** 을 클릭하여 정책을 저장합니다.
+
+    ![새 백업 정책](./media/backup-azure-arm-vms-prepare/new-policy.png)
+
+> [!NOTE]
+   > Azure Backup은 Azure VM 백업을 위한 일광 절약 시간 변경에 대한 자동 시계 조정을 지원하지 않습니다. 시간 변경이 일어나는 경우 처럼 수동으로 필요에 따라 백업 정책을 수정 합니다.
+
+## <a name="trigger-the-initial-backup"></a>초기 백업을 트리거합니다
+
+초기 백업은 일정에 따라 실행 됩니다 있지만 즉시 같이 바로 실행할 수 있습니다.
+
+1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
+2. **백업 항목**에서 **Azure Virtual Machine**을 클릭합니다.
+3. 에 **Backup 항목** 목록에서 줄임표 (...)를 클릭 합니다.
+4. **지금 백업**을 클릭합니다.
+5. **지금 Backup**, 달력 컨트롤을 사용 하 여 복구 지점을 유지 되어야 하는 마지막 날을 선택 합니다. 그런 후 **OK**를 클릭합니다.
+6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
+
+## <a name="optional-steps-install-agentallow-outbound"></a>선택적 단계 (에이전트/아웃 바운드 허용 설치)
+### <a name="install-the-vm-agent"></a>VM 에이전트 설치
 
 Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을 설치하여 Azure VM을 백업합니다. VM을 만든 경우 Azure Marketplace 이미지에서 에이전트를 설치 하 고 실행. 사용자 지정 VM을 만들거나 온-프레미스 컴퓨터를 마이그레이션한 경우에 표에 요약 된 대로 수동으로 에이전트를 설치 하는 것이 해야 합니다.
 
@@ -53,24 +167,23 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 **Windows** | 1. 에이전트 MSI 파일을 [다운로드하여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.<br/><br/> 2. 컴퓨터의 관리자 권한으로 설치합니다.<br/><br/> 3. 설치를 확인 합니다. *C:\WindowsAzure\Packages* VM에서 마우스 오른쪽 단추로 클릭 **WaAppAgent.exe** > **속성**합니다. 에 **세부 정보** 탭 **제품 버전** 2.6.1198.718 해야 이상.<br/><br/> 에이전트를 업데이트 하는 경우는 백업 작업이 실행 되 고 있는지, 및 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)합니다.
 **Linux** | 배포 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용 하 여 설치 합니다. 이 방법은 설치 및 Azure Linux 에이전트 업그레이드에 대 한 기본 설정 합니다. 모든 [인증 배포 공급자](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 업데이트 이진 파일에 있는지 확인 합니다.
 
-
-### <a name="establish-network-connectivity"></a>네트워크 연결 설정
+### <a name="explicitly-allow-outbound-access"></a>명시적으로 아웃 바운드 액세스 허용
 
 VM에서 실행 중인 백업 확장이 Azure 공용 IP 주소에 아웃 바운드 액세스를 해야 합니다.
 
-일반적으로 Azure Backup과 통신할 수 있도록 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 명시적으로 허용 필요가 없습니다.
-Vm에 연결할 수 없는 경우 및 오류가 표시 되 면 **ExtensionSnapshotFailedNoNetwork**, 액세스를 명시적으로 허용 해야 합니다. 그러면 백업 확장 백업 트래픽에 대해 Azure 공용 IP 주소를 사용 하 여 통신할 수 있습니다.
+- 일반적으로 명시적으로 Azure Backup을 사용 하 여 통신을 위해에서 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 허용 하도록 필요가 없습니다.
+- 오류를 표시 하는 경우 또는 실행 문제가 vm에 연결 **ExtensionSnapshotFailedNoNetwork** 연결을 시도할 때 명시적으로 허용 해야 액세스 백업 확장이 Azure 공용 IP와 통신할 수 있도록 백업 트래픽에 대 한 주소입니다. 액세스 메서드는 다음 표에 요약 되어 있습니다.
 
 
-#### <a name="explicitly-allow-outbound-access"></a>명시적으로 아웃 바운드 액세스 허용
-
-VM Backup 서비스에 연결할 수 없는 경우 표에 요약 된 방법 중 하나를 사용 하 여 명시적으로 아웃 바운드 액세스 허용.
-
-**옵션** | **조치** | **세부 정보** 
+**옵션** | **액션(Action)** | **세부 정보** 
 --- | --- | --- 
-**NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다. | 허용 하 고 모든 주소 범위를 관리 하는 대신 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 네트워크 보안 그룹 (NSG) 규칙을 추가할 수 있습니다는 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)합니다. [자세히 알아보기](../virtual-network/security-overview.md#service-tags).<br/><br/> 추가 비용은 없습니다.<br/><br/> 규칙은 간단한 서비스 태그를 사용 하 여 관리 합니다.
-**프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 이 메서드는 Azure 및 저장소 뿐만 아니라 전체에 대 한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> Vm에 대 한 단일 지점 인터넷 액세스가 있습니다.<br/><br/> 프록시에 대 한 추가 비용이 있습니다.
-**Azure 방화벽 설정** | Azure Backup 서비스에 대 한 FQDN 태그를 사용 하 여 VM에서 트래픽을 Azure 방화벽을 통과 허용 합니다. |  이 메서드는 가상 네트워크의 서브넷에서 설정 하는 Azure 방화벽이 있는 경우 사용이 간편 합니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에 Fqdn을 수정할 수 없습니다.<br/><br/> Azure Managed Disks를 사용하는 경우 방화벽에서 열려 있는 추가 포트(포트 8443)가 필요할 수 있습니다.
+**NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다.<br/><br/> 허용 및 모든 주소 범위 관리를 대신 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 규칙을 추가할 수 있습니다는 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)합니다. | [서비스 태그](../virtual-network/security-overview.md#service-tags)에 대해 자세히 알아보세요.<br/><br/> 서비스 태그 액세스 관리를 간소화 하 고 추가 비용이 발생 하지 않습니다.
+**프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 저장소뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
+**Azure 방화벽 설정** | Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다. | VNet 서브넷에서 설정 하는 Azure 방화벽이 있는 경우 사용 하기 간편 합니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에 Fqdn을 수정할 수 없습니다.<br/><br/> Azure Vm 디스크를 관리 하는 경우 추가 열어야 할 수 있습니다 (8443) 방화벽에서 포트입니다.
+
+#### <a name="establish-network-connectivity"></a>네트워크 연결 설정
+
+프록시 또는 방화벽을 통해 NSG 사용 하 여 연결 설정
 
 ##### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Azure에 아웃바운드 액세스를 허용하도록 NSG 규칙 설정
 
@@ -156,82 +269,12 @@ Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-### <a name="allow-firewall-access-by-using-an-fqdn-tag"></a>FQDN 태그를 사용 하 여 방화벽 액세스를 허용 합니다.
+##### <a name="allow-firewall-access-with-an-fqdn-tag"></a>FQDN 태그를 사용 하 여 방화벽 액세스를 허용 합니다.
 
 Azure backup 네트워크 트래픽에 대 한 아웃 바운드 액세스를 허용 하도록 Azure 방화벽을 설정할 수 있습니다.
 
 - Azure Firewall 배포에 대해 [알아보기](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 - FQDN 태그에 대해 [읽어보기](https://docs.microsoft.com/azure/firewall/fqdn-tags)
-
-## <a name="modify-storage-replication-settings"></a>저장소 복제 설정 수정
-
-기본적으로 자격 증명 모음에는 [GRS(지역 중복 스토리지)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)가 있습니다. 기본 백업에 대 한 GRS이 좋습니다. 사용할 수 있습니다 [로컬 중복 저장소 (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 저렴 한 옵션에 대 한 합니다.
-
-저장소 복제 유형을 다음과 같이 수정 합니다.
-
-1. 포털에서 새 자격 증명 모음을 선택 합니다. 아래 **설정을**를 선택 **속성**합니다.
-2. **속성**아래에 있는 **Backup 구성**를 선택 **업데이트**합니다.
-3. 저장소 복제 유형 선택 및 선택 **저장할**합니다.
-
-![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
-
-
-## <a name="configure-a-backup-policy"></a>백업 정책 구성
-
-구독에서 VM을 검색하여 백업을 구성합니다.
-
-1. 자격 증명 모음에서 > **개요**를 선택 **+ 백업**합니다.
-
-   ![백업 단추](./media/backup-azure-arm-vms-prepare/backup-button.png)
-
-   **백업** 및 **백업 목표** 창이 열립니다.
-
-2. **백업 목표** > **워크로드가 어디에서 실행됩니까?** 에서 **Azure**를 선택합니다. **무엇을 백업하고 싶습니까?** 에서 **가상 머신** >  **확인**을 선택합니다.
-
-   ![백업 및 백업 목표 창](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-
-   이 단계에서는 VM 확장을 자격 증명 모음에 등록합니다. **백업 목표** 창이 닫히고 **백업 정책** 창이 열립니다.
-
-3. **백업 정책**에서 자격 증명 모음과 연결하려는 정책을 선택합니다. 그런 다음 **확인**을 선택합니다.
-    - 드롭다운 메뉴 아래에 기본 정책의 상세 정보가 나열됩니다.
-    - 선택 **새로 만들기** 정책을 만들어야 합니다. 정책을 정의하는 방법에 대해 [자세히 알아봅니다](backup-azure-arm-vms-prepare.md#configure-a-backup-policy).
-
-    !["백업" 및 "백업 정책" 창](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-
-4. 에 **virtual machines 선택** 창 지정된 된 백업 정책에 사용할 Vm을 선택 > **확인**합니다.
-
-   선택한 VM에 대해 유효성이 검사됩니다. 자격 증명 모음과 동일한 지역에만 VM을 선택할 수 있습니다. VM은 단일 자격 증명 모음에만 백업할 수 있습니다.
-
-   !["가상 머신 선택" 창](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
-
-5. **백업**에서 **백업 사용**을 선택합니다.
-
-   이 단계는 자격 증명 모음 및 Vm에 정책을 배포합니다. 또한 Azure VM에서 실행 되는 VM 에이전트에 백업 확장을 설치 합니다.
-   
-   이 단계에서는 VM에 대한 초기 복구 지점을 만들지 않습니다.
-
-   !["백업 사용" 단추](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
-
-백업 사용 하도록 설정한 후:
-
-- 초기 백업은 백업 일정에 따라 실행됩니다.
-- 백업 서비스는 VM의 실행 여부와 상관 없이 백업 확장을 설치합니다.
-
-실행 중인 VM은 애플리케이션 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 VM이 꺼져 있고 확장을 설치할 수 없는 경우에도 VM은 백업됩니다. 이 오프 라인 VM 이라고 합니다. 이 경우 복구 지점은 크래시 일치 됩니다.
-    
-> [!NOTE]
-> Azure Backup은 Azure VM 백업을 위한 일광 절약 시간 변경에 대한 자동 시계 조정을 지원하지 않습니다. 필요에 따라 수동으로 백업 정책을 수정합니다.
-
-## <a name="run-the-initial-backup"></a>초기 백업 실행
-
-초기 백업은 즉시 수동으로 실행하지 않으면 일정에 따라 실행됩니다. 다음과 같이 수동으로 실행합니다.
-
-1. 자격 증명 모음 메뉴에서 선택 **Backup 항목**합니다.
-2. **Backup 항목**를 선택 **Azure Virtual Machine**합니다.
-3. 에 **Backup 항목** 목록에서 줄임표 (**...** ).
-4. 선택 **지금 Backup**합니다.
-5. **지금 Backup**, 달력 컨트롤을 사용 하 여 복구 지점을 유지 되어야 하는 마지막 날을 선택 > **확인**합니다.
-6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 시간이 걸릴 수 있습니다.
 
 
 

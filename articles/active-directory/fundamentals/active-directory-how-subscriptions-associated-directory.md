@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285009"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264899"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -30,6 +30,8 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 
 > [!Important]
 > 다른 디렉터리 역할을 사용 하 여 할당 된 사용자에 대 한 구독을 연결할 때 [역할 기반 액세스 제어 (RBAC)](../../role-based-access-control/role-assignments-portal.md) 액세스가 손실 됩니다. 클래식 구독 관리자 (서비스 관리자 및 공동 관리자)에 액세스할 수 없게 됩니다.
+> 
+> 또한 Azure Kubernetes Service (AKS) 클러스터를 다른 구독으로 이동 하거나 새 테 넌 트를 클러스터 소유 구독을 이동 하면 클러스터가 손실된 역할 할당 및 서비스 보안 주체 사용 권한으로 인해 기능이 손실 합니다. AKS에 대 한 자세한 내용은 참조 하세요. [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -67,15 +69,16 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 
     ![샘플 정보를 사용 하 여 디렉터리 전환기 페이지](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-구독 디렉터리 변경은 서비스 수준 작업이므로 구독 청구 소유권에 영향을 주지 않습니다. 계정 관리자는 [계정 센터](https://account.azure.com/subscriptions)에서 서비스 관리자를 계속 변경할 수 있습니다. 원래 디렉터리를 삭제하려면 구독 청구 소유권을 새 계정 관리자로 이전해야 합니다. 청구 소유권 이전에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../../billing/billing-subscription-transfer.md)을 참조하세요. 
+구독 디렉터리 변경은 서비스 수준 작업이므로 구독 청구 소유권에 영향을 주지 않습니다. 계정 관리자는 [계정 센터](https://account.azure.com/subscriptions)에서 서비스 관리자를 계속 변경할 수 있습니다. 원래 디렉터리를 삭제하려면 구독 청구 소유권을 새 계정 관리자로 이전해야 합니다. 청구 소유권 이전에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../../billing/billing-subscription-transfer.md)을 참조하세요.
 
 ## <a name="post-association-steps"></a>사후 연결 단계
-
 다른 디렉터리에 대 한 구독을 연결한 후 작업을 다시 시작할 때 수행 해야 하는 추가 단계가 있을 수 있습니다.
 
 1. 키 자격 증명 모음 테 넌 트 ID를 변경 해야 모든 키 자격 증명 모음에 있는 경우 자세한 내용은 [구독 이동 후 주요 자격 증명 모음 테 넌 트 ID 변경](../../key-vault/key-vault-subscription-move-fix.md)합니다.
 
-1. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](../../azure-stack/azure-stack-registration.md)합니다.
+2. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](../../azure-stack/azure-stack-registration.md)합니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

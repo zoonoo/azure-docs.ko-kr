@@ -15,16 +15,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482592"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255940"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack의 Kubernetes 대시보드에 액세스 
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트* 
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트* 
 > [!Note]   
 > Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다. 
 
@@ -47,7 +47,7 @@ Kubernetes는 기본 관리 작업에 사용할 수 있는 웹 대시보드를 �
 ## <a name="overview-of-steps-to-enable-dashboard"></a>대시보드를 사용 하도록 설정 하는 단계 개요
 
 1.  클러스터의 마스터 노드를 통해 Kubernetes 인증서를 내보냅니다. 
-2.  관리 컴퓨터를를 Azure Stack 인증서를 가져옵니다.
+2.  Azure Stack 관리 컴퓨터에 인증서를 가져옵니다.
 2.  Kubernetes 웹 대시보드를 엽니다. 
 
 ## <a name="export-certificate-from-the-master"></a>마스터에서 인증서 내보내기 
@@ -70,7 +70,7 @@ Kubernetes는 기본 관리 작업에 사용할 수 있는 웹 대시보드를 �
     ```Bash   
     kubectl cluster-info 
     ``` 
-    대시보드에 대 한 URL을 찾습니다. 예: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    대시보드에 대 한 URL을 찾습니다. 예를 들면 다음과 같습니다.  `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  자체 서명 된 인증서를 추출 및 PFX 형식으로 변환 합니다. 다음 명령 실행:
 

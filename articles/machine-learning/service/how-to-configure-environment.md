@@ -1,7 +1,7 @@
 ---
 title: Python 개발 환경 설정
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning Service 작업 시 개발 환경을 구성하는 방법을 알아봅니다. 이 문서에서는 Conda 환경을 사용하고, 구성 파일을 만들고, Jupyter Notebooks, Azure Notebooks, Azure Databricks, IDE, 코드 편집기 및 Data Science Virtual Machine을 구성하는 방법을 알아봅니다.
+description: Azure Machine Learning Service 작업 시 개발 환경을 구성하는 방법을 알아봅니다. 이 문서에서는 Conda 환경을 사용 하 여 구성 파일을 만들고 고유한 클라우드 기반 노트북 서버, Jupyter Notebook, Azure Databricks, Azure 노트, Ide, 코드 편집기 및 데이터 과학 Virtual Machine을 구성 하는 방법을 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 4aabf15478a6f8e688ea591832ca325f53144df8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577563"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263199"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "58577563"
 
 이 문서에서는 다음과 같은 환경 및 도구를 중점적으로 다룹니다.
 
-* Azure Notebooks: Azure 클라우드에 호스트되는 Jupyter Notebook 서비스입니다. Azure Machine Learning SDK가 이미 설치되어 있으므로 시작하기에 가장 쉬운 방법입니다.
+* 사용자 고유의 [클라우드 기반 notebook server](#workstation): 워크스테이션에서 Jupyter notebook을 실행 하는 계산 리소스를 사용 합니다. Azure Machine Learning SDK가 이미 설치되어 있으므로 시작하기에 가장 쉬운 방법입니다.
 
 * [DSVM(Data Science Virtual Machine)](#dsvm) 데이터 과학 작업용으로 설계되고 CPU 전용 VM 인스턴스 또는 GPU 기반 인스턴스에 배포할 수 있는 Azure 클라우드에 미리 구성된 개발 또는 실험 환경입니다. Python 3, Conda, Jupyter Notebook 및 Azure Machine Learning SDK가 이미 설치되어 있습니다. VM은 기계 학습 솔루션 개발에 자주 사용되는 기계 학습 및 딥 러닝 프레임워크, 도구, 편집기가 함께 제공됩니다. Azure 플랫폼에서 가장 완성도 높은 기계 학습용 개발 환경입니다.
 
@@ -36,16 +36,19 @@ ms.locfileid: "58577563"
 
 * [Azure Databricks](#aml-databricks): Apache Spark 기반의 인기 있는 데이터 분석 플랫폼입니다. 모델을 배포할 수 있도록 클러스터로 Azure Machine Learning SDK를 가져오는 방법을 알아봅니다.
 
+* [Azure Notebooks](#aznotebooks): Azure 클라우드에 호스트되는 Jupyter Notebook 서비스입니다. 또한 쉽게 Azure Machine Learning SDK가 이미 설치 되어 있으므로 시작 합니다.  
+
 이미 Python 3 환경을 갖고 있거나 SDK를 설치하는 데 필요한 기본 단계만 원하는 경우 [로컬 컴퓨터](#local) 섹션을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure Machine Learning 서비스 작업 영역. 참조 된 작업 영역을 만들려면 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다.
 
-- 중 하나는 [Anaconda](https://www.anaconda.com/download/) 하거나 [Miniconda](https://conda.io/miniconda.html) 패키지 관리자입니다.
+고유한 시작에 필요한 모든 작업 영역은 [클라우드 기반 notebook server](#workstation), [DSVM](#dsvm)를 [Azure Databricks](#aml-databricks), 또는 [Azure Notebooks](#aznotebooks).
 
-    > [!IMPORTANT]
-    > Azure Notebooks를 사용할 때에는 Anaconda 및 Miniconda가 필요 없습니다.
+에 대 한 SDK 환경을 설치 하 여 [로컬 컴퓨터](#local), [Jupyter Notebook 서버](#jupyter) 또는 [Visual Studio Code](#vscode) 해야:
+
+- 중 하나는 [Anaconda](https://www.anaconda.com/download/) 하거나 [Miniconda](https://conda.io/miniconda.html) 패키지 관리자입니다.
 
 - Linux 또는 Mac OS에서는 bash 셸이 필요합니다.
 
@@ -54,16 +57,16 @@ ms.locfileid: "58577563"
 
 - Windows에서는 명령 프롬프트 또는 Anaconda 프롬프트(Anaconda 및 Miniconda를 통해 설치한)가 필요합니다.
 
-## <a id="aznotebooks"></a>Azure Notebooks
+## <a id="workstation"></a>고유한 전자 필기장 클라우드 기반 서버
 
-[Azure Notebooks](https://notebooks.azure.com)(미리 보기)는 Azure 클라우드의 대화형 개발 환경입니다. Azure Machine Learning 개발을 시작하는 가장 쉬운 방법입니다.
+Azure Machine Learning의 개발을 시작 하는 가장 쉬운 방법은 Azure Machine Learning 작업 영역에서 노트북 서버를 만듭니다.
 
 * Azure Machine Learning SDK가 이미 설치되어 있습니다.
-* Azure Portal에서 Azure Machine Learning Service 작업 영역을 만든 후에는 단추를 클릭하여 작업 영역과 함께 작동하도록 자동으로 Azure Notebook 환경을 구성할 수 있습니다.
+* 워크스테이션 환경 작업 영역에 자동으로 구성 됩니다.
+* 리소스를 사용할 수 있으며 작업 영역에서 관리할 수 있습니다.
 
-Azure Notebooks로 개발을 시작하려면 [Azure Machine Learning Service 시작](quickstart-run-cloud-notebook.md)을 참조하세요.
+클라우드 기반 notebook 서버를 사용 하 여 개발 시작, 참조 [Azure Machine Learning 서비스를 사용 하 여 시작](quickstart-run-cloud-notebook.md)합니다.
 
-기본적으로 Azure Notebooks는 메모리 4GB, 데이터 1GB로 제한되는 무료 서비스 계층을 사용합니다. 하지만 Data Science Virtual Machine 인스턴스를 Azure Notebooks 프로젝트에 연결하여 이 제한을 제거할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -83,7 +86,7 @@ Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동�
 
     * Azure Portal:
 
-        * [Ubuntu Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+        * [Ubuntu 데이터 과학 가상 머신 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
         * [Windows Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
@@ -276,7 +279,7 @@ Azure Machine Learning 서비스를 사용 하 여 Azure Databricks 작동 방�
 ### <a name="set-up-your-databricks-cluster"></a>Databricks 클러스터 설정
 
 만들기는 [Databricks 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)합니다. 일부 설정은 Databricks에서 학습 하는 자동화 된 컴퓨터에 대 한 SDK를 설치 하는 경우에 적용 됩니다.
-**클러스터를 만드는 데 몇 분 정도 걸립니다.**
+**클러스터를 만드는 데 몇 분이 걸립니다.**
 
 이러한 설정을 사용 합니다.
 
@@ -376,6 +379,17 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
     ```
 
     이 코드는 *aml_config/config.json* 파일에 구성 파일을 씁니다.
+
+## <a id="aznotebooks"></a>Azure Notebooks
+
+[Azure Notebooks](https://notebooks.azure.com)(미리 보기)는 Azure 클라우드의 대화형 개발 환경입니다. Azure Machine Learning 개발 시작 하기 쉬운 것입니다.
+
+* Azure Machine Learning SDK가 이미 설치되어 있습니다.
+* Azure Portal에서 Azure Machine Learning Service 작업 영역을 만든 후에는 단추를 클릭하여 작업 영역과 함께 작동하도록 자동으로 Azure Notebook 환경을 구성할 수 있습니다.
+
+사용 된 [Azure portal](https://portal.azure.com) Azure notebooks 시작 하려면.  작업 영역을 열고 들어오고 합니다 **개요** 섹션에서 **Azure Notebooks 시작**합니다.
+
+기본적으로 Azure Notebooks는 메모리 4GB, 데이터 1GB로 제한되는 무료 서비스 계층을 사용합니다. 하지만 Data Science Virtual Machine 인스턴스를 Azure Notebooks 프로젝트에 연결하여 이 제한을 제거할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

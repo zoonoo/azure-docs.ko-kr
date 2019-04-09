@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/22/2018
+ms.date: 04/05/2019
 ms.author: bwren
-ms.openlocfilehash: 6e84344e1c0229d15891bd15a512880da6e20cfe
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110766"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259034"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Azure Monitor에서 로그 데이터 보기 및 분석
 Log Analytics는 Azure Monitor에서 로그 데이터를 사용하고 쿼리를 만드는 기본 환경입니다. Log Analytics는 **Azure Monitor** 메뉴의 **Logs**에서 엽니다. [Azure Portal에서 Log Analytics 시작](get-started-portal.md)에서 이 포털에 대한 소개를 보고 기능을 살펴볼 수 있습니다.
@@ -39,7 +39,7 @@ Log Analytics는 로그 쿼리 작업을 위해 다음과 같은 기능을 제�
 
 ![Log Analytics](media/portals/log-analytics.png)
 
-### <a name="resource-logs"></a>리소스 로그
+## <a name="resource-logs"></a>리소스 로그
 Log Analytics는 Virtual Machines와 같은 다양한 Azure 리소스와 통합됩니다. 즉, Azure Monitor로 전환하여 리소스 컨텍스트를 잃지 않고도 리소스의 모니터링 메뉴를 통해 Log Analytics를 직접 열 수 있습니다. **로그**는 아직 일부 Azure 리소스에 대해서만 사용할 수 있지만, 다양한 리소스 종류에 대한 포털 메뉴에 표시될 예정입니다.
 
 특정 리소스에서 Log Analytics를 열면 범위가 자동으로 해당 리소스의 로그 레코드로만 제한됩니다.   다른 레코드를 포함하는 쿼리를 작성하려면 Azure Monitor 메뉴에서 열어야 합니다.
@@ -52,7 +52,7 @@ Log Analytics는 Virtual Machines와 같은 다양한 Azure 리소스와 통합�
 - 다른 작업 영역/리소스로 전환(현재 계획되지 않음)
 
 
-### <a name="firewall-requirements"></a>방화벽 요구 사항
+## <a name="firewall-requirements"></a>방화벽 요구 사항
 Log Analytics에 액세스하려면 브라우저가 다음 주소에 액세스해야 합니다.  브라우저가 방화벽을 통해 Azure Portal에 액세스하는 경우 이 주소에 대한 액세스를 활성화해야 합니다.
 
 | Uri | IP | 포트 |
@@ -60,14 +60,6 @@ Log Analytics에 액세스하려면 브라우저가 다음 주소에 액세스�
 | portal.loganalytics.io | 동적 | 80,443 |
 | api.loganalytics.io    | 동적 | 80,443 |
 | docs.loganalytics.io   | 동적 | 80,443 |
-
-
-## <a name="log-search-classic"></a>로그 검색(클래식)
-로그 검색은 Azure Monitor의 로그 데이터를 쿼리하고 분석하는 Azure Portal의 레거시 환경입니다. 곧 사용이 중지되지만 현재는 사용할 수 있습니다. 로그 검색은 Log Analytics 메뉴의 **로그(클래식)** 에서 엽니다.
-
-
-
-![로그 검색](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>다음 단계

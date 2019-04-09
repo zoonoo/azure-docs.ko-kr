@@ -1,6 +1,6 @@
 ---
 title: Python을 사용하여 이벤트 보내기 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Azure Event Hubs로 이벤트를 보내는 Node.js 애플리케이션을 만드는 방법에 대한 연습을 제공합니다.
+description: 이 문서에서는 Azure Event Hubs로 이벤트를 보내는 Python 응용 프로그램을 만드는 연습을 제공 합니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2168fc89134615ffb4e0e718cc0cc27b8c1a7839
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102982"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262774"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Python을 사용하여 Event Hubs에 이벤트 보내기
 
@@ -36,7 +36,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 이벤트 허브 만들기
 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다.
 
-다음 문서의 지침에 따라 이벤트 허브에 대한 액세스 키의 값을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 액세스 키는 이 자습서의 뒷부분에서 작성하는 코드에 사용합니다. 기본 키 이름은 **RootManageSharedAccessKey**입니다.
+다음 문서의 지침에 따라 이벤트 허브에 대한 액세스 키의 값을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 액세스 키는 이 자습서의 뒷부분에서 작성하는 코드에 사용합니다. 기본 키 이름은 **RootManageSharedAccessKey**입니다.
 
 이제 이 자습서의 다음 단계를 진행합니다.
 

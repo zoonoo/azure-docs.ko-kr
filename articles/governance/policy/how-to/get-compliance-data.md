@@ -1,7 +1,6 @@
 ---
 title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. 준수 세부 정보를 가져오는 방법을 알아봅니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048712"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263783"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -94,9 +93,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 | 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | 비준수 |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 준수 |
 | 새로 만들기 | Audit, AuditIfNotExist\* | True  | 비준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | 거짓 | 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.

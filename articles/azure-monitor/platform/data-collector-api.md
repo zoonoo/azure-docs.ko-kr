@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883941"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264097"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -61,7 +61,8 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 | 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
 | Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 이 매개 변수에 대한 크기 제한은 100자입니다. |
 | x-ms-date |RFC 1123 형식의 요청이 처리된 날짜입니다. |
-| time-generated-field |데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
+| x-ms-AzureResourceId | Azure 리소스 데이터의 리소스 ID와 연결 해야 합니다. 채웁니다 합니다 [_ResourceId](log-standard-properties.md#_resourceid) 속성에 포함 될 데이터를 허용 하 고 [리소스 중심](manage-access.md#access-modes) 쿼리 합니다. 이 필드를 지정 하지 않으면 리소스 중심 쿼리에서 데이터 포함 되지 않습니다. |
+| time-generated-field | 데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
 
 ## <a name="authorization"></a>권한 부여
 Azure Monitor HTTP 데이터 수집기 API에 대한 모든 요청에는 인증 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명해야 합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   

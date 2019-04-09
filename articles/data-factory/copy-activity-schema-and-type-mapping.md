@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358714"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267126"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
 이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 실행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다.
@@ -147,10 +147,10 @@ ms.locfileid: "54358714"
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 변환기의 type 속성은 **TabularTranslator**로 설정해야 합니다. | 예 |
-| schemaMapping | 테이블 형식 쪽에서 계층 쪽으로의 매핑 관계를 나타내는 키-값 쌍 컬렉션입니다.<br/>- **키:** 데이터 세트 구조에 정의된 테이블 형식 데이터의 열 이름입니다.<br/>- **값:** 추출하여 매핑할 각 필드의 JSON 경로 식입니다. 루트 개체 아래의 필드는 root $로 시작하며, `collectionReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다.  | 예 |
-| collectionReference | 동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 아니요 |
+| schemaMapping | 매핑 관계를 나타내는 키-값 쌍의 컬렉션인 **쪽 싱크 원본 쪽에서**합니다.<br/>- **키:** 원본을 나타냅니다. 에 대 한 **테이블 형식 원본**에 대 한 데이터 집합 구조에 정의 된 대로 열 이름을 지정 **계층적 원본**, 각 필드를 추출 하 고 지도 대 한 JSON 경로 식을 지정 합니다.<br/>- **값:** 싱크를 나타냅니다. 에 대 한 **tabular 싱크**에 대 한 데이터 집합 구조에 정의 된 대로 열 이름을 지정 **계층적 싱크**, 각 필드를 추출 하 고 지도 대 한 JSON 경로 식을 지정 합니다. <br/> 루트 개체 아래에 있는 필드에 대 한 계층적 데이터의 경우 JSON 경로가 루트 $;로 시작 으로 선택 된 배열 내부의 필드 `collectionReference` 배열 요소에서 속성을 JSON 경로가 시작 됩니다.  | 예 |
+| collectionReference | 동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 아닙니다. |
 
-**예: MongoDB에서 SQL로 복사:**
+**예 MongoDB에서 SQL로 복사 합니다.:**
 
 예를 들어 MongoDB 문서에 다음과 같은 콘텐츠가 들어 있는 경우: 
 
@@ -232,13 +232,13 @@ Data Factory는 다음과 같은 중간 데이터 형식을 지원합니다. [�
 * BOOLEAN
 * DateTime
 * Datetimeoffset
-* 10진수
+* Decimal
 * Double
 * Guid
 * Int16
 * Int32
 * Int64
-* 단일
+* Single
 * 문자열
 * Timespan
 

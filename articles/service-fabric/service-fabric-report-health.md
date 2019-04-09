@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280556"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058614"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
 Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(사설 또는 Azure).

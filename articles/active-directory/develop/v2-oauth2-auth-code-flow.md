@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 OAuth 인증 코드 흐름 | Microsoft Docs
-description: OAuth 2.0 인증 프로토콜의 Azure AD의 구현을 사용하여 웹 애플리케이션을 빌드합니다.
+title: Microsoft id 플랫폼 및 OAuth 권한 부여 코드 흐름 | Azure
+description: 웹 응용 프로그램 구축 OAuth 2.0 인증 프로토콜의 Microsoft id 플랫폼의 구현을 사용 합니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,20 +12,20 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2019
+ms.topic: conceptual
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0350db37e13101d315937840fdcf3d9900e214d5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880268"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058750"
 ---
-# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 프로토콜 - OAuth 2.0 인증 코드 흐름
+# <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -34,7 +34,7 @@ OAuth 2.0 인증 코드 권한은 디바이스에 설치된 앱에서 사용하�
 > [!NOTE]
 > 일부 Azure Active Directory 시나리오 및 기능만 v2.0 엔드포인트에서 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
-OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. [웹앱](v2-app-types.md#web-apps) 및 [기본적으로 설치된 앱](v2-app-types.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. 흐름은 v2.0 엔드포인트로 보호되는 리소스에 액세스하는 데 사용할 수 있는 access_token을 앱에서 안전하게 획득할 수 있게 해줍니다. 
+OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. [웹앱](v2-app-types.md#web-apps) 및 [기본적으로 설치된 앱](v2-app-types.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여를 수행하는 데 사용됩니다. 흐름은 v2.0 엔드포인트로 보호되는 리소스에 액세스하는 데 사용할 수 있는 access_token을 앱에서 안전하게 획득할 수 있게 해줍니다.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 

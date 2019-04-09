@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 16ac5684d519dc41326ada4afd1bb2965a738070
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b43532ade35e4e01573abbd3f47d009beadd9c60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404997"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267721"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사
 
@@ -42,14 +42,17 @@ Azure File Storage 연결된 서비스에 다음 속성이 지원됩니다.
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성을 다음으로 설정해야 합니다. **FileServer** | 예 |
-| host | Azure File Storage 엔드포인트를 다음으로 지정합니다. <br/>-UI 사용: `\\<storage name>.file.core.windows.net\<file service name>` 지정<br/>- JSON 사용: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"` | 예 |
-| userId | Azure File Storage에 다음으로 액세스할 사용자를 지정합니다. <br/>-UI 사용: `AZURE\<storage name>` 지정<br/>- JSON 사용: `"userid": "AZURE\\<storage name>"` | 예 |
+| host | Azure File Storage 엔드포인트를 다음으로 지정합니다. <br/>--UI를 사용 하는 중: 지정 `\\<storage name>.file.core.windows.net\<file service name>`<br/>- JSON 사용: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"` | 예 |
+| userId | Azure File Storage에 다음으로 액세스할 사용자를 지정합니다. <br/>--UI를 사용 하는 중: 지정 `AZURE\<storage name>`<br/>- JSON 사용: `"userid": "AZURE\\<storage name>"` | 예 |
 | 암호 | 저장소 액세스 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |원본에는 아니요이고 싱크에는 예입니다 |
 
 >[!IMPORTANT]
 > - Microsoft Azure Integration Runtime을 사용하여 데이터를 Azure File Storage로 복사하려면 다음 예제와 같이 File Storage의 위치를 사용하여 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir) 링크된 서비스와 연결합니다.
 > - Azure 외부에서 자체 호스팅된 통합 Integration Runtime을 사용하여 Azure File Storage 간에 데이터를 복사하려면 로컬 네트워크에서 아웃바운드 TCP 포트 445를 열어야 합니다.
+
+>[!TIP]
+>ADF UI를 작성 하기 위한 사용 하는 경우 아래에 있는 형식을 생성 하는 연결 된 서비스 만들기에 대 한 "Azure File Storage"의 특정 항목을 찾을 수 있습니다 `FileServer` 개체입니다.
 
 **예제:**
 
@@ -84,7 +87,7 @@ Azure File Storage 간 데이터를 복사하려면 데이터 세트의 형식 �
 |:--- |:--- |:--- |
 | 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **FileShare** |예 |
 | folderPath | 파일의 경로입니다. <br/><br/>와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
-| fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 세트에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않으면, 복사 작업은 다음과 같은 패턴으로 파일 이름을 자동으로 생성합니다. "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", 예를 들어 "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; 쿼리 대신 테이블 이름을 사용하여 테이블 형식 원본에서 복사하면, 이름 패턴이 "*[table name].[format].[compression if configured]*"입니다(예: "MyTable.csv"). |아닙니다. |
+| fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 세트는 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>-예제 1: `"fileName": "*.csv"`<br/>-예제 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 세트에 대해 지정되지 않고 **preserveHierarchy**가 작업 싱크에 지정되지 않으면, 복사 작업은 다음과 같은 패턴으로 파일 이름을 자동으로 생성합니다. "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", 예를 들어 "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; 쿼리 대신 테이블 이름을 사용하여 테이블 형식 원본에서 복사하면, 이름 패턴이 "*[table name].[format].[compression if configured]*"입니다(예: "MyTable.csv"). |아닙니다. |
 | modifiedDatetimeStart | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
 | modifiedDatetimeEnd | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 아닙니다. |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식의 파일을 구문 분석하거나 생성하려는 경우, 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |

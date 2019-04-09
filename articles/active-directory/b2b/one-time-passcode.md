@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294828"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257334"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>메일 일회성 암호 인증(미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "58294828"
 | 메일 일회성 암호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
-메일 일회성 암호 기능은 B2B 게스트 사용자가 Azure AD, Microsoft 계정(MSA) 또는 Google 페더레이션과 같은 다른 수단을 통해 인증할 수 없을 때 해당 사용자를 인증합니다. 일회성 암호 인증을 사용하면 Microsoft 계정을 만들 필요가 없습니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다.
+이 문서에서는 B2B 게스트 사용자에 게 전자 메일 (일회성 암호) 인증을 사용 하도록 설정 하는 방법을 설명 합니다. 메일 일회성 암호 기능은 B2B 게스트 사용자가 Azure AD, Microsoft 계정(MSA) 또는 Google 페더레이션과 같은 다른 수단을 통해 인증할 수 없을 때 해당 사용자를 인증합니다. 일회성 암호 인증을 사용하면 Microsoft 계정을 만들 필요가 없습니다. 게스트 사용자는 초대를 사용하거나 공유 리소스에 액세스할 때 메일 주소로 전송되는 임시 코드를 요청할 수 있습니다. 그런 다음, 이 코드를 입력하여 로그인을 계속합니다.
 
 이 기능은 현재 미리 보기로 제공됩니다(아래 [미리 보기에 옵트인](#opting-in-to-the-preview) 참조). 미리 보기 후에 이 기능은 기본적으로 모든 테넌트에 대해 켜집니다.
 

@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 7a6362ea33a27b27798f1304e779099fca60cdd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 3b10ae0998acbb010e61ebb41c602c7d42bc14fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446564"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263165"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>.NET 백 엔드 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -54,7 +54,7 @@ ms.locfileid: "54446564"
 
 1. **Visual Studio 프로젝트 만들기:** Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 기존 솔루션에 추가합니다. .NET Framework 버전이 4.6.1 이상인지 확인합니다. 프로젝트 이름을 **UpdateModuleTwinReportedProperties**로 지정합니다.
 
-    ![Visual Studio 프로젝트 만들기](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
+    ![Visual Studio 프로젝트 만들기](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 
 2. **최신 Azure IoT Hub .NET 디바이스 SDK 설치:** 모듈 ID 및 모듈 쌍은 공개 미리 보기로 제공됩니다. IoT Hub 시험판 디바이스 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 최신 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
 
@@ -62,7 +62,7 @@ ms.locfileid: "54446564"
 
 3. **모듈 연결 문자열 가져오기** - 이제 [Azure Portal](https://portal.azure.com/)에 로그인합니다. IoT Hub로 이동하고 IoT 디바이스를 클릭합니다. myFirstDevice를 찾아서 열면 성공적으로 만들어진 myFirstModule이 표시됩니다. 모듈 연결 문자열을 복사합니다. 이는 다음 단계에서 필요합니다.
 
-    ![Azure Portal 모듈 세부 정보](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
+    ![Azure Portal 모듈 세부 정보](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
 4. **UpdateModuleTwinReportedProperties 콘솔 앱 만들기**
 
@@ -160,11 +160,11 @@ ms.locfileid: "54446564"
 
 ## <a name="run-the-apps"></a>앱 실행
 
-이제 앱을 실행할 준비가 되었습니다. 솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다. **여러 개의 시작 프로젝트**를 선택하고 **시작**을 콘솔 앱에 대한 작업으로 선택합니다. 그런 다음, F5 키를 눌러 앱을 시작합니다. 
+이제 앱을 실행할 준비가 되었습니다. 솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다. **여러 개의 시작 프로젝트**를 선택하고 **시작**을 콘솔 앱에 대한 작업으로 선택합니다. 그런 다음, F5 키를 눌러 앱을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 
-* [디바이스 관리 시작](iot-hub-node-node-device-management-get-started.md)
+* [장치 관리 시작](iot-hub-node-node-device-management-get-started.md)
 * [IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)

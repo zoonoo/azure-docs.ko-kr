@@ -3,7 +3,7 @@ title: 저장 프로시저 작업으로 SSIS 패키지 실행 - Azure | Microsof
 description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: swinarko
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: jingwang
-ms.openlocfilehash: 1cff60e6134e08e4b9e59a9f69ec09700cca1814
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: sawinark
+ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098749"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256297"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 저장 프로시저 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
@@ -176,7 +176,7 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. 데이터 팩터리를 만들려면 다음을 실행 **집합 AzDataFactoryV2** $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용 하 여 cmdlet: 
+5. 데이터 팩터리를 만들려면 $ResGrp 변수의 Location 및 ResourceGroupName 속성을 사용하여 다음 **Set-AzDataFactoryV2** cmdlet을 실행합니다. 
     
     ```powershell       
     $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
@@ -217,7 +217,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
 
-3. 실행 합니다 **집합 AzDataFactoryV2LinkedService** cmdlet을 통해 연결된 된 서비스를 만들려면: **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
+3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"

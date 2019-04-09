@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892214"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269030"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>클라우드 기반 Azure Multi-factor Authentication을 계획합니다.
 
@@ -60,8 +60,14 @@ Azure multi-factor Authentication 조건부 액세스 정책을 적용 하 여 �
 * 규정 준수 디바이스
 * 하이브리드 Azure AD 조인 디바이스
 * 승인 된 클라이언트 응용 프로그램
+ 
+
+[Multi-factor authentication 출시 자료]에서 사용자 지정 가능한 포스터 및 메일 템플릿의 사용 하 여 조직에 multi-factor authentication을 배포 합니다. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>조건부 액세스를 사용하여 Multi-Factor Authentication 사용
 
 조건부 액세스 정책은 등록, 등록 되지 않은 사용자가 첫 번째 로그인 시에 중요 한 보안 고려 사항 등록을 완료 하도록 적용 합니다.
+
 
 [Azure AD Id 보호](../identity-protection/howto-configure-risk-policies.md) 에 대 한 등록 정책을 Azure Multi-factor Authentication 스토리에 자동화 된 위험 검색 및 수정 정책을 적용 합니다. 정책 위협 손상 된 id의 경우 암호 변경 사항을 적용 하려면 만들어질 수도 있고 로그인 간주 하는 위험한 다음 경우 MFA를 요구할 [이벤트](../reports-monitoring/concept-risk-events.md):
 
@@ -228,7 +234,7 @@ NPS 인스턴스에 배포 된 경우에 사용 하 여 이미 참조할 [Azure 
 
 MFA를 사용 하 여 등록 되지 않은 사용자를 인증 하 려 할 때를 선택 합니다. 레지스트리 설정을 사용 하 여 `REQUIRE_USER_MATCH` 레지스트리 경로에 `HKLM\Software\Microsoft\AzureMFA` 기능 동작을 제어 합니다. 이 설정에 단일 구성 옵션이 있습니다.
 
-| 키 | 값 | 기본값 |
+| 키 | 값 | Default |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | 설정되지 않음(TRUE와 동일) |
 

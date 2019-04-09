@@ -15,16 +15,16 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84f9472618322111ad2f669ebb172258837620fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9ef2def2aea83499d177549b497c741da0f606d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106069"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262485"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Linux 서버 가상 머신 만들기
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상 Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 Azure CLI를 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를 만들 수 있습니다. 만들고 가상 머신을 사용 하려면이 문서의 단계를 수행 합니다. 이 문서에서는 단계를 제공 합니다.
 
@@ -66,7 +66,6 @@ az vm create \
   --image "UbuntuLTS" \
   --admin-username "Demouser" \
   --admin-password "Demouser@123" \
-  --use-unmanaged-disk \
   --location local
 ```
 

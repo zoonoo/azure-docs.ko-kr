@@ -16,11 +16,11 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
 ms.openlocfilehash: 67e0ccfa883e79d66eb9ca38a6cf15f00154c487
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056180"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265715"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Windows Server 가상 머신 만들기
 
