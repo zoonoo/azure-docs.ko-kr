@@ -1,24 +1,22 @@
 ---
 title: HDFS 호환 가능 Azure Storage에서 데이터 쿼리 - Azure HDInsight
 description: Azure Storage 및 Azure Data Lake Storage에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: d88a05b03813eb0ec94a84f60bffb903e1344987
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/08/2019
+ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361917"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360787"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
-HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md) 중 하나 또는 모두에 데이터를 저장할 수 있습니다. 두 가지 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+HDInsight 클러스터에서 데이터를 분석 하려면 사용자 데이터를 저장할 수 중 하나에 [Azure Storage](../storage/common/storage-introduction.md)를 [Azure Data Lake 저장소 Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake 저장소 Gen 2](../storage/blobs/data-lake-storage-introduction.md), 또는 조합 합니다. 이러한 저장소 옵션을 사용 하 여 사용자 데이터 손실 없이 계산에 사용 되는 HDInsight 클러스터를 안전 하 게 삭제할 수 있습니다.
 
 Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 클러스터를 만드는 과정에서 Azure Storage에서나 HDInsight 3.6을 통해 Blob 컨테이너를 기본 파일 시스템으로 지정하거나, 몇 가지 예외를 제외하고 Azure Storage 또는 Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 중 하나를 기본 파일 시스템으로 선택할 수 있습니다. 기본 및 연결된 스토리지로 Data Lake Storage Gen1을 사용하는 지원 가능성은 [HDInsight 클러스터에 대한 가용성](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters)을 참조하세요.
 
@@ -41,6 +39,8 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
  
  > [!NOTE]  
  > 보관 액세스 계층은 몇 시간씩 검색이 대기되는 오프라인 계층으로, HDInsight용으로는 권장되지 않습니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">보관 액세스 계층</a>을 참조하세요.
+
+사용 하 여 저장소 계정을 보호 하려는 경우는 **방화벽 및 virtual network** 에 대 한 제한 **네트워크를 선택한**, 예외를 사용 하도록 설정 해야 **허용 Microsoft 신뢰할 수 있는 서비스 하는 중...**  HDInsight 저장소 계정에 액세스할 수 있도록 합니다.
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 저장소 아키텍처
 다음 다이어그램은 Azure Storage 사용의 HDInsight 스토리지 아키텍처의 추상 보기를 제공합니다.
@@ -297,25 +297,25 @@ Invoke-AzHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedCon
 azure storage blob
 ```
 
-**파일을 업로드하기 위해 Azure 클래식 CLI를 사용하는 예제**
+**클래식 Azure CLI를 사용 하 여 파일을 업로드 하는 예제**
 
 ```cli
 azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**파일을 다운로드하기 위해 Azure 클래식 CLI를 사용하는 예제**
+**클래식 Azure CLI를 사용 하 여 파일을 다운로드 하는 예제**
 
 ```cli
 azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**파일을 삭제하기 위해 Azure 클래식 CLI를 사용하는 예제**
+**클래식 Azure CLI를 사용 하 여 파일을 삭제 하는 예제**
 
 ```cli
 azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**파일을 나열하기 위해 Azure 클래식 CLI를 사용하는 예제**
+**Azure 클래식 CLI를 사용 하 여 목록 파일의 예**
 
 ```cli
 azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
@@ -335,7 +335,7 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 자세한 내용은 다음을 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
-* [Azure Data Lake Storage 시작](../data-lake-store/data-lake-store-get-started-portal.md).
+* [Azure Data Lake Storage 시작하기](../data-lake-store/data-lake-store-get-started-portal.md)
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]

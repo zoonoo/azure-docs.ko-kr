@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088930"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360150"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -72,7 +72,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 ### <a name="host-storage"></a>호스트 저장소
 
-**Storage(호스트)** | **지원됨** 
+**Storage (호스트)** | **지원됨** 
 --- | --- 
 NFS | 예 
 SMB 3.0 | N/A 
@@ -101,7 +101,7 @@ RDM | 예
 
 ## <a name="vaults"></a>자격 증명 모음
 
-**작업** | **지원됨** 
+**액션(Action)** | **지원됨** 
 --- | --- 
 리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아닙니다. 
 리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다. 
@@ -110,7 +110,7 @@ RDM | 예
 
 Mobility 서비스는 온-프레미스 VMware 서버 또는 물리적 서버와 보조 사이트 간 복제를 조정합니다. 복제를 설정할 때 Mobility 서비스 및 기타 구성 요소의 최신 버전이 필요합니다.
 
-| **업데이트** | **세부 정보** |
+| **주 지역에서** | **세부 정보** |
 | --- | --- |
 |Scout 업데이트 | Scout 업데이트는 누적입니다. <br/><br/> 최신 Scout 업데이트에 대해 [알아보고 다운로드](vmware-physical-secondary-disaster-recovery.md#updates)  |
 |구성 요소 업데이트 | Scout 업데이트에는 RX 서버, 구성 서버, 프로세스 및 마스터 대상 서버, vContinuum 서버 및 보호하려면 원본 서버를 포함하여 모든 구성 요소에 대한 업데이트가 포함되어 있습니다.<br/><br/> [자세히 알아보기](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
@@ -120,5 +120,5 @@ Mobility 서비스는 온-프레미스 VMware 서버 또는 물리적 서버와 
 
 [InMage Scout 사용자 가이드](https://aka.ms/asr-scout-user-guide)를 다운로드합니다.
 
-- [VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](tutorial-vmm-to-vmm.md)
+- [보조 사이트에 VMM 클라우드의 Hyper-v Vm 복제](tutorial-vmm-to-vmm.md)
 - [VMware VM 및 물리적 서버를 보조 사이트에 복제](tutorial-vmware-to-vmware.md)

@@ -1,6 +1,6 @@
 ---
 title: 홈 영역 검색 정책을 사용한 애플리케이션에 대한 로그인 자동 가속화 구성 | Microsoft Docs
-description: Azure AD 테넌트가 무엇이며, Azure Active Directory를 통해 Azure를 관리하는 방법이 무엇인지에 대해 설명합니다.
+description: 자동 가속 및 도메인 힌트를 포함 한 페더레이션된 사용자에 대 한 Azure Active Directory 인증에 대 한 홈 영역 검색 정책을 구성 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190265"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360941"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
-다음 문서에서는 페더레이션 사용자에 대한 Azure Active Directory 인증 동작을 구성하는 방법을 소개합니다.   여기서는 페더레이션된 도메인의 사용자에 대한 자동 가속 및 인증 제한을 구성합니다.
+이 문서에서는 페더레이션된 사용자를 위한 Azure Active Directory 인증 동작 구성 소개를 제공 합니다. 여기서는 페더레이션된 도메인의 사용자에 대한 자동 가속 및 인증 제한을 구성합니다.
 
 ## <a name="home-realm-discovery"></a>홈 영역 검색
 HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 사용자가 인증해야 하는 위치를 결정할 수 있게 하는 프로세스입니다.  사용자가 Azure AD 테넌트에 로그인하여 리소스 또는 Azure AD 일반 로그인 페이지에 액세스할 때 사용자는 UPN(사용자 이름)을 입력합니다. Azure AD는 이 기능을 사용하여 사용자가 로그인해야 하는 위치를 검색합니다. 

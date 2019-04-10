@@ -4,22 +4,20 @@ description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649172"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360434"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기 
 
@@ -36,12 +34,32 @@ ms.locfileid: "56649172"
 
 역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database에서 ReadOnly 잠금을 삭제 하거나 데이터베이스를 수정 하면 있지만 하지 만들기, 업데이트 또는 삭제 하는 중 데이터베이스의에서 데이터에서 못하게 합니다. 이러한 작업에 전송 되지 때문에 데이터 전송이 허용 됩니다 `https://management.azure.com`합니다.
+리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어, SQL Database에 대해 ReadOnly 잠금이 지정되면 데이터베이스를 삭제하거나 수정하지 못합니다. 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제하지 못하게 됩니다. 이러한 작업에 전송 되지 때문에 데이터 전송이 허용 됩니다 `https://management.azure.com`합니다.
 
 **ReadOnly** 를 적용하면 읽기 작업처럼 보이는 일부 작업에 실제로 추가 작업이 필요하기 때문에 예기치 않은 결과가 발생할 수 있습니다. 예를 들어 저장소 계정에 **ReadOnly** 잠금을 설정하면 모든 사용자가 키를 나열하지 않도록 방지합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다. 또 다른 예로 App Service 리소스에 **ReadOnly** 잠금을 설정하면 해당 상호 작용이 쓰기 액세스를 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>조직에서 잠금을 만들거나 삭제할 수 있는 사람
+## <a name="who-can-create-or-delete-locks"></a>만들거나 수 있는 사람 잠금 삭제
 관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/*` 또는 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
+
+## <a name="managed-applications-and-locks"></a>관리 되는 응용 프로그램 및 잠금
+
+Azure Databricks와 같은 일부 Azure 서비스를 사용 하 여 [응용 프로그램을 관리 되는](../managed-applications/overview.md) 서비스를 구현 합니다. 이 경우 서비스는 두 리소스 그룹을 만듭니다. 하나의 리소스 그룹 서비스의 개요를 포함 하 고 잠겨 있지 않습니다. 다른 리소스 그룹 서비스에 대 한 인프라 있고 잠겨 있습니다.
+
+인프라 리소스 그룹을 삭제 하려는 경우 리소스 그룹이 잠겨 있음을 나타내는 오류가 표시 됩니다. 인프라 리소스 그룹에 대 한 잠금을 삭제 하려고 하면 오류가 발생 알리는 시스템 응용 프로그램에 의해 소유 하기 때문에 잠금의 삭제할 수 없습니다.
+
+대신, 인프라 리소스 그룹도 삭제 되는 서비스를 삭제 합니다.
+
+관리 되는 응용 프로그램의 경우 배포한 서비스를 선택 합니다.
+
+![서비스를 선택 합니다.](./media/resource-group-lock-resources/select-service.png)
+
+알림 서비스에 대 한 링크가 포함 된 **관리 되는 리소스 그룹**합니다. 해당 리소스 그룹 인프라를 보유 하 고 잠깁니다. 직접 삭제할 수 있습니다.
+
+![관리 되는 그룹 표시](./media/resource-group-lock-resources/show-managed-group.png)
+
+잠긴된 인프라 리소스 그룹을 포함 하 여 서비스에 대 한 모든 내용을 삭제 하도록 선택 **삭제** 서비스에 대 한 합니다.
+
+![서비스 삭제](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>포털
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
@@ -53,12 +71,12 @@ Resource Manager 템플릿을 사용 하 여 잠금을 배포를 이름 및 범�
 잠금을 적용 하는 경우를 **리소스**, 다음 형식을 사용 합니다.
 
 * name - `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* 입력- `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 잠금을 적용 하는 경우를 **리소스 그룹** 또는 **구독**, 다음 형식을 사용 합니다.
 
 * name - `{lockName}`
-* type - `Microsoft.Authorization/locks`
+* 입력- `Microsoft.Authorization/locks`
 
 다음 예제에서는 웹 사이트에 App Service 계획, 웹 사이트 및 잠금을 만드는 템플릿을 보여 줍니다. 잠금의 리소스 종류는 잠그려는 리소스의 리소스 종류로, **입니다**. 잠금의 이름은 리소스 이름을 **/Microsoft.Authorization/** 과 연결하여 만들어집니다.
 

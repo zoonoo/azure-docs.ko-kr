@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759222"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359703"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Azure SQL Database를 사용하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "57759222"
 
 ## <a name="load-data"></a>데이터 로드
 
-- [Azure 내에서 단일 데이터베이스 또는 풀링된 데이터베이스 복사](sql-database-copy.md)
+- [단일 데이터베이스 또는 풀링된 데이터베이스로 Azure 내에서 복사](sql-database-copy.md)
 - [BACPAC에서 DB 가져오기](sql-database-import.md)
 - [BACPAC로 DB 내보내기](sql-database-export.md)
 - [BCP를 사용하여 데이터 로드](sql-database-load-from-csv-with-bcp.md)
@@ -52,8 +52,8 @@ ms.locfileid: "57759222"
 ### <a name="extended-events"></a>확장 이벤트
 
 - [확장 이벤트](sql-database-xevent-db-diff-from-svr.md)
-- [확장 이벤트를 이벤트 파일에 저장](sql-database-xevent-code-event-file.md)
-- [확장 이벤트를 링 버퍼에 저장](sql-database-xevent-code-ring-buffer.md)
+- [확장 이벤트 이벤트 파일로 저장](sql-database-xevent-code-event-file.md)
+- [링 버퍼에 저장 되는 확장 이벤트](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>기능 구성
 
@@ -77,7 +77,7 @@ ms.locfileid: "57759222"
 - [성능 향상을 위해 일괄 처리 사용](sql-database-use-batching-to-improve-performance.md)
 - [연결 지침](sql-database-connectivity-issues.md)
 - [DNS 별칭](dns-alias-overview.md)
-- [DNS 별칭 PowerShell 설정](dns-alias-powershell.md)
+- [DNS 별칭 PowerShell 설치](dns-alias-powershell.md)
 - [포트 - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C 및 C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
@@ -91,7 +91,7 @@ ms.locfileid: "57759222"
 ### <a name="design-multi-tenant-saas-applications"></a>다중 테넌트 SaaS 애플리케이션 디자인
 
 - [SaaS 디자인 패턴](saas-tenancy-app-design-patterns.md)
-- [SaaS Video Indexer](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [SaaS 비디오 사용](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [SaaS 앱 보안](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>다음 단계

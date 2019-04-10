@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: bf355aec2a76a42986320a74447860a8baa968ef
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: cd07ff5beddf65c9788c9ba94802ba2d37172923
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257403"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360692"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 업데이트
 
@@ -316,9 +316,9 @@ VM 규모 한도 도달 하는 경우에 다음 오류 코드 결과적으로 �
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
-### <a name="syslog"></a>syslog 
-- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 해당 구성과 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트에서 결과. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다.
-Azure Stack 업데이트를 적용 한 후 클라이언트를 syslog를 다시 구성 하려면이 문제를 해결 합니다.
+### <a name="syslog"></a>syslog
+
+- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 관련 구성 및 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다. 이 문제를 해결 하려면 syslog 클라이언트는 Azure Stack 업데이트를 적용 한 후 다시 구성 합니다.
 
 ## <a name="download-the-update"></a>업데이트 다운로드
 

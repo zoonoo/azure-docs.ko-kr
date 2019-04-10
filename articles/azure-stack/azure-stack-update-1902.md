@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2005cf4b1929dfe9e520f56308493db7d820226e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271835"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361102"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 업데이트
 
@@ -97,13 +97,14 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
   ```  
   
 - 을 개선 하기 위해 전체적인 안정성과 가용성의 핵심 인프라 서비스에서 업데이트 프로세스 중 업데이트 작업 계획의 일환으로 네이티브 업데이트 리소스 공급자는 감지 하 고 필요에 따라 자동 전역 재구성을 호출 합니다. 전역 수정 "복구" 워크플로 다음과 같습니다.
-    - 최적이 아닌 상태가 되며 필요에 따라 복구 하려고 하는 인프라 가상 컴퓨터에 대 한 확인 
-    - 컨트롤 계획의 일환으로 SQL 서비스 문제에 대 한 확인 하 고 필요에 따라 복구 하려고 합니다.
-    - 네트워크 컨트롤러 (NC)의 일부로 소프트웨어 부하 분산 장치 (SLB) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
-    - 네트워크 컨트롤러 (NC) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
-    - 응급 복구 콘솔 서비스 (ERCS) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
-    - XRP 서비스 패브릭 노드의 상태를 확인 하 고 필요에 따라 복구
-    - 일관 된 저장소 ACS (Azure) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
+
+  - 최적이 아닌 상태가 되며 필요에 따라 복구 하려고 하는 인프라 가상 컴퓨터에 대 한 확인 합니다.
+  - 컨트롤 계획의 일환으로 SQL 서비스 문제에 대 한 확인 하 고 필요에 따라 복구 하려고 합니다.
+  - 네트워크 컨트롤러 (NC)의 일부로 소프트웨어 부하 분산 장치 (SLB) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
+  - 네트워크 컨트롤러 (NC) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
+  - 응급 복구 콘솔 서비스 (ERCS) service fabric 노드 상태를 확인 하 고 필요에 따라 복구 키를 누릅니다.
+  - 인프라 역할의 상태를 확인 하 고 필요에 따라 복구 키를 누릅니다.
+  - 일관 된 저장소 ACS (Azure) service fabric 노드 상태를 확인 하 고 필요에 따라 복구 키를 누릅니다.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -258,8 +259,8 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 <!-- #### Marketplace -->
 
 ### <a name="syslog"></a>syslog 
-- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 해당 구성과 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트에서 결과. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다.
-Azure Stack 업데이트를 적용 한 후 클라이언트를 syslog를 다시 구성 하려면이 문제를 해결 합니다.
+
+- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 관련 구성 및 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다. 이 문제를 해결 하려면 syslog 클라이언트는 Azure Stack 업데이트를 적용 한 후 다시 구성 합니다.
 
 ## <a name="download-the-update"></a>업데이트 다운로드
 

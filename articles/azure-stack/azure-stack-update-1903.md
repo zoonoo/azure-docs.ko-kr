@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: 0448f583743f9e5b3f8fd6de3a85b05e16bff126
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.lastreviewed: 04/09/2019
+ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269149"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360562"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 업데이트
 
@@ -209,9 +209,9 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
-### <a name="syslog"></a>syslog 
-- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 해당 구성과 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트에서 결과. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다.
-Azure Stack 업데이트를 적용 한 후 클라이언트를 syslog를 다시 구성 하려면이 문제를 해결 합니다.
+### <a name="syslog"></a>syslog
+
+- Syslog 구성을 유지 되지 않습니다는 업데이트 주기를 통해 관련 구성 및 전달 되는 것을 중지 하려면 syslog 메시지 손실 syslog 클라이언트. 이 문제는 syslog 클라이언트 (1809)의 GA 이후 Azure Stack의 모든 버전에 적용 됩니다. 이 문제를 해결 하려면 syslog 클라이언트는 Azure Stack 업데이트를 적용 한 후 다시 구성 합니다.
 
 ## <a name="download-the-update"></a>업데이트 다운로드
 

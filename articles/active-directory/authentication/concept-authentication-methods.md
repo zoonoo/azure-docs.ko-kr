@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894596"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360643"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
-Azure Multi-factor Authentication 및 셀프 서비스 암호에 대 한 인증 방법을 선택 하는 관리자 재설정 (SSPR) 사용자가 여러 가지 인증 방법을 등록 해야 하는 것이 좋습니다. 인증 방법을 사용자에 대해 사용할 수 없는 경우 다른 메서드를 사용 하 여 인증 하도록 선택할 수 있습니다.
+관리자로 서 Azure Multi-factor Authentication 및 사용자가 여러 인증 방법을 등록 하도록 요구 하는 것이 좋습니다. 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 선택 합니다. 인증 방법을 사용자에 대해 사용할 수 없는 경우 다른 메서드를 사용 하 여 인증 하도록 선택할 수 있습니다.
 
 관리자는 SSPR 및 MFA 사용자에게 제공하는 인증 방법을 정책에서 정의할 수 있습니다. 일부 기능에는 일부 인증 방법이 제공되지 않을 수 있습니다. 정책을 구성 하는 방법에 대 한 자세한 내용은 문서를 참조 [셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법](howto-sspr-deployment.md) 고 [클라우드 기반 Azure Multi-factor Authentication을 계획 합니다.](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ Microsoft Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알
 
 모바일 앱을 통한 알림 및 모바일 앱의 확인 코드 둘 다 사용하도록 설정한 경우 알림을 사용하여 Microsoft Authenticator 앱을 등록하려는 사용자는 알림 및 코드 모두를 사용하여 해당 ID를 확인할 수 있습니다.
 
+> [!NOTE]
+> 조직에서는 직원 작업 또는 중국으로 이동 하는 **모바일 앱을 통한 알림** 메서드를 **Android 장치** 해당 국가에서 작동 하지 않습니다. 대체 메서드는 사용자 제공 이루어져야 합니다.
+
 ### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 
 Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 사용자 이름 및 암호를 입력한 후 앱에서 제공한 코드를 로그인 화면에 입력합니다. 확인 코드는 두 번째 인증 형식을 제공합니다.
@@ -149,11 +152,11 @@ Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 �
 > 재설정에 한 가지 방법만 필요하고 셀프 서비스 암호 재설정을 사용하는 경우 **최고 수준의 보안을 유지하기 위해** 사용자에게 유일한 옵션으로 확인 코드만 제공됩니다.
 >
 
-사용자는 언제든지 사용할 수 있도록 구성된 Microsoft Authenticator 앱과 같은 인증자 애플리케이션 또는 최대 5개의 OATH 하드웨어 토큰 을 조합할 수 있습니다.
+사용자는 최대 5 개의 OATH 하드웨어 토큰 또는 authenticator 응용 프로그램이 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 조합이 있을 수 있습니다.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH 하드웨어 토큰(공개 미리 보기)
 
-OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준입니다. Azure AD는 30초 또는 60초 중 하나로 OATH-TOTP SHA-1 토큰 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 확보할 수 있습니다. 비밀 키는 128자로 제한되며 일부 토큰과는 호환되지 않을 수 있습니다.
+OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준입니다. Azure AD는 30초 또는 60초 중 하나로 OATH-TOTP SHA-1 토큰 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 확보할 수 있습니다. 비밀 키 모든 토큰을 사용 하 여 호환 되지 않을 수 있습니다는 128 자로 제한 됩니다.
 
 ![MFA 서버 OATH 토큰 블레이드로 OATH 토큰 업로드](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 오류가 모두 처리되면 관리자는 토큰이 활성화되도록 **활성화**를 클릭하고 토큰에 표시된 OTP를 입력하여 각 키를 활성화할 수 있습니다.
 
-사용자는 언제든지 사용할 수 있도록 구성된 Microsoft Authenticator 앱과 같은 인증자 애플리케이션 또는 최대 5개의 OATH 하드웨어 토큰 을 조합할 수 있습니다.
+사용자는 최대 5 개의 OATH 하드웨어 토큰 또는 authenticator 응용 프로그램이 언제 든 지 사용 하도록 구성 된 Microsoft Authenticator 앱과 같은 조합이 있을 수 있습니다.
 
 ## <a name="mobile-phone"></a>휴대폰
 

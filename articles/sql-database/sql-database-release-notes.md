@@ -8,18 +8,41 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/03/2019
 ms.author: carlrab
-ms.openlocfilehash: 6600a578ba9c73c8a2c71466fd0b008f19058b80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861295"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360079"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
 이 문서는 새로운 기능과 향상 된 SQL Database 설명서 및 SQL Database 서비스를 나열합니다. SQL Database 서비스 향상에 대 한 참고 [SQL Database 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)합니다. 향상 된 다른 Azure 서비스를 참조 하세요 [서비스 업데이트](https://azure.microsoft.com/updates)합니다.
+
+## <a name="features-in-public-preview"></a>공개 미리 보기 기능
+
+| 기능 | 세부 정보 |
+| ---| --- |
+| 탄력적 데이터베이스 작업 | 내용은 [만들기, 구성 및 탄력적 작업 관리](elastic-jobs-overview.md) |
+| 탄력적 트랜잭션 | [클라우드 데이터베이스의 분산 트랜잭션](sql-database-elastic-transactions-overview.md) |
+| 탄력적 쿼리 | 내용은 [탄력적 쿼리 개요](sql-database-elastic-query-overview.md) |
+| 관리 되는 인스턴스를 사용 하 여 복제 |내용은 [Azure SQL Database 관리 되는 인스턴스 데이터베이스에서 복제 구성](replication-with-sql-database-managed-instance.md)|
+| 관리 되는 인스턴스를 사용 하 여 인스턴스 데이터 정렬 |내용은 [Azure SQL Database에서 관리 되는 인스턴스를 만드는 Azure Resource Manager 템플릿 사용 하 여 PowerShell을 사용 하 여](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| R services/기계 학습 단일 데이터베이스 및 탄력적 풀을 사용 하 여 |내용은 [Azure SQL Database에서 Machine Learning 서비스](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
+| 단일 데이터베이스 및 탄력적 풀을 사용 하 여 가속화 된 데이터베이스 복구 | 내용은 [가속화 된 데이터베이스 복구](sql-database-accelerated-database-recovery.md)|
+| 데이터 검색 및 분류  |내용은 [Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류](sql-database-data-discovery-and-classification.md)|
+| 투명 한 데이터 암호화 (TDE) 사용 하 여 가져올 사용자 고유의 키 (BYOK) 관리 되는 인스턴스를 사용 하 여 |내용은 [Azure Key Vault에서 고객 관리 키를 사용 하 여 Azure SQL 투명 한 데이터 암호화: Bring Your Own Key 지원](transparent-data-encryption-byok-azure-sql.md)|
+| 관리 되는 인스턴스를 사용 하 여 삭제 된 데이터베이스를 다시 만듭니다. |내용은 [Azure SQL 관리 되는 인스턴스에서 데이터베이스를 삭제 다시 만들기](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
+| 관리 되는 인스턴스 위협 검색 |내용은 [관리 되는 인스턴스를 Azure SQL Database 위협 감지 구성](sql-database-managed-instance-threat-detection.md)|
+| 단일 데이터베이스를 사용 하 여 대규모 서비스 계층 |내용은 [최대 100TB의 대규모 서비스 계층](sql-database-service-tier-hyperscale.md)|
+| Azure portal에서 쿼리 편집기 |내용은 [Azure portal의 SQL 쿼리 편집기를 사용 하 여 데이터 연결 및 쿼리](sql-database-connect-query-portal.md)|
+|대략적인 Count Distinct|내용은 [대략적인 Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+|Rowstore (호환성 수준 150) 아래에서 일괄 처리 모드|내용은 [Rowstore에서 일괄 처리 모드](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
+|(호환성 수준 150)에서 메모리 부여 피드백 (행 모드)|내용은 [메모리 부여 피드백 (행 모드)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
+|호환성 수준 150) (아래 변수 지연 된 컴파일 테이블|내용은 [테이블 변수 지연 된 컴파일](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|||
 
 ## <a name="march-2019"></a>2019 년 3 월
 
@@ -27,7 +50,7 @@ ms.locfileid: "57861295"
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-| 서비스 예정 ||
+| 일반 공급: Azure SQL Database에 대한 읽기 확장 지원 | 자세한 내용은 참조 하세요. [읽기 확장](sql-database-read-scale-out.md)|
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>설명서 개선

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 6fe4f391b5337929efc3f6190a925fd1e967cf1c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999354"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360516"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 개인 모델 사용자 지정
 
@@ -50,16 +50,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}"
 ```
 
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
-|**Name**|**형식**|**필수**|**설명**|
+|**name**|**Type**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|이름|string|예|개인 모델의 이름입니다.|
-|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|이름|문자열|예|개인 모델의 이름입니다.|
+|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -95,16 +95,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}"
 ```
 
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-PersonModel?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**name**|**Type**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|id|string|예|개인 모델 ID(개인 모델을 만들 때 생성됨)입니다.|
-|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|id|문자열|예|개인 모델 ID(개인 모델을 만들 때 생성됨)입니다.|
+|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -132,15 +132,15 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}"
 ```
 
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-PersonModels?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**name**|**Type**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -187,18 +187,18 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Ind
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}"
 ```
 
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-face?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**name**|**Type**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|videoId|string|예|업데이트할 얼굴이 표시되는 비디오의 ID입니다. 비디오를 업로드하고 인덱싱할 때 생성됩니다.|
+|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|videoId|문자열|예|업데이트할 얼굴이 표시되는 비디오의 ID입니다. 비디오를 업로드하고 인덱싱할 때 생성됩니다.|
 |faceId|정수|예|업데이트할 얼굴의 ID입니다. 비디오 인덱스에서 faceId를 가져올 수 있습니다.|
-|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
-|이름|string|예|얼굴을 업데이트할 새 이름입니다.|
+|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|이름|문자열|예|얼굴을 업데이트할 새 이름입니다.|
 
 이름은 개인 모델에서 고유하므로 동일한 개인 모델에 있는 두 개의 다른 얼굴에 동일한 **name** 매개 변수 값을 제공하는 경우 Video Indexer는 얼굴을 동일한 개인으로 보고, 비디오가 다시 인덱싱될 때 통합합니다. 
 
@@ -212,4 +212,4 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ## <a name="next-steps"></a>다음 단계
 
-[Video Indexer 웹 사이트를 사용하여 개인 모델 사용자 지정](customize-person-model-with-website.md)
+[Video Indexer 웹 사이트를 사용 하 여 사용자 모델을 사용자 지정](customize-person-model-with-website.md)

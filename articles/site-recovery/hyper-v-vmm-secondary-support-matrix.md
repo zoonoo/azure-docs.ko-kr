@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310611"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360804"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 Hyper-V VM을 보조 사이트에 복제할 때 지원되는 기능을 요약합니다. Hyper-V VM을 Azure에 복제하려면 [이 지원 매트릭스](hyper-v-azure-support-matrix.md)를 검토하세요.
+이 문서에서는 사용 하는 경우 지원 되는 기능을 요약 합니다 [Azure Site Recovery](site-recovery-overview.md) 보조 사이트를 System Center Virtual Machine Manager (VMM) 클라우드에서 관리 되는 Hyper-v Vm을 복제 하는 서비스입니다. Hyper-V VM을 Azure에 복제하려면 [이 지원 매트릭스](hyper-v-azure-support-matrix.md)를 검토하세요.
 
 > [!NOTE]
 > Hyper-V 호스트를 VMM 클라우드에서 관리하는 경우에만 보조 사이트에 복제할 수 있습니다.
@@ -36,7 +36,7 @@ Windows Server 2016 |  Windows Server 2016 및 2012 R2 호스트가 혼합된 VM
 
 다음 표에서는 Site Recovery를 사용하여 복제된 컴퓨터에 대한 운영 체제 지원을 요약합니다. 워크로드를 지원되는 운영 체제에서 실행할 수 있습니다.
 
-**Windows 버전** | **Hyper-V(VMM 포함)**
+**Windows 버전** | **-Hyper-v (VMM 포함)**
 --- | ---
 Windows Server 2016 | Windows Server 2016에서 [Hyper-V가 지원하는](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) 게스트 운영 체제 
 Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) 게스트 운영 체제
@@ -70,7 +70,7 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 
 ### <a name="host-storage"></a>호스트 저장소
 
-**Storage(호스트)** | **지원됨**
+**Storage (호스트)** | **지원됨**
 --- | --- 
 NFS | N/A
 SMB 3.0 |  예
@@ -99,7 +99,7 @@ RDM | N/A
 
 ## <a name="vaults"></a>자격 증명 모음
 
-**작업** | **지원됨**
+**액션(Action)** | **지원됨**
 --- | --- 
 리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아닙니다.
 리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다.
@@ -108,7 +108,7 @@ RDM | N/A
 
 공급자는 VMM 서버 간의 통신을 조정합니다. 
 
-**최신** | **업데이트**
+**최신 버전** | **업데이트**
 --- | --- 
 5.1.19([포털에서 사용 가능](https://aka.ms/downloaddra)) | [최신 기능 및 수정](https://support.microsoft.com/kb/3155002)
 
@@ -116,5 +116,5 @@ RDM | N/A
 
 ## <a name="next-steps"></a>다음 단계
 
-[VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](tutorial-vmm-to-vmm.md)
+[보조 사이트에 VMM 클라우드의 Hyper-v Vm 복제](tutorial-vmm-to-vmm.md)
 
