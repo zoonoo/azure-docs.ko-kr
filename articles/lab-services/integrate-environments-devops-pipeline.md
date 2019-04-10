@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887235"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357396"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>환경에 Azure DevOps CI/CD 파이프라인 통합
 Azure DevOps 서비스 (이전의 Visual Studio Team Services)를 쉽게 연속 통합 (CI)를 통합 설치 된 Azure DevTest Labs 작업 확장을 사용 하면 Azure로 지속적인 업데이트 (CD) 빌드 및 릴리스 파이프라인 / DevTest Labs 합니다. 이와 같이이 확장을 사용 하면 신속 하 게 배포 하기 쉬운를 [환경](devtest-lab-test-env.md) 특정 작업을 테스트 하 고 테스트가 완료 되 면 삭제 됩니다. 
@@ -56,7 +56,7 @@ Azure DevTest Labs를 사용 하 여 CI/CD 파이프라인에 통합 하려면, 
 
 1. 릴리스 정의에서 **작업 추가**를 선택합니다.
 2. 에 **작업** 탭에서 Azure DevTest Lab 만들기 환경 작업을 추가 합니다. 아래와 같이 작업을 구성합니다.
-    1. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](/devops/pipelines/library/service-endpoints)를 참조하세요.
+    1. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](/azure/devops/pipelines/library/service-endpoints)를 참조하세요.
 2. 에 대 한 **랩 이름**, 앞서 만든 인스턴스의 이름을 선택 * 합니다.
 3. 에 대 한 **리포지토리 이름**, 여기서 Resource Manager 템플릿 (201) 푸시된 리포지토리 선택 * 합니다.
 4. 에 대 한 **템플릿 이름**, 프로그램 소스 코드 리포지토리 * 저장 환경의 이름을 선택 합니다. 
@@ -71,7 +71,7 @@ Azure DevTest Labs를 사용 하 여 CI/CD 파이프라인에 통합 하려면, 
 릴리스 정의에서 선택 **작업 추가**, 한 후 합니다 **배포** 탭에서 추가 **Azure DevTest Labs 삭제 환경** 작업 합니다. 다음과 같이 구성합니다.
 
 1. VM을 삭제 하려면 참조 [Azure DevTest Labs 작업](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](/devops/pipelines/library/service-endpoints)를 참조하세요.
+    1. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](/azure/devops/pipelines/library/service-endpoints)를 참조하세요.
     2. 에 대 한 **랩 이름**, 랩 환경 존재 하는 위치를 선택 합니다.
     3. 에 대 한 **환경 이름**, 제거할 환경의 이름을 입력 합니다.
 2. 릴리스 정의 대한 이름을 입력한 다음, 저장합니다.
@@ -80,5 +80,5 @@ Azure DevTest Labs를 사용 하 여 CI/CD 파이프라인에 통합 하려면, 
 다음 문서를 참조하세요. 
 - [Resource Manager 템플릿으로 다중 VM 환경 만들기](devtest-lab-create-environment-from-arm.md)합니다.
 - DevTest Labs 자동화를 위한 빠른 시작 Resource Manager 템플릿을 합니다 [DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)합니다.
-- [VSTS 문제 해결 페이지](/devops/pipelines/troubleshooting)
+- [VSTS 문제 해결 페이지](/azure/devops/pipelines/troubleshooting)
 

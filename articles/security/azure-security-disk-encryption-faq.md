@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e9bd7b87f2941fcc075a6265f2e6c96fe646ea
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 275907eed94f3165853ecf9adcb11fb62460d2e2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649919"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282222"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -42,7 +42,7 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
 | --- | --- |--- |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
-| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
+| Ubuntu | 14.04.5</br>[Azure를 사용 하 여 튜닝 4.15 이상으로 업데이트 하는 커널](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
 | RHEL | 7.6 | OS 및 데이터 디스크* |
 | RHEL | 7.5 | OS 및 데이터 디스크* |
 | RHEL | 7.4 | OS 및 데이터 디스크* |
@@ -72,7 +72,7 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용하여 부팅 볼륨과 데이터 볼륨을 모두 암호화할 수 있나요?
 
-예, Windows 및 Linux IaaS VM용 부팅 볼륨과 데이터 볼륨을 암호화할 수 있습니다. Windows VM의 경우 OS 볼륨을 먼저 암호화하지 않으면 데이터 볼륨을 암호화할 수 없습니다. Linux VM의 경우 OS 볼륨을 먼저 암호화하지 않고도 데이터 볼륨을 암호화할 수 있습니다. Linux용 OS 볼륨을 암호화하면 Linux IaaS VM용 OS 볼륨에 대한 암호화 사용 해제가 지원되지 않습니다.
+예, Windows 및 Linux IaaS VM용 부팅 볼륨과 데이터 볼륨을 암호화할 수 있습니다. Windows VM의 경우 OS 볼륨을 먼저 암호화하지 않으면 데이터 볼륨을 암호화할 수 없습니다. Linux VM의 경우 OS 볼륨을 먼저 암호화하지 않고도 데이터 볼륨을 암호화할 수 있습니다. Linux용 OS 볼륨을 암호화하면 Linux IaaS VM용 OS 볼륨에 대한 암호화 사용 해제가 지원되지 않습니다. Linux vm 확장 집합의 데이터 볼륨에만 암호화할 수 있습니다.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용 하 여 탑재 된 볼륨을 암호화할 수 있나요?
 
@@ -165,6 +165,6 @@ Azure 백업은 백업 및 암호화 된 VM의 동일한 구독 및 지역 내�
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Disk Encryption와 관련하여 가장 자주 묻는 질문에 대해 자세히 알아 보았습니다. 이 서비스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)
+- [Azure 디스크 암호화 개요](azure-security-disk-encryption-overview.md)
 - [Azure Security Center에서 디스크 암호화 적용](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [휴지 상태의 Azure 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Azure 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918266"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358243"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
@@ -205,7 +205,7 @@ H 시리즈 제품은 뛰어난 CPU 처리 능력 외에도 FDR InfiniBand 및 �
 
 ## <a name="changing-the-size-of-an-existing-role"></a>기존 역할의 크기 변경
 
-워크로드의 특성이 바뀌거나 새 VM 크기를 사용할 수 있게 되면 역할 크기를 변경하는 것이 좋습니다. 이렇게 하려면 위에 표시된 대로 서비스 정의 파일에서 VM 크기를 변경하고 클라우드 서비스를 다시 패키지한 다음 배포해야 합니다. 포털 또는 PowerShell에서 VM 크기를 직접 변경할 수는 없습니다.
+워크로드의 특성이 바뀌거나 새 VM 크기를 사용할 수 있게 되면 역할 크기를 변경하는 것이 좋습니다. 이렇게 하려면 위에 표시된 대로 서비스 정의 파일에서 VM 크기를 변경하고 클라우드 서비스를 다시 패키지한 다음 배포해야 합니다.
 
 >[!TIP]
 > 다른 환경에서 역할에 대해 서로 다른 VM 크기를 사용할 수 있습니다(예: 테스트 및 프로덕션). 이 작업을 수행하는 한 가지 방법은 프로젝트에 여러 개의 서비스 정의(.csdef) 파일을 만든 다음 CSPack 도구를 사용하여 자동 빌드하는 동안 환경마다 다른 클라우드 서비스 패키지를 만드는 것입니다. Cloud Services 패키지의 요소 및 만드는 방법에 대한 자세한 내용은 [Cloud Services 모델 정의 및 패키지 방법](cloud-services-model-and-package.md)을 참조하세요.

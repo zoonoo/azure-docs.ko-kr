@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651315"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358289"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스에 대 한 연결 아키텍처 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스에 대 한 연결 아키텍처
 
 이 문서는 Azure SQL Database 관리 되는 인스턴스에 대 한 통신을 설명합니다. 또한 연결 아키텍처 및 구성 요소를 관리 되는 인스턴스로 트래픽을 하는 방법을 설명 합니다.  
 
@@ -105,7 +105,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| name       |포트          |프로토콜|원본           |대상|조치|
+| name       |포트          |프로토콜|원본           |대상|액션(Action)|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |80, 443, 12000|TCP     |모두              |AzureCloud  |허용 |
 |mi_subnet   |모두           |모두     |모두              |MI 서브넷 *  |허용 |
@@ -117,7 +117,6 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 > [!IMPORTANT]
 > 필요한 인바운드 보안 규칙에서 트래픽을 허용 하지만 _모든_ 포트 9000 원본이, 9003, 1438, 1440 및 1452, 이러한 포트는 기본 제공 방화벽으로 보호 됩니다. 자세한 내용은 [관리 끝점 주소를 확인할](sql-database-managed-instance-find-management-endpoint-ip-address.md)합니다.
-
 > [!NOTE]
 > 트랜잭션 복제를 사용 하 여 관리 되는 경우 및 게시자 또는 배포자 인스턴스에서 데이터베이스를 사용 하는 경우 서브넷의 보안 규칙에서 445 포트 (TCP 아웃 바운드)를 엽니다. 이 포트는 Azure 파일 공유에 대 한 액세스를 허용 됩니다.
 

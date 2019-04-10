@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 5c80e86699d671994a0989b99c0f97ebe2680592
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: daf960bec0fac5f0c96749c219304bc77a4ba905
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045000"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358558"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Azure Scheduler용 PowerShell cmdlet 참조
 
@@ -27,23 +27,23 @@ Scheduler 작업 및 작업 컬렉션을 만들고 관리하는 데 사용할 �
 
 | Cmdlet | 설명 |
 |--------|-------------|
-| [Disable-AzSchedulerJobCollection](/powershell/module/az.scheduler/disable-azschedulerjobcollection) |작업 컬렉션을 비활성화합니다. |
-| [Enable-AzureRmSchedulerJobCollection](/powershell/module/az.scheduler/enable-azschedulerjobcollection) |작업 컬렉션을 활성화합니다. |
-| [Get-AzSchedulerJob](/powershell/module/az.scheduler/get-azschedulerjob) |Scheduler 작업을 가져옵니다. |
-| [Get-AzSchedulerJobCollection](/powershell/module/az.scheduler/get-azschedulerjobcollection) |작업 컬렉션을 가져옵니다. |
-| [Get-AzSchedulerJobHistory](/powershell/module/az.scheduler/get-azschedulerjobhistory) |작업 내역을 가져옵니다. |
-| [New-AzSchedulerHttpJob](/powershell/module/az.scheduler/new-azschedulerhttpjob) |HTTP 작업을 만듭니다. |
-| [New-AzSchedulerJobCollection](/powershell/module/az.scheduler/new-azschedulerjobcollection) |작업 컬렉션을 만듭니다. |
-| [New-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/new-azschedulerservicebusqueuejob) | Service Bus 큐 작업을 만듭니다. |
-| [New-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/new-azschedulerservicebustopicjob) |Service Bus 항목 작업을 만듭니다. |
-| [New-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/new-azschedulerstoragequeuejob) |Storage 큐 작업을 만듭니다. |
-| [Remove-AzSchedulerJob](/powershell/module/az.scheduler/remove-azschedulerjob) |Scheduler 작업을 삭제합니다. |
-| [Remove-AzSchedulerJobCollection](/powershell/module/az.scheduler/remove-azschedulerjobcollection) |작업 컬렉션을 삭제합니다. |
-| [Set-AzSchedulerHttpJob](/powershell/module/az.scheduler/set-azschedulerhttpjob) |Scheduler HTTP 작업을 수정합니다. |
-| [Set-AzSchedulerJobCollection](/powershell/module/az.scheduler/set-azschedulerjobcollection) |작업 컬렉션을 수정합니다. |
-| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/set-azschedulerservicebusqueuejob) |Service Bus 큐 작업을 수정합니다. |
-| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/set-azschedulerservicebustopicjob) |Service Bus 항목 작업을 수정합니다. |
-| [Set-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/set-azschedulerstoragequeuejob) |Storage 큐 작업을 수정합니다. |
+| [Disable-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azschedulerjobcollection) |작업 컬렉션을 비활성화합니다. |
+| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azschedulerjobcollection) |작업 컬렉션을 활성화합니다. |
+| [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azschedulerjob) |Scheduler 작업을 가져옵니다. |
+| [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azschedulerjobcollection) |작업 컬렉션을 가져옵니다. |
+| [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azschedulerjobhistory) |작업 내역을 가져옵니다. |
+| [New-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azschedulerhttpjob) |HTTP 작업을 만듭니다. |
+| [New-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azschedulerjobcollection) |작업 컬렉션을 만듭니다. |
+| [New-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebusqueuejob) | Service Bus 큐 작업을 만듭니다. |
+| [New-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebustopicjob) |Service Bus 항목 작업을 만듭니다. |
+| [New-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerstoragequeuejob) |Storage 큐 작업을 만듭니다. |
+| [Remove-AzSchedulerJob](/powershell/module/azurerm.scheduler/remove-azschedulerjob) |Scheduler 작업을 삭제합니다. |
+| [Remove-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azschedulerjobcollection) |작업 컬렉션을 삭제합니다. |
+| [Set-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azschedulerhttpjob) |Scheduler HTTP 작업을 수정합니다. |
+| [Set-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azschedulerjobcollection) |작업 컬렉션을 수정합니다. |
+| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebusqueuejob) |Service Bus 큐 작업을 수정합니다. |
+| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebustopicjob) |Service Bus 항목 작업을 수정합니다. |
+| [Set-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerstoragequeuejob) |Storage 큐 작업을 수정합니다. |
 ||| 
 
 다음 cmdlet 중 하나를 실행하면 자세한 내용을 확인할 수 있습니다. 

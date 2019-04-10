@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360727"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357240"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측된 모델을 자동-학습
 
 이 문서에서는 자동화 된 기계 학습 Azure Machine Learning 서비스에 사용 하 여 시계열 예측 회귀 모델을 학습 하는 방법을 알아봅니다. 예측 모델 구성 자동화 된 machine learning을 사용 하 여 표준 회귀 모델을 설정 하려면 유사 하지만 시계열 데이터를 사용 하 여 작업에 대 한 특정 구성 옵션 및 전처리 단계 존재 합니다. 표시 하는 다음 예제에서는 하려면:
 
 * 시계열 모델링에 대 한 데이터 준비
-* 특정 시계열 매개 변수에서 구성 된 [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 개체
+* 특정 시계열 매개 변수에서 구성 된 [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) 개체
 * 시계열 데이터를 사용 하 여 예측을 실행 합니다.
 
 ## <a name="prerequisites"></a>필수 조건

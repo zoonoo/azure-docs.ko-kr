@@ -3,17 +3,17 @@ title: Azure Maps에서 지원되는 언어 | Microsoft Docs
 description: Azure Maps에서 지원되는 언어를 알아봅니다.
 author: juliekohler
 ms.author: julieko
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849644"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358134"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure Maps 지원 언어
 Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습니다.  다음 표에서는 각 서비스에 지원되는 언어 코드를 제공합니다.  
@@ -33,7 +33,10 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
 | da-DK      | 덴마크어                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-NL      | 네덜란드어                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | 네덜란드어(벨기에)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | 영어                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-AU      | 영어(오스트레일리아)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-NZ      | 영어(뉴질랜드)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | 영어 (영국) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | 영어 (미국)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | 에스토니아어               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | 핀란드어                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | 프랑스어                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

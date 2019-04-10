@@ -1,7 +1,6 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함으로써 Azure Policy가 조직의 리소스에 대한 규칙을 설정하기 위해 리소스 정책 정의가 어떻게 사용되는지 설명합니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f554be0803041b12dc49a576e8eb737732ec2a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894430"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283106"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -75,12 +74,12 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 **mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
 
-- `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다.
-- `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
+- `all`: 리소스 그룹 및 모든 리소스 종류를 평가 합니다.
+- `indexed`: 태그 및 위치를 지 원하는 리소스 종류만 평가
 
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
-`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스의 목록을 참조 하세요 [지원 Azure 리소스에 대 한 태그](../../../azure-resource-manager/tag-support.md)합니다.
+`indexed` 태그 또는 위치를 적용 하는 정책을 만들 때 사용 해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스의 목록을 참조 하세요 [지원 Azure 리소스에 대 한 태그](../../../azure-resource-manager/tag-support.md)합니다.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -95,7 +94,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 매개 변수에는 정책 정의에 사용되는 다음 속성이 있습니다.
 
 - **name**: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
-- `type`: 매개 변수가 **문자열** 또는 **배열**인지를 확인합니다.
+- `type`: 매개 변수가 **문자열**또는**배열인지를 확인합니다.
 - `metadata`: Azure Portal에서 사용자에게 친숙한 정보를 표시하는 데 주로 사용되는 하위 속성을 정의합니다.
   - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
@@ -259,7 +258,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` 및 `tags[tag.with.dots]`도 여전히 허용되는 태그 필드 선언 방법입니다.
+> `tags.<tagName>`를 `tags[tagName]`, 및 `tags[tag.with.dots]` 가지 여전히 허용 가능한 태그 필드를 선언 합니다.
 > 그러나 기본 식은 위에 나열된 식입니다.
 
 #### <a name="use-tags-with-parameters"></a>매개 변수와 함께 태그 사용
@@ -421,7 +420,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - resourceId()
 - variables()
 
-`field` 함수도 정책 규칙에 사용할 수 있습니다. `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
+`field` 함수도 정책 규칙에 사용할 수 있습니다. `field` 주로 사용한 **AuditIfNotExists** 하 고 **DeployIfNotExists** 평가 되는 리소스에 대 한 참조 필드에 합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 

@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320284"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359034"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 
@@ -56,7 +56,7 @@ Azure Site Recovery Deployment Planner 보고서는 [권장 사항](hyper-v-depl
 
 **네트워크**: DR 요구 사항에 대한 ExpressRoute 및 사이트 간 VPN 비용입니다. 
 
-**ASR 라이선스**: 호환 가능한 모든 VM에 대한 Site Recovery 라이선스 비용입니다. 자세한 비용 분석 테이블에 VM을 수동으로 입력하면 해당 VM에 대한 Site Recovery 라이선스 비용도 포함됩니다.
+**Azure Site Recovery 라이선스**: 호환 가능한 모든 VM에 대한 Site Recovery 라이선스 비용입니다. 자세한 비용 분석 테이블에 VM을 수동으로 입력하면 해당 VM에 대한 Site Recovery 라이선스 비용도 포함됩니다.
 
 ### <a name="overall-dr-costs-by-states"></a>상태별 전체 DR 비용
 총 DR 비용은 복제 및 DR 드릴이라는 서로 다른 두 가지 상태에 따라 분류됩니다.
@@ -107,21 +107,21 @@ VM을 수동으로 추가하려면:
 
 1. 이 구성과 일치하는 대략적인 VM 크기 및 VM 수에 따라 다음 열을 채웁니다. 
 
-    a. **VM 수**
+    a. **Vm 수**
 
-    b. **IaaS 크기(선택)**
+    b. **IaaS 크기 (선택)**
 
-    다. **저장소 유형(표준/프리미엄)**
+    다. **표준/프리미엄 저장소 유형**
 
     d. **VM 총 저장소 크기(GB)**
 
-    e. **연간 DR 드릴 횟수**
+    e. **연간에서 DR 드릴 횟수**
 
-    f. **각 DR 드릴 기간(일)**
+    f. **각 DR 드릴 기간 (일)**
 
     g. **OS 종류**
 
-    h. **데이터 중복성**
+    h. **데이터 중복**
 
     i. **AHUB(Azure Hybrid Use Benefit)**
 
@@ -157,7 +157,7 @@ VM을 수동으로 추가하려면:
 
 **총 DR 드릴 비용(평균)**: DR 드릴에 대한 컴퓨팅 및 스토리지 비용입니다.
 
-**ASR 라이선스 비용**: Site Recovery 라이선스 비용입니다.
+**Azure Site Recovery 라이선스 비용**: Site Recovery 라이선스 비용입니다.
 
 ## <a name="supported-target-regions"></a>지원되는 대상 지역
 Site Recovery Deployment Planner에서 비용 예측을 제공하는 Azure 지역은 다음과 같습니다. 해당 지역이 여기에 나열되지 않으면 가격이 해당 지역에 가장 가까운 다음 지역 중 하나를 사용할 수 있습니다.

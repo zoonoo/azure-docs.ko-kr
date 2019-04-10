@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057032"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282392"
 ---
 # <a name="add-a-shape-to-a-map"></a>맵에 도형 추가
 
@@ -35,7 +35,7 @@ ms.locfileid: "59057032"
 
 두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) 개체가 생성되고 데이터 원본에 추가되었습니다.
 
-[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 선 개체를 렌더링합니다. 마지막 코드 블록은 선 계층을 만들고 지도에 추가합니다. [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)에서 선 계층의 속성을 참조하세요. 데이터 원본 및 선 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 선이 표시되도록 합니다.
+[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 선 개체를 렌더링합니다. 마지막 코드 블록은 선 계층을 만들고 지도에 추가합니다. [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)에서 선 계층의 속성을 참조하세요. 데이터 원본 및 선 계층 만들어지고에 맵을 추가 합니다 [이벤트 처리기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 지도 완전히 로드 되 면 줄 표시 되는지 확인 하려면.
 
 ### <a name="add-symbols-along-a-line"></a>선 따라 기호를 추가 합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "59057032"
 
 ### <a name="line-stroke-gradient"></a> 스트로크 그라데이션 선 추가
 
-줄에 단일 스트로크 색을 적용할 수 있을 뿐 아니라 다음 하나의 선분 전환 표시할 색 그라데이션을 사용 하 여 줄을 채울 수 있습니다. 예를 들어, 줄 그라데이션 개체의 연결 된 줄에서 시간 및 거리 또는 다른 온도 통해 변경 내용을 나타내는 데 사용할 수 있습니다. 데이터 소스에 줄을이 기능을 적용 하기 위해 있어야 합니다 `lineMetrics` 옵션이 true로 설정 하 고 색 그라데이션 식에 전달 될 수 있습니다는 `strokeColor` 선의 옵션입니다. 스트로크 그라데이션 식에 대 한 참조를 `['line-progress']` 식 계산된 줄 메트릭을 노출 하는 데이터 식이 합니다.
+줄에 단일 스트로크 색을 적용할 수 있을 뿐 아니라 다음 하나의 선분 전환 표시할 색 그라데이션을 사용 하 여 줄을 채울 수 있습니다. 예를 들어, 줄 그라데이션 개체의 연결 된 줄에서 시간 및 거리 또는 다른 온도 통해 변경 내용을 나타내는 데 사용할 수 있습니다. 데이터 소스에 줄을이 기능을 적용 하기 위해 있어야 합니다 `lineMetrics` 옵션이 true로 설정 하 고 색 그라데이션 식에 전달 될 수 있습니다는 `strokeColor` 선의 옵션입니다. 스트로크 그라데이션 식에 대 한 참조를 `['line-progress']` 식 계산된 줄 메트릭을 표시 하는 데이터 식이 합니다.
 
 <br/>
 
@@ -83,7 +83,7 @@ ms.locfileid: "59057032"
 
 두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. [다각형](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)은 좌표의 배열에서 생성되어 데이터 원본에 추가됩니다. 
 
-[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 마지막 코드 블록은 다각형 계층을 만들고 지도에 추가합니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본 및 다각형 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 다각형이 표시되도록 합니다.
+[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 마지막 코드 블록은 다각형 계층을 만들고 지도에 추가합니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본 및 다각형 계층 만들어지고에 맵을 추가 합니다 [이벤트 처리기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 다각형 지도 완전히 로드 되 면 표시 되는지 확인 하려면.
 
 ### <a name="use-a-polygon-and-line-layer-together"></a>다각형 및 선 계층을 함께 사용
 
@@ -98,7 +98,7 @@ ms.locfileid: "59057032"
 
 [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)는 선 배열입니다. [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)에서 선 계층의 속성을 참조하세요. 세 번째 코드 블록은 다각형 및 선 계층을 만듭니다.
 
-마지막 코드 블록은 다각형 및 선 계층을 지도에 추가합니다. 데이터 원본 및 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 다각형이 표시되도록 합니다.
+마지막 코드 블록은 다각형 및 선 계층을 지도에 추가합니다. 데이터 원본 및 계층 만들어지고에 맵을 추가 합니다 [이벤트 처리기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 다각형 지도 완전히 로드 되 면 표시 되는지 확인 하려면.
 
 > [!TIP]
 > 기본적으로 줄 계층을 데이터 소스의 줄 뿐만 아니라 다각형의 좌표를 렌더링 합니다. 기능 집합을 같은 렌더링 하는 것만 LineString 계층을 제한 하는 `filter` 속성은 계층의 `['==', ['geometry-type'], 'LineString']` 또는 `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` MultiLineString 기능도 포함 하려는 경우.
@@ -126,7 +126,7 @@ ms.locfileid: "59057032"
 
 ## <a name="add-a-circle-to-the-map"></a>맵에 원 추가
 
-설명 했 듯이 원에 대 한 정의 제공 하는 GeoJSON 스키마의 확장된 버전을 사용 하 여 azure Maps [여기](extend-geojson.md#circle)합니다. 만들어 맵에 원을 렌더링할 수 있습니다는 `Point` 는 기능을를 `subType` 속성의 값으로 `Circle` 및 `radius` 미터 단위의 반지름을 나타내는 수 있는 속성입니다. 예를 들면 다음과 같습니다.
+설명 했 듯이 원에 대 한 정의 제공 하는 GeoJSON 스키마의 확장된 버전을 사용 하 여 azure Maps [여기](extend-geojson.md#circle)합니다. 만들어 맵에 원을 렌더링할 수 있습니다는 `Point` 는 기능을를 `subType` 속성의 값으로 `"Circle"` 및 `radius` 미터 단위의 반지름을 나타내는 수 있는 속성입니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 {
@@ -149,9 +149,9 @@ Azure Maps 웹 SDK 변환 이러한 `Pooint` 기능으로 `Polygon` 내부적 �
 
 위의 코드에서 첫 번째 코드 블록은 지도 개체를 생성합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. 원은 [지점](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)의 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)이며 “circle”로 설정된 `subType` 속성 및 `radius` 속성 값 미터가 있습니다. 원의 하위 형식을 사용한 지점 기능이 데이터 원본에 추가되면 맵 내의 순환 다각형으로 변환됩니다.
+두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. 원은 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) 의 [지점](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 있고를 `subType` 속성으로 설정 `"Circle"` 및 `radius` 미터에서 속성 값입니다. 때 사용 하 여 지점 기능을 `subType` 의 `"Circle"` 구조 내의 순환 다각형으로 변환 하는 데이터 원본에 추가 됩니다.
 
-[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 마지막 코드 블록은 다각형 계층을 만들고 지도에 추가합니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본 및 다각형 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 원이 표시되도록 합니다.
+[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 마지막 코드 블록은 다각형 계층을 만들고 지도에 추가합니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본 및 다각형 계층 만들어지고에 맵을 추가 합니다 [이벤트 처리기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 지도 완전히 로드 되 면 원을 표시 되는지 확인 하려면.
 
 ## <a name="make-a-geometry-easy-to-update"></a>기 하 도형을 보다 쉽게 업데이트
 
@@ -171,14 +171,11 @@ A `Shape` 클래스를 래핑하고 [기 하 도형](https://docs.microsoft.com/
 
 네 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. 그런 다음, 점이 데이터 원본에 추가됩니다.
 
-[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 세 번째 코드 블록은 다각형 계층을 만듭니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본, 클릭 이벤트 수신기 및 다각형 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 점이 표시되도록 합니다.
+[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 세 번째 코드 블록은 다각형 계층을 만듭니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본, 클릭 이벤트 hanlder 및 다각형 계층 만들어지고에 맵을 추가 합니다 [이벤트 처리기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 지도 완전히 로드 되 면 지점 표시 되는지 확인 하려면.
 
 ## <a name="next-steps"></a>다음 단계
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [HTML 표식](./map-add-custom-html.md)
-
-> [!div class="nextstepaction"]
-> [열 지도 계층 추가](./map-add-heat-map-layer.md)
+> [사용 하 여 데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)

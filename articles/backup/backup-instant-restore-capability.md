@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905973"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359969"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905973"
 인스턴트 복원의 새 모델은 다음과 같은 기능 개선 사항을 제공합니다.
 
 * 자격 증명 모음으로의 데이터 전송이 완료될 때까지 기다리지 않고 백업 작업의 일부로 만든 스냅숏을 복구에 사용할 수 있습니다. 이에 따라, 복원을 트리거하기 전에 스냅숏이 저장소에 복사되는 대기 시간이 줄었습니다.
-* 기본적으로 스냅숏을 로컬에 2일 동안 보존하여 백업 및 복원 시간을 단축합니다. 이 기본 자격 증명 모음은 1~5일 사이의 임의 값으로 구성할 수 있습니다.
-* 최대 4TB까지 디스크 크기를 지원합니다.
+* 기본적으로 스냅숏을 로컬에 2일 동안 보존하여 백업 및 복원 시간을 단축합니다. 이 기본 스냅숏 보존 값은 1 ~ 5 일 사이의 값으로 구성할 수 있습니다.
+* 최대 4TB까지 디스크 크기를 지원합니다. Azure Backup에서 스트라이프 디스크를 지원 하지 않습니다. Azure Backup에서 디스크의 크기 조정 권장 되지 않습니다.
 * 표준 SSD 디스크 표준 HDD 디스크와 Premium SSD 디스크를 지원합니다.
 *   복원할 때 비관리형 VM의 원래 스토리지 계정(디스크당)을 사용할 수 있습니다. 이 기능은 VM의 디스크가 저장소 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>이 기능의 새로운 사항
 
@@ -75,9 +74,9 @@ Azure portal에서 추가 필드를 볼 수 있습니다 합니다 **VM 백업 �
 > Az PowerShell 버전 1.6.0 이상에서 PowerShell을 사용 하 여 정책 즉시 복원을 스냅숏 보존 기간을 업데이트할 수 있습니다.
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 각 정책에 대 한 기본 스냅숏 보존 기간을 2 일로 설정 됩니다. 사용자 1의 최소 및 최대 5 일 값을 변경할 수 있습니다. 매주 정책에 대 한 스냅숏 보존 5 일로 고정 됩니다.
 

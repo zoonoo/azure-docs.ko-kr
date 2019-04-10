@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 9810baf433ddf67997aeda10856060edc0d1ebec
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051156"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359109"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell을 사용하여 Service Bus 리소스 관리
 
@@ -83,11 +83,11 @@ Service Bus 네임 스페이스를 사용할 때 사용할 수 있습니다 합�
 
 ### <a name="create-a-namespace-authorization-rule"></a>네임스페이스 권한 부여 규칙 만들기
 
-다음 예제에서는 네임 스페이스 권한 부여 규칙을 사용 하 여 관리 하는 방법을 보여 줍니다 합니다 [새로 만들기-AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusnamespaceauthorizationrule), [Get AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusnamespaceauthorizationrule)를 [집합 AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusnamespaceauthorizationrule), 및 [제거 AzServiceBusNamespaceAuthorizationRule cmdlet](/powershell/module/az.servicebus/remove-azservicebusnamespaceauthorizationrule)합니다.
+다음 예제에서는 네임 스페이스 권한 부여 규칙을 사용 하 여 관리 하는 방법을 보여 줍니다 합니다 [새로 만들기-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule)를 [Get AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [ 집합 AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule), 및 [제거 AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) cmdlet.
 
 ```powershell
 # Query to see if rule exists
-$CurrentRule = Get-AzServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+$CurrentRule = Get-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
 # Check if the rule already exists or needs to be created
 if ($CurrentRule)

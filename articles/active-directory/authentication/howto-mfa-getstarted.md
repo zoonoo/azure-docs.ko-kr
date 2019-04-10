@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269030"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358117"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>클라우드 기반 Azure Multi-factor Authentication을 계획합니다.
 
@@ -107,6 +107,9 @@ Azure multi-factor Authentication 조건부 액세스 정책을 적용 하 여 �
 ### <a name="notification-through-mobile-app"></a>모바일 앱을 통한 알림
 
 모바일 장치에서 Microsoft Authenticator 앱에 푸시 알림이 전송 됩니다. 사용자 알림 뷰를 선택 **승인** 확인을 완료 합니다. 모바일 앱을 통해 푸시 알림을 사용자에 대 한 가장 간단한 옵션을 제공합니다. 전화 통신 보다는 데이터 연결을 사용 하기 때문에 가장 안정적이 고 안전한 옵션 이기도 합니다.
+
+> [!NOTE]
+> 조직에서는 직원 작업 또는 중국으로 이동 하는 **모바일 앱을 통한 알림** 메서드를 **Android 장치** 해당 국가에서 작동 하지 않습니다. 대체 메서드는 사용자 제공 이루어져야 합니다.
 
 ### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997365"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357901"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>범용 서비스 계층 - Azure SQL Database
 
@@ -26,7 +26,7 @@ ms.locfileid: "55997365"
 
 Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 적합한 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에는 3가지 서비스 계층이 사용되며 각각 서로 다른 아키텍처 모델을 사용합니다. 이러한 서비스 계층은 다음과 같습니다.
 
-- 범용 가상 컴퓨터 
+- 범용 가상 컴퓨터
 - 중요 비즈니스용
 - 하이퍼스케일
 

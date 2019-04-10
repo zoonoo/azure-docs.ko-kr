@@ -1,23 +1,30 @@
 ---
 title: Azure Maps 검색 서비스를 사용하여 주소를 검색하는 방법 | Microsoft Docs
 description: Azure Maps 검색 서비스를 사용하여 주소를 검색하는 방법을 알아봅니다.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+manager: philmea
+ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875789"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277326"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소 찾기
 
 Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니스 목록 및 기타 지리 정보를 검색할 수 있도록 설계된 일단의 RESTful API입니다. 검색 서비스는 특정 주소, 교차로, 지리적 특징 또는 POI(관심 지점)에 위도/경고를 할당합니다. 검색에서 반환된 위도 및 경도를 라우트 및 트래픽 흐름과 같은 다른 맵 서비스에서 매개 변수로 사용할 수 있습니다.
+
+이 문서를 배우게 됩니다 하는 방법.
+
+* 사용 하 여 주소 검색 [유사 항목 검색 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* 속성 및 좌표와 함께 주소 검색
+* 확인 된 [역 주소 검색](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 주소 검색
+* 사용 하 여 간 거리에 대 한 검색 [검색 주소 역방향 간 거리 API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>필수 조건
 

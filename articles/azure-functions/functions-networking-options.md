@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896640"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358168"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -43,7 +43,8 @@ ms.locfileid: "58896640"
 
 IP 제한을 사용하여 앱 액세스가 허용되는 IP 주소의 허용/거부 목록을 우선 순위대로 정의할 수 있습니다. 허용 목록에는 IPv4 및 IPv6 주소가 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 모두 거부가 표시됩니다. IP 제한 기능을 모든 함수 호스팅 옵션을 사용 하 여 작동 합니다.
 
-> ! [중요] Azure portal 편집기를 사용 하 여 할 일 하려면 포털을 실행 중인 함수 앱에 직접 액세스할 수 있어야 하 고 포털에 액세스 하려면 사용 중인 장치에는 해당 IP 허용 목록에 있어야 합니다. 네트워크 제한 사항이 사용 하 여 액세스할 수 있습니다에서 모든 기능을 **플랫폼 기능** 탭 합니다.
+> [!NOTE]
+> Azure portal 편집기를 사용 하 여 할 일 하려면 포털을 실행 중인 함수 앱에 직접 액세스할 수 있어야 하 고 포털에 액세스 하려면 사용 중인 장치에는 해당 IP 허용 목록에 있어야 합니다. 네트워크 제한 사항이 사용 하 여 액세스할 수 있습니다에서 모든 기능을 **플랫폼 기능** 탭 합니다.
 
 [자세히 알아보기](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: sashan, moslake
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a14912c48f27c4f4d0e54239f8e0523ffa62324f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888505"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357938"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
@@ -37,7 +37,7 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 
 다음 표는 이러한 세 계층 간의 차이점을 이해하는 데 도움이 됩니다.
 
-||**범용**|**중요 비즈니스**|**하이퍼스케일(미리 보기)**|
+||**범용**|**중요 비즈니스용**|**하이퍼 스케일 (미리 보기)**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 스토리지 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 애플리케이션입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
 |컴퓨팅|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|
@@ -76,17 +76,17 @@ Azure 하이브리드 혜택을 사용하여 SQL Database 엔진 자체에 대�
 
 - Azure CLI를 사용하여 라이선스 형식을 설정하거나 업데이트하려면
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db 만들기](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+  - [az sql mi 만들기](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi 업데이트](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
 - REST API를 사용하여 라이선스 형식을 설정하거나 업데이트하려면
 
-  - [데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+  - [데이터베이스-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [데이터베이스-Update](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [관리 되는 인스턴스-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [관리 되는 인스턴스-업데이트](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>DTU 모델에서 vCore 모델로 마이그레이션
 

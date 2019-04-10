@@ -2,16 +2,16 @@
 title: Azure Site Recovery를 사용하여 Azure VM 장애 조치(failover) 중에 IP 주소 유지 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 보조 지역으로 재해 복구를 수행하기 위해 Azure VM을 장애 조치(failover)할 때 IP 주소를 보존하는 방법을 설명합니다.
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090749"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357896"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>장애 조치(failover) 중에 IP 주소 유지
 
@@ -49,7 +49,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
         - 동남 아시아에는 **원본 VNet**과 동일한 복구 VNet(**Recovery VNet**)이 있습니다.
         - 동남 아시아에는 주소 공간이 10.2.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
         - **Azure VNet**에는 주소 공간이 10.2.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
-        - SQL Server Always On의 복제본 노드, 도메인 컨트롤러 등은 **Subnet 4**에 있습니다.
+        - SQL Server Always On에 대 한 복제본 노드, 도메인 컨트롤러 등에 위치한 **Subnet 4**합니다.
     - **원본 VNet** 및 **Azure VNet**은 VPN 사이트 간 연결을 통해 연결됩니다.
     - **Recovery VNet**은 다른 가상 네트워크와 연결되어 있지 않습니다.
     - **A사**는 복제된 항목의 대상 IP 주소를 할당/확인합니다. 대상 IP는 각 VM의 원본 IP와 같습니다.
@@ -92,7 +92,7 @@ A사의 모든 앱은 Azure에서 실행됩니다.
 - 보조(대상) 지역은 Azure 동남 아시아입니다. 동남 아시아에는 **Source VNet 1** 및 **Source VNet 2**와 동일한 복구 VNet(**Recovery VNet 1** 및 **Recovery VNet 2**)이 있습니다.
         - **Recovery VNet 1** 및 **Recovery VNet 2**에는 각각 **Source VNet 1** 및 **Source VNet 2**의 서브넷과 일치하는 두 개의 서브넷이 있습니다. 동남 아시아에는 주소 공간이 10.3.0.0/16인 추가 VNet(**Azure VNet**)이 있습니다.
         - **Azure VNet**에는 주소 공간이 10.3.4.0/24인 서브넷(**Subnet 4**)이 포함됩니다.
-        - SQL Server Always On의 복제본 노드, 도메인 컨트롤러 등은 **Subnet 4**에 있습니다.
+        SQL Server Always On에 대 한 복제본 노드, 도메인 컨트롤러 등에 위치한 **Subnet 4**합니다.
 - 여러 개의 사이트 간 VPN 연결이 있습니다. 
     - **Source VNet 1** 및 **Azure VNet**
     - **Source VNet 2** 및 **Azure VNet**

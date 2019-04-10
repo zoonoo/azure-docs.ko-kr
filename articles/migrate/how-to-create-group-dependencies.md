@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 71f792dd1238b11810abfb6a97ac9e051da2ec45
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 3ee528cc68a2a5637e85dc1d5ef68203916138e7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274637"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357181"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>그룹 종속성 매핑을 사용하여 그룹 구체화
 
@@ -127,14 +127,14 @@ Kusto 쿼리를 실행 합니다.
 1. 에이전트를 설치한 후 포털로 이동하고 **개요**를 클릭합니다.
 2. **개요**에서 프로젝트의 **필수** 섹션으로 이동하고 **OMS 작업 영역** 옆에 제공된 작업 영역 이름을 클릭합니다.
 3. Log Analytics 작업 영역 페이지에서 **일반** > **로그**를 클릭합니다.
-4. Azure Monitor 로그를 사용 하 여 종속성 데이터를 수집 하도록 쿼리를 작성 합니다. 종속성 데이터를 수집하는 샘플 쿼리는 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)에서 사용할 수 있습니다.
+4. Azure Monitor 로그를 사용 하 여 종속성 데이터를 수집 하도록 쿼리를 작성 합니다. 다음 섹션에서 샘플 쿼리를 찾습니다.
 5. [실행]을 클릭하여 쿼리를 실행합니다. 
 
 [자세한](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Kusto 쿼리를 작성 하는 방법에 대 한 합니다. 
 
 ## <a name="sample-azure-monitor-logs-queries"></a>샘플 Azure Monitor 로그 쿼리
 
-다음은 샘플 쿼리 종속성 데이터를 추출 하는 데 사용할 수 있습니다. 에 기본 데이터 요소를 추출 하기 위해 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 제품은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+다음은 샘플 쿼리 종속성 데이터를 추출 하는 데 사용할 수 있습니다. 에 기본 데이터 요소를 추출 하기 위해 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 제품은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)합니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)합니다.
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
 

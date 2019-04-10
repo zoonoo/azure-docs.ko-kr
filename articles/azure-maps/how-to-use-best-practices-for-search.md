@@ -2,17 +2,17 @@
 title: Azure Maps 검색 서비스를 사용 하 여 효율적으로 검색 하는 방법 | Microsoft Docs
 description: Azure Maps 검색 서비스를 사용 하 여 검색에 대 한 모범 사례를 사용 하는 방법 알아보기
 ms.author: v-musehg
-ms.date: 04/05/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3a9c5ad92494dd82500c4faee82c119e99346c7a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288158"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358167"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용 하는 모범 사례
 
@@ -83,7 +83,7 @@ Azure Maps 검색 서비스를 사용 하 여 전체 또는 일부 주소를 검
 **샘플 요청:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?api-version=1.0&subscription-key={subscription-key}&query=MicrosoftWay&entityType=Municipality
+https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
 **응답:**
@@ -240,14 +240,20 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### <a name="uri-encoding-to-handle-special-characters"></a>특수 문자를 처리 하도록 인코딩 URI 
 
-찾을 교차로 주소, 즉, 첫 번째 기회를 제공 및 Union Street, 시애틀, 특수 문자 '' 요청을 보내기 전에 인코딩해야 합니다. '%' 문자를 사용 하 여 모든 문자는 인코딩됩니다 여기서 및는 utf-8 문자에 해당 하는 두 자리 16 진수 값을 URI에 문자 데이터를 인코딩 것이 좋습니다.
+주소, 즉, "첫 번째 셈이 & Union Street, Seattle", 교차 특수 문자를 찾으려면 요청을 보내기 전에 인코딩해야 '&' 해야 합니다. '%' 문자를 사용 하 여 모든 문자는 인코딩됩니다 여기서 및는 utf-8 문자에 해당 하는 두 자리 16 진수 값을 URI에 문자 데이터를 인코딩 것이 좋습니다.
 
 **사용법 예제**:
 
 검색 주소를 가져옵니다.
 
 ```
-query=1st Avenue & E 111th St, New York shall be encoded as query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York 
+query=1st Avenue & E 111th St, New York
+```
+
+ 로 인코딩할 수 됩니다.
+
+```
+query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
@@ -315,7 +321,7 @@ url.QueryEscape(query)
 **샘플 쿼리:**
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas station&limit=3&lat=47.6413362&lon=-122.1327968
+https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
 **응답:**
@@ -402,72 +408,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&
                 }
             ]
         },
-        {
-            "type": "POI",
-            "id": "US/POI/p0/7728133",
-            "score": 5.663,
-            "dist": 1330.1278248163273,
-            "info": "search:ta:840539001100326-US",
-            "poi": {
-                "name": "76",
-                "phone": "+(1)-(425)-7472126",
-                "brands": [
-                    {
-                        "name": "76"
-                    }
-                ],
-                "url": "www.76.com/",
-                "classifications": [
-                    {
-                        "code": "PETROL_STATION",
-                        "names": [
-                            {
-                                "nameLocale": "en-US",
-                                "name": "petrol station"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "address": {
-                "streetNumber": "2421",
-                "streetName": "148th Ave NE",
-                "municipalitySubdivision": "Redmond, Bellevue",
-                "municipality": "Redmond, Bellevue",
-                "countrySecondarySubdivision": "King",
-                "countryTertiarySubdivision": "Seattle East",
-                "countrySubdivision": "WA",
-                "postalCode": "98007",
-                "countryCode": "US",
-                "country": "United States Of America",
-                "countryCodeISO3": "USA",
-                "freeformAddress": "2421 148th Ave NE, Bellevue, WA 98007",
-                "countrySubdivisionName": "Washington"
-            },
-            "position": {
-                "lat": 47.63187,
-                "lon": -122.14365
-            },
-            "viewport": {
-                "topLeftPoint": {
-                    "lat": 47.63277,
-                    "lon": -122.14498
-                },
-                "btmRightPoint": {
-                    "lat": 47.63097,
-                    "lon": -122.14232
-                }
-            },
-            "entryPoints": [
-                {
-                    "type": "main",
-                    "position": {
-                        "lat": 47.63186,
-                        "lon": -122.14313
-                    }
-                }
-            ]
-        },
+        ...,
         {
             "type": "POI",
             "id": "US/POI/p0/7727106",
@@ -559,31 +500,31 @@ Azure Maps로 주소 검색 요청을 만들어 보겠습니다 [search 서비�
 **샘플 쿼리:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
+https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
-추가로 아래 응답 구조에서 보도록 하겠습니다. 응답에서 결과 개체의 결과 형식이 서로 다릅니다. 관찰 신중 하 게 세 가지 유형의 결과 개체 했습니다 보면 되 지점 주소, Street, 및 교차로. 주소를 검색 하는 지점 반환 하지 않는 알 수 있습니다. `Score` 각 응답 개체에 대 한 매개 변수는 상대 일치 점수가 같은 응답에서 다른 개체의 점수를 나타냅니다. 참조 [검색 주소 가져오기](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) 응답 개체 매개 변수에 대 한 자세한 정보를 알아야 합니다.
+추가로 아래 응답 구조에서 보도록 하겠습니다. 응답에서 결과 개체의 결과 형식이 서로 다릅니다. 관찰 신중 하 게 세 가지 유형의 결과 개체 했습니다 보면 하는 경우 "Point Address", "Street" 및 "교차 Street". 주소를 검색 하는 지점 반환 하지 않는 알 수 있습니다. `Score` 각 응답 개체에 대 한 매개 변수는 상대 일치 점수가 같은 응답에서 다른 개체의 점수를 나타냅니다. 참조 [검색 주소 가져오기](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) 응답 개체 매개 변수에 대 한 자세한 정보를 알아야 합니다.
 
 **결과의 지원 되는 형식:**
 
-**지점 주소:** 거리 이름 및 번호를 사용 하 여 특정 주소를 사용 하 여 맵에서 가리킵니다. 가장 높은 수준의 정확도 주소에 대해 사용할 수 있습니다. 
+* **지점 주소:** 거리 이름 및 번호를 사용 하 여 특정 주소를 사용 하 여 맵에서 가리킵니다. 가장 높은 수준의 정확도 주소에 대해 사용할 수 있습니다. 
 
-**주소 범위:**  일부 거리에 대 한 가지 거리; 시작과 끝에서 보간됩니다 주소 지점 주소 범위와 해당 지점에 표시 됩니다. 
+* **주소 범위:**  일부 거리에 대 한 가지 거리; 시작과 끝에서 보간됩니다 주소 지점 주소 범위와 해당 지점에 표시 됩니다. 
 
-**Geography:** 즉는 토지 관리 부서를 나타내는 지도, 국가, 상태, city의 영역입니다. 
+* **Geography:** 즉는 토지 관리 부서를 나타내는 지도, 국가, 상태, city의 영역입니다. 
 
-**-POI (관심 지점):** 주의 만한 하는 흥미로운 주제가 되겠지만 맵에서 가리킵니다.
+* **-POI (관심 지점):** 주의 만한 하는 흥미로운 주제가 되겠지만 맵에서 가리킵니다.
 
-**주소:** 지도에서 거리의 표현입니다. 주소는 주소를 포함 하는 거리 위도/경도 좌표를 확인 합니다. 번지는 처리되지 않을 수 있습니다. 
+* **주소:** 지도에서 거리의 표현입니다. 주소는 주소를 포함 하는 거리 위도/경도 좌표를 확인 합니다. 번지는 처리되지 않을 수 있습니다. 
 
-**교차로:** 교차 합니다. 교차점;의 표현 두 거리가 교차 하는 위치입니다.
+* **교차로:** 교차 합니다. 교차점;의 표현 두 거리가 교차 하는 위치입니다.
 
 **응답:**
 
 ```JSON
 {
     "summary": {
-        "query": "400 broad st seattle wa",
+        "query": "400 broad street seattle wa",
         "queryType": "NON_NEAR",
         "queryTime": 129,
         "numResults": 6,

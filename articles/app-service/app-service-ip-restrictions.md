@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 805de614246028bc75268e83991fa7831b990325
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882330"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357623"
 ---
 # <a name="azure-app-service-static-access-restrictions"></a>Azure App Service에 정적 액세스 제한 #
 
@@ -85,3 +85,9 @@ management.azure.com/subscriptions/**구독 ID**/resourceGroups/**리소스 그�
         "name": "allowed access"
       }
     ],
+
+## <a name="function-app-ip-restrictions"></a>함수 앱 IP 제한
+
+IP 제한은 동일한 App Service 계획 기능을 사용 하 여 함수 앱 모두에 대해 사용할 수 있습니다. Ip 제한은 사용 하지 않도록 허용 되지 않는 모든 Ip에 대 한 포털 코드 편집기 note 합니다.
+
+[자세히 알아보기](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045801"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359428"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -136,7 +136,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
 a. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
-B. 가상 머신 확장 집합 MSI가 활성화된 호스트의 경우 SF 앱에 대한 간단한 PowerShell SetupEntryPoint를 개발하여 [MSI 엔드포인트에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyVault에서 비밀을 검색](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)할 수 있습니다.
+B. 가상 머신 확장 집합 MSI가 활성화 호스트를 가져오려면 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발할 수 있습니다 [MSI 끝점에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)를 차례로 [keyVault에서비밀을검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>애플리케이션 설계
 

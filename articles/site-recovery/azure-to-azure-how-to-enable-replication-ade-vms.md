@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117458"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277695"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 ADE(Azure Disk Encryption) 사용 가능 가상 머신 복제
 
@@ -138,7 +138,7 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
   - VM에서 Site Recovery 복제를 사용하고 나중에 원본 VM에서 ADE(Azure Disk Encryption)를 사용하도록 설정한 경우
   - VM에서 Site Recovery 복제를 사용하고 나중에 원본 VM에서 디스크 암호화 키 및/또는 키 암호화 키를 변경한 경우
 
-[스크립트](#copy-ade-keys-to-dr-region-using-powershell-script)를 사용하여 암호화 키를 대상 지역에 복사한 다음 **Recovery Services 자격 증명 모음 -> 복제된 항목 -> 속성 -> 계산 및 네트워크**에서 대상 암호화 설정을 업데이트할 수 있습니다.
+[스크립트](#copy-ade-keys-to-dr-region-using-powershell-script)를 사용하여 암호화 키를 대상 지역에 복사한 다음, **Recovery Services 자격 증명 모음 -&gt; 복제된 항목 -&gt; 속성 -&gt; 계산 및 네트워크**에서 대상 암호화 설정을 업데이트할 수 있습니다.
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
@@ -148,7 +148,7 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
 Azure Site Recovery에서 만들도록 하지 않고 대상 영역에 이미 생성된 Keyvault를 선택하는 경우, 키 자격 증명 모음에 위에서 언급한 필요한 권한이 있는지 확인합니다.</br>
 *예*: 사용자가 원본 영역에 “ContososourceKeyvault”라는 키 자격 증명 모음이 있는 VM을 복제하려고 합니다.
 원본 영역 키 자격 증명 모음에 대한 모든 권한이 사용자에게 있지만, 보호 중에 이미 생성된 키 자격 증명 모음 “ContosotargetKeyvault”를 선택합니다. 이 키 자격 증명 모음에는 권한이 없으므로 보호에서 오류가 발생합니다.</br>
-**해결 방법:** “홈> Keyvaults> ContososourceKeyvault> 액세스 정책”으로 이동하여 위에 표시된 대로 권한을 추가합니다. 
+**해결 방법:** “홈> Keyvaults> ContososourceKeyvault> 액세스 정책”으로 이동하여 위에 표시된 대로 권한을 추가합니다.
 
 **원인 2:** 암호 해독-암호화 권한이 없는 대상 영역에서 이미 생성된 Keyvault를 선택했을 수 있습니다.
 Azure Site Recovery에서 만들도록 하지 않고 대상 영역에 이미 생성된 Keyvault를 선택하는 경우, 원본 영역에 있는 키도 암호화하는 경우 사용자에게 암호 해독-암호화 권한이 있는지 확인합니다.</br>

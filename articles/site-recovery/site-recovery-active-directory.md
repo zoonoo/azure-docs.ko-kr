@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821391"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358056"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
@@ -106,9 +106,9 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 Windows Server 2012부터 [AD DS(Active Directory Domain Services)에 추가 세이프가드가 기본적으로 제공됩니다](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). 이러한 세이프가드는 기본 하이퍼바이저 플랫폼이 **VM-GenerationID**를 지원하는 경우 USN 롤백으로부터 가상화된 도메인 컨트롤러를 보호합니다. Azure는 **VM-GenerationID**를 지원합니다. 이로 인해 Azure Virtual Machines에서 Windows Server 2012 이상을 실행하는 도메인 컨트롤러에는 이러한 추가 세이프가드가 있습니다.
 
 
-**VM-GenerationID**를 다시 설정할 때 AD DS 데이터베이스의 **InvocationID**도 다시 설정됩니다. 또한 RID 풀이 삭제되고 SYSVOL이 신뢰할 수 없음으로 표시됩니다. 자세한 내용은 [Active Directory Domain Services 가상화 소개](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 및 [안전하게 DFSR 가상화](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)를 참조하세요.
+**VM-GenerationID**를 다시 설정할 때 AD DS 데이터베이스의 **InvocationID**도 다시 설정됩니다. 또한 RID 풀이 삭제 되 하 고 sysvol 폴더는 신뢰할 수 없음으로 표시 됩니다. 자세한 내용은 [Active Directory Domain Services 가상화 소개](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 및 [안전하게 DFSR 가상화](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)를 참조하세요.
 
-Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 사용자가 도메인 컨트롤러 가상 머신에 로그인할 수 있게 될 때까지 걸리는 시간이 *심각하게 지연*될 수 있습니다.
+Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이 발생할 수는 *지연이* 도메인 컨트롤러 가상 컴퓨터에 로그인 할 수 있는 합니다.
 
 이 도메인 컨트롤러는 테스트 장애 조치(failover)에만 사용되므로 가상화 세이프가드가 필요하지 않습니다. 도메인 컨트롤러 가상 머신의 **VM-GenerationID** 값이 변경되지 않도록 하려면 온-프레미스 도메인 컨트롤러에서 다음 DWORD의 값을 **4**로 변경하면 됩니다.
 
@@ -128,11 +128,11 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
     ![Invocation ID 변경](./media/site-recovery-active-directory/Event1109.png)
 
-* SYSVOL 및 NETLOGON 공유를 사용할 수 없습니다.
+* Sysvol 폴더 및 NETLOGON 공유에 사용할 수 없습니다.
 
-    ![SYSVOL 공유](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Sysvol 폴더 공유](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol 폴더](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR 데이터베이스가 삭제됩니다.
 
@@ -146,7 +146,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 >
 >
 
-1. 명령 프롬프트에서 다음 명령을 실행하여 SYSVOL 및 NETLOGON 폴더가 공유되고 있는지 확인합니다.
+1. 명령 프롬프트에서 폴더 sysvol 및 NETLOGON 폴더가 공유 되 고 있는지 여부를 확인 하려면 다음 명령을 실행 합니다.
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
     * [FRS 복제](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)를 권장하지는 않지만 사용 중이라면 신뢰할 수 있는 복원 단계를 수행합니다. 프로세스는 [BurFlags 레지스트리 키를 사용하여 파일 복제 서비스 다시 초기화](https://support.microsoft.com/kb/290762)에 설명되어 있습니다.
 
         BurFlags에 대한 자세한 내용은 블로그 게시물 [D2 및 D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)(D2 및 D4의 용도)를 참조하세요.
-    * DFSR 복제를 사용하는 경우 신뢰할 수 있는 복원 단계를 완료합니다. 프로세스는 [DFSR 복제 SYSVOL(예: FRS용 "D4/D2")의 신뢰할 수 있는 동기화 및 신뢰할 수 없는 동기화 강제 실행](https://support.microsoft.com/kb/2218556)에 설명되어 있습니다.
+    * DFSR 복제를 사용하는 경우 신뢰할 수 있는 복원 단계를 완료합니다. 프로세스에 설명 되어 [DFSR 복제 sysvol 폴더 (예: "D4/D2" FRS 용)에 대 한 신뢰할 수 있는 도메인과 신뢰할 수 없는 동기화를 강제로](https://support.microsoft.com/kb/2218556)입니다.
 
         Powershell 함수를 사용할 수도 있습니다. 자세한 내용은 [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/)(DFSR SYSVOL 신뢰할 수 있는/신뢰할 수 없는 복원 PowerShell 함수)를 참조하세요.
 

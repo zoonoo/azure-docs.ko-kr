@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762775"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358839"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 기존 가상 네트워크 구성
 
@@ -25,10 +25,9 @@ Azure SQL Database Managed Instance는 Azure [가상 네트워크](../virtual-ne
 
 다음 경우 중 하나에 해당하면 이 문서에 설명된 스크립트를 사용하여 네트워크가 유효한지 검사하고 수정할 수 있습니다.
 
-* 아직 구성하지 않은 새 서브넷이 있습니다.
-* 서브넷에 [요구 사항](sql-database-managed-instance-connectivity-architecture.md#network-requirements)에 맞는지 잘 모릅니다.
-* 변경한 후에 서브넷이 여전히 [네트워크 요구 사항](sql-database-managed-instance-connectivity-architecture.md#network-requirements)을 준수하는지 확인하려고 합니다.
-
+- 아직 구성하지 않은 새 서브넷이 있습니다.
+- 서브넷에 [요구 사항](sql-database-managed-instance-connectivity-architecture.md#network-requirements)에 맞는지 잘 모릅니다.
+- 변경한 후에 서브넷이 여전히 [네트워크 요구 사항](sql-database-managed-instance-connectivity-architecture.md#network-requirements)을 준수하는지 확인하려고 합니다.
 
 > [!Note]
 > Azure Resource Manager 배포 모델을 통해 만든 가상 네트워크에서만 Managed Instance를 만들 수 있습니다. 클래식 배포 모델을 통해 만든 Azure Virtual Network는 지원되지 않습니다. [Managed Instance에 대한 서브넷 크기 확인](sql-database-managed-instance-determine-size-vnet-subnet.md) 문서의 지침에 따라 서브넷 크기를 계산합니다. 리소스를 배포한 후에는 서브넷 크기를 조정할 수 없습니다.

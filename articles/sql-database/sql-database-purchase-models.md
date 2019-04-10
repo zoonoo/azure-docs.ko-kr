@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010518"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360182"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 구매 모델
 
@@ -50,11 +50,11 @@ Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 
 
 ## <a name="storage-costs"></a>저장소 비용
 
-다양한 유형의 저장소에 대해 별도의 방식으로 요금이 청구됩니다. 데이터 저장소의 경우 선택한 최대 데이터베이스 또는 풀 크기에 따라 프로비전된 저장소 비용이 청구됩니다. 해당 최댓값을 줄이거나 늘리지 않는 한 비용은 변하지 않습니다. 백업 저장소는 인스턴스의 자동 백업과 연결되고 동적으로 할당됩니다. 백업 보존 기간을 늘리면 인스턴스에서 사용되는 백업 저장소도 늘어납니다. 
+다양한 유형의 저장소에 대해 별도의 방식으로 요금이 청구됩니다. 데이터 저장소의 경우 선택한 최대 데이터베이스 또는 풀 크기에 따라 프로비전된 저장소 비용이 청구됩니다. 해당 최댓값을 줄이거나 늘리지 않는 한 비용은 변하지 않습니다. 백업 저장소는 인스턴스의 자동 백업과 연결되고 동적으로 할당됩니다. 백업 보존 기간을 늘리면 인스턴스에서 사용되는 백업 저장소도 늘어납니다.
 
 기본적으로 7일 분량의 자동화된 데이터베이스 백업이 RA-GRS 표준 Blob Storage에 복사됩니다. 저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 트랜잭션 로그의 크기는 데이터베이스 변동률에 따라 다릅니다. 데이터베이스 크기의 100%와 같은 최소 스토리지 양은 추가 요금 없이 제공됩니다. 추가로 사용되는 백업 스토리지의 경우 GB/월 단위로 요금이 청구됩니다.
 
-스토리지 가격에 대한 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/single/) 페이지를 참조하세요. 
+스토리지 가격에 대한 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/single/) 페이지를 참조하세요.
 
 ## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
@@ -71,7 +71,7 @@ vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스를 
 > **지역 제한 사항:** 현재 지원되는 하위 지역 목록은 [하위 지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)을 참조하세요. 현재 지원되지 않는 지역에서 Managed Instance를 만들려면 [Azure Portal을 통해 지원 요청을 보낼 수 있습니다](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-단일 데이터베이스 또는 탄력적 풀이 300DTU 이상 사용하는 경우 vCore 기반 구매 모델로 전환하면 비용을 줄일 수 있습니다. 전환하려는 경우 선택한 API를 사용하거나 Azure Portal을 사용하여 가동 중지 시간 없이 전환할 수 있습니다. 그러나 전환이 필수는 아니며 자동으로 전환되지는 않습니다. DTU 기반 구매 모델이 성능 및 비즈니스 요구 사항을 충족하는 경우 이 모델을 계속 사용해야 합니다. DTU 기반 구매 모델에서 vCore 기반 구매 모델로 전환하려는 경우 다음과 같은 방법으로 컴퓨팅 크기를 선택합니다. 
+단일 데이터베이스 또는 탄력적 풀이 300DTU 이상 사용하는 경우 vCore 기반 구매 모델로 전환하면 비용을 줄일 수 있습니다. 전환하려는 경우 선택한 API를 사용하거나 Azure Portal을 사용하여 가동 중지 시간 없이 전환할 수 있습니다. 그러나 전환이 필수는 아니며 자동으로 전환되지는 않습니다. DTU 기반 구매 모델이 성능 및 비즈니스 요구 사항을 충족하는 경우 이 모델을 계속 사용해야 합니다. DTU 기반 구매 모델에서 vCore 기반 구매 모델로 전환하려는 경우 다음과 같은 방법으로 컴퓨팅 크기를 선택합니다.
 
 - 표준 계층의 100DTU마다 범용 계층에 최소 1개의 vCore가 필요합니다.
 - 프리미엄 계층의 125DTU마다 중요 비즈니스용 계층에 최소 1개의 vCore가 필요합니다.

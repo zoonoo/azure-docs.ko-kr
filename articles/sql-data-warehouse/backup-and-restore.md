@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846986"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359018"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 백업 및 복원
 
@@ -25,7 +25,7 @@ ms.locfileid: "58846986"
 
 *데이터 웨어하우스 스냅숏*은 데이터 웨어하우스를 이전 상태로 복구하거나 복사하는 데 활용할 수 있는 복원 지점을 만듭니다.  SQL Data Warehouse가 분산 시스템이므로 데이터 웨어하우스 스냅숏은 Azure 저장소에 있는 여러 파일로 구성됩니다. 스냅숏은 데이터 웨어하우스에 저장된 데이터의 증분 변경 내용을 캡처합니다.
 
-*데이터 웨어하우스 복원*은 기존 데이터 웨어하우스 또는 삭제된 데이터 웨어하우스의 복원 지점에서 만들어지는 새 데이터 웨어하우스입니다. 데이터 웨어하우스 복원은 데이터가 실수로 손상되거나 삭제된 후 데이터를 다시 만들기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 또한 데이터 웨어하우스는 테스트 또는 개발 용도로 데이터 웨어하우스의 복사본을 만드는 강력한 메커니즘입니다.  SQL Data Warehouse는 동일한 지역 내에서 모든 데이터 크기에 대해 20분 미만으로 측정되는 빠른 복원 메커니즘을 사용합니다.
+*데이터 웨어하우스 복원*은 기존 데이터 웨어하우스 또는 삭제된 데이터 웨어하우스의 복원 지점에서 만들어지는 새 데이터 웨어하우스입니다. 데이터 웨어하우스 복원은 데이터가 실수로 손상되거나 삭제된 후 데이터를 다시 만들기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 또한 데이터 웨어하우스는 테스트 또는 개발 용도로 데이터 웨어하우스의 복사본을 만드는 강력한 메커니즘입니다.  SQL Data Warehouse 복원 속도 원본 및 대상 데이터 웨어하우스의 위치와 데이터베이스 크기에 따라 달라질 수 있습니다. 동일한 지역 내에서 평균 복원 속도가 일반적으로 약 20 분이 걸릴 합니다. 
 
 ## <a name="automatic-restore-points"></a>자동 복원 지점
 

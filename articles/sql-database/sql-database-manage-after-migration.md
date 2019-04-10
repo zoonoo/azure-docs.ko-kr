@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216937"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358422"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -88,7 +88,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 기존 Windows 인증은 지원되지 않습니다. Azure Active Directory(AD)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. AAD는 [MFA(Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md)을 지원하며 [클릭 몇 번](../active-directory/hybrid/how-to-connect-install-express.md)으로 AAD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 SQL Database 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 Microsoft Azure SQL Database 및 SQL Data Warehouse에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 
-|**다음과 같은 경우...**|**SQL Database / SQL Data Warehouse**|
+|**경우 있습니다...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
 |Azure에서 Azure Active Directory(AD)를 사용하지 않는 것을 선호함|[SQL 인증](sql-database-security-overview.md) 사용|
 |AD를 SQL Server 온-프레미스에 사용함|[AD를 Microsoft Azure Active Directory와 페더레이션](../active-directory/hybrid/whatis-hybrid-identity.md)하고, Azure AD 인증을 사용합니다. 이런 경우에 Single Sign-On을 사용할 수 있습니다.|
@@ -149,12 +149,12 @@ SQL Database를 사용하면 감사를 켜서 데이터베이스 이벤트를 �
 SQL Database에서 기본적으로 저장소 하위 시스템에 있는 데이터 및 로그 파일의 미사용 데이터는 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 통해 완전하게 항상 암호화됩니다. 백업도 암호화됩니다. TDE를 사용하면 이 데이터에 액세스 중인 애플리케이션 쪽에서 변경이 필요하지 않습니다. 암호화 및 암호 해독은 투명하게 이루어지며, 이름도 마찬가지입니다.
 이동 중 및 미사용 중요 데이터를 보호하기 위해 SQL Database는 [AE(Always Encrypted)](/sql/relational-databases/security/encryption/always-encrypted-database-engine)라는 기능을 제공합니다. AE는 데이터베이스의 중요한 열을 암호화하는 클라이언트 쪽 암호화의 양식입니다. (따라서 데이터베이스 관리자와 권한이 없는 사용자에게 그것은 ciphertext에 있습니다.) 서버는 시작하려면 암호화된 데이터를 수신합니다. Always Encrypted를 위한 키는 클라이언트 쪽에도 저장되어 권한 있는 클라이언트만이 중요한 열을 암호 해독할 수 있습니다. 암호화 키가 클라이언트에 저장되기 때문에 서버 관리자 및 데이터 관리자는 중요한 데이터를 볼 수 없습니다. AE는 권한이 없는 클라이언트부터 실제 디스크에 이르기까지, 테이블 종단 간에 중요한 열을 암호화합니다. AE는 같음 비교를 지원하므로 DBA는 계속해서 암호화된 열을 해당 SQL 명령의 일환으로 쿼리할 수 있습니다. Always Encrypted는 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows 인증서 저장소, 및 로컬 하드웨어 보안 모듈과 같은 다양한 키 저장소 옵션과 함께 사용될 수 있습니다.
 
-|**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
+|**특성**|**상시 암호화**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|종단간|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아닙니다.|예, 암호화는 미사용 데이터를 위한 것이므로|
-|**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
-|**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
+|**데이터베이스 서버에서 중요 한 데이터를 액세스할 수 있습니다.**|아닙니다.|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**허용 되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
+|**기능을 사용 하는 데 필요한 앱 변경 내용**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
 ||||
 
@@ -195,19 +195,19 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 
 조직과 SQL Database 간의 네트워크 트래픽은 일반적으로 공용 네트워크를 통해 경로 설정됩니다. 그러나 이 경로를 최적화하도록 선택하고 더 안전하게 만들면 Express Route를 확인할 수 있습니다. 기본적으로 Express 경로를 사용하면 회사 네트워크를 개인 연결의 Azure 플랫폼으로 확장할 수 있습니다. 그렇게 하면 공용 인터넷을 통해 이동하지 않게 됩니다. 또한 더 높은 보안, 신뢰성 및 경로 설정 최적화를 얻게 되므로 공용 인터넷 네트워크를 통한 일반적인 환경보다 대기 시간이 감소하고 속도가 훨씬 더 빠릅니다. 조직과 Azure 간에 중요 데이터 청크를 전송하도록 계획하는 경우 Express Route를 사용하면 비용 면에서 유리할 수 있습니다. 조직에서 Azure로 연결하기 위한 세 가지 연결 모델 중에서 선택할 수 있습니다.
 
-- [클라우드 교환 공동 배치](../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [보편적 연결(Any-to-Any)](../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Cloud Exchange co-location](../expressroute/expressroute-connectivity-models.md#CloudExchange)
+- [Any-임의의](../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [지점 간](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 또한 Express Route를 사용하면 추가 요금 없이 구입하는 대역폭 제한을 최대 2배까지 증가시킬 수 있습니다. 또한 기본 경로를 사용하여 크로스 영역 연결을 구성하는 것도 가능합니다. ER 연결 공급자 목록을 보려면: [Express 경로 파트너 및 피어링 위치](../expressroute/expressroute-locations.md)를 참조하세요. 다음 문서에서 Express Route를 자세히 설명합니다.
 
 - [기본 경로 소개](../expressroute/expressroute-introduction.md)
-- [필수 구성 요소](../expressroute/expressroute-prerequisites.md)
+- [필수 조건](../expressroute/expressroute-prerequisites.md)
 - [워크플로](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database가 규정 요구 사항을 준수하나요? 그리고 이것이 조직의 규정 준수에 어떤 도움이 되나요?
 
-SQL Database는 다양한 규격을 준수합니다. 충족된 최신 규격 집합을 보려면 [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings)를 방문하여 SQL Database가 호환되는 Azure 서비스에 포함되어 있는지 확인하기 위해 조직에 중요한 규정 준수에 대해 드릴다운합니다. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
+SQL Database는 다양한 규격을 준수합니다. 최신 SQL Database에서 충족 된 규격 집합을 보려면 합니다 [Microsoft 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 및 SQL Database가 되는 준수를 포함 하는 경우 참조 하기 위해 조직에 중요 한 규정 준수에 대해 드릴 다운 Azure 서비스입니다. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>마이그레이션 후 지능형 데이터베이스 모니터링 및 유지 관리
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650260"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359731"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
 
@@ -84,12 +84,12 @@ SQL Database 예약된 용량 예약을 관리하는 방법을 알아보려면 [
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 예약이란?](../billing/billing-save-compute-costs-reservations.md)
-- [Azure Reservations 관리](../billing/billing-manage-reserved-vm-instance.md)
+- [Azure Reservations란?](../billing/billing-save-compute-costs-reservations.md)
+- [Azure 예약 관리](../billing/billing-manage-reserved-vm-instance.md)
 - [Azure 예약 할인 이해](../billing/billing-understand-reservation-charges.md)
-- [종량제 구독의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)
-- [엔터프라이즈 등록에서 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
+- [종 량 제 구독에 대 한 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)
+- [Enterprise 등록의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [파트너 센터 클라우드 솔루션 공급자 (CSP) 프로그램에서 azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

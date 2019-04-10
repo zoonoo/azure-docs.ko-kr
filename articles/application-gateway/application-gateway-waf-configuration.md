@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790161"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277422"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록
 
@@ -54,6 +54,7 @@ WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 �
 - **시작**: 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
 - **다음으로 끝**:  이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
 - **포함**: 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
+- **모든 equals**: 이 연산자에는 모든 요청 필드와 일치합니다. *는 선택기 값 이어야 합니다.
 
 어떤 경우에서든 일치는 대/소문자를 구분하지 않으며, 정규식은 선택기로 사용할 수 없습니다.
 

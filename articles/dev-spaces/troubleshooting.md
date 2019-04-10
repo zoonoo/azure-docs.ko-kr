@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669779"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357850"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -187,11 +187,11 @@ Azure Dev Spaces에서 기본적으로 지원하지 않는 언어로 애플리�
 1. 포트 구성을 확인합니다. 지정된 포트 번호는 다음과 같은 모든 자산에서 **동일**해야 합니다.
     * **Dockerfile:** `EXPOSE` 명령으로 지정됩니다.
     * **[Helm 차트](https://docs.helm.sh):** 서비스에 대해 `externalPort` 및 `internalPort` 값으로 지정됩니다(종종 `values.yml` 파일에 위치함).
-    * 애플리케이션 코드에서 열리는 모든 포트(예: Node.js에서 `var server = app.listen(80, function () {...}`)
+    * 예를 들어 Node.js에서에서 응용 프로그램 코드에서 열리는 모든 포트: `var server = app.listen(80, function () {...}`
 
 
 ## <a name="config-file-not-found"></a>구성 파일을 찾을 수 없음
-`azds up`을 실행하고 다음 오류가 표시됩니다. `Config file not found: .../azds.yaml`
+실행 `azds up` 및 다음 오류가 발생 합니다. `Config file not found: .../azds.yaml`
 
 ### <a name="reason"></a>이유
 실행하려는 코드의 루트 디렉터리에서 `azds up`을 실행하고, Azure Dev Spaces로 실행하도록 코드 폴더를 초기화해야 합니다.
@@ -208,7 +208,7 @@ VS Code 디버거를 시작하면 때때로 이 오류가 발생할 수 있습�
 2. F5 키를 다시 누릅니다.
 
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>디버깅 오류 '다음 유형에 대한 디버거 확장을 찾지 못함: coreclr'
-VS Code 디버거를 실행하면 오류를 보고합니다. `Failed to find debugger extension for type:coreclr.`
+VS Code 디버거 실행 오류를 보고 합니다. `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>이유
 개발 컴퓨터에 C#용 VS Code 확장이 설치되어 있지 않습니다. C# 확장 지원.NET Core (CoreCLR)에 대 한 디버깅을 포함 합니다.
@@ -217,7 +217,7 @@ VS Code 디버거를 실행하면 오류를 보고합니다. `Failed to find deb
 [C#용 VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다.
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>디버깅 오류 '구성된 디버그 형식 'coreclr'은 지원되지 않습니다.'
-VS Code 디버거를 실행하면 오류를 보고합니다. `Configured debug type 'coreclr' is not supported.`
+VS Code 디버거 실행 오류를 보고 합니다. `Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>이유
 개발 컴퓨터에 설치된 Azure Dev Spaces용 VS Code 확장이 없습니다.
@@ -226,7 +226,7 @@ VS Code 디버거를 실행하면 오류를 보고합니다. `Configured debug t
 [Azure Dev Spaces용 VS Code 확장](get-started-netcore.md)을 설치합니다.
 
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>디버깅 오류 "'cwd' 값 '/src'가 잘못되었습니다. 시스템은 지정된 파일을 찾을 수 없습니다." 또는 "launch: program '/src/[프로젝트 이진 경로]'이(가) 존재하지 않습니다."가 발생합니다.
-VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 및/또는 `launch: program '/src/[path to project executable]' does not exist`를 보고합니다.
+VS Code 디버거 실행 오류를 보고 합니다 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 및/또는 `launch: program '/src/[path to project executable]' does not exist`
 
 ### <a name="reason"></a>이유
 기본적으로 VS Code 확장은 컨테이너에 대한 프로젝트의 작업 디렉터리로 여 `src`를 사용합니다. 다른 작업 디렉터리를 지정하도록 `Dockerfile`을 업데이트한 경우에 다음 오류가 표시될 수 있습니다.

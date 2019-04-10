@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541148"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358297"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>자동화된 Machine Learning 실험 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "58541148"
 
 자동화된 기계 학습에서 사용할 수 있는 구성 옵션은 다음과 같습니다.
 
-* 실험 유형 선택: 분류, 회귀 또는 예측
+* 실험 유형 선택: 분류, 회귀, 시계열 예측
 * 데이터 원본, 형식 및 데이터 가져오기
 * 컴퓨팅 대상 선택: 로컬 또는 원격
 * 자동화된 Machine Learning 실험 설정
@@ -39,22 +39,22 @@ ms.locfileid: "58541148"
 
 자동화된 Machine Learning은 자동화 및 튜닝 프로세스 중에 다음 알고리즘을 지원합니다. 사용자는 알고리즘을 지정할 필요가 없습니다. DNN 알고리즘은 학습 중 사용 가능한 이지만 자동화 된 ML DNN 모델을 작성 하지 않습니다.
 
-분류 | 회귀 | 예측
+분류 | 회귀 | 시계열 예측
 |-- |-- |--
-[Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[로지스틱 회귀](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [탄력적 Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [탄력적 Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[C-SVC(Support Vector Classification)](https://scikit-learn.org/stable/modules/svm.html#classification)|[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[그라데이션 부스 팅](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[그라데이션 부스 팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[그라데이션 부스 팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)|[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K 가장 인접 한 항목](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 가장 인접 한 항목](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 가장 인접 한 항목](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[선형 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS 올가미](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS 올가미](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C 지원 벡터 분류 (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[SGD (추측 기울기 하강)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[SGD (추측 기울기 하강)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [선형 분류자 DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[SGD (추측 기울기 하강)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
@@ -84,7 +84,7 @@ ms.locfileid: "58541148"
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>원격 계산에서 실험을 실행하기 위한 데이터 가져오기
 
-원격 계산을 사용하여 실험을 실행하는 경우 데이터 가져오기는 별도의 `get_data()` Python 스크립트로 래핑되어야 합니다. 이 스크립트는 자동화된 Machine Learning 실험이 실행되는 원격 계산에서 실행됩니다. `get_data`는 각 반복마다 연결을 통해 데이터를 가져올 필요가 없습니다. `get_data`가 없으면 원격 계산에서 실행할 때 실험이 실패합니다.
+원격 계산을 사용하여 실험을 실행하는 경우 데이터 가져오기는 별도의 `get_data()` Python 스크립트로 래핑되어야 합니다. 이 스크립트는 자동화된 Machine Learning 실험이 실행되는 원격 계산에서 실행됩니다. `get_data` 각 반복에 대 한 연결을 통해 데이터를 가져올 필요가 없습니다. `get_data`가 없으면 원격 계산에서 실행할 때 실험이 실패합니다.
 
 `get_data`의 예제는 다음과 같습니다.
 
@@ -110,9 +110,9 @@ def get_data(): # Burning man 2016 data
 automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`get_data` 스크립트는 다음을 반환할 수 있습니다.
+`get_data` 스크립트를 반환할 수 있습니다.
 
-키 | Type |    상호 배타적 관계 | 설명
+키 | Type | 상호 배타적 관계    | 설명
 ---|---|---|---
 X | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |  학습할 모든 기능입니다.
 y | pandas 데이터 프레임 또는 numpy 배열 |   label   | 학습할 데이터에 레이블을 지정합니다. 분류의 경우 정수 배열이어야 합니다.
@@ -191,6 +191,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
+        blacklist_models='XGBoostClassifier',
         X=X,
         y=y,
         n_cross_validations=2)
@@ -202,55 +203,25 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
         task='regression',
         max_time_sec=600,
         iterations=100,
+        whitelist_models='kNN regressor'
         primary_metric='r2_score',
         X=X,
         y=y,
         n_cross_validations=5)
     ```
 
-적용할 알고리즘의 목록을 결정하는 세 가지 서로 다른 `task` 매개 변수 값이 있습니다.  `whitelist` 또는 `blacklist` 매개 변수를 사용하여 사용 가능한 알고리즘 반복을 포함 또는 제외하도록 추가로 수정합니다.
-* 분류
-    * LogisticRegression
-    * SGD
-    * MultinomialNaiveBayes
-    * BernoulliNaiveBayes
-    * SVM
-    * LinearSVM
-    * KNN
-    * DecisionTree
-    * RandomForest
-    * ExtremeRandomTrees
-    * LightGBM
-    * GradientBoosting
-    * TensorFlowDNN
-    * TensorFlowLinearClassifier
-    * XGBoostClassifier
-* 회귀
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
-* 예측
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
+세 가지 `task` 매개 변수 값에 적용할 알고리즘의 목록을 확인 합니다.  `whitelist` 또는 `blacklist` 매개 변수를 사용하여 사용 가능한 알고리즘 반복을 포함 또는 제외하도록 추가로 수정합니다. 지원 되는 모델 목록을 복지부 [SupportedAlgorithms 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+
+## <a name="primary-metric"></a>기본 메트릭
+기본 메트릭; 와 같이 위의 예에서는 최적화에 대 한 모델을 학습 하는 동안 사용할 메트릭을 결정 합니다. 기본 메트릭은 선택할 수 있습니다 선택 하면 작업 형식에 의해 결정 됩니다. 사용 가능한 메트릭 목록은 다음과 같습니다.
+
+|분류 | 회귀 | 시계열 예측
+|-- |-- |--
+|accuracy| spearman_correlation | spearman_correlation
+|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
+|average_precision_score_weighted | r2_score | r2_score
+|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
+|precision_score_weighted |
 
 ## <a name="data-pre-processing-and-featurization"></a>데이터 전처리 및 기능화
 
@@ -269,7 +240,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 
 ## <a name="time-series-forecasting"></a>시계열 예측
 시간 시계열 예측 작업 형식에 대 한 추가 매개 변수를 정의 해야 합니다.
-1. time_horizon_name-학습 데이터가 포함 된 날짜/시간 계열의 열 이름을 정의 하는 필수 매개 변수입니다. 
+1. time_column_name-학습 데이터가 포함 된 날짜/시간 계열의 열 이름을 정의 하는 필수 매개 변수입니다. 
 1. max_horizon-학습 데이터의 주기 성과에 따라를 예측 하려는 시간의 길이 정의 합니다. 예를 들어 매일 시간 조직을 사용 하 여 학습 데이터에 있으면 얼마나 멀리 확장에서 정의한 모델에 대 한 학습을 원하는 날짜입니다.
 1. grain_column_names-개별 시계열 데이터를 학습 데이터를 포함 하는 열 이름을 정의 합니다. 예를 들어 저장소에서 특정 브랜드의 판매를 예측 하는 경우 store와 brand 열 수준이 열으로 정의할는 있습니다.
 
@@ -324,7 +295,6 @@ run = experiment.submit(automl_config, show_output=True)
 1. 시간-실험 하 여 계속 실행 기간 (분) 정의할 수 있습니다 설정에서 사용 하 여 experiment_timeout_minutes 후 종료 합니다.
 1. Experiment_exit_score 기본 메트릭을 기준으로 점수에 도달한 후에 experiement 완료 하도록 선택할 수 있습니다를 사용 하 여 점수-도달한 후 종료 합니다.
 
-
 ## <a name="explore-model-metrics"></a>모델 메트릭 탐색
 노트북을 사용하고 있으면 위젯 또는 인라인에서 결과를 볼 수 있습니다. 자세한 내용은 [모델 추적 및 평가](how-to-track-experiments.md#view-run-details)를 참조하세요.
 
@@ -355,7 +325,7 @@ recall_score_micro|Recall(재현율)은 특정 클래스에서 올바르게 레�
 recall_score_weighted|Recall(재현율)은 특정 클래스에서 올바르게 레이블이 지정된 요소의 백분율입니다. Weighted(가중치)는 각 클래스의 true 인스턴스 수를 가중치로 적용하여 계산한 각 클래스 재현율의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|Weighted accuracy(가중 정확도)는 각 예제에 제공된 가중치가 해당 예제의 true 클래스에 있는 true 인스턴스의 비율과 같아지는 정확도입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight는 대상의 각 요소에 대한 해당 클래스의 비율과 동일한 벡터입니다.|
 
-### <a name="regression-and-forecasting-metrics"></a>회귀 및 예측 메트릭
+### <a name="regression-and-time-series-forecasting-metrics"></a>회귀 및 시간 시계열 메트릭 예측
 다음 메트릭은 회귀 또는 예측 작업에 대한 각 반복에 저장됩니다.
 
 |메트릭|설명|계산|추가 매개 변수
