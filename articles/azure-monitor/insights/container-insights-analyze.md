@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234003"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426395"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해 
 컨테이너용 Azure Monitor를 사용하면 성능 차트 및 상태 정보를 통해 AKS(Azure Kubernetes Service) 클러스터의 워크로드를 모니터링할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 특정 AKS 클러스터를 모니터링할 때에도 ACI(Azure Container Instances)를 볼 수 있습니다.
@@ -68,10 +68,10 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |  
 |**시스템 Pod**| | |  
 | |Healthy |100% |
-| |Warning |해당 없음 |
+| |Warning |N/A |
 | |중요 |<100% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
-|**Node** | | |
+|**노드** | | |
 | |Healthy |>85% |
 | |Warning |60-84% |
 | |중요 |<60% |
@@ -100,7 +100,34 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 
 왼쪽/오른쪽 화살표 키를 사용하여 차트의 각 데이터 요소를 따라 순환하고, 위쪽/아래쪽 화살표 키를 사용하여 백분위 수 줄을 따라 순환할 수 있습니다.
 
-**노드**, **컨트롤러** 및 **컨테이너** 탭으로 전환하면 속성 창이 페이지의 오른쪽에 자동으로 표시됩니다.  Kubernetes 개체를 구성하기 위해 정의한 레이블을 포함하여 선택한 항목의 속성을 보여 줍니다. 창을 표시하거나 숨기려면 창에서 **>>** 링크를 클릭합니다.  
+컨테이너에 대 한 azure Monitor에서는 Azure Monitor [메트릭 탐색기](../platform/metrics-getting-started.md), 상관 관계를 지정 고유한 점도 차트를 만들 및 추세를 조사 하 고 수 있는 대시보드에 고정 합니다. 메트릭 탐색기에서 사용할 수도 있습니다 조건을 기반으로 메트릭을 시각화를 설정한 경우는 [메트릭 기반 경고 규칙](../platform/alerts-metric.md)합니다.  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>메트릭 탐색기에서 컨테이너 메트릭 보기
+메트릭 탐색기에서 집계 된 노드를 볼 수 있으며 컨테이너에 대 한 Azure Monitor에서 사용률 메트릭을 pod 수 있습니다. 다음 표에서 컨테이너 메트릭을 시각화 하는 메트릭 차트를 사용 하는 방법을 이해할 수 있도록 세부 정보를 보여 줍니다.
+
+|네임스페이스 | 메트릭 |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+적용할 수 있습니다 [분할](../platform/metrics-charts.md#apply-splitting-to-a-chart) 차원 보기의 다양 한 세그먼트를 시각화 하는 메트릭의 서로 비교 합니다. 노드의 경우에 따라 차트를 분할할 수 있습니다 합니다 *호스트* 차원에 있는 pod에서 별로 분할할 수 있습니다이 다음과 같은 차원 및:
+
+* Controller
+* Kubernetes 네임 스페이스
+* 노드
+* 단계
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>노드, 컨트롤러 및 컨테이너 상태를 분석 합니다.
+
+**노드**, **컨트롤러** 및 **컨테이너** 탭으로 전환하면 속성 창이 페이지의 오른쪽에 자동으로 표시됩니다.  Kubernetes 개체를 구성 하 고 정의한 레이블을 포함 하는 항목이 선택의 속성이 표시 됩니다. 창을 표시하거나 숨기려면 창에서 **>>** 링크를 클릭합니다.  
 
 ![Kubernetes 큐브 뷰 속성 창 예제](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -133,7 +160,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 **추세** 열 아래에서 마우스로 막대 그래프를 가리키면 선택한 메트릭에 따라 각 막대가 15분의 샘플 기간 내에서 CPU 또는 메모리 사용량을 보여줍니다. 키보드로 추세 차트를 선택한 후 Alt+PageUp 또는 Alt+PageDown 키를 사용하여 각 막대를 개별적으로 순환하고 마우스를 위로 가져가 동일한 세부 정보를 볼 수 있습니다.
 
-![추세 가로 막대형 차트 마우스로 가리키기 예제](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![예제 차트를 마우스로 막대 추세](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 다음 예제에서 목록의 첫 번째인 *aks-nodepool1-* 노드는 **컨테이너** 값이 9이며, 이것은 배포된 전체 컨테이너 수를 롤업한 값입니다.
 
@@ -145,7 +172,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| Name | 호스트의 이름입니다. |
+| name | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
 | 평균, 최소, 최대, 50번째, 90번째 | 선택한 기간 동안 백분위를 기준으로 하는 평균 노드 실제 값입니다. 평균 값은 노드에 대해 설정된 CPU/메모리 제한에서 측정됩니다. Pod 및 컨테이너의 경우에는 호스트에서 보고된 평균 값입니다. |
@@ -174,9 +201,9 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| Name | 컨트롤러의 이름입니다.|
+| name | 컨트롤러의 이름입니다.|
 | 상태 | *확인*, *종료됨*, *실패함*, *중지됨* 또는 *일시 정지됨*과 같은 상태로 실행이 완료된 컨테이너의 롤업 상태입니다. 컨테이너가 실행 중이지만 상태가 제대로 표시되지 않았거나 에이전트에 의해 선택되지 않았고 30분 넘게 응답하지 않은 경우 상태는 *알 수 없음*이 됩니다. 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
-| 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 평균 롤업입니다. |
+| 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 각 엔터티에 선택한 메트릭 및 백분위 수의 평균 백분율의 평균을 롤업 합니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
 | 컨테이너 | 컨트롤러 또는 Pod에 대한 컨테이너의 총 수입니다. |
 | Restarts | 컨테이너에서 다시 시작한 횟수의 롤업입니다. |
@@ -211,7 +238,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| Name | 컨트롤러의 이름입니다.|
+| name | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |

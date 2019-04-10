@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: 'Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오 '
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: subsarma
-ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: rohink
+ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418740"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426429"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -221,4 +221,4 @@ Azure Resource Manager 배포 모델:
 
 * [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710)
 * [Virtual Network 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100)
-* [네트워크 구성 파일을 사용하여 Virtual Network 구성](virtual-networks-using-network-configuration-file.md)
+* [네트워크 구성 파일을 사용 하 여 가상 네트워크를 구성 합니다.](virtual-networks-using-network-configuration-file.md)

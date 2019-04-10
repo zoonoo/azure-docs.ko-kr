@@ -1,6 +1,6 @@
 ---
 title: Azure에서 PowerShell을 사용하여 Application Insights 설정 | Microsoft Docs
-description: Application Insights에 대한 파이프에 Azure 진단 자동화 구성
+description: Application Insights에 대한 파이프에 Azure Diagnostics 자동화 구성.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle

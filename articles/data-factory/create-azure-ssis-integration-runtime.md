@@ -12,14 +12,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e0f45de51c191f532340179f2477844dfe0b491d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535233"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361479"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS Integration Runtime 만들기
+
 이 문서에서는 ADF(Azure Data Factory)에서 Azure-SSIS IR(Integration Runtime)을 프로비전하는 단계를 제공합니다. 그런 다음, SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 통합 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다.
 
 [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)에서는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스트하기 위해 Azure SQL Database 서버를 사용하여 Azure-SSIS IR을 만드는 방법을 보여줍니다. 이 문서는 자습서를 확장하고 다음 작업을 수행하는 방법을 보여줍니다.
@@ -29,9 +30,10 @@ ms.locfileid: "57535233"
 - 필요에 따라 ADF에서 데이터베이스 서버에 연결되도록 관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용합니다. 필수 요소로, Azure SQL Database 서버/Managed Instance에서 SSISDB를 생성할 수 있는 포함된 데이터베이스 사용자로서 ADF에 대한 관리 ID를 추가해야 합니다. [Azure-SSIS IR을 위한 AAD 인증 사용](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)을 참조하세요.
 
 ## <a name="overview"></a>개요
+
 이 문서에서는 Azure-SSIS IR을 프로비전하는 다양한 방법을 보여줍니다.
 
-- [Azure Portal](#azure-portal)
+- [Azure portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager 템플릿](#azure-resource-manager-template)
 
@@ -50,12 +52,14 @@ Azure-SSIS IR을 프로비전하는 경우 Azure Feature Pack for SSIS 및 Acces
     Azure SQL Database 서버/Managed Instance에 SSISDB가 없어야 합니다. Azure-SSIS IR 프로비전은 기존 SSISDB 사용을 지원하지 않습니다.
 
 - **Azure Resource Manager 가상 네트워크(선택 사항)**. 다음 조건 중 하나 이상에 해당하는 경우 Azure Resource Manager 가상 네트워크가 있어야 합니다.
-    - 가상 네트워크 내의 가상 네트워크 서비스 엔드포인트 또는 Managed Instance를 사용하여 Azure SQL Database 서버에서 SSISDB를 호스팅하고 있습니다.
-    - Azure-SSIS IR에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다.
+
+  - 가상 네트워크 내의 가상 네트워크 서비스 엔드포인트 또는 Managed Instance를 사용하여 Azure SQL Database 서버에서 SSISDB를 호스팅하고 있습니다.
+  - Azure-SSIS IR에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다.
 
 - **Azure PowerShell**. PowerShell 스크립트를 실행하여 Azure-SSIS IR을 프로비전하려는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-az-ps)의 지침을 따릅니다.
 
 ### <a name="region-support"></a>지역 지원
+
 ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지역별 ADF + SSIS IR 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all)을 참조하세요.
 
 ### <a name="compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance"></a>SQL Database 단일 데이터베이스/탄력적 풀 및 SQL Database Managed Instance 비교
@@ -65,7 +69,7 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 | 기능 | 단일 데이터베이스/탄력적 풀| 관리되는 인스턴스 |
 |---------|--------------|------------------|
 | **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[ADF 파이프라인의 패키지 실행 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
-| **인증** | ADF의 관리 ID를 사용하여 모든 AAD 그룹을 **db_owner** 역할의 구성원으로 나타내는 포함된 데이터베이스 사용자로 SSISDB를 만들 수 있습니다.<br/><br/>[Azure SQL Database 서버의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | ADF의 관리 ID를 나타내는 포함된 데이터베이스 사용자를 통해 SSISDB를 만들 수 있습니다. <br/><br/>[Azure SQL Database Managed Instance의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
+| **Authentication** | ADF의 관리 ID를 사용하여 모든 AAD 그룹을 **db_owner** 역할의 구성원으로 나타내는 포함된 데이터베이스 사용자로 SSISDB를 만들 수 있습니다.<br/><br/>[Azure SQL Database 서버의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | ADF의 관리 ID를 나타내는 포함된 데이터베이스 사용자를 통해 SSISDB를 만들 수 있습니다. <br/><br/>[Azure SQL Database Managed Instance의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
 | **서비스 계층** | Azure SQL Database 서버를 통해 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | Managed Instance를 통해 Azure-SSIS IR을 만들 때는 SSISDB의 서비스 계층을 선택할 수 없습니다. Managed Instance의 모든 데이터베이스는 해당 인스턴스에 할당된 동일한 리소스를 공유합니다. |
 | **가상 네트워크** | 가상 네트워크 서비스 엔드포인트가 포함된 Azure SQL Database 서버를 사용하거나 온-프레미스 데이터 저장소에 액세스해야 하는 경우 Azure-SSIS IR에서 조인할 Azure Resource Manager 가상 네트워크만 지원됩니다. | Azure-SSIS IR에서 조인할 Azure Resource Manager 가상 네트워크만 지원됩니다. 가상 네트워크는 항상 필요합니다.<br/><br/>Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우 Azure-SSIS IR은 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링 또는 가상 네트워크 간 연결을 사용하는 것이 좋습니다. [애플리케이션을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요. |
 | **분산 트랜잭션** | 탄력적 트랜잭션을 통해 지원됩니다. MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. SSIS 패키지가 MSDTC를 사용하여 분산형 트랜잭션을 조정할 경우 Azure SQL Database용 탄력적 트랜잭션으로 마이그레이션하는 것을 고려하세요. 자세한 내용은 [클라우드 데이터베이스의 분산 트랜잭션](../sql-database/sql-database-elastic-transactions-overview.md)을 참조하세요. | 지원되지 않습니다. |
@@ -114,11 +118,12 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 1. **작성 및 모니터링**을 클릭하여 별도의 탭에서 Data Factory UI(사용자 인터페이스)를 시작합니다.
 
 ### <a name="provision-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임 프로비전
+
 1. 시작 페이지에서 **SSIS Integration Runtime 구성** 타일을 클릭합니다.
 
    ![SSIS Integration Runtime 구성 타일](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
-1. **Integration Runtime 설정**의 **일반 설정** 페이지에서 다음 단계를 완료합니다.
+2. **Integration Runtime 설정**의 **일반 설정** 페이지에서 다음 단계를 완료합니다.
 
    ![일반 설정](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
@@ -138,7 +143,7 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 
     h. **다음**을 클릭합니다.
 
-1. **SQL 설정** 페이지에서 다음 단계를 완료합니다.
+3. **SQL 설정** 페이지에서 다음 단계를 완료합니다.
 
    ![SQL 설정](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
@@ -158,7 +163,7 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 
     h. **연결 테스트**를 클릭하고, 테스트가 성공하면 **다음**을 클릭합니다.
 
-1.  **고급 설정** 페이지에서 다음 단계를 완료합니다.
+4. **고급 설정** 페이지에서 다음 단계를 완료합니다.
 
     ![고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -166,7 +171,7 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 
     b. **사용자 지정 설치 컨테이너 SAS URI**에는 필요에 따라 설치 스크립트 및 관련 파일이 저장되는 Azure Storage Blob 컨테이너의 SAS(공유 액세스 서명) URI(Uniform Resource Identifier)를 입력합니다. [Azure-SSIS IR에 대한 사용자 지정 설치](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)를 참조하세요.
 
-1. **가상 네트워크 선택...** 확인란에서 통합 런타임을 가상 네트워크에 조인할 것인지 선택합니다. Azure SQL Database를 가상 네트워크 서비스 엔드포인트/Managed Instance와 함께 사용하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스해야 하는 경우(SSIS 패키지에 온-프레미스 데이터 원본/대상이 있는 경우) 이 확인란을 선택합니다. [가상 네트워크에서 Azure-SSIS IR 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요. 선택한 경우 다음 단계를 완료합니다.
+5. **가상 네트워크 선택...** 확인란에서 통합 런타임을 가상 네트워크에 조인할 것인지 선택합니다. Azure SQL Database를 가상 네트워크 서비스 엔드포인트/Managed Instance와 함께 사용하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스해야 하는 경우(SSIS 패키지에 온-프레미스 데이터 원본/대상이 있는 경우) 이 확인란을 선택합니다. [가상 네트워크에서 Azure-SSIS IR 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요. 선택한 경우 다음 단계를 완료합니다.
 
    ![가상 네트워크 관련 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
@@ -180,40 +185,43 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 
     e. **서브넷 이름**에서 가상 네트워크의 서브넷 이름을 선택합니다. 이 서브넷은 Managed Instance에서 SSISDB를 호스팅하는 데 사용되는 것과 다른 서브넷이어야 합니다.
 
-1. **VNet 유효성 검사**를 클릭하고, 성공하면 **마침**을 클릭하여 Azure-SSIS 통합 런타임의 만들기를 시작합니다.
+6. **VNet 유효성 검사**를 클릭하고, 성공하면 **마침**을 클릭하여 Azure-SSIS 통합 런타임의 만들기를 시작합니다.
 
     > [!IMPORTANT]
     > - 이 프로세스를 완료하는 데 약 20~30분이 걸립니다.
     > - Data Factory 서비스는 Azure SQL Database에 연결하여 SSISDB(SSIS 카탈로그 데이터베이스)를 준비합니다. 또한 이 서비스는 가상 네트워크에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS 통합 런타임의 새 인스턴스를 가상 네트워크에 조인합니다.
 
-1. 필요한 경우 **연결** 창에서 **Integration Runtime**으로 전환합니다. **새로 고침**을 클릭하여 상태를 새로 고칩니다.
+7. 필요한 경우 **연결** 창에서 **Integration Runtime**으로 전환합니다. **새로 고침**을 클릭하여 상태를 새로 고칩니다.
 
    ![만들기 상태](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
 
-1. **작업** 열 아래의 링크를 사용하여 통합 런타임을 중지/시작, 편집 또는 삭제합니다. 마지막 링크를 사용하여 통합 런타임에 대한 JSON 코드를 살펴봅니다. 편집 및 삭제 단추는 IR이 중지된 경우에만 활성화됩니다.
+8. **작업** 열 아래의 링크를 사용하여 통합 런타임을 중지/시작, 편집 또는 삭제합니다. 마지막 링크를 사용하여 통합 런타임에 대한 JSON 코드를 살펴봅니다. 편집 및 삭제 단추는 IR이 중지된 경우에만 활성화됩니다.
 
    ![Azure SSIS IR - 작업](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png)
 
 ### <a name="azure-ssis-integration-runtimes-in-the-portal"></a>포털의 Azure SSIS 통합 런타임
+
 1. Azure Data Factory UI에서 **편집** 탭으로 전환하고, **연결**을 클릭한 다음, **Integration Runtime** 탭으로 전환하여 데이터 팩터리에서 기존 통합 런타임을 살펴봅니다.
 
    ![기존 IR 보기](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
-1. **새로 만들기**를 클릭하여 새운 Azure-SSIS IR을 만듭니다.
+2. **새로 만들기**를 클릭하여 새운 Azure-SSIS IR을 만듭니다.
 
    ![메뉴를 통한 통합 런타임](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. Azure-SSIS 통합 런타임을 만들려면 이미지에서 표시한 대로 **새로 만들기**를 클릭합니다.
-1. [Integration Runtime 설정] 창에서 **Lift-and-shift existing SSIS packages to execute in Azure**(Azure에서 실행할 기존 SSIS 패키지를 리프트 앤 시프트합니다.)를 선택하고, **다음**을 클릭합니다.
+3. Azure-SSIS 통합 런타임을 만들려면 이미지에서 표시한 대로 **새로 만들기**를 클릭합니다.
+4. [Integration Runtime 설정] 창에서 **Lift-and-shift existing SSIS packages to execute in Azure**(Azure에서 실행할 기존 SSIS 패키지를 리프트 앤 시프트합니다.)를 선택하고, **다음**을 클릭합니다.
 
    ![통합 런타임 유형 지정](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 
-1. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요.
+5. Azure-SSIS IR을 설정하기 위한 나머지 단계는 [Azure SSIS 통합 런타임 프로비전](#provision-an-azure-ssis-integration-runtime) 섹션을 참조하세요.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
 이 섹션에서는 Azure PowerShell을 사용하여 Azure-SSIS IR을 만듭니다.
 
 ### <a name="create-variables"></a>변수 만들기
+
 이 자습서에서 스크립트에 사용할 변수를 정의합니다.
 
 ```powershell
@@ -254,8 +262,9 @@ $SSISDBServerAdminPassword = "[your server admin password for SQL authentication
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
-### <a name="log-in-and-select-subscription"></a>로그인 및 구독 선택
-스크립트에 다음 코드를 추가하여 로그인하고 Azure 구독을 선택합니다.
+### <a name="sign-in-and-select-subscription"></a>로그인 및 구독 선택
+
+다음 코드에 로그인 하 고 Azure 구독을 선택 하는 스크립트를 추가 합니다.
 
 ```powershell
 Connect-AzAccount
@@ -263,6 +272,7 @@ Select-AzSubscription -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="validate-the-connection-to-database"></a>데이터베이스에 대한 연결 유효성 검사
+
 Azure SQL Database 서버 엔드포인트의 유효성을 검사하려면 다음 스크립트를 추가합니다.
 
 ```powershell
@@ -292,6 +302,7 @@ if([string]::IsNullOrEmpty($VnetId) -and [string]::IsNullOrEmpty($SubnetName))
 ```
 
 ### <a name="configure-virtual-network"></a>가상 네트워크 구성
+
 다음 스크립트를 추가하여 조인할 Azure-SSIS Integration Runtime에 대한 가상 네트워크 권한/설정을 자동으로 구성합니다.
 
 ```powershell
@@ -315,13 +326,15 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 ```
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-만들기는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 를 사용 하 여 합니다 [새로 만들기-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령입니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
+
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
 ```powershell
 New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
 ### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+
 다음 명령을 실행하여 데이터 팩터리를 만듭니다.
 
 ```powershell
@@ -331,6 +344,7 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 
 ### <a name="create-an-integration-runtime"></a>Integration Runtime 만들기
+
 다음 명령을 실행하여 Azure에서 SSIS 패키지를 실행하는 Azure-SSIS 통합 런타임을 만듭니다.
 
 가상 네트워크 서비스 엔드포인트/Managed Instance가 포함된 Azure SQL Database를 사용하여 SSISDB를 호스팅하지 않으며 온-프레미스 데이터에도 액세스할 필요가 없다면 VNetId 및 Subnet 매개 변수를 생략하거나 이러한 매개 변수에 빈 값을 전달할 수 있습니다. 그렇지 않으면 생략할 수 없으며 가상 네트워크 구성에서 유효한 값을 전달해야 합니다. [Azure-SSIS IR을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
@@ -379,6 +393,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNull
 ```
 
 ### <a name="start-integration-runtime"></a>Integration Runtime 시작
+
 다음 명령을 실행하여 Azure-SSIS Integration Runtime을 시작합니다.
 
 ```powershell
@@ -395,6 +410,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 이 명령은 완료하는 데 **20-30분** 정도 걸립니다.
 
 ### <a name="full-script"></a>전체 스크립트
+
 다음은 Azure-SSIS 통합 런타임을 만드는 전체 스크립트입니다.
 
 ```powershell
@@ -537,13 +553,14 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
+
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 Azure-SSIS 통합 런타임을 만듭니다. 다음은 샘플 연습입니다.
 
 1. 다음 Azure Resource Manager 템플릿을 사용하여 JSON 파일을 만듭니다. 꺾쇠 괄호(자리 표시자)의 값을 사용자 고유의 값으로 바꿉니다.
 
     ```json
     {
-        "contentVersion": "1.0.0.0",
+      "contentVersion": "1.0.0.0",
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "parameters": {},
         "variables": {},
@@ -584,8 +601,8 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
         }]
     }
     ```
-    
-1. Azure Resource Manager 템플릿을 배포 하려면 다음 예제에서 ADFTutorialResourceGroup은 리소스 그룹의 이름에 대 한 JSON 정의 포함 하는 파일이 ADFTutorialARM.json 않았고에 표시 된 대로 새 AzResourceGroupDeployment 명령 실행 데이터 팩터리 및 Azure 기능.
+
+2. Azure Resource Manager 템플릿을 배포 하려면 다음 예제에서 ADFTutorialResourceGroup은 리소스 그룹의 이름에 대 한 JSON 정의 포함 하는 파일이 ADFTutorialARM.json 않았고에 표시 된 대로 새 AzResourceGroupDeployment 명령 실행 데이터 팩터리 및 Azure 기능.
 
     ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
@@ -593,7 +610,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
     이 명령은 데이터 팩터리를 만들고 그 안에 Azure-SSIS IR을 만들지만 IR을 시작하지는 않습니다.
 
-1. Azure SSIS IR 프로그램을 시작 하려면 시작 AzDataFactoryV2IntegrationRuntime 명령을 실행 합니다.
+3. Azure SSIS IR 프로그램을 시작 하려면 시작 AzDataFactoryV2IntegrationRuntime 명령을 실행 합니다.
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name>" `
@@ -603,9 +620,11 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
     ```
 
 ## <a name="deploy-ssis-packages"></a>SSIS 패키지 배포
+
 이제 SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에 SSIS 패키지를 배포합니다. SSIS 카탈로그(SSISDB)를 호스팅하는 데이터베이스 서버에 연결합니다. 데이터베이스 서버의 이름은 다음과 같은 형식입니다. &lt;Azure SQL Database 서버 이름&gt;.database.windows.net 또는 &lt;Managed Instance 이름.DNS prefix&gt;.database.windows.net. 자세한 지침은 [패키지 배포](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 설명서의 다른 Azure-SSIS IR 항목을 참조하세요.
 
 - [Azure-SSIS 통합 런타임](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다.

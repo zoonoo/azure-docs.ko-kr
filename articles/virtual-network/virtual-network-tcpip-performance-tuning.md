@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276527"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426446"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 튜닝 TCP/IP 성능
 
@@ -85,7 +85,7 @@ Vm의 1,500 MTU 없는 경우에 1,400 바이트에서 패킷을 조각화 때�
 
 #### <a name="azure-and-fragmentation"></a>Azure 및 조각화
 
-"순서가 조각을" 원래 조각화 된 순서 대로 도착 하지 조각화 된 패킷이, 삭제 하려면 가상 네트워크 스택이 설정 됩니다. 이러한 패킷은 FragmentStack 호출 2018 년 11 월에에서 발표 하는 네트워크 보안 취약점으로 인해 주로 삭제 됩니다.
+"순서가 조각을" 원래 조각화 된 순서 대로 도착 하지 조각화 된 패킷이, 삭제 하려면 가상 네트워크 스택이 설정 됩니다. 이러한 패킷은 FragmentSmack 호출 2018 년 11 월에에서 발표 하는 네트워크 보안 취약점으로 인해 주로 삭제 됩니다.
 
 FragmentSmack은 조각화 된 IPv4 및 IPv6 패킷 리어셈블리를 처리 하는 Linux 커널 방식이 결함입니다. 원격 공격자가이 결함 대상 시스템에 향상 된 CPU 및 서비스 거부가 발생할 수 있는 트리거 비용이 많이 드는 조각 리어셈블리 작업을 사용할 수 있습니다.
 

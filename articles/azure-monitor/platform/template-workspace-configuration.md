@@ -148,7 +148,7 @@ ms.locfileid: "58540774"
 6. Linux 컴퓨터에서 syslog 이벤트 수집
 7. Windows 컴퓨터에서 애플리케이션 이벤트 로그의 오류 및 경고 이벤트 수집
 8. Windows 컴퓨터에서 사용 가능한 메모리(MB) 성능 카운터 수집
-9. Azure 진단을 통해 저장소 계정에 기록한 Windows 이벤트 로그 및 IIS 로그 수집
+9. Azure 진단을 통해 스토리지 계정에 기록한 Windows 이벤트 로그 및 IIS 로그 수집
 
 ```json
 {

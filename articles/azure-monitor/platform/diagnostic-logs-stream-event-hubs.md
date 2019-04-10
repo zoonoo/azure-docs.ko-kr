@@ -193,7 +193,7 @@ Event Hubs로의 스트리밍을 지원하는 모든 리소스 공급자의 목�
 
 ## <a name="stream-data-from-compute-resources"></a>Compute 리소스의 스트림 데이터
 
-Windows Azure 진단 에이전트를 사용하여 Compute 리소스에서 진단 로그를 스트림할 수도 있습니다. 설정하는 방법은 [이 문서를 참조](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)하세요.
+Windows Azure Diagnostics 에이전트를 사용하여 Compute 리소스에서 진단 로그를 스트림할 수도 있습니다. 설정하는 방법은 [이 문서를 참조](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

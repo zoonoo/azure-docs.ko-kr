@@ -1,6 +1,6 @@
 ---
-title: Windows용 Azure 진단 확장 | Microsoft Azure
-description: Azure 진단 확장을 사용하여 Azure Windows VM 모니터링
+title: Windows용 Azure Diagnostics 확장 | Microsoft Docs
+description: Azure Diagnostics 확장을 사용하여 Azure Windows VM 모니터링
 services: virtual-machines-windows
 documentationcenter: ''
 author: johnkemnetz
@@ -14,26 +14,26 @@ ms.date: 04/06/2018
 ms.author: johnkem
 ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55982797"
 ---
-# <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure 진단 확장
+# <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure Diagnostics 확장
 
 ## <a name="overview"></a>개요
 
-Azure 진단 VM 확장을 사용하면 Windows VM에서 모니터링 데이터(예: 성능 카운터 및 이벤트 로그)를 수집할 수 있습니다. 수집하려는 데이터와 데이터를 저장할 위치(예: Azure Storage 계정 또는 Azure Event Hub)를 세분화하여 지정할 수 있습니다. 이 데이터를 사용하여 Azure Portal에서 차트를 작성하거나 메트릭 경고를 만들 수도 있습니다.
+Azure Diagnostics VM 확장을 사용하면 Windows VM에서 모니터링 데이터(예: 성능 카운터 및 이벤트 로그)를 수집할 수 있습니다. 수집하려는 데이터와 데이터를 저장할 위치(예: Azure Storage 계정 또는 Azure Event Hub)를 세분화하여 지정할 수 있습니다. 이 데이터를 사용하여 Azure Portal에서 차트를 작성하거나 메트릭 경고를 만들 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 
-Azure 진단 확장은 Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2 및 2016에 대해 실행할 수 있습니다.
+Azure Diagnostics 확장은 Windows 10 Client, Windows Server 2008 R2, 2012, 2012 R2 및 2016에 대해 실행할 수 있습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-Azure 진단 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
+Azure Diagnostics 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -41,11 +41,11 @@ Azure 진단 확장은 대상 가상 머신이 인터넷에 연결되어 있어�
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 Azure 진단 확장을 실행할 수 있습니다. [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](extensions-diagnostics-template.md)을 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 Azure Diagnostics 확장을 실행할 수 있습니다. [Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용](extensions-diagnostics-template.md)을 참조하세요.
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 Azure 진단 확장을 기존 가상 머신에 배포할 수 있습니다. 보호된 설정 및 설정 속성을 위의 확장 스키마의 유효한 JSON으로 바꿉니다. 
+Azure CLI를 사용하여 Azure Diagnostics 확장을 기존 가상 머신에 배포할 수 있습니다. 보호된 설정 및 설정 속성을 위의 확장 스키마의 유효한 JSON으로 바꿉니다. 
 
 ```azurecli
 az vm extension set \

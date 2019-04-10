@@ -1,6 +1,6 @@
 ---
-title: Application Insights에 데이터를 보내도록 Azure 진단 구성
-description: Application Insights에 데이터를 보내도록 Azure 진단 공용 구성을 업데이트 합니다.
+title: Application Insights에 데이터를 보내도록 Azure Diagnostics 구성
+description: Application Insights에 데이터를 보내도록 Azure Diagnostics 공용 구성을 업데이트 합니다.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -10,15 +10,15 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f7e21b805c64522005dce3e7d04aa158e1c21032
 ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55892860"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
-클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure 진단 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure 진단 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 집합이나 전체를 파이핑할 수 있습니다.
+클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure Diagnostics 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure Diagnostics 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 세트나 전체를 파이핑할 수 있습니다.
 
-이 문서에서는 Azure 진단 확장에서 Application Insights에 데이터를 전송하는 방법을 설명합니다.
+이 문서에서는 Azure Diagnostics 확장에서 Application Insights에 데이터를 전송하는 방법을 설명합니다.
 
 ## <a name="diagnostics-configuration-explained"></a>설명한 진단 구성
 Azure 진단 확장 1.5는 진단 데이터를 보낼 수 있는 추가 위치인 싱크에 소개되었습니다.

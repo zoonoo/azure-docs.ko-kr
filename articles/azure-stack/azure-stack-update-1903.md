@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/09/2019
-ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360562"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471480"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 업데이트
 
@@ -97,7 +97,8 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - 실행할 때 [테스트 AzureStack](azure-stack-diagnostic-test.md), 베이스 보드 관리 컨트롤러 (BMC)에서 경고 메시지가 표시 됩니다. 이 경고를 안전 하 게 무시할 수 있습니다.
 
-- <!-- 2468613 - IS --> 이 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 **오류 – FaultType UserAccounts.New 템플릿을 누락 되었습니다.** 이러한 경고를 안전 하 게 무시할 수 있습니다. 이 업데이트의 설치가 완료 된 후 경고를 자동으로 닫습니다.
+<!-- 2468613 - IS -->
+- 이 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 **오류 – FaultType 사용자 계정에 대 한 템플릿. 새로운이 없습니다.** 이러한 경고를 안전 하 게 무시할 수 있습니다. 이 업데이트의 설치가 완료 된 후 경고를 자동으로 닫습니다.
 
 ## <a name="post-update-steps"></a>업데이트 후 단계
 
@@ -124,10 +125,15 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 - 분리 된 리소스에서 사용자 구독 결과 삭제합니다. 대 안으로 사용자 리소스 또는 전체 리소스 그룹을 삭제 하 고 사용자 구독을 삭제 합니다.
 
 <!-- 1663805 - IS ASDK --> 
-- Azure Stack 포털을 사용 하 여 구독에 사용 권한을 확인할 수 없습니다. 대 안으로 사용 하 여 [사용 권한을 확인 하려면 PowerShell](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan)합니다.
+- Azure Stack 포털을 사용 하 여 구독에 사용 권한을 확인할 수 없습니다. 대 안으로 사용 하 여 [사용 권한을 확인 하려면 PowerShell](/powershell/module/azurerm.resources/get-azurermroleassignment)합니다.
 
 <!-- Daniel 3/28 -->
-- 사용자 포털에서 저장소 계정 내의 blob을 이동할를 열려고 **액세스 정책** 탐색 트리에서 후속 창을 로드 하지 못했습니다.
+- 사용자 포털에서 저장소 계정 내의 blob을 이동할를 열려고 **액세스 정책** 탐색 트리에서 후속 창을 로드 하지 못했습니다. 이 문제를 해결 하려면 다음 PowerShell cmdlet을 사용 하도록 설정 만들기, 검색, 설정 및 각각 액세스 정책을 삭제 합니다.
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - 사용자 포털을 사용 하 여 blob을 업로드 하려고 할 때에 **OAuth(preview)** 옵션 작업이 오류 메시지와 함께 실패 합니다. 이 문제를 해결 하려면 사용 하 여 blob을 업로드 합니다 **SAS** 옵션입니다.
@@ -157,17 +163,16 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM는 SSH 키를 사용 하 여 로그인 할 수 없습니다. 이 문제를 해결 하려면 Linux 확장에 대 한 VM 액세스 프로 비전 한 후 SSH 키를 구현 하는 데 또는 암호 기반 인증을 사용 합니다.
 
-- 이제 azure Stack 2.2.20 버전 보다 높은 경우 Windows Azure Linux 에이전트를 지원합니다. 이 지원은 1901 및 1902 핫픽스 속해와 고객은 Azure 및 Azure Stack 간의 일관 된 linux 이미지를 유지 관리할 수 있습니다.
-
+- 이제 azure Stack 2.2.20 버전 보다 높은 경우 Windows Azure Linux 에이전트를 지원합니다. 이 지원은 1901 및 1902 핫픽스 속해와 고객은 Azure 및 Azure Stack 간의 일관 된 Linux 이미지를 유지 관리할 수 있습니다.
 
 - 하드웨어 수명 주기 호스트 (HLH) 없는 경우: 1902 빌드 전에 그룹 정책 설정 해야 **컴퓨터 구성 설정 \ 보안 설정 \ 로컬 정책 \ 보안 옵션** 에 **lm NTLM – 협상 하는 경우 NTLMv2 세션 보안을 사용 하 여**입니다. 1902 빌드 후 두어야 그대로 **정의 되어 있지** 로 설정 하거나 **NTLMv2 응답만 보내기** (기본값은)는입니다. 그렇지 않으면 PowerShell 원격 세션을 설정할 수 없습니다 하 고 표시 됩니다는 **액세스가 거부 되었습니다.** 오류:
 
-   ```shell
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905206"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426507"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -77,7 +77,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 > 탄력적 풀 및 관리 되는 인스턴스에 포함 된 데이터베이스에서 별도 진단 원격 분석을 사용 하는 자체에 있습니다. 이 아래 설명 된 대로 진단 원격 분석 이러한 리소스를 각각에 대해 별도로 구성 된 것을 명심 해야 합니다.
 
 > [!NOTE]
-> 보안 감사 및 SQLSecurityAuditEvents 로그 데이터베이스 진단 설정에서 사용할 수 없습니다. 감사 로그 스트리밍을 사용 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2), 및 [Azure Monitor 로그 및 Azure Event Hubs에서 로그 감사](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)합니다.
+> 보안 감사 및 SQLSecurityAuditEvents 로그 (화면에 표시) 하지만 데이터베이스 진단 설정에서 사용할 수 없습니다. 감사 로그 스트리밍을 사용 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2), 및 [Azure Monitor 로그 및 Azure Event Hubs에서 로그 감사](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)합니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -141,7 +141,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 1. 모니터링 하려는 각 데이터베이스에 대해 이러한 단계를 반복 합니다.
 
 > [!NOTE]
-> 보안 감사 및 SQLSecurityAuditEvents 로그 데이터베이스 진단 설정에서 사용할 수 없습니다. 감사 로그 스트리밍을 사용 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2), 및 [Azure Monitor 로그 및 Azure Event Hubs에서 로그 감사](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)합니다.
+> 보안 감사 및 SQLSecurityAuditEvents 로그 (화면에 표시) 하지만 데이터베이스 진단 설정에서 사용할 수 없습니다. 감사 로그 스트리밍을 사용 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2), 및 [Azure Monitor 로그 및 Azure Event Hubs에서 로그 감사](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)합니다.
 > [!TIP]
 > 모니터링하려는 각 Azure SQL Database에 대해 이러한 단계를 반복합니다.
 

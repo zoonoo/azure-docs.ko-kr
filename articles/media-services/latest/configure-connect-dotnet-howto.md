@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273977"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361246"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>.NET으로 Media Services v3 API에 연결
 
@@ -35,7 +35,7 @@ ms.locfileid: "59273977"
 1. **파일** 메뉴에서 클릭 **새로 만들기** > **프로젝트**합니다. 
 1. 만들기는 **.NET Core** 콘솔 응용 프로그램입니다.
 
-이 항목에서는 샘플 앱을 대상으로 `netcoreapp2.0`입니다. 코드를 사용 하 여 'async main'부터 사용할 수 있는 C# 7.1 합니다. 이 참조 하세요 [블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 대 한 자세한 내용은 합니다.
+이 항목에서는 샘플 앱을 대상으로 `netcoreapp2.0`입니다. 코드에서는 '비동기 기본'부터 사용할 수 있는 C# 7.1 합니다. 이 참조 하세요 [블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 대 한 자세한 내용은 합니다.
 
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
@@ -223,7 +223,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 - [자습서: 업로드, 인코딩 및 스트리밍 비디오-.NET](stream-files-tutorial-with-api.md) 
 - [자습서: Media Services v3-.NET을 사용 하 여 live Stream](stream-live-tutorial-with-api.md)
@@ -237,6 +237,6 @@ namespace ConsoleApp1
 - [Media Services-.NET을 사용 하 여 필터 만들기](filters-dynamic-manifest-dotnet-howto.md)
 - [Media Services v3 사용 하 여 Azure Functions v2의 비디오-주문형 예제를 고급](https://aka.ms/ams3functions)
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

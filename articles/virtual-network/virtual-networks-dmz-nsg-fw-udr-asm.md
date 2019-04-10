@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277421"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426531"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>예 3: 방화벽, UDR 및 Nsg를 사용 하 여 네트워크를 보호 하는 경계 네트워크 빌드
 
@@ -396,7 +396,7 @@ DNS 서버 개체:
     > [!TIP]
     > 이 예제에서는 규칙을 사용 하지만 `<explicit-dest>` 참조, 방화벽 구성에서 일관 된 방법을 사용 해야 합니다. 쉽게 가독성 및 지원 가능성에 대 한 명명 된 네트워크 개체를 사용 하는 것이 좋습니다. `<explicit-dest>` 를에서는 대체 참조 방법을 보여주기가 여기에 표시 됩니다. 없는 일반적으로 좋습니다, 특히 복잡 한 구성에 대 한 합니다.
 
-* **인터넷에 아웃 바운드 규칙**: 이 전달 규칙에는 선택한 대상 네트워크로 전달 되도록 원본 네트워크 트래픽을 허용 합니다. Barracuda NextGen 방화벽 일반적으로 규칙이이이 "on" 비활성화 된 상태로 있지만 기본적으로 합니다. 에 액세스 하려면이 규칙을 마우스 오른쪽 단추로 클릭 합니다 **활성화 규칙** 명령입니다. 이 규칙의 원본 특성에 백 엔드 및 프런트 엔드 서브넷에 대 한 네트워크 개체를 추가 하려면 스크린샷에 표시 된 규칙을 수정 합니다. 이 문서의 필수 구성 요소 섹션에서 이러한 네트워크 개체를 만들었습니다.
+* **인터넷에 아웃 바운드 규칙**: 이 전달 규칙에는 선택한 대상 네트워크로 전달 되도록 원본 네트워크 트래픽을 허용 합니다. Barracuda NextGen 방화벽 일반적으로 규칙이이 "on" 비활성화 된 상태로 있지만 기본적으로 합니다. 에 액세스 하려면이 규칙을 마우스 오른쪽 단추로 클릭 합니다 **활성화 규칙** 명령입니다. 이 규칙의 원본 특성에 백 엔드 및 프런트 엔드 서브넷에 대 한 네트워크 개체를 추가 하려면 스크린샷에 표시 된 규칙을 수정 합니다. 이 문서의 필수 구성 요소 섹션에서 이러한 네트워크 개체를 만들었습니다.
   
     ![방화벽 아웃바운드 규칙][14]
 

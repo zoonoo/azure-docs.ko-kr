@@ -1,5 +1,5 @@
 ---
-title: Azure 진단 확장 1.2 구성 스키마
+title: Azure Diagnostics 확장 1.2 구성 스키마
 description: Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 또는 Cloud Services에서 Azure SDK 2.5를 사용하는 경우에만 해당됩니다.
 services: azure-monitor
 author: rboucher
@@ -16,12 +16,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58486158"
 ---
-# <a name="azure-diagnostics-12-configuration-schema"></a>Azure 진단 1.2 구성 스키마
+# <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 구성 스키마
 > [!NOTE]
-> Azure 진단은 Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 및 기타 통계를 수집하는 데 사용되는 구성 요소입니다.  이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
+> Azure Diagnostics는 Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 및 기타 통계를 수집하는 데 사용되는 구성 요소입니다.  이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
 >
 
-Azure 진단은 Azure Monitor, Application Insights 및 Log Analytics와 같은 기타 Microsoft 진단 제품과 함께 사용됩니다.
+Azure Diagnostics는 Azure Monitor, Application Insights 및 Log Analytics와 같은 기타 Microsoft 진단 제품과 함께 사용됩니다.
 
 이 스키마는 진단 모니터가 시작될 때 진단 구성 설정을 초기화하는 데 사용할 수 있는 값을 정의합니다.  
 
@@ -32,7 +32,7 @@ Azure 진단은 Azure Monitor, Application Insights 및 Log Analytics와 같은 
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
- Azure 진단에 대한 자세한 내용은 [Azure Cloud Services에서 진단을 사용하도록 설정](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/)을 참조하세요.  
+ Azure Diagnostics에 대한 자세한 내용은 [Azure Cloud Services에서 진단을 사용하도록 설정](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/)을 참조하세요.  
 
 ## <a name="example-of-the-diagnostics-configuration-file"></a>진단 구성 파일 예제  
  다음 예제에서는 일반적인 진단 구성 파일을 보여 줍니다.  
@@ -109,7 +109,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|필수 사항입니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **overallQuotaInMB** - Azure 진단으로 수집된 진단 데이터의 다양한 형식에서 사용될 수 있는 로컬 디스크 공간의 최대 크기입니다. 기본 설정은 5120MB입니다.<br /><br /> -                     **useProxyServer** - IE 설정에서 설정한 대로 프록시 서버 설정을 사용하도록 Azure 진단을 구성합니다.|  
 |**CrashDumps**|크래시 덤프의 수집을 사용하도록 설정합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **containerName** - 크래시 덤프를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.<br /><br /> -                     **crashDumpType** - 최소 또는 전체 크래시 덤프를 수집하도록 Azure 진단을 구성합니다.<br /><br /> -                     **directoryQuotaPercentage**- VM에서 크래시 덤프에 대해 예약될 **overallQuotaInMB**의 비율을 구성합니다.|  
-|**DiagnosticInfrastructureLogs**|Azure 진단에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 |**Directories**|디렉터리, IIS 실패한 액세스 요청 로그 및/또는 IIS 로그의 콘텐츠 수집을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 |**EtwProviders**|EventSource의 ETW 이벤트 및/또는 공급자를 기반으로 하는 ETW 매니페스트의 컬렉션을 구성합니다.|  
 |**Metrics**(메트릭)|이 요소는 빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있도록 합니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다. 필수 특성:<br /><br /> **resourceId** - 이는 Azure 진단을 배포하는 Virtual Machine의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드입에서 값을 복사합니다.|  
@@ -122,7 +122,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |요소 이름|설명|  
 |------------------|-----------------|  
 |**CrashDumpConfiguration**|필수 사항입니다. 필수 특성:<br /><br /> **processName** - Azure 진단에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
-|**crashDumpType**|최소 또는 전체 크래시 덤프를 수집하도록 Azure 진단을 구성합니다.|  
+|**crashDumpType**|최소 또는 전체 크래시 덤프를 수집하도록 Azure Diagnostics를 구성합니다.|  
 |**directoryQuotaPercentage**|VM에서 크래시 덤프에 대해 예약될 **overallQuotaInMB**의 비율을 구성합니다.|  
 
 ## <a name="directories-element"></a>Directories 요소  

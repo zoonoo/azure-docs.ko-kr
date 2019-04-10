@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540048"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426192"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트에서 Azure Monitor에 Nagios 및 Zabbix의 경고 수집 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Nagios에서 수집된 경고는 **경고**의 **형식** 및 **Nagios**의 **So
 
 | 자산 | 설명 |
 |:--- |:--- |
-| Type |*경고* |
-| SourceSystem |*Nagios* |
-| AlertName |경고의 이름입니다. |
-| AlertDescription | 경고에 대한 설명입니다. |
-| AlertState | 서비스 또는 호스트의 상태입니다.<br><br>확인<br>경고<br>위로<br>아래로 |
-| HostName | 경고를 생성한 호스트의 이름입니다. |
-| PriorityNumber | 경고의 우선 순위 수준입니다. |
-| StateType | 경고 상태의 형식입니다.<br><br>소프트 - 다시 확인되지 않은 문제입니다.<br>하드 - 특정 횟수를 다시 확인한 문제입니다.  |
-| TimeGenerated |경고가 만들어진 날짜 및 시간입니다. |
+| `Type` |*경고* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |경고의 이름입니다. |
+| `AlertDescription` | 경고에 대한 설명입니다. |
+| `AlertState` | 서비스 또는 호스트의 상태입니다.<br><br>확인<br>경고<br>위로<br>아래로 |
+| `HostName` | 경고를 생성한 호스트의 이름입니다. |
+| `PriorityNumber` | 경고의 우선 순위 수준입니다. |
+| `StateType` | 경고 상태의 형식입니다.<br><br>소프트 - 다시 확인되지 않은 문제입니다.<br>하드 - 특정 횟수를 다시 확인한 문제입니다.  |
+| `TimeGenerated` |경고가 만들어진 날짜 및 시간입니다. |
 
 
 ### <a name="zabbix-alert-records"></a>Zabbix 경고 레코드
@@ -108,17 +108,17 @@ Zabbix에서 수집된 경고는 **경고**의 **형식** 및 **Zabbix**의 **So
 
 | 자산 | 설명 |
 |:--- |:--- |
-| Type |*경고* |
-| SourceSystem |*Zabbix* |
-| AlertName | 경고의 이름입니다. |
-| AlertPriority | 경고의 심각도입니다.<br><br>분류되지 않음<br>정보<br>Warning<br>average<br>높음<br>심각  |
-| AlertState | 경고의 상태입니다.<br><br>0 - 최신 상태입니다.<br>1 - 상태를 알 수 없습니다.  |
-| AlertTypeNumber | 경고가 여러 문제 이벤트를 생성할 수 있는지 여부를 지정합니다.<br><br>0 - 최신 상태입니다.<br>1 - 상태를 알 수 없습니다.    |
-| 설명 | 경고에 대한 추가 설명입니다. |
-| HostName | 경고를 생성한 호스트의 이름입니다. |
-| PriorityNumber | 경고의 심각도를 나타내는 값입니다.<br><br>0 - 분류되지 않음<br>1 - 정보<br>2 - 경고<br>3 - 평균<br>4 - 높음<br>5 - 심각 |
-| TimeGenerated |경고가 만들어진 날짜 및 시간입니다. |
-| TimeLastModified |경고의 상태가 마지막 변경된 날짜 및 시간입니다. |
+| `Type` |*경고* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | 경고의 이름입니다. |
+| `AlertPriority` | 경고의 심각도입니다.<br><br>분류되지 않음<br>정보<br>Warning<br>average<br>높음<br>심각  |
+| `AlertState` | 경고의 상태입니다.<br><br>0 - 최신 상태입니다.<br>1 - 상태를 알 수 없습니다.  |
+| `AlertTypeNumber` | 경고가 여러 문제 이벤트를 생성할 수 있는지 여부를 지정합니다.<br><br>0 - 최신 상태입니다.<br>1 - 상태를 알 수 없습니다.    |
+| `Comments` | 경고에 대한 추가 설명입니다. |
+| `HostName` | 경고를 생성한 호스트의 이름입니다. |
+| `PriorityNumber` | 경고의 심각도를 나타내는 값입니다.<br><br>0 - 분류되지 않음<br>1 - 정보<br>2 - 경고<br>3 - 평균<br>4 - 높음<br>5 - 심각 |
+| `TimeGenerated` |경고가 만들어진 날짜 및 시간입니다. |
+| `TimeLastModified` |경고의 상태가 마지막 변경된 날짜 및 시간입니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

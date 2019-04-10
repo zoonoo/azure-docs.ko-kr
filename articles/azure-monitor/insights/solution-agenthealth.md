@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757956"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426225"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
 Azure에서 에이전트 상태 솔루션을 통해 모든 Azure Monitor에서 Log Analytics 작업 영역에 보고 에이전트에 대 한 이해 수 또는 응답 하지 않은 Azure Monitor에 연결 된 System Center Operations Manager 관리 그룹 및 운영 데이터를 제출합니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
@@ -76,21 +76,21 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 | 자산 | 설명 |
 | --- | --- |
-| Type | *하트비트*|
-| Category | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버*합니다.|
-| Computer | 컴퓨터 이름입니다.|
-| OSType | Windows 또는 Linux 운영 체제입니다.|
-| OSMajorVersion | 운영 체제의 주 버전입니다.|
-| OSMinorVersion | 운영 체제의 부 버전입니다.|
-| 버전 | Log Analytics 에이전트 또는 Operations Manager 에이전트 버전입니다.|
-| SCAgentChannel | 값은 *직접* 및/또는 *SCManagementServer*합니다.|
-| IsGatewayInstalled | Log Analytics 게이트웨이가 설치된 경우 값은 *true*이거나, 그렇지 않으면 *false*입니다.|
-| ComputerIP | 컴퓨터의 IP 주소입니다.|
-| RemoteIPCountry | 컴퓨터가 배포된 지리적 위치입니다.|
-| ManagementGroupName | Operations Manager 관리 그룹의 이름입니다.|
-| SourceComputerId | 컴퓨터의 고유 ID입니다.|
-| RemoteIPLongitude | 컴퓨터 지리적 위치의 경도입니다.|
-| RemoteIPLatitude | 컴퓨터 지리적 위치의 위도입니다.|
+| `Type` | *Heartbeat*|
+| `Category` | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버*합니다.|
+| `Computer` | 컴퓨터 이름입니다.|
+| `OSType` | Windows 또는 Linux 운영 체제입니다.|
+| `OSMajorVersion` | 운영 체제의 주 버전입니다.|
+| `OSMinorVersion` | 운영 체제의 부 버전입니다.|
+| `Version` | Log Analytics 에이전트 또는 Operations Manager 에이전트 버전입니다.|
+| `SCAgentChannel` | 값은 *직접* 및/또는 *SCManagementServer*합니다.|
+| `IsGatewayInstalled` | Log Analytics 게이트웨이가 설치된 경우 값은 *true*이거나, 그렇지 않으면 *false*입니다.|
+| `ComputerIP` | 컴퓨터의 IP 주소입니다.|
+| `RemoteIPCountry` | 컴퓨터가 배포된 지리적 위치입니다.|
+| `ManagementGroupName` | Operations Manager 관리 그룹의 이름입니다.|
+| `SourceComputerId` | 컴퓨터의 고유 ID입니다.|
+| `RemoteIPLongitude` | 컴퓨터 지리적 위치의 경도입니다.|
+| `RemoteIPLatitude` | 컴퓨터 지리적 위치의 위도입니다.|
 
 Operations Manager 관리 서버에 보고 하는 각 에이전트는 두 개의 하트 비트를 보내고 SCAgentChannel 속성 값이 모두 포함 됩니다 **직접적인** 하 고 **SCManagementServer** 물품에 따라 데이터 원본 및 구독에서 활성화 된 모니터링 솔루션입니다. 기억 하듯이, 하는 경우 솔루션의 데이터는 전송 되거나 Operations Manager 관리 서버에서 직접 Azure Monitor 또는 에이전트에서 수집 된 데이터의 양으로 인해 에이전트에서 직접 Azure Monitor에 전송 됩니다. **SCManagementServer** 값이 있는 하트비트 이벤트의 경우, ComputerIP 값은 관리 서버가 데이터를 실제로 업로드하기 때문에 관리 서버의 IP 주소가 됩니다.  SCAgentChannel가 **직접**에 설정된 하트비트의 경우 이 값은 에이전트의 공용 IP 주소입니다.  
 

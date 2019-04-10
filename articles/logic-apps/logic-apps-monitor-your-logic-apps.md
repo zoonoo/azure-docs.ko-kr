@@ -207,9 +207,9 @@ Azure Monitor 로그와 함께 사용법 논리 앱의 진단 데이터의 다�
 
 <a name="diagnostic-event-properties"></a>
 
-## <a name="azure-diagnostics-event-settings-and-details"></a>Azure 진단 이벤트 설정 및 세부 정보
+## <a name="azure-diagnostics-event-settings-and-details"></a>Azure Diagnostics 이벤트 설정 및 세부 정보
 
-각 진단 이벤트는 논리 앱 및 해당 이벤트(예: 상태, 시작 시간, 종료 시간 등)에 대한 세부 정보를 포함합니다. 프로그래밍 방식으로 모니터링, 추적 및 로깅을 설정하기 위해 [Azure Logic Apps용 REST API](https://docs.microsoft.com/rest/api/logic) 및 [Azure 진단용 REST API](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows)와 함께 이러한 세부 정보를 사용할 수 있습니다.
+각 진단 이벤트는 논리 앱 및 해당 이벤트(예: 상태, 시작 시간, 종료 시간 등)에 대한 세부 정보를 포함합니다. 프로그래밍 방식으로 모니터링, 추적 및 로깅을 설정하기 위해 [Azure Logic Apps용 REST API](https://docs.microsoft.com/rest/api/logic) 및 [Azure Diagnostics용 REST API](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows)와 함께 이러한 세부 정보를 사용할 수 있습니다.
 
 예를 들어 `ActionCompleted` 이벤트에는 추적 및 모니터링에 사용할 수 있는 `clientTrackingId` 및 `trackedProperties` 속성이 있습니다.
 

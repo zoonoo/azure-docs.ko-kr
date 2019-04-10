@@ -23,14 +23,14 @@ ms.locfileid: "58371930"
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 모니터링 에이전트 개요 
 Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자에 호스팅되는 Microsoft Windows 및 Linux를 실행하는 가상 머신에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다. VM을 모니터링하는 데 사용할 수 있는 세 가지 에이전트 유형은 다음과 같습니다.
 
-* Azure 진단 확장
+* Azure Diagnostics 확장
 * Linux 및 Windows용 Log Analytics 에이전트
 * 종속성 에이전트
 
 이 문서에서는 IT 서비스 관리 또는 일반 모니터링 요구 사항을 지원할 기능을 결정하기 위해 이러한 서비스와 해당 기능 간의 차이점을 설명합니다.  
 
 ## <a name="azure-diagnostic-extension"></a>Azure 진단 확장
-2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure 진단 확장](../../azure-monitor/platform/diagnostics-extension-overview.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure Storage에 저장하는 에이전트입니다. 스토리지에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
+2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure Diagnostics 확장](../../azure-monitor/platform/diagnostics-extension-overview.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure 스토리지에 저장하는 에이전트입니다. 스토리지에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
 
 다음을 수집하도록 선택할 수 있습니다.
 
@@ -41,7 +41,7 @@ Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자�
 * syslog에서 로그 이벤트 수집  
 * 크래시 덤프 
 
-Azure 진단 에이전트는 다음 작업을 수행할 때 사용해야 합니다.
+Azure Diagnostics 에이전트는 다음 작업을 수행할 때 사용해야 합니다.
 
 * 로그 및 메트릭을 Azure Storage에 보관
 * 모니터링 데이터를 타사 도구와 통합합니다. 이러한 도구는 스토리지 계정 쿼리, [Event Hubs](../../event-hubs/event-hubs-about.md)로 전달 또는 [Azure Monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md)를 사용하여 쿼리하는 등 다양한 방법을 사용합니다.

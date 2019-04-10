@@ -1,5 +1,5 @@
 ---
-title: Azure 진단 1.0 구성 스키마
+title: Azure Diagnostics 1.0 구성 스키마
 description: Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 또는 Cloud Services에서 Azure SDK 2.4 이하를 사용하는 경우에만 해당됩니다.
 services: azure-monitor
 author: rboucher
@@ -11,24 +11,24 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55811531"
 ---
-# <a name="azure-diagnostics-10-configuration-schema"></a>Azure 진단 1.0 구성 스키마
+# <a name="azure-diagnostics-10-configuration-schema"></a>Azure Diagnostics 1.0 구성 스키마
 > [!NOTE]
-> Azure 진단은 Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 및 기타 통계를 수집하는 데 사용되는 구성 요소입니다.  이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
+> Azure Diagnostics는 Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 및 기타 통계를 수집하는 데 사용되는 구성 요소입니다.  이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
 >
 
-Azure 진단은 Azure Monitor, Application Insights 및 Log Analytics와 같은 기타 Microsoft 진단 제품과 함께 사용됩니다.
+Azure Diagnostics는 Azure Monitor, Application Insights 및 Log Analytics와 같은 기타 Microsoft 진단 제품과 함께 사용됩니다.
 
-Azure 진단 구성 파일은 진단 모니터를 초기화하는 데 사용되는 값을 정의합니다. 이 파일은 진단 모니터가 시작될 때 진단 구성 설정을 초기화하는 데 사용됩니다.  
+Azure Diagnostics 구성 파일은 진단 모니터를 초기화하는 데 사용되는 값을 정의합니다. 이 파일은 진단 모니터가 시작될 때 진단 구성 설정을 초기화하는 데 사용됩니다.  
 
- 기본적으로 Azure 진단 구성 스키마 파일은 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` 디렉터리에 설치됩니다. `<version>`을 [Azure SDK](https://www.windowsazure.com/develop/downloads/)의 설치된 버전으로 바꿉니다.  
+ 기본적으로 Azure Diagnostics 구성 스키마 파일은 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` 디렉터리에 설치됩니다. `<version>`을 [Azure SDK](https://www.windowsazure.com/develop/downloads/)의 설치된 버전으로 바꿉니다.  
 
 > [!NOTE]
->  진단 구성 파일은 일반적으로 시작 프로세스 초기에 진단 데이터 수집을 요하는 시작 작업에 사용됩니다. Azure 진단에 대한 자세한 내용은 [Azure 진단을 사용하여 로깅 데이터 수집](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7)을 참조하세요.  
+>  진단 구성 파일은 일반적으로 시작 프로세스 초기에 진단 데이터 수집을 요하는 시작 작업에 사용됩니다. Azure Diagnostics에 대한 자세한 내용은 [Azure Diagnostics를 사용하여 로깅 데이터 수집](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7)을 참조하세요.  
 
 ## <a name="example-of-the-diagnostics-configuration-file"></a>진단 구성 파일 예제  
  다음 예제에서는 일반적인 진단 구성 파일을 보여 줍니다.  

@@ -206,7 +206,7 @@ ms.locfileid: "57534074"
    ![모든 파일이 포함된 역할 콘텐츠][2]
 
 ## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>진단을 구성하여 Blob Storage로 시작 작업 로그 전송
-설치 문제의 해결을 간소화하려면 시작 스크립트 또는 .NET 설치 관리자에 의해 생성된 모든 로그 파일을 Azure Blob Storage로 전송하도록 Azure 진단을 구성할 수 있습니다. 이 방법을 사용하면 원격 데스크톱을 통해 역할에 연결하는 대신 Blob Storage에서 로그 파일을 다운로드하여 로그를 볼 수 있습니다.
+설치 문제의 해결을 간소화하려면 시작 스크립트 또는 .NET 설치 관리자에 의해 생성된 모든 로그 파일을 Azure Blob Storage로 전송하도록 Azure Diagnostics를 구성할 수 있습니다. 이 방법을 사용하면 원격 데스크톱을 통해 역할에 연결하는 대신 Blob Storage에서 로그 파일을 다운로드하여 로그를 볼 수 있습니다.
 
 
 진단을 구성하려면 diagnostics.wadcfgx 파일을 열고 **디렉터리** 노드 아래에 다음 콘텐츠를 추가합니다. 

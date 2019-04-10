@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803419"
 documentType: LandingData
 title: Azure Resource Graph 서비스에 대한 설명서
 metadata:
-  title: Azure Resource Graph 설명서 - 자습서, API 참조
+  title: 'Azure Resource Graph 설명서 - 자습서, API 참조'
   description: Azure Resource Graph는 대규모의 복잡한 리소스 쿼리를 지원하는 Azure의 서비스입니다.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -20,36 +13,36 @@ metadata:
 abstract:
   description: Azure Resource Graph 설명서는 대규모로 리소스를 검색하고 살펴보기 위한 쿼리 언어를 구성하고 학습하는 데 도움이 됩니다.
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Resource Graph를 구성하고 첫 번째 쿼리를 실행해 보세요.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: first-query-azurecli.md
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: 사용자 의견
-  items:
-  - type: paragraph
-    text: 이 기능에 대한 피드백을 제공하거나 쿼리에 대한 지원을 받으려면 Azure Portal의 <b>Azure Policy</b>에서 <b>리소스 그래프(미리 보기)</b> 페이지에 방문하여 피드백을 클릭하세요. <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>에서 제안 사항을 보낼 수도 있습니다.
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Resource Graph를 구성하고 첫 번째 쿼리를 실행해 보세요.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: first-query-azurecli.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: 사용자 의견
     items:
-    - title: 명령줄
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Python용 Azure SDK</a></p>
-    - title: REST (영문)
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">API 참조</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview(OpenAPI)</a></p>
+      - type: paragraph
+        text: '이 기능에 대한 피드백을 제공하거나 쿼리에 대한 지원을 받으려면 Azure Portal의 <b>Azure Policy</b>에서 <b>리소스 그래프(미리 보기)</b> 페이지에 방문하여 피드백을 클릭하세요. <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>에서 제안 사항을 보낼 수도 있습니다.'
+  - title: 참고 자료
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Python용 Azure SDK</a></p>
+          - title: REST (영문)
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API 참조</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview(OpenAPI)</a></p>'

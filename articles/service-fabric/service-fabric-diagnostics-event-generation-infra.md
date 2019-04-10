@@ -55,7 +55,7 @@ Windows에서 Service Fabric 이벤트는 작동 채널과 데이터 및 메시�
 
 이러한 다양한 채널에서 권장되는 대부분의 플랫폼 수준 로깅을 처리합니다. 플랫폼 수준 로깅을 개선하려면 상태 모델을 더 잘 파악하는 데 투자하고 사용자 지정 상태 보고서를 추가해 보고, 사용자 지정 **성능 카운터**를 추가하여 서비스와 애플리케이션이 클러스터에 미치는 영향을 실시간으로 파악하는 기능을 빌드하세요.
 
-이러한 로그를 활용하려면 Azure Portal에서 클러스터를 만드는 동안 "진단"을 사용하도록 설정하는 것이 좋습니다. 진단을 켜면 클러스터가 배포될 때 Microsoft Azure 진단에서는 작동, Reliable Services 및 Reliable Actors 채널을 인식하고 [Azure 진단을 사용하여 이벤트 집계](service-fabric-diagnostics-event-aggregation-wad.md)에 추가로 설명된 대로 데이터를 저장할 수 있습니다.
+이러한 로그를 활용하려면 Azure Portal에서 클러스터를 만드는 동안 "진단"을 사용하도록 설정하는 것이 좋습니다. 진단을 켜면 클러스터가 배포될 때 Microsoft Azure Diagnostics에서는 작동, Reliable Services 및 Reliable Actors 채널을 인식하고 [Azure Diagnostics를 사용하여 이벤트 집계](service-fabric-diagnostics-event-aggregation-wad.md)에 추가로 설명된 대로 데이터를 저장할 수 있습니다.
 
 ## <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric 상태 및 로드 보고
 
@@ -93,7 +93,7 @@ Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터�
 이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor를 제공 하는 Azure Monitor에 대 한 읽기 Service Fabric의 로그인 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 하 고 [Log Analytics 에이전트 설정](../log-analytics/log-analytics-windows-agent.md) Log Analytics 에이전트에 대 한 자세한 내용을 보려면는 하나의 모니터링 에이전트인은 클러스터 Vm에 대 한 성능 데이터를 선택 하 고 컨테이너를 배포 하는 경우
 
 * **Azure Table Storage대한 성능 카운터**  
-성능 메트릭은 이벤트와 동일한 테이블 스토리지에 보낼 수도 있습니다. 이렇게 하려면 Azure 진단 구성을 변경하여 클러스터의 VM에서 적절한 성능 카운터를 선택하고, 컨테이너를 배포할 경우 Docker 통계를 선택해야 합니다. 성능 카운터 수집을 설정하려면 Service Fabric에서 [WAD의 성능 카운터](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법을 참조하세요.
+성능 메트릭은 이벤트와 동일한 테이블 스토리지에 보낼 수도 있습니다. 이렇게 하려면 Azure Diagnostics 구성을 변경하여 클러스터의 VM에서 적절한 성능 카운터를 선택하고, 컨테이너를 배포할 경우 Docker 통계를 선택해야 합니다. 성능 카운터 수집을 설정하려면 Service Fabric에서 [WAD의 성능 카운터](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

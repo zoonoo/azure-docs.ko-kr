@@ -5,17 +5,17 @@ title: Azure Monitor Application Insights 문서 - 자습서, API 참조 | Micro
 description: Azure Monitor Application Insights는 자세한 코드 수준의 애플리케이션 성능 모니터링을 제공합니다.
 services: application-insights
 author: mrbullwinkle
-manager: carmonmills
+manager: carmonm
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4bf1ccd3da83900208ab8f15b54ea110b1dbb2f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244244"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426276"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -83,9 +83,9 @@ ms.locfileid: "56244244"
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
-                                                            <a href="./learn/nodejs-quick-start.md">Node.JS</a><br>
-                                                            <a href="./learn/java-quick-start.md">Java</a><br>
-                                                            <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
+                                                            <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
+                                                            <a href="./learn/java-quick-start.md">자바</a><br>
+                                                            <a href="./learn/mobile-center-quickstart.md">모바일</a><br>
                                                             <a href="./app/website-monitoring.md">브라우저/클라이언트 쪽 모니터링</a>
                                                         </p>
                                                         <br><br>
@@ -93,16 +93,16 @@ ms.locfileid: "56244244"
                                                         <p>
                                                             <a href="./learn/tutorial-runtime-exceptions.md">런타임 예외 찾기 및 진단</a><br>
                                                             <a href="./learn/tutorial-performance.md">성능 문제 찾기 및 진단</a><br>
-                                                            <a href="./learn/tutorial-alert.md">애플리케이션 상태에 대한 모니터링 및 경고</a><br>
-                                                            <a href="./learn/tutorial-users.md">사용자 동작 이해</a><br>
+                                                            <a href="./learn/tutorial-alert.md">모니터링 및 응용 프로그램 상태에 대 한 경고</a><br>
+                                                            <a href="./learn/tutorial-users.md">사용자의 동작 이해</a><br>
                                                             <a href="./learn/tutorial-app-dashboards.md">사용자 지정 대시보드 만들기</a>
                                                             </p>
                                                         <br><br>
                                                         <h3>분산된 추적</h3>
                                                         <p>
-                                                            <a href="./app/distributed-tracing.md">분산 추적이란?</a><br>
-                                                            <a href="./app/opencensus-python.md">Python용 OpenCensus</a><br>
-                                                            <a href="./app/opencensus-go.md">Go용 OpenCensus</a><br>
+                                                            <a href="./app/distributed-tracing.md">분산 추적는 무엇입니까?</a><br>
+                                                            <a href="./app/opencensus-python.md">Python 용 OpenCensus</a><br>
+                                                            <a href="./app/opencensus-go.md">Go 용 OpenCensus</a><br>
                                                             <a href="./app/opencensus-local-forwarder.md">로컬 전달자</a>
                                                             </p>
                                                         <br><br>
@@ -111,15 +111,15 @@ ms.locfileid: "56244244"
                                                             <a href="./app/proactive-failure-diagnostics.md">오류 잘못된 부분</a><br>
                                                             <a href="./app/proactive-performance-diagnostics.md">성능 이상</a><br>
                                                             <a href="./app/proactive-trace-severity.md">추적 성능 저하</a><br>
-                                                            <a href="./app/proactive-exception-volume.md">비정상적인 예외 증가</a><br>
+                                                            <a href="./app/proactive-exception-volume.md">예외의 비정상적인 증가</a><br>
                                                             <a href="./app/proactive-potential-memory-leak.md">메모리 누수</a><br>
                                                             <a href="./app/proactive-low-utilization-cloud-resources.md">낮은 CPU 사용률</a><br>
                                                             <a href="./app/proactive-application-security-detection-pack.md">보안 문제</a><br>
                                                             <a href="./app/proactive-cloud-services.md">Azure Cloud Services</a><br>
-                                                            <a href="./app/proactive-arm-config.md">템플릿을 사용하여 스마트 검색 관리</a>
+                                                            <a href="./app/proactive-arm-config.md">템플릿 사용 하 여 스마트 감지를 관리 합니다.</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>참고 자료</h3>
+                                                        <h3>참조</h3>
                                                         <p>
                                                             <a href="./app/auto-collect-dependencies.md">종속성 자동 수집</a><br>
                                                             <a href="./app/correlation.md">원격 분석 상관 관계</a><br>
@@ -139,14 +139,14 @@ ms.locfileid: "56244244"
                                                         <h3>Java 애플리케이션</h3>
                                                         <p>
                                                             <a href="./app/java-get-started.md">자세한 모니터링 구성</a><br>
-                                                            <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring Boot Starter</a><br>
-                                                            <a href="./app/micrometer-java.md">마이크로미터 메트릭</a><br>
+                                                            <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring Boot starter</a><br>
+                                                            <a href="./app/micrometer-java.md">Micrometer 메트릭</a><br>
                                                             <a href="./app/java-filter-telemetry.md">필터 원격 분석</a><br>
                                                             <a href="./app/java-trace-logs.md">추적 로깅</a><br>
-                                                            <a href="./app/java-agent.md">종속성 추적을 위한 에이전트 구성</a><br>
+                                                            <a href="./app/java-agent.md">종속성 추적에 대 한 에이전트 구성</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">사용자 지정 이벤트 및 메트릭</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">Config .xml</a><br>
+">구성.xml</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-Java">오픈 소스 Java SDK GitHub 리포지토리</a>
                                                         </p>
                                                         <br><br>
@@ -156,29 +156,29 @@ ms.locfileid: "56244244"
                                                             <a href="./app/monitor-performance-live-website-now.md">상태 모니터</a><br>
                                                             <a href="./app/azure-web-apps.md">App Service 모니터링</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">사용자 지정 이벤트 및 메트릭</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">오픈 소스 .NET SDK GitHub 리포지토리</a>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">오픈 소스.NET SDK GitHub 리포지토리</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>.NET Core 애플리케이션</h3>
                                                         <p>
                                                             <a href="./app/asp-net-core.md">자세한 모니터링 구성</a><br>
-                                                            <a href="./app/profiler-aspnetcore-linux.md">ASP.NET Core 프로파일링</a><br>
+                                                            <a href="./app/profiler-aspnetcore-linux.md">프로 파일링 하는 ASP.NET Core</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">사용자 지정 이벤트 및 메트릭</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">오픈 소스 .NET Core SDK GitHub 리포지토리</a>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">오픈 소스.NET Core SDK GitHub 리포지토리</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>Node.js 애플리케이션</h3>
                                                         <p>
                                                             <a href="./app/nodejs.md">자세한 모니터링 구성</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">사용자 지정 이벤트 및 메트릭</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">오픈 소스 Node.js SDK GitHub 리포지토리</a>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">원본 Node.js SDK GitHub 리포지토리를 열려면</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>클라이언트/브라우저 쪽 모니터링</h3>
                                                         <p>
                                                             <a href="./app/javascript.md">자세한 모니터링 구성</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">사용자 지정 이벤트 및 메트릭</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">오픈 소스 JavaScript SDK GitHub 리포지토리</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">원본 JavaScript SDK GitHub 리포지토리를 열려면</a><br>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -193,7 +193,7 @@ ms.locfileid: "56244244"
                                                         <h3>사용자 동작 분석</h3>
                                                         <p>
                                                             <a href="./app/usage-overview.md">개요</a><br>
-                                                            <a href="./app/usage-send-user-context.md">사용자 컨텍스트 ID 전송</a><br>
+                                                            <a href="./app/usage-send-user-context.md">사용자 컨텍스트 Id 보내기</a><br>
                                                             <a href="./app/usage-segmentation.md">사용자, 세션 및 이벤트</a><br>
                                                             <a href="./app/usage-funnels.md">깔때기</a><br>
                                                             <a href="./app/usage-cohorts.md">코호트</a><br>
@@ -204,20 +204,20 @@ ms.locfileid: "56244244"
                                                         <br><br>
                                                         <h3>실시간 모니터링,<br> 시각화, &amp; 분석</h3>
                                                         <p>
-                                                            <a href="./app/overview-dashboard.md">개요 대시보드 &amp; 애플리케이션 대시보드</a><br>
-                                                            <a href="./app/monitor-web-app-availability.md">글로벌 가용성 모니터링</a><br>
+                                                            <a href="./app/overview-dashboard.md">개요 대시보드 &amp; 응용 프로그램 대시보드</a><br>
+                                                            <a href="./app/monitor-web-app-availability.md">전역 가용성 모니터링</a><br>
                                                             <a href="./app/live-stream.md">라이브 메트릭 스트림</a><br>
-                                                            <a href="./app/app-map.md">분산 앱 매핑</a><br>
+                                                            <a href="./app/app-map.md">분산된 응용 프로그램 매핑</a><br>
                                                             <a href="../monitoring-and-diagnostics/resource-group-insights.md">리소스 그룹 수준 모니터링</a><br>
                                                             <a href="./app/usage-workbooks.md">대화형 보고</a><br>
                                                             <a href="./app/export-power-bi.md">Power BI 통합</a><br>
-                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-metric-charts">메트릭 조사</a>
+                                                            <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-metric-charts">메트릭을 조사합니다</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>개인 정보, 보안, 사용량 &amp; 비용</h3>
                                                         <p>
-                                                            <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">개인 데이터 처리</a><br>
-                                                            <a href="./app/data-retention-privacy.md">데이터 수집, 보존 &amp; 저장</a><br>
+                                                            <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">개인 데이터를 처리합니다.</a><br>
+                                                            <a href="./app/data-retention-privacy.md">데이터 수집, 보존 &amp; 저장소</a><br>
                                                             <a href="./app/resources-roles-access-control.md">역할 기반 액세스</a><br>
                                                             <a href="./app/ip-addresses.md">IP 주소 &amp; 방화벽 예외</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">사용량 및 예상 비용</a>
@@ -230,9 +230,9 @@ ms.locfileid: "56244244"
                                                             <a href="./app/data-model-dependency-telemetry.md">종속성</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">예외</a><br>
                                                             <a href="./app/data-model-trace-telemetry.md">추적</a><br>
-                                                            <a href="./app/data-model-event-telemetry.md">Event</a><br>
+                                                            <a href="./app/data-model-event-telemetry.md">행사</a><br>
                                                             <a href="./app/data-model-metric-telemetry.md">메트릭</a><br>
-                                                            <a href="./app/data-model-context.md">컨텍스트</a>
+                                                            <a href="./app/data-model-context.md">Context</a>
                                                             </p>
                                                         </p>
                                                     </div>

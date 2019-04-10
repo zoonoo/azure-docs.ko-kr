@@ -153,7 +153,7 @@ A: [새 로그 경고 만들기](../../azure-monitor/platform/alerts-metric.md)�
 로그 경고가 조건과 일치하도록 기존 항목을 지정하거나 새 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 만들면 15분 초과 하트비트가 누락된 경우 사용자에게 알려줍니다.
 
 ## <a name="configuration"></a>구성
-### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. WAD(Azure 진단)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
+### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Azure Diagnostics(WAD)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
 
 a. 아니요, 현재 Azure 저장소의 임의 테이블 또는 컨테이너에서 읽을 수 없습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍(미리 보기) | Microsoft Docs
-description: 이벤트 허브로 Azure Active Directory 로그를 푸시하도록 Azure 진단을 설정하는 방법 알아보기(미리 보기)
+description: 이벤트 허브로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기(미리 보기)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi

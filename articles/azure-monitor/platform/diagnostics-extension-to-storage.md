@@ -29,13 +29,13 @@ ServiceConfiguration.cscfg 파일에서 사용하려는 저장소 계정을 지�
 
 이 연결 문자열을 변경하여 Azure 저장소 계정에 대한 계정 정보를 제공할 수 있습니다.
 
-수집되는 진단 데이터의 형식에 따라 Azure 진단은 Blob service 또는 Table service를 사용합니다. 다음 표에서 유지되는 데이터 원본 및 해당 형식을 보여 줍니다.
+수집되는 진단 데이터의 형식에 따라 Azure Diagnostics는 Blob 서비스 또는 Table 서비스를 사용합니다. 다음 표에서 유지되는 데이터 원본 및 해당 형식을 보여 줍니다.
 
 | 데이터 원본 | 저장소 형식 |
 | --- | --- |
 | Azure 로그 |테이블 |
 | IIS 7.0 로그 |Blob |
-| Azure 진단 인프라 로그 |테이블 |
+| Azure Diagnostics 인프라 로그 |테이블 |
 | 실패한 요청 추적 로그 |Blob |
 | Windows 이벤트 로그 |테이블 |
 | 성능 카운터 |테이블 |

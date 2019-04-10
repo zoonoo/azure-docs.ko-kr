@@ -3,17 +3,17 @@ title: Azure IoT Central에서 디바이스 연결 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522097"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425970"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
 
@@ -30,7 +30,7 @@ DPS를 사용 하 여 사용 하도록 설정 합니다.
 - 고유한 장치 Id를 사용 하 여 IoT Central의 장치를 등록할 수 있습니다. 고유한 장치 Id를 사용 하 여 기존 백 오피스 시스템과 통합을 간소화 합니다.
 - IoT Central에 장치를 연결 하는 단일 하 고 일관 된 방법입니다.
 
-이 방법 문서에서는 다음 네 가지 사용 사례를 설명합니다.
+이 문서에서는 다음 네 가지 사용 사례를 설명합니다.
 
 1. [SAS를 사용 하 여 단일 장치를 신속 하 게 연결](#connect-a-single-device)
 1. [SAS를 사용 하 여 대규모로 장치 연결](#connect-devices-at-scale-using-sas)
@@ -39,24 +39,7 @@ DPS를 사용 하 여 사용 하도록 설정 합니다.
 
 ## <a name="connect-a-single-device"></a>단일 디바이스 연결
 
-이 방법은 IoT Central을 사용 하 여 실험 하거나 장치를 테스트 하는 경우에 유용 합니다.
-
-SAS를 사용 하 여 IoT Central에 단일 장치를 연결 하려면 다음이 단계를 수행 합니다.
-
-1. 실제 장치를 추가 하려면로 이동 합니다 **Device Explorer**는 장치 템플릿을 선택 하 고 선택 **+ 새로 만들기 > 실제**:
-    - 고유한 입력 (소문자) **장치 ID** 하거나 제안된 ID를 사용 하 여
-    - 입력 한 **장치 이름** 하거나 제안 된 이름을 사용 합니다.
-
-      ![디바이스 추가](media/concepts-connectivity/add-device.png)
-
-1. 선택에 장치 연결 정보를 가져오려면 **Connect** 장치 페이지입니다. 해야 합니다 **범위 ID**를 **장치 ID**, 및 **기본 키** 값:
-    - 각 IoT Central 응용 프로그램의 고유한 [범위 ID](../iot-dps/concepts-device.md#id-scope) DPS 하 여 생성 됩니다.
-    - [장치 ID](../iot-dps/concepts-device.md#device-id) 고유한 장치 ID입니다. ID가 저장 장치를 [id 레지스트리](../iot-hub/iot-hub-devguide-identity-registry.md)합니다.
-    - **기본 키** SAS 토큰은 장치에 대 한 IoT Central에서 생성 합니다.
-
-      ![연결 정보](media/concepts-connectivity/device-connect.png)
-
-연결 하 고 IoT에 IoT Central 응용 프로그램에 데이터를 전송 하기 위해 장치를 사용 하도록 설정 하려면 장치 코드의 연결 정보를 사용 합니다. 장치를 연결 하는 방법에 대 한 자세한 내용은 참조 하세요. [다음 단계](#next-steps)합니다.
+이 방법은 IoT Central을 사용 하 여 실험 하거나 장치를 테스트 하는 경우에 유용 합니다. 장치에 대 한 연결 문자열을 생성 하려면 IoT Central 응용 프로그램에서 장치 연결 정보를 사용할 수 있습니다. 자세한 단계를 참조 하세요 [Azure IoT Central 응용 프로그램에 연결할 장치 연결 문자열을 생성 하는 방법을](howto-generate-connection-string.md)합니다.
 
 ## <a name="connect-devices-at-scale-using-sas"></a>SAS를 사용 하 여 대규모로 장치 연결
 
@@ -104,7 +87,7 @@ IoT Central 응용 프로그램을 사용 하 여 많은 수의 장치를 등록
 
 - [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)에 대한 샘플 구현.
 
-- [C의 샘플 디바이스 클라이언트.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [C에서 장치 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### <a name="for-testing-purposes-only"></a>테스트 목적 으로만
 
@@ -132,7 +115,7 @@ IoT Central 사용 하도록 설정 하는 주요 시나리오는 대용량 없�
 
     - **X.509 인증서의 경우:** [추가 하 고 루트/중간 인증서를 확인 하기](#connect-devices-using-x509-certificates) 다음 단계에서 장치 인증서를 생성 하는 데 사용 합니다.
     - **SAS:** 기본 키를 복사 합니다. 이 키는 IoT Central 응용 프로그램에 대 한 그룹 SAS 키가입니다. 다음 단계에서는 장치 SAS 키를 생성 하는 키를 사용 합니다.
-    ![연결 설정 SAS](media/concepts-connectivity/connection-settings-sas.png)
+    ![SAS 연결 설정](media/concepts-connectivity/connection-settings-sas.png)
 
 1. 장치 자격 증명 생성
     - **X.509 인증서:** 루트 또는 IoT Central 응용 프로그램에 추가 하는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 소문자를 사용 해야 **장치 ID** 리프 인증서의 CNAME로 합니다. 이 테스트용 으로만 사용 [명령줄 도구](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) 장치 인증서를 생성 합니다.
@@ -169,26 +152,6 @@ IoT Central 사용 하도록 설정 하는 주요 시나리오는 대용량 없�
 
 1. 운영자는 장치를 차단할 수 있습니다. 장치가 차단 되 면 IoT Central 응용 프로그램에 데이터를 보낼 수 없습니다 것입니다. 차단 된 장치에 프로 비전 상태가 **차단 됨**합니다. 데이터 전송을 다시 시작할 수 전에 운영자 장치를 다시 설정 해야 합니다. 운영자를 프로 비전 상태를 이전 값을 반환 하는 장치를 차단 해제 하는 경우 **Registered** 또는 **프로 비전 됨**합니다.
 
-## <a name="get-a-connection-string"></a>연결 문자열 가져오기
-
-다음 단계는 장치에 대 한 연결 문자열을 가져오는 방법을 설명 합니다.
-
-1. 선택 **Connect** 에 **Device Explorer** 연결 세부 정보를 얻으려면 페이지: **ID 범위**하십시오 **장치 ID**, 및 **장치 키**:
-
-    ![연결 정보](media/concepts-connectivity/device-connect.png)
-
-1. 사용 된 `dps-keygen` 명령줄 유틸리티는 연결 문자열을 생성 하려면:  설치 하는 [생성기 유틸리티 키](https://github.com/Azure/dps-keygen), 다음 명령을 실행:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-    연결 문자열을 생성 하려면 다음 명령을 실행 합니다.
-
-    ```cmd/sh
-    dps-keygen -di:<device_id> -dk:<device_key> -si:<scope_id>
-    ```
-
 ## <a name="sdk-support"></a>SDK 지원
 
 장치 코드를 구현 하는 수는 가장 쉬운 방법은 Azure Device Sdk 제품입니다. 현재 다음과 같은 디바이스 SDK를 사용할 수 있습니다.
@@ -205,7 +168,7 @@ IoT Central 사용 하도록 설정 하는 주요 시나리오는 대용량 없�
 
 IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사용됩니다.
 
-- [디바이스-클라우드 메시지](../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [디바이스-클라우드 메시징](../iot-hub/iot-hub-devguide-messages-d2c.md)
 - [디바이스 쌍](../iot-hub/iot-hub-devguide-device-twins.md)
 
 다음 표에는 Azure IoT Central 디바이스 기능이 IoT Hub 기능에 매핑되는 방식이 요약되어 있습니다.
@@ -218,8 +181,8 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 디바이스 SDK 사용에 대해 자세히 알아보려면 다음 문서 중 하나에서 코드 예제를 참조하세요.
 
-- [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
-- [Azure IoT Central 애플리케이션에 Raspberry Pi 장치 연결](howto-connect-raspberry-pi-python.md)
+- [Azure IoT Central 응용 프로그램에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
+- [Azure IoT Central 응용 프로그램을 Raspberry Pi 장치 연결](howto-connect-raspberry-pi-python.md)
 - [Azure IoT Central 애플리케이션에 DevDiv 키트 장치 연결](howto-connect-devkit.md)
 
 ### <a name="protocols"></a>프로토콜
@@ -242,7 +205,7 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 Azure IoT Central의 장치 연결에 대 한 알아보았습니다 했으므로 다음 제안된 단계는 다음과 같습니다.
 
-- [DevKit 디바이스 준비 및 연결](howto-connect-devkit.md)
-- [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)
-- [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
+- [준비 하 고 DevKit 장치 연결](howto-connect-devkit.md)
+- [준비 하 고 Raspberry Pi 연결](howto-connect-raspberry-pi-python.md)
+- [Azure IoT Central 응용 프로그램에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
 - [C SDK: 장치 클라이언트 SDK를 프로 비전](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

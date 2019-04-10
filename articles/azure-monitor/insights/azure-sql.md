@@ -49,7 +49,7 @@ Azure SQL 분석은 단일, 풀링, Managed Instance 데이터베이스 등 Azur
 
 작업 영역에 Azure SQL 분석 솔루션을 만든 후에는 모니터링하려는 각 리소스를 **구성**하여 해당 진단 원격 분석을 솔루션으로 스트리밍해야 합니다. 이 페이지에서 자세한 지침을 따르세요.
 
-- Azure SQL Database에 대한 Azure 진단을 사용하도록 설정하여 [Azure SQL 분석에 진단 원격 분석을 스트리밍](../../sql-database/sql-database-metrics-diag-logging.md)합니다.
+- Azure SQL Database에 대한 Azure Diagnostics를 사용하도록 설정하여 [Azure SQL 분석에 진단 원격 분석을 스트리밍](../../sql-database/sql-database-metrics-diag-logging.md)합니다.
 
 위의 페이지에는 단일 Azure SQL 분석 작업 영역에서 여러 Azure 구독을 모니터링하도록 설정하는 지침도 제공합니다.
 

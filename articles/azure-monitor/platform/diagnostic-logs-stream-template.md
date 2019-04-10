@@ -254,7 +254,7 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 ## <a name="compute-resource-template"></a>Compute 리소스 템플릿
 Compute 리소스(예: Virtual Machine 또는 서비스 패브릭 클러스터)에서 진단을 활성화하려면 다음이 필요합니다.
 
-1. Azure 진단 확장을 VM 리소스 정의에 추가합니다.
+1. Azure Diagnostics 확장을 VM 리소스 정의에 추가합니다.
 2. 매개 변수로 저장소 계정 및/또는 이벤트 허브를 지정합니다.
 3. 모든 XML 문자를 올바르게 이스케이프하여 WADCfg XML 파일의 내용을 XMLCfg 속성에 추가합니다.
 

@@ -6,7 +6,7 @@ ms.date: 11/25/2018
 ms.author: jeconnoc
 ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
 ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52331258"
@@ -20,7 +20,7 @@ ms.locfileid: "52331258"
 > * Microsoft Monitoring Agent
 > * Microsoft Service Profiler Agent      
 > * Windows Azure 도메인 확장        
-> * Windows Azure 진단 확장   
+> * Windows Azure Diagnostics 확장   
 > * Windows Azure 원격 데스크톱 확장
 > * Windows Azure 로그 수집기
 >

@@ -46,7 +46,7 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 |[활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager 리소스에 대한 제어 평면 이벤트|   구독의 리소스에서 수행된 작업에 대한 인사이트를 제공합니다.|    Rest API, [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈번한 데이터|    리소스 자체에서 수행한 작업에 대한 인사이트를 제공합니다.| Azure Monitor, [스트림](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Azure AD 보고](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|로그 및 보고서 | 사용자 및 그룹 관리에 대한 사용자 로그인 활동 및 시스템 활동 정보를 보고합니다.|[그래프 API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[가상 머신 및 클라우드 서비스](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows 이벤트 로그 서비스 및 Linux Syslog|  가상 머신에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 해당 데이터를 전송합니다.|   Azure Monitor의 Windows([WAD](https://docs.microsoft.com/azure/azure-diagnostics)[Microsoft Azure 진단 저장소] 사용) 및 Linux|
+|[가상 머신 및 클라우드 서비스](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows 이벤트 로그 서비스 및 Linux Syslog|  가상 머신에서 시스템 데이터와 로깅 데이터를 캡처하고 사용자가 선택한 저장소 계정으로 해당 데이터를 전송합니다.|   Azure Monitor의 Windows([WAD](https://docs.microsoft.com/azure/azure-diagnostics)[Microsoft Azure Diagnostics 스토리지] 사용) 및 Linux|
 |[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|저장소 로깅(저장소 계정에 대한 메트릭 데이터 제공)|추적 요청에 대한 인사이트를 제공하고, 사용 추세를 분석하며, 저장소 계정과 관련된 문제를 진단합니다.|   REST API 또는 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG(네트워크 보안 그룹) 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON 형식(규칙에 따라 아웃바운드 및 인바운드 흐름 표시)|네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 표시합니다.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|로그, 예외 및 사용자 지정 진단|   여러 플랫폼에서 웹 개발자를 위한 APM(애플리케이션 성능 모니터링) 서비스를 제공합니다.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -146,15 +146,15 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 감사 이벤트를 더 오래 유지하려면 보고 API를 사용하여 정기적으로 [감사 이벤트](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events)를 별도의 데이터 저장소로 가져옵니다.
 
-### <a name="virtual-machine-logs-that-use-azure-diagnostics"></a>Azure 진단을 사용하는 가상 머신 로그
+### <a name="virtual-machine-logs-that-use-azure-diagnostics"></a>Azure Diagnostics를 사용하는 가상 머신 로그
 
 [Azure 진단](https://docs.microsoft.com/azure/azure-diagnostics)은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있는 Azure의 기능입니다. 여러 원본 중 하나에서 진단 확장을 사용할 수 있습니다. 현재 [Azure 클라우드 서비스 웹 및 작업자 역할](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)이 지원되고 있습니다.
 
-![Azure 진단을 사용하는 가상 머신 로그](./media/azure-log-audit/azure-log-audit-fig3.png)
+![Azure Diagnostics를 사용하는 가상 머신 로그](./media/azure-log-audit/azure-log-audit-fig3.png)
 
 ### <a name="azure-virtual-machineslearnpathsdeploy-a-website-with-azure-virtual-machines-that-are-running-microsoft-windows-and-service-fabrichttpsdocsmicrosoftcomazureservice-fabricservice-fabric-overview"></a>Microsoft Windows와 [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)을 실행하는 [Azure 가상 머신](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 
-다음 중 하나를 수행하여 가상 머신에서 Azure 진단을 사용하도록 설정할 수 있습니다.
+다음 중 하나를 수행하여 가상 머신에서 Azure Diagnostics를 사용하도록 설정할 수 있습니다.
 
 * [Visual Studio를 사용하여 Azure 가상 머신 추적](https://docs.microsoft.com/azure/vs-azure-tools-debug-cloud-services-virtual-machines)
 
@@ -318,9 +318,9 @@ Log Analytics의 중심에는 Azure에서 호스팅되는 Log Analytics 작업 �
 
 [Azure 서비스에 대한 로그와 메트릭을 수집](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)하는 네 가지 방법은 다음과 같습니다.
 
-* Azure 진단에서 Log Analytics로 직접(다음 표의 **진단**)
+* Azure Diagnostics에서 Log Analytics로 직접 연결(다음 표의 **진단**)
 
-* Azure 진단, Azure Storage, Log Analytics 순서로(다음 표의 **스토리지**)
+* Log Analytics를 위한 Azure 스토리지에 대한 Azure Diagnostics(다음 표의 **스토리지**)
 
 * Azure 서비스용 커넥터(다음 표의 **커넥터**)
 

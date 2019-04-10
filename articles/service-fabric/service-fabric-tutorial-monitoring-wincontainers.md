@@ -186,7 +186,7 @@ ms.locfileid: "58663165"
     },
     ```
 
-필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 저장소 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 Log Analytics 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 머신 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
+필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 스토리지 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 Log Analytics 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 머신 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
 
 새 변경 내용이 포함된 템플릿을 배포하여 현재 클러스터를 업그레이드합니다. 이 작업이 완료되면 리소스 그룹에 Log Analytics 리소스가 표시됩니다. 클러스터가 준비되 컨테이너화된 애플리케이션을 배포합니다. 다음 단계에서는 컨테이너 모니터링을 설정합니다.
 

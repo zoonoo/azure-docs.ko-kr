@@ -102,4 +102,4 @@ Log Analytics 에이전트를 추가했으니, Log Analytics 포털로 이동하
 
 * 관련 [성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 수집합니다. Log Analytics 에이전트를 구성하여 특정 성능 카운터를 수집하려면 [데이터 원본 구성](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources)을 검토합니다.
 * Azure Monitor 로그 설정 구성 [자동 경고](../log-analytics/log-analytics-alerts.md) 감지 및 진단에 도움이 되
-* 또는 [Azure 진단 확장을 통해 성능 카운터를 수집하여 Application Insights로](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template) 보낼 수 있습니다.
+* 또는 [Azure Diagnostics 확장을 통해 성능 카운터를 수집하여 Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)에 보낼 수 있습니다.

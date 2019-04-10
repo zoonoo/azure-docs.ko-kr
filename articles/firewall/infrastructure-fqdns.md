@@ -22,7 +22,7 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 - 스토리지 PIR(플랫폼 이미지 리포지토리)에 대한 액세스를 계산합니다.
 - 관리 디스크 상태 저장소 액세스.
-- Azure 진단 및 로깅(MDS)
+- Azure Diagnostics 및 로깅(MDS)
 - Azure Active Directory
 
 ## <a name="overriding"></a>대체 

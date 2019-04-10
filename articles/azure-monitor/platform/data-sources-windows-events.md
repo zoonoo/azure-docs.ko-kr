@@ -15,7 +15,7 @@ ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56001122"
@@ -57,7 +57,7 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 | ManagementGroupName |System Center Operations Manager 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 이 값은 AOI-<workspace ID>입니다. |
 | RenderedDescription |매개 변수 값을 포함하는 이벤트 설명입니다. |
 | 원본 |이벤트의 원본입니다. |
-| SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br> Linux – 모든 Linux 에이전트  <br>  AzureStorage – Azure 진단 |
+| SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br> Linux – 모든 Linux 에이전트  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |Windows에서 이벤트가 만들어진 날짜 및 시간입니다. |
 | 사용자 이름 |이벤트를 로깅한 계정의 사용자 이름입니다. |
 

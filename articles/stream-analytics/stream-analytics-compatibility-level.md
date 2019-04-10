@@ -6,20 +6,19 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.date: 04/08/2019
+ms.openlocfilehash: 6fb93152263d253de983b17d25f02f4c68a172fd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187316"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361394"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
  
 호환성 수준이란 Azure Stream Analytics 서비스의 릴리스 관련 동작을 말합니다. Azure Stream Analytics는 관리되는 서비스로, 정기적으로 기능이 업데이트되고 성능이 향상됩니다. 일반적으로 업데이트는 최종 사용자에게 자동으로 제공됩니다. 그러나 일부 새 기능은 기존 작업의 동작 변경, 이러한 작업의 데이터를 사용하는 프로세스 변경 등과 같은 주요 변화를 가져올 수 있습니다. 호환성 수준은 Stream Analytics에 적용된 주요 변경을 나타내는 데 사용됩니다. 주요 변경 내용은 항상 새로운 호환성 수준과 함께 적용됩니다. 
 
-호환성 수준은 기존 작업이 오류 없이 실행되도록 보장합니다. 새로운 Stream Analytics 작업을 만들 때 사용 가능한 가장 최신 호환성 수준을 사용하여 만드는 것이 좋습니다. 
+호환성 수준에 따라 기존 작업이 오류 없이 실행 해야 합니다. 새 Stream Analytics 작업을 만들면 최신 호환성 수준을 사용 하 여 만드는 것이 좋습니다. 
  
 ## <a name="set-a-compatibility-level"></a>호환성 수준 설정 
 
@@ -32,41 +31,59 @@ ms.locfileid: "53187316"
  
 호환성 수준을 업데이트하면 T-SQL 컴파일러는 선택된 호환성 수준에 해당하는 구문을 사용하여 작업의 유효성을 검사합니다. 
 
-## <a name="major-changes-in-the-latest-compatibility-level-11"></a>최신 호환성 수준(1.1)의 주요 변경 내용
+## <a name="major-changes-in-the-latest-compatibility-level-12"></a>최신 호환성 수준 (1.2)의 주요 변경 내용
 
-호환성 수준 1.1의 주요 변경 내용은 다음과 같습니다.
+주요 변경 내용은 호환성 수준 1.2에에서 도입 된:
 
-* **Service Bus XML 형식**  
+### <a name="geospatial-functions"></a>지리 공간적 함수 
 
-  * **이전 버전:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예를 들면 다음과 같습니다.
-    
-    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+**이전 버전:** Azure Stream Analytics는 Geography 계산을 사용 합니다.
 
-  * **현재 버전:** 추가 태그 없이 메시지 내용에 스트림이 직접 포함됩니다. 예를 들면 다음과 같습니다.
-  
-    { "SensorId":"1", "Temperature":64} 
- 
-* **필드 이름의 대/소문자 구분 유지**  
+**현재 버전:** Azure Stream Analytics를 사용 하면 기하학적 예상된 지역 좌표를 계산할 수 있습니다. 지리 공간적 함수 시그니처에 변하지가 않습니다. 그러나 해당 의미 체계는 약간 다를 이전 보다 더 정확한 계산을 허용 합니다.
 
-  * **이전 버전:** Azure Stream Analytics 엔진에서 필드 이름이 처리될 때 소문자로 변경되었습니다. 
+Azure Stream Analytics는 지리 공간 참조 데이터 인덱싱을 지원합니다. 더 빠른 조인 계산에 대 한 지리 공간 요소를 포함 하는 참조 데이터를 인덱싱할 수 있습니다.
 
-  * **현재 버전:** Azure Stream Analytics 엔진에서 필드 이름이 처리될 때 대/소문자 구분이 유지됩니다. 
+업데이트 된 지리 공간적 함수 텍스트 WKT (Well Known) 지리 공간 형식의 전체 표현을 제공합니다. GeoJson를 사용 하 여 이전에 지원 하지 않는 다른 지리 공간 구성 요소를 지정할 수 있습니다.
 
-    > [!NOTE] 
-    > 지속적인 대/소문자 구분은 에지 환경을 사용하여 호스팅되는 Stream Analytic 작업에 아직 사용할 수 없습니다. 결과적으로, 작업이 에지에서 호스팅되는 경우 모든 필드 이름은 소문자로 변환됩니다. 
+자세한 내용은 [Azure Stream Analytics-클라우드 및 IoT Edge에서에서 지리 공간 기능에 대 한 업데이트](https://azure.microsoft.com/blog/updates-to-geospatial-functions-in-azure-stream-analytics-cloud-and-iot-edge/)합니다.
 
-* **FloatNaNDeserializationDisabled**  
+### <a name="parallel-query-execution-for-input-sources-with-multiple-partitions"></a>여러 파티션이 있는 입력된 원본에 대 한 병렬 쿼리 실행 
 
-  * **이전 버전:** CREATE TABLE 명령은 FLOAT 열 형식이 NaN(숫자가 아님. 예: 무한대, -무한대)인 이벤트를 필터링하지 않습니다. 왜냐하면 이러한 이벤트는 이러한 숫자에 대해 문서화된 범위를 벗어나기 때문입니다.
+**이전 버전:** Azure Stream Analytics 쿼리 입력된 원본 파티션 간 쿼리 처리를 병렬 처리에 PARTITION BY 절을 사용을 하도록 설정 합니다.
 
-  * **현재 버전:** CREATE TABLE 명령을 사용하여 강력한 스키마를 지정할 수 있습니다. Stream Analytics 엔진은 데이터가 이 스키마를 준수하는지 확인합니다. 이 모델을 사용하면 이 명령으로 NaN 값을 사용하는 이벤트를 필터링할 수 있습니다. 
+**현재 버전:** 입력된 원본 파티션 간 쿼리 논리를 병렬 처리할 수 하는 경우 Azure Stream Analytics는 별도 쿼리 인스턴스를 만들고 병렬로 계산을 실행 합니다.
 
-* **JSON에서 날짜/시간 문자열에 자동 업캐스트를 사용하지 않도록 설정합니다.**  
+### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>CosmosDB 출력을 사용 하 여 네이티브 대량 API 통합
 
-  * **이전 버전:** JSON 파서가 자동으로 표준 시간대 정보를 사용하여 문자열 값을 날짜/시간 형식으로 업캐스트한 후 UTC로 변환합니다. 이로 인해 표준 시간대 정보가 손실되었습니다.
+**이전 버전:** Upsert 동작이 *삽입 또는 병합*입니다.
 
-  * **현재 버전:** 더 이상 자동으로 표준 시간대 정보를 사용하여 문자열 값을 날짜/시간 형식으로 업캐스트하지 않습니다. 따라서 표준 시간대 정보가 유지됩니다. 
+**현재 버전:** CosmosDB 출력을 사용 하 여 대량 API 통합을 기본 처리량을 최대화 하 고 효율적으로 제한 요청을 처리 합니다.
+
+Upsert 동작은 *삽입 또는 바꾸기*합니다.
+
+### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset SQL 출력을 쓸 때
+
+**이전 버전:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 형식을 UTC로 조정 했습니다.
+
+**현재 버전:** DateTimeOffset은 더 이상 조정 됩니다.
+
+### <a name="strict-validation-of-prefix-of-functions"></a>함수의 접두사의 엄격한 유효성 검사
+
+**이전 버전:** 함수 접두사에 대 한 엄격한 유효성이 있었습니다.
+
+**현재 버전:** Azure Stream Analytics에 함수 접두사의 엄격한 유효성 검사 합니다. 기본 제공 함수에 접두사를 추가 하면 오류가 발생 합니다. 예를 들어`myprefix.ABS(…)` 지원 되지 않습니다.
+
+오류가 발생도 기본 제공 집계에 접두사를 추가 합니다. 예를 들어 `myprefix.SUM(…)` 지원 되지 않습니다.
+
+"System" 접두사를 사용 하 여 오류에서 사용자 정의 함수 결과 대 한 합니다.
+
+### <a name="disallow-array-and-object-as-key-properties-in-cosmos-db-output-adapter"></a>Cosmos DB 출력 어댑터의 키 속성으로 배열 및 개체를 허용 하지 않습니다
+
+**이전 버전:** 배열 및 개체 형식은 키 속성으로 지원 되었습니다.
+
+**현재 버전:** 키 속성으로 더 이상 배열 및 개체 형식은 사용할 수 없습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Stream Analytics 입력 문제 해결](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics Resource 상태 블레이드](stream-analytics-resource-health.md)
+* [Azure Stream Analytics 입력을 문제 해결](stream-analytics-troubleshoot-input.md)
+* [Stream Analytics 리소스 상태](stream-analytics-resource-health.md)

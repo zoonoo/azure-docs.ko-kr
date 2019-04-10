@@ -1,6 +1,6 @@
 ---
 title: Cloud Services에서 Azure 진단(.NET)을 사용하는 방법 | Microsoft Docs
-description: Azure 진단을 사용하면 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 위해 Azure Cloud Services에서 데이터를 수집할 수 있습니다.
+description: Azure 진단을 사용하면 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 위해 Azure 클라우드 서비스에서 데이터를 수집할 수 있습니다.
 services: cloud-services
 documentationcenter: .net
 author: jpconnock
@@ -21,11 +21,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/04/2019
 ms.locfileid: "58915360"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services에서 Azure 진단 사용
-Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md) 를 참조하세요.
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Azure Cloud Services에서 Azure Diagnostics 사용
+Azure Diagnostics의 배경은 [Azure Diagnostics 개요](../azure-diagnostics.md)를 참조하세요.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>작업자 역할에서 진단을 사용하는 방법
-이 연습에서는 .NET EventSource 클래스를 사용하여 원격 분석 데이터를 내보내는 Azure 작업자 역할을 구현하는 방법에 대해 설명합니다. Azure 진단은 원격 분석 데이터를 수집하고 이를 Azure Storage 계정에 저장하는 데 사용됩니다. Visual Studio 작업자 역할을 만드는 경우 Azure .NET SDK 2.4 이상 버전에서 진단 1.0을 솔루션의 일부로 자동으로 사용하도록 설정합니다. 다음 지침에서는 작업자 역할을 만들고, 솔루션에서 진단 1.0을 사용하지 않도록 설정하고, 진단 1.2 또는 1.3을 작업자 역할에 배포하기 위한 프로세스에 대해 설명합니다.
+이 연습에서는 .NET EventSource 클래스를 사용하여 원격 분석 데이터를 내보내는 Azure 작업자 역할을 구현하는 방법에 대해 설명합니다. Azure Diagnostics는 원격 분석 데이터를 수집하고 이를 Azure 스토리지 계정에 저장하는 데 사용됩니다. Visual Studio 작업자 역할을 만드는 경우 Azure .NET SDK 2.4 이상 버전에서 진단 1.0을 솔루션의 일부로 자동으로 사용하도록 설정합니다. 다음 지침에서는 작업자 역할을 만들고, 솔루션에서 진단 1.0을 사용하지 않도록 설정하고, 진단 1.2 또는 1.3을 작업자 역할에 배포하기 위한 프로세스에 대해 설명합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 이 문서에서는 Azure 구독이 있으며 Visual Studio와 Azure SDK를 함께 사용 중인 것으로 가정합니다. Azure 구독이 없는 경우 [무료 평가판][Free Trial]에 등록할 수 있습니다. [Azure PowerShell 버전 0.8.7 이상을 설치 및 구성][Install and configure Azure PowerShell version 0.8.7 or later]해야 합니다.
@@ -194,7 +194,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 진단 구성 파일에서는 진단 에이전트가 시작될 때 진단 구성 설정을 초기화하는 데 사용되는 값을 정의합니다. 유효한 값 및 예제는 [최신 스키마 참조](/azure/azure-monitor/platform/diagnostics-extension-schema)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
-문제가 있는 경우 일반적인 문제에 대한 도움말인 [Azure 진단 문제 해결](../azure-diagnostics-troubleshooting.md)을 참조하세요.
+문제가 있는 경우 일반적인 문제에 대한 도움말인 [Azure Diagnostics 문제 해결](../azure-diagnostics-troubleshooting.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [관련된 Azure Virtual Machine 진단 문서 목록을 참조하세요](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics).

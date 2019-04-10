@@ -14,7 +14,7 @@ ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57895484"
@@ -26,7 +26,7 @@ ms.locfileid: "57895484"
 * [Azure Service Fabric 애플리케이션](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights Profiler는 Azure 진단 확장과 함께 설치됩니다. Profiler를 설치하고 Application Insights 리소스로 프로필을 전송하도록 Azure 진단을 구성하기만 하면 됩니다.
+Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니다. Profiler를 설치하고 Application Insights 리소스로 프로필을 전송하도록 Azure Diagnostics를 구성하기만 하면 됩니다.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Azure Cloud Services에 대해 Profiler 사용
 1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용하고 있는지 확인합니다. 해당 *ServiceConfiguration.\*.cscfg* 파일에 "5" 이상의 `osFamily` 값이 있는지 확인하는 것으로 충분합니다.
@@ -41,7 +41,7 @@ Application Insights Profiler는 Azure 진단 확장과 함께 설치됩니다. 
 
     * 작업자 역할의 경우 [요청을 추적하는 코드를 추가](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)합니다.
 
-1. 다음을 수행하여 Profiler를 사용할 수 있도록 Azure 진단 확장을 구성합니다.
+1. 다음을 수행하여 Profiler를 사용할 수 있도록 Azure Diagnostics 확장을 구성합니다.
 
     a. 애플리케이션 역할에 대한 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)*diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
 

@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
 ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2019
 ms.locfileid: "54883299"
@@ -114,7 +114,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 ## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Azure 진단 확장이 있는 게스트 내 VM 메트릭
 Azure 진단 확장은 VM 인스턴스 내부에서 실행되는 에이전트입니다. 에이전트는 성능 메트릭을 모니터링하고 Azure 저장소에 저장합니다. 이러한 성능 메트릭에는 디스크에 대한 *AverageReadTime* 또는 CPU에 대한 *PercentIdleTime*과 같은 VM 상태에 대한 자세한 정보가 포함됩니다. CPU 사용률이나 메모리 사용량 외에도 VM 성능에 대한 자세한 인식에 따라 자동 크기 조정 규칙을 만들 수 있습니다.
 
-Azure 진단 확장을 사용하려면 VM 인스턴스에 대한 Azure 저장소 계정을 만들고, Azure 진단 에이전트를 설치한 다음, 특정 성능 카운터를 저장소 계정에 스트림하도록 VM을 구성해야 합니다.
+Azure 진단 확장을 사용하려면 VM 인스턴스에 대한 Azure 스토리지 계정을 만들고, Azure 진단 에이전트를 설치한 다음, 특정 성능 카운터를 스토리지 계정에 스트림하도록 VM을 구성해야 합니다.
 
 자세한 내용은 [Linux VM](../virtual-machines/extensions/diagnostics-linux.md) 또는 [Windows VM](../virtual-machines/extensions/diagnostics-windows.md)에서 Azure 진단 확장을 사용하도록 설정하는 방법에 대한 문서를 참조하세요.
 

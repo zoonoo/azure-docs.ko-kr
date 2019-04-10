@@ -111,7 +111,7 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 * **분석**
 
-    Premium Storage의 디스크를 사용하여 VM 성능을 분석하려면 [Azure Portal](https://portal.azure.com)에서 VM 진단을 설정하세요. 자세한 내용은 [Azure 진단 확장을 통한 Azure VM 모니터링](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)을 참조하세요. 
+    Premium Storage의 디스크를 사용하여 VM 성능을 분석하려면 [Azure Portal](https://portal.azure.com)에서 VM 진단을 설정하세요. 자세한 내용은 [Azure Diagnostics 확장을 통한 Azure VM 모니터링](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)을 참조하세요. 
 
     디스크 성능을 보려면 Windows VM용 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 및 Linux VM용 [iostat](http://linux.die.net/man/1/iostat) 명령과 같은 운영 체제 기반 도구를 사용하세요.
 

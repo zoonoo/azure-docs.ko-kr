@@ -3,7 +3,7 @@ title: Azure Cloud Services용 Application Insights | Microsoft Docs
 description: Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링
 services: application-insights
 documentationcenter: ''
-keywords: WAD2AI, Azure 진단
+keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
@@ -15,7 +15,7 @@ ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54267235"
@@ -88,8 +88,8 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
     각 리소스는 계측 키로 식별됩니다. 이 키는 나중에 SDK의 구성을 수동으로 구성하거나 확인하려는 경우에 필요할 수 있습니다.
 
 
-## <a name="set-up-azure-diagnostics-for-each-role"></a>각 역할에 대한 Azure 진단 설정
-Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 설정합니다. 웹 역할의 경우 이 옵션은 성능 모니터링, 경고, 진단 및 사용 현황 분석을 제공합니다. 다른 역할의 경우 다시 시작, 성능 카운터 및 System.Diagnostics.Trace 호출과 같은 Azure 진단을 검색하고 모니터링할 수 있습니다. 
+## <a name="set-up-azure-diagnostics-for-each-role"></a>각 역할에 대한 Azure Diagnostics 설정
+Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 설정합니다. 웹 역할의 경우 이 옵션은 성능 모니터링, 경고, 진단 및 사용 현황 분석을 제공합니다. 다른 역할의 경우 다시 시작, 성능 카운터 및 System.Diagnostics.Trace 호출과 같은 Azure Diagnostics를 검색하고 모니터링할 수 있습니다. 
 
 1. Visual Studio 솔루션 탐색기의 **\<YourCloudService>** > **역할**에서 각 역할의 속성을 엽니다.
 
@@ -151,8 +151,8 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 1. 몇 초 정도 기다렸다가 **새로 고침**을 클릭합니다.  
     자세한 내용은 [문제 해결][qna]을 참조하세요.
 
-## <a name="view-azure-diagnostics-events"></a>Azure 진단 이벤트 보기
-다음 위치에서 Application Insights의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 정보를 찾을 수 있습니다.
+## <a name="view-azure-diagnostics-events"></a>Azure Diagnostics 이벤트 보기
+다음 위치에서 Application Insights의 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 정보를 찾을 수 있습니다.
 
 * 성능 카운터는 사용자 지정 메트릭으로 표시됩니다. 
 * Windows 이벤트 로그는 추적 및 사용자 지정 이벤트로 표시됩니다.
@@ -160,11 +160,11 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 성능 카운터 및 이벤트 개수를 보려면 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md)를 열고 다음 차트를 추가합니다.
 
-![Azure 진단 데이터](./media/cloudservices/23-wad.png)
+![Azure Diagnostics 데이터](./media/cloudservices/23-wad.png)
 
 Azure Diagnostics에서 보낸 다양한 추적 로그를 검색하려면 [Search](../../azure-monitor/app/diagnostic-search.md) 또는 [분석 쿼리](../../azure-monitor/log-query/get-started-portal.md)를 사용합니다. 예를 들어 역할이 충돌하여 재활용되도록 하는 처리되지 않은 예외가 있다고 가정해 봅시다. 해당 정보는 Windows 이벤트 로그의 애플리케이션 채널에 표시됩니다. Search를 사용하여 Windows 이벤트 로그 오류를 살펴보고 예외에 대한 전체 스택 추적을 가져올 수 있습니다. 이렇게 하면 문제의 근본 원인을 찾는 데 도움이 됩니다.
 
-![Azure 진단 검색](./media/cloudservices/25-wad.png)
+![Azure Diagnostics 검색](./media/cloudservices/25-wad.png)
 
 ## <a name="more-telemetry"></a>추가 원격 분석
 다음 섹션에서는 앱의 다양한 측면에서 추가 원격 분석을 가져오는 방법을 설명합니다.

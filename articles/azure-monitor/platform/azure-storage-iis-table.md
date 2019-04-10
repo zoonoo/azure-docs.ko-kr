@@ -32,7 +32,7 @@ Azure Monitor는 이러한 리소스에 대 한 Log Analytics 작업 영역으�
 
 진단 설정 된 후 Azure portal을 사용할 수 있습니다 또는 PowerShell 로그를 수집 하도록 작업 영역을 구성 합니다.
 
-Azure 진단은 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 가상 머신에서 진단 데이터를 수집하는 데 사용할 수 있는 Azure 확장입니다. 데이터는 Azure storage 계정에 저장 되 고 Azure Monitor에서 수집할 수 있습니다.
+Azure Diagnostics는 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 가상 머신에서 진단 데이터를 수집하는 데 사용할 수 있는 Azure 확장입니다. 데이터는 Azure storage 계정에 저장 되 고 Azure Monitor에서 수집할 수 있습니다.
 
 이러한 Azure 진단 로그를 수집 하도록 Azure Monitor에 대 한 로그는 다음 위치에 있어야 합니다.
 
@@ -55,7 +55,7 @@ Azure 진단은 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 �
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>이벤트 로그 및 IIS 로그 컬렉션에 대한 Azure 진단을 가상 머신에서 사용
 
-다음 절차를 사용하여 Microsoft Azure Portal에서 이벤트 로그 및 IIS 로그를 수집할 수 있도록 가상 컴퓨터에서 Azure 진단을 사용하도록 설정합니다.
+다음 절차를 사용하여 Microsoft Azure Portal에서 이벤트 로그 및 IIS 로그를 수집할 수 있도록 가상 머신에서 Azure 진단을 사용하도록 설정합니다.
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 통해 가상 머신에서 Azure 진단을 사용하도록 설정하려면
 
@@ -63,7 +63,7 @@ Azure 진단은 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 �
 
    * Azure Portal에서 가상 머신으로 이동하여 **옵션 구성**, **진단**을 차례로 선택한 다음 **상태**를 **설정**으로 설정합니다.
 
-     완료되면 VM에서 Azure 진단 확장이 설치 및 실행됩니다. 이 확장은 진단 데이터를 수집합니다.
+     완료되면 VM에서 Azure Diagnostics 확장이 설치 및 실행됩니다. 이 확장은 진단 데이터를 수집합니다.
 2. 모니터링을 설정하고 기존 VM에 대한 이벤트 로깅을 구성합니다. VM 수준에서 진단을 설정할 수 있습니다. 진단을 사용하도록 설정한 다음 이벤트 로깅을 구성하려면 다음 단계를 수행합니다.
 
    1. VM을 선택합니다.
@@ -84,7 +84,7 @@ Azure 진단을 사용하는 경우:
 
 ### <a name="to-enable-diagnostics"></a>진단을 사용하도록 설정하려면
 
-Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPeriod를 변경하려면 [4단계: 진단 구성 파일 만들기 및 확장 설치](../../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 것처럼 XML 구성 파일(diagnostics.wadcfg)을 사용하여 Azure Diagnostics를 구성합니다.
+Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPeriod를 변경하려면 [4단계와 같이 XML 구성 파일(diagnostics.wadcfg)을 사용하여 Azure Diagnostics를 구성합니다. 진단 구성 파일 만들기 및 확장 설치](../../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 것처럼 XML 구성 파일(diagnostics.wadcfg)을 사용하여 Azure Diagnostics를 구성합니다.
 
 다음 예제 구성 파일은 애플리케이션 및 시스템 로그에서 모든 이벤트 및 IIS 로그를 수집합니다.
 

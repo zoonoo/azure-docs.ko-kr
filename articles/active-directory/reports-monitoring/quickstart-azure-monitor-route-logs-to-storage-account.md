@@ -1,6 +1,6 @@
 ---
 title: 자습서 - 스토리지 계정에 Azure Active Directory 로그 보관(미리 보기) | Microsoft Docs
-description: 저장소 계정으로 Azure Active Directory 로그를 푸시하도록 Azure 진단을 설정하는 방법 알아보기(미리 보기)
+description: 스토리지 계정으로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기(미리 보기)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi

@@ -210,9 +210,9 @@ ms.locfileid: "57901936"
 
   더 자세한 진행률 보고서를 제공하는 XML 값입니다. 진행률 보고서는 행 집합이 원본에서 대상으로 복사될 때 정기적으로 업데이트됩니다. 오류 또는 예외 발생 시 이 열에는 오류에 대한 자세한 내용이 포함됩니다.
 
-### <a name="azure-diagnostics"></a>Azure 진단
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure 진단을 사용합니다. 여기에 설명된 대로 진단 구성을 제어합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md) 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 애플리케이션 이벤트 로그를 기록하는 정의가 포함됩니다.
+분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure Diagnostics를 사용합니다. 여기에 설명된 대로 진단 구성을 제어합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md) 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 애플리케이션 이벤트 로그를 기록하는 정의가 포함됩니다.
 
 ## <a name="deploy-diagnostics"></a>진단 배포 
 

@@ -34,7 +34,7 @@ ms.locfileid: "57779048"
 >
 > Virtual Networks를 사용하도록 설정되면 첫 번째 파티 통합이 지원되지 않습니다.
 > Virtual Networks를 사용하지 않는 일반적인 Azure 시나리오 -
-> * Azure 진단 및 로깅
+> * Azure Diagnostics 및 로깅
 > * Azure Stream Analytics
 > * Event Grid 통합
 > * Web Apps 및 Functions는 가상 네트워크에 위치해야 합니다.

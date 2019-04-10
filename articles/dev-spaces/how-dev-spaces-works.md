@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500562"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361504"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
 
@@ -85,10 +85,10 @@ AKS 클러스터를 준비 하는 작업에 포함 됩니다.
 * 사용 하 여 클러스터에서 Azure 개발 공간을 사용 하도록 설정 `az aks use-dev-spaces`
 
 만들기 및 Azure 개발 공간에 대 한 AKS 클러스터를 구성 하는 방법에 대 한 자세한 내용은 시작 가이드 중 하나를 참조 합니다.
-* [Java 사용 하 여 Azure 개발 공간 시작](get-started-java.md)
-* [.NET Core 및 Visual Studio를 사용 하 여 Azure 개발 공간 시작](get-started-netcore-visualstudio.md)
-* [.NET Core 사용 하 여 Azure 개발 공간 시작](get-started-netcore.md)
-* [Node.js 사용 하 여 Azure 개발 공간 시작](get-started-nodejs.md)
+* [Azure Dev Spaces에서 Java를 사용하여 시작](get-started-java.md)
+* [Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작](get-started-netcore-visualstudio.md)
+* [Azure Dev Spaces에서 .NET Core를 사용하여 시작](get-started-netcore.md)
+* [Azure Dev Spaces에서 Node.js를 사용하여 시작](get-started-nodejs.md)
 
 Azure 개발 공간 AKS 클러스터에서 사용 하는 경우 클러스터에 대 한 컨트롤러를 설치 합니다. 컨트롤러는 클러스터 외부에서 별도 Azure 리소스 및 클러스터의 리소스에 다음을 수행 합니다.
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862950"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426492"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -565,7 +565,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>동적 그룹(미리 보기) 사용
+## <a name="using-dynamic-groups"></a>동적 그룹을 사용 하 여
 
 업데이트 관리는 Azure VM의 동적 그룹을 업데이트 배포 대상으로 지정하는 기능을 제공합니다. 이러한 그룹은 쿼리를 통해 정의되고, 업데이트 배포가 시작되면 해당 그룹의 멤버가 평가됩니다. 동적 그룹 클래식 Vm을 사용 하 여 작동 하지 않습니다. 쿼리를 정의할 때 다음 항목을 함께 사용하여 동적 그룹을 채울 수 있습니다.
 

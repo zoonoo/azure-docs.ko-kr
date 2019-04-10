@@ -44,7 +44,7 @@ ms.locfileid: "58916311"
 > 
 
 ## <a name="onstart-method"></a>Onstart 메서드
-Azure에서 역할 인스턴스를 온라인 상태로 가져오면 **OnStart** 메서드가 호출됩니다. OnStart 코드가 실행되는 동안 역할 인스턴스는 **Busy** 로 표시되며 부하 분산 장치에서 전송된 외부 트래픽은 없습니다. 이벤트 처리기 구현 및 [Azure 진단](cloud-services-how-to-monitor.md)시작과 같은 초기화 작업을 수행하도록 이 메서드를 재정의할 수 있습니다.
+Azure에서 역할 인스턴스를 온라인 상태로 가져오면 **OnStart** 메서드가 호출됩니다. OnStart 코드가 실행되는 동안 역할 인스턴스는 **Busy** 로 표시되며 부하 분산 장치에서 전송된 외부 트래픽은 없습니다. 이벤트 처리기 구현 및 [Azure Diagnostics](cloud-services-how-to-monitor.md) 시작과 같은 초기화 작업을 수행하도록 이 메서드를 재정의할 수 있습니다.
 
 **OnStart**가 **true**를 반환하면, 인스턴스가 성공적으로 초기화되고 Azure는 **RoleEntryPoint.Run** 메서드를 호출합니다. **OnStart**가 **false**를 반환하면, 계획된 종료 시퀀스를 실행하지 않고 역할이 즉시 종료됩니다.
 

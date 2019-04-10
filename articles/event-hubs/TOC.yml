@@ -148,7 +148,7 @@ items:
     href: event-hubs-service-endpoints.md
   - name: 처리량 단위 규모를 자동으로 조정
     href: event-hubs-auto-inflate.md
-  - name: Event Hubs를 사용하여 Azure 진단 데이터 스트림
+  - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
     href: event-hubs-streaming-azure-diags-data.md
   - name: 다른 프로토콜을 사용하여 애플리케이션 간에 이벤트 교환
     href: event-hubs-exchange-events-different-protocols.md

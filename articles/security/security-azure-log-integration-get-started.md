@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57894379"
 ---
-# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 진단 로깅 및 Windows 이벤트 전달과의 Azure Log Integration
+# <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Diagnostics 로깅 및 Windows 이벤트 전달과 Azure Log Integration
 
 
 >[!IMPORTANT]
@@ -36,7 +36,7 @@ Azure Monitor 커넥터의 상태에 대한 자세한 내용은 SIEM 공급업�
 > [!IMPORTANT]
 > 가상 머신 로그를 수집하는 것이 주요 관심사인 경우, 이 옵션은 대부분의 SIEM 공급업체 솔루션에 포함됩니다. SIEM 공급업체의 커넥터를 사용하는 것이 항상 기본 대안입니다.
 
-이 문서는 Azure Log Integration을 시작하는 데 도움을 줍니다. 여기서는 Azure Log Integration 서비스의 설치와 Azure 진단과의 통합을 중점적으로 다룹니다. Azure Log Integration 서비스는 Azure IaaS(Infrastructure as a Service)에 배포된 가상 머신에서 Windows 보안 이벤트 채널의 Windows 이벤트 로그 정보를 수집합니다. 이 서비스는 온-프레미스에서 사용할 수도 있는 *이벤트 전달*과 매우 유사합니다.
+이 문서는 Azure Log Integration을 시작하는 데 도움을 줍니다. 여기서는 Azure Log Integration 서비스의 설치와 Azure Diagnostics와의 통합을 중점적으로 다룹니다. Azure Log Integration 서비스는 Azure IaaS(Infrastructure as a Service)에 배포된 가상 머신에서 Windows 보안 이벤트 채널의 Windows 이벤트 로그 정보를 수집합니다. 이 서비스는 온-프레미스에서 사용할 수도 있는 *이벤트 전달*과 매우 유사합니다.
 
 > [!NOTE]
 > Azure Log Integration의 출력을 SIEM과 통합하는 작업은 SIEM 자체적으로 수행됩니다. 자세한 내용은 [Integrating Azure Log Integration with your On-premises SIEM](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/)(Azure Log Integration과 온-프레미스 SIEM 통합)을 참조하세요.
@@ -52,16 +52,16 @@ Azure Log Integration 서비스는 Windows Server 2008 R2 이상(Windows Server 
 최소한 Azure Log Integration을 설치하려면 다음 항목이 필요합니다.
 
 * **Azure 구독**. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
-* WAD(Microsoft Azure 진단) 로깅에 사용할 수 있는 **저장소 계정**. 미리 구성된 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다. 저장소 계정을 구성하는 방법은 이 문서의 뒷부분에서 설명합니다.
+* WAD(Windows Azure Diagnostics) 로깅에 사용할 수 있는 **스토리지 계정**. 미리 구성된 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다. 저장소 계정을 구성하는 방법은 이 문서의 뒷부분에서 설명합니다.
 
   > [!NOTE]
-  > 시나리오에 따라 저장소 계정이 필요하지 않을 수도 있습니다. 이 문서에서 다루는 Azure 진단 시나리오의 경우 저장소 계정이 필요합니다.
+  > 시나리오에 따라 저장소 계정이 필요하지 않을 수도 있습니다. 이 문서에서 다루는 Azure Diagnostics 시나리오의 경우 스토리지 계정이 필요합니다.
 
 * **두 대의 시스템**: 
   * Azure Log Integration 서비스를 실행하는 컴퓨터. 이 컴퓨터는 나중에 SIEM으로 가져오는 모든 로그 정보를 수집합니다. 이 시스템에 해당되는 사항:
     * 온-프레미스에 있거나 Microsoft Azure에 호스트될 수 있습니다.  
     * Windows Server 2008 R2 SP1 이상의 x64 버전을 실행하고 Microsoft .NET 4.5.1이 설치되어 있어야 합니다. 설치된 .NET 버전을 확인하려면 [설치된 .NET Framework 버전 확인](https://msdn.microsoft.com/library/hh925568)을 참조하세요.  
-    * Azure 진단 로깅에 사용되는 Azure Storage 계정에 대한 연결이 있어야 합니다. 연결을 구성하는 방법은 이 문서의 뒷부분에서 설명합니다.
+    * Azure Diagnostics 로깅에 사용되는 Azure Storage 계정에 대한 연결이 있어야 합니다. 연결을 구성하는 방법은 이 문서의 뒷부분에서 설명합니다.
   * 모니터링할 컴퓨터. [Azure Virtual Machine](../virtual-machines/virtual-machines-windows-overview.md)으로 실행 중인 VM입니다. 이 컴퓨터의 로깅 정보는 Azure Log Integration 서비스 컴퓨터에 전송됩니다.
 
 Azure Portal을 사용하여 가상 머신을 만드는 방법에 대한 빠른 데모를 보려면 아래 비디오를 시청하세요.<br /><br />
@@ -73,7 +73,7 @@ Azure Portal을 사용하여 가상 머신을 만드는 방법에 대한 빠른 
 
 테스트하는 동안 최소 운영 체제 요구 사항을 충족하는 시스템을 사용할 수 있습니다. 프로덕션 환경의 경우 부하로 인해 강화 또는 스케일 아웃 계획을 세워야 할 수도 있습니다.
 
-Azure Log Integration 서비스의 인스턴스를 여러 개 실행할 수 있습니다. 그러나 물리적 또는 가상 머신별로 서비스 인스턴스를 하나만 실행할 수 있습니다. 또한 WAD용 Azure 진단 저장소 계정의 부하를 분산할 수 있습니다. 인스턴스에 제공할 구독 수는 용량을 기준으로 합니다.
+Azure Log Integration 서비스의 인스턴스를 여러 개 실행할 수 있습니다. 그러나 물리적 또는 가상 머신별로 서비스 인스턴스를 하나만 실행할 수 있습니다. 또한 WAD용 Azure Diagnostics 스토리지 계정의 부하를 분산할 수 있습니다. 인스턴스에 제공할 구독 수는 용량을 기준으로 합니다.
 
 > [!NOTE]
 > 현재, Azure Log Integration 컴퓨터(즉, Azure Log Integration 서비스를 실행하는 컴퓨터)의 인스턴스를 확장할 시기 또는 저장소 계정이나 구독에 대한 구체적인 권장 사항은 없습니다. 확장 결정은 이러한 각 영역에서의 성능 관찰을 기반으로 해야 합니다.
@@ -123,21 +123,21 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
    > [!NOTE]
    > 명령이 성공하면 피드백이 수신되지 않습니다. 
 
-4. 시스템을 모니터링하려면 Azure 진단에 사용 중인 저장소 계정의 이름이 필요합니다. Azure Portal에서 **가상 머신**으로 이동합니다. 모니터링할 Windows 가상 머신을 찾습니다. **속성** 섹션에서 **진단 설정**을 선택합니다.  그런 다음, **에이전트**를 선택합니다. 지정된 저장소 계정 이름을 기록합니다. 이후 단계에서 이 계정 이름이 필요합니다.
+4. 시스템을 모니터링하려면 Azure Diagnostics에 사용 중인 스토리지 계정의 이름이 필요합니다. Azure Portal에서 **가상 머신**으로 이동합니다. 모니터링할 Windows 가상 머신을 찾습니다. **속성** 섹션에서 **진단 설정**을 선택합니다.  그런 다음, **에이전트**를 선택합니다. 지정된 저장소 계정 이름을 기록합니다. 이후 단계에서 이 계정 이름이 필요합니다.
 
-   ![Azure 진단 설정 창 스크린샷](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+   ![Azure Diagnostics 설정 창 스크린샷](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
    ![게스트 수준 모니터링 사용 단추 스크린샷](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
    > [!NOTE]
    > 가상 머신을 만들 때 모니터링을 사용하도록 설정하지 않은 경우 이전 이미지에 나와 있는 것처럼 사용하도록 설정할 수 있습니다.
 
-5. 이제 Azure Log Integration 컴퓨터로 돌아갑니다. Azure Log Integration을 설치한 컴퓨터에서 Storage 계정에 연결되어 있는지 확인합니다. Azure Log Integration 서비스를 실행하는 컴퓨터에서 모니터링되는 각 시스템에서 Azure 진단이 기록한 정보를 검색하려면 저장소 계정에 대한 액세스 권한이 필요합니다. 연결을 확인하려면 
+5. 이제 Azure Log Integration 컴퓨터로 돌아갑니다. Azure Log Integration을 설치한 컴퓨터에서 Storage 계정에 연결되어 있는지 확인합니다. Azure Log Integration 서비스를 실행하는 컴퓨터에서 모니터링되는 각 시스템에서 Azure Diagnostics가 기록한 정보를 검색하려면 스토리지 계정에 대한 액세스 권한이 필요합니다. 연결을 확인하려면 
    1. [Azure Storage 탐색기를 다운로드](https://storageexplorer.com/)합니다.
    2. 설치를 완료합니다.
    3. 설치가 완료되면 **다음**을 선택합니다. **Microsoft Azure 저장소 탐색기 시작** 확인란을 선택된 상태로 둡니다.  
    4. Azure에 로그인합니다.
-   5. Azure 진단용으로 구성된 저장소 계정이 표시되는지 확인합니다. 
+   5. Azure Diagnostics용으로 구성된 스토리지 계정이 표시되는지 확인합니다. 
 
    ![저장소 탐색기의 저장소 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
@@ -151,9 +151,9 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 이 단계에서는 로그 파일이 포함된 저장소 계정에 연결하도록 Azure Log Integration 서비스를 실행하는 컴퓨터를 구성합니다.
 
 이 단계를 완료하려면 다음과 같은 몇 가지 항목이 필요합니다.  
-* **FriendlyNameForSource**: Azure 진단의 정보를 저장하도록 가상 머신을 구성한 스토리지 계정에 적용할 수 있는 친숙한 이름입니다.
-* **StorageAccountName**: Azure 진단을 구성할 때 지정한 스토리지 계정의 이름입니다.  
-* **StorageKey**: Azure 진단 정보가 이 가상 머신에 저장되는 스토리지 계정의 스토리지 키입니다.  
+* **FriendlyNameForSource**: Azure Diagnostics의 정보를 저장하도록 가상 머신을 구성한 스토리지 계정에 적용할 수 있는 친숙한 이름입니다.
+* **StorageAccountName**: Azure Diagnostics를 구성할 때 지정한 스토리지 계정의 이름입니다.  
+* **StorageKey**: Azure Diagnostics 정보가 이 가상 머신에 저장되는 스토리지 계정의 스토리지 키입니다.  
 
 저장소 키를 가져오려면 다음 단계를 수행합니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
@@ -248,5 +248,5 @@ Azure Log Integration에 대한 자세한 내용은 다음 문서를 참조하�
 * [Azure Log Integration 소개](security-azure-log-integration-overview.md) 이 문서에서는 Azure Log Integration, 주요 기능 및 작동 원리를 소개합니다.
 * [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure Log Integration을 구성하는 방법을 보여 줍니다. SIEM 구성 요소를 구성하는 방법에 대한 최신 지침을 제공합니다. 자세한 내용은 SIEM 공급업체에 문의하세요.
 * [Azure Log Integration FAQ(질문과 대답)](security-azure-log-integration-faq.md). 이 FAQ는 Azure Log Integration에 대해 자주 묻는 질문과 대답입니다.
-* [Azure Log Integration에 Azure Security Center 경고 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) 이 문서에서는 Azure 진단 및 Azure 활동 로그에서 수집된 보안 센터 경고 및 가상 머신 보안 이벤트를 동기화하는 방법을 보여 줍니다. Azure Monitor 로그 또는 SIEM 솔루션을 사용 하 여 로그를 동기화 합니다.
+* [Azure Log Integration에 Azure Security Center 경고 통합](../security-center/security-center-integrating-alerts-with-log-integration.md) 이 문서에서는 Azure Diagnostics 및 Azure 활동 로그에서 수집된 보안 센터 경고 및 가상 머신 보안 이벤트를 동기화하는 방법을 보여줍니다. Azure Monitor 로그 또는 SIEM 솔루션을 사용 하 여 로그를 동기화 합니다.
 * [Azure 진단 및 Azure 감사 로그에 대한 새로운 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.

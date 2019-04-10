@@ -1,0 +1,218 @@
+---
+title: 시작, 모니터링 및 python에서 교육 실행 취소
+titleSuffix: Azure Machine Learning service
+description: Machine learning 실험을 구성 하 고 시작 하는 방법, 상태, 태그를 알아봅니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.author: roastala
+author: rastala
+manager: cgronlun
+ms.reviewer: nibaccam
+ms.date: 4/5/2019
+ms.openlocfilehash: 726273024a2da0cea5207c86140f3c31263a208f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426748"
+---
+# <a name="start-monitor-and-cancel-training-runs-in-python"></a>시작, 모니터링 및 python에서 교육 실행 취소
+
+합니다 [Python 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 모니터링, 구성 및 학습 및 실험에 대 한 프로그램 실행을 관리 하는 다양 한 방법을 제공 합니다.
+
+이 방법 문서를 사용 하면 다음과 같은 작업의 예가 있습니다.
+
+* [실행 성능 모니터](#monitor)
+* [취소 또는 실행 실패](#cancel)
+* [자식 실행 만들기](#children)
+* [태그 및 실행 확인](#tag)
+
+## <a name="prerequisites"></a>필수 조건
+
+다음이 필요 합니다.
+
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+
+* Azure Machine Learning 서비스 작업 영역. 참조 [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)합니다.
+
+* 설치 된 Python에 대 한 Azure Machine Learning SDK (버전 1.0.21 이상). 를 설치 하거나 SDK의 최신 버전으로 업데이트 하려면로 이동 합니다 [SDK 설치/업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 페이지입니다.
+
+    Azure Machine Learning SDK의 버전을 확인 하려면 다음 코드를 사용 합니다.
+
+    ```Python
+    print(azureml.core.VERSION)
+    ```
+
+<a name="monitor"></a>
+
+## <a name="start-and-status-a-run"></a>시작 및 실행 상태
+
+실험을 가져와서 설정 합니다 [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)를 [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)를 [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), 및 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 클래스를 [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) 패키지 있습니다.
+
+```Python
+import azureml.core
+from azureml.core import Workspace, Experiment, Run
+from azureml.core import ScriptRunConfig
+
+ws = Workspace.from_config()
+exp = Experiment(workspace=ws, name="explore-runs")
+```
+
+실행 하 고 해당 로깅 프로세스를 시작 합니다 [ `start_logging()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) 메서드.
+
+```Python
+notebook_run = exp.start_logging()
+
+notebook_run.log(name="message", value="Hello from run!")
+```
+
+사용 하 여 실행의 상태를 가져옵니다 [ `get_status()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--)합니다.
+
+```Python
+print(notebook_run.get_status())
+```
+
+실행된 사용에 대 한 추가 정보를 얻으려면 [ `get_details()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--)합니다.
+
+```Python
+notebook_run.get_details()
+```
+
+실행 성공적으로 완료 되 면 사용 합니다 [ `complete()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) 메서드를 완료 됨으로 표시 합니다.
+
+```Python
+notebook_run.complete()
+print(notebook_run.get_status())
+```
+
+Python의를 사용할 수도 있습니다 `with...as` 패턴입니다. 이 컨텍스트에서 실행은 자동으로 자체 완료로 때 표시할 실행 범위를 벗어납니다. 이러한 방식으로 수동으로 실행을 완료로 표시 필요가 없습니다.
+
+```Python
+with exp.start_logging() as notebook_run:
+    notebook_run.log(name="message", value="Hello from run!")
+    print("Is it still running?",notebook_run.get_status())
+
+print("Has it completed?",notebook_run.get_status())
+```
+
+<a name="cancel"></a>
+
+## <a name="cancel-or-fail-runs"></a>취소 또는 실행 실패
+
+ 실수를 확인 하거나 실행 완료를 사용 하 여 긴 시간이 걸리는 것 같습니다 합니다 [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) 메서드를 완료 되기 전에 실행을 중지 하 고 취소 됨으로 표시 합니다.
+
+```Python
+run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
+
+local_script_run = exp.submit(run_config)
+print("Did the run start?",local_script_run.get_status())
+
+local_script_run.cancel()
+print("Did the run cancel?",local_script_run.get_status())
+```
+
+실행 완료 되 면 같은 오류를 포함 하지만 잘못 된 학습 스크립트를 사용한 경우 사용할 수는 [ `fail()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-) 실패로 표시 하는 방법입니다.
+
+```Python
+local_script_run = exp.submit(run_config)
+local_script_run.fail()
+
+print(local_script_run.get_status())
+```
+
+<a name="children"></a>
+
+## <a name="create-child-runs"></a>자식 실행 만들기
+
+자식 그룹화 관련된 실행 같은 다양 한 하이퍼 매개 변수 튜닝 반복에 대 한 실행을 만듭니다.
+
+이 코드 예제에서는 hello_with_children.py 스크립트를 사용 하 여 일괄 처리를 만들려면 사용 하 여 제출 된 실행 내에서 5 개의 자식 실행 합니다 [ `child_run()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) 메서드.
+
+```Python
+!more hello_with_children.py
+run_config = ScriptRunConfig(source_directory='.', script='hello_with_children.py')
+
+local_script_run = exp.submit(run_config)
+local_script_run.wait_for_completion(show_output=True)
+print(local_script_run.get_status())
+
+with exp.start_logging() as parent_run:
+    for c,count in enumerate(range(5)):
+        with parent_run.child_run() as child:
+            child.log(name="Hello from child run", value=c)
+```
+
+> [!NOTE]
+> 자식 실행 범위 외부로 이동할 때 자동으로 완료 됩니다.
+
+자식에 하나씩 실행을 시작할 수도 있습니다 하지만 각 생성 한 네트워크 호출의 결과 이므로 실행의 일괄 처리를 전송 하는 보다 덜 효율적입니다.
+
+사용 된 [ `get_children()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) 특정 부모의 메서드는 하위 쿼리를 실행 합니다.
+
+```Python
+list(parent_run.get_children())
+```
+
+<a name="tag"></a>
+
+## <a name="tag-and-find-runs"></a>태그 및 실행 확인
+
+Azure Machine Learning 서비스에서 속성 및 태그를 구성 하 고 중요 한 정보를 실행 하 고 쿼리 하는 데 사용할 수 있습니다.
+
+### <a name="add-properties-and-tags"></a>속성 및 태그를 추가 합니다.
+
+사용 된 [ `add_properties()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) 를 실행 하 고 검색 가능한 메타 데이터를 추가할입니다. 예를 들어, 다음 코드는 실행에 "author" 속성을 추가합니다.
+
+```Python
+local_script_run.add_properties({"author":"azureml-user"})
+print(local_script_run.get_properties())
+```
+
+속성을 변경할 수 없는 감사를 목적으로 영구 레코드로 유용 합니다. 다음 코드 예제에서는 앞의 코드에서 이미 "author" 속성과 "azureml-user"를 추가한 후 오류가 발생 합니다.
+
+```Python
+try:
+    local_script_run.add_properties({"author":"different-user"})
+except Exception as e:
+    print(e)
+```
+
+그러나 태그는 변경할 수 있습니다. 사용 하 여 [ `tag()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) 실험의 소비자에 대 한 검색 및 의미 있는 정보를 추가 합니다.
+
+```Python
+local_script_run.tag("quality", "great run")
+print(local_script_run.get_tags())
+
+local_script_run.tag("quality", "fantastic run")
+print(local_script_run.get_tags())
+```
+
+또한 간단한 문자열 태그를 추가할 수 있습니다. 값을 사용 하 여 태그 사전 나타나는 `None`합니다.
+
+```Python
+local_script_run.tag("worth another look")
+print(local_script_run.get_tags())
+```
+
+### <a name="query-properties-and-tags"></a>쿼리 속성 및 태그
+
+실행을 쿼리하면 특정 속성 및 태그와 일치 하는 실험 내에서.
+
+```Python
+list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+```
+
+## <a name="example-notebooks"></a>노트북 예제
+
+이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.
+
+* 로깅 Api에 대 한 자세한 내용은 참조는 [로깅 API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb)합니다.
+
+* 관리 하는 방법에 대 한 추가 정보를 Azure Machine Learning SDK를 사용 하 여 실행에 대 한 참조를 [notebook 실행 관리](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs)합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* 실험에 대 한 메트릭을 기록 하는 방법에 알아보려면 참조를 [교육 실행 하는 동안 로그 메트릭](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiment) 문서.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0312e322aea74b3ce9867d09cebc7543da40de5f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309913"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426242"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 장치 연결
 
@@ -48,10 +48,7 @@ Windows IoT Core 디바이스를 설정하려면 [Windows IoT Core 디바이스 
 
 ### <a name="add-a-real-device"></a>실제 디바이스 추가
 
-Azure IoT Central 애플리케이션에서 **Windows IoT Core** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID, 기본 키**)를 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
-
- > [!NOTE]
-   > Azure IoT Central 전환 된 후 Azure IoT Hub Device Provisioning service (DPS)를 사용 하 여 모든 장치 연결에 대해, 다음이 지침에 따라 [장치 연결 문자열을 가져올](concepts-connectivity.md#get-a-connection-string) 자습서의 나머지 부분을 사용 하 여 계속 합니다.
+Azure IoT Central 애플리케이션에서 **Windows IoT Core** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID, 기본 키**)를 기록해 둡니다. 다음이 지침에 따라 [장치 연결 문자열을 생성](howto-generate-connection-string.md) 를 사용 하는 **범위 ID**, **장치 ID**, 및 **키** 변경한를 앞의 note 합니다.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core 디바이스 준비
 
@@ -65,9 +62,10 @@ Azure IoT Central과 통신할 수 있는 클라이언트 애플리케이션도 
 
 이전 단계의 클라이언트 애플리케이션을 Windows 10 IoT 장치에 배포하여 준비하려면:
 
-**사용할 클라이언트 애플리케이션에 대한 장치에 연결 문자열 저장**
+**연결 문자열을 사용 하 여 클라이언트 응용 프로그램에 대 한 장치에 저장 되는지 확인**
 * 데스크톱에서 connection.string.iothub라는 텍스트 파일에 연결 문자열을 저장합니다.
-* 텍스트 파일을 디바이스의 문서 폴더(`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`)에 복사합니다.
+* 장치의 문서 폴더에 텍스트 파일을 복사 합니다.
+`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
 복사했으면 아무 브라우저에 http://[device-IP-address]:8080을 입력하여 [Windows 디바이스 포털](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal)을 열어야 합니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 213f4313e96638e4d94455be5f16aa3221d35b73
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905684"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361862"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
@@ -48,7 +48,7 @@ ms.locfileid: "58905684"
 
 ## <a name="access"></a> 리소스 그룹의 액세스 제어
 
-애플리케이션에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. 이러한 리소스는 애플리케이션과 동일한 [리소스 그룹](#resource-group) 에 연결됩니다. 웹 사이트 또는 저장소 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
+애플리케이션에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. 동일 하 게 연결 된 [리소스 그룹](#resource-group) 으로 Application Insights 리소스입니다. 웹 사이트 또는 저장소 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
 
 이러한 리소스에 대한 액세스를 제어하기 위한 권장 사항이 있습니다.
 

@@ -19,7 +19,7 @@ ms.locfileid: "57997665"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Cloudyn으로 Azure 구독 및 계정 활성화
 
-Azure Resource Manager 자격 증명을 추가하거나 업데이트하면 Cloudyn이 Azure Tenant 내의 모든 계정 및 구독을 검색할 수 있습니다. 또한 가상 머신에서 Azure 진단 확장을 사용하도록 설정하면 Cloudyn은 CPU와 메모리 같은 확장된 메트릭을 수집할 수 있습니다. 이 아티클에서는 Azure Resource Manager API를 사용하여 신규 및 기존 계정에 대한 액세스를 사용하도록 설정하는 방법을 설명합니다. 또한 일반적인 계정 문제를 해결하는 방법을 설명합니다.
+Azure Resource Manager 자격 증명을 추가하거나 업데이트하면 Cloudyn이 Azure Tenant 내의 모든 계정 및 구독을 검색할 수 있습니다. 또한 가상 머신에서 Azure Diagnostics 확장을 사용하도록 설정하면 Cloudyn은 CPU와 메모리 같은 확장된 메트릭을 수집할 수 있습니다. 이 아티클에서는 Azure Resource Manager API를 사용하여 신규 및 기존 계정에 대한 액세스를 사용하도록 설정하는 방법을 설명합니다. 또한 일반적인 계정 문제를 해결하는 방법을 설명합니다.
 
 구독이 _활성화되지_ 않으면 Cloudyn은 대부분의 Azure 구독 데이터에 액세스할 수 없습니다. Cloudyn이 액세스할 수 있도록 _활성화되지 않은_ 계정을 편집해야 합니다.
 

@@ -319,7 +319,7 @@ ms.locfileid: "57779150"
 
 다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링된 실패 배열 전체를 허용하는 범위 외부에서 단일 예외 처리 작업을 실행하고 **For each** 작업을 제거하도록 선택할 수 있습니다. 기타 유용한 속성을 포함할 수도 있습니다는  **\@result()** 앞에서 설명한 대로 응답 합니다.
 
-## <a name="azure-diagnostics-and-metrics"></a>Azure 진단 및 메트릭
+## <a name="azure-diagnostics-and-metrics"></a>Azure Diagnostics 및 메트릭
 
 이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. 
 [Azure 진단](../logic-apps/logic-apps-monitor-your-logic-apps.md)은 모든 실행 및 작업 상태를 포함하여 모든 워크플로 이벤트를 Azure Storage 계정 또는 Azure Event Hubs로 만든 이벤트 허브로 보내는 간단한 방법을 제공합니다. 

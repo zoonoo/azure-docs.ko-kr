@@ -19,9 +19,9 @@ ms.locfileid: "58481326"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor [WAD(Microsoft Azure 진단) 확장](diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Azure Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 이전에 연결된 문서에 나열된 여러 다른 위치에 원격 분석을 보낼 수 있습니다.  
+Azure Monitor [WAD(Microsoft Azure Diagnostics) 확장](diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Azure Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 이전에 연결된 문서에 나열된 여러 다른 위치에 원격 분석을 보낼 수 있습니다.  
 
-이 문서에서는 Windows 가상 머신 확장 집합에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. Microsoft Azure 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 것과 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다. 과거에는 Microsoft Azure 진단 확장이 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.  
+이 문서에서는 Windows 가상 머신 확장 집합에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. Microsoft Azure Diagnostics 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 것과 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다. 과거에는 Microsoft Azure Diagnostics 확장이 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.  
 
 Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../../azure-resource-manager/resource-group-overview.md)와 해당 구조 및 구문에 대해 알아보세요.  
 
@@ -33,7 +33,7 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정 
-Azure 진단 확장은 **데이터 싱크**라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 Azure Monitor 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
+Azure Diagnostics 확장은 **데이터 싱크**라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 Azure Monitor 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
 
 ## <a name="author-a-resource-manager-template"></a>Resource Manager 템플릿 작성 
 이 예제에서는 공개적으로 사용 가능한 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)을 사용할 수 있습니다.  
@@ -232,7 +232,7 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
 ## <a name="deploy-the-resource-manager-template"></a>Resource Manager 템플릿 배포 
 
 > [!NOTE]  
-> Azure 진단 확장 버전 1.5 이상을 실행하고 Resource Manager 템플릿에서 **autoUpgradeMinorVersion:** 속성을 **true**로 설정해야 합니다 **.** 그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다. 
+> Azure Diagnostics 확장 버전 1.5 이상을 실행**하고** Resource Manager 템플릿에서 **autoUpgradeMinorVersion:** 속성을 **true**로 설정해야 합니다. 그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다. 
 
 
 Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니다.  

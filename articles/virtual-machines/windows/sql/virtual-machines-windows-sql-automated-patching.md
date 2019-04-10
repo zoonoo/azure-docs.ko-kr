@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 210043eaaf09fb601fe01c33cc1a53c9146bf859
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848245"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425988"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(리소스 관리자)
 > [!div class="op_single_selector"]
@@ -97,11 +97,6 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 처음으로 자동화된 패치를 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 패치가 Azure 포털에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
 
-> [!NOTE]
-> 또한 템플릿을 사용하여 자동화된 패치를 구성할 수 있습니다. 자세한 내용은 [자동화된 패치에 대한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update)을 참조하세요.
-> 
-> 
-
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
 SQL VM을 프로비전한 후 PowerShell을 사용하여 자동화된 패치를 구성합니다.
 
@@ -120,7 +115,7 @@ SQL VM을 프로비전한 후 PowerShell을 사용하여 자동화된 패치를 
 
 | 매개 변수 | 결과 |
 | --- | --- |
-| **DayOfWeek** |매주 목요일마다 패치가 설치됩니다. |
+| **요일** |매주 목요일마다 패치가 설치됩니다. |
 | **MaintenanceWindowStartingHour** |오전 11시에 업데이트를 시작합니다. |
 | **MaintenanceWindowsDuration** |120분 이내에 패치를 설치해야 합니다. 시작 시간을 기준으로 오후 1시까지 완료해야 합니다. |
 | **PatchCategory** |이 매개 변수에 대해서는 **중요**설정만 가능합니다. 이렇게 하면 중요로 표시된 Windows 업데이트가 설치되고, 이 범주에 포함되지 않는 모든 SQL Server 업데이트는 설치되지 않습니다. |

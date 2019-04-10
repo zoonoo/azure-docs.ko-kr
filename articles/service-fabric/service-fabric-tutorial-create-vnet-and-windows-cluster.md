@@ -275,7 +275,7 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정에 로그인하�
 ## <a name="configure-diagnostics-collection-on-the-cluster"></a>클러스터에서 진단 컬렉션 구성
 Service Fabric 클러스터를 실행하는 경우 중앙 위치에서 모든 노드의 로그를 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
-로그를 업로드하고 수집하는 한 가지 방법은 로그를 Azure Storage에 업로드하고 이를 Azure Application Insights 또는 Event Hubs에 보낼 수 있는 MAD(Microsoft Azure 진단) 확장을 사용하는 것입니다. 또한 외부 프로세스를 사용하여 스토리지에서 이벤트를 읽고 분석 플랫폼 제품(예: Azure Monitor 로그 또는 기타 로그 구문 분석 솔루션)에 배치할 수 있습니다.
+로그를 업로드하고 수집하는 한 가지 방법은 로그를 Azure Storage에 업로드하고 이를 Azure Application Insights 또는 Event Hubs에 보낼 수 있는 Azure Diagnostics(WAD) 확장을 사용하는 것입니다. 또한 외부 프로세스를 사용하여 스토리지에서 이벤트를 읽고 분석 플랫폼 제품(예: Azure Monitor 로그 또는 기타 로그 구문 분석 솔루션)에 배치할 수 있습니다.
 
 이 자습서를 수행하는 경우 진단 수집이 [템플릿][template]에 이미 구성되어 있습니다.
 

@@ -195,7 +195,7 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 | CounterValue |카운터의 숫자 값입니다. |
 | InstanceName |이벤트 인스턴스의 이름입니다.  인스턴스가 없으면 비어 있게 됩니다. |
 | ObjectName |성능 개체의 이름입니다. |
-| SourceSystem |데이터가 수집된 에이전트의 유형입니다. <br><br>OpsManager – Windows 에이전트, 직접 연결 또는 SCOM <br> Linux – 모든 Linux 에이전트  <br>  AzureStorage – Azure 진단 |
+| SourceSystem |데이터가 수집된 에이전트의 유형입니다. <br><br>OpsManager – Windows 에이전트, 직접 연결 또는 SCOM <br> Linux – 모든 Linux 에이전트  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |데이터가 샘플링된 날짜와 시간입니다. |
 
 ## <a name="sizing-estimates"></a>예상 크기 조정

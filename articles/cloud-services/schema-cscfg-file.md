@@ -15,7 +15,7 @@ ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 96df87a0d49296280140e392509c0d735f904957
 ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/13/2018
 ms.locfileid: "39007025"
@@ -25,7 +25,7 @@ ms.locfileid: "39007025"
 
 서비스 모델은 [Cloud Service(클래식) 정의 스키마](schema-csdef-file.md)에 설명되어 있습니다.
 
-기본적으로 Azure 진단 구성 스키마 파일은 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 디렉터리에 설치됩니다. `<version>`을 [Azure SDK](https://azure.microsoft.com/downloads/)의 설치된 버전으로 바꿉니다.
+기본적으로 Azure Diagnostics 구성 스키마 파일은 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 디렉터리에 설치됩니다. `<version>`을 [Azure SDK](https://azure.microsoft.com/downloads/)의 설치된 버전으로 바꿉니다.
 
 서비스의 역할 구성에 관한 자세한 내용은 [Cloud Service 모델이란?](cloud-services-model-and-package.md)을 참조하세요.
 

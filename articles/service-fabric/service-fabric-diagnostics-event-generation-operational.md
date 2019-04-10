@@ -251,5 +251,5 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 * [Service Fabric의 진단](service-fabric-diagnostics-overview.md)에 대한 개요를 가져옵니다.
 * [Service Fabric Eventstore 개요](service-fabric-diagnostics-eventstore.md)에서 EventStore에 대해 자세히 알아보기
-* 더 많은 로그를 수집하도록 [Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md) 구성 수정
+* 더 많은 로그를 수집하도록 [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) 구성 수정
 * 작동 채널 로그를 표시하도록 [Application Insights 설정](service-fabric-diagnostics-event-analysis-appinsights.md)

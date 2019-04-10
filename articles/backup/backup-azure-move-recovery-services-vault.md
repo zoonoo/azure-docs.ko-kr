@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f4ab983fbebe9c0219e70fa7bd5742cf1c3a0491
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905769"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361968"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure 구독 및 리소스 그룹(제한된 공개 미리 보기)에서 Recovery Services 자격 증명 모음 이동
 
@@ -22,7 +22,9 @@ ms.locfileid: "58905769"
 > [!NOTE]
 > Recovery Services 자격 증명 모음 및 해당 관련된 리소스와 다른 리소스 그룹으로 이동 하려면 해야 먼저 [원본 구독을 등록](#register-the-source-subscription-to-move-your-recovery-services-vault)합니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="supported-geos"></a>지원 되는 지역
+
+Recovery Services 자격 증명은 오스트레일리아 동부, 오스트레일리아 남동부, 캐나다 중부, 캐나다 동부, 동남 아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 동부 2에서 지원에 대 한 리소스 이동 남 중앙 미국 중서부, 미국 중서부 US2, 미국 서 부, 인도 중부, 인도 남부, 일본 동부, 일본 서 부, 한국 중부, 대한민국 남부, 북유럽, 유럽 서 부, 남아프리카 공화국 북부, 남아프리카 공화국 서 부, 영국 남부, 영국 서 부, 아랍에미리트 중부 및 아랍에미리트 북부 합니다.
 
 ## <a name="prerequisites-for-moving-a-vault"></a>자격 증명 모음 이동을 위한 필수 구성 요소
 
@@ -34,12 +36,12 @@ ms.locfileid: "58905769"
 - 현재 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다.
 - VM이 구독 간에 또는 새 리소스 그룹으로 Recovery Services 자격 증명 모음과 함께 이동하지 않는 경우 현재 VM 복구 지점은 만료될 때까지 자격 증명 모음에 그대로 남아 있습니다.
 - VM을 자격 증명 모음과 함께 이동했는지 여부에 관계없이 자격 증명 모음의 유지된 백업 기록에서 항상 VM을 복원할 수 있습니다.
--   Azure Disk Encryption은 키 자격 증명 모음 및 VM이 동일한 Azure 지역 및 구독에 있어야 합니다.
--   관리 디스크가 있는 가상 머신을 이동하려면 이 [문서](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)를 참조하세요.
--   구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations)를 참조하세요.
--   자격 증명 모음에 대해 정의된 백업 정책은 자격 증명 모음이 구독 간에 또는 새 리소스 그룹으로 이동 후에 유지됩니다.
--   현재 Azure Files, Azure 파일 동기화 또는 IaaS VM의 SQL을 포함하는 자격 증명 모음을 구독 및 리소스 그룹에서 이동할 수 없습니다. 이러한 시나리오에 대한 지원이 향후 릴리스에 추가됩니다.
--   구독 간에 VM 백업 데이터를 포함하는 자격 증명 모음을 이동하는 경우에는 VM을 동일한 구독으로 이동하고, 동일한 대상 리소스 그룹을 사용하여 백업을 계속해야 합니다.<br>
+- Azure Disk Encryption은 키 자격 증명 모음 및 VM이 동일한 Azure 지역 및 구독에 있어야 합니다.
+- 관리 디스크가 있는 가상 머신을 이동하려면 이 [문서](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)를 참조하세요.
+- 구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations)를 참조하세요.
+- 자격 증명 모음에 대해 정의된 백업 정책은 자격 증명 모음이 구독 간에 또는 새 리소스 그룹으로 이동 후에 유지됩니다.
+- 현재 Azure Files, Azure 파일 동기화 또는 IaaS VM의 SQL을 포함하는 자격 증명 모음을 구독 및 리소스 그룹에서 이동할 수 없습니다.
+- 구독 간에 VM 백업 데이터를 포함하는 자격 증명 모음을 이동하는 경우에는 VM을 동일한 구독으로 이동하고, 동일한 대상 리소스 그룹을 사용하여 백업을 계속해야 합니다.<br>
 
 > [!NOTE]
 >
@@ -52,24 +54,24 @@ ms.locfileid: "58905769"
 1. Azure 계정에 로그인
 
    ```
-   Connect-AzAccount
+   Connect-AzureRmAccount
    ```
 
 2. 등록하려는 구독 선택
 
    ```
-   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
    ```
 3. 이 구독 등록
 
    ```
-   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. 명령 실행
 
    ```
-   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Azure Portal 또는 PowerShell을 사용하여 이동 작업을 시작하기 전에 구독이 허용 목록에 추가되도록 30분 정도 기다립니다.
@@ -139,18 +141,18 @@ Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 
 
 ## <a name="use-powershell-to-move-a-vault"></a>PowerShell을 사용하여 자격 증명 모음 이동
 
-Recovery Services 자격 증명 모음을 다른 리소스 그룹으로 이동하려면 `Move-AzResource` cmdlet을 사용합니다. `Move-AzResource` 리소스 이름 및 리소스의 형식에 필요합니다. `Get-AzRecoveryServicesVault` cmdlet에서 가져올 수 있습니다.
+Recovery Services 자격 증명 모음을 다른 리소스 그룹으로 이동하려면 `Move-AzureRMResource` cmdlet을 사용합니다. `Move-AzureRMResource` 리소스 이름 및 리소스의 형식에 필요합니다. `Get-AzureRmRecoveryServicesVault` cmdlet에서 가져올 수 있습니다.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 리소스를 다른 구독으로 이동하기 위해 `-DestinationSubscriptionId` 매개 변수를 포함합니다.
 
 ```
-Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 위의 cmdlet을 실행한 후 지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다. **Y**를 입력하여 확인합니다. 유효성 검사에 성공 후 리소스를 이동합니다.

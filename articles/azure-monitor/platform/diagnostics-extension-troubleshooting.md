@@ -1,5 +1,5 @@
 ---
-title: Azure 진단 확장 문제 해결
+title: Azure Diagnostics 확장 문제 해결
 description: Azure Virtual Machines, Service Fabric 또는 Cloud Services에서 Azure 진단을 사용할 때 문제를 해결합니다.
 services: azure-monitor
 author: rboucher
@@ -11,16 +11,16 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55822139"
 ---
-# <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
-이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](diagnostics-extension-overview.md)를 참조하세요.
+# <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
+이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
 
 ## <a name="logical-components"></a>논리적 구성 요소
-**진단 플러그 인 시작 관리자(DiagnosticsPluginLauncher.exe)**: Azure 진단 확장을 시작합니다. 진입점 프로세스로 사용됩니다.
+**진단 플러그 인 시작 관리자(DiagnosticsPluginLauncher.exe)**: Azure Diagnostics 확장을 시작합니다. 진입점 프로세스로 사용됩니다.
 
 **진단 플러그 인(DiagnosticsPlugin.exe)**: 모니터링 에이전트의 수명을 구성, 시작 및 관리합니다. 시작 관리자가 시작하는 주요 프로세스입니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "55822139"
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음
-Azure 진단은 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 보는 데 문제가 있는 경우 Azure 진단 저장소 계정의 WADMetrics\* 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인합니다.
+Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 보는 데 문제가 있는 경우 Azure Diagnostics 스토리지 계정의 WADMetrics\* 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인합니다.
 
 여기서 테이블의 **PartitionKey**는 리소스 ID, 가상 머신 또는 가상 머신 확장 집합입니다. **RowKey**는 메트릭 이름(일명 성능 카운터 이름)입니다.
 
@@ -82,8 +82,8 @@ Azure 진단은 Azure Portal에 표시할 수 있는 메트릭 데이터를 제�
 구성이 올바르게 설정되었지만 여전히 메트릭 데이터를 볼 수 없는 경우 다음 지침을 사용하여 문제를 해결해 보세요.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure 진단이 시작되지 않음
-Azure 진단이 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
+## <a name="azure-diagnostics-isnt-starting"></a>Azure Diagnostics가 시작되지 않음
+Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
 
 이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 이전 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
 
@@ -105,7 +105,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 해결 방법: 진단 구성을 수정하고 진단을 다시 설치합니다.
 
-저장소 계정이 올바르게 구성되었으면 컴퓨터에 원격 액세스하고 DiagnosticsPlugin.exe 및 MonAgentCore.exe가 실행되고 있는지 확인합니다. 이러한 프로세스가 실행되고 있지 않으면 Azure 진단이 시작되지 않음의 단계 따릅니다.
+저장소 계정이 올바르게 구성되었으면 컴퓨터에 원격 액세스하고 DiagnosticsPlugin.exe 및 MonAgentCore.exe가 실행되고 있는지 확인합니다. 실행 중이 아니면 Azure Diagnostics가 시작되지 않음의 단계 따릅니다.
 
 프로세스가 실행되고 있으면 [데이터가 로컬로 캡처되고 있습니까?](#is-data-getting-captured-locally)로 이동하고 여기서 지침을 따릅니다.
 
@@ -211,9 +211,9 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ## <a name="references"></a>참조
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>진단 확장 구성을 확인하는 방법
-확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](http://resources.azure.com)로 이동한 다음 Azure 진단 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
+확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](http://resources.azure.com)로 이동한 다음, Azure Diagnostics 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
 
-또는 원격 데스크톱을 머신에 연결하고 로그 아티팩트 경로 섹션에서 설명하는 Azure 진단 구성 파일을 살펴보는 것입니다.
+또는 원격 데스크톱을 머신에 연결하고 로그 아티팩트 경로 섹션에서 설명하는 Azure Diagnostics 구성 파일을 살펴보는 것입니다.
 
 두 경우 모두 **Microsoft.Azure.Diagnostics**를 검색한 다음 **xmlCfg** 또는 **WadCfg** 필드를 검색합니다.
 
@@ -221,7 +221,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 
 Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터가 base64로 인코딩되므로 진단에서 로드한 XML을 보려면 [디코딩](https://www.bing.com/search?q=base64+decoder)해야 합니다.
 
-### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure 진단 플러그 인 종료 코드
+### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure Diagnostics 플러그 인 종료 코드
 플러그 인은 다음 종료 코드를 반환합니다.
 
 | 종료 코드 | 설명 |
@@ -275,9 +275,9 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 
 **1. .NET 4.5 종속성**
 
-Windows Azure 진단 확장은 .NET 4.5 프레임워크 이상에 대한 런타임 종속성을 포함합니다. 이 섹션을 쓰는 시점에서 Azure Cloud Services용으로 프로비전된 모든 컴퓨터와 Azure Virtual Machine 기반의 모든 공인 이미지에는 .NET 4.5 이상이 설치되어 있습니다.
+Windows Azure Diagnostics 확장은 .NET 4.5 프레임워크 이상에 대한 런타임 종속성을 포함합니다. 이 섹션을 쓰는 시점에서 Azure Cloud Services용으로 프로비전된 모든 컴퓨터와 Azure Virtual Machine 기반의 모든 공인 이미지에는 .NET 4.5 이상이 설치되어 있습니다.
 
-.NET 4.5 이상이 없는 컴퓨터에서 Windows Azure 진단 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅숏에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
+.NET 4.5 이상이 없는 머신에서 Windows Azure Diagnostics 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅숏에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
 
 **DiagnosticsPluginLauncher.exe**를 실행할 때 일반적으로 **255** 종료 코드로 매니페스트되지만, 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
 ```

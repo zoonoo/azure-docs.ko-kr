@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: e71e102a5a6df44e6bdd6a845540de3cbbef98f3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457498"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426106"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure Functions에 대 한 azure IoT Hub 바인딩
 
-이 문서에서는 IoT Hub에 대 한 Azure Functions 바인딩 작업을 수행 하는 방법에 설명 합니다. IoT Hub 지원에 기반 합니다 [Azure Event Hubs 바인딩](link to event hub doc)합니다.
+이 문서에서는 IoT Hub에 대 한 Azure Functions 바인딩 작업을 수행 하는 방법에 설명 합니다. IoT Hub 지원에 기반 합니다 [Azure Event Hubs 바인딩](functions-bindings-event-hubs.md)합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -44,4 +44,4 @@ Functions 2.x의 경우 [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://w
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
+> [Azure functions 트리거 및 바인딩에 자세히 알아보기](functions-triggers-bindings.md)

@@ -77,7 +77,7 @@ Azure, 다른 클라우드 및 온-프레미스의 계산 리소스에는 모니
 ![Azure 계산 리소스 컬렉션](media/data-sources/compute-resource-collection.png)
 
 ### <a name="azure-diagnostic-extension"></a>Azure 진단 확장
-Azure 진단 확장을 사용하여 Azure 계산 리소스의 클라이언트 운영 체제에서 로그 및 성능 데이터를 수집하여 기본 수준의 모니터링을 제공합니다.   
+Azure Diagnostics 확장을 사용하여 Azure 계산 리소스의 클라이언트 운영 체제에서 로그 및 성능 데이터를 수집하여 기본 수준의 모니터링을 제공합니다.   
 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
 Windows 또는 Linux 가상 머신 또는 물리적 컴퓨터의 포괄적인 모니터링 및 관리는 Log Analytics 에이전트를 사용하여 전달됩니다. 가상 머신은 Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있으며 에이전트는 직접 또는 System Center Operations Manager를 통해 Azure Monitor에 연결되고, 구성하는 [데이터 원본](agent-data-sources.md)에서 또는 가상 머신에서 실행되는 애플리케이션에 대한 추가 인사이트를 제공하는 [모니터링 솔루션](../../azure-monitor/insights/solutions.md)에서 데이터를 수집할 수 있습니다.

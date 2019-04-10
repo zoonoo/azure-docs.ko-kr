@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - Windows Azure 진단 확장을 사용하여 성능 모니터링 | Microsoft Docs
-description: Windows Azure 진단을 사용하여 Azure Service Fabric 클러스터에 대한 성능 카운터를 수집합니다.
+title: Azure Service Fabric - Windows Azure Diagnostics 확장을 사용하여 성능 모니터링 | Microsoft Docs
+description: Windows Azure Diagnostics를 사용하여 Azure Service Fabric 클러스터에 대한 성능 카운터를 수집합니다.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -21,12 +21,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2019
 ms.locfileid: "59049458"
 ---
-# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure 진단 확장을 사용하여 성능 모니터링
+# <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics 확장을 사용하여 성능 모니터링
 
 이 문서에서는 Windows 클러스터에 대한 WAD(Windows Azure Diagnostics) 확장을 통해 성능 카운터의 컬렉션을 설정하는 데 필요한 단계를 설명합니다. Linux 클러스터의 경우 [Log Analytics 에이전트](service-fabric-diagnostics-oms-agent.md)를 설정하여 노드에 대한 성능 카운터를 수집합니다. 
 
  > [!NOTE]
-> WAD 확장은 이러한 단계가 작동하도록 클러스터에 배포되어야 합니다. 설정되지 않은 경우 [Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집](service-fabric-diagnostics-event-aggregation-wad.md)으로 이동합니다.  
+> WAD 확장은 이러한 단계가 작동하도록 클러스터에 배포되어야 합니다. 설정되지 않은 경우 [Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집](service-fabric-diagnostics-event-aggregation-wad.md)으로 이동합니다.  
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

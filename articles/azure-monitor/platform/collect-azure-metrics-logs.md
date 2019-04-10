@@ -63,7 +63,7 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 >
 >
 
-## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure 진단에서 Log Analytics로 직접
+## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure 진단에서 Log Analytics로 직접 연결
 많은 Azure 리소스 진단 로그 및 메트릭을 Azure Monitor에서 Log Analytics 작업 영역에 직접 쓸 수 및 분석을 위해 데이터를 수집 하는 기본 방법이 있습니다. 작업 영역으로 데이터가 즉시 기록 Azure 진단을 사용 하는 경우 이며 먼저 저장소에 데이터를 쓸 필요가 없습니다.
 
 Azure 리소스를 지 원하는 [Azure monitor](../../azure-monitor/overview.md) 해당 로그 및 메트릭을 Log Analytics 작업 영역에 직접 보낼 수 있습니다.

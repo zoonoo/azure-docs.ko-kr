@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Services에서 성능 카운터 수집 | Microsoft Docs
-description: Azure 진단 및 Application Insights를 사용하여 Cloud Services에서 성능 카운터를 검색, 사용 및 만드는 방법을 알아봅니다.
+description: Azure Diagnostics 및 Application Insights를 사용하여 Cloud Services에서 성능 카운터를 검색, 사용 및 만드는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: .net
 author: jpconnock
@@ -80,7 +80,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 
 ## <a name="collect-a-performance-counter"></a>성능 카운터 수집
 
-Azure 진단 또는 Application Insights를 위해 클라우드 서비스에 성능 카운터를 추가할 수 있습니다.
+Azure Diagnostics 또는 Application Insights를 위해 클라우드 서비스에 성능 카운터를 추가할 수 있습니다.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -105,7 +105,7 @@ Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 �
 <!-- ... cut to save space ... -->
 ```
 
-각 성능 카운터는 `<Counters>` 아래에 `<Add>` 요소로 표시됩니다. `PerformanceCounter` 특성은 수집할 성능 카운터를 정의합니다. `ReportAs` 특성은 성능 카운터에 대해 Azure Portal에 표시할 제목입니다. 수집한 성능 카운터는 포털의 **사용자 지정** 범주에 배치됩니다. Azure 진단과 달리 이러한 성능 카운터를 수집하여 Azure에 전송하는 간격은 설정할 수 없습니다. Application Insights를 사용하면 성능 카운터가 1분마다 수집되어 전송됩니다. 
+각 성능 카운터는 `<Counters>` 아래에 `<Add>` 요소로 표시됩니다. `PerformanceCounter` 특성은 수집할 성능 카운터를 정의합니다. `ReportAs` 특성은 성능 카운터에 대해 Azure Portal에 표시할 제목입니다. 수집한 성능 카운터는 포털의 **사용자 지정** 범주에 배치됩니다. Azure Diagnostics와 달리 이러한 성능 카운터를 수집하여 Azure에 전송하는 간격은 설정할 수 없습니다. Application Insights를 사용하면 성능 카운터가 1분마다 수집되어 전송됩니다. 
 
 Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 
@@ -118,12 +118,12 @@ Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 
 자세한 내용은 [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md) 및 [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)를 참조하세요.
 
-### <a name="azure-diagnostics"></a>Azure 진단
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 > [!IMPORTANT]
 > 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. Application Insights 등의 다른 진단 서비스를 애플리케이션에 통합하는 것이 좋습니다.
 
-Cloud Services용 Azure 진단 확장을 사용하면 수집할 성능 카운터를 지정할 수 있습니다. Azure 진단을 설정하려면 [클라우드 서비스 모니터링 개요](cloud-services-how-to-monitor.md#setup-diagnostics-extension)를 참조하세요.
+Cloud Services용 Azure Diagnostics 확장을 사용하면 수집할 성능 카운터를 지정할 수 있습니다. Azure Diagnostics를 설정하려면 [클라우드 서비스 모니터링 개요](cloud-services-how-to-monitor.md#setup-diagnostics-extension)를 참조하세요.
 
 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. 이 요소에는 두 가지 특성(`counterSpecifier` 및 `sampleRate`)이 있습니다. `counterSpecifier` 특성은 수집할 시스템 성능 카운터 세트(이전 섹션에 요약되어 있음)를 정의합니다. `sampleRate` 값은 해당 값이 폴링되는 빈도를 나타냅니다. 전반적으로 모든 성능 카운터는 부모 `PerformanceCounters` 요소의 `scheduledTransferPeriod` 특성 값에 따라 Azure에 전송됩니다.
 
@@ -237,7 +237,7 @@ namespace WorkerRoleWithSBQueue1
 counterServiceUsed.Increment();
 ```
 
-이제 애플리케이션에서 사용자 지정 카운터를 사용하므로 카운터를 추적하도록 Azure 진단 또는 Application Insights를 구성해야 합니다.
+이제 애플리케이션에서 사용자 지정 카운터를 사용하므로 카운터를 추적하도록 Azure Diagnostics 또는 Application Insights를 구성해야 합니다.
 
 
 ### <a name="application-insights"></a>Application Insights
@@ -263,7 +263,7 @@ counterServiceUsed.Increment();
 <!-- ... cut to save space ... -->
 ```
 
-### <a name="azure-diagnostics"></a>Azure 진단
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 이전에 언급한 대로 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. `counterSpecifier` 특성을 코드에서 만든 성능 카운터의 범주 및 이름으로 설정합니다. 
 

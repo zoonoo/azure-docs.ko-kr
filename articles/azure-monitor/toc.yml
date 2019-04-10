@@ -86,12 +86,6 @@ items:
       href: platform/data-ingestion-time.md
     - name: 메트릭 저장소에 대한 사용자 지정 메트릭
       href: platform/metrics-custom-overview.md
-  - name: 로그 데이터 분석
-    items:
-    - name: 로그 쿼리
-      href: log-query/log-query-overview.md
-    - name: 로그 쿼리 포털
-      href: log-query/portals.md
   - name: 데이터 보안
     items:
     - name: 로그 데이터
@@ -327,6 +321,8 @@ items:
           items:
           - name: Linux App Services에 대한 Profiler(미리 보기)
             href: app/profiler-aspnetcore-linux.md
+        - name: Visual Studio 없는 ASP.NET Core
+          href: app/asp-net-core-no-visualstudio.md
         - name: 콘솔
           href: app/console.md
         - name: 응용 프로그램 대시보드
@@ -611,6 +607,8 @@ items:
           href: insights/vminsights-maps.md
         - name: 성능 모니터링
           href: insights/vminsights-performance.md
+        - name: 통합 문서 사용
+          href: insights/vminsights-workbooks.md
         - name: Log Analytics로 데이터 쿼리
           href: insights/vminsights-log-search.md
         - name: 모니터링 사용 안 함
@@ -680,18 +678,20 @@ items:
       href: platform/grafana-plugin.md
   - name: 데이터 분석
     items:
-    - name: 메트릭 탐색기로 시작
-      href: platform/metrics-getting-started.md
-    - name: 메트릭 탐색기의 고급 기능
-      href: platform/metrics-charts.md
-    - name: 메트릭 차트의 예
-      href: platform/metric-chart-samples.md
-    - name: 활동 로그의 이벤트 보기
-      href: ../azure-resource-manager/resource-group-audit.md
-    - name: 서비스 알림 보기
-      href: platform/service-notifications.md
-    - name: 로그 데이터 쿼리
+    - name: 메트릭
       items:
+      - name: 메트릭 탐색기로 시작
+        href: platform/metrics-getting-started.md
+      - name: 메트릭 탐색기의 고급 기능
+        href: platform/metrics-charts.md
+      - name: 메트릭 차트의 예
+        href: platform/metric-chart-samples.md
+    - name: 로그
+      items:
+      - name: 로그 쿼리
+        href: log-query/log-query-overview.md
+      - name: 로그 쿼리 포털
+        href: log-query/portals.md
       - name: 언어 설명서 쿼리
         href: log-query/query-language.md
       - name: 언어 차이
@@ -766,6 +766,10 @@ items:
         href: platform/flow-tutorial.md
       - name: 로그 검색 API
         href: https://dev.loganalytics.io/
+    - name: 활동 로그의 이벤트 보기
+      href: ../azure-resource-manager/resource-group-audit.md
+    - name: 서비스 알림 보기
+      href: platform/service-notifications.md
   - name: 인시던트에 대응
     items:
     - name: 경고
@@ -1067,9 +1071,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886644"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261159"

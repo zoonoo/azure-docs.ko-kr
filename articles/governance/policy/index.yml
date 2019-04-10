@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cf5eeff9aa56a2c3366c57ddef47f4020e73c161
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804652"
 documentType: LandingData
 title: Azure Policy 서비스에 대한 설명서
 metadata:
-  title: Azure Policy 설명서 - 자습서, API 참조
+  title: 'Azure Policy 설명서 - 자습서, API 참조'
   description: Azure Policy를 통해 리소스에 대한 규칙 및 효과를 적용하는 정책 정의를 사용하여 IT 문제를 관리하고 방지할 수 있습니다. Azure Policy를 사용하는 경우 리소스는 회사 표준 및 서비스 수준 계약을 준수하도록 유지됩니다.
-  services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy
@@ -20,60 +13,60 @@ metadata:
 abstract:
   description: Azure Policy를 통해 리소스에 대한 규칙 및 효과를 적용하는 정책 정의를 사용하여 IT 문제를 관리하고 방지할 수 있습니다. Azure Policy를 사용하는 경우 리소스는 회사 표준 및 서비스 수준 계약을 준수하도록 유지됩니다.
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Azure에서 정책 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        alt: Azure Portal
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: ./assign-policy-portal
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: ./assign-policy-powershell
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: ./assign-policy-azurecli
-    - image:
-        alt: Resource Manager 템플릿
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Resource Manager 템플릿
-      href: ./assign-policy-template
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Azure에서 정책 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Azure에서 정책 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure Portal
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: ./assign-policy-portal
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: ./assign-policy-azurecli
+          - image:
+              alt: Resource Manager 템플릿
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Resource Manager 템플릿
+            href: ./assign-policy-template
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure Policy 만들기 및 관리</a>
-    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">사용자 지정 정책 정의 만들기</a>
-- title: 샘플
-  items:
-  - type: paragraph
-    text: Azure에서 정책 정의 만들기를 도와주는 샘플을 검토하세요.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Azure에서 정책 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure 정책 만들기 및 관리</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">사용자 지정 정책 정의 만들기</a>
+  - title: 샘플
     items:
-    - html: <a href="/azure/governance/policy/samples/index">샘플 인덱스</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Azure에서 정책 정의 만들기를 도와주는 샘플을 검토하세요.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">샘플 인덱스</a>
+  - title: 참고 자료
     items:
-    - title: 명령줄
-      html: <p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell(Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell(Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell(게스트 구성)</a></p>
-    - title: 리소스 관리자 템플릿
-      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">할당</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">정책 정의</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">이니셔티브 정의</a></p>
-    - title: REST (영문)
-      html: <p><a href="/rest/api/policy-insights/policyevents">이벤트</a></p><p><a href="/rest/api/policy-insights/policystates">상태</a></p><p><a href="/rest/api/resources/policyassignments">할당</a></p><p><a href="/rest/api/resources/policydefinitions">정책 정의</a></p><p><a href="/rest/api/resources/policysetdefinitions">이니셔티브 정의</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">정책 추적 리소스</a></p><p><a href="/rest/api/policy-insights/remediations">수정</a></p><p><a href="/rest/api/guestconfiguration/">게스트 구성</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell(정책)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell(정책 인사이트)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell(게스트 구성)</a></p>'
+          - title: 리소스 관리자 템플릿
+            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">할당</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">정책 정의</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">이니셔티브 정의</a></p>
+          - title: REST (영문)
+            html: <p><a href="/rest/api/policy-insights/policyevents">이벤트</a></p><p><a href="/rest/api/policy-insights/policystates">상태</a></p><p><a href="/rest/api/resources/policyassignments">할당</a></p><p><a href="/rest/api/resources/policydefinitions">정책 정의</a></p><p><a href="/rest/api/resources/policysetdefinitions">이니셔티브 정의</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">정책 추적 리소스</a></p><p><a href="/rest/api/policy-insights/remediations">수정</a></p><p><a href="/rest/api/guestconfiguration/">게스트 구성</a></p>

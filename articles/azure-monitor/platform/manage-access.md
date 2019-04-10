@@ -209,7 +209,7 @@ Azure의 Log Analytics 작업 영역에는 기본 제공되는 2개의 사용자
 
 *Log Analytics 독자* 역할의 멤버는 다음을 수행할 수 있습니다.
 - 모든 모니터링 데이터 검색 및 보기 
-- 모든 Azure 리소스에 대한 Azure 진단 구성 보기를 포함해 모니터링 설정 보기
+- 모든 Azure 리소스에 대한 Azure 진단 구성 보기를 포함해 모니터링 설정을 봅니다.
 
 Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 

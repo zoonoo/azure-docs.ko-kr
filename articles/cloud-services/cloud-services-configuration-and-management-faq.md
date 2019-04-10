@@ -141,7 +141,7 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 * [클라우드 서비스에서 IIS 로그 작성 중지](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?
-다음 옵션을 통해 WAD(Windows Azure 진단) 로깅을 활성화할 수 있습니다.
+다음 옵션을 통해 WAD(Windows Azure Diagnostics) 로깅을 활성화할 수 있습니다.
 1. [Visual Studio에서 활성화](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [.NET 코드를 통해 사용 하도록 설정](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Powershell을 통해 활성화](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
@@ -240,15 +240,15 @@ Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 �
 
 Cloud Services를 위한 메모리 메트릭 기반의 자동 크기 조정은 현재 지원되지 않습니다. 
 
-이 문제를 해결하려면 Application Insights를 사용하세요. 자동 크기 조정은 Application Insights를 메트릭 소스로 지원하며 "메모리" 같은 게스트 메트릭에 따라 역할 인스턴스 수를 확장할 수 있습니다.  클라우드 서비스 프로젝트 패키지 파일(*.cspkg)에서 Application Insights를 구성하고 서비스에서 Azure 진단 확장을 사용하도록 설정하여 이 기능을 구현해야 합니다.
+이 문제를 해결하려면 Application Insights를 사용하세요. 자동 크기 조정은 Application Insights를 메트릭 소스로 지원하며 "메모리" 같은 게스트 메트릭에 따라 역할 인스턴스 수를 확장할 수 있습니다.  클라우드 서비스 프로젝트 패키지 파일(*.cspkg)에서 Application Insights를 구성하고 서비스에서 Azure Diagnostics 확장을 사용하도록 설정하여 이 기능을 구현해야 합니다.
 
 Application Insights를 통해 사용자 지정 메트릭을 사용하여 Cloud Services에서 자동 크기 조정을 구성하는 방법에 대한 자세한 내용은 [Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작](../azure-monitor/platform/autoscale-custom-metric.md)을 참조하세요.
 
-Azure 진단을 Cloud Services용 Application Insights와 통합하는 방법에 대한 자세한 내용은 [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)를 참조하세요.
+Azure Diagnostics를 Cloud Services용 Application Insights와 통합하는 방법에 대한 자세한 내용은 [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)를 참조하세요.
 
 Cloud Services용 Application Insights를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services용 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)를 참조하세요.
 
-Cloud Services용 Azure 진단 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services 및 가상 머신에 대한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)을 참조하세요.
+Cloud Services용 Azure Diagnostics 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services 및 가상 머신에 대한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)을 참조하세요.
 
 ## <a name="generic"></a>일반
 

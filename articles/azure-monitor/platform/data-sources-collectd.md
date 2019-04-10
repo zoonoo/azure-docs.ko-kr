@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999320"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426140"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 애플리케이션의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
@@ -112,14 +112,14 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 
 | CollectD 메트릭 필드 | Azure Monitor 필드 |
 |:--|:--|
-| host | Computer |
-| 플러그 인 | 없음 |
-| plugin_instance | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName="*_Total*" |
-| 형식 | ObjectName |
-| type_instance | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
-| dsnames[] | CounterName |
-| dstypes | 없음 |
-| 값[] | CounterValue |
+| `host` | Computer |
+| `plugin` | 없음 |
+| `plugin_instance` | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName="*_Total*" |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
+| `dsnames[]` | CounterName |
+| `dstypes` | 없음 |
+| `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다. 

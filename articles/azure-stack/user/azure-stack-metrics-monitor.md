@@ -32,10 +32,10 @@ Azure Monitor 파이프라인만을 사용 하 여 한 곳에서 모니터링 �
 | 데이터 형식 | Category | 지원되는 서비스 | 액세스 방법 |
 |-------------------------------------------------------------|----------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | Azure Monitor 플랫폼 수준 메트릭 | 메트릭 | [Azure Stack에서 Azure Monitor를 사용 하 여 지원 되는 메트릭](azure-stack-metrics-supported.md) | REST API |
-| 게스트 OS 메트릭 (예를 들어 성능 카운트)를 계산 합니다. | 메트릭 | Windows 및 Linux Virtual Machines | 저장소 테이블 또는 blob:<br>Windows 또는 Linux Azure 진단 <br>이벤트 허브:<br>Windows Azure 진단 |
+| 게스트 OS 메트릭 (예를 들어 성능 카운트)를 계산 합니다. | 메트릭 | Windows 및 Linux Virtual Machines | 저장소 테이블 또는 blob:<br>Windows 또는 Linux Azure 진단 <br>이벤트 허브:<br>Windows Azure Diagnostics |
 | Storage 메트릭 | 메트릭 | Azure Storage | 저장소 테이블:<br>저장소 분석 |
 | 활동 로그 | 이벤트 | 모든 Azure 서비스 | REST API:<br>Azure Monitor 이벤트 API |
-| 게스트 OS 로그 (예를 들어, IIS, ETW, syslog)를 계산 합니다. | 이벤트 | Windows 및 Linux Virtual Machines | 저장소 테이블 또는 blob:<br>Windows 또는 Linux Azure 진단 <br>이벤트 허브:<br>Windows Azure 진단 |
+| 게스트 OS 로그 (예를 들어, IIS, ETW, syslog)를 계산 합니다. | 이벤트 | Windows 및 Linux Virtual Machines | 저장소 테이블 또는 blob:<br>Windows 또는 Linux Azure 진단 <br>이벤트 허브:<br>Windows Azure Diagnostics |
 | 저장소 로그 | 이벤트 | Azure Storage | 저장소 테이블:<br>저장소 분석 |
 
 ## <a name="next-steps"></a>다음 단계

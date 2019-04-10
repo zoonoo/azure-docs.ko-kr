@@ -17,7 +17,7 @@ ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51234497"
@@ -46,7 +46,7 @@ Azure는 64비트 환경입니다. 따라서 32비트 대상에 컴파일된 .NE
 [실행] 메서드는 무기한 실행되도록 합니다. 코드가 [실행] 메서드를 재정의하는 경우 무기한 대기해야 합니다. [실행] 메서드가 반환되는 경우 역할은 재활용됩니다.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>잘못된 DiagnosticsConnectionString 설정
-애플리케이션이 Azure 진단을 사용하는 경우 서비스 구성 파일은 `DiagnosticsConnectionString` 구성 설정을 지정해야 합니다. 이 설정은 Azure에서 저장소 계정에 HTTPS 연결을 지정해야 합니다.
+애플리케이션이 Azure Diagnostics를 사용하는 경우 서비스 구성 파일은 `DiagnosticsConnectionString` 구성 설정을 지정해야 합니다. 이 설정은 Azure에서 저장소 계정에 HTTPS 연결을 지정해야 합니다.
 
 Azure에 애플리케이션 패키지를 배포하기 전에 `DiagnosticsConnectionString` 설정이 올바른지 확인하려면 다음을 확인합니다.  
 

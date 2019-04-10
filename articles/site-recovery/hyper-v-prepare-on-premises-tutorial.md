@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315778"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361894"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Azure로의 재해 복구용으로 온-프레미스 Hyper-V 서버 준비
 
-이 자습서에서는 재해 복구용으로 Hyper-V VM을 Azure로 복제할 때 온-프레미스 Hyper-V 인프라를 준비하는 방법을 보여 줍니다. Hyper-V 호스트는 System Center VMM(Virtual Machine Manager)를 통해 관리될 수 있지만 반드시 VMM을 통해 관리해야 하는 것은 아닙니다.  이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 설명 Hyper-vm을 Azure로 재해 복구를 설정 하려는 경우 온-프레미스 Hyper-v 인프라를 준비 하는 방법을 사용 하 여 [Azure Site Recovery](site-recovery-overview.md)합니다.
+
+
+온-프레미스 Hyper-v Vm에 대 한 Azure로 재해 복구를 설정 하는 방법을 보여 주는 시리즈의 두 번째 자습서입니다. 첫 번째 자습서에서는 했습니다 [Azure 구성 요소를 설정](tutorial-prepare-azure.md) Hyper-v 재해 복구를 위해 필요 합니다.
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Hyper-V 요구 사항 및 VMM 요구 사항(해당하는 경우) 검토
-> * 해당하는 경우 VMM 준비
-> * Azure 위치에 대한 인터넷 액세스 확인
-> * Azure로 장애 조치(failover)한 후 액세스 가능하도록 VM 준비
+> * System Center VMM에서 Hyper-v 호스트 관리 되는 경우 Hyper-v 요구 사항 및 VMM 요구 사항을 검토 합니다.
+> * 해당 하는 경우 VMM을 준비 합니다.
+> * Azure 위치에 대 한 인터넷 액세스를 확인 합니다.
+> * Azure로 장애 조치 후 액세스할 수 있도록 Vm을 준비 합니다.
 
-이 문서는 시리즈의 두 번째 자습서입니다. 이전 자습서에서 설명한 대로 [Azure 구성 요소를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
+> [!NOTE]
+> 자습서는 시나리오에 대 한 가장 간단한 배포 경로를 보여 줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 사이트 복구의 목차는 방법 섹션의 문서를 검토 합니다.
 
+## <a name="before-you-start"></a>시작하기 전에
 
+해야에 설명 된 대로 Azure 준비 했으므로 합니다 [이 시리즈의 첫 번째 자습서](tutorial-prepare-azure.md)합니다.
 
 ## <a name="review-requirements-and-prerequisites"></a>검토 요구 사항 및 필수 구성 요소
 
@@ -79,7 +87,7 @@ VMM을 사용하는 경우 [네트워크 매핑](site-recovery-network-mapping.m
 
 1. 인터넷을 통해 액세스하려면 장애 조치 전에 온-프레미스 VM에서 RDP를 활성화합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.
 2. 사이트 간 VPN을 통해 액세스하려면 온-프레미스 컴퓨터에서 RDP를 활성화합니다. RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 사설** 네트워크에 대해 허용되어야 합니다.
-   운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135). 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우 업데이트가 완료될 때까지 가상 머신에 로그인할 수 없습니다.
+   운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135). 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 경우에 업데이트가 완료 될 때까지 가상 컴퓨터에 로그인 할 수 없습니다.
 3. 장애 조치 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
 
 장애 조치(failover) 후 복제된 온-프레미스 VM과 동일한 IP 주소 또는 다른 IP 주소를 사용하여 Azure VM에 액세스할 수 있습니다. 장애 조치(failover)에 대한 IP 주소 설정에 관해 [자세히 알아보세요](concepts-on-premises-to-azure-networking.md).

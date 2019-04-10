@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268214"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361552"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -407,11 +407,14 @@ ms.locfileid: "59268214"
 |AzureStorageMaxWorkerThreads | int, 기본값: 25 |동적|병렬 작업자 스레드의 최대 수 |
 |AzureStorageOperationTimeout | time(초), 기본값: 6000 |동적|시간 간격은 초 단위로 지정합니다. xstore 작업을 완료하는 걸리는 시간 제한입니다. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, 기본값: FALSE |동적|이 구성은 성공적인 프로비전에서 애플리케이션 패키지의 자동 정리를 사용하거나 사용하지 않도록 설정합니다. |
+|CleanupUnusedApplicationTypes|Bool, 기본값: FALSE |동적|이 구성을 사용 하도록 설정 하는 경우 자동으로 건너뜁니다 있으므로 이미지 저장소에 사용 되는 디스크 공간을 잘라서 최신 세 개의 사용 되지 않는 버전을 사용 하지 않는 응용 프로그램 유형 버전 등록을 취소할 수 있습니다. 자동 정리를 끝에 해당 특정 앱 형식에 대해 성공적으로 프로 비전 트리거되고도 모든 응용 프로그램 형식에 대해 하루에 한 번 정기적으로 실행 됩니다. 표시 하지 않으려면 사용 되지 않은 버전 수는 "MaxUnusedAppTypeVersionsToKeep" 매개 변수를 사용 하 여 구성할 수 있습니다. |
 |DisableChecksumValidation | bool, 기본값: false |공용| 이 구성을 사용하면 애플리케이션 프로비전 중에 체크섬 유효성 검사를 사용하거나 사용하지 않도록 설정할 수 있습니다. |
 |DisableServerSideCopy | bool, 기본값: false |공용|애플리케이션 프로비전 중에 ImageStore에서 애플리케이션 패키지의 서버 쪽 복사본을 사용하거나 사용하지 않도록 설정하는 구성입니다. |
 |ImageCachingEnabled | bool, 기본값: true |공용|이 구성을 사용하면 캐싱을 사용하거나 사용하지 않도록 설정할 수 있습니다. |
 |ImageStoreConnectionString |SecureString |공용|ImageStore의 루트에 대한 연결 문자열 |
 |ImageStoreMinimumTransferBPS | int, 기본값: 1024 |동적|클러스터와 ImageStore 간의 최소 전송 속도. 외부 ImageStore에 액세스할 때 시간 제한을 결정하는 데 사용됩니다. 클러스터와 ImageStore 간에 대기 시간이 높은 경우에만 이 값을 변경하여 클러스터가 외부 ImageStore에서 다운로드하는 데 더 많은 시간을 허용합니다. |
+|MaxUnusedAppTypeVersionsToKeep | int, 기본값: 3 |동적|이 구성은 사용 하지 않는 응용 프로그램 유형 버전 정리를 위한 건너뛸 수를 정의 합니다. 이 매개 변수는 매개 변수 CleanupUnusedApplicationTypes 사용 하도록 설정 하는 경우에 해당 합니다. |
+
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |

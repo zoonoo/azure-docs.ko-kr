@@ -38,7 +38,7 @@ Azure Log Integration 기능에 대한 설명서는 기능이 사용되지 않�
 
 Azure Log Integration 기능에 대해 자세히 알아보려면 참조하세요.
 
-Azure Log Integration은 Windows 이벤트 뷰어 로그에서 Windows 이벤트를 수집하고 Azure 리소스에서 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md), [Azure Security Center 경고](../security-center/security-center-intro.md) 및 [Azure 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)를 수집합니다. 통합을 통해 SIEM 솔루션에서 온-프레미스 또는 클라우드에 있는 모든 자산에 대한 통합 대시보드를 제공할 수 있습니다. 대시보드를 사용하여 보안 이벤트에 대한 경고를 수신, 집계, 상호 연결 및 분석할 수 있습니다.
+Azure Log Integration은 Azure 리소스에서 Windows 이벤트 뷰어 로그, [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md), [Azure Security Center 경고](../security-center/security-center-intro.md) 및 [Azure Diagnostics 로그](../azure-monitor/platform/diagnostic-logs-overview.md)의 Windows 이벤트를 수집합니다. 통합을 통해 SIEM 솔루션에서 온-프레미스 또는 클라우드에 있는 모든 자산에 대한 통합 대시보드를 제공할 수 있습니다. 대시보드를 사용하여 보안 이벤트에 대한 경고를 수신, 집계, 상호 연결 및 분석할 수 있습니다.
 
 > [!NOTE]
 > 현재 Azure Log Integration은 Azure 상용 클라우드 및 Azure Government 클라우드만 지원합니다. 다른 클라우드는 지원되지 않습니다.
@@ -50,7 +50,7 @@ Azure Log Integration은 Windows 이벤트 뷰어 로그에서 Windows 이벤트
 Azure에서는 각 Azure 서비스에 대해 광범위한 로깅을 생성합니다. 로그에는 다음 세 가지 로그 유형이 있습니다.
 
 * **컨트롤/관리 로그**: [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) CREATE, UPDATE 및 DELETE 작업에 대한 가시성을 제공합니다. Azure 활동 로그가 이 로그 유형에 속합니다.
-* **데이터 평면 로그**: Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 이 로그 유형의 예는 Windows 가상 컴퓨터의 Windows 이벤트 뷰어에 있는 **시스템**, **보안** 및 **애플리케이션** 채널이 있습니다. 또 다른 예는 Azure Monitor를 통해 구성하는 Azure 진단 로깅입니다.
+* **데이터 평면 로그**: Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 이 로그 유형의 예는 Windows 가상 컴퓨터의 Windows 이벤트 뷰어에 있는 **시스템**, **보안** 및 **애플리케이션** 채널이 있습니다. 또 다른 예는 Azure Monitor를 통해 구성하는 Azure Diagnostics 로깅입니다.
 * **처리된 이벤트**: 사용자를 위해 처리된 경고 정보 및 분석된 이벤트를 제공합니다. 이 이벤트 유형의 예는 Azure Security Center 경고입니다. Azure Security Center에서는 구독을 처리하고 분석하여 현재 보안 상태에 관련된 경고를 제공합니다.
 
 Azure Log Integration은 ArcSight, QRadar 및 Splunk를 지원합니다. SIEM 공급업체에 문의하여 공급업체에 기본 커넥터가 있는지 확인합니다. 기본 커넥터를 사용할 수 있는 경우, Azure Log Integration을 사용하지 마세요.
@@ -72,7 +72,7 @@ Azure Log Integration은 ArcSight, QRadar 및 Splunk를 지원합니다. SIEM �
 
 이 문서에서는 Azure Log Integration을 소개했습니다. Azure Log Integration 및 지원되는 로그 유형에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Log Integration 시작](security-azure-log-integration-get-started.md). 이 자습서에서는 Azure Log Integration 설치 과정을 안내합니다. MAD(Microsoft Azure 진단) 저장소 로그, Azure 활동 로그, Azure Security Center 경고 및 Azure Active Directory 감사 로그를 통합하는 방법에 대해서도 설명합니다.
+* [Azure Log Integration 시작](security-azure-log-integration-get-started.md). 이 자습서에서는 Azure Log Integration 설치 과정을 안내합니다. WAD(Windows Azure Diagnostics) 스토리지 로그, Azure 활동 로그, Azure Security Center 경고 및 Azure Active Directory 감사 로그를 통합하는 방법에 대해서도 설명합니다.
 * [Azure Log Integration FAQ(질문과 대답)](security-azure-log-integration-faq.md) 이 FAQ는 Azure Log Integration에 대해 자주 묻는 질문과 대답입니다.
 * [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)하는 방법에 대해 자세히 알아봅니다.
 
