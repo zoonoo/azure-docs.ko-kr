@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4acecb9d15f820ba092f36d8fa3ea204658d2dba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650448"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276782"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다. 
@@ -44,7 +44,7 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 
 각각의 기술 자료를 테스트 대상으로 지정할 수 있습니다. API를 사용하면 generateAnswer 호출에서 `isTest=true` 플래그가 있는 테스트 버전의 기술 자료를 대상으로 지정할 수 있습니다.
 
-[기술 자료 게시](../How-To/publish-knowledge-base.md) 방법을 알아보세요.
+[기술 자료 게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 방법을 알아보세요.
 
 ## <a name="monitor-usage"></a>사용량 모니터링
 서비스의 채팅 로그를 기록하려면 [QnA Maker 서비스를 만들 때](../How-To/set-up-qnamaker-service-azure.md) Application Insights를 사용하도록 설정해야 합니다.

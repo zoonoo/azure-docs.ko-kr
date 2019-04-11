@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838275"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470698"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -49,6 +49,14 @@ VM이 새 커널로 다시 시작된 후 다음을 사용하여 새 커널 버�
 ```
 uname -a
 ```
+
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Azure 가상 머신 에이전트 및 확장 버전 업데이트
+
+Azure 디스크 암호화 작업은 지원 되지 않는 버전의 Azure 가상 머신에 에이전트를 사용 하 여 가상 머신 이미지에 실패할 수 있습니다. 자세한 내용은 참조 하십시오 [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)합니다.  
+
+올바른 버전 Microsoft.Azure.Security.AzureDiskEncryption 또는 Microsoft.Azure.Security.AzureDiskEncryptionForLinux 게스트 에이전트 확장의 필수 이기도합니다. 확장 버전은 유지 관리 및 Azure Virtual Machine 에이전트 필수 조건을 충족 하 고 virtual machine 에이전트의 지원 되는 버전을 사용 하면 플랫폼에서 자동으로 업데이트 합니다.
+
+Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux 확장 되지 않으며 더 이상 지원 되지.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Linux 디스크를 암호화할 수 없음
 
@@ -149,4 +157,4 @@ Azure Disk Encryption을 제대로 사용 하지 않으려면 알려진된 좋�
 이 문서에서는 일반적인 Azure Disk Encryption 문제와 해당 문제 해결 방법에 대해 자세히 알아보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Security Center에서 디스크 암호화 적용](../security-center/security-center-apply-disk-encryption.md)
-- [휴지 상태의 Azure 데이터 암호화](azure-security-encryption-atrest.md)
+- [Azure 데이터 암호화](azure-security-encryption-atrest.md)

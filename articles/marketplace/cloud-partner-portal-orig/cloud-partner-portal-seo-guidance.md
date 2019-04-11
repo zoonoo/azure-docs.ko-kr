@@ -1,5 +1,5 @@
 ---
-title: Azure Marketplace SEO 게시자 가이드 | Microsoft Docs
+title: Azure Marketplace SEO 지침 | Microsoft Docs
 description: SEO(검색 엔진 최적화)를 극대화하기 위한 지침을 제공합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,21 +12,23 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834339"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469661"
 ---
-<a name="azure-marketplace-seo-publisher-guide"></a>Azure Marketplace SEO 게시자 가이드
-=======================================
+# <a name="azure-marketplace-seo-guidance"></a>Azure Marketplace SEO 지침
 
-### <a name="general-explanation-of-algorithm"></a>알고리즘에 대한 일반적인 설명
+이 문서에서 검색 기능을 통해 제품의 검색 기능을 최대화 하는 방법에 설명 합니다 [Azure Marketplace](https://azuremarketplace.microsoft.com) 하 고 [AppSource](https://appsource.microsoft.com)합니다. 
 
-Marketplace는 사이트의 검색 기능을 강화하기 위해 Azure Search를 활용합니다. 이 알고리즘은 용어 [TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)(용어 빈도/역 문서 빈도)를 기준으로 합니다. [표준](https://lucene.apache.org/core/) Lucene 분석기가 사용됩니다.
+
+## <a name="general-explanation-of-algorithm"></a>알고리즘에 대한 일반적인 설명
+
+Microsoft 마켓플레이스 사이트의 검색 기능을 강화 하는 것에 대 한 Azure Search를 활용 합니다. 이 알고리즘은 용어 [TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)(용어 빈도/역 문서 빈도)를 기준으로 합니다. [표준](https://lucene.apache.org/core/) Lucene 분석기가 사용됩니다.
 
 일반적으로 모든 텍스트 필드, 범주 및 산업이 관련성의 가중치에 포함됩니다. 다른 앱과 달리 사용자 앱에서만 자주 사용되는 특수한 용어는 검색을 수행할 때 훨씬 더 높은 일치 점수를 생성합니다. 따라서 “Azure search”는 훨씬 더 전문적이지만 “VM”과 같은 용어를 포함하면 별로 이점이 없습니다.
 다음은 고려해야 할 가장 관련성이 높은 필드입니다.
@@ -42,7 +44,7 @@ Marketplace는 사이트의 검색 기능을 강화하기 위해 Azure Search를
 |  |  |  |
 
 
-### <a name="other-tips"></a>기타 팁
+## <a name="other-tips"></a>기타 팁
 
 -   검색을 하게 되면 과도한 사용자 활동이 수반됩니다. 앱 이름/게시자와 일치하는지 우선적으로 확인합니다. 검색 용어가 게시자/앱 이름과 정확히 일치하지 않으면 짧은 설명이 핵심 필드가 됩니다.
 -   다운로드용 문서는 검색 가중치에 포함되지 않습니다.

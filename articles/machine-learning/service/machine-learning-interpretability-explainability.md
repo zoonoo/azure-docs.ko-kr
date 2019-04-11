@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 04/04/2019
-ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/09/2019
+ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051804"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469780"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
@@ -32,7 +32,7 @@ Machine learning interpretability은 두 단계의 기계 학습 개발 주기�
 
 Azure Machine Learning Interpretability SDK 통합 기술을 Microsoft에서 개발한 및 타사 라이브러리 (예: SHAP 및 라임)를 입증 합니다. SDK 통합된 라이브러리 간에 공통 API를 만들고 Azure Machine Learning 서비스를 통합 합니다. 이 SDK를 사용 하 여, 기계 학습 모델을 설명할 수 있습니다 **모든 데이터에 대해 전 세계**, 또는 **특정 데이터 요소에 로컬로** 최신의 기술을 사용 하기 쉬운 하 고 확장 가능한 방식으로 사용 하 합니다.
 
-## <a name="how-does-it-work"></a>어떻게 작동합니까?
+## <a name="how-does-it-work"></a>작동 원리
 
 모델의 전역 동작이 나 특정 예측을 이해 하려면 azure Machine Learning Interpretability는 적용할 수 있습니다. 전자는 전역 설명 호출 되 고 후자는 로컬 설명 호출 됩니다.
 
@@ -42,7 +42,6 @@ Azure Machine Learning Interpretability 모델에서 해당 예측을 사용 하
 
 * 글로벌/로컬 상대적 기능 중요도
 * 글로벌/로컬 기능과 예측 관계
-* 예측을 보여 주는 대화형 시각화, 기능 및 예측 관계 상대적 기능 중요도 값 전역 및 로컬
 
 ## <a name="architecture"></a>아키텍처
 
@@ -70,11 +69,10 @@ __직접 explainers__ 통합된 라이브러리에서 제공 됩니다. SDK는 �
 * **라임 설명**: 라임에 따라 라임 설명 로컬 서로게이트 모델을 만들의 최신 로컬 해석할 수 있는 모델을 알 수 없는 설명 (라임) 알고리즘을 사용 합니다. 전역 서로게이트 모델과 달리 라임 개별 예측을 설명 하기 위해 로컬 서로게이트 모델 학습에 중점을 둡니다.
 * **HAN 텍스트 설명**: HAN 텍스트 설명 지정된 블랙 박스 텍스트 모델에 대 한 텍스트 데이터에서 모델 설명을 가져오는 Hierarchical Attention Network를 사용 합니다. 모델을 학습 합니다 HAN 서로게이트 지정된 교사 모델의 예측 된 출력에 있습니다. 텍스트 모음에서 전역적으로 학습, 이후에 설명의 정확도 개선 하기 위해 특정 문서에 대 한 미세 조정 단계를 추가 했습니다. HAN 문장 및 단어 주의 양방향 같은 메시지가 두 주의 레이어를 사용 하 여 사용합니다. DNN 교사 모델에서 학습 된 특정 문서 미세 조정 하는 고 주의 계층에서 word importances 추출 수 것입니다. HAN 시간도 학습 텍스트 데이터에 대 한 라임 또는 SHAP 보다 더 정확 하지만 더 비용이 많이 드는 용어를 발견 했습니다. 그러나 학습 시간이 향상 된 기능을 이지만 여전히 느린 사용자 글러브 단어 포함을 사용 하 여 네트워크를 초기화할 수 있는 옵션을 제공 하 여 했습니다. HAN 원격 Azure GPU VM에서 실행 하 여 학습 시간을 크게 향상 될 수 있습니다. HAN 구현의 ' 문서 분류 (Yang et al, 2016)에 대 한 계층적 주의 네트워크 '에서 설명한 ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
 
-__Meta explainers__ 자동으로 적합 한를 직접 설명을 선택 하 고 지정 된 모델 및 데이터 집합에 따라 최상의 설명 정보를 생성 합니다. Meta explainers을 활용 하 여 모든 라이브러리 (SHAP 라임, GA2M, 모방, 등)를 개발 중이거나 통합 했습니다. 다음은 SDK에서 사용할 수 있는 메타 explainers입니다.
+__Meta explainers__ 자동으로 적합 한를 직접 설명을 선택 하 고 지정 된 모델 및 데이터 집합에 따라 최상의 설명 정보를 생성 합니다. Meta explainers을 활용 하 여 모든 라이브러리 (SHAP 라임, 모방, 등)를 개발 중이거나 통합 했습니다. 다음은 SDK에서 사용할 수 있는 메타 explainers입니다.
 
 * **테이블 형식 설명**: 테이블 형식 데이터 집합을 사용 합니다.
 * **텍스트 설명**: 텍스트 데이터 집합을 사용 합니다.
-* **이미지 설명** 이미지 데이터 집합을 사용 합니다.
 
 또한에 메타 선택의 직접 explainers, 메타 explainers 기본 라이브러리를 기반으로 추가 기능을 개발 및 직접 explainers 통해 속도 및 확장성을 개선 합니다.
 
@@ -90,7 +88,6 @@ __Meta explainers__ 자동으로 적합 한를 직접 설명을 선택 하 고 �
 
 * **초기화 데이터 집합의 요약**합니다. 여기서 설명 속도가 가장 중요 한 경우에 초기화 데이터 집합을 요약 하 고 전역 및 로컬 설명 속도 작은 대표 샘플 집합을 생성 합니다.
 * **평가 데이터 집합을 샘플링**합니다. 사용자 평가 샘플의 큰 집합을 전달 했지만 모든 평가할 실제로 필요 하지 않습니다, 경우 샘플링 매개 변수는 전역 설명은 속도를 true로 설정할 수 있습니다.
-* **KNN 빠른 설명**합니다. 설명은 단일 점수 매기기/예측이 만큼 빠를 수 해야 하는 경우에서 KNN 메서드를 사용할 수 있습니다. 전역 설명 하는 동안 초기화 샘플 및 해당 상위-k 기능이 모두 유지 됩니다. 각 평가 샘플에 대 한 설명을 생성 하려면 KNN 메서드 초기화 샘플에서 가장 유사한 샘플을 찾을 하는 데 사용 하 고 가장 유사한 샘플의 top k 기능이 평가 샘플에 대 한 상위-k 기능으로 반환 됩니다.
 
 다음 다이어그램은 메타 explainers 직접의 두 집합 간의 관계를 보여 줍니다.
 
@@ -100,7 +97,7 @@ __Meta explainers__ 자동으로 적합 한를 직접 설명을 선택 하 고 �
 
 Python의 데이터 집합에서 학습 된 모델 `numpy.array`, `pandas.DataFrame`를 `iml.datatypes.DenseData`, 또는 `scipy.sparse.csr_matrix` 형식이 Machine Learning Interpretability SDK에서 지원 됩니다.
 
-입력으로 모델 및 파이프라인을 허용 하는 함수를 설명 합니다. 모델을 제공 하는 경우 모델 예측 함수를 구현 해야 합니다 `predict` 또는 `predict_proba` Scikit 규칙을 확인 합니다. 파이프라인 (파이프라인 스크립트의 이름)를 제공 하는 경우 예측을 반환 하는 실행 중인 파이프라인 스크립트 설명 함수 가정 합니다.
+입력으로 모델 및 파이프라인을 허용 하는 함수를 설명 합니다. 모델을 제공 하는 경우 모델 예측 함수를 구현 해야 합니다 `predict` 또는 `predict_proba` Scikit 규칙을 준수 합니다. 파이프라인 (파이프라인 스크립트의 이름)를 제공 하는 경우 예측을 반환 하는 실행 중인 파이프라인 스크립트 설명 함수 가정 합니다.
 
 ### <a name="local-and-remote-compute-target"></a>로컬 및 원격 계산 대상
 
@@ -129,13 +126,12 @@ Machine Learning Interpretability SDK는 모두 로컬 및 원격 계산 대상�
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
-    or
+    ```
+    또는
+    ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
     explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
-    or
-    from azureml.contrib.explain.model.lime.lime_explainer import LIMEExplainer
-    explainer = LIMEExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
 
 3. 전역 기능 중요도 값을 가져옵니다.
@@ -154,9 +150,16 @@ Machine Learning Interpretability SDK는 모두 로컬 및 원격 계산 대상�
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0,:])
-    or
+    
+    # sorted feature importance values and feature names
+    sorted_local_importance_names = local_explanation.get_ranked_local_names()
+    sorted_local_importance_values = local_explanation.get_ranked_local_values()
+    ```
+    또는
+    ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4,:])
+    
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -172,21 +175,14 @@ Azure Machine Learning 서비스에서 지 원하는 다양 한 계산 대상에
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
     
-    breast_cancer_data = load_breast_cancer()
-    X_train, X_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size = 0.2, random_state = 0)
-    data = {
-        "train":{"X": X_train, "y": y_train},        
-        "test":{"X": X_test, "y": y_test}
-    }
-    clf = svm.SVC(gamma=0.001, C=100., probability=True)
-    model = clf.fit(data['train']['X'], data['train']['y'])
-    joblib.dump(value = clf, filename = 'model.pkl')
+    # Train your model here
+
     # explain predictions on your local machine    
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(data["test"]["X"])
+    global_explanation = explainer.explain_global(x_test)
     # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(data["test"]["X"][0,:])
+    local_explanation = explainer.explain_local(x_test[0,:])
     # upload global and local explanation objects to Run History
     upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
     # Uploading global model explanation data for storage or visualization in webUX
@@ -200,6 +196,8 @@ Azure Machine Learning 서비스에서 지 원하는 다양 한 계산 대상에
 2. 지침에 따라 [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md#amlcompute) 하는 Azure Machine Learning Compute 계산 대상으로 설정 하 고 학습 실행을 제출 하는 방법을 알아봅니다.
 
 3. 로컬 Jupyter notebook에 설명이 다운로드 합니다. 
+    > [!IMPORTANT]
+    > 사항 contrib에 완벽 하 게 지원 되지 않습니다. 실험적 기능 성숙 해지면 점진적으로 주 패키지로 이동지 것입니다.
 
     ``` python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient

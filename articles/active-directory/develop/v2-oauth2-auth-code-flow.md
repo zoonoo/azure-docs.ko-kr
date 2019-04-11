@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: fcda3e1ee8029bf40a0d7eec2ad440b7b128a650
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263522"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470269"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름
 
@@ -68,8 +68,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |--------------|-------------|--------------|
 | `tenant`    | 필수    | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id`   | 필수    | 합니다 **(클라이언트) 응용 프로그램 ID** 는 합니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경을 앱에 할당 합니다.  |
-| `response_type` | 필수    | 인증 코드 흐름에 대한 `code` 를 포함해야 합니다.       |
-| `redirect_uri`  | 권장 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 네이티브 및 모바일 앱의 경우 `https://login.microsoftonline.com/common/oauth2/nativeclient`의 기본값을 사용해야 합니다.   |
+| `response_type` | 필수    | 인증 코드 흐름에 대한 `code`를 포함해야 합니다.       |
+| `redirect_uri`  | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 네이티브 및 모바일 앱의 경우 `https://login.microsoftonline.com/common/oauth2/nativeclient`의 기본값을 사용해야 합니다.   |
 | `scope`  | 필수    | 사용자가 동의하게 할 공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다. |
 | `response_mode`   | 권장 | 결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 다음 중 하나일 수 있습니다.<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` 리디렉션 URI에 쿼리 문자열 매개 변수로 코드를 제공합니다. 암시적 흐름을 사용하여 ID 토큰을 요청하는 경우 `query`는 [OpenID 사양](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)에서 명시한 대로 사용할 수 없습니다. 코드만 요청하는 경우 `query`, `fragment` 또는 `form_post`를 사용할 수 있습니다. `form_post` 리디렉션 URI 코드가 포함 된 POST를 실행 합니다. 자세한 내용은 [OpenID Connect 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)을 참조하세요.  |
 | `state`                 | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 이 값은 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
@@ -242,7 +242,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 access_token은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 엔드포인트에 제출해야 하며, 이번에는 `code` 대신 `refresh_token`을 제공해야 합니다.  새로 고침 토큰은 클라이언트가 이미 동의를 받은 모든 권한에 유효합니다. 따라서 `scope=mail.read`에 대한 요청에서 발행된 새로 고침 토큰을 사용하여 `scope=api://contoso.com/api/UseResource`에 대한 새 액세스 토큰을 요청할 수 있습니다.  
 
-새로 고침 토큰에는 지정된 수명이 없습니다. 일반적으로 새로 고침 토큰의 수명은 비교적 깁니다. 그러나 새로 고침 토큰이 만료되거나 해지되거나 원하는 작업을 위한 충분한 권한이 없는 경우가 있습니다. 애플리케이션은 [토큰 발급 엔드포인트에서 반환하는 오류](#error-codes-for-token-endpoint-errors)를 예상하고 정확히 처리해야 합니다.  새 액세스 토큰을 획득하는 데 사용하는 경우 새로 고침 토큰이 철회되지 않습니다. 
+새로 고침 토큰에는 지정된 수명이 없습니다. 일반적으로 새로 고침 토큰의 수명은 비교적 깁니다. 그러나 새로 고침 토큰이 만료되거나 해지되거나 원하는 작업을 위한 충분한 권한이 없는 경우가 있습니다. 애플리케이션은 [토큰 발급 엔드포인트에서 반환하는 오류](#error-codes-for-token-endpoint-errors)를 예상하고 정확히 처리해야 합니다. 
+
+새 액세스 토큰을 획득 하는 데 사용 하는 경우 새로 고침 토큰이 해지 되지, 있지만 이전 새로 고침 토큰을 삭제 해야 있습니다. 합니다 [OAuth 2.0 사양](https://tools.ietf.org/html/rfc6749#section-6) 표시 됩니다. 권한 부여 서버 수 발급 클라이언트 경우 삭제 해야 합니다는 새로운 새로 고침 토큰을 이전 새로 고침 토큰 및 새로운 새로 고침 토큰으로 바꿉니다. 권한 부여 서버 해지할 수 있습니다 이전 새로 고침 토큰을 클라이언트에 새로운 새로 고침 토큰을 발급 한 후. "  
 
 ```
 // Line breaks for legibility only
@@ -254,7 +256,6 @@ Content-Type: application/x-www-form-urlencoded
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
 ```
@@ -271,8 +272,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | 필수    | 이 인증 코드 흐름 범례에 대한 `refresh_token` 이어야 합니다. |
 | `scope`         | 필수    | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 원래 authorization_code 요청 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 요청에 지정된 범위가 여러 리소스 서버에 걸쳐 있는 경우 v2.0 엔드포인트는 첫 번째 범위에 지정된 리소스에 대한 토큰을 반환합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |
 | `refresh_token` | 필수    | 흐름의 두 번째 레그에서 얻은 refresh_token입니다. |
-| `redirect_uri`  | 필수    |  `redirect_uri`클라이언트 응용 프로그램에 등록 합니다. |
-| `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱에서는 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다.                                                                                                                                                    |
+| `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. 디바이스에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱에서는 사용하면 안 됩니다. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다. |
 
 #### <a name="successful-response"></a>성공적인 응답
 

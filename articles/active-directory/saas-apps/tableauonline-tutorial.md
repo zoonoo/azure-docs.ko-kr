@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: cdebeefac1a77cd834466a8731d0652136bdbd47
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906177"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>자습서: Tableau Online과 Azure Active Directory 통합
 
@@ -243,8 +243,8 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58889807"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471038"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -80,7 +80,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
 
 * **host.json**: Functions 호스트를 구성할 수 있습니다. 이러한 설정은 로컬 및 Azure에서 실행할 때 모두 적용됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
-* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 사용되지 않으며, [Azure Functions 핵심 도구](functions-run-local.md)에서 사용됩니다. 이 파일을 사용하여 함수에 필요한 변수에 대한 앱 설정을 지정합니다. 프로젝트에서 함수 바인딩에 필요한 각 연결에 대한 **값** 배열에 새 항목을 추가합니다. 자세한 내용은 Azure Functions 핵심 도구 문서의 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
+* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 사용되지 않으며, [Azure Functions 핵심 도구](functions-run-local.md)에서 사용됩니다. 이 파일을 사용 하 여 함수에 필요한 환경 변수에 대 한 앱 설정을 지정할 수 있습니다. 프로젝트에서 함수 바인딩에 필요한 각 연결에 대한 **값** 배열에 새 항목을 추가합니다. 자세한 내용은 Azure Functions 핵심 도구 문서의 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
 
     >[!IMPORTANT]
     >local.settings.json 파일에 비밀이 포함될 수 있으므로 프로젝트 원본 제어에서 해당 파일을 제외해야 합니다. 이 파일에 대한 **출력 디렉터리로 복사** 설정은 항상 **변경된 내용만 복사**여야 합니다. 
@@ -207,15 +207,11 @@ Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방�
 
 ## <a name="monitoring-functions"></a>함수 모니터링
 
-Azure에서 함수 실행을 모니터링할 때는 Azure Application Insights와 함수를 통합하는 방식을 사용하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Visual Studio 게시 중에 함수 앱을 만들 때는 Azure에서 함수 앱 통합이 수행되지 않습니다. 대신 로깅 기능이 기본 제공되는데, 이 기능은 사용하지 않는 것이 좋습니다.
+함수 실행을 모니터링 하려면 Azure Application Insights를 사용 하 여 함수 앱을 통합 하 여는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Visual Studio 게시 중에 함수 앱을 만들 때는 Azure에서 함수 앱 통합이 수행되지 않습니다.
 
-Azure에서 함수 앱에 대해 Application Insights를 사용하도록 설정하려면 다음 단계를 수행합니다.
+함수 앱에 대 한 Application Insights를 사용 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 Application Insights 인스턴스를 만든 다음 해당 계측 키를 복사합니다. 이 작업을 수행하는 방법을 알아보려면 [App Insights 리소스를 수동으로 연결](functions-monitoring.md#manually-connect-an-app-insights-resource)을 참조하세요.  
-
-1. [함수 앱 설정](#function-app-settings)의 설명에 따라 Azure의 함수 앱 설정에 앱 설정 `APPINSIGHTS_INSTRUMENTATIONKEY`를 추가합니다. 이 앱 설정에는 이전 단계에서 만든 계측 키가 포함되어 있습니다.
-
-1. Azure의 함수 앱에서 `AzureWebJobsDashboard` 앱 설정을 제거합니다. 그러면 기본 제공 로깅이 사용하지 않도록 설정됩니다.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 

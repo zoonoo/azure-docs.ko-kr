@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: b3079a7f2e71e26164d96cf167b67f1a60f7a23b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046476"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469746"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake Tools for Visual Studio를 사용하여 데이터 기울이기 문제 해결
 
@@ -30,7 +30,7 @@ Azure Data Lake Tools for Visual Studio는 작업에 데이터 기울이기 문�
 
 ## <a name="solution-1-improve-table-partitioning"></a>해결 방법 1: 테이블 분할 향상
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>옵션 1: 불균형된 키 값을 미리 필터링
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>옵션 1: 불균형된 된 키 값을 미리 필터링
 
 비즈니스 논리에 영향을 주지 않으면 사전에 높은 빈도 값을 필터링할 수 있습니다. 예를 들어, GUID 열에 000-000-000이 많은 경우 해당 값을 집계하지 않는 것이 좋습니다. 집계하기 전에 “WHERE GUID != “000-000-000””을 작성하면 높은 빈도 값을 필터링할 수 있습니다.
 
@@ -42,15 +42,15 @@ Azure Data Lake Tools for Visual Studio는 작업에 데이터 기울이기 문�
 
 _주_만 파티션 키로 사용하는 대신 두 개 이상의 키를 분할에 사용할 수 있습니다. 예를 들어, 데이터 파티션 크기를 줄이고 데이터를 더 고르게 배포하려면 _우편 번호_를 추가 파티션 키로 추가하는 것이 좋습니다.
 
-### <a name="option-4-use-round-robin-distribution"></a>옵션 4: 라운드 로빈 배포 사용
+### <a name="option-4-use-round-robin-distribution"></a>옵션 4: 라운드 로빈 배포를 사용 합니다.
 
-파티션 및 배포에 적합한 키가 없는 경우 라운드 로빈 배포를 사용할 수 있습니다. 라운드 로빈 배포는 모든 행을 동등하게 처리하고 임의로 해당 버킷에 넣습니다. 데이터는 고르게 배포되지만 지역(구/군/시) 정보를 잃어 버리고 일부 작업에 대한 작업 성능도 저하될 수 있다는 문제가 있습니다. 또한 어떻게 해서라도 기울어진 키에 대한 집계를 수행할 경우 데이터 기울이기 문제가 지속됩니다. 라운드 로빈 배포에 대해 자세히 알아보려면 [REATE TABLE(U-SQL): 스키마로 테이블 만들기](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch)에서 U-SQL 테이블 배포 섹션을 참조하세요.
+파티션 및 배포에 적합한 키가 없는 경우 라운드 로빈 배포를 사용할 수 있습니다. 라운드 로빈 배포는 모든 행을 동등하게 처리하고 임의로 해당 버킷에 넣습니다. 데이터는 고르게 배포되지만 지역(구/군/시) 정보를 잃어 버리고 일부 작업에 대한 작업 성능도 저하될 수 있다는 문제가 있습니다. 또한 어떻게 해서라도 기울어진 키에 대한 집계를 수행할 경우 데이터 기울이기 문제가 지속됩니다. 라운드 로빈 배포에 대 한 자세한 내용은에서 U-SQL 테이블 배포 섹션을 참조 [CREATE TABLE (U-SQL): 스키마를 사용 하 여 테이블 만들기](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch)합니다.
 
 ## <a name="solution-2-improve-the-query-plan"></a>해결 방법 2: 쿼리 계획 향상
 
-### <a name="option-1-use-the-create-statistics-statement"></a>옵션 1: CREATE STATISTICS 문 사용
+### <a name="option-1-use-the-create-statistics-statement"></a>옵션 1: CREATE STATISTICS 문을 사용 하 여
 
-U-SQL은 테이블에 CREATE STATISTICS 문을 제공합니다. 이 문은 쿼리 최적화 프로그램에 데이터 특성에 대한 자세한 정보(예: 테이블에 저장된 값 분포)를 제공합니다. 대부분의 쿼리에서 쿼리 최적화 프로그램은 고품질 쿼리 계획을 위해 필요한 통계를 이미 생성합니다. 경우에 따라 CREATE STATISTICS로 추가 통계를 만들거나 쿼리 디자인을 수정하여 쿼리 성능을 개선해야 할 수도 있습니다. 자세한 내용은 [CREATE STATISTICS(U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) 페이지를 참조하세요.
+U-SQL은 테이블에 CREATE STATISTICS 문을 제공합니다. 이 문은 쿼리 최적화 프로그램에 데이터 특성에 대한 자세한 정보(예: 테이블에 저장된 값 분포)를 제공합니다. 대부분의 쿼리에서 쿼리 최적화 프로그램은 고품질 쿼리 계획을 위해 필요한 통계를 이미 생성합니다. 경우에 따라 CREATE STATISTICS로 추가 통계를 만들거나 쿼리 디자인을 수정하여 쿼리 성능을 개선해야 할 수도 있습니다. 자세한 내용은 [CREATE STATISTICS(U-SQL)](/u-sql/ddl/statistics/create-statistics) 페이지를 참조하세요.
 
 코드 예제:
 
@@ -122,11 +122,11 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>해결 방법 3: 사용자 정의 리듀서 및 결합자 향상
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>해결 방법 3: 사용자 정의 리 듀 서 및 결합 자 향상
 
 때로는 사용자 정의 연산자를 작성하여 복잡한 프로세스 논리를 처리할 수 있으며 잘 작성된 리듀서와 결합자는 경우에 따라 데이터 기울이기 문제를 완화할 수 있습니다.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>옵션 1: 가능한 경우 재귀적(recursive) 리듀서 사용
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>옵션 1: 가능한 경우 재귀적 리 듀 서를 사용 합니다.
 
 기본적으로 사용자 정의 리듀서는 비재귀 모드로 실행됩니다. 즉, 키에 대한 작업을 줄이면 단일 꼭짓점으로 배포됩니다. 그러나 기울어진 데이터인 경우 대량 데이터 집합이 단일 꼭짓점에서 처리되어 오랫동안 실행될 수 있습니다.
 
@@ -150,7 +150,7 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>옵션 2: 가능한 경우 행 수준 결합자 모드 사용
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>옵션 2: 가능한 경우 행 수준 결합 자 모드 사용
 
 특정 기울어진 키 조인의 경우 ROWCOUNT 힌트와 마찬가지로 결합자 모드는 여러 꼭짓점에 설정된 기울어진 대량 키 값을 배포하여 작업을 동시에 실행할 수 있도록 시도합니다. 결합자 모드는 데이터 기울이기 문제를 해결할 수는 없지만 기울어진 대량 키 값 집합에 추가적인 도움을 줄 수 있습니다.
 
@@ -167,11 +167,11 @@ SKEWFACTOR 외에도 특정한 기울어진 키 조인 사례에서 다른 조�
 
 - [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): 모든 출력 행은 왼쪽의 단일 입력 행에 따라 달라지며, 잠재적으로 동일한 키 값을 갖는 오른쪽의 모든 행에 따라 달라집니다.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Left): 모든 출력 행은 왼쪽 (및 잠재적으로 오른쪽에서 동일한 키 값을 가진 모든 행)의 단일 입력된 행에 따라 달라 집니다.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Right): 모든 출력 행은 오른쪽의 단일 입력 행에 따라 달라지며, 잠재적으로 동일한 키 값을 갖는 왼쪽의 모든 행에 따라 달라집니다.
+- qlUserDefinedCombiner(Mode=CombinerMode.Right): 모든 출력 행 오른쪽 (및 잠재적으로 왼쪽에서 동일한 키 값을 가진 모든 행)의 단일 입력된 행에 따라 달라 집니다.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): 모든 출력 행은 동일한 값을 갖는 왼쪽과 오른쪽의 단일 입력 행에 따라 달라집니다.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): 모든 출력 행은 동일한 값을 갖는 오른쪽 및 왼쪽에서 단일 입력된 행에 따라 달라 집니다.
 
 코드 예제:
 

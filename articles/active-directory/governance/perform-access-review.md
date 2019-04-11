@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579685"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470613"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>그룹에 대 한 액세스를 검토 하거나 Azure AD에서 응용 프로그램 액세스 검토
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
 1. 페이지의 오른쪽 위 모서리에 있는 사용자 기호를 클릭하면 이름과 기본 조직이 표시됩니다. 둘 이상의 조직이 나열되는 경우 액세스 검토를 요청한 조직을 선택합니다.
 
-1. 페이지의 오른쪽을 클릭 합니다 **액세스 검토** 보류 중인 액세스 검토의 목록을 보려면 타일을 합니다.
+1. 클릭 합니다 **액세스 검토** 보류 중인 액세스 검토의 목록을 보려면 타일을 합니다.
 
     타일이 표시되지 않은 경우 해당 조직에 대해 수행할 액세스 검토가 없으므로 이 시점에서는 어떤 작업도 필요하지 않습니다.
 
@@ -71,11 +71,13 @@ Azure Active Directory (Azure AD) 기업에서는 Azure AD에서 그룹 및 응�
 
 1. 가 계속된 액세스 승인 또는 거부 여부를 결정 하는 사용자의 목록을 검토 합니다.
 
-1. 에서 승인 또는 거부 각 요청에 수행할 동작을 지정 하는 창을 행을 클릭 합니다.
+1. 를 승인 하거나 각 요청을 거부 하려면 창에서 수행할 동작을 지정 하려면 행을 클릭 합니다.
 
 1. 클릭 **승인할** 하거나 **거부**합니다. 확실 하지 않은 경우 클릭 수 있습니다 **알지**합니다. 그렇게 하면 사용자가 자신의 액세스를 유지 하지만 선택 감사 로그에 반영 됩니다.
 
     ![액세스 검토 수행](./media/perform-access-review/approve-deny.png)
+
+1. 필요한 경우에 이유를 입력 합니다 **이유** 상자입니다.
 
     관리자 액세스 검토에 지속적인된 액세스 또는 그룹 멤버 자격을 승인 하는 것에 대 한 이유를 제공 해야 합니다.
 

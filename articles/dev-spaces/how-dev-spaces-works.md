@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361504"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470902"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
 
@@ -96,13 +96,15 @@ Azure 개발 공간 AKS 클러스터에서 사용 하는 경우 클러스터에 
 * 명명 된 모든 Kubernetes 네임 스페이스를 제거 *azds*, 있는 경우 새로 만듭니다.
 * Kubernetes 이니셜라이저 개체를 배포합니다.
 
+또한 다른 Azure 개발자 공간 구성 요소에 대 한 서비스 호출을 위해 AKS 클러스터를 사용 하는 동일한 서비스 주체를 사용 합니다.
+
 ![Azure 개발 공간 클러스터 준비](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Azure 개발 공간을 사용 하려면 하나 이상의 개발 공간 이어야 합니다. Azure 개발 공간 개발 공간에 대 한 AKS 클러스터 내에서 Kubernetes 네임 스페이스를 사용합니다. 컨트롤러를 설치 하면 새 Kubernetes 네임 스페이스를 만들거나, 첫 번째 개발 공간으로 사용할 기존 네임 스페이스를 선택 하 라는 메시지가 나타납니다. 네임 스페이스 개발 공간을 지정 하는 경우 컨트롤러를 추가 합니다 *azds.io/space=true* 개발 공간으로 식별 하는 네임 스페이스에는 레이블. 만들거나 지정 된 초기 개발 공간 클러스터를 준비한 후 기본적으로 선택 됩니다. 공간을 선택 하면 Azure 개발 공백을 사용 하 여 새 워크 로드를 만들기 위한 사용 됩니다.
 
 기본적으로 컨트롤러 이라는 개발 공간을 만듭니다 *기본* 기존 업그레이드 *기본* Kubernetes 네임 스페이스입니다. 새 개발 공간을 만들 기존 개발 공백을 제거 하는 클라이언트 쪽 도구를 사용할 수 있습니다. Kubernetes에서 제한으로 인해 합니다 *기본* 개발 공간을 제거할 수 없습니다. 컨트롤러 라는 모든 기존 Kubernetes 네임 스페이스 제거 *azds* 사용 하 여 충돌을 방지 하는 `azds` 클라이언트 쪽 도구에서 사용 되는 명령입니다.
 
-계측에 대 한 배포 하는 동안 세 개의 컨테이너가 있는 pod를 삽입할 때 Kubernetes 이니셜라이저 개체는: devspaces 프록시 컨테이너, devspaces-프록시-init 컨테이너 및 devspaces 빌드 컨테이너입니다. **이러한 컨테이너의 세 가지 모두 루트 액세스를 사용 하 여 AKS 클러스터에서 실행합니다.**
+계측에 대 한 배포 하는 동안 세 개의 컨테이너가 있는 pod를 삽입할 때 Kubernetes 이니셜라이저 개체는: devspaces 프록시 컨테이너, devspaces-프록시-init 컨테이너 및 devspaces 빌드 컨테이너입니다. **이러한 컨테이너의 세 가지 모두 루트 액세스를 사용 하 여 AKS 클러스터에서 실행합니다.** 또한 다른 Azure 개발자 공간 구성 요소에 대 한 서비스 호출을 위해 AKS 클러스터를 사용 하는 동일한 서비스 주체를 사용 합니다.
 
 ![Azure 개발 공간 Kubernetes 이니셜라이저](media/how-dev-spaces-works/kubernetes-initializer.svg)
 

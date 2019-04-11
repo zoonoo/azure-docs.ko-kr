@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: cac685cc3f5a19e9da134df87076299e3f38fe11
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880976"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>자습서: Periscope Data와 Azure Active Directory 통합
 
@@ -231,9 +231,9 @@ Azure AD 사용자가 Periscope Data에 로그인할 수 있도록 하려면 이
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

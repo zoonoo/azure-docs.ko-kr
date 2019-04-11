@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 415b33dce42945c40aedd996d4dcfa5c6b987b44
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 2e103604af7aba2a0ef2e3d0e02a721ae4740c40
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336221"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469695"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML에서 single sign-on 응용 프로그램 프록시 (미리 보기)를 사용 하 여 온-프레미스 응용 프로그램에 대 한
 
@@ -35,22 +35,23 @@ SAML 토큰 암호화 기능을 사용 하 여 응용 프로그램 프록시를 
 
 온-프레미스 응용 프로그램에 SSO를 제공할 수 있습니다, 전에 응용 프로그램 프록시를 설정한 있고 커넥터가 설치 되어 있는지 확인 합니다. 참조 [Azure AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램을 추가 합니다.](application-proxy-add-on-premises-application.md) 알아보려면 방법입니다.
 
-자습서를 진행 하는 경우 다음을 염두에 두십시오.
+염두에 다음 자습서를 진행 하는 경우:
 
 * 자습서의 지침에 따라 응용 프로그램을 게시 합니다. 선택 되어 있는지 확인 **Azure Active Directory** 으로 **사전 인증** 응용 프로그램에 대 한 메서드 (4 단계 [Azure AD에 온-프레미스 앱을 추가](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad
 )).
 * 복사 합니다 **외부 URL** 응용 프로그램에 대 한 합니다.
 * 모범 사례로, 최적화 된 사용자 환경을 위해 가능한 사용자 지정 도메인을 사용 합니다. 에 대해 자세히 알아보세요 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)합니다.
-* 응용 프로그램에 하나 이상의 사용자를 추가 하 고 테스트 계정에는 온-프레미스 응용 프로그램에 대 한 액세스 권한이 있는지 확인 합니다.
+* 응용 프로그램에 하나 이상의 사용자를 추가 하 고 테스트 계정에는 온-프레미스 응용 프로그램에 대 한 액세스 권한이 있는지 확인 합니다. 방문 하 여 응용 프로그램에 연결 하면 테스트 계정을 사용 하는 **외부 URL** 응용 프로그램 프록시를 유효성을 검사 하는 올바르게 설정 합니다. 문제 해결 정보를 참조 하세요 [문제를 해결 하는 응용 프로그램 프록시 문제 및 오류 메시지](application-proxy-troubleshoot.md)합니다.
 
 ## <a name="set-up-saml-sso"></a>SAML SSO 설정
 
 1. Azure portal에서 선택 **Azure Active Directory > 엔터프라이즈 응용 프로그램** 목록에서 응용 프로그램을 선택 합니다.
 1. 앱에서 **개요** 페이지에서 **Single sign on**합니다.
 1. 선택 **SAML** single sign-on 방법으로 합니다.
-1. 에 **등록에서 Single Sign-on SAML을 사용 하 여 설정** 페이지에서 편집를 **기본 SAML 구성을** 데이터의 단계를 수행 하 고 [Enter 기본 SAML 구성](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) SAML 기반을 구성 하려면 응용 프로그램에 대 한 인증입니다.
+1. 에 **구성에서 Single Sign-on SAML을 사용 하 여 설정** 페이지에서 편집를 **기본 SAML 구성** 데이터의 단계를 수행 하 고 [Enter 기본 SAML 구성](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) SAML 기반을 구성 하려면 응용 프로그램에 대 한 인증입니다.
 
-   * 있는지 확인 합니다 **회신 URL** 루트 일치 하거나 아래의 경로 **외부 URL** Azure AD에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 추가 온-프레미스 응용 프로그램에 대 한 합니다.
+   * 있는지 확인 합니다 **회신 URL** 일치 하거나 아래의 경로 **외부 URL** 응용 프로그램 프록시를 통해 게시 된 온-프레미스 응용 프로그램에 대 한 합니다. 다른 응용 프로그램에 필요한 경우 **회신 URL** 으로 SAML 구성 추가 **첫 번째** URL 목록에 유지 합니다 **외부 URL** 추가 URL을으로 첫 번째 후 정렬 합니다.
+   * 지정 되어 있는지 확인 합니다도 올바른 **회신 URL** 또는 인증 토큰을 받기 위해 사용할 Assertion Consumer Service URL입니다.
 
      ![기본 SAML 구성 데이터 입력](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
@@ -62,7 +63,7 @@ SAML 토큰 암호화 기능을 사용 하 여 응용 프로그램 프록시를 
 이러한 모든 단계를 완료하면 앱이 준비되고 실행되어야 합니다. 앱을 테스트 합니다.
 
 1. 브라우저를 열고 앱을 게시할 때 만든 외부 URL로 이동 합니다. 
-1. 앱에 할당한 테스트 계정으로 로그인합니다.
+1. 앱에 할당한 테스트 계정으로 로그인합니다. 응용 프로그램에 SSO를 응용 프로그램을 로드할 수 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

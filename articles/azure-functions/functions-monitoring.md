@@ -9,22 +9,22 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518732"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471021"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
 [Azure Functions](functions-overview.md) 기본 제공 통합을 제공 하며 [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) 함수를 모니터링 합니다. 이 문서에서는 로그 파일 시스템에서 생성 된 Application Insights로 보내도록 Azure Functions를 구성 하는 방법을 보여 줍니다.
 
-![Application Insights 메트릭 탐색기](media/functions-monitoring/metrics-explorer.png)
+Application Insights를 사용 하 여 로그, 성능 및 오류 데이터를 수집 하는 것이 좋습니다. 자동으로 성능 이상을 감지 하 고 문제를 진단할 수 있도록 하는 함수를 사용 하는 방법을 이해 하는 강력한 분석 도구가 포함 되어 있습니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 로컬 함수 앱 프로젝트를 개발 하는 동안 Application Insights를 사용할 수도 있습니다. 자세한 내용은 참조 하세요. [Application Insights 란?](../azure-monitor/app/app-insights-overview.md)
 
-Azure Functions에 Application Insights를 사용 하지 않는 기본 제공 모니터링 합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공하는 Application Insights를 권장합니다.
+Application Insights 계측 기능은 필요한 Azure Functions에 빌드될 때 함수 앱에 Application Insights 리소스에 연결할 올바른 계측 키를 하기만 하면 됩니다.
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights 가격 책정 및 제한
 
@@ -34,56 +34,28 @@ Azure Functions에 Application Insights를 사용 하지 않는 기본 제공 �
 
 함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 리소스의 계측 키를 알고 있어야 합니다. 이 키는 **APPINSIGHTS_INSTRUMENTATIONKEY**라는 앱 설정에 있어야 합니다.
 
-[Azure Portal](https://portal.azure.com)에서 다음 방법으로 이 연결을 설정할 수 있습니다.
+### <a name="new-function-app-in-the-portal"></a>포털에서 새 함수 앱
 
-* [새 함수 앱을 자동으로 연결](#new-function-app)
-* [Application Insights 리소스를 수동으로 연결](#manually-connect-an-app-insights-resource)
+경우 있습니다 [Azure portal에서 함수 앱 만들기](functions-create-first-azure-function.md), Application Insights 통합이 기본적으로 사용 합니다. Application Insights 리소스를 함수 앱으로 동일한 이름을 가진 및 동일한 지역 또는 가장 가까운 지역에 만들어집니다.
 
-### <a name="new-function-app"></a>새 함수 앱
-<!-- Add a transitional sentence to introduce the procedure. -->
+생성 되는 Application Insights 리소스를 검토 하려면 선택 하 여 확장 합니다 **Application Insights** 창입니다. 변경할 수 있습니다는 **새 리소스 이름** 다른 폴더를 선택 하거나 **위치** 에 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/) 데이터를 저장 하려는 위치.
 
-1. 함수 앱의 **만들기** 페이지로 이동합니다.
+![함수 앱을 만들 때 Application Insights 사용](media/functions-monitoring/enable-ai-new-function-app.png)
 
-1. **Application Insights** 스위치를 **켜기**로 설정합니다.
-
-1. **Application Insights 위치**를 선택합니다. 함수 앱의 지역에 가장 가까운 및 지역을 선택는 [Azure 지리](https://azure.microsoft.com/global-infrastructure/geographies/) 데이터를 저장 하려는 위치입니다.
-
-   ![함수 앱을 만들 때 Application Insights 사용](media/functions-monitoring/enable-ai-new-function-app.png)
-
-1. 필요한 다른 정보를 입력하고 **만들기**를 선택합니다.
-
-다음 단계는 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)하는 것입니다.
-
+선택 하는 경우 **만들기**에 있는 함수 앱을 사용 하 여 Application Insights 리소스를 만들어집니다를 `APPINSIGHTS_INSTRUMENTATIONKEY` 응용 프로그램 설정에서 설정 합니다. 모든 준비가 되었습니다.
 
 <a id="manually-connect-an-app-insights-resource"></a>
-### <a name="application-insights-resource"></a>Application Insights 리소스 
-<!-- Add a transitional sentence to introduce the procedure. -->
+### <a name="add-to-an-existing-function-app"></a>기존 함수 앱에 추가 합니다. 
 
-1. Application Insights 리소스를 만듭니다. 애플리케이션 형식을 **일반**으로 설정합니다.
+사용 하 여 함수 앱을 만들 때 합니다 [Azure CLI](functions-create-first-azure-function-azure-cli.md)를 [Visual Studio](functions-create-your-first-function-visual-studio.md), 또는 [Visual Studio Code](functions-create-first-function-vs-code.md), Application Insights 리소스를 만들어야 합니다. 함수 앱의 응용 프로그램 설정으로 해당 리소스의 계측 키를 추가한 다음 있습니다.
 
-   ![일반 형식의 Application Insights 리소스 만들기](media/functions-monitoring/ai-general.png)
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-1. Application Insights 리소스의 **Essentials** 페이지에서 계측 키를 복사합니다. 가져오기에 표시 된 키 값의 끝에 요소를 **복사 하려면 클릭** 단추입니다.
-
-   ![Application Insights 계측 키 복사](media/functions-monitoring/copy-ai-key.png)
-
-1. 함수 앱의 **응용 프로그램 설정** 페이지에서 [앱 설정을 추가](functions-how-to-use-azure-function-app-settings.md#settings) 를 선택 하 여 **새 설정을 추가**합니다. 새 설정의 이름을 **APPINSIGHTS_INSTRUMENTATIONKEY** 복사한 계측 키를 붙여넣습니다.
-
-   ![앱 설정에 계측 키 추가](media/functions-monitoring/add-ai-key.png)
-
-1. **저장**을 선택합니다.
-
-<!-- Before the next H2 heading, add transitional sentences to summarize why the procedures were necessary. -->
-
-## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
-
-Application Insights를 사용 하면 Azure Storage를 사용 하는 기본 제공 로깅을 사용 하지 않도록 설정 합니다. 기본 제공 로깅은 가벼운 워크 로드를 사용 하 여 테스트를 위해 유용 하지만 부하가 높은 프로덕션 용도로 적합 하지 않습니다. 프로덕션 모니터링에 대 한 Application Insights를 권장 합니다. 기본 제공 로깅 프로덕션 환경에서 사용 하는 경우 Azure Storage의 제한으로 인해 로깅 레코드 수 완료 수 없습니다.
-
-기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **애플리케이션 설정** 섹션을 참조하세요. 앱 설정, 삭제 하기 전에 Azure Storage 트리거 또는 바인딩 설정을 사용 하 여 동일한 함수 앱에서 기존 함수가 있는지 확인 합니다.
+더 이상 권장 되는 기본 제공 모니터링, 초기 버전의 함수에서 사용 합니다. 이러한 함수 앱에 Application Insights 통합을 사용 하도록 설정 하는 경우 수행 해야 [기본 제공 로깅을 사용 하지 않으려면](#disable-built-in-logging)합니다.  
 
 ## <a name="view-telemetry-in-monitor-tab"></a>모니터 탭에서 원격 분석 보기
 
-이전 섹션에 나와 있는 것 처럼 Application Insights 통합을 설정 하면 원격 분석 데이터를 볼 수 있습니다 합니다 **모니터** 탭 합니다.
+사용 하 여 [Application Insights 통합 사용](#enable-application-insights-integration), 원격 분석 데이터를 볼 수 있습니다 합니다 **모니터** 탭 합니다.
 
 1. 함수 앱 페이지에서 Application Insights를 구성한 후 한 번 이상 실행 하는 함수를 선택 합니다. 다음을 선택 합니다 **모니터** 탭 합니다.
 
@@ -103,13 +75,13 @@ Application Insights를 사용 하면 Azure Storage를 사용 하는 기본 제�
 
    ![호출 정보](media/functions-monitoring/invocation-details-ai.png)
 
-두 페이지 (호출 목록 및 호출 정보) 데이터를 검색 하는 Application Insights Analytics 쿼리를 연결 합니다.
+두 페이지는 볼 수 있습니다는 **Application Insights에서 실행** 데이터를 검색 하는 Application Insights Analytics 쿼리를 링크 합니다.
 
 ![Application Insights에서 실행](media/functions-monitoring/run-in-ai.png)
 
-![Application Insights 분석 호출 목록](media/functions-monitoring/ai-analytics-invocation-list.png)
+다음 쿼리가 표시 됩니다. 호출 목록 제한 된다는 마지막 30 일 동안 볼 수 있습니다. 목록에는 20 개 이하의 행 표시 (`where timestamp > ago(30d) | take 20`). 호출 정보 목록은 제한이 사용 하 여 지난 30 일입니다.
 
-이러한 쿼리에서 호출 목록 제한 된다는 마지막 30 일 동안 볼 수 있습니다. 목록에는 20 개 이하의 행 표시 (`where timestamp > ago(30d) | take 20`). 호출 정보 목록은 제한이 사용 하 여 지난 30 일입니다.
+![Application Insights 분석 호출 목록](media/functions-monitoring/ai-analytics-invocation-list.png)
 
 자세한 내용은 이 문서의 뒷부분에 나오는 [원격 분석 데이터 쿼리](#query-telemetry-data)를 참조하세요.
 
@@ -121,25 +93,17 @@ Application Insights를 사용 하면 Azure Storage를 사용 하는 기본 제�
 
 Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/application-insights/)를 참조하세요. 이 섹션에서는 Application Insights에서 데이터를 보는 방법에 대한 몇 가지 예를 보여줍니다. 인 경우 이미 Application Insights를 사용 하 여 친숙 한 이동할 수도 있습니다 직접 [구성 하 고 원격 분석 데이터를 사용자 지정 하는 방법에 대 한 섹션](#configure-categories-and-log-levels)합니다.
 
-[메트릭 탐색기](../azure-monitor/app/metrics-explorer.md), 차트 및 메트릭을 기반으로 하는 경고를 만들 수 있습니다. 메트릭에 함수 호출, 실행 시간 및 성공률이 수가 포함 됩니다.
+![Application Insights 개요 탭](media/functions-monitoring/metrics-explorer.png)
 
-![메트릭 탐색기](media/functions-monitoring/metrics-explorer.png)
+Application Insights의 다음 영역 동작, 성능 및 오류 함수를 평가할 때 도움이 될 수 있습니다.
 
-[오류](../azure-monitor/app/asp-net-exceptions.md) 탭에서 함수 오류 및 서버 예외를 기반으로 차트와 경고를 만들 수 있습니다. **작업 이름**은 함수 이름입니다. 종속성에 대 한 사용자 지정 원격 분석을 구현 하지 않으면 종속성 오류가 표시 되지 않습니다.
-
-![오류](media/functions-monitoring/failures.png)
-
-[성능](../azure-monitor/app/performance-counters.md) 탭에서 성능 문제를 분석할 수 있습니다.
-
-![성능](media/functions-monitoring/performance.png)
-
-**서버** 탭에는 서버당 리소스 사용률 및 처리량이 표시됩니다. 이 데이터는 함수 때문에 기본 리소스가 정체되는 시나리오를 디버깅하는 데 유용할 수 있습니다. 서버를 **클라우드 역할 인스턴스**라고도 합니다.
-
-![서버](media/functions-monitoring/servers.png)
-
-합니다 [라이브 메트릭 Stream](../azure-monitor/app/live-stream.md) 탭 실시간에서으로 메트릭 데이터를 보여 줍니다.
-
-![라이브 스트림](media/functions-monitoring/live-stream.png)
+| 탭 | 설명 |
+| ---- | ----------- |
+| **[오류](../azure-monitor/app/asp-net-exceptions.md)** |  차트 및 함수 오류 및 서버 예외에 따라 경고를 만듭니다. **작업 이름**은 함수 이름입니다. 종속성에 대 한 사용자 지정 원격 분석을 구현 하지 않으면 종속성 오류가 표시 되지 않습니다. |
+| **[성능](../azure-monitor/app/performance-counters.md)** | 성능 문제를 분석 합니다. |
+| **서버** | 리소스 사용률 및 처리량 서버당 봅니다. 이 데이터는 함수 때문에 기본 리소스가 정체되는 시나리오를 디버깅하는 데 유용할 수 있습니다. 서버를 **클라우드 역할 인스턴스**라고도 합니다. |
+| **[메트릭](../azure-monitor/app/metrics-explorer.md)** | 차트 및 메트릭을 기반으로 하는 경고를 만듭니다. 메트릭에 함수 호출, 실행 시간 및 성공률이 수가 포함 됩니다. |
+| **[라이브 메트릭 스트림](../azure-monitor/app/live-stream.md)** | 실시간에서으로 메트릭 데이터를 봅니다. |
 
 ## <a name="query-telemetry-data"></a>원격 분석 데이터 쿼리
 
@@ -160,12 +124,14 @@ requests
 
 사용할 수 있는 테이블에 표시 되는 **스키마** 왼쪽 탭 합니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
-* **traces**: 함수 코드 및 런타임에 의해 생성 된 로그입니다.
-* **요청**: 각 함수 호출에 대 한 요청 하나입니다.
-* **exceptions**: 런타임에서 throw 된 예외입니다.
-* **customMetrics**: 성공 및 실패 한 호출, 성공률 및 기간 수입니다.
-* **customEvents**: 예를 들어 런타임에서 추적 이벤트: 함수를 트리거하는 HTTP 요청
-* **performanceCounters**: 함수에서 실행 되는 서버의 성능에 대 한 정보입니다.
+| 테이블 | 설명 |
+| ----- | ----------- |
+| **traces** | 함수 코드 및 런타임에 의해 생성 된 로그입니다. |
+| **requests** | 각 함수 호출에 대 한 요청 하나입니다. |
+| **예외** | 런타임에서 throw 된 예외입니다. |
+| **customMetrics** | 성공 및 실패 한 호출, 성공률 및 기간 수입니다. |
+| **customEvents** | 예를 들어 런타임에서 추적 이벤트: 함수를 트리거하는 HTTP 요청 |
+| **performanceCounters** | 함수에서 실행 되는 서버의 성능에 대 한 정보입니다. |
 
 다른 테이블은 가용성 테스트 및 클라이언트 및 브라우저 원격 분석입니다. 사용자 지정 원격 분석을 구현하여 테이블에 데이터를 추가할 수 있습니다.
 
@@ -180,7 +146,7 @@ traces
 
 ## <a name="configure-categories-and-log-levels"></a>범주 및 로그 수준 구성
 
-사용자 지정 구성 없이 Application Insights를 사용할 수 있습니다. 대용량 데이터의 기본 구성 될 수 있습니다. Visual Studio Azure 구독을 사용하는 경우 Application Insights에 대한 데이터 제한에 도달할 수 있습니다. 이 문서 뒷부분에 나오는 구성 함수를 Application Insights로 전송 하는 데이터를 사용자 지정 하는 방법을 알아봅니다.
+사용자 지정 구성 없이 Application Insights를 사용할 수 있습니다. 대용량 데이터의 기본 구성 될 수 있습니다. Visual Studio Azure 구독을 사용하는 경우 Application Insights에 대한 데이터 제한에 도달할 수 있습니다. 이 문서 뒷부분에 나오는 구성 함수를 Application Insights로 전송 하는 데이터를 사용자 지정 하는 방법을 알아봅니다. 함수 앱에 대 한 로깅이에 구성 되어 합니다 [host.json] 파일입니다.
 
 ### <a name="categories"></a>범주
 
@@ -208,7 +174,7 @@ Functions 런타임은 "호스트"로 시작 하는 범주를 사용 하 여 로
 
 ### <a name="log-configuration-in-hostjson"></a>Host.json에서 로그 구성
 
-[host.json](functions-host-json.md) 파일은 함수 앱이 Application Insights로 보내는 로깅의 양을 구성합니다. 각 범주에 대해 보낼 최소 로그 수준을 나타낼 수 있습니다. 두 가지 예제가: 첫 번째 예제에서는 대상 합니다 [Functions 버전 2.x 런타임](functions-versions.md#version-2x) (.NET Core) 하 고 두 번째 예제는 버전 1.x 런타임입니다.
+[host.json] 파일은 함수 앱이 Application Insights로 보내는 로깅의 양을 구성합니다. 각 범주에 대해 보낼 최소 로그 수준을 나타낼 수 있습니다. 두 가지 예제가: 첫 번째 예제에서는 대상 합니다 [Functions 버전 2.x 런타임](functions-versions.md#version-2x) (.NET Core) 하 고 두 번째 예제는 버전 1.x 런타임입니다.
 
 ### <a name="version-2x"></a>버전 2.x
 
@@ -248,12 +214,12 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 이 예제에서는 다음 규칙을 설정합니다.
 
 * 범주를 사용 하 여 로그에 대 한 `Host.Results` 또는 `Function`만 보냅니다 `Error` 수준 이상 Application Insights로 합니다. `Warning` 수준 이하 로그는 무시됩니다.
-* `Host.Aggregator` 범주의 로그는 모든 로그를 Application Insights로 보냅니다. `Trace` 로그 수준은 `Verbose`를 호출하는 일부 로거와 동일하지만, [host.json](functions-host-json.md) 파일의 `Trace`를 사용합니다.
+* `Host.Aggregator` 범주의 로그는 모든 로그를 Application Insights로 보냅니다. `Trace` 로그 수준은 `Verbose`를 호출하는 일부 로거와 동일하지만, [host.json] 파일의 `Trace`를 사용합니다.
 * 그 외의 로그는 `Information` 수준 이상만 Application Insights로 보냅니다.
 
-[host.json](functions-host-json.md)의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. `Host` [host.json](functions-host-json.md) 컨트롤에 대 한 로깅을 `Host.General`합니다 `Host.Executor`, `Host.Results`등.
+[host.json]의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. `Host` [host.json] 컨트롤에 대 한 로깅을 `Host.General`합니다 `Host.Executor`, `Host.Results`등.
 
-[host.json](functions-host-json.md)에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. 제외한 런타임의 모든 항목 만든다고 `Host.Aggregator` 에서 기록할 `Error` 수준 하지 `Host.Aggregator` 에서 기록 하는 `Information` 수준:
+[host.json]에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. 제외한 런타임의 모든 항목 만든다고 `Host.Aggregator` 에서 기록할 `Error` 수준 하지 `Host.Aggregator` 에서 기록 하는 `Information` 수준:
 
 ### <a name="version-2x"></a>버전 2.x 
 
@@ -322,7 +288,7 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 
 ## <a name="configure-the-aggregator"></a>수집기 구성
 
-이전 섹션에서 언급했듯이, 런타임은 일정 기간 동안 함수 실행에 대한 데이터를 집계합니다. 기본 기간은 30초 또는 실행 1,000개 중 먼저 도착하는 것입니다. [host.json](functions-host-json.md) 파일에서 이 설정을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
+이전 섹션에서 언급했듯이, 런타임은 일정 기간 동안 함수 실행에 대한 데이터를 집계합니다. 기본 기간은 30초 또는 실행 1,000개 중 먼저 도착하는 것입니다. [host.json] 파일에서 이 설정을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -335,7 +301,7 @@ v2.x 런타임은 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft
 
 ## <a name="configure-sampling"></a>샘플링 구성
 
-Application Insights에는 최대 부하 시 원격 분석 데이터를 너무 많이 생성하지 않도록 보호하는 [샘플링](../azure-monitor/app/sampling.md) 기능이 포함되어 있습니다. 들어오는 원격 분석 비율이 지정된 임계값을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 최대 초당 항목 수에 대 한 기본 설정은 5 개입니다. [host.json](functions-host-json.md)에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
+Application Insights에는 [샘플링](../azure-monitor/app/sampling.md) 기능에 너무 많은 원격 분석 데이터를 생성에서 보호할 수 있는 최대 부하 시간에 실행을 완료 합니다. 들어오는 실행 속도 지정 된 임계값을 초과 하면 Application Insights를 들어오는 실행의 일부를 임의로 무시 하기 시작 합니다. 초당 실행의 최대 수는 20에 대 한 기본 설정은 (버전에서 5 1.x). [host.json]에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ### <a name="version-2x"></a>버전 2.x 
 
@@ -345,7 +311,7 @@ Application Insights에는 최대 부하 시 원격 분석 데이터를 너무 �
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 5
+        "maxTelemetryItemsPerSecond" : 20
       }
     }
   }
@@ -465,18 +431,18 @@ using Microsoft.Extensions.Logging;
 
 namespace functionapp0915
 {
-    public static class HttpTrigger2
+    public class HttpTrigger2
     {
-        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
-        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
-        // automatically use that key for all telemetry. It will also enable telemetry correlation
-        // with the current operation.
-        // If you require a custom TelemetryConfiguration, create it initially with
-        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
-        private static TelemetryClient telemetryClient = new TelemetryClient();
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
 
         [FunctionName("HttpTrigger2")]
-        public static Task<IActionResult> Run(
+        public Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
             HttpRequest req, ExecutionContext context, ILogger log)
         {
@@ -491,12 +457,12 @@ namespace functionapp0915
             // Track an Event
             var evt = new EventTelemetry("Function called");
             evt.Context.User.Id = name;
-            telemetryClient.TrackEvent(evt);
+            this.telemetryClient.TrackEvent(evt);
 
             // Track a Metric
             var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
             metric.Context.User.Id = name;
-            telemetryClient.TrackMetric(metric);
+            this.telemetryClient.TrackMetric(metric);
 
             // Track a Dependency
             var dependency = new DependencyTelemetry
@@ -509,7 +475,7 @@ namespace functionapp0915
                 Success = true
             };
             dependency.Context.User.Id = name;
-            telemetryClient.TrackDependency(dependency);
+            this.telemetryClient.TrackDependency(dependency);
 
             return Task.FromResult<IActionResult>(new OkResult());
         }
@@ -627,58 +593,62 @@ module.exports = function (context, req) {
 
 합니다 `tagOverrides` 매개 변수 집합을 `operation_Id` 함수의 호출 id와 같습니다. 이 설정을 사용하면 특정 함수 호출에 대해 자동으로 생성된 모든 원격 분석 데이터와 사용자 지정 원격 분석의 상관 관계를 지정할 수 있습니다.
 
-## <a name="known-issues"></a>알려진 문제
-<!-- Add a transitional sentence to introduce the section. -->
-
-### <a name="dependencies"></a>종속성
+## <a name="dependencies"></a>종속성
 
 함수는 다른 서비스에 있는 종속성 자동으로 표시 하지 않습니다. 종속성을 표시할 사용자 지정 코드를 작성할 수 있습니다. 예를 들어의 샘플 코드를 참조 합니다 [ C# 사용자 지정 원격 분석 단원](#log-custom-telemetry-in-c-functions)합니다. 샘플 코드의 결과 *응용 프로그램 맵* 것 같습니다 다음 이미지는 Application Insights에서:
 
-![애플리케이션 맵](media/functions-monitoring/app-map.png)
+![애플리케이션 맵](./media/functions-monitoring/app-map.png)
 
-### <a name="report-issues"></a>문제 보고
+## <a name="report-issues"></a>문제 보고
 
 Application Insights의 Functions 통합 문제를 보고하거나 제안 사항 또는 요청 사항을 보내려면 [GitHub에서 문제를 만듭니다](https://github.com/Azure/Azure-Functions/issues/new).
 
-## <a name="monitor-without-application-insights"></a>Application Insights 없이 모니터링
+## <a name="streaming-logs"></a>스트리밍 로그
 
-모니터링 기능에 대 한 Application Insights를 권장 합니다. 더 많은 데이터와 보다 나은 데이터 분석 방법을 제공 합니다. 그러나 Azure Storage를 사용 하는 기본 제공 로깅 시스템을 원한다 면 해당 방법을 사용 하도록 계속 수 있습니다.
+애플리케이션을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. Azure portal에서 또는 로컬 컴퓨터의 명령줄 세션에서 함수에 의해 생성 되는 로그 파일의 스트림을 볼 수 있습니다.
 
-### <a name="azure-storage-account-for-logging"></a>로깅에 대 한 azure Storage 계정
+표시 하는 동안 함수를 디버그 하는 경우 출력을 동일 [로컬 개발](functions-develop-local.md)합니다. 자세한 내용은 [로그를 스트리밍하는 방법](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)을 참조하세요.
 
-기본 로깅은 `AzureWebJobsDashboard` 앱 설정의 연결 문자열에 지정된 저장소 계정을 사용합니다. 함수 앱 페이지에서 함수를 선택 하 고 다음을 선택 합니다 **모니터** 탭을 유지 하도록 선택 **클래식 보기**합니다.
+> [!NOTE]
+> 스트리밍 로그는 Functions 호스트의 단일 인스턴스만을 지원합니다. 함수를 여러 인스턴스로 조정 하는 경우 다른 인스턴스에서 데이터 로그 스트림에 표시 되지 않습니다. 합니다 [라이브 메트릭 Stream](../azure-monitor/app/live-stream.md) Application Insights에서 여러 인스턴스 지원지 않습니다. 또한 거의 실시간으로 스트리밍 분석은 또한 기반으로 하는 동안 [샘플링 한 데이터](#configure-sampling)입니다.
 
-![클래식 모드 전환](media/functions-monitoring/switch-to-classic-view.png)
+### <a name="portal"></a>포털
 
-함수는 실행 목록이 표시됩니다. 함수 실행을 선택하면 기간, 입력 데이터, 오류 및 관련 로그 파일을 검토할 수 있습니다.
+포털에서 스트리밍 로그를 보려면 선택 합니다 **플랫폼 기능** 함수 앱에 대 한 탭 합니다. 그런 다음 **모니터링**, 선택 **로그 스트리밍을**합니다.
 
-Application Insights를 사용 하도록 설정한 경우에 기본 제공 로깅을 사용 하 여 반환할 수 있습니다. Application Insights를 수동으로 사용 하지 않도록 설정 하 고 다음을 선택 합니다 **모니터** 탭 합니다. Application Insights 통합을 사용 하지 않으려면 삭제는 `APPINSIGHTS_INSTRUMENTATIONKEY` 앱 설정 합니다.
+![포털에서 스트리밍 로그를 사용 하도록 설정](./media/functions-monitoring/enable-streaming-logs-portal.png)
 
-**모니터** 탭에 Application Insights 데이터가 표시되지만 아직 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)하지 않았으면 로그 데이터를 파일 시스템에서 볼 수 있습니다. 저장소 리소스 이동 **파일**, 함수에 대 한 파일 서비스를 선택 합니다. 로 이동 **LogFiles** > **응용 프로그램** > **함수** > **함수**  >  **your_function** 로그 파일을 확인 합니다.
+그러면 로그 스트리밍 서비스에 앱 연결 및 응용 프로그램 로그 창에 표시 됩니다. 전환할 수 있습니다 **응용 프로그램 로그** 하 고 **웹 서버 로그**합니다.  
 
-### <a name="real-time-monitoring"></a>실시간 모니터링
+![포털에서 스트리밍 로그 보기](./media/functions-monitoring/streaming-logs-window.png)
 
-로그 파일을 로컬 워크스테이션의 명령줄 세션으로 스트리밍할 수 있습니다. 사용 된 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/install-azure-cli) 하거나 [Azure PowerShell](/powershell/azure/overview)합니다.  
+### <a name="azure-cli"></a>Azure CLI
 
-Azure cli 명령을 사용 하 여 다음 로그인, 로그 파일을 스트리밍합니다 고 구독을 선택 합니다.
+스트리밍 로그를 사용 하 여 설정할 수 있습니다.는 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/install-azure-cli)합니다. Azure cli 명령을 사용 하 여 다음 로그인, 로그 파일을 스트리밍합니다 고 구독을 선택 합니다.
 
 ```azurecli
 az login
 az account list
 az account set --subscription <subscriptionNameOrId>
-az webapp log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>
 ```
 
-Azure PowerShell의 경우 다음 명령을 사용하여 Azure 계정을 추가하고, 구독을 선택하고, 로그 파일을 스트리밍합니다.
+### <a name="azure-powershell"></a>Azure PowerShell
+
+스트리밍 로그를 사용 하 여 설정할 수 있습니다 [Azure PowerShell](/powershell/azure/overview)합니다. PowerShell에 대 한 명령을 사용 하 여 다음 Azure 계정 추가, 선택, 구독 및 로그 파일을 스트리밍합니다.
 
 ```powershell
 Add-AzAccount
 Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <function app name> -Tail
+Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-자세한 내용은 [로그를 스트리밍하는 방법](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)을 참조하세요.
+## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
+
+Application Insights를 사용 하면 Azure Storage를 사용 하는 기본 제공 로깅을 사용 하지 않도록 설정 합니다. 기본 제공 로깅은 가벼운 워크 로드를 사용 하 여 테스트를 위해 유용 하지만 부하가 높은 프로덕션 용도로 적합 하지 않습니다. 프로덕션 모니터링에 대 한 Application Insights를 권장 합니다. 기본 제공 로깅 프로덕션 환경에서 사용 하는 경우 Azure Storage의 제한으로 인해 로깅 레코드 수 완료 수 없습니다.
+
+기본 제공 로깅을 사용하지 않도록 설정하려면 `AzureWebJobsDashboard` 앱 설정을 삭제합니다. Azure Portal에서 앱 설정을 삭제하는 방법에 대한 자세한 내용은 [함수 앱을 관리하는 방법](functions-how-to-use-azure-function-app-settings.md#settings)의 **애플리케이션 설정** 섹션을 참조하세요. 앱 설정, 삭제 하기 전에 Azure Storage 트리거 또는 바인딩 설정을 사용 하 여 동일한 함수 앱에서 기존 함수가 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -686,3 +656,5 @@ Get-AzWebSiteLog -Name <function app name> -Tail
 
 * [Application Insights](/azure/application-insights/)
 * [ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/)
+
+[host.json]: functions-host-json.md

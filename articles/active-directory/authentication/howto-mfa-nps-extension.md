@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311733"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470358"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 이상
 
 이러한 라이브러리는 확장으로 자동 설치됩니다.
 
-- [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Visual Studio 2013 (X64) 용 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Active Directory에 대 한 Windows PowerShell 모듈 버전 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치되지 않은 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않은 상태에서 미리 설치할 필요가 없습니다.
 
@@ -207,6 +207,8 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 개인 키에 있는지 확인합니다. 인증서에는 **CN \<tenantid\>, OU = Microsoft NPS Extension** 주체 이름이 있습니다.
 
+생성 한 자체 서명 된 인증서를 *AzureMfaNpsExtnConfigSetup.ps1* 스크립트는 유효 기간이 2 년의 수도 있습니다. 인증서가 설치를 확인 하는 경우 인증서가 만료 되지 않았는지 확인 해야 합니다.
+
 -------------------------------------------------------------
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>내 클라이언트 인증서가 Azure Active Directory에 있는 내 테넌트와 연결되어 있는지 어떻게 확인할 수 있습니까?
@@ -261,6 +263,14 @@ AD Connect가 실행 중이고 사용자가 Windows Active Directory와 Azure Ac
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>내 모든 인증이 실패한 상태의 로그에 HTTP 연결 오류가 표시되는 이유는 무엇입니까?
 
 NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com에 액세스할 수 있는지 확인합니다.
+
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>인증 작동 하지 않는 이유를 유효한 인증서가 있는 불구 하 고 있습니까?
+
+이전에 컴퓨터 인증서가 만료 하 고 새 인증서를 생성 된 경우 만료 된 인증서를 삭제 해야 합니다. 만료 된 인증서 문제가 발생할 수 있습니다 NPS 확장을 사용 하 여 시작 필요 합니다.
+
+유효한 인증서가 있는 경우를 확인 하려면 MMC를 사용 하 여 로컬 컴퓨터 계정의 인증서 저장소를 확인 하 고 인증서 만료 날짜가 경과 하지 않은 확인 합니다. 새로 유효한 인증서를 생성 하려면 다시 실행 단계 섹션에서 "[PowerShell 스크립트를 실행](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory와 통합 하는 방법 | Microsoft Docs
-description: Azure Active Directory와의 통합의 이점 및 리소스에 대한 설명입니다.
+description: 간소화 된 로그인 id 관리, multi-factor authentication과 같은 기능에 대 한 리소스를 Azure Active Directory를 사용 하 여 응용 프로그램 통합의 이점을 알아보세요 및 가져오고 액세스 제어 합니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: bryanla
-ms.custom: aaddev
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687b2848dc4bcf4e0c8935795eb66e07c3a5a7bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 726d70c46dca712deaf4846c24976cdabcc49be9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894630"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359890"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) 조직에 클라우드 응용 프로그램에 대 한 엔터프라이즈급 id 관리를 제공 합니다. Azure AD 통합은 사용자에게 효율적인 로그인 환경을 제공하고 애플리케이션이 IT 정책을 준수하도록 돕습니다.
+이 문서에서는 Azure Active Directory (Azure AD)를 사용 하 여 응용 프로그램 통합의 혜택에 대해 알아보기 및 통합에 대 한 리소스를 가져옵니다. Azure AD 조직에 클라우드 응용 프로그램에 대 한 엔터프라이즈급 id 관리를 제공합니다. Azure AD 통합은 사용자에게 효율적인 로그인 환경을 제공하고 애플리케이션이 IT 정책을 준수하도록 돕습니다.
 
 ## <a name="how-to-integrate"></a>통합 하는 방법
 

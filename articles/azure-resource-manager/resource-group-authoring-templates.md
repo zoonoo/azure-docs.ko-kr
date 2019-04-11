@@ -10,23 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904936"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470970"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
 이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
 
 이 문서에서는 Resource Manager 템플릿 사용 하 여에 대해 알고 있는 사용자를 위한 것입니다. 구조 및 템플릿의 구문에 대 한 자세한 정보를 제공합니다. 템플릿 만들기 소개를 참조 하세요 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)합니다.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>템플릿 형식
 
@@ -496,7 +493,7 @@ ms.locfileid: "58904936"
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| condition | 아닙니다. | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. |
+| condition | 아닙니다. | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. 참조 [조건을](#condition)합니다. |
 | apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. |
 | 형식 |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. |
 | 이름 |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. |
@@ -533,6 +530,8 @@ ms.locfileid: "58904936"
 ```
 
 `condition` 요소를 사용하는 전체 예제 템플릿은 [신규 또는 기존 가상 네트워크, 저장소 및 공용 IP를 사용하는 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)을 참조하세요.
+
+사용 하는 경우는 [참조](resource-group-template-functions-resource.md#reference) 하거나 [목록](resource-group-template-functions-resource.md#list) 리소스 배포 되지 않는 경우에 리소스를 조건부로 배포 되는 함수를 사용 하 여 함수 평가 됩니다. 함수가 존재 하지 않는 리소스를 참조 하면 오류가 발생 합니다. 사용 된 [경우](resource-group-template-functions-logical.md#if) 함수가만 조건에 대 한 계산 리소스를 배포할 때 되도록 함수입니다. 참조를 [하는 경우 함수](resource-group-template-functions-logical.md#if) 경우 사용 하는 샘플 템플릿 및 조건에 따라 배포 된 리소스를 사용 하 여 참조 합니다.
 
 ### <a name="resource-names"></a>리소스 이름
 

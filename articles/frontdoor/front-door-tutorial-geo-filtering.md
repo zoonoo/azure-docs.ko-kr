@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: bdbf0d78b45291e7482c1af3999c8ce3980ef36f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8a1fb0c3270d4899f05190fb1745075584f613ab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578495"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357158"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Front Door에 대한 지역 필터링 WAF 정책을 설정하는 방법
 이 자습서에서는 Azure PowerShell을 사용하여 간단한 지역 필터링 정책을 만들고 기존 Front Door 프런트 엔드 호스트에 연결하는 방법을 알아봅니다. 이 샘플 지역 필터링 정책은 미국을 제외한 모든 국가로부터의 요청을 차단합니다.
@@ -45,7 +45,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 #### <a name="install-azfrontdoor-module"></a>Az.FrontDoor 모듈 설치 
 
 ```
-Install-Module -Name Az.FrontDoor -AllowPrerelease
+Install-Module -Name Az.FrontDoor
 ```
 
 ### <a name="create-a-front-door-profile"></a>Front Door 프로필 만들기

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885080"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471055"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -167,8 +167,8 @@ Azure AD Connect의 비밀번호 쓰기 저장 구성 요소로 서비스 중단
 
 Azure AD Connect 버전 1.1.443.0 이상의 경우 다음 항목에 대한 아웃바운드 HTTPS 액세스가 필요합니다.
 
-* passwordreset.microsoftonline.com
-* servicebus.windows.net
+* \*.passwordreset.microsoftonline.com
+* \*.servicebus.windows.net
 
 세분성의 경우 수요일마다 업데이트되는 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 참조하고 다음 월요일에 적용할 수 있습니다.
 

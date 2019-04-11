@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762357"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469814"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
@@ -127,7 +127,7 @@ H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 �
 
 ## <a name="live-event-long-running-operations"></a>라이브 이벤트 장기 실행 작업
 
-세부 정보를 참조 하세요. [장기 실행 작업](entities-overview.md#long-running-operations)
+세부 정보를 참조 하세요. [장기 실행 작업](media-services-apis-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>라이브 출력
 

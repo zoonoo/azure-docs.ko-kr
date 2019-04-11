@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361854"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469373"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리를 만듭니다.
 이 문서에서는, 보존 정책을 설정 하 고, 팩토리를 정리 하 고, 조직에서 모든 다른 DevTest Labs에서 이전 이미지를 사용 중지에 대해 설명 합니다. 
@@ -75,5 +75,5 @@ ms.locfileid: "59361854"
 ## <a name="next-steps"></a>다음 단계
 1. [빌드/릴리스가 예약](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) 이미지 팩터리를 주기적으로 실행 되도록 합니다. 정기적으로 팩터리 생성 이미지를 새로 고칩니다.
 2. 팩터리에 대 한 자세한 골든 이미지를 확인 합니다. 사용할 수도 있습니다 [아티팩트를 만드는](devtest-lab-artifact-author.md) 추가 가지 VM 설치 태스크 스크립트 및 출하 시 이미지에서 아티팩트를 포함 합니다.
-4. 만들기를 [빌드/릴리스 분리](/azure/devops/pipelines/overview.md?view=azure-devops-2019) 실행 하는 **DistributeImages** 개별적으로 스크립트. Labs.json 변경 하 고 다시 모든 이미지를 다시 만들 필요 없이 대상 labs에 복사 하는 이미지를 가져올 때이 스크립트를 실행할 수 있습니다.
+4. 만들기를 [빌드/릴리스 분리](/azure/devops/pipelines/overview?view=azure-devops-2019) 실행 하는 **DistributeImages** 개별적으로 스크립트. Labs.json 변경 하 고 다시 모든 이미지를 다시 만들 필요 없이 대상 labs에 복사 하는 이미지를 가져올 때이 스크립트를 실행할 수 있습니다.
 

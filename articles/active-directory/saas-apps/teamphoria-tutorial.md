@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6a65eafb927f70b650218cc8c7ba21d00df6d54c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 11d0a0a67d1ce5049166cab3d9ca3e4903b6b460
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918589"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277207"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>자습서: Teamphoria와 Azure Active Directory 통합
 
@@ -237,9 +237,9 @@ Azure AD 사용자가 Teamphoria에 로그인할 수 있도록 하려면 Teampho
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

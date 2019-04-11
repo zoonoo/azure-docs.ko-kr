@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: af22473e0c9b56210b720ee5d122d96566689158
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889718"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278516"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Linux의 App Service에서 ASP.NET Core 앱 만들기
 
@@ -49,7 +49,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수�
 컴퓨터의 터미널 창에서 `hellodotnetcore`라는 디렉터리를 만들고 현재 디렉터리를 이 디렉터리로 변경합니다.
 
 ```bash
-md hellodotnetcore
+mkdir hellodotnetcore
 cd hellodotnetcore
 ```
 
@@ -148,7 +148,7 @@ http://<app_name>.azurewebsites.net
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**축하합니다.** Linux의 App Service에 첫 번째 .NET Core 앱을 배포했습니다.
+**축하합니다!** Linux의 App Service에 첫 번째 .NET Core 앱을 배포했습니다.
 
 ## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 
@@ -181,7 +181,7 @@ git push azure master
 
 ![Azure Portal의 App Service 페이지](media/quickstart-dotnetcore/portal-app-overview.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

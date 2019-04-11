@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010094"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470299"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
 
- 'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되어 암호화 키를 관리하는 데 도움이 됩니다. [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Disk Encryption을 구성할 수 있습니다.
+'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되어 암호화 키를 관리하는 데 도움이 됩니다. [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Disk Encryption을 구성할 수 있습니다.
 
 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md) 문서에서 설명한 지원되는 시나리오에 대해 Azure IaaS VM에서 Azure Disk Encryption을 사용하도록 설정하려면 먼저 필수 구성 요소가 준비되어 있어야 합니다. 
 
@@ -29,10 +29,11 @@ ms.locfileid: "59010094"
 ## <a name="bkmk_OSs"></a> 지원되는 운영 체제
 Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
-- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows의 큰 버전 Azure 갤러리에서 찾을 수 있습니다.
-  - Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. Windows 업데이트에서 선택적 업데이트인 Windows Server 2008 R2 x64 기반 시스템용 Microsoft .NET Framework 4.5.2([KB2901983](https://support.microsoft.com/kb/2901983))를 사용하여 설치합니다.    
+- Windows Server 버전: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core 및 Windows Server 2016 Server core.
+Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정하기 전에 .NET Framework 4.5를 설치해야 합니다. Windows Server 2008 R2 x64 기반 시스템 (KB2901983) 용 Microsoft.NET Framework 4.5.2 선택적 업데이트를 사용 하 여 Windows 업데이트에서 설치 하세요.
+- Windows Server 2012 R2 Core 및 Windows Server 2016 Core bdehdcfg 구성 요소는 VM에 설치 되 면 Azure Disk Encryption에서 지원 됩니다.
 - Windows 클라이언트 버전: Windows 8 클라이언트 및 Windows 10 클라이언트
-- Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다. 현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)를 참조하세요.
+- Azure Disk Encryption은 특정 Azure 갤러리 기반 Linux 서버 배포판 및 버전에서 지원됩니다. 현재 지원되는 버전 목록은 [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)를 참조하세요. 참조를 [azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md) 하 고 Microsoft에서 지원 되는 이미지 목록에 대 한 합니다 [지원 Azure Disk Encryption은 어떤 Linux 배포판?](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 에 [Azure 디스크 암호화 FAQ](azure-security-disk-encryption-faq.md) 보증된 이미지 배포에 따라 현재 지원 되는 버전의 목록은 합니다.
 - Azure Disk Encryption은 Key Vault 및 VM이 동일한 Azure 하위 지역 및 구독에 있어야 합니다. 별도 하위 지역에서 리소스를 구성하면 Azure Disk Encryption 기능 사용 시 오류가 발생합니다.
 
 ## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM에 대한 추가 필수 구성 요소 

@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2018
+ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872899"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469457"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
-관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 액세스할 수 있습니다. 
+서버 수준 방화벽 규칙은 지정된 된 IP 주소 또는 IP 주소에서 MySQL 서버용 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다. 
+
+Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면 데도 사용할 수 있습니다. 에 대해 자세히 알아보세요 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-using-portal.md)합니다.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -57,4 +59,5 @@ Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 �
 
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 [Azure CLI를 사용하여 Azure Database for MySQL 방화벽 규칙을 만들고 관리](howto-manage-firewall-using-cli.md)하도록 스크립팅할 수 있습니다.
-- MySQL용 Azure Database 서버 연결에 대한 도움말은 [MySQL용 Azure Database에 대한 연결 라이브러리](./concepts-connection-libraries.md)를 참조하세요.
+- 서버에 대 한 액세스 보안을 강화할 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-using-portal.md)합니다.
+- Azure Database for MySQL 서버를 연결에 대 한 도움말을 참조 하세요 [MySQL 용 Azure Database에 대 한 연결 라이브러리](./concepts-connection-libraries.md)합니다.

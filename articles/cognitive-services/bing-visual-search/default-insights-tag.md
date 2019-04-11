@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4805b36c48476727938840672a9cdf82506f1d13
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862873"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469390"
 ---
 # <a name="default-insights-tag"></a>기본 인사이트 태그
 
@@ -100,7 +100,7 @@ ms.locfileid: "55862873"
 
 ## <a name="pagesincluding-insight"></a>PagesIncluding 인사이트
 
-PagesIncluding 인사이트는 이 이미지를 포함하는 웹 페이지 목록을 제공합니다. 실제로는 이미지 개체 목록이며, `hostPageUrl` 필드에 이미지를 포함하는 웹 페이지의 URL이 포함됩니다. 사용 예를 보려면 [PagesIncluding 예제](./bing-insights-usage.md#pagesincluding-insight-example)를 참조하세요. 
+PagesIncluding 인사이트는 이 이미지를 포함하는 웹 페이지 목록을 제공합니다. 목록을 실제로 것 `Image` 개체 및 `hostPageUrl` 필드에 이미지를 포함 하는 웹 페이지 URL을 포함 합니다. 사용 예제를 참조 하세요. [PagesIncluding insight 예제](./bing-insights-usage.md#pagesincluding-insight-example)합니다.
 
 ```json
       {
@@ -139,7 +139,7 @@ PagesIncluding 인사이트는 이 이미지를 포함하는 웹 페이지 목�
 
 ## <a name="shoppingsources-insight"></a>ShoppingSources 인사이트
 
-ShoppingSources 인사이트는 사용자가 이미지에 표시된 항목을 구입할 수 있는 웹 사이트 목록을 제공합니다. 제안 목록에는 사용자가 항목을 구입할 수 있는 웹 페이지의 URL, 항목 가격, 평점 또는 리뷰 정보가 포함됩니다. 사용 예를 보려면 [ShoppingSources 예제](./bing-insights-usage.md#shoppingsources-insight-example)를 참조하세요.
+ShoppingSources 인사이트는 사용자가 이미지에 표시된 항목을 구입할 수 있는 웹 사이트 목록을 제공합니다. 사용자 항목을 구입할 수 있는 웹 페이지의 URL, 항목 및 평가 또는 리뷰 세부 정보 가격의 제품 목록에 포함 됩니다. 사용 예를 보려면 [ShoppingSources 예제](./bing-insights-usage.md#shoppingsources-insight-example)를 참조하세요.
 
 ```json
       {
@@ -166,10 +166,9 @@ ShoppingSources 인사이트는 사용자가 이미지에 표시된 항목을 �
       }
 ```
 
-
 ## <a name="moresizes-insight"></a>MoreSizes 인사이트
 
-MoreSizes 인사이트는 Bing이 인터넷에서 찾은 이미지 크기의 숫자(더 크거나 더 작음)를 식별합니다(`availableSizesCount` 필드 참조).
+Bing이 인터넷에 있는 이미지의 크기 (크게 또는 작게)의 수를 식별 하는 MoreSizes insight (참조는 `availableSizesCount` 필드):
 
 ```json
       {
@@ -204,7 +203,7 @@ MoreSizes 인사이트는 Bing이 인터넷에서 찾은 이미지 크기의 숫
 
 ## <a name="visualsearch-insight"></a>VisualSearch 인사이트
 
-VisualSearch 인사이트는 시각적으로 원본 이미지와 유사한(원본 이미지에 표시된 콘텐츠와 유사한 콘텐츠 포함) 이미지 목록을 제공합니다. 사용 예를 보려면 [VisualSearch 예제](./bing-insights-usage.md#visualsearch-insight-example)를 참조하세요.
+VisualSearch 인사이트는 시각적으로 원본 이미지와 유사한(원본 이미지에 표시된 콘텐츠와 유사한 콘텐츠 포함) 이미지 목록을 제공합니다. 사용 예제를 참조 하세요. [VisualSearch insight 예제](./bing-insights-usage.md#visualsearch-insight-example)합니다.
 
 ```json
       {
@@ -244,7 +243,7 @@ VisualSearch 인사이트는 시각적으로 원본 이미지와 유사한(원�
 
 ## <a name="recipes-insight"></a>Recipes 인사이트
 
-Recipes 인사이트는 이미지에 표시된 음식을 만드는 조리법이 포함된 웹 페이지 목록을 제공합니다. 사용 예를 보려면 [Recipes 예제](./bing-insights-usage.md#recipes-insight-example)를 참조하세요.
+Recipes 인사이트는 이미지에 표시된 음식을 만드는 조리법이 포함된 웹 페이지 목록을 제공합니다. 사용 예제를 참조 하세요. [레시피 insight 예제](./bing-insights-usage.md#recipes-insight-example)합니다.
 
 ```json
       {
@@ -279,7 +278,7 @@ Recipes 인사이트는 이미지에 표시된 음식을 만드는 조리법이 
 
 ## <a name="imagebyid-insight"></a>ImageById 인사이트
 
-ImageById 인사이트는 인사이트가 요청된 이미지의 `Image` 개체를 제공합니다.
+ImageById 통찰력 제공는 `Image` 개체에 대 한 정보를 요청 하는 이미지입니다.
 
 ```json
       {
@@ -312,10 +311,9 @@ ImageById 인사이트는 인사이트가 요청된 이미지의 `Image` 개체�
       },
 ```
 
-
 ## <a name="productvisualsearch-insight"></a>ProductVisualSearch 인사이트
 
-ProductVisualSearch 인사이트는 시각적으로 원본 이미지에 표시된 제품과 유사한 제품의 이미지 목록을 제공합니다. `insightsMetadata` 필드에는 제품을 구입할 수 있는 제안 및 제품 가격에 대한 정보가 포함될 수 있습니다. 
+ProductVisualSearch 인사이트는 시각적으로 원본 이미지에 표시된 제품과 유사한 제품의 이미지 목록을 제공합니다. `insightsMetadata` 필드에는 제품을 구입할 수 있는 제안 및 제품 가격에 대한 정보가 포함될 수 있습니다.
 
 ```json
       {
@@ -377,11 +375,9 @@ ProductVisualSearch 인사이트는 시각적으로 원본 이미지에 표시�
       }
 ```
 
-
 ## <a name="relatedsearches-insight"></a>RelatedSearches 인사이트
 
-RelatedSearches 인사이트는 다른 사용자의 검색어를 기준으로 다른 사용자가 수행한 관련 검색 목록을 제공합니다. 사용 예를 보려면 [RelatedSearches 예제](./bing-insights-usage.md#relatedsearches-insight-example)를 참조하세요.
-
+RelatedSearches 인사이트는 다른 사용자의 검색어를 기준으로 다른 사용자가 수행한 관련 검색 목록을 제공합니다. 사용 예제를 참조 하세요. [RelatedSearches insight 예제](./bing-insights-usage.md#relatedsearches-insight-example)합니다.
 
 ```json
       {
@@ -402,10 +398,9 @@ RelatedSearches 인사이트는 다른 사용자의 검색어를 기준으로 �
       }
 ```
 
-
 ## <a name="documentlevelsuggestions-insight"></a>DocumentLevelSuggestions 인사이트
 
-DocumentLevelSuggestions 인사이트는 이미지 콘텐츠에 따라 제안된 검색어 목록을 제공합니다. 
+DocumentLevelSuggestions insight는 이미지의 내용을 기반으로 하는 제안 된 검색 용어 목록을 제공 합니다.
 
 ```json
       {
@@ -426,10 +421,8 @@ DocumentLevelSuggestions 인사이트는 이미지 콘텐츠에 따라 제안된
       }
 ```
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
-Bing이 시각적 인사이트를 표시할 수 있는 방법의 예를 확인합니다([Bing 인사이트 사용 예](bing-insights-usage.md) 참조).
+체크 아웃 [예의 Bing insights 사용](bing-insights-usage.md) Bing visual 정보를 표시할 수 있습니다 하는 방법을 확인 합니다.
 
 첫 번째 요청으로 신속하게 시작하려면 빠른 시작: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)을 참조하세요.

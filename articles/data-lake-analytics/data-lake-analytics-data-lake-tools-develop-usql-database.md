@@ -10,18 +10,18 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898806"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469712"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>U-SQL 데이터베이스 프로젝트를 사용하여 Azure Data Lake용 U-SQL 데이터베이스 개발
 
 U-SQL 데이터베이스는 테이블의 구조화되지 않은 데이터 및 관리되는 구조화된 데이터에 대해 구조화된 보기를 제공합니다. 또한 구조화된 데이터 및 사용자 지정 코드를 구성하기 위한 일반적인 메타데이터 카탈로그 시스템을 제공합니다. 이 데이터베이스는 이러한 관련된 개체를 함께 그룹화하는 개념입니다.
 
-[U-SQL 데이터베이스 및 DDL(데이터 기술 언어)](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/data-definition-language-ddl-statements-u-sql)에 대해 자세히 알아봅니다. 
+[U-SQL 데이터베이스 및 DDL(데이터 기술 언어)](/u-sql/data-definition-language-ddl-statements)에 대해 자세히 알아봅니다. 
 
 U-SQL 데이터베이스 프로젝트는 개발자가 U-SQL 데이터베이스를 빠르고 쉽게 개발, 관리 및 배포하도록 도와주는 Visual Studio의 프로젝트 형식입니다.
 
@@ -92,7 +92,7 @@ Visual Studio에서 U-SQL 데이터베이스 프로젝트 또는 .usqldbpack 패
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>SDK를 사용하여 U-SQL 데이터베이스 배포
 
-`PackageDeploymentTool.exe`는 U-SQL 데이터베이스를 배포하는 데 도움이 되는 프로그래밍 및 명령줄 인터페이스를 제공합니다. 이 SDK는 `build/runtime/PackageDeploymentTool.exe`에 있는 [U-SQL SDK Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 포함되어 있습니다.
+`PackageDeploymentTool.exe` 프로그래밍 및 U-SQL 데이터베이스를 배포 하는 데 도움이 되는 명령줄 인터페이스를 제공 합니다. 이 SDK는 `build/runtime/PackageDeploymentTool.exe`에 있는 [U-SQL SDK Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 포함되어 있습니다.
 
 [SDK 및 U-SQL 데이터베이스 배포에 대해 CI/CD 파이프라인을 설정하는 방법에 대해 자세히 알아봅니다](data-lake-analytics-cicd-overview.md).
 

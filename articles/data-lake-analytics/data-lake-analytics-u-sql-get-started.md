@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233359"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469610"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 시작
 U-SQL은 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 데이터를 처리할 수 있도록 하는 언어입니다. U-SQL의 확장성 있는 분산 쿼리 기능을 통해 Azure SQL Database와 같은 관계형 저장소의 데이터를 효율적으로 분석할 수 있습니다. U-SQL을 사용하면 읽기에 대한 스키마를 적용하고 사용자 지정 논리 및 UDF를 삽입하여 구조화되지 않은 데이터를 처리할 수 있습니다. 또한 U-SQL에는 모든 규모에서 실행하는 방법을 세부적으로 제어할 수 있게 해주는 확장성이 포함되어 있습니다. 
@@ -27,7 +27,7 @@ U-SQL은 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서의 U-SQL 샘플을 살펴본 후에 [자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 읽고 완료하세요. 이 자습서는 Azure Data Lake Tools for Visual Studio에서 U-SQL을 사용하는 기법에 대해 설명합니다.
+이 문서의 U-SQL 샘플을 통해 진행 하기 전에 읽기 및 완료 [자습서: Visual Studio 용 Data Lake Tools를 사용 하 여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)합니다. 이 자습서는 Azure Data Lake Tools for Visual Studio에서 U-SQL을 사용하는 기법에 대해 설명합니다.
 
 ## <a name="your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트
 
@@ -55,9 +55,9 @@ OUTPUT @searchlog
 `Duration` 필드의 데이터 형식 옆에 있는 물음표를 보세요. 이는 `Duration` 필드가 null이어도 된다는 것을 의미합니다.
 
 ### <a name="key-concepts"></a>주요 개념
-* **Rowset 변수**: 행 집합을 생성하는 각 쿼리 식은 변수에 할당될 수 있습니다. U-SQL은 스크립트의 T-SQL 변수 이름 지정 패턴(예: `@searchlog`)을 따릅니다.
-* **EXTRACT** 키워드는 파일에서 데이터를 읽고 읽기에 대한 스키마를 정의합니다. `Extractors.Tsv`는 탭으로 구분된 값 파일에 대한 기본 제공 U-SQL 추출기입니다. 사용자 지정 추출기를 개발할 수 있습니다.
-* **OUTPUT**은 행 집합의 데이터를 파일에 씁니다. `Outputters.Csv()`는 쉼표로 구분된 값 파일을 만들기 위한 기본 제공 U-SQL 출력기입니다. 사용자 지정 출력기를 개발할 수 있습니다.
+* **Rowset 변수**: 행 집합을 생성 하는 각 쿼리 식은 변수에 할당할 수 있습니다. U-SQL은 스크립트의 T-SQL 변수 이름 지정 패턴(예: `@searchlog`)을 따릅니다.
+* **EXTRACT** 키워드는 파일에서 데이터를 읽고 읽기에 대한 스키마를 정의합니다. `Extractors.Tsv` 탭으로 구분 된 값 파일에 대 한 기본 제공 U-SQL 추출기를입니다. 사용자 지정 추출기를 개발할 수 있습니다.
+* **OUTPUT**은 행 집합의 데이터를 파일에 씁니다. `Outputters.Csv()` 쉼표로 구분 된 값 파일을 만들려면 기본 제공 U-SQL outputter를입니다. 사용자 지정 출력기를 개발할 수 있습니다.
 
 ### <a name="file-paths"></a>파일 경로
 
@@ -117,7 +117,7 @@ EXTRACT 및 OUTPUT 문은 파일 경로를 사용합니다. 파일 경로는 절
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-WHERE 절에는 [C# 부울 식](https://msdn.microsoft.com/library/6a71f45d.aspx)을 사용합니다. 자신의 식 및 함수에 C# 식 언어를 사용할 수 있습니다. 식 및 함수를 논리 결합(ANDs) 및 분리(ORs)와 결합하여 더 복잡한 필터링을 수행할 수 있습니다.
+WHERE 절에는 [C# 부울 식](/dotnet/csharp/language-reference/operators/index)을 사용합니다. 자신의 식 및 함수에 C# 식 언어를 사용할 수 있습니다. 식 및 함수를 논리 결합(ANDs) 및 분리(ORs)와 결합하여 더 복잡한 필터링을 수행할 수 있습니다.
 
 다음 스크립트는 DateTime.Parse() 메서드와 논리 결합을 사용합니다.
 
@@ -222,8 +222,8 @@ U-SQL HAVING 절은 HAVING 조건을 만족하는 그룹으로 출력을 제한�
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-고급 집계 시나리오의 경우 U-SQL 참조 설명서에서 [집계, 분석 및 참조 기능](https://msdn.microsoft.com/library/azure/mt621335.aspx)을 참조하세요.
+고급 집계 시나리오의 경우 U-SQL 참조 설명서에서 [집계, 분석 및 참조 기능](/u-sql/built-in-functions)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
+* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)

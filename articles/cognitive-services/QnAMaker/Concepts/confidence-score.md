@@ -1,6 +1,6 @@
 ---
-title: 신뢰도 점수 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: 신뢰도 점수 - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 신뢰도 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
 services: cognitive-services
 author: tulasim88
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403739"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282579"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -66,7 +66,7 @@ ms.locfileid: "57403739"
 
 
 ## <a name="confidence-score-differences"></a>신뢰도 점수 차이
-콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 및 게시된 기술 자료 콘텐츠가 서로 다른 Azure Search 인덱스에 있기 때문입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../How-To/publish-knowledge-base.md) 작업의 작동 방식을 알아보세요.
+콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 및 게시된 기술 자료 콘텐츠가 서로 다른 Azure Search 인덱스에 있기 때문입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 작업의 작동 방식을 알아보세요.
 
 다른 Azure 지역에 기술 자료가 있는 경우 각 Azure 지역에서는 자체 Azure Search 인덱스를 사용합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다. 
 

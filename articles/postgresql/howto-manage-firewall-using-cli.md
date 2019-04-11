@@ -6,16 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 05/4/2018
-ms.openlocfilehash: bde43a02b844d0dc0be8b6a270ac94e0b1422b69
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.date: 04/09/2019
+ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733283"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469678"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Azure CLI를 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리
-관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 PostgreSQL용 Azure Database 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. PostgreSQL용 Azure Database 방화벽 규칙에 대한 개요는 [PostgreSQL용 Azure Database 서버 방화벽 규칙](concepts-firewall-rules.md)을 참조하세요.
+서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소 범위에서 PostgreSQL 서버용 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure database for PostgreSQL 방화벽 규칙 개요를 참조 하세요 [Azure Database for PostgreSQL 서버 방화벽 규칙](concepts-firewall-rules.md)합니다.
+
+Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면 데도 사용할 수 있습니다. 에 대해 자세히 알아보세요 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure CLI를 사용 하 여 규칙](howto-manage-vnet-using-cli.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
@@ -79,4 +81,5 @@ az postgres server firewall-rule delete --resource-group myresourcegroup --serve
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 웹 브라우저를 통해 [Azure Portal을 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-portal.md)를 확인할 수 있습니다.
 - [PostgreSQL용 Azure Database 서버 방화벽 규칙](concepts-firewall-rules.md)에 대해 자세히 알아보세요.
+- 서버에 대 한 액세스 보안을 강화할 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure CLI를 사용 하 여 규칙](howto-manage-vnet-using-cli.md)합니다.
 - PostgreSQL용 Azure Database 서버 연결에 대한 도움말은 [PostgreSQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.

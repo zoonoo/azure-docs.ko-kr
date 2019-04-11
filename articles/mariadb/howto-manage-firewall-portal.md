@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2019
+ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876809"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470001"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
-관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB 서버에 액세스할 수 있습니다. 
+서버 수준 방화벽 규칙은 지정된 된 IP 주소 또는 IP 주소에서 MariaDB 서버에 대 한 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다.
+
+Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면 데도 사용할 수 있습니다. 에 대해 자세히 알아보세요 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-portal.md)합니다.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -52,7 +54,6 @@ Azure의 응용 프로그램에서 Azure Database for MariaDB 서버에 연결�
 * 기존 규칙을 수정하려면 규칙의 필드 중 하나를 클릭한 후 수정합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 삭제하려면 줄임표[...]를 클릭하고 **삭제**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 
-<!--
-## Next steps
- - Similarly, you can script to [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
-- For help in connecting to an Azure Database for MariaDB server, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md) -->
+## <a name="next-steps"></a>다음 단계
+ - 마찬가지로를 읽을 수 있습니다 [만들기 및 Azure CLI를 사용 하 여 MariaDB 방화벽 규칙에 대 한 Azure Database를 관리](howto-manage-firewall-cli.md)합니다.
+ - 서버에 대 한 액세스 보안을 강화할 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-portal.md)합니다.

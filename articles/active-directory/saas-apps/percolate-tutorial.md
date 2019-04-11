@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 166a9daed40c03ed603d9ecaf4db2d49da0bf93d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887062"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>자습서: Percolate와 Azure Active Directory 통합
 
@@ -233,9 +233,9 @@ Azure AD 사용자가 Percolate에 로그인할 수 있도록 하려면 Percolat
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

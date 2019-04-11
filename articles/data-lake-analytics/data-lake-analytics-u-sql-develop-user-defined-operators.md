@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040993"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469627"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
 이 문서에서는 U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법을 설명합니다.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>U-SQL에서 사용자 정의 연산자 정의 및 사용
-**U-SQL 작업을 만들고 제출하기**
+**U-SQL 작업 만들기 및 제출 하려면**
 
 1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > U-SQL 프로젝트**를 선택합니다.
 2. **확인**을 클릭합니다. Visual Studio는 Script.usql 파일로 솔루션을 만듭니다.
@@ -120,9 +120,9 @@ ms.locfileid: "43040993"
 
 **출력을 보려면**
 
-1. **서버 탐색기**, **Azure** 확장, **데이터 레이크 분석** 확장, 사용자 데이터 레이크 분석 계정 확장, **Storage 계정** 확장에서 기본 저장소를 오른 클릭하고 **탐색기**를 클릭합니다.
+1. **서버 탐색기**, **Azure** 확장, **데이터 레이크 분석** 확장, 사용자 데이터 레이크 분석 계정 확장, **Storage 계정** 확장에서 기본 스토리지를 오른 클릭하고 **탐색기**를 클릭합니다.
 2. 샘플 및 출력을 확장하고 **Drivers.csv**를 두 번 클릭합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [사용자 코드를 사용하여 U-SQL 식 확장](https://msdn.microsoft.com/library/azure/mt621316.aspx)
-* [U-SQL 응용 프로그램 개발에 Visual Studio용 데이터 레이크 도구 사용하기](data-lake-analytics-data-lake-tools-get-started.md)
+* [사용자 코드를 사용 하 여 U-SQL 식 확장](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Visual Studio 용 Data Lake Tools를 사용 하 여 U-SQL 응용 프로그램을 개발 하기 위한](data-lake-analytics-data-lake-tools-get-started.md)

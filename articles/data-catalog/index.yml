@@ -24,6 +24,14 @@ sections:
               src: media/index/data-catalog.svg
             text: Azure portal
             href: 'https://docs.microsoft.com/azure/data-catalog/data-catalog-get-started'
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: 'Azure Data Catalog에서 등록, 검색, 주석 달기, 관리 및 자산을 삭제하는 방법:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="register-data-assets-tutorial">Azure Data Catalog에서 데이터 자산 등록</a>
   - title: 참고 자료
     items:
       - type: list

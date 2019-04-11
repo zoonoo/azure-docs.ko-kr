@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257164"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469798"
 ---
 # <a name="set-alerts-in-application-insights"></a>Application Insights에서 경고 설정
 [Azure Application Insights][start]는 웹앱의 성능 및 사용 메트릭이 변경되면 사용자에게 경고할 수 있습니다. 
@@ -144,6 +144,24 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 10. 마지막 경고 세부 정보를 추가 (합니다 규칙 이름, 설명, 심각도 경고). 완료 되 면 **경고 규칙 만들기** 맨 아래에 있습니다.
 
     ![경고 세부 정보에서 경고 규칙 이름을 입력, 설명을 작성 하 고 심각도 선택 합니다.](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>클래식 경고 전자 메일 알림 구독을 취소 하는 방법
+
+이 섹션에 적용 됩니다 **클래식 가용성 경고**를 **Application Insights 메트릭 경고**, 및 **클래식 오류 비정상 경고**합니다.
+
+다음 중 하나에 적용 되는 경우 이러한 클래식 경고에 대 한 전자 메일 알림을 받고 있습니다.
+
+* 전자 메일 주소는 경고 규칙 설정에서 알림 전자 메일 받는 사람 필드에 나열 됩니다.
+
+* 구독에 대 한 특정 역할을 보유 하는 사용자에 게 전자 메일 알림을 보내는 옵션을 활성화 되 고 해당 특정 Azure 구독에 대해 해당 역할을 보유 합니다.
+
+![경고 알림 스크린 샷](./media/alerts/alert-notification.png)
+
+보안 및 개인 정보 보호에서 클래식 경고에 대 한 알림 받는 사람을 명시적으로 지정 하는 것이 좋습니다를 더 잘 제어 하는 **알림 전자 메일 받는 사람** 필드입니다. 특정 역할을 보유 하는 모든 사용자에 게 알리는 옵션은 이전 버전과 호환성을 위해 제공 됩니다.
+
+특정 경고 규칙에 의해 생성 되는 전자 메일 알림 구독을 취소 하려면에서 사용자 전자 메일 주소를 제거 합니다 **알림 전자 메일 받는 사람** 필드입니다.
+
+전자 메일 주소를 명시적으로 나열 되지 않으면, 좋습니다 특정 역할의 모든 멤버를 자동으로 알리는 하는 옵션을 사용 하지 않도록 설정 하는 모든 사용자 전자 메일 알림 전자 메일에서 경고 규칙에 대 한 알림을 수신 해야 하는 대신 목록 받는 사람 필드입니다.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>누가 (클래식) 경고 알림을 받나요?
 

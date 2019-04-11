@@ -5,16 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 555904642df069e9d87b2286bce23181da0f8184
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086635"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470800"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리
-관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 PostgreSQL용 Azure Database 서버에 액세스할 수 있습니다. 
+서버 수준 방화벽 규칙은 지정된 된 IP 주소 또는 IP 주소 범위에서 PostgreSQL 서버용 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다.
+
+Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면 데도 사용할 수 있습니다. 에 대해 자세히 알아보세요 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-using-portal.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
@@ -34,7 +36,7 @@ ms.locfileid: "58086635"
 
    ![내 IP 주소는 무엇입니까에 대한 Bing 검색](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. 추가 주소 범위를 추가합니다. PostgreSQL용 Azure Database에 대한 방화벽 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 단일 IP 주소에 규칙을 제한하려는 경우 시작 IP 및 끝 IP에 대한 필드에 동일한 주소를 입력합니다. 방화벽을 열면 관리자, 사용자 및 애플리케이션이 유효한 자격 증명이 있는 PostgreSQL 서버의 데이터베이스에 로그인할 수 있습니다.
+4. 추가 주소 범위를 추가합니다. PostgreSQL용 Azure Database에 대한 방화벽 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 단일 IP 주소에 규칙을 제한하려는 경우 시작 IP 및 끝 IP에 대한 필드에 동일한 주소를 입력합니다. 방화벽을 열고 관리자, 사용자 및 응용 프로그램이 유효한 자격 증명 권한이 있는 PostgreSQL 서버의 데이터베이스에 액세스할 수 있습니다.
 
    ![Azure Portal - 방화벽 규칙](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -58,4 +60,5 @@ Azure의 애플리케이션에서 Azure Database for PostgreSQL 서버에 연결
 
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 [Azure CLI를 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-cli.md)를 읽을 수 있습니다.
+- 서버에 대 한 액세스 보안을 강화할 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-using-portal.md)합니다.
 - PostgreSQL용 Azure Database 서버 연결에 대한 도움말은 [PostgreSQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.

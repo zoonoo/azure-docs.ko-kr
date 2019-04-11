@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2018
+ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103131"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470936"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
-관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. MySQL용 Azure Database 방화벽에 대한 개요는 [MySQL용 Azure Database 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
+서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소에서 MySQL 서버용 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure Database의 MySQL 방화벽에 대 한 개요를 참조 하세요 [Azure Database for MySQL 서버 방화벽 규칙](./concepts-firewall-rules.md)합니다.
+
+Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면 데도 사용할 수 있습니다. 에 대해 자세히 알아보세요 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure CLI를 사용 하 여 규칙](howto-manage-vnet-using-cli.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +33,7 @@ ms.locfileid: "58103131"
 - **show**: Azure MySQL 서버 방화벽 규칙의 세부 정보를 표시합니다.
 - **update**: Azure MySQL 서버 방화벽 규칙을 업데이트합니다.
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure에 로그인 및 MySQL용 Azure Database 서버 나열
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure에 로그인 하 고 Azure Database for MySQL 서버 목록
 **az login** 명령을 사용하여 Azure 계정으로 Azure CLI를 안전하게 연결합니다.
 
 1. 명령줄에서 다음 명령을 실행합니다.
@@ -42,7 +44,7 @@ ms.locfileid: "58103131"
 
 2. 웹 브라우저를 사용하여 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 페이지를 연 다음, 제공된 코드를 입력하세요.
 
-3. 프롬프트가 나타나면 Azure 자격 증명을 사용하여 로그인합니다.
+3. 프롬프트에서 Azure 자격 증명을 사용 하 여 로그인 합니다.
 
 4. 로그인 권한이 부여되면 구독 목록은 콘솔에 인쇄됩니다. 원하는 구독의 ID를 복사하여 사용할 현재 구독을 설정합니다. [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
     ```azurecli-interactive
@@ -119,3 +121,4 @@ az mysql server firewall-rule delete --resource-group myresourcegroup --server-n
 ## <a name="next-steps"></a>다음 단계
 - [MySQL용 Azure Database 서버 방화벽 규칙](./concepts-firewall-rules.md) 자세히 알아보기
 - [Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-using-portal.md).
+- 서버에 대 한 액세스 보안을 강화할 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure CLI를 사용 하 여 규칙](howto-manage-vnet-using-cli.md)합니다.
