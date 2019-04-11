@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510326"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471667"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
@@ -25,14 +25,14 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure 기능                       | V1                | V2(Ignite 2018)  | 
+| Azure Functions                       | V1                | V2(Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **Application Insights .NET SDK**   | **2.5.0**       | **2.7.2**         |
+| **Application Insights.NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
-| **자동 컬렉션**        |                 |                   |               
+| **자동 수집**        |                 |                   |               
 | &bull; 요청                     | 예             | 예               | 
 | &bull; 예외                   | 예             | 예               | 
-| &bull; 성능 카운터         | 예             |                   |
+| &bull; 성능 카운터         | 예             | 예               |
 | &bull; 종속성                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | 예               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | 예               | 
@@ -65,3 +65,30 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 ## <a name="sampling"></a>샘플링
 
 Azure Functions를 사용하면 기본적으로 구성에서 샘플링을 사용하도록 설정할 수 있습니다. 자세한 내용은 [샘플링 구성](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling)을 참조하세요.
+
+프로젝트 추적 수동 원격 분석을 위해 Application Insights SDK에 종속, 하는 경우 샘플링 구성 함수를 샘플링 구성과 다른 경우 비정상적인 동작이 발생할 수 있습니다. 
+
+함수와 동일한 구성을 사용 하는 것이 좋습니다. 사용 하 여 **Functions v2**, 생성자에서 종속성 주입을 사용 하 여 동일한 구성을 가져올 수 있습니다.
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+
+public class Function1 
+{
+
+    private readonly TelemetryClient telemetryClient;
+
+    public Function1(TelemetryConfiguration configuration)
+    {
+        this.telemetryClient = new TelemetryClient(configuration);
+    }
+
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
+    {
+        this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
+    }
+}
+```

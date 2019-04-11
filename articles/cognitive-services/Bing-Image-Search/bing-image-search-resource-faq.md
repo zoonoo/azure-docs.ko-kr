@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539023"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049428"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
 
@@ -25,11 +25,11 @@ Azure에서 Microsoft Cognitive Services용 Bing Image Search API와 관련된 �
 
 Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|Bing에서 사용자에게 할당한 고유한 ID|
-|`BingAPIs-Market`|요청을 이행하는 데 사용된 지역/국가|
-|`BingAPIs-TraceId`|이 요청에 대한 Bing API 서버의 로그 항목(지원용)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |Bing에서 사용자에게 할당한 고유한 ID |
+| `BingAPIs-Market`   |요청을 이행하는 데 사용된 지역/국가 |
+| `BingAPIs-TraceId`  |이 요청에 대한 Bing API 서버의 로그 항목(지원용) |
 
 클라이언트 ID를 유지하고 후속 요청과 함께 반환하는 것이 특히 중요합니다. 이렇게 하면 검색은 검색 결과의 순위 지정에서 과거 컨텍스트를 사용하고 일관된 사용자 환경도 제공합니다.
 

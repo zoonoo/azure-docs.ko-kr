@@ -10,17 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091497"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471242"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Azure SQL DB로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
 SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련된 알려진 문제 및 제한 사항은 아래에 설명되어 있습니다.
+
+> [!IMPORTANT]
+> Azure SQL Database로 SQL Server의 온라인 마이그레이션과 함께 마이그레이션의 SQL_variant 데이터 형식이 지원 되지 않습니다.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>임시 테이블의 마이그레이션은 지원되지 않음
 
@@ -62,17 +65,20 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-   1. 마이그레이션에 대한 테이블을 지정하는 **마이그레이션 설정 구성** 블레이드에서 이러한 테이블을 제외합니다.
+2. 마이그레이션에 대한 테이블을 지정하는 **마이그레이션 설정 구성** 블레이드에서 이러한 테이블을 제외합니다.
 
-   1. 마이그레이션 작업을 다시 실행합니다.
+3. 마이그레이션 작업을 다시 실행합니다.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>“전체 데이터 로드” 또는 “증분 데이터 동기화”를 수행하는 동안 스키마의 활성 트리거를 사용한 다양한 무결성 위반으로 마이그레이션이 실패합니다.
 
 **해결 방법**
+
 1. 아래 쿼리를 사용하여 원본 데이터베이스에서 현재 활성화된 트리거를 찾습니다.
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. [트리거 사용 안 함(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) 문서에 나와 있는 단계를 사용하여 원본 데이터베이스에서 트리거를 사용하지 않도록 설정합니다.
 
 3. 마이그레이션 작업을 다시 실행합니다.
@@ -101,11 +107,11 @@ DMS는 원본 타임스탬프 값을 마이그레이션하지 않습니다. 대�
 
 원본 테이블에 저장 된 정확한 타임 스탬프 값을 마이그레이션하는 DMS를 해야 하는 경우 엔지니어링 팀에 문의 [Azure 데이터베이스 마이그레이션을 요청](mailto:AskAzureDatabaseMigrations@service.microsoft.com)합니다.
 
-### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>데이터 마이그레이션 오류는 데이터베이스 세부 정보 상태 블레이드에 추가 세부 정보를 제공하지 않습니다.
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>데이터 마이그레이션 오류 Database 자세한 상태 블레이드에서 추가 세부 정보를 제공 하지 않습니다.
 
 **증상**
 
-데이터베이스 세부 정보 상태 보기에 마이그레이션 오류가 발생한 경우 위쪽 리본에서 **데이터 마이그레이션 오류** 링크를 선택하면 마이그레이션 오류 관련 추가 정보가 제공되지 않을 수도 있습니다.
+데이터베이스 세부 정보 상태 뷰에서 마이그레이션 오류를 나타날 때 선택 하 여 **데이터 마이그레이션 오류** 위쪽 리본 메뉴의 링크에는 마이그레이션 오류 관련 추가 정보를 제공할 수 없습니다.
 
 ![세부 정보가 없는 데이터 마이그레이션 오류 예제](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855676"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471531"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -67,9 +67,15 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 합니다.
 * 웹앱 서비스 계획이 기본 계층 이상이어야 합니다.
 * 웹앱에서 Application Insights를 사용할 수 있어야 합니다.
-* 웹앱에 Application Insights SDK에서 사용하는 동일한 계측 키를 사용하여 구성된 **APPINSIGHTS_INSTRUMENTATIONKEY** 설정이 있어야 합니다.
-* 웹앱에 **APPINSIGHTS_PROFILERFEATURE_VERSION** 앱 설정이 정의되어 있고 1.0.0으로 설정되어 있어야 합니다.
-* 웹앱에 **DiagnosticServices_EXTENSION_VERSION** 앱 설정이 정의되어 있어야 하며 값을 ~3으로 설정해야 합니다.
+* 웹 앱에는 다음 앱 설정이 있어야 합니다.
+
+    |앱 설정    | 값    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스를 iKey    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * **ApplicationInsightsProfiler3** 웹 작업이 실행되고 있어야 합니다. 웹 작업을 확인하려면 다음 단계를 수행합니다.
    1. [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)로 이동합니다.
    1. **도구** 메뉴에서 **웹 작업 대시보드**를 선택합니다.  
@@ -93,12 +99,13 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 1. 설정할 **.NET Framework 버전** 하 **v4.6**합니다.
 
 1. **무중단**을 **사용**으로 설정합니다.
+1. 이러한 앱 설정을 만듭니다.
 
-1. **APPINSIGHTS_INSTRUMENTATIONKEY** 앱 설정을 추가하고 값을 SDK에서 사용한 동일한 계측 키로 설정합니다.
-
-1. **APPINSIGHTS_PROFILERFEATURE_VERSION** 앱 설정을 추가하고 해당 값을 1.0.0으로 설정합니다.
-
-1. **DiagnosticServices_EXTENSION_VERSION** 앱 설정을 추가하고, 값을 ~3으로 설정합니다.
+    |앱 설정    | 값    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스를 iKey    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>너무 많은 활성 프로파일링 세션
 
@@ -124,7 +131,7 @@ Profiler는 웹앱에서 지속적인 웹 작업으로 실행됩니다. [Azure P
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Profiler 및 Azure Diagnostics 문제 해결
 
-  >**Cloud Services에 대 한 WAD의 최신 버전에서 제공 되는 프로파일러에 버그가 있습니다.** 클라우드 서비스를 사용 하 여 프로파일러를 사용 하려면 지원 AI SDK 버전 2.7.2까지 합니다. AI SDK의 최신 버전을 사용 하는 경우 프로파일러를 사용 하려면 2.7.2로 다시 이동 해야 합니다. App Insights SDK의 버전을 다운 그레이드 하려면 Visual Studio를 사용 하는 경우에 런타임에 바인딩 리디렉션 오류가 발생할 수 있습니다. 왜냐하면 Microsoft.ApplicationInsights에 대 한 web.config 파일에서 "newVersion" AI SDK 하지만 다운 그레이드 하지 자동으로 업데이트 한 후 "2.7.2.0"로 설정 해야 합니다.
+>**Cloud services는 WAD에서 제공 되는 프로파일러 버그 수정 되었습니다.** 최신 버전의 Cloud Services에 대 한 WAD (1.12.2.0) 모든 최신 버전의 App Insights SDK를 사용 하 여 작동합니다. 클라우드 서비스 호스트는 WAD를 자동으로 업그레이드 되지만 바로 실행 되지 않습니다. 업그레이드를 적용 하려면 서비스를 다시 배포할 수도 있고 노드를 다시 부팅 수 있습니다.
 
 Azure Diagnostics를 통해 Profiler가 올바르게 구성되어 있는지 여부를 확인하려면 다음의 세 가지 작업을 수행합니다. 
 1. 먼저 배포된 Azure Diagnostics 구성의 내용이 필요한 구성인지를 확인합니다. 

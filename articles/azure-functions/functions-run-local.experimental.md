@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009549"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471285"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -478,6 +478,15 @@ func deploy
 | **`--min`**  | 필요한 경우 배포할 함수 앱 인스턴스의 최소 수를 설정합니다. |
 | **`--config`** | 선택적 배포 구성 파일을 설정합니다. |
 
+## <a name="monitoring-functions"></a>함수 모니터링
+
+함수 실행을 모니터링 하려면 Azure Application Insights와 통합 하 여는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Azure CLI를 사용 하 여 함수 앱을 만들 때 Azure에서 함수 앱에 통합 수행 되지 않습니다.
+
+함수 앱에 대 한 Application Insights를 사용 합니다.
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 ## <a name="next-steps"></a>다음 단계
 
 Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](https://github.com/azure/azure-functions-cli)됩니다.  

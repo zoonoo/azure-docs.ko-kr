@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092721"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471718"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -102,7 +102,7 @@ public void ConfigureServices(IServiceCollection services)
 
 #### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Java 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
-- **들어오는 구성**
+- **수신 구성**
 
   - Java EE 앱의 경우 ApplicationInsights.xml 내의 `<TelemetryModules>` 태그에 다음을 추가합니다.
 
@@ -143,11 +143,11 @@ public void ConfigureServices(IServiceCollection services)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span`(`span.kind = server` 사용)                  |
-| `Dependency`                          | `Span`(`span.kind = client` 사용)                  |
-| `Request` 및 `Dependency`의 `Id`    | `SpanId`                                          |
+| `Request`. `PageView`                 | `Span` 다음으로 바꿀 수 있습니다. `span.kind = server`                  |
+| `Dependency`                          | `Span` 다음으로 바꿀 수 있습니다. `span.kind = client`                  |
+| `Id` `Request` 및 `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `ChildOf` 유형의 `Reference`(상위 범위)   |
+| `Operation_ParentId`                  | `Reference` 형식의 `ChildOf` (부모 범위)   |
 
 자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조하세요. 
 
@@ -157,18 +157,18 @@ OpenTracing 개념에 대한 정의는 OpenTracing [사양](https://github.com/o
 
 시간이 지남에 따라 .NET에서는 원격 분석과 진단 로그를 상호 연결하는 몇 가지 방법을 정의했습니다.
 
-- `System.Diagnostics.CorrelationManager`는 [LogicalOperationStack 및 ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx)의 추적을 허용합니다. 
-- `System.Diagnostics.Tracing.EventSource` 및 ETW(Windows용 이벤트 추적)는 [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) 메서드를 정의합니다.
-- `ILogger`는 [Log Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes)(로그 범위)를 사용합니다. 
+- `System.Diagnostics.CorrelationManager` 추적을 사용 하면 [LogicalOperationStack 및 ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx)합니다. 
+- `System.Diagnostics.Tracing.EventSource` 이벤트 추적에 대 한 Windows (ETW) 정의 된 [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) 메서드.
+- `ILogger` 사용 하 여 [로그 범위](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes)합니다. 
 - WCF(Windows Communication Foundation) 및 HTTP는 "현재" 컨텍스트 전파를 연결합니다.
 
-그러나 이러한 방법에서는 자동 분산 추적 지원을 사용하도록 설정하지 않았습니다. `DiagnosticSource`는 머신 간 자동 상관 관계를 지원하는 한 가지 방법입니다. .NET 라이브러리는 'DiagnosticSource'를 지원하고, HTTP와 같은 전송을 통해 상관 관계 컨텍스트의 머신 간 자동 전파를 허용합니다.
+그러나 이러한 방법에서는 자동 분산 추적 지원을 사용하도록 설정하지 않았습니다. `DiagnosticSource` 방법이 자동 컴퓨터 간 상관 관계를 지원 합니다. .NET 라이브러리는 'DiagnosticSource'를 지원하고, HTTP와 같은 전송을 통해 상관 관계 컨텍스트의 머신 간 자동 전파를 허용합니다.
 
 `DiagnosticSource`의 [활동 가이드](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)는 활동 추적의 기본 사항에 대해 설명하고 있습니다.
 
 ASP.NET Core 2.0은 HTTP 헤더 추출 및 새 활동 시작을 지원합니다.
 
-`System.Net.HttpClient`는 버전 4.1.0부터 상관 관계 HTTP 헤더의 자동 삽입 및 HTTP 호출을 활동으로 추적하는 기능을 지원합니다.
+`System.Net.HttpClient`를 활동으로 호출 하는 HTTP 상관 관계 HTTP 헤더 및 추적의 자동 삽입 지원 버전 4.1.0 사용 하 여 시작 합니다.
 
 클래식 ASP.NET에 대한 새로운 [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) HTTP 모듈이 있습니다. 이 모듈은 `DiagnosticSource`를 사용하여 원격 분석 상관 관계를 구현하며, 들어오는 요청 헤더에 기반한 활동을 시작합니다. 또한 IIS(인터넷 정보 서비스) 처리의 모든 단계가 다른 관리형 스레드에서 실행되는 경우에도 다양한 요청 처리 단계에서 원격 분석을 상호 연결합니다.
 
@@ -183,6 +183,11 @@ Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Act
 > 상관 관계 기능에는 Apache HTTPClient를 통해 수행되는 호출만 지원됩니다. Spring RestTemplate 또는 Feign을 사용하는 경우 둘 다 Apache HTTPClient에서 내부적으로 사용할 수 있습니다.
 
 현재 메시징 기술(예: Kafka, RabbitMQ, Azure Service Bus)을 통한 자동 컨텍스트 전파는 지원되지 않습니다. 그러나 `trackDependency` 및 `trackRequest` API를 사용하여 이러한 시나리오를 수동으로 코딩할 수 있습니다. 이러한 API에서 종속성 원격 분석은 생산자를 통해 큐에 넣는 메시지를 나타내고, 요청은 소비자를 통해 처리하는 메시지를 나타냅니다. 이 경우 `operation_id` 및 `operation_parentId` 둘 다 메시지의 속성에 전파되어야 합니다.
+
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>비동기 Java 응용 프로그램에서 원격 분석 상관 관계
+
+비동기 Spring Boot 응용 프로그램에서 원격 분석 상관 관계를 지정 하기 위해 따르세요 [이](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) 심층 문서. 스프링의 계측에 대 한 지침을 제공 [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) 뿐만 [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html)합니다. 
+
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>역할 이름

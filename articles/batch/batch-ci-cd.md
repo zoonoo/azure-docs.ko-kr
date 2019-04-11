@@ -5,13 +5,14 @@ author: christianreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
+ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 1e3b2d42ae390b9eb755e568b82fc1a90e0eae6a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807048"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471327"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>HPC 솔루션 빌드 및 배포 하려면 Azure 파이프라인을 사용 합니다.
 
@@ -25,7 +26,7 @@ Azure 파이프라인 구축, 배포, 테스트 및 모니터링 소프트웨어
 
 ![파이프라인에서 배포의 흐름을 보여 주는 다이어그램](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치
 
 이 문서의 단계를 수행 하려면 Azure DevOps 조직 및 팀 프로젝트를 필요 합니다.
 
@@ -360,7 +361,7 @@ Azure 파이프라인 구축, 배포, 테스트 및 모니터링 소프트웨어
 > [!NOTE]
 > HPC Batch 응용 프로그램을 실행 하는 클라이언트 응용 프로그램을 사용 하는 경우 해당 응용 프로그램에 대 한 별도 빌드 정의 만들기 해야 합니다. 다양 한 방법 가이드에서 찾을 수 있습니다 합니다 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started/index?view=azure-devops) 설명서.
 
-## <a name="continuous-deployment"></a>연속 배포
+## <a name="continuous-deployment"></a>지속적인 배포
 
 Azure 파이프라인은 또한 응용 프로그램과 기본 인프라를 배포 하는 데 사용 합니다. [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) 연속 배포를 사용 하도록 설정 하 고 릴리스 프로세스를 자동화 하는 구성 요소입니다.
 
@@ -505,5 +506,5 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 이 문서에서는 외에.NET 및 Python을 사용 하 여 ffmpeg를 활용 하는 두 개의 자습서입니다. 간단한 응용 프로그램을 통해 Batch 계정과 상호 작용 하는 방법에 대 한 자세한 내용은 다음이 자습서를 참조 하세요.
 
-* [Python API를 사용 하 여 Azure Batch를 사용 하 여 병렬 워크 로드 실행](tutorial-parallel-python.md)
-* [.NET API를 사용 하 여 Azure Batch를 사용 하 여 병렬 워크 로드 실행](tutorial-parallel-dotnet.md)
+* [Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행](tutorial-parallel-python.md)
+* [.NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행](tutorial-parallel-dotnet.md)

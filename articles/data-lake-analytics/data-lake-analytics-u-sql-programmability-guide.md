@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835455"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471089"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>오늘 날짜에 C# 식 사용
 
-오늘 날짜를 끌어오려면 `DateTime.Now.ToString("M/d/yyyy")` C# 식을 사용할 수 있습니다.
+오늘 날짜를 가져오려면 다음 사용할 수 있습니다 C# 식: `DateTime.Now.ToString("M/d/yyyy")`
 
 다음은 스크립트에서 이 식을 사용하는 방법의 예입니다.
 
@@ -534,8 +534,8 @@ public class MyTypeFormatter : IFormatter<MyType>
 * **Serialize**: 제공된 스트림에 지정된 루트를 사용하여 개체 또는 개체 그래프를 직렬화합니다.
 
 `MyType` 인스턴스: 해당 형식 인스턴스입니다.  
-`IColumnWriter` writer / `IColumnReader` reader: 기본 열 스트림입니다.  
-`ISerializationContext` context: 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다.
+`IColumnWriter` 기록기 / `IColumnReader` 판독기: 기본 열 스트림입니다.  
+`ISerializationContext` 컨텍스트: 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다.
 
 * **Intermediate**: 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
 
@@ -1267,9 +1267,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`은 각 입력 행에 대해 호출됩니다. `IUnstructuredWriter output` 행 집합을 반환합니다.
+* `Output` 각 입력된 행에 대해 호출 됩니다. `IUnstructuredWriter output` 행 집합을 반환합니다.
 * 생성자 클래스는 사용자 정의 출력자에 매개 변수를 전달하는 데 사용됩니다.
-* `Close`는 비용이 높은 상태를 해제하거나 마지막 행이 기록된 시점을 판단하기 위해 선택적으로 재정의하는 데 사용됩니다.
+* `Close` 비용이 많이 드는 상태를 해제 하거나 마지막 행 쓰여진 시기를 결정 하도록 선택적으로 재정의 됩니다.
 
 **SqlUserDefinedOutputter** 특성은 사용자 정의 출력자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-SELECT 식의 적용자 사용에 대한 자세한 내용은 [U-SQL SELECT: CROSS APPLY 및 OUTER APPLY에서 선택](https://msdn.microsoft.com/library/azure/mt621307.aspx)(영문)을 참조하세요.
+SELECT 식의 적용자 사용에 대한 자세한 내용은 [U-SQL SELECT: CROSS APPLY 및 OUTER APPLY에서 선택](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply)(영문)을 참조하세요.
 
 사용자 정의 적용자 기본 클래스 정의는 다음과 같습니다.
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-자세한 내용은 [COMBINE 식(U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx)을 참조하세요.
+자세한 내용은 [COMBINE 식(U-SQL)](/u-sql/statements-and-expressions/combine-expression)을 참조하세요.
 
 UDC를 정의하려면 UDC 정의에서 선택적인 [`SqlUserDefinedCombiner`] 속성을 포함한 `ICombiner` 인터페이스를 만들어야 합니다.
 
@@ -1877,7 +1877,7 @@ CombinerMode 열거형은 다음 값을 포함할 수 있습니다.
 
 캐싱을 위해 LINQ 쿼리 실행의 결과로 List\<T\> 형식의 메모리 구조체를 만들 수 있습니다(구체적으로 List<`IRow`>). 익명 데이터 형식도 열거하는 동안에 사용할 수 있습니다.
 
-LINQ 쿼리에 대한 자세한 내용은 [LINQ 쿼리 소개(C#)](https://msdn.microsoft.com/library/bb397906.aspx)를 참조하고, IEnumerable\<T\> 인터페이스에 대한 자세한 내용은 [IEnumerable\<T\> 인터페이스](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx)를 참조하세요.
+LINQ 쿼리에 대한 자세한 내용은 [LINQ 쿼리 소개(C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)를 참조하고, IEnumerable\<T\> 인터페이스에 대한 자세한 내용은 [IEnumerable\<T\> 인터페이스](/dotnet/api/system.collections.generic.ienumerable-1)를 참조하세요.
 
 들어오는 `IRowset`에서 실제 데이터 값을 가져오려면 `IRow` 인터페이스의 Get() 메서드를 사용합니다.
 

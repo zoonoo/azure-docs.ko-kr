@@ -1,7 +1,7 @@
 ---
 title: 시작, 모니터링 및 python에서 교육 실행 취소
 titleSuffix: Azure Machine Learning service
-description: Machine learning 실험을 구성 하 고 시작 하는 방법, 상태, 태그를 알아봅니다.
+description: 시작 태그의 상태를 설정 하 고 기계 학습 실험을 구성 하는 방법에 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 4/5/2019
-ms.openlocfilehash: 726273024a2da0cea5207c86140f3c31263a208f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426748"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471497"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>시작, 모니터링 및 python에서 교육 실행 취소
 
@@ -47,7 +47,7 @@ ms.locfileid: "59426748"
 
 <a name="monitor"></a>
 
-## <a name="start-and-status-a-run"></a>시작 및 실행 상태
+## <a name="start-a-run-and-set-its-status"></a>실행을 시작 하 고 해당 상태를 설정 합니다.
 
 실험을 가져와서 설정 합니다 [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)를 [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)를 [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), 및 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 클래스를 [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) 패키지 있습니다.
 
@@ -101,7 +101,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## <a name="cancel-or-fail-runs"></a>취소 또는 실행 실패
 
- 실수를 확인 하거나 실행 완료를 사용 하 여 긴 시간이 걸리는 것 같습니다 합니다 [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) 메서드를 완료 되기 전에 실행을 중지 하 고 취소 됨으로 표시 합니다.
+ 실수를 확인 하거나 실행 완료를 사용 하는 데 사용할 같음 합니다 [ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) 메서드 완료 되기 전에 실행을 중지 하 고 취소 됨으로 표시를 합니다.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
