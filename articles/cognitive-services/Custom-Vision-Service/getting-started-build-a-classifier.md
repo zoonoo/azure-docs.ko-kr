@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891483"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051478"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -56,9 +56,8 @@ Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.c
     |__Food__|식당 메뉴에 표시되는 것 같은 음식 사진에 최적화되었습니다. 개별 과일이나 채소 사진을 분류하려면 음식 도메인을 사용합니다.|
     |__랜드마크__|인식 가능한 자연적 및 인공적인 랜드마크에 최적화되었습니다. 이 도메인은 랜드마크가 사진에서 명확하게 표시될 때 가장 효과적입니다. 앞에 서 있는 사람이 랜드마크를 약간 가리고 있는 경우에도 도메인이 작동합니다.|
     |__소매__|쇼핑 카탈로그 또는 쇼핑 웹 사이트에 있는 이미지에 최적화되었습니다. 드레스, 바지 및 셔츠를 높은 정밀도로 분류하려는 경우 이 도메인을 사용합니다.|
-    |__성인__|성인 콘텐츠와 비성인 콘텐츠 정의 향상에 최적화되었습니다. 예를 들어 수영복을 입은 사람의 이미지를 차단하려는 경우 이 도메인을 사용하여 해당 작업을 수행하는 사용자 지정 분류자를 빌드할 수 있습니다.|
     |__Compact 도메인__| 모바일 디바이스의 실시간 분류 제약 조건에 최적화되었습니다. 압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다.|
-    
+
 1. 마지막으로 __프로젝트 만들기__를 선택합니다.
 
 ## <a name="choose-training-images"></a>학습 이미지 선택

@@ -1,7 +1,7 @@
 ---
 title: QnA 봇 - Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 Azure Portal에서 Azure Bot Service v3를 사용하여 QnA 봇을 빌드하는 과정을 안내합니다.
+description: 기존 기술 자료의 게시 페이지에서 QnA 채팅 봇을 만듭니다. 이 봇 Bot Framework SDK v4를 사용합니다. 봇 빌드 위해 어떠한 코드도 작성할 필요가 없습니다, 모든 코드를 제공 됩니다.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -9,101 +9,80 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: tulasim
-ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879613"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263879"
 ---
-# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>자습서: Azure Bot Service v3로 QnA 봇 만들기
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>자습서: Azure를 사용 하 여 QnA Bot 만들기 Bot 서비스 v4
 
-이 자습서에서는 코드를 작성하지 않고 [Azure Portal](https://portal.azure.com)에서 Azure Bot Service v3를 사용하여 QnA 봇을 빌드하는 과정을 안내합니다. 게시된 KB(기술 자료)를 봇에 연결하는 것은 봇 애플리케이션 설정을 변경하는 것만큼 간단합니다. 
-
-> [!Note] 
-> 이 항목은 Bot SDK 버전 3에 대한 내용을 다룹니다. 버전 4는 [여기](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)에서 찾을 수 있습니다. 
+QnA 채팅 봇 만들기의 **게시** 기존 기술 자료에 대 한 페이지입니다. 이 봇 Bot Framework SDK v4를 사용합니다. 봇 빌드 위해 어떠한 코드도 작성할 필요가 없습니다, 모든 코드를 제공 됩니다.
 
 **이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * QnA Maker 템플릿을 사용하여 Azure Bot Service 만들기
+> * Azure Bot Service는 기존 기술 자료에서 만들기
 > * 봇과 채팅하면서 코드가 작동 중인지 확인 
-> * 게시된 KB를 봇에 연결
-> * 문제가 있는 봇 테스트
-
-이 문서에서는 무료 QnA Maker [서비스](../how-to/set-up-qnamaker-service-azure.md)를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에 대해 게시된 기술 자료가 있어야 합니다. 이러한 기술 자료가 없으면 [기술 자료 만들기](../How-To/create-knowledge-base.md)의 단계에 따라 질문과 답변이 있는 QnA Maker 서비스를 만듭니다.
+이 자습서에 대해 게시된 기술 자료가 있어야 합니다. 단계에 따라 하나 없으면 [만들고 기술 자료에서 답변](create-publish-query-in-portal.md) 질문 및 답변을 사용 하 여 QnA Maker 기술 자료를 만드는 자습서입니다.
+
+<a name="create-a-knowledge-base-bot"></a>
 
 ## <a name="create-a-qna-bot"></a>QnA 봇 만들기
 
-1. Azure Portal에서 **리소스 만들기**를 선택합니다.
+봇 기술 자료에 대 한 클라이언트 응용 프로그램을 만듭니다. 
 
-    ![봇 서비스 만들기](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
+1. QnA Maker 포털에서로 이동 합니다 **게시** 페이지 및 기술 자료를 게시 합니다. 선택 **봇 만들기**합니다. 
 
-2. 검색 상자에서 **웹앱 봇**을 검색합니다.
+    ![QnA Maker 포털의 게시 페이지를 이동한 다음 기술 자료를 게시 합니다. 봇을 만들기를 선택 합니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
-    ![봇 서비스 선택](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
+    봇 만들기 구성을 사용 하 여 Azure portal이 열립니다.
 
-3. **Bot Service**에서 필수 정보를 제공합니다.
+1.  봇 만들기에 대 한 설정을 입력 합니다.
 
-    - **앱 이름**을 봇 이름으로 설정합니다. 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net).
-    - 구독, 리소스 그룹, App Service 계획 및 위치를 선택합니다.
+    |설정|값|목적|
+    |--|--|--|
+    |봇 이름|`my-tutorial-kb-bot`|봇에 대 한 Azure 리소스 이름입니다.|
+    |구독|용도 참조 하세요.|QnA Maker 리소스를 만드는 데 사용한 것과 동일한 구독을 선택 합니다.|
+    |리소스 그룹|`my-tutorial-rg`|봇와 관련 된 모든 Azure 리소스에 사용 되는 리소스 그룹입니다.|
+    |위치|`west us`|봇의 Azure 리소스 위치입니다.|
+    |가격 책정 계층 |`F0`|Azure bot service에 대 한 무료 계층입니다.|
+    |앱 이름|`my-tutorial-kb-bot-app`|봇을을 지원 하도록 웹 앱입니다. QnA Maker 서비스 이미 사용 하는 동일한 앱 이름을 하지 해야 수 있습니다. 다른 리소스를 사용 하 여 QnA Maker의 웹 앱을 공유 하는 것은 지원 되지 않습니다.|
+    |SDK 언어|C#|Bot framework SDK 사용 하는 기본 프로그래밍 언어입니다. 중에서 선택 C# 또는 Node.js.|
+    |QnA Auth Key|**변경 안 함**|이 값은 채워집니다.|
+    |App Service 계획/위치|**변경 안 함**|이 자습서에서는 위치 중요 하지 않습니다.|
+    |Azure Storage|**변경 안 함**|대화 데이터는 Azure Storage 테이블에 저장 됩니다.|
+    |Application Insights|**변경 안 함**|로깅은 Application Insights로 전송 됩니다.|
+    |Microsoft 앱 ID|**변경 안 함**|Active directory 사용자 및 암호가 필요 합니다.|
 
-4. v3 템플릿을 사용하려면 **SDK v3**의 SDK 버전과 **C#** 또는 **Node.js**의 SDK 언어를 선택하세요.
+    ![이러한 설정을 사용 하 여 기술 자료 봇을 만듭니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
-    ![봇 sdk 설정](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+    몇 분 봇 만들기 프로세스 알림 성공을 보고할 때까지 기다립니다.
 
-5. 봇 템플릿 필드에 대한 **질문 및 답변**을 선택한 다음, **선택**을 선택하여 템플릿 설정을 저장합니다.
-
-    ![Bot 서비스 템플릿 선택 저장](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
-
-6. 설정을 검토한 다음, **만들기**를 선택합니다. 이렇게 하면 봇 서비스가 만들어지고 Azure에 배포됩니다.
-
-    ![봇 만들기](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
-
-7. Bot Service가 배포되었는지 확인합니다.
-
-    - **알림**(Azure Portal의 위쪽 가장자리에 있는 벨 아이콘)을 선택합니다. 알림이 **배포가 시작됨**에서 **배포 성공**으로 변경됩니다.
-    - 알림이 **배포 성공**으로 변경된 후 해당 알림에서 **리소스로 이동**을 선택합니다.
+<a name="test-the-bot"></a>
 
 ## <a name="chat-with-the-bot"></a>봇과 채팅
 
-**리소스로 이동**을 선택하면 봇의 리소스로 이동됩니다.
+1. Azure portal에서 알림에서 새 봇 리소스를 엽니다. 
 
-**웹 채팅에서 테스트**를 선택하여 웹 채팅 창을 엽니다. 웹 채팅에서 "hi"를 입력합니다.
+    ![Azure portal에서 알림에서 새 봇 리소스를 엽니다.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-![QnA 봇 웹 채팅](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
+1. **Bot 관리**를 선택 **테스트 웹 채팅에** 입력: `How large can my KB be?`합니다. 봇에 사용 하 여 응답 합니다. 
 
-봇에서 “앱 설정에서 QnAKnowledgebaseId 및 QnASubscriptionKey를 설정하세요. 이 응답은 QnA 봇이 메시지를 수신했지만 아직 이와 연결된 QnA Maker 기술 자료가 없음을 확인합니다. 
 
-## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>QnA Maker 기술 자료를 봇에 연결
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
 
-1. **애플리케이션 설정**을 열고 **QnAKnowledgebaseId**, **QnAAuthKey** 및 **QnAEndpointHostName** 필드를 편집하여 QnA Maker 기술 자료의 값을 포함합니다.
 
-    ![앱 설정](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
+    ![새 기술 자료 bot을 테스트 합니다.](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
 
-1. QnA Maker 포털에 있는 기술 자료의 설정 탭에서 기술 자료 ID, 호스트 URL 및 엔드포인트 키를 가져옵니다.
-
-   - [QnA Maker](https://qnamaker.ai)에 로그인
-   - 기술 자료로 이동
-   - **설정** 탭을 선택합니다.
-   - 아직 게시하지 않은 경우 기술 자료 **게시**
-
-     ![QnA Maker 값](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-## <a name="test-the-bot"></a>봇 테스트
-
-Azure Portal에서 **웹 채팅에서 테스트**를 선택하여 봇을 테스트합니다. 
-
-![QnA Maker 봇](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
-
-QnA 봇이 기술 자료를 기준으로 응답합니다.
+    Azure Bot에 대 한 자세한 내용은 참조 하세요. [응답할 QnA Maker를 사용 하 여 질문](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
 ## <a name="related-to-qna-maker-bots"></a>QnA Maker 봇을 관련
 
@@ -113,7 +92,11 @@ QnA 봇이 기술 자료를 기준으로 응답합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서의 봇 작업이 완료되면 Azure Portal에서 해당 봇을 제거합니다. 봇 서비스는 다음을 포함합니다.
+이 자습서의 봇 작업이 완료되면 Azure Portal에서 해당 봇을 제거합니다. 
+
+봇의 리소스에 대 한 새 리소스 그룹을 만든 경우 리소스 그룹을 삭제 합니다. 
+
+새 리소스 그룹을 만들지 않은 경우에 봇과 연결 된 리소스를 찾을 해야 합니다. 가장 쉬운 방법은 봇 및 봇 앱의 이름으로 검색 됩니다. 봇 리소스에는 다음이 포함 됩니다.
 
 * App Service 플랜
 * 검색 서비스

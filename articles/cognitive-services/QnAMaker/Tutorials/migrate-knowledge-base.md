@@ -1,22 +1,22 @@
 ---
 title: 기술 자료 마이그레이션 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker로 만든 기술 자료를 새 기술 자료로 이동합니다.
+description: 기술 자료를 마이그레이션하려면 한 기술 자료를 내보낸 다음, 다른 기술 자료로 가져와야 합니다.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245918"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264321"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
@@ -48,10 +48,10 @@ ms.locfileid: "56245918"
    ![기술 자료 가져오기](../media/qnamaker-how-to-migrate-kb/Import.png)
 
 1. 테스트 패널을 사용하여 새 기술 자료를 **테스트**합니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
-1. 기술 자료를 **게시**합니다. [기술 자료 게시](../How-To/publish-knowledge-base.md) 방법을 알아보세요.
+1. 기술 자료를 **게시**합니다. [기술 자료 게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 방법을 알아보세요.
 1. 애플리케이션 또는 봇 코드에서 엔드포인트를 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
 
-    ![QnA Maker 값](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![QnA Maker 값](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
     이때 모든 기술 자료 콘텐츠인 질문, 답변 및 메타데이터와 URL 및 원본 파일의 이름을 새 기술 자료로 가져옵니다. 
 

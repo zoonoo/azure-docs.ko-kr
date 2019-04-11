@@ -8,14 +8,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757407"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263080"
 ---
 # <a name="define-and-use-moderation-workflows"></a>정의 및 조정 워크플로 사용 합니다.
 
@@ -65,9 +65,9 @@ ms.locfileid: "58757407"
 
 ![워크플로 테스트](images/image-workflow-execute.PNG)
 
-이 저장할 [샘플 이미지](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) 로컬 드라이브에 있습니다. 선택한 **파일 선택** 워크플로에 이미지를 업로드 합니다.
+이 저장할 [샘플 이미지](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) 로컬 드라이브에 있습니다. 선택한 **파일 선택** 워크플로에 이미지를 업로드 합니다.
 
-![bathing 세트에서 여자](images/sample-racy.PNG)
+![이미지 위에 겹쳐진 따옴표를 사용 하 여 실행 기를](images/sample-text.jpg)
 
 ### <a name="track-progress"></a>진행률 추적
 

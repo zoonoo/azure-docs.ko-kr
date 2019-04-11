@@ -24,9 +24,9 @@ ms.lasthandoff: 03/19/2019
 ms.locfileid: "57893546"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
-Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.  
+Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure Diagnostics 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.  
 
-## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Azure 진단 확장을 가상 컴퓨터 정의에 추가
+## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Azure Diagnostics 확장을 VM 리소스 정의에 추가
 Windows 가상 머신에서 진단 확장을 사용하도록 설정하려면 진단 확장을 Resource Manager 템플릿에 VM 리소스로 추가해야 합니다.
 
 간단한 리소스 관리자를 기반으로 하는 Virtual Machine의 경우 확장 구성을 가상 머신에 대한 *resources* 배열로 추가합니다. 

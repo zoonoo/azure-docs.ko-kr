@@ -210,7 +210,7 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 
 -   규정 준수 또는 감사 목적으로 리소스의 성능 또는 상태 기록을 **보관**합니다.
 
-### <a name="azure-diagnostics"></a>Azure 진단
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 하는 Azure의 기능입니다. 별도의 다양한 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 웹 및 작업자 역할](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), Microsoft Windows를 실행하는 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview) 및 [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)이 현재 지원되고 있습니다. 다른 Azure 서비스에는 별도의 자체 진단이 있습니다.
 

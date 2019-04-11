@@ -65,7 +65,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
 * 원격 분석 정보를 입력하는 경우 확인란을 선택한 상태로 둡니다. 사용 정보를 Microsoft로 보내지 않으려면 확인란의 선택을 취소합니다.
 
-   Azure 로그 통합 및 설치 방법에 대한 자세한 내용은 [Azure 로그 통합, Azure 진단 로깅 및 Windows 이벤트 전달](security-azure-log-integration-get-started.md)을 참조하세요.
+   Azure 로그 통합 및 설치 방법에 대한 자세한 내용은 [Azure 로그 통합, Azure Diagnostics 로깅 및 Windows 이벤트 전달](security-azure-log-integration-get-started.md)을 참조하세요.
 
 * 최신 PowerShell 버전입니다.
 

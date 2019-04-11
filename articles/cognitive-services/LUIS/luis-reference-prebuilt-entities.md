@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: diberry
-ms.openlocfilehash: c418e15dbe133d94c081db2b925fa390307c240f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905055"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261430"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>LUIS 모델에서 문화권별 엔터티
 
@@ -110,12 +110,12 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    ✔   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [백분율](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |   -   | 
 [전화 번호](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |

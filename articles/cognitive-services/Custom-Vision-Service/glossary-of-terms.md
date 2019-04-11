@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352105"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048939"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Custom Vision Service에 대한 용어집
 
@@ -32,7 +32,6 @@ ms.locfileid: "58352105"
 - **식품 도메인입니다.** 식당 메뉴에 표시되는 식사에 최적화되었습니다. 개별 과일 또는 채소를 인식하는 데 최적화되지 않았습니다. 개별 과일이나 채소 사진을 분류하려면 해당 용도의 일반 도메인을 사용합니다.
 - **랜드마크 도메인입니다.** 인식 가능한 자연적 및 인공적인 랜드마크에 최적화되었습니다. 이 도메인은 랜드마크 앞에서 포즈를 취한 한 무리의 사람들로 인해 랜드마크가 약간 가려진다해도 사진에 명확히 표시되는 경우 가장 잘 작동합니다.
 - **소매 도메인입니다.** 쇼핑 카탈로그 또는 쇼핑 웹 사이트에서 이미지를 분류하는 데 최적화되었습니다. 드레스, 바지, 셔츠 등을 분류할 때 높은 정밀도를 원하는 경우 소매 도메인을 사용합니다.
-- **성인 도메인입니다.** 성인 콘텐츠와 비성인 콘텐츠 간 정의 향상에 최적화되었습니다. 예를 들어 수영복을 입은 사람의 이미지를 차단하려는 경우 이 도메인을 사용하여 해당 작업을 수행하는 사용자 지정 분류자를 빌드할 수 있습니다.
 - **일반 도메인입니다.** 다양한 이미지 분류 작업에 적합합니다.
 
 **소형 도메인**에 의해 생성된 모델은 반복 내보내기 기능을 사용하여 내보낼 수 있습니다. 모바일 디바이스의 실시간 분류 제약 조건에 최적화되었습니다. 소형 도메인을 사용하여 빌드한 분류자는 교육 데이터의 양이 동일한 표준 도메인보다 정확도가 살짝 떨어질 수 있습니다. 단점은 거의 실시간으로 로컬에서 실행할 정도로 작다는 것입니다. 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877264"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044864"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 및 메트릭 모니터링
 
@@ -30,6 +30,9 @@ ms.locfileid: "58877264"
 > * 활동 로그 보기 및 분석
 > * 네트워크 및 애플리케이션 규칙 로그 보기 및 분석
 > * 메트릭 보기
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -79,7 +82,7 @@ ms.locfileid: "58877264"
 3. 다음 PowerShell cmdlet을 사용하여 진단 로깅을 사용하도록 설정합니다.
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```

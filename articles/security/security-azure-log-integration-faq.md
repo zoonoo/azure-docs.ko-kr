@@ -99,7 +99,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
 오류:
 
-  ‘역할 할당 만들기 경고 - AuthorizationFailed: 클라이언트 janedo\@microsoft.com' 개체를 사용 하 여 id ' fe9e03e4-4dad-4328-910f-fd24a9660bd2' 없는 범위 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 ' /subscriptions/ 70 d 95299-d689-4c 97 b971 0d8ff0000000'.*
+  *역할 할당 만들기 경고 - AuthorizationFailed: 클라이언트 janedo\@microsoft.com' 개체를 사용 하 여 id ' fe9e03e4-4dad-4328-910f-fd24a9660bd2' 없는 범위 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 ' /subscriptions/ 70 d 95299-d689-4c 97 b971 0d8ff0000000'.*
 
 **azlog authorize** 명령을 사용하면 제공되는 구독에 **azlog createazureid** 명령으로 만들어진 Azure AD 서비스 주체의 읽기 권한자 역할을 할당합니다. Azure 로그인이 구독의 공동 관리자 또는 소유자가 아닌 경우 “권한 부여 실패” 오류 메시지와 오류가 발생합니다. 이 작업을 완료하려면 공동 관리자 또는 소유자의 Azure RBAC(역할 기반 Access Control)가 필요합니다.
 
@@ -116,9 +116,9 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>VM 진단을 통해 수집되는 항목을 어떻게 수정할 수 있나요?
 
-Azure 진단 구성을 가져오고, 수정하고, 설정하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 
+Azure Diagnostics 구성을 가져오고, 수정하고, 설정하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. 
 
-다음 예제에서는 Azure 진단 구성을 가져옵니다.
+다음 예제에서는 Azure Diagnostics 구성을 가져옵니다.
 
     Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
     $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
@@ -128,14 +128,14 @@ Azure 진단 구성을 가져오고, 수정하고, 설정하는 방법에 대한
 
     $xmlconfig | Out-File -Encoding utf8 -FilePath "d:\WADConfig.xml"
 
-다음 예제에서는 Azure 진단 구성을 수정합니다. 이 구성에서는 이벤트 ID 4624 및 이벤트 ID 4625만 보안 이벤트 로그에서 수집됩니다. 시스템 이벤트 로그에서 Azure용 Microsoft 맬웨어 방지 이벤트가 수집됩니다. XPath 식의 사용에 대한 자세한 내용은 [이벤트 사용](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85))을 참조하세요.
+다음 예제에서는 Azure Diagnostics 구성을 수정합니다. 이 구성에서는 이벤트 ID 4624 및 이벤트 ID 4625만 보안 이벤트 로그에서 수집됩니다. 시스템 이벤트 로그에서 Azure용 Microsoft 맬웨어 방지 이벤트가 수집됩니다. XPath 식의 사용에 대한 자세한 내용은 [이벤트 사용](https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85))을 참조하세요.
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
         <DataSource name="System!*[System[Provider[@Name='Microsoft Antimalware']]]"/>
     </WindowsEventLog>
 
-다음 예제에서는 Azure 진단 구성을 설정합니다.
+다음 예제에서는 Azure Diagnostics 구성을 설정합니다.
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
     Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>

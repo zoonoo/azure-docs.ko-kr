@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339400"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005156"
 ---
 # <a name="enable-custom-pronunciation"></a>사용자 지정 발음을 사용하도록 설정
 
@@ -63,7 +63,7 @@ Display form <Tab> Spoken form <Newline>
 사용자 지정 단어, 머리글자어 또는 기존 단어를 결합 하는 복합어만 표시 될 수 있습니다.
 
 >[!NOTE]
->일반적인 단어를 다시 구성하거나 발성 형식을 수정할 때는 이 기능을 사용하지 않는 것이 좋습니다. 일부 비정상적인 단어(예: 약어, 기술 단어 또는 외국어)가 제대로 디코딩되지 않는지 확인하려면 디코더를 실행하는 것이 좋습니다. 제대로 디코딩되지 않는 경우 사용자 지정 발음 파일에 추가합니다. 언어 모델에서 항상 단어의 표시 형식만 사용해야 합니다.
+>일반적인 단어를 다시 구성하거나 발성 형식을 수정할 때는 이 기능을 사용하지 않는 것이 좋습니다. 일부 비정상적인 단어 (예: 약어, 기술 단어 또는 외국어 단어가)이 올바르지 않으면 transribed이이 기능을 사용 하기 전에 있는지 여부를 더 나은 확인 것입니다. 제대로 디코딩되지 않는 경우 사용자 지정 발음 파일에 추가합니다. 언어 모델에서 항상 단어의 표시 형식만 사용해야 합니다.
 
 ## <a name="requirements-for-the-file-size"></a>파일 크기에 대한 요구 사항
 발음 항목을 포함하는 .txt 파일의 크기는 1MB(체험 계층 키의 경우 1KB)로 제한됩니다. 일반적으로 이 파일을 통해 많은 양의 데이터를 업로드할 필요가 없습니다. 대부분의 사용자 지정 발음 파일은 크기가 수 KB에 불과합니다. 모든 로캘에 대한 .txt 파일의 인코딩은 UTF-8 BOM이어야 합니다. 영어 로캘의 경우 ANSI가 허용됩니다.

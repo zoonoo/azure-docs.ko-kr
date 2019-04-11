@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895616"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046073"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>예측 API 사용 하 여 모델을 사용 하 여
 
@@ -45,7 +45,7 @@ ms.locfileid: "58895616"
 ![이미지 파일 및 예측 키 값을 사용 하 여에 대 한 예측 URL 값 주위에 빨간색 직사각형이 있는 성능 탭 표시 됩니다.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> 프로그램 __예측 키__ 에서 찾을 수 있습니다를 [Azure Portal](https://portal.azure.com) 아래에 있는 프로젝트를 사용 하 여 관련 사용자 지정 비전 Azure 리소스에 대 한 페이지를 __키__ 블레이드입니다.
+> 프로그램 __예측 키__ 에서 찾을 수 있습니다를 [Azure portal](https://portal.azure.com) 프로젝트를 사용 하 여 사용자 지정 비전 Azure 리소스의 연결에 대 한 페이지를 __키__ 블레이드입니다.
 
 이 가이드에서는 사용 하는 로컬 이미지에서 URL 복사 **이미지 파일이 있는 경우** 임시 위치에 있습니다. 해당 복사 __예측 키__ 값도 합니다.
 

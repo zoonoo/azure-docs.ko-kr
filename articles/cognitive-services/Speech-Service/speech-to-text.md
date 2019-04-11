@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520669"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008495"
 ---
 # <a name="what-is-speech-to-text"></a>음성-텍스트 란?
 
@@ -51,17 +51,17 @@ ms.locfileid: "58520669"
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| [Javascript, Browser](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | 브라우저, Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [Javascript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tr)  |
+| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [찾아보기](https://aka.ms/csspeech/cppref)|
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [찾아보기](https://aka.ms/csspeech/cppref) |
+| [자바](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [찾아보기](https://aka.ms/csspeech/javaref) |
+| [자바](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [찾아보기](https://aka.ms/csspeech/javaref) |
+| [JavaScript, Browser](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | 브라우저, Windows, Linux, macOS | [찾아보기](https://aka.ms/AA434tv) |
+| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [찾아보기](https://aka.ms/AA434tv) |
+| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
+| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [찾아보기](https://aka.ms/AA434tr)  |
 
 음성-텍스트 REST 서비스를 사용 하는 것을 선호 하는 경우 참조 [REST Api](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)합니다.
 
@@ -69,12 +69,12 @@ ms.locfileid: "58520669"
 
 Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음성에서 의도를 인식하는 방법을 설명하는 자습서를 사용해 보세요.
 
-* [자습서: Speech SDK 및 LUIS, C#을 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-csharp.md)
+* [자습서: Speech SDK 및 LUIS를 사용 하 여 음성 의도 인식C#](how-to-recognize-intents-from-speech-csharp.md)
 
 Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다.
 
 * [음성-텍스트 샘플 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [일괄 처리 기록 샘플 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>사용자 지정
 
@@ -101,7 +101,7 @@ Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [Speech SDK](speech-sdk-reference.md)
+* [음성 SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
@@ -109,5 +109,5 @@ Speech SDK에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [무료로 Speech Service 구독 키 받기](get-started.md)
+* [음성 서비스 등록 키를 위한 무료](get-started.md)
 * [Speech SDK 가져오기](speech-sdk.md)

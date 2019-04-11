@@ -1,19 +1,18 @@
 ---
 title: 샘플 - SQL Server 감사 설정 감사
 description: 이 샘플 정책 정의는 auditIfNotExists를 사용하여 SQL Server 감사 설정을 감사합니다.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1e0731de5ce2a12fee6b203f245e42aa4bc67d6e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338175"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264090"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>샘플 - SQL Server 감사 설정 감사
 

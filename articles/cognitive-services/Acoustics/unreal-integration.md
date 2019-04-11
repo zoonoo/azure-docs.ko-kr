@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 0baaf31386e1155dee6ca2bbfda6827ca3fc36fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313450"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006491"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>소음 Unreal 및 Wwise 통합 프로젝트
 이 방법은 기존 Wwise 및 Unreal 게임 프로젝트에 프로젝트 소음 플러그 인 패키지의 자세한 통합 단계를 제공합니다. 
 
 소프트웨어 요구 사항:
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.+
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 또는 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Unreal 용 Wwise 플러그 인](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Wwise SDK의 직접 통합 Wwise Unreal 플러그 인을 사용 하는 대신를 사용 하는 경우 프로젝트 소음 Unreal 플러그 인을 참조 하 고 Wwise API 호출을 조정 합니다.
 
@@ -45,11 +45,11 @@ ms.locfileid: "58313450"
 7. Unreal에 오디오 설치
 
 ## <a name="1-install-the-project-acoustics-mixer-plugin"></a>1. 프로젝트 소음 mixer 플러그 인 설치
-* 다음 Wwise 시작 관리자를 엽니다는 **플러그 인** 탭의 **새 플러그 인 설치**를 선택 **디렉터리에서 추가**합니다. 
+* Wwise 시작 관리자를 연 다음, **플러그 인** 탭의 **새 플러그 인 설치**에서 **디렉터리에서 추가**를 선택합니다. 
 
     ![Wwise 시작 관리자에서 플러그 인을 설치 하는 스크린샷](media/wwise-install-new-plugin.png)
 
-* 선택 된 `AcousticsWwisePlugin\ProjectAcoustics` 다운로드 한 패키지에 포함 된 디렉터리입니다. Wwise mixer 플러그 인 번들을 포함합니다.
+* 다운로드한 패키지에 포함된 `AcousticsWwisePlugin\ProjectAcoustics` 디렉터리를 선택합니다. Wwise mixer 플러그 인 번들을 포함합니다.
 
 * Wwise는 플러그 인을 설치 합니다. 프로젝트 소음 해야 이제 Wwise 설치 된 플러그 인 목록에 나타납니다.
 ![프로젝트 소음 설치가 스크린 샷의 Wwise 설치 된 플러그 인 목록](media/unreal-integration-post-mixer-plugin-install.png)
@@ -57,15 +57,15 @@ ms.locfileid: "58313450"
 ## <a name="2-redeploy-wwise-into-your-game"></a>2. (다시) Wwise 게임에 배포
 Wwise을 이미 통합 한 경우에 Wwise 게임에 다시 배포 합니다. 이 프로젝트 소음 Wwise 플러그 인을 선택합니다.
 
-* **엔진 플러그 인:** Wwise Unreal c + + 프로젝트에서 게임 플러그 인으로 설치할 경우이 단계를 건너뜁니다. 경우에 대 한 인스턴스 Unreal 프로젝트는 mixer 플러그 인을 사용 하 여 청사진만 Wwise 배포 이므로 더 복잡 한 대신는 엔진 플러그 인으로 설치 됩니다. 더미, 빈 Unreal c + + 프로젝트 만들기, Unreal 편집기가 열리면 있으면 닫습니다 및 Wwise이 더미 프로젝트를 배포 하는 나머지 절차를 수행 합니다. 다음 배포 Wwise 플러그 인을 복사 합니다.
+* **엔진 플러그 인:** Wwise는 Unreal의 게임 플러그 인으로 설치할 경우 C++ 프로젝트에서이 단계를 건너뜁니다. 경우에 대 한 인스턴스 Unreal 프로젝트는 mixer 플러그 인을 사용 하 여 청사진만 Wwise 배포 이므로 더 복잡 한 대신는 엔진 플러그 인으로 설치 됩니다. 더미, 빈 Unreal 만들기 C++ 프로젝트, Unreal 편집기가 열리고 경우 닫기 및 Wwise이 더미 프로젝트를 배포 하는 나머지 절차를 수행 합니다. 다음 배포 Wwise 플러그 인을 복사 합니다.
  
-* Wwise 표시 아이콘을 클릭 합니다 **Unreal Engine** 탭을 선택한 후 다음 햄버거 메뉴를 클릭 **최근 Unreal 엔진 프로젝트** 선택한 **프로젝트에 대 한 찾아보기**합니다. 게임 Unreal 프로젝트를 열고 `.uproject` 파일입니다.
+* Wwise 시작 관리자에서 **Unreal Engine** 탭을 선택한 다음, **최근 Unreal Engine 프로젝트** 옆의 햄버거 메뉴를 클릭하고 **프로젝트 찾아보기**를 선택합니다. 게임 Unreal 프로젝트를 열고 `.uproject` 파일입니다.
 
     ![스크린 샷의 Wwise 시작 관리자의 Unreal 탭](media/wwise-unreal-tab.png)
 
 * 클릭 **프로젝트에서 통합 Wwise** 또는 **프로젝트의 수정 Wwise**합니다. (다시)이이 단계는 이제 프로젝트 소음 mixer 플러그 인을 포함 하 여 프로젝트에 Wwise 이진 파일을 통합 합니다.
 
-* **엔진 플러그 인:** 위와 같이 더미 프로젝트를 만들 Wwise 배포 폴더를 복사 하는 Wwise 엔진 플러그 인을 사용 하는 경우: `[DummyUProject]\Plugins\Wwise` 붙여넣습니다 `[UESource]\Engine\Plugins\Wwise`합니다. `[DummyUProject]` 빈 Unreal c + + 프로젝트 경로 및 `[UESource]` Unreal Engine 소스 설치 해야 합니다. 완료 되 면 복사 더미 프로젝트를 삭제할 수 있습니다.
+* **엔진 플러그 인:** 위와 같이 더미 프로젝트를 만들 Wwise 배포 폴더를 복사 하는 Wwise 엔진 플러그 인을 사용 하는 경우: `[DummyUProject]\Plugins\Wwise` 붙여넣습니다 `[UESource]\Engine\Plugins\Wwise`합니다. `[DummyUProject]` 빈 Unreal는 C++ 프로젝트 경로 및 `[UESource]` Unreal Engine 소스 설치 해야 합니다. 완료 되 면 복사 더미 프로젝트를 삭제할 수 있습니다.
 
 ## <a name="3-add-the-project-acoustics-unreal-plugin-to-your-game"></a>3. 게임에 프로젝트 소음 Unreal 플러그 인을 추가 합니다.
  
@@ -76,13 +76,13 @@ Wwise을 이미 통합 한 경우에 Wwise 게임에 다시 배포 합니다. �
 
 ## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4. Wwise의 Unreal 플러그 인 기능 확장
 * 프로젝트 소음 Unreal 플러그 인 추가 동작이 필요 당 Wwise Unreal 플러그 인 API에서 공개 해서는 [이러한 지침](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html)합니다. 패치 절차를 자동화할 배치 파일을 포함 했습니다. 
-* 내 `Plugins\ProjectAcoustics\Resources`실행 `PatchWwise.bat`합니다. 아래 예제 이미지 AcousticsGame 샘플 프로젝트를 사용합니다.
+* `Plugins\ProjectAcoustics\Resources` 내부에서 `PatchWwise.bat`를 실행합니다. 아래 예제 이미지 AcousticsGame 샘플 프로젝트를 사용합니다.
 
     ![제공 된 스크립트 Wwise 패치를 Windows 탐색기의 스크린샷 창 강조 표시](media/patch-wwise-script.png)
 
 * DirectX SDK 설치, DXSDK_DIR에 포함 된 줄을 주석 처리할 필요 없는 경우 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![DXSDK 주석 처리를 보여 주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
+    ![DXSDK 주석 처리를 보여주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. 게임을 빌드 및 Python을 사용할 수 확인
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/07/2019
 ms.author: diberry
-ms.openlocfilehash: 1c3c7e913f2f096918efaebb84384df98bd68be8
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895835"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267058"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습 
 
@@ -43,6 +43,10 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 >[!NOTE]
 >앱에 예제 발언이 포함되지 않는 하나 이상의 의도가 있는 경우 앱을 학습할 수 없습니다. 모든 의도에 발언을 추가합니다. 자세한 내용은 [예제 발언 추가](luis-how-to-add-example-utterances.md)를 참조하세요.
+
+## <a name="training-date-and-time"></a>교육 날짜 및 시간
+
+교육 날짜 및 시간에는 GMT + 2입니다. 
 
 ## <a name="train-with-all-data"></a>모든 데이터를 사용하여 학습
 

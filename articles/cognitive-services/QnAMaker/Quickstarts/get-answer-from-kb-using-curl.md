@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3b728984b2bda836d3d4924b93f1b11a5d05d8bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ce2d39f3941030059cef329aa60e804a44d73a98
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342465"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263097"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>빠른 시작: cURL을 사용하여 기술 자료에서 답변 가져오기
 
@@ -28,13 +28,13 @@ ms.locfileid: "57342465"
 
 ## <a name="publish-to-get-endpoint"></a>엔드포인트를 가져오기 위한 게시
 
-기술 자료에서 질문에 대한 대답을 생성할 준비가 되면 기술 자료를 [게시](../How-to/publish-knowledge-base.md)합니다.
+기술 자료에서 질문에 대한 대답을 생성할 준비가 되면 기술 자료를 [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)합니다.
 
 ## <a name="use-production-endpoint-with-curl"></a>cURL을 통해 프로덕션 엔드포인트 사용
 
 기술 자료가 게시되면 **게시** 페이지에 대답을 생성하기 위한 HTTP 요청 설정이 표시됩니다. **CURL** 탭에는 [CURL](https://www.getpostman.com) 명령줄 도구에서 대답을 생성하는 데 필요한 설정이 표시됩니다.
 
-[![게시 결과](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
+[![Publish 결과](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
 CURL을 사용하여 대답을 생성하려면 다음 단계를 수행합니다.
 
@@ -78,4 +78,4 @@ CURL을 사용하여 대답을 생성하려면 다음 단계를 수행합니다.
 게시 페이지에는 Postman을 사용하여 [대답을 생성](get-answer-from-kb-using-postman.md)하기 위한 정보도 제공됩니다. 
 
 > [!div class="nextstepaction"]
-> [대답을 생성하는 동안 메타데이터 사용](../How-to/metadata-generateanswer-usage.md)
+> [응답을 생성 하는 동안 메타 데이터를 사용 합니다.](../How-to/metadata-generateanswer-usage.md)

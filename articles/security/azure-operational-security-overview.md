@@ -121,9 +121,9 @@ Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주�
 
 Azure Monitor는 Azure에서 워크로드의 상태와 성능에 대한 정보를 얻을 수 있는 원격 분석 기능을 제공합니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 [메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
 
-### <a name="azure-diagnostics"></a>Azure 진단
+### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Azure 진단은 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 합니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 역할](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), Microsoft Windows를 실행하는 [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) 및 [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)에서 현재 지원됩니다.
+Azure Diagnostics는 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 합니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 역할](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), Microsoft Windows를 실행하는 [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) 및 [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)에서 현재 지원됩니다.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
