@@ -17,16 +17,16 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6cb875aa686d9e2d0ba7bf51563d3b51b1572a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094231"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469525"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>무료 평가판 또는 Azure 스타터 구독을 종 량 제로 업그레이드
 
-있는 경우는 [무료 평가판](https://azure.microsoft.com/free/)로 업그레이드할 수 있습니다를 [종 량 제](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure portal에서 구독 합니다. 있는 경우는 [학생용 Azure 스타터](https://azure.microsoft.com/offers/ms-azr-0144p/) 구독으로 업그레이드할 수 있습니다 [종 량 제](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure 계정 센터에서.
+있는 경우는 [무료 평가판](https://azure.microsoft.com/free/) 요소나 [학생용 Azure 스타터](https://azure.microsoft.com/offers/ms-azr-0144p/) 구독으로 업그레이드할 수 있습니다 [종 량 제](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure portal에서 합니다. Azure 스타터 구독에 대 한 있고 무료 평가판에 적합 한 경우에 무료 평가판으로 업그레이드할 수 있습니다.
 
 <a id="freetrial"></a>
 
@@ -35,9 +35,9 @@ ms.locfileid: "58094231"
 평가판 구독에서 업그레이드하는 경우 구독을 만든 날로부터 30일 동안 남은 크레딧이 유지됩니다. 12개월 동안 체험 서비스에 액세스할 수 있습니다.
 
 1.  [Azure 포털](https://portal.azure.com)
-1. 검색 **비용 관리 + 청구 합니다.**
+1. 검색 **구독 합니다.**
 
-    ![검색을 보여 주는 스크린샷](./media/billing-upgrade-azure-subscription/search.png)
+    ![검색을 보여 주는 스크린샷](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. 무료 평가판 구독을 선택 합니다.
 1. 구독 개요 블레이드에서 클릭 **구독을 업그레이드** 명령 모음에서.
@@ -63,15 +63,24 @@ ms.locfileid: "58094231"
 
 ## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Azure 스타터 구독을 종 량 제로 업그레이드
 
-1. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 로그인합니다.
+다음 단계를 수행할 때 하겠습니다 있습니다 자격이 있는 경우 무료 평가판으로 업그레이드 하는 옵션.
+
+1.  [Azure 포털](https://portal.azure.com)
+1. 검색 **구독 합니다.**
+
+    ![검색을 보여 주는 스크린샷](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+
 1. Azure 스타터 구독을 선택 합니다.
-1. 아래 **구독 상태**, 클릭 **지금 업그레이드**합니다.
+1. 구독 개요 블레이드에서 클릭 **구독을 업그레이드** 명령 모음에서.
 
-    ![학생에 대 한 업그레이드를 보여 주는 스크린샷](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
+    ![보여 주는 스크린샷 업그레이드 단추 학생용](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
+1. 종 량 제로 업그레이드 하는 구독의 결제 방법을 아직 없는 경우 하나를 추가 하려면 묻는 메시지가 나타납니다.
+1. 본인 인지 확인 하려면 전화 번호를 입력 해야 합니다.
 1. 구독에 대 한 이름을 입력 합니다.
+1. 종 량 제로 업그레이드 하는 경우에 구독에 대 한 지원 계획을 선택 합니다. 지원 플랜에 대 한 자세한 내용은 참조 하세요 [Azure 지원 플랜](https://azure.microsoft.com/us/support/plans/)합니다.
 
-1. 클릭 **지금 업그레이드**합니다.
+1. **업그레이드**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

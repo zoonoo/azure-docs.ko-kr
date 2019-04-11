@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358434"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471565"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -217,7 +217,7 @@ Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급자�
 
 - 다중 로그 파일은 지원되지 않습니다.
 - 메모리 내 개체는 범용 서비스 계층에서 지원되지 않습니다.  
-- 데이터베이스당 최대 280 개 파일을 의미 하는 범용 인스턴스당 280 개 파일의 제한이 됩니다. 데이터와 로그 파일 일반적 용도 계층은이 제한에 대해 계산 됩니다. [중요 비즈니스용 계층 데이터베이스 별로 32,767 파일 지원](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
+- 데이터베이스당 최대 280 개 파일을 의미 하는 범용 인스턴스당 280 개 파일의 제한이 됩니다. 데이터와 로그 파일 일반적 용도 계층은이 제한에 대해 계산 됩니다. [중요 비즈니스용 계층 데이터베이스 별로 32,767 파일 지원](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
 - 파일 스트림 데이터가 있는 파일 그룹을 데이터베이스에 포함할 수 없습니다.  .bak에 `FILESTREAM` 데이터가 포함되어 있으면 복원에 실패합니다.  
 - 모든 파일은 Azure Blob Storage에 배치됩니다. 파일별 IO 및 처리량은 각 개별 파일의 크기에 따라 달라집니다.  
 
@@ -467,7 +467,6 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 - `@@SERVICENAME` SQL Server 관리 되는 인스턴스에 적용 되지 않습니다에 대 한 개념으로는 서비스의 존재 하기 때문에 NULL을 반환 합니다. [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
 - `SUSER_ID` 지원 됩니다. Azure AD 로그인이 sys.syslogins에 없는 경우 NULL을 반환합니다. [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요.  
 - `SUSER_SID` 지원 되지 않습니다. 잘못된 데이터를 반환합니다(알려진 임시 문제). [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요.
-- `GETDATE()` 및 다른 기본 제공 날짜/시간 함수 항상 UTC 표준 시간대의 시간을 반환 합니다. [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql)를 참조하세요.
 
 ## <a name="Issues"> </a> 알려진 문제 및 제한 사항
 
@@ -494,7 +493,7 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 
 이 예제에서 기존 데이터베이스는 계속 작동하며, 새 파일이 추가되지 않으면 문제 없이 커질 수 있습니다. 그러나 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 디스크 드라이브에 대한 충분한 공간이 없기 때문에 새 데이터베이스를 만들거나 복원할 수 없습니다. 이 경우 반환되는 오류가 명확하지 않습니다.
 
-할 수 있습니다 [나머지 파일 수가 식별](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) 시스템 뷰를 사용 하 여 합니다. 이 제한 하려고 도달 하는 경우 [빈 데이터 요소 및 일부 DBCC SHRINKFILE 문을 사용 하 여 더 작은 파일을 삭제](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) 으로 전환 하거나 [하지 않는 중요 비즈니스 계층에이 제한이](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
+할 수 있습니다 [나머지 파일 수가 식별](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) 시스템 뷰를 사용 하 여 합니다. 이 제한 하려고 도달 하는 경우 [빈 데이터 요소 및 일부 DBCC SHRINKFILE 문을 사용 하 여 더 작은 파일을 삭제](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) 하거나 전환 [이 제한 되지 않은 중요 비즈니스 계층](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>데이터베이스 복원 중 잘못된 SAS 키 구성
 
@@ -567,11 +566,11 @@ using (var scope = new TransactionScope())
 
 **해결 방법**: 가능한 경우 CLR 모듈에서 컨텍스트 연결을 사용합니다.
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>TDE 암호화 데이터베이스에서 사용자가 시작한 백업을 지원하지 않음
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>서비스 관리 키를 사용 하 여 TDE로 암호화 된 데이터베이스 사용자가 시작한 백업을 지원 하지 않습니다.
 
-TDE(투명한 데이터 암호화)로 암호화된 데이터베이스에서 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. TDE는 내부 TDE 키를 사용하여 백업을 강제로 암호화하며, 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다.
+실행할 수 없습니다 `BACKUP DATABASE ... WITH COPY_ONLY` 서비스 관리 투명 한 데이터 암호화 (TDE) 암호화 된 데이터베이스입니다. 서비스 관리 TDE 백업을 내부 TDE 키를 사용 하 여 암호화 되도록 하 고 백업을 복원할 수 없습니다 있도록 키를 내보낼 수 없습니다.
 
-**해결 방법**: 자동 백업 및 특정 시점 복원을 사용하거나 데이터베이스에서 암호화를 사용하지 않도록 설정합니다.
+**해결 방법**: 자동 백업 및 지정 시간 복원을 사용 하거나 사용 하 여 [고객 관리 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) 대신 또는 데이터베이스에서 암호화를 사용 하지 않도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
