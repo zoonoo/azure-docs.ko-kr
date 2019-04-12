@@ -70,11 +70,11 @@ UAA 명령줄 클라이언트를 설정 하기 전에 RubyGems가 설치 되어 
 
 자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)합니다.
 
-#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 모니터링 템플릿을 통해 Log Analytics 작업 영역을 만들려면
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 모니터링 템플릿을 통해 Log Analytics 작업 영역을 만들려면:
 
 1. Azure Portal을 엽니다.
 1. "+" 기호를 클릭하거나 왼쪽 위 모서리에서 "리소스 만들기"를 클릭합니다.
-1. 검색 창에 “Cloud Foundry”를 입력하 고 “Cloud Foundry Monitoring Solution”을 선택합니다.
+1. 검색 창에 "Cloud Foundry"를 입력하고 "Cloud Foundry 모니터링 솔루션"을 선택합니다.
 1. Cloud Foundry 모니터링 솔루션 템플릿 첫 페이지가 로드되며, “만들기”를 클릭하여 템플릿 블레이드를 실행합니다.
 1. 필수 매개 변수를 입력합니다.
     * **구독**: Log Analytics 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.

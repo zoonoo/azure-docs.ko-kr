@@ -134,7 +134,7 @@ Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your S
 Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
-다음 명령을 사용하여 Log Analytics 작업 공간의 리소스 ID를 가져올 수 있습니다.
+다음 명령을 사용하여 Log Analytics 작업 영역의 리소스 ID를 가져올 수 있습니다.
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId
@@ -220,7 +220,7 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 
 모니터 섹션을 찾기 위해 “모든 서비스”를 클릭해야 할 수도 있습니다.
 
-여기에서 진단 설정을 지원하는 모든 리소스를 보고 필터링하여 진단을 사용하도록 설정했는지 확인할 수 있습니다. 드릴다운하여 여러 설정이 리소스에 설정되어 있는지 확인하고, 데이터가 이동하는 저장소 계정, Event Hubs 네임스페이스 및/또는 Log Analytics 작업 영역을 확인할 수 있습니다.
+여기에서 진단 설정을 지원하는 모든 리소스를 보고 필터링하여 진단을 사용하도록 설정했는지 확인할 수 있습니다. 드릴다운하여 여러 설정이 리소스에 설정되어 있는지 확인하고, 데이터가 이동하는 스토리지 계정, Event Hubs 네임스페이스 및/또는 Log Analytics 작업 영역을 확인할 수 있습니다.
 
 ![포털의 진단 로그 결과](./media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

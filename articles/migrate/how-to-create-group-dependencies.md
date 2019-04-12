@@ -32,7 +32,7 @@ Azure Migrate는 컴퓨터의 종속성 시각화를 사용 하도록 설정 하
 ### <a name="associate-a-log-analytics-workspace"></a>Log Analytics 작업 영역 연결
 종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다. 작업 영역은 마이그레이션 프로젝트를 만든 것과 같은 구독에서만 만들거나 연결할 수 있습니다.
 
-- 프로젝트에 Log Analytics 작업 영역을 연결하려면 **개요**에서 프로젝트의 **필수** 섹션으로 이동한 다음 **구성 필요**를 클릭합니다.
+- 프로젝트에 Log Analytics 작업 영역을 연결하려면 **개요**에서 프로젝트의 **필수** 섹션으로 이동하여 **구성 필요**를 클릭합니다.
 
     ![Log Analytics 작업 영역 연결](./media/concepts-dependency-visualization/associate-workspace.png)
 

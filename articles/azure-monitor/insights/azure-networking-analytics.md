@@ -171,7 +171,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
    ![Azure 네트워크 보안 그룹 리소스 이미지](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. 진단을 사용하려면 *상태*에서 *켜기*를 클릭합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
-6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 새로 만듭니다.
+6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 만듭니다.
 7. 수집할 각 로그 유형에 대해 **로그** 아래의 확인란을 클릭합니다.
 8. *저장*을 클릭하여 Log Analytics로의 진단 로깅을 활성화합니다.
 

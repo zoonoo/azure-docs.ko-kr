@@ -10,7 +10,7 @@ ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
 ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58439299"
@@ -60,7 +60,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
     - **스토리지 계정에 보관**: 로깅 정보를 포함하도록 스토리지 계정을 구성합니다.
     - **이벤트 허브로의 스트림**: 로깅 정보를 포함하도록 이벤트 허브를 구성합니다.
-    - **Log Analytics에 보내기**: 로깅 정보를 포함하도록 Log Analytics 작업 영역을 구성합니다.
+    - **Log Analytics에 보내기**: 로깅 정보를 포함하도록 로그 분석 작업 영역을 구성합니다.
 
 1. **로그** 섹션에서 로깅 정보를 사용하려는 작업을 선택합니다.
 

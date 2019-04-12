@@ -34,7 +34,7 @@ Log Analytics Windows 또는 Azure Monitor에서 Linux 에이전트의 초기 �
 2. **제어판**을 엽니다.
 3. **Microsoft Monitoring Agent**를 선택한 다음, **Azure Log Analytics** 탭을 클릭합니다.
 4. 작업 영역을 제거하려면 작업 영역을 선택한 후 **제거**를 클릭합니다. 에이전트에서 보고를 중지할 다른 작업 영역에 대해 이 단계를 반복합니다.
-5. 작업 영역을 추가하려면 **추가**를 클릭하고 **Log Analytics 작업 영역 추가** 대화 상자에서 작업 영역 ID 및 작업 영역 키(기본 키)를 붙여넣습니다. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 [Azure Cloud] 드롭다운 목록에서 [Azure 미국 정부]를 선택합니다.
+5. 작업 영역을 추가하려면 **추가**를 클릭하고 **Log Analytics 작업 영역 추가** 대화 상자에서 작업 영역 ID 및 작업 영역 키(기본 키)를 붙여넣습니다. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 Azure Cloud 드롭다운 목록에서 Azure 미국 정부를 선택합니다.
 6. **확인**을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="remove-a-workspace-using-powershell"></a>PowerShell을 사용하여 작업 영역 제거

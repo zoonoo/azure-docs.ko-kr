@@ -28,8 +28,8 @@ ms.locfileid: "58903406"
 * Linux 컴퓨터의 syslog에서 이벤트 수집
 * Windows 이벤트 로그에서 이벤트 수집
 * 사용자 지정 이벤트 로그 수집
-* Azure 가상 머신에 Log Analytics 에이전트 추가
-* Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
+* Azure 가상 머신에 로그 분석 에이전트 추가
+* Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 로그 분석 구성
 
 이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 를 참조할 수 있습니다.
 

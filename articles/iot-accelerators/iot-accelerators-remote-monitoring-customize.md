@@ -77,7 +77,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 ## <a name="customize-the-layout"></a>레이아웃 사용자 지정
 
-원격 모니터링 솔루션의 각 페이지는 소스 코드에서 *패널*이라고 하는 컨트롤의 집합으로 구성됩니다. **대시보드** 페이지는 개요, 지도, 경고, 원격 분석 및 분석의 5개 패널로 구성됩니다. [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub 리포지토리에서 각 페이지 및 해당 패널을 정의하는 소스 코드를 찾을 수 있습니다. 예를 들어 **대시보드** 페이지, 해당 레이아웃 및 페이지의 패널을 정의하는 코드는 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) 폴더에 있습니다.
+원격 모니터링 솔루션의 각 페이지는 소스 코드에서 *패널*이라고 하는 컨트롤의 세트로 구성됩니다. **대시보드** 페이지는 개요, 지도, 경고, 원격 분석 및 분석의 5개 패널로 구성됩니다. [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub 리포지토리에서 각 페이지 및 해당 패널을 정의하는 소스 코드를 찾을 수 있습니다. 예를 들어 **대시보드** 페이지, 해당 레이아웃 및 페이지의 패널을 정의하는 코드는 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) 폴더에 있습니다.
 
 패널은 고유의 레이아웃 및 크기 조정을 관리하기 때문에 페이지의 레이아웃을 쉽게 수정할 수 있습니다. `src/components/pages/dashboard/dashboard.js` 파일에서 **PageContent** 요소를 다음과 같이 변경합니다.
 

@@ -183,7 +183,7 @@ Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 �
 |Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Azure Monitor 로그 솔루션 팩을 관리 합니다.|
 |Microsoft.OperationalInsights/workspaces/savedSearches/*|Azure Monitor 저장 되는 로그 검색을 관리 합니다.|
 |Microsoft.OperationalInsights/workspaces/search/action|Log Analytics 작업 영역 검색|
-|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Log Analytics 작업 영역에 대한 키 나열|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Log Analytics 작업 영역에 대한 키를 나열합니다.|
 |Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Azure Monitor 로그 저장소 정보 구성을 관리 합니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 |Microsoft.WorkloadMonitor/workloads/*|워크로드를 관리합니다.|

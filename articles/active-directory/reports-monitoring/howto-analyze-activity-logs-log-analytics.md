@@ -39,7 +39,7 @@ ms.locfileid: "58436815"
 * Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아보세요.
 * 먼저 [Azure AD 활동 로그를 Log Analytics 작업 영역으로 라우팅](howto-integrate-activity-logs-with-log-analytics.md)하는 단계를 완료합니다.
 
-## <a name="navigate-to-the-log-analytics-workspace"></a>Log Analytics 작업 영역으로 이동합니다.
+## <a name="navigate-to-the-log-analytics-workspace"></a>Log Analytics 작업 영역으로 이동
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
@@ -96,7 +96,7 @@ AuditLogs
 
 ## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Azure AD 활동 로그의 미리 빌드한 보기 설치 및 사용
 
-Azure AD 활동 로그에 대한 미리 빌드된 Log Analytics 보기를 다운로드할 수도 있습니다. 이 보기는 감사 및 로그인 이벤트와 관련된 일반적인 시나리오에 대한 몇 가지 보고서를 제공합니다. 이전 섹션에서 설명한 단계를 사용하여 보고서에 제공된 데이터에 대해 경고를 발생할 수도 있습니다.
+Azure AD 활동 로그에 대한 미리 빌드된 로그 분석 보기를 다운로드할 수도 있습니다. 이 보기는 감사 및 로그인 이벤트와 관련된 일반적인 시나리오에 대한 몇 가지 보고서를 제공합니다. 이전 섹션에서 설명한 단계를 사용하여 보고서에 제공된 데이터에 대해 경고를 발생할 수도 있습니다.
 
 * **Azure AD 계정 프로비전 이벤트**: 프로비전 활동 감사(예: 새로 프로비전된 사용자 수 및 프로비전 실패 횟수, 업데이트된 사용자 수 및 업데이트 실패 횟수, 프로비전 해제된 사용자 수 및 해당 실패 횟수)와 관련된 보고서가 표시됩니다.    
 * **로그인 이벤트**: 로그인 활동 모니터링(예: 애플리케이션, 사용자, 디바이스별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.

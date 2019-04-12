@@ -15,7 +15,7 @@ ms.date: 06/15/2018
 ms.author: yagup;jdial
 ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
 ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2019
 ms.locfileid: "59051889"
@@ -50,7 +50,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 ## <a name="how-traffic-analytics-works"></a>트래픽 분석의 작동 원리
 
-트래픽 분석은 동일한 원본 IP 주소, 대상 IP 주소, 대상 포트 및 프로토콜 사이에서 공통적인 흐름을 집계하여 원시 NSG 흐름 로그를 검사하고 감소된 로그를 캡처합니다. 예를 들어 호스트 1(IP 주소: 10.10.10.10)은 포트(예: 80) 및 프로토콜(예: http)을 사용하여 1시간에 100회 호스트 2(IP 주소: 10.10.20.10)와 통신합니다. 축소된 로그에는 100개의 항목 대신 호스트 1과 호스트2가 포트 *80* 및 프로토콜 *HTTP*를 사용하여 1시간 동안 100회 통신했다는 항목 하나가 있습니다. 축소된 로그는 지리, 보안 및 토폴로지 정보를 통해 강화된 후 Log Analytics 작업 영역에 저장됩니다. 다음 그림은 데이터 흐름을 보여줍니다.
+트래픽 분석은 동일한 원본 IP 주소, 대상 IP 주소, 대상 포트 및 프로토콜 사이에서 공통적인 흐름을 집계하여 원시 NSG 흐름 로그를 검사하고 감소된 로그를 캡처합니다. 예를 들어 호스트 1(IP 주소: 10.10.10.10)은 포트(예: 80) 및 프로토콜(예: http)을 사용하여 1시간에 100회 호스트 2(IP 주소: 10.10.20.10)와 통신합니다. 축소된 로그에는 100개의 항목 대신 호스트 1과 호스트2가 포트 *80* 및 프로토콜 *HTTP*를 사용하여 1시간 동안 100회 통신했다는 항목 하나가 있습니다. 축소된 로그는 지리, 보안 및 토폴로지 정보를 통해 강화된 다음, Log Analytics 작업 영역에 저장됩니다. 다음 그림은 데이터 흐름을 보여줍니다.
 
 ![NSG 흐름 로그 처리의 데이터 흐름](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 

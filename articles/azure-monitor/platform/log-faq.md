@@ -175,7 +175,7 @@ a. `Move-AzResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이�
 
 이러한 변경은 Azure 포털에서 이루어집니다.
 
-데이터를 한 Log Analytics 작업 영역에서 다른 작업 영역으로 이동하거나 Log Analytics 데이터가 저장된 지역을 변경할 수 없습니다.
+데이터를 Log Analytics 작업 영역 간에 이동하거나 Log Analytics 데이터가 저장된 지역을 변경할 수 없습니다.
 
 ### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>Q: Log Analytics를 System Center Operations Manager에 추가하려면 어떻게 할까요?
 

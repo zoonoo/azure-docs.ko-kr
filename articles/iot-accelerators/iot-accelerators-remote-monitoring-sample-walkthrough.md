@@ -17,9 +17,9 @@ ms.locfileid: "58176139"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
-원격 모니터링 [솔루션 가속기](../iot-accelerators/about-iot-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)할 수 있습니다.
+원격 모니터링 [솔루션 가속기](../iot-accelerators/about-iot-accelerators.md)는 원격 위치에서 여러 머신에 대한 엔드투엔드 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)할 수 있습니다.
 
-이 문서에서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
+이 문서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
 * 솔루션의 문제를 해결합니다.
 * 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다.

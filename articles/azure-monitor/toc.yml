@@ -34,9 +34,9 @@ items:
   expanded: true
 - name: 자습서
   items:
-  - name: Log Analytics에서 데이터 분석
+  - name: 로그 분석에서 데이터 분석
     href: learn/tutorial-viewdata.md
-  - name: Log Analytics에서 데이터 시각화
+  - name: 로그 분석에서 데이터 시각화
     href: learn/tutorial-logs-dashboards.md
   - name: 보관 플랫폼 메트릭 및 로그 데이터
     href: learn/tutorial-archive-data.md

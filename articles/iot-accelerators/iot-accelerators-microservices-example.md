@@ -16,7 +16,7 @@ ms.locfileid: "58004111"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
-이 자습서에서는 원격 모니터링 솔루션에서 하나의 [마이크로 서비스](https://azure.com/microservices)를 편집하고, 마이크로 서비스의 이미지를 빌드하고, 이미지를 도커 허브에 배포한 다음, 원격 모니터링 솔루션에서 사용하는 방법을 보여줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
+이 자습서에서는 원격 모니터링 솔루션에서 하나의 [마이크로서비스](https://azure.com/microservices)를 편집하고, 마이크로서비스의 이미지를 빌드하고, 이미지를 도커 허브에 배포한 다음, 원격 모니터링 솔루션에서 사용하는 방법을 보여줍니다. 이 개념을 소개하기 위해 자습서는 마이크로 서비스 API를 호출하고 상태 메시지를 "Alive and Well"에서 "New Edits Made Here!"로 변경하는 기본 시나리오를 사용합니다.
 
 원격 모니터링 솔루션은 도커 허브에서 가져온 도커 이미지를 사용하여 빌드된 마이크로 서비스를 사용합니다. 
 
@@ -134,10 +134,10 @@ ms.locfileid: "58004111"
     ```
 
 ## <a name="view-the-new-response-status"></a>새 응답 상태보기
-Remote Monitoring 솔루션의 로컬 인스턴스를 재배포하고 Postman에서 새로운 상태 응답을 확인하여 마칩니다.
+원격 모니터링 솔루션의 로컬 인스턴스를 재배포하고 Postman에서 새로운 상태 응답을 확인하여 마칩니다.
 
 1. 터미널로 돌아가서 이제 다음 디렉터리로 변경합니다. “azure-iot-pcs-remote-monitoring-dotnet/scripts/local”
-2. 터미널에 다음 명령을 입력하여 Remote Monitoring 솔루션의 로컬 인스턴스를 시작합니다.
+2. 터미널에 다음 명령을 입력하여 원격 모니터링 솔루션의 로컬 인스턴스를 시작합니다.
 
     ```cmd/sh
     docker-compose up
@@ -193,7 +193,7 @@ Remote Monitoring 솔루션의 로컬 인스턴스를 재배포하고 Postman에
 > * 새로운 도커 이미지 가져오기
 > * 변경 사항 시각화 
 
-다음으로 시도할 것은 [Remote Monitoring 솔루션에서 디바이스 시뮬레이터 마이크로 서비스를 사용자 지정](iot-accelerators-microservices-example.md)하는 것입니다.
+다음으로 시도할 것은 [원격 모니터링 솔루션에서 디바이스 시뮬레이터 마이크로서비스를 사용자 지정](iot-accelerators-microservices-example.md)하는 것입니다.
 
 원격 모니터링 솔루션에 대한 자세한 개발자 정보는 다음을 참조하세요.
 

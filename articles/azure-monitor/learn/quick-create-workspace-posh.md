@@ -22,7 +22,7 @@ ms.locfileid: "58905735"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell로 Log Analytics 작업 영역 만들기
 
-PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Monitor에서 Log Analytics 작업 영역을 배포하는 방법을 보여 줍니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
+PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Monitor에서 Log Analytics 작업 영역을 배포하는 방법을 보여줍니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
 
 * 구독의 Azure 리소스  
 * System Center Operations Manager에서 모니터링하는 온-프레미스 컴퓨터  

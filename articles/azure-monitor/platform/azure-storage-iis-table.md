@@ -130,7 +130,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
 * Virtual Machines
 * 웹/작업자 역할
 
-Azure Portal에서 Log Analytics 작업 공간으로 이동하여 다음 작업을 수행합니다.
+Azure Portal에서 Log Analytics 작업 영역으로 이동하여 다음 작업을 수행합니다.
 
 1. *Storage 계정 로그*를 클릭합니다.
 2. 작업 *추가*를 클릭합니다.

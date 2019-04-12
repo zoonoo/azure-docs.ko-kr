@@ -148,7 +148,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 
 
 ## <a name="data-collection-tier"></a>데이터 수집 계층
-Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytics 작업 영역의 보안 이벤트 저장소에만 영향을 미칩니다. Log Analytics 에이전트는 계속 수집 하 고 (있는 경우) Log Analytics 작업 영역에 저장 하도록 선택 하면 보안 이벤트의 계층에 관계 없이, Azure Security Center의 위협 검색에 필요한 보안 이벤트를 분석. 작업 영역에 보안 이벤트를 저장하도록 선택하면 작업 영역에서 해당 이벤트를 조사, 검색 및 감사할 수 있습니다. 
+Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytics 작업 영역의 보안 이벤트 스토리지에만 영향을 미칩니다. Log Analytics 에이전트는 계속 수집 하 고 (있는 경우) Log Analytics 작업 영역에 저장 하도록 선택 하면 보안 이벤트의 계층에 관계 없이, Azure Security Center의 위협 검색에 필요한 보안 이벤트를 분석. 작업 영역에 보안 이벤트를 저장하도록 선택하면 작업 영역에서 해당 이벤트를 조사, 검색 및 감사할 수 있습니다. 
 > [!NOTE]
 > Log analytics에서 데이터를 저장할 데이터 저장소에 대 한 추가 요금이 발생에 대 한 자세한 가격 책정 페이지를 참조 하세요. 수도 있습니다.
 > 
@@ -277,7 +277,7 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
    
    1. **Log Analytics**로 이동하여 **고급 설정**을 클릭합니다.
     
-      ![Log Analytics 설정][11]
+      ![로그 분석 설정][11]
 
    2. **WorkspaceID** 및 **기본 키** 값을 복사합니다.
   

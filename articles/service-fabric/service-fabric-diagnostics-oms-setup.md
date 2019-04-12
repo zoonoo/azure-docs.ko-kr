@@ -35,7 +35,7 @@ Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링하는 데 
 
 ## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Azure Marketplace를 사용하여 Log Analytics 작업 영역 배포
 
-클러스터를 배포한 후에 Log Analytics 작업 영역을 추가하려면 포털에서 Azure Marketplace로 이동한 다음, **Service Fabric 분석**을 찾습니다. 이것은 Service Fabric 관련 데이터가 있는 Service Fabric 배포를 위한 사용자 지정 솔루션입니다. 이 프로세스에서 솔루션(정보를 보기 위한 대시보드)과 작업 영역(기본 클러스터 데이터의 집계)을 모두 만듭니다.
+클러스터를 배포한 후에 Log Analytics 작업 영역을 추가하려면 포털에서 Azure Marketplace로 이동하고 **Service Fabric 분석**을 찾습니다. 이것은 Service Fabric 관련 데이터가 있는 Service Fabric 배포를 위한 사용자 지정 솔루션입니다. 이 프로세스에서 솔루션(정보를 보기 위한 대시보드)과 작업 영역(기본 클러스터 데이터의 집계)을 모두 만듭니다.
 
 1. 왼쪽 탐색 메뉴에서 **새로 만들기**를 선택합니다. 
 
@@ -79,7 +79,7 @@ Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이�
 
 ## <a name="deploy-azure-monitor-logs-with-azure-resource-manager"></a>Azure Monitor 로그 Azure Resource Manager 배포
 
-Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 템플릿은 새 Log Analytics 작업 영역을 만들고, 작업 영역에 Service Fabric 솔루션을 추가하고, 적절한 저장소 테이블에서 데이터를 읽도록 구성합니다.
+Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 템플릿은 새 Log Analytics 작업 영역을 만들고, 작업 영역에 Service Fabric 솔루션을 추가하고, 적절한 스토리지 테이블에서 데이터를 읽도록 구성합니다.
 
 [이 샘플 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)을 사용하고 요구 사항에 맞게 수정할 수 있습니다. 이 템플릿은 다음을 수행합니다.
 

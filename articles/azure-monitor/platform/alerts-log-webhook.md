@@ -82,7 +82,7 @@ ms.locfileid: "59006625"
 이 두 가지 예제에서 모두, 열과 행이 각각 두 개만 포함된 더미 페이로드를 언급했습니다.
 
 #### <a name="log-alert-for-azure-log-analytics"></a>Azure Log Analytics에 대한 로그 경고
-다음은 Log Analytics 기반 경고에 사용할 경우 *사용자 지정 JSON 옵션이 없는* 표준 웹후크 작업의 샘플 페이로드입니다.
+다음은 로그 분석 기반 경고에 사용되는 *사용자 지정 Json 옵션이 없는* 표준 웹후크 작업의 샘플 페이로드입니다.
 
 ```json
 {

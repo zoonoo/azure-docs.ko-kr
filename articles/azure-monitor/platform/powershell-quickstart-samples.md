@@ -333,7 +333,7 @@ Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/res
 여러 Azure 서비스가 다음 중 하나 이상을 수행할 수 있는 추가 로그 및 원격 분석을 제공합니다. 
  - Azure Storage 계정에 데이터를 저장하도록 구성
  - Event Hubs로 전송
- - Log Analytics 작업 영역으로 전송 
+ - Log Analytics 작업 영역으로 전송됩니다. 
 
 이 작업은 리소스 수준에서만 수행할 수 있습니다. 저장소 계정 또는 이벤트 허브가 진단 설정이 구성되는 대상 리소스와 같은 지역에 있어야 합니다.
 
@@ -379,7 +379,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-WorkspaceId 속성은 작업 영역의 *리소스 ID*를 사용합니다. 다음 명령을 사용하여 Log Analytics 작업 공간의 리소스 ID를 가져올 수 있습니다.
+WorkspaceId 속성은 작업 영역의 *리소스 ID*를 사용합니다. 다음 명령을 사용하여 Log Analytics 작업 영역의 리소스 ID를 가져올 수 있습니다.
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

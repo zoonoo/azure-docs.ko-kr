@@ -106,7 +106,7 @@ ms.locfileid: "59006943"
 
      앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
-사용자는 [Logs Analytics](../log-query/portals.md)에서 해당 분석 쿼리를 종료한 다음, [경고 설정] 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
+사용자는 [로그 분석](../log-query/portals.md)에서 해당 분석 쿼리를 종료한 다음, '경고 설정' 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
 
  ![Log Analytics - 경고 설정](media/alerts-log/AlertsAnalyticsCreate.png)
 

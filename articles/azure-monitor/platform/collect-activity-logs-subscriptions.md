@@ -289,13 +289,13 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 합니다 [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) 작업 작성 작업에서 개체를 사용 하 고 Log Analytics 작업 영역에 보냅니다.
 
 1. **새 단계** > **작업 추가**를 클릭합니다.
-2. 필터에 *Log Analytics*를 입력한 다음 **Azure Log Analytics Data Collector - 데이터 보내기** 작업을 선택합니다.
+2. 필터에 *로그 분석*을 입력한 다음, **Azure Log Analytics Data Collector - 데이터 보내기** 작업을 선택합니다.
 
-   ![Logic Apps에서 Log Analytics 데이터 보내기 작업 추가](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
+   ![논리 앱에서 로그 분석 데이터 보내기 작업 추가](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
 3. 연결 이름을 입력하고 Log Analytics 작업 영역의 **작업 영역 ID** 및 **작업 영역 키**를 붙여넣습니다.  **만들기**를 클릭합니다.
 
-   ![Logic Apps에서 Log Analytics 연결 추가](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
+   ![논리 앱에서 로그 분석 연결 추가](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 
 4. 연결을 만든 후 아래 표에 있는 설정을 편집합니다. 
 

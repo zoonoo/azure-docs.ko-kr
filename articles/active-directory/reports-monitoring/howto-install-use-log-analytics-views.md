@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory용 Log Analytics 보기(미리 보기)를 설치하고 사용하는 방법 | Microsoft Docs
-description: Azure Active Directory용 Log Analytics 보기(미리 보기)를 설치하고 사용하는 방법을 알아봅니다.
+title: Azure Active Directory용 로그 분석 보기(미리 보기)를 설치하고 사용하는 방법 | Microsoft Docs
+description: Azure Active Directory용 로그 분석 보기(미리 보기)를 설치하고 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,22 +24,22 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58437308"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 Log Analytics 보기 설치 및 사용
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 로그 분석 보기 설치 및 사용
 
-Azure Active Directory Log Analytics 보기를 통해 Azure AD 테넌트의 Azure AD 활동 로그를 분석하고 검색할 수 있습니다. Azure AD 활동 로그에는 포함되는 항목은 다음과 같습니다.
+Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트의 Azure AD 활동 로그를 분석하고 검색할 수 있습니다. Azure AD 활동 로그에는 포함되는 항목은 다음과 같습니다.
 
 * 감사 로그: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
 * 로그인 로그: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Log Analytics 보기를 사용하려면 다음이 필요합니다.
+로그 분석 보기를 사용하려면 다음이 필요합니다.
 
 * Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아보세요.
 * 먼저 [Azure AD 활동 로그를 Log Analytics 작업 영역으로 라우팅](howto-integrate-activity-logs-with-log-analytics.md)하는 단계를 완료합니다.
 * [GitHub 리포지토리](https://aka.ms/AADLogAnalyticsviews)의 보기를 로컬 컴퓨터에 다운로드합니다.
 
-## <a name="install-the-log-analytics-views"></a>Log Analytics 보기 설치
+## <a name="install-the-log-analytics-views"></a>로그 분석 보기 설치
 
 1. Log Analytics 작업 영역으로 이동합니다. 이렇게 하려면 먼저 [Azure Portal](https://portal.azure.com)로 이동하고, **모든 서비스**를 선택합니다. 텍스트 상자에 **Log Analytics**를 입력하고 **Log Analytics 작업 영역**을 선택합니다. 활동 로그를 라우팅한 작업 영역을 필수 구성 요소의 일부로 선택합니다.
 2. **뷰 디자이너**를 선택하고, **가져오기**를 선택한 다음, **파일 선택**을 선택하여 로컬 컴퓨터에서 보기를 가져옵니다.

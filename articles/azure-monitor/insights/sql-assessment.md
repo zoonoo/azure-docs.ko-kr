@@ -42,7 +42,7 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 * SQL Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4를 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
 * 이 솔루션은 SQL Server 2012, 2014 및 2016 버전을 지원합니다.
-* Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 공간  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
+* Azure Marketplace로부터 SQL Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 영역.  솔루션을 설치하기 위해서는 사용자가 Azure 구독의 관리자 또는 참가자여야 합니다.
 
   > [!NOTE]
   > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Azure Monitor로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.

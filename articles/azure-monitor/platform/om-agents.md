@@ -118,7 +118,7 @@ Azure Monitor와 통합 하려면 다음 단계를 완료 한 후 구성을 실�
 1. 성공적으로 인증되면 **Operations Management Suite 온보딩 마법사: 작업 영역 선택** 페이지에 Azure 테넌트, 구독 및 Log Analytics 작업 영역을 선택하라는 메시지가 표시됩니다. 둘 이상의 작업 영역이 있는 경우 드롭다운 목록에서 Operations Manager 관리 그룹으로 등록하려는 작업 영역을 선택한 후 **다음**을 클릭합니다.
    
    > [!NOTE]
-   > Operations Manager는 한 번에 하나의 Log Analytics 작업 영역을 지원합니다. 연결 및 이전 작업 영역을 사용 하 여 Azure Monitor에 등록 된 컴퓨터는 Azure Monitor에서 제거 됩니다.
+   > Operations Manager는 한 번에 하나의 Log Analytics 작업 영역만 지원합니다. 연결 및 이전 작업 영역을 사용 하 여 Azure Monitor에 등록 된 컴퓨터는 Azure Monitor에서 제거 됩니다.
    > 
    > 
 1. **Operations Management Suite 온보딩 마법사: 요약** 페이지에서 설정을 확인하고, 올바른 경우 **만들기**를 클릭합니다.

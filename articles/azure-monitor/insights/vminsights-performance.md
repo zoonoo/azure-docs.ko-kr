@@ -109,7 +109,7 @@ Azure Monitor에서 성능 기능 작업 그룹 환경에서 또는 구독에 �
 ## <a name="alerts"></a>경고  
 VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. 가지 [상태 경고](vminsights-health.md#alerts) 등 높은 CPU 사용률, 메모리 부족, 사용 가능한 디스크 공간을 등 Azure VM에서 검색 된 성능 문제에 해당 합니다.  그러나 이러한 상태 경고 Azure Monitor에 대 한 Vm에 대 한 사용 하도록 설정 하는 모든 Vm에만 적용 됩니다. 
 
-그러나 Log Analytics 작업 영역에서 가져온 성능 메트릭의 하위 집합만 수집하고 저장할 수 있습니다. 모니터링 전략에 가상 머신의 용량 또는 상태를 효과적으로 평가하기 위해 다른 성능 메트릭을 포함하는 분석 또는 경고가 필요하거나 고유한 경고 조건 또는 논리를 지정하기 위해 유연성이 필요한 경우 Log Analytics에서 [해당 성능 카운터의 컬렉션](../platform/data-sources-performance-counters.md)을 구성하고 [로그 경고](../platform/alerts-log.md)를 정의할 수 있습니다. Log Analytics를 사용하여 다른 데이터 형식을 사용하여 복잡한 분석을 수행하고 장기 보존을 제공하여 추세 분석을 지원할 수 있는 반면 메트릭은 가볍고 실시간에 가까운 시나리오를 지원할 수 있습니다. [Azure 진단 에이전트](../../virtual-machines/windows/monitor.md)를 통해 수집되며 Azure Monitor 메트릭 저장소에 저장되어 낮은 대기 시간 및 저렴한 비용으로 경고를 만들 수 있습니다.
+그러나 Log Analytics 작업 영역에서 가져온 성능 메트릭의 하위 세트만 수집하고 저장할 수 있습니다. 모니터링 전략에 가상 머신의 용량 또는 상태를 효과적으로 평가하기 위해 다른 성능 메트릭을 포함하는 분석 또는 경고가 필요하거나 고유한 경고 조건 또는 논리를 지정하기 위해 유연성이 필요한 경우 Log Analytics에서 [해당 성능 카운터의 컬렉션](../platform/data-sources-performance-counters.md)을 구성하고 [로그 경고](../platform/alerts-log.md)를 정의할 수 있습니다. Log Analytics를 사용하여 다른 데이터 형식을 사용하여 복잡한 분석을 수행하고 장기 보존을 제공하여 추세 분석을 지원할 수 있는 반면 메트릭은 가볍고 실시간에 가까운 시나리오를 지원할 수 있습니다. [Azure 진단 에이전트](../../virtual-machines/windows/monitor.md)를 통해 수집되며 Azure Monitor 메트릭 저장소에 저장되어 낮은 대기 시간 및 저렴한 비용으로 경고를 만들 수 있습니다.
 
 이러한 추가 메트릭 및 경고 규칙의 컬렉션을 구성하기 전에 기본적인 차이점 및 기타 고려 사항을 자세히 이해하려면 [Azure Monitor를 사용하여 메트릭 및 로그의 컬렉션](../platform/data-platform.md)의 개요를 검토하세요.  
 

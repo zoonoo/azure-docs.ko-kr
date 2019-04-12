@@ -167,7 +167,7 @@ Office 365 구독에서 수집할 정보:
     AdminConsent -ErrorAction Stop
     ```
 
-2. 다음 명령을 사용하여 스크립트를 실행합니다. 자격 증명을 묻는 메시지가 두 번 표시됩니다. 먼저 Log Analytics 작업 영역용 자격 증명을 입력한 다음 Office 365 테넌트의 전역 관리자 자격 증명을 입력합니다.
+2. 다음 명령을 사용하여 스크립트를 실행합니다. 자격 증명을 묻는 메시지가 두 번 표시됩니다. 먼저 Log Analytics 작업 영역용 자격 증명을 입력한 다음, Office 365 테넌트의 글로벌 관리자 자격 증명을 입력합니다.
 
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>

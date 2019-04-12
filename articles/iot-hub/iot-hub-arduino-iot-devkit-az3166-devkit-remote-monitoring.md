@@ -42,7 +42,7 @@ ms.locfileid: "58100788"
    ![Azure IoT 솔루션 가속기 유형 선택](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
 
    > [!WARNING]
-   > 기본적으로 이 샘플은 하나의 IoT 원격 모니터링 솔루션 가속기를 만든 후 S2 IoT Hub를 만듭니다. 이 IoT Hub가 다수의 디바이스에 사용되지 않는 경우 S2에서 S1로 다운그레이드하고 더 이상 필요 없는 관련 IoT Hub도 삭제되도록 IoT 원격 모니터션 솔루션 가속기를 삭제하는 것이 좋습니다. 
+   > 기본적으로 이 샘플은 하나의 IoT 원격 모니터링 솔루션 가속기를 만든 후 S2 IoT Hub를 만듭니다. 이 IoT Hub가 다수의 디바이스에 사용되지 않는 경우 S2에서 S1로 다운그레이드하고 더 이상 필요 없는 관련 IoT Hub도 삭제되도록 IoT 원격 모니터링 솔루션 가속기를 삭제하는 것이 좋습니다. 
 
 2. **원격 모니터링**을 선택합니다.
 
@@ -131,7 +131,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-DevKit 디바이스를 Azure IoT 원격 모니터션 솔루션 가속기에 연결하고 센서 데이터를 시각화하는 방법을 알아보았습니다. 다음 제안 단계는 다음과 같습니다.
+DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연결하고 센서 데이터를 시각화하는 방법을 알아보았습니다. 다음 제안 단계는 다음과 같습니다.
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 

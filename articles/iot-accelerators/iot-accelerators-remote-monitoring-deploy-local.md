@@ -52,7 +52,7 @@ ms.locfileid: "58309982"
 
 이전 섹션에 **start.cmd** 스크립트에서 설정한 환경 변수에 액세스할 수 있는지 확인하려면 새 명령 프롬프트 창을 엽니다.
 
-디바이스 시뮬레이션 서비스용 Docker 컨테이너를 시작하려면 다음 명령을 실행합니다. 이 서비스를 원격 모니터링 솔루션에 사용되는 디바이스를 시뮬레이션합니다.
+디바이스 시뮬레이션 서비스용 Docker 컨테이너를 시작하려면 다음 명령을 실행합니다. 이 서비스는 원격 모니터링 솔루션을 위한 디바이스를 시뮬레이션합니다.
 
 ```cmd
 <path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd

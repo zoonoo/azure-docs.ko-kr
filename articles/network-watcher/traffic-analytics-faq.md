@@ -244,7 +244,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 트래픽 분석은 요금이 측정됩니다. 요금은 서비스에서 생성된 흐름 로그 데이터 처리 및 Log Analytics 작업 영역에서 생성된 향상된 로그 저장을 기준으로 측정됩니다. 
 
-예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 저장소 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
+예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 스토리지 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 다음과 같습니다. 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 

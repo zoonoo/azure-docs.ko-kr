@@ -52,7 +52,7 @@ Azure Key Vault AuditEvent 로그를 검토 하려면 Azure Monitor에서 Azure 
    ![Azure Key Vault 타일 이미지](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. 진단 설정에 이름을 지정 합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
-6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 새로 만듭니다.
+6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 만듭니다.
 7. *AuditEvent* 로그를 사용하도록 설정하려면 [로그] 아래의 확인란을 클릭합니다.
 8. 클릭 *저장할* Log Analytics 작업 영역에 대 한 진단 로깅을 사용 하도록 설정 합니다.
 

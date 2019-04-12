@@ -67,7 +67,7 @@ Runbook에서 [모듈](../../automation/automation-integration-modules.md)을 �
 |:--|:--|:--|
 | 이름 | WorkspaceId | WorkspaceKey |
 | Type | 문자열 | 문자열 |
-| 값 | Log Analytics 작업 영역의 작업 영역 ID를 붙여 넣습니다. | Log Analytics 작업 영역의 기본 또는 보조 키와 함께 붙여 넣습니다. |
+| 값 | Log Analytics 작업 영역의 작업 영역 ID를 붙여넣습니다. | Log Analytics 작업 영역의 기본 또는 보조 키와 함께 붙여넣습니다. |
 | 암호화 | 아닙니다. | 예 |
 
 ## <a name="3-create-runbook"></a>3. runbook 만들기

@@ -68,7 +68,7 @@ HDInsight 클러스터에서 실행 중인 워크로드 유형을 이해하여 �
 
 * 클러스터에서 또는 둘 이상의 클러스터에서 로그를 수집하고 감사, 모니터링, 계획, 경고 등의 목적에 사용할 수 있도록 정렬하는 방안을 고려해 봅니다. 사용자 정의 솔루션을 사용하여 정기적으로 로그 파일에 액세스 및 다운로드하고, 로그 파일을 결합 및 분석하여 대시보드 표시를 제공할 수 있습니다. 보안 또는 실패 감지에 대해 경고하는 추가 기능을 추가할 수도 있습니다. 이러한 기능은 PowerShell, HDInsight SDK 또는 Azure 클래식 배포 모델에 액세스하는 코드를 사용하여 빌드할 수 있습니다.
 
-* 솔루션 또는 서비스를 모니터링하면 도움이 될 것 같은지 고민해 봅니다. Microsoft System Center에서는 [HDInsight 관리 팩](https://www.microsoft.com/download/details.aspx?id=42521)을 제공합니다. Apache Chukwa 및 Ganglia 같은 타사 도구를 사용하여 로그를 수집하고 중앙 집중화할 수도 있습니다. 많은 회사에서는 Hadoop 기반 빅 데이터 솔루션을 모니터링하기 위해 Centerity, Compuware APM, Sematext SPM 및 Zettaset Orchestrator와 같은 서비스를 제공합니다.
+* 모니터링 솔루션 또는 서비스가 유용한 이점이 될 수 있는지 여부를 고려합니다. Microsoft System Center에서는 [HDInsight 관리 팩](https://www.microsoft.com/download/details.aspx?id=42521)을 제공합니다. Apache Chukwa 및 Ganglia 같은 타사 도구를 사용하여 로그를 수집하고 중앙 집중화할 수도 있습니다. 많은 회사에서는 Hadoop 기반 빅 데이터 솔루션을 모니터링하기 위해 Centerity, Compuware APM, Sematext SPM 및 Zettaset Orchestrator와 같은 서비스를 제공합니다.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>2단계: 클러스터 서비스 버전 관리 및 스크립트 작업 로그 보기
 

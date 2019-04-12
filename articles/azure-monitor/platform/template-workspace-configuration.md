@@ -34,8 +34,8 @@ ms.locfileid: "58540774"
 * Linux 및 Windows 컴퓨터에서 성능 카운터 수집
 * Linux 컴퓨터의 syslog에서 이벤트 수집 
 * Windows 이벤트 로그에서 이벤트 수집
-* Azure 가상 머신에 Log Analytics 에이전트 추가
-* Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
+* Azure 가상 머신에 로그 분석 에이전트 추가
+* Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 로그 분석 구성
 
 이 문서에서는 템플릿에서 수행할 수 있는 몇 가지 구성을 보여 주는 템플릿 샘플을 제공합니다.
 

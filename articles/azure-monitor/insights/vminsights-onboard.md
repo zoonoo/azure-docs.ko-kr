@@ -51,7 +51,7 @@ Vm에 대 한 azure Monitor에는 다음 지역에서 Log Analytics 작업 영�
 <sup>1</sup> 이 지역은 현재 VM용 Azure Monitor의 상태 기능을 지원하지 않습니다
 
 >[!NOTE]
->Azure Virtual Machines는 모든 지역에서 배포될 수 있으며, Log Analytics 작업 영역에 지원되는 지역으로 제한되지 않습니다.
+>Azure 가상 머신은 모든 지역에서 배포될 수 있으며, Log Analytics 작업 영역에 지원되는 지역으로 제한되지 않습니다.
 >
 
 작업 영역이 없는 경우 다음 방법 중 하나로 만들 수 있습니다.
