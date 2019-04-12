@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369533"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493062"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -118,7 +118,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
 * **활동 설명**: 관리자가 Azure Portal에서 사용자를 대신하여 암호를 재설정했음을 나타냅니다.
-* **활동 행위자**: 다른 최종 사용자 또는 관리자를 대신하여 암호를 재설정한 관리자입니다. 전역 관리자, 암호 관리자, 사용자 관리자 또는 기술 지원팀 관리자여야 합니다.
+* **활동 행위자**: 다른 최종 사용자 또는 관리자를 대신하여 암호를 재설정한 관리자입니다. 암호 관리자, 사용자 관리자 또는 기술 지원팀 관리자 여야 합니다.
 * **활동 대상**: 자신의 암호를 다시 설정한 사용자입니다. 사용자는 최종 사용자 또는 다른 관리자일 수 있습니다.
 * **활동 상태**:
   * _성공_: 관리자가 사용자의 암호를 성공적으로 다시 설정했음을 나타냅니다.
@@ -176,16 +176,16 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 ## <a name="next-steps"></a>다음 단계
 
-* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
+* [성공적인 SSPR 롤아웃을 완료 어떻게 해야 합니까?](howto-sspr-deployment.md)
 * [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
 * [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
-* [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
-* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
-* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
-* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
-* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
-* [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
-* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
+* [라이선스 질문 있습니까?](concept-sspr-licensing.md)
+* [SSPR에서 사용 되는 데이터 및 데이터를 채워야 사용자에 대 한?](howto-sspr-authenticationdata.md)
+* [어떤 인증 방법이 사용자에 게 사용할 수 있습니까?](concept-sspr-howitworks.md#authentication-methods)
+* [Sspr 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
+* [비밀 번호 쓰기 저장 이란 무엇이 고에 대 한 중요 않은 이유는?](howto-sspr-writeback.md)
+* [모든 SSPR 옵션과 이란 무엇 이며 무엇을 의미?](concept-sspr-howitworks.md)
+* [끊어졌습니다 무엇 인가 하는 것이 생각 합니다. SSPR을 해결 하려면 어떻게 해야 합니까?](active-directory-passwords-troubleshoot.md)
+* [검사 하지 않은 어딘가에 다른 질문이](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD의 SSPR 작업 감사 로그 예제"

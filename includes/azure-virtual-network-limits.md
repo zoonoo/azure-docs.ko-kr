@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553949"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503049"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "57553949"
 | --- | --- |
 | 가상 네트워크 |1,000 |
 | 가상 네트워크당 서브넷 |3,000 |
-| 가상 네트워크 당 가상 네트워크 피어 링 |100 |
+| 가상 네트워크 당 가상 네트워크 피어 링 |500 |
 | 가상 네트워크 당 DNS 서버 |20 |
 | 가상 네트워크 당 개인 IP 주소 |65,536 |
 | 네트워크 인터페이스당 개인 IP 주소 |256 |
@@ -68,7 +68,7 @@ ms.locfileid: "57553949"
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 공용 IP 주소 - 동적 | basic의 경우 1,000입니다. |지원에 문의 |
-| 공용 IP 주소 - 고정 | basic의 경우 200입니다. |지원에 문의 |
+| 공용 IP 주소 - 고정 | basic의 경우 1,000입니다. |지원에 문의 |
 | 공용 IP 주소 - 고정 | 표준 200입니다.|지원에 문의 |
 | 공용 IP 접두사 크기 (미리 보기) | /28 | /28 |
 

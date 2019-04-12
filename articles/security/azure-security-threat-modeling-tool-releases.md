@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: 06fd659df1ec12bd6d5a7b8fb2ee94ca27d6a87c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2ef02fd4c057dbdb15632752521ae314571560b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834373"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492108"
 ---
 # <a name="threat-modeling-tool-releases"></a>Threat Modeling Tool 릴리스
 
@@ -36,6 +36,7 @@ Microsoft Threat Modeling Tool은 현재 Windows용 무료 애플리케이션으
 
 ## <a name="release-notes"></a>릴리스 정보
 
+- [Microsoft 위협 모델링 도구 GA 릴리스 버전 7.1.60408.1](./azure-security-threat-modeling-tool-releases-71604081.md) -9 2019 년 4 월
 - [Microsoft Threat Modeling Tool GA 릴리스 버전 7.1.60126.1](./azure-security-threat-modeling-tool-releases-71601261.md) - 2019년 1월 29일
 - [Microsoft Threat Modeling Tool GA 릴리스 버전 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - 2018년 11월 1일
 - [Microsoft Threat Modeling Tool GA 릴리스 버전 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) - 2018년 9월 12일

@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning Service에서 다중 테넌트를 지�
 description: 디바이스 프로비저닝 서비스 인스턴스를 사용하여 다중 테넌트를 지원하기 위해 디바이스를 프로비저닝하는 방법
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544446"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500739"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
@@ -208,7 +208,7 @@ ms.locfileid: "57544446"
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    이 리포지토리 크기는 현재 약 220MB입니다. 이 작업을 완료하는 데 몇 분 정도가 걸립니다.
+    이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
 1. 두 VM에 대해 리포지토리 내에 새 **cmake** 폴더를 만들고 해당 폴더로 변경합니다.
 
@@ -420,7 +420,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
+- 자세한 Reprovisioning에 알아보려면 [개념을 다시 프로 비전 된 IoT 허브 장치](concepts-device-reprovision.md) 
 - 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
 
 

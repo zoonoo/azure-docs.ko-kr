@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
+ms.date: 04/10/2019
 ms.author: alkohli
-ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339456"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500909"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
 
@@ -49,15 +49,28 @@ StorSimple 8000 시리즈를 사용하여 데이터를 마이그레이션하는 
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Panzura Freedom NAS로 마이그레이션
 
-StorSimple 5000-7000 고객은 Azure에서 데이터를 유지하기 위해 Panzura Freedom NAS로 마이그레이션하도록 선택할 수 있습니다. Panzura Freedom 솔루션은 데이터 센터, 사무실, 공용 및 사설 클라우드를 포괄한 NAS 솔루션을 제공합니다. 솔루션을 통해 NFS, SMB 및 모바일 클라이언트에 대한 로컬, 하이브리드 및 클라우드 내 데이터 워크플로를 활성화할 수 있습니다. 이 마이그레이션은 Panzura에서 지원하며, 고객은 [Panzura 웹 사이트](https://panzura.com/storsimple-migration/)에서 마이그레이션 지원을 요청하여 시작할 수 있습니다.
+StorSimple 5000-7000 고객은 Azure에서 데이터를 유지하기 위해 Panzura Freedom NAS로 마이그레이션하도록 선택할 수 있습니다. Panzura Freedom 솔루션은 데이터 센터, 사무실, 공용 및 사설 클라우드를 포괄한 NAS 솔루션을 제공합니다. 솔루션을 통해 NFS, SMB 및 모바일 클라이언트에 대한 로컬, 하이브리드 및 클라우드 내 데이터 워크플로를 활성화할 수 있습니다. 
+
+이 마이그레이션은 Panzura에서 지원하며, 고객은 [Panzura 웹 사이트](https://panzura.com/storsimple-migration/)에서 마이그레이션 지원을 요청하여 시작할 수 있습니다.
 
 #### <a name="migrate-to-cohesity"></a>Cohesity로 마이그레이션
 
-Cohesity를 사용하면 현재 StorSimple 5000-7000에서 Azure의 Cohesity 데이터 플랫폼으로 데이터를 마이그레이션할 수 있습니다. Cohesity 데이터 플랫폼은 파일, 백업, 개체 및 VM을 단일 클라우드 네이티브 솔루션으로 통합하는 소프트웨어 정의 웹 규모 솔루션입니다. 데이터 플랫폼으로 마이그레이션한 후에는 단일 창을 통해 데이터와 앱을 관리, 보호하고 클라우드에서 코어로 프로비전할 수 있습니다. Cohesity를 사용하면 겨우 세 개의 노드로 시작합니다. [Cohesity DataPlatform으로 마이그레이션](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html)에 대해 자세히 알아보세요.
+Cohesity를 사용하면 현재 StorSimple 5000-7000에서 Azure의 Cohesity 데이터 플랫폼으로 데이터를 마이그레이션할 수 있습니다. Cohesity 데이터 플랫폼은 파일, 백업, 개체 및 VM을 단일 클라우드 네이티브 솔루션으로 통합하는 소프트웨어 정의 웹 규모 솔루션입니다. 데이터 플랫폼으로 마이그레이션한 후에는 단일 창을 통해 데이터와 앱을 관리, 보호하고 클라우드에서 코어로 프로비전할 수 있습니다. Cohesity를 사용하면 겨우 세 개의 노드로 시작합니다. 
+
+에 대해 자세히 알아보세요 [Cohesity 데이터 플랫폼으로 마이그레이션](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html)합니다.
 
 #### <a name="migrate-to-nasuni"></a>Nasuni로 마이그레이션
 
-Nasuni 쉽게 마이그레이션하고 Azure에서 해당 데이터를 유지 하려면 StorSimple 5000 ~ 7000 고객용입니다.  Nasuni는 최고의 NAS Azure 기반 저장소 솔루션, 성능 및 보안 클라우드 경제성 및 확장을 사용 하 여 온-프레미스 솔루션에서 예상 하는 고객에 게 제공 합니다.  고성능 파일 저장소, Nasuni 및 Azure에 해당 하는 핸들의 백업 및 DR을 공유 하 고 중앙 집중화 된 파일 저장소 관리를 사용 하 여 전 세계 데이터에 대해 공동 작업 하면서 하는 것 외에도 Nasuni는 마이그레이션을 손쉽게 – 지금 시작 하려면 환경에 있습니다. https://info.nasuni.com/nasuni-storsimple-migration
+Nasuni 쉽게 마이그레이션하고 Azure에서 해당 데이터를 유지 하려면 StorSimple 5000 ~ 7000 고객용입니다.  Nasuni는 최고의 NAS Azure 기반 저장소 솔루션, 성능 및 보안 클라우드 경제성 및 확장을 사용 하 여 온-프레미스 솔루션에서 예상 하는 고객에 게 제공 합니다.  고성능 파일 저장소, Nasuni 및 Azure에 해당 하는 핸들의 백업 및 DR을 공유 하 고 중앙 집중화 된 파일 저장소 관리를 사용 하 여 전 세계 데이터에 대해 공동 작업 하면서 하는 것 외에도 
+
+Nasuni는 마이그레이션을 손쉽게 – 지금 시작 하려면 환경에 있습니다. https://info.nasuni.com/nasuni-storsimple-migration
+
+#### <a name="migrate-to-talon-fast"></a>Talon FAST로 마이그레이션
+
+Talon을 사용 하면 더 큰 함수를 사용 하 여 StorSimple 플랫폼 (무제한 클라우드 리소스에서 지 원하는 작은 온사이트 공간)에서는 반환 이러한 이점을 활용할 수 계속 하려면 StorSimple 5000 ~ 7000 고객이 쉬워집니다.  Talon 빠른 솔루션을 사용 하면 고객이 마이그레이션할 수 잠금과 유지 이제는 더 작은 소프트웨어 전용 현장 공간이 필요 하 고 전역 파일과 같은 혜택을 추가 하는 동안 Azure에서 해당 데이터를 전역 네임 스페이스 및 다중 사이트 공동 작업 합니다.  Talon는 글로벌 고객에 게 그대로 유지 하면서 사용자 워크플로 또는 환경 없이 통합, Azure 기반 공간에 온-프레미스 파일 서버 워크 로드 마이그레이션 작업, 최고의 Azure 에코 시스템 솔루션입니다.  
+
+클라우드 통합 엔터프라이즈에서 진화 하는 방법에 자세히 알아보려면 https://www.talonstorage.com/alliances/microsoft-storsimple합니다.
+
 
 ## <a name="migration---frequently-asked-questions"></a>마이그레이션 - 질문과 대답
 
@@ -100,7 +113,7 @@ a. 5000 또는 7000 시리즈에서 마이그레이션하는 작업은 완벽하
 a. 마이그레이션 비용은 선택한 옵션에 따라 다릅니다. 마이그레이션 자체에는 추가 비용이 들지 않지만, StorSimple 8000 시리즈로 업그레이드하려는 경우 하드웨어 디바이스 비용이 발생하게 됩니다. 
 
 마찬가지로 Azure 파일 동기화를 사용하는 경우 서비스 독 요금이 적용될 수 있습니다. 고객은 각각의 경우에서 진행 중인 저장소 비용을 지불해야 합니다. 예상 비용은 다음을 참조하세요. 
-- [StorSimple 가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [StorSimple 가격](https://azure.microsoft.com/pricing/details/storsimple/)  
 - [AFS 가격 책정]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>Q.  마이그레이션을 완료하는 데 얼마나 오래 걸리나요?
@@ -114,4 +127,4 @@ a. StorSimple 8000 시리즈의 지원 종료 날짜는 [여기](https://support
 
 ## <a name="next-steps"></a>다음 단계
  - [StorSimple 5000-7000 시리즈에서 8000 시리즈 디바이스로 데이터 마이그레이션](storsimple-8000-migrate-from-5000-7000.md)
- - [StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션](storsimple-5000-7000-afs-migration.md)
+ - [StorSimple 5000-7000 시리즈에서 데이터를 Azure File Sync로](storsimple-5000-7000-afs-migration.md)

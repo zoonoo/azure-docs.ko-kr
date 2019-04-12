@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227698"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501011"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight 클러스터 (미리 보기)를 자동으로 조정
 
@@ -83,7 +83,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 만드는 방법에 �
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>실행 중인 클러스터에 자동 크기 조정 사용 및 사용 안 함
 
-사용 하도록 설정 하거나 Azure portal을 통해 2019 년 1 월 1 일 이후 생성 된 HDInsight 클러스터에 대 한 자동 크기 조정을 비활성화할 수 있습니다.
+만 사용 하도록 설정 하거나 새 HDInsight 클러스터에 대 한 자동 크기 조정을 비활성화할 수 있습니다.
 
 ## <a name="monitoring"></a>모니터링
 
@@ -108,8 +108,8 @@ Resource Manager 템플릿을 사용하여 클러스터를 만드는 방법에 �
 
 다음 조건이 감지 되 면 자동 크기 조정 규모 요청을 실행 합니다.
 
-* 보류 중인 총 CPU가 사용 가능한 총 CPU보다 큰 시간이 1분을 초과합니다.
-* 보류 중인 총 메모리가 사용 가능한 총 메모리보다 큰 시간이 1분을 초과합니다.
+* 3 분 이상 CPU 보류 중인 총 사용 가능한 총 CPU 보다 큽니다.
+* 3 분 이상에 대 한 보류 중인 메모리의 총 사용 가능한 총 메모리 보다 큽니다.
 
 현재 CPU 및 메모리 요구 사항을 충족 하는 새 작업자 노드 수를 추가 하는 규모 요청을 실행 한 다음 특정 새 작업자 노드 수가 필요 함을 계산 됩니다.
 
@@ -120,7 +120,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 만드는 방법에 �
 * 보류 중인 총 CPU가 사용 가능한 총 CPU보다 작은 시간이 10분을 초과합니다.
 * 보류 중인 총 메모리가 사용 가능한 총 메모리보다 작은 시간이 10분을 초과합니다.
 
-노드 및 현재 CPU 및 메모리 요구 사항 마다 오전 컨테이너 수에 따라 자동 크기 조정 요청을 실행 특정 개수의 노드를 제거 하는 노드는 제거에 대 한 잠재적인 후보를 지정 합니다. 기본적으로 한 번의 주기에 두 개 노드가 제거됩니다.
+노드 및 현재 CPU 및 메모리 요구 사항 마다 오전 컨테이너 수에 따라 자동 크기 조정 요청을 실행 특정 개수의 노드를 제거 하는 노드는 제거에 대 한 잠재적인 후보를 지정 합니다. 규모 축소 노드 서비스 해제 트리거할 및 노드 완전히 해제 되 면 제거 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

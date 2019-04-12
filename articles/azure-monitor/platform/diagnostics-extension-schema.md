@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471653"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493317"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure Diagnostics 확장 스키마 버전을 인덱스합니다.  
@@ -29,7 +29,7 @@ ms.locfileid: "54471653"
 >
 > 이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
 
-Azure Diagnostics 확장은 Azure Monitor, Application Insights 및 Log Analytics와 같은 다른 Microsoft 진단 제품과 함께 사용됩니다. 자세한 내용은 [Microsoft 모니터링 도구 개요](../../azure-monitor/overview.md)를 참조하세요.
+Azure 진단 확장은 Application Insights 및 Log Analytics를 포함 하는 Azure Monitor와 같은 기타 Microsoft 진단 제품과 함께 사용 됩니다. 자세한 내용은 [Microsoft 모니터링 도구 개요](../../azure-monitor/overview.md)를 참조하세요.
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK 및 진단 버전 전달 차트  
 
@@ -60,7 +60,7 @@ Azure Diagnostics 확장은 Azure Monitor, Application Insights 및 Log Analytic
 
 [진단 1.2 구성 스키마](diagnostics-extension-schema-1dot2.md)  
 
-[진단 1.3 이상 구성 스키마](diagnostics-extension-schema-1dot3.md)  
+[진단 1.3 및 이상 구성 스키마](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>버전 기록
 
@@ -207,7 +207,7 @@ Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .
 Azure SDK 2.4에서 Azure SDK 2.5 이상으로 업그레이드하는 경우 다음 진단 기능 차이점을 명심해야 합니다.
 
 * **구성 API가 더 이상 사용되지 않음** – 진단의 프로그래밍 방식 구성은 Azure SDK 2.4 이하 버전에서는 사용할 수 있지만 Azure SDK 2.5 이상 버전에서는 더 이상 사용되지 않습니다. 코드에 진단 구성이 현재 정의된 경우 계속해서 진단하려면 마이그레이션된 프로젝트에서 해당 설정을 처음부터 다시 구성해야 합니다. Azure SDK 2.4에 대한 진단 구성 파일은 diagnostics.wadcfg이고 Azure SDK 2.5 이상에서는 diagnostics.wadcfgx입니다.
-* **클라우드 서비스 애플리케이션에 대한 진단은 인스턴스 수준이 아닌 역할 수준에서만 구성할 수 있습니다.**
+* **클라우드 서비스 응용 프로그램에 대 한 진단은 인스턴스 수준이 아닌 역할 수준 에서만 구성할 수 있습니다.**
 * **앱을 배포할 때마다 진단 구성이 업데이트됨** – 이로 인해 서버 탐색기에서 진단 구성을 변경한 후 앱을 다시 배포하는 경우 패리티 문제가 발생할 수 있습니다.
 * **Azure SDK 2.5 이상에서 코드가 아닌 진단 구성 파일에 크래시 덤프가 구성됨** – 코드에 크래시 덤프가 구성된 경우, Azure SDK 2.6으로 마이그레이션하는 동안 크래시 덤프가 전송되지 않으므로 해당 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
 

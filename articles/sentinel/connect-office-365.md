@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 Office 365 데이터 수집 | Microsoft Docs
-description: Azure Sentinel에서 Office 365 데이터를 수집 하는 방법에 알아봅니다.
+title: Office 365 데이터를 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
+description: Azure Sentinel에 Office 365 데이터를 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574861"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495193"
 ---
-# <a name="collect-data-from-office-365-logs"></a>Office 365 로그에서 데이터를 수집 합니다.
+# <a name="connect-data-from-office-365-logs"></a>Office 365 로그에서 데이터 연결
 
 > [!IMPORTANT]
 > Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
@@ -33,11 +33,11 @@ ms.locfileid: "58574861"
 ## <a name="prerequisites"></a>필수 조건
 
 - 테 넌 트에서 전역 관리자 또는 보안 관리자 여야 합니다.
-- 컴퓨터에 있는 연결을 만들려면 Azure Sentinel 로그인 확인 suretha 포트가 4433 웹 트래픽을 열려 있습니다.
+- 컴퓨터에 있는 연결을 만들려면 Azure Sentinel 로그인 포트 4433 웹 트래픽을 열려 있는지를 확인 합니다.
 
 ## <a name="connect-to-office-365"></a>Office 365에 연결
 
-1. Azure Sentinel 선택 **데이터 컬렉션** 클릭 하 고는 **Office 365** 바둑판식으로 배열 합니다.
+1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Office 365** 바둑판식으로 배열 합니다.
 
 2. 하지 이미 설정한 경우, 아래 **연결** 사용 합니다 **사용 하도록 설정** Office 365 솔루션을 사용 하도록 설정 하려면 단추입니다. 이미 설정 된 경우 연결 화면을 이미 사용 하도록 설정에서 식별 됩니다.
 1. Office 365을 사용 하면 여러 테 넌 트가 Azure Sentinel에서 스트림 데이터를 할 수 있습니다. 각 테 넌 트에 연결 하려는 추가에서 테 넌 트 **테 넌 트 Azure Sentinel 연결할**합니다. 
@@ -50,7 +50,7 @@ ms.locfileid: "58574861"
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel에 Office 365를 연결 하는 방법을 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+이 문서에서는 Azure Sentinel에 Office 365를 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
 - 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
 

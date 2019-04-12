@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235192"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501598"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -55,8 +55,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 | 도구  | 설명  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
-| [오류 코드 분석기](https://apps.dev.microsoft.com/portal/tools/errors)| 로그인 또는 동의 페이지에서 받은 오류 코드를 붙여넣어 가능한 원인 및 해결 방법을 확인합니다. |
-| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
+| [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
 
@@ -76,8 +75,8 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
 
-* [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
-* [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
+* [그렇다면 원했는데](https://stackoverflow.com/help/how-to-ask)
+* [최소의 완전 하 고 확인할 수 있는 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 

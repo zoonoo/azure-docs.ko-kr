@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62c4d56fbfca34ff6291863149b078f7ddc6680
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288593"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491598"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 계정에 대 한 로그인 옵션
 
-Azure Active Directory (Azure AD)에 대 한 Microsoft 365 로그인 페이지에 회사 또는 학교 계정 및 지원 하기 위해 상황에 따라 Microsoft 계정 중 하나 또는 모두 지원 합니다.
+작업 또는 학교 계정과 Microsoft 계정을 Azure Active Directory (Azure AD)에 대 한 Microsoft 365 로그인 페이지에서 지원 되지만 사용자의 상황에 따라이 하나 또는 다른 또는 둘 다 있습니다. 예를 들어, Azure AD 로그인 페이지를 지원합니다.
 
 * 두 가지 유형의 계정에서 로그인 할 수 있는 앱
 * 게스트를 허용 하는 조직
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD)에 대 한 Microsoft 365 로그인 페이지�
 
 ![계정 로그인 페이지 간의 차이](./media/signin-account-support/ui-prompt.png)
 
-[추가 로그인 옵션 개인 Microsoft 계정에 대해서만 작동](index.yml) 있지만 회사 또는 학교 계정 리소스에 로그인에 대해 사용할 수 없습니다.
+[추가 로그인 옵션 개인 Microsoft 계정에 대해서만 작동](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) 있지만 회사 또는 학교 계정 리소스에 로그인에 대해 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265252"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490640"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -39,20 +39,11 @@ Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware �
 - 세부 정보: 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.
 - 액세스를 제한하려면 자식에 전파 개체를 사용하여 액세스 권한 없음 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
 
-테넌트 환경에 배포하는 경우 다음과 같은 한 가지 설정 방법이 있습니다.
+다중 테 넌 트 환경에서 배포 하 고 단일 테 넌 트에 대 한 Vm의 폴더에서 범위를 원하는 경우 Azure Migrate에서 컬렉션의 범위를 지정할 때 VM 폴더를 직접 선택할 수 없습니다. 다음은 Vm의 폴더에서 범위 검색 하는 방법에 대 한 지침:
 
-1. 테넌트당 1명의 사용자를 만들고 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 특정 테넌트에 속하는 모든 VM에 읽기 전용 권한을 할당합니다. 그런 다음, 해당 자격 증명으로 검색을 수행합니다. RBAC는 해당 vCenter 사용자가 테넌트 특정 VM에만 액세스할 수 있도록 합니다.
-2. 다음 예제에 설명된 대로 다른 테넌트 사용자인 User #1 및 User #2에 대해 RBAC를 설정합니다.
-
-    - **사용자 이름** 및 **암호**에서, 수집기가 VM을 검색하기 위해 사용할 읽기 전용 계정 자격 증명을 지정합니다.
-    - Datacenter1 - User #1 및 User #2에 대해 읽기 전용 권한을 부여합니다. 개별 VM에서 권한을 설정하게 되므로 모든 자식 개체에 해당 권한을 전파하지 마세요.
-
-      - VM1(Tenant #1) (User #1에게 읽기 전용 권한)
-      - VM2(Tenant #1) (User #1에게 읽기 전용 권한)
-      - VM3(Tenant #2) (User #2에게 읽기 전용 권한)
-      - VM4(Tenant #2) (User #2에게 읽기 전용 권한)
-
-   - User #1 자격 증명을 사용하여 검색을 수행하는 경우 VM1 및 VM2만 검색됩니다.
+1. 테 넌 트 당 사용자를 만들고 읽기 / 쓰기 권한 특정 테 넌 트에 속한 모든 Vm에 할당 합니다. 
+2. Vm 호스팅되는 모든 부모 개체에이 사용자 읽기 전용 액세스를 부여 합니다. 데이터 센터까지 계층의 모든 부모 개체-호스트, 호스트, 클러스터, 클러스터의 폴더의 폴더-포함 됩니다. 모든 자식 개체 권한을 전달할 필요가 없습니다.
+3. 자격 증명을 사용 하 여 데이터 센터를 선택 하는 검색에 대 한 *컬렉션 범위*합니다. 설정 RBAC 해당 vCenter 사용자 테 넌 트 별 Vm에 액세스할 수 있는 것을 확인 합니다.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>마이그레이션 프로젝트 및 검색 계획
 
@@ -97,7 +88,7 @@ vCenter Server당 1500개 미만의 가상 머신이 있는 여러 vCenter Serve
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>단일 vCenter Server에서 1500개 이상의 컴퓨터
 
-단일 vCenter Server에 1500개 초과의 가상 머신이 있는 경우 검색을 여러 마이그레이션 프로젝트로 분할해야 합니다. 검색을 분할하기 위해 어플라이언스에서 범위 필드를 활용하고 검색하려는 호스트, 클러스터, 폴더 또는 데이터 센터를 지정할 수 있습니다. 예를 들어 vCenter Server에 1000VM이 있는 폴더(Folder1)와 800VM이 있는 폴더(Folder2)로 두 개의 폴더가 있는 경우 범위 필드를 사용하여 이러한 폴더 간에 검색을 분할할 수 있습니다.
+단일 vCenter Server에 1500개 초과의 가상 머신이 있는 경우 검색을 여러 마이그레이션 프로젝트로 분할해야 합니다. 검색을 분할 하려면 어플라이언스에서 범위 필드를 활용 하 고는 호스트, 클러스터, 클러스터 또는 검색 하려는 데이터 센터의 폴더, 호스트의 폴더를 지정할 수 있습니다. 예를 들어 vCenter Server에 1000VM이 있는 폴더(Folder1)와 800VM이 있는 폴더(Folder2)로 두 개의 폴더가 있는 경우 범위 필드를 사용하여 이러한 폴더 간에 검색을 분할할 수 있습니다.
 
 **지속적인 검색:** 이 경우 첫 번째 수집기에 대해 두 개의 수집기 어플라이언스를 만들고, 범위를 Folder1로 지정하고, 첫 번째 마이그레이션 프로젝트에 연결해야 합니다. 두 번째 수집기 어플라이언스를 사용하여 Folder2 검색을 병렬로 시작하고 두 번째 마이그레이션 프로젝트에 연결할 수 있습니다.
 

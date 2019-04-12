@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: 리소스 관리자를 통해 서로 다른 Azure 구독에 존재하는 가상 네트워크 간에 가상 네트워크 피어링을 만드는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403471"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492297"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독
 
@@ -27,9 +27,9 @@ ms.locfileid: "58403471"
 
 |Azure 배포 모델  | Azure 구독  |
 |--------- |---------|
-|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |동일|
-|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
-|[하나는 Resource Manager, 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
+|[둘 다 Resource Manager](tutorial-connect-virtual-networks-portal.md) |동일|
+|[하나는 Resource Manager, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
+|[하나는 Resource Manager, 다른 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다.
 
@@ -39,7 +39,9 @@ ms.locfileid: "58403471"
 
 ## <a name="portal"></a>피어링 만들기 - Azure Portal
 
-피어링하려는 가상 네트워크가 다른 Azure Active Directory 테넌트와 연결된 구독에 있는 경우 이 문서의 CLI 및 PowerShell 섹션에 있는 단계를 따릅니다. 포털에서는 다른 Active Directory 테넌트의 구독에 속하는 가상 네트워크를 피어링하는 기능이 지원되지 않습니다.
+피어링하려는 가상 네트워크가 다른 Azure Active Directory 테넌트와 연결된 구독에 있는 경우 이 문서의 CLI 및 PowerShell 섹션에 있는 단계를 따릅니다. 포털에서는 다른 Active Directory 테넌트의 구독에 속하는 가상 네트워크를 피어링하는 기능이 지원되지 않습니다. 
+
+Cloud Shell에 구독 및 테 넌 트 인해 VNet 피어 링 또는 글로벌 VNet 피어 링 Vnet을 다른 Azure Active Directory 테 넌 트에서 구독에 속한 간에 작동 하지 것입니다 전환의 제한 사항을 참고 합니다. PowerShell 또는 CLI를 사용 하십시오.
 
 다음 단계에서는 각 구독에 서로 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, 포털 로그아웃 절차와 가상 네트워크에 다른 사용자 권한을 할당하는 절차를 생략할 수 있습니다.
 

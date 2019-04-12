@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652589"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494176"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Virtual Network 서비스 엔드포인트 정책(미리 보기)
 
@@ -24,7 +24,7 @@ VNet(Virtual Network) 서비스 엔드포인트 정책을 통해 가상 네트�
 
 이 기능은 다음과 같은 Azure 서비스 및 지역에서 __미리 보기__ 상태로 제공됩니다.
 
-__Azure Storage__: WestCentralUS, WestUS2.
+__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2 합니다.
 
 미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
 
@@ -35,13 +35,13 @@ __Azure Storage__: WestCentralUS, WestUS2.
 
 Virtual Network 서비스 엔드포인트 정책은 다음과 같은 이점을 제공합니다.
 
-- __Azure Services에 대한 Virtual Network 트래픽의 보안 향상__
+- __Azure 서비스에 가상 네트워크 트래픽에 대 한 향상 된 보안__
 
   [네트워크 보안 그룹에 대한 Azure 서비스 태그](https://aka.ms/servicetags)를 사용하면 가상 네트워크 아웃바운드 트래픽을 특정 Azure 서비스로 제한할 수 있습니다. 그러나 이렇게 하면 해당 Azure 서비스의 모든 리소스에 대한 트래픽이 허용됩니다. 
   
   엔드포인트 정책에서 이제 가상 네트워크 아웃바운드 액세스를 특정 Azure 리소스로 제한할 수 있습니다. 이렇게 하면 가상 네트워크에서 액세스하는 데이터를 보호하기 위해 더 세부적인 보안 제어가 가능합니다. 
 
-- __Azure 서비스 트래픽을 필터링하기 위한 확장성 및 고가용성 정책__
+- __Azure 서비스 트래픽을 필터링 하 고 확장성, 고가용성 정책__
 
    엔드포인트 정책은 서비스 엔드포인트를 통한 가상 네트워크로부터의 Azure 서비스 트래픽을 필터링하기 위해 수평적으로 확장 가능하며 가용성이 높은 솔루션을 제공합니다. 추가 오버헤드 없이 가상 네트워크에서 이 트래픽에 대한 중앙 네트워크 어플라이언스를 유지 관리할 수 있습니다.
 

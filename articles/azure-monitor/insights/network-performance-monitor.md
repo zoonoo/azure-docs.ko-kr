@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006757"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489727"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -33,7 +33,7 @@ ms.locfileid: "59006757"
 
 * [성능 모니터](network-performance-monitor-performance-monitor.md): 클라우드 배포 및 온-프레미스 위치, 여러 데이터 센터, 지점, 업무에 중요한 다중 계층 애플리케이션 또는 마이크로서비스 간의 네트워크 연결을 모니터링할 수 있습니다. 성능 모니터를 사용하면 사용자가 불만을 제기하기 전에 네트워크 문제를 감지할 수 있습니다.
 
-* [서비스 연결 모니터](network-performance-monitor-service-endpoint.md): 관심 있는 서비스에 대한 사용자의 연결을 모니터링하고 경로에 어떤 인프라가 있는지 판단하고 네트워크 병목 현상이 발생하는 위치를 식별할 수 있습니다. 사용자보다 먼저 중단에 대해 알 수 있고, 네트워크 경로에서 문제의 위치를 정확히 볼 수 있습니다. 
+* [서비스 연결 모니터](network-performance-monitor-service-connectivity.md): 관심 있는 서비스에 대한 사용자의 연결을 모니터링하고 경로에 어떤 인프라가 있는지 판단하고 네트워크 병목 현상이 발생하는 위치를 식별할 수 있습니다. 사용자보다 먼저 중단에 대해 알 수 있고, 네트워크 경로에서 문제의 위치를 정확히 볼 수 있습니다. 
 
     이 기능을 사용하면 HTTP, HTTPS, TCP 및 ICMP를 기반으로 테스트를 수행하여 서비스의 가용성 및 응답 시간을 거의 실시간으로 또는 시간별로 모니터링할 수 있습니다. 또한 패킷 손실 및 대기 시간에 대한 네트워크의 영향도 모니터링할 수 있습니다. 네트워크 토폴로지 맵을 통해 네트워크 속도 저하를 격리시킬 수 있습니다. 각 홉의 대기 시간 데이터를 통해, 노드에서 서비스로 가는 네트워크 경로에서 발생하는 문제 지점을 식별할 수 있습니다. 기본 제공 테스트를 통해 사전 구성 없이 Office 365, Dynamics CRM에 대한 네트워크 연결을 모니터링할 수 있습니다. 이 기능을 사용하여 웹 사이트, SaaS 애플리케이션, PaaS 애플리케이션, SQL 데이터베이스 등과 같은 TCP 지원 엔드포인트에 대한 네트워크 연결을 모니터링할 수 있습니다.
 
@@ -83,7 +83,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     > 스크립트는 Windows 방화벽만 로컬로 구성합니다. 네트워크 방화벽이 있는 경우 네트워크 성능 모니터에서 사용하는 TCP 포트를 대상으로 하는 트래픽을 허용하는지 확인해야 합니다.
 
     >[!NOTE]
-    > 서비스 엔드포인트 모니터에 대해 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 스크립트를 실행할 필요가 없습니다.
+    > 실행할 필요가 합니다 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) 서비스 연결 모니터에 대 한 PowerShell 스크립트입니다.
 
     
 
@@ -115,7 +115,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     
    **서비스 연결 모니터**: 이 기능은 에이전트에서 Office 365 및 Dynamics 365로의 네트워크 연결을 모니터링하기 위한 기본 제공 사전 구성 테스트를 제공합니다. 옆에 있는 확인란을 선택하여 모니터링할 Office 365 및 Dynamics 365 서비스를 선택합니다. 모니터링할 에이전트를 선택하려면 **에이전트 추가**를 선택합니다. 이 기능을 사용하지 않거나 나중에 설정하려는 경우 아무것도 선택하지 않은 상태에서 **저장하고 계속**을 선택합니다.
 
-   ![서비스 엔드포인트 모니터 보기](media/network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![서비스 연결 모니터 보기](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
    **ExpressRoute 모니터**: **지금 검색** 단추를 선택하여 이 Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 개인 피어링을 검색합니다. 
 
@@ -152,7 +152,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 원하는 기능 구성:
 
 - [성능 모니터링](network-performance-monitor-performance-monitor.md#configuration)
-- [서비스 엔드포인트 모니터](network-performance-monitor-performance-monitor.md#configuration)
+- [서비스 연결 모니터](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute 모니터](network-performance-monitor-expressroute.md#configuration)
 
  

@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905990"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505637"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석
 
 ![Azure 활동 로그 기호](./media/collect-activity-logs/activity-log-analytics.png)
 
-활동 로그 분석 솔루션은 모든 Azure 구독에서 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)를 분석하고 검색할 수 있게 해줍니다. Azure 활동 로그는 구독의 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 이벤트를 보고하므로 이전에는 *감사 로그* 또는 *작업 로그*라고 했습니다.
+활동 로그 분석 솔루션은 모든 Azure 구독에서 [Azure 활동 로그](activity-logs-overview.md)를 분석하고 검색할 수 있게 해줍니다. Azure 활동 로그는 구독의 리소스에서 수행된 작업에 대한 자세한 정보를 제공하는 로그입니다. 활동 로그는 구독에 대한 이벤트를 보고하므로 이전에는 *감사 로그* 또는 *작업 로그*라고 했습니다.
 
 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 *무엇을*, *누가*, *언제* 썼는지 확인할 수 있습니다. 작업과 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 클래식 배포 모델을 사용하는 리소스에 대한 작업이 포함되지 않습니다.
 
@@ -52,28 +52,39 @@ Azure 활동 로그를 Log Analytics 작업 영역에 연결 하면 다음 작�
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아닙니다. | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아닙니다. | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](agent-windows.md) | 아닙니다. | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](om-agents.md) | 아닙니다. | 솔루션은 Operations Manager 관리 그룹에 보고 하는 에이전트에서 정보를 수집 하지 않습니다. |
 | [Azure Storage 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 활동 로그 정보에 액세스하려면 Azure 구독이 있어야 합니다.
+Azure 활동 로그 정보에 액세스하려면 Azure 구독이 있어야 합니다.
+
+솔루션에는 다음 두 리소스 공급자 구독에 등록 되는 필요 합니다.
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+등록 또는 등록을 확인 하는 방법에 알아보려면 참조 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>구성
 
 다음 단계를 수행하여 작업 영역에 대해 Activity Log Analytics 솔루션을 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Activity Log Analytics 솔루션을 사용하도록 설정합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+
+2. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../insights/solutions.md)에서 설명한 프로세스를 사용하여 Activity Log Analytics 솔루션을 사용하도록 설정합니다.
+
 2. Log Analytics 작업 영역으로 이동하도록 활동 로그를 구성합니다.
     1. Azure Portal에서 작업 영역을 선택한 다음 **Azure 활동 로그**를 클릭합니다.
     2. 각 구독에 대해 구독 이름을 클릭합니다.  
+        
         ![구독 추가](./media/collect-activity-logs/add-subscription.png)
+    
     3. *SubscriptionName* 블레이드에서 **연결**을 클릭합니다.  
+    
         ![구독 연결](./media/collect-activity-logs/subscription-connect.png)
-
-Azure Portal에 로그인하여 Azure 구독을 작업 영역에 연결합니다.  
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
@@ -98,5 +109,5 @@ Activity Log Analytics 솔루션을 작업 영역에 추가하면 개요 대시�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 특정 활동이 발생하면 [경고](../../azure-monitor/platform/alerts-metric.md)를 만듭니다.
-- [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 활동 로그의 자세한 정보를 봅니다.
+- 특정 활동이 발생하면 [경고](../platform/alerts-metric.md)를 만듭니다.
+- [로그 검색](../log-query/log-query-overview.md)을 사용하여 활동 로그의 자세한 정보를 봅니다.

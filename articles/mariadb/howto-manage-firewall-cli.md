@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471157"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495238"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소에서 MariaDB 서버에 대 한 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. MariaDB 방화벽에 대 한 Azure Database의 개요를 보려면 [MariaDB 서버 방화벽 규칙에 대 한 Azure Database](./concepts-firewall-rules.md)합니다.

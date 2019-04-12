@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262145"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501130"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -32,7 +32,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
 |자산  |설명  |
 |---------|---------|
-|name|네트워크 보안 그룹 내에서 고유한 이름입니다.|
+|이름|네트워크 보안 그룹 내에서 고유한 이름입니다.|
 |우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
 |원본 또는 대상| 아무 또는 개별 IP 주소, CIDR(클래스 없는 도메인 간 라우팅) 블록(예: 10.0.0.0/24), [서비스 태그](#service-tags) 또는 [애플리케이션 보안 그룹](#application-security-groups)입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 사설 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 사설 IP 주소로 변환한 후에, 그리고 Azure가 사설 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. Azure [IP 주소](virtual-network-ip-addresses-overview-arm.md)에 대해 자세히 알아보세요. 범위, 서비스 태그 또는 애플리케이션 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정하는 기능(여러 서비스 태그 또는 애플리케이션 그룹을 지정할 수 없음)은 [보강된 보안 규칙](#augmented-security-rules)이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다. [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.|
 |프로토콜     | TCP, UDP 또는 Any(제한되지는 않지만 TCP, UDP 및 ICMP 포함)입니다. ICMP를 단독으로 지정할 수 없으므로 ICMP가 필요한 경우 다른 것과 함께 사용해야 합니다. |
@@ -80,6 +80,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 * **AzureMonitor**(Resource Manager만 해당): 이 태그는 AzureMonitor 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureMonitor*를 지정하는 경우 AzureMonitor에 대한 트래픽이 허용 또는 거부됩니다. 
 * **ServiceFabric**(Resource Manager만 해당): 이 태그는 ServiceFabric 서비스의 주소 접두사를 나타냅니다. 값으로 *ServiceFabric*을 지정하는 경우 ServiceFabric에 대한 트래픽이 허용 또는 거부됩니다. 
 * **AzureMachineLearning**(Resource Manager만 해당): 이 태그는 AzureMachineLearning 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureMachineLearning*를 지정하는 경우 AzureMachineLearning에 대한 트래픽이 허용 또는 거부됩니다. 
+* **BatchNodeManagement** (Resource Manager만 해당): 이 태그는 Azure BatchNodeManagement 서비스의 주소 접두사를 나타냅니다. 지정 하는 경우 *BatchNodeManagement* 트래픽을 값에 대해 허용 되거나 계산 노드에 Batch 서비스에서 거부 합니다.
 
 > [!NOTE]
 > Azure 서비스의 서비스 태그는 사용되는 특정 클라우드의 주소 접두사를 나타냅니다. 

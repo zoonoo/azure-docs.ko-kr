@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기의 Windows 보안 이벤트 데이터 수집 | Microsoft Docs
-description: Sentinel Azure에서 Windows 보안 이벤트 데이터를 수집 하는 방법에 알아봅니다.
+title: Windows 보안 이벤트 데이터를 Azure 미리 보기 Sentinel 연결할 | Microsoft Docs
+description: Azure Sentinel에 Windows 보안 이벤트 데이터를 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d131d39a9d9770046fa3f9368250204e4d0b0162
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576091"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491955"
 ---
 # <a name="connect-windows-security-events"></a>Windows 보안 이벤트 연결 
 
@@ -42,7 +42,7 @@ Azure Sentinel 작업 영역에 연결 된 Windows 서버에서 모든 보안 �
 
 완전히 통합할 Windows 보안 이벤트 Azure Sentinel:
 
-1. Sentinel Azure portal에서 선택 **데이터 컬렉션** 를 클릭 하 고는 **Windows 보안 이벤트** 바둑판식으로 배열 합니다. 
+1. Sentinel Azure portal에서 선택 **데이터 커넥터** 를 클릭 하 고는 **Windows 보안 이벤트** 바둑판식으로 배열 합니다. 
 1. 스트리밍 하려는 데이터 유형을 선택 합니다.
 1. **업데이트**를 클릭합니다.
 6. Log Analytics에서 관련 스키마를 사용 하 여 Windows 보안 이벤트를 검색할 **SecurityEvent**합니다.
@@ -54,7 +54,7 @@ Azure Sentinel 작업 영역에 연결 된 Windows 서버에서 모든 보안 �
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel에 Windows 보안 이벤트를 연결 하는 방법을 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+이 문서에서는 Azure Sentinel에 Windows 보안 이벤트를 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
 - 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: ef313ea631a963aa7893bf15e826e591c9d9cfc3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619801"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488408"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "58619801"
 - 패키지 복원을 포함하는 기본 빌드 프로세스를 켜는 옵션.
 - 배포 스크립트 실행을 포함한 [배포 사용자 지정](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings).  
 - 배포 로그. 
-- 512mb 파일 크기 제한입니다.
+- 2048MB의 파일 크기 제한입니다.
 
 자세한 내용은 [Kudu 설명서](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)를 참조하세요.
 
@@ -118,5 +118,5 @@ Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64A
 
 ## <a name="more-resources"></a>추가 리소스
 
-* [Kudu: zip 파일에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu: Zip 파일에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service 배포 자격 증명](deploy-ftp.md)

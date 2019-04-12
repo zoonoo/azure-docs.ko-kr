@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
-ms.openlocfilehash: 5787db7e2b726a10891fcabb0b215399d0d4e0ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884310"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494751"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -39,21 +39,40 @@ ms.locfileid: "55884310"
 
 1. 컴퓨터에서 명령 프롬프트 창을 엽니다. 다음 지침은 모든 Windows, Linux 및 Mac 개발 환경에 작동합니다.
 
-2. ASP.NET Core MVC 웹 애플리케이션을 만듭니다.
+1. ASP.NET Core MVC 웹 애플리케이션을 만듭니다.
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. 작업 디렉터리를 프로젝트에 대한 루트 폴더로 변경합니다.
+1. 작업 디렉터리를 프로젝트에 대한 루트 폴더로 변경합니다.
 
-4. 프로파일러 추적을 수집하도록 NuGet 패키지를 추가합니다.
+1. 프로파일러 추적을 수집하도록 NuGet 패키지를 추가합니다.
 
-    ```
+    ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. **HomeController.cs** 섹션에서 몇 초 동안 임의로 지연하는 코드 줄을 추가합니다.
+1. Program.cs에서 Application Insights를 사용 합니다.
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseApplicationInsights() // Add this line of code to Enable Application Insights
+            .UseStartup<Startup>();
+    ```
+    
+1. Startup.cs에서 Profiler를 사용 하도록 설정 합니다.
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+1. **HomeController.cs** 섹션에서 몇 초 동안 임의로 지연하는 코드 줄을 추가합니다.
 
     ```csharp
         using System.Threading;
@@ -68,7 +87,7 @@ ms.locfileid: "55884310"
             }
     ```
 
-6. 변경 내용을 로컬 리포지토리에 저장하고 커밋합니다.
+1. 변경 내용을 로컬 리포지토리에 저장하고 커밋합니다.
 
     ```
         git init
@@ -143,10 +162,7 @@ ms.locfileid: "55884310"
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-
-    ![앱 설정 구성](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     앱 설정이 변경되면 사이트가 자동으로 다시 시작합니다. 새 설정이 적용된 후 프로파일러는 2분 동안 즉시 실행됩니다. 그런 다음, 프로파일러는 1시간마다 2분 동안 실행됩니다.
 
@@ -160,16 +176,8 @@ ms.locfileid: "55884310"
 
 ## <a name="known-issues"></a>알려진 문제
 
-### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>프로파일러 구성 창에서 활성화 작업이 작동하지 않습니다.
-
-> [!NOTE]
-> Linux에서 App Service를 사용하여 앱을 호스팅하는 경우 Application Insights 포털의 **성능** 창에서 프로파일러를 다시 활성화할 필요가 없습니다. 프로젝트에 NuGet 패키지를 포함하고 프로파일러를 활성화하도록 웹앱 설정에서 Application Insights **iKey** 값을 설정할 수 있습니다.
-
-[Windows용 Application Insights Profiler](./profiler.md)에 대한 활성화 워크플로를 따르는 경우 **프로파일러 구성** 창에서 **활성화**를 선택하면 오류가 발생합니다. 활성화 작업은 Linux 환경에서 Windows 버전의 프로파일러 에이전트를 설치하려고 시도합니다.
-
-이 문제 해결을 위해 작업 중입니다.
-
-![성능 창의 프로파일러를 다시 활성화하려고 시도하지 마세요.](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Linux Profiler에 대 한 프로필 지금은 단추가 작동 하지 않습니다.
+프로 파일링 이제 프로필을 사용 하 여 단추 주문형 App Insights profiler Linux 버전이 아직 지원 하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

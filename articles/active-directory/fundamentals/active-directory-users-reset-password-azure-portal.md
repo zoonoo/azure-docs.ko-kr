@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce76fa7fecb8a82f76d40827bfa868061a0ed584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204902"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492705"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자의 암호 다시 설정
+
 암호를 잊어버린 경우, 사용자가 디바이스로부터 잠긴 경우 또는 사용자가 암호를 받지 못한 경우에는 관리자가 사용자의 암호를 다시 설정할 수 있습니다.
 
 >[!Note]
@@ -32,7 +33,7 @@ ms.locfileid: "56204902"
 
 ## <a name="to-reset-a-password"></a>암호를 다시 설정하려면
 
-1. 글로벌 관리자, 사용 관리자 또는 암호 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com/) 암호 관리자 또는 사용자 관리자입니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요.
 
 2. **Azure Active Directory**를 선택하고, **사용자**를 선택하고, 다시 설정할 사용자를 검색하여 선택한 다음, **암호 다시 설정**을 선택합니다.
 
@@ -50,6 +51,7 @@ ms.locfileid: "56204902"
     >임시 암호는 만료되지 않습니다. 임시 암호가 생성된 이후 얼마나 시간이 경과했는지와 상관없이 다음에 사용자가 로그인할 때에도 암호는 계속 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 사용자 암호를 다시 설정하면 다음 기본 프로세스를 수행할 수 있습니다.
 
 - [사용자 추가 또는 삭제](add-users-azure-active-directory.md)

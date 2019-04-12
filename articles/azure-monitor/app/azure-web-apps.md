@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262502"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489625"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
-.NET 및.NET Core에서 Azure App Service에서 실행 하는 기반된 웹 응용 프로그램 모니터링을 사용 하도록 설정 하면 그 어느 때 보다 쉽게 되었습니다. 수동으로 사이트 확장을 설치 해야 하는 이전에, 하지만 최신 확장/에이전트에 빌드된 앱 서비스 이미지를 기본적으로 합니다. 이 문서는 Application Insights 모니터링을 사용 하는 과정을 안내해 뿐만 아니라 대규모 배포에 대 한 프로세스를 자동화 하는 것에 대 한 예비 지침을 제공 합니다.
+.NET 및.NET Core에 대 한 모니터링을 사용 하도록 설정 하면 기반 웹 응용 프로그램에서 실행 중인 [Azure App Services](https://docs.microsoft.com/azure/app-service/) 그 어느 때 보다 쉽습니다. 수동으로 사이트 확장을 설치 해야 하는 이전에, 하지만 최신 확장/에이전트에 빌드된 앱 서비스 이미지를 기본적으로 합니다. 이 문서는 Application Insights 모니터링을 사용 하는 과정을 안내해 뿐만 아니라 대규모 배포에 대 한 프로세스를 자동화 하는 것에 대 한 예비 지침을 제공 합니다.
 
 > [!NOTE]
 > Application Insights 사이트 확장을 통해 수동으로 추가 **개발 도구** > **확장** 는 사용 되지 않습니다. 이러한 방식의 확장을 설치 된 각 새 버전에 대 한 수동 업데이트에 따라 달라 집니다. 확장의 안정적인 최신 릴리스는 이제 [사전](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) App Service 이미지의 일부로. 파일에 위치한 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 안정적인 릴리스마다 자동으로 업데이트 됩니다. 모니터링을 사용 하도록 에이전트 기반 지침을 따르는 경우를 사용 되지 않는 확장을 자동으로 제거 됩니다 아래.
@@ -358,7 +358,7 @@ Application Insights 에이전트 확장에 대 한 최신 정보를 확인 합�
 ## <a name="next-steps"></a>다음 단계
 * [라이브 앱에서 프로파일러를 실행합니다](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights로 Azure Functions 모니터링
-* [Azure 진단을 사용](../platform/diagnostics-extension-to-application-insights.md)하여 Application Insights에 보냅니다.
+* [Azure 진단을 사용](../platform/diagnostics-extension-to-application-insights.md) 하여 Application Insights에 보냅니다.
 * [서비스 상태 메트릭을 모니터링](../platform/data-platform.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../platform/alerts-overview.md)합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](javascript.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.

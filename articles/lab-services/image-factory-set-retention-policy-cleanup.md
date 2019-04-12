@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469373"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490742"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리를 만듭니다.
 이 문서에서는, 보존 정책을 설정 하 고, 팩토리를 정리 하 고, 조직에서 모든 다른 DevTest Labs에서 이전 이미지를 사용 중지에 대해 설명 합니다. 

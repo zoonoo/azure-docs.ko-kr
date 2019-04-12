@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180605"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490362"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>연결된 팩터리 솔루션 가속기 연습
 
@@ -73,7 +73,7 @@ OPC 게시자 모듈은 스테이션 OPC UA 서버에 연결하고 게시될 OPC
 
 1. 노드 데이터를 JSON 형식으로 변환합니다.
 1. JSON을 암호화합니다.
-1. JSON을 IoT Hub에 OPC UA Pub/Sub 메시지로 보냅니다.
+1. JSON IoT Hub로 보내는으로 OPC UA pub/sub 메시지입니다.
 
 OPC 게시자 모듈에는 아웃바운드 https 포트(443)만 필요하며 기존 엔터프라이즈 인프라로 작업할 수 있습니다.
 
@@ -119,7 +119,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 ## <a name="azure-storage"></a>Azure Storage
 클라이언트가 File Storage에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다.
 
-## <a name="web-app"></a>웹앱
+## <a name="web-app"></a>웹 앱
 솔루션 가속기의 일부로 배포된 웹앱은 통합된 OPC UA 클라이언트, 경고 처리 및 원격 분석 시각화를 포함합니다.
 
 ## <a name="telemetry-data-flow"></a>원격 분석 데이터 흐름
@@ -230,7 +230,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 다음 문서를 참조하여 IoT 솔루션 가속기 시작 작업을 계속할 수 있습니다.
 
 * [Azureiotsolutions.com 사이트에 대 한 권한][lnk-permissions]
-* [연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 게이트웨이 배포](iot-accelerators-connected-factory-gateway-deployment.md)
+* [연결 된 팩터리 솔루션 가속기에 대 한 Windows 또는 Linux에 게이트웨이 배포](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC 게시자 참조 구현](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

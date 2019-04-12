@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/08/2018
+ms.date: 03/27/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 929d6b55b9261ae29ba43f05b378866adfdcd2ed
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882804"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501062"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-preview"></a>방법: Azure AD 앱 (미리 보기)에 선택적 클레임을 제공 합니다.
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 대 한 선택적 클레임을 제공 합니다.
 
 이 기능은 애플리케이션 개발자가 애플리케이션에 전송된 토큰에서 원하는 클레임을 지정하는 데 사용합니다. 선택적 클레임을 사용하여 다음을 수행할 수 있습니다.
 
@@ -32,34 +32,28 @@ ms.locfileid: "58882804"
 - Azure AD에서 토큰에 반환하는 특정 클레임의 동작을 변경합니다.
 - 애플리케이션에 대한 사용자 지정 클레임을 추가하고 액세스합니다.
 
-> [!NOTE]
-> 이 기능은 현재 공개 미리 보기로 제공되고 있습니다. 변경 내용을 되돌리거나 제거할 준비를 해야 합니다. 이 기능은 공개 미리 보기 동안 모든 Azure AD 구독에서 사용할 수 있습니다. 그러나 기능이 일반 공급되면 일부 기능에는 Azure AD Premium 구독이 필요할 수도 있습니다.
+표준 클레임 목록에 대해서는 [액세스 토큰](access-tokens.md) 및 [id_token](id-tokens.md) 설명서를 클레임 합니다. 
 
-표준 클레임 및 토큰에 사용 하는 방법의 목록에 대 한 참조를 [Azure AD에서 발급 된 토큰의 기본 사항](v1-id-and-access-tokens.md)합니다.
-
-[v2.0 Azure AD 엔드포인트](active-directory-appmodel-v2-overview.md)의 목표 중 하나는 클라이언트의 최적 성능을 보장하기 위해 토큰 크기를 좀 더 작게 유지하는 것입니다. 따라서, 이전에 액세스 및 ID 토큰에 포함되어 있던 일부 클레임이 v 2.0 토큰에는 더 이상 존재하지 않으며, 응용 프로그램 기준으로 특수하게 요청되어야 합니다.
+선택적 클레임은 둘 다 v1.0 및 v2.0 형식 토큰으로 SAML 토큰에서 지원 되지만, v2.0 v1.0에서 이동할 때 대부분의 값을 제공 합니다. [v2.0 Azure AD 엔드포인트](active-directory-appmodel-v2-overview.md)의 목표 중 하나는 클라이언트의 최적 성능을 보장하기 위해 토큰 크기를 좀 더 작게 유지하는 것입니다. 따라서, 이전에 액세스 및 ID 토큰에 포함되어 있던 일부 클레임이 v 2.0 토큰에는 더 이상 존재하지 않으며, 응용 프로그램 기준으로 특수하게 요청되어야 합니다.
 
 **표 1: 적용 가능성**
 
-| 계정 유형 | V1.0 엔드포인트 | V2.0 엔드포인트  |
+| 계정 유형 | V1.0 토큰 | V2.0 토큰  |
 |--------------|---------------|----------------|
-| 개인 Microsoft 계정  | 해당 없음 - 대신 RPS 티켓이 사용됩니다. | 지원 예정 |
-| Azure AD 계정          | 지원됨                          | 지원됨(주의 사항 있음) |
+| 개인 Microsoft 계정  | N/A  | 지원됨|
+| Azure AD 계정      | 지원됨 | 지원됨 |
 
-> [!IMPORTANT]
-> 개인 계정 및 Azure AD 둘 다 지 원하는 앱 (통해 등록 합니다 [앱 등록 포털](https://apps.dev.microsoft.com)) 선택적 클레임을 사용할 수 없습니다. 그러나 v2.0 엔드포인트를 사용하여 Azure AD에만 등록된 앱은 매니페스트에서 요청한 선택적 클레임을 가져올 수 있습니다. Azure Portal에서 기존 **앱 등록** 환경의 애플리케이션 매니페스트 편집기를 사용하여 선택적 클레임을 편집할 수 있습니다. 그러나 이 기능은 아직 새 **앱 등록(미리 보기)** 환경에서 애플리케이션 매니페스트 편집기를 통해 사용할 수 없습니다.
+## <a name="v10-and-v20-optional-claims-set"></a>V1.0 및 V2.0 선택적 클레임 집합
 
-## <a name="standard-optional-claims-set"></a>표준 선택적 클레임 집합
-
-기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](#configuring-custom-claims-via-directory-extensions)을 참조하세요. 클레임을 추가 하는 경우는 **액세스 토큰**, 액세스 토큰 요청에 적용 됩니다 *에 대 한* 응용 프로그램 (웹 API) 하지 않습니다 *여* 응용 프로그램입니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
+기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](#configuring-directory-extension-optional-claims)을 참조하세요. 클레임을 추가 하는 경우는 **액세스 토큰**, 액세스 토큰 요청에 적용 됩니다 *에 대 한* 응용 프로그램 (웹 API) 하지 않습니다 *여* 응용 프로그램입니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
 
 > [!NOTE]
-> 이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 v1.0 및 v2.0 토큰에 대한 JWT에 포함될 수 있습니다. 또한 현재, 선택적 클레임이 AAD 사용자에 대해서만 지원되는 동안 MSA 지원이 추가됩니다. v2.0 엔드포인트에서 MSA에 선택적 클레임 지원이 있는 경우 사용자 유형 열은 AAD 또는 MSA 사용자에 대해 클레임을 사용할 수 있는지를 나타냅니다. 
+> 이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 v1.0 및 v2.0 토큰에 대한 JWT에 포함될 수 있습니다. 소비자 계정 "사용자 유형" 열에 표시 하는 이러한 클레임을 하위 집합을 지원 합니다.  표시 된 클레임 많은 소비자에 게 적용 되지 않습니다 (따라서 테 넌 트가 없습니다 있는 `tenant_ctry` 값이 없는).  
 
-**표 2: 표준 선택적 클레임 집합**
+**표 2: V1.0 및 V2.0 선택적 클레임 집합**
 
-| name                        | 설명   | 토큰 형식 | 사용자 유형 | 메모  |
-|-----------------------------|----------------|------------|-----------|--------|
+| 이름                       |  설명   | 토큰 형식 | 사용자 유형 | 메모  |
+|----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
 | `home_oid`                 | 게스트 사용자의 경우 사용자의 홈 테넌트에 있는 사용자의 개체 ID입니다.| JWT        |           | |
@@ -70,23 +64,23 @@ ms.locfileid: "58882804"
 | `enfpolids`                | 강제 적용된 정책 ID입니다. 현재 사용자에 대해 평가된 정책 ID의 목록입니다. | JWT |  |  |
 | `vnet`                     | VNET 지정자 정보입니다. | JWT        |           |      |
 | `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
-| `ctry`                     | 사용자의 국가입니다. | JWT |           | Azure AD는 표시되고 클레임의 값이 FR, JP, SZ 등과 같은 표준 두 글자 국가 번호인 경우 `ctry` 선택적 클레임을 반환합니다. |
+| `ctry`                     | 사용자의 국가입니다. | JWT |  | Azure AD는 표시되고 클레임의 값이 FR, JP, SZ 등과 같은 표준 두 글자 국가 번호인 경우 `ctry` 선택적 클레임을 반환합니다. |
 | `tenant_ctry`              | 리소스의 테넌트 국가입니다. | JWT | | |
 | `xms_pdl`          | 기본 설정 데이터 위치   | JWT | | 다중 지역 테 넌 트에 대 한 사용자가 지리적 지역을 보여 주는 3 문자 코드입니다. 자세한 내용은 참조는 [기본 데이터 위치에 대 한 Azure AD Connect 설명서](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)합니다.<br/>예를 들어 아시아 태평양의 경우 `APC`입니다. |
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us"). |
 | `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다. 형식이 지정된 LL("en"). |
 | `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 디바이스 ID |
-|`email`                     | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|  
+| `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, AAD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|  
 | `acct`             | 테넌트의 사용자 계정 상태입니다. | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `upn`                      | UserPrincipalName 클레임입니다. | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
 
 ### <a name="v20-optional-claims"></a>v2.0 선택적 클레임
 
-이러한 클레임은 항상 v1.0 토큰에 포함되지만, 요청되지 않을 경우 v2.0 토큰에 포함되지 않습니다. 이러한 클레임은 JWT(ID 토큰 및 액세스 토큰)에 대해서만 적용 가능합니다. 
+이러한 클레임 항상 v1.0 Azure AD 토큰에 포함 되지만 요청 하지 않는 v2.0 토큰에 포함 되지 않습니다. 이러한 클레임은 Jwt (ID 토큰 및 액세스 토큰)에 적용할 수만 있습니다. 
 
 **표 3: V2.0 전용 선택적 클레임**
 
-| JWT 클레임     | name                            | 설명                                | 메모 |
+| JWT 클레임     | 이름                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -94,9 +88,11 @@ ms.locfileid: "58882804"
 | `pwd_url`     | 암호 변경 URL             | 사용자가 암호 변경을 위해 방문할 수 있는 URL입니다.   |   |
 | `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 아닌 경우 클레임에 포함 되지 않습니다.   |  MFA의 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 기반으로 합니다.    |
 | `nickname`    | 애칭                        | 이름 및 성과는 별개인 사용자의 추가 이름입니다. | 
-| `family_name` | 성                       | Azure AD 사용자 개체에 정의된 사용자의 성을 제공합니다. <br>"family_name":"Miller" |       |
-| `given_name`  | 이름                      | Azure AD 사용자 개체에 설정된 대로 사용자의 이름 또는 "지정된 이름"을 제공합니다.<br>"given_name": "Frank"                   |       |
-| `upn`       | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대 한 영구 식별자 하지 않으며 키 데이터를 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. |
+| `family_name` | 성                       | 사용자 개체에 정의 된 대로 마지막 이름, 성 또는 사용자의 패밀리 이름을 제공 합니다. <br>"family_name":"Miller" | MSA 및 AAD에서 지원   |
+| `given_name`  | 이름                      | 첫 번째 제공 또는 "지정 된" 사용자의 이름을 사용자 개체에 설정 합니다.<br>"given_name": "Frank"                   | MSA 및 AAD에서 지원  |
+| `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. |
+| `sid`         | 세션 ID                      | MSA 사용 하 여 인증 세션 추적에 사용 되는 GUID 세션 식별자입니다. | MSA에만 해당 합니다.  Azure AD 계정에 포함 되지 않습니다. | 
+
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
 
@@ -168,7 +164,7 @@ ms.locfileid: "58882804"
 
 **표 5: OptionalClaims 형식 속성**
 
-| name        | 형식                       | 설명                                           |
+| 이름        | 형식                       | 설명                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다. |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -181,22 +177,22 @@ ms.locfileid: "58882804"
 
 **표 6: OptionalClaim 형식 속성**
 
-| name                 | 형식                    | 설명                                                                                                                                                                                                                                                                                                   |
+| 이름                 | 형식                    | 설명                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
 | `essential`            | Edm.Boolean             | 이 값이 True이면 클라이언트가 지정한 클레임은 최종 사용자가 요청된 특정 태스크에 대한 원활한 권한 부여 환경을 보장하는 데 필요합니다. 기본값은 False입니다.                                                                                                             |
 | `additionalProperties` | 컬렉션(Edm.String) | 클레임의 추가 속성입니다. 속성이 이 컬렉션에 있으면 name 속성에 지정된 선택적 클레임의 동작을 수정합니다.                                                                                                                                               |
-## <a name="configuring-custom-claims-via-directory-extensions"></a>디렉터리 확장을 통해 사용자 지정 클레임 구성
+## <a name="configuring-directory-extension-optional-claims"></a>디렉터리 확장에 대 한 선택적 클레임 구성
 
 표준 선택적 클레임 집합 외에 디렉터리 스키마 확장을 포함 하는 토큰을 구성할 수 있습니다. 자세한 내용은 참조 하세요. [디렉터리 스키마 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)합니다. 이 기능은 앱이 사용할 수 있는 추가 사용자 정보(예: 추가 식별자 또는 사용자가 설정한 중요 구성 옵션)를 추가하는 데 유용합니다. 
 
 > [!Note]
 > 디렉터리 스키마 확장은 AAD 전용 기능이므로, 프로그램 매니페스트가 사용자 지정 확장을 요청하고, MSA 사용자가 앱에 로그인하는 경우 이러한 확장이 반환되지 않습니다. 
 
-### <a name="values-for-configuring-additional-optional-claims"></a>선택적 추가 클레임을 구성하기 위한 값
+### <a name="directory-extension-formatting"></a>서식 지정 하는 디렉터리 확장
 
-확장 특성의 경우 애플리케이션 매니페스트에 확장의 전체 이름을 사용합니다(`extension_<appid>_<attributename>` 형식). `<appid>`는 클레임을 요청하는 애플리케이션의 ID와 일치해야 합니다. 
+확장 특성의 경우 애플리케이션 매니페스트에 확장의 전체 이름을 사용합니다(`extension_<appid>_<attributename>` 형식). `<appid>` 클레임을 요청 하는 응용 프로그램의 ID와 일치 해야 합니다. 
 
 JWT 내에서 이러한 클레임은 `extn.<attributename>` 이름 형식을 사용하여 내보내집니다.
 
@@ -216,7 +212,7 @@ SAML 토큰 내에서 이러한 클레임 URI 형식을 사용 하 여 발생 �
 1. 왼쪽 창에서 **앱 등록**을 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 찾아서 클릭합니다.
 1. 애플리케이션 페이지에서 **매니페스트**를 클릭하여 인라인 매니페스트 편집기를 엽니다. 
-1. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 매니페스트는 [애플리케이션 엔터티](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)의 스키마를 따르며, 저장된 매니페스트의 서식을 자동으로 지정합니다. 새 요소가 `OptionalClaims` 속성에 추가됩니다.
+1. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 매니페스트는 [애플리케이션 엔터티](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)의 스키마를 따르며, 저장된 매니페스트의 서식을 자동으로 지정합니다. 새 요소가 `OptionalClaims` 속성에 추가됩니다.
 
       ```json
       "optionalClaims": 

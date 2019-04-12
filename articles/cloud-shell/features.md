@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 04/10/2019
 ms.author: damaerte
-ms.openlocfilehash: fe04c5450ecd2c21affa5cbb89c627bc30cf7b6f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903457"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500620"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -57,7 +57,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 
 ## <a name="tools"></a>도구
 
-|Category   |name   |
+|Category   |이름   |
 |---|---|
 |Linux 도구            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -76,7 +76,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 |Go         |1.9        |
 |자바       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 및 3.5(기본값)|
 
 ## <a name="next-steps"></a>다음 단계

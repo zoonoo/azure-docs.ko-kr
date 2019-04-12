@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803528"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500467"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -69,9 +69,13 @@ az webapp log tail --name webappname --resource-group myResourceGroup
 
 ### <a name="app-logging"></a>앱 로깅
 
-Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](/azure/app-service/troubleshoot-diagnostic-logs#enablediag)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 응용 프로그램을 구성합니다.
+Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](/azure/app-service/troubleshoot-diagnostic-logs#enablediag)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 응용 프로그램을 구성합니다. Java 및 Tomcat 응용 프로그램 로그에서 찾을 수 있습니다는 `/home/LogFiles/Application/` 디렉터리입니다.
 
 애플리케이션에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](/azure/application-insights/app-insights-java-trace-logs)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다.
+
+### <a name="troubleshooting-tools"></a>문제 해결 도구
+
+기본 제공 Java 이미지를 기반으로 합니다 [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) 운영 체제입니다. 사용 된 `apk` 문제 해결을 설치 하려면 패키지 관리자 도구 또는 명령입니다.
 
 ## <a name="customization-and-tuning"></a>사용자 지정 및 튜닝
 
@@ -81,31 +85,34 @@ Linux용 Azure App Service는 기본적으로 Azure Portal 및 CLI를 통해 튜
 - [사용자 지정 도메인 설정](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [SSL 사용](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [CDN 추가](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Kudu 사이트를 구성 합니다.](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Java 런타임 옵션 설정
 
-Tomcat 및 Java SE 환경에서 할당된 메모리 또는 기타 JVM 런타임 옵션을 설정하려면 아래와 같이 [애플리케이션 설정](/azure/app-service/web-sites-configure#app-settings)으로 JAVA_OPTS를 설정합니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
+Tomcat 및 Java SE 환경에서 할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 만듭니다는 [응용 프로그램 설정](/azure/app-service/web-sites-configure#app-settings) 라는 `JAVA_OPTS` 옵션을 사용 합니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `$JAVA_OPTS -Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `-Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
 
-Azure App Service Linux Maven 플러그 인에서 앱 설정을 구성하려면 Azure 플러그 인 섹션에서 설정/값 태그를 추가합니다. 다음 예제에서는 특정 최소 및 최대 Java 힙 크기를 설정합니다.
+Maven 플러그 인에서 앱 설정을 구성 하려면 Azure 플러그 인 섹션의 설정/값 태그를 추가 합니다. 다음 예제에서는 특정 최소 및 최대 Java 힙 크기를 설정합니다.
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리케이션을 실행하는 개발자는 다음 옵션을 사용할 수 있습니다.
 
-- B1 및 S1 인스턴스: -Xms1024m -Xmx1024m
-- B2 및 S2 인스턴스: -Xms3072m -Xmx3072m
-- B3 및 S3 인스턴스: -Xms6144m -Xmx6144m
+- B1 및 S1의 경우 인스턴스: `-Xms1024m -Xmx1024m`
+- B2 및 s2의 경우 인스턴스: `-Xms3072m -Xmx3072m`
+- B3 및 S3 인스턴스: `-Xms6144m -Xmx6144m`
 
 애플리케이션 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 애플리케이션 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
+
+JAR 응용 프로그램을 배포 하는 경우 그 이름은 `app.jar` 기본 제공 이미지를 앱에 올바르게 식별할 수 있도록 합니다. (Maven 플러그 인은 자동으로 변경 합니다.) 경우 원하지 않는에 JAR을 바꾸려면 `app.jar`, JAR를 실행 하려면 명령 사용 하 여 셸 스크립트를 업로드할 수 있습니다. 이 스크립트에 전체 경로 붙여 합니다 [시작 파일](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) 포털의 구성 섹션에서 텍스트 상자에 붙여넣습니다.
 
 ### <a name="turn-on-web-sockets"></a>웹 소켓 켜기
 
@@ -126,7 +133,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="set-default-character-encoding"></a>기본 문자 인코딩 설정
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `$JAVA_OPTS -Dfile.encoding=UTF-8` 값을 사용하여 `JAVA_OPTS`이라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `-Dfile.encoding=UTF-8` 값을 사용하여 `JAVA_OPTS`이라고 하는 새 앱 설정을 만듭니다.
 
 또는 App Service Maven 플러그 인을 사용하여 앱 설정을 구성할 수 있습니다. 플러그 인 구성에서 설정 이름 및 값 태그를 추가합니다.
 
@@ -134,10 +141,14 @@ Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `$JAVA_OPT
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### <a name="adjust-startup-timeout"></a>시작 시간 제한을 조정합니다
+
+Java 응용 프로그램 특히 큰 경우에 시작 시간 제한을 늘려야 합니다. 이렇게 하려면 응용 프로그램 설정 만들기 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 서비스 시간 초과 전까지 대기 해야 하는 시간 (초) 수로 설정 합니다. 최대값은 `1800` 시간 (초)입니다.
 
 ## <a name="secure-applications"></a>보안 애플리케이션
 

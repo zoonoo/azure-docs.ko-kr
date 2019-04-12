@@ -1,5 +1,5 @@
 ---
-title: 부터 Azure IoT OPC UA 장치 관리 모듈을 배포 하는 방법 | Microsoft Docs
+title: 부터 Azure에 대 한 OPC 쌍 모듈을 배포 하는 방법 | Microsoft Docs
 description: 부터 OPC 쌍을 배포 하는 방법입니다.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759479"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491359"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC 쌍 모듈과부터 종속성 배포
 
-OPC 장치 쌍 모듈이 IoT Edge에서 실행 되 고 OPC 장치 쌍 및 레지스트리 서비스를 여러 지 서비스를 제공 합니다. 
+OPC 쌍 모듈이 IoT Edge에서 실행 하 고 여러 OPC 장치 쌍을에 지 서비스와 레지스트리 서비스를 제공 합니다. 
 
 여러 가지 방법으로 모듈을 배포 하 여 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 그중에서 게이트웨이
 
@@ -109,7 +109,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 ### <a name="prerequisites"></a>필수 조건
 
-1. OPC UA 장치 관리를 배포 [종속성](howto-opc-twin-deploy-dependencies.md) 결과 가져올 `.env` 파일입니다. 배포 참고 `hub name` 의 합니다 `PCS_IOTHUBREACT_HUB_NAME` 결과 변수 `.env` 파일입니다.
+1. OPC 쌍 배포할 [종속성](howto-opc-twin-deploy-dependencies.md) 결과 가져올 `.env` 파일입니다. 배포 참고 `hub name` 의 합니다 `PCS_IOTHUBREACT_HUB_NAME` 결과 변수 `.env` 파일입니다.
 
 2. 등록 및 시작을 [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 하거나 [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge 게이트웨이 및 참고 해당 `device id`합니다.
 
@@ -205,7 +205,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 ### <a name="prerequisites"></a>필수 조건
 
-1. OPC UA 장치 관리를 배포 [종속성](howto-opc-twin-deploy-dependencies.md)합니다.
+1. OPC 쌍 배포할 [종속성](howto-opc-twin-deploy-dependencies.md)합니다.
 
 2. 설치 [Docker CE (18.02.0+)](https://www.docker.com/community-edition) 온 [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) 하거나 [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce)합니다.
 

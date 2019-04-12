@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
 ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469134"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490846"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>내보내기 및 Azure Notification Hubs 등록을 대량 가져오기
 생성 또는 많은 수의 알림 허브에서 등록을 수정할 필요는 시나리오가 있습니다. 이러한 시나리오 중 일부는 일괄 처리 계산 후 또는 기존 푸시 구현을 Notification Hubs를 사용 하 여 마이그레이션 태그 업데이트입니다.

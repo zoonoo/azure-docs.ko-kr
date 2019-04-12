@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278873"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501470"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -384,7 +384,7 @@ ms.locfileid: "59278873"
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/write | 애플리케이션에 첨부 파일을 추가합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/delete | 기존 애플리케이션을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/read | 모든 사용자 애플리케이션 목록을 가져오거나 API Management 애플리케이션 세부 정보를 가져옵니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/write | API Management에 애플리케이션을 등록하거나 애플리케이션 세부 정보를 업데이트합니다. |
+> | 조치 | Microsoft.ApiManagement/service/users/applications/write | API Management에 애플리케이션을 등록하거나 애플리케이션 세부 정보를 업데이트합니다. |
 > | 조치 | Microsoft.ApiManagement/service/users/confirmations/send/action | 확인을 보냅니다. |
 > | 조치 | Microsoft.ApiManagement/service/users/delete | 사용자 계정을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/generateSsoUrl/action | SSO URL을 생성합니다. 이 URL은 관리 포털에 액세스하는 데 사용할 수 있습니다. |
@@ -1107,7 +1107,7 @@ ms.locfileid: "59278873"
 해당 persistedFaceId에서 큰 얼굴 목록에 지정 된 얼굴을 userData 필드를 업데이트 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | 큰 얼굴 목록 largeFaceListId, 이름, 사용자 데이터를 검색 합니다.
 LargeFaceListId, 이름 및 사용자 데이터의 큰 얼굴 목록 정보를 나열 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | 큰 얼굴 목록 교육 작업을 제출 합니다. 학습 하 여 학습 된 큰 얼굴 목록만 사용할 수 있는 중요 한 단계는 |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | 큰 얼굴 목록 교육 작업을 제출 합니다. 학습에 학습 된 큰 얼굴 목록만 사용할 수 있는 중요 한 단계입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | 완료 되거나 아직 진행 큰 얼굴 목록 교육 상태를 확인 합니다. LargeFaceList 교육은 비동기 작업 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | 사용자 지정 largeFaceListId, 이름 및 선택적 사용자 데이터를 사용 하 여 빈 큰 얼굴 목록을 만듭니다.
 이름 및 사용자 데이터를 포함 하 여 큰 얼굴 목록에 대 한 정보를 업데이트 합니다. |
@@ -1123,7 +1123,7 @@ PersonId "," 이름 "," userData "및" persistedFaceIds 등의 지정 된 대규
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | 이름 또는 사용자의 사용자 데이터를 업데이트 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | 이름 및 사용자 데이터를 포함 하 여 대규모 사용자 그룹의 정보를 검색 합니다. 이 API는 큰 사용자 그룹 정보를 반환
 기존의 모든 대규모 사용자 그룹의 largePesonGroupId, 이름 및 사용자 데이터를 나열 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | 대규모 사용자 그룹 교육 작업을 제출 합니다. 학습 된 학습 된 대규모 사용자 그룹 으로만 사용할 수 있도록 중요 한 단계는 |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | 대규모 사용자 그룹 교육 작업을 제출 합니다. 학습에 학습 된 대규모 사용자 그룹에만 사용할 수 있는 중요 한 단계입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | 대규모 사용자 그룹 교육 상태 완료 되거나 아직 진행을 확인 합니다. LargePersonGroup 교육은 비동기 작업 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | 사용자 지정 largePersonGroupId, 이름 및 선택적 사용자 데이터를 사용 하 여 새 대규모 사용자 그룹을 만듭니다.
 기존 대규모 사용자 그룹의 이름 및 사용자 데이터를 업데이트 합니다. 요청 본문에 없는 경우 속성 변경 되지 않은 상태로 유지 합니다. |
@@ -1139,7 +1139,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | 이름 또는 사용자의 사용자 데이터를 업데이트 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | 사용자 그룹 이름 및 사용자 데이터를 검색 합니다. 사용이 personGroup 아래의 사용자 정보를 가져오려면
 사용자 그룹의 pesonGroupId, 이름 및 사용자 데이터를 나열 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | 사용자 그룹 교육 작업을 제출 합니다. 학습 된 숙련 된 사용자 그룹 으로만 사용할 수 있는 중요 한 단계는 |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | 사용자 그룹 교육 작업을 제출 합니다. 학습에 학습 된 사용자 그룹에만 사용할 수 있는 중요 한 단계입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | 사용자 그룹 교육 상태 완료 되거나 아직 진행을 확인 합니다. PersonGroup 학습은 트리거되는 비동기 작업 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | 지정 된 personGroupId, 이름 및 사용자가 제공한 사용자 데이터를 사용 하 여 새 사용자 그룹을 만듭니다.
 기존 사용자 그룹의 이름 및 사용자 데이터를 업데이트 합니다. 요청 본문에 없는 경우 속성 변경 되지 않은 상태로 유지 합니다. |
@@ -2270,7 +2270,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | 이벤트 구독에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | eventSubscription에 사용 가능한 메트릭을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription을 읽습니다. |
-> | 조치 | Microsoft.EventGrid/eventSubscriptions/write | 만들거나는 eventSubscription을 업데이트 합니다. |
+> | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/write | 만들거나는 eventSubscription을 업데이트 합니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | 토픽에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | 토픽에 사용 가능한 메트릭을 가져옵니다. |
@@ -2765,7 +2765,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | 데이터베이스 데이터 연결의 유효성을 검사 합니다. |
 > | 조치 | Microsoft.Kusto/Clusters/Databases/delete | 데이터베이스 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | 이벤트 허브 연결 리소스를 삭제합니다. |
-> | 조치 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | 이벤트 허브 연결 리소스를 읽습니다. |
+> | 액션(Action) | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | 이벤트 허브 연결 리소스를 읽습니다. |
 > | 액션(Action) | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | 이벤트 허브 연결 리소스를 씁니다. |
 > | 조치 | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | 데이터베이스 이벤트 허브 연결의 유효성을 검사 합니다. |
 > | 조치 | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | 데이터베이스 보안 주체를 나열 합니다. |
@@ -2813,7 +2813,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/SaveImage/action | 랩 계정에 공유 갤러리에 현재 템플릿 이미지를 저장합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/delete | 일정을 삭제합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | 일정을 읽습니다. |
-> | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | 일정을 추가하거나 수정합니다. |
+> | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | 일정을 추가하거나 수정합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | 템플릿 내의 모든 리소스를 시작하여 템플릿을 시작합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | 템플릿 내의 모든 리소스를 중지하여 템플릿을 중지합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | 환경 설정을 추가하거나 수정합니다. |
@@ -4794,7 +4794,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.Sql/locations/instanceFailoverGroups/delete | 기존 인스턴스 장애 조치(failover) 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | 기존 인스턴스 장애 조치(failover) 그룹에서 계획된 장애 조치(failover)를 실행합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | 기존 인스턴스 장애 조치(failover) 그룹에서 강제 장애 조치(failover)를 실행합니다. |
-> | 조치 | Microsoft.Sql/locations/instanceFailoverGroups/read | 인스턴스 장애 조치(failover) 그룹 목록을 반환하거나 지정된 인스턴스 장애 조치(failover) 그룹의 속성을 가져옵니다. |
+> | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/read | 인스턴스 장애 조치(failover) 그룹 목록을 반환하거나 지정된 인스턴스 장애 조치(failover) 그룹의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/write | 지정된 된 매개 변수를 사용 하 여 인스턴스 장애 조치 그룹을 만들거나 속성 또는 지정 된 인스턴스가 장애 조치 그룹에 대 한 태그를 업데이트 합니다. |
 > | 조치 | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | 인스턴스 풀 작업의 상태를 가져옵니다. |
 > | 조치 | Microsoft.Sql/locations/instancePoolOperationResults/read | 인스턴스 풀 작업에 대 한 결과를 가져옵니다. |

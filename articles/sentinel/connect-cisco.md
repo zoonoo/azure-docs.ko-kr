@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 Cisco 데이터 수집 | Microsoft Docs
-description: Azure Sentinel에서 Cisco 데이터를 수집 하는 방법에 알아봅니다.
+title: Azure 미리 보기 Sentinel Cisco 데이터 연결할 | Microsoft Docs
+description: Cisco 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37dcd1dd7052db864797407897851d57e91d43e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5bc57d448b8aa04b8cb6fb16000205fda8964150
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883913"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495705"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Cisco ASA 어플라이언스에서 연결 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58883913"
 Azure Sentinel 모든 Cisco ASA 어플라이언스에 연결할 수 있습니다. Cisco ASA는 기본적으로 통합 된 Azure Sentinel 데이터 수집에 대 한 Cisco 어플라이언스에서 CEF로 로그를 저장 하지 않습니다, 경우에 Azure Sentinel 수집 하 여 해당 CEF 로그를 처리 하는 동일한 방식에 있도록 합니다. Azure Sentinel와 통합을 사용 하면 쉽게 분석 및 실행 쿼리 로그 파일 데이터에서 Cisco ASA에서 수 있습니다. 
 
 > [!NOTE]
-> - 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
+> 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>1단계: 에이전트를 사용 하 여 Cisco ASA 어플라이언스에서 연결
 
@@ -42,7 +42,7 @@ Azure Sentinel 모든 Cisco ASA 어플라이언스에 연결할 수 있습니다
 
 ### <a name="deploy-the-agent-in-azure"></a>Azure에서 에이전트 배포
 
-1. Sentinel Azure 포털에서 클릭 **데이터 컬렉션** 어플라이언스 유형을 선택 하 고 있습니다. 
+1. Sentinel Azure 포털에서 클릭 **데이터 커넥터** 어플라이언스 유형을 선택 하 고 있습니다. 
 
 1. 아래 **Linux Syslog 에이전트 구성을**:
    - 선택할 **자동 배포** 위에서 설명한 대로 Azure Sentinel 에이전트를 사용 하 여 미리 설치 되어 있고 구성 필요한 모든 포함 하 여 새 컴퓨터를 만들려는 경우입니다. 선택 **자동 배포** 누릅니다 **자동 에이전트 배포**합니다. 이 작업 영역에 자동으로 연결 되는 전용된 VM에 대 한 구매 페이지로 이동 합니다. VM이를 **표준 D2s v3 (2 개 vcpu, 8GB 메모리)** 있고 공용 IP 주소입니다.
@@ -79,7 +79,7 @@ Azure Sentinel 모든 Cisco ASA 어플라이언스에 연결할 수 있습니다
 Azure를 사용 하지 않는 경우 전용된 Linux 서버에서 실행 되도록 Azure Sentinel 에이전트를 수동으로 배포 합니다.
 
 
-1. Sentinel Azure 포털에서 클릭 **데이터 컬렉션** 어플라이언스 유형을 선택 하 고 있습니다.
+1. Sentinel Azure 포털에서 클릭 **데이터 커넥터** 어플라이언스 유형을 선택 하 고 있습니다.
 1. 아래에 있는 전용된 Linux VM을 만들려면 **Linux Syslog 에이전트 구성을** 선택 **수동 배포**합니다.
    1. 아래 **Syslog 에이전트 다운로드 및 설치**를 선택 **비 Azure Linux 머신**합니다. 
    1. 에 **직접 에이전트** 열립니다를 선택 하는 화면 **Agent for Linux** 에이전트를 다운로드 하거나 Linux 컴퓨터에 다운로드 하려면이 명령을 실행 하려면:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

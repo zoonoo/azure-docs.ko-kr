@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650294"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496882"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -48,7 +48,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 
 ## <a name="event-schema-per-category"></a>범주별 이벤트 스키마
 
-[범주별 활동 로그 이벤트 스키마를 파악하려면 이 문서를 참조하세요.](../../azure-monitor/platform/activity-log-schema.md)
+[범주별 활동 로그 이벤트 스키마를 파악 하려면이 문서를 참조 하세요.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>활동 로그에서 수행할 수 있는 작업
 
@@ -58,7 +58,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 
 
 * **Azure Portal**에서 쿼리하고 봅니다.
-* [활동 로그 이벤트에서 경고 만들기](../../azure-monitor/platform/activity-log-alerts.md)
+* [활동 로그 이벤트에서 경고를 만듭니다.](../../azure-monitor/platform/activity-log-alerts.md)
 * [Stream에 **이벤트 허브** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) 타사 서비스 또는 Power BI와 같은 사용자 지정 분석 솔루션에서 수집 합니다.
 * Power BI를 사용 하 여 분석 합니다 [ **Power BI 콘텐츠 팩**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)합니다.
 * [보관 또는 수동 검사를 위해 **Storage 계정**에 저장합니다](../../azure-monitor/platform/archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
@@ -92,22 +92,14 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 **로그 프로필**은 활동 로그를 내보내는 방식을 제어합니다. 로그 프로필을 사용하여 다음을 구성할 수 있습니다.
 
 * 활동 로그를 보낼 위치(Storage 계정 또는 Event Hubs)
-* 보낼 이벤트 범주(쓰기, 삭제, 작업) *로그 프로필 및 활동 로그 이벤트에서 "범주"의 의미는 다릅니다. 로그 프로필에서 "범주"는 작업 유형(쓰기, 삭제 작업)을 나타냅니다. 활동 로그 이벤트에서 "범주" 속성은 원본 또는 이벤트의 유형(예: 관리, ServiceHealth, 경고 등)을 나타냅니다.*
+* 보낼 이벤트 범주(쓰기, 삭제, 작업) *로그 프로필 및 활동 로그 이벤트에서 "범주"의 의미는 다릅니다. 로그 프로필에서 "범주"는 작업 유형(쓰기, 삭제 작업)을 나타냅니다. 활동 로그 이벤트를 "category" 속성 원본 또는 이벤트 (예를 들어, 관리, ServiceHealth, 경고 등)의 형식을 나타냅니다.*
 * 내보낼 하위 지역(위치). 활동 로그의 많은 이벤트가 전역 이벤트이므로 “전역”이 포함되었는지 확인합니다.
 * 활동 로그를 Storage 계정에 유지해야 하는 기간
-    - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
+    - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값 1에서 365 사이의 일 수 있습니다.
     - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예: Event Hubs 또는 Log Analytics 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
     - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 저장소 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다.
 
 로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hub 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
-
-> [!NOTE]
->  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 데이터를 보관할 수 없습니다.
-
-> [!WARNING]
-> 스토리지 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성할 수 있습니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수도 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
@@ -191,5 +183,5 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="next-steps"></a>다음 단계
 
-* [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](../../azure-resource-manager/resource-group-audit.md)
+* [활동 로그 (이전의 감사 로그)에 대해 자세히 알아보기](../../azure-resource-manager/resource-group-audit.md)
 * [Azure 활동 로그를 Event Hubs로 스트림](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c9be129624c87ca0bff1e85a5d1c71425ef06b89
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471883"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489693"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스에서 표준 시간대
+# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Azure SQL Database 관리 되는 인스턴스 (미리 보기)의 표준 시간대
 
 클라우드 솔루션의 데이터 계층에 대 한 utc (협정 세계시)를 사용 하는 것이 좋습니다, 하지만 Azure SQL Database 관리 되는 인스턴스 하나를 선택할 표준 시간대의 날짜 및 시간 값을 저장 하 고 날짜를 호출 하는 기존 응용 프로그램의 요구를 충족 하도록 하 고 특정 표준 시간대의 암시적 컨텍스트를 사용 하 여 시간 함수.
 
@@ -72,7 +72,7 @@ T-SQL 함수 [getdate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate
 
 ## <a name="checking-the-time-zone-of-instance"></a>인스턴스의 표준 시간대를 확인 하는 중
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) 함수 인스턴스의 표준 시간대의 표시 이름을 반환 합니다.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) 함수 인스턴스의 표준 시간대의 표시 이름을 반환 합니다.
 
 ## <a name="cross-feature-considerations"></a>기능 간 고려 사항
 

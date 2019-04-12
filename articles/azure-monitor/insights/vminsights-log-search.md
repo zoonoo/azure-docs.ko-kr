@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188971"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492091"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)에서 로그를 쿼리하는 방법
 Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토리 데이터 및 상태 정보를 수집 하 고 Azure Monitor에서 Log Analytics 작업 영역으로 전달 합니다.  이 데이터를 사용할 수 [쿼리](../../azure-monitor/log-query/log-query-overview.md) Azure Monitor에서. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
@@ -125,7 +125,12 @@ Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로
 ### <a name="ports"></a>포트 
 적극적으로 들어오는 트래픽을 허용 하거나 트래픽을 잠재적으로 수락할 수 있지만 보고 기간 동안 유휴 상태가 되는 컴퓨터에서 포트 VMBoundPort 테이블에 기록 됩니다.  
 
-기본적으로 데이터는이 테이블을 기록 되지 않습니다. 데이터가이 테이블에 기록 하는 이메일을 보내세요 vminsights@microsoft.com 작업 영역 ID와 작업 영역입니다.   
+>[!NOTE]
+>수집 하 고 다음 지역에서 Log Analytics 작업 영역에서 포트 데이터 기록에 Vm에 대 한 azure Monitor 지원 하지 않습니다.  
+>- 미국 동부  
+>- 서유럽
+>
+> 다른 사용은이 데이터를 수집 [지원 되는 지역](vminsights-onboard.md#log-analytics) Vm에 대 한 Azure Monitor에 대 한 합니다. 
 
 VMBoundPort의 모든 레코드는 다음 필드에 의해 식별 됩니다. 
 

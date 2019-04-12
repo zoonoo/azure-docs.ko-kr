@@ -11,23 +11,31 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/27/2019
-ms.openlocfilehash: 6181183b1455d5ca38ab9bbd37102cb3bc091b3c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/09/2019
+ms.openlocfilehash: c08b5559fd599fb297f294a54aed67c65676aee4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622096"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496236"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 사용자 고유 키를 사용하여 Managed Instance에서 투명한 데이터 암호화 관리
 
 이 PowerShell 스크립트 예제는 Azure Key Vault의 키를 사용하여 Azure SQL Managed Instance에 대한 Bring Your Own Key 시나리오에서 TDE(투명한 데이터 암호화)를 구성합니다. BYOK(Bring Your Own Key) 지원을 통한 TDE에 대한 자세한 내용은 [Azure SQL에 대한 TDE Bring Your Own Key](../transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
 
+## <a name="prerequisites"></a>필수 조건
+
+- 기존 관리 되는 인스턴스. 참조 [Azure SQL Database를 만들려면 PowerShell을 사용 하 여 관리 되는 인스턴스](sql-database-create-configure-managed-instance-powershell.md)합니다.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AZ PowerShell 1.4.0 이상이 필요합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+모두 PowerShell를 사용 하 여 로컬로 또는 Azure Cloud Shell을 사용 하 여 AZ PowerShell 1.1.1-preview 또는 이상 미리 보기 버전이 필요 합니다. 업그레이드 해야 하는 경우 참조 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps), 실행 또는 아래 샘플 스크립트 모듈을 설치 합니다.
+
+`Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force`
+
+또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 

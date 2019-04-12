@@ -1,6 +1,6 @@
 ---
-title: IBM DB2 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포 | Microsoft Docs
-description: SAP 워크로드에 대한 IBM DB2 Azure Virtual Machines DBMS 배포
+title: SAP 워크 로드 용 IBM Db2 Azure Virtual Machines DBMS 배포 | Microsoft Docs
+description: SAP 워크 로드 용 IBM Db2 Azure Virtual Machines DBMS 배포
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e746b5fa964249c3a3d34df5805cc1008c7fe77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014936"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496865"
 ---
-# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 IBM DB2 Azure Virtual Machines DBMS 배포
+# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크 로드 용 IBM Db2 Azure Virtual Machines DBMS 배포
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -158,7 +158,7 @@ ms.locfileid: "58014936"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "58014936"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -310,16 +310,16 @@ ms.locfileid: "58014936"
 
 
 
-Microsoft Azure를 사용하면 Linux, UNIX, Windows(LUW)용 IBM DB2에서 실행 중인 기존 SAP 응용 프로그램을 Azure 가상 머신으로 마이그레이션할 수 있습니다. LUW용 IBM DB2에서 SAP를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
-LUW용 IBM DB2에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 내용은 SCN(SAP Community Network)의 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>에서 찾을 수 있습니다.
+Microsoft Azure를 사용 하 여 Azure virtual machines에 Linux, UNIX 및 Windows (LUW) 용 IBM Db2에서 실행 중인 기존 SAP 응용 프로그램을 마이그레이션할 수 있습니다. LUW 용 IBM Db2에서 SAP를 사용 하 여 관리자 및 개발자가 여전히 사용할 수와 동일한 개발 및 관리 도구를 사용할 수 있는 온-프레미스.
+LUW에는 커뮤니티 네트워크 SCN (SAP)에 있을 수 용 IBM Db2에서 SAP Business Suite를 실행 하는 방법에 대 한 일반 정보 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>합니다.
 
-Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP Note [2233094]를 참조하세요. 
+자세한 내용과 Azure에서 LUW 용 Db2의 SAP에 대 한 업데이트에 대 한 SAP Note를 참조 하세요 [2233094]합니다. 
 
-다음은 릴리스된 Azure의 SAP 워크로드에 대한 다양한 문서입니다.  [Azure의 SAP 워크로드 - 시작](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)에서 시작한 후 원하는 영역을 선택하는 것이 좋습니다.
+릴리스된 Azure의 SAP 워크로드에 대해 다양한 문서가 있습니다.  [Azure의 SAP 워크로드 - 시작](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)에서 시작한 후 원하는 영역을 선택하는 것이 좋습니다.
 
 다음 SAP Note는 이 문서에서 다루는 영역에 대한 Azure의 SAP와 관련이 있습니다.
 
-| Note 번호 | 직함 |
+| Note 번호 | 제목 |
 | --- | --- |
 | [1928533] |Azure의 SAP 애플리케이션: 지원되는 제품 및 Azure VM 유형 |
 | [2015553] |Microsoft Azure의 SAP: 필수 구성 요소 지원 |
@@ -333,22 +333,22 @@ Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP No
 | [2002167] |Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
 
-이 문서를 시작하기 전에 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 읽어야 합니다. 
+이 문서를 시작하기 전에 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)에 나오는 다른 가이드를 참조해야 합니다. 
 
 
-## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Linux, UNIX 및 Windows용 IBM DB2 버전 지원
-Microsoft Azure Virtual Machine 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버전 10.5부터 지원됩니다.
+## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Linux, UNIX 및 Windows 버전 지원에 대 한 IBM Db2
+Microsoft Azure 가상 컴퓨터 서비스에서 LUW 용 IBM Db2의 SAP는 Db2 버전 10.5부터 지원 됩니다.
 
 지원되는 SAP 제품 및 Azure VM 형식에 대한 내용은 SAP Note [1928533]을 참조하세요.
 
-## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 Linux, UNIX 및 Windows용 IBM DB2 구성 지침
+## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Linux, UNIX 및 Azure Vm의 SAP 설치에 대 한 구성 지침 Windows 용 IBM Db2
 ### <a name="storage-configuration"></a>저장소 구성
 모든 데이터베이스 파일은 직접 연결된 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, Azure 페이지 Blob Storage(<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 Managed Disks(<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 파일 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다** . 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-Azure 페이지 Blob Storage 또는 Managed Disks를 기반으로 하는 디스크를 사용하는 경우, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 제공된 설명이 IBM DB2 DBMS와 함께 배포하는 경우에도 적용됩니다.
+Azure 페이지 BLOB Storage 또는 Managed Disks에 기반한 디스크를 사용 하는 내용이 [SAP 워크 로드에 대 한 Azure Virtual Machines DBMS 배포에 대 한 고려 사항](dbms_guide_general.md) 도 Db2 DBMS를 사용 하 여 배포에 적용 합니다.
 
 이 문서 앞부분의 일반 정보에서 설명했듯이 Azure 디스크에 대한 IOPS 처리량에 할당량이 존재합니다. 정확한 할당량은 사용되는 VM 유형에 따라 달라집니다. VM 유형과 해당 할당량의 목록은 [여기(Linux)][virtual-machines-sizes-linux] 및 [여기(Windows)][virtual-machines-sizes-windows]에 있습니다.
 
@@ -356,14 +356,16 @@ Azure 페이지 Blob Storage 또는 Managed Disks를 기반으로 하는 디스�
 
 SAP 설치 가이드의 ‘데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항’ 장에서도 성능 고려 사항을 참조할 수 있습니다.
 
-또는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 설명한 대로 Window 저장소 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 하나의 큰 논리적 장치를 만들 수 있습니다.
+또는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 설명한 대로 Window 저장소 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 하나의 큰 논리적 디바이스를 만들 수 있습니다.
 
-sapdata 및 saptmp 디렉터리에 대한 DB2 저장소 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다. Windows 저장소 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 저장소 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 또한 DB2 트랜잭션 로그의 볼륨을 구성하는 VHD용 Azure Write Accelerator를 배포해야 합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 문서를 참조하세요.
+Sapdata 및 saptmp 디렉터리에 대 한 Db2 저장소 경로 포함 하는 디스크, 실제 디스크 섹터 크기는 512KB를 지정 해야 합니다. Windows 저장소 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 저장소 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
+
+Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 따라서 Db2 트랜잭션 로그용 볼륨을 형성 하는 VHD(s)에 대 한 Azure Write Accelerator를 배포 해야 합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 문서에서 참조할 수 있습니다.
 
 ### <a name="backuprestore"></a>Backup/복원
-LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 및 Hyper-V와 동일한 방법으로 지원됩니다.
+LUW 용 IBM Db2에 대 한 백업/복원 기능을 동일한 방식으로 표준 Windows Server 운영 체제 및 Hyper-v에서 지원 됩니다.
 
 유효한 데이터베이스 백업 전략이 있는지 확인해야 합니다. 
 
@@ -379,24 +381,26 @@ LUW용 IBM DB2의 백업/복원 기능은 표준 Windows Server 운영 체제 �
 * 둘 이상의 대상 디렉터리를 사용하여 백업을 작성합니다.
 
 >[!NOTE]
->Windows의 DB2는 Windows VSS 기술을 지원하지 않습니다. 따라서 DB2 DBMS가 배포된 VM에는 Azure Backup 서비스의 응용 프로그램 일치 VM 백업을 사용할 수 없습니다.
+>Windows에서 Db2에는 Windows VSS 기술을 지원 하지 않습니다. 결과적으로, Db2 DBMS에 배포 된 Vm에 대 한 Azure Backup 서비스의 응용 프로그램 일치 VM 백업을 활용할 수 없습니다.
 
 ### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
 MSCS(Microsoft Cluster Server)는 지원되지 않습니다.
 
-DB2 HADR(고가용성 재해 복구)은 지원됩니다. HA 구성의 가상 머신에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
+Db2 고가용성 재해 복구 (HADR) 지원 됩니다. HA 구성의 가상 머신에 이름 확인 작업이 있는 경우 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다.
 
 데이터베이스 디스크를 저장하는 저장소 계정에는 지역에서 복제를 사용하지 마세요. 자세한 내용은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서를 참조하세요. 
 
 ### <a name="accelerated-networking"></a>가속 네트워킹
-Windows의 DB2 배포에서는 [Azure 가속화된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 문서에 설명된 대로 가속화된 네트워킹의 Azure 기능을 사용하는 것이 좋습니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 제공된 권장 사항을 고려하세요. 
+Windows에서 Db2 배포에 대 한 것이 좋습니다 문서에 설명 된 대로 가속화 된 네트워킹의 Azure 기능을 사용 하려면 [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)합니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 고려하세요. 
 
 
 ### <a name="specifics-for-linux-deployments"></a>Linux 배포에 대한 세부 정보
 디스크당 현재 IOPS 할당량이 충분한 경우 하나의 단일 디스크에 모든 데이터베이스 파일을 저장할 수 있습니다. 그러나 항상 데이터 파일 및 트랜잭션 로그 파일을 서로 다른 디스크/VHD로 분리해야 합니다.
 
-또는 단일 Azure VHD의 IOPS 또는 I/O 처리량이 충분하지 않은 경우, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서에서 설명한 대로 LVM(Logical Volume Manager) 또는 MDADM을 사용하여 여러 디스크에 하나의 큰 논리적 장치를 만들 수 있습니다.
-sapdata 및 saptmp 디렉터리에 대한 DB2 저장소 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다.
+또는 단일 Azure VHD의 IOPS 또는 I/O 처리량이 충분하지 않은 경우, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서에서 설명한 대로 LVM(Logical Volume Manager) 또는 MDADM을 사용하여 여러 디스크에 하나의 큰 논리적 디바이스를 만들 수 있습니다.
+Sapdata 및 saptmp 디렉터리에 대 한 Db2 저장소 경로 포함 하는 디스크, 실제 디스크 섹터 크기는 512KB를 지정 해야 합니다.
+
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
 ### <a name="other"></a>기타

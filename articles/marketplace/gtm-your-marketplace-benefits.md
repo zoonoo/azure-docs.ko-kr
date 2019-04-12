@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887253"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489574"
 ---
 # <a name="your-marketplace-benefits"></a>마켓플레이스 혜택
 
@@ -73,7 +73,7 @@ GTM 지원에는 비즈니스 홍보를 위한 템플릿, 웹 콘텐츠, 교육 
 
 \* 실버 또는 골드 역량이 필요합니다. <br>
 \*\* 골드 역량이 필요합니다. <br>
-\*\*\* 골드 역량이 필요하며, OCP 카탈로그에서 공동 판매 준비 목록에 추가되어야 합니다. <br>
+\*\*\* 골드 역량 및 공동 판매 준비 파트너 목록에 필요합니다. <br>
 ^ 트랜잭션 전용으로, Azure Marketplace에만 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계

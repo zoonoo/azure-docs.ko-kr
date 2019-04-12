@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e103604af7aba2a0ef2e3d0e02a721ae4740c40
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469695"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493778"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML에서 single sign-on 응용 프로그램 프록시 (미리 보기)를 사용 하 여 온-프레미스 응용 프로그램에 대 한
 

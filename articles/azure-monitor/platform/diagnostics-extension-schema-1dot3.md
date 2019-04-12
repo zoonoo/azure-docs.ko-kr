@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463510"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497086"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 이상 구성 스키마
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "54463510"
 
 여기에서 설명하는 구성 파일은 진단 모니터가 시작될 때 진단 구성 설정을 설정하는 데 사용됩니다.  
 
-확장은 Azure Monitor, Application Insights 및 Log Analytics와 같은 기타 Microsoft 진단 제품과 함께 사용됩니다.
+확장은 Application Insights 및 Log Analytics를 포함 하는 Azure Monitor와 같은 기타 Microsoft 진단 제품과 함께에서 사용 됩니다.
 
 
 
@@ -408,7 +408,7 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration 요소  
- *Tree: Root - DiagnosticsConfiguration*
+ *트리: Root - DiagnosticsConfiguration*
 
 버전 1.3에 추가되었습니다.  
 
@@ -425,7 +425,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**IsEnabled**|부울 값입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig*
 
  공용 진단 구성을 설명합니다.  
 
@@ -434,16 +434,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**WadCfg**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**StorageAccount**|데이터를 저장할 Azure Storage 계정의 이름입니다. Set-AzureServiceDiagnosticsExtension cmdlet을 실행할 때 매개 변수로 지정할 수도 있습니다.|  
 |**StorageType**|*Table*, *Blob* 또는 *TableAndBlob*일 수 있습니다. Table이 기본값입니다. TableAndBlob을 선택하면 진단 데이터는 각 형식당 한 번씩, 두 번 기록됩니다.|  
-|**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할의 경우: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Virtual Machine의 경우: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> - **경로** - Azure 진단에서 사용되는 시스템의 디렉터리입니다.<br /><br /> - **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
+|**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 가상 컴퓨터: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> - **경로** - Azure 진단에서 사용되는 시스템의 디렉터리입니다.<br /><br /> - **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
 
 ## <a name="wadcfg-element"></a>WadCFG 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
 
  수집할 원격 분석 데이터를 식별 및 구성합니다.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 요소
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
  필수
 
@@ -458,11 +458,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**CrashDumps**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**크래시 덤프**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
-|**Directories**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**디렉터리**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**EtwProviders**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**Metrics**(메트릭)|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**메트릭**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PerformanceCounters**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**WindowsEventLog**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|
 |**DockerSources**|이 페이지의 다른 곳에 있는 설명을 참조하세요. |
@@ -470,7 +470,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="crashdumps-element"></a>CrashDumps 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
 
  크래시 덤프의 수집을 사용하도록 설정합니다.  
 
@@ -485,7 +485,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**CrashDumpConfiguration**|필수 사항입니다. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure 진단에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
 
 ## <a name="directories-element"></a>Directories 요소
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
 
  디렉터리, IIS 실패한 액세스 요청 로그 및/또는 IIS 로그의 콘텐츠 수집을 활성화합니다.  
 
@@ -501,7 +501,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="datasources-element"></a>DataSources 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
 
  모니터링할 디렉터리의 목록입니다.  
 
@@ -514,19 +514,19 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
 
  **Absolute** 또는 **LocalResource** 요소 중 하나를 포함하되, 모두 포함할 수는 없습니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**Absolute**|모니터링할 디렉터리의 절대 경로입니다. 다음과 같은 특성이 필요합니다.<br /><br /> - **Path** - 모니터링할 디렉터리의 절대 경로입니다.<br /><br /> - **expandEnvironment** - 경로의 환경 변수가 확장되어 있는지 여부를 구성합니다.|  
+|**절대값**|모니터링할 디렉터리의 절대 경로입니다. 다음과 같은 특성이 필요합니다.<br /><br /> - **Path** - 모니터링할 디렉터리의 절대 경로입니다.<br /><br /> - **expandEnvironment** - 경로의 환경 변수가 확장되어 있는지 여부를 구성합니다.|  
 |**LocalResource**|모니터링할 로컬 리소스의 상대 경로입니다. 필수 특성은 다음과 같습니다.<br /><br /> - **Name** - 모니터링할 디렉터리를 포함하는 로컬 리소스<br /><br /> - **relativePath** -모니터링할 디렉터리를 포함하는 이름의 상대 경로|  
 
 
 
 ## <a name="etwproviders-element"></a>EtwProviders 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders*
 
  EventSource의 ETW 이벤트 및/또는 공급자를 기반으로 하는 ETW 매니페스트의 컬렉션을 구성합니다.  
 
@@ -538,29 +538,29 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
  [EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
 |**DefaultEvents**|선택적 특성:<br/><br/> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
-|**Event**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
+|**행사**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
 
 
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
 |**DefaultEvents**|선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
-|**Event**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
+|**행사**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
 
 
 
 ## <a name="metrics-element"></a>Metrics 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
 
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다.  
 
@@ -573,7 +573,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
 
  성능 카운터의 컬렉션을 활성화합니다.  
 
@@ -590,7 +590,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 요소
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
 
  Windows 이벤트 로그의 컬렉션을 활성화합니다.  
 
@@ -604,79 +604,79 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="logs-element"></a>Logs 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
  버전 1.0 및 1.1에서 제공됩니다. 1.2에는 제공되지 않습니다. 1.3에서 다시 추가됩니다.  
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
-|**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
+|**scheduledTransferLogLevelFilter**|**문자열**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**scheduledTransferPeriod**|**duration**|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
-|**sinks** |**string**| 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
+|**sinks** |**문자열**| 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. Application Insights 또는 Event Hubs를 예로 들 수 있습니다.|  
 
 ## <a name="dockersources"></a>DockerSources
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
 
  1.9에 추가되었습니다.
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**Stats**|Docker 컨테이너에 대한 통계를 수집하도록 시스템에 지시|  
+|**통계**|Docker 컨테이너에 대한 통계를 수집하도록 시스템에 지시|  
 
 ## <a name="sinksconfig-element"></a>SinksConfig 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
  진단 데이터를 보낼 위치와 그러한 위치와 관련된 구성의 목록 입니다.  
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**싱크**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**sink**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="sink-element"></a>싱크 요소
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink*
 
  버전 1.5에 추가되었습니다.  
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**name**|string|sinkname을 식별하는 문자열입니다.|  
+|**이름**|문자열|sinkname을 식별하는 문자열입니다.|  
 
-|요소|type|설명|  
+|요소|Type|설명|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
-|**Channels**|string|스트림하는 각 추가 필터링에 대한|  
+|**Application Insights**|문자열|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
+|**채널**|문자열|스트림하는 각 추가 필터링에 대한|  
 
 ## <a name="channels-element"></a>Channels 요소  
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
 
  버전 1.5에 추가되었습니다.  
 
  싱크를 통해 전달되는 로그 데이터의 스트림에 대한 필터를 정의합니다.  
 
-|요소|type|설명|  
+|요소|Type|설명|  
 |-------------|----------|-----------------|  
-|**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**채널**|문자열|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="channel-element"></a>채널 요소
- *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
+ *트리: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
 
  버전 1.5에 추가되었습니다.  
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |----------------|----------|-----------------|  
-|**logLevel**|**string**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
-|**name**|**string**|참조 하는 채널의 고유 이름|  
+|**logLevel**|**문자열**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
+|**이름**|**문자열**|참조 하는 채널의 고유 이름|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig 요소
- *Tree: Root - DiagnosticsConfiguration - PrivateConfig*
+ *트리: Root - DiagnosticsConfiguration - PrivateConfig*
 
  버전 1.3에 추가되었습니다.  
 
@@ -690,7 +690,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="isenabled-element"></a>IsEnabled 요소  
- *Tree: Root - DiagnosticsConfiguration - IsEnabled*
+ *트리: 루트-DiagnosticsConfiguration-IsEnabled*
 
  부울 값입니다. `true`를 사용하여 진단을 사용하도록 설정하거나 `false`를 사용하여 진단을 사용하지 않도록 설정합니다.
 

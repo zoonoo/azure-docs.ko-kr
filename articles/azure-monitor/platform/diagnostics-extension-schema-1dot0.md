@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811531"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492722"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure Diagnostics 1.0 구성 스키마
 > [!NOTE]
 > Azure Diagnostics는 Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 및 기타 통계를 수집하는 데 사용되는 구성 요소입니다.  이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
 >
 
-Azure Diagnostics는 Azure Monitor, Application Insights 및 Log Analytics와 같은 기타 Microsoft 진단 제품과 함께 사용됩니다.
+Azure 진단은 Application Insights 및 Log Analytics를 포함 하는 Azure Monitor와 같은 기타 Microsoft 진단 제품과 함께 사용 됩니다.
 
 Azure Diagnostics 구성 파일은 진단 모니터를 초기화하는 데 사용되는 값을 정의합니다. 이 파일은 진단 모니터가 시작될 때 진단 구성 설정을 초기화하는 데 사용됩니다.  
 
@@ -116,7 +116,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |특성|Type|설명|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
-|**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
+|**scheduledTransferLogLevelFilter**|문자열|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 
 ## <a name="logs-element"></a>Logs 요소  
@@ -129,7 +129,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
-|**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
+|**scheduledTransferLogLevelFilter**|문자열|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 
 ## <a name="directories-element"></a>Directories 요소  
@@ -154,7 +154,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
+|**container**|문자열|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs 요소  
@@ -166,7 +166,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
+|**container**|문자열|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 
 ##  <a name="iislogs-element"></a>IISLogs 요소  
@@ -178,7 +178,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
+|**container**|문자열|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 
 ## <a name="datasources-element"></a>DataSources 요소  
@@ -195,7 +195,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
+|**container**|문자열|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 
 ## <a name="absolute-element"></a>Absolute 요소  
@@ -207,7 +207,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**path**|string|필수 사항입니다. 모니터링할 디렉터리의 절대 경로입니다.|  
+|**경로**|문자열|필수 사항입니다. 모니터링할 디렉터리의 절대 경로입니다.|  
 |**expandEnvironment**|부울|필수 사항입니다. **true**로 설정하면 경로의 환경 변수가 확장됩니다.|  
 
 ## <a name="localresource-element"></a>LocalResource 요소  
@@ -219,8 +219,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**name**|string|필수 사항입니다. 모니터링할 디렉터리를 포함하는 로컬 리소스의 이름입니다.|  
-|**relativePath**|string|필수 사항입니다. 모니터링할 로컬 리소스의 상대 경로입니다.|  
+|**이름**|문자열|필수 사항입니다. 모니터링할 디렉터리를 포함하는 로컬 리소스의 이름입니다.|  
+|**relativePath**|문자열|필수 사항입니다. 모니터링할 로컬 리소스의 상대 경로입니다.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 요소  
  수집할 성능 카운터의 경로를 정의합니다.
@@ -244,7 +244,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|string|필수 사항입니다. 수집할 성능 카운터의 경로입니다.|  
+|**counterSpecifier**|문자열|필수 사항입니다. 수집할 성능 카운터의 경로입니다.|  
 |**sampleRate**|duration|필수 사항입니다. 성능 카운터를 수집할 속도입니다.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 요소  
@@ -257,7 +257,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
-|**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
+|**scheduledTransferLogLevelFilter**|문자열|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
 
 ## <a name="datasource-element"></a>DataSource 요소  
@@ -269,5 +269,5 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**name**|string|필수 사항입니다. 수집할 로그를 지정하는 XPath 식입니다.|  
+|**이름**|문자열|필수 사항입니다. 수집할 로그를 지정하는 XPath 식입니다.|  
 

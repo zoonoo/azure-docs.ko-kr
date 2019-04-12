@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 Windows 방화벽 데이터 수집 | Microsoft Docs
-description: Sentinel Azure에서 Windows 방화벽 데이터를 수집 하는 방법에 알아봅니다.
+title: Windows 방화벽 데이터를 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
+description: Windows 방화벽 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574843"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494223"
 ---
 # <a name="connect-windows-firewall"></a>Windows 방화벽 연결
 
@@ -31,12 +31,11 @@ Windows 방화벽 커넥터를 사용 하면 Azure Sentinel 작업 영역에 연
 
 
 > [!NOTE]
-> 
-> - 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
+> 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
 
 ## <a name="enable-the-connector"></a>커넥터를 사용 하도록 설정 
 
-1. Sentinel Azure portal에서 선택 **데이터 컬렉션** 를 클릭 하 고는 **Windows 방화벽** 바둑판식으로 배열 합니다. 
+1. Sentinel Azure portal에서 선택 **데이터 커넥터** 를 클릭 하 고는 **Windows 방화벽** 바둑판식으로 배열 합니다. 
 1. 스트리밍 하려는 데이터 유형을 선택 합니다.
 1. **Install**을 클릭합니다.
 6. Log Analytics에서 관련 스키마를 사용 하 여 Windows 방화벽, 검색 **SecurityEvent**합니다.
@@ -48,7 +47,7 @@ Windows 방화벽 커넥터를 사용 하면 Azure Sentinel 작업 영역에 연
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel Windows 방화벽 연결 하는 방법을 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+이 문서에서는 Azure Sentinel Windows 방화벽 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
 - 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
 

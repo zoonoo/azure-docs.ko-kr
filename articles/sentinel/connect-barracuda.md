@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 Barracuda 데이터 수집 | Microsoft Docs
-description: Azure Sentinel에서 Barracuda 데이터를 수집 하는 방법에 알아봅니다.
+title: Azure 미리 보기 Sentinel Barracuda 데이터 연결할 | Microsoft Docs
+description: Barracuda 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574721"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492841"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Barracuda 어플라이언스에서 연결 
 
@@ -31,11 +31,10 @@ Barracuda 웹 응용 프로그램 방화벽 (WAF) 커넥터를 사용 하 여 Az
 
 
 > [!NOTE]
-> 
-> - 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
+> 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>구성 및 Barracuda WAF를 연결 합니다.
-Barracuda Web Application Firewall을 통합 하 고 Azure OMS 서버를 통해 [ASI]에 직접 로그를 내보낼 수 있습니다.
+Barracuda Web Application Firewall을 통합 하 고 Azure OMS 서버를 통해 Azure Sentinel에 직접 로그를 내보낼 수 있습니다.
 1. 로 이동 [Barracuda WAF 구성 흐름](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), 이러한 매개 변수를 사용 하 여 연결을 설정 하는 지침을 따릅니다.
     - **작업 영역 ID**: Azure Sentinel Barracuda 커넥터 페이지에서 작업 영역 ID의 값을 복사 합니다.
     - **기본 키**: Azure Sentinel Barracuda 커넥터 페이지에서 기본 키의 값을 복사 합니다.
@@ -52,7 +51,7 @@ Barracuda Web Application Firewall을 통합 하 고 Azure OMS 서버를 통해 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel Barracuda 어플라이언스에 연결 하는 방법을 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+이 문서에서는 Azure Sentinel Barracuda 어플라이언스에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
 - 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: OPC UA 클라이언트 및 Azure IoT OPC UA 인증서 관리를 사용 하 여 OPC UA 서버 응용 보호 | Microsoft Docs
-description: OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 OPC UA 클라이언트 및 OPC UA 서버 응용 프로그램을 보호 합니다.
+title: OPC UA 보안 클라이언트 및 OPC UA 서버의 OPC 자격 증명 모음-Azure를 사용 하 여 응용 프로그램 | Microsoft Docs
+description: OPC UA 클라이언트 및 OPC UA OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 서버 응용 프로그램을 보호 합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bfa6bdf6a54cb5e54087055988e9682565667105
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759504"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495297"
 ---
-# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA 클라이언트 및 OPC UA 서버 응용 프로그램 보안 
-Azure IoT OPC UA 인증서 관리, 또한 것 OPC 자격 증명 모음으로 마이크로 서비스를 구성할 수 있는 레지스터 및 클라우드에서 OPC UA 서버 및 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리 합니다. 이 문서에서는 OPC 자격 증명 모음을 사용 하 여 인증서 및 새 키 쌍을 사용 하 여 OPC UA 클라이언트 및 OPC UA 서버 응용 프로그램을 보호 하는 방법을 보여 줍니다.
+# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA 보안 클라이언트 및 OPC UA 서버 응용 프로그램 
+OPC 자격 증명 모음은 구성, 등록 및 OPC UA 서버 및 클라우드에서 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리할 수 있는 마이크로 서비스. 이 문서에서는 OPC UA 클라이언트가 및 OPC UA OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 서버 응용 프로그램을 보호 하는 방법을 보여 줍니다.
 
 다음 설정 하는 OPC 클라이언트 OPC PLC에 대 한 연결이 테스트 됩니다. 기본적으로 연결 수 없는 구성 요소를 모두 올바른 인증서를 사용 하 여 아직 구성 하지는 않기 때문에 있습니다. 이 워크플로에서 수행 하지 OPC UA 구성 요소 자체 서명 된 인증서를 사용 하 고 OPC 자격 증명 모음을 통해 로그인 합니다. 이전을 참조 하세요 [시험대](howto-opc-vault-deploy-existing-client-plc-communication.md)합니다. 대신이 테스트는 구성 요소를 새 개인 키와 새 인증서를 사용 하 여 OPC 자격 증명 모음에 의해 생성 된 프로 비전 합니다. 이 OPC UA 보안에 대 한 배경 정보를 찾을 수 있습니다 [백서](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf)합니다. OPC UA 사양에 완전 한 정보를 찾을 수 있습니다.
 
 테스트: 테스트 환경 구성 됩니다.
 
 OPC 자격 증명 모음 스크립트:
-- OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 OPC UA 클라이언트 및 OPC UA 서버 응용 프로그램을 보호 합니다.
+- OPC UA 클라이언트 및 OPC UA OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 서버 응용 프로그램을 보호 합니다.
 
 > [!NOTE]
 > 자세한 내용은 참조는 GitHub [리포지토리](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds)합니다.
@@ -37,11 +37,11 @@ OPC 자격 증명 모음 스크립트:
 **빠른 시작**
 1. 로 이동 합니다 [OPC 자격 증명 모음 웹 사이트](https://opcvault.azurewebsites.net/)
 
-1. `Register New`을(를) 선택합니다.
+1. 여기서 `Register New`
 
 1. 이전 테스트의 로그 출력에 표시 된 대로 OPC PLC 정보를 입력 `CreateSigningRequest information` 영역에서 입력된 필드에는 `Register New OPC UA Application` 페이지에서 `Server` ApplicationType로 합니다.
 
-1. `Register`을(를) 선택합니다.
+1. 여기서 `Register`
 
 1. 다음 페이지에서 `Request New Certificate for OPC UA Application` 선택 `Request new KeyPair and Certificate`
 
@@ -51,7 +51,7 @@ OPC 자격 증명 모음 스크립트:
 
 1. 다음 페이지에서 `Generate a new KeyPair and for an OPC UA Application` 입력 `CN=OpcPlc` SubjectName,으로 `opcplc-<_OPCVAULTID>` (대체 `<_OPCVAULTID>` 기업과) DomainName, 선택 `PEM` PrivateKeyFormat으로 암호를 입력 하 고 (나중에로 지칭 `<certpassword-string>`)
 
-1. `Generate New KeyPair`을(를) 선택합니다.
+1. 여기서 `Generate New KeyPair`
 
 1. 이제를 이동 하는 앞으로 `View Certificate Request Details`입니다. 이 페이지의 인증서 저장소를 프로 비전 하는 데 필요한 모든 정보를 다운로드할 수 있습니다 `opc-plc`합니다.
 
@@ -118,7 +118,7 @@ opcplc-123456 | [13:40:09 INF] Activating the new application certificate with t
 
 응용 프로그램 인증서 및 개인 키를 응용 프로그램 인증서 저장소에 설치 되어 이제 되며 OPC UA 응용 프로그램에서 사용 합니다.
 
-OPC 클라이언트와 OPC PLC 간의 연결을 성공적으로 설정할 수 있습니다 OPC PLC에서 OPC 클라이언트 데이터를 성공적으로 읽을 수 있는지 확인 합니다. 출력 로그 OPC 클라이언트에서 다음과 같은 출력이 표시 됩니다.
+OPC PLC 고 OPC 클라이언트 간의 연결을 성공적으로 설정할 수 있습니다 하 고 OPC PLC에서 OPC 클라이언트 데이터를 성공적으로 읽을 수를 확인 합니다. OPC 클라이언트 로그 출력에 다음 출력이 표시 됩니다.
 ```
 opcclient-123456 | [13:40:12 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [13:40:12 INF] Session successfully created with Id ns=3;i=941910499.
@@ -132,7 +132,7 @@ opcclient-123456 | [13:40:12 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [13:40:12 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/21/2018 13:40:12
 ```
-이 출력을 표시 하는 경우이 CA에서 서명 된 두 신뢰 인증서를 CA로 서명 된 인증서를 이제 둘 다 없으므로 OPC 클라이언트 그 반대의 경우도 마찬가지 신뢰 이제 OPC PLC 됩니다.
+이 출력을 표시 하는 경우 다음 OPC PLC 이제 신뢰 하는 것을 OPC 클라이언트 또는 그 반대로 이전이이 CA에서 서명 된 두 신뢰 인증서를 CA로 서명 된 인증서를 이제 둘 다 없으므로 합니다.
 
 ### <a name="a-testbed-for-opc-publisher"></a>OPC 게시자에 대 한 테스트 ###
 
@@ -145,7 +145,7 @@ docker-compose -f testbed.yml up
 
 **확인**
 - 데이터는 설정 하 여 구성한 iot Hub에 전송 됩니다 확인 `_HUB_CS` 를 사용 하 여 [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 하거나 [iothub explorer](https://github.com/Azure/iothub-explorer)합니다.
-- OPC 테스트 클라이언트 iot Hub 직접 메서드 호출 및 OPC 메서드 호출을 사용 하 여 OPC Testserver에서 노드를 게시/게시 해제 하는 OPC 게시자를 구성 하는 것입니다.
+- OPC 테스트 클라이언트는 게시/게시를 취소 하려면 노드 OPC 테스트 서버에서 OPC 게시자를 구성 하려면 iot Hub 직접 메서드 호출 및 OPC 메서드 호출을 사용 하려고 합니다.
 - 오류 메시지에 대 한 출력을 시청 하세요.
 
 ## <a name="next-steps"></a>다음 단계

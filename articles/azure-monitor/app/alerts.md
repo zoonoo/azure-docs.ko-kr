@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469798"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491545"
 ---
 # <a name="set-alerts-in-application-insights"></a>Application Insights에서 경고 설정
 [Azure Application Insights][start]는 웹앱의 성능 및 사용 메트릭이 변경되면 사용자에게 경고할 수 있습니다. 

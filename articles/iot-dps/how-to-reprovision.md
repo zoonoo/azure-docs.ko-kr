@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046840"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499855"
 ---
 # <a name="how-to-reprovision-devices"></a>디바이스를 다시 프로비전하는 방법
 
@@ -27,7 +27,7 @@ IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동�
 
 * **격리**: 솔루션 변경 비슷합니다. 제대로 작동하지 않거나 손상되었거나 오래된 디바이스는 IoT 허브에 다시 할당할 수 있습니다. IoT 허브에서는 이러한 모든 디바이스를 업데이트하여 규정 준수 상태로 다시 되돌릴 수 있습니다. 디바이스가 정상적으로 작동하면 해당 주 허브로 다시 마이그레이션됩니다.
 
-다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요.
+더 자세한 개요를 다시 프로 비전의 참조 하세요 [개념을 다시 프로 비전 하는 IoT Hub 장치](concepts-device-reprovision.md)합니다.
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>등록 할당 정책 구성
@@ -93,7 +93,7 @@ IoT 솔루션의 수명 주기 동안 IoT 허브 간에 디바이스를 이동�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
+- 자세한 Reprovisioning에 알아보려면 [개념을 다시 프로 비전 된 IoT 허브 장치](concepts-device-reprovision.md) 
 - 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
 
 

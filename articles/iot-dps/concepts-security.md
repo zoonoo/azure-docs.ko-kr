@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046901"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490275"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service 보안 개념 
 
@@ -77,7 +77,11 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 ### <a name="end-entity-leaf-certificate"></a>최종 엔터티 “리프” 인증서
 
-리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 디바이스를 프로비전 서비스에 고유하게 식별하며, 때로는 디바이스 인증서라고도 합니다. 인증하는 동안 디바이스는 이 인증서와 관련된 개인 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다. 자세한 내용은 [X.509 CA 인증서로 서명된 디바이스 인증](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
+리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 디바이스를 프로비전 서비스에 고유하게 식별하며, 때로는 디바이스 인증서라고도 합니다. 인증하는 동안 디바이스는 이 인증서와 관련된 개인 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다.
+
+리프 인증서 사용을 [개별 등록](./concepts-service.md#individual-enrollment) 항목 요구 사항이는 **주체 이름** 개별 등록 항목의 등록 ID로 설정 되어야 합니다. 리프 인증서를 사용는 [등록 그룹](./concepts-service.md#enrollment-group) 항목이 있어야 합니다 **주체 이름** 에 표시 됩니다는 원하는 장치 ID로 설정 합니다 **등록 레코드** 에 대 한 등록 그룹의 인증 된 장치입니다.
+
+자세한 내용은 [X.509 CA 인증서로 서명된 디바이스 인증](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어
 

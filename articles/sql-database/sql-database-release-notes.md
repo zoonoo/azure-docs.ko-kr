@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/10/2019
 ms.author: carlrab
-ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360079"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495108"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -42,6 +42,8 @@ ms.locfileid: "59360079"
 |Rowstore (호환성 수준 150) 아래에서 일괄 처리 모드|내용은 [Rowstore에서 일괄 처리 모드](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
 |(호환성 수준 150)에서 메모리 부여 피드백 (행 모드)|내용은 [메모리 부여 피드백 (행 모드)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |호환성 수준 150) (아래 변수 지연 된 컴파일 테이블|내용은 [테이블 변수 지연 된 컴파일](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|SQL 분석|내용은 [Azure SQL 분석](../azure-monitor/insights/azure-sql.md)|
+| 관리 되는 인스턴스에 대 한 표준 시간대 지원|자세한 내용은 참조 하세요. [Azure SQL Database Managed Instance의 표준 시간대](sql-database-managed-instance-timezone.md)|
 |||
 
 ## <a name="march-2019"></a>2019 년 3 월
@@ -57,6 +59,7 @@ ms.locfileid: "59360079"
 
 | 설명서 개선 | 세부 정보 |
 | --- | --- |
+| 관리 되는 인스턴스에 대 한 표준 시간대 지원|자세한 내용은 참조 하세요. [Azure SQL Database Managed Instance의 표준 시간대](sql-database-managed-instance-timezone.md)|
 | 단일 데이터베이스에 대 한 추가 로그 제한|자세한 내용은 [단일 데이터베이스 vCore 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)합니다.|
 | 탄력적 풀 및 풀링된 데이터베이스에 대 한 추가 로그 제한|자세한 내용은 [탄력적 풀 리소스 제한 vCore](sql-database-vcore-resource-limits-elastic-pools.md)합니다.|
 | 추가 트랜잭션 로그 속도 거 버 넌 스| 에 대 한 새 콘텐츠 추가 [트랜잭션 로그 속도 거 버 넌 스](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)합니다.|

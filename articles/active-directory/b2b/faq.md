@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/02/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260394"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496304"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 공동 작업 FAQ
 
@@ -54,7 +54,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Azure AD B2B 공동 작업을 사용하면 B2B 사용자가 Azure Portal에 액세스할 수 있나요?
-사용자에게 제한된 관리자 또는 전역 관리자 역할이 할당되지 않으면 B2B 공동 작업 사용자는 Azure Portal에 액세스할 필요가 없습니다. 그러나 제한된 관리자 또는 전역 관리자 역할이 할당된 B2B 공동 작업 사용자는 포털에 액세스할 수 있습니다. 또한 이러한 관리자 역할 중 하나가 할당되지 않은 게스트 사용자가 포털에 액세스하는 경우 사용자는 특정 부분의 환경에 액세스할 수 있습니다. 게스트 사용자 역할에는 디렉터리에 대한 일부 사용 권한이 있습니다.
+사용자의 제한 된 관리자 역할을 할당 하지 않으면 B2B 공동 작업 사용자가 Azure portal에 액세스할이 필요가 없습니다. 그러나 제한 된 관리자 역할이 할당 된 B2B 공동 작업 사용자 포털에 액세스할 수 있습니다. 또한 이러한 관리자 역할 중 하나가 할당되지 않은 게스트 사용자가 포털에 액세스하는 경우 사용자는 특정 부분의 환경에 액세스할 수 있습니다. 게스트 사용자 역할에는 디렉터리에 대한 일부 사용 권한이 있습니다.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>게스트 사용자를 위해 Azure Portal에 대한 액세스를 차단할 수 있습니까?
 예! 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.

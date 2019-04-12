@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9cbb44fed8a9cc9e30e70e58f33fb943ee43b412
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269166"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494972"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -76,9 +76,9 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 
 | 일회성 초기 프로비전  |  |
 |-|-|
-| 개체 수 | 1천만 개 개체 |
-| 데이터 세트 크기| ~4TiB |
-| 평균 파일 크기 | ~500KiB(최대 파일: 100GiB) |
+| 개체 수 | 2500만 개 개체 |
+| 데이터 세트 크기| ~4.7 TiB |
+| 평균 파일 크기 | ~ 200 3:n2}kib/ (가장 큰 파일: 100GiB) |
 | 처리량 업로드 | 초당 20개 개체 |
 | 네임스페이스 다운로드 처리량* | 초당 개체 400개 |
 

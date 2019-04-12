@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841109"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492807"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 로그 데이터 수집
 
@@ -41,8 +41,9 @@ Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
 
-* Windows Server 2008 R2 이상
-* Windows 7 SP1 이상.
+* Windows Server 2019
+* Windows Server 2008 R2, 2012, 2012 R2, 2016 버전 1709 및 1803
+* Windows 7 SP1 이상
 
 ## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 이 섹션에서는 지원되는 Linux 배포판에 대한 정보를 제공합니다.    
@@ -81,7 +82,7 @@ Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송
 |*.ods.opinsights.azure.com |포트 443 |아웃바운드|예 |  
 |*.oms.opinsights.azure.com |포트 443 |아웃바운드|예 |  
 |\*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
-|* .azure-automation.net |포트 443 |아웃바운드|예 |  
+|*.azure-automation.net |포트 443 |아웃바운드|예 |  
 
 Azure Government에 대 한 필요한 방화벽 정보를 참조 하세요 [Azure Government 관리](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)합니다. 
 
@@ -104,7 +105,8 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 |proxyhost | 프록시 서버/Log Analytics 게이트웨이의 주소 또는 FQDN |
 |포트 | 프록시 서버/Log Analytics 게이트웨이 대한 선택적 포트 번호 |
 
-예: `https://user01:password@proxy01.contoso.com:30443`
+예를 들면 다음과 같습니다.
+`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > 암호에 “\@”과 같은 특수 문자를 사용하는 경우 값이 잘못 구문 분석되므로 프록시 연결 오류가 발생합니다.  이 문제를 해결하려면 [URLDecode](https://www.urldecoder.org/)와 같은 도구를 사용하여 URL에서 암호를 인코드합니다.  
@@ -117,7 +119,7 @@ Azure 구독 또는 하이브리드 환경에 포함된 머신을 Azure Log Anal
 |Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>- [Azure Portal에서 수동으로 연결합니다](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다.|
 | 하이브리드 Windows 컴퓨터|- [수동 설치](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 Microsoft Monitoring Agent를 설치합니다.| 
 | 하이브리드 Linux 컴퓨터| [수동 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)|GitHub에 호스트된 래퍼 스크립트를 호출하는 Linux용 에이전트를 설치합니다. | 
-| System Center Operations Manager|[Operations Manager를 Log Analytics와 통합](../../azure-monitor/platform/om-agents.md) | Linux 및 Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 Operations Manager와 Log Analytics 간에 통합을 구성합니다.|  
+| System Center Operations Manager|[Log Analytics와 Operations Manager 통합](../../azure-monitor/platform/om-agents.md) | Linux 및 Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 Operations Manager와 Log Analytics 간에 통합을 구성합니다.|  
 
 ## <a name="next-steps"></a>다음 단계
 

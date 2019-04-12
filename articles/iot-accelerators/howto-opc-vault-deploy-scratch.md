@@ -1,5 +1,5 @@
 ---
-title: 부터 Azure IoT OPC UA 인증서 관리 모듈을 배포 하는 방법 | Microsoft Docs
+title: 부터-Azure 자격 증명 모음 OPC 모듈을 배포 하는 방법 | Microsoft Docs
 description: 부터 OPC 자격 증명 모음을 배포 하는 방법입니다.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759509"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496899"
 ---
-# <a name="deploy-opc-vault-from-scratch"></a>부터 OPC 자격 증명 모음을 배포
+# <a name="deploy-opc-vault-from-scratch"></a>처음부터 OPC 자격 증명 모음 배포
 
-Azure IoT OPC UA 인증서 관리, 또한 것 OPC 자격 증명 모음으로 마이크로 서비스를 구성할 수 있는 레지스터 및 클라우드에서 OPC UA 서버 및 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리 합니다. 이 문서에서는 처음부터 OPC 자격 증명 모음을 배포 하는 방법을 보여 줍니다.
+OPC 자격 증명 모음은 구성, 등록 및 OPC UA 서버 및 클라우드에서 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리할 수 있는 마이크로 서비스. 이 문서에서는 처음부터 OPC 자격 증명 모음을 배포 하는 방법을 보여 줍니다.
 
 ## <a name="configuration-and-environment-variables"></a>구성 및 환경 변수
 

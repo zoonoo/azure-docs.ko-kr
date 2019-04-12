@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 188cb21688ee092db426e51c6ae327def3ff02d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e8fe694cc757f5bcb9cf470f17306e8aa0028744
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919292"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502950"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "58919292"
 | 구독당 DNS 서버 |9 |100 |
 | 구독당 예약된 IP |20 |100 |
 | [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |256 |256 |
-
+| 구독 이름 길이 (문자 수) | 64 | 64 |
 
 <sup>1</sup>부분 CPU 코어를 사용 하더라도 vCPU 제한에 대해 하나의 vCPU로 작은 인스턴스 수를 추가 합니다.
 

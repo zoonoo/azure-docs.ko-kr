@@ -13,11 +13,11 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471895"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490778"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Media Services 계정에 대 한 역할 기반 액세스 제어 (RBAC)
 

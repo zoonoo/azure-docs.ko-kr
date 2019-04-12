@@ -2,18 +2,18 @@
 title: IoT Device Provisioning Service의 보안 엔드포인트 | Microsoft Docs
 description: 개념 - 백 엔드 앱용 IoT Device Provisioning 서비스에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496972"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495433"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 
@@ -39,7 +39,7 @@ ms.locfileid: "55496972"
 > [!NOTE]
 > 자세한 내용은 [사용 권한](#device-provisioning-service-permissions)을 참조하세요.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 Azure IoT Hub Device Provisioning Service는 공유 액세스 정책에 대한 토큰을 확인하여 엔드포인트에 대한 액세스를 부여합니다. 대칭 키와 같은 보안 자격 증명은 통신 중에 전송되지 않습니다.
 

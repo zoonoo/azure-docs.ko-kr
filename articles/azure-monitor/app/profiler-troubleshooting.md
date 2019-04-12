@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471531"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495399"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -71,7 +71,7 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
 
     |앱 설정    | 값    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스를 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
    
       ![profiler-webjob]   
    
-   1. 로그를 비롯한 웹 작업 세부 정보를 확인하려면 **ApplicationInsightsProfiler2** 링크를 선택합니다.  
+   1. 로그를 포함 하 여, 즉 webjob의 세부 정보를 보려면 선택 합니다 **ApplicationInsightsProfiler3** 링크 합니다.  
      **지속적인 웹 작업 세부 정보** 창이 열립니다.
 
       ![profiler-webjob-log]
@@ -92,7 +92,7 @@ Profiler가 작동하지 않는 이유를 확인할 수 없으면 로그를 다�
     
 ### <a name="manual-installation"></a>수동 설치
 
-Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다. 사용 중인 환경에 필요한 경우 수동으로 업데이트를 적용할 수 있습니다. 예제에서 애플리케이션이 PowerApps의 Web Apps 환경에서 실행될 수 있습니다. 업데이트를 수동으로 적용하려면 다음 단계를 수행합니다.
+Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다. 사용 중인 환경에 필요한 경우 수동으로 업데이트를 적용할 수 있습니다. 예제에서 애플리케이션이 PowerApps의 Web Apps 환경에서 실행될 수 있습니다. 수동으로 업데이트를 적용 합니다.
 
 1. **Web App 제어** 창에서 **설정**을 엽니다.
 
@@ -103,7 +103,7 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 
     |앱 설정    | 값    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스를 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

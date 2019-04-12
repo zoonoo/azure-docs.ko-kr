@@ -12,26 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588350"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501113"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Ruby에서 Service Bus 큐를 사용하는 방법
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-이 가이드에서는 Service Bus 큐를 사용하는 방법을 설명합니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. Service Bus 큐에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+이 자습서에서는 메시지를 보내고 Service Bus 큐에서 메시지를 수신 하는 Ruby 응용 프로그램을 만드는 방법을 알아봅니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 단계를 수행 합니다 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 문서.
+    1. 빠른 읽을 **개요** Service bus **큐**합니다. 
+    2. Service Bus를 만듭니다 **네임 스페이스**합니다. 
+    3. 가져오기의 **연결 문자열**합니다. 
 
-## <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > 만들려는 **큐** 이 자습서에서는 Ruby를 사용 하 여 Service Bus 네임 스페이스에서입니다. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>큐를 만드는 방법
@@ -74,7 +79,7 @@ Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB
 
 기본 동작은 읽기 및 삭제가 2단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 애플리케이션도 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, `delete_queue_message()` 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. `delete_queue_message()` 메서드는 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
 
-`:peek_lock` 매개 변수를 **false**로 설정하면 메시지 읽기 및 삭제가 가장 간단한 모델이 되며, 오류 발생 시 메시지를 처리하지 않는 것을 허용하는 애플리케이션의 시나리오에 가장 적합합니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
+경우는 `:peek_lock` 매개 변수는 설정 **false**, 읽기 및 메시지를 삭제는 가장 간단한 모델이 되며는 응용 프로그램 오류 발생 시 메시지를 처리 하지 허용할 수 없는 시나리오에 가장 적합 합니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
 
 다음 예제에서는 `receive_queue_message()`를 사용하여 메시지를 받고 처리하는 방법을 보여줍니다. 이 예제에서는 먼저 **false**로 설정된 `:peek_lock`을 사용하여 메시지를 받고 삭제한 후 다른 메시지를 받고 그런 다음 `delete_queue_message()`를 사용하여 메시지를 삭제합니다.
 

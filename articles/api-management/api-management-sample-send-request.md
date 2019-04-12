@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58792487"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505654"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -201,7 +201,7 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
 </send-request>
 
 <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+<set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
   <set-method>GET</set-method>
 </send-request>
 ```
@@ -252,7 +252,7 @@ API Management에 권한 부여 토큰이 있다면 API Management는 토큰의 
     </send-request>
 
     <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-    <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+    <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
       <set-method>GET</set-method>
     </send-request>
 

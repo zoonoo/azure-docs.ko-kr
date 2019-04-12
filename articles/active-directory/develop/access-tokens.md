@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259867"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501147"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 액세스 토큰
 
 액세스 토큰을 사용하면 Azure에서 보호되는 API를 클라이언트가 안전하게 호출할 수 있습니다. Azure AD(Azure Active Directory) 액세스 토큰은 [JWT](https://tools.ietf.org/html/rfc7519)로, Azure에서 서명한 Base64 인코딩 JSON 개체입니다. 토큰의 내용은 리소스를 위한 것이므로 클라이언트는 액세스 토큰을 불투명 문자열로 처리해야 합니다. 유효성 검사 및 디버깅 목적으로, 개발자가 [jwt.ms](https://jwt.ms)와 같은 사이트를 사용하여 JWT를 디코딩할 수 있습니다. 클라이언트는 다양한 프로토콜을 사용하여 엔드포인트 중 하나(v1.0 또는 v2.0)에서 액세스 토큰을 가져올 수 있습니다.
 
-액세스 토큰을 요청하는 경우 Azure AD는 사용할 수 있도록 액세스 토큰에 대한 일부 메타데이터도 반환합니다. 이 정보에는 액세스 토큰의 만료 시간 및 유효한 범위가 포함됩니다. 이 데이터를 사용하면 앱이 액세스 토큰 자체를 구문 분석하지 않아도 액세스 토큰의 지능형 캐싱을 수행할 수 있습니다.
+반환 될 때 클라이언트 요청 액세스 토큰을 Azure AD도 앱의 사용량에 대 한 액세스 토큰에 대 한 일부 메타 데이터입니다. 이 정보에는 액세스 토큰의 만료 시간 및 유효한 범위가 포함됩니다. 이 데이터를 사용하면 앱이 액세스 토큰 자체를 구문 분석하지 않아도 액세스 토큰의 지능형 캐싱을 수행할 수 있습니다.
 
 애플리케이션이 클라이언트가 액세스를 요청할 수 있는 리소스(웹 API)인 경우 액세스 토큰이 인증 및 권한 부여에 사용할 사용자, 클라이언트, 발급자, 권한 등의 유용한 정보를 제공합니다. 
 
 리소스의 유효성을 검사하고 액세스 토큰 내에서 클레임을 사용하는 방법에 대해 알아보려면 다음 섹션을 참조하세요.
 
-> [!NOTE]
-> 개인 계정(hotmail.com 또는 outlook.com)을 사용하여 클라이언트 애플리케이션을 테스트하는 동안 클라이언트에서 받은 액세스 토큰은 불투명 문자열임을 알 수 있습니다. 이것은 액세스 중인 리소스가 암호화되어 클라이언트에서 인식할 수 없는 레거시 MSA(Microsoft 계정) 티켓을 요청했기 때문입니다.
+> [!Important]
+> 액세스 토큰을 기반으로 작성 됩니다 합니다 *대상* 토큰, 토큰의 범위를 소유 하는 응용 프로그램을 의미 합니다.  리소스 설정 하는 방법입니다 `accessTokenAcceptedVersion` 에 [응용 프로그램 매니페스트에서](reference-app-manifest.md#manifest-reference) 에 `2` v1.0 끝점을 호출 하는 클라이언트를 v2.0 액세스 토큰을 수신할 수 있습니다.  마찬가지로, 이것이 액세스 토큰을 변경 하는 이유 [선택적 클레임](active-directory-optional-claims.md) 에 대 한 토큰을 요청에 클라이언트가 변경 되지 않고 액세스 토큰을 수신 하는 경우에 대 한 `user.read`, MS Graph 리소스를 소유한 합니다.  
+> 마찬가지 이유로, 개인 계정 (hotmail.com 또는 outlook.com)을 사용 하 여 클라이언트 응용 프로그램을 테스트 하는 동안 알 수 있습니다 클라이언트에서 받은 액세스 토큰을 인지 하는 불투명 문자열입니다. 이것은 액세스 중인 리소스가 암호화되어 클라이언트에서 인식할 수 없는 레거시 MSA(Microsoft 계정) 티켓을 요청했기 때문입니다.
 
 ## <a name="sample-tokens"></a>샘플 토큰
 

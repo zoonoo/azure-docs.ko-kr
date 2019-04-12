@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 852d0874a91418bf28e674b02087aeb7edbdd833
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5fb8d4420c4d46bc8a4ffe80743578cea338dd8e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730514"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492552"
 ---
 # <a name="support-for-appsource"></a>AppSource 지원  
 AppSource에 대한 지원 옵션입니다.  
@@ -28,7 +28,7 @@ AppSource에 대한 지원 옵션입니다.
 
 | 지원 채널 | 설명 |  
 |:--- |:--- |  
-| MSDN 양식: Azure Active Directory에 있는 [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "MSDN 포럼에서 Azure AD") | Microsoft Developer Network 포럼입니다. |  
+| MSDN 포럼: Azure Active Directory에 있는 [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "MSDN 포럼에서 Azure AD") | Microsoft Developer Network 포럼입니다. |  
 | StackOverflow: Azure Active Directory에 있는 [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "stackoverflow의 Azure AD") | Azure AD(Azure Active Directory)와 관련된 모든 사항을 질문하고 솔루션을 얻을 수 있는 Stack Overflow 환경입니다. |  
 
 ## <a name="next-steps"></a>다음 단계

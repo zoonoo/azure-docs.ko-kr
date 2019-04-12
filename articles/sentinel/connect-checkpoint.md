@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 데이터 수집 Check Point | Microsoft Docs
-description: Azure Sentinel에서 검사점 데이터를 수집 하는 방법에 알아봅니다.
+title: 검사점 데이터를 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
+description: Check Point 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876499"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489179"
 ---
 # <a name="connect-your-check-point-appliance"></a>Check Point 어플라이언스에서 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876499"
 Syslog CEF로 로그 파일을 저장 하 여 모든 Check Point 어플라이언스로 Azure Sentinel를 연결할 수 있습니다. Azure Sentinel와 통합을 사용 하면 쉽게 분석에서에서 및를 실행 쿼리 로그 파일 데이터에서 Check Point 수 있습니다. Azure Sentinel CEF 데이터를 수집 하는 방법에 대 한 자세한 내용은 참조 하세요. [CEF 연결 어플라이언스](connect-common-event-format.md)합니다.
 
 > [!NOTE]
-> - 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
+> 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>1단계: Check Point 어플라이언스에서 에이전트를 사용 하 여 연결
 
@@ -42,7 +42,7 @@ Check Point 어플라이언스에서 연결 하기 위해 Azure Sentinel (VM 또
 
 ### <a name="deploy-the-agent-in-azure"></a>Azure에서 에이전트 배포
 
-1. Sentinel Azure 포털에서 클릭 **데이터 컬렉션** 어플라이언스 유형을 선택 하 고 있습니다. 
+1. Sentinel Azure 포털에서 클릭 **데이터 커넥터** 어플라이언스 유형을 선택 하 고 있습니다. 
 
 1. 아래 **Linux Syslog 에이전트 구성을**:
    - 선택할 **자동 배포** 위에서 설명한 대로 Azure Sentinel 에이전트를 사용 하 여 미리 설치 되어 있고 구성 필요한 모든 포함 하 여 새 컴퓨터를 만들려는 경우입니다. 선택 **자동 배포** 누릅니다 **자동 에이전트 배포**합니다. 이 작업 영역에 자동으로 연결 된 전용된 VM에 대 한 구매 페이지로 이동 합니다. VM이를 **표준 D2s v3 (2 개 vcpu, 8GB 메모리)** 있고 공용 IP 주소입니다.

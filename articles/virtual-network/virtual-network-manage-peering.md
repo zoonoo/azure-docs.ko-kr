@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial;anavin
-ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882906"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491290"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -113,7 +113,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 - <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 다른 지역의 가상 네트워크 피어 링은 라고도 *글로벌 VNet 피어 링*합니다. 
 - 전역 피어 링을 만들면 피어 링된 된 가상 네트워크는 모든 Azure 공용 클라우드 지역, 중국 클라우드 지역 또는 Government 클라우드 지역에서 존재할 수 있습니다. 클라우드 간에 피어 링 할 수 없습니다. 예를 들어, Azure 중국 클라우드에서 VNet에 Azure 공용 클라우드에서 VNet 피어 링 될 수 없습니다.
 - 하나의 가상 네트워크의 리소스는 전역적으로 피어 링된 된 가상 네트워크의 기본 내부 부하 분산 장치의 프런트 엔드 IP 주소를 사용 하 여 통신할 수 없습니다. 동일한 지역 내에서 기본 Load Balancer에 대 한 지원만 존재합니다. 표준 Load Balancer에 대 한 지원, VNet 피어 링 및 글로벌 VNet 피어 링에 대 한 존재합니다.
-- 원격 게이트웨이 사용 하거나 미리 보기에서 전역적으로 피어 링 된 가상 네트워크의 게이트웨이 전송 허용 수 있습니다. 미리 보기는 모든 Azure 지역, 중국 클라우드 지역 및 Government 클라우드 지역에서 사용할 수 있습니다. 허용 목록에 없는 추가 필요 합니다. CLI, PowerShell, 템플릿 또는 API를 통해 미리 보기에서 테스트할 수 있습니다. 포털 미리 보기에서 지원 되지 않습니다.
+- 원격 게이트웨이 사용할 수도 있고 전역적으로 피어 링 된 가상 네트워크 및 로컬 피어 링 된 가상 네트워크 게이트웨이 전송 허용.
 - 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다. 다른 구독에서 가상 네트워크를 피어링하는 경우 두 구독이 같은 Azure Active Directory 테넌트에 연결되어 있을 수도 있고 다른 테넌트에 연결되어 있을 수도 있습니다. AD 테 넌 트가 없는 경우 [만드십시오](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)합니다. Portal에서는 다른 Azure Active Directory 테넌트에 연결된 구독의 가상 네트워크에 대한 피어링이 지원되지 않습니다. CLI, PowerShell 또는 템플릿을 사용할 수는 있습니다.
 - 피어링하는 가상 네트워크에 겹치지 않는 IP 주소 공간이 있어야 합니다.
 - 가상 네트워크가 다른 가상 네트워크와 피어링되면 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 삭제할 수 없습니다. 주소 범위를 추가하거나 제거하려면 피어링을 삭제하고 주소 범위를 추가하거나 제거한 다음 피어링을 다시 만듭니다. 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 제거하려면 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
@@ -142,7 +142,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 계정이 이전 역할 중 하나에 할당되지 않은 경우 다음 표에서 필요한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 할당되어야 합니다.
 
-| 조치                                                          | name |
+| 액션(Action)                                                          | 이름 |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 가상 네트워크 A에서 가상 네트워크 B로의 피어링을 만들어야 합니다. 가상 네트워크 A는 가상 네트워크(Resource Manager)이어야 함          |
 | Microsoft.Network/virtualNetworks/peer/action                   | 가상 네트워크 B(Resource Manager)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                       |

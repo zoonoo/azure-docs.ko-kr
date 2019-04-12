@@ -12,33 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842773"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501198"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>PHP에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-이 가이드에서는 Service Bus 큐를 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK](../php-download-sdk.md)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 자습서에서는 메시지를 보내고 Service Bus 큐에서 메시지를 수신 하는 PHP 응용 프로그램을 만드는 방법을 알아봅니다. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 다음 단계를 사용 하려면 큐가 없는 경우는 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 큐를 만드는 문서입니다.
+    1. 빠른 읽을 **개요** Service bus **큐**합니다. 
+    2. Service Bus를 만듭니다 **네임 스페이스**합니다. 
+    3. 가져오기의 **연결 문자열**합니다. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+        > [!NOTE]
+        > 만들려는 **큐** 이 자습서에서는 PHP를 사용 하 여 Service Bus 네임 스페이스에서입니다. 
+3. [PHP용 Azure SDK](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](../php-download-sdk.md)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 애플리케이션 또는 메모장을 만들 수 있습니다.
 
 > [!NOTE]
 > PHP를 설치하려면 [OpenSSL 확장](https://php.net/openssl)도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
-> 
-> 
 
-이 가이드에서는 PHP 애플리케이션 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 서비스 기능을 사용합니다.
+이 가이드에서는 PHP 응용 프로그램을 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행 되는 코드에서 호출할 수 있는 서비스 기능을 사용 합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -158,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-Service Bus 큐로 보내고 받은 메시지는 [BrokeredMessage][BrokeredMessage] 클래스의 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 표준 메서드 집합과, 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 애플리케이션 데이터 본문이 있습니다.
+로 보내는 (및에서 받은) Service Bus 메시지 큐의 인스턴스를 [BrokeredMessage] [ BrokeredMessage] 클래스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 표준 메서드 집합과, 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 애플리케이션 데이터 본문이 있습니다.
 
 Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 큐 크기의 상한은 5GB입니다.
 

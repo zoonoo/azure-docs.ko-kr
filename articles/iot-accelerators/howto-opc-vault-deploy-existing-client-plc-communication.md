@@ -1,5 +1,5 @@
 ---
-title: OPC 클라이언트 및 Azure IoT OPC UA 인증서 관리를 사용 하 여 OPC PLC의 통신을 보호 | Microsoft Docs
+title: OPC 클라이언트 및 OPC PLC OPC 자격 증명 모음-Azure와의 통신을 보호 | Microsoft Docs
 description: OPC 자격 증명 모음 CA를 사용 하 여 인증서를 서명 하 여 OPC 클라이언트 및 OPC PLC의 통신을 보호 합니다.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c437f6db21956d1be5e4f6d3512f325f37ca7308
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759573"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494016"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>OPC 클라이언트 및 OPC PLC의 통신을 보호
 
-Azure IoT OPC UA 인증서 관리, 또한 OPC 자격 증명 모음으로 알고 있는 마이크로 서비스는 구성할 수 있는 레지스터 및 클라우드에서 OPC UA 서버 및 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리 합니다. 이 문서에서는 OPC 자격 증명 모음 CA를 사용 하 여 인증서를 서명 하 여 OPC 클라이언트 및 OPC PLC의 통신을 보호 하는 방법을 보여 줍니다.
+OPC 자격 증명 모음은 구성, 등록 및 OPC UA 서버 및 클라우드에서 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리할 수 있는 마이크로 서비스. 이 문서에서는 OPC 자격 증명 모음 CA를 사용 하 여 인증서를 서명 하 여 OPC 클라이언트 및 OPC PLC의 통신을 보호 하는 방법을 보여 줍니다.
 
 다음 설정 하는 OPC 클라이언트는 OPC PLC에 대 한 연결을 테스트합니다. 기본적으로 연결이 아니므로 가능한 두 가지 구성 요소는 올바른 인증서를 사용 하 여 프로 비전 되지 않습니다. OPC UA 구성 요소를 아직 인증서를 사용 하 여 프로 비전 되지 된 경우 시작 시 자체 서명 된 인증서를 생성 됩니다. 그러나 인증서를 인증 기관 (CA)에서 서명 및 OPC UA 구성 요소의 설치 수 있습니다. 이 OPC 클라이언트 및 OPC PLC 완료 되 면 연결이 사용 됩니다. 다음 워크플로 프로세스를 설명합니다. OPC UA 보안에 대 한 배경 정보를 찾을 수 있습니다 [이 문서](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf) 백서입니다. OPC UA 사양에 완전 한 정보를 찾을 수 있습니다.
 
@@ -59,7 +59,7 @@ opcplc-123456 | [20:51:32 INF] Rejected certificate store contains 0 certs
 ```
 보고 하는 인증서에 표시 되 면 위의 단계를 준비 하 고 docker 볼륨을 삭제 합니다.
 
-OPC PLC에 대 한 연결에 실패 했음을 확인 합니다. 출력 로그 OPC 클라이언트에서 다음과 같은 출력이 표시 됩니다.
+OPC PLC에 대 한 연결에 실패 했음을 확인 합니다. OPC 클라이언트 로그 출력에 다음 출력이 표시 됩니다.
 
 ```
 opcclient-123456 | [20:51:35 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
@@ -92,7 +92,7 @@ opcclient-123456 | Opc.Ua.ServiceResultException: Certificate is not trusted.
     
 1. 로 이동 합니다 [OPC 자격 증명 모음 웹 사이트](https://opcvault.azurewebsites.net/)합니다.
 
-1. `Register New`을(를) 선택합니다.
+1. 여기서 `Register New`
 
 1. 로그 출력에서 OPC PLC 정보를 입력 `CreateSigningRequest information` 영역에서 입력된 필드에는 `Register New OPC UA Application` 페이지에서 `Server` ApplicationType로 합니다.
 
@@ -175,7 +175,7 @@ opcplc-123456 | [20:54:39 INF] Rejected certificate store contains 0 certs
 응용 프로그램 인증서의 발급자는 CA `CN=Azure IoT OPC Vault CA, O=Microsoft Corp.` 및 OPC PLC이이 CA에서 서명 된 모든 인증서 또한 신뢰 합니다.
 
 
-확인 하 고 OPC PLC에 대 한 연결이 성공적으로 만들어진 OPC 클라이언트 OPC PLC에서 데이터를 읽을 수 있습니다. 출력 로그 OPC 클라이언트에서 다음과 같은 출력이 표시 됩니다.
+확인 하 고 OPC PLC에 대 한 연결이 성공적으로 만들어진 OPC 클라이언트 OPC PLC에서 데이터를 읽을 수 있습니다. OPC 클라이언트 로그 출력에 다음 출력이 표시 됩니다.
 ```
 opcclient-123456 | [20:54:42 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [20:54:42 INF] Session successfully created with Id ns=3;i=1085867946.
@@ -189,7 +189,7 @@ opcclient-123456 | [20:54:42 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [20:54:42 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [20:54:42 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/20/2018 20:54:42
 ```
-이 출력을 표시 하는 경우 다음 OPC PLC OPC 클라이언트를 신뢰 하는 이제 고 그 반대의 경우 모두 없으므로 이제 CA에서 인증서 서명 모두 신뢰 인증서는 where이이 CA에서 서명 합니다.
+이 출력에 표시 되 면 OPC PLC 면 CA에서 서명 된 인증서를 이제 둘 이므로 어떤 위치에 인증서를 신뢰 모두 OPC 클라이언트 또는 그 반대로 이전을 신뢰 하는 이제이 CA에서 서명 합니다.
 
 > [!NOTE] 
 > OPC PLC에 대해서만 첫 번째 두 확인 단계에서는 주었지만 OPC 클라이언트도 확인할 수 해야 합니다.

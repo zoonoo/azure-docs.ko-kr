@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 3e07824db683b55cf5827962c1030d6cfd6c9f66
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762806"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490432"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>SAP 워크로드 시나리오 호스팅 및 실행에 Azure 사용
 
@@ -32,7 +32,7 @@ Azure에 다양한 DBMS가 있는 SAP NetWeaver 시나리오 호스팅 외에, A
 
 SAP HANA용 Azure의 고유한 특성은 Azure를 경쟁에서 차별화하는 고유한 요소입니다. SAP HANA와 관련된 메모리 및 CPU 리소스 요구량이 높은 SAP 시나리오를 호스팅하기 위해 Azure는 S/4HANA 또는 다른 SAP HANA 워크로드를 위해 최대 24TB(120TB 스케일 아웃)의 메모리가 필요한 SAP HANA 배포를 실행할 용도로 고객 전용 베어 메탈 하드웨어 사용을 제안합니다. 이 고유한 Azure의 SAP HANA Azure 솔루션(큰 인스턴스)을 통해 SAP 애플리케이션 레이어 또는 워크로드 미들웨어 레이어를 네이티브 Azure Virtual Machines에 호스팅하면서 전용 베어 메탈 하드웨어에서 SAP HANA를 실행할 수 있습니다. 이 솔루션은 “Azure의 SAP HANA(큰 인스턴스)” 섹션의 여러 문서에 설명되어 있습니다.   
 
-Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directory를 사용한 다양한 SAP 구성 요소 및 SAP SaaS 또는 PaaS 제품에 대한 ID 통합 및 Single-Sign-On 요구 사항도 발생할 수 있습니다. Azure Active Directory(AAD) 및 SAP 엔터티를 사용한 이러한 통합 및 Single-Sign-On 시나리오 목록은 "AAD SAP ID 통합 및 Single-Sign-On” 섹션에 설명 및 문서화되어 있습니다.
+Azure에서 SAP 워크 로드 시나리오 호스팅 만들 수도 있습니다 Id 통합 및 Single Sign-on 다양 한 SAP 구성 요소를 Azure Active Directory 및 SAP SaaS를 사용 하 여 요구 사항 또는 PaaS 제품입니다. Azure Active Directory(AAD) 및 SAP 엔터티를 사용한 이러한 통합 및 Single-Sign-On 시나리오 목록은 "AAD SAP ID 통합 및 Single-Sign-On” 섹션에 설명 및 문서화되어 있습니다.
 
 ## <a name="latest-changes"></a>최신 변경 내용
 
@@ -53,12 +53,12 @@ Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directo
 
 일련의 설명서를 통해 Azure의 SAP HANA(대규모 인스턴스) 또는 약식 HANA 대규모 인스턴스에 대해 알아봅니다. 문서는 HANA 대규모 인스턴스의 나열된 영역을 다룹니다.
 
-- [Azure의 SAP HANA(대규모 인스턴스) 개요](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Azure의 SAP HANA(대규모 인스턴스) 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
-- [Azure의 SAP HANA(대규모 인스턴스)에 대한 인프라 및 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [Azure의 SAP HANA(대규모 인스턴스) 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [Azure의 SAP HANA(대규모 인스턴스)에 대한 고가용성 및 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [Azure의 SAP HANA(대규모 인스턴스)에 대한 문제 해결 및 모니터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [SAP HANA on Azure (큰 인스턴스) 개요](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [SAP HANA on Azure (큰 인스턴스)의 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
+- [Azure(큰 인스턴스)의 SAP HANA에 대한 인프라 및 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
+- [Azure(큰 인스턴스)에서 SAP HANA 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
+- [Azure(큰 인스턴스)의 SAP HANA에 대한 고가용성 및 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
+- [Azure(큰 인스턴스)의 SAP HANA 문제 해결 및 모니터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
 다음 단계:
 
@@ -77,8 +77,8 @@ Azure의 HANA 관련 설명서는 문서 및 해당 하위 문서의 목록으�
 - [Azure Virtual Machines의 SAP HANA 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
 - [단일 Azure 지역 내 SAP HANA 가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 - [Azure 지역 간 SAP HANA 가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
-- [Azure 가상 머신에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-- [Azure Virtual Machines의 SAP HANA 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Azure Virtual Machines에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
+- [Azure Virtual Machines의 SAP HANA Backup 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [파일 수준의 SAP HANA Azure Backup](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
 - [저장소 스냅숏에 기반한 SAP HANA 백업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
@@ -99,7 +99,7 @@ Azure의 SAP 워크로드에서 비 HANA 데이터베이스에 관련된 문서 
 
 - [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 - [SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver)
-- [SAP 워크로드에 대한 Oracle Azure Virtual Machines DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)
+- [SAP 워크로드용 Oracle Azure Virtual Machines DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)
 - [SAP 워크로드에 대한 IBM DB2 Azure Virtual Machines DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - [SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - [Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
@@ -121,7 +121,7 @@ AAD(Azure Active Directory), SAP 서비스와 Single Sign-On 간의 통합에 �
 - [자습서: SAP NetWeaver와 Azure Active Directory 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [자습서: SAP Business ByDesign과 Azure Active Directory 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [자습서: SAP HANA와 Azure Active Directory 통합](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [사용자의 S/4HANA 환경 – Azure AD로 Fiori Launchpad SAML Single Sign-On](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
+- [Fiori Launchpad SAML Single Sign-on Azure AD를 사용 하 여 S/4HANA 환경-](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
 
 Azure 서비스를 SAP 구성 요소로 통합하는 문서 목록은 다음과 같습니다.
 

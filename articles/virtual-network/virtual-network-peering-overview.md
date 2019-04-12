@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Azure의 가상 네트워크 피어링에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880426"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489984"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -80,7 +80,6 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 가상 네트워크가 글로벌 피어링될 때만 다음 제약 조건이 적용됩니다.
 - 하나의 가상 네트워크의 리소스는 전역적으로 피어 링된 된 가상 네트워크의 기본 내부 부하 분산 장치의 프런트 엔드 IP 주소를 사용 하 여 통신할 수 없습니다. 동일한 지역 내에서 기본 Load Balancer에 대 한 지원만 존재합니다. 글로벌 VNet 피어 링에 대 한 표준 Load Balancer에 대 한 지원이 있습니다.
-- 원격 게이트웨이 사용 하거나 미리 보기에서 전역적으로 피어 링 된 가상 네트워크의 게이트웨이 전송 허용 수 있습니다. 미리 보기는 모든 Azure 지역, 중국 클라우드 지역 및 Government 클라우드 지역에서 사용할 수 있습니다. 허용 목록에 없는 추가 필요 합니다. CLI, PowerShell, 템플릿 또는 API를 통해 미리 보기에서 테스트할 수 있습니다. 포털 미리 보기에서 지원 되지 않습니다.
 
 요구 사항 및 제약 조건에 대한 자세한 내용은 [가상 네트워크 피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 가상 네트워크에 만들 수 있는 피어링 수 제한에 대한 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
 

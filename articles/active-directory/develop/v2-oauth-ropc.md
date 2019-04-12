@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0을 사용하여 ROPC를 통해 사용자 로그인 | Microsoft Docs
+title: ROPC를 사용 하 여 사용자 로그인을 사용 하 여 Microsoft id 플랫폼 | Azure
 description: 리소스 소유자 암호 자격 증명 권한 부여를 사용하여 브라우저 없는 인증 흐름을 지원합니다.
 services: active-directory
 documentationcenter: ''
@@ -11,25 +11,25 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274191"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499940"
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 및 OAuth 2.0 리소스 소유자 암호 자격 증명
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
-Azure AD(Azure Active Directory)는 [ROPC(리소스 소유자 암호 자격 증명)](https://tools.ietf.org/html/rfc6749#section-4.3)를 지원하므로 애플리케이션에서 암호를 직접 처리하여 사용자에 로그인할 수 있습니다. ROPC 흐름에는 높은 수준의 신뢰 및 사용자 노출이 필요하며, 개발자는 다른 더 안전한 흐름을 사용할 수 없는 경우에만 이 흐름을 사용해야 합니다.
+Microsoft identity 플랫폼에서 지 원하는 [리소스 소유자 암호 자격 증명 (ROPC) 부여](https://tools.ietf.org/html/rfc6749#section-4.3), 응용 프로그램 사용자가 암호를 직접 처리 하 여 로그인 할 수 있습니다. ROPC 흐름에는 높은 수준의 신뢰 및 사용자 노출이 필요하며, 개발자는 다른 더 안전한 흐름을 사용할 수 없는 경우에만 이 흐름을 사용해야 합니다.
 
-> [!Important]
-> * Azure AD v2.0 엔드포인트는 Azure AD 테넌트의 ROPC만 지원하고 개인 계정은 지원하지 않습니다. 이는 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`) 또는 `organizations` 엔드포인트를 사용해야 함을 의미합니다.
+> [!IMPORTANT]
+> * Microsoft id 플랫폼 끝점은 Azure AD 테 넌 트에 없습니다 개인 계정에 대 한 ROPC만 지원합니다. 이는 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`) 또는 `organizations` 엔드포인트를 사용해야 함을 의미합니다.
 > * Azure AD 테넌트에 초대된 개인 계정은 ROPC를 사용할 수 없습니다.
 > * 암호가 없는 계정은 ROPC를 통해 로그인할 수 없습니다. 이 경우 앱에 다른 흐름을 사용하는 것이 좋습니다.
 > * 사용자가 MFA(Multi-Factor Authentication)를 사용하여 애플리케이션에 로그인해야 하는 경우 사용자가 차단됩니다.
@@ -44,10 +44,17 @@ Azure AD(Azure Active Directory)는 [ROPC(리소스 소유자 암호 자격 증�
 
 ROPC 흐름은 단일 요청임 &mdash; 클라이언트 식별 및 사용자의 자격 증명을 IDP에 보내 다음, 반환으로 토큰을 수신합니다. 클라이언트는 작업을 수행하기 전에 사용자의 메일 주소(UPN) 및 암호를 요청해야 합니다. 요청이 성공한 즉시 클라이언트는 메모리에서 사용자의 자격 증명을 안전하게 해제해야 합니다. 이 자격 증명을 저장하면 안 됩니다.
 
+> [!TIP]
+> Postman에서 이 요청을 실행해 보세요.
+> [![Postman에서 실행](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
+
 ```
 // Line breaks and spaces are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
+POST {tenant}/oauth2/v2.0/token
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
@@ -96,11 +103,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 오류 | 설명 | 클라이언트 작업 |
 |------ | ----------- | -------------|
-| `invalid_grant` | 인증에 실패했습니다. | 자격 증명이 올바르지 않거나 클라이언트에 요청된 범위에 대한 동의가 없습니다. 범위에 권한이 부여되지 않으면 `consent_required` 하위 오류가 반환됩니다. 이 오류가 발생하면 클라이언트는 WebView 또는 브라우저를 사용하여 대화형 프롬프트로 사용자를 전송해야 합니다. |
-| `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 유형은 `/common` 또는 `/consumers` 인증 컨텍스트에서 지원되지 않습니다.  대신 `/organizations`를 사용하세요. |
-| `invalid_client` | 앱이 잘못 설정되었습니다. | 이는 [애플리케이션 매니페스트](reference-app-manifest.md)에서 `allowPublicClient` 속성이 true로 설정되지 않은 경우에 발생할 수 있습니다. ROPC 권한 부여에 리디렉션 URI가 없으므로 `allowPublicClient` 속성이 필요합니다. 속성이 설정되지 않으면 Azure AD는 앱이 공용 클라이언트 애플리케이션 또는 기밀 클라이언트 애플리케이션인지 확인할 수 없습니다. ROPC는 공용 클라이언트 앱에만 지원됩니다. |
+| `invalid_grant` | 인증에 실패했습니다. | 자격 증명이 올바르지 않거나 클라이언트에 요청된 범위에 대한 동의가 없습니다. 범위를 부여 하지 하는 경우는 `consent_required` 오류가 반환 됩니다. 이 오류가 발생하면 클라이언트는 WebView 또는 브라우저를 사용하여 대화형 프롬프트로 사용자를 전송해야 합니다. |
+| `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 유형이 지원 되지 않습니다 합니다 `/common` 또는 `/consumers` 인증 컨텍스트.  대신 `/organizations`를 사용하세요. |
+| `invalid_client` | 앱이 잘못 설정되었습니다. | 이 경우에 발생할 수 있습니다는 `allowPublicClient` 속성으로 설정 되지 true 합니다 [응용 프로그램 매니페스트](reference-app-manifest.md)합니다. ROPC 권한 부여에 리디렉션 URI가 없으므로 `allowPublicClient` 속성이 필요합니다. 속성이 설정되지 않으면 Azure AD는 앱이 공용 클라이언트 애플리케이션 또는 기밀 클라이언트 애플리케이션인지 확인할 수 없습니다. ROPC는 공용 클라이언트 앱에만 지원됩니다. |
 
 ## <a name="learn-more"></a>자세한 정보
 
 * [샘플 콘솔 애플리케이션](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)을 사용하여 직접 ROPC를 사용해 보세요.
-* v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+* V2.0 끝점을 사용 해야 하는지 여부를 결정할에 대해 알아보세요 [Microsoft identity 플랫폼 제한](active-directory-v2-limitations.md)합니다.

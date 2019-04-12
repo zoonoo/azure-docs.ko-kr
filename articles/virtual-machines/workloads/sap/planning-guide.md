@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 839f77df88314c95df1056b60c3612de27421ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886134"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501334"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -779,8 +779,6 @@ Azure Portal은 Azure VM 배포를 관리하기 위한 세 가지 인터페이�
 
 ![Microsoft Azure Portal - Virtual Machine 개요][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Virtual Machine 인스턴스에 대한 관리 및 구성 작업은 Azure Portal 내에서 수행할 수 있습니다.
 
@@ -791,9 +789,6 @@ Azure Portal은 VM 및 기타 여러 Azure 서비스를 배포 및 구성하기 
 * Azure에 VHD 업로드
 * VM 복사
 
-[comment]: <> (MShermannd TODO - SAP VM에 대한 자동화 서비스는 어떻습니까?)
-[comment]: <> (MSSedusch - 가능한 한 여러 VM 배포)
-[comment]: <> (MSSedusch - 또한 Azure Portal에서는 배포와 관련된 모든 유형의 자동화가 가능하지 않습니다. 여러 VM의 스크립팅된 배포와 같은 작업은 Azure Portal을 통해 수행할 수 없습니다.)
 
 ### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Microsoft Azure PowerShell cmdlet을 통한 관리
 
@@ -808,9 +803,8 @@ Azure PowerShell cmdlet을 설치, 업데이트 및 구성하는 방법에 대�
 예제를 참조 하세요.
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
-[comment]: <> (MShermannd TODO - 테스트할 때 새 CLI 명령을 설명합니다.)
-SAP용 Azure 모니터링 확장(이 문서의 [SAP용 Azure 모니터링 솔루션][planning-guide-9.1] 장 참조)의 배포는 PowerShell 또는 CLI를 통해서만 가능합니다. 따라서 Azure에서 SAP NetWeaver 시스템을 배포 또는 관리하는 경우 PowerShell 또는 CLI를 반드시 설치하고 구성해야 합니다.
-  
+
+SAP용 Azure 모니터링 확장(이 문서의 [SAP용 Azure 모니터링 솔루션][planning-guide-9.1] 장 참조)의 배포는 PowerShell 또는 CLI를 통해서만 가능합니다. 따라서 Azure에서 SAP NetWeaver 시스템을 배포 또는 관리하는 경우 PowerShell 또는 CLI를 반드시 설치하고 구성해야 합니다.  
 
 Azure에서는 더 많은 기능을 제공하므로 cmdlet 업데이트를 요구하는 새로운 PS cmdlet이 추가될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
 
@@ -1587,7 +1581,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### <a name="template"></a>Template
 
-github의 azure-quickstart-templates 저장소에 있는 샘플 템플릿을 사용할 수 있습니다.
+샘플 템플릿은 GitHub에서 azure 빠른 시작-템플릿 리포지토리에서 사용할 수 있습니다.
 
 * [간단한 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [간단한 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
@@ -1632,13 +1626,13 @@ SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역,
 
 ![온-프레미스와 Azure 자산 간의 사이트 간 연결][planning-guide-figure-2100]
 
-위에 나와 있는 시나리오는 온-프레미스 AD/OpenLDAP 및 DNS가 Azure로 확장되는 시나리오를 설명합니다. 온-프레미스 쪽에서 특정 IP 주소 범위는 Azure 구독을 기준으로 예약됩니다. IP 주소 범위는 Azure 쪽의 Azure Virtual Network에 할당됩니다.
-
-#### <a name="security-considerations"></a>보안 고려 사항
+위에 나와 있는 시나리오는 시나리오를 설명 합니다. 여기서 온-프레미스
 
 최소 요구 사항은 Azure 서비스의 브라우저 액세스를 위해서는 SSL/TLS, 시스템 액세스를 위해서는 VPN 기반 연결과 같은 보안 통신 프로토콜의 사용입니다. 단, 회사에서는 회사 네트워크와 Azure 간의 VPN 연결을 다르게 처리하는 것을 전제로 합니다. 일부 회사에서는 모든 포트를 완전히 열어둘 수 있습니다. 또 다른 회사에서는 열어야 하는 포트를 정확하게 지정하려고 할 수 있습니다.
 
 아래 표에는 일반적인 SAP 통신 포트가 나와 있습니다. 기본적으로 SAP 게이트웨이 포트만 열어도 충분합니다.
+
+<!-- sapms is prefix of a SAP service name and not a spelling error -->
 
 | 서비스 | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 주석 |
 | --- | --- | --- | --- | --- |
@@ -1834,7 +1828,7 @@ SAProuter를 통해 SAP 인스턴스를 연결하려면 연결을 시도할 때 
 
 가상 머신 호스트가 사이트 간 VPN 터널 또는 ExpressRoute 통해 회사 네트워크에 연결되어 있는 동안 일부 고객의 특별한 배포 시나리오에서 SAP Enterprise Portal이 인터넷에 직접 노출됩니다. 이러한 시나리오의 경우 특정 포트가 열려 있고 방화벽이나 네트워크 보안 그룹에 의해 차단되지 않았는지 확인해야 합니다. 
 
-초기 포털 URI는 http(s):`<Portalserver`>:5XX00/irj입니다. 여기서 포트는 50000 + (Systemnumber × 100)으로  구성됩니다. SAP 시스템 00의 기본 포털 URI는 `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj입니다. 자세한 내용은 <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>을 참조하세요.
+초기 포털 URI는 http (s):`<Portalserver`>: 5XX00/irj 포트에서 SAP 별로 설명 된 대로 형식이 있는 <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>합니다.
 
 ![엔드포인트 구성][planning-guide-figure-2800]
 

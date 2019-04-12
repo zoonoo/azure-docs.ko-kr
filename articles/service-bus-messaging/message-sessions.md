@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497842"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500144"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
@@ -51,7 +51,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 수신기는 세션을 허용하는 클라이언트에서 생성됩니다. 클라이언트는 C#의 [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) 또는 [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync)를 호출합니다. 반응성 콜백 모델에서는 세션 처리기를 등록합니다.
 
-[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 개체가 수락되고 클라이언트에서 유지되는 동안 해당 클라이언트는 큐 또는 구독에 있는 세션의 [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId)가 포함된 모든 메시지와 세션이 유지되는 동안 도착하는 **SessionId**가 포함된 모든 메시지에 대해 배타적 잠금을 유지합니다.
+[MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 개체가 수락되고 클라이언트에서 유지되는 동안 해당 클라이언트는 큐 또는 구독에 있는 세션의 [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId)가 포함된 모든 메시지와 세션이 유지되는 동안 도착하는 **SessionId**가 포함된 모든 메시지에 대해 배타적 잠금을 유지합니다.
 
 잠금은 **Close** 또는 **CloseAsync**가 호출되거나 애플리케이션이 잠금 작업을 수행할 수 없어서 잠금이 만료될 때 해제됩니다. 세션 잠금은 파일에 대한 배타적인 잠금으로 처리되어야 합니다. 즉, 애플리케이션은 세션이 더 이상 필요하지 않거나 더 이상 메시지를 기대하지 않는 경우 세션을 닫아야 합니다.
 

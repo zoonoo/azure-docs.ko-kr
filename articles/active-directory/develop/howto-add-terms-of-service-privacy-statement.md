@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱에 대한 서비스 약관 및 개인정보처리방침 | Microsoft Docs
+title: 앱에 대 한 서비스 및 개인정보취급방침 약관 | Azure
 description: Azure AD를 사용하도록 등록된 앱의 서비스 약관 및 개인정보처리방침을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193512"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500304"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>등록된 Azure Active Directory 앱의 서비스 약관 및 개인정보처리방침
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 및 개인정보취급방침 조건 구성
 
 Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌드하고 관리하는 개발자는 앱의 서비스 약관 및 개인정보처리방침에 대한 링크를 포함해야 합니다. 서비스 약관 및 개인정보처리방침은 사용자 동의 환경을 통해 사용자에게 표시됩니다. 서비스 약관 및 개인정보처리방침은 사용자가 앱을 믿고 사용할 수 있게 도와줍니다. 서비스 약관 및 개인정보처리방침은 여러 디렉터리에서 사용되거나 모든 Microsoft 계정에 제공되는 사용자용 다중 테넌트 앱에서 특히 중요합니다.
 
@@ -47,19 +47,19 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 | 지침     | 설명                           |
 |---------------|---------------------------------------|
 | 형식        | 유효한 URL                             |
-| 유효한 스키마 | HTTP 및 HTTPS</br>HTTPS 권장 |
+| 유효한 스키마 | HTTP 및 HTTPS<br/>HTTPS 권장 |
 | 최대 길이    | 2048자                       |
 
-예: `https://myapp.com/terms-of-service` 및 `https://myapp.com/privacy-statement`
+예제: `https://myapp.com/terms-of-service` 및 `https://myapp.com/privacy-statement`
 
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>서비스 약관 및 개인정보처리방침에 링크 추가
 
 서비스 약관 및 개인정보처리방침이 준비되면 다음 방법 중 하나를 사용하여 앱에 이러한 문서의 링크를 추가할 수 있습니다.
 
-* [Azure Portal을 통해](#registered-in-azure-portal)
-* [애플리케이션 등록 포털 또는 개발자 센터에서](#registered-in-app-reg-portal)
-* [앱 개체 JSON을 사용하여](#app-object-json)
-* [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
+* [Azure portal을 통해](#registered-in-azure-portal)
+* [응용 프로그램 등록 포털 또는 개발자 센터](#registered-in-app-reg-portal)
+* [앱 개체 JSON을 사용 하 여](#app-object-json)
+* [MSGraph 베타 REST API를 사용 하 여](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Azure Portal에서 앱을 등록한 경우
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * `supportUrl`, `marketingUrl` 및 `logoUrl` 필드에 할당된 기존 값을 덮어쓰지 않도록 주의해야 합니다.
+> * 이러한 필드 중 하나에 할당 된 모든 기존 값을 덮어쓰지 않도록 주의 하십시오: `supportUrl`, `marketingUrl`, 및 `logoUrl`
 > * MSGraph 베타 REST API는 Azure AD 계정으로 로그인하는 경우에만 작동합니다. 개인 Microsoft 계정은 지원되지 않습니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051889"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490999"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 그림에 나와 있는 것처럼 다음 옵션을 선택합니다.
 
 1. *상태*에 대해 **켜기**를 선택합니다.
-2. 흐름 로그를 저장할 기존 저장소 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 저장소 계정에 대한 Azure 저장소 요금이 발생합니다.
-3. **보존**을 데이터를 저장하려는 일 수로 설정합니다.
-4. **트래픽 분석 상태**를 *켜기*로 선택합니다.
-5. 기존 Log Analytics 작업 영역을 선택 하거나 **새 작업 영역 만들기** 새 계정을 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 지원되는 지역 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대 한 자세한 내용은 참조 하세요. [새 로그 검색으로 업그레이드를 기록 하는 Azure Monitor](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)합니다.
+2. 선택 *버전 2* 에 대 한 **흐름 로그 버전**합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
+3. 흐름 로그를 저장할 기존 저장소 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 저장소 계정에 대한 Azure 저장소 요금이 발생합니다.
+4. **보존**을 데이터를 저장하려는 일 수로 설정합니다.
+5. **트래픽 분석 상태**를 *켜기*로 선택합니다.
+6. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 
-    트래픽 분석 솔루션 및 Nsg를 호스팅하는 Log Analytics 작업 영역은 동일한 지역에 있이 필요가 없습니다. 예를 들어 유럽 서부의 작업 영역에 트래픽 분석이 있고, 미국 동부 및 미국 서부에 NSG가 있을 수 있습니다. 여러 NSG를 동일한 작업 영역에 구성해도 됩니다.
-6. **저장**을 선택합니다.
+    트래픽 분석 솔루션 및 NSG를 호스팅하는 로그 분석 작업 영역이 같은 지역에 있어야 하는 것은 아닙니다. 예를 들어 유럽 서부의 작업 영역에 트래픽 분석이 있고, 미국 동부 및 미국 서부에 NSG가 있을 수 있습니다. 여러 NSG를 동일한 작업 영역에 구성해도 됩니다.
+7. **저장**을 선택합니다.
 
-    ![저장소 계정 선택, Log Analytics 작업 영역 및 트래픽 분석 사용](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![저장소 계정 선택, Log Analytics 작업 영역 및 트래픽 분석 사용](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터는 작업 영역으로 전송되므로 작업 영역이 있는 지역에 데이터를 저장하는 것을 현지 법률 및 규정에서 허용하는지 확인해야 합니다.
 
@@ -300,7 +301,7 @@ New-AzStorageAccount `
     ![가상 네트워크 분포를 표시하는 대시보드](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - 가상 네트워크 토폴로지는 가상 네트워크(상호 가상 네트워크 연결/활성/비활성), 외부 연결, 활성 흐름, 가상 네트워크의 악의적 흐름 등과 같은 매개 변수를 선택할 수 있는 상단 리본을 표시합니다.
-- 구독, 작업 영역, 리소스 그룹 및 시간 간격에 따라 가상 네트워크 토폴로지를 필터링할 수 있습니다. 흐름을 이해하는 데 도움이 되는 추가 필터는 흐름 유형(InterVNet, IntraVNET 등), 흐름 방향(인바운드, 아웃바운드), 흐름 상태(허용됨, 차단됨) VNET(대상으로 지정됨 및 연결됨), 연결 형식(피어링 또는 게이트웨이 - P2S 및 S2S) 및 NSG입니다. 이러한 필터를 사용하여 자세히 살펴볼 VNet에 초점을 맞춥니다.
+- 구독, 작업 영역, 리소스 그룹 및 시간 간격에 따라 가상 네트워크 토폴로지를 필터링할 수 있습니다. 흐름을 이해하는 데 도움이 되는 추가 필터는 형식 (vnet 간, IntraVNET, 및 등), 흐름 방향 (인바운드, 아웃 바운드), 흐름 상태 흐름 (허용, 차단) Vnet (대상 및 연결), 연결 유형 (피어 링 또는 게이트웨이-P2S 및 S2S), 및 NSG. 이러한 필터를 사용하여 자세히 살펴볼 VNet에 초점을 맞춥니다.
 - 가상 네트워크 토폴로지는 흐름(허용된/차단된/인바운드/아웃바운드/무해/악성), 애플리케이션 프로토콜, 네트워크 보안 그룹과 관련하여 가상 네트워크의 트래픽 분포를 보여주며, 다음은 그 예입니다.
 
     ![트래픽 분포 및 흐름 세부 정보를 표시하는 가상 네트워크 토폴로지](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

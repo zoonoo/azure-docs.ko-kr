@@ -12,28 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: f226b9b802bca47cc6fd7b9cdec550b23c7c88d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 958dc02ecc744f89badee851467f2e78190287cd
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890823"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501028"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-이 문서에서는 Service Bus 큐를 사용하는 방법을 설명합니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][Azure SDK for Java]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 자습서에서는 메시지를 보내고 Service Bus 큐에서 메시지를 수신 하는 Java 응용 프로그램을 만드는 방법을 알아봅니다. 
 
 > [!NOTE]
 > Java 샘플은 GitHub의 [azure-service-bus 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)에 있습니다.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 다음 단계를 사용 하려면 큐가 없는 경우는 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 큐를 만드는 문서입니다.
+    1. 빠른 읽을 **개요** Service bus **큐**합니다. 
+    2. Service Bus를 만듭니다 **네임 스페이스**합니다. 
+    3. 가져오기의 **연결 문자열**합니다.
+    4. Service Bus를 만듭니다 **큐**합니다.
+3. 설치할 [Java 용 Azure SDK][Azure SDK for Java]합니다. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 이 샘플을 빌드하기 전에 [Java용 Azure SDK][Azure SDK for Java]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848583"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501640"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -127,6 +127,19 @@ Queue q = namespaceManager.CreateQueue(qd);
 메시지의 TTL(Time to Live) 속성은 서버가 클라이언트에 메시지를 보낼 때 서버에 의해 확인됩니다. 클라이언트는 메시지를 수신할 때 메시지의 TTL 속성을 검사하지 않습니다. 대신, 클라이언트가 메시지를 캐시한 동안에는 메시지의 TTL이 경과된 경우에도 메시지를 수신할 수 있습니다.
 
 프리페치는 청구 가능 메시징 작업의 수에 영향을 주지 않으며 Service Bus 클라이언트 프로토콜에 대해서만 사용할 수 있습니다. HTTP 프로토콜은 프리페치를 지원하지 않습니다. 프리페치는 동기 및 비동기 수신 작업에 사용할 수 있습니다.
+
+## <a name="prefetching-and-receivebatch"></a>프리페치 및 ReceiveBatch
+
+함께 여러 메시지를 프리페치 할 개념 비슷한 의미 체계 (ReceiveBatch) 일괄 처리에서 메시지 처리를 하는 동안 이러한 작업을 함께 활용 하는 경우 염두에서 유지 해야 하는 몇 가지 사소한 차이점이 있습니다.
+
+프리페치 구성 (또는 모드) (QueueClient 및 SubscriptionClient) 클라이언트에서 이며 ReceiveBatch는 연산을 (요청-응답 의미 체계).
+
+이러한 작업을 함께 사용 하는 동안 다음과 같은 경우를-것이 좋습니다.
+
+* 프리페치 보다 크거나 ReceiveBatch에서 수신 하도록 예상 되는 메시지의 수와 동일 해야 합니다.
+* 여기서 n은 기본 잠금 기간이 초당 처리 된 메시지 수를 곱한 n/3 최대 프리페치 수 있습니다.
+
+일부의 문제는 탐욕 적 갖는 방식을 (즉, 매우 높은 프리페치 수 유지) 하므로 메시지를 특정 수신자에 게 잠겨 있음을 의미 합니다. 위에서 언급 한 임계값 사이의 값을 프리페치 아웃 하 고 알려지고 실험적으로 적합 한 항목을 식별 하는 것이 좋습니다.
 
 ## <a name="multiple-queues"></a>여러 큐
 

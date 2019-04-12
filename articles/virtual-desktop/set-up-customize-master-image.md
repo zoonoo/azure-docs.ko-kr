@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006207"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505603"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -158,21 +158,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-자동 업데이트를 수동으로 비활성화할 수 있습니다.
+### <a name="disable-automatic-updates"></a>자동 업데이트 사용 안 함
 
-자동 업데이트를 사용 하지 않도록 설정 합니다.
+로컬 그룹 정책을 통해 자동 업데이트를 사용 하지 않도록 설정 합니다.
 
-1. Office365의 지침에 따라 설치할 [소프트웨어 준비 및 설치](set-up-customize-master-image.md#software-preparation-and-installation)합니다.
-2. 지침에 따라 추가 응용 프로그램 설치 [사용자 프로필 컨테이너 (FSLogix) 설정](set-up-customize-master-image.md#set-up-user-profile-container-fslogix)를 [Windows Defender 구성](set-up-customize-master-image.md#configure-windows-defender), 및 [다른 응용 프로그램 및 레지스트리 구성](set-up-customize-master-image.md#other-applications-and-registry-configuration)합니다.
-3. 로컬 VM에서 Windows 자동 업데이트 서비스를 사용 하지 않도록 설정 합니다.
-4. 오픈 **로컬 그룹 정책 편집기\\관리 템플릿\\Windows 구성 요소\\Windows 업데이트**합니다.
-5. 마우스 오른쪽 단추로 클릭 **자동 업데이트 구성** 로 설정 하 고 **비활성**합니다.
+1. 오픈 **로컬 그룹 정책 편집기\\관리 템플릿\\Windows 구성 요소\\Windows 업데이트**합니다.
+2. 마우스 오른쪽 단추로 클릭 **자동 업데이트 구성** 로 설정 하 고 **비활성**합니다.
 
 또한 자동 업데이트를 사용 하지 않도록 설정 하려면 명령 프롬프트에서 다음 명령을 실행할 수 있습니다.
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>(선택 사항) Windows 10 Pc에 대 한 시작 레이아웃을 지정 합니다.
 
 Windows 10 Pc에 대 한 시작 레이아웃을 지정 하려면이 명령을 실행 합니다.
 

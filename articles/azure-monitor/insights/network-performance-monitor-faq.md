@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734558"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496967"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -25,7 +25,7 @@ ms.locfileid: "55734558"
 
 이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.
 
-[네트워크 성능 모니터](/azure/networking/network-monitoring-overview)는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
+[네트워크 성능 모니터](/azure/networking/network-monitoring-overview)는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 [하이브리드 네트워크 모니터링](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) 솔루션입니다. 또한 [서비스 및 애플리케이션 엔드포인트](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md)에 대한 네트워크 연결을 모니터링하고 [Azure ExpressRoute의 성능을 모니터링하는](../../azure-monitor/insights/network-performance-monitor-expressroute.md) 데 도움이 됩니다. 
 
 네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 디바이스로 국한시킵니다. 
 

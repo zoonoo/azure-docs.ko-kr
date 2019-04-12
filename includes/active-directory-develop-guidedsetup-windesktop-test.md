@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214516"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503253"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -39,14 +39,13 @@ ms.locfileid: "58214516"
 
 ### <a name="view-application-results"></a>애플리케이션 결과 보기
 
-로그인하면, Microsoft Graph API에 대한 호출에서 반환되는 사용자 프로필 정보가 표시됩니다. 결과가 **API 호출 결과** 상자에 표시됩니다. `AcquireTokenAsync` 또는 `AcquireTokenSilentAsync`에 대한 호출을 통해 획득한 토큰에 관한 기본 정보는 **토큰 정보** 상자에 표시되어야 합니다. 결과에 다음 속성이 포함될 수 있습니다.
+로그인하면, Microsoft Graph API에 대한 호출에서 반환되는 사용자 프로필 정보가 표시됩니다. 결과가 **API 호출 결과** 상자에 표시됩니다. `AcquireTokenInteractive` 또는 `AcquireTokenSilent`에 대한 호출을 통해 획득한 토큰에 관한 기본 정보는 **토큰 정보** 상자에 표시되어야 합니다. 결과에 다음 속성이 포함될 수 있습니다.
 
 |자산  |형식  |설명 |
 |---------|---------|---------|
-|**Name** |사용자의 전체 이름 |사용자의 이름과 성입니다.|
-|**사용자 이름** |<span>user@domain.com</span> |사용자를 식별하는 데 사용하는 사용자 이름입니다.|
-|**토큰 만료** |DateTime |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
-|**액세스 토큰** |문자열 |*인증 헤더*가 필요한 HTTP 요청으로 전송된 토큰 문자열|
+
+|**사용자 이름**  | <span> user@domain.com </span> | 사용자를 식별 하는 데 사용 되는 사용자 이름입니다. | | **토큰이 만료 되** | 날짜/시간 | 토큰이 만료 되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신 해 만료 날짜를 확장 합니다. |
+
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>범위 및 위임된 권한에 대한 자세한 내용

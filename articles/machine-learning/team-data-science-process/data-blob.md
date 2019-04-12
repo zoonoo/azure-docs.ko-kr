@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c7d8414fdc1070204ef02cf6d88b238575d0817a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a91c4d9f5dcdcee436f2dbf012eb5485b7a92192
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472425"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495620"
 ---
 # <a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 이 문서에서는 Azure Blob Storage에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 
@@ -75,11 +75,12 @@ ms.locfileid: "55472425"
         print miss_num
 7. 데이터의 특정 열에 대한 값이 누락된 경우 다음과 같이 해당 데이터를 삭제할 수 있습니다.
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
+        dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+        dataframe_blobdata_noNA.shape
    
    누락된 값을 대체하는 또 다른 방법으로 mode 함수가 있습니다.
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
+        dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. 가변 bin을 사용하여 히스토그램 플롯을 만들고 변수 분포 그리기    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')

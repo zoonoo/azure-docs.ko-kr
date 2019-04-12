@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630463"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492382"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -31,7 +31,7 @@ ms.locfileid: "58630463"
 
 VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고 할 때 다음과 같은 오류 메시지가 나타납니다.
 
-**이 확장할 수 있는 인증 프로토콜에 사용할 수 있는 인증서를 찾을 수 없습니다. (오류 798)**
+**이 Extensible Authentication Protocol을 사용 하 여 사용할 수 있는 인증서를 찾을 수 없습니다. (오류 798)**
 
 ### <a name="cause"></a>원인
 
@@ -58,13 +58,42 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 > [!NOTE]
 > 클라이언트 인증서를 가져올 때 **강력한 개인 키 보호 사용** 옵션을 선택하지 않습니다.
 
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>원격 서버가 응답 하지 않기 때문에 컴퓨터 및 VPN 서버 간의 네트워크 연결을 설정할 수 없습니다.
+
+### <a name="symptom"></a>증상
+
+Windows에서 IKEv2를 사용 하는 Azure 가상 네트워크 gteway에 연결을 시도 하면 다음 오류 메시지가 표시:
+
+**원격 서버가 응답 하지 않기 때문에 컴퓨터 및 VPN 서버 간의 네트워크 연결을 설정할 수 없습니다.**
+
+### <a name="cause"></a>원인
+ 
+ Windows의 버전에는 IKE 조각화에 대 한 지원이 없는 경우 문제가 발생
+ 
+### <a name="solution"></a>해결 방법
+
+IKEv2는 Windows 10 및 Server 2016에서 지원됩니다. 그러나 IKEv2를 사용하려면 업데이트를 설치하고 로컬로 레지스트리 키 값을 설정해야 합니다. Windows 10 이전의 OS는 지원되지 않으며 SSTP만 사용할 수 있습니다.
+
+IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
+
+1. 업데이트를 설치합니다.
+
+   | OS 버전 | Date | 번호/링크 |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 버전 1607 | 2018년 1월 17일 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 버전 1703 | 2018년 1월 17일 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 버전 1709 | 2018년 3월 22일 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. 레지스트리 키 값을 설정합니다. 레지스트리에 “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD 키를 만들거나 1로 설정합니다.
+
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 클라이언트 오류: 예기치 않거나 형식이 잘못된 메시지를 수신했습니다.
 
 ### <a name="symptom"></a>증상
 
 VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고 할 때 다음과 같은 오류 메시지가 나타납니다.
 
-**예기치 않거나 형식이 잘못된 메시지를 수신했습니다. (오류 0x80090326)**
+**받은 메시지 예기치 않거나 형식이 잘못 되었습니다. (오류 0x80090326)**
 
 ### <a name="cause"></a>원인
 
@@ -87,7 +116,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고 할 때 다음과 같은 오류 메시지가 나타납니다.
 
-**인증서 체인이 처리되었지만 트러스트 공급자가 신뢰하지 않는 루트 인증서에서 종료되었습니다.**
+**인증서 체인이 처리 되었지만 트러스트 공급자가 신뢰 되지 않는 루트 인증서에서 종료 되었습니다.**
 
 ### <a name="solution"></a>해결 방법
 
@@ -107,7 +136,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 다음과 같은 오류 메시지가 표시됩니다.
 
-**파일 다운로드 오류. 대상 URI가 지정되지 않았습니다.**
+**파일 다운로드 오류입니다. 대상 URI가 지정되지 않았습니다.**
 
 ### <a name="cause"></a>원인 
 
@@ -123,7 +152,7 @@ VPN 게이트웨이 형식은 **VPN**이어야 하고 VPN 형식은 **경로 기
 
 VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고 할 때 다음과 같은 오류 메시지가 나타납니다.
 
-**(라우팅 테이블을 업데이트하는) 사용자 지정 스크립트에 실패했습니다. (오류 8007026f)**
+**(라우팅 테이블을 업데이트)를 사용자 지정 스크립트가 실패 했습니다. (오류 8007026f)**
 
 ### <a name="cause"></a>원인
 
@@ -156,7 +185,7 @@ VPN 클라이언트 구성 패키지를 추출하고 .cer 파일을 찾습니다
 
 Azure Portal에서 VPN Gateway에 변경 내용을 저장하려고 할 때 다음과 같은 오류 메시지가 나타납니다.
 
-**가상 네트워크 게이트웨이 &lt;*게이트웨이 이름*&gt;을(를) 저장하지 못했습니다. &lt;*인증서 ID*&gt; 인증서에 대한 데이터가 잘못되었습니다.**
+**가상 네트워크 게이트웨이 저장 하지 못했습니다 &lt; *게이트웨이 이름*&gt;합니다. 인증서에 대 한 데이터 &lt; *인증서 ID* &gt; 올바르지 않습니다.**
 
 ### <a name="cause"></a>원인 
 
@@ -203,7 +232,7 @@ Azure Portal에서 VPN Gateway에 변경 내용을 저장하려고 할 때 다�
 
 VPN 클라이언트 구성 패키지를 다운로드하려고 할 때 다음과 같은 오류 메시지가 나타납니다.
 
-**파일을 다운로드하지 못했습니다. 오류 세부 정보: 오류 503 서버가 사용 중입니다.**
+**파일을 다운로드하지 못했습니다. 오류 세부 정보: 오류 503 서버 사용 중입니다.**
  
 ### <a name="solution"></a>해결 방법
 

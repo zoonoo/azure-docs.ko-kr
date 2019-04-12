@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 'Azure SQL Database에서 관리 되는 인스턴스는 완전히 관리 되는 SQL Server 데이터베이스 엔진 인스턴스를 Azure 클라우드에 호스트 합니다. SQL Server 데이터베이스를 클라우드로 마이그레이션하기 위한 최상의 PaaS 옵션입니다. 빠른 시작, 자습서 및 샘플로 Managed Instance를 만들고 사용하는 방법을 알아봅니다.'
@@ -50,7 +50,7 @@ sections:
           - title: 가동 중지 시간 없이 마이그레이션
             href: /azure/dms/tutorial-sql-server-to-managed-instance
             html: <p>Database Migration Service를 사용하여 최소 가동 중지 시간으로 대규모 데이터베이스를 마이그레이션합니다.</p>
-          - title: 가격 책정
+          - title: 가격
             href: 'https://azure.microsoft.com/pricing/hybrid-benefit/'
             html: <p>기존 온-프레미스 라이선스를 사용하여 AHB(Azure 하이브리드 혜택)로 최대 40%까지 절약합니다.</p>
           - title: PaaS 기능
@@ -78,6 +78,7 @@ sections:
           - html: 관리 되는 인스턴스도 보호 됩니다 <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">기본 제공 방화벽</a>합니다.
           - html: '(미리 보기) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">삭제 된 PowerShell을 사용 하 여 데이터베이스 다시 만들기</a>'
           - html: '지역 복원 기능을 사용 하면 수 있습니다 <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">PowerShell을 사용 하 여 다른 데이터 센터로 데이터베이스를 복원</a>합니다.'
+          - html: '(미리 보기) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">표준 시간대 구성</a> 인스턴스 생성 중입니다.'
   - title: 5분 빠른 시작
     items:
       - type: paragraph

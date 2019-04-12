@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43123e77a5c1cfb37f51c472420d3d7f2d440c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173371"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490914"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가
 
-전역 관리자 또는 제한된 관리자 디렉터리 역할 중 하나에 할당된 사용자로서 Azure Portal을 사용하여 B2B 공동 작업 사용자를 초대할 수 있습니다. 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대할 수 있습니다. 다음 방법 중 하나를 통해 사용자를 초대한 후 초대된 사용자의 계정은 *게스트*의 사용자 유형으로 Azure AD(Azure Active Directory)에 추가됩니다. 게스트 사용자는 리소스에 액세스하려면 해당 초대를 사용해야 합니다.
+제한 된 관리자 디렉터리 역할 중 하나에 할당 된 사용자로 B2B 공동 작업 사용자를 초대 하려면 Azure portal을 사용할 수 있습니다. 게스트 사용자를 디렉터리, 그룹 또는 애플리케이션에 초대할 수 있습니다. 다음 방법 중 하나를 통해 사용자를 초대한 후 초대된 사용자의 계정은 *게스트*의 사용자 유형으로 Azure AD(Azure Active Directory)에 추가됩니다. 게스트 사용자는 리소스에 액세스하려면 해당 초대를 사용해야 합니다.
 
 게스트 사용자를 디렉터리에 추가한 후에 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 또는 게스트 사용자는 초대 이메일에서 상환 URL을 클릭할 수 있습니다. 상환 프로세스에 대한 자세한 내용은 [B2B 공동 작업 초대 상환](redemption-experience.md)을 참조하세요.
 
@@ -31,7 +31,7 @@ ms.locfileid: "56173371"
 
 B2B 공동 작업 사용자를 디렉터리에 추가하려면 다음 단계를 수행합니다.
 
-1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 디렉터리 역할 제한 된 관리자의 모든 사용자가 할당 합니다.
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
 3. **관리**에서 **사용자**를 선택합니다.
 4. **새 게스트 사용자**를 선택합니다.

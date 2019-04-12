@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7f3afa59b4c8eaaeaf54576eb9fcaad626749683
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358904"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495091"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API-Node.js에 연결
 
@@ -122,10 +122,10 @@ node index.js
 
 ## <a name="see-also"></a>참고 항목
 
-[.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+- [Media Services 개념](concepts-overview.md)
+- [NPM 설치 azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Media Services 개념](concepts-overview.md)
-- [Node.js 참조](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/?view=azure-node-latest)
-- [NPM 설치 azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)<br>
+Media Services [Node.js 참조](https://aka.ms/ams-v3-nodejs-ref) 설명서를 살펴보고 node.js와 함께 Media Services API를 사용하는 방법을 보여주는 [샘플](https://github.com/Azure-Samples/media-services-v3-node-tutorials)을 확인하세요.
+

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470052"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493147"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -37,11 +37,11 @@ Azure Disk Encryption은 [A, D, DS, G, GS 및 F](https://azure.microsoft.com/pri
 
 ## <a name="bkmk_LinuxOSSupport"></a> Azure Disk Encryption은 어떤 Linux 배포판을 지원하나요?
 
-Azure 디스크 암호화의 하위 집합에서 지원 됩니다 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)는 자체 가능한 모든 배포의 일부입니다.
+하위 집합에 대해 azure Disk Encryption은 지원 합니다 [Azure 보증 Linux 배포판](../virtual-machines/linux/endorsed-distros.md)는 자체 Linux 서버 가능한 모든 배포판의 일부입니다.
 
  ![Azure 디스크 암호화를 지 원하는 벤 다이어그램의 Linux 서버 배포판](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Azure에서 되지 보증 하는 배포는 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는, Linux 서버 배포판 및 버전 Azure Disk Encryption 지원 됩니다.
+Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption을 지원 하지 않습니다 및 해당 하는 행위는의 다음 배포판 및 버전에만 Azure Disk Encryption 지원 됩니다.
 
 | Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
 | --- | --- |--- |
@@ -112,7 +112,7 @@ Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. 새 Key Va
 Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. Azure Active Directory 애플리케이션을 만들거나 새 Key Vault를 만들거나, 디스크 암호화 액세스에 대한 기존 Key Vault를 설정하여 암호화를 사용하도록 설정하고 비밀과 키를 보호하려면 [Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites-aad.md) 문서를 참조하세요. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)를 참조하세요.
 
 ## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>Azure AD 앱(이전 릴리스)을 사용한 Azure Disk Encryption은 여전히 지원되나요?
-예 Azure AD 앱을 사용한 디스크 암호화는 계속 지원됩니다. 그러나 새 VM을 암호화하는 경우 Azure AD 앱을 사용하여 암호화하기보다 새 메서드를 사용하는 것이 좋습니다. 
+예. Azure AD 앱을 사용한 디스크 암호화는 계속 지원됩니다. 그러나 새 VM을 암호화하는 경우 Azure AD 앱을 사용하여 암호화하기보다 새 메서드를 사용하는 것이 좋습니다. 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Azure AD 앱을 사용하여 암호화된 VM을 Azure AD 앱을 사용하지 않는 암호화로 마이그레이션할 수 있나요?
   현재 Azure AD 앱을 사용하여 암호화된 머신을 Azure AD 앱을 사용하지 않는 암호화로 직접 마이그레이션하는 경로는 없습니다. 또한 Azure AD 앱을 사용하지 않는 암호화에서 AD 앱을 사용한 암호화까지의 직접 경로는 없습니다. 

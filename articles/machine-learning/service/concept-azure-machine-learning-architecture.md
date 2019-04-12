@@ -1,29 +1,31 @@
 ---
-title: '클라우드의 Machine Learning: 용어 및 아키텍처'
+title: 아키텍처 및 주요 개념
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 구성하는 아키텍처, 용어 및 개념을 알아봅니다. 또한 서비스 사용의 일반적인 워크플로 및 Azure Machine Learning 서비스에서 사용되는 Azure 서비스를 알아봅니다.
+description: 아키텍처, 용어, 개념 및 Azure Machine Learning 서비스를 구성 하는 워크플로 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269132"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489950"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
-이 문서에서는 Azure Machine Learning 서비스에 대한 아키텍처 및 개념을 설명합니다. 다음 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용하기 위한 일반적인 워크플로를 보여줍니다.
+아키텍처, 개념 및 Azure Machine Learning 서비스에 대 한 워크플로 알아봅니다. 다음 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용하기 위한 일반적인 워크플로를 보여줍니다.
 
 [![Azure Machine Learning 서비스 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-일반적으로 워크플로는 다음 순서를 따릅니다.
+## <a name="workflow"></a>워크플로
+
+Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 
 1. **Python**에서 기계 학습의 학습 스크립트를 개발합니다.
 1. **‘계산 대상’** 을 만들고 구성합니다.

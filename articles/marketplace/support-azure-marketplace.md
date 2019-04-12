@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620822"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491341"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace에 대한 지원  
 다음은 Marketplace에 대한 지원 옵션 목록입니다.  
@@ -40,7 +40,6 @@ Microsoft를 사용 하 여 티켓을 열어 [marketplace 게시자 지원](http
 
 | 지원 채널 | 설명 |  
 |:--- |:--- |  
-| Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | 파트너의 기술 문제를 지원하기 위한 Slack 환경입니다. 현재 이 환경에서 작업하는 350개 이상의 파트너가 있습니다. |  
 | MSDN 포럼: [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
 | 스택 오버플로: [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure)에 있는 Azure | Azure Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 스택 오버플로 환경입니다.<ul> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)에 있는 Azure Marketplace</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)에 있는 Azure Resource Manager</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)에 있는 Azure의 Virtual Machines</li> <li>스택 오버플로: [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)에 있는 Azure의 컨테이너</li> </ul> |
 | AppSource 지원: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Dynamics 앱 게시 지원 |

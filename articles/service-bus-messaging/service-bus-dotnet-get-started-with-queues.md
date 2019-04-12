@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778011"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500688"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-이 자습서에서 다루는 단계는 다음과 같습니다.
-
-1. Azure Portal을 사용하여 Service Bus 네임스페이스를 만듭니다.
-2. Azure Portal을 사용하여 Service Bus 큐를 만듭니다.
-3. 큐에 일련의 메시지를 보내도록 .NET Core 콘솔 애플리케이션을 작성합니다.
-4. 큐에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
+이 자습서에서는.NET Core 콘솔 응용 프로그램 메시지를 보내고 Service Bus 큐에서 메시지를 받을을 만들 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
 1. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
-2. Azure 구독.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+3. 다음 단계를 사용 하려면 큐가 없는 경우는 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 큐를 만드는 문서입니다.
+    1. 빠른 읽을 **개요** Service bus **큐**합니다. 
+    2. Service Bus를 만듭니다 **네임 스페이스**합니다. 
+    3. 가져오기의 **연결 문자열**합니다. 
+    4. Service Bus를 만듭니다 **큐**합니다. 
 
 ## <a name="send-messages-to-the-queue"></a>큐에 메시지 보내기
 
@@ -206,7 +197,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 
 ## <a name="receive-messages-from-the-queue"></a>큐에서 메시지 받기
 
-방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 애플리케이션을 만들고 이전의 보낸 사람 애플리케이션과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
+보낸 메시지를 받으려면 다른.NET Core 콘솔 응용 프로그램 만들기 및 설치 합니다 **Microsoft.Azure.ServiceBus** NuGet 패키지를 이전의 보낸 사람 응용 프로그램과 유사 합니다.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>코드를 작성하여 큐에서 메시지 받기
 

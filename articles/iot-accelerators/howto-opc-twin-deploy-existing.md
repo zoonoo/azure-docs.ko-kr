@@ -1,5 +1,5 @@
 ---
-title: 기존 프로젝트에 Azure IoT OPC UA 장치 관리 모듈을 배포 하는 방법 | Microsoft Docs
+title: 기존 Azure 프로젝트에는 OPC 쌍 모듈을 배포 하는 방법 | Microsoft Docs
 description: OPC 쌍 기존 프로젝트를 배포 하는 방법입니다.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255889"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493249"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>기존 프로젝트에 OPC 쌍 배포
 
-OPC 장치 쌍 모듈이 IoT Edge에서 실행 되 고 OPC 장치 쌍 및 레지스트리 서비스를 여러 지 서비스를 제공 합니다. 
+OPC 쌍 모듈이 IoT Edge에서 실행 되 고 OPC 쌍 및 레지스트리 서비스에 여러 지 서비스를 제공 합니다. 
 
-OPC 장치 쌍 마이크로 서비스 팩토리 연산자와 OPC 쌍 IoT Edge 모듈을 통해 공장 현장에서 OPC UA 서버 장치 간의 통신을 용이 하 게 합니다. 마이크로 서비스는 해당 REST API를 통해 OPC UA 서비스 (찾아보기, 읽기, 쓰기 및 실행)을 노출 합니다. 
+OPC 쌍 마이크로 서비스 팩토리 연산자와 OPC 쌍 IoT Edge 모듈을 통해 공장 현장에서 OPC UA 서버 장치 간의 통신을 용이 하 게 합니다. 마이크로 서비스는 해당 REST API를 통해 OPC UA 서비스 (찾아보기, 읽기, 쓰기 및 실행)을 노출 합니다. 
 
-OPC UA 장치 레지스트리 마이크로 서비스는 등록 된 OPC UA 응용 프로그램 및 해당 끝점에 대 한 액세스를 제공합니다. 운영자 및 관리자 수 등록 및 새 OPC UA 응용 프로그램의 등록을 취소 하 고 해당 끝점을 포함 한 기존 찾아보기. 응용 프로그램 및 끝점 관리 하는 것 외에도 레지스트리 서비스는 또한 등록 된 OPC 장치 쌍 IoT Edge 모듈 카탈로그입니다. 서비스 API를 사용 하면 컨트롤 가장자리 모듈 기능을 예를 들어, 시작, 서버 검색 (검색 서비스), 중지 또는 OPC 쌍 마이크로 서비스를 사용 하 여 액세스할 수 있는 새로운 끝점 쌍을 활성화 합니다.
+OPC UA 장치 레지스트리 마이크로 서비스를 등록 된 OPC UA 응용 프로그램 및 해당 끝점에 대 한 액세스를 제공합니다. 운영자 및 관리자 수 등록 및 새 OPC UA 응용 프로그램의 등록을 취소 하 고 해당 끝점을 포함 한 기존 찾아보기. 응용 프로그램 및 끝점 관리 하는 것 외에도 레지스트리 서비스는 또한 등록 된 OPC 쌍 IoT Edge 모듈 카탈로그입니다. 서비스 API를 사용 하면 컨트롤 가장자리 모듈 기능을 예를 들어, 시작, 서버 검색 (검색 서비스), 중지 또는 OPC 쌍 마이크로 서비스를 사용 하 여 액세스할 수 있는 새로운 끝점 쌍을 활성화 합니다.
 
-모듈의 핵심은 감독자 id입니다. 감독자는 해당 OPC UA 레지스트리 API를 사용 하 여 활성화 되는 OPC UA 서버의 끝점에 해당 하는 끝점 쌍을 관리 합니다. 이 끝점 쌍 상태 저장 보안 채널을 통해 관리 되는 끝점으로 전송 되는 OPC UA 이진 메시지를 클라우드에서 실행 되는 OPC 쌍 마이크로 서비스에서 받은 OPC UA JSON을 변환 합니다. 또한 감독자는 이러한 이벤트 발생 OPC UA 레지스트리 업데이트를 처리 하는 것에 대 한 OPC UA 장치 등록 서비스에 장치 검색 이벤트를 전송 하는 검색 서비스를 제공 합니다.  이 문서에서는 OPC 쌍 모듈 기존 프로젝트를 배포 하는 방법을 보여 줍니다. 
+모듈의 핵심은 감독자 id입니다. 감독자는 해당 OPC UA 레지스트리 API를 사용 하 여 활성화 되는 OPC UA 서버의 끝점에 해당 하는 끝점 쌍을 관리 합니다. 이 끝점 쌍 상태 저장 보안 채널을 통해 관리 되는 끝점으로 전송 되는 OPC UA 이진 메시지를 클라우드에서 실행 되는 OPC 쌍 마이크로 서비스에서 받은 OPC UA JSON을 변환 합니다. 또한 감독자는 이러한 이벤트 발생 OPC UA 레지스트리 업데이트를 처리 하는 것에 대 한 OPC UA 장치 온 보 딩 서비스 장치 검색 이벤트를 전송 하는 검색 서비스를 제공 합니다.  이 문서에서는 OPC 쌍 모듈 기존 프로젝트를 배포 하는 방법을 보여 줍니다. 
 
 > [!NOTE]
 > 배포 세부 정보 및 지침에 대 한 자세한 내용은 참조는 GitHub [리포지토리](https://github.com/Azure/azure-iiot-opc-twin-module)합니다.
@@ -71,7 +71,7 @@ cd azure-iiot-components
 2. 또는 개인 AAD 테 넌 트를 다른 구독에 배포 스크립트를 다시 시작 하 고 사용 하려면 선택 합니다.
 
 > [!WARNING]
-> 인증 하지 않고 계속 되지 않습니다.  이렇게 하면 인증 되지 않은 인터넷에서 OPC 장치 관리 끝점 누구나 액세스할 수 있습니다.   선택할 수도 있습니다는 ["local" 배포 옵션](howto-opc-twin-deploy-dependencies.md) 바퀴를 시작 합니다.
+> 인증 하지 않고 계속 되지 않습니다.  이렇게 하면 인증 되지 않은 인터넷에서 OPC 쌍 끝점 누구나 액세스할 수 있습니다.   선택할 수도 있습니다는 ["local" 배포 옵션](howto-opc-twin-deploy-dependencies.md) 바퀴를 시작 합니다.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>배포에 올인원 산업 IoT 서비스 데모
 

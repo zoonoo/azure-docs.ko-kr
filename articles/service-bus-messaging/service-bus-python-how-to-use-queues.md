@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242601"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500501"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Python에서 Service Bus 큐를 사용하는 방법
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-이 문서에서는 Service Bus 큐를 사용하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure Service Bus 패키지][Python Azure Service Bus package]를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 자습서에서는 메시지를 보내고 Service Bus 큐에서 메시지를 수신 하는 Python 응용 프로그램을 만드는 방법을 알아봅니다. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 단계를 수행 합니다 [Service Bus 큐를 사용 하 여 Azure portal](service-bus-quickstart-portal.md) 문서.
+    1. 빠른 읽을 **개요** Service bus **큐**합니다. 
+    2. Service Bus를 만듭니다 **네임 스페이스**합니다. 
+    3. 가져오기의 **연결 문자열**합니다. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Python 또는 [Python Azure Service Bus 패키지][Python Azure Service Bus package]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
-> 
-> Service Bus Python SDK의 전체 설명서를 참조 하세요. [여기](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > 만들려는 **큐** 이 자습서에서는 Python을 사용 하 여 Service Bus 네임 스페이스에서입니다. 
+1. Python을 설치 또는 [Python Azure Service Bus 패키지][Python Azure Service Bus package]를 참조 합니다 [Python 설치 가이드](../python-how-to-install.md)합니다. Service Bus Python SDK의 전체 설명서를 참조 하세요 [여기](/python/api/overview/azure/servicebus?view=azure-python)합니다.
 
 ## <a name="create-a-queue"></a>큐 만들기
 합니다 **ServiceBusClient** 개체를 사용 하면 큐로 작업할 수 있습니다. 프로그래밍 방식으로 Service Bus에 액세스하려는 Python 파일의 맨 위쪽에 다음 코드를 추가합니다.

@@ -1,10 +1,10 @@
 ---
 title: Azure SQL Database 메트릭 및 진단 로깅 | Microsoft Docs
-description: 리소스 사용 및 쿼리 실행 통계를 저장하도록 Azure SQL Database를 구성하는 방법을 알아봅니다.
+description: 리소스 사용률 및 쿼리 실행 통계에 대 한 정보를 저장 하도록 Azure SQL Database에서 진단을 사용 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426507"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490071"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
+
+이 항목에서는 Azure portal, PowerShell, Azure CLI, Azure Monitor REST API 및 Azure Resource Manager 템플릿을 통해 Azure SQL Database에 대 한 진단 원격 분석의 로깅을 구성 하는 방법에 배웁니다. 이러한 진단 리소스 사용률 및 쿼리 실행 통계를 사용할 수 있습니다. 
 
 단일 데이터베이스, 탄력적 풀의 풀링된 데이터베이스 및 관리되는 인스턴스의 인스턴스 데이터베이스는 성능을 더 쉽게 모니터링할 수 있도록 메트릭 및 진단 로그를 스트리밍할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송하도록 데이터베이스를 구성할 수 있습니다.
 

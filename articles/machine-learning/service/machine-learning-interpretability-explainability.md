@@ -11,11 +11,11 @@ author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
 ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469780"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494443"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
@@ -32,7 +32,7 @@ Machine learning interpretability은 두 단계의 기계 학습 개발 주기�
 
 Azure Machine Learning Interpretability SDK 통합 기술을 Microsoft에서 개발한 및 타사 라이브러리 (예: SHAP 및 라임)를 입증 합니다. SDK 통합된 라이브러리 간에 공통 API를 만들고 Azure Machine Learning 서비스를 통합 합니다. 이 SDK를 사용 하 여, 기계 학습 모델을 설명할 수 있습니다 **모든 데이터에 대해 전 세계**, 또는 **특정 데이터 요소에 로컬로** 최신의 기술을 사용 하기 쉬운 하 고 확장 가능한 방식으로 사용 하 합니다.
 
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-does-it-work"></a>어떻게 작동합니까?
 
 모델의 전역 동작이 나 특정 예측을 이해 하려면 azure Machine Learning Interpretability는 적용할 수 있습니다. 전자는 전역 설명 호출 되 고 후자는 로컬 설명 호출 됩니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 Azure ATP 데이터 수집 | Microsoft Docs
-description: Azure Sentinel에서 Azure ATP 데이터를 수집 하는 방법에 알아봅니다.
+title: Azure ATP 데이터 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
+description: Azure ATP 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 153b6cb44cbcf5ecca9a4941c6bef7a8721dc56c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574946"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492654"
 ---
-# <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Azure ATP Advanced Threat Protection () 데이터를 수집 합니다.
+# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>데이터에서 Azure ATP Advanced Threat Protection ()에 연결
 
 > [!IMPORTANT]
 > Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
@@ -42,14 +42,14 @@ Azure ATP 배포 되 고 데이터를 수집, 의심 스러운 경고를 쉽게 
 
 
 
-1. Azure Sentinel 선택 **데이터 컬렉션** 클릭 하 고는 **Azure ATP** 바둑판식으로 배열 합니다.
+1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure ATP** 바둑판식으로 배열 합니다.
 
 2. **Connect**를 클릭합니다.
 
 6. Log Analytics에서 관련 스키마를 사용 하 여 Azure ATP 경고를 검색할 **SecurityAlert**합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel Azure Advanced Threat Protection 연결 하는 방법을 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+이 문서에서는 Azure Sentinel Azure Advanced Threat Protection 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
 - 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
 

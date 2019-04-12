@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144912"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489814"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
 
@@ -26,7 +26,7 @@ ms.locfileid: "42144912"
 
 ## <a name="overview"></a>개요
 
-X.509 CA 기능에서는 CA(인증 기관)를 사용하여 IoT Hub에 대한 디바이스 인증을 허용합니다. 이 경우 초기 디바이스 등록 프로세스와 디바이스 제조 동안의 공급망 물류 처리가 간편해집니다. 장치 인증에 [X.509 CA 인증서를 사용할 때 얻을 수 있는 가치에 대해서는 이 시나리오 문서를 참조하세요](iot-hub-x509ca-concept.md).  이 시나리오의 문서는 이어지는 단계의 필요성을 잘 설명하므로 먼저 읽는 것이 좋습니다.
+X.509 CA 기능에서는 CA(인증 기관)를 사용하여 IoT Hub에 대한 디바이스 인증을 허용합니다. 이 경우 초기 디바이스 등록 프로세스와 디바이스 제조 동안의 공급망 물류 처리가 간편해집니다. 디바이스 인증에 [X.509 CA 인증서를 사용할 때 얻을 수 있는 가치에 대해서는 이 시나리오 문서를 참조하세요](iot-hub-x509ca-concept.md).  이 시나리오의 문서는 이어지는 단계의 필요성을 잘 설명하므로 먼저 읽는 것이 좋습니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -40,7 +40,7 @@ X.509 CA 인증서는 각 디바이스에 대한 인증서 체인 맨 위에 있
 
 시험적으로 사용하거나 폐쇄형 IoT 네트워크에서 사용하려는 경우에는 자체 서명된 X.509 CA를 만들 수도 있습니다.
 
-X.509 CA 인증서를 획득하는 방법에 관계없이, 항상 해당 개인 키를 비밀리에 유지하고 보호하도록 하세요.  이러한 노력은 X.509 CA 인증에서 신뢰를 구축하는 데 필요합니다. 
+X.509 CA 인증서를 획득하는 방법에 관계없이, 항상 해당 개인 키를 비밀리에 유지하고 보호하도록 하세요.  이러한 노력은 X.509 CA 인증에서 신뢰를 구축하는 데 필요합니다.
 
 이 기능 설명 전체에서 시험적으로 사용할 수 있는 [자체 서명된 CA 인증서를 만드는](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아보세요.
 
@@ -49,6 +49,8 @@ X.509 CA 인증서를 획득하는 방법에 관계없이, 항상 해당 개인 
 X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하고, 이 중간 CA는 마지막 중간 CA가 디바이스에 서명하여 이 프로세스를 종료할 때까지 다른 중간 CA에 서명하는 방식으로 계속 진행될 수 있습니다. 그 결과, 신뢰할 수 있는 인증서 체인으로 알려진 연속된 인증서 체인이 형성됩니다. 실제 상황에서는 디바이스 등록을 위한 트러스트 위임 방식으로 진행됩니다. 이러한 위임은 관리권의 가변 체인을 암호화 방식으로 설정하고 서명 키의 공유를 방지하기 때문에 유용합니다.
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+(리프 인증서 라고도 함) 장치 인증서가 있어야 합니다 *주체 이름* 로 설정 합니다 **장치 ID** Azure IoT Hub에 IoT 장치를 등록할 때 사용한 것. 이 설정은 인증에 대 한 필수입니다.
 
 여기에서는 디바이스에 서명할 때 완료되는 [인증서 체인 생성](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아봅니다.
 

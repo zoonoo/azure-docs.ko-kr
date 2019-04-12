@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 CEF 데이터 수집 | Microsoft Docs
-description: Azure Sentinel에 CEF 데이터를 수집 하는 방법에 알아봅니다.
+title: CEF 데이터 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
+description: CEF 데이터 Azure Sentinel를 연결 하는 방법에 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005607"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489402"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -29,8 +29,7 @@ ms.locfileid: "59005607"
 
 Syslog 로그 파일을 저장할 수 있도록 외부 솔루션을 사용 하 여 Azure Sentinel에 연결할 수 있습니다. 어플라이언스를 사용 하면 로그와 Syslog 이벤트 CEF (일반적인 형식)를 저장할 수 있습니다, 하는 경우 Azure Sentinel와 통합을 사용 하면 쉽게 데이터 분석 및 쿼리를 실행할 수 있습니다.
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > 데이터 작업 영역의 Azure Sentinel 실행 하는 지리적 위치에 저장 됩니다.
 
 ## <a name="how-it-works"></a>작동 방법
@@ -59,7 +58,7 @@ Azure Sentinel CEF 어플라이언스에서 사이의 연결에는 세 단계로
 ### <a name="deploy-the-agent-in-azure"></a>Azure에서 에이전트 배포
 
 
-1. Sentinel Azure 포털에서 클릭 **데이터 컬렉션** 어플라이언스 유형을 선택 하 고 있습니다. 
+1. Sentinel Azure 포털에서 클릭 **데이터 커넥터** 어플라이언스 유형을 선택 하 고 있습니다. 
 
 1. 아래 **Linux Syslog 에이전트 구성을**:
    - 선택할 **자동 배포** 위에서 설명한 대로 Azure Sentinel 에이전트를 사용 하 여 미리 설치 되어 있고 구성 필요한 모든 포함 하 여 새 컴퓨터를 만들려는 경우입니다. 선택 **자동 배포** 누릅니다 **자동 에이전트 배포**합니다. 이 작업 영역에 자동으로 연결 되는 전용된 Linux VM에 대 한 구매 페이지로 이동 합니다. VM이를 **표준 D2s v3 (2 개 vcpu, 8GB 메모리)** 있고 공용 IP 주소입니다.
@@ -96,7 +95,7 @@ Azure Sentinel CEF 어플라이언스에서 사이의 연결에는 세 단계로
 Azure를 사용 하지 않는 경우 전용된 Linux 서버에서 실행 되도록 Azure Sentinel 에이전트를 수동으로 배포 합니다.
 
 
-1. Sentinel Azure 포털에서 클릭 **데이터 컬렉션** 어플라이언스 유형을 선택 하 고 있습니다.
+1. Sentinel Azure 포털에서 클릭 **데이터 커넥터** 어플라이언스 유형을 선택 하 고 있습니다.
 1. 아래에 있는 전용된 Linux VM을 만들려면 **Linux Syslog 에이전트 구성을** 선택 **수동 배포**합니다.
    1. 아래 **Syslog 에이전트 다운로드 및 설치**를 선택 **비 Azure Linux 머신**합니다. 
    1. 에 **직접 에이전트** 열립니다를 선택 하는 화면 **Agent for Linux** 에이전트를 다운로드 하거나 Linux 컴퓨터에 다운로드 하려면이 명령을 실행 하려면:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

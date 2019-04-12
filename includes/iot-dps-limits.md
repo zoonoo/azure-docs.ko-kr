@@ -4,20 +4,20 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65c89730e7d3d492b91daa8aba50e5606ca700a1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553808"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502730"
 ---
 다음 표에서 Azure IoT Hub Device Provisioning Service 리소스에 적용 되는 제한을 나열 합니다.
 
 | 리소스 | 제한 |
 | --- | --- |
 | Azure 구독 당 서비스를 프로 비전 하는 최대 장치 | 10 |
-| 최대 등록(enrollment) 수 | 500,000 |
-| 최대 등록 수 | 500,000 |
+| 최대 등록(enrollment) 수 | 1,000,000 |
+| 최대 등록 수 | 1,000,000 |
 | 최대 등록(enrollment) 그룹 수 | 100 |
 | 최대 CA 수 | 25 |
 

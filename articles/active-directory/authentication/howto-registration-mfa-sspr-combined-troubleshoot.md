@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262570"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489196"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기) 문제 해결
 
@@ -154,7 +154,7 @@ ms.locfileid: "59262570"
 
 사용자에 대 한 미리 보기 환경을 사용 하지 않으려면, 이러한 단계를 완료 합니다.
 
-1. 글로벌 관리자 또는 사용자 관리자로 Azure Portal에 로그인합니다.
+1. 사용자 관리자는 Azure portal에 로그인 합니다.
 2. 로 이동 **Azure Active Directory** > **사용자 설정** > **액세스 패널 미리 보기 기능에 대 한 설정을 관리**합니다.
 3. 아래 **사용자는 등록 하 고 보안 정보 관리에 대 한 미리 보기 기능을 사용할 수 있습니다**, 선택기로 **없음**를 선택한 후 **저장**합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel 미리 보기에서 Azure AD 데이터를 수집 합니다. | Microsoft Docs
-description: Azure Sentinel에서 Azure Active Directory 데이터를 수집 하는 방법에 알아봅니다.
+title: Azure AD 데이터를 Azure Sentinel 미리 보기에 연결 | Microsoft Docs
+description: Azure Active Directory 데이터를 Azure Sentinel 연결 하는 방법에 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575133"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494887"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>Azure Active Directory에서 데이터를 수집 합니다.
+# <a name="connect-data-from-azure-active-directory"></a>Azure Active Directory에서 데이터 연결
 
 > [!IMPORTANT]
 > Azure Sentinel은 현재 공개 미리 보기로 제공됩니다.
@@ -38,7 +38,7 @@ Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](
 
 ## <a name="connect-to-azure-ad"></a>Azure에 연결
 
-1. Azure Sentinel 선택 **데이터 컬렉션** 클릭 하 고는 **Azure Active Directory** 바둑판식으로 배열 합니다.
+1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure Active Directory** 바둑판식으로 배열 합니다.
 
 2. Azure Sentinel를 스트리밍 하려는 로그 옆에 있는 **Connect**합니다.
 
@@ -48,6 +48,6 @@ Azure Sentinel를 사용 하면 데이터를 수집할 [Azure Active Directory](
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Sentinel를 Azure AD에 연결 하는 방법을 알아보았습니다. Azure에서 감시 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
+이 문서에서는 Azure Sentinel를 Azure AD에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - 에 대해 알아봅니다 하는 방법 [데이터에 잠재적 위협을 파악](quickstart-get-visibility.md)합니다.
 - 시작 [사용 하 여 Azure Sentinel 위협을 감지 하도록](tutorial-detect-threats.md)합니다.
