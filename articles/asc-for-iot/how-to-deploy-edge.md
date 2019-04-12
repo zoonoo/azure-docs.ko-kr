@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 40f771e97b61c28229b0eff29191247ef2fef695
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862848"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505620"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치의 보안 모듈을 배포 합니다.
 
 > [!IMPORTANT]
-> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 **IoT 용 azure 보안 센터 (ASC)** 모듈은 IoT Edge 장치에 대 한 완벽 한 보안 솔루션을 제공 합니다.
@@ -75,8 +75,25 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 1. **모듈 추가** 탭 **배포 모듈** 영역에서 클릭 **AzureSecurityCenterforIoT**합니다. 
    
 1. 변경 된 **이름을** 하 **azureiotsecurity**합니다.
-1. 이름을 변경할 **이미지 URI** 에 **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
-      
+1. 변경 된 **이미지 URI** 하 **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**합니다.
+1. 확인 합니다 **컨테이너 만들기 옵션** 값으로 설정 됩니다.      
+    ``` json
+    {
+        "NetworkingConfig": {
+            "EndpointsConfig": {
+                "host": {}
+            }
+        },
+        "HostConfig": {
+            "Privileged": true,
+            "NetworkMode": "host",
+            "PidMode": "host",
+            "Binds": [
+                "/:/host"
+            ]
+        }
+    }    
+    ```
 1. 확인 **집합 모듈 쌍의 desired 속성** 을 선택 하 고 구성 개체를 변경 합니다.
       
     ``` json
@@ -89,12 +106,16 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 1. **저장**을 클릭합니다.
 1. 선택한 탭의 아래쪽으로 스크롤하여 **고급 Edge 런타임 설정 구성**합니다.
    
-  >[!Note]
-  > 수행할 **되지** IoT Edge 허브에 대 한 AMQP 통신을 사용 하지 않도록 설정 합니다.
-  > IoT 모듈에 대 한 azure Security Center에는 IoT Edge Hub를 사용 하 여 AMQP 통신이 필요 합니다.
+   >[!Note]
+   > 수행할 **되지** IoT Edge 허브에 대 한 AMQP 통신을 사용 하지 않도록 설정 합니다.
+   > IoT 모듈에 대 한 azure Security Center에는 IoT Edge Hub를 사용 하 여 AMQP 통신이 필요 합니다.
    
-1. 변경 합니다 **이미지** 아래에서 **Edge Hub** 에 **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**합니다.
-      
+1. 변경 합니다 **이미지** 아래에서 **Edge Hub** 에 **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**합니다.
+
+   >[!Note]
+   > IoT 모듈에 대 한 azure Security Center에는 SDK 버전 1.20 기반 IoT Edge 허브의 분기 된 버전을 필요 합니다.
+   > IoT Edge 허브 이미지를 변경 하 여 IoT Edge 장치의 IoT Edge 허브는 IoT Edge 서비스에서 공식적으로 지원 되지 않는 분기 된 버전을 사용 하 여 안정적인 최신 릴리스를 바꾸려면 지시 하 게 됩니다.
+
 1. 확인할 **만들기 옵션** 로 설정 됩니다. 
          
     ``` json
@@ -135,10 +156,10 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
    
 1. 다음 컨테이너 실행 되 고 있는지 확인 합니다.
    
-   | name | IMAGE |
+   | 이름 | IMAGE |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
-   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    필요한 최소 컨테이너가 없는 경우에 권장된 설정을 사용 하 여 IoT Edge 배포 매니페스트를 맞춥니다 확인 합니다. 자세한 내용은 [IoT Edge 배포 모듈](#deployment-using-azure-portal)합니다.

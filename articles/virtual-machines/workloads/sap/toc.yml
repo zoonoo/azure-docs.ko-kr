@@ -123,8 +123,10 @@ items:
       href: dbms_guide_sqlserver.md
     - name: SAP 워크로드용 Oracle Azure Virtual Machines DBMS 배포
       href: dbms_guide_oracle.md
-    - name: SAP 워크로드에 대한 IBM DB2 Azure Virtual Machines DBMS 배포
+    - name: SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
       href: dbms_guide_ibm.md
+    - name: SUSE Linux Enterprise Server의 Azure VM에서 IBM DB2 LUW의 고가용성
+      href: dbms-guide-ha-ibm.md
     - name: SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
       href: dbms_guide_sapase.md
     - name: Azure에서 SAP MaxDB, liveCache 및 Content Server 배포
@@ -229,9 +231,9 @@ items:
   items:
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: e366d205b3d903ad79b26798a82ee05752ac5622
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: b91931661ad91f813ca84e0c9b7bef4b22e2e975
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762959"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489039"

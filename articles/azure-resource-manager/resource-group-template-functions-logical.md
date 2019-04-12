@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 9065c6bc71a153ae94ddc20d5b41a152094fc111
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
-ms.translationtype: HT
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470154"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492178"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
 
@@ -75,7 +75,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |
@@ -186,7 +186,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | 문자열 | 예 |
 | noOutput | 문자열 | no |
@@ -284,7 +284,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |
@@ -308,7 +308,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True  |
 
@@ -358,7 +358,7 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |

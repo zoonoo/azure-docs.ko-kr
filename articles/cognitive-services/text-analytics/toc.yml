@@ -5,6 +5,8 @@ items:
   items:
   - name: 텍스트 분석 API란?
     href: overview.md
+  - name: 사용자 시나리오 예
+    href: text-analytics-user-scenarios.md
   expanded: true
 - name: 빠른 시작
   items:
@@ -24,13 +26,16 @@ items:
     href: quickstarts/ruby.md
 - name: 자습서
   items:
-  - name: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
-    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
-    maintainContext: true
-  - name: Power BI로 텍스트 분석
+  - name: Power BI를 통합하여 고객 피드백 분석
     href: Tutorials/tutorial-power-bi-key-phrases.md
   - name: PowerApps에서 텍스트 분석
     href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+  - name: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
+    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    maintainContext: true
+  - name: Flask를 사용하여 텍스트 번역, 감정 분석 및 음성 합성
+    href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+    maintainContext: true
 - name: 방법 가이드
   items:
   - name: 등록
@@ -79,6 +84,8 @@ items:
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
 - name: 리소스
   items:
+  - name: Yammer 그룹에서 MS Flow를 사용하여 의견에 대한 감정 식별
+    href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure
   - name: 외부 및 커뮤니티 콘텐츠
     href: text-analytics-resource-external-community.md
   - name: FAQ
@@ -97,9 +104,9 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555922-text-analytics
-ms.openlocfilehash: 1759bee73caeb18ac96a228bb3a81e697aa62089
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c25fe6b6fa10c592cb9462e9fb712575f61bdd1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475631"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500824"

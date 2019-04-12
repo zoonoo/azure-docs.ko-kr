@@ -12,18 +12,24 @@ items:
     href: unreal-quickstart.md
 - name: 자습서
   items:
-  - name: Unity 디자인 워크플로
-    href: unity-workflow.md
-  - name: Unreal/Wwise 디자인 워크플로
-    href: unreal-workflow.md
-  - name: Unity를 사용하여 음향 효과 베이킹
-    href: unity-baking.md
-  - name: Unreal/Wwise를 사용하여 음향 효과 베이킹
-    href: unreal-baking.md
+  - name: Unity
+    items:
+    - name: Unity를 사용하여 음향 효과 베이킹
+      href: unity-baking.md
+    - name: Unity 디자인 워크플로
+      href: unity-workflow.md
+  - name: Unreal/Wwise
+    items:
+    - name: Unreal/Wwise를 사용하여 음향 효과 베이킹
+      href: unreal-baking.md
+    - name: Unreal/Wwise 디자인 워크플로
+      href: unreal-workflow.md
 - name: 개념
   items:
   - name: 음향 시뮬레이션을 사용한 디자인 개념
     href: design-process.md
+  - name: 베이킹 확인
+    href: bake-resolution.md
 - name: 방법
   items:
   - name: Azure Batch 계정 만들기
@@ -38,9 +44,9 @@ items:
     href: faq.md
   - name: 알려진 문제
     href: known-issues.md
-ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138222"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495637"

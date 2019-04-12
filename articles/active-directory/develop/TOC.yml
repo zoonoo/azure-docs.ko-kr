@@ -286,11 +286,11 @@ items:
         href: quickstart-v2-uwp.md
       - name: Windows 데스크톱 .NET
         href: quickstart-v2-windows-desktop.md
+    - name: 디먼 앱
+      items:
       - name: .NET Core 콘솔(디먼)
         href: quickstart-v2-netcore-daemon.md
-    - name: 서비스 간
-      items:
-      - name: ASP .NET
+      - name: ASP.NET 디먼 웹앱
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: 자습서
     items:
@@ -326,19 +326,20 @@ items:
         href: authentication-scenarios.md
       - name: OAuth 2.0 및 OpenID Connect 프로토콜
         href: active-directory-v2-protocols.md
-        items:
-        - name: OpenID Connect
-          href: v2-protocols-oidc.md
-        - name: OAuth 2.0 암시적 허용 흐름
-          href: v2-oauth2-implicit-grant-flow.md
-        - name: OAuth 2.0 인증 코드 부여
-          href: v2-oauth2-auth-code-flow.md
-        - name: OAuth 2.0 On-Behalf-Of 흐름
-          href: v2-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 클라이언트 자격 증명 부여
-          href: v2-oauth2-client-creds-grant-flow.md
-        - name: OAuth 2.0 리소스 소유자 암호 자격 증명 부여
-          href: v2-oauth-ropc.md
+      - name: OpenID Connect
+        href: v2-protocols-oidc.md
+      - name: OAuth 2.0 암시적 허용 흐름
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: OAuth 2.0 인증 코드 부여
+        href: v2-oauth2-auth-code-flow.md
+      - name: OAuth 2.0 On-Behalf-Of 흐름
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: OAuth 2.0 클라이언트 자격 증명 부여
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: OAuth 2.0 디바이스 코드 흐름
+        href: v2-oauth2-device-code.md
+      - name: OAuth 2.0 리소스 소유자 암호 자격 증명 부여
+        href: v2-oauth-ropc.md
       - name: 서명 키 롤오버
         href: active-directory-signing-key-rollover.md
       - name: ID 토큰
@@ -394,12 +395,10 @@ items:
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: 브랜딩 지침
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: 게시자 도메인
+        href: howto-configure-publisher-domain.md
       - name: 서비스 약관 및 개인정보처리방침
         href: howto-add-terms-of-service-privacy-statement.md
-      - name: 자바
-        items:
-        - name: Java 웹앱 보호
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Visual Studio 작업
       items:
       - name: Active Directory 연결된 서비스 사용
@@ -419,8 +418,8 @@ items:
     - name: 인증 라이브러리
       displayName: MSAL
       href: reference-v2-libraries.md
-    - name: Microsoft Graph의 Azure AD API
-      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: Microsoft Graph의 ID 및 액세스 API
+      href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: 애플리케이션 매니페스트
       href: reference-app-manifest.md
     - name: 인증 및 권한 부여 오류 코드
@@ -436,6 +435,8 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure AD 블로그
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Microsoft ID 플랫폼 개발자 블로그
+    href: https://developer.microsoft.com/en-us/identity/blogs/
   - name: Microsoft에 로그인 시도
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: 도움말 보기
@@ -443,9 +444,9 @@ items:
     href: developer-support-help-options.md
   - name: Azure 리소스에 대한 관리 ID
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 974758ddcaa4d855b395e982b6bc9a3b0b72e130
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9283d643717d4c516fb615a9ff5ec132a11e754c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886610"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500433"

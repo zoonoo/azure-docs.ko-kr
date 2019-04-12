@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361465"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496098"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 사용할 수는 [Azure Backup 서비스](backup-overview.md) 온-프레미스 컴퓨터 및 워크 로드 및 Azure virtual machines (Vm)를 백업 합니다. 이 문서에서는 Azure Backup을 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항 요약입니다.
@@ -41,8 +41,8 @@ Azure Vm (Windows만 해당)의 직접 백업  | 특정 파일/폴더/볼륨을 
 **액션(Action)** | **지원**
 --- | ---
 Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상:  Windows Server 2019 (데이터 센터/Datacenter Core), Windows Server 2016 (데이터 센터/데이터 센터 코어); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM 및 SP1)
-Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> - Ubuntu Server: 1710, 1704, 1604(LTS), 1404(LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
-종료/오프라인/검색 VM에 해당하는 VM 백업 |  지원됩니다.<br/><br/> 스냅숏이 충돌 일치 특성만 있고 앱 일치 특성은 없습니다.
+Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> - Ubuntu Server: 1710, 1704, 1604(LTS), 1404(LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+VM 종료/오프 라인 상태인 VM 백업 |  지원됩니다.<br/><br/> 스냅숏이 충돌 일치 특성만 있고 앱 일치 특성은 없습니다.
 디스크 관리로 마이그레이션 후 디스크 백업 |  지원됩니다.<br/><br/> 백업이 계속 작동합니다. 추가적인 조치가 필요하지 않습니다.
 리소스 그룹 잠금을 사용하도록 설정한 후 Managed Disks를 백업합니다. | 지원되지 않습니다.<br/><br/> 백업 복원 지점 중 최대 제한에 도달한 경우 실패 하기 시작 하 고 azure Backup은 이전 리소스 요소를 삭제할 수 없습니다.
 VM의 백업 정책 수정 |  지원됩니다.<br/><br/> 새 정책의 일정 및 보존 설정을 사용 하 여 VM 백업 됩니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 절감 하는 경우 기존 복구 지점이 다음 정리 작업에서 정리 되며 결과적으로 삭제 합니다.
@@ -69,7 +69,7 @@ DPM/MABS를 사용 하 여 백업 | [MABS](backup-mabs-protection-matrix.md) 및
 
 Linux 머신을 백업하려는 경우 지원되는 사항은 다음과 같습니다.
 
-**액션(Action)** | **지원**
+**조치** | **지원**
 --- | ---
 Linux Azure VM 에이전트를 사용하여 Linux Azure VM 백업 | 파일 일치 백업입니다.<br/><br/> [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용하는 앱 일치 백업입니다.<br/><br/> 복원 하는 동안 새 VM을 만들 디스크 복원 및 사용 하 여 VM을 만들 디스크를 복원 하 고 기존 VM에서 디스크를 교체 하는 데 사용할 수 있습니다. 또한 개별 파일 및 폴더를 복원할 수도 있습니다.
 MARS 에이전트를 사용하여 Linux Azure VM 백업 | 지원되지 않습니다.<br/><br/> MARS 에이전트는 Windows 머신에만 설치할 수 있습니다.
@@ -149,8 +149,7 @@ Vm에 배포 되는 백업 된 [확장 집합](https://docs.microsoft.com/azure/
 배포 된 Vm 백업 된 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Microsoft, 타사에서 게시) |   지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 사용자 지정 이미지 (타사)에서 배포 된 Vm 백업 |    지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 Azure로 마이그레이션된 Vm 백업  |  지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
-백업 Vm 일관성 | 지원 안 됨 <br/><br/>Azure Backup은 다중 VM 일관성을 지원하지 않습니다.
-
+다중 VM 일관성을 백업 | Azure Backup은 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.
 
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
@@ -166,7 +165,7 @@ Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> 
 중복 제거된 디스크 백업 | 지원되지 않습니다.
 보호된 VM에 디스크 추가 |  지원됩니다.
 보호된 VM에서 디스크 크기 조정 |  지원됩니다.
-공유 저장소| CSV 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업 하는 것은 좋지 않습니다. CSV 기록기에서 실패할 가능성이 있습니다.
+공유 저장소| 클러스터 공유 볼륨 (CSV) 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업 하는 것은 좋지 않습니다. CSV 기록기는 백업 하는 동안 실패할 수 있습니다. 복원에서 CSV 볼륨을 포함 하는 디스크 수 하지 돌아와 접속 합니다.
 
 > [!NOTE]
 > Azure Backup에서 스트라이프 디스크를 지원 하지 않습니다. Azure Backup에서 디스크의 크기 조정 권장 되지 않습니다.

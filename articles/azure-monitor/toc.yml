@@ -206,7 +206,7 @@ items:
           href: platform/gateway.md
         - name: 에이전트 관리
           href: platform/agent-manage.md
-      - name: Azure 진단 확장
+      - name: Azure Diagnostics 확장
         items:
         - name: 개요
           href: platform/diagnostics-extension-overview.md
@@ -224,7 +224,7 @@ items:
           href: platform/diagnostic-logs-append-blobs.md
         - name: 메트릭 저장소에 대한 VM 게스트
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-        - name: 메트릭 저장소에 대한 VM 확장 집합 게스트
+        - name: 메트릭 저장소에 대한 가상 머신 확장 집합 게스트
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
         - name: 메트릭 저장소에 대한 VM 클래식 게스트
           href: platform/collect-custom-metrics-guestos-vm-classic.md
@@ -581,8 +581,8 @@ items:
           href: insights/network-performance-monitor.md
         - name: 성능 모니터링
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: 서비스 엔드포인트
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: 서비스 연결 모니터
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: 가격
@@ -658,8 +658,9 @@ items:
   - name: 데이터 가상화
     items:
     - name: 뷰
-      href: platform/view-designer.md
       items:
+      - name: 뷰 디자이너
+        href: platform/view-designer.md
       - name: 타일 참조
         href: platform/view-designer-tiles.md
       - name: 시각화 요소 참조
@@ -864,9 +865,9 @@ items:
         href: platform/autoscale-common-scale-patterns.md
       - name: 사용자 지정 메트릭을 사용하여 자동 크기 조정
         href: platform/autoscale-custom-metric.md
-      - name: Resource Manager 템플릿을 사용하여 VM 확장 집합 자동 크기 조정
+      - name: Resource Manager 템플릿을 사용하여 자동 크기 조정(가상 머신 확장 집합)
         href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: VM 확장 집합에서 자동으로 컴퓨터 크기 조정
+      - name: 가상 머신 확장 집합에서 자동으로 컴퓨터 크기 조정
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: 자동 크기 조정의 웹후크 및 메일 알림 구성
         href: platform/autoscale-webhook-email.md
@@ -1020,7 +1021,7 @@ items:
       href: platform/diagnostic-logs-schema.md
     - name: 활동 로그 이벤트 스키마
       href: platform/activity-log-schema.md
-    - name: Azure 진단 확장 스키마
+    - name: Azure Diagnostics 확장 스키마
       href: platform/diagnostics-extension-schema.md
       items:
       - name: 1.3 이상
@@ -1071,9 +1072,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7605179d1d1129587114f1462639ad06dde6fcef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261159"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491103"

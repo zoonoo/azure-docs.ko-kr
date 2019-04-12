@@ -270,6 +270,10 @@ items:
       href: application-sign-in-problem-federated-sso-gallery.md
     - name: 사용자 지정 개발 앱 관련 문제
       href: application-sign-in-problem-custom-dev.md
+- name: 참고 자료
+  items:
+  - name: 응용 프로그램 프록시 버전 내역
+    href: application-proxy-release-version-history.md
 - name: 리소스
   items:
   - name: Azure AD 배포 계획
@@ -290,9 +294,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 498749e8e12b03ebc8c46f26cadc2db62731d59d
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 0be32a824491c8278f498c44aaf8d782a76d73bb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790986"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500654"
