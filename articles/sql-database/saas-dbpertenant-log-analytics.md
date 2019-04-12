@@ -127,7 +127,7 @@ Azure Monitor는 별도 서비스 구성 해야 합니다. Azure Monitor는 Log 
     ![풀 메트릭](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. Log Analytics 작업 영역으로 돌아가서 **OMS 포털**을 선택하여 작업 영역을 엽니다.
+1. Log Analytics 작업 영역으로 돌아가서 **OMS Portal**을 선택하여 작업 영역을 엽니다.
 
     ![Log Analytics 작업 영역](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 

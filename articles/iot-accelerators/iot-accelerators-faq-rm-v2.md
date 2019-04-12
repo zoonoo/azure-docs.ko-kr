@@ -10,7 +10,7 @@ ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53602633"
@@ -19,7 +19,7 @@ ms.locfileid: "53602633"
 
 일반 [FAQ](iot-accelerators-faq.md)도 참조하세요.
 
-### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>새 원격 모니터링 솔루션을 프로비전하는 비용은 얼마인가요?
+### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>새 원격 모니터링 솔루션을 프로비저닝하는 데 드는 비용은 얼마인가요?
 
 새로운 솔루션 가속기는 두 가지 배포 옵션을 제공합니다.
 

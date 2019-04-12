@@ -39,7 +39,7 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 ### <a name="import-reporting-data-into-azure-monitor-logs"></a>Azure Monitor 로그로 보고 데이터 가져오기
 
-Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내도록 Azure Automation 상태 구성을 구성할 수 있습니다. Log Analytics 작업 영역에 상태 구성 상태 데이터를 보내는 방법에 알아보려면 참조 [앞으로 Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그](automation-dsc-diagnostics.md)합니다.
+Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. Log Analytics 작업 영역에 상태 구성 상태 데이터를 보내는 방법에 알아보려면 참조 [앞으로 Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그](automation-dsc-diagnostics.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

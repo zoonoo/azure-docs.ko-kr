@@ -10,7 +10,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53603932"
@@ -19,7 +19,7 @@ ms.locfileid: "53603932"
 
 원격 모니터링 솔루션에서 제공되는 것 이상의 고급 분석 요구 사항이 있을 수 있습니다. Azure Data Lake Store는 다양한 대규모 데이터 세트에서 데이터를 저장할 수 있을 뿐만 아니라 Azure Data Lake Analytics와 통합하여 주문형 분석을 제공하기 때문에 이 애플리케이션에 이상적입니다.
 
-이 방법에서는 Azure Stream Analytics 작업을 사용하여 Remote Monitoring 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
+이 방법에서는 Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

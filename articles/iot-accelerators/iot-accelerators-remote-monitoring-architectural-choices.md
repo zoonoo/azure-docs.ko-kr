@@ -10,7 +10,7 @@ ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54464224"
@@ -57,7 +57,7 @@ IoT 디바이스 연결을 위해 다음을 사용할 수 있습니다.
 
 ### <a name="stream-processing"></a>스트림 처리
 
-스트림 처리를 위해 원격 모니터링 솔루션은 Azure Stream Analytics를 사용하여 복잡한 규칙 처리합니다. 단순한 규칙을 원하는 경우 기본 제공 배포에 속하지 않더라도 단순한 규칙 처리가 지원되는 사용자 지정 마이크로 서비스를 사용할 수 있습니다. 참조 아키텍처에서는 간단한 규칙 처리에 Azure Functions를 사용하고 복잡한 규칙 처리에는 Azure Stream Analytics를 사용하는 것을 권장합니다.
+스트림 처리를 위해 원격 모니터링 솔루션은 Azure Stream Analytics를 사용하여 복잡한 규칙을 처리합니다. 단순한 규칙을 원하는 경우 기본 제공 배포에 속하지 않더라도 단순한 규칙 처리가 지원되는 사용자 지정 마이크로 서비스를 사용할 수 있습니다. 참조 아키텍처에서는 간단한 규칙 처리에 Azure Functions를 사용하고 복잡한 규칙 처리에는 Azure Stream Analytics를 사용하는 것을 권장합니다.
 
 ### <a name="storage"></a>Storage
 

@@ -47,7 +47,7 @@ ms.locfileid: "56751484"
 
 이 자습서에서 만드는 **냉각기** 디바이스는 [원격 모니터링](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) 솔루션 가속기의 인스턴스에 데이터를 전송합니다. Azure 계정에서 원격 모니터링 솔루션 가속기를 미리 프로비전하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)를 참조하세요.
 
-원격 모니터링 솔루션의 배포 프로세스가 완료되면 **시작** 을 클릭하여 브라우저에서 솔루션 대시보드를 엽니다.
+원격 모니터링 솔루션의 배포 프로세스가 완료되면 **시작**을 클릭하여 브라우저에서 솔루션 대시보드를 엽니다.
 
 ![솔루션 대시보드](media/iot-suite-selector-connecting/dashboard.png)
 

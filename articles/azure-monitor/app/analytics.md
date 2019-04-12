@@ -14,7 +14,7 @@ ms.date: 02/02/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56268603"
@@ -31,9 +31,9 @@ Analytics는 [Application Insights](app-insights-overview.md)의 강력한 검�
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Azure Monitor 로그와의 관계
-Application Insights 분석은 Azure Monitor 로그와 같은 [Azure Data Explorer](/azure/data-explorer)를 기반으로 하며 [Kusto 쿼리 언어](/azure/kusto/query)도 사용합니다. Azure Monitor 로그와 동일한 [Log Analytics 포털](../log-query/get-started-portal.md)을 사용하지만 데이터는 별도의 파티션에 저장됩니다.
+Application Insights 분석은 Azure Monitor 로그와 같은 [Azure Data Explorer](/azure/data-explorer)를 기반으로 하며 [Kusto 쿼리 언어](/azure/kusto/query)도 사용합니다. Azure Monitor 로그와 동일한 [로그 분석 포털](../log-query/get-started-portal.md)을 사용하지만 데이터는 별도의 파티션에 저장됩니다.
 
-Application Insights 분석에서 Log Analytics 작업 영역의 데이터에 직접 액세스하거나 Log Analytics에서 애플리케이션 데이터에 직접 액세스할 수는 없습니다. 두 데이터 세트를 함께 쿼리하려면 [Log Analytics에서 쿼리](../log-query/log-query-overview.md)를 작성하고 [app() 식](../log-query/app-expression.md)을 사용하여 애플리케이션 데이터에 액세스합니다.
+Application Insights 분석에서 Log Analytics 작업 영역의 데이터에 직접 액세스하거나 로그 분석에서 애플리케이션 데이터에 직접 액세스할 수는 없습니다. 두 데이터 세트를 함께 쿼리하려면 [로그 분석에서 쿼리](../log-query/log-query-overview.md)를 작성하고 [app() 식](../log-query/app-expression.md)을 사용하여 애플리케이션 데이터에 액세스합니다.
 
 
 ## <a name="query-data-in-analytics"></a>Analytics의 쿼리 데이터

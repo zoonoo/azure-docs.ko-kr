@@ -78,7 +78,7 @@ Azure의 안전한 저장소로서 Key Vault는 다음과 같은 시나리오를
 -  SQL server 및 Azure SQL Database의 [상시 암호화]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능
 - [Azure App Service]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
 
-Key Vault 자체는 저장소 계정, 이벤트 허브 및 로그 분석과 통합할 수 있습니다.
+Key Vault 자체는 스토리지 계정, 이벤트 허브 및 로그 분석과 통합할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

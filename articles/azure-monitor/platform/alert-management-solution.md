@@ -15,7 +15,7 @@ ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
 ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2019
 ms.locfileid: "54382960"
@@ -36,7 +36,7 @@ ms.locfileid: "54382960"
 
 - Log Analytics 경고의 경우 [경고 규칙을 만들어서](../../azure-monitor/platform/alerts-overview.md) 리포지토리에서 직접 경고 레코드를 만듭니다.
 - Nagios 및 Zabbix 경고의 경우 [해당 서버를 구성하여](../../azure-monitor/learn/quick-collect-linux-computer.md) Log Analytics에 경고를 보냅니다.
-- System Center Operations Manager 경고의 경우 [Log Analytics 작업 영역에 Operations Manager 관리 그룹을 연결](../../azure-monitor/platform/om-agents.md)합니다.  그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.  
+- System Center Operations Manager 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](../../azure-monitor/platform/om-agents.md)합니다.  그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.  
 
 ## <a name="configuration"></a>구성
 [솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명하는 프로세스를 사용하여 경고 관리 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.

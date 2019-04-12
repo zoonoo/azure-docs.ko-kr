@@ -92,7 +92,7 @@ ms.locfileid: "57192465"
 
 논리 앱 실행 후 **Logic Apps 관리** 타일에서 해당 논리 앱 실행의 상태 및 수를 확인할 수 있습니다. 
 
-1. Log Analytics 작업 영역으로 이동한 후 개요 페이지를 엽니다. **Logic Apps 관리**를 선택합니다. 
+1. Log Analytics 작업 영역으로 이동하여 개요 페이지를 엽니다. **Logic Apps 관리**를 선택합니다. 
 
    ![논리 앱 실행 상태 및 수](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 

@@ -115,7 +115,7 @@ AzureDiagnostics
 
 추가 로그를 보려면 사용하도록 설정할 추가 로그에 따라 쿼리에서 *Category* 이름을 *kube-controller-manager* 또는 *kube-scheduler*로 업데이트하면 됩니다. 이때 검색하려는 이벤트를 구체화하기 위해 추가적인 *where* 문을 사용할 수 있습니다.
 
-로그 데이터를 쿼리하고 필터링하는 방법에 대한 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 또는 분석][analyze-log-analytics]을 참조하세요.
+로그 데이터를 쿼리하고 필터링하는 방법에 대한 자세한 내용은 [로그 분석 로그 검색을 사용하여 수집한 데이터 보기 또는 분석][analyze-log-analytics]을 참조하세요.
 
 ## <a name="log-event-schema"></a>로그 이벤트 스키마
 

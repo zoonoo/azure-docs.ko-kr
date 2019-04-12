@@ -15,7 +15,7 @@ ms.date: 01/16/2018
 ms.author: magoedte
 ms.openlocfilehash: 902cf62e53581785caf2730f63af3633d8e1e498
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56005440"
@@ -55,7 +55,7 @@ Intune은 하나 이상의 디바이스에 적용되는 Log Analytics 작업 영
 
    ![InTune 정책](./media/surface-hubs/intune.png)
 
-그런 다음 Intune에서 대상 그룹의 디바이스와 Log Analytics 설정을 동기화하여 Log Analytics 작업 영역에 해당 디바이스를 등록합니다.
+그런 다음, Intune에서 대상 그룹의 디바이스와 Log Analytics 설정을 동기화하여 Log Analytics 작업 영역에 해당 디바이스를 등록합니다.
 
 ## <a name="connect-surface-hubs-to-azure-monitor-using-the-settings-app"></a>설정 앱을 사용하여 Azure Monitor에 Surface Hub 연결
 Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다. Azure Portal에서 Log Analytics 작업 영역에 대한 설정에서 해당 항목을 가져올 수 있습니다.

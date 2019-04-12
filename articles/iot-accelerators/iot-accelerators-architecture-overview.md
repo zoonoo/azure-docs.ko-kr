@@ -11,7 +11,7 @@ services: iot-accelerators
 manager: philmea
 ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54467318"
@@ -108,7 +108,7 @@ IoT 솔루션은 종종 시계열 데이터인 대량의 데이터를 생성할 
 
 비즈니스 통합 계층은 CRM, ERP 및 기간 업무 애플리케이션과 같은 비즈니스 시스템을 사용하여 IoT 솔루션의 통합을 처리합니다. 이 예로는 서비스 청구, 고객 지원 및 교체 부품 공급이 포함됩니다.
 
-원격 모니터링 솔루션은 조건이 충족되면 규칙을 사용하여 메일을 보냅니다. 예를 들어, 트럭의 온도가 36도 아래로 떨어지면 솔루션이 운영자에게 알릴 수 있습니다.
+원격 모니터링 솔루션은 조건이 충족되면 규칙을 사용하여 이메일을 보냅니다. 예를 들어, 트럭의 온도가 36도 아래로 떨어지면 솔루션이 운영자에게 알릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

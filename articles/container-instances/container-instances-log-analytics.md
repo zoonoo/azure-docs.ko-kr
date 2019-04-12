@@ -33,7 +33,7 @@ Azure Monitor 로그로 컨테이너 인스턴스 데이터를 전송하려면 A
 
 Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송할 권한이 있어야 합니다. 이 권한을 부여하고 로깅을 사용하도록 설정하려면 컨테이너 그룹을 만들 때 Log Analytics 작업 영역 ID와 키(기본 키 또는 보조 키 중 하나)를 제공해야 합니다.
 
-Log Analytics 작업 영역 ID 및 기본 키를 가져오려면:
+로그 분석 작업 영역 ID 및 기본 키를 가져오려면:
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
 1. **설정** 아래에서 **진단 설정** 선택
@@ -44,7 +44,7 @@ Log Analytics 작업 영역 ID 및 기본 키를 가져오려면:
 
 ## <a name="create-container-group"></a>컨테이너 그룹 만들기
 
-Log Analytics 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용하도록 설정된 컨테이너 그룹을 만들 수 있습니다.
+로그 분석 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용하도록 설정된 컨테이너 그룹을 만들 수 있습니다.
 
 다음 예제에서는 단일 [fluentd][fluentd] 컨테이너를 사용하여 컨테이너 그룹을 만드는 두 가지 방법인 Azure CLI 및 YAML 템플릿 포함 Azure CLI를 보여 줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
 

@@ -24,7 +24,7 @@ ms.locfileid: "57533700"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows 용 azure 모니터링 가상 머신 확장
 
-Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링 기능을 제공 합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 Virtual Machines를 등록합니다. 이 문서는 지원 되는 플랫폼, 구성 및 Windows에 대 한 Azure Monitor 가상 머신 확장에 대 한 배포 옵션을 설명합니다.
+Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링 기능을 제공 합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서는 지원 되는 플랫폼, 구성 및 Windows에 대 한 Azure Monitor 가상 머신 확장에 대 한 배포 옵션을 설명합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

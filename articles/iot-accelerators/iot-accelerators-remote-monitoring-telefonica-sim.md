@@ -10,7 +10,7 @@ ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53606795"
@@ -31,7 +31,7 @@ IoT 디바이스는 어디에서나 데이터 스트림을 보낼 수 있는 SIM
 
 ### <a name="prerequisites"></a>필수 조건
 
-이 추가 원격 모니터링 기능은 현재 미리 보기로 제공됩니다. 연결 데이터를 Azure 원격 모니터링 솔루션에 동기화하려면 다음 단계를 따르십시오.
+이 추가 원격 모니터링 기능은 현재 미리 보기로 제공됩니다. 연결 데이터를 Azure 원격 모니터링 솔루션에 동기화하려면 다음 단계를 따릅니다.
 
 1. [Telefónica 사이트](https://iot.telefonica.com/contact)에서 요청을 입력하고 연락처 데이터를 포함하여 **Azure Remote Monitoring** 옵션을 선택합니다.
 2. Telefónica에서 계정이 활성화됩니다.

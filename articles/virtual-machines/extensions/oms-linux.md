@@ -26,7 +26,7 @@ ms.locfileid: "57853225"
 
 ## <a name="overview"></a>개요
 
-Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공 합니다. Linux용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 Virtual Machines를 등록합니다. 이 문서는 지원 되는 플랫폼, 구성 및 Linux 용 Azure Monitor 가상 머신 확장에 대 한 배포 옵션을 설명합니다.
+Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공 합니다. Linux용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서는 지원 되는 플랫폼, 구성 및 Linux 용 Azure Monitor 가상 머신 확장에 대 한 배포 옵션을 설명합니다.
 
 >[!NOTE]
 >Microsoft OMS(Operations Management Suite)에서 Azure Monitor로 진행 중인 전환의 일부로 Windows 또는 Linux용 OMS 에이전트는 Windows용 Log Analytics 에이전트 및 Linux용 Log Analytics 에이전트로 참조됩니다.

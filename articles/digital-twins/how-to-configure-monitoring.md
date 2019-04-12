@@ -82,7 +82,7 @@ Azure Digital Twins에 대한 활동 로깅이 기본적으로 사용되며 다�
 >[!TIP]
 >**진단 로그**를 사용하여 리소스 작업에 대한 인사이트를 살펴봅니다.
 
-## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor 및 Log Analytics
+## <a name="azure-monitor-and-log-analytics"></a>Azure 모니터 및 로그 분석
 
 IoT 애플리케이션은 서로 다른 리소스, 장치, 위치 및 데이터를 하나로 통합합니다. 세밀한 로깅은 전체 애플리케이션 아키텍처의 각 부분, 서비스 또는 구성 요소에 대한 자세한 정보를 제공하지만, 유지 관리 및 디버깅을 위해 통합 개요가 필요한 경우가 많습니다.
 
