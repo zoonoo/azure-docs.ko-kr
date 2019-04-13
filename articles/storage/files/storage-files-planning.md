@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283021"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525928"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -109,9 +109,9 @@ Azure Files는 두 가지 성능 계층이 제공: 표준 및 프리미엄입니
 >
 > 제한 버스트할 = 3 * 기준 IOPS. (최대 최대 100,000 개의 IOPS).
 >
-> 송신 비율이 60 초 + 6 초) (최대 0.06 프로 비전 된 GiB =
+> 송신 비율이 60 초 + 0.06 = * GiB 프로 비전
 >
-> 수신 속도 = 40 초 + 0.04 프로 비전 된 GiB (최대 4 GiB)
+> 수신 속도 = 40 초 + 0.04 * GiB 프로 비전
 
 공유 크기 모든 시간과 감소에서 언제 든 지 늘릴 수 있지만 마지막 증가 이후 24 시간을 줄일 수 있습니다. P s/처리량 규모 변경 크기 변경 된 후 24 시간 동안 적용 됩니다.
 
@@ -128,9 +128,9 @@ Azure Files는 두 가지 성능 계층이 제공: 표준 및 프리미엄입니
 |10,240 *     | 10,240  | 최대 30720  | 675 | 450   |
 |33,792 *     | 33,792  | 최대 100,000 개의 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | 최대 100,000 개의 | 3,132 | 2,088   |
-|100,000 *    | 100,000 | 최대 100,000 개의 | 6,204 | 4,136   |
+|102,400 *    | 100,000 | 최대 100,000 개의 | 6,204 | 4,136   |
 
-현재 최대 5tib 파일 공유 크기는 공개 미리 보기에서 102 TiB 최대 크기는 제한 된 공개 미리 보기 완료에 대 한 액세스를 요청 하려면 제한 된 공개 미리 보기 동안 [이 설문 조사 합니다.](https://aka.ms/azurefilesatscalesurvey)
+현재 최대 5tib 파일 공유 크기는 공개 미리 보기에서 100tib 최대 크기는 제한 된 공개 미리 보기 완료에 대 한 액세스를 요청 하려면 제한 된 공개 미리 보기 동안 [이 설문 조사 합니다.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>버스팅
 
@@ -204,6 +204,6 @@ Azure 파일 동기화를 사용하여 여러 Azure 파일 공유를 하나의 W
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files 및 Azure Blob Storage에서 복사하도록 디자인된 명령줄 유틸리티입니다. AzCopy는 Windows 및 Linux에 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+* [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
 * [Azure Files 배포](storage-files-deployment-guide.md)
-* [Azure File Sync 배포](storage-sync-files-deployment-guide.md)
+* [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)

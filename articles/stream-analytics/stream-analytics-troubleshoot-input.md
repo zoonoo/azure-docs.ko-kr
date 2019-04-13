@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164384"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526407"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -39,7 +39,9 @@ Stream Analytics 작업이 입력으로부터 잘못된 형식의 메시지를 �
 ![Azure Stream Analytics 입력 타일](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 경고의 세부 정보를 보려면 진단 로그를 사용할 수 있습니다. 잘못된 형식의 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. 
-<code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
+```
+Could not deserialize the input event(s) from resource <blob URI> as json.
+```
 
 ### <a name="what-caused-the-deserialization-error"></a>역직렬화 오류를 일으킨 원인
 입력 이벤트를 자세히 분석하는 다음 단계를 통해 역직렬화 오류 원인을 명확하게 이해할 수 있습니다. 그런 다음, 이 문제가 다시 발생하지 않게 방지하기 위해 올바른 형식으로 이벤트를 생성하도록 이벤트 원본을 해결할 수 있습니다.

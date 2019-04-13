@@ -7,21 +7,24 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492790"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545559"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 리소스 사용률 및 쿼리 작업 모니터링
 Azure SQL Data Warehouse는 Azure Portal 내에 다양한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 인사이트를 제공합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 포털 또한 데이터 웨어하우스가 뿐만 아니라 전체 Azure 분석에 대 한 포괄적인 모니터링 환경을 제공 하려면 Operations Management Suite (OMS) 및 Azure Monitor (로그)와 같은 다른 Azure 모니터링 서비스와 통합할 수 있습니다. 통합된 된 모니터링 환경 위한 플랫폼입니다. 이 문서에서는 SQL Data Warehouse를 사용하여 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다. 
 
 ## <a name="resource-utilization"></a>리소스 사용률 
 SQL Data Warehouse용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)를 통해 나타납니다.
+
+> [!NOTE]
+> 현재 노드 수준 CPU 및 IO 메트릭을 올바르게 반영 하지 않습니다 데이터 웨어하우스 사용 합니다. 이러한 메트릭은 모니터링 및 문제 해결 환경을 SQL Data Warehouse에 대 한 팀 향상 가까운 장래에 제거 됩니다. 
 
 | 메트릭 이름                           | 설명     | 집계 형식 |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -49,5 +52,5 @@ SQL Data Warehouse에서 제공하는 DMV 목록을 보려면 [이 설명서](ht
 ## <a name="next-steps"></a>다음 단계
 다음 방법 가이드에서는 데이터 웨어하우스를 모니터링하고 관리할 때의 일반적인 시나리오와 사용 사례에 대해 설명합니다.
 
-- [Dmv 사용 하 여 데이터 웨어하우스 워크 로드 모니터링](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [DMV를 사용하여 데이터 웨어하우스 워크로드 모니터링](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
 

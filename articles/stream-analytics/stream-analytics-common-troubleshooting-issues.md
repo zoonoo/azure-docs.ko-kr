@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090978"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521478"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Stream Analytics의 일반적인 문제 및 문제를 해결하는 단계
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090978"
 
 ![Azure Stream Analytics 대시보드의 입력 타일](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 잘못된 형식의 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스 <blob URI>의 입력된 이벤트를 json으로 deserialize하지 못했습니다.” 
+자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 잘못된 형식의 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스의 입력된 이벤트를 deserialize 하지 못했습니다 \<blob URI > json으로 ". 
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 

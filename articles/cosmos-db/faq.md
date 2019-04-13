@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010620"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523956"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -266,7 +266,7 @@ REST API를 기준으로 Azure Cosmos DB Table API에서 지원하지 않는 많
 | Rest 메서드 | Rest 엔드포인트/쿼리 옵션 | 문서 URL | 설명 |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [테이블 서비스 속성 설정](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) 및 [테이블 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | 이 엔드포인트는 CORS 규칙, 저장소 분석 구성 및 로깅 설정을 설정하는 데 사용됩니다. CORS는 현재 지원되지 않습니다. 또한 분석 및 로깅은 Azure Storage 테이블과 다르게 Azure Cosmos DB에서 처리됩니다. |
-| OPTIONS | /<table-resource-name> | [사전 CORS 테이블 요청](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Azure Cosmos DB에서 현재 지원하지 않는 CORS의 일부입니다. |
+| OPTIONS | /\<table-resource-name> | [사전 CORS 테이블 요청](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Azure Cosmos DB에서 현재 지원하지 않는 CORS의 일부입니다. |
 | GET | /?restype=service@comp=stats | [테이블 서비스 통계 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | 주 데이터베이스와 보조 데이터베이스 간에 데이터를 신속하게 복제하는 방법을 제공합니다. 복제가 쓰기의 일부이기 때문에 Cosmos DB에서 필요하지 않습니다. |
 | GET, PUT | /mytable?comp=acl | [테이블 ACL 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) 및 [테이블 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | SAS(공유 액세스 서명)을 관리하는 데 사용되는 저장 액세스 정책을 가져오고 설정합니다. SAS가 지원되지만 다른 방법으로 설정되고 관리됩니다. |
 
@@ -571,7 +571,7 @@ Gremlin 연결은 WebSocket 연결을 통해 이루어집니다. WebSocket 연�
 
 **executionProfile()** 미리 보기 단계를 사용하여 쿼리 실행 계획에 대한 분석을 제공할 수 있습니다. 이 단계는 다음 예와 같이 Gremlin 쿼리 끝에 추가해야 합니다.
 
-**쿼리 예**
+**쿼리 예제**
 
 ```
 g.V('mary').out('knows').executionProfile()

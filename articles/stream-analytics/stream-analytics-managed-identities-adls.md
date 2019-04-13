@@ -1,19 +1,18 @@
 ---
-title: Azure Data Lake Storage Gen1 출력에 대해 Azure Stream Analytics 작업 인증
+title: Azure 데이터 레이크 저장소 Gen1 출력으로 Azure Stream Analytics 작업 인증
 description: 이 문서에서는 관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력에 대해 Azure Stream Analytics 작업을 인증하는 방법을 설명합니다.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257980"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522064"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>관리 되는 id를 사용 하 여 Azure 데이터 레이크 저장소 Gen1를 Stream Analytics를 인증 합니다.
 
@@ -100,33 +99,37 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
    이 속성을 통해 Azure Resource Manager에서 Azure Stream Analytics 작업에 대한 ID를 만들어서 관리합니다.
 
    **샘플 작업**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
    **샘플 작업 응답**
@@ -145,7 +148,8 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    필요한 ADLS 리소스에 대한 액세스 권한을 부여하려면 작업 응답에서 보안 주체 ID를 기록해 둡니다.
@@ -162,25 +166,24 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
    **PrincipalId**는 서비스 주체의 개체 ID로서 서비스 주체를 만들면 포털 화면에 나열됩니다. Resource Manager 템플릿 배포를 사용하여 작업을 만든 경우 개체 ID는 작업 응답의 ID 속성에 나열됩니다.
 
-   **예**
+   **예제**
 
    ```powershell
    PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   위의 PowerShell 명령에 대 한 자세한 내용은 참조는 [집합 AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) 설명서.
+   위의 PowerShell 명령에 대 한 자세한 내용은 참조는 [집합 AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) 설명서.
 
 ## <a name="limitations"></a>제한 사항
 이 기능은 다음을 지원 하지 않습니다.
 
-1.  **다중 테 넌 트 액세스**: 지정된 된 Stream Analytics 작업에 대해 만든 서비스 주체는 Azure Active Directory 테 넌 트 작업을 만든 시간 및 다른 Azure Active Directory 테 넌 트에 있는 리소스에 대해 사용할 수 없습니다에 저장 됩니다. 따라서 Azure Stream Analytics 작업과 동일한 Azure Active Directory를 테 넌 트 내에 있는 ADLS Gen 1 리소스에만 MSI를 사용할 수 있습니다. 
+1. **다중 테 넌 트 액세스**: 지정된 된 Stream Analytics 작업에 대해 만든 서비스 주체는 Azure Active Directory 테 넌 트 작업을 만든 시간 및 다른 Azure Active Directory 테 넌 트에 있는 리소스에 대해 사용할 수 없습니다에 저장 됩니다. 따라서 Azure Stream Analytics 작업과 동일한 Azure Active Directory를 테 넌 트 내에 있는 ADLS Gen 1 리소스에만 MSI를 사용할 수 있습니다. 
 
-2.  **[사용자 할당 Id](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: 지원 되지 않습니다 즉, 사용자가 Stream Analytics 작업에서 사용할 고유한 서비스 주체를 삽입할 수 없습니다. 서비스 주체는 Azure Stream Analytics에서 생성 됩니다. 
-
+2. **[사용자 할당 Id](../active-directory/managed-identities-azure-resources/overview.md)**: 지원 되지 않습니다. 즉, 사용자가 Stream Analytics 작업에서 사용할 고유한 서비스 주체를 삽입할 수 없습니다. 서비스 주체는 Azure Stream Analytics에서 생성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Stream analytics를 사용 하 여 Data lake 저장소 출력 만들기](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Stream Analytics를 사용하여 Data Lake Store 만들기](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트](stream-analytics-vs-tools-local-run.md)
-* [Visual Studio 용 Azure Stream Analytics 도구를 사용 하 여 로컬로 라이브 데이터를 테스트 합니다.](stream-analytics-live-data-local-testing.md) 
+* [Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트](stream-analytics-live-data-local-testing.md) 

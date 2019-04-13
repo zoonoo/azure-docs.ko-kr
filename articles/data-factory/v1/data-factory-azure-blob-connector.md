@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9bb9954e8463617694efe2997d886a2ba4390ccb
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 85832abeb9908dd891e3f35a0368bc35c7816a6e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500290"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528223"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -85,7 +85,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
-| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**fileName**이 출력 데이터 세트에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 다음 형식을 따릅니다. Data<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아닙니다. |
+| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>때 **fileName** 출력 데이터 집합을 지정 하지 않으면 및 **preserveHierarchy** 다음에 생성된 된 파일의 이름이 표시 됩니다 활동 싱크에 지정 하지 않으면이 형식: `Data.<Guid>.txt` ( 예제:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아닙니다. |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용 섹션](#using-partitionedby-property)을 참조하세요. |아닙니다. |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아닙니다. |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아닙니다. |

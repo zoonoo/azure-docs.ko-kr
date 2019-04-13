@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877978"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549187"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 만들기
 
@@ -179,6 +179,6 @@ Azure NetApp 파일은 SMBv3 볼륨을 지원합니다. SMB 볼륨을 추가 하
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [NFS 볼륨에 대한 내보내기 정책 구성](azure-netapp-files-configure-export-policy.md)
-* [가상 네트워크 통합 Azure 서비스에 대해 알아봅니다.](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [탑재 하거나 Windows 또는 Linux virtual machines에 대 한 볼륨을 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [NFS 볼륨에 대해 내보내기 정책을 구성 합니다.](azure-netapp-files-configure-export-policy.md)
+* [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

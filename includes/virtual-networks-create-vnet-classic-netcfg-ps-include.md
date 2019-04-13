@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 4ae4c3100ae13fdb05e17974b433b247128c1a50
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805082"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532633"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>PowerShell에서 네트워크 구성 파일을 사용하여 가상 네트워크를 만드는 방법
 Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 가상 네트워크를 정의합니다. 이 파일을 다운로드하고, 편집하여 기존 가상 네트워크를 수정 또는 삭제하고 새 가상 네트워크를 만들 수 있습니다. 이 자습서에서는 네트워크 구성(또는 netcfg) 파일이라고 하는 이 파일을 다운로드하고 편집하여 새 가상 네트워크를 만드는 방법을 알아봅니다. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
@@ -35,8 +35,8 @@ PowerShell 사용하여 netcfg 파일을 포함한 가상 네트워크를 만들
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. XML 또는 텍스트 편집기 애플리케이션을 사용하여 2단계에서 저장한 파일을 열고 **<VirtualNetworkSites>** 요소를 찾아봅니다. 이미 만들어진 네트워크가 있으면 각 네트워크는 자체의 **<VirtualNetworkSite>** 요소로 표시됩니다.
-4. 이 시나리오에서 설명하는 가상 네트워크를 만들려면 **<VirtualNetworkSites>** 요소 바로 아래에 다음 XML을 추가합니다.
+3. 모든 XML 또는 텍스트 편집기 응용 프로그램을 사용 하 여 2 단계에서 저장 한 파일을 열고 검색할 합니다  **\<VirtualNetworkSites >** 요소입니다. 이미 만들어진 네트워크가 있으면 각 네트워크는 자체 표시 됩니다  **\<VirtualNetworkSite >** 요소입니다.
+4. 이 시나리오에 설명 된 가상 네트워크를 만들려면 다음 XML을 바로 아래 추가 합니다  **\<VirtualNetworkSites >** 요소:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

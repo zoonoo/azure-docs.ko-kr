@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338246"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549087"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
 
@@ -140,7 +140,7 @@ Azure Storage 엔터티의 이름은 모두 `HubName` 구성 값에 따라 지�
 새 버전의 함수 앱을 새 [배포 슬롯](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)에 배포하는 것이 좋습니다. 배포 슬롯을 사용하면 슬롯 중 하나만 활성 *프로덕션* 슬롯으로 사용하여 함수 앱의 여러 복사본을 병렬로 실행할 수 있습니다. 새 오케스트레이션 논리를 기존 인프라에 노출할 준비가 되면 새 버전을 프로덕션 슬롯으로 교환하는 것처럼 간단할 수 있습니다.
 
 > [!NOTE]
-> 이 전략은 오케스트레이터 함수에 HTTP와 웹후크 트리거를 사용할 때 가장 적합합니다. 큐 또는 Event Hubs와 같은 HTTP가 아닌 트리거의 경우 트리거 정의는 교환 작업의 일부로 업데이트되는 앱 설정에서 파생되어야 합니다.
+> 이 전략은 오케스트레이터 함수에 HTTP와 웹후크 트리거를 사용할 때 가장 적합합니다. 큐 또는 Event Hubs와 같은 HTTP가 아닌 트리거의 경우 트리거 정의 해야 [앱 설정에서 파생](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) 는 교환 작업의 일부로 업데이트 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

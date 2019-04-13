@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f749a04b569d183589fba8c788ce48f29358b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a26388de85ff6293985fe23adac8ca4d04d0de61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295558"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525792"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>저장소 암호화로 콘텐츠 암호화 
 
@@ -111,7 +111,7 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 
     요청 본문 속성    | 설명
     ---|---
-    Id | ContentKey ID는 "nb:kid:UUID:<NEW GUID>" 형식을 사용하여 생성됩니다.
+    Id | ContentKey ID는 다음 형식을 사용 하 여 생성 됩니다 "nb:kid:UUID:\<새 GUID >"입니다.
     ContentKeyType | 콘텐츠 키 형식은 키를 정의하는 정수입니다. 저장소 암호화 형식에서 값은 1입니다.
     EncryptedContentKey | 256비트(32바이트) 값인 새 콘텐츠 키 값을 만듭니다. GetProtectionKeyId 및 GetProtectionKey 메서드에 대한 HTTP GET 요청을 실행하여 Microsoft Azure Media Services에서 검색하는 저장소 암호화 X.509 인증서를 사용하여 키를 암호화합니다. .NET 코드에 대한 예제로, **여기** 에 정의된 [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)메서드를 참조하세요.
     ProtectionKeyId | 콘텐츠 키를 암호화하는 데 사용한 저장소 암호화 X.509 인증서에 대한 보호 키 ID입니다.

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 04/11/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11c71f7f5a329a836d379a16afe66c08572ccde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177991"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548051"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자 프로필 정보 추가 또는 업데이트
 프로필 사진, 작업 관련 정보 및 Azure AD(Azure Active Directory)를 사용하는 일부 설정을 비롯하여 사용자 프로필 정보를 추가합니다. 새 사용자를 추가하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 사용자를 추가 또는 삭제하는 방법](add-users-azure-active-directory.md)을 참조하세요.
@@ -26,7 +26,7 @@ ms.locfileid: "56177991"
 앞으로 살펴보겠지만 사용자를 만드는 동안 추가할 수 있는 것보다 많은 정보를 사용자 프로필에서 사용할 수 있습니다. 이 추가 정보는 모두 선택 사항이며 조직에서 필요에 따라 추가할 수 있습니다.
 
 ## <a name="to-add-or-change-profile-information"></a>프로필 정보를 추가 또는 변경하려면
-1. 디렉터리의 전역 관리자 또는 사용자 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 에 로그인 합니다 [Azure portal](https://portal.azure.com/) 조직에 대 한 사용자 관리자입니다.
 
 2. **Azure Active Directory**를 선택하고, **사용자**를 선택한 다음, 사용자를 선택합니다. 예를 들면 _Alain Charon_이 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "56177991"
 
     - **프로필 사진.** 사용자 계정의 썸네일 이미지를 선택합니다. 이 사진은 Azure Active Directory 및 사용자의 개인 페이지(예: myapps.microsoft.com 페이지)에 나타납니다.
 
-    - **ID.** 결혼 후 성 또는 변경된 사용자 이름과 같은 계정 관련 정보를 추가합니다. 
+    - **ID.** 추가 하거나 마지막으로 이름과 같은 사용자에 대 한 추가 id 값을 업데이트 합니다. 첫 번째 이름과 마지막 이름 값에서이 이름은 독립적으로 설정할 수 있습니다. 예를 들어, 회사 이름, 이니셜을 포함 하거나 표시 하는 이름의 시퀀스를 변경 하려면를 사용할 수 있습니다. 또 다른 예로, ' Chris Green' 이름은 두 사용자가 사용 하 여 Id 문자열 ' Chris B. Green' 'Chris R. 녹색 (Contoso)입니다.'를 해당 이름을 설정 하려면
 
     - **작업 정보.** 사용자의 직책, 부서 또는 관리자와 같은 작업 관련 정보를 추가합니다.
 

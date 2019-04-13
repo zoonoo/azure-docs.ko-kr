@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010229"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548729"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)
 
@@ -31,7 +31,7 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> 자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 SKU는 이제 [기본 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) 를 자동으로 해당 백 엔드 풀의 모든 리소스의 상태를 모니터링 하 고 풀에서 비정상으로 간주 하는 모든 리소스를 제거 합니다. 모든 사용자 지정 프로브 구성을 설정 하지 않은 한 이러한 모든 백 엔드에 대 한 기본 상태 프로브에서 자동으로 구성 합니다. 자세한 내용은 참조 하세요 [application gateway의 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)합니다.
+> 자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 SKU는 이제 [기본 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) 를 자동으로 해당 백 엔드 풀의 모든 리소스의 상태를 모니터링 하 고 간주 되는 백 엔드 멤버만 강조 표시 비정상입니다. 모든 사용자 지정 프로브 구성을 설정 하지 않은 한 이러한 모든 백 엔드에 대 한 기본 상태 프로브에서 자동으로 구성 합니다. 자세한 내용은 참조 하세요 [application gateway의 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)합니다.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 및 v2 SKU 기능 비교
 
@@ -79,6 +79,6 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 |Netwatcher 통합|공개 미리 보기에서는 지원되지 않습니다.|
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure PowerShell을 사용 하는 예약 된 가상 IP 주소를 사용 하 여는 자동 크기 조정, 영역 중복 응용 프로그램 게이트웨이 만들기](tutorial-autoscale-ps.md)
+- [Azure PowerShell을 사용하여 예약된 가상 IP 주소로 자동 크기 조정, 영역 중복 애플리케이션 게이트웨이 만들기](tutorial-autoscale-ps.md)
 - [Application Gateway](overview.md)에 대해 자세히 알아보세요.
 - [Azure Firewall](../firewall/overview.md)에 대해 자세히 알아보세요.

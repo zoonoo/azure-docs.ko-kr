@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822824"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524943"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -117,7 +117,7 @@ Azure에서 실행 되는 모든 Linux 노드에 대 한 [Linux 용 PowerShell D
 > [!NOTE]
 > 이 비디오에 언급된 개념 및 수명 주기는 정확하지만 이 비디오가 기록된 이후에 Azure Automation 상태 구성은 많이 발전되었습니다. 일반적으로 사용할 수 있고 Azure 포털의 UI는 보다 강력해졌으며 더 많은 기능을 제공하고 있습니다.
 
-<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>다음 단계
 

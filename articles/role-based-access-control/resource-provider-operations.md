@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501470"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549542"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
-이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. [사용자 지정 역할](custom-roles.md)에서 이러한 작업을 사용하여 Azure의 리소스에 대해 세분화된 [RBAC(역할 기반 액세스 제어)](overview.md)를 제공할 수 있습니다. 작업 문자열의 형식이: `{Company}.{ProviderName}/{resourceType}/{action}`
+이 문서에는 각 Azure Resource Manager 리소스 공급자에서 사용할 수 있는 작업 목록이 나열되어 있습니다. [사용자 지정 역할](custom-roles.md)에서 이러한 작업을 사용하여 Azure의 리소스에 대해 세분화된 [RBAC(역할 기반 액세스 제어)](overview.md)를 제공할 수 있습니다. 연산 문자열의 형식은 `{Company}.{ProviderName}/{resourceType}/{action}`입니다.
 
 리소스 공급자 작업은 계속 업데이트됩니다. 최신 작업을 가져오려면 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)를 사용합니다.
 
@@ -384,7 +384,7 @@ ms.locfileid: "59501470"
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/attachments/write | 애플리케이션에 첨부 파일을 추가합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/delete | 기존 애플리케이션을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/applications/read | 모든 사용자 애플리케이션 목록을 가져오거나 API Management 애플리케이션 세부 정보를 가져옵니다. |
-> | 조치 | Microsoft.ApiManagement/service/users/applications/write | API Management에 애플리케이션을 등록하거나 애플리케이션 세부 정보를 업데이트합니다. |
+> | 액션(Action) | Microsoft.ApiManagement/service/users/applications/write | API Management에 애플리케이션을 등록하거나 애플리케이션 세부 정보를 업데이트합니다. |
 > | 조치 | Microsoft.ApiManagement/service/users/confirmations/send/action | 확인을 보냅니다. |
 > | 조치 | Microsoft.ApiManagement/service/users/delete | 사용자 계정을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/users/generateSsoUrl/action | SSO URL을 생성합니다. 이 URL은 관리 포털에 액세스하는 데 사용할 수 있습니다. |
@@ -1092,57 +1092,43 @@ ms.locfileid: "59501470"
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | 지정 된 글꼴 목록을 삭제 합니다. 얼굴 목록에서 관련된 얼굴 이미지도 삭제 됩니다 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | 지정한 faceListId persisitedFaceId로 얼굴 목록에서 얼굴을 삭제 합니다. 관련된 얼굴 이미지도 삭제 됩니다 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/write | 얼굴을 얼굴 1,000까지 지정 된 글꼴 목록에 추가 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | 얼굴 목록을 faceListId, 이름, 사용자 데이터 및 얼굴 목록에서 얼굴을 검색 합니다.
-얼굴 목록 faceListId, 이름 및 사용자 데이터를 나열 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | 사용자 지정 faceListId, 이름 및 선택적 사용자 데이터를 사용 하 여 빈 얼굴 목록을 만듭니다. 최대 64 얼굴 목록은 사용할 수
-이름 및 사용자 데이터를 포함 하 여 글꼴 목록에 대 한 정보를 업데이트 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | 얼굴 목록을 faceListId, 이름, 사용자 데이터 및 얼굴 목록에서 얼굴을 검색 합니다. 얼굴 목록 faceListId, 이름 및 사용자 데이터를 나열 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | 사용자 지정 faceListId, 이름 및 선택적 사용자 데이터를 사용 하 여 빈 얼굴 목록을 만듭니다. 최대 64 얼굴 목록에는 이름과 사용자 데이터를 포함 하 여 글꼴 목록에 업데이트 정보를 허용 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | 얼굴 목록 또는 큰 얼굴 faceId 배열에서 비슷해 보이는 얼굴을 검색할 쿼리 얼굴 faceId를 지정 합니다. faceId |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/group/action | 후보 얼굴을 얼굴 유사성에 따라 그룹으로 나눕니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/identify/action | 사용자 그룹 또는 큰 사용자 그룹에서 특정 쿼리 사용자 글꼴의 가장 가까운 일치 항목을 찾으려고 1 대 다 id입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/delete | 지정 된 큰 얼굴 목록을 삭제 합니다. 큰 얼굴 목록에서 관련된 얼굴 이미지도 삭제 됩니다 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/delete | 지정한 largeFaceListId persisitedFaceId로 큰 얼굴 목록에서 얼굴을 삭제 합니다. 관련된 얼굴 이미지도 삭제 됩니다 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | LargeFaceListId persistedFaceId로 큰 얼굴 목록의 지속형된 얼굴을 검색 합니다.
-얼굴 persistedFaceId 및 많은 얼굴을 지정 된 목록에는 userData 나열 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | 지정 된 큰 얼굴 목록에 최대 1,000,000 얼굴을 얼굴을 추가 합니다.
-해당 persistedFaceId에서 큰 얼굴 목록에 지정 된 얼굴을 userData 필드를 업데이트 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | 큰 얼굴 목록 largeFaceListId, 이름, 사용자 데이터를 검색 합니다.
-LargeFaceListId, 이름 및 사용자 데이터의 큰 얼굴 목록 정보를 나열 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | LargeFaceListId persistedFaceId로 큰 얼굴 목록의 지속형된 얼굴을 검색 합니다. 얼굴 persistedFaceId 및 많은 얼굴을 지정 된 목록에는 userData 나열 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | 지정 된 큰 얼굴 목록에 최대 1,000,000 얼굴을 얼굴을 추가 합니다. 해당 persistedFaceId에서 큰 얼굴 목록에 지정 된 얼굴을 userData 필드를 업데이트 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | 큰 얼굴 목록 largeFaceListId, 이름, 사용자 데이터를 검색 합니다. LargeFaceListId, 이름 및 사용자 데이터의 큰 얼굴 목록 정보를 나열 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | 큰 얼굴 목록 교육 작업을 제출 합니다. 학습에 학습 된 큰 얼굴 목록만 사용할 수 있는 중요 한 단계입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | 완료 되거나 아직 진행 큰 얼굴 목록 교육 상태를 확인 합니다. LargeFaceList 교육은 비동기 작업 |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | 사용자 지정 largeFaceListId, 이름 및 선택적 사용자 데이터를 사용 하 여 빈 큰 얼굴 목록을 만듭니다.
-이름 및 사용자 데이터를 포함 하 여 큰 얼굴 목록에 대 한 정보를 업데이트 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | 사용자 지정 largeFaceListId, 이름 및 선택적 사용자 데이터를 사용 하 여 빈 큰 얼굴 목록을 만듭니다. 이름 및 사용자 데이터를 포함 하 여 큰 얼굴 목록에 대 한 정보를 업데이트 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/delete | 지정 된 personGroupId 사용 하 여 기존 대규모 사용자 그룹을 삭제 합니다. 이 대규모 사용자 그룹의 지속형된 데이터가 삭제 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/action | 지정 된 대규모 사용자 그룹에 새 사용자를 만듭니다. 얼굴에이 사용자를 추가 하려면 호출 하세요. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/delete | 대규모 사용자 그룹에서 기존 사용자를 삭제 합니다. 모든 사용자 데이터를 저장 하 고 개인 항목의 얼굴 이미지 삭제 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/delete | 대규모 사용자 그룹의 사용자에서 얼굴을 삭제 합니다. 얼굴 데이터 및이 얼굴 항목과 관련 된 이미지도 삭제 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/read | 사람 얼굴 정보를 검색 합니다. 지속형된 사람 얼굴 largePersonGroupId, personId 및 persistedFaceId 지정 됩니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | 얼굴 인식 또는 확인에 대 한 대규모 사용자 그룹에 사람 얼굴 이미지를 추가 합니다. 이미지를 사용 하 여 처리
-사용자 업데이트 얼굴의 userData 필드를 유지 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | 개인의 이름 및 userData, 등록 된 사람 얼굴 이미지를 나타내는 지속형된 faceIds를 검색 합니다.
-PersonId "," 이름 "," userData "및" persistedFaceIds 등의 지정 된 대규모 사용자 그룹에서 모든 개인 정보를 나열 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | 얼굴 인식 또는 확인에 대 한 대규모 사용자 그룹에 사람 얼굴 이미지를 추가 합니다. 업데이트의 이미지를 사용 하 여 사용자를 처리 하기 위해 얼굴의 userData 필드를 유지 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | 개인의 이름 및 userData, 등록 된 사람 얼굴 이미지를 나타내는 지속형된 faceIds를 검색 합니다. PersonId "," 이름 "," userData "및" persistedFaceIds 등의 지정 된 대규모 사용자 그룹에서 모든 개인 정보를 나열 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | 이름 또는 사용자의 사용자 데이터를 업데이트 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | 이름 및 사용자 데이터를 포함 하 여 대규모 사용자 그룹의 정보를 검색 합니다. 이 API는 큰 사용자 그룹 정보를 반환
-기존의 모든 대규모 사용자 그룹의 largePesonGroupId, 이름 및 사용자 데이터를 나열 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | 이름 및 사용자 데이터를 포함 하 여 대규모 사용자 그룹의 정보를 검색 합니다. 이 API 반환 대규모 사용자 그룹 정보 목록에 모든 기존 대규모 사용자 그룹의 largePesonGroupId, 이름 및 사용자 데이터 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | 대규모 사용자 그룹 교육 작업을 제출 합니다. 학습에 학습 된 대규모 사용자 그룹에만 사용할 수 있는 중요 한 단계입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | 대규모 사용자 그룹 교육 상태 완료 되거나 아직 진행을 확인 합니다. LargePersonGroup 교육은 비동기 작업 |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | 사용자 지정 largePersonGroupId, 이름 및 선택적 사용자 데이터를 사용 하 여 새 대규모 사용자 그룹을 만듭니다.
-기존 대규모 사용자 그룹의 이름 및 사용자 데이터를 업데이트 합니다. 요청 본문에 없는 경우 속성 변경 되지 않은 상태로 유지 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | 사용자 지정 largePersonGroupId, 이름 및 선택적 사용자 데이터를 사용 하 여 새 대규모 사용자 그룹을 만듭니다. 기존 대규모 사용자 그룹의 이름 및 사용자 데이터를 업데이트 합니다. 요청 본문에 없는 경우 속성 변경 되지 않은 상태로 유지 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/delete | 지정 된 personGroupId 사용 하 여 기존 사용자 그룹을 삭제 합니다. 이 사용자 그룹의 지속형된 데이터가 삭제 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/action | 지정 된 사용자 그룹에 새 사용자를 만듭니다. 얼굴에이 사용자를 추가 하려면 호출 하세요. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/delete | 사용자 그룹에서 기존 사용자를 삭제 합니다. 모든 사용자 데이터를 저장 하 고 개인 항목의 얼굴 이미지 삭제 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | 사용자 그룹의 사용자에서 얼굴을 삭제 합니다. 얼굴 데이터 및이 얼굴 항목과 관련 된 이미지도 삭제 됩니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | 사람 얼굴 정보를 검색 합니다. 지속형된 사람 얼굴 personGroupId, personId 및 persistedFaceId 지정 됩니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | 얼굴 인식 또는 확인에 대 한 사용자 그룹에 사람 얼굴 이미지를 추가 합니다. 여러 이미지를 사용 하 여 처리
-사용자 업데이트 얼굴의 userData 필드를 유지 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | 개인의 이름 및 userData, 등록 된 사람 얼굴 이미지를 나타내는 지속형된 faceIds를 검색 합니다.
-PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지정 된 사용자 그룹의 모든 사용자 정보 목록에 등록 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | 얼굴 인식 또는 확인에 대 한 사용자 그룹에 사람 얼굴 이미지를 추가 합니다. 여러 업데이트를 사용자의 이미지를 사용 하 여 처리를 face의 userData 필드를 유지 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | 개인의 이름 및 userData, 등록 된 사람 얼굴 이미지를 나타내는 지속형된 faceIds를 검색 합니다. PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지정 된 사용자 그룹의 모든 사용자 정보 목록에 등록 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | 이름 또는 사용자의 사용자 데이터를 업데이트 합니다. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | 사용자 그룹 이름 및 사용자 데이터를 검색 합니다. 사용이 personGroup 아래의 사용자 정보를 가져오려면
-사용자 그룹의 pesonGroupId, 이름 및 사용자 데이터를 나열 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | 사용자 그룹 이름 및 사용자 데이터를 검색 합니다. 이 personGroup 아래의 사용자 정보를 가져오려면 목록 사람 그룹 pesonGroupId, 이름 및 사용자 데이터를 사용 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | 사용자 그룹 교육 작업을 제출 합니다. 학습에 학습 된 사용자 그룹에만 사용할 수 있는 중요 한 단계입니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | 사용자 그룹 교육 상태 완료 되거나 아직 진행을 확인 합니다. PersonGroup 학습은 트리거되는 비동기 작업 |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | 지정 된 personGroupId, 이름 및 사용자가 제공한 사용자 데이터를 사용 하 여 새 사용자 그룹을 만듭니다.
-기존 사용자 그룹의 이름 및 사용자 데이터를 업데이트 합니다. 요청 본문에 없는 경우 속성 변경 되지 않은 상태로 유지 합니다. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | 지정 된 personGroupId, 이름 및 사용자가 제공한 사용자 데이터를 사용 하 여 새 사용자 그룹을 만듭니다. 기존 사용자 그룹의 이름 및 사용자 데이터를 업데이트 합니다. 요청 본문에 없는 경우 속성 변경 되지 않은 상태로 유지 합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | 여부 두 얼굴이 같은 사람의 또는 사람에 게 한 면이 속하는지 여부를 확인 합니다. |
 > | 조치 | Microsoft.CognitiveServices/accounts/listKeys/action | 키를 나열합니다. |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | 지정 된 쿼리에 대 한 게시 끝점 예측을 가져옵니다. |
@@ -1515,7 +1501,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/interactions/suggestrelationshiplinks/action | Azure Customer Insights 상호 작용에 대한 관계 링크를 추천합니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/interactions/write | Azure Customer Insights 상호 작용을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/delete | 모든 Azure Customer Insights 핵심 성과 지표를 삭제합니다. |
-> | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/operations/read | Azure Customer Insights 핵심 성과 지표 작업 결과를 읽습니다. |
+> | 조치 | Microsoft.CustomerInsights/hubs/kpi/operations/read | Azure Customer Insights 핵심 성과 지표 작업 결과를 읽습니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/read | 모든 Azure Customer Insights 핵심 성과 지표를 읽습니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/reprocess/action | Azure Customer Insights 핵심 성과 지표를 다시 처리합니다. |
 > | 액션(Action) | Microsoft.CustomerInsights/hubs/kpi/write | 모든 Azure Customer Insights 핵심 성과 지표를 만들거나 업데이트합니다. |
@@ -1707,7 +1693,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.DataFactory/datafactories/linkedServices/write | 모든 연결된 서비스를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.DataFactory/datafactories/read | Data Factory를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/runs/loginfo/read | 로그가 포함된 Blob 컨테이너에 대한 SAS URI를 읽습니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/tables/delete | 모든 데이터 세트를 삭제합니다. |
+> | 조치 | Microsoft.DataFactory/datafactories/tables/delete | 모든 데이터 세트를 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/tables/read | 모든 데이터 세트를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/tables/write | 모든 데이터 세트를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/write | Data Factory를 만들거나 업데이트합니다. |
@@ -1891,7 +1877,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.DBforMariaDB/performanceTiers/read | 사용할 수 있는 성능 계층 목록을 반환합니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/configurations/read | 서버에 대한 구성 목록을 반환하거나 지정된 구성에 대한 속성을 가져옵니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/configurations/write | 지정된 구성의 값을 업데이트합니다. |
-> | 액션(Action) | Microsoft.DBforMariaDB/servers/delete | 기존 서버를 삭제합니다. |
+> | 조치 | Microsoft.DBforMariaDB/servers/delete | 기존 서버를 삭제합니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/firewallRules/delete | 기존 방화벽 규칙을 삭제합니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/firewallRules/read | 서버에 대한 방화벽 규칙 목록을 반환하거나 지정된 방화벽 규칙에 대한 속성을 가져옵니다. |
 > | 조치 | Microsoft.DBforMariaDB/servers/firewallRules/write | 지정된 매개 변수를 사용하여 방화벽 규칙을 만들거나 기존 규칙을 업데이트합니다. |
@@ -2262,7 +2248,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | 도메인에 사용 가능한 메트릭을 가져옵니다. |
 > | 조치 | Microsoft.EventGrid/domains/read | 도메인을 읽습니다. |
 > | 조치 | Microsoft.EventGrid/domains/regenerateKey/action | 도메인에 대한 키를 다시 생성합니다. |
-> | 액션(Action) | Microsoft.EventGrid/domains/topics/read | 도메인 토픽을 읽습니다. |
+> | 조치 | Microsoft.EventGrid/domains/topics/read | 도메인 토픽을 읽습니다. |
 > | 조치 | Microsoft.EventGrid/domains/write | 도메인을 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.EventGrid/eventSubscriptions/delete | EventSubscription을 삭제 합니다. |
 > | 조치 | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | 이벤트 구독의 전체 url을 가져옵니다. |
@@ -2270,8 +2256,8 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | 이벤트 구독에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | eventSubscription에 사용 가능한 메트릭을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription을 읽습니다. |
-> | 액션(Action) | Microsoft.EventGrid/eventSubscriptions/write | 만들거나는 eventSubscription을 업데이트 합니다. |
-> | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
+> | 조치 | Microsoft.EventGrid/eventSubscriptions/write | 만들거나는 eventSubscription을 업데이트 합니다. |
+> | 조치 | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | 토픽에 대한 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | 토픽에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | 토픽에 사용 가능한 메트릭을 가져옵니다. |
 > | 조치 | Microsoft.EventGrid/extensionTopics/read | extensionTopic을 읽습니다. |
@@ -2451,7 +2437,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Action | Application Insights 분석 테이블 작업입니다. |
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Delete | Application Insights 분석 테이블 스키마를 삭제합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Read | Application Insights 분석 테이블 스키마를 읽습니다. |
-> | 액션(Action) | Microsoft.Insights/Components/AnalyticsTables/Write | Application Insights 분석 테이블 스키마를 작성합니다. |
+> | 조치 | Microsoft.Insights/Components/AnalyticsTables/Write | Application Insights 분석 테이블 스키마를 작성합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/Annotations/Delete | Application Insights 주석을 삭제합니다. |
 > | 액션(Action) | Microsoft.Insights/Components/Annotations/Read | Application Insights 주석을 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Components/Annotations/Write | Application Insights 주석을 작성합니다. |
@@ -2618,7 +2604,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | SCOMAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityAlert/Read | SecurityAlert 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityBaseline/Read | SecurityBaseline 테이블에서 데이터를 읽습니다. |
-> | 액션(Action) | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | SecurityBaselineSummary 테이블에서 데이터를 읽습니다. |
+> | 조치 | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | SecurityBaselineSummary 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityDetection/Read | SecurityDetection 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/SecurityEvent/Read | SecurityEvent 테이블에서 데이터를 읽습니다. |
 > | 액션(Action) | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | ServiceFabricOperationalEvent 테이블에서 데이터를 읽습니다. |
@@ -2813,7 +2799,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/SaveImage/action | 랩 계정에 공유 갤러리에 현재 템플릿 이미지를 저장합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/delete | 일정을 삭제합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | 일정을 읽습니다. |
-> | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | 일정을 추가하거나 수정합니다. |
+> | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | 일정을 추가하거나 수정합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | 템플릿 내의 모든 리소스를 시작하여 템플릿을 시작합니다. |
 > | 액션(Action) | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | 템플릿 내의 모든 리소스를 중지하여 템플릿을 중지합니다. |
 > | 조치 | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | 환경 설정을 추가하거나 수정합니다. |
@@ -3391,7 +3377,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.Migrate/projects/groups/read | 그룹의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/groups/write | 새 그룹을 만들거나 기존 그룹을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/keys/action | 프로젝트의 공유 키를 가져옵니다. |
-> | 액션(Action) | Microsoft.Migrate/projects/machines/read | 머신의 속성을 가져옵니다. |
+> | 조치 | Microsoft.Migrate/projects/machines/read | 머신의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/read | 프로젝트의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/write | 새 프로젝트를 만들거나 기존 프로젝트를 업데이트합니다. |
 > | 액션(Action) | Microsoft.Migrate/register/action | Microsoft.Compute 리소스 공급자로 구독을 등록합니다. |
@@ -3561,7 +3547,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.Network/expressRoutePorts/read | ExpressRoutePorts를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/expressRoutePorts/write | ExpressRoutePorts를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/expressRoutePortsLocations/read | Express 경로 포트 위치를 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/expressRouteServiceProviders/read | Express Route 서비스 공급자를 가져옵니다. |
+> | 조치 | Microsoft.Network/expressRouteServiceProviders/read | Express Route 서비스 공급자를 가져옵니다. |
 > | 조치 | Microsoft.Network/frontDoors/backendPools/delete | 백 엔드 풀 삭제 |
 > | 조치 | Microsoft.Network/frontDoors/backendPools/read | 백 엔드 풀 가져오기 |
 > | 조치 | Microsoft.Network/frontDoors/backendPools/write | 백 엔드 풀 만들기 또는 업데이트 |
@@ -4252,7 +4238,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 보호 가능한 컨테이너를 모두 가져옵니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | 등록된 컨테이너를 삭제합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | 컨테이너 내의 워크로드를 조회합니다. |
-> | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
+> | 조치 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 보호 컨테이너에 대해 수행된 작업의 결과를 가져옵니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 보호 항목 Backup을 수행합니다. |
 > | 액션(Action) | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | 보호된 항목을 삭제합니다. |
@@ -4422,7 +4408,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 액션(Action) | Microsoft.Relay/namespaces/disasterRecoveryConfigs/write | 네임스페이스와 연결된 재해 복구 구성을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/action | HybridConnection을 업데이트하는 작업입니다. 이 작업은 API 버전 2017-04-01에서 지원되지 않습니다. 권한 부여 규칙. PUT 호출을 사용하여 권한 부여 규칙을 업데이트하세요. |
 > | 액션(Action) | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/delete | HybridConnection 권한 부여 규칙 삭제 작업 |
-> | 액션(Action) | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/listkeys/action | HybridConnection 연결 문자열을 가져옵니다. |
+> | 조치 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/listkeys/action | HybridConnection 연결 문자열을 가져옵니다. |
 > | 액션(Action) | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/read |  HybridConnection 권한 부여 규칙 목록을 가져옵니다. |
 > | 액션(Action) | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/regeneratekeys/action | 리소스에 대한 기본 또는 보조 키를 다시 생성합니다. |
 > | 액션(Action) | Microsoft.Relay/namespaces/HybridConnections/authorizationRules/write | HybridConnection 권한 부여 규칙을 만들고 해당 속성을 업데이트합니다. 권한 부여 규칙 액세스 권한을 업데이트할 수 있습니다. |
@@ -4794,7 +4780,7 @@ PersonId "," 이름 "," userData "및"의 persistedFaceIds를 포함 하 여 지
 > | 조치 | Microsoft.Sql/locations/instanceFailoverGroups/delete | 기존 인스턴스 장애 조치(failover) 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | 기존 인스턴스 장애 조치(failover) 그룹에서 계획된 장애 조치(failover)를 실행합니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | 기존 인스턴스 장애 조치(failover) 그룹에서 강제 장애 조치(failover)를 실행합니다. |
-> | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/read | 인스턴스 장애 조치(failover) 그룹 목록을 반환하거나 지정된 인스턴스 장애 조치(failover) 그룹의 속성을 가져옵니다. |
+> | 조치 | Microsoft.Sql/locations/instanceFailoverGroups/read | 인스턴스 장애 조치(failover) 그룹 목록을 반환하거나 지정된 인스턴스 장애 조치(failover) 그룹의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Sql/locations/instanceFailoverGroups/write | 지정된 된 매개 변수를 사용 하 여 인스턴스 장애 조치 그룹을 만들거나 속성 또는 지정 된 인스턴스가 장애 조치 그룹에 대 한 태그를 업데이트 합니다. |
 > | 조치 | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | 인스턴스 풀 작업의 상태를 가져옵니다. |
 > | 조치 | Microsoft.Sql/locations/instancePoolOperationResults/read | 인스턴스 풀 작업에 대 한 결과를 가져옵니다. |

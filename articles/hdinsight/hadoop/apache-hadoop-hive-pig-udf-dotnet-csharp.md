@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202710"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545576"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 Apache Hive 및 Apache Pig 스트림과 함께 C# 사용자 정의 함수 사용
 
@@ -46,8 +46,6 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
 * __Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 애플리케이션을 실행합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다.
 
     .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
-
-    특정 버전의 Mono를 사용하려면 [Mono 설치 또는 업데이트](../hdinsight-hadoop-install-mono.md) 문서를 참조하세요.
 
 * __Windows 기반 HDInsight__ 클러스터는 Microsoft .NET CLR을 사용하여 .NET 애플리케이션을 실행합니다.
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875189"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549732"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 및 SQL Data Warehouse IP 방화벽 규칙
 
@@ -249,6 +249,7 @@ Microsoft Azure SQL Database 서비스로의 연결이 예상대로 작동되지
 
 ## <a name="next-steps"></a>다음 단계
 
+- Microsoft Azure 데이터 센터에서 사용 되는 컴퓨팅 IP 주소 범위 (SQL 범위 포함)에서 인바운드 통신을 허용 하는 회사 네트워크 환경 확인 합니다. 허용 목록에 추가 해야 할 수도 있습니다 이러한 IP 주소, 참조 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)  
 - 서버 수준 IP 방화벽 규칙 만들기에 대한 빠른 시작은 [Azure SQL Database 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 - 오픈 소스 또는 타사 애플리케이션에서 Azure SQL Database에 연결하는 방법에 대한 도움말은 [SQL Database에 대한 클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하세요.
 - 추가로 열어야 하는 포트에 대한 자세한 내용은 **SQL Database: 내부 및 외부** 섹션([ADO.NET 4.5 및 SQL Database에 대한 1433 이외 포트](sql-database-develop-direct-route-ports-adonet-v12.md))를 참조하세요.

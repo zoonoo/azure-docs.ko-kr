@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: a0405e6c699192839f72b290d0466ab5062ac584
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670137"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543671"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
 
@@ -59,7 +59,7 @@ Java 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니�
 * [.NET Core](https://www.microsoft.com/net/learn/get-started)(버전 2.0.0 이상)
 * [Visual Studio Code용 C#(OmniSharp 제공) VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) C# 서비스 디버그에 필요합니다. VS Code의 **작업 막대**에서 확장 아이콘을 클릭하고 해당 확장을 검색하거나 VS Code Marketplace에서 설치할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치
 
 1. VS Code를 엽니다.
 2. VS Code 왼쪽의 **작업 막대**에서 확장 아이콘을 클릭합니다. "Service Fabric"을 검색합니다. Service Fabric Reliable Services 확장에 대해 **설치**를 클릭합니다.
@@ -120,7 +120,7 @@ VS Code용 Service Fabric Reliable Services 확장은 개발자가 Service Fabri
 2.  Service Fabric Explorer를 사용하여 클러스터에서 애플리케이션이 제거되었는지 확인합니다. 다소 시간이 소요되니 기다려 주세요.
 
 ### <a name="service-fabric-build-application"></a>Service Fabric의 경우: 응용 프로그램 빌드
-**Service Fabric: 응용 프로그램 제거** 명령 하거나 Java를 빌드할 수 있습니다 또는 C# Service Fabric 응용 프로그램입니다. 
+**Service Fabric: 응용 프로그램 빌드** 명령 하거나 Java를 빌드할 수 있습니다 또는 C# Service Fabric 응용 프로그램입니다. 
 
 1.  이 명령을 실행하기 전에 애플리케이션 루트 폴더에 있는지 확인합니다. 이 명령은 애플리케이션의 유형(C# 또는 Java)을 식별하고 그에 따라 애플리케이션을 빌드합니다.
 2.  선택 된 **Service Fabric: Build Application** 명령을 검색하고 선택합니다.

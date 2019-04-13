@@ -9,20 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: juliako
-ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316918"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544180"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 질문과 대답
 
 이 문서에서는 AMS(Azure Media Services) v3에 대해 자주 묻는 질문과 대답을 제공합니다.
 
 ## <a name="v3-apis"></a>v3 API
+
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure 역할 Azure Media Services 리소스에서 작업을 수행할 수 있습니까? 
+
+참조 [Media Services 계정에 대 한 역할 기반 액세스 제어 (RBAC)](rbac-overview.md)합니다.
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>미디어 예약 단위를 구성하려면 어떻게 할까요?
 
@@ -73,7 +77,7 @@ STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미�
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Azure Portal을 사용하여 v3 리소스를 관리할 수 있나요?
 
-현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. 사용 된 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), 또는 지원 되는 하나 [Sdk](developers-guide.md).
+현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>v3에 AssetFile 개념이 있나요?
 

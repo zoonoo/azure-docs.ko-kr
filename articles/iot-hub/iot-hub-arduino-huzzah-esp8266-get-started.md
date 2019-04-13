@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 293901aca3fa1a94c9c6340d2e04f47914db0e07
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259391"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524466"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266을 클라우드의 Azure IoT Hub에 연결
 
@@ -128,7 +128,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>` 이전 단계에서 얻은 그룹 소유자 이름이입니다. `<username>` Ubuntu 사용자 이름입니다.
+   `<group-owner-name>`은 이전 단계에서 얻은 그룹 소유자 이름입니다. `<username>`은 Ubuntu 사용자 이름입니다.
 
 3. Ubuntu에서 로그아웃한 다음 다시 로그인하면 변경 내용이 표시됩니다.
 
@@ -220,7 +220,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Feather HUZZAH ESP8266에 샘플 애플리케이션 배포
 
-1. Visual Studio Code의 상태 표시줄에서 **<Select Serial Port>** 를 클릭한 후 Feather HUZZAH ESP8266에 대한 직렬 포트를 클릭합니다.
+1. Visual Studio Code에서 클릭  **\<직렬 포트 선택 >** 상태 모음 및 Feather HUZZAH ESP8266에 대 한 직렬 포트를 클릭 합니다.
 
 2. 입력 `F1`를 입력 한 다음 **Arduino** 선택한 **Arduino: 업로드** 을 빌드하고 Feather HUZZAH ESP8266에 샘플 응용 프로그램을 배포 합니다.
 

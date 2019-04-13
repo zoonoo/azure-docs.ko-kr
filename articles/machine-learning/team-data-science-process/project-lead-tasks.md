@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854792"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527013"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process에서 프로젝트 리더의 작업
 
@@ -150,7 +150,7 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 SSH URL_은 _ssh://<Azure DevOps Services 이름\>@<Azure DevOps Services 이름\>.visualstudio.com:22/<Your Project Name>/\_git/<프로젝트 리포지토리 이름\>입니다. 이 예에는 ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***합니다.
+코드 호스팅 플랫폼으로 Azure DevOps 일반적으로 사용 중인 경우는 _project 리포지토리의 SSH URL_ 은 _ssh: / / < Azure DevOps 서비스 이름\>@< Azure DevOps 서비스 이름\>.visualstudio.com:22/ < Your 프로젝트 Name\>/\_git / < 프로젝트 리포지토리 이름\>합니다. 이 예에는 ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***합니다.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>D5에 D3 콘텐츠 복사 
 

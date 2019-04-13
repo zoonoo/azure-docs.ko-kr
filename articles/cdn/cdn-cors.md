@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917773"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547600"
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS의 정의
@@ -32,7 +32,7 @@ CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형�
 
 1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트*로 정의됩니다.  https://www.contoso.com의 페이지가 fabrikam.com 원본의 사용자 데이터에 액세스하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송됩니다.
 
-   `Origin: https://www.contoso.com`
+   `Origin: https:\//www.contoso.com`
 
 2. 서버는 다음으로 응답할 수 있습니다.
 

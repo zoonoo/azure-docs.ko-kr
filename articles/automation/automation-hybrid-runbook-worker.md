@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c91bf389f5c63b95e5b68784b6657e92b109a46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265868"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545844"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
 
@@ -36,7 +36,7 @@ Windows Hybrid Runbook Worker를 설치 및 구성하려면 2가지 방법을 �
 
 |OS  |배포 형식  |
 |---------|---------|
-|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[설명서](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[수동](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -126,6 +126,7 @@ Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 �
 | 동남아시아 |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | 인도 중부 |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | 일본 동부 |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
+| 오스트레일리아 동부 |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
 | 오스트레일리아 동남부 |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | 영국 남부 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
 | 미국 정부 버지니아 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |

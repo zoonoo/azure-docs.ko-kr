@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085680"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549155"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 언어 분석기 추가
 
@@ -92,7 +92,7 @@ Azure Search는 Lucene를 통해 지원되는 35개 분석기와 Office 및 Bing
 |아일랜드어||ga.lucene|  
 |이탈리아어|it.microsoft|it.lucene|  
 |일본어|ja.microsoft|ja.lucene|  
-|칸나다어|ka.microsoft||  
+|칸나다어|kn.microsoft||  
 |한국어|ko.microsoft|ko.lucene|  
 |라트비아어|lv.microsoft|lv.lucene|  
 |리투아니아어|lt.microsoft||  

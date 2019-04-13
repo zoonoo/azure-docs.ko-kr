@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651126"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544027"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "58651126"
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
 
-1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. 
+1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. 참고 Internet Explorer 11 아직 지원 되지 않습니다. 
 2. **로그인**을 선택합니다. 랩 계정에서 **랩 작성자** 역할의 멤버인 **사용자 ID**를 선택하거나 입력하고 암호를 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
 3. **새 랩** 창에서 다음 작업을 수행합니다. 
     1. 랩에 대한 **이름**을 지정합니다. 
@@ -37,9 +37,9 @@ ms.locfileid: "58651126"
 
         ![클래스룸 랩 만들기](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **가상 머신 사양 선택** 페이지에서 다음 단계를 수행합니다.
-    1. 랩에서 만드는 VM(가상 머신)의 **크기**를 선택합니다. 현재 **작은**, **중간**, **대규모**, 및 **GPU** 크기 허용 됩니다.
+    1. 랩에서 만드는 VM(가상 머신)의 **크기**를 선택합니다. 현재, **소형**, **중형**, **대형** 및 **GPU** 크기가 허용됩니다.
     2. VM을 만들려는 **지역**을 선택합니다. 
-    3. 랩에서 VM을 만드는 데 사용할 **VM 이미지**를 선택합니다. Linux 이미지를 선택 하는 경우에 대 한 원격 데스크톱 연결을 사용 하도록 설정 하는 옵션이 표시 됩니다. 자세한 내용은 참조 하세요 [Linux에 대 한 원격 데스크톱 연결 사용](how-to-enable-remote-desktop-linux.md)합니다.
+    3. 랩에서 VM을 만드는 데 사용할 **VM 이미지**를 선택합니다. Linux 이미지를 선택하면, 이에 대한 원격 데스크톱 연결을 사용하도록 설정하는 옵션이 표시됩니다. 자세한 내용은 [Linux에 대한 원격 데스크톱 연결을 사용하도록 설정](how-to-enable-remote-desktop-linux.md)을 참조하세요.
     4. **다음**을 선택합니다.
 
         ![VM 사양 지정](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ ms.locfileid: "58651126"
     ![완료된 템플릿 페이지 구성](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. 다음 단계는 이 자습서의 선택적 단계입니다. 
     1. **시작**을 선택하여 템플릿 VM을 시작합니다.
-    2. **연결**을 선택하여 템플릿 VM에 연결합니다. Linux 템플릿으로 VM 인 경우 (RDP 활성화 됨) 하는 경우 SSH 또는 RDP를 사용 하 여 연결할 것인지 선택할 수 있습니다.
+    2. **연결**을 선택하여 템플릿 VM에 연결합니다. Linux 템플릿 VM인 경우, SSH 또는 RDP(RDP가 활성화된 경우) 중 무엇을 사용하여 연결할지 선택합니다.
     3. 템플릿 VM에 소프트웨어를 설치하고 구성합니다. 
     4. VM을 **중지**합니다.  
     5. 템플릿에 대한 **설명**을 입력합니다.

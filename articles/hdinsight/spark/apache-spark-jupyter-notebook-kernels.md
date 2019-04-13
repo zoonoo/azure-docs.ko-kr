@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084101"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527475"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널 
 
@@ -69,7 +69,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
    
     대신 애플리케이션에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
-- **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 “매직”을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](https://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
+- **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 “매직”을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` `<args>`)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](https://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
    
     다음 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
 

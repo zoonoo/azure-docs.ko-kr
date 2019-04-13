@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4ece2dc1df3d29a3024c7efe15dd8cecfd9666db
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663862"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528189"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -640,7 +640,7 @@ HealthEvents          :
 
 - **IReplicator.CatchupReplicaSet**: 이 경고는 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 
-- **IReplicator.BuildReplica(<Remote ReplicaId>)**: 이 경고는 빌드 프로세스의 문제를 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: 이 경고는 빌드 프로세스의 문제를 나타냅니다. 자세한 내용은 [복제본 수명 주기](service-fabric-concepts-replica-lifecycle.md)를 참조하세요. 복제기 주소의 잘못된 구성이 원인일 수 있습니다. 자세한 내용은 [상태 저장 신뢰할 수 있는 서비스 구성](service-fabric-reliable-services-configuration.md) 및 [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)을 참조하세요. 원격 노드의 문제일 수도 있습니다.
 
 ### <a name="replicator-system-health-reports"></a>복제자 시스템 상태 보고서
 **복제 큐가 가득 찼습니다.**

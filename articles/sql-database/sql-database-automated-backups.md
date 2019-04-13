@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/12/2019
+ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882713"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545827"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -72,7 +72,7 @@ DTU 기반 구매 모델을 사용하여 만든 데이터베이스의 기본 보
 
 ### <a name="backups-for-point-in-time-restore"></a>지정 시간 복원에 대한 백업
 
-SQL Database는 전체 백업, 차등 백업 및 트랜잭션 로그 백업을 자동으로 생성하여 PITR(지정 시간 복원)에 대한 셀프 서비스를 지원합니다. 전체 데이터베이스 백업은 매주 만들어지고, 차등 데이터베이스 백업은 일반적으로 12시간마다 만들어지고, 트랜잭션 로그 백업은 일반적으로 5~10분마다 만들어지며, 이러한 빈도는 계산 크기와 데이터베이스 작업량에 따라 달라집니다. 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 일반적으로 30분 내에 완료되지만 데이터베이스의 크기가 상당히 큰 경우에는 더 오래 걸릴 수 있습니다. 예를 들어, 복원된 데이터베이스 또는 데이터베이스 사본에 대한 초기 백업은 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 모든 데이터베이스 백업의 정확한 타이밍은 전반적인 시스템 워크로드를 감안하여 SQL Database 서비스에 의해 결정됩니다.
+SQL Database는 전체 백업, 차등 백업 및 트랜잭션 로그 백업을 자동으로 생성하여 PITR(지정 시간 복원)에 대한 셀프 서비스를 지원합니다. 전체 데이터베이스 백업은 매주 만들어지고, 차등 데이터베이스 백업은 일반적으로 12시간마다 만들어지고, 트랜잭션 로그 백업은 일반적으로 5~10분마다 만들어지며, 이러한 빈도는 계산 크기와 데이터베이스 작업량에 따라 달라집니다. 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 일반적으로 30분 내에 완료되지만 데이터베이스의 크기가 상당히 큰 경우에는 더 오래 걸릴 수 있습니다. 예를 들어, 복원된 데이터베이스 또는 데이터베이스 사본에 대한 초기 백업은 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 모든 데이터베이스 백업의 정확한 타이밍은 전반적인 시스템 워크로드를 감안하여 SQL Database 서비스에 의해 결정됩니다. 변경 하거나 백업 작업을 사용 하지 않도록 설정할 수 없습니다. 
 
 PITR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)로 보호됩니다.
 
@@ -107,14 +107,14 @@ Azure SQL Database 엔지니어링 팀은 지속적으로 서비스 전체에서
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>PITR 백업 보존 기간은 어떻게 변경하나요?
 
-Azure Portal, PowerShell 또는 REST API를 사용하여 기본 PITR 백업 보존 기간을 변경할 수 있습니다. 지원되는 값은 7, 14, 21, 28 또는 35일입니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다.
+Azure portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 보존 기간을 변경할 수 있습니다. 지원되는 값은 7, 14, 21, 28 또는 35일입니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이러한 API는 PITR 보존 기간에만 영향을 줍니다. 데이터베이스에 대해 LTR을 구성한 경우에는 영향을 받지 않습니다. LTR 보존 기간을 변경하는 방법에 대한 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Azure Portal을 사용하여 PITR 백업 보존 기간 변경
 
-Azure Portal을 사용하여 PITR 백업 보존 기간을 변경하려면 Portal 내에서 보존 기간을 변경하려는 서버 개체로 이동한 후, 수정할 서버 개체에 따라 적절한 옵션을 선택합니다.
+Azure portal을 사용 하 여 PITR 백업 보존 기간을 변경 하려면 포털 내에서 변경 하 고 적절 한 옵션을 선택 하려면 해당 보존 기간 서버 개체를 이동할 수정 하는 서버 개체에 기반 합니다.
 
 #### <a name="change-pitr-for-a-sql-database-server"></a>SQL Database 서버의 PITR 변경
 

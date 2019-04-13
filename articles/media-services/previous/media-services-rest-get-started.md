@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d1453a558032e458e89c724e30472cc06f9cf33c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295133"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523990"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작  
 
@@ -560,7 +560,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
 모든 작업 요청에는 몇 가지 중요한 사항이 있습니다.
 
 * TaskBody 속성은 리터럴 XML을 사용하여 작업에서 사용되는 입력이나 출력 수를 정의해야 합니다. 작업 문서에는 해당 XML에 대한 XML 스키마 정의가 포함됩니다.
-* TaskBody 정의에서 <inputAsset> 및 <outputAsset>에 대한 각각의 내부 값은 JobInputAsset(value) 또는 JobOutputAsset(value)으로 설정되어야 합니다.
+* TaskBody 정의에서 `<inputAsset>` 및 `<outputAsset>`에 대한 각각의 내부 값은 JobInputAsset(value) 또는 JobOutputAsset(value)으로 설정되어야 합니다.
 * 작업 출력 자산은 여러 개일 수 있습니다. 작업에서 하나의 JobOutputAsset(x)을 작업 출력으로 한 번만 사용할 수 있습니다.
 * JobInputAsset 또는 JobOutputAsset을 작업의 입력 자산으로 지정할 수 있습니다.
 * 작업은 주기를 형성해서는 안됩니다.
@@ -572,7 +572,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
 >
 
 * InputMediaAsset은 Media Services에서 만든 하나 이상의 자산에 매핑됩니다. OutputMediaAsset은 시스템에 의해 생성됩니다. 기존 자산을 참조하지 않습니다.
-* OutputMediaAsset은 assetName 특성을 사용하여 명명할 수 있습니다. 이 특성이 없을 경우 OutputMediaAsset의 이름은 <outputAsset> 요소의 내부 텍스트 값이 작업 이름 값 또는 작업 Id 값(이름 속성이 정의되어 있지 않은 경우)의 접미사를 갖는 어떤 것이든 가능합니다. 예를 들어, assetName에 대한 값을 "Sample"로 설정하는 경우 OutputMediaAsset 이름 속성은 "Sample"로 설정됩니다. 하지만 assetName에 대한 값은 설정하지 않았지만 작업 이름을 "NewJob"으로 설정한 경우 OutputMediaAsset 이름은 "JobOutputAsset(값)_NewJob"이 됩니다.
+* OutputMediaAsset은 assetName 특성을 사용하여 명명할 수 있습니다. 이 특성이 없을 경우 OutputMediaAsset의 이름은 `<outputAsset>` 요소의 내부 텍스트 값이 작업 이름 값 또는 작업 Id 값(이름 속성이 정의되어 있지 않은 경우)의 접미사를 갖는 어떤 것이든 가능합니다. 예를 들어, assetName에 대한 값을 "Sample"로 설정하는 경우 OutputMediaAsset 이름 속성은 "Sample"로 설정됩니다. 하지만 assetName에 대한 값은 설정하지 않았지만 작업 이름을 "NewJob"으로 설정한 경우 OutputMediaAsset 이름은 "JobOutputAsset(값)_NewJob"이 됩니다.
 
     다음 예제에서는 assetName 특성을 설정하는 방법을 보여 줍니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278601"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521205"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Azure Maps 서비스 모듈을 사용 하 여
 
@@ -24,7 +24,7 @@ Azure Maps 웹 SDK 서비스 모듈을 손쉽게 웹 또는 JavaScript 또는 Ty
 1. 새 HTML 파일 만들기
 2. Azure Maps 서비스 모듈을 로드 합니다. 두 가지 옵션 중 하나를 사용하여 수행할 수 있습니다.
 
-    a. Azure Maps 서비스 모듈의 전역적으로 호스팅되는 CDN 버전에 대 한 스크립트 참조를 추가 하 여 사용 된 <head> 파일의 요소:
+    a. Azure Maps 서비스 모듈의 전역적으로 호스팅되는 CDN 버전에 대 한 스크립트 참조를 추가 하 여 사용 된 `<head>` 파일의 요소:
     
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>

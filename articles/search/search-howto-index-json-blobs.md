@@ -1,7 +1,7 @@
 ---
 title: 전체 텍스트 검색을 위해 Azure Blob 인덱서에서 JSON Blob 인덱싱 - Azure Search
 description: Azure Search Blob 인덱서를 사용하여 텍스트 콘텐츠에 대해 Azure JSON Blob을 크롤링합니다. 인덱서는 Azure Blob Storage와 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518748"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527356"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 이 문서에서는 Azure Search blob을 구성 하는 방법을 보여 줍니다 [인덱서](search-indexer-overview.md) Azure Blob storage에서 JSON 문서에서 구조적된 콘텐츠를 추출 하 여 Azure Search에서 가능 합니다. 이 워크플로 Azure Search 인덱스를 만들고 JSON blob에서 추출 하는 기존 텍스트를 사용 하 여 로드 합니다. 
@@ -40,14 +40,15 @@ Azure Search와 동일한 지역에 Azure storage에 대 한 동일한 Azure 구
 
 ### <a name="1---prepare-source-data"></a>1 - 원본 데이터 준비
 
-Azure Storage 계정과 Blob 스토리지 및 JSON 문서 컨테이너가 있어야 합니다. 이러한 요구 사항 중 하나를 사용 하 여 잘 모르는 경우 "Azure Blob 서비스 샘플 데이터를 로드 설정"에서 검토 합니다 [cognitive search-빠른 시작](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data)합니다.
+1. [Azure portal에 로그인](https://portal.azure.com/)합니다.
 
-> [!Important]
-> 컨테이너를 해야 **공용 액세스 수준을** "컨테이너 (컨테이너 및 blob에 대 한 익명 읽기 액세스)"로 설정 됩니다. Azure storage 및 Azure Search에는 동일한 구독 및 가능한 경우 동일한 지역에 있어야 합니다. 
+1. [Blob 컨테이너 만들기](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) 데이터를 포함 합니다. 유효한 값 중 하나에 대 한 공용 액세스 수준은 설정할 수 있습니다.
+
+저장소 계정 이름, 컨테이너 이름 및에서 데이터를 검색 하는 액세스 키를 사용 하도록 해야 합니다 **데이터 가져오기** 마법사.
 
 ### <a name="2---start-import-data-wizard"></a>2 - 데이터 가져오기 마법사 시작
 
-Azure Search 서비스 페이지의 명령 모음에서 또는 스토리지 계정의 왼쪽 탐색 창에 있는 **Blob service** 섹션에서 **Azure Search 추가**를 클릭하여 [마법사를 시작](search-import-data-portal.md)할 수 있습니다.
+Azure Search 서비스의 개요 페이지에서 [마법사를 시작 합니다](search-import-data-portal.md) 명령 모음 또는 클릭 하 여 **Azure Search 추가** 에 **Blob service** 섹션에 저장소 계정의 왼쪽 탐색 창입니다.
 
    ![포털의 데이터 가져오기 명령](./media/search-import-data-portal/import-data-cmd2.png "데이터 가져오기 마법사 시작")
 

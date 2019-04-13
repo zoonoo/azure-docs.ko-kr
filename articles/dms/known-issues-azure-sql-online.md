@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
-ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1a8f46c74693b00fd8e30b1e1a78d90111dea08b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491393"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520752"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Azure SQL DB로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -31,8 +31,10 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 원본 데이터베이스가 하나 이상의 임시 테이블로 구성되어 있는 경우 데이터베이스 마이그레이션은 “전체 데이터 로드” 작업 중 실패하고 다음과 같은 메시지가 표시될 수 있습니다.
 
+```
 { "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
- 
+```
+
  ![임시 테이블 오류 예제](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **해결 방법**

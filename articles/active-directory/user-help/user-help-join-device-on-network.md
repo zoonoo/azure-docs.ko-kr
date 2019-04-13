@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369142"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524374"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
 잠재적으로 제한된 리소스에 액세스할 수 있도록 회사 소유의 Windows 10 디바이스를 조직의 네트워크에 가입합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "58369142"
 
     ![설정 화면의 계정](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. **회사 또는 학교 액세스**를 선택하고 **연결할 *<your_organization>* Azure AD에 연결됨**과 같은 텍스트가 표시되는지 확인합니다.
+2. 선택 **회사 또는 학교 액세스**와 같은 것 이라는 텍스트가 표시 되는지 확인 하 고 **연결할  *\<your_organization >* Azure AD**합니다.
 
     ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "58369142"
 
     ![설정 화면의 계정](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. **회사 또는 학교 액세스**를 선택하고 **연결할 *<your_organization>* Azure AD에 연결됨**과 같은 텍스트가 표시되는지 확인합니다.
+2. 선택 **회사 또는 학교 액세스**와 같은 것 이라는 텍스트가 표시 되는지 확인 하 고 **연결할  *\<your_organization >* Azure AD**합니다.
 
     ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

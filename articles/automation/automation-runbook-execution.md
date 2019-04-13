@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268503"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544758"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -46,7 +46,7 @@ Azure Automation의 Runbook은 Azure의 샌드박스 또는 [Hybrid Runbook Work
 |설치 관리자가 필요한 모듈 설치|Hybrid Runbook Worker|샌드박스 용 모듈 copiable 있어야 합니다.|
 |4.7.2와 다른 .NET 프레임워크가 필요한 Runbook 또는 모듈 사용|Hybrid Runbook Worker|Automation 샌드박스에는 NET Framework 4.7.2가 있으며, 업그레이드할 수 있는 방법이 없습니다.|
 |권한 상승 해야 하는 스크립트|Hybrid Runbook Worker|샌드박스 권한 상승을 허용 하지 않습니다. 이 해결 하기 위해 Hybrid Runbook Worker를 사용 하 고 UAC를 사용 하 여 해제할 수 있습니다 `Invoke-Command` 경우 권한 상승이 필요한 있는 명령을 실행|
-|WMI에 대 한 액세스를 필요로 하는 스크립트|Hybrid Runbook Worker|클라우드 샌드박스에서 실행 중인 작업 [WMI 액세스할 수 없으며](#device-and-application-characteristics)|
+|WMI에 대 한 액세스를 필요로 하는 스크립트|Hybrid Runbook Worker|샌드박스의 클라우드에서 실행 중인 작업 [WMI에 대 한 액세스 권한이 없습니다](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook 동작
 
@@ -192,7 +192,7 @@ Azure 샌드박스에서 실행 되는 Runbook (예:.exe 또는 subprocess.call)
 
 ### <a name="device-and-application-characteristics"></a>장치 및 응용 프로그램 특성
 
-Azure 샌드박스에서 실행 되는 Runbook 작업에는 장치 또는 응용 프로그램 특성에 대 한 액세스가 없습니다. Windows에서 성능 메트릭 쿼리를 사용 하는 가장 일반적인 API는 WMI. 이러한 공통 메트릭 중 일부는 메모리 및 CPU 사용량입니다. 그러나에 상관 없이 어떤 API를 사용 합니다. 클라우드에서 실행 중인 작업 액세스할 수 없는 웹 기반 WBEM (Enterprise Management)에서 빌드되는에 모델 CIM (Common Information), Microsoft 구현의 장치 및 응용 프로그램 특징을 정의 하는 것에 대 한 업계 표준입니다.
+Azure 샌드박스에서 실행 되는 Runbook 작업에는 장치 또는 응용 프로그램 특성에 대 한 액세스가 없습니다. Windows에서 성능 메트릭 쿼리를 사용 하는 가장 일반적인 API는 WMI. 이러한 공통 메트릭 중 일부는 메모리 및 CPU 사용량입니다. 그러나에 상관 없이 어떤 API를 사용 합니다. 클라우드에서 실행 중인 작업 없는의 웹 기반 관리 WBEM (Enterprise)에 모델 CIM (Common Information) 작성 되는 Microsoft 구현에 대 한 액세스는 장치 및 응용 프로그램 특징을 정의 하는 것에 대 한 업계 표준입니다.
 
 ## <a name="job-statuses"></a>작업 상태
 

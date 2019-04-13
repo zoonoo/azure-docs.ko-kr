@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505671"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527951"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -106,15 +106,15 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 * **API Management에 필요한 포트**: API Management가 배포된 인바운드 및 아웃바운드 트래픽은 [네트워크 보안 그룹][Network Security Group]을 사용하여 제어할 수 있습니다. 이러한 포트를 사용할 수 없는 경우 API Management가 정상적으로 작동하지 않고 액세스하지 못하게 될 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 API Management를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
 
-API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다.
+<a name="required-ports"> </a> API Management 서비스 인스턴스를 VNET에서 호스트 되는 경우에 다음 표의 포트가 사용 됩니다.
 
 | 소스/대상 포트 | 방향          | 전송 프로토콜 |   [서비스 태그](../virtual-network/security-overview.md#service-tags) <br> 원본 / 대상   | 목적( * )                                                 | 가상 네트워크 유형 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대한 클라이언트 통신                      | 외부             |
 | * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 Powershell용 관리 엔드포인트         | 외부 및 내부  |
-| * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 저장소             | **Azure Storage에 대 한 종속성**                             | 외부 및 내부  |
+| * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 저장소             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
 | * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory(해당되는 경우)                   | 외부 및 내부  |
-| * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 끝점에 대 한 액세스**                           | 외부 및 내부  |
+| * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
 | * / 5672                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / EventHub            | 이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 | 외부 및 내부  |
 | * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 저장소             | GIT의 Azure 파일 공유에 대한 종속성                      | 외부 및 내부  |
 | * / 1886                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 리소스 상태에 상태를 게시하는 데 필요          | 외부 및 내부  |
@@ -136,7 +136,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 
     | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure 공용      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com 여기서 `East US 2` eastus2.warm.ingestion.msftcloudes.com 됩니다</li></ul> |
+    | Azure 공용      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com(여기서 `East US 2`는 eastus2.warm.ingestion.msftcloudes.com임)</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
@@ -194,10 +194,10 @@ API Management를 배포할 수 있는 서브넷의 최소 크기 이상으로 �
 
 
 ## <a name="related-content"> </a>관련 콘텐츠
-* [가상 네트워크 Vpn Gateway를 사용 하 여 백 엔드에 연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
-* [다른 배포 모델에서 가상 네트워크에 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [VPN Gateway를 사용하여 Virtual Network를 백 엔드에 연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [다양한 배포 모델에서 Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)
-* [가상 네트워크 Faq](../virtual-network/virtual-networks-faq.md)
+* [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
 * [서비스 태그](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

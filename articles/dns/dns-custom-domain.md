@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111415"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521855"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공
 
@@ -69,7 +69,7 @@ DNS 영역으로 이동하고 **+ 레코드 집합**을 클릭합니다. **레�
 |Type     | A        | 리소스가 IP 주소이므로 A 레코드를 사용합니다.        |
 |TTL     | 1        | 1은 1시간 동안 사용됩니다.        |
 |TTL 단위     | 시간        | 시간 측정으로 시간(Hour)이 사용됩니다.         |
-|IP 주소     | <your ip address>       | 공용 IP 주소입니다.|
+|IP 주소     | `<your ip address>`       | 공용 IP 주소입니다.|
 
 ![A 레코드 만들기](./media/dns-custom-domain/arecord.png)
 

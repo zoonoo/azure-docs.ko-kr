@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 5a25d0cb8fe1dffbc0a12f6ef88e2adc037a2393
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982983"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543824"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
 
 실행할 수 있습니다 [Spark](https://spark.apache.org/) Cosmos DB Spark 커넥터를 사용 하 여 Azure Cosmos DB에 저장 된 데이터를 사용 하 여 작업 합니다. Cosmos 대기 시간이 짧은 액세스를 위한 일괄 처리 및 스트림 처리 및 서비스 계층으로 사용할 수 있습니다.
 
-커넥터를 사용할 수 있습니다 [Azure Databricks](https://azure.microsoft.com/services/databricks) 또는 [를 제공 하는 Azure HDInsight는 Azure에서 Spark 클러스터를 관리 하는 데 사용 합니다. 다음 표에서 지원 되는 Spark 버전을 보여 줍니다.
+커넥터를 사용할 수 있습니다 [Azure Databricks](https://azure.microsoft.com/services/databricks) 하거나 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), Azure에서 관리 되는 Spark 클러스터를 제공 하는 합니다. 다음 표에서 지원 되는 Spark 버전을 보여 줍니다.
 
 | 구성 요소 | 버전 |
 |---------|-------|
@@ -129,7 +129,7 @@ Github의 원본에서 커넥터를 빌드할 수도 있고 아래 링크에서 
 
 ### <a name="using-databricks-notebooks"></a>Databricks notebook을 사용 하 여
 
-라이브러리 사용 하 여 Databricks 작업 영역 내에서 Azure Databricks 가이드에 대 한 지침을 따라 > [Azure Cosmos DB Spark 커넥터를 사용 합니다.](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
+Databricks 작업 영역을 사용 하 여 Azure Databricks 가이드의 지침에 따라 라이브러리 만들기 > [Azure Cosmos DB Spark 커넥터를 사용 합니다.](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
 
 > [!NOTE]
 > 에 **Azure Cosmos DB Spark 커넥터를 사용 하 여** 페이지 현재 최신 상태가 아닙니다. 6 개의 서로 다른 라이브러리에 6 개의 별도 jar를 다운로드 하는 대신에 maven에서 uber jar을 다운로드할 수 있습니다 https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.5/jar) 이 단일 jar/라이브러리를 설치 합니다.

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493317"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526346"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure Diagnostics 확장 스키마 버전을 인덱스합니다.  
@@ -60,7 +60,7 @@ Azure 진단 확장은 Application Insights 및 Log Analytics를 포함 하는 A
 
 [진단 1.2 구성 스키마](diagnostics-extension-schema-1dot2.md)  
 
-[진단 1.3 및 이상 구성 스키마](diagnostics-extension-schema-1dot3.md)  
+[진단 1.3 이상 구성 스키마](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>버전 기록
 
@@ -187,7 +187,7 @@ Azure SDK 2.4 이하와 Azure SDK 2.6 이상 버전에서 연결 문자열이 �
 
 * Azure SDK 2.4 이하 버전에서는 진단 로그를 전송하기 위한 저장소 계정 정보를 가져오기 위해 진단 플러그인에 의해 런타임으로 연결 문자열이 사용되었습니다.
 * Azure SDK 2.6 이상 버전에서 Visual Studio는 게시하는 동안 진단 연결 문자열을 사용하여 적절한 저장소 계정 정보로 진단 확장을 구성합니다. 연결 문자열을 통해 사용자는 Visual Studio에서 게시하는 동안 사용할 다양한 서비스 구성에 대해 서로 다른 저장소 계정을 정의할 수 있습니다. 그러나 진단 플러그인을 더 이상 사용할 수 없으므로(Azure SDK 2.5 이후) .cscfg 파일 자체만으로 진단 확장을 활성화할 수 없습니다. Visual Studio 또는 PowerShell과 같은 도구를 통해 별도로 확장을 사용하도록 설정해야 합니다.
-* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 저장소 계정 정보를 채웁니다. 공용 config 파일이 Extensions 폴더에서 생성되고 PaaSDiagnostics<RoleName>.PubConfig.xml 패턴을 따릅니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
+* PowerShell을 사용한 진단 확장 구성 프로세스를 단순화하기 위해 Visual Studio의 패키지 출력에도 각 역할에 대한 진단 확장의 공용 구성 XML이 포함됩니다. Visual Studio에서는 진단 연결 문자열을 사용하여 공용 구성에 있는 저장소 계정 정보를 채웁니다. 공용 config 파일이 Extensions 폴더에 생성 되 고 패턴을 따릅니다 `PaaSDiagnostics.<RoleName>.PubConfig.xml`합니다. 모든 PowerShell 기반 배포에서 이 패턴을 사용하여 각 구성을 역할에 매핑합니다.
 * .cscfg 파일의 연결 문자열은 Azure 포털에서 진단 데이터에 액세스하는 데도 사용되므로 **모니터링** 탭에 나타날 수 있습니다. 이 연결 문자열은 포털에서 자세한 모니터링 데이터를 표시하도록 서비스를 구성하는 데 필요 합니다.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Azure SDK 2.6 이상으로 프로젝트 마이그레이션
@@ -207,7 +207,7 @@ Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .
 Azure SDK 2.4에서 Azure SDK 2.5 이상으로 업그레이드하는 경우 다음 진단 기능 차이점을 명심해야 합니다.
 
 * **구성 API가 더 이상 사용되지 않음** – 진단의 프로그래밍 방식 구성은 Azure SDK 2.4 이하 버전에서는 사용할 수 있지만 Azure SDK 2.5 이상 버전에서는 더 이상 사용되지 않습니다. 코드에 진단 구성이 현재 정의된 경우 계속해서 진단하려면 마이그레이션된 프로젝트에서 해당 설정을 처음부터 다시 구성해야 합니다. Azure SDK 2.4에 대한 진단 구성 파일은 diagnostics.wadcfg이고 Azure SDK 2.5 이상에서는 diagnostics.wadcfgx입니다.
-* **클라우드 서비스 응용 프로그램에 대 한 진단은 인스턴스 수준이 아닌 역할 수준 에서만 구성할 수 있습니다.**
+* **클라우드 서비스 애플리케이션에 대한 진단은 인스턴스 수준이 아닌 역할 수준에서만 구성할 수 있습니다.**
 * **앱을 배포할 때마다 진단 구성이 업데이트됨** – 이로 인해 서버 탐색기에서 진단 구성을 변경한 후 앱을 다시 배포하는 경우 패리티 문제가 발생할 수 있습니다.
 * **Azure SDK 2.5 이상에서 코드가 아닌 진단 구성 파일에 크래시 덤프가 구성됨** – 코드에 크래시 덤프가 구성된 경우, Azure SDK 2.6으로 마이그레이션하는 동안 크래시 덤프가 전송되지 않으므로 해당 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
 

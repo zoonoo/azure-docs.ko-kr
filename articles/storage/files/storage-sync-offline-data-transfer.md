@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445350"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549034"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Azure File Sync로 대량 데이터 마이그레이션
 두 가지 방법으로 Azure File Sync에 대량 데이터를 마이그레이션할 수 있습니다.
@@ -36,13 +36,13 @@ Data Box 뿐만 아니라 다른 오프 라인 마이그레이션 도구에 대 
 - Data Box 및 Azure File Sync에는 가동 중지 시간 없이 필요합니다. Data Box를 사용 하 여 Azure로 데이터를 전송할 때 네트워크 대역폭을 효율적으로 사용 하 고 파일 충실도 유지 합니다. 또한 네임 스페이스 최신 상태로 유지 Azure에 데이터를 이동 후에 변경 된 파일만 업로드 하 여 합니다.
 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>오프 라인 데이터 전송에 대 한 필수 구성 요소
-시작 하기 전에 오프 라인 데이터 전송:
+오프 라인 데이터 전송 완료 하기 전에 마이그레이션하려는 서버에서 동기화를 사용 하지 마십시오. 시작 하기 전에 고려해 야 할 다른 작업은 다음과 같습니다.
 
-- Azure File Sync를 사용 하 여 동기화를 활성화 하기 전에 하나 이상의 Azure 파일 공유에 대량 데이터를 마이그레이션하세요.
-- 대량 마이그레이션에 대 한 Data Box를 사용 하려는 경우 검토 합니다 [Data Box에 대 한 배포 필수 구성 요소](../../databox/data-box-deploy-ordered.md#prerequisites)합니다.
-- 최종 Azure File Sync 토폴로지를 계획 합니다. 자세한 내용은 [Azure File Sync 배포 계획](storage-sync-files-planning.md)합니다.
-- Azure Storage 계정 또는 파일 공유와 동기화 하려는 포함 하는 계정을 선택 합니다. 동일한 저장소 계정 또는 계정에 있는 임시 준비 공유에 대량 데이터를 마이그레이션하세요. 최종 공유만 및 동일한 저장소 계정에 있는 스테이징 공유를 사용할 수 있습니다.
-- 서버 위치를 사용 하 여 새 동기화 관계를 만듭니다. 데이터를 대량으로 마이그레이션하려면 기존 동기화 관계를 사용할 수 없습니다.
+- 대량 마이그레이션을 위해 Data Box를 사용하려는 경우 [Data Box의 배포 필수 구성 요소](../../databox/data-box-deploy-ordered.md#prerequisites)를 검토합니다.
+- 최종 Azure File Sync 토폴로지를 계획 합니다. [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+- 동기화하려는 파일 공유를 포함할 Azure Storage 계정을 선택합니다. 동일한 스토리지 계정의 임시 스테이징 공유 위치로 대량 마이그레이션이 실행되도록 합니다. 대량 마이그레이션은 동일한 스토리지 계정에 있는 최종 및 스테이징 공유 위치로만 수행할 수 있습니다.
+- 대량 마이그레이션은 서버 위치와의 새 동기화 관계를 만들 때만 사용할 수 있습니다. 기존 동기화 관계로는 대량 마이그레이션을 사용하도록 설정할 수 없습니다.
+
 
 ## <a name="process-for-offline-data-transfer"></a>오프 라인 데이터 전송에 대 한 프로세스
 Azure Data Box와 같은 대량 마이그레이션 도구와 호환 되는 방식으로 Azure File Sync를 설정 하는 방법을 다음과 같습니다.
@@ -51,7 +51,7 @@ Azure Data Box와 같은 대량 마이그레이션 도구와 호환 되는 방�
 
 | 단계 | 세부 정보 |
 |---|---------------------------------------------------------------------------------------|
-| ![1단계](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box를 주문](../../databox/data-box-deploy-ordered.md)합니다. Data Box 제품군 제품 [여러 제품](https://azure.microsoft.com/services/storage/databox/data) 요구 사항에 맞게 합니다. 데이터 상자에를 받게 되 면에 따라 해당 [데이터를 복사 하는 설명서](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) 이 UNC 경로로 Data Box에서: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. 이때 *ShareName* 준비 공유의 이름입니다. Data Box를 Azure로 다시 보냅니다. |
+| ![1단계](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box를 주문](../../databox/data-box-deploy-ordered.md)합니다. Data Box 제품군 제품 [여러 제품](https://azure.microsoft.com/services/storage/databox/data) 요구 사항에 맞게 합니다. 데이터 상자에를 받게 되 면에 따라 해당 [데이터를 복사 하는 설명서](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) Data Box의이 UNC 경로로:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>* 합니다. 이때 *ShareName* 준비 공유의 이름입니다. Data Box를 Azure로 다시 보냅니다. |
 | ![2단계](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 임시 준비 공유로 선택한 Azure 파일 공유에 파일이 표시 될 때까지 기다립니다. *이러한 공유에 동기화를 사용 하지 마십시오.* |
 | ![3단계](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Data Box를 생성 하는 각 파일 공유에 대 한 새 빈 공유를 만듭니다. 이 새 공유 데이터 상자 공유와 동일한 저장소 계정에 있어야 합니다. [Azure 파일 공유를 만드는 방법](storage-how-to-create-file-share.md) |
 | ![4단계:](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [동기화 그룹을 만드는](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) 저장소 동기화 서비스에서. 클라우드 끝점으로 빈 공유 참조입니다. 모든 Data Box 파일 공유에 대해 이 단계를 반복합니다. [Azure File Sync 설정](storage-sync-files-deployment-guide.md)합니다. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370077"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547008"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 
@@ -36,7 +36,7 @@ MFA 마스터와 하위 MFA 서버는 모두 2단계 인증이 필요한 경우 
 
 AD와 성공적으로 인증된 후 MFA 서버는 MFA 서비스와 통신합니다. MFA 서버는 애플리케이션에 대한 사용자 액세스를 허용하거나 거부하는 MFA 서비스 알림을 기다립니다.
 
-MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. (예를 들어 사용자 추가, 셀프 서비스 PIN 변경 및 사용자 정보 변경 등)
+MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. (예: 사용자, 셀프 서비스 PIN 변경, 변경 사용자 정보 또는 사용자 포털에 대 한 액세스 추가)
 
 ## <a name="deployment"></a>배포
 

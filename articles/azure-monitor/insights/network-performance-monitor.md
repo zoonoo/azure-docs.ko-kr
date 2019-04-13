@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ac10f1f1c6336098afc2abd2b8f720cedfb6f579
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489727"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548938"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -151,7 +151,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 원하는 기능 구성:
 
-- [성능 모니터링](network-performance-monitor-performance-monitor.md#configuration)
+- [성능 모니터](network-performance-monitor-performance-monitor.md#configuration)
 - [서비스 연결 모니터](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute 모니터](network-performance-monitor-expressroute.md#configuration)
 
@@ -251,13 +251,13 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 즉, 모든 알림은 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)을 사용하여 관리됩니다.  
 
-LAzure Monitor를 통해 경고를 만드는 NPM 사용자 인 경우: 
-1. Azure Portal로 리디렉션하는 링크가 보입니다. 이 링크를 클릭하여 포털에 액세스합니다.
+Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우: 
+1. Azure portal로 리디렉션하는 링크가 표시 됩니다. 이 링크를 클릭하여 포털에 액세스합니다.
 2. 네트워크 성능 모니터 솔루션 타일을 클릭합니다. 
 3. [구성]으로 이동합니다.  
 4. 경고를 만들려는 테스트를 선택하고 아래에 설명된 단계를 따릅니다.
 
-Azure Portal을 통해 경고를 만드는 NPM 사용자인 경우:  
+Azure portal 통해 경고를 만드는 NPM 사용자 인 경우:  
 1. 이메일을 직접 입력할 수도 있고 작업 그룹을 통해 경고를 만들 수도 있습니다.
 2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup**이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
 3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 

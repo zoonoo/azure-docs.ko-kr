@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881149"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524007"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>팀 데이터 과학 프로세스 작동: Azure HDInsight Hadoop 클러스터 사용
 이 연습에서는 종단 간 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
@@ -88,11 +88,11 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 여기서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../../storage/common/storage-use-azcopy.md)의 지침을 따르세요.
 
-1. 명령 프롬프트 창에서 *<path_to_data_folder>* 를 원하는 대상으로 바꿔 다음 AzCopy 명령을 실행합니다.
+1. 명령 프롬프트 창에서 대체 다음 AzCopy 명령을 실행  *\<path_to_data_folder >* 를 원하는 대상:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. 복사가 완료되면 총 24개의 압축된 파일이 선택한 데이터 폴더에 표시됩니다. 로컬 컴퓨터에서 동일한 디렉터리에 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 *<path\_to\_unzipped_data\_files\>* 라고 합니다.
+1. 복사가 완료되면 총 24개의 압축된 파일이 선택한 데이터 폴더에 표시됩니다. 로컬 컴퓨터에서 동일한 디렉터리에 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더 라고 하는 *\<경로\_하\_unzipped_data\_파일\>* 이란에서 합니다.
 
 ## <a name="upload"></a>HDInsight Hadoop 클러스터의 기본 컨테이너에 데이터 업로드
 > [!NOTE]
@@ -102,10 +102,10 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 다음 AzCopy 명령에서 다음 매개 변수를 Hadoop 클러스터를 만들고 데이터 파일의 압축을 풀 때 지정한 실제 값으로 바꿉니다.
 
-* ***<path_to_data_folder>*** - 압축을 푼 데이터 파일이 포함된 컴퓨터의 디렉터리(경로 포함)입니다.  
-* ***<storage account name of Hadoop cluster>*** - HDInsight 클러스터와 연결된 저장소 계정입니다.
-* ***<default container of Hadoop cluster>*** - 클러스터에서 사용하는 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 같습니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
-* ***<storage account key>*** - 클러스터에서 사용하는 저장소 계정의 키입니다.
+* ***\<path_to_data_folder >*** 압축 푼된 데이터 파일이 포함 된 컴퓨터에 있는 디렉터리 (경로)와 함께 합니다.  
+* ***\<Hadoop 클러스터의 저장소 계정 이름 >*** HDInsight 클러스터와 연결 된 저장소 계정입니다.
+* ***\<Hadoop 클러스터의 기본 컨테이너 >*** 클러스터에서 사용 된 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 같습니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
+* ***\<저장소 계정 키 >*** 클러스터에서 사용 되는 저장소 계정의 키입니다.
 
 명령 프롬프트 또는 Windows PowerShell 창에서 다음 두 AzCopy 명령을 실행합니다.
 

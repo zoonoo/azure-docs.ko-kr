@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046993"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549374"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -179,7 +179,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 Azure Resource Manager 클라이언트를 사용하여 트래픽 분석을 구성하려면 다음 예제를 참조하세요.
 
-**Cmdlet 예제를 설정 합니다.**
+**Set cmdlet 예제:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -220,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Cmdlet 예제를 가져옵니다.**
+**Get cmdlet 예제:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>트래픽 분석의 비용은 얼마인가요?
 
 트래픽 분석은 요금이 측정됩니다. 요금은 서비스에서 생성된 흐름 로그 데이터 처리 및 Log Analytics 작업 영역에서 생성된 향상된 로그 저장을 기준으로 측정됩니다. 
 
 예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 스토리지 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 다음과 같습니다. 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>트래픽 분석 데이터를 처리 하는 빈도
+
+참조 된 [데이터 집계 섹션](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) 트래픽 분석 스키마 및 데이터 집계 문서
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>어떻게 않습니다 트래픽 분석 결정 악성 IP는? 
+
+트래픽 분석은 Microsoft 내부 위협 인텔리전스 시스템으로 악성 IP 하다 고 판단할 의존 합니다. 이러한 시스템 Microsoft 제품 및 서비스을 Microsoft 단위 DCU (Digital Crimes), Microsoft 보안 대응 센터 (MSRC), 및 외부 피드에서 같은 다양 한 원격 분석 원본을 활용 하 고 그 위에 intelligence 많은 빌드합니다. 이 데이터 중 일부는 내부 Mircosoft입니다. 알려진된 IP malicios로 플래그가 지정 시작 되 면 세부 정보를 알아야 지원 티켓을 제기해 주세요.
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>트래픽 분석 데이터에 대해 경고를 설정할 수는 방법
+
+트래픽 분석에 경고를 위한 기본 제공된 지원이 없습니다. 그러나 트래픽 분석 데이터는 Log Analytics에 저장 되므로 사용자 지정 쿼리를 작성 하에 경고를 설정 합니다. 단계:
+- 트래픽 분석에 Log Analytics에 대 한 짧은 링크를 사용할 수 있습니다. 
+- 사용 하 여는 [스키마에는 설명한](traffic-analytics-schema.md) 쿼리를 작성 하려면 
+- "새 경고 규칙"를 클릭 합니다. 경고를 만들려면
+- 가리킵니다 [로그 경고 설명서](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) 경고 만들기
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 
@@ -272,7 +287,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
         
 ### <a name="keyboard-navigation-at-any-stage"></a>모든 단계에서 키보드 탐색
     
-- `Esc` 확장된 된 선택 영역을 축소합니다.
+- `Esc` 키는 확장된 선택 영역을 축소합니다.
 - `Up arrow` 키는 `Esc` 키와 동일한 작업을 수행합니다. `Down arrow` 키는 `Enter` 키와 동일한 작업을 수행합니다.
 - `Shift+Plus` 키로 확대, `Shift+Minus` 키로 축소할 수 있습니다.
 

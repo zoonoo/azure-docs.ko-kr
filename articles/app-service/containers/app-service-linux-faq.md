@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339561"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525129"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -163,7 +163,7 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 다음 애플리케이션 설정을 만듭니다.
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL(전체 URL, 예: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (예: URL, 전체: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD(ACR 설정에서 관리자 액세스 사용)
 
 구성 파일 내에서 다음 예제와 같이 ACR 이미지를 참조합니다.

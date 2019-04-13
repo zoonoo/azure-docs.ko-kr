@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: da27c772a0650a923068b3c519ef39494573f96a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793121"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524152"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -45,6 +45,7 @@ API Management를 내부 가상 네트워크 모드로 배포하는 경우 모�
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + **API Management 인스턴스** 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
++ API Management 서비스를 가상 네트워크에 배포 되 면을 [방식별 포트 목록](./api-management-using-with-vnet.md#required-ports) 되 고 열어야 합니다. 
 
 ## <a name="enable-vpn"> </a>내부 가상 네트워크에서 API Management 만들기
 뒤 내부 가상 네트워크에서 API Management 서비스를 호스팅하는 [내부 부하 분산 장치 (클래식)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud)합니다. 이 옵션만 사용할 수 있습니다 이며 변경할 수 없습니다.

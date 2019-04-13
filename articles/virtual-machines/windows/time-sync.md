@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: d7363c3d1cd3aaf6aae8cadbea232c909000f214
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1a2e75dcffe32c6f1aeaba8646b96bbc1500ffdf
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669605"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546916"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 시간 동기화
 
@@ -39,7 +39,7 @@ Azure는 이제 Windows Server 2016을 실행하는 인프라의 지원을 받�
 
 Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바이스에서 시간을 사용하는 내부 Microsoft 시간 서버에 동기화됩니다. Azure의 가상 머신은 정확한 시간(*호스트 시간*)을 VM에 전달하기 위해 호스트에 의존할 수 있거나, VM이 직접 시간 서버 또는 둘의 조합에서 시간을 가져올 수 있습니다. 
 
-호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](maintenance-and-updates.md#memory-preserving-maintenance) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 VM에서 발생되는 변경을 보완하도록 요구합니다.
+호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](maintenance-and-updates.md#maintenance-not-requiring-a-reboot) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 VM에서 발생되는 변경을 보완하도록 요구합니다.
 
 VMICTimeSync 서비스는 샘플 또는 동기화 모드에서 작동하며 미래의 시계에만 영향을 줍니다. W32time이 실행되어야 하는 샘플 모드에서는 VMICTimeSync 서비스가 5초마다 호스트를 폴링하고 W32time에 시간 샘플을 제공합니다. W32time 서비스는 약 30초마다 최신 시간 샘플을 받아서 해당 샘플로 게스트 시계에 영향을 줍니다. 동기화 모드는 게스트가 다시 시작되었거나 게스트 시계가 호스트 시계보다 5초 넘게 늦는 경우 활성화됩니다. W32time 서비스가 제대로 실행되는 경우에는 후자의 상황이 절대 발생하지 않아야 합니다.
 

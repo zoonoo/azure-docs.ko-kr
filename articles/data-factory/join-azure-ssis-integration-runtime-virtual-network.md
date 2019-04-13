@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107800"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526676"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -135,9 +135,9 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 
 ### <a name="resource-group"></a> 리소스 그룹 요구 사항
 -   Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 다음과 같은 리소스가 해당됩니다.
-    -   이름이 *<Guid>-azurebatch-cloudserviceloadbalancer*인 Azure Load Balancer.
-    -   이름이 *<Guid>-azurebatch-cloudservicepublicip*인 Azure 공용 IP 주소.
-    -   이름이 *<Guid>-azurebatch-cloudservicenetworksecuritygroup*인 네트워크 작업 보안 그룹. 
+    -   Azure load balancer를 이름의  *\<Guid >-azurebatch-cloudserviceloadbalancer*합니다.
+    -   Azure 공용 IP 주소 이름 가진  *\<Guid >-azurebatch-cloudservicepublicip*합니다.
+    -   네트워크 작업 보안 그룹을 이름의  *\<Guid >-azurebatch-cloudservicenetworksecuritygroup*합니다. 
 
 -   가상 네트워크가 속한 리소스 그룹 또는 구독에 대한 리소스 잠금이 없는지 확인합니다. 읽기 전용 잠금 또는 삭제 잠금을 구성하면 IR 시작 및 중지가 실패하거나 중단될 수 있습니다. 
 

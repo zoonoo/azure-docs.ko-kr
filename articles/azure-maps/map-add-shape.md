@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282392"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547988"
 ---
 # <a name="add-a-shape-to-a-map"></a>맵에 도형 추가
 
@@ -26,7 +26,7 @@ ms.locfileid: "59282392"
 
 `LineString` 및 `MultiLineString` 기능 경로 및 지도에 윤곽선을 나타내는 데 사용 됩니다.
 
-## <a name="use-a-line"></a>줄을 사용 하 여
+### <a name="add-a-line"></a>선 추가
 
 <iframe height='500' scrolling='no' title='맵에 선 추가' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/qomaKv/'>맵에 선 추가</a>를 참조하세요.
 </iframe>
@@ -53,7 +53,7 @@ ms.locfileid: "59282392"
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="스트로크 그라데이션 선" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="스트로크 그라데이션 선" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 펜을을 참조 하세요 <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>스트로크 그라데이션 선</a> 에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 <a href='https://codepen.io'>CodePen</a>합니다.
 </iframe>
 
@@ -156,7 +156,7 @@ Azure Maps 웹 SDK 변환 이러한 `Pooint` 기능으로 `Polygon` 내부적 �
 ## <a name="make-a-geometry-easy-to-update"></a>기 하 도형을 보다 쉽게 업데이트
 
 A `Shape` 클래스를 래핑하고 [기 하 도형](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) 또는 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) 고 쉽게 업데이트 하 고 유지 관리 합니다.
-`new Shape(data: Feature<data.Geometry, any>)` 도형 개체를 생성 하 고 지정된 된 기능을 사용 하 여 초기화 합니다.
+`new Shape(data: Feature<data.Geometry, any>)`는 도형 개체를 생성하고 지정된 기능으로 초기화합니다.
 
 <br/>
 
@@ -171,7 +171,7 @@ A `Shape` 클래스를 래핑하고 [기 하 도형](https://docs.microsoft.com/
 
 네 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. 그런 다음, 점이 데이터 원본에 추가됩니다.
 
-[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 세 번째 코드 블록은 다각형 계층을 만듭니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본, 클릭 이벤트 hanlder 및 다각형 계층 만들어지고에 맵을 추가 합니다 [이벤트 처리기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 지도 완전히 로드 되 면 지점 표시 되는지 확인 하려면.
+[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 데이터를 지도에 렌더링합니다. 세 번째 코드 블록은 다각형 계층을 만듭니다. [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 데이터 원본, click 이벤트 처리기 및 다각형 계층 만들어지고에 맵을 추가 합니다 [이벤트 처리기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 지도 완전히 로드 되 면 지점 표시 되는지 확인 하려면.
 
 ## <a name="next-steps"></a>다음 단계
 

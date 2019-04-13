@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444126"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549306"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 컴퓨터 그룹
 Azure Monitor의 컴퓨터 그룹을 사용하여 [로그 쿼리](../log-query/log-query-overview.md)의 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
@@ -127,15 +127,15 @@ Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 
 
 | 자산 | 설명 |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Computer |멤버 컴퓨터의 이름입니다. |
-| 그룹 |그룹의 이름입니다. |
-| GroupFullName |원본 및 원본 이름을 포함하는 그룹에 대한 전체 경로입니다. |
-| GroupSource |그룹을 수집해 온 원본입니다. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |그룹을 수집해 온 원본의 이름입니다.  Active Directory의 경우 도메인 이름이 됩니다. |
-| ManagementGroupName |SCOM 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
-| TimeGenerated |컴퓨터 그룹이 만들어졌거나 업데이트된 날짜 및 시간입니다. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |멤버 컴퓨터의 이름입니다. |
+| `Group` |그룹의 이름입니다. |
+| `GroupFullName` |원본 및 원본 이름을 포함하는 그룹에 대한 전체 경로입니다. |
+| `GroupSource` |그룹을 수집해 온 원본입니다. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |그룹을 수집해 온 원본의 이름입니다.  Active Directory의 경우 도메인 이름이 됩니다. |
+| `ManagementGroupName` |SCOM 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 AOI-\<작업 영역 ID\>입니다. |
+| `TimeGenerated` |컴퓨터 그룹이 만들어졌거나 업데이트된 날짜 및 시간입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다.  

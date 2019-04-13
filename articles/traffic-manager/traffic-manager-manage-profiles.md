@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd026c9be2b1519d473ba02811d9e1ee90fe7a3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839528"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526217"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Azure Traffic Manager 프로필 관리
 
@@ -32,7 +32,7 @@ Azure Portal을 사용하여 Traffic Manager 프로필을 만들 수 있습니�
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다. 
 2. **리소스 만들기** > **네트워킹** > **Traffic Manager 프로필** > **만들기**를 클릭합니다.
 4. **Traffic Manager 프로필 만들기**에 다음과 같이 입력합니다.
-    1. **이름**에서 사용자의 프로필에 사용할 이름을 제공합니다. 이 이름은 trafficmanager.net 내에서 고유해야 하며 DNS 이름 <name>,trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.
+    1. **이름**에서 사용자의 프로필에 사용할 이름을 제공합니다. 이 이름은 trafficmanager.net 내에서 고유해야 하며 DNS 이름 `<name>`,trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.
     2. **라우팅 정책**에서 **우선 순위** 라우팅 방법을 선택합니다.
     3. **구독**에서 이 프로필을 만들 구독을 선택합니다.
     4. **리소스 그룹**에서 이 프로필을 배치할 새 리소스 그룹을 만듭니다.

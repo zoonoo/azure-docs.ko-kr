@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650481"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524054"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -227,7 +227,7 @@ PdM의 다른 유용한 기술은 데이터에서 이상을 감지하는 알고�
 
 지금까지 설명한 데이터 준비 작업은 데이터를 다음과 같이 구성해야 있습니다. 학습, 테스트 및 유효성 검사 데이터에는 이 논리 스키마가 있어야 합니다(이 예제에서는 일 단위로 시간 표시).
 
-| 자산 ID | Time | <Feature Columns> | 레이블 |
+| 자산 ID | Time | \<열을 기능 > | 레이블 |
 | ---- | ---- | --- | --- |
 | A123 |1일차 | . . . | . |
 | A123 |2일차 | . . . | . |

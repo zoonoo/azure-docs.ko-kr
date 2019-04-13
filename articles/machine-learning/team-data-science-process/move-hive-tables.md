@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840650"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522506"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 
@@ -112,7 +112,7 @@ Azure Storage 탐색기를 사용하여 Hadoop 클러스터의 기본 컨테이�
 ![Hive 쿼리의 출력을 표시하는 Azure Storage 탐색기](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Hive 편집기를 사용하여 Hive 쿼리 제출
-*https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* 형식의 URL을 웹 브라우저에 입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.
+폼의 URL을 입력 하 여 쿼리 콘솔 (Hive 편집기)를 사용할 수도 있습니다 *https:\//\<Hadoop 클러스터 이름 >.azurehdinsight.net/Home/HiveEditor* 웹 브라우저에 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.
 
 ### <a name="ps"></a> 3. Azure PowerShell 명령을 사용하여 Hive 쿼리 제출
 PowerShell을 사용하여 Hive 쿼리를 제출할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Hive 작업 제출](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)을 참조하세요.
@@ -149,7 +149,7 @@ Hive 쿼리는 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLe
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<blob 데이터 경로\>**: Hive 테이블에 업로드할 Blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있으면 \<blob 데이터 경로\>가 'wasb:///<directory in this container>/<blob file name>' 형식이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우 \<blob 데이터 경로\>는 'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>' 형식이어야 합니다.
+* **\<blob 데이터 경로\>**: Hive 테이블에 업로드할 blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있는 경우는 *\<blob 데이터에 대 한 경로\>* 형식에서 이어야 합니다 *' wasb: / /\< 이 컨테이너에 디렉터리 > /\<blob 파일 이름 >'* 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 예에서 *\<blob 데이터에 대 한 경로\>* 형식에서 이어야 합니다 *' wasb: / /\<컨테이너 이름 >\<저장소 계정 이름 >.blob.core.windows.net/\<blob 파일 이름 >'* 합니다.
 
   > [!NOTE]
   > Hive 테이블에 업로드할 blob 데이터가 Hadoop 클러스터에 대한 저장소 계정의 기본 또는 추가 컨테이너에 있어야 합니다. 그렇지 않으면 데이터에 액세스할 수 없기 때문에 *LOAD DATA* 쿼리가 실패합니다.

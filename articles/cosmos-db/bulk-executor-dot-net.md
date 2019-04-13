@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258465"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523344"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행기 .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
@@ -115,7 +115,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    |NumberOfDocumentsImported(long)   |  대량 가져오기 API 호출에 적용된 문서 중에서 성공적으로 가져온 총 문서 수입니다.       |
    |TotalRequestUnitsConsumed(double)   |   대량 가져오기 API 호출에서 사용된 총 요청 단위(RU)입니다.      |
    |TotalTimeTaken(TimeSpan)    |   실행을 완료하기까지 대량 가져오기 API 호출에서 사용하는 총 시간입니다.      |
-   |BadInputDocuments(List<object>)   |     대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).    |
+   |BadInputDocuments (목록\<개체 >)   |     대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 대량 업데이트
 

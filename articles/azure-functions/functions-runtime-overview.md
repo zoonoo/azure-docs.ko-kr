@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 4d11af1edc13fa675bef5cf9067dbe95646abff1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091920"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546836"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Azure Functions 런타임 개요(미리 보기)
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Azure Functions 런타임(미리 보기)은 Azure Functions 프로그래밍 모델 온-프레미스의 간편성 및 유연성을 활용하는 새로운 방법을 제공합니다. Azure Functions와 같은 오픈 소스 루트 기술을 기반으로 하는 Azure Functions 런타임은 온-프레미스에 배포되어 클라우드 서비스와 거의 동일한 개발 환경을 제공합니다.
 

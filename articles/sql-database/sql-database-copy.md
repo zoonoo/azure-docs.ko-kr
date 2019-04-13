@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486821"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549698"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
@@ -90,10 +90,16 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> T-SQL 복사 명령을 실행 하는 클라이언트의 IP에서 인바운드 연결을 허용 하도록 두 서버 모두의 방화벽을 구성 해야 합니다.
 
-## <a name="to-move-a-database-between-subscriptions"></a>구독 간에 데이터베이스를 이동하려면
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>SQL 데이터베이스를 다른 구독으로 복사
 
-[Azure Portal](https://portal.azure.com)에서 **SQL Server** 를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.
+다른 구독에 있는 SQL Database 서버에 데이터베이스를 복사 하려면 이전 섹션에서 단계 descrbed를 사용할 수 있습니다. 원본 데이터베이스의 데이터베이스 소유자와 동일한 이름 및 암호를 가진 로그인을 사용 하 고, dbmanager 역할의 구성원 이거나 서버 수준 보안 주체 로그인 해야 합니다. 
+
+> [!NOTE]
+> 합니다 [Azure portal](https://portal.azure.com) 포털 ARM API를 호출 하 고 구독 인증서를 사용 하 여 지역에서 복제와 관련 된 두 서버에 액세스 하기 때문에 다른 구독으로 복사를 지원 하지 않습니다.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>복사 작업 진행률 모니터링
 

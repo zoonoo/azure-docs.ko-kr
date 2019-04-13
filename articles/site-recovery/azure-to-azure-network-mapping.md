@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359816"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549051"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
@@ -86,7 +86,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 **대상 네트워크** | **세부 정보**
 --- | ---
 대상 네트워크는 장애 조치(failover) VNet | - 대상 IP 주소는 고정 주소이지만, 장애 조치(failover)를 위해 예약된다는 점에서 동일한 IP 주소가 아닙니다.<br/><br/>  - 서브넷 범위의 끝에서부터 사용 가능한 그 다음 IP가 주소로 할당됩니다.<br/><br/> 예를 들면 다음과 같습니다. 원본 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크에서 10.0.0.0/24 범위를 사용하는 경우 대상 VM에 할당되는 그 다음 IP 주소는 10.0.0.254입니다.
-대상 네트워크는 장애 조치(failover) VNet이 아님 | - 대상 IP 주소는 장애 조치(failover)에 예약된 동일한 IP 주소를 사용하는 고정 주소입니다.<br/><br/>  - 동일한 IP 주소가 이미 할당된 경우 각 서브넷 범위에서 사용 가능한 다음 IP 주소가 할당됩니다.<br/><br/> 예를 들면 다음과 같습니다. 원본 고정 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크가 아니며 범위가 10.0.0.0/24인 네트워크에서 장애 조치(failover)되는 경우 대상 고정 IP 주소는 10.0.0.0.19이고(사용 가능한 경우), 그렇지 않으면 10.0.0.254입니다.
+대상 네트워크는 장애 조치(failover) VNet이 아님 | - 대상 IP 주소는 장애 조치(failover)에 예약된 동일한 IP 주소를 사용하는 고정 주소입니다.<br/><br/>  -이미 동일한 IP 주소에 할당 하는 경우 IP 주소는 그 다음 서브넷 범위 끝에 사용할 수 있습니다.<br/><br/> 예를 들면 다음과 같습니다. 원본 고정 IP 주소가 10.0.0.19이고 장애 조치(failover) 네트워크가 아니며 범위가 10.0.0.0/24인 네트워크에서 장애 조치(failover)되는 경우 대상 고정 IP 주소는 10.0.0.0.19이고(사용 가능한 경우), 그렇지 않으면 10.0.0.254입니다.
 
 - 장애 조치(failover) VNet은 재해 복구를 설정할 때 선택한 대상 네트워크입니다.
 - 테스트 장애 조치(failover)에는 항상 비 프로덕션 네트워크를 사용하는 것이 좋습니다.

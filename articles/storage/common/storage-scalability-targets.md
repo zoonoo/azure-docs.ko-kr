@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267704"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521753"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>저장소 계정에 대 한 azure Storage 확장성 및 성능 목표
 
@@ -58,13 +58,13 @@ Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대�
 
 |영역  |대상  |
 |---------|---------|
-|최소 크기                        |100GiB      |
-|최대 크기                        |100tib      |
+|프로 비전 하는 최소 크기                        |100GiB      |
+|최대 크기를 프로 비전                        |100tib      |
 |최소 크기 증가/감소    |1 GiB      |
 |기준 IOPS    |최대 100,000 개 GiB 당 1 개 IOPS|
 |버스팅 IOPS    |최대 100,000 개 GiB 당 3 x IOPS|
-|최소 대역폭                     |100        |
-|대역폭 |0.1 5 초까지 GiB 당 MB/s     |
+|송신 속도         |60 초 + 0.06 * GiB 프로 비전        |
+|수신 속도| 40 초 + 0.04 * GiB 프로 비전 |
 |최대 스냅숏 수        |200       |
 
 #### <a name="premium-file-limits"></a>프리미엄 파일 제한
@@ -89,9 +89,9 @@ Azure 파일 동기화는 무제한 사용을 목적으로 설계되었으나 �
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
-- [Storage 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
+- [저장소 가격 정보](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)
 - [Azure Storage 복제](../storage-redundancy.md)
 - [Microsoft Azure Storage 성능 및 확장성 검사 목록](../storage-performance-checklist.md)

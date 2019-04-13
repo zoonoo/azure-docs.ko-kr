@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ddbc00155c3c5c136f7d33861e9ad5177df77470
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484985"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528070"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 
@@ -657,7 +657,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 Azure Storage 계정의 리소스 ID를 검색하려면 다음 예제와 같이 az storage account show' 명령을 실행합니다.
+Azure CLI를 사용 하 여 Azure Storage 계정의 리소스 ID를 검색 하려면 다음을 실행 합니다 `az storage account show` 다음 예와에서 같이 명령:
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

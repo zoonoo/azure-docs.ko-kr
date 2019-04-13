@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017160"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545436"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -70,7 +70,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에 연결된 서비스에 통합 런타임이 없는 경우 원본은 아니요, 싱크는 예입니다. |
 
 >[!IMPORTANT]
->데이터를 Dynamics에 복사할 때 기본 Azure Integration Runtime을 복사를 실행하는 데 사용할 수 없습니다. 즉, 원본에 연결된 서비스에 지정된 통합 런타임이 없는 경우, Dynamics 인스턴스에 가까운 위치로 명시적으로 [Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)을 만듭니다. 다음 예제와 같이 Dynamics에 연결된 서비스를 연결합니다.
+>데이터를 Dynamics에 복사할 때 기본 Azure Integration Runtime을 복사를 실행하는 데 사용할 수 없습니다. 즉, 원본에 연결된 서비스에 지정된 통합 런타임이 없는 경우, Dynamics 인스턴스에 가까운 위치로 명시적으로 [Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)을 만듭니다. 참조 하 여 Dynamics 인스턴스에 있는 위치를 찾을 합니다 [Dynamics 365 대 한 지역 목록](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions)합니다. 다음 예제와 같이 Dynamics에 연결된 서비스를 연결합니다.
 
 >[!NOTE]
 >Dynamics CRM/365 Online 인스턴스를 식별하는 선택적 "organizationName" 속성을 사용하기 위해 사용되는 Dynamics 커넥터. 계속 작동하겠지만, 인스턴스 검색 성능을 향상하려면 그 대신 새 "serviceUri" 속성을 지정하는 것이 좋습니다.
@@ -332,14 +332,14 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 | AttributeTypeCode.Boolean | BOOLEAN | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
-| AttributeType.Decimal | 10진수 | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | 문자열 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓(단일 대상이 연결됨) |
 | AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | 문자열 | ✓ | ✓ |
-| AttributeType.Money | 10진수 | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |

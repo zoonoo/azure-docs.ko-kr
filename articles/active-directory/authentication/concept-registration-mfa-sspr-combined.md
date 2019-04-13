@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280012"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521440"
 ---
 # <a name="combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기)
 
@@ -25,6 +25,8 @@ ms.locfileid: "59280012"
 ![내 프로필 표시를 사용자에 대 한 보안 정보 등록](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 새 환경을 설정 하기 전에이 관리자에 초점을 맞춘 설명서 및 기능과이 기능의 효과 이해 하도록 사용자에 초점을 맞춘 설명서를 검토 합니다. 새 환경에 대 한 사용자에 게 준비 하 고 출시를 확인 하는 데 도움이 사용자 문서에서 교육을 기본입니다.
+
+Azure AD 등록 Azure US Government, Azure 독일 또는 Azure 중국 21Vianet 같은 국가별 클라우드에 현재 제공 되지 않습니다. 보안 정보를 결합 합니다.
 
 |     |
 | --- |
@@ -139,4 +141,4 @@ Multi-factor Authentication에 사용할 수 있는 하나 이상의 메서드 �
 
 [셀프 서비스 암호 재설정 구성](howto-sspr-deployment.md)
 
-[Azure Multi-Factor Authentication 구성](howto-mfa-getstarted.md)
+[Azure Multi-factor Authentication 구성](howto-mfa-getstarted.md)

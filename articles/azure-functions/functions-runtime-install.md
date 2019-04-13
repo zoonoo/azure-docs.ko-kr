@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093671"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547557"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Azure Functions 런타임 미리 보기 2 설치
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Azure Functions 런타임 미리 보기 2를 설치하려는 경우 다음 단계를 수행합니다.
 
@@ -102,36 +104,37 @@ Azure Functions 런타임 설치를 완료하려면 구성을 완료해야 합�
 
 Azure Functions 런타임 미리 보기에서 첫 번째 함수를 만들려면
 
-1. 마지막으로 https://<machinename>.<domain>을 통해 **Azure Functions 런타임 포털**로 이동합니다. 예: https://mycomputer.mydomain.com
+1. 로 이동 합니다 **Azure Functions 런타임 포털** 으로 `https://<machinename>.<domain>` 예를 들어 `https://mycomputer.mydomain.com`합니다.
+
 1. **로그인**하라는 메시지가 표시됩니다. 도메인에 배포된 경우 도메인 계정 사용자 이름 및 암호를 사용하고, 그렇지 않은 경우 로컬 계정 사용자 이름 및 암호를 사용하여 포털에 로그인합니다.
 
-![Azure Functions 런타임 미리 보기 포털 로그인][14]
+    ![Azure Functions 런타임 미리 보기 포털 로그인][14]
 
-1. 함수 앱을 만들려면 구독을 만들어야 합니다.  포털의 왼쪽 위 모서리에서 구독 옆에 있는 **+** 옵션을 클릭합니다.
+1. 함수 앱을 만들려면 구독을 만들어야 합니다.  포털의 왼쪽 위 모서리를 클릭 합니다 **+** 구독 옆에 있는 옵션입니다.
 
-![Azure Functions 런타임 미리 보기 포털 구독][15]
+    ![Azure Functions 런타임 미리 보기 포털 구독][15]
 
 1. **DefaultPlan**을 선택하고 구독 이름을 입력한 후 **만들기**를 클릭합니다.
 
-![Azure Functions 런타임 미리 보기 포털 구독 계획 및 이름][16]
+    ![Azure Functions 런타임 미리 보기 포털 구독 계획 및 이름][16]
 
 1. 모든 함수 앱이 포털의 왼쪽 창에 나열됩니다.  새 Function App을 만들려면 제목 **Function App**을 선택하고 **+** 옵션을 클릭합니다.
 
 1. 함수 앱의 이름을 입력하고 올바른 구독을 선택한 후 프로그래밍할 Azure Functions 런타임 버전을 선택하고 **만들기**를 클릭합니다.
 
-![Azure Functions 런타임 미리 보기 포털 새 함수 앱][17]
+    ![Azure Functions 런타임 미리 보기 포털 새 함수 앱][17]
 
 1. 새 함수 앱이 포털의 왼쪽 창에 나열됩니다.  함수를 선택한 다음 포털의 가운데 창 위쪽에서 **새 함수**를 클릭합니다.
 
-![Azure Functions 런타임 미리 보기 템플릿][18]
+    ![Azure Functions 런타임 미리 보기 템플릿][18]
 
 1. 함수의 오른쪽 플라이 아웃 이름에서 Timer Trigger 함수를 선택하고 일정을 `*/5 * * * * *`(이 cron 식은 타이머함 수가 5초마다 실행되도록 함)로 변경하고 **만들기**를 클릭합니다.
 
-![Azure Functions 런타임 미리 보기 새 타이머 함수 구성][19]
+    ![Azure Functions 런타임 미리 보기 새 타이머 함수 구성][19]
 
 1. 이제 함수가 만들어졌습니다.  포털 아래쪽에 있는 **로그** 창을 확장하여 함수 앱의 실행 로그를 볼 수 있습니다.
 
-![Azure Functions 런타임 미리 보기 함수 실행][20]
+    ![Azure Functions 런타임 미리 보기 함수 실행][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

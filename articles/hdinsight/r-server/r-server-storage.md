@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ffde6f3e94cab94fca5a815db28478790a2a4221
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309120"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523395"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services에 대한 Azure Storage 솔루션
 
@@ -95,7 +95,7 @@ R 코드에서 이름 노드 참조를 **storage2** 스토리지 계정으로 �
 
 모든 디렉터리와 파일 참조는 이제 저장소 계정 `wasb://container2@storage2.blob.core.windows.net`을 지정합니다. 지정한 **이름 노드**입니다.
 
-다음과 같이 **storage2**에서 /user/RevoShare/<SSH username> 디렉터리를 구성해야 합니다.
+구성 해야 합니다 `/user/RevoShare/<SSH username>` 디렉터리에 **storage2** 다음과 같습니다.
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
@@ -171,5 +171,5 @@ Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등
 
 * [HDInsight의 ML Services 클러스터 개요](r-server-overview.md)
 * [Apache Hadoop에서 ML Services 클러스터 시작](r-server-get-started.md)
-* [HDInsight에서 ML Services 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight에서 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
 * [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

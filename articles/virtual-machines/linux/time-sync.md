@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 0ac102f388c404bab98354b7bd131989abedd7e6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887566"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548190"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
 
@@ -40,7 +40,7 @@ Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바�
 
 독립 실행형 하드웨어에서 Linux OS는 부팅 시 호스트 하드웨어 시계만 읽습니다. 그 이후에는 Linux 커널의 인터럽트 타이머를 사용하여 시계를 유지 관리합니다. 이 구성에서 시계는 시간이 지나면서 변경됩니다. Azure의 최신 Linux 배포에서 VM은 LIS(Linux 통합 서비스)에 포함된 VMICTimeSync 공급자를 사용하여 호스트에서 시계 업데이트를 더 자주 쿼리할 수 있습니다.
 
-호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](maintenance-and-updates.md#memory-preserving-maintenance) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 VM에서 발생되는 변경을 보완하도록 요구합니다.
+호스트와 가상 머신의 상호 작용은 시계에도 영향을 줄 수 있습니다. [메모리 보존 유지 관리](maintenance-and-updates.md#maintenance-not-requiring-a-reboot) 중에는 VM이 최대 30초 동안 일시 중지됩니다. 예를 들어 유지 관리를 시작하면 먼저 VM 시계는 오전 10:00:00시를 표시한 후, 28초간 지속됩니다. VM이 다시 시작되면 VM 시계는 여전히 오전 10:00:00시를 표시한 다음, 28초가 해제됩니다. 이를 수정하려면 VMICTimeSync 서비스가 호스트에서 발생하는 상황을 모니터링하고 VM에서 발생되는 변경을 보완하도록 요구합니다.
 
 시간 동기화가 작동하지 않으면 VM 시계는 오류를 누적하게 됩니다. 단 하나의 VM이 있는 경우 워크로드가 상당히 정확한 시간 기록을 요구하지 않는 한 영향은 크지 않을 수 있습니다. 하지만 대부분의 경우에 트랜잭션을 추적하는 데 시간을 사용하고 전체 배포 과정에 걸쳐 시간이 일관되어야 하는 상호 연결된 VM이 여러 개 있습니다. VM 간의 시간이 다른 경우 다음과 같은 영향이 표시됩니다.
 

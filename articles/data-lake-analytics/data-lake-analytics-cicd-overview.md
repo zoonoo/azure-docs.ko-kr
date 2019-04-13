@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: b6c5df1ef0c93508595e27cbda315281aa3461b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124289"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544821"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
 
@@ -66,7 +66,7 @@ U-SQL 프로젝트의 U-SQL 스크립트에는 U-SQL 데이터베이스 개체�
 [U-SQL 데이터베이스 프로젝트](data-lake-analytics-data-lake-tools-develop-usql-database.md)에 대해 자세히 알아봅니다.
 
 >[!NOTE]
->U-SQL 데이터베이스 프로젝트는 현재 공개 미리 보기로 제공됩니다. 프로젝트에 DROP 문이 있는 경우 빌드가 실패합니다. DROP 문은 곧 허용될 예정입니다.
+>DROP 문을 실수로 삭제 문제가 발생할 수 있습니다. DROP 문을 사용할 수 있도록, MSBuild 인수를 명시적으로 지정 해야 합니다. **AllowDropStatement** 비 데이터 관련된 놓기 작업을 같은 어셈블리 및 drop을 삭제 하면 테이블 반환 함수입니다. **AllowDataDropStatement** 하면 놓기 작업에서는 drop table 및 drop 스키마와 같은 관련 된 데이터입니다. AllowDropStatement AllowDataDropStatement 사용 하기 전에 사용 하도록 설정 해야 합니다.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>MSBuild 명령줄을 사용하여 U-SQL 프로젝트 빌드
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 인수 정의 및 값은 다음과 같습니다.
 
-* **USQLSDKPath=<U-SQL Nuget package>\build\runtime**. 이 매개 변수는 U-SQL 언어 서비스에 대한 NuGet 패키지의 설치 경로를 나타냅니다.
+* **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. 이 매개 변수는 U-SQL 언어 서비스에 대한 NuGet 패키지의 설치 경로를 나타냅니다.
 * **USQLTargetType=Merge 또는 SyntaxCheck**:
     * **Merge**. Merge 모드는 코드 숨김 파일을 컴파일합니다. 예로 **.cs**, **.py** 및 **.r** 파일입니다. U-SQL 스크립트로 결과 사용자 정의 코드 라이브러리를 인라인합니다. 예로는 dll 이진, Python 또는 R 코드가 있습니다.
     * **SyntaxCheck**. SyntaxCheck 모드는 먼저 U-SQL 스크립트로 코드 숨김 파일을 병합합니다. 그런 다음, U-SQL 스크립트를 컴파일하여 코드의 유효성을 검사합니다.
-* **DataRoot=<DataRoot path>**. DataRoot는 SyntaxCheck 모드에만 필요합니다. SyntaxCheck 모드를 사용하여 스크립트를 빌드하는 경우 MSBuild는 스크립트에서 데이터베이스 개체에 대한 참조를 확인합니다. 빌드하기 전에 빌드 머신의 DataRoot 폴더에서 U-SQL 데이터베이스의 참조된 개체를 포함하는 일치하는 로컬 환경을 설정합니다. [U-SQL 데이터베이스 프로젝트를 참조](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)하여 이러한 데이터베이스 종속성을 관리할 수도 있습니다. MSBuild는 파일이 아닌 데이터베이스 개체 참조만 확인합니다.
+* **DataRoot =\<DataRoot 경로 >** 합니다. DataRoot는 SyntaxCheck 모드에만 필요합니다. SyntaxCheck 모드를 사용하여 스크립트를 빌드하는 경우 MSBuild는 스크립트에서 데이터베이스 개체에 대한 참조를 확인합니다. 빌드하기 전에 빌드 머신의 DataRoot 폴더에서 U-SQL 데이터베이스의 참조된 개체를 포함하는 일치하는 로컬 환경을 설정합니다. [U-SQL 데이터베이스 프로젝트를 참조](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)하여 이러한 데이터베이스 종속성을 관리할 수도 있습니다. MSBuild는 파일이 아닌 데이터베이스 개체 참조만 확인합니다.
 * **EnableDeployment=true** 또는 **false**. EnableDeployment는 빌드 프로세스 동안 참조된 U-SQL 데이터베이스를 배포하도록 허용되는지를 나타냅니다. U-SQL 데이터베이스 프로젝트를 참조하고 U-SQL 스크립트에서 데이터베이스 개체를 사용하는 경우 이 매개 변수를 **true**로 설정합니다.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Azure Pipelines를 통한 연속 통합
@@ -457,7 +457,7 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 | 매개 변수 | 설명 | 기본값 | 필수 |
 |---------|-----------|-------------|--------|
 |패키지|배포할 U-SQL 데이터베이스 배포 패키지의 경로입니다.|null|true|
-|데이터베이스|배포하거나 만들 데이터베이스 이름입니다.|master|false|
+|데이터베이스|배포하거나 만들 데이터베이스 이름입니다.|마스터|false|
 |LogFile|로깅을 위한 파일의 경로입니다. 표준 출력에 대한 기본값입니다(콘솔).|null|false|
 |LogLevel|로그 수준: 자세한 정보, 보통, 경고 또는 오류입니다.|LogLevel.Normal|false|
 

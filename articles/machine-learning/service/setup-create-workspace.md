@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879287"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547951"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 만들기
 
@@ -37,7 +37,7 @@ Azure Machine Learning 서비스를 사용 하려면 필요는 [ **Azure Machine
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->다른 Azure 서비스와 마찬가지로, 특정 한도 및 할당량이 Machine Learning과 관련돼 있습니다. [할당량 및 더 요청 하는 방법에 알아봅니다.](how-to-manage-quotas.md)
+>다른 Azure 서비스와 마찬가지로, 특정 한도 및 할당량이 Machine Learning과 관련돼 있습니다. [할당량 및 더 많은 요청 방법에 대해 알아보세요.](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -160,7 +160,7 @@ Python SDK를 사용하여 Jupyter Notebook에서 작업 영역을 만듭니다.
 
 ### <a name="write-a-configuration-file"></a>구성 파일 작성
 
-구성 파일에 있는 작업 영역의 세부 정보를 현재 디렉터리에 저장합니다. 이 파일 이라고 *aml_config/config.json*합니다.  
+구성 파일에 있는 작업 영역의 세부 정보를 현재 디렉터리에 저장합니다. 이 파일 이라고 *.azureml/config.json*합니다.  
 
 나중에 이 작업 영역 구성 파일을 사용하여 동일한 작업 영역을 간편하게 로드할 수 있습니다. 다른 전자 필기장과 같은 디렉터리 또는 코드를 사용 하 여 하위 디렉터리에서 스크립트를 사용 하 여 로드할 수 있습니다 `ws=Workspace.from_config()` 합니다. 
 
@@ -177,13 +177,14 @@ Python SDK를 사용하여 Jupyter Notebook에서 작업 영역을 만듭니다.
 ```
 
 > [!TIP]
-> Python 스크립트 또는 다른 디렉터리에 있는 Jupyter Notebook에서 작업 영역을 사용 하려면 해당 디렉터리에이 파일을 복사 합니다. 파일을 동일한 디렉터리에 하위 디렉터리에 있을 수 있습니다 *aml_config*, 또는 부모 디렉터리입니다.
+> Python 스크립트 또는 다른 디렉터리에 있는 Jupyter Notebook에서 작업 영역을 사용 하려면 해당 디렉터리에이 파일을 복사 합니다. 파일을 동일한 디렉터리에 하위 디렉터리에 있을 수 있습니다 *.azureml*, 또는 부모 디렉터리입니다.
 
 ## <a name="resource-manager-template"></a>Resource manager 템플릿
 
 템플릿을 사용 하 여 작업 영역을 만들려면 참조 [템플릿을 사용 하 여 Azure Machine Learning 서비스 작업 영역 만들기](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>CLI
+<a name="cli"></a>
+## <a name="command-line-interface"></a>명령줄 인터페이스
 
 CLI를 사용 하 여 작업 영역 만들기를 참조 하세요 [CLI 확장을 사용 하 여 Azure Machine Learning 서비스에 대 한](reference-azure-machine-learning-cli.md)합니다.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 416a98c5f9c5a2ec813206ea9ea7f311b23e86cb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109834"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>자습서: Rightscale과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Rightscale과 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Rightscale 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -131,8 +131,8 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **Rightscale 구성** 섹션에서 **Rightscale 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조** 섹션에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Single Sign-On 구성](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-   <CS>
+    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
+
 1. 애플리케이션에 대해 구성된 SSO를 가져오려면 관리자 권한으로 RightScale 테넌트에 로그온해야 합니다.
 
     a. 위쪽 메뉴에서 **설정** 탭을 클릭하고 **Single Sign-On**을 선택합니다.
@@ -164,7 +164,7 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. **저장**을 클릭합니다.
-   <CE>
+
    > [!TIP]
    > 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
    > 

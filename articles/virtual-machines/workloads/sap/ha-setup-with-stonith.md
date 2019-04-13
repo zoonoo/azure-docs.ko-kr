@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011860"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525469"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
@@ -155,7 +155,7 @@ halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
- **확인**을 클릭합니다.
+**확인**
 
 IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합니다. csync2 -k /etc/csync2/key_hagroup을 사용하여 키 파일을 생성합니다. key_hagroup 파일을 생성한 후 클러스터의 모든 멤버에 수동으로 복사해야 합니다. **반드시 노드 1에서 노드 2로 파일을 복사해야 합니다**.
 
@@ -258,7 +258,7 @@ systemctl start pacemaker
 ```
 crm_mon
 ```
-![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) hawk에 로그인하여 클러스터 상태를 확인할 수도 있습니다. *https://<node IP>:7630*. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) hawk 클러스터 상태 확인에 로그인에 로그인 할 수 있습니다 *https://\<노드 IP >: 7630*합니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. 클러스터 속성 및 리소스 구성 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 *crm_mon* 명령을 실행하면 다음 두 리소스를 확인할 수 있습니다.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-또한 *https://<node IP address>:7630/cib/live/state*에서 상태를 확인할 수 있습니다.
+또한에서 상태를 확인할 수 있습니다 *https://\<노드 IP 주소 >: 7630/cib/라이브/상태*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

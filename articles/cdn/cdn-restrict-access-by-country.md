@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917756"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526184"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>국가별 Azure CDN 콘텐츠 제한
 
@@ -47,7 +47,7 @@ ms.locfileid: "58917756"
 예를 들어 다음 모든 디렉터리 경로 필터가 유효합니다.   
 */*                                 
 */Photos/*     
-*/Photos/strasbourg/*     
+*/Photos/Strasbourg/*     
 */Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>작업의 유형 정의
@@ -59,8 +59,8 @@ ms.locfileid: "58917756"
 - **블록**: 사용자 지정된 된 국가에서 재귀 경로에서 요청 된 자산에 액세스가 거부 됩니다. 해당 위치에 대해 다른 국가 필터링 옵션이 구성되지 않은 경우에는 다른 모든 사용자는 액세스가 허용 됩니다
 
 예를 들어 */Photos/Strasbourg/* 경로 차단에 대한 지역 필터링 규칙은 다음 파일을 필터링합니다.     
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http:\//\<끝점 >.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<끝점 >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>국가 정의
 **국가 코드** 목록에서 경로에 대해 차단 또는 허용하기 원하는 국가를 선택합니다. 

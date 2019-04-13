@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905820"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525384"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 SSL 인증서 문제 해결
 
@@ -270,8 +270,8 @@ Azure Portal에서 App Service 도메인을 구입할 수 없습니다.
     |레코드 형식|호스트|대상|
     |------|------|-----|
     |A|@|앱의 IP 주소|
-    |TXT|@|<app-name>.azurewebsites.net|
-    |CNAME|www|<app-name>.azurewebsites.net|
+    |TXT|@|`<app-name>.azurewebsites.net`|
+    |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## <a name="faq"></a>FAQ
 

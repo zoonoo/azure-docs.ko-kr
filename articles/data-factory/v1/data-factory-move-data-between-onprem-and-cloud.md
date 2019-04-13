@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4eb881992b7e40e0a9d67bd2cee94f1f09958e9e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995888"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524109"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -280,7 +280,7 @@ ms.locfileid: "57995888"
    * **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. 아직 없는 경우 **adftutorial** 컨테이너를 만듭니다.
    * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL Database의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
-   **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   지정 하지 않는 경우는 **fileName** 에 대 한는 **출력 테이블**, 생성 된 파일에는 **folderPath** 다음 형식으로 이름이 지정 됩니다: `Data.<Guid>.txt` (예를 들어:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    **SliceStart** 시간을 기반으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 partitionedBy 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
 

@@ -10,27 +10,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: f16bdb8b89c2ce72c2a31a320d2dedbc4df09c81
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 67bb81675dabd8aef28693a958a0ac39b1b441e7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242790"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549252"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>기업에서 Azure DevTest Labs 인프라 설정
-빠른 속도, 뛰어난 유연성 및 비용 측면의 이점으로 인해 클라우드를 도입하는 기업이 급격히 증가하고 있습니다. 일반적으로 클라우드를 도입할 때는 먼저 개발 및 테스트 워크로드를 마이그레이션합니다. 이러한 워크로드를 마이그레이션할 때는 일반적으로 다음과 같은 문제를 해결해야 합니다. 
+기업에서는 신속 하 게이로 인해 클라우드를 채택 하는 해당 [혜택](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) 민첩성, 유연성 및 경제성을 포함 하는 합니다. 클라우드를 사용 하는 고객에 대 한 일반적인 첫 번째 단계는 개발 및 테스트 워크 로드를 시작 하는 것입니다.  DevTest Labs 제공 [기능](devtest-lab-concepts.md) enterprise 및 지원 혜택을 [enterprise 개발/테스트 시나리오를 키](devtest-lab-guidance-get-started.md)합니다.
 
-- 개발/테스트 리소스 보호
-- 개발/테스트 환경과 프로덕션 환경의 명확한 분리
-- IT, 애플리케이션 및 프로젝트 팀 간의 리소스 구분
-- 비용 관리
-- 보안을 유지하면서 셀프 서비스 방식 개발/테스트 인프라 설정 허용
+이러한 워크 로드를 클라우드로 마이그레이션하는 경우에 문제의 일반적인 집합:
+
+- [개발/테스트용 리소스 보안 유지](devtest-lab-guidance-governance-policy-compliance.md)
+- [관리 및 비용을 이해](devtest-lab-guidance-governance-cost-ownership.md)
+- 엔터프라이즈 보안 및 규정 준수를 손상 시 키 지 않고 개발자를 위한 셀프 서비스를 사용 하도록 설정
+- 자동화 하 고 추가 시나리오를 처리 하기 위해 DevTest Labs를 확장 합니다.
+- [수천 개의 리소스에 DevTest Labs 기반 솔루션의 확장](devtest-lab-guidance-scale.md)
+- [DevTest Labs의 대규모 배포](devtest-lab-guidance-orchestrate-implementation.md)
+- [개념 증명을 사용 하 여 시작](devtest-lab-guidance-orchestrate-implementation.md)
 
 ## <a name="intended-audience"></a>대상 그룹
-이 문서는 전반적인 배포 과정을 설정/검토하고 운영 방식을 감독하는 IT 계획 담당자, 설계자 및 관리자를 대상으로 제공됩니다. 따라서 이 문서에서는 안전하고 안정적인 개발 환경을 제공하기 위한 전반적인 프로세스 및 권장 디자인 방식을 중점적으로 설명합니다. 이러한 환경이 구축되면 조직 내에서 Azure DevTest Labs를 원활하게 도입할 수 있게 됩니다.
+엔터프라이즈에 초점을 맞춘 설명서 IT 계획자, 설계자 및 설정 하 고 전체 배포를 검토 하 고, 운영을 감독 하는 일을 담당 하는 관리자를 위한 것입니다. 결과적으로,이 문서는 전체 프로세스를 강조 하 고 궁극적으로 조직 내에서 Azure DevTest Labs의 도입을 안전 하 고 안정적인 개발/테스트 환경을 촉진 디자인 원칙을 권장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure DevTest Labs 사용 시작](devtest-lab-guidance-get-started.md)
+- [엔터프라이즈에 대 한 참조 아키텍처](devtest-lab-reference-architecture.md)

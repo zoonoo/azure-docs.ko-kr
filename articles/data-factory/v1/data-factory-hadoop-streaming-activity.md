@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025176"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523225"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -99,7 +99,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 2. activity의 type을 **HDInsightStreaming**으로 설정합니다.
 3. **mapper** 속성에는 매퍼 실행 파일의 이름을 지정합니다. 예제에서는 cat.exe가 매퍼 실행 파일입니다.
 4. **reducer** 속성에는 리듀서 실행 파일의 이름을 지정합니다. 예제에서는 wc.exe가 리듀서 실행 파일입니다.
-5. **input** 유형 속성에는 매퍼의 입력 파일(위치 포함)을 지정합니다. 예제의 "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"에서 adfsample은 BLOB 컨테이너이고 example/data/Gutenberg는 폴더이며 davinci.txt는 BOLB입니다.
+5. **input** 유형 속성에는 매퍼의 입력 파일(위치 포함)을 지정합니다. `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt` 예제에서 adfsample은 Blob 컨테이너이고, example/data/Gutenberg는 폴더이며, davinci.txt는 Blob입니다.
 6. **output** 유형 속성에는 리듀서의 출력 파일(위치 포함)을 지정합니다. Hadoop 스트리밍 작업의 출력이 이 속성에 지정된 위치에 기록됩니다.
 7. **filePaths** 섹션에서 매퍼 및 리듀서 실행 파일의 경로를 지정합니다. "adfsample/example/apps/wc.exe" 예에서 adfsample은 Blob 컨테이너, example/apps는 폴더, wc.exe는 실행 파일입니다.
 8. **fileLinkedService** 속성에는 filePaths 섹션에 지정된 파일이 포함된 Azure Storage를 나타내는 Azure Storage 연결된 서비스를 지정합니다.
@@ -223,7 +223,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
     }
 }
 ```
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [Hive 작업](data-factory-hive-activity.md)
 * [Pig 작업](data-factory-pig-activity.md)
 * [MapReduce 작업](data-factory-map-reduce.md)

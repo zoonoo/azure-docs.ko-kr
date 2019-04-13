@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863358"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524024"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 
@@ -118,8 +118,8 @@ ms.locfileid: "57863358"
    |int getNumberOfDocumentsImported()  |   대량 가져오기 API 호출에 적용된 문서 중에서 성공적으로 가져온 총 문서 수입니다.      |
    |double getTotalRequestUnitsConsumed()   |  대량 가져오기 API 호출에서 사용된 총 요청 단위(RU)입니다.       |
    |Duration getTotalTimeTaken()   |    실행을 완료하기까지 대량 가져오기 API 호출에서 사용하는 총 시간입니다.     |
-   |List<Exception> getErrors() |  대량 가져오기 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.       |
-   |List<Object> getBadInputDocuments()  |    대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).     |
+   |목록\<예외 > getErrors() |  대량 가져오기 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.       |
+   |List\<Object> getBadInputDocuments()  |    대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).     |
 
 5. 대량 가져오기 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
@@ -182,7 +182,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
    |int getNumberOfDocumentsUpdated()  |   대량 업데이트 API 호출에 적용된 문서 중에서 성공적으로 업데이트된 총 문서 수입니다.      |
    |double getTotalRequestUnitsConsumed() |  대량 업데이트 API 호출에서 사용한 총 요청 단위(RU)입니다.       |
    |Duration getTotalTimeTaken()  |   실행을 완료하기까지 대량 업데이트 API 호출에서 사용하는 총 시간입니다.      |
-   |List<Exception> getErrors()   |     대량 업데이트 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.      |
+   |목록\<예외 > getErrors()   |    대량 업데이트 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.      |
 
 3. 대량 업데이트 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 

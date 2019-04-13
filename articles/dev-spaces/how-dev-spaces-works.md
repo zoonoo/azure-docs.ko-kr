@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 해당 전원 Azure 개발 공간 및 azds.yaml 구성 파일에서 구성 방법 프로세스를 설명 합니다.
 keywords: azds.yaml, Azure 개발 공간, 개발 공간, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489591"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544926"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 개발 공간 작동 하 고는 하는 방법 구성
 
@@ -85,16 +85,18 @@ AKS 클러스터를 준비 하는 작업에 포함 됩니다.
 * 사용 하 여 클러스터에서 Azure 개발 공간을 사용 하도록 설정 `az aks use-dev-spaces`
 
 만들기 및 Azure 개발 공간에 대 한 AKS 클러스터를 구성 하는 방법에 대 한 자세한 내용은 시작 가이드 중 하나를 참조 합니다.
-* [Azure Dev Spaces에서 Java를 사용하여 시작](get-started-java.md)
-* [Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작](get-started-netcore-visualstudio.md)
-* [Azure Dev Spaces에서 .NET Core를 사용하여 시작](get-started-netcore.md)
-* [Azure Dev Spaces에서 Node.js를 사용하여 시작](get-started-nodejs.md)
+* [Java 사용 하 여 Azure 개발 공간 시작](get-started-java.md)
+* [.NET Core 및 Visual Studio를 사용 하 여 Azure 개발 공간 시작](get-started-netcore-visualstudio.md)
+* [.NET Core 사용 하 여 Azure 개발 공간 시작](get-started-netcore.md)
+* [Node.js 사용 하 여 Azure 개발 공간 시작](get-started-nodejs.md)
 
 Azure 개발 공간 AKS 클러스터에서 사용 하는 경우 클러스터에 대 한 컨트롤러를 설치 합니다. 컨트롤러는 클러스터 외부에서 별도 Azure 리소스 및 클러스터의 리소스에 다음을 수행 합니다.
 
 * 페이지를 만들거나 개발 공간으로 사용 하는 Kubernetes 네임 스페이스를 지정 합니다.
 * 명명 된 모든 Kubernetes 네임 스페이스를 제거 *azds*, 있는 경우 새로 만듭니다.
-* Kubernetes 이니셜라이저 개체를 배포합니다.
+* Kubernetes 웹 후크 구성을 배포합니다.
+* 웹 후크 입학 허가 서버를 배포합니다.
+    
 
 또한 다른 Azure 개발자 공간 구성 요소에 대 한 서비스 호출을 위해 AKS 클러스터를 사용 하는 동일한 서비스 주체를 사용 합니다.
 
@@ -104,9 +106,9 @@ Azure 개발 공간을 사용 하려면 하나 이상의 개발 공간 이어야
 
 기본적으로 컨트롤러 이라는 개발 공간을 만듭니다 *기본* 기존 업그레이드 *기본* Kubernetes 네임 스페이스입니다. 새 개발 공간을 만들 기존 개발 공백을 제거 하는 클라이언트 쪽 도구를 사용할 수 있습니다. Kubernetes에서 제한으로 인해 합니다 *기본* 개발 공간을 제거할 수 없습니다. 컨트롤러 라는 모든 기존 Kubernetes 네임 스페이스 제거 *azds* 사용 하 여 충돌을 방지 하는 `azds` 클라이언트 쪽 도구에서 사용 되는 명령입니다.
 
-계측에 대 한 배포 하는 동안 세 개의 컨테이너가 있는 pod를 삽입할 때 Kubernetes 이니셜라이저 개체는: devspaces 프록시 컨테이너, devspaces-프록시-init 컨테이너 및 devspaces 빌드 컨테이너입니다. **이러한 컨테이너의 세 가지 모두 루트 액세스를 사용 하 여 AKS 클러스터에서 실행합니다.** 또한 다른 Azure 개발자 공간 구성 요소에 대 한 서비스 호출을 위해 AKS 클러스터를 사용 하는 동일한 서비스 주체를 사용 합니다.
+Kubernetes 웹 후크 입학 허가 서버 계측에 대 한 배포 하는 동안 세 개의 컨테이너가 있는 pod를 삽입할 사용: devspaces 프록시 컨테이너, devspaces-프록시-init 컨테이너 및 devspaces 빌드 컨테이너입니다. **이러한 컨테이너의 세 가지 모두 루트 액세스를 사용 하 여 AKS 클러스터에서 실행합니다.** 또한 다른 Azure 개발자 공간 구성 요소에 대 한 서비스 호출을 위해 AKS 클러스터를 사용 하는 동일한 서비스 주체를 사용 합니다.
 
-![Azure 개발 공간 Kubernetes 이니셜라이저](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Azure 개발 공간 Kubernetes 웹 후크 입학 허가 서버](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 Devspaces 프록시 컨테이너에 응용 프로그램 컨테이너에서 모든 TCP 트래픽을 처리 하는 사이드카 컨테이너 이며 라우팅을 통해 수행 합니다. Devspaces 프록시 컨테이너를 다시 특정 공간을 사용 하는 경우 HTTP 메시지를 라우팅합니다. 예를 들어, 부모 및 자식 공간에서 응용 프로그램 간의 HTTP 메시지를 라우팅할 수 있습니다. 수정 되지 않은 devspaces-프록시를 통해 모든 비 HTTP 트래픽을 전달 합니다. Devspaces 프록시 컨테이너는 또한 모든 인바운드 및 아웃 바운드 HTTP 메시지를 기록 하 고 클라이언트 쪽 추적으로 도구에 보냅니다. 그런 다음 응용 프로그램의 동작을 검사 하는 개발자가 이러한 추적을 볼 수 있습니다.
 
@@ -117,7 +119,7 @@ Devspaces 빌드 컨테이너는 init 컨테이너가 하며 프로젝트 소스
 > [!NOTE]
 > Azure 개발 공간 응용 프로그램의 컨테이너를 빌드하고 실행 하는 동일한 노드를 사용 합니다. 결과적으로, Azure 개발 공간 빌드 및 응용 프로그램을 실행 하기 위한 외부 container registry를 필요 하지 않습니다.
 
-Kubernetes 이니셜라이저 개체 AKS 클러스터에서 만든 모든 새 pod에 대 한 수신 대기 합니다. 해당 pod 모든 네임 스페이스를 배포 하는 경우는 *azds.io/space=true* 레이블을 추가 컨테이너를 사용 하 여 해당 pod를 삽입 합니다. Devspaces 빌드 컨테이너는 컨테이너 응용 프로그램의 클라이언트 쪽 도구를 사용 하 여 실행 되는 경우에 삽입 됩니다.
+Kubernetes 웹 후크 입학 허가 서버 AKS 클러스터에서 만든 모든 새 pod에 대 한 수신 대기 합니다. 해당 pod 모든 네임 스페이스를 배포 하는 경우는 *azds.io/space=true* 레이블을 추가 컨테이너를 사용 하 여 해당 pod를 삽입 합니다. Devspaces 빌드 컨테이너는 컨테이너 응용 프로그램의 클라이언트 쪽 도구를 사용 하 여 실행 되는 경우에 삽입 됩니다.
 
 AKS 클러스터를 준비 했으면 준비 하 고, 개발 공간에서 코드를 실행 하는 클라이언트 쪽 도구를 사용할 수 있습니다.
 
@@ -221,7 +223,7 @@ azds up
 1. 파일은 사용자의 AKS 클러스터에 고유한 Azure 파일 저장소에 사용자의 컴퓨터에서 동기화 됩니다. 소스 코드, Helm 차트 및 구성 파일 업로드 됩니다. 동기화 프로세스에 대 한 자세한 내용은 다음 섹션에서 사용할 수 있습니다.
 1. 컨트롤러는 새 세션을 시작 하는 요청을 만듭니다. 이 요청에는 고유 ID, 공간 이름, 소스 코드에 대 한 경로 및 디버깅 플래그를 비롯 한 여러 속성을 포함 합니다.
 1. 컨트롤러 대체 합니다 *$(tag)* 고유한 세션 ID 및 서비스에 대 한 Helm 차트 설치를 사용 하 여 Helm 차트에 자리 표시자입니다. Helm 차트에 고유한 세션 ID에 대 한 참조는 컨테이너를 사용 하면 추가 세션 요청에 다시 연결 하려면이 특정 세션에 대 한 AKS 클러스터에 배포 하 고 관련 정보입니다.
-1. Helm 차트를 설치 하는 동안 Kubernetes 이니셜라이저 개체는 계측 및 프로젝트의 소스 코드에 대 한 액세스에 대 한 응용 프로그램 pod에 추가 컨테이너를 추가합니다. Devspaces 프록시와 devspaces-프록시-init 컨테이너 HTTP 추적 및 공간 라우팅을 제공 하기 위해 추가 됩니다. Devspaces 빌드 컨테이너 응용 프로그램의 컨테이너를 빌드하기 위한 Docker 인스턴스 및 프로젝트 소스 코드에 대 한 액세스를 사용 하 여 pod를 제공에 추가 됩니다.
+1. Helm 차트를 설치 하는 동안 Kubernetes 웹 후크 입학 허가 서버 계측 및 프로젝트의 소스 코드에 대 한 액세스에 대 한 응용 프로그램 pod에 추가 컨테이너를 추가합니다. Devspaces 프록시와 devspaces-프록시-init 컨테이너 HTTP 추적 및 공간 라우팅을 제공 하기 위해 추가 됩니다. Devspaces 빌드 컨테이너 응용 프로그램의 컨테이너를 빌드하기 위한 Docker 인스턴스 및 프로젝트 소스 코드에 대 한 액세스를 사용 하 여 pod를 제공에 추가 됩니다.
 1. 응용 프로그램의 pod를 시작할 때 devspaces 빌드 컨테이너 및 devspaces-프록시-init 컨테이너 응용 프로그램 컨테이너 빌드에 사용 됩니다. 그런 다음 응용 프로그램 컨테이너 및 devspaces 프록시 컨테이너 시작 됩니다.
 1. Kubernetes 클라이언트 쪽 기능을 사용 하 여 응용 프로그램 컨테이너 시작 되 면 *포트 정방향* 를 통해 응용 프로그램에 대 한 HTTP 액세스를 제공 하는 기능이 http://localhost합니다. 이 포트 전달을 개발 공간에서 서비스를 개발 컴퓨터를 연결합니다.
 1. Pod의 모든 컨테이너를 시작한 서비스 실행 중입니다. 이 시점에서 클라이언트 쪽 기능을 HTTP 추적, stdout 및 stderr를 스트림 하기 시작 합니다. 이 정보는 개발자를 위한 클라이언트 쪽 기능으로 표시 됩니다.

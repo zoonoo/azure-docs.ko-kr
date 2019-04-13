@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918708"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543761"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium 계획 (미리 보기)
 
@@ -42,7 +42,7 @@ az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --numb
 
 실행 없고 이벤트 발생 하면 현재 소비 계획에서 앱 0 개 인스턴스로 축소할 수 있습니다. 새 이벤트를 제공 하는 경우 새 인스턴스를 실행 중인 앱을 사용 하 여 특수화할 수 해야 합니다.  특수화의 새 인스턴스를 앱에 따라 다소 시간이 걸릴 수 있습니다.  첫 번째 호출에서이 추가 대기 시간에 응용 프로그램의 콜드 시작을 이라고 합니다.
 
-프리미엄 요금제에서는 인스턴스의 지정된 된 수에 미리 준비 앱을 할 수 있습니다.  또한 미리 준비 인스턴스 미리 높은 로드 하기 전에 앱을 확장할 수 있습니다. 앱 확장 되 면 대로 먼저 미리 warmed 인스턴스로 조정 합니다. 추가 인스턴스 및 다음 크기 조정 작업에 대 한 준비에서 즉시 웜 버퍼를 계속 합니다. 사전 준비 인스턴스의 버퍼를가지고 있으므로, 콜드 대기 시간을 효과적으로 방지할 수 있습니다.  미리 준비 인스턴스는 프리미엄 요금제 기능 하 고 하나 이상의 인스턴스를 유지 해야 활성 상태인 모든 시간 계획에서 사용할 수 있습니다.
+프리미엄 요금제에서는 최소 계획 크기까지 인스턴스의 지정된 된 수에 미리 준비 앱을 할 수 있습니다.  또한 미리 준비 인스턴스 미리 높은 로드 하기 전에 앱을 확장할 수 있습니다. 앱 확장 되 면 대로 먼저 미리 warmed 인스턴스로 조정 합니다. 추가 인스턴스 및 다음 크기 조정 작업에 대 한 준비에서 즉시 웜 버퍼를 계속 합니다. 사전 준비 인스턴스의 버퍼를가지고 있으므로, 콜드 대기 시간을 효과적으로 방지할 수 있습니다.  미리 준비 인스턴스는 프리미엄 요금제 기능 하 고 하나 이상의 인스턴스를 유지 해야 활성 상태인 모든 시간 계획에서 사용할 수 있습니다.
 
 선택 하 여 Azure portal에서 미리 준비 인스턴스 수를 구성할 수 있습니다 **Scale Out** 에 **플랫폼 기능** 탭 합니다.
 
@@ -69,6 +69,8 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 ### <a name="unbounded-run-duration"></a>Unbounded 실행 지속 시간
 
 Azure Functions 소비 계획에서 단일 실행에 대 일 분으로 제한 됩니다.  프리미엄 계획에서 실행된 기간 기본 런어웨이 실행을 방지 하기 위해 30 분입니다. 그러나 수 있습니다 [host.json 구성을 수정](./functions-host-json.md#functiontimeout) 프리미엄 계획 앱에 대 한 무제한 이렇게 하려면.
+
+미리 보기에서 프로그램 기간 지난 12 분 보장 되지 않으며 확률이 앱은 하지 해당 최소 작업자 수 확장할 경우 30 분 이상 실행 해야 합니다.
 
 ## <a name="plan-and-sku-settings"></a>계획 및 SKU 설정
 
@@ -106,7 +108,6 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |오스트레일리아 동부|
 |오스트레일리아 남동부|
 |캐나다 중부|
-|인도 중부|
 |미국 중부|
 |동아시아|
 |미국 동부 2|

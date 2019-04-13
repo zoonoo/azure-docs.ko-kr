@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9c628b02961ee289833e669a4c77de0bf824de22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999984"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527254"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Azure CLI를 사용하는 URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -220,7 +220,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 와 같은 `http://40.121.222.19`하십시오 `http://40.121.222.19:8080/images/test.htm`, 또는 `http://40.121.222.19:8080/video/test.htm`합니다.
+애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` 또는 `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -232,11 +232,11 @@ az network public-ip show \
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-URL을 기준 URL에 대한 http://<ip-address>:8080/video/test.html로 변경하면 다음 예제와 같은 항목이 표시됩니다.
+URL을 변경 `http://<ip-address>:8080/video/test.html` 기본 URL의 끝은 다음과 같이 표시 됩니다.
 
 ![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-URL을 http://<ip-address>:8080/video/test.html로 변경하면 다음 예제와 같은 항목이 표시됩니다.
+URL을 변경 `http://<ip-address>:8080/video/test.html` 다음과 같이 표시 되어야 합니다.
 
 ![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

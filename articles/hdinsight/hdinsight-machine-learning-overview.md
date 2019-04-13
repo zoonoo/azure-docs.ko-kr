@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: fc7c957b766c1c95ea247ccb63cad5bedec6feec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a88ff7c7b889d197e78dddfbb498b7150e08d5ed
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669004"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526812"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -65,4 +65,4 @@ Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 �
 
 * [Microsoft Cognitive Toolkit 딥 러닝 모델 Azure HDInsight Spark 클러스터와 함께 사용](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용](spark/apache-spark-deep-learning-caffe.md)
-* [딥 러닝 및 AI 프레임 워크 데이터 과학 Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks)
+* [딥 러닝 및 AI 프레임 워크 데이터 과학 Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

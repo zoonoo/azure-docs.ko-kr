@@ -3,17 +3,17 @@ title: Azure Functions의 네트워킹에 대 한 질문과 대답
 description: 몇 가지 가장 일반적인 질문 및 Azure Functions를 사용 하 여 네트워킹에 대 한 시나리오에 대 한 답변입니다.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896355"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548646"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
 
@@ -54,3 +54,13 @@ VNET 통합을 사용 하 여 실행 중인 함수에서 VNET의 리소스에 �
 전체적으로 ILB ASE를 사용 하 여 VNET에 세부 정보 내에 있는 함수 앱 만들기, 문서를 시작 하는 유일한 방법은 App Service Environment에 배포 합니다. [만들기 및 ILB ASE를 사용 하 여](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)입니다.
 
 만 해야 하는 포괄적인 네트워크 격리 이하의 VNET 리소스에 대 한 단방향 액세스 시나리오에 대 한 참조를 [Functions 네트워킹 개요](functions-networking-options.md)합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+네트워킹에 자세히 알아보려면 및 함수: 
+
+* [시작 VNET 통합 자습서를 수행 합니다.](./functions-create-vnet.md)
+* [여기에서 함수에서 네트워킹 옵션에 자세히 알아보기](./functions-networking-options.md)
+* [App Service와 VNET 통합/함수에 대해 여기서 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)
+* [Azure의 VNET에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)
+* [추가 네트워킹 기능 및 App Service Environment를 사용 하 여 컨트롤을 사용 하도록 설정](../app-service/environment/intro.md)

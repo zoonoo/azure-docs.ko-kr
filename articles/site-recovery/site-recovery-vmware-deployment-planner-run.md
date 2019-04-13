@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361981"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527682"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -136,7 +136,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>보고서 생성
-이 도구는 배포의 모든 권장 사항을 요약하는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 이 보고서는 DeploymentPlannerReport_<unique numeric identifier>.xlsm이라고 명명되며 지정된 디렉터리에 배치됩니다.
+이 도구는 배포의 모든 권장 사항을 요약하는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 보고서 이름은 `DeploymentPlannerReport_<unique numeric identifier>.xlsm` 지정된 된 디렉터리에 배치 합니다.
 
 >[!NOTE]
 >Deployment Planner를 실행하는 서버의 예상 비용을 계산하려면 보고서의 소수점 기호를 "."로 구성해야 합니다. Windows 머신에서 소수점 기호를 ","으로 설정한 경우 제어판의 "날짜, 시간 또는 숫자 형식 변경"에서 "추가 설정"으로 이동하여 소수점 기호를 "."로 변경합니다.
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>계산에 사용된 백분위 수 값
-**도구를 사용 하는 보고서를 생성 하는 경우는 프로 파일링 동안 수집 된 성능 메트릭의 기본 백분위 수 값?**
+**도구가 보고서를 생성할 때 사용하는 프로파일링 중에 수집된 성능 메트릭의 기본 백분위수 값은 얼마인가요?**
 
 도구에서는 모든 VM을 프로파일링하는 동안 수집된 읽기/쓰기 IOPS, 쓰기 IOPS 및 데이터 변동의 95번째 백분위수 값을 기본적으로 사용합니다. 이 메트릭은 사용자의 VM이 일시적 이벤트 때문에 볼 수 있는 100번째 백분위수 급증을 대상 저장소 계정 및 원본 대역폭 요구 사항을 결정하는 데 사용되지 않도록 합니다. 예를 들어 일시적 이벤트는 하루에 한 번 실행하는 백업 작업, 주기적 데이터베이스 인덱싱 또는 분석 보고서 생성 작업 또는 기타 유사한 단기적 시점 이벤트일 수 있습니다.
 
@@ -226,7 +226,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="growth-factor-considerations"></a>증가율 고려 사항
-**배포 계획 때 증가율을 고려해 야는 이유**
+**배포를 계획할 때 증가율을 왜 고려해야 하나요?**
 
 시간이 지남에 따라 잠재적 사용량이 증가할 것으로 가정할 때 워크로드 특성의 증가를 고려하는 것이 중요합니다. 보호가 설정된 후 워크로드 특성이 변경되는 경우 보호를 해제하고 다시 사용하도록 설정하지 않고는 다른 저장소 계정으로 전환하여 보호할 수 없기 때문입니다.
 
@@ -242,10 +242,10 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 * [온-프레미스 요약](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM <>-저장소 배치](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM<->저장소 배치](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [호환되는 VM](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [호환되지 않는 VM](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
-* [비용된 예측](site-recovery-vmware-deployment-planner-cost-estimation.md)
+* [비용 예측](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 

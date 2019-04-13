@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079299"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527968"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure CLI
 
@@ -109,7 +109,7 @@ az network route-filter rule list-service-communities
 
 ### <a name="1-create-a-route-filter"></a>1. 경로 필터 만들기
 
-먼저, 경로 필터를 만듭니다. 'az network route-filter create' 명령은 경로 필터 리소스만 만듭니다. 리소스를 만든 후에 규칙을 만들고 경로 필터 개체에 연결해야 합니다. 다음 명령을 실행하여 경로 필터 리소스를 만듭니다.
+먼저, 경로 필터를 만듭니다. 이 명령은 `az network route-filter create` 경로 필터 리소스만 만듭니다. 리소스를 만든 후에 규칙을 만들고 경로 필터 개체에 연결해야 합니다. 다음 명령을 실행하여 경로 필터 리소스를 만듭니다.
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup

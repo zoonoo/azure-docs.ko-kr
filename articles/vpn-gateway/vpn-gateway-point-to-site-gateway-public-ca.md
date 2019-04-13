@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848935"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521597"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>P2S용 공용 CA 게이트웨이 인증서로 전환
 
@@ -43,7 +43,7 @@ Azure VPN Gateway는 P2S 연결의 게이트웨이에 Azure 수준의 자체 서
 
 ## <a name="1-verify-your-certificate"></a>1. 인증서 확인
 
-### <a name="resource-manager"></a>리소스 관리자
+### <a name="resource-manager"></a>Resource Manager
 
 1. 이 업데이트의 영향을 받는지 확인합니다. [이 문서](point-to-site-vpn-client-configuration-azure-cert.md)의 단계를 사용하여 현재 VPN 클라이언트 구성을 다운로드합니다.
 
@@ -56,7 +56,7 @@ Azure VPN Gateway는 P2S 연결의 게이트웨이에 Azure 수준의 자체 서
 
 ### <a name="classic"></a>클래식
 
-1. 클라이언트 컴퓨터에서 %appdata%/Microsoft/Network/Connections/Cm/<gatewayID> 경로로 이동합니다. 게이트웨이 ID 폴더에서 인증서를 볼 수 있습니다.
+1. 클라이언트 컴퓨터에서 경로로 이동 `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`합니다. 게이트웨이 ID 폴더에서 인증서를 볼 수 있습니다.
 2. 인증서의 일반 탭에서 발급 기관이 “DigiCert Global Root CA”인지 확인합니다. 이 발급 기관 이외의 CA가 있는 경우 게이트웨이 인증서가 업데이트에 포함되며 전환됩니다.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. 인증서 전환 일정 확인

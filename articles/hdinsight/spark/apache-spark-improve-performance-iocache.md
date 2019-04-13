@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 5422f4796d2451b652222332799d8ad1a9fc4803
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608497"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525598"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight IO 캐시를 사용하여 Apache Spark 워크로드의 성능 개선(미리 보기)
 
@@ -78,4 +78,4 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다음 블로그 게시물에서 성능 벤치마크를 포함한 IO 캐시에 대해 자세히 알아보세요. [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)(HDInsight IO 캐시로 Apache Spark 작업 속도 9배 높이기)
+- 다음 블로그 게시물에서 성능 벤치마크를 포함한 IO 캐시에 대해 자세히 알아보세요. [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)(HDInsight IO 캐시로 Apache Spark 작업 속도 9배 높이기)

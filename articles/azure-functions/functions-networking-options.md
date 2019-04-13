@@ -3,19 +3,19 @@ title: Azure Functions 네트워킹 옵션
 description: Azure Functions에서 사용 가능한 모든 네트워킹 옵션의 개요
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358168"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545508"
 ---
-# <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
+# <a name="azure-functions-networking-options"></a>Azure 네트워킹 옵션 함수
 
 이 문서에서 Azure Functions 호스팅 옵션의 네트워킹 기능을 사용할 수 있는 도구 모음을 설명 합니다. 다음과 같은 네트워킹 옵션의 모든 인터넷 라우팅 가능 주소를 사용 하지 않고 리소스에 액세스 하거나 함수 앱에 대 한 인터넷 액세스를 제한 하는 일부 기능을 제공 합니다. 모든 호스팅 모델은 서로 다른 수준의 네트워크 격리를 사용할 수 있고 올바른 템플릿을 선택 하면 네트워크 격리 요구 사항을 충족 합니다.
 
@@ -29,11 +29,11 @@ ms.locfileid: "59358168"
 
 ## <a name="networking-feature-matrix"></a>네트워킹 기능 매트릭스
 
-|                |[소비 계획](functions-scale.md#consumption-plan)|⚠ [프리미엄 요금제](functions-scale.md##premium-plan-public-preview)|[App Service 플랜](functions-scale.md#app-service-plan)|[App Service 환경](../app-service/environment/intro.md)|
+|                |[소비 계획](functions-scale.md#consumption-plan)|⚠ [프리미엄 요금제](functions-scale.md##premium-plan-public-preview)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**인바운드 IP 제한**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET 통합**](#vnet-integration)|❌No|⚠ 예|✅Yes|✅Yes|
-|[**미리 보기 VNET 통합 (Express 경로 및 서비스 끝점)**](#preview-vnet-integration)|❌No|⚠ 예|⚠ 예|✅Yes|
+|[**VNET 통합**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**미리 보기 VNET 통합 (Express 경로 및 서비스 끝점)**](#preview-vnet-integration)|❌No|⚠예|⚠예|✅Yes|
 |[**하이브리드 연결**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**개인 사이트 액세스**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
@@ -46,9 +46,9 @@ IP 제한을 사용하여 앱 액세스가 허용되는 IP 주소의 허용/거�
 > [!NOTE]
 > Azure portal 편집기를 사용 하 여 할 일 하려면 포털을 실행 중인 함수 앱에 직접 액세스할 수 있어야 하 고 포털에 액세스 하려면 사용 중인 장치에는 해당 IP 허용 목록에 있어야 합니다. 네트워크 제한 사항이 사용 하 여 액세스할 수 있습니다에서 모든 기능을 **플랫폼 기능** 탭 합니다.
 
-[자세히 알아보기](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
+[여기를 참조하세요](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions).
 
-## <a name="vnet-integration"></a>VNET 통합
+## <a name="vnet-integration"></a>VNet 통합
 
 VNET 통합에는 함수 앱을 VNET 내부의 리소스에 액세스할 수 있습니다. VNET 통합은 Premium 계획 및 App Service 계획에서 사용할 수 있습니다. App Service Environment의 앱 인 경우 다음 VNet에 이미 하 고 동일한 VNet에서 리소스를 연결할 VNet 통합 기능을 사용 하 여 필요 하지 않습니다.
 
@@ -89,3 +89,13 @@ VNET 통합의 일반 공급 버전 함수 앱을 가상 네트워크에 연결 
 개인 사이트 액세스는 Azure Virtual Network와 같은 개인 네트워크에서만 앱에 액세스할 수 있도록 합니다. 개인 사이트 액세스는 ILB(내부 부하 분산 장치)로 ASE가 구성된 상태에서만 사용할 수 있습니다. ILB ASE를 사용 하 여 세부 정보를 참조 하세요 [만들기 및 ILB ASE를 사용 하 여](../app-service/environment/create-ilb-ase.md)입니다.
 
 다른 호스팅 옵션에 대 한 VNET 리소스에 액세스 하는 방법은 여러 가지 이지만 ASE는 VNET을 통해 발생 하는 함수에 대 한 트리거를 허용 하는 유일한 방법은 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+네트워킹에 자세히 알아보려면 및 함수: 
+
+* [시작 VNET 통합 자습서를 수행 합니다.](./functions-create-vnet.md)
+* [읽기 FAQ 여기 네트워킹 함수](./functions-networking-faq.md)
+* [App Service와 VNET 통합/함수에 대해 여기서 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)
+* [Azure의 VNET에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)
+* [추가 네트워킹 기능 및 App Service Environment를 사용 하 여 컨트롤을 사용 하도록 설정](../app-service/environment/intro.md)
+* [하이브리드 연결을 사용하여 방화벽 변경 없이 개별 온-프레미스 리소스에 연결](../app-service/app-service-hybrid-connections.md)

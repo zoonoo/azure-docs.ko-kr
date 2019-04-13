@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102672"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524517"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric에서 구성 파일을 매개 변수화하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "58102672"
 
 이 예제에서는 애플리케이션 배포에서 매개 변수를 사용하여 구성 값을 재정의합니다.
 
-1. 서비스 프로젝트에서 *<MyService>\PackageRoot\Config\Settings.xml* 파일을 여세요.
+1. 엽니다는  *\<MyService > \PackageRoot\Config\Settings.xml* 서비스 프로젝트에서 파일입니다.
 1. 다음 XML을 추가하여 구성 매개 변수 이름 및 값(예: 캐시 크기가 25임)을 설정하세요.
 
    ```xml
@@ -37,7 +37,7 @@ ms.locfileid: "58102672"
    ```
 
 1. 파일을 저장하고 닫습니다.
-1. *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 파일을 여세요.
+1. 엽니다는  *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml* 파일입니다.
 1. ApplicationManifest.xml 파일에서 `Parameters` 요소에 매개 변수와 기본값을 선언하세요.  매개 변수 이름에 서비스 이름(예: “내 서비스”)이 포함되어 있는 것이 좋습니다.
 
    ```xml

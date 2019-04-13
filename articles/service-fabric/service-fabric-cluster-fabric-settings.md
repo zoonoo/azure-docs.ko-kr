@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501300"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526540"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -87,7 +87,7 @@ ms.locfileid: "59501300"
 |MaxDataMigrationTimeout |time(초), 기본값: 600 |동적|시간 간격은 초 단위로 지정합니다. 패브릭 업그레이드를 수행한 이후 데이터 마이그레이션 복구 작업에 대한 최대 시간 제한입니다. |
 |MaxOperationRetryDelay |time(초), 기본값: 5|동적| 시간 간격은 초 단위로 지정합니다. 오류가 발생하는 경우 내부 다시 시도에 대한 최대 지연 시간입니다. |
 |MaxOperationTimeout |time(초), 기본값: MaxValue |동적| 시간 간격은 초 단위로 지정합니다. ClusterManager에서 내부적으로 작업을 처리하기 위한 최대 전역 시간 제한입니다. |
-|MaxTimeoutRetryBuffer | time(초), 기본값: 600 |동적|시간 간격은 초 단위로 지정합니다. 시간 제한으로 인해 내부적으로 다시 시도하는 경우 최대 작업 시간 제한은 <Original Time out> + <MaxTimeoutRetryBuffer>입니다. 추가 시간 제한은 MinOperationTimeout 증분 단위로 추가됩니다. |
+|MaxTimeoutRetryBuffer | time(초), 기본값: 600 |동적|시간 간격은 초 단위로 지정합니다. 시간 제한으로 인해 내부적으로 다시 시도 하는 경우 최대 작업 시간 제한은 `<Original Time out> + <MaxTimeoutRetryBuffer>`합니다. 추가 시간 제한은 MinOperationTimeout 증분 단위로 추가됩니다. |
 |MinOperationTimeout | 시간(초), 기본값: 60 |동적|시간 간격은 초 단위로 지정합니다. ClusterManager에서 내부적으로 작업을 처리하기 위한 최소 전역 시간 제한입니다. |
 |MinReplicaSetSize |int, 기본값: 3 |허용되지 않음|ClusterManager의 MinReplicaSetSize입니다. |
 |PlacementConstraints | string, 기본값: "" |허용되지 않음|ClusterManager의 PlacementConstraints입니다. |
@@ -798,7 +798,7 @@ ms.locfileid: "59501300"
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 서버 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 서버 인증서의 직접 발급자가 목록에 있어야 합니다.|
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치
 
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |

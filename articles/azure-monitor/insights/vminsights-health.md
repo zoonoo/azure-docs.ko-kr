@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490049"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549868"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure virtual machines의 상태를 이해 합니다.
 
@@ -235,7 +235,9 @@ VM 목록 보기에서 VM의 이름을 클릭하면 선택한 VM에 해당하는
 
 ## <a name="alerts"></a>경고
 
-VM용 Azure Monitor 상태 기능은 [Azure 경고](../../azure-monitor/platform/alerts-overview.md)와 통합되어 조건이 감지될 때 미리 정의된 상태 조건이 정상에서 비정상 상태로 바뀌면 경고를 발생시킵니다. 경고는 심각도별로 0에서 4까지 분류됩니다. 심각도 0은 심각도 수준이 가장 높은 것을 나타냅니다.  
+VM용 Azure Monitor 상태 기능은 [Azure 경고](../../azure-monitor/platform/alerts-overview.md)와 통합되어 조건이 감지될 때 미리 정의된 상태 조건이 정상에서 비정상 상태로 바뀌면 경고를 발생시킵니다. 경고는 심각도별로 0에서 4까지 분류됩니다. 심각도 0은 심각도 수준이 가장 높은 것을 나타냅니다. 
+
+경고가 트리거되면 경고 사용자에 게 알려 주기 위해 작업 그룹을 사용 하 여 연결 되지 않습니다. 단계에 따라 알림을 구성 해야 하는 구독 소유자 [이 섹션의 뒷부분에 나오는](#configure-alerts)합니다.   
 
 심각도별로 분류된 VM 상태 경고의 총 수는 **경고** 섹션의 **상태** 대시보드에 제공됩니다. 총 경고 수 또는 심각도 수준에 해당하는 숫자를 선택하면, **경고** 페이지가 열리고 선택 항목과 일치하는 모든 경고가 나열됩니다.  예를 들어 **심각도 수준 1**에 해당하는 행을 선택하면 다음 보기가 표시됩니다.
 

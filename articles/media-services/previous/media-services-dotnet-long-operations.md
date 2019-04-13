@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 518cc1d55a83d95daec8f22d0dcfc5db23cc2d38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173841"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520821"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 라이브 스트리밍 제공
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services는 작업(예: 채널 만들기, 시작, 중지 �
 Media Services .NET SDK는 요청을 보내고 작업이 완료되기를 기다리는 API를 제공합니다(내부적으로 API는 일정 간격으로 작업 진행을 폴링함). 예를 들어 channel.Start()를 호출하면, 채널이 시작된 후 메서드가 반환됩니다. 비동기 버전: await channel.StartAsync()를 사용할 수도 있습니다(작업 기반 비동기 패턴에 대한 내용은 [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx) 참조). 작업 요청을 보낸 다음 작업이 완료될 때까지 상태에 대해 폴링하는 API를 "폴링 메서드"라고 합니다. 리치 클라이언트 애플리케이션 및/또는 상태 저장 서비스에 이 메서드 (특히 비동기 버전)를 사용하는 것이 좋습니다.
 
 애플리케이션이 장기 실행하는 http 요청을 기다릴 수 없는 시나리오가 있으며 수동으로 작업 진행 상태를 폴링하려는 경우도 있습니다. 전형적인 예는 상태 비저장 웹 서비스와 상호작용하는 브라우저입니다. 브라우저가 채널을 만들도록 요청하면 웹 서비스는 장기 실행 작업을 시작하고 브라우저에 작업 ID를 반환합니다. 브라우저는 ID에 따라 작업 상태를 가져오도록 웹 서비스에 요청할 수 있습니다. Media Services .NET SDK는 이 시나리오에 유용한 API를 제공합니다. 이 API를 “비 폴링 메서드”라고 합니다.
-“비 폴링 메서드”는 다음과 같은 명명 패턴을 사용합니다. Send*OperationName*Operation(예: SendCreateOperation). Send*OperationName*Operation 메서드는 **IOperation** 개체를 반환합니다. 반환된 개체는 작업을 추적하는 데 사용할 수 있는 정보를 포함합니다. Send*OperationName*OperationAsync 메서드는 **Task<IOperation>** 를 반환합니다.
+“비 폴링 메서드”는 다음과 같은 명명 패턴을 사용합니다. Send*OperationName*Operation(예: SendCreateOperation). Send*OperationName*Operation 메서드는 **IOperation** 개체를 반환합니다. 반환된 개체는 작업을 추적하는 데 사용할 수 있는 정보를 포함합니다. 송신*OperationName*OperationAsync 메서드 반환 **태스크\<IOperation >** 합니다.
 
 현재 다음 클래스에서 비 폴링 메서드를 지원합니다.  **Channel**, **StreamingEndpoint** 및 **Program**.
 

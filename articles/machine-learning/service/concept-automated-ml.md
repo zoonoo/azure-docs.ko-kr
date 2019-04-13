@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 620dbd22613df37fdc3c20e34906684446b2251f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867255"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546014"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -51,27 +51,14 @@ Azure Machine Learning 서비스는 학습 중에 각기 다른 알고리즘과 
 
 실행 중에 수집된 메트릭을 포함하는 기록된 실행 정보를 검사할 수 있습니다. 학습 실행에서는 모델 및 데이터 전처리를 포함하는 Python 직렬화 개체(`.pkl` 파일)도 생성됩니다.
 
-## <a name="model-explainability"></a>모델 설명
-
-자동화된 Machine Learning의 일반적인 단점은 엔드 투 엔드 프로세스를 볼 수 없다는 것입니다. Azure Machine Learning을 사용하면 모델에 대한 자세한 정보를 확인할 수 있으므로 백 엔드에서 실행되는 대상에 대한 투명성이 높아집니다. 선형 회귀와 같은 일부 모델은 매우 단순한 것으로 간주되므로 이해하기 쉽습니다. 그러나 더 많은 기능을 추가하고 좀 더 복잡한 Machine Learning 모델을 사용하면서 이해하는 것이 점점 더 어려워집니다. Machine Learning의 투명성과 관련된 두 가지 주요 측면은 다음과 같습니다.
-
-1. Machine Learning 파이프라인과 데이터 전처리/기능화, 하이퍼 매개 변수 값을 포함하는 관련된 모든 단계 인식
-1. 입력 변수("기능"이라고도 함)와 모델 출력 간 관계 이해  각 기능이 예측 값에 미치는 영향의 크기 및 방향을 잘 파악하면 모델을 더 잘 이해하고 설명할 수 있습니다. 이를 기능 중요도라고 합니다.
-
-자동화 된 machine learning 학습의 일부로 모든 파이프라인에 대 한 사용 하거나 원하는 파이프라인에 대 한 전역 기능 중요도 post 주문형 교육을 설정할 수 있습니다. 은행 및 의료와 같은 과도 하 게 규제 산업 규정 및 모범 사례를 준수 하는 중요 한입니다.  설명 하기 위해 몇 가지 실제 시나리오는 다음과 같습니다.
-
-1. 향후 계측 오류를 예측 하는 데 기계 학습을 사용 하 여 제조 회사인 이므로 사전에 수행할 수 유지 관리 작업입니다. 계측 실패할 것으로 알고 있다면 원인은 일어나 예방적 유지 관리 신속 하 게 수행할 수 있도록?
-1. Machine learning 프로세스 대출 또는 신용 카드 응용 프로그램을 사용 하 여 금융 기관. 하는 방법 알 경우 모델에는 올바른 작업을 수행 하는 고객 응용 프로그램에서 거부 된 이유에 대 한 자세한 내용은에서 요청 하면 어떻게 하면 응답할 하 시겠습니까?
-1. 온라인 소매점 또는 고객 이탈을 예측 하는 데 기계 학습을 사용 하는 독립 소프트웨어 공급자입니다. 고객에 게 주요 참가자는 어떤 변동 및 방지 하는 방법을 하면 고객에 게 양도에서?
-
-이 기능은 미리 보기 기능 및 기계 학습 모델을 더 잘 이해할 수 있도록 풍부한 정보를 제공 하는 데 투자를 계속 됩니다. Azure Machine Learning에서 모델 설명을 실험해 보려면 이 [샘플 노트](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb)를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 예제를 통해 자동화된 Machine Learning을 사용하는 모델을 작성하는 방법을 알아봅니다.
-+ [샘플: Jupyter Notebook을 사용하여 Azure Machine Learning Service 검색](samples-notebooks.md#automated-ml-setup)
 
 + [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md)
+
++ [Notebook 샘플](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
 + [원격 리소스에 대한 자동 학습 사용](how-to-auto-train-remote.md)
 

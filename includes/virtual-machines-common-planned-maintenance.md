@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805727"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551537"
 ---
 Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 및 보안을 개선하기 위해 주기적으로 플랫폼을 업데이트합니다. 이러한 업데이트는 호스팅 환경의 소프트웨어 구성 요소 패치, 네트워킹 구성 요소 업그레이드, 하드웨어 서비스 해제 등을 포함합니다. 대부분의 업데이트는 호스트된 가상 머신에 영향을 주지 않습니다. 그러나 업데이트가 영향을 주는 경우가 있으며, Azure는 업데이트의 영향을 최소화하는 방법을 선택합니다.
 
@@ -27,9 +27,9 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 
 계획된 유지 보수의 관리에 대한 "방법" 정보는 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 또는 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md)용 "계획된 유지 관리 알림 처리"를 참조하세요.
 
-## <a name="memory-preserving-maintenance"></a>메모리 보존 유지 관리
+## <a name="maintenance-not-requiring-a-reboot"></a>다시 부팅을 요구 하지 않는 유지 관리
 
-다시 부팅하지 않는 대부분의 업데이트는 VM의 경우 10초 미만의 일시 중지를 목표로 합니다. VM을 최대 30초간 일시 중지하고 RAM의 메모리를 보존하는 메모리 보존 유지 관리 메커니즘을 사용하는 경우도 있습니다. 그러면 가상 머신이 다시 시작되고 가상 머신의 시계가 자동으로 동기화됩니다. Azure는 점점 더 실시간 마이그레이션 기술을 사용하고 메모리 보존 유지 관리 메커니즘을 개선하여 일시 중지 기간을 줄이고 있습니다.
+다시 부팅이 필요 하지 않은 대부분의 유지 관리에 대 한 목적은 10 초 미만의 VM에 대 한 일시 중지 합니다. VM을 최대 30초간 일시 중지하고 RAM의 메모리를 보존하는 메모리 보존 유지 관리 메커니즘을 사용하는 경우도 있습니다. 그러면 가상 머신이 다시 시작되고 가상 머신의 시계가 자동으로 동기화됩니다. Azure는 점점 더 실시간 마이그레이션 기술을 사용하고 메모리 보존 유지 관리 메커니즘을 개선하여 일시 중지 기간을 줄이고 있습니다.
 
 이러한 재부팅 불가능 유지 관리 작업은 장애 도메인에 의해 적용된 장애 도메인이고 경고 상태 신호를 받는 경우 진행률이 중지됩니다. 
 

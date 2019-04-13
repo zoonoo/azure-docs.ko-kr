@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272294"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528240"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
-이 문서에서는 Azure 리소스를 다른 Azure 구독 또는 동일한 구독의 다른 리소스 그룹으로 이동하는 방법을 보여 줍니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다. 자습서를 진행하려면 [자습서: 다른 리소스 그룹 또는 구독에 Azure 리소스 이동](./resource-manager-tutorial-move-resources.md)을 참조하세요.
+이 문서에서는 Azure 리소스를 다른 Azure 구독 또는 동일한 구독의 다른 리소스 그룹으로 이동하는 방법을 보여 줍니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다.
 
 이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "59272294"
 
 * [Virtual Machines 제한 사항](#virtual-machines-limitations)
 * [Virtual Networks 제한 사항](#virtual-networks-limitations)
-* [App Service 제한](#app-service-limitations)
+* [App Service 제한 사항](#app-service-limitations)
 * [App Service Certificate 제한 사항](#app-service-certificate-limitations)
 * [클래식 배포 제한 사항](#classic-deployment-limitations)
 * [Recovery Services 제한 사항](#recovery-services-limitations)
@@ -180,8 +180,8 @@ Azure Backup으로 구성한 가상 머신을 이동하려면 다음 해결 방�
 * 명명 패턴이 `AzureBackupRG_<location of your VM>_1`인 리소스 그룹을 찾습니다(예: AzureBackupRG_westus2_1).
 * Azure Portal에서 작업하는 경우 “숨겨진 형식 표시”를 선택합니다.
 * PowerShell에서 작업하는 경우에는 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet을 사용합니다.
-* CLI에서 작업 하는 경우 사용 합니다 `az resource list -g AzureBackupRG_<location of your VM>_1`
-* 형식을 사용 하 여 리소스를 찾을 `Microsoft.Compute/restorePointCollections` 명명 패턴 포함 `AzureBackup_<name of your VM that you're trying to move>_###########`
+* CLI에서 작업하는 경우에는 `az resource list -g AzureBackupRG_<location of your VM>_1`을 사용합니다.
+* 종류가 `Microsoft.Compute/restorePointCollections`이고 명명 패턴이 `AzureBackup_<name of your VM that you're trying to move>_###########`인 리소스를 찾습니다.
 * 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
 * 삭제가 완료되면 가상 머신을 이동할 수 있습니다. 자격 증명 모음 및 가상 머신을 대상 구독으로 이동할 수 있습니다. 이동 후 데이터 손실 없이 백업을 계속할 수 있습니다.
 * 백업용 Recovery Service 자격 증명 모음 이동에 대한 내용은 [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
@@ -361,7 +361,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
    원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다.
 
-   * [Azure 구독의 소유권을 다른 계정으로 양도](../billing/billing-subscription-transfer.md)
+   * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
    * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 오류가 표시될 수 있습니다.

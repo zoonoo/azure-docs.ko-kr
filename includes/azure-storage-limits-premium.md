@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287105"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528495"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium 성능 블록 blob storage
 
@@ -25,10 +25,11 @@ ms.locfileid: "59287105"
 
 |영역  |대상  |
 |---------|---------|
-|최대 크기     |5tib (공개 미리 보기), 100 TiB (제한 된 공개 미리 보기)     |
+|최대 크기를 프로 비전     |5tib (공개 미리 보기), 100 TiB (제한 된 공개 미리 보기)     |
 |공유   |Unlimited  |
 |IOPS     |100,000 (제한 된 공개 미리 보기)    |
-|대역폭|5 GB/s     |
+|수신|4,136 초     |
+|송신|6,204 초 |
 
  내용은 premium 파일에 대 한 크기 조정 목표를 공유 합니다 [Premium 파일 확장 대상](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) 섹션입니다.
 

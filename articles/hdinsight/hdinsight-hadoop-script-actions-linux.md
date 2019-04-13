@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202965"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544588"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -333,7 +333,6 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 * [HDInsight에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)
 * [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
-* [HDInsight 클러스터에 Mono 설치 또는 업그레이드](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>문제 해결
 

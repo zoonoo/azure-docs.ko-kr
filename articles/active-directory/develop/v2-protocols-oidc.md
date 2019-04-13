@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65515566e5bd0701d218d993f4fe97cae08e1a75
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501181"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523463"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft id 플랫폼 및 OpenID Connect 프로토콜
 
@@ -215,7 +215,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 전체 OpenID Connect 로그인 및 토큰 획득 흐름은 다음 다이어그램과 유사합니다. 각 단계는 문서의 다음 섹션에서 자세히 설명합니다.
 
-![OpenID Connect 프로토콜: 토큰 획득](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![OpenID Connect 프로토콜: 토큰 획득](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
 ## <a name="get-access-tokens"></a>액세스 토큰 가져오기
 액세스 토큰을 얻으려면 로그인 요청을 수정합니다.

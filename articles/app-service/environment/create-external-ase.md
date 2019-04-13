@@ -14,26 +14,28 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105168"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545419"
 ---
-> [!NOTE]
-> 각 App Service Environment에는 App Service Environment에 연결하는 데 사용할 수 있는 VIP(가상 IP)가 있습니다.
-> 
-> # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기 #
+# <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기
 
-Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다. ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
+Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다.
+
+> [!NOTE]
+> 각 App Service Environment에는 가상 IP (VIP), App Service Environment에 연결할 수는 있습니다.
+
+ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
 
 - 외부 ASE라고도 하는 외부 IP 주소의 VIP 사용
 - 내부 엔드포인트가 ILB(내부 부하 분산 장치)이기 때문에 ILB ASE라고도 하는 내부 IP 주소의 VIP 사용
 
 이 문서에서는 외부 ASE를 만드는 방법을 보여줍니다. ASE의 개요는 [App Service Environment에 대한 소개][Intro]를 참조하세요. ILB ASE를 만드는 방법에 대한 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
-## <a name="before-you-create-your-ase"></a>ASE를 만들기 전에 ##
+## <a name="before-you-create-your-ase"></a>ASE를 만들기 전에
 
 ASE를 만든 후에는 다음을 변경할 수 없습니다.
 
@@ -48,7 +50,7 @@ ASE를 만든 후에는 다음을 변경할 수 없습니다.
 > VNet을 선택하고 서브넷을 지정할 때 향후 성장 및 확장 요구 사항을 수용하기에 충분한지 확인합니다. 주소 256개를 포함할 수 있는 `/24` 크기를 사용하는 것이 좋습니다.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>ASE를 만드는 세 가지 방법 ##
+## <a name="three-ways-to-create-an-ase"></a>ASE를 만드는 세 가지 방법
 
 ASE를 만드는 세 가지 방법은 다음과 같습니다.
 
@@ -58,7 +60,7 @@ ASE를 만드는 세 가지 방법은 다음과 같습니다.
 
 외부 ASE에는 공용 VIP가 있습니다. 즉, ASE의 앱에 대한 모든 HTTP/HTTPS 트래픽이 인터넷 액세스가 가능한 IP 주소에 도달합니다. ILB를 사용하는 ASE에는 ASE에서 사용하는 서브넷의 IP 주소가 있습니다. ILB ASE에 호스팅된 앱은 인터넷에 직접 노출되지 않습니다.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>ASE 및 App Service 계획 만들기 ##
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>ASE 및 App Service 계획 만들기
 
 App Service 계획은 앱의 컨테이너입니다. App Service에서 앱을 만드는 경우 App Service 계획을 선택하거나 만듭니다. App Service 환경은 App Service 계획을 포함하고 App Service 계획은 앱을 포함합니다.
 
@@ -142,7 +144,7 @@ App Service 계획을 만들면서 ASE를 만드는 경우 다음을 수행합�
 1. **만들기**를 선택하여 ASE를 만듭니다. App Service 계획 및 앱이 만들어집니다. ASE, App Service 계획 및 앱은 동일한 구독 및 동일한 리소스 그룹에 위치합니다. ASE에 별도 리소스 그룹이 필요하거나 ILB ASE가 필요한 경우 단계에 따라 단독으로 ASE를 만듭니다.
 
 
-## <a name="create-an-ase-by-itself"></a>단독으로 ASE 만들기 ##
+## <a name="create-an-ase-by-itself"></a>단독으로 ASE 만들기
 
 ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다. 빈 ASE도 여전히 인프라에 대한 월별 요금이 청구됩니다. ILB를 사용하여 ASE를 만들거나 고유한 리소스 그룹에서ASE를 만들려면 다음 단계를 수행합니다. ASE를 만든 후에 기본 프로세스를 사용하여 앱을 만들 수 있습니다. 위치로 새 ASE를 선택합니다.
 
@@ -170,7 +172,7 @@ ASE 독립 실행형을 만드는 경우 내부에는 아무것도 없습니다.
     
     * 기존 VNet을 선택한 경우 새 서브넷은 ASE를 만들 때 만들어집니다. *포털에서 미리 생성된 서브넷을 사용할 수 없습니다. Resource Manager 템플릿을 사용하는 경우 기존 서브넷으로 ASE를 만들 수 있습니다.* 템플릿에서 ASE를 만들려면 [템플릿에서 App Service Environment 만들기][MakeASEfromTemplate]를 참조하세요.
 
-## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
+## <a name="app-service-environment-v1"></a>App Service 환경 v1
 
 여전히 ASEv1(첫 번째 버전의 App Service Environment)의 인스턴스를 만들 수 있습니다. 해당 프로세스를 시작하려면 Marketplace에서 **App Service Environment v1**을 검색합니다. 독립 실행형 ASE를 만드는 동일한 방식으로 ASE를 만듭니다. 완료되면 ASEv1에 두 개의 프런트 엔드 및 두 명의 작업자가 있습니다. ASEv1을 사용하면 프런트 엔드와 작업자를 관리해야 합니다. 이는 App Service 계획을 만들 때 자동으로 추가되지 않습니다. 프런트 엔드는 HTTP/HTTPS 엔드포인트로 작동하여 작업자로 트래픽을 전송합니다. 작업자는 사용자 앱을 호스트하는 역할입니다. ASE를 만든 후 프런트 엔드 및 작업자의 수량을 조정할 수 있습니다. 
 

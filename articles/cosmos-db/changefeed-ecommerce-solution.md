@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120519"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526348"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -165,7 +165,7 @@ Cosmos DB 컬렉션에서 새 문서가 만들어지거나 현재 문서가 수�
 
 1. [파일 탐색기]에서 리포지토리로 돌아가서 **ChangeFeedFunction.sln**을 마우스 오른쪽 단추로 클릭하여 새 Visual Studio 창에서 이 파일을 다시 엽니다.  
 
-2. **App.config** 파일로 이동합니다. <appSettings> 블록 내에서 이전에 검색한 Azure Cosmos DB 계정의 엔드포인트와 고유한 **기본 키**를 추가합니다.  
+2. **App.config** 파일로 이동합니다. `<appSettings>` 블록 내에서 이전에 검색한 Azure Cosmos DB 계정의 엔드포인트와 고유한 **기본 키**를 추가합니다.  
 
 3. **컬렉션** 및 **데이터베이스** 이름을 추가합니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabcollection** 및 **changefeedlabdatabase**여야 합니다.
 

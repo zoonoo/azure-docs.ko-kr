@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: 48f7153dcee45a6271919ac756ad794186faaed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668445"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522389"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization
 신뢰할 수 있는 컬렉션은 해당 항목을 복제하고 유지하여 컴퓨터 장애 및 정전이 발생해도 지속되도록 합니다.
@@ -44,7 +44,7 @@ Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환
 - decimal
 - double
 - float
-- int
+- ssNoversion
 - uint
 - long
 - ulong
@@ -96,7 +96,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-다음은 IStateSerializer<OrderKey>의 구현 예제입니다.
+다음은 IStateSerializer의 예제 구현은\<OrderKey >.
 baseValue를 사용하는 읽기 및 쓰기 오버로드는 이후 버전과의 호환성을 위해 해당 오버로드를 호출합니다.
 
 ```csharp

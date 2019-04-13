@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357850"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548783"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -187,11 +187,11 @@ Azure Dev Spaces에서 기본적으로 지원하지 않는 언어로 애플리�
 1. 포트 구성을 확인합니다. 지정된 포트 번호는 다음과 같은 모든 자산에서 **동일**해야 합니다.
     * **Dockerfile:** `EXPOSE` 명령으로 지정됩니다.
     * **[Helm 차트](https://docs.helm.sh):** 서비스에 대해 `externalPort` 및 `internalPort` 값으로 지정됩니다(종종 `values.yml` 파일에 위치함).
-    * 예를 들어 Node.js에서에서 응용 프로그램 코드에서 열리는 모든 포트: `var server = app.listen(80, function () {...}`
+    * 애플리케이션 코드에서 열리는 모든 포트(예: Node.js에서 `var server = app.listen(80, function () {...}`)
 
 
 ## <a name="config-file-not-found"></a>구성 파일을 찾을 수 없음
-실행 `azds up` 및 다음 오류가 발생 합니다. `Config file not found: .../azds.yaml`
+`azds up`을 실행하고 다음 오류가 표시됩니다. `Config file not found: .../azds.yaml`
 
 ### <a name="reason"></a>이유
 실행하려는 코드의 루트 디렉터리에서 `azds up`을 실행하고, Azure Dev Spaces로 실행하도록 코드 폴더를 초기화해야 합니다.
@@ -208,7 +208,7 @@ VS Code 디버거를 시작하면 때때로 이 오류가 발생할 수 있습�
 2. F5 키를 다시 누릅니다.
 
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>디버깅 오류 '다음 유형에 대한 디버거 확장을 찾지 못함: coreclr'
-VS Code 디버거 실행 오류를 보고 합니다. `Failed to find debugger extension for type:coreclr.`
+VS Code 디버거를 실행하면 오류를 보고합니다. `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>이유
 개발 컴퓨터에 C#용 VS Code 확장이 설치되어 있지 않습니다. C# 확장 지원.NET Core (CoreCLR)에 대 한 디버깅을 포함 합니다.
@@ -217,7 +217,7 @@ VS Code 디버거 실행 오류를 보고 합니다. `Failed to find debugger ex
 [C#용 VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다.
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>디버깅 오류 '구성된 디버그 형식 'coreclr'은 지원되지 않습니다.'
-VS Code 디버거 실행 오류를 보고 합니다. `Configured debug type 'coreclr' is not supported.`
+VS Code 디버거를 실행하면 오류를 보고합니다. `Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>이유
 개발 컴퓨터에 설치된 Azure Dev Spaces용 VS Code 확장이 없습니다.
@@ -226,7 +226,7 @@ VS Code 디버거 실행 오류를 보고 합니다. `Configured debug type 'cor
 [Azure Dev Spaces용 VS Code 확장](get-started-netcore.md)을 설치합니다.
 
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>디버깅 오류 "'cwd' 값 '/src'가 잘못되었습니다. 시스템은 지정된 파일을 찾을 수 없습니다." 또는 "launch: program '/src/[프로젝트 이진 경로]'이(가) 존재하지 않습니다."가 발생합니다.
-VS Code 디버거 실행 오류를 보고 합니다 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 및/또는 `launch: program '/src/[path to project executable]' does not exist`
+VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 및/또는 `launch: program '/src/[path to project executable]' does not exist`를 보고합니다.
 
 ### <a name="reason"></a>이유
 기본적으로 VS Code 확장은 컨테이너에 대한 프로젝트의 작업 디렉터리로 여 `src`를 사용합니다. 다른 작업 디렉터리를 지정하도록 `Dockerfile`을 업데이트한 경우에 다음 오류가 표시될 수 있습니다.
@@ -325,3 +325,35 @@ configurations:
 
 ### <a name="try"></a>시도해 보기
 임시 해결 방법이이 문제에 대 한 값을 늘려야 하는 것 *fs.inotify.max_user_watches* 클러스터의 각 노드에 변경 내용을 적용 하려면 해당 노드를 다시 시작 합니다.
+
+## <a name="new-pods-are-not-starting"></a>새 pod를 시작 하지 않기
+
+### <a name="reason"></a>이유
+
+Kubernetes 이니셜라이저 RBAC 권한이 변경 내용으로 인해 새 pod에 대 한 PodSpec를 적용할 수 없습니다는 *클러스터 관리자* 클러스터의 역할입니다. 새 pod에는 잘못 된 PodSpec 있을, 예를 들어 pod와 사용 하 여 연결 된 서비스 계정은 더 이상 없습니다. 에 있는 pod를 참조 하는 *보류 중* 문제로 이니셜라이저를 사용 하 여 상태를 `kubectl get pods` 명령:
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+이 문제는 영향을 줄의 pod 수 *모든 네임 스페이스* Azure 개발 공간 해제 되어 없는 네임 스페이스를 포함 하 여 클러스터에 있습니다.
+
+### <a name="try"></a>시도해 보기
+
+[개발 공간 CLI 최신 버전으로 업데이트](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) 한 후 삭제 하는 *azds InitializerConfiguration* Azure 개발 공간 컨트롤러에서:
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+제거한 후는 *azds InitializerConfiguration* Azure 개발 공간 컨트롤러에서 사용 하 여 `kubectl delete` 의 모든 pod를 제거 하는 *보류 중인* 상태입니다. 결국 pod 보류 중인 제거한, pod를 다시 배포 합니다.
+
+새 pod에 여전히 닫힌 경우를 *보류 중인* 재배포를 사용 하 여 이후 상태 `kubectl delete` 의 모든 pod를 제거 하는 *보류 중인* 상태입니다. 결국 pod 보류 중인 제거, 클러스터에서 컨트롤러를 삭제 하 고 다시 설치:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+컨트롤러를 다시 설치, pod를 다시 배포 합니다.

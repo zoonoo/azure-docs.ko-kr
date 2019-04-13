@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/06/2018
+ms.date: 04/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5a4495dd675b662273715b5c13a5594adc87fceb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd06326b22b227490798b2b89c0439940cb4575f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333904"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551653"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -21,13 +21,7 @@ ms.locfileid: "56333904"
 
 Fsv2 시리즈는 Intel® Xeon® Platinum 8168 프로세서를 기반으로 하며, 3.4GHz의 일관적인 올 코어 터보 클록 속도와 최대 3.7GHz의 싱글 코어 터보 주파수를 제공합니다. Intel 확장 가능한 프로세서에서 새로 도입된 Intel® AVX-512 지침은 단일 및 이중 정밀도 부동 소수점 연산에서 벡터 처리 워크로드에 대한 성능을 최대 2배로 향상시킵니다. 즉, 계산 워크로드를 빠르게 처리합니다. 
 
-시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다. 
-
-F 시리즈는 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서를 기반으로 하고, Intel Turbo Boost Technology 2.0을 채택하여 최대 3.1GHz의 클럭 속도를 달성할 수 있습니다. Dv2 시리즈의 VM과 동일한 CPU 성능입니다.  
-
-F 시리즈 VM은 더 빠른 CPU를 요구하지만 많은 메모리나 vCPU당 임시 저장소가 필요하지 않은 워크로드에 적합합니다.  분석, 게임 서버, 웹 서버 및 배치 처리 등의 워크로드는 F 시리즈 값을 사용하면 도움이 됩니다.
-
-Fs 시리즈는 Premium Storage 외에도 F 시리즈의 모든 기능을 제공합니다.
+시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure 컴퓨팅 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다.
 
 ## <a name="fsv2-series-sup1sup"></a>Fsv2 시리즈 <sup>1</sup>
 
@@ -53,47 +47,3 @@ Premium Storage 캐싱:  지원됨
 <sup>2</sup> 64개를 초과하는 vCPU에는 지원되는 게스트 OS인 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 및 LIS 4.2.1을 사용하는 Red Hat Enterprise Linux, CentOS 7.3 또는 Oracle Linux 7.3 중 하나가 필요합니다.
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
-
-## <a name="fs-series-sup1sup"></a>Fs 시리즈 <sup>1</sup>
-
-ACU: 210 - 250
-
-Premium Storage:  지원됨
-
-Premium Storage 캐싱:  지원됨
-
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |4 |4,000/32(12) |3,200/48 |2 / 750 |
-| Standard_F2s |2 |4 |8 |8 |8,000/64(24) |6,400/96 |2 / 1500 |
-| Standard_F4s |4 |8 |16 |16 |16,000/128 (48) |12,800/192 |4 / 3000 |
-| Standard_F8s |8 |16 |32 |32 |32,000/256(96) |25,600/384 |8 / 6000 |
-| Standard_F16s |16 |32 |64 |64 |64,000/512(192) |51,200/768 |8 / 12000 |
-
-MBps = 초당 10^6바이트, GiB = 1024^3바이트
-
-<sup>1</sup> Fs 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
-
-
-<br>
-
-## <a name="f-series"></a>F 시리즈
-
-ACU: 210 - 250
-
-Premium Storage:  지원되지 않음
-
-Premium Storage 캐싱:  지원되지 않음
-
-| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 750                 |
-| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
-| Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
-| Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
-| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000           |
-
-
-<br>
-
-

@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891024"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551584"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -57,19 +57,9 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
 
- Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다. 다음 표에서는 Azure 플랫폼에서 현재 사용 가능한 cloud-init 지원 이미지를 보여 줍니다.
+Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다. Azure의 cloud-Init에 대한 자세한 정보
 
-| 게시자 | 제안 | SKU | 버전 | cloud-init 준비 여부
-|:--- |:--- |:--- |:--- |:--- 
-|Canonical |UbuntuServer |16.04-LTS |최신 |예 | 
-|Canonical |UbuntuServer |14.04.5-LTS |최신 |예 |
-|CoreOS |CoreOS |Stable |최신 |예 |
-|OpenLogic |CentOS |7-CI |최신 |미리 보기 |
-|RedHat |RHEL |7-RAW-CI |최신 |미리 보기 |
-
-Azure의 cloud-Init에 대한 자세한 정보
-
-- [Azure에서 Linux 가상 머신에 대 한 cloud-init 지원](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Azure에서 Linux 가상 컴퓨터에 cloud-init 지원](../articles/virtual-machines/linux/using-cloud-init.md)
 - [cloud-init를 사용한 자동화된 VM 구성에 대한 자습서 진행](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)
 
 

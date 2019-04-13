@@ -13,22 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 04/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 58c7261e3082311e4ce9d04cb39f688bc8f04bb6
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
-ms.translationtype: HT
+ms.openlocfilehash: b5da253c699c895c61df14ff50062a99e82d6913
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901003"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544673"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
-
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-previous-gen.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
+## <a name="older-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
+
+[!INCLUDE [virtual-machines-common-sizes-older](../../../includes/virtual-machines-common-sizes-older.md)]
 
 ## <a name="other-sizes"></a>기타 크기
 
@@ -39,7 +41,6 @@ ms.locfileid: "37901003"
 - [GPU](sizes-gpu.md)
 - [고성능 계산](sizes-hpc.md)
 
-
 ## <a name="next-steps"></a>다음 단계
-[ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
+[ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

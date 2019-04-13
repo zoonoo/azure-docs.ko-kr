@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: e3106a792f486a62986734e562c96b41dd8a75dc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895638"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524126"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -208,7 +208,7 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후 Azure CLI는 다�
 
 ## <a name="route-traffic-through-an-nva"></a>NVA를 통한 트래픽 라우팅
 
-다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. *<publicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
+다음 명령을 사용하여 *myVmPrivate* VM으로 SSH 세션을 만듭니다. 바꿉니다  *\<publicIpAddress >* VM의 공용 IP 주소를 사용 하 여 합니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

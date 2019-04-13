@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999829"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522557"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -151,8 +151,8 @@ Azure의 SAP HANA(대규모 인스턴스)에 대한 저장소 레이아웃은 SA
 
 | 저장소 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000<m> | 저장소 IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA log | /hana/log/SID/mnt0000<m> | 저장소 IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA data | /hana/data/SID/mnt0000\<m> | 저장소 IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA log | /hana/log/SID/mnt0000\<m> | 저장소 IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA log backup | /hana/log/backups | 저장소 IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA shared | /hana/shared/SID | 저장소 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 저장소 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |

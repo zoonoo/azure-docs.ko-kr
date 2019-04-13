@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0a9472dec9b76dfbde1690e11f13836746b0dfaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 983a090942a77c2f40e0136b00acdc0a3d49c571
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862899"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528342"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 
@@ -463,9 +463,9 @@ GO
 
 ## <a name="output"></a>출력
 
-Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 **<event>** 요소가 표시되고 하나의 UPDATE 문이 표시됩니다.
+Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의  **\<이벤트 >** 요소는 하나의 UPDATE 문이 표시 됩니다.
 
-다음은 테스트 중 생성된 하나의 **<event>** 요소입니다.
+같습니다  **\<이벤트 >** 테스트 중 생성 된 요소:
 
 
 ```xml

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084144"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524891"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -56,7 +56,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
 
-ExpressRoute 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다. CLI 명령 'az network express-route list-service-providers'는 이 정보를 반환하고 이를 이후 단계에서 사용합니다.
+ExpressRoute 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다. CLI 명령을 `az network express-route list-service-providers` 이후 단계에서 사용 하 여이 정보를 반환 합니다.
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -154,7 +154,7 @@ az network express-route create --bandwidth 200 -n MyCircuit --peering-location 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. 모든 ExpressRoute 회로 나열
 
-만든 모든 ExpressRoute 회로 목록을 가져오려면 'az network express-route list' 명령을 실행합니다. 이 명령을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 모든 회로를 나열하려면 매개 변수 없이 호출합니다.
+사용자가 만든 모든 ExpressRoute 회로 목록을 가져오려면 실행 된 `az network express-route list` 명령입니다. 이 명령을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 모든 회로를 나열하려면 매개 변수 없이 호출합니다.
 
 ```azurecli-interactive
 az network express-route list

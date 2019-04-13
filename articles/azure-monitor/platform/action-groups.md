@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/26/2019
+ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 695a2ff827fc5514c3a32364026bc9d47c8a2121
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500317"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549664"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -103,6 +103,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
  - 52.244.68.117
  - 51.4.138.199
  - 51.5.148.86
+ - 51.5.149.19
 
 수신 하려면 변경 된 것을 권장 합니다 이러한 IP 주소에 대 한 업데이트 구성 [서비스 상태 경고를 작업 그룹 서비스에 대 한 정보 알림을 모니터링 합니다.
 

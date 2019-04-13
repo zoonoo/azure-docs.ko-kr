@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004066"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548554"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 PyTorch 모델 학습
 
@@ -46,7 +46,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 매개 변수 | 설명
 --|--
 `source_directory` |  학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 머신에서 원격 컴퓨팅으로 복사됩니다.
-`script_params` |  <명령줄 인수, 값> 쌍 형식으로 학습 스크립트 `entry_script`에 대한 명령줄 인수를 지정하는 사전입니다.
+`script_params` |  학습 스크립트에 명령줄 인수를 지정 하는 사전 `entry_script`, 형식의 < 명령줄 인수를 값 > 쌍입니다.  Verbose 플래그를 지정 하려면 `script_params`를 사용 하 여 `<command-line argument, "">`입니다.
 `compute_target` |  이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상
 `entry_script` |  원격 계산에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.
 `conda_packages` |  conda를 통해 설치할 학습 스크립트에 필요한 Python 패키지의 목록입니다. 생성자에는 필요한 모든 pip 패키지에 사용할 수 있는 `pip_packages` 매개 변수도 있습니다.

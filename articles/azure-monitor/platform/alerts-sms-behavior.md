@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123303"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523616"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작
 ## <a name="overview"></a>개요 ##
@@ -32,8 +32,8 @@ ms.locfileid: "58123303"
 
 | 회신 | 설명 |
 | ----- | ----------- |
-| DISABLE <Action Group Short name> | 작업 그룹의 추가 SMS 해제 |
-| ENABLE <Action Group Short name> | 작업 그룹의 SMS 다시 설정 |
+| DISABLE `<Action Group Short name>` | 작업 그룹의 추가 SMS 해제 |
+| ENABLE `<Action Group Short name>` | 작업 그룹의 SMS 다시 설정 |
 | STOP | 모든 작업 그룹의 추가 SMS 해제 |
 | START | 모든 작업 그룹의 SMS 다시 설정 |
 | HELP | 이 문서에 대한 링크가 포함된 응답이 사용자에게 전송됩니다. |

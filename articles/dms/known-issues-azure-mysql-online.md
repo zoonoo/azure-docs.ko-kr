@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf5215ff5acaf08125cf280103ba8ff0123dc116
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175102"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523820"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Azure DB for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -30,7 +30,7 @@ MySQL에서 Azure Database for MySQL로의 온라인 마이그레이션과 관�
 - 동일한 버전 마이그레이션. Azure Database for MySQL 5.7로의 MySQL 5.6 마이그레이션은 지원되지 않습니다.
 - my.ini(Windows) 또는 my.cnf(Unix)로 이진 로깅을 사용
     - Server_id를 1 이상의 숫자로 설정(예: Server_id=1(MySQL 5.6에만 해당))
-    - log-bin = <path>로 설정(MySQL 5.6에만 해당)
+    - 로그 bin 설정 = \<경로 > (MySQL 5.6)에 해당
     - binlog_format = row로 설정
     - Expire_logs_days = 5(권장됨 - MySQL 5.6에만 해당)
 - 사용자에게 ReplicationAdmin 역할이 있어야 함.

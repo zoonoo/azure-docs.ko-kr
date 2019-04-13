@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358297"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548834"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>자동화된 Machine Learning 실험 구성
 
@@ -41,20 +41,20 @@ ms.locfileid: "59358297"
 
 분류 | 회귀 | 시계열 예측
 |-- |-- |--
-[로지스틱 회귀](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [탄력적 Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [탄력적 Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[그라데이션 부스 팅](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[그라데이션 부스 팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[그라데이션 부스 팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)|[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K 가장 인접 한 항목](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 가장 인접 한 항목](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 가장 인접 한 항목](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[선형 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS 올가미](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS 올가미](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[C 지원 벡터 분류 (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[SGD (추측 기울기 하강)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[SGD (추측 기울기 하강)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[매우 임의 트리](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)|[Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C-SVC(Support Vector Classification)](https://scikit-learn.org/stable/modules/svm.html#classification)|[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN 분류자](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [선형 분류자 DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[선형 회귀 변수](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[SGD (추측 기울기 하강)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
@@ -84,7 +84,7 @@ ms.locfileid: "59358297"
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>원격 계산에서 실험을 실행하기 위한 데이터 가져오기
 
-원격 계산을 사용하여 실험을 실행하는 경우 데이터 가져오기는 별도의 `get_data()` Python 스크립트로 래핑되어야 합니다. 이 스크립트는 자동화된 Machine Learning 실험이 실행되는 원격 계산에서 실행됩니다. `get_data` 각 반복에 대 한 연결을 통해 데이터를 가져올 필요가 없습니다. `get_data`가 없으면 원격 계산에서 실행할 때 실험이 실패합니다.
+원격 계산을 사용하여 실험을 실행하는 경우 데이터 가져오기는 별도의 `get_data()` Python 스크립트로 래핑되어야 합니다. 이 스크립트는 자동화된 Machine Learning 실험이 실행되는 원격 계산에서 실행됩니다. `get_data`는 각 반복마다 연결을 통해 데이터를 가져올 필요가 없습니다. `get_data`가 없으면 원격 계산에서 실행할 때 실험이 실패합니다.
 
 `get_data`의 예제는 다음과 같습니다.
 
@@ -110,7 +110,7 @@ def get_data(): # Burning man 2016 data
 automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`get_data` 스크립트를 반환할 수 있습니다.
+`get_data` 스크립트는 다음을 반환할 수 있습니다.
 
 키 | Type | 상호 배타적 관계    | 설명
 ---|---|---|---
@@ -173,7 +173,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 *   로컬 데스크톱 또는 랩톱과 같은 로컬 머신 - 일반적으로 데이터 세트가 작고 아직 탐색 단계에 있는 경우입니다.
 *   클라우드의 원격 머신 - [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets)는 Azure Virtual Machines 클러스터에서 Machine Learning 모델을 학습할 수 있도록 하는 관리형 서비스입니다.
 
-로컬 및 원격 컴퓨팅 대상이 있는 예제 노트에 대해서는 [GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl)를 참조하세요.
+로컬 및 원격 컴퓨팅 대상이 있는 예제 노트에 대해서는 [GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)를 참조하세요.
 
 <a name='configure-experiment'></a>
 
@@ -238,6 +238,9 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
     * 매우 적은 수의 고유 값을 갖는 숫자 기능이 범주 기능으로 변환됩니다.
     * 범주 기능의 카디널리티에 따라, 레이블 인코딩 또는 (해싱) 원 핫 인코딩을 수행합니다.
 
+## <a name="ensemble-models"></a>앙상블 모델
+달리 단일 모델을 사용 하 여 여러 모델을 결합 함으로써 여 machine learning 결과 예측 성능을 개선 하는 앙상블 학습 합니다. 사용 하 여 machine learning 자동화 하는 경우 사용 하 여 앙상블 모델을 학습 시킬 수는 [정렬 된 앙상블 초기화를 사용 하 여 Caruana 앙상블 선택 알고리즘](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)합니다. 앙상블 반복 실행의 마지막 반복으로 표시 됩니다.
+
 ## <a name="time-series-forecasting"></a>시계열 예측
 시간 시계열 예측 작업 형식에 대 한 추가 매개 변수를 정의 해야 합니다.
 1. time_column_name-학습 데이터가 포함 된 날짜/시간 계열의 열 이름을 정의 하는 필수 매개 변수입니다. 
@@ -270,7 +273,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              X=X_train,
                              y=y_train,
                              n_cross_validations=5,
-                             enable_ensembling=False,
                              path=project_folder,
                              verbosity=logging.INFO,
                              **time_series_settings)

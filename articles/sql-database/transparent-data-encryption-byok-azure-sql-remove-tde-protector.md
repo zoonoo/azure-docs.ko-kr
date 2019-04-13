@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847815"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528274"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
 
@@ -40,6 +40,12 @@ ms.locfileid: "58847815"
 키가 손상되어 서비스나 사용자가 키에 무단 액세스한 것으로 의심될 경우 키를 삭제하는 것이 가장 좋습니다.
 
 TDE 보호기가 Key Vault에서 삭제된 후에는 **서버 아래의 암호화된 데이터베이스에 대한 모든 연결이 차단되고, 이들 데이터베이스는 오프라인 상태가 되어 24시간 이내에 삭제됩니다**. 손상된 키로 암호화된 기존 백업에는 더 이상 액세스할 수 없습니다.
+
+다음 단계를 사용 하 여 가상 로그 파일 (VLF) 지정된 된 데이터베이스의 TDE 보호기 지문을 확인 하는 방법을 간략하게 설명 합니다. 실행 하 여 데이터베이스 및 데이터베이스 ID의 현재 TDE 보호기의 지문을 찾을 수 있습니다. [Database_id]를 선택       [encryption_state] [encryptor_type] /*AKV를 의미 하는 비대칭 키, 인증서 서비스 관리 키를 의미*/ [encryptor_thumbprint]에서 [sys]. [ dm_database_encryption_keys] 
+ 
+다음 쿼리는 Vlf 및 암호기 해당 지문이 사용 반환합니다. 다른 각 지 문은 다른 키에서 Key Vault (AKV (Azure)을 참조합니다. SELECT * FROM sys.dm_db_log_info (database_id) 
+
+PowerShell 명령을 Get-azurermsqlserverkeyvaultkey 유지 하는 키와 AKV에 삭제 하는 키를 볼 수 있도록 쿼리에서 사용 되는 TDE 보호기의 지문을 제공 합니다. 데이터베이스에서 더 이상 사용 하는 키만 Azure Key Vault에서 안전 하 게 삭제할 수 없습니다.
 
 이 방법 가이드에서는 사건 대처 후 원하는 결과에 따라 두 가지 방법을 살펴봅니다.
 

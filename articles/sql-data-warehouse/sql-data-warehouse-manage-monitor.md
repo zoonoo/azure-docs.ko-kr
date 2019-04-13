@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189549"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546899"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
 이 문서에서는 동적 관리 뷰(DMV)를 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 Azure SQL Data Warehouse에서 쿼리 실행을 조사하는 것이 포함됩니다.
@@ -170,33 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
 
 ## <a name="monitor-tempdb"></a>tempdb 모니터링
-높은 tempdb 사용량은 성능 저하 및 메모리 부족 문제의 근본 원인일 수 있습니다. tempdb가 쿼리 실행 중 한계에 도달한 것을 발견한 경우 데이터 웨어하우스를 확장하는 것이 좋습니다. 다음 정보는 각 노드의 쿼리당 tempdb 사용량을 식별하는 방법을 설명합니다. 
+Tempdb는 쿼리를 실행 하는 동안 중간 결과 저장 하는 데 사용 됩니다. Tempdb 데이터베이스 사용률이 높은 쿼리 성능을 저하 시킬 수 있습니다. Azure SQL Data Warehouse의 각 노드는 약 1TB의 tempdb에 대 한 원시 공간에 있습니다. 다음은 tempdb 사용량을 모니터링 하 고 쿼리에서 tempdb 사용량 감소에 대 한 팁입니다. 
 
-sys.dm_pdw_sql_requests에 대한 적절한 노드 ID를 연결하도록 다음 보기를 만듭니다. 노드 ID가 있으면 다른 통과 DMV를 사용하고 해당 테이블을 sys.dm_pdw_sql_requests에 연결할 수 있습니다.
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-tempdb를 모니터링하려면 다음 쿼리를 실행합니다.
+### <a name="monitoring-tempdb-with-views"></a>뷰를 사용 하 여 tempdb를 모니터링합니다.
+Tempdb 사용량을 모니터링 하려면 먼저 설치 합니다 [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 에서 볼 합니다 [SQL Data Warehouse에 대 한 Microsoft 도구 키트](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)합니다. 그런 다음 모든 실행된 쿼리에 대 한 노드당 tempdb 사용량을 보려면 다음 쿼리를 실행할 수 있습니다.
 
 ```sql
 -- Monitor tempdb
@@ -221,12 +198,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+쿼리에서 많은 양의 메모리를 소비 하거나 tempdb의 할당에 관련 된 오류 메시지를 받은 경우 종종 때문에 나타나는 것은 매우 많은 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 하거나 [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문을 실행 하는 최종 데이터 이동 작업에 실패 했습니다. 이 일반적으로 식별할 수 있습니다 ShuffleMove 작업으로 최종 INSERT SELECT 직전 분산된 쿼리 계획.
+
+가장 일반적인 완화 데이터 볼륨은 노드 tempdb 제한 당 1TB를 초과 하지 않도록 여러 load 문을 CTAS 또는 INSERT SELECT 문의 분해 하는 것입니다. 또한 tempdb 크기를 각 개별 노드에서 tempdb를 줄이면 더 많은 노드에 분산 하는 더 큰 크기로 클러스터를 확장할 수 있습니다. 
+
 ## <a name="monitor-memory"></a>메모리 모니터링
 
 메모리는 성능 저하 및 메모리 부족 문제의 근본 원인일 수 있습니다. SQL Server 메모리 사용량이 쿼리 실행 중 한계에 도달한 것을 발견한 경우 데이터 웨어하우스를 확장하는 것이 좋습니다.

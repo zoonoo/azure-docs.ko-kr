@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492297"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528263"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>가상 네트워크 피어링 만들기 - 리소스 관리자, 서로 다른 구독
 
@@ -27,9 +27,9 @@ ms.locfileid: "59492297"
 
 |Azure 배포 모델  | Azure 구독  |
 |--------- |---------|
-|[둘 다 Resource Manager](tutorial-connect-virtual-networks-portal.md) |동일|
-|[하나는 Resource Manager, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
-|[하나는 Resource Manager, 다른 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
+|[둘 다 리소스 관리자](tutorial-connect-virtual-networks-portal.md) |동일|
+|[하나는 리소스 관리자, 다른 하나는 클래식](create-peering-different-deployment-models.md) |동일|
+|[하나는 Resource Manager, 하나는 클래식](create-peering-different-deployment-models-subscriptions.md) |다름|
 
 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 가상 네트워크 피어링을 만들 수 없습니다. 둘 다 클래식 배포 모델을 통해 생성된 가상 네트워크를 연결해야 할 경우 Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 사용하여 가상 네트워크를 연결할 수 있습니다.
 
@@ -61,7 +61,7 @@ Cloud Shell에 구독 및 테 넌 트 인해 VNet 피어 링 또는 글로벌 VN
 7. **역할** 상자에서 **네트워크 참가자**를 선택합니다.
 8. **선택** 상자에서 *UserB*를 선택하거나 UserB의 이메일 주소를 입력하여 검색합니다.
 9. **저장**을 선택합니다.
-10. **myVnetA - 액세스 제어(IAM)** 아래의 왼쪽에 있는 세로 옵션 목록에서 **속성**을 선택합니다. 이후 단계에서 사용하는 **RESOURCE ID**를 복사합니다. 리소스 ID는 /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA와 유사합니다.
+10. **myVnetA - 액세스 제어(IAM)** 아래의 왼쪽에 있는 세로 옵션 목록에서 **속성**을 선택합니다. 이후 단계에서 사용하는 **RESOURCE ID**를 복사합니다. 리소스 ID는 다음 예제와 비슷합니다: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`합니다.
 11. 사용자 A를 포털에서 로그아웃한 다음 사용자 B로 로그인합니다.
 12. 3단계에서 다음 값을 입력하거나 선택하여 2-3단계를 완료합니다.
 
@@ -74,7 +74,7 @@ Cloud Shell에 구독 및 테 넌 트 인해 VNet 피어 링 또는 글로벌 VN
     - **위치**: *미국 동부*
 
 13. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetB*를 입력합니다. **myVnetB**가 검색 결과에 표시되면 선택합니다.
-14. **myVnetB** 아래의 왼쪽에 있는 세로 옵션 목록에서 **속성**을 선택합니다. 이후 단계에서 사용하는 **RESOURCE ID**를 복사합니다. 리소스 ID는 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB와 유사합니다.
+14. **myVnetB** 아래의 왼쪽에 있는 세로 옵션 목록에서 **속성**을 선택합니다. 이후 단계에서 사용하는 **RESOURCE ID**를 복사합니다. 리소스 ID는 다음 예제와 비슷합니다: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`합니다.
 15. **myVnetB**에서 **액세스 제어(IAM)** 를 선택한 다음, 8단계에서 **UserA**를 입력하여 myVnetB에 대해 5-10단계를 완료합니다.
 16. 사용자 B를 포털에서 로그아웃한 다음 사용자 A로 로그인합니다.
 17. 포털 위쪽에 있는 **리소스 검색** 상자에 *myVnetA*를 입력합니다. **myVnetA**가 검색 결과에 표시되면 선택합니다.
@@ -111,7 +111,7 @@ Cloud Shell에 구독 및 테 넌 트 인해 VNet 피어 링 또는 글로벌 VN
 CLI 및 해당 종속성을 설치하는 대신 Azure Cloud Shell을 사용할 수 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 선택하면 Azure 계정에 로그인할 수 있는 Cloud Shell이 호출됩니다.
 
 1. CLI 세션을 열고 `azure login` 명령을 사용하여 사용자 A로 Azure에 로그인합니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#permissions)을 참조하세요.
-2. 다음 스크립트를 PC의 텍스트 편집기에 복사하고 `<SubscriptionA-Id>`는 구독 A의 ID로 교체한 다음 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣고 `Enter`를 누릅니다. 구독 ID를 모르는 경우 'az account show' 명령을 입력합니다. 출력에 표시되는 **id** 값이 구독 ID입니다.
+2. 다음 스크립트를 PC의 텍스트 편집기에 복사하고 `<SubscriptionA-Id>`는 구독 A의 ID로 교체한 다음 수정된 스크립트를 복사하여 CLI 세션에 붙여 넣고 `Enter`를 누릅니다. 구독 ID를 모르는 경우 `az account show` 명령을 입력합니다. 출력에 표시되는 **id** 값이 구독 ID입니다.
 
     ```azurecli-interactive
     # Create a resource group.

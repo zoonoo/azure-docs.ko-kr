@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 40e034a563074e10a2dfbee36b6792a095022057
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649632"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526659"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -67,7 +67,9 @@ PowerShell 사용
 1. PowerShell을 열고 Azure 계정에 로그인합니다.
 2. 다음 명령을 실행합니다(대괄호 값을 자신의 정보로 대체).
 
-   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
+   ```powershell
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   ```
 
 3. **EnableIPForwarding** 속성을 확인합니다.
 4. IP 전달을 사용하도록 설정되지 않은 경우 다음 명령을 실행하여 사용하도록 설정합니다.

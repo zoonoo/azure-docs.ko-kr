@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9e3a442a3d6c420c548979327c193628efbee5aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256093"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549221"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -166,8 +166,7 @@ ms.locfileid: "59256093"
 
 8. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다. 다음 코드와 같아야 합니다.
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="맵 컨트롤을 사용하는 방법" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>맵 컨트롤을 사용하는 방법</a>를 참조하세요.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="맵 컨트롤을 사용하는 방법" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">펜을을 참조 하세요 <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>맵 컨트롤을 사용 하는 방법</a> 에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 <a href='https://codepen.io'>CodePen</a>합니다.
     </iframe>
 
 ## <a name="next-steps"></a>다음 단계
@@ -180,4 +179,4 @@ ms.locfileid: "59256093"
 맵 스타일을 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [맵 스타일 선택](choose-map-style.md)
+> [지도 스타일 선택](choose-map-style.md)

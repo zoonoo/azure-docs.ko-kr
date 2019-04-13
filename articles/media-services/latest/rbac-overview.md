@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490778"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548528"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Media Services 계정에 대 한 역할 기반 액세스 제어 (RBAC)
 
@@ -43,8 +43,8 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 - [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [Azure 리소스에 대 한 RBAC 란?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [RBAC를 사용 하 여 액세스를 관리 하려면](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Media Services.NET을 사용 하 여 콘텐츠 키 정책 가져오기](get-content-key-policy-dotnet-howto.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[V3 Api를 Media Services를 사용 하 여 개발](media-services-apis-overview.md)
+- [V3 Api를 Media Services를 사용 하 여 개발](media-services-apis-overview.md)
+- [Media Services.NET을 사용 하 여 콘텐츠 키 정책 가져오기](get-content-key-policy-dotnet-howto.md)

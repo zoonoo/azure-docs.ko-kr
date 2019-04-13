@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ae07c29e9fcc7e498e1e39b3d4dc1d93de64e883
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763314"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551615"
 ---
 범용 VM 크기는 적당한 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. 이 문서에서는 이 그룹화에서 크기에 대한 저장소 처리량 뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
@@ -23,13 +23,12 @@ ms.locfileid: "58763314"
 
   사용 사례로는 개발 및 테스트 서버, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스, 개념 증명, 코드 리포지토리 등이 있습니다.
 
-- 원래 D 시리즈의 후속인 Dv2 시리즈는 더 강력한 CPU와 최적의 CPU-메모리 구성을 갖추고 있어 대부분 프로덕션 워크로드에 적합합니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최신 출시된 Intel Xeon® E5-2673 v3 2.4GHz(Haswell) 또는 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0과 함께 사용하면 최대 3.1GHz까지 확장할 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+- 원래 D 시리즈의 후속인 Dv2 시리즈는 더 강력한 CPU와 최적의 CPU-메모리 구성을 갖추고 있어 대부분 프로덕션 워크로드에 적합합니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최신 세대 Intel Xeon® E5-2673 v3 기반 2.4 GHz (Haswell) 또는 E5 2673 v4 (Broadwell) 2.3 GHz 프로세서, Intel Turbo Boost Technology 2.0을 사용 하 여 최대 3.1ghz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
 - Dv3 시리즈는 하이퍼 스레드 구성에서 2.4 GHz Intel Xeon® E5-2673 v3 기능(Haswell) 프로세서 또는 최신 2.3 GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 갖추고 대부분의 범용 워크로드에 더 나은 가치를 제공합니다.  하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(~ 3.5GiB/vCPU에서 4GiB/vCPU로).  Dv3은 더 이상 D/Dv2 제품군의 높은 메모리 VM 크기를 가지지 않으며, 새로운 Ev3 제품군으로 이동되었습니다.
 
-  D 시리즈 사용 사례로는 엔터프라이즈급 애플리케이션, 관계형 데이터베이스, 메모리 내 캐싱 및 분석 등이 있습니다. 
+  D 시리즈 사용 사례로 엔터프라이즈급 응용 프로그램, 관계형 데이터베이스, 메모리 내 캐싱 및 분석 합니다. 
   
-
 ## <a name="b-series"></a>B 시리즈
 
 Premium Storage:  지원됨
@@ -99,7 +98,6 @@ Dv3 시리즈 크기는 2.4GHz Intel Xeon® E5-2673 v3(Haswell) 프로세서 또
 
 <sup>1</sup> Dv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
-
 ## <a name="dsv2-series"></a>DSv2 시리즈
 
 ACU: 210-250
@@ -116,8 +114,6 @@ Premium Storage 캐싱:  지원됨
 | Standard_DS4_v2 |8 |28 |56 |32 |32,000/256(344) |25,600/384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64,000/512(688) |51,200/768 |8 / 12000 |
 
-
-
 ## <a name="dv2-series"></a>Dv2 시리즈
 
 ACU: 210-250
@@ -133,7 +129,6 @@ Premium Storage 캐싱:  지원되지 않음
 | Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
-
 
 ## <a name="av2-series"></a>Av2 시리즈
 
@@ -153,9 +148,6 @@ Premium Storage 캐싱:  지원되지 않음
 | Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
-
-<br>
-
 
 ## <a name="dc-series"></a>DC 시리즈
 

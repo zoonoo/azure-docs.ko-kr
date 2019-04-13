@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104440"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523174"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
 
@@ -93,7 +93,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
     
     이 파일 연결을 만들려면
 
-   1. FileConnection 설정에서 **<New Connection...>** 을 선택합니다.
+   1. 선택할  **\<새 연결... >** FileConnection 설정에서 합니다.
    2. **사용 유형**을 **기존 파일**로 설정하고, **파일**을 기존 파일의 파일 경로로 설정합니다.
 
        ![Foreach 루프 컨테이너 구성](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)

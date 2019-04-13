@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886726"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525639"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
@@ -58,7 +58,7 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>변경 피드 및 _etag, _lsn 또는 _ts
 
-_etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다. _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다. _lsn은 변경 피드에 대해서만 추가되는 일괄 처리 ID로, 트랜잭션 ID를 나타냅니다. 많은 항목에는 동일한 _lsn이 있을 수 있습니다. FeedResponse의 ETag는 항목에 표시된 _etag와 다릅니다. _etag는 내부 식별자이며 항목의 버전에 대해 알려주는 동시성 컨트롤에 사용되는 반면 ETag는 피드 시퀀싱에 사용됩니다.
+_etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다. _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다. _lsn은 변경 피드만;에 대 한 추가 되는 일괄 처리 ID 트랜잭션 ID를 나타내므로 많은 항목에는 동일한 _lsn이 있을 수 있습니다. FeedResponse의 ETag는 항목에 표시된 _etag와 다릅니다. _etag는 내부 식별자이며 항목의 버전에 대해 알려주는 동시성 컨트롤에 사용되는 반면 ETag는 피드 시퀀싱에 사용됩니다.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>변경 피드 사용 사례 및 시나리오
 
@@ -84,7 +84,7 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 다음은 변경 피드를 사용하여 쉽게 구현할 수 있는 일부 시나리오입니다.
 
-* [서버를 사용하지 않는](https://azure.microsoft.com/en-us/solutions/serverless/) 웹 또는 모바일 앱 내에서는 고객의 프로필, 기본 설정 또는 해당 위치에 대한 모든 변경 내용과 같은 이벤트를 추적하고 특정 작업(예: [Azure Functions](change-feed-functions.md)를 사용하여 해당 디바이스에 푸시 알림 보내기)을 트리거할 수 있습니다.
+* [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 웹 또는 모바일 앱 내에서는 고객의 프로필, 기본 설정 또는 해당 위치에 대한 모든 변경 내용과 같은 이벤트를 추적하고 특정 작업(예: [Azure Functions](change-feed-functions.md)를 사용하여 해당 디바이스에 푸시 알림 보내기)을 트리거할 수 있습니다.
 
 * 예를 들어, Azure Cosmos DB를 사용하여 게임을 빌드하는 경우 변경 피드를 사용하여 완료된 게임의 점수에 따라 실시간 순위표를 구현할 수 있습니다.
 

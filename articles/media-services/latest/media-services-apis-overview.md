@@ -9,19 +9,48 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 18b72ceaee0ca0747a0bf2144d5f9ffddbee8b8c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492144"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546401"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 Api를 Media Services를 사용 하 여 개발
 
 이 문서에서는 Media Services v3을 사용 하 여 개발 하는 경우 엔터티 및 Api에 적용 되는 규칙을 설명 합니다.
+
+## <a name="accessing-the-azure-media-services-api"></a>Azure Media Services API 액세스
+
+Azure Media Services 리소스에 액세스 하려면 Azure AD (Active Directory) 서비스 주체 인증을 사용 해야 합니다. Azure Media Services API에 필요한 사용자 또는 REST API를 사용 하면 응용 프로그램 요청 Azure Media Services 계정 리소스에 액세스할 수 있는지 (일반적으로 하나는 **참가자** 하거나 **소유자** 역할)입니다. 자세한 내용은 [Media Services 계정에 대 한 역할 기반 액세스 제어](rbac-overview.md)입니다.
+
+서비스 주체를 만드는 대신 Azure 리소스에 대 한 관리 되는 id를 사용 하 여 Azure Resource Manager를 통해 Media Services API에 액세스 하는 것이 좋습니다. Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 관리 되는 id 란](../../active-directory/managed-identities-azure-resources/overview.md)합니다.
+
+### <a name="azure-ad-service-principal"></a>Azure AD 서비스 주체 
+
+Azure AD 응용 프로그램 및 서비스 주체를 만드는 경우 응용 프로그램은 자체 테 넌 트입니다. 응용 프로그램을 만든 후 앱을 제공 **참여자** 하거나 **소유자** Media Services 계정에 대 한 역할 액세스 합니다. 
+
+내용은 Azure AD 응용 프로그램을 만들 수 있는 권한이 있는지 확실 하지 않은 경우 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)합니다.
+
+다음 그림에서는 숫자 순서로 요청 흐름을을 나타냅니다.
+
+![중간 계층 앱](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+
+1. 중간 계층 앱에는 다음 매개 변수가 있는 Azure AD 액세스 토큰을 요청 합니다.  
+
+   * Azure AD 테넌트 엔드포인트.
+   * Media Services 리소스 URI.
+   * REST Media Services의 리소스 URI.
+   * Azure AD 애플리케이션 값: 클라이언트 ID 및 클라이언트 암호.
+   
+   필요한 모든 값을 가져오려면를 참조 하세요. [Azure CLI를 사용 하 여 Azure Media Services API 액세스](access-api-cli-how-to.md)
+
+2. Azure AD 액세스 토큰이 중간 계층으로 전송됩니다.
+4. 중간 계층은 Azure AD 토큰과 함께 Azure Media REST API로 요청을 보냅니다.
+5. 중간 계층은 Media Services에서 데이터를 다시 가져옵니다.
 
 ## <a name="naming-conventions"></a>명명 규칙
 
@@ -30,17 +59,6 @@ Azure Media Services v3 리소스 이름(예: 자산, 작업, 변환)은 Azure R
 Media Services 리소스 이름에는 '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', 작은 따옴표 또는 제어 문자가 포함될 수 없습니다. 다른 문자를 모두 허용합니다. 리소스 이름의 최대 길이는 260자입니다. 
 
 Azure Resource Manager 이름 지정에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
-
-## <a name="v3-api-design-principles-and-rbac"></a>v3 API 디자인 원칙 및 RBAC
-
-v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api 반환 하지 않는 암호 또는 자격 증명에 **가져옵니다** 하거나 **목록** 작업 합니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 사용자 암호 또는 자격 증명 얻기 위해 별도 작업 메서드를 호출 해야 합니다. 합니다 **판독기** Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets 등의 작업을 호출할 수 있도록 역할 작업을 호출할 수 없습니다. 별도 작업이 필요 합니다. 원하는 경우 사용자 지정 역할을 더 세부적인 RBAC 보안 권한을 설정할 수 있습니다.
-
-자세한 내용은 다음을 참조하세요.
-
-- [기본 제공 역할 정의](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-- [RBAC를 사용 하 여 액세스를 관리 하려면](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Media Services 계정에 대 한 역할 기반 액세스 제어](rbac-overview.md)
-- [콘텐츠 키 정책-.NET 받기](get-content-key-policy-dotnet-howto.md)합니다.
 
 ## <a name="long-running-operations"></a>장기 실행 작업
 
@@ -71,4 +89,4 @@ Media Services에는 다음과 같은 장기 실행 작업에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[SDK/도구를 사용하여 Media Services v3 API로 개발 시작](developers-guide.md)
+[Sdk/도구를 사용 하 여 Media Services v3 API를 사용 하 여 개발 시작](developers-guide.md)

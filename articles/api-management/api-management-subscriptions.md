@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049761"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526591"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API Management의 구독
 
@@ -51,9 +51,6 @@ API에 액세스하기 위해 구독 키를 얻으려면 구독이 필요합니�
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>모든 API 또는 개별 API에 대한 구독
 
-> [!NOTE]
-> 현재 이 기능은 API Management Consumption 계층에서만 사용 가능합니다.
-
 API Management의 [소비](https://aka.ms/apimconsumptionblog) 계층이 도입될 때, 키 관리를 간소화하기 위해 몇 가지 변경 사항이 적용되었습니다.
 - 첫째, 구독 범위가 두 개 더 추가되었습니다(모든 API와 단일 API). 구독의 범위는 더 이상 API 제품으로 한정되지 않습니다. 이제 제품을 만들고 먼저 API에 추가하지 않아도 API(또는 API Management 인스턴스 내의 모든 API)에 액세스 권한을 부여하는 키를 만들 수 있습니다. 또한 각 API Management 인스턴스는 이제 변경 불가능한 모든 API 구독과 함께 제공됩니다. 이 구독을 사용하면 테스트 콘솔 내에서 더욱 쉽고 간단하게 API를 테스트하고 디버그할 수 있습니다.
 
@@ -66,6 +63,6 @@ API Management의 [소비](https://aka.ms/apimconsumptionblog) 계층이 도입�
 ## <a name="next-steps"></a>다음 단계
 API Management에 대한 자세한 내용 확인:
 
-+ API Management의 기타 [개념](api-management-terminology.md)에 대해 알아보기.
-+ [자습서](import-and-publish.md)에 따라 API Management에 대해 자세히 알아보기.
-+ [FAQ 페이지](api-management-faq.md)에서 일반적인 질문 확인.
++ API Management의 기타 [개념](api-management-terminology.md)에 대해 알아보기
++ [자습서](import-and-publish.md)에 따라 API Management에 대해 자세히 알아보기
++ 일반적인 질문은 [FAQ 페이지](api-management-faq.md) 확인

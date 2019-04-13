@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916889"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525564"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Azure Diagnostics로 Cloud Services 애플리케이션의 흐름 추적
 추적은 실행되는 동안 애플리케이션의 실행을 모니터링하는 방법입니다. [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) 및 [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) 클래스를 사용하여 로그의 오류 및 애플리케이션 실행, 텍스트 파일 또는 차후 분석을 위한 다른 장치에 대한 정보를 기록할 수 있습니다. 추적에 대한 자세한 내용은 [애플리케이션을 추적 및 계측](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications)을 참조하세요.
@@ -69,7 +69,7 @@ Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기�
 수신기를 추가하는 단계를 완료한 후 코드에 추적 문을 추가할 수 있습니다.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>코드에 추적 문을 추가하려면
-1. 애플리케이션에 대한 소스 파일을 엽니다. 예를 들어 작업자 역할 또는 웹 역할에 대한 <RoleName>.cs 파일입니다.
+1. 애플리케이션에 대한 소스 파일을 엽니다. 예를 들어를 \<RoleName > 작업자 역할 또는 웹 역할에 대 한.cs 파일입니다.
 2. 아직 추가되지 않은 경우 문을 사용하여 다음을 추가합니다.
     ```
         using System.Diagnostics;

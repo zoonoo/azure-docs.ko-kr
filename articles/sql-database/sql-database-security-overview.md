@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359033"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523701"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -107,7 +107,7 @@ Sql Server 암호화를 적용 (SSL/TLS)에서 항상 모든 연결에 대 한 �
 예를 들어 ADO.NET 드라이버를 사용 하는 경우 이렇게 통해 **Encrypt = True** 하 고 **TrustServerCertificate = False**합니다. Azure portal에서 연결 문자열을 가져와야 하는 경우 올바른 설정을 해야 합니다.
 
 > [!IMPORTANT]
-> 일부 타사 드라이버 기본적으로 TLS를 사용 하 여 또는 이전 버전의 TLS 사용 하지 않을 수 있습니다 (< 2.0) 작동 하기 위해. 이 경우 SQL Server 하더라도 데이터베이스에 연결할 수 있습니다. 그러나 특히 중요 한 데이터를 저장 하는 경우 이러한 드라이버와 응용 프로그램이 SQL Database에 연결할 수 있도록 보안 위험을 평가 하는 것이 좋습니다. 
+> 일부 타사 드라이버 기본적으로 TLS를 사용 하 여 또는 이전 버전의 TLS 사용 하지 않을 수 있습니다 (< 1.2) 작동 하기 위해. 이 경우 SQL Server 하더라도 데이터베이스에 연결할 수 있습니다. 그러나 특히 중요 한 데이터를 저장 하는 경우 이러한 드라이버와 응용 프로그램이 SQL Database에 연결할 수 있도록 보안 위험을 평가 하는 것이 좋습니다. 
 >
 > TLS 및 연결 하는 방법에 대 한 자세한 내용은 참조 하세요. [TLS 고려 사항](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

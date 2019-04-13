@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1973d7e360f77aed028d8a93a625f0f6cb7e1ab8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730358"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523446"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -58,7 +58,7 @@ App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니�
 
 기본적으로 App Service 앱은 인터넷의 모든 IP 주소로부터 요청을 수락하지만, IP 주소의 작은 하위 집합에만 액세스하도록 제한할 수 있습니다. Windows에서 App Service를 사용하면 앱에 액세스할 수 있는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에서 정의된 개별 IP 주소 또는 IP 주소 범위가 포함될 수 있습니다. 자세한 내용은 [Azure App Service 고정 IP 제한](app-service-ip-restrictions.md)을 참조하세요.
 
-Windows에 App Service가 있는 경우 _web.config_를 구성하여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)을 참조하세요.
+Windows에 App Service가 있는 경우 _web.config_를 구성하여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [동적 IP 보안 \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)합니다.
 
 ## <a name="client-authentication-and-authorization"></a>클라이언트 인증 및 권한 부여
 

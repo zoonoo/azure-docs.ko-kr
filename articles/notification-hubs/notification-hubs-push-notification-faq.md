@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884747"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524194"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -234,7 +234,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs 보안 푸시 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs 문제 해결]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs 메트릭]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
+[등록 내보내기/가져오기]: https://docs.microsoft.com/en-us/azure/notification-hubs/export-modify-registrations-bulk
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 8e6c4047182901c5282f280f59fa95eca6571ecc
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 51ef6f3f8ac18b71064f73f32597c1f59ffa1d18
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417924"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525401"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 Azure 리소스 관리
 
@@ -96,8 +96,6 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -ResourceName $storageAccountName
 Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
 ```
-
-자습서를 진행하려면 [자습서: 다른 리소스 그룹 또는 구독에 Azure 리소스 이동](./resource-manager-tutorial-move-resources.md)을 참조하세요. 
 
 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 

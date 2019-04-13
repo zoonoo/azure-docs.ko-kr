@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7ff89e12a1011c0a16644324584eb1610302b1b3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500477"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544287"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -176,5 +176,5 @@ Hadoop용 .NET SDK를 사용하여 HDInsight 클러스터에 대한 데이터를
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 모니터링 및 로깅 연습](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Linux 기반 HDInsight에서 Apache Hadoop YARN 응용 프로그램 로그인 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux 기반 HDInsight에서 Apache Hadoop YARN 응용 프로그램 액세스 로그](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [다양한 Apache Hadoop 구성 요소의 로그 파일 크기를 제어하는 방법](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

@@ -8,21 +8,20 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333896"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551617"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
 * M 시리즈는 클라우드의 VM 중에서 가장 높은 vCPU 수(최대 128개의 vCPU) 및 가장 큰 메모리(최대 3.8TiB)를 제공합니다.  높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
 
-* Dv2 시리즈, G 시리즈 및 DSv2/GS는 더 빠른 vCPU와 더 좋은 임시 저장소 성능을 요구하거나 더 높은 메모리 요구량을 가진 애플리케이션에 이상적입니다.  이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
+* Dv2 시리즈, G 시리즈 및 DSv2/gs는 더 빠른 Vcpu와 더 나은 임시 저장소 성능을 요구 하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 적합 합니다. 이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
 
-
-* 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최신 출시된 2.4GHz Intel Xeon® E5-2673 v3 2.4GHz(Haswell) 또는 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0과 함께 사용하면 최대 3.1GHz까지 확장할 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+* 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최신 세대 기반 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 또는 E5 2673 v4 (Broadwell) 2.3 GHz 프로세서, Intel Turbo Boost Technology 2.0을 사용 하 여 최대 3.1ghz까지 올라갈 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
 * Ev3 시리즈는 하이퍼 스레드 구성에서 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 사용하며, 대부분의 범용 워크로드에 대해 더 나은 가치를 제공하고 Ev3을 다른 대부분 클라우드의 범용 VM과 맞춥니다.  하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(7GiB/vCPU에서 8GiB/vCPU로).  Ev3는 D/Dv2 제품군의 상위 메모리 VM 크기에 대한 후속 시리즈입니다.
 
@@ -170,7 +169,6 @@ Premium Storage 캐싱:  지원되지 않음
 <sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 <br>
 
-
 ## <a name="dsv2-series-11-15"></a>DSv2 시리즈 11-15
 
 ACU: 210 - 250 <sup>1</sup>
@@ -187,14 +185,10 @@ Premium Storage 캐싱:  지원됨
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64,000/512(576) |51,200/768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80,000/640(720) |64,000/960 |8 / 25000&nbsp;<sup>4</sup>
 
-
-<sup>1</sup> DSv2 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
-
-<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
-
-<sup>3</sup> 사용 가능한 코어 크기 제한
-
-<sup>4</sup> 가속 네트워킹 사용 시 25,000Mbps
+<sup>1</sup> DSv2 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.  
+<sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.  
+<sup>3</sup> 사용 가능한 코어 크기 제한  
+<sup>4</sup> 가속 네트워킹 사용 시 25,000Mbps 
 
 <br>
 
@@ -214,13 +208,5 @@ Premium Storage 캐싱:  지원되지 않음
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
-<sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다. 
-
-<sup>2</sup> 가속 네트워킹 사용 시 25,000Mbps
-
-
-
-<br>
-
-
-
+<sup>1</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.  
+<sup>2</sup> 가속 네트워킹 사용 시 25,000Mbps 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489504"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548889"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -87,7 +87,7 @@ Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동�
 
     * Azure Portal:
 
-        * [Ubuntu 데이터 과학 가상 머신 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+        * [Ubuntu Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
         * [Windows Data Science Virtual Machine 만들기](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
@@ -280,7 +280,7 @@ Azure Machine Learning 서비스를 사용 하 여 Azure Databricks 작동 방�
 ### <a name="set-up-your-databricks-cluster"></a>Databricks 클러스터 설정
 
 만들기는 [Databricks 클러스터](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)합니다. 일부 설정은 Databricks에서 학습 하는 자동화 된 컴퓨터에 대 한 SDK를 설치 하는 경우에 적용 됩니다.
-**클러스터를 만드는 데 몇 분이 걸립니다.**
+**클러스터를 만드는 데 몇 분 정도 걸립니다.**
 
 이러한 설정을 사용 합니다.
 
@@ -350,7 +350,7 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 }
 ```
 
-이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 같은 디렉터리에 있어도 되고, 하위 디렉터리 *aml_config*에 있어도 되고, 부모 디렉터리에 있어도 됩니다.
+이 JSON 파일은 Python 스크립트 또는 Jupyter Notebook을 포함하는 디렉터리 구조 내에 있어야 합니다. 동일한 디렉터리를 라는 하위 디렉터리에 수 *.azureml*, 또는 부모 디렉터리입니다.
 
 코드에서 이 파일을 사용하려면 `ws=Workspace.from_config()`를 사용합니다. 이 코드는 파일의 정보를 로드하고 작업 영역에 연결합니다.
 
@@ -379,7 +379,7 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
         print('Workspace not found')
     ```
 
-    이 코드는 *aml_config/config.json* 파일에 구성 파일을 씁니다.
+    이 코드에 구성 파일에 작성 된 *.azureml/config.json* 파일입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

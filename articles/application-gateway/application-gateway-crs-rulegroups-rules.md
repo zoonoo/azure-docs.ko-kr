@@ -4,22 +4,24 @@ description: 이 페이지는 웹 애플리케이션 방화벽 CRS 규칙 그룹
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279706"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523922"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>제공되는 웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙 목록
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
 
-Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 이러한 보호는 OWASP 핵심 규칙 집합 2.2.9 또는 3.0을 기반으로 정의된 규칙을 통해 수행됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다.
+Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 3.0 또는 2.2.9 OWASP 핵심 규칙 집합을 기반으로 정의 된 규칙을 통해 수행 됩니다. 이러한 규칙은 규칙별로 해제할 수 있습니다. 이 문서에는 현재 제공되는 규칙 및 규칙 집합이 포함되어 있습니다.
 
-다음 테이블은 Application Gateway를 웹 애플리케이션 방화벽과 사용할 때 제공되는 규칙 그룹 및 규칙입니다.  각 테이블은 특정 CRS 버전의 규칙 그룹에서 찾을 수 있는 규칙을 나타냅니다.
+다음 규칙 그룹 및 규칙은 웹 응용 프로그램 방화벽이 있는 Application Gateway를 사용 하는 경우 사용할 수 있습니다.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> 규칙 집합
 
 ### <a name="General"></a> <p x-ms-format-detection="none">일반</p>
 
@@ -50,7 +52,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |---|---|
 |920100|잘못된 HTTP 요청 줄|
 |920130|요청 본문을 구문 분석하지 못했습니다.|
-|920140|다중 파트 요청 본문의 엄격한 유효성 검사 실패 =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|다중 파트 요청 본문의 엄격한 유효성 검사 실패|
 |920160|콘텐츠-길이 HTTP 헤더가 숫자가 아닙니다.|
 |920170|본문 콘텐츠를 통한 GET 또는 HEAD 요청.|
 |920180|POST 요청에 콘텐츠-길이 헤더가 없습니다.|
@@ -216,7 +218,9 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |943110|가능한 세션 고정 공격 = 오프-도메인 참조 페이지가 있는 SessionID 매개 변수 이름|
 |943120|가능한 세션 고정 공격 = 참조 페이지가 없는 SessionID 매개 변수 이름|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> 규칙 집합
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |960911|잘못된 HTTP 요청 줄|
 |981227|Apache 오류 = 요청에 잘못된 URI가 있습니다.|
 |960912|요청 본문을 구문 분석하지 못했습니다.|
-|960914|다중 파트 요청 본문의 엄격한 유효성 검사 실패 =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|다중 파트 요청 본문의 엄격한 유효성 검사 실패|
 |960915|다중 파트 파서가 일치하지 않을 수도 있는 경계를 감지했습니다.|
 |960016|콘텐츠-길이 HTTP 헤더가 숫자가 아닙니다.|
 |960011|본문 콘텐츠를 통한 GET 또는 HEAD 요청.|
@@ -472,6 +476,8 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |950921|백도어 액세스|
 |950922|백도어 액세스|
 
+---
+
 ## <a name="next-steps"></a>다음 단계
 
-다음을 방문하여 WAF 규칙을 사용하지 않도록 설정하는 방법을 알아봅니다. [WAF 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)
+WAF 규칙을 사용 하지 않도록 설정 하는 방법에 알아봅니다. [WAF 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)

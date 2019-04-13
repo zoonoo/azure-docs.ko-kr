@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490999"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545402"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -202,7 +202,7 @@ New-AzStorageAccount `
 
 ### <a name="find-traffic-hotspots"></a>트래픽 핫스폿 찾기
 
-**찾으세요**
+**검색**
 
 - 최대 악성 트래픽을 트래버스하고 상당한 흐름을 차단하는 대부분의 트래픽을 전송하거나 수신하는 호스트, 서브넷 및 가상 네트워크는 무엇인가요?
     - 호스트, 서브넷 및 가상 네트워크에 대한 비교 차트를 확인합니다. 어떤 호스트, 서브넷 및 가상 네트워크가 트래픽을 가장 많이 전송 또는 수신하는지 파악하면 가장 많은 트래픽을 처리하는 호스트를 식별하고, 트래픽 배포가 적절하게 수행되는지 여부를 확인하는 데 도움이 될 수 있습니다.
@@ -222,7 +222,7 @@ New-AzStorageAccount `
 
     ![통신 양이 가장 많은 상위 5개 호스트 추세](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
-**찾으세요**
+**검색**
 
 - 가장 대화가 많은 호스트 쌍
     - 프런트 엔드 또는 백 엔드 통신과 같은 예상된 동작 또는 백 엔드 인터넷 트래픽과 같은 비정상 동작.
@@ -238,7 +238,7 @@ New-AzStorageAccount `
 
     ![대화가 많은 상위 5개의 세부 정보 및 추세](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
-**찾으세요**
+**검색**
 
 - 환경에서 가장 많이 사용되는 애플리케이션 프로토콜 및 애플리케이션 프로토콜을 가장 많이 사용하는 호스트 쌍
     - 이러한 애플리케이션이 이 네트워크에서 허용되는지 여부
@@ -252,7 +252,7 @@ New-AzStorageAccount `
 
     ![로그 검색의 애플리케이션 프로토콜에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
-**찾으세요**
+**검색**
 
 - 환경 내 VPN 게이트웨이의 용량 사용률 추세.
     - 각 VPN SKU는 일정량의 대역폭을 허용합니다. VPN 게이트웨이 사용률이 낮습니까?
@@ -268,7 +268,7 @@ New-AzStorageAccount `
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>지리별로 트래픽 분포 시각화
 
-**찾으세요**
+**검색**
 
 - 데이터 센터 상위 트래픽 소스, 데이터 센터와의 상위 불량 네트워크 대화, 상위 대화 애플리케이션 프로토콜 같은 데이터 센터별 트래픽 분포.
   - 데이터 센터에서 더 많은 부하가 목격되는 경우 효율적인 트래픽 분포를 계획할 수 있습니다.
@@ -290,7 +290,7 @@ New-AzStorageAccount `
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>가상 네트워크별로 트래픽 분포 시각화
 
-**찾으세요**
+**검색**
 
 - 가상 네트워크, 토폴로지, 가상 네트워크로 가는 상위 트래픽 소스, 가상 네트워크와 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포.
   - 어떤 가상 네트워크가 어떤 가상 네트워크와 대화하는지 파악. 대화가 예상되지 않는 경우 수정할 수 있습니다.
@@ -310,7 +310,7 @@ New-AzStorageAccount `
 
     ![로그 검색의 가상 네트워크 트래픽 분포에 대한 흐름 세부 정보](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
-**찾으세요**
+**검색**
 
 - 서브넷, 토폴로지, 서브넷으로 가는 상위 트래픽 소스, 서브넷과 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포.
     - 어떤 서브넷이 어떤 서브넷과 대화하는지 파악. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
@@ -320,7 +320,7 @@ New-AzStorageAccount `
 
     ![흐름과 관련하여 가상 네트워크 서브넷의 트래픽 분포를 보여주는 서브넷 토폴로지](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
-**찾으세요**
+**검색**
 
 애플리케이션 게이트웨이 및 Load Balancer, 토폴로지, 상위 트래픽 소스, 애플리케이션 게이트웨이 및 Load Balancer와 대화하는 상위 불량 네트워크, 대화하는 상위 애플리케이션 프로토콜별 트래픽 분포. 
     
@@ -331,7 +331,7 @@ New-AzStorageAccount `
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>인터넷에서 트래픽을 수신하는 포트 및 가상 머신 보기
 
-**찾으세요**
+**검색**
 
 - 인터넷을 통해 대화하는 열린 포트
   - 예상치 않은 포트가 열려 있는 것이 발견되면 구성을 수정할 수 있습니다.
@@ -340,7 +340,7 @@ New-AzStorageAccount `
 
     ![Azure 대상 포트 및 호스트 세부 정보](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
-**찾으세요**
+**검색**
 
 환경 내 악성 트래픽의 존재 여부 악성 트래픽의 출처 악성 트래픽의 목적지
 
@@ -349,7 +349,7 @@ New-AzStorageAccount `
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>NSG/NSG 규칙 적중의 추세 시각화
 
-**찾으세요**
+**검색**
 
 - 흐름 분포와 비교 차트에서 대부분 적중하는 NSG/NSG 규칙은 무엇인가요?
 - NSG/NSG 규칙당 최상위 원본 및 대상 대화 쌍
@@ -369,3 +369,8 @@ New-AzStorageAccount `
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- 흐름 로그를 사용하도록 설정하는 방법을 알아보려면 [NSG 흐름 로깅을 사용하도록 설정](network-watcher-nsg-flow-logging-portal.md)을 참조하세요.
+- 트래픽 분석의 세부 정보를 처리 하 고 스키마를 이해 하려면 참조 [트래픽 분석 스키마](traffic-analytics-schema.md)합니다.

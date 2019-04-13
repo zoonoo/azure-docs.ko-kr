@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076805"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524177"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
@@ -32,7 +32,7 @@ Apache Spark 기록 서버는 완료되고 실행되는 Spark 애플리케이션
     ![Spark 기록 서버](./media/apache-azure-spark-history-server/launch-history-server.png "Spark 기록 서버")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>URL을 통해 Spark 기록 서버 웹 UI 열기
-다음 URL로 이동하여 Spark 기록 서버를 열고 <ClusterName>을 고객의 Spark 클러스터 이름으로 바꿉니다.
+다음 URL로 이동하여 Spark 기록 서버를 열고 `<ClusterName>`을 고객의 Spark 클러스터 이름으로 바꿉니다.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory

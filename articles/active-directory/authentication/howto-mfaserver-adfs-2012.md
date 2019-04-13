@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c5f37873b51d6257ffec3ada10be886995f7f5d5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370706"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521872"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Windows Server에서 AD FS와 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -81,7 +81,7 @@ Azure Multi-Factor Authentication 서버를 설치하는 경우 다음과 같은
 다음 단계를 따라 MultiFactorAuthenticationAdfsAdapter.config 파일을 편집합니다.
 
 1. **UseWebServiceSdk** 노드를 **true**로 설정합니다.  
-2. **WebServiceSdkUrl** 의 값을 Multi-Factor Authentication 웹 서비스 SDK의 URL로 설정합니다. 예를 들어: *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>* 여기서 *certificatename* 인증서의 이름입니다.  
+2. **WebServiceSdkUrl** 의 값을 Multi-Factor Authentication 웹 서비스 SDK의 URL로 설정합니다. 예를 들어: *https:\/\/contoso.com/\<certificatename > /MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*여기서  *\<certificatename >* 인증서의 이름입니다.  
 3. Register-MultiFactorAuthenticationAdfsAdapter.ps1 스크립트를 편집하고 `Register-AdfsAuthenticationProvider` 명령 끝에 `-ConfigurationFilePath &lt;path&gt;`를 추가합니다. 여기서 *&lt;path&gt;* 는 MultiFactorAuthenticationAdfsAdapter.config 파일의 전체 경로입니다.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>사용자 이름 및 암호를 사용하여 Web Service SDK 구성

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: f47c6b63ce5f18aa896b086ec884b9a3020cadd2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb493fc0a9d3a9173ef4faf17b3cdd4e3781a557
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993266"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526166"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 
@@ -223,7 +223,7 @@ ssms.exe를 사용하여 코드 샘플을 실행했습니다.
 
 그런 다음 결과 창에서 열 머리글 **target_data_XML** 아래의 셀을 클릭했습니다. 그러면 결과 셀의 콘텐츠가 XML로 표시된 다른 파일 탭이 ssms.exe에 만들어졌습니다.
 
-출력은 다음 블록에 표시되어 있습니다. 길어 보이지만 두 개의 **<event>** 요소뿐입니다.
+출력은 다음 블록에 표시되어 있습니다. 해당 길어 보이지만 두는 것  **\<이벤트 >** 요소입니다.
 
 &nbsp;
 

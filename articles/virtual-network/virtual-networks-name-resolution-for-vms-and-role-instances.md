@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426429"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527186"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -147,7 +147,7 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 
 > [!NOTE]
 > 역할 인스턴스는 동일한 가상 네트워크 내에서 VM의 이름 확인을 수행할 수 있습니다. 이를 위해 VM의 호스트 이름과 **internal.cloudapp.net** DNS 접미사로 구성되는 FQDN을 사용하면 됩니다. 그러나 이 경우 역할 인스턴스가 [역할 스키마(.cscfg 파일)](https://msdn.microsoft.com/library/azure/jj156212.aspx)에서 정의된 이름을 가지는 경우에만 이름 확인에 성공합니다.
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > 다른 가상 네트워크(**internal.cloudapp.net** 접미사를 사용하는 FQDN)에서 VM 이름 확인을 수행해야 하는 역할 인스턴스는 이 섹션(두 가상 네트워크 간의 사용자 지정 DNS 서버 전달)에 설명된 방법을 사용하여 이 작업을 수행해야 합니다.
 >
@@ -221,4 +221,4 @@ Azure Resource Manager 배포 모델:
 
 * [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710)
 * [Virtual Network 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100)
-* [네트워크 구성 파일을 사용 하 여 가상 네트워크를 구성 합니다.](virtual-networks-using-network-configuration-file.md)
+* [네트워크 구성 파일을 사용하여 Virtual Network 구성](virtual-networks-using-network-configuration-file.md)

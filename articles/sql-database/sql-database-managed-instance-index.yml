@@ -115,7 +115,7 @@ sections:
             values:
               - href: /azure/sql-database/sql-database-managed-instance-get-started
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/'
+              - href: null
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment'
           - title: 특정 시점 복원
             values:
@@ -127,7 +127,7 @@ sections:
             values:
               - href: null
               - href: null
-              - href: 'https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/'
+              - href: 'https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285'
               - href: null
   - title: 단계별 자습서 및 교육 자료
     items:
@@ -140,11 +140,11 @@ sections:
           - html: '에 대 한 자세한 <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">하드웨어 특징 및 제한 사항</a>를 <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">Transact SQL 언어 차이</a>, 및 <a href="/azure/sql-database/sql-database-managed-instance-create-manage">구성에 대 한 TRANSACT-SQL, PowerShell, Azure CLI API 관리 되는 인스턴스<a/>.'
           - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">구성</a> Azure VNet을 관리 되는 인스턴스에 배포 될 위치입니다.'
           - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">유효성 검사</a> 관리 되는 인스턴스를 배포 하 여 기존 Azure VNet을 사용할 수 있도록 합니다.'
-          - html: '<a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure Virtual Machine</a> 또는 <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">지점 및 사이트 간 연결</a> 또는 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">애플리케이션</a>을 사용하여 사용자 인스턴스에 연결합니다.'
+          - html: '<a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure Virtual Machine</a> 또는 <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">지점 및 사이트 간 연결</a> 또는 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">애플리케이션</a>을 사용하여 사용자 인스턴스에 연결합니다.'
           - html: '<a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> 또는 <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">데이터베이스 실험 도우미</a>를 사용하여 데이터베이스를 마이그레이션할 수 있는지 확인합니다.'
           - html: 사용 하 여 관리 되는 인스턴스에 데이터베이스를 가져올 <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">네이티브 복원</a> 하거나 <a href="/azure/dms/tutorial-sql-server-managed-instance-online">데이터 마이그레이션 서비스</a>합니다.
           - html: 'SSIS 패키지를 <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>로, SSAS 테이블 형식 모델을 <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>로, SSRS 보고서를 <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>으로 이동합니다.'
-          - html: '<a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">범용 계층</a>의 스토리지 레이어에 대해 알아보고 <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">범용 서비스 계층에 대한 스토리지 성능 모범 사례 및 고려 사항</a>을 적용합니다.'
+          - html: '<a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">범용 계층</a>의 스토리지 레이어에 대해 알아보고 <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">범용 서비스 계층에 대한 스토리지 성능 모범 사례 및 고려 사항</a>을 적용합니다.'
           - html: '<a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">인스턴스 보호</a>를 위한 모범 사례 및 권장 사항을 찾습니다.'
           - html: 자세한 <a href="sql-database-howto-managed-instance.md">방법 가이드</a> 도움이 되는 관리 되는 인스턴스를 구성할 수 있습니다.
   - title: 참조
@@ -154,8 +154,10 @@ sections:
         className: cardsD
         items:
           - title: 블로그
-            html: '<p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">중간</a></p>'
+            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">중형</a></p>'
           - title: 질문과 대답
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">스택 오버플로</a></p>'
+          - title: 커뮤니티 채널
+            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Sql 커뮤니티 (관리 되는 인스턴스)</a></p>'
           - title: 교육 자료
-            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">실습 랩</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">명령 주도 실습</a></p>'
+            html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">실습 랩</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">강사 주도 랩</a></p>'

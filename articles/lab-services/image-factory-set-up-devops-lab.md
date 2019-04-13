@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439910"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523021"
 ---
-# <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps에서 이미지 팩터리를 실행 합니다.
+# <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps에서 이미지 팩터리 실행
 이 문서에서는 Azure DevOps (이전의 Visual Studio Team Services)에서 이미지 팩터리를 실행 하는 데 필요한 모든 준비를 다룹니다.
 
 > [!NOTE]
@@ -44,12 +44,12 @@ Azure DevOps를 사용 하 여 소스 코드를 저장, 한 곳에서 Azure Powe
 
 기존 DevOps 계정 또는 프로젝트를 대신 사용 하려는 경우이 단계를 건너뜁니다.
 
-시작 하려면 Azure DevOps에 무료 계정을 만듭니다. 방문 https://www.visualstudio.com/ 선택한 **무료로** 바로 아래에서 **Azure DevOps** (이전의: VSTS). 고유한 계정 이름을 선택 하 고 Git를 사용 하 여 코드를 관리 하도록 선택 하도록 해야 합니다. 이 만들어진 후 팀 프로젝트에 URL을 저장 합니다. 다음은 샘플 URL: https://<accountname>.visualstudio.com/MyFirstProject 합니다.
+시작 하려면 Azure DevOps에 무료 계정을 만듭니다. 방문 https://www.visualstudio.com/ 선택한 **무료로** 바로 아래에서 **Azure DevOps** (이전의: VSTS). 고유한 계정 이름을 선택 하 고 Git를 사용 하 여 코드를 관리 하도록 선택 하도록 해야 합니다. 이 만들어진 후 팀 프로젝트에 URL을 저장 합니다. 다음은 샘플 URL: `https://<accountname>.visualstudio.com/MyFirstProject`합니다.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Git으로 이미지 팩터리 체크 인
 PowerShell, 템플릿 및 이미지 팩터리에 대 한 구성에는 [공용 DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory)합니다. 새 팀 프로젝트에 코드를 얻을 수 있는 가장 빠른 방법은 리포지토리를 가져오는 것입니다. 이 위치 (추가 문서 및 샘플 얻게) 따라서 전체 DevTest Labs 리포지토리에서 끌어옵니다. 
 
-1. 이전 단계에서 만든 Azure DevOps project를 방문 (URL 같습니다 **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. 이전 단계에서 만든 Azure DevOps project를 방문 (URL 같습니다 **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. 선택 **리포지토리를 가져올**합니다.
 3. 입력 된 **복제 URL** DevTest Labs 리포지토리에 대 한: `https://github.com/Azure/azure-devtestlab`합니다.
 4. **가져오기**를 선택합니다.

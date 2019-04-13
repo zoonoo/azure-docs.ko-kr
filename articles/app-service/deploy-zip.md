@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59488408"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544061"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -73,13 +73,23 @@ Azure CLI 버전이 2.0.21 이상인지 확인합니다. 사용 중인 버전을
 
 [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) 명령을 사용하여 업로드된 ZIP 파일을 웹앱에 배포합니다.  
 
-다음 예제에서는 업로드한 ZIP 파일을 배포합니다. Azure CLI의 로컬 설치를 사용할 경우 `--src`에 대해 로컬 ZIP 파일 경로를 지정합니다.   
+다음 예제에서는 업로드한 ZIP 파일을 배포합니다. Azure CLI의 로컬 설치를 사용할 경우 `--src`에 대해 로컬 ZIP 파일 경로를 지정합니다.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-이 명령은 ZIP 파일의 파일과 디렉터리를 기본 App Service 애플리케이션 폴더(`\home\site\wwwroot`)에 배포하고 앱을 다시 시작합니다. 추가 사용자 정의 빌드 프로세스가 구성된 경우 이 프로세스도 실행됩니다. 자세한 내용은 [Kudu 설명서](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)를 참조하세요.
+이 명령은 ZIP 파일의 파일과 디렉터리를 기본 App Service 애플리케이션 폴더(`\home\site\wwwroot`)에 배포하고 앱을 다시 시작합니다.
+
+기본적으로 배포 엔진 ZIP 파일로 실행 준비가 되었음을 가정-모든 빌드 자동화를 실행 하지 않습니다. 동일한 빌드 자동화에서와 같이 사용할 수 있도록를 [Git 배포](deploy-local-git.md)로 설정 합니다 `SCM_DO_BUILD_DURING_DEPLOYMENT` 앱 설정에서 다음 명령을 실행 하 여를 [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+```
+
+
+
+자세한 내용은 [Kudu 설명서](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)를 참조하세요.
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 
@@ -118,5 +128,5 @@ Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64A
 
 ## <a name="more-resources"></a>추가 리소스
 
-* [Kudu: Zip 파일에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu: zip 파일에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service 배포 자격 증명](deploy-ftp.md)

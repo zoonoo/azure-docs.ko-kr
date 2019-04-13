@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370570"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526275"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 관리 스토리지 계정 - CLI
 
@@ -109,7 +109,7 @@ Key Vault에 SAS(공유 액세스 서명) 토큰을 생성하도록 요청할 �
 위에 나열된 단계를 완료하면 다음 명령을 실행하여 Key Vault에 사용자의 SAS 토큰을 생성하도록 요청할 수 있습니다. 
 
 아래 단계에서 수행되는 작업 목록은 다음과 같습니다.
-- 자격 증명 모음 ‘<VaultName>’의 KeyVault 관리형 스토리지 계정 ‘<YourStorageAccountName>’에 ‘<YourSASDefinitionName>’(이)라는 계정 SAS 정의를 설정합니다. 
+- SAS 정의 라는 계정을 설정 합니다 `<YourSASDefinitionName>` KeyVault 관리 되는 저장소 계정에 `<YourStorageAccountName>` 자격 증명 모음에 `<VaultName>`입니다. 
 - 서비스, 컨테이너 및 개체 리소스 종류에 대해 Blob, 파일, 테이블 및 큐 서비스의 계정 SAS 토큰을 만듭니다. 이 토큰은 모든 권한이 있으며 https를 사용하고 시작 및 종료 날짜가 지정됩니다.
 - 자격 증명 모음에 KeyVault 관리형 스토리지 SAS 정의를 설정합니다. 템플릿 URI는 위에서 만든 SAS 토큰으로, SAS 유형은 ‘계정’이고 N일간 유효합니다.
 - SAS 정의에 해당하는 KeyVault 비밀에서 실제 액세스 토큰을 검색합니다.

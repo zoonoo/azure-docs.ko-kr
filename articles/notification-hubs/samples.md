@@ -11,30 +11,23 @@ ms.workload: mobile
 ms.topic: article
 ms.author: jowargo
 ms.date: 03/28/2019
-ms.openlocfilehash: 0aa93d7109eb1bdf7db35f1d9124d02b5cfc163e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623095"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524851"
 ---
 # <a name="azure-notification-hubs-samples"></a>Azure Notification Hubs 샘플
-Microsoft 및 타사는 Azure Notification Hubs에 대한 SDK를 게시합니다. Android, iOS 및.NET에 대 한 Microsoft 리포지토리는 또한 각 대상 플랫폼에 대 한 샘플 앱을 포함합니다.
+이 문서에서는 Azure Notification Hubs의 주요 기능을 보여 주는 샘플에 대 한 링크를 제공 합니다.
 
 ## <a name="samples"></a>샘플
 
-| SDK)            | 게시자      |
-| -------------- | -------------- |
-| [.NET 서버](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
-| [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
-| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | 타사 |
-| [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
-| [Java 서버](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
-| [React Native](https://github.com/CatalystCode/react-native-azurenotificationhub) | 타사 |
-
-> [!Note]
-> Microsoft는 품질, 유용성 또는 다른 타사 솔루션의 지원 가능성에 대한 책임이 없습니다.
+- [.NET](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples)
+- [Android](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples)
+- [Apache Cordova](https://github.com/Azure/azure-notificationhubs-samples/tree/master/apache-cordova)
+- [Ionic](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Ionic)
+- [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## <a name="next-steps"></a>다음 단계
 자습서를 참조 합니다 **자습서** 테이블 (목차)의 섹션입니다.

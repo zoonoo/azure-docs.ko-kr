@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496967"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546250"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -40,7 +40,7 @@ NPM의 다양한 기능에 대한 플랫폼 요구 사항은 아래와 같습니
 - NPM의 ExpressRoute 모니터 기능은 Windows 서버(2008 SP1 이상) 운영 체제만 지원합니다.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>NPM에서 Linux 머신을 모니터링 노드로 사용할 수 있나요?
-Linux 기반 노드를 사용하여 네트워크를 모니터링하는 기능은 현재 비공개 미리 보기 중입니다. 더 자세한 내용은 계정 관리자에 문의하세요. 작업 영역 ID를 제공하면 당사에서 계속 진행하여 해당 기능을 사용하도록 설정합니다. Linux 에이전트는 NPM의 성능 모니터 기능에 대해서만 모니터링 기능을 제공하고 서비스 연결 모니터 및 ExpressRoute 모니터 기능에 대해서는 사용할 수 없습니다.
+Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능 현재 미리 보기 중입니다. 더 자세한 내용은 계정 관리자에 문의하세요. 작업 영역 ID를 제공하면 당사에서 계속 진행하여 해당 기능을 사용하도록 설정합니다. Linux 에이전트는 NPM의 성능 모니터 기능에 대해서만 모니터링 기능을 제공하고 서비스 연결 모니터 및 ExpressRoute 모니터 기능에 대해서는 사용할 수 없습니다.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM에서 모니터링에 사용할 노드에 대한 크기 요구 사항은 얼마인가요?
 네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM을 실행하기 위해 별도 노드를 사용할 필요는 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU를 5%를 초과하여 이용하는 경우 모니터링 프로세스를 중지하는 기능이 있습니다.

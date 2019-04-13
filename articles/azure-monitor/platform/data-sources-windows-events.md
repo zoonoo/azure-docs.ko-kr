@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001122"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522713"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 이벤트 로그 데이터 원본
 많은 애플리케이션이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -54,7 +54,7 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 | EventLevelName |텍스트 형식으로 된 이벤트의 심각도입니다. |
 | EventLog |이벤트가 수집된 이벤트 로그의 이름입니다. |
 | ParameterXml |XML 형식의 이벤트 매개 변수 값입니다. |
-| ManagementGroupName |System Center Operations Manager 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우 이 값은 AOI-<workspace ID>입니다. |
+| ManagementGroupName |System Center Operations Manager 에이전트의 관리 그룹 이름입니다.  이 값은 다른 에이전트 `AOI-<workspace ID>` |
 | RenderedDescription |매개 변수 값을 포함하는 이벤트 설명입니다. |
 | 원본 |이벤트의 원본입니다. |
 | SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br> Linux – 모든 Linux 에이전트  <br> AzureStorage – Azure Diagnostics |

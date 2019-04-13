@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491545"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548717"
 ---
 # <a name="set-alerts-in-application-insights"></a>Application Insights에서 경고 설정
 [Azure Application Insights][start]는 웹앱의 성능 및 사용 메트릭이 변경되면 사용자에게 경고할 수 있습니다. 
@@ -45,7 +45,7 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 * 경고에 응답하는 웹앱을 설정한 경우 [웹후크 주소](../../azure-monitor/platform/alerts-webhooks.md)를 설정합니다. 경고가 활성화될 때 및 해결될 때 모두 호출됩니다. 그러나 현재 쿼리 매개 변수는 웹후크 속성으로 전달되지 않습니다.
 * 사용 하지 않도록 설정할 수 있습니다 하거나 경고를 사용 하도록 설정: 맨 위에 있는 단추를 참조 하세요.
 
-*경고 추가 단추가 표시 되지 않습니다.*
+*경고 추가 단추가 보이지 않습니다.*
 
 * 조직 계정을 사용 중이신가요? 이 애플리케이션 리소스에 소유자 또는 참가자 액세스가 가능하면 경고를 설정할 수 있습니다. 액세스 제어 탭을 살펴보세요. [액세스 제어에 대해 자세히 알아보세요][roles].
 
@@ -147,7 +147,7 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>클래식 경고 전자 메일 알림 구독을 취소 하는 방법
 
-이 섹션에 적용 됩니다 **클래식 가용성 경고**를 **Application Insights 메트릭 경고**, 및 **클래식 오류 비정상 경고**합니다.
+이 섹션에 적용 됩니다 **클래식 가용성 경고**를 **클래식 Application Insights 메트릭 경고**, 및 **클래식 오류 비정상 경고**합니다.
 
 다음 중 하나에 적용 되는 경우 이러한 클래식 경고에 대 한 전자 메일 알림을 받고 있습니다.
 
@@ -177,8 +177,8 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../platform/action-groups.md)을 사용하면 contributor/owner/reader 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 메일 알림을 구성할 수 있습니다.
 
 ## <a name="automation"></a>Automation
-* [PowerShell를 사용 하 여 경고 설정 자동화](../../azure-monitor/app/powershell-alerts.md)
-* [웹 후크를 경고에 대 한 응답 자동화 사용](../../azure-monitor/platform/alerts-webhooks.md)
+* [PowerShell을 사용하여 경고 설정 자동화](../../azure-monitor/app/powershell-alerts.md)
+* [Webhook를 사용하여 경고에 대한 응답 자동화](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>참고 항목
 * [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)

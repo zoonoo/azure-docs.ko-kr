@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313943"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525170"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -174,7 +174,7 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
 2. 파일을 추출합니다.
 3. **일반** 폴더에서 VpnServerRoot.cer을 /etc/ipsec.d/cacerts로 복사하거나 이동합니다.
 4. cp client.p12를 /etc/ipsec.d/private/로 복사하거나 이동합니다. 이 파일은 Azure VPN Gateway의 클라이언트 인증서입니다.
-5. VpnSettings.xml 파일을 열고 <VpnServer> 값을 복사합니다. 이 값은 다음 단계에서 사용됩니다.
+5. VpnSettings.xml 파일을 열고 `<VpnServer>` 값을 복사합니다. 이 값은 다음 단계에서 사용됩니다.
 6. 아래 예제에서 값을 조정한 다음 예제를 /etc/ipsec.conf 구성에 추가합니다.
   
    ```

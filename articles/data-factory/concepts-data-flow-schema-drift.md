@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729358"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547147"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Mapping Data Flow 스키마 드리프트
 
@@ -26,7 +26,7 @@ ms.locfileid: "56729358"
 * 하드 코드된 필드 및 값 대신 데이터 패턴을 사용할 수 있는 변환 매개 변수 정의
 * 명명된 필드를 사용하는 대신 수신 필드와 일치하는 패턴을 이해하는 식 정의
 
-Azure Data Factory Data Flow에서 이러한 기능은 다음 워크플로를 통해 표시됩니다.
+## <a name="how-to-implement-schema-drift"></a>스키마 드리프트를 구현 하는 방법
 
 * 원본 변환에서 “스키마 드리프트 허용” 선택
 
@@ -67,3 +67,10 @@ Azure Data Factory Data Flow 샘플 “Taxi Demo”를 사용하여 이 작업�
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>새 열 다운스트림 액세스
+
+열 패턴을 사용 하 여 새 열을 생성 하는 경우에 "byName" 식 함수를 사용 하 여 데이터 흐름 변환의 뒷부분에 나오는 이러한 새 열을 액세스할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+에 [데이터 흐름 식 언어](data-flow-expression-functions.md) 열 패턴 및 스키마 드리프트 "byName" 및 "byPosition"를 포함 하 여 추가 기능을 찾을 수 있습니다.

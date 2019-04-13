@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360758"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523004"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
@@ -193,10 +193,10 @@ ms.locfileid: "59360758"
 
    ![변수 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 자산 | 값 | Description |
+   | 자산 | 값 | 설명 |
    | -------- | ----- | ----------- |
-   | **name** | 제한 | 변수의 이름 | 
-   | **Type** | 정수  | 변수의 데이터 형식 | 
+   | **Name** | 제한 | 변수의 이름 | 
+   | **형식** | 정수  | 변수의 데이터 형식 | 
    | **값** | 0 | 변수의 시작 값 | 
    |||| 
 
@@ -236,7 +236,7 @@ ms.locfileid: "59360758"
 
       | 자산 | 값 | 설명 |
       | -------- | ----- | ----------- | 
-      | **받는 사람** | *<email-address\@domain>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
+      | **To** | *\<email-address\@domain>* | 받는 사람의 이메일 주소입니다. 테스트를 위해 자신의 이메일 주소를 사용합니다. | 
       | **제목** | "제한"에 대한 현재 값은 **Limit**입니다. | 이메일 제목을 지정합니다. 이 예에서는 **Limit** 변수를 포함해야 합니다. | 
       | **본문** | <*email-content*> | 보내려는 이메일 메시지의 내용을 지정합니다. 이 예에서는 텍스트를 원하는 대로 입력합니다. | 
       |||| 
@@ -253,7 +253,7 @@ ms.locfileid: "59360758"
 
 | 자산 | 기본값 | 설명 | 
 | -------- | ------------- | ----------- | 
-| **카운트** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
+| **개수** | 60 | 루프가 종료되기 전에 실행되는 최대 루프 수입니다. 기본값은 60회 주기입니다. | 
 | **시간 제한** | PT1H | 루프가 종료되기 전에 루프를 실행하는 가장 많은 시간입니다. 기본값은 1시간이며 ISO 8601 형식으로 지정됩니다. <p>시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다. | 
 |||| 
 
@@ -344,7 +344,7 @@ ms.locfileid: "59360758"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [(조건문) 조건에 따라 단계 실행](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [다른 값 (switch 문)에 따라 단계 실행](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [실행 또는 병렬 단계 (분기)를 병합 합니다.](../logic-apps/logic-apps-control-flow-branches.md)
-* [그룹화 된 작업 상태 (범위)에 따라 단계 실행](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [조건에 따라 단계 실행(조건문)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [다른 값에 따라 단계 실행(switch 문)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [병렬 단계 실행 및 병합(분기)](../logic-apps/logic-apps-control-flow-branches.md)
+* [그룹화된 작업 상태에 따라 단계 실행(범위)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

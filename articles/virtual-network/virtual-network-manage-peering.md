@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491290"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524050"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -50,7 +50,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 5. <a name="add-peering"></a>다음 설정에 대한 값을 입력하거나 선택합니다.
     - **이름:** 피어링의 이름은 가상 네트워크 내에서 고유해야 합니다.
     - **가상 네트워크 배포 모델:** 피어링하려는 가상 네트워크를 배포한 배포 모델을 선택합니다.
-    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 또는 [지원되는 다른](#requirements-and-constraints) Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 전체 리소스 ID는 /subscriptions/<Id>/resourceGroups/<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/<가상 네트워크 이름>과 유사합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 구독이 피어링을 만드는 가상 네트워크가 포함된 구독과 다른 Azure Active Directory 테넌트에 연결되어 있는 경우 먼저 각 테넌트의 사용자를 [게스트 사용자](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory)로 상대 테넌트에 추가합니다.
+    - **리소스 ID를 알고 있음:** 피어링하려는 가상 네트워크에 대한 읽기 권한이 있는 경우 이 확인란을 선택 취소된 상태로 둡니다. 피어링하려는 가상 네트워크 또는 구독에 대한 읽기 권한이 없는 경우 이 확인란을 선택합니다. 확인란을 선택할 때 나타난 **리소스 ID** 상자에 피어링하려는 가상 네트워크의 전체 리소스 ID를 입력합니다. 입력하는 리소스 ID는 이 가상 네트워크와 동일한 또는 [지원되는 다른](#requirements-and-constraints) Azure [지역](https://azure.microsoft.com/regions)에 있는 가상 네트워크의 리소스 ID여야 합니다. 전체 리소스 ID 유사한 `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`합니다. 가상 네트워크의 속성을 확인하여 가상 네트워크의 리소스 ID를 알 수 있습니다. 가상 네트워크의 속성을 확인하는 방법을 알아보려면 [가상 네트워크 관리](manage-virtual-network.md#view-virtual-networks-and-settings)를 참조하세요. 구독이 피어링을 만드는 가상 네트워크가 포함된 구독과 다른 Azure Active Directory 테넌트에 연결되어 있는 경우 먼저 각 테넌트의 사용자를 [게스트 사용자](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory)로 상대 테넌트에 추가합니다.
     - **구독:** 피어링하려는 가상 네트워크의 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)을 선택합니다. 계정이 읽기 권한이 있는 구독 수에 따라 하나 이상의 구독이 나열됩니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
     - **가상 네트워크:** 피어링하려는 가상 네트워크를 선택합니다. 두 Azure 배포 모델 중 하나를 통해 만든 가상 네트워크를 선택할 수 있습니다. 다른 지역에서 가상 네트워크를 선택하려는 경우 [지원되는 영역](#cross-region)에서 가상 네트워크를 선택해야 합니다. 목록에 가상 네트워크가 표시되게 하려면 가상 네트워크에 대한 읽기 권한이 있어야 합니다. 가상 네트워크가 나열되지만, 회색으로 표시된 경우 가상 네트워크의 주소 공간이 이 가상 네트워크의 주소 공간과 겹치기 때문일 수 있습니다. 가상 네트워크 주소 공간이 겹치면 피어링할 수 없습니다. **리소스 ID** 확인란을 선택한 경우 이 설정을 사용할 수 없습니다.
     - **가상 네트워크 액세스 허용**: 두 가상 네트워크 간 통신을 사용하도록 설정하려면 **사용**(기본값)을 선택합니다. 가상 네트워크 간 통신을 사용하도록 설정하면 어느 쪽 가상 네트워크에든 연결된 리소스가 같은 가상 네트워크에 연결된 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 두 가상 네트워크의 리소스 간 모든 통신은 Azure 개인 네트워크를 통해 이루어집니다. 네트워크 보안 그룹에 대한 **VirtualNetwork** 서비스 태그는 가상 네트워크와 피어링된 가상 네트워크를 포함합니다. 네트워크 보안 그룹 서비스 태그에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md#service-tags)를 참조하세요. 트래픽이 피어링된 가상 네트워크로 흐르지 않게 하려면 **사용 안 함**을 선택합니다. 가상 네트워크를 다른 가상 네트워크와 피어링했지만, 종종 두 가상 네트워크 간 트래픽 흐름을 비활성화하려는 경우에도 **사용 안 함**을 선택할 수 있습니다. 피어링을 삭제하고 다시 만드는 것보다 사용/사용 안 함을 설정하는 것이 더 편리함을 알 수 있습니다. 이 설정을 사용하지 않도록 설정하면 피어링된 가상 네트워크 간에 트래픽이 흐르지 않습니다.
@@ -142,7 +142,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 계정이 이전 역할 중 하나에 할당되지 않은 경우 다음 표에서 필요한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 할당되어야 합니다.
 
-| 액션(Action)                                                          | 이름 |
+| 조치                                                          | 이름 |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 가상 네트워크 A에서 가상 네트워크 B로의 피어링을 만들어야 합니다. 가상 네트워크 A는 가상 네트워크(Resource Manager)이어야 함          |
 | Microsoft.Network/virtualNetworks/peer/action                   | 가상 네트워크 B(Resource Manager)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                       |

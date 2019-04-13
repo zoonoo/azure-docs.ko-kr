@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517601"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547059"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>방법: 위험한 사용자 및 로그인 조사 
 
@@ -151,7 +151,7 @@ ms.locfileid: "58517601"
 
 ### <a name="download-risky-users-data"></a>위험한 사용자 데이터 다운로드
 
-Azure Portal 외부에서 작업하려는 경우 위험한 사용자 데이터를 다운로드할 수 있습니다. [다운로드]를 클릭하면 최근 5,000개 레코드의 CSV 파일이 만들어집니다. 
+Azure 포털 외부에서 사용 하려는 경우 위험한 사용자 데이터를 다운로드할 수 있습니다. 다운로드를 클릭 하면 가장 최근의 2,500 레코드의 CSV 파일을 만듭니다. 
 
 ![위험한 사용자 보고서](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -320,7 +320,7 @@ Azure Portal 외부에서 작업하려는 경우 위험한 사용자 데이터�
 
 ### <a name="download-risky-sign-ins-data"></a>위험한 로그인 데이터 다운로드
 
-Azure Portal 외부에서 작업하려는 경우 위험한 로그인 데이터를 다운로드할 수 있습니다. [다운로드]를 클릭하면 최근 5,000개 레코드의 CSV 파일이 만들어집니다. 
+Azure 포털 외부에서 사용 하려는 경우 위험한 로그인 데이터를 다운로드할 수 있습니다. 다운로드를 클릭 하면 가장 최근의 2,500 레코드의 CSV 파일을 만듭니다. 
 
 ![위험한 사용자 보고서](./media/howto-investigate-risky-users-signins/15.png)
 

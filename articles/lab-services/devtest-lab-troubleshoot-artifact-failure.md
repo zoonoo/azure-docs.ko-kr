@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/17/2019
 ms.author: spelluru
-ms.openlocfilehash: d5e03b7645fcacaeba4ccf147d48886cefd33ffb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 29af70a2713e7b4aebf611d8f2b547e38c6c5d3d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531444"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546368"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>랩에서 아티팩트 실패 진단 
 아티팩트를 만든 후에 성공 또는 실패 여부를 확인할 수 있습니다. Azure DevTest Labs의 아티팩트 로그는 아티팩트 실패를 진단하는 데 사용할 수 있는 정보를 제공합니다. Windows VM에 대한 아티팩트 로그 정보를 보기 위한 두 가지 옵션이 있습니다.

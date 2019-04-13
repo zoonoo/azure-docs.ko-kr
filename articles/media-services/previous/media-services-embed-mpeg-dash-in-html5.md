@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403077"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522438"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함  
 
@@ -86,7 +86,7 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 
 플레이어가 비디오를 재생할 준비가 되도록 MediaPlayer 클래스의 startup() 함수가 호출됩니다. 무엇보다도 함수는 컨텍스트에 정의된 대로 필요한 모든 클래스가 로드되었는지 확인합니다. 플레이어가 준비되면 attachView() 함수를 사용하여 비디오 요소를 연결할 수 있습니다. 시작 함수를 사용하면 MediaPlayer가 비디오 스트림을 요소에 주입하고 필요에 따라 재생을 제어할 수도 있습니다.
 
-MediaPlayer에 MPD 파일의 URL을 전달하여 재생해야 하는 비디오를 알립니다. 페이지가 완전히 로드되면 방금 만든 setupVideo() 함수가 실행되어야 합니다. body 요소의 onload 이벤트를 사용하여 이 작업을 수행합니다. <body> 요소를 다음으로 변경합니다.
+MediaPlayer에 MPD 파일의 URL을 전달하여 재생해야 하는 비디오를 알립니다. 페이지가 완전히 로드되면 방금 만든 setupVideo() 함수가 실행되어야 합니다. body 요소의 onload 이벤트를 사용하여 이 작업을 수행합니다. `<body>` 요소를 다음으로 변경합니다.
 
 ```html
     <body onload="setupVideo()">

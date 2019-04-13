@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5bc67551c70b185ad0b5ed993a510ded2229481f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279621"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528138"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -29,6 +29,8 @@ ms.locfileid: "59279621"
 
 + **새로운 기능**
   + Azure Machine Learning SDK는 이제 Python 3.7을 지원합니다.
+  + Azure Machine Learning DNN 추정은 이제 기본 제공 다중 버전 지원을 제공합니다. 예를 들어 `TensorFlow`  평가기 받으므로 `framework_version` 매개 변수 및 사용자 버전 '1.10' 또는 '1.12'를 지정할 수 있습니다. 에서 현재 사용 중인 SDK 버전에서 지원 되는 버전 목록은 호출 `get_supported_versions()` 원하는 프레임 워크 클래스 (예: `TensorFlow.get_supported_versions()`).
+  최신 SDK 버전에서 지원 되는 버전 목록은 참조 하세요. 합니다 [DNN 스 티 메이 터 설명서](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py)합니다.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning 데이터 준비 SDK v 1.1.1
 
@@ -76,7 +78,7 @@ ms.locfileid: "59279621"
 
 ### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning Python v1.0.18 for SDK
 
- + **변경 내용**
+ + **변경된 기능**
    + Azureml tensorboard 패키지 azureml-contrib-tensorboard를 대체합니다.
    + 이 릴리스를 사용 하 여 관리 되는 계산 클러스터 (amlcompute)에서 사용자 계정을 만드는 동안 설정할 수 있습니다. 이 단순히 프로 비전 구성에서 이러한 속성을 전달 하 여 수행할 수 있습니다. 자세한 내용을 찾을 수 있습니다 합니다 [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-)합니다.
 
@@ -136,7 +138,7 @@ ms.locfileid: "59279621"
   + Azure Machine Learning Pipelines에 AzureBatchStep([Notebook](https://aka.ms/pl-azbatch)), HyperDriveStep([Notebook](https://aka.ms/pl-hyperdrive)) 및 시간 기반 일정 예약 기능([Notebook](https://aka.ms/pl-schedule))이 추가되었습니다.
   +  DataTranferStep이 Azure SQL Server 및 Azure Database for PostgreSQL에서 작동하도록 업데이트되었습니다([Notebook](https://aka.ms/pl-data-trans)).
 
-+ **변경 내용**
++ **변경된 기능**
   + `PublishedPipeline.get_published_pipeline`이 사용되지 않는 대신 `PublishedPipeline.get`이 사용됩니다.
   + `Schedule.get_schedule`이 사용되지 않는 대신 `Schedule.get`이 사용됩니다.
 
@@ -145,9 +147,9 @@ ms.locfileid: "59279621"
 + **새로운 기능**
   + 데이터 준비 SDK는 이제 데이터 저장소를 사용하여 Azure SQL 데이터베이스에서 읽을 수 있도록 지원합니다.
  
-+ **변경 내용**
++ **변경된 기능**
   + 대용량 데이터에서 특정 작업의 메모리 성능이 크게 향상되었습니다.
-  + `read_pandas_dataframe()` 이제 필요한 `temp_folder` 를 지정 해야 합니다.
+  + `read_pandas_dataframe()`에는 이제 `temp_folder`를 지정해야 합니다.
   + `ColumnProfile`의 `name` 속성은 더 이상 사용되지 않습니다. 대신 `column_name`을 사용합니다.
 
 ## <a name="2019-01-28"></a>2019-01-28
@@ -209,7 +211,7 @@ ms.locfileid: "59279621"
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
 
 + **새로운 기능**
-  + `to_bool` 이제 함수에는 일치 하지 않는 값을 오류 값으로 변환할 수 있습니다. 이는 `to_bool` 및 `set_column_types`에 대한 새로운 기본 불일치 동작인 반면 이전 기본 동작은 일치하지 않는 값을 False로 변환하는 것이었습니다.
+  + `to_bool` 함수는 이제 일치하지 않는 값을 오류 값으로 변환하도록 허용합니다. 이는 `to_bool` 및 `set_column_types`에 대한 새로운 기본 불일치 동작인 반면 이전 기본 동작은 일치하지 않는 값을 False로 변환하는 것이었습니다.
   + `to_pandas_dataframe`을 호출할 때 NaN으로 숫자 열에서 null/누락된 값을 해석하는 새 옵션이 있습니다.
   + 일부 식의 반환 형식을 확인하는 추가된 기능은 형식 일관성 및 초기 실패를 확인하는 것입니다.
   + 이제 `parse_json`을 호출하여 JSON 개체로 열의 값을 구문 분석하고 여러 열로 확장할 수 있습니다.
@@ -246,7 +248,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
   + 이 릴리스에서는 Azure Machine Learning에서 VM을 만들기 위한 지원을 제거합니다. 기존 클라우드 VM 또는 원격 온-프레미스 서버를 계속 연결할 수 있습니다. 
   + 또한 Batch AI에 대한 지원을 제거하며, 모든 기능은 이제 Azure Machine Learning 컴퓨팅을 통해 지원됩니다.
 
-+ **새로 만들기**
++ **New**
   + 기계 학습 파이프라인:
     + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
     + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
@@ -263,7 +265,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning Data Prep SDK v0.5.2
 + **주요 변경 내용** 
-  * `SummaryFunction.N` 로 이름이 변경 되었습니다 `SummaryFunction.Count`합니다.
+  * `SummaryFunction.N`의 이름이 `SummaryFunction.Count`로 바뀌었습니다.
   
 + **버그 수정**
   * 원격 실행 시 데이터 저장소에 읽고 쓸 때 최신 AML 실행 토큰을 사용합니다. 이전에는 AML 실행 토큰이 Python에서 업데이트되는 경우 Data Prep 런타임이 업데이트된 AML 실행 토큰으로 업데이트되지 않습니다.
@@ -282,7 +284,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
   + [파이프라인을 사용하여 일괄 처리 예측을 실행](how-to-run-batch-predictions.md)하는 방법 알아보기
 + Azure Machine Learning 컴퓨팅 대상
   + 이제 [샘플 Notebook](https://aka.ms/aml-notebooks)이 새 관리형 컴퓨팅을 사용하도록 업데이트되었습니다.
-  + [이 계산에 대해 알아봅니다](how-to-set-up-training-targets.md#amlcompute)
+  + [이 컴퓨팅에 대해 알아보기](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Azure Portal: 새로운 기능
 + 포털에서 [Azure Machine Learning 컴퓨팅](how-to-set-up-training-targets.md#amlcompute) 형식을 만들고 관리합니다.
@@ -315,8 +317,8 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
    * 계층화된 샘플링을 통해 샘플링할 수 있습니다.
    * CSV 파일이 포함된 zip 파일에서 읽을 수 있습니다.
    * 임의 분할을 사용하여 데이터 세트를 행 단위로 분할할 수 있습니다(예: 테스트 학습 세트로 분할).
-   * 가져올 수는 모든 열 데이터 형식을 데이터 흐름 또는 데이터 프로필을 호출 하 여 `.dtypes`
-   * 호출 하 여 데이터 흐름 또는 데이터 프로필의 행 개수를 얻을 수합니다 있습니다. `.row_count`
+   * `.dtypes`를 호출하여 데이터 흐름 또는 데이터 프로필에서 모든 열 데이터 형식을 가져올 수 있습니다.
+   * `.row_count`를 호출하여 데이터 흐름 또는 데이터 프로필에서 행 수를 가져올 수 있습니다.
 
 + **버그 수정**
    * long에서 double로 변환할 수 있도록 수정되었습니다. 
@@ -437,7 +439,7 @@ Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업�
   * One Hot 인코딩 지원
   * 변 위치 변환 지원
    
-+ **버그 수정:**
++ **수정된 버그:**
   * 모든 Tornado 버전에서 작동하므로 Tornado 버전을 다운그레이드할 필요가 없습니다.
   * Value에서 상위 3개 외에도 모든 값의 개수를 계산합니다.
 

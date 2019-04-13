@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338465"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526625"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
@@ -164,7 +164,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 ID를 사용하여 구성된 Docker 가상 머신에 SSH를 수행합니다. VM에 설치된 Azure CLI를 사용하여 다음 Azure CLI 명령을 실행합니다.
 
-먼저 Azure CLI를 사용 하 여 인증할 [az login][az-login], VM에 구성 된 id를 사용 하 여 합니다. <userID>의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
+먼저 Azure CLI를 사용 하 여 인증할 [az login][az-login], VM에 구성 된 id를 사용 하 여 합니다. `<userID>`의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
 
 ```azurecli
 az login --identity --username <userID>

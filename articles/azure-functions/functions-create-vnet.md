@@ -6,14 +6,14 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4f27bbeb43bbf373b621d151d68583f0041378b3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894209"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523735"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Azure virtual network를 사용 하 여 함수 앱 통합
 
@@ -99,7 +99,7 @@ VNET 내에서 파일을 호스팅하는 WordPress 사이트를 사용 하 여 V
     <img src="./media/functions-create-vnet/new-proxy.png" width="250">
 
 1. 프록시 이름 및 경로를 구성합니다. 저는 내 경로로 /plant를 선택했습니다.
-1. 앞에서 wordpress 사이트의 IP에 입력 하 고 백 엔드 URL로 설정 `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`
+1. 앞서 wordpress 사이트의 IP를 입력하고 백엔드 URL을 `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`로 설정합니다.
     
     <img src="./media/functions-create-vnet/create-proxy.png" width="900">
 
@@ -111,13 +111,14 @@ VNET 내에서 파일을 호스팅하는 WordPress 사이트를 사용 하 여 V
 
 ## <a name="next-steps"></a>다음 단계
 
-프리미엄 계획으로 실행 하는 함수에는 웹 앱과 동일한 기본 App Service 인프라를 공유 합니다. 이 Premium 계획 함수에 적용 되도록 웹 앱에 대 한 설명서의 모든 것을 의미 합니다.
+프리미엄 계획으로 실행 하는 함수 PV2의 Web Apps 계획 동일한 기본 App Service 인프라를 공유 합니다. 이 Premium 계획 함수에 적용 되도록 웹 앱에 대 한 설명서의 모든 것을 의미 합니다.
 
-1. [App Service를 사용 하 여 VNET 통합에 자세히 알아보려면 여기 함수 /](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [Azure의 Vnet에 자세히 알아보기](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
-1. [네트워킹 기능에 대해 사용 하도록 설정 하 고 App Service Environment를 사용 하 여 제어](https://docs.microsoft.com/azure/app-service/environment/intro)
-1. [하이브리드 연결을 사용 하 여 방화벽 변경 하지 않고 개별 온-프레미스 리소스에 연결](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
-1. [함수 프록시에 자세히 알아보기](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)
+1. [여기에서 함수에서 네트워킹 옵션에 자세히 알아보기](./functions-networking-options.md)
+1. [읽기 FAQ 여기 네트워킹 함수](./functions-networking-faq.md)
+1. [Azure의 VNET에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)
+1. [추가 네트워킹 기능 및 App Service Environment를 사용 하 여 컨트롤을 사용 하도록 설정](../app-service/environment/intro.md)
+1. [하이브리드 연결을 사용하여 방화벽 변경 없이 개별 온-프레미스 리소스에 연결](../app-service/app-service-hybrid-connections.md)
+1. [함수 프록시에 대해 자세히 알아보기](./functions-proxies.md)
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png

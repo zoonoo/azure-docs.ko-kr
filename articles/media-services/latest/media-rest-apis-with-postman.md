@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2171ff8a4354a59ec2f790f9bf38b7a687419ca
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758196"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543879"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
 
 이 문서에서는 AMS(Azure Media Services) REST API를 호출하는 데 사용할 수 있도록 **Postman**을 구성하는 방법을 보여 줍니다. 이 문서에서는 환경 및 컬렉션 파일을 **Postman**으로 가져오는 방법을 보여 줍니다. 컬렉션에는 AMS(Azure Media Services) REST API를 호출하는 HTTP 요청의 그룹화된 정의가 포함되어 있습니다. 환경 파일에는 컬렉션에 사용되는 변수가 포함되어 있습니다.
+
+개발을 시작 하기 전에 검토 [Media Services v3 Api를 사용 하 여 개발](media-services-apis-overview.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426463"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549357"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -74,12 +74,12 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 **mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
 
-- `all`: 리소스 그룹 및 모든 리소스 종류를 평가 합니다.
-- `indexed`: 태그 및 위치를 지 원하는 리소스 종류만 평가
+- `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다.
+- `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
 
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
-`indexed` 태그 또는 위치를 적용 하는 정책을 만들 때 사용 해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스의 목록을 참조 하세요 [지원 Azure 리소스에 대 한 태그](../../../azure-resource-manager/tag-support.md)합니다.
+`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스의 목록을 참조 하세요 [지원 Azure 리소스에 대 한 태그](../../../azure-resource-manager/tag-support.md)합니다.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -94,7 +94,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 매개 변수에는 정책 정의에 사용되는 다음 속성이 있습니다.
 
 - **name**: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
-- `type`: 매개 변수가 **문자열**또는**배열인지를 확인합니다.
+- `type`: 매개 변수가 **문자열** 또는 **배열**인지를 확인합니다.
 - `metadata`: Azure Portal에서 사용자에게 친숙한 정보를 표시하는 데 주로 사용되는 하위 속성을 정의합니다.
   - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
@@ -262,7 +262,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
 
 > [!NOTE]
-> `tags.<tagName>`를 `tags[tagName]`, 및 `tags[tag.with.dots]` 가지 여전히 허용 가능한 태그 필드를 선언 합니다.
+> `tags.<tagName>`, `tags[tagName]` 및 `tags[tag.with.dots]`도 여전히 허용되는 태그 필드 선언 방법입니다.
 > 그러나 기본 식은 위에 나열된 식입니다.
 
 #### <a name="use-tags-with-parameters"></a>매개 변수와 함께 태그 사용
@@ -424,7 +424,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - resourceId()
 - variables()
 
-`field` 함수도 정책 규칙에 사용할 수 있습니다. `field` 주로 사용한 **AuditIfNotExists** 하 고 **DeployIfNotExists** 평가 되는 리소스에 대 한 참조 필드에 합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
+`field` 함수도 정책 규칙에 사용할 수 있습니다. `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 
@@ -487,36 +487,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-'Normal' 별칭은 단일 값으로 필드를 나타냅니다. 이 필드는 더 이상 및 더 작은 값의 전체 집합 정의 된 대로 정확 하 게 해야 하는 경우 정확 하 게 일치 비교 시나리오에 대 한 합니다. 사용 하 여 **ipRules**, 예로 유효성을 검사 규칙의 수 및 각 규칙의 구성을 비롯 한 정확한 규칙 집합을 있는지 합니다. 이 샘플 규칙 검사 정확 하 게 둘 다 **192.168.1.1** 및 **10.0.4.1** 사용 하 여 _동작_ 의 **허용** 에서 **ipRules** 적용할 합니다 **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+'Normal' 별칭은 단일 값으로 필드를 나타냅니다. 이 필드는 더 이상 및 더 작은 값의 전체 집합 정의 된 대로 정확 하 게 해야 하는 경우 정확 하 게 일치 비교 시나리오에 대 한 합니다.
 
 합니다 **[\*]** 별칭을 사용 하면 배열에 있는 각 요소의 값 및 각 요소의 특정 속성에 대해 비교할 수 있습니다. 이 이렇게 하면 요소 속성을 비교 하 여 '없으면', '있는 경우 의' 또는 ' 모든 경우의 ' 시나리오입니다. 사용 하 여 **ipRules [\*]**, 예로 유효성을 검사 하는 모든 _동작_ 됩니다 _거부_, 얼마나 많은 규칙이 나 IP 걱정하지않지만_값_ 됩니다. 이 샘플 규칙의 일치 항목을 검사 **ipRules [\*].value** 에 **10.0.4.1** 적용 합니다 **effectType** 적어도 하나의 일치 항목을 찾지 못하면 해당 하는 경우에:
 

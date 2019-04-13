@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477457"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545317"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계
 
@@ -46,7 +46,7 @@ ms.locfileid: "55477457"
 ### <a name="define-objectives"></a>목표 정의
 1. 이 단계의 주요 목적은 분석에서 예측해야 하는 주요 비즈니스 변수를 식별하는 것입니다. 이러한 변수를 *모델 대상*이라고 하며, 관련 메트릭을 사용하여 프로젝트의 성공 여부를 결정합니다. 판매 예측이나 사기성 주문의 확률이 이러한 대상의 두 가지 예입니다.
 
-2. 적절하고 명확하며 모호하지 않은 "예리한" 질문을 요청하고 수정하여 프로젝트 목표를 정의합니다. 데이터 과학은 이러한 질문에 대답하기 위해 이름과 숫자를 사용하는 프로세스입니다. 날카로운 질문하기에 대한 자세한 내용은 [데이터 과학 수행 방법](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) 블로그를 참조하세요. 데이터 과학 또는 Machine Learning은 일반적으로 다음과 같은 다섯 가지 유형의 질문에 대답하는 데 사용합니다.
+2. 적절하고 명확하며 모호하지 않은 "예리한" 질문을 요청하고 수정하여 프로젝트 목표를 정의합니다. 데이터 과학은 이러한 질문에 대답하기 위해 이름과 숫자를 사용하는 프로세스입니다. 데이터 과학 또는 Machine Learning은 일반적으로 다음과 같은 다섯 가지 유형의 질문에 대답하는 데 사용합니다.
  
    * 양 또는 개수는 얼마인가요? (회귀)
    * 어떤 범주? (분류)
