@@ -24,9 +24,9 @@ sections:
         className: cardImageOuter
         items:
           - title: 개념 알아보기
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">클라우드 업로드 및 저장</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">모니터링</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">미디어 분석</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">패키징</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">보호</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">라이브 스트리밍</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">플레이어 클라이언트</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">클라우드 업로드 및 스토리지</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">모니터링</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">미디어 분석</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">패키징</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">보호</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">라이브 스트리밍</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">플레이어 클라이언트</a></p>'
           - title: v3 API로 개발
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK를 사용하여 개발 시작</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST를 사용하여 개발</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK를 사용하여 개발 시작</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST를 사용하여 개발</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Java로 연결</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">.NET으로 연결</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Node.js로 연결</a></p>'
   - title: 5분 빠른 시작
     items:
       - type: paragraph
@@ -123,6 +123,6 @@ sections:
           - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
           - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST (영문)</a>'
           - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
-          - html: '<a href="https://aka.ms/ams-v3-java-ref">자바</a>'
+          - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
           - html: '<a href="https://aka.ms/ams-v3-python-ref">Python</a>'
-          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>'
+          - html: '<a href="https://aka.ms/ams-v3-nodejs-ref">Node.JS</a>'
