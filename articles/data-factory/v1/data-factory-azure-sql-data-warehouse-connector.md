@@ -71,7 +71,7 @@ Azure SQL Data Warehouse 간에 데이터를 복사하는 파이프라인을 만
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **AzureSqlDW** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **AzureSqlDW** |예 |
 | connectionString |connectionString 속성에 대한 Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 기본 인증만 지원됩니다. |예 |
 
 > [!IMPORTANT]
@@ -99,7 +99,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아닙니다. |
+| sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아닙니다. |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아닙니다. |
 
@@ -308,28 +308,28 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
-| 숫자 | Decimal |
+| Numeric | Decimal |
 | Float | Float |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| 이진 | 이진 |
-| Varbinary | Varbinary(최대 8000) |
+| Binary | Binary |
+| Varbinary | Varbinary (최대 8000) |
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| 텍스트 | Varchar(최대 8000) |
-| NText | NVarChar(최대 4000) |
-| 이미지 | VarBinary(최대 8000) |
+| Text | Varchar (최대 8000) |
+| NText | NVarChar (최대 4000) |
+| Image | VarBinary (최대 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
-| VarChar | VarChar(최대 8000) |
-| NVarChar | NVarChar(최대 4000) |
-| xml | Varchar(최대 8000) |
+| VarChar | VarChar (최대 8000) |
+| NVarChar | NVarChar (최대 4000) |
+| Xml | Varchar (최대 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,36 +347,36 @@ Azure SQL Data Warehouse 간에 데이터를 이동할 때는 다음과 같은 �
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |BOOLEAN |
+| bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| 10진수 |10진수 |
-| FILESTREAM 특성(varbinary(max)) |Byte[] |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 이미지 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
-| money |10진수 |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |10진수 |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |단일 |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |10진수 |
-| sql_variant |개체 * |
+| smallmoney |Decimal |
+| sql_variant |Object * |
 | text |String, Char[] |
-| 실시간 |timespan |
+| time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 복사 작업 정의에서 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑할 수 있습니다. 자세한 내용은 [Azure Data Factory에서 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
