@@ -9,7 +9,7 @@ ms.date: 12/04/2018
 ms.author: raynew
 ms.openlocfilehash: 302445038dc9767bd412e232f62fc5249a1a7f09
 ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55696952"
@@ -464,7 +464,7 @@ Azure Network Watcher는 Azure VNet의 리소스와 통신을 모니터링하는
 - Network Watcher를 사용하여 NSG 흐름 로그를 검토하는 것이 가장 좋습니다.
     - Network Watcher의 NSG 흐름 로그를 사용하면 NSG를 통한 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있습니다.
     - 흐름 로그는 json 형식으로 작성됩니다.
-    - 흐름 로그는 규칙별 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC(네트워크 인터페이스), 흐름에 대한 5개 튜플 정보(원본/대상 IP, 원본/대상 포트 및 프로토콜) 및 트래픽이 허용되거나 거부되었는지 여부를 보여 줍니다.
+    - 흐름 로그는 규칙별 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC(네트워크 인터페이스), 흐름에 대한 5개 튜플 정보(원본/대상 IP, 원본/대상 포트 및 프로토콜) 및 트래픽이 허용되거나 거부되었는지 여부를 보여줍니다.
 
 **자세한 정보:**
 

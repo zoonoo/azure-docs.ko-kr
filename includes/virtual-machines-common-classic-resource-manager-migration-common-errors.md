@@ -20,7 +20,7 @@ ms.locfileid: "59532716"
 
 | 오류 문자열 | 해결 방법 |
 | --- | --- |
-| 내부 서버 오류 |어떤 경우에는 다시 시도하면 사라지는 일시적인 오류입니다. 계속 유지하는 경우 플랫폼 로그를 조사해야 한다면 [Azure 지원에 문의](../articles/azure-supportability/how-to-create-azure-support-request.md)합니다. <br><br> **참고:** 인시던트가 지원 팀에서 추적되면 환경에서 의도하지 않은 결과가 발생할 수 있으므로 자체적으로 완화하려고 하지 마십시오. |
+| 내부 서버 오류 |어떤 경우에는 다시 시도하면 사라지는 일시적인 오류입니다. 계속 유지하는 경우 플랫폼 로그를 조사해야 하므로 [Azure 지원에 문의](../articles/azure-supportability/how-to-create-azure-support-request.md)하세요. <br><br> **참고:** 인시던트가 지원 팀에서 추적되면 환경에서 의도하지 않은 결과가 발생할 수 있으므로 자체적으로 완화하려고 하지 마십시오. |
 | 마이그레이션은 PaaS 배포(웹/작업자)이기 때문에 HostedService {hosted-service-name}에서 배포 {deployment-name}에 지원되지 않습니다. |배포가 웹/작업자 역할을 포함하는 경우에 발생합니다. 마이그레이션이 Virtual Machines에 대해서만 지원되므로 배포에서 웹/작업자 역할을 제거하고 마이그레이션을 다시 시도하세요. |
 | 템플릿 {template-name} 배포에 실패했습니다. CorrelationId={guid} |마이그레이션 서비스의 백 엔드에서 Azure Resource Manager 템플릿을 사용하여 Azure Resource Manager 스택에서 리소스를 만듭니다. 템플릿이 idempotent이기 때문에 일반적으로 마이그레이션 작업을 안전하게 다시 시도하여 이 오류를 넘길 수 있습니다. 이 오류가 계속 지속되는 경우 [Azure 지원에 문의](../articles/azure-supportability/how-to-create-azure-support-request.md)하고 CorrelationId를 제공하세요. <br><br> **참고:** 인시던트가 지원 팀에서 추적되면 환경에서 의도하지 않은 결과가 발생할 수 있으므로 자체적으로 완화하려고 하지 마십시오. |
 | 가상 네트워크 {virtual-network-name}가 존재하지 않습니다. |새로운 Azure Portal에서 Virtual Network를 만든 경우에 발생할 수 있습니다. 실제 가상 네트워크 이름 패턴을 따릅니다 "그룹 * \<VNET 이름 >" |

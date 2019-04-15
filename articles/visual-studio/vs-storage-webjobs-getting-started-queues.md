@@ -503,8 +503,8 @@ public class Program
 }
 ```
 
-## <a name="how-to-write-logs"></a>로그를 기록하는 방법
-대시보드의 두 곳, 즉 WebJob의 페이지 및 특정 WebJob 호출의 페이지에 로그가 표시됩니다.
+## <a name="how-to-write-logs"></a>로그를 작성하는 방법
+대시보드는 WebJob의 페이지 및 특정 WebJob 호출의 페이지 등 두 곳에서 로그를 표시합니다.
 
 ![WebJob 페이지에서 로그](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
@@ -520,7 +520,7 @@ public class Program
 
 대시보드 연결 문자열을 null로 설정하면 로깅을 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [구성 옵션을 설정하는 방법](#how-to-set-configuration-options)을 참조하세요.
 
-다음 예제에서는 로그를 작성하는 여러 가지 방법을 보여 줍니다.
+다음 예제에서는 로그를 작성하는 여러 가지 방법을 보여줍니다.
 
 ```csharp
 public static void WriteLog(

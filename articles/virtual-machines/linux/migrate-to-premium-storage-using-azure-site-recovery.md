@@ -63,7 +63,7 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 * Azure 구독.
 * 복제된 데이터를 저장할 Azure Premium Storage 계정
 * 장애 조치(failover) 시 만든 경우 VM에서 연결할 Azure 가상 네트워크 Azure 가상 네트워크는 Site Recovery가 실행되는 동일한 지역에 있어야 합니다.
-* 복제 로그를 저장할 Azure 표준 저장소 계정 마이그레이션되는 VM 디스크와 동일한 저장소 계정일 수 있습니다.
+* 복제 로그를 저장할 Azure 표준 스토리지 계정 마이그레이션되는 VM 디스크와 동일한 저장소 계정일 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

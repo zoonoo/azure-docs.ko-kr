@@ -91,7 +91,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 모든 사용자 및/또는 사용자 및 그룹 섹션에서 Velpic에 할당 된 그룹의 초기 동기화가 시작 됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 수행하는 데 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 작업 보고서를 확인할 수 있습니다.
 
-Azure AD 프로비전 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비전에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

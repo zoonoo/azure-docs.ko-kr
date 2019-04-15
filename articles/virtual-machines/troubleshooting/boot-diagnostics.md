@@ -12,7 +12,7 @@ ms.date: 10/31/2018
 ms.author: delhan
 ms.openlocfilehash: 59602977c1b7f6dd0524c6535d8458d3eb1a3f26
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54425580"
@@ -66,7 +66,7 @@ Azure Resource Manager 템플릿에서 배포하는 경우 가상 머신 리소�
   … 
 ```
 
-진단 프로필을 사용하면 이러한 로그를 저장할 저장소 계정을 선택할 수 있습니다.
+진단 프로필을 사용하면 이러한 로그를 저장할 스토리지 계정을 선택할 수 있습니다.
 
 ```json
     "diagnosticsProfile": {

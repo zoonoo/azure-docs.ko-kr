@@ -136,7 +136,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수
 
 Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터링하고 관리합니다.
 - **활동 로그:**. 모든 Azure 리소스에는 수행되는 작업, 작업의 상태 및 작업을 시작한 사용자에 대한 정보를 제공하는 활동 로그가 있습니다. 활동 로그에 대한 자세한 내용을 알아보려면 [활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
-- **진단 로그:** 정기적이 고 자동적인 이벤트가 네트워크 리소스에서 생성 되 고 Azure 이벤트 허브로 전송 하거나 Azure Monitor 로그로 전송 된 Azure storage 계정에 기록 됩니다. 진단 로그는 리소스 상태에 대한 정보를 제공하며, Load Balancer(인터넷 연결), 네트워크 보안 그룹, 경로 및 Application Gateway에서 사용할 수 있습니다. 진단 로그에 대한 자세한 내용은 [진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
+- **진단 로그:** 정기적이 고 자동적인 이벤트가 네트워크 리소스에서 생성 되 고 Azure 이벤트 허브로 전송 하거나 Azure Monitor 로그로 전송 된 Azure storage 계정에 기록 됩니다. 진단 로그는 리소스 상태에 대한 정보를 제공하며, 진단 로그는 Load Balancer(인터넷 연결), 네트워크 보안 그룹, 경로 및 Application Gateway에서 사용할 수 있습니다. 진단 로그에 대한 자세한 내용은 [진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **메트릭:** 메트릭은 리소스에 대해 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. 현재 메트릭은 Application Gateway에서 사용할 수 있습니다. 메트릭에 대해 자세히 알아보려면 [메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 읽어보세요.
 - **문제 해결:** Azure Portal에서 문제 해결 정보에 직접 액세스할 수 있습니다. 정보를 통해 ExpressRoute, VPN Gateway, Application Gateway, 네트워크 보안 로그, 경로, DNS, Load Balancer 및 Traffic Manager에서 발생하는 일반적인 문제를 진단할 수 있습니다.
 - **RBAC(역할 기반 액세스 제어):** RBAC(역할 기반 액세스 제어)를 사용하여 네트워킹 리소스를 만들고 관리할 수 있는 사용자를 제어합니다. [RBAC 시작](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 RBAC에 대해 자세히 알아봅니다. 

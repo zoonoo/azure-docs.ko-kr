@@ -48,7 +48,7 @@ Windows Server 호스트에 이 기능을 설치하려면 다음 절차를 완�
 
 #### <a name="to-install-mpio-on-the-host"></a>호스트에 MPIO를 설치하려면
 
-1. Windows Server 호스트에서 서버 관리자를 엽니다. 기본적으로 관리자 그룹의 구성원이 Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 컴퓨터에 로그온하면 서버 관리자가 시작됩니다. 서버 관리자가 아직 열려있지 않으면 **시작 > 서버 관리자**를 클릭합니다.
+1. Windows Server 호스트에서 서버 관리자를 엽니다. 기본적으로 관리자 그룹의 멤버가 Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 컴퓨터에 로그온하면 서버 관리자가 시작됩니다. 서버 관리자가 아직 열려있지 않으면 **시작 > 서버 관리자**를 클릭합니다.
    
    ![서버 관리자](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 

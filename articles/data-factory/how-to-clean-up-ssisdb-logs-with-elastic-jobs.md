@@ -1,6 +1,6 @@
 ---
 title: Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리 | Microsoft Docs
-description: 이 아티클에서는 이를 위해 존재하는 저장 프로시저를 트리거하기 위해 Azure Elastic Database 작업을 사용하여 SSISDB 로그를 정리하는 방법을 설명합니다.
+description: 이 문서에서는 이를 위해 존재하는 저장 프로시저를 트리거하기 위해 Azure Elastic Database 작업을 사용하여 SSISDB 로그를 정리하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -21,7 +21,7 @@ ms.locfileid: "57430920"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Azure Elastic Database 작업을 사용하여 SSISDB 로그 정리
 
-이 아티클에서는 Azure Elastic Database 작업을 사용하여 SQL Server Integration Services 카탈로그 데이터베이스 `SSISDB`에 대한 로그를 정리하는 저장 프로시저를 트리거하는 방법을 설명합니다.
+이 문서에서는 Azure Elastic Database 작업을 사용하여 SQL Server Integration Services 카탈로그 데이터베이스 `SSISDB`에 대한 로그를 정리하는 저장 프로시저를 트리거하는 방법을 설명합니다.
 
 Elastic Database 작업은 데이터베이스 또는 데이터베이스 그룹에 대한 작업을 쉽게 자동화하고 실행시키는 Azure 서비스입니다. Azure Portal, Transact-SQL, PowerShell 또는 REST API를 사용하여 이러한 작업을 예약하고, 실행하고, 모니터링할 수 있습니다. 탄력적 데이터베이스 작업을 사용하여 일회성으로 또는 일정에 따라 로그 정리를 위한 저장 프로시저를 트리거합니다. 지나친 데이터베이스 부하를 방지하기 위해 SSISDB 리소스 사용량을 기준으로 일정 간격을 선택할 수 있습니다.
 

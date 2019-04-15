@@ -241,7 +241,7 @@ openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certif
 
 ### <a name="detailed-logs"></a>자세한 로그
 
-자세한 로그는 종종 문제를 디버그하거나 보고할 때 유용합니다. `--debug` 플래그는 출력의 자세한 표시 수준을 늘립니다.
+자세한 로그는 문제를 디버그하거나 보고하는 경우에 유용합니다. `--debug` 플래그는 출력의 자세한 표시 수준을 늘립니다.
 
 ### <a name="command-help-and-syntax"></a>명령 도움말 및 구문
 

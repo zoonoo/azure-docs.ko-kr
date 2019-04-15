@@ -124,7 +124,7 @@ Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없
  
 이 경우 [드라이브를 읽기 전용으로 탑재](#issue-drive-getting-mounted-as-read-only)에 대한 해결 방법을 참조하세요.
 
-그 외의 경우에는 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사한 다음 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
+그 외의 경우에는 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사하고 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
 
 ## <a name="deployment-issues-for-windows"></a>Windows 배포 문제
 
@@ -154,7 +154,7 @@ Data Box Disk의 잠금을 해제하려면 Data Box Disk 잠금 해제 도구를
 
 [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616)을 설치하고 작업을 다시 시도할 수 있습니다.
  
-그래도 볼륨의 잠금을 해제할 수 없으면 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사한 다음 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
+그래도 볼륨의 잠금을 해제할 수 없으면 Data Box Disk 잠금 해제 도구가 있는 폴더에서 로그를 복사하고 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

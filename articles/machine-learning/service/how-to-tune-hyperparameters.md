@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 48f714a505bc79f0556a829206821aef986ad5d0
 ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55240270"
@@ -173,7 +173,7 @@ run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 
-학습 스크립트는 `val_accuracy`를 계산하고 "정확도"를 기록합니다. 이것이 기본 메트릭으로 사용됩니다. 메트릭이 기록될 때마다 하이퍼 매개 변수 조정 서비스에서 수신됩니다. 이 메트릭을 보고하는 빈도를 결정하는 모델 개발자의 몫입니다.
+학습 스크립트는 `val_accuracy`을 계산하고 "정확도"를 기록합니다. 이것이 기본 메트릭으로 사용됩니다. 메트릭이 기록될 때마다 하이퍼 매개 변수 조정 서비스에서 수신됩니다. 이 메트릭을 보고하는 빈도를 결정하는 모델 개발자의 몫입니다.
 
 <a name='specify-early-termination-policy'/>
 

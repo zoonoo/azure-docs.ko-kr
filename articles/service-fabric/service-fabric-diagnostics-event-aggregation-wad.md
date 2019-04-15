@@ -28,7 +28,7 @@ ms.locfileid: "59046296"
 >
 >
 
-Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
+Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
 로그를 업로드 및 수집하는 방법 중 하나는 WAD(Windows Azure Diagnostics) 확장을 사용하는 것입니다. 이 확장을 사용하면 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있습니다. 이벤트 저장소에서 읽고와 같은 분석 플랫폼 제품에 배치할 외부 프로세스를 사용할 수도 있습니다 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션입니다.
 
@@ -49,7 +49,7 @@ Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-e
   * [Reliable Services 프로그래밍 모델 이벤트](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>포털을 통해 진단 확장 배포
-로그를 수집하는 첫 단계는 Service Fabric 클러스터의 가상 머신 확장 집합 노드에 진단 확장을 배포하는 것입니다. 진단 확장은 각 VM에서 로그를 수집하여 사용자가 지정하는 저장소 계정에 업로드합니다. 다음 단계는 Azure Portal 및 Azure Resource Manager 템플릿을 통해 신규 및 기존 클러스터에 대해 이 작업을 수행하는 방법을 간략하게 설명합니다.
+로그를 수집하는 첫 단계는 Service Fabric 클러스터의 가상 머신 확장 집합 노드에 진단 확장을 배포하는 것입니다. 진단 확장은 각 VM에서 로그를 수집하여 사용자가 지정하는 스토리지 계정에 업로드합니다. 다음 단계는 Azure Portal 및 Azure Resource Manager 템플릿을 통해 신규 및 기존 클러스터에 대해 이 작업을 수행하는 방법을 간략하게 설명합니다.
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Azure Portal을 통해 클러스터 만들기의 일환으로 진단 확장 배포
 클러스터를 만들 때 클러스터 구성 단계에서 선택적 설정을 확장하고 진단이 **켬**(기본 설정)으로 설정되었는지 확인합니다.

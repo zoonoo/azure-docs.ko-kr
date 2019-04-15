@@ -72,7 +72,7 @@ Windows를 사용 하 여 클러스터 이벤트가 저장 된 저장소 계정�
 
     ![Azure Monitor 로그 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-이제 계정이 작업 영역의 데이터 원본에서 저장소 계정 로그의 일부로 표시됩니다.
+이제 계정이 작업 영역의 데이터 원본에서 스토리지 계정 로그의 일부로 표시됩니다.
 
 Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 애플리케이션 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
 

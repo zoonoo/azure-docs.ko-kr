@@ -98,7 +98,7 @@ Storage 클라이언트 라이브러리는 애플리케이션의 구성 파일(w
 
 ![Fiddler 옵션 구성](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
-자습서의 경우 먼저 Message Analyzer에서 네트워크 추적을 수집 및 저장한 후 분석 세션을 생성하여 추적 및 로그를 분석합니다. Message Analyzer에서 네트워크 추적을 수집하려면 다음을 수행합니다.
+자습서의 경우 먼저 Message Analyzer에서 네트워크 추적을 수집 및 저장한 다음, 분석 세션을 생성하여 추적 및 로그를 분석합니다. Message Analyzer에서 네트워크 추적을 수집하려면 다음을 수행합니다.
 
 1. Message Analyzer에서 **파일 | 빠른 추적 | 암호화되지 않은 HTTPS**를 선택합니다.
 2. 추적이 즉시 시작됩니다. **Stop(중지)** 을 선택하여 추적을 중지한 후 저장소 트래픽만 추적하도록 구성할 수 있습니다.
@@ -149,7 +149,7 @@ AzCopy는 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Microsoft Message Analyzer를 사용하여 로그 데이터 분석
 Microsoft Message Analyzer는 문제 해결 및 진단 시나리오에서 프로토콜 메시징 트래픽, 이벤트 및 기타 시스템 또는 애플리케이션 메시지를 캡처, 표시 및 분석하는 도구입니다. 또한, Message Analyzer를 통해 로그 및 저장된 추적 파일의 데이터를 로드, 집계 및 분석할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드(영문)](https://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
 
-Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석하는 데 도움이 되는 Azure Storage에 대한 자산이 포함되어 있습니다. 이 섹션에서는 이러한 도구를 사용하여 저장소 로그에서의 낮은 성공 비율 문제를 해결하는 방법에 대해 논의합니다.
+Message Analyzer에는 서버, 클라이언트 및 네트워크 로그를 분석하는 데 도움이 되는 Azure Storage에 대한 자산이 포함되어 있습니다. 이 섹션에서는 이러한 도구를 사용하여 스토리지 로그에서의 낮은 성공 비율 문제를 해결하는 방법에 대해 논의합니다.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Message Analyzer 및 Azure Storage 자산 다운로드 및 설치
 1. Microsoft 다운로드 센터에서 [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) 를 다운로드하고 설치 관리자를 실행합니다.
@@ -185,7 +185,7 @@ Microsoft Message Analyzer에서 분석을 위해 저장된 모든 로그 파일
 
 Message Analyzer는 로그 파일을 메모리에 로드합니다. 로그 데이터 집합이 큰 경우 Message Analyzer에서 최상의 성능을 얻으려면 로그를 필터링합니다.
 
-먼저, 검토하고 싶은 시간 프레임을 결정하고 이 시간 프레임을 가능한 한 작게 유지합니다. 대부분의 경우 몇 분 또는 많아야 몇 시간의 기간을 검토합니다. 이러한 요구를 충족할 수 있는 로그의 최소 집합을 가져옵니다.
+먼저, 검토하고 싶은 시간 프레임을 결정하고 이 시간 프레임을 가능한 한 작게 유지합니다. 대부분의 경우 몇 분 또는 많아야 몇 시간의 기간을 검토합니다. 이러한 요구를 충족할 수 있는 로그의 최소 세트를 가져옵니다.
 
 여전히 로그 데이터의 양이 많으면 해당 데이터를 로드하기 전에 먼저 세션 필터를 지정하여 로그 데이터를 필터링할 수 있습니다. **세션 필터** 상자에서 **라이브러리** 단추를 선택하여 미리 정의된 필터를 선택합니다. 예를 들어 Azure Storage 필터에서 **전역 시간 필터 I**을 선택하여 시간 간격을 필터링합니다. 그런 다음 필터 조건을 편집하여 확인하려는 간격에 대한 시작 및 끝 타임스탬프를 지정할 수 있습니다. 또한, 특정 상태 코드를 필터링할 수 있습니다. 예를 들어 상태 코드가 404인 로그 항목만 로드하도록 선택할 수 있습니다.
 
@@ -279,7 +279,7 @@ Azure Storage 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을 �
 
 1. 먼저 **ClientRequestId** 필드의 값을 클립보드로 복사합니다. 행을 선택하고 **ClientRequestId** 필드를 찾아 데이터 값을 마우스 오른쪽 단추로 클릭하고 **'ClientRequestId' 복사**를 선택하여 이 작업을 수행할 수 있습니다.
 2. 도구 모음 리본에서 **새 뷰어**를 선택한 후 **분석 그리드**를 선택하여 새 탭을 엽니다. 새 탭에 그룹화, 필터링 또는 색 규칙 없이 로그 파일의 모든 데이터가 표시됩니다.
-3. 도구 모음 리본에서 **보기 레이아웃**을 선택한 후 **Azure Storage** 섹션의 **모든 .NET 클라이언트 열**를 선택합니다. 이 보기 레이아웃은 서버 및 네트워크 추적 로그는 물론 클라이언트 로그의 데이터를 보여 줍니다. 기본적으로 **MessageNumber** 열을 기준으로 정렬됩니다.
+3. 도구 모음 리본에서 **보기 레이아웃**을 선택한 후 **Azure Storage** 섹션의 **모든 .NET 클라이언트 열**를 선택합니다. 이 보기 레이아웃은 서버 및 네트워크 추적 로그는 물론 클라이언트 로그의 데이터를 보여줍니다. 기본적으로 **MessageNumber** 열을 기준으로 정렬됩니다.
 4. 그런 다음 클라이언트 요청 ID의 클라이언트 로그를 검색합니다. 도구 모음 리본에서 **메시지 찾기**를 선택한 후 **찾기** 필드에서 클라이언트 요청 ID에 대한 사용자 지정 필터를 지정합니다. 이 필터에 다음 구문을 사용하여 고유의 클라이언트 요청 ID를 지정합니다.
 
     ```

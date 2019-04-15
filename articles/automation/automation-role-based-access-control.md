@@ -175,7 +175,7 @@ Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 �
 |Microsoft.Insights/components/*|Application Insights 구성 요소를 관리합니다.|
 |Microsoft.Insights/DiagnosticSettings/*|진단 설정을 관리합니다.|
 |Microsoft.Insights/eventtypes/*|구독에서 활동 로그 이벤트(관리 이벤트)를 나열합니다. 이 권한은 활동 로그에 대한 프로그래밍 방식 및 포털 액세스 모두에 적용 가능합니다.|
-|Microsoft.Insights/LogDefinitions/*|이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. 활동 로그의 로그 범주를 나열합니다.|
+|Microsoft.Insights/LogDefinitions/*|이 사용 권한은 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. 활동 로그의 로그 범주를 나열합니다.|
 |Microsoft.Insights/MetricDefinitions/*|메트릭 정의(리소스에 사용 가능한 메트릭 형식 목록)를 읽습니다.|
 |Microsoft.Insights/Metrics/*|리소스에 대한 메트릭을 읽습니다.|
 |Microsoft.Insights/Register/Action|Microsoft Insights 공급자 등록|

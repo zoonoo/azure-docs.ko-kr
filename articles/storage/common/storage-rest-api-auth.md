@@ -76,7 +76,7 @@ REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 �
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[요청 헤더](/rest/api/storageservices/List-Containers2#request-headers)**:** 이 섹션에는 필수 및 선택적 요청 헤더가 나열됩니다. *Authorization* 헤더, *x-ms-date*(요청의 UTC 시간 포함) 및 *x-ms-version*(사용할 REST API 버전 지정)의 세 가지 헤더가 필요합니다. 헤더에 *x-ms-client-request-id*를 포함하는 것은 선택 사항입니다. 이 필드의 값을 원하는 대로 설정할 수 있으며, 로깅이 사용되면 저장소 분석 로그에 기록됩니다.
+[요청 헤더](/rest/api/storageservices/List-Containers2#request-headers)**:** 이 섹션에는 필수 및 선택적 요청 헤더가 나열됩니다. *Authorization* 헤더, *x-ms-date*(요청의 UTC 시간 포함) 및 *x-ms-version*(사용할 REST API 버전 지정)의 세 가지 헤더가 필요합니다. 헤더에 *x-ms-client-request-id*를 포함하는 것은 선택 사항입니다. 이 필드의 값을 원하는 대로 설정할 수 있으며, 로깅이 사용되면 스토리지 분석 로그에 기록됩니다.
 
 [요청 본문](/rest/api/storageservices/List-Containers2#request-body)**:** ListContainers에 대한 요청 본문이 없습니다. 요청 본문은 BLOB을 업로드할 때 모든 PUT 작업에 사용되며, 적용하려는 저장된 액세스 정책 XML 목록을 보낼 수 있는 SetContainerAccessPolicy에도 사용됩니다. 저장된 액세스 정책은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 문서에서 다룹니다.
 

@@ -273,7 +273,7 @@ PasswordPolicyDateUTC 값이 부실해지면 해당 머신의 Azure AD 암호 �
 
 ## <a name="proxy-service-event-logging"></a>프록시 서비스 이벤트 로깅
 
-프록시 서비스는 최소 이벤트 집합을 다음 이벤트 로그에 내보냅니다.
+프록시 서비스는 최소 이벤트 세트를 다음 이벤트 로그에 내보냅니다.
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
 

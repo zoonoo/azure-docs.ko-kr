@@ -174,7 +174,7 @@ module.exports = async function (context, message) {
 
 ### <a name="trigger---java-example"></a>트리거 - Java 예제
 
-다음 Java 예제에서는 큐 `myqueuename`에 배치된 트리거된 메시지를 기록하는 저장소 큐 트리거 함수를 보여줍니다.
+다음 Java 예제에서는 큐 `myqueuename`에 배치된 트리거된 메시지를 기록하는 스토리지 큐 트리거 함수를 보여줍니다.
 
  ```java
  @FunctionName("queueprocessor")

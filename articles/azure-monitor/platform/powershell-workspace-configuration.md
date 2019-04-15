@@ -230,7 +230,7 @@ $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/D
 Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-위의 cmdlet을 사용하여 다른 구독에 속하는 리소스에서 로그를 수집할 수도 있습니다. 로그를 만드는 리소스의 ID와 로그가 전송되는 작업 영역의 ID를 둘 다 제공하기 때문에 cmdlet이 구독 간에 작동할 수 있습니다.
+위의 cmdlet을 사용하여 다른 구독에 있는 리소스에서 로그를 수집할 수도 있습니다. 로그를 만드는 리소스의 ID와 로그가 전송되는 작업 영역의 ID를 둘 다 제공하기 때문에 cmdlet이 구독 간에 작동할 수 있습니다.
 
 
 ## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Azure 진단 저장소에서 수집 하도록 Log Analytics 작업 영역 구성
@@ -268,7 +268,7 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 ```
 
-위의 스크립트를 사용하여 다른 구독에 속하는 저장소 계정에서 로그를 수집할 수도 있습니다. 스토리지 계정 리소스 ID와 해당 액세스 키를 제공하기 때문에 스크립트가 구독 간에 작동할 수 있습니다. 액세스 키를 변경할 때 저장소 정보가 새 키를 갖도록 업데이트해야 합니다.
+위의 스크립트를 사용하여 다른 구독에 있는 스토리지 계정에서 로그를 수집할 수도 있습니다. 스토리지 계정 리소스 ID와 해당 액세스 키를 제공하기 때문에 스크립트가 구독 간에 작동할 수 있습니다. 액세스 키를 변경할 때 저장소 정보가 새 키를 갖도록 업데이트해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -26,7 +26,7 @@ Service Fabric 5.7 버전부터 역방향 프록시 이벤트를 컬렉션에 �
 
 로컬 및 Azure Service Fabric 클러스터에서 이러한 채널로부터의 이벤트 수집을 활성화하려면 [역방향 프록시 이벤트 수집](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)을 참조하세요.
 
-## <a name="troubleshoot-using-diagnostics-logs"></a>진단 로그를 사용한 문제 해결 
+## <a name="troubleshoot-using-diagnostics-logs"></a>진단 로그를 사용한 문제 해결
 다음은 발생할 수 있는 일반적인 실패 로그를 해석하는 방법에 대한 몇 가지 예입니다.
 
 1. 역방향 프록시에서 응답 상태 코드 504(시간 제한) 반환

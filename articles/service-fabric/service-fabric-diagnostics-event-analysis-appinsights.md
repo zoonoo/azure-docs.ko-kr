@@ -23,7 +23,7 @@ ms.locfileid: "58664152"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
-Azure Monitor의 일부인 Azure Application Insights는 응용 프로그램 모니터링 및 진단을 위한 확장 가능한 플랫폼입니다. 여기에는 강력한 분석 및 쿼리 도구, 사용자 지정 가능한 대시보드 및 시각화, 자동화된 경고 등의 추가 옵션이 포함됩니다. Application Insights와 Service Fabric의 통합에는 Visual Studio 및 Azure Portal에 대한 도구 경험뿐만 아니라, 기본 제공되는 포괄적인 로깅 환경을 제공하는 Service Fabric 관련 메트릭이 포함됩니다. Application Insights를 통해 많은 로그가 자동으로 생성되고 수집되지만 응용 프로그램에 사용자 지정 로깅을 추가하여 보다 풍부한 진단 환경을 만드는 것이 좋습니다.
+Azure Monitor의 일부인 Azure Application Insights는 응용 프로그램 모니터링 및 진단을 위한 확장 가능한 플랫폼입니다. 여기에는 강력한 분석 및 쿼리 도구, 사용자 지정 가능한 대시보드 및 시각화, 자동화된 경고 등의 추가 옵션이 포함됩니다. Application Insights와 Service Fabric의 통합에는 Visual Studio 및 Azure Portal에 대한 도구 경험뿐만 아니라, 기본 제공되는 포괄적인 로깅 환경을 제공하는 Service Fabric 관련 메트릭이 포함됩니다. Application Insights를 통해 많은 로그가 자동으로 생성되고 수집되지만 애플리케이션에 사용자 지정 로깅을 추가하여 보다 풍부한 진단 환경을 만드는 것이 좋습니다.
 
 이 문서에서는 다음과 같은 일반적인 질문에 답변합니다.
 

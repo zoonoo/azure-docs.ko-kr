@@ -35,7 +35,7 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 저장소 계정 연결 문자열입니다. 저장소 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [저장소 계정](functions-infrastructure-as-code.md#storage-account) 및 [저장소 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 저장소 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [저장소 계정](functions-infrastructure-as-code.md#storage-account) 및 [저장소 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|

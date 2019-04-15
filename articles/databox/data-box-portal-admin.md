@@ -173,7 +173,7 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
        Audit Logs Path      : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700                                                                                                                     
        BOM Files Path       : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700
        ```
-     그런 다음, 저장소 계정으로 이동하여 복사 로그를 볼 수 있습니다.
+     그런 다음, 스토리지 계정으로 이동하여 복사 로그를 볼 수 있습니다.
 
 ![저장소 계정 로그](media/data-box-portal-admin/logs-in-storage-acct-2.png)
 

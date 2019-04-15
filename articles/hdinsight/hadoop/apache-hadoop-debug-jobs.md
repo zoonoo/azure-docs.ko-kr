@@ -22,7 +22,7 @@ Azure HDInsight의 Apache Hadoop 클러스터 각각에는 기본 파일 시스�
 
 ## <a name="logs-written-to-azure-tables"></a>Azure 테이블에 기록된 로그
 
-Azure 테이블에 기록된 로그는 HDInsight 클러스터에 발생한 사항에 대한 일정한 통찰력을 제공합니다.
+Azure Tables에 기록된 로그는 HDInsight 클러스터에 발생한 사항에 대한 일정한 인사이트를 제공합니다.
 
 HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에서 Linux 기반 클러스터에 대해 자동으로 만들어집니다.
 
@@ -99,7 +99,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
     필터를 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 필터 문자열 생성](../../vs-azure-tools-table-designer-construct-filter-strings.md)을 참조하세요.
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Azure Blob Storage에 기록된 로그
-Azure 테이블에 기록된 로그는 HDInsight 클러스터에 발생한 사항에 대한 일정한 통찰력을 제공합니다. 그러나 이러한 테이블은 문제 발생 시에 추가 드릴에 도움이 될 수 있는 작업 수준의 로그를 제공하지 않습니다. 다음 수준의 세부 정보를 제공하려면 HDInsight 클러스터는 Templeton을 통해 제출된 작업에 대해 Blob Storage 계정에 작업 로그를 기록하도록 구성됩니다. 즉, 실질적으로 클러스터에 대한 RDP/명령줄 액세스를 통해 제출된 작업이 아니라 Microsoft Azure PowerShell cmdlet 또는 .NET 작업 제출 API를 사용하여 작업을 제출합니다. 
+Azure Tables에 기록된 로그는 HDInsight 클러스터에 발생한 사항에 대한 일정한 인사이트를 제공합니다. 그러나 이러한 테이블은 문제 발생 시에 추가 드릴에 도움이 될 수 있는 작업 수준의 로그를 제공하지 않습니다. 다음 수준의 세부 정보를 제공하려면 HDInsight 클러스터는 Templeton을 통해 제출된 작업에 대해 Blob Storage 계정에 작업 로그를 기록하도록 구성됩니다. 즉, 실질적으로 클러스터에 대한 RDP/명령줄 액세스를 통해 제출된 작업이 아니라 Microsoft Azure PowerShell cmdlet 또는 .NET 작업 제출 API를 사용하여 작업을 제출합니다. 
 
 로그를 보려면 [Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](../hdinsight-hadoop-access-yarn-app-logs-linux.md)를 참조하세요.
 

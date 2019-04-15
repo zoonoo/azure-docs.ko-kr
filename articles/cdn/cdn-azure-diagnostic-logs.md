@@ -67,13 +67,13 @@ CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계�
 
 ### <a name="enable-logging-with-azure-storage"></a>Azure Storage에서 로깅을 사용하도록 설정
 
-저장소 계정을 사용하여 로그를 저장하려면 아래 단계를 따릅니다.
+스토리지 계정을 사용하여 로그를 저장하려면 아래 단계를 따릅니다.
     
 1. **이름**의 경우 진단 로그 설정에 대한 이름을 입력합니다.
  
 2. **저장소 계정에 보관**을 선택한 다음, **CoreAnalytics**을 선택합니다. 
 
-2. **보존(일)** 의 경우 보존 일 수를 선택합니다. 0일의 보존은 로그를 무기한 저장합니다. 
+2. **보존(일)** 의 경우 보존 일 수를 선택합니다. 0일의 보존 기간은 로그를 무기한 저장합니다. 
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
@@ -141,7 +141,7 @@ CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계�
 
 ## <a name="enable-logging-with-powershell"></a>PowerShell을 통해 로깅을 사용하도록 설정
 
-다음 예제는 Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하는 방법을 보여 줍니다.
+다음 예제는 Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하는 방법을 보여줍니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -317,7 +317,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>CDN 핵심 분석에 대한 진단 로그 유형
 
-현재 Microsoft는 CDN POP/Edge에서 볼 수 있는 HTTP 응답 통계 및 송신 통계를 보여 주는 메트릭이 포함된 핵심 분석 로그만 제공하고 있습니다.
+현재 Microsoft는 CDN POP/Edge에서 볼 수 있는 HTTP 응답 통계 및 송신 통계를 보여주는 메트릭이 포함된 핵심 분석 로그만 제공하고 있습니다.
 
 ### <a name="core-analytics-metrics-details"></a>핵심 분석 메트릭 정보
 다음 표에는 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준/프리미엄**에 대한 핵심 분석 로그에서 사용할 수 있는 메트릭 목록이 표시됩니다. 모든 공급자의 모든 메트릭을 사용할 수 있는 것은 아니지만 이러한 차이는 미미합니다. 이 표에는 지정된 메트릭을 공급자에서 사용할 수 있는지 여부도 나와 있습니다. 메트릭은 트래픽이 있는 해당 CDN 엔드포인트에 대해서만 사용할 수 있습니다.

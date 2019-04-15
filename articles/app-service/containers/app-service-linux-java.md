@@ -51,7 +51,7 @@ Linux의 App Service에서 실행되는 Java 앱으로 New Relic 및 AppDynamics
 
 ### <a name="streaming-logs"></a>스트리밍 로그
 
-빠른 디버깅 및 문제 해결을 위해, Azure CLI를 사용하여 콘솔 로그를 스트리밍할 수 있습니다. `az webapp log config` 명령을 사용하여 로깅을 사용하도록 CLI를 구성합니다.
+빠른 디버깅 및 문제 해결을 위해 Azure CLI를 사용하여 콘솔에 로그를 스트리밍할 수 있습니다. `az webapp log config` 명령을 사용하여 로깅을 사용하도록 CLI를 구성합니다.
 
 ```azurecli-interactive
 az webapp log config --name ${WEBAPP_NAME} \

@@ -29,7 +29,7 @@ ms.locfileid: "58401456"
 >
 
 ## <a name="troubleshooting-guide"></a>문제 해결 가이드
-이 가이드에서는 보안 센터 관련 문제를 해결하는 방법을 설명합니다. Security Center에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](../azure-monitor/platform/activity-logs-overview.md) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음 사항을 확인할 수 있습니다.
+이 가이드에서는 보안 센터 관련 문제를 해결하는 방법을 설명합니다. Security Center에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](../azure-monitor/platform/activity-logs-overview.md) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음을 확인할 수 있습니다.
 
 * 수행된 작업
 * 작업을 시작한 사람

@@ -28,7 +28,7 @@ ms.locfileid: "58436815"
 
 [Azure AD 활동 로그를 Azure Monitor 로그에 통합](howto-integrate-activity-logs-with-log-analytics.md)하면 Azure Monitor 로그의 기능을 사용하여 사용자 환경에 대한 인사이트를 얻을 수 있습니다. [Azure AD 활동 로그에 대한 Log Analytics 보기](howto-install-use-log-analytics-views.md)를 설치하여 사용자 환경의 감사 및 로그인 이벤트에 대한 미리 빌드된 보고서에 액세스할 수도 있습니다.
 
-이 항목에서는 Log Analytics 작업 영역에서 Azure AD 활동 로그를 분석하는 방법을 알아봅니다. 
+이 문서에서는 Log Analytics 작업 영역에서 Azure AD 활동 로그를 분석하는 방법을 알아봅니다. 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

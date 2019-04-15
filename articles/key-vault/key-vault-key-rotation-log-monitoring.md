@@ -250,7 +250,7 @@ $secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -Sec
 
 ## <a name="key-vault-auditing-pipeline"></a>Key Vault 감사 파이프라인
 
-Key Vault를 설정할 때 감사를 켜서 Key Vault에 대해 발생하는 액세스 요청에 대한 로그를 수집할 수 있습니다. 이러한 로그는 지정 된 Azure storage 계정에 저장 되 고, 모니터링 및 분석을 가져올 수 있습니다. 다음 시나리오는 웹 앱의 앱 ID와 일치 하지 않는 앱 자격 증명 모음에서 비밀을 검색 하는 경우 전자 메일을 보내는 파이프라인을 만드는 데 Azure functions, Azure logic apps 및 key vault 감사 로그를 사용 합니다.
+키 자격 증명 모음을 설정할 때 감사를 켜서 키 자격 증명 모음에 대해 발생하는 액세스 요청에 대한 로그를 수집할 수 있습니다. 이러한 로그는 지정 된 Azure storage 계정에 저장 되 고, 모니터링 및 분석을 가져올 수 있습니다. 다음 시나리오는 웹 앱의 앱 ID와 일치 하지 않는 앱 자격 증명 모음에서 비밀을 검색 하는 경우 전자 메일을 보내는 파이프라인을 만드는 데 Azure functions, Azure logic apps 및 key vault 감사 로그를 사용 합니다.
 
 먼저 Key Vault에서 로깅을 사용하도록 설정해야 합니다. 다음 PowerShell 명령을 사용 합니다. (의 전체 세부 정보를 볼 수 있습니다 [키 자격 증명 모음 로깅에 대 한이 문서에서는](key-vault-logging.md).)
 
@@ -260,7 +260,7 @@ $kv = Get-AzKeyVault -VaultName '<vaultName>'
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
-로깅이 설정 되 면 감사 로그는 지정 된 저장소 계정에 저장 되 고 시작 합니다. 이러한 로그에는 Key Vault를 어떻게, 언제, 누가 액세스하는지에 대한 이벤트가 포함됩니다.
+로깅이 설정 되 면 감사 로그는 지정 된 저장소 계정에 저장 되 고 시작 합니다. 이러한 로그에는 키 자격 증명 모음을 어떻게, 언제, 누가 액세스하는지에 대한 이벤트가 포함됩니다.
 
 > [!NOTE]
 > Key Vault 작업 후 10분 내에 로깅 정보에 액세스할 수 있습니다. 자주 제공 됩니다 보다 더 빨리 합니다.

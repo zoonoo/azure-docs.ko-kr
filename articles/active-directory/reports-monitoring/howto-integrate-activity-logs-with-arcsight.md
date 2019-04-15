@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor(미리 보기)를 사용하여 ArcSight와 Azure Active Directory 로그를 통합하는 방법 | Microsoft Docs
-description: Azure Monitor(미리 보기)를 사용하여 ArcSight와 Azure Active Directory 로그를 통합하는 방법 알아보기
+title: Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그를 통합하는 방법(미리 보기) | Microsoft Docs
+description: Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그를 통합하는 방법(미리 보기) 알아보기
 services: active-directory
 documentationcenter: ''
 author: MarkusVi

@@ -26,7 +26,7 @@ ms.locfileid: "59006943"
 용어 **로그 경고** 신호는 로그 쿼리에서 경고를 설명 하는 [Log Analytics 작업 영역](../learn/tutorial-viewdata.md) 하거나 [Application Insights](../app/analytics.md)합니다. [로그 경고 - 개요](alerts-unified-log.md)에서 기능, 용어 및 형식에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 인기 있는 로그 데이터를 [Log Analytics 작업 영역을](../../azure-monitor/learn/tutorial-viewdata.md) 이기도 이제 Azure Monitor에서 메트릭 플랫폼에서 사용할 수 있습니다. 세부 정보 보기의 경우 [로그에 대한 메트릭 경고](alerts-metric-logs.md)를 참조하세요.
+> 인기 있는 로그 데이터를 [Log Analytics 작업 영역을](../../azure-monitor/learn/tutorial-viewdata.md) 이기도 이제 Azure Monitor에서 메트릭 플랫폼에서 사용할 수 있습니다. 세부 정보 보기는 [로그에 대한 메트릭 경고](alerts-metric-logs.md)를 참조하세요.
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Azure Portal에서 로그 경고 관리
 

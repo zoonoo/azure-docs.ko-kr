@@ -58,7 +58,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
 
 
-이 구성의 결과로 로그가 순환 방식으로 `/tmp/servicefabric/logs/`에 수집됩니다. 이 경우의 로그 파일 이름은 mysfapp%u.%g.log입니다. 여기서,
+이 구성으로 인해 로그가 순환 방식으로 `/tmp/servicefabric/logs/`에 수집됩니다. 이 경우의 로그 파일 이름은 mysfapp%u.%g.log입니다. 여기서,
 * **%u**는 동시 Java 프로세스 간에 충돌을 확인하기 위한 고유 번호입니다.
 * **%g**는 회전 로그를 구분하기 위한 세대 번호입니다.
 

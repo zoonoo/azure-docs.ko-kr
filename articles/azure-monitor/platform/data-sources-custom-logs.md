@@ -15,7 +15,7 @@ ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56234801"
@@ -104,7 +104,7 @@ Azure Monitor의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 2. 선택적인 **설명**을 추가합니다.
 3. **다음**을 클릭하여 사용자 지정 로그 정의를 저장합니다.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5단계. 사용자 지정 로그를 수집 중인지 확인
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5단계. 사용자 지정 로그를 수집 중인지 유효성을 검사합니다.
 Azure Monitor에 새 사용자 지정 로그의 초기 데이터가 나타나기까지 최대 한 시간이 소요될 수 있습니다.  사용자 지정 로그를 정의한 시점부터, 사용자가 지정한 경로에서 찾은 로그로부터 항목을 수집하기 시작합니다.  사용자 지정 로그를 만드는 동안 업로드한 항목은 유지하지 않고, 찾는 로그 파일에 이미 존재하는 항목을 수집합니다.
 
 Azure Monitor가 사용자 지정 로그에서 수집을 시작하면, 해당 레코드를 로그 쿼리를 통해 사용할 수 있습니다.  사용자 지정 로그에 지정한 이름을 쿼리의 **유형**으로 사용합니다.
@@ -163,7 +163,7 @@ Azure Monitor는 각 사용자 지정 로그로부터 새로운 항목을 약 5�
 
 ![로그 이름](media/data-sources-custom-logs/log-name.png)
 
-### <a name="validate-that-the-custom-logs-are-being-collected"></a>사용자 지정 로그를 수집 중인지 확인
+### <a name="validate-that-the-custom-logs-are-being-collected"></a>사용자 지정 로그를 수집 중인지 유효성을 검사합니다.
 수집된 로그의 모든 레코드를 반환하는 *Type=MyApp_CL* 쿼리를 사용합니다.
 
 ![사용자 지정 필드가 없는 로그 쿼리](media/data-sources-custom-logs/query-01.png)

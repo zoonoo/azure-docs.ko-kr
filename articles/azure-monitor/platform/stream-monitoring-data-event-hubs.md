@@ -27,7 +27,7 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
 
 - **애플리케이션 모니터링 데이터:** Azure에서 작성하고 실행되는 코드의 성능 및 기능에 대한 데이터입니다. 애플리케이션 모니터링 데이터의 예로 성능 추적, 애플리케이션 로그 및 사용자 원격 분석이 있습니다. 애플리케이션 모니터링 데이터는 일반적으로 다음 방법 중 하나로 수집됩니다.
   - [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md)와 같은 SDK를 사용하여 코드를 계측합니다.
-  - 애플리케이션이 실행되고 있는 컴퓨터에서 새 애플리케이션 로그를 수신 대기하는 모니터링 에이전트(예: [Windows Azure 진단 에이전트](./../../azure-monitor/platform/diagnostics-extension-overview.md) 또는 [Linux Azure 진단 에이전트](../../virtual-machines/extensions/diagnostics-linux.md))를 실행합니다.
+  - 애플리케이션이 실행되고 있는 머신에서 새 애플리케이션 로그를 수신 대기하는 모니터링 에이전트(예: [Windows Azure 진단 에이전트](./../../azure-monitor/platform/diagnostics-extension-overview.md) 또는 [Linux Azure 진단 에이전트](../../virtual-machines/extensions/diagnostics-linux.md))를 실행합니다.
 - **게스트 OS 모니터링 데이터:** 애플리케이션이 실행되고 있는 운영 체제에 대한 데이터입니다. 게스트 OS 모니터링 데이터의 예로 Linux syslog 또는 Windows 시스템 이벤트가 있습니다. 이러한 유형의 데이터를 수집하려면 [Windows Azure 진단 에이전트](./../../azure-monitor/platform/diagnostics-extension-overview.md) 또는 [Linux Azure 진단 에이전트](../../virtual-machines/extensions/diagnostics-linux.md)와 같은 에이전트를 설치해야 합니다.
 - **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 가상 머신과 같은 일부 Azure 리소스 종류의 경우, Azure 서비스 내부에서 모니터링할 게스트 OS 및 애플리케이션이 있습니다. 네트워크 보안 그룹과 같은 다른 Azure 리소스의 경우, 해당 리소스에서 실행되는 게스트 OS 또는 해당 애플리케이션이 없으므로 리소스 모니터링 데이터가 사용할 수 있는 가장 높은 수준의 데이터입니다. 이 데이터는 [리소스 진단 설정](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)을 사용하여 수집할 수 있습니다.
 - **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. [활동 로그](./../../azure-monitor/platform/activity-logs-overview.md)에는 서비스 상태 문제 및 Azure Resource Manager 감사 등, 대부분의 구독 모니터링 데이터를 포함합니다. 로그 프로필을 사용하여 이 데이터를 수집할 수 있습니다.

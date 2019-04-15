@@ -16,11 +16,11 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058478"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281304"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -170,7 +170,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **저장**을 선택합니다.
 
-이 프로세스는 사용자 및 그룹 섹션에서 G Suite에 할당된 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인할 수 있습니다. 이러한 로그는 앱에서 프로비전 서비스가 수행하는 모든 조치를 설명합니다.
+이 프로세스는 사용자 및 그룹 섹션에서 G Suite에 할당된 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인할 수 있습니다. 이러한 로그는 앱에서 프로비저닝 서비스가 수행하는 모든 조치를 설명합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 

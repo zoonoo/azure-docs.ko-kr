@@ -23,7 +23,7 @@ ms.locfileid: "58371472"
 >
 > 
 
-Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방법은 리소스 형식에 따라 다릅니다.
+Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방법은 리소스 종류에 따라 다릅니다.
 
 * **비-Compute** 리소스(예를 들어, 네트워크 보안 그룹, Logic Apps, Automation)는 [이 문서에 설명된 진단 설정](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)을 사용합니다.
 * **Compute** 리소스(WAD/LAD 기반)는 [이 문서에 설명된 WAD/LAD 구성 파일](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 사용합니다.

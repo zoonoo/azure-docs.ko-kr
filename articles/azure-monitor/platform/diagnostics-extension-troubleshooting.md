@@ -145,7 +145,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - 마지막으로, 모니터링 에이전트에서 오류를 보고하고 있는지 확인할 수 있습니다. 모니터링 에이전트는 진단 데이터의 로컬 저장소에 있는 `maeventtable.tsf`에 로그를 기록합니다. 이 파일을 열려면 [로컬 로그 추출](#local-log-extraction) 섹션의 지침을 따릅니다. 그런 다음 저장소에 기록하는 로컬 파일 읽기 실패를 나타내는 `errors`가 있는지 여부를 결정합니다.
 
 ### <a name="capturing-and-archiving-logs"></a>로그 캡처 및 보관
-지원 문의를 생각하고 있는 경우, 요청받을 수 있는 첫 번째 작업은 자신의 컴퓨터에서 로그를 수집하는 것입니다. 사용자가 직접 수행하면 시간을 절약할 수 있습니다. 로그 수집 유틸리티 경로에서 `CollectGuestLogs.exe` 유틸리티를 실행합니다. 모든 관련 Azure 로그를 포함한 .zip 파일을 동일한 폴더에 생성합니다.
+지원 문의를 생각하고 있는 경우, 요청받을 수 있는 첫 번째 작업은 자신의 머신에서 로그를 수집하는 것입니다. 사용자가 직접 수행하면 시간을 절약할 수 있습니다. 로그 수집 유틸리티 경로에서 `CollectGuestLogs.exe` 유틸리티를 실행합니다. 모든 관련 Azure 로그를 포함한 .zip 파일을 동일한 폴더에 생성합니다.
 
 ## <a name="diagnostics-data-tables-not-found"></a>진단 데이터 테이블을 찾을 수 없음
 ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드를 사용하여 지정됩니다.

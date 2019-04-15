@@ -14,7 +14,7 @@ ms.lasthandoff: 03/01/2019
 ms.locfileid: "57195101"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 서버 로그 
-PostgreSQL용 Azure 데이터베이스에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
+Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
 
 ## <a name="configure-logging"></a>로깅 구성 
 로깅 서버 매개 변수를 사용하면 서버에서 로깅을 구성할 수 있습니다. 각 새 서버의 **log_checkpoints** 및 **log_connections**는 기본적으로 설정되어 있습니다. 로깅 요구에 맞게 매개 변수를 추가로 조정할 수도 있습니다. 

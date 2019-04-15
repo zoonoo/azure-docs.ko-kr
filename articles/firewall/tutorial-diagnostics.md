@@ -54,7 +54,7 @@ ms.locfileid: "59044864"
 3. 데이터 수집을 시작하려면 **진단 켜기**를 클릭합니다.
 4. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다. 
 5. 이 예제에서 Azure Monitor 로그가 로그를 저장하므로 이름에 **방화벽 로그 분석**을 입력합니다.
-6. **Log Analytics에 보내기**를 클릭하여 작업 영역을 구성합니다. 또한 이벤트 허브 및 저장소 계정을 사용하여 진단 로그를 저장할 수도 있습니다.
+6. **Log Analytics에 보내기**를 클릭하여 작업 영역을 구성합니다. 또한 이벤트 허브 및 스토리지 계정을 사용하여 진단 로그를 저장할 수도 있습니다.
 7. **Log Analytics** 아래에서 **구성**을 클릭합니다.
 8. Log Analytics 작업 영역 페이지에서 **새 작업 영역 만들기**를 클릭합니다.
 9. **Log analytics 작업 영역** 페이지에서 새 **Log Analytics 작업 영역** 이름에 **firewall-oms**를 입력합니다.
@@ -88,7 +88,7 @@ ms.locfileid: "59044864"
     ```
     
 > [!TIP] 
->진단 로그에는 별도의 저장소 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 저장소를 사용할 경우 서비스 요금이 부과됩니다.
+>진단 로그에는 별도의 스토리지 계정이 필요하지 않습니다. 액세스 및 성능 로깅에 저장소를 사용할 경우 서비스 요금이 부과됩니다.
 
 ## <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
 
@@ -113,7 +113,7 @@ Azure Firewall 로그 분석 샘플 쿼리는 [Azure Firewall 로그 분석 샘�
 
 ## <a name="next-steps"></a>다음 단계
 
-로그를 수집하도록 방화벽을 구성했으므로 Azure Monitor 로그를 탐색하여 데이터를 볼 수 있습니다.
+로그를 수집하도록 방화벽을 구성했으므로 Azure Monitor 로그를 살펴보고 데이터를 볼 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Monitor 로그의 네트워킹 모니터링 솔루션](../azure-monitor/insights/azure-networking-analytics.md)

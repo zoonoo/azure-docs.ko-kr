@@ -21,7 +21,7 @@ ms.locfileid: "58540757"
 ---
 # <a name="collect-azure-activity-logs-into-a-log-analytics-workspace-across-subscriptions-in-different-azure-active-directory-tenants"></a>Log Analytics 작업 영역으로 다른 Azure Active Directory 테 넌 트에서 구독 전체의 Azure 활동 로그를 수집
 
-이 문서는 Azure Log Analytics Data Collector 커넥터를 사용 하 여 Logic Apps에 대 한 Azure Monitor에서 Log Analytics 작업 영역으로 Azure 활동 로그를 수집 하는 방법 단계별로 안내 합니다. 다른 Azure Active Directory 테넌트의 작업 영역에 로그를 보내야 하는 경우 이 문서의 과정을 사용합니다. 예를 들어 관리 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
+이 문서는 Azure Log Analytics Data Collector 커넥터를 사용 하 여 Logic Apps에 대 한 Azure Monitor에서 Log Analytics 작업 영역으로 Azure 활동 로그를 수집 하는 방법 단계별로 안내 합니다. 다른 Azure Active Directory 테넌트의 작업 영역에 로그를 보내야 하는 경우 이 문서의 과정을 사용합니다. 예를 들어 관리형 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
 
 Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azure Active Directory의 다른 구독에 있는 경우 [Azure 활동 로그 솔루션](collect-activity-logs.md)의 단계에 따라 Azure 활동 로그를 수집합니다.
 
@@ -43,7 +43,7 @@ Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azu
 ## <a name="requirements"></a>요구 사항
 다음은 이 시나리오에서 사용되는 Azure 리소스에 대한 요구 사항입니다.
 
-- 이벤트 허브 네임스페이스는 로그를 내보내는 구독과 동일한 구독에 있지 않아도 됩니다. 설정을 구성하는 사용자에게 두 구독에 대한 적절한 액세스 권한이 있어야 합니다. 동일한 Azure Active Directory에 여러 구독이 있는 경우 모든 구독에 대한 활동 로그를 하나의 이벤트 허브로 보낼 수 있습니다.
+- Event Hub 네임스페이스는 로그를 내보내는 구독과 동일한 구독에 있지 않아도 됩니다. 설정을 구성하는 사용자에게 두 구독에 대한 적절한 액세스 권한이 있어야 합니다. 동일한 Azure Active Directory에 여러 구독이 있는 경우 모든 구독에 대한 활동 로그를 단일 이벤트 허브로 보낼 수 있습니다.
 - Logic App은 이벤트 허브와 다른 구독에 있을 수 있으며, 동일한 Azure Active Directory에 있지 않아도 됩니다. Logic App은 이벤트 허브의 공유 액세스 키를 사용하여 이벤트 허브에서 읽습니다.
 - Log Analytics 작업 영역은 Logic App과 다른 구독 및 Azure Active Directory에 있을 수 있지만 설명하기 쉽게 동일한 구독에 있는 것이 좋습니다. 논리 앱을 Log Analytics 작업 영역 ID 및 키를 사용 하 여 작업 영역에 보냅니다.
 

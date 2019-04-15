@@ -117,7 +117,7 @@ hello-spring-cloud 애플리케이션을 보려면 브라우저에서 제공된 
 
 ## <a name="view-application-logs"></a>애플리케이션 로그 보기
 
-Cloud Foundry CLI를 사용하여 해당 이름으로 애플리케이션에 대한 로그를 볼 수 있습니다.
+Cloud Foundry CLI를 사용하여 해당 이름별로 애플리케이션에 대한 로그를 볼 수 있습니다.
 
 ```bash
 cf logs hello-spring-cloud

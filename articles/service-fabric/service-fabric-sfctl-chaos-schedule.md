@@ -50,7 +50,7 @@ Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
 Chaos에서 사용되는 일정을 설정합니다.
@@ -76,7 +76,7 @@ Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ### <a name="examples"></a>예
 

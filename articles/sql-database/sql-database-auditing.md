@@ -43,7 +43,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 - **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> 감사 로그는 Azure 구독의 Azure Blob 스토리지에 있는 **Blob 추가**에 기록됩니다.
+> 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
 >
 > - 모든 스토리지 종류(v1, v2, Blob)가 지원됩니다.
 > - 모든 스토리지 복제 구성이 지원됩니다.
@@ -87,11 +87,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![탐색 창][3]
 
-5. **새로 만들기** - 이제 감사 로그가 작성될 구성에 대한 여러 옵션이 있습니다. Azure storage 계정, Azure Monitor 로그 사용에 대 한 Log Analytics 작업 영역 또는 이벤트 허브 이벤트 허브를 사용 하 여 소비에 대 한 로그를 작성할 수 있습니다. 이러한 옵션의 임의 조합을 구성할 수 있으며, 감사 로그는 각각 작성됩니다.
+5. **새로 만들기** - 이제 감사 로그가 작성될 구성에 대한 여러 옵션이 있습니다. Azure storage 계정, Azure Monitor 로그 사용에 대 한 Log Analytics 작업 영역 또는 이벤트 허브 이벤트 허브를 사용 하 여 소비에 대 한 로그를 작성할 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
 
     ![저장소 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. 저장소 계정에 감사 로그 작성을 구성하려면 **저장소**를 선택하고 **저장소 세부 정보**를 엽니다. 로그를 저장할 Azure 저장소 계정 및 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 후 **OK**를 클릭합니다.
+6. 저장소 계정에 감사 로그 작성을 구성하려면 **저장소**를 선택하고 **저장소 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 후 **OK**를 클릭합니다.
 
     ![저장소 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -132,9 +132,9 @@ Azure Monitor 로그로 감사 로그를 작성 하기로 합니다.
 - 이벤트 허브에서 감사 로그 데이터를 사용하려면 이벤트를 사용하고 이벤트를 대상에 작성하도록 스트림을 설정해야 합니다. 자세한 내용은 [Azure Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)를 참조하세요.
 - Event Hub의 감사 로그는 [Apache Avro](https://avro.apache.org/) 이벤트의 본문에서 캡처되고 UTF-8 인코딩을 통해 JSON 형식을 사용하여 저장됩니다. 감사 로그를 읽으려면 [Avro 도구](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
 
-Azure 저장소 계정에 감사 로그를 작성하도록 선택한 경우 로그를 보는 데 사용할 수 있는 여러 가지 방법이 있습니다.
+Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그를 보는 데 사용할 수 있는 여러 가지 방법이 있습니다.
 
-- 감사 로그는 설치 중에 선택한 계정에 집계됩니다. [Azure Storage 탐색기](https://storageexplorer.com/) 등의 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure 저장소에서 감사 로그는 **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
+- 감사 로그는 설치 중에 선택한 계정에 집계됩니다. [Azure Storage 탐색기](https://storageexplorer.com/) 등의 도구를 사용하여 감사 로그를 탐색할 수 있습니다. Azure Storage에서 감사 로그는 **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일의 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
 - [Azure Portal을 사용](https://portal.azure.com)합니다.  관련 데이터베이스를 엽니다. 데이터베이스의 **감사** 페이지 맨 위에서 **감사 로그 보기**를 클릭합니다.
 
@@ -192,7 +192,7 @@ Azure 저장소 계정에 감사 로그를 작성하도록 선택한 경우 로�
 
 ### <a id="subheading-6">저장소 키 다시 생성</a>
 
-프로덕션에서는 저장소 키를 주기적으로 새로 고치게 됩니다. Azure 저장소에 감사 로그를 작성하는 경우 키를 새로 고칠 때 감사 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
+프로덕션에서는 저장소 키를 주기적으로 새로 고치게 됩니다. Azure Storage에 감사 로그를 작성하는 경우 키를 새로 고칠 때 감사 정책을 다시 저장해야 합니다. 프로세스는 다음과 같습니다.
 
 1. **저장소 세부 정보**를 엽니다. **저장소 액세스 키** 상자에서 **보조**를 선택하고 **확인**을 클릭합니다. 그런 다음, 감사 구성 페이지의 맨 위에서 **저장**을 클릭합니다.
 

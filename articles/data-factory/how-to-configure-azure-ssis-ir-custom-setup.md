@@ -118,7 +118,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
                                                   -ResourceGroupName $MyResourceGroupName
       ```
 
-   1. 사용자 지정 설정이 Azure-SSIS IR 시시작을 마친 후 `main.cmd`의 표준 출력과 다른 실행 로그를 저장소 컨테이너의 `main.cmd.log` 폴더에서 확인할 수 있습니다.
+   1. 사용자 지정 설정이 Azure-SSIS IR 시시작을 마친 후 `main.cmd`의 표준 출력과 다른 실행 로그를 스토리지 컨테이너의 `main.cmd.log` 폴더에서 확인할 수 있습니다.
 
 1. 다른 사용자 지정 설정 예제를 보려면 Azure Storage Explorer를 통해 공개 미리 보기 컨테이너에 연결합니다.
 

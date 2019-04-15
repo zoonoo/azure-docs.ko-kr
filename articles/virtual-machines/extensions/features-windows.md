@@ -350,7 +350,7 @@ AutoUpgradeMinorVersion     : True
 
 다음 문제 해결 단계는 모든 VM 확장에 적용됩니다.
 
-1. Windows 게스트 에이전트 로그를 확인하려면 *C:\WindowsAzure\Logs\WaAppAgent.txt*에서 확장이 프로비전되지 않은 경우 작업을 확인합니다.
+1. Windows 게스트 에이전트 로그를 확인하려면 *C:\WindowsAzure\Logs\WaAppAgent.txt*에서 확장이 프로비저닝되지 않은 경우 작업을 확인합니다.
 
 2. *C:\WindowsAzure\Logs\Plugins\<extensionName>* 에서 실제 확장 로그에 대한 자세한 내용을 확인합니다.
 

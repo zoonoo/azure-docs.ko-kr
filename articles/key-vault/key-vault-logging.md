@@ -29,7 +29,7 @@ ms.locfileid: "58484115"
 액세스할 수 있습니다 로깅 정보에 10 분 (최대) 키 자격 증명 모음 작업 후. 대부분의 경우 이것보다 빠릅니다.  저장소 계정의 로그 관리에 따라 다릅니다.
 
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
-* 더 이상 저장소 계정에 유지하지 않으려는 로그를 삭제합니다.
+* 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
 
 이 자습서를 사용하여 Azure Key Vault 로깅을 시작할 수 있습니다. 저장소 계정 만들기, 로깅을 활성화 하 고 수집 된 로그 정보를 해석 됩니다.  
 
@@ -47,7 +47,7 @@ Key Vault에 대 한 개요 정보를 참조 하세요 [Azure Key Vault 란?](ke
 
 * 사용하고 있는 기존 키 자격 증명 모음  
 * Azure PowerShell, 1.0.0의 최소 버전입니다. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell을 설치 하 고 Azure PowerShell 콘솔에서 버전을 모르는 경우 입력 `$PSVersionTable.PSVersion`합니다.  
-* 키 자격 증명 모음 로그에 대한 Azure의 충분한 저장소.
+* 키 자격 증명 모음 로그에 대한 Azure의 충분한 스토리지.
 
 ## <a id="connect"></a>키 자격 증명 모음 구독에 연결
 

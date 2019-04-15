@@ -28,7 +28,7 @@ ms.locfileid: "58669421"
 >
 >
 
-Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
+Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
 로그를 업로드 및 수집하는 방법 중 하나는 LAD(Linux Azure Diagnostics) 확장을 사용하는 것입니다. 이 확장은 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있는 옵션을 제공합니다. 이벤트 저장소에서 읽고와 같은 분석 플랫폼 제품에 배치할 외부 프로세스를 사용할 수도 있습니다 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션입니다.
 
@@ -43,7 +43,7 @@ Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [L
 [로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
 ## <a name="deploy-the-diagnostics-extension"></a>진단 확장 배포
-로그를 수집하는 첫 단계는 서비스 패브릭 클러스터의 각 VM에 진단 확장을 배포하는 것입니다. 진단 확장은 각 VM에서 로그를 수집하여 사용자가 지정하는 저장소 계정에 업로드합니다. 
+로그를 수집하는 첫 단계는 Service Fabric 클러스터의 각 VM에 진단 확장을 배포하는 것입니다. 진단 확장은 각 VM에서 로그를 수집하여 사용자가 지정하는 스토리지 계정에 업로드합니다. 
 
 클러스터 만들기의 일환으로 클러스터 내의 VM에 진단 확장을 배포하려면 **진단**을 **켜기**로 설정합니다. 클러스터를 만든 후에는 포털을 사용하여 이 설정을 변경할 수는 없으므로 Resource Manager 템플릿에서 올바른 변경을 수행해야 합니다.
 

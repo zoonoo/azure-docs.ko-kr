@@ -35,7 +35,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 ### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. 배포됨 - 로그는 고객의 테넌트에 있는 작업 영역에 저장됩니다. 
 
-이 아키텍처에서 작업 영역은 해당 고객의 모든 로그에 사용되는 고객의 테넌트에서 배포됩니다. 서비스 공급자 관리자는 [Azure Active Directory 게스트 사용자(B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)를 사용하여 이 작업 영역에 대한 액세스 권한이 부여되었습니다. 서비스 공급자 관리자는 Azure Portal에서 고객 디렉터리로 전환해야 이러한 작업 영역에 액세스할 수 있습니다.
+이 아키텍처에서 작업 영역은 해당 고객의 모든 로그에 사용되는 고객의 테넌트에 배포됩니다. 서비스 공급자 관리자는 [Azure Active Directory 게스트 사용자(B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)를 사용하여 이 작업 영역에 대한 액세스 권한이 부여되었습니다. 서비스 공급자 관리자는 Azure Portal에서 고객 디렉터리로 전환해야 이러한 작업 영역에 액세스할 수 있습니다.
 
 이 아키텍처의 장점은 다음과 같습니다.
 * 고객은 고유한 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용하여 로그에 대한 액세스 권한을 관리할 수 있습니다.
@@ -49,9 +49,9 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 * 서비스 공급자 관리자는 고객 디렉터리에서 프로비전되어야 합니다.
 * 서비스 공급자는 해당 고객 간에 데이터를 분석할 수 없습니다.
 
-### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. 중앙 - 로그가 서비스 공급자 테넌트에 있는 작업 영역에 저장됨
+### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. 중앙 - 로그가 서비스 공급 기업 테넌트에 있는 작업 영역에 저장됨
 
-이 아키텍처에서 로그는 고객의 테넌트에 저장되지 않고 서비스 공급자의 구독 내의 중앙 위치에만 저장됩니다. 고객의 VM에 설치된 에이전트는 작업 영역 ID 및 암호 키를 사용하여 이 작업 영역에 해당 로그를 보내도록 구성됩니다.
+이 아키텍처에서 로그는 고객의 테넌트에 저장되지 않고 서비스 공급자의 구독 내의 중앙 위치에만 저장됩니다. 고객의 VM에 설치된 에이전트는 작업 영역 ID 및 비밀 키를 사용하여 이 작업 영역에 해당 로그를 보내도록 구성됩니다.
 
 이 아키텍처의 장점은 다음과 같습니다.
 * 쉽게 다수의 고객을 관리하고 다양한 백 엔드 시스템에 통합할 수 있습니다.

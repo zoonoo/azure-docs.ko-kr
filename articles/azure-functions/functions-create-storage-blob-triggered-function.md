@@ -100,7 +100,7 @@ ms.locfileid: "54901465"
 
 1. **파일 업로드** 대화 상자에서 **파일** 필드를 클릭합니다. 로컬 컴퓨터에서 이미지 파일과 같은 파일을 찾아 선택하고 **열기** 및 **업로드**를 차례로 클릭합니다.
 
-1. 함수 로그로 돌아가 Blob를 읽었는지 확인합니다.
+1. 함수 로그로 돌아가 Blob을 읽었는지 확인합니다.
 
    ![로그에서 메시지 보기.](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
 

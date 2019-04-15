@@ -11,7 +11,7 @@ ms.date: 12/15/2018
 ms.author: hrasheed
 ms.openlocfilehash: 03c86aa069300f88b61752ebd3223e424f6e9c96
 ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2019
 ms.locfileid: "54382619"
@@ -30,7 +30,7 @@ Ambari의 일부 메뉴만 SSH 터널을 통해 작동합니다. 이러한 메�
 * NameNode
 * Thread Stacks
 * Oozie web UI
-* HBase Master and Logs UI
+* HBase Master 및 로그 UI
 
 클러스터를 사용자 지정하는 스크립트 작업을 사용하는 경우 웹 서비스를 노출하는 서비스 또는 유틸리티를 설치하려면 SSH 터널이 필요합니다. 예를 들어 스크립트 작업을 사용하여 Hue를 설치하는 경우 SSH 터널을 사용하여 Hue 웹 UI에 액세스해야 합니다.
 

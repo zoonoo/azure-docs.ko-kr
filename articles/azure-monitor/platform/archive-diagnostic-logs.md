@@ -1,6 +1,6 @@
 ---
 title: Azure 진단 로그 보관
-description: 저장소 계정에 장기 보존을 위해 Azure 진단 로그를 보관하는 방법에 대해 알아봅니다.
+description: 스토리지 계정에 장기 보존을 위해 Azure 진단 로그를 보관하는 방법에 대해 알아봅니다.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -17,7 +17,7 @@ ms.locfileid: "58629347"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
 
-이 문서에서는 Azure Portal, PowerShell Cmdlet, CLI 또는 REST API를 사용하여 저장소 계정에서 [Azure 진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 옵션 보존 정책으로 진단 로그를 유지하려는 경우에 유용합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
+이 문서에서는 Azure Portal, PowerShell Cmdlet, CLI 또는 REST API를 사용하여 저장소 계정에서 [Azure 진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 옵션 보존 정책으로 진단 로그를 유지하려는 경우에 유용합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 스토리지 계정은 로그를 내보내는 리소스와 동일한 구독을 가지고 있지 않아도 됩니다.
 
 > [!WARNING]
 > 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -26,14 +26,14 @@ ms.locfileid: "58629347"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 진단 로그를 보관할 수 있는 [저장소 계정을 만들어야](../../storage/common/storage-quickstart-create-account.md) 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 활동 로그 및 진단 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 진단 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다.
+시작하기 전에 진단 로그를 보관할 수 있는 [스토리지 계정을 만들어야](../../storage/common/storage-quickstart-create-account.md) 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 활동 로그 및 진단 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 진단 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다.
 
 > [!NOTE]
 >  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 데이터를 보관할 수 없습니다.
 
 ## <a name="diagnostic-settings"></a>진단 설정
 
-다음 방법 중 하나를 사용하여 진단 로그를 보관하려면 특정 리소스에 대한 **진단 설정**을 지정합니다. 리소스에 대 한 진단 설정을 로그 및 메트릭 데이터 (저장소 계정, Event Hubs 네임 스페이스 또는 Log Analytics 작업 영역) 대상 전송의 범주를 정의 합니다. 또한 저장소 계정에 저장되는 각 로그 범주 및 메트릭 데이터의 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 해당 로그 범주에 대한 이벤트는 무기한으로(즉, 영원히) 저장됩니다. 그렇지 않은 경우 보존 정책은 1에서 2147483647 사이의 숫자일 수 있습니다. [진단 설정에 대한 자세한 내용은 여기에서 확인할 수 있습니다](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 저장소 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다. 
+다음 방법 중 하나를 사용하여 진단 로그를 보관하려면 특정 리소스에 대한 **진단 설정**을 지정합니다. 리소스에 대 한 진단 설정을 로그 및 메트릭 데이터 (저장소 계정, Event Hubs 네임 스페이스 또는 Log Analytics 작업 영역) 대상 전송의 범주를 정의 합니다. 또한 저장소 계정에 저장되는 각 로그 범주 및 메트릭 데이터의 이벤트에 대한 보존 정책(보존할 일 수)을 정의합니다. 보존 정책이 0으로 설정된 경우 해당 로그 범주에 대한 이벤트는 무기한으로(즉, 영원히) 저장됩니다. 그렇지 않은 경우 보존 정책은 1에서 2147483647 사이의 숫자일 수 있습니다. [진단 설정에 대한 자세한 내용은 여기에서 확인할 수 있습니다](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 스토리지 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다. 
 
 > [!NOTE]
 > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
@@ -58,13 +58,13 @@ ms.locfileid: "58629347"
 
    ![진단 설정 추가 - 기존 설정](media/archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. 설정에 이름을 지정하고  **계정에 내보내기** 확인란을 선택한 다음 Storage 계정을 선택합니다. 필요에 따라 **보존(일)** 슬라이더를 사용하여 이러한 로그를 유지할 일 수를 설정합니다. 0일의 보존은 로그를 무기한 저장합니다.
+3. 설정에 이름을 지정하고  **계정에 내보내기** 확인란을 선택한 다음 Storage 계정을 선택합니다. 필요에 따라 **보존(일)** 슬라이더를 사용하여 이러한 로그를 유지할 일 수를 설정합니다. 0일의 보존 기간은 로그를 무기한 저장합니다.
 
    ![진단 설정 추가 - 기존 설정](media/archive-diagnostic-logs/diagnostic-settings-configure.png)
 
 4. **저장**을 클릭합니다.
 
-몇 분 후 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 진단 로그가 해당 저장소 계정에 보관됩니다.
+몇 분 후에 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 진단 로그가 해당 스토리지 계정에 보관됩니다.
 
 ## <a name="archive-diagnostic-logs-via-azure-powershell"></a>Azure PowerShell을 통한 진단 로그 보관
 
@@ -103,7 +103,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 `--logs` 매개 변수로 전달된 JSON 배열에 사전을 추가하여 진단 로그에 추가적인 범주를 추가할 수 있습니다.
 
-`--resource-group` 인수는 `--storage-account`가 개체 ID가 아닌 경우에만 필요합니다. 저장소에 진단 로그를 보관하는 데 관한 전체 설명서는 [CLI 명령 참조](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create)를 참조하세요.
+`--resource-group` 인수는 `--storage-account`가 개체 ID가 아닌 경우에만 필요합니다. 스토리지에 진단 로그를 보관하는 데 관한 전체 설명서는 [CLI 명령 참조](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create)를 참조하세요.
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>REST API를 통한 진단 로그 보관
 

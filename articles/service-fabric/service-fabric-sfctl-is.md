@@ -52,7 +52,7 @@ ms.locfileid: "58661601"
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-is-query"></a>sfctl is 쿼리
 지정된 인프라 서비스 인스턴스에 대한 읽기 전용 쿼리를 호출합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "58661601"
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

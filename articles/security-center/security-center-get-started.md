@@ -67,7 +67,7 @@ Security Center 빠른 시작 및 자습서를 위해 표준 계층으로 업그
   ![보안 경고][9]
 
 ## <a name="automate-data-collection"></a>데이터 수집 자동화
-Security Center는 Azure VM 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 기본적으로 Security Center는 새 작업 영역을 만듭니다.
+Security Center는 Azure VM 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 기본적으로 Security Center는 새 작업 영역을 만듭니다.
 
 자동 프로비저닝을 사용하는 경우 Security Center에서 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Microsoft Monitoring Agent를 설치합니다. 자동 프로비저닝을 사용하는 것이 좋습니다.
 

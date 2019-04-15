@@ -58,7 +58,7 @@ Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애�
 
 프로비전을 작동하도록 하려면 Azure AD에서 해당 앱에서 제공한 사용자 관리 API에 연결할 수 있도록 유효한 자격 증명이 필요합니다. 이러한 자격 증명이 작동하지 않거나 자격 증명이 무엇인지 모르는 경우 이전에 설명한 이 앱 설정에 대한 자습서를 검토하세요.
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>사용자가 할당된 경우에도 감사 로그에 사용자가 생략되고 프로비전되지 않았다고 표시됨
+## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>사용자가 할당된 경우에도 감사 로그에 사용자가 생략되고 프로비저닝되지 않았다고 표시됨
 
 감사 로그에 사용자가 “생략”으로 표시되면 로그 메시지의 확장되는 세부 정보를 읽고 이유를 확인해야 합니다. 다음은 일반적인 원인과 해결 방법입니다.
 

@@ -59,7 +59,7 @@ Service Fabric 노드에서 배포된 복제본의 세부 정보를 가져옵니
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-replica-deployed-list"></a>sfctl replica deployed-list
 Service Fabric 노드에서 배포된 복제본 목록을 가져옵니다.
@@ -84,7 +84,7 @@ Service Fabric 노드에 배포된 복제본에 대한 정보를 포함하는 �
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-replica-health"></a>sfctl 복제본 상태
 Service Fabric 상태 저장 서비스 복제본 또는 상태 비저장 서비스 인스턴스를 가져옵니다.
@@ -108,7 +108,7 @@ Service Fabric 복제본의 상태를 가져옵니다. 상태에 따라 복제�
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-replica-info"></a>sfctl 복제본 정보
 Service Fabric 파티션의 복제본에 대한 정보를 가져옵니다.
@@ -131,7 +131,7 @@ Service Fabric 파티션의 복제본에 대한 정보를 가져옵니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-replica-list"></a>sfctl 복제본 목록
 Service Fabric 서비스 파티션 복제본에 대한 정보를 가져옵니다.
@@ -154,7 +154,7 @@ GetReplicas 엔드포인트는 지정된 파티션의 복제본에 관한 정보
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-replica-remove"></a>sfctl 복제본 제거
 노드에서 실행되는 서비스 복제본을 제거합니다.
@@ -179,7 +179,7 @@ GetReplicas 엔드포인트는 지정된 파티션의 복제본에 관한 정보
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 Service Fabric 복제본에 대한 상태 보고서를 보냅니다.
@@ -211,7 +211,7 @@ Service Fabric 복제본에 대한 상태 보고서를 보냅니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-replica-restart"></a>sfctl 복제본 다시 시작
 노드에서 실행되는 지속된 서비스의 서비스 복제본을 다시 시작합니다.
@@ -235,7 +235,7 @@ Service Fabric 복제본에 대한 상태 보고서를 보냅니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

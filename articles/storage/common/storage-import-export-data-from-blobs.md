@@ -173,7 +173,7 @@ WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTr
 
 Azure Import/Export 도구는 내보낼 모든 Blob을 나열하고 필요한 오버헤드를 고려하여 지정된 크기의 드라이브에 패키지하는 방법을 계산한 다음 Blob 및 드라이브 사용 정보를 보유하는 데 필요한 드라이브 수를 추정합니다.  
   
-다음은 정보 로그가 생략된 출력의 예입니다.  
+정보 로그가 생략된 출력의 예제는 다음과 같습니다.  
   
 ```  
 Number of unique blob paths/prefixes:   3  

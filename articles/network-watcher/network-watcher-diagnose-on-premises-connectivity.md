@@ -62,7 +62,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 
 연결을 진단하려면 Azure PowerShell에 연결하고 `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet을 시작합니다. [Virtual Network 게이트웨이 및 연결 문제 해결 - PowerShell](network-watcher-troubleshoot-manage-powershell.md)에서 이 cmdlet 사용에 대한 세부 정보를 찾을 수 있습니다. 이 cmdlet을 완료하는 데는 몇 분 정도 걸릴 수 있습니다.
 
-cmdlet이 완료되면 cmdlet에 지정된 저장소 위치로 이동하여 문제 및 로그에 대한 자세한 정보를 확인할 수 있습니다. Azure Network Watcher는 다음 로그 파일을 포함하는 zip 폴더를 만듭니다.
+cmdlet이 완료되면 cmdlet에 지정된 스토리지 위치로 이동하여 문제 및 로그에 대한 자세한 정보를 확인할 수 있습니다. Azure Network Watcher는 다음 로그 파일을 포함하는 zip 폴더를 만듭니다.
 
 ![1][1]
 

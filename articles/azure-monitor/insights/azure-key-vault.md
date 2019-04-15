@@ -28,7 +28,7 @@ ms.locfileid: "58629281"
 
 Azure Key Vault AuditEvent 로그를 검토 하려면 Azure Monitor에서 Azure Key Vault 솔루션을 사용할 수 있습니다.
 
-솔루션을 사용하려면 Azure Key Vault 진단 로깅을 사용하도록 설정하고 진단을 Log Analytics 작업 영역으로 보내야 합니다. Azure Blob Storage에 로그를 작성할 필요는 없습니다.
+솔루션을 사용하려면 Azure Key Vault 진단 로깅을 사용하도록 설정하고 진단을 Log Analytics 작업 영역으로 보내야 합니다. Azure Blob Storage에 로그를 쓸 필요는 없습니다.
 
 > [!NOTE]
 > 2017년 1월 Key Vault에서 Log Analytics로 로그를 보내도록 지원하는 방법이 변경되었습니다. 사용 중인 Key Vault 솔루션에서 제목에 *(사용되지 않음)* 을 표시하는 경우 수행해야 할 단계는 [이전 Key Vault 솔루션에서 마이그레이션](#migrating-from-the-old-key-vault-solution)을 참조하세요.
@@ -70,7 +70,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -E
 
 ## <a name="review-azure-key-vault-data-collection-details"></a>Azure Key Vault 데이터 수집 상세 정보를 검토합니다.
 Azure Key Vault 솔루션은 Key Vault에서 직접 진단 로그를 수집합니다.
-Azure Blob Storage에 로그를 작성할 필요가 없으며 데이터를 수집하는 데 에이전트가 필요하지 않습니다.
+Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집에 에이전트가 필요하지 않습니다.
 
 다음 표에서는 데이터 수집 방법 및 Azure Key Vault에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 

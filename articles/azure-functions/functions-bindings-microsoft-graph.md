@@ -1033,7 +1033,7 @@ Microsoft Graph 웹후크 트리거를 사용하면 함수가 Microsoft Graph에
 }
 ```
 
-C# 스크립트 코드는 들어오는 메일 메시지에 반응하여 받는 사람이 보냈고 제목에 "Azure Functions"가 포함된 메일 메시지의 본문을 기록합니다.
+C# 스크립트 코드는 들어오는 이메일 메시지에 반응하여 받는 사람이 보냈고 제목에 "Azure Functions"가 포함된 이메일 메시지의 본문을 기록합니다.
 
 ```csharp
 #r "Microsoft.Graph"
@@ -1072,7 +1072,7 @@ public static async Task Run(Message msg, ILogger log)
 }
 ```
 
-JavaScript 코드는 들어오는 메일 메시지에 반응하여 받는 사람이 보냈고 제목에 "Azure Functions"가 포함된 메일 메시지의 본문을 기록합니다.
+JavaScript 코드는 들어오는 이메일 메시지에 반응하여 받는 사람이 보냈고 제목에 "Azure Functions"가 포함된 이메일 메시지의 본문을 기록합니다.
 
 ```js
 module.exports = function (context) {

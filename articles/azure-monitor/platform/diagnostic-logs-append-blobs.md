@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 진단 로그에 대한 형식 변경 준비
-description: Azure 진단 로그는 추가 Blob을 사용하기 위해 2018년 11월 1일에 이동됩니다.
+description: Azure 진단 로그는 추가 Blob을 사용하도록 2018년 11월 1일에 전환됩니다.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/22/2019
 ms.locfileid: "58370060"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>저장소 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
+# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>스토리지 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
 
 > [!WARNING]
 > [리소스 진단 설정을 사용하여 Azure 리소스 진단 로그 또는 메트릭을 저장소 계정](./../../azure-monitor/platform/archive-diagnostic-logs.md)에 전송하는 경우 또는 [로그 프로필을 사용하여 활동 로그를 저장소 계정](./../../azure-monitor/platform/archive-activity-log.md)에 전송하는 경우, 2018년 11월 1일에 저장소 계정의 데이터 형식이 JSON 줄로 변경됩니다. 아래 지침에서는 새 형식을 처리하도록 도구를 업데이트하는 방법 및 영향에 대해 설명합니다. 
@@ -43,7 +43,7 @@ Azure Monitor는 Azure storage 계정, Event Hubs 네임 스페이스 또는 Azu
 
 다음과 같은 경우에만 이 변경의 영향을 받습니다.
 1. 리소스 진단 설정을 사용하여 Azure Storage 계정에 로그 데이터를 전송함 및
-2. 저장소에 있는 이러한 로그의 JSON 구조를 사용하는 도구가 있음
+2. 스토리지에 있는 이러한 로그의 JSON 구조를 사용하는 도구가 있음
  
 Azure Storage 계정에 데이터를 보내는 리소스 진단 설정이 있는지 확인하려면 포털의 **모니터** 섹션으로 이동하고 **진단 설정**을 클릭한 다음, **진단 상태**가 **사용**으로 설정된 리소스를 식별합니다.
 
@@ -129,7 +129,7 @@ Azure Blob Storage에 있는 PT1H.json 파일의 현재 형식은 레코드의 J
 
 ## <a name="how-to-update"></a>업데이트 방법
 
-추가 처리를 위해 이러한 로그 파일을 수집하는 사용자 지정 도구가 있는 경우에만 업데이트를 수행하면 됩니다. 외부 로그 분석 또는 SIEM 도구를 사용하는 경우, [이벤트 허브를 사용하여 이 데이터를 수집](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)하는 것이 좋습니다. 여러 서비스의 로그를 처리하고 특정 로그의 위치에 책갈피를 설정하는 경우, 이벤트 허브 통합이 더 편리합니다.
+추가 처리를 위해 이러한 로그 파일을 수집하는 사용자 지정 도구가 있는 경우에만 업데이트를 수행하면 됩니다. 외부 로그 분석 또는 SIEM 도구를 사용하는 경우, [이벤트 허브를 사용하여 이 데이터를 수집](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)하는 것이 좋습니다. 여러 서비스의 로그를 처리하고 특정 로그의 위치에 책갈피를 설정하려면 이벤트 허브 통합이 더 편리합니다.
 
 위에서 설명한 JSON 줄 형식과 현재 형식을 둘 다 처리하도록 사용자 지정 도구를 업데이트해야 합니다. 이렇게 하면 데이터가 새 형식으로 표시되기 시작해도 도구가 중단되지 않습니다.
 

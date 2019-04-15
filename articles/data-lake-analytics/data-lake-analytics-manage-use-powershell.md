@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56233585"
@@ -124,7 +124,7 @@ Azure Data Lake Analytics는 현재 다음 데이터 원본을 지원합니다.
 * [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/common/storage-introduction.md)
 
-모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다. 기본 데이터 레이크 저장소 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 
+모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다. 기본 Data Lake Store 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>기본 데이터 레이크 저장소 계정 찾기
 

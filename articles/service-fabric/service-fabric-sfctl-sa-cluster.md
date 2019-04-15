@@ -52,7 +52,7 @@ Service Fabric 독립 실행형 클러스터 구성을 가져옵니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl sa-cluster config-upgrade
 Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작합니다.
@@ -84,7 +84,7 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ### <a name="examples"></a>예
 
@@ -114,7 +114,7 @@ Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

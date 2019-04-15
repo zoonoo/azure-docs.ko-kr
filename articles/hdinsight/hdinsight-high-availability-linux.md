@@ -217,7 +217,7 @@ Ambari REST API 작업에 대한 자세한 내용은 [Apache Ambari REST API를 
 
 ### <a name="ssh"></a>SSH
 
-SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 파일을 찾을 수 있습니다. 예를 들어 **/var/log/hadoop-yarn/yarn** 은 YARN에 대한 로그를 포함합니다.
+SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 파일을 찾을 수 있습니다. 예를 들어 **/var/log/hadoop-yarn/yarn**은 YARN에 대한 로그를 포함합니다.
 
 각 헤드 노드는 고유한 로그 항목을 포함할 수 있으므로 두 가지 다에서 로그를 확인해야 합니다.
 
@@ -242,7 +242,7 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 > [!NOTE]  
 > Ambari를 사용하여 로그 파일에 액세스하려면 SSH 터널을 사용해야 합니다. 개별 서비스의 웹 인터페이스는 인터넷에 공개적으로 노출되지 않습니다. SSH 터널 사용에 대한 내용은 [SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
 
-Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다. 그런 다음 **빠른 링크**를 사용하여 로그를 볼 헤드 노드를 선택합니다.
+Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다. 그런 다음, **빠른 링크**를 사용하여 로그를 볼 헤드 노드를 선택합니다.
 
 ![빠른 연결을 사용하여 로그 보기](./media/hdinsight-high-availability-linux/viewlogs.png)
 

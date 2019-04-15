@@ -16,7 +16,7 @@ ms.date: 12/13/2018
 ms.author: rkarlin
 ms.openlocfilehash: 63852ccab842f11f30bcbe695206fedf72931911
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56105046"
@@ -66,7 +66,7 @@ Security Center에서는 가상 머신과 [격리된](https://azure.microsoft.co
 >
 >
 
-이제 해당 WAF의 로그가 완전히 통합되었습니다. 보안 센터에서 자동으로 로그를 수집 및 분석하기 시작하여 중요한 보안 경고를 사용자에게 드러낼 수 있습니다.
+이제 해당 WAF의 로그가 완전히 통합되었습니다. Security Center에서 자동으로 로그를 수집 및 분석하기 시작하여 중요한 보안 경고를 사용자에게 드러낼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터 권장 사항 "웹 애플리케이션 추가"를 구현하는 방법을 보여 주었습니다. 웹 애플리케이션 방화벽 구성에 대한 자세한 내용은 다음을 참조하세요.

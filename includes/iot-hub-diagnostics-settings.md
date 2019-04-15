@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/diagnostic-logs-overview.md)을 참조하세요.
+새 설정은 약 10분 후에 적용됩니다. 그런 다음, 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/diagnostic-logs-overview.md)을 참조하세요.

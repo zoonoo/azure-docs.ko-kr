@@ -450,7 +450,7 @@ JavaScript 및 Java 함수는 전체 Blob을 메모리에 로드하고 C# 함수
 
 ## <a name="trigger---polling"></a>트리거 - 폴링
 
-모니터링 중인 blob 컨테이너에 10,000 개 이상의 blob (모든 컨테이너)에 걸쳐 있으면 함수 런타임 검색 로그 파일을 새롭거나 변경 된 blob에 대 한 합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [저장소 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.
+모니터링 중인 blob 컨테이너에 10,000 개 이상의 blob (모든 컨테이너)에 걸쳐 있으면 함수 런타임 검색 로그 파일을 새롭거나 변경 된 blob에 대 한 합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다. 또한 [스토리지 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.
 
 더 빠르거나 안정적인 Blob 처리가 필요한 경우 Blob을 만들 때 [큐 메시지](../storage/queues/storage-dotnet-how-to-use-queues.md)를 만드는 것이 좋습니다. 그런 다음 Blob 트리거 대신 [큐 트리거](functions-bindings-storage-queue.md)를 사용하여 Blob을 처리합니다. 다른 옵션은 Event Grid를 사용하는 겻입니다. [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](../event-grid/resize-images-on-storage-blob-upload-event.md) 자습서를 참조하세요.
 

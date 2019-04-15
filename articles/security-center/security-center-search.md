@@ -28,7 +28,7 @@ Azure Security Center를 사용 하 여 [Azure Monitor의 로그 검색](../log-
 
 
 > [!NOTE]
-> Security Center는 무료 계층이 적용되는 작업 영역의 보안 데이터를 저장하지 않습니다. 무료 계층이 적용되는 작업 영역으로 다양한 로그를 전송한 다음 해당 데이터를 검색할 수는 있지만, 이 경우 Security Center의 데이터는 검색 결과에 포함되지 않습니다. Security Center는 표준 계층이 적용되는 작업 영역에만 데이터를 저장합니다.
+> Security Center는 무료 계층이 적용되는 작업 영역의 보안 데이터를 저장하지 않습니다. 무료 계층이 적용되는 작업 영역으로 다양한 로그를 전송하고 해당 데이터를 검색할 수는 있지만, 이 경우 Security Center의 데이터는 검색 결과에 포함되지 않습니다. Security Center는 표준 계층이 적용되는 작업 영역에만 데이터를 저장합니다.
 >
 >
 

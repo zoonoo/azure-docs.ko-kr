@@ -511,7 +511,7 @@ Azure는 네트워크 보안 이벤트를 모니터링하고, 예방하고, 검�
 
 ### <a name="network-watcher"></a>Network Watcher
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - Network Watcher 기능과 함께 시나리오 기반 모니터링이 제공됩니다. 이 서비스에는 패킷 캡처, 다음 홉, IP 흐름 확인, 보안 그룹 보기, NSG 흐름 로그가 포함되어 있습니다. 시나리오 수준 모니터링에서는 개별 네트워크 리소스 모니터링과 달리 네트워크 리소스의 종단 간 보기를 제공합니다.
+[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - Network Watcher 기능과 함께 시나리오 기반 모니터링이 제공됩니다. 이 서비스에는 패킷 캡처, 다음 홉, IP 흐름 확인, 보안 그룹 보기, NSG 흐름 로그가 포함됩니다. 시나리오 수준 모니터링에서는 개별 네트워크 리소스 모니터링과 달리 네트워크 리소스의 종단 간 보기를 제공합니다.
 
  ![Network Watcher](./media/azure-network-security/azure-network-security-fig-15.png)
 
@@ -553,7 +553,7 @@ VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다
 
 #### <a name="nsg-flow-logging"></a>NSG 흐름 로깅
 
- 네트워크 보안 그룹의 흐름 로그를 사용하면 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5개 튜플 정보로 정의됩니다.
+ 네트워크 보안 그룹의 흐름 로그를 사용하면 그룹의 보안 규칙에 의해 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5개 튜플 정보로 정의됩니다.
 
 [네트워크 보안 그룹 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다.
 
@@ -584,7 +584,7 @@ Network Watcher는 [진단 로그](https://docs.microsoft.com/azure/network-watc
 네트워크 구성의 일부로 수행되는 작업을 기록합니다. 이러한 감사 로그는 다양한 규정 준수를 설정하는 데 중요합니다. 이러한 로그는 Azure Portal에서 보거나 Power BI 또는 타사 도구와 같은 Microsoft 도구를 사용하여 검색할 수 있습니다. 감사 로그는 포털, PowerShell, CLI 및 Rest API를 통해 사용할 수 있습니다.
 
 > [!Note]
-> 감사 로그에 대한 자세한 내용은 ["Resource Manager로 작업 감사"](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
+> 감사 로그에 대한 자세한 내용은 [Resource Manager로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 감사 로그는 모든 네트워크 리소스에서 수행된 작업에 사용할 수 있습니다.
 
 
@@ -599,7 +599,7 @@ Network Watcher는 [진단 로그](https://docs.microsoft.com/azure/network-watc
 
 정기적이 고 자동적인 이벤트가 네트워크 리소스에서 생성 되 고 이벤트 허브로 전송 되는 저장소 계정에 로그인 하거나 Azure Monitor를 기록 합니다. 이러한 로그는 리소스 상태에 대한 정보를 제공하며, Power BI 및 Azure Monitor 로그와 같은 도구에서 이러한 로그를 볼 수 있습니다. 진단 로그를 보는 방법에 알아보려면 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)합니다.
 
-진단 로그는 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), 경로 및 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)에서 사용할 수 있습니다.
+진단 로그는 [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), 경로 및 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)에서 사용할 수 있습니다.
 
 Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진단 로깅을 지원하는 모든 네트워킹 리소스가 포함됩니다. 이 보기에서 네트워킹 리소스를 빠르고 편리하게 사용하거나 사용하지 않도록 설정할 수 있습니다.
 

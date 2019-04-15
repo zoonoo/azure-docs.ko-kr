@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56182972"
@@ -30,11 +30,11 @@ ms.locfileid: "56182972"
 -   **특성 매핑**을 사용하도록 설정했으며 Azure AD의 유효한 특성을 앱에 동기화하도록 구성했는지 여부. 특성 매핑에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
 -   특정 특성 값을 기반으로 사용자를 필터링하는 **범위 지정 필터**가 있는지 여부. 범위 지정 필터에 대한 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전](define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
   
-사용자가 프로비전되지 않는다는 것을 확인했으면 Azure AD의 감사 로그를 참조하세요. 특정 사용자에 대한 로그 항목을 검색합니다.
+사용자가 프로비저닝되지 않는다는 것을 확인했으면 Azure AD의 감사 로그를 참조하세요. 특정 사용자에 대한 로그 항목을 검색합니다.
 
-프로비저 감사 로그는 Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애플리케이션 이름\]&gt; 감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비저닝** 범주의 로그를 필터링하여 해당 앱의 프로비저닝 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 예를 들어 Azure AD 측에서 “사용자 계정 이름” 또는 “이메일 주소”를 일치하는 특성으로 구성하고 프로비전하지 않는 사용자의 값이 “audrey@contoso.com”인 경우 감사 로그에서 “audrey@contoso.com”을 검색한 후 반환된 항목을 검토합니다.
+프로비저 감사 로그는 Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애플리케이션 이름\]&gt; 감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비저닝** 범주의 로그를 필터링하여 해당 앱의 프로비저닝 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 예를 들어 Azure AD 측에서 “사용자 계정 이름” 또는 “이메일 주소”를 일치하는 특성으로 구성하고 프로비저닝하지 않는 사용자의 값이 “audrey@contoso.com”인 경우 감사 로그에서 “audrey@contoso.com”을 검색한 다음, 반환된 항목을 검토합니다.
 
-프로비전 감사 로그는 프로비전 범위에 있는 할당된 사용자에 대해 Azure AD 쿼리, 해당 사용자의 존재에 대해 대상 앱 쿼리, 시스템 간의 사용자 객체 비교를 비롯하여 프로비전 서비스에서 수행한 모든 작업을 기록합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다.
+프로비저닝 감사 로그는 프로비저닝 범위에 있는 할당된 사용자에 대해 Azure AD 쿼리, 해당 사용자의 존재에 대해 대상 앱 쿼리, 시스템 간의 사용자 객체 비교를 비롯하여 프로비저닝 서비스에서 수행한 모든 작업을 기록합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>고려해야 할 프로비전 관련 일반적인 문제 영역
 다음은 시작 위치를 파악한 경우 검색할 수 있는 일반적인 문제 영역 목록입니다.
@@ -50,7 +50,7 @@ Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애�
 >
 
 
-## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>사용자가 할당된 경우에도 감사 로그에 사용자가 생략되고 프로비전되지 않았다고 표시됨
+## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>사용자가 할당된 경우에도 감사 로그에 사용자가 생략되고 프로비저닝되지 않았다고 표시됨
 
 감사 로그에 사용자가 “생략”으로 표시되면 로그 메시지의 확장되는 세부 정보를 읽고 이유를 확인해야 합니다. 다음은 일반적인 원인과 해결 방법입니다.
 

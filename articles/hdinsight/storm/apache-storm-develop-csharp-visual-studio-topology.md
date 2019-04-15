@@ -703,7 +703,7 @@ Context.Logger.Info("Component started");
 로깅된 정보는 **서버 탐색기**에서 찾을 수 있는 **Hadoop 서비스 로그**에서 볼 수 있습니다. HDInsight의 Storm 클러스터에 대한 항목을 확장한 다음 **Hadoop 서비스 로그**를 확장합니다. 마지막으로 보려는 로그 파일을 선택합니다.
 
 > [!NOTE]  
-> 로그는 사용자의 클러스터에서 사용되는 Azure 저장소 계정에 저장됩니다. Visual Studio에서 로그를 보려면 저장소 계정을 소유하는 Azure 구독에 로그인해야 합니다.
+> 로그는 사용자의 클러스터에서 사용되는 Azure 스토리지 계정에 저장됩니다. Visual Studio에서 로그를 보려면 스토리지 계정을 소유하는 Azure 구독에 로그인해야 합니다.
 
 ### <a name="view-error-information"></a>오류 정보 보기
 

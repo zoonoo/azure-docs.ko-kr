@@ -85,11 +85,11 @@ Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합�
 ## <a name="activity-and-diagnostic-logs"></a>활동 및 진단 로그
 계정 관리 관련 활동 또는 데이터 관련 활동에 대한 로그를 찾는지에 따라 활동 로그 또는 진단 로그를 사용할 수 있습니다.
 
-* 계정 관리 관련 활동에서는 Azure Resource Manager API를 사용하며 활동 로그를 통해 Azure Portal에 표시됩니다.
-* 데이터 관련 활동에서는 WebHDFS REST API를 사용하고 진단 로그를 통해 Azure 포털에 표시됩니다.
+* 계정 관리 관련 작업에서는 Azure Resource Manager API를 사용하며 활동 로그를 통해 Azure Portal에 표시됩니다.
+* 데이터 관련 활동에서는 WebHDFS REST API를 사용하고 진단 로그를 통해 Azure Portal에 표시됩니다.
 
 ### <a name="activity-log"></a>활동 로그
-규정을 준수하기 위해 특정 인시던트를 자세히 살펴보아야 하는 경우 조직에는 계정 관리 활동의 적절한 감사 내역이 필요할 수 있습니다. Data Lake Storage Gen1에는 기본 제공 모니터링이 있으며 모든 계정 관리 활동을 기록합니다.
+규정을 준수하기 위해 특정 인시던트를 자세히 살펴보아야 하는 경우 조직에는 계정 관리 활동의 적절한 감사 내역이 필요할 수 있습니다. Data Lake Storage Gen1에는 기본 제공 모니터링이 포함되며 모든 계정 관리 활동을 기록합니다.
 
 계정 관리 감사 내역의 경우 기록하려는 열을 보고 선택합니다. Azure Storage에 활동 로그를 내보낼 수도 있습니다.
 

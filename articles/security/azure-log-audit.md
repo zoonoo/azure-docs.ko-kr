@@ -84,7 +84,7 @@ Azure Portal, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure
 
 ### <a name="azure-diagnostics-logs"></a>Azure 진단 로그
 
-Azure 진단 로그는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보냅니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다. 예를 들어 [Windows 이벤트 시스템 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)는 VM에 대한 진단 로그의 범주이고, [Blob, 테이블 및 큐 로그](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)는 저장소 계정에 대한 진단 로그의 범주입니다. 진단 로그는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공하는 활동 로그와 다릅니다.
+Azure 진단 로그는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보냅니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다. 예를 들어 [Windows 이벤트 시스템 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)는 VM에 대한 진단 로그의 범주이고, [Blob, 테이블 및 큐 로그](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)는 저장소 계정에 대한 진단 로그의 범주입니다. 진단 로그는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공하는 활동 로그와 다릅니다.
 
 ![Azure 진단 로그 다이어그램](./media/azure-log-audit/azure-log-audit-fig2.png)
 
@@ -174,13 +174,13 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 집계된 데이터는 Blob Storage 서비스 및 Table Storage 서비스 API를 사용하여 액세스할 수 있는 잘 알려진 Blob(로깅용) 및 테이블(메트릭)에 저장됩니다.
 
-저장소 분석에서는 저장소 계정의 총 한도와 관계없이 저장되는 데이터의 양에 대해 20TB(테라바이트)로 제한하고 있습니다. 모든 로그는 $logs라는 컨테이너의 [블록 Blob](https://docs.microsoft.com/azure/storage/storage-analytics)에 저장됩니다. 이 컨테이너는 저장소 계정에 대해 저장소 분석을 사용하도록 설정하면 자동으로 만들어집니다.
+저장소 분석에서는 저장소 계정의 총 한도와 관계없이 저장되는 데이터의 양에 대해 20TB(테라바이트)로 제한하고 있습니다. 모든 로그는 $logs라는 컨테이너의 [블록 Blob](https://docs.microsoft.com/azure/storage/storage-analytics)에 저장됩니다. 이 컨테이너는 스토리지 계정에 대해 스토리지 분석을 사용하도록 설정하면 자동으로 만들어집니다.
 
 > [!Note]
 > * 청구 및 데이터 보존 정책에 대한 자세한 내용은 [저장소 분석 및 청구](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-and-billing)를 참조하세요.
 > * 스토리지 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](https://docs.microsoft.com/azure/storage/storage-scalability-targets)를 참조하세요.
 
-저장소 분석에서 로깅하는 인증된 요청과 익명 요청의 유형은 다음과 같습니다.
+스토리지 분석에서 로깅하는 인증된 요청과 익명 요청의 유형은 다음과 같습니다.
 
 | 인증됨  | 익명|
 | :------------- | :-------------|
@@ -194,7 +194,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 Azure의 네트워킹 로깅 및 모니터링은 포괄적이며 다음 두 가지 범주를 포함합니다.
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): 시나리오 기반 모니터링이 Network Watcher 기능과 함께 제공됩니다. 이 서비스에는 패킷 캡처, 다음 홉, IP 흐름 확인, 보안 그룹 보기, NSG 흐름 로그가 포함되어 있습니다. 시나리오 수준 모니터링에서는 개별 네트워크 리소스 모니터링과 달리 네트워크 리소스의 종단 간 보기를 제공합니다.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): 시나리오 기반 모니터링이 Network Watcher 기능과 함께 제공됩니다. 이 서비스에는 패킷 캡처, 다음 홉, IP 흐름 확인, 보안 그룹 보기, NSG 흐름 로그가 포함됩니다. 시나리오 수준 모니터링에서는 개별 네트워크 리소스 모니터링과 달리 네트워크 리소스의 종단 간 보기를 제공합니다.
 
 * [리소스 모니터링](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): 리소스 수준 모니터링은 진단 로그, 메트릭, 문제 해결 및 리소스 상태의 네 가지 기능으로 구성됩니다. 이러한 모든 기능은 네트워크 리소스 수준에서 구현됩니다.
 
@@ -204,13 +204,13 @@ Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나
 
 ### <a name="network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로깅
 
-[NSG 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)는 NSG를 통한 수신 및 송신 IP 트래픽에 대한 정보를 보는 데 사용할 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 JSON 형식으로 작성되며, 다음 항목을 보여 줍니다.
+[NSG 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)는 NSG를 통한 수신 및 송신 IP 트래픽에 대한 정보를 보는 데 사용할 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 JSON 형식으로 작성되며, 다음 항목을 보여줍니다.
 * 규칙 단위 기반의 아웃바운드 및 인바운드 흐름
 * 흐름이 적용되는 NIC
 * 흐름에 대한 5개 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)
 * 트래픽이 허용 또는 거부되었는지 여부
 
-흐름 로그는 NSG를 대상으로 하지만 다른 로그와 동일한 방식으로 표시되지는 않습니다. 흐름 로그는 저장소 계정에만 저장됩니다.
+흐름 로그는 NSG를 대상으로 하지만 다른 로그와 동일한 방식으로 표시되지는 않습니다. 흐름 로그는 스토리지 계정에만 저장됩니다.
 
 다른 로그에서 볼 수 있는 동일한 보존 정책이 흐름 로그에 적용됩니다. 로그에는 1-365일을 설정할 수 있는 보존 정책이 있습니다. 보존 정책을 설정하지 않으면 로그는 계속 유지됩니다.
 
@@ -302,7 +302,7 @@ Azure Security Center 위협 탐지는 Azure 리소스, 네트워크 및 연결�
 
 * **변칙 탐지**: 통계적 프로파일링을 사용하여 기록 초기 계획을 작성합니다. 잠재적 공격 벡터를 준수하는 설정된 기준에서 편차에 대해 경고합니다.
 
-많은 보안 운영 및 사고 대응 팀에서는 보안 경고를 심사하고 조사하기 위한 시작 지점으로서 SIEM 솔루션을 사용합니다. Azure Log Integration을 사용하면 Azure 진단 및 감사 로그에서 수집된 Security Center 경고와 가상 머신 보안 이벤트를 Log Analytics 또는 SIEM 솔루션과 거의 실시간으로 동기화할 수 있습니다.
+많은 보안 운영 및 사고 대응 팀에서는 보안 경고를 심사하고 조사하기 위한 시작 지점으로서 SIEM 솔루션을 사용합니다. Azure Log Integration을 사용하면 Azure Diagnostics 및 감사 로그에서 수집된 Security Center 경고와 가상 머신 보안 이벤트를 Log Analytics 또는 SIEM 솔루션과 거의 실시간으로 동기화할 수 있습니다.
 
 ## <a name="log-analytics"></a>Log Analytics
 

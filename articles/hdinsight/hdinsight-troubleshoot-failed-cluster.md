@@ -223,7 +223,7 @@ HDInsight 클러스터를 구성하는 여러 서비스 및 구성 요소에서 
 
 ### <a name="check-the-script-action-logs"></a>스크립트 동작 로그 확인
 
-HDInsight [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)은 수동으로 또는 지정된 경우 클러스터에서 스크립트를 실행합니다. 예를 들어 스크립트 동작을 사용하여 클러스터에 추가 소프트웨어를 설치하거나 구성 설정을 기본값에서 다른 값으로 변경할 수 있습니다. 스크립트 동작 로그를 확인하면 클러스터 설치 및 구성 중에 발생한 오류에 대한 정보를 제공할 수 있습니다.  Ambari UI에서 **작업** 단추를 선택하거나 기본 저장소 계정에서 로그에 액세스하여 스크립트 동작의 상태를 볼 수 있습니다.
+HDInsight [스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)은 수동으로 또는 지정된 경우 클러스터에서 스크립트를 실행합니다. 예를 들어 스크립트 동작을 사용하여 클러스터에 추가 소프트웨어를 설치하거나 구성 설정을 기본값에서 다른 값으로 변경할 수 있습니다. 스크립트 동작 로그를 확인하면 클러스터 설치 및 구성 중에 발생한 오류에 대한 정보를 제공할 수 있습니다.  Ambari UI에서 **작업** 단추를 선택하거나 기본 스토리지 계정에서 로그에 액세스하여 스크립트 동작의 상태를 볼 수 있습니다.
 
 스크립트 동작 로그는 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE` 디렉터리에 있습니다.
 

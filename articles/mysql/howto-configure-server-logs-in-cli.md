@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용하여 Azure Database for MySQL의 서버 로그에 액세스
-description: 이 아티클에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MySQL에서 서버 로그에 액세스하는 방법을 설명합니다.
+description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MySQL에서 서버 로그에 액세스하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53547034"

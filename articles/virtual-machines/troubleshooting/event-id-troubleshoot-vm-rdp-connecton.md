@@ -16,7 +16,7 @@ ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
 ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52959685"
@@ -31,7 +31,7 @@ RDP(원격 데스크톱 프로토콜) 세션을 사용하여 Azure VM에 연결�
 
 **이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다. 다시 연결해 보세요. 문제가 계속되면 원격 컴퓨터의 소유자 또는 네트워크 관리자에게 문의하세요.**
 
-이 문제를 해결하려면 VM의 이벤트 로그를 검토한 후 다음 시나리오를 참조하세요.
+이 문제를 해결하려면 VM의 이벤트 로그를 검토한 다음, 다음 시나리오를 참조하세요.
 
 ## <a name="before-you-troubleshoot"></a>해결하기 전에
 

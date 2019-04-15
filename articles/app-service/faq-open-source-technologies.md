@@ -89,7 +89,7 @@ Node.js 애플리케이션의 버전을 변경하려면 다음 옵션 중 하나
 
 Azure WordPress 앱에서 이 오류가 표시되는 경우 php_errors.log 및 debug.log를 사용하도록 설정하려면 [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)(WordPress 오류 로그 사용)에 자세히 설명된 단계를 완료합니다.
 
-로그가 사용하도록 설정되면 오류를 재현하고 나서 로그를 확인하여 연결이 부족한지 확인합니다.
+로그가 사용하도록 설정되면 오류를 재현한 다음, 로그에서 연결이 부족한지 확인합니다.
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```

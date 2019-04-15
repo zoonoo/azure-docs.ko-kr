@@ -16,7 +16,7 @@ ms.lasthandoff: 02/04/2019
 ms.locfileid: "55697835"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export 서비스 로그 파일 형식
-Microsoft Azure Import/Export 서비스가 드라이브에서 가져오기 작업 또는 내보내기 작업의 일부로 작업을 수행하는 경우 로그는 해당 작업과 연결된 저장소 계정의 블록 Blob에 작성됩니다.  
+Microsoft Azure Import/Export 서비스가 드라이브에서 가져오기 작업 또는 내보내기 작업의 일부로 작업을 수행하는 경우 로그는 해당 작업과 연결된 스토리지 계정의 블록 Blob에 작성됩니다.  
   
 Import/Export 서비스에서 기록할 수 있는 로그에는 두 가지가 있습니다.  
   
@@ -41,7 +41,7 @@ Import/Export 서비스에서 기록할 수 있는 로그에는 두 가지가 �
 [작업 가져오기](/rest/api/storageimportexport/jobs) 작업을 호출하여 오류 및 세부 정보 표시 로그의 URL를 검색할 수 있습니다. 로그는 드라이브의 처리가 완료된 후에 사용할 수 있습니다.  
   
 ## <a name="log-file-format"></a>로그 파일 형식  
-두 로그의 형식은 동일합니다. 하드 드라이브와 고객의 계정 간에 Blob을 복사하는 동안 발생하는 이벤트의 XML 설명을 포함하는 Blob입니다.  
+두 로그의 형식은 하드 드라이브와 고객의 계정 간에 Blob을 복사하는 동안 발생하는 이벤트의 XML 설명을 포함하는 Blob으로 동일합니다.  
   
 자세한 정보 표시 로그는 모든 Blob(가져오기 작업의 경우) 또는 파일(내보내기 작업의 경우)에 대한 복사 작업 상태에 대한 전체 정보를 포함합니다. 반면 오류 로그는 가져오기 또는 내보내기 작업 중에 오류가 발생한 Blob 또는 파일에 대한 정보만을 포함합니다.  
   

@@ -38,7 +38,7 @@ ms.locfileid: "58630453"
 | [`TrackMetric`](#trackmetric) |특정 이벤트와 관련이 없는 큐 길이와 같은 성능 측정. |
 | [`TrackException`](#trackexception) |진단 예외를 기록합니다. 다른 이벤트와 관련하여 발생 위치를 추적하고 스택 추적을 검사합니다. |
 | [`TrackRequest`](#trackrequest) |성능 분석에 대한 서버 요청 빈도 및 기간을 기록합니다. |
-| [`TrackTrace`](#tracktrace) |진단 로그 메시지. 타사 로그도 캡처할 수 있습니다. |
+| [`TrackTrace`](#tracktrace) |진단 로그 메시지. 타사 로그를 캡처할 수도 있습니다. |
 | [`TrackDependency`](#trackdependency) |기간 및 빈도 앱이 종속된 외부 구성 요소에 대한 호출을 기록합니다. |
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.

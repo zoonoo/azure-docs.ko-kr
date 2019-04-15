@@ -55,7 +55,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
 Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 포함됩니다.
 
-이벤트 허브에서 읽는 진단 로그는 구독 ID를 이름의 일부로 포함하지 않습니다. 대신 이벤트 허브 원본을 만들 때 그 일부로 지정된 친밀한 이름이 포함됩니다. 
+이벤트 허브에서 읽힌 진단 로그는 구독 ID를 이름의 일부로 포함하지 않습니다. 대신 이벤트 허브 원본을 만들 때 그 일부로 지정된 친밀한 이름이 포함됩니다. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>프록시 구성을 업데이트하려면 어떻게 해야 합니까?
 
@@ -146,7 +146,7 @@ Azure Diagnostics 구성을 가져오고, 수정하고, 설정하는 방법에 �
 
 ## <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Azure 로그 통합을 사용하여 Network Watcher 로그를 내 SIEM에 통합할 수 있나요?
 
-Azure Network Watcher는 많은 양의 로깅 정보를 생성합니다. 이 로그는 SIEM에 전송하기 위한 것이 아닙니다. Network Watcher 로그의 대상으로 저장소 계정만 지원됩니다. Azure 로그 통합은 이러한 로그를 읽고 SIEM에 제공하는 기능을 지원하지 않습니다.
+Azure Network Watcher는 많은 양의 로깅 정보를 생성합니다. 이 로그는 SIEM에 전송하기 위한 것이 아닙니다. Network Watcher 로그의 대상으로 스토리지 계정만 지원됩니다. Azure 로그 통합은 이러한 로그를 읽고 SIEM에 제공하는 기능을 지원하지 않습니다.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

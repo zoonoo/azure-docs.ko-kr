@@ -24,8 +24,8 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 > [!IMPORTANT]
 > 감사 로그는 7일 동안만 유지됩니다. 보존 기간이 더 오래 필요한 경우, 아래 표시된 방법 중 하나를 사용하여 로그를 다운로드하고 저장하도록 플랜하세요.
 
-## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>감사 로그의 B2C 범주에서 사용 가능한 활동 개요
-감사 로그의 **B2C** 범주에는 다음 유형의 활동이 포함됩니다.
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>감사 로그의 B2C 범주에서 사용 가능한 작업 개요
+감사 로그의 **B2C** 범주에는 다음 유형의 작업이 포함됩니다.
 
 |활동 유형 |설명  |
 |---------|---------|

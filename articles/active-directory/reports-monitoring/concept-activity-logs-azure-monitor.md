@@ -26,7 +26,7 @@ ms.locfileid: "58436305"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure Monitor의 Azure AD 활동 로그(미리 보기)
 
-이제 장기 보존 및 데이터 통찰력을 위해 Azure AD(Azure Active Directory) 활동 로그를 여러 엔드포인트에 라우팅할 수 있습니다. Azure Monitor에서 Azure AD 로그인의 공개 미리 보기를 사용하여 다음을 수행할 수 있습니다.
+이제 장기 보존 및 데이터 인사이트를 위해 Azure AD(Azure Active Directory) 활동 로그를 여러 엔드포인트에 라우팅할 수 있습니다. Azure Monitor에서 Azure AD 로그인의 공개 미리 보기를 사용하여 다음을 수행할 수 있습니다.
 
 * 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
 * Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "58436305"
 
 Azure AD 라이선스가 이미 있는 경우 저장소 계정 및 이벤트 허브를 설정하려면 Azure 구독이 필요합니다. Azure 구독은 무료로 제공되지만 보관에 사용하는 저장소 계정과 스트리밍에 사용하는 이벤트 허브를 비롯한 Azure 리소스를 활용하려면 비용을 지불해야 합니다. 데이터의 양 그리고 그에 따라 발생하는 비용은 테넌트 크기에 따라 크게 달라질 수 있습니다. 
 
-### <a name="storage-size-for-activity-logs"></a>활동 로그의 저장소 크기
+### <a name="storage-size-for-activity-logs"></a>활동 로그의 스토리지 크기
 
 모든 감사 로그 이벤트는 약 2KB의 데이터 저장소를 사용합니다. 사용자가 100,000명이고 하루에 약 150만 개의 이벤트가 발생하는 테넌트의 경우 하루에 약 3GB의 데이터 저장소가 필요합니다. 약 5분 단위로 쓰기가 발생하므로 매달 약 9000개의 쓰기 작업을 예상할 수 있습니다. 
 

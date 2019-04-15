@@ -17,7 +17,7 @@ ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56206993"
@@ -52,7 +52,7 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션 &gt; LinkedIn Elevate**
 
-여기서는 아래에서 설명하는 프로비전 요약 보고서와 프로비전 감사 로그에 모두 액세스할 수 있습니다.
+여기서는 아래에서 설명하는 프로비저닝 요약 보고서와 프로비저닝 감사 로그에 모두 액세스할 수 있습니다.
 
 
 ## <a name="provisioning-summary-report"></a>요약 보고서 프로비전
@@ -97,7 +97,7 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 ### <a name="looking-up-provisioning-events-for-a-specific-user"></a>특정 사용자에 대한 프로비전 이벤트 조회
 
-프로비전 감사 로그에 대한 가장 일반적인 사용 사례는 개별 사용자 계정의 프로비전 상태를 확인하는 것입니다. 특정 사용자에 대한 마지막 프로비전 이벤트를 조회하려면 다음을 수행합니다.
+프로비저닝 감사 로그에 대한 가장 일반적인 사용 사례는 개별 사용자 계정의 프로비저닝 상태를 확인하는 것입니다. 특정 사용자에 대한 마지막 프로비전 이벤트를 조회하려면 다음을 수행합니다.
 
 1. **감사 로그** 섹션으로 이동합니다.
 
@@ -130,7 +130,7 @@ Azure Portal에서 최상의 가독성을 얻으려면 **열** 단추를 선택�
 
 ## <a name="troubleshooting"></a>문제 해결
 
-프로비전 요약 보고서 및 감사 로그는 관리자가 다양한 사용자 계정 프로비전 문제를 해결하는 데 중요한 역할을 합니다.
+프로비저닝 요약 보고서 및 감사 로그는 관리자가 다양한 사용자 계정 프로비저닝 문제를 해결하는 데 중요한 역할을 합니다.
 
 자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [애플리케이션에 사용자를 구성 및 프로비전하는 문제](application-provisioning-config-problem.md)를 참조하세요.
 

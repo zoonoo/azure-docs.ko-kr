@@ -80,10 +80,10 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |자동 크기 조정 설정 읽기/쓰기/삭제 |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |진단 설정 읽기/쓰기/삭제 |
 | Microsoft.Insights/EventCategories/Read |활동 로그의 가능한 모든 범주를 나열합니다. Azure Portal에서 사용됩니다. |
-| Microsoft.Insights/eventtypes/digestevents/Read |이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
+| Microsoft.Insights/eventtypes/digestevents/Read |이 사용 권한은 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
 | Microsoft.Insights/eventtypes/values/Read |구독에서 활동 로그 이벤트(관리 이벤트)를 나열합니다. 이 권한은 활동 로그에 대한 프로그래밍 방식 및 포털 액세스 모두에 적용 가능합니다. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 네트워크 흐름 로그의 진단 설정을 읽고 쓰고 삭제합니다. |
-| Microsoft.Insights/LogDefinitions/Read |이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
+| Microsoft.Insights/LogDefinitions/Read |이 사용 권한은 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |로그 프로필을 읽고 쓰고 삭제합니다(이벤트 허브 또는 저장소 계정으로 활동 로그 스트리밍). |
 | Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |근 실시간 메트릭 경고를 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/MetricDefinitions/Read |메트릭 정의(리소스에 사용 가능한 메트릭 형식 목록)를 읽습니다. |
@@ -182,7 +182,7 @@ Azure Monitor에서 사용하도록 설정하는 서비스를 제공하려면 Az
 ### <a name="secured-storage-accounts"></a>보안 저장소 계정 
 
 모니터링 데이터는 저장소 계정에 기록되는 경우가 많습니다. 저장소 계정에 복사한 데이터는 인증되지 않은 사용자가 액세스할 수 없도록 하는 것이 좋습니다. 추가 보안을 위해, “선택된 네트워크”를 사용하도록 저장소 계정을 제한하여 권한 있는 리소스 및 신뢰할 수 있는 Microsoft 서비스만 저장소 계정에 액세스할 수 있도록 네트워크 액세스를 잠글 수 있습니다.
-![Azure Storage 설정 대화 상자](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor는 이러한 “신뢰할 수 있는 Microsoft 서비스” 중 하나로 간주됩니다. 신뢰할 수 있는 Microsoft 서비스가 보안 스토리지에 액세스할 수 있도록 허용하면 Azure Monitor에서 보안 스토리지 계정에 액세스할 수 있으며, 이러한 보호된 조건에서 Azure Monitor 진단 로그, 활동 로그 및 메트릭을 스토리지 계정에 작성할 수 있습니다. 또한 Log Analytics가 보안 저장소에서 로그를 읽을 수 있습니다.   
+![Azure Storage 설정 대화 상자](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor는 이러한 “신뢰할 수 있는 Microsoft 서비스” 중 하나로 간주됩니다. 신뢰할 수 있는 Microsoft 서비스가 보안 스토리지에 액세스할 수 있도록 허용하면 Azure Monitor에서 보안 스토리지 계정에 액세스할 수 있으며, 이러한 보호된 조건에서 Azure Monitor 진단 로그, 활동 로그 및 메트릭을 스토리지 계정에 작성할 수 있습니다. Log Analytics에서 보안 스토리지의 로그를 읽을 수도 있습니다.   
 
 
 자세한 내용은 [네트워크 보안 및 Azure Storage](../../storage/common/storage-network-security.md)를 참조하세요.

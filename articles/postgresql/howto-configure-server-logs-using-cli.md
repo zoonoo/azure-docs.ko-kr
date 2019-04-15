@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용하여 PostgreSQL용 서버 로그 구성 및 액세스
-description: 이 아티클에서는 Azure CLI 명령줄을 사용하여 PostgreSQL용 Azure 데이터베이스의 서버 로그를 구성 및 액세스하는 방법을 설명합니다.
+description: 이 문서에서는 Azure CLI 명령줄을 사용하여 Azure Database for PostgreSQL의 서버 로그를 구성 및 액세스하는 방법을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
 ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55700199"

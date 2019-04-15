@@ -152,7 +152,7 @@ ms.locfileid: "57535997"
    |:--- |:--- |
    | clusterSize |HDInsight 클러스터의 크기를 지정합니다. |
    | timeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
-   | linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. |
+   | linkedServiceName | HDInsight에 의해 생성되는 로그를 저장하는데 사용될 스토리지 계정을 지정합니다. |
 
     다음 사항에 유의하세요.
 

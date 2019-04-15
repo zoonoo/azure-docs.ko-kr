@@ -139,7 +139,7 @@ DNN 고객은 다음과 같이 말했습니다. "Application Insights는 필요�
 ### <a name="configuring-application-insights"></a>Application Insights 구성
 Visual Studio와 Eclipse는 개발 중인 프로젝트에 알맞은 SDK 패키지를 구성하는 도구가 내장되어 있습니다. Application Insights를 추가하는 메뉴 명령이 있습니다.
 
-Log4N, NLog, or System.Diagnostics.Trace와 같은 추적 로깅 프레임워크를 사용한다면 다른 원격 분석과 함께 로그를 Application Insights에 전송할 수 있는 옵션이 나타납니다. 이 기능을 통해 추적을 요청, 종속성 호출, 예외와 쉽게 연관시킬 수 있습니다.
+Log4N, NLog, or System.Diagnostics.Trace와 같은 추적 로깅 프레임워크를 사용하는 경우 다른 원격 분석과 함께 로그를 Application Insights에 전송할 수 있는 옵션이 나타납니다. 이 기능을 통해 추적을 요청, 종속성 호출, 예외와 쉽게 연관시킬 수 있습니다.
 
 ### <a name="search-telemetry-in-visual-studio"></a>Visual Studio에서 원격 분석 검색
 기능을 개발하고 디버그하는 동안 웹 포털과 똑같은 검색 기능을 사용하여 Visual Studio에서 직접 원격 분석을 조회하고 검색할 수 있습니다.

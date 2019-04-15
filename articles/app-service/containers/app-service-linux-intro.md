@@ -77,7 +77,7 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 
 ## <a name="troubleshooting"></a>문제 해결
 
-애플리케이션이 시작되지 못하거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
+애플리케이션이 시작되지 않거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인하세요. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
 컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다.
 
 ![로깅 사용][2]

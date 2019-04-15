@@ -599,7 +599,7 @@ VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않
 
 예를 들어 `/?` 매개 변수를 사용하여 설치 프로그램을 실행하려면 **InstallDependencyAgent-Windows.exe /?** 를 입력합니다.
 
-Windows Dependency Agent에 대한 파일은 기본적으로 *C:\Program Files\Microsoft Dependency Agent*에 설치됩니다. 설정을 완료한 후 Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
+Windows Dependency Agent에 대한 파일은 기본적으로 *C:\Program Files\Microsoft Dependency Agent*에 설치됩니다. 설정을 완료한 후에 Dependency Agent를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. 로그 디렉터리는 *%Programfiles%\Microsoft Dependency Agent\logs*입니다.
 
 ### <a name="install-the-dependency-agent-on-linux"></a>Linux에 Dependency Agent 설치
 Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *InstallDependencyAgent-Linux64.bin*을 사용하여 Linux 서버에 설치됩니다. `sh`를 사용하여 파일을 실행하거나 파일 자체에 실행 권한을 추가할 수 있습니다.

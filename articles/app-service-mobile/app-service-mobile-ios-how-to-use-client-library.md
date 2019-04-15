@@ -15,7 +15,7 @@ ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54121773"
@@ -75,7 +75,7 @@ let table = client.tableWithName("TodoItem")
 
 ## <a name="querying"></a>방법: 데이터 쿼리
 
-데이터베이스 쿼리를 만들려면 `MSTable` 개체를 쿼리합입니다. 다음 쿼리는 `TodoItem` 의 모든 항목을 가져오며 각 항목의 텍스트를 기록합니다.
+데이터베이스 쿼리를 만들려면 `MSTable` 개체를 쿼리합입니다. 다음 쿼리는 `TodoItem`의 모든 항목을 가져오고 각 항목의 텍스트를 기록합니다.
 
 **Objective-C**:
 

@@ -23,12 +23,12 @@ ms.locfileid: "59547025"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
-NSG(네트워크 보안 그룹) 흐름 로그는 NSG를 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 흐름 로그는 JSON 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC(네트워크 인터페이스), 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜), 버전 2에서는 처리량 정보(바이트 및 패킷)를 보여 줍니다.
+NSG(네트워크 보안 그룹) 흐름 로그는 NSG를 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 흐름 로그는 JSON 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC(네트워크 인터페이스), 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜), 버전 2에서는 처리량 정보(바이트 및 패킷)를 보여줍니다.
 
 
 ![흐름 로그 개요](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-흐름 로그는 NSG를 대상으로 하지만 다른 로그와 동일하게 표시되지 않습니다. 흐름 로그는 저장소 계정 내에만 저장되며 다음 예제와 같이 로깅 경로를 따릅니다.
+흐름 로그는 NSG를 대상으로 하지만 다른 로그와 동일하게 표시되지 않습니다. 흐름 로그는 스토리지 계정 내에만 저장되며 다음 예제와 같이 로깅 경로를 따릅니다.
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

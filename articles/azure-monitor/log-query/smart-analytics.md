@@ -15,7 +15,7 @@ ms.date: 01/15/2019
 ms.author: bwren
 ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
 ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54355210"
@@ -185,7 +185,7 @@ on Timestamp
 ![사용자 연결 유지 출력](media/smart-analytics/user-stickiness.png)
 
 ## <a name="regression-analysis"></a>회귀 분석
-이 예제에서는 애플리케이션의 추적 로그만 기준으로 해서 서비스 중단의 자동화된 탐지기를 만드는 방법을 보여 줍니다. 탐지기는 애플리케이션에서 오류 및 경고 추적의 상대적 양이 비정상적으로 갑자기 증가하는 경우를 검색합니다.
+이 예제에서는 애플리케이션의 추적 로그만 기준으로 해서 서비스 중단의 자동화된 탐지기를 만드는 방법을 보여줍니다. 탐지기는 애플리케이션에서 오류 및 경고 추적의 상대적 양이 비정상적으로 갑자기 증가하는 경우를 검색합니다.
 
 추적 로그 데이터를 기준으로 서비스 상태를 평가하기 위해 다음 두 가지 기술이 사용됩니다.
 

@@ -9,7 +9,7 @@ ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54469742"
@@ -104,7 +104,7 @@ Blob이 삭제된 이벤트의 스키마는 다음과 유사합니다.
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
 | api | string | 이벤트를 트리거하는 작업입니다. |
-| clientRequestId | string | 1KB 문자 제한이 있는 클라이언트 생성 불투명 값입니다. 저장소 분석 로깅을 사용하도록 설정하면 분석 로그에 기록됩니다. |
+| clientRequestId | string | 1KB 문자 제한이 있는 클라이언트 생성 불투명 값입니다. 스토리지 분석 로깅을 사용하도록 설정하면 분석 로그에 기록됩니다. |
 | requestId | string | 요청에 대한 고유 식별자입니다. 요청 문제를 해결할 때 사용합니다. |
 | eTag | string | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
 | contentType | string | Blob에 대해 지정된 콘텐츠 형식입니다. |

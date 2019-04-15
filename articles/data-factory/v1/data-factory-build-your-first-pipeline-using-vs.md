@@ -126,7 +126,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     -------- | ----------- 
     ClusterSize | HDInsight Hadoop 클러스터의 크기를 지정합니다.
     TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
-    linkedServiceName | HDInsight Hadoop 클러스터에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. 
+    linkedServiceName | HDInsight Hadoop 클러스터에 의해 생성되는 로그를 저장하는데 사용될 스토리지 계정을 지정합니다. 
 
     > [!IMPORTANT]
     > HDInsight 클러스터는 JSON(linkedServiceName)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(timeToLive)가 없는 경우 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.

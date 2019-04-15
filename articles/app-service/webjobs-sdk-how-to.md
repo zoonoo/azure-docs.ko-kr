@@ -843,7 +843,7 @@ ASP.NET 용으로 개발 된 로깅 프레임 워크를 사용 하는 것이 좋
 |중요    | 5 |
 |없음        | 6 |
 
-필터링 할 수 있습니다 독립적으로 없습니다 각 범주를 특정 [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel)합니다. 예를 들어 BLOB 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
+필터링 할 수 있습니다 독립적으로 없습니다 각 범주를 특정 [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel)합니다. 예를 들어 Blob 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
 
 #### <a name="version-3x"></a>버전 3입니다. *x*
 

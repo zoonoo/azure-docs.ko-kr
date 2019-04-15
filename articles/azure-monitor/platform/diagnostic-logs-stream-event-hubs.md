@@ -22,7 +22,7 @@ Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용�
 진단 로그의 스트리밍 기능을 사용할 수 있는 몇 가지 방법은 다음과 같습니다.
 
 * **타사 로깅 및 원격 분석 시스템으로 로그 스트림** – 모든 진단 로그를 단일 이벤트 허브로 스트리밍하여 로그 데이터를 타사 SIEM 또는 로그 분석 도구로 파이프할 수 있습니다.
-* **“실행 부하 과다 경로” 데이터를 Power BI로 스트리밍하여 서비스 상태 보기** – Event Hubs, Stream Analytics 및 Power BI를 사용하여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. [이 설명서 아티클은 Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 Power BI를 사용하는 방법에 대한 훌륭한 개요를 제공합니다](../../stream-analytics/stream-analytics-power-bi-dashboard.md). 다음은 진단 로그로 설정하는 방법에 대한 몇 가지 팁입니다.
+* **“실행 부하 과다 경로” 데이터를 Power BI로 스트리밍하여 서비스 상태 보기** – Event Hubs, Stream Analytics 및 Power BI를 사용하여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. [이 설명서 아티클은 Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 Power BI를 사용하는 방법에 대한 훌륭한 개요를 제공합니다](../../stream-analytics/stream-analytics-power-bi-dashboard.md). 진단 로그로 설정하는 방법에 대한 몇 가지 팁은 다음과 같습니다.
 
   * 진단 로그의 범주에 대한 이벤트 허브는 포털에서 해당 옵션을 선택하거나 PowerShell을 통해 사용하도록 설정하면 자동으로 생성되므로 **insights-** 로 시작하는 이름의 네임스페이스에서 이벤트 허브를 선택할 수 있습니다.
   * 다음 SQL 코드는 모든 로그 데이터를 Power BI 테이블로 간단히 구문 분석하는 데 사용할 수 있는 샘플 Stream Analytics 쿼리입니다.

@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 83c7e808e48733487e84d668236cdb327c21c44c
 ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55249081"
@@ -31,7 +31,7 @@ ms.locfileid: "55249081"
 
 ## <a name="what-is-logged"></a>기록되는 내용 
 
-로그 대화에서 Conversation Learner는 각 턴에 대한 사용자 입력, 엔터티 값, 선택한 작업 및 타임스탬프를 저장합니다.  이러한 로그는 일정 기간 동안 저장된 후 삭제됩니다(자세한 내용은 “기본값 및 경계”에 대한 도움말 페이지 참조).  
+로그 대화에서 Conversation Learner는 각 턴에 대한 사용자 입력, 엔터티 값, 선택한 작업 및 타임스탬프를 저장합니다.  이러한 로그는 일정 기간 동안 저장된 다음, 삭제됩니다(자세한 내용은 "기본값 및 경계"에 대한 도움말 페이지 참조).  
 
 Conversation Learner는 각 기록된 대화에 대한 고유 ID를 만듭니다.  Conversation Learner는 기록된 대화와 함께 사용자 식별자를 저장하지 *않습니다*.  
 

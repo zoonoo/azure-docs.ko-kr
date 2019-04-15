@@ -228,7 +228,7 @@ YARN 클러스터 모드를 사용 중이고 이 경우 임의 컨테이너(및 
         at java.lang.reflect.Method.invoke(Method.java:498)
         at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:627)
 
-경우에 따라 드라이버보다는 실행기에서 문제가 발생할 수 있습니다. 이 경우 컨테이너 로그를 확인해야 합니다. 항상 컨테이너 로그를 가져온 후 실패한 컨테이너를 가져올 수 있습니다. 예를 들어 Caffe를 실행할 때 이 오류가 발생할 수 있습니다.
+경우에 따라 드라이버보다는 실행기에서 문제가 발생할 수 있습니다. 이 경우 컨테이너 로그를 확인해야 합니다. 항상 컨테이너 로그를 가져온 다음, 실패한 컨테이너를 가져올 수 있습니다. 예를 들어 Caffe를 실행할 때 이 오류가 발생할 수 있습니다.
 
     17/02/01 07:12:05 WARN YarnAllocator: Container marked as failed: container_1485916338528_0008_05_000005 on host: 10.0.0.14. Exit status: 134. Diagnostics: Exception from container-launch.
     Container id: container_1485916338528_0008_05_000005

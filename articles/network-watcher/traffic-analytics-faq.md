@@ -125,7 +125,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
-아니요. 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
+아니요. 흐름 로그에 NSG를 사용할 수 있는 스토리지 계정에 원시 로그를 저장할 수 있습니다. 그러나 스토리지 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 

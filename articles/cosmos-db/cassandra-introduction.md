@@ -35,7 +35,7 @@ Cassandra API를 사용하면 이미 익숙한 CQL(Cassandra 쿼리 언어), Cas
 
 **일관성 옵션**: Azure Cosmos DB는 일관성과 성능 간에 최적의 균형을 유지할 수 있도록 잘 정의된 5가지 일관성 수준 옵션을 제공합니다. 이러한 일관성 수준은 강력, 제한된 부실, 세션, 일관된 접두사 및 최종입니다. 이러한 잘 정의된 실용적이고 직관적인 일관성 수준을 통해 개발자는 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다. [일관성 수준](consistency-levels.md) 문서에서 자세히 알아보세요. 
 
-**엔터프라이즈급**: Azure Cosmos DB는 사용자가 플랫폼을 안전하게 사용할 수 있도록 [규정 준수 인증](https://www.microsoft.com/trustcenter)을 제공합니다. Azure Cosmos DB는 또한 휴식 및 작동 시 암호화, IP 방화벽, 제어 영역 활동에 대한 감사 로그를 제공합니다.
+**엔터프라이즈급**: Azure Cosmos DB는 사용자가 플랫폼을 안전하게 사용할 수 있도록 [규정 준수 인증](https://www.microsoft.com/trustcenter)을 제공합니다. Azure Cosmos DB는 저장 데이터 암호화 및 작동 시 암호화, IP 방화벽, 제어 영역 활동에 대한 감사 로그를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -45,7 +45,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 - Azure Automation에 구성된 자격 증명 집합이 있어야 합니다. [Azure Automation 보안](../automation/automation-security-overview.md)에서 자세히 알아보세요.
 - Azure Automation에 정의된 유효한 SMTP 서버(Office 365, 온-프레미스 전자 메일 또는 기타) 및 자격 증명
 - Azure에 구성된 Virtual Network 게이트웨이입니다.
-- 로그를 저장할 기존 컨테이너가 포함된 기존 저장소 계정
+- 로그를 저장할 기존 컨테이너가 포함된 기존 스토리지 계정
 
 > [!NOTE]
 > 이전 이미지에 나와 있는 인프라는 설명을 위한 것이며 이 문서에 포함된 단계로는 만들어지지 않습니다.

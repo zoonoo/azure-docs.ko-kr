@@ -81,7 +81,7 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 ## <a name="download-and-view-logs"></a>로그 다운로드 및 보기
 
-저장소 로그는 저장소 계정에 **$logs**라는 blob 컨테이너에 있는 blob의 집합에 데이터를 저장합니다. 이 컨테이너는 계정의 모든 blob 컨테이너를 나열하는 경우에는 표시되지 않지만 직접 액세스할 때는 해당 콘텐츠를 볼 수 있습니다.
+스토리지 로그는 스토리지 계정에 **$logs**라는 blob 컨테이너에 있는 blob의 세트에 데이터를 저장합니다. 이 컨테이너는 계정의 모든 blob 컨테이너를 나열하는 경우에는 표시되지 않지만 직접 액세스할 때는 해당 콘텐츠를 볼 수 있습니다.
 
 이 시나리오에서는 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)를 사용하여 Azure Storage 계정과 상호 작용합니다.
 

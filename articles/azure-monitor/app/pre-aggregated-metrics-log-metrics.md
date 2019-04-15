@@ -12,7 +12,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0b544bfcb59bf4c2b44e6b666fcd33e9fb493692
 ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54330656"
@@ -23,11 +23,11 @@ ms.locfileid: "54330656"
 
 ## <a name="log-based-metrics"></a>로그 기반 메트릭
 
-최근까지 Application Insights의 애플리케이션 모니터링 원격 분석 데이터 모델에서는 요청, 예외, 종속성 호출, 페이지 보기 등, 소규모의 미리 정의된 이벤트 유형만을 기준으로 했습니다. 개발자는 SDK를 사용하여 이러한 이벤트를 수동으로 내보내거나(명시적으로 SDK를 호출하는 코드 작성) 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고 Azure Portal의 Application Insights 블레이드가 로그의 이벤트 기반 데이터를 시각화하기 위한 분석 및 진단 도구 역할을 합니다.
+최근까지 Application Insights의 애플리케이션 모니터링 원격 분석 데이터 모델에서는 요청, 예외, 종속성 호출, 페이지 보기 등, 소규모의 미리 정의된 이벤트 유형만을 기준으로 했습니다. 개발자는 SDK를 사용하여 이러한 이벤트를 수동으로 내보내거나(명시적으로 SDK를 호출하는 코드 작성) 자동 계측의 자동 이벤트 수집을 사용할 수 있습니다. 두 경우 모두 Application Insights 백 엔드가 모든 수집된 이벤트를 로그로 저장하고, 로그의 이벤트 기반 데이터를 시각화하기 위해 Azure Portal의 Application Insights 블레이드가 분석 및 진단 도구 역할을 합니다.
 
-로그를 사용하여 이벤트 전체 집합을 유지하면 뛰어난 분석 및 진단 가치를 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 애플리케이션 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다. 
+일련의 이벤트 전체를 유지하기 위해 로그를 사용하면 뛰어난 분석 및 진단 값을 제공할 수 있습니다. 예를 들어, 특정 URL에 대한 정확한 요청 수와, 이러한 호출을 수행한 고유 사용자 수를 파악할 수 있습니다. 또는 사용자 세션에 대한 예외와 종속성 호출을 포함하여 상세 진단 추적을 얻을 수 있습니다. 이러한 정보 유형이 있으면 애플리케이션 상태 및 사용에 대한 가시성이 크게 향상되어 앱 문제 진단에 필요한 시간을 줄일 수 있습니다. 
 
-동시에, 많은 원격 분석 데이터를 생성하는 애플리케이션의 경우 전체 이벤트 집합을 수집하는 것이 실용적이지 못하거나 심지어 불가능할 수 있습니다. 이벤트 규모가 너무 큰 상황에서는 Application Insights가 [샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling), [필터링](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)처럼 수집 및 저장되는 이벤트 수를 줄이는 여러 원격 분석 데이터 규모 절감 기법을 구현합니다. 그렇지만 저장된 이벤트 수가 줄면 그 뒤의 메트릭 정확도도 낮아지기 때문에 로그에 집계된 이벤트의 쿼리 시간 집계를 수행해야 합니다.
+동시에, 많은 원격 분석 데이터를 생성하는 애플리케이션의 경우 전체 이벤트 집합을 수집하는 것이 실용적이지 못하거나 심지어 불가능할 수 있습니다. 이벤트 규모가 너무 큰 상황에서는 Application Insights가 [샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling), [필터링](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)처럼 수집 및 저장되는 이벤트 수를 줄이는 여러 원격 분석 데이터 규모 절감 기법을 구현합니다. 그렇지만 저장된 이벤트 수가 줄면 그 뒤의 메트릭 정확도도 낮아지기 때문에 로그에 저장된 이벤트의 쿼리 시간 집계를 수행해야 합니다.
 
 > [!NOTE]
 > Application Insights에서 로그에 저장된 이벤트 및 측정값의 쿼리 시간 집계를 기준으로 하는 메트릭을 로그 기반 메트릭이라 합니다. 일반적으로 이러한 메트릭은 이벤트 속성으로부터 여러 차원을 갖기 때문에 분석에 아주 적합하지만 샘플링과 필터링이 이 메트릭의 정확도에 부정적인 영향을 미칩니다.

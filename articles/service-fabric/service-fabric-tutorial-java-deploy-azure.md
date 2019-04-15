@@ -88,7 +88,7 @@ ms.locfileid: "55301733"
     Certificate Thumbprint: <THUMBPRINT>
     ```
 
-5. 로그를 저장하는 저장소 계정에 대한 리소스 그룹 만들기
+5. 로그를 저장하는 스토리지 계정에 대한 리소스 그룹 만들기
 
     ```bash
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
@@ -96,7 +96,7 @@ ms.locfileid: "55301733"
     Example: az group create --location westus --name teststorageaccountrg
     ```
 
-6. 생산될 로그를 저장하는 데 사용될 저장소 계정 만들기
+6. 생산될 로그를 저장하는 데 사용될 스토리지 계정 만들기
 
     ```bash
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage

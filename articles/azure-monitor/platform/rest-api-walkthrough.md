@@ -23,7 +23,7 @@ ms.locfileid: "59528070"
 
 Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의, 세분성 및 메트릭 값을 프로그래밍 방식으로 검색할 수 있습니다. Azure SQL Database, Azure Cosmos DB 또는 Azure Data Lake와 같은 별도의 데이터 저장소에 데이터를 저장할 수 있습니다. 여기에서 필요에 따라 추가적인 분석을 수행할 수 있습니다.
 
-다양한 메트릭 데이터 요소 작업 외에도 Monitor API를 사용하여 경고 규칙을 나열하고 활동 로그를 확인하는 등, 다양한 작업을 수행할 수 있습니다. 사용 가능한 작업의 전체 목록은 [Microsoft Azure Monitor REST API 참조](https://docs.microsoft.com/rest/api/monitor/)에서 확인하세요.
+다양한 메트릭 데이터 요소 작업 외에도 Monitor API를 사용하여 경고 규칙을 나열하고, 활동 로그를 확인하는 등 다양한 작업을 수행할 수 있습니다. 사용 가능한 작업의 전체 목록은 [Microsoft Azure Monitor REST API 참조](https://docs.microsoft.com/rest/api/monitor/)에서 확인하세요.
 
 ## <a name="authenticating-azure-monitor-requests"></a>Azure Monitor 요청 인증
 

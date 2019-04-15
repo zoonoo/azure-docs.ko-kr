@@ -66,7 +66,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    /var/log/hive/hivemetastore.log 
    ```
 
-4. HiveServer 로그를 보려면 다음 명령을 사용합니다.
+4. Hiveserver 로그를 보려면 다음 명령을 사용합니다.
 
    ```apache
    /var/log/hive/hiveserver2.log 

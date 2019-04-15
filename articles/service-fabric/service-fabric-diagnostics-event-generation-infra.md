@@ -40,7 +40,7 @@ Windows에서 Service Fabric 이벤트는 작동 채널과 데이터 및 메시�
 메시징(현재는 ReverseProxy만) 및 데이터 경로(신뢰할 수 있는 서비스 모델)에서 생성된 중요한 로그 및 이벤트
 
 * **데이터 및 메시징 채널 - 상세**  
-클러스터의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 상세 채널(이 채널은 상당한 양의 이벤트 포함)
+자세한 정보 채널에는 클러스터의 메시징 데이터에서 중요하지 않은 모든 로그가 포함됩니다(이 채널은 상당한 양의 이벤트 포함).
 
 이들 외에 2개의 구조화된 EventSource 채널이 제공되고 지원을 위해 수집한 로그가 있습니다.
 
@@ -79,7 +79,7 @@ Service Fabric에는 다음과 같은 문서에서 자세히 설명하는 자체
 
 ## <a name="service-fabric-support-logs"></a>Service Fabric 지원 로그
 
-Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft 지원에 문의해야 하는 경우 지원 로그가 거의 항상 필요합니다. 클러스터가 Azure에서 호스팅되는 경우 클러스터를 만드는 과정의 일부로 이러한 로그를 자동으로 구성하여 수집합니다. 로그는 클러스터의 리소스 그룹에 있는 전용 저장소 계정에 저장됩니다. 저장소 계정에 고정된 이름은 없지만, 계정에는 *fabric*으로 시작하는 이름의 Blob 컨테이너와 테이블이 표시됩니다. 독립 실행형 클러스터의 로그 수집 설정에 대한 자세한 내용은 [독립 실행형 Azure Service Fabric 클러스터 만들기 및 관리](service-fabric-cluster-creation-for-windows-server.md) 및 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요. 독립 실행형 Service Fabric 인스턴스의 경우 로그는 로컬 파일 공유로 보내야 합니다. 지원을 받으려면 이러한 로그가 **필요하지만** Microsoft 고객 지원 팀 외부의 사람이 사용할 수 있는 것은 아닙니다.
+Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft 지원에 문의해야 하는 경우 지원 로그가 거의 항상 필요합니다. 클러스터가 Azure에서 호스팅되는 경우 클러스터를 만드는 과정의 일부로 이러한 로그를 자동으로 구성하여 수집합니다. 로그는 클러스터의 리소스 그룹에 있는 전용 스토리지 계정에 저장됩니다. 저장소 계정에 고정된 이름은 없지만, 계정에는 *fabric*으로 시작하는 이름의 Blob 컨테이너와 테이블이 표시됩니다. 독립 실행형 클러스터의 로그 수집 설정에 대한 자세한 내용은 [독립 실행형 Azure Service Fabric 클러스터 만들기 및 관리](service-fabric-cluster-creation-for-windows-server.md) 및 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요. 독립 실행형 Service Fabric 인스턴스의 경우 로그는 로컬 파일 공유로 보내야 합니다. 지원을 받으려면 이러한 로그가 **필요하지만** Microsoft 고객 지원 팀 외부의 사람이 사용할 수 있는 것은 아닙니다.
 
 ## <a name="measuring-performance"></a>성능 측정
 

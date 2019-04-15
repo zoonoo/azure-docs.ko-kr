@@ -593,7 +593,7 @@ test custom activity Microsoft test custom activity Microsoft
       >
       >
    
-   e. **linkedServiceName** 속성에 대해 **StorageLinkedService**를 지정합니다. 이 연결된 서비스는 이전 단계에서 만들었습니다. 이 저장소는 파일 및 로그에 대한 준비 영역으로 사용됩니다.
+   e. **linkedServiceName** 속성에 대해 **StorageLinkedService**를 지정합니다. 이 연결된 서비스는 이전 단계에서 만들었습니다. 이 스토리지는 파일 및 로그에 대한 준비 영역으로 사용됩니다.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 

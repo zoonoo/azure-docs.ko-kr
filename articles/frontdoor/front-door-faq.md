@@ -185,7 +185,7 @@ Azure 프런트 도어 서비스는 엄청난 양의 응용 프로그램의 확�
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>진단 로그에서 보존 정책은 무엇인가요?
 
-진단 로그는 고객 저장소 계정으로 전달되고 고객은 기본 설정에 따라 보존 정책을 설정할 수 있습니다. 진단 로그를 이벤트 허브 또는 Azure Monitor 로그에도 전송할 수 있습니다. 자세한 내용은 [Azure 프런트 도어 서비스 진단](front-door-diagnostics.md)합니다.
+진단 로그는 고객 스토리지 계정으로 전달되고 고객은 기본 설정에 따라 보존 정책을 설정할 수 있습니다. 진단 로그를 이벤트 허브 또는 Azure Monitor 로그에도 전송할 수 있습니다. 자세한 내용은 [Azure 프런트 도어 서비스 진단](front-door-diagnostics.md)합니다.
 
 ### <a name="how-do-i-get-audit-logs-for-azure-front-door-service"></a>Azure 프런트 도어 서비스에 대 한 감사 로그 가져오기
 

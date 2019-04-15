@@ -14,7 +14,7 @@ ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: 12492fad419fdc703ddabcf2288be282f2fd47be
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56111784"
@@ -49,7 +49,7 @@ Azure Key Vault는 자격 증명 모음, 키, 비밀, 인증서 및 관리되는
 
 자격 증명 모음, 키, 비밀, 인증서 및 관리되는 저장소 계정을 만드는 데 사용된 동일한 REST API, 포털 환경 및 SDK를 통해 이러한 개체를 보고 내보낼 수도 있습니다.
 
-Azure Key Vault 액세스 로깅은 각 REST API 호출에 대한 로그를 생성하도록 설정할 수 있는 선택적 기능입니다. 이러한 로그는 조직의 요구 사항을 충족하는 보존 정책을 적용하는 구독의 저장소 계정에 전송됩니다.
+Azure Key Vault 액세스 로깅은 각 REST API 호출에 대한 로그를 생성하도록 설정할 수 있는 선택적 기능입니다. 이러한 로그는 조직의 요구 사항을 충족하는 보존 정책을 적용하는 구독의 스토리지 계정에 전송됩니다.
 
 사용자 개인 정보 보호 포털에서 내보내기 요청을 만들어 개인 데이터를 포함하는 Azure Key Vault 진단 로그를 검색할 수 있습니다. 테넌트 관리자가 이 요청을 만들어야 합니다.
 

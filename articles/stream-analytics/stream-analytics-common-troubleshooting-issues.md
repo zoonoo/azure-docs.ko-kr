@@ -26,7 +26,7 @@ ms.locfileid: "59521478"
 
 ![Azure Stream Analytics 대시보드의 입력 타일](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 잘못된 형식의 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스의 입력된 이벤트를 deserialize 하지 못했습니다 \<blob URI > json으로 ". 
+자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하세요. 잘못된 형식의 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스의 입력된 이벤트를 deserialize 하지 못했습니다 \<blob URI > json으로 ". 
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 

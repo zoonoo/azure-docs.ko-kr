@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 스크립트 - Azure Database for MySQL에서 서버 로그 다운로드
-description: 이 샘플 Azure CLI 스크립트는 Azure Database for MySQL 서버의 서버 로그를 사용하도록 설정하고 다운로드하는 방법을 보여 줍니다.
+description: 이 샘플 Azure CLI 스크립트는 Azure Database for MySQL 서버의 서버 로그를 사용하도록 설정하고 다운로드하는 방법을 보여줍니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql

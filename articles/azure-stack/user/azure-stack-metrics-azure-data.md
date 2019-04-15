@@ -60,7 +60,7 @@ Azure에서 Azure Monitor와 같은 Azure Stack에서 Azure Monitor 대부분의
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>응용 프로그램-진단 로그, 응용 프로그램 로그 및 메트릭
 
-응용 프로그램 VM의 OS에서 실행할 수 있습니다 사용 하 여 실행 합니다 **Microsoft.Compute** 리소스 공급자입니다. 이러한 응용 프로그램 및 Vm 자체 로그 및 메트릭 집합을 내보냅니다. Azure Monitor는 Azure 진단 확장(Windows 또는 Linux)을 사용하여 대부분의 애플리케이션 수준 메트릭과 로그를 수집합니다. 
+응용 프로그램 VM의 OS에서 실행할 수 있습니다 사용 하 여 실행 합니다 **Microsoft.Compute** 리소스 공급자입니다. 이러한 응용 프로그램 및 Vm 자체 로그 및 메트릭 집합을 내보냅니다. Azure Monitor는 Azure Diagnostics 확장(Windows 또는 Linux)을 사용하여 대부분의 애플리케이션 수준 메트릭과 로그를 수집합니다. 
 
 측정값의 유형은 다음과 같습니다.
  - 성능 카운터

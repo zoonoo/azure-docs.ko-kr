@@ -34,7 +34,7 @@ Azure Service Fabric은 컨테이너 오케스트레이터이며 [Windows 및 Li
 ![서비스 패브릭 플랫폼][Image1]
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>비활성 또는 손상된 컨테이너의 로그에 액세스
-V6.2부터 [REST API](/rest/api/servicefabric/sfclient-index) 또는 [SFCTL(Service Fabric CLI)](service-fabric-cli.md) 명령을 사용하여 비활성 또는 손상된 컨테이너에 대한 로그를 가져올 수도 있습니다.
+v6.2부터 [REST API](/rest/api/servicefabric/sfclient-index) 또는 [SFCTL(Service Fabric CLI)](service-fabric-cli.md) 명령을 사용하여 비활성 또는 손상된 컨테이너에 대한 로그를 가져올 수도 있습니다.
 
 ### <a name="set-container-retention-policy"></a>컨테이너 보존 정책 설정
 컨테이너 시작 오류 진단을 지원하기 위해 Service Fabric(버전 6.1 이상)은 종료되었거나 시작하지 못한 컨테이너를 보존하도록 지원합니다. 이 정책은 다음 코드 조각과 같이 **ApplicationManifest.xml** 파일에서 설정할 수 있습니다.

@@ -329,7 +329,7 @@ counterSpecifier는 임의의 식별자입니다. Azure Portal 차트 및 경고
 
 LAD나 Azure Portal에서는 counterSpecifier 값이 패턴에 일치할 것으로 예상하지 않습니다. 일관된 방법으로 counterSpecifier 값을 생성해야 합니다.
 
-`performanceCounters`를 지정할 경우 LAD는 항상 Azure Storage의 테이블에 데이터를 작성합니다. JSON Blob 및/또는 Event Hubs에 동일한 데이터를 작성할 수 있지만 테이블에 데이터를 저장하지 않도록 할 수는 없습니다. 동일한 저장소 계정 이름 및 엔드포인트를 사용하도록 구성된 진단 확장의 모든 인스턴스는 해당 메트릭과 로그를 동일한 테이블에 추가합니다. 너무 많은 VM이 동일한 테이블 파티션에 작성할 경우 Azure는 해당 파티션에 쓰기를 제한할 수 있습니다. eventVolume 설정은 항목이 1(Small), 10(Medium) 또는 100(Large)개의 서로 다른 파티션에 분산되도록 합니다. 일반적으로 트래픽이 제한되지 않도록 하는 데 "Medium"이면 충분합니다. Azure Portal의 Azure Metrics 기능은 이 테이블의 데이터를 사용하여 그래프를 생성하거나 경고를 트리거합니다. 테이블 이름은 다음 문자열이 연결된 것입니다.
+`performanceCounters`를 지정할 경우 LAD는 항상 Azure Storage의 테이블에 데이터를 작성합니다. JSON Blob 및/또는 Event Hubs에 동일한 데이터를 작성할 수 있지만 테이블에 데이터를 저장하지 않도록 할 수는 없습니다. 동일한 스토리지 계정 이름 및 엔드포인트를 사용하도록 구성된 진단 확장의 모든 인스턴스는 해당 메트릭과 로그를 동일한 테이블에 추가합니다. 너무 많은 VM이 동일한 테이블 파티션에 작성할 경우 Azure는 해당 파티션에 쓰기를 제한할 수 있습니다. eventVolume 설정은 항목이 1(Small), 10(Medium) 또는 100(Large)개의 서로 다른 파티션에 분산되도록 합니다. 일반적으로 트래픽이 제한되지 않도록 하는 데 "Medium"이면 충분합니다. Azure Portal의 Azure Metrics 기능은 이 테이블의 데이터를 사용하여 그래프를 생성하거나 경고를 트리거합니다. 테이블 이름은 다음 문자열이 연결된 것입니다.
 
 * `WADMetrics`
 * 테이블에 저장된 집계 값에 대한 "scheduledTransferPeriod"

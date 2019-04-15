@@ -681,7 +681,7 @@ Azure Cosmos DB는 작업에 대한 상한을 사용하여 성능 및 대기 시
 
 개별 파티션 또는 전체 파티션이 1시간, 하루, 일주일 동안 처리량을 얼마나 사용하는지 보여주는 메트릭을 사용할 수 있습니다. 자세한 내용은 [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅](use-metrics.md)을 참조하세요.
 
-진단 로그에 대한 내용은 [Azure Cosmos DB 진단 로깅](logging.md)에 설명되어 있습니다.
+진단 로그에 대한 내용은 [Azure Cosmos DB 진단 로깅](logging.md) 문서에 설명되어 있습니다.
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>기본 키는 Azure Cosmos DB의 파티션 키 개념에 대응하나요?
 

@@ -6,7 +6,7 @@ ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55985466"
@@ -21,7 +21,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
 - **부트 진단의 수집을 활성화하고 Azure Portal을 사용하여 봅니다.** 자신의 이미지를 Azure로 가져 오거나 플랫폼 이미지 중 하나를 부팅 할 때 VM이 부팅 불가능한 상태가 되는 데에는 많은 이유가 있을 수 있습니다. 설정 화면의 모니터링 섹션 아래에서 부트 진단에 대한 **사용**을 클릭하여 VM을 만들 때 부트 진단을 쉽게 활성화할 수 있습니다.
 
-    VM이 부팅할 때 부트 진단 에이전트에서는 부팅 출력을 캡처하여 Azure 저장소에 저장합니다. 이 데이터는 VM 부팅 문제를 해결하는 데 사용할 수 있습니다. 명령줄 도구에서 VM을 만들 때 부트 진단을 사용하도록 자동으로 설정되지 않습니다. 부팅 진단을 사용하도록 설정하기 전에 먼저 부팅 로그를 저장할 저장소 계정을 만들어야 합니다. Azure Portal에서 부트 진단을 사용하도록 설정하면 저장소 계정은 자동으로 만들어집니다.
+    VM이 부팅할 때 부트 진단 에이전트에서는 부팅 출력을 캡처하여 Azure 저장소에 저장합니다. 이 데이터는 VM 부팅 문제를 해결하는 데 사용할 수 있습니다. 명령줄 도구에서 VM을 만들 때 부트 진단을 사용하도록 자동으로 설정되지 않습니다. 부팅 진단을 사용하도록 설정하기 전에 먼저 부팅 로그를 저장할 스토리지 계정을 만들어야 합니다. Azure Portal에서 부트 진단을 사용하도록 설정하면 저장소 계정은 자동으로 만들어집니다.
 
     VM을 만들 때 부트 진단을 활성화하지 않은 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics) 또는 [Azure Resource Manager 템플릿](../articles/virtual-machines/windows/extensions-diagnostics-template.md)을 사용하여 나중에 항상 활성화할 수 있습니다.
 

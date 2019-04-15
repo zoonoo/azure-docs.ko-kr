@@ -25,7 +25,7 @@ ms.locfileid: "58662808"
 로컬 Azure 서비스 패브릭 개발 클러스터와 상호 작용하는 동안 문제가 발생할 경우 다음 제안 사항에서 잠재적인 해결 방법이 있는지 검토하세요.
 
 ## <a name="cluster-setup-failures"></a>클러스터 설정 오류
-### <a name="cannot-clean-up-service-fabric-logs"></a>서비스 패브릭 로그를 정리할 수 없습니다.
+### <a name="cannot-clean-up-service-fabric-logs"></a>Service Fabric 로그를 정리할 수 없습니다.
 #### <a name="problem"></a>문제
 DevClusterSetup 스크립트를 실행하는 동안 다음과 같은 오류가 나타날 수 있습니다.
 

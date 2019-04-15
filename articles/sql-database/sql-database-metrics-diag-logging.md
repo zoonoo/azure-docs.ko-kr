@@ -23,7 +23,7 @@ ms.locfileid: "59548644"
 
 이 항목에서는 Azure portal, PowerShell, Azure CLI, Azure Monitor REST API 및 Azure Resource Manager 템플릿을 통해 Azure SQL Database에 대 한 진단 원격 분석의 로깅을 구성 하는 방법에 배웁니다. 이러한 진단 리소스 사용률 및 쿼리 실행 통계를 사용할 수 있습니다. 
 
-단일 데이터베이스, 탄력적 풀의 풀링된 데이터베이스 및 관리되는 인스턴스의 인스턴스 데이터베이스는 성능을 더 쉽게 모니터링할 수 있도록 메트릭 및 진단 로그를 스트리밍할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송하도록 데이터베이스를 구성할 수 있습니다.
+단일 데이터베이스, 탄력적 풀의 풀링된 데이터베이스 및 관리형 인스턴스의 인스턴스 데이터베이스는 성능을 더 쉽게 모니터링할 수 있도록 메트릭 및 진단 로그를 스트리밍할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송하도록 데이터베이스를 구성할 수 있습니다.
 
 - **Azure SQL 분석**: 성능 보고서, 경고 및 완화 권장 사항을 포함하는 Azure SQL Database의 인텔리전트 모니터링을 가져옵니다.
 - **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
@@ -215,7 +215,7 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 
 PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정할 수 있습니다.
 
-- 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
+- 스토리지 계정에서 진단 로그의 스토리지를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -312,7 +312,7 @@ Azure SQL 분석은 여러 구독 간에 대규모로 Azure SQL Database, 탄력
 
 ![Azure SQL 분석 개요](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-SQL Database 메트릭 및 진단 로그는 포털의 [진단 설정] 탭에 기본 제공되는 **Log Analytics에 보내기** 옵션을 사용하여 Azure SQL 분석으로 스트림될 수 있습니다. 또한 PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용 하 여 log analytics를 사용할 수 있습니다.
+SQL Database 메트릭 및 진단 로그는 포털의 진단 설정 탭에 기본 제공되는 **Log Analytics에 보내기** 옵션을 사용하여 Azure SQL 분석으로 스트림될 수 있습니다. 또한 PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용 하 여 log analytics를 사용할 수 있습니다.
 
 ### <a name="installation-overview"></a>설치 개요
 

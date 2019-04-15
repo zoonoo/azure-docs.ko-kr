@@ -1,5 +1,5 @@
 ---
-title: VM용 Azure Monitor(미리 보기)에서 로그를 쿼리하는 방법 | Microsoft Docs
+title: VM용 Azure Monitor에서 로그를 쿼리하는 방법(미리 보기) | Microsoft Docs
 description: Vm 솔루션에 대 한 azure Monitor 메트릭을 수집 하 고 로그 데이터와이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59492091"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)에서 로그를 쿼리하는 방법
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법(미리 보기)
 Vm에 대 한 azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토리 데이터 및 상태 정보를 수집 하 고 Azure Monitor에서 Log Analytics 작업 영역으로 전달 합니다.  이 데이터를 사용할 수 [쿼리](../../azure-monitor/log-query/log-query-overview.md) Azure Monitor에서. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 ## <a name="map-records"></a>레코드 매핑

@@ -27,7 +27,7 @@ ms.locfileid: "58519394"
 
 이러한 로그의 내용은 Azure 서비스와 리소스 유형에 따라 달라집니다. 예를 들어 네트워크 보안 그룹 규칙 카운터와 Key Vault 감사는 두 가지 진단 로그 유형입니다.
 
-이 로그는 [활동 로그](activity-logs-overview.md)와 다릅니다. 활동 로그는 가상 컴퓨터 만들기나 논리 앱 삭제 등, Resource Manager를 사용하여 구독에서 리소스에 대해 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독 수준 로그입니다. 리소스 수준 진단 로그는 Key Vault에서 암호 가져오기 등과 같이 리소스 자체에서 수행된 작업에 대한 정보를 제공합니다.
+이 로그는 [활동 로그](activity-logs-overview.md)와 다릅니다. 활동 로그는 가상 컴퓨터 만들기나 논리 앱 삭제 등, Resource Manager를 사용하여 구독에서 리소스에 대해 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독 수준 로그입니다. 리소스 수준 진단 로그는 Key Vault에서 비밀 가져오기 등과 같이 리소스 자체에서 수행된 작업에 대한 정보를 제공합니다.
 
 이 로그도 게스트 OS 수준 진단 로그와 다릅니다. 게스트 OS 진단 로그는 가상 머신이나 다른 지원되는 리소스 유형 안에서 실행되는 에이전트가 수집합니다. 리소스 수준 진단 로그는 에이전트가 필요하지 않으며 Azure 플랫폼 자체에서 리소스 특정 데이터를 수집하고, 게스트 OS 수준 진단 로그는 가상 머신에서 실행되는 운영 체제 및 애플리케이션에서 데이터를 수집합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "58519394"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hubs 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
+로그를 내보내는 것과 동일한 구독에 위치하지 않는 스토리지 계정 또는 Event Hubs 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
 > [!NOTE]
 >  현재는 보안 가상 네트워크 뒤에 있는 스토리지 계정에 네트워크 흐름 로그를 보관할 수 없습니다.
@@ -56,9 +56,9 @@ ms.locfileid: "58519394"
 * 진단 로그 및 메트릭을 보내는 위치(Storage 계정, Event Hubs 및/또는 Azure Monitor).
 * 전송되는 로그 범주 및 메트릭 데이터의 전송 여부.
 * 각 로그 항목을 저장소 계정에 유지해야 하는 기간.
-    - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값 1에서 365 사이의 일 수 있습니다.
-    - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예: Event Hubs 또는 Log Analytics 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
-    - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 저장소 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다.
+    - 보존 기간이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값 1에서 365 사이의 일 수 있습니다.
+    - 보존 정책이 설정되었지만 스토리지 계정에 로그를 저장할 수 없는 경우(예: Event Hubs 또는 Log Analytics 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+    - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 스토리지 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다.
 
 이러한 설정은 포털에서 리소스에 대한 진단 설정에서, Azure PowerShell 및 CLI 명령을 사용하거나 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 쉽게 구성됩니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "58519394"
 
 ### <a name="enable-collection-of-diagnostic-logs-in-the-portal"></a>포털에서 진단 로그 컬렉션 활성화
 
-특정 리소스로 이동하거나 Azure Monitor로 이동하여 리소스를 만든 후 Azure Portal에서 리소스 진단 로그의 컬렉션을 사용하도록 설정할 수 있습니다. Azure Monitor를 통해 사용하도록 설정하려면 다음을 수행합니다.
+특정 리소스로 이동하거나 Azure Monitor로 이동하여 리소스를 만든 후에 Azure Portal에서 리소스 진단 로그의 컬렉션을 사용하도록 설정할 수 있습니다. Azure Monitor를 통해 사용하도록 설정하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Monitor로 이동하고 **진단 설정**을 클릭합니다.
 
@@ -94,7 +94,7 @@ ms.locfileid: "58519394"
 
    ![진단 설정 추가 - 기존 설정](media/diagnostic-logs-overview/diagnostic-settings-multiple.png)
 
-3. 설정에 이름을 지정하고, 데이터를 보낼 각 대상에 대한 확인란을 선택하고, 각 대상에 사용되는 리소스를 구성합니다. 필요에 따라 **보존(일)** 슬라이더를 사용하여 이러한 로그를 유지할 일 수를 설정합니다(저장소 계정 대상에만 적용됨). 0일의 보존은 로그를 무기한 저장합니다.
+3. 설정에 이름을 지정하고, 데이터를 보낼 각 대상에 대한 확인란을 선택하고, 각 대상에 사용되는 리소스를 구성합니다. 필요에 따라 **보존(일)** 슬라이더를 사용하여 이러한 로그를 유지할 날짜 수를 설정합니다(스토리지 계정 대상에만 적용됨). 0일의 보존 기간은 로그를 무기한 저장합니다.
 
    ![진단 설정 추가 - 기존 설정](media/diagnostic-logs-overview/diagnostic-settings-configure.png)
 
@@ -112,13 +112,13 @@ ms.locfileid: "58519394"
 
 Azure PowerShell에서 리소스 진단 로그 컬렉션을 활성화하려면 다음 명령을 사용합니다.
 
-저장소 계정에서 진단 로그의 저장소를 활성화하려면 다음 명령을 사용합니다.
+스토리지 계정에서 진단 로그의 스토리지를 활성화하려면 다음 명령을 사용합니다.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
-저장소 계정 ID는 로그를 보낼 저장소 계정에 대한 리소스 ID입니다.
+스토리지 계정 ID는 로그를 보낼 스토리지 계정에 대한 리소스 ID입니다.
 
 이벤트 허브로의 진단 로그 스트리밍을 활성화하려면 다음 명령을 사용합니다.
 
@@ -148,7 +148,7 @@ Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id
 
 Azure CLI를 통해 리소스 진단 로그의 컬렉션을 사용하도록 설정하려면 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용합니다.
 
-저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려는 경우:
+스토리지 계정에서 진단 로그의 스토리지를 사용하도록 설정하려는 경우:
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

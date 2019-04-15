@@ -174,7 +174,7 @@ Storage
 
 **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 리소스에서 내보낸 모든 로그입니다. 이러한 로그는 Windows 이벤트 시스템 로그, Blob, 테이블 및 큐 로그를 포함할 수 있습니다.
 
-**방화벽 로그.**: Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용할 수 있는 Application Gateway 리소스에 사용할 수 있습니다.
+**방화벽 로그.**: Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용하도록 설정한 Application Gateway 리소스에 사용할 수 있습니다.
 
 **로그 보관**: 보관 및 정의 된 보존 기간에 대 한 중앙 집중화 된 Azure 저장소 계정에 쓸 로그 데이터 저장소를 구성할 수 있습니다. Azure Monitor 로그를 사용 하 여 로그를 처리할 수 있습니다 또는 타사 SIEM 시스템으로 합니다.
 

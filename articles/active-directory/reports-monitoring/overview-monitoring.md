@@ -53,7 +53,7 @@ Azure AD 활동 로그에 대한 모니터링 설정을 구성하려면 먼저 [
 
 ## <a name="route-logs-to-storage-account"></a>저장소 계정으로 로그 라우팅
 
-Azure 저장소 계정으로 로그를 라우팅하면 [보존 정책](reference-reports-data-retention.md)에 설명된 기본 보존 기간보다 더 오래 보존할 수 있습니다. [데이터를 저장소 계정으로 라우팅](quickstart-azure-monitor-route-logs-to-storage-account.md)하는 방법을 알아보세요.
+Azure 스토리지 계정으로 로그를 라우팅하면 [보존 정책](reference-reports-data-retention.md)에 설명된 기본 보존 기간보다 더 오래 보존할 수 있습니다. [데이터를 저장소 계정으로 라우팅](quickstart-azure-monitor-route-logs-to-storage-account.md)하는 방법을 알아보세요.
 
 ## <a name="stream-logs-to-event-hub"></a>이벤트 허브로 로그 스트리밍
 

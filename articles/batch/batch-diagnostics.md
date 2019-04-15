@@ -112,9 +112,9 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 로그 컬렉션을 사용하도록 설정하는 다른 옵션으로는 포털에서 Azure Monitor를 사용하여 진단 설정을 구성하거나, [Resource Manager 템플릿](../azure-monitor/platform/diagnostic-logs-stream-template.md)을 사용하거나, Azure PowerShell 또는 Azure CLI를 사용하는 방법이 있습니다. [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs)을 참조하세요.
 
 
-### <a name="access-diagnostics-logs-in-storage"></a>저장소에서 진단 로그에 액세스
+### <a name="access-diagnostics-logs-in-storage"></a>스토리지에서 진단 로그에 액세스
 
-일괄 처리 진단 로그를 저장소 계정에 보관하는 경우 관련된 이벤트가 발생하자마자 저장소 계정에 저장소 컨테이너가 만들어집니다. Blob은 다음과 같은 명명 패턴에 따라 생성됩니다.
+일괄 처리 진단 로그를 스토리지 계정에 보관하는 경우 관련된 이벤트가 발생하자마자 스토리지 계정에 스토리지 컨테이너가 만들어집니다. Blob은 다음과 같은 명명 패턴에 따라 생성됩니다.
 
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/

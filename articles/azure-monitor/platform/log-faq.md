@@ -48,7 +48,7 @@ Azure Portal의 새로운 로그 환경은 고급 분석 포털을 기반으로 
 
 A: 사용자 지정 필드 추출은 현재 클래식 로그 환경에서 지원됩니다. 
 
-### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. 새 로그의 목록보기는 어디에 있나요? 
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. 새 로그의 목록 보기는 어디에 있나요? 
 
 A: 새 로그에서는 목록 보기를 사용할 수 없습니다. 결과 테이블의 각 레코드 왼쪽에 화살표가 있습니다. 특정 레코드에 대한 세부 정보를 열려면 이 화살표를 클릭합니다. 
 
@@ -56,7 +56,7 @@ A: 새 로그에서는 목록 보기를 사용할 수 없습니다. 결과 테�
 
 A: 왼쪽 창에서 ‘필터’를 클릭하면 새 필터 구현의 미리 보기가 표시됩니다. 이 기능은 현재 UI의 레코드 한도가 10,000개로 제한되는 대신 전체 결과 집합을 기반으로 합니다. 현재 가장 많이 사용되는 필터 목록과 각 필터의 가장 일반적인 10가지 값입니다. 
 
-### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. VM에서 드릴다운한 후 로그에  "이 구독에 대한 리소스 공급자 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 오류가 표시된 이유는 무엇입니까? 
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. VM에서 드릴다운한 후 로그에  VM에서 드릴다운한 후에 로그에 "이 구독에 대한 리소스 공급 기업 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 
 
 A: 기본적으로 대부분 리소스 공급자는 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 이렇게 하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)을 참조하세요.
 
@@ -68,7 +68,7 @@ A: VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽�
 
 A: Azure에서 작업 영역에 액세스하려면 Azure 권한을 할당 받아야 합니다. 적절한 액세스 권한이 없는 경우가 몇 가지 있습니다. 이런 경우에는 관리자가 Azure에서 내게 권한을 부여해야 합니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](oms-portal-transition.md)을 참조하세요.
 
-### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. 로그에서 뷰 디자이너 항목을 볼 수 없는 이유는 무엇인가요? 
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. 로그에서 보기 디자이너 항목을 볼 수 없는 이유는 무엇인가요? 
 A: 보기 디자이너는 로그에서 기여자 권한 이상이 할당된 사용자만 사용할 수 있습니다.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Azure 외부의 Analytics 포털을 계속 사용할 수 있나요?

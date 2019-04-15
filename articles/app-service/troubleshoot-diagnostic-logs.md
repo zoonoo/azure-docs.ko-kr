@@ -102,7 +102,7 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 * **실패한 요청 추적** - /LogFiles/W3SVC#########/입니다. 이 폴더에는 하나의 XSL 파일 및 하나 이상의 XML 파일이 포함되어 있습니다. XSL 파일은 XML 파일을 Internet Explorer에서 볼 때 XML 파일의 내용에 서식을 지정하고 필터링하는 기능을 제공하므로 XSL 파일은 XML 파일과 동일한 디렉터리에 다운로드해야 합니다.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/입니다. 이 폴더에는 발생한 HTTP 오류에 대해 방대한 정보를 제공하는 하나 이상의 .htm 파일이 포함되어 있습니다.
 * **웹 서버 로그** - /LogFiles/http/RawLogs입니다. 이 폴더에는 [W3C 확장 로그 파일 형식](/windows/desktop/Http/w3c-logging)을 사용하여 서식이 지정된 하나 이상의 텍스트 파일이 포함되어 있습니다.
-* **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure App Service에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다. D:\home\site\deployments에서 배포 로그를 찾을 수 있습니다.
+* **Deployment logs** - /LogFiles/Git입니다. 이 폴더에는 Azure App Service에서 사용된 내부 배포 프로세스에서 생성된 로그와 Git 배포용 로그가 포함되어 있습니다. D:\home\site\deployments에서 배포 로그를 찾을 수도 있습니다.
 
 ### <a name="ftp"></a>FTP
 
@@ -218,7 +218,7 @@ Blob에 저장된 데이터는 다음 예제와 비슷합니다.
 > 서식이 지정 된 실패 한 요청 추적을 보고 하는 간편한 방법은 포털에서 앱의 페이지로 이동 하는 경우 왼쪽된 메뉴에서 선택 **진단 및 문제 해결**를 검색 한 다음 **실패 한 요청 추적 로그**, 찾아보고 원하는 추적을 보려면 아이콘을 클릭 합니다.
 >
 
-### <a name="detailed-error-logs"></a>Detailed Error Logs
+### <a name="detailed-error-logs"></a>자세한 오류 로그
 자세한 오류 로그는 발생한 HTTP 오류에 대해 좀 더 자세한 정보를 제공하는 HTML 문서입니다. 이들은 단순한 HTML 문서이므로 웹 브라우저를 사용하여 볼 수 있습니다.
 
 ### <a name="web-server-logs"></a>웹 서버 로그

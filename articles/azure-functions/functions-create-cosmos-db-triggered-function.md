@@ -132,7 +132,7 @@ ms.locfileid: "58137847"
 
     ![로그에서 메시지 보기.](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-view-logs.png)
 
-1. (선택 사항) 다시 문서로 돌아가서 변경 작업을 수행하고 **업데이트**를 클릭합니다. 그런 다음 함수 로그로 돌아가서 업데이트도 함수를 트리거했는지 확인합니다.
+1. (선택 사항) 다시 문서로 돌아가서 변경 작업을 수행하고 **업데이트**를 클릭합니다. 그런 다음, 함수 로그로 돌아가서 업데이트도 함수를 트리거했는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

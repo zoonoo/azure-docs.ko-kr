@@ -14,7 +14,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
 ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50024293"
@@ -77,7 +77,7 @@ Data Lake Storage Gen1을 사용하여 성능을 개선하기 위한 핵심은 �
 
 **Data Lake Storage Gen1 제한** 
 
-Data Lake Storage Gen1에서 제공하는 대역폭 한도에 도달한 경우 작업 오류가 표시되기 시작합니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  Tez 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.  작업에 대한 동시성이 더 필요한 경우 문의하세요.
+Data Lake Storage Gen1에서 제공하는 대역폭 한도에 도달한 경우 작업 오류가 표시되기 시작합니다. 작업 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  Tez 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.  작업에 대한 동시성이 더 필요한 경우 문의하세요.
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정해야 합니다. 그 방법은 다음과 같습니다.
 

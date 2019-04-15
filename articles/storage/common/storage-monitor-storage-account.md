@@ -136,7 +136,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
     ![Azure Portal에서 로깅 구성](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. **저장**을 클릭합니다.
 
-진단 로그는 저장소 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft 스토리지 탐색기](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
+진단 로그는 스토리지 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft 스토리지 탐색기](https://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
 
 $Logs 컨테이너 액세스에 대 한 자세한 내용은 [저장소 분석 로깅](storage-analytics-logging.md)합니다.
 

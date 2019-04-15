@@ -25,7 +25,7 @@ ms.locfileid: "57216342"
 # <a name="service-bus-diagnostic-logs"></a>Service Bus 진단 로그
 
 Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
-* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)**. 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)**. 이러한 로그에는 작업에서 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
 * **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
@@ -34,7 +34,7 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
 1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
 
-    ![진단 로그에 대한 블레이드 탐색](./media/service-bus-diagnostic-logs/image1.png)
+    ![진단 로그에 대한 블레이드 탐](./media/service-bus-diagnostic-logs/image1.png)
 
 2. 모니터링하려는 리소스를 클릭합니다.  
 
@@ -60,7 +60,7 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
 ## <a name="operational-logs-schema"></a>작업 로그 스키마
 
-**OperationalLogs** 범주의 로그는 Service Bus 작업 중 발생하는 일을 캡처합니다. 특히 이러한 로그는 큐 만들기, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
+**OperationalLogs** 범주의 로그는 Service Bus 작업 중 발생하는 일을 캡처합니다. 특히 이러한 로그는 큐 생성, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
