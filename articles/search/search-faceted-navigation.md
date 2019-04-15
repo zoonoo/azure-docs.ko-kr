@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541216"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523718"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
@@ -321,7 +321,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 패싯 수는 분할 아키텍처로 인해 부정확할 수 있습니다. 모든 검색 인덱스에는 여러 개의 분할된 데이터베이스가 있으며, 각 분할된 데이터베이스는 문서 수에 따라 상위 N개의 패싯을 보고합니다. 이 값이 단일 결과로 통합됩니다. 분할된 데이터베이스 중에 일치하는 값이 많은 것과 적은 것이 있는 경우 결과에서 일부 패싯 값이 누락되거나 적은 개수로 나타날 수 있습니다.
 
-이 동작은 언제든 변경될 수 있지만 이 동작이 발생한 경우 count:<number>를 큰 값으로 인위적으로 늘려 각 분할된 데이터베이스에서 전체 보고하도록 적용할 수 있습니다. count: 값이 필드의 고유 값 수보다 크거나 같으면 정확한 결과가 반환됩니다. 그러나 문서 수가 많은 경우에는 성능이 저하되므로 이 옵션을 신중하게 사용해야 합니다.
+이 문제는이 동작이 발생 하는 경우 언제 든 지 변경 될 수, 있지만 해결할 수 있습니다이 값으로 인위적으로 수:\<수 > 많은 각 분할 된 데이터베이스에서 전체 보고 하도록 적용할 수 있습니다. count: 값이 필드의 고유 값 수보다 크거나 같으면 정확한 결과가 반환됩니다. 그러나 문서 수가 많은 경우에는 성능이 저하되므로 이 옵션을 신중하게 사용해야 합니다.
 
 ### <a name="user-interface-tips"></a>사용자 인터페이스 팁
 **패싯 탐색의 각 필드에 대한 레이블 추가**

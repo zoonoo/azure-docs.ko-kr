@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316238"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526608"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 고객에게 스트리밍 또는 주문형 비디오 콘텐츠를 전달할 때는 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다.
@@ -157,7 +157,8 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>부드러운 스트리밍 매니페스트 버전에 대한 변경 내용
 2016년 7월 이전 릴리스에서 미디어 인코더 표준으로 자산이 생성되었고 미디어 인코더 Premium 워크플로 또는 이전 Azure Media Encoder가 동적 패키징을 사용하여 스트리밍된 경우 반환된 부드러운 스트리밍 매니페스트는 버전 2.0을 준수합니다. 버전 2.0에서는 조각 기간 중에 소위 반복('r') 태그를 사용하지 않습니다. 예를 들면 다음과 같습니다.
 
-<?xml version="1.0" encoding="UTF-8"?>
+
+    <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
         <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
             <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />

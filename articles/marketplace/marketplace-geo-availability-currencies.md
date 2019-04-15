@@ -98,7 +98,7 @@ ms.locfileid: "57220781"
 | 리투아니아                           | LT        | EUR          |
 | 룩셈부르크                          | LU        | EUR          |
 | 마카오                           | MO        | USD          |
-| 마케도니아(FYROM)                      | MK        | USD          |
+| 북마케도니아                      | MK        | USD          |
 | 말레이시아                            | MY        | USD          |
 | 몰타                               | MT        | EUR          |
 | 모리셔스                           | MU        | USD          |

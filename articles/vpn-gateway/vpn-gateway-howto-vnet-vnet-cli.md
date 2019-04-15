@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 24e12184070909943c5660d94d8e19ce9df1de30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111126"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526149"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -299,7 +299,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ### <a name="TestVNet5"></a>7단계 - TestVNet5 만들기 및 구성
 
-이 단계는 새 구독인 구독5의 상황에서 수행해야 합니다. 이 부분은 구독을 소유한 다른 조직의 관리자가 수행할 수 있습니다. 구독을 전환하려면 'az account list --all'을 사용하여 계정에서 사용할 수 있는 구독을 나열한 다음 'az account set –subscription <subscriptionID>'를 사용하여 사용할 구독으로 전환합니다.
+이 단계는 새 구독인 구독5의 상황에서 수행해야 합니다. 이 부분은 구독을 소유한 다른 조직의 관리자가 수행할 수 있습니다. 사용 하 여 구독 간에 전환할 `az account list --all` 계정에 사용할 수 있는 구독을 나열 하려면 다음 사용 하 여 `az account set --subscription <subscriptionID>` 사용 하려는 구독으로 전환 합니다.
 
 1. 구독 5에 연결되어 있는지 확인한 다음 리소스 그룹을 만듭니다.
 
@@ -338,7 +338,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ### <a name="connections5"></a>8단계 - 연결 만들기
 
-게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]** 로 표시된 두 개의 CLI 세션으로 나뉩니다. 구독을 전환하려면 'az account list --all'을 사용하여 계정에서 사용할 수 있는 구독을 나열한 다음 'az account set –subscription <subscriptionID>'를 사용하여 사용할 구독으로 전환합니다.
+게이트웨이가 다른 구독에 있으므로 이 단계가 **[구독 1]** 및 **[구독 5]** 로 표시된 두 개의 CLI 세션으로 나뉩니다. 사용 하 여 구독 간에 전환할 `az account list --all` 계정에 사용할 수 있는 구독을 나열 하려면 다음 사용 하 여 `az account set --subscription <subscriptionID>` 사용 하려는 구독으로 전환 합니다.
 
 1. **[구독 1]** 로그인하고 구독 1에 연결합니다. 다음 명령을 실행하여 출력에서 게이트웨이의 이름과 ID를 가져옵니다.
 

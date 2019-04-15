@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57976779"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523939"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure 데이터 팩터리 - 함수 및 시스템 변수
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory의 시스템 변수](../control-flow-system-variables.md)를 참조하세요.
+> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory의 시스템 변수](../control-flow-system-variables.md)를 참조하세요.
 
 이 문서에서는 Azure 데이터 팩터리에서 지원하는 함수와 변수에 대한 정보를 제공합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "57976779"
 
 1. 데이터 선택 쿼리 지정([데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)
    
-   데이터 팩터리 함수를 호출하는 구문은 데이터 선택 쿼리와 작업 및 데이터 세트의 기타 속성에 대해 **$$<function>** 입니다.  
+   데이터 팩터리 함수를 호출 하는 구문은:  **$$ \<함수 >** 데이터 선택 쿼리와 작업 및 데이터 집합의 다른 속성에 대 한 합니다.  
 2. 작업 입력 컬렉션에서 데이터 팩터리 함수에 입력 종속성 지정
    
     $$는 입력 종속성 식을 지정할 때는 필요하지 않습니다.     

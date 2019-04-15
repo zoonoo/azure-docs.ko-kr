@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6648aec8741a748dd4150406831035a68b97af7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: a2be8455a3fb0a60cea056e9bda1f41b076dfec9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268469"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545038"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -58,7 +58,7 @@ ms.locfileid: "59268469"
 
 * Azure AD Connect Health에 대한 [요구 사항을 충족](how-to-connect-health-agent-install.md#requirements)해야 합니다.
 * AD FS용 Azure AD Connect Health 사용 시작
-    * [Azure AD Connect 상태 에이전트 다운로드 AD FS에 대 한 합니다.](https://go.microsoft.com/fwlink/?LinkID=518973)
+    * [AD FS용 Azure AD Connect Health Agent 다운로드.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [설치 지침 참조](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * 동기화용 Azure AD Connect Health 사용 시작
     * [최신 버전의 Azure AD Connect 다운로드 및 설치](https://go.microsoft.com/fwlink/?linkid=615771). 동기화용 Health 에이전트는 Azure AD Connect의 일부로 설치됩니다(버전 1.0.9125.0 이상).
@@ -127,7 +127,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 1. **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
-4. 감사를 사용 하려면 상승 된 권한으로 명령 프롬프트를 열고 및 다음 명령을 실행 합니다. <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
+4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code> 명령을 실행합니다.
 5. **로컬 보안 정책**을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다. AD FS 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **AD FS 2.0 관리**를 클릭합니다.
@@ -141,7 +141,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
-4. 감사를 사용 하려면 상승 된 권한으로 명령 프롬프트를 열고 및 다음 명령을 실행 합니다. ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```
+4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable``` 명령을 실행합니다.
 5. **로컬 보안 정책**을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
@@ -154,7 +154,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 1. 시작 화면에서 **서버 관리자**를 열거나 바탕 화면 작업 표시줄에서 서버 관리자를 열어 **로컬 보안 정책**을 연 다음 **도구/로컬 보안 정책**을 클릭합니다.
 2. **보안 설정\로컬 정책\사용자 권한 할당** 폴더로 이동하여 **보안 감사 생성**을 두 번 클릭합니다.
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 AD FS 서비스 계정을 목록에 추가한 다음 **확인**을 클릭합니다.
-4. 감사를 사용 하려면 상승 된 권한으로 명령 프롬프트를 열고 및 다음 명령을 실행 합니다. <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
+4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code> 명령을 실행합니다.
 5. **로컬 보안 정책**을 닫습니다.
 <br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
@@ -264,7 +264,7 @@ $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
 import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
  
-Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $myCreds
 
 ```
 

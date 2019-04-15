@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482609"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527169"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure Cache for Redis 문제를 해결하는 방법
 
@@ -250,6 +250,7 @@ StackExchange.Redis 구성 명명 된 설정을 사용 하 여 `synctimeout` 100
 1. 큰 요청 시간 초과 된 캐시에 여러 작은 요청 앞에 있었던? 매개 변수 `qs` 오류 메시지 알려 몇 개의 요청 클라이언트에서 서버로 보냈지만 응답을 처리 하지 않은 합니다. StackExchange.Redis는 하나의 TCP 연결을 사용하고 한 번에 하나의 응답만 읽을 수 있기 때문에 이 값은 계속 증가할 수 있습니다. 첫 번째 작업이 시간 초과 하는 경우에 더 많은 데이터를 보내는 것 또는 서버에서 중지 하지는 않습니다. 다른 요청은 큰 요청이 완료 되 고 시간 초과 하면 때까지 차단 됩니다. 하나의 솔루션은 워크로드를 감당할 수 있게 캐시를 충분히 크게 하고 큰 값을 작은 청크로 분할하여 시간 초과의 가능성을 최소화하는 것입니다. 또 다른 가능한 솔루션은 클라이언트에서 `ConnectionMultiplexer` 개체 풀을 사용하고, 새 요청을 보낼 때 부하가 최소인 `ConnectionMultiplexer`을 선택합니다, 여러 연결 개체에서 로드 또한 시간 초과 대 한 다른 요청에서 단일 시간 초과 방지 해야 합니다.
 1. 사용 중인 경우 `RedisSessionStateProvider`, 재시도 제한 시간을 올바르게 설정 했는지 확인 합니다. `retryTimeoutInMilliseconds`는 `operationTimeoutInMilliseconds`보다 높아야 합니다. 그렇지 않으면 재시도가 발생하지 않습니다. 다음 예제에서 `retryTimeoutInMilliseconds` 가 3000으로 설정됩니다. 자세한 내용은 [Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자](cache-aspnet-session-state-provider.md) 및 [세션 상태 제공자 및 출력 캐시 공급자의 구성 매개 변수를 사용하는 방법](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)을 참조하세요.
 
+    ```xml
     <add
       name="AFRedisCacheSessionStateProvider"
       type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -262,6 +263,7 @@ StackExchange.Redis 구성 명명 된 설정을 사용 하 여 `synctimeout` 100
       connectionTimeoutInMilliseconds = "5000"
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
+    ```
 
 1. `Used Memory RSS` 및 `Used Memory`를 [모니터링](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)하여 Azure Cache for Redis 서버의 메모리 사용량을 확인합니다. 제거 정책이 구현되었다면, `Used_Memory` 가 캐시 크기에 도달할 때 Redis는 제거 키를 작동합니다. 이상적으로 `Used Memory RSS`는 `Used memory`보다 약간만 높아야 합니다. 큰 차이 (내부 또는 외부) 메모리 조각화가 의미 합니다. `Used Memory RSS`가 `Used Memory`보다 작다면 운영 체제가 캐시 메모리의 일부를 스왑했음을 의미합니다. 이 스왑이 발생하는 경우 일부 상당한 대기 시간을 예상할 수 있습니다. Redis는 할당이 높은 메모리 페이지에 매핑되는 방식을 제어할 없기 때문 `Used Memory RSS` 메모리 사용량에 스파이크가의 결과인 경우가 많습니다. Redis 서버 메모리를 해제 하면 할당자는 메모리를 사용 하지만 있고 시스템에 메모리를 다시 제공 될 수 있습니다. 운영 체제가 보고하는 `Used Memory` 값과 메모리 소비량 사이에 차이가 있을 수 있습니다. 메모리 사용 및 Redis에서 시스템으로 돌려 지지 발표 될 수 있습니다. 메모리 문제를 완화 하려면 다음 단계를 수행할 수 있습니다.
 

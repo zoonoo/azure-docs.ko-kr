@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
-ms.openlocfilehash: a0960cba58817a6d340998933fe315d6fca887e4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488458"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528104"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Server에서 데이터 복구
 Azure Backup Server를 사용하여 Recovery Services 자격 증명 모음으로 백업한 데이터를 복구할 수 있습니다. 이 과정이 Azure Backup Server 관리 콘솔에 통합되며 다른 Azure Backup 구성 요소의 복구 워크플로와 유사합니다.
@@ -85,7 +85,7 @@ Azure Backup Server에서 데이터를 복구하려면
 | 1. |이 서버는 저장소 자격 증명을 통해 지정된 저장소에 등록되지 않았습니다. |**원인:** 이 오류는 선택한 보관 자격 증명 파일이 복구를 시도하려는 Azure Backup Server와 연결된 Recovery Services 자격 증명 모음에 속해 있지 않을 때 나타납니다. <br> **해결 방법:** Azure Backup Server가 등록된 Recovery Services 자격 증명 모음에서 보관 자격 증명 파일을 다운로드합니다. |
 | 2. |복구 가능한 데이터가 없거나 선택한 서버가 DPM 서버가 아닙니다. |**원인:** Recovery Services 자격 증명 모음에 다른 Azure Backup Server가 등록되지 않았거나, 서버에서 아직 메타데이터를 업로드하지 않았거나, 선택한 서버가 Azure Backup Server가 아닙니다(즉, Windows Server 또는 Windows 클라이언트). <br> **해결 방법:** Recovery Services 자격 증명 모음에 다른 Azure Backup Server가 등록된 경우 최신 Azure Backup 에이전트가 설치되어 있는지 확인합니다. <br>다른 Azure Backup Server가 Recovery Services 자격 증명 모음에 등록된 경우, 설치하고 하루 동안 기다린 다음 복구 프로세스를 시작하세요. 야간 작업을 통해 보호된 모든 백업에 대한 메타데이터가 클라우드로 업로드됩니다. 이제 데이터를 복구할 수 있습니다. |
 | 3. |이 저장소에 DPM 서버가 등록되어 있지 않습니다. |**원인:** 복구가 시도된 자격 증명 모음에 등록된 다른 Azure Backup Server가 없습니다.<br>**해결 방법:** Recovery Services 자격 증명 모음에 다른 Azure Backup Server가 등록된 경우 최신 Azure Backup 에이전트가 설치되어 있는지 확인합니다.<br>다른 Azure Backup Server가 Recovery Services 자격 증명 모음에 등록된 경우, 설치하고 하루 동안 기다린 다음 복구 프로세스를 시작하세요. 야간 작업을 통해 보호된 모든 백업에 대한 메타데이터가 클라우드로 업로드됩니다. 이제 데이터를 복구할 수 있습니다. |
-| 4. |암호화 암호가 다음 서버에 연결된 암호와 일치하지 않습니다. **<server name>** |**원인:** 데이터를 복구하려는 Azure Backup Server의 데이터를 암호화하는 데 사용된 암호화 암호가 입력한 암호화 암호와 일치하지 않습니다. 에이전트는 데이터의 암호를 해독할 수 없습니다. 따라서 복구가 실패합니다.<br>**해결 방법:** 데이터를 복구하려는 Azure Backup Server에 연결된 암호화 암호를 정확하게 입력하세요. |
+| 4. |암호화 암호가 다음 서버에 연결 된 암호와 일치 하지 않습니다:  **\<서버 이름 >** |**원인:** 데이터를 복구하려는 Azure Backup Server의 데이터를 암호화하는 데 사용된 암호화 암호가 입력한 암호화 암호와 일치하지 않습니다. 에이전트는 데이터의 암호를 해독할 수 없습니다. 따라서 복구가 실패합니다.<br>**해결 방법:** 데이터를 복구하려는 Azure Backup Server에 연결된 암호화 암호를 정확하게 입력하세요. |
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

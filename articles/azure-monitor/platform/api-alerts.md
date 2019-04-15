@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895892"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549715"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리
 Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
@@ -94,9 +94,9 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
 
 | 자산 | 설명 |
 |:--- |:--- |
-| Type |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
-| 이름 |경고에 대한 표시 이름입니다. |
-| 버전 |사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
+| `Type` |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
+| `Name` |경고에 대한 표시 이름입니다. |
+| `Version` |사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
 
 ### <a name="retrieving-actions"></a>작업 검색
 
@@ -154,8 +154,8 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
 | 자산 | 설명 |
 |:--- |:--- |
-| 연산자 |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br>  lt = 보다 작은 |
-| 값 |임계값에 대한 값입니다. |
+| `Operator` |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br>  lt = 보다 작은 |
+| `Value` |임계값에 대한 값입니다. |
 
 예를 들어 간격이 15 분이고 Timespan이 30 분이고 임계값이 10보다 큰 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15분마다 실행되며 경고는 30분의 기간 동안 생성된 이벤트 10개를 반환하면 경고가 트리거될 수 있습니다.
 
@@ -187,9 +187,9 @@ Log Analytics를 통해 쉽게 관리하고 심사할 수 있도록 경고를 �
 
 |Log Analytics 심각도 수준  |Azure Alerts 심각도 수준  |
 |---------|---------|
-|중요 |Sev 0|
-|Warning |Sev 1|
-|정보 제공 | Sev 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
 다음은 임계값 및 심각도만 가진 작업에 대한 샘플 응답입니다. 
 
@@ -284,7 +284,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 기본적으로 작업은 알림에 대한 표준 템플릿 및 형식을 따릅니다. 하지만 사용자는 작업 그룹에 의해 제어되는 경우에도 일부 작업을 사용자 지정할 수 있습니다. 현재 사용자 지정은 이메일 제목 및 웹후크 페이로드에 가능합니다.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>작업 그룹에 대한 이메일 제목 사용자 지정
-기본적으로 경고용 이메일 제목은 <WorkspaceName>에 대한 경고 알림 <AlertName>입니다. 하지만 받은 편지함에서 필터 규칙을 쉽게 사용하도록 단어 또는 태그를 명시할 수 있도록 사용자 지정할 수 있습니다. 사용자 지정 이메일 헤더 세부 정보는 아래 예제에서와 같이 ActionGroup 세부 정보와 함께 전송되어야 합니다.
+기본적으로 경고용 이메일 제목은 `<WorkspaceName>`에 대한 경고 알림 `<AlertName>`입니다. 하지만 받은 편지함에서 필터 규칙을 쉽게 사용하도록 단어 또는 태그를 명시할 수 있도록 사용자 지정할 수 있습니다. 사용자 지정 이메일 헤더 세부 정보는 아래 예제에서와 같이 ActionGroup 세부 정보와 함께 전송되어야 합니다.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
