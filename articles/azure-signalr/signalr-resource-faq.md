@@ -35,7 +35,7 @@ ASP.NET SignalR에 대한 지원은 아직 *공개 미리 보기* 상태입니�
 애플리케이션 서버가 있는 경우 이 오류 메시지가 표시되면 SignalR Service 인스턴스에 연결되어 있는 애플리케이션 서버가 없다는 의미입니다.
 
 가능한 원인:
-- SignalR Service에 연결되어 있는 애플리케이션 서버가 없습니다. 애플리케이션 서버 로그에서 가능한 연결 오류를 확인하십시오. 둘 이상의 애플리케이션 서버가 있는 고가용성 설정에서는 이러한 경우가 드뭅니다.
+- SignalR Service에 연결되어 있는 애플리케이션 서버가 없습니다. 애플리케이션 서버 로그에서 가능한 연결 오류를 확인하세요. 둘 이상의 애플리케이션 서버가 있는 고가용성 설정에서는 이러한 경우가 드뭅니다.
 - SignalR Service 인스턴스와 연결 문제가 있습니다. 이 문제는 일시적이며 자동으로 복구됩니다.
 문제가 한 시간 넘게 지속되면 [GitHub에서 문제를 제기](https://github.com/Azure/azure-signalr/issues/new)하거나 [Azure에서 지원 요청을 생성](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)하십시오.
 

@@ -15,7 +15,7 @@ ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54117659"
@@ -143,7 +143,7 @@ ms.locfileid: "54117659"
 
 *이메일이 삭제되었습니다. 포털의 어디에서 알림을 찾을 수 있습니까?*
 
-* Azure 활동 로그입니다. Azure에서 앱에 대한 Application Insights 리소스를 열고 활동 로그를 선택합니다.
+* Azure 활동 로그에서 찾을 수 있습니다. Azure에서 앱에 대한 Application Insights 리소스를 연 다음, 활동 로그를 선택합니다.
 
 *경고의 일부가 알려진 문제이고 수신하고 싶지 않습니다.*
 
