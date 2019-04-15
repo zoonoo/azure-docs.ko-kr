@@ -82,7 +82,7 @@ Azure 테이블과 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |Azure 테이블 쿼리 문자열. 다음 섹션의 예제를 참조하세요. |아니요. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
+| azureTableSourceQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |Azure 테이블 쿼리 문자열. 다음 섹션의 예제를 참조하세요. |아니요. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 | azureTableSourceIgnoreTableNotFound |존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. |TRUE<br/>FALSE |아닙니다. |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제
@@ -484,7 +484,7 @@ Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure Table servi
 | Edm.Guid |Guid |전역적으로 고유한 128 비트 식별자입니다. |
 | Edm.Int32 |Int32 |32비트 정수입니다. |
 | Edm.Int64 |Int64 |64비트 정수입니다. |
-| Edm.String |문자열 |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
+| Edm.String |String |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
 
 ### <a name="type-conversion-sample"></a>형식 변환 샘플
 다음 샘플은 Azure Blob에서 형식 변환이 있는 Azure 테이블에 데이터를 복사하는 데 사용합니다.
@@ -537,8 +537,8 @@ Azure 테이블 OData 형식에서 .NET 형식에 형식 매핑을 지정하면 
 
 | 열 이름 | Type |
 | --- | --- |
-| userId |Edm.Int64 |
-| 이름 |Edm.String |
+| userid |Edm.Int64 |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 다음으로, Azure 테이블 데이터 세트를 다음과 같이 정의합니다. 형식 정보가 기본 데이터 저장소에 이미 지정되어 있으므로 형식 정보로 "structure" 섹션을 지정할 필요가 없습니다.
