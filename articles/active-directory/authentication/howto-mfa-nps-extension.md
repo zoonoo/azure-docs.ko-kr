@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491494"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564534"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 이상
 
 이러한 라이브러리는 확장으로 자동 설치됩니다.
 
-- [Visual C++ Visual Studio 2013 (X64) 용 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Microsoft Azure Active Directory에 대 한 Windows PowerShell 모듈 버전 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치되지 않은 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않은 상태에서 미리 설치할 필요가 없습니다.
 
@@ -78,6 +78,12 @@ NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+또한 다음 Url에 연결 해야 완료를 [제공된 된 PowerShell 스크립트를 사용 하 여 어댑터의 설치](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
@@ -142,6 +148,14 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 1. Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
 2. 이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
 3. *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 조건 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
+
+#### <a name="upgrade-the-nps-extension"></a>NPS 확장 업그레이드
+
+를 설치 하는 기존 NPS 확장을 업그레이드 하지 않으려면 기본 서버를 다시 부팅 다음 단계를 완료 합니다.
+
+1. 기존 버전을 제거 합니다.
+1. 새로운 설치 관리자를 실행 합니다.
+1. 네트워크 정책 서버 (IAS) 서비스를 다시 시작
 
 ### <a name="run-the-powershell-script"></a>PowerShell 스크립트 실행
 
@@ -231,7 +245,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-이 명령을 실행한 후 C 드라이브로 이동하고 파일을 찾아서 두 번 클릭합니다. 세부 정보로 이동하여 "지문"까지 아래로 스크롤하고 서버에 설치된 인증서의 지문을 이 지문과 비교합니다. 인증서 지문이 일치해야 합니다.
+이 명령으로 실행 되 면 파일을 찾아 두 번 클릭 하 여 C 드라이브에 이동 합니다. 세부 정보로 이동하여 "지문"까지 아래로 스크롤하고 서버에 설치된 인증서의 지문을 이 지문과 비교합니다. 인증서 지문이 일치해야 합니다.
 
 명령이 둘 이상의 인증서를 반환하면 사람이 읽을 수 있는 형식의 Valid-From(유효 기간 시작) 및 Valid-Until(유효 기간) 타임스탬프를 사용하여 확실한 부적격 항목을 필터링할 수 있습니다.
 
@@ -239,7 +253,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ### <a name="why-cant-i-sign-in"></a>로그인할 수 없는 이유
 
-암호가 만료되지 않았는지 확인합니다. NPS 확장은 로그인 워크플로의 일환으로 암호 변경을 지원하지 않습니다. 추가 지원이 필요하면 조직의 IT 직원에게 문의하십시오.
+암호가 만료되지 않았는지 확인합니다. NPS 확장은 로그인 워크플로의 일환으로 암호 변경을 지원하지 않습니다. 조직의 IT 담당자에 문의 합니다.
 
 -------------------------------------------------------------
 
@@ -270,7 +284,7 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 
 이전에 컴퓨터 인증서가 만료 하 고 새 인증서를 생성 된 경우 만료 된 인증서를 삭제 해야 합니다. 만료 된 인증서 문제가 발생할 수 있습니다 NPS 확장을 사용 하 여 시작 필요 합니다.
 
-유효한 인증서가 있는 경우를 확인 하려면 MMC를 사용 하 여 로컬 컴퓨터 계정의 인증서 저장소를 확인 하 고 인증서 만료 날짜가 경과 하지 않은 확인 합니다. 새로 유효한 인증서를 생성 하려면 다시 실행 단계 섹션에서 "[PowerShell 스크립트를 실행](#run-the-powershell-script)"
+유효한 인증서가 있는 경우를 확인 하려면 MMC를 사용 하 여 로컬 컴퓨터 계정의 인증서 저장소를 확인 하 고 인증서 만료 날짜가 경과 하지 않은 확인 합니다. 새로 유효한 인증서를 생성 하려면 아래 섹션에서 단계를 다시 실행 하십시오. "[PowerShell 스크립트를 실행](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 

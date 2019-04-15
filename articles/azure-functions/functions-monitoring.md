@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495688"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565969"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -128,7 +128,7 @@ requests
 | ----- | ----------- |
 | **traces** | 함수 코드 및 런타임에 의해 생성 된 로그입니다. |
 | **requests** | 각 함수 호출에 대 한 요청 하나입니다. |
-| **예외** | 런타임에서 throw 된 예외입니다. |
+| **exceptions** | 런타임에서 throw 된 예외입니다. |
 | **customMetrics** | 성공 및 실패 한 호출, 성공률 및 기간 수입니다. |
 | **customEvents** | 예를 들어 런타임에서 추적 이벤트: 함수를 트리거하는 HTTP 요청 |
 | **performanceCounters** | 함수에서 실행 되는 서버의 성능에 대 한 정보입니다. |
@@ -595,7 +595,9 @@ module.exports = function (context, req) {
 
 ## <a name="dependencies"></a>종속성
 
-함수는 다른 서비스에 있는 종속성 자동으로 표시 하지 않습니다. 종속성을 표시할 사용자 지정 코드를 작성할 수 있습니다. 예를 들어의 샘플 코드를 참조 합니다 [ C# 사용자 지정 원격 분석 단원](#log-custom-telemetry-in-c-functions)합니다. 샘플 코드의 결과 *응용 프로그램 맵* 것 같습니다 다음 이미지는 Application Insights에서:
+Functions v2 HTTP 요청, ServiceBus 및 SQL에 대 한 종속성을 자동으로 수집합니다.
+
+종속성을 표시할 사용자 지정 코드를 작성할 수 있습니다. 예를 들어의 샘플 코드를 참조 합니다 [ C# 사용자 지정 원격 분석 단원](#log-custom-telemetry-in-c-functions)합니다. 샘플 코드의 결과 *응용 프로그램 맵* 것 같습니다 다음 이미지는 Application Insights에서:
 
 ![애플리케이션 맵](./media/functions-monitoring/app-map.png)
 

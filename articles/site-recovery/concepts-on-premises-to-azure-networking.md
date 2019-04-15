@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361305"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565685"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
 
@@ -62,7 +62,7 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 
 1. 온-프레미스 컴퓨터의 장애 조치 후 Azure VM을 만들 Azure 가상 네트워크를 만듭니다. 애플리케이션이 원활하게 장애 조치(failover)할 수 있도록 온-프레미스 네트워크를 확장해야 합니다.
 2. 장애 조치 전에 Site Recovery의 컴퓨터 속성에서 동일한 IP 주소를 할당합니다. 장애 조치 후 Site Recovery는 이 주소를 Azure VM에 할당합니다.
-3. 장애 조치를 실행하고 동일한 IP 주소로 Azure VM을 만든 후에는 [Vnet 간 연결](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 사용하여 네트워크에 연결합니다. 이 작업은 스크립팅될 수 있습니다.
+3. 장애 조치를 실행하고 동일한 IP 주소로 Azure VM을 만든 후에는 [Vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 사용하여 네트워크에 연결합니다. 이 작업은 스크립팅될 수 있습니다.
 4. 192.168.1.0/24가 이제 Azure로 이동했음을 반영하기 위해 경로를 수정해야 합니다.
 
 
@@ -84,4 +84,4 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 이 [블로그 게시물](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)은 장애 조치(failover) 후 IP 주소를 유지할 필요가 없을 때 Azure 네트워킹 인프라를 설정하는 방법을 설명합니다. 애플리케이션 설명으로 시작하여 온-프레미스 및 Azure의 네트워킹을 설정하는 방법을 찾고, 장애 조치(failover)를 실행하는 방법에 대한 정보로 마무리합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[장애 조치(Failover) 실행](site-recovery-failover.md)
+[장애 조치 실행](site-recovery-failover.md)

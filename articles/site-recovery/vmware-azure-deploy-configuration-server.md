@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 배포 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: mayurigupta13
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449223"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565127"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -121,7 +121,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 ### <a name="configure-settings"></a>설정 구성
 
-1. 구성 서버 관리 마법사에서 **연결 설정**을 선택합니다. 드롭다운 목록에서에서 먼저 원본 컴퓨터에서 모바일 서비스의 검색 및 푸시 설치에 대 한 기본 제공 프로세스 서버를 사용 하는 NIC를 선택 하 고 Azure 사용 하 여 연결을 위한 구성 서버를 사용 하는 NIC를 선택 합니다. 그런 다음 **저장**을 선택합니다. 구성 된 후이 설정을 변경할 수 없습니다. 구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 IP가 DHCP IP가 아닌 정적 IP인지 확인합니다.
+1. 구성 서버 관리 마법사에서 **연결 설정**을 선택합니다. 드롭다운 목록에서 먼저 기본 제공 프로세스 서버가 원본 머신에서 Mobility Service의 검색 및 푸시 설치에 사용하는 NIC를 선택한 다음, 구성 서버에서 Azure와의 연결에 사용하는 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 구성 된 후이 설정을 변경할 수 없습니다. 구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 IP가 DHCP IP가 아닌 정적 IP인지 확인합니다.
 2. **선택 Recovery Services 자격 증명 모음**에 사용 된 자격 증명을 사용 하 여 Microsoft Azure에 로그인 **6 단계** 의 "[Azure Site Recovery Services를 사용 하 여 구성 서버 등록](#register-the-configuration-server-with-azure-site-recovery-services)" .
 3. 로그인 한 후 Azure 구독 및 관련 리소스 그룹 및 자격 증명 모음을 선택 합니다.
 

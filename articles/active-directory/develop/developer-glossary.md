@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 개발자 용어집 | Microsoft Docs
-description: 일반적으로 사용되는 Azure Active Directory 개발자 개념 및 기능에 대한 용어 목록입니다.
+title: Microsoft id 플랫폼 개발자 용어집 | Azure
+description: 자주 사용 되는 Microsoft id 플랫폼 개발자 개념 및 기능에 대 한 조건의 목록입니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2017
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650396"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565542"
 ---
-# <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 개발자 용어집
+# <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft id 플랫폼 개발자 용어집
 
-이 문서에는 Azure AD에 대한 애플리케이션 개발에 관해 알아보고자 할 때 유용한 핵심 Azure Active Directory(AD) 개발자 개념 함 합니다.
+이 문서는 Microsoft id 플랫폼을 사용 하 여 응용 프로그램 개발에 대 한 학습 하는 경우에 유용 하는 핵심 개발자 개념 및 용어 중 일부에 대 한 정의 포함 합니다.
 
 ## <a name="access-token"></a>액세스 토큰
 
@@ -38,11 +38,11 @@ ms.locfileid: "58650396"
 * ["인증 코드" 권한 부여](#authorization-grant) - 최종 사용자는 리소스 소유자로서 우선 권한 부여를 하여 클라이언트가 리소스에 액세스할 수 있도록 권한 부여를 위임합니다. 클라이언트는 액세스 토큰을 가져올 때 나중에 인증합니다. 토큰은 클라이언트 애플리케이션에 권한 부여하는 사용자와 애플리케이션을 나타냄으로 때로 더 구체적으로 "사용자 + 앱"이라고 합니다.
 * ["클라이언트 자격 증명" 권한 부여](#authorization-grant) - 클라이언트에서 리소스 소유자의 인증/권한 부여 없이 작동하는 유일한 인증을 제공하므로 때로는 토큰을 “앱 전용” 토큰이라고도 할 수 있습니다.
 
-자세한 내용은 [Azure AD 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
+참조 [Microsoft id 플랫폼 토큰 참조] [ AAD-Tokens-Claims] 대 한 자세한 내용은 합니다.
 
-## <a name="application-id-client-id"></a>애플리케이션 ID(클라이언트 ID)
+## <a name="application-id-client-id"></a>응용 프로그램 ID (클라이언트 ID)
 
-Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해당 애플리케이션과 그 구성을 식별하는 데 사용됩니다. 애플리케이션 ID([클라이언트 ID](https://tools.ietf.org/html/rfc6749#page-15))는 인증 요청을 수행할 때 사용되며, 개발 시 인증 라이브러리에 제공됩니다. 애플리케이션 ID(클라이언트 ID)는 비밀이 아닙니다.
+Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해당 애플리케이션과 그 구성을 식별하는 데 사용됩니다. 이 응용 프로그램 ID ([클라이언트 ID](https://tools.ietf.org/html/rfc6749#page-15)) 요청 하 고는 인증을 수행 하는 경우에 개발 기간에서 인증 라이브러리를 제공 합니다. 응용 프로그램 ID (클라이언트 ID)는 비밀이 아닙니다.
 
 ## <a name="application-manifest"></a>애플리케이션 매니페스트
 
@@ -59,7 +59,7 @@ Azure AD가 애플리케이션 등록 시 부여하는 고유 식별자로, 해�
 애플리케이션을 Azure AD와 통합하고 ID 및 액세스 관리 기능을 Azure AD에 위임할 수 있도록 허용하기 위해 Azure AD [테넌트](#tenant)를 사용하여 등록해야 합니다. Azure Ad를 사용하여 애플리케이션을 등록할 때 애플리케이션에 대한 ID 구성을 제공하여 Azure AD와 통합하고 다음과 같은 기능을 사용할 수 있도록 허용합니다.
 
 * Azure AD ID 관리 및 [OpenID Connect][OpenIDConnect] 프로토콜 구현을 사용한 Single Sign-On의 강력한 관리
-* [클라이언트 애플리케이션](#client-application)에서 Azure AD의 OAuth 2.0 [권한 부여 서버](#authorization-server) 구현을 통해 [보호된 리소스](#resource-server)에 중개되는 액세스
+* 에 대 한 액세스를 조정 [보호 된 리소스](#resource-server) 하 여 [클라이언트 응용 프로그램](#client-application), OAuth 2.0을 통해 [권한 부여 서버](#authorization-server)
 * [동의 프레임워크](#consent) - 리소스 소유자 권한 부여에 따라 클라이언트의 보호된 리소스에 대한 액세스 관리
 
 자세한 내용은 [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]을 참조하세요.
@@ -93,13 +93,13 @@ ID 및 액세스 제어에 사용할 보안 주체를 만들기 위한 기반을
 
 [OAuth2 권한 부여 프레임워크][OAuth2-Role-Def]에서 정의된 대로 [리소스 소유자](#resource-owner)를 성공적으로 인증하고 권한 부여를 얻은 후에 [클라이언트](#client-application)에 액세스 토큰 발급을 담당하는 서버입니다. [클라이언트 애플리케이션](#client-application)에서는 런타임 시 [권한 부여](#authorization-grant)에서 정의한 OAuth2에 따라 [권한 부여](#authorization-endpoint) 및 [토큰](#token-endpoint) 엔드포인트를 통해 권한 부여 서버와 상호 작용합니다.
 
-Azure AD 애플리케이션 통합의 경우 Azure AD는 예를 들어 [Microsoft Graph API][Microsoft-Graph]와 같은 Azure AD 애플리케이션 및 Microsoft 서비스 API에 대한 권한 부여 서버 역할을 구현합니다.
+Microsoft id 플랫폼 Microsoft id 플랫폼 응용 프로그램 통합의 경우 Azure AD 응용 프로그램 및 Microsoft 서비스 Api에 대 한 권한 부여 서버 역할의 예를 들어 구현 [Microsoft Graph Api] [Microsoft-Graph].
 
 ## <a name="claim"></a>클레임
 
 [보안 토큰](#security-token)에는 하나의 엔터티(예: [클라이언트 애플리케이션](#client-application) 또는 [리소스 소유자](#resource-owner))에 대한 어설션을 다른 엔터티(예: [리소스 서버](#resource-server))에 제공하는 클레임이 포함됩니다. 클레임은 토큰 주체(예를 들어 [권한 부여 서버](#authorization-server)에 의해 인증된 보안 주체)에 관한 팩트를 릴레이하는 이름/값 쌍입니다. 지정된 토큰에 있는 클레임은 토큰 형식, 주체 인증에 사용되는 자격 증명 유형, 애플리케이션 구성 등을 포함한 여러 변수에 따라 다릅니다.
 
-자세한 내용은 [Azure AD 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
+참조 [Microsoft id 플랫폼에 대 한 토큰 참조] [ AAD-Tokens-Claims] 대 한 자세한 내용은 합니다.
 
 ## <a name="client-application"></a>클라이언트 애플리케이션
 
@@ -117,7 +117,7 @@ Azure AD 애플리케이션 통합의 경우 Azure AD는 예를 들어 [Microsof
 
 [권한 부여 서버](#authorization-server)의 [권한 부여 엔드포인트](#authorization-endpoint)에 의해 제공된 [OpenID Connect][OpenIDConnect-ID-Token][보안 토큰](#security-token)으로 최종 사용자 [리소스 소유자](#resource-owner)의 인증에 관련된 [클레임](#claim)을 포함합니다. 액세스 토큰과 마찬가지로 ID 토큰도 또한 디지털로 서명된 [JWT(JSON Web Token)][JWT]로 표시됩니다. 그렇지만 액세스 토큰과는 달리 ID 토큰의 클레임은 리소스 액세스 및 특히 액세스 제어와 관련된 용도로 사용되지 않습니다.
 
-자세한 내용은 [Azure AD 토큰 참조][AAD-Tokens-Claims]를 참조하세요.
+참조 [Microsoft id 플랫폼에 대 한 토큰 참조] [ AAD-Tokens-Claims] 대 한 자세한 내용은 합니다.
 
 ## <a name="microsoft-identity-platform"></a>Microsoft ID 플랫폼
 
@@ -220,14 +220,14 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 개발자 가이드][AAD-Dev-Guide]는 [애플리케이션 통합][AAD-How-To-Integrate] 개요 및 [Azure AD 인증 및 지원되는 인증 시나리오][AAD-Auth-Scenarios]의 기본 사항을 포함하는 Azure AD 개발 관련 모든 항목에 대해 사용되는 랜딩 페이지입니다. [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)에서도 코드 샘플과 빠른 시작 자습서를 확인할 수 있습니다.
+합니다 [Microsoft id 플랫폼 개발자 가이드] [ AAD-Dev-Guide] 는 모든 Microsoft id 플랫폼 개발 관련 항목에 대 한 개요를 포함 하 여는 데 방문 페이지 [응용 프로그램 통합] [ AAD-How-To-Integrate] 한 기본 사항과 [Microsoft id 플랫폼 인증 및 지원 되는 인증 시나리오][AAD-Auth-Scenarios]합니다. [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)에서도 코드 샘플과 빠른 시작 자습서를 확인할 수 있습니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 새 정의 및 기존 정의 업데이트 요청을 포함하여 이 콘텐츠를 구체화하고 형성하는 데 도움을 줍니다.
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

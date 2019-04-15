@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502130"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565804"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -538,7 +538,7 @@ SAP 시스템의 원래 상태는 트랜잭션 DBACOCKPIT에 설명 되어 있�
 
 
 > [!IMPORTANT] 
-> 테스트를 시작 하기 전에 Pacemaker 모든 실패 한 작업 (crm 상태) 되지 않은 제약 조건이 없는 위치 (leftovers 마이그레이션 테스트) 및 IBM Db2 HADR 동기화가 작동 하는지 확인 합니다. 사용자 db2와 함께 사용 하 여 확인\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> 테스트를 시작 하기 전에 Pacemaker 모든 실패 한 작업 (crm 상태) 되지 않은 제약 조건이 없는 위치 (leftovers 마이그레이션 테스트) 및 IBM Db2 HADR 동기화가 작동 하는지 확인 합니다. 사용자 db2를 사용 하 여 확인\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 다음 명령을 실행 하 여 기본 Db2 데이터베이스를 실행 하는 노드 마이그레이션:
@@ -879,7 +879,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
 ## <a name="next-steps"></a>다음 단계
 이 설명서를 참조 하세요.
 
-- [SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+- [고가용성 아키텍처 및 SAP NetWeaver에 대 한 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 - [SUSE Linux 입력에서 Pacemaker 설정
 - pri
 - Azure에서 서버 se] (https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)

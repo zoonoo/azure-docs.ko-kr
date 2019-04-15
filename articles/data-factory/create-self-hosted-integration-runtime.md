@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261040"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565543"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -184,13 +184,13 @@ PowerShell을 사용하여 자체 호스팅 통합 런타임을 공유하려면 
 
 ### <a name="monitoring"></a>모니터링 
 
-- **공유 IR**
+- **공유된 IR**
 
   ![공유된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
   ![모니터링용 탭](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **연결 된 IR**
+- **연결된 IR**
 
   ![연결된 통합 런타임을 찾기 위한 선택 항목](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
@@ -255,7 +255,7 @@ download.microsoft.com | 443 | 업데이트 다운로드에 사용됨
 
 ![프록시 지정](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-자체 호스팅 통합 런타임은 프록시 서버를 사용하여 클라우드 서비스에 연결합니다. 초기 설치 중에 **변경** 링크를 클릭합니다. 그러면 프록시 설정 대화 상자가 나타납니다.
+프록시 서버를 사용 하 여 클라우드 서비스에 연결 하려면 원본 자체 호스팅된 integration runtime 구성 되 면 / 대상 (HTTP를 사용 하 여 / HTTPS 프로토콜). 이 선택 **변경 링크** 초기 설정 중입니다. 그러면 프록시 설정 대화 상자가 나타납니다.
 
 ![프록시 설정](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

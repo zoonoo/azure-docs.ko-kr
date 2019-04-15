@@ -1,25 +1,25 @@
 ---
 title: Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행 | Microsoft Docs
 description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner를 실행하는 방법을 설명합니다.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527682"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565430"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Deployment Planner 실행 모드
-다음 4가지 모드 중 원하는 모드에서 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다.
+다음 세 가지 모드 중 하나에서 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다.
 
 1.  [프로파일링](#profile-vmware-vms)
 2.  [보고서 생성](#generate-report)
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 이 도구는 배포의 모든 권장 사항을 요약하는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 보고서 이름은 `DeploymentPlannerReport_<unique numeric identifier>.xlsm` 지정된 된 디렉터리에 배치 합니다.
 
 >[!NOTE]
->Deployment Planner를 실행하는 서버의 예상 비용을 계산하려면 보고서의 소수점 기호를 "."로 구성해야 합니다. Windows 머신에서 소수점 기호를 ","으로 설정한 경우 제어판의 "날짜, 시간 또는 숫자 형식 변경"에서 "추가 설정"으로 이동하여 소수점 기호를 "."로 변경합니다.
+>보고서 생성에는 Windows PC 또는 Windows Server Excel 2013 이상 필요합니다. 이 컴퓨터에 소수점으로 구성 되어야 합니다 "." 비용 예측을 생성 합니다. 설치 프로그램을 설치한 경우 "," 소수점 기호로 하세요 "변경 날짜, 시간 또는 숫자 형식" 제어판에서 이동한 소수점 기호를 변경 하려면 "추가 설정" 으로"."입니다.
 
 프로파일링이 완료되면 보고서 생성 모드에서 도구를 실행할 수 있습니다. 다음 표는 보고서 생성 모드에서 실행할 필수 및 선택적 도구 매개 변수의 목록을 포함하고 있습니다.
 
