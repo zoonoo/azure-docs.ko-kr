@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: 'Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다. <br/> SDK는 <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI 사양(Swagger)</a>을 기반으로 합니다.'
@@ -26,7 +26,7 @@ sections:
           - title: 개념 알아보기
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">클라우드 업로드 및 스토리지</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">모니터링</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">미디어 분석</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">패키징</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">보호</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">라이브 스트리밍</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">플레이어 클라이언트</a></p>'
           - title: v3 API로 개발
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK를 사용하여 개발 시작</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST를 사용하여 개발</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Java로 연결</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">.NET으로 연결</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Node.js로 연결</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">REST를 사용하여 개발</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">SDK를 사용하여 개발</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Java로 연결</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">.NET으로 연결</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Node.js로 연결</a></p>'
   - title: 5분 빠른 시작
     items:
       - type: paragraph

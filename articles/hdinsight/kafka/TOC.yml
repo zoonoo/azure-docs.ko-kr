@@ -22,19 +22,16 @@ items:
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: 자습서
   items:
-  - name: 1 - Apache Spark 구조적 스트리밍 사용
+  - name: Apache Spark 구조적 스트리밍 사용
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 - Apache Storm과 함께 Apache Kafka에서 쓰기/사용
+  - name: Apache Storm과 함께 Apache Kafka에서 쓰기/읽기
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 - Apache Kafka 생산자 및 소비자 API 사용
+  - name: Apache Kafka 생산자 및 소비자 API 사용
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 - Apache Kafka Streams API를 사용하여 앱 개발
+  - name: Apache Kafka Streams API를 사용하여 앱 개발
     href: apache-kafka-streams-api.md
-  - name: Ambari 및 Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
-    href: ../hdinsight-cluster-availability.md
-    maintainContext: true
 - name: 개념
   items:
   - name: 용량 계획
@@ -159,6 +156,9 @@ items:
       - name: Apache Ambari REST API 사용
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+      - name: Azure Monitor 로그를 사용하여 클러스터 가용성 모니터링
+        href: ../hdinsight-cluster-availability.md
+        maintainContext: true
       maintainContext: true
     - name: HDInsight 클러스터에 대한 로그 관리
       href: ../hdinsight-log-management.md
@@ -271,9 +271,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1bc035c80492c283364e5216184d2e943bacc3aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668146"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565101"
