@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: 뉴스 검색 수행 - C#용 Bing News Search SDK'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작을 사용하여 Python용 Bing News Search SDK를 통해 뉴스를 검색하고 응답을 처리합니다.
+description: 이 빠른 시작을 사용하여 C#용 Bing News Search SDK를 통해 뉴스를 검색하고 응답을 처리합니다.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fe9010215e5b6c4c9ece2372e3ce87bcf99b150c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090052"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262893"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>빠른 시작: C#용 Bing News Search SDK로 뉴스 검색 수행
 

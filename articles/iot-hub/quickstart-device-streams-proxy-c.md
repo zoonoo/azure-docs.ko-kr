@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 539357c9dcfaaffa551b4be08427a51d9e92475f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 78aa8653385a126cf40e851332d50eac4c293390
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484772"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005994"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>빠른 시작: C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP(미리 보기)
 
@@ -28,6 +28,7 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 이 문서에서는 디바이스 스트림을 통해 SSH 트래픽 터널링(포트 22 사용)에 대한 설정을 설명합니다. RDP 트래픽에 대한 설정은 유사하며 간단한 구성 변경이 필요합니다. 디바이스 스트림은 애플리케이션이며 프로토콜에 구속 받지 않으므로 다른 종류의 애플리케이션 트래픽에 맞춰 현재 빠른 시작을 수정할 수 있습니다(통신 포트를 변경하여).
 
 ## <a name="how-it-works"></a>작동 원리
+
 아래 그림에서는 디바이스- 및 서비스-로컬 프록시 프로그램에서 SSH 클라이언트와 SSH 디먼 프로세스 간 엔드투엔드 연결을 활성화하는 방법을 보여줍니다. 공개 미리 보기 동안 C SDK는 디바이스 쪽에서 디바이스 스트림을 지원합니다. 결과적으로 이 빠른 시작에서는 디바이스-로컬 프록시 애플리케이션을 실행하는 지침만 설명합니다. [C# 빠른 시작](./quickstart-device-streams-proxy-csharp.md) 또는 [Node.js 빠른 시작](./quickstart-device-streams-proxy-nodejs.md) 가이드에서 사용할 수 있는 함께 제공되는 서비스-로컬 프록시 애플리케이션을 실행해야 합니다.
 
 ![대체 텍스트](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "로컬 프록시 설정")
@@ -56,6 +57,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * [‘C++를 사용한 데스크톱 개발’](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드가 사용하도록 설정하고 [Visual Studio 2017](https://www.visualstudio.com/vs/)을 설치합니다.
 * 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다.
+* 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
@@ -126,14 +132,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
+1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
    **MyDevice**: 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a3c75d98bda89a4330f064ce944f8b08bbf4734d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659561"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046243"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터의 런타임 업그레이드
 
@@ -45,12 +45,15 @@ ms.locfileid: "58659561"
 > * 클러스터의 런타임 업그레이드
 > * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 * Windows 개발 환경을 설정합니다. [Visual Studio 2017](https://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
 
@@ -59,9 +62,9 @@ ms.locfileid: "58659561"
 Azure 명령을 실행하기 전에 Azure 계정에 로그인하고 구독을 선택합니다.
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 ```
 
 ## <a name="get-the-runtime-version"></a>런타임 버전 가져오기
@@ -69,14 +72,14 @@ Set-AzureRmContext -SubscriptionId <guid>
 Azure에 연결하고 Service Fabric 클러스터가 포함된 구독을 선택한 후 클러스터의 런타임 버전을 가져올 수 있습니다.
 
 ```powershell
-Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
+Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
 또는 다음을 통해 구독의 모든 클러스터 목록을 가져옵니다.
 
 ```powershell
-Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
+Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
 **ClusterCodeVersion** 값을 확인합니다. 이 값은 다음 섹션에서 사용됩니다.
@@ -92,7 +95,7 @@ Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 버전 목록에서 Azure Service Fabric 클러스터에 더 나중인 런타임으로 업그레이드하도록 지시할 수 있습니다. 예를 들어 `6.0.219.9494` 버전으로 업그레이드할 수 있으면 다음 명령을 사용하여 클러스터를 업그레이드합니다.
 
 ```powershell
-Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
+Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
                                     -Name aztestcluster `
                                     -UpgradeMode Manual `
                                     -Version "6.0.219.9494"
@@ -200,6 +203,11 @@ sfctl cluster upgrade-status
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
+> * 클러스터 런타임 버전 가져오기
+> * 클러스터 런타임 업그레이드
+> * 업그레이드 모니터링
+
+[!div class="checklist"]
 > * 클러스터 런타임 버전 가져오기
 > * 클러스터 런타임 업그레이드
 > * 업그레이드 모니터링

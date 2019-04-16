@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313025"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470392"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Project Acoustics Unreal/Wwise 빠른 시작
 이 빠른 시작에서는 Unreal Engine 및 Wwise를 위한 제공된 샘플 콘텐츠를 사용하여 Project Acoustics 디자인 컨트롤을 실험합니다.
 
 소프트웨어 요구 사항:
-* [Unreal Engine 4.21](https://www.unrealengine.com/)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## <a name="download-the-sample-package"></a>샘플 패키지 다운로드
 [Project Acoustics Unreal + Wwise 샘플 패키지](https://www.microsoft.com/download/details.aspx?id=58090)를 다운로드합니다. 예제 패키지에는 Unreal Engine 프로젝트, 해당 Unreal 프로젝트에 대한 Wwise 프로젝트 및 Project Acoustics Wwise 플러그 인이 포함되어 있습니다.
@@ -50,7 +50,7 @@ Project Acoustics Unreal 플러그 인의 경우 Wwise Unreal 플러그 인 API�
 
     ![Wwise 프로젝트를 패치하는 스크립트를 보여주는 Windows 탐색기 창의 스크린샷](media/patch-wwise-script.png)
 
-* DirectX SDK가 설치되어 있지 않은 경우 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`에DXSDK_DIR이 포함된 줄을 주석으로 처리해야 합니다.
+* DirectX SDK가 설치되어 있지 않은 경우 DXSDK_DIR이 포함된 줄을 주석으로 처리해야 합니다. `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![DXSDK 주석 처리를 보여주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
 

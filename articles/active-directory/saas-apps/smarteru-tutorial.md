@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: dc448a4c31320f0cb1bb1d6f2151222787aee6ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d1b2d80a1960abb37262ef7429ee5b99665986b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225181"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>자습서: SmarterU와 Azure Active Directory 통합
 
@@ -202,7 +202,7 @@ SmarterU에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU로 프로비저닝되어야 합니다. SmarterU의 경우 프로비전은 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. **SmarterU** 테넌트에 로그인합니다.
 
@@ -231,8 +231,8 @@ Azure AD 사용자가 SmarterU에 로그인할 수 있도록 하려면 SmarterU�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

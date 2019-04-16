@@ -10,27 +10,22 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb601ac5c1ed8e9ca6d2027fe1b774a938e1f0a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362320"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281134"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
-이 문서에서는 사용자 고유의 Notebook 서버를 사용하여 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md)에 기록된 코드를 실행합니다. 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용하는 클라우드의 기본 블록입니다.
+사용자 고유의 Notebook 서버를 사용하여 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md)에 값을 기록하는 코드를 실행합니다. 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용하는 클라우드의 기본 블록입니다.
 
-이 빠른 시작에서는 사용자 고유의 Python 환경과 Jupyter Notebook 서버를 사용합니다. 설치 없이 실행하려면 [빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-cloud-notebook.md)을 참조하세요. 
+이 빠른 시작에서는 사용자 고유의 Python 환경과 Jupyter Notebook 서버를 사용합니다. SDK 설치 없이 실행하려면 [빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-cloud-notebook.md)을 참조하세요. 
 
 이 빠른 시작의 비디오 버전을 보려면:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
-
-이 빠른 시작에서 관련 정보는 다음과 같습니다.
-
-* 작업 영역 내부에 값을 기록하는 코드를 작성합니다.
-* 기록한 값을 작업 영역에서 봅니다.
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -61,7 +56,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 print(run.get_portal_url())
 ```
 
-이 링크를 사용하여 브라우저의 Azure Portal에서 기록된 값을 볼 수 있습니다.
+이 코드는 브라우저의 Azure Portal에서 기록된 값을 보는 데 사용할 수 있는 링크를 반환합니다.
 
 ![Azure Portal에서 기록된 값](./media/quickstart-run-local-notebook/logged-values.png)
 
@@ -79,6 +74,6 @@ print(run.get_portal_url())
 이 문서에서는 모델을 실험하고 배포하는 데 필요한 리소스를 만들었습니다. 또한 노트북에서 코드를 실행하고 클라우드의 작업 영역에서 코드의 실행 기록을 살펴보았습니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 이미지 분류 모델 학습시키기](tutorial-train-models-with-aml.md)
+> [자습서: 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
 
 [GitHub에서 더 많은 고급 예제](https://aka.ms/aml-notebooks)를 살펴보거나 [SDK 사용자 가이드](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 볼 수도 있습니다.

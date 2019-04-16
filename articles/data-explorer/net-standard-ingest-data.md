@@ -1,19 +1,18 @@
 ---
 title: '빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집'
 description: 이 빠른 시작 문서에서는 .NET Standard SDK를 사용하여 Azure Data Explorer로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: 327ab46b01e15b77e675e052dbfe8b3453b566a6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a068c45a13bd45a09ed51fd154b5842938e0c5e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757114"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044673"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집
 
@@ -236,4 +235,4 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [쿼리 작성](write-queries.md)
+> [쿼리 쓰기](write-queries.md)

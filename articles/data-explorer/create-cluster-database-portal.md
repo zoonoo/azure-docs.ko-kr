@@ -1,19 +1,18 @@
 ---
 title: '빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기'
 description: 이 빠른 시작에서 Azure 데이터 탐색기 클러스터 및 데이터베이스를 만들고 데이터를 수집(로드)하는 방법을 알아봅니다.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
-ms.openlocfilehash: aa98fb8f9569282e9636d5cb593523b9642395e1
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/25/2019
+ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758620"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046039"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -123,6 +122,6 @@ Azure 리소스 그룹에 컴퓨팅 및 스토리지 리소스 집합이 정의�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
+> [빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
 

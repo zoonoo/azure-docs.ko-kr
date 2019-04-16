@@ -1,7 +1,6 @@
 ---
 title: Azure CLI를 사용하여 비준수 리소스에 대한 정책 만들기
 description: Azure CLI를 사용하여 규정 비준수 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1f80171e8987f92688d564713e29fbfe2e103335
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342187"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283548"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Azure CLI를 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 96c69078d32e46c795b8c5240582b874a515dee8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670781"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045733"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -44,13 +44,16 @@ ms.locfileid: "58670781"
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
-* [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
+* [Service Fabric SDK 설치](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>인증서를 받거나 자체 서명된 개발 인증서 만들기
 
@@ -357,13 +360,13 @@ Azure에 애플리케이션을 배포하기 전에 모든 원격 클러스터 �
 
 내보내기 마법사에서 **예, 개인 키를 내보냅니다**를 선택하고, PFX(개인 정보 교환) 형식을 선택합니다.  파일을 *C:\Users\sfuser\votingappcert.pfx*로 내보냅니다.
 
-그런 다음, [ Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet을 사용하여 원격 클러스터에 인증서를 설치합니다.
+그런 다음, [ Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) cmdlet을 사용하여 원격 클러스터에 인증서를 설치합니다.
 
 > [!Warning]
 > 개발 및 테스트 애플리케이션은 자체 서명된 인증서로 충분합니다. 프로덕션 애플리케이션의 경우 자체 서명된 인증서 대신 [CA(인증 기관)](https://wikipedia.org/wiki/Certificate_authority)의 인증서를 사용합니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
 $vaultname="sftestvault"
 $certname="VotingAppPFX"
@@ -396,7 +399,7 @@ Write-Host "Writing secret to $certname in vault $vaultname"
 $secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretValue $secretValue
 
 # Add a certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
 ```
 
 ## <a name="open-port-443-in-the-azure-load-balancer"></a>Azure 부하 분산 장치에서 포트 443 열기
@@ -410,18 +413,18 @@ $RGname="voting_RG"
 $port=443
 
 # Get the load balancer resource
-$resource = Get-AzureRmResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
-$slb = Get-AzureRmLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
+$resource = Get-AzResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
+$slb = Get-AzLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
 
 # Add a new probe configuration to the load balancer
-$slb | Add-AzureRmLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
+$slb | Add-AzLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
 
 # Add rule configuration to the load balancer
-$probe = Get-AzureRmLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
-$slb | Add-AzureRmLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
+$probe = Get-AzLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
+$slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
 
 # Set the goal state for the load balancer
-$slb | Set-AzureRmLoadBalancer
+$slb | Set-AzLoadBalancer
 ```
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 71b87f975d856e20bd3934258c50be54e06254ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666395"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009006"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 애플리케이션을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -29,7 +29,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>규정 준수
-Azure Service Fabric 리소스 공급자는 모든 Azure 지역에서 사용할 수 있으며 Azure의 모든 규정 준수 인증서를 준수합니다. 여기에는 다음과 같은 인증서가 포함됩니다. SOC, ISO, PCI DSS, HIPPA 및 GDRP. 규정 준수 인증서 전체 목록을 보려면 다음을 검토하세요. [규정 준수 제안](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric 리소스 공급자는 모든 Azure 지역에서 사용할 수 있으며 Azure의 모든 규정 준수 인증서를 준수합니다. 여기에는 다음과 같은 인증서가 포함됩니다. SOC, ISO, PCI DSS, HIPAA 및 GDRP. 규정 준수 인증서 전체 목록을 보려면 다음을 검토하세요. [규정 준수 제안](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>마이크로 서비스로 구성된 애플리케이션 
 Service Fabric을 사용하면 컴퓨터의 공유 풀(클러스터라고 함)에서 높은 밀도로 실행되는 마이크로 서비스로 구성된 확장성 있고 신뢰할 수 있는 애플리케이션을 빌드하고 관리할 수 있습니다. 컨테이너에서 실행되는 분산되고 확장 가능한 상태 비저장 및 상태 저장 마이크로 서비스를 빌드하는 정교하고 간단한 런타임을 제공합니다. 또한 컨테이너화된 서비스를 비롯하여 배포된 애플리케이션을 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제하는 포괄적인 애플리케이션 관리 기능을 제공합니다.

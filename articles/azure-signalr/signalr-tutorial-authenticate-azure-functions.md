@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c18597fde157e0308138348432d63d56446931b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012568"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278839"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
@@ -348,7 +348,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 메시지를 보내는 경우 연결된 모든 클라이언트에 보낼지, 아니면 지정한 사용자에게 인증된 클라이언트에만 보낼지 여부를 결정할 수 있습니다.
 
-1. VS Code에서 **SignalRInfo/function.json**을 엽니다.
+1. VS Code에서 **negotiate/function.json**을 엽니다.
 
 1. *SignalRConnectionInfo* 바인딩의 *userId* 속성에 [바인딩 식](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)(`{headers.x-ms-client-principal-name}`)을 삽입합니다. 이렇게 하면 값이 인증된 사용자의 사용자 이름으로 설정됩니다. 특성은 이제 다음과 같습니다.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb5f84b7bffe52035e2fee89c3e3fd53b3f0853
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8fd941e2c6d4b830bea6458e74fd27123b25efdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-at-work"></a>자습서: Learning at Work와 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ Learning at Work에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![Learning at Work Domain 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<subdomain>.sabacloud.com/Saba/Web/<company code>` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.sabacloud.com/Saba/Web/<company code>`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<subdomain>.sabacloud.com/Saba/saml/SSO/alias/<company name>` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.sabacloud.com/Saba/saml/SSO/alias/<company name>`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Learning at Work 클라이언트 지원 팀](https://www.learninga-z.com/site/contact/support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -193,8 +193,8 @@ Learning at Work에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

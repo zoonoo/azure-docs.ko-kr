@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3253c26f99c470a256b937844138d8875219cbd1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878043"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>자습서: Help Scout와 Azure Active Directory 통합
 
@@ -106,18 +106,18 @@ Help Scout에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Help Scout 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자**는 Help Scout의 **대상 URI(서비스 공급자 엔터티 ID)** 이며, `urn:`으로 시작합니다.
+    a. **식별자**는 Help Scout의 **Audience URI(서비스 공급자 엔터티 ID)** 이며, 다음으로 시작합니다. `urn:`
 
-    b. **회신 URL**은 Help Scout의 **다시 게시 URL(Assertion Consumer Service URL)** 이며, `https://`로 시작합니다. 
+    b. **회신 URL**은 Help Scout의 **다시 게시 URL(Assertion Consumer Service URL)** 이며, 다음으로 시작합니다. `https://` 
 
     > [!NOTE]
-    > 이러한 URL의 값은 데모용으로만 사용합니다. 실제 회신 URL 및 식별자에서 해당 값을 업데이트해야 합니다. 자습서의 뒷부분에 설명되어 있는 인증 섹션 아래의 **Single Sign-On** 탭에서 이러한 값을 가져옵니다.
+    > 이러한 URL의 값은 데모용으로만 사용합니다. 실제 회신 URL 및 식별자에서 이러한 값을 업데이트해야 합니다. 자습서의 뒷부분에 설명되어 있는 인증 섹션 아래의 **Single Sign-On** 탭에서 이러한 값을 가져옵니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     ![Help Scout 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
-    **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://secure.helpscout.net/members/login/`
+    **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://secure.helpscout.net/members/login/`
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -157,7 +157,7 @@ Help Scout에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
 
-    a. Azure Portal에서 복사한  **로그인 URL** 값을  **Single Sign-On URL**  텍스트 상자에 붙여넣습니다.
+    a. **Single Sign-On URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
     b. **인증서 업로드**를 클릭하여 Azure Portal에서 다운로드한 **인증서(Base64)** 를 업로드합니다.
 
@@ -232,6 +232,6 @@ Help Scout에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

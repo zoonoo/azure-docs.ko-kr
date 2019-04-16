@@ -1,20 +1,18 @@
 ---
 title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802578"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259425"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure Blueprints 서비스 요약
 
@@ -103,7 +101,7 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 청사진을 할당하거나 할당을 해제하려면 계정에 다음과 같은 권한이 필요합니다.
 
 - `Microsoft.Blueprint/blueprintAssignments/write` - 청사진 할당
-- `Microsoft.Blueprint/blueprintAssignments/delete` - 청사진 할당 해제
+- `Microsoft.Blueprint/blueprintAssignments/delete` - 청사진 할당 취소
 
 > [!NOTE]
 > 청사진 할당은 구독에서 생성되므로 청사진 할당 및 할당 해제 권한은 구독 범위에서 부여되거나 구독 범위로 상속되어야 합니다.

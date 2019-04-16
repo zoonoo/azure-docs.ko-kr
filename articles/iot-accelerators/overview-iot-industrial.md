@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1dee51354ba9210e52459dcf7a96695bc3736648
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759768"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256382"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>산업용 IoT(IIoT)란?
 
@@ -30,7 +30,7 @@ Azure IoT OPC UA 디바이스 관리(OPC 쌍)를 통해 작업 현장 머신에 
 > [!NOTE]
 > Azure 산업용 IoT 서비스에 대한 자세한 내용은 GitHub [리포지토리](https://github.com/Azure/azure-iiot-services)를 참조하세요.
 Azure IoT Edge 모듈의 작동 방식에 대해 잘 모르는 경우 다음 문서를 시작하세요.
-- [Azure IoT Edge 정보](../iot-edge/about-iot-edge.md)
+- [About Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge 모듈](../iot-edge/iot-edge-modules.md)
 
 ## <a name="connected-factory"></a>연결된 공장

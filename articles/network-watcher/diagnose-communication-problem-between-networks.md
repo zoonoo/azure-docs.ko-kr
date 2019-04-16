@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a35e65237a3f4278e9154daddff328887d9f36ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997381"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046914"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 간 통신 문제 진단
 
@@ -33,10 +33,13 @@ ms.locfileid: "57997381"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 VPN진단을 사용하려면 실행 중인 기존 VPN 게이트웨이가 있어야 합니다. 진단할 기존 VPN 게이트웨이가 없는 경우 [PowerShell 스크립트](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 사용하여 배포할 수 있습니다. 다음 위치에서 PowerShell 스크립트를 실행할 수 있습니다.
-- **로컬 PowerShell 설치**: 스크립트에는 AzureRM PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- **로컬 PowerShell 설치**: 스크립트에는 Azure PowerShell `Az` 모듈이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 - **Azure Cloud Shell**: [Azure Cloud Shell](https://shell.azure.com/powershell)은 최신 버전의 PowerShell이 설치 및 구성되어 있으며 사용자를 Azure에 로그인합니다.
 
 이 스크립트는 VPN 게이트웨이를 만드는 데 약 1시간 정도 걸립니다. 나머지 단계에서는 진단하려는 게이트웨이가 이 스크립트로 배포된 것이라고 가정합니다. 사용자의 기존 게이트웨이를 진단하는 경우 결과가 달라집니다.

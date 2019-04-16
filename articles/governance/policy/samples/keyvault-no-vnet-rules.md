@@ -1,19 +1,18 @@
 ---
 title: 샘플 - 가상 네트워크 엔드포인트가 없는 Key Vault 감사
 description: 이 샘플 정책 정의에서는 Key Vault 자격 증명 모음을 감사하여 가상 네트워크 서비스 엔드포인트가 없는 인스턴스를 검색합니다.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: f2f6e5c60553a55fd1a65e45cd38aef0b883020e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802261"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276374"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>샘플 - 가상 네트워크 엔드포인트가 없는 Key Vault 자격 증명 모음
 
@@ -128,11 +127,11 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | 명령 | 메모 |
 |---|---|
-| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | 새 Azure Policy 정의를 만듭니다. |
-| [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | 단일 리소스 그룹을 가져옵니다. |
-| [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | 새 Azure Policy 할당을 만듭니다. 이 예제에서는 정의를 제공하지만, 이니셔티브를 취할 수도 있습니다. |
-| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | 기존 Azure Policy 할당을 제거합니다. |
-| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | 기존 Azure Policy 정의를 제거합니다. |
+| [az 정책 정의 만들기](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | 새 Azure Policy 정의를 만듭니다. |
+| [az 그룹 표시](/cli/azure/group?view=azure-cli-latest#az-group-show) | 단일 리소스 그룹을 가져옵니다. |
+| [az 정책 할당 만들기](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | 새 Azure Policy 할당을 만듭니다. 이 예제에서는 정의를 제공하지만, 이니셔티브를 취할 수도 있습니다. |
+| [az 정책 할당 삭제](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | 기존 Azure Policy 할당을 제거합니다. |
+| [az 정책 정의 삭제](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | 기존 Azure Policy 정의를 제거합니다. |
 
 ## <a name="rest-api"></a>REST API
 
@@ -181,8 +180,8 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | 서비스 | 그룹 | 작업(Operation) | 메모 |
 |---|---|---|---|
-| 리소스 관리 | 정책 정의 | [만들기](/rest/api/resources/policydefinitions/createorupdate) | 구독에서 새 Azure Policy 정의를 만듭니다. 대안: [관리 그룹에서 만들기](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
-| 리소스 관리 | 정책 할당 | [만들기](/rest/api/resources/policyassignments/create) | 새 Azure Policy 할당을 만듭니다. 이 예제에서는 정의를 제공하지만, 이니셔티브를 취할 수도 있습니다. |
+| 리소스 관리 | 정책 정의 | [생성](/rest/api/resources/policydefinitions/createorupdate) | 구독에서 새 Azure Policy 정의를 만듭니다. 대안: [관리 그룹에서 만들기](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| 리소스 관리 | 정책 할당 | [생성](/rest/api/resources/policyassignments/create) | 새 Azure Policy 할당을 만듭니다. 이 예제에서는 정의를 제공하지만, 이니셔티브를 취할 수도 있습니다. |
 | 리소스 관리 | 정책 할당 | [삭제](/rest/api/resources/policyassignments/delete) | 기존 Azure Policy 할당을 제거합니다. |
 | 리소스 관리 | 정책 정의 | [삭제](/rest/api/resources/policydefinitions/delete) | 기존 Azure Policy 정의를 제거합니다. 대안: [관리 그룹에서 삭제](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 

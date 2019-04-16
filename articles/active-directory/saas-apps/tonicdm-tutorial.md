@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 104acda9521ff52af809fc79b1dfd12e4769e87b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: b648c51b1b169c02f149493c53b6ef738b736e61
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848787"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>자습서: TonicDM과 Azure Active Directory 통합
 
@@ -109,7 +109,7 @@ TonicDM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://tonicdm.com/`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://tonicdm.com/saml/metadata` URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 URL을 입력합니다. `https://tonicdm.com/saml/metadata`
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -191,9 +191,9 @@ TonicDM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

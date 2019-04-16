@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: d8d96d929e55bd4423bdb0cd0dd064e275462ce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445355"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257436"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -175,6 +175,11 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 형식 및 추가 저장 프로시저 만들기
 다음 쿼리를 실행하여 SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다.
 
+여정을 쉽게 시작할 수 있도록 테이블 변수를 통해 델타 데이터를 전달하는 이러한 저장 프로시저를 직접 사용한 다음, 대상 저장소에 병합합니다. 테이블 변수에 "큰" 수의 델타 행(100개 초과)이 저장될 것으로 예상되지 않도록 주의하세요.  
+
+많은 수의 델타 행을 대상 저장소에 병합해야 하는 경우, 먼저 복사 작업을 사용하여 모든 델타 데이터를 대상 저장소의 임시 "준비" 테이블에 복사한 다음, 테이블 변수를 사용하지 않고 저장 프로시저를 직접 빌드하여  “준비” 테이블에서 “최종” 테이블로 병합하는 것이 좋습니다. 
+
+
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
     PersonID int,
@@ -226,10 +231,9 @@ END
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
+1. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터 + 분석**, **Data Factory**를 차례로 클릭합니다. 
    
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
-
+   ![새로 만들기->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
 1. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFMultiIncCopyTutorialDF**를 입력합니다. 
       
      ![새 데이터 팩터리 페이지](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
@@ -271,7 +275,7 @@ END
 1. **Integration Runtime 설정** 창에서 **데이터 이동을 수행하고 활동을 외부 계산으로 디스패치합니다**를 선택하고, **다음**을 클릭합니다. 
 
    ![통합 런타임 형식 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. **사설망**을 선택하고 **다음**을 클릭합니다. 
+1. **개인 네트워크**를 선택하고 **다음**을 클릭합니다. 
 
    ![사설망 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **다음**을 클릭합니다. 
@@ -383,7 +387,7 @@ END
    ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
-   1. **마침**을 클릭하면 **\@dataset().SinkTableName**이 테이블 이름으로 표시됩니다.
+ 1. **마침**을 클릭하면 **@dataset().SinkTableName**이 테이블 이름으로 표시됩니다.
    
    ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -425,11 +429,11 @@ END
     ![파이프라인 이름](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. **속성** 창에서 다음 단계를 수행합니다. 
 
-   1. **+새로 만들기**를 클릭합니다. 
-   1. 매개 변수 **이름**에 대해 **tableList**를 입력합니다. 
-   1. 매개 변수 **형식**에 대해 **Object**를 선택합니다.
+    1. **+새로 만들기**를 클릭합니다. 
+    1. 매개 변수 **이름**에 대해 **tableList**를 입력합니다. 
+    1. 매개 변수 **형식**에 대해 **Object**를 선택합니다.
 
-      ![파이프라인 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+    ![파이프라인 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. **활동** 도구 상자에서 **반복 및 조건부**를 펼치고, **ForEach** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. **속성** 창의 **일반** 탭에서 **IterateSQLTables**를 입력합니다. 
 
     ![ForEach 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -458,69 +462,69 @@ END
     ![두 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. **설정** 탭으로 전환합니다.
 
-     1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
-     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다.
-     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
+    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
+    1. **쿼리 사용**에 대해 **쿼리**를 선택합니다.
+    1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
 
-         ```sql    
-         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-         ```
+        ```sql    
+        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+        ```
     
-         ![두 번째 조회 활동 - 설정](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        ![두 번째 조회 활동 - 설정](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. **활동** 도구 상자에서 **복사** 활동을 끌어서 놓고 **이름**에 대해 **IncrementalCopyActivity**를 입력합니다. 
 
-     ![복사 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+    ![복사 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. **조회** 활동을 하나씩 **복사** 활동에 연결합니다. 연결하려면 **조회** 활동에 연결된 **녹색** 상자를 끌어서 **복사** 활동에 놓습니다. 복사 활동의 테두리 색이 **파란색**으로 변경되면 마우스 단추를 놓습니다.
 
-     ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. 파이프라인에서 **복사** 활동을 선택합니다. **속성** 창의 **원본** 탭으로 전환합니다. 
 
-     1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
-     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
-     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
+    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
+    1. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
+    1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
 
-         ```sql
-         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-         ```
+        ```sql
+        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+        ```
 
-         ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **SinkDataset**을 선택합니다. 
         
-     ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+    ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. **매개 변수** 탭으로 전환하고 다음 단계를 수행합니다.
 
-     1. **싱크 저장 프로시저 이름** 속성에 `@{item().StoredProcedureNameForMergeOperation}`을 입력합니다.
-     1. **싱크 테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
-     1. **싱크 데이터 세트** 섹션에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
+    1. **싱크 저장 프로시저 이름** 속성에 `@{item().StoredProcedureNameForMergeOperation}`을 입력합니다.
+    1. **싱크 테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
+    1. **싱크 데이터 세트** 섹션에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
 
-         ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동을 **저장 프로시저** 활동에 연결합니다. 
 
-     ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+    ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. 파이프라인에서 **저장 프로시저** 활동을 선택하고 **속성** 창의 **일반** 탭에서 **이름**에 대해 **StoredProceduretoWriteWatermarkActivity**를 입력합니다. 
 
-     ![저장 프로시저 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+    ![저장 프로시저 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. **SQL 계정** 탭으로 전환하고, **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
 
-     ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다.
 
-     1. **저장 프로시저 이름**에 `usp_write_watermark`를 입력합니다. 
-     1. **가져오기 매개 변수**를 선택합니다. 
-     1. 매개 변수에 대해 다음 값을 지정합니다. 
+    1. **저장 프로시저 이름**에 `usp_write_watermark`를 입력합니다. 
+    1. **가져오기 매개 변수**를 선택합니다. 
+    1. 매개 변수에 대해 다음 값을 지정합니다. 
 
-         | Name | type | 값 | 
-         | ---- | ---- | ----- |
-         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-         | TableName | 문자열 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | Name | type | 값 | 
+        | ---- | ---- | ----- |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | TableName | 문자열 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-         ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. 왼쪽 창에서 **게시**를 클릭합니다. 이 작업은 데이터 팩터리 서비스에 대해 만든 엔터티를 게시합니다. 
 
-     ![게시 단추](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+    ![게시 단추](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. **게시됨** 메시지가 표시될 때까지 기다립니다. 알림을 보려면 **알림 표시** 링크를 클릭합니다. **X**를 클릭하여 알림 창을 닫습니다.
 
-     ![알림 표시](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+    ![알림 표시](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>파이프라인 실행

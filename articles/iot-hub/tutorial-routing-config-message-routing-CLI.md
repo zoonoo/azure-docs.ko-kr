@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 53a0645c42255d5f741d31c411ca70e1e009febc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 6faa585f1ad38eb981e0bbffffef603c4aab0bc8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661591"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360266"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI를 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -147,7 +147,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-라우팅 엔드포인트를 만들려면 [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint.md?view=azure-cli-latest#az-iot-hub-routing-endpoint-create)를 사용합니다. 엔드포인트에 대한 메시지 경로를 만들려면 [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create)를 사용합니다.
+라우팅 엔드포인트를 만들려면 [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create)를 사용합니다. 엔드포인트에 대한 메시지 경로를 만들려면 [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create)를 사용합니다.
 
 ### <a name="route-to-a-storage-account"></a>스토리지 계정으로 라우팅
 

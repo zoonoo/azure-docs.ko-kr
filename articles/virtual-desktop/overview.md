@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577189"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049441"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
 
@@ -54,12 +54,12 @@ Windows Virtual Desktop을 사용하면 다음과 같이 확장 가능하고 유
 
 Windows Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이션에 사용자를 연결하려면 몇 가지 조건을 충족해야 합니다.
 
-첫째, 배포하려는 데스크톱 및 앱에 따라 사용자에게 다음과 같은 적절한 라이선스가 있어야 합니다.
+첫째, 배포하려는 데스크톱 및 앱에 따라 사용자에게 다음과 같은 [적절한 라이선스](https://azure.microsoft.com/pricing/details/virtual-desktop/)가 있어야 합니다.
 
 |OS|필수 라이선스|
 |---|---|
-|Windows 10 Enterprise 다중 세션 또는 Windows 10 단일 세션|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise 다중 세션 또는 Windows 10 단일 세션|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
+|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Software Assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
 
 Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
@@ -97,4 +97,4 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 시작하려면 테넌트를 만들어야 합니다. 테넌트를 만드는 자세한 방법을 알아보려면 테넌트 만들기 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Windows Virtual Desktop Preview에서 테넌트 만들기](tenant-setup-azure-active-directory.md)
+> [Windows Virtual Desktop 미리 보기에서 테넌트 만들기](tenant-setup-azure-active-directory.md)

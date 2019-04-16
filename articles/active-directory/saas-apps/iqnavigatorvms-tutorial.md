@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f93bea79354dda68c4307ab45c6d1bbfd410ea1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ad6bf2576d7f033f8ae029338dc94635dbba0fe7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370604"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>자습서: IQNavigator VMS와 Azure Active Directory 통합
 
@@ -107,11 +107,11 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `iqn.com`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
     다. **추가 URL 설정**을 클릭합니다.
 
-    d. **릴레이 상태** 텍스트 상자에서 `https://<subdomain>.iqnavigator.com` 패턴을 사용하는 URL을 입력합니다.
+    d. **릴레이 상태** 텍스트 상자에 다음 패턴을 사용하는 URL을 입력합니다. `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 릴레이 상태로 값을 업데이트합니다. 이러한 값을 얻으려면 [IQNavigator VMS 클라이언트 지원 팀](https://www.beeline.com/iqn-product-support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -191,8 +191,8 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287012"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264950"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>빠른 시작: 3 - C#으로 Azure Search 인덱스 쿼리
 
@@ -34,7 +34,7 @@ ms.locfileid: "58287012"
 ## <a name="create-a-client"></a>클라이언트 만들기
 읽기 전용 액세스에 대한 쿼리 키를 제공할 수 있도록 `SearchIndexClient` 클래스의 인스턴스를 만듭니다(이전 단원에서 사용한 `SearchServiceClient`에 부여된 쓰기 액세스 권한과는 달리).
 
-이 클래스에는 몇 가지 생성자가 있습니다. 그 중 하나는 검색 서비스 이름, 인덱스 이름 및 [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) 개체를 매개 변수로 사용합니다. `SearchCredentials` 는 API 키를 래핑합니다.
+이 클래스에는 몇 가지 생성자가 있습니다. 그 중 하나는 검색 서비스 이름, 인덱스 이름 및 [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) 개체를 매개 변수로 사용합니다. `SearchCredentials` API 키를 래핑합니다.
 
 아래 코드는 애플리케이션의 구성 파일([샘플 애플리케이션](https://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 api 키와 검색 서비스 이름의 값을 사용하여 "호텔" 인덱스의 새 `SearchIndexClient`를 만듭니다.
 
@@ -49,7 +49,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-`SearchIndexClient`는 [`Documents`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet) 속성을 갖습니다. 이 속성은 Azure Search 인덱스를 쿼리하는 데 필요한 모든 메서드를 제공합니다.
+`SearchIndexClient` [`Documents`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet) 속성이 있습니다. 이 속성은 Azure Search 인덱스를 쿼리하는 데 필요한 모든 메서드를 제공합니다.
 
 ## <a name="construct-searchparameters"></a>SearchParameters 생성
 .NET SDK로 검색하는 작업은 `SearchIndexClient`에서 `Documents.Search` 메서드를 호출하는 것 만큼 간단합니다. 이 메서드는 쿼리를 구체화하는 데 사용할 수 있는 `SearchParameters` 개체와 함께 검색 텍스트를 비롯한 몇 가지 매개 변수를 사용합니다.

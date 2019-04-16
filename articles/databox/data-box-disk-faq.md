@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892333"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258779"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -54,7 +54,7 @@ a. 각각 8TB(사용 가능한 용량: 7TB) 크기의 5개 디스크에 대해 �
 a.  Data Box Disk가 현재 사용 가능한 곳을 보려면 [지역 가용성](data-box-disk-overview.md#region-availability)으로 이동합니다.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽 및 북유럽 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
+a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
 a. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)하세요.
@@ -132,8 +132,8 @@ a. Data Box Disk에서 사용할 수 있는 도구 세트로는 세 가지 도�
 - [Windows용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolswin) 
 - [Linux용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Data Box Disk를 사용하여 Azure Files로 데이터를 전송한 다음, Azure 파일 동기화에서 데이터를 사용할 수 있나요? 
-  a. Azure Files는 Data Box Disk에 지원되지만, Azure 파일 동기화에는 작동되지 않습니다. Azure 파일 동기화에서 파일 데이터를 나중에 사용하는 경우에도 메타데이터가 유지되지 않습니다.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Data Box Disk를 사용하여 Azure Files로 데이터를 전송한 다음, Azure 파일 동기화에서 데이터를 사용할 수 있나요? 
+a. Azure Files는 Data Box Disk에 지원되지만, Azure 파일 동기화에는 작동되지 않습니다. Azure 파일 동기화에서 파일 데이터를 나중에 사용하는 경우에도 메타데이터가 유지되지 않습니다.
 
 
 ## <a name="verify-and-upload"></a>확인 및 업로드
@@ -166,7 +166,7 @@ a. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 �
 a. 예. 데이터가 Azure로 업로드되었지만 지정된 리소스 그룹의 관리 디스크가 보이지 않을 경우에는 데이터가 유효하지 않았을 가능성이 높습니다. 페이지 Blob, 블록 Blob, Azure Files 및 관리 디스크가 유효하지 않은 경우 다음 폴더로 이동했을 것입니다.
  - 페이지 Blob은 *databoxdisk-invalid-pb-* 로 시작하는 블록 Blob 컨테이너로 이동합니다.
  - Azure Files는 *databoxdisk-invalid-af-* 로 시작하는 블록 Blob 컨테이너로 이동합니다.
- - 관리 디스크는 *databoxdisk-invliad-md-* 로 시작하는 블록 Blob 컨테이너로 이동합니다.
+ - 관리 디스크는 *databoxdisk-invalid-md-* 로 시작하는 블록 Blob 컨테이너로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

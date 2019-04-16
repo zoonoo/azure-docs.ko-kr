@@ -1,19 +1,18 @@
 ---
 title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7440c9bbfce801ffcfc5c4e0f800f6f4f9d34f8c
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805128"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259459"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure Policy 서비스 개요
 
@@ -145,7 +144,7 @@ Azure Policy의 다음 개요는 Build 2018에서부터 시작됩니다. 슬라�
 
 이제 Azure Policy 개요와 몇 가지 핵심 개념을 살펴보았으므로 다음과 같은 단계를 권장합니다.
 
-- [Portal을 사용하여 정책 정의 할당](assign-policy-portal.md)
+- [포털을 사용하여 정책 정의 할당](assign-policy-portal.md)
 - [Azure CLI를 사용하여 정책 정의 할당](assign-policy-azurecli.md)
 - [PowerShell을 사용하여 정책 정의 할당](assign-policy-powershell.md)
 - [Azure 관리 그룹으로 리소스 구성](..//management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 164b0a92e8b4bb291f3576ba8ebcc0915838f834
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf6c50a486acfaf8c0410616a75d9bcbe36987e6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620779"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>자습서: QPrism과 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ QPrism을 사용하여 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
     ![QPrism 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<customer domain>.qmyzone.com/login` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<customer domain>.qmyzone.com/login`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<customer domain>.qmyzone.com/metadata.php` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<customer domain>.qmyzone.com/metadata.php`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [QPrism 클라이언트 지원 팀](mailto:qsupport-ce@quatrro.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -182,9 +182,9 @@ QPrism을 사용하여 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

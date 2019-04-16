@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104525"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469729"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
 
@@ -41,8 +41,8 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
     | 언어 | 내선 번호 |
     | -------- | --------- |
-    | **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Java에 대한 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
+    | **C#** | [Visual Studio Code용 C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
+    | **자바** | [Java에 대한 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
     | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
 
     \* 또한 Core 도구에서 필요합니다.
@@ -115,12 +115,10 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio Code를 사용하여 간단한 HTTP 트리거 함수가 있는 함수 앱을 만들었습니다. 특정 언어로 함수를 개발하는 것에 관한 자세한 내용은 [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md) 또는 [Java](functions-reference-java.md)에 대한 언어 참조 가이드를 참조하세요.
-
-다음으로, Azure Functions 핵심 도구를 사용하여 터미널 또는 명령 프롬프트에서 로컬 테스트 및 디버깅하는 데 관한 자세한 내용을 알아볼 수 있습니다.
+Visual Studio Code를 사용하여 간단한 HTTP 트리거 함수가 있는 함수 앱을 만들었습니다. Azure Functions 핵심 도구를 사용하여 [터미널 또는 명령 프롬프트에서 로컬 테스트 및 디버깅](functions-run-local.md)하는 데 관한 자세한 내용을 알아볼 수도 있습니다.
 
 > [!div class="nextstepaction"]
-> [로컬로 코드 및 테스트](functions-run-local.md)
+> [Application Insights 통합 사용](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Visual Studio Code용 Azure Functions 확장]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

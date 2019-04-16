@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 2cdadb8345f88c8d6f5960d1951c1368c666430b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189277"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>자습서: Azure Active Directory와 Infogix Data3Sixty Govern 통합
 
@@ -108,7 +108,7 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://data3sixty.com/ui`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.data3sixty.com/sso/acs` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.data3sixty.com/sso/acs`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -233,9 +233,9 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

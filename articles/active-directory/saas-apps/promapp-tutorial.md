@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d550591f48fbecc60aae8154bed8eec482a2ed12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 743246881463d9cb5156677a0c3ec719d80a079c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577070"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>자습서: Promapp과 Azure Active Directory 통합
 
@@ -121,7 +121,7 @@ Promapp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
     > [!NOTE] 
     > 현재 Azure AD와 Promapp의 통합은 서비스에서 시작하는 인증에 대해서만 구성되었습니다. 예를 들어 Promapp URL로 이동하면 인증 프로세스가 시작됩니다. 그러나 회신 URL은 필수 필드입니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -233,9 +233,9 @@ Promapp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

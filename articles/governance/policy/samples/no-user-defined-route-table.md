@@ -1,19 +1,18 @@
 ---
 title: 샘플 - 사용자 정의 경로 테이블 없음
 description: 이 샘플 정책 정의에서는 가상 네트워크가 사용자 정의 경로 테이블과 함께 배포되는 것이 금지됩니다.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c2a05418b19b3ef97c37a69d3858769895faef61
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 330ffc8451f538e5765425522b37f83231d782c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801796"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275864"
 ---
 # <a name="sample---no-user-defined-route-table"></a>샘플 - 사용자 정의 경로 테이블 없음
 
@@ -29,7 +28,7 @@ ms.locfileid: "58801796"
 
 ## <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
 
-[![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fno-route-table-in-ER-Network%2Fazurepolicy.json)
+[![DAzure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fno-route-table-in-ER-Network%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 

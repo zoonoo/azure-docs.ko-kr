@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 9d157d3f4dbc7a88a356cdd754326cbff1080ac1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: dfd81735b7dfd95a38caf3934fe9057adbcde5a7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846460"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357064"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Azure Resource Manager 템플릿과 함께 PowerShell을 사용하여 Azure SQL Database에서 Managed Instance 만들기
 
@@ -41,9 +41,9 @@ Azure PowerShell 명령은 미리 정의된 Azure Resource Manager 템플릿을 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 샘플에서는 Managed Instance에 대한 [유효한 네트워크 환경을 만들](../sql-database-managed-instance-create-vnet-subnet.md)거나 [기존 VNet을 수정](../sql-database-managed-instance-configure-vnet-subnet.md)했다고 가정합니다. 샘플에서는 commandlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)를 사용하므로 다음 PowerShell 모듈을 설치해야 합니다.
+이 샘플에서는 Managed Instance에 대한 [유효한 네트워크 환경을 만들](../sql-database-managed-instance-create-vnet-subnet.md)거나 [기존 VNet을 수정](../sql-database-managed-instance-configure-vnet-subnet.md)했다고 가정합니다. 샘플에서는 cmdlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)를 사용하므로 다음 PowerShell 모듈을 설치해야 합니다.
 
-```
+```powershell
 Install-Module Az.Network
 Install-Module Az.Resources
 ```
@@ -52,7 +52,7 @@ Install-Module Az.Resources
 
 다음 내용을 인스턴스를 만드는 데 사용할 템플릿을 표시하는 파일에 배치해야 합니다.
 
-```
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",

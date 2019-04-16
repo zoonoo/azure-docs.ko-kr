@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112792"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273824"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
@@ -23,14 +23,13 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 이 자습서에서 사용되는 애플리케이션은 스트리밍 워드 카운트입니다. 이 응용 프로그램은 Kafka 토픽에서 텍스트 데이터를 읽고, 개별 단어를 추출한 다음, 워드 카운트를 다른 Kafka 토픽에 저장합니다.
 
 > [!NOTE]  
-> Kafka 스트림 처리는 종종 Apache Spark 또는 Apache Storm을 사용하여 수행됩니다. Kafka 0.10.0 버전(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. 
+> Kafka 스트림 처리는 종종 Apache Spark 또는 Apache Storm을 사용하여 수행됩니다. Kafka 버전 1.1.0(HDInsight 3.5 및 3.6)에 Kafka Streams API가 도입되었습니다. 이 API를 사용하면 입력 및 출력 토픽 간의 데이터 스트림을 변환할 수 있습니다. 경우에 따라 Spark 또는 Storm 스트리밍 솔루션을 만드는 대신 이 방법을 사용할 수 있습니다. 
 >
 > Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https://kafka.apache.org/10/documentation/streams/) 문서를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 개발 환경 설정
 > * 코드 이해
 > * 애플리케이션 빌드 및 배포
 > * Kafka 토픽 구성
@@ -42,15 +41,11 @@ Apache Kafka Streams API를 사용하는 애플리케이션을 만들고 HDInsig
 
 * [Apache Kafka 소비자 및 생산자 API](apache-kafka-producer-consumer-api.md) 문서의 단계를 완료합니다. 이 문서의 단계는 이 자습서에서 만든 예제 애플리케이션 및 토픽을 사용합니다.
 
-## <a name="set-up-your-development-environment"></a>개발 환경 설정
+* OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](https://aka.ms/azure-jdks) 또는 그와 동등한 프로그램
 
-개발 환경에 다음 구성 요소가 설치되어 있어야 합니다.
+* Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html) [Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
-* [Java JDK 8](https://aka.ms/azure-jdks) 또는 이와 동등한 프로그램(예: OpenJDK)
-
-* [Apache Maven](https://maven.apache.org/)
-
-* SSH 클라이언트 및 `scp` 명령입니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
+* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="understand-the-code"></a>코드 이해
 
@@ -135,65 +130,73 @@ public class Stream
 }
 ```
 
-
 ## <a name="build-and-deploy-the-example"></a>예제 빌드 및 배포
 
 프로젝트를 빌드하고 HDInsight 클러스터의 Kafka에 배포하려면 다음 단계를 사용합니다.
 
-1. [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 예제를 다운로드합니다.
+1. 현재 디렉터리를 `hdinsight-kafka-java-get-started-master\Streaming` 디렉터리의 위치로 설정한 후, 다음 명령을 사용하여 jar 패키지를 만듭니다.
 
-2. 디렉터리를 `Streaming` 디렉터리로 변경한 후 다음 명령을 사용하여 jar 패키지를 만듭니다.
-
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
     이 명령은 `target/kafka-streaming-1.0-SNAPSHOT.jar`에 패키지를 만듭니다.
 
-3. 다음 명령을 사용하여 `kafka-streaming-1.0-SNAPSHOT.jar` 파일을 HDInsight 클러스터에 복사합니다.
-   
-    ```bash
+2. `sshuser`은 클러스터의 SSH 사용자로, `clustername`은 클러스터 이름으로 바꿉니다. 다음 명령을 사용하여 `kafka-streaming-1.0-SNAPSHOT.jar` 파일을 HDInsight 클러스터에 복사합니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다.
+
+    ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
-   
-    `sshuser`은 클러스터의 SSH 사용자로, `clustername`은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다. HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="create-apache-kafka-topics"></a>Apache Kafka 토픽 만들기
 
-1. 클러스터에 대한 SSH 연결을 열려면 다음 명령을 사용합니다.
+1. `sshuser`은 클러스터의 SSH 사용자로, `CLUSTERNAME`은 클러스터 이름으로 바꿉니다. 다음 명령을 입력하여 클러스터에 대한 SSH 연결을 엽니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다.
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    `sshuser`은 클러스터의 SSH 사용자로, `clustername`은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자 계정의 암호를 입력합니다. HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
-2. 변수에 클러스터 이름을 저장하고 유틸리티(`jq`)를 구문 분석하는 JSON을 설치하려면 다음 명령을 사용합니다. 메시지가 표시되면 Kafka 클러스터 이름을 입력합니다.
+2. 간단한 명령줄 JSON 프로세서인 [jq](https://stedolan.github.io/jq/)를 설치합니다. 열린 SSH 연결에서 다음 명령을 실행하여 `jq`를 설치합니다.
 
     ```bash
     sudo apt -y install jq
-    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Kafka broker 호스트와 Apache Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다. 암호를 2번 입력하라는 메시지가 나타납니다.
+3. 환경 변수를 설정합니다. `PASSWORD` 및 `CLUSTERNAME`을 각각 클러스터 로그인 암호와 클러스터 이름으로 바꾸고 다음 명령을 입력합니다.
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-4. 스트리밍 작업에서 사용되는 토픽을 만들려면 다음 명령을 사용합니다.
+4. 대/소문자가 올바르게 입력된 클러스터 이름을 추출합니다. 클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다. 이 명령은 실제 대/소문자를 가져와서 변수에 저장한 다음, 올바른 대/소문자 이름과 여러분이 앞에서 입력한 이름을 표시합니다. 다음 명령을 입력합니다.
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. Kafka broker 호스트와 Apache Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다. 암호를 2번 입력하라는 메시지가 나타납니다.
+
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKABROKERS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    ```
+
+6. 스트리밍 작업에서 사용되는 토픽을 만들려면 다음 명령을 사용합니다.
 
     > [!NOTE]  
     > `test` 토픽이 이미 있다는 오류가 표시될 수 있습니다. 생산자 및 소비자 API 자습서에서 토픽이 만들어졌을 수 있으므로 이것은 정상적인 것입니다.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
@@ -251,7 +254,16 @@ public class Stream
     > [!NOTE]  
     > 매개 변수 `--from-beginning`은 토픽에 저장된 레코드의 시작 부분에서 소비자가 시작되도록 구성합니다. 단어를 만날 때마다 카운트가 증가하며 토픽은 각 단어에 대해 카운트를 늘리는 여러 항목을 포함합니다.
 
-7. __Ctrl + C__를 사용하여 생산자를 종료합니다. __Ctrl + C__를 한 번 더 사용하여 애플리케이션 및 소비자를 종료합니다.
+4. __Ctrl + C__를 사용하여 생산자를 종료합니다. __Ctrl + C__를 한 번 더 사용하여 애플리케이션 및 소비자를 종료합니다.
+
+5. 스트리밍 작업에서 사용되는 항목을 삭제하려면 다음 명령을 사용합니다.
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

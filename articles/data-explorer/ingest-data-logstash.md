@@ -1,19 +1,18 @@
 ---
 title: '빠른 시작: Logstash에서 Azure Data Explorer로 데이터 수집'
 description: 이 빠른 시작 문서에서는 Logstash에서 Azure Data Explorer로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
-ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/14/2019
+ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754658"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046413"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>빠른 시작: Logstash에서 Azure Data Explorer로 데이터 수집
 
@@ -109,12 +108,12 @@ output {
 
 | 매개 변수 이름 | 설명 |
 | --- | --- |
-| **path** | Logstash 플러그인은 이벤트를 Azure Data Explorer로 보내기 전에 임시 파일에 기록합니다. 이 매개 변수에는 파일을 작성해야 하는 경로와 Azure Data Explorer 서비스에 대한 업로드를 트리거하기 위한 파일 순환의 시간 표현식이 포함됩니다.|
+| **경로** | Logstash 플러그인은 이벤트를 Azure Data Explorer로 보내기 전에 임시 파일에 기록합니다. 이 매개 변수에는 파일을 작성해야 하는 경로와 Azure Data Explorer 서비스에 대한 업로드를 트리거하기 위한 파일 순환의 시간 표현식이 포함됩니다.|
 | **ingest_url** | 수집 관련 통신을 위한 Kusto 엔드포인트입니다.|
 | **app_id**, **app_key** 및 **app_tenant**| Azure Data Explorer에 연결하는 데 필요한 자격 증명입니다. 수집 권한이 있는 애플리케이션을 사용해야 합니다. |
-| **database**| 이벤트를 적용할 데이터베이스 이름입니다. |
+| **데이터베이스**| 이벤트를 적용할 데이터베이스 이름입니다. |
 | **테이블** | 이벤트를 적용할 대상 테이블 이름입니다. |
-| **mapping** | 매핑은 들어오는 이벤트 json 문자열을 올바른 행 형식으로 매핑하는 데 사용됩니다(어떤 속성이 열에 들어가는지 정의). |
+| **매핑** | 매핑은 들어오는 이벤트 json 문자열을 올바른 행 형식으로 매핑하는 데 사용됩니다(어떤 속성이 열에 들어가는지 정의). |
 
 ## <a name="run-logstash"></a>Logstash 실행
 
@@ -148,4 +147,4 @@ output {
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [쿼리 작성](write-queries.md)
+> [쿼리 쓰기](write-queries.md)

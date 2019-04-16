@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 03/01/2019
-ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/04/2019
+ms.openlocfilehash: f5d43794ba80e4791c8bf24ad404069a8329518e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864952"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051226"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>빠른 시작: Azure SQL Database(미리 보기)에서 Machine Learning Services(R 포함) 사용
 
@@ -98,7 +98,8 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
     b <- 2
     c <- a/b
     d <- a*b
-    print(c, d)'
+    print(c(c, d))
+    '
     ```
 
 2. 모든 것을 올바르게 설정했다면 올바른 결과가 계산되고 R `print` 함수가 **메시지** 창에 결과를 반환합니다.
@@ -110,7 +111,7 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
     0.5 2
     ```
 
-    코드를 테스트할 때 **stdout** 메시지를 가져오면 도움이 되지만, 응용 프로그램에서 사용할 수 있도록 또는 테이블에 쓸 수 있도록 결과를 테이블 형식으로 반환해야 하는 경우가 자주 있습니다. 자세한 내용은 아래의 입력 및 출력 섹션을 참조하세요.
+    코드를 테스트할 때 **stdout** 메시지를 가져오면 도움이 되지만, 애플리케이션에서 사용할 수 있도록 또는 테이블에 쓸 수 있도록 결과를 테이블 형식으로 반환해야 하는 경우가 자주 있습니다. 자세한 내용은 아래의 입력 및 출력 섹션을 참조하세요.
 
 `@script` 인수 내부의 모든 항목이 유효한 R 코드여야 합니다.
 
@@ -437,7 +438,7 @@ SQL 데이터베이스에 설치되지 않은 패키지를 사용해야 하는 �
 
     "'R'은 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일이 아닙니다"라는 오류가 발생하면 R.exe 경로가 Windows의 **PATH** 환경 변수에 포함되지 않은 것일 수 있습니다. 명령을 실행하기 전에 환경 변수에 디렉터리를 추가하거나 명령 프롬프트에서 디렉터리로 이동할 수 있습니다(예: `cd C:\Program Files\R\R-3.5.1\bin`).
 
-1. **R CMD INSTALL** 명령을 사용하여 **sqlmlutils**를 설치합니다. Zip 파일을 다운로드한 디렉터리 경로 및 Zip 파일 이름을 지정합니다. 예를 들면 다음과 같습니다.
+1. **R CMD INSTALL** 명령을 사용하여 **sqlmlutils**를 설치합니다. Zip 파일을 다운로드한 디렉터리 경로 및 Zip 파일 이름을 지정합니다. 예: 
 
     ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
@@ -522,5 +523,5 @@ Machine Learning Services에 대한 자세한 내용은 아래 문서를 참조�
 - [Azure SQL Database Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning 서비스](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [자습서: SQL Server에서 R을 사용하여 데이터베이스 내 분석 알아보기](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R 및 SQL Server에 대한 종합적인 데이터 과학 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [R 및 SQL Server에 대한 엔드투엔드 데이터 과학 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
 - [자습서: SQL Server 데이터에 RevoScaleR R 함수 사용](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

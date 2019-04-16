@@ -7,21 +7,21 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 955f13376ac899f66b0ec4e1ed99166164508fbe
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449804"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357016"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>PowerShell을 사용하여 Azure SQL Database 관리형 인스턴스 만들기
 
-이 PowerShell 스크립트 예제는 새 가상 네트워크 내에서 전용 서브넷에 Azure SQL Database 관리형 인스턴스를 만듭니다. 또한 가상 네트워크에 대한 네트워크 보안 그룹과 경로 테이블을 구성합니다. 스크립트가 성공적으로 실행되면 가상 네트워크나 온-프레미스 환경 내에서 관리형 인스턴스에 액세스할 수 있습니다. 이 작업을 수행하는 방법을 보여주는 빠른 시작은 [Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성](../sql-database-managed-instance-configure-vm.md)과 [온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](../sql-database-managed-instance-configure-p2s.md)을 참조하세요.
+이 PowerShell 스크립트 예제는 새 가상 네트워크 내에서 전용 서브넷에 Azure SQL Database 관리형 인스턴스를 만듭니다. 또한 가상 네트워크에 대한 네트워크 보안 그룹과 경로 테이블을 구성합니다. 스크립트가 성공적으로 실행되면 가상 네트워크나 온-프레미스 환경 내에서 관리형 인스턴스에 액세스할 수 있습니다. [Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성](../sql-database-managed-instance-configure-vm.md) 및 [온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](../sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 제한 사항은 [지원되는 지역](../sql-database-managed-instance-resource-limits.md#supported-regions)과 [지원되는 구독 유형](../sql-database-managed-instance-resource-limits.md#supported-subscription-types)을 참조하세요.
@@ -36,7 +36,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -48,7 +48,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | 가상 네트워크에 서브넷 구성을 추가합니다. |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. |

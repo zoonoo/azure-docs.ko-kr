@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05127e8ecfe68b4cb6330f838f252557bbd5e11d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852137"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory 통합
 
@@ -107,14 +107,14 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Cisco Webex 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 URL을 `https://web.ciscospark.com/#/signin`으로 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 URL을 다음과 같이 입력합니다. `https://web.ciscospark.com/#/signin`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://idbroker.webex.com/<Org Id>` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
     > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 서비스 공급 기업 메타데이터가 있는 경우 **기본 SAML 구성** 섹션에 업로드한 다음, **식별자(엔터티 ID)** 값이 자동으로 채워집니다.
 
-5. Cisco Webex 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여 특성을 추가합니다.
+5. Cisco Webex 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 특성을 추가합니다.
 
     ![이미지](common/edit-attribute.png)
 
@@ -259,9 +259,9 @@ Cisco Webex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

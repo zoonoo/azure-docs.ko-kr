@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886391"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>자습서: Agiloft와 Azure Active Directory 통합
 
@@ -167,13 +167,13 @@ Agiloft에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     ![Agiloft 구성](./media/agiloft-tutorial/setup4.png)
 
-    a. Azure Portal에서 복사한  **Azure AD 식별자** 값을  **IdP 엔터티 ID/발급자**  텍스트 상자에 붙여넣습니다.
+    a. Azure Portal에서 복사한 **Azure Ad 식별자** 값을 **IdP 엔터티 Id / 발급자** 텍스트 상자에 붙여넣습니다.
 
-    b. Azure Portal에서 복사한  **로그인 URL** 값을  **IdP 로그인 URL**  텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **로그인 URL** 값을 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    다. Azure Portal에서 복사한  **로그아웃 URL** 값을  **IdP 로그아웃 URL**  텍스트 상자에 붙여넣습니다.
+    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **IdP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음,  **IdP 제공 X.509 인증서 콘텐츠**  텍스트 상자에 붙여넣습니다.
+    d. Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음, **IdP 제공 X.509 인증서 콘텐츠** 텍스트 상자에 붙여넣습니다.
 
     e. **Finish**를 클릭합니다.
 
@@ -242,6 +242,6 @@ Agiloft에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

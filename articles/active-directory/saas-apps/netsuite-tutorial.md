@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887428"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>자습서: NetSuite와 Azure Active Directory 통합
 
@@ -173,19 +173,19 @@ NetSuite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. 브라우저에서 새 탭을 열고 관리자 권한으로 NetSuite 회사 사이트에 로그인합니다.
 
-2. 페이지 위쪽의 도구 모음에서  **설정**을 클릭한 다음,  **회사** 로 이동하고,  **기능 사용**을 클릭합니다.
+2. 페이지의 맨 위에 있는 도구 모음에서 **설정**을 클릭한 다음, **회사**로 이동하고, **기능 사용**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. 페이지 중간의 도구 모음에서  **SuiteCloud**를 클릭합니다.
+3. 페이지의 가운데에 있는 도구 모음에서 **SuiteCloud**를 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4.  **인증 관리**  섹션 아래에서  **SAML Single Sign-On** 을 선택하여 NetSuite에서 SAML Single Sign-On 옵션을 사용하도록 설정합니다.
+4. **인증 관리** 섹션 아래에서 **SAML Single Sign-On**을 선택하여 NetSuite에서 SAML Single Sign-On 옵션을 사용하도록 설정합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. 페이지 위쪽의 도구 모음에서  **설정**을 클릭합니다.
+5. 페이지의 위쪽에 있는 도구 모음에서 **설정**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -326,7 +326,7 @@ NetSuite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a326462a6735b5a91d1ef03de41bb4705fe452a4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e1ce1ad692f544d668ae557c85e504ffcb9d0dd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854215"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356674"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 SQL Database 서버 방화벽 규칙 구성
 
@@ -35,7 +35,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -50,7 +50,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | 입력한 IP 주소 범위의 서버에서 모든 SQL Database에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
-| [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

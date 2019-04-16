@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07442d9636ec488da6eb3cdf9000b7f3cc24b61f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 4edd445fe526b9be5c421b21b25f9b095c734f43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223515"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>자습서: SumoLogic과 Azure Active Directory 통합
 
@@ -105,7 +105,7 @@ SumoLogic에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![SumoLogic 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<tenantname>.SumoLogic.com` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<tenantname>.SumoLogic.com`
 
    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
@@ -225,7 +225,7 @@ SumoLogic에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 Azure AD 사용자가 SumoLogic에 로그인할 수 있도록 하려면 SumoLogic으로 프로비저닝되어야 합니다. SumoLogic의 경우 프로비전은 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. 자신의 **SumoLogic** 테넌트에 로그인합니다.
 
@@ -260,9 +260,9 @@ Azure AD 사용자가 SumoLogic에 로그인할 수 있도록 하려면 SumoLogi
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

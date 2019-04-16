@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842416"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426310"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Azure Dev Spaces에서 Java를 사용하여 시작
 
@@ -26,15 +26,10 @@ ms.locfileid: "57842416"
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
 > [!Note]
-> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.
-
-이제 Azure에서 Kubernetes 기반 개발 환경을 만들 준비가 되었습니다.
+> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하세요.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
 Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다.
-
-> [!IMPORTANT]
-> Azure CLI가 이미 설치되어 있는 경우 2.0.43 이상 버전을 사용하고 있는지 확인합니다.
 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI에 로그인
 Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
@@ -113,7 +108,7 @@ https://github.com/Azure/dev-spaces로 이동하여 GitHub에서 코드를 다�
     ```
 
 Azure CLI의 `azds prep` 명령은 기본 설정으로 Docker 및 Kubernetes 자산을 생성합니다.
-* `./Dockerfile`은 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
+* `./Dockerfile` 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
 * `./charts/webfrontend` 아래의 [Helm 차트](https://docs.helm.sh)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
 
 지금은 이러한 파일의 전체 컨텐츠를 이해할 필요가 없습니다. 언급할 가치가 있지만 **코드 자산으로 동일한 Kubernetes 및 Docker 구성을 개발에서 프로덕션까지 사용할 수 있으므로 서로 다른 환경에서 더 나은 일관성을 제공합니다.**

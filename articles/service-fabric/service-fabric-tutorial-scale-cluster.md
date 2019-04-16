@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669506"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278703"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -41,12 +41,15 @@ ms.locfileid: "58669506"
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 
 ## <a name="important-considerations-and-guidelines"></a>중요 고려 사항 및 지침
@@ -98,7 +101,7 @@ Bronze [내구성 수준][durability]의 노드 유형에서 노드를 확장하
 모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
 ```azure-cli
@@ -804,7 +807,7 @@ Azure에서 실행되는 Service Fabric 클러스터에 정의된 모든 노드 
 모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
 ```azure-cli
@@ -815,16 +818,16 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Service Fabric 클러스터를 만든 후에 노드 유형(가상 머신 확장 집합) 및 모든 노드를 제거하여 클러스터를 수평 확장할 수 있습니다. 클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다. 클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
 
 > [!WARNING]
-> Remove-AzureRmServiceFabricNodeType을 사용하여 프로덕션 클러스터에서 노드 유형을 제거하는 것은 자주 사용하지 않는 것이 좋습니다. 노드 유형 뒤의 가상 머신 확장 집합 리소스가 삭제되므로 위험한 명령입니다. 
+> Remove-AzServiceFabricNodeType을 사용하여 프로덕션 클러스터에서 노드 유형을 제거하는 것은 자주 사용하지 않는 것이 좋습니다. 노드 유형 뒤의 가상 머신 확장 집합 리소스가 삭제되므로 위험한 명령입니다. 
 
-노드 유형을 제거하려면 [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) cmdlet을 실행합니다.  노드 유형은 Silver 또는 Gold [내구성 수준][durability]이어야 합니다. 이 cmdlet은 노드 유형과 연결된 확장 집합을 삭제하고 완료하는 데 약간의 시간이 걸립니다.  그런 다음, 제거할 각 노드에서 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet을 실행하여 노드 상태를 삭제하고 클러스터에서 노드를 제거합니다. 해당 노드에 서비스가 있으면 먼저 해당 서비스가 다른 노드로 이동됩니다. 클러스터 관리자가 복제본/서비스에 대한 노드를 찾을 수 없으면 작업이 지연/차단됩니다.
+노드 유형을 제거하려면 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet을 실행합니다.  노드 유형은 Silver 또는 Gold [내구성 수준][durability]이어야 합니다. 이 cmdlet은 노드 유형과 연결된 확장 집합을 삭제하고 완료하는 데 약간의 시간이 걸립니다.  그런 다음, 제거할 각 노드에서 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet을 실행하여 노드 상태를 삭제하고 클러스터에서 노드를 제거합니다. 해당 노드에 서비스가 있으면 먼저 해당 서비스가 다른 노드로 이동됩니다. 클러스터 관리자가 복제본/서비스에 대한 노드를 찾을 수 없으면 작업이 지연/차단됩니다.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수
 모든 변경 내용은 *template.json* 및 *parameters.json* 파일에 저장됩니다.  업데이트된 템플릿을 배포하려면 다음 명령을 실행합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 또는 다음 Azure CLI 명령을 실행합니다.
 ```azure-cli
@@ -874,6 +877,18 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 > [!div class="checklist"]
 > * 노드 추가 및 제거(규모 확장 및 규모 감축)
+> * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
+> * 노드 리소스 증가(강화)
+
+이제 다음 자습서로 넘어가서 클러스터 런타임을 업그레이드하는 방법을 알아보겠습니다.
+> [!div class="nextstepaction"]
+> [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+nd 규모 감축))
 > * 노드 유형 추가 및 제거(규모 확장 및 규모 감축)
 > * 노드 리소스 증가(강화)
 

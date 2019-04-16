@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872461"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257232"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -66,10 +66,9 @@ QnA Maker 아키텍처는 다음과 같은 두 가지 구성 요소로 이루어
 
 ## <a name="service-highlights"></a>서비스의 주요 사항
 
-- [FAQ 봇을 만드는](https://aka.ms/qnamaker-docs-create-faqbot) 완벽한 **no-code** 환경입니다.
+- 기술 자료에서 [봇을 만드는](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) 완벽한 **no-code** 환경입니다.
 - **예측에 대한 네트워크 제한이 없습니다**. 트랜잭션 수가 아니라 서비스 호스팅에 대한 비용을 지불합니다. 자세한 내용은 [가격 페이지](https://aka.ms/qnamaker-docs-pricing)를 참조하세요.
 - **필요에 따라 크기를 조정합니다**. 시나리오에 맞게 개별 구성 요소에 대해 적절한 SKU를 선택합니다. QnA Maker 서비스에 대한 [용량을 선택하는 방법](https://aka.ms/qnamaker-docs-capacity)을 참조하세요.
-- **전체 데이터 준수**가 적용됩니다. 예측 서비스 구성 요소는 Azure 구독 및 준수 경계 내에 배포됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

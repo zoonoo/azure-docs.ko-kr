@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: e302a4edc54b98f0dd731f65d0d45aa592cc72ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66a08ad674477da478ec7037833fe4cb836f9bb0
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076771"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357019"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 다중 서비스 개발
 

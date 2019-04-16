@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로서비스 및 Java로 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Java, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 26f82427ff06608de39381b4ecc45d318212a8a0
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419016"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425749"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Java로 개발
 
@@ -31,7 +31,7 @@ ms.locfileid: "58419016"
 
 - Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
 - [Visual Studio Code 설치](https://code.visualstudio.com/download).
--  Visual Studio Code용 [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [Azure Dev Spaces용 Java Debugger](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) 확장 프로그램 설치.
+- Visual Studio Code용 [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 및 [Azure Dev Spaces용 Java Debugger](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) 확장 프로그램 설치.
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Maven 설치 및 구성](https://maven.apache.org).
 

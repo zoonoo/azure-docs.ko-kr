@@ -1,19 +1,18 @@
 ---
 title: '빠른 시작: Azure CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기'
 description: Azure CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법 알아보기
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
-ms.openlocfilehash: 852eb32611f526c6fae4898d2bc85cac0859498f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/25/2019
+ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758416"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043975"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 

@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 063ea2392dcaa705436bfbd7ba5d429bb096651e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891038"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425825"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Azure Dev Spaces에서 Node.js를 사용하여 시작
 
@@ -25,17 +25,10 @@ ms.locfileid: "57891038"
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
 > [!Note]
-> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.
-
-이제 Azure에서 Kubernetes 기반 개발 환경을 만들 준비가 되었습니다.
+> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하세요.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
-Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 로컬 머신은 Windows, Mac 또는 Linux를 실행할 수 있습니다. Linux의 경우 Ubuntu(18.04, 16.04 및 14.04), Debian 8 및 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 및 SLES 12 배포가 지원됩니다.
-
-먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다. 
-
-> [!IMPORTANT]
-> Azure CLI가 이미 설치되어 있는 경우 2.0.43 이상 버전을 사용하고 있는지 확인합니다.
+Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다.
 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI에 로그인
 Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
@@ -112,7 +105,7 @@ https://github.com/Azure/dev-spaces로 이동하여 GitHub에서 코드를 다�
     ```
 
 Azure CLI의 `azds prep` 명령은 기본 설정으로 Docker 및 Kubernetes 자산을 생성합니다.
-* `./Dockerfile`은 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
+* `./Dockerfile` 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
 * `./charts/webfrontend` 아래의 [Helm 차트](https://docs.helm.sh)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
 
 지금은 이러한 파일의 전체 컨텐츠를 이해할 필요가 없습니다. 언급할 가치가 있지만 **코드 자산으로 동일한 Kubernetes 및 Docker 구성을 개발에서 프로덕션까지 사용할 수 있으므로 서로 다른 환경에서 더 나은 일관성을 제공합니다.**
@@ -167,7 +160,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 webfrontend에 대한 공용 URL을 사용하여 모바일 디바이스에서 웹앱을 엽니다. 긴 주소를 입력하지 않으려면 데스크탑에서 URL을 복사하여 디바이스로 보내고 싶을 수 있습니다. 웹앱이 모바일 디바이스에 로드되면 소형 디바이스에서 UI가 제대로 표시되지 않는 것을 알 수 있습니다.
 
 이 문제를 해결하려면 `viewport` 메타 태그를 추가합니다.
-1. `./public/index.html` 파일 열기
+1. 파일 열기 `./public/index.html`
 1. 기존 `head` 요소에 `viewport` 메타 태그를 추가합니다.
 
     ```html
@@ -272,7 +265,7 @@ Azure Dev Spaces를 사용하면 로컬 개발 시 사용하는 것과 동일한
 1. `server.js`에서 hello 메시지를 다시 편집하고 파일을 저장합니다.
 1. 브라우저를 새로 고치거나 *다시 말하기* 단추를 클릭하여 변경 내용이 적용되는지 확인합니다.
 
-**이제 코드를 빠르게 반복하고 Kubernetes에서 직접 디버그하는 방법을 사용할 수 있습니다!** 다음으로, 두 번째 컨테이너를 만들고 호출하는 방법을 살펴보겠습니다.
+**이제 코드를 신속하게 반복하고 Kubernetes에서 직접 디버깅할 수 있는 방법이 있습니다.** 다음으로, 두 번째 컨테이너를 만들고 호출하는 방법을 살펴보겠습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

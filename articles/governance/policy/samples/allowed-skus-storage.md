@@ -1,19 +1,18 @@
 ---
 title: 샘플 - 스토리지 계정 및 가상 머신에 대해 허용된 SKU
 description: 이 샘플 정책 정의에서는 스토리지 계정 및 가상 머신이 승인된 SKU를 사용해야 합니다.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803785"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274572"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>샘플 - 스토리지 계정 및 가상 머신에 대해 허용된 SKU
 
@@ -29,7 +28,7 @@ ms.locfileid: "58803785"
 
 ## <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
 
-[![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![DAzure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 

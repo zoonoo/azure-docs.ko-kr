@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 9b55eca953153069fb1563fedef81ea1eab254a8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 38e776a5398ea5217a0d7e385d6ebb45d2199d51
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661193"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044610"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>자습서: Azure에서 실행되는 Service Fabric 클러스터를 제거
 
@@ -40,24 +40,27 @@ ms.locfileid: "58661193"
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * 클러스터 삭제
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure Powershell](https://docs.microsoft.com/powershell/azure//install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>또한 Service Fabric 클러스터를 포함하는 리소스 그룹 삭제
 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet 또는 [az group delete](/cli/azure/group?view=azure-cli-latest) 명령을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다.  [Azure Portal](https://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet 또는 [az group delete](/cli/azure/group?view=azure-cli-latest) 명령을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
 
 ```powershell
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Set-AzContext -SubscriptionId <guid>
 $groupname = "sfclustertutorialgroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ```azurecli
@@ -73,10 +76,10 @@ az group delete --name $ResourceGroupName
 리소스 그룹에 리소스를 나열합니다.
 
 ```powershell
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Set-AzContext -SubscriptionId <guid>
 $groupname = "sfclustertutorialgroup"
-Get-AzureRmResource -ResourceGroupName $groupname | ft
+Get-AzResource -ResourceGroupName $groupname | ft
 ```
 
 ```azurecli
@@ -89,7 +92,7 @@ az resource list --resource-group $ResourceGroupName
 삭제하려는 각 리소스에 대해 다음 스크립트를 실행합니다.
 
 ```powershell
-Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName $groupname -Force
+Remove-AzResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName $groupname -Force
 ```
 
 ```azurecli
@@ -99,7 +102,7 @@ az resource delete --name "<name of the Resource>" --resource-type "<Resource Ty
 클러스터 리소스를 삭제하려면 다음 스크립트를 실행합니다.
 
 ```powershell
-Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName $groupname -Force
+Remove-AzResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName $groupname -Force
 ```
 
 ```azurecli
@@ -118,3 +121,4 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 Service Fabric 클러스터를 검사 및 관리하는 방법을 알아봅니다.
 * 클러스터 노드의 [Windows 운영 체제를 패치](service-fabric-patch-orchestration-application.md)하는 방법을 알아보세요.
 * [Windows 클러스터](service-fabric-diagnostics-event-aggregation-wad.md)에 대한 이벤트를 집계하거나 수집하고, [Log Analytics를 설정](service-fabric-diagnostics-oms-setup.md)하여 클러스터 이벤트를 모니터링하는 방법을 알아보세요.
+ms-setup.md)를 사용하여 클러스터 이벤트를 모니터링합니다.

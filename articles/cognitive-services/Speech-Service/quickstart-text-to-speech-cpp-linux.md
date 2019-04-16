@@ -1,27 +1,25 @@
 ---
-title: '빠른 시작: 음성 인식, C++(Linux) - Speech Service'
+title: '빠른 시작: 음성 합성, C++(Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용하여 Linux에서 C++로 음성을 인식하는 방법을 알아봅니다.
+description: Speech SDK를 사용하여 Linux에서 C++로 음성을 합성하는 방법 알아보기
 services: cognitive-services
-author: wolfma61
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
-ms.author: wolfma
-ms.openlocfilehash: d504e3abe148f1f607d8ee359e182832ec7d19f6
+ms.date: 4/03/2019
+ms.author: yinhew
+ms.openlocfilehash: c0981ec993f3717f3ec3d3da987a5977b212fb9f
 ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010314"
+ms.locfileid: "59012486"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Linux 기반 C++에서 음성 인식
+# <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Linux 기반 C++에서 음성 합성
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-이 문서에서는 Ubuntu Linux 16.04 또는 18.04용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 PC의 마이크로 음성을 텍스트로 변환할 수 있습니다. 애플리케이션은 [Linux용 Speech SDK](https://aka.ms/csspeech/linuxbinary) 및 Linux 배포판의 C++ 컴파일러(예: `g++`)를 사용하여 빌드됩니다.
+이 문서에서는 Ubuntu Linux 16.04 또는 18.04용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 텍스트의 음성을 합성하고 PC의 스피커에서 재생합니다. 애플리케이션은 [Linux용 Speech SDK](https://aka.ms/csspeech/linuxbinary) 및 Linux 배포판의 C++ 컴파일러(예: `g++`)를 사용하여 빌드됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -77,7 +75,7 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
 
 1. `helloworld.cpp`라는 C++ 원본 파일을 만들고 다음 코드를 파일에 붙여넣습니다.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-linux/helloworld.cpp#code)]
 
 1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 Speech Services 구독 키로 바꿉니다.
 
@@ -122,11 +120,13 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
    ./helloworld
    ```
 
-1. 아무 말이나 하라는 메시지가 콘솔 창에 나타납니다. 영어 구 또는 문장을 말씀하세요. 음성은 Speech Services로 전송되어 텍스트로 변환되고, 동일한 창에 표시됩니다.
+1. 콘솔 창에서 일부 텍스트를 입력하라는 메시지가 나타납니다. 몇 가지 단어나 문장을 입력합니다. 입력한 텍스트는 Speech Services로 전송되고 스피커에서 재생되는 음성으로 합성됩니다.
 
    ```text
-   Say something...
-   We recognized: What's the weather like?
+   Type some text that you want to speak...
+   > hello
+   Speech synthesized to speaker for text [hello]
+   Press enter to exit...
    ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -136,5 +136,5 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
 
 ## <a name="see-also"></a>참고 항목
 
-- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
-- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+- [음성 글꼴 사용자 지정](how-to-customize-voice-font.md)
+- [음성 샘플 기록](record-custom-voice-samples.md)

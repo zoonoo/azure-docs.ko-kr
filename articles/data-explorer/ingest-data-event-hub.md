@@ -1,19 +1,18 @@
 ---
 title: '빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집'
 description: 이 빠른 시작 문서에서는 이벤트 허브에서 Azure 데이터 탐색기로 데이터를 수집(로드)하는 방법에 대해 알아봅니다.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/2/2018
-ms.openlocfilehash: fcc4a50cb57e15021a3be1266d660c33501dbe82
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/02/2018
+ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758672"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048390"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집
 
@@ -39,7 +38,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 1. 이벤트 허브를 만들려면 다음 단추를 사용하여 배포를 시작합니다. 마우스 오른쪽 단추로 클릭하고 **새 창에서 열기**를 선택하면 이 문서의 나머지 단계를 수행할 수 있습니다.
 
-    [![Azure에 배포](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![DAzure에 배포](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     **Azure에 배포** 단추를 선택하면 Azure Portal에서 배포 양식을 작성할 수 있는 페이지로 이동하게 됩니다.
 

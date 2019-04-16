@@ -1,19 +1,18 @@
 ---
 title: '자습서: Power BI에서 Azure Data Explorer의 데이터 시각화'
 description: 이 자습서에서는 Power BI를 사용하여 Azure Data Explorer에 연결하여 데이터를 시각화하는 방법을 알아봅니다.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757750"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049883"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>자습서: Power BI에서 Azure Data Explorer의 데이터 시각화
 
@@ -229,4 +228,4 @@ Azure Data Explorer에 연결했으므로 파워 쿼리 편집기에서 데이�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [쿼리 작성](write-queries.md)
+> [쿼리 쓰기](write-queries.md)

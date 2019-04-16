@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838615"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008750"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>빠른 시작: .NET Framework(Windows)에 대한 Speech SDK를 사용하여 음성 인식
 
@@ -25,7 +25,7 @@ ms.locfileid: "57838615"
 
 빠른 데모를 보려면(아래와 같이 Visual Studio 프로젝트를 직접 빌드하지 않음)
 
-Github에서 최신 [Cognitive Services Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk)를 가져옵니다.
+GitHub에서 최신 [Cognitive Services Speech SDK 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk)을 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -72,5 +72,5 @@ Github에서 최신 [Cognitive Services Speech SDK](https://github.com/Azure-Sam
 
 ## <a name="see-also"></a>참고 항목
 
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

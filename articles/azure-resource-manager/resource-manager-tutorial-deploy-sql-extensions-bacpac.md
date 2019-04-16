@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085068"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282358"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -53,13 +53,13 @@ BACPAC 파일은 공개적으로 액세스 가능한 [Azure Storage 계정](http
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에서는 [위협 검색이 포함된 Azure SQL Server 배포](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/)라는 템플릿을 사용합니다.
+이 자습서에서 사용된 템플릿은 [Azure Storage 계정](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json)에 저장됩니다. 
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
 2. **파일 이름**에서 다음 URL을 붙여넣습니다.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. **열기**를 선택하여 파일을 엽니다.
 

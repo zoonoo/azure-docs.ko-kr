@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: a72e02cf7cc85113fe4fb660fdc5e5f0b5f22019
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903150"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426344"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure Dev Spaces에서 .NET Core를 사용하여 시작
 
@@ -25,17 +25,10 @@ ms.locfileid: "57903150"
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
 > [!Note]
-> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.
-
-이제 Azure에서 Kubernetes 기반 개발 환경을 만들 준비가 되었습니다.
+> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하세요.
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
-Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 로컬 머신은 Windows, Mac 또는 Linux를 실행할 수 있습니다. Linux의 경우 Ubuntu(18.04, 16.04 및 14.04), Debian 8 및 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 및 SLES 12 배포가 지원됩니다.
-
-먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다. 
-
-> [!IMPORTANT]
-> Azure CLI가 이미 설치되어 있는 경우 2.0.43 이상 버전을 사용하고 있는지 확인합니다.
+Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다.
 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI에 로그인
 Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
@@ -112,7 +105,7 @@ Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET 
     ```
 
 Azure CLI의 `azds prep` 명령은 기본 설정으로 Docker 및 Kubernetes 자산을 생성합니다.
-* `./Dockerfile`은 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
+* `./Dockerfile` 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
 * `./charts/webfrontend` 아래의 [Helm 차트](https://docs.helm.sh)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
 
 지금은 이러한 파일의 전체 컨텐츠를 이해할 필요가 없습니다. 언급할 가치가 있지만 **코드 자산으로 동일한 Kubernetes 및 Docker 구성을 개발에서 프로덕션까지 사용할 수 있으므로 서로 다른 환경에서 더 나은 일관성을 제공합니다.**
@@ -152,7 +145,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
 Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
 
-1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 행 70을 `<h2>Hello k8s in Azure!</h2>`로 변경합니다.
+1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 줄 70을 다음과 같이 변경합니다. `<h2>Hello k8s in Azure!</h2>`
 1. 파일을 저장합니다. 잠시 후, 터미널 창에 실행 중인 컨테이너의 파일이 업데이트되었다는 메시지가 표시됩니다.
 1. 브라우저로 이동하여 페이지를 새로 고칩니다. 웹 페이지에 업데이트된 HTML이 표시되어야 합니다.
 
@@ -162,7 +155,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 .NET Core 앱이 업데이트된 애플리케이션 이진 파일을 다시 빌드하고 생성해야 하기 때문에 코드 파일을 업데이트하려면 작업이 좀 더 필요합니다.
 
 1. 터미널 창에서 `Ctrl+C`(`azds up` 중지)를 누릅니다.
-1. `Controllers/HomeController.cs`라는 코드 파일을 열고, 정보 페이지(`ViewData["Message"] = "Your application description page.";`)에 표시될 메시지를 편집합니다.
+1. `Controllers/HomeController.cs`라는 코드 파일을 열고, 정보 페이지에 표시될 메시지를 편집합니다. `ViewData["Message"] = "Your application description page.";`
 1. 파일을 저장합니다.
 1. 터미널 창에서 `azds up`를 실행합니다. 
 

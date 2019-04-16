@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너, 마이크로서비스 및 Node.js를 사용하여 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: b95090cf59f0ee84e3a81bf87631df54826c050e
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: bc18a06405c0fe620136642a409df576c8e8d8b3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418570"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361721"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Node.js로 개발
 

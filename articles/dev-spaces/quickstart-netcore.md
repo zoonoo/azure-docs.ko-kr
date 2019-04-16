@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1c9c62dc4d674b8ce6f7c07e7426dbb0e1872685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 1c07ebae02232e8c86a58c11b23f6e1fbdb3a4bd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417992"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357330"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 .NET Core로 개발(Visual Studio Code)
 
@@ -24,7 +24,7 @@ ms.locfileid: "58417992"
 
 - Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
 - Visual Studio Code 및 명령줄을 사용하여 컨테이너에서 반복적으로 코드를 개발합니다.
-- Visual Studio Code에서 개발 환경의 코드를 디버그합니다.
+- Visual Studio Code의 개발 공간에서 코드를 디버그합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,7 +44,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --gen
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정
 
-`use-dev-spaces` 명령을 사용하여 AKS 클러스터에서 Dev Spaces를 사용하도록 설정하고 프롬프트를 따릅니다. 아래 명령은 *MyResourceGroup* 그룹의 *MyAKS* 클러스터에서 Dev Spaces를 사용하도록 설정하고 *기본* 개발 공간을 만듭니다.
+`use-dev-spaces` 명령을 사용하여 AKS 클러스터에서 Dev Spaces를 사용하도록 설정하고 프롬프트의 지시를 따릅니다. 아래 명령은 *MyResourceGroup* 그룹의 *MyAKS* 클러스터에서 Dev Spaces를 사용하도록 설정하고 *기본* 개발 공간을 만듭니다.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -115,13 +115,13 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-`azds up` 명령의 출력에 표시되는 공개 URL을 열어서 실행 중인 서비스를 볼 수 있습니다. 이 예제에서 공개 URL은 *http://webfrontend.1234567890abcdef1234.eus.azds.io/* 입니다.
+`azds up` 명령의 출력에 표시되는 공용 URL을 열어서 실행 중인 서비스를 볼 수 있습니다. 이 예제에서 공용 URL은 *http://webfrontend.1234567890abcdef1234.eus.azds.io/* 입니다.
 
-*Ctrl+c*를 사용하여 `azds up` 명령을 중지하면 서비스가 AKS에서 계속 실행되고, 공개 URL이 사용 가능한 상태로 유지됩니다.
+*Ctrl+c*를 사용하여 `azds up` 명령을 중지하면 서비스가 AKS에서 계속 실행되고, 공용 URL은 사용 가능한 상태로 유지됩니다.
 
 ## <a name="update-code"></a>코드 업데이트
 
-서비스의 업데이트된 버전을 배포하려면 프로젝트의 모든 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예: 
+서비스의 업데이트된 버전을 배포하려면 프로젝트의 파일을 업데이트하고 `azds up` 명령을 다시 실행하면 됩니다. 예: 
 
 1. `azds up`가 계속 실행 중인 경우 *Ctrl+c*를 누르세요.
 1. [`Controllers/HomeController.cs`의 20줄](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20)을 다음으로 업데이트합니다.
@@ -156,7 +156,7 @@ Visual Studio Code에서 명령 팔레트를 열려면 *보기*, *명령 팔레�
 
 ![](./media/common/command-palette.png)
 
-이 명령은 Visual Studio Code에서 바로 Azure Dev Spaces에서 실행하도록 프로젝트를 준비합니다. 또한 프로젝트의 루트에 있는 디버깅 구성을 사용하여 *.vscode* 디렉터리를 생성합니다.
+이 명령은 Visual Studio Code에서 바로 Azure Dev Spaces에서 실행하도록 프로젝트를 준비합니다. 또한 프로젝트의 루트에서 디버깅 구성을 사용하여 *.vscode* 디렉터리를 생성합니다.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Visual Studio에서 Kubernetes의 코드 빌드 및 실행
 

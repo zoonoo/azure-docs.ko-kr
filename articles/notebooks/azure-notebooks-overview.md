@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777722"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280114"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 개요
 
 Azure Notebooks는 무료 호스티드 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 단일 캔버스인 *Notebook*(jupyter.org의 이미지 허가)으로 손쉽게 결합할 수 있습니다.
 
-[![Jupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![EJupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 이 강력한 코드, 그래픽 및 설명 텍스트의 조합으로 인해 Jupyter는 데이터 과학 교육, 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링 및 기계 학습 모델의 개발을 비롯한 다양한 용도에 대중화되었습니다.
 
@@ -58,6 +58,8 @@ Azure Notebooks는 일반적인 코드 작성, 실행 및 공유 플랫폼이므
 Azure Notebooks는 무료 서비스이지만 각 프로젝트는 남용을 방지하기 위해 4GB 메모리 및 1GB 데이터로 제한됩니다. 이러한 한도를 초과하는 합법적인 사용자는 Captcha 챌린지를 참조하여 Notebook 실행을 계속하세요.
 
 모든 한도를 해제하려면 Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인합니다. 해당 계정이 Azure 구독과 연결된 경우 해당 구독 내의 모든 Azure Data Science Virtual Machine 인스턴스에 연결할 수 있습니다. 자세한 내용은 [프로젝트 관리 및 구성 - 컴퓨팅 계층](configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
+
+Notebook 서버는 최대 8시간 동안 존재할 수 있습니다. 대부분의 경우 컨테이너는 이 제한이 적용되지 않으며 이 시간 이후에도 계속 실행되지만, 시스템 안정성을 위해 장기간 지속되는 세션은 때때로 종료될 수 있습니다.
 
 ## <a name="available-kernels-and-environments"></a>사용할 수 있는 커널 및 환경
 
@@ -113,7 +115,7 @@ Azure Notebooks에 대한 질문을 논의하려면 [GitHub 리포지토리](htt
   
   - [프로젝트 만들기 및 복제](create-clone-jupyter-notebooks.md)
   - [프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
-  - [Notebook 내에서 패키지 설치](install-packages-jupyter-notebook.md)
+  - [노트 내에서 패키지 설치](install-packages-jupyter-notebook.md)
   - [슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
   - [데이터 파일 작업](work-with-project-data-files.md)
   - [데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)

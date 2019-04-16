@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445552"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279791"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -215,7 +215,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 * Azure SQL Database 시스템 테이블을 찾아 복사할 테이블의 목록을 가져옵니다.
 * **IterateAndCopySQLTables** 파이프라인을 트리거하여 실제 데이터 복사를 수행합니다.
 
-**GetTableListAndTriggerCopyData**는 테이블 목록을 매개 변수로 사용합니다. 목록의 각 테이블에 대해 스테이징된 복사본과 PolyBase를 사용하여 Azure SQL Database의 테이블에서 Azure SQL Data Warehouse로 데이터를 복사합니다.
+**IterateAndCopySQLTables**는 테이블 목록을 매개 변수로 사용합니다. 목록의 각 테이블에 대해 스테이징된 복사본과 PolyBase를 사용하여 Azure SQL Database의 테이블에서 Azure SQL Data Warehouse로 데이터를 복사합니다.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>IterateAndCopySQLTables 파이프라인 만들기
 

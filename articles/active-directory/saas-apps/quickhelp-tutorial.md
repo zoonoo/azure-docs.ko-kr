@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b5ec6ad9f11a1cfaa331c0a0eb64f4b36af0f0be
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848335"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>자습서: QuickHelp와 Azure Active Directory 통합
 
@@ -107,9 +107,9 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     ![QuickHelp 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://quickhelp.com/<ROUTEURL>` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://quickhelp.com/<ROUTEURL>`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://auth.quickhelp.com` URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 URL을 입력합니다. `https://auth.quickhelp.com`
 
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 조직의 빠른 도움말 관리자 또는 브레인스토밍 클라이언트 성공 관리자에게 문의하여 값을 가져옵니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -220,9 +220,9 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

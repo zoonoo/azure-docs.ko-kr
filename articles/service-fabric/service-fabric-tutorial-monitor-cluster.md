@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662451"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045648"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 
@@ -42,12 +42,15 @@ ms.locfileid: "58662451"
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만듭니다. 
 * 클러스터에 대해 [진단 수집](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor)을 설정합니다.
 * 클러스터에서 [EventStore 서비스](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor)를 사용하도록 설정합니다.
@@ -491,7 +494,7 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 
 다음으로, 클러스터 크기를 조정하는 방법을 알아보려면 다음 자습서로 진행하세요.
 > [!div class="nextstepaction"]
-> [클러스터의 크기 조정](service-fabric-tutorial-scale-cluster.md)
+> [클러스터 크기 조정](service-fabric-tutorial-scale-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json

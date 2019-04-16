@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554878"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261176"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>빠른 시작: Java를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -58,18 +58,18 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
     ![SignalR Service 만들기](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. 코드 편집기에서 복제된 저장소의 *chat/src/java* 폴더를 엽니다.
+1. 코드 편집기에서 복제된 리포지토리의 *src/chat/java* 폴더를 엽니다.
 
 1. *local.settings.sample.json*의 이름을 *local.settings.json*으로 바꿉니다.
 
 1. **local.settings.json** 에서 연결 문자열을 **AzureSignalRConnectionString** 설정 값에 붙여넣습니다. 파일을 저장합니다.
 
-1. 함수가 포함된 주 파일은 *src/main/java/com/function/Functions.java*에 있습니다.
+1. 함수가 포함된 주 파일은 *src/chat/java/src/main/java/com/function/Functions.java*에 있습니다.
 
     - **negotiate** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **sendMessage** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
 
-1. 터미널에서 *chat/src/java* 폴더에 있는지 확인합니다. Function App을 빌드합니다.
+1. 터미널에서 *src/chat/java* 폴더에 있는지 확인합니다. Function App을 빌드합니다.
 
     ```bash
     mvn clean package

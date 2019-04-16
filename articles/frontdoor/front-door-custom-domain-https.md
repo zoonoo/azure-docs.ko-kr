@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure HTTPS on a custom domain for Azure Front Door Service | Microsoft Docs
-description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door Service configuration for a custom domain.
+title: 자습서 - Azure Front Door Service용 사용자 지정 도메인에 HTTPS 구성 | Microsoft Docs
+description: 이 자습서에서는 사용자 지정 도메인에 대한 Azure Front Door Service 구성에서 HTTPS를 활성화하거나 비활성화하는 방법을 알아봅니다.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,155 +12,158 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b3ec0616a7f022a104a20589f3281262b2717e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014109"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050980"
 ---
-# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configure HTTPS on a Front Door custom domain
+# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
-This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it is sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
+이 자습서에서는 프런트 엔드 호스트 섹션의 Front Door에 연결된 사용자 지정 도메인에 HTTPS 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 TLS/SSL 암호화를 통해 안전하게 보호됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 이 프로세스는 보안을 제공하며 공격으로부터 웹 애플리케이션을 보호합니다.
 
-Azure Front Door Service supports HTTPS on a Front Door default hostname, by default. For example, if you create a Front Door (such as https:\//contoso.azurefd.net), HTTPS is automatically enabled for requests made to https://contoso.azurefd.net. However, once you onboard the custom domain 'www.contoso.com' you will need to additionally enable HTTPS for this frontend host.   
+Azure Front Door Service는 기본적으로 Front Door 기본 호스트 이름에HTTPS를 지원합니다. 예를 들어 Front Door(예: https:\//contoso.azurefd.net)를 만들면 https://contoso.azurefd.net에 수행되는 요청에 HTTPS가 자동으로 활성화됩니다. 그러나 사용자 지정 도메인 'www.contoso.com'을 등록하고 나면 이 프런트 엔드 호스트에 HTTPS를 별도로 활성화해야 합니다.   
 
-Some of the key attributes of the custom HTTPS feature are:
+사용자 지정 HTTPS 기능의 몇 가지 주요 특성은 다음과 같습니다.
 
-- No additional cost: There are no costs for certificate acquisition or renewal and no additional cost for HTTPS traffic. 
+- 추가 비용 없음: 인증서 얻기 또는 갱신에 대해 비용이 없으며 HTTPS 트래픽에 대한 추가 비용이 없습니다. 
 
-- Simple enablement: One-click provisioning is available from the [Azure portal](https://portal.azure.com). You can also use REST API or other developer tools to enable the feature.
+- 간단한 사용: [Azure Portal](https://portal.azure.com)에서 한 번 클릭으로 프로비전을 사용할 수 있습니다. REST API 또는 기타 개발자 도구를 사용하여 기능을 활성화할 수도 있습니다.
 
-- Complete certificate management is available: All certificate procurement and management is handled for you. Certificates are automatically provisioned and renewed prior to expiration, which removes the risks of service interruption due to a certificate expiring.
+- 완전한 인증서 관리: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
 
-In this tutorial, you learn how to:
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> - Enable the HTTPS protocol on your custom domain.
-> - Use an AFD-managed certificate 
-> - Use your own certificate, that is, a custom SSL certificate
-> - Validate the domain
-> - Disable the HTTPS protocol on your custom domain
-
-## <a name="prerequisites"></a>Prerequisites
-
-Before you can complete the steps in this tutorial, you must first create a Front Door and with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
-
-## <a name="ssl-certificates"></a>SSL certificates
-
-To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure Front Door Service or use your own certificate.
+> - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하도록 설정
+> - AFD 관리 인증서 사용 
+> - 사용자 고유의 인증서, 즉 사용자 지정 SSL 인증서 사용
+> - 도메인의 유효성 검사
+> - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정
 
 
-### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Option 1 (default): Use a certificate managed by Front Door
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-When you use a certificate managed by Azure Front Door Service, the HTTPS feature can be turned on with just a few clicks. Azure Front Door Service completely handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately. If the custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Front Door will process the steps and complete your request automatically. However, if your custom domain is mapped elsewhere, you must use email to validate your domain ownership.
+## <a name="prerequisites"></a>필수 조건
 
-To enable HTTPS on a custom domain, follow these steps:
+이 자습서에서 단계를 완료하기 전에 먼저 Front Door를 만들고 하나 이상의 사용자 지정 도메인을 등록해야 합니다. 자세한 내용은 [자습서: Front Door에 사용자 지정 도메인 추가](front-door-custom-domain.md)를 참조하세요.
 
-1. In the [Azure portal](https://portal.azure.com), browse to your **Front Door** profile.
+## <a name="ssl-certificates"></a>SSL 인증서
 
-2. In the list of frontend hosts, select the custom domain you want to enable HTTPS for containing your custom domain.
-
-3. Under the section **Custom domain HTTPS**, click **Enabled**, and select **Front Door managed** as the certificate source.
-
-4. Click Save.
-
-5. Proceed to [Validate the domain](#validate-the-domain).
+Front Door 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 활성화하려면 SSL 인증서를 사용해야 합니다. Azure Front Door Service에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
 
 
-### <a name="option-2-use-your-own-certificate"></a>Option 2: Use your own certificate
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>옵션 1(기본값): Front Door에서 관리되는 인증서 사용
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door Service uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
+Azure Front Door Service에서 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을 설정할 수 있습니다. Azure Front Door Service는 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 Front Door의 기본 프런트 엔드 호스트(`{hostname}.azurefd.net`)에 이미 매핑된 경우 추가적인 조치가 필요하지 않습니다. Front Door는 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
 
-#### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare your Azure Key vault account and certificate
+사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
+
+1. [Azure Portal](https://portal.azure.com)에서 **Front Door** 프로필로 이동합니다.
+
+2. 프런트 엔드 호스트 목록에서 사용자 지정 도메인을 포함하기 위해 HTTPS를 활성화하려는 사용자 지정 도메인을 선택합니다.
+
+3. **사용자 지정 도메인 HTTPS** 섹션에서 **사용**을 클릭하고 인증서 원본으로 **Front Door 관리**를 선택합니다.
+
+4. 저장을 클릭합니다.
+
+5. [도메인의 유효성 검사](#validate-the-domain)를 진행합니다.
+
+
+### <a name="option-2-use-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서 사용
+
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure Front Door Service는 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure Front Door Service에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](front-door-troubleshoot-allowed-ca.md)을 참조하세요.
+
+#### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
-1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as your Front Door that you want to enable custom HTTPS. Create an Azure Key Vault account if you don't have one.
+1. Azure Key Vault: 사용자 지정 HTTPS를 활성화하려는 Front Door와 동일한 구독에서 Azure Key Vault 계정을 실행해야 합니다. 아직 Azure Key Vault 계정이 없는 경우 새로 하나 만듭니다.
  
-2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with.
+2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다.
 
 > [!WARNING]
-> </br> - Azure Front Door Service currently only supports Key Vault accounts in the same subscription as the Front Door configuration. Choosing a Key Vault under a different subscription than your Front Door will result in a failure.
-> </br> - Azure Front Door Service currently only supports Key Vault certificates stored under the Secrets section. Your certificate import will fail if you store it under Certificates section instead of Secrets section.
-> </br> - Azure Front Door Service currently only supports certificates uploaded with a PFX **without** a password.
+> </br> - Azure Front Door Service는 현재 Front Door 구성과 동일한 구독의 Key Vault 계정만 지원합니다. Front Door와 다른 구독의 Key Vault를 선택하면 실패하게 됩니다.
+> </br> - Azure Front Door Service는 현재 비밀 섹션에 저장된 Key Vault 인증서만 지원합니다. 비밀 섹션 대신 인증서 섹션에 저장하면 인증서 가져오기가 실패합니다.
+> </br> - Azure Front Door Service는 현재 암호 **없이** PFX를 사용하여 업로드된 인증서만 지원합니다.
 
-#### <a name="register-azure-front-door-service"></a>Register Azure Front Door Service
+#### <a name="register-azure-front-door-service"></a>Azure Front Door Service 등록
 
-Register the service principal for Azure Front Door Service as an app in your Azure Active Directory via PowerShell.
+PowerShell을 통해 Azure Active Directory에 Azure Front Door Service의 서비스 사용자를 앱으로 등록합니다.
 
-1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine.
+1. 필요한 경우 로컬 컴퓨터의 PowerShell에 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 
-2. In PowerShell, run the following command:
+2. PowerShell에서 다음 명령을 실행합니다.
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Grant Azure Front Door Service access to your key vault
+#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure Front Door Service 액세스 권한 부여
  
-Grant Azure Front Door Service permission to access the  certificates under Secrets in your Azure Key Vault account.
+Azure Key Vault 계정에서 비밀의 인증서에 액세스하려면 Azure Front Door Service 사용 권한을 부여합니다.
 
-1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
+1. 키 자격 증명 모음 계정의 설정에서 **액세스 정책**을 선택한 다음, **새로 추가**를 선택하여 새 정책을 만듭니다.
 
-2. In **Select principal**, search for **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, and choose **Microsoft.Azure.Frontdoor**. Click **Select**.
+2. **주체 선택**에서 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**을 검색하고 **Microsoft.Azure.Frontdoor**를 선택합니다. **선택**을 클릭합니다.
 
 
-3. In **Secret permissions**, select **Get** to allow Front Door to perform these permissions to get and list the certificates. 
+3. **비밀 권한**에서 **가져오기**를 선택하여 Front Door에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 허용합니다. 
 
-4. Select **OK**. 
+4. **확인**을 선택합니다. 
 
-    Azure Front Door Service can now access this key vault and the certificates (secrets) that are stored in this key vault.
+    Azure Front Door Service는 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다.
  
-#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Select the certificate for Azure Front Door Service to deploy
+#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>배포할 Azure Front Door Service 인증서 선택
  
-1. Return to your Front Door in the portal. 
+1. 포털에서 Front Door로 돌아갑니다. 
 
-2. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
+2. 사용자 지정 도메인 목록에서 HTTPS를 사용하도록 설정할 사용자 지정 도메인을 선택합니다.
 
-    The **Custom domain** page appears.
+    **사용자 지정 도메인** 페이지가 나타납니다.
 
-3. Under Certificate management type, select **Use my own certificate**. 
+3. 인증서 관리 유형에서 **내 인증서 사용**을 선택합니다. 
 
-4. Azure Front Door Service requires that the subscription of the Key Vault account is the same as for your Front Door. Select a key vault, certificate (secret), and certificate version.
+4. Azure Front Door Service를 사용하려면 Key Vault 계정의 구독이 Front Door와 동일해야 합니다. 키 자격 증명 모음, 인증서(비밀)및 인증서 버전을 선택합니다.
 
-    Azure Front Door Service lists the following information: 
-    - The key vault accounts for your subscription ID. 
-    - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions. 
+    Azure Front Door Service는 다음과 같은 정보를 나열합니다. 
+    - 구독 ID에 대한 키 자격 증명 모음 계정 
+    - 선택한 키 자격 증명 모음의 인증서(비밀) 
+    - 사용 가능한 인증서 버전 
  
-5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
+5. 사용자 고유의 인증서를 사용할 경우 도메인 유효성 검사가 필요하지 않습니다. [전파 대기](#wait-for-propagation)를 진행합니다.
 
-## <a name="validate-the-domain"></a>Validate the domain
+## <a name="validate-the-domain"></a>도메인의 유효성 검사
 
-If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record or you're using your own certificate, proceed to  
-[Custom domain is mapped to your Front Door](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Otherwise, if the CNAME record entry for your domain no longer exists or it contains the afdverify subdomain, proceed to [Custom domain is not mapped to your Front Door](#custom-domain-is-not-mapped-to-your-front-door).
+CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는 사용자 지정 도메인을 이미 사용 중이거나 사용자 고유의 인증서를 사용 중인 경우 다음을 진행합니다.  
+[사용자 지정 도메인이 Front Door에 매핑됨](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record)을 진행합니다. 그렇지 않고 도메인의 CNAME 레코드 항목이 더 이상 존재하지 않거나 afdverify 하위 도메인을 포함하는 경우 [사용자 지정 도메인이 Front Door에 매핑되지 않음](#custom-domain-is-not-mapped-to-your-front-door)을 진행합니다.
 
-### <a name="custom-domain-is-mapped-to-your-front-door-by-a-cname-record"></a>Custom domain is mapped to your Front Door by a CNAME record
+### <a name="custom-domain-is-mapped-to-your-front-door-by-a-cname-record"></a>CNAME 레코드를 통해 사용자 지정 도메인이 CNAME 레코드에 매핑됨
 
-When you added a custom domain to your Front Door's frontend hosts, you created a CNAME record in the DNS table of your domain registrar to map it to your Front Door's default .azurefd.net hostname. If that CNAME record still exists and does not contain the afdverify subdomain, the DigiCert Certificate Authority uses it to automatically validate ownership of your custom domain. 
+Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가한 경우 도메인 등록 기관의 DNS 테이블에 Front Door의 기본 .azurefd.net 호스트 이름에 매핑할 CNAME 레코드를 만들었습니다. 해당 CNAME 레코드가 여전히 있고 afdverify 하위 도메인을 포함하지 않는 경우 DigiCert 인증 기관은 이 레코드를 사용하여 사용자 지정 도메인의 소유권을 자동으로 확인합니다. 
 
-If you're using your own certificate, domain validation is not required.
+사용자 고유의 인증서를 사용 중인 경우 도메인 유효성 검사가 필요하지 않습니다.
 
-Your CNAME record should be in the following format, where *Name* is your custom domain name and *Value* is your Front Door's default .azurefd.net hostname:
+CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
-| Name            | Type  | Value                 |
+| Name            | type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain)를 참조하세요.
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
+CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인 이름을 자동으로 확인하고 도메인 이름에 전용 인증서를 만듭니다. DigitCert는 확인 메일을 보내지 않으며 요청을 승인할 필요가 없습니다. 인증서는 1년 동안 유효하며 만료되기 전에 자동으로 갱신됩니다. [전파 대기](#wait-for-propagation)를 진행합니다. 
 
-Automatic validation typically takes a few mins. If you don't see your domain validated within an hour, open a support ticket.
+일반적으로 자동 유효성 검사에 몇 분 정도 걸립니다. 1시간 내에 도메인의 유효성이 확인되지 않으면 지원 티켓을 엽니다.
 
 >[!NOTE]
->If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
+>DNS 공급자가 포함된 CAA(Certificate Authority Authorization) 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다. CAA 레코드를 사용하면 도메인 소유자가 자신의 도메인에 대한 인증서를 발급할 권한이 있는 CA를 DNS 공급자로 지정할 수 있습니다. CA에서 CAA 레코드가 있는 도메인에 대한 인증서 주문을 받고 해당 CA가 인증된 발급자로 나열되지 않은 경우 해당 도메인 또는 하위 도메인에 인증서를 발급할 수 없습니다. CAA 레코드 관리에 대한 내용은 [CAA 레코드 관리](https://support.dnsimple.com/articles/manage-caa-record/)를 참조하세요. CAA 레코드 도구는 [CAA 레코드 도우미](https://sslmate.com/caa/)를 참조하세요.
 
-### <a name="custom-domain-is-not-mapped-to-your-front-door"></a>Custom domain is not mapped to your Front Door
+### <a name="custom-domain-is-not-mapped-to-your-front-door"></a>사용자 지정 도메인이 Front Door에 매핑되지 않음
 
-If the CNAME record entry for your endpoint no longer exists or it contains the afdverify subdomain, follow the rest of the instructions in this step.
+엔드포인트에 대한 CNAME 레코드 항목이 더 이상 없거나 afdverify 하위 도메인을 포함하는 경우 이 단계의 나머지 지침을 따르세요.
 
-After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
+사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
 
-![WHOIS record](./media/front-door-custom-domain-https/whois-record.png)
+![WHOIS 레코드](./media/front-door-custom-domain-https/whois-record.png)
 
-DigiCert also sends a verification email to additional email addresses. If the WHOIS registrant information is private, verify that you can approve directly from one of the following addresses:
+또한 DigiCert는 추가 이메일 주소로 확인 전자 메일을 보냅니다. WHOIS 등록자 정보가 비공개인 경우 다음 주소 중 하나에서 직접 승인할 수 있는지 확인합니다.
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  
@@ -168,41 +171,41 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
+잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 admin@digicert.com을 허용 목록에 추가입니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
 
-When you click on the approval link, you are directed to an online approval form. Follow the instructions on the form; you have two verification options:
+승인 링크를 클릭하는 경우 온라인 승인 양식으로 이동됩니다. 양식의 지침을 따르세요. 다음과 같이 두 가지 확인 옵션이 있습니다.
 
-- You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This approach is recommended if you plan to add additional custom domains for the same root domain.
+- 동일한 루트 도메인의 동일한 계정을 통해 이루어진 모든 향후 주문을 승인할 수 있습니다(예: consoto.com). 이 방법은 동일한 루트 도메인에 대한 추가 사용자 지정 도메인을 추가하려는 경우에 권장됩니다.
 
-- You can approve just the specific host name used in this request. Additional approval is required for subsequent requests.
+- 이 요청에 사용된 특정 호스트 이름을 승인할 수 있습니다. 후속 요청에는 추가 승인이 필요합니다.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and will be auto-renewed before it's expired.
+승인 후에 DigiCert는 사용자 지정 도메인 이름에 대한 인증서 생성을 완료합니다. 인증서는 1년 동안 유효하며 만료되기 전 자동으로 갱신됩니다.
 
-## <a name="wait-for-propagation"></a>Wait for propagation
+## <a name="wait-for-propagation"></a>전파 대기
 
-After the domain name is validated, it can take up to 6-8 hours for the custom domain HTTPS feature to be activated. When the process is complete, the custom HTTPS status in the Azure portal is set to **Enabled** and the four operation steps in the custom domain dialog are marked as complete. Your custom domain is now ready to use HTTPS.
+도메인 이름이 확인된 후 사용자 지정 도메인 HTTPS 기능이 활성 상태가 될 때까지는 최대 6-8시간 소요됩니다. 프로세스가 완료되면 Azure Portal에서 사용자 지정 HTTPS 상태가 **사용**으로 설정되고 사용자 지정 도메인 대화 상자의 네 가지 작업 단계가 '완료'로 표시됩니다. 사용자 지정 도메인은 이제 HTTPS를 활성화할 준비가 되었습니다.
 
-### <a name="operation-progress"></a>Operation progress
+### <a name="operation-progress"></a>작업 진행 상태
 
-The following table shows the operation progress that occurs when you enable HTTPS. After you enable HTTPS, four operation steps appear in the custom domain dialog. As each step becomes active, additional substep details appear under the step as it progresses. Not all of these substeps will occur. After a step successfully completes, a green check mark appears next to it. 
+다음 표에는 HTTPS를 활성화하도록 설정했을 때 나타나는 작업 진행률을 표시합니다. HTTPS를 사용하도록 설정하면 네 가지 작업 단계가 사용자 지정 도메인 대화 상자에 나타납니다. 각 단계가 활성화되면 진행되는 동안 단계 아래에 추가 하위 단계 정보가 표시됩니다. 이러한 하위 단계가 모두 발생하지는 않습니다. 단계가 성공적으로 완료되면 옆에 녹색 확인 표시가 나타납니다. 
 
-| Operation step | Operation substep details | 
+| 작업 단계 | 작업 하위 단계 정보 | 
 | --- | --- |
-| 1 Submitting request | Submitting request |
-| | Your HTTPS request is being submitted. |
-| | Your HTTPS request has been submitted successfully. |
-| 2 Domain validation | Domain is automatically validated if it is CNAME mapped to the default .azurefd.net frontend host of your Front Door. Otherwise, a verification request will be sent to the email listed in your domain's registration record (WHOIS registrant). Verify the domain as soon as possible. |
-| | Your domain ownership has been successfully validated. |
-| | Domain ownership validation request expired (customer likely didn't respond within 6 days). HTTPS will not be enabled on your domain. * |
-| | Domain ownership validation request was rejected by the customer. HTTPS will not be enabled on your domain. * |
-| 3 Certificate provisioning | The certificate authority is currently issuing the certificate needed to enable HTTPS on your domain. |
-| | The certificate has been issued and is currently being deployed for your Front Door. This process could take up to 1 hour. |
-| | The certificate has been successfully deployed for your Front Door. |
-| 4 Complete | HTTPS has been successfully enabled on your domain. |
+| 1 요청 제출 | 요청 제출 |
+| | HTTPS 요청을 제출하는 중입니다. |
+| | HTTPS 요청이 제출되었습니다. |
+| 2 도메인 유효성 검사 | 도메인이 Front Door의 기본 .azurefd.net 프런트 엔드 호스트에 매핑된 CNAME인 경우 도메인의 유효성이 자동으로 검사됩니다. 그렇지 않으면 도메인의 등록 레코드(WHOIS 등록자)에 나열된 이메일로 확인 요청이 발송됩니다. 최대한 신속하게 도메인을 확인하세요. |
+| | 도메인 소유권을 확인했습니다. |
+| | 도메인 소유권 유효성 검사 요청이 만료되었습니다(고객이 6일 이내의 응답하지 않았음). 도메인에서 HTTPS를 활성화할 수 없습니다. * |
+| | 고객에 의해 도메인 소유권 유효성 검사 요청이 거부되었습니다. 도메인에서 HTTPS를 활성화할 수 없습니다. * |
+| 3 인증서 프로비전 | 인증 기관이 현재 도메인에서 HTTPS를 활성화하는 데 필요한 인증서를 발급 중입니다. |
+| | 인증서가 발급되었고 현재 Front Door로 배포되고 있습니다. 이 프로세스는 최대 1시간까지 걸릴 수 있습니다. |
+| | 인증서가 Front Door에 성공적으로 배포되었습니다. |
+| 4 완료 | 도메인에서 HTTPS를 활성화하도록 설정했습니다. |
 
-\* This message doesn't appear unless an error has occurred. 
+\* 오류가 발생하지 않으면 이 메시지가 표시되지 않습니다. 
 
-If an error occurs before the request is submitted, the following error message is displayed:
+요청을 제출하기 전에 오류가 발생하는 경우 다음과 같은 오류 메시지가 표시됩니다.
 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
@@ -210,56 +213,56 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 
 
-## <a name="clean-up-resources---disable-https"></a>Clean up resources - disable HTTPS
+## <a name="clean-up-resources---disable-https"></a>리소스 정리 - HTTPS를 사용하지 않도록 설정
 
-In the preceding steps, you enabled the HTTPS protocol on your custom domain. If you no longer want to use your custom domain with HTTPS, you can disable HTTPS by performing theses steps:
+이전 단계에서는 사용자 지정 도메인에 HTTPS 프로토콜을 사용했습니다. 더 이상 HTTPS에 사용자 지정 도메인을 사용하지 않으려면 다음 단계를 수행하여 HTTPS를 사용하지 않도록 설정하면 됩니다.
 
-### <a name="disable-the-https-feature"></a>Disable the HTTPS feature 
+### <a name="disable-the-https-feature"></a>HTTPS 기능을 사용하지 않도록 설정 
 
-1. In the [Azure portal](https://portal.azure.com), browse to your **Azure Front Door Service** configuration.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Front Door Service** 구성으로 이동합니다.
 
-2. In the list of frontend hosts, click the custom domain for which you want to disable HTTPS.
+2. 프런트 엔드 호스트 목록에서 HTTPS를 비활성화하도록 설정할 사용자 지정 도메인을 클릭합니다.
 
-3. Click **Disabled** to disable HTTPS, then click **Save**.
+3. **사용 안 함**을 클릭하여 HTTPS를 비활성화한 다음, **저장**을 클릭합니다.
 
-### <a name="wait-for-propagation"></a>Wait for propagation
+### <a name="wait-for-propagation"></a>전파 대기
 
-After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours for it to take effect. When the process is complete, the custom HTTPS status in the Azure portal is set to **Disabled** and the three operation steps in the custom domain dialog are marked as complete. Your custom domain can no longer use HTTPS.
+사용자 지정 도메인 HTTPS 기능을 비활성화한 후 최대 6-8시간까지 걸릴 수 있습니다. 프로세스가 완료되면 Azure Portal에서 사용자 지정 HTTPS 상태가 **사용 안 함**으로 설정되고 사용자 지정 도메인 대화 상자의 세 가지 작업 단계가 '완료'로 표시됩니다. 사용자 지정 도메인은 더 이상 HTTPS를 사용할 수 없습니다.
 
-#### <a name="operation-progress"></a>Operation progress
+#### <a name="operation-progress"></a>작업 진행 상태
 
-The following table shows the operation progress that occurs when you disable HTTPS. After you disable HTTPS, three operation steps appear in the Custom domain dialog. As each step becomes active, additional details appear under the step. After a step successfully completes, a green check mark appears next to it. 
+다음 표에는 HTTPS를 비활성화하도록 설정했을 때 나타나는 작업 진행률을 표시합니다. HTTPS를 사용하지 않도록 설정하면 세 가지 작업 단계가 사용자 지정 도메인 대화 상자에 나타납니다. 각 단계가 활성화되면 단계 아래에 추가 세부 정보가 표시됩니다. 단계가 성공적으로 완료되면 옆에 녹색 확인 표시가 나타납니다. 
 
-| Operation progress | Operation details | 
+| 작업 진행 상태 | 작업 세부 정보 | 
 | --- | --- |
-| 1 Submitting request | Submitting your request |
-| 2 Certificate deprovisioning | Deleting certificate |
-| 3 Complete | Certificate deleted |
+| 1 요청 제출 | 요청 제출 |
+| 2 인증서 프로비전 해제 | 인증서 삭제 |
+| 3 완료 | 인증서 삭제됨 |
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
+## <a name="frequently-asked-questions"></a>질문과 대답
 
-1. *Who is the certificate provider and what type of certificate is used?*
+1. *인증서 공급자는 누구이며 어떤 유형의 인증서가 사용되나요?*
 
-    A dedicated/single certificate, provided by Digicert, is used for your custom domain. 
+    Digicert에서 제공한 전용/단일 인증서가 사용자 지정 도메인에 사용됩니다. 
 
-2. *Do you use IP-based or SNI TLS/SSL?*
+2. *IP 기반 또는 SNI TLS/SSL을 사용하나요?*
 
-    Azure Front Door Service uses SNI TLS/SSL.
+    Azure Front Door Service는 SNI TLS/SSL을 사용합니다.
 
-3. *What if I don't receive the domain verification email from DigiCert?*
+3. *DigiCert로부터 도메인 확인 이메일을 받지 못한 경우 어떻게 하나요?*
 
-    If you have a CNAME entry for your custom domain that points directly to your endpoint hostname (and you are not using the afdverify subdomain name), you won't receive a domain verification email. Validation occurs automatically. Otherwise, if you don't have a CNAME entry and you haven't received an email within 24 hours, contact Microsoft support.
+    엔드포인트 호스트 이름을 직접 가리키는 사용자 지정 도메인에 대한 CNAME 항목이 있고 afdverify 하위 도메인 이름을 사용하지 않는 경우에는 도메인 확인 메일이 수신되지 않습니다. 유효성 검사가 자동으로 수행됩니다. 그렇지 않은 경우 CNAME 항목이 없고 24시간 내에 이메일을 받지 못했으면 Microsoft 지원에 문의하세요.
 
-4. *Is using a SAN certificate less secure than a dedicated certificate?*
+4. *SAN 인증서를 사용하는 것보다 전용 인증서를 사용하는 것이 더 안전한가요?*
     
-    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
+    SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
 
-5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
+5. *내 DNS 공급자에게 Certificate Authority Authorization 레코드가 필요하나요?*
 
-    No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
+    아니요, CAA 레코드는 현재 필요하지 않습니다. 그러나 이 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다.
 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>다음 단계
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn [how Front Door works](front-door-routing-architecture.md).
+- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

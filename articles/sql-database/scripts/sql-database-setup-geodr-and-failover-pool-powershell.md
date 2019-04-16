@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 8789e6c45940891e51638f9711fbcf66259882b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 62c736e79b1a3c2b68eaddd5beab7085cd78b3f5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842246"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360366"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에 풀링된 데이터베이스에 대한 활성 지역 복제 구성
 
@@ -35,7 +35,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname

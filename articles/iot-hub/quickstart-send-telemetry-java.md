@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: f5ec6a16de46a7902f7ab739922dc756c96702e0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010976"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004789"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Java)으로 읽습니다.
 
@@ -49,6 +49,12 @@ java -version
 mvn --version
 ```
 
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서 Java 프로젝트 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
@@ -59,14 +65,13 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
 연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다.
+1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
    **MyJavaDevice**: 등록 중인 디바이스의 이름입니다. 표시된 것처럼 **MyJavaDevice**를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 애플리케이션 예제에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 

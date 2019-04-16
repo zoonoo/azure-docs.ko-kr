@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116693"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008905"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>펌웨어 업데이트 시작
 
-백 엔드 애플리케이션에서 [자동 장치 관리 구성](iot-hub-auto-device-config.md#create-a-configuration)을 만들어서 냉각기의 **devicetype**으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
+백 엔드 애플리케이션에서 [자동 장치 관리 구성](iot-hub-automatic-device-management.md#create-a-configuration)을 만들어서 냉각기의 **devicetype**으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
 
 * 백 엔드 애플리케이션의 구성을 만듭니다.
 * 완료할 작업을 모니터링합니다.
@@ -115,10 +115,10 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 다음 구성 파일에는 다음 섹션이 포함됩니다.
 
-* `content`는 선택된 디바이스에 전송된 펌웨어 desired 속성을 지정합니다.
-* `metrics`는 펌웨어 업데이트의 상태를 보고하는 실행할 쿼리를 지정합니다.
-* `targetCondition`은 펌웨어 업데이트를 받을 디바이스를 선택합니다.
-* `priorty`는 다른 구성에 대한 이 구성의 상대적 우선 순위를 설정합니다.
+* `content` 선택된 디바이스에 전송된 펌웨어 desired 속성을 지정합니다.
+* `metrics` 펌웨어 업데이트의 상태를 보고하는 실행할 쿼리를 지정합니다.
+* `targetCondition` 펌웨어 업데이트를 받을 디바이스를 선택합니다.
+* `priorty` 다른 구성에 대한 이 구성의 상대적 우선순위를 설정합니다.
 
 백 엔드 애플리케이션은 다음 코드를 사용하여 desired 속성을 설정하는 구성을 만듭니다.
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 761ecefa768914e0c27f46d37050743e4f1f60ff
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362360"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358207"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
@@ -115,4 +115,4 @@ Pi 근삿값을 계산하는 코드에서 임의 값을 사용하므로 도면�
 워크플로 환경을 자세히 살펴보려면 다음 Machine Learning 자습서에 따라 모델을 학습하고 배포하세요.  
 
 > [!div class="nextstepaction"]
-> [자습서: 이미지 분류 모델 학습시키기](tutorial-train-models-with-aml.md)
+> [자습서: 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)

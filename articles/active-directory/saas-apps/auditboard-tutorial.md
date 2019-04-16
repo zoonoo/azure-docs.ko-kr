@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce100c4e8aa33a9180f5657756b11d6c6e34920
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5a54fb179b9baac9e72e003b1f9b0c6697ae74b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838870"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>자습서: AuditBoard와 Azure Active Directory 통합
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 AuditBoard와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * AuditBoard Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -67,7 +67,7 @@ AuditBoard가 Azure AD에 통합되도록 구성하려면 갤러리의 AuditBoar
 
 4. 검색 상자에서 **AuditBoard**를 입력하고, 결과 패널에서 **AuditBoard**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 AuditBoard](common/search-new-app.png)
+    ![결과 목록의 AuditBoard](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -79,8 +79,8 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[AuditBoard Single Sign-On 구성](#configure-auditboard-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[AuditBoard 테스트 사용자 만들기](#create-auditboard-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 AuditBoard에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[AuditBoard 테스트 사용자 만들기](#create-auditboard-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 AuditBoard에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -105,20 +105,20 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![AuditBoard 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
 
     다. **SP 시작** 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
-    d. **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.auditboardapp.com/` 패턴을 사용하여 URL을 입력합니다.
+    d. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.auditboardapp.com/`
 
     ![AuditBoard 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [AuditBoard 클라이언트 지원 팀](mailto:support@auditboard.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
@@ -126,7 +126,7 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 **AuditBoard** 쪽에서 Single Sign-On을 구성하려면, **앱 페더레이션 메타데이터 URL**을 [AuditBoard 지원 팀](mailto:support@auditboard.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
@@ -144,8 +144,7 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
@@ -181,7 +180,7 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 AuditBoard에서 Britta Simon이라는 사용자를 만듭니다. [AuditBoard 지원 팀](mailto:support@auditboard.com)과 협력하여 사용자를 AuditBoard 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -191,7 +190,6 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

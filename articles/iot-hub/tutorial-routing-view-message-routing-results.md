@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7f6baec8fee2b046949e2d88b5fff7bb5db9b40b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662417"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045836"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>자습서: 2부 - 라우팅된 메시지 보기
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rules-for-routing-the-messages"></a>메시지 라우팅에 대한 규칙
 
@@ -272,7 +274,7 @@ Power BI 창 위쪽의 새로 고침 단추를 선택하면 차트를 새로 고
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup`은 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
+리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup` 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -280,10 +282,10 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>PowerShell을 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용합니다. `$resourceGroup`은 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
+리소스 그룹을 제거하려면 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다. `$resourceGroup` 이 자습서의 시작 부분에서 **ContosoResources**로 다시 설정되었습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계

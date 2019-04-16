@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2348b4293b8726c406b1f06b2f88c37dfb00e80c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447742"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359988"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리
 
@@ -44,7 +44,7 @@ ms.locfileid: "58447742"
 
 ## <a name="install-the-latest-ssms"></a>최신 SSMS 설치
 
-시작하기 전에 최신 [SSMS][ssms-install-latest-84g]를 설치했는지 확인합니다. 
+시작하기 전에 최신 [SSMS][ssms-install-latest-84g]를 설치했는지 확인합니다.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 
@@ -58,7 +58,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 ## <a name="connect-to-your-database"></a>데이터베이스 연결
 
-SMSS에서 Azure SQL Database 서버에 연결합니다. 
+SMSS에서 Azure SQL Database 서버에 연결합니다.
 
 > [!IMPORTANT]
 > Azure SQL Database 서버는 포트 1433에서 수신 대기합니다. 회사 방화벽 뒤에서 SQL Database 서버에 연결하려면 방화벽에서 이 포트가 열려 있어야 합니다.
@@ -68,11 +68,11 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 
 2. 다음 정보를 입력합니다.
 
-   | 설정      | 제안 값    | 설명 | 
-   | ------------ | ------------------ | ----------- | 
+   | 설정      | 제안 값    | 설명 |
+   | ------------ | ------------------ | ----------- |
    | **서버 유형** | 데이터베이스 엔진 | 필수 값. |
    | **서버 이름** | 정규화된 서버 이름 | 예: **mynewserver20170313.database.windows.net**. |
-   | **인증** | SQL Server 인증 | 이 자습서에서는 SQL 인증을 사용합니다. |
+   | **Authentication** | SQL Server 인증 | 이 자습서에서는 SQL 인증을 사용합니다. |
    | **로그인** | 서버 관리자 계정 사용자 ID | 서버를 만드는 데 사용되는 서버 관리자 계정의 사용자 ID입니다. |
    | **암호** | 서버 관리자 계정 암호 | 서버를 만드는 데 사용되는 서버 관리자 계정의 암호입니다. |
    ||||
@@ -83,7 +83,7 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 
    ![서버에서 db에 연결](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. **연결**을 선택합니다. 개체 탐색기 창이 열립니다. 
+4. **연결**을 선택합니다. 개체 탐색기 창이 열립니다.
 
 5. 데이터베이스의 개체를 보려면 **데이터베이스**를 확장한 다음, **mySampleDatabase**를 확장합니다.
 
@@ -140,15 +140,14 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. **실행**을 선택합니다. 다음과 같은 결과가 나타납니다. 
+
+2. **실행**을 선택합니다. 다음과 같은 결과가 나타납니다.
 
    ![result](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>데이터 업데이트
 
 이 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 코드를 실행하여 새 제품을 수정합니다.
@@ -188,8 +187,6 @@ SMSS에서 Azure SQL Database 서버에 연결합니다.
 - Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
 - Ruby를 사용하여 연결 및 쿼리하려면 [Ruby를 사용하여 연결 및 쿼리](sql-database-connect-query-ruby.md)를 참조하세요.
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

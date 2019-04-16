@@ -9,12 +9,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 8d17ece1426c2aedda2ef98cb465dad532d4dba6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a10d4401daeedcf81ea85b7b837f5c1fbfb909
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902708"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357149"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 다중 서비스 개발
 
@@ -60,7 +60,7 @@ ms.locfileid: "57902708"
        });
     });
     ```
-   1. `server.js`의 끝에서 `server.close()` 줄을 *제거*합니다.
+   1. 끝에서 `server.close()` 줄을 *제거*합니다. `server.js`
 
 위의 코드 예제는 `azds-route-as` 헤더를 수신 요청에서 발신 요청으로 전달합니다. 나중에 이를 통해 공동 작업 개발 팀에 어떻게 도움이 되는지 살펴보겠습니다.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 01/03/2019
+ms.date: 04/05/2019
 ms.author: diberry
-ms.openlocfilehash: a3d2d195614f0eab1b382e9a0967d921459ff553
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d12051821faa60940bf2acc569c6552561b4b3ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884106"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267943"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>빠른 시작: Postman을 사용하여 기술 자료에서 답변 가져오기
 
@@ -28,7 +28,7 @@ ms.locfileid: "55884106"
 
 ## <a name="publish-to-get-endpoint"></a>엔드포인트를 가져오기 위한 게시
 
-기술 자료 데이터베이스에서 질문에 대한 대답을 생성할 준비가 되었으면 기술 자료를 [게시](../How-to/publish-knowledge-base.md)합니다.
+기술 자료 데이터베이스에서 질문에 대한 대답을 생성할 준비가 되었으면 기술 자료를 [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)합니다.
 
 ## <a name="use-production-endpoint-with-postman"></a>Postman과 함께 프로덕션 엔드포인트 사용
 
@@ -36,38 +36,38 @@ ms.locfileid: "55884106"
 
 다음 이미지의 노란색 숫자는 다음 단계에서 사용할 이름/값 쌍을 나타냅니다.
 
-[![게시 결과](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
+[![Publish 결과](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
 
 Postman을 사용하여 대답을 생성하려면 다음 단계를 완료합니다.
 
 1. Postman을 엽니다. 구성 요소를 선택하도록 요청한 경우 **기본 요청** 구성 요소를 선택합니다. **요청 이름**을 `Generate QnA Maker answer`로 설정하고, **컬렉션**을 `Generate QnA Maker answers`로 설정합니다. 컬렉션에 저장하지 않으려는 경우 **취소** 단추를 선택합니다.
 1. 작업 영역에서 HTTP 메서드로 **POST**를 선택합니다.
 
-    [![Postman에서 POST 메서드 설정](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
+    [![IPostman에서 POST 메서드 설정](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
 
 1. URL에 대해 HOST 값(이미지의 #2)과 POST 값(이미지의 #1)을 연결하여 전체 URL을 만듭니다. 전체 예제 URL은 다음과 같습니다. 
 
     `https://qnamaker-f0.azurewebsites.net/qnamaker/knowledgebases/e1115f8c-d01b-4698-a2ed-85b0dbf3348c/generateAnswer`
 
-    [![Postman에서 전체 URL 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
+    [![IPostman에서 전체 URL 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
 1. URL 아래의 **헤더** 탭을 선택하고 **일괄 편집**을 선택합니다. 
 
 1. 텍스트 영역(이미지의 #3 및 #4)에 헤더를 복사합니다.
 
-    [![Postman에서 헤더를 설정합니다.](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
+    [![IPostman에서 헤더 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
 1. **본문** 탭을 선택합니다.
 1. **원시** 형식을 선택하고 질문을 나타내는 JSON(이미지의 #5)을 입력합니다.
 
     `{"question":"How do I programmatically update my Knowledge Base?"}`
 
-    [![Postman에서 본문 JSON 값을 설정합니다.](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
+    [![IPostman에서 본문 JSON 값 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
 1. **보내기** 단추를 선택합니다.
 1. 응답에는 클라이언트 애플리케이션에 중요할 수 있는 기타 정보와 함께 대답이 포함됩니다. 
 
-    [![Postman에서 본문 JSON 값을 설정합니다.](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
+    [![IPostman에서 본문 JSON 값 설정](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
 ## <a name="use-staging-endpoint"></a>준비 엔드포인트 사용
 

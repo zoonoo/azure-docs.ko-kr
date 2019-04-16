@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5e7994ba5fcd3efa061f56d7ee77f796bab16708
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449318"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268673"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장합니다. 텍스트 편집기에서 엽니다.
-3. `<insert-key>` 문자열을 검색합니다. 이 문자열을 이전 섹션의 **기본 키** 값으로 바꿉니다.
+3. `<Your Azure Maps Key>` 문자열을 검색합니다. 이 문자열을 이전 섹션의 **기본 키** 값으로 바꿉니다.
 
 ## <a name="open-the-application"></a>애플리케이션 열기
 
@@ -70,15 +70,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Maps 계정과 앱 데모를 만들었습니다. Azure Maps API를 사용하여 사용자 고유의 애플리케이션을 만드는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+이 빠른 시작에서는 Azure Maps 계정과 앱 데모를 만들었습니다. Azure Maps에 대해 자세히 알아보려면 다음 자습서를 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Maps를 사용하여 주변 관심 지점 검색](./tutorial-search-location.md)
+> [Azure Maps를 사용하여 주변 관심 지점 검색](tutorial-search-location.md)
 
 더 많은 코드 예제 및 대화형 코딩 환경은 다음 가이드를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Maps 검색 서비스를 사용하여 주소 찾기](./how-to-search-for-address.md)
+> [Azure Maps 검색 서비스를 사용하여 주소 찾기](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Azure Maps 맵 컨트롤 사용](./how-to-use-map-control.md)
+> [Azure Maps 맵 컨트롤 사용](how-to-use-map-control.md)

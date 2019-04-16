@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 71b7cfb92b4caded75e0723564a09fae9f10858c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359776"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266497"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>자습서: Jitbit Helpdesk와 Azure Active Directory 통합
 
@@ -115,7 +115,7 @@ Jitbit Helpdesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Jitbit Helpdesk 클라이언트 지원 팀](https://www.jitbit.com/support/)에 문의하세요.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 URL을 `https://www.jitbit.com/web-helpdesk/`로 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 URL을 다음과 같이 입력합니다. `https://www.jitbit.com/web-helpdesk/`
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -210,7 +210,7 @@ Jitbit Helpdesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 Azure AD 사용자가 Jitbit Helpdesk에 로그인할 수 있도록 하려면 Jitbit Helpdesk로 프로비저닝되어야 합니다. Jitbit Helpdesk의 경우 프로비저닝은 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. **Jitbit Helpdesk** 테넌트에 로그인합니다.
 
@@ -251,8 +251,8 @@ Azure AD 사용자가 Jitbit Helpdesk에 로그인할 수 있도록 하려면 Ji
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

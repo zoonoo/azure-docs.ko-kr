@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 55c83c91f4c183e7863c6a9fa129b5469e52afdd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0f21165af0bcbd8bda28f0eae20d3ee837f3be9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835002"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>자습서: Mozy Enterprise와 Azure Active Directory 통합
 
@@ -209,7 +209,7 @@ Azure AD 사용자가 Mozy Enterprise에 로그인할 수 있도록 하려면 Mo
 >[!NOTE]
 >다른 Mozy Enterprise 사용자 계정 생성 도구 또는 Mozy Enterprise가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. **Mozy Enterprise** 테넌트에 로그인합니다.
 
@@ -247,9 +247,9 @@ Azure AD 사용자가 Mozy Enterprise에 로그인할 수 있도록 하려면 Mo
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

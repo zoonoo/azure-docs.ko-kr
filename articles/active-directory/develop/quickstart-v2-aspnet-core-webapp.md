@@ -17,12 +17,12 @@ ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903593"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005662"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -79,7 +79,7 @@ ms.locfileid: "58903593"
 
 1. Zip 파일을 루트 폴더 안의 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio 2017을 사용하는 경우 Visual Studio에서 솔루션을 엽니다(선택 사항).
-1. **appsettings.json** 파일을 편집합니다. `ClientId`를 찾아 `ClientId` 값을 방금 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 바꿉니다. 
+1. **appsettings.json** 파일을 편집합니다. `ClientId`를 찾아 방금 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 값으로 `ClientId` 값을 업데이트합니다. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

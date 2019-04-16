@@ -12,22 +12,22 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d492259a114d6574c4a81d1f9b97a0dcfcd8c5d3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd219e9aaf684600f76ed81eb45ed9a5bf78f62c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004046"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360008"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>CLI를 사용하여 Azure SQL Database에서 탄력적 풀의 크기 조정
 
-이 Azure CLI 스크립트 예제는 탄력적 풀을 만들고, 풀링된 데이터베이스를 이동하고, 탄력적 풀 컴퓨팅 크기를 변경합니다. 
+이 Azure CLI 스크립트 예제는 탄력적 풀을 만들고, 풀링된 데이터베이스를 이동하고, 탄력적 풀 컴퓨팅 크기를 변경합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -35,7 +35,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -47,12 +47,12 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | 탄력적 풀을 만듭니다. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | 단일 또는 풀링된 데이터베이스를 만듭니다. |
-| [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | 탄력적 풀을 업데이트하고 이 예제에서 할당된 eDTU를 변경합니다. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az 그룹 만들기](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az sql 서버 만들기](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
+| [az sql 탄력적 풀 만들기](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | 탄력적 풀을 만듭니다. |
+| [az sql db 만들기](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | 단일 또는 풀링된 데이터베이스를 만듭니다. |
+| [az sql 탄력적 풀 업데이트](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | 탄력적 풀을 업데이트하고 이 예제에서 할당된 eDTU를 변경합니다. |
+| [az 그룹 삭제](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

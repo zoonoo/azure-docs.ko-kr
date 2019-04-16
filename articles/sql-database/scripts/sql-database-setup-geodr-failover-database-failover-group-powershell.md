@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 991df9f57149f51271cfecb4557e2f307103ac47
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 421972303ae6d63adf8f4a26af626a13e20a411d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880843"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359122"
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database의 단일 데이터베이스에 대한 활성 지역 복제 장애 조치(failover) 그룹 구성
 
@@ -35,7 +35,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname

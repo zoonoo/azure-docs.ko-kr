@@ -1,19 +1,18 @@
 ---
 title: '빠른 시작: C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기'
 description: C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법을 알아봅니다.
-services: data-explorer
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 1489048619fa8d650b30659a00ae7679c8d5109d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417907"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050699"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -25,7 +24,7 @@ ms.locfileid: "58417907"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 빠른 시작에서는 C#을 사용하여 클러스터와 데이터베이스를 만듭니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 빠른 시작에서는 C#을 사용하여 클러스터와 데이터베이스를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400969"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282817"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Azure Data Box Gateway란?
 
@@ -29,6 +29,8 @@ Data Box Gateway는 가상화된 환경 또는 하이퍼바이저에 프로비�
 - **지속적인 데이터 수집** - 데이터 크기에 관계 없이 지속적으로 데이터를 디바이스에 수집하여 클라우드로 복사합니다. 데이터는 게이트웨이 디바이스에 작성되므로 디바이스는 데이터를 Azure Storage에 업로드합니다.  
 
 - **증분 전송 후 초기 대량 전송** - 오프라인 모드(초기 시드)의 대량 전송에 Data Box를 사용하고 네트워크를 통한 증분 전송(진행 중인 피드)에 Data Box Gateway를 사용합니다.
+
+자세한 내용은 [Azure Data Box Gateway 사용 사례](data-box-gateway-use-cases.md)를 참조하세요.
 
 ## <a name="benefits"></a>이점
 
@@ -92,7 +94,7 @@ Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가�
     - **유럽 연합** - 유럽 서부
     - **아시아 태평양** - 동남 아시아
 
-    Data Box Gateway는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
+    Data Box Gateway는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
 
 - **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 모든 Azure 지역에서 사용할 수 있습니다.
 

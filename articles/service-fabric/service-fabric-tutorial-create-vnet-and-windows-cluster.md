@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 5ef143fe2021a9f705bf61b579e8251b2946b042
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668095"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050009"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
@@ -50,13 +50,16 @@ ms.locfileid: "58668095"
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)을 설치합니다.
+* [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 설치합니다.
 * [Azure 클러스터](service-fabric-azure-clusters-overview.md)에 대한 주요 개념을 검토합니다.
 * 프로덕션 클러스터 배포를 [계획 및 준비](service-fabric-cluster-azure-deployment-preparation.md)합니다.
 
@@ -151,7 +154,7 @@ ms.locfileid: "58668095"
 
 [azuredeploy.parameters.json][parameters] 매개 변수 파일은 클러스터 및 연결된 리소스를 배포하는 데 사용되는 많은 값을 선언합니다. 배포에 맞게 수정할 매개 변수는 다음과 같습니다.
 
-**매개 변수** | **예제 값** | **참고 사항** 
+**매개 변수** | **예제 값** | **메모** 
 |---|---|---|
 |adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. [VM에 대한 사용자 이름 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
 |adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다. [VM에 대한 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
@@ -611,7 +614,7 @@ Log Analytics 에이전트 확장을 클러스터에 설정된 각 가상 머신
 
 ### <a name="create-a-cluster-by-using-an-existing-certificate"></a>기존 인증서를 사용하여 클러스터 만들기
 
-다음 스크립트는 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet 및 템플릿을 사용하여 Azure에서 새 클러스터를 배포합니다. 이 cmdlet은 Azure에서 새 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
+다음 스크립트는 [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) cmdlet 및 템플릿을 사용하여 Azure에서 새 클러스터를 배포합니다. 이 cmdlet은 Azure에서 새 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
 
 ```powershell
 # Variables.
@@ -626,22 +629,22 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### <a name="create-a-cluster-by-using-a-new-self-signed-certificate"></a>자체 서명된 새 인증서를 사용하여 클러스터 만들기
 
-다음 스크립트는 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet 및 템플릿을 사용하여 Azure에서 새 클러스터를 배포합니다. 이 cmdlet은 Azure에서 새 키 자격 증명 모음을 만들고, 자체 서명된 인증서를 키 자격 증명 모음에 추가하고, 인증서 파일을 로컬로 다운로드합니다.
+다음 스크립트는 [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) cmdlet 및 템플릿을 사용하여 Azure에서 새 클러스터를 배포합니다. 이 cmdlet은 Azure에서 새 키 자격 증명 모음을 만들고, 자체 서명된 인증서를 키 자격 증명 모음에 추가하고, 인증서 파일을 로컬로 다운로드합니다.
 
 ```powershell
 # Variables.
@@ -657,15 +660,15 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 

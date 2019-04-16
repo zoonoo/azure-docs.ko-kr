@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e50a4f10b7706e474941842b14e1f45364d13a7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226490"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274946"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>자습서: InTime과 Azure Active Directory 통합
 
@@ -107,7 +107,7 @@ InTime에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://auth.intimesoft.com/auth/realms/master` URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 URL을 입력합니다. `https://auth.intimesoft.com/auth/realms/master`
 
 5. InTime 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. InTime 애플리케이션에서는 **nameidentifier**가 **user.mail**과 매핑되므로 특성 매핑을 변경하기 위해 **편집** 아이콘을 클릭하여 특성 매핑을 편집해야 합니다.
 
@@ -194,8 +194,8 @@ InTime에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

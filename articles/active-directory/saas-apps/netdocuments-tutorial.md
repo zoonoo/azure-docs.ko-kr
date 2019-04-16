@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 50850fc9372976382724d6bbc98be9a8d10a0655
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850182"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>자습서: NetDocuments와 Azure Active Directory 통합
 
@@ -104,9 +104,9 @@ NetDocuments에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![NetDocuments 도메인 및 URL Single Sign-On 정보](common/sp-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
-    b. **회신 URL** 텍스트 상자에서 `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [NetDocuments Client 지원 팀](https://support.netdocuments.com/hc/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -205,7 +205,7 @@ NetDocuments에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 Azure AD 사용자가 NetDocuments에 로그인할 수 있도록 하려면 NetDocuments로 프로비전되어야 합니다.  
 NetDocuments의 경우 프로비전은 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. **NetDocuments** 회사 사이트에 관리자 권한으로 로그온합니다.
 
@@ -232,9 +232,9 @@ NetDocuments의 경우 프로비전은 수동 작업입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

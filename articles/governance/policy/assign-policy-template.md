@@ -1,19 +1,18 @@
 ---
 title: Resource Manager 템플릿을 사용하여 정책 할당 만들기
 description: 이 문서에서는 Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당을 만드는 단계를 안내합니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 354d5aa250449b87345cef17778befddc761fa19
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 3b7ceb07fe874ebc012696f73c21d5c270cb3cee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802510"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268996"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -38,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 
-   [![Azure에 Policy 템플릿 배포](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![DAzure에 Policy 템플릿 배포](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. 다음 값을 선택하거나 입력합니다.
 

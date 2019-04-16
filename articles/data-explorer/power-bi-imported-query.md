@@ -1,19 +1,18 @@
 ---
-title: '빠른 시작: Power BI로 가져온 쿼리를 사용하여 데이터 시각화'
+title: '빠른 시작: Power BI에서 가져온 쿼리를 사용하여 Azure Data Explorer의 데이터 시각화 '
 description: 이 빠른 시작에서는 Power BI에서 데이터를 시각화하기 위한 세 가지 옵션 중 하나인 Azure Data Explorer에서 쿼리를 가져오는 방법을 알아봅니다.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756106"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050591"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>빠른 시작: Power BI로 가져온 쿼리를 사용하여 데이터 시각화
 

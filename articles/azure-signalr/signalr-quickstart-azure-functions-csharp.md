@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544983"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264999"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>빠른 시작: C\#을 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -36,7 +36,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Azure Function 앱을 구성하고 실행합니다.
 
-1. Visual Studio(또는 다른 코드 편집기)를 시작하고 복제된 리포지토리의 *chat\src\csharp* 폴더에서 솔루션을 엽니다.
+1. Visual Studio(또는 다른 코드 편집기)를 시작하고 복제된 리포지토리의 *src/chat/csharp* 폴더에서 솔루션을 엽니다.
 
 1. Azure Portal이 열리는 브라우저에서, 포털의 맨 위에 있는 검색 상자에서 해당 이름을 검색하여 이전에 배포한 SignalR Service 인스턴스를 성공적으로 만들었는지 확인합니다. 인스턴스를 선택하여 엽니다.
 

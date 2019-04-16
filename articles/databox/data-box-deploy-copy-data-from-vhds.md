@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 1358751c71dfba39574807c9b232957227980f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887513"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282562"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 
@@ -46,7 +46,7 @@ ms.locfileid: "57887513"
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-각 공유 내에서 스토리지 계정의 컨테이너에 해당하는 다음 4개의 폴더가 생성됩니다.
+각 공유 내에서 스토리지 계정의 컨테이너에 해당하는 다음 세 개의 폴더가 생성됩니다.
 
 - 프리미엄 SSD
 - 표준 HDD
@@ -142,8 +142,8 @@ Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클
 
 SMB 또는 NFS를 통해 연결하는지 여부에 따라 다음을 사용할 수 있습니다.
 
-- [SMB를 통한 데이터 복사](data-box-deploy-copy-data.md#copy-data-to-data-box)
-- [NFS를 통한 데이터 복사](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
+- [SMB를 통해 데이터 복사](data-box-deploy-copy-data.md#copy-data-to-data-box)
+- [NFS를 통해 데이터 복사](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
 복사 작업이 완료될 때까지 기다립니다. 다음 단계를 진행하기 전에 오류 없이 복사 작업이 완료되었는지 확인합니다.
 

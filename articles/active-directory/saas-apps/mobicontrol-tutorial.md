@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d639727e5b002dfc0e961eaaad867e83867b59e0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 120be3ef7299391e611dc393e70af697c1daf2ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851589"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>자습서: MobiControl과 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ MobiControl에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
     ![MobiControl 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.corp.soti.net/mobicontrol` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [MobiControl 고객 지원 팀](https://www.soti.net/about/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -182,9 +182,9 @@ MobiControl에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

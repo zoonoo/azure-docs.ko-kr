@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890681"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>자습서: PureCloud by Genesys와 Azure Active Directory 통합
 
@@ -260,7 +260,7 @@ PureCloud by Genesys에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 Azure AD 사용자가 PureCloud by Genesys에 로그인할 수 있도록 하려면 이 사용자를 PureCloud by Genesys에 프로비저닝해야 합니다. PureCloud by Genesys에서는 프로비저닝이 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. PureCloud by Genesys에 관리자 권한으로 로그인합니다.
 
@@ -290,9 +290,9 @@ Azure AD 사용자가 PureCloud by Genesys에 로그인할 수 있도록 하려�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/08/2018
 ms.author: diberry
-ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076754"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273841"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Language Understanding 앱을 사용하여 음성 서비스 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
@@ -24,7 +24,7 @@ ms.locfileid: "58076754"
 이 문서에서는 애플리케이션을 가져오기 위해 무료 [LUIS][LUIS] 웹 사이트 계정이 필요합니다.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS 엔드포인트 키 만들기
-Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-how-to-azure-subscription.md). 
+Azure Portal에서 LUIS 앱용 **Cognitive Service**(LUIS) 키를 [만듭니다](luis-how-to-azure-subscription.md).  
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS 앱 가져오기
 이 문서의 의도 및 발언은 [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) GitHub 리포지토리에서 사용할 수 있는 Human Resources LUIS 앱에서 가져온 것입니다. [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) 파일을 다운로드하고, `.json` 확장명으로 저장하고, LUIS로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 
@@ -66,7 +66,7 @@ Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-h
 
 Speech SDK는 이미 참조로 포함되어 있습니다. 
 
-[![Microsoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷](./media/luis-tutorial-speech-to-intent/nuget-package.png "Microsoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![SMicrosoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷](./media/luis-tutorial-speech-to-intent/nuget-package.png "Microsoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>C# 코드 수정
 `Program.cs` 파일을 열고 다음 변수를 변경합니다.
@@ -74,7 +74,7 @@ Speech SDK는 이미 참조로 포함되어 있습니다.
 |변수 이름|목적|
 |--|--|
 |LUIS_assigned_endpoint_key|[게시] 페이지에서 엔드포인트 URL의 할당된 구독 키 값에 해당합니다.|
-|LUIS_endpoint_key_region|엔드포인트 URL의 첫 번째 하위 도메인에 해당합니다(예: `westus`).|
+|LUIS_endpoint_key_region|예를 들어, 엔드포인트 URL의 첫 번째 하위 도메인에 해당합니다 `westus`|
 |LUIS_app_ID|**app/** 다음의 엔드포인트 URL 경로에 해당합니다.|
 
 `Program.cs` 파일에는 이미 [인적 자원] 의도가 매핑되어 있습니다.

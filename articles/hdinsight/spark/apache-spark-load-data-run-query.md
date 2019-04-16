@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274011"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
@@ -24,8 +24,6 @@ ms.locfileid: "57448988"
 > [!div class="checklist"]
 > * csv 파일에서 데이터 프레임 만들기
 > * 데이터 프레임에서 쿼리 실행
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,7 +36,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ![대화형 Spark SQL 쿼리용 데이터의 스냅숏](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리용 데이터의 스냅숏")
 
 
-1. 필수 조건 섹션에서 만든 Jupyter Notebook을 엽니다.
+1. 필수 조건 섹션에서 만든 Jupyter Notebook을 열고 PySpark를 사용하여 새 Notebook을 만듭니다.
+
+    > [!NOTE]  
+    > PySpark 커널을 사용하여 Notebook을 만들면 첫 번째 코드 셀을 실행할 때 `spark` 세션이 자동으로 만들어집니다. 세션을 명시적으로 만들 필요가 없습니다.
+
 2. 노트북의 빈 셀에 다음 코드를 붙여넣은 다음 **Shift+Enter**를 눌러 해당 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
 
     ```python
@@ -58,10 +60,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > PySpark 커널을 사용하여 Notebook을 만들면 첫 번째 코드 셀을 실행할 때 `spark` 세션이 자동으로 만들어집니다. 세션을 명시적으로 만들 필요가 없습니다.
-
-
 ## <a name="run-queries-on-the-dataframe"></a>데이터 프레임에서 쿼리 실행
 
 테이블이 만들어지면 데이터에 대한 대화형 쿼리를 실행할 수 있습니다.
@@ -77,13 +75,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
      ![대화형 Spark 쿼리 결과의 테이블 출력](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "대화형 Spark 쿼리 결과의 테이블 출력")
 
-3. 다른 시각화로 결과를 볼 수도 있습니다. 동일한 출력에 대한 영역형 그래프를 보려면 **영역**을 선택한 다음 표시된 것처럼 다른 값을 설정합니다.
+2. 다른 시각화로 결과를 볼 수도 있습니다. 동일한 출력에 대한 영역형 그래프를 보려면 **영역**을 선택한 다음 표시된 것처럼 다른 값을 설정합니다.
 
     ![대화형 Spark 쿼리 결과의 영역 그래프](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "대화형 Spark 쿼리 결과의 영역 그래프")
 
-10. Notebook의 **파일** 메뉴에서 **닫기 및 검사점**을 선택합니다. 
+3. Notebook 메뉴 모음에서 **파일** > **저장 및 검사점**으로 이동합니다.
 
-11. 이제 [다음 자습서](apache-spark-use-bi-tools.md)를 시작하는 경우 Notebook을 열어 둡니다. 그렇지 않은 경우 Notebook을 종료하여 Notebook의 **파일** 메뉴에서 클러스터 리소스를 해제하고 **닫기 및 중지**를 선택합니다.
+4. 이제 [다음 자습서](apache-spark-use-bi-tools.md)를 시작하는 경우 Notebook을 열어 둡니다. 그렇지 않은 경우 Notebook을 종료하여 클러스터 리소스를 해제합니다. Notebook 메뉴 모음에서 **파일** >  **닫기 및 중지**로 이동합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -98,11 +96,10 @@ Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-* Apache Spark 데이터 프레임을 만듭니다.
-* 데이터 프레임에 대해 Spark SQL을 실행합니다.
+> [!div class="checklist"]
+> * Apache Spark 데이터 프레임을 만듭니다.
+> * 데이터 프레임에 대해 Spark SQL을 실행합니다.
 
 다음 문서로 진행하여 Apache Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
 > [!div class="nextstepaction"]
 > [BI 도구를 사용하여 데이터 분석](apache-spark-use-bi-tools.md)
-

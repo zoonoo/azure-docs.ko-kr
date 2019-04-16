@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898468"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>자습서: HackerOne과 Azure Active Directory 통합
 
@@ -106,9 +106,9 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![HackerOne 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://hackerone.com/<company name>/authentication` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://hackerone.com/<company name>/authentication`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://hackerone.com/users/saml/metadata` URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 URL을 입력합니다. `https://hackerone.com/users/saml/metadata`
 
     > [!NOTE]
     > 이 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [HackerOne 클라이언트 지원 팀](mailto:support@hackerone.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -145,9 +145,9 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **전자 메일 도메인** 텍스트 상자에 등록된 도메인을 입력합니다.
 
-    b. Azure Portal에서 복사한  **로그인 URL**  값을   **Single Sign-On URL** 텍스트 상자에 붙여넣습니다.
+    b. **Single Sign-On URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    다. Azure Portal에서 다운로드한 **인증서 파일**을 메모장에서 열고, 내용을 클립보드에 복사한 다음, **X509 인증서**  텍스트 상자에 붙여넣습니다.
+    다. Azure Portal에서 다운로드한 **인증서 파일**을 메모장에서 열고, 내용을 클립보드에 복사한 다음, **X509 인증서** 텍스트 상자에 붙여넣습니다.
 
     d. **저장**을 클릭합니다.
 
@@ -224,6 +224,6 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

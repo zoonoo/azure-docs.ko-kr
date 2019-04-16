@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 88ec8b93e2429fd394eb3a8d10460a2a80d9e56f
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 34e5876df36a48b0ca70979346afdd89b674a813
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349487"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359496"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정
 
@@ -33,15 +33,14 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
-> [!TIP]
+> [!NOTE]
 > 메트릭의 전체 목록은 [지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases)을 참조하세요.
-
 > [!TIP]
 > [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity)를 사용하여 데이터베이스 작업의 상태를 가져오고 [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)를 사용하여 데이터베이스 업데이트 작업을 취소합니다.
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

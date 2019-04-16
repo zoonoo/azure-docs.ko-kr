@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 63e1f6a6779cf2689a7cbffad06447d272a413d7
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516929"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005382"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>빠른 시작: Android 디바이스에서 IoT 원격 분석 데이터 전송
 
@@ -33,11 +33,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * [https://developer.android.com/studio/](https://developer.android.com/studio/)의 Android Studio. Android Studio 설치에 대한 자세한 내용은 [android-installation](https://developer.android.com/studio/install)을 참조하세요. 
 
-* 이 문서의 샘플에서는 Android SDK 27을 사용합니다. 
+* 이 문서의 샘플에서는 Android SDK 27을 사용합니다.
+
+* 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 * 이 빠른 시작에서 실행하는 [샘플 Android 애플리케이션](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample)은 GitHub에 있는 azure-iot-samples-java 리포지토리의 일부입니다. [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리를 다운로드하거나 복제합니다.
-
-
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -47,14 +51,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
+1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
    **MyAndroidDevice**: 이 값은 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyAndroidDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```
 
@@ -89,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    > [!NOTE]
    > 프로젝트 동기화에 실패하는 경우는 다음 이유 중 하나일 수 있습니다.
    >
-   > * 프로젝트에서 참조된 Android Gradle 플러그 인 및 Gradle의 버전이 Studio의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
+   > * 프로젝트에서 참조한 Android Gradle 플러그 인 및 Gradle의 버전이 사용자의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
    > * Android SDK에 대한 사용권 계약에 서명하지 않았습니다. 빌드 출력의 지침에 따라 사용권 계약에 서명하고 SDK를 다운로드합니다.
 
 4. 빌드가 완료되면 **실행** > **'앱' 실행**을 클릭합니다. 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.

@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094925"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009274"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Cognitive Services Speech SDK를 사용하여 Objective-C에서 녹음된 음성의 오디오 파일을 텍스트로 변환하는 iOS 앱을 만드는 방법을 알아봅니다.
+이 문서에서는 Cognitive Services Speech SDK를 사용하여 Objective-C에서 iOS 앱을 만들어 녹음된 오디오가 있는 파일이나 마이크에서 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,16 +29,16 @@ ms.locfileid: "58094925"
 
 * Speech Service에 대한 [구독 키](get-started.md)
 * [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) 이상이 설치된 macOS 머신
-* iOS 버전 11.4 이상으로 설정된 대상
+* iOS 버전 9.3 이상으로 설정된 대상
 
 ## <a name="get-the-speech-sdk-for-ios"></a>iOS용 Speech SDK 가져오기
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.3.1`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.4.0`입니다.
 
-Mac 및 iOS용 Cognitive Services Speech SDK는 현재 Cocoa Framework로 배포됩니다.
-https://aka.ms/csspeech/iosbinary에서 다운로드할 수 있습니다. 홈 디렉터리에 파일을 다운로드합니다.
+iOS용 Cognitive Services Speech SDK는 현재 Cocoa Framework로 배포됩니다.
+[여기](https://aka.ms/csspeech/iosbinary)에서 다운로드할 수 있습니다. 홈 디렉터리에 파일을 다운로드합니다.
 
 ## <a name="create-an-xcode-project"></a>Xcode 프로젝트 만들기
 
@@ -102,4 +102,5 @@ UI는 프로젝트의 일부로 `Main.storyboard`에 설정되어 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [GitHub의 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)
+> [GitHub에서 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)
+

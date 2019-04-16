@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ed34267aa1f18b4c66fe841164e6a2cde4e27d47
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 385092cb9c760e6f9fa848449bd61663541573b9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361050"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>자습서: IBM Kenexa Survey Enterprise와 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ IBM Kenexa Survey Enterprise에서 Azure AD Single Sign-On을 구성하려면 �
 
     ![IBM Kenexa Survey Enterprise 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://surveys.kenexa.com/<companycode>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://surveys.kenexa.com/<companycode>`
 
-    b. **회신 URL** 텍스트 상자에서 `https://surveys.kenexa.com/<companycode>/tools/sso.asp` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [IBM Kenexa Survey Enterprise 클라이언트 지원 팀](https://www.ibm.com/support/home/?lnk=fcw)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -201,9 +201,9 @@ IBM Kenexa Survey Enterprise 시스템에서 사용자를 만들고 여기에 SS
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

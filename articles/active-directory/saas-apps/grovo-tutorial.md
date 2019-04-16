@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 37ba3b8082591f5eab97a7544a13c3279160a0ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861964"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>자습서: Grovo와 Azure Active Directory 통합
 
@@ -106,13 +106,13 @@ Grovo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![Grovo 도메인 및 URL Single Sign-On 정보](common/idp-relay.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<subdomain>.grovo.com/sso/saml2/metadata` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.grovo.com/sso/saml2/saml-assertion` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     다. **추가 URL 설정**을 클릭합니다.
 
-    d. **릴레이 상태** 텍스트 상자에서 `https://<subdomain>.grovo.com` 패턴을 사용하는 URL을 입력합니다.
+    d. **릴레이 상태** 텍스트 상자에 다음 패턴을 사용하는 URL을 입력합니다. `https://<subdomain>.grovo.com`
 
 5. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
@@ -260,9 +260,9 @@ Grovo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

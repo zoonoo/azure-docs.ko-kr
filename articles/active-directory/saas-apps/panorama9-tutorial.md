@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b5a037f5d13db1f0f1c704a52fb1fd9b712cd8e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: ff26acc1050a6104525ec44304fd9fee21d6d3cb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448347"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>자습서: Panorama9와 Azure Active Directory 통합
 
@@ -107,7 +107,7 @@ Panorama9에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://www.panorama9.com/saml20/<tenant-name>` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Panorama9 클라이언트 지원 팀](https://support.panorama9.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -208,7 +208,7 @@ Azure AD 사용자가 Panorama9에 로그인할 수 있도록 하려면 Panorama
 
 Panorama9의 경우 프로비전은 수동 작업입니다.
 
-**사용자 프로비전을 구성하려면 다음 단계를 수행합니다.**
+**사용자 프로비전을 구성하려면**
 
 1. **Panorama9** 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -235,9 +235,9 @@ Panorama9의 경우 프로비전은 수동 작업입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

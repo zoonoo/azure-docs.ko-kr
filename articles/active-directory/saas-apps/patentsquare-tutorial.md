@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: b97bc7deb706d8ff4844a7a7a7534cc7270adbae
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 61be963f4edc2dc50f176087f2c817c5f485588b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407677"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>자습서: PatentSQUARE와 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ PatentSQUARE에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
     ![PatentSQUARE 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<companysubdomain>.pat-dss.com:443/patlics/secure/aad` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<companysubdomain>.pat-dss.com:443/patlics/secure/aad`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companysubdomain>.pat-dss.com:443/patlics` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<companysubdomain>.pat-dss.com:443/patlics`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [PatentSQUARE 클라이언트 지원 팀](https://www.panasonic.com/jp/business/its/patentsquare.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -193,9 +193,9 @@ PatentSQUARE에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

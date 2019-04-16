@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 2fafa3974eb01b36015254307ba1a52a9bc221da
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286995"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469083"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 새 테넌트 만들기
 Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 새로 만드는 작업을 비롯한 모든 관리 작업을 수행할 수 있습니다. 
@@ -60,7 +60,7 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 
     테넌트 및 연결된 정보가 삭제됩니다.
 
-    ![샘플 정보를 사용하는 디렉터리 만들기 페이지 만들기](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![디렉터리 삭제 단추가 강조 표시된 개요 페이지](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>다음 단계
 - 도메인 이름 변경 또는 추가 - [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](add-custom-domain.md)을 참조하세요.

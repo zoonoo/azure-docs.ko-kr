@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 71347970ed3cb4f6a653b64ade5b949db457f299
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: d68c8a63dd3adaee0c04f5438f91da68f3903aea
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361322"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>자습서: SumTotalCentral과 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ SumTotalCentral과 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![SumTotalCentral 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<subdomain>.sumtotalsystems.com/sites/default` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.sumtotalsystems.com/sites/default`
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 `SumTotalFederationGateway` 값을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 값을 입력합니다. `SumTotalFederationGateway`
 
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [SumTotalCentral 클라이언트 지원 팀](http://www.sumtotalsystems.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -193,8 +193,8 @@ SumTotalCentral과 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

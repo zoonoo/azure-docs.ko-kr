@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793172"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360126"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -86,11 +86,11 @@ ms.locfileid: "58793172"
 
 > [!div renderon="docs"]
 > 위치:
-> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
+> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 Id입니다.
 > - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
->   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
->   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
+>   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 Id** 또는 **테넌트 이름**(예: contoso.onmicrosoft.com)으로 바꿉니다.
+>   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 다음으로 바꾸세요. `organizations`
+>   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 다음으로 바꾸세요. `common`
 >
 > > [!TIP]
 > > *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.

@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/27/2019
-ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 846cf0e0afe2bd1eedaea3c66af674f9b8a447d3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621348"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359192"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>PowerShell을 사용하여 Azure SQL 단일 데이터베이스를 이전 시점으로 복원
 
@@ -35,7 +35,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
-스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
+다음 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -47,7 +47,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. | 
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | SQL Database 서버의 데이터베이스를 독립 실행형 데이터베이스 또는 풀링된 데이터베이스로 만듭니다. |
 [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | 독립 실행형 또는 풀링된 데이터베이스의 지역 중복 백업을 가져옵니다. |

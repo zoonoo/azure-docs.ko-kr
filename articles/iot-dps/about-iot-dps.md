@@ -3,17 +3,17 @@ title: Azure IoT Hub Device Provisioning Service의 개요 | Microsoft Docs
 description: Device Provisioning Service 및 IoT Hub를 사용하여 Azure에서 디바이스 프로비저닝 설명
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316417"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051471"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service로 디바이스 프로비전
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 공용 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비전할 수 있습니다.
@@ -26,16 +26,16 @@ Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 공용 클라우드 
 * 판매 트랜잭션 데이터에 따라 해당 소유자의 IoT 솔루션에 디바이스 연결(다중 테넌트)
 * 사용 사례에 따라 특정 IoT 솔루션에 디바이스 연결(솔루션 격리)
 * 대기 시간이 가장 낮은 IoT Hub에 디바이스 연결(지리적 분할)
-* 디바이스의 변경 내용에 따라 다시 프로비전
+* 장치의 변경 내용에 따라 다시 프로비전
 * 디바이스를 IoT Hub에 연결하는 데 사용되는 키 롤링(X.509 인증서를 사용하여 연결하는 경우)
 
 ## <a name="behind-the-scenes"></a>배후 상황
-이전 섹션에 나열된 모든 시나리오는 무인 프로비전을 위한 프로비전 서비스를 사용하여 동일한 흐름으로 수행할 수 있습니다. 일반적으로 프로비전에 포함된 수동 단계 대부분은 IoT 디바이스 배포에 드는 시간을 절약하고 수동 오류의 위험을 낮추기 위해 Device Provisioning Service로 자동화되어 있습니다. 다음 섹션에서는 프로비전된 디바이스를 가져올 때 백그라운드에서 발생하는 일에 대해 설명합니다. 첫 번째 단계는 수동이며, 다음 단계는 모두 자동으로 처리됩니다.
+이전 섹션에 나열된 모든 시나리오는 무인 프로비전을 위한 프로비전 서비스를 사용하여 동일한 흐름으로 수행할 수 있습니다. 일반적으로 프로비전에 포함된 수동 단계 대부분은 IoT 디바이스 배포에 드는 시간을 절약하고 수동 오류의 위험을 낮추기 위해 Device Provisioning Service로 자동화되어 있습니다. 다음 섹션에서는 프로비전된 장치를 가져올 때 백그라운드에서 발생하는 일에 대해 설명합니다. 첫 번째 단계는 수동이며, 다음 단계는 모두 자동으로 처리됩니다.
 
 ![기본 프로비전 흐름](./media/about-iot-dps/dps-provisioning-flow.png)
 
 1. 디바이스 제조업체는 Azure Portal에서 등록 목록에 디바이스 등록 정보를 추가합니다.
-2. 장치가 출하 시 설정된 프로비전 서비스 끝점으로 연결됩니다. 디바이스가 ID를 증명하기 위해 프로비전 서비스에 식별 정보를 전달합니다.
+2. 디바이스가 출하 시 설정된 프로비전 서비스 엔드포인트로 연결됩니다. 장치가 ID를 증명하기 위해 프로비전 서비스에 식별 정보를 전달합니다.
 3. 프로비전 서비스는 nonce 챌린지([신뢰할 수 있는 플랫폼 모듈](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) 또는 표준 X.509 확인( X.509) 중 하나를 사용하여 등록 목록 항목에 대하여 등록 ID 및 키의 유효성을 검사하여 디바이스의 ID의 유효성을 검사합니다.
 4. 프로비전 서비스는 IoT Hub를 사용하는 디바이스를 등록하고 디바이스의 [필요한 이중 상태](../iot-hub/iot-hub-devguide-device-twins.md)를 채웁니다.
 5. IoT Hub는 프로비전 서비스에 디바이스 ID 정보를 반환합니다.
@@ -54,9 +54,9 @@ Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 공용 클라우드 
 ### <a name="manufacturing-step"></a>제조 단계
 이 단계는 제조 라인에서 발생하는 모든 것입니다. 이 단계에 포함되는 역할에는 실리콘 디자이너, 실리콘 제조업체, 통합 업체 및/또는 디바이스의 최종 제조업체를 포함합니다. 이 단계는 자체 하드웨어 만들기와 관련되어 있습니다.
 
-Device Provisioning Service는 제조 프로세스에 새 단계를 도입하지 않습니다. 대신, 초기 소프트웨어 및 (원칙적으로) HSM을 디바이스에 설치하는 기존 단계를 통제합니다. 이 단계에서는 디바이스 ID를 만드는 대신, 프로비전 서비스가 켜져 있는 경우 연결 정보/IoT 솔루션 할당을 가져오도록 프로비전 서비스를 호출할 수 있도록 프로비전 서비스 정보를 사용하여 디바이스를 프로그래밍합니다.
+Device Provisioning Service는 제조 프로세스에 새 단계를 도입하지 않습니다. 대신, 초기 소프트웨어 및 (원칙적으로) HSM을 디바이스에 설치하는 기존 단계를 통제합니다. 이 단계에서는 장치 ID를 만드는 대신, 프로비전 서비스가 켜져 있는 경우 연결 정보/IoT 솔루션 할당을 가져오도록 프로비전 서비스를 호출할 수 있도록 프로비전 서비스 정보를 사용하여 장치를 프로그래밍합니다.
 
-또한 이 단계에서 제조 업체는 디바이스 배포자/연산자에게 식별 주요 정보를 제공합니다. 모든 디바이스에 디바이스 배포자/연산자가 제공한 서명 인증서에서 생성된 X.509 인증서가 있는지 확인하는 간단한 방법으로 이 정보를 제공할 수도 있고, 각 TPM 디바이스에서 TPM 인증 키의 공개 부분을 추출하는 복잡한 방법으로 제공할 수도 있습니다. 이러한 서비스는 현재 많은 실리콘 제조 업체에서 제공합니다.
+또한 이 단계에서 제조 업체는 디바이스 배포자/연산자에게 식별 주요 정보를 제공합니다. 모든 장치에 장치 배포자/연산자가 제공한 서명 인증서에서 생성된 X.509 인증서가 있는지 확인하는 간단한 방법으로 이 정보를 제공할 수도 있고, 각 TPM 장치에서 TPM 인증 키의 공개 부분을 추출하는 복잡한 방법으로 제공할 수도 있습니다. 이러한 서비스는 현재 많은 실리콘 제조 업체에서 제공합니다.
 
 ### <a name="cloud-setup-step"></a>클라우드 설정 단계
 이 단계는 적절한 자동 프로비전에 대한 클라우드 구성에 관한 것입니다. 일반적으로 이 클라우드 설정 단계에 포함된 사용자는 디바이스를 초기에 어떻게 설정해야 하는지를 아는 사용자(디바이스 연산자) 및 디바이스를 IoT Hub로 어떻게 분할하는지를 아는 사용자(솔루션 연산자), 이렇게 두 유형이 있습니다.
@@ -71,22 +71,22 @@ Device Provisioning Service는 제조 프로세스에 새 단계를 도입하지
 1. 첫 번째 부분은 디바이스를 등록함으로써 디바이스와 IoT 솔루션 간 초기 연결을 설정하는 것입니다.
 2. 두 번째 부분은 디바이스를 등록한 솔루션의 특정 요구 사항에 따라 디바이스에 적절한 구성을 적용하는 것입니다.
 
-두 단계가 모두 완료되면 디바이스가 완벽히 프로비전된 것입니다. 일부 클라우드 서비스는 프로비전 프로세스의 첫 번째 단계만 제공하여 장치를 IoT 솔루션 끝점에 등록하고 초기 구성은 제공하지 않습니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
+두 단계가 모두 완료되면 장치가 완벽히 프로비전된 것입니다. 일부 클라우드 서비스는 프로비전 프로세스의 첫 번째 단계만 제공하여 디바이스를 IoT 솔루션 엔드포인트에 등록하고 초기 구성은 제공하지 않습니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
 
 ## <a name="features-of-the-device-provisioning-service"></a>Device Provisioning Service의 기능
-Device Provisioning Service에는 디바이스 프로비전에 이상적인 여러 기능이 있습니다.
+Device Provisioning Service에는 장치 프로비전에 이상적인 여러 기능이 있습니다.
 
 * **보안 증명** X.509 및 TPM 기반 ID를 모두 지원합니다.
-* **등록 목록** 특정 시점에 등록된 장치/장치 그룹의 전체 레코드를 포함합니다. 등록 목록에는 디바이스를 등록한 후 디바이스의 원하는 구성에 대한 정보를 포함하며, 언제든지 업데이트할 수 있습니다.
-* **여러 할당 정책** 사용자 시나리오를 지원하기 위해 Device Provisioning Service에서 장치를 IoT Hub에 할당하는 방법을 제어할 수 있습니다.
+* **등록 목록** 특정 시점에 등록된 디바이스/디바이스 그룹의 전체 레코드를 포함합니다. 등록 목록에는 디바이스를 등록한 후 디바이스의 원하는 구성에 대한 정보를 포함하며, 언제든지 업데이트할 수 있습니다.
+* **여러 할당 정책** 사용자 시나리오를 지원하기 위해 Device Provisioning Service에서 디바이스를 IoT Hub에 할당하는 방법을 제어할 수 있습니다.
 * **모니터링 및 진단 로깅** 모든 과정이 제대로 작동되도록 보장합니다.
 * **다중 허브 지원** Device Provisioning Service가 장치를 둘 이상의 IoT Hub에 할당할 수 있습니다. Device Provisioning Service는 여러 Azure 구독에서 허브와 통신할 수 있습니다.
 * **지역 간 지원** Device Provisioning Service가 장치를 다른 지역의 IoT Hub에 할당할 수 있게 해줍니다.
 
-[장치 개념](concepts-device.md), [서비스 개념](concepts-service.md) 및 [보안 개념](concepts-security.md)에서 장치 프로비전에 관련된 개념 및 장치에 대해 자세히 알아볼 수 있습니다.
+[디바이스 개념](concepts-device.md), [서비스 개념](concepts-service.md) 및 [보안 개념](concepts-security.md)에서 디바이스 프로비저닝에 관련된 개념 및 디바이스에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="cross-platform-support"></a>플랫폼 간 지원
-모든 Azure IoT 서비스와 같이 Device Provisioning Service는 다양한 운영 체제를 사용하여 플랫폼 간 작동합니다. Azure는 보다 수월하게 디바이스를 연결하고 서비스를 관리할 수 있도록 다양한 [언어](https://github.com/Azure/azure-iot-sdks)로 오픈 소스 SDK를 제공합니다. Device Provisioning Service는 디바이스를 연결하기 위한 다음 프로토콜을 지원합니다.
+모든 Azure IoT 서비스와 같이 Device Provisioning Service는 다양한 운영 체제를 사용하여 플랫폼 간 작동합니다. Azure는 보다 수월하게 장치를 연결하고 서비스를 관리할 수 있도록 다양한 [언어](https://github.com/Azure/azure-iot-sdks)로 오픈 소스 SDK를 제공합니다. Device Provisioning Service는 디바이스를 연결하기 위한 다음 프로토콜을 지원합니다.
 
 * HTTPS
 * AMQP
@@ -119,5 +119,5 @@ Device Provisioning Service는 Azure IoT Hub를 통한 디바이스 프로비전
 이제 Azure에서의 IoT 디바이스 프로비전에 관해 대략적으로 이해하게 되었을 것입니다. 다음 단계는 종단 간 IoT 시나리오를 사용해 보는 것입니다.
 > [!div class="nextstepaction"]
 > [Azure Portal을 사용하여 IoT Hub Device Provisioning Service 설정](quick-setup-auto-provision.md)
-> [시뮬레이션된 장치 만들기 및 프로비전](quick-create-simulated-device.md)
-> [프로비전을 위한 장치 설정](tutorial-set-up-device.md)
+> [시뮬레이션된 디바이스 만들기 및 프로비전](quick-create-simulated-device.md)
+> [프로비전을 위한 디바이스 설정](tutorial-set-up-device.md)

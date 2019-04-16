@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: eb4d04316de875e5eada0bd70383aff73382d8b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c1f67fe01708f110c121f1acc5baf6d6998fe463
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096064"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256960"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>빠른 시작: Bing Image Search REST API 및 PHP를 사용하여 이미지 검색
 
@@ -25,7 +25,7 @@ ms.locfileid: "58096064"
 
 이 애플리케이션은 PHP에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
 
-이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java)에 제공됩니다.
+이 샘플의 소스 코드는 [GitHub에]https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php) 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

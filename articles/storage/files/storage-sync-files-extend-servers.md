@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474822"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049152"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
 
@@ -28,6 +28,8 @@ ms.locfileid: "55474822"
 > * 서버 엔드포인트 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -181,7 +183,7 @@ Windows Server 2016 Datacenter VM에서 서버 관리자가 자동으로 열립�
 1. 다음 명령 실행:
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -200,7 +202,7 @@ Windows Server 2016 Datacenter VM에서 서버 관리자가 자동으로 열립�
 
 1. 설치를 계속하려면 **예** 또는 **모두 예**로 답변합니다.
 
-`AzureRM` 모듈은 Azure PowerShell cmdlet의 롤업 모듈입니다. 설치하면 사용 가능한 모든 Azure Resource Manager 모듈이 다운로드되고 cmdlet을 사용할 수 있게 됩니다.
+`Az` 모듈은 Azure PowerShell cmdlet의 롤업 모듈입니다. 설치하면 사용 가능한 모든 Azure Resource Manager 모듈이 다운로드되고 cmdlet을 사용할 수 있게 됩니다.
 
 지금까지 자습서에 대한 환성을 설정했습니다. 스토리지 동기화 서비스를 배포할 준비가 되었습니다.
 
@@ -221,7 +223,7 @@ Azure 파일 동기화를 배포하려면 먼저 선택한 구독의 리소스 �
    | **Name** | 저장소 동기화 서비스의 고유 이름(구독별)입니다.<br><br>이 자습서의 경우 _afssyncservice02_를 사용합니다. |
    | **구독** | 이 자습서에 대해 사용하는 Azure 구독입니다. |
    | **리소스 그룹** | 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다.<br><br>이 자습서의 경우 _afsresgroup101918_을 사용합니다. |
-   | **위치**: | 미국 동부 |
+   | **위치** | 미국 동부 |
 
 1. 작업이 끝나면 **만들기**를 선택하여 **저장소 동기화 서비스**를 배포합니다.
 1. **알림** 탭 > **리소스로 이동**을 선택합니다.
@@ -306,7 +308,7 @@ Azure 파일 동기화 에이전트를 설치한 후 서버 등록 UI가 자동�
    | ----- | ----- |
    | 값 | 설명 |
    | **등록된 서버** | 사용자가 만든 서버의 이름입니다. 이 자습서의 경우 *afsvm101918*을 사용합니다. |
-   | **Path** | 사용자가 만든 드라이브에 대한 Windows Server 경로입니다. 이 자습서의 경우 *f:\filestosync*를 사용합니다. |
+   | **path** | 사용자가 만든 드라이브에 대한 Windows Server 경로입니다. 이 자습서의 경우 *f:\filestosync*를 사용합니다. |
    | **클라우드 계층화** | 이 자습서에 대해 사용하지 않는 상태로 둡니다. |
    | **사용 가능한 볼륨 공간** | 이 자습서에 대해 비워 둡니다. |
 

@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: 음성 인식, C#(.NET Core Windows) - Speech Services'
+title: '빠른 시작: 음성 인식, C#(.NET Core) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용하여 Windows의 .NET Core에서 C#으로 음성을 인식하는 방법을 알아봅니다.
+description: Speech SDK를 사용하여 Windows 또는 macOS의 .NET Core 아래에 있는 C#에서 음성 인식 방법 알아보기
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895623"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009430"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>빠른 시작: .NET Core용 Speech SDK를 사용하여 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 Windows .NET Core에서 C# 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
+이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 Windows 또는 macOS에서 .NET Core용 C# 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
 
 > [!NOTE]
 > .NET Core는 [.NET 표준](https://docs.microsoft.com/dotnet/standard/net-standard) 사양을 구현하는 플랫폼 간 오픈 소스 .NET 플랫폼입니다.
@@ -75,5 +75,5 @@ ms.locfileid: "57895623"
 
 ## <a name="see-also"></a>참고 항목
 
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

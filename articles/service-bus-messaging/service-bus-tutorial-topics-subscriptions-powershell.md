@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081273"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049560"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>자습서: PowerShell 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -36,6 +36,9 @@ Microsoft Azure Service Bus는 애플리케이션과 서비스 간에 정보를 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만듭니다.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
@@ -54,20 +57,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 1. Service Bus PowerShell 모듈을 설치합니다.
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. 다음 명령을 실행하여 Azure에 로그인합니다.
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 4. 현재 구독 컨텍스트를 설정하거나 현재 활성 구독을 확인합니다.
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>리소스 프로비전
@@ -76,19 +79,19 @@ Azure에 로그인하면 다음 명령을 실행하여 Service Bus 리소스를 
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
+New-AzResourceGroup –Name my-resourcegroup –Location westus2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-`Get-AzureRmServiceBusKey` cmdlet이 실행되면 선택한 연결 문자열과 큐 이름을 복사하여 메모장과 같은 임시 위치에 붙여넣습니다. 이는 다음 단계에서 필요합니다.
+`Get-AzServiceBusKey` cmdlet이 실행되면 선택한 연결 문자열과 큐 이름을 복사하여 메모장과 같은 임시 위치에 붙여넣습니다. 이는 다음 단계에서 필요합니다.
 
 ## <a name="send-and-receive-messages"></a>메시지 보내기 및 받기
 
@@ -109,7 +112,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 4. 아직 수행하지 않은 경우 다음 PowerShell cmdlet을 사용하여 연결 문자열을 가져옵니다. `my-resourcegroup` 및 `namespace-name`을 사용자의 특정 값으로 바꿔야 합니다. 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5. PowerShell 프롬프트에서 다음 명령을 입력합니다.
 
@@ -131,7 +134,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 다음 명령을 실행하여 리소스 그룹, 네임스페이스 및 관련된 모든 리소스를 제거합니다.
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
@@ -140,7 +143,7 @@ Remove-AzureRmResourceGroup -Name my-resourcegroup
 
 ### <a name="get-connection-string-and-queue"></a>연결 문자열 및 큐 가져오기
 
-연결 문자열과 큐 이름은 명령줄 인수로 `Main()` 메서드에 전달됩니다. `Main()`은 다음과 같이 이러한 값을 보유할 두 개의 문자열 변수를 선언합니다.
+연결 문자열과 큐 이름은 명령줄 인수로 `Main()` 메서드에 전달됩니다. `Main()` 다음과 같이 이러한 값을 보유할 두 개의 문자열 변수를 선언합니다.
 
 ```csharp
 static void Main(string[] args)
@@ -285,5 +288,5 @@ Service Bus의 게시/구독 기능을 사용하는 방법에 대해 자세히 �
 > [!div class="nextstepaction"]
 > [PowerShell 및 토픽/구독을 사용하여 재고 업데이트](service-bus-tutorial-topics-subscriptions-cli.md)
 
-[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure PowerShell 설치 및 구성]: /powershell/azure/azurerm/install-azurerm-ps
+[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Azure PowerShell 설치 및 구성]: /powershell/azure/install-Az-ps

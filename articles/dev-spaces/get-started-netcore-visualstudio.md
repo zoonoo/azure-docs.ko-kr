@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894158"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425766"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
 
@@ -28,12 +28,12 @@ ms.locfileid: "57894158"
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
 > [!Note]
-> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.
+> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하세요.
 
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 1. **리소스 만들기**를 선택하고 **Kubernetes**를 검색한 후 **Kubernetes Service** > **만들기**를 선택합니다.
 
    *Kubernetes 클러스터 만들기* 양식의 각 머리글 아래에서 다음 단계를 수행하고 선택한 [지역에서 Azure Dev Spaces를 지원](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)하는지 확인합니다.
@@ -128,7 +128,7 @@ Visual Studio는 개발 환경과 통신하여 애플리케이션을 빌드 및 
 Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
 
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
-1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 행 70을 `<h2>Hello k8s in Azure!</h2>`로 변경합니다.
+1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 줄 70을 다음과 같이 변경합니다. `<h2>Hello k8s in Azure!</h2>`
 1. 파일을 저장합니다.
 1. 브라우저로 이동하여 페이지를 새로 고칩니다. 웹 페이지에 업데이트된 HTML이 표시되어야 합니다.
 
@@ -138,7 +138,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 .NET Core 앱이 업데이트된 애플리케이션 이진 파일을 다시 빌드하고 생성해야 하기 때문에 코드 파일을 업데이트하려면 작업이 좀 더 필요합니다.
 
 1. Visual Studio에서 디버거를 중지합니다.
-1. `Controllers/HomeController.cs`라는 코드 파일을 열고, 정보 페이지(`ViewData["Message"] = "Your application description page.";`)에 표시될 메시지를 편집합니다.
+1. `Controllers/HomeController.cs`라는 코드 파일을 열고, 정보 페이지에 표시될 메시지를 편집합니다. `ViewData["Message"] = "Your application description page.";`
 1. 파일을 저장합니다.
 1. **F5** 키를 눌러 다시 디버깅을 시작합니다. 
 

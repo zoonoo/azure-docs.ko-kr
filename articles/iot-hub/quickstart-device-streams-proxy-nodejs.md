@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085578"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005439"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP(미리 보기)
 
@@ -27,11 +27,9 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 
 먼저 SSH에 대한 설정을 설명합니다(포트 22 사용). 그런 다음, RDP에 대한 설정을 수정하는 방법을 설명합니다(포트 3389 사용). 디바이스 스트림은 애플리케이션이며 프로토콜에 구속 받지 않으므로 다른 종류의 클라이언트/서버 애플리케이션 트래픽을 수용하도록 동일한 샘플을 수정할 수 있습니다(일반적으로 통신 포트를 변경하여).
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
-
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,8 +48,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 node --version
 ```
 
-아직 그렇게 하지 않았다면 https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+아직 그렇게 하지 않았다면 https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -59,21 +62,19 @@ node --version
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
-
 ## <a name="register-a-device"></a>디바이스 등록
 
 이전 [빠른 시작: 디바이스에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-node.md)를 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
 연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
+1. Azure Cloud Shell에서 다음 명령을 실행하여 디바이스 ID를 만듭니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
    **MyDevice**: 등록된 디바이스에 지정된 이름입니다. 표시된 것처럼 MyDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -89,13 +90,11 @@ node --version
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 SSH
 
 ### <a name="run-the-device-local-proxy"></a>디바이스-로컬 프록시 실행
 
 앞에서 설명한 대로 IoT Hub Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 디바이스 로컬 애플리케이션의 경우 [C 빠른 시작](./quickstart-device-streams-proxy-c.md) 또는 [C# 빠른 시작](./quickstart-device-streams-proxy-csharp.md) 가이드에서 사용할 수 있는 함께 제공되는 디바이스 프록시 프로그램을 사용합니다. 다음 단계로 진행하기 전에 디바이스 로컬 프록시가 실행 중인지 확인합니다.
-
 
 ### <a name="run-the-service-local-proxy"></a>서비스-로컬 프록시 실행
 
@@ -128,13 +127,12 @@ node --version
   ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 SSH
+
 Linux에서 터미널의 `ssh $USER@localhost -p 2222`를 사용하여 SSH를 실행합니다. Windows에서 즐겨찾는 SSH 클라이언트를 사용합니다(예: PuTTY).
 
 SSH 세션이 설정된 후 서비스 로컬의 콘솔 출력(서비스-로컬 프록시는 포트 2222에서 수신 대기함): ![대체 텍스트](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "SSH 터미널 출력")
 
-
 SSH 클라이언트 프로그램의 콘솔 출력(SSH 클라이언트는 서비스-로컬 프록시가 수신 대기하는 포트 22에 연결하여 SSH 디먼에 통신함): ![대체 텍스트](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "SSH 클라이언트 출력")
-
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 RDP
 
@@ -144,7 +142,6 @@ SSH 클라이언트 프로그램의 콘솔 출력(SSH 클라이언트는 서비�
 > 디바이스 프록시가 RDP에 대해 올바르게 구성되고 RDP 포트 3389로 구성되었는지 확인합니다.
 
 ![대체 텍스트](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.PNG "RDP 클라이언트에서 서비스-로컬 프록시에 연결합니다.")
-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

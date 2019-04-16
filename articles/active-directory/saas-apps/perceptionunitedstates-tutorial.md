@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 31528c30ac8b795a661539349c2bee31edb6973c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850996"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>자습서: Azure Active Directory와 Perception United States(비 UltiPro) 통합
 
@@ -107,7 +107,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://perception.kanjoya.com/sp`
 
-    b. **회신 URL** 텍스트 상자에서 `https://perception.kanjoya.com/sso?idp=<entity_id>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     다. **Perception United States(비 UltiPro)** 애플리케이션은 <entity_id>와 같은 **Azure AD 식별자** 값을 요구합니다. 이 값을 **Perception United States(비 UltiPro) 설정** 섹션에서 가져와서 URI로 인코딩할 수 있습니다. URI 인코딩 값을 가져오려면 **http://www.url-encode-decode.com/** 링크로 이동합니다.
 
@@ -229,9 +229,9 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

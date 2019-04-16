@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 소개
 description: Azure Cosmos DB에 대해 알아봅니다. 전 세계에 배포된 이 다중 모델 데이터베이스는 낮은 대기 시간, 탄력적 확장성 및 고가용성을 위해 구축되었으며 NoSQL 데이터를 기본적으로 지원합니다.
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 03/18/2019
-ms.author: sngun
-ms.openlocfilehash: eec94217cc62f74a5075412aafcf85bf67346bf4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294368"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280947"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -98,7 +98,7 @@ Cosmos DB의 핵심 개념인 [턴키 글로벌 배포](distribute-data-globally
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.
 
 * [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
-* [Azure Cosmos DB의 MongoDB API 시작](create-mongodb-nodejs.md)
+* [Azure Cosmos DB의 MongoDB용 API 시작](create-mongodb-nodejs.md)
 * [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
 * [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
 * [Azure Cosmos DB Table API 시작](create-table-dotnet.md)

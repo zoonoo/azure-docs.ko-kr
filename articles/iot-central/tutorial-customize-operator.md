@@ -3,17 +3,17 @@ title: Azure IoT Central에서 연산자의 뷰 사용자 지정 | Microsoft Doc
 description: 작성기로서 Azure IoT Central 애플리케이션에서 연산자의 뷰를 사용자 지정합니다.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 01/29/2018
+ms.date: 03/26/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 86c9a7794146edc4106d8ec30106e1c27556248f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769679"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279944"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>자습서: Azure IoT Central 운영자 보기 사용자 지정(새 UI 디자인)
 
@@ -161,4 +161,4 @@ ms.locfileid: "57769679"
 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 알아보았으므로 제안된 다음 단계는 다음과 같습니다.
 
 * [디바이스 모니터링(연산자로서)](tutorial-monitor-devices.md)
-* [애플리케이션에 새 장치 추가(연산자 및 장치 개발자로서)](tutorial-add-device.md)
+* [애플리케이션에 새 디바이스 추가(연산자 및 디바이스 개발자로서)](tutorial-add-device.md)

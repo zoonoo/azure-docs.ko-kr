@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 62b9fe51b004f623807d72d0bf9ad6865fea0f46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889661"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>자습서: Mobile Xpense와 Azure Active Directory 통합
 
@@ -104,9 +104,9 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     ![Mobile Xpense 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://mobilexpense.com/ServiceProvider` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://mobilexpense.com/ServiceProvider`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -198,9 +198,9 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

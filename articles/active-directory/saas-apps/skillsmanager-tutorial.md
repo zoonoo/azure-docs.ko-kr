@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 44f309b828a851a45e34a89473a2599d6c8566c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b599eaf36eed69cd693e0dc4e20ef2123e42e60b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168676"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>자습서: Skills Manager와 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ Skills Manager에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     ![Skills Manager 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.skills-manager.com/kennametal` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.skills-manager.com/kennametal`
 
-    b. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.skills-manager.com/public/SamlLogin2.aspx` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.skills-manager.com/public/SamlLogin2.aspx`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 가져오려면 [Skills Manager 클라이언트 지원 팀](https://www.ibm.com/support/uk/?lnk=msu_uk)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -193,8 +193,8 @@ Skills Manager에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

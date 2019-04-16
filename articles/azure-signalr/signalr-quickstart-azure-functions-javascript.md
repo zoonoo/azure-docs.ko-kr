@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535651"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264202"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>빠른 시작: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -50,7 +50,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 
     ![SignalR Service 만들기](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. 코드 편집기에서 복제된 저장소의 *chat/src/javascript* 폴더를 엽니다.
+1. 코드 편집기에서 복제된 리포지토리의 *src/chat/javascript* 폴더를 엽니다.
 
 1. *local.settings.sample.json*의 이름을 *local.settings.json*으로 바꿉니다.
 
@@ -61,7 +61,7 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     - **negotiate** - *SignalRConnectionInfo* 입력 바인딩을 사용하여 올바른 연결 정보를 생성하고 리턴합니다.
     - **messages** - 요청 본문에서 대화 메시지를 수신하고 *SignalR* 출력 바인딩을 사용하여 모든 연결된 클라이언트 애플리케이션으로 메시지를 브로드캐스트합니다.
 
-1. 터미널에서 *chat/src/javascript* 폴더에 있는지 확인합니다. Azure Functions Core Tools를 사용하여 앱을 실행하는 데 필요한 확장을 설치합니다.
+1. 터미널에서 *src/chat/javascript* 폴더에 있는지 확인합니다. Azure Functions Core Tools를 사용하여 앱을 실행하는 데 필요한 확장을 설치합니다.
 
     ```bash
     func extensions install

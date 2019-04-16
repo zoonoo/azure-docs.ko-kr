@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3b79c75b9846a4f8966a113c6e06fabc25bcf011
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225929"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470953"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>자습서: Node.js IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
@@ -33,10 +33,10 @@ ms.locfileid: "58225929"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 장치:
+Azure IoT Edge 디바이스:
 
-* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
-* Windows에서 IoT Edge를 실행하는 경우 IoT Edge 버전 1.0.5는 Node.js 모듈을 지원하지 않습니다. 자세한 내용은 [1.0.5 릴리스 정보](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)를 참조하세요. 특정 버전을 설치하는 방법에 대한 단계는 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요.
+* [Linux](quickstart-linux.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 디바이스로 사용할 수 있습니다.
+* IoT Edge용 Node.js 모듈은 Windows 컨테이너를 지원하지 않습니다. 
 
 클라우드 리소스:
 
@@ -47,6 +47,7 @@ Azure IoT Edge 장치:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
+   * Windows 디바이스에서 개발하는 경우 Docker가 [Linux 컨테이너를 사용하도록 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)되어 있는지 확인합니다. 
 * [Node.js 및 npm](https://nodejs.org). npm 패키지는 Node.js와 함께 배포됩니다. 즉 Node.js를 다운로드하면 npm도 자동으로 컴퓨터에 설치됩니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
@@ -184,7 +185,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 10. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 배포할 모듈(이 경우 **tempSensor** 및 **NodeModule**)을 IoT Edge 에이전트에 알려주고, 메시지를 라우팅하는 방법을 IoT Edge 허브에 알려줍니다. Visual Studio Code 확장은 배포 템플릿에 필요한 대부분의 정보를 자동으로 채우지만 솔루션에 대한 모든 정보가 정확한지 확인합니다. 
 
-   1. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되므로 **NodeModule**은 Linux amd64 버전의 이미지로 설정됩니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7** 또는 **windows-amd64**로 변경하세요. 
+   1. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되므로 **NodeModule**은 Linux amd64 버전의 이미지로 설정됩니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7**로 변경하세요. 
 
       ![모듈 이미지 플랫폼 업데이트](./media/tutorial-node-module/image-platform.png)
 
@@ -229,8 +230,9 @@ VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그�
 >[!TIP]
 >모듈을 빌드하고 푸시하는 동안 오류가 발생하는 경우 다음 사항을 확인하세요.
 >* Visual Studio Code에서 컨테이너 레지스트리의 자격 증명을 사용하여 Docker에 로그인했나요? 이러한 자격 증명은 Azure Portal에 로그인하는 데 사용하는 자격 증명과 다릅니다.
->* 컨테이너 리포지토리가 올바른가요? **modules** > **cmodule** > **module.json**을 열고 **리포지토리** 필드를 찾습니다. 이미지 리포지토리는 **\<registryname\>.azurecr.io/nodemodule**과 같습니다. 
->* 개발 머신이 실행 중인 컨테이너와 동일한 유형의 컨테이너를 빌드하고 있나요? Visual Studio Code의 기본값은 Linux amd64 컨테이너입니다. 개발 머신에서 Windows 컨테이너 또는 Linux arm32v7 컨테이너를 실행중인 경우 VS Code 창의 하단에 있는 파란색 상태 표시줄에서 컨테이너 플랫폼과 일치하도록 플랫폼을 업데이트합니다.
+>* 컨테이너 리포지토리가 올바른가요? **modules** > **nodemodule** > **module.json**을 열고 **리포지토리** 필드를 찾습니다. 이미지 리포지토리는 **\<registryname\>.azurecr.io/nodemodule**과 같습니다. 
+>* 개발 머신이 실행 중인 컨테이너와 동일한 유형의 컨테이너를 빌드하고 있나요? Visual Studio Code의 기본값은 Linux amd64 컨테이너입니다. 개발 머신에서 Linux arm32v7 컨테이너를 실행중인 경우 VS Code 창의 하단에 있는 파란색 상태 표시줄에서 컨테이너 플랫폼과 일치하도록 플랫폼을 업데이트합니다.
+>* IoT Edge용 Node.js 모듈은 Windows 컨테이너를 지원하지 않습니다.
 
 ## <a name="deploy-and-run-the-solution"></a>솔루션 배포 및 실행
 

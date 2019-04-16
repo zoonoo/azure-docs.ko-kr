@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ca5fec00d264bb50c75338d36ec793946f495bff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229265"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281678"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>자습서: Citrix Netscaler와 Azure Active Directory 통합
 
@@ -107,11 +107,11 @@ Citrix Netscaler에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![Citrix Netscaler 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<<Your FQDN>>` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<<Your FQDN>>`
 
-    다. **Reply URL(Assertion Consumer Service URL)** 텍스트 상자에서 `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx` 패턴을 사용하는 URL을 입력합니다.
+    다. **Reply URL(Assertion Consumer Service URL)** 텍스트 상자에 다음 패턴을 사용하는 URL을 입력합니다. `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Citrix Netscaler 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -383,9 +383,9 @@ Citrix Netscaler에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

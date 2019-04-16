@@ -1,7 +1,6 @@
 ---
 title: 비준수 리소스를 위한 정책 만들기
 description: 이 문서에서는 규정 비준수 리소스를 식별하는 정책 정의를 만드는 단계를 안내합니다.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803989"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278958"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -77,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 기존 리소스에 대해 조건을 평가한 결과 이것이 사실로 확인된 경우 해당 리소스는 정책 비준수 항목으로 표시됩니다. 다음 표는 여러 정책 효과가 조건 평가와 함께 작동하여 어떤 준수 상태로 이어지는지 보여줍니다. Azure Portal에서는 평가 논리는 표시되지 않지만 준수 상태 결과가 표시됩니다. 규정 준수 상태 결과는 준수 또는 비준수입니다.
 
-| **리소스 상태** | **효과** | **정책 평가** | **규정 준수 상태** |
+| **리소스 상태** | **결과** | **정책 평가** | **규정 준수 상태** |
 | --- | --- | --- | --- |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
 | exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |

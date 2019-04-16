@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d37e3cc56b4a80fce9dcae6f87ff626867496007
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: b797c7d49495aac90abb31a9214bf2928784a866
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578342"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>자습서: Proxyclick과 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Proxyclick 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://saml.proxyclick.com/init/<companyId>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://saml.proxyclick.com/init/<companyId>`
 
-    b. **회신 URL** 텍스트 상자에서 `https://saml.proxyclick.com/consume/<companyId>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://saml.proxyclick.com/consume/<companyId>`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -216,7 +216,7 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 Azure AD 사용자가 Proxyclick에 로그인할 수 있도록 하려면 이 사용자를 Proxyclick에 프로비저닝해야 합니다. Proxyclick의 경우 프로비전은 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. Proxyclick 회사 사이트에 관리자로 로그인합니다.
 
@@ -248,9 +248,9 @@ Azure AD 사용자가 Proxyclick에 로그인할 수 있도록 하려면 이 사
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077159"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051173"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -169,7 +169,7 @@ Azure Portal을 사용하여 리소스를 만들고 관리하고 삭제하는 �
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell은 Azure 관리 cmdlet을 제공하는 모듈 집합입니다. 이 cmdlet을 사용하여 Azure 서비스를 만들고 관리하고 제거할 수 있습니다. cmdlet을 사용하면 일관되고 반복 가능하며 자동화된 방식으로 배포할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)을 참조하세요.
+Azure PowerShell은 Azure 관리 cmdlet을 제공하는 모듈 집합입니다. 이 cmdlet을 사용하여 Azure 서비스를 만들고 관리하고 제거할 수 있습니다. cmdlet을 사용하면 일관되고 반복 가능하며 자동화된 방식으로 배포할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)을 참조하세요.
 
 #### <a name="azure-command-line-interface"></a>Azure 명령줄 인터페이스
 
@@ -468,7 +468,7 @@ Azure Virtual network는 기본적으로 Azure에 저장된 리소스에만 액�
 ### <a name="hybrid-virtual-networks"></a>하이브리드 가상 네트워크
 
 ExpressRoute 또는 사이트 간 VPN 연결을 사용하여 온-프레미스 네트워크를 Azure virtual network에 연결할 수 있습니다. 이 구성에서 Azure virtual network는 기본적으로 온-프레미스 네트워크의 클라우드 기반 확장입니다.
-![VPN을 사용하는 하이브리드 가상 네트워크](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
+![VPN을 사용하는 하이브리드 Virtual Network](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므로 프레미스 간 가상 네트워크는 조직에서 사용하는 고유한 주소 공간을 사용해야 합니다. 서로 다른 회사 위치에 특정 IP 서브넷이 할당되는 것과 같은 방식으로 Azure는 네트워크를 확장할 때 다른 위치가 됩니다.
 가상 네트워크를 배포하기 위한 몇 가지 옵션이 있습니다.
@@ -477,7 +477,7 @@ Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [CLI(명령줄 인터페이스)](../../virtual-network/quick-create-cli.md)
+- [명령줄 인터페이스(CLI)](../../virtual-network/quick-create-cli.md)
 
 - Azure 리소스 관리자 템플릿
 

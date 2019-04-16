@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758595"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051549"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 
@@ -36,6 +36,9 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 * 통신 구성
 * Service Fabric 애플리케이션 빌드 및 패키징
 * Azure에 컨테이너 애플리케이션 배포
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -95,7 +98,7 @@ Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대�
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치합니다.
 
-다음 스크립트를 실행하기 전에 PowerShell에서 `Connect-AzureRmAccount`를 실행하여 Azure와의 연결을 설정합니다.
+다음 스크립트를 실행하기 전에 PowerShell에서 `Connect-AzAccount`를 실행하여 Azure와의 연결을 설정합니다.
 
 다음 스크립트를 클립보드에 복사하고 **Windows PowerShell ISE**를 엽니다.  빈 Untitled1.ps1 창에 내용을 붙여넣습니다. 그런 다음, 스크립트의 `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd` 등의 변수에 값을 지정합니다.  스크립트를 실행하기 전에 `certfolder`에 지정한 디렉터리가 존재해야 합니다.
 

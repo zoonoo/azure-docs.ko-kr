@@ -9,25 +9,25 @@ ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab, bonova
+ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903510"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356831"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>빠른 시작: 데이터베이스를 Managed Instance로 복원 
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>빠른 시작: 데이터베이스를 Managed Instance로 복원
 
-이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure Blob Storage에서 Azure SQL Database [Managed Instance](sql-database-managed-instance.md)로 데이터베이스(Wide World Importers - Standard 백업 파일)를 복원합니다. 
+이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure Blob Storage에서 Azure SQL Database [Managed Instance](sql-database-managed-instance.md)로 데이터베이스(Wide World Importers - Standard 백업 파일)를 복원합니다.
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> - Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자세한 내용은 [DMS를 사용한 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요. 
-> - 다양한 마이그레이션 방법에 대한 자세한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
+> Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자세한 내용은 [DMS를 사용한 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+> 다양한 마이그레이션 방법에 대한 자세한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,9 +51,9 @@ SSMS에서 이러한 단계를 사용하여 Managed Instance로 Wide World Impor
 3. 미리 구성된 스토리지 계정과 SAS 키를 사용하여 Managed Instance에 [자격 증명을 만드는](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) 다음 SQL 스크립트를 실행합니다.
 
    ```sql
-   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
+   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
-   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D' 
+   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
 
     ![자격 증명 만들기](./media/sql-database-managed-instance-get-started-restore/credential.png)
@@ -61,7 +61,7 @@ SSMS에서 이러한 단계를 사용하여 Managed Instance로 Wide World Impor
 4. 자격 증명을 확인하려면 [컨테이너](https://azure.microsoft.com/services/container-instances/) URL을 사용하여 백업 파일 목록을 가져오는 다음 스크립트를 실행합니다.
 
    ```sql
-   RESTORE FILELISTONLY FROM URL = 
+   RESTORE FILELISTONLY FROM URL =
       'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
@@ -80,13 +80,13 @@ SSMS에서 이러한 단계를 사용하여 Managed Instance로 Wide World Impor
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
-      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
-   FROM sys.dm_exec_requests r 
-   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
+      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time
+   FROM sys.dm_exec_requests r
+   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. 복원이 완료되면 개체 탐색기에서 봅니다. 
+7. 복원이 완료되면 개체 탐색기에서 봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

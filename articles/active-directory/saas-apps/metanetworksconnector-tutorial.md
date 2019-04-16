@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: aa0d7828534c96d9bda85e80fb297c848cec6845
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887030"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>자습서: Meta Networks Connector와 Azure Active Directory 통합
 
@@ -106,17 +106,17 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
 
     ![Meta Networks Connector 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
-    b. **회신 URL** 텍스트 상자에서 `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     ![Meta Networks Connector 도메인 및 URL Single Sign-On 정보](common/both-advanced-urls.png)
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
-    b. **릴레이 상태** 텍스트 상자에서 `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/` 패턴을 사용하여 URL을 입력합니다.
+    b. **릴레이 상태** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 식별자, 응답 URL 및 로그온 URL로 이 값을 업데이트합니다.
@@ -228,7 +228,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에서 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -276,9 +276,9 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하려면 다음 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
