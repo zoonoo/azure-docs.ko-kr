@@ -111,9 +111,9 @@ Azure Monitor에는 다음 구성 요소가 포함되어 있습니다.
 
 ### <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
-[Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다.
+[Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
 
-Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주이고, Blob, 테이블 및 큐 로그는 저장소 계정에 대한 진단 로그의 범주입니다.
+Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주입니다. Blob, 테이블 및 큐 로그는 스토리지 계정에 대한 진단 로그의 범주입니다.
 
 진단 로그는 [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
 
@@ -134,7 +134,7 @@ Azure Diagnostics는 배포된 애플리케이션에서 진단 데이터를 수�
 Network Watcher는 Azure 네트워크의 모니터링 및 진단을 간소화합니다. Network Watcher에서 제공되는 진단 및 시각화 도구를 사용하여 다음을 수행할 수 있습니다.
 
 - Azure Virtual Machine에서 원격 패킷 캡처
-- 흐름 로그를 사용하여 네트워크 트래픽 이해
+- 흐름 로그를 사용하여 네트워크 트래픽을 이해합니다.
 - Azure VPN Gateway 및 연결 진단
 
 Network Watcher는 현재 다음과 같은 기능을 제공합니다.

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861454"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469151"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>빠른 시작: C#을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -29,7 +29,7 @@ ms.locfileid: "57861454"
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
     * Visual Studio에서 NuGet 패키지를 설치하려면
-        1. 솔루션 관리자를 마우스 오른쪽 단추로 클릭합니다.
+        1. 솔루션 탐색기에서 마우스 오른쪽 단추를 클릭합니다.
         2.  **NuGet 패키지 관리...**
         3. **newtonsoft.json**을 검색한 후 패키지를 설치합니다.
 

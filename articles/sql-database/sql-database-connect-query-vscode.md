@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 20d6ccca448d53da54835aad1d6dd85702c7390f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446931"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357124"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio Code를 사용하여 Azure SQL Database 연결 및 쿼리
 
@@ -46,11 +46,11 @@ ms.locfileid: "58446931"
 
 최신 [Visual Studio Code](https://code.visualstudio.com/Download)를 설치하고 [mssql 확장](https://aka.ms/mssql-marketplace)을 로드했는지 확인합니다. mssql 확장 프로그램 설치에 대한 지침은 [VS Code 설치](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) 및 [Visual Studio Code용 mssql](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)을 참조하세요.
 
-## <a name="configure-visual-studio-code"></a>Visual Studio Code 구성 
+## <a name="configure-visual-studio-code"></a>Visual Studio Code 구성
 
-### <a name="mac-os"></a>**Mac OS**
+### **<a name="mac-os"></a>Mac OS**
 
-macOS의 경우 mssql 확장에서 사용하는 .NET Core의 필수 구성 요소인 OpenSSL을 설치해야 합니다. 터미널을 열고 다음 명령을 입력하여 **brew** 및 **OpenSSL**을 설치합니다. 
+macOS의 경우 mssql 확장에서 사용하는 .NET Core의 필수 구성 요소인 OpenSSL을 설치해야 합니다. 터미널을 열고 다음 명령을 입력하여 **brew** 및 **OpenSSL**을 설치합니다.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
+### **<a name="linux-ubuntu"></a>Linux(Ubuntu)**
 
 특별한 구성이 필요 없습니다.
 
-### <a name="windows"></a>**Windows**
+### **<a name="windows"></a> Windows**
 
 특별한 구성이 필요 없습니다.
 
@@ -83,13 +83,13 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 Visual Studio Code에서 언어 모드를 **SQL**로 설정하여 mssql 명령 및 T-SQL IntelliSense를 사용합니다.
 
-1. 새 Visual Studio Code 창을 엽니다. 
+1. 새 Visual Studio Code 창을 엽니다.
 
-2. **Ctrl**+**N**을 누릅니다. 새 일반 텍스트 파일이 열립니다. 
+2. **Ctrl**+**N**을 누릅니다. 새 일반 텍스트 파일이 열립니다.
 
 3. 상태 표시줄의 오른쪽 아래 모서리에 있는 **일반 텍스트**를 선택합니다.
 
-4. 열리는 **언어 모드 선택** 드롭다운 메뉴에서 **SQL**을 선택합니다. 
+4. 열리는 **언어 모드 선택** 드롭다운 메뉴에서 **SQL**을 선택합니다.
 
 ## <a name="connect-to-your-database"></a>데이터베이스 연결
 
@@ -97,7 +97,6 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 > [!IMPORTANT]
 > 계속하기 전에 서버 및 로그인 정보를 준비했는지 확인합니다. 연결 프로필 정보를 입력하기 시작하면 Visual Studio Code에서 포커스를 변경하는 경우 프로필 만들기를 다시 시작해야 합니다.
->
 
 1. Visual Studio Code에서 **Ctrl+Shift+P**(또는 **F1** 키)를 눌러서 명령 팔레트를 엽니다.
 
@@ -105,17 +104,17 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 3. **연결 프로필 만들기**를 선택합니다.
 
-4. 프롬프트에 따라 새 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **Enter**를 선택하여 계속합니다. 
+4. 프롬프트에 따라 새 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **Enter**를 선택하여 계속합니다.
 
    | 자산       | 제안 값 | 설명 |
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | ------------ | ------------------ | ------------------------------------------------- |
    | **서버 이름** | 정규화된 서버 이름 | 예: **mynewserver20170313.database.windows.net**. |
    | **데이터베이스 이름** | mySampleDatabase | 연결할 데이터베이스입니다. |
-   | **인증** | SQL 로그인| 이 자습서에서는 SQL 인증을 사용합니다. |
+   | **Authentication** | SQL 로그인| 이 자습서에서는 SQL 인증을 사용합니다. |
    | **사용자 이름** | 사용자 이름 | 서버를 만드는 데 사용되는 서버 관리자 계정의 사용자 이름입니다. |
    | **암호(SQL 로그인)** | 암호 | 서버를 만드는 데 사용되는 서버 관리자 계정의 암호입니다. |
    | **암호를 저장하시겠습니까?** | 예 또는 아니요 | 매번 암호를 입력하지 않으려면 **예**를 선택합니다. |
-   | **이 프로필의 이름 입력** | **mySampleProfile**과 같은 프로필 이름 | 프로필을 저장할 경우 후속 로그인의 연결 속도가 빨라집니다. | 
+   | **이 프로필의 이름 입력** | **mySampleProfile**과 같은 프로필 이름 | 프로필을 저장할 경우 후속 로그인의 연결 속도가 빨라집니다. |
 
    성공하면 프로필이 생성되고 연결되었다는 알림이 나타납니다.
 
@@ -144,22 +143,22 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
-           ( [Name]
-           , [ProductNumber]
-           , [Color]
-           , [ProductCategoryID]
-           , [StandardCost]
-           , [ListPrice]
-           , [SellStartDate]
-           )
+        ( [Name]
+        , [ProductNumber]
+        , [Color]
+        , [ProductCategoryID]
+        , [StandardCost]
+        , [ListPrice]
+        , [SellStartDate]
+        )
      VALUES
-           ('myNewProduct'
-           ,123456789
-           ,'NewColor'
-           ,1
-           ,100
-           ,100
-           ,GETDATE() );
+        ('myNewProduct'
+        ,123456789
+        ,'NewColor'
+        ,1
+         ,100
+         ,100
+         ,GETDATE() );
    ```
 
 2. **Ctrl**+**Shift**+**E**를 눌러 `Product` 테이블에 새 행을 삽입합니다.

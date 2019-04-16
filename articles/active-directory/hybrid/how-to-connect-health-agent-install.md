@@ -120,7 +120,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 > 이 섹션은 AD FS 서버에만 해당됩니다. 웹 애플리케이션 프록시 서버에서는 이 단계를 수행할 필요가 없습니다.
 >
 
-사용 현황 분석 기능을 통해 데이터를 수집하고 분석하려면 Azure AD Connect Health Agent에 AD FS 감사 로그의 정보가 필요합니다. 이러한 로그는 기본적으로 사용하도록 설정되어 있지 않습니다. AD FS 서버에서 AD FS 감사를 사용하도록 설정하고 AD FS 감사 로그를 찾으려면 다음 절차를 따르세요.
+사용 현황 분석 기능을 통해 데이터를 수집하고 분석하려면 Azure AD Connect Health Agent에 AD FS 감사 로그의 정보가 필요합니다. 이러한 로그는 기본적으로 사용하지 않도록 설정됩니다. AD FS 서버에서 AD FS 감사를 사용하도록 설정하고 AD FS 감사 로그를 찾으려면 다음 절차에 따르세요.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Windows Server 2008 R2에서 AD FS에 대해 감사를 사용하도록 설정하려면
 

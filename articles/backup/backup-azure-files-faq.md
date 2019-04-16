@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492813"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426616"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -38,9 +38,9 @@ Azure 파일 공유가 동일한 Recovery Services 자격 증명 모음에서 �
 예. 그러나 연결된 자격 증명 모음에서 [보호를 중지](backup-azure-files.md#stop-protecting-an-azure-file-share)하고, 이 저장소 계정을 [등록 취소](troubleshoot-azure-files.md#configuring-backup)한 다음, 다른 자격 증명 모음에서 파일 공유를 보호해야 합니다.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Azure 파일 공유를 백업할 수 있는 지역은 어디인가요? <br/>
-Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다음 지역에서만 사용할 수 있습니다. 
-- 오스트레일리아 동부(AE) 
-- 오스트레일리아 동남부(ASE) 
+Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다음 지역에서만 사용할 수 있습니다.
+- 오스트레일리아 동부(AE)
+- 오스트레일리아 동남부(ASE)
 - 브라질 남부(BRS)
 - 캐나다 중부(CNC)
 - 캐나다 동부(CE)
@@ -50,17 +50,17 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 - 미국 동부 2(EUS2)
 - 일본 동부(JPE)
 - 일본 서부(JPW)
-- 인도 중부(INC) 
+- 인도 중부(INC)
 - 인도 남부(INS)
 - 한국 중부(KRC)
 - 대한민국(KRS)
-- 미국 중북부(NCUS) 
-- 북유럽(NE) 
-- 미국 중남부(SCUS) 
+- 미국 중북부(NCUS)
+- 북유럽(NE)
+- 미국 중남부(SCUS)
 - 동남 아시아(SEA)
-- 영국 남부(UKS) 
-- 영국 서부(UKW) 
-- 유럽 서부(WE) 
+- 영국 남부(UKS)
+- 영국 서부(UKW)
+- 유럽 서부(WE)
 - 미국 서부(WUS)
 - 미국 중서부(WCUS)
 - 미국 서부 2(WUS 2)
@@ -82,7 +82,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 언제든지 파일 공유에 대해 최대 200개의 스냅숏을 가질 수 있습니다. 이 한도에는 정책에 정의된 대로 Azure Backup에서 생성한 스냅숏이 포함됩니다. 한도에 도달한 후 백업이 실패하기 시작하면 향후 백업에 성공하기 위해 주문형 복원 지점을 삭제합니다.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>저장소 계정에서 가상 네트워크를 사용하도록 설정한 후부터 계정에서 파일 공유 백업이 실패하기 시작합니다. 그 이유는
-Azure 파일 공유에 대한 Backup은 Virtual Networks를 사용하도록 설정된 저장소 계정을 지원하지 않습니다. 백업을 성공적으로 수행하려면 저장소 계정에서 Virtual Network를 사용하지 않도록 설정합니다. 
+Azure 파일 공유에 대한 Backup은 Virtual Networks를 사용하도록 설정된 저장소 계정을 지원하지 않습니다. 백업을 성공적으로 수행하려면 저장소 계정에서 Virtual Network를 사용하지 않도록 설정합니다.
 
 ## <a name="restore"></a>복원
 
@@ -91,6 +91,10 @@ Azure 파일 공유가 삭제되면 삭제될 백업 목록이 표시되고 확�
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Azure 파일 공유에 대한 보호를 중지한 경우 백업에서 복원할 수 있나요? <br/>
 예. 보호를 중지할 때 **백업 데이터 보관**을 선택한 경우 모든 기존 복원 지점에서 복원할 수 있습니다.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>진행 중인 복원 작업을 취소하면 어떻게 되나요?
+진행 중인 복원 작업이 취소되면 복원 프로세스가 중지되고 취소 전에 모든 파일이 복원되면 롤백 없이 구성된 대상(원래 또는 대체 위치)에 남아 있습니다. 
+
 
 ## <a name="manage-backup"></a>Backup 관리
 

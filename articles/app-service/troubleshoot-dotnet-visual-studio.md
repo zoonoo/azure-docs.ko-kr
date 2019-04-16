@@ -235,7 +235,7 @@ public ActionResult About()
 
      ![함수 정보](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
 
-함수에서 [로그가 작성](https://github.com/Azure/azure-webjobs-sdk/wiki)되었으면 **ToggleOutput** 을 클릭하여 확인할 수 있습니다.
+함수에서 [로그가 작성](https://github.com/Azure/azure-webjobs-sdk/wiki)되었으면 **ToggleOutput**을 클릭하여 확인할 수 있습니다.
 
 ## <a name="notes-about-remote-debugging"></a>원격 디버깅 관련 참고 사항
 
@@ -258,7 +258,7 @@ public ActionResult About()
 App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같은 종류의 로그를 생성할 수 있습니다.
 
 * **응용 프로그램 추적 로그**<br/>
-  애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스의 메서드를 호출하여 추적 로그를 생성합니다.
+  애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스의 메서드를 호출하여 이러한 로그를 생성합니다.
 * **웹 서버 로그**<br/>
   웹 서버는 앱에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
 * **자세한 오류 메시지 로그**<br/>
@@ -266,9 +266,9 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 * **실패 한 요청 추적 로그**<br/>
    웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
 
-로깅 기능을 사용하면 앱 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 애플리케이션 로그의 경우 특정 심각도 이상의 로그만 작성되도록 지정할 수 있습니다. 새 앱을 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
+로깅 기능을 사용하면 앱 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 애플리케이션 로그의 경우 특정 심각도 수준 이상의 로그만 작성되도록 지정할 수 있습니다. 새 앱을 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
 
-로그는 앱의 파일 시스템에 있는 *LogFiles* 폴더의 파일에 기록되며 FTP를 통해 액세스할 수 있습니다. 웹 서버 로그 및 애플리케이션 로그는 또한 Azure Storage 계정에도 기록될 수 있습니다. 저장소 계정에서는 파일 시스템에서 보존할 수 있는 로그보다 훨씬 많은 볼륨의 로그를 보존할 수 있습니다. 파일 시스템을 사용하는 경우 최대 100MB의 로그로 제한됩니다. 참고로, 파일 시스템 로그는 단기 보존용입니다. 제한값에 도달한 경우 Azure는 새 로그를 위한 공간을 만들기 위해 오래된 로그 파일을 삭제합니다.  
+로그는 앱의 파일 시스템에 있는 *LogFiles* 폴더의 파일에 기록되며 FTP를 통해 액세스할 수 있습니다. 웹 서버 로그 및 애플리케이션 로그는 또한 Azure Storage 계정에도 기록될 수 있습니다. 스토리지 계정에서는 파일 시스템에서 보존할 수 있는 로그보다 훨씬 많은 볼륨의 로그를 보존할 수 있습니다. 파일 시스템을 사용하는 경우 최대 100MB의 로그로 제한됩니다. 참고로, 파일 시스템 로그는 단기 보존용입니다. 제한값에 도달한 경우 Azure는 새 로그를 위한 공간을 만들기 위해 오래된 로그 파일을 삭제합니다.  
 
 ## <a name="apptracelogs"></a>애플리케이션 추적 로그 만들기 및 보기
 이 섹션에서는 다음 작업을 수행합니다.
@@ -277,7 +277,7 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 * 프로젝트를 로컬로 실행하는 경우 로그 보기
 * Azure에서 실행하는 애플리케이션에서 생성된 로그 보기
 
-WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Queue Storage 작업을 하는 방법 - 로그를 쓰는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요. 로그를 보고 Azure에 저장하는 방법을 제어하기 위한 다음 지침은 WebJob에서 만들어진 애플리케이션 로그에도 적용됩니다.
+WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure Queue Storage 작업을 하는 방법 - 로그를 쓰는 방법](https://github.com/Azure/azure-webjobs-sdk/wiki)을 참조하세요. 로그를 보고 Azure에 저장하는 방법을 제어하기 위한 다음 지침은 WebJob에서 만들어진 애플리케이션 로그에도 적용됩니다.
 
 ### <a name="add-tracing-statements-to-the-application"></a>애플리케이션에 추적 문 추가
 1. *Controllers\HomeController.cs*를 열고 `Index`, `About`, `Contact` 메서드를 다음 코드로 바꾸어 `System.Diagnostics`에 대해 `Trace` 문과 `using` 문을 추가합니다.
@@ -412,7 +412,7 @@ public ActionResult Contact()
 * 검색 문자열 또는 정규식을 기반으로 로그를 필터링합니다.
 * **출력** 창을 닫습니다.
 
-검색 문자열 또는 정규식을 입력하면 Visual Studio에서 클라이언트 측의 로깅 정보가 필터링됩니다. 즉, **Output** 창에 로그가 표시된 후에 조건을 입력할 수 있으며 로그를 다시 생성할 필요 없이 필터링 조건을 변경할 수 있습니다.
+검색 문자열 또는 정규식을 입력하면 Visual Studio에서 클라이언트 측의 로깅 정보가 필터링됩니다. 즉, **출력** 창에 로그가 표시된 후에 조건을 입력할 수 있으며 로그를 다시 생성할 필요 없이 필터링 조건을 변경할 수 있습니다.
 
 ## <a name="webserverlogs"></a>웹 서버 로그 보기
 웹 서버 로그는 앱의 모든 HTTP 작업을 기록합니다. **출력** 창에서 웹 서버 로그를 보려면 앱에서 이를 사용하도록 설정하고, Visual Studio에서 이들의 모니터링을 명시적으로 지정해야 합니다.
@@ -422,17 +422,17 @@ public ActionResult Contact()
     ![웹 서버 로깅 사용](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
 2. **출력** 창에서 **모니터링할 Microsoft Azure 로그 지정** 버튼을 클릭합니다.
 
-    ![Specify which Azure logs to monitor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
+    ![모니터링할 Azure 로그를 지정합니다.](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
 3. **Microsoft Azure 로깅 옵션** 대화 상자에서 **웹 서버 로그**를 선택한 후 **확인**을 클릭합니다.
 
     ![웹 서버 로그 모니터링](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
 4. 앱이 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
 
-    일반적으로 애플리케이션 로그가 나타나고 다음으로 웹 서버 로그가 나타납니다. 로그가 나타날 때까지 잠시 기다려야 할 수 있습니다.
+    일반적으로 애플리케이션 로그가 먼저 나타나고 뒤에 웹 서버 로그가 나타납니다. 로그가 나타날 때까지 잠시 기다려야 할 수 있습니다.
 
     ![출력 창의 웹 서버 로그](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
-기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는 Azure 포털을 사용하여 웹 서버 로그가 저장소 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다.
+기본적으로 Visual Studio를 사용하여 웹 서버 로그를 사용하도록 처음 설정하는 경우 Azure는 로그를 파일 시스템에 기록합니다. 또는 Azure Portal을 사용하여 웹 서버 로그가 스토리지 계정의 Blob 컨테이너에 기록되도록 지정할 수 있습니다.
 
 포털을 사용하여 Azure 저장소 계정에 기록하도록 웹 서버 로깅을 설정한 후 Visual Studio에서 로깅을 사용하지 않도록 설정하는 경우 Visual Studio에서 로깅을 사용하도록 다시 설정하면 저장소 계정 설정이 복원됩니다.
 
