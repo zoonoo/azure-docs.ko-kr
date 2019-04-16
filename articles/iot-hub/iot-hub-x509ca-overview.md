@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489814"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571157"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
 
@@ -62,13 +62,15 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 소유 증명 단계에서는 사용자와 IoT Hub 간의 암호화 챌린지 및 응답 프로세스가 진행됩니다.  디지털 인증서 콘텐츠가 공용이어서 도청에 취약하다고 가정할 경우 IoT Hub는 사용자가 실제로 해당 CA 인증서를 소유하는지 확인하려고 할 것입니다.  이 작업은 CA 인증서의 해당 개인 키로 서명해야 하는 임의 챌린지를 생성하여 수행할 수 있습니다.  앞서 권장한 것처럼 개인 키를 기밀로 유지하고 보호한 경우 이 단계를 완료했다는 사실은 사용자만 알 수 있습니다. 개인 키를 비밀로 유지하는 것이 이 방법에서 신뢰를 유지하는 기반입니다.  챌린지에 서명한 후에 결과를 포함하는 파일을 업로드하여 이 단계를 완료합니다.
 
-여기에서는 [CA 인증서를 등록](iot-hub-security-x509-get-started.md#registercerts)하는 방법을 알아봅니다.
+여기에서 알아보세요 방법 [CA 인증서를 등록 합니다.](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>IoT Hub에서 디바이스를 만드는 방법
 
 디바이스 가장을 차단하기 위해 IoT Hub 허브는 예상되는 디바이스를 알려줄 것을 요구합니다.  이를 위해 IoT Hub 디바이스 레지스트리에서 디바이스 항목을 만듭니다.  이 프로세스는 IoT Hub [Device Provisioning 서비스](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/)를 사용하면 자동화됩니다. 
 
-여기에서는 [IoT Hub에서 수동으로 디바이스를 만드는](iot-hub-security-x509-get-started.md#createdevice) 방법을 알아봅니다.
+여기에서는 [IoT Hub에서 수동으로 디바이스를 만드는](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) 방법을 알아봅니다.
+
+IoT Hub용 X.509 디바이스 만들기
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>X.509 CA 인증서로 서명된 디바이스 인증
 
@@ -76,7 +78,7 @@ X.509 CA 인증서가 등록되고 신뢰할 수 있는 인증서 체인에 디�
 
 IoT Hub에 디바이스가 성공적으로 연결되면 인증 프로세스가 완료되며, 제대로 설정된 것입니다.
 
-여기에서는 [이 디바이스 연결 단계를 완료](iot-hub-security-x509-get-started.md#authenticatedevice)하는 방법을 알아봅니다.
+여기에서는 [이 디바이스 연결 단계를 완료](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

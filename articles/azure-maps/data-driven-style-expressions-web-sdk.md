@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288098"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579498"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -45,7 +45,7 @@ Azure Maps 웹 SDK는 다양 한 유형의 자체적으로 또는 다른 식과 
 |---------------------|-------------|
 | [부울 식](#boolean-expressions) | 부울 식에 부울 비교를 평가 하기 위한 부울 연산자 식의 집합을 제공 합니다. |
 | [색 식](#color-expressions) | 색 식 쉽게 만들고 색 값을 조작 합니다. |
-| [조건부 식](#conditional-expressions) | 조건식 if 문 같은 논리 작업을 제공 합니다. |
+| [조건식](#conditional-expressions) | 조건식 if 문 같은 논리 작업을 제공 합니다. |
 | [데이터 식](#data-expressions) | 속성의 데이터를 기능에 대 한 액세스를 제공합니다. |
 | [보간 및 단계 식](#interpolate-and-step-expressions) | 보간 및 단계 식은 보간된 곡선 또는 함수를 함께 값을 계산 하려면 사용할 수 있습니다. |
 | [계층의 특정 식](#layer-specific-expressions) | 단일 계층에만 적용 되는 특별 한 식입니다. |
@@ -207,7 +207,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ]
 ```
 
-**예**
+**예제**
 
 찾을 때까지 계산 되는 다음 예제에서는 다양 한 부울 조건을 안내 `true`, 및 관련 값을 반환 합니다. 에 부울 조건이 없는 경우 `true`, 대체 (fallback) 값이 반환 됩니다. 
 
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 `coalesce` 식을 첫 번째 null이 아닌 값을 가져오고 해당 값을 반환 될 때까지 식의 집합을 단계별로 안내 합니다. 
 
-다음 의사 코드의 구조를 정의 합니다 ` coalesce` 식입니다. 
+다음 의사 코드의 구조를 정의 합니다 `coalesce` 식입니다. 
 
 ```javascript
 [
@@ -307,7 +307,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ]
 ```
 
-**예**
+**예제**
 
 다음 예에서는 `coalesce` 설정 하는 식의 `textField` 기호 계층의 옵션입니다. 경우는 `title` 속성이 기능 또는 집합에서 누락 되었습니다 `null`, 식 찾고자 시도 됩니다는 `subtitle` 속성인 경우 해당 누락 또는 `null`, 빈 문자열로 다음 대체 됩니다. 
 
@@ -375,7 +375,7 @@ Type 식 테스트 및 문자열, 숫자 및 부울 값과 같은 다른 데이�
 | `['rgba', number, number, number, number]` | 색 | 색 값을 만듭니다 *빨간색*, *녹색*를 *파란색* 사이의 구성 요소 `0` 및 `255`, 및의 범위 내 알파 구성 요소 `0` 고 `1`입니다. 모든 구성 요소 범위를 벗어난 경우 식 오류입니다. |
 | `['to-rgba']` | \[number, number, number, number\] | 입력된 색의 포함 된 4 개 요소 배열을 반환 *빨간색*를 *녹색*를 *파란색*, 및 *알파* 해당 순서 대로 구성 요소입니다. |
 
-**예**
+**예제**
 
 다음 예제에서는 만들고 있는 RGB 색상 값을 *빨간색* 의 값 `255`, 및 *녹색* 하 고 *파란색* 를곱하여계산되는값`2.5` 의 값으로는 `temperature` 속성입니다. 다양 한 음영으로 색 바뀝니다 온도 변경 되 면 *빨간색*합니다.
 
@@ -403,7 +403,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 | `['downcase', string]` | 문자열 | 지정된 문자열을 소문자로 변환합니다. |
 | `['upcase', string]` | 문자열 | 지정된 문자열을 대문자로 변환합니다. |
 
-**예**
+**예제**
 
 다음 예제에서는 변환 된 `temperature` 지점의 속성을 문자열로 기능과 다음의 끝에 "° F"를 연결 합니다.
 
@@ -461,7 +461,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 ]
 ```
 
-**예**
+**예제**
 
 다음 예제에서는 `linear interpolate` 식을 설정 하는 `color` 거품형 계층의 속성에 따라는 `temperature` 지점 기능 속성입니다. 경우는 `temperature` 값이 60, "blue" 60 사이 70 미만일 노란색 반환할 70 및 80 보다 낮으므로 간에 "주황색"는 반환 될 경우, 80 이상인 경우 "red"를 반환할 경우 경우 반환 되는 보다 작습니다.
 
@@ -510,7 +510,7 @@ A `step` 식을 평가 하 여 불연속, 단계별 결과 값을 계산 하려�
 
 단계 식의 첫 번째 보다 작은 값을 입력된 하거나 입력이 첫 번째 입력된 값 직전 중지 출력 값을 반환 합니다. 
 
-**예**
+**예제**
 
 다음 예제에서는 `step` 식을 설정 하는 `color` 거품형 계층의 속성에 따라는 `temperature` 지점 기능 속성입니다. 경우는 `temperature` 값이 60 사이 70 미만일 "노란색"는 반환 될 경우, 70 및 80 보다 낮으므로 간에 "주황색"는 반환 될 경우, 80 이상인 경우 "red"를 반환할 경우 60, "blue" 반환할 보다 작습니다.
 
@@ -548,7 +548,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 > [!TIP]
 > 인덱스 보간 식에서 0에 있는 색 또는 단계 색을의 기본 색상인 영역의 색을 정의 합니다. 데이터가 없는 경우 배경색을 정의 하려면 사용할 수 있습니다. 대부분 이 값을 투명 또는 반투명 검은색으로 설정하는 것을 선호합니다. 
 
-**예**
+**예제**
 
 이 예제에서는 열 지도 렌더링 하는 것에 대 한 부드러운 색 그라데이션을 만드는 개체로 보간 식입니다. 
 
@@ -592,7 +592,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 > [!NOTE]
 > `strokeGradient` 선 계층의 옵션을 사용 하려면 합니다 `lineMetrics` 로 설정 되는 데이터 원본 옵션 `true`합니다.
 
-**예**
+**예제**
 
 다음 예제에서는 `['line-progress']` 줄의 스트로크에 색 그라데이션을 적용 하는 식입니다.
 
@@ -640,7 +640,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 ]
 ```
 
-**예**
+**예제**
 
 다음 예제에서는 굵은 글꼴을 추가 하 고 글꼴 크기를 확장 하 여 텍스트 필드의 서식을 `title` 기능 속성입니다. 이 예제에서는 또한 추가 `subtitle` 확장을 사용 하 여 줄 바꿈의 기능 속성 글꼴 크기를 축소 합니다.
 
@@ -697,7 +697,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 ]
 ```
 
-**예**
+**예제**
 
 다음 예에서는 `number-format` 수정 하는 식 하는 방법을 `revenue` 지점 기능의 속성에서 렌더링 되는 `textField` 기호 옵션 계층 미국 달러 값을 표시 합니다.
 
@@ -725,7 +725,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 A `zoom` 식 렌더링 시 지도의 현재 확대/축소 수준 검색 되 고으로 정의 됩니다 `['zoom']`합니다. 이 식은 지도의 최소 및 최대 확대/축소 수준 범위 사이의 숫자를 반환합니다. 이 식을 사용 하 여 스타일을 지도의 확대/축소 수준을 변경 될 때마다 동적으로 수정할 수 있습니다. 합니다 `zoom` 사용 하 여 식만 사용할 수 있습니다 `interpolate` 및 `step` 식입니다.
 
-**예**
+**예제**
 
 기본적으로 열 지도 계층에 렌더링 하는 데이터 요소의 반지름 모든 확대/축소 수준에 대 한 고정된 픽셀 반지름을 적용 합니다. 지도 확대/축소 하는 대로 함께 데이터 집계와 열 지도 계층에 다르게 보입니다. `zoom` 식에서는 맵의 동일한 물리적 영역을 각 데이터 요소는 각 확대/축소 수준에 대 한 radius 확장 데 사용할 수 있습니다. 더 정적이 고 일관 된 표시 열 지도 계층을 확인 합니다. 맵의 각 확대/축소 수준에 배의 픽셀 세로 및 가로로 이전 확대/축소 수준으로 각 확대/축소 수준으로 두 배로 만듭니다는 반지름 크기 조정 모든 확대/축소 수준에서 일관 된 보이는 열 지도를 만듭니다. 이 사용 하 여 수행할 수 있습니다 합니다 `zoom` 식을 사용 하 여를 `base 2 exponential interpolation` 아래와 같이 식입니다. 
 
@@ -756,7 +756,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: 문자열<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: 있는 경우<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: 문자열<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: 있는 경우<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | 변수 사용에 대 한 하나 이상의 값을 저장 합니다 `var` 결과 반환 하는 하위 식에 있습니다. |
 | `['var', name: string]` | 모든 | 변수를 사용 하 여 만든 참조는 `let` 식입니다. |
 
-**예**
+**예제**
 
 온도 비율 사용 하 여 다음을 기준으로 수익을 계산 하는 식을 사용 하 여이 예제는 `case` 다른 부울 연산에서이 값을 계산할 식입니다. 합니다 `let` 식은 한 번 계산 하기만 하면 되도록 온도 비율을 기준으로 수익을 저장 하는데 사용 됩니다 및 `var` 식을 다시 계산 하지 않고 필요한 만큼이 변수를 참조 합니다.
 

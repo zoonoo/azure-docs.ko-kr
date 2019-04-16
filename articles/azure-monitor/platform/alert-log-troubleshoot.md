@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor의 로그 경고 문제 해결 | Microsoft Docs
-description: Azure의 로그 경고 규칙에 대한 일반적인 문제, 오류 및 해결 방법입니다.
+description: 일반적인 문제, 오류 및 Azure에서 로그 경고 규칙에 대 한 확인 합니다.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005296"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578716"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure Monitor에서 로그 경고 문제 해결  
 
@@ -25,7 +25,6 @@ ms.locfileid: "59005296"
 
 > [!NOTE]
 > 이 문서에서는 Azure Portal이 표시되는 경우 및 트리거된 경고 규칙 및 연결된 작업 그룹에서 수행된 알림을 고려하지 않습니다. 이러한 경우 [작업 그룹](../platform/action-groups.md)의 문서에 있는 자세한 내용을 참조하세요.
-
 
 ## <a name="log-alert-didnt-fire"></a>로그 경고가 발생하지 않음
 
@@ -57,7 +56,7 @@ ms.locfileid: "59005296"
 
 예를 들어 메트릭 측정 로그 경고 규칙이 다음과 같이 구성되었다고 가정합니다.
 
-- 쿼리는 다음과 같습니다. `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- 쿼리: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - 기간: 6시간
 - 임계값: 50
 - 경고 논리: 3회 연속 위반
@@ -92,9 +91,94 @@ Log Analytics 및 Application Insights를 구동하는 분석은 수집 지연 �
 
 ### <a name="alert-query-output-misunderstood"></a>경고 쿼리 출력이 잘못 이해됨
 
-분석 쿼리에서 로그 경고에 대한 논리를 제공합니다. 분석 쿼리는 다양한 빅 데이터 및 수학 함수를 사용할 수 있습니다.  경고 서비스는 지정된 기간에 대한 데이터를 사용하여 지정된 간격으로 쿼리를 실행합니다. 경고 서비스는 선택한 경고 유형에 따라 제공된 쿼리를 약간 변경합니다. 이 내용은 아래와 같이 *신호 논리 구성* 화면의 "실행될 쿼리" 섹션에서 볼 수 있습니다. ![쿼리를 실행할 수](media/alert-log-troubleshoot/LogAlertPreview.png)
+분석 쿼리에서 로그 경고에 대한 논리를 제공합니다. 분석 쿼리는 다양한 빅 데이터 및 수학 함수를 사용할 수 있습니다.  경고 서비스는 지정된 기간에 대한 데이터를 사용하여 지정된 간격으로 쿼리를 실행합니다. 경고 서비스는 선택한 경고 유형에 따라 제공된 쿼리를 약간 변경합니다. 이 변경의 "쿼리 실행" 섹션에서 볼 수 있습니다 *신호 논리 구성* 아래와 같이 화면: ![실행될 쿼리](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 **실행될 쿼리** 상자에는 로그 경고 서비스가 실행하는 쿼리가 표시됩니다. 실제로 경고를 만들기 이전의 경고 쿼리 출력을 이해하려면 [Analytics 포털](../log-query/portals.md) 또는 [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/)를 통해 시간 범위 뿐만 아니라 명시된 쿼리를 실행할 수 있습니다.
+
+## <a name="log-alert-was-disabled"></a>로그 경고를 사용 하지 않도록 설정
+
+다음은 몇 가지 이유 때문 [Azure Monitor의 로그 경고 규칙](../platform/alerts-log.md) Azure Monitor에서 사용할 수 없습니다.
+
+### <a name="resource-on-which-alert-was-created-no-longer-exists"></a>경고를 더 이상 만든 리소스가 존재
+
+Azure Monitor에서 만든 로그 경고 규칙에는 Azure Log Analytics 작업 영역, Azure Application Insights 앱 및 Azure 리소스와 같은 특정 리소스를 대상입니다. 고의 로그 경고 서비스는 지정된 된 대상에 대 한 규칙에서 제공 하는 분석 쿼리를 실행 합니다. 하지만 규칙 생성 후 대개 사용자가 이동할 Azure에서 삭제 하거나 경고 규칙의 대상 Azure 내에서 이동 합니다. 로그 경고 규칙의 대상 이므로 더 이상 유효한 규칙의 실행이 실패 합니다.
+
+이러한 경우에 Azure Monitor의 로그 경고를 사용 하지 않도록 설정 되며 고객에 게는 규칙 자체 일주일 같은 상당한 기간 동안 지속적으로 실행할 수 없을 때 불필요 하 게 비용이 청구 되지 않도록 합니다. 사용자는 로그 경고 규칙을 통해 Azure Monitor에서 비활성화 되었습니다 정확한 시간에서 찾을 수 있습니다 [Azure 활동 로그](../../azure-resource-manager/resource-group-audit.md)합니다. Azure 활동 로그의 로그 경고 규칙은 Azure에서 사용 하지 않도록 설정 하는 경우 Azure 활동 로그에 이벤트 추가 됩니다.
+
+지속적인 못하여; 사용 하지 않도록 설정 경고 규칙에 대 한 Azure 활동 로그의 샘플 이벤트 다음과 같습니다.
+
+```json
+{
+    "caller": "Microsoft.Insights/ScheduledQueryRules",
+    "channels": "Operation",
+    "claims": {
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/ScheduledQueryRules"
+    },
+    "correlationId": "abcdefg-4d12-1234-4256-21233554aff",
+    "description": "Alert: test-bad-alerts is disabled by the System due to : Alert has been failing consistently with the same exception for the past week",
+    "eventDataId": "f123e07-bf45-1234-4565-123a123455b",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "id": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "localizedValue": "Microsoft.Insights/ScheduledQueryRules/disable/action"
+    },
+    "resourceGroupName": "<Resource Group>",
+    "resourceProviderName": {
+        "value": "MICROSOFT.INSIGHTS",
+        "localizedValue": "Microsoft Insights"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.INSIGHTS/scheduledqueryrules",
+        "localizedValue": "MICROSOFT.INSIGHTS/scheduledqueryrules"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "subscriptionId": "<SubscriptionId>",
+    "properties": {
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+        "subscriptionId": "<SubscriptionId>",
+        "resourceGroup": "<ResourceGroup>",
+        "eventDataId": "12e12345-12dd-1234-8e3e-12345b7a1234",
+        "eventTimeStamp": "03/22/2019 04:18:22",
+        "issueStartTime": "03/22/2019 04:18:22",
+        "operationName": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "status": "Succeeded",
+        "reason": "Alert has been failing consistently with the same exception for the past week"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="query-used-in-log-alert-is-not-valid"></a>로그 경고에 사용 된 쿼리가 올바르지 않습니다.
+
+Azure Monitor의 해당 구성의 일부로 만든 각 로그 경고 규칙 경고 서비스에서 주기적으로 실행 하는 분석 쿼리를 지정 해야 합니다. 분석 쿼리 규칙 만들기 또는 업데이트 시 올바른 구문을 있을 수 있습니다. 로그에 일부 시간 기간을 통해 쿼리 제공 경고 규칙 구문 문제를 개발 하 고 규칙 실행이 실패 하도록 합니다. 로그 경고 규칙에서 제공 하는 분석 쿼리 오류를 개발할 수 이유 몇 가지 일반적인 원인은 다음과 같습니다.
+
+- 쿼리를 쓸 [여러 리소스에서 실행](../log-query/cross-workspace-query.md) 하며, 지정 된 리소스 하나 이상의 이제 존재 하지 않습니다.
+- Analytics 플랫폼 때문에 데이터 흐름 없음 되었습니다 합니다 [쿼리를 실행 하면 오류가 발생](https://dev.loganalytics.io/documentation/Using-the-API/Errors) 으로 제공 된 쿼리에 대 한 데이터가 없습니다.
+- 변경 내용 [쿼리 언어](https://docs.microsoft.com/azure/kusto/query/) 는 명령에서 발생 한 있으며 함수는 수정 된 형식입니다. 따라서 경고 규칙에서 이전에 제공된 된 쿼리와 더 이상 유효 합니다.
+
+사용자는에 대 한 경고가이 동작이 먼저 통해 [Azure Advisor](../../advisor/advisor-overview.md)합니다. 중간 영향 및 설명 대로 "모니터링 되도록 로그 경고 규칙 복구"를 사용 하 여 고가용성 범주 아래의 Azure Advisor에서 특정 로그 경고 규칙에 대 한 권장 사항을 추가 됩니다. 쿼리 경고가 7 일 동안 Azure Advisor의 권장 사항 제공 하는 경우 지정 된 로그 경고 규칙 수정 되지 않습니다. 그런 다음 Azure Monitor 로그 경고를 사용 하지 않도록 설정 하 고 고객에 게는 규칙 자체 일주일 같은 상당한 기간 동안 지속적으로 실행할 수 없을 때 불필요 하 게 비용이 청구 되지 않도록 합니다.
+
+사용자는 로그 경고 규칙을 통해 Azure Monitor에서 비활성화 되었습니다 정확한 시간에서 찾을 수 있습니다 [Azure 활동 로그](../../azure-resource-manager/resource-group-audit.md)합니다. Azure 활동 로그에서 로그 경고 규칙 사용-Azure에서 되지 이벤트는 Azure 활동 로그에 추가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

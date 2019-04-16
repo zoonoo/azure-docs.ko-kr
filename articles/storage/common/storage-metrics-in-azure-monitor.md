@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505773"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579345"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -393,7 +393,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | 차원 이름 | 설명 |
 | ------------------- | ----------------- |
 | BlobType | Blob 메트릭용 Blob 형식만. 지원 되는 값은 **BlockBlob** 및 **PageBlob**입니다. 추가 Blob는 BlockBlob에 포함됩니다. |
-| ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외한 다른 모든 서버 쪽 오류입니다. </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외한 다른 모든 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청입니다. </li> <li> SuccessWithThrottling: SMB 클라이언트가 첫 번째 번 제한 가져옵니다 하지만 재시도 후 성공 하는 경우 성공적인 요청입니다.|
+| ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외한 다른 모든 서버 쪽 오류입니다. </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외한 다른 모든 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청입니다.|
 | GeoType | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값은 기본 및 보조를 포함합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
 | ApiName | 작업 이름입니다. 예를 들면 다음과 같습니다. <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요. |
 | Authentication | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>AccountKey: 트랜잭션이 스토리지 계정 키를 사용하여 인증됩니다.</li> <li>SAS: 트랜잭션이 공유 액세스 서명을 사용하여 인증됩니다.</li> <li>OAuth: 트랜잭션이 OAuth 액세스 토큰을 사용하여 인증됩니다.</li> <li>Anonymous: 트랜잭션이 익명으로 요청됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>AnonymousPreflight: 트랜잭션이 실행 전 요청입니다.</li> |
@@ -406,15 +406,15 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 ## <a name="faq"></a>FAQ
 
-**새 메트릭 클래식 저장소 계정을 지원 하나요?**
+**새 메트릭에서 클래식 스토리지 계정을 지원하나요?**
 
 아니요, Azure Monitor의 새 메트릭은 Azure Resource Manager 스토리지 계정만 지원합니다. 스토리지 계정에서 메트릭을 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)을 참조하세요.
 
-**Azure Storage Managed Disks 또는 관리 되지 않는 디스크에 대 한 메트릭을 지원 하나요?**
+**Azure Storage가 Managed Disks 또는 Unmanaged Disks에 대한 메트릭을 지원하나요?**
 
 예. Azure Compute는 디스크에서 메트릭을 지원합니다. 자세한 내용은 [문서](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)를 참조하세요.
 
-**매핑 및 새 메트릭 사용 하 여 클래식 메트릭 마이그레이션해야 하는 방법**
+**새 메트릭을 사용하여 클래식 메트릭을 어떻게 매핑 및 마이그레이션하나요?**
 
 [Azure Storage 메트릭 마이그레이션](./storage-metrics-migration.md)에서 클래식 메트릭과 새 메트릭 간의 자세한 매핑을 찾을 수 있습니다.
 

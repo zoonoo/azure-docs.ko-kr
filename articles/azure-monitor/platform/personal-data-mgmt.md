@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121352"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577901"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -86,6 +86,9 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 ### <a name="view-and-export"></a>보기 및 내보내기
 
 데이터 보기 및 내보내기 요청 둘 다에서 [Log Analytics 쿼리 API](https://dev.loganalytics.io/) 또는 [Application Insights 쿼리 API](https://dev.applicationinsights.io/quickstart)를 사용해야 합니다. 데이터의 모양을 적절한 형식으로 변환하여 사용자에게 전달하는 논리의 구현은 사용자에게 달려 있습니다. [Azure Functions](https://azure.microsoft.com/services/functions/)는 이러한 논리를 호스팅하는 데 적합합니다.
+
+> [!IMPORTANT]
+>  대부분 제거 작업의 SLA 보다 훨씬 더 빠르게 완료할 수 있습니다 하는 동안 **정식 제거 작업의 완료에 대 한 SLA은 30 일로 설정 되어** 사용 되는 데이터 플랫폼에 대 한 과도 한 영향 때문입니다. 이 자동화 된 프로세스입니다. 작업을 더 빠르게 처리 하도록 요청 하려면 방법이 없습니다.
 
 ### <a name="delete"></a>삭제
 

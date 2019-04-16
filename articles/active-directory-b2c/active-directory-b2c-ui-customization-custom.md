@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7463a61945524672c5124966db2464c036559db7
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818875"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571331"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -97,7 +97,7 @@ Blob Storage에 공용 컨테이너를 만들려면 다음을 수행합니다.
 다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob Storage를 구성합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
+2. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com`. 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
 3. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 4. **허용된 헤더**에 별표(*)를 입력합니다.
 5. **노출된 헤더**에 별표(*)를 입력합니다.
@@ -121,7 +121,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 3. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 복사한 **ContentDefinitions**의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다. 
 5. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-6. **LoadUri** 값을 저장소에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`
+6. **LoadUri** 값을 저장소에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
     
     사용자 지정 정책이 다음과 비슷해야 합니다.
 
@@ -157,7 +157,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 2. 업로드한 사용자 지정 정책을 선택하고 **지금 실행** 단추를 클릭합니다.
 3. 이메일 주소를 사용하여 등록할 수 있습니다.
 
-## <a name="reference"></a>참고 자료
+## <a name="reference"></a>참조
 
 UI 사용자 지정을 위한 샘플 템플릿은 다음에서 찾을 수 있습니다.
 

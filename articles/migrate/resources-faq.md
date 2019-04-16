@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578648"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578920"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -52,7 +52,7 @@ Azure Migrate는 현재 유럽, 미국 및 Azure Government를 프로젝트 지�
 
 **지리** | **메타데이터 스토리지 위치**
 --- | ---
-Azure Government | 미국 정부 버지니아
+Azure Government | US Gov 버지니아
 아시아 | 동남아시아
 유럽 | 북유럽 또는 유럽 서부
 미국 | 미국 동부 또는 미국 중서부
@@ -60,6 +60,10 @@ Azure Government | 미국 정부 버지니아
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>온-프레미스 사이트에서 Azure Migrate로 연결하려면 어떻게 하나요?
 
 이 연결은 인터넷을 통해 진행되거나 공용 피어링을 통해 ExpressRoute를 사용할 수 있습니다.
+
+### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>Azure Migrate에 대 한 네트워크 연결 요구 사항 필요?
+
+Azure를 사용 하 여 통신 하도록 Url 및 Azure Migrate에 필요한 포트를 참조 하세요 [연결에 대 한 Url](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity)합니다.
 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>OVA 템플릿으로 VM 설정을 강화할 수 있나요?
 

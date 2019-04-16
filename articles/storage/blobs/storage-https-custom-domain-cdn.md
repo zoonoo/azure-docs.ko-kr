@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 1166f98dcd39362ef5e28be12ff9e2f561ab5b1f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 90ddb58f3499180e17df559a98ac8a46b53fb824
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238225"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579015"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스
 
@@ -67,4 +67,4 @@ Azure CDN을 통해 Blob에 액세스하는 경우 에지 노드와 원본(Blob 
 ## <a name="next-steps"></a>다음 단계
 
 * [Blob Storage 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
-* [Azure Storage에서 정적 웹 사이트 호스팅(미리 보기)](storage-blob-static-website.md)
+* [Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 1a596462eb42231a356ddc4fa67b6468b63cd97c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849297"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578827"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -113,7 +113,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
     - Azure Backup에서 **NT Service\AzureWLBackupPluginSvc** 서비스 계정을 VM에 만듭니다.
       - 모든 백업 및 복원 작업에는 서비스 계정이 사용됩니다.
       - **NT Service\AzureWLBackupPluginSvc**에는 SQL sysadmin 권한이 필요합니다. Azure Marketplace에서 만든 모든 SQL Server VM에는 **SqlIaaSExtension**이 설치되어 있습니다. **AzureBackupWindowsWorkload** 확장은 **SQLIaaSExtension**을 사용하여 필요한 권한을 자동으로 확보합니다.
-    - 마켓플레이스에서 VM을 만들지 않은 경우 VM에 **SqlIaaSExtension**이 설치되어 있지 않고, **UserErrorSQLNoSysAdminMembership** 오류 메시지와 함께 검색 작업이 실패합니다. [#fix-sql-sysadmin-permissions]의 지침에 따라 이 문제를 해결합니다.
+    - 마켓플레이스에서 VM을 만들지 않은 경우 VM에 **SqlIaaSExtension**이 설치되어 있지 않고, **UserErrorSQLNoSysAdminMembership** 오류 메시지와 함께 검색 작업이 실패합니다. 수행 합니다 [지침](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) 이 문제를 해결 하려면.
 
         ![VM 및 데이터베이스 선택](./media/backup-azure-sql-database/registration-errors.png)
 

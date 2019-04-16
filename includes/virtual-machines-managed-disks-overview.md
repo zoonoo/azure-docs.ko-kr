@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291839"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566559"
 ---
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -31,7 +31,7 @@ ms.locfileid: "59291839"
 
 관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 저장소 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
 
-## <a name="integration-with-availability-zones"></a>가용성 영역을 사용 하 여 통합
+### <a name="integration-with-availability-zones"></a>가용성 영역을 사용 하 여 통합
 
 관리 디스크 지원 [가용성 영역](../articles/availability-zones/az-overview.md), 데이터 센터 오류 로부터 응용 프로그램을 보호 하는 고가용성 제공을를 합니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다.
 
@@ -69,8 +69,8 @@ Azure에는 세 가지 주 디스크 역할이 있습니다: 데이터 디스크
 
 관리 디스크를 사용하여 스냅숏을 만드는 방법에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
-* [Windows에서 스냅숏을 사용 하 여 관리 디스크로 저장 된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Linux에서 스냅숏을 사용 하 여 관리 디스크로 저장 된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Windows에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Linux에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>이미지
 
@@ -79,7 +79,7 @@ Azure에는 세 가지 주 디스크 역할이 있습니다: 데이터 디스크
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
 
 * [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../articles/virtual-machines/windows/capture-image-resource.md)
-* [일반화 하 고 Azure CLI를 사용 하 여 Linux 가상 머신을 캡처하는 방법](../articles/virtual-machines/linux/capture-image.md)
+* [Azure CLI를 사용하여 Linux 가상 머신을 일반화하고 캡처하는 방법](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>이미지 및 스냅숏
 

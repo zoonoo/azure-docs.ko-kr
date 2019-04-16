@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528138"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579158"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  각 SDK에 대한 전체 설명은 다음 참조 문서를 참조하세요.
 + Azure Machine Learning의 [**Python용 기본 SDK**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Azure Portal
+  + 이제 기존 원격 계산 클러스터에서 실행할 기존 스크립트를 다시 제출할 수 있습니다. 
+  + 이제 새 매개 변수를 사용 하 여 파이프라인 탭에서 게시 된 파이프라인을 실행할 수 있습니다. 
+  + 실행된 세부 정보는 이제 새 스냅숏 파일 뷰어를 지원 합니다. 특정 실행을 제출할 때 디렉터리의 스냅숏을 볼 수 있습니다. 또한 실행을 시작 하려면에 전송 된 notebook을 다운로드할 수 있습니다.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ ms.locfileid: "59528138"
   + 열 유형 검색 이제는 Long 형식의 열을 지원합니다.
   + 일부 날짜 값 Python datetime 개체 대신 타임 스탬프로 표시 되 고 된 되는 버그가 수정 되었습니다.
   + 정수 대신 double로 일부 형식 개수 표시 되 고 되었습니다 있는 버그가 수정 되었습니다.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

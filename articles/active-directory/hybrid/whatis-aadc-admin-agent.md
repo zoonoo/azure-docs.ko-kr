@@ -11,12 +11,12 @@ ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884893"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577612"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Azure AD Connect 관리 에이전트란? 
 Azure AD Connect 관리 에이전트는 Azure Active Directory Connect는 Azure Active Directory Connect 서버에 설치 된 새 구성 요소입니다. Microsoft 지원 엔지니어가 지원 사례를 열 때 문제를 해결 하는 데 도움이 되는 Active Directory 환경의 특정 데이터를 수집 하는 것이 됩니다.
@@ -41,16 +41,18 @@ Microsoft 지원 엔지니어에 게 시스템의 모든 데이터를 변경할 
  
 지원 호출에 대 한 데이터에 액세스 하려면 Microsoft 서비스 엔지니어가 원하지 않는 경우 아래 설명 된 대로 서비스 구성 파일을 수정 하 여이 비활성화할 수 있습니다. 
 
-  1.    오픈 **C:\Program Files\Microsoft Azure AD Connect 관리 Agent\AzureADConnectAdministrationAgentService.exe.config** 메모장에서.
-  2.    사용 안 함 **UserDataEnabled** 아래와 같이 설정 합니다. 하는 경우 **UserDataEnabled** 설정 존재 하며 true 다음 false로 설정으로 설정 됩니다. 설정이 존재 하지 않는 경우 다음 설정을 추가 합니다 아래와 같이 합니다.    
-  `
- <appSettings>
-   <add key="TraceFilename" value="ADAdministrationAgent.log" />
-   <add key="UserDataEnabled" value="false" />
-  </appSettings>
-  `
-  3.    구성 파일을 저장합니다.
-  4.    아래와 같이 Azure AD Connect 관리 에이전트 서비스를 다시 시작
+1.  오픈 **C:\Program Files\Microsoft Azure AD Connect 관리 Agent\AzureADConnectAdministrationAgentService.exe.config** 메모장에서.
+2.  사용 안 함 **UserDataEnabled** 아래와 같이 설정 합니다. 하는 경우 **UserDataEnabled** 설정 존재 하며 true 다음 false로 설정으로 설정 됩니다. 설정이 존재 하지 않는 경우 다음 설정을 추가 합니다 아래와 같이 합니다.    
+
+    ```xml
+    <appSettings>
+      <add key="TraceFilename" value="ADAdministrationAgent.log" />
+      <add key="UserDataEnabled" value="false" />
+    </appSettings>
+    ```
+
+3.  구성 파일을 저장합니다.
+4.  아래와 같이 Azure AD Connect 관리 에이전트 서비스를 다시 시작
 
 ![관리 에이전트](media/whatis-aadc-admin-agent/adminagent2.png)
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007839"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579039"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -95,7 +95,8 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
   * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
-* 부하 분산 규칙
+* 로드 
+* 분산 규칙
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -132,7 +133,8 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
 
-1. Azure Portal에서 [ASCS/SCS 다중 SID 템플릿][template-multisid-xscs] 또는 [수렴형 템플릿][template-converged]을 엽니다. ASCS/SCS 템플릿은 SAP NetWeaver ASCS/SCS 및 ERS(Linux에만 해당)용 부하 분산 규칙만 만드는 반면, 수렴형 템플릿은 데이터베이스(예: Microsoft SQL Server 또는 SAP HANA)용 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치할 계획이며 동일한 컴퓨터에 데이터베이스도 설치하려는 경우에는 [수렴형 템플릿][template-converged]을 사용합니다.
+1. 엽니다는 [ASCS/SCS 다중 SID 템플릿을] [ template-multisid-xscs] 또는 [수렴 형 템플릿] [ template-converged] Azure portal에서 합니다. 
+   ASCS/SCS 템플릿은 부하 분산 규칙만 만드는 SAP NetWeaver ASCS/SCS 및 ERS (Linux 전용) 인스턴스의 반면 수렴 형된 템플릿은 데이터베이스 (예: Microsoft SQL Server 또는 SAP HANA)에 대 한 부하 분산 규칙도 만듭니다. SAP NetWeaver 기반 시스템을 설치할 계획이며 동일한 컴퓨터에 데이터베이스도 설치하려는 경우에는 [수렴형 템플릿][template-converged]을 사용합니다.
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사(ASCS/SCS 다중 SID 템플릿에만 해당)  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
@@ -144,7 +146,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       Linux 배포판 중 하나를 선택합니다. 이 예에서는 SLES 12 BYOS 선택
    6. Db 형식  
       HANA 선택
-   7. SAP 시스템 크기 -  
+   7. Sap 시스템 크기입니다.  
       새 시스템에서 제공하는 SAP의 양입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
    8. 시스템 가용성 -  
       HA를 선택합니다.
@@ -158,7 +160,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 먼저 NFS 클러스터에 대한 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
 1. 리소스 그룹 만들기
-1. 가상 네트워크 만들기
+1. Virtual Network 만들기
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  
@@ -530,6 +532,8 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[1]** SAP 클러스터 리소스 만들기
 
+큐에 넣기 서버 1 아키텍처 (ENSA1)를 사용 하는 경우 아래와 같이 리소스를 정의 합니다.
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
@@ -556,7 +560,37 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  큐에 넣기 서버 복제의 경우 SAP NW 7.52 기준으로 포함 하 여 2 도입 하는 SAP 지원 합니다. 큐에 넣기 서버 2 ABAP 플랫폼 1809부터 기본적으로 설치 됩니다. SAP 참고 참고 [2630416](https://launchpad.support.sap.com/#/notes/2630416) 큐에 넣기 서버 2 지원에 대 한 합니다.
+큐에 넣기 서버 2 아키텍처를 사용 하는 경우 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), 리소스를 다음과 같이 정의 합니다.
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 sap 참고 참조 [2641019](https://launchpad.support.sap.com/#/notes/2641019)합니다. 
+
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
+
 
    <pre><code>sudo crm_mon -r
    
@@ -958,7 +992,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. ASCS 인스턴스를 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 잠금은 이 테스트에서 손실될 것으로 예상됩니다.
+   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. ASCS 인스턴스를 실행 중인 노드에서 \<sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용 하는 경우 큐에 넣기 잠금은이 테스트에서 손실 될 예정입니다. 큐에 넣기 서버 2 아키텍처를 사용 하는 큐에 넣기 유지 됩니다. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

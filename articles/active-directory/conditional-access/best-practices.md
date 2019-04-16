@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261543"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571123"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
 
@@ -49,7 +49,7 @@ ms.locfileid: "59261543"
 | 대상           | 방법                                  | 이유 |
 | :--            | :--                                  | :-- |
 | **클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있도록 하는 것입니다.|
-| **개요** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
+| **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
 | **액세스 제어** | 하나 이상의 액세스 제어를 선택합니다. | 조건이 충족될 경우 정책 프로세서는 수행할 작업을 알고 있어야 합니다. |
 
 
@@ -109,7 +109,7 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>조건부 액세스가 Exchange ActiveSync에서 작동합니까?
 
-예, 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다.
+예, 일부를 사용 하 여 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다 [제한 사항](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync)합니다. 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Office 365 앱을 사용 하 여 조건부 액세스를 어떻게 구성 해야?
 
@@ -130,7 +130,7 @@ Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, 
 사용자 환경에서 다음과 같은 구성을 피해야 합니다.
 
 
-**모든 사용자에 대 한 모든 클라우드 앱:**
+**모든 사용자에 대한 모든 클라우드 앱:**
 
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
 
@@ -140,7 +140,7 @@ Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, 
 
 - **앱 보호 정책 필요** -이 정책 차단 액세스에도 Intune 정책이 없는 경우 조직의 모든 사용자에 대 한 액세스를 차단할 수 있습니다. Intune 앱 보호 정책에는 클라이언트 응용 프로그램을 없는 관리자 인 경우이 정책은 Intune 및 Azure와 같은 포털으로 다시 돌아가지 않도록 차단 합니다.
 
-**모든 사용자에 대 한 모든 클라우드 앱, 모든 장치 플랫폼:**
+**모든 사용자 경우 모든 클라우드 앱, 모든 디바이스 플랫폼은 다음과 같습니다.**
 
 - **액세스 차단** - 이 구성은 사용자 전체 조직을 차단하므로 사용하지 않는 것이 좋습니다.
 

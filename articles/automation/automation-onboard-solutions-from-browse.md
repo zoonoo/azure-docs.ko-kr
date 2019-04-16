@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855353"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578495"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -71,7 +71,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -79,8 +79,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 <sup>1</sup> EastUS2EUAP 및 EastUS 매핑을 Automation 계정과 Log Analytics 작업 영역에 대 한 정확한 지역 매핑이 되지 않지만 올바른 매핑이 있습니다.
 
-> [!NOTE]
-> 요청으로 인해 지역 못할 Automation 계정 또는 Log Analytics 작업 영역을 만들 때.  하는 경우 앞의 표에 있는 리소스를 만들 수 있는 영역을 사용 하는 확인 합니다.
+<sup>2</sup> 용량 제한으로 인해 지역을 사용할 수 없는 새 리소스를 만들 때. Automation 계정 및 Log Analytics 작업 영역을 포함 합니다. 그러나 지역에서 기존 연결 된 리소스는 계속 작동 합니다.
 
 사용하지 않을 가상 머신 옆에 있는 확인란을 선택 취소합니다. 사용할 수 없는 가상 머신은 이미 선택이 취소되어 있습니다.
 
@@ -105,7 +104,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대 한 선택 항목을 �
 
 2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
-   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png) 계정을 찾을 수 없습니다.
+   ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    계속할지 묻는 메시지가 나타납니다.
 

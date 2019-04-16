@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 6b109f347ee7a917b57acfc56ab4418755295bc5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896372"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578478"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Azure에서 TmaxSoft OpenFrame 설치
 
@@ -945,7 +945,7 @@ ProSort는 데이터 정렬에 대 한 일괄 처리 트랜잭션에서 사용 �
      export PATH
      ```
 
-6. 명령 프롬프트, bash 프로필을 실행 하려면 다음을 입력 합니다. ` . .bash_profile`
+6. 명령 프롬프트, bash 프로필을 실행 하려면 다음을 입력 합니다. `. .bash_profile`
 
 7. 구성 파일을 만듭니다. 예를 들면 다음과 같습니다.
 
@@ -1055,7 +1055,7 @@ OFCOBOL은 OpenFrame 컴파일러는 메인프레임 COBOL 프로그램을 해�
      0 NonFatalErrors 
      0 FatalError
      ```
-10. 사용 된 `ofcob --version ` 명령 및 설치를 확인 하려면 버전 번호를 검토 합니다. 예를 들면 다음과 같습니다.
+10. 사용 된 `ofcob --version` 명령 및 설치를 확인 하려면 버전 번호를 검토 합니다. 예를 들면 다음과 같습니다.
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1342,7 +1342,7 @@ JEUS를 설치 하기 전에 라이브러리 및 JEUS를 설치 하는 데 필�
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
      ```
 
-7. 변경 `jeus.password=jeusadmin nodename=Tmaxsoft` 를 `jeus.password=tmax1234 nodename=ofdemo`
+7. `jeus.password=jeusadmin nodename=Tmaxsoft`를 `jeus.password=tmax1234 nodename=ofdemo`로 변경
 
 8. 실행 된 `ant install` JEUS 명령입니다.
 9.  업데이트 된.bash\_같이 JEUS 변수를 사용 하 여 프로필 파일:
@@ -1477,5 +1477,5 @@ OpenFrame 구성 요소의 설치를 완료 됩니다.
 메인프레임 마이그레이션을 고려 하는 경우 확장 파트너 에코 시스템은 하는 데 사용할 수 있습니다. 파트너 솔루션 선택과 관련한 상세 지침은 [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx)를 참조하세요.
 
 -   [Azure 시작](https://docs.microsoft.com/azure/)
--   [호스트 Integration Server (HIS) 설명서](https://docs.microsoft.com/host-integration-server/)
+-   [Host Integration Server(HIS) 설명서](https://docs.microsoft.com/host-integration-server/)
 -   [Azure 가상 데이터 센터 리프트 앤 시프트 가이드](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501965"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571174"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -68,7 +68,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 5. **대상**에서 네트워크 연결을 모니터링하려는 URL/FQDN/IP 주소를 입력합니다.
 6. **포트 번호**에서 대상 서비스의 포트 번호를 입력합니다. 
 7. **테스트 빈도**에서 테스트를 실행하려는 빈도에 대한 값을 입력합니다. 
-8. 서비스에 대한 네트워크 연결을 모니터링하려는 노드를 선택합니다. 
+8. 서비스에 대한 네트워크 연결을 모니터링하려는 노드를 선택합니다. 테스트 당 추가 에이전트의 개수 보다 작거나 150 인지 확인 합니다. 에이전트는 최대 150 끝점/에이전트를 테스트할 수 있습니다.
 
     >[!NOTE]
     > Windows 서버 기반 노드의 경우 이 기능은 TCP 기반 요청을 사용하여 네트워크 측정을 수행합니다. Windows 클라이언트 기반 노드의 경우 이 기능은 ICMP 기반 요청을 사용하여 네트워크 측정을 수행합니다. 경우에 따라 노드가 Windows 클라이언트에 기반하는 경우 대상 애플리케이션은 들어오는 ICMP 기반 요청을 차단합니다. 솔루션은 네트워크 측정을 수행할 수 없습니다. 이러한 경우에 Windows Server 기반 노드를 사용하는 것이 좋습니다. 

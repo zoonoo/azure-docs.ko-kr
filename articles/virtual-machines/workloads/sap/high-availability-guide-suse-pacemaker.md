@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: f1b993cf45d987cb51f64359b331f3862d054774
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549902"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577798"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -84,7 +84,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
 
 모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
-**` nfs`** NFS 클러스터를 식별 하는 데 사용 됩니다 **ascsnw1** 의 ASCS 클러스터를 식별 하는 데 사용 됩니다 **NW1**하십시오 **dbnw1** 의 데이터베이스 클러스터를 식별 하는 데 사용 됩니다 **NW1** , **nfs 0** 하 고 **nfs 1** NFS 클러스터 노드의 호스트 이름에는 **nw1-xscs-0** 및 **nw1-xscs-1**의 호스트 이름이 합니다 **NW1** ASCS 클러스터 노드 및 **nw1-db-0** 및 **nw1-db-1** 데이터베이스의 호스트 클러스터 노드가 합니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
+**`nfs`** NFS 클러스터를 식별 하는 데 사용 됩니다 **ascsnw1** 의 ASCS 클러스터를 식별 하는 데 사용 됩니다 **NW1**하십시오 **dbnw1** 의 데이터베이스 클러스터를 식별 하는 데 사용 됩니다 **NW1** , **nfs 0** 하 고 **nfs 1** NFS 클러스터 노드의 호스트 이름에는 **nw1-xscs-0** 및 **nw1-xscs-1**의 호스트 이름이 합니다 **NW1** ASCS 클러스터 노드 및 **nw1-db-0** 및 **nw1-db-1** 데이터베이스의 호스트 클러스터 노드가 합니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ o- / ...........................................................................
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   만들기는 ` softdog` 구성 파일
+   만들기는 `softdog` 구성 파일
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a29c15be6cfb73bb768e74cd9141e660b598f06
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565668"
+ms.locfileid: "59578246"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법
 이 문서에서는 새 SQL VM 리소스 공급자(**Microsoft.SqlVirtualMachine**)를 사용하여 Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법에 대해 설명합니다. 두 개의 SQL Server-종 량 제를 호스팅하는 가상 머신 (VM)에 대 한 모델 라이선스 및 라이선스 (BYOL). 이제 Azure portal, Azure CLI 또는 PowerShell을 사용 하 여 수정할 수 있습니다 SQL Server VM을 사용 하는 라이선스 모델을 
@@ -44,7 +44,7 @@ ms.locfileid: "59565668"
  - 현재 라이선스 모델을 변환하는 기능은 종량제 SQL Server VM 이미지를 시작할 때만 사용할 수 있습니다. 포털에서 사용자 라이선스 필요 이미지로 시작하는 경우 해당 이미지를 종량제로 변환할 수 없습니다.
  - Resource Manager 모델을 사용 하 여 배포 된 가상 컴퓨터는 라이선스 모델 변경만 지원 됩니다. 클래식 모델을 사용 하 여 배포 된 Vm 지원 되지 않습니다. 
  - 공용 클라우드 설치의 경우는 라이선싱 모델 변경만 활성화 됩니다.
- - 라이선스 모델 변경 단일 NIC (네트워크 인터페이스)를 가진 가상 컴퓨터 에서만 지원 됩니다. 둘 이상의 NIC가 있는 가상 컴퓨터에서 먼저 제거 해야 Nic 중 하나 (Azure portal을 사용) 하는 절차를 시도 하기 전에 합니다. 그렇지 않은 경우 다음과 유사한 오류를 실행 합니다. ` The virtual machine '\<vmname\>' has more than one NIC associated.` 자동 패치 및 백업 같은 SQL 구성 블레이드를 통해 수행 된 작업은 더 이상 라이선스 모드를 변경한 후 NIC를 VM에 다시 추가할 수 없습니다, 있지만 지원 합니다.
+ - 라이선스 모델 변경 단일 NIC (네트워크 인터페이스)를 가진 가상 컴퓨터 에서만 지원 됩니다. 둘 이상의 NIC가 있는 가상 컴퓨터에서 먼저 제거 해야 Nic 중 하나 (Azure portal을 사용) 하는 절차를 시도 하기 전에 합니다. 그렇지 않은 경우 다음과 유사한 오류를 실행 합니다. `The virtual machine '\<vmname\>' has more than one NIC associated.` 자동 패치 및 백업 같은 SQL 구성 블레이드를 통해 수행 된 작업은 더 이상 라이선스 모드를 변경한 후 NIC를 VM에 다시 추가할 수 없습니다, 있지만 지원 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

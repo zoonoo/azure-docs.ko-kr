@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493062"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577970"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -50,21 +50,20 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 왼쪽 창에서 **모든 서비스**를 선택합니다.
 3. 서비스 목록에서 **Azure Active Directory**를 검색하고 선택합니다.
-4. **사용자 및 그룹**을 선택합니다.
-5. **사용자 및 그룹** 메뉴에서 **감사 로그**를 선택합니다. 그러면 디렉터리의 모든 사용자에 대해 발생한 감사 이벤트가 모두 표시됩니다. 이 보기를 필터링하여 암호 관련 이벤트를 모두 볼 수 있습니다.
-6. 이 보기를 암호 재설정 관련 이벤트로만 필터링하려면 창 위쪽의 **필터** 단추를 선택합니다.
-7. **필터** 메뉴에서 **범주** 드롭다운 목록을 선택하고, **셀프 서비스 암호 관리** 범주 유형으로 변경합니다.
-8. 필요에 따라 관심 있는 특정 **활동**을 선택하여 목록을 추가로 필터링합니다.
+4. 선택 **사용자** [관리] 섹션에서.
+5. 선택 **감사 로그** 에서 합니다 **사용자** 블레이드입니다. 그러면 디렉터리의 모든 사용자에 대해 발생한 감사 이벤트가 모두 표시됩니다. 이 보기를 필터링하여 암호 관련 이벤트를 모두 볼 수 있습니다.
+6. **필터** 선택 창의 맨 위에 있는 메뉴를 **서비스** 드롭 다운 목록 및로 변경 합니다 **셀프 서비스 암호 관리** 서비스 유형.
+7. 필요에 따라 관심 있는 특정 **활동**을 선택하여 목록을 추가로 필터링합니다.
 
 ### <a name="converged-registration-preview"></a>등록 수렴(미리 보기)
 
-수렴된 등록의 공개 미리 보기에 참여하는 경우 감사 로그에서 사용자 작업에 관한 정보를 **인증 방법** 범주 아래에서 찾을 수 있습니다.
+수렴 형된 등록의 공개 미리 보기에 참가 하는 경우 감사 로그에서 사용자 동작에 대 한 정보를 서비스에서 확인할 수 **인증 방법을**합니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 
 다음 목록에서는 Azure Portal의 각 보고서의 열에 대해 자세히 설명합니다.
 
-* **사용자**: 암호 재설정 등록 작업을 시도한 사용자입니다.
+* **User**: 암호 재설정 등록 작업을 시도한 사용자입니다.
 * **역할**: 디렉터리에서 사용자의 역할입니다.
 * **날짜 및 시간**: 시도한 날짜 및 시간입니다.
 * **등록된 데이터**: 암호 재설정 등록 중 사용자가 제공한 인증 데이터입니다.
@@ -176,16 +175,16 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 ## <a name="next-steps"></a>다음 단계
 
-* [성공적인 SSPR 롤아웃을 완료 어떻게 해야 합니까?](howto-sspr-deployment.md)
+* [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
 * [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
 * [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
-* [라이선스 질문 있습니까?](concept-sspr-licensing.md)
-* [SSPR에서 사용 되는 데이터 및 데이터를 채워야 사용자에 대 한?](howto-sspr-authenticationdata.md)
-* [어떤 인증 방법이 사용자에 게 사용할 수 있습니까?](concept-sspr-howitworks.md#authentication-methods)
-* [Sspr 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
-* [비밀 번호 쓰기 저장 이란 무엇이 고에 대 한 중요 않은 이유는?](howto-sspr-writeback.md)
-* [모든 SSPR 옵션과 이란 무엇 이며 무엇을 의미?](concept-sspr-howitworks.md)
-* [끊어졌습니다 무엇 인가 하는 것이 생각 합니다. SSPR을 해결 하려면 어떻게 해야 합니까?](active-directory-passwords-troubleshoot.md)
-* [검사 하지 않은 어딘가에 다른 질문이](active-directory-passwords-faq.md)
+* [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
+* [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
+* [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)
+* [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)
+* [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
+* [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
+* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD의 SSPR 작업 감사 로그 예제"

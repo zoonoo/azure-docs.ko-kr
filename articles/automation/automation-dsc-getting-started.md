@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767042"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579277"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 시작하기
 
@@ -27,7 +27,7 @@ ms.locfileid: "57767042"
 이 문서의 예제를 완료하려면 다음이 필요합니다.
 
 - Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
-- Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Azure Resource Manager VM (클래식 아님) 실행 되는 [지원 되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)합니다. VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>DSC 구성 만들기
 
@@ -149,9 +149,9 @@ Azure Automation 상태 구성을 사용하여 Azure VM(클래식 및 Resource M
 1. **Virtual Machine**의 세부 정보 페이지에서 **+ 연결**을 클릭합니다.
 
    > [!IMPORTANT]
-   > Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM이어야 합니다.
+   > 실행 하는 Azure Resource Manager VM 이어야 합니다는 [지원 되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)합니다.
 
-1. **등록** 페이지의 **노드 구성 이름** 상자에서 VM에 적용하려는 노드 구성의 이름을 선택합니다. 이 시점에서 이름을 제공하는 것은 선택 사항입니다. 노드를 온보드한 후 할당된 노드 구성을 변경할 수 있습니다.
+2. **등록** 페이지의 **노드 구성 이름** 상자에서 VM에 적용하려는 노드 구성의 이름을 선택합니다. 이 시점에서 이름을 제공하는 것은 선택 사항입니다. 노드를 온보드한 후 할당된 노드 구성을 변경할 수 있습니다.
    **필요한 경우 노드 다시 부팅**을 선택한 다음, **확인**을 클릭합니다.
 
    ![등록 블레이드의 스크린샷](./media/automation-dsc-getting-started/RegisterVM.png)

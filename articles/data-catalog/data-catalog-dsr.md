@@ -4,21 +4,19 @@ description: 이 문서에서는 현재 지원되는 데이터 원본의 사양�
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410190"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579396"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
 사용자는 공용 API를 사용하거나 등록 도구 클릭 한 번으로 Azure Data Catalog 웹 포털에 정보를 직접 입력하여 메타데이터를 게시할 수 있습니다. 다음 테이블은 현재 카탈로그로 지원되는 모든 데이터 원본 및 각각에 대한 게시 기능을 요약합니다. 또한 포털의 "열기" 경험에서 시작할 수 있는 각 데이터 원본에 대한 외부 데이터 도구가 나열되어 있습니다. 두 번째 테이블에는 각 데이터 원본 연결 속성의 자세한 기술 사양이 포함되어 있습니다.
-
 
 ## <a name="list-of-supported-data-sources"></a>지원되는 데이터 원본 목록
 
@@ -32,7 +30,7 @@ ms.locfileid: "47410190"
        <td><b>참고 사항</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store 디렉터리</td>
+      <td>Azure Data Lake Store 디렉터리 (Gen 1만)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ ms.locfileid: "47410190"
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store 파일</td>
+      <td>Azure Data Lake Store 파일 (Gen 1만)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -48,7 +46,7 @@ ms.locfileid: "47410190"
       <td></td>
     </tr>
     <tr>
-      <td>Azure Blob 저장소</td>
+      <td>Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

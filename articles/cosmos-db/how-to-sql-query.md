@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263046"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579223"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -484,15 +484,15 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
 
 다음 표는 SQL API에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
-| **Op** | **Undefined** | **Null** | **BOOLEAN** | **Number** | **문자열** | **Object** | **배열** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **확인** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **BOOLEAN** | Undefined | Undefined | **확인** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **확인** | Undefined | Undefined | Undefined |
-| **문자열** | Undefined | Undefined | Undefined | Undefined | **확인** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **확인** | Undefined |
-| **배열** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **확인** |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 와 같은 비교 연산자에 대 한 `>`, `>=`를 `!=`를 `<`, 및 `<=`, 비교 형식 간에 또는 두 개체 또는 배열을 생성 `Undefined`합니다.  
 
@@ -1267,7 +1267,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 
 | 사용 현황 | 설명 |
 | --- | --- |
-| [길이 (str_expr)](sql-api-query-reference.md#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 문자열 식의 일부를 반환합니다. |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
@@ -1279,7 +1279,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 Cosmos DB 함수는 스�
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 선행 공백을 제거한 후에 문자열 식을 반환합니다. |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 후행 공백을 잘라낸 후에 문자열 식을 반환합니다. |
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다. |
-| [위 (str_expr)](sql-api-query-reference.md#bk_upper) | 소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
 | [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다. |
 | [REPLICATE (str_expr, num_expr)](sql-api-query-reference.md#bk_replicate) | 문자열 값을 지정한 횟수 만큼 반복합니다. |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 문자열 값의 순서와 반대로 반환합니다. |
@@ -1714,7 +1714,7 @@ REST API를 통해 연속 토큰도 반환 쿼리 결과 단일 페이지에 맞
 
 .NET 클라이언트에서 쿼리 결과의 모든 페이지를 자동으로 반복 된 `foreach` 앞의 예제와 같이 차단 합니다. 에 도입 된 쿼리 옵션을 [REST API](#RestAPI) 섹션도.NET SDK에서 사용할 수 있습니다 사용 하 여는 `FeedOptions` 및 `FeedResponse` 의 클래스는 `CreateDocumentQuery` 메서드. 사용 하 여 페이지의 수를 제어할 수는 `MaxItemCount` 설정 합니다.
 
-또한 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`에서 다시 `RequestContinuationToken`으로 전달하여 페이징을 명시적으로 제어할 수 있습니다. 설정할 수 있습니다 `EnableScanInQuery` 쿼리가 구성 된 인덱싱 정책이에서 지원 되지 않는 경우 검색을 사용 하도록 설정 합니다. 분할 된 컨테이너에 대해 사용할 수 있습니다 `PartitionKey` 를 Azure Cosmos DB 자동으로 추출할 수이 쿼리 텍스트에서 있지만 단일 파티션에 대해 쿼리를 실행 합니다. 사용할 수 있습니다 `EnableCrossPartitionQuery` 여러 파티션에 대해 쿼리를 실행할 수 있습니다.
+만들어 페이징을 명시적으로 제어할 수 있습니다 `IDocumentQueryable` 를 사용 하 여는 `IQueryable` 읽으면 다음 개체를 `ResponseContinuationToken` 값 전달 하는 것으로 다시 `RequestContinuationToken` 에서 `FeedOptions`합니다. 설정할 수 있습니다 `EnableScanInQuery` 쿼리가 구성 된 인덱싱 정책이에서 지원 되지 않는 경우 검색을 사용 하도록 설정 합니다. 분할 된 컨테이너에 대해 사용할 수 있습니다 `PartitionKey` 를 Azure Cosmos DB 자동으로 추출할 수이 쿼리 텍스트에서 있지만 단일 파티션에 대해 쿼리를 실행 합니다. 사용할 수 있습니다 `EnableCrossPartitionQuery` 여러 파티션에 대해 쿼리를 실행할 수 있습니다.
 
 쿼리를 사용 하 여 자세한.NET 샘플에 대 한 참조를 [Azure Cosmos DB.NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet) GitHub에서.
 
@@ -2162,14 +2162,14 @@ SQL.NET SDK에 포함 된 LINQ 공급자는 다음 연산자를 지원 합니다
 - [Javascript 사양](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe, Goetz 합니다. [쿼리 평가 기법 큰 데이터베이스에 대 한](https://dl.acm.org/citation.cfm?id=152611)합니다. *설문 조사 컴퓨팅 ACM* 25 없습니다. 2 (1993).
-- Graefe, 7. "단계적 프레임 워크 쿼리 최적화에 대 한 합니다." *IEEE 데이터 Eng. 강세 합니다.* 18, 없습니다. 3 (1995).
+- Graefe, 7. "단계적 프레임 워크 쿼리 최적화에 대 한 합니다." *IEEE 데이터 eng. 강세 합니다.* 18, 없습니다. 3 (1995).
 - Lu Ooi, Tan 합니다. "쿼리를 병렬 관계형 데이터베이스 시스템에서 처리 합니다." *IEEE Computer Society 키를 눌러* (1994).
 - Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar 및 Andrew Tomkins 합니다. "Pig Latin: Not 하므로 외래 언어 데이터 처리용입니다. " *SIGMOD* (2008).
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Cosmos DB 소개][introduction]
-- [Azure Cosmos DB.NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Azure Cosmos DB 일관성 수준][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png

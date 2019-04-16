@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452694"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578750"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 구성 참조
 
- Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스마트 계약 코드에 의해 정의된 다자간 워크플로입니다. 구성 메타데이터는 블록체인 애플리케이션의 고급 워크플로 및 상호 작용 모델을 정의합니다. 스마트 계약은 블록체인 애플리케이션의 비즈니스 논리를 정의합니다. Workbench는 구성 및 스마트 계약 코드를 사용하여 블록체인 애플리케이션 사용자 환경을 생성합니다.
+Azure Blockchain Workbench 애플리케이션은 구성 메타데이터 및 스마트 계약 코드에 의해 정의된 다자간 워크플로입니다. 구성 메타데이터는 블록체인 애플리케이션의 고급 워크플로 및 상호 작용 모델을 정의합니다. 스마트 계약은 블록체인 애플리케이션의 비즈니스 논리를 정의합니다. Workbench는 구성 및 스마트 계약 코드를 사용하여 블록체인 애플리케이션 사용자 환경을 생성합니다.
 
 구성 메타데이터는 각 블록체인 애플리케이션에 대한 다음 정보를 지정합니다.
 
