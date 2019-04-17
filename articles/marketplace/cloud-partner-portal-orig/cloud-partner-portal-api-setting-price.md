@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807870"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607798"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 ==================================
@@ -149,7 +149,7 @@ ms.locfileid: "48807870"
 | LI         | 리히텐슈타인        | CHF               |
 | LT         | 리투아니아            | EUR               |
 | LU         | 룩셈부르크           | EUR               |
-| MK         | 북마케도니아       | MKD               |
+| MK         | 북마케도니아      | MKD               |
 | MY         | 말레이시아             | MYR               |
 | MT         | 몰타                | EUR               |
 | MX         | 멕시코               | MXN               |

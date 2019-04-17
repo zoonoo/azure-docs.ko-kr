@@ -2,7 +2,7 @@
 title: 지속성 함수의 영구 오케스트레이션 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 영구 오케스트레이션을 구현하는 방법을 알아봅니다.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e92b4a10036ceffd2b777e8ce75d58615209fe6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340202"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607741"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 영구 오케스트레이션(Azure Functions)
 
@@ -23,7 +23,7 @@ ms.locfileid: "53340202"
 
 ## <a name="orchestration-history"></a>오케스트레이션 기록
 
-[검사점 설정 및 재생](durable-functions-checkpointing-and-replay.md)에서 설명한 대로 지속성 작업 프레임워크는 각 함수 오케스트레이션의 기록을 추적합니다. 이 기록은 오케스트레이터 함수에서 새 작업을 계속 예약하는 한 지속적으로 증가합니다. 오케스트레이터 함수가 무한 루프에 들어가 지속적으로 작업을 예약하는 경우 이 기록이 매우 크게 증가할 수 있으며 심각한 성능 문제가 발생할 수 있습니다. *영구 오케스트레이션* 개념은 무한 루프가 필요한 응용 프로그램에서 이러한 종류의 문제를 완화하도록 설계되었습니다.
+[검사점 설정 및 재생](durable-functions-checkpointing-and-replay.md)에서 설명한 대로 지속성 작업 프레임워크는 각 함수 오케스트레이션의 기록을 추적합니다. 이 기록은 오케스트레이터 함수에서 새 작업을 계속 예약하는 한 지속적으로 증가합니다. 오케스트레이터 함수가 무한 루프에 들어가 지속적으로 작업을 예약하는 경우 이 기록이 매우 크게 증가할 수 있으며 심각한 성능 문제가 발생할 수 있습니다. *영구 오케스트레이션* 개념은 무한 루프가 필요한 애플리케이션에서 이러한 종류의 문제를 완화하도록 설계되었습니다.
 
 ## <a name="resetting-and-restarting"></a>다시 설정 및 다시 시작
 

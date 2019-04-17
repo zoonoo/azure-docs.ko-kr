@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: c3d12224c0eaeafe0559cafdfa0d7c292ded9cee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: fb15a6389577e8d132b9c5a895a9995a9f7da208
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564494"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607366"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop용 Azure PowerShell을 사용하여 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Azure PowerShell을 사용 하 여 가져오기 및 내보내기는 HDInsight 클러스터와 Azure SQL database 또는 SQL Server 데이터베이스 간에 데이터를 Azure HDInsight에서 Apache Sqoop 작업을 실행 하는 방법에 알아봅니다. 이 예제에서 데이터를 내보냅니다 `/tutorials/usesqoop/data/sample.log` 와 기본 저장소 계정, 다음 테이블에이 메서드는 호출 하는 가져오기 `log4jlogs` SQL Server 데이터베이스에 있습니다.
+Azure PowerShell을 사용 하 여 가져오기 및 내보내기는 HDInsight 클러스터와 Azure SQL database 또는 SQL Server 데이터베이스 간에 데이터를 Azure HDInsight에서 Apache Sqoop 작업을 실행 하는 방법에 알아봅니다. 이 예제에서 데이터를 내보냅니다 `/tutorials/usesqoop/data/sample.log` 와 기본 저장소 계정, 다음 테이블에이 메서드는 호출 하는 가져오기 `log4jlogs` SQL Server 데이터베이스에 있습니다. 이 문서는 이어지는 [HDInsight에서 Hadoop과 Apache Sqoop을 사용 하 여](./hdinsight-use-sqoop.md)입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -27,7 +27,8 @@ Azure PowerShell을 사용 하 여 가져오기 및 내보내기는 HDInsight �
 
 * Azure PowerShell을 사용 하 여 워크스테이션 [AZ 모듈](https://docs.microsoft.com/powershell/azure/overview) 설치 합니다.
 
-* HDInsight 클러스터, Azure SQL 서버 및 데이터베이스에서 정의 된 대로 [클러스터 및 SQL database 만들기](./hdinsight-use-sqoop.md#create-cluster-and-sql-database)합니다.
+* 완료 [테스트 환경 설정](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) 에서 [HDInsight에서 Hadoop과 Apache Sqoop을 사용 하 여](./hdinsight-use-sqoop.md)입니다.
+
 
 ## <a name="run-apache-sqoop-by-using-powershell"></a>PowerShell을 사용하여 Apache Sqoop 실행
 다음 PowerShell 스크립트를 미리 소스 파일을 처리 하 고 다음 테이블에는 Azure SQL database로 내보냅니다 `log4jlogs`합니다. 바꿉니다 `CLUSTERNAME`, `CLUSTERPASSWORD`, 및 `SQLPASSWORD` 필수 구성 요소에서 사용 되는 값을 사용 하 여 합니다.

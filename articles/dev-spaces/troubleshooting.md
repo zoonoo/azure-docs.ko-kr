@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548783"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609078"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -357,3 +357,25 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 ```
 
 컨트롤러를 다시 설치, pod를 다시 배포 합니다.
+
+## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>개발 공간 컨트롤러 및 Api 호출에 대 한 잘못 된 RBAC 권한
+
+### <a name="reason"></a>이유
+Azure 개발 공간 컨트롤러를 액세스 하는 사용자 관리자를 읽을 권한이 있어야 합니다 *kubeconfig* AKS 클러스터에 있습니다. 이 권한에에서 사용할 수 있는 예를 들어 합니다 [기본 제공 Azure Kubernetes 서비스 클러스터 관리자 역할](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)입니다. Azure 개발 공간 컨트롤러를 액세스 하는 사용자도 있어야 합니다 *참여자* 또는 *소유자* 컨트롤러에 대 한 RBAC 역할입니다.
+
+### <a name="try"></a>시도해 보기
+AKS 클러스터에 대 한 사용자의 권한을 업데이트에 대 한 자세한 내용은 [여기](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user)합니다.
+
+컨트롤러에 대 한 사용자의 RBAC 역할을 업데이트.
+
+1.  https://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. AKS 클러스터와 동일한는 일반적으로 컨트롤러를 포함 하는 리소스 그룹으로 이동 합니다.
+1. 사용 하도록 설정 합니다 *숨겨진된 형식 표시* 확인란을 선택 합니다.
+1. 컨트롤러에서를 클릭 합니다.
+1. 엽니다는 *액세스 제어 (IAM)* 창입니다.
+1. 클릭 합니다 *역할 할당* 탭 합니다.
+1. 클릭 *추가* 한 다음 *역할 할당 추가*합니다.
+    * 에 대 한 *역할* 중 하나를 선택 *참가자* 하거나 *소유자*합니다.
+    * 에 대 한 *에 대 한 액세스 할당* 선택 *Azure AD 사용자, 그룹 또는 서비스 주체*합니다.
+    * 에 대 한 *선택* 권한을 부여 하려는 사용자를 검색 합니다.
+1. *저장*을 클릭합니다.

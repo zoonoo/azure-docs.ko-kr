@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540825"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608867"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -72,7 +72,7 @@ Azure 전용 HSM 서비스는 SafeNet Luna Network HSM 7(모델 A790) 디바이�
 * 미국 중남부
 * 동남아시아
 * 동아시아
-* 북유럽
+* 유럽 북부
 * 서유럽
 * 영국 남부
 * 영국 서부
@@ -155,6 +155,10 @@ Azure Dedicated HSM은 마이그레이션 시나리오에 가장 적합합니다
 
 Microsoft에는 HSM에 대한 관리 또는 암호화 제어 권한이 없습니다. 대신 Microsoft에는 온도 및 구성 요소 상태와 같은 기본 원격 분석 데이터를 검색하기 위해 직렬 포트 연결을 통한 모니터 수준 액세스 권한이 있습니다. Microsoft는 이를 통해 상태 문제에 대한 자동 관리 알림을 제공할 수 있습니다. 필요한 경우 고객은 이 계정을 사용하지 않도록 설정할 수 있습니다.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>Q: 사용 하 여 Microsoft "tenantadmin" 계정 이란 무엇 이며, SafeNet Hsm에서 "관리자" 관리자에 사용 하 던?
+
+HSM 장치는 일반적인 기본 암호를 사용 하 여 관리자의 기본 사용자를 사용 하 여 제공 됩니다. Microsoft 고객이 프로 비전 하려고 대기 하는 풀의 모든 장치는 기본 암호를 사용에서 하지 않았습니다. 이 엄격한 보안 요구 사항을 충족 하지 것입니다. 이러한 이유로 프로 비전 시간에서 삭제 된 강력한 암호를 설정 합니다. 또한 프로 비전 시간에서는 새 사용자를 만듭니다 "tenantadmin"를 호출 하는 관리자 역할에서입니다. 이 사용자의 기본 암호 및 고객에 게가 변경 첫 번째 작업으로 먼저 새로 프로 비전 된 장치에 로그인 할 때입니다. 이 프로세스 높은 수준의 보안을 보장 하 고 고객에 대 한 우리의 약속 유일한 관리 제어를 유지 합니다. "Tenantadmin" 사용자를 해당 계정을 사용 하 길 원하는 고객의 관리자 사용자 암호 재설정을 사용할 수 있도록 확인 해야 합니다. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>Q: Microsoft 또는 Microsoft의 모든 사용자가 전용 HSM의 키에 액세스할 수 있나요?
 
 아니요. Microsoft에는 고객에게 할당된 Dedicated HSM에 저장된 키에 대한 액세스 권한이 없습니다.
@@ -181,7 +185,7 @@ Gemalto HSM 클라이언트 소프트웨어를 사용하여 HSM 및 파티션을
 
 ## <a name="high-availability"></a>고가용성
 
-### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q: 동일한 지역에서 또는 여러 지역에서 고가용성을 구성할 수 있나요?
+### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q: 동일한 지역 또는 여러 지역 간에 고가용성을 구성할 수는?
 
 예. 고가용성 구성 및 설정은 Gemalto에서 제공하는 HSM 클라이언트 소프트웨어에서 수행됩니다. 사이트-사이트를 사용 하 여 VNET에 연결 된 동일한 VNET 또는 다른 Vnet을 동일한 지역에 지역 또는 온-프레미스 Hsm에서 Hsm 또는 지점 간 VPN을 동일한 고가용성 구성에 추가할 수 있습니다. 키 자료만 및 역할과 같은 특정 하지 않은 구성 항목 동기화이 점에 유의 해야 합니다.
 
@@ -201,7 +205,7 @@ Gemalto HSM 클라이언트 소프트웨어를 사용하여 HSM 및 파티션을
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>Q: 전용 HSM 서비스에 대한 SLA는 어떻게 되나요?
 
-전용 HSM 서비스 제공 된 특정 가동 시간 guarentee 없는 경우 대신 Microsoft는 디바이스에 대한 네트워크 수준의 액세스를 보장하므로 표준 Azure 네트워킹 SLA가 적용됩니다.
+보장은 없습니다 특정 가동 시간 전용 HSM 서비스를 제공 합니다. 대신 Microsoft는 디바이스에 대한 네트워크 수준의 액세스를 보장하므로 표준 Azure 네트워킹 SLA가 적용됩니다.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>Q: Azure 전용 HSM에 사용되는 HSM은 어떻게 보호되나요?
 
@@ -217,7 +221,7 @@ Dedicated HSM 서비스는 SafeNet Network HSM 7 어플라이언스를 사용합
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>Q: 전용 HSM에 대한 지원을 받으려면 어떻게 할까요?
 
-Microsoft와 Gemalto에서 지원 됩니다.  하드웨어 관련 문제가 또는 네트워크 액세스 하 고, Microsoft 사용 하 여 지원 요청을 발생 시키는 HSM 구성, 소프트웨어 및 응용 프로그램 개발에 문제가 있는 경우 하세요 rasie 경우 Gemalto를 사용 하 여 지원 요청 합니다. Microsoft는 지원 요청 withg 발생 결정 되지 않은 문제가 발생 했 고으로 Gemalto 수 참여 하는 다음이 필요 합니다. 
+Microsoft와 Gemalto에서 지원 됩니다.  하드웨어 또는 네트워크 액세스 문제가 있다면 Microsoft와 HSM 구성, 소프트웨어를 사용 하 여 문제가 있는 경우 및 응용 프로그램 개발 Gemalto 사용 하 여 지원 요청을 제기해 주세요 지원 요청을 발생 시킵니다. Microsoft 사용 하 여 지원 요청을 지정 하지 않은 문제가 있는 경우으로 Gemalto 수 참여 하는 다음이 필요 합니다. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>Q: 어떻게 가져오나 요 클라이언트 소프트웨어, 설명서 및 SafeNet Luna 7 HSM에 대 한 통합 지침에 액세스할 수 있습니까?
 

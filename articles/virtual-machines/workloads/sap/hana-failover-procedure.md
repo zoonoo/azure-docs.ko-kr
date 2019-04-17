@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48bea302f2f8e878275e6a7c222d703e0f31f239
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492867"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616155"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 
@@ -87,7 +87,7 @@ DR 사이트 HANA 대규모 인스턴스 단위에서 **azure_hana_test_dr_failo
 1. SAP HANA Studio를 사용하여 백업 위치를 **/hana/logbackups**로 변경합니다.
    ![DR 복구를 위한 백업 위치 변경](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA는 백업 파일 위치를 검색하고, 가장 최근 트랜잭션 로그 백업을 복원할 것을 제안합니다. 아래와 같은 화면이 표시될 때까지 검사하는 데 몇 분 정도가 소요될 수 있습니다. ![DR 복구를 위한 트랜잭션 로그 백업 목록](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA는 백업 파일 위치를 검색하고, 가장 최근 트랜잭션 로그 백업을 복원할 것을 제안합니다. 검사는 다음이 표시와 같은 화면이 될 때까지 몇 분을 사용할 수 있습니다. ![DR 복구를 위한 트랜잭션 로그 백업 목록](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. 일부 기본 설정을 조정합니다.
 
@@ -104,7 +104,7 @@ DR 사이트 HANA 대규모 인스턴스 단위에서 **azure_hana_test_dr_failo
 
 ![복원 진행률](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-복원이 **마침** 화면에서 중단된 것처럼 보이고 진행률 화면이 표시되지 않는 경우 작업자 노드의 모든 SAP HANA 인스턴스가 실행되고 있는지 확인합니다. 필요한 경우 SAP HANA 인스턴스를 수동으로 시작합니다.
+복원에서 응답을 중지할 경우 합니다 **완료** 화면지 않습니다 하지 진행률 화면이 표시를 작업자 노드의 모든 SAP HANA 인스턴스가 실행 되 고 있는지 확인 합니다. 필요한 경우 SAP HANA 인스턴스를 수동으로 시작합니다.
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>DR에서 프로덕션 사이트로 장애 복구(Failback)

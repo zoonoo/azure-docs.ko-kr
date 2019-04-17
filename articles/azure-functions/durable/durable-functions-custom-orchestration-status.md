@@ -2,7 +2,7 @@
 title: 지속성 함수의 사용자 지정 오케스트레이션 상태 - Azure
 description: 지속성 함수의 사용자 지정 오케스트레이션 상태를 구성하고 사용하는 방법을 알아봅니다.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8487eb9009529e023e06bf6a717fcb142f50305f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342802"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608047"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
 
@@ -148,7 +148,7 @@ module.exports = async function(context, req) {
 > JavaScript에서 `customStatus` 필드는 다음 `yield` 또는 `return` 작업이 예약될 때 설정됩니다.
 
 > [!WARNING]
-> JavaScript에서 로컬로 개발하는 경우 환경 변수 `WEBSITE_HOSTNAME`을 `localhost:<port>`로 설정해야 합니다. 예를 들어 `DurableOrchestrationClient`에서 메서드를 사용하려면 `localhost:7071`을 설정합니다. 이 요구 사항에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-js/issues/28)를 참조하세요.
+> JavaScript에서 로컬로 개발하는 경우 환경 변수 `WEBSITE_HOSTNAME`을 `localhost:<port>`로 설정해야 합니다. `localhost:7071`)로 설정해야 `DurableOrchestrationClient`에서 메서드를 사용할 수 있습니다. 이 요구 사항에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-js/issues/28)를 참조하세요.
 
 ### <a name="output-customization"></a>출력 사용자 지정
 
