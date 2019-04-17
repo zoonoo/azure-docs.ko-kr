@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550684"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010382"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Speech SDK를 사용하여 오디오 입력 디바이스 선택
 
-Speech SDK 버전 1.3.0에는 오디오 입력을 선택하는 API가 도입되었습니다. 이 문서에서는 시스템에 연결된 오디오 디바이스의 ID를 가져오는 방법에 대해 설명합니다.
+Speech SDK 버전 1.3.0은 오디오 입력을 선택하는 API를 도입합니다.
+이 문서에서는 시스템에 연결된 오디오 디바이스의 ID를 가져오는 방법을 설명합니다.
 그러면 `AudioConfig` 개체를 통해 오디오 디바이스를 구성하여 Speech SDK에서 이러한 ID를 사용할 수 있습니다.
 
 ```C++
@@ -42,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> JavaScript에서는 아직 이 기능을 사용할 수 없습니다.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> Node.js에서 실행하는 JavaScript에 대해서는 마이크를 사용할 수 없습니다.
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>데스크톱 애플리케이션용 Windows의 오디오 디바이스 ID
 
@@ -368,6 +372,10 @@ iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 
 
 음성 지원 앱에 Bluetooth 헤드셋을 사용할 수 있도록 합니다.
 
+## <a name="audio-device-ids-in-javascript"></a>JavaScript의 오디오 디바이스 ID
+
+JavaScript에서는 [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) 메서드를 사용하여 미디어 디바이스를 열거하고 `fromMicrophone(...)`에 전달할 디바이스 ID를 찾을 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
@@ -375,5 +383,5 @@ iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 
 
 ## <a name="see-also"></a>참고 항목
 
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

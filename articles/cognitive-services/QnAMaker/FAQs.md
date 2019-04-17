@@ -8,19 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 5b4c9e24bdcb6aaf4efde24d747e77d6014b2539
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439471"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607173"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker에 대한 질문과 대답
 
 큐 레이트 목록이 QnA Maker 서비스 관련 자주 묻는 질문은 빠르고 더 나은 결과 사용 하 여 서비스를 채택 하는 데 도움이 됩니다.
+
+## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>QnA Maker 포털에서 도움말 봇 사용
+
+QnA Maker 제공을 **도움말** 도움이 QnA Maker 포털 내에서 봇. 도움말 봇은 모든 웹 페이지 에서도 다운로드 가능 합니다. 봇 QnA Maker를 사용 하 여 응답을 제공 하 고 제공 합니다 [ C# Bot Framework 코드 프로젝트](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) 고유한 응답 봇과 실행를 신속 하 게 얻을 수 있도록 봇에를 합니다. 
+
+![! [QnA Maker는 제공 된 * * 도움이 QnA Maker 포털 내에서 도움말 * * 봇.] (. / media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>기술 자료 관리
 
@@ -98,7 +104,7 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 ### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>여러 언어를 사용하여 기술 자료에 대한 동일한 Azure Search 리소스를 사용할 수 있나요?
 
-여러 언어 및 여러 기술 자료를 사용하려면 사용자는 각 언어에 대한 QnA Maker 리소스를 만들어야 합니다. 이렇게 하면 언어당 별도 Azure Search 서비스를 만들게 됩니다. 단일 Azure Search 서비스에서 다른 언어로 된 기술 자료를 혼합하면 결국 성능이 저하된 결과의 관련성이 발생합니다.
+여러 언어 및 여러 기술 자료를 사용하려면 사용자는 각 언어에 대한 QnA Maker 리소스를 만들어야 합니다. 이 언어 마다 별도 Azure search 서비스를 만들어집니다. 단일 Azure Search 서비스에서 다른 언어로 된 기술 자료를 혼합하면 결국 성능이 저하된 결과의 관련성이 발생합니다.
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>QnA Maker에서 사용하는 Azure Search 이름을 변경하려면 어떻게 해야 하나요?
 

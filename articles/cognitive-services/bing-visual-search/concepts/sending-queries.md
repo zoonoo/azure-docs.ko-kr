@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
 ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470885"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489351"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>검색 쿼리를 Bing Visual Search API로 보내기
 
@@ -104,7 +104,7 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 
 ### <a name="content-form-types"></a>콘텐츠 양식 유형
 
-각 요청에 포함 해야 합니다는 `Content-Type` 헤더입니다. 헤더 설정 해야 합니다: `multipart/form-data; boundary=\<boundary string\>`, 여기서 \<경계 문자열\> 은 양식 데이터의 경계를 식별 하는 고유한 불투명 문자열입니다. 예: `boundary=boundary_1234-abcd`
+각 요청에 포함 해야 합니다는 `Content-Type` 헤더입니다. 헤더 설정 해야 합니다: `multipart/form-data; boundary=\<boundary string\>`, 여기서 \<경계 문자열\> 은 양식 데이터의 경계를 식별 하는 고유한 불투명 문자열입니다. 예: `boundary=boundary_1234-abcd`.
 
 에 이미지 토큰 또는 URL Visual Search를 보내는 경우 다음 코드 예제 양식 데이터는 POST의 본문에 포함 해야 합니다. 양식 데이터를 포함 해야 합니다는 `Content-Disposition` 헤더를 설정 해야 해당 `name` "knowledgeRequest" 매개 변수입니다. 에 대 한 내용은 `imageInfo` 개체는 요청을 참조 하세요.
 

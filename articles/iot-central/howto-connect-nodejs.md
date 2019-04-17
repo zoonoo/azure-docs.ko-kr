@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259969"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617940"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
@@ -335,4 +335,4 @@ node connectedAirConditionerAdv.js
 
 ## <a name="next-steps"></a>다음 단계
 
-제안 된 다음 단계에 알아보려면가 이제 일반 Node.js 클라이언트를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 배웠으므로 하는 방법 [준비 하 고 Raspberry Pi 연결](howto-connect-raspberry-pi-python.md)합니다.
+제안 된 다음 단계에 알아보려면가 이제 일반 Node.js 클라이언트를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 배웠으므로 하는 방법 [템플릿으로 사용자 지정 장치 설정](howto-set-up-template.md) 사용자 고유의 IoT 장치에 대 한 합니다.

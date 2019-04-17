@@ -10,20 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496321"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615832"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>기존 정책에서 서명 키 가져오기
 
-v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api 반환 하지 않는 암호 또는 자격 증명에 **가져옵니다** 하거나 **목록** 작업 합니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 사용자 암호 또는 자격 증명 얻기 위해 별도 작업 메서드를 호출 해야 합니다. 합니다 **판독기** Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets 등의 작업을 호출할 수 있도록 역할 작업을 호출할 수 없습니다. 별도 작업이 필요 합니다. 원하는 경우 사용자 지정 역할을 더 세부적인 RBAC 보안 권한을 설정할 수 있습니다.
-
-자세한 내용은 참조 하세요. [RBAC 및 Media Services 계정](rbac-overview.md)
+v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api 반환 하지 않는 암호 또는 자격 증명에 **가져옵니다** 하거나 **목록** 작업 합니다. 자세한 설명은 다음을 참조 하세요. 자세한 내용은 참조 하세요. [RBAC 및 Media Services 계정](rbac-overview.md)
 
 이 문서의 예제에서는 .NET을 사용하여 기존 정책에서 서명 키를 가져오는 방법을 보여 줍니다. 
  

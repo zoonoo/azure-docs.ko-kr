@@ -8,29 +8,29 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 68dd71687e18243a112df0c2568af5b2b6d0d687
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340986"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048022"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>빠른 시작: Bing Visual Search REST API 및 Go를 사용하여 이미지 인사이트 가져오기
 
-이 빠른 시작에서는 Go 프로그래밍 언어를 사용하여 Bing Visual Search API를 호출하고 결과를 표시합니다. POST 요청은 이미지를 API 엔드포인트에 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
+이 빠른 시작에서는 Go 프로그래밍 언어를 사용하여 Bing Visual Search API를 호출하고 결과를 표시합니다. POST 요청은 API 엔드포인트에 이미지를 업로드합니다. 결과는 업로드된 이미지와 비슷한 이미지의 URL과 설명 정보를 포함합니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 * [Go 이진 파일](https://golang.org/dl/)을 설치합니다.
-* go-spew 깔끔한 프린터는 결과를 표시하는 데 유용합니다.
-    * `$ go get -u https://github.com/davecgh/go-spew` 라이브러리를 설치합니다.
+* go-spew 깔끔한 프린터는 결과를 표시하는 데 사용됩니다. go-spew는 `$ go get -u https://github.com/davecgh/go-spew` 명령으로 설치할 수 있습니다.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="project-and-libraries"></a>프로젝트 및 라이브러리
 
-IDE 또는 편집기에서 새 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON 텍스트 결과를 처리하기 위해 `encoding/json`을 가져옵니다. `go-spew` 라이브러리는 JSON 결과 구문 분석에 사용됩니다. 
+IDE 또는 편집기에서 Go 프로젝트를 만듭니다. 그런 다음, 요청하기 위해 `net/http`, 응답을 읽기 위해 `ioutil`, JSON 텍스트 결과를 처리하기 위해 `encoding/json`을 가져옵니다. `go-spew` 라이브러리는 JSON 결과 구문 분석에 사용됩니다.
 
 ```
 package main
@@ -52,7 +52,7 @@ import (
 
 ## <a name="struct-to-format-results"></a>결과 형식을 지정하는 구조체
 
-`BingAnswer` 구조체는 매우 복잡한 다단계로 이루어진 JSON 응답에 반환된 데이터의 형식을 지정합니다.  다음 구현에서는 몇 가지 주요 정보를 설명합니다.
+`BingAnswer` 구조체는 복잡한 다단계로 이루어진 JSON 응답에 반환된 데이터의 형식을 지정합니다. 아래 구현에서는 몇 가지 주요 정보를 설명합니다.
 
 ```
 type BingAnswer struct {
@@ -109,7 +109,7 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Main 함수 및 변수  
 
-다음 코드는 main 함수를 선언하고 필요한 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다.  `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다.  `fileName` 변수는 POST의 이미지 파일을 식별합니다.  다음 섹션에서는 코드에 대해 자세히 설명합니다.
+다음 코드는 main 함수를 선언하고 필요한 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `token` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다. `fileName` 변수는 POST의 이미지 파일을 식별합니다. 다음 섹션에서는 코드에 대해 자세히 설명합니다.
 
 ```
 func main() {
@@ -159,7 +159,7 @@ func main() {
 
 ## <a name="boundaries-of-post-body"></a>POST 본문의 경계
 
-Visual Search 엔드포인트에 대한 POST 요청에서는 선행 및 후행 경계로 POST 데이터를 감싸야 합니다.  선행 경계에는 일괄 처리 번호, 콘텐츠 형식 식별자 `Content-Disposition: form-data; name="image"; filename=`와 POST에 대한 이미지 파일 이름이 포함됩니다.  후행 경계는 일괄 처리 번호만으로 이루어집니다.  이러한 함수는 `main` 블록에 포함되지 않습니다.
+Visual Search 엔드포인트에 대한 POST 요청에서는 선행 및 후행 경계로 POST 데이터를 둘러싸야 합니다. 선행 경계에는 일괄 처리 번호, 콘텐츠 형식 식별자 `Content-Disposition: form-data; name="image"; filename=`과 POST에 대한 이미지 파일 이름이 포함됩니다. 후행 경계는 일괄 처리 번호만으로 이루어집니다. 이러한 함수는 `main` 블록에 포함되지 않습니다.
 
 ```
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -178,7 +178,7 @@ func BuildFormDataEnd(batNum string) string{
 ```
 ## <a name="add-image-bytes-to-post-body"></a>POST 본문에 이미지 바이트 추가
 
-이 코드 세그먼트에서는 이미지 데이터를 포함하는 POST 요청을 만듭니다. 
+이 코드 세그먼트에서는 이미지 데이터를 포함하는 POST 요청을 만듭니다.
 
 ```
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
@@ -226,7 +226,7 @@ resp, err := client.Do(req)
 
 ## <a name="handle-the-response"></a>응답 처리
 
-`Unmarshall` 함수는 Visual Search API에서 반환한 JSON 텍스트에서 정보를 추출합니다.  `go-spew` 깔끔한 프린터에 결과가 표시됩니다.
+`Unmarshall` 함수는 Visual Search API에서 반환한 JSON 텍스트에서 정보를 추출합니다. `go-spew` 깔끔한 프린터에 결과가 표시됩니다.
 
 ```
     // Create a new answer.  
@@ -249,7 +249,7 @@ resp, err := client.Do(req)
 
 ## <a name="results"></a>결과
 
-결과는 POST 본문에 포함된 이미지와 유사한 이미지를 식별합니다.  유용한 필드는 `WebSearchUrl` 및 `Name`입니다.
+결과는 POST 본문에 포함된 이미지와 유사한 이미지를 식별합니다. 유용한 필드는 `WebSearchUrl` 및 `Name`입니다.
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
@@ -287,5 +287,5 @@ resp, err := client.Do(req)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Visual Search란?](../overview.md)
+> [Bing Visual Search API란?](../overview.md)
 > [Go에서 Bing Web Search 빠른 시작](../../Bing-Web-Search/quickstarts/go.md)

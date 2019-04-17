@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081103"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275558"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
-Azure Cosmos DB는 [Apache Tinkerpop](https://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리를 수행하기 위한 Graph API인 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
+Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프 순회 언어인 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
 
-Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 여기에는 전역 배포, 독립적인 저장소 및 처리량 크기 조정, 예측 가능한 1자리 밀리초 대기 시간, 자동 인덱싱, SLA, 둘 이상의 Azure 지역에 걸친 데이터베이스 계정에 대한 읽기 가용성이 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 코드를 변경하지 않고도 다른 그래프 데이터베이스를 사용하여 작성된 응용 프로그램을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](https://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
+Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 이러한 기능에는 글로벌 배포, 독립적인 스토리지 및 처리량 크기 조정, 예측 가능한 1자리 밀리초 대기 시간, 자동 인덱싱, SLA, 둘 이상의 Azure 지역에 걸친 데이터베이스 계정에 대한가용성 읽기가 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 호환되는 다른 그래프 데이터베이스를 사용하여 작성된 애플리케이션을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](https://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
 
-이 문서에서는 Gremlin을 빠르게 연습해볼 수 있는 과정을 제공하고, Gremlin API에서 지원되는 Gremlin 기능 및 단계를 설명합니다.
+이 문서에서는 Gremlin을 간략히 연습해 볼 수 있는 과정을 제공하고 Gremlin API가 지원하는 Gremlin 기능을 나열합니다.
 
 ## <a name="gremlin-by-example"></a>Gremlin 예제
 샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 디바이스에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여줍니다.  
@@ -59,7 +59,7 @@ Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능�
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-그래프의 강점은 "Thomas의 친구들은 어떤 운영 체제를 사용하는가?"와 같은 질문에 답변해야 할 경우에 잘 나타납니다. 다음의 간단한 Gremlin 순회를 실행하여 그래프에서 해당 정보를 가져올 수 있습니다.
+그래프의 강점은 "Thomas의 친구들은 어떤 운영 체제를 사용하는가?"와 같은 질문에 답변해야 할 경우에 잘 나타납니다. 다음과 같은 Gremlin 순회를 실행하여 그래프에서 해당 정보를 가져올 수 있습니다.
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -125,29 +125,29 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 
 꼭짓점에 대해 GraphSON에서 사용되는 속성은 다음과 같습니다.
 
-| 자산 | 설명 |
-| --- | --- |
-| id | 꼭짓점의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합). |
-| label | 꼭짓점의 레이블입니다. 선택 사항이며, 엔터티 형식을 설명하는 데 사용됩니다. |
-| 형식 | 비그래프 문서의 꼭짓점을 구별하는 데 사용됩니다. |
-| properties | 꼭짓점과 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
-| _partition(구성 가능) | 꼭짓점의 파티션 키입니다. 그래프를 여러 서버로 확장하는 데 사용할 수 있습니다. |
-| outE | 여기에는 꼭짓점의 바깥 에지 목록이 포함됩니다. 꼭짓점과 함께 인접 정보를 저장하므로 순회를 빠르게 실행할 수 있습니다. 에지는 해당 레이블을 기준으로 그룹화됩니다. |
+| 자산 | 설명 | 
+| --- | --- | --- |
+| `id` | 꼭짓점의 ID입니다. 고유해야 합니다(해당되는 경우 `_partition` 값과 조합). 값이 제공되지 않으면 GUID가 자동으로 제공됩니다. | 
+| `label` | 꼭짓점의 레이블입니다. 엔터티 형식을 설명하는 데 사용됩니다. |
+| `type` | 비그래프 문서의 꼭짓점을 구별하는 데 사용됩니다. |
+| `properties` | 꼭짓점과 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
+| `_partition` | 꼭짓점의 파티션 키입니다. [그래프 분할](graph-partitioning.md)에 사용됩니다. |
+| `outE` | 이 속성에는 꼭짓점의 바깥 에지 목록이 포함됩니다. 꼭짓점과 함께 인접 정보를 저장하므로 순회를 빠르게 실행할 수 있습니다. 에지는 해당 레이블을 기준으로 그룹화됩니다. |
 
 또한 에지에는 그래프의 다른 부분으로 탐색하는 데 도움이 되는 다음 정보가 포함됩니다.
 
 | 자산 | 설명 |
 | --- | --- |
-| id | 에지의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합). |
-| label | 에지의 레이블입니다. 이 속성은 선택 사항이며, 관계 유형을 설명하는 데 사용됩니다. |
-| inV | 여기에는 에지의 모든 꼭지점 목록이 포함됩니다. 에지와 함께 인접 정보를 저장하므로 순회를 빠르게 실행할 수 있습니다. 꼭짓점은 해당 레이블을 기준으로 그룹화됩니다. |
-| properties | 에지와 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
+| `id` | 에지의 ID입니다. 고유해야 합니다(해당되는 경우 `_partition` 값과 조합). |
+| `label` | 에지의 레이블입니다. 이 속성은 선택 사항이며, 관계 유형을 설명하는 데 사용됩니다. |
+| `inV` | 이 속성에는 에지의 모든 꼭지점 목록이 포함됩니다. 에지와 함께 인접 정보를 저장하므로 순회를 빠르게 실행할 수 있습니다. 꼭짓점은 해당 레이블을 기준으로 그룹화됩니다. |
+| `properties` | 에지와 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
 
 각 속성은 배열 내에 여러 값을 저장할 수 있습니다. 
 
 | 자산 | 설명 |
 | --- | --- |
-| 값 | 속성의 값입니다.
+| `value` | 속성의 값입니다.
 
 ## <a name="gremlin-steps"></a>Gremlin 단계
 이제 Azure Cosmos DB에서 지원되는 Gremlin 단계를 살펴보겠습니다. Gremlin에 대한 전체 참조는 [TinkerPop 참조](https://tinkerpop.apache.org/docs/current/reference)를 참조하세요.
@@ -158,12 +158,13 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | `addV` | 그래프에 꼭짓점을 추가합니다. | [addV 단계](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
 | `and` | 모든 순회가 값을 반환하는지 확인합니다. | [and 단계](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
 | `as` | 단계의 출력에 변수를 할당하는 단계 변조기 | [as 단계](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | `group` 및 `order`에서 사용되는 단계 변조기 | [by 단계](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `by` | `group`에서 사용되는 단계 변조기 `order` | [by 단계](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
 | `coalesce` | 결과를 반환하는 첫 번째 순회를 반환합니다. | [coalesce 단계](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | 상수 값을 반환합니다. `coalesce`에 사용됩니다.| [constant 단계](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `constant` | 상수 값을 반환합니다. 다음과 함께 사용됨: `coalesce`| [constant 단계](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
 | `count` | 순회에서 해당 개수를 반환합니다. | [count 단계](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
 | `dedup` | 중복 항목을 제거하고 값을 반환합니다. | [dedup 단계](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
 | `drop` | 값(꼭짓점/에지)을 삭제합니다. | [drop 단계](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `executionProfile` | 실 된 Gremlin 단계에서 생성된 모든 작업에 대한 설명을 작성합니다. | [executionProfile 단계단계](graph-execution-profile.md) |
 | `fold` | 결과의 집계를 계산하는 장벽으로 작동합니다.| [fold 단계](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
 | `group` | 지정된 레이블을 기준으로 값을 그룹화합니다.| [group 단계](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
 | `has` | 속성, 꼭짓점, 에지를 필터링하는 데 사용됩니다. `hasLabel`, `hasId`, `hasNot` 및 `has` 변형을 지원합니다. | [has 단계](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
@@ -172,7 +173,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | `limit` | 순회의 항목 수를 제한하는 데 사용됩니다.| [limit 단계](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
 | `local` | local은 하위 쿼리와 비슷하게 순회 섹션을 래핑합니다. | [local 단계](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
 | `not` | 필터의 부정을 생성하는 데 사용됩니다. | [not 단계](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | 결과를 생성하는 경우 지정된 순회의 결과를 반환하고, 그렇지 않으면 호출하는 요소를 반환합니다. | [optional 단계](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `optional` | 결과를 생성하는 경우 지정된 순회의 결과를 반환하고, 그렇지 않으면 호출하는 요소를 반환합니다. | [선택적 단계](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
 | `or` | 순회 중 하나 이상이 값을 반환하도록 합니다. | [or 단계](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
 | `order` | 결과를 지정된 정렬 순서로 반환합니다. | [order 단계](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
 | `path` | 순회의 전체 경로를 반환합니다. | [path 단계](https://tinkerpop.apache.org/docs/current/reference/#path-step) |

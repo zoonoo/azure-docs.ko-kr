@@ -1,5 +1,5 @@
 ---
-title: C#에서 인덱스 만들기 - Azure Search
+title: '빠른 시작: C# 콘솔 애플리케이션에서 인덱스 만들기 - Azure Search'
 description: Azure Search .NET SDK를 사용하여 C#에서 전체 텍스트 검색 가능 인덱스를 만드는 방법을 알아봅니다.
 author: heidisteen
 manager: cgronlun
@@ -9,15 +9,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/22/2019
-ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 04/08/2019
+ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370587"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269047"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>빠른 시작: 1 - C#에서 Azure Search 인덱스 만들기
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [포털](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+>*
 
 이 문서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용하여 [Azure Search 인덱스](search-what-is-an-index.md)를 만드는 프로세스를 안내합니다. 인덱스를 만들고, 로드하고, 쿼리하는 3부 연습의 첫 번째 과정입니다. 인덱스를 만들려면 다음 작업을 수행합니다.
 
@@ -28,35 +34,43 @@ ms.locfileid: "58370587"
 
 ## <a name="prerequisites"></a>필수 조건
 
+이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
+
 [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
-검색 서비스의 URL 엔드포인트 및 관리자 API 키를 가져옵니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)는 Azure 샘플 GitHub 리포지토리에 있는 C#로 작성된 .NET Core 콘솔 애플리케이션인 샘플 솔루션을 제공합니다. 솔루션을 다운로드 및 추출합니다. 기본적으로 솔루션은 읽기 전용입니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지워서 파일을 수정할 수 있도록 합니다. 데이터는 솔루션에 포함되어 있습니다.
 
-  1. Azure Portal의 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
+## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-  2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-  ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
+
+2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-## <a name="1---open-the-project"></a>1 - 프로젝트 열기
+## <a name="1---configure-and-build"></a>1 - 구성 및 빌드
 
-GitHub에서 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 샘플 코드를 다운로드합니다. 
+1. Visual Studio에서 **DotNetHowTo.sln** 파일을 엽니다.
 
-appsettings.json에서 기본 콘텐츠를 아래 예제로 바꾼 다음, 서비스에 대한 서비스 이름과 관리자 API 키를 제공합니다. 서비스 이름으로 이름 자체만 필요합니다. 예를 들어 URL이 https://mydemo.search.windows.net이면 `mydemo`를 JSON 파일에 추가합니다.
+1. appsettings.json에서 기본 콘텐츠를 아래 예제로 바꾼 다음, 서비스에 대한 서비스 이름과 관리자 API 키를 제공합니다. 
 
 
-```json
-{
-    "SearchServiceName": "Put your search service name here",
-    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-}
-```
+   ```json
+   {
+       "SearchServiceName": "Put your search service name here (not the full URL)",
+       "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+    }
+   ```
 
-이러한 값이 설정되면 F5를 사용하여 콘솔 앱을 실행할 솔루션을 빌드할 수 있습니다. 이 연습의 나머지 단계와 이어지는 단계는 이 코드의 작동 방식을 살펴보는 것입니다. 
+  서비스 이름으로 이름 자체만 필요합니다. 예를 들어 URL이 https://mydemo.search.windows.net이면 `mydemo`를 JSON 파일에 추가합니다.
+
+1. F5를 눌러 솔루션을 빌드하고 콘솔 앱을 실행합니다. 이 연습의 나머지 단계와 이어지는 단계는 이 코드의 작동 방식을 살펴보는 것입니다. 
 
 또는 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)에서 SDK 동작에 대한 자세한 내용을 참조할 수 있습니다. 
 
@@ -64,7 +78,7 @@ appsettings.json에서 기본 콘텐츠를 아래 예제로 바꾼 다음, 서�
 
 ## <a name="2---create-a-client"></a>2 - 클라이언트 만들기
 
-Azure Search .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만듭니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` 는 API 키를 래핑합니다.
+Azure Search .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만듭니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` API 키를 래핑합니다.
 
 다음 코드는 Program.cs 파일에서 찾을 수 있습니다. 애플리케이션의 구성 파일(appsettings.json)에 저장된 검색 서비스 이름과 API 키에 대한 값을 사용하여 `SearchServiceClient`를 새로 만듭니다.
 
@@ -79,7 +93,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 }
 ```
 
-`SearchServiceClient`에는 `Indexes` 속성이 있습니다. 이 속성은 Azure Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
+`SearchServiceClient` `Indexes` 속성이 있습니다. 이 속성은 Azure Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
 
 > [!NOTE]
 > `SearchServiceClient` 클래스는 검색 서비스에 대한 연결을 관리합니다. 너무 많은 연결이 열리는 것을 방지하기 위해 되도록 애플리케이션에서 단일 `SearchServiceClient` 인스턴스를 공유합니다. 해당 메서드는 스레드로부터 안전하므로 이러한 공유를 사용할 수 있습니다.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810782"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046056"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure Function App을 API로 가져오기
 
@@ -42,13 +42,13 @@ Azure API Management는 Azure Function App을 새 API로 가져오거나 기존 
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="add-new-api-from-azure-function-app"></a> Azure 함수 앱을 새 API로 가져오기
+## <a name="add-new-api-from-azure-function-app"></a> Azure Function App을 새 API로 가져오기
 
 아래 단계에 따라 Azure Function App에서 새 API를 만듭니다.
 
 1. **Azure API Management**  서비스 인스턴스의 왼쪽 메뉴에서 **API**를 선택합니다.
 
-2. **새 API 추가** 목록에서 **함수 앱**을 선택합니다.
+2. **새 API 추가** 목록에서 **Function App**을 선택합니다.
 
     ![Function App에서 추가](./media/import-function-app-as-api/add-01.png)
 
@@ -69,7 +69,7 @@ Azure API Management는 Azure Function App을 새 API로 가져오거나 기존 
     ![Function App에서 추가](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > HTTP 트리거를 기반으로 하는 Functions만 가져오고 인증 수준 설정을 *익명* 또는 *함수*로 설정할 수 있습니다.
+    > HTTP 트리거를 기반으로 하는 Functions만 가져오고 인증 수준 설정을 *익명* 또는 *함수*로 설정할 수 있습니다. 현재 Linux Function App은 지원되지 않습니다.
 
 7. **전체** 보기로 전환하고 새 API에 **제품**을 할당합니다. 필요한 경우 미리 채워진 다른 필드를 편집합니다.
 
@@ -77,7 +77,7 @@ Azure API Management는 Azure Function App을 새 API로 가져오거나 기존 
 
 8. **만들기**를 클릭합니다.
 
-## <a name="append-azure-function-app-to-api"></a> Azure 함수 앱을 기존 API에 추가
+## <a name="append-azure-function-app-to-api"></a> Azure Function App을 기존 API에 추가
 
 아래 단계에 따라 Azure Function App을 기존 API에 추가합니다.
 
@@ -87,7 +87,7 @@ Azure API Management는 Azure Function App을 새 API로 가져오거나 기존 
 
     ![Function App에서 추가](./media/import-function-app-as-api/append-01.png)
 
-3. **함수 앱** 타일을 클릭합니다.
+3. **Function App** 타일을 클릭합니다.
 
     ![Function App에서 추가](./media/import-function-app-as-api/append-02.png)
 
@@ -111,11 +111,14 @@ Azure API Management는 Azure Function App을 새 API로 가져오거나 기존 
 
     ![Function App에서 추가](./media/import-function-app-as-api/append-04.png)
 
-## <a name="function-app-import-keys"></a> 생성된 Azure 함수 앱 호스트 키
+## <a name="authorization">권한 부여</a>
 
 Azure Function App 가져오기에서 자동으로 생성되는 항목은 다음과 같습니다.
+
 * Function App 내에 apim-{*Azure API Management 서비스 인스턴스 이름*} 이름이 있는 호스트 키,
-* Azure API Management 인스턴스 내에 {*your Azure Function App instance name*}-key 이름(만든 호스트 키 포함)이 있는 명명된 값
+* Azure API Management 인스턴스 내에 {*Azure Function App 인스턴스 이름*}-key 이름(만든 호스트 키 포함)이 있는 명명된 값.
+
+2019년 4월 4일 이후 만든 API의 경우 호스트 키는 HTTP 요청 시 API Management에서 헤더의 Function App으로 전달됩니다. 기존 API는 호스트 키를 [쿼리 매개 변수](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization)로 전달합니다. 이 동작은 Function App과 연결된 *백 엔드* 항목의 `PATCH Backend` [REST API 호출](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract)을 통해 변경할 수 있습니다.
 
 > [!WARNING]
 > Azure Function App 호스트 키 또는 Azure API Management 명명된 값을 제거하거나 변경하면 서비스 간 통신이 중단됩니다. 값은 자동으로 동기화되지 않습니다.

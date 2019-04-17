@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399985"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278482"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>자습서: Azure Data Box Edge 설치
 
@@ -90,7 +90,9 @@ ms.locfileid: "58399985"
 
 - 시작하기 전에 보안, 환경 및 규정 정보 소책자의 보안 지침을 읽으세요. 이 소책자는 디바이스와 함께 배송되었습니다.
 - 랙 엔클로저의 맨 아래에 가장 가까운 할당된 공간에 레일 설치를 시작합니다.
-- 툴링 레일 탑재 구성의 경우, #10-32, #12-24, #M5 또는 #M6의 8개의 나사를 공급해야 합니다. 나사의 헤드 지름은 10mm(0.4")보다 작아야 합니다.
+- 툴링 레일 장착 구성의 경우:
+    -  나사 8개를 제공해야 합니다. #10-32, #12 ~ 24, #M5 또는 #M6 나사의 헤드 지름은 10mm(0.4")보다 작아야 합니다.
+    -  일자 드라이버가 필요합니다.
 
 ### <a name="identify-the-rail-kit-contents"></a>레일 키트 콘텐츠 식별
 
@@ -102,6 +104,9 @@ ms.locfileid: "58399985"
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>도구가 필요 없는 레일의 설치 및 제거(사각형 구멍 또는 원형 구멍 랙)
 
+> [!TIP]
+> 이 옵션은 레일을 나사산이 없는 랙의 정사각형 또는 원형 구멍에 설치하고 분리하기 위한 도구가 필요하지 않으므로 도구가 없는 방식입니다.
+
 1. **FRONT** 레이블이 표시된 왼쪽 및 오른쪽 레일 끝 부분을 안쪽을 향하도록 배치하고 각 끝 부분을 수직 랙 플랜지 전면의 구멍에 끼워지도록 방향을 조정합니다.
 2. 각 끝 부분을 원하는 U 공간의 하단 및 상단 구멍에 맞춥니다.
 3. 수직 랙 플랜지에 완전히 끼워지고 래치가 딸깍 소리를 내며 고정될 때까지 레일의 뒷쪽 끝을 연결합니다. 이러한 단계를 반복하여 프론트 엔드 피스를 수직 랙 플랜지에 배치하고 끼웁니다.
@@ -110,6 +115,9 @@ ms.locfileid: "58399985"
 ![도구가 필요 없는 레일의 설치 및 제거](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>툴링 레일의 설치 및 제거(나사 구멍 랙)
+
+> [!TIP]
+> 이 옵션은 레일을 나사산이 있는 랙의 원형 구멍에 설치하고 분리하기 위해 도구(_일자 드라이버_)가 필요하므로 도구 방식입니다.
 
 1. 일자 드라이버를 사용하여 전면 및 후면 탑재 브라켓에서 핀을 제거합니다.
 2. 레일 래치 하위 부품을 당긴 후 회전시켜서 탑재 브라켓에서 제거합니다.
@@ -152,7 +160,7 @@ ms.locfileid: "58399985"
 
 1. 양쪽 랙 플랜지의 내부 측면에 외부 CMA 브라켓을 찾습니다.
 2. 케이블을 시스템 커넥터에서 왼쪽 및 오른쪽으로 당겨 빼내서 조심스럽게 모읍니다.
-3. 벨크로 스트랩을 시스템의 각 측면에 있는 외부 CMA 브라켓의 툴링 슬롯에 끼워서 케이블 묶음을 고정시킵니다.
+3. 끈을 후크에 꿰고 시스템의 각 측면에 있는 바깥쪽 CMA 브래킷의 슬롯을 통해 감아서 케이블 다발을 고정합니다.
 
 
 ![케이블 연결](./media/data-box-edge-deploy-install/routing-cables.png)

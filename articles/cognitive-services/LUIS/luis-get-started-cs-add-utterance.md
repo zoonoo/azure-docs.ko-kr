@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852279"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273467"
 ---
 # <a name="quickstart-change-model-using-c"></a>빠른 시작: C#을 사용하여 모델 변경
 
@@ -37,13 +37,13 @@ ms.locfileid: "57852279"
 
 ## <a name="create-quickstart-code"></a>빠른 시작 코드 만들기 
 
-Visual Studio에서 .NET Framework를 사용하여 새 **Windows 클래식 데스크톱 콘솔** 앱을 만듭니다. 
+Visual Studio에서 .NET Framework를 사용하여 새 **Windows 클래식 데스크톱 콘솔** 앱을 만듭니다. 프로젝트 `ConsoleApp1`의 이름을 지정합니다.
 
 ![Visual Studio 프로젝트 형식](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>System.Web 종속성 추가
 
-Visual Studio 프로젝트에 **System.Web**이 필요합니다. 솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다.
+Visual Studio 프로젝트에 **System.Web**이 필요합니다. 솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭하고 어셈블리 섹션에서 **참조 추가**를 선택합니다.
 
 ![System.web 참조 추가](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-종속성을 추가합니다.
+다음과 같이 종속성을 업데이트 합니다.
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ LUIS ID 및 문자열을 **프로그램** 클래스에 추가합니다.
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>utterances.json을 출력 디렉터리에 복사
 
-솔루션 탐색기에서 `utterances.json`을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 속성 창에서 `Content`의 **빌드 작업** 및 `Copy Always`의 **출력 디렉터리에 복사**를 표시합니다.  
+솔루션 탐색기에서 솔루션 탐색기의 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음, **추가**, **기존 항목**을 차례로 선택하여 `utterances.json`을 추가합니다. `utterances.json` 파일을 선택합니다. 해당 파일이 프로젝트에 추가됩니다. 그런 다음, 파일을 출력 방향으로 추가해야 합니다. `utterances.json`을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 속성 창에서 `Content`의 **빌드 작업** 및 `Copy Always`의 **출력 디렉터리에 복사**를 표시합니다.  
 
 ![JSON 파일을 콘텐츠로 표시](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ Visual Studio에서 코드를 빌드합니다.
 프로젝트의 /bin/Debug 디렉터리에서 명령줄을 사용하여 애플리케이션을 실행합니다. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 이 명령줄은 add utterances API를 호출한 결과를 표시합니다. 
@@ -140,4 +140,4 @@ ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [프로그래밍 방식으로 LUIS 앱 빌드](luis-tutorial-node-import-utterances-csv.md) 
+> [프로그래밍 방식으로 LUIS 앱 만들기](luis-tutorial-node-import-utterances-csv.md) 

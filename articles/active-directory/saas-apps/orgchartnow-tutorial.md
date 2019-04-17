@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d34b40195a5f8effb794f3fbefc7949740509e27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835666"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>자습서: OrgChart Now와 Azure Active Directory 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "57835666"
 OrgChart Now를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 * OrgChart Now에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 자동으로 로그인 (Single Sign-on) OrgChart now에 사용자가 해당 Azure AD 계정으로 사용할 수 있습니다.
+* 사용자가 자신의 Azure AD 계정으로 OrgChart Now에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
@@ -39,13 +39,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 OrgChart Now와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* OrgChart Now에서 single sign-on이 설정 된 구독
+* OrgChart Now Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* OrgChart Now 지원 **SP** 하 고 **IDP** 에서 시작한 SSO
+* OrgChart Now는 **SP** 및 **IDP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-orgchart-now-from-the-gallery"></a>갤러리에서 OrgChart Now 추가
 
@@ -71,25 +71,25 @@ OrgChart Now의 Azure AD 통합을 구성하려면 갤러리의 OrgChart Now를 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 구성 및 이라는 테스트 사용자를 기반으로 OrgChart Now와 Azure AD에서 single sign-on 테스트 **Britta Simon**합니다.
-Single sign-on 작업에 대 한 Azure AD 사용자와 OrgChart Now의 관련된 사용자 간에 연결 관계가 설정 해야 합니다.
+이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 OrgChart Now에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 OrgChart Now의 관련 사용자 간에 연결 관계가 설정되어 있어야 합니다.
 
 OrgChart Now에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[OrgChart 이제 Single Sign-on 구성](#configure-orgchart-now-single-sign-on)**  -응용 프로그램 쪽에서 Single Sign-on 설정을 구성 합니다.
+2. **[OrgChart Now Single Sign-On 구성](#configure-orgchart-now-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[OrgChart Now 테스트 사용자 만들기](#create-orgchart-now-test-user)**  -Britta simon 이라는 사용자를 Azure AD 표현과 연결 된 OrgChart Now입니다.
+5. **[OrgChart Now 테스트 사용자 만들기](#create-orgchart-now-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 OrgChart Now에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-OrgChart Now와 Azure AD에서 single sign-on 구성 하려면 다음 단계를 수행 합니다.
+OrgChart Now에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. 에 [Azure portal](https://portal.azure.com/)의 합니다 **OrgChart Now** 응용 프로그램 통합 페이지에서 선택 **Single sign on**합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **OrgChart Now** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -114,13 +114,13 @@ OrgChart Now와 Azure AD에서 single sign-on 구성 하려면 다음 단계를 
     **로그인 URL** 텍스트 상자에서 `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > `<YourEntityID>` **Azure AD 식별자** 에서 복사를 **OrgChart Now 설정** 섹션에서는 자습서의 뒷부분에서 설명 합니다.
+    > `<YourEntityID>` 는 **OrgChart Now 설정** 섹션에서 복사한 **Azure AD 식별자**로, 자습서의 뒷부분에 설명되어 있습니다.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-7. 에 **OrgChart Now 설정** 섹션, 요구 사항에 따라 적절 한 URL을 복사 합니다.
+7. **OrgChart Now 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -130,9 +130,9 @@ OrgChart Now와 Azure AD에서 single sign-on 구성 하려면 다음 단계를 
 
     다. 로그아웃 URL
 
-### <a name="configure-orgchart-now-single-sign-on"></a>OrgChart Now Single sign On 구성
+### <a name="configure-orgchart-now-single-sign-on"></a>OrgChart Now Single Sign-On 구성
 
-single sign-on을 구성 하려면 **OrgChart Now** 쪽에서 다운로드 한 보내야 할 **페더레이션 메타 데이터 XML** 하 고 Azure portal에서 복사한 Url을 적절 한 [OrgChart Now 지원 팀 ](mailto:ocnsupport@officeworksoftware.com). 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**OrgChart Now** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [OrgChart Now 지원 팀](mailto:ocnsupport@officeworksoftware.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -163,7 +163,7 @@ single sign-on을 구성 하려면 **OrgChart Now** 쪽에서 다운로드 한 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 OrgChart Now에 대한 액세스 권한을 부여합니다.
 
-1. Azure portal에서 선택 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **OrgChart Now**합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택하고 **모든 애플리케이션**을 선택한 다음, **OrgChart Now**를 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -219,9 +219,9 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 
     ![OrgChart Now 관리](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * 에 **사용자 ID** 텍스트 상자와 같은 사용자 ID를 입력 **brittasimon\@contoso.com**합니다.
+    * **사용자 ID** 텍스트 상자에 사용자 ID(예: **brittasimon\@contoso.com**)를 입력합니다.
 
-    * **전자 메일 주소** 텍스트 상자에 같은 사용자의 전자 메일을 입력 합니다 **brittasimon\@contoso.com**합니다.
+    * **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **brittasimon\@contoso.com**)을 입력합니다.
 
     * **추가**를 클릭합니다.
 
@@ -229,13 +229,13 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 OrgChart Now 타일을 클릭 하면 로그인 되어야 합니다 수 자동으로 sso 설정 OrgChart Now에 있습니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 OrgChart Now 타일을 클릭하면 SSO가 설정된 OrgChart Now에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

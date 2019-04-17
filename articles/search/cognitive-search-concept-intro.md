@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 03/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c421d99f1071c7a38cfe315cc3054136f81598e0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882502"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265971"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
@@ -99,6 +99,8 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 + [빠른 시작(포털)](cognitive-search-quickstart-blob.md)
 + [자습서(HTTP 요청)](cognitive-search-tutorial-blob.md)
 + [예제 사용자 지정 기술(C#)](cognitive-search-create-custom-skill-example.md)
+
+학습 목적이라면 무료 서비스를 권장하지만 무료 트랜잭션 수는 하루 20개 문서로 제한된다는 것을 알고 있어야 합니다. 하루에 빠른 시작과 자습서를 모두 실행하려면 더 작은 파일 세트(10개 문서)를 사용해야 두 연습에 모두 맞출 수 있습니다.
 
 **3단계: API 검토(REST만 해당)**
 

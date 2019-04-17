@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57841177"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008989"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 음성을 텍스트로 변환하는 Cognitive Services Speech SDK의 JavaScript 바인딩을 사용하여 웹 사이트를 만드는 방법을 설명합니다.
-이 애플리케이션은 Cognitive Services Speech SDK를 기반으로 합니다([1.3.0 버전 다운로드](https://aka.ms/csspeech/jsbrowserpackage)).
+이 애플리케이션은 JavaScript용 Speech SDK를 기반으로 합니다([버전 1.4.0 다운로드](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Speech Service에 대한 구독 키. [Speech Service 체험해 보기](get-started.md)를 참조하세요.
 * 작동하는 마이크가 있는 PC 또는 Mac.
 * 텍스트 편집기.
-* 최신 버전의 Chrome 또는 Microsoft Edge.
+* 최신 버전의 Chrome, Microsoft Edge 또는 Safari.
 * 필요에 따라 PHP 스크립트 호스팅을 지원하는 웹 서버.
 
 ## <a name="create-a-new-website-folder"></a>새 웹 사이트 폴더 만들기
@@ -52,7 +52,7 @@ Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다�
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -98,6 +98,10 @@ Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다�
 ## <a name="build-and-run-the-sample-locally"></a>로컬로 샘플을 빌드 및 실행
 
 앱을 시작하려면 index.html 파일을 두 번 클릭하거나 선호하는 웹 브라우저를 사용하여 index.html을 엽니다. 구독 키 및 [영역](regions.md)을 입력하고 마이크로 인식을 트리거할 수 있는 간단한 GUI가 제공됩니다.
+
+> [!NOTE]
+> 이 메서드는 Safari 브라우저에서 작동하지 않습니다.
+> Safari에서는 웹 서버에서 호스팅하려면 샘플 웹 페이지가 필요합니다. Safari에서는 로컬 파일에 로드된 웹 사이트를 통해 마이크를 사용할 수 없습니다.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>웹 서버를 통해 샘플 빌드 및 실행
 
