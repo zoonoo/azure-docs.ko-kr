@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359749"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549408"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -30,7 +30,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 **새로운 기능** 
 
-* SDK는 이제 베타 버전으로 텍스트 음성 변환 서비스를 지원합니다. Windows 및 Linux 바탕 화면에서 지원 됩니다 C++, C#, 및 Java 합니다. 자세한 정보를 확인 합니다 [텍스트 음성 변환 개요](text-to-speech.md#get-started-with-text-to-speech)합니다.
+* SDK는 이제 베타 버전으로 텍스트 음성 변환 서비스를 지원합니다. Windows 및 Linux 바탕 화면에서 지원 됩니다 C++ 및 C#합니다. 자세한 정보를 확인 합니다 [텍스트 음성 변환 개요](text-to-speech.md#get-started-with-text-to-speech)합니다.
 * SDK는 이제 스트림에 입력 파일로 저작/Ogg 및 MP3 오디오 파일을 지원합니다. 이 기능은에서 Linux에만 사용할 수 있습니다 C++ 및 C# 는 현재 베타 버전 및 (자세한 내용은 [여기](how-to-use-compressed-audio-input-streams.md)).
 * Java,.NET core 용 음성 SDK는 C++ Objective-c macOS 지원 작업해왔으며 합니다. MacOS 용 Objective-c 지원은 현재 베타 중입니다.
 * iOS: 이제 iOS (Objective-c)에 대 한 음성 SDK는 CocoaPod로도 게시 됩니다.
@@ -42,7 +42,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 사용 하 여 Speech SDK를 사용 하기 위한 샘플 C++ Objective-c macos를 사용 하 여 추가 되었습니다.
 * 텍스트 음성 변환 서비스 사용을 보여주는 샘플 추가 되었습니다.
 
-**향상 된 기능 변경 내용이**
+**향상된 기능/변경 사항**
 
 * Python: 인식 결과의 추가 속성을 통해 노출 됩니다는 `properties` 속성입니다.
 * 개발 및 디버그에 대 한 추가 지원에 대 한 SDK 로깅 및 진단 정보를 로그 파일로 리디렉션할 수 있습니다 (자세한 내용은 [여기](how-to-use-logging.md)).
@@ -81,7 +81,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 오디오 출력을 사용한 변환에 대한 추가 Java 예제
 * [일괄 처리 기록 REST API](batch-transcription.md)
 
-**향상 된 기능 변경 내용이**
+**향상된 기능/변경 사항**
 
 * Python
   * SpeechConfig의 매개 변수 확인 및 오류 메시지를 개선했습니다.
@@ -135,7 +135,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * Android
   * APK 생성 중에 ProGuard 지원이 설정되었습니다.
 
-**향상 된 기능**
+**향상된 기능**
 
 * 스레드, 잠금, 뮤텍스 수를 줄이면서 내부 스레드 사용이 개선되었습니다.
 * 오류 보고/정보가 개선되었습니다. 여러 사례에서 오류 메시지가 완전히 전파되지 않았습니다.
@@ -167,7 +167,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 프록시 지원: SpeechConfig 개체에서 이제 (호스트 이름, 포트, username 및 password) 프록시 정보를 설정 하는 함수를 호출할 수 있습니다. iOS에서는 아직 이 기능을 사용할 수 없습니다.
 * 향상된 오류 코드 및 메시지입니다. 인식이 오류를 반환한 경우 이미 `Reason`(취소된 이벤트의) 또는 `CancellationDetails`(인식 결과의) `Error`로 설정되어 있습니다. 취소 이벤트에는 이제 두 개의 추가 멤버 `ErrorCode` 및 `ErrorDetails`가 포함됩니다. 서버에서 보고된 오류를 사용하여 추가 오류 정보를 반환하는 경우 해당 서버를 새 멤버에서 사용할 수 있습니다.
 
-**향상 된 기능**
+**향상된 기능**
 
 * 인식기 구성에서 추가 확인을 추가하고, 추가 오류 메시지를 추가했습니다.
 * 오디오 파일의 중간에 긴 무음 시간 처리가 향상되었습니다.
@@ -253,9 +253,9 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
   * 참고: Speech SDK를 사용하여 빌드된 UWP 앱은 아직 WACK(Windows 앱 인증 키트)를 제공하지 않습니다.
 * 자동 다시 연결을 통해 장기 실행 인식을 지원합니다.
 
-**기능 변경**
+**기능 변경 내용**
 
-* `StartContinuousRecognitionAsync()` 장기 실행 인식을 지원 합니다.
+* `StartContinuousRecognitionAsync()`에서 장기 실행 인식을 지원합니다.
 * 인식 결과에 더 많은 필드가 포함됩니다. 인식된 텍스트의 오디오 시작 및 지속 시간의 오프셋(두 가지 모두 틱 단위) 및 인식 상태를 나타내는 추가 값(예: `InitialSilenceTimeout`, `InitialBabbleTimeout`)입니다.
 * 팩터리 인스턴스를 만들기 위한 AuthorizationToken을 지원합니다.
 
@@ -281,7 +281,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: 2018-6월 릴리스
 
-**기능 변경**
+**기능 변경 내용**
 
 - AudioInputStream
 
@@ -291,7 +291,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
   `SpeechRecognizer`를 만들 때 `Detailed` 또는 `Simple` 출력 형식을 요청할 수 있습니다. `DetailedSpeechRecognitionResult`에는 신뢰도 점수, 인식된 텍스트, 원시 어휘 형식, 정규화된 형식 및 마스킹된 욕설이 포함된 정규화된 형식이 포함됩니다.
 
-**주요 변경 내용**
+**호환성이 손상되는 변경**
 
 - C#의 `SpeechRecognitionResult.RecognizedText`가 `SpeechRecognitionResult.Text`로 변경되었습니다.
 

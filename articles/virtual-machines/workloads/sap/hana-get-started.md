@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001710"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618127"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VM에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -269,7 +269,7 @@ SAP 설치를 시작하기 전에 먼저 SAP VM의 호스트 이름과 IP 주소
 
 ### <a name="the-etcfstab-file"></a>/etc/fstab 파일
 
-fstab 파일에 **nofail** 매개 변수를 추가하는 것이 좋습니다. 이렇게 하면 디스크에 오류가 발생하더라도 VM이 부팅 프로세스에서 중단되지 않습니다. 그러나 추가 디스크 공간을 사용할 수 없으며 프로세스가 루트 파일 시스템을 가득 채울 수 있습니다. /hana가 누락되면 SAP HANA가 시작되지 않습니다.
+fstab 파일에 **nofail** 매개 변수를 추가하는 것이 좋습니다. 이 이렇게 하면 디스크에 문제가 있는 경우 VM 중지 되지 않습니다 부팅 프로세스에서 응답. 그러나 추가 디스크 공간을 사용할 수 없으며 프로세스가 루트 파일 시스템을 가득 채울 수 있습니다. /hana가 누락되면 SAP HANA가 시작되지 않습니다.
 
 ![fstab 파일에 nofail 매개 변수 추가](./media/hana-get-started/image000c.jpg)
 

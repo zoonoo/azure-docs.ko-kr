@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014409"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616359"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
 
@@ -94,10 +94,10 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 [SAP 참고 사항 #2081065 - SAP HANA 네트워크 문제 해결](https://launchpad.support.sap.com/#/notes/2081065)을 참조하고 이 SAP 참고 사항에 있는 네트워크 문제 해결 단계를 수행합니다.
 
 1. 서버와 클라이언트 간의 왕복 시간을 분석합니다.
-  1. SQL 스크립트 [_HANA\_네트워크\_클라이언트_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
+  a. SQL 스크립트 [_HANA\_네트워크\_클라이언트_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
   
 2. 노드 간 통신을 분석합니다.
-  1. SQL 스크립트 [_HANA\_네트워크\_서비스_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
+  a. SQL 스크립트 [_HANA\_네트워크\_서비스_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
 
 3. Linux 명령 **ifconfig**를 실행합니다(패킷 손실이 발생하는 경우 출력에서 표시).
 4. Linux 명령 **tcpdump**를 실행합니다.
@@ -108,7 +108,7 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 
 ## <a name="storage"></a>Storage
 
-I/O 성능 문제가 있는 경우 최종 사용자의 관점에서 애플리케이션(또는 전체 시스템)이 느리게 실행되고 응답성이 우수하지 않으며 반응이 없는 것처럼 보일 수 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
+최종 사용자 관점에서 응용 프로그램 (또는 시스템 전체의) 느리게 실행, 응답성이 뛰어난 아니거나 I/O 성능 문제가 있는 경우 응답을 중지 하도록 보일 수 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
 
 ![SAP HANA Studio의 [볼륨] 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

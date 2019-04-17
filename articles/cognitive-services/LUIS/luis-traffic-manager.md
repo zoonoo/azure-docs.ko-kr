@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736552"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523412"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다. 
@@ -86,7 +86,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |-RelativeDnsName|luis-dns-eastus|서비스의 하위 도메인(luis-dns-eastus.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|<appIdLuis> 및 <subscriptionKeyLuis>를 사용자 고유의 값으로 바꿉니다.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|`<appIdLuis>` 및 `<subscriptionKeyLuis>`를 사용자 고유의 값으로 바꿉니다.|
     
     성공한 요청에는 응답이 없습니다.
 
@@ -154,7 +154,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |-RelativeDnsName|luis-dns-westus|서비스의 하위 도메인(luis-dns-westus.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|<appId> 및 <subscriptionKey>를 사용자 고유의 값으로 바꿉니다. 이 끝점 키는 동부 끝점 키와 다릅니다.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|`<appId>` 및 `<subscriptionKey>`를 사용자 고유의 값으로 바꿉니다. 이 끝점 키는 동부 끝점 키와 다릅니다.|
     
     성공한 요청에는 응답이 없습니다.
 

@@ -10,25 +10,25 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545622"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617838"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Media Services API 액세스
  
-Azure Media 서비스 API에 연결하려면 Azure AD 서비스 주체 인증을 사용해야 합니다. 애플리케이션이 다음 매개 변수가 있는 Azure AD 토큰을 요청해야 합니다.
+Azure Media Services API에 연결 하려면 Azure AD 서비스 주체 인증을 사용 하려면 응용 프로그램에 다음 매개 변수가 있는 Azure AD 토큰을 요청 해야 합니다.
 
 * Azure AD 테넌트 엔드포인트
 * Media Services 리소스 URI
 * REST Media Services의 리소스 URI
 * Azure AD 애플리케이션 값: 클라이언트 ID 및 클라이언트 암호.
 
-자세한 내용은 [Media Services v3 Api를 사용 하 여 개발](media-services-apis-overview.md)합니다.
+에 대 한 자세한 설명은 [에 액세스 하는 Media Services v3 Api](media-services-apis-overview.md#accessing-the-azure-media-services-api)합니다.
 
 이 문서에서는 Azure CLI를 사용하여 Azure AD 애플리케이션과 서비스 주체를 만들고 Azure Media Services 리소스에 액세스하는 데 필요한 값을 얻는 방법을 보여 줍니다.
 

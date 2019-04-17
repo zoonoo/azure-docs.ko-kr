@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 918e4016f638555bfe2dbaeaa849e963e352c78e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e48aaa03463bb968ec366b27308ca908aab30d99
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203483"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503088"
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>iOS 애플리케이션에서 Microsoft Graph API 쿼리 테스트
 
@@ -36,7 +36,8 @@ ms.locfileid: "58203483"
 ![애플리케이션 액세스에 대한 사용자 동의 제공](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
 ### <a name="view-application-results"></a>애플리케이션 결과 보기
-로그인한 후에 **로깅** 섹션에 Microsoft Graph API 호출에서 반환된 사용자 프로필 정보가 표시되는지 확인해야 합니다. 
+
+로그인한 후에 **로깅** 섹션에 Microsoft Graph API 호출에서 반환된 사용자 프로필 정보가 표시되는지 확인해야 합니다.
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>범위 및 위임된 권한에 대한 자세한 내용

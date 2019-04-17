@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905939"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617821"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결
 
@@ -250,4 +250,4 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-제안 된 다음 단계는 이제 Azure IoT Central 응용 프로그램에 DevKit 장치를 연결 하는 방법을 배웠으므로 [준비 하 고 Raspberry Pi 연결](howto-connect-raspberry-pi-python.md)합니다.
+제안 된 다음 단계에 알아보려면는 이제 Azure IoT Central 응용 프로그램을 Raspberry Pi를 연결 하는 방법을 배웠으므로 하는 방법 [템플릿으로 사용자 지정 장치 설정](howto-set-up-template.md) 사용자 고유의 IoT 장치에 대 한 합니다.

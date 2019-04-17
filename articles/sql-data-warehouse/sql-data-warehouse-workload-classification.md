@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520143"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617753"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse 작업 분류 (미리 보기)
 
 이 문서는 들어오는 요청에 리소스 클래스와 중요도 할당 하는 SQL Data Warehouse 워크 로드 분류 프로세스를 설명 합니다.
 
 > [!Note]
-> 작업 분류는 SQL Data Warehouse Gen2에서 사용할 수 있습니다.
+> 작업 분류 SQL Data Warehouse Gen2에서 미리 보기로 제공 됩니다. 워크 로드 관리 분류 및 중요도 미리 보기는 2019 년 4 월 9 일 이상 릴리스 날짜를 사용 하 여 빌드입니다.  사용자 워크 로드 관리 테스트에 대 한 빌드를이 날짜 이전의 사용을 피해 야 합니다.  빌드 워크 로드 관리 가능 인지를 확인 하려면 @ 선택 실행@version SQL Data Warehouse 인스턴스에 연결 된 경우.
 
 ## <a name="classification"></a>분류
 
@@ -84,4 +84,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Data Warehouse 작업 분류 및 중요도 대 한 자세한 내용은 참조 하세요. [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md) 하 고 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)합니다. 참조 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 쿼리 및 할당 된 중요도 볼 수 있습니다.
+SQL Data Warehouse 작업 분류 및 중요도 대 한 자세한 내용은 참조 하세요. [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md) 하 고 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

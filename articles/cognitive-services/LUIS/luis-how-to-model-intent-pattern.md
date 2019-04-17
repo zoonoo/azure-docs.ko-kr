@@ -1,7 +1,7 @@
 ---
 title: 패턴 및 정확도
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS(Language Understanding) 애플리케이션에서 패턴 템플릿을 추가하여 예측 정확도를 향상시키는 방법에 대해 알아봅니다.
+description: LUIS (Language Understanding) 응용 프로그램의 예측 정확도 개선 하기 위해 패턴 템플릿을 추가 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195050"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521257"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 하는 패턴을 추가 하는 방법
-LUIS 앱 끝점 길이 발언을 받은 후 사용 된 [패턴](luis-concept-patterns.md) 단어 순서 및 단어 선택에서 패턴을 표시 하는 표현에 대 한 예측 정확도를 향상 합니다. 특정 사용 패턴 [구문](luis-concept-patterns.md#pattern-syntax) 의 위치를 나타내도록: [엔터티](luis-concept-entity-types.md), 엔터티 역할과 선택적 텍스트입니다.
+LUIS 앱 끝점 길이 발언을 받은 후 사용 된 [패턴](luis-concept-patterns.md) 단어 순서 및 단어 선택에서 패턴을 표시 하는 표현에 대 한 예측 정확도를 향상 합니다. 특정 사용 패턴 [구문](luis-concept-patterns.md#pattern-syntax) 의 위치를 나타내도록: [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md), 및 선택적 텍스트입니다.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>템플릿 발화를 추가하여 패턴 만들기
 1. **내 앱** 페이지에서 이름을 선택하여 앱을 열고 왼쪽 패널의 **앱 성능 개선** 아래에서 **패턴**을 선택합니다.
@@ -34,7 +34,7 @@ LUIS 앱 끝점 길이 발언을 받은 후 사용 된 [패턴](luis-concept-pat
 
     ![패턴에 대한 엔터티 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    엔터티에 역할이 포함된 경우 `{Location:Origin}`와 같은 엔터티 이름 뒤에 단일 콜론 `:`으로 역할을 표시합니다. 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다. 
+    엔터티를 포함 하는 경우는 [역할](luis-concept-roles.md), 단일 콜론을 사용 하 여 역할을 표시할 `:`와 같은 엔터티 이름, 후, `{Location:Origin}`합니다. 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다. 
 
     ![역할이 있는 엔터티 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

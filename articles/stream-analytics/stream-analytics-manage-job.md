@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097943"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523548"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
@@ -96,7 +96,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 1. [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) 파일의 콘텐츠를 추출합니다.
 2. 원하는 텍스트 편집기에서 `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` 파일을 엽니다(.config 파일이 여러 개 있으므로 올바른 파일을 열어야 함).
 
-3. 구성 파일의 <appSettings> 요소를 다음 세부 정보로 업데이트합니다.
+3. 구성 파일의 `<appSettings>` 요소를 다음 세부 정보로 업데이트합니다.
 
    * *EventHubName* 키의 값을 연결 문자열의 EntityPath 값으로 설정합니다.
    * *Microsoft.ServiceBus.ConnectionString* 키 값을 EntityPath 값을 뺀 연결 문자열로 설정합니다.

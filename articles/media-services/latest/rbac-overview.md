@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548528"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617719"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Media Services 계정에 대 한 역할 기반 액세스 제어 (RBAC)
 
-현재 Azure Media Services 서비스에 사용자 지정 역할 특정을 정의 되지 않습니다. 고객의 기본 제공 역할을 사용할 수 있습니다 **소유자** 하거나 **참가자** Media Services 계정에 대 한 전체 액세스를 가져오려고 합니다. 이러한 역할 간의 주요 차이점은: 합니다 **소유자** 리소스에 액세스할 수 있는 사람을 제어할 수 있습니다 및 **참가자** 수 없습니다. 기본 제공 판독기 계정 Media Services 계정에 읽기 액세스할 수만 있습니다. 
+현재 Azure Media Services 서비스에 특정 사용자 정의 역할을 정의 하지 않습니다. Media Services 계정에 대 한 전체 액세스를 가져오려면 고객의 기본 제공 역할을 사용할 수 있습니다 **소유자** 하거나 **참가자**합니다. 이러한 역할 간의 주요 차이점은: 합니다 **소유자** 리소스에 액세스할 수 있는 사람을 제어할 수 있습니다 및 **참가자** 수 없습니다. 기본 제공 **판독기** 역할을 사용할 수도 있습니다 하지만 사용자 또는 응용 프로그램에서는 게 Media Services Api에 대 한 읽기 액세스입니다. 
 
 ## <a name="design-principles"></a>디자인 원칙
 
-v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api 반환 하지 않는 암호 또는 자격 증명에 **가져옵니다** 하거나 **목록** 작업 합니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 사용자 암호 또는 자격 증명 얻기 위해 별도 작업 메서드를 호출 해야 합니다. 합니다 **판독기** Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets 등의 작업을 호출할 수 있도록 역할 작업을 호출할 수 없습니다. 별도 작업이 필요 합니다. 원하는 경우 사용자 지정 역할을 더 세부적인 RBAC 보안 권한을 설정할 수 있습니다.
+v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api 반환 하지 않는 암호 또는 자격 증명에 **가져옵니다** 하거나 **목록** 작업 합니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 사용자 암호 또는 자격 증명 얻기 위해 별도 작업 메서드를 호출 해야 합니다. 합니다 **판독기** 역할 Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets 등의 작업을 호출할 수 없습니다. 별도 작업이 필요 합니다. 원하는 경우 사용자 지정 역할을 더 세부적인 RBAC 보안 권한을 설정할 수 있습니다.
 
 Media Services 지원 작업을 나열 하려면 다음을 수행 합니다.
 

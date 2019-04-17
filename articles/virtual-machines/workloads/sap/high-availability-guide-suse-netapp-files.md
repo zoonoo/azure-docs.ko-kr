@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662373"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617770"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대 한 Azure NetApp 파일을 사용 하 여 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -166,14 +166,11 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 - 최소 용량 풀 4 TiB는입니다. 용량 풀 크기 TiB 4의 배수 여야 합니다.
 - 최소 볼륨이 100gib
-- Azure NetApp 파일 및 NetApp Azure Files 볼륨을 탑재할 모든 가상 머신은 동일한 Azure Virtual Network에 있어야 합니다. [가상 네트워크 피어 링](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) Azure NetApp 파일에서 아직 지원 되지 않습니다.
+- NetApp Azure Files 볼륨 탑재 될 모든 virtual machines와 azure NetApp 파일이 동일한 Azure Virtual Network 또는 이어야 합니다 [가상 네트워크 피어 링](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) 동일한 지역에 있습니다. 동일한 지역에서 VNET 피어 링을 통해 azure NetApp 파일 액세스는 이제 지원 됩니다. 전역 피어 링을 통해 azure NetApp 액세스가 아직 지원 되지 않습니다.
 - 선택한 가상 네트워크에 Azure NetApp 파일에 위임 된 서브넷에 있어야 합니다.
 - Azure NetApp 파일에는 현재 NFSv3만 지원 
 - Azure NetApp 파일 제공 [정책 내보내기](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): 허용 된 클라이언트 액세스 형식 (읽기 및 쓰기, 읽기 전용 등)를 제어할 수 있습니다. 
 - Azure NetApp 파일 기능은 아직 영역을 인식 합니다. 현재 Azure NetApp 파일 기능은 Azure 지역에서 모든 가용성 영역에서 배포 되지 않습니다. 일부 Azure 지역에서 잠재적인 대기 시간 영향에 주의 합니다. 
-
-   > [!NOTE]
-   > NetApp 파일을 Azure 가상 네트워크 피어 링을 아직 지원 되지 않는 알아야 합니다. Vm 및 NetApp Azure Files 볼륨 동일한 가상 네트워크에 배포 합니다.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Azure portal을 통해 Linux Vm을 수동으로 배포
 
@@ -574,6 +571,8 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
 
 9. **[1]** SAP 클러스터 리소스 만들기
 
+큐에 넣기 서버 1 아키텍처 (ENSA1)를 사용 하는 경우 아래와 같이 리소스를 정의 합니다.
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   큐에 넣기 서버 복제의 경우 SAP NW 7.52 기준으로 포함 하 여 2 도입 하는 SAP 지원 합니다. 큐에 넣기 서버 2 ABAP 플랫폼 1809부터 기본적으로 설치 됩니다. SAP 참고 참고 [2630416](https://launchpad.support.sap.com/#/notes/2630416) 큐에 넣기 서버 2 지원에 대 한 합니다.
+큐에 넣기 서버 2 아키텍처를 사용 하는 경우 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), 리소스를 다음과 같이 정의 합니다.
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 sap 참고 참조 [2641019](https://launchpad.support.sap.com/#/notes/2641019)합니다. 
 
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
 
@@ -1051,7 +1079,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. 로 다음 명령을 실행 합니다. < sapsid\>ASCS 인스턴스 실행 되 고 있는 노드에서 adm 합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 잠금은 이 테스트에서 손실될 것으로 예상됩니다.
+   예를 들어 트랜잭션 su01에서 사용자를 편집하여 큐에 넣기 잠금을 만듭니다. 로 다음 명령을 실행 합니다. < sapsid\>ASCS 인스턴스 실행 되 고 있는 노드에서 adm 합니다. 이러한 명령은 ASCS 인스턴스를 중지했다가 다시 시작합니다. 큐에 넣기 서버 1 아키텍처를 사용 하는 경우 큐에 넣기 잠금은이 테스트에서 손실 될 예정입니다. 큐에 넣기 서버 2 아키텍처를 사용 하는 큐에 넣기 유지 됩니다. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ SAP Netweaver 고가용성 SUSE 아키텍처에 대 한 Azure NetApp Files를 �
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   트랜잭션 su01의 큐에 넣기 잠금이 손실되므로 백 엔드를 다시 설정했어야 합니다. 테스트 후 리소스 상태:
+   큐에 넣기 서버 1 복제 아키텍처를 사용 하는 경우 트랜잭션 su01의 큐에 넣기 잠금이 손실 여야 하며 백 엔드 재설정 해야 합니다. 테스트 후 리소스 상태:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

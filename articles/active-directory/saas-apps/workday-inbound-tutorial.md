@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897625"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524636"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -50,7 +50,7 @@ Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 �
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
 
-이 Workday 사용자 프로비전 솔루션은 현재 공개 미리 보기 상태이며 다음과 같은 경우에 가장 적합합니다.
+이 Workday 사용자 프로 비전 솔루션에 이상적으로 적합 합니다.
 
 * Workday 사용자 프로비전에 미리 작성된 클라우드 기반 솔루션을 원하는 조직
 
@@ -152,8 +152,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 번호 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| 번호 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
+|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
 
   ![시나리오 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 번호 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| 번호 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 번호 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
-| 번호 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+|  아니요. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
+|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -306,7 +306,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 6. 이러한 나머지 보안 정책 각각에 대해 위의 3-5단계를 반복합니다.
 
-   | 작업 | 도메인 보안 정책 |
+   | 작업(Operation) | 도메인 보안 정책 |
    | ---------- | ---------- |
    | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
    | 가져오기 및 넣기 | 사용자 데이터: 회사 연락처 정보 |
@@ -358,7 +358,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 * [특성 매핑 구성](#part-3-configure-attribute-mappings)
 * [사용자 프로비저닝 사용 및 시작](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>1단계: 온-프레미스 프로비전 에이전트 설치 및 구성
+### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>1부: 온-프레미스 프로비전 에이전트 설치 및 구성
 
 Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Framework가 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 에이전트를 설치해야 합니다.
 
@@ -437,7 +437,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 
    * **Active Directory 컨테이너 -** 에이전트가 기본적으로 사용자 계정을 만드는 컨테이너 DN을 입력합니다.
-        예: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
+        예제: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
      > [!NOTE]
      > 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
 
@@ -448,11 +448,11 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
-     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * 자격 증명이 저장되면 **매핑** 섹션에 기본 매핑인 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화)가 표시됩니다.
 
-### <a name="part-3-configure-attribute-mappings"></a>3부: 특성 매핑 구성
+### <a name="part-3-configure-attribute-mappings"></a>3부. 특성 매핑 구성
 
 이 섹션에서는 사용자 데이터가 Workday에서 Active Directory로 흐르는 방식을 구성하겠습니다.
 
@@ -460,7 +460,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 2. **원본 개체 범위** 필드에서 특성 기반 필터 세트를 정의하여 AD 프로비전 범위에 포함할 Workday 사용자 세트를 선택할 수 있습니다. 기본 범위는 "Workday의 모든 사용자"입니다. 예제 필터:
 
-   * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
+   * 예제: 작업자 Id를 사용 하 여 사용자가 1000000에서 2000000 (2000000 제외) 사이의 범위
 
       * 특성: WorkerID
 
@@ -468,7 +468,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
+   * 예제: 정규직 직원만 포함하고 비정규직 직원은 포함하지 않음
 
       * 특성: EmployeeID
 
@@ -510,7 +510,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.
 
@@ -532,10 +532,10 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 | **PreferredNameData**  |  displayName |     |   만들기 + 업데이트 |
 | **Company**         | company   |     |  만들기 + 업데이트 |
 | **SupervisoryOrganization**  | department  |     |  만들기 + 업데이트 |
-| **ManagerReference**   | 관리자  |     |  만들기 + 업데이트 |
-| **BusinessTitle**   |  제목     |     |  만들기 + 업데이트 | 
+| **ManagerReference**   | manager  |     |  만들기 + 업데이트 |
+| **BusinessTitle**   |  title     |     |  만들기 + 업데이트 | 
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
-| **Municipality**   |   L   |     | 만들기 + 업데이트 |
+| **Municipality**   |   l   |     | 만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**      |   co |     |   만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**    |  C  |     |         만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
@@ -560,7 +560,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 > [!IMPORTANT]
 > Azure AD에만 프로비전해야 하고 온-프레미스 Active Directory에는 프로비전하면 안 되는 클라우드 전용 사용자가 있는 경우 아래 절차만 수행합니다.
 
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1단계: Azure AD 프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기
+### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>1부: Azure AD 프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기
 
 **클라우드 전용 사용자에 대한 Workday-Azure Active Directory 프로비전을 구성하려면:**
 
@@ -600,7 +600,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 2. **원본 개체 범위** 필드에서 특성 기반 필터 세트를 정의하여 Azure AD 프로비전 범위에 포함할 Workday 사용자 세트를 선택할 수 있습니다. 기본 범위는 “Workday의 모든 사용자”입니다. 예제 필터:
 
-   * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
+   * 예제: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
 
       * 특성: WorkerID
 
@@ -608,7 +608,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
       * 값: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * 예: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
+   * 예제: 비정규직 직원만 포함하고 정규직 직원은 포함하지 않음
 
       * 특성: ContingentID
 
@@ -657,7 +657,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 * [쓰기 저장 특성 매핑 구성](#part-2-configure-writeback-attribute-mappings)
 * [사용자 프로비저닝 사용 및 시작](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday"></a>1단계: 쓰기 저장 커넥터 앱 추가 및 Workday에 대한 연결 만들기
+### <a name="part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday"></a>1부: 쓰기 저장 커넥터 앱 추가 및 Workday에 대한 연결 만들기
 
 **Workday 쓰기 저장 커넥터를 구성하려면**
 
@@ -718,7 +718,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
 
@@ -820,7 +820,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 * **제어판** -> **프로그램 제거/변경** 메뉴로 이동
 * **Microsoft Azure AD Connect 프로비전 에이전트** 항목에 해당하는 버전 찾기
 
-  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Microsoft에서 프로비전 에이전트 업데이트를 자동으로 푸시하나요?
 

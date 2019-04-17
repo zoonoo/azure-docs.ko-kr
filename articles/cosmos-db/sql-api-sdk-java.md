@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648559"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617135"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 * 변경 피드에 대한 지원이 추가되었습니다.
 * RequestOptions.setPopulateQuotaInfo를 통한 컬렉션 할당량 정보에 대한 지원이 추가되었습니다.
 * RequestOptions.setScriptLoggingEnabled를 통한 저장 프로시저 스크립트에 대한 지원이 추가되었습니다.
-* 제한 오류가 발생할 때 DirectHttps 모드의 쿼리가 중단될 수 있는 버그를 수정했습니다.
+* 여기서 DirectHttps 모드의 쿼리 응답 하지 않고 제한 오류가 발생할 때 버그를 수정 했습니다.
 * 세션 일관성 모드의 버그를 수정했습니다.
 * 요청 속도가 높은 경우 HttpContext에서 NullReferenceException을 유발할 수 있는 버그를 수정했습니다.
 * DirectHttps 모드의 성능이 향상되었습니다.

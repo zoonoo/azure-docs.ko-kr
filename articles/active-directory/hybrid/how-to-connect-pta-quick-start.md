@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101009"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617804"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -111,7 +111,15 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 >[!IMPORTANT]
 >프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
 
-다음 지침에 따라 인증 에이전트 소프트웨어를 다운로드합니다.
+여러 명의 통과 인증 에이전트를 설치 하면 고가용성 있지만 인증 에이전트 간에 결정적 하지 부하 분산. 테 넌 트에 필요한 인증 에이전트 수를 확인 하려면 최대 및 평균 부하 테 넌 트에 표시 되는 로그인 요청을 고려 합니다. 벤치마크의 경우, 단일 인증 에이전트는 표준 4코어 CPU, 16GB RAM 서버에서 초당 300~400건의 인증을 처리할 수 있습니다.
+
+네트워크 트래픽을 예측하려면 다음 크기 조정 지침을 사용합니다.
+- 각 요청에는 크기가 (0.5K + 1K * num_of_agents)바이트인 페이로드(즉, Azure AD에서 인증 에이전트로 이동하는 데이터)가 있습니다. 여기에서 "num_of_agents"는 테넌트에 등록된 인증 에이전트 수를 나타냅니다.
+- 각 응답의 페이로드(즉, 인증 에이전트에서 Azure AD로 이동하는 데이터) 크기는 1K 바이트입니다.
+
+대부분의 고객에 대 한 총에서 3 명의 인증 에이전트는 고가용성 및 용량에 대 한 충분 한입니다. 로그인 대기 시간을 개선하려면 도메인 컨트롤러에 가까운 곳에 인증 에이전트를 설치해야 합니다.
+
+시작 하려면 인증 에이전트 소프트웨어를 다운로드 하려면 다음이 지침을 따릅니다.
 
 1. 인증 에이전트의 최신 버전(버전 1.5.193.0 이상)을 다운로드하려면 테넌트의 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
@@ -141,6 +149,13 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 3. **C:\Program Files\Microsoft Azure AD Connect Authentication Agent**로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+>[!IMPORTANT]
+>인증 에이전트를 가상 컴퓨터에 설치 하는 경우 다른 인증 에이전트를 설치 하려면 가상 컴퓨터를 복제할 수 없습니다. 이 메서드는 **지원 되지 않는**합니다.
+
+## <a name="step-5-configure-smart-lockout-capability"></a>5단계: 스마트 잠금 기능 구성
+
+스마트 잠금 사용자의 암호를 추측 하는 위험 인물을 잠그는 또는 무작위 메서드를 사용 하 여 참여를 지원 합니다. Azure AD의 스마트 잠금 설정 및/또는 적절 한 잠금 설정의 온-프레미스 Active Directory를 구성 하 여 공격 필터링 할 수 있습니다 Active Directory에 도달 하기 전에 합니다. 읽기 [이 문서에서는](../authentication/howto-password-smart-lockout.md) 사용자 계정을 보호 하기 위해 테 넌 트의 스마트 잠금 설정을 구성 하는 방법에 자세히 알아보려면 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [AD FS에서 통과 인증으로 마이그레이션](https://aka.ms/adfstoptadp) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.

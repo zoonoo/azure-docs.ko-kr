@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b58c3cc677291c11b93cff439bd669c58735f31e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: fd6e383c2631a47daa7bf469c5bec59959453252
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892833"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616852"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -43,7 +43,7 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 표준 가용성 모델에는 두 가지 레이어가 있습니다.
 
 - 상태 비저장 계산 레이어는 `sqlserver.exe` 프로세스를 실행하고 일시적인 데이터와 캐시된 데이터(예: 계획 캐시, 버퍼 풀, 열 저장 풀)만 포함합니다. 상태 비저장 SQL Server 노드는 프로세스를 초기화하고 노드의 상태를 제어하며 필요한 경우 다른 위치로 장애 조치(failover)를 수행하는 Azure Service Fabric에서 운영됩니다.
-- 상태 저장 데이터 레이어에는 데이터베이스 파일(.mdf/.ldf)이 있으며 Azure Blob Storage에 저장됩니다. Azure Blob Storage는 데이터베이스 파일에 배치된 모든 레코드의 데이터가 손실되지 않도록 보장합니다. Azure Blob Storage에는 SQL Server 프로세스가 중단되더라도 로그 파일의 모든 레코드나 데이터 파일의 페이지가 보존되도록 하는 데이터 가용성/백업 기능이 기본 제공됩니다.
+- 상태 저장 데이터 계층에는 데이터베이스 파일(.mdf/.ldf)이 있으며 Azure Blob Storage에 저장됩니다. Azure Blob Storage는 데이터베이스 파일에 배치된 모든 레코드의 데이터가 손실되지 않도록 보장합니다. Azure Blob storage에 기본 제공 데이터 가용성/중복 SQL Server 프로세스가 충돌 하는 경우에 로그 파일의 모든 레코드 또는 데이터 파일의 페이지는 유지 되도록 합니다.
 
 데이터베이스 엔진이나 운영 체제가 업그레이드되고, 기본 인프라의 일부 부분은 실패하거나 SQL Server 프로세스에서 심각한 문제가 감지될 때마다, Azure Service Fabric은 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 옮깁니다. 장애 조치(failover) 시간을 최소화하기 위해 장애 조치(failover) 시 새 컴퓨팅 서비스를 실행하려고 대기하는 예비 노드 세트가 있습니다. Azure Blob Storage의 데이터는 영향을 받지 않으며 데이터/로그 파일은 새로 초기화된 SQL Server 프로세스에 연결됩니다. 이 프로세스는 99.99%의 가용성을 보장하지만 전환 시간 및 새 SQL Server 노드가 콜드 캐시로 시작된다는 사실로 인해 실행 중인 과도한 워크로드의 성능에 영향을 미칠 수 있습니다.
 

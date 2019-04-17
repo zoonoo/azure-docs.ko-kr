@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001954"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528325"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Azure Front Door Service를 사용한 캐싱
 다음 문서는 캐싱을 허용하고 회람 규칙을 사용하는 Front Door의 동작을 설명합니다.
@@ -26,7 +26,7 @@ Azure Front Door Service는 파일 크기의 제한 없이 대용량 파일을 �
 
 </br>청크가 Front Door 환경에 도착하면 캐시되고 사용자에게 즉시 제공됩니다. 그런 다음 Front Door가 다음 청크를 동시에 프리페치합니다. 프리페치 과정 덕분에 콘텐츠가 사용자보다 한 청크 앞서 진행되므로 대기 시간이 줄어듭니다. 이 프로세스는 전체 파일을 다운로드하거나(요청된 경우), 모든 바이트 범위를 사용할 수 있거나(요청된 경우), 클라이언트에서 연결을 종료할 때까지 계속됩니다.
 
-</br>바이트 범위 요청에 대한 자세한 내용은 [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html)을 읽어보세요.
+</br>바이트 범위 요청에 대한 자세한 내용은 [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html)을 읽어보세요.
 Front Door가 청크를 받는 즉시 모두 캐시하기 때문에 전체 파일을 Front Door에서 캐시할 필요가 없시보드에서 유료 구독 키를 사용할 수도 있습니다(Cognitive Services API 계정 참조).습니다. 파일 또는 바이트 범위에 대한 후속 요청은 캐시에서 처리됩니다. 일부 청크가 캐시되지 않은 경우 프리페치를 사용하여 백엔드에서 청크를 요청합니다. 이 최적화는 바이트 범위 요청을 지원하기 위해 백엔드 기능에 의존합니다. 즉, 백엔드가 바이트 범위 요청을 지원하지 않으면 이 최적화가 수행되지 않습니다.
 
 ## <a name="file-compression"></a>파일 압축
@@ -100,9 +100,9 @@ Front Door의 캐시 제거에서는 대/소문자를 구분하지 않습니다.
 
 ## <a name="cache-expiration"></a>캐시 만료
 항목이 캐시에 저장될 기간을 결정하기 위해 다음 순서의 헤더가 사용됩니다.</br>
-1. Cache-Control: s-maxage=<seconds>
-2. Cache-Control: maxage=<seconds>
-3. Expires: <http-날짜>
+1. Cache-control: 기간 =\<시간 (초) >
+2. Cache-Control: maxage=\<seconds>
+3. 만료: \<http 날짜 >
 
 Cache-Control: private, Cache-Control: no-cache 및 Cache-Control: no-store와 같이 응답이 캐시되지 않음을 나타내는 Cache-Control 응답 헤더가 적용됩니다. 그러나 여러 요청이 동일한 URL에 대해 POP에서 이동 중인 경우 해당 응답을 공유할 수도 있습니다.
 
@@ -116,5 +116,5 @@ Cache-Control: private, Cache-Control: no-cache 및 Cache-Control: no-store와 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아보세요.
+- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

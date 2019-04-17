@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280862"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608191"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>빠른 시작: 로그인 및 사용자 ID 설정
 
@@ -33,6 +33,9 @@ ms.locfileid: "59280862"
 1. 메시지가 표시되면 Microsoft 계정 또는 회사 또는 학교 계정의 이메일 주소를 입력하고 **다음**을 선택합니다. [Azure Notebooks에 대한 사용자 계정](azure-notebooks-user-account.md)에 계정 유형이 설명되어 있습니다. Microsoft 계정이 없거나 Azure Notebooks에 사용할 계정을 새로 만들려면 **만들기**를 선택합니다.
 
     ![로그인 프롬프트의 새 Microsoft 계정 만들기 명령](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > 연결 된 계정에 이미 있는 전자 메일 주소를 사용 하 여 새 계정을 만들려는 경우 표시 될 수 있습니다 메시지를 "있습니다 수 없습니다. 여기에서 등록 작업을 사용 하 여 회사 또는 학교 전자 메일 주소입니다. Gmail 이나 yahoo! 같은 개인 전자 메일을 사용 하거나 새 Outlook 전자 메일을 받습니다. " 이 경우 새 계정을 만들지 않고 회사 전자 메일 주소를 로그인을 시도 합니다.
 
 1. 메시지가 표시되면 암호를 입력합니다.
 

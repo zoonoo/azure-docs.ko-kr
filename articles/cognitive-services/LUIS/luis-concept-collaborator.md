@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 9229a583dac526d09d7c5046c4bb81d30c9d4c3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873566"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522748"
 ---
 # <a name="collaborating-with-other-authors"></a>다른 작성자와 공동 작업
 
-LUIS는 사용자 그룹이 앱을 작성할 수 있는 공동 작업을 제공합니다.
+LUIS 앱에는 단일 앱을 여러 사람이 작성하도록 허용하는 단일 소유자 및 선택적 협력자가 필요합니다.
 
 ## <a name="luis-account"></a>LUIS 계정
 LUIS 계정은 단일 [Microsoft Live](https://login.live.com/) 계정과 연결됩니다. 각 LUIS 계정에는 계정이 액세스할 수 있는 모든 LUIS 앱을 작성하는 데 사용할 체험 [작성 키](luis-concept-keys.md#authoring-key)가 제공됩니다. 
@@ -30,7 +30,8 @@ LUIS 계정에는 여러 LUIS 앱이 포함될 수 있습니다.
 Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Directory 테넌트 사용자](luis-how-to-collaborate.md#azure-active-directory-tenant-user)를 참조하세요. 
 
 ## <a name="luis-app-owner"></a>LUIS 앱 소유자
-앱을 만드는 계정은 소유자입니다. 각 앱에는 단일 소유자가 있습니다. 소유자는 앱 **[설정](luis-how-to-collaborate.md)** 에 나열됩니다. 이 계정은 앱을 삭제할 수 있습니다. 또한 엔드포인트 할당량이 매월 제한의 75%에 도달하면 메일을 수신합니다. 
+
+앱을 생성 하는 계정 소유자 이며 각 앱에 단일 소유자입니다. 소유자는 앱에 표시 됩니다 **[설정](luis-how-to-collaborate.md)** 페이지입니다. 소유자는 앱을 삭제할 수 끝점 할당량에는 월별 한도의 75%에 도달 하면 전자 메일을 수신 합니다. 
 
 ## <a name="authorization-roles"></a>권한 부여 역할
 LUIS는 소유자와 공동 작업자에게 여러 역할을 지원하지 않습니다. 단, 한 가지 예외는 있습니다. 소유자는 앱을 삭제할 수 있는 유일한 계정입니다.
@@ -61,6 +62,10 @@ LUIS는 소유권 이전을 제공하지 않지만, 모든 협력자는 앱을 �
 기본 버전을 [내보냅니다](luis-how-to-manage-versions.md#export-version). 각 작성자는 버전을 가져옵니다. 앱을 가져오는 사용자는 버전의 소유자입니다. 앱 수정을 완료하면 버전을 내보냅니다. 
 
 내보낸 앱은 JSON 형식 파일이며 기본 내보내기와 변경 내용을 비교할 수 있습니다. 파일을 결합하여 새 버전의 단일 JSON 파일을 만듭니다. JSON에서 **versionId** 속성을 변경하여 새 병합 버전을 표시합니다. 해당 버전을 원래 앱으로 가져옵니다.
+
+## <a name="collaborator-roles-vs-entity-roles"></a>공동 작업자 역할 및 엔터티 역할
+
+[엔터티 역할](luis-concept-roles.md) LUIS 앱의 데이터 모델에 적용 합니다. 제작 액세스 수준을 협력자 역할 적용 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

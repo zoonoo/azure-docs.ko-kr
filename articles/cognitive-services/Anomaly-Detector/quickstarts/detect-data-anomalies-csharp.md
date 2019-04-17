@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7aa171a49ea03769c3ecbb5d35ae31ac6fae052e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473439"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544115"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: 비정상 탐지기 REST API를 사용 하 여 시계열 데이터에서 이상을 감지 하 고C# 
 
@@ -81,24 +81,19 @@ ms.locfileid: "58473439"
 1. 라는 새 비동기 함수를 만들고 `Request` 위에서 만든 변수를 사용 합니다.
 
 2. 클라이언트의 보안 프로토콜 및 헤더 정보를 사용 하 여 설정 된 `HttpClient` 개체입니다. 구독 키를 추가 해야 합니다 `Ocp-Apim-Subscription-Key` 헤더입니다. 만든를 `StringContent` 요청에 대 한 개체입니다.
- 
-3. 사용 하 여 요청을 보낼 `PostAsync()`합니다. 요청이 성공 하면 응답을 반환 합니다.  
+
+3. 사용 하 여 요청을 보낼 `PostAsync()`, 한 다음 응답을 반환 합니다.
 
 ```csharp
-static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData){
-    using (HttpClient client = new HttpClient { BaseAddress = new Uri(baseAddress) }){
+static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
+    using (HttpClient client = new HttpClient { BaseAddress = new Uri(apiAddress) }){
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
         var content = new StringContent(requestData, Encoding.UTF8, "application/json");
         var res = await client.PostAsync(endpoint, content);
-        if (res.IsSuccessStatusCode){
-            return await res.Content.ReadAsStringAsync();
-        }
-        else{
-            return $"ErrorCode: {res.StatusCode}";
-        }
+        return await res.Content.ReadAsStringAsync();
     }
 }
 ```
@@ -109,9 +104,9 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 
 2. JSON 개체를 deserialize 하 고 콘솔에 작성 합니다.
 
-3. 데이터 집합의 한 위치를 찾습니다. 응답의 `isAnomaly` 필드 데이터 요소가 비정상 인지를 나타냅니다 각각 부울 값의 배열을 포함 합니다. 이 값을 응답 개체의 문자열 배열을 변환 `ToObject<bool[]>()` 함수입니다.
+3. 응답에 포함 하는 경우 `code` 필드, 오류 코드 및 오류 메시지를 인쇄 합니다. 
 
-4. 배열 반복 되며 모든 인덱스를 인쇄 `true` 값입니다. 이러한 값은 발견 된 경우 비정상적인 데이터 요소의 인덱스에 해당 합니다.
+4. 이 고, 그렇지 데이터 집합의 한 위치를 찾습니다. 응답의 `isAnomaly` 필드 데이터 요소가 비정상 인지를 나타냅니다 각각 부울 값의 배열을 포함 합니다. 이 값을 응답 개체의 문자열 배열을 변환 `ToObject<bool[]>()` 함수입니다. 배열 반복 되며 모든 인덱스를 인쇄 `true` 값입니다. 이러한 값은 발견 된 경우 비정상적인 데이터 요소의 인덱스에 해당 합니다.
 
 ```csharp
 static void detectAnomaliesBatch(string requestData){
@@ -126,11 +121,17 @@ static void detectAnomaliesBatch(string requestData){
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
     System.Console.WriteLine(jsonObj);
 
-    bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
-    System.Console.WriteLine("\n Anomalies detected in the following data positions:");
-    for (var i = 0; i < anomalies.Length; i++) {
-        if (anomalies[i]) {
-            System.Console.Write(i + ", ");
+    if (jsonObj["code"] != null){
+        System.Console.WriteLine($"Detection failed. ErrorCode:{jsonObj["code"]}, ErrorMessage:{jsonObj["message"]}");
+    }
+    else{
+        bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
+        System.Console.WriteLine("\nAnomalies detected in the following data positions:");
+        for (var i = 0; i < anomalies.Length; i++){
+            if (anomalies[i])
+            {
+                System.Console.Write(i + ", ");
+            }
         }
     }
 }
@@ -140,11 +141,11 @@ static void detectAnomaliesBatch(string requestData){
 
 1. 라는 새 함수를 만들고 `detectAnomaliesLatest()`합니다. 요청을 생성 하 고 호출 하 여 보낼는 `Request()` 끝점, 구독 키, 최신 지점 변칙 검색에 대 한 URL 및 시계열 데이터를 사용 하 여 함수입니다.
 
-2. JSON 개체를 deserialize 하 고 콘솔에 작성 합니다. 
+2. JSON 개체를 deserialize 하 고 콘솔에 작성 합니다.
 
 ```csharp
 static void detectAnomaliesLatest(string requestData){
-    System.Console.WriteLine("\n\n Determining if latest data point is an anomaly");
+    System.Console.WriteLine("\n\nDetermining if latest data point is an anomaly");
     var result = Request(
         endpoint,
         latestPointDetectionUrl,

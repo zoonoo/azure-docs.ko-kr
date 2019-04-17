@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 4e5a785d219e1b776a1d512512d0a2a74532c550
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282732"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618059"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -21,12 +21,12 @@ ms.locfileid: "59282732"
 
 가장 간단한 배포 시나리오에서 Azure Site Recovery를 사용하여 시작하려면 [자습서](tutorial-prepare-azure.md)를 참조하세요. [여기](vmware-azure-architecture.md)에서 Azure Site Recovery 아키텍처에 대해 자세히 알아볼 수 있습니다.
 
-## <a name="replication-scenario"></a>복제 시나리오
+## <a name="deployment-scenario"></a>배포 시나리오
 
 **시나리오** | **세부 정보**
 --- | ---
-VMware VM | 온-프레미스 VMware VM을 Azure로 복제. Azure Portal에서 또는 [PowerShell](vmware-azure-disaster-recovery-powershell.md)을 사용하여 이 시나리오를 배포할 수 있습니다.
-물리적 서버 | 온-프레미스 Windows/Linux 실제 서버를 Azure로 복제 Azure Portal에서 이 시나리오를 배포할 수 있습니다.
+VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azure Portal에서 또는 [PowerShell](vmware-azure-disaster-recovery-powershell.md)을 사용하여 이 시나리오를 배포할 수 있습니다.
+물리적 서버의 재해 복구 | 온-프레미스 Windows/Linux 실제 서버를 Azure로 복제 Azure Portal에서 이 시나리오를 배포할 수 있습니다.
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
@@ -50,7 +50,7 @@ RAM | 16GB
 운영 체제 로케일 | 미국 영어(en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") 버전을 사용 하 여 구성 서버에 필수적 요소가 아닙니다 [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)합니다.
 Windows Server 역할 | 다음을 사용하지 않음 <br/> - Active Directory Domain Services <br/>- 인터넷 정보 서비스 <br/> - Hyper-V |
-그룹 정책| 다음을 사용하지 않음 <br/> - 명령 프롬프트에 대한 액세스 방지 <br/> - 레지스트리 편집 도구에 대한 액세스 방지 <br/> - 파일 첨부를 위한 트러스트 논리 <br/> - 스크립트 실행 켜기 <br/> [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+그룹 정책| 다음을 사용하지 않음 <br/> - 명령 프롬프트에 대한 액세스 방지 <br/> - 레지스트리 편집 도구에 대한 액세스 방지 <br/> - 파일 첨부를 위한 트러스트 논리 <br/> - 스크립트 실행 켜기 <br/> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | 다음을 확인합니다.<br/><br/> - 기존의 기본 웹 사이트 없음 <br/> - [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br/> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용  <br/> - 포트 443에서 수신 대기하는 기존의 웹 사이트/앱 없음<br/>
 NIC 유형 | VMXNET3(VMware VM으로 배포될 경우)
 IP 주소 유형 | 공용
@@ -72,7 +72,7 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.10<b>
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 커널 버전
 
 
-**지원 되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
+**지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-generic 3.13.0-165-generic를<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic 4.4.0-142-generic를<br/>4.15.0-1023-azure 4.15.0-1037-azure |
 14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-generic~3.13.0-164-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-140-generic<br/>4.15.0-1023-azure~4.15.0-1036-azure |
@@ -87,7 +87,7 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.10<b>
 ### <a name="debian-kernel-versions"></a>Debian 커널 버전
 
 
-**지원 되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
+**지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
 Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -96,9 +96,9 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 지원되는 커널 버전
 
-**해제** | **모바일 서비스 버전** | **커널 버전** |
+**릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.23][9.23 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>4.4.162-94.79-default에 SP3 4.4.73-5-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>4.4.162-94.79-default에 SP3 4.4.73-5-default</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.156-94.72-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.156-94.64-default |
@@ -120,7 +120,7 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버 | 지원되지 않습
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
 
-**액션(Action)** | **세부 정보**
+**작업** | **세부 정보**
 --- | ---
 복제된 VM에서 디스크 크기 조정 |  지원됩니다.
 복제된 VM에 디스크 추가 | VM에 대한 복제를 사용하지 않도록 설정하고, 디스크를 추가한 다음, 복제를 다시 사용하도록 설정합니다. 복제 VM에 디스크를 추가하는 기능은 현재 지원되지 않습니다.
@@ -167,7 +167,6 @@ Docker 디스크 구성 | 아닙니다.
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 VMDK | 예
-게스트/서버 EFI/UEFI| 일부(Windows Server 2012 이상에서는 Azure로 마이그레이션) <br/><br/> 표 끝에 있는 메모를 참조하세요.
 게스트/서버 공유 클러스터 디스크 | 아닙니다.
 게스트/서버 암호화된 디스크 | 아닙니다.
 게스트/서버 NFS | 아닙니다.
@@ -181,14 +180,8 @@ Docker 디스크 구성 | 아닙니다.
 게스트/서버 디스크 핫 추가/제거 | 아닙니다.
 게스트/서버 - 디스크 제외 | 예
 게스트/서버 다중 경로(MPIO) | 아닙니다.
+게스트/서버 EFI/UEFI 부팅 | VMware Vm 또는 Windows Server 2012를 실행 하는 물리적 서버를 마이그레이션하는 경우 또는 나중에 Azure를 지원 합니다.<br/><br/> 만 마이그레이션에 대 한 Vm을 복제할 수 있습니다. 온-프레미스로 장애 복구는 지원 되지 않습니다.<br/><br/> 서버는 OS 디스크에 4개 이상의 파티션을 가질 수 없습니다.<br/><br/> Mobility Service 버전 9.13 이상이 필요합니다.<br/><br/> NTFS만 지원 됩니다.
 
-> [!NOTE]
-> Windows Server 2012 이상을 실행하는 UEFI 부팅 VMware 가상 머신을 Azure로 마이그레이션할 수 있습니다. 다음 제한 사항이 적용됩니다.
->
-> - Azure로 마이그레이션만 지원됩니다. 온-프레미스 VMware 사이트에 장애 복구는 지원되지 않습니다.
-> - 서버는 OS 디스크에 4개 이상의 파티션을 가질 수 없습니다.
-> - NTFS만 지원 됩니다.
-> - Mobility Service 버전 9.13 이상이 필요합니다.
 
 ## <a name="azure-storage"></a>Azure 저장소
 
@@ -256,7 +249,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="vault-tasks"></a>자격 증명 모음 작업
 
-**조치** | **지원됨**
+**작업** | **지원됨**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아닙니다.
 저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아닙니다.
@@ -264,7 +257,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="download-latest-azure-site-recovery-components"></a>최신 Azure Site Recovery 구성 요소 다운로드
 
-**name** | **설명** | **최신 버전 다운로드 지침**
+**Name** | **설명** | **최신 버전 다운로드 지침**
 --- | --- | ---
 구성 서버 | 온-프레미스 VMware 서버와 Azure 간 통신 조정  <br/><br/>  온-프레미스 VMware 서버에 설치 | 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-deploy-configuration-server.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)합니다.
 프로세스 서버|기본적으로 구성 서버에 설치합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다. 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.| 자세한 내용은 지침의 방문 [새로 설치](vmware-azure-set-up-process-server-scale.md) 하 고 [기존 구성 요소를 최신 버전으로 업그레이드](vmware-azure-manage-process-server.md#upgrade-a-process-server)합니다.

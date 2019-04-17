@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184893"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616213"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -71,6 +71,9 @@ ms.locfileid: "56184893"
 | 80007 | 인증 에이전트에서 Active Directory에 연결할 수 없습니다. | 인증 에이전트에서 Active Directory에 연결할 수 있는지 확인합니다.
 | 80010 | 인증 에이전트에서 암호를 해독할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다. 
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
+
+>[!IMPORTANT]
+>통과 인증 에이전트를 호출 하 여 해당 사용자 이름과 암호가 Active Directory에 대해 유효성을 검사 하 여 Azure AD 사용자를 인증 합니다 [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)합니다. 결과적으로, "로그온 To" 설정을 워크스테이션 로그온 액세스를 제한 하려면 Active Directory에서 설정한 경우에 "로그온" 서버에도 목록에 통과 인증 에이전트를 호스팅하는 서버를 추가 해야 합니다. 이렇게 하려면 실패 한 Azure AD 로그인에서 사용자가 차단 됩니다.
 
 ## <a name="authentication-agent-installation-issues"></a>인증 에이전트 설치 문제
 

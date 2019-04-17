@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0357b7f421da753f102d2f05eaf8021cfc74aa2c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261618"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618178"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 
@@ -70,9 +70,11 @@ SAML 기반 Single Sign-On은 다음과 같은 프로토콜을 사용하는 애�
 - SAML 2.0
 - WS-Federation
 
-애플리케이션을 SAML 기반 Single Sign-On에 대해 구성하려면 [SAML 기반 Single Sign-On 구성](configure-single-sign-on-portal.md)을 참조하세요. 또한 다양한 SaaS(Software as a Service) 애플리케이션에는 SAML 기반 Single Sign-On에 대한 구성을 단계별로 안내하는 [애플리케이션 관련 자습서](../saas-apps/tutorial-list.md)가 있습니다.
+SAML 기반 single sign on에 대 한 SaaS 응용 프로그램을 구성 하려면 [구성할 SAML 기반 single sign on](configure-single-sign-on-portal.md)합니다. 또한 다양한 SaaS(Software as a Service) 애플리케이션에는 SAML 기반 Single Sign-On에 대한 구성을 단계별로 안내하는 [애플리케이션 관련 자습서](../saas-apps/tutorial-list.md)가 있습니다.
 
 WS-페더레이션에 대 한 응용 프로그램을 구성 하려면 SAML 기반 single sign on에 대 한 응용 프로그램을 구성 하려면 동일한 지침에 따라 [구성할 SAML 기반 single sign on](configure-single-sign-on-portal.md)합니다. Azure AD를 사용 하도록 응용 프로그램을 구성 단계에서는 Ws-federation 끝점에 대 한 Azure AD 로그인 URL을 대체 해야 `https://login.microsoftonline.com/<tenant-ID>/wsfed`합니다.
+
+SAML 기반 single sign on에 대 한 온-프레미스 응용 프로그램을 구성 하려면 참조 [SAML single sign-on에 대 한 온-프레미스 응용 프로그램 프록시를 사용 하 여 응용 프로그램](application-proxy-configure-single-sign-on-on-premises-apps.md)합니다.
 
 SAML 프로토콜에 대한 자세한 정보는 [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)을 참조하세요.
 
@@ -187,9 +189,9 @@ Azure AD에 PingAccess를 사용하면 사용자는 인증에 헤더를 사용�
 
 
 ## <a name="related-articles"></a>관련 문서
-* [SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서](../saas-apps/tutorial-list.md)
-* [Single sign-on을 구성 하기 위한 자습서](configure-single-sign-on-portal.md)
-* [응용 프로그램 액세스 관리 소개](what-is-access-management.md)
+* [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](../saas-apps/tutorial-list.md)
+* [Single Sign-On 구성을 위한](configure-single-sign-on-portal.md)
+* [애플리케이션에 대한 액세스 관리 소개](what-is-access-management.md)
 * 다운로드 링크: [Single Sign-On 배포 계획](https://aka.ms/SSODeploymentPlan)
 
 

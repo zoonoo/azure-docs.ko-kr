@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: Carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/13/2019
-ms.openlocfilehash: 6aa8f362f067a4e3e391f435ee849f96abdf752f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997511"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469644"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기
 
@@ -45,11 +45,12 @@ ms.locfileid: "57997511"
    | 설정| 제안 값 | 설명 |
    | ------ | --------------- | ----------- |
    | **구독** | 사용자의 구독 | 새 리소스를 만들 권한이 있는 구독 |
-   |**관리되는 인스턴스 이름**|모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
-   |**Managed Instance 관리자 로그인**|모든 유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.|
+   |**관리형 인스턴스 이름**|모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   |**관리형 인스턴스 관리자 로그인**|모든 유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.|
    |**암호**|유효한 암호|암호는 16자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-   |**데이터 정렬**|관리되는 인스턴스에 사용할 데이터 정렬|SQL Server에서 데이터베이스를 마이그레이션하는 경우 `SELECT SERVERPROPERTY(N'Collation')`를 사용하여 원본 데이터 정렬을 확인하고 해당 값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [서버 수준 데이터 정렬](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)을 참조하세요.|
-   |**위치**:|관리되는 인스턴스를 만들 위치|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
+   |**표준 시간대**|관리형 인스턴스에서 관찰할 표준 시간대|자세한 내용은 [표준 시간대](sql-database-managed-instance-timezone.md)를 참조하세요.|
+   |**Collation**|관리되는 인스턴스에 사용할 데이터 정렬|SQL Server에서 데이터베이스를 마이그레이션하는 경우 `SELECT SERVERPROPERTY(N'Collation')`를 사용하여 원본 데이터 정렬을 확인하고 해당 값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [서버 수준 데이터 정렬](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)을 참조하세요.|
+   |**위치**|관리되는 인스턴스를 만들 위치|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
    |**가상 네트워크**|**새 가상 네트워크 만들기** 또는 유효한 가상 네트워크 및 서브넷을 선택합니다.| 네트워크/서브넷을 사용할 수 없는 경우 새 관리형 인스턴스의 대상으로 선택하기 전에 [네트워크 요구 사항을 충족하도록 수정](sql-database-managed-instance-configure-vnet-subnet.md)해야 합니다. 관리되는 인스턴스의 네트워크 환경을 구성하기 위한 요구 사항 관련 정보는 [관리되는 인스턴스에 대한 VNet 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요. |
    |**리소스 그룹**|새 리소스 그룹 또는 기존 리소스 그룹|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
 

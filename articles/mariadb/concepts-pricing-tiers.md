@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 04/15/2019
+ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354453"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617787"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
@@ -20,7 +20,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 |    | **Basic** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 계산 세대 | 5세대 |5세대 | 5세대 |
-| vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | vCore 메모리 | 2GB | 5GB | 10 GB |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -48,7 +48,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 |:---|:----------|:--------------------|:---------------------|
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
-| 저장소 증분 크기 | 1 GB | 1 GB | 1 GB |
+| 저장소 증분 크기 | 1 GB | 1GB | 1 GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS |
 
 추가 저장소 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.

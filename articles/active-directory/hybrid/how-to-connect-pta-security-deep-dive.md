@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096863"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617219"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -136,7 +136,7 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 4. 사용자가 **사용자 로그인** 페이지에 사용자 이름을 입력하고 **다음** 단추를 선택합니다.
 5. 사용자가 **사용자 로그인** 페이지에 암호를 입력하고 **로그인** 단추를 선택합니다.
 6. 사용자 이름 및 암호가 HTTPS POST 요청을 통해 Azure AD STS로 전송됩니다.
-7. Azure AD STS가 Azure SQL Database에서 해당 테넌트에 등록된 모든 인증 에이전트의 공개 키를 가져온 다음 가져온 공개 키를 사용하여 암호를 암호화합니다. 
+7. Azure AD STS가 Azure SQL Database에서 해당 테넌트에 등록된 모든 인증 에이전트의 공개 키를 가져온 다음 가져온 공개 키를 사용하여 암호를 암호화합니다.
     - 해당 테넌트에 등록된 “N”개의 인증 에이전트에 대해 “N”개의 암호화된 암호 값을 생성합니다.
 8. Azure AD STS가 사용자 이름과 암호화된 암호 값으로 구성된 암호 유효성 검사 요청을 해당 테넌트의 Service Bus 큐에 배치합니다.
 9. 초기화된 인증 에이전트는 Service Bus 큐에 영구적으로 연결되므로 사용 가능한 인증 에이전트 중 하나가 암호 유효성 검사 요청을 가져옵니다.
@@ -145,6 +145,9 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
     - Win32 LogonUser API는 AD FS(Active Directory Federation Service)가 페더레이션 로그인 시나리오에서 사용자 로그인에 사용하는 API이기도 합니다.
     - Win32 LogonUser API는 Windows Server의 표준 확인 프로세스를 사용하여 도메인 컨트롤러를 찾습니다.
 12. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.
+
+   > [!NOTE]
+   > 로그인 프로세스 중 인증 에이전트 실패 하면 전체 로그인 요청이 삭제 되었습니다. 로그인 요청 하나의 인증 에이전트가 다른 인증 에이전트가 온-프레미스에 없는 실체로 있습니다. 이러한 에이전트는 클라우드와 및 서로 없습니다만 통신합니다.
 13. 인증 에이전트는 포트 443을 통한 아웃바운드 상호 인증 HTTPS 채널을 통해 결과를 다시 Azure AD STS로 전달합니다. 상호 인증은 이전 단계에서 등록 시 인증 에이전트로 발급된 인증서를 사용합니다.
 14. Azure AD STS는 이 결과가 테넌트의 특정 로그인 요청과 관련이 있는지 확인합니다.
 15. Azure AD STS는 구성된 대로 로그인 절차를 계속 진행합니다. 예를 들어, 암호 유효성 검사가 성공적인 경우 사용자에게 Multi-Factor Authentication을 요청하거나 사용자를 애플리케이션으로 리디렉션합니다.
@@ -181,7 +184,7 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>인증 에이전트의 자동 업데이트
 
-새 버전이 출시되는 경우 업데이트 프로그램 애플리케이션이 인증 에이전트를 자동으로 업데이트합니다. 업데이트 애플리케이션은 테넌트의 암호 유효성 검사 요청을 처리하지 않습니다. 
+업데이트 응용 프로그램 (버그 수정 또는 향상 된 성능)와 함께 새 버전이 릴리스되면 자동으로 인증 에이전트를 업데이트 합니다. 업데이트 응용 프로그램은 테 넌 트에 대 한 암호 유효성 검사 요청을 처리 하지 않습니다.
 
 Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer 패키지(MSI)** 로서 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
 
@@ -203,7 +206,7 @@ Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer �
     - 인증 에이전트 서비스를 다시 시작합니다.
 
 >[!NOTE]
->테넌트에 여러 인증 에이전트가 등록된 경우 Azure AD는 인증서를 갱신하거나 동시에 업데이트하지 않습니다. 로그인 요청의 고가용성을 보장하기 위해 인증서 갱신과 업데이트를 점진적으로 수행합니다.
+>테넌트에 여러 인증 에이전트가 등록된 경우 Azure AD는 인증서를 갱신하거나 동시에 업데이트하지 않습니다. 대신, Azure AD 로그인 요청의 고가용성 보장 하기 위해 한 번에 하나를 수행 합니다.
 >
 
 

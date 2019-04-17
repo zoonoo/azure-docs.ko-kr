@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d66b23878176b0b508d3fa0c4973d36b5731de82
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88cee825f132054eb1228e8930f82199c7f1812f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269846"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565109"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-useall"></a>자습서: Useall과 Azure Active Directory 통합
 
@@ -106,9 +106,9 @@ Useall에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![Useall 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.useall.com.br/tenant/useall`
+    a. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.useall.com.br/tenant/useall` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2`
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<SUBDOMAIN>.useall.com.br/tenant/apiuseall/saml2` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 구하려면 [Useall 클라이언트 지원 팀](mailto:luizotavio@useall.com.br)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -183,9 +183,9 @@ Useall에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

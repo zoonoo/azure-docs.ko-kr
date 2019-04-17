@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766949"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608897"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766949"
 
 이 자습서에서 다루는 단계는 다음과 같습니다.
 
-1. Azure Portal을 사용하여 Service Bus 네임스페이스를 만듭니다.
-2. Azure Portal을 사용하여 Service Bus 항목을 만듭니다.
-3. Azure Portal을 사용하여 해당 항목에 Service Bus 구독을 만듭니다.
-4. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 애플리케이션을 작성합니다.
-5. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
+1. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 애플리케이션을 작성합니다.
+2. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
-2. Azure 구독.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 등록을 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 단계를 수행 합니다 [빠른 시작: Azure portal을 사용 하 여 Service Bus 토픽 및 구독 항목을 만들려면](service-bus-quickstart-topics-subscriptions-portal.md) 다음 태스크를 수행 합니다.
+    1. Service Bus를 만듭니다 **네임 스페이스**합니다.
+    2. 가져오기의 **연결 문자열**합니다.
+    3. 만들기는 **항목** 네임 스페이스에 있습니다.
+    4. 만들 **구독** 네임 스페이스에서 항목을 합니다.
+3. [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
+ 
 ## <a name="send-messages-to-the-topic"></a>토픽에 메시지 보내기
 
 항목에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 애플리케이션을 작성합니다.
@@ -204,7 +200,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
 
 ## <a name="receive-messages-from-the-subscription"></a>구독에서 메시지 받기
 
-방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 애플리케이션을 만들고 이전의 보낸 사람 애플리케이션과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
+보낸 메시지를 받으려면 다른.NET Core 콘솔 응용 프로그램 만들기 및 설치 합니다 **Microsoft.Azure.ServiceBus** NuGet 패키지를 이전의 보낸 사람 응용 프로그램과 유사 합니다.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>코드를 작성하여 구독에서 메시지 받기
 

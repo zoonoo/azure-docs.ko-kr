@@ -60,6 +60,8 @@ items:
       href: container-instances-restart-policy.md
     - name: 환경 변수 설정(env)
       href: container-instances-environment-variables.md
+    - name: 컨테이너 entrypoint 재정의
+      href: container-instances-start-command.md
     - name: 명령 실행(exec)
       href: container-instances-exec.md
     - name: Jenkins 빌드 작업 실행
@@ -82,6 +84,8 @@ items:
     items:
     - name: 활동성 프로브 구성
       href: container-instances-liveness-probe.md
+    - name: 컨테이너 중지 및 시작
+      href: container-instances-stop-start.md
     - name: 실행 중인 컨테이너 업데이트
       href: container-instances-update.md
   - name: 모니터링 및 로깅
@@ -130,9 +134,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 4a2f2f48232bc78aa636934b0ac3a38bec2c1a23
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 5a95264c8fc909e58a2db0f423ded86225d5a71c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006040"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608421"

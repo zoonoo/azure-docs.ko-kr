@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895791"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616274"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다.
@@ -28,10 +28,12 @@ ms.locfileid: "55895791"
 |범용| 8| 1250|
 |범용| 16| 2500|
 |범용| 32| 5,000|
+|범용| 64| 10000|
 |메모리 최적화| 2| 600|
 |메모리 최적화| 4| 1250|
 |메모리 최적화| 8| 2500|
 |메모리 최적화| 16| 5,000|
+|메모리 최적화| 32| 10000|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류 1040(08004): 연결이 너무 많음

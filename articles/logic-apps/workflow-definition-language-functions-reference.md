@@ -1,27 +1,29 @@
 ---
-title: 워크플로 정의 언어에 대한 함수 참조 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에 대한 워크플로 정의 언어 함수에 대해 알아보기
+title: 워크플로 정의 언어-Azure Logic Apps 및 Microsoft Flow에서 함수에 대 한 참조
+description: Azure Logic Apps 및 Microsoft Flow 용 워크플로 정의 언어를 사용 하 여 만든 식에서 함수에 대 한 참조 가이드
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189906"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618212"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure Logic Apps 및 Microsoft Flow 워크플로 정의 언어에 대 한 함수 참조
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)의 일부 [식](../logic-apps/logic-apps-workflow-definition-language.md#expressions)은 논리 앱 워크플로 정의가 실행되기 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 값을 가져옵니다.
-식에서 이러한 값을 사용하거나 참조하려면 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)가 제공하는 *함수*를 사용하면 됩니다.
-예를 들어 정수 또는 부동 소수점에서 합계를 반환하는 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 함수 같은 계산용 수식 함수를 사용할 수 있습니다. 다음은 함수로 수행할 수 있는 몇 가지 예제 작업입니다.
+워크플로 정의에 대 한 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 하 고 [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), 일부 [식](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 아직 존재 하지 않을 수 있는 런타임 작업에서 값을 가져오는 경우 워크플로 이 실행 되기 시작 합니다. 이러한 값을 참조 하거나 해당이 식에서 값을 처리를 사용할 수 있습니다 *함수* 에서 제공 합니다 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)합니다. 
+
+> [!NOTE]
+> 이 참조 페이지 Azure Logic Apps 및 Microsoft Flow 모두에 적용 되지만 Azure Logic Apps 설명서에 표시 됩니다. 논리 앱에만이 페이지는 참조, 하지만 둘 다 흐름 및 logic apps에 대 한 이러한 함수의 작동 합니다. Microsoft Flow 함수 및 식에 대 한 자세한 내용은 참조 하세요. [조건에서 식을 사용 하 여](https://docs.microsoft.com/flow/use-expressions-in-conditions)입니다.
+
+예를 들어 같은 수치 연산 함수를 사용 하 여 값을 계산할 수 있습니다 합니다 [add () 함수](../logic-apps/workflow-definition-language-functions-reference.md#add), 정수 또는 부동 소수점 수의 합계를 하려는 경우. 함수를 사용 하 여 수행할 수 있는 다른 몇 가지 예 태스크는 다음과 같습니다.
 
 | Task | 함수 구문 | 결과 |
 | ---- | --------------- | ------ |
@@ -29,8 +31,7 @@ ms.locfileid: "58189906"
 | 전역적으로 고유한 식별자(GUID)를 반환합니다. | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-이 문서에서는 논리 앱 정의를 만들 때 사용할 수 있는 함수를 설명합니다.
-[일반 용도를 기반으로](#ordered-by-purpose) 함수를 찾으려면 다음 테이블을 참조하세요. 각 함수에 대한 자세한 내용은 [사전순 목록](#alphabetical-list)을 참조하세요.
+함수를 찾을 [일반 용도에 따라](#ordered-by-purpose), 다음 테이블을 검토 합니다. 각 함수에 대한 자세한 내용은 [사전순 목록](#alphabetical-list)을 참조하세요.
 
 > [!NOTE]
 > 매개 변수 정의 구문에서 매개 변수 뒤에 나오는 물음표(?)는 해당 매개 변수가 선택 사항임을 의미합니다.
@@ -142,7 +143,7 @@ ms.locfileid: "58189906"
 
 값의 유형 또는 형식을 변경하려면 이러한 변환 함수를 사용할 수 있습니다.
 예를 들어 부울에서 정수로 값을 변경할 수 있습니다.
-변환 동안 Logic Apps이 콘텐츠 형식을 처리하는 방법을 알아보려면 [콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)를 참조합니다.
+Logic Apps 콘텐츠 형식을 변환 하는 동안 처리 하는 방법에 대 한 자세한 내용은 참조 하세요. [콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)합니다.
 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
 
 | 변환 함수 | Task |
@@ -229,7 +230,7 @@ ms.locfileid: "58189906"
 이러한 워크플로 함수는 다음을 도울 수 있습니다.
 
 * 실행 시간에 워크플로 인스턴스에 대한 세부 정보를 가져옵니다.
-* 논리 앱을 인스턴스화하는 데 사용된 입력을 사용합니다.
+* 논리 앱 또는 흐름을 인스턴스화하는 데 입력으로 작동 합니다.
 * 트리거 및 작업에서 출력을 참조합니다.
 
 예를 들어 한 동작에서 출력을 참조하고 이후 작업에서 해당 데이터를 사용할 수 있습니다.
@@ -248,7 +249,7 @@ ms.locfileid: "58189906"
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | for-each 또는 do-until-loop 내에 있을 경우 지정된 루프에서 현재 항목을 반환합니다.|
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | 트리거 또는 동작을 호출하는 "콜백 URL"을 반환합니다. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 여러 부분으로 구성된 작업의 출력에서 특정 부분에 대한 본문을 반환합니다. |
-| [매개 변수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 논리 앱 정의에 설명된 매개 변수에 대한 값을 반환합니다. |
+| [매개 변수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 워크플로 정의에서 설명 하는 매개 변수의 값을 반환 합니다. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 런타임 시 또는 다른 JSON 이름-값 쌍에서 트리거 출력을 반환합니다. [triggerOutputs](#triggerOutputs) 및 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)도 참조합니다. |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 런타임 시 트리거의 `body` 출력을 반환합니다. [트리거](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 참조합니다. |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | *form-data* 또는 *form-encoded* 트리거 출력에서 키 이름과 일치하는 단일 값을 반환합니다. |
@@ -1812,7 +1813,7 @@ first(createArray(0, 1, 2))
 ### <a name="float"></a>float
 
 부동 소수점 수에 대한 문자열 버전을 실제 부동 소수점 수로 변환합니다.
-이 함수는 논리 앱과 같은 앱에 사용자 지정 매개 변수를 전달할 경우에만 사용할 수 있습니다.
+예를 들어 논리 앱 이나 흐름을 앱에 사용자 지정 매개 변수를 전달 하는 경우에이 함수를 사용할 수 있습니다.
 
 ```
 float('<value>')
@@ -2196,7 +2197,7 @@ indexOf('hello world', 'world')
 
 <a name="int"></a>
 
-### <a name="int"></a>int
+### <a name="int"></a>ssNoversion
 
 문자열에 대한 정수 버전을 반환합니다.
 
@@ -2766,7 +2767,7 @@ multipartBody('<actionName>', <index>)
 식이 false인지 검사합니다.
 식이 false이면 true를 반환하거나 true이면 false를 반환합니다.
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2784,7 +2785,7 @@ not(<expression>)
 
 아래 예제는 지정한 식이 모두 false인지 검사합니다.
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2798,7 +2799,7 @@ not(true)
 
 아래 예제는 지정한 식이 모두 false인지 검사합니다.
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2833,7 +2834,7 @@ or(<expression1>, <expression2>, ...)
 
 아래 예제는 최소 하나의 식이 true인지 검사합니다.
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2847,7 +2848,7 @@ or(false, false)
 
 아래 예제는 최소 하나의 식이 true인지 검사합니다.
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2861,7 +2862,7 @@ or(equals(1, 2), equals(1, 3))
 
 ### <a name="parameters"></a>매개 변수
 
-논리 앱 정의에 설명된 매개 변수에 대한 값을 반환합니다.
+워크플로 정의에서 설명 하는 매개 변수의 값을 반환 합니다.
 
 ```
 parameters('<parameterName>')

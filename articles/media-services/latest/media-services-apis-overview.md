@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546401"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617399"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 Api를 Media Services를 사용 하 여 개발
 
@@ -25,7 +25,8 @@ ms.locfileid: "59546401"
 
 ## <a name="accessing-the-azure-media-services-api"></a>Azure Media Services API 액세스
 
-Azure Media Services 리소스에 액세스 하려면 Azure AD (Active Directory) 서비스 주체 인증을 사용 해야 합니다. Azure Media Services API에 필요한 사용자 또는 REST API를 사용 하면 응용 프로그램 요청 Azure Media Services 계정 리소스에 액세스할 수 있는지 (일반적으로 하나는 **참가자** 하거나 **소유자** 역할)입니다. 자세한 내용은 [Media Services 계정에 대 한 역할 기반 액세스 제어](rbac-overview.md)입니다.
+Azure Media Services 리소스에 액세스 하려면 Azure AD (Active Directory) 서비스 주체 인증을 사용할 수 있습니다.
+Media Services API에 필요한 사용자 또는 응용 프로그램은 REST API 요청 Media Services 계정 리소스에 액세스할 수 있으며 사용을 **참여자** 또는 **소유자** 역할입니다. API를 사용 하 여 액세스할 수 있습니다는 **판독기** 역할에만 **가져오기** 하거나 **목록**   작업을 사용할 수 있습니다. 자세한 내용은 [Media Services 계정에 대 한 역할 기반 액세스 제어](rbac-overview.md)입니다.
 
 서비스 주체를 만드는 대신 Azure 리소스에 대 한 관리 되는 id를 사용 하 여 Azure Resource Manager를 통해 Media Services API에 액세스 하는 것이 좋습니다. Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 관리 되는 id 란](../../active-directory/managed-identities-azure-resources/overview.md)합니다.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096693"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524262"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>예제 발언에 엔터티 추가 
 
@@ -91,6 +91,8 @@ Utterance, 가정 `Does John Smith work in Seattle?`, 복합 utterance 직원 �
 
 ## <a name="add-hierarchical-entity"></a>계층적 엔터티 추가
 
+**계층적 엔터티는 결국 사용 중단 됩니다. 사용 하 여 [엔터티 역할](luis-concept-roles.md) 계층적 엔터티 대신 엔터티 하위 형식 확인 하려면.**
+
 계층 구조 엔터티는 컨텍스트에 따라 학습되고 개념적으로 관련이 있는 엔터티의 범주입니다. 다음 예제에서는 엔터티에는 출발지 및 목적지 위치가 포함되어 있습니다. 
 
 발언 `Move John Smith from Seattle to Cairo`에서 Seattle은 출발지 위치이고 Cairo는 목적지 위치입니다. 각 위치는 컨텍스트가 다르며, 발언의 단어 순서 및 단어 선택에서 학습됩니다.
@@ -105,6 +107,12 @@ Utterance, 가정 `Does John Smith work in Seattle?`, 복합 utterance 직원 �
 
     >[!CAUTION]
     >자식 엔터티 이름은 단일 앱의 모든 엔터티에서 고유해야 합니다. 서로 다른 두 계층 구조 엔터티는 이름이 같은 자식 엔터티를 포함할 수 없습니다. 
+
+## <a name="add-entitys-role-to-utterance"></a>Utterance 엔터티의 역할 추가
+
+역할은 명명 된 하위 엔터티의 utterance의 컨텍스트에 의해 결정 됩니다. 표시 된 엔터티로 utterance 내 엔터티의 수도 있고 해당 엔터티 내에서 역할을 선택 수 있습니다. 모든 엔터티 (간단한 엔터티 및 복합 엔터티) 컴퓨터에서 학습 된 사용자 지정 엔터티를 비롯 한 역할을 가질 수 있습니다, 그리고 기계 학습 (미리 작성 된 엔터티, 정규식 엔터티 목록 엔터티) 없는 합니다. 
+
+에 대해 알아봅니다 [엔터티 역할과 utterance를 표시 하는 방법을](tutorial-entity-roles.md) 실습 자습서에서. 
 
 ## <a name="entity-status-predictions"></a>엔터티 상태 예측
 
@@ -151,11 +159,11 @@ LUIS 포털에서 새 발언을 입력하면 발언에서 엔터티 예측 오�
 
 ### <a name="add-prebuilt-entity-label"></a>미리 빌드된 엔터티 레이블 추가
 
-LUIS 앱에 미리 빌드된 엔터티를 추가하는 경우 이러한 엔터티를 사용하여 발언에 태그를 지정할 필요는 없습니다. 미리 빌드된 엔터티 및 추가 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md#add-prebuilt-entity)를 참조하세요.
+LUIS 앱에 미리 빌드된 엔터티를 추가하는 경우 이러한 엔터티를 사용하여 발언에 태그를 지정할 필요는 없습니다. 미리 빌드된 엔터티 및 추가 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app)를 참조하세요.
 
 ### <a name="add-regular-expression-entity-label"></a>정규식 엔터티 레이블 추가
 
-LUIS 앱에 정규식 엔터티를 추가하는 경우 이러한 엔터티를 사용하여 발언에 태그를 지정할 필요는 없습니다. 정규식 엔터티 및 추가 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md#add-regular-expression-entities)를 참조하세요.
+LUIS 앱에 정규식 엔터티를 추가하는 경우 이러한 엔터티를 사용하여 발언에 태그를 지정할 필요는 없습니다. 정규식 엔터티 및 추가 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts)를 참조하세요.
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>발언에서 패턴 만들기

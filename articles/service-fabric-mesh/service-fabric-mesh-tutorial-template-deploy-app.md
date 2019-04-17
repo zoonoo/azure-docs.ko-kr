@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336323"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527339"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
@@ -351,8 +351,8 @@ parameters 파일에서 다음 매개 변수 값을 업데이트합니다.
 |registryPassword|이전에 [레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 암호입니다. 템플릿의 이 매개 변수는 보안 문자열이므로 배포 상태 또는 `az mesh service show` 명령에 표시되지 않습니다.|
 |registryUserName|[레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 사용자 이름입니다.|
 |registryServer|[레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry)에서 가져온 레지스트리 서버 이름입니다.|
-|frontEndImage|프런트 엔드 서비스용 컨테이너 이미지입니다.  예를 들면 "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709"와 같습니다.|
-|serviceImage|백 엔드 서비스용 컨테이너 이미지입니다.  예를 들면 "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709"와 같습니다.|
+|frontEndImage|프런트 엔드 서비스용 컨테이너 이미지입니다.  예: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`|
+|serviceImage|백 엔드 서비스용 컨테이너 이미지입니다.  예: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`|
 
 애플리케이션을 배포하려면 다음 명령을 실행합니다.
 
@@ -400,7 +400,7 @@ app show 명령을 사용하여 애플리케이션 상태를 확인할 수 있�
 az mesh app show --resource-group myResourceGroup --name todolistapp
 ```
 
-`az mesh code-package-log get` 명령을 사용하여 배포된 응용 프로그램에 대한 로그를 검사합니다.
+`az mesh code-package-log get` 명령을 사용하여 배포된 애플리케이션에 대한 로그를 검사합니다.
 ```azurecli
 az mesh code-package-log get --resource-group myResourceGroup --application-name todolistapp --service-name WebFrontEnd --replica-name 0 --code-package-name WebFrontEnd
 ```

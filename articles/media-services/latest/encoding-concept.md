@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243622"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617634"
 ---
 # <a name="encoding-with-media-services"></a>Media Services를 사용하여 인코딩
 
@@ -54,19 +54,38 @@ Media Services에서 현재 지원하는 기본 제공 인코딩 미리 설정�
 
 현재 지원되는 미리 설정은 다음과 같습니다.
 
-- **EncoderNamedPreset.AdaptiveStreaming**(권장) - 자세한 내용은 [비트 전송률 사다리 자동 생성](autogen-bitrate-ladder.md)을 참조하세요.
 - **EncoderNamedPreset.AACGoodQualityAudio** - 192kbps로 인코딩된 스테레오 오디오만 포함된 단일 MP4 파일을 생성합니다.
+- **EncoderNamedPreset.AdaptiveStreaming**(권장) - 자세한 내용은 [비트 전송률 사다리 자동 생성](autogen-bitrate-ladder.md)을 참조하세요.
+- **EncoderNamedPreset.ContentAwareEncodingExperimental** -콘텐츠 인식 인코딩에 실험적 미리 설정을 노출 합니다. 서비스 입력된 내용을 지정 되 면 자동으로 적응 스트리밍을 통해 계층, 적절 한 비트 전송률 및 해상도 설정을 배달에 대 한 최적 수를 확인 하려고 합니다. 기본 알고리즘은 시간이 지나면서 계속 됩니다. 출력은 비디오 및 인터리브 오디오로 MP4 파일에 포함 됩니다. 자세한 내용은 [콘텐츠를 인식 하는 인코딩 사전 설정을 실험적](cae-experimental.md)합니다.
 - **EncoderNamedPreset.H264MultipleBitrate1080p** - 스테레오 AAC 오디오 및 6,000~400kbps 범위의 8GOP 정렬 MP4 파일 집합을 생성합니다. 해상도는 1,080p에서 시작하여 360p까지 낮아집니다.
 - **EncoderNamedPreset.H264MultipleBitrate720p** - 스테레오 AAC 오디오 및 3,400~400kbps 범위의 6GOP 정렬 MP4 파일 집합을 생성합니다. 해상도는 720p에서 시작하여 360p까지 낮아집니다.
-- **EncoderNamedPreset.H264MultipleBitrateSD** - 스테레오 AAC 오디오 및 1,600~400kbps 범위의 5GOP 정렬 MP4 파일 집합을 생성합니다. 해상도는 480p에서 시작하여 360p까지 낮아집니다.<br/><br/>자세한 내용은 [파일 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)을 참조하세요.
+- **EncoderNamedPreset.H264MultipleBitrateSD** - 스테레오 AAC 오디오 및 1,600~400kbps 범위의 5GOP 정렬 MP4 파일 집합을 생성합니다. 해상도는 480p에서 시작하여 360p까지 낮아집니다.
+- **EncoderNamedPreset.H264SingleBitrate1080p** -비디오 6750kbps 및 1080 픽셀의 그림 높이 H.264 코덱으로 인코딩된 않았고 64kbps AAC-LC 코덱으로 인코딩된 스테레오 오디오 MP4 파일을 생성 합니다.
+- **EncoderNamedPreset.H264SingleBitrate720p** -비디오 4500kbps, 그림 높이 720 픽셀에서 H.264 코덱으로 인코딩된 않았고 64kbps AAC-LC 코덱으로 인코딩된 스테레오 오디오 MP4 파일을 생성 합니다.
+- **EncoderNamedPreset.H264SingleBitrateSD** -비디오 2200kbps 및 그림 높이는 480 픽셀 H.264 코덱으로 인코딩된 않았고 64kbps AAC-LC 코덱으로 인코딩된 스테레오 오디오 MP4 파일을 생성 합니다.
+
+최신 사전 설정 목록은 참조 하세요 [비디오를 encoding에 사용 되는 기본 제공 사전 설정](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)합니다.
+
+기본 설정을 사용 하는 방법을 보려면, 체크 아웃 [업로드, 인코딩 및 스트리밍 파일](stream-files-tutorial-with-api.md)합니다.
 
 ### <a name="standardencoderpreset-preset"></a>StandardEncoderPreset 미리 설정
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)은 표준 인코더로 입력 비디오를 인코딩할 때 사용할 설정을 설명합니다. Transform 미리 설정을 사용자 지정할 때 이 미리 설정을 사용합니다. 
 
-#### <a name="custom-presets"></a>사용자 지정 미리 설정
+#### <a name="considerations"></a>고려 사항
 
-Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. Transform 미리 설정을 사용자 지정할 때 **StandardEncoderPreset** 미리 설정을 사용합니다. 자세한 설명과 예제는 [인코더 미리 설정을 사용자 지정하는 방법](customize-encoder-presets-how-to.md)을 참조하세요.
+사용자 지정 사전 설정을 만들 때 다음 사항을 고려해 야 합니다.
+
+- 높이 너비 AVC 내용에 대 한 모든 값은 4의 배수 여야 합니다.
+- Azure Media Services v3에서는 인코딩 비트 전송률 모두 비트 / 초입니다. 이 킬로 비트/초 단위로 v2 Api 사용 하 여 사전 설정에서 다릅니다. 예를 들어 v2의 비트 전송률 (k b/초) 128로 지정 된, 경우 v3에서 것은에 설정할 128000 (비트/초)입니다.
+
+#### <a name="examples"></a>예
+
+Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. 인코더 사전 설정을 사용자 지정 하는 방법을 보여 주는 예제를 참조 하세요.
+
+- [.NET을 사용 하 여 사전 설정 사용자 지정](customize-encoder-presets-how-to.md)
+- [CLI 사용 하 여 사전 설정 사용자 지정](custom-preset-cli-howto.md)
+- [REST 사용 하 여 사전 설정 사용자 지정](custom-preset-rest-howto.md)
 
 ## <a name="scaling-encoding-in-v3"></a>v3에서 인코딩 크기 조정
 

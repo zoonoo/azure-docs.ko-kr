@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3839a1a457af1549a82b7607310a619911c78591
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761874"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617486"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -471,7 +471,7 @@ Batch 솔루션 내에서 태스크 오류와 애플리케이션 오류를 모�
 ### <a name="accounting-for-task-failures-or-interruptions"></a>태스크 실패 또는 중단에 대한 조정
 간혹 태스크가 실패하거나 중단될 수 있습니다. 태스크 애플리케이션 자체가 실패하거나, 태스크를 실행 중인 노드가 다시 부팅되거나, 풀의 할당 취소 정책이 태스크가 완료되기를 기다리지 않고 즉시 노드를 제거하도록 설정된 상태에서 크기 조정 작업 중에 풀에서 노드가 제거되었을 수 있습니다. 어떤 경우든지 태스크는 다른 노드에서 실행되도록 Batch에 의해 자동으로 큐에 다시 대기할 수 있습니다.
 
-일시적인 문제로 인해 태스크가 응답하지 않거나 실행하는 데 너무 오래 걸릴 수도 있습니다. 태스크에 대한 최대 실행 간격을 설정할 수 있습니다. 최대 실행 간격을 초과하면 Batch 서비스가 태스크 애플리케이션을 중단합니다.
+가 응답을 중지 하는 작업을 유발 하거나 실행 하는 데 너무 오래 걸리는 일시적인 문제일 수 이기도 합니다. 태스크에 대한 최대 실행 간격을 설정할 수 있습니다. 최대 실행 간격을 초과하면 Batch 서비스가 태스크 애플리케이션을 중단합니다.
 
 ### <a name="connecting-to-compute-nodes"></a>계산 노드 연결
 계산 노드에 원격으로 로그인하여 추가 디버깅 및 문제 해결을 수행할 수 있습니다. Azure Portal을 사용하여 Windows 노드에 RDP(원격 데스크톱 프로토콜) 파일을 다운로드하고 Linux 노드에 SSH(Secure Shell) 연결 정보를 가져올 수 있습니다. 또한 [Batch .NET][net_rdpfile] 또는 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)과 같은 Batch API를 사용하여 수행할 수 있습니다.

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860714"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549690"
 ---
 # <a name="schema-format"></a>스키마 형식
 
@@ -43,14 +43,14 @@ ms.locfileid: "55860714"
 
 | Type | 설명 | 작업 | 예 |
 |------|-------------|------------|---------|
-| 문자열 | 문자열(1-1024자) | equals, starts_with | “hello world” |
-| Int32 | 서명된 32비트 정수 | equals, starts_with, is_between | 2016 |
-| Int64 | 서명된 64비트 정수 | equals, starts_with, is_between | 9876543210 |
-| Double | 배정밀도 부동 소수점 값 | equals, starts_with, is_between | 1.602e-19 |
-| Date | 날짜(1400-01-01 ~ 9999-12-31) | equals, is_between | ‘2016-03-14’ |
-| Guid | 전역적으로 고유한 식별자 | equals | “602DD052-CC47-4B23-A16A-26B52D30C05B” |
-| Blob | 내부적으로 압축된 인덱싱되지 않은 데이터 | *없음* | “Empower every person and every organization on the planet to achieve more” |
-| Composite | 여러 하위 특성의 복합| *해당 없음* | { “Name”:“harry shum”, “Affiliation”:“microsoft” } |
+| `String` | 문자열(1-1024자) | equals, starts_with | “hello world” |
+| `Int32` | 서명된 32비트 정수 | equals, starts_with, is_between | 2016 |
+| `Int64` | 서명된 64비트 정수 | equals, starts_with, is_between | 9876543210 |
+| `Double` | 배정밀도 부동 소수점 값 | equals, starts_with, is_between | 1.602e-19 |
+| `Date` | 날짜(1400-01-01 ~ 9999-12-31) | equals, is_between | ‘2016-03-14’ |
+| `Guid` | 전역적으로 고유한 식별자 | equals | “602DD052-CC47-4B23-A16A-26B52D30C05B” |
+| `Blob` | 내부적으로 압축된 인덱싱되지 않은 데이터 | *없음* | “Empower every person and every organization on the planet to achieve more” |
+| `Composite` | 여러 하위 특성의 복합| *해당 없음* | { “Name”:“harry shum”, “Affiliation”:“microsoft” } |
 
 문자열 특성은 사용자 쿼리의 일환으로 나타날 수 있는 문자열 값을 나타내는 데 사용됩니다.  “micros”를 “microsoft”에 맞추는 것과 같이 쿼리 완성 시나리오에 *starts_with* 작업과 함께 정확히 일치 *equals* 작업을 지원합니다.  맞춤법 오류를 처리하는 대/소문자를 구분하지 않는 유사 일치는 이후 릴리스에서 지원됩니다.
 

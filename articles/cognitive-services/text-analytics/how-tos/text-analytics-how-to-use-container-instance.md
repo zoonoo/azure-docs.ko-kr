@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868347"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526506"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 언어 감지 컨테이너 배포
 
@@ -206,7 +206,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     3단계의 전체 값을 이 섹션에 저장합니다. 
 
-1. ACR 클러스터에 대해 올바른 액세스 권한을 부여하여 컨테이너 레지스트리에 저장된 이미지를 사용하도록 하려면 역할 할당을 만듭니다. <appId> 및 <acrId>를 이전 두 단계에서 수집한 값으로 바꿉니다.
+1. ACR 클러스터에 대해 올바른 액세스 권한을 부여하여 컨테이너 레지스트리에 저장된 이미지를 사용하도록 하려면 역할 할당을 만듭니다. `<appId>` 및 `<acrId>`를 이전 두 단계에서 수집한 값으로 바꿉니다.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

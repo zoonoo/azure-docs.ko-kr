@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b7e778e04901e830cdbc463d889621565c175a0
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 7b79c4e1ddb84213ce9000236727d9bca298a0cd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448151"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523803"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Cosmos DB에 액세스 
 
@@ -157,7 +157,7 @@ CURL 응답에서는 키 목록을 제공합니다.  예를 들어 읽기 전용
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
 
-이제 Cosmos DB 계정에 대한 액세스 키가 있으므로 Cosmos DB SDK에 전달하고 계정에 액세스하는 호출을 만들 수 있습니다.  빠른 예제의 경우 Azure CLI에 액세스 키를 전달할 수 있습니다.  Azure Portal에서 Cosmos DB 계정 블레이드의 **개요** 탭에서 <COSMOS DB CONNECTION URL>을 가져올 수 있습니다.  <ACCESS KEY>를 위에서 얻은 값으로 바꿉니다.
+이제 Cosmos DB 계정에 대한 액세스 키가 있으므로 Cosmos DB SDK에 전달하고 계정에 액세스하는 호출을 만들 수 있습니다.  빠른 예제의 경우 Azure CLI에 액세스 키를 전달할 수 있습니다.  Azure Portal에서 Cosmos DB 계정 블레이드의 **개요** 탭에서 `<COSMOS DB CONNECTION URL>`을 가져올 수 있습니다.  `<ACCESS KEY>`를 위에서 얻은 값으로 바꿉니다.
 
 ```bash
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>

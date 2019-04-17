@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630620"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522731"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure Key Vault에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 
@@ -445,7 +445,7 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 보안 영역 관리자 카드를 플러그인하라는 메시지가 표시됩니다.
 
-명령이 완료되면 **결과: 성공**이 표시되고 축소된 사용 권한을 가진 키의 복사본이 key_xferacId_<contosokey>라는 파일에 저장됩니다.
+명령이 완료되면 **결과: 성공** 권한이 낮춰 진 키의 복사본이 key_xferacId_ 라는 파일에 저장 되며\<contosokey >.
 
 Thales 유틸리티에서 다음 명령을 사용하여 ACL을 검사할 수 있습니다.
 

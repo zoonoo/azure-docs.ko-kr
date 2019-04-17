@@ -1,29 +1,28 @@
 ---
-title: 워크플로 정의 언어에 대한 스키마 참조 - Azure Logic Apps | Microsoft Docs
-description: 워크플로 정의 언어로 Azure Logic Apps에 대한 사용자 지정 워크플로 정의 작성
+title: 워크플로 정의 언어-Azure Logic Apps에 대 한 스키마 참조
+description: Azure Logic Apps에서 워크플로 정의 언어 스키마에 대 한 참조 가이드
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620839"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616804"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 스키마 참조
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 논리 앱 워크플로를 만들 때 워크플로 기본 정의는 논리 앱에 대해 실행되는 실제 논리에 대해 설명합니다. 이 설명은 [JSON(JavaScript Object Notation)](https://www.json.org/)을 사용하는 워크플로 정의 언어 스키마에서 정의하고 유효성을 검사하는 구조를 따릅니다.
+논리 앱을 만들 때 [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 논리 앱에 논리 앱에서 실행 되는 실제 논리를 설명 하는 기본 워크플로 정의가 있습니다. 워크플로 정의 사용 하 여 [JSON](https://www.json.org/) 및 워크플로 정의 언어 스키마에 의해 유효성이 검사 되는 구조를 따릅니다. 이 참조는이 구조 및 스키마 워크플로 정의의 요소를 정의 하는 방법에 대 한 개요를 제공 합니다.
 
 ## <a name="workflow-definition-structure"></a>워크플로 정의 구조
 
-워크플로 정의에는 논리 앱에서 실행하는 하나 이상의 동작에 더해 로직 앱을 인스턴스화하는 최소 하나 이상의 트리거가 있습니다.
+워크플로 정의 항상 논리 앱 및 트리거가 실행 후 실행 되는 하나 이상의 작업을 인스턴스화하기 위한 트리거를 포함 합니다.
 
 워크플로 정의에 대한 고급 구조는 다음과 같습니다.
 
@@ -51,7 +50,7 @@ ms.locfileid: "58620839"
 
 ## <a name="parameters"></a>매개 변수
 
-`parameters` 섹션에서 논리 앱이 입력을 허용하기 위한 배포 시 사용하는 모든 워크플로 매개 변수를 정의합니다. 매개 변수 선언 및 매개 변수 값 모두 배포 시 필요합니다. 다른 워크플로 섹션에서 이러한 매개 변수를 사용할 수 있기 전에 이 섹션에서 모든 매개 변수를 선언하는지 확인합니다. 
+에 `parameters` 섹션에서 입력을 수락 하기 위해 배포 시 워크플로 정의 사용 하는 모든 워크플로 매개 변수를 정의 합니다. 매개 변수 선언 및 매개 변수 값 모두 배포 시 필요합니다. 다른 워크플로 섹션에서 이러한 매개 변수를 사용할 수 있기 전에 이 섹션에서 모든 매개 변수를 선언하는지 확인합니다. 
 
 매개 변수 정의에 대한 일반적인 구조는 다음과 같습니다.
 
@@ -75,7 +74,7 @@ ms.locfileid: "58620839"
 | 형식 | 예 | int, float, 문자열, securestring, bool, 배열, JSON 개체, secureobject <p><p>**참고**: 모든 암호, 키 및 비밀의 경우 `GET` 작업은 이러한 형식을 반환하지 않기 때문에 `securestring` 및 `secureobject` 형식을 사용합니다. 매개 변수를 보호 하는 방법에 대 한 자세한 내용은 참조 하세요. [논리 앱 보안](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 매개 변수의 형식 |
 | defaultValue | 예 | `type`과 동일 | 워크플로 인스턴스화할 때 아무 값도 지정하지 않는 경우의 기본 매개 변수 값 |
 | allowedValues | 아닙니다. | `type`과 동일 | 매개 변수를 수용할 수 있는 값으로 배열 |
-| metadata | 아닙니다. | JSON 개체 | 예를 들어 모든 다른 매개 변수는 이름 또는 Visual Studio 또는 다른 도구에서 사용하는 디자인 타임 데이터나 논리 앱에 대한 이름 또는 읽을 수 있는 정보를 설명합니다. |
+| metadata | 아닙니다. | JSON 개체 | 예를 들어, 이름 또는 논리 앱 또는 흐름을 Visual Studio 또는 다른 도구에서 사용 하는 디자인 타임 데이터에 대 한 읽을 수 있는 설명을 모든 다른 매개 변수 정보를 |
 ||||
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
@@ -107,7 +106,7 @@ ms.locfileid: "58620839"
 | 값 | 예 | `type`과 동일 | 출력 반환 값 |
 |||||
 
-워크플로 실행에서 출력을 가져오려면 논리 앱의 실행 기록과 Azure Portal의 세부 정보를 검토하거나 [워크플로 REST API](https://docs.microsoft.com/rest/api/logic/workflows)를 사용합니다. 또한 대시보드를 만들 수 있도록 외부 시스템, 예를 들어 PowerBI에 출력을 전달할 수 있습니다.
+워크플로 실행에서 출력을 가져오려면, 논리 앱의 실행된 기록 및 Azure portal에서 세부 정보를 검토 하거나 사용 합니다 [워크플로 REST API](https://docs.microsoft.com/rest/api/logic/workflows)합니다. 또한 대시보드를 만들 수 있도록 외부 시스템, 예를 들어 PowerBI에 출력을 전달할 수 있습니다.
 
 <a name="expressions"></a>
 
@@ -216,7 +215,7 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 ## <a name="functions"></a>Functions
 
-일부 식은 논리 앱이 실행을 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 해당 값을 가져옵니다. 식에서 이러한 값을 사용하거나 참조하려면 워크플로 정의 언어가 제공하는 [*함수*](../logic-apps/workflow-definition-language-functions-reference.md)를 사용할 수 있습니다.
+일부 식은 워크플로 정의 실행 하기 시작할 때 아직 존재 하지 않을 수 있는 런타임 작업에서 값을 가져옵니다. 식에서 이러한 값을 사용하거나 참조하려면 워크플로 정의 언어가 제공하는 [*함수*](../logic-apps/workflow-definition-language-functions-reference.md)를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

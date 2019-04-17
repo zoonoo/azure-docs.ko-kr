@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 90fa56bb0e2044d24533c35a051d3f4b644e05b5
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349640"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578191"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
@@ -38,17 +38,17 @@ ms.locfileid: "58349640"
  미국 서부2 | `westus2` | https://westus2.cris.ai
  미국 동부 | `eastus` | https://eastus.cris.ai
  미국 동부2 | `eastus2` | https://eastus2.cris.ai
- 미국 중부 | ' centralus' | https://centralus.cris.ai
- 미국 중북부 | ' northcentralus' | https://northcentralus.cris.ai
- 미국 중남부 | ' southcentralus' | https://southcentralus.cris.ai
- 인도 중부 | ' centralindia' | https://centralindia.cris.ai
+ 미국 중부 | `centralus` | https://centralus.cris.ai
+ 미국 중북부 | `northcentralus` | https://northcentralus.cris.ai
+ 미국 중남부 | `southcentralus` | https://southcentralus.cris.ai
+ 중앙 인도 | `centralindia` | https://centralindia.cris.ai
  동아시아 | `eastasia` | https://eastasia.cris.ai
  동남아시아 | `southeastasia` | https://southeastasia.cris.ai
  일본 동부 | `japaneast` | https://japaneast.cris.ai
  한국 중부 | `koreacentral` | https://koreacentral.cris.ai
  오스트레일리아 동부 | `australiaeast` | https://australiaeast.cris.ai
  캐나다 중부 | `canadacentral` | https://canadacentral.cris.ai
- 북유럽 | `northeurope` | https://northeurope.cris.ai
+ 유럽 북부 | `northeurope` | https://northeurope.cris.ai
  서유럽 | `westeurope` | https://westeurope.cris.ai
  영국 남부 | `uksouth` | https://uksouth.cris.ai
  프랑스 중부 | `francecentral` | https://francecentral.cris.ai
@@ -62,7 +62,7 @@ Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음�
  아시아 | 동아시아 | `eastasia`
  아시아 | 동남아시아 | `southeastasia`
  오스트레일리아 | 오스트레일리아 동부 | `australiaeast`
- 유럽 | 북유럽 | `northeurope`
+ 유럽 | 유럽 북부 | `northeurope`
  유럽 | 서유럽 | `westeurope`
  북아메리카 | 미국 동부 | `eastus`
  북아메리카 | 미국 동부 2 | `eastus2`

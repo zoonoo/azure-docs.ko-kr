@@ -2,7 +2,7 @@
 title: 지속성 함수의 팬아웃/팬인 시나리오 - Azure
 description: Azure Functions의 지속성 함수 확장에서 팬아웃/팬인 시나리오를 구현하는 방법을 알아봅니다.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bb2a68209e657b1e3ff8c3a61730d42f04a3b8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0bef5f1b64ec9f322070ba5c36cab138c7327da2
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727380"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608506"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -25,11 +25,11 @@ ms.locfileid: "53727380"
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
-이 샘플에서 함수는 지정한 디렉터리 아래의 모든 파일을 Blob 저장소에 재귀적으로 업로드합니다. 또한 업로드된 총 바이트 수를 계산합니다.
+이 샘플에서 함수는 지정한 디렉터리 아래의 모든 파일을 Blob Storage에 재귀적으로 업로드합니다. 또한 업로드된 총 바이트 수를 계산합니다.
 
 모든 작업을 처리하는 단일 함수를 작성할 수 있습니다. 실행 시의 주요 문제는 **확장성**입니다. 단일 함수 실행은 단일 VM에서만 실행될 수 있으므로 처리량은 해당 단일 VM의 처리량으로 제한됩니다. 또 하나의 문제는 **안정성**입니다. 중간에 오류가 있거나 전체 프로세스에 5분 이상 걸리는 경우 부분적으로 완료된 상태에서 백업이 실패할 수 있습니다. 그러면 다시 시작해야 합니다.
 
-더 강력한 방법은 다음 두 가지 일반 함수를 작성하는 것입니다. 하나는 파일을 열거하고 큐에 파일 이름을 추가하며, 다른 하나는 파일을 큐에서 읽고 Blob 저장소에 업로드합니다. 이렇게 하면 처리량과 안정성 면에서 더 효율적이지만 큐를 프로비전하고 관리해야 합니다. 더 중요한 것은 업로드된 총 바이트 수의 보고와 같이 더 많은 작업을 수행하려는 경우 **상태 관리** 및 **조정**과 관련하여 상당한 복잡성이 도입된다는 것입니다.
+더 강력한 방법은 다음 두 가지 일반 함수를 작성하는 것입니다. 하나는 파일을 열거하고 큐에 파일 이름을 추가하며, 다른 하나는 파일을 큐에서 읽고 Blob Storage에 업로드합니다. 이렇게 하면 처리량과 안정성 면에서 더 효율적이지만 큐를 프로비전하고 관리해야 합니다. 더 중요한 것은 업로드된 총 바이트 수의 보고와 같이 더 많은 작업을 수행하려는 경우 **상태 관리** 및 **조정**과 관련하여 상당한 복잡성이 도입된다는 것입니다.
 
 지속성 함수 방법은 언급된 모든 이점을 매우 낮은 오버헤드로 제공합니다.
 

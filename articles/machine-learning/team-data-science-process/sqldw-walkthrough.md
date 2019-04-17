@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838887"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523599"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
@@ -77,7 +77,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 **Azure SQL DW 인스턴스를 프로비전합니다.**
 [SQL Data Warehouse 만들기](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 의 설명서에 따라 SQL Data Warehouse 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL Data Warehouse 자격 증명에 표기하도록 합니다.
 
-* **서버 이름**: <server Name>.database.windows.net
+* **서버 이름**: \<서버 이름 >. database.windows.net
 * **SQLDW(데이터베이스) 이름**
 * **사용자 이름**
 * **암호**

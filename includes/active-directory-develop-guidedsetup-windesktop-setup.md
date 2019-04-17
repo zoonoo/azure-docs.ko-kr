@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 2a7734f729c4b1db7e8c0b4571e8792373ee11ae
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: ce95e8d0249a886e031e3ae0fe9dd8e20804f391
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203209"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498397"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -28,7 +28,7 @@ ms.locfileid: "58203209"
 이 가이드를 사용하여 만든 애플리케이션은 그래프를 호출하는 데 사용된 단추, 화면에 결과를 보여주는 영역 및 로그아웃 단추를 표시합니다.
 
 > [!NOTE]
-> 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)하면 코드 샘플을 실행하기 전에 구성하는 [구성 단계](#register-your-application)를 건너뛸 수 있습니다.
+> 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)하면 코드 샘플을 실행하기 전에 구성하는 [구성 단계](#register-your-application)를 건너뛸 수 있습니다.
 >
 
 애플리케이션을 만들려면 다음을 수행합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "58203209"
 2. 패키지 관리자 콘솔 창에서 다음 Azure PowerShell 명령을 붙여넣습니다.
 
     ```powershell
-    Install-Package Microsoft.Identity.Client
+    Install-Package Microsoft.Identity.Client -Pre
     ```
 
     > [!NOTE] 
@@ -66,12 +66,28 @@ ms.locfileid: "58203209"
     ```csharp
     public partial class App : Application
     {
-        //Below is the clientId of your app registration. 
-        //You have to replace the below with the Application Id for your app registration
-        private static string ClientId = "your_client_id_here";
+        static App()
+        {
+            _clientApp = PublicClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .Build();
+        }
 
-        public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // You have to replace:
+        // - the content of ClientID with the Application Id for your app registration
+        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        //   - For Work or School account in your org, use your tenant ID, or domain
+        //   - for any Work or School accounts, use `organizations`
+        //   - for any Work or School accounts, or Microsoft personal account, use `common`
+        //   - for Microsoft Personal account, use consumers
+        private static string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";
 
+        private static string Tenant = "common";
+
+        private static IPublicClientApplication _clientApp ;
+
+        public static IPublicClientApplication PublicClientApp { get { return _clientApp; } }
     }
     ```
 

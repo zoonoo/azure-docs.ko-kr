@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed1c201831b1edf4f5c267d2093ada4ba91d7df
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263318"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>자습서: Velpic SAML과 Azure Active Directory 통합
 
@@ -106,9 +106,9 @@ Velpic SAML에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Velpic SAML 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<sub-domain>.velpicsaml.net`
+    a. **로그온 URL** 텍스트 상자에서 `https://<sub-domain>.velpicsaml.net` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://auth.velpic.com/saml/v2/<entity-id>/login` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > Velpic SAML 쪽에서 SSO 플러그 인을 구성한 경우 로그온 URL은 Velpic SAML 팀에서 제공하고 식별자 값을 사용할 수 있습니다. Velpic SAML 애플리케이션 페이지에서 해당 값을 복사하고 여기에 붙여넣어야 합니다.
@@ -251,9 +251,9 @@ Velpic SAML 회사 사이트에 관리자로 로그인하고 다음 단계를 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

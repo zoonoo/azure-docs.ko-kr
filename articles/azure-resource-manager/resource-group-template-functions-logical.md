@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9065c6bc71a153ae94ddc20d5b41a152094fc111
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492178"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608915"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
 
@@ -27,7 +27,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 * [bool](#bool)
 * [if](#if)
 * [not](#not)
-* [또는](#or)
+* [or](#or)
 
 ## <a name="and"></a>and
 
@@ -75,7 +75,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |
@@ -186,7 +186,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | 문자열 | 예 |
 | noOutput | 문자열 | no |
@@ -212,7 +212,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
     },
     "resources": [
         {
-            "condition": "[greaterOrEquals(parameters('logAnalytics'), '0')]",
+            "condition": "[not(empty(parameters('logAnalytics')))]",
             "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "location": "[parameters('location')]",
@@ -223,10 +223,10 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
                 "typeHandlerVersion": "1.0",
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-                    "workspaceId": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
                 },
                 "protectedSettings": {
-                    "workspaceKey": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
                 }
             }
         }
@@ -234,7 +234,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
     "outputs": {
         "mgmtStatus": {
             "type": "string",
-            "value": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
         }
     }
 }
@@ -284,7 +284,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |
@@ -308,7 +308,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True  |
 
@@ -358,7 +358,7 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| name | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |

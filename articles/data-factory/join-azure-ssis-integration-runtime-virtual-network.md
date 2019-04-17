@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526676"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618144"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -139,7 +139,7 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
     -   Azure 공용 IP 주소 이름 가진  *\<Guid >-azurebatch-cloudservicepublicip*합니다.
     -   네트워크 작업 보안 그룹을 이름의  *\<Guid >-azurebatch-cloudservicenetworksecuritygroup*합니다. 
 
--   가상 네트워크가 속한 리소스 그룹 또는 구독에 대한 리소스 잠금이 없는지 확인합니다. 읽기 전용 잠금 또는 삭제 잠금을 구성하면 IR 시작 및 중지가 실패하거나 중단될 수 있습니다. 
+-   가상 네트워크가 속한 리소스 그룹 또는 구독에 대한 리소스 잠금이 없는지 확인합니다. 읽기 전용 잠금 또는 삭제 잠금을 구성 하는 경우 시작 하 고 IR을 중지 실패 하거나 응답을 중지 합니다. 
 
 -   가상 네트워크가 속한 리소스 그룹 또는 구독에 다음 리소스를 만들 수 없도록 하는 Azure 정책이 없는지 확인합니다. 
     -   Microsoft.Network/LoadBalancers 

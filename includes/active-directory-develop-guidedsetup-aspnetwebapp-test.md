@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919290"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528548"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
@@ -27,7 +27,7 @@ Visual Studio에서 애플리케이션을 테스트하려면 **F5** 키를 눌�
 
 테스트를 실행할 준비가 되면, Microsoft Azure Active Directory(Azure AD) 계정(회사 또는 학교 계정) 또는 개인 Microsoft 계정(<span>live.</span>com 또는 <span>outlook.</span>com)을 사용해 로그인합니다.
 
-![Microsoft에 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -96,5 +96,3 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>옵션 3: 사용자 지정 메서드를 사용하여 발급자 유효성 검사
 
 **IssuerValidator** 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현할 수 있습니다. 이 매개 변수를 사용하는 방법에 대해 자세히 알아보려면 [TokenValidationParameters 클래스](/previous-versions/visualstudio/dn464192(v=vs.114))를 알아보세요.
-
-[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]
