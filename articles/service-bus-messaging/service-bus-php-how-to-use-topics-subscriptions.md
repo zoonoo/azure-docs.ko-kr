@@ -12,24 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857966"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607537"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK](../php-download-sdk.md)를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
+이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [PHP용 Azure SDK](../php-download-sdk.md)를 사용합니다. 다루는 시나리오는 다음과 같습니다.
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- 토픽 및 구독 만들기 
+- 구독 만들기 필터 
+- 토픽에 메시지 보내기 
+- 구독에서 메시지 받기
+- 토픽 및 구독 삭제
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
+
+    > [!NOTE]
+    > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **PHP** 이 빠른 시작 합니다. 
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](../php-download-sdk.md)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 애플리케이션 또는 메모장을 만들 수 있습니다.
@@ -131,7 +140,7 @@ catch(ServiceException $e){
 토픽 구독은 `ServiceBusRestProxy->createSubscription` 메서드로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
-새 구독을 만들 때 필터를 지정하지 않은 경우 **MatchAll** 필터(기본값)가 사용됩니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 'mysubscription'이라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
+새 구독을 만들 때 필터를 지정하지 않은 경우 **MatchAll** 필터(기본값)가 사용됩니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 `mysubscription`라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
 ```php
 require_once 'vendor/autoload.php';

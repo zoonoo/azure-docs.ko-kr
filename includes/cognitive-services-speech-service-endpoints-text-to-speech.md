@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: 3ff49e800b8db09cbff5c07107f71532437a4572
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ef68d02f6aa23368962e08af7b35d2b81c0e80bb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671737"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579805"
 ---
 ### <a name="neural-voices"></a>인공신경망 음성
 
@@ -31,7 +31,6 @@ ms.locfileid: "58671737"
 | 지역 | 엔드포인트 |
 |--------|----------|
 | 오스트레일리아 동부 | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1 |
-| 브라질 남부 | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 캐나다 중부 | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 미국 중부 | https://centralus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 동아시아 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
@@ -42,7 +41,7 @@ ms.locfileid: "58671737"
 | 일본 동부 | https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 한국 중부 | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 미국 중북부 | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1 |
-| 북유럽 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
+| 유럽 북부 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 미국 중남부 | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 동남아시아 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 영국 남부 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1 |
@@ -57,7 +56,6 @@ ms.locfileid: "58671737"
 | 지역 | 엔드포인트 |
 |--------|----------|
 | 오스트레일리아 동부 | https://australiaeast.voice.speech.microsoft.com |
-| 브라질 남부 | https://brazilsouth.voice.speech.microsoft.com |
 | 캐나다 중부 | https://canadacentral.voice.speech.microsoft.com |
 | 미국 중부 | https://centralus.voice.speech.microsoft.com |
 | 동아시아 | https://eastasia.voice.speech.microsoft.com |
@@ -68,7 +66,7 @@ ms.locfileid: "58671737"
 | 일본 동부 | https://japaneast.voice.speech.microsoft.com |
 | 한국 중부 | https://koreacentral.voice.speech.microsoft.com |
 | 미국 중북부 | https://northcentralus.voice.speech.microsoft.com |
-| 북유럽 | https://northeurope.voice.speech.microsoft.com |
+| 유럽 북부 | https://northeurope.voice.speech.microsoft.com |
 | 미국 중남부 | https://southcentralus.voice.speech.microsoft.com |
 | 동남아시아 | https://southeastasia.voice.speech.microsoft.com |
 | 영국 남부 | https://uksouth.voice.speech.microsoft.com |
