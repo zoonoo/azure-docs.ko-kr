@@ -70,7 +70,7 @@ ms.locfileid: "58670883"
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-code-package-list"></a>sfctl service code-package-list
 Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
@@ -95,7 +95,7 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-create"></a>sfctl service create
 지정된 Service Fabric 서비스를 만듭니다.
@@ -142,7 +142,7 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
 기존 Service Fabric 서비스를 삭제합니다.
@@ -165,7 +165,7 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-deployed-type"></a>sfctl service deployed-type
 Service Fabric 클러스터의 노드에 배포된 애플리케이션의 지정된 서비스 유형에 대한 정보를 가져옵니다.
@@ -190,7 +190,7 @@ Service Fabric 클러스터의 노드에 배포된 애플리케이션의 특정 
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-deployed-type-list"></a>sfctl service deployed-type-list
 Service Fabric 클러스터의 노드에 배포된 애플리케이션의 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.
@@ -214,7 +214,7 @@ Service Fabric 클러스터의 노드에 배포된 애플리케이션의 서비�
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-description"></a>sfctl service description
 기존 Service Fabric서비스에 대한 설명을 가져옵니다.
@@ -236,7 +236,7 @@ Service Fabric 클러스터의 노드에 배포된 애플리케이션의 서비�
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-get-container-logs"></a>sfctl service get-container-logs
 Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를 가져옵니다.
@@ -263,7 +263,7 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-health"></a>sfctl service health
 지정된 Service Fabric 서비스의 상태를 가져옵니다.
@@ -288,7 +288,7 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-info"></a>sfctl service info
 Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보를 가져옵니다.
@@ -311,7 +311,7 @@ Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-list"></a>sfctl service list
 애플리케이션 ID로 지정된 애플리케이션에 속하는 모든 서비스에 대한 정보를 가져옵니다.
@@ -335,7 +335,7 @@ Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
 서비스 유형을 설명하는 매니페스트를 가져옵니다.
@@ -359,7 +359,7 @@ Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-package-deploy"></a>sfctl service package-deploy
 지정한 서비스 매니페스트와 연결된 패키지를 지정된 노드의 이미지 캐시에 다운로드합니다.
@@ -383,7 +383,7 @@ Service Fabric 애플리케이션에 속하는 특정 서비스에 대한 정보
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-package-health"></a>sfctl service package-health
 Service Fabric 노드 및 애플리케이션에 배포된 특정 애플리케이션의 서비스 패키지 상태에 대한 정보를 가져옵니다.
@@ -408,7 +408,7 @@ Service Fabric 노드에 배포된 특정 애플리케이션의 서비스 패키
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-package-info"></a>sfctl service package-info
 지정한 이름과 정확히 일치하는 Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다.
@@ -432,7 +432,7 @@ Service Fabric 노드에 배포된 특정 애플리케이션의 서비스 패키
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-package-list"></a>sfctl service package-list
 Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다.
@@ -455,7 +455,7 @@ Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-recover"></a>sfctl service recover
 현재 쿼럼 손실 상태에 있는 지정된 서비스를 복구하려고 시도해야 한다는 것을 Service Fabric 클러스터에 나타냅니다.
@@ -477,7 +477,7 @@ Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-report-health"></a>sfctl service report-health
 Service Fabric 서비스에 대한 상태 보고서를 보냅니다.
@@ -507,7 +507,7 @@ Service Fabric 서비스에 대한 상태 보고서를 보냅니다.
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
 Service Fabric 파티션을 해결합니다.
@@ -532,7 +532,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 엔드
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-type-list"></a>sfctl service type-list
 Service Fabric 클러스터에 프로비저닝된 애플리케이션 유형에서 지원하는 서비스 유형에 대한 정보가 포함된 목록을 가져옵니다.
@@ -555,7 +555,7 @@ Service Fabric 클러스터에 프로비저닝된 애플리케이션 유형에�
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 ## <a name="sfctl-service-update"></a>sfctl service update
 지정된 업데이트 설명을 사용하여 지정된 서비스를 업데이트합니다.
@@ -590,7 +590,7 @@ Service Fabric 클러스터에 프로비저닝된 애플리케이션 유형에�
 | --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
-| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그의 경우 --debug를 사용합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

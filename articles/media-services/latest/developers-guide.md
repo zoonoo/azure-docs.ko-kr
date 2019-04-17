@@ -16,18 +16,21 @@ ms.workload: media
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 774ddfa435cb23a8bf5d179fb0f7a0baf9dfca75
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755889"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044409"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>SDK/도구를 사용하여 Media Services v3 API로 개발 시작
 
 개발자인 경우 Media Services [REST API](https://aka.ms/ams-v3-rest-ref) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API는 OpenAPI 사양(이전 명칭 Swagger)에 기반을 두고 있습니다.
 
 이 항목에서는 SDK, 도구, 설명서에 대한 링크를 제공합니다. 또한 다른 개발 환경에 유용한 정보를 제공합니다.
+
+> [!NOTE]
+> Azure Media Services v3 SDK는 스레드로부터 안전을 보장하지 않습니다. 다중 스레드 애플리케이션을 개발하는 경우 클라이언트를 보호하는 고유한 스레드 동기화 논리를 추가하거나 스레드별로 새 AzureMediaServicesClient 개체를 사용해야 합니다. 코드에서 클라이언트에 제공하는 선택적 개체(예: .NET의 HttpClient 인스턴스) 때문에 다중 스레드 문제가 도입될 수 있다는 점에도 주의해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

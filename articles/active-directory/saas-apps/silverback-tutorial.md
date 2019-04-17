@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a104da9ecb28d2109e82056995ef7a8048eafe2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838751"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>자습서: Silverback과 Azure Active Directory 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "57838751"
 Silverback과 Azure AD를 통합하면 다음과 같은 이점이 제공됩니다.
 
 * Silverback에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 자동으로 로그인 (Single Sign-on) Silverback를 해당 Azure AD 계정으로 사용할 수 있습니다.
+* 사용자가 자신의 Azure AD 계정으로 Silverback에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
@@ -39,13 +39,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 Silverback과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* Silverback에서 single sign-on이 설정 된 구독
+* Silverback Single Sign-On이 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Silverback 지원 **SP** 에서 시작한 SSO
+* Silverback에서 **SP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-silverback-from-the-gallery"></a>갤러리에서 Silverback 추가
 
@@ -71,25 +71,25 @@ Azure AD에 Silverback을 통합하도록 구성하려면 갤러리의 Silverbac
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 구성 하 고이 Silverback 이라는 테스트 사용자를 기반으로 사용 하 여 Azure AD에서 single sign-on 테스트 **Britta Simon**합니다.
-Single sign-on 작업에 대 한 Azure AD 사용자와 Silverback의 관련된 사용자 간에 연결 관계가 설정 해야 합니다.
+이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Silverback에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 Silverback의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Silverback에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Silverback Single Sign-on 구성](#configure-silverback-single-sign-on)**  -응용 프로그램 쪽에서 Single Sign-on 설정을 구성 합니다.
+2. **[Silverback Single Sign-On 구성](#configure-silverback-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Silverback 테스트 사용자 만들기](#create-silverback-test-user)**  -Britta simon 이라는 사용자를 Azure AD 표현과 연결 된 Silverback 합니다.
+5. **[Silverback 테스트 사용자 만들기](#create-silverback-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Silverback에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-Silverback를 사용 하 여 Azure AD에서 single sign-on 구성 하려면 다음 단계를 수행 합니다.
+Silverback에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.
 
-1. 에 [Azure portal](https://portal.azure.com/)의 합니다 **Silverback** 응용 프로그램 통합 페이지에서 선택 **Single sign on**합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Silverback** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -105,11 +105,11 @@ Silverback를 사용 하 여 Azure AD에서 single sign-on 구성 하려면 다�
 
     ![Silverback 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<YOURSILVERBACKURL>.com/ssp` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. **식별자** 텍스트 상자에서 `<YOURSILVERBACKURL>.com` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다. `<YOURSILVERBACKURL>.com`
 
-    다. **회신 URL** 텍스트 상자에서 `https://<YOURSILVERBACKURL>.com/sts/authorize/login` 패턴을 사용하여 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 가져오려면 [Silverback 클라이언트 지원 팀](mailto:helpdesk@matrix42.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -118,9 +118,9 @@ Silverback를 사용 하 여 Azure AD에서 single sign-on 구성 하려면 다�
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
-### <a name="configure-silverback-single-sign-on"></a>Silverback Single sign On 구성
+### <a name="configure-silverback-single-sign-on"></a>Silverback Single Sign-On 구성
 
-1. 다른 웹 브라우저에서 Silverback 서버에 관리자로 로그인 합니다.
+1. 다른 웹 브라우저에서 관리자 권한으로 Silverback 서버에 로그인합니다.
 
 2. **관리자** > **인증 공급자**로 이동합니다.
 
@@ -175,7 +175,7 @@ Silverback를 사용 하 여 Azure AD에서 single sign-on 구성 하려면 다�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Silverback에 대한 액세스 권한을 부여합니다.
 
-1. Azure portal에서 선택 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **Silverback**합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Silverback**을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -201,7 +201,7 @@ Silverback를 사용 하 여 Azure AD에서 single sign-on 구성 하려면 다�
 
 Azure AD 사용자가 Silverback에 로그인할 수 있도록 하려면 Silverback으로 프로비전되어야 합니다. Silverback의 경우 수동으로 프로비전합니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. 관리자 권한으로 Silverback 서버에 로그인합니다.
 
@@ -232,13 +232,13 @@ Azure AD 사용자가 Silverback에 로그인할 수 있도록 하려면 Silverb
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Silverback 타일을 클릭 하면 있습니다 자동으로 로그온 됩니다 sso 설정 Silverback 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Silverback 타일을 클릭하면, SSO를 설정한 Silverback에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

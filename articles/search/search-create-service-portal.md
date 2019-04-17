@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885730"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264032"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -22,7 +22,7 @@ Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 Azure Search 리소스를 만드는 방법을 알아봅니다.
 
-[![애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![A애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 [PowerShell로 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
 
@@ -71,7 +71,7 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅될 수 있습니다. 지역별로 [가격이 다를 수](https://azure.microsoft.com/pricing/details/search/) 있습니다.
 
-Cognitive Search를 사용할 계획인 경우 [기능 가용성이 있는 지역](cognitive-search-quickstart-blob.md#supported-regions)을 선택합니다.
+Azure 서비스(Azure 스토리지, Azure Cosmos DB, Azure SQL Database)에 있는 콘텐츠를 인덱싱하는 경우 대역폭 요금을 피하기 위해 데이터와 같은 지역에서 Azure Search 서비스를 만듭니다. 서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 없습니다.
 
 ## <a name="select-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
 

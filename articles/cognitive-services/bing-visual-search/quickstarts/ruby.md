@@ -8,14 +8,14 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544719"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049289"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>빠른 시작: Bing Visual Search REST API 및 Ruby를 사용하여 이미지 인사이트 가져오기
 
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>변수 정의
 
-다음 코드는 필수 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 구독 키로 바꿉니다.  `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다.  `fileName` 변수는 POST의 이미지 파일을 식별합니다.  `if`는 유효한 구독 키에 대한 테스트를 차단합니다.
+다음 코드는 필수 변수를 할당합니다. 엔드포인트가 올바른지 확인하고 `accessKey` 값을 Azure 계정의 구독 키로 바꿉니다.  `batchNumber`는 POST 데이터의 선행 및 후행 경계에 필요한 GUID입니다.  `fileName` 변수는 POST에 대한 이미지 파일을 식별합니다.  `if`는 유효한 구독 키에 대한 테스트를 차단합니다.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -63,7 +63,7 @@ end
 
 ## <a name="form-data-for-post-request"></a>POST 요청에 대한 양식 데이터
 
-POST에 대한 이미지 데이터는 선행 및 후행 경계를 포함합니다.  다음 함수는 경계를 설정합니다.
+POST에 대한 이미지 데이터는 선행 및 후행 경계로 둘러싸여 있습니다. 다음 함수로 해당 경계를 설정합니다.
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-다음으로, POST 본문을 포함할 엔드포인트 URI 및 배열을 생성합니다.  이전 함수를 사용하여 시작 경계를 배열로 로드합니다. 배열로 이미지 파일을 읽어옵니다. 그런 후, 끝 경계를 배열로 읽어옵니다. 
+다음으로, 엔드포인트 URI 및 POST 본문을 포함할 배열을 생성합니다.  이전 함수를 사용하여 시작 경계를 배열로 로드합니다. 배열로 이미지 파일을 읽어옵니다. 그런 다음, 끝 경계를 배열로 읽어옵니다.
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>HTTP 요청 만들기
 
-`Ocp-Apim-Subscription-Key` 헤더를 설정합니다.  요청 만들기  그런 다음, 헤더 및 콘텐츠 형식을 할당합니다.  이전에 만든 POST 본문을 요청에 조인합니다.
+`Ocp-Apim-Subscription-Key` 헤더를 설정합니다.  요청 만들기 그런 다음, 헤더 및 콘텐츠 형식을 할당합니다. 이전에 만든 POST 본문을 요청에 조인합니다.
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>결과 인쇄
 
-응답의 헤더를 출력합니다. 그런 후, JSON 라이브러리를 사용하여 출력 형식을 지정합니다.
+응답의 헤더를 인쇄하고 JSON 라이브러리를 사용하여 출력의 서식을 지정합니다.
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -287,4 +285,4 @@ JSON Response:
 
 > [!div class="nextstepaction"]
 > [Bing Visual Search 개요](../overview.md)
-> [Custom Search 웹앱 빌드](../tutorial-bing-visual-search-single-page-app.md)
+> [Visual Search 단일 페이지 웹앱 만들기](../tutorial-bing-visual-search-single-page-app.md)

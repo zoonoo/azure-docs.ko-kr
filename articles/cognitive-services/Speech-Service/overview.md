@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 04/03/2019
 ms.author: erhopf
-ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662227"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010195"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
@@ -31,7 +31,7 @@ Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 �
 | [음성 텍스트 변환](speech-to-text.md) | 음성 텍스트 변환 | 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. [LUIS(Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [일괄 처리 기록](batch-transcription.md) | 일괄 처리 기록을 사용하면 대량의 비동기 음성 텍스트 변환 기록을 수행할 수 있습니다. 이 서비스는 사용자 지정 및 모델 관리와 같은 엔드포인트를 사용하는 REST 기반 서비스입니다. | 아니요 | [예](https://westus.cris.ai/swagger/ui/index) |
 | | [사용자 지정](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 아니요 | [예](https://westus.cris.ai/swagger/ui/index) |
-| [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | 아니요 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [사용자 지정](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 아니요 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 종단 간 다중 언어 번역을 애플리케이션, 도구 및 장치에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 아니요 |
 
@@ -39,6 +39,7 @@ Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 �
 
 Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
+* 2019년 4월 - Windows 및 Linux에서 C++, C# 및 Java용 텍스트 음성 변환(베타)을 지원하는 Speech SDK 1.4.0을 출시했습니다. 또한 SDK는 이제 Linux에서 C++ 및 C#용 MP3 및 Opus/Ogg 오디오 형식을 지원합니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요. 
 * 2019년 3월 - 특정 지역에서 사용할 수 있는 전체 음성 목록을 반환하는 새로운 TTS(텍스트 음성 변환) 엔드포인트가 제공됩니다. 또한 새로운 지역에서 TTS가 지원됩니다. 자세한 내용은 [Text-to-speech API 참조(REST)](rest-text-to-speech.md)를 참조하세요.
 * 2019년 2월 - [Unity(베타)](quickstart-csharp-unity.md) 지원을 포함하는 Speech SDK 1.3.0을 출시했습니다. 오디오에 대한 스트리밍 원본을 선택할 수 있는 `AudioInput` 클래스에 대한 지원이 추가되었습니다. 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2018년 12월 - [Python](quickstart-python.md) 및 [Node.js](quickstart-js-node.md) 뿐만 아니라 Ubuntu 18.04 LTS 지원을 포함하는 Speech SDK 1.2.0을 출시했습니다. 자세한 내용은 [릴리스 정보](releasenotes.md)를 참조하세요.
@@ -47,11 +48,11 @@ Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
 각각이 10분 이내에 코드를 실행할 수 있게 디자인된 가장 인기 있는 프로그래밍 언어로 빠른 시작을 제공합니다. 이 표에는 각 기능에 대해 가장 인기 있는 빠른 시작이 포함되어 있습니다. 왼쪽 탐색 영역을 사용하여 추가 언어 및 플랫폼을 확인하세요.
 
-| 음성 텍스트 변환(SDK) | 번역(SDK) | 텍스트 음성 변환(REST) |
-|-------------------|-------------------|-----------------------|
-| [C#, .NET Core(Windows)](quickstart-csharp-dotnet-windows.md) | [Java(Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python(Windows, Linux, macOS)](quickstart-python-text-to-speech.md) |
-| [Javascript(브라우저)](quickstart-js-browser.md) | [C#, .NET Core(Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core(Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) |
-| [Python(Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework(Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js(Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) |
+| 음성 텍스트 변환(SDK) | 번역(SDK) | 텍스트 음성 변환(REST) | 텍스트 음성 변환(SDK) |
+|-------------------|-------------------|-----------------------|-----------------------|
+| [C#, .NET Core(Windows)](quickstart-csharp-dotnet-windows.md) | [Java(Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python(Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework(Windows)](quickstart-text-to-speech-dotnet-windows.md) |
+| [JavaScript(브라우저)](quickstart-js-browser.md) | [C#, .NET Core(Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core(Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++(Windows)](quickstart-text-to-speech-cpp-windows.md) |
+| [Python(Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework(Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js(Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++(Linux)](quickstart-text-to-speech-cpp-linux.md) |
 | [Java(Windows, Linux)](quickstart-java-jre.md) | [C++(Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
 Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음성에서 의도를 인식하는 방법을 설명하는 자습서를 사용해 보세요.
@@ -62,7 +63,7 @@ Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음�
 
 샘플 코드는 각 Azure Speech Services에 대한 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다. 다음 링크를 사용하여 SDK 및 REST 샘플을 확인하세요.
 
-* [음성 텍스트 변환 및 음성 번역 샘플(SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역 샘플(SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [텍스트 음성 변환 샘플(REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
@@ -79,7 +80,7 @@ Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [Speech SDK](speech-sdk-reference.md)
+* [음성 SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
@@ -88,4 +89,4 @@ Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [무료로 Speech Service 구독 키 받기](get-started.md)
+> [평가판 Speech Service 구독 키 받기](get-started.md)

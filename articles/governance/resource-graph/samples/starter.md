@@ -1,20 +1,19 @@
 ---
 title: 시작 쿼리 샘플
 description: Azure Resource Graph를 사용하여 리소스 개수 계산, 리소스 정렬 또는 특정 태그를 포함한 일부 시작 쿼리를 실행합니다.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338719"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267772"
 ---
 # <a name="starter-resource-graph-queries"></a>Resource Graph 시작 쿼리
 
@@ -24,15 +23,15 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 
 > [!div class="checklist"]
 > - [Azure 리소스 개수 계산](#count-resources)
-> - [리소스를 이름별로 나열](#list-resources)
-> - [이름의 내림차순으로 모든 가상 머신 나열](#show-vms)
+> - [리소스를 이름별로 정렬하여 나열](#list-resources)
+> - [이름의 내림차순으로 모든 가상 머신 표시](#show-vms)
 > - [이름 및 해당 OS 유형별로 처음 5개의 가상 머신 표시](#show-sorted)
-> - [OS 유형별 가상 머신 개수 계산](#count-os)
-> - [저장소를 포함하는 리소스 표시](#show-storage)
+> - [OS 유형별로 가상 머신 개수 계산](#count-os)
+> - [스토리지를 포함하는 리소스 표시](#show-storage)
 > - [모든 공용 IP 주소 나열](#list-publicip)
 > - [구독에 의해 IP 주소가 구성된 리소스 개수 계산](#count-resources-by-ip)
 > - [특정 태그 값이 있는 리소스 나열](#list-tag)
-> - [특정 태그 값이 있는 모든 저장소 계정 나열](#list-specific-tag)
+> - [특정 태그 값이 있는 모든 스토리지 계정 나열](#list-specific-tag)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -95,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>이름 및 해당 OS 유형별로 처음 5개의 가상 머신 표시
 
-이 쿼리는 `limit`를 사용하여 이름별로 정렬된 5개 일치 레코드만 검색합니다. Azure 리소스의 형식은 `Microsoft.Compute/virtualMachines`입니다. `project`는 Azure Resource Graph에 포함할 속성을 알려 줍니다.
+이 쿼리는 `limit`를 사용하여 이름별로 정렬된 5개 일치 레코드만 검색합니다. Azure 리소스의 형식은 `Microsoft.Compute/virtualMachines`입니다. `project` Azure Resource Graph에 포함할 속성을 알려 줍니다.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,20 +166,22 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>모든 공용 IP 주소 나열
 
 이전 쿼리와 마찬가지로 **publicIPAddresses** 단어를 포함하는 형식에 해당하는 모든 항목을 찾습니다.
-이 쿼리는 **properties.ipAddress**가 Null인 결과를 제외하고 **properties.ipAddress**만 반환하고 상위 100개로 결과를 `limit`하도록 해당 패턴을 확장합니다. 선택한 셸에 따라 따옴표를 이스케이프해야 할 수도 있습니다.
+이 쿼리는 **properties.ipAddress**
+`isnotempty`인 결과만 포함하고, **properties.ipAddress**를 반환하고, 결과를 맨 위까지 제한(`limit`)하도록 해당 패턴을 확장합니다.
+100. 선택한 셸에 따라 따옴표를 이스케이프해야 할 수도 있습니다.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>구독에 의해 IP 주소가 구성된 리소스 개수 계산
@@ -188,16 +189,16 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ip
 이전 예제 쿼리를 사용하고 `summarize` 및 `count()`를 추가하면 구성된 IP 주소를 갖는 리소스 구독별 목록을 가져올 수 있습니다.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>특정 태그 값이 있는 리소스 나열
@@ -250,7 +251,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 ```
 
 > [!NOTE]
-> 이 예제에서는 일치를 위해 `=~` 조건 대신 `==`을 사용합니다. `==`은 대/소문자 구분 일치입니다.
+> 이 예제에서는 일치를 위해 `=~` 조건 대신 `==`을 사용합니다. `==` 대/소문자 구분 일치입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

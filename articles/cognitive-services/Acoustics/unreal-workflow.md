@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316204"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470018"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Project Acoustics Unreal/Wwise 디자인 자습서
 이 자습서에서는 Unreal 및 Wwise의 Project Acoustics 디자인 설정 및 워크플로에 대해 설명합니다.
@@ -62,11 +62,18 @@ Project Acoustics Bus(Project Acoustics 버스)의 믹서 플러그 인 탭을 �
 ![Project Acoustics에 대한 음성 디자인 지침을 보여주는 Wwise 편집기의 스크린샷](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>거리 감쇠 곡선 설정
-Project Acoustics를 사용하는 액터-믹서에서 사용되는 감쇠 곡선에 "출력 버스 볼륨"으로 설정된 사용자 정의 보조 전송이 있는지 확인합니다. Wwise에서 이 작업은 기본적으로 새로 만든 감쇠 곡선에 대해 수행됩니다. 기존 프로젝트를 마이그레이션하는 경우 곡선 설정을 확인합니다. 
+Project Acoustics를 사용하는 액터-믹서에서 사용되는 감쇠 곡선에 "출력 버스 볼륨"으로 설정된 사용자 정의 보조 전송이 있는지 확인합니다. Wwise에서 이 작업은 기본적으로 새로 만든 감쇠 곡선에 대해 수행됩니다. 기존 프로젝트를 마이그레이션하는 경우 곡선 설정을 확인합니다.
 
 기본적으로 Project Acoustics 시뮬레이션에는 플레이어 위치 주변으로 45m의 반경이 있습니다. 일반적으로 감쇠 곡선은 해당 거리 주변에서 -200dB로 설정하는 것이 좋습니다. 이 거리는 가혹한 제약 조건이 아닙니다. 무기와 같은 일부 소리의 경우 더 큰 반경이 필요할 수도 있습니다. 이러한 경우 플레이어 위치에서 45m 이내의 기하 도형만 참여한다는 점에 주의해야 합니다. 플레이어가 방에 있고 소리 원본이 방 밖에서 100m 떨어진 곳에 있으면 제대로 폐색됩니다. 원본이 방에 있고 플레이어가 방 밖에서 100m 떨어진 곳에 있으면 제대로 폐색되지 않습니다.
 
 ![Wwise 감쇠 곡선의 스크린샷](media/atten-curve.png)
+
+### <a name="post-mixer-equalization"></a>포스트 믹서 이퀄라이제이션 ###
+ 포스트 믹서 이퀄라이저를 추가할 수도 있습니다. Project Acoustics 버스를 일반 반향 버스(기본 반향 모드)로 처리하고 이퀄라이제이션을 수행하도록 필터를 배치할 수 있습니다. 이 샘플은 Project Acoustics Wwise 샘플 프로젝트에서 볼 수 있습니다.
+
+![Wwise 포스트 믹서 EQ 스크린샷](media/wwise-post-mixer-eq.png)
+
+예를 들어, 고주파 통과 필터를 사용하면 저음 효과가 두드러지는 비현실적인 반향을 생성하는 근거리 녹음의 베이스 저음을 처리할 수 있습니다. RTPC를 통해 EQ를 조정하면 준비 후 컨트롤을 더 많이 구현할 수 있기 때문에 게임 시 반향의 색상을 변경할 수 있습니다.
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>장면 전체 Project Acoustics 속성 설정
 
@@ -80,7 +87,7 @@ Acoustics Space(음향 공간) 액터는 시스템의 동작을 수정하고 디
 * **Cache Scale(캐시 크기 조정):** 음향 쿼리에 사용되는 캐시의 크기를 제어합니다. 캐시가 작을수록 RAM이 더 적게 사용되지만 각 쿼리에 대한 CPU 사용량이 늘어날 수 있습니다.
 * **Acoustics Enabled(음향 효과 사용):** 음향 시뮬레이션을 빠르게 A/B 전환할 수 있게 하는 디버그 컨트롤입니다. 이 컨트롤은 전달 구성에서 무시됩니다. 특정 오디오 버그가 음향 계산 또는 Wwise 프로젝트의 다른 문제에서 비롯된 것인지를 확인하는 데 유용한 컨트롤입니다.
 * **Update Distances(거리 업데이트):** 거리 쿼리에 사전 베이킹된 음향 정보를 사용하려면 이 옵션을 사용합니다. 이러한 쿼리는 광선 발사(ray cast)와 비슷하지만, 미리 계산되어 있으므로 CPU를 훨씬 적게 사용합니다. 예를 들어 수신기에 가장 가까운 표면에서 분리된 반향에 사용하는 것입니다. 이를 완전히 활용하려면 코드 또는 Blueprints(청사진)를 사용하여 거리를 쿼리해야 합니다.
-* **Draw Stats(통계 그리기):** UE의 `stat Acoustics`에서 CPU 정보를 제공할 수 있지만, 이 상태 디스플레이에서는 화면의 왼쪽 위에 현재 로드된 맵, RAM 사용량 및 기타 상태 정보가 표시됩니다.
+* **Draw Stats(통계 그리기):** UE의 `stat Acoustics`에서 CPU 정보를 제공할 수 있지만, 이 상태 디스플레이에서는 화면의 왼쪽 위에 현재 로드된 ACE 파일, RAM 사용량 및 기타 상태 정보가 표시됩니다.
 * **Draw Voxels(복셀 그리기):** 런타임 보간 중에 사용된 복셀 그리드를 표시하는 수신기 근처에 복셀을 오버레이합니다. 방출기가 런타임 복셀 안에 있으면 음향 쿼리가 실패합니다.
 * **Draw Probes(프로브 그리기):** 이 장면에 대한 모든 프로브를 표시합니다. 로드 상태에 따라 색이 달라집니다.
 * **Draw Distances(거리 그리기):** Update Distances(거리 업데이트)를 사용하도록 설정하면 수신기 주변의 정량화된 방향으로 수신기와 가장 가까운 표면에 상자가 표시됩니다.
@@ -96,6 +103,7 @@ Acoustics Space(음향 공간) 액터는 시스템의 동작을 수정하고 디
 * **Outdoorness Adjustment(실외 상태 조정):** 반향의 실외 상태를 제어합니다. 값이 0에 가까우면 실내에 더 가깝고, 1에 가까우면 실외에 더 가깝습니다. 이 조정은 부가적이므로 -1로 설정하면 실내에 적용되고 +1로 설정하면 실외에 적용됩니다.
 * **Transmission Db(전송 Db):** 가시 거리 기반의 거리 감쇠와 결합된 이 음 크기를 사용하여 벽을 통과하는 추가 소리를 렌더링합니다.
 * **Wet Ratio Distance Warp(습성 비율 거리 뒤틀림):** 직접 경로에 영향을 주지 않고 원본의 반향 특성을 더 가깝거나 더 멀리 있는 것처럼 조정합니다.
+* **시작 시 재생:** 토클하여 장면 시작 시 사운드 자동 재생 여부를 지정합니다. 기본적으로 사용하도록 설정되어 있습니다.
 * **Show Acoustic Parameters(음향 매개 변수 표시):** 디버그 정보를 게임 내 구성 요소의 위쪽에 직접 표시합니다(전달 구성이 아닌 경우에만 해당).
 
 ## <a name="blueprint-functionality"></a>청사진 기능

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435115"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630531"
 ---
-첫 번째 시나리오에서 Contoso의 기존 **냉각기** 디바이스 유형에 새 원격 분석 유형을 추가합니다.
+첫 번째 시나리오에서 Contoso의 기존 **냉각기** 장치 유형에 새 원격 분석 유형을 추가합니다.
 
-두 번째 시나리오에서 Contoso는 새 스마트 전구 디바이스를 테스트하려고 합니다. 테스트를 실행하려면 다음 특징을 가진 시뮬레이션된 새 디바이스를 만듭니다.
+두 번째 시나리오에서 Contoso는 새 스마트 전구 디바이스를 테스트하려고 합니다. 테스트를 실행하려면 다음 특징을 가진 시뮬레이션된 새 장치를 만듭니다.
 
 *속성*
 
-| 이름                     | 값                      |
+| Name                     | 값                      |
 | ------------------------ | --------------------------- |
 | 색                    | 흰색, 빨강, 파랑            |
 | 밝기               | 0~100                    |
@@ -31,7 +31,7 @@ ms.locfileid: "47435115"
 
 다음 표는 전구에서 데이터 스트림으로 클라우드에 보고하는 데이터를 보여 줍니다.
 
-| 이름   | 값      |
+| Name   | 값      |
 | ------ | ----------- |
 | 상태 | "켜짐", "꺼짐" |
 | 온도 | 화씨 도 |
@@ -42,18 +42,18 @@ ms.locfileid: "47435115"
 
 *메서드*
 
-다음 표는 새 디바이스에서 지원하는 작업을 보여줍니다.
+다음 표는 새 장치에서 지원하는 작업을 보여 줍니다.
 
-| 이름        |
+| Name        |
 | ----------- |
 | 켜짐   |
 | 꺼짐  |
 
 *초기 상태*
 
-다음 표는 디바이스의 초기 상태를 보여줍니다.
+다음 표는 장치의 초기 상태를 보여 줍니다.
 
-| 이름                     | 값 |
+| Name                     | 값 |
 | ------------------------ | -------|
 | 초기 색상            | 흰색  |
 | 초기 밝기       | 75     |
@@ -61,7 +61,7 @@ ms.locfileid: "47435115"
 | 초기 원격 분석 상태 | "켜짐"   |
 | 초기 원격 분석 온도 | 200   |
 
-이 방법 가이드의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
+이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -76,15 +76,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 * [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../articles/iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-* SQL API를 사용하고 [강력한 일관성](../articles/cosmos-db/manage-account.md)에 대해 구성된 Cosmos DB 데이터베이스 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
+* SQL API를 사용하고 [강력한 일관성](../articles/cosmos-db/manage-account.md)에 대해 구성된 Cosmos DB 데이터베이스. 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비
 
 개발 환경을 준비하려면 다음 작업을 완료합니다.
 
 * 디바이스 시뮬레이션 마이크로 서비스에 대한 소스를 다운로드합니다.
-* 저장소 어댑터 마이크로 서비스에 대한 소스를 다운로드합니다.
-* 저장소 어댑터 마이크로 서비스를 로컬로 실행합니다.
+* 저장소 어댑터 마이크로 서비스에 대한 소스 다운로드
+* 저장소 어댑터 마이크로 서비스를 로컬로 실행
 
 이 문서의 지침에서는 Windows를 사용한다고 가정합니다. 다른 운영 체제를 사용하는 경우 일부 파일 경로 및 명령을 사용자 환경에 맞게 조정해야 합니다.
 
@@ -98,13 +98,11 @@ GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://githu
 
 Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adapter** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-**.vscode/launch.json** 파일을 열고 Cosmos DB 연결 문자열을 **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** 환경 변수에 할당합니다.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+열기는 **storage-adapter/WebService/appsettings.ini** 파일 및 Cosmos DB 연결 문자열을 할당 합니다 **documentDBConnectionString** 변수입니다.
 
 마이크로 서비스를 로컬로 실행하려면 **디버그 > 디버그 시작**을 클릭합니다.
 
-Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대한 URL을 포함하여 실행 중인 마이크로 서비스에서 출력을 표시합니다. [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) 이 주소로 이동하면 상태는 "OK: 활성 및 양호"이어야 합니다.
+Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대한 URL을 포함하여 실행 중인 마이크로 서비스에서 출력을 표시합니다. [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) 이 주소로 이동 하면 상태가 이어야 합니다 "확인: 활성 및 양호 "입니다.
 
 다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 저장소 어댑터 마이크로 서비스를 유지합니다.
 
@@ -114,7 +112,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 1. 로컬 머신에 새 폴더 **C:\temp\devicemodels**를 만듭니다.
 
-1. 디바이스 시뮬레이션 마이크로 서비스의 다운로드된 복사본에서 새 폴더로 다음 파일을 복사합니다.
+1. 장치 시뮬레이션 마이크로 서비스의 다운로드된 복사본에서 새 폴더로 다음 파일을 복사합니다.
 
     | 원본 | 대상 |
     | ------ | ----------- |
@@ -407,7 +405,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
     **C:\temp\devicemodels\scripts\SwitchOff-method.js**에 변경 내용을 저장합니다.
 
-**냉각기** 장치 유형의 사용자 지정된 버전을 만들고 새 **전구** 장치 유형을 만들었습니다.
+**냉각기** 디바이스 유형의 사용자 지정된 버전을 만들고 새 **전구** 디바이스 유형을 만들었습니다.
 
 ## <a name="test-the-devices"></a>디바이스 테스트
 
@@ -417,11 +415,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-simulation-dotnet-master** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-**.vscode/launch.json** 파일을 열고 IoT Hub 연결 문자열을 **PCS_IOTHUB_CONNSTRING** 환경 변수에 할당합니다. 동일한 파일에서 **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** 환경 변수를 추가하고 Cosmos DB 데이터베이스에 대한 연결 문자열을 할당합니다.
-
-**WebService/Properties/launchSettings.json** 파일을 열고 IoT Hub 연결 문자열을 **PCS_IOTHUB_CONNSTRING** 환경 변수에 할당합니다.
-
-**WebService/appsettings.ini** 파일을 열고 다음과 같이 설정을 수정합니다.
+열기는 **WebService/appsettings.ini** 파일 및 Cosmos DB 연결 문자열을 할당 합니다 **documentdb_connstring** 변수 또한 다음과 같이 설정을 수정 하 고:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -463,9 +457,9 @@ Postman을 설정하려면:
 
 1. **device-simulation-dotnet-master/docs/postman** 폴더로 이동합니다. **Azure IoT Device Simulation solution accelerator.postman_collection** 및 **Azure IoT Device Simulation solution accelerator.postman_environment**를 선택하고 **열기**를 클릭합니다.
 
-1. **Azure IoT 장치 시뮬레이션 솔루션 가속기**를 전송할 수 있는 요청으로 확장합니다.
+1. **Azure IoT 디바이스 시뮬레이션 솔루션 가속기**를 전송할 수 있는 요청으로 확장합니다.
 
-1. **환경 없음**을 클릭하고 **Azure IoT 장치 시뮬레이션 솔루션 가속기**를 선택합니다.
+1. **환경 없음**을 클릭하고 **Azure IoT 디바이스 시뮬레이션 솔루션 가속기**를 선택합니다.
 
 이제 디바이스 시뮬레이션 마이크로 서비스와 상호 작용하는 데 사용할 수 있는 Postman 작업 영역에 로드된 컬렉션 및 환경이 있습니다.
 

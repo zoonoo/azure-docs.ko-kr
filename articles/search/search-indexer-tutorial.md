@@ -1,23 +1,23 @@
 ---
-title: 자습서 - Azure Portal에서 Azure SQL 데이터베이스 인덱싱 - Azure Search
-description: 이 자습서에서는 Azure SQL 데이터베이스에 연결하고, 검색 가능한 데이터를 추출하고, Azure Search 인덱스에 로드합니다.
+title: '자습서: C# 예제 코드에서 Azure SQL 데이터베이스의 데이터 인덱싱 - Azure Search'
+description: Azure SQL 데이터베이스에 연결하고, 검색 가능한 데이터를 추출하고, Azure Search 인덱스에 로드하는 방법을 보여주는 C# 코드 예제입니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201401"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270467"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
+# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#의 자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
 Azure SQL 데이터베이스 샘플에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 알아봅니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에서 Azure SQL Database에 대한 인덱서가 가장 널리 사용됩니다. 
 
@@ -37,35 +37,39 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
+이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
+
 [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
 
-* 인덱서에서 사용되는 외부 데이터 원본을 제공하는 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). 샘플 솔루션은 SQL 데이터 파일을 제공하여 테이블을 만듭니다.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 인덱서에서 사용되는 외부 데이터 원본을 저장합니다. 샘플 솔루션은 SQL 데이터 파일을 제공하여 테이블을 만듭니다. 이 자습서에는 서비스 및 데이터베이스를 만드는 단계가 제공됩니다.
 
-* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)(모든 버전)을 사용하여 이 샘플 솔루션을 실행할 수 있습니다. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
+
+[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started)는 Azure 샘플 GitHub 리포지토리에 있는 샘플 솔루션을 제공합니다. 솔루션을 다운로드 및 추출합니다. 기본적으로 솔루션은 읽기 전용입니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지워서 파일을 수정할 수 있도록 합니다.
 
 > [!Note]
 > 체험 Azure Search 서비스를 사용하는 경우 세 가지 인덱스, 세 가지 인덱서 및 세 가지 데이터 원본으로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 서비스에 새 리소스를 허용하는 공간이 있는지 확인합니다.
 
-### <a name="download-the-solution"></a>솔루션 다운로드
+## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-이 자습서에 사용되는 인덱서 솔루션은 하나의 마스터 다운로드에 포함된 Azure Search 샘플의 컬렉션입니다. 이 자습서에 사용되는 솔루션은 *DotNetHowToIndexers*입니다.
+REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-1. Azure 샘플 GitHub 리포지토리에서 [**Azure-Samples/search-dotnet-getting-started**](https://github.com/Azure-Samples/search-dotnet-getting-started)로 이동합니다.
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-2. **복제 또는 다운로드** > **ZIP 다운로드**를 클릭합니다. 기본적으로 파일은 Downloads 폴더에 저장됩니다.
+1.. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-3. **파일 탐색기** > **다운로드**에서 파일을 마우스 오른쪽 단추로 클릭하고 **전체 압축 풀기**를 선택합니다.
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
-4. 읽기 전용 권한을 해제합니다. 폴더 이름 > **속성** > **일반**을 마우스 오른쪽 단추로 클릭하고, 현재 폴더, 하위 폴더 및 파일에서 **읽기 전용** 특성의 선택을 취소합니다.
+모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-5. **Visual Studio 2017**에서 *DotNetHowToIndexers.sln* 솔루션을 엽니다.
-
-6. **솔루션 탐색기**에서 최상위 노드 부모 솔루션 > **Nuget 패키지 복원**을 마우스 오른쪽 단추로 클릭합니다.
-
-### <a name="set-up-connections"></a>연결 설정
+## <a name="set-up-connections"></a>연결 설정
 필요한 서비스에 대한 연결 정보는 솔루션의 **appsettings.json** 파일에 지정됩니다. 
 
-이 자습서의 지침을 사용하여 각 설정을 채울 수 있도록 솔루션 탐색기에서 **appsettings.json**을 엽니다.  
+1. Visual Studio에서 **DotNetHowToIndexers.sln** 파일을 엽니다.
+
+1. 각 설정을 채울 수 있도록 솔루션 탐색기에서 **appsettings.json**을 엽니다.  
+
+처음 두 항목은 Azure Search 서비스의 URL 및 관리 키를 사용하여 바로 채울 수 있습니다. 엔드포인트가 `https://mydemo.search.windows.net`일 경우 서비스 이름에 `mydemo`를 지정해야 합니다.
 
 ```json
 {
@@ -75,48 +79,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 }
 ```
 
-### <a name="get-the-search-service-name-and-admin-api-key"></a>검색 서비스 이름 및 관리 api-key 가져오기
-
-포털에서 검색 서비스 엔드포인트 및 키를 찾을 수 있습니다. 키는 서비스 작업에 대한 액세스 권한을 제공합니다. 관리자 키를 사용하면 서비스에서 인덱서 및 인덱스와 같은 개체를 만들고 삭제하는 데 필요한 쓰기 액세스를 허용합니다.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인하고 [구독에 대한 검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 찾습니다.
-
-2. 서비스 페이지를 엽니다.
-
-3. 기본 페이지의 맨 위에서 서비스 이름을 찾습니다. 다음 스크린샷에서 *azs-tutorial*입니다.
-
-   ![서비스 이름](./media/search-indexer-tutorial/service-name.png)
-
-4. 해당 항목을 복사하고 Visual Studio에서 **appsettings.json**에 첫 번째 항목으로 붙여넣습니다.
-
-   > [!Note]
-   > 서비스 이름은 search.windows.net을 포함하는 엔드포인트의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
-
-5. 왼쪽의 **설정** > **키**에서 관리자 키 중 하나를 복사하고 i**appsettings.json**에 두 번째 항목으로 붙여넣습니다. 키는 프로비전하는 동안 서비스에 대해 생성되는 영숫자 문자열이며 서비스 작업에 대한 권한 있는 액세스에 필요합니다. 
-
-   설정을 모두 추가한 후에 파일은 다음 예제와 비슷합니다.
-
-   ```json
-   {
-    "SearchServiceName": "azs-tutorial",
-    "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
-    . . .
-   }
-   ```
+마지막 항목에는 기존 데이터베이스가 필요합니다. 이는 다음 단계에서 만듭니다.
 
 ## <a name="prepare-sample-data"></a>샘플 데이터 준비
 
-이 단계에서 인덱서가 탐색할 수 있는 외부 데이터 원본을 만듭니다. 이 자습서의 데이터 파일은 *hotels.sql*이며 \DotNetHowToIndexers 솔루션 폴더에 제공됩니다. 
-
-### <a name="azure-sql-database"></a>Azure SQL Database
-
-Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Database에서 데이터 세트를 만들 수 있습니다. Azure Search는 뷰 또는 쿼리에서 생성된 일반 행 집합을 사용합니다. 샘플 솔루션에 있는 SQL 파일은 단일 테이블을 만들고 채웁니다.
+이 단계에서 인덱서가 탐색할 수 있는 외부 데이터 원본을 만듭니다. Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Database에서 데이터 세트를 만들 수 있습니다. Azure Search는 뷰 또는 쿼리에서 생성된 일반 행 집합을 사용합니다. 샘플 솔루션에 있는 SQL 파일은 단일 테이블을 만들고 채웁니다.
 
 다음 연습은 기존 서버 또는 데이터베이스를 사용하지 않고 2단계에서 모두 만들도록 지시합니다. 필요에 따라 기존 리소스가 있는 경우 4단계에서부터 여기에 호텔 테이블을 추가할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
-2. **리소스 만들기** > **SQL Database**를 클릭하여 데이터베이스, 서버 및 리소스 그룹을 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
+2. **Azure SQL Database**를 찾거나 만들어 데이터베이스, 서버 및 리소스 그룹을 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
 
    ![새 데이터베이스 페이지](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -143,7 +116,7 @@ Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Databas
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    정형화된 쿼리인 `SELECT * FROM Hotels`는 쿼리 편집기에서 작동하지 않습니다. 샘플 데이터는 위치 필드에 지리 좌표를 포함합니다. 이 시점에는 편집기에서 처리되지 않습니다. 쿼리할 다른 열의 목록은 다음 문을 실행할 수 있습니다.`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    정형화된 쿼리인 `SELECT * FROM Hotels`는 쿼리 편집기에서 작동하지 않습니다. 샘플 데이터는 위치 필드에 지리 좌표를 포함합니다. 이 시점에는 편집기에서 처리되지 않습니다. 쿼리할 다른 열의 목록을 대상으로 다음 명령문을 실행할 수 있습니다. `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. 이제 외부 데이터 세트가 있으므로 데이터베이스에 대한 ADO.NET 연결 문자열을 복사합니다. 데이터베이스의 SQL Database 페이지에서 **설정** > **연결 문자열**로 이동하고, ADO.NET 연결 문자열을 복사합니다.
  
@@ -156,13 +129,13 @@ Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Databas
 
     ```json
     {
-      "SearchServiceName": "azs-tutorial",
-      "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
+      "SearchServiceName": "<placeholder-Azure-Search-service-name>",
+      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
       "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
     }
     ```
 
-## <a name="understand-index-and-indexer-code"></a>인덱스 및 인덱서 코드 이해
+## <a name="understand-the-code"></a>코드 이해
 
 이제 코드를 빌드하고 실행할 준비가 되었습니다. 그렇게 하기 전에 이 샘플에 대한 인덱스 및 인덱서 정의를 알아보는 데 1분이 걸립니다. 관련된 코드가 다음과 같은 두 개의 파일에 있습니다.
 

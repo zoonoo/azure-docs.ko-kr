@@ -5,46 +5,49 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8bdb711d39f514375362235388943ec42451b312
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315575"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358495"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
- [Azure Site Recovery](site-recovery-overview.md)는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 VMware VM, Hyper-V VM 또는 Windows/Linux 물리적 서버를 Azure로 재해 복구하도록 설정할 수 있게 Azure 리소스 및 구성 요소를 준비하는 방법을 설명합니다.
 
-이 문서는 온-프레미스 VM에 대한 재해 복구를 설정하는 방법을 보여 주는 자습서 시리즈 중 첫 번째 자습서입니다. 온-프레미스 VMware VM, Hyper-V VM 또는 물리적 서버의 보호 여부와 관련이 있습니다.
+이 문서는 온-프레미스 VM에 대한 재해 복구를 설정하는 방법을 보여 주는 자습서 시리즈 중 첫 번째 자습서입니다. 
 
-> [!NOTE]
-> 자습서는 특정 시나리오의 가장 간단한 배포 경로를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 해당 시나리오에 대한 **방법** 섹션을 참조하세요.
 
-이 문서에서는 온-프레미스 VM(Hyper-V 또는 VMware)이나 Windows/Linux 물리적 서버를 Azure에 복제하려는 경우 Azure 구성 요소를 준비하는 방법을 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure 계정에 복제 권한이 있는지 확인합니다.
 > * Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음은 VM 및 기타 복제 구성 요소에 대한 메타데이터 및 구성 정보를 유지합니다.
-> * Azure 네트워크 설정 장애 조치(failover) 후 만들어지는 Azure VM이 이 Azure 네트워크에 연결됩니다.
+> * Azure VNet(Virtual Network)을 설정합니다. 장애 조치(failover) 후 만들어지는 Azure VM이 이 네트워크에 연결됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
+> [!NOTE]
+> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="before-you-start"></a>시작하기 전에
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+- [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md) 및 [물리적 서버](physical-azure-architecture.md) 재해 복구용 아키텍처를 검토합니다.
+- [VMware](vmware-azure-common-questions.md) 및 Hyper-V에 대한 일반적인 질문 보기(hyper-v-azure-common-questions.md)
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다. 그런 다음 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
 
 ## <a name="verify-account-permissions"></a>계정 권한 확인
 
-Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자입니다. 구독 관리자가 아닌 경우에는 관리자와 협력하여 필요한 권한을 할당받습니다. 새 가상 머신에 대한 복제를 사용하려면 다음 작업을 수행할 권한이 있어야 합니다.
+Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자이며 필요한 권한을 보유하고 있습니다. 구독 관리자가 아닌 경우에는 관리자와 협력하여 필요한 권한을 할당받습니다. 새 가상 머신에 대한 복제를 사용하려면 다음 작업을 수행할 권한이 있어야 합니다.
 
 - 선택한 리소스 그룹에 VM 만들기
 - 선택한 가상 네트워크에 VM 만들기
-- 스토리지 계정에 쓰기
-- 관리형 디스크에 쓰기
+- Azure Storage 계정에 씁니다.
+- Azure 관리 디스크에 씁니다.
 
 이러한 작업을 완료하려면 계정에 가상 머신 참가자 기본 제공 역할이 할당되어야 합니다. 또한 자격 증명 모음에서 Site Recovery 작업을 관리하려면 계정에 Site Recovery 참가자 기본 제공 역할이 할당되어야 합니다.
 
@@ -64,30 +67,29 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 ## <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정합니다
 
-장애 조치(failover) 후 Managed Disks에서 만들어지는 Azure VM이 이 Azure 네트워크에 연결됩니다.
+온-프레미스 머신이 Azure 관리 디스크에 복제됩니다. 장애 조치(failover)가 발생하는 경우 이러한 관리 디스크에서 Azure VM이 생성되고 이 절차에서 지정된 Azure 네트워크에 조인됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 선택합니다.
-2. 배포 모델로 선택되어 있는 **Resource Manager**를 그대로 둡니다.
+2. 배포 모델로 선택되어 있는 **리소스 관리자**를 허용합니다.
 3. **이름**에 네트워크 이름을 입력합니다. 이름은 Azure 리소스 그룹 내에서 고유해야 합니다. 이 자습서에서는 **ContosoASRnet**을 사용합니다.
 4. 네트워크를 만들 리소스 그룹을 지정합니다. 기존 리소스 그룹인 **contosoRG**를 사용합니다.
-5. **주소 범위**에 네트워크 범위인 **10.0.0.0/24**를 입력합니다. 이 네트워크의 서브넷을 사용하지 않습니다.
+5. **주소 범위**에 네트워크 범위를 입력합니다. 여기서는 **10.0.0.0/24**를 사용하고 서브넷은 사용하지 않습니다.
 6. **구독**에서 네트워크를 만드는 데 사용할 구독을 선택합니다.
-7. **위치**에서 **유럽 서부**를 선택합니다. 네트워크는 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
+7. **위치**에서 Recovery Services 자격 증명 모음이 생성된 지역과 동일한 지역을 선택합니다. 이 자습서에서는 **서유럽**입니다.  네트워크는 자격 증명 모음과 동일한 지역에 있어야 합니다.
 8. 네트워크에 서비스 엔드포인트가 없는 기본 DDoS 보호의 기본 옵션을 그대로 둡니다.
 9. **만들기**를 클릭합니다.
 
    ![가상 네트워크 만들기](media/tutorial-prepare-azure/create-network.png)
 
-   가상 네트워크를 만드는 데 몇 초 정도 걸립니다. 만들어지면 Azure Portal 대시보드에 표시됩니다.
+가상 네트워크를 만드는 데 몇 초 정도 걸립니다. 만들어지면 Azure Portal 대시보드에 표시됩니다.
 
-## <a name="useful-links"></a>유용한 링크
-
-- Azure 네트워크에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
-- Managed Disks에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure에 재해 복구하기 위해 온-프레미스 VMware 인프라 준비](tutorial-prepare-on-premises-vmware.md)
+- VMware 재해 복구의 경우 [온-프레미스 VMware 인프라를 준비](tutorial-prepare-on-premises-vmware.md)합니다.
+- Hyper-V 재해 복구의 경우 [온-프레미스 Hyper-V 서버를 준비](hyper-v-prepare-on-premises-tutorial.md)합니다.
+- 물리적 서버 재해 복구의 경우 [구성 서버 및 원본 환경을 설정](physical-azure-disaster-recovery.md)합니다.
+- Azure 네트워크에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+- Managed Disks에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)

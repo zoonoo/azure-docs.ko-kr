@@ -6,50 +6,44 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310594"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357868"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
-[Azure Site Recovery](site-recovery-overview.md)는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
+이 문서에서는 Azure로 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 VMware VM을 복제하도록 설정하는 방법을 설명합니다.
 
+이 자습서는 온-프레미스 VMware VM을 Azure로 재해 복구하도록 설정하는 방법을 보여주는 자습서 시리즈 중 세 번째 자습서입니다. 이전 자습서에서는 Azure로 재해 복구하기 위한 [온-프레미스 VMware 환경을 준비](vmware-azure-tutorial-prepare-on-premises.md)했습니다.
 
-이 자습서에서는 사용자 지정하지 않고 기본 설정을 사용하여 Site Recovery를 배포하는 방법을 보여줍니다. 더 복잡한 옵션의 경우 방법에 있는 문서를 검토하세요.
-
-    - [복제 원본](vmware-azure-set-up-source.md) 및 [구성 서버](vmware-azure-deploy-configuration-server.md)를 설정합니다.
-    - [복제 대상](vmware-azure-set-up-target.md)을 설정합니다.
-    - [복제 정책](vmware-azure-set-up-replication.md) 및 [복제 사용](vmware-azure-enable-replication.md)을 구성합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 복제 원본 및 대상을 입력합니다.
-> * 온-프레미스 Azure Site Recovery 구성 요소 및 대상 복제 환경을 포함하여 원본 복제 환경을 설정합니다.
+> * 원본 복제 설정 및 온-프레미스 Site Recovery 구성 서버 설정
+> * 복제 대상 설정 지정
 > * 복제 정책을 만듭니다.
-> * VM의 복제를 사용하도록 설정합니다.
+> * VMware VM을 복제하도록 설정
+
+> [!NOTE]
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 지침은 Site Recovery 목차의 방법 섹션에 있는 문서를 검토하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-시작하기 전에 다음을 수행하는 것이 좋습니다.
+이전 자습서 완료:
+1. 온-프레미스 VMware를 Azure로 재해 복구하도록 [Azure를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
+2. [다음 단계](vmware-azure-tutorial-prepare-on-premises.md)에 따라 Azure로 재해 복구하도록 온-프레미스 VMware 배포를 준비합니다.
+3. 이 자습서에서는 단일 VM을 복제하는 방법을 보여줍니다. 여러 VMware VM을 배포하는 경우 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 사용해야 합니다. [자세히 알아보세요](site-recovery-deployment-planner.md) .
+4. 이 자습서에서는 다양한 옵션을 사용하며 다른 방식을 선택할 수도 있습니다.
+    - 이 자습서에서는 OVA 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 어떤 이유로 이 방법을 사용할 수 없는 경우 [다음 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 수동으로 설정합니다.
+    - 이 자습서에서 Site Recovery는 자동으로 MySQL을 다운로드하고 구성 서버에 설치합니다. 원한다면 대신 직접 설정할 수 있습니다. [자세히 알아보기](vmware-azure-deploy-configuration-server.md#configure-settings).
 
-- 이 재해 복구 시나리오용 [아키텍처를 검토](vmware-azure-architecture.md)합니다.
-- VMware VM에 재해 복구를 설정하는 방법에 대해 자세히 알아보려면 다음 리소스를 검토하고 사용합니다.
-    - VMware에서 재해 복구에 대한 [일반적인 질문을 참고](vmware-azure-common-questions.md)합니다.
-    - 지원 항목 및 VMware의 필수 항목에 대해 [자세히 알아](vmware-physical-azure-support-matrix.md)봅니다.
-- 이 자습서에서는 단일 VM을 복제하는 방법을 보여줍니다. 여러 VM을 배포하려는 경우에는 배포를 계획하는 데 도움이 되는 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 사용해야 합니다. [자세히 알아보세요](site-recovery-deployment-planner.md) .
-
-그리고 다음 팁을 검토합니다.
-- 이 자습서는 OVA 템플릿을 사용하여 구성 서버 VMware VM을 만듭니다. 이를 수행할 수 없는 경우 [이러한 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 직접 설정하세요.
-- 이 자습서에서 Site Recovery는 MySQL을 다운로드하고 구성 서버에 설치합니다. 원한다면 대신 직접 설정할 수 있습니다. [자세히 알아보기](vmware-azure-deploy-configuration-server.md#configure-settings).
-  >[Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버 템플릿을 직접 다운로드할 수 있습니다.
-  OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. VM에서 실행 중인 Windows는 필요한 라이선스로 활성화해야 합니다. 
 
 
 
@@ -65,15 +59,18 @@ ms.locfileid: "58310594"
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-원본 환경에서는 온-프레미스 Site Recovery 구성 요소를 호스팅할 단일 고가용성 온-프레미스 머신이 필요합니다. 구성 요소에는 구성 서버, 프로세스 서버 및 마스터 대상 서버가 포함됩니다.
+원본 환경에서는 온-프레미스 Site Recovery 구성 요소를 호스팅할 단일 고가용성 온-프레미스 머신이 필요합니다.
 
-- 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
-- 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure에서 캐시 스토리지 계정으로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware VM의 자동 검색을 수행합니다.
-- 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
-
-고가용성 VMware VM으로 구성 서버를 설정하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드하고 템플릿을 VMware로 가져와서 VM을 만듭니다. 구성 서버를 설정 한 후 자격 증명 모음에 등록합니다. 등록이 완료되면 Site Recovery가 온-프레미스 VMware VM을 검색합니다.
+- **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
+- **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스 에이전트를 설치하고, 온-프레미스 VMware VM을 자동으로 검색합니다.
+- **마스터 대상 서버**: 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
 
 
+이 모든 구성 요소가 *구성 서버*라고 하는 단일 온-프레미스 머신에 함께 설치됩니다. 기본적으로 VMware 재해 복구의 경우 구성 서버를 고가용성 VMware VM으로 설정합니다. 이렇게 하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드하고 VMware로 가져와서 VM을 만듭니다. 
+
+- 최신 버전의 구성 서버는 포털에서 받을 수 있습니다. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수도 있습니다.
+- 어떤 이유로 OVA 템플릿을 사용하여 VM을 설정할 수 없는 경우 [다음 지침](physical-manage-configuration-server.md)에 따라 구성 서버를 수동으로 설정합니다.
+- OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. VM에서 실행 중인 Windows는 필요한 라이선스로 활성화해야 합니다. 
 
 
 ### <a name="download-the-vm-template"></a>VM 템플릿 다운로드
@@ -115,6 +112,8 @@ ms.locfileid: "58310594"
 
 ## <a name="register-the-configuration-server"></a>구성 서버 등록 
 
+구성 서버를 설정한 후에는 자격 증명 모음에 구성 서버를 등록합니다.
+
 1. VMWare vSphere 클라이언트 콘솔에서 VM을 켭니다.
 2. VM이 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
 3. 설치가 완료되면 VM에 관리자 권한으로 로그인합니다.
@@ -124,7 +123,11 @@ ms.locfileid: "58310594"
 7. 도구에서 몇 가지 구성 작업을 수행한 후 다시 부팅합니다.
 8. 컴퓨터에 다시 로그인합니다. 몇 초 내로 구성 서버 관리 마법사가 자동으로 시작됩니다.
 
+
 ### <a name="configure-settings-and-add-the-vmware-server"></a>설정 구성 및 VMware 서버 추가
+
+구성 서버 설정 및 등록을 완료합니다. 
+
 
 1. 구성 서버 관리 마법사에서 **연결 설정**을 선택합니다. 드롭다운 목록에서 먼저 기본 제공 프로세스 서버가 원본 머신에서 Mobility Service의 검색 및 푸시 설치에 사용하는 NIC를 선택한 다음, 구성 서버에서 Azure와의 연결에 사용하는 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
 2. **Recovery Services 자격 증명 모음 선택**에서 Azure 구독을 선택한 다음, 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
@@ -140,7 +143,7 @@ ms.locfileid: "58310594"
 10. 등록이 완료되면 Azure Portal에서 구성 서버 및 VMware 서버가 자격 증명 모음의 **원본** 페이지에 표시되는지 확인합니다. 그런 다음, **확인**을 선택하여 대상 설정을 구성합니다.
 
 
-Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 VM을 검색합니다.
+구성 서버가 등록되면 Site Recovery는 지정된 설정을 사용하여 VMware 서버에 연결하고 VM을 검색합니다.
 
 > [!NOTE]
 > 포털에 계정 이름이 표시되는 데 15분 이상 걸릴 수 있습니다. 즉시 업데이트하려면 **구성 서버** > ***서버 이름*** > **서버 새로 고침**을 선택합니다.
@@ -171,7 +174,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
 ## <a name="enable-replication"></a>복제 사용
 
-다음과 같은 방법으로 복제 사용을 수행할 수 있습니다.
+다음과 같이 VM에 대해 복제를 활성화합니다.
 
 1. **애플리케이션 복제** > **원본**을 선택합니다.
 1. **원본**에서 **온-프레미스**를 선택하고, **원본 위치**에서 구성 서버를 선택합니다.
@@ -181,7 +184,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 1. **대상**에서 장애 조치(Failover)된 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. Resource Manager 배포 모델을 사용하는 경우입니다. 
 1. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
 1. 복제를 활성화한 모든 VM에 네트워크 설정을 적용하려면 **선택한 컴퓨터에 대해 지금 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.
-1. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다. 특정 가상 머신을 보거나 선택할 수 없으면 [여기](https://aka.ms/doc-plugin-VM-not-showing)를 클릭하여 문제를 해결합니다.
+1. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다. 특정 가상 머신을 보거나 선택할 수 없으면 문제 해결 방법에 대한 [자세한 정보](https://aka.ms/doc-plugin-VM-not-showing)를 확인하세요.
 1. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
 1. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다.
 1. **복제 사용**을 선택합니다. VM에 복제를 사용하도록 설정하면 Site Recovery에서는 모바일 서비스를 설치합니다.
@@ -190,6 +193,6 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 1. 추가하는 VM을 모니터링하려면, **구성 서버** > **마지막 연락**에서 VM을 마지막으로 검색한 시간을 확인합니다. 예약된 검색을 기다리지 않고 VM을 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
+복제를 설정한 후에는 모든 것이 예상대로 작동하도록 보장하기 위한 훈련을 실행합니다.
 > [!div class="nextstepaction"]
-> 복제를 사용 설정한 후 [재해 복구 드릴을 실행](site-recovery-test-failover-to-azure.md)하여 모든 항목이 예상대로 작동하는지 확인합니다.
+> [재해 복구 훈련 실행](site-recovery-test-failover-to-azure.md)

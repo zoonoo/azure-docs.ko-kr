@@ -185,7 +185,7 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하려�
 
     g. **도메인 이름**에 ADFS 기반 로그인인 경우 여기에 도메인 이름을 입력합니다.
 
-    h. 사용자가 JIRA에서 로그아웃할 때 Azure AD에서 로그아웃하려면 **Enable Single Sign out**(Single Sign-Out 사용)을 선택합니다. 
+    h. 사용자가 JIRA에서 로그아웃할 때 Azure AD에서 로그아웃하려면 을 선택합니다. **** 
 
     i. **저장** 단추를 클릭하여 설정을 저장합니다.
 

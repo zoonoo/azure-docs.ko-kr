@@ -1,21 +1,21 @@
 ---
-title: 인덱싱 파이프라인에서 Cognitive Services API 호출 자습서 - Azure Search
-description: 이 자습서에서는 데이터 추출 및 변환을 위한 Azure Search 인덱싱의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 알아봅니다.
+title: '자습서: 인덱싱 파이프라인에서 Cognitive Services API 호출 - Azure Search'
+description: JSON BLOB을 통한 데이터 추출 및 변환을 위한 Azure Search 인덱싱의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 알아봅니다.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881633"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261924"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출(미리 보기)
 
@@ -32,60 +32,44 @@ ms.locfileid: "58881633"
 
 출력은 Azure Search에서 검색 가능한 전체 텍스트 인덱스입니다. [동의어](search-synonyms.md), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [분석기](search-analyzers.md), [필터](search-filters.md) 등의 다른 표준 기능을 사용하여 인덱스를 향상할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 자습서는 무료 서비스에서 실행되지만 무료 트랜잭션 수는 일일 20개 문서로 제한됩니다. 이 자습서를 동일한 날에 두 번 이상 실행하려면 더 많은 실행에 적합하도록 더 작은 파일 세트를 사용하세요.
 
 > [!NOTE]
-> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때는 청구 가능 Cognitive Services 리소스를 연결해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세한 정보](cognitive-search-attach-cognitive-services.md)
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 청구되며 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-인식 검색을 처음 사용하세요? ["인식 검색이란?"](cognitive-search-concept-intro.md)을 읽고 기능에 대해 알아보거나 실습을 통해 중요한 개념을 소개하는 [포털 빠른 시작](cognitive-search-quickstart-blob.md)을 시도해보세요.
+[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
 
-Azure Search에 대한 REST 호출을 만들려면 PowerShell이나 Telerik Fiddler 또는 Postman 같은 웹 테스트 도구를 사용하여 HTTP 요청을 작성합니다. 이러한 도구를 처음 접하는 경우 [Fiddler 또는 Postman을 사용하여 Azure Search REST API 탐색](search-fiddler.md)을 참조하세요.
+[Postman 데스크톱 앱](https://www.getpostman.com/)은 Azure Search에 대한 REST 호출을 수행하는 데 사용됩니다.
 
-[Azure Portal](https://portal.azure.com/)을 사용하여 종단 간 워크플로에 사용되는 서비스를 만들 수 있습니다. 
+### <a name="get-an-azure-search-api-key-and-endpoint"></a>Azure Search API 키 및 엔드포인트 가져오기
 
-### <a name="set-up-azure-search"></a>Azure Search 설정
+REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-먼저 Azure Search 서비스에 등록합니다. 
+1. Azure Portal의 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://my-service-name.search.windows.net`
 
-1. [Azure Portal](https://portal.azure.com)로 이동한 후 Azure 계정을 사용하여 로그인합니다.
+2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-1. **리소스 만들기**를 클릭하고, Azure Search를 검색하고, **만들기**를 클릭합니다. 검색 서비스를 처음으로 설정하는 경우 [포털에서 Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
-   ![대시보드 포털](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "포털에서 Azure Search 서비스 만들기")
-
-1. 리소스 그룹으로는 이 자습서에서 만드는 모든 리소스를 포함할 리소스 그룹을 만듭니다. 이렇게 하면 자습서를 마친 후 보다 쉽게 리소스를 정리할 수 있습니다.
-
-1. 위치는 데이터 및 다른 클라우드 앱과 가까운 지역을 선택합니다.
-
-1. 가격 책정 계층으로는 자습서와 빠른 시작을 완료할 수 있는 **무료** 서비스를 만듭니다. 사용자 고유의 데이터를 사용하여 자세히 조사하려면 **기본** 또는 **표준** 같은 [유료 서비스](https://azure.microsoft.com/pricing/details/search/)를 만듭니다. 
-
-   무료 서비스는 인덱스 3개, blob 크기 최대 16MB, 인덱싱 2분으로 제한되며, 이는 인식 검색의 전체 기능을 실행하기에는 부족합니다. 다른 계층의 제한에 대한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
-
-   ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service1.png "포털의 서비스 정의 페이지")
-   ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service2.png "포털의 서비스 정의 페이지")
-
- 
-1. 서비스를 대시보드에 고정하면 서비스 정보에 빠르게 액세스할 수 있습니다.
-
-   ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service3.png "포털의 서비스 정의 페이지")
-
-1. 서비스가 만들어지면 [개요] 페이지의 **URL** 및 [키] 페이지의 **api-key**(기본 또는 보조) 정보를 수집합니다.
-
-   ![포털의 엔드포인트 및 키 정보](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "포털의 엔드포인트 및 키 정보")
+모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service를 설정하고 샘플 데이터 로드
 
 보강 파이프라인은 Azure 데이터 원본에서 데이터를 가져옵니다. 원본 데이터는 [Azure Search 인덱서](search-indexer-overview.md)의 지원되는 데이터 원본 유형에서 생성되어야 합니다. Azure Table Storage는 인식 검색을 지원하지 않습니다. 이 연습에서는 Blob Storage를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
 
-1. [샘플 데이터를 다운로드합니다](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 샘플 데이터는 여러 종류의 작은 파일 집합으로 구성됩니다. 
+1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 
 
-1. Azure Blob 스토리지에 등록하고, 스토리지 계정을 만들고, Storage 탐색기에 로그인하고, `basicdemo`라는 컨테이너를 만드세요. 모든 단계에 대한 지침은 [Azure Storage 탐색기 빠른 시작](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)을 참조하세요.
+1. [Azure Blob Storage에 가입](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)하고, 스토리지 계정을 만들고, Blob 서비스 페이지를 열고 컨테이너를 만드세요. Azure Search와 동일한 지역에서 스토리지 계정을 만듭니다.
 
-1. 앞에서 만든 `basicdemo` 컨테이너에서 Azure Storage 탐색기를 사용하여 **업로드**를 클릭하고 샘플 파일을 업로드합니다.
+1. 만든 컨테이너에서 **업로드**를 클릭하여 이전 단계에서 다운로드한 샘플 파일을 업로드합니다.
+
+   ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 1. 샘플 파일이 로드되면 Blob Storage에 대한 컨테이너 이름 및 연결 문자열을 가져옵니다. 이렇게 하려면 Azure Portal에서 저장소 계정으로 이동해야 합니다. 그리고 **액세스 키**에서 **연결 문자열** 필드를 복사합니다.
 
@@ -438,7 +422,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-추가 필드 반복: 이 연습의 콘텐츠, 언어, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 `$select`를 통해 여러 필드를 반환할 수 있습니다.
+추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 `$select`를 통해 여러 필드를 반환할 수 있습니다.
 
 쿼리 문자열의 복잡성 및 길이에 따라 GET 또는 POST를 사용할 수 있습니다. 자세한 내용은 [REST API를 사용한 쿼리](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 참조하세요.
 

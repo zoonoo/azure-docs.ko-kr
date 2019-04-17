@@ -1,23 +1,29 @@
 ---
-title: Azure Portal을 사용하여 빠른 시작 자습서 인덱싱 및 쿼리 - Azure Search
-description: Azure Portal에서 기본 제공 샘플 데이터와 데이터 가져오기 마법사를 사용하여 Azure Search에서 첫 번째 인덱스를 빌드 및 쿼리하는 방법에 대해 알아보세요.
+title: '빠른 시작: Azure Portal에서 인덱스 만들기, 로드 및 쿼리 - Azure Search'
+description: Azure Portal에서 기본 제공 샘플 데이터와 데이터 가져오기 마법사를 사용하여 Azure Search에서 첫 번째 인덱스를 만들고 쿼리합니다.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137830"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282664"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
+> [!div class="op_single_selector"]
+> * [포털](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Azure Search 개념에서 빠른 램프업의 경우 Azure Portal에서 기본 제공 도구를 시도해 보세요. 마법사 및 편집기는 .NET 및 REST API가 포함된 완벽한 패리티를 제공하지는 않지만 코드 없는 도입을 통해 빠르게 시작하고 몇 분 내에 샘플 데이터에 대한 흥미로운 쿼리를 작성할 수 있습니다.
 

@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258550"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009181"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 애플리케이션을 개발하는 방법을 설명합니다.
-이 애플리케이션은 Microsoft Cognitive Services Speech SDK Maven 패키지 버전 1.3.1 및 Android Studio 3.1을 기반으로 합니다.
+이 애플리케이션은 Speech SDK Maven 패키지 버전 1.4.0 및 Android Studio 3.3을 기반으로 합니다.
 Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 탑재한 Android 디바이스와 호환됩니다.
 
 > [!NOTE]
@@ -38,27 +38,19 @@ Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 �
 
     ![Android Studio 시작 창 스크린샷](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. **새 프로젝트 만들기** 마법사가 나타납니다. **Create Android Project**(Android 프로젝트 만들기) 화면에서 **애플리케이션 이름**으로 **Quickstart**를 입력하고 **회사 도메인**으로 **samples.speech.cognitiveservices.microsoft.com**을 입력한 후 프로젝트 디렉터리를 선택합니다. C++ 및 Kotlin 확인란을 선택 취소하고 **다음**을 선택합니다.
+1. **프로젝트 선택** 마법사가 표시되면 작업 선택 상자에서 **전화 및 태블릿** 및 **빈 작업**을 선택합니다. **다음**을 선택합니다.
 
-   ![새 프로젝트 만들기 마법사의 스크린샷](media/sdk/qs-java-android-02-create-android-project.png)
+   ![프로젝트 선택 마법사의 스크린샷](media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. **대상 Android 디바이스** 화면에서 **휴대폰 및 태블릿**만 선택합니다. 아래의 드롭다운 목록에서 **API 23: Android 6.0(Marshmallow)** 을 선택하고, **다음**을 선택합니다.
+1. **프로젝트 구성** 화면에서 **이름**으로 **Quickstart**를 입력하고 **패키지 이름**으로 **samples.speech.cognitiveservices.microsoft.com**을 입력하고 프로젝트 디렉터리를 선택합니다. **최소 API 수준**으로 **API 23: Android 6.0(Marshmallow)** 을 선택하고 모든 다른 확인란을 선택 취소된 상태로 유지하고 **마침**을 선택합니다.
 
-   ![새 프로젝트 만들기 마법사의 스크린샷](media/sdk/qs-java-android-03-target-android-devices.png)
-
-1. **모바일에 작업 추가** 화면에서 **빈 작업**을 선택하고 **다음**을 클릭합니다.
-
-   ![새 프로젝트 만들기 마법사의 스크린샷](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
-
-1. **작업 구성** 화면에서 작업 이름으로 **MainActivity**를 사용하고 레이아웃 이름으로 **activity\_main**을 사용합니다. 두 확인란을 선택하고 **완료**를 선택합니다.
-
-   ![새 프로젝트 만들기 마법사의 스크린샷](media/sdk/qs-java-android-05-configure-activity.png)
+   ![프로젝트 구성 마법사의 스크린샷](media/sdk/qs-java-android-03-create-android-project.png)
 
 Android Studio가 새 Android 프로젝트를 준비하는 데 잠시 시간이 걸립니다. 다음으로, Speech SDK에 대해 알고 Java 8을 사용하는 프로젝트를 구성합니다.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.3.1`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.4.0`입니다.
 
 Android용 Speech SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
 https:\//csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에서 호스팅됩니다.
@@ -73,7 +65,7 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
    ![프로젝트 구조 창 스크린샷](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. 나타나는 창에서 Android용 Speech SDK의 이름과 버전인 `com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`을 입력합니다. 그런 다음 **확인**을 선택합니다.
+1. 나타나는 창에서 Android용 Speech SDK의 이름과 버전인 `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`을 입력합니다. 그런 다음 **확인**을 선택합니다.
    Speech SDK는 이제 다음과 같이 종속성 목록에 추가됩니다.
 
    ![프로젝트 구조 창 스크린샷](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -100,16 +92,9 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
 이제 UI의 텍스트 및 그래픽 모양이 다음과 유사하게 표시됩니다.
 
-<table>
-<tr>
-<td valign="top">
 ![](media/sdk/qs-java-android-11-gui.png)
-</td>
-<td valign="top">
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
-</td>
-</tr>
-</table>
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -148,5 +133,5 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
 ## <a name="see-also"></a>참고 항목
 
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

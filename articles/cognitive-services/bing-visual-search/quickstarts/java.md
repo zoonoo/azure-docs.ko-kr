@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 4/02/2019
 ms.author: scottwhi
-ms.openlocfilehash: 79b118c0a4fd28eacf24dc63f04f36314807b41a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2fe4e9dad0b198fe54e06ce07100d231f1f7d157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531099"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046447"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>빠른 시작: Bing Visual Search REST API 및 Java를 사용하여 이미지 인사이트 가져오기
 
-이 빠른 시작을 사용하여 Bing Visual Search API를 처음 호출하고 검색 결과를 확인합니다. 이 간단한 C# 애플리케이션은 API에 이미지를 업로드하고, 이미지에 대한 반환된 정보를 표시합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 Bing Visual Search API를 처음 호출하고 결과를 확인합니다. 이 Java 애플리케이션은 API에 이미지를 업로드하고 API에서 반환되는 정보를 표시합니다. 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-로컬 이미지를 업로드하는 경우 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고 `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다.
+로컬 이미지를 업로드할 때 양식 데이터에 `Content-Disposition` 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "이미지"로 설정해야 하며, `filename` 매개 변수는 임의의 문자열로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진 데이터를 포함합니다. 업로드할 수 있는 최대 이미지 크기는 1MB입니다.
 
 ```
 --boundary_1234-abcd
@@ -35,15 +35,14 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="prerequisites"></a>필수 조건
 
 * [JDK(Java Development Kit) 7 또는 8](https://aka.ms/azure-jdks)
-* [Gson 라이브러리](https://github.com/google/gson)
+* [Gson Java 라이브러리](https://github.com/google/gson)
 * [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
-
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
+1. 주로 사용하는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
 
     ```java
     import java.util.*;
@@ -64,7 +63,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. API 엔드포인트, 구독 키에 대한 변수 및 이미지에 대한 경로를 만듭니다. 
+2. API 엔드포인트, 구독 키에 대한 변수 및 이미지에 대한 경로를 만듭니다.
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -87,13 +86,13 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="construct-the-search-request-and-query"></a>검색 요청 및 쿼리 생성
 
-1. 애플리케이션의 기본 메서드에서 `HttpClientBuilder.create().build();`를 사용하여 Http 클라이언트를 만듭니다.
+1. 애플리케이션의 기본 메서드에서 `HttpClientBuilder.create().build();`를 사용하여 HTTP 클라이언트를 만듭니다.
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. API에 이미지를 업로드하는 `HttpEntity`를 만듭니다.
+2. API에 이미지를 업로드하는 `HttpEntity` 개체를 만듭니다.
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -112,7 +111,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="receive-and-process-the-json-response"></a>JSON 응답 수신 및 처리
 
-1. `HttpClient.execute()`를 사용하여 API에 요청을 보내고, `InputStream` 개체에 응답을 저장합니다.
+1. `HttpClient.execute()` 메서드를 사용하여 API에 요청을 보내고, `InputStream` 개체에 응답을 저장합니다.
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
@@ -130,4 +129,4 @@ System.out.println(prettify(json));
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Custom Search 웹앱 빌드](../tutorial-bing-visual-search-single-page-app.md)
+> [Visual Search 단일 페이지 웹앱 만들기](../tutorial-bing-visual-search-single-page-app.md)

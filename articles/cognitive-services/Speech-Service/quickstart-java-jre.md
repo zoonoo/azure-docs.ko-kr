@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: 음성 인식, Java(Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고 전사하는 간단한 Java 애플리케이션을 만듭니다.
+description: 이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고 전사하는 간단한 Java 애플리케이션을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447585"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009402"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 애플리케이션은 Speech SDK Maven 패키지와 64비트 Windows 또는 64비트 Ubuntu Linux 16.04/18.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 Speech SDK Maven 패키지 및 64비트 Windows, 64비트 Ubuntu Linux 16.04/18.04 또는 macOS 10.13 이상 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 > [!NOTE]
 > Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
@@ -30,7 +30,7 @@ ms.locfileid: "56447585"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* 운영 체제: Windows(64 비트) 또는 Ubuntu Linux 16.04/18.04(64비트)
+* 운영 체제: Windows(64비트), Ubuntu Linux 16.04/18.04(64비트) 또는 macOS 10.13 이상
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Speech Service에 대한 Azure 구독 키 [무료로 가져올 수 있습니다](get-started.md).
@@ -85,5 +85,5 @@ F11 키를 누르거나 **실행** > **디버그**를 선택합니다.
 ## <a name="see-also"></a>참고 항목
 
 - [빠른 시작: 음성 변환, Java(Windows, Linux)](quickstart-translate-speech-java-jre.md)
-- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)
