@@ -442,15 +442,12 @@ items:
 - name: 리소스
   items:
   - name: 릴리스 정보
+    href: ../hdinsight-release-notes.md
     items:
-    - name: 현재 릴리스 정보
-      href: ../hdinsight-release-notes.md
-      maintainContext: true
     - name: 보관된 릴리스 정보
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-  - name: 클러스터 구성 액세스 변경 사항
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+    maintainContext: true
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: 포럼에서 도움말 보기
@@ -464,9 +461,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 54a3252c75f2fc471116d9a1ac144bca59770d19
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: c345237788f49bd9fc785eeaed5831b89231bff4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617651"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578393"

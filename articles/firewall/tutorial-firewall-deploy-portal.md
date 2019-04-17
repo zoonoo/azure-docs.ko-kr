@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c038b899f60a4e04085b2343f2f02be5f7042ebb
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426412"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492317"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -43,6 +43,8 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * www.google.com 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
+
+원하는 경우 [Azure PowerShell](deploy-ps.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
