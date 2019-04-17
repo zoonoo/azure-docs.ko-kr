@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272770"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618102"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -93,7 +93,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 - **허브 vNet**. 허브 vNet **원본 허브 vNet**: 10.10.10.0/24가 있습니다.
   - 이 허브 vNet은 게이트키퍼 역할을 합니다.
   - 서브넷 간 통신은 모두 이 허브를 통해 이루어집니다.
-    - ****허브 vNet 서브넷**. 허브 vNet에는 두 개의 서브넷에 있습니다.
+    - **허브 vNet 서브넷**합니다. 허브 vNet에는 두 개의 서브넷에 있습니다.
     - **NVA 서브넷**: 10.10.10.0/25. 이 서브넷은 NVA(10.10.10.10)를 포함합니다.
     - **게이트웨이 서브넷**: 10.10.10.128/25. 이 서브넷은 ExpressRoute 연결에 연결된 ExpressRoute 게이트웨이를 포함하며 개인 피어링 라우팅 도메인을 통해 온-프레미스를 라우팅합니다.
 - 온-프레미스 데이터 센터에는 홍콩의 파트너 에지를 통해 ExpressRoute 회로에 연결됩니다.
@@ -104,7 +104,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 
 #### <a name="spoke-to-hub"></a>스포크-허브
 
-**방향** | **설정** | **시스템 상태**
+**방향** | **설정** | **State**
 --- | --- | ---
 스포크-허브 | 가상 네트워크 주소 허용 | 사용
 스포크-허브 | 전달된 트래픽 허용 | 사용
@@ -115,7 +115,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 
 #### <a name="hub-to-spoke"></a>허브-스포크
 
-**방향** | **설정** | **시스템 상태**
+**방향** | **설정** | **State**
 --- | --- | ---
 허브-스포크 | 가상 네트워크 주소 허용 | 사용
 허브-스포크 | 전달된 트래픽 허용 | 사용

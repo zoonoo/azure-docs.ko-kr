@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001359"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608608"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(Failover) 시작
 
@@ -73,7 +73,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
     ![장애 조치](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. 장애 조치를 시작하려면 **예** 를 클릭합니다.
 
-이 명령은 보조 데이터베이스를 주 역할로 즉시 전환합니다.
+이 명령은 보조 데이터베이스를 주 역할로 즉시 전환합니다. 일반적으로이 프로세스 내 30 초 이내에 완료 해야 합니다.
 
 역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 주 데이터베이스에 여러 개의 보조 데이터베이스가 있는 경우 이 명령을 사용하면 새로운 주 데이터베이스에 연결할 다른 보조 데이터베이스가 자동으로 다시 구성됩니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다.
 

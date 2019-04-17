@@ -1,19 +1,18 @@
 ---
 title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스가 어떻게 대규모의 복잡한 리소스 쿼리를 지원하는지 알아봅니다.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/06/2019
+ms.date: 03/29/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 15cfdc87fafa25e9f37c63c8159289b25a547817
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802325"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269291"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -26,13 +25,13 @@ Azure Resource Graph는 모든 구독 및 관리 그룹에서 대규모로 쿼�
 이 설명서에서는 각 기능을 자세히 설명합니다.
 
 > [!NOTE]
-> Azure Resource Graph는 Azure Portal의 새로운 '모든 리소스' 탐색 환경에서 사용됩니다. 이 기능은 대규모 환경을 관리하는 데 도움이 되도록 디자인되었습니다.
+> Azure Resource Graph는 Azure Portal의 새로운 '모든 리소스' 탐색 환경에서 사용됩니다. 이 기능은 대규모 환경을 관리할 필요가 있는 고객을 도와주도록 디자인되었습니다.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph가 Azure Resource Manager를 보완하는 방법
 
 Azure Resource Manager는 현재 여러 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치를 제공하는 제한된 리소스 캐시로 데이터를 보냅니다. 이전에는 다양한 리소스 속성으로 작업하려는 경우 각 개별 리소스 공급자를 호출하고 각 리소스에 대한 요청 속성 세부 정보를 호출해야 했습니다.
 
-Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다.
+Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다.
 
 ## <a name="the-query-language"></a>쿼리 언어
 
@@ -45,6 +44,9 @@ Azure Resource Graph의 쿼리 언어는 Azure Data Explorer의 [Kusto 쿼리 �
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Resource Graph의 권한
 
 Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 읽기 액세스 권한이 있는 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md))에 적절한 권한이 부여되어야 합니다. Azure 개체 또는 개체 그룹에 대한 `read` 이상의 권한이 없으면 결과가 반환되지 않습니다.
+
+> [!NOTE]
+> Resource Graph는 로그인하는 동안 보안 주체에 제공되는 구독을 사용합니다. 활성 세션 중에 추가된 새 구독의 리소스를 보려면 보안 주체가 컨텍스트를 새로 고쳐야 합니다. 이 작업은 로그아웃했다가 다시 로그인하면 자동으로 수행됩니다.
 
 ## <a name="throttling"></a>제한
 

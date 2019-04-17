@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: fa0a8c4baa9458a3784babe1e342d768748f8a4d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882457"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522856"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 앱의 구문 목록 기능
 
@@ -93,7 +93,7 @@ ms.locfileid: "55882457"
 ### <a name="use-a-phrase-list"></a>구문 목록 사용
 구문 목록을 기반으로 LUIS는 여전히 컨텍스트를 고려하고 비슷하지만 정확히 일치하지는 않는 항목을 목록의 항목으로 식별하도록 일반화될 수 있습니다. LUIS 앱이 범주의 새 항목을 일반화하고 식별할 수 있게 하려면 구문 목록을 사용합니다. 
 
-새 연락처의 이름을 인식해야 하는 모임 스케줄러 또는 새 제품을 인식해야 하는 인벤토리 앱과 같이 엔터티의 새 인스턴스를 인식할 수 있게 하려면 단순 또는 계층 구조 엔터티와 같은 다른 유형의 기계 학습으로 학습된 엔터티를 사용합니다. 그런 다음, LUIS가 엔터티와 유사한 다른 단어를 찾는 데 도움이 되는 단어 및 구문의 구문 목록을 만듭니다. 이 목록은 해당 단어의 값에 중요도를 추가하여 엔터티 예제를 인식하도록 LUIS를 안내합니다. 
+새 연락처 또는 새 제품을 인식 해야 하는 인벤토리 앱의 이름을 인식 해야 하는 회의 scheduler와 같은 특정 엔터티의 새 인스턴스를 인식할 수 하려는 경우에 간단한 엔터티를 같은 컴퓨터에서 학습 엔터티의 다른 형식을 사용 합니다. 그런 다음, LUIS가 엔터티와 유사한 다른 단어를 찾는 데 도움이 되는 단어 및 구문의 구문 목록을 만듭니다. 이 목록은 해당 단어의 값에 중요도를 추가하여 엔터티 예제를 인식하도록 LUIS를 안내합니다. 
 
 구문 목록은 의도 및 엔터티 모두의 이해 품질을 개선하도록 도와주는 도메인별 어휘와 비슷합니다. 일반적으로 구문 목록은 도시 이름과 같은 고유 명사에 사용됩니다. 도시 이름은 하이픈이나 아포스트로피를 포함한 여러 단어일 수 있습니다.
  

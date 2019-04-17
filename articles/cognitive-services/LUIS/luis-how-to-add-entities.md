@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106936"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522353"
 ---
 # <a name="create-entities-without-utterances"></a>발화 없는 엔터티 만들기
 
-엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 엔터티는 유사한 개체 모음(장소, 사물, 사람, 이벤트 또는 개념)을 포함한 클래스를 나타냅니다. 엔터티는 의도와 관련된 정보를 설명하며 앱이 작업을 수행하는 데 꼭 필요한 경우도 있습니다. (앞 이나 뒤)에서 utterance 의도 또는 간격을 추가 하면 엔터티를 만들 수 있습니다를 utterance 의도에 추가 합니다.
+엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 엔터티 (장소, 사물, 사용자, 이벤트 또는 개념)와 유사한 개체의 컬렉션을 포함 하 여 클래스를 나타냅니다. 엔터티는 의도와 관련된 정보를 설명하며 앱이 작업을 수행하는 데 꼭 필요한 경우도 있습니다. (앞 이나 뒤)에서 utterance 의도 또는 간격을 추가 하면 엔터티를 만들 수 있습니다를 utterance 의도에 추가 합니다.
 
 **엔터티** 페이지의 **엔터티 목록**을 통해 LUIS 앱에서 엔터티를 추가, 편집 또는 삭제할 수 있습니다. LUIS는 두 가지 유형의 주요 엔터티인 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 고유한 [사용자 지정 엔터티](luis-concept-entity-types.md#types-of-entities)를 제공합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "58106936"
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>매우 구조적 개념에 대 한 정규식 엔터티를 추가 합니다.
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>고도로 구조화 된 개념에 대 한 정규식 엔터티를 추가 합니다.
 
 정규식 엔터티는 제공된 정규식에 따라 발언에서 데이터를 끌어오는 데 사용됩니다. 
 
@@ -135,11 +135,11 @@ ms.locfileid: "58106936"
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>다른 컨텍스트를 구분 하기 위해 역할 추가
 
-역할은 컨텍스트를 기준으로 하는 엔터티의 명명된 하위 형식입니다. 역할은 [계층 구조](#add-hierarchical-entities) 엔터티와 유사하지만 [패턴](luis-how-to-model-intent-pattern.md)에서만 사용됩니다. 
+역할은 컨텍스트를 기반으로 명명 된 하위 형식입니다. 미리 빌드된 및 기계 학습 되지 않은 엔터티를 포함 하 여 모든 엔터티에서 제공 됩니다. 
 
 원본 및 대상 도시의 계층 구조 엔터티로 동일한 예제를 사용하면 차이는 계층 구조 자식 대신에 역할이 원본으로 명명된다는 점입니다. 
 
-역할 구문은 **{Entityname:Rolename}** 입니다. 즉, 엔터티 이름 뒤에 콜론이 오고 이어 역할 이름이 나옵니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`
+역할 구문은 **{Entityname:Rolename}** 입니다. 즉, 엔터티 이름 뒤에 콜론이 오고 이어 역할 이름이 나옵니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
 

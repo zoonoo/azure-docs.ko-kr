@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409855"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269302"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 
@@ -53,7 +53,7 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 
 ## <a name="understand-management-scope"></a>관리 범위 이해
 
-Azure는 네 가지 관리 범위 수준인 관리 그룹, 구독, 리소스 그룹 및 리소스를 제공합니다. [관리 그룹](../governance/management-groups/index.md)은 미리 보기 릴리스에 포함되어 있습니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
+Azure는 네 가지 관리 범위 수준인 [관리 그룹](../governance/management-groups/index.md), 구독, [리소스 그룹](#resource-groups) 및 리소스를 제공합니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
 
 ![범위](./media/resource-group-overview/scope-levels.png)
 
@@ -84,6 +84,8 @@ Resource Manager 템플릿을 만드는 방법에 대한 권장 사항은 [Azure
 * 리소스는 다른 리소스 그룹의 리소스와 상호 작용할 수 있습니다. 이 상호 작용은 두 개의 리소스가 관련되어 있지만 동일한 수명 주기를 공유하지 않는 경우에 일반적입니다(예: 데이터베이스에 연결된 웹앱).
 
 리소스 그룹을 만들 때 해당 리소스 그룹의 위치를 제공해야 합니다. 리소스 그룹에 위치가 필요한 이유는 무엇인지 궁금할 수 있습니다. 리소스의 위치가 리소스 그룹과 다른 경우 리소스 그룹 위치가 중요한 이유는 무엇인가요? 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 따라서 리소스 그룹의 위치를 지정하면 메타데이터가 저장된 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
+
+리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 위험을 최소화하려면 동일한 지역에 있는 리소스 그룹 및 리소스를 찾습니다.
 
 ## <a name="resource-providers"></a>리소스 공급자
 
@@ -163,10 +165,10 @@ Resource Manager는 설치에 포함되지 않은 특정 소프트웨어를 설�
 
 템플릿을 정의하면 Azure에 리소스를 배포할 준비가 되었습니다. 리소스를 배포하려면 다음을 참조하세요.
 
-* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md)
-* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)
-* [Resource Manager 템플릿과 Azure Portal로 리소스 배포](resource-group-template-deploy-portal.md)
-* [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](resource-group-template-deploy-rest.md)
+* [리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md)
+* [리소스 관리자 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)
+* [리소스 관리자 템플릿과 Azure 포털로 리소스 배포](resource-group-template-deploy-portal.md)
+* [리소스 관리자 템플릿과 리소스 관리자 REST API로 리소스 배포](resource-group-template-deploy-rest.md)
 
 ## <a name="safe-deployment-practices"></a>안전한 배포 사례
 

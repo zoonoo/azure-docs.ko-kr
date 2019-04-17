@@ -1,7 +1,7 @@
 ---
 title: 데이터 추출
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Language Understanding(LUIS)에서 추출할 수 있는 데이터 형식 알아보기
+description: 의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터를 추출 합니다. 어떤 종류의 데이터를 추출할 수 있습니다에서 LUIS (Language Understanding)에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893982"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526292"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>의도 및 엔터티에서 데이터 추출
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터를 추출 합니다.
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
 
 정확히 일치하는 텍스트가 아니므로 추출하기 가장 어려운 데이터는 기계 학습 데이터입니다. 기계 학습 [엔터티](luis-concept-entity-types.md)의 데이터 추출은 사용자가 예상한 데이터를 받는다고 확신할 때까지 [작성 주기](luis-concept-app-iteration.md)에 포함되어야 합니다.
@@ -170,9 +170,11 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |데이터 개체|엔터티 이름|값|
 |--|--|--|
-|단순 엔터티|“Customer”|“bob jones”|
+|단순 엔터티|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>계층적 엔터티 데이터
+
+**계층적 엔터티는 결국 사용 중단 됩니다. 사용 하 여 [엔터티 역할](luis-concept-roles.md) 계층적 엔터티 대신 엔터티 하위 형식 확인 하려면.**
 
 [계층적](luis-concept-entity-types.md) 엔터티는 기계 학습 엔터티이며 단어나 구문을 포함할 수 있습니다. 자식은 컨텍스트로 식별됩니다. 텍스트가 정확히 일치하는 부모-자식 관계를 검색하려면 [목록](#list-entity-data) 엔터티를 사용합니다.
 
@@ -432,13 +434,18 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 [PersonName](luis-reference-prebuilt-person.md) 및 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 엔터티는 일부 [언어 문화권](luis-reference-prebuilt-entities.md)에서 사용할 수 있습니다. 
 
 ### <a name="names-of-people"></a>사용자의 이름
-사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 이름 및 성과 함께 계층적 엔터티를 사용하거나 이름 및 성의 역할과 함께 단순 엔터티를 사용합니다. 발화의 다양한 부분, 다양한 길이의 발화 및 None 의도를 포함하는 모든 의도에 걸쳐 있는 발화에서 이름과 성을 사용하는 예제를 제공해야 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+
+사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 사용을 미리 **[personName](luis-reference-prebuilt-person.md)** 엔터티 또는 **[단순 엔터티](luis-concept-entity-types.md#simple-entity)** 사용 하 여 [역할](luis-concept-roles.md) 첫 번째 및 성입니다. 
+
+간단한 엔터티를 사용 하는 경우 확인 None를 비롯 한 모든 의도 간에 서로 다른 길이의 길이 발언 및 길이 발언을 utterance의 다른 부분에서 첫 번째 및 마지막 이름을 사용 하는 예를 제공 하도록 의도 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ### <a name="names-of-places"></a>위치 이름
-위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 앱이 알려진 위치 집합을 사용할 경우, 목록 엔터티를 사용하는 것이 좋습니다. 모든 위치 이름을 찾아야 하는 경우, 단순 엔터티를 만들고 다양한 예제를 제공합니다. 위치 이름의 구문 목록을 추가하여 앱에서 위치 이름이 표시되는 모양을 보완합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+
+위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 미리 작성 된 엔터티 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 위치 정보를 추출 합니다.
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 유형의 이름을 가진 데이터를 추출하기가 가장 어렵습니다. 단순 엔터티로 시작하고 구문 목록을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이름의 이러한 유형은 가장 어려운 형식의 데이터를 추출 합니다. 시작을 **[간단한 엔터티](luis-concept-entity-types.md#simple-entity)** 추가 하 고는 [구 목록](luis-concept-feature.md)합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ## <a name="pattern-roles-data"></a>패턴 역할 데이터
 역할은 엔터티의 컨텍스트 차이입니다.

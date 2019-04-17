@@ -14,22 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43a5f3be9b176cf25e643d6a5231669922300b98
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c533f4671411412f223fb1c67f1b310ee19bcf23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485937"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547552"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SQL Server Windows 가상 머신 만들기
 
 이 빠른 시작은 Azure PowerShell을 사용하여 SQL Server 가상 머신을 만드는 과정을 설명합니다.
 
 > [!TIP]
-> 이 빠른 시작에서는 신속하게 SQL VM을 프로비전하고 연결하는 경로를 제공합니다. SQL VM을 만들기 위한 다른 Azure PowerShell 옵션에 대한 자세한 내용은 [Azure PowerShell을 사용한 SQL Server VM 프로비전 가이드](virtual-machines-windows-ps-sql-create.md)를 참조하세요.
-
-> [!TIP]
-> SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
+> - 이 빠른 시작에서는 신속하게 SQL VM을 프로비전하고 연결하는 경로를 제공합니다. SQL VM을 만들기 위한 다른 Azure PowerShell 옵션에 대한 자세한 내용은 [Azure PowerShell을 사용한 SQL Server VM 프로비전 가이드](virtual-machines-windows-ps-sql-create.md)를 참조하세요.
+> - SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
 ## <a id="subscription"></a> Azure 구독 가져오기
 

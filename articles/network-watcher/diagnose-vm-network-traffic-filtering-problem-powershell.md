@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0aa9c42a25b9bb0e740145ffd9b842814574176b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bf4c49bc988500d0f8b226dd6d735f966080ae09
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878047"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047197"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure PowerShell
 
@@ -30,22 +30,26 @@ ms.locfileid: "58878047"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에는 AzureRM PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 빠른 시작에는 Azure PowerShell `Az` 모듈이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+
+
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 VM이 포함될 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만듭니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 VM에 대한 사용자 이름과 암호로 구성됩니다.
+[New-AzVM](/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 VM에 대한 사용자 이름과 암호로 구성됩니다.
 
 ```azurepowershell-interactive
-$vM = New-AzureRmVm `
+$vM = New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "East US"
@@ -59,18 +63,18 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트
 
 ### <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
-미국 동부 지역에서 활성화된 네트워크 감시자가 이미 있는 경우 [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher)를 사용하여 네트워크 감시자를 검색합니다. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus*라는 기존 네트워크 감시자를 검색합니다.
+미국 동부 지역에서 활성화된 네트워크 감시자가 이미 있는 경우 [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용하여 네트워크 감시자를 검색합니다. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus*라는 기존 네트워크 감시자를 검색합니다.
 
 ```azurepowershell-interactive
-$networkWatcher = Get-AzureRmNetworkWatcher `
+$networkWatcher = Get-AzNetworkWatcher `
   -Name NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-미국 동부 지역에서 활성화된 네트워크 감시자가 아직 없는 경우 [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher)를 사용하여 미국 동부 지역에서 네트워크 감시자를 만듭니다.
+미국 동부 지역에서 활성화된 네트워크 감시자가 아직 없는 경우 [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher)를 사용하여 미국 동부 지역에서 네트워크 감시자를 만듭니다.
 
 ```azurepowershell-interactive
-$networkWatcher = New-AzureRmNetworkWatcher `
+$networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_eastus" `
   -ResourceGroupName "NetworkWatcherRG" `
   -Location "East US"
@@ -78,12 +82,12 @@ $networkWatcher = New-AzureRmNetworkWatcher `
 
 ### <a name="use-ip-flow-verify"></a>IP 흐름 확인 사용
 
-VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허용하고 거부합니다. 추가 트래픽 형식을 허용하거나 거부하여 나중에 Azure의 기본값을 재정의할 수 있습니다. 트래픽이 다른 대상 및 원본 IP 주소에서 허용되거나 거부되는지 여부를 테스트하려면 [Test-AzureRmNetworkWatcherIPFlow](/powershell/module/azurerm.network/test-azurermnetworkwatcheripflow) 명령을 사용합니다.
+VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허용하고 거부합니다. 추가 트래픽 형식을 허용하거나 거부하여 나중에 Azure의 기본값을 재정의할 수 있습니다. 트래픽이 다른 대상에 대해, 그리고 원본 IP 주소에서 허용되거나 거부되는지 여부를 테스트하려면 [Test-AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) 명령을 사용합니다.
 
 VM에서 www.bing.com에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Outbound `
@@ -99,7 +103,7 @@ Test-AzureRmNetworkWatcherIPFlow `
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Outbound `
@@ -115,7 +119,7 @@ Test-AzureRmNetworkWatcherIPFlow `
 172.31.0.100에서 VM으로 인바운드 통신을 테스트합니다.
 
 ```azurepowershell-interactive
-Test-AzureRmNetworkWatcherIPFlow `
+Test-AzNetworkWatcherIPFlow `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $vM.Id `
   -Direction Inbound `
@@ -130,10 +134,10 @@ Test-AzureRmNetworkWatcherIPFlow `
 
 ## <a name="view-details-of-a-security-rule"></a>보안 규칙의 세부 정보 보기
 
-[네트워크 통신 테스트](#test-network-communication)의 규칙이 통신을 허용하거나 방지하는 이유를 결정하려면 [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup)을 사용하여 네트워크 인터페이스에 대한 유효한 보안 규칙을 검토합니다.
+[네트워크 통신 테스트](#test-network-communication)의 규칙이 통신을 허용하거나 방지하는 이유를 결정하려면 [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)을 사용하여 네트워크 인터페이스에 대해 유효한 보안 규칙을 검토합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveNetworkSecurityGroup `
+Get-AzEffectiveNetworkSecurityGroup `
   -NetworkInterfaceName myVm `
   -ResourceGroupName myResourceGroup
 ```
@@ -173,9 +177,9 @@ Get-AzureRmEffectiveNetworkSecurityGroup `
   },
 ```
 
-**DestinationAddressPrefix**가 **인터넷**인 출력에서 확인할 수 있습니다. 그러나 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 테스트한 주소인 13.107.21.200이 **인터넷**과 어떻게 관련되어 있는지 분명하지 않습니다. **ExpandedDestinationAddressPrefix** 아래에 여러 가지 주소 접두사가 나열됩니다. 목록의 접두사 중 하나는 IP 주소의 12.0.0.1-15.255.255.254 범위를 포함하는 **12.0.0.0/6**입니다. 13.107.21.200은 해당 주소 범위에 있으므로 **AllowInternetOutBound** 규칙은 아웃바운드 트래픽을 허용합니다. 또한 이 규칙을 재정의하는 `Get-AzureRmEffectiveNetworkSecurityGroup`에서 반환된 출력에 나열된 더 높은 **우선 순위**(낮은 수) 규칙이 없습니다. 13.107.21.200에 대한 아웃바운드 통신을 거부하려면 IP 주소에 대한 포트 80 아웃바운드를 거부하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
+**DestinationAddressPrefix**가 **인터넷**인 출력에서 확인할 수 있습니다. 그러나 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 테스트한 주소인 13.107.21.200이 **인터넷**과 어떻게 관련되어 있는지 분명하지 않습니다. **ExpandedDestinationAddressPrefix** 아래에 여러 가지 주소 접두사가 나열됩니다. 목록의 접두사 중 하나는 IP 주소의 12.0.0.1-15.255.255.254 범위를 포함하는 **12.0.0.0/6**입니다. 13.107.21.200은 해당 주소 범위에 있으므로 **AllowInternetOutBound** 규칙은 아웃바운드 트래픽을 허용합니다. 또한 이 규칙을 재정의하는 `Get-AzEffectiveNetworkSecurityGroup`에서 반환된 출력에 나열된 더 높은 **우선 순위**(낮은 수) 규칙이 없습니다. 13.107.21.200에 대한 아웃바운드 통신을 거부하려면 IP 주소에 대한 포트 80 아웃바운드를 거부하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
 
-`Test-AzureRmNetworkWatcherIPFlow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100에 대한 아웃바운드 통신을 테스트한 경우 출력은 **DefaultOutboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultOutboundDenyAll** 규칙은 `Get-AzureRmEffectiveNetworkSecurityGroup` 명령에서 다음 출력에 나열된 **DenyAllOutBound** 규칙과 동일합니다.
+`Test-AzNetworkWatcherIPFlow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100에 대한 아웃바운드 통신을 테스트한 경우 출력은 **DefaultOutboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultOutboundDenyAll** 규칙은 `Get-AzEffectiveNetworkSecurityGroup` 명령에서 다음 출력에 나열된 **DenyAllOutBound** 규칙과 동일합니다.
 
 ```powershell
 {
@@ -201,9 +205,9 @@ Get-AzureRmEffectiveNetworkSecurityGroup `
 }
 ```
 
-규칙은 **DestinationAddressPrefix**로 **0.0.0.0/0**을 나열합니다. 규칙은 주소가 `Get-AzureRmEffectiveNetworkSecurityGroup` 명령의 출력에서 다른 아웃바운드 규칙의 **DestinationAddressPrefix** 내에 없기 때문에 172.131.0.100에 대한 아웃바운드 통신을 거부합니다. 아웃바운드 통신을 허용하려면 172.131.0.100에서 포트 80에 대한 아웃바운드 트래픽을 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
+규칙은 **DestinationAddressPrefix**로 **0.0.0.0/0**을 나열합니다. 규칙은 주소가 `Get-AzEffectiveNetworkSecurityGroup` 명령의 출력에서 다른 아웃바운드 규칙의 **DestinationAddressPrefix** 내에 없기 때문에 172.131.0.100에 대한 아웃바운드 통신을 거부합니다. 아웃바운드 통신을 허용하려면 172.131.0.100에서 포트 80에 대한 아웃바운드 트래픽을 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
 
-`Test-AzureRmNetworkWatcherIPFlow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100의 인바운드 통신을 테스트한 경우 출력은 **DefaultInboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultInboundDenyAll** 규칙은 `Get-AzureRmEffectiveNetworkSecurityGroup` 명령에서 다음 출력에 나열된 **DenyAllInBound** 규칙과 동일합니다.
+`Test-AzNetworkWatcherIPFlow` 명령을 실행하여 [IP 흐름 확인 사용](#use-ip-flow-verify)에서 172.131.0.100의 인바운드 통신을 테스트한 경우 출력은 **DefaultInboundDenyAll** 규칙이 통신을 거부했음을 알렸습니다. **DefaultInboundDenyAll** 규칙은 `Get-AzEffectiveNetworkSecurityGroup` 명령에서 다음 출력에 나열된 **DenyAllInBound** 규칙과 동일합니다.
 
 ```powershell
 {
@@ -229,16 +233,16 @@ Get-AzureRmEffectiveNetworkSecurityGroup `
 },
 ```
 
-출력에 표시된 것과 같이 172.131.0.100에서 VM에 대한 포트 80 인바운드를 허용하는 `Get-AzureRmEffectiveNetworkSecurityGroup` 명령에서 출력에 더 높은 우선 순위 규칙이 없으므로 **DenyAllInBound** 규칙이 적용됩니다. 인바운드 통신을 허용하려면 172.131.0.100에서 포트 80 인바운드를 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
+출력에 표시된 것과 같이 172.131.0.100에서 VM에 대한 포트 80 인바운드를 허용하는 `Get-AzEffectiveNetworkSecurityGroup` 명령에서 출력에 더 높은 우선 순위 규칙이 없으므로 **DenyAllInBound** 규칙이 적용됩니다. 인바운드 통신을 허용하려면 172.131.0.100에서 포트 80 인바운드를 허용하는 더 높은 우선 순위를 가진 보안 규칙을 추가할 수 있습니다.
 
 이 빠른 시작에서 검사는 Azure 구성을 테스트했습니다. 검사가 예상된 결과를 반환하고 여전히 네트워크 문제가 있는 경우 VM과 통신하고 있는 엔드포인트 간에 방화벽이 없고 VM의 운영 체제에 통신을 허용하거나 거부하는 방화벽이 없는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

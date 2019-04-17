@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eeaff4769dba5b6e6951665d09cd12d13f22af07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084592"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273717"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
@@ -34,10 +34,12 @@ ms.locfileid: "58084592"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 장치:
+Azure IoT Edge 디바이스:
 
-* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다. 
-* Azure IoT Edge용 C 모듈은 Windows 컨테이너를 지원하지 않습니다. IoT Edge 디바이스가 Windows 머신인 경우 Linux 컨테이너를 사용하도록 구성해야 합니다. Windows 및 Linux 컨테이너 간의 설치 차이점은 [Windows에 IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)를 참조하세요.
+* [Linux](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)의 빠른 시작에 설명된 단계에 따라 Azure 가상 머신을 IoT Edge 디바이스로 사용할 수 있습니다. 
+
+   >[!TIP]
+   >이 자습서에서는 Visual Studio Code를 사용하여 Linux 컨테이너를 사용하는 C 모듈을 개발합니다. Windows 컨테이너용 C로 개발하려면 Visual Studio 2017을 사용해야 합니다. 자세한 내용은 [Visual Studio 2017을 사용하여 Azure IoT Edge용 모듈 개발 및 디버그](how-to-visual-studio-develop-module.md)를 참조하세요.
 
 클라우드 리소스:
 
@@ -100,7 +102,7 @@ Azure IoT Edge 장치:
  
    ![Docker 이미지 리포지토리 제공](./media/tutorial-c-module/repository.png)
 
-VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. **modules** 폴더에는 모듈에 대한 C 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 디바이스에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 그리고 **deployment.debug.template.json** 파일에는 모듈의 디버그 버전이 포함되어 있습니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다.
+VS Code 창은 최상위 5개의 구성 요소로 IoT Edge 솔루션 작업 영역을 로드합니다. **modules** 폴더에는 모듈에 대한 C 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 디바이스에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 그리고 **deployment.debug.template.json** 파일에는 모듈의 디버그 버전이 포함되어 있습니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다.
 
 솔루션을 만들 때 컨테이너 레지스트리를 지정하지 않았지만 기본값인 localhost:5000을 수락한 경우에는 \.env 파일이 없습니다.
 
@@ -118,7 +120,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 ### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-센서의 데이터를 읽도록 허용하는 코드를 C 모듈에 추가하고, 보고된 머신 온도가 안전 임계값을 초과했는지 확인하고, 해당 정보를 IoT Hub에 전달합니다.
+보고된 머신 온도가 안전 임계값을 초과했는지 확인할 수 있는 코드를 C 모듈에 추가합니다. 온도가 너무 높은 경우, IoT Hub에 데이터를 보내기 전에 모듈은 경고 매개 변수를 메시지에 추가합니다. 
 
 1. 이 시나리오의 센서 데이터는 JSON 형식으로 들어옵니다. JSON 형식의 메시지를 필터링하려면 C용 JSON 라이브러리를 가져와야 합니다. 이 자습서에서는 Parson을 사용합니다.
 
@@ -319,9 +321,9 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 ## <a name="build-and-push-your-solution"></a>솔루션 빌드 및 푸시
 
-이전 섹션에서는 IoT Edge 솔루션을 만들고 CModule에 코드를 추가하여 보고된 머신 온도가 허용 가능한 한도 이내인 메시지를 필터링했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다.
+이전 섹션에서는 IoT Edge 솔루션을 만들었고, 보고된 머신 온도가 허용되는 범위 내에 있는 경우 메시지를 필터링하는 코드를 CModule에 추가했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다.
 
-1. **보기** > **통합된 터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
+1. **보기** > **터미널**을 차례로 선택하여 VS Code 통합 터미널을 엽니다.
 
 1. Visual Studio Code 통합 터미널에 다음 명령을 입력하여 Docker에 로그인합니다. 레지스트리에 모듈 이미지를 푸시할 수 있도록 Azure Container Registry 자격 증명을 사용하여 로그인해야 합니다.
      
@@ -368,7 +370,7 @@ IoT Edge 디바이스에 배포 매니페스트를 적용한 후에는 디바이
 
 Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 IoT Edge 디바이스 상태를 확인할 수 있습니다. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 상세 정보를 확장합니다.
 
-IoT Edge 디바이스 자체에서 `iotedge list` 명령을 사용하여 배포 모듈 상태를 확인할 수 있습니다. 두 IoT Edge 런타임 모듈과 tempSensor, 이 자습서에서 만든 사용자 지정 모듈 등, 4개 모듈이 표시됩니다. 모든 모듈이 시작되려면 몇 분 정도 걸릴 수 있으므로 처음에 일부가 표시되지 않는다면 명령을 다시 실행합니다.
+IoT Edge 디바이스 자체에서 `iotedge list` 명령을 사용하여 배포 모듈의 상태를 볼 수 있습니다. 두 IoT Edge 런타임 모듈과 tempSensor, 이 자습서에서 만든 사용자 지정 모듈 등, 4개 모듈이 표시됩니다. 모든 모듈이 시작되려면 몇 분 정도 걸릴 수 있으므로 처음에 일부가 표시되지 않는다면 명령을 다시 실행합니다.
 
 모든 모듈에서 생성되는 메시지를 보려면 `iotedge logs <module name>` 명령을 사용합니다.
 

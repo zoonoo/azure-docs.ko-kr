@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758568"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524500"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -154,7 +154,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews**에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
-1. **IList<CreateVideoReviewsBodyItem>** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
+1. **IList\<CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem**에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
 - **Content**. 검토할 비디오의 URL입니다.
@@ -244,15 +244,15 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
-1. IList<TranscriptModerationBodyItem>입니다. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
-1. **Terms**. IList<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
+1. IList\<TranscriptModerationBodyItem >. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
+1. **Terms**. IList\<TranscriptModerationBodyItemTermsItem >. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
 1. **Index**. 용어의 0부터 시작하는 인덱스입니다.
 1. **Term**. 용어를 포함하는 문자열입니다.
 1. **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
 대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: 웹 비디오 텍스트 트랙 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
-VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 결과를 IList<TranscriptModerationBodyItem>로 변환하고 **AddVideoTranscriptModerationResult**에 제출합니다.
+VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 IList에 결과 변환\<TranscriptModerationBodyItem >를 전송 하 **AddVideoTranscriptModerationResult**합니다.
 
 ```csharp
 /// <summary>

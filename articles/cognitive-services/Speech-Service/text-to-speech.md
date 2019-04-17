@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263114"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578787"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환 이란?
 
@@ -53,10 +53,7 @@ Azure Speech Services에서 text to speech는 서비스에 응용 프로그램, 
 | 음성 글꼴 테스트를 만들고 설정 합니다. | 아닙니다. | 예\* |
 | 구독을 관리 합니다. | 아닙니다. | 예\* |
 
-\* *이러한 서비스 cris.ai 끝점을 사용 하 여 사용할 수 있습니다. 참조 [참조를 Swagger](https://westus.cris.ai/swagger/ui/index)합니다.*
-
-> [!NOTE]
-> 텍스트 음성 변환 끝점 5 초 당 25에 대 한 요청을 제한 하는 제한을 구현 합니다. 제한이 발생 하는 경우 메시지 헤더를 통해 알림을 받게 됩니다.
+\* *이러한 서비스 cris.ai 끝점을 사용 하 여 사용할 수 있습니다. 참조 [참조를 Swagger](https://westus.cris.ai/swagger/ui/index)합니다. 이러한 사용자 지정 음성 교육 및 관리 Api는 5 초 당 25로 제한 요청 음성 합성 API 자체는 제한을 구현 하는 동안 허용은 최고 초당 200 요청 제한을 구현 합니다. 제한이 발생 하는 경우 메시지 헤더를 통해 알림을 받게 됩니다.*
 
 ## <a name="get-started-with-text-to-speech"></a>텍스트 읽어주기 시작
 
@@ -66,28 +63,28 @@ Azure Speech Services에서 text to speech는 서비스에 응용 프로그램, 
 
 | 빠른 시작 (SDK) | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [찾아보기](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [찾아보기](https://aka.ms/csspeech/cppref) |
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
 ### <a name="rest-quickstarts"></a>REST 빠른 시작
 
 | 빠른 시작 (REST) | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Linux, macOS, 창 | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Linux, macOS, 창 | [찾아보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.JS](quickstart-nodejs-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Linux, macOS, 창 | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>샘플 코드
 
 텍스트 음성 변환에 대 한 예제 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플에는 가장 인기 있는 프로그래밍 언어로 텍스트 음성 변환 변환을 다룹니다.
 
 * [텍스트 음성 변환 샘플 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [텍스트 음성 변환 샘플 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [텍스트 음성 변환 샘플(REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [음성 SDK](speech-sdk-reference.md)
+* [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
@@ -95,5 +92,5 @@ Azure Speech Services에서 text to speech는 서비스에 응용 프로그램, 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [무료 음성 서비스 구독](get-started.md)
+* [체험 Speech Services 구독 받기](get-started.md)
 * [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)

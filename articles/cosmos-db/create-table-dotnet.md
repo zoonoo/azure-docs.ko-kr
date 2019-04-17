@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 7ca51b176c17f33b4779a0129c5dc57b220c0097
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877635"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544197"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
 
@@ -65,11 +65,8 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
    ```bash
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
-   > [!NOTE]
-   > 이 문서에 설명된 .NET 표준 샘플은 Azure Cosmos DB Table API 및 Azure Table Storage에 모두 사용됩니다. .NET Framework 4.5에 사용되는 샘플을 실행하는 데 관심이 있는 경우 [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) 샘플을 참조하세요. 
 
-
-## <a name="open-the-sample-application-in-visual-studio"></a>Visual Studio에서 샘플 애플리케이션 열기
+## <a name="open-the-sample-application-in-visual-studio"></a>Visual Studio에서 샘플 응용 프로그램 열기
 
 1. Visual Studio의 **파일** 메뉴에서 **열기**를 선택한 다음 **프로젝트/솔루션**을 선택합니다. 
 
@@ -94,7 +91,6 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
       "StorageConnectionString": "<Primary connection string from Azure portal>"
    }
    ```
-   [.NET Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) 샘플을 사용하는 경우 **App.config** 파일에 있는 연결 문자열을 업데이트해야 합니다.
 
 4. CTRL+S를 눌러 **Settings.json** 파일을 저장합니다.
 
@@ -107,9 +103,6 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
    ![NuGet 패키지 관리](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
 2. NuGet **찾아보기** 상자에 Microsoft.Azure.Cosmos.Table을 입력합니다. 그러면 Cosmos DB Table API 클라이언트 라이브러리를 찾을 수 있습니다. 이 라이브러리는 현재 .NET Framework 및 .NET Standard에만 제공됩니다. 
-
-   > [!NOTE]
-   > .NET Framework를 사용하는 샘플을 사용하는 경우 *Microsoft.Azure.CosmosDB.Table*, NuGet 패키지를 설치해야 합니다. Azure Table Storage와 함께 .NET Framework 샘플을 사용하는 경우 Cosmos DB 특정 NuGet 패키지뿐만 아니라, *Microsoft.Azure.Storage.Common* NuGet 패키지도 필요합니다. 
    
    ![NuGet 찾아보기 탭](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

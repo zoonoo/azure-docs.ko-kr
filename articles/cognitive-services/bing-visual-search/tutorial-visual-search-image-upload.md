@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 919690dcef69bd6c142a692e992bfff45b995605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0963c61027358c2c8e971533052631de28994b57
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858573"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491086"
 ---
-# <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>자습서: Bing Visual Search API에 이미지 업로드
+# <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>자습서: Bing Visual Search API에 이미지 업로드
 
-Bing Visual Search API를 사용하여 업로드하는 이미지와 유사한 이미지에 대한 웹을 검색할 수 있습니다. 이 자습서를 사용하여 이미지를 API에 보낼 수 있는 웹 애플리케이션을 만들고, 웹 페이지 내에 반환하는 인사이트를 표시합니다. 이 애플리케이션은 API를 사용하기 위해 모든 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 준수하지 않습니다.
+Bing Visual Search API를 사용하여 업로드하는 이미지와 유사한 이미지에 대한 웹을 검색할 수 있습니다. 이 자습서를 사용하여 이미지를 API에 보낼 수 있는 웹 애플리케이션을 만들고, 웹 페이지 내에 반환하는 인사이트를 표시합니다. 이 애플리케이션은 API를 사용하기 위해 모든 [Bing 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 준수하지 않습니다.
 
-이 샘플에 대한 전체 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html)에서 찾을 수 있습니다.
+추가 오류 처리 및 주석이 포함된 이 샘플에 대한 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html)에서 찾을 수 있습니다.
 
 자습서 앱은 다음 방법을 보여 줍니다.
 
@@ -30,13 +30,13 @@ Bing Visual Search API를 사용하여 업로드하는 이미지와 유사한 �
 > * 웹 애플리케이션에 이미지 검색 결과 표시
 > * API에서 제공되는 다양한 인사이트 살펴보기
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-structure-the-webpage"></a>웹 페이지 만들기 및 구조화
 
-Bing에 이미지를 보내고 인사이트를 다시 가져와 표시하는 HTML 페이지를 만듭니다. 자주 사용하는 편집기 또는 IDE에서 `uploaddemo.html`이라는 파일을 만듭니다. 이 파일에 다음 기본 HTML 구조를 추가합니다.
+이미지를 Bing Visual Search API로 보내고, 인사이트를 받고, 이를 표시하는 HTML 페이지를 만듭니다. 즐겨찾는 편집기 또는 IDE에서 uploaddemo.html이라는 파일을 만듭니다. 이 파일에 다음 기본 HTML 구조를 추가합니다.
 
 ```html
 <!DOCTYPE html>
@@ -47,18 +47,18 @@ Bing에 이미지를 보내고 인사이트를 다시 가져와 표시하는 HTM
 
     <body>
     </body>
-</html>      
+</html>
 ```
 
-페이지를 요청 섹션과 응답 섹션으로 나눕니다. 요청 섹션에서 사용자는 요청을 수행하는 데 필요한 모든 정보를 제공하고, 응답 섹션에서는 인사이트가 표시됩니다. 다음 `<div>` 태그를 `<body>`에 추가합니다. `<hr>` 태그는 응답 섹션에서 요청 섹션을 시각적으로 구분합니다.
+페이지를 요청 섹션과 응답 섹션으로 나눕니다. 요청 섹션에서는 사용자가 요청에 필요한 모든 정보를 제공하고, 응답 섹션에서는 인사이트가 표시됩니다. 다음 `<div>` 태그를 `<body>`에 추가합니다. `<hr>` 태그는 요청 섹션과 응답 섹션을 시각적으로 구분합니다.
 
 ```html
 <div id="requestSection"></div>
-<hr />      
+<hr />
 <div id="responseSection"></div>
 ```
 
-`<script>` 태그를 애플리케이션에 대한 JavaScript를 포함하도록 `<head>` 태그에 추가합니다.
+애플리케이션에 대한 JavaScript가 포함되도록 `<script>` 태그를 `<head>` 태그에 추가합니다.
 
 ```html
 <script>
@@ -67,12 +67,11 @@ Bing에 이미지를 보내고 인사이트를 다시 가져와 표시하는 HTM
 
 ## <a name="get-the-upload-file"></a>업로드 파일 가져오기
 
-애플리케이션에서는 사용자가 업로드할 이미지를 선택할 수 있도록 하기 위해 형식 특성을 `file`로 설정한 `<input>` 태그를 사용합니다. UI는 애플리케이션에서 Bing을 사용하여 검색 결과를 얻는다는 사실을 명확히 나타내야 합니다. 
+애플리케이션에서는 사용자가 업로드할 이미지를 선택할 수 있도록 하기 위해 형식 특성을 `file`로 설정한 `<input>` 태그를 사용합니다. UI는 애플리케이션에서 Bing을 사용하여 검색 결과를 얻는다는 사실을 명확히 나타내야 합니다.
 
-다음 `<div>`를 requestSection div에 추가합니다. 파일 입력은 형식(예:.jpg, .gif, .png)에 관계없이 단일 이미지 파일을 허용합니다. `onchange` 이벤트는 사용자가 파일을 선택할 때 호출되는 처리기를 지정합니다.
+다음 `<div>`를 `requestSection` `<div>`에 추가합니다. 파일 입력은 형식(예:.jpg, .gif, .png)에 관계없이 단일 이미지 파일을 허용합니다. `onchange` 이벤트는 사용자가 파일을 선택할 때 호출되는 처리기를 지정합니다.
 
-`<output>` 태그는 선택한 이미지의 미리 보기를 표시합니다.
-
+`<output>` 태그는 선택한 이미지의 미리 보기를 표시하는 데 사용됩니다.
 
 ```html
 <div>
@@ -84,9 +83,9 @@ Bing에 이미지를 보내고 인사이트를 다시 가져와 표시하는 HTM
 </div>
 ```
 
-## <a name="create-a-file-handler"></a>파일 처리기 만들기 
+## <a name="create-a-file-handler"></a>파일 처리기 만들기
 
-업로드하려는 이미지에서 읽을 수 있는 처리기 함수를 만듭니다. `FileList` 개체에서 파일을 반복하는 동안 처리기는 선택한 파일이 이미지 파일이며 해당 크기가 1MB 이하인지 확인해야 합니다. 이미지가 큰 경우 업로드하기 전에 크기를 줄여야 합니다. 처리기는 마지막으로 이미지의 미리 보기를 표시합니다.
+업로드하려는 이미지에서 읽을 수 있는 처리기 함수를 만듭니다. `FileList` 개체에서 파일을 반복하는 동안 처리기는 선택한 파일이 이미지 파일이며 해당 크기가 1MB 이하인지 확인해야 합니다. 이미지가 큰 경우 크기를 줄여서 업로드해야 합니다. 마지막으로, 처리기는 이미지의 미리 보기를 표시합니다.
 
 ```javascript
 function handleFileSelect(selector) {
@@ -136,7 +135,7 @@ function handleFileSelect(selector) {
 
 ## <a name="add-and-store-a-subscription-key"></a>구독 키 추가 및 저장
 
-애플리케이션은 Bing Visual Search API를 호출하기 위해 구독 키가 필요합니다. 이 자습서의 경우 UI에서 제공합니다. 다음 `<input>` 태그(형식 특성이 text로 설정됨)를 파일의 `<output>` 태그 바로 아래의 `<body>`에 추가합니다.
+애플리케이션에는 Bing Visual Search API를 호출하기 위해 구독 키가 필요합니다. 이 자습서의 경우 UI에서 제공합니다. 다음 `<input>` 태그(type 특성이 text로 설정됨)를 파일의 `<output>` 태그 바로 아래에 있는 `<body>`에 추가합니다.
 
 ```html
     <div>
@@ -146,9 +145,9 @@ function handleFileSelect(selector) {
     </div>
 ```
 
-이미지와 구독 키를 사용하여 Bing Visual Search를 호출하여 이미지에 대한 인사이트를 얻을 수 있습니다. 이 자습서에서 호출은 기본 시장(`en-us`) 및 안전 검색 값(`moderate`)을 사용합니다.
+이미지와 구독 키를 사용하여 Bing Visual Search를 호출하여 이미지에 대한 인사이트를 얻을 수 있습니다. 이 자습서에서는 호출에서 기본 시장(`en-us`)과 안전 검색 값(`moderate`)을 사용합니다.
 
-이 애플리케이션에는 이러한 값을 변경하는 옵션이 있습니다. 구독 키 div 아래에 다음 `<div>`를 추가합니다. 애플리케이션은 `<select>` 태그를 사용하여 시장 및 안전 검색 값에 대한 드롭다운 목록을 제공합니다. 두 목록 모두 기본값을 표시합니다.
+이 애플리케이션에는 이러한 값을 변경하는 옵션이 있습니다. 다음 `<div>`를 `<div>` 구독 키 아래에 추가합니다. 애플리케이션은 `<select>` 태그를 사용하여 시장 및 안전 검색 값에 대한 드롭다운 목록을 제공합니다. 두 목록 모두 기본값을 표시합니다.
 
 ```html
 <div>
@@ -210,9 +209,9 @@ function handleFileSelect(selector) {
 </div>
 ```
 
-## <a name="add-search-options-to-the-webpage"></a>웹 페이지에 검색 옵션 추가 
+## <a name="add-search-options-to-the-webpage"></a>웹 페이지에 검색 옵션 추가
 
-애플리케이션은 쿼리 옵션 링크를 통해 제어되는 축소 가능한 div에서 목록을 숨깁니다. 쿼리 옵션 링크를 클릭하면 div가 확장되므로 쿼리 옵션을 보고 수정할 수 있습니다. 쿼리 옵션 링크를 다시 클릭하면 div가 축소되고 숨겨집니다. 다음은 쿼리 옵션 링크의 onclick 처리기를 보여 줍니다. 이 처리기는 div 확장 또는 축소 여부를 제어합니다. 이 처리기를 `<script>` 섹션에 추가합니다. 처리기는 데모의 모든 축소 가능 div에서 사용됩니다.
+애플리케이션은 쿼리 옵션 링크로 제어되는 접을 수 있는 `<div>`에 목록을 숨깁니다. 쿼리 옵션 링크를 클릭하면 `<div>`가 펼쳐져 쿼리 옵션을 보고 수정할 수 있습니다. 쿼리 옵션 링크를 다시 클릭하면 `<div>`가 접혀 숨겨집니다. 다음 코드 조각에서는 쿼리 옵션 링크의 `onclick` 처리기를 보여 줍니다. 이 처리기는 `<div>` 펼치기 또는 접기 여부를 제어합니다. 이 처리기를 `<script>` 섹션에 추가합니다. 처리기는 데모의 접을 수 있는 모든 `<div>` 섹션에서 사용됩니다.
 
 ```javascript
 // Contains the toggle state of divs.
@@ -234,26 +233,26 @@ function expandCollapse(divToToggle) {
 }
 ```
 
-## <a name="call-the-onclick-handler"></a>onclick 처리기 호출
+## <a name="call-the-onclick-handler"></a>`onclick` 처리기 호출
 
-본문의 옵션 div 아래에 다음 `"Get insights"` 단추를 추가합니다. 단추를 사용하면 호출을 시작할 수 있습니다. 단추를 클릭하면 커서가 회전하는 대기 커서로 변경되고 onclick 처리기가 호출됩니다.
+다음 `"Get insights"` 단추를 본문의 `<div>` 옵션 아래에 추가합니다. 단추를 사용하면 호출을 시작할 수 있습니다. 단추를 클릭하면 커서가 회전하는 대기 커서로 변경되고 `onclick` 처리기가 호출됩니다.
 
 ```html
 <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-단추의 onclick 처리기, `handleQuery()`를 `<script>` 태그에 추가합니다. 
+단추의 `onclick` 처리기인 `handleQuery()`를 `<script>` 태그에 추가합니다.
 
 ## <a name="handle-the-query"></a>쿼리 처리
 
-`handleQuery()` 처리기는 구독 키가 있는지와 32자 길이이며, 이미지가 선택되어 있는지 확인합니다. 또한 이전 쿼리의 모든 인사이트를 지웁니다. 이후에 `sendRequest()` 함수를 호출하여 호출을 수행합니다.
+`handleQuery()` 처리기는 구독 키가 있고, 길이가 32자이며, 이미지가 선택되어 있는지 확인합니다. 또한 이전 쿼리의 모든 인사이트를 지웁니다. 이후에 `sendRequest()` 함수를 호출하여 호출을 수행합니다.
 
 ```javascript
 function handleQuery() {
     var subscriptionKey = document.getElementById('key').value;
 
     // Make sure user provided a subscription key and image.
-    // For this demo, the user provides the key but typically you'd 
+    // For this demo, the user provides the key but typically you'd
     // get it from secured storage.
     if (subscriptionKey.length !== 32) {
         alert("Subscription key length is not valid. Enter a valid key.");
@@ -285,7 +284,7 @@ function handleQuery() {
 
 ## <a name="send-the-search-request"></a>검색 요청 보내기
 
-`sendRequest()` 함수는 엔드포인트 URL의 형식을 지정하고, Ocp-Apim-Subscription-Key 헤더를 구독 키로 설정하고, 업로드할 이미지의 이진 파일을 추가하고, 응답 처리기를 지정하고, 호출을 수행합니다. 
+`sendRequest()` 함수는 엔드포인트 URL의 형식을 지정하고, `Ocp-Apim-Subscription-Key` 헤더를 구독 키로 설정하고, 업로드할 이미지의 이진 파일을 추가하고, 응답 처리기를 지정하고, 호출을 수행합니다.
 
 ```javascript
 function sendRequest(file, key) {
@@ -307,7 +306,7 @@ function sendRequest(file, key) {
 
 ## <a name="get-and-handle-the-api-response"></a>API 응답 가져오기 및 처리
 
-`handleResponse()` 함수는 Bing Visual Search 호출에서 얻은 응답을 처리합니다. 호출이 성공하면 JSON 응답을 인사이트가 포함된 개별 태그로 구문 분석합니다. 다음으로 검색 결과를 페이지에 추가합니다. 그런 다음, 애플리케이션은 데이터가 표시되는 양을 관리하도록 각 태그에 대한 축소 가능한 div를 만듭니다. 처리기를 `<script>` 섹션에 추가합니다.
+`handleResponse()` 함수는 Bing Visual Search 호출에서 얻은 응답을 처리합니다. 호출이 성공하면 JSON 응답을 인사이트가 포함된 개별 태그로 구문 분석합니다. 다음으로 검색 결과를 페이지에 추가합니다. 그런 다음, 애플리케이션에서 표시되는 데이터의 양을 관리하기 위해 각 태그에 대해 접을 수 있는 `<div>`를 만듭니다. 처리기를 `<script>` 섹션에 추가합니다.
 
 ```javascript
 function handleResponse() {
@@ -323,7 +322,7 @@ function handleResponse() {
     document.getElementById('responseSection').appendChild(h4);
     buildTagSections(tags);
 
-    document.body.style.cursor = 'default'; // reset the wait curor set by query insights button
+    document.body.style.cursor = 'default'; // reset the wait cursor set by query insights button
 }
 ```
 
@@ -337,7 +336,7 @@ function parseResponse(json) {
 
     for (var i =0; i < json.tags.length; i++) {
         var tag = json.tags[i];
-        
+
         if (tag.displayName === '') {
             dict['Default'] = JSON.stringify(tag);
         }
@@ -352,7 +351,7 @@ function parseResponse(json) {
 
 ### <a name="build-a-tag-section"></a>태그 섹션 빌드
 
-`buildTagSections()` 함수는 구문 분석된 JSON 태그를 반복하고, `buildDiv()` 함수를 호출하여 각 태그에 대한 div를 빌드합니다. 각 태그는 링크로 표시됩니다. 링크를 클릭하면 태그가 확장되면서 태그와 연결된 인사이트가 표시됩니다. 링크를 다시 클릭하면 섹션이 축소됩니다.
+`buildTagSections()` 함수는 구문 분석된 JSON 태그를 반복하고, `buildDiv()` 함수를 호출하여 각 태그에 대해 `<div>`를 빌드합니다. 각 태그는 링크로 표시됩니다. 링크를 클릭하면 태그가 확장되면서 태그와 연결된 인사이트가 표시됩니다. 링크를 다시 클릭하면 섹션이 접혀집니다.
 
 ```javascript
 function buildTagSections(tags) {
@@ -391,11 +390,11 @@ function buildDiv(tags, tag) {
 
 ## <a name="display-the-search-results-in-the-webpage"></a>웹 페이지에 검색 결과 표시
 
-`buildDiv()` 함수는 addDivContent 함수를 호출하여 각 태그의 축소 가능한 div에 포함된 콘텐츠를 빌드합니다.
+`buildDiv()` 함수는 `addDivContent` 함수를 호출하여 각 태그의 접을 수 있는 `<div>` 콘텐츠를 빌드합니다.
 
-태그의 콘텐츠에는 태그에 대한 응답에서 가져온 JSON이 포함됩니다. 처음에는 JSON의 처음 100개 문자만 표시되지만 JSON 문자열을 클릭하여 모든 JSON을 표시할 수 있습니다. 다시 클릭하면 JSON 문자열이 다시 100자로 축소됩니다.
+태그의 콘텐츠에는 태그에 대한 응답에서 가져온 JSON이 포함됩니다. 처음에는 JSON의 처음 100개 문자만 표시되지만, JSON 문자열을 클릭하여 모든 JSON을 표시할 수 있습니다. 다시 클릭하면 JSON 문자열이 다시 100자로 축소됩니다.
 
-다음으로, 태그에 있는 작업 형식을 추가합니다. 각 작업 형식에 대해 적절한 함수를 호출하여 해당 인사이트를 추가합니다.
+다음으로, 태그에 있는 작업 형식을 추가합니다. 각 작업 유형에 대해 적절한 함수를 호출하여 해당 인사이트를 추가합니다.
 
 ```javascript
 function addDivContent(div, tag, json) {
@@ -472,21 +471,21 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>다양한 작업에 대한 인사이트 표시
 
-다음 함수는 다양한 작업에 대한 인사이트를 표시합니다. 함수는 클릭 가능한 이미지 또는 이미지에 대한 자세한 정보가 포함된 웹 페이지로 이동되는 클릭 가능한 링크를 제공합니다. 이 페이지는 Bing.com 또는 이미지의 원래 웹 사이트에서 호스트됩니다. 인사이트의 데이터 중 일부만 이 애플리케이션에 표시됩니다. 인사이트에 대해 사용 가능한 모든 필드를 보려면 [Bing Visual Search 참조](https://aka.ms/bingvisualsearchreferencedoc)를 참조하세요.
+다음 함수는 다양한 작업에 대한 인사이트를 표시합니다. 함수는 클릭 가능한 이미지 또는 이미지에 대한 자세한 정보가 포함된 웹 페이지로 이동되는 클릭 가능한 링크를 제공합니다. 이 페이지는 Bing.com 또는 이미지의 원래 웹 사이트에서 호스트됩니다. 인사이트의 데이터 중 일부만 이 애플리케이션에 표시됩니다. 인사이트에 사용할 수 있는 모든 필드를 보려면 [이미지 - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) 참고 자료를 참조하세요.
 
 > [!NOTE]
-> 페이지에 표시해야 하는 최소한의 인사이트 정보 양이 있습니다. 자세한 내용은 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 참조하세요.
+> 페이지에 표시해야 하는 최소한의 인사이트 정보 양이 있습니다. 자세한 내용은 [Bing Search API 사용 및 표시 요구 사항](../bing-web-search/use-display-requirements.md)을 참조하세요.
 
 ### <a name="relatedimages-insights"></a>RelatedImages 인사이트
 
-`addRelatedImages()` 함수는 `RelatedImages` 작업의 목록을 반복하고, 각각의 `<div>` 외부에 `<img>` 태그를 추가하여 관련된 이미지를 호스팅하는 각 웹 사이트에 대한 제목을 만듭니다.
+`addRelatedImages()` 함수는 `RelatedImages` 작업의 목록을 반복하고, 각각에 대해 `<img>` 태그를 `<div>` 외부에 추가하여 관련 이미지를 호스팅하는 각 웹 사이트에 대한 제목을 만듭니다.
 
 ```javascript
     function addRelatedImages(div, images) {
         var length = (images.length > 10) ? 10 : images.length;
 
-        // Set the title to the website that hosts the image. The title displays 
-        // when the user hovers over the image. 
+        // Set the title to the website that hosts the image. The title displays
+        // when the user hovers over the image.
 
         // Make the image clickable. If the user clicks the image, they're taken
         // to the image in Bing.com.
@@ -510,7 +509,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="pagesincluding-insights"></a>PagesIncluding 인사이트
 
-`addPagesIncluding()` 함수는 `PagesIncluding` 작업의 목록을 반복하고, 각각의 `<div>` 외부에 `<img>` 태그를 추가하여 업로드된 이미지를 호스팅하는 각 웹 사이트에 대한 링크를 만듭니다.
+`addPagesIncluding()` 함수는 `PagesIncluding` 작업의 목록을 반복하고, 각각에 대해 `<img>` 태그를 `<div>` 외부에 추가하여 업로드된 이미지를 호스팅하는 각 웹 사이트에 대한 링크를 만듭니다.
 
 ```javascript
 
@@ -534,7 +533,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="relatedsearches-insights"></a>RelatedSearches 인사이트
 
-`addRelatedSearches()` 함수는 `RelatedSearches` 작업의 목록을 반복하고, 각각의 `<div>` 외부에 `<img>` 태그를 추가하여 이미지를 호스팅하는 웹 사이트에 대한 링크를 만듭니다.
+`addRelatedSearches()` 함수는 `RelatedSearches` 작업의 목록을 반복하고, 각각에 대해 `<img>` 태그를 `<div>` 외부에 추가하여 이미지를 호스팅하는 웹 사이트에 대한 링크를 만듭니다.
 
 ```javascript
 
@@ -567,11 +566,11 @@ function addDivContent(div, tag, json) {
 
 ### <a name="recipes-insights"></a>Recipes 인사이트
 
-`addRecipes()` 함수는 `Recipes` 작업의 목록을 반복하고, 각각의 `<div>` 외부에 `<img>` 태그를 추가하여 반환되는 각 레시피에 대한 링크를 만듭니다.
+`addRecipes()` 함수는 `Recipes` 작업의 목록을 반복하고, 각각에 대해 `<img>` 태그를 `<div>` 외부에 추가하여 반환되는 각 레시피에 대한 링크를 만듭니다.
 
 ```javascript
     // Display links to the first 10 recipes. Include the recipe's rating,
-    // if available. 
+    // if available.
     // TODO: Add 'more' link in case the user wants to see all of them.
     function addRecipes(div, recipes) {
         var length = (recipes.length > 10) ? 10 : recipes.length;
@@ -599,7 +598,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="shopping-insights"></a>Shopping 인사이트
 
-`addShopping()` 함수는 `RelatedImages` 작업의 목록을 반복하고, 각각의 `<div>` 외부에 `<img>` 태그를 추가하여 반환되는 모든 쇼핑 결과에 대한 링크를 만듭니다.
+`addShopping()` 함수는 `RelatedImages` 작업의 목록을 반복하고, 각각에 대해 `<img>` 태그를 `<div>` 외부에 추가하여 반환되는 모든 쇼핑 결과에 대한 링크를 만듭니다.
 
 ```javascript
     // Display links for the first 10 shopping offers.
@@ -628,11 +627,11 @@ function addDivContent(div, tag, json) {
 
 ### <a name="products-insights"></a>Products 인사이트
 
-`addProducts()` 함수는 `Products` 작업의 목록을 반복하고, 각각의 `<div>` 외부에 `<img>` 태그를 추가하여 반환되는 모든 제품 결과에 대한 링크를 만듭니다.
+`addProducts()` 함수는 `Products` 작업의 목록을 반복하고, 각각에 대해 `<img>` 태그를 `<div>` 외부에 추가하여 반환되는 모든 제품 결과에 대한 링크를 만듭니다.
 
 ```javascript
 
-    // Display the first 10 related products. Display a clickable image of the 
+    // Display the first 10 related products. Display a clickable image of the
     // product that takes the user to Bing.com search results for the product.
     // If there are any offers associated with the product, provide links to the offers.
     // TODO: Add 'more' link in case the user wants to see all of them.
@@ -692,7 +691,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="textresult-insights"></a>TextResult 인사이트
 
-`addTextResult()` 함수는 이미지에 인식된 모든 텍스트를 표시합니다.
+`addTextResult()` 함수는 이미지에서 인식된 모든 텍스트를 표시합니다.
 
 ```javascript
 
@@ -703,7 +702,7 @@ function addDivContent(div, tag, json) {
     }
 ```
 
-`addEntity()` 함수는 검색된 경우 이미지의 엔터티 형식에 대한 세부 정보를 얻을 수 있는 Bing.com으로 사용자를 이동하는 링크를 표시합니다.
+`addEntity()` 함수는 검색된 경우 사용자를 Bing.com으로 안내하는 링크를 표시합니다. 여기서는 이미지의 엔터티 형식에 대한 세부 정보를 얻을 수 있습니다.
 
 ```javascript
     // If the image is of a person, the tag might include an entity
@@ -719,7 +718,7 @@ function addDivContent(div, tag, json) {
     }
 ```
 
-`addImageWithWebSearchUrl()` 함수는 사용자를 Bing.com의 검색 결과로 이동하는 div에 대한 클릭 가능한 이미지를 표시합니다. 
+`addImageWithWebSearchUrl()` 함수는 사용자를 Bing.com의 검색 결과로 안내하는 클릭 가능한 이미지를 `<div>`에 표시합니다.
 
 ```javascript
     function addImageWithWebSearchUrl(div, image, action) {
@@ -742,7 +741,7 @@ function addDivContent(div, tag, json) {
 
 ```html
         <style>
-            
+
             .thumb {
                 height: 75px;
                 border: 1px solid #000;
@@ -773,4 +772,5 @@ function addDivContent(div, tag, json) {
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: ImageInsightsToken을 사용하여 이전 검색의 유사한 이미지 찾기](./tutorial-visual-search-insights-token.md)
+>[!div class="nextstepaction"]
+> [자습서: ImageInsightsToken을 사용하여 이전 검색에서 유사한 이미지 찾기](./tutorial-visual-search-insights-token.md)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339383"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505578"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Text Analytics(미리 보기)에서 명명된 엔터티 인식을 사용하는 방법
 
@@ -56,7 +56,7 @@ Text Analytics [버전 2.1 미리 보기](https://westus.dev.cognitive.microsoft
 | 수량      | 온도   | "32 degrees"    |
 | DateTime      | 해당 없음\*         | "6:30PM February 4, 2012"      | 
 | DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
-| Date Time     | Time          | "8am", "8:00"  | 
+| DateTime      | Time          | "8am", "8:00"  | 
 | DateTime      | DateRange     | "May 2nd to May 5th"    | 
 | DateTime      | TimeRange     | "6pm to 7pm"     | 
 | DateTime      | 기간      | "1 minute and 45 seconds"   | 
@@ -96,7 +96,7 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 연결 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ 엔터티 추출에 대한 HTTP 엔드포인트를 설정합니다. `/entities` 리소스를 포함해야 합니다(예: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`).
++ 엔터티 추출에 대한 HTTP 엔드포인트를 설정합니다. 여기에 포함 해야 합니다는 `/entities` 리소스: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
@@ -288,10 +288,10 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 ## <a name="see-also"></a>참고 항목 
 
  [Text Analytics 개요](../overview.md)  
- [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
- [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [질문과 대답(FAQ)](../text-analytics-resource-faq.md)</br>
+ [텍스트 분석 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [텍스트 분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

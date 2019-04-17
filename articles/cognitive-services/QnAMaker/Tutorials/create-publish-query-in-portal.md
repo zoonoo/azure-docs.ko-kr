@@ -1,7 +1,7 @@
 ---
 title: QnA Maker에서 만들기, 게시, 답변
 titleSuffix: Azure Cognitive Services
-description: 이 포털 기반 자습서에서는 프로그래매틱 방식으로 기술 자료를 생성 및 게시한 후 기술 자료의 질문에 답변하는 방법을 안내합니다.
+description: 공용 웹 기반 FAQ의 질문과 답변을 사용하여 새 기술 자료를 만듭니다. 기술 자료를 저장, 학습 및 게시합니다. 기술 자료가 게시되면 CURL 명령을 사용하여 질문을 보내고 답변을 받습니다. 그런 다음, 봇을 만들고 동일한 질문을 사용하여 봇을 테스트합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884128"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266956"
 ---
-# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>자습서: 기술 자료를 만든 후 QnA Maker 포털을 통해 질문의 답변 만들기
+# <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>자습서: QnA Maker 포털에서 기술 자료를 만듭니다.
 
-이 자습서에서는 기술 자료를 생성 및 게시한 후 기술 자료의 질문에 답변하는 방법을 안내합니다.
+공용 웹 기반 FAQ의 질문과 답변을 사용하여 새 기술 자료를 만듭니다. 기술 자료를 저장, 학습 및 게시합니다. 기술 자료가 게시되면 Curl 명령을 사용하여 질문을 보내고 답변을 받습니다. 그런 다음, 봇을 만들고 동일한 질문을 사용하여 봇을 테스트합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
@@ -29,6 +29,7 @@ ms.locfileid: "58884128"
 > * 기술 자료 검토, 저장 및 학습
 > * 기술 자료 게시
 > * Curl을 사용하여 기술 자료 쿼리
+> * 봇 만들기
 > 
 > [!NOTE]
 > 이 자습서의 프로그래밍 방식 버전은 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)에서 완전한 솔루션으로 제공됩니다.
@@ -99,7 +100,9 @@ KB가 게시되면 엔드포인트가 표시됩니다.
 
 ![페이지의 엔드포인트 설정 게시](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-## <a name="use-curl-to-query-for-an-faq-answer"></a>curl을 사용하여 FAQ 답변 쿼리
+이 **게시** 페이지는 이 자습서의 뒷부분에서 봇을 만드는 데 사용되므로 닫지 마세요. 
+
+## <a name="use-curl-to-query-for-an-faq-answer"></a>Curl을 사용하여 FAQ 답변 쿼리
 
 1. **Curl** 탭을 선택합니다. 
 
@@ -109,7 +112,7 @@ KB가 게시되면 엔드포인트가 표시됩니다.
 
 1. `<Your question>`을 `How large can my KB be?`로 바꿉니다. 이는 `How large a knowledge base can I create?`라는 질문과 가깝지만 똑같지는 않습니다. QnA Maker는 자연어 처리를 적용하여 두 질문이 동일한지 확인합니다.     
 
-1. CURL 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다. 
+1. Curl 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -133,11 +136,11 @@ KB가 게시되면 엔드포인트가 표시됩니다.
 
     QnA Maker는 신뢰도 점수가 42.81%로, 어느 정도 믿을 수 있습니다.  
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>curl을 사용하여 잡담 답변 쿼리
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Curl을 사용하여 잡담 답변 쿼리
 
 1. Curl 지원 터미널에서 `How large can my KB be?`를 사용자의 봇 대화 종결 문구(예: `Thank you`)로 바꿉니다.   
 
-1. CURL 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다. 
+1. Curl 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -173,13 +176,13 @@ KB가 게시되면 엔드포인트가 표시됩니다.
 
     `Thank you`의 질문은 잡담 질문과 정확히 일치하므로 QnA Maker는 신뢰도 점수 100으로, 완전히 신뢰할 수 있습니다. QnA Maker는 또한 모든 관련 질문과 잡담 메타데이터 태그 정보를 포함한 메타데이터 속성도 반환했습니다.  
 
-## <a name="use-curl-to-query-for-the-default-answer"></a>curl을 사용하여 기본 답변 쿼리
+## <a name="use-curl-to-query-for-the-default-answer"></a>Curl을 사용하여 기본 답변 쿼리
 
 QnA Maker가 신뢰할 수 없는 모든 질문에는 기본 답변이 수신됩니다. 이 답변은 Azure Portal에서 구성할 수 있습니다. 
 
 1. Curl 지원 터미널에서 `Thank you`를 `x`로 바꿉니다. 
 
-1. CURL 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다. 
+1. Curl 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -197,7 +200,17 @@ QnA Maker가 신뢰할 수 없는 모든 질문에는 기본 답변이 수신됩
     }
     ```
     
-    QnA Maker가 신뢰할 수 없다는 의미의 0을 반환했을 뿐만 아니라 기본 답변도 반환했습니다. 
+    QnA Maker가 신뢰할 수 없다는 의미의 `0`점을 반환했을 뿐만 아니라 기본 답변도 반환했습니다. 
+
+## <a name="create-a-knowledge-base-bot"></a>기술 자료 봇 만들기
+
+자세한 내용은 [이 기술 자료를 사용하여 챗봇 만들기](create-qna-bot.md)를 참조하세요.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+기술 자료 봇을 다 사용했으면 리소스 그룹 `my-tutorial-rg`를 제거하여 봇 프로세스에서 생성된 모든 Azure 리소스를 제거합니다.
+
+기술 자료를 다 사용했으면 QnA Maker 포털에서 **내 기술 자료**를 선택하고 **내 자습서 kb**라는 기술 자료를 선택한 후 해당 행의 맨 오른쪽에 있는 삭제 아이콘을 선택합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -208,4 +221,4 @@ QnA Maker가 신뢰할 수 없는 모든 질문에는 기본 답변이 수신됩
 기본 답변에 대한 자세한 내용은 [일치하는 항목 없음](../Concepts/confidence-score.md#no-match-found)을 참조하세요. 
 
 > [!div class="nextstepaction"]
-> [기술 자료 개념](../Concepts/knowledge-base.md)
+> [이 기술 자료를 사용하여 챗봇 만들기](create-qna-bot.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339315"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268419"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 
@@ -26,7 +26,7 @@ Azure Cosmos DB에서는 사용자가 **저장 프로시저**, **트리거** 및
 
 저장 프로시저는 JavaScript를 사용하여 작성되고, Azure Cosmos 컨테이너 내에서 항목을 만들고, 업데이트하고, 읽고, 쿼리하고, 삭제할 수 있습니다. 저장 프로시저는 컬렉션별로 등록되며 해당 컬렉션에 있는 모든 문서 또는 첨부 파일에서 작동할 수 있습니다.
 
-**예제**
+**예**
 
 "Hello World" 응답을 반환하는 단순한 저장 프로시저는 다음과 같습니다.
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-한 가지 중요한 사항은 Azure Cosmos DB에서 트리거의 트랜잭션을 실행하는 것입니다. 이 사후 트리거는 Azure Cosmos DB 만들기 항목에서 사용되는 동일한 트랜잭션의 일부로 실행됩니다. 따라서 사후 트리거에서 예외가 발생할 경우(예: 메타데이터 항목을 업데이트할 수 없는 경우) 전체 트랜잭션이 실패하고 롤백됩니다. 따라서 Azure Cosmos DB 항목이 생성되고 예외가 반환됩니다.
+한 가지 중요한 사항은 Azure Cosmos DB에서 트리거의 트랜잭션을 실행하는 것입니다. 사후 트리거는 기본 항목 자체와 같은 트랜잭션의 일부로 실행됩니다. 사후 트리거를 실행하는 동안 예외가 발생하면 전체 트랜잭션이 실패합니다. 커밋된 모든 사항은 롤백되며 예외가 반환됩니다.
 
 사전 트리거를 등록하고 호출하는 방법의 예제는 [사전 트리거](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 및 [사후 트리거](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) 문서를 참조하세요. 
 
@@ -324,4 +324,4 @@ Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수
 
 * [Azure Cosmos DB에서 Azure Cosmos DB 저장 프로시저, 트리거 및 사용자 정의 함수 작업](stored-procedures-triggers-udfs.md)
 
-* [Azure Cosmos DB에서 JavaScript 언어 통합 쿼리 API 작업](javascript-query-api.md)
+* [Azure Cosmos DB에서 JavaScript LINQ(Language-Integrated Query) API 작업](javascript-query-api.md)

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758247"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527373"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
 
@@ -166,7 +166,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews**에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
-1. **IList<CreateVideoReviewsBodyItem>** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
+1. **IList\<CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem**에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
 - **Content**. 검토할 비디오의 URL입니다.
@@ -224,18 +224,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다.
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
-1. **IList<VideoFrameBodyItem>** 개체입니다. 각 **VideoFrameBodyItem** 개체는 비디오 프레임을 나타냅니다.
+1. **IList\<VideoFrameBodyItem >** 개체입니다. 각 **VideoFrameBodyItem** 개체는 비디오 프레임을 나타냅니다.
 
 **VideoFrameBodyItem**에는 다음 속성이 있습니다.
 - **Timestamp**. 비디오 프레임이 사용된 비디오의 시간(초)을 포함하는 문자열입니다.
 - **FrameImage**. 비디오 프레임의 URL입니다.
-- **Metadata**. IList<VideoFrameBodyItemMetadataItem>입니다. **VideoFrameBodyItemMetadataItem**은 단순히 키/값 쌍입니다. 올바른 키는 다음과 같습니다.
+- **Metadata**. IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem**은 단순히 키/값 쌍입니다. 올바른 키는 다음과 같습니다.
 - **reviewRecommended**. 비디오 프레임의 사용자 검토가 권장되는 경우 True입니다.
 - **adultScore**. 비디오 프레임에서 성인 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **a**. 비디오가 성인 콘텐츠를 포함하는 경우 True입니다.
 - **racyScore**. 비디오 프레임에서 외설 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **r**. 비디오 프레임이 외설 콘텐츠를 포함하는 경우 True입니다.
-- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
+- **ReviewerResultTags**. IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
 
 > [!NOTE]
 > 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 애플리케이션에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.

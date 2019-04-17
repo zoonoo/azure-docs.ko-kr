@@ -5,58 +5,45 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360370"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357983"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
-BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 컴퓨터 및 Azure VM의 재해 복구를 관리하고 오케스트레이션하는 것은 물론, Site Recovery를 사용하여 온-프레미스 컴퓨터를 Azure로 마이그레이션하는 작업을 관리할 수도 있습니다.
+
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 온-프레미스 머신을 마이그레이션하는 방법을 설명합니다. 일반적으로 Site Recovery는 온-프레미스 머신 및 Azure VM의 재해 복구를 관리 및 오케스트레이션하는 데 사용됩니다. 하지만 마이그레이션에도 사용할 수 있습니다. 마이그레이션은 재해 복구와 동일한 단계를 따르지만 한 가지 예외가 있습니다. 마이그레이션에서는 온-프레미스 사이트에서 머신 장애 조치(fail-over)를 수행하는 것이 마지막 단계입니다. 재해 복구와 달리 마이그레이션 시나리오에서는 온-프레미스로 장애 복구할 수 없습니다.
 
 
-이 자습서는 온-프레미스 VM 및 물리적 서버를 Azure로 마이그레이션하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 온-프레미스 VM 및 물리적 서버를 Azure로 마이그레이션하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 복제 목표 선택
-> * 원본 및 대상 환경 설정
+> * 마이그레이션의 원본 및 대상 환경 설정
 > * 복제 정책 설정
 > * 복제 사용
 > * 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인
 > * Azure에 대한 일회성 장애 조치(failover) 실행
 
-이 문서는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 이전 자습서의 작업을 이미 완료했다고 가정합니다.
-
-1. [Azure 준비](tutorial-prepare-azure.md)
-2. 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 서버를 준비합니다.
-
-시작하기 전에 재해 복구를 위한 [VMware](vmware-azure-architecture.md) 또는 [Hyper-V](hyper-v-azure-architecture.md) 아키텍처를 검토하는 것이 좋습니다.
 
 > [!TIP]
-> VMware VM을 Azure로 마이그레이션하기 위해 새로운 에이전트 없는 경험에 참여하시겠습니까? [자세히 알아보기](https://aka.ms/migrateVMs-signup).
+> Azure Migrate 서비스는 이제 VMware VM을 Azure로 마이그레이션하는 데 사용되는 새로운 에이전트리스 환경의 미리 보기를 제공합니다. [자세히 알아보기](https://aka.ms/migrateVMs-signup).
 
-## <a name="prerequisites"></a>필수 조건
+
+## <a name="before-you-start"></a>시작하기 전에
 
 반가상화 드라이버에서 내보낸 디바이스는 지원되지 않습니다.
 
 
-## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
+## <a name="prepare-azure-and-on-premises"></a>Azure 및 온-프레미스 준비
 
-1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-2. **리소스 만들기** > **관리 도구** > **Backup 및 Site Recovery**를 클릭합니다.
-3. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
-4. **ContosoRG** 리소스 그룹을 만듭니다.
-5. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
-6. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 클릭하고 **만들기**를 클릭합니다.
-
-   ![새 자격 증명 모음](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
-
-**대시보드**의 **모든 리소스** 아래와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 추가됩니다.
+1. [이 문서](tutorial-prepare-azure.md)에 설명된 대로 Azure를 준비합니다. 이 문서에는 재해 복구 준비 단계가 설명되어 있지만 마이그레이션에 적용해도 무방합니다.
+2. 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 서버를 준비합니다. 물리적 머신을 마이그레이션하는 경우 아무것도 준비할 필요가 없습니다. [지원 매트릭스](vmware-physical-azure-support-matrix.md)를 확인하기만 하면 됩니다.
 
 
 ## <a name="select-a-replication-goal"></a>복제 목표 선택
@@ -72,9 +59,11 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-- VMware VM에 대한 원본 환경을 [설정](vmware-azure-tutorial.md#set-up-the-source-environment)합니다.
-- 물리적 서버에 대한 원본 환경을 [설정](physical-azure-disaster-recovery.md#set-up-the-source-environment)합니다.
-- Hyper-V VM에 대한 원본 환경을 [설정](hyper-v-azure-tutorial.md#set-up-the-source-environment)합니다.
+**시나리오** | **세부 정보**
+--- | --- 
+VMware | [원본 환경](vmware-azure-set-up-source.md)을 설정하고, [구성 서버](vmware-azure-deploy-configuration-server.md)를 설정합니다.
+물리적 머신 | 원본 환경 및 구성 서버를 [설정](physical-azure-set-up-source.md)합니다.
+Hyper-V | [원본 환경](hyper-v-azure-tutorial.md#set-up-the-source-environment) 설정<br/><br/> System Center VMM을 사용하여 배포된 Hyper-V용 [원본 환경](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment)을 설정합니다.
 
 ## <a name="set-up-the-target-environment"></a>대상 환경 설정
 
@@ -82,20 +71,26 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 1. **인프라 준비** > **대상**을 클릭하고 사용하려는 Azure 구독을 선택합니다.
 2. 리소스 관리자 배포 모델을 지정합니다.
-3. Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 이상 있는지 확인합니다.
+3. Site Recovery는 Azure 리소스를 확인합니다.
+    - VMware VM 또는 물리적 서버를 마이그레이션하는 경우 Site Recovery가 장애 조치(failover) 후 생성된 Azure VM이 배치될 Azure 네트워크가 있는지 확인합니다.
+    - Hyper-V VM을 마이그레이션하는 경우 Site Recovery가 호환되는 Azure 스토리지 계정 및 네트워크가 있는지 확인합니다.
+4. System Center VMM으로 관리되는 Hyper-V VM을 마이그레이션하는 경우 [네트워크 매핑](hyper-v-vmm-azure-tutorial.md#configure-network-mapping)을 설정하세요.
 
 ## <a name="set-up-a-replication-policy"></a>복제 정책 설정
 
-- VMware VM에 대한 [복제 정책을 설정](vmware-azure-tutorial.md#create-a-replication-policy)합니다.
-- 물리적 서버에 대한 [복제 정책을 설정](physical-azure-disaster-recovery.md#create-a-replication-policy)합니다.
-- Hyper-V VM에 대한 [복제 정책을 설정](hyper-v-azure-tutorial.md#set-up-a-replication-policy)합니다.
-
+**시나리오** | **세부 정보**
+--- | --- 
+VMware | VMware VM의 [복제 정책](vmware-azure-set-up-replication.md)을 설정합니다.
+물리적 머신 | 물리적 머신에 대한 [복제 정책](physical-azure-disaster-recovery.md#create-a-replication-policy)을 설정합니다.
+Hyper-V | [복제 정책](hyper-v-azure-tutorial.md#set-up-a-replication-policy) 설정<br/><br/> System Center VMM을 사용하여 배포된 Hyper-V에 대한 [복제 정책](hyper-v-vmm-azure-tutorial.md#set-up-a-replication-policy)을 설정합니다.
 
 ## <a name="enable-replication"></a>복제 사용
 
-- VMware VM에 대해 [복제를 사용하도록 설정](vmware-azure-tutorial.md#enable-replication)합니다.
-- 물리적 서버에 [복제를 사용하도록 설정](physical-azure-disaster-recovery.md#enable-replication)합니다.
-- [VMM이 있거나](hyper-v-vmm-azure-tutorial.md#enable-replication) [없는](hyper-v-azure-tutorial.md#enable-replication) Hyper-V VM에 대해 복제를 사용하도록 설정합니다.
+**시나리오** | **세부 정보**
+--- | --- 
+VMware | VMware VM에 대해 [복제를 사용하도록 설정](vmware-azure-enable-replication.md)합니다.
+물리적 머신 | 물리적 머신에 [복제를 사용하도록 설정](physical-azure-disaster-recovery.md#enable-replication)합니다.
+Hyper-V | [복제 사용](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> System Center VMM을 사용하여 배포된 Hyper-V에 대한 [복제를 사용](hyper-v-vmm-azure-tutorial.md#enable-replication)하도록 설정합니다.
 
 
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
@@ -160,8 +155,13 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 - 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
 
 
+
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 온-프레미스 VM을 Azure VM으로 마이그레이션했습니다. 이제 Azure VM의 보조 Azure 지역에 [재해 복구를 설정](azure-to-azure-replicate-after-migration.md)할 수 있습니다.
+이 자습서에서는 온-프레미스 VM을 Azure VM으로 마이그레이션했습니다. Now
+
+> [!div class="nextstepaction"]
+> 보조 Azure 지역에 Azure VM의 [재해 복구를 설정](azure-to-azure-replicate-after-migration.md)합니다.
 
   

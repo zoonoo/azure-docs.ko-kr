@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57882729"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524772"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
@@ -60,41 +60,42 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 3. 코드 숨김 파일 수정
 4. 애플리케이션 컴파일 및 테스트
 
-**Windows 스토어 프로젝트를 만들려면**
+### <a name="to-create-a-windows-store-project"></a>Windows 스토어 프로젝트를 만들려면
 
 1. Visual Studio 실행(2012~2015 버전이 지원됨).
-2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-3. [새 프로젝트] 대화 상자에서 다음 값을 입력하거나 선택합니다.
+1. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
+1. [새 프로젝트] 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
-| 이름 | 값 |
-| --- | --- |
-| 템플릿 그룹 |Installed/Templates/Visual C#/Windows Store |
-| Template |새 응용 프로그램(XAML) |
-| 이름 |SSPlayer |
-| 위치 |C:\SSTutorials |
-| 솔루션 이름 |SSPlayer |
-| 솔루션에 대한 디렉터리 만들기 |(선택됨) |
+    | 이름 | 값 |
+    | --- | --- |
+    | 템플릿 그룹 |Installed/Templates/Visual C#/Windows Store |
+    | Template |새 응용 프로그램(XAML) |
+    | 이름 |SSPlayer |
+    | 위치 |C:\SSTutorials |
+    | 솔루션 이름 |SSPlayer |
+    | 솔루션에 대한 디렉터리 만들기 |(선택됨) |
 
 1. **확인**을 클릭합니다.
 
-**부드러운 스트리밍 클라이언트 SDK에 대한 참조를 추가하려면**
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Smooth Streaming Client SDK에 대 한 참조를 추가 하려면
 
 1. [솔루션 탐색기]에서 **SSPlayer**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
-2. 다음 값을 입력하거나 선택합니다.
+1. 다음 값을 입력하거나 선택합니다.
 
-| 이름 | 값 |
-| --- | --- |
-| 참조 그룹 |Windows/Extensions |
-| 참조 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
+    | 이름 | 값 |
+    | --- | --- |
+    | 참조 그룹 |Windows/Extensions |
+    | 참조 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |
 
 1. **확인**을 클릭합니다. 
 
 참조를 추가한 후 대상 플랫폼(x64 또는 x86)을 선택해야 합니다. 임의 CPU 플랫폼 구성에서는 참조 추가가 작동하지 않습니다.  솔루션 탐색기에서 추가된 이 참조에 대해 노란색 경고 표시가 나타납니다.
 
-**플레이어 사용자 인터페이스를 디자인하려면**
+### <a name="to-design-the-player-user-interface"></a>플레이어 사용자 인터페이스를 디자인 하려면
 
 1. 솔루션 탐색기에서 **MainPage.xaml** 을 두 번 클릭하여 디자인 보기에서 엽니다.
 2. XAML 파일에서 **&lt;Grid&gt;** 및 **&lt;/Grid&gt;** 태그를 찾아 두 태그 사이에 다음 코드를 붙여넣습니다.
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -146,7 +147,7 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
 
 이 XAML 파일에서는 일부 이벤트 처리기가 컨트롤과 연결되어 있습니다.  해당 이벤트 처리기를 정의해야 합니다.
 
-**코드 숨김 파일을 수정하려면**
+### <a name="to-modify-the-code-behind-file"></a>코드 숨김 파일을 수정 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일 맨 위에 다음 using 문을 추가합니다.
@@ -210,7 +211,7 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
 
 ![부드러운 스트리밍 Windows 스토어 애플리케이션에 대한 Visual Studio의 Codeview][CodeViewPic]
 
-**애플리케이션을 컴파일 및 테스트하려면**
+### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
 
 1. **빌드** 메뉴에서 **구성 관리자**를 클릭합니다.
 2. 개발 플랫폼과 일치하도록 **활성 솔루션 플랫폼** 을 변경합니다.
@@ -238,7 +239,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 5. 슬라이더 막대 관련 코드 추가
 6. 애플리케이션 컴파일 및 테스트
 
-**부드러운 스트리밍 바이트 스트림 처리기를 등록하고 propertyset를 전달하려면**
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>부드러운 스트리밍 바이트 스트림 처리기를 등록 하 고 propertyset를 전달 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일의 시작 부분에 다음 using 문을 추가합니다.
@@ -283,7 +284,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 6. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-**적응 원본 관리자 수준 이벤트 처리기를 추가하려면**
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>적응 원본 관리자 수준 이벤트 처리기를 추가 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
@@ -311,7 +312,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 5. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-**적응 원본 수준 이벤트 처리기를 추가하려면**
+### <a name="to-add-adaptive-source-level-event-handlers"></a>적응 원본 수준 이벤트 처리기를 추가 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
@@ -362,7 +363,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 
 앱의 모든 미디어 요소에 공통된 기능을 처리하는 데 사용할 수 있는 적응 원본 관리자 수준에서도 동일한 이벤트를 사용할 수 있습니다. 각 AdaptiveSource에는 고유한 이벤트가 포함되어 있으며 모든 AdaptiveSource 이벤트가 AdaptiveSourceManager 아래에 계단식으로 표시됩니다.
 
-**미디어 요소 이벤트 처리기를 추가하려면**
+### <a name="to-add-media-element-event-handlers"></a>미디어 요소 이벤트 처리기를 추가 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. **MainPage** 클래스의 끝에 다음 이벤트 처리기를 추가합니다.
@@ -398,7 +399,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 4. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-**슬라이더 막대 관련 코드를 추가하려면**
+### <a name="to-add-slider-bar-related-code"></a>슬라이더 막대를 추가 하려면 관련 코드
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일의 시작 부분에 다음 using 문을 추가합니다.
@@ -531,7 +532,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 8. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-**애플리케이션을 컴파일 및 테스트하려면**
+### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
 2. **F5** 키를 눌러 애플리케이션을 실행합니다.
@@ -548,7 +549,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 2. 코드 숨김 파일 수정
 3. 애플리케이션 컴파일 및 테스트
 
-**XAML 파일을 수정하려면**
+### <a name="to-modify-the-xaml-file"></a>XAML 파일을 수정 하려면
 
 1. 솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **디자이너 보기**를 클릭합니다.
 2. &lt;Grid.RowDefinitions&gt;를 찾아 RowDefinitions를 다음과 같이 수정합니다.
@@ -591,7 +592,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 4. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
 
-**코드 숨김 파일을 수정하려면**
+### <a name="to-modify-the-code-behind-file"></a>코드 숨김 파일을 수정 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. SSPlayer 네임스페이스 내에 새 클래스를 추가합니다.
@@ -807,7 +808,8 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             changeStreams(selectedStreams);
         }
    ```
-   **애플리케이션을 컴파일 및 테스트하려면**
+
+### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
 2. **F5** 키를 눌러 애플리케이션을 실행합니다.
@@ -818,13 +820,14 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 단원 3을 완료했습니다.  이 단원에서는 스트림을 선택하는 기능을 추가합니다.
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>단원 4: 부드러운 스트리밍 트랙 선택
+
 부드러운 스트리밍 프레젠테이션에는 여러 품질 수준(비트 전송률) 및 해상도로 인코딩된 여러 비디오 파일이 포함될 수 있습니다. 이 단원에서는 사용자가 트랙을 선택할 수 있도록 설정합니다. 이 단원에는 다음 절차가 포함되어 있습니다.
 
 1. XAML 파일 수정
 2. 코드 숨김 파일 수정
 3. 애플리케이션 컴파일 및 테스트
 
-**XAML 파일을 수정하려면**
+### <a name="to-modify-the-xaml-file"></a>XAML 파일을 수정 하려면
 
 1. 솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **디자이너 보기**를 클릭합니다.
 2. 이름이 **gridStreamAndBitrateSelection**인 &lt;Grid&gt; 태그를 찾아 그 끝에 다음 코드를 추가합니다.
@@ -846,7 +849,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 3. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
 
-**코드 숨김 파일을 수정하려면**
+### <a name="to-modify-the-code-behind-file"></a>코드 숨김 파일을 수정 하려면
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. SSPlayer 네임스페이스 내에 새 클래스를 추가합니다.
@@ -1009,7 +1012,8 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             changeStreams(selectedStreams);
          }
    ```
-   **애플리케이션을 컴파일 및 테스트하려면**
+   
+### <a name="to-compile-and-test-the-application"></a>컴파일하고 응용 프로그램 테스트
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
 2. **F5** 키를 눌러 애플리케이션을 실행합니다.
@@ -1020,6 +1024,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 단원 4를 완료했습니다.  이 단원에서는 트랙을 선택하는 기능을 추가합니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공

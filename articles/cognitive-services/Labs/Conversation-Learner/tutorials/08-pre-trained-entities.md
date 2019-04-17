@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58163789"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565413"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>미리 학습된 엔터티를 추가하는 방법
 이 자습서에서는 미리 학습된 엔터티를 Conversation Learner 모델에 추가하는 방법을 보여 줍니다.
@@ -62,7 +62,7 @@ Web UI의 홈페이지에서 시작합니다.
 
 1. 선택 **동작** 왼쪽된 패널에서 **새 작업**합니다.
 2. 입력 **날짜 이란?** 에 대 한 **봇의 응답...** . 미리 학습 된 엔터티 수 없습니다 **필요한 엔터티** 모든 표현에 대해 기본적으로 인식 되는 대로 합니다.
-3. 입력 **builtin datetimev2** 에 대 한 **되며 우량**합니다.
+3. 입력 **builtin datetimev2** 에 대 한 **우량 엔터티**합니다.
 4. **만들기**를 선택합니다.
 
 ![](../media/T08_action_create_2.png)

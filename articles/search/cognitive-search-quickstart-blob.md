@@ -1,26 +1,26 @@
 ---
-title: Azure Portal에서 AI 기반 인덱싱용 인식 검색 파이프라인 빌드 - Azure Search
-description: Azure Portal에서 샘플 데이터를 사용하여 데이터 추출, 자연어 및 이미지 처리 기술을 보여주는 예제입니다.
+title: '빠른 시작: Azure Portal에서 AI 지원 인덱스 빌드 - Azure Search'
+description: Azure Search 인덱싱 포털에서 Azure Portal 및 샘플 데이터를 사용한 데이터 추출, 자연어 및 이미지 처리 기술입니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 03/17/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200633"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265018"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>빠른 시작: 기술 및 샘플 데이터를 사용하여 Cognitive Search 파이프라인 만들기
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>빠른 시작: 인식 기술 및 샘플 데이터를 사용하여 AI 인덱싱 파이프라인 만들기
 
-인식 검색(미리 보기)은 Azure Search 인덱싱 파이프라인에 데이터 추출, NLP(자연어 처리) 및 이미지 처리 기술을 추가하여 검색할 수 없거나 구조화되지 않은 콘텐츠를 검색할 수 있게 만들어 줍니다. 
+Azure Search는 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)와 통합되고, Azure Search 인덱싱 파이프라인에 콘텐츠 추출, NLP(자연어 처리) 및 이미지 처리 기술을 추가하여 검색할 수 없거나 구조화되지 않은 콘텐츠를 검색할 수 있게 만들어 줍니다. 
 
-인식 검색 파이프라인은 [OCR](cognitive-search-skill-ocr.md), [언어 감지](cognitive-search-skill-language-detection.md), [엔터티 인식](cognitive-search-skill-entity-recognition.md) 등의 [Cognitive Services 리소스](https://azure.microsoft.com/services/cognitive-services/)를 인덱싱 프로세스에 통합합니다. Cognitive Services의 AI 알고리즘은 Azure Search를 기반으로 한 전체 텍스트 검색 솔루션에서 사용할 수 있는 구조 및 텍스트 콘텐츠를 반환하면서 원본 데이터에서 패턴, 기능 및 특징을 찾는 데 사용됩니다.
+[OCR](cognitive-search-skill-ocr.md), [언어 감지](cognitive-search-skill-language-detection.md), [엔터티 인식](cognitive-search-skill-entity-recognition.md) 등의 여러 Cognitive Services 리소스를 인덱싱 프로세스에 연결할 수 있습니다. Cognitive Services의 AI 알고리즘은 Azure Search를 기반으로 한 전체 텍스트 검색 솔루션에서 사용할 수 있는 구조 및 텍스트 콘텐츠를 반환하면서 원본 데이터에서 패턴, 기능 및 특징을 찾는 데 사용됩니다.
 
 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com)에서 첫 번째 보강 파이프라인을 만든 후 단일 코드 줄을 작성합니다.
 
@@ -30,63 +30,28 @@ ms.locfileid: "58200633"
 > * 마법사 실행(엔터티 기술이 사람, 위치 및 조직을 감지)
 > * [**검색 탐색기**](search-explorer.md)를 사용하여 보강된 데이터 쿼리
 
-## <a name="supported-regions"></a> 지원되는 지역
+이 빠른 시작은 무료 서비스에서 실행되지만 무료 트랜잭션 수는 일일 20개 문서로 제한됩니다. 이 빠른 시작을 동일한 날에 두 번 이상 실행하려면 더 많은 실행에 적합하도록 더 작은 파일 세트를 사용하세요.
 
-Cognitive Services를 통한 AI 강화 인덱싱은 모든 Azure Search 지역에서 사용할 수 있습니다.
+> [!NOTE]
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때는 청구 가능 Cognitive Services 리소스를 연결해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+>
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 청구되며 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-> [!NOTE]
-> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
->
-> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세한 정보](cognitive-search-attach-cognitive-services.md)
-
 ## <a name="prerequisites"></a>필수 조건
 
-["인식 검색이란?"](cognitive-search-concept-intro.md) 보강 아키텍처 및 구성 요소를 소개합니다. 
+[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
-Azure 서비스는 이 시나리오에 단독으로 사용됩니다. 준비 과정에는 필요한 서비스 만들기가 포함되어 있습니다.
+[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)는 AI를 제공합니다. 이 빠른 시작에는 파이프라인을 지정할 때 인라인으로 이러한 리소스를 추가하는 단계가 포함되어 있습니다. 계정을 미리 설정할 필요는 없습니다.
 
-+ [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/): 원본 데이터 제공
-+ [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/): 파이프라인을 지정하는 경우 이러한 리소스 인라인을 만들 수 있는 AI 제공
-+ [Azure Search](https://azure.microsoft.com/services/search/): 사용자 지정 앱을 사용하기 위해 보강된 인덱싱 파이프라인 및 다양한 자유 형식 텍스트 검색 환경 제공
-
-### <a name="set-up-azure-search"></a>Azure Search 설정
-
-먼저 Azure Search 서비스에 등록합니다. 
-
-1. Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-1. **리소스 만들기**를 클릭하고, Azure Search를 검색하고, **만들기**를 클릭합니다. 검색 서비스를 처음으로 설정하고 도움이 필요한 경우 [포털에서 Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
-
-   ![대시보드 포털](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "포털에서 Azure Search 서비스 만들기")
-
-1. 리소스 그룹에서는 이 빠른 시작에서 만드는 모든 리소스를 포함할 새 리소스 그룹을 만듭니다. 이렇게 하면 빠른 시작을 마친 후 보다 쉽게 리소스를 정리할 수 있습니다.
-
-1. 위치의 경우 인식 검색에 대해 [지원되는 지역](#supported-regions) 중 하나를 선택합니다.
-
-1. 가격 책정 계층으로는 자습서와 빠른 시작을 완료할 수 있는 **무료** 서비스를 만듭니다. 사용자 고유의 데이터를 사용하여 자세히 조사하려면 **기본** 또는 **표준** 같은 [유료 서비스](https://azure.microsoft.com/pricing/details/search/)를 만듭니다. 
-
-   무료 서비스는 인덱스 3개, blob 크기 최대 16MB, 인덱싱 2분으로 제한되며, 이는 인식 검색의 전체 기능을 실행하기에는 부족합니다. 다른 계층의 제한에 대한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
-
-   ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service2.png "포털의 서비스 정의 페이지")
-
-   > [!NOTE]
-   > 인식 검색은 현재 공개 미리 보기로 제공됩니다. 무료 계층을 포함한 모든 계층에서 기술 집합을 사용할 수 있습니다. 유료 Cognitive Services 리소스를 연관시키지 않고 제한된 수의 보강을 수행할 수 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
-
-1. 서비스를 대시보드에 고정하면 서비스 정보에 빠르게 액세스할 수 있습니다.
-
-   ![포털의 서비스 정의 페이지](./media/cognitive-search-tutorial-blob/create-search-service3.png "포털의 서비스 정의 페이지")
+Azure 서비스는 인덱싱 파이프라인에 입력을 제공해야 합니다. AI 인덱싱에 지원되지 않는 Azure Table Storage를 제외하고, [Azure Search 인덱서](search-indexer-overview.md)에서 지원하는 모든 데이터 원본을 사용할 수 있습니다. 이 빠른 시작에서는 원본 데이터 파일의 컨테이너로 [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)를 사용합니다. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service를 설정하고 샘플 데이터 로드
 
-보강 파이프라인은 [Azure Search 인덱서](search-indexer-overview.md)가 지원하는 Azure 데이터 소스에서 데이터를 가져옵니다. Azure Table Storage에서는 Cognitive Search가 지원되지 않습니다. 이 연습에서는 Blob Storage를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
-
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 
 
-1. Azure Blob 스토리지에 가입하고, 스토리지 계정을 만들며, Blob 서비스 페이지를 열고 컨테이너를 만듭니다. 
-
-1. 컨테이너에서 공용 액세스 수준을 **컨테이너(컨테이너와 Blob에 대한 익명 읽기 액세스)** 로 설정합니다. 자세한 내용은 *Search 비정형 데이터* 자습서에서 [“컨테이너 만들기” 섹션](../storage/blobs/storage-unstructured-search.md#create-a-container)을 참조하세요.
+1. [Azure Blob Storage에 가입](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)하고, 스토리지 계정을 만들고, Blob 서비스 페이지를 열고 컨테이너를 만드세요.  Azure Search와 동일한 지역에서 스토리지 계정을 만듭니다.
 
 1. 만든 컨테이너에서 **업로드**를 클릭하여 이전 단계에서 다운로드한 샘플 파일을 업로드합니다.
 

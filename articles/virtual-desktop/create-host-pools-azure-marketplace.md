@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399881"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257453"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "58399881"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-<https://portal.azure.com> 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](<https://portal.azure.com>) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>새 호스트 풀을 프로비저닝하기 위해 Azure Marketplace 제품 실행
 
@@ -116,6 +116,9 @@ Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -Use
 
 - [Windows 7 및 Windows 10용 원격 데스크톱 클라이언트](connect-windows-7-and-10.md)
 - [Windows Virtual Desktop 웹 클라이언트](connect-web.md)
+
+>[!IMPORTANT]
+>Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)를 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448784"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548407"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> 스냅숏을 만들고 적용하는 프로세스는 원본 또는 대상 **PersonGroup**(또는 **FaceList**)에 대한 정규 호출을 방해하지 않습니다. 그러나 원본 개체(예: [얼굴 목록 관리 호출](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) 또는 [Person Group - 학습](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) 호출)를 변경하는 동시 호출이 있을 경우 스냅숏 작업이 해당 작업 전 또는 후에 실행되거나 오류가 발생할 수 있으므로 권장되지 않습니다. 
+> 스냅숏을 만들고 적용하는 프로세스는 원본 또는 대상 **PersonGroup**(또는 **FaceList**)에 대한 정규 호출을 방해하지 않습니다. 그러나 권장 하지는 않습니다 원본 개체를 변경 하는 동시 호출 ([FaceList 관리 호출](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) 또는 [PersonGroup 학습](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) 호출 예를 들어) 이므로 스냅숏 작업이 될 수 있습니다. 이러한 작업 전후 실행 하거나 오류가 발생할 수 있습니다.
 
 ## <a name="retrieve-the-snapshot-id"></a>스냅숏 ID 검색
 
