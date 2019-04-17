@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619518"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547042"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>빠른 시작: 비정상 탐지기 REST API 및 Java를 사용 하 여 시계열 데이터에서 변칙을 검색 합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "58619518"
 3. JSON 데이터 파일에서 읽기
 
     ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>요청을 보내는 함수 만들기
@@ -93,9 +93,9 @@ ms.locfileid: "58619518"
 
 3. 요청을 사용 하 여 `setHeader()` 함수를 설정 합니다 `Content-Type` 헤더를 `application/json`, 구독 키를 추가 하 고는 `Ocp-Apim-Subscription-Key` 헤더.
 
-4. 요청을 사용 하 여 `setEntity()` 데이터 전송에 함수입니다.   
+4. 요청을 사용 하 여 `setEntity()` 데이터 전송에 함수입니다.
 
-5. 클라이언트를 사용 하 여 `execute()` 요청을 보내도록 함수 및 저장 하는 `CloseableHttpResponse` 개체입니다. 
+5. 클라이언트를 사용 하 여 `execute()` 요청을 보내도록 함수 및 저장 하는 `CloseableHttpResponse` 개체입니다.
 
 6. 만들기는 `HttpEntity` 응답 콘텐츠를 저장할 개체입니다. 사용 하 여 콘텐츠를 가져올 `getEntity()`합니다. 응답 비어 있지 않은 경우이 반환 합니다.
 
@@ -127,16 +127,20 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 1. 이라는 메서드를 만듭니다 `detectAnomaliesBatch()` 에 전체 일괄 처리로 데이터에서 변칙을 검색 합니다. 호출 된 `sendRequest()` 끝점, url, 구독 키 및 json 데이터를 사용 하 여 위에서 만든 메서드. 결과 가져오고 콘솔에 인쇄 합니다.
 
-2. 데이터 집합의 한 위치를 찾습니다. 응답의 `isAnomaly` 필드에 지정 된 데이터 요소가 비정상 인지와 관련 된 부울 값을 포함 합니다. JSON 배열을 가져오고 인쇄의 인덱스를 통해 반복 `true` 값입니다. 이러한 값은 발견 된 경우 비정상적인 데이터 요소의 인덱스에 해당 합니다.
+2. 응답에 포함 하는 경우 `code` 필드, 오류 코드 및 오류 메시지를 인쇄 합니다.
 
-    
-    ```java
-    static void detectAnomaliesBatch(String requestData) {
-        System.out.println("Detecting anomalies as a batch");
-        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-        if (result != null) {
-            System.out.println(result);
-            JSONObject jsonObj = new JSONObject(result);
+3. 이 고, 그렇지 데이터 집합의 한 위치를 찾습니다. 응답의 `isAnomaly` 필드에 지정 된 데이터 요소가 비정상 인지와 관련 된 부울 값을 포함 합니다. JSON 배열을 가져오고 인쇄의 인덱스를 통해 반복 `true` 값입니다. 이러한 값은 발견 된 경우 비정상적인 데이터 요소의 인덱스에 해당 합니다.
+
+```java
+static void detectAnomaliesBatch(String requestData) {
+    System.out.println("Detecting anomalies as a batch");
+    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+    if (result != null) {
+        System.out.println(result);
+        JSONObject jsonObj = new JSONObject(result);
+        if (jsonObj.has("code")) {
+            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
+        } else {
             JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
             System.out.println("Anomalies found in the following data positions:");
             for (int i = 0; i < jsonArray.length(); ++i) {
@@ -146,7 +150,8 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             System.out.println();
         }
     }
-    ```
+}
+```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>최신 데이터 요소의 비정상 상태 검색
 
@@ -165,14 +170,14 @@ static void detectAnomaliesLatest(String requestData) {
 1. 응용 프로그램의 main 메서드를 요청에 추가 될 데이터를 포함 하는 JSON 파일에서을 읽습니다.
 
 2. 위에서 만든 두 변칙 검색 함수를 호출 합니다.
-    
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
-    }
-    ```
+
+```java
+public static void main(String[] args) throws Exception {
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
+    detectAnomaliesBatch(requestData);
+    detectAnomaliesLatest(requestData);
+}
+```
 
 ### <a name="example-response"></a>예제 응답
 

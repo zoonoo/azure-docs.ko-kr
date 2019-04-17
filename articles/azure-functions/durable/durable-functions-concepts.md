@@ -2,7 +2,7 @@
 title: 지 속성 함수 패턴 및 Azure Functions에서 기술 개념
 description: 어떻게 Azure Functions의 지 속성 함수 확장을 사용 하면 클라우드에서 상태 저장 코드 실행의 이점에 알아봅니다.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892758"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608734"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>지 속성 함수 패턴 및 기술 개념 (Azure Functions)
 
@@ -437,6 +437,6 @@ Durable Functions에 대 한 자세한 내용은 참조 하세요 [지 속성 �
 시작하기:
 
 > [!div class="nextstepaction"]
-> [첫 번째 지 속성 함수 만들기](durable-functions-create-first-csharp.md)
+> [첫 번째 지속형 함수 만들기](durable-functions-create-first-csharp.md)
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html

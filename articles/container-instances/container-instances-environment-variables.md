@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904902"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606891"
 ---
-# <a name="set-environment-variables"></a>환경 변수 설정
+# <a name="set-environment-variables-in-container-instances"></a>Container instances에서 환경 변수를 설정 합니다.
 
-컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 컨테이너에서 환경 변수를 설정하려면 컨테이너 인스턴스를 만들 때 지정합니다. [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example) 및 [Azure Portal](#azure-portal-example)로 컨테이너를 시작할 때 환경 변수를 설정할 수 있습니다.
+컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 이는 `docker run`에 대한 `--env` 명령줄 인수와 유사합니다. 
+
+컨테이너에서 환경 변수를 설정하려면 컨테이너 인스턴스를 만들 때 지정합니다. 이 아티클에서 사용 하 여 컨테이너를 시작할 때 환경 변수를 설정 하는 예제는 [Azure CLI](#azure-cli-example)를 [Azure PowerShell](#azure-powershell-example), 및 [Azure portal](#azure-portal-example)합니다. 
 
 예를 들어, Microsoft를 실행 하는 경우 [aci wordcount] [ aci-wordcount] 컨테이너 이미지는 다음 환경 변수를 지정 하 여 해당 동작을 수정할 수 있습니다.
 
@@ -143,7 +145,7 @@ Azure:\
 
 Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정하려면 컨테이너를 만들 때 **구성** 페이지에서 지정합니다.
 
-포털을 사용 하 여 배포할 때 세 개의 변수를 현재 제한 및이 형식으로 입력 해야 합니다. `"variableName":"value"`
+포털로 배포할 때 현재 세 개의 변수로 제한되며, 이 `"variableName":"value"` 형식으로 입력해야 합니다.
 
 예를 보려면 시작 합니다 [aci wordcount] [ aci-wordcount] 사용 하 여 컨테이너를 *NumWords* 및 *MinLength* 변수입니다.
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 컨테이너로 큰 데이터 세트를 처리하는 일괄 처리와 같은 작업 기반 시나리오는 런타임 시 사용자 지정 환경 변수를 활용할 수 있습니다. 작업 기반 컨테이너 실행에 대한 자세한 내용은 [Azure Container Instances에서 컨테이너화된 작업 실행](container-instances-restart-policy.md)을 참조하세요.
+여러 컨테이너로 큰 데이터 세트를 처리하는 일괄 처리와 같은 작업 기반 시나리오는 런타임 시 사용자 지정 환경 변수를 활용할 수 있습니다. 작업 기반 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 참조 하세요. [다시 시작 정책을 사용 하 여 컨테이너 화 된 작업을 실행할](container-instances-restart-policy.md)합니다.
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

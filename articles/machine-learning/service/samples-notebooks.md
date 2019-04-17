@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451793"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548591"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Jupyter Notebook을 사용하여 Azure Machine Learning 서비스 검색
 
@@ -50,50 +50,6 @@ Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Le
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 빠른 시작 지침에서는 빠른 시작 및 자습서 Notebook을 실행하는 데 필요한 패키지를 설치합니다.  다른 샘플 Notebook에서는 추가 구성 요소를 설치해야 할 수도 있습니다.  이러한 구성 요소에 대한 자세한 내용은 [Python용 Azure Machine Learning SDK 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install)를 참조하세요.
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>자동화된 기계 학습 설정 
-
-_다음 단계는 **how-to-use-azureml/automated-machine-learning** 폴더의 Notebook에만 적용됩니다._
-
-위의 옵션 중 하나를 사용할 수 있는 반면 다음 지침을 사용하면 동시에 환경을 설치하고 작업 영역을 만들 수도 있습니다. 
-
-1. [미니 Conda](https://conda.io/miniconda.html)를 설치합니다. 3.7 이상을 선택합니다. 설치하려면 프롬프트를 따릅니다. 
-   >[!NOTE]
-   >버전 4.4.10 이상인 경우 기존 Conda를 사용할 수 있습니다. `conda -V`를 사용하면 버전이 표시됩니다. `conda update conda` 명령을 사용하여 Conda 버전을 업데이트할 수 있습니다. 특히 미니 Conda를 설치할 필요가 없습니다.
-
-1. [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-)에서 Zip으로 샘플 Notebook을 다운로드하고 로컬 디렉터리에 콘텐츠를 추출합니다. 자동화된 기계 학습 Notebook은 `how-to-use-azureml/automated-machine-learning` 폴더에 있습니다.
-
-1. 새 Conda 환경을 설정합니다. 
-   1. 로컬 머신에서 Conda 프롬프트를 엽니다.
-   
-   1. 로컬 머신에 추출한 파일로 이동합니다.
-   
-   1. **automated-machine-learning** 폴더를 엽니다.
-   
-   1. Windows용 Conda 프롬프트에서 `automl_setup.cmd`를 실행하거나 사용자 운영 체제용 `.sh` 파일을 실행합니다. 실행하는 데 10분 정도 걸릴 수 있습니다.
-
-      설정 스크립트.
-      + 새 Conda 환경 만들기
-      + 필요한 패키지 설치
-      + 위젯 구성
-      + Jupyter Notebook 시작
-      
-   >[!NOTE]
-   > 스크립트는 Conda 환경 이름을 선택적 매개 변수로 사용합니다. 기본 Conda 환경 이름은 `azure_automl`입니다. 정확한 명령은 운영 체제에 따라 달라 집니다. 새 환경을 작성하거나 새 버전으로 업그레이드하는 경우에 유용합니다. 예를 들어 ‘automl_setup.cmd azure_automl_sandbox’를 사용하여 환경 이름 azure_automl_sandbox를 만들 수 있습니다. 
-      
-1. 스크립트가 완료되면 브라우저에 Jupyter Notebook 홈페이지가 표시됩니다.
-
-1. Notebook을 저장한 경로로 이동합니다. 
-
-1. automated-machine-learning 폴더를 연 다음, **configuration.ipynb** Notebook을 엽니다. 
-
-1. Machine Learning Services 리소스 공급 기업을 등록하고 작업 영역을 만들려면 Notebook의 셀을 실행합니다.
-
-이제를 로컬 머신에 저장된 Notebook을 열고 실행할 준비가 되었습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,34 +1,33 @@
 ---
-title: '자습서: Shuccho Navi와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory 및 Shuccho Navi 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: '자습서: Mitel Connect와 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory 및 Mitel Connect 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 32b6676c-d1ec-48c2-91b1-41990ed0560c
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d3c2c646cc713b4590a85def9813ca102198229
+ms.openlocfilehash: 4b022d3a51a6a1ef16c7d02aa76c5313e1a94e7e
 ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277139"
+ms.locfileid: "59283954"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>자습서: Shuccho Navi와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-mitel-connect"></a>자습서: Mitel Connect와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Shuccho Navi를 통합하는 방법에 대해 알아봅니다.
-Shuccho Navi를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Mitel Connect를 통합하는 방법에 대해 알아봅니다.
+Mitel Connect를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-* Shuccho Navi에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 자신의 Azure AD 계정으로 Shuccho Navi에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
+* Azure AD에서 Mitel Connect에 액세스할 수 있는 사용자를 제어할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 Mitel Connect에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
@@ -36,22 +35,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Shuccho Navi와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+Mitel Connect와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* Shuccho Navi Single Sign-On이 설정된 구독
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Mitel Connect Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Shuccho Navi에서 **SP** 시작 SSO를 지원합니다.
+* Mitel Connect는 **SP** 시작 SSO를 지원합니다.
 
-## <a name="adding-shuccho-navi-from-the-gallery"></a>갤러리에서 Shuccho Navi 추가
+## <a name="adding-mitel-connect-from-the-gallery"></a>갤러리에서 Mitel Connect 추가
 
-Shuccho Navi의 Azure AD 통합을 구성하려면 갤러리의 Shuccho Navi를 관리되는 SaaS 앱 목록에 추가해야 합니다.
+Mitel Connect가 Azure AD에 통합되도록 구성하려면 갤러리의 Mitel Connect를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Shuccho Navi를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 Mitel Connect를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -65,31 +64,31 @@ Shuccho Navi의 Azure AD 통합을 구성하려면 갤러리의 Shuccho Navi를 
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Shuccho Navi**를 입력하고 결과 패널에서 **Shuccho Navi**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에서 **Mitel Connect**를 입력하고, 결과 패널에서 **Mitel Connect**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Shuccho Navi](common/search-new-app.png)
+     ![결과 목록의 Mitel Connect](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Shuccho Navi에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 Shuccho Navi의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 Mitel Connect에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 Mitel Connect의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Shuccho Navi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Mitel Connect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Shuccho Navi Single Sign-On 구성](#configure-shuccho-navi-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+2. **[Mitel Connect Single Sign-On 구성](#configure-mitel-connect-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Shuccho Navi 테스트 사용자 만들기](#create-shuccho-navi-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Shuccho Navi에 만듭니다.
+5. **[Mitel Connect 테스트 사용자 만들기](#create-mitel-connect-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Mitel Connect에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-Shuccho Navi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+Mitel Connect에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Shuccho Navi** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Mitel Connect** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -103,18 +102,20 @@ Shuccho Navi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Shuccho Navi 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
+    ![Mitel Connect 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    **로그인 URL** 텍스트 상자에서 `https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
+
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://authentication.api.mitel.io/2017-09-01/saml2/<account-uui>`
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 구하려면 [Shuccho Navi 클라이언트 지원 팀](mailto:sys_ntabtm@nta.co.jp)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Mitel Connect 클라이언트 지원 팀](https://www.mitel.com/support/mitel-technical-support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-6. **Shuccho Navi 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+6. **Mitel Connect 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -124,11 +125,11 @@ Shuccho Navi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     다. 로그아웃 URL
 
-### <a name="configure-shuccho-navi-single-sign-on"></a>Shuccho Navi Single Sign-On 구성
+### <a name="configure-mitel-connect-single-sign-on"></a>Mitel Connect Single Sign-On 구성
 
-**Shuccho Navi** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **메타데이터 XML**과 적절히 복사한 URL을 [Shuccho Navi 지원 팀](mailto:sys_ntabtm@nta.co.jp)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Mitel Connect** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Mitel Connect 지원 팀](https://www.mitel.com/support/mitel-technical-support)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
@@ -146,8 +147,7 @@ Shuccho Navi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
@@ -155,15 +155,15 @@ Shuccho Navi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Shuccho Navi에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Mitel Connect에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Shuccho Navi**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택하고 **모든 애플리케이션**을 선택한 다음, **Mitel Connect**를 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Shuccho Navi**를 선택합니다.
+2. 애플리케이션 목록에서 **Mitel Connect**를 선택합니다.
 
-    ![애플리케이션 목록의 Shuccho Navi 링크](common/all-applications.png)
+    ![애플리케이션 목록의 Mitel Connect 링크](common/all-applications.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -179,15 +179,15 @@ Shuccho Navi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-shuccho-navi-test-user"></a>Shuccho Navi 테스트 사용자 만들기
+### <a name="create-mitel-connect-test-user"></a>Mitel Connect 테스트 사용자 만들기
 
-이 섹션에서는 Shuccho Navi에서 Britta Simon이라는 사용자를 만듭니다.  [Shuccho Navi 지원 팀](mailto:sys_ntabtm@nta.co.jp)과 협력하여 Shuccho Navi 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Mitel Connect에서 Britta Simon이라는 사용자를 만듭니다.  [Mitel Connect 지원 팀](https://www.mitel.com/support/mitel-technical-support)과 협력하여 Mitel Connect 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Shuccho Navi 타일을 클릭하면 SSO를 설정한 Shuccho Navi에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Mitel Connect 타일을 클릭하면 SSO를 설정한 Mitel Connect에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -196,3 +196,4 @@ Shuccho Navi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 - [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

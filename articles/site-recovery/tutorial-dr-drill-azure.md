@@ -6,36 +6,41 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e85226d15b818dda65600760b3950fab9dd7aaf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312328"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358152"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
-이 문서에서는 테스트 장애 조치(failover)를 사용하여 온-프레미스 컴퓨터에 대해 Azure로 재해 복구 드릴을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 온-프레미스 머신에 대한 재해 복구 드릴을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
 
-온-프레미스 VMware VM 또는 Hyper-V VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여주는 자습서 시리즈 중 네 번째 자습서입니다.
 
-이 자습서에서는 여러분이 처음 세 자습서를 완료한 것으로 간주합니다.
-- [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 재해 복구에 필요한 Azure 구성 요소를 설정했습니다.
-- [두 번째 자습서](vmware-azure-tutorial-prepare-on-premises.md)에서는 재해 복구용 온-프레미스 구성 요소를 준비하고 필수 구성 요소를 살펴보았습니다.
-- [세 번째 자습서](vmware-azure-tutorial.md)에서는 온-프레미스 VMware VM에 복제를 설정하고 활성화했습니다.
-- 자습서는 **시나리오의 가장 간단한 배포 경로**를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 테스트 장애 조치(failover) 단계에 대해 자세히 알아보려면 [방법 가이드](site-recovery-test-failover-to-azure.md)를 읽어 보세요.
+이 문서는 온-프레미스 머신에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 네 번째 자습서입니다.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 테스트 장애 조치(failover)를 위한 격리된 네트워크 설정
 > * 장애 조치(failover) 후 Azure VM에 연결할 준비
-> * 단일 컴퓨터에 대해 테스트 장애 조치(failover) 실행
+> * 단일 머신에 대해 테스트 장애 조치(failover) 실행
 
+> [!NOTE]
+> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 재해 복구 드릴 단계에 대해 자세히 알아보려면 [이 문서를 검토하세요](site-recovery-test-failover-to-azure.md).
 
+## <a name="before-you-start"></a>시작하기 전에
+
+이전 자습서 완료:
+
+1. VMware VM, Hyper-V VM 및 물리적 머신의 온-프레미스 재해 복구가 Azure에 수행되도록 [Azure를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
+2. 재해 복구용 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 환경을 준비합니다. 물리적 서버에 대한 재해 복구를 설정하는 경우 [지원 매트릭스](vmware-physical-secondary-support-matrix.md)를 검토합니다.
+3. [VMware VM](vmware-azure-tutorial.md), [Hyper-V VM](hyper-v-azure-tutorial.md) 또는 [물리적 머신](physical-azure-disaster-recovery.md)에 대한 재해 복구를 설정합니다.
+ 
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
@@ -76,14 +81,13 @@ ms.locfileid: "58312328"
 
 일부 시나리오에서는 장애 조치(failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(failover)가 더 오래 걸릴 수 있습니다.
 
-## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
+## <a name="connect-after-failover"></a>장애 조치(Failover) 후 연결
 
-장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 [여기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)에서 표에 요약된 요구 사항을 따릅니다.
-
-[여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
+장애 조치(failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 [연결을 준비](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)합니다. 장애 조치(failover) 후 연결 문제가 발생하는 경우 [문제 해결 가이드](site-recovery-failover-to-azure-troubleshoot.md)를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [온-프레미스 VMware VM 간 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
-> [온-프레미스 Hyper-V VM 간 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md)
+> [VMware VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
+> [Hyper-V VM에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md).
+> [물리적 머신에 대한 장애 조치(failover) 및 장애 복구(failback) 실행](physical-to-azure-failover-failback.md)

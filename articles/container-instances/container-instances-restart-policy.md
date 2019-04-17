@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369979"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606840"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
@@ -76,7 +76,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력:
+출력
 
 ```bash
 [('the', 990),
@@ -93,98 +93,9 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 이 예제는 스크립트가 STDOUT으로 보낸 출력을 보여 줍니다. 그러나 컨테이너 작업은 나중에 검색하기 위해 출력을 영구적 저장소에 쓸 수도 있습니다. 예를 들어 [Azure 파일 공유](container-instances-mounting-azure-files-volume.md)에 쓸 수 있습니다.
 
-## <a name="manually-stop-and-start-a-container-group"></a>수동으로 컨테이너 그룹 중지 및 시작
-
-[컨테이너 그룹](container-instances-container-groups.md)에 구성된 다시 시작 정책에 관계없이 컨테이너 그룹을 수동으로 중지하거나 시작할 수 있습니다.
-
-* **중지** - 예를 들어 [az container stop][az-container-stop] 명령을 사용하여 언제든지 실행 중인 컨테이너 그룹을 수동으로 중지할 수 있습니다. 특정 컨테이너 워크로드의 경우 정의된 기간 후에 컨테이너 그룹을 중지하여 비용을 절감할 수 있습니다. 
-
-  컨테이너 그룹을 중지하면 그룹의 컨테이너가 종료 및 재순환되고 컨테이너 상태가 보존되지 않습니다. 
-
-* **시작** - 컨테이너 그룹이 자체적으로 종료되거나 사용자가 수동으로 그룹을 중지했기 때문에 컨테이너 그룹이 중지되면 [컨테이너 시작 API](/rest/api/container-instances/containergroups/start) 또는 Azure Portal을 사용하여 그룹의 컨테이너를 수동으로 시작할 수 있습니다. 컨테이너의 컨테이너 이미지가 업데이트되면 새 이미지가 풀됩니다. 
-
-  컨테이너 그룹을 시작하면 동일한 컨테이너 구성을 가진 새 배포가 시작됩니다. 이 작업은 예상대로 작동하는 알려진 컨테이너 그룹 구성을 빠르게 다시 사용하는 데 도움이 될 수 있습니다. 동일한 워크로드를 실행하기 위해 새 컨테이너 그룹을 만들 필요가 없습니다.
-
-* **다시 시작** - 예를 들어 [az container restart][az-container-restart] 명령을 사용하여 실행되는 동안 컨테이너 그룹을 다시 시작할 수 있습니다. 이 작업은 컨테이너 그룹의 모든 컨테이너를 다시 시작합니다. 컨테이너의 컨테이너 이미지가 업데이트되면 새 이미지가 풀됩니다. 
-
-  컨테이너 그룹을 다시 시작하면 배포 문제를 해결하려는 경우 도움이 됩니다. 예를 들어 임시 리소스 제한 사항으로 인해 컨테이너가 성공적으로 실행되지 않는 경우 그룹을 다시 시작하면 문제가 해결될 수 있습니다.
-
-컨테이너 그룹을 수동으로 시작 또는 다시 시작한 후에 컨테이너 그룹은 구성된 다시 시작 정책에 따라 실행됩니다.
-
-## <a name="configure-containers-at-runtime"></a>런타임 시 컨테이너 구성
-
-컨테이너 인스턴스를 만드는 경우 컨테이너가 시작될 때 실행할 사용자 지정 **명령줄**을 지정하고 **환경 변수**를 설정할 수 있습니다. 배치 작업에서 이 설정을 사용하여 작업별 구성으로 각 컨테이너를 준비할 수 있습니다.
-
-## <a name="environment-variables"></a>환경 변수
-
-컨테이너에서 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공하려면 컨테이너에 환경 변수를 설정합니다. 이는 `docker run`에 대한 `--env` 명령줄 인수와 유사합니다.
-
-예를 들어 컨테이너 인스턴스를 만들 때 다음 환경 변수를 지정하여 예제 컨테이너에서 스크립트의 동작을 수정할 수 있습니다.
-
-*NumWords*: STDOUT으로 전송된 단어 수입니다.
-
-*MinLength*: 계산되는 단어의 최소 문자 수입니다. 숫자가 높을수록 "of" 및 "the"와 같은 일반적인 단어를 무시합니다.
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer2 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
-```
-
-컨테이너의 환경 변수에 `NumWords=5` 및 `MinLength=8`을 지정하면 컨테이너 로그에 다른 출력이 표시됩니다. 컨테이너 상태가 *Terminated*(상태를 확인하기 위해 `az container show` 사용)로 표시되면 로그를 표시하여 새 출력을 확인합니다.
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer2
-```
-
-출력:
-
-```bash
-[('CLAUDIUS', 120),
- ('POLONIUS', 113),
- ('GERTRUDE', 82),
- ('ROSENCRANTZ', 69),
- ('GUILDENSTERN', 54)]
-```
-
-
-
-## <a name="command-line-override"></a>명령줄 재정의
-
-컨테이너 인스턴스를 만들 때 명령줄을 지정하여 컨테이너 이미지로 굽는 명령줄을 재정의합니다. 이는 `docker run`에 대한 `--entrypoint` 명령줄 인수와 유사합니다.
-
-예를 들어 다른 명령줄을 지정하여 예제 컨테이너가 *Hamlet* 이외의 텍스트를 분석하도록 할 수 있습니다. *wordcount.py* 컨테이너에서 실행하는 Python 스크립트는 URL을 인수로 받아들이고 기본값 대신 해당 페이지의 콘텐츠를 처리합니다.
-
-예를 들어 *Romeo and Juliet*에서 상위 3개의 5글자 단어를 결정하려면 다음을 수행합니다.
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer3 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=3 MinLength=5 \
-    --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
-```
-
-다시 한번 컨테이너가 *Terminated*가 되면 컨테이너의 로그를 표시하여 출력을 봅니다.
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer3
-```
-
-출력:
-
-```bash
-[('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
-```
-
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="persist-task-output"></a>작업 출력 유지
+여러 컨테이너를 사용 하 여 큰 데이터 집합을 처리 하는 일괄 처리와 같은 작업 기반 시나리오에서 사용자 지정을 이용할 수 [환경 변수](container-instances-environment-variables.md) 하거나 [명령줄](container-instances-start-command.md) 런타임 시.
 
 완료될 때까지 실행되는 컨테이너 출력을 유지하는 방법에 대한 자세한 내용은 [Azure Container Instances를 사용하여 Azure 파일 공유 탑재](container-instances-mounting-azure-files-volume.md)를 참조하세요.
 
@@ -194,7 +105,5 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
-[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

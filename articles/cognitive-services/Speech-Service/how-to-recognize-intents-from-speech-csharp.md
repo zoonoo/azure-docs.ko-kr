@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855727"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280539"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>자습서: C#용 Speech SDK를 사용하여 음성에서 의도 인식
 
@@ -131,7 +131,7 @@ static async Task RecognizeIntentAsync()
 
 이제 `LanguageUnderstandingModel.FromAppId()`를 사용하여 LUIS 앱에서 모델을 가져오고, 인식기의 `AddIntent()` 메서드를 통해 인식하려는 LUIS 의도를 추가합니다. 이러한 두 단계는 사용자가 요청에서 사용할 가능성이 높은 단어를 지정하여 음성 인식의 정확도를 높입니다. 앱의 모든 의도를 애플리케이션에서 인식해야 하는 것이 아니라면 반드시 모든 앱의 의도를 추가할 필요는 없습니다.
 
-의도를 추가하려면 LUIS 모델(방금 만들어서 `model`이라고 이름을 지정한 모델), 의도 이름, 의도 ID라는 세 가지 인수가 필요합니다. ID와 이름의 차이는 다음과 같습니다.
+의도를 추가하려면 LUIS 모델(이미 만들어져 있고 이름이 `model`인), 의도 이름 및 의도 ID 세 인수가 필요합니다. ID와 이름의 차이는 다음과 같습니다.
 
 |`AddIntent()` 인수|목적|
 |--------|-------|
@@ -144,6 +144,8 @@ static async Task RecognizeIntentAsync()
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+개별 의도를 추가하는 대신 `AddAllIntents` 메서드를 사용하여 모델의 모든 의도를 인식기에 추가할 수도 있습니다.
 
 ## <a name="start-recognition"></a>인식 시작
 

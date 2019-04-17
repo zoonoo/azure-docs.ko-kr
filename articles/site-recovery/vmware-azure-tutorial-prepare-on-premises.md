@@ -6,35 +6,37 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 883e4cbc33ebbef0328bb1de47025e99e670f7cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1095a80ba05aa3e0ae6dfcd526db7ffd18fb9d4d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311045"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359376"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
-[Azure Site Recovery](site-recovery-overview.md)는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure에 재해 복구하기 위해 온-프레미스 VMware 서버를 준비하는 방법을 설명합니다. 
 
-- 이는 온-프레미스 VMware VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 두 번째 자습서입니다. [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 재해 복구에 필요한 Azure 구성 요소를 설정했습니다.
+이는 온-프레미스 VMware VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 두 번째 자습서입니다. [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 재해 복구에 필요한 Azure 구성 요소를 설정했습니다.
 
 
-> [!NOTE]
-> 자습서는 특정 시나리오의 가장 간단한 배포 경로를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 해당 시나리오에 대한 **방법** 섹션을 참조하세요.
-
-이 문서에서는 Azure Site Recovery를 사용하여 VMware VM을 Azure에 복제하려고 할 때 온-프레미스 VMware 환경을 준비하는 방법을 보여줍니다. 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * VM 검색을 자동화하기 위해 vCenter 서버 또는 vSphere ESXi 호스트에서 계정 준비
-> * VMware VM에 모바일 서비스 자동 설치를 위한 계정 준비
-> * VMware 서버 및 VM 요구 사항 검토
-> * 장애 조치(Failover) 후 Azure VM에 연결할 준비
+> * VM 검색을 자동화하기 위해 vCenter 서버 또는 vSphere ESXi 호스트에서 계정을 준비합니다.
+> * VMware VM에 모바일 서비스 자동 설치를 위한 계정을 준비합니다.
+> * VMware 서버 및 VM 요구 사항 및 지원을 검토합니다.
+> * 장애 조치(Failover) 후 Azure VM에 연결하도록 준비합니다.
 
+> [!NOTE]
+> 자습서는 시나리오의 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
 
+## <a name="before-you-start"></a>시작하기 전에
+
+[이 시리즈의 첫 번째 자습서](tutorial-prepare-azure.md)에 설명된 대로 Azure가 준비되었는지 확인합니다.
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>자동 검색용 계정 준비
 
@@ -107,13 +109,13 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 
 
 ## <a name="failback-requirements"></a>장애 복구 요구 사항
-온-프레미스에서 장애 복구하려는 경우에는 특정 [필수 요소가 충족](vmware-azure-reprotect.md##before-you-begin)되는지도 확인해야 합니다. 그렇다고 VM에 대한 **재해 복구 활성화를 다시 시작할 필요는 없으며** Azure 장애 조치 후 실행할 수 있습니다.
+온-프레미스 사이트로 장애 복구(failback)를 수행하려는 경우 [장애 복구(failback)에 대한 필수 구성 요소](vmware-azure-reprotect.md##before-you-begin)가 몇 가지 있습니다. 지금 준비할 수 있지만 꼭 해야 하는 것은 아닙니다. Azure로 장애 조치(failover)한 후에 준비할 수 있습니다.
 
-## <a name="useful-links"></a>유용한 링크
 
-여러 VM을 복제하는 경우 시작하기 전에 용량 및 배포를 계획해야 합니다. [자세히 알아보기](site-recovery-deployment-planner.md).
 
 ## <a name="next-steps"></a>다음 단계
 
+재해 복구를 설정합니다. 여러 VM을 복제하는 경우에는 용량을 계획합니다.
 > [!div class="nextstepaction"]
 > [Azure에 VMware VM 재해 복구 설정](vmware-azure-tutorial.md)
+> [용량 계획 수행](site-recovery-deployment-planner.md).

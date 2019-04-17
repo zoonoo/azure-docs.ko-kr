@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958051"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579413"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 기술 답변을 가져오려면
 
@@ -67,14 +67,14 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
 ```
 
-|HTTP 요청 속성|이름|Type|목적|
+|HTTP 요청 속성|name|Type|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |URL 경로 매개 변수|QnAMaker 끝점 호스트|문자열|Azure 구독에 배포된 엔드포인트의 호스트 이름입니다. 기술 자료를 게시 한 후 설정 페이지에서 제공 됩니다. |
 |헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은: '|
 |헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |Post 본문|JSON 개체|JSON|설정 사용 하 여 질문|
-|쿼리 문자열 매개 변수 (선택 사항)|`isTest`|부울|경우 true를 반환 결과로 `testkb` 게시 된 인덱스 대신 인덱스 검색.|
+
 
 JSON 본문을 몇 가지 설정은 다음과 같습니다.
 
@@ -83,6 +83,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 |`question`|필수|문자열|기술 자료에 보낼 사용자 질문입니다.|
 |`top`|선택 사항|정수|출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.|
 |`userId`|선택 사항|문자열|사용자를 식별하는 고유 ID입니다. 이 ID는 채팅 로그에 기록됩니다.|
+|`isTest`|선택 사항|부울|경우 true를 반환 결과로 `testkb` 게시 된 인덱스 대신 인덱스 검색.|
 |`strictFilters`|선택 사항|문자열|지정할 경우 지정된 메타데이터가 있는 답변만 반환하라고 QnA Maker에 지시합니다.|
 
 예제 JSON 본문 다음과 같습니다.
@@ -91,6 +92,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

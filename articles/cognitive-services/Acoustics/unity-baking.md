@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470341"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494785"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project Acoustics Unity 음향 효과 베이킹 자습서
 이 자습서에서는 Unity에서 Project Acoustics를 사용하는 음향 효과 베이킹에 대해 설명합니다.
@@ -201,7 +201,7 @@ Azure 자격 증명은 로컬 컴퓨터에 안전하게 저장되고 Unity 편�
 ### <a name="run-local-bake"></a>로컬 준비 실행
 1. **Bake**(베이킹) 탭의 "Prepare Local Bake"(로컬 베이킹 준비) 단추를 클릭하고 입력 파일과 실행 스크립트가 저장될 폴더를 선택합니다. 그러면 최소 하드웨어 요구 사항을 충족하는 모든 컴퓨터에서 준비를 실행하고, 해당 폴더를 컴퓨터로 복사하여 Docker를 설치할 수 있습니다.
 2. “runlocalbake.bat” 스크립트를 사용하여 시뮬레이션을 시작합니다. 이 스크립트는 시뮬레이션 처리에 필요한 도구 집합으로 프로젝트 Acoustics Docker 이미지를 가져온 후 시뮬레이션을 시작합니다. 
-3. 시뮬레이션이 완료되면 결과 .ace 파일을 Unity 프로젝트로 다시 복사합니다. Unity가 이 파일을 이진 파일로 인식하도록 하려면 파일 확장명에 “.bytes”를 추가합니다(예: “Scene1.ace.bytes”). 시뮬레이션에 대한 자세한 로그는 “AcousticsLog.txt”에 저장됩니다. 실행 동안 문제가 발생하면 진단을 위해 이 파일을 제공하세요.
+3. 시뮬레이션이 완료되면 결과 .ace 파일을 Unity 프로젝트로 다시 복사합니다. Unity가 이 파일을 이진 파일로 인식하도록 하려면 파일 확장명에 “.bytes”를 추가합니다(예: “Scene1.ace.bytes”). 시뮬레이션에 대한 자세한 로그는 "AcousticsLog.txt"에 저장됩니다. 실행 동안 문제가 발생하면 진단을 위해 이 파일을 제공하세요.
 
 ## <a name="Data-Files"></a> 베이킹 프로세스에서 추가된 데이터 파일
 

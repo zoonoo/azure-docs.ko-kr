@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894972"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275456"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -32,7 +32,7 @@ Azure Migrate의 기능:
 - 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0, 6.5 또는 6.7)에서 관리되어야 합니다.
 - Hyper-V 지원은 프로덕션 지원을 통해 현재 미리 보기로 제공되고 있습니다. 사용해 보고 싶다면 [여기](https://aka.ms/migratefuture)에서 가입하세요.
 - 실제 서버의 평가를 위해 [파트너 도구](https://azure.microsoft.com/migration/partners/)를 활용할 수 있습니다.
-- 단일 검색에서 최대 1500대의 VM을 검색하고, 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 1500대의 VM을 평가할 수 있습니다.
+- 단일 검색 및 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 당사는 단일 어플라이언스를 사용하여 단일 프로젝트에서 최대 10,000대의 VMware VM을 검색할 수 있는 미리 보기 릴리스를 제공한 바 있습니다. 체험 사용에 관심이 있는 분은 [여기](https://aka.ms/migratefuture)에서 가입하세요.
 - 대규모 환경을 검색하려면 검색을 분할하고 여러 프로젝트를 만들면 됩니다. [자세히 알아보기](how-to-scale-assessment.md). Azure Migrate는 구독당 최대 20개의 프로젝트를 지원합니다.
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
 -  다음 지역에서만 Azure Migrate 프로젝트를 만들 수 있지만, 여전히 다른 대상 Azure 위치를 평가할 수 있습니다.

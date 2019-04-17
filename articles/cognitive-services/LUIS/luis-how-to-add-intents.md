@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593425"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521745"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
@@ -69,7 +69,7 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 ## <a name="add-a-prebuilt-entity"></a>미리 빌드된 엔터티 추가
 
-자세한 내용은 [미리 빌드된 엔터티](luis-how-to-add-entities.md#add-prebuilt-entity)를 참조하세요.
+자세한 내용은 [미리 빌드된 엔터티](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app)를 참조하세요.
 
 ## <a name="using-the-contextual-toolbar"></a>상황에 맞는 도구 모음 사용
 

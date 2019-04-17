@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317139"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615917"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 
 
 
-설정한 경우이 문서를 사용 하 여 [Azure Vm에 온-프레미스 컴퓨터를 마이그레이션할](tutorial-migrate-on-premises-to-azure.md) 를 사용 하 여를 [Site Recovery](site-recovery-overview.md) 서비스, 이제 가져오려는 Vm 재해 복구용 보조 Azure 지역으로 설정 합니다. 문서에는 마이그레이션된 Vm에서 Azure VM 에이전트가 설치 되어 있는지 확인 하는 방법 및 마이그레이션 후 더 이상 필요에 Site Recovery 모바일 서비스를 제거 하는 방법을 설명 합니다.
+설정한 경우이 문서를 따릅니다 [Azure Vm에 온-프레미스 컴퓨터를 마이그레이션할](tutorial-migrate-on-premises-to-azure.md) 사용 하 여를 [Site Recovery](site-recovery-overview.md) 서비스, 이제 가져오려는 Vm 재해 복구용 보조 Azure 지역으로 설정 합니다. 문서에는 마이그레이션된 Vm에서 Azure VM 에이전트가 설치 되어 있는지 확인 하는 방법 및 마이그레이션 후 더 이상 필요에 Site Recovery 모바일 서비스를 제거 하는 방법을 설명 합니다.
 
 
 
@@ -77,7 +77,7 @@ ms.locfileid: "58317139"
         ```
     - Linux의 경우 루트 사용자로 로그인합니다. 터미널에서 **/user/local/ASR**로 이동하여 다음 명령을 실행합니다.
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. 복제를 구성하기 전에 VM을 다시 시작합니다.
 

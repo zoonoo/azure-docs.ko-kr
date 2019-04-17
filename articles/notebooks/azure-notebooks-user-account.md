@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257011"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608013"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Azure Notebooks에 대한 사용자 계정
 
@@ -41,6 +41,9 @@ Microsoft 계정은 Windows, Azure, outlook.com, OneDrive, XBox Live 등의 Micr
 잘 모르겠으면 계정 프롬프트에서 **만들기** 명령을 선택합니다. 원하는 공급 기업의 이메일 주소를 사용하여 새 Microsoft 계정을 만들 수 있습니다.
 
 ![새 Microsoft 계정을 만드는 명령](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> 연결 된 계정에 이미 있는 전자 메일 주소를 사용 하 여 새 계정을 만들려는 경우 표시 될 수 있습니다 메시지를 "있습니다 수 없습니다. 여기에서 등록 작업을 사용 하 여 회사 또는 학교 전자 메일 주소입니다. Gmail 이나 yahoo! 같은 개인 전자 메일을 사용 하거나 새 Outlook 전자 메일을 받습니다. " 이 경우 새 계정을 만들지 않고 회사 전자 메일 주소를 로그인을 시도 합니다.
 
 자녀 계정의 경우 Azure Notebooks 액세스가 기본적으로 차단됩니다. 자녀 계정으로 로그인하면 아래 오류가 표시됩니다.
 
@@ -71,4 +74,4 @@ Azure Notebooks는 계정의 이메일 주소, 사용자의 브라우저 정보 
 ## <a name="next-steps"></a>다음 단계  
 
 > [!div class="nextstepaction"]
-> [사용자 프로필 및 사용자 ID를 편집 합니다.](azure-notebooks-user-profile.md)
+> [프로필 및 사용자 ID 편집](azure-notebooks-user-profile.md)

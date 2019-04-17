@@ -2,7 +2,7 @@
 title: 지속성 함수의 타이머 - Azure
 description: Azure Functions의 지속성 함수 확장에서 지속성 타이머를 구현하는 방법을 알아봅니다.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a05f75a7e38ee7cd4dc056629d9acaacad875e08
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436428"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608240"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 

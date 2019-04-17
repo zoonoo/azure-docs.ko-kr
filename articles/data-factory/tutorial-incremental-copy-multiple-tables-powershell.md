@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 18d293270c3af486a1ea3756048a504d9ae70fce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 244779e647c4b184b036b1a5ea77aac199be5994
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076380"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269404"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -171,7 +171,12 @@ END
 ```
 
 ### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 형식 및 추가 저장 프로시저 만들기
-다음 쿼리를 실행하여 SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다.
+다음 쿼리를 실행하여 SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다. 
+
+여정을 쉽게 시작할 수 있도록 테이블 변수를 통해 델타 데이터를 전달하는 이러한 저장 프로시저를 직접 사용한 다음, 대상 저장소에 병합합니다. 테이블 변수에 "많은" 수(100개 초과)의 델타 행이 저장될 수 없으니 주의하세요.  
+
+많은 수의 델타 행을 대상 저장소에 병합해야 하는 경우, 먼저 복사 작업을 사용하여 모든 델타 데이터를 대상 저장소의 임시 "준비" 테이블에 복사한 다음, 테이블 변수를 사용하지 않고 저장 프로시저를 직접 빌드하여 “준비” 테이블에서 “최종” 테이블로 병합하는 것이 좋습니다. 
+
 
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
@@ -222,10 +227,7 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[Azure PowerShell 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정한 다음 명령을 실행합니다. 예는 `"adfrg"`입니다. 
@@ -244,7 +246,7 @@ END
 1. 새 리소스 그룹을 만들려면 다음 명령을 실행합니다. 
 
     ```powershell
-    New-AzResourceGroup $resourceGroupName $location
+    New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
     리소스 그룹이 이미 있는 경우 덮어쓰지 않는 것이 좋습니다. `$resourceGroupName` 변수에 다른 값을 할당하고 명령을 다시 실행합니다.
 
@@ -256,10 +258,10 @@ END
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-1. 데이터 팩터리를 만들려면 다음 **Set-AzDataFactoryV2** cmdlet을 실행합니다. 
+1. 데이터 팩터리를 만들려면 다음 **Set-AzureRmDataFactoryV2** cmdlet을 실행합니다. 
     
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 다음 사항에 유의하세요.
@@ -340,10 +342,10 @@ END
 
 1. PowerShell에서 C:\ADFTutorials\IncCopyMultiTableTutorial 폴더로 전환합니다.
 
-1. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 AzureStorageLinkedService라는 연결된 서비스를 만듭니다. 다음 예제에서는 *ResourceGroupName* 및 *DataFactoryName* 매개 변수에 대한 값을 전달합니다. 
+1. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 AzureStorageLinkedService라는 연결된 서비스를 만듭니다. 다음 예제에서는 *ResourceGroupName* 및 *DataFactoryName* 매개 변수에 대한 값을 전달합니다. 
 
     ```powershell
-    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -372,10 +374,10 @@ END
         }
     }
     ```
-1. PowerShell에서 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 AzureSQLDatabaseLinkedService라는 연결된 서비스를 만듭니다. 
+1. PowerShell에서 **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 AzureSQLDatabaseLinkedService라는 연결된 서비스를 만듭니다. 
 
     ```powershell
-    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     샘플 출력은 다음과 같습니다.
@@ -413,10 +415,10 @@ END
 
     테이블 이름은 더미 이름입니다. 파이프라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
 
-1. **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
+1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -457,10 +459,10 @@ END
     }
     ```
 
-1. **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
+1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -493,10 +495,10 @@ END
         }
     }    
     ```
-1. **Set-AzDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
+1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
     
     ```powershell
-    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     cmdlet의 샘플 출력은 다음과 같습니다.
@@ -655,10 +657,10 @@ END
         }
     }
     ```
-1. **Set-AzDataFactoryV2Pipeline** cmdlet을 실행하여 IncrementalCopyPipeline 파이프라인을 만듭니다.
+1. **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행하여 IncrementalCopyPipeline 파이프라인을 만듭니다.
     
    ```powershell
-   Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    샘플 출력은 다음과 같습니다. 
@@ -694,10 +696,10 @@ END
         ]
     }
     ```
-1. **Invoke-AzDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 실행합니다. 자리 표시자를 사용자의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
+1. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 실행합니다. 자리 표시자를 사용자의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
 
     ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
     ``` 
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
@@ -799,7 +801,7 @@ VALUES
 1. 이제 다음 PowerShell 명령을 실행하여 파이프라인을 다시 실행합니다.
 
     ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
 1. [파이프라인 모니터링](#monitor-the-pipeline) 섹션의 지침에 따라 파이프라인 실행을 모니터링합니다. 파이프라인 상태가 **진행 중**이므로 **작업** 아래 파이프라인 실행을 취소하는 다른 작업 링크가 표시됩니다. 
 

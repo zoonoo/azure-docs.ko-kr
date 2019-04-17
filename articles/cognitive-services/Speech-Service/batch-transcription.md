@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447653"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579362"
 ---
 # <a name="why-use-batch-transcription"></a>Batch Transcription을 사용하는 이유
 
@@ -88,6 +88,16 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 | `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `none`, 명시적인 문장 부호를 의미하는 `dictated`, 디코더가 문장 부호를 처리하도록 하는 `automatic`, 지정된 문장 부호 또는 자동을 의미하는 `dictatedandautomatic`입니다. | 옵션 |
  | `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. | 옵션 |
 
+### <a name="storage"></a>Storage
+
+기록 지원 일괄 [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) 오디오 및 저장소에 기록 쓰기 읽기에 대 한 합니다.
+
+## <a name="webhooks"></a>Webhook 
+
+기록 상태에 대 한 폴링 되지 효율적, 되었거나 최상의 사용자 환경을 제공 합니다. 상태에 대 한 폴링, 콜백, 장기 실행 기록 작업이 완료 되었을 때 클라이언트를 알려는 등록할 수 있습니다.
+
+자세한 내용은 참조 하세요. [웹 후크](webhooks.md)합니다.
+
 ## <a name="sample-code"></a>샘플 코드
 
 전체 샘플은 `samples/batch` 하위 디렉터리 내부의 [GitHub 샘플 리포지토리](https://aka.ms/csspeech/samples)에서 확인할 수 있습니다.
@@ -108,10 +118,6 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 > [!NOTE]
 > 기준 전사의 경우 기준 모델의 ID를 선언할 필요가 없습니다. 언어 모델 ID(어쿠스틱 모델 ID 아님)만 지정하면 일치하는 어쿠스틱 모델이 자동으로 선택됩니다. 어쿠스틱 모델 ID만 지정하면 일치하는 언어 모델이 자동으로 선택됩니다.
-
-### <a name="supported-storage"></a>지원되는 저장소
-
-현재 Azure Blob Storage만 지원됩니다.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 

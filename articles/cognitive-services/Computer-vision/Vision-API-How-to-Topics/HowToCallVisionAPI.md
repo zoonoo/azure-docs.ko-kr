@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350915"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563373"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>예제: Computer Vision API를 호출하는 방법
 
@@ -167,13 +167,13 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=cele
 
 필드 | Type | Content
 ------|------|------|
-태그들  | object | 태그 배열의 최상위 개체
-tags[].Name | string    | 태그 분류자의 키워드
-tags[].Score    | number    | 신뢰도 점수, 0~1.
-description  | object   | 설명의 최상위 개체.
-description.tags[] |    string  | 태그 목록.  캡션을 생성하는 기능에 신뢰도가 부족한 경우 태그는 호출자에게 제공되는 유일한 정보일 수 있습니다.
-description.captions[].text | string    | 이미지를 설명하는 구.
-description.captions[].confidence   | number    | 구의 신뢰도.
+태그들  | `object` | 태그 배열의 최상위 개체
+tags[].Name | `string`  | 태그 분류자의 키워드
+tags[].Score    | `number`  | 신뢰도 점수, 0~1.
+description  | `object` | 설명의 최상위 개체.
+description.tags[] |    `string`    | 태그 목록.  캡션을 생성하는 기능에 신뢰도가 부족한 경우 태그는 호출자에게 제공되는 유일한 정보일 수 있습니다.
+description.captions[].text | `string`  | 이미지를 설명하는 구.
+description.captions[].confidence   | `number`  | 구의 신뢰도.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>도메인별 모델의 JSON 출력 검색 및 이해
 
@@ -229,10 +229,10 @@ description.captions[].confidence   | number    | 구의 신뢰도.
 
 필드   | Type  | Content
 ------|------|------|
-범주 | object | 최상위 개체
-categories[].name    | string   | 86개 범주 분류의 이름
-categories[].score  | number    | 신뢰도 점수, 0~1
-categories[].detail  | object?      | 선택적 세부 정보 개체
+범주 | `object`   | 최상위 개체
+categories[].name    | `string` | 86개 범주 분류의 이름
+categories[].score  | `number`  | 신뢰도 점수, 0~1
+categories[].detail  | `object?`      | 선택적 세부 정보 개체
 
 여러 범주가 일치하는 경우(예: model=celebrities일 경우 86개 범주 분류자가 people_ 및 people_young의 점수를 둘 다 반환하는 경우) 세부 정보는 가장 일반적인 수준 일치(이 예제에서는 people_)에 연결됩니다.
 

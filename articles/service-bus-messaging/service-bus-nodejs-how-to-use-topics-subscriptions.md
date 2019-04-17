@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587160"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608880"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Node.js에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -35,9 +35,12 @@ ms.locfileid: "56587160"
 
 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **Node.js** 이 빠른 시작 합니다. 
 
 ## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 빈 Node.js 애플리케이션을 만듭니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Node.js 애플리케이션을 만들어 Azure 웹 사이트에 배포], Windows PowerShell을 사용하는 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.

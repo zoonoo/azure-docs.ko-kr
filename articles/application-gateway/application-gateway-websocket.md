@@ -1,18 +1,18 @@
 ---
 title: Azure Application Gateway의 WebSocket 지원 | Microsoft Docs
 description: 이 페이지에서는 Application Gateway WebSocket 지원에 대한 개요를 제공합니다.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168122"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606908"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway의 WebSocket 지원 개요
 
@@ -32,7 +32,7 @@ WebSocket 연결을 설정 하려면 특정 HTTP 기반 핸드셰이크를 클�
 
 ### <a name="listener-configuration-element"></a>수신기 구성 요소
 
-기존 HTTP 수신기를 사용하여 WebSocket을 지원할 수 있습니다. 다음은 샘플 템플릿 파일에 있는 httpListeners 요소의 코드 조각입니다. WebSocket을 지원하고 WebSocket 트래픽을 보호하기 위해 HTTP 및 HTTPS 수신기가 모두 필요합니다. 마찬가지로 [포털](application-gateway-create-gateway-portal.md) 또는 [PowerShell](application-gateway-create-gateway-arm.md)을 사용하여 WebSocket 트래픽을 지원하기 위해 포트 80/443에 대한 수신기를 포함한 Application Gateway를 만들 수 있습니다.
+기존 HTTP 수신기를 사용하여 WebSocket을 지원할 수 있습니다. 다음은 샘플 템플릿 파일에 있는 httpListeners 요소의 코드 조각입니다. WebSocket을 지원하고 WebSocket 트래픽을 보호하기 위해 HTTP 및 HTTPS 수신기가 모두 필요합니다. 수신기를 사용 하 여 응용 프로그램 게이트웨이 만들려면 포털 또는 Azure PowerShell을 사용할 수 있습니다 마찬가지로 포트 80/443 WebSocket 트래픽을 지원 하도록 합니다.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ WebSocket이 작동되려면 사용자의 백 엔드가 구성된 포트(대개 
 
 ## <a name="next-steps"></a>다음 단계
 
-WebSocket 지원에 대해 알아본 후에 [Application Gateway 만들기](application-gateway-create-gateway.md)로 이동하여 WebSocket 활성화 웹 애플리케이션을 시작합니다.
-
+WebSocket 지원에 대해 알아본 후에 [Application Gateway 만들기](quick-create-powershell.md)로 이동하여 WebSocket 활성화 웹 애플리케이션을 시작합니다.

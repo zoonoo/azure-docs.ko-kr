@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895548"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528036"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
@@ -24,7 +24,15 @@ ms.locfileid: "58895548"
 
 ## <a name="entity-compared-to-intent"></a>엔터티 및 의도 비교
 
-엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 발화에는 여러 엔터티가 포함되거나 전혀 포함되지 않을 수 있습니다. 엔터티는 유사한 개체 모음(장소, 사물, 사람, 이벤트 또는 개념)을 포함한 클래스를 나타냅니다. 엔터티는 의도와 관련된 정보를 설명하며 앱이 작업을 수행하는 데 꼭 필요한 경우도 있습니다. 예를 들어, News Search 앱에는 뉴스 검색의 키 데이터인 “주제”, “원본”, “키워드” 및 “게시 날짜”와 같은 엔터티가 포함될 수 있습니다. 여행 예약 앱에서는 “위치”, “날짜”, “항공사”, “여행 클래스” 및 “티켓”이 항공편 예약의 주요 정보입니다(“항공편 예약” 의도와 관련됨).
+엔터티는 추출하려는 발화 내의 단어 또는 구를 나타냅니다. 발화에는 여러 엔터티가 포함되거나 전혀 포함되지 않을 수 있습니다. 클라이언트 응용 프로그램 엔터티를 해당 작업을 수행 하거나 사용자에 게 제공 하려면 여러 선택 항목의 지침으로 사용 해야 합니다. 
+
+엔터티:
+
+* 비슷한 개체 (장소, 사물, 사용자, 이벤트 또는 개념)의 컬렉션을 포함 하 여 클래스를 나타냅니다. 
+* 의도에 관련 된 정보를 설명합니다.
+
+
+예를 들어, News Search 앱에는 뉴스 검색의 키 데이터인 “주제”, “원본”, “키워드” 및 “게시 날짜”와 같은 엔터티가 포함될 수 있습니다. 여행 예약 앱에서는 “위치”, “날짜”, “항공사”, “여행 클래스” 및 “티켓”이 항공편 예약의 주요 정보입니다(“항공편 예약” 의도와 관련됨).
 
 반면, 의도는 전체 발화의 예측을 나타냅니다. 
 
@@ -89,14 +97,14 @@ LUIS는 다양한 형식의 엔터티를 제공합니다. 데이터를 추출해
 |기계 학습|표시할 수 있음|자습서|예<br>response|엔터티 형식|목적|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**복합**](#composite-entity)|엔터티 형식에 관계없이 엔터티 그룹화|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**계층적**](#hierarchical-entity)|단순 엔터티의 그룹화|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**나열**](#list-entity)|정확한 텍스트 일치 항목을 사용하여 추출된 항목 및 동의어 목록|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**계층적**](#hierarchical-entity)|단순 엔터티의 그룹화|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**목록**](#list-entity)|정확한 텍스트 일치 항목을 사용하여 추출된 항목 및 동의어 목록|
 |혼합||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|엔터티의 끝을 확인하기 어려운 엔터티|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**미리 빌드된**](#prebuilt-entity)|다양한 종류의 데이터를 추출하도록 이미 학습됨|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**미리 빌드됨**](#prebuilt-entity)|다양한 종류의 데이터를 추출하도록 이미 학습됨|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**정규식**](#regular-expression-entity)|정규식을 사용하여 텍스트 일치|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**간단한**](#simple-entity)|단어 또는 구에서 단일 개념 포함|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**단순**](#simple-entity)|단어 또는 구에서 단일 개념 포함|
 
-기계 학습 엔터티만 모든 의도에서 예제 발화로 표시되어야 합니다. 기계 학습 엔터티는 [엔드포인트 쿼리](luis-concept-test.md#endpoint-testing)를 통해 테스트되고 [엔드포인트 발화를 검토](luis-how-to-review-endpoint-utterances.md)하는 경우에 가장 적합합니다. 
+기계 학습 엔터티만 예제 표현에 표시 해야 합니다. 기계 학습 엔터티는 [엔드포인트 쿼리](luis-concept-test.md#endpoint-testing)를 통해 테스트되고 [엔드포인트 발화를 검토](luis-how-to-review-endoint-utt.md)하는 경우에 가장 적합합니다. 
 
 Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-model-intent-pattern.md) 템플릿 예제에서 표시되어야 합니다. 
 
@@ -117,33 +125,19 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 ![복합 엔터티](./media/luis-concept-entities/composite-entity.png)
 
 [자습서](luis-tutorial-composite-entity.md)<br>
-[엔터티에 대 한 예제 JSON 응답](luis-concept-data-extraction.md#composite-entity-data)<br>
+[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>계층적 엔터티
 
+**계층적 엔터티는 결국 사용 중단 됩니다. 사용 하 여 [엔터티 역할](luis-concept-roles.md) 계층적 엔터티 대신 엔터티 하위 형식 확인 하려면.**
+
 계층 구조 엔터티는 자식이라고 하는 컨텍스트에 따라 학습된 단순 엔터티의 범주입니다.
-
-데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.
-
-* 단순 엔터티입니다.
-* 발언의 컨텍스트에서 서로 관련되어 있습니다.
-* 특정 단어를 사용하여 각 자식 엔터티를 나타냅니다. 이러한 단어의 예로 에서/(으)로, 떠나/~을(를) 향해, ~에서 꺼내/방향으로 등이 있습니다.
-* 자식 요소가 동일한 발언에 있는 경우가 많습니다. 
-* 클라이언트 앱에서 정보 단위로 그룹화하고 처리되어야 합니다.
-
-사용하지 않는 경우:
-
-* 컨텍스트에 상관없이 자식 요소에 대해 정확히 텍스트가 일치하는 엔터티가 필요합니다. 대신 [목록 엔터티](#list-entity)를 사용합니다. 
-* 다른 엔터티 형식에서 부모-자식 관계에 대한 엔터티가 필요합니다. [복합 엔터티](#composite-entity)를 사용합니다.
 
 ![계층적 엔터티](./media/luis-concept-entities/hierarchical-entity.png)
 
-[자습서](luis-quickstart-intent-and-hier-entity.md)<br>
-[엔터티에 대 한 예제 JSON 응답](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>역할 및 계층 구조 엔터티
 
-패턴의 [역할](luis-concept-roles.md#roles-versus-hierarchical-entities)은 계층적 엔터티와 동일한 문제를 해결하지만 일부 엔터티 형식에 적용합니다. 역할은 현재 패턴에서만 사용할 수 있고, 의도의 발화 예제에서 사용할 수 없습니다.  
+[역할](luis-concept-roles.md) 계층적 엔터티는 하지만 모든 엔터티 형식에 적용 하는 대로 동일한 문제를 해결 합니다.  
 
 ## <a name="list-entity"></a>목록 엔터티
 
@@ -158,7 +152,7 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 ![목록 엔터티](./media/luis-concept-entities/list-entity.png)
 
 [자습서](luis-quickstart-intent-and-list-entity.md)<br>
-[엔터티에 대 한 예제 JSON 응답](luis-concept-data-extraction.md#list-entity-data)
+[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Pattern.any 엔터티
 
@@ -168,9 +162,9 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 
 * 엔터티의 끝이 발화의 나머지 텍스트와 혼동될 수 있는 경우 
 [자습서](luis-tutorial-pattern.md)<br>
-[엔터티에 대 한 예제 JSON 응답](luis-concept-data-extraction.md#patternany-entity-data)
+[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#patternany-entity-data)
 
-**예**  
+**예제**  
 클라이언트 애플리케이션이 제목을 기준으로 도서를 검색하는 경우 pattern.any는 전체 제목을 추출합니다. 이 도서 검색에서 pattern.any를 사용하는 템플릿 발화는 `Was {BookTitle} written by an American this year[?]`입니다. 
 
 다음 표에서 각 행에는 두 가지 버전의 발화가 있습니다. 위쪽 발화는 도서 제목 시작 및 종료가 명확하지 않은 경우 LUIS에서 발화를 처음 표시하는 방법입니다. 아래쪽 발화는 추출에 대한 패턴이 있는 경우 LUIS에서 도서 제목을 알아내는 방법입니다. 
@@ -195,7 +189,7 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 ![Number 미리 빌드된 엔터티](./media/luis-concept-entities/number-entity.png)
 
 [자습서](luis-tutorial-prebuilt-intents-entities.md)<br>
-[엔터티에 대 한 예제 JSON 응답](luis-concept-data-extraction.md#prebuilt-entity-data)
+[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다. 
 
@@ -243,7 +237,7 @@ LUIS 포털에서 미리 작성 된 엔터티를 사용자 지정 엔터티를 �
 ![정규식 엔터티](./media/luis-concept-entities/regex-entity.png)
 
 [자습서](luis-quickstart-intents-regex-entity.md)<br>
-[엔터티에 대 한 예제 JSON 응답](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>단순 엔터티 
 
@@ -256,30 +250,21 @@ LUIS 포털에서 미리 작성 된 엔터티를 사용자 지정 엔터티를 �
 ![단순 엔터티](./media/luis-concept-entities/simple-entity.png)
 
 [자습서](luis-quickstart-primary-and-secondary-data.md)<br/>
-[엔터티에 대 한 예제 응답](luis-concept-data-extraction.md#simple-entity-data)<br/>
+[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## <a name="entity-limits"></a>엔터티 제한
 
 모델에 추가할 수 있는 각 엔터티 형식의 수를 파악하려면 [제한](luis-boundaries.md#model-boundaries)을 검토하세요.
 
-## <a name="composite-vs-hierarchical-entities"></a>복합 및 계층적 엔터티
-
-복합 엔터티 및 계층적 엔터티에는 둘 다 부모-자식 관계가 있으며 기계 학습됩니다. 기계 학습을 사용하면 LUIS는 다양한 컨텍스트(단어의 배열)를 기반으로 하여 엔터티를 이해할 수 있습니다. 복합 엔터티는 다양한 엔터티 형식을 자식으로 허용하므로 보다 유연합니다. 계층적 엔터티의 자식은 단순 엔터티뿐입니다. 
-
-|Type|목적|예|
-|--|--|--|
-|계층적|단순 엔터티의 부모-자식|Location.Origin=New York<br>Location.Destination=London|
-|복합|부모-자식 엔터티: 미리 작성, 목록, 단순, 계층적| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>최대 엔터티 수보다 더 많이 필요한 경우 
 
-계층적 및 복합 엔터티를 사용해야 할 수 있습니다. 계층적 엔터티는 특성을 공유하거나 범주의 멤버인 엔터티 간 관계를 반영합니다. 자식 엔터티는 모두 부모 범주의 멤버입니다. 예를 들어, PlaneTicketClass라는 계층적 엔터티에는 EconomyClass 및 FirstClass라는 자식 엔터티가 있을 수 있습니다. 계층 구조의 범위는 한 수준의 깊이로만 구성됩니다.  
+엔터티 역할과 함께에서 복합 엔터티를 사용 해야 합니다.
 
-복합 엔터티는 전체의 일부를 나타냅니다. 예를 들어, PlaneTicketOrder라는 복합 엔터티에는 Airline, Destination, DepartureCity, DepartureDate 및 PlaneTicketClass라는 자식 엔터티가 있을 수 있습니다. 복합 엔터티는 기존 단순 엔터티, 계층적 엔터티의 자식 또는 미리 빌드된 엔터티로 작성합니다.  
+복합 엔터티는 전체의 일부를 나타냅니다. 예를 들어, PlaneTicketOrder라는 복합 엔터티에는 Airline, Destination, DepartureCity, DepartureDate 및 PlaneTicketClass라는 자식 엔터티가 있을 수 있습니다.
 
 LUIS는 기계 학습화되지 않지만 LUIS 앱에서 고정된 값 목록을 지정할 수 있도록 하는 목록 엔터티 형식도 제공합니다. 목록 엔터티 형식의 제한을 검토하려면 [LUIS 경계](luis-boundaries.md) 참조를 참조하세요. 
 
-계층적, 복합 및 목록 엔터티를 고려하고 있는데 제한보다 더 많이 필요한 경우, 지원 담당자에게 문의하세요. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트로 이동한 다음, **지원**을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
+이러한 엔터티를 한 것으로 간주 하 고 여전히 제한 보다 많이 필요한 경우 지원에 문의 합니다. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트로 이동한 다음, **지원**을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918623"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577843"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterate
 
@@ -60,8 +60,8 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th width="20%">헤더</th>
   <th>설명</th>
   <tr>
-    <td>_하나의 권한 부여_<br/>_머리글_</td>
-    <td>*필수 요청 헤더*<br/>[인증에 사용할 수 있는 옵션](./v3-0-reference.md#authentication)을 참조하세요.</td>
+    <td>인증 헤더</td>
+    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
     <td>콘텐츠 형식</td>
@@ -165,7 +165,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 다음 예제에서는 2개의 일본어 문자열을 로마자 일본어로 변환하는 방법을 보여 줍니다.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 이 예제에서 요청에 대한 JSON 페이로드는 다음과 같습니다.
 

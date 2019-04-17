@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f95420397a502af8e939c8a53fe5635b82dc0f39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893648"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>자습서: ON24 Virtual Environment SAML Connection과 Azure Active Directory 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "57893648"
 ON24 Virtual Environment SAML Connection을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 * ON24 Virtual Environment SAML Connection에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 자동으로 로그인 (Single Sign-on) ON24 가상 환경 SAML 연결 하려면 사용자가 해당 Azure AD 계정으로 사용할 수 있습니다.
+* 사용자가 자신의 Azure AD 계정으로 ON24 Virtual Environment SAML Connection에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
@@ -39,13 +39,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ON24 Virtual Environment SAML Connection과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* ON24 가상 환경 SAML 연결에서 single sign-on이 설정 된 구독
+* ON24 Virtual Environment SAML Connection Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* 가상 환경 SAML 연결 ON24 지원 **SP** 하 고 **IDP** 에서 시작한 SSO
+* ON24 Virtual Environment SAML Connection은 **SP** 및 **IDP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-on24-virtual-environment-saml-connection-from-the-gallery"></a>갤러리에서 ON24 Virtual Environment SAML Connection 추가
 
@@ -67,27 +67,27 @@ Azure AD로의 ON24 Virtual Environment SAML Connection 통합을 구성하려�
 
 4. 검색 상자에 **ON24 Virtual Environment SAML Connection**을 입력하고 결과 패널에서 **ON24 Virtual Environment SAML Connection**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 ON24 가상 환경 SAML 연결](common/search-new-app.png)
+     ![결과 목록의 ON24 Virtual Environment SAML Connection](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 구성 하 고이 Azure AD에서 single sign-on 연결과 ON24 가상 환경 SAML 이라는 테스트 사용자를 기반으로 테스트 **Britta Simon**합니다.
-Single sign-on 작업에 대 한 Azure AD 사용자와 ON24 가상 환경 SAML 연결의 관련된 사용자 간에 연결 관계가 설정 해야 합니다.
+이 섹션에서는 테스트 사용자 **Britta Simon**을 기반으로 ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 ON24 Virtual Environment SAML Connection의 관련 사용자 간에 연결 관계가 설정되어 있어야 합니다.
 
 ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[ON24 가상 환경 SAML 연결에서 Single Sign-on 구성](#configure-on24-virtual-environment-saml-connection-single-sign-on)**  -응용 프로그램 쪽에서 Single Sign-on 설정을 구성 합니다.
+2. **[ON24 Virtual Environment SAML Connection Single Sign-On 구성](#configure-on24-virtual-environment-saml-connection-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[가상 환경 SAML 연결 ON24 테스트 사용자 만들기](#create-on24-virtual-environment-saml-connection-test-user)**  -ON24 가상 환경 SAML 연결에서 사용자의 Azure AD 표현과 연결 된 Britta Simon에 해당 해야 합니다.
+5. **[ON24 Virtual Environment SAML Connection 테스트 사용자 만들기](#create-on24-virtual-environment-saml-connection-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ON24 Virtual Environment SAML Connection에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-ON24 가상 환경 SAML 연결을 사용 하 여 Azure AD에서 single sign-on 구성 하려면 다음 단계를 수행 합니다.
+ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 **ON24 Virtual Environment SAML Connection** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
@@ -103,7 +103,7 @@ ON24 가상 환경 SAML 연결을 사용 하 여 Azure AD에서 single sign-on �
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![ON24 가상 환경 SAML 연결 도메인 및 Url single sign-on 정보](common/idp-relay.png)
+    ![ON24 Virtual Environment SAML Connection 도메인 및 URL Single Sign-On 정보](common/idp-relay.png)
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다.
 
@@ -151,18 +151,18 @@ ON24 가상 환경 SAML 연결을 사용 하 여 Azure AD에서 single sign-on �
 
 5.  **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
-    ![ON24 가상 환경 SAML 연결 도메인 및 Url single sign-on 정보](common/both-signonurl.png)
+    ![ON24 Virtual Environment SAML Connection 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
 
     **로그인 URL** 텍스트 상자에서 `https://vshow.on24.com/vshow/<INSTANCENAME>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 릴레이 상태 및 로그온 URL로 업데이트 합니다. 연락처 [ON24 가상 환경 SAML 연결 클라이언트 지원 팀](https://www.on24.com/contact-us/) 이러한 값을 가져오려고 합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 릴레이 상태 및 로그온 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [ON24 Virtual Environment SAML Connection Client 지원 팀](https://www.on24.com/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-6. 에 **ON24 가상 환경 SAML 연결을 설정할** 섹션, 요구 사항에 따라 적절 한 URL을 복사 합니다.
+6. **ON24 Virtual Environment SAML Connection 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -172,9 +172,9 @@ ON24 가상 환경 SAML 연결을 사용 하 여 Azure AD에서 single sign-on �
 
     다. 로그아웃 URL
 
-### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>ON24 가상 환경 SAML 연결에서 Single Sign-on 구성
+### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>ON24 Virtual Environment SAML Connection Single Sign-On 구성
 
-single sign-on을 구성 하려면 **ON24 가상 환경 SAML 연결이** 쪽에서 다운로드 한 보내야 할 **페더레이션 메타 데이터 XML** 적절 한 Url에 Azure portal에서 복사한 [ 가상 환경 SAML 연결 ON24 지원팀](https://www.on24.com/about-us/support/)합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**ON24 Virtual Environment SAML Connection** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 및 적절히 복사한 URL을 [ON24 Virtual Environment SAML Connection 지원 팀](https://www.on24.com/about-us/support/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -194,7 +194,7 @@ single sign-on을 구성 하려면 **ON24 가상 환경 SAML 연결이** 쪽에�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. 에 **사용자 이름** 필드 형식 **brittasimon\@yourcompanydomain.extension**  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -205,13 +205,13 @@ single sign-on을 구성 하려면 **ON24 가상 환경 SAML 연결이** 쪽에�
 
 이 섹션에서는 ON24 Virtual Environment SAML Connection 액세스 권한을 부여하여 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 설정합니다.
 
-1. Azure portal에서 선택 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **ON24 가상 환경 SAML 연결**합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ON24 Virtual Environment SAML Connection**을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
 2. 애플리케이션 목록에서 **ON24 Virtual Environment SAML Connection**을 선택합니다.
 
-    ![응용 프로그램 목록의 ON24 가상 환경 SAML 연결 링크](common/all-applications.png)
+    ![애플리케이션 목록의 ON24 Virtual Environment SAML Connection 링크](common/all-applications.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -227,7 +227,7 @@ single sign-on을 구성 하려면 **ON24 가상 환경 SAML 연결이** 쪽에�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>가상 환경 SAML 연결 ON24 테스트 사용자 만들기
+### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>ON24 Virtual Environment SAML Connection 테스트 사용자 만들기
 
 이 섹션에서는 ON24 Virtual Environment SAML Connection에서 Britta Simon 사용자를 만듭니다.  [ON24 Virtual Environment SAML Connection 지원 팀](https://www.on24.com/about-us/support/)과 협력하여 ON24 Virtual Environment SAML Connection 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
@@ -235,13 +235,13 @@ single sign-on을 구성 하려면 **ON24 가상 환경 SAML 연결이** 쪽에�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ON24 가상 환경 SAML 연결 타일을 클릭 하면 로그인 되어야 합니다 수 자동으로 ON24 가상 환경 SAML 연결에 SSO를 설정 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 ON24 Virtual Environment SAML Connection 타일을 클릭하면 SSO가 설정된 ON24 Virtual Environment SAML Connection에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

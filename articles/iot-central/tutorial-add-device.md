@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793484"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425936"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 실제 장치 추가
 
@@ -41,6 +41,8 @@ ms.locfileid: "58793484"
 * [새 디바이스 유형 정의](tutorial-define-device-type.md)(필수)
 * [디바이스에 대한 규칙 및 작업 구성](tutorial-configure-rules.md)(선택 사항)
 * [연산자의 뷰 사용자 지정](tutorial-customize-operator.md)(선택 사항)
+
+배포 머신에 [Node.js](https://nodejs.org/) 버전 8.0.0 이상을 설치합니다. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
 
 ## <a name="add-a-real-device"></a>실제 디바이스 추가
 
@@ -92,37 +94,27 @@ ms.locfileid: "58793484"
 
 다음 단계에서는 [Node.js](https://nodejs.org/) 샘플을 준비하는 방법을 보여줍니다.
 
-1. 컴퓨터에 [Node.js](https://nodejs.org/) 버전 4.0.x 이상을 설치합니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
-
-1. 컴퓨터에 `connectedairconditioner`이라는 폴더를 만듭니다.
-
-1. 명령줄 환경에서 만든 `connectedairconditioner` 폴더로 이동합니다.
-
-1. 다음 명령을 실행하여 DPS 키 생성기를 설치합니다.
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   [여기에서 명령줄 도구](https://www.npmjs.com/package/dps-keygen)에 대해 자세히 알아보세요.
+### <a name="get-the-device-connection-information"></a>디바이스 연결 정보 가져오기
 
 1. IoT Central이 제공한 장치 정보로부터 애플리케이션의 장치 인스턴스에 대한 연결 문자열이 생성됩니다.
 
-   IoT Central 포털로 돌아갑니다. 실제 연결된 공조의 디바이스 화면에서 **연결**을 선택합니다.
+   실제 연결된 공조의 디바이스 화면에서 **연결**을 선택합니다.
 
    ![연결 정보 링크를 보여주는 디바이스 페이지](media/tutorial-add-device/connectionlink.png)
 
-1. 디바이스 연결 페이지에서 범위 ID, 디바이스 ID 및 기본 키를 복사하여 텍스트 편집기에 붙여 넣은 다음, 저장합니다. 다음 단계에서 이 값을 사용합니다.
+1. 디바이스 연결 페이지에서 **범위 ID**, **디바이스 ID** 및 **기본 키** 값을 메모합니다. 다음 단계에서 이 값을 사용합니다.
 
    ![연결 정보](media/tutorial-add-device/device-connect.png)
 
-1. 명령줄 환경으로 돌아가 다음을 실행하여 연결 문자열을 생성합니다.
+### <a name="generate-the-connection-string"></a>연결 문자열 생성
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   출력을 복사하여 새 파일(예: connection.txt)에 저장합니다.
+### <a name="prepare-the-nodejs-project"></a>Node.js 프로젝트 준비
+
+1. 개발 컴퓨터에 `connectedairconditioner`이라는 폴더를 만듭니다.
+
+1. 명령줄 환경에서 만든 `connectedairconditioner` 폴더로 이동합니다.
 
 1. Node.js 프로젝트를 초기화하려면 모든 기본값을 허용하는 다음 명령을 실행합니다.
 
@@ -309,7 +301,7 @@ Azure IoT Central 애플리케이션에 연결할 클라이언트 코드를 구�
     var connectionString = '{your device connection string}';
     ```
 
-1. `{your device connection string}`을 실제 디바이스의 연결 문자열로 바꿉니다. 앞서 텍스트 편집기에서 연결 문자열을 저장했습니다.
+1. `{your device connection string}`을 실제 디바이스의 연결 문자열로 바꿉니다. 이전 단계에서 생성한 연결 문자열을 복사했습니다.
 
 1. **ConnectedAirConditioner.js** 파일에 변경 내용을 저장합니다.
 
@@ -366,8 +358,8 @@ Azure IoT Central 애플리케이션에 실제 디바이스를 연결했으므�
 
 디바이스 개발자로서 다음 작업 방법을 알아볼 수 있습니다.
 
-* [DevKit 디바이스 준비 및 연결(C)](howto-connect-devkit.md)
-* [Raspberry Pi 준비 및 연결(Python)](howto-connect-raspberry-pi-python.md)
-* [Raspberry Pi 준비 및 연결(C#)](howto-connect-raspberry-pi-csharp.md)
-* [Windows 10 IoT Core 디바이스 준비 및 연결(C#)](howto-connect-windowsiotcore.md)
+* [DevKit 디바이스(C) 준비 및 연결](howto-connect-devkit.md)
+* [Raspberry Pi(Python) 준비 및 연결](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi(C#) 준비 및 연결](howto-connect-raspberry-pi-csharp.md)
+* [Windows 10 IoT 코어 디바이스(C#) 준비 및 연결](howto-connect-windowsiotcore.md)
 * [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)

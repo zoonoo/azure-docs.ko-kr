@@ -1,7 +1,7 @@
 ---
 title: 교육 실행 하는 동안 로그 메트릭
 titleSuffix: Azure Machine Learning service
-description: 실험을 추적할 수 있으며 모델 생성 프로세스를 향상 시키기 위해 메트릭을 모니터링할 수 있습니다. 학습 스크립트에 로깅을 추가하는 방법, 실험을 제출하는 방법, 실행 작업의 진행 상황을 확인하는 방법 및 실행 결과를 보는 방법에 대해 알아봅니다.
+description: 학습 스크립트에 로깅을 추가하는 방법, 실험을 제출하는 방법, 실행 작업의 진행 상황을 확인하는 방법 및 실행 결과를 보는 방법에 대해 알아봅니다. 실험을 추적할 수 있으며 모델 생성 프로세스를 향상 시키기 위해 메트릭을 모니터링할 수 있습니다.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494630"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609470"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 학습 하는 동안 로그 메트릭 실행
 
-Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킬 수 있습니다. 이 문서에서는 학습 스크립트에 로깅 추가, 실험 실행을 제출, 실행, 모니터링 및 실행의 결과 확인 하는 방법에 알아봅니다.
+이 문서에서는 학습 스크립트에 로깅 추가, 실험 실행을 제출, 실행, 모니터링 및 Azure Machine Learning 서비스에서 실행의 결과 확인 하는 방법에 알아봅니다. 실험을 추적 및 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킵니다. 
 
 ## <a name="list-of-training-metrics"></a>학습 메트릭 목록 
 
@@ -34,7 +34,7 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 |테이블|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
 |이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>`run.log_image("ROC", plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
 |실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예제:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
-|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예제:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. 연결 된 파일을 모두 나열할 수 있습니다 실행 기록에서이 사용 하 여 호출 됩니다. `run.get_file_names()`|
+|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예제:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
 
 > [!NOTE]
 > 스칼라, 목록, 행 및 테이블에 대한 메트릭은 부동 소수점, 정수 또는 문자열 형식일 수 있습니다.
@@ -265,7 +265,7 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 
 실험에서 실행이 완료되면 기록된 실험 실행 기록을 찾아볼 수 있습니다. 다음 두 가지 방법으로 기록에 액세스할 수 있습니다.
 
-* 실행에 대 한 URL을 가져올 직접 ```print(run.get_portal_url())```
+* URL을 실행으로 직접 가져옵니다(```print(run.get_portal_url())```).
 * 실행 이름(여기서는 ```run```)을 제출하여 실행 세부 정보를 봅니다. 이렇게 하면 실험 이름, ID, 유형, 상태, 세부 정보 페이지, Azure Portal에 대한 링크 및 문서에 대한 링크가 표시됩니다.
 
 실행 링크를 클릭하면 Azure Portal의 실행 세부 정보 페이지로 바로 이동합니다. 여기서는 실험에 기록된 모든 속성, 추적된 메트릭, 이미지 및 차트를 볼 수 있습니다. 이 경우 MSE와 알파 값을 기록했습니다.
@@ -291,9 +291,9 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 노트북에서 자동화된 ML 작업을 제출하면 기계 학습 서비스 작업 영역에서 이러한 실행 기록을 찾을 수 있습니다. 
 
 다음에 대해 자세히 알아봅니다.
-+ [차트 및 분류 모델에 대 한 곡선](#classification)
-+ [차트 및 회귀 모델에 대 한 그래프](#regression)
-+ [모델 기능 설명](#model-explain-ability-and-feature-importance)
++ [분류 모델에 대한 차트 및 곡선](#classification)
++ [회귀 모델에 대한 차트 및 그래프](#regression)
++ [모델 설명 기능](#model-explain-ability-and-feature-importance)
 
 
 ### <a name="view-the-run-charts"></a>실행 차트 보기
@@ -323,7 +323,7 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌드하는 모든 분류 모델에 대해 다음 차트를 볼 수 있습니다. 
 + [혼동 행렬](#confusion-matrix)
 + [정밀도-리콜 차트](#precision-recall-chart)
-+ [수신기 작동 특성 (또는 ROC)](#roc)
++ [ROC(수신기 작동 특성)](#roc)
 + [리프트 곡선](#lift-curve)
 + [게인 곡선](#gains-curve)
 + [보정 플롯](#calibration-plot)
@@ -334,9 +334,9 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화된 ML에서 올바르게 분류된 레이블은 녹색으로 표시되고 잘못 분류된 레이블은 빨간색으로 표시됩니다. 원의 크기는 해당 bin의 샘플 수를 나타냅니다. 또한 각 예측된 레이블 및 각 올바른 레이블의 빈도 개수가 인접한 막대형 차트에 제공됩니다. 
 
-예제 1: 잘못 된 정확도 사용 하 여 분류 모델 ![저하 정확도 사용 하 여 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+예제 1: 정확성이 낮은 분류 모델 ![정확성이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
-예 2: 높은 정확도 (이상적)를 사용 하 여 분류 모델 ![높은 정확도 사용 하 여 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+예 2: 정확성이 높은 분류 모델(이상적) ![정확성이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### <a name="precision-recall-chart"></a>정밀도-리콜 차트
@@ -345,17 +345,17 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 정밀도라는 용어는 분류자가 모든 인스턴스에 올바른 레이블을 지정할 수 있는 기능을 나타냅니다. 리콜은 분류자가 특정 레이블의 인스턴스를 모두 찾을 수 있는 기능을 나타냅니다. 정밀도-리콜 곡선은 이러한 두 개념 간의 관계를 표시합니다. 모델이 100% 정밀도와 100% 정확도를 갖는 것이 이상적입니다.
 
-예제 1: 낮은 정확도 낮은 재현 율을 사용 하 여 분류 모델 ![낮은 정확도 낮은 재현 율을 사용 하 여 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+예제 1: 정밀도와 리콜이 낮은 분류 모델 ![정밀도와 리콜이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
-예 2: ~ 100% ~ 100% 전체 자릿수와 회수 (이상적)를 사용 하 여 분류 모델 ![는 분류 모델에 대 한 높은 정확도 재현 율](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+예 2: ~100% 정밀도 및 ~100% 리콜인 분류 모델(이상적) ![정밀도와 리콜이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### <a name="roc"></a>ROC
 
 ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 레이블 및 잘못 분류된 레이블의 플롯입니다. ROC 곡선은 가양성 레이블을 표시하지 않으므로 바이어스가 높은 데이터 세트에서 모델을 학습할 때는 제공하는 정보가 적을 수 있습니다.
 
-예제 1: 낮은 true 레이블과 높은 false 레이블을 사용 하 여 분류 모델 ![낮은 true 레이블과 높은 false 레이블을 사용 하 여 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+예제 1: 올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델 ![올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
 
-예 2: 높은 true 레이블과 낮은 false 레이블을 사용 하 여 분류 모델 ![높은 true 레이블과 낮은 false 레이블을 사용 하 여 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+예 2: 올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델 ![올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
 
 #### <a name="lift-curve"></a>리프트 곡선
 
@@ -363,9 +363,9 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 리프트 차트는 분류 모델의 성능을 평가하는 데 사용됩니다. 모델을 사용하지 않을 경우와 비교해서 모델을 사용할 경우 예상할 수 있는 성능 향상을 보여 줍니다. 
 
-예제 1: 모델 성능이 임의로 선택 모델 보다 더 나빠질 ![않습니다 모델 보다는 임의로 선택 하는 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+예제 1: 임의 선택 모델보다 모델 성능이 더 낮음 ![임의 선택 모델보다 성능이 더 낮은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
 
-예 2: 모델을 임의로 선택 모델 보다 더 잘 수행 ![더 나은 성능을 제공 하는 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+예 2: 임의 선택 모델보다 모델 성능이 더 높음 ![성능이 더 높은 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
 
 #### <a name="gains-curve"></a>게인 곡선
 
@@ -373,9 +373,9 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 누적 게인 차트를 사용하면 모델에서 원하는 게인에 해당하는 백분율을 사용하여 분류 경계를 선택하는 데 도움이 됩니다. 이 정보는 동반되는 리프트 차트의 결과를 살펴보는 또 다른 방법을 제공합니다.
 
-예제 1: 최소한의 향상을 사용 하 여 분류 모델 ![최소 향상을 사용 하 여 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+예제 1: 최소 게인의 분류 모델 ![최소 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
-예 2: 중요 한 향상을 사용 하 여 분류 모델 ![상당한 향상을 사용 하 여 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+예 2: 상당한 게인의 분류 모델 ![상당한 게인의 분류 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### <a name="calibration-plot"></a>보정 플롯
 
@@ -383,13 +383,13 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 보정 플롯은 예측 모델의 신뢰도를 표시하는 데 사용됩니다. 이 작업을 위해 예측 확률과 실제 확률 간의 관계를 보여 주며, 여기서 “확률”은 특정 인스턴스가 일부 레이블에서 속할 가능성을 나타냅니다. 잘 보정된 모델은 y=x 선과 일치하며, 이 경우 해당 예측의 신뢰도가 상당히 높음을 의미합니다. 신뢰도가 과도한 모델은 y=0 선과 일치하며, 이 경우 예측된 확률은 있지만 실제 확률이 없음을 의미합니다.
 
-예제 1: 모델을 더 잘 보정 ![ 더 잘 보정 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+예제 1: 잘 보정된 모델 ![ 잘 보정된 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-예 2: 모델을 과도 하 게 confident ![를 과도 하 게 confident 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+예 2: 신뢰도가 과도한 모델 ![신뢰도가 과도한 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>회귀
 Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌드하는 모든 회귀 모델에 대해 다음 차트를 볼 수 있습니다. 
-+ [예측 대 True ](#pvt)
++ [예측 대 실제](#pvt)
 + [나머지 히스토그램](#histo)
 
 <a name="pvt"></a>
@@ -400,9 +400,9 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 각 실행 후에 각 회귀 모델에 대한 예측 대 실제 그래프를 확인할 수 있습니다. 데이터 개인 정보를 보호하기 위해 값은 함께 bin 처리되고 각 bin의 크기가 차트 영역의 아래쪽에 막대형 그래프로 표시됩니다. 밝은 음영 영역을 통해 오차 범위를 표시하는 예측 모델과 모델의 이상적인 값을 비교할 수 있습니다.
 
-예제 1: 예측의 정확도 떨어짐를 사용 하 여 회귀 모델 ![예측의 정확도 떨어짐를 사용 하 여 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+예제 1: 예측 정확도가 낮은 회귀 모델 ![예측 정확도가 낮은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
 
-예 2: 회귀 모델의 예측이 높은 정확도 사용 하 여 ![의 예측이 높은 정확도 사용 하 여 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+예 2: 예측 정확도가 높은 회귀 모델 ![예측 정확도가 높은 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
 
 <a name="histo"></a>
 
@@ -410,9 +410,9 @@ Azure Machine Learning의 자동화된 기계 학습 기능을 사용하여 빌�
 
 나머지는 관찰된 y - 예측된 y를 나타냅니다. 바이어스가 낮은 오차 범위를 표시하려면 나머지 히스토그램의 모양이 0을 중심으로 하는 벨 곡선이어야 합니다. 
 
-예제 1: 해당 오류에 대 한 바이어스를 사용 하 여 회귀 모델 ![해당 오류에 대 한 바이어스를 사용 하 여 SA 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+예제 1: 오차에 바이어스가 있는 회귀 모델 ![오차에 바이어스가 있는 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
 
-예 2: 오류의 고르게 분포를 사용 하 여 회귀 모델 ![오류의 고르게 분포를 사용 하 여 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+예 2: 오차 분포가 더 균일한 회귀 모델 ![오차 분포가 더 균일한 회귀 모델](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>모델 설명 기능 및 기능 중요도
 

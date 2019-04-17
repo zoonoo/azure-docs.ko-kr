@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008698"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526880"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
@@ -71,7 +71,7 @@ JSP 애플리케이션을 만들려면 다음을 수행합니다.
    
     ![새 JSP 파일 만들기 - Java 웹 애플리케이션 자습서](./media/sql-api-java-application/image11.png)
 5. **JSP 템플릿 선택** 대화 상자에서 이 자습서의 목적에 따라, **새 JSP 파일(html)** 을 선택한 후 **마침**을 클릭합니다.
-6. index.jsp 파일이 Eclipse에서 열리면 **Hello World!** 를 표시하도록 텍스트를 추가합니다. 기존 <body> 요소 내. 업데이트된 <body> 콘텐츠는 다음 코드와 같이 나타납니다.
+6. index.jsp 파일이 Eclipse에서 열리면 **Hello World!** 를 표시하도록 텍스트를 추가합니다. 기존 `<body>` 요소 내. 업데이트된 `<body>` 콘텐츠는 다음 코드와 같이 나타납니다.
    
         <body>
             <% out.println("Hello World!"); %>
@@ -99,8 +99,13 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
    ![SQL Java 응용 프로그램 SDK 설치](./media/sql-api-java-application/image13.png)
      
    * 또는 텍스트 편집기를 통해 Group ID 및 Artifact ID에 대한 종속성 XML을 pom.xml에 직접 추가합니다.
-     
-        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-documentdb</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+        ```
 6. **확인**을 클릭하면 Maven이 SQL Java SDK를 설치합니다.
 7. pom.xml 파일을 저장합니다.
 

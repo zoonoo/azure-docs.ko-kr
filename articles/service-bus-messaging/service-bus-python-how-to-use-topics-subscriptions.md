@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351664"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607078"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Python에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Azure Python SDK 패키지][Azure Python package]를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+이 문서에서는 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Azure Python SDK 패키지][Azure Python package]를 사용합니다. 다루는 시나리오는 다음과 같습니다.
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- 토픽 및 구독 만들기 
+- 구독 만들기 필터 
+- 토픽에 메시지 보내기 
+- 구독에서 메시지 받기
+- 토픽 및 구독 삭제
 
-> [!NOTE] 
-> Python 또는 [Azure Python 패키지][Azure Python package]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 에 등록 또는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 단계를 수행 합니다 [빠른 시작: Service Bus 토픽 및 구독 항목을 만들려면 Azure portal을 사용 하 여](service-bus-quickstart-topics-subscriptions-portal.md) Service Bus를 만들려면 **네임 스페이스** 받고 합니다 **연결 문자열**합니다.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > 만들려는 **항목** 및 **구독** 사용 하 여 토픽에 **Python** 이 빠른 시작 합니다. 
+3. 설치할 [Python Azure 패키지][Azure Python package]합니다. 참조 된 [Python 설치 가이드](../python-how-to-install.md)합니다.
 
 ## <a name="create-a-topic"></a>토픽 만들기
 
