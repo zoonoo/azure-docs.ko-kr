@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b859c64c61264f43a88c158dc10ba6f2b2e56ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e90c4e1f39deffea8a7dd7b2c0dbfdcf5e0b3555
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495125"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609509"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 
@@ -34,7 +34,7 @@ ms.locfileid: "59495125"
 - **서비스 계획 포함 (이름)**: 서비스 계획 (이름) 제품의 문자열 ID 및 GUID에 해당 하는 목록
 
 >[!NOTE]
->이 정보는 2018년 8월 17일 기준입니다.
+>이 정보는 2019 년 4 월 15 일을 기준으로 합니다.
 
 | 제품 이름 | 문자열 ID | GUID | 포함된 서비스 플랜 | 서비스 계획 포함 (이름) |
 | --- | --- | --- |--- |
@@ -218,6 +218,6 @@ ms.locfileid: "59495125"
 * [Azure Active Directory에서 그룹에 라이선스 할당](licensing-groups-assign.md)
 * [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](licensing-groups-resolve-problems.md)
 * [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](licensing-groups-migrate-users.md)
-* [Azure Active Directory에서 그룹 기반 라이선스를 사용 하 여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](licensing-groups-change-licenses.md)
+* [Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](licensing-groups-change-licenses.md)
 * [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](licensing-group-advanced.md)
-* [Azure AD의 그룹 기반 라이선스에 대한 PowerShell 예제](licensing-ps-examples.md)
+* [Azure AD의 그룹 기반 라이선싱에 대한 PowerShell 예제](licensing-ps-examples.md)

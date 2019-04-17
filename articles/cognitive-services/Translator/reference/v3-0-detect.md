@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916667"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578660"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
 
@@ -48,8 +48,8 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   <th width="20%">헤더</th>
   <th>설명</th>
   <tr>
-    <td>_하나의 권한 부여_<br/>_머리글_</td>
-    <td>*필수 요청 헤더*<br/>[인증에 사용할 수 있는 옵션](./v3-0-reference.md#authentication)을 참조하세요.</td>
+    <td>인증 헤더</td>
+    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
     <td>콘텐츠 형식</td>
@@ -176,7 +176,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

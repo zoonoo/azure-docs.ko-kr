@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470018"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491477"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Project Acoustics Unreal/Wwise 디자인 자습서
 이 자습서에서는 Unreal 및 Wwise의 Project Acoustics 디자인 설정 및 워크플로에 대해 설명합니다.

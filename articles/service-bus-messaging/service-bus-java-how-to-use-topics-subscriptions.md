@@ -12,44 +12,30 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a8b9c4c6cf9671e114da6ef9fc1f2ad0a730fb61
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0771656358503afc91bab7523d0c835e0050c2bc
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872622"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607878"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 빠른 시작에서 수행하는 단계는 다음과 같습니다. 
-
-- Azure Portal을 사용하여 토픽 만들기
-- Azure Portal을 사용하여 토픽에 대해 세 가지 구독 만들기
-- Java 코드를 작성하여 토픽에 메시지 보내기
-- Java 코드를 작성하여 구독에서 메시지 받기
+이 빠른 시작에서는 Service Bus 토픽에 메시지를 보내고 후 해당 항목에 구독에서 메시지를 수신 하는 Java 코드를 작성 합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free).
-- [Java용 Azure SDK][Azure SDK for Java]. 
-
-## <a name="what-are-service-bus-topics-and-subscriptions"></a>Service Bus 토픽 및 구독 정의
-Service Bus 토픽 및 구독은 *게시/구독* 메시징 통신 모델을 지원합니다. 토픽 및 구독을 사용하는 경우 분산 애플리케이션의 구성 요소가 서로 직접 통신하지 않고 중간자 역할을 하는 토픽을 통해 메시지를 교환합니다.
-
-![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-각 메시지가 단일 소비자에 의해 처리되는 Service Bus 큐와 반대로, 토픽과 구독은 게시/구독 패턴을 사용하여 일대다 형태의 통신을 제공합니다. 하나의 토픽에 여러 구독을 등록할 수 있습니다. 토픽에 메시지를 전송하면 각 구독에서 독립적으로 처리할 수 있습니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 선택적으로 구독별 토픽에 대한 필터 규칙을 등록할 수 있으며, 이렇게 하면 각 토픽 구독에서 받는 토픽 메시지를 필터링하거나 제한할 수 있습니다.
-
-Service Bus 토픽 및 구독을 사용하면 다수의 사용자와 애플리케이션에 대해 다수의 메시지를 처리하도록 확장할 수 있습니다.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
-
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. 활성화할 수 있습니다 하 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) 하거나 등록을 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)합니다.
+2. 단계를 수행 합니다 [빠른 시작: Azure portal을 사용 하 여 Service Bus 토픽 및 구독 항목을 만들려면](service-bus-quickstart-topics-subscriptions-portal.md) 다음 태스크를 수행 합니다.
+    1. Service Bus를 만듭니다 **네임 스페이스**합니다.
+    2. 가져오기의 **연결 문자열**합니다.
+    3. 만들기는 **항목** 네임 스페이스에 있습니다.
+    4. 만들 **구독이 3 개인** 네임 스페이스에서 항목을 합니다.
+3. [Java용 Azure SDK][Azure SDK for Java].
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 이 샘플을 빌드하기 전에 [Java용 Azure SDK][Azure SDK for Java]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.

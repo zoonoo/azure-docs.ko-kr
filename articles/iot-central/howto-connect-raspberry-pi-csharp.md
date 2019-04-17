@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 8a7b2d15884f7a1cb8b6e72937b0f1e3b6cb8ca9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426361"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616019"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 애플리케이션에 Raspberry Pi 연결(C#)
 
@@ -361,6 +361,4 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Raspberry Pi Azure IoT Central 응용 프로그램에 연결 하는 방법을 배웠으므로 제안 된 다음 단계는 다음과 같습니다.
-
-* [Azure IoT Central을 제네릭 Node.js 클라이언트 응용 프로그램 연결](howto-connect-nodejs.md)
+제안 된 다음 단계에 알아보려면는 이제 Azure IoT Central 응용 프로그램을 Raspberry Pi를 연결 하는 방법을 배웠으므로 하는 방법 [템플릿으로 사용자 지정 장치 설정](howto-set-up-template.md) 사용자 고유의 IoT 장치에 대 한 합니다.

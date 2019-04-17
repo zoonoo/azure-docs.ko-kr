@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 96ec1f3ecdca6437e1d25eca433d385573f6c659
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 29e64a02cd4af3e1679283ffddb4afab065f8747
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220781"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609135"
 ---
 # <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
 
@@ -98,7 +98,7 @@ ms.locfileid: "57220781"
 | 리투아니아                           | LT        | EUR          |
 | 룩셈부르크                          | LU        | EUR          |
 | 마카오                           | MO        | USD          |
-| 북마케도니아                      | MK        | USD          |
+| 북마케도니아                     | MK        | USD          |
 | 말레이시아                            | MY        | USD          |
 | 몰타                               | MT        | EUR          |
 | 모리셔스                           | MU        | USD          |

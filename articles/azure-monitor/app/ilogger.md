@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 615eaa3df7cabad72ac321978eb01d93a7bfa988
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263764"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608288"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>.NET Core ILogger에 대 한 ApplicationInsightsLoggerProvider 로그
 
@@ -414,16 +414,39 @@ ApplicationInsightsLoggerProvider에 필터 규칙을 적용 하는 예제는 �
 
 * 응용 프로그램 정보 캡처 및 보냅니다 `ILogger` 동일한를 사용 하 여 로그 `TelemetryConfiguration` 다른 모든 원격 분석에 사용 합니다. 이 규칙에 예외가 있습니다. 기본값 `TelemetryConfiguration` 완벽 하 게 설정 될 때를 로깅하고 있지에서 무언가 `Program.cs` 또는 `Startup.cs` 이러한 위치에서 로그를 기본 구성으로 없고 따라서 실행 되지 모든 있도록 그 자체를 `TelemetryInitializer`s 및 `TelemetryProcessor`s입니다.
 
-*5. Application Insights 원격 분석 유형을에서 생성 됩니다 `ILogger` 로그? 또는 볼 수 있는 `ILogger` Application Insights에서 로그?*
+*5. 독립 실행형 패키지 Microsoft.Extensions.Logging.ApplicationInsights 합니다 그런가요 및 일부 추가 사용자 지정 원격 분석을 수동으로 로그인 하려고 하는 경우. 어떻게 해야 합니까?*
+
+* 독립 실행형 패키지를 사용 하는 경우 `TelemetryClient` 는 삽입 되지 않습니다. DI 컨테이너에 사용자의 새 인스턴스를 만들고 해야 하므로 `TelemetryClient` 아래와 같이 거 공급자에서 사용 되는 동일한 구성을 사용 하 여 합니다. 이렇게 하면 동일한 구성은 모든 사용자 지정 원격 분석, 뿐아니라 ILogger에서 캡처한 사용 됩니다.
+
+```csharp
+public class MyController : ApiController
+{
+   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   private readonly TelemetryClient _telemetryClient;
+   private readonly ILogger _logger;
+
+   public MyController(IOptions<TelemetryConfiguration> options, ILogger<MyController> logger)
+   {
+        _telemetryClient = new TelemetryClient(options.Value);
+        _logger = logger;
+   }  
+}
+```
+
+> [!NOTE]
+> 참고는 패키지 Microsoft.ApplicationInsights.AspNetCore 패키지를 Application Insights를 사용 하도록 설정 하려면 사용 하는 경우 다음 위의 예제 수정할지를 가져오려는 `TelemetryClient` 생성자에서 직접. 참조 [이](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions) 전체 예제입니다.
+
+
+*6. Application Insights 원격 분석 유형을에서 생성 됩니다 `ILogger` 로그? 또는 볼 수 있는 `ILogger` Application Insights에서 로그?*
 
 * ApplicationInsightsLoggerProvider 캡처합니다 `ILogger` 만들고 로그 `TraceTelemetry` 에서. 예외 개체에 전달 되 면 log () 메서드 ILogger에 대 한 다음 대신 `TraceTelemetry`, `ExceptionTelemetry` 만들어집니다. 이러한 원격 분석 항목을 다른와 동일한 위치에서 찾을 수 있습니다 `TraceTelemetry` 또는 `ExceptionTelemetry` 포털, 분석 또는 로컬 Visual Studio 디버거를 포함 하 여 Application Insights에 대 한 합니다.
 항상 전송 하려는 경우 `TraceTelemetry`, 다음 코드 조각을 사용 하 여 ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```입니다.
 
-*5. 저 한테는 SDK 설치 및 Azure 웹 앱 확장 내 Asp.Net Core 응용 프로그램에 대 한 Application Insights를 사용 하도록 설정 하려면 사용 합니다. 새 공급자를 사용 하는 방법*
+*7. 저 한테는 SDK 설치 및 Azure 웹 앱 확장 내 Asp.Net Core 응용 프로그램에 대 한 Application Insights를 사용 하도록 설정 하려면 사용 합니다. 새 공급자를 사용 하는 방법*
 
 * 이전 공급자를 사용 하는 Azure 웹 앱에서 application Insights 확장 합니다. 필터링 규칙에서 수정할 수 있습니다 `appsettings.json` 응용 프로그램에 대 한 합니다. 새 공급자를 활용 하려는 경우 SDK에서 nuget 종속성을 수행 하 여 빌드 시간 계측을 사용 합니다. 이 문서는 확장 새 공급자를 사용 하도록 전환 하는 경우 업데이트 됩니다.
 
-*6. Microsoft.Extensions.Logging.ApplicationInsights, 독립 실행형 패키지를 사용 하 고 호출 작성기에서 Application Insights 공급자를 사용 하도록 설정 합니다. AddApplicationInsights("ikey") 합니다. 구성에서 계측 키를 가져오려면 옵션 있나요?*
+*8. Microsoft.Extensions.Logging.ApplicationInsights, 독립 실행형 패키지를 사용 하 고 호출 작성기에서 Application Insights 공급자를 사용 하도록 설정 합니다. AddApplicationInsights("ikey") 합니다. 구성에서 계측 키를 가져오려면 옵션 있나요?*
 
 
 * 수정할 `Program.cs` 고 `appsettings.json` 아래와 같이 합니다.
