@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
 ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918368"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트에 자산 미리 로드
@@ -50,8 +50,8 @@ ms.locfileid: "58918368"
    > 텍스트를 입력한 후에는 여러 자산 목록을 빌드할 수 있도록 더 많은 **콘텐츠 경로** 텍스트 상자가 나타납니다. 목록에서 자산을 삭제하려면 줄임표(...) 버튼을 선택하고 **삭제**를 선택합니다.
    > 
    > 각 콘텐츠 경로는 다음 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)에 맞는 상대 URL이어야 합니다.  
-   > - 단일 파일 경로 로드 합니다. `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - 쿼리 문자열을 사용 하 여 단일 파일을 로드 합니다. `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - 단일 파일 경로 로드: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - 쿼리 문자열을 사용하여 단일 파일 로드: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > 각 자산은 고유한 경로가 있기 때문에 자산을 미리 로드하기 위한 와일드카드 기능이 없습니다.
    > 

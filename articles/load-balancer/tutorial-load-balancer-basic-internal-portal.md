@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105304"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489317"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 기본 부하 분산 장치로 내부 트래픽 부하 분산
 
@@ -95,11 +95,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
     | Name                   | *myLoadBalancer*                                   |
     | 지역         | **유럽 서부**를 선택합니다.                                        |
-    | Type          | **공용**을 선택합니다.                                        |
+    | Type          | **내부**를 선택합니다.                                        |
     | SKU           | **기본**을 선택합니다.                          |
     | 가상 네트워크           | *MyVNet*을 선택합니다.                          |    
-| 공용 IP 주소 | **새로 만들기**를 선택합니다. |
-    | 공용 IP 주소 할당              | **고정**을 선택합니다.   |
+    | IP 주소 할당              | **고정**을 선택합니다.   |
     | 개인 IP 주소|가상 네트워크 및 서브넷의 주소 공간에 있는 주소를 입력합니다(예: *10.3.0.7*).  |
 
 3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다. 
@@ -113,7 +112,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 백 엔드 주소 풀은 트래픽을 VM에 배포하기 위해 부하 분산 장치에서 사용합니다. 백 엔드 주소 풀에는 부하 분산 장치에 연결된 가상 네트워크 인터페이스(NIC)의 IP 주소가 포함되어 있습니다. 
 
-**VM1 및 VM2가 포함된 백 엔드 주소 풀을 만들려면:**
+**VM1 및 VM2가 포함된 백 엔드 주소 풀을 만들려면 다음을 수행합니다.**
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 리소스 목록에서 **MyLoadBalancer**를 선택합니다.
    
@@ -142,7 +141,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 부하 분산 장치에서 VM 상태를 모니터링할 수 있게 하려면 상태 프로브를 사용합니다. 상태 프로브는 상태 검사에 따라 부하 분산 장치 순환에서 VM을 동적으로 추가하거나 제거합니다. 
 
-**VM 상태를 모니터링하는 상태 프로브를 만들려면:**
+**VM 상태를 모니터링하는 상태 프로브를 만들려면 다음을 수행합니다.**
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 리소스 목록에서 **MyLoadBalancer**를 선택합니다.
    
@@ -167,7 +166,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **MyLoadBalancerRule**이라는 부하 분산 장치 규칙은 프런트 엔드 **LoadBalancerFrontEnd**의 포트 80에서 수신 대기합니다. 규칙은 포트 80에서 네트워크 트래픽을 백 엔드 주소 풀 **MyBackendPool**로 보냅니다. 
 
-**부하 분산 장치 규칙을 만들려면:**
+**부하 분산 장치 규칙을 만들려면 다음을 수행합니다.**
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 리소스 목록에서 **MyLoadBalancer**를 선택합니다.
    
@@ -200,7 +199,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 >[!NOTE]
 >기본적으로 VM에는 원격 데스크톱 액세스를 허용하는 **RDP**(원격 데스크톱) 포트가 있습니다. 
 
-**VM에 RDP(원격 데스크톱)을 연결하려면:**
+**VM에 RDP(원격 데스크톱)을 연결하려면 다음을 수행합니다.**
 
 1. 포털의 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 리소스 목록의 **MyResourceGroupLB** 리소스 그룹에서 각 VM을 선택합니다.
    
@@ -223,7 +222,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 >[!NOTE]
 >**서버 관리자**에서 **역할 및 기능 추가 마법사**를 사용하여 IIS를 설치할 수도 있습니다. 
 
-**PowerShell을 사용하여 IIS를 설치하고 기본 웹 페이지를 업데이트하려면:**
+**PowerShell을 사용하여 IIS를 설치하고 기본 웹 페이지를 업데이트하려면 다음을 수행합니다.**
 
 1. MyVM1 및 MyVM2의 **시작** 메뉴에서 **Windows PowerShell**을 시작합니다. 
 

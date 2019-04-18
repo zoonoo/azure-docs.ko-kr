@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426446"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 튜닝 TCP/IP 성능
@@ -140,7 +140,7 @@ Azure에 대 한 TCP MSS 고정 1,350 바이트로 설정 인터페이스 MTU 14
 
 | | | | |
 |-|-|-|-|
-|**라우팅**|**Distance**|**단방향 시간**|**RTT**|
+|**Route**|**거리**|**단방향 시간**|**RTT**|
 |San Francisco에 New York|4,148 km|21 ms|42 ms|
 |런던에 New York|5,585 km|28ms|56 ms|
 |시드니에 New York|15,993 km|80ms|160 밀리초|
@@ -236,7 +236,7 @@ Set-NetTCPSetting
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**배율**|**승수를 크기 조정**|**수식<br/>최대 창 크기를 계산 합니다.**|
+|**AutoTuningLevel**|**배율**|**승수를 크기 조정**|**수식을<br/>최대 창 크기를 계산 합니다.**|
 |사용 안 함|없음|없음|창 크기|
 |제한|4|2^4|창 크기 * (2 ^4)|
 |매우 제한|2|2^2|창 크기 * (2 ^2)|

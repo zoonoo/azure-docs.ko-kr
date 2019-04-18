@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630174"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490449"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>빠른 시작: REST API 및 PHP를 사용하여 이미지에서 얼굴 감지
 
@@ -26,6 +26,7 @@ ms.locfileid: "58630174"
 - Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
 - [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
 - PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 패키지
+- PHP 지원 웹 브라우저입니다. 이를 설정하지 않은 경우 머신에 [XAMPP](https://www.apachefriends.org/)를 설치 및 설정하면 됩니다.
 
 ## <a name="initialize-the-html-file"></a>HTML 파일 초기화
 

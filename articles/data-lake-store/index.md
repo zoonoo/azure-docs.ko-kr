@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904664"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Azure Data Lake Storage Gen1 설명서
@@ -195,8 +195,8 @@ ms.locfileid: "58904664"
                     <div class="cardText">
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
-                        <p><a href="/java/api/overview/azure/datalake">자바</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="/java/api/overview/azure/datalake">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python(계정 관리)</a></p>
                         <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python(파일 시스템 관리)</a></p>
                     </div>

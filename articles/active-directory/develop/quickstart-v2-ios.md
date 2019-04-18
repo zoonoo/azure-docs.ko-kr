@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2 iOS 빠른 시작 | Microsoft Docs
+title: Microsoft ID 플랫폼 iOS 빠른 시작 | Azure
 description: iOS 네이티브 애플리케이션에서 사용자를 로그인하고 Microsoft Graph를 쿼리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439265"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496132"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>빠른 시작: iOS 네이티브 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "58439265"
 
 이 빠른 시작에는 네이티브 iOS 애플리케이션이 개인, 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여 주는 코드 샘플이 포함되어 있습니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-ios/ios-intro-updated.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>등록 및 다운로드
@@ -146,8 +146,8 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 
 > |위치: ||
 > |---------|---------|
-> | `clientId` | *portal.azure.com*에 등록된 응용 프로그램의 응용 프로그램 ID |
-> | `authority` | Azure AD v2.0 엔드포인트. 대부분의 경우 *https<span/>://login.microsoftonline.com/common*입니다. |
+> | `clientId` | *portal.azure.com*에 등록된 애플리케이션의 애플리케이션 ID |
+> | `authority` | Microsoft ID 플랫폼 엔드포인트. 대부분의 경우 *https<span/>://login.microsoftonline.com/common*입니다. |
 
 ### <a name="requesting-tokens"></a>토큰 요청
 
@@ -155,7 +155,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `acquireT
 
 #### <a name="getting-an-access-token-interactively"></a>대화형으로 액세스 토큰 가져오기
 
-일부 상황에서는 사용자가 Azure AD(Azure Active Directory) v2.0 엔드포인트를 조작해야 하며, 이로 인해 사용자 자격 증명의 유효성을 검사하거나 동의를 얻기 위해 시스템 브라우저로 컨텍스트 전환이 발생합니다. 일부 사례:
+상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하며, 이로 인해 시스템 브라우저가 사용자 자격 증명의 유효성을 검사하거나 동의를 구하는 컨텍스트로 전환됩니다. 일부 사례:
 
 * 처음으로 사용자가 응용 프로그램에 로그인한 경우
 * 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우

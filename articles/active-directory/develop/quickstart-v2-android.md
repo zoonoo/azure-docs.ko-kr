@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Android 빠른 시작 | Microsoft Docs
-description: Android 애플리케이션이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출할 수 있는 방법을 알아봅니다.
+title: Microsoft ID 플랫폼 Android 빠른 시작 | Azure
+description: Android 애플리케이션이 Microsoft ID 플랫폼 엔드포인트로 보호되는 액세스 토큰이 필요한 API를 어떻게 호출할 수 있는지 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862763"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495314"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "58862763"
 
 이 빠른 시작에는 Android 애플리케이션이 개인 또는 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여 주는 코드 샘플이 포함되어 있습니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-android/android-intro-updated.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **필수 조건**
@@ -47,8 +47,8 @@ ms.locfileid: "58862763"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 앱을 등록하려면
-> 1. [Azure Portal - 애플리케이션 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs)으로 이동합니다.
-> 1. 응용 프로그램 이름을 입력하고 **등록**을 선택합니다.
+> 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) 창으로 이동합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -58,7 +58,8 @@ ms.locfileid: "58862763"
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
+> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+> 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `Android-Quickstart`)을 입력합니다.
 >      - `Register` 단추를 누릅니다.
@@ -145,7 +146,7 @@ ms.locfileid: "58862763"
 
 ### <a name="msal"></a>MSAL
 
-MSAL([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal))은 사용자가 로그인하고 Microsoft Azure AD(Azure Active Directory)에 의해 보호되는 API에 액세스하기 위해 사용하는 토큰을 요청하는 데 사용되는 라이브러리입니다. Gradle을 사용하면 **종속성** 아래의 **Gradle 스크립트** > **build.gradle(모듈: 앱)** 에 다음을 추가하여 설치할 수 있습니다.
+MSAL([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal))은 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 라이브러리입니다. Gradle을 사용하면 **종속성** 아래의 **Gradle 스크립트** > **build.gradle(모듈: 앱)** 에 다음을 추가하여 설치할 수 있습니다.
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `acquireT
 
 #### <a name="getting-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-일부 상황에서는 사용자가 Azure AD v2.0 엔드포인트를 조작해야 하며, 이로 인해 사용자 자격 증명의 유효성을 검사하거나 동의를 얻기 위해 시스템 브라우저로 컨텍스트가 전환됩니다. 일부 사례:
+상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하며, 이로 인해 시스템 브라우저가 사용자 자격 증명의 유효성을 검사하거나 동의를 구하는 컨텍스트로 전환됩니다. 일부 사례:
 
 * 처음으로 사용자가 응용 프로그램에 로그인한 경우
 * 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우

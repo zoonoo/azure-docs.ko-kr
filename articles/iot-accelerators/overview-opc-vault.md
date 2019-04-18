@@ -1,5 +1,5 @@
 ---
-title: Azure IoT OPC UA 인증서 관리란? | Microsoft Docs
+title: OPC 자격 증명 모음이란? - Azure | Microsoft Docs
 description: OPC 자격 증명 모음 개요
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ba3313d927ec4317d6c051f6058d75a415b92288
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759774"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490379"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-ua-certificate-management"></a>Azure IoT OPC(Open Platform Communications) UA 인증서 관리란?
+# <a name="what-is-opc-vault"></a>OPC 자격 증명 모음이란?
 
-Azure IoT OPC UA 인증서 관리(OPC 자격 증명 모음이라고도 함)는 클라우드 내 OPC UA 서버 및 클라이언트 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있는 마이크로서비스입니다. 이 문서에서는 OPC 자격 증명 모음의 간단한 사용 사례를 설명합니다.
+OPC 자격 증명 모음은 클라우드 내 OPC UA 서버 및 클라이언트 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있는 마이크로서비스입니다. 이 문서에서는 OPC 자격 증명 모음의 간단한 사용 사례를 설명합니다.
 
 ## <a name="certificate-management"></a>인증서 관리
 

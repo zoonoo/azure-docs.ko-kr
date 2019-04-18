@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 220723988f349bf015d2de7633af78782bc03bac
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203216"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59498410"
 ---
 ## <a name="register-your-application"></a>애플리케이션 등록
 
@@ -28,33 +28,25 @@ ms.locfileid: "58203216"
 ### <a name="option-1-express-mode"></a>옵션 1: 기본 모드
 
 다음을 수행하여 애플리케이션을 신속하게 등록할 수 있습니다.
-1. [Microsoft 애플리케이션 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)로 이동합니다.
-
-2. **앱 추가**를 선택합니다.
-
-3. **애플리케이션 이름** 상자에서 애플리케이션의 이름을 입력합니다.
-
-4. **단계별 설치** 확인란을 선택한 다음 **만들기**를 선택하도록 합니다.
-
-5. 애플리케이션 ID를 가져오는 지침에 따라 코드에 붙여넣습니다.
+1. [Azure Portal - 애플리케이션 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs)으로 이동합니다.
+1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 
 애플리케이션을 등록하고 애플리케이션 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
-1. 애플리케이션을 이미 등록한 경우 [Microsoft 애플리케이션 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동합니다.
-
-2. **앱 추가**를 선택합니다.
-
-3. **애플리케이션 이름** 상자에서 애플리케이션의 이름을 입력합니다.
-
-4. **단계별 설치** 확인란의 선택을 취소한 다음 **만들기**를 선택하도록 합니다.
-
-5. **플랫폼 추가**를 선택하고, **네이티브 애플리케이션**을 선택한 다음, **저장**을 선택합니다.
-
-6. **애플리케이션 ID** 상자에서 GUID를 복사합니다.
-
-7. Visual Studio로 이동하고, *App.xaml.cs* 파일을 열고, `your_client_id_here`을 방금 등록하고 복사한 애플리케이션 ID로 바꿉니다.
+1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
+1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+1. **새 등록**을 선택합니다.
+   - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `Win-App-calling-MsGraph`)을 입력합니다.
+   - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
+   - **등록**을 선택하여 애플리케이션을 만듭니다.
+1. 앱의 페이지 목록에서 **인증**을 선택합니다.
+1. **리디렉션 URI** 섹션에서 **공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션을 찾고 **"urn:ietf:wg:oauth:2.0:oob**를 선택합니다.
+1. **저장**을 선택합니다.
+1. Visual Studio로 이동하고, *App.xaml.cs* 파일을 열고, `Enter_the_Application_Id_here`을 방금 등록하고 복사한 애플리케이션 ID로 바꿉니다.
 
     ```csharp
-    private static string ClientId = "your_application_id_here";
+    private static string ClientId = "Enter_the_Application_Id_here";
     ```

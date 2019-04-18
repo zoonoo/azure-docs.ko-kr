@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 33d0baf10df1882baf212c3e2c2683c8ca072fcc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896609"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Azure에서 Micro Focus Enterprise Server 4.0 및 엔터프라이즈 개발자 4.0 설치
@@ -38,7 +38,7 @@ Enterprise Server에 대 한 해당 개발 환경의 하거나 Microsoft Visual 
 > [!NOTE]
 > Azure Vm에 대 한 액세스를 제어할 수 있도록 사이트 간 가상 사설망 (VPN) 터널 또는 jumpbox를 설정 하는 것이 좋습니다.
 
-## <a name="install-enterprise-server"></a>Enterprise Server를 설치 합니다.
+## <a name="install-enterprise-server"></a>Enterprise Server 설치
 
 1. 보안 및 관리 효율성 향상을 방금이 프로젝트에 대 한 새 리소스 그룹을 만드는 것이 좋습니다.-예를 들어 **RGMicroFocusEntServer**합니다. Azure에서 이름의 첫 번째 부분을 사용 하 여 목록에서 찾을 수 있도록 리소스의 유형을 지정 합니다.
 
@@ -74,7 +74,7 @@ Enterprise Server에 대 한 해당 개발 환경의 하거나 Microsoft Visual 
 
 ### <a name="check-for-updates"></a>업데이트 확인
 
-설치 후 다양 한 필수 구성 요소와 같은 Microsoft c + + 재배포 가능 패키지 및.NET Framework는 엔터프라이즈 서버와 함께 설치 이후에 추가 업데이트가 있는지 확인 해야 합니다.
+설치 후 해야 하므로 Microsoft와 같은 필수 구성 요소 추가 업데이트가 있는지 확인 하려면 C++ 재배포 가능 패키지 및.NET Framework는 엔터프라이즈 서버와 함께 설치 됩니다.
 
 ### <a name="upload-the-license"></a>라이선스를 업로드 합니다.
 
@@ -84,7 +84,7 @@ Enterprise Server에 대 한 해당 개발 환경의 하거나 Microsoft Visual 
 
      ![마이크로 포커스 라이선스 관리 대화 상자](media/03-enterprise-server.png)
 
-3. 엔터프라이즈 서버 로드 되는지 확인 합니다. 이 URL을 사용 하 여 브라우저에서 Enterprise Server 관리 사이트를 안전 하 게 시작해봅니다 <http://localhost:86/> 합니다. 엔터프라이즈 서버 관리 페이지는 표시 된 것 처럼 표시 됩니다.
+3. 엔터프라이즈 서버 로드 되는지 확인 합니다. 이 URL을 사용 하 여 브라우저에서 엔터프라이즈 서버 관리 사이트를 시작 해 봅니다 <http://localhost:86/> 합니다. 엔터프라이즈 서버 관리 페이지는 표시 된 것 처럼 표시 됩니다.
 
      ![엔터프라이즈 서버 관리 페이지](media/04-enterprise-admin.png)
 

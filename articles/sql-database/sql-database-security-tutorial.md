@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database에서 단일 또는 풀링된 데이터베이스 보호 | Microsoft Docs
-description: Azure SQL Database에서 단일 또는 풀링된 데이터베이스를 보호하는 기법 및 기능에 대해 알아봅니다.
+description: Azure SQL Database에서 단일 또는 풀링된 데이터베이스를 보호하는 기법 및 기능에 대해 설명하는 자습서입니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893274"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496440"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
+> - Azure AD(Active Directory) 관리자 구성
+> - SQL 인증, Azure AD 인증 및 보안 연결 문자열을 사용하여 사용자 액세스 관리
+> - 고급 데이터 보안, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
 
 Azure SQL Database는 다음과 같은 방법으로 단일 또는 풀링된 데이터베이스의 데이터를 보호합니다.
 
@@ -28,14 +37,6 @@ Azure SQL Database는 다음과 같은 방법으로 단일 또는 풀링된 데�
 
 > [!NOTE]
 > 관리되는 인스턴스의 Azure SQL 데이터베이스는 [Azure SQL 데이터베이스 관리되는 인스턴스](sql-database-managed-instance-index.yml) 및 [연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)에서 설명한 대로 네트워크 보안 규칙 및 사설 엔드포인트를 사용하여 보호됩니다.
-
-몇 가지 간단한 단계를 통해 데이터베이스 보안을 향상시킬 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
-
-> [!div class="checklist"]
-> - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
-> - Azure AD(Active Directory) 관리자 구성
-> - SQL 인증, Azure AD 인증 및 보안 연결 문자열을 사용하여 사용자 액세스 관리
-> - 고급 데이터 보안, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
 
 자세한 내용은 [Azure SQL Database 보안 개요](/azure/sql-database/sql-database-security-index) 및 [기능](sql-database-security-overview.md) 문서를 참조하세요.
 
@@ -140,9 +141,9 @@ Azure AD 관리자를 설정하려면,
 
 Azure AD를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure AD와 온-프레미스 ID의 통합](../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Azure AD와 온-프레미스 ID 통합](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Azure AD에 고유한 도메인 이름 추가](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure에서 Windows Server AD와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure는 이제 Windows Server AD를 통한 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Azure AD 디렉터리 관리](../active-directory/fundamentals/active-directory-administer.md)
 - [PowerShell을 사용하여 Azure AD 관리](/powershell/azure/overview?view=azureadps-2.0)
 - [포트 및 프로토콜이 필요한 하이브리드 ID](../active-directory/hybrid/reference-connect-ports.md)
@@ -349,4 +350,4 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 지리적 배포를 구현하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[지역 분산 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)
+>[지리적으로 분산된 데이터베이스 구현](sql-database-implement-geo-distributed-database.md)

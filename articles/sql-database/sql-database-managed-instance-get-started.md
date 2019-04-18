@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469644"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495040"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기
 
@@ -52,6 +52,7 @@ ms.locfileid: "59469644"
    |**Collation**|관리되는 인스턴스에 사용할 데이터 정렬|SQL Server에서 데이터베이스를 마이그레이션하는 경우 `SELECT SERVERPROPERTY(N'Collation')`를 사용하여 원본 데이터 정렬을 확인하고 해당 값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [서버 수준 데이터 정렬](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)을 참조하세요.|
    |**위치**|관리되는 인스턴스를 만들 위치|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
    |**가상 네트워크**|**새 가상 네트워크 만들기** 또는 유효한 가상 네트워크 및 서브넷을 선택합니다.| 네트워크/서브넷을 사용할 수 없는 경우 새 관리형 인스턴스의 대상으로 선택하기 전에 [네트워크 요구 사항을 충족하도록 수정](sql-database-managed-instance-configure-vnet-subnet.md)해야 합니다. 관리되는 인스턴스의 네트워크 환경을 구성하기 위한 요구 사항 관련 정보는 [관리되는 인스턴스에 대한 VNet 구성](sql-database-managed-instance-connectivity-architecture.md)을 참조하세요. |
+   |**연결 형식**|프록시 및 리디렉션 연결 형식 중에서 선택|연결 형식에 대한 자세한 내용은 [Azure SQL 연결 정책](sql-database-connectivity-architecture.md#connection-policy)을 참조하세요.|
    |**리소스 그룹**|새 리소스 그룹 또는 기존 리소스 그룹|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
 
    ![관리되는 인스턴스 양식](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

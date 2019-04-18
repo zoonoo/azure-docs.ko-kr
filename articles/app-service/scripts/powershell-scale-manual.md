@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 198968d0d8abfc42b977e41b5f59e3aebac66bcc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0699bc284233f259fc345b9b2b97b9dda8820454
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107908"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491938"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>PowerShell을 사용하여 수동으로 웹앱 크기 조정
 
@@ -40,7 +40,7 @@ ms.locfileid: "56107908"
 스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, 웹앱 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명

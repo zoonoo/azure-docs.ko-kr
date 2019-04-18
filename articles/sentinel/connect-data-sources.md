@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884798"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492365"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -34,9 +34,9 @@ Azure Sentinel을 온보딩하려면 먼저 데이터 원본에 연결해야 합
 
 ![데이터 수집기](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>데이터 수집 방법
+## <a name="data-connection-methods"></a>데이터 연결 메서드
 
-Azure Sentinel에서는 다음 데이터 수집 방법이 지원됩니다.
+Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 
 - **Microsoft 서비스**:<br> Microsoft 서비스는 기본적으로 연결되어 있으며, 기본 통합을 위한 Azure 토대를 활용합니다. 다음 솔루션은 클릭 몇 번으로 연결할 수 있습니다.
     - [Office 365](connect-office-365.md)
@@ -52,7 +52,7 @@ Azure Sentinel에서는 다음 데이터 수집 방법이 지원됩니다.
 
 - **API를 통한 외부 솔루션**: 일부 데이터 원본은 연결된 데이터 원본에서 제공하는 API를 사용하여 연결됩니다. 일반적으로 대부분의 보안 기술은 이벤트 로그에 검색할 수 있는 API 세트를 제공합니다. 이러한 API는 Azure Sentinel에 연결되며, 특정 데이터 형식을 수집한 후 Azure Log Analytics로 보냅니다. API를 통해 연결되는 어플라이언스는 다음과 같습니다.
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **에이전트를 통한 외부 솔루션**: Azure Sentinel은 에이전트를 통해 Syslog 프로토콜을 사용하여 실시간 로그 스트리밍을 수행할 수 있는 다른 모든 데이터 원본에 연결할 수 있습니다. <br>대부분의 어플라이언스는 Syslog 프로토콜을 사용하여 로그 자체 및 로그에 대한 데이터를 포함하는 이벤트 메시지를 보냅니다. 로그의 형식은 다양하지만, 대부분의 어플라이언스는 CEF(일반 이벤트 형식) 표준을 지원합니다. <br>OMS 에이전트를 기준으로 하는 Azure Sentinel 에이전트는 CEF 형식 로그를 Log Analytics에서 수집할 수 있는 형식으로 변환합니다. 어플라이언스 유형에 따라 에이전트가 어플라이언스에 직접 설치되거나 전용 Linux 서버에 설치됩니다. Linux용 에이전트는 UDP를 통해 Syslog 디먼에서 이벤트를 수신하지만, Linux 머신이 대량의 Syslog 이벤트를 수집해야 하는 경우 TCP를 통해 Syslog 디먼에서 에이전트로, 에이전트에서 Log Analytics로 전송됩니다.
     - 방화벽, 프록시 및 엔드포인트:
         - [F5](connect-f5.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918555"
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
@@ -86,11 +86,10 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL 다시 쓰기 규칙-왼쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL 다시 쓰기 규칙-오른쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL 재작성 규칙 - 왼쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL 재작성 규칙 - 오른쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. 새 규칙이 활성화되면 URL에서 SAS 토큰을 사용하는지 여부에 관계 없이 누구나 CDN 엔드포인트에 지정된 컨테이너에서 파일에 액세스할 수 있습니다. 형식은 다음과 같습니다.
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. 새 규칙이 활성화되면 URL에서 SAS 토큰을 사용하는지 여부에 관계 없이 누구나 CDN 엔드포인트에 지정된 컨테이너에서 파일에 액세스할 수 있습니다. 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    예를 들면 다음과 같습니다.   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -125,8 +124,8 @@ Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL 다시 쓰기 규칙-왼쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL 다시 쓰기 규칙-오른쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL 재작성 규칙 - 왼쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL 재작성 규칙 - 오른쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. SAS를 갱신하는 경우 새 SAS 토큰을 사용하여 URL 다시 쓰기 규칙을 업데이트해야 합니다. 
 
@@ -145,6 +144,6 @@ SAS 매개 변수는 Azure CDN에 표시되지 않으므로 Azure CDN은 이 매
 
 SAS에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [SAS(공유 액세스 서명) 사용](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [공유 액세스 서명 2부: Blob Storage에서 SAS 만들기 및 사용](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [공유 액세스 서명 2부: Blob Storage를 통해 SAS 만들기 및 사용](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 토큰 인증을 설정하는 방법에 대한 자세한 내용은 [토큰 인증을 사용하여 Azure Content Delivery Network 자산 보안 유지](https://docs.microsoft.com/azure/cdn/cdn-token-auth)를 참조하세요.

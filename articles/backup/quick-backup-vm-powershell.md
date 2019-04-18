@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906075"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489385"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
@@ -29,7 +29,7 @@ ms.locfileid: "58906075"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>로그인 및 등록
+## <a name="sign-in-and-register"></a>로그인 및 등록
 
 1. `Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
@@ -162,7 +162,7 @@ VM을 더 이상 백업할 필요가 없으면 이를 정리할 수 있습니다
 - VM 복원을 시도하려면 정리 단계를 건너뜁니다.
 - 기존 VM을 사용한 경우 마지막 단계인 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet을 건너뛰어 리소스 그룹과 VM을 그대로 유지할 수 있습니다.
 
-보호를 사용하지 않도록 설정하고, 복원 지점과 자격 증명 모음을 제거합니다. 그러면 다음과 같이 리소스 그룹 및 관련 VM 리소스가 삭제됩니다.
+보호 기능을 해제하고 복원 지점 및 자격 증명 모음을 제거합니다. 그런 다음, 리소스 그룹 및 연결된 VM 리소스를 다음과 같이 삭제합니다.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

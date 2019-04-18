@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916804"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure CDN에서 Azure Blob Storage의 만료 관리
 > [!div class="op_single_selector"]
 > * [Azure 웹 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -59,7 +59,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
    ![CDN 캐싱 페이지](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**전역 캐싱 규칙을 사용 하 여 Blob 저장소 서비스의 Cache-control 헤더를 설정 합니다.**
+**전역 캐싱 규칙을 사용하여 Blob Storage 서비스의 Cache-Control 헤더를 설정하려면:**
 
 1. **전역 캐싱 규칙**에서 **쿼리 문자열 캐시 동작**을 **쿼리 문자열 무시**로 설정하고 **캐싱 동작**을 **재정의**로 설정합니다.
       
@@ -71,7 +71,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
 3. **저장**을 선택합니다.
  
-**사용자 지정 캐싱 규칙을 사용 하 여 blob 파일의 Cache-control 헤더를 설정 합니다.**
+**사용자 지정 캐싱 규칙을 사용하여 Blob 파일의 Cache-Control 헤더를 설정하려면:**
 
 1. **사용자 지정 캐싱 규칙**에 따라 일치 조건 두 개를 만듭니다.
 
@@ -180,6 +180,6 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 Blob의 TTL 설정을 쉽게 확인할 수 있습니다. 브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 Blob에 `Cache-Control` 응답 헤더가 포함되어 있는지 테스트합니다. [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) 또는 [Fiddler](https://www.telerik.com/fiddler)와 같은 도구를 사용하여 응답 헤더를 검사할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리 하는 방법 알아보기](cdn-manage-expiration-of-cloud-service-content.md)
-* [캐싱 개념 알아보기](cdn-how-caching-works.md)
+* [Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법을 알아봅니다.](cdn-manage-expiration-of-cloud-service-content.md)
+* [캐싱 개념에 대해 알아보기](cdn-how-caching-works.md)
 
