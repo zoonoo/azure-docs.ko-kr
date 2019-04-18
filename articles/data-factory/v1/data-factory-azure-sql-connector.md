@@ -65,7 +65,7 @@ Azure SQL Database를 데이터 팩터리에 연결하는 Azure SQL 연결된 �
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **AzureSqlDatabase** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **AzureSqlDatabase** |예 |
 | connectionString |connectionString 속성에 대한 Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 기본 인증만 지원됩니다. |예 |
 
 > [!IMPORTANT]
@@ -97,7 +97,7 @@ Azure SQL Database에서 데이터를 이동하는 경우 복사 작업의 원�
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable`. |아니오 |
+| sqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable`. |아니오 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
 
@@ -639,36 +639,36 @@ Azure SQL Database 간에 데이터를 이동할 때는 다음과 같은 매핑�
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |BOOLEAN |
+| bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| 10진수 |10진수 |
-| FILESTREAM 특성(varbinary(max)) |Byte[] |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 이미지 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
-| money |10진수 |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |10진수 |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |단일 |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |10진수 |
-| sql_variant |개체 * |
+| smallmoney |Decimal |
+| sql_variant |Object * |
 | text |String, Char[] |
-| 실시간 |timespan |
+| time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
