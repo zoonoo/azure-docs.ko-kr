@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257436"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566008"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -175,7 +175,7 @@ END
 ### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 형식 및 추가 저장 프로시저 만들기
 다음 쿼리를 실행하여 SQL 데이터베이스에 두 개의 데이터 형식과 두 개의 저장 프로시저를 만듭니다. 원본 테이블의 데이터를 대상 테이블에 병합하는 데 사용됩니다.
 
-여정을 쉽게 시작할 수 있도록 테이블 변수를 통해 델타 데이터를 전달하는 이러한 저장 프로시저를 직접 사용한 다음, 대상 저장소에 병합합니다. 테이블 변수에 "큰" 수의 델타 행(100개 초과)이 저장될 것으로 예상되지 않도록 주의하세요.  
+여정을 쉽게 시작할 수 있도록 테이블 변수를 통해 델타 데이터를 전달하는 이러한 저장 프로시저를 직접 사용한 다음, 대상 저장소에 병합합니다. 테이블 변수에 "많은" 수(100개 초과)의 델타 행이 저장될 수 없으니 주의하세요.  
 
 많은 수의 델타 행을 대상 저장소에 병합해야 하는 경우, 먼저 복사 작업을 사용하여 모든 델타 데이터를 대상 저장소의 임시 "준비" 테이블에 복사한 다음, 테이블 변수를 사용하지 않고 저장 프로시저를 직접 빌드하여  “준비” 테이블에서 “최종” 테이블로 병합하는 것이 좋습니다. 
 
@@ -491,11 +491,12 @@ END
 1. **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **SinkDataset**을 선택합니다. 
         
     ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. **매개 변수** 탭으로 전환하고 다음 단계를 수행합니다.
+1. 다음 단계를 수행합니다.
 
-    1. **싱크 저장 프로시저 이름** 속성에 `@{item().StoredProcedureNameForMergeOperation}`을 입력합니다.
-    1. **싱크 테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
-    1. **싱크 데이터 세트** 섹션에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
+    1. **데이터 세트** 속성에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
+    1. **저장 프로시저 이름** 속성에 `@{item().StoredProcedureNameForMergeOperation}`을 입력합니다.
+    1. **테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
+
 
         ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동을 **저장 프로시저** 활동에 연결합니다. 

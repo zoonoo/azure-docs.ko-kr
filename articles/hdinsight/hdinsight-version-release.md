@@ -1,20 +1,20 @@
 ---
-title: HDInsight 4.0 개요(미리 보기) - Azure
+title: Azure HDInsight 4.0 개요
 description: HDInsight 3.6을 HDInsight 4.0 기능, 제한 사항 및 업그레이드 권장 사항과 비교합니다.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: overview
-ms.date: 10/04/2018
-ms.openlocfilehash: 34582e66dec3b2f97efba7856ccfbf678f8f1f63
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 04/15/2019
+ms.openlocfilehash: af9f8a9e4d67c74910f60c70a0aee5c2439d6209
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408088"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609203"
 ---
-# <a name="hdinsight-40-overview-preview"></a>HDInsight 4.0 개요(미리 보기)
+# <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 개요
 
 Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDI(HDInsight) 4.0은 [HDP(Hortonworks Data Platform) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)의 Apache Hadoop 구성 요소의 클라우드 배포판입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
 

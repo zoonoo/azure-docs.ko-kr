@@ -1,5 +1,5 @@
 ---
-title: SQL Database를 사용하여 .NET Core 앱 빌드 - Azure App Service | Microsoft Docs
+title: SQL Database를 사용하는 ASP.NET Core - Azure App Service | Microsoft Docs
 description: SQL Database에 연결하여 Azure App Service에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510700"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548870"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 .NET Core 및 SQL Database 앱 빌드
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
 > [!NOTE]
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_에서 App Service를 배포하려면 [Linux의 Azure App Service에서 .NET Core 및 SQL Database 앱 빌드](./containers/tutorial-dotnetcore-sqldb-app.md)를 참조하세요.

@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500399"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
@@ -36,10 +36,10 @@ ms.locfileid: "59500399"
 
 다음과 같은 간단한 4단계를 통해 애플리케이션을 Azure AD 다중 테넌트 앱으로 변환할 수 있습니다.
 
-1. [애플리케이션 등록을 다중 테넌트로 업데이트합니다.](#update-registration-to-be-multi-tenant)
-2. [/common 엔드포인트에 요청을 보내도록 코드를 업데이트합니다.](#update-your-code-to-send-requests-to-common)
-3. [여러 발급자 값을 처리하는 코드를 업데이트합니다.](#update-your-code-to-handle-multiple-issuer-values)
-4. [사용자 및 관리자 동의를 이해하고 적절한 코드 변경을 합니다.](#understand-user-and-admin-consent)
+1. [응용 프로그램 등록을 다중 테넌트로 업데이트](#update-registration-to-be-multi-tenant)
+2. [요청을 /common 엔드포인트로 보내도록 코드 업데이트](#update-your-code-to-send-requests-to-common)
+3. [여러 발급자 값을 처리하도록 코드 업데이트](#update-your-code-to-handle-multiple-issuer-values)
+4. [사용자 및 관리자 동의를 이해하고 적절하게 코드 변경](#understand-user-and-admin-consent)
 
 각 단계를 자세히 살펴보겠습니다. 또한 [이 다중 테넌트 샘플 목록][AAD-Samples-MT]으로 바로 건너뛸 수 있습니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "59500399"
 
 단일 테넌트 애플리케이션에서 로그인 요청은 테넌트의 로그인 엔드포인트에 전송됩니다. 예를 들어 contoso.onmicrosoft.com의 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`입니다. 테넌트의 엔드포인트에 보내진 요청은 그 테넌트에 있는 사용자 (또는 게스트)를 그 테넌트의 애플리케이션으로 로그인하게 할 수 있습니다.
 
-다중 테넌트 애플리케이션을 사용할 경우, 애플리케이션은 사용자가 어떤 테넌트에서 오는지 미리 알지 못하므로 요청을 테넌트 엔드포인트에 보낼 수 없습니다. 대신, 요청은 모든 Azure AD 테넌트 간에 멀티플렉싱하는 엔드포인트에 전송됩니다. `https://login.microsoftonline.com/common`
+다중 테넌트 애플리케이션을 사용할 경우, 애플리케이션은 사용자가 어떤 테넌트에서 오는지 미리 알지 못하므로 요청을 테넌트 엔드포인트에 보낼 수 없습니다. 대신, 요청은 모든 Azure AD 테넌트 간에 멀티플렉싱하는 엔드포인트(`https://login.microsoftonline.com/common`)로 보내집니다.
 
 Microsoft id 플랫폼 /common에 요청을 수신 하는 경우 끝점에 사용자를 로그인 고, 결과적으로에서 사용자가 어떤 테 넌 트를 검색 합니다. 모든 Azure AD에서 지 원하는 인증 프로토콜을 사용 하 여 공통 끝점 작동 합니다.  모든 인증 프로토콜(OpenID Connect, OAuth 2.0, SAML 2.0 및 WS-Federation)에서 작동합니다.
 

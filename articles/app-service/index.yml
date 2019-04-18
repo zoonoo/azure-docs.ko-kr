@@ -106,7 +106,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">Azure SQL DB를 사용하는 .NET</a> 또는 <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">MongoDB를 사용하는 Node.js</a>로 애플리케이션 만들기
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 애플리케이션에 매핑 </a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 애플리케이션에 매핑</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">기존 SSL 인증서를 애플리케이션에 바인딩</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">애플리케이션에 CDN 추가</a>
   - title: Microsoft Learn을 통해 기술 쌓기
@@ -157,6 +157,6 @@ sections:
           - title: 명령줄
             html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
           - title: Languages
-            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">자바</a></p>
+            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST (영문)
             html: <p><a href="/rest/api/appservice">REST API 참조</a></p>

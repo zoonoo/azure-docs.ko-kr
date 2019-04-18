@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260666"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505688"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>포털에서 청사진 정의 및 할당
 
@@ -41,116 +41,117 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![청사진 정의 페이지에서 청사진 만들기](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. **MyBlueprint**와 같은 **청사진 이름**을 제공합니다. (최대 48개의 문자 및 숫자를 사용하지만 공백 또는 특수 문자를 포함하지 않습니다.) **청사진 설명**은 지금은 비워 둡니다. 
-   
+1. **MyBlueprint**와 같은 **청사진 이름**을 제공합니다. (최대 48개의 문자 및 숫자를 사용하지만 공백 또는 특수 문자를 포함하지 않습니다.) **청사진 설명**은 지금은 비워 둡니다.
+
 1. **정의 위치** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md) 또는 구독을 선택한 후에 **선택**을 선택합니다.
 
 1. 정보가 올바른지 확인합니다. **청사진 이름** 및 **정의 위치** 필드는 나중에 변경할 수 없습니다. 그런 다음, 페이지 아래쪽의 **다음: 아티팩트** 또는 페이지 맨 위의 **아티팩트** 탭을 클릭합니다.
 
-1. 구독 수준에서 역할 할당 추가: 
+1. 구독 수준에서 역할 할당 추가:
 
-   a. **구독** 아래의 **+ 아티팩트 추가** 행을 선택합니다. 브라우저의 오른쪽에 **아티팩트 추가** 창이 열립니다. 
-   
-   b. **아티팩트 형식**으로 **역할 할당**을 선택합니다. 
-   
-   다. **역할** 아래에서 **기여자**를 선택합니다. 동적 매개 변수를 나타내는 확인란이 있는 **사용자, 앱 또는 그룹** 상자를 비워 둡니다. 
-   
-   d. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
+   1. **구독** 아래의 **+ 아티팩트 추가** 행을 선택합니다. 브라우저의 오른쪽에 **아티팩트 추가** 창이 열립니다.
+
+   1. **아티팩트 형식**으로 **역할 할당**을 선택합니다.
+
+   1. **역할** 아래에서 **기여자**를 선택합니다. 동적 매개 변수를 나타내는 확인란이 있는 **사용자, 앱 또는 그룹** 상자를 비워 둡니다.
+
+   1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
    ![청사진 아티팩트에 대한 역할 할당](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > 대부분의 아티팩트는 매개 변수를 지원합니다. 청사진 생성 중에 값이 할당되는 매개 변수는 *정적 매개 변수*입니다. 청사진 할당 중에 할당되는 매개 변수는 *동적 매개 변수*입니다. 자세한 내용은 [청사진 매개 변수](./concepts/parameters.md)를 참조하세요.
 
-1. 구독 수준에서 정책 할당 추가: 
+1. 구독 수준에서 정책 할당 추가:
 
-   a. 역할 할당 아티팩트 아래의 **+ 아티팩트 추가** 행을 선택합니다. 
-   
-   b. **아티팩트 형식**으로 **정책 할당**을 선택합니다. 
-   
-   다. **형식**을 **기본 제공**으로 변경합니다. **검색**에 **태그**를 입력합니다. 
-   
-   d. **검색** 바깥쪽을 클릭하면 필터링이 수행됩니다. **리소스 그룹에 태그 및 기본값 적용**을 선택합니다. 
-   
-   e. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
+   1. 역할 할당 아티팩트 아래의 **+ 아티팩트 추가** 행을 선택합니다.
 
-1. 정책 할당 **리소스 그룹에 태그 및 기본값 적용**의 행을 선택합니다. 
+   1. **아티팩트 형식**으로 **정책 할당**을 선택합니다.
+
+   1. **형식**을 **기본 제공**으로 변경합니다. **검색**에 **태그**를 입력합니다.
+
+   1. **검색** 바깥쪽을 클릭하면 필터링이 수행됩니다. **리소스 그룹에 태그 및 해당 기본값 적용**을 선택합니다.
+
+   1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
+
+1. 정책 할당 **리소스 그룹에 태그 및 기본값 적용**의 행을 선택합니다.
 
 1. 청사진 정의의 일부분으로 아티팩트에 매개 변수를 제공하는 창이 열리며, 이 창에서 할당 중에 매개 변수를 설정하는 대신(동적 매개 변수) 해당 청사진을 기준으로 하여 모든 할당의 매개 변수를 설정할 수 있습니다(정적 매개 변수). 이 예제에서는 청사진 할당 중에 동적 매개 변수를 사용하므로 기본값을 유지하고 **취소**를 선택합니다.
 
-1. 구독 수준에서 리소스 그룹 추가: 
+1. 구독 수준에서 리소스 그룹 추가:
 
-   a. **구독** 아래의 **+ 아티팩트 추가** 행을 선택합니다. 
-   
-   b. **아티팩트 형식**으로 **리소스 그룹**을 선택합니다. 
-   
-   다. **아티팩트 표시 이름**, **리소스 그룹 이름** 및 **위치** 상자는 비워 두되, 각 매개 변수 속성의 확인란을 선택하여 해당 속성을 동적 매개 변수로 설정합니다. 
-   
-   d. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
+   1. **구독** 아래의 **+ 아티팩트 추가** 행을 선택합니다.
 
-1. 리소스 그룹 아래에 템플릿 추가: 
+   1. **아티팩트 형식**으로 **리소스 그룹**을 선택합니다.
 
-   a. **ResourceGroup** 항목 아래의 **+ 아티팩트 추가** 행을 선택합니다. 
-   
-   b. **아티팩트 형식**으로 **Azure Resource Manager 템플릿**을 선택하고 **아티팩트 표시 이름**을 **StorageAccount**로 설정합니다. **설명**은 비워 둡니다. 
-   
-   다. **템플릿** 탭의 편집기 상자에 다음 Resource Manager 템플릿을 붙여넣습니다. 템플릿을 붙여넣은 후, **매개 변수** 탭을 선택하면 템플릿 매개 변수 **storageAccountType** 및 **location**이 검색됩니다. 각 매개 변수는 자동으로 검색되고 채워지지만 동적 매개 변수로 구성됩니다. 
-   
-   > [!IMPORTANT]
-   > 템플릿을 가져오는 경우에는 파일이 JSON으로만 되어 있으며 HTML은 포함하지 않는지 확인하세요. Github의 URL을 가리키는 경우에는 **RAW**를 선택하여 GitHub에 표시하기 위해 HTML로 래핑된 파일이 아니라 순수 JSON 파일을 가져왔는지 확인해야 합니다. 가져온 템플릿이 순수 JSON이 아니면 오류가 발생합니다.
+   1. **아티팩트 표시 이름**, **리소스 그룹 이름** 및 **위치** 상자는 비워 두되, 각 매개 변수 속성의 확인란을 선택하여 해당 속성을 동적 매개 변수로 설정합니다.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
-   d. **storageAccountType** 확인란의 선택을 취소하면 드롭다운 목록에는 **allowedValues** 아래의 Resource Manager 템플릿에 포함된 값만 들어 있습니다. 확인란을 선택하면 해당 항목이 다시 동적 매개 변수로 설정됩니다. 
-   
-   e. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
+1. 리소스 그룹 아래에 템플릿 추가:
+
+   1. **ResourceGroup** 항목 아래의 **+ 아티팩트 추가** 행을 선택합니다.
+
+   1. **아티팩트 형식**으로 **Azure Resource Manager 템플릿**을 선택하고, **아티팩트 표시 이름**을 **StorageAccount**로 설정하고, **설명**은 비워 둡니다.
+
+   1. **템플릿** 탭의 편집기 상자에 다음 Resource Manager 템플릿을 붙여넣습니다.
+      템플릿을 붙여넣은 후, **매개 변수** 탭을 선택하면 템플릿 매개 변수 **storageAccountType** 및 **location**이 검색됩니다. 각 매개 변수는 자동으로 검색되고 채워지지만 동적 매개 변수로 구성됩니다.
+
+      > [!IMPORTANT]
+      > 템플릿을 가져오는 경우에는 파일이 JSON으로만 되어 있으며 HTML은 포함하지 않는지 확인하세요. Github의 URL을 가리키는 경우에는 **RAW**를 선택하여 GitHub에 표시하기 위해 HTML로 래핑된 파일이 아니라 순수 JSON 파일을 가져왔는지 확인해야 합니다. 가져온 템플릿이 순수 JSON이 아니면 오류가 발생합니다.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. **storageAccountType** 확인란의 선택을 취소하면 드롭다운 목록에는 **allowedValues** 아래의 Resource Manager 템플릿에 포함된 값만 들어 있습니다. 확인란을 선택하면 해당 항목이 다시 동적 매개 변수로 설정됩니다.
+
+   1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
    ![청사진 아티팩트에 대한 Resource Manager 템플릿](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **다음: 아티팩트** 또는 페이지 맨 위의 **아티팩트** 탭을 클릭합니다.
 
-1. 리소스 그룹 아래에 역할 할당 추가: 
+1. 리소스 그룹 아래에 역할 할당 추가:
 
-   a. **ResourceGroup** 항목 바로 아래의 **+ 아티팩트 추가** 행을 선택합니다. 
-   
-   b. **아티팩트 형식**으로 **역할 할당**을 선택합니다. 
-   
-   다. **역할** 아래에서 **소유자**를 선택하고 **사용자, 앱 또는 그룹 추가** 상자 아래에 있는 확인란의 선택을 취소합니다. 
-   
-   d. 추가할 사용자, 앱 또는 그룹을 검색하여 선택합니다. 이 아티팩트는 이 청사진의 모든 할당에서 동일하게 설정되는 정적 매개 변수를 사용합니다. 
-   
+   1. **ResourceGroup** 항목 바로 아래의 **+ 아티팩트 추가** 행을 선택합니다.
+
+   1. **아티팩트 형식**으로 **역할 할당**을 선택합니다.
+
+   1. **역할** 아래에서 **소유자**를 선택하고 **사용자, 앱 또는 그룹 추가** 상자 아래에 있는 확인란의 선택을 취소합니다.
+
+   1. 추가할 사용자, 앱 또는 그룹을 검색하여 선택합니다. 이 아티팩트는 이 청사진의 모든 할당에서 동일하게 설정되는 정적 매개 변수를 사용합니다.
+
    e. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
    ![청사진 아티팩트에 대한 두 번째 역할 할당](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    [Azure 청구](../../billing/index.md)에서 사용할 수 있는 지원되는 엔터프라이즈 제품이 있는 경우 **새로 만들기** 링크가 **구독** 상자에서 활성화됩니다. 다음 단계를 수행하세요.
 
-   a. 기존 청사진을 선택하는 대신 새 구독을 만들려면 **새로 만들기** 링크를 선택합니다.
+   1. 기존 청사진을 선택하는 대신 새 구독을 만들려면 **새로 만들기** 링크를 선택합니다.
 
-   b. 새 구독에 사용할 **표시 이름**을 입력합니다.
+   1. 새 구독에 사용할 **표시 이름**을 입력합니다.
 
-   다. 드롭다운 목록에서 사용 가능한 **제안**을 선택합니다.
+   1. 드롭다운 목록에서 사용 가능한 **제안**을 선택합니다.
 
-   d. 줄임표를 사용하여 구독이 자식이 되는 [관리 그룹](../management-groups/index.md)을 선택합니다.
+   1. 줄임표를 사용하여 구독이 자식이 되는 [관리 그룹](../management-groups/index.md)을 선택합니다.
 
-   e. 페이지의 맨 아래에서 **만들기**를 선택합니다.
+   1. 페이지의 맨 아래에서 **만들기**를 선택합니다.
 
    ![청사진 할당 구독에 대한 구독 만들기](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **ResourceGroup**에서는 **이름**을 **StorageAccount**로 입력하고 **위치**로는 드롭다운 목록에서 **미국 동부 2**를 선택합니다.
 
    > [!NOTE]
-   > 청사진 정의 중에 리소스 그룹 아래에 추가한 각 아티팩트는 함께 배포할 리소스 그룹이나 개체에 맞게 들여씁니다. 매개 변수를 사용하지 않거나 할당에서 정의할 매개 변수가 없는 아티팩트는 상황 정보 제공용으로만 나열됩니다.
+   > 청사진 정의 중에 리소스 그룹 아래에 추가한 각 아티팩트는 함께 배포할 리소스 그룹이나 개체에 맞게 들여씁니다.
+   > 매개 변수를 사용하지 않거나 할당에서 정의할 매개 변수가 없는 아티팩트는 상황 정보 제공용으로만 나열됩니다.
 
 1. Azure Resource Manager 템플릿 **StorageAccount**에서 **storageAccountType** 매개 변수에 대해 **Standard_GRS**를 선택합니다.
 
@@ -294,7 +296,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 삭제할 청사진을 마우스 오른쪽 단추로 클릭하고 **청사진 삭제**를 선택합니다. 그런 다음, 확인 대화 상자에서 **예**를 선택합니다.
 
 > [!NOTE]
-> 이 메서드에서 청사진을 삭제하면 선택한 청사진의 게시된 버전도 모두 삭제됩니다. 단일 버전을 삭제하려면 청사진을 열고 **게시된 버전** 탭을 선택하고 삭제할 버전을 선택한 다음, **이 버전 삭제**를 선택합니다. 또한 청사진 정의의 청사진 할당을 모두 삭제할 때까지 해당 청사진을 삭제할 수 없습니다.
+> 이 메서드에서 청사진을 삭제하면 선택한 청사진의 게시된 버전도 모두 삭제됩니다.
+> 단일 버전을 삭제하려면 청사진을 열고 **게시된 버전** 탭을 선택하고 삭제할 버전을 선택한 다음, **이 버전 삭제**를 선택합니다. 또한 청사진 정의의 청사진 할당을 모두 삭제할 때까지 해당 청사진을 삭제할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

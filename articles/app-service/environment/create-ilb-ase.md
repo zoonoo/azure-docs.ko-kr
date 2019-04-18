@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101536"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546545"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -170,13 +170,13 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
 4. ASE 도메인에 DNS를 설정합니다. DNS에 있는 도메인에서 와일드 카드를 사용할 수 있습니다. 몇 가지 간단한 테스트를 수행하려면 VIP IP 주소에 앱 이름을 설정하도록 VM에 대한 호스트 파일을 편집합니다.
 
-    a. ASE의 도메인 이름이 _.ilbase.com_이고 _mytestapp_이라는 앱을 만든 경우 _mytestapp.ilbase.com_으로 주소가 지정됩니다. 그런 다음 _mytestapp.ilbase.com_을 설정하여 ILB 주소로 확인할 수 있습니다. (Windows에서 호스트 파일은 _C:\Windows\System32\drivers\etc\_에 있습니다.)
+    a. ASE의 도메인 이름이 _.ilbase.com_이고 _mytestapp_이라는 앱을 만든 경우 _mytestapp.ilbase.com_으로 주소가 지정됩니다. 그런 다음 _mytestapp.ilbase.com_을 설정하여 ILB 주소로 확인할 수 있습니다. (Windows에서 호스트 파일은 _C:\Windows\System32\drivers\etc\\_에 있습니다.)
 
     b. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
 
-5. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. (또는 도메인에서 앱 이름으로 이동합니다.)
+5. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com로 이동합니다. (또는 도메인에서 앱 이름으로 이동합니다.)
 
-6. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
+6. 해당 VM에서 브라우저를 사용하여 https://mytestapp.ilbase.com로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의합니다.
 
     ILB의 IP 주소가 **IP 주소**에 나열됩니다. 이 목록에는 외부 VIP 및 인바운드 관리 트래픽에 사용하는 IP 주소도 있습니다.
 

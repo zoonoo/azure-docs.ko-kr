@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203630"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505820"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "58203630"
 ## <a name="add-authentication-components"></a>인증 구성 요소 추가
 
 1. Visual Studio에서: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. [패키지 관리자 콘솔] 창에 다음 내용을 입력하여 [OWIN 미들웨어 NuGet 패키지]를 추가합니다.
+2. [패키지 관리자 콘솔] 창에 다음 내용을 입력하여 *OWIN 미들웨어 NuGet 패키지* 를 추가합니다.
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -51,12 +51,13 @@ ms.locfileid: "58203630"
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>인증 파이프라인 구성
+
 아래 단계는 OpenID Connect 인증을 구성하기 위해 OWIN 미들웨어 Startup 클래스를 만드는 데 사용됩니다. 이 클래스는 IIS 프로세스 시작 시 자동으로 실행됩니다.
 
 > [!TIP]
 > 프로젝트의 루트 폴더에 `Startup.cs` 파일이 없는 경우:
 > 1. 프로젝트의 루트 폴더를 마우스 오른쪽 단추로 클릭합니다. > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. 이름을 `Startup.cs`로 지정합니다.
+> 2. 이름 지정 `Startup.cs`
 >
 >> 선택한 클래스가 표준 C# 클래스가 아니라 OWIN Startup 클래스인지 확인합니다. 네임스페이스 위에 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]`가 보이면 선택하여 확인합니다.
 
@@ -113,10 +114,10 @@ ms.locfileid: "58203630"
                     ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
                     TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidateIssuer = false
+                        ValidateIssuer = false // This is a simplification
                     },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
@@ -140,6 +141,9 @@ ms.locfileid: "58203630"
         }
     }
     ```
+
+> [!NOTE]
+> 이 빠른 시작을 위해 `ValidateIssuer = false` 설정이 단순화되었습니다. 실제 애플리케이션에서 발급자의 유효성을 검사해야 합니다. 수행 방법을 이해하려면 샘플을 참조하세요.
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>추가 정보

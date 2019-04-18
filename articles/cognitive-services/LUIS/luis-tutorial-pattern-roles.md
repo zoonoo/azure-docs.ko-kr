@@ -1,7 +1,7 @@
 ---
 title: 패턴 역할
 titleSuffix: Azure Cognitive Services
-description: 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.
+description: 패턴은 적절한 형식의 템플릿 발언에서 데이터를 추출합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106596"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523277"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>자습서: 역할을 사용하여 컨텍스트 관련 패턴 추출
 
-이 자습서에서는 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.  패턴을 사용할 경우 의도에 더 적은 수의 예제 발언이 필요합니다.
+이 자습서에서는 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 [간단한 엔터티](luis-concept-entity-types.md#simple-entity)와 [역할](luis-concept-roles.md)을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.  패턴을 사용할 경우 의도에 더 적은 수의 예제 발언이 필요합니다.
 
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
@@ -373,19 +373,6 @@ ms.locfileid: "58106596"
     ```
 
 이제 의도 점수는 훨씬 더 높고 역할 이름은 엔터티 응답의 일부입니다.
-
-## <a name="hierarchical-entities-versus-roles"></a>계층 구조 엔터티와 역할의 비교
-
-[계층 구조 자습서](luis-quickstart-intent-and-hier-entity.md)에서 **MoveEmployee** 의도는 기존 직원을 한 건물에서 다른 건물의 사무실로 이전할 시기를 감지했습니다. 예제 발언에는 출발지 및 목적지 위치가 있었지만 역할은 사용하지 않았습니다. 대신, 출발지 및 목적지는 계층 구조 엔터티의 자식이었습니다. 
-
-이 자습서에서 Human Resources 앱은 새 직원을 한 도시에서 다른 도시로 이전하는 것에 대한 발언을 검색합니다. 이러한 두 가지 유형의 발언은 동일하지만 다른 LUIS 기능을 사용하여 해결됩니다.
-
-|자습서|예제 발화|출발지 및 목적지 위치|
-|--|--|--|
-|[계층 구조(역할 없음)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|이 자습서(역할 있음)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-자세한 내용은 [역할 및 계층 구조 엔터티](luis-concept-roles.md#roles-versus-hierarchical-entities)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

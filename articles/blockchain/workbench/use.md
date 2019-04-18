@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 55207e1eb8fe1b88df7f9bfb84a1da505d0e0252
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332220"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578853"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 애플리케이션 사용
 
@@ -40,9 +40,9 @@ Blockchain Workbench를 사용하여 계약에서 만들고 작업을 수행할 
 
 Blockchain Workbench의 구성원으로 로그인해야 합니다. 나열된 애플리케이션이 없는 경우 Blockchain Workbench의 구성원이지만 모든 애플리케이션의 구성원은 아닙니다. Blockchain Workbench 관리자는 애플리케이션에 구성원을 할당할 수 있습니다.
 
-## <a name="create-new-contract"></a>새 계약 만들기 
+## <a name="create-new-contract"></a>새 계약 만들기
 
-새 계약을 만들려면 계약 **초기자**로 지정된 구성원여야 합니다. 계약에 대한 애플리케이션 역할 및 초기자 정의에 대한 내용은 [구성 개요의 워크플로](configuration.md#workflows)를 참조하세요. 애플리케이션 역할에 구성원 할당에 대한 내용은 [애플리케이션에 구성원 추가](manage-users.md#add-member-to-application)를 참조하세요.
+새 계약을 만들려면 계약 **초기자**로 지정된 멤버여야 합니다. 계약에 대한 애플리케이션 역할 및 초기자 정의에 대한 내용은 [구성 개요의 워크플로](configuration.md#workflows)를 참조하세요. 애플리케이션 역할에 구성원 할당에 대한 내용은 [애플리케이션에 구성원 추가](manage-users.md#add-member-to-application)를 참조하세요.
 
 1. Blockchain Workbench 애플리케이션 섹션에서 만들 계약이 포함된 애플리케이션 타일을 선택합니다. 활성 계약 목록이 표시됩니다.
 

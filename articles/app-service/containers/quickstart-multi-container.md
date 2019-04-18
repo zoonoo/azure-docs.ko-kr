@@ -1,7 +1,7 @@
 ---
 title: Docker Compose를 사용하여 다중 컨테이너 앱 만들기 - Azure App Service
 description: Azure Web App for Containers에서 몇 분 안에 첫 번째 다중 컨테이너 앱 배포
-keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, Kubernetes, WordPress, Azure DB for MySQL, 컨테이너를 포함한 프로덕션 데이터베이스
+keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, wordpress, azure db for mysql, 컨테이너를 포함한 프로덕션 데이터베이스
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316583"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546241"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Docker Compose 구성을 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 
-[Web App for Containers](app-service-linux-intro.md)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 빠른 시작은 Docker Compose 구성을 사용하여 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 Web App for Containers에 다중 컨테이너 앱을 배포하는 방법을 보여줍니다. MySQL용 Azure DB를 사용하는 Kubernetes 및 전체 종단 간 솔루션은 [다중 컨테이너 자습서](tutorial-multi-container-app.md)를 수행합니다.
+[Web App for Containers](app-service-linux-intro.md)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 빠른 시작은 Docker Compose 구성을 사용하여 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 Web App for Containers에 다중 컨테이너 앱을 배포하는 방법을 보여줍니다.
 
 Cloud Shell에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)(2.0.32 이상)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다. 
 
@@ -138,7 +138,10 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Web App for Containers에서 다중 컨테이너 WordPress 앱 만들기](tutorial-multi-container-app.md)
+> [자습서: 다중 컨테이너 WordPress 앱](tutorial-multi-container-app.md)
+
+> [!div class="nextstepaction"]
+> [사용자 지정 컨테이너 구성](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

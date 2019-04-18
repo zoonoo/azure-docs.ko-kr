@@ -3,18 +3,18 @@ title: 이 빠른 시작에서는 C와 함께 대칭 키를 사용하여 Azure I
 description: 이 빠른 시작에서는 C 디바이스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하는 시뮬레이션된 디바이스를 만듭니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/29/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6517f93035010be7fe8937c3ff34d54147f51e6f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 93fc426d9de027100e70502bcf6ea3aad2c44e10
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481742"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500212"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
 
@@ -46,23 +46,7 @@ ms.locfileid: "58481742"
 
 SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 디바이스는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
 
-1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다. 다운로드 한 버전에 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 암호화 해시 값은 이미 제공된 CMake 다운로드 링크에서도 찾을 수 있습니다.
-
-    다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.13.4 버전에 대한 암호화 해시를 확인했습니다.
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    작성 시 3.13.4 버전에 대한 다음 해시 값이 CMake 사이트에 나열됩니다.
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
     `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
 
@@ -71,7 +55,7 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    이 리포지토리 크기는 현재 약 220MB입니다. 이 작업을 완료하는 데 몇 분 정도가 걸립니다.
+    이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
 
 3. Git 리포지토리의 루트 디렉터리에서 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다. 

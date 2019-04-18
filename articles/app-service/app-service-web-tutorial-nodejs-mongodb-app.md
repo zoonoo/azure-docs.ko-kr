@@ -1,6 +1,6 @@
 ---
-title: MongoDB를 사용하여 Node.js 앱 빌드 - Azure App Service | Microsoft Docs
-description: Azure에서 작동하며 MongoDB 연결 문자열로 Cosmos 데이터베이스에 연결되는 Node.js 응용 프로그램을 만드는 방법을 알아봅니다.
+title: MongoDB를 사용하는 Node.js(MEAN.js) - Azure App Service | Microsoft Docs
+description: Azure에서 작동하며 MongoDB 연결 문자열로 Cosmos 데이터베이스에 연결되는 Node.js 응용 프로그램을 만드는 방법을 알아봅니다. MEAN.js는 자습서에서 사용됩니다.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f123a443d9a00aa7f1b35bd8ed540f90d66de97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891827"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548128"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>자습서: Azure에서 Node.js 및 MongoDB 앱 빌드
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278108"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>자습서: Tableau Online과 Azure Active Directory 통합
 
@@ -105,9 +105,9 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     ![Tableau Online 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. **로그온 URL** 텍스트 상자에 `https://sso.online.tableau.com/public/sp/login?alias=<entityid>` URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 URL을 입력합니다. `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. **식별자(엔터티 ID)** 텍스트 상자에 `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>` URL을 입력합니다.
 
     > [!NOTE]
     > 이 자습서의 **Tableau Online 설정** 섹션에서 `<entityid>` 값을 얻을 것입니다. 엔터티 ID 값은 **Tableau Online 설정** 섹션의 **Azure AD 식별자** 값이 됩니다.
@@ -144,7 +144,7 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
   
     a. Azure Portal에서 **Tableau Online** 애플리케이션 통합 페이지로 이동합니다.
 
-    b. **사용자 특성 및 클레임**** 섹션에서 편집 아이콘을 클릭합니다.
+    b. **사용자 특성 및 클레임** 섹션에서 편집 아이콘을 클릭합니다.
 
    ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,9 +189,9 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    예: BrittaSimon\@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -245,6 +245,6 @@ Tableau Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

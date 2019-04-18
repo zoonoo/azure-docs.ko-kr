@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260848"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549391"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -129,7 +129,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
     });
     ```
 
-   이 세그먼트는 Azure Maps 계정 키에 대한 맵 컨트롤 API를 초기화합니다. `atlas` 는 API 및 관련 시각적 구성 요소가 포함된 네임스페이스입니다. `atlas.Map` 은 시각적 및 대화형 웹 지도에 대한 컨트롤을 제공합니다.
+   이 세그먼트는 Azure Maps 계정 키에 대한 맵 컨트롤 API를 초기화합니다. `atlas`는 API 및 관련 시각적 구성 요소가 포함된 네임스페이스입니다. `atlas.Map`은 시각적 및 대화형 웹 지도에 대한 컨트롤을 제공합니다.
 
 4. 변경 내용을 파일에 저장하고 브라우저에서 해당 HTML 페이지를 엽니다. 이것은 계정 키를 사용하고 `atlas.Map`을 호출하여 만들 수 있는 가장 기본적인 지도입니다.
 
@@ -280,11 +280,11 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 > * 맵 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * 주변 관심 지점을 찾기 위해 Search Service 사용
 
-이 자습서에서 사용할 코드 샘플에 액세스하려면 다음을 참조하세요.
+> [!div class="nextstepaction"]
+> [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-> [Azure Maps를 사용하여 위치 검색](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[여기에서 샘플 살펴보기](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [!div class="nextstepaction"]
+> [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 다음 자습서에서는 두 위치 사이의 경로를 표시하는 방법을 보여 줍니다.
 

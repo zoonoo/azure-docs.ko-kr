@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 82836c7686d9b0f376268ef7919a188a8f78944e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548782"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579124"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>컨테이너가 Azure Virtual Network 기능을 사용하도록 설정
 
@@ -60,8 +60,8 @@ Pod가 인터넷에 액세스할 수 있도록, 플러그인은 Pod의 인터넷
 플러그인은 Pod 또는 Docker 컨테이너에 대한 기본 가상 네트워크 연결을 제공하기 위해 다음과 같은 방식으로 사용될 수 있습니다.
 
 - **Azure Kubernetes Service**: 이 플러그 인은 AKS(Azure Kubernetes Service)에 통합되어 있으며 *고급 네트워킹* 옵션을 선택하여 사용할 수 있습니다. 고급 네트워킹을 사용하면 기존 또는 새로운 가상 네트워크에 Kubernetes 클러스터를 배포할 수 있습니다. 고급 네트워킹 및 설정 단계에 대한 자세한 내용은 [AKS의 네트워크 구성](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하십시오.
-- **ACS 엔진**: ACS 엔진은 Azure에서 Kubernetes 클러스터 배포를 위한 Azure Resource Manager 템플릿을 생성하는 도구입니다. 자세한 지침은 [ACS 엔진 Kubernetes 클러스터용 플러그 인 배포](deploy-container-networking.md#deploy-plug-in-for-acs-engine-kubernetes-cluster)를 참조하세요.
-- **Azure에서 사용자 고유의 Kubernetes 클러스터 만들기**: 이 플러그 인은 AKS 또는 ACS 엔진과 같은 도구에 의존하지 않고 직접 배포하는 Kubernetes 클러스터의 Pod에 대한 기본 네트워킹을 제공하는 데 사용할 수 있습니다. 이 경우 플러그 인은 클러스터의 모든 가상 머신에 설치되어 사용이 가능하게 됩니다. 자세한 지침은 [직접 배포하는 Kubernetes 클러스터를 위한 플러그 인 배포](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster)를 참조하세요.
+- **AKS 엔진**: AKS 엔진은 Azure에서 Kubernetes 클러스터 배포를 위한 Azure Resource Manager 템플릿을 생성하는 도구입니다. 자세한 지침은 [AKS 엔진 Kubernetes 클러스터용 플러그 인 배포](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in)를 참조하세요.
+- **Azure에서 사용자 고유의 Kubernetes 클러스터 만들기**: 이 플러그 인은 AKS 또는 AKS 엔진과 같은 도구를 사용하지 않고 직접 배포하는 Kubernetes 클러스터의 Pod에 대한 기본 네트워킹을 제공하는 데 사용할 수 있습니다. 이 경우 플러그 인은 클러스터의 모든 가상 머신에 설치되어 사용이 가능하게 됩니다. 자세한 지침은 [직접 배포하는 Kubernetes 클러스터를 위한 플러그 인 배포](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster)를 참조하세요.
 - **Azure에서 Docker 컨테이너에 대한 가상 네트워크 연결**: 이 플러그 인은 Kubernetes 클러스터를 만들지 않고 가상 머신에 가상 네트워크가 연결된 Docker 컨테이너를 만들려는 경우에 사용할 수 있습니다. 자세한 지침은 [Docker용 플러그 인 배포](deploy-container-networking.md#deploy-plug-in-for-docker-containers)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

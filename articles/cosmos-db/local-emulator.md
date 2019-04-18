@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470919"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525425"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -179,9 +179,9 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### <a name="gremlin-api"></a>Gremlin API
 
-“/EnableGremlinEndpoint”를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수를 설정할 수도 있습니다. `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+“/EnableGremlinEndpoint”를 사용하여 관리자 명령 프롬프트에서 에뮬레이터를 시작합니다. 또는 환경 변수 `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`를 설정할 수도 있습니다.
 
-* [apache-tinkerpop-gremlin-console-3.3.4 설치](http://tinkerpop.apache.org/downloads.html)
+* [Install apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
 
 * 에뮬레이터의 Data Explorer에서 "db1" 데이터베이스와 "coll1" 컬렉션을 생성합니다. 파티션 키의 경우 "/name"을 선택합니다.
 
@@ -252,7 +252,7 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 | GremlinPort | Gremlin 엔드포인트에 사용할 포트 번호입니다. 기본값은 8901입니다. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<포트\>: 단일 포트 번호 |
 |TablePort | Azure 테이블 엔드포인트에 사용할 포트 번호입니다. 기본값은 8902입니다. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<포트\>: 단일 포트 번호|
 | KeyFile | 지정된 파일에서 권한 부여 키를 읽어옵니다. keyfile을 생성하려면 /GenKeyFile 옵션을 사용합니다. | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: 파일의 경로 |
-| ResetDataPath | 지정된 경로에 있는 모든 파일을 재귀적으로 제거합니다. 경로를 지정하지 않으면 기본값은 %LOCALAPPDATA%\CosmosDbEmulator입니다. | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: 파일 경로  |
+| ResetDataPath | 지정된 경로에 있는 모든 파일을 재귀적으로 제거합니다. 경로를 지정하지 않으면 기본값은 %LOCALAPPDATA%\CosmosDbEmulator입니다. | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: 파일 경로  |
 | StartTraces  |  디버그 추적 로그 수집을 시작합니다. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | 디버그 추적 로그 수집을 중지합니다. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Azure Table API를 사용하도록 설정 | CosmosDB.Emulator.exe /EnableTableEndpoint | |
@@ -313,7 +313,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 `Get-CosmosDbEmulatorStatus`
 
-**설명**
+**주의**
 
 ServiceControllerStatus 값 ServiceControllerStatus.StartPending, ServiceControllerStatus.Running 또는 ServiceControllerStatus.Stopped 중에서 하나를 반환합니다.
 
@@ -323,7 +323,7 @@ ServiceControllerStatus 값 ServiceControllerStatus.StartPending, ServiceControl
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
-**설명**
+**주의**
 
 에뮬레이터를 시작합니다. 기본적으로 이 명령은 에뮬레이터가 요청을 수락할 준비가 될 때까지 대기합니다. 에뮬레이터가 시작하자 마자 cmdlet을 반환하고자 하는 경우 -NoWait 옵션을 사용하십시오.
 
@@ -333,7 +333,7 @@ ServiceControllerStatus 값 ServiceControllerStatus.StartPending, ServiceControl
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
-**설명**
+**주의**
 
 에뮬레이터를 중지합니다. 기본적으로 이 명령은 에뮬레이터가 완전히 종료할 때까지 대기합니다. 에뮬레이터가 종료를 시작하자 마자 cmdlet을 반환하고자 하는 경우 -NoWait 옵션을 사용하십시오.
 
@@ -343,7 +343,7 @@ ServiceControllerStatus 값 ServiceControllerStatus.StartPending, ServiceControl
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
-**설명**
+**주의**
 
 에뮬레이터를 제거하고 $env:LOCALAPPDATA\CosmosDbEmulator의 전체 콘텐츠를 선택적으로 제거합니다.
 Cmdlet는 에뮬레이터가 제거되기 전에 중지되도록 합니다.
@@ -439,7 +439,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 디버깅 추적을 수집하려면 관리 명령 프롬프트에서 다음 명령을 실행합니다.
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`. 프로그램이 종료되었는지 시스템 트레이를 확인합니다. 프로그램 종료에 1분 정도 걸릴 수 있습니다. Azure Cosmos Emulator 사용자 인터페이스에서 **종료**를 클릭해도 됩니다.
+2. `CosmosDB.Emulator.exe /shutdown` 프로그램이 종료되었는지 시스템 트레이를 확인합니다. 프로그램 종료에 1분 정도 걸릴 수 있습니다. Azure Cosmos Emulator 사용자 인터페이스에서 **종료**를 클릭해도 됩니다.
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 문제를 재현합니다. 데이터 탐색기가 작동하지 않는 경우 브라우저가 몇 초 간 열리고 오류를 catch할 때까지 기다리면 됩니다.

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f45f1831572387aa6997700432a7fe156d9b6a92
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 54602425ae6e1ff65a8445355af2eca09d495b05
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495448"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548681"
 ---
 # <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Node.js 앱 만들기
 
@@ -176,7 +176,7 @@ az webapp up -n <app_name>
 
 ![Azure Portal의 App Service 페이지](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다.
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -191,4 +191,7 @@ az group delete --name appsvc_rg_Linux_CentralUS
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [MongoDB를 사용하는 Node.js](tutorial-nodejs-mongodb-app.md)
+> [자습서: MongoDB를 사용하는 Node.js 앱](tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Node.js 앱 구성](configure-language-nodejs.md)

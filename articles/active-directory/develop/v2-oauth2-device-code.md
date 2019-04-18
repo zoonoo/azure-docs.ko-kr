@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 14291a6e8f9c4cde3c8777969047ebaa77e42b59
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500450"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 장치 코드 흐름
@@ -101,7 +101,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 | 매개 변수 | 필수 | 설명|
 | -------- | -------- | ---------- |
-| `grant_type` | 필수 | 여야 합니다. `urn:ietf:params:oauth:grant-type:device_code`|
+| `grant_type` | 필수 | `urn:ietf:params:oauth:grant-type:device_code`이어야 합니다.|
 | `client_id`  | 필수 | 초기 요청에 사용된 `client_id`과(와) 일치해야 합니다. |
 | `device_code`| 필수 | 디바이스 권한 요청에서 반환된 `device_code`입니다.  |
 

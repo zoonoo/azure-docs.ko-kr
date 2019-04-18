@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 58b0039980f448c9bd953e9d59289c511ce95517
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663029"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543760"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>자습서: Azure Resource Manager 템플릿을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -54,7 +54,7 @@ Azure RM(Resource Manager) 템플릿을 사용하여 모든 리소스를 만들�
 
 **location**: 이 필드는 배포할 Azure 영역(예: "westus")입니다.
 
-**consumer_group**: 이 필드는 라우팅 엔드포인트를 통해 들어오는 메시지에 대해 설정된 소비자 그룹입니다. Azure Steam Analytics에서 결과를 필터링하는 데 사용됩니다. 예를 들어, 모든 것을 가져올 수 있는 전체 스트림이 있거나 consumer_group을 **Contoso**로 설정하여 데이터를 가져오는 경우에는, 해당 항목만 표시하도록 Azure Stream Analytics 스트림(및 Power BI 보고서)를 설정할 수 있습니다. 이 필드는 이 자습서의 2부에서 사용됩니다.
+**consumer_group**: 이 필드는 라우팅 엔드포인트를 통해 들어오는 메시지에 대해 설정된 소비자 그룹입니다. Azure Stream Analytics에서 결과를 필터링하는 데 사용됩니다. 예를 들어, 모든 것을 가져올 수 있는 전체 스트림이 있거나 consumer_group을 **Contoso**로 설정하여 데이터를 가져오는 경우에는, 해당 항목만 표시하도록 Azure Stream Analytics 스트림(및 Power BI 보고서)를 설정할 수 있습니다. 이 필드는 이 자습서의 2부에서 사용됩니다.
 
 **sku_name**: 이 필드는 IoT Hub에 대한 확장입니다. 이 필드는 S1 이상이어야 합니다. 무료 계층에서는 여러 엔드포인트가 허용되지 않기 때문에 이 자습서에 대해 작동하지 않습니다.
 

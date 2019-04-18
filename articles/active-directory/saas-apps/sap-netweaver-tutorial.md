@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855642"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>자습서: SAP NetWeaver와 Azure Active Directory 통합
 
@@ -135,7 +135,7 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 6. **공급자 이름**을 T01122에서 `http://T01122`로 바꾸고 **저장**을 클릭합니다.
 
     > [!NOTE]
-    > 기본적으로 공급자 이름은 <sid><client> 형식이지만 Azure AD는 <protocol>://<name>의 형식으로 이름을 예상합니다. 공급자 이름을 https://<sid><client>로 유지하기 위해 Azure AD에서 여러 SAP NetWeaver ABAP 엔진을 구성하도록 허용하는 것이 좋습니다.
+    > 기본적으로 공급자 이름은 `<sid><client>` 형식이지만 Azure AD는 `<protocol>://<name>`의 형식으로 이름을 예상합니다. 공급자 이름을 `https://<sid><client>`로 유지하기 위해 Azure AD에서 여러 SAP NetWeaver ABAP 엔진을 구성하도록 허용하는 것이 좋습니다.
 
     ![인증서 다운로드 링크](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 

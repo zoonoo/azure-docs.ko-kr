@@ -4,8 +4,8 @@ description: Linux의 App Service로 Ruby on Rails 앱을 만드는 방법을 �
 keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: cfowler
+author: cephalin
+manager: jeconnoc
 editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2019
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c5858aaf09cd832a5d60d32bb33aeeb51795b406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29126171a2d808153c7578d911e0725641ec39ff
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870438"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545148"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby on Rails 앱 만들기
 
 [Linux의 Azure App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 [Ruby on Rails](https://rubyonrails.org/) 애플리케이션을 만든 다음, Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra와 같은 다른 플랫폼을 사용하려는 경우 또는 [지원되지 않는 Ruby 버전](app-service-linux-intro.md)을 사용하려는 경우 [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/)의 빠른 시작을 참조하세요.
+> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra와 같은 다른 플랫폼을 사용하거나 [지원되지 않는 Ruby 버전](app-service-linux-intro.md)을 사용하려면 [사용자 지정 컨테이너에서 실행](quickstart-docker-go.md)을 참조하세요.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -139,4 +139,7 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Postgres과 Ruby on Rails](tutorial-ruby-postgres-app.md)
+> [자습서: Postgres과 Ruby on Rails](tutorial-ruby-postgres-app.md)
+
+> [!div class="nextstepaction"]
+> [Ruby 앱 구성](configure-language-ruby.md)

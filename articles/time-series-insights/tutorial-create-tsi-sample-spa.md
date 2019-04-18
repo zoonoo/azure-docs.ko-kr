@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312209"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521436"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -179,7 +179,7 @@ ms.locfileid: "58312209"
 오류 코드/조건 | 설명
 ---------------------| -----------
 *AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 "회신 URL" 속성이 없습니다. Azure AD 애플리케이션 등록의 **설정** / **회신 URL** 페이지로 이동합니다. [Azure AD에 애플리케이션 등록](#register-the-application-with-azure-ad)의 3단계에서 지정한 **로그온** URL이 있는지 확인합니다. 
-*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL('<Application ID GUID>')과 일치하지 않습니다.* | [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 4.b 단계에서 지정한 `postLogoutRedirectUri`는 Azure AD 애플리케이션 등록의 **설정** / **회신 URL** 속성에서 지정한 값과 일치해야 합니다. 또한 `https`를 사용하도록 **대상 URL**을 변경해야 합니다. 자세한 단계는 [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 5.e를 참조하세요.
+*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL과 일치하지 않습니다. '\<애플리케이션 ID GUID>'.* | [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 4.b 단계에서 지정한 `postLogoutRedirectUri`는 Azure AD 애플리케이션 등록의 **설정** / **회신 URL** 속성에서 지정한 값과 일치해야 합니다. 또한 `https`를 사용하도록 **대상 URL**을 변경해야 합니다. 자세한 단계는 [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 5.e를 참조하세요.
 웹 애플리케이션이 로드되지만, 흰색 배경에 스타일 없이 텍스트로만 구성된 로그인 페이지가 표시됩니다. | [웹 애플리케이션 빌드 및 게시](#build-and-publish-the-web-application)의 4.a 단계에서 설명한 경로가 올바른지 확인합니다. 웹 애플리케이션이 .css 파일을 찾을 수 없는 경우 페이지 스타일이 올바르게 지정되지 않습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

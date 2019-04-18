@@ -3,19 +3,19 @@ title: 이 빠른 시작에서는 Node.js를 사용하여 Azure Device Provision
 description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 Node.js 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/21/2017
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3459814108450e3c8faead6ab373ce62b951885e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a861bc52734f5b2bc6e455965428328cd1415b76
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095802"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500671"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -50,7 +50,7 @@ ms.locfileid: "55095802"
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   이 리포지토리 크기는 현재 약 220MB입니다. 이 작업을 완료하는 데 몇 분 정도가 걸립니다.
+   이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
    테스트 도구는 복제한 리포지토리의 *azure-iot-sdk-c/tools/CACertificates*에 있습니다.    
 

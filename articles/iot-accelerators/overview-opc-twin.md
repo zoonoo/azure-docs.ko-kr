@@ -1,5 +1,5 @@
 ---
-title: Azure IoT OPC UA 디바이스 관리란? | Microsoft Docs
+title: OPC 쌍이란? - Azure | Microsoft Docs
 description: OPC 쌍 개요
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759749"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496815"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>Azure IoT OPC(Open Platform Communications) 디바이스 관리란?
-Azure IoT OPC UA 디바이스 관리(OPC 쌍이라고도 함)는 Azure IoT Edge 및 IoT Hub를 사용하여 클라우드 및 팩터리 네트워크를 연결하는 마이크로서비스로 이루어져 있습니다. OPC 쌍은 REST API를 통한 산업용 디바이스의 검색, 등록 및 원격 제어를 제공합니다. OPC 쌍은 OPC UA(OPC 통합 아키텍처) SDK가 필요하지 않고, 프로그래밍 언어 중립적이며, 서버리스 워크플로에 포함될 수 있습니다. 이 문서에서는 몇 가지 OPC 쌍 사용 사례를 설명합니다.
+
+OPC 쌍은 Azure IoT Edge 및 IoT Hub를 사용하여 클라우드와 팩터리 네트워크를 연결하는 마이크로서비스로 구성되어 있습니다. OPC 쌍은 REST API를 통한 산업용 디바이스의 검색, 등록 및 원격 제어를 제공합니다. OPC 쌍은 OPC UA(OPC 통합 아키텍처) SDK가 필요하지 않고, 프로그래밍 언어 중립적이며, 서버리스 워크플로에 포함될 수 있습니다. 이 문서에서는 몇 가지 OPC 쌍 사용 사례를 설명합니다.
 
 ## <a name="discovery-and-control"></a>검색 및 제어
 간단한 검색 및 등록에 OPC 쌍을 사용할 수 있습니다.

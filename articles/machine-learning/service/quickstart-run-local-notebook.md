@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281134"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549138"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
@@ -33,7 +33,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 * Azure Machine Learning SDK가 설치된 Python 3.6 Notebook 서버
 * Azure Machine Learning Service 작업 영역
-* 작업 영역 구성 파일(**aml_config/config.json**).
+* 작업 영역 구성 파일(**.azureml/config.json**).
 
 [Azure Machine Learning Service 작업 영역 만들기](setup-create-workspace.md#portal)에서 이러한 모든 필수 구성 요소를 가져옵니다.
 
@@ -74,6 +74,6 @@ print(run.get_portal_url())
 이 문서에서는 모델을 실험하고 배포하는 데 필요한 리소스를 만들었습니다. 또한 노트북에서 코드를 실행하고 클라우드의 작업 영역에서 코드의 실행 기록을 살펴보았습니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
+> [자습서: 이미지 분류 모델 학습시키기](tutorial-train-models-with-aml.md)
 
 [GitHub에서 더 많은 고급 예제](https://aka.ms/aml-notebooks)를 살펴보거나 [SDK 사용자 가이드](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 볼 수도 있습니다.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ee8c94b216b9e4e0699e70819e3eb775d62234
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283874"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>자습서: RStudio Connect와 Azure Active Directory 통합
 
@@ -108,9 +108,9 @@ RStudio Connect에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![RStudio Connect 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://connect.<example>.com/__login__/saml`
+    a. **식별자** 텍스트 상자에서 `https://connect.<example>.com/__login__/saml` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://connect.<example>.com/__login__/saml/acs`
+    b. **회신 URL** 텍스트 상자에서 `https://connect.<example>.com/__login__/saml/acs` 패턴을 사용하여 URL을 입력합니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -195,9 +195,9 @@ RStudio Connect에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

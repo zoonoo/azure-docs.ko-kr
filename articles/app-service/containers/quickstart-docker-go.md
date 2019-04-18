@@ -9,17 +9,17 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/17/2018
+ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3335163c15319e39858003032ae7113c9c26a3fd
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438583"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547307"
 ---
-# <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Web App for Containers에 Docker/Go 웹앱 배포
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Azure App Service에서 사용자 지정 Linux 컨테이너 실행
 
 [App Service Linux](app-service-linux-intro.md)는 .NET, PHP, Node.js 등과 같은 언어에 대한 지원을 통해 Linux에 미리 정의된 애플리케이션 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 애플리케이션 스택에 웹앱을 실행할 수도 있습니다. 이 빠른 시작에서는 웹앱을 만들고 Docker 허브에서 Go 이미지를 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
 
@@ -75,4 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용자 지정 Docker 이미지 사용](tutorial-custom-docker-image.md)
+> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [사용자 지정 컨테이너 구성](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [자습서: 다중 컨테이너 WordPress 앱](tutorial-multi-container-app.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: db01c2f51e9069e8fc9ee979eacf746bee8dbdd2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260921"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546274"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -283,16 +283,16 @@ ms.locfileid: "59260921"
 > * 여행 모드를 선언하는 경로 쿼리 만들기
 > * 지도에 여러 경로 표시
 
-이 자습서에서 사용할 코드 샘플에 액세스하려면 다음을 참조하세요.
+> [!div class="nextstepaction"]
+> [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-> [Azure Maps를 사용하여 여러 경로 찾기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
-
-[여기에서 샘플 살펴보기](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+> [!div class="nextstepaction"]
+> [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 다음 자습서에서는 Azure Maps를 사용하여 간단한 저장소 로케이터를 만드는 과정을 보여 줍니다.
 
 > [!div class="nextstepaction"]
-> [Azure Maps를 사용하여 스토어 로케이터 만들기](./tutorial-create-store-locator.md)
+> [Azure Maps를 사용하여 저장소 로케이터 만들기](./tutorial-create-store-locator.md)
 
 > [!div class="nextstepaction"]
 > [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)

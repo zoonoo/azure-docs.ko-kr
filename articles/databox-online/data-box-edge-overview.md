@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 04/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521774"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544571"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge란? 
 
@@ -77,7 +77,7 @@ Data Box Edge 솔루션은 Data Box Edge 리소스, Data Box Edge 물리적 디�
 
     자세한 내용은 [Data Box Edge 서비스를 사용하여 Data Box Edge 디바이스 관리](https://aka.ms/dbe-docs)로 이동하세요.
 
-* **Data Box 로컬 웹 UI** - 로컬 웹 UI를 사용하여 진단을 실행하고, Data Box Edge 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 연락을 합니다.
+* **Data Box 로컬 웹 UI** - 로컬 웹 UI를 사용하여 진단을 실행하고, Data Box Edge 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 문의하세요.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
@@ -93,7 +93,7 @@ Data Box Edge 솔루션은 Data Box Edge 리소스, Data Box Edge 물리적 디�
     - **유럽 연합** - 유럽 서부
     - **아시아 태평양** - 동남 아시아
     
-    Data Box Gateway는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
+    Data Box Edge는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
     
 - **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 모든 Azure 지역에서 사용할 수 있습니다. 
 

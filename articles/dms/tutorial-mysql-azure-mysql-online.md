@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 0aaa88e1ebe1c8cefadbe55a8348d730ae04bb56
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/16/2019
+ms.openlocfilehash: b39ce138677fc8933b62bd999f20abc21c0ae690
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883059"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617957"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 마이그레이션할 수 있습니다. 즉 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 MySQL 5.7의 온-프레미스 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
@@ -120,6 +120,9 @@ SET group_concat_max_len = 8192;
  ```
         
 외래 키를 삭제하려면 쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
+
+> [!IMPORTANT]
+> 또한 마이그레이션 실패를 방지하기 위해 스키마에서 모든 DEFINER 문을 제거해야 합니다.
 
 데이터에 트리거가 있으면(트리거 삽입 또는 업데이트) 원본의 복제된 데이터보다 먼저 대상에 데이터 무결성을 적용합니다. 마이그레이션 중에 대상의 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270806"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545300"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -105,7 +105,7 @@ ms.locfileid: "59270806"
 <br/>
 <center>
 
-![탭으로 구분된 데이터 세트를 보여주는 메모장 파일 스크린샷](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+![탭으로 구분된 데이터 세트를 보여 주는 메모장 파일 스크린샷](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>프로젝트 설정
@@ -569,7 +569,7 @@ ms.locfileid: "59270806"
         },
 
         textOptions: {
-            textField: '{point_count_abbreviated}',
+            textField: ['get', 'point_count_abbreviated'],
             size: 12,
             font: ['StandardFont-Bold'],
             offset: [0, 0.4],
@@ -955,11 +955,11 @@ ms.locfileid: "59270806"
 > * 매장 로케이터를 [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)으로 배포합니다. 
 > * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)를 참조하세요.
 
-이 자습서에서 사용할 코드 샘플에 액세스하려면 다음을 참조하세요.
+> [!div class="nextstepaction"]
+> [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-> [Azure Maps를 사용하여 매장 로케이터 만들기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-[여기서 실제 샘플 살펴보기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [!div class="nextstepaction"]
+> [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Azure Maps의 적용 범위 및 기능에 대해 자세히 알아보려면 다음을 참조하세요.
 

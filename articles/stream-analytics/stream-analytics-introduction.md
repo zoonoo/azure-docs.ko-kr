@@ -1,21 +1,19 @@
 ---
 title: Azure Stream Analytics의 개요
 description: IoT(사물 인터넷)의 스트리밍 데이터를 실시간으로 분석하도록 도와주는 관리 서비스인 Stream Analytics에 대해 알아봅니다.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
-ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: f0104bdc4b5ea5c5c6333e12b95defafb34665b3
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 09f402f81700b53eb9e4a95e36545ef02850660a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295507"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524483"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
@@ -51,9 +49,9 @@ Azure Stream Analytics는 사용하기 쉽고 유연하며 안정적이고 작�
 
 ## <a name="ease-of-getting-started"></a>시작의 용이성
 
-Azure Stream Analytics는 시작하기 쉽습니다. 몇 번의 클릭으로 여러 원본 및 싱크에 연결하고 종단 간 파이프라인을 만듭니다. Stream Analytics는 스트리밍 데이터 수집을 위해 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)에 연결할 수 있습니다. 기록 데이터를 수집하는 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/storage-introduction) 서비스에 연결할 수도 있습니다. 이벤트 허브의 데이터를 다른 데이터 원본 및 처리 엔진과 결합할 수 있습니다. 작업 입력은 정적이거나 느리게 변하는 데이터인 참조 데이터를 포함할 수도 있으며 조회 작업을 수행하기 위해 이 참조 데이터에 스트리밍 데이터를 조인할 수 있습니다.
+Azure Stream Analytics는 시작하기 쉽습니다. 몇 번의 클릭으로 여러 원본 및 싱크에 연결하고 종단 간 파이프라인을 만듭니다. Stream Analytics는 스트리밍 데이터 수집을 위해 [Azure Event Hubs](/azure/event-hubs/), [Azure IoT Hub](/azure/iot-hub/)에 연결할 수 있습니다. 기록 데이터를 수집하는 [Azure Blob Storage](/azure/storage/storage-introduction) 서비스에 연결할 수도 있습니다. 이벤트 허브의 데이터를 다른 데이터 원본 및 처리 엔진과 결합할 수 있습니다. 작업 입력은 정적이거나 느리게 변하는 데이터인 참조 데이터를 포함할 수도 있으며 조회 작업을 수행하기 위해 이 참조 데이터에 스트리밍 데이터를 조인할 수 있습니다.
 
-Stream Analytics는 [Azure Blob](https://docs.microsoft.com/azure/storage/storage-introduction), [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/) 또는 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)와 같은 많은 저장소 시스템에 작업 출력을 라우팅할 수 있습니다. 저장한 후 Azure HDInsight를 사용하여 일괄 처리 분석을 실행하거나 소비를 위해 이벤트 허브와 같은 다른 서비스 또는 Power Bi 스트리밍 API를 사용하여 실시간 시각화를 위해 [Power BI](https://docs.microsoft.com/power-bi/)에 출력을 전송할 수 있습니다.
+Stream Analytics는 [Azure Blob](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) 또는 [Azure Cosmos DB](/azure/cosmos-db/introduction)와 같은 많은 저장소 시스템에 작업 출력을 라우팅할 수 있습니다. 저장한 후 Azure HDInsight를 사용하여 일괄 처리 분석을 실행하거나 소비를 위해 이벤트 허브와 같은 다른 서비스 또는 Power Bi 스트리밍 API를 사용하여 실시간 시각화를 위해 [Power BI](https://docs.microsoft.com/power-bi/)에 출력을 전송할 수 있습니다.
 
 ## <a name="programmer-productivity"></a>프로그래머 생산성
 
@@ -79,7 +77,8 @@ Azure Stream Analytics는 클라우드와 인텔리전트 에지에서 동일한
 ## <a name="mission-critical-ready"></a>중요 업무에 적합
 Azure Stream Analytics는 전세계 여러 지역에서 사용할 수 있으며 안정성, 보안 및 규정 준수 요구 사항을 지원하여 중요 업무용 워크로드를 실행하도록 설계되었습니다.
 ### <a name="reliability"></a>안정성
-Azure Stream Analytics는 이벤트를 정확히 한 번 처리하고 이벤트를 한 번만 전달하기 때문에 이벤트가 손실되지 않습니다. 정확히 한 번 처리는 [이벤트 전송 보장](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)에서 설명한 대로 선택한 출력을 사용하여 보장됩니다. Azure Stream Analytics에는 이벤트 전달이 실패할 경우를 대비하여 복구 기능이 내장되어 있습니다. 또한 Stream Analytics는 작업의 상태를 유지하는 기본 검사점과 반복 가능한 결과를 제공합니다.
+Azure Stream Analytics는 이벤트를 정확히 한 번 처리하고 이벤트를 한 번만 전달하기 때문에 이벤트가 손실되지 않습니다. 정확히 한 번 처리는 [이벤트 전송 보장](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)에서 설명한 대로 선택한 출력을 사용하여 보장됩니다.
+Azure Stream Analytics에는 이벤트 전달이 실패할 경우를 대비하여 복구 기능이 내장되어 있습니다. 또한 Stream Analytics는 작업의 상태를 유지하는 기본 검사점과 반복 가능한 결과를 제공합니다.
 
 관리형 서비스인 Stream Analytics는 분 수준에서 에서 99.9%의 가용성으로 이벤트 처리를 보장합니다. 자세한 내용은 [Stream Analytics SLA](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) 페이지를 참조하세요. 
 

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239298959efa5c17d2f3d0c0aa5c4c30853c076f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902038"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -57,7 +58,7 @@ Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관�
 
 **갤러리에서 Salesforce를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
@@ -65,13 +66,13 @@ Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관�
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위에 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Salesforce**를 입력하고 결과 패널에서 **Salesforce**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Salesforce**를 입력하고 결과 패널에서 **Salesforce**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Salesforce](common/search-new-app.png)
+    ![결과 목록의 Salesforce](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -206,10 +207,9 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. 예: BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -253,7 +253,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

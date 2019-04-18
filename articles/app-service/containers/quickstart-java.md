@@ -4,7 +4,7 @@ description: 이 빠른 시작에서는 몇 분 안에 Linux의 Azure App Servic
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 12/10/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af1256b4432e42f91209b622239ca55901929a1b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999108"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544741"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -99,17 +99,15 @@ mvn package azure-webapp:deploy
 
 **축하합니다.** Linux의 App Service에 첫 번째 Java 앱을 배포했습니다.
 
-
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Maven을 사용하여 Java 앱을 만들고, [Azure Web Apps용 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)을 구성한 다음, 웹 보관용으로 패키지된 Java 앱을 Linux의 App Service에 배포했습니다. Linux의 App Serivce에서 Java 애플리케이션을 호스트하는 방법에 대한 자세한 내용은 다음 자습서 및 방법 문서를 참조하세요.
+> [!div class="nextstepaction"]
+> [자습서: PostgreSQL을 사용한 Java Enterprise 앱](tutorial-java-enterprise-postgresql-app.md)
 
-- [자습서: PostgreSQL을 사용하여 Java Enterprise 앱 배포](tutorial-java-enterprise-postgresql-app.md)
-- [Tomcat 데이터 원본 구성](app-service-linux-java.md#tomcat)
-- [Jenkins를 사용하는 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)
-- [애플리케이션 성능 모니터링 도구 설정](how-to-java-apm-monitoring.md)
-- [Linux 기반의 App Service에 대한 Java 개발자 가이드](app-service-linux-java.md)
+> [!div class="nextstepaction"]
+> [Java 앱 구성](configure-custom-container.md)
 
+> [!div class="nextstepaction"]
+> [Jenkins를 사용하는 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)

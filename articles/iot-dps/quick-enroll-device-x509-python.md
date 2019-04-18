@@ -3,19 +3,19 @@ title: 이 빠른 시작에서는 Python을 사용하여 Azure Device Provisioni
 description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 Python을 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/25/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: aad21bd4003f789a0a315d6514bf428a4ef3f9f5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d9ed0cb82f8ad1c19f95299b3dd651fc099368b8
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187351"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500773"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>빠른 시작: Python을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -52,7 +52,7 @@ ms.locfileid: "53187351"
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   이 리포지토리 크기는 현재 약 220MB입니다. 이 작업을 완료하는 데 몇 분 정도가 걸립니다.
+   이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
    테스트 도구는 복제한 리포지토리의 *azure-iot-sdk-c/tools/CACertificates*에 있습니다.    
 

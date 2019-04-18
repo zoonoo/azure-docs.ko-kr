@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d372dfa845459a63de8ccc1b81e7b1319f47e34
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750922"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524376"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Linux 가상 머신의 웹 서버 보호
 웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -50,7 +50,7 @@ Key Vault 및 인증서를 만들려면 먼저 [az group create](/cli/azure/grou
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-다음으로 [az keyvault create](/cli/azure/keyvault)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 *<mykeyvault>* 를 사용자 고유의 Key Vault 이름으로 바꿉니다.
+다음으로 [az keyvault create](/cli/azure/keyvault)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 *\<mykeyvault>* 를 사용자 고유의 Key Vault 이름으로 바꿉니다.
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -137,7 +137,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>보안 웹앱 테스트
-이제 웹 브라우저를 열고 주소 표시줄에 *https://<publicIpAddress>* 를 입력할 수 있습니다. VM 만들기 프로세스에서 사용자 고유의 공용 IP 주소를 제공합니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 허용합니다.
+이제 웹 브라우저를 열고 주소 표시줄에 *https:\/\/\<publicIpAddress>* 를 입력합니다. VM 만들기 프로세스에서 사용자 고유의 공용 IP 주소를 제공합니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 허용합니다.
 
 ![웹 브라우저 보안 경고 허용](./media/tutorial-secure-web-server/browser-warning.png)
 

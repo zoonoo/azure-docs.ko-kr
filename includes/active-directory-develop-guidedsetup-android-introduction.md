@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 33e2ac136ae68ee0c0ce0109a6f6934727d3a6c5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e054456662af3ef9df0760af163ec5d09df18b21
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203704"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503071"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Android 앱에서 사용자 로그인 및 Microsoft Graph 호출
 
@@ -29,7 +29,7 @@ ms.locfileid: "58203704"
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
-![이 자습서 작동 하 여 샘플 앱을 생성 하는 방법을 보여 줍니다.](media/active-directory-develop-guidedsetup-android-intro/android-intro-updated.png)
+![이 자습서에서 생성된 샘플 앱의 작동 방식 표시](media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
 이 샘플의 앱에서는 사용자로 로그인하고 사용자를 대신하여 데이터를 가져옵니다.  이 데이터는 인증이 필요하며 Microsoft ID 플랫폼으로 보호되는 원격 API(이 경우 Microsoft Graph API)를 통해 액세스됩니다.
 

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994948"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523327"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Knowledge Exploration Service 시작
 
@@ -252,7 +252,7 @@ Azure 외부에서 `kes.exe`를 실행하는 경우 인덱스가 10,000개의 �
 
 라이브 트래픽이 이제 새로 배포된 서비스로 전송되도록 스테이징 슬롯의 콘텐츠를 프로덕션 슬롯과 [교환](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md)합니다. 새 데이터로 업데이트된 서비스 버전을 배포하는 경우 이 프로세스를 반복할 수 있습니다. 다른 모든 Azure 클라우드 서비스와 마찬가지로 Azure Portal을 선택적으로 사용하여 [자동 크기 조정](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md)을 구성할 수 있습니다.
 
-이 예제에서는 *<vm_size>* VM을 사용하여 기존 클라우드 서비스의 스테이징 슬롯에 *Academic* 인덱스를 배포합니다. 다음 명령을 사용합니다.
+이 예제에서는 *\<vm_size>* VM을 사용하여 기존 클라우드 서비스의 스테이징 슬롯에 *Academic* 인덱스를 배포합니다. 다음 명령을 사용합니다.
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

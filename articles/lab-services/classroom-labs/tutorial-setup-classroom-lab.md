@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 66293d6d6d0e15af7d879e6784d85f9e85457aad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649725"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544333"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -39,7 +39,7 @@ ms.locfileid: "58649725"
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
 
-1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. 
+1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
 2. **로그인**을 선택하고 자격 증명을 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
 3. **새 랩** 창에서 다음 작업을 수행합니다. 
     1. 랩에 대한 **이름**을 지정합니다. 

@@ -17,10 +17,10 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271818"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
@@ -43,7 +43,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 ### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Azure AD (공개 미리 보기)에서 앱 보호 기반 조건부 액세스 정책을 사용 하는 향상 된 보안
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
@@ -63,7 +63,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 ### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>새 Azure AD single sign-on 및 조건부 액세스 (공개 미리 보기)는 Microsoft Edge에서 지원
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
@@ -75,7 +75,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Id 경험 프레임 워크와 사용자 지정 정책을 Azure Active Directory B2C에서 지원 공급 (GA) 됩니다.
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C
 
@@ -99,7 +99,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2019"></a>있는 신규 페더레이션 앱에서 Azure AD 앱 갤러리-2019 년 3 월
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
 
@@ -113,7 +113,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 
 ### <a name="new-zscaler-and-atlassian-provisioning-connectors-in-the-azure-ad-gallery---march-2019"></a>Zscaler 새롭고 Atlassian 프로 비전 커넥터를 Azure AD 갤러리에서-2019 년 3 월
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** 타사 통합
 
@@ -127,7 +127,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 
 ### <a name="restore-and-manage-your-deleted-office-365-groups-in-the-azure-ad-portal"></a>복원 하 고 Azure AD 포털에서 삭제 된 Office 365 그룹 관리
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 그룹 관리  
 **제품 기능:** 공동 작업
 
@@ -139,7 +139,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 
 ### <a name="single-sign-on-is-now-available-for-azure-ad-saml-secured-on-premises-apps-through-application-proxy-public-preview"></a>Single sign on이 출시 되었으며 응용 프로그램 프록시 (공개 미리 보기)를 통해 Azure AD SAML로 보호 된 온-프레미스 앱
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 앱 프록시  
 **제품 기능:** Access Control
 
@@ -149,7 +149,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 
 ### <a name="client-apps-in-request-loops-will-be-interrupted-to-improve-reliability-and-user-experience"></a>클라이언트 앱 요청 루프에서 안정성 및 사용자 환경을 개선 하기 위해 중단 됩니다.
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
 
@@ -235,7 +235,7 @@ Exchange ActiveSync (EAS) 다음 조건을 평가 하는 방법을 업데이트 
 
 ### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>구성 가능한 Azure AD SAML 토큰 암호화(공개 미리 보기) 
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 
@@ -247,7 +247,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 ### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 그룹 또는 앱에 대한 액세스 검토 만들기
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 액세스 검토  
 **제품 기능:** 거버넌스
 
@@ -259,7 +259,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱 - 2019년 2월
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -315,7 +315,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 ### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Azure AD B2C에서 제공하는 특정 페이지 요소 버전 선택
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C
 
@@ -327,7 +327,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 ### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>B2C를 위한 구성 가능한 최종 사용자 암호 요구 사항(GA)
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C
 
@@ -339,7 +339,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 ### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>사용자 지정 브랜드 인증 환경을 위한 새로운 기본 템플릿
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C
 
@@ -353,7 +353,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 ### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>일회용 암호 인증을 사용하여 Active Directory B2B 공동 작업(공용 미리 보기)
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** B2B  
 **제품 기능:** B2B/B2C
 
@@ -363,17 +363,17 @@ Azure AD MSA(Microsoft 계정) 또는 Google 페더레이션 등의 다른 수�
 
 ### <a name="new-azure-ad-application-proxy-cookie-settings"></a>새 Azure AD 애플리케이션 프록시 쿠키 설정
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 앱 프록시  
 **제품 기능:** Access Control
 
 애플리케이션 프록시를 통해 게시되는 앱에 사용 가능한 새 쿠키 설정 3개가 도입되었습니다.
 
-- **HTTP 전용 쿠키를 사용 합니다.** 애플리케이션 프록시 액세스 및 세션 쿠키에 **HTTPOnly** 플래그를 설정합니다. 이 설정을 켜면 클라이언트 쪽 스크립팅을 통한 쿠키 복사나 수정을 방지할 수 있는 등 추가적인 보안 이점이 제공됩니다. 추가 이점을 활용하려면 **예**를 선택하여 이 플래그를 켜는 것이 좋습니다.
+- **HTTP 전용 쿠키 사용.** 애플리케이션 프록시 액세스 및 세션 쿠키에 **HTTPOnly** 플래그를 설정합니다. 이 설정을 켜면 클라이언트 쪽 스크립팅을 통한 쿠키 복사나 수정을 방지할 수 있는 등 추가적인 보안 이점이 제공됩니다. 추가 이점을 활용하려면 **예**를 선택하여 이 플래그를 켜는 것이 좋습니다.
 
-- **보안 쿠키를 사용 합니다.** 애플리케이션 프록시 액세스 및 세션 쿠키에 **Secure** 플래그를 설정합니다. 이 설정을 켜면 HTTPS 등의 TLS 보안 채널을 통해서만 쿠키가 전송되므로 추가적인 보안 이점이 제공됩니다. 추가 이점을 활용하려면 **예**를 선택하여 이 플래그를 켜는 것이 좋습니다.
+- **보안 쿠키 사용.** 애플리케이션 프록시 액세스 및 세션 쿠키에 **Secure** 플래그를 설정합니다. 이 설정을 켜면 HTTPS 등의 TLS 보안 채널을 통해서만 쿠키가 전송되므로 추가적인 보안 이점이 제공됩니다. 추가 이점을 활용하려면 **예**를 선택하여 이 플래그를 켜는 것이 좋습니다.
 
-- **영구 쿠키를 사용 합니다.** 웹 브라우저를 닫을 때 액세스 쿠키가 만료되지 않습니다. 이러한 쿠키는 액세스 토큰의 수명 동안 유지됩니다. 그러나 만료 시간이 되거나 사용자가 쿠키를 수동으로 삭제하면 쿠키가 재설정됩니다. 기본 설정인 **아니요**를 유지하고 프로세스 간에 쿠키를 공유하지 않는 구형 앱에서만 설정을 켜는 것이 좋습니다.
+- **영구적 쿠키 사용.** 웹 브라우저를 닫을 때 액세스 쿠키가 만료되지 않습니다. 이러한 쿠키는 액세스 토큰의 수명 동안 유지됩니다. 그러나 만료 시간이 되거나 사용자가 쿠키를 수동으로 삭제하면 쿠키가 재설정됩니다. 기본 설정인 **아니요**를 유지하고 프로세스 간에 쿠키를 공유하지 않는 구형 앱에서만 설정을 켜는 것이 좋습니다.
 
 새 쿠키에 대한 자세한 내용은 [Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)을 참조하세요.
 
@@ -381,7 +381,7 @@ Azure AD MSA(Microsoft 계정) 또는 Google 페더레이션 등의 다른 수�
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---january-2019"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새 페더레이션된 앱 - 2019년 1월
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -396,7 +396,7 @@ Azure AD MSA(Microsoft 계정) 또는 Google 페더레이션 등의 다른 수�
 ### <a name="new-azure-ad-identity-protection-enhancements-public-preview"></a>새로운 Azure AD ID 보호 향상 기능(공개 미리 보기)
 
 **유형:** 변경된 기능  
-**서비스 범주:** ID 보호  
+**서비스 범주:** Identity Protection  
 **제품 기능:** ID 보안 및 보호
 
 Azure AD ID 보호 공개 미리 보기 제품에는 다음과 같은 향상 기능이 추가되었습니다.
@@ -415,7 +415,7 @@ Azure AD ID 보호 공개 미리 보기 제품에는 다음과 같은 향상 기
 
 ### <a name="new-app-lock-feature-for-the-microsoft-authenticator-app-on-ios-and-android-devices"></a>iOS 및 Android 디바이스의 Microsoft Authenticator 앱용 신규 앱 잠금 기능
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** Microsoft Authenticator 앱  
 **제품 기능:** ID 보안 및 보호
 
@@ -427,9 +427,9 @@ Azure AD ID 보호 공개 미리 보기 제품에는 다음과 같은 향상 기
 
 ### <a name="enhanced-azure-ad-privileged-identity-management-pim-export-capabilities"></a>향상된 Azure AD PIM(Privileged Identity Management) 내보내기 기능
 
-**유형:** 새로운 기능  
-**서비스 범주:** Privileged Identity Management  
-**제품 기능:** Privileged Identity Management
+**유형:** 새 기능  
+**서비스 범주:** 권한 있는 ID 관리  
+**제품 기능:** 권한 있는 ID 관리
 
 이제 PIM(Privileged Identity Management) 관리자는 특정 리소스에 대한 모든 활성/적격 역할 할당(모든 자식 리소스에 대한 역할 할당 포함)을 내보낼 수 있습니다. 이전에는 관리자가 구독의 역할 할당 전체 목록을 가져오기가 어려웠으며, 각 특정 리소스의 역할 할당을 내보내야 했습니다.
 
@@ -456,11 +456,11 @@ AD DS(Active Directory Domain Services) 개체가 동기화 범위에서 제외�
 
 이렇게 수정하면 결과적으로 AD에서 동기화된 사용자의 ImmutableID 특성에 대한 직접 업데이트를 방지합니다. 이 작업은 과거의 일부 시나리오에 요구되었습니다. Azure AD에 있는 개체의 ImmutableID는 이름에서 알 수 있듯이 기본적으로 변경할 수 없습니다. Azure AD Connect Health 및 Azure AD Connect 동기화 클라이언트에서 구현된 새 기능은 다음과 같은 시나리오를 해결하기 위해 제공됩니다.
 
-- **준비 된 접근 방식에서는 여러 사용자에 대 한 대규모 ImmutableID 업데이트**
+- **많은 사용자에 대한 단계별 접근 방식의 대규모 ImmutableID 업데이트**
   
   예를 들어, 오랫동안 AD DS 포리스트 간 마이그레이션을 수행해야 합니다. 해결 방법: Azure AD Connect를 사용하여 **원본 앵커를 구성**하고 사용자가 마이그레이션한 대로 기존 ImmutableID 값을 Azure AD에서 새 포리스트에 있는 로컬 AD DS 사용자의 ms-DS-Consistency-Guid 특성으로 복사합니다. 자세한 내용은 [ms-DS-ConsistencyGuid를 sourceAnchor로 사용](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor)을 참조하세요.
 
-- **한 번에 많은 사용자에 대 한 대규모 ImmutableID 업데이트**
+- **많은 사용자에 대한 동시 대규모 ImmutableID 업데이트**
 
   예를 들어, Azure AD Connect를 구현하는 동안 실수가 있었기 때문에 이제 SourceAnchor 특성을 변경해야 합니다. 해결 방법: 테넌트 수준에서 DirSync를 사용하지 않도록 설정하고 잘못된 모든 ImmutableID 값을 지웁니다. 자세한 내용은 [Office 365에서 디렉터리 동기화 끄기](/office365/enterprise/turn-off-directory-synchronization)를 참조하세요.
 
@@ -503,7 +503,7 @@ AD DS(Active Directory Domain Services) 개체가 동기화 범위에서 제외�
 ### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>감독된 기계 학습 모델 및 위험 점수 엔진의 ID 보호 개선
 
 **유형:** 변경된 기능  
-**서비스 범주:** ID 보호  
+**서비스 범주:** Identity Protection  
 **제품 기능:** 위험 점수
 
 ID 보호 관련 사용자 및 로그인 위험 평가 엔진이 개선되어 사용자 위험 정확도 및 적용 범위를 향상하는 데 도움이 됩니다. 관리자는 사용자 위험 수준이 특정 검색의 위험 수준에 더 이상 직접 연결되지 않으며 위험한 로그인 이벤트 수와 수준이 증가함을 확인할 수도 있습니다.
@@ -536,9 +536,9 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>새 Azure AD 클라우드 디바이스 관리자 역할(공개 미리 보기)
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 디바이스 등록 및 관리  
-**제품 기능:** Access Control
+**제품 기능:** 액세스 제어
 
 관리자는 클라우드 디바이스 관리자 작업을 수행할 새 클라우드 디바이스 관리자 역할에 사용자를 할당할 수 있습니다. 클라우드 디바이스 관리자 역할이 할당된 사용자는 Azure AD에서 디바이스를 사용/사용하지 않도록 설정하고, 삭제하고, Azure Portal에서 Windows 10 BitLocker 키(있는 경우)를 읽을 수 있습니다.
 
@@ -548,7 +548,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Azure AD의 새 작업 타임스탬프(공개 미리 보기)를 사용하여 디바이스 관리
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 디바이스 등록 및 관리  
 **제품 기능:** 디바이스 수명 주기 관리
 
@@ -560,7 +560,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>관리자는 각 디바이스에서 사용 약관에 동의하도록 사용자에게 요구할 수 있습니다.
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
  
@@ -572,7 +572,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>관리자는 되풀이 일정에 따라 만료되도록 사용 약관을 구성할 수 있습니다.
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
  
@@ -585,7 +585,7 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>관리자는 각 사용자의 일정에 따라 만료되도록 사용 약관을 구성할 수 있습니다.
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 사용 약관  
 **제품 기능:** 거버넌스
 
@@ -597,9 +597,9 @@ Microsoft 인증자 앱을 사용하여 암호를 재설정하는 방법에 대�
 
 ### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Azure Active Directory 역할에 대한 새 Azure AD PIM(Privileged Identity Management) 메일
 
-**유형:** 새로운 기능  
-**서비스 범주:** Privileged Identity Management  
-**제품 기능:** Privileged Identity Management
+**유형:** 새 기능  
+**서비스 범주:** 권한 있는 ID 관리  
+**제품 기능:** 권한 있는 ID 관리
  
 Azure AD PIM(Privileged Identity Management)를 사용하는 고객은 이제 지난 7일간의 다음 정보를 포함하여 매주 요약 메일을 받을 수 있습니다.
 
@@ -631,7 +631,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 11월
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -647,7 +647,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD 로그는 이제 Azure Log Analytics(공개 미리 보기)에서 사용됩니다.
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
 
@@ -657,7 +657,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 10월
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -671,7 +671,7 @@ PIM 및 사용 가능한 메일 알림에 대한 자세한 내용은 [PIM의 메
 
 ### <a name="azure-ad-domain-services-email-notifications"></a>Azure AD Domain Services 이메일 알림
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** Azure AD Domain Services  
 **제품 기능:** Azure AD Domain Services
 
@@ -721,7 +721,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>일부 타사 앱에 대한 간소화된 SSO(Single Sign-On) 구성 설정
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 
@@ -739,7 +739,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory - 데이터가 있는 위치 페이지
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 기타  
 **제품 기능:** GoLocal
 
@@ -751,7 +751,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="new-deployment-plan-available-for-the-my-apps-access-panel"></a>내 앱 액세스 패널에 사용할 수 있는 새 배포 계획
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 내 앱  
 **제품 기능:** SSO
 
@@ -764,7 +764,7 @@ Azure AD Domain Services는 관리되는 도메인의 구성 오류 또는 문�
 
 ### <a name="new-troubleshooting-and-support-tab-on-the-sign-ins-logs-page-of-the-azure-portal"></a>Azure Portal의 [로그인 로그] 페이지에 있는 새로운 [문제 해결 및 지원] 탭
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
 
@@ -786,7 +786,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD 앱 기반 조건부 액세스의 새로운 승인된 클라이언트 앱
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Azure AD 앱 기반 조건부 액세스에 대해 승인된 새 클라이언트 앱
 
 **유형:** 변경 계획  
 **서비스 범주:** 조건부 액세스  
@@ -806,7 +806,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Windows 7/8/8.1 잠금 화면에서 셀프 서비스 암호 재설정에 대한 새로운 지원
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** SSPR  
 **제품 기능:** 사용자 인증
 
@@ -832,7 +832,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery---september-2018"></a>Azure AD 앱 갤러리에서 사용할 수 있는 새로 페더레이션된 앱 - 2018년 9월
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** 타사 통합
  
@@ -846,7 +846,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 
 ### <a name="support-for-additional-claims-transformations-methods"></a>추가 클레임 변환 메서드 지원
 
-**유형:** 새로운 기능  
+**유형:** 새 기능  
 **서비스 범주:** 엔터프라이즈 앱  
 **제품 기능:** SSO
 

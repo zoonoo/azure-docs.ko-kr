@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 1fb9027ab3301bb860d260aed737ab7674039d9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043975"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524721"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Azure CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -32,7 +32,7 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-로컬에서 Azure CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+로컬에서 Azure CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="configure-the-cli-parameters"></a>CLI 매개 변수 구성
 
@@ -79,7 +79,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
 1. 다음 명령을 사용하여 데이터베이스를 만듭니다.
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**설정** | **제안 값** | **필드 설명**|
@@ -87,8 +87,8 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
    | cluster-name | *azureclitest* | 데이터베이스가 만들어지는 클러스터의 이름입니다.|
    | 이름 | *clidatabase* | 데이터베이스의 이름입니다.|
    | resource-group | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
-   | soft-delete-period | *3650:00:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
-   | hot-cache-period | *3650:00:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
+   | soft-delete-period | *P365D* | 데이터를 쿼리할 수 있도록 유지해야 하는 시간을 나타냅니다. 자세한 내용은 [보존 정책](/azure/kusto/concepts/retentionpolicy)을 참조하세요. |
+   | hot-cache-period | *P31D* | 데이터가 캐시에 유지되는 시간을 나타냅니다. 자세한 내용은 [캐시 정책](/azure/kusto/concepts/cachepolicy)을 참조하세요. |
 
 1. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
 

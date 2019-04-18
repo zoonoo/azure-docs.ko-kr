@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882753"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522307"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>빠른 시작: Node 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 
 
@@ -38,7 +38,7 @@ ms.locfileid: "58882753"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Node.js](https://nodejs.org/en/)
+* [Node.JS](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 이상. 이 빠른 시작에서는 Azure CLI를 로컬에서 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest)를 참조하세요.
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -150,7 +150,7 @@ npm install
     ```
     http://<app name>.azurewebsites.net
     ```
-또한 이전 명령은 로컬 Git 리포지토리에서 Azure에 배포할 수 있는 Git 지원 앱을 만듭니다. 로컬 Git 리포지토리는 URL: https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git을 사용하여 구성됩니다.
+또한 이전 명령은 로컬 Git 리포지토리에서 Azure에 배포할 수 있는 Git 지원 앱을 만듭니다. 로컬 Git 리포지토리는 `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git` URL로 구성됩니다.
 
 이전 명령을 완료한 후에는 로컬 Git 리포지토리에 Azure 원격을 추가할 수 있습니다. `<url>`을 Git 리포지토리의 URL로 바꿉니다.
 
@@ -194,7 +194,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 git push azure master
 ```
 
-그리고 https://<app_name>.azurewebsites.net을 검색하면 비밀 값을 볼 수 있습니다. <YourKeyVaultName> 이름을 해당 자격 증명 모음 이름으로 바꿔야 합니다.
+이 후에 `https://<app_name>.azurewebsites.net`으로 이동하면 비밀값을 볼 수 있습니다. `<YourKeyVaultName>` 이름을 해당 자격 증명 모음 이름으로 바꿔야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

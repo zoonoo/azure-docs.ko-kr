@@ -18,10 +18,10 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271801"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
@@ -153,7 +153,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS70007 | UnsupportedResponseMode - 앱에서 토큰을 요청할 때 지원되지 않는 `response_mode` 값을 반환했습니다.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - 비활성 상태로 인해 새로 고침 토큰이 만료되었습니다. 토큰이 XXX에서 발행되었으며 일정 기간 동안 비활성 상태였습니다. |
 | AADSTS70011 | InvalidScope - 앱에서 요청한 범위가 잘못되었습니다. |
-| AADSTS70012 | MsaServerError - MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
+| AADSTS70012 | MsaServerError - MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
 | AADSTS70016 | AuthorizationPending - OAuth 2.0 디바이스 흐름 오류입니다. 권한 부여 보류 중입니다. 디바이스가 요청 폴링을 다시 시도합니다. |
 | AADSTS70018 | BadVerificationCode - 사용자가 디바이스 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다. |
 | AADSTS70019 | CodeExpired - 확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다. |

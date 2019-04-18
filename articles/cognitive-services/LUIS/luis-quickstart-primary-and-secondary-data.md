@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100295"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526571"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>자습서: 단순 엔터티 및 구 목록을 사용하여 이름 추출
 
@@ -48,7 +48,7 @@ ms.locfileid: "58100295"
 * 데이터는 정규식과 같은 적절한 형식이 아닙니다.
 * 데이터는 전화 번호 또는 데이터의 미리 빌드된 엔터티와 같이 일반적이지 않습니다.
 * 데이터는 목록 엔터티와 같은 알려진 단어 목록과 정확하게 일치하지 않습니다.
-* 데이터에는 복합 엔터티 또는 계층적 엔터티와 같은 다른 데이터 항목이 없습니다.
+* 데이터에는 복합 엔터티 또는 컨텍스트 역할과 같은 다른 데이터 항목이 없습니다.
 
 챗봇에서 다음 발화를 살펴보겠습니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "58100295"
 |엔지니어링 직위에 내 이력서를 제출합니다.|엔지니어링|
 |123456 직무에 대한 지원서를 작성합니다.|123456|
 
-이름은 명사, 동사 또는 여러 단어로 구성된 구일 수 있으므로 직무 이름을 판별하기가 어렵습니다. 예를 들면 다음과 같습니다.
+이름은 명사, 동사 또는 여러 단어로 구성된 구일 수 있으므로 직무 이름을 판별하기가 어렵습니다. 예: 
 
 |교육|
 |--|

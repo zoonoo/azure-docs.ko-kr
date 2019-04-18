@@ -47,7 +47,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure 정책 만들기 및 관리</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Azure Policy 만들기 및 관리</a>
           - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">사용자 지정 정책 정의 만들기</a>
   - title: 샘플
     items:
@@ -65,7 +65,7 @@ sections:
         className: cardsD
         items:
           - title: 명령줄
-            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell(정책)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell(정책 인사이트)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell(게스트 구성)</a></p>'
+            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell(Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell(Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell(게스트 구성)</a></p>'
           - title: 리소스 관리자 템플릿
             html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">할당</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">정책 정의</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">이니셔티브 정의</a></p>
           - title: REST (영문)

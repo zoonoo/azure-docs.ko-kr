@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b0d9e4fad61195118c92c047340f2cd4d9e20f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480688"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523361"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스
 
@@ -165,7 +165,7 @@ Azure AD Graph의 인증을 위해 VM의 시스템 할당 관리 ID를 사용하
    $AccessToken = $content.access_token
    ```
 
-5. VM ID 서비스 주체의 개체 ID를 사용하여(이전 단계에서 선언된 변수에서 이 값을 검색할 수 있습니다: ``$ManagedIdentitiesServicePrincipal.ObjectId``), 해당 그룹 구성원 자격을 검색하려면 Azure AD Graph API를 쿼리할 수 있습니다. 이전 단계의 개체 ID로 <OBJECT ID>를 바꾸고 이전에 획득한 액세스 토큰으로 <ACCESS-TOKEN>을 바꿉니다.
+5. VM ID 서비스 주체의 개체 ID를 사용하여(이전 단계에서 선언된 변수에서 이 값을 검색할 수 있습니다: ``$ManagedIdentitiesServicePrincipal.ObjectId``), 해당 그룹 구성원 자격을 검색하려면 Azure AD Graph API를 쿼리할 수 있습니다. 이전 단계의 개체 ID로 `<OBJECT ID>`를 바꾸고 이전에 획득한 액세스 토큰으로 <`ACCESS-TOKEN>`을 바꿉니다.
 
    ```powershell
    Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"

@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906058"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546283"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure에서 사용자 지정 Windows 컨테이너 실행(미리 보기)
 
@@ -31,7 +31,7 @@ ms.locfileid: "58906058"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- <a href="https://hub.docker.com/" target="_blank">Docker 허브 계정 가입</a>
+- <a href="https://hub.docker.com/" target="_blank">Docker 허브 계정 등록</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Windows용 Docker 설치</a>
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Windows 컨테이너를 실행하도록 Docker 전환</a>
 - **ASP.NET과 웹 개발** 및 **Azure 개발** 워크로드와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 설치</a> Visual Studio 2017이 설치되어 있는 경우:
@@ -70,7 +70,7 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 
 ## <a name="publish-to-docker-hub"></a>Docker 허브에 게시
 
-**솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+**솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다.
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-get-started-windows-container/solution-explorer-publish.png)
 
@@ -88,7 +88,7 @@ Docker 허브 계정 자격 증명을 입력하고 **저장**을 클릭합니다
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-windows-container-app"></a>Windows 컨테이너 앱 만들기
 
@@ -130,7 +130,7 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
-**축하합니다!** Azure App Service에서 첫 번째 사용자 지정 Windows 컨테이너를 실행하고 있습니다.
+**축하합니다.** Azure App Service에서 첫 번째 사용자 지정 Windows 컨테이너를 실행하고 있습니다.
 
 ## <a name="see-container-start-up-logs"></a>컨테이너 시작 로그를 참조하세요.
 
@@ -162,7 +162,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 </div>
 ```
 
-Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시**를 선택합니다.
 
 게시 페이지에서 **게시**를 선택하고 게시가 완료될 때까지 기다립니다.
 
@@ -179,7 +179,7 @@ App Service가 Docker 허브에서 새 이미지를 끌어오도록 하려면, �
 다른 사용자 지정 Docker 이미지를 사용하여 자유롭게 앱을 실행할 수 있습니다. 그러나 원하는 프레임워크에 대해 정확한 [부모 이미지](https://docs.docker.com/develop/develop-images/baseimages/)를 선택해야 합니다. 
 
 - .NET Framework 앱을 배포하려면 Windows Server Core 2019 [LTSC(장기 서비스 채널)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) 릴리스에 따라 부모 이미지를 사용합니다. 
-- .NET Core 앱을 배포하려면 Windows Server Nano 1809 [LTSC(장기 서비스 채널)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) 릴리스에 따라 부모 이미지를 사용합니다. 
+- .NET Core 앱을 배포하려면 Windows Server Nano 1809 [SAC(반기 서비스 채널)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 릴리스에 따라 부모 이미지를 사용합니다. 
 
 앱을 시작하는 동안 부모 이미지를 다운로드하는 데 다소 시간이 걸립니다. 그러나 Azure App Service에서 이미 캐시된 다음 부모 이미지 중 하나를 사용하여 시작 시간을 줄일 수 있습니다.
 

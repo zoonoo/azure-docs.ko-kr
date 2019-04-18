@@ -5,7 +5,7 @@ keywords: azure app service, 웹앱, dotnet, core, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278516"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543896"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Linux의 App Service에서 ASP.NET Core 앱 만들기
 
@@ -148,7 +148,7 @@ http://<app_name>.azurewebsites.net
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**축하합니다!** Linux의 App Service에 첫 번째 .NET Core 앱을 배포했습니다.
+**축하합니다.** Linux의 App Service에 첫 번째 .NET Core 앱을 배포했습니다.
 
 ## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 
@@ -188,4 +188,7 @@ git push azure master
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Linux의 Azure App Service에서 .NET Core 및 SQL Database 앱 빌드](tutorial-dotnetcore-sqldb-app.md)
+> [자습서: SQL Database를 사용하는 ASP.NET Core 앱](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core 앱 구성](configure-language-dotnetcore.md)

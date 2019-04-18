@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007616"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548562"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -32,7 +32,7 @@ ms.locfileid: "58007616"
 이 빠른 시작을 마치면 애플리케이션에서 Azure AD(Azure Active Directory)와 통합된 조직의 회사 및 학교 계정을 사용한 로그인을 허용하게 됩니다.
 
 > [!NOTE]
-> 회사 및 학교 계정 외에 개인 계정의 로그인도 사용하도록 설정하려면 [v2.0 엔드포인트](azure-ad-endpoint-comparison.md)를 사용할 수 있습니다. 자세한 내용은 v2.0 엔드포인트에 대한 현재 제한 사항을 설명하는 [이 문서](active-directory-v2-limitations.md)와 함께 [v2.0 엔드포인트에 대한 이 ASP.NET 자습서](tutorial-v2-asp-webapp.md)를 참조하세요.
+> 회사 및 학교 계정 외에 개인 계정의 로그인도 사용하도록 설정하기 위해 *[Microsoft ID 플랫폼 엔드포인트](azure-ad-endpoint-comparison.md)* 를 사용할 수 있습니다. 자세한 내용은 [이 ASP.NET 자습서](tutorial-v2-asp-webapp.md)와 *Microsoft ID 플랫폼 엔드포인트*를 설명하는 [이 문서](active-directory-v2-limitations.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

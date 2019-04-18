@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ae0aefe194ca8bca6ea62420314b4fbdb1e0187
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357902"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -105,11 +105,11 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     ![Tableau Server 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://azure.<domain name>.link`
+    a. **로그인 URL** 텍스트 상자에서 `https://azure.<domain name>.link` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다. `https://azure.<domain name>.link`
+    b. **식별자** 텍스트 상자에서 `https://azure.<domain name>.link` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://azure.<domain name>.link/wg/saml/SSO/index.html`
+    다. **회신 URL** 텍스트 상자에서 `https://azure.<domain name>.link/wg/saml/SSO/index.html` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 위의 값은 실제 값이 아닙니다. 이 자습서에서 나중에 설명하겠지만, 이 값을 Tableau Server 구성 페이지의 실제 URL과 식별자로 업데이트합니다.
@@ -206,7 +206,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 다음을 입력합니다. `brittasimon@yourcompanydomain.extension`  
+    b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -256,9 +256,9 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [ Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

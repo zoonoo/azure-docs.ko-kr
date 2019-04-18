@@ -7,12 +7,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 3b7ceb07fe874ebc012696f73c21d5c270cb3cee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1a811d3d0796b37053ffbabf56b63b4e4f68e203
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268996"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524075"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -37,14 +37,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
 
-   [![DAzure에 Policy 템플릿 배포](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   [![Azure에 Policy 템플릿 배포](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. 다음 값을 선택하거나 입력합니다.
 
    | Name | 값 |
    |------|-------|
    | 구독 | Azure 구독을 선택합니다. |
-   | 리소스 그룹 | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. 스크린샷에서 리소스 그룹 이름은 *mypolicyquickstart<Date in MMDD>rg*입니다. |
+   | 리소스 그룹 | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. 스크린샷에서 리소스 그룹 이름은 *mypolicyquickstart\<MMDD 날짜>rg*입니다. |
    | 위치 | 지역을 선택합니다. 예: **미국 중부** |
    | 정책 할당 이름 | 정책 할당 이름을 지정합니다. 원하는 경우 정책 정의 표시 이름을 사용할 수 있습니다. 예: **관리 디스크를 사용하지 않는 VM 감사**. |
    | Rg 이름 | 정책을 할당할 리소스 그룹 이름을 지정합니다. 이 빠른 시작에서는 기본값인 **[resourceGroup().name]** 을 사용합니다. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** 은 리소스 그룹을 검색하는 템플릿 함수입니다. |

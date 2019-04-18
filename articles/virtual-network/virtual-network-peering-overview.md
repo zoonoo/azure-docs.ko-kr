@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489984"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678482"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -63,8 +63,7 @@ Azure를 원활 하 게 연결할 수 있습니다 가상 네트워크 피어 �
 
 ![가상 네트워크 피어링 전송](./media/virtual-networks-peering-overview/figure04.png)
 
-게이트웨이 전송은 VNet 피어 링 및 글로벌 VNet 피어 링 (미리 보기)에 대 한 지원 됩니다. 원격 게이트웨이 사용 하거나 미리 보기에서 전역적으로 피어 링 된 가상 네트워크의 게이트웨이 전송 허용 수 있습니다. 미리 보기는 모든 Azure 지역, 중국 클라우드 지역 및 Government 클라우드 지역에서 사용할 수 있습니다. 허용 목록에 없는 추가 필요 합니다. CLI, PowerShell, 템플릿 또는 API를 통해 미리 보기에서 테스트할 수 있습니다. 포털 미리 보기에서 지원 되지 않습니다.
-게이트웨이 전송은 다른 배포 모델 (Resource Manager 및 클래식)을 통해 만든 가상 네트워크 간의 가상 네트워크 (Resource Manager)에서 게이트웨이 하는 경우에 지원 됩니다. 전송을 위한 게이트웨이 사용에 관해 자세히 알아보려면 [가상 네트워크 피어링에서 전송을 위한 VPN 게이트웨이 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+게이트웨이 전송은 VNet 피어 링 및 글로벌 VNet 피어 링에 대 한 지원 됩니다. 게이트웨이 전송은 다른 배포 모델 (Resource Manager 및 클래식)을 통해 만든 가상 네트워크 간의 가상 네트워크 (Resource Manager)에서 게이트웨이 하는 경우에 지원 됩니다. 전송을 위한 게이트웨이 사용에 관해 자세히 알아보려면 [가상 네트워크 피어링에서 전송을 위한 VPN 게이트웨이 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 단일 Azure ExpressRoute 연결을 공유하는 가상 네트워크가 피어링된 경우 둘 사이의 트래픽은 피어링 관계(즉, Azure 백본 네트워크)를 거치게 됩니다. 로컬 게이트웨이 각각에서 가상 네트워크를 사용하여 온-프레미스 회로에 연결할 수 있습니다. 또는 공유 게이트웨이를 사용하고 온-프레미스 연결에 대한 전송을 구성할 수 있습니다.
 

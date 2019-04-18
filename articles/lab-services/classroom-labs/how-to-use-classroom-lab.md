@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402153"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548044"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
 이 문서에서는 클래스룸 랩에 액세스하고, 랩의 VM에 연결하고 VM을 중지하는 방법을 설명합니다. 
@@ -36,7 +36,7 @@ ms.locfileid: "58402153"
 ## <a name="view-all-the-classroom-labs"></a>모든 클래스룸 랩 보기
 랩에 등록한 후 다음 단계를 수행하여 모든 클래스 룸 랩을 볼 수 있습니다. 
 
-1. [https://labs.azure.com](https://labs.azure.com)으로 이동합니다. 
+1. [https://labs.azure.com](https://labs.azure.com)으로 이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
 2. 랩에 등록하는 데 사용한 사용자 계정을 사용하여 서비스에 로그인합니다. 
 3. 액세스 권한이 있는 모든 랩이 표시되는지 확인합니다. 
 

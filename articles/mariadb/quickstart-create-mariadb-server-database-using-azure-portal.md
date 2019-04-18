@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/15/2019
+ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880826"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618025"
 ---
-# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
+# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
 
 Azure Database for MariaDB는 클라우드에서 고가용성 MariaDB 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MariaDB 서버를 만드는 방법을 보여 줍니다.  
 
@@ -32,7 +32,7 @@ Azure Database for MariaDB 서버를 만들려면
 
 1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다.
 
-2. 검색 상자에 **Azure Database for MariaDB**를 입력하여 서비스를 찾습니다.
+2. **데이터베이스** > **Azure Database for MariaDB**를 차례로 선택합니다. 검색 상자에서 **MariaDB**를 입력하여 해당 서비스를 찾을 수도 있습니다.
 
    ![Azure Database for MariaDB 옵션](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
@@ -51,7 +51,7 @@ Azure Database for MariaDB 서버를 만들려면
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
     위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
     버전 | *최신 버전*| 최신 버전입니다(다른 버전을 사용하는 특정 요구 사항이 없는 경우).
-    가격 책정 계층  | 설명을 참조하세요. | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **가격 책정 계층** > **범용**을 선택합니다. 다음 설정에 대해 기본값을 그대로 유지합니다.<br><ul><li>**세대 계산**(Gen 5)</li><li>**vCore**(vCore 2개)</li><li>**저장소**(5GB)</li><li>**백업 보존 기간**(7일)</li></ul><br>지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. <br><br>이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+    가격 책정 계층  | 설명을 참조하세요. | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **가격 책정 계층** > **범용**을 선택합니다. 다음 설정에 대해 기본값을 그대로 유지합니다.<br><ul><li>**세대 계산**(Gen 5)</li><li>**vCore**(vCore 4개)</li><li>**스토리지**(100GB)</li><li>**백업 보존 기간**(7일)</li></ul><br>지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. <br><br>이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
   
    > [!NOTE]
    > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/)를 참조하세요.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104678"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521923"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -57,7 +57,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
    ![에이전트 설치][5]
 
-Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/omsagent/<workspace id>/log/* 에서 확인할 수 있습니다.
+Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/omsagent/\<workspace id>/log/* 에서 확인할 수 있습니다.
 
   ![에이전트에 대한 로그][6]
 

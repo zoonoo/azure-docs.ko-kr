@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 ASP.NET 웹 서버 빠른 시작 | Microsoft Docs
+title: Microsoft ID 플랫폼 ASP.NET 웹 서버 빠른 시작 | Azure
 description: OpenID Connect를 사용하여 ASP.NET 웹 앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200262"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579481"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "58200262"
 
 이 빠른 시작에서는 ASP.NET 웹 앱이 모든 Azure Active Directory(Azure AD) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
@@ -39,7 +39,7 @@ ms.locfileid: "58200262"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 애플리케이션 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)으로 이동합니다.
+> 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) 창으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록**을 클릭합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -50,10 +50,11 @@ ms.locfileid: "58200262"
 >
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
+> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+> 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `ASPNET-Quickstart`)을 입력합니다.
->      - **회신 URL**에 `https://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
+>      - **리디렉션 URI**에 `https://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
 **인증** 메뉴를 선택하고 **암시적 허용** 아래에서 **ID 토큰**을 설정한 후 **저장을 선택합니다**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -132,7 +133,7 @@ public void Configuration(IAppBuilder app)
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
-                ValidateIssuer = false
+                ValidateIssuer = false // Simplification (see note below)
             },
             // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
             Notifications = new OpenIdConnectAuthenticationNotifications
@@ -148,14 +149,19 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | Azure Portal에 등록된 애플리케이션의 애플리케이션 ID |
 > | `Authority`    | 사용자가 인증하는 STS 엔드포인트 일반적으로 공용 클라우드의 경우 <https://login.microsoftonline.com/{tenant}/v2.0>입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 애플리케이션에 사용)에 대한 참조인 경우 *common*입니다. |
-> | `RedirectUri`  | Azure AD v2.0 엔드포인트에 대한 인증 후 사용자가 전송되는 URL |
+> | `RedirectUri`  | Microsoft ID 플랫폼 엔드포인트에 인증한 후 사용자가 전송되는 URL |
 > | `PostLogoutRedirectUri`     | 서명 해제 후 사용자가 전송되는 URL |
 > | `Scope`     | 요청되는 범위 목록이며 공백으로 구분 |
 > | `ResponseType`     | 인증에서의 응답이 ID 토큰을 포함하는 요청 |
 > | `TokenValidationParameters`     | 토큰 유효성 검사에 대한 매개 변수 목록. 이 경우, `ValidateIssuer`는 `false`로 설정되어 모든 개인이나 회사 또는 학교 계정 형식에서 로그인을 사용할 수 있음을 나타냄 |
 > | `Notifications`     | 여러 *OpenIdConnect* 메시지에서 실행할 수 있는 대리자 목록 |
 
-### <a name="initiate-an-authentication-challenge"></a>인증 질문 시작하기
+
+> [!NOTE]
+> 이 빠른 시작을 간단하게 수행할 수 있도록 `ValidateIssuer = false`로 설정했습니다. 실제 애플리케이션에서는 발급자의 유효성을 검사해야 합니다.
+> 자세한 방법은 샘플을 참조하세요.
+
+### <a name="initiate-an-authentication-challenge"></a>인증 질문 시작
 
 컨트롤러에서 다른 사용자에게 인증 질문을 요청하여 로그인하게 할 수 있습니다.
 

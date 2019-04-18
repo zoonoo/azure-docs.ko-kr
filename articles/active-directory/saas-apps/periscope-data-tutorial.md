@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275541"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>자습서: Periscope Data와 Azure Active Directory 통합
 
@@ -111,7 +111,7 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     | `https://app.periscopedata.com/` |
     | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://app.periscopedata.com/<SITENAME>/sso`
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://app.periscopedata.com/<SITENAME>/sso` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL로 업데이트합니다. 이 값 및 **Periscope Data Single Sign-On 구성**에서 필요한 식별자 값(자습서 뒷부분에서 설명됨)을 얻으려면 [Periscope Data 클라이언트 지원 팀](mailto:support@periscopedata.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -136,7 +136,7 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     d. **SingleLogoutService** 태그를 찾고 **위치** 값을 **SLO URL** 텍스트 상자에 붙여넣습니다.
 
-    e. 인스턴스의 **식별자** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는  **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
+    e. 인스턴스의 **식별자** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
     f. XML 파일의 첫 번째 태그를 찾고 **entityID** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
 
@@ -203,7 +203,7 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 Azure AD 사용자가 Periscope Data에 로그인할 수 있도록 하려면 이 사용자를 Periscope Data로 프로비저닝해야 합니다. Periscope Data에서는 수동으로 프로비저닝합니다.
 
-**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
 1. Periscope Data에 관리자로 로그인합니다.
 
@@ -233,7 +233,7 @@ Azure AD 사용자가 Periscope Data에 로그인할 수 있도록 하려면 이
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

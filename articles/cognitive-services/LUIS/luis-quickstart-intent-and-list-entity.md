@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5417c1c008b5abaada158530c7c29c67e0dc1ca0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119669"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521274"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>자습서: 발언과 텍스트가 정확히 일치하는 데이터 구하기
 
@@ -185,5 +185,5 @@ ms.locfileid: "58119669"
 이 앱을 계속 사용하여 [복합 엔터티를 추가](luis-tutorial-composite-entity.md)합니다.
 
 > [!div class="nextstepaction"]
-> [앱에 계층적 엔터티 추가](luis-quickstart-intent-and-hier-entity.md)
+> [앱에 역할이 있는 미리 빌드된 엔터티 추가](tutorial-entity-roles.md)
 

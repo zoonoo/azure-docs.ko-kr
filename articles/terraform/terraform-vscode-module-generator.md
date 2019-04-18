@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001284"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526744"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 
@@ -73,8 +73,8 @@ Yeoman 템플릿은 **현재 디렉터리**에서 파일을 생성합니다. 이
 1. 만들려는 새, 만든 빈 디렉터리를 포함하려는 부모 디렉터리로 이동합니다.
 1. `mkdir <new-directory-name>`을 입력합니다.
 
-    >[!NOTE]
-    ><new-directory-name>을 새 디렉터리의 이름으로 바꿉니다. 이 예제에서는 새 디렉터리의 이름을 `GeneratorDocSample`이라고 지정했습니다.
+    > [!NOTE]
+    > `<new-directory-name>`을 새 디렉터리의 이름으로 바꿉니다. 이 예제에서는 새 디렉터리의 이름을 `GeneratorDocSample`이라고 지정했습니다.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Docker 파일을 사용하는 대신 Cloud Shell을 사용하면 프로세스가
 
 1. 아직 없는 경우 $GOPATH 폴더를 만듭니다. `mkdir ~/go`을 입력합니다.
 
-1. $GOPATH 폴더 내에 폴더를 만듭니다. `mkdir ~/go/src`을 입력합니다. 이 폴더는 다음 단계에서 만들 <your-module-name> 폴더와 같이 만들 수 있는 여러 프로젝트 폴더를 보관하고 구성하는 데 사용됩니다.
+1. $GOPATH 폴더 내에 폴더를 만듭니다. `mkdir ~/go/src`을 입력합니다. 이 폴더는 다음 단계에서 만들 `<your-module-name>` 폴더와 같이 만들 수 있는 여러 프로젝트 폴더를 보관하고 구성하는 데 사용됩니다.
 
 1. Terraform 모듈을 보관할 폴더를 만듭니다. `mkdir ~/go/src/<your-module-name>`을 입력합니다.
 

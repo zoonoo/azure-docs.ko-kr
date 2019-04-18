@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4f6cc2af7b9e044e5a72767898f876932fbf973
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549428"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528303"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Application Gateway를 만드는 방법을 보여 줍니다.  Application Gateway를 만든 후 올바르게 작동하는지 테스트합니다. Azure Application Gateway를 통해 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가하여 애플리케이션 웹 트래픽을 특정 리소스로 보냅니다. 간단히 나타내기 위해 이 문서에서는 공용 프런트 엔드 IP 1개, 이 Application Gateway에 단일 사이트를 호스트하는 기본 수신기 1개, 백 엔드 풀에 사용되는 가상 머신 2개, 기본 요청 라우팅 규칙 1개을 이용한 간단한 설정을 사용합니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 애플리케이션 게이트웨이를 만드는 방법을 보여줍니다.  Application Gateway를 만든 후 올바르게 작동하는지 테스트합니다. Azure Application Gateway를 통해 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가하여 애플리케이션 웹 트래픽을 특정 리소스로 보냅니다. 간단히 나타내기 위해 이 문서에서는 공용 프런트 엔드 IP 1개, 이 Application Gateway에 단일 사이트를 호스트하는 기본 수신기 1개, 백 엔드 풀에 사용되는 가상 머신 2개, 기본 요청 라우팅 규칙 1개를 이용한 간단한 설정을 사용합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-### <a name="azure-powershell-module"></a>Azure PowerShell 모듈
+### <a name="azure-cli"></a>Azure CLI
 
 로컬로 CLI를 설치하여 사용하기로 선택하는 경우 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 **az --version**을 실행합니다. 설치 또는 업그레이드에 대한 자세한 내용은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 

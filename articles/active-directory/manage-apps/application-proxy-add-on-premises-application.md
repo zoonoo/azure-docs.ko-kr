@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd494ffe6bc48495c882ed84062503bdc00ae9f4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fc454fdba6ec875c3d3b572a7aba91bb9d389845
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917841"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617222"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -114,7 +114,7 @@ Azure AD 애플리케이션 프록시를 위한 환경을 준비하려면 먼저
 
 ### <a name="general-remarks"></a>일반적인 설명
 
-이전에 커넥터를 설치한 경우 최신 버전을 다시 설치합니다.
+이전에 커넥터를 설치한 경우 최신 버전을 다시 설치합니다. 이전에 릴리스된 버전 및 변경 내용에 대한 정보를 보려면 [애플리케이션 프록시-버전 릴리스 내역](application-proxy-release-version-history.md)을 참조하세요.
 
 온-프레미스 애플리케이션에서 둘 이상의 Windows Server가 설치되도록 선택하려는 경우 각 서버에서 커넥터를 설치하고 등록해야 합니다. 커넥터를 커넥터 그룹으로 구성할 수 있습니다. 자세한 내용은 [커넥터 그룹](application-proxy-connector-groups.md)을 참조하세요. 
 
@@ -122,7 +122,6 @@ Azure AD 애플리케이션 프록시를 위한 환경을 준비하려면 먼저
 
 커넥터, 용량 계획 및 최신 상태로 유지하는 방법에 대한 정보는 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요. 
 
-Qlik Sense 애플리케이션을 사용하는 경우 항상 최신 커넥터를 설치합니다. Qlik Sense는 커넥터 버전 1.5.612.0 이상에서만 지원되는 WebSocket을 사용합니다.
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>커넥터가 설치되고 올바르게 등록되었는지 확인
 
@@ -239,4 +238,4 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 애플리케이션에 Single Sign-On을 구성할 준비가 완료되었습니다. 다음 링크를 사용하여 Single Sign-On 메서드를 선택하고 Single Sign-On 자습서를 찾습니다. 
 
 > [!div class="nextstepaction"]
->[Single Sign-On 구성](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+>[Single Sign-on 구성](what-is-single-sign-on.md#choosing-a-single-sign-on-method)

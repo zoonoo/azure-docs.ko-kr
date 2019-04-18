@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772061"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545353"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
 이 자습서에서는 Azure App Service에서 Java EE(Enterprise Edition) 웹앱을 만들어서 Postgres 데이터베이스에 연결하는 방법을 보여줍니다. 자습서를 마치면 [Linux의 App Service](app-service-linux-intro.md)에서 실행되는 [Postgres용 Azure 데이터베이스](https://azure.microsoft.com/services/postgresql/)에 데이터를 저장하는 [WildFly](https://www.wildfly.org/about/) 애플리케이션이 생깁니다.
 
-이 자습서에서는 다음 방법을 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Maven을 사용하여 Azure에 Java EE 앱 배포
 > * Azure에서 Postgres 데이터베이스 만들기
@@ -158,7 +158,9 @@ _pom.xml_에서 대문자로 시작하는 자리 표시자 값을 Postgres 서�
 
 ## <a name="configure-the-wildfly-application-server"></a>WildFly 애플리케이션 서버 구성
 
-다시 구성된 애플리케이션을 배포하기 전에, WildFly 애플리케이션 서버를 Postgres 모듈 및 해당 종속성으로 업데이트해야 합니다. 서버를 구성하려면 `wildfly_config/` 디렉터리에 있는 4개 파일이 필요합니다.
+다시 구성된 애플리케이션을 배포하기 전에, WildFly 애플리케이션 서버를 Postgres 모듈 및 해당 종속성으로 업데이트해야 합니다. 자세한 구성 정보는 [WildFly 서버 구성](configure-language-java.md#configure-wildfly-server)에서 찾을 수 있습니다.
+
+서버를 구성하려면 `wildfly_config/` 디렉터리에 있는 4개 파일이 필요합니다.
 
 - **postgresql-42.2.5.jar**: 이 JAR 파일은 Postgres용 JDBC 드라이버입니다. 자세한 내용은 [공식 웹 사이트](https://jdbc.postgresql.org/index.html)를 참조하세요.
 - **postgres-module.xml**: 이 XML 파일은 Postgres 모듈의 이름을 선언합니다(org.postgres). 모듈을 사용하는 데 필요한 리소스와 종속성도 지정합니다.
@@ -172,7 +174,6 @@ _pom.xml_에서 대문자로 시작하는 자리 표시자 값을 Postgres 서�
 FTP를 통해 `wildfly_config/`의 콘텐츠를 App Service 인스턴스로 전송해야 합니다. FTP 자격 증명을 가져오려면 Azure Portal의 App Service 블레이드에서 **게시 프로필 가져오기** 단추를 클릭합니다. 다운로드한 XML 문서를 보면 FTP 사용자 이름 및 암호가 있습니다. 게시 프로필에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials)를 참조하세요.
 
 원하는 FTP 도구를 사용하여 `wildfly_config/`의 4개 파일을 `/home/site/deployments/tools/`에 전송합니다. (디렉터리가 아닌 파일만 전송해야 합니다.)
-
 
 ### <a name="finalize-app-service"></a>App Service 완료
 
@@ -195,9 +196,26 @@ mvn clean install -DskipTests azure-webapp:deploy
 다른 자습서에서 이러한 리소스가 필요하지 않으면(다음 단계 참조) 다음 명령을 실행하여 삭제할 수 있습니다.
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-App Service에 Java EE 애플리케이션을 배포했으니, [Java Enterprise 개발자 가이드](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)에서 서비스 설정, 문제 해결 및 애플리케이션 크기 조정에 대해 자세히 알아보세요.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
+
+> [!div class="checklist"]
+> * Maven을 사용하여 Azure에 Java EE 앱 배포
+> * Azure에서 Postgres 데이터베이스 만들기
+> * Postgres를 사용하도록 WildFly 서버 구성
+> * 앱 업데이트 및 다시 배포
+> * WildFly에서 단위 테스트 실행
+
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [자습서: 앱에 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+
+또는 다른 리소스를 체크 아웃합니다.
+
+> [!div class="nextstepaction"]
+> [Java 앱 구성](configure-language-java.md)

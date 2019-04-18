@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546322"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616291"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>빠른 시작: Bing Spell Check REST API 및 C#으로 맞춤법 검사
 
@@ -24,7 +24,10 @@ ms.locfileid: "57546322"
 ## <a name="prerequisites"></a>필수 조건
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
-* NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
+* Visual Studio에서 `Newtonsoft.Json`을 NuGet 패키지로 설치하려면 다음을 수행합니다.
+    1. 솔루션 탐색기에서 솔루션 파일을 마우스 오른쪽 단추로 클릭합니다.
+    1. **솔루션용 NuGet 패키지 관리**를 선택합니다.
+    1. `Newtonsoft.Json`을 검색하고 패키지를 설치합니다.
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
@@ -52,14 +55,14 @@ ms.locfileid: "57546322"
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. 검색 매개 변수에 대한 변수를 만듭니다. `mkt=`에 지역/국가 코드를 추가하고 `&mode=`에 맞춤법 검사 모드를 추가합니다.
+3. 검색 매개 변수에 대한 변수를 만듭니다. `mkt=` 뒤에 시장 코드를 추가합니다. 시장 코드는 요청을 수행한 국가입니다. 또한 `&mode=` 뒤에 맞춤법 검사 모드를 추가합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음)입니다.
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ ms.locfileid: "57546322"
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9987a4aee561340c5ebe2639626e5f66a55358e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260887"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544605"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 관심 지점으로 라우팅
 
@@ -218,11 +218,11 @@ ms.locfileid: "59260887"
 > * 주소 좌표 설정
 > * 관심 지점으로의 방향에 대한 경로 서비스 쿼리
 
-이 자습서에서 사용할 코드 샘플에 액세스하려면 다음을 참조하세요.
+> [!div class="nextstepaction"]
+> [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-> [Azure Maps로 경로 찾기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-[여기서 실제 샘플 살펴보기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [!div class="nextstepaction"]
+> [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 다음 자습서에는 이동 모드 또는 화물 유형과 같은 제한을 적용하여 경로 쿼리를 만든 다음, 같은 지도에 여러 경로를 표시하는 방법을 보여줍니다.
 

@@ -18,10 +18,10 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500304"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 및 개인정보취급방침 조건 구성
@@ -50,16 +50,16 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 | 유효한 스키마 | HTTP 및 HTTPS<br/>HTTPS 권장 |
 | 최대 길이    | 2048자                       |
 
-예제: `https://myapp.com/terms-of-service` 및 `https://myapp.com/privacy-statement`
+예: `https://myapp.com/terms-of-service` 및 `https://myapp.com/privacy-statement`
 
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>서비스 약관 및 개인정보처리방침에 링크 추가
 
 서비스 약관 및 개인정보처리방침이 준비되면 다음 방법 중 하나를 사용하여 앱에 이러한 문서의 링크를 추가할 수 있습니다.
 
-* [Azure portal을 통해](#registered-in-azure-portal)
-* [응용 프로그램 등록 포털 또는 개발자 센터](#registered-in-app-reg-portal)
-* [앱 개체 JSON을 사용 하 여](#app-object-json)
-* [MSGraph 베타 REST API를 사용 하 여](#msgraph-beta-rest-api)
+* [Azure Portal을 통해](#registered-in-azure-portal)
+* [애플리케이션 등록 포털 또는 개발자 센터에서](#registered-in-app-reg-portal)
+* [앱 개체 JSON을 사용하여](#app-object-json)
+* [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Azure Portal에서 앱을 등록한 경우
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * 이러한 필드 중 하나에 할당 된 모든 기존 값을 덮어쓰지 않도록 주의 하십시오: `supportUrl`, `marketingUrl`, 및 `logoUrl`
+> * `supportUrl`, `marketingUrl` 및 `logoUrl` 필드에 할당된 기존 값을 덮어쓰지 않도록 주의해야 합니다.
 > * MSGraph 베타 REST API는 Azure AD 계정으로 로그인하는 경우에만 작동합니다. 개인 Microsoft 계정은 지원되지 않습니다.

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 1cbf08cc903069f5b1cf81f57b7daa16f24c0216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cf280dfb806399a8c09838d965d71e7b18cb905f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043858"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521393"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 
@@ -70,7 +70,7 @@ Windows 트레이에서 실행 중인 Azure Cosmos DB 에뮬레이터에서 아�
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Java에서 인증서를 사용하는 방법
 
-Java 클라이언트를 사용하는 Java 애플리케이션 또는 MongoDB 애플리케이션을 실행하는 경우 "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" 플래그를 전달하는 것보다 Java 기본 인증서 저장소에 인증서를 설치하는 것이 더 쉽습니다. 예를 들어 포함된 [Java Demo 애플리케이션](https://localhost:8081/_explorer/index.html)은 기본 인증서 저장소에 따라 다릅니다.
+Java 클라이언트를 사용하는 Java 애플리케이션 또는 MongoDB 애플리케이션을 실행하는 경우 `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` 플래그를 전달하는 것보다 Java 기본 인증서 저장소에 인증서를 설치하는 것이 더 쉽습니다. 예를 들어 포함된 [Java Demo 애플리케이션](https://localhost:8081/_explorer/index.html)은 기본 인증서 저장소에 따라 다릅니다.
 
 X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 인증서 저장소에 인증서 추가](https://docs.microsoft.com/azure/java-add-certificate-ca-store)의 지침을 따릅니다. keytool을 실행할 때는 %JAVA_HOME% 디렉터리에서 작업하게 됩니다.
 

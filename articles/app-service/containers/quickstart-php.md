@@ -3,8 +3,8 @@ title: Linux에서 PHP 앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 App Service에서 첫 번째 PHP Hello World를 배포합니다.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: jeconnoc
 editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af413528c279c5fcab472347d247b17dd5061167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628411"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546814"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Linux의 App Service에서 PHP 앱 만들기
 
@@ -162,11 +162,14 @@ git push azure master
 
 ![Azure Portal의 App Service 페이지](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [MySQL을 사용하는 PHP](tutorial-php-mysql-app.md)
+> [자습서: MySQL을 사용하는 PHP 앱](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [PHP 앱 구성](configure-language-php.md)

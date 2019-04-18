@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106902"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548749"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -44,14 +44,15 @@ ms.locfileid: "58106902"
 - 데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다.
 - Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 
-관리 디스크를 순서대로 지정했다면 다음 추가 고려 사항을 검토합니다.
+   > [!IMPORTANT]
+   >  순서를 만드는 동안 관리 디스크를 스토리지 대상 중 하나로 지정한 경우 다음 섹션이 적용됩니다.
 
 - 사전 생성된 폴더 전체 및 Data Box Disk 전체에서 리소스 그룹에 지정된 이름의 관리 디스크 하나만 가질 수 있습니다. 즉, 사전 생성된 폴더에 업로드된 VHD는 이름이 고유해야 함을 의미합니다. 지정된 이름이 리소스 그룹의 기존 관리 디스크와 일치하지 않도록 해야 합니다. VHD 이름이 동일할 경우 단 하나의 VHD만 해당 이름의 관리 디스크로 변환됩니다. 다른 VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드됩니다.
 - 항상 사전 생성된 폴더 중 하나에 VHD를 복사합니다. 이러한 폴더 외부 또는 사용자가 만든 폴더 안에 VHD를 복사하는 경우 VHD는 Azure Storage 계정에 관리 디스크가 아닌 페이지 Blob으로 업로드됩니다.
 - 고정된 VHD만 업로드하여 관리 디스크를 만들 수 있습니다. 동적 VHD, 차이점 보관용 VHD 또는 VHDX 파일은 지원되지 않습니다.
 
 
-다음 단계를 수행하여 컴퓨터에서 Data Box Disk로 데이터를 연결하고 복사합니다.
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>다음 단계를 수행하여 컴퓨터에서 Data Box Disk로 데이터를 연결하고 복사합니다.
 
 1. 잠금 해제된 드라이브의 콘텐츠를 봅니다. 드라이브에서 사전 생성된 폴더 및 하위 폴더 목록은 Data Box Disk 주문 시 선택한 옵션에 따라 다릅니다.
 
@@ -91,12 +92,12 @@ ms.locfileid: "58106902"
     |대상       | 대상 디렉터리에 대한 경로를 지정합니다.        |
     |/E                  | 빈 디렉터리를 포함하는 하위 디렉터리를 복사합니다. |
     |/MT[:N]             | N 스레드를 사용하여 다중 스레드 복사본을 만듭니다. 여기서 N은 1에서 128 사이의 정수입니다. <br>N의 기본값은 8입니다.        |
-    |/R: <N>             | 실패한 복사에 대한 재시도 횟수를 지정합니다. N의 기본값은 1,000,000입니다(백만 번의 다시 시도).        |
-    |/W: <N>             | 다시 시도 간의 대기 시간을 지정합니다(초). N의 기본값은 30입니다(대기 시간 30초).        |
+    |/R: \<N>             | 실패한 복사에 대한 재시도 횟수를 지정합니다. N의 기본값은 1,000,000입니다(백만 번의 다시 시도).        |
+    |/W: \<N>             | 다시 시도 간의 대기 시간을 지정합니다(초). N의 기본값은 30입니다(대기 시간 30초).        |
     |/NFL                | 기록하지 않을 파일 이름을 지정합니다.        |
     |/NDL                | 기록하지 않을 디렉터리 이름을 지정합니다.        |
     |/FFT                | FAT 파일 시간을 가정합니다(2초 자릿수).        |
-    |/Log:<Log File>     | 로그 파일에 상태 출력을 작성합니다(기존 로그 파일을 덮어씀).         |
+    |/Log:\<로그 파일>     | 로그 파일에 상태 출력을 작성합니다(기존 로그 파일을 덮어씀).         |
 
     각 디스크에서 실행 중인 여러 작업을 사용하여 병렬로 여러 디스크를 사용할 수 있습니다.
 

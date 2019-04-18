@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68c516ee7ca2d76339760ce0ad95590686250603
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084983"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521940"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호
 
@@ -81,7 +81,7 @@ ms.locfileid: "58084983"
 
    ![정책](./media/transform-api/transform-api.png)
 
-7. 다음과 같이 **<outbound>** 코드를 수정합니다.
+7. 다음과 같이 **\<outbound>** 코드를 수정합니다.
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -115,7 +115,7 @@ ms.locfileid: "58084983"
 4.  **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5.  **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
 6.  오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
-7.  **find-and-replace** 코드(**\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예를 들면 다음과 같습니다.
+7.  **find-and-replace** 코드(**\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 

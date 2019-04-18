@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows UWP 빠른 시작 | Microsoft Docs
-description: 유니버설 Windows 플랫폼(XAML) 애플리케이션이 액세스 토큰을 가져와서 Azure Active Directory v2.0 엔드포인트로 보호된 API를 호출할 수 있는 방법을 알아봅니다.
+title: Microsoft ID 플랫폼 Windows UWP 빠른 시작 | Azure
+description: 유니버설 Windows 플랫폼(XAML) 애플리케이션이 액세스 토큰을 가져오고, Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360126"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526387"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "59360126"
 
 이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여 주는 코드 샘플이 포함되어 있습니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-uwp/uwp-intro-updated.png)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-uwp/uwp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
@@ -41,7 +41,7 @@ ms.locfileid: "59360126"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 애플리케이션 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs)으로 이동합니다.
+> 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) 창으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록**을 클릭합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -51,7 +51,8 @@ ms.locfileid: "59360126"
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 추가하려면 다음 단계를 따르세요.
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
+> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
+> 1. **새 등록**을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `UWP-App-calling-MsGraph`)을 입력합니다.
 >      - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
@@ -71,29 +72,32 @@ ms.locfileid: "59360126"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
- - [Visual Studio 2017 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Visual Studio 2017 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 
 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-1. Visual Studio에서 프로젝트를 엽니다.
-1. **App.Xaml.cs**를 편집하고 `ClientId` 및 `Tenant` 필드의 값을 다음으로 바꿉니다.
+1. Visual Studio에서 프로젝트를 엽니다. UWP SDK를 설치하라는 메시지가 표시될 수 있습니다. 이 경우 설치를 수락합니다.
+1. **MainPage.Xaml.cs**를 편집하고 `ClientId` 필드의 값을 바꿉니다.
 
     ```csharp
-    private static string ClientId = "Enter_the_Application_Id_here";
-    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    private const string ClientId = "Enter_the_Application_Id_here";
     ```
 
 > [!div renderon="docs"]
 > 위치:
-> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 Id입니다.
-> - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
->   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 Id** 또는 **테넌트 이름**(예: contoso.onmicrosoft.com)으로 바꿉니다.
->   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 다음으로 바꾸세요. `organizations`
->   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 다음으로 바꾸세요. `common`
+> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 >
 > > [!TIP]
-> > *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > *애플리케이션 ID* 값을 찾으려면 **개요** 페이지로 이동합니다.
+
+#### <a name="step-4-run-your-application"></a>4단계: 애플리케이션 실행
+
+Windows 머신에서 빠른 시작을 시도하려면 다음을 수행합니다.
+
+1. Visual Studio 도구 모음에서 올바른 플랫폼을 선택합니다(ARM이 아닌 **x64** 또는 **x86**).
+   > 대상 디바이스가 *디바이스*에서 *로컬 머신*으로 변경되는지 관찰합니다.
+1. 디버그 선택 | **디버깅 없이 시작**
 
 ## <a name="more-information"></a>자세한 정보
 
@@ -101,10 +105,10 @@ ms.locfileid: "59360126"
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client))은 사용자를 로그인하고 Microsoft Azure Active Directory로 보호된 API 액세스에 사용하는 토큰을 요청하는 데 사용되는 라이브러리입니다. Visual Studio의 *패키지 관리자 콘솔*에서 다음 명령을 실행하여 MSAL을 설치할 수 있습니다.
+MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client))은 사용자를 로그인하고 보안 토큰을 요청하는 데 사용되는 라이브러리입니다. 보안 토큰은 개발자용 Microsoft ID 플랫폼으로 보호되는 API에 액세스할 때 사용됩니다. Visual Studio의 *패키지 관리자 콘솔*에서 다음 명령을 실행하여 MSAL을 설치할 수 있습니다.
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### <a name="msal-initialization"></a>MSAL 초기화
@@ -118,7 +122,9 @@ using Microsoft.Identity.Client;
 그런 다음, 아래 코드를 사용하여 MSAL을 초기화합니다.
 
 ```csharp
-public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+public static IPublicClientApplication PublicClientApp;
+PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
+                                                    .Build();
 ```
 
 > |위치: ||
@@ -127,19 +133,20 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### <a name="requesting-tokens"></a>토큰 요청
 
-MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `AcquireTokenAsync` 및 `AcquireTokenSilentAsync`가 있습니다.
+MSAL은 두 가지 메서드 `AcquireTokenInteractive` 및 `AcquireTokenSilent`를 사용하여 대화형으로 토큰을 획득합니다.
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-일부 상황에서는 사용자가 팝업 창을 통해 Azure AD v2.0 엔드포인트를 조작하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
+상황에 따라 사용자가 팝업 창을 통해 Microsoft ID 플랫폼 엔드포인트와 상호 작용하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
 
-- 처음으로 사용자가 응용 프로그램에 로그인한 경우
+- 사용자가 애플리케이션에 처음으로 로그인하는 경우
 - 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우
 - 애플리케이션이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있는 경우
 - 2단계 인증이 필요한 경우
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
+authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
+                      .ExecuteAsync();
 ```
 
 > |위치:||
@@ -148,17 +155,19 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
-사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분은 사용자 개입 없이 토큰 가져오기 및 갱신을 자동으로 처리하려고 합니다. 초기 `AcquireTokenAsync` 메서드 다음에 `AcquireTokenSilentAsync` 메서드를 사용하여 토큰을 가져와서 보호된 리소스에 액세스할 수 있습니다.
+사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분은 사용자 개입 없이 토큰 가져오기 및 갱신을 자동으로 처리하려고 합니다. 초기 `AcquireTokenAsync` 메서드 다음에 `AcquireTokenSilent` 메서드를 사용하여 토큰을 가져와서 보호된 리소스에 액세스할 수 있습니다.
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
+var firstAccount = accounts.FirstOrDefault();
+authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                      .ExecuteAsync();
 ```
 
 > |위치: ||
 > |---------|---------|
 > | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 Web API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
-> | `accounts.FirstOrDefault()` | 캐시의 첫 번째 사용자를 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원함). |
+> | `firstAccount` | 캐시의 첫 번째 사용자 계정을 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

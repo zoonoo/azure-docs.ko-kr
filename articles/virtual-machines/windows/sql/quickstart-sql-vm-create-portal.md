@@ -14,26 +14,25 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bd535aeb034a17f1844c1d19379c1811b43d27e5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c9e62cf3dfc259d7064be9fd6b80cad0140336eb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260241"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549272"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 SQL Server 2017 Windows 가상 머신 만들기
 
 > [!div class="op_single_selector"]
-> * [ Windows](quickstart-sql-vm-create-portal.md)
+> * [Windows](quickstart-sql-vm-create-portal.md)
 > * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 이 빠른 시작은 Azure Portal에서 SQL Server 가상 머신을 만드는 과정을 설명합니다.
 
-> [!TIP]
-> 이 빠른 시작에서는 신속하게 SQL VM을 프로비전하고 연결하는 경로를 제공합니다. 다른 SQL VM 프로비전 방법에 대한 자세한 내용은 [Azure Portal에서 Windows SQL Server VM에 대한 프로비전 가이드](virtual-machines-windows-portal-sql-server-provision.md)를 참조하세요.
 
-> [!TIP]
-> SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
+  > [!TIP]
+  > - 이 빠른 시작에서는 신속하게 SQL VM을 프로비전하고 연결하는 경로를 제공합니다. 다른 SQL VM 프로비전 방법에 대한 자세한 내용은 [Azure Portal에서 Windows SQL Server VM에 대한 프로비전 가이드](virtual-machines-windows-portal-sql-server-provision.md)를 참조하세요.
+  > - SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
 ## <a id="subscription"></a> Azure 구독 가져오기
 
@@ -47,12 +46,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 검색 필드에 `SQL Server 2017 Developer on Windows Server 2016`을 입력하고 ENTER 키를 누릅니다.
 
-1. **무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer** 이미지를 선택합니다.
+1. **무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer** 이미지를 선택합니다. Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다. 전체 가격 책정 고려 사항은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
    ![새 검색 창](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
-   > [!TIP]
-   > Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다. 전체 가격 책정 고려 사항은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 1. **만들기**를 선택합니다.
 
@@ -99,19 +96,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **검토 + 만들기** 탭에서 요약을 검토하고 **만들기**를 선택하여 이 VM에 지정된 SQL Server, 리소스 그룹 및 리소스를 만듭니다.
 
-Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에 있는 **알림** 단추는 배포의 기본 상태를 표시합니다.
-
-> [!TIP]
-> Windows SQL Server VM을 배포하는 데 몇 분 정도가 걸릴 수 있습니다.
+Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에 있는 **알림** 단추는 배포의 기본 상태를 표시합니다. 배포에는 몇 분 정도 걸릴 수 있습니다. 
 
 ## <a name="connect-to-sql-server"></a>SQL Server에 연결
 
 1. 포털에 있는 가상 머신 속성의 **개요** 섹션에서 SQL Server VM의 **공용 IP 주소**를 찾습니다.
 
-1. 인터넷에 연결된 다른 컴퓨터에서 SSMS(SQL Server Management Studio)를 엽니다.
+1. 인터넷에 연결된 다른 컴퓨터에서 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 엽니다.
 
-   > [!TIP]
-   > SQL Server Management Studio가 없는 경우 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 다운로드할 수 있습니다.
 
 1. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. VM의 공용 IP 주소를 입력합니다. 그런 다음 쉼표를 추가하고 새 VM을 구성할 때 지정한 사용자 지정 포트 **1401**을 추가합니다. 예: `11.22.33.444,1401`
 

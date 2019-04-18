@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: e95006c6448bf1179d33bcd00c16d6e4246db148
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1cf46fd5ec55f0b240f6bb4adbe49c1344a4663b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887321"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547682"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>빠른 시작: Bing Spell Check REST API 및 Python으로 맞춤법 검사
 
@@ -26,7 +26,6 @@ ms.locfileid: "56887321"
 * Python [3.x](https://www.python.org)
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
-
 
 ## <a name="initialize-the-application"></a>애플리케이션 초기화
 
@@ -40,7 +39,7 @@ ms.locfileid: "56887321"
 2. 맞춤법 검사를 원하는 텍스트, 구독 키 및 Bing Spell Check 엔드포인트에 대한 변수를 만듭니다.
 
     ```python
-    api_key = "enter-your-key-here"
+    api_key = "<ENTER-KEY-HERE>"
     example_text = "Hollo, wrld" # the text to be spell-checked
     endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/SpellCheck"
     ```
@@ -53,7 +52,7 @@ ms.locfileid: "56887321"
     data = {'text': example_text}
     ```
 
-2. 요청에 대한 매개 변수를 추가합니다. `mkt` 매개 변수를 사용자의 지역/국가로 설정하고 `mode`를 `proof`로 설정합니다. 
+2. 요청에 대한 매개 변수를 추가합니다. `mkt=` 뒤에 시장 코드를 추가합니다. 시장 코드는 요청을 수행한 국가입니다. 또한 `&mode=` 뒤에 맞춤법 검사 모드를 추가합니다. 모드는 `proof`(대부분의 맞춤법/문법 오류 catch) 또는 `spell`(대부분의 맞춤법은 catch하지만 문법 오류는 많지 않음)입니다.
 
     ```python
     params = {
@@ -80,7 +79,7 @@ ms.locfileid: "56887321"
     ```
 
 2. JSON 응답을 받아서 출력합니다.
-    
+
     ```python
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
@@ -88,7 +87,7 @@ ms.locfileid: "56887321"
 
 ## <a name="example-json-response"></a>예제 JSON 응답
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json
 {

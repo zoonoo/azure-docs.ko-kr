@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904851"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521665"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -217,7 +217,7 @@ ssh 도구를 사용하여 가상 머신에 연결합니다. 이 명령은 다�
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 사용할 암호는 매개 변수 파일의 암호입니다.
-Linux VM에 로그온하면 포털에서 리소스 <prefix>hsm_vnic에 대해 확인된 사설 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
+Linux VM에 로그온하면 포털에서 리소스 \<prefix>hsm_vnic에 대해 확인된 사설 IP 주소를 사용하여 HSM에 로그인할 수 있습니다.
 
 ```powershell
 
