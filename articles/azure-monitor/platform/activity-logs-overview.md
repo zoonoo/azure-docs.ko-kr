@@ -143,7 +143,7 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Name |예 |로그 프로필의 이름입니다. |
 | StorageAccountId |아닙니다. |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | serviceBusRuleId |아닙니다. |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
-| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
+| Location |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
 | Category |아닙니다. |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
