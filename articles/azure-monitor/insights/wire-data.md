@@ -397,9 +397,9 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 | ReceivedBytes | 받은 바이트의 양 |
 | ProtocolName | 사용되는 네트워크 프로토콜의 이름 |
 | IPVersion | IP 버전 |
-| 방향 | 인바운드 또는 아웃바운드 |
+| Direction | 인바운드 또는 아웃바운드 |
 | MaliciousIP | 알려진 악의적인 원본의 IP 주소 |
-| 심각도 | 의심되는 맬웨어 심각도 |
+| Severity | 의심되는 맬웨어 심각도 |
 | RemoteIPCountry | 원격 IP 주소의 국가 |
 | ManagementGroupName | Operations Manager 관리 그룹의 이름 |
 | SourceSystem | 데이터가 수집된 원본 |
