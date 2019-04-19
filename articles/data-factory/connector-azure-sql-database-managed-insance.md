@@ -53,10 +53,10 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **SqlServer**로 설정해야 합니다. | 예. |
+| type | type 속성은 **SqlServer**로 설정해야 합니다. | 예. |
 | connectionString |이 속성은 SQL 인증 또는 Windows 인증을 사용하여 Managed Instance에 연결하는 데 필요한 connectionString 정보를 지정합니다. 자세한 내용은 다음 예제를 참조하세요. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예. |
 | userName |Windows 인증을 사용하는 경우 이 속성은 사용자 이름을 지정합니다. **domainname\\username**을 예로 들 수 있습니다. |아니요. |
-| 암호 |이 속성은 사용자 이름에 대해 지정한 사용자 계정의 암호를 지정합니다. connectionString 정보를 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)하려면 **SecureString**을 선택합니다. |아니요. |
+| password |이 속성은 사용자 이름에 대해 지정한 사용자 계정의 암호를 지정합니다. connectionString 정보를 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)하려면 **SecureString**을 선택합니다. |아니요. |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. Managed Instance와 동일한 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비전합니다. |예. |
 
 >[!TIP]
@@ -146,7 +146,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사하려면 데이�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예. |
+| type | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예. |
 | tableName |이 속성은 연결된 서비스가 참조하는 데이터베이스 인스턴스의 테이블이나 뷰 이름입니다. | 값은 원본의 경우 No이고 싱크의 경우 Yes입니다. |
 
 **예**
@@ -178,8 +178,8 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **SqlSource**로 설정해야 합니다. | 예. |
-| SqlReaderQuery |이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `select * from MyTable`입니다. |아니요. |
+| type | 복사 작업 원본의 type 속성은 **SqlSource**로 설정해야 합니다. | 예. |
+| sqlReaderQuery |이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `select * from MyTable`입니다. |아니요. |
 | sqlReaderStoredProcedureName |이 속성은 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니요. |
 | storedProcedureParameters |저장 프로시저용 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대/소문자는 저장 프로시저 매개변수의 이름 및 대/소문자와 일치해야 합니다. |아니요. |
 
@@ -281,7 +281,7 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 type 속성은 **SqlSink**로 설정해야 합니다. | 예. |
+| type | 복사 작업 싱크의 type 속성은 **SqlSink**로 설정해야 합니다. | 예. |
 | writeBatchSize |SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. |아니요(기본값: 10,000) |
 | writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)을 지정할 수 있습니다. |아니요. |
 | preCopyScript |이 속성은 Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업용 SQL 쿼리를 지정하며 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요. |
@@ -511,36 +511,36 @@ Azure SQL Database Managed Instance 간에 데이터를 복사할 때는 Managed
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |BOOLEAN |
+| bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| DateTime |Datetime |
-| datetime2 |Datetime |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| 10진수 |10진수 |
-| FILESTREAM 특성(varbinary(max)) |Byte[] |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 이미지 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
-| money |10진수 |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |10진수 |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |단일 |
+| real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |10진수 |
+| smallmoney |Decimal |
 | sql_variant |Object |
-| 텍스트 |String, Char[] |
-| 실시간 |timespan |
+| text |String, Char[] |
+| time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 >[!NOTE]
 > 10진수 중간 형식으로 매핑되는 데이터 형식의 경우 Azure Data Factory는 현재 최대 28자리의 데이터를 지원합니다. 자릿수가 28자리를 초과하는 데이터가 있으면 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.
