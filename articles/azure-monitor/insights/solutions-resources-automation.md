@@ -114,7 +114,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | 자산 | 설명 |
 |:--- |:--- |
 | runbook |시작할 Runbook의 이름을 포함하는 단일 이름 엔터티입니다. |
-| 매개 변수 |Runbook에 필요한 각 매개 변수 값의 엔터티입니다. |
+| parameters |Runbook에 필요한 각 매개 변수 값의 엔터티입니다. |
 
 작업에는 runbook 이름과 runbook으로 전송되는 모든 매개 변수 값이 포함됩니다.  작업 전에 Runbook을 만들어야 하므로 작업은 시작하는 Runbook에 따라 [달라집니다]( solutions-solution-file.md#resources).  시작해야 하는 Runbook이 여러 개 있는 경우 작업을 먼저 실행해야 하는 다른 작업에 종속되게 하여 순서를 정의 할 수 있습니다.
 
@@ -172,7 +172,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | 자산 | 설명 |
 |:--- |:--- |
 | userName |인증서의 사용자 이름입니다. |
-| 암호 |인증서의 암호입니다. |
+| password |인증서의 암호입니다. |
 
 
 ## <a name="schedules"></a>일정
@@ -242,8 +242,8 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 | 자산 | 설명 |
 |:--- |:--- |
-| 일정 이름 |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
-| Runbook 이름  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
+| schedule name |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
+| runbook name |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
 
 
 
@@ -271,8 +271,8 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 |:--- |:--- |
 | description | 변수에 대한 선택적 설명입니다. |
 | isEncrypted | 변수를 암호화해야 하는지 지정합니다. |
-| 형식 | 이 속성은 현재 적용되지 않습니다.  변수의 데이터 형식은 초기 값에 의해 결정됩니다. |
-| 값 | 변수의 값입니다. |
+| type | 이 속성은 현재 적용되지 않습니다.  변수의 데이터 형식은 초기 값에 의해 결정됩니다. |
+| value | 변수의 값입니다. |
 
 > [!NOTE]
 > **type** 속성은 현재 생성 중인 변수에 적용되지 않습니다.  변수의 데이터 형식은 해당 값에 의해 결정됩니다.  
@@ -281,10 +281,10 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 | 데이터 형식 | 설명 | 예 | 결과 값 |
 |:--|:--|:--|:--|
-| 문자열   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
+| string   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |
-| 부울  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
-| Datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| boolean  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
+| datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>모듈
 관리 솔루션은 Automation 계정에서 항상 사용할 수 있으므로 Runbook에서 사용하는 [전역 모듈](../../automation/automation-integration-modules.md)을 정의할 필요가 없습니다.  Runbook에서 사용하는 다른 모듈에 대한 리소스를 포함해야 합니다.
