@@ -1,6 +1,6 @@
 ---
-title: '자습서: 인덱싱 파이프라인에서 Cognitive Services API 호출 - Azure Search'
-description: JSON BLOB을 통한 데이터 추출 및 변환을 위한 Azure Search 인덱싱의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 알아봅니다.
+title: '자습서: 인덱싱 파이프라인에서 Cognitive Services REST API 호출 - Azure Search'
+description: Postman 및 REST API를 사용하는 JSON Blob을 통해 데이터를 추출하고 변환하기 위해 Azure Search 인덱싱에서 데이터 추출, 자연어 및 이미지 AI를 처리하는 예제를 단계별로 알아봅니다.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261924"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528376"
 ---
-# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출(미리 보기)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>REST 자습서: Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출(미리 보기)
 
 이 자습서에서는 *인식 기술*을 사용하여 Azure Search에서 데이터 보강을 프로그래밍하는 메커니즘을 알아봅니다. 기술은 Cognitive Services의 NLP(자연어 처리) 및 이미지 분석 기능에 의해 지원됩니다. 기술 세트 컴퍼지션 및 구성을 통해 이미지 또는 스캔한 문서 파일의 텍스트 및 텍스트 표현을 추출할 수 있습니다. 언어, 엔터티, 핵심 문구 등을 검색할 수도 있습니다. 최종적으로 AI 지원 인덱싱 파이프라인을 통해 Azure Search 인덱스에 풍부한 추가 콘텐츠가 생성됩니다. 
 
@@ -43,31 +43,37 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
+이 자습서에서는 다음과 같은 서비스, 도구 및 데이터가 사용됩니다. 
+
 [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
+
+샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 [Postman 데스크톱 앱](https://www.getpostman.com/)은 Azure Search에 대한 REST 호출을 수행하는 데 사용됩니다.
 
-### <a name="get-an-azure-search-api-key-and-endpoint"></a>Azure Search API 키 및 엔드포인트 가져오기
+[샘플 데이터](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)는 여러 종류의 작은 파일 세트로 구성됩니다. 
+
+## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
 REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-1. Azure Portal의 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://my-service-name.search.windows.net`
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-2. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
 ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service를 설정하고 샘플 데이터 로드
+## <a name="prepare-sample-data"></a>샘플 데이터 준비
 
 보강 파이프라인은 Azure 데이터 원본에서 데이터를 가져옵니다. 원본 데이터는 [Azure Search 인덱서](search-indexer-overview.md)의 지원되는 데이터 원본 유형에서 생성되어야 합니다. Azure Table Storage는 인식 검색을 지원하지 않습니다. 이 연습에서는 Blob Storage를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
 
-1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Storage 계정으로 이동한 후 **Blobs**를 클릭하고 **+ 컨테이너**를 클릭합니다.
 
-1. [Azure Blob Storage에 가입](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)하고, 스토리지 계정을 만들고, Blob 서비스 페이지를 열고 컨테이너를 만드세요. Azure Search와 동일한 지역에서 스토리지 계정을 만듭니다.
+1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
 
-1. 만든 컨테이너에서 **업로드**를 클릭하여 이전 단계에서 다운로드한 샘플 파일을 업로드합니다.
+1. 컨테이너를 만든 후에는 컨테이너를 열고 명령 모음에서 **업로드**를 선택하여 이전 단계에서 다운로드한 샘플 파일을 업로드합니다.
 
    ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -81,11 +87,22 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 공유 액세스 서명을 제공하는 방법을 포함하여 연결 문자열을 지정하는 여러 방법이 있습니다. 데이터 원본 자격 증명에 대한 자세한 내용은 [Azure Blob Storage 인덱싱](search-howto-indexing-azure-blob-storage.md#Credentials)을 참조하세요.
 
+## <a name="set-up-postman"></a>Postman 설정
+
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-fiddler.md)를 참조하세요.
+
+이 자습서에 사용되는 요청 메서드는 **POST**, **PUT** 및 **GET**입니다. 헤더 키는 "application/json"으로 설정된 "Content-type" 및 Azure Search 서비스의 관리자 키로 설정된 "api-key"입니다. 본문은 호출의 실제 콘텐츠가 배치되는 위치입니다. 
+
+  ![반구조화된 검색](media/search-semi-structured-data/postmanoverview.png)
+
+데이터 원본, 기술 세트, 인덱스 및 인덱서를 만들기 위해 Postman을 사용하여 검색 서비스에 대한 API 호출을 네 번 수행합니다. 데이터 원본은 저장소 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
+
+
 ## <a name="create-a-data-source"></a>데이터 소스 만들기
 
 서비스 및 원본 파일이 준비되었으니, 인덱싱 파이프라인의 구성 요소를 어셈블하세요. Azure Search에 외부 원본 데이터를 검색하는 방법을 알려주는 [데이터 원본 개체](https://docs.microsoft.com/rest/api/searchservice/create-data-source)부터 시작하겠습니다.
 
-이 자습서에서는 REST API와 PowerShell, Postman 또는 Fiddler처럼 HTTP 요청을 작성하고 보낼 수 있는 도구를 사용합니다. 요청 헤더에서 Azure Search 서비스를 만들 때 사용한 서비스 이름과 검색 서비스에 대해 생성된 api-key를 제공합니다. 요청 본문에서 BLOB 컨테이너 이름과 연결 문자열을 지정합니다.
+요청 헤더에서 Azure Search 서비스를 만들 때 사용한 서비스 이름과 검색 서비스에 대해 생성된 api-key를 제공합니다. 요청 본문에서 BLOB 컨테이너 이름과 연결 문자열을 지정합니다.
 
 ### <a name="sample-request"></a>샘플 요청
 ```http
@@ -108,7 +125,7 @@ api-key: [admin key]
 ```
 요청을 보냅니다. 웹 테스트 도구가 성공을 확인하는 201 상태 코드를 반환해야 합니다. 
 
-이번이 첫 번째 요청이므로 Azure Portal에서 데이터 원본이 Azure Search에 생성되었는지 확인합니다. 검색 서비스 대시보드 페이지에서 데이터 원본 타일에 새 항목이 있는지 확인합니다. 포털 페이지가 새로 고침될 때까지 몇 분 정도 기다려야 할 수도 있습니다. 
+이번이 첫 번째 요청이므로 Azure Portal에서 데이터 원본이 Azure Search에 생성되었는지 확인합니다. 검색 서비스 대시보드 페이지에서 데이터 원본 목록에 새 항목이 있는지 확인합니다. 포털 페이지가 새로 고침될 때까지 몇 분 정도 기다려야 할 수도 있습니다. 
 
   ![포털의 데이터 원본 타일](./media/cognitive-search-tutorial-blob/data-source-tile.png "포털의 데이터 원본 타일")
 
@@ -116,13 +133,13 @@ api-key: [admin key]
 
 ## <a name="create-a-skillset"></a>기술 집합 만들기
 
-이 단계에서는 데이터에 적용할 보강 단계를 정의합니다. 각 보강 단계를 *기술*이라고 부르고, 보강 단계 집합을 *기술 집합*이라고 부릅니다. 이 자습서에서는 다음과 같은 [미리 정의된 인식 기술](cognitive-search-predefined-skills.md)을 기술 집합에 사용합니다.
+이 단계에서는 데이터에 적용할 보강 단계를 정의합니다. 각 보강 단계를 *기술*이라고 부르고, 보강 단계 집합을 *기술 집합*이라고 부릅니다. 이 자습서에서는 다음과 같은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)을 기술 세트에 사용합니다.
 
 + [언어 감지](cognitive-search-skill-language-detection.md): 콘텐츠의 언어를 식별합니다.
 
 + [텍스트 분할](cognitive-search-skill-textsplit.md): 핵심 구 추출 기술을 호출하기 전에 큰 콘텐츠를 작은 청크로 분할합니다. 핵심 구 추출은 50,000자 이하의 입력을 허용합니다. 일부 샘플 파일은 이 제한에 맞게 분할해야 합니다.
 
-+ [명명된 엔터티 인식](cognitive-search-skill-named-entity-recognition.md): BLOB 컨테이너의 콘텐츠에서 조직 이름을 추출합니다.
++ [엔터티 인식](cognitive-search-skill-entity-recognition.md): Blob 컨테이너의 콘텐츠에서 조직 이름을 추출합니다.
 
 + [핵심 구 추출](cognitive-search-skill-keyphrases.md): 상위 핵심 구를 추출합니다. 
 
@@ -144,7 +161,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
       "inputs": [
@@ -217,7 +234,7 @@ Content-Type: application/json
 
 요청을 보냅니다. 웹 테스트 도구가 성공을 확인하는 201 상태 코드를 반환해야 합니다. 
 
-#### <a name="about-the-request"></a>요청 본문 정보
+#### <a name="explore-the-request-body"></a>요청 본문 탐색
 
 각 페이지에서 핵심 구 추출 기술이 어떻게 적용되는지 확인합니다. 컨텍스트를 ```"document/pages/*"```로 설정하여 (문서의 각 페이지에 대한) 문서/페이지 배열의 각 멤버에 대해 이 보강자를 실행합니다.
 
@@ -306,11 +323,13 @@ Content-Type: application/json
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>인덱서 만들기, 필드 매핑 및 변환 실행
 
-지금까지 데이터 원본, 기술 집합 및 인덱스를 만들었습니다. 이러한 세 가지 구성 요소는 각 조각을 서로 연결하여 단일 다단계 작업으로 만드는 [인덱서](search-indexer-overview.md)의 일부가 됩니다. 각 구성 요소를 인덱서에 서로 연결하려면 필드 매핑을 정의해야 합니다. 필드 매핑은 인덱서 정의의 일부이며 요청이 제출될 때 변환을 실행합니다.
+지금까지 데이터 원본, 기술 집합 및 인덱스를 만들었습니다. 이러한 세 가지 구성 요소는 각 조각을 서로 연결하여 단일 다단계 작업으로 만드는 [인덱서](search-indexer-overview.md)의 일부가 됩니다. 각 구성 요소를 인덱서에 서로 연결하려면 필드 매핑을 정의해야 합니다. 
 
-비보강 인덱싱에서는 필드 이름 또는 데이터 형식이 정확하게 일치하지 않거나 함수를 사용하려는 경우 인덱서 정의에서 선택적 *fieldMappings* 섹션을 제공합니다.
++ fieldMappings은 기술 세트보다 먼저 처리되며, 데이터 원본의 원본 필드를 인덱스의 대상 필드로 매핑합니다. 필드 이름과 유형이 양쪽 끝에서 동일하면 매핑이 필요 없습니다.
 
-보강 파이프라인이 있는 인식 검색 워크로드의 경우 인덱서에 *outputFieldMappings*가 필요합니다. 이러한 매핑은 내부 프로세스(보강 파이프라인)가 필드 값의 소스일 때 사용됩니다. *outputFieldMappings* 고유의 동작으로는 (쉐이퍼 기술을 통해) 보강의 일부로 생성된 복합 형식을 처리하는 기능이 있습니다. 또한 문서 하나에 여러 요소가 있을 수 있습니다(예: 문서 하나에 여러 조직). *outputFieldMappings* 구문은 시스템에 요소 컬렉션을 단일 레코드로 "평면화"하라고 지시할 수 있습니다.
++ outputFieldMappings는 기술 세트 후에 처리되며, 문서 크래킹 또는 보강을 통해 만들기 전에는 존재하지 않는 sourceFieldNames를 참조합니다. targetFieldName은 인덱스의 필드입니다.
+
+입력을 출력에 연결하는 것 외에도, 필드 매핑을 사용하여 데이터 구조를 평면화할 수 있습니다. 자세한 내용은 [검색 가능한 인덱스에 보강된 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)을 참조하세요.
 
 ### <a name="sample-request"></a>샘플 요청
 
@@ -378,7 +397,7 @@ Content-Type: application/json
 > [!TIP]
 > 인덱서를 만들면 파이프라인이 호출됩니다. 데이터 도달, 입력 및 출력 매핑 또는 작업 순서에 문제가 있으면 이 단계에 나타납니다. 코드 또는 스크립트를 변경하고 파이프라인을 다시 실행하려면 먼저 개체를 삭제해야 합니다. 자세한 내용은 [다시 설정하고 다시 실행](#reset)을 참조하세요.
 
-### <a name="explore-the-request-body"></a>요청 본문 탐색
+#### <a name="explore-the-request-body"></a>요청 본문 탐색
 
 이 스크립트는 ```"maxFailedItems"```를 -1로 설정합니다. 이 값은 데이터를 가져오는 동안에는 오류를 무시하라고 인덱싱 엔진에 지시합니다. 데모 데이터 원본에는 문서가 몇 개 없기 때문에 이렇게 하면 도움이 됩니다. 데이터 원본의 크기가 큰 경우에는 0보다 큰 값으로 설정해야 합니다.
 

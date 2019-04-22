@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495911"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 후크 작업
@@ -75,7 +75,7 @@ Azure Data Factory는 추가 속성을 "callBackUri" url 끝점의 본문에서 
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요.
 
 - [If 조건 작업](control-flow-if-condition-activity.md)
-- [파이프라인 작업 실행](control-flow-execute-pipeline-activity.md)
+- [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md)
 - [ForEach 작업](control-flow-for-each-activity.md)
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [조회 작업](control-flow-lookup-activity.md)

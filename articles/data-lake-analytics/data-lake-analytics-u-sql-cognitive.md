@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492943"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>U-SQL의 인식 기능 시작
@@ -32,6 +32,6 @@ U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 �
 시작 하기 전에 u-sql에서 인지 확장을 등록 하려면이 문서의 단계를 수행 합니다. [U-sql에서 인지 확장 등록](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions)합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [U-Q l/인식 샘플](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
-* [Visual Studio 용 Data Lake Tools를 사용 하 여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
+* [U-SQL/인식 샘플](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
+* [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)

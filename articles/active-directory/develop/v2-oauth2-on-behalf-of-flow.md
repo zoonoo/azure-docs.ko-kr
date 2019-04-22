@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501606"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
@@ -227,4 +227,4 @@ OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하여 서비�
 
 * [Microsoft id 플랫폼에서 OAuth 2.0 클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md)
 * [Microsoft id 플랫폼에서 OAuth 2.0 코드 흐름](v2-oauth2-auth-code-flow.md)
-* [사용 하 여 `/.default` 범위](v2-permissions-and-consent.md#the-default-scope)
+* [`/.default` 범위](v2-permissions-and-consent.md#the-default-scope) 사용

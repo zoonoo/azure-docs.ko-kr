@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494921"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>분할 된 데이터베이스 맵 관리자의 성과 추적 하는 성능 카운터 만들기
@@ -66,7 +66,7 @@ ms.locfileid: "59494921"
 * 성능 범주 및 카운터 생성은 ShardMapManager 개체를 만들기 전에 한 번만 수행되어야 합니다. CreatePerformanceCategoryAndCounters() 명령을 실행할 때마다 이전 카운터가 지워지고(모든 인스턴스에 의해 보고된 데이터 손실) 새 카운터가 생성됩니다.  
 * 성능 카운터 인스턴스는 프로세스 마다 생성됩니다. 애플리케이션 작동이 중단되거나 분할된 맵이 캐시에서 제거되면 성능 카운터 인스턴스가 삭제됩니다.  
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>참고 항목: 
 
 [Elastic Database 기능 개요](sql-database-elastic-scale-introduction.md)  
 

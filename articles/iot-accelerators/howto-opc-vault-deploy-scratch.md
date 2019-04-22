@@ -9,15 +9,15 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496899"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>처음부터 OPC 자격 증명 모음 배포
 
-OPC 자격 증명 모음은 구성, 등록 및 OPC UA 서버 및 클라우드에서 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리할 수 있는 마이크로 서비스. 이 문서에서는 처음부터 OPC 자격 증명 모음을 배포 하는 방법을 보여 줍니다.
+OPC 자격 증명 모음은 클라우드 내 OPC UA 서버 및 클라이언트 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있는 마이크로서비스입니다. 이 문서에서는 처음부터 OPC 자격 증명 모음을 배포 하는 방법을 보여 줍니다.
 
 ## <a name="configuration-and-environment-variables"></a>구성 및 환경 변수
 

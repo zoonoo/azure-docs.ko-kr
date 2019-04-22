@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181353"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678797"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -196,6 +196,9 @@ StatefulSet의 복제본은 AKS 클러스터의 사용 가능한 모든 노드�
 StatefulSet과 마찬가지로 DaemonSet은 `kind: DaemonSet`을 사용하여 YAML 정의의 일부로 정의됩니다.
 
 자세한 내용은 [Kubernetes DaemonSets][kubernetes-daemonset]를 참조하세요.
+
+> [!NOTE]
+> 사용 하는 경우는 [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)를 Daemonset 가상 노드에 pod를 만들지 것입니다.
 
 ## <a name="namespaces"></a>네임스페이스
 

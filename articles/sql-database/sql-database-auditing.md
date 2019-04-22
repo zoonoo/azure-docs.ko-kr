@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 9fac8291799216b4ca4527b482aefee169f7fc59
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/16/2019
+ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361267"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680382"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -88,6 +88,9 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
     ![탐색 창][3]
 
 5. **새로 만들기** - 이제 감사 로그가 작성될 구성에 대한 여러 옵션이 있습니다. Azure storage 계정, Azure Monitor 로그 사용에 대 한 Log Analytics 작업 영역 또는 이벤트 허브 이벤트 허브를 사용 하 여 소비에 대 한 로그를 작성할 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
+
+   > [!WARNING]
+   > Log Analytics에 감사를 사용 하면 수집 속도에 따른 요금이 부과 됩니다. 이 사용 하 여 관련된 비용에 주의 하세요 [옵션](https://azure.microsoft.com/en-us/pricing/details/monitor/), 또는 Azure storage 계정에 로그인 감사를 저장 하는 것이 좋습니다.
 
     ![저장소 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -231,7 +234,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 - [데이터베이스 감사 정책 (설정-AzSqlDatabaseAuditing) 생성 또는 업데이트](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [만들기 또는 업데이트 서버 감사 정책 (AzSqlServerAuditing 집합)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [데이터베이스 감사 정책 (Get-AzSqlDatabaseAuditing) 가져오기](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [데이터베이스 감사 정책 가져오기(Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
 - [서버 감사 정책 (Get-AzSqlServerAuditing) 가져오기](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
@@ -240,7 +243,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 
 **REST API**:
 
-- [데이터베이스 감사 정책 생성 또는 업데이트](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [데이터베이스 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
 - [서버 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [데이터베이스 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
 - [서버 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
@@ -256,9 +259,9 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 
 다음 예제처럼 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
 
-- [Azure Blob storage 계정의 감사 로그를 쓸 수 있도록 설정한 감사를 사용 하 여 Azure SQL Server 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [감사 로그를 Log Analytics 쓸 수 있도록 설정한 감사를 사용 하 여 Azure SQL Server 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [감사 로그를 Event Hubs 쓸 수 있도록 설정한 감사를 사용 하 여 Azure SQL Server 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [감사가 설정된 Azure SQL Server를 배포하여 감사 로그를 Azure Blob Storage 계정에 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [감사가 설정된 Azure SQL Server를 배포하여 Log Analytics에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [감사가 설정된 Azure SQL Server를 배포하여 Event Hubs에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 > [!NOTE]
 > 연결 된 샘플은 외부 공용 저장소에 있고 '그대로'에 제공 됩니다 보증 없이 모든 Microsoft 지원 프로그램/서비스에서 지원 되지 않습니다.

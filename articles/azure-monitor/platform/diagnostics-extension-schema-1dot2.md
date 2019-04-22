@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496491"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure Diagnostics 1.2 구성 스키마
@@ -100,7 +100,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|필수 사항입니다. 수집할 원격 분석 데이터에 대한 구성 설정입니다.|  
 |**StorageAccount**|데이터를 저장할 Azure Storage 계정의 이름입니다. 이는 Set-AzureServiceDiagnosticsExtension cmdlet을 실행할 때 매개 변수로 지정할 수도 있습니다.|  
-|**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 데 사용할 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 가상 컴퓨터: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> -                      **경로** - Azure 진단에서 사용되는 시스템의 디렉터리입니다.<br /><br /> -                      **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
+|**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 데 사용할 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할의 경우: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Virtual Machine의 경우: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> -                      **경로** - Azure 진단에서 사용되는 시스템의 디렉터리입니다.<br /><br /> -                      **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
 
 ## <a name="wadcfg-element"></a>WadCFG 요소  
 수집할 원격 분석 데이터에 대한 구성 설정을 정의합니다. 다음 표는 자식 요소에 대해 설명합니다.  
@@ -108,11 +108,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |요소 이름|설명|  
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|필수 사항입니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **overallQuotaInMB** - Azure 진단으로 수집된 진단 데이터의 다양한 형식에서 사용될 수 있는 로컬 디스크 공간의 최대 크기입니다. 기본 설정은 5120MB입니다.<br /><br /> -                     **useProxyServer** - IE 설정에서 설정한 대로 프록시 서버 설정을 사용하도록 Azure 진단을 구성합니다.|  
-|**크래시 덤프**|크래시 덤프의 수집을 사용하도록 설정합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **containerName** - 크래시 덤프를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.<br /><br /> -                     **crashDumpType** - 최소 또는 전체 크래시 덤프를 수집하도록 Azure 진단을 구성합니다.<br /><br /> -                     **directoryQuotaPercentage**- VM에서 크래시 덤프에 대해 예약될 **overallQuotaInMB**의 비율을 구성합니다.|  
+|**CrashDumps**|크래시 덤프의 수집을 사용하도록 설정합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **containerName** - 크래시 덤프를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.<br /><br /> -                     **crashDumpType** - 최소 또는 전체 크래시 덤프를 수집하도록 Azure 진단을 구성합니다.<br /><br /> -                     **directoryQuotaPercentage**- VM에서 크래시 덤프에 대해 예약될 **overallQuotaInMB**의 비율을 구성합니다.|  
 |**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> -                     **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> -                     **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
-|**디렉터리**|디렉터리, IIS 실패한 액세스 요청 로그 및/또는 IIS 로그의 콘텐츠 수집을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
+|**Directories**|디렉터리, IIS 실패한 액세스 요청 로그 및/또는 IIS 로그의 콘텐츠 수집을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 |**EtwProviders**|EventSource의 ETW 이벤트 및/또는 공급자를 기반으로 하는 ETW 매니페스트의 컬렉션을 구성합니다.|  
-|**메트릭**|이 요소는 빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있도록 합니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다. 필수 특성:<br /><br /> **resourceId** - 이는 Azure 진단을 배포하는 Virtual Machine의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드입에서 값을 복사합니다.|  
+|**Metrics**(메트릭)|이 요소는 빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있도록 합니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다. 필수 특성:<br /><br /> **resourceId** - 이는 Azure 진단을 배포하는 Virtual Machine의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드입에서 값을 복사합니다.|  
 |**PerformanceCounters**|성능 카운터의 컬렉션을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 |**WindowsEventLog**|Windows 이벤트 로그의 컬렉션을 활성화합니다. 선택적 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.|  
 
@@ -146,7 +146,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**절대값**|모니터링할 디렉터리의 절대 경로입니다. 다음과 같은 특성이 필요합니다.<br /><br /> -                     **Path** - 모니터링할 디렉터리의 절대 경로입니다.<br /><br /> -                      **expandEnvironment** - 경로의 환경 변수가 확장되어 있는지 여부를 구성합니다.|  
+|**Absolute**|모니터링할 디렉터리의 절대 경로입니다. 다음과 같은 특성이 필요합니다.<br /><br /> -                     **Path** - 모니터링할 디렉터리의 절대 경로입니다.<br /><br /> -                      **expandEnvironment** - 경로의 환경 변수가 확장되어 있는지 여부를 구성합니다.|  
 |**LocalResource**|모니터링할 로컬 리소스의 상대 경로입니다. 필수 특성은 다음과 같습니다.<br /><br /> -                     **Name** - 모니터링할 디렉터리를 포함하는 로컬 리소스<br /><br /> -                     **relativePath** -모니터링할 디렉터리를 포함하는 이름의 상대 경로|  
 
 ## <a name="etwproviders-element"></a>EtwProviders 요소  
@@ -163,7 +163,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |요소 이름|설명|  
 |------------------|-----------------|  
 |**DefaultEvents**|선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
-|**행사**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
+|**Event**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration 요소  
  다음 표는 자식 요소에 대해 설명합니다.  
@@ -171,7 +171,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |요소 이름|설명|  
 |------------------|-----------------|  
 |**DefaultEvents**|선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
-|**행사**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
+|**Event**|필수 특성:<br /><br /> **id** - 이벤트의 ID입니다.<br /><br /> 선택적 특성:<br /><br /> **eventDestination** - 이벤트를 저장할 테이블의 이름|  
 
 ## <a name="metrics-element"></a>Metrics 요소  
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. 다음 표는 자식 요소에 대해 설명합니다.  
@@ -192,7 +192,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |요소 이름|설명|  
 |------------------|-----------------|  
-|**주석**|필수 특성:<br /><br /> **displayName** - 카운터의 표시 이름<br /><br /> 선택적 특성:<br /><br /> **locale** - 카운터 이름을 표시할 때 사용할 로캘|  
+|**annotation**|필수 특성:<br /><br /> **displayName** - 카운터의 표시 이름<br /><br /> 선택적 특성:<br /><br /> **locale** - 카운터 이름을 표시할 때 사용할 로캘|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 요소  
  다음 표는 자식 요소에 대해 설명합니다.  

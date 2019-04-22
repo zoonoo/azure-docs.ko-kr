@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496253"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
@@ -51,7 +51,7 @@ Windows Server 2008 R2의 경우 Azure에서 암호화를 사용하도록 설정
 
 ## <a name="bkmk_GPO"></a> 네트워킹 및 그룹 정책
 
-**Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.**
+**Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM에서 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.**
   - Key Vault에 연결할 토큰을 얻으려면 IaaS VM에서 Azure Active Directory 엔드포인트인 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
   - 암호화 키를 고객 Key Vault에 쓰려면 IaaS VM에서 Key Vault 엔드포인트에 연결할 수 있어야 합니다.
   - IaaS VM은 Azure 확장 리포지토리를 호스팅하는 Azure Storage 엔드포인트 및 VHD 파일을 호스팅하는 Azure Storage 계정에 연결할 수 있어야 합니다.
@@ -302,8 +302,8 @@ PowerShell 스크립트를 사용하기 전에 스크립트의 단계를 이해�
  
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Windows 용 Azure Disk Encryption을 사용 하도록 설정](azure-security-disk-encryption-windows.md)
+> [Windows용 Azure Disk Encryption 사용](azure-security-disk-encryption-windows.md)
 
 > [!div class="nextstepaction"]
-> [Linux 용 Azure Disk Encryption을 사용 하도록 설정](azure-security-disk-encryption-linux.md)
+> [Linux용 Azure Disk Encryption 사용](azure-security-disk-encryption-linux.md)
 

@@ -11,10 +11,10 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495739"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>예제: Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-위의 코드는 jQuery UI 자동 완성 "example1a" 입력된 상자에 대 한 구성 페이지 로드 시 브라우저에서 실행 됩니다.  `minLength: 3` 검색 상자에 3 개 이상의 문자가 있는 경우 권장 사항 표시만 확인 합니다.  원본 값이 중요합니다.
+위의 코드는 jQuery UI 자동 완성 "example1a" 입력된 상자에 대 한 구성 페이지 로드 시 브라우저에서 실행 됩니다.  `minLength: 3`은 검색 상자에 3자 이상이 입력되었을 때만 권장 사항을 표시하도록 합니다.  원본 값이 중요합니다.
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",

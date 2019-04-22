@@ -7,10 +7,10 @@ ms.topic: hub-page
 featureFlags:
 - clicktale
 ms.openlocfilehash: 3b35608c30262f633af073daacc8795f8eca1e7e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496508"
 ---
 <div id="main" class="v2">
@@ -45,7 +45,7 @@ ms.locfileid: "59496508"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 애플리케이션 아키텍처 가이드</span>
+                                    <span class="likeAnH3">Azure 응용 프로그램 아키텍처 가이드</span>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@ Python</a>
                                                     <li>
                                                         <a class="barLink" href="/java/azure/">
                                                             <img src="media/index/logo_java.svg" alt="">
-자바</a>
+Java</a>
                                                     </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
@@ -178,8 +178,8 @@ Go</a>
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">서버리스 Functions</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">컨테이너</a></li>
-                                                    <li><a class="barLink" href="/azure/aks/">Kubernetes를 사용하는 마이크로서비스</a></li>
-                                                    <li><a class="barLink" href="/azure/service-fabric/">Service Fabric을 사용하는 마이크로 서비스</a></li>
+                                                    <li><a class="barLink" href="/azure/aks/">Kubernetes를 통한 마이크로 서비스</a></li>
+                                                    <li><a class="barLink" href="/azure/service-fabric/">Service Fabric을 사용하는 Microservices</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -196,7 +196,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">Azure VM의 SQL Server</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a Service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a></li>
                                                 </ul>
@@ -212,7 +212,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
-                                                    <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Azure 노트</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -239,7 +239,7 @@ Azure PowerShell </a>
                                                     <li>
                                                         <a class="barLink" href="/azure/azure-portal/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="">
-Azure portal </a>
+Azure Portal </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
@@ -2759,7 +2759,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">모바일</a>
+                        <a href="#mobile">Mobile</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
@@ -4416,7 +4416,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">통합</a>
+                        <a href="#integration">Integration</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/azure/api-management/">
@@ -4497,7 +4497,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#identity">ID</a>
+                        <a href="#identity">Identity</a>
                         <ul id="identity" class="cardsA">
                             <li>
                                 <a href="/azure/active-directory/">
@@ -5971,7 +5971,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <h3>
 .NET 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/dotnet/azure">시작하기</a>
+                                                    <a href="/dotnet/azure">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api/overview/azure/?view=azure-dotnet">API 참조</a>
@@ -5994,7 +5994,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <h3>
 Python 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/python/azure">시작하기</a>
+                                                    <a href="/python/azure">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/python/api/overview/azure/">API 참조</a>
@@ -6017,7 +6017,7 @@ Python 개발자용 Azure </h3>
                                                 <h3>
 Node.js 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">시작하기</a>
+                                                    <a href="/javascript/azure/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API 참조</a>
@@ -6040,7 +6040,7 @@ Node.js 개발자용 Azure </h3>
                                                 <h3>
 Java 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/java/azure">시작하기</a>
+                                                    <a href="/java/azure">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api">API 참조</a>
@@ -6063,7 +6063,7 @@ Java 개발자용 Azure </h3>
                                                 <h3>
 Go 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/go/azure/">시작하기</a>
+                                                    <a href="/go/azure/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API 참조</a>
@@ -6111,10 +6111,10 @@ Azure REST API </h3>
                                                 <h3>
 Azure CLI </h3>
                                                 <p>
-                                                    <a href="/cli/azure">시작하기</a>
+                                                    <a href="/cli/azure">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/reference-index">참고 자료</a>
+                                                    <a href="/cli/azure/reference-index">참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6133,10 +6133,10 @@ Azure CLI </h3>
                                             <div class="cardText">
                                                 <h3>Azure PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azure/get-started-azureps">시작하기</a>
+                                                    <a href="/powershell/azure/get-started-azureps">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/overview">참고 자료</a>
+                                                    <a href="/powershell/azure/overview">참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6155,7 +6155,7 @@ Azure CLI </h3>
                                             <div class="cardText">
                                                 <h3>Azure portal</h3>
                                                 <p>
-                                                    <a href="/azure/azure-portal/">시작하기</a>
+                                                    <a href="/azure/azure-portal/">시작</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6174,7 +6174,7 @@ Azure CLI </h3>
                                             <div class="cardText">
                                                 <h3>Azure 모바일 앱</h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/features/azure-portal/mobile-app/">시작하기</a>
+                                                    <a href="https://azure.microsoft.com/features/azure-portal/mobile-app/">시작</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6221,13 +6221,13 @@ Azure CLI </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio                             Code</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service</a>
                                                 </p>
                                                  <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure 기능</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Storage</a>
@@ -6256,10 +6256,10 @@ Docker </h3>
                                                     <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Visual Studio용 다운로드</a>
+                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Visual Studio용 다운로드 </a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code용 다운로드 </a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Azure DevOps용 다운로드</a>
@@ -6341,7 +6341,7 @@ Azure 리소스 관리자 </h3>
                                                     <a href="https://azure.microsoft.com/resources/templates/">샘플 템플릿</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/templates/">참고 자료</a>
+                                                    <a href="https://docs.microsoft.com/azure/templates/">참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6400,7 +6400,7 @@ Service Fabric SDK 및 Tools </h3>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Mac OS X 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric CLI 다운로드 </a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Service Fabric CLI 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6420,7 +6420,7 @@ Service Fabric SDK 및 Tools </h3>
                                                 <h3>
 SQL 도구 </h3>
                                                 <p>
-                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>미리 보기</sup></a>
+                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>PREVIEW</sup></a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SSMS(SQL Server Management Studio)</a>
@@ -6428,7 +6428,7 @@ SQL 도구 </h3>
                                                     <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SSDT(SQL Server Data Tools)</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/tools/overview-sql-tools">모든 SQL 도구 보기</a>
+                                                    <a href="/sql/tools/overview-sql-tools">모든 SQL 도구 참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6447,7 +6447,7 @@ SQL 도구 </h3>
                                                 <h3>
 Azure Dev 공간 </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">시작하기</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">.NET Core 및 VS Code용 다운로드</a>

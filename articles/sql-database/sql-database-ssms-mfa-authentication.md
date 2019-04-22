@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
 ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494904"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>AAD 다단계 인증을 사용 하 여 Azure SQL Database 및 Azure SQL Data Warehouse (MFA에 대 한 SSMS 지원)
@@ -71,10 +71,10 @@ Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사
 - [SQL Server Management Studio에 대한 Azure SQL Database multi-factor authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조하세요.
 - 다른 사용자에게 데이터베이스에 대한 액세스 권한을 부여합니다. [SQL Database 인증 및 권한 부여: 액세스 권한 부여](sql-database-manage-logins.md)  
 - 다른 사용자가 방화벽을 통해 연결할 수 있는지 확인합니다. [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)  
-- [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)  
-- [Microsoft SQL Server Data-tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
+- [SQL Database 또는 SQL Data Warehouse에서의 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)  
+- [Microsoft SQL Server Data-Tier Application Framework(17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [새 Azure SQL Database로 BACPAC 파일 가져오기](../sql-database/sql-database-import.md)  
+- [새 Azure SQL Database에 BACPAC 파일 가져오기](../sql-database/sql-database-import.md)  
 - [Azure SQL Database를 BACPAC 파일로 내보내기](../sql-database/sql-database-export.md)  
 - C# 인터페이스 [IUniversalAuthProvider Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - **Active Directory- MFA 유니버설** 인증을 사용할 때 ADAL 추적은 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 시작할 수 있습니다. 기본적으로 꺼짐인 ADAL 추적은 **도구**, **옵션** 메뉴, **Azure Services**, **Azure Cloud**, **ADAL 출력 창 추적 수준**을 사용하고 **보기** 메뉴의 **출력**을 활성화하여 켤 수 있습니다. 추적은 **Azure Active Directory 옵션**을 선택할 때 출력 창에서 사용할 수 있습니다.  

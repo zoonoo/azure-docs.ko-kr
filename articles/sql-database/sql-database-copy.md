@@ -12,12 +12,12 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 363803e9276a8356b52438f251391378c54f1655
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549698"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678941"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
@@ -25,7 +25,7 @@ Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 Azure S
 
 ## <a name="overview"></a>개요
 
-데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅숏입니다. 동일한 서버 또는 다른 서버, 해당 서비스 계층 및 계산 크기 또는 동일한 서비스 계층(버전) 내 다른 계산 크기를 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다.  
+데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅숏입니다. 동일한 서버나 다른 서버를 선택할 수 있습니다. 또한 해당 서비스 계층 및 크기를 계산를 계속 사용 하는 동일한 서비스 계층 (버전) 내 다양 한 계산 크기를 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다.  
 
 > [!NOTE]
 > 데이터베이스 복사본을 만들 때 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)이 사용됩니다.

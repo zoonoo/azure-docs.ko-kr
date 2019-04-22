@@ -12,25 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285380"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607775"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 App Service에서 기본 Python 이미지(미리 보기) 위에 Python 앱을 배포하는 방법을 보여 줍니다.
-
-Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수행하면 됩니다.
+이 빠른 시작에서는 간단한 Python 앱을 [Linux의 App Service](app-service-linux-intro.md)에 배포합니다. 이는 확장성이 높은 셀프 패치 웹 호스팅 서비스를 제공합니다. 대화형, 브라우저 기반 Azure Cloud Shell을 통해 Azure 명령줄 인터페이스([Azure CLI](/cli/azure/install-azure-cli))를 사용하므로 Mac, Linux 또는 Windows 컴퓨터를 사용하여 단계를 수행할 수 있습니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,6 +34,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수�
 
 * <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 설치</a>
 * <a href="https://git-scm.com/" target="_blank">Git 설치</a>
+* Azure 구독. 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만드세요.
 
 ## <a name="download-the-sample-locally"></a>로컬로 샘플 다운로드
 
@@ -109,7 +106,7 @@ Checking connectivity... done.
 
 샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다.
 
-다음 명령에서 <app-name>을 고유한 앱 이름으로 바꿉니다.
+다음 예제에서 `<app-name>`을 고유한 앱 이름으로 바꿉니다.
 
 ```bash
 cd python-docs-hello-world
@@ -174,10 +171,10 @@ return "Hello Azure!"
 
 변경 내용을 저장하고 편집기를 종료합니다. `^S` 명령을 사용하여 저장하고 `^Q` 명령을 사용하여 종료합니다.
 
-이제 앱을 다시 배포합니다. `<app-name>`을 앱으로 대체합니다.
+[`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) 명령을 사용하여 앱을 다시 배포합니다. `<app-name>`을 앱의 이름으로 바꾸고 `<location-name>`에 대한 위치를 지정합니다([`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령에서 표시 된 값 중 하나를 사용).
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 배포가 완료되면 **앱으로 이동** 단계에서 열린 브라우저 창으로 다시 전환하고 페이지를 새로 고칩니다.
@@ -196,7 +193,7 @@ az webapp up -n <app-name>
 
 ![Azure Portal의 App Service 페이지](media/quickstart-python/app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
@@ -205,13 +202,10 @@ az webapp up -n <app-name>
 Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 보기로 제공되며, 앱 시작에 사용되는 명령을 사용자 지정할 수 있습니다. 사용자 지정 컨테이너를 대신 사용하여 프로덕션 Python 앱을 만들 수도 있습니다.
 
 > [!div class="nextstepaction"]
-> [PostgreSQL을 사용하는 Python](tutorial-python-postgresql-app.md)
+> [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [사용자 지정 시작 명령 구성](how-to-configure-python.md#customize-startup-command)
+> [Python 앱 구성](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [문제 해결](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [사용자 지정 이미지 사용](tutorial-custom-docker-image.md)
+> [자습서: 사용자 지정 컨테이너에서 Python 앱 실행](tutorial-custom-docker-image.md)

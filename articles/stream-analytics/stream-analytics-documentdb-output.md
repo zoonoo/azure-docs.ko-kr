@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495979"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
@@ -88,5 +88,5 @@ Cosmos DB를 Stream Analytics의 출력으로 만들면 아래와 같은 정보�
 |계정 ID      | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다.|
 |계정 키     | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다.|
 |데이터베이스        | Azure Cosmos DB 데이터베이스 이름입니다.|
-|컬렉션 이름 패턴 | 사용할 컬렉션에 대한 컬렉션 이름입니다. `MyCollection` 가 유효한 입력 샘플-이라는 이름의 컬렉션이 `MyCollection` 존재 해야 합니다.  |
+|컬렉션 이름 패턴 | 사용할 컬렉션에 대한 컬렉션 이름입니다. `MyCollection`은 유효한 샘플 입력입니다. `MyCollection`이라는 컬렉션이 하나 있어야 합니다.  |
 |문서 ID     | 선택 사항입니다. 삽입 또는 업데이트 작업의 기준으로 사용해야 하는 고유 키로 사용되는 출력 이벤트의 열 이름입니다. 이 필드를 비워두면 업데이트 옵션 없이 모든 이벤트가 삽입됩니다.|

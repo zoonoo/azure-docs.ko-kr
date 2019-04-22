@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339009"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678890"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure Monitor의 동적 임계값을 사용한 메트릭 경고(공개 미리 보기)
 
@@ -41,6 +41,9 @@ ms.locfileid: "58339009"
 
 이러한 임계값에서의 편차가 메트릭 동작의 변칙을 나타내는 방식으로 임계값이 선택됩니다.
 
+> [!NOTE]
+> 계절성 패턴 감지 시간, 일 또는 주 간격으로 설정 됩니다. 즉, bihourly 패턴과 마찬가지로 다른 패턴 또는 semiweekly 발견 될 수 있습니다.
+
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>동적 임계값에서 '민감도' 설정은 무엇을 의미하나요?
 
 경고 임계값 민감도는 경고를 트리거하는 데 필요한 메트릭 동작에서의 편차 크기를 제어하는 고급 개념입니다.
@@ -48,7 +51,7 @@ ms.locfileid: "58339009"
 
 - 높음 – 임계값이 좀 더 조밀하고 메트릭 시리즈 패턴에 근접합니다. 경고 규칙이 가장 작은 편차에서 트리거되므로 경고가 더 많이 발생합니다.
 - 중간 - 높음 민감도(기본값)보다 임계값은 덜 조밀하고 좀 더 균일하며 경고 횟수는 더 적습니다.
-- 낮음 - 임계값은 메트릭 시리즈 패턴에서 느슨하게 더 멀리 떨어져 있습니다. 경고 규칙이 큰 편차에서만 트리거되므로 경고가 더 적게 발생합니다.
+- 낮음 - 임계값은 메트릭 시리즈 패턴에서 느슨하게 더 멀리 떨어져 있습니다. 경고 규칙 큰 편차, 더 적은 경고 생성에 트리거됩니다.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>동적 임계값에서 '작업자' 설정 옵션이란 무엇인가요?
 
@@ -73,13 +76,23 @@ ms.locfileid: "58339009"
 
 **다음 이전의 데이터 무시:** -사용자는 경우에 따라 시스템에서 임계값 계산을 시작하는 시작 날짜를 정의할 수도 있습니다. 일반적인 사용 사례는 리소스가 테스트 모드에서 실행되고 있었으나 이제 프로덕션 워크로드를 제공하도록 승격되므로, 테스트 단계 동안의 메트릭 동작을 무시해야 하는 경우일 수 있습니다.
 
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>동적 임계값 경고가 트리거된 이유에 아웃 하십니까?
+
+트리거된 경고 인스턴스가 경고 보기에 Azure portal에서 확인 하 여 경고를 표시 하려면 전자 메일 또는 문자 메시지 또는 브라우저에서 링크를 클릭 하 여 탐색할 수 있습니다. [경고 보기에 자세히 알아보려면](alerts-overview.md#alerts-experience)합니다.
+
+경고 보기에는 다음이 표시 됩니다.
+
+- 지금은 모든 메트릭 세부 정보는 동적 임계값 경고가 발생 합니다.
+- 경고는 해당 시점에 사용 되는 동적 임계값을 포함 하는 트리거 된 기간에 대 한 차트입니다.
+- 이후 검색을 개선할 수 있는 보기 환경을 동적 임계값 경고 및 경고에 피드백을 제공할 수 있습니다.
+
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>메트릭의 느린 동작 변경이 경고를 트리거하나요?
 
 그렇지 않을 가능성이 있습니다. 동적 임계값은 느리게 진화하는 문제보다는 상당한 편차를 검색하는 데 유용합니다.
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>임계값을 미리 본 다음, 계산하는 데 사용하는 데이터 양은 얼마나 되나요?
 
-메트릭에 대 한 경고 규칙 생성 되기 전에 차트에 표시 되는 임계값을 계산 하는 시간 또는 매일 계절성 패턴 (10 일)을 계산 하려면 충분 한 기록 데이터를 기반으로 합니다. '주 단위 패턴 표시'에 키를 눌러 매주 계절성 패턴 (28 일)을 계산 하려면 충분 한 기록 데이터 취득 합니다. 경고 규칙을 만든 후 동적 임계값 보다 정확 하 게 임계값 수 있도록 필요한 모든 기록 데이터를 사용할 수 있으며 계속 해 서 배웁니다 및 새 데이터를 기반으로 적용 사용 합니다.
+메트릭에 대 한 경고 규칙 생성 되기 전에 차트에 표시 되는 임계값을 계산 하는 시간 또는 매일 계절성 패턴 (10 일)을 계산 하려면 충분 한 기록 데이터를 기반으로 합니다. 경고 규칙을 만든 후 동적 임계값 보다 정확 하 게 임계값 수 있도록 필요한 모든 기록 데이터를 사용할 수 있으며 계속 해 서 배웁니다 및 새 데이터를 기반으로 적용 사용 합니다. 즉, 후이 계산 차트 주 단위 패턴에도 표시 됩니다.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>얼마나 많은 데이터 경고를 트리거하는 데 필요한가?
 

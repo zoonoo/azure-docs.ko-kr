@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
 ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497069"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스에 대 한 연결 아키텍처
@@ -97,7 +97,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| 이름       |포트                        |프로토콜|원본           |대상|액션(Action)|
+| name       |포트                        |프로토콜|원본           |대상|액션(Action)|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |허용 |
 |mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
@@ -105,7 +105,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| 이름       |포트          |프로토콜|원본           |대상|액션(Action)|
+| name       |포트          |프로토콜|원본           |대상|액션(Action)|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |허용 |
 |mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
@@ -122,7 +122,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="user-defined-routes"></a>사용자 정의 경로
 
-|이름|주소 접두사|다음 홉|
+|name|주소 접두사|다음 홉|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|인터넷|

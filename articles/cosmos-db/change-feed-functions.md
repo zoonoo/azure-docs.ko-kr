@@ -4,65 +4,51 @@ description: Azure Functions에서 Azure Cosmos DB 변경 피드 사용
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469484"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680777"
 ---
-# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Azure Cosmos DB에서 Azure Functions 트리거
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용 하 여 서버 리스 이벤트 기반 아키텍처
 
-Azure Functions를 사용하는 경우 변경 피드에 연결하는 가장 간단한 방법은 Azure Functions 앱에 [Azure Cosmos DB 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)를 추가하는 것입니다. Azure Functions 앱에서 Cosmos DB 트리거를 만들 때 연결할 Cosmos 컨테이너를 선택하면 컨테이너의 항목이 변경될 때마다 함수가 트리거됩니다.
+Azure Functions에 연결 하는 가장 간단한 방법은 제공 된 [변경 피드]()합니다. 각 새 Azure Cosmos 컨테이너의 변경 피드 이벤트에 자동으로 트리거될 수 있는 작은 사후 Azure Functions를 만들 수 있습니다.
 
-트리거는 Azure Functions 포털에서, Azure Cosmos DB 포털에서 또는 프로그래밍 방식으로 만들 수 있습니다. 자세한 내용은 [Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅](serverless-computing-database.md)을 참조하세요.
+![Azure Cosmos DB 트리거를 사용 하 여 작업 하는 서버 리스 이벤트 기반 함수](./media/change-feed-functions/functions.png)
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+사용 하 여는 [Azure Cosmos DB 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)를 활용할 수 있습니다 합니다 [변경 피드 프로세서](./change-feed-processor.md)의 크기 조정 및 신뢰할 수 있는 이벤트 검색 기능은 모든 유지 관리 하지 않아도 [작업자 인프라](./change-feed-processor.md#implementing-the-change-feed-processor-library)합니다. 이벤트 소싱 파이프라인의 나머지 부분에 대 한 걱정 없이 Azure Function의 논리에만 집중 합니다. 모든 다른 트리거를 혼합할 수도 있습니다 [Azure Functions 바인딩](../azure-functions/functions-triggers-bindings.md#supported-bindings)합니다.
 
-### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region"></a>특정 지역에서 데이터를 읽도록 Azure Functions를 구성하려면 어떻게 해야 하나요?
+> [!NOTE]
+> 현재, Azure Cosmos DB 트리거를 사용 하 여 코어 (SQL) API만 사용 하기 위해 지원 됩니다.
 
-Azure Cosmos DB 트리거를 사용하여 지역 목록을 지정할 때 [PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations)를 정의할 수 있습니다. 트리거가 선호 지역에서 데이터를 읽도록 만들기 위해 ConnectionPolicy를 사용자 지정하는 것과 동일합니다. Azure Functions가 배포된 가장 가까운 지역에서 데이터를 읽는 것이 가장 이상적입니다.
+## <a name="requirements"></a>요구 사항
 
-### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Azure Functions의 기본 일괄 처리 크기는 얼마입니까?
+서버 리스 이벤트 기반 흐름을 구현 하려면 다음을 수행 해야 합니다.
 
-기본 크기는 Azure Functions 호출마다 항목 100개입니다. 하지만 function.json 파일 내에서 이 숫자를 구성할 수 있습니다. 다음은 완전한 [구성 옵션 목록](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)입니다. 로컬에서 개발하는 경우 local.settings.json 파일 내에서 애플리케이션 설정을 업데이트해야 합니다.
+* **모니터링 되는 컨테이너**: 모니터링 되는 컨테이너를 모니터링 하는 Azure Cosmos 컨테이너 이며 변경 피드 생성 되는 데이터를 저장 합니다. 모든 삽입 및 변경 내용 (예: CRUD) 모니터링 되는 컨테이너는 컨테이너의 변경 피드에 반영 됩니다.
+* **컨테이너 임대**: 컨테이너 임대 여러 상태를 유지 관리 및 동적 서버 리스 Azure Function 인스턴스 및 동적 크기 조정을 사용 하도록 설정 합니다. 이 컨테이너의 임대 수동 또는 자동으로 Azure Cosmos DB Trigger.To에서 자동으로 만들어집니다 컨테이너 임대를 만들고, 설정 합니다 *CreateLeaseCollectionIfNotExists* 플래그는 [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). 분할 된 임대 컨테이너는 필요 하기는 `/id` 파티션 키 정의 합니다.
 
-### <a name="i-am-monitoring-a-container-and-reading-its-change-feed-however-i-dont-get-all-the-inserted-documents-some-items-are-missing"></a>저는 컨테이너를 모니터링하고 변경 피드를 읽고 있는데, 삽입된 문서 중 일부를 얻지 못하고 일부 문서가 누락됩니다.
+## <a name="create-your-azure-cosmos-db-trigger"></a>Azure Cosmos DB 트리거 만들기
 
-동일한 임대 컨테이너를 사용하여 동일한 컨테이너를 읽는 다른 Azure 함수가 있는지 확인하세요. 누락된 문서는 동일한 임대를 사용하는 다른 Azure Functions에서 처리됩니다.
+Azure Cosmos DB 트리거를 사용 하 여 Azure Function 만들기는 이제 모든 Azure Functions IDE 및 CLI 통합에서 지원 됩니다.
 
-따라서 동일한 변경 피드를 읽는 Azure Functions를 여러 개 만드는 경우 함수끼리 서로 다른 임대 컨테이너를 사용하거나 "leasePrefix" 구성을 사용하여 동일한 컨테이너를 공유해야 합니다. 그러나 변경 피드 프로세서 라이브러리를 사용하는 경우 Azure 함수의 여러 인스턴스를 시작하면 SDK가 자동으로 문서를 여러 인스턴스에 분배합니다.
+* [Visual Studio 확장](../azure-functions/functions-develop-vs.md) Visual Studio 사용자에 대 한 합니다.
+* [Visual Studio 핵심 확장](https://code.visualstudio.com/tutorials/functions-extension/create-function) Visual Studio Code 사용자에 대 한 합니다.
+* 마지막 [Core CLI 도구](../azure-functions/functions-run-local.md#create-func) 플랫폼 간 IDE 알 수 없는 환경에 대 한 합니다.
 
-### <a name="azure-cosmos-item-is-updated-every-second-and-i-dont-get-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Azure Cosmos 항목이 1초마다 업데이트되는데, 변경 피드를 수신 대기하는 Azure Functions에서 변경 내용 중 일부를 가져올 수 없습니다.
+## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Azure Cosmos DB 트리거를 로컬로 실행
 
-Azure Functions는 변경 내용에 대한 변경 피드를 지속적으로 폴링하며, 최대 기본 지연 시간은 5초입니다. 읽어야 하는 보류 중인 변경 내용이 없거나 트리거가 적용된 후 보류 중인 변경 내용이 있으면 함수가 해당 변경 내용을 즉시 읽습니다. 그러나 보류 중인 변경 내용이 없으면 함수는 5초 동안 기다렸다가 더 많은 변경 내용을 폴링합니다.
+실행할 수 있습니다 하 [Azure 함수를 로컬로](../azure-functions/functions-develop-local.md) 사용 하 여는 [Azure Cosmos DB 에뮬레이터](./local-emulator.md) 을 만들고 Azure 구독이 나 모든 비용 없이 서버 리스 이벤트 기반 흐름을 개발 합니다.
 
-해당 문서가 동일한 간격으로 여러 변경 내용을 수신하고 그 간격에 따라 트리거가 새 변경 내용을 폴링하는 경우 문서의 중간 버전이 아닌 최신 버전이 수신될 수 있습니다.
-
-변경 피드를 폴링하는 시간을 5초 미만으로 줄이려면(예를 들어 매 1초), 폴링 시간 "feedPollDelay"를 구성하면 됩니다. [전체 구성](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations)을 참조하세요. 밀리초 단위로 정의되며 기본값은 5000입니다. 폴링 시간을 1초 미만으로 낮출 수 있지만 CPU 메모리 사용량이 많아지기 때문에 권장하지는 않습니다.
-
-### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>여러 Azure Functions가 한 컨테이너의 변경 피드를 읽을 수 있나요?
-
-예. 여러 Azure Functions가 동일한 컨테이너의 변경 피드를 읽을 수 있습니다. 그러나 Azure Functions에서 별도의 “leaseCollectionPrefix”를 정의해야 합니다.
-
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-in-a-batch-of-10-documents-and-i-get-an-error-at-seventh-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-document-ie-seventh-document-in-my-next-feed"></a>Azure Functions를 사용하여 변경 피드를 처리하고 10개 문서를 일괄 처리한다고 가정할 경우 7번째 문서에서 오류가 발생합니다. 마지막 3개 문서가 처리되지 않는 경우 그 다음 피드에서 실패한 문서(즉, 7번째 문서)부터 처리를 시작하려면 어떻게 해야 하나요?
-
-오류를 처리하는 권장 패턴으로, try-catch 블록을 사용하여 코드를 래핑합니다. 그리고 문서 목록에 대해 반복하는 경우 각 반복을 고유의 try-catch 블록에 래핑합니다. 오류를 catch하고 해당 문서를 큐(배달하지 못한 편지)에 배치한 다음, 오류를 생성한 문서를 처리하는 논리를 정의합니다. 이 방법을 사용하여 200개 문서 일괄 처리 중 문서 하나만 실패한 경우 일괄 처리 전체를 버릴 필요는 없습니다.
-
-오류 발생 시 검사점을 시작 위치로 되돌리면 안 됩니다. 그렇지 않으면 변경 피드에서 이러한 문서를 계속 가져올 수 있습니다. 변경 피드는 문서의 마지막 최종 스냅숏을 보관하므로 문서의 이전 스냅숏이 손실될 수 있습니다. 변경 피드는 문서의 마지막 버전 하나만 보관하며, 그 사이에 다른 프로세스가 문서를 변경할 수 있습니다.
-
-코드를 계속 수정하다 보면 배달하지 못한 편지 큐가 더 이상 발견되지 않을 것입니다. 변경 피드 시스템이 Azure Functions를 자동으로 호출하고, 검사점은 Azure 함수에 의해 내부적으로 유지됩니다. 검사점을 롤백하고 검사점과 관련된 모든 사항을 제어하려면 변경 피드 프로세서 SDK를 사용해야 합니다.
-
-### <a name="are-there-any-extra-costs-for-using-the-azure-cosmos-db-trigger"></a>Azure Cosmos DB 트리거를 사용하면 추가 비용이 발생하나요?
-
-Azure Cosmos DB 트리거는 내부적으로 변경 피드 프로세서 라이브러리를 활용합니다. 따라서 상태 및 부분 검사점을 유지하려면 임대 컬렉션이라고 하는 추가 컬렉션이 필요합니다. Azure Functions를 중지했다가 나중에 이어서 처리할 수 있도록 동적으로 크기를 조정하고 작업을 계속 진행하려면 이 상태 관리가 필요합니다. 자세한 내용은 [변경 피드 프로세서 라이브러리를 사용하는 방법](change-feed-processor.md)을 참조하세요.
+클라우드에서 실시간 시나리오를 테스트 하려는 경우 [Cosmos DB를 무료로 사용해 보기](https://azure.microsoft.com/try/cosmosdb/) 없이 모든 신용 카드나 Azure 구독이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 다음 문서에서 변경 피드에 대해 자세히 알아볼 수 있습니다.
+이제 다음 문서에 피드 변경에 자세히 알아보려면 계속 수 있습니다.
 
 * [변경 피드 개요](change-feed.md)
 * [변경 피드를 읽는 방법](read-change-feed.md)

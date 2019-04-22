@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065803"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679128"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -435,26 +435,6 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
    ![게이트웨이에 대한 이벤트 로그 보기](./media/logic-apps-gateway-install/event-viewer.png)
 
-### <a name="telemetry"></a>원격 분석
-
-추가 모니터링 및 문제 해결을 위해 원격 분석을 켜고 수집할 수 있습니다. 
-
-1. 일반적으로 ```C:\Program Files\On-premises data gateway```에서 찾을 수 있는 온-프레미스 데이터 게이트웨이 클라이언트에 대한 위치로 이동합니다.
-
-   그렇지 않고 클라이언트 위치를 찾으려면 동일한 컴퓨터에서 서비스 콘솔을 열고, **온-프레미스 데이터 게이트웨이 서비스**를 찾은 후 **실행 파일 경로** 속성을 확인합니다.
-
-2. 이 *구성 파일*을 엽니다. **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. **SendTelemetry** 값을 **true**로 변경합니다.
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. 변경 내용을 저장하고 Windows 서비스를 다시 시작합니다.
-
 ### <a name="review-slow-query-performance"></a>느린 쿼리 성능 검토
 
 쿼리가 게이트웨이를 통해 느리게 실행되는 것으로 확인되면 쿼리 및 해당 기간을 출력하는 추가 로깅을 켤 수 있습니다. 이러한 로그는 느리거나 장기 실행 중인 쿼리를 찾는 데 도움이 될 수 있습니다. 쿼리 성능을 조정하기 위해 데이터 원본을 수정해야 할 수 있습니다(예: SQL Server 쿼리에 대한 인덱스 조정).
@@ -526,7 +506,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
 ### <a name="trace-traffic-with-fiddler"></a>Fiddler 사용하여 트래픽 추적
 
-[Fiddler](http://www.telerik.com/fiddler) 는 HTTP 트래픽을 모니터링하는 Telerik의 무료 도구입니다. 클라이언트 컴퓨터에서 Power BI를 사용하여 트래픽을 검토할 수 있습니다. 이 서비스는 오류 및 기타 관련된 정보를 표시할 수 있습니다.
+[Fiddler](https://www.telerik.com/fiddler) 는 HTTP 트래픽을 모니터링하는 Telerik의 무료 도구입니다. 클라이언트 컴퓨터에서 Power BI를 사용하여 트래픽을 검토할 수 있습니다. 이 서비스는 오류 및 기타 관련된 정보를 표시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
     

@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500518"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
@@ -202,7 +202,7 @@ az vm extension set \
 
 ## <a name="logs"></a>로그
 
-확장에 대 한 로그는 다음 위치에 저장 됩니다. `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
+확장에 대한 로그는 다음 위치에 저장됩니다. `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 
 ## <a name="next-steps"></a>다음 단계
 

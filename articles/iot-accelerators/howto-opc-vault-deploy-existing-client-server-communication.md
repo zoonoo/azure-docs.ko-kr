@@ -9,14 +9,14 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495297"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>OPC UA 보안 클라이언트 및 OPC UA 서버 응용 프로그램 
-OPC 자격 증명 모음은 구성, 등록 및 OPC UA 서버 및 클라우드에서 클라이언트 응용 프로그램에 대 한 인증서 수명 주기를 관리할 수 있는 마이크로 서비스. 이 문서에서는 OPC UA 클라이언트가 및 OPC UA OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 서버 응용 프로그램을 보호 하는 방법을 보여 줍니다.
+OPC 자격 증명 모음은 클라우드 내 OPC UA 서버 및 클라이언트 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있는 마이크로서비스입니다. 이 문서에서는 OPC UA 클라이언트가 및 OPC UA OPC 자격 증명 모음을 사용 하 여 인증서를 새 키 쌍을 사용 하 여 서버 응용 프로그램을 보호 하는 방법을 보여 줍니다.
 
 다음 설정 하는 OPC 클라이언트 OPC PLC에 대 한 연결이 테스트 됩니다. 기본적으로 연결 수 없는 구성 요소를 모두 올바른 인증서를 사용 하 여 아직 구성 하지는 않기 때문에 있습니다. 이 워크플로에서 수행 하지 OPC UA 구성 요소 자체 서명 된 인증서를 사용 하 고 OPC 자격 증명 모음을 통해 로그인 합니다. 이전을 참조 하세요 [시험대](howto-opc-vault-deploy-existing-client-plc-communication.md)합니다. 대신이 테스트는 구성 요소를 새 개인 키와 새 인증서를 사용 하 여 OPC 자격 증명 모음에 의해 생성 된 프로 비전 합니다. 이 OPC UA 보안에 대 한 배경 정보를 찾을 수 있습니다 [백서](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf)합니다. OPC UA 사양에 완전 한 정보를 찾을 수 있습니다.
 
@@ -37,11 +37,11 @@ OPC 자격 증명 모음 스크립트:
 **빠른 시작**
 1. 로 이동 합니다 [OPC 자격 증명 모음 웹 사이트](https://opcvault.azurewebsites.net/)
 
-1. 여기서 `Register New`
+1. `Register New`을(를) 선택합니다.
 
 1. 이전 테스트의 로그 출력에 표시 된 대로 OPC PLC 정보를 입력 `CreateSigningRequest information` 영역에서 입력된 필드에는 `Register New OPC UA Application` 페이지에서 `Server` ApplicationType로 합니다.
 
-1. 여기서 `Register`
+1. `Register`을(를) 선택합니다.
 
 1. 다음 페이지에서 `Request New Certificate for OPC UA Application` 선택 `Request new KeyPair and Certificate`
 
@@ -51,7 +51,7 @@ OPC 자격 증명 모음 스크립트:
 
 1. 다음 페이지에서 `Generate a new KeyPair and for an OPC UA Application` 입력 `CN=OpcPlc` SubjectName,으로 `opcplc-<_OPCVAULTID>` (대체 `<_OPCVAULTID>` 기업과) DomainName, 선택 `PEM` PrivateKeyFormat으로 암호를 입력 하 고 (나중에로 지칭 `<certpassword-string>`)
 
-1. 여기서 `Generate New KeyPair`
+1. `Generate New KeyPair`을(를) 선택합니다.
 
 1. 이제를 이동 하는 앞으로 `View Certificate Request Details`입니다. 이 페이지의 인증서 저장소를 프로 비전 하는 데 필요한 모든 정보를 다운로드할 수 있습니다 `opc-plc`합니다.
 

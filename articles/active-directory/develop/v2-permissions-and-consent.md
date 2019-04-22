@@ -19,10 +19,10 @@ ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501252"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>사용 권한 및 동의에 Microsoft id 플랫폼 끝점
@@ -55,9 +55,9 @@ Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지�
 
 OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다. 또한 라고도 *권한을*합니다. 사용 권한은 Microsoft ID 플랫폼에서 문자열 값으로 표시됩니다. Microsoft Graph 예제를 계속하는 경우 각 사용 권한의 문자열 값은 다음과 같습니다.
 
-* 사용 하 여 사용자의 일정 읽기 `Calendars.Read`
-* 사용 하 여 사용자의 일정에 쓰기 `Calendars.ReadWrite`
-* 사용 하 여 사용자로 메일 보내기 `Mail.Send`
+* `Calendars.Read`를 사용하여 사용자의 일정 읽기
+* `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
+* `Mail.Send`을 사용하여 사용자로 메일 보내기
 
 앱은 가장 일반적으로 권한 부여 끝점을 Microsoft id 플랫폼에 대 한 요청에 범위를 지정 하 여 이러한 권한을 요청 합니다. 그러나 특정 권한이 높은 권한이 수만 관리자 동의 통해 부여 하 고 요청/사용 하 여 부여 합니다 [관리자 동의 끝점](v2-permissions-and-consent.md#admin-restricted-permissions)합니다. 더 알아보려면 계속 읽어 보세요.
 
@@ -140,9 +140,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 제한*으로 설정할 수 있습니다. 이러한 종류의 권한으로는 다음과 같은 것이 있습니다.
 
-* 사용 하 여 모든 사용자의 전체 프로필 읽기 `User.Read.All`
-* 데이터를 사용 하 여 조직의 디렉터리에 작성 `Directory.ReadWrite.All`
-* 사용 하 여 조직의 디렉터리에서 모든 그룹 읽기 `Groups.Read.All`
+* `User.Read.All`을 사용하여 모든 사용자의 전체 프로필 읽기
+* `Directory.ReadWrite.All`를 사용하여 조직의 디렉터리에 데이터 쓰기
+* `Groups.Read.All`을 사용하여 조직 디렉터리의 모든 그룹 읽기
 
 소비자 사용자는 이러한 데이터에 대한 애플리케이션 액세스 권한을 부여할 수 있는 반면 조직 사용자는 동일한 집합인 회사의 중요한 데이터에 대한 액세스 권한을 부여하지 않도록 제한됩니다. 조직 사용자에서 이러한 사용 권한 중 하나에 대 한 액세스를 요청 하는 응용 프로그램, 사용자 하지 앱의 사용 권한에 동의할 권한이 없다는 오류 메시지를 받습니다.
 
@@ -285,7 +285,7 @@ OAuth 2.0 프로토콜 및 액세스 토큰을 가져오는 방법에 대 한 �
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>예 3: 사용자가 동의했으며 클라이언트가 추가 범위를 요청함
 
-사용자는 클라이언트에 대한 `mail.read`에 이미 동의했습니다. 클라이언트는 해당 등록에서 `contacts.read` 범위에 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`를 사용하여 토큰을 요청하고 `prompt=consent`를 통해 동의를 요청하면 사용자에게 애플리케이션에서 등록한 모든 권한에 대해서만 동의 화면이 표시됩니다. `contacts.read` 동의 화면에 표시 됩니다 있지만 `mail.read` 것입니다. 반환되는 토큰은 Microsoft Graph용이며 `mail.read` 및 `contacts.read`를 포함합니다.
+사용자는 클라이언트에 대한 `mail.read`에 이미 동의했습니다. 클라이언트는 해당 등록에서 `contacts.read` 범위에 등록했습니다. 클라이언트가 `scope=https://graph.microsoft.com/.default`를 사용하여 토큰을 요청하고 `prompt=consent`를 통해 동의를 요청하면 사용자에게 애플리케이션에서 등록한 모든 권한에 대해서만 동의 화면이 표시됩니다. 즉, `contacts.read`는 동의 화면에 표시되지만 `mail.read`는 표시되지 않습니다. 반환되는 토큰은 Microsoft Graph용이며 `mail.read` 및 `contacts.read`를 포함합니다.
 
 ### <a name="using-the-default-scope-with-the-client"></a>클라이언트에서 /.default 범위 사용
 

@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501062"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 대 한 선택적 클레임을 제공 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "59501062"
 
 **표 2: V1.0 및 V2.0 선택적 클레임 집합**
 
-| 이름                       |  설명   | 토큰 형식 | 사용자 유형 | 메모  |
+| name                       |  설명   | 토큰 형식 | 사용자 유형 | 메모  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
@@ -80,7 +80,7 @@ ms.locfileid: "59501062"
 
 **표 3: V2.0 전용 선택적 클레임**
 
-| JWT 클레임     | 이름                            | 설명                                | 메모 |
+| JWT 클레임     | name                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -98,13 +98,13 @@ ms.locfileid: "59501062"
 
 일부 선택적 클레임은 클레임이 반환되는 방식을 변경하도록 구성할 수 있습니다. 대개 이러한 추가 속성을 사용하면 다른 데이터 기대가 포함된 온-프레미스 애플리케이션을 마이그레이션하는 데 도움이 됩니다(예: `include_externally_authenticated_upn_without_hash`는 UPN에서 해시 표시(`#`)를 처리할 수 없는 클라이언트에 유용).
 
-**표 4: 선택적 클레임을 구성 하기 위한 값**
+**표 4: 선택적 클레임 구성을 위한 값**
 
 | 속성 이름  | 추가 속성 이름 | 설명 |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | SAML 및 JWT 응답과 v1.0 및 v2.0 토큰 모두에 사용할 수 있습니다. |
-|                | `include_externally_authenticated_upn`  | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다. 예를 들면 다음과 같습니다. `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | 동일 하지만, 위의 해시 표시 (`#`) 대신 밑줄을 사용 (`_`) 예 `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn`  | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다. 예를 들어 `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | 해시 표시(`#`)가 밑줄(`_`)로 바뀐다는 점 외에는 위와 같습니다(예: `foo_hometenant.com_EXT_@resourcetenant.com`). |
 
 #### <a name="additional-properties-example"></a>추가 속성 예제
 
@@ -164,7 +164,7 @@ ms.locfileid: "59501062"
 
 **표 5: OptionalClaims 형식 속성**
 
-| 이름        | 형식                       | 설명                                           |
+| name        | 형식                       | 설명                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다. |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -177,7 +177,7 @@ ms.locfileid: "59501062"
 
 **표 6: OptionalClaim 형식 속성**
 
-| 이름                 | 형식                    | 설명                                                                                                                                                                                                                                                                                                   |
+| name                 | 형식                    | 설명                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
@@ -196,7 +196,7 @@ ms.locfileid: "59501062"
 
 JWT 내에서 이러한 클레임은 `extn.<attributename>` 이름 형식을 사용하여 내보내집니다.
 
-SAML 토큰 내에서 이러한 클레임 URI 형식을 사용 하 여 발생 합니다. `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/identity/claims/extn.<attributename>` URI 형식을 사용하여 내보내집니다.
 
 ## <a name="optional-claims-example"></a>선택적 클레임 예제
 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d0c51f5d4757c35319cc3f80d09c9fb1a0e1cf69
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314072"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546334"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
 
@@ -159,7 +159,7 @@ az webapp up -n <app_name>
 
 ![Azure Portal의 App Service 페이지](media/quickstart-python/app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
@@ -168,13 +168,10 @@ az webapp up -n <app_name>
 Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 보기로 제공되며, 앱 시작에 사용되는 명령을 사용자 지정할 수 있습니다. 사용자 지정 컨테이너를 대신 사용하여 프로덕션 Python 앱을 만들 수도 있습니다.
 
 > [!div class="nextstepaction"]
-> [PostgreSQL을 사용하는 Python](tutorial-python-postgresql-app.md)
+> [자습서: PostgreSQL을 사용한 Python 앱](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [사용자 지정 시작 명령 구성](how-to-configure-python.md#customize-startup-command)
+> [Python 앱 구성](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [문제 해결](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [사용자 지정 이미지 사용](tutorial-custom-docker-image.md)
+> [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)

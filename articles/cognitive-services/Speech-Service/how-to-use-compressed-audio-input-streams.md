@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012500"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Stream은 Speech SDK를 사용 하 여 오디오를 압축
@@ -58,5 +58,5 @@ var text = result.GetText();
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독](https://azure.microsoft.com/try/cognitive-services/)
-* [음성의 인식 하는 방법을 참조 하세요.C#](quickstart-csharp-dotnet-windows.md)
+* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

@@ -1,78 +1,28 @@
 ---
-title: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성 | Microsoft Docs
-description: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성입니다.
+title: 세션 및 single sign-on 구성-Azure Active Directory B2C | Microsoft Docs
+description: 세션 및 Azure Active Directory B2C에서 single sign-on 구성 합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1acdb8b5d0054f1dffd1014a350540b6de40d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 674a20fc96cf5b86219222d746525a3559ae9d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171510"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681100"
 ---
-# <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성입니다.
+# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>세션 및 Azure Active Directory B2C에서 single sign-on 구성
 
 이 기능은 다음의 [사용자 흐름별](active-directory-b2c-reference-policies.md) 세분화된 제어를 제공합니다.
 
-- Azure AD(Azure Active Directory) B2C에서 내보낸 보안 토큰의 수명.
 - Azure AD B2C에서 관리하는 웹 애플리케이션 세션의 수명.
-- Azure AD B2C에서 내보낸 보안 토큰의 중요한 클레임 형식
 - Azure AD B2C 테넌트에 있는 여러 앱 및 사용자 흐름의 SSO(Single Sign-On) 동작
-
-이 기능은 모든 정책 형식에 사용할 수 있지만 이 예제에서는 가입 또는 로그인 사용자 흐름에 이 기능을 사용하는 방법을 보여줍니다. 사용자 흐름의 경우 다음과 같이 Azure AD B2C 디렉터리에서 이 기능을 사용할 수 있습니다.
-
-1. **사용자 흐름**을 클릭합니다.
-2. 사용자 흐름을 클릭하여 엽니다. 예를 들어 **B2C_1_SiUpIn**을 클릭합니다.
-3. **속성**을 클릭합니다.
-4. **토큰 호환성 설정** 아래에서 원하는 대로 변경합니다. 이후 섹션에서 사용할 수 있는 속성에 대해 알아봅니다.
-5. 메뉴 위쪽에서 **저장**을 클릭합니다.
-
-## <a name="token-lifetimes-configuration"></a>토큰 수명 구성
-
-Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하도록 [OAuth 2.0 권한 부여 프로토콜](active-directory-b2c-reference-protocols.md)을 지원합니다. 이 지원을 구현하기 위해 Azure AD B2C는 다양한 [보안 토큰](active-directory-b2c-reference-tokens.md)을 내보냅니다. 
-
-다음 속성은 Azure AD B2C에서 내보낸 보안 토큰의 수명을 관리하는 데 사용됩니다.
-
-- **액세스 및 ID 토큰 수명(분)** - OAuth 2.0 전달자 토큰의 수명은 보호된 리소스에 대한 액세스를 얻는 데 사용됩니다.
-    - 기본값: 60분.
-    - 최소(포함) = 5분.
-    - 최대(포함) = 1440분.
-- **새로 고침 토큰 수명(일)** - 새로 고침 토큰을 새 액세스 또는 ID 토큰(필요에 따라 애플리케이션에 `offline_access` 범위가 부여된 경우 새로운 새로 고침 토큰)을 획득하는 데 사용할 수 있기 전까지의 최대 기간입니다.
-    - 기본값 = 14일.
-    - 최소(포함) = 1일.
-    - 최대(포함) = 90일.
-- **새로 고침 토큰 슬라이딩 창 수명(일)** - 이 기간이 경과한 후 사용자는 애플리케이션에서 가져온 가장 최근 새로 고침 토큰의 유효 기간과 관계 없이 강제로 다시 인증합니다. 스위치가 **제한된**으로 설정된 경우 제공될 수 있습니다. **새로 고침 토큰 수명(일)** 값보다 크거나 같아야 합니다. 스위치가 **제한 없는**으로 설정된 경우 특정 값을 제공할 수 없습니다.
-    - 기본값 = 90일.
-    - 최소(포함) = 1일.
-    - 최대(포함) = 365일.
-
-다음 사용 사례는 이러한 속성을 사용하여 사용하도록 설정됩니다.
-
-- 애플리케이션에서 지속적으로 활성 상태인 한 사용자가 모바일 애플리케이션에 무기한으로 로그인 상태를 유지하도록 허용합니다. 로그인 사용자 흐름에서 **새로 고침 토큰 슬라이딩 창 수명(일)** 을 **제한 없는**으로 설정할 수 있습니다.
-- 적절한 액세스 토큰 수명을 설정하여 업계의 보안 및 규정 준수 요구 사항을 충족합니다.
-
-이러한 설정을 암호 재설정 사용자 흐름에는 사용할 수 없습니다. 
-
-## <a name="token-compatibility-settings"></a>토큰 호환성 설정
-
-다음 속성을 통해 고객이 필요에 따라 옵트인할 수 있습니다.
-
-- **발급자(iss) 클레임** - 이 속성은 토큰을 발급한 Azure AD B2C 테넌트를 식별합니다.
-    - `https://<domain>/{B2C tenant GUID}/v2.0/` - 기본값입니다.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` - 이 값에는 B2C 테넌트 및 토큰 요청에 사용된 사용자 흐름에 대한 ID가 포함됩니다. 앱이나 라이브러리에 [OpenID Connect 검색 1.0 사양](https://openid.net/specs/openid-connect-discovery-1_0.html)과 호환되도록 Azure AD B2C가 필요한 경우 이 값을 사용합니다.
-- **주체(sub) 클레임** - 이 속성은 토큰에서 정보를 어설션하는 엔터티를 식별합니다.
-    - **ObjectID** - 이 속성은 기본값입니다. 디렉터리에 있는 사용자의 개체 ID를 토큰의 `sub` 클레임에 채웁니다.
-    - **지원되지 않음** - 이 속성은 이전 버전과의 호환성을 위해서만 제공되므로 가능한 한 빨리 **ObjectID**로 전환하는 것이 좋습니다.
-- **정책 ID를 나타내는 클레임** - 이 속성은 토큰 요청에 사용된 정책 ID가 채워지는 클레임 유형을 식별합니다.
-    - **tfp** - 이 속성은 기본값입니다.
-    - **acr** -이 속성은 이전 버전과 호환성을 위해서만 제공됩니다.
 
 ## <a name="session-behavior"></a>세션 동작
 
@@ -98,7 +48,7 @@ B2C 테넌트에 여러 애플리케이션 및 사용자 흐름이 있는 경우
 - **테넌트** - 이 설정은 기본값입니다. 이 설정을 사용하여 B2C 테넌트의 여러 애플리케이션 및 사용자 흐름이 동일한 사용자 세션을 공유할 수 있습니다. 예를 들어 사용자가 애플리케이션에 로그인하면 액세스의 관점에서 볼 때 다른 앱인 Contoso Pharmacy에도 원활하게 로그인할 수 있습니다.
 - **애플리케이션** - 이 설정을 통해 다른 애플리케이션과 독립적으로 애플리케이션에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 동일한 B2C 테넌트에 있는 다른 애플리케이션인 Contoso Shopping에 이미 로그인한 경우라 하더라도 (동일한 자격 증명을 사용하여) 사용자가 Contoso Pharmacy에 로그인하려는 경우가 있습니다. 
 - **정책** - 이 설정을 통해 이를 사용하는 애플리케이션과 독립적으로 사용자 흐름에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 사용자가 이미 로그인하고 MFA(다단계 인증) 단계를 완료한 경우 사용자 흐름에 연결된 세션이 만료되지 않는 한 여러 애플리케이션의 높은 수준의 보안 부분에 대한 액세스를 부여 받을 수 있습니다.
-- **사용 안 함** - 사용자가 모든 정책 실행에서 전체 사용자 흐름을 통해 강제로 실행하도록 합니다. 예를 들어 전체 시간 동안 단일 사용자가 로그인 상태로 남아 있더라도 여러 사용자가 애플리케이션(공유 데스크톱 시나리오에서)에 로그인할 수 있습니다.
+- **사용 안 함** - 사용자가 모든 정책 실행에서 전체 사용자 흐름을 통해 강제로 실행하도록 합니다.
 
 이러한 설정을 암호 재설정 사용자 흐름에는 사용할 수 없습니다. 
 

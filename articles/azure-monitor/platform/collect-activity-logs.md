@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: magoedte
 ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505637"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석
@@ -55,7 +55,7 @@ Azure 활동 로그를 Log Analytics 작업 영역에 연결 하면 다음 작�
 | [Windows 에이전트](agent-windows.md) | 아닙니다. | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](om-agents.md) | 아닙니다. | 솔루션은 Operations Manager 관리 그룹에 보고 하는 에이전트에서 정보를 수집 하지 않습니다. |
-| [Azure Storage 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 

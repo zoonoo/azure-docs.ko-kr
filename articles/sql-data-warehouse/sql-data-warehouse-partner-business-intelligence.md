@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a0c675ac9c8a782b94d127e877646bf37af1371
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621484"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678669"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse 비즈니스 인텔리전스 파트너
 종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다.  이 문서에서는 Azure SQL Data Warehouse를 지 원하는 공식 비즈니스 인텔리전스 (BI) 솔루션을 사용 하 여 Microsoft 파트너 회사를 강조 표시 합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "58621484"
 | ![Birst][1] |**Birst**<br>Birst의 통합된 가상화 된 BI 인스턴스 위에서 공유 하는 일반적인 분석 패브릭의 네트워크를 통해 전체 조직에 연결|[제품 페이지][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![ClearStory Data][2] |**ClearStory 데이터 (연속 비즈니스 Insights)**<br>ClearStory 데이터는 SQL Data Warehouse에 저장된 서로 다른 데이터에서 빠른 주기 분석을 사용합니다. ClearStory의 통합 스파크 기반 플랫폼 및 분석 애플리케이션은 데이터 액세스 및 서로 다른 데이터 집합의 조화를 가속화합니다. 비즈니스 사용자가 정보를 파악하는 데 독립적일 수 있도록 신속한 공동 탐색이 가능하도록 합니다. |[제품 페이지][clearstory_website]<br> |
 | ![Dundas][4] |**Dundas BI**<br>Dundas 데이터 시각화는 비즈니스 인텔리전스 및 데이터 시각화 소프트웨어에서 선도적인 글로벌 공급자입니다.  Dundas 대시보드, 보고 및 시각적 데이터 분석은 비즈니스 애플리케이션으로의 원활한 통합 기능을 제공하여 더 나은 결정 및 빠른 통찰력이 가능합니다.|[제품 페이지][dundas_bi_website]<br>[Azure Marketplace][dundas_bi_marketplace]<br> |
-| ![IBM Cognos][3] |**IBM Cognos Analytics**< brCognos Analytics 최적화 마케터는 vast 공급망에 결함을 검사 하는 숙련 된 비즈니스 분석가 들은 간단한 명확 하 고 쉽게 사용할 수 있는 스마트 셀프 서비스 기능을 포함 한 단일 캠페인입니다. Cognos Analytics AI 및 기타 지능형 기능을 사용 하 여 데이터 탐색, 가이드 및 쉽게 필요한 답변을 얻으려면 사용자에 대 한 주요 작업을 수행 하려면|[제품 페이지][cognosanalytics_website]<br>|
+| ![IBM Cognos][3] |**IBM Cognos 분석**<br>Cognos 분석 하는지 간단 하 고 명확 하며 사용 하기 쉬운 단일 캠페인을 최적화 하는 마케터는 vast 공급망에 결함을 검사 하는 숙련 된 비즈니스 분석가 들은 스마트 셀프 서비스 기능을 포함 합니다. Cognos Analytics AI 및 기타 지능형 기능을 사용 하 여 데이터 탐색, 가이드 및 쉽게 필요한 답변을 얻으려면 사용자에 대 한 주요 작업을 수행 하려면|[제품 페이지][cognosanalytics_website]<br>|
 | ![작성기 정보][13] |**정보 작성기 (WebFOCUS)**<br>WebFOCUS 비즈니스 인텔리전스 엔터프라이즈 이상에서 전략적으로 더 많은 데이터를 사용 하 여 회사는 데 도움이 됩니다. 따라서 사용자와 관리자가 여러 데이터 원본 및 형식에서 콘텐츠를 결합 하 고 강력한 보안과 원활 하 게 사용할 수 있도록 포괄적인 관리를 제공 하는 대시보드를 신속 하 게 만들려면 보안 diverly 및 BI 및 분석의 공유 콘텐츠|[제품 페이지][informationbuilders_website]<br> |
 ![Jinfonet][5] |**Jinfonet JReport**<br>JReport는 기업용 돌출형 BI 솔루션입니다. 솔루션을 사용하여 사용자는 클라우드, 빅 데이터 및 트랜잭션 데이터 원본에서 보고서, 대시보드 및 데이터 분석을 만들 수 있습니다. 데이터를 시각화하여 즉석에서 신속한 의사 결정을 위해 자체 보고 및 데이터 검색을 수행할 수 있습니다. |[제품 페이지][jinfonet_website]<br> |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>이제 Logi Analytics 및 Azure SQL Data Warehouse를 같이 사용하여 세계에서 가장 크고 다양한 데이터 집합에서 조직이 데이터를 수집하고 분석하고 즉시 작업을 수행하도록 할 수 있습니다. |[제품 페이지][logianalytics_website]<br>|

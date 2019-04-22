@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492348"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
@@ -50,9 +50,9 @@ ms.locfileid: "59492348"
 
 지침은 다음 문서를 참조하세요.
 
-1. [가상 네트워크에 VPN 게이트웨이 만들기](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [동일한 배포 모델을 사용 하 여 가상 네트워크 피어 링 만들기](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [다른 배포 모델을 사용 하 여 가상 네트워크 피어 링 만들기](../virtual-network/create-peering-different-deployment-models.md)
+1. [가상 네트워크에서 VPN 게이트웨이 만들기](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+2. [동일한 배포 모델로 가상 네트워크 피어링 만들기](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [다른 배포 모델로 가상 네트워크 피어링 만들기](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>권한
 
@@ -60,10 +60,10 @@ ms.locfileid: "59492348"
     
 |가상 네트워크|배포 모델|역할|권한|
 |---|---|---|---|
-|허브-RM|Resource Manager|[네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |클래식|[클래식 네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|스포크-클래식|Resource Manager|[네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||클래식|[클래식 네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|허브-RM|Resource Manager|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
+|스포크-클래식|Resource Manager|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||클래식|[클래식 네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 [기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 및 [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당(Resource Manager만 해당)에 대해 자세히 알아보세요.
 

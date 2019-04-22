@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357240"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680862"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측된 모델을 자동-학습
 
@@ -34,27 +34,27 @@ ms.locfileid: "59357240"
 
 가장 중요 한 차이점을 예측 하는 회귀 작업 유형 및 회귀 간에 자동화 된 machine learning 내에서 작업 종류 유효한 시계열을 나타내는 데이터의는 기능을 포함 합니다. 일반 시계열 잘 정의 되 고 일관 된 빈도 있고 지속적인 시간 범위를 모든 샘플 시점의 값입니다. 파일의 스냅숏을 고려 `sample.csv`합니다.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-이 데이터 집합은 두 개의 다른 저장소 A와 b에 있는 회사에 대 한 주간 판매 데이터의 간단한 예는 기능에 대 한 `week_of_year` 를 모델에서 매주 계절성을 검색 하도록 허용 됩니다. 필드 `week_starting` 주별 빈도 및 필드를 사용 하 여 정리 시계열을 나타내는 `sales_quantity` 예측을 실행 하기 위한 대상 열입니다. Pandas dataframe에 데이터를 읽은 다음 사용 합니다 `to_datetime` 시계열이 되도록 함수를 `datetime` 형식입니다.
+이 데이터 집합은 두 개의 다른 저장소 A와 b에 있는 회사에 대 한 일일 판매 데이터는 간단한 예제는 하나의 기능 `week_of_year` 를 모델에서 매주 계절성을 검색 하도록 허용 됩니다. 필드 `day_datetime` 일별 빈도 및 필드를 사용 하 여 정리 시계열을 나타내는 `sales_quantity` 예측을 실행 하기 위한 대상 열입니다. Pandas dataframe에 데이터를 읽은 다음 사용 합니다 `to_datetime` 시계열이 되도록 함수를 `datetime` 형식입니다.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-이 경우 데이터를 아직 정렬 시간 필드를 기준으로 오름차순 `week_starting`합니다. 그러나 실험을 설정할 때에 원하는 시간 열이 올바른 시계열 빌드를 오름차순으로 정렬 확인 합니다. 학습 및 테스트 데이터 집합을 데이터의 명확한 분할을 확인 하 고 1,000 개의 레코드를 포함 하는 데이터를 가정 합니다. 그런 다음 대상 필드를 구분 `sales_quantity` 예측 학습 및 테스트를 만들려면 다음을 설정 합니다.
+이 경우 데이터를 아직 정렬 시간 필드를 기준으로 오름차순 `day_datetime`합니다. 그러나 실험을 설정할 때에 원하는 시간 열이 올바른 시계열 빌드를 오름차순으로 정렬 확인 합니다. 학습 및 테스트 데이터 집합을 데이터의 명확한 분할을 확인 하 고 1,000 개의 레코드를 포함 하는 데이터를 가정 합니다. 그런 다음 대상 필드를 구분 `sales_quantity` 예측 학습 및 테스트를 만들려면 다음을 설정 합니다.
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ y_test = X_test.pop("sales_quantity").values
 |`time_column_name`|시계열을 빌드하고 해당 빈도 유추에 사용할 입력된 데이터에서 날짜/시간 열을 지정 하는 데 사용 합니다.|✓|
 |`grain_column_names`|입력된 데이터의 개별 계열 그룹을 정의 하는 이름입니다. 수준이 정의 되어 있지 않으면 데이터 집합을 하나의 시계열 수로 간주 됩니다.||
 |`max_horizon`|최대 원하는 예측된 기간 시계열 빈도 단위입니다.|✓|
+|`target_lags`|*n* 정방향 지연 기간이 대상 모델을 학습 하기 전에 값입니다.||
+|`target_rolling_window_size`|*n* 기록 기간 예측된 값을 생성 하는 데 < = 학습 집합 크기입니다. 생략 *n* 는 전체 학습 집합 크기입니다.||
 
-사전 개체로 시계열 설정을 만듭니다. 설정 합니다 `time_column_name` 에 `week_starting` 데이터 집합의 필드입니다. 정의 `grain_column_names` 되도록 매개 변수 **두 개의 별도 시계열 그룹** 데이터 저장소는 및 2. 마지막으로,에 대 한 설정에 대해 만들어진는 `max_horizon` 전체 테스트에 대 한 예측 하기 위해 50으로 설정 합니다.
+사전 개체로 시계열 설정을 만듭니다. 설정 합니다 `time_column_name` 에 `day_datetime` 데이터 집합의 필드입니다. 정의 `grain_column_names` 되도록 매개 변수 **두 개의 별도 시계열 그룹** 데이터 저장소는 및 2. 마지막으로,에 대 한 설정에 대해 만들어진는 `max_horizon` 전체 테스트에 대 한 예측 하기 위해 50으로 설정 합니다. 예측된 기간을 사용 하 여 10 기간으로 설정 `target_rolling_window_size`, 및 대상 값을 사용 하 여 계속 해 서 2 시간 지연의 `target_lags` 매개 변수입니다.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,11 +145,11 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-이제 전체 모델 정확도 결정 되는 좀 더 현실적인 다음 단계를 알 수 없는 미래 값을 예측 모델을 사용 하도록 합니다. 테스트 집합으로 동일한 형식의 데이터 집합을 제공 `X_test` 하지만 이후 날짜와 결과 예측은 각 시계열의 단계에 대 한 예측된 값입니다. 시작 주에 대 한 데이터 집합의 마지막 시계열 레코드 가정 2018 년 12 월 31입니다. 다음 주에 대 한 수요를 예측 (또는 예측을 위해 필요한 만큼 많은 기간 < = `max_horizon`), 단일 만들기 시작 주 각 상점의 시리즈 레코드 시간 2019/01/07입니다.
+이제 전체 모델 정확도 결정 되는 좀 더 현실적인 다음 단계를 알 수 없는 미래 값을 예측 모델을 사용 하도록 합니다. 테스트 집합으로 동일한 형식의 데이터 집합을 제공 `X_test` 하지만 이후 날짜와 결과 예측은 각 시계열의 단계에 대 한 예측된 값입니다. 2018 년 12 월 31에 대 한 데이터 집합의 마지막 시계열 레코드를 가정 합니다. 다음 날에 대 한 수요를 예측 (또는 예측을 위해 필요한 만큼 많은 기간 < = `max_horizon`), 단일 만들기 01/01/2019에 대 한 각 상점의 시리즈 레코드 시간입니다.
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 데이터 프레임에 이후이 데이터를 로드 한 다음 실행 하는 데 필요한 단계를 반복 `best_run.predict(X_test)` 미래 가치를 예측 합니다.
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 04/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407592"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678431"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -29,20 +29,20 @@ ms.locfileid: "58407592"
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 역할 할당 관련 문제
 
 - Azure portal에서 역할 할당에 추가할 수 없는 경우 **액세스 제어 (IAM)** 때문에 **추가** > **역할 할당 추가** 옵션은 사용할 수 없습니다. 또는 오류가 발생 하면 권한을 "개체 id 사용 하 여 클라이언트 없는 작업을 수행 하려면 권한 부여", 때문에 있는 역할이 할당 된 사용자로 로그인 현재 등록 되어 있는지 확인 합니다 `Microsoft.Authorization/roleAssignments/write` 와 같은 권한을 [소유자](built-in-roles.md#owner) 나 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할을 할당 하려는 범위에 있습니다.
-- 오류 메시지를 받게 되 면 "없습니다 더 이상의 역할 할당을 만들 수 있습니다 (코드: RoleAssignmentLimitExceeded) "역할을 할당 하려고 할 때 그룹 대신 역할을 할당 하 여 역할 할당의 수를 줄이기 위해 시도 합니다. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다.
+- 오류 메시지를 받게 되 면 "없습니다 더 이상의 역할 할당을 만들 수 있습니다 (코드: RoleAssignmentLimitExceeded)" 오류 메시지가 표시되면 그룹에 역할을 할당하여 역할 할당 수를 줄여보세요. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다.
 
 ## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
 
 - 사용자 지정 역할을 만드는 방법에 대 한 단계에 필요한 경우에 사용 하 여 사용자 지정 역할 자습서를 참조 하세요 [Azure PowerShell](tutorial-custom-role-powershell.md) 하거나 [Azure CLI](tutorial-custom-role-cli.md)합니다.
 - 기존 사용자 지정 역할을 업데이트할 수 없는 경우에 역할이 할당 된 사용자로 로그인 현재 등록 되어 있는지 확인 합니다 `Microsoft.Authorization/roleDefinition/write` 와 같은 권한이 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator).
-- 사용자 지정 역할을 삭제 하는 오류 메시지를 가져올 수 없는 경우 "기존 역할을 참조 하는 역할 할당 (코드: RoleDefinitionHasAssignments) ", 여전히 사용자 지정 역할을 사용 하 여 역할 할당은 있습니다. 이러한 역할 할당을 제거 하 고 사용자 지정 역할을 다시 삭제 해 보십시오.
-- "역할 정의 제한을 초과 했습니다 오류 메시지를 받게 되 면. 더 이상 없는 역할 정의 만들 수 있습니다 (코드: RoleDefinitionLimitExceeded) "새 사용자 지정 역할을 만들 하려고 할 때 사용 되지 않는 모든 사용자 지정 역할을 삭제 합니다. Azure는 테넌트에서 최대 **2000**개의 사용자 지정 역할을 지원합니다.
-- 하지만 오류가 발생에 있는 것 처럼 "클라이언트 연결 된 구독을 찾을 수 없습니다 범위 / {subscriptionid}', 'Microsoft.Authorization/roleDefinitions/write' 작업을 수행할 수 있는 권한이" 하는 경우 사용자 지정 역할을 업데이트 하려고 할 때 확인 여부를 하나 이상의 [할당 가능한 범위](role-definitions.md#assignablescopes) 테 넌 트에서 삭제 되었습니다. 범위 삭제 된 경우 만든 지원 티켓을 지금은 사용할 수 있는 셀프 서비스 솔루션이 없기 때문입니다.
+- 사용자 지정 역할을 삭제할 수 없고 "역할을 참조하는 기존 역할 할당이 있습니다(코드: RoleDefinitionHasAssignments)" 오류 메시지가 표시되면 사용자 지정 역할을 사용하는 역할 할당이 여전히 있는 것입니다. 이 경우 해당 역할 할당을 제거하고 다시 삭제해 봅니다.
+- 새 사용자 지정 역할을 만들려고 할 때 "역할 정의 제한을 초과했습니다. 더 이상 없는 역할 정의 만들 수 있습니다 (코드: RoleDefinitionLimitExceeded) "새 사용자 지정 역할을 만들 하려고 할 때 사용 되지 않는 모든 사용자 지정 역할을 삭제 합니다. Azure는 테넌트에서 최대 **2000**개의 사용자 지정 역할을 지원합니다.
+- 하지만 오류가 발생에 있는 것 처럼 "클라이언트 연결 된 구독을 찾을 수 없습니다 범위 / {subscriptionid}', 'Microsoft.Authorization/roleDefinitions/write' 작업을 수행할 수 있는 권한이" 하는 경우 사용자 지정 역할을 업데이트 하려고 할 때 확인 여부를 하나 이상의 [할당 가능한 범위](role-definitions.md#assignablescopes) 테 넌 트에서 삭제 되었습니다. 범위가 삭제되었으면 지원 티켓을 만듭니다. 현재는 사용 가능한 셀프 서비스 솔루션이 없기 때문입니다.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>테넌트에서 구독이 이동될 때 RBAC 복구
 
 - 구독을 전송 하는 방법에 대 한 단계를 보려면 다른 Azure ad 테 넌 트를 참조 하세요 [다른 계정으로 Azure 구독의 소유권 이전](../billing/billing-subscription-transfer.md)합니다.
-- 구독을 전송 하는 경우를 다른 Azure AD 테 넌 트, 모든 역할 할당 원본 Azure AD 테 넌 트에서 영구적으로 삭제 되 고 대상 Azure AD 테 넌 트에 마이그레이션되지 않습니다. 대상 테넌트에서 역할 할당을 다시 만들어야 합니다.
+- 구독을 다른 Azure AD 테넌트로 전송하는 경우 모든 역할 할당이 원본 Azure AD 테넌트에서 영구적으로 삭제되고 대상 Azure AD 테넌트로 마이그레이션되지 않습니다. 대상 테넌트에서 역할 할당을 다시 만들어야 합니다. Azure 리소스에 대 한 관리 되는 id를 수동으로 다시 해야 할 수도 있습니다. 자세한 내용은 [Faq 및 알려진된 문제 관리 identities](../active-directory/managed-identities-azure-resources/known-issues.md)합니다.
 - Azure AD를 있다면 있습니다 및 전역 관리자에 액세스할 수 없는 구독 테 넌 트 간에 이동 된 후, 사용 합니다 **Azure 리소스에 대 한 관리 액세스** 를 일시적으로 설정/해제 [액세스권한상승](elevate-access-global-admin.md) 구독에 대 한 액세스를 가져오려고 합니다.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>서비스 관리자 또는 공동 관리자 관련 문제
@@ -51,7 +51,7 @@ ms.locfileid: "58407592"
 
 ## <a name="access-denied-or-permission-errors"></a>액세스 거부 또는 권한 오류
 
-- 사용 권한 오류가 발생할 경우 "개체 id 사용 하 여 클라이언트에 권한 부여 범위에 대해 작업을 수행할 수 없는 (코드: AuthorizationFailed) "리소스를 만들려고 하는 경우 선택한 범위에서 리소스에 쓰기 권한이 있는 역할이 할당 된 사용자로 로그인 현재 등록 되어 있는지 확인 합니다. 예를 들어, 리소스 그룹에 가상 컴퓨터를 관리 하려면 있어야 합니다 [Virtual Machine 참여자](built-in-roles.md#virtual-machine-contributor) 역할 리소스 그룹 (또는 부모 범위). 각 기본 제공 역할에 대 한 사용 권한 목록에 대해서 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)입니다.
+- 리소스를 만들려고 할 때 "이 개체 ID를 가진 클라이언트는 이 범위에서 작업을 수행할 수 있는 권한이 없습니다(코드: AuthorizationFailed)"라는 권한 오류가 발생하면 현재 선택한 범위에서 리소스에 쓰기 권한이 있는 역할이 할당된 사용자로 로그인했는지 확인합니다. 예를 들어 리소스 그룹의 가상 머신을 관리하려면 리소스 그룹(또는 부모 범위)에 대한 [가상 머신 기여자](built-in-roles.md#virtual-machine-contributor) 역할이 필요합니다. 각 기본 제공 역할의 권한 목록은 [Azure 리소스의 기본 제공 역할](built-in-roles.md)을 참조하세요.
 - 사용 권한 오류가 발생 하면 "권한이 지원 요청을 만들려면" 만들기 또는 지원 티켓을 업데이트 하려고 할 때에 역할이 할당 된 사용자로 로그인 현재 등록 되어 있는지 확인 합니다 `Microsoft.Support/supportTickets/write` 와같이권한이[지원 요청 기여자](built-in-roles.md#support-request-contributor)합니다.
 
 ## <a name="rbac-changes-are-not-being-detected"></a>RBAC 변경 내용이 인식되지 않음

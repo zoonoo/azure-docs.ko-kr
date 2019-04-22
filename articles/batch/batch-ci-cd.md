@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494647"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>HPC 솔루션 빌드 및 배포 하려면 Azure 파이프라인을 사용 합니다.
@@ -26,7 +26,7 @@ Azure 파이프라인 구축, 배포, 테스트 및 모니터링 소프트웨어
 
 ![파이프라인에서 배포의 흐름을 보여 주는 다이어그램](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>설치
+### <a name="setup"></a>설정
 
 이 문서의 단계를 수행 하려면 Azure DevOps 조직 및 팀 프로젝트를 필요 합니다.
 
@@ -506,5 +506,5 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 이 문서에서는 외에.NET 및 Python을 사용 하 여 ffmpeg를 활용 하는 두 개의 자습서입니다. 간단한 응용 프로그램을 통해 Batch 계정과 상호 작용 하는 방법에 대 한 자세한 내용은 다음이 자습서를 참조 하세요.
 
-* [Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행](tutorial-parallel-python.md)
-* [.NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행](tutorial-parallel-dotnet.md)
+* [Python API를 사용 하 여 Azure Batch를 사용 하 여 병렬 워크 로드 실행](tutorial-parallel-python.md)
+* [.NET API를 사용 하 여 Azure Batch를 사용 하 여 병렬 워크 로드 실행](tutorial-parallel-dotnet.md)

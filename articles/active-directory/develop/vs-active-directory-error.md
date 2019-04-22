@@ -13,26 +13,26 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed328b29c853e5ff75d64332f0228277cff90d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203678"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679111"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory의 연결된 서비스를 사용하여 오류 진단
 
 이전 인증 코드를 검색하는 동안 Azure Active Directory 연결 서버에서 호환되지 않는 인증 유형을 검색했습니다.
 
-프로젝트에서 이전 인증 코드를 제대로 감지하려면 프로젝트를 빌드해야 합니다.  이 오류가 발생했고 프로젝트에 이전 인증 코드가 없는 경우 다시 작성한 다음 다시 시도합니다.
+프로젝트에서 이전 인증 코드를 제대로 감지하려면 프로젝트를 빌드해야 합니다.  이 오류를 표시 하 고 프로젝트에서 이전 인증 코드가 없는 경우 다시 빌드하고 다시 시도 합니다.
 
 ## <a name="project-types"></a>프로젝트 형식
 
-이 연결된 서비스는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다. 프로젝트의 `ApiController`에서 파생되는 컨트롤러가 있으면 프로젝트가 WebAPI 프로젝트로 간주됩니다. 프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 프로젝트가 MVC 프로젝트로 간주됩니다. 연결된 서비스는 다른 모든 프로젝트 형식을 지원하지 않습니다.
+이 연결된 서비스는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다. 파생 되는 모든 컨트롤러 이면 `ApiController` 프로젝트에서 프로젝트에는 프로젝트가 WebAPI 프로젝트로 간주 됩니다. 프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 프로젝트가 MVC 프로젝트로 간주됩니다. 연결된 서비스는 다른 모든 프로젝트 형식을 지원하지 않습니다.
 
 ## <a name="compatible-authentication-code"></a>호환 가능한 인증 코드
 
-또한 연결된 서비스는 이전에 이 서비스로 구성되었거나 이 서비스와 호환되는 인증 설정이 있는지도 확인합니다. 모든 설정이 있는 경우 재진입 사례로 간주되고 연결된 서비스가 열릴 때 해당 설정이 표시됩니다.  설정이 일부만 있으면 오류 사례로 간주됩니다.
+또한 연결된 서비스는 이전에 이 서비스로 구성되었거나 이 서비스와 호환되는 인증 설정이 있는지도 확인합니다. 모든 설정이 있는 경우 재진입 사례로 간주에 해당 및 연결 된 서비스가 열릴 설정을 표시 합니다.  일부 설정은 값이 있는 경우에 오류 사례를 간주 합니다.
 
 MVC 프로젝트에서 이 연결된 서비스는 이전에 서비스를 사용한 결과에 따라 다음과 같은 설정을 확인합니다.
 
@@ -41,7 +41,7 @@ MVC 프로젝트에서 이 연결된 서비스는 이전에 서비스를 사용�
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-또한 이 연결된 서비스는 이전에 서비스를 사용한 결과에 따라 다음과 같은 Web API 프로젝트 설정을 확인합니다.
+또한 이전 서비스 사용을 결과로 생성 되는 Web API 프로젝트에서 다음 설정에 대 한 연결된 된 서비스 확인 합니다.
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
@@ -60,7 +60,7 @@ MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스
 ```xml
 <configuration>
     <system.web>
-        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+        <authentication mode="Windows" />
     </system.web>
 </configuration>
 ```
@@ -70,7 +70,7 @@ MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스
 ```xml
 <Project>
     <PropertyGroup>
-        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     </PropertyGroup>
 </Project>
 ```
@@ -79,7 +79,7 @@ MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스
 
 ```xml
 <packages>
-    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
 </packages>
 ```
 
@@ -88,7 +88,7 @@ MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스
 ```xml
 <configuration>
     <appSettings>
-        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+        <add key="ida:Realm" value="***" />
     </appSettings>
 </configuration>
 ```

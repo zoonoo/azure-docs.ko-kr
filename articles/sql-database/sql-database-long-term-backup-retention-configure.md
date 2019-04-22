@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: ec0c3b7943db87e5c6fb31dc173a5c3b36377e6c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/17/2019
+ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855472"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680522"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
@@ -43,6 +43,9 @@ Azure SQL Database에서는 최대 10년 동안 Azure Blob Storage에 백업을 
    ![정책 구성](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
 3. 완료되면 **적용**을 클릭합니다.
+
+> [!IMPORTANT]
+> 장기 백업 보존 정책을 사용 하도록 설정 하면 최대 7 일 동안 표시 되 고 복원할 수 있는 첫 번째 백업이 걸릴 수 있습니다. LTR 백업 cadance의 세부 정보를 참조 하세요 [장기 백업 보존](sql-database-long-term-retention.md)합니다.
 
 ### <a name="view-backups-and-restore-from-a-backup-using-azure-portal"></a>Azure Portal을 사용하여 백업을 보고 백업에서 복원
 

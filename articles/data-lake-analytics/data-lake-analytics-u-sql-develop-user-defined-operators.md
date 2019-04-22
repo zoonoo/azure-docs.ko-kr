@@ -10,17 +10,17 @@ ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496149"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
 이 문서에서는 U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법을 설명합니다.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>U-SQL에서 사용자 정의 연산자 정의 및 사용
-**U-SQL 작업 만들기 및 제출 하려면**
+**U-SQL 작업을 만들고 제출하기**
 
 1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > U-SQL 프로젝트**를 선택합니다.
 2. **확인**을 클릭합니다. Visual Studio는 Script.usql 파일로 솔루션을 만듭니다.
@@ -124,5 +124,5 @@ ms.locfileid: "59496149"
 2. 샘플 및 출력을 확장하고 **Drivers.csv**를 두 번 클릭합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [사용자 코드를 사용 하 여 U-SQL 식 확장](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
-* [Visual Studio 용 Data Lake Tools를 사용 하 여 U-SQL 응용 프로그램을 개발 하기 위한](data-lake-analytics-data-lake-tools-get-started.md)
+* [사용자 코드를 사용하여 U-SQL 식 확장](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [U-SQL 애플리케이션 개발에 Visual Studio용 데이터 레이크 도구 사용하기](data-lake-analytics-data-lake-tools-get-started.md)

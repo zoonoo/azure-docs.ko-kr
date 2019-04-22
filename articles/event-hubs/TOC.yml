@@ -9,6 +9,8 @@ items:
     href: event-hubs-for-kafka-ecosystem-overview.md
   - name: Event Hubs 캡처
     href: event-hubs-capture-overview.md
+  - name: Event Hubs Dedicated
+    href: event-hubs-dedicated-overview.md
 - name: 빠른 시작
   items:
   - name: 이벤트 허브 만들기
@@ -21,7 +23,7 @@ items:
       href: event-hubs-quickstart-powershell.md
     - name: Azure Resource Manager 템플릿
       href: event-hubs-resource-manager-namespace-event-hub.md
-  - name: Event Hubs에 이벤트 보내기
+  - name: 이벤트 보내기 및 받기
     items:
     - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-send.md
@@ -29,29 +31,15 @@ items:
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: 자바
       href: event-hubs-java-get-started-send.md
-    - name: C
-      href: event-hubs-c-getstarted-send.md
-    - name: Go
-      href: event-hubs-go-get-started-send.md
     - name: Python
       href: event-hubs-python-get-started-send.md
     - name: Node.js
       href: event-hubs-node-get-started-send.md
-  - name: Event Hubs에서 이벤트 수신
-    items:
-    - name: .NET Core
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: 자바
-      href: event-hubs-java-get-started-receive-eph.md
     - name: Go
-      href: event-hubs-go-get-started-receive-eph.md
-    - name: Python
-      href: event-hubs-python-get-started-receive.md
-    - name: Node.js
-      href: event-hubs-node-get-started-receive.md
-    - name: Apache Storm
+      href: event-hubs-go-get-started-send.md
+    - name: C(보내기 전용)
+      href: event-hubs-c-getstarted-send.md
+    - name: Apache Storm(받기 전용)
       href: event-hubs-storm-getstarted-receive.md
   - name: 이벤트 캡처
     items:
@@ -103,8 +91,6 @@ items:
     href: event-hubs-role-based-access-control.md
   - name: 지리적 재해 복구 및 지역에서 복제
     href: event-hubs-geo-dr.md
-  - name: Event Hubs Dedicated
-    href: event-hubs-dedicated-overview.md
   - name: 인증 및 보안 모델 개요
     href: event-hubs-authentication-and-security-model-overview.md
   - name: 가용성 및 일관성
@@ -175,6 +161,8 @@ items:
       href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
     - name: Microsoft.Azure.Management.EventHub
       href: /dotnet/api/microsoft.azure.management.eventhub
+  - name: Node.js
+    href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
   - name: REST (영문)
     href: /rest/api/eventhub
   - name: Resource Manager 템플릿
@@ -199,9 +187,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 21aafbeff9aa06d890afb6282fdf10e1feac739e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 76b72dfcd7db1e27be5a94af35da1e83f104e75e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577283"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680998"

@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 401ad90f1ae4ffb4915a0b51aea41430e7045aa9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270467"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528053"
 ---
-# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#의 자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
 Azure SQL 데이터베이스 샘플에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 알아봅니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에서 Azure SQL Database에 대한 인덱서가 가장 널리 사용됩니다. 
 
@@ -54,9 +54,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-1.. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
+1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
 ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
@@ -87,7 +87,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 다음 연습은 기존 서버 또는 데이터베이스를 사용하지 않고 2단계에서 모두 만들도록 지시합니다. 필요에 따라 기존 리소스가 있는 경우 4단계에서부터 여기에 호텔 테이블을 추가할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure Portal에 로그인](https://portal.azure.com/)합니다. 
 
 2. **Azure SQL Database**를 찾거나 만들어 데이터베이스, 서버 및 리소스 그룹을 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
 
@@ -99,7 +99,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
    ![SQL Database 페이지](./media/search-indexer-tutorial/hotels-db.png)
 
-4. 명령 모음에서 **도구** > **쿼리 편집기**를 클릭합니다.
+4. 탐색 창에서 **쿼리 편집기(미리 보기)** 를 클릭합니다.
 
 5. **로그인**을 클릭하고 사용자 이름 및 서버 관리자의 암호를 입력합니다.
 
@@ -116,7 +116,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    정형화된 쿼리인 `SELECT * FROM Hotels`는 쿼리 편집기에서 작동하지 않습니다. 샘플 데이터는 위치 필드에 지리 좌표를 포함합니다. 이 시점에는 편집기에서 처리되지 않습니다. 쿼리할 다른 열의 목록을 대상으로 다음 명령문을 실행할 수 있습니다. `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    정형화된 쿼리인 `SELECT * FROM Hotels`는 쿼리 편집기에서 작동하지 않습니다. 샘플 데이터는 위치 필드에 지리 좌표를 포함합니다. 이 시점에는 편집기에서 처리되지 않습니다. 쿼리할 다른 열의 목록은 다음 문을 실행할 수 있습니다.`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. 이제 외부 데이터 세트가 있으므로 데이터베이스에 대한 ADO.NET 연결 문자열을 복사합니다. 데이터베이스의 SQL Database 페이지에서 **설정** > **연결 문자열**로 이동하고, ADO.NET 연결 문자열을 복사합니다.
  
@@ -137,7 +137,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="understand-the-code"></a>코드 이해
 
-이제 코드를 빌드하고 실행할 준비가 되었습니다. 그렇게 하기 전에 이 샘플에 대한 인덱스 및 인덱서 정의를 알아보는 데 1분이 걸립니다. 관련된 코드가 다음과 같은 두 개의 파일에 있습니다.
+데이터 및 구성 설정이 적용되면 **DotNetHowToIndexers.sln**의 샘플 프로그램을 빌드하고 실행할 준비가 완료된 것입니다. 그렇게 하기 전에 이 샘플에 대한 인덱스 및 인덱서 정의를 알아보는 데 1분이 걸립니다. 관련된 코드가 다음과 같은 두 개의 파일에 있습니다.
 
   + **hotel.cs**는 인덱스를 정의하는 스키마가 포함됩니다.
   + **Program.cs**는 서비스에서 구조를 만들고 관리하는 함수가 포함됩니다.
@@ -155,45 +155,65 @@ public string HotelName { get; set; }
 
 스키마는 점수 매기기, 사용자 지정 분석기 및 다른 구문을 향상시키기 위해 점수 매기기 프로필을 비롯한 다른 요소를 포함할 수도 있습니다. 그러나 목적상 스키마는 밀도가 낮게 정의되어 샘플 데이터 세트에서 발견되는 필드를 구성합니다.
 
-이 자습서에서 인덱서는 하나의 데이터 원본에서 데이터를 끌어옵니다. 실제로 여러 인덱서를 동일한 인덱스에 연결하여 여러 데이터 원본 및 인덱서에서 통합된 검색 가능한 인덱스를 만들 수 있습니다. 동일한 인덱스 인덱서 쌍을 사용하여 유연성이 필요한 경우에 다양한 인덱서 및 데이터 원본 조합으로 데이터 원본 또는 하나의 인덱스가 달라질 수 있습니다.
+이 자습서에서 인덱서는 하나의 데이터 원본에서 데이터를 끌어옵니다. 실제로 여러 인덱서를 동일한 인덱스에 연결하여 여러 데이터 원본의 통합 검색 가능 인덱스를 만들 수 있습니다. 동일한 인덱스 인덱서 쌍을 사용하여 유연성이 필요한 경우에 다양한 인덱서 및 데이터 원본 조합으로 데이터 원본 또는 하나의 인덱스가 달라질 수 있습니다.
 
 ### <a name="in-programcs"></a>Program.cs에서
 
-주 프로그램에는 세 개의 모든 대표 데이터 원본에 대한 함수가 포함됩니다. Azure SQL Database에 중점을 두면 다음 개체가 강조됩니다.
+기본 프로그램에는 클라이언트, 인덱스, 데이터 원본 및 인덱서를 만드는 논리가 포함되어 있습니다. 코드는 이 프로그램을 여러 번 실행한다는 가정 하에서 동일한 이름의 기존 리소스를 확인하고 삭제합니다.
+
+데이터 원본 개체는 Azure SQL에서 기본적으로 제공하는 [변경 내용 검색 기능](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL 데이터베이스 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted**라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Search 인덱스에서 해당 문서를 제거합니다.
 
   ```csharp
-  private const string IndexName = "hotels";
-  private const string AzureSqlHighWaterMarkColumnName = "RowVersion";
-  private const string AzureSqlDataSourceName = "azure-sql";
-  private const string AzureSqlIndexerName = "azure-sql-indexer";
+  Console.WriteLine("Creating data source...");
+
+  DataSource dataSource = DataSource.AzureSql(
+      name: "azure-sql",
+      sqlConnectionString: configuration["AzureSQLConnectionString"],
+      tableOrViewName: "hotels",
+      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
+          softDeleteColumnName: "IsDeleted",
+          softDeleteMarkerValue: "true"));
+  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+
+  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-Azure Search에서 독립적으로 보거나, 구성하거나, 삭제할 수 있는 개체에는 인덱스, 인덱서 및 데이터 원본이 포함됩니다(*hotels*, *azure-sql-indexer*, *azure-sql* 각각). 
-
-*AzureSqlHighWaterMarkColumnName* 열은 변경 감지 정보를 제공하기 때문에 특별히 설명해야 합니다. 인덱서에서 마지막 인덱싱 작업 이후에 행이 변경되었는지를 결정하는 데 해당 열을 사용합니다. [변경 감지 정책](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)은 인덱서에서만 지원되고 데이터 원본에 따라 달라집니다. Azure SQL Database의 경우 데이터베이스 요구 사항에 따라 두 가지 정책 중에 선택할 수 있습니다.
-
-다음 코드는 데이터 원본 및 인덱서를 만드는 데 사용된 Program.cs의 메서드를 보여줍니다. 코드는 이 프로그램을 여러 번 실행한다는 가정 하에서 동일한 이름의 기존 리소스를 확인하고 삭제합니다.
+인덱서 개체는 플랫폼의 제약을 받지 않으므로 원본에 관계없이 구성, 일정 예약 및 호출이 동일합니다. 이 예제 인덱서는 인덱서 기록을 지우는 초기화 옵션인 일정을 포함하고 있으며, 즉시 인덱서를 만들고 실행하는 메서드를 호출합니다.
 
   ```csharp
-  private static string SetupAzureSqlIndexer(SearchServiceClient serviceClient, IConfigurationRoot configuration)
+  Console.WriteLine("Creating Azure SQL indexer...");
+  Indexer indexer = new Indexer(
+      name: "azure-sql-indexer",
+      dataSourceName: dataSource.Name,
+      targetIndexName: index.Name,
+      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
+  // Indexers contain metadata about how much they have already indexed
+  // If we already ran the sample, the indexer will remember that it already
+  // indexed the sample data and not run again
+  // To avoid this, reset the indexer if it exists
+  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
+  if (exists)
   {
-    Console.WriteLine("Deleting Azure SQL data source if it exists...");
-    DeleteDataSourceIfExists(serviceClient, AzureSqlDataSourceName);
+      await searchService.Indexers.ResetAsync(indexer.Name);
+  }
 
-    Console.WriteLine("Creating Azure SQL data source...");
-    DataSource azureSqlDataSource = CreateAzureSqlDataSource(serviceClient, configuration);
+  await searchService.Indexers.CreateOrUpdateAsync(indexer);
 
-    Console.WriteLine("Deleting Azure SQL indexer if it exists...");
-    DeleteIndexerIfExists(serviceClient, AzureSqlIndexerName);
+  // We created the indexer with a schedule, but we also
+  // want to run it immediately
+  Console.WriteLine("Running Azure SQL indexer...");
 
-    Console.WriteLine("Creating Azure SQL indexer...");
-    Indexer azureSqlIndexer = CreateIndexer(serviceClient, AzureSqlDataSourceName, AzureSqlIndexerName);
-
-    return azureSqlIndexer.Name;
+  try
+  {
+      await searchService.Indexers.RunAsync(indexer.Name);
+  }
+  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+  {
+      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
   }
   ```
 
-인덱서 API 호출은 [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet)을 제외하고 플랫폼과 독립적입니다. 여기서 호출할 크롤러의 형식을 지정합니다.
+
 
 ## <a name="run-the-indexer"></a>인덱서 실행
 
@@ -236,12 +256,10 @@ Azure Portal의 검색 서비스 개요 페이지에서 맨 위에 있는 **검�
 
 프로그래밍 방식으로 방금 만든 인덱서를 비롯한 모든 인덱서가 포털에 나열됩니다. 인덱서 정의를 열거나, 해당 데이터 원본을 보거나, 새로운 기능과 변경된 행을 선택하도록 새로 고침 일정을 구성할 수 있습니다.
 
-1. Azure Search 서비스의 서비스 개요 페이지를 엽니다.
-2. 아래로 스크롤하여 **인덱서** 및 **데이터 원본**에 대한 타일을 찾습니다.
-3. 타일을 클릭하여 각 리소스의 목록을 엽니다. 개별 인덱서 또는 데이터 원본을 선택하여 구성 설정을 보거나 수정할 수 있습니다.
+1. [Azure Portal에 로그인](https://portal.azure.com/) 그리고 검색 서비스 **개요** 페이지에서 **인덱스**, **인덱서** 및 **데이터 원본**의 링크를 클릭합니다.
+3. 구성 설정을 보거나 수정할 개별 개체를 선택합니다.
 
    ![인덱서 및 데이터 원본 타일](./media/search-indexer-tutorial/tiles-portal.png)
-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

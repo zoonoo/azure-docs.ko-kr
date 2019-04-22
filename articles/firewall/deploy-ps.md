@@ -7,15 +7,15 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.openlocfilehash: c2d49defa2e0fbbd12c5403ccca74e91cf4ec981
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502115"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>배포 하 고 Azure PowerShell을 사용 하 여 Azure 방화벽 구성
 
-아웃바운드 네트워크 액세스 제어는 전체 네트워크 보안 계획에서 중요한 부분입니다. 예를 들어, 다음 웹 사이트에 대 한 액세스를 제한 하는 것이 좋습니다. 또는 아웃 바운드 IP 주소 및 액세스할 수 있는 포트를 제한 하는 것이 좋습니다.
+아웃바운드 네트워크 액세스 제어는 전체 네트워크 보안 계획에서 중요한 부분입니다. 예를 들어 웹 사이트에 대한 액세스를 제한할 수 있습니다. 또는 액세스 가능한 아웃바운드 IP 주소 및 포트를 제한할 수 있습니다.
 
 Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하는 한 가지 방법은 Azure Firewall입니다. Azure Firewall을 사용하면 다음을 구성할 수 있습니다.
 
@@ -24,7 +24,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
 
-이 문서에서는 간편한 배포를 위해 세 개의 서브넷을 사용 하 여 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포에는 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) 권장 자체 VNet에서 방화벽 인 합니다. 하나 이상의 서브넷이 있는 동일한 지역의 피어 링 된 Vnet이 있는 작업 서버입니다.
+이 문서에서는 간편한 배포를 위해 세 개의 서브넷을 사용 하 여 간소화 된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 권장되며 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
 
 * **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
 * **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
@@ -38,7 +38,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * Www.google.com에 대 한 액세스를 허용 하는 응용 프로그램 규칙 구성
+> * www.google.com 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 절차는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈이 설치 되어 있어야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 절차는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Connect-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="set-up-the-network"></a>네트워크 설정
 
@@ -212,7 +212,7 @@ $NIC | Set-AzNetworkInterface
 
 ## <a name="test-the-firewall"></a>방화벽 테스트
 
-이제 예상 대로 작동 하는지 확인 하도록 방화벽을 테스트 합니다.
+이제 방화벽이 예상대로 작동하는지 테스트합니다.
 
 1. 에 대 한 개인 IP 주소를 메모 합니다 **Srv 작업** 가상 머신:
 
@@ -220,7 +220,7 @@ $NIC | Set-AzNetworkInterface
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. 원격 데스크톱을 연결 **Srv 점프** 가상 머신과 로그인 합니다. 여기에서 원격 데스크톱 연결을 엽니다는 **Srv 작업** 개인 IP 주소 및 로그인 합니다.
+1. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 엽니다는 **Srv 작업** 개인 IP 주소 및 로그인 합니다.
 
 3. 온 **SRV 작업**PowerShell 창을 열고 다음 명령을 실행 합니다.
 
@@ -258,4 +258,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: Azure 방화벽 로그 모니터링](./tutorial-diagnostics.md)
+* [자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500467"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680879"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -28,9 +28,9 @@ Linux 기반의 Azure App Service는 Java 개발자가 Tomcat 또는 Java SE(Sta
 
 ## <a name="deploying-your-app"></a>앱 배포
 
-.jar과 .war 파일을 배포하려면 Maven 플러그 인을 사용할 수 있습니다. Maven 플러그 인에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)를 참조하세요.
+사용할 수 있습니다 [Azure App Service의 Maven 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) .jar와.war 파일을 배포 합니다. 사용 하 여 인기 있는 Ide 사용 하 여 배포도 지원 됩니다 [IntelliJ 용 Azure 도구 키트](/java/azure/intellij/azure-toolkit-for-intellij) 하거나 [Eclipse 용 Azure 도구 키트](/java/azure/eclipse/azure-toolkit-for-eclipse)합니다.
 
-Maven을 사용하지 않는 경우 배포 방법은 보관 형식에 따라 달라집니다.
+그렇지 않으면 배포 방법 보관 형식에 따라 달라 집니다.
 
 - .war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file)를 참조하세요.
 - Java SE 이미지에서 .jar 파일을 배포하려면 Kudu 사이트의 `/api/zipdeploy/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/azure/app-service/deploy-zip#rest)를 참조하세요.
@@ -79,7 +79,7 @@ Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 �
 
 ## <a name="customization-and-tuning"></a>사용자 지정 및 튜닝
 
-Linux용 Azure App Service는 기본적으로 Azure Portal 및 CLI를 통해 튜닝 및 사용자 지정이 가능합니다. 비 Java 관련 웹앱 구성에 대한 다음 문서를 검토하세요.
+Linux 용 azure App Service에서 Azure portal 및 CLI를 통해 사용자 지정 하 고 상자 튜닝을 지원합니다. 비 Java 관련 웹앱 구성에 대한 다음 문서를 검토하세요.
 
 - [App Service 설정 구성](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [사용자 지정 도메인 설정](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -156,7 +156,7 @@ Linux용 App Service에서 실행되는 Java 애플리케이션의 [보안 모�
 
 ### <a name="authenticate-users"></a>사용자 인증
 
-Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인증을 설정합니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다.  자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](/azure/app-service/configure-authentication-provider-aad) 및 기타 ID 공급자 관련 문서를 참조하세요.
+사용 하 여 Azure portal에서 앱 인증을 설정 합니다 **인증 및 권한 부여** 옵션입니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다.  자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](/azure/app-service/configure-authentication-provider-aad) 및 기타 ID 공급자 관련 문서를 참조하세요.
 
 여러 로그인 공급자를 사용하도록 설정해야 하는 경우 [App Service 인증 사용자 지정](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) 문서의 지침을 따르세요.
 

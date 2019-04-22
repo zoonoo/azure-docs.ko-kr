@@ -13,10 +13,10 @@ ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
 ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496064"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
@@ -25,11 +25,11 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure Functions                       | V1                | V2(Ignite 2018)  | 
+| Azure 기능                       | V1                | V2(Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **Application Insights.NET SDK**   | **2.5.0**       | **2.9.1**         |
+| **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
-| **자동 수집**        |                 |                   |               
+| **자동 컬렉션**        |                 |                   |               
 | &bull; 요청                     | 예             | 예               | 
 | &bull; 예외                   | 예             | 예               | 
 | &bull; 성능 카운터         | 예             | 예               |

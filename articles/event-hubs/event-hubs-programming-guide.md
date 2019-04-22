@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835438"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678584"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대한 프로그래밍 가이드
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
@@ -110,7 +110,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 이벤트 처리를 시작하려면 이벤트 허브에 대한 적절한 매개 변수를 제공하여 [EventProcessorHost][]를 인스턴스화합니다. 예를 들면 다음과 같습니다.
 
 > [!NOTE]
-> EventProcessorHost 및 관련된 클래스에 제공 되는 **Microsoft.Azure.EventHubs.Processor** 패키지 있습니다. 지침에 따라 Visual Studio 프로젝트에 패키지를 추가 [이 문서](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package) 에서 다음 명령을 실행 하 여 또는 합니다 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창:`Install-Package Microsoft.Azure.EventHubs.Processor`합니다.
+> EventProcessorHost 및 관련된 클래스에 제공 되는 **Microsoft.Azure.EventHubs.Processor** 패키지 있습니다. 지침에 따라 Visual Studio 프로젝트에 패키지를 추가 [이 문서](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) 에서 다음 명령을 실행 하 여 또는 합니다 [패키지 관리자 콘솔](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창:`Install-Package Microsoft.Azure.EventHubs.Processor`합니다.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

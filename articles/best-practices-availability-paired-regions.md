@@ -2,16 +2,17 @@
 title: 'BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역 | Microsoft Docs'
 description: Azure 지역 쌍을 통해 데이터 센터 오류 중 애플리케이션의 복원성을 유지하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792323"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678873"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -28,16 +29,17 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 | Geography | 쌍을 이루는 지역 |  |
 |:--- |:--- |:--- |
 | 아시아 |동아시아 |동남아시아 |
-| 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
+| 오스트레일리아 |호주 동부 |오스트레일리아 남동부 |
 | 오스트레일리아 |오스트레일리아 중부 |오스트레일리아 중부 2 |
 | 브라질 |브라질 남부 |미국 중남부 |
 | 캐나다 |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
 | 중국 |중국 북부 2 |중국 동부 2|
-| 유럽 |북유럽 |서유럽 |
+| 유럽 |유럽 북부 |서유럽 |
 | 프랑스 |프랑스 중부|프랑스 남부|
 | 독일 |독일 중부 |독일 북동부 |
-| 인도 |인도 중부 |인도 남부 |
+| 독일 |독일 북부 | 독일 중서부
+| 인도 |중앙 인도 |인도 남부 |
 | 인도 |인도 서부 |인도 남부 |
 | 일본 |일본 동부 |일본 서부 |
 | 한국 |한국 중부 |한국 남부 |
@@ -45,18 +47,26 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 | 북아메리카 |미국 동부 2 |미국 중부 |
 | 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 서부 2 |미국 중서부 
+| 북아메리카 |미국 3 |미국 동부
+| 노르웨이 |노르웨이 동부 |노르웨이 서부
+| 남아프리카 | 남아프리카 북부 | 남아프리카 서부
+| 스웨덴 |스웨덴 중부 |스웨덴 남부
+| 스위스 | 스위스 북부 | 스위스 서부
 | 영국 |영국 서부 |영국 남부 |
+| 영국 |영국 북부 |영국 남부 2
+| 아랍에미리트 | 아랍에미리트 북부 | 아랍에미리트 Center
 | 미국 국방부 |미국 국방부 동부 |미국 국방부 중부 |
 | 미국 정부 |미국 정부 애리조나 |미국 정부 텍사스 |
 | 미국 정부 |미국 아이오와 주 정부 |미국 정부 버지니아 |
-| 미국 정부 |미국 정부 버지니아 |미국 정부 텍사스 |
+| 미국 정부 |US Gov 버지니아 |미국 정부 텍사스 |
 
 표 1 - Azure 지역 쌍 매핑
 
-- 인도 서부는 다른 지역과 함께 한 방향으로만 쌍을 이루기 때문에 다릅니다. 인도 서부의 보조 지역은 인도 남부이지만 인도 남부의 보조 지역은 인도 중부입니다.
-- 브라질 남부는 해당 지리적 위치 외부에 있는 지역과 쌍을 이루기 때문에 고유합니다. 브라질 남부의 보조 지역은 미국 중남부이지만 미국 중남부의 보조 지역은 브라질 남부가 아닙니다.
-- 미국 아이오와 주 정부의 보조 지역은 미국 버지니아 주 정부이지만 미국 버지니아 주 정부의 보조 지역은 미국 아이오와 주 정부가 아닙니다.
-- 미국 버지니아 주 정부의 보조 지역은 미국 텍사스 주 정부이지만 미국 텍사스 주 정부의 보조 지역은 미국 버지니아 주 정부가 아닙니다.
+- 인도 서 부 한 방향 으로만 쌍을 이룹니다. 인도 서부의 보조 지역은 인도 남부이지만 인도 남부의 보조 지역은 인도 중부입니다.
+- 브라질 남부는 해당 지리적 위치 외부에 있는 지역과 쌍을 이루기 때문에 고유합니다. 브라질 남부의 보조 지역은 미국 중남부입니다. 미국 중남부의 보조 지역은 브라질 남부가 아닙니다.
+- 미국 아이오와 주 정부의 보조 지역은 미국 버지니아 주 정부입니다.
+- 미국 버지니아 주 정부의 보조 지역은 미국 텍사스 주 정부입니다.
+- 미국 정부 텍사스 주 정부의 보조 지역은 미국 정부 애리조나입니다.
 
 
 Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(비즈니스 연속성 및 재해 복구)을 구성하는 것이 좋습니다. 여러 활성 지역을 지원하는 애플리케이션의 경우 가능하면 한 지역 쌍에서 두 지역을 모두 사용하는 것이 좋습니다. 이렇게 하면 애플리케이션에 대한 최적 가용성을 보장하고 재해 발생 시 복구 시간을 최소화할 수 있습니다. 
@@ -73,7 +83,7 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(�
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute(IaaS)** – 재해 중에 다른 지역의 리소스를 사용할 수 있도록 사전에 추가 계산 리소스를 프로비전해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](resiliency/resiliency-technical-guidance.md)을 참조하세요.
 
-![저장소](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - GRS(지역 중복 저장소)는 기본적으로 Azure Storage 계정을 만들 때 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
+![스토리지](./media/best-practices-availability-paired-regions/2Green.png)**Azure Storage** - GRS(지역 중복 스토리지)는 기본적으로 Azure Storage 계정을 만들 때 구성됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – With Azure SQL Database 지역에서 복제 기능을 사용하면 전 세계 모든 지역으로의 트랜잭션 비동기 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오에서 이러한 리소스를 쌍을 이루는 지역에 배포하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
 

@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492722"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure Diagnostics 1.0 구성 스키마
@@ -101,7 +101,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:
 
-|특성  |Type   |필수| 기본값 | 설명|  
+|특성  |Type   |필수| Default | 설명|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|옵션 | PT1M| 진단 모니터가 진단 구성 변경을 폴링하는 간격을 지정합니다.|  
 |**overallQuotaInMB**|unsignedInt|옵션| 4000MB 값을 제공하는 경우 이 크기를 초과하지 않아야 합니다. |모든 로깅 버퍼에 할당된 파일 시스템 저장소의 총 크기입니다.|  
@@ -207,7 +207,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**경로**|문자열|필수 사항입니다. 모니터링할 디렉터리의 절대 경로입니다.|  
+|**path**|문자열|필수 사항입니다. 모니터링할 디렉터리의 절대 경로입니다.|  
 |**expandEnvironment**|부울|필수 사항입니다. **true**로 설정하면 경로의 환경 변수가 확장됩니다.|  
 
 ## <a name="localresource-element"></a>LocalResource 요소  
@@ -219,7 +219,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**이름**|문자열|필수 사항입니다. 모니터링할 디렉터리를 포함하는 로컬 리소스의 이름입니다.|  
+|**name**|문자열|필수 사항입니다. 모니터링할 디렉터리를 포함하는 로컬 리소스의 이름입니다.|  
 |**relativePath**|문자열|필수 사항입니다. 모니터링할 로컬 리소스의 상대 경로입니다.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 요소  
@@ -269,5 +269,5 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**이름**|문자열|필수 사항입니다. 수집할 로그를 지정하는 XPath 식입니다.|  
+|**name**|문자열|필수 사항입니다. 수집할 로그를 지정하는 XPath 식입니다.|  
 

@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493147"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679281"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -45,8 +45,9 @@ Azure에서 되지 보증 하는 Linux 서버 배포판은 Azure Disk Encryption
 
 | Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
 | --- | --- |--- |
+| Ubuntu | 18.04| OS 및 데이터 디스크 |
 | Ubuntu | 16.04| OS 및 데이터 디스크 |
-| Ubuntu | 14.04.5</br>[Azure를 사용 하 여 튜닝 4.15 이상으로 업데이트 하는 커널](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
+| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
 | RHEL | 7.6 | OS 및 데이터 디스크* |
 | RHEL | 7.5 | OS 및 데이터 디스크* |
 | RHEL | 7.4 | OS 및 데이터 디스크* |
@@ -170,6 +171,6 @@ Azure 백업은 백업 및 암호화 된 VM의 동일한 구독 및 지역 내�
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Disk Encryption와 관련하여 가장 자주 묻는 질문에 대해 자세히 알아 보았습니다. 이 서비스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 디스크 암호화 개요](azure-security-disk-encryption-overview.md)
+- [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)
 - [Azure Security Center에서 디스크 암호화 적용](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [휴지 상태의 Azure 데이터 암호화](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

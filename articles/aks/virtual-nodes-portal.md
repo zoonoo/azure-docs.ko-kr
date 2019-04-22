@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755266"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681032"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>미리 보기-만들기 및 Azure portal에서 가상 노드를 사용 하 여 Azure Kubernetes 서비스 (AKS) 클러스터를 구성 합니다.
 
@@ -33,9 +33,19 @@ ms.locfileid: "58755266"
 * 유럽 서부(westeurope)
 * 미국 서부(westus)
 
+## <a name="known-limitations"></a>알려진 제한 사항
+가상 노드 기능은 ACI의 기능 집합에 따라 크게 달라 집니다. 가상 노드에 다음 시나리오는 아직 지원 되지 않습니다.
+
+* 끌어오기 ACR 이미지에 서비스 주체를 사용합니다. [해결 방법](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) 사용 하 여 [Kubernetes 비밀](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [가상 네트워크 제한 사항](../container-instances/container-instances-vnet.md) VNet 피어 링, Kubernetes 네트워크 정책 및 네트워크 보안 그룹을 사용 하 여 인터넷에 아웃 바운드 트래픽을 포함 합니다.
+* Init 컨테이너
+* [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [인수](../container-instances/container-instances-exec.md#restrictions) ACI에서 exec에 대 한
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 가상 노드에 pod를 배포 하지 것입니다
+
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 

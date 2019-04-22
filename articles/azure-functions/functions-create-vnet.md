@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 749e211c9844f644e04d5135f99d71918d65b66b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523735"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680356"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Azure virtual network를 사용 하 여 함수 앱 통합
 
-이 단계별 자습서는 Azure Functions를 사용하여 Azure VNET에서 리소스에 연결하는 방법을 보여줍니다.
+이 자습서에서는 Azure VNET의 리소스에 연결 하려면 Azure Functions를 사용 하는 방법을 보여 줍니다.
 
 이 자습서를 위해 배포할 예정 개인 비 인터넷에 액세스할 수 VNET에서 VM에 WordPress 사이트입니다. 그런 다음, 인터넷과 VNET 모두에 대한 액세스로 함수를 배포합니다. VNET 내에 배포 된 WordPress 사이트에서 리소스에 액세스 하는 함수가 사용 됩니다.
 

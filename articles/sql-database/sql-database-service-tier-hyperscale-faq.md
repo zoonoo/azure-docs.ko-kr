@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540672"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680907"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -216,7 +216,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>하이퍼스케일 서비스 계층으로 마이그레이션한 후에 손실되는 기능이 있나요?
 
-예. Azure SQL Database 기능 중 일부 지원 되지 않습니다 대규모의 공개 미리 보기 중에 장기 보존 백업을 용어에 제한 되지 않음. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.
+예. 공개 미리 보기 중 Azure SQL Database의 장기 보존 백업은 대규모에서 지원 되지 않습니다. 대규모로 데이터베이스를 마이그레이션한 후이 기능에 작동이 중지 됩니다.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>온-프레미스 SQL Server 데이터베이스나 SQL Server 가상 머신 데이터베이스를 하이퍼스케일로 이동할 수 있나요?
 
@@ -295,7 +295,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>하이퍼스케일 서비스 계층으로 마이그레이션한 후에 손실되는 기능이 있나요?
 
-예. 공개 미리 보기 중에는 하이퍼스케일에서 Azure SQL Database 기능 중 일부(TDE 및 장기 보존 백업을 포함하되 이에 국한되지는 않음)가 지원되지 않습니다. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.
+예. 공개 미리 보기 중 Azure SQL Database의 장기 보존 백업은 대규모에서 지원 되지 않습니다. 대규모로 데이터베이스를 마이그레이션한 후이 기능에 작동이 중지 됩니다.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Polybase가 SQL Database 하이퍼스케일과 작동이 되나요?
 

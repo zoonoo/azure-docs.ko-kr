@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c508c402707663489fc383dccd958559df6b217f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194685"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544943"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>빠른 시작: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드
 
@@ -45,6 +45,9 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 1. Azure AD에 앱을 등록합니다.
 2. ADAL을 설치하고 단일 페이지 앱을 구성합니다.
 3. ADAL을 사용하여 단일 페이지 앱에서 페이지 보안을 지원합니다.
+
+> [!NOTE]
+> 회사 및 학교 계정 외에 개인 계정의 로그인도 사용하도록 설정하기 위해 *[Microsoft ID 플랫폼 엔드포인트](azure-ad-endpoint-comparison.md)* 를 사용할 수 있습니다. 자세한 내용은 [이 JavaScript SPA 자습서](tutorial-v2-javascript-spa.md)와 *Microsoft ID 플랫폼 엔드포인트*를 설명하는 [이 문서](active-directory-v2-limitations.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 

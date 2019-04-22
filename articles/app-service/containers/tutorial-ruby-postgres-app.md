@@ -1,23 +1,23 @@
 ---
-title: Linux에서 Postgres를 사용하여 Ruby 앱 빌드 - Azure App Service | Microsoft Docs
-description: Azure에서 PostgreSQL 데이터베이스에 연결하여 Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다.
+title: Linux에서 Postgres를 사용하는 Ruby(Rails) - Azure App Service | Microsoft Docs
+description: Azure에서 PostgreSQL 데이터베이스에 연결하여 Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다. Rails는 자습서에서 사용됩니다.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: ruby
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713882"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544691"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
@@ -65,7 +65,7 @@ sudo -u postgres psql
 로그인한 Linux 사용자 이름을 사용하는 다음 명령을 실행하여 데이터베이스를 만들 수 있는 Postgres 사용자를 만듭니다.
 
 ```bash
-sudo -u postgres createuser -d <signed_in_user>
+sudo -u postgres createuser -d <signed-in-user>
 ```
 
 <a name="step2"></a>
@@ -125,10 +125,10 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) 명령을 사용하여 PostgreSQL 서버를 만듭니다.
 
-Cloud Shell에서 다음 명령을 실행하고 *\<postgres_server_name>* 자리 표시자의 고유한 서버 이름을 대체합니다. 서버 이름은 Azure의 모든 서버에서 고유해야 합니다. 
+Cloud Shell에서 다음 명령을 실행하고 *\<postgres-server-name>* 자리 표시자를 고유한 서버 이름으로 바꿉니다. 서버 이름은 Azure의 모든 서버에서 고유해야 합니다. 
 
 ```azurecli-interactive
-az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres_server_name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
+az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
 ```
 
 PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
@@ -137,10 +137,10 @@ PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 �
 {
   "administratorLogin": "adminuser",
   "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
-  "fullyQualifiedDomainName": "<postgres_server_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres_server_name>",
+  "fullyQualifiedDomainName": "<postgres-server-name>.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres-server-name>",
   "location": "westeurope",
-  "name": "<postgres_server_name>",
+  "name": "<postgres-server-name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 2,
@@ -155,10 +155,10 @@ PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 �
 
 ### <a name="configure-server-firewall"></a>서버 방화벽 구성
 
-Cloud Shell에서 [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) 명령을 사용하여 클라이언트 연결을 허용하도록 Postgres 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. *\<postgres_server_name >* 자리 표시자의 고유한 서버 이름을 대체합니다.
+Cloud Shell에서 [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) 명령을 사용하여 클라이언트 연결을 허용하도록 Postgres 서버에 대한 방화벽 규칙을 만듭니다. 시작 IP 및 끝 IP가 0.0.0.0으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. *\<postgres-server-name>* 자리 표시자를 고유한 서버 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres_server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!TIP] 
@@ -167,10 +167,10 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>로컬에서 프로덕션 Postgres 서버에 연결
 
-Cloud Shell에서 Azure의 Postgres 서버에 연결합니다. _&lt;postgres_server_name>_ 자리 표시자에 이전에 지정한 값을 사용합니다.
+Cloud Shell에서 Azure의 Postgres 서버에 연결합니다. _&lt;postgres-server-name>_ 자리 표시자에 이전에 지정한 값을 사용합니다.
 
 ```bash
-psql -U adminuser@<postgres_server_name> -h <postgres_server_name>.postgres.database.azure.com postgres
+psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
 암호를 묻는 메시지가 나타나면 데이터베이스 서버를 만들 때 지정한 _MY5up3r$tr0ngPa$w0rd!_ 를 사용합니다.
@@ -188,7 +188,7 @@ CREATE DATABASE sampledb;
 _railsappuser_라는 데이터베이스 사용자를 만들고 `sampledb` 데이터베이스의 모든 권한을 부여합니다.
 
 ```sql
-CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017'; 
+CREATE USER railsappuser WITH PASSWORD 'MyPostgresAzure2017';
 GRANT ALL PRIVILEGES ON DATABASE sampledb TO railsappuser;
 ```
 
@@ -220,13 +220,13 @@ production:
 로컬 터미널에서 다음과 같은 환경 변수를 설정합니다.
 
 ```bash
-export DB_HOST=<postgres_server_name>.postgres.database.azure.com
+export DB_HOST=<postgres-server-name>.postgres.database.azure.com
 export DB_DATABASE=sampledb 
-export DB_USERNAME=railsappuser@<postgres_server_name>
+export DB_USERNAME=railsappuser@<postgres-server-name>
 export DB_PASSWORD=MyPostgresAzure2017
 ```
 
-방금 구성한 프로덕션 값을 사용해서 Rails 데이터베이스 마이그레이션을 실행하고 Azure Database for PostgreSQL에서 Postgres 데이터베이스에 테이블을 만듭니다. 
+방금 구성한 프로덕션 값을 사용해서 Rails 데이터베이스 마이그레이션을 실행하고 Azure Database for PostgreSQL에서 Postgres 데이터베이스에 테이블을 만듭니다.
 
 ```bash
 rake db:migrate RAILS_ENV=production
@@ -247,8 +247,8 @@ rails secret
 비밀 키를 Rails 프로덕션 환경에서 사용되는 각 변수에 저장합니다. 편의상, 두 변수에 동일한 키를 사용합니다.
 
 ```bash
-export RAILS_MASTER_KEY=<output_of_rails_secret>
-export SECRET_KEY_BASE=<output_of_rails_secret>
+export RAILS_MASTER_KEY=<output-of-rails-secret>
+export SECRET_KEY_BASE=<output-of-rails-secret>
 ```
 
 Rails 프로덕션 환경에서 JavaScript 및 CSS 파일을 제공하도록 합니다.
@@ -302,15 +302,15 @@ git commit -m "database.yml updates"
 
 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용하여 App Service의 환경 변수를 _앱 설정_으로 설정합니다.
 
-다음 Cloud Shell 명령에서는 `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` 및 `DB_PASSWORD` 앱 설정을 구성합니다. _&lt;appname>_ 및 _&lt;postgres_server_name>_ 자리 표시자를 대체합니다.
+다음 Cloud Shell 명령에서는 `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` 및 `DB_PASSWORD` 앱 설정을 구성합니다. _&lt;appname>_ 및 _&lt;postgres-server-name>_ 자리 표시자를 대체합니다.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<postgres_server_name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres_server_name>" DB_PASSWORD="MyPostgresAzure2017"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"
 ```
 
 ### <a name="configure-rails-environment-variables"></a>Rails 환경 변수 구성
 
-로컬 터미널에서 Rails 프로덕션 환경에 대한 새 비밀 키를 생성합니다.
+로컬 터미널에서 Azure의 Rails 프로덕션 환경에 대한 [새 비밀 키를 생성](configure-language-ruby.md#set-secret_key_base-manually)합니다.
 
 ```bash
 rails secret
@@ -318,20 +318,20 @@ rails secret
 
 Rails 프로덕션 환경에 필요한 변수를 구성합니다.
 
-다음 Cloud Shell 명령에서 두 개의 _&lt;output_of_rails_secret>_ 자리 표시자를 로컬 터미널에서 생성한 새 비밀 키로 바꿉니다.
+다음 Cloud Shell 명령에서 두 개의 _&lt;output-of-rails-secret>_ 자리 표시자를 로컬 터미널에서 생성한 새 비밀 키로 바꿉니다.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output_of_rails_secret>" SECRET_KEY_BASE="<output_of_rails_secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
 ```
 
-`ASSETS_PRECOMPILE="true"`는 각 Git 배포의 자산을 미리 컴파일하도록 기본 Ruby 컨테이너에 지시합니다.
+`ASSETS_PRECOMPILE="true"`는 각 Git 배포의 자산을 미리 컴파일하도록 기본 Ruby 컨테이너에 지시합니다. 자세한 내용은 [자산 미리 컴파일](configure-language-ruby.md#precompile-assets) 및 [정적 자산 제공](configure-language-ruby.md#serve-static-assets)을 참조하세요.
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
 로컬 터미널에서 로컬 Git 리포지토리에 Azure 원격을 추가합니다.
 
 ```bash
-git remote add azure <paste_copied_url_here>
+git remote add azure <paste-copied-url-here>
 ```
 
 Azure 원격 위치에 푸시하여 Ruby on Rails 애플리케이션을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
@@ -359,7 +359,7 @@ remote: Running deployment command...
 
 ### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
-`http://<app_name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
+`http://<app-name>.azurewebsites.net`으로 이동한 후 목록에 몇 가지 작업을 추가합니다.
 
 ![Azure App Service에서 실행 중인 Ruby on Rails 앱](./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png)
 
@@ -470,11 +470,15 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-`git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트해 봅니다.
+`git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.
 
 ![Azure에 게시된 모델 및 데이터베이스 변경 내용](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 모든 작업을 추가했으면 데이터베이스에서 유지됩니다. 데이터 스키마를 업데이트하는 경우 기존 데이터는 그대로 유지됩니다.
+
+## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
 ## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
@@ -484,7 +488,7 @@ git push azure master
 
 ![Azure 앱에 대한 포털 탐색](./media/tutorial-php-mysql-app/access-portal.png)
 
-앱의 개요 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+앱의 [개요] 페이지가 표시됩니다. 여기서 중지, 시작, 다시 시작, 찾아보기 및 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
 왼쪽 메뉴에서 앱을 구성하기 위한 페이지를 제공합니다.
 
@@ -509,4 +513,9 @@ git push azure master
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+> [자습서: 앱에 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+
+또는 다른 리소스를 확인합니다.
+
+> [!div class="nextstepaction"]
+> [Ruby 앱 구성](configure-language-ruby.md)

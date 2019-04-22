@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996732"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607401"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>빠른 시작: Python을 사용하여 Blob 업로드, 다운로드 및 나열
 
-이 빠른 시작에서 Python을 사용하여 Azure Blob Storage에서 컨테이너에 블록 Blob을 업로드하고, 다운로드하고, 나열하는 방법을 알아봅니다. 
+이 빠른 시작에서 Python을 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드 및 다운로드하고, 나열하는 방법을 알아봅니다. Blob은 텍스트 또는 이진 데이터(예: 이미지, 문서, 스트리밍 미디어, 저장 데이터 등)를 어느 정도 저장할 수 있는 간단한 개체로, 파일 공유, 테이블 스키마 및 메시지 큐의 Azure Storage에서 뚜렷이 나타납니다. (자세한 내용은 [Azure Storage 소개](/azure/storage/common/storage-introduction.md)를 참조하세요.)
 
 ## <a name="prerequisites"></a>필수 조건
 

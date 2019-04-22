@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501381"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
@@ -34,7 +34,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
-  - **북유럽**
+  - **유럽 북부**
   - **동남아시아**
   - **미국 서부 2**
 
@@ -242,7 +242,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 | 요소 이름 | 필수 | 형식 | 설명 |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | 예 | 정수  | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1` 에 `2` 꺼져 있습니다. |
+| `sampling_mode` | 예 | 정수  | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
 | `sampling_rate` | 예 | 정수  | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
 
 ## <a name="query-and-visualize"></a>쿼리 및 시각화
@@ -276,7 +276,7 @@ Log Analytics에 표시된 예제 로그:
 IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 앱을 설정합니다. 샘플 앱은 Azure Function 및 Event Hub를 사용하여 분산 추적 로그를 [애플리케이션 맵](../application-insights/app-insights-app-map.md)으로 보냅니다.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Github에서 샘플 가져오기</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Github의 샘플 가져오기</a>
 
 아래 이미지는 다음과 같은 3개의 라우팅 엔드포인트가 있는 앱 지도의 분산 추적을 보여 줍니다.
 

@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
 ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491518"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
@@ -30,9 +30,9 @@ ms.locfileid: "59491518"
 **오류 메시지**: VM 에이전트를 Azure Backup과 통신할 수 없음<br>
 
 Backup 서비스에 대한 VM을 등록하고 예약하면 Backup은 VM 에이전트와 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업이 실패할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.<br>
-**원인 1: [에이전트 VM에 설치 되어 있지만 응답 하지 않습니다 (Windows Vm의 경우)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**원인 2: [VM에 설치 된 에이전트가 최신이 아닙니다 (Linux Vm)에 대 한](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**원인 3: [스냅숏 상태를 검색할 수 없거나 스냅숏을 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**원인 3: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
 **원인 4: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
 **원인 5: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
@@ -42,8 +42,8 @@ Backup 서비스에 대한 VM을 등록하고 예약하면 Backup은 VM 에이�
 **오류 메시지**: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없습니다. <br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
-**원인 1: [에이전트 VM에 설치 되어 있지만 응답 하지 않습니다 (Windows Vm의 경우)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**원인 2: [VM에 설치 된 에이전트가 최신이 아닙니다 (Linux Vm)에 대 한](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **원인 3: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 복원 지점 컬렉션이 최대 한도에 도달했습니다.
@@ -58,8 +58,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 > [!NOTE]
 > 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스가 만드는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`입니다. 예: AzureBackupRG_northeurope_1
 
-**1단계: [복원 지점 리소스 그룹에서 잠금을 제거합니다](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**2단계: [복원 지점 컬렉션을 정리](#clean_up_restore_point_collection)**<br>
+**1단계: [복원 지점 리소스 그룹에서 잠금 제거](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**2단계: [복원 지점 컬렉션 정리](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - Backup에는 암호화된 VM을 백업할 수 있는 키 자격 증명 모음에 대한 충분한 사용 권한이 없습니다.
 
@@ -74,7 +74,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 메시지**: 가상 머신에 네트워크 연결이 없으므로 스냅숏 작업이 실패했습니다.<br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.    
-**원인 1: [스냅숏 상태를 검색할 수 없거나 스냅숏을 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**원인 1: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **원인 2: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
 **원인 3: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
@@ -84,10 +84,10 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 메시지**: VMSnapshot 확장 작업이 실패했습니다.<br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
-**원인 1: [스냅숏 상태를 검색할 수 없거나 스냅숏을 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**원인 1: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **원인 2: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
-**원인 3: [에이전트 VM에 설치 되어 있지만 응답 하지 않습니다 (Windows Vm의 경우)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**원인 4: [VM에 설치 된 에이전트가 최신이 아닙니다 (Linux Vm)에 대 한](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**원인 3: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**원인 4: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - 내부 오류가 발생하여 백업하지 못했습니다.
 
@@ -95,11 +95,11 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 메시지**: 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. <br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
-**원인 1: [하지만 VM에 설치 된 에이전트가 응답 하지 않습니다 (Windows Vm의 경우)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**원인 2: [VM에 설치 된 에이전트가 최신이 아닙니다 (Linux Vm)에 대 한](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**원인 3: [스냅숏 상태를 검색할 수 없거나 스냅숏을 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**원인 3: [스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **원인 4: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
-**원인 5: Backup 서비스에 리소스 그룹이 잠겨 있으므로 이전 복원 지점을 삭제할 수 있는 권한이 없는 합니다.** <br>
+**원인 5: 리소스 그룹이 잠겨 있으므로 Backup 서비스에 이전 복원 지점을 삭제할 수 있는 권한이 없습니다.** <br>
 **원인 6: [VM이 인터넷에 액세스할 수 없습니다.](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-현재 Azure Backup 4095GB 보다 큰 디스크 크기를 지원 하지 않습니다.
@@ -164,12 +164,12 @@ Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이�
    > [!NOTE]
    > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 설치 방법에 대한 지침을 얻으세요. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
 
-2. 다음 명령을 실행 하 여 Azure 에이전트 VM에서 실행 중인지 확인 합니다. `ps -e`
+2. `ps -e` 명령을 실행하여 VM에 Azure 에이전트가 실행 중인지 확인합니다.
 
    이 프로세스가 실행되고 있지 않으면 다음 명령을 사용하여 다시 시작합니다.
 
    * Ubuntu의 경우: `service walinuxagent start`
-   * 다른 배포의 경우: `service waagent start`
+   * 기타 배포의 경우: `service waagent start`
 
 3. [에이전트 자동 다시 시작을 구성합니다](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. 새 테스트 백업을 실행합니다. 오류가 계속되면 VM에서 다음 로그를 수집합니다.
@@ -225,7 +225,7 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 ### <a name="clean_up_restore_point_collection"></a> 복원 지점 컬렉션 정리
 잠금을 제거한 후 복원 지점을 정리해야 합니다. 복원 지점을 정리하려면 다음 방법 중 하나를 따르세요.<br>
 * [임시 백업을 실행 하 여 지점 컬렉션 복원 정리](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Azure portal에서 컬렉션을 지점 복원 정리](#clean-up-restore-point-collection-from-azure-portal)<br>
+* [Azure Portal에서 복원 지점 컬렉션 정리](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>임시 백업을 실행 하 여 지점 컬렉션 복원 정리
 잠금을 제거한 후는 ad hoc/수동 백업을 트리거하십시오. 그러면 복원 지점이 자동으로 정리됩니다. 이 ad 임시/수동 작업이 처음으로; 실패 예상 그러나 수동 복원 지점 삭제 하는 대신 자동 정리를 해야 합니다. 정리 후에 예약된 다음 백업은 성공합니다.

@@ -1,6 +1,6 @@
 ---
 title: '자습서: JSON blob - Azure Search에서 반구조적 데이터 인덱싱'
-description: Azure Search 및 Postman을 사용하여 반구조적 JSON Azure blob을 인덱싱하고 검색하는 방법을 알아봅니다.
+description: Azure Search REST API 및 Postman을 사용하여 반정형 JSON Blob을 인덱싱하고 검색하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471463"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525350"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>자습서: Azure Search에서 반구조적 데이터(JSON blob) 인덱싱 및 검색
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 자습서: Azure Search에서 반구조적 데이터(JSON blob) 인덱싱 및 검색
 
 Azure Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-indexer-overview.md)를 사용하여 Azure Blob Storage의 JSON 문서와 어레이를 인덱싱할 수 있습니다. 반구조화된 데이터에는 데이터 내의 콘텐츠를 구분하는 태그 또는 표시가 포함되어 있습니다. 완전히 인덱싱해야 하는 비정형 데이터와 필드 단위를 기반으로 인덱싱할 수 있는 데이터 모델(예: 관계형 데이터베이스 스키마)을 준수하는 형식적 비정형 데이터의 차이를 구분합니다.
 
@@ -37,7 +37,7 @@ Azure Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-
 
 [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 
 
-샘플 데이터를 저장하는 데 사용되는 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+샘플 데이터를 저장하기 위한 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 [Postman 데스크톱 앱](https://www.getpostman.com/)은 요청을 Azure Search에 보내는 데 사용됩니다.
 
@@ -47,7 +47,7 @@ Azure Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-
 
 REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요**페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
 1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
@@ -59,9 +59,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Storage 계정으로 이동한 후 **Blobs**를 클릭하고 **+ 컨테이너**를 클릭합니다.
 
-1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 연결에 대한 키 및 스토리지 계정 이름을 사용할 것이기 때문에 컨테이너의 공용 액세스 수준이 "컨테이너(컨테이너에 대한 익명 읽기 액세스)"로 설정되었는지 확인합니다.
-
-   ![공용 액세스 수준 설정](media/search-semi-structured-data/container-public-access-level.png "공용 액세스 수준 설정")
+1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값 중 하나에 대한 공용 액세스 수준을 설정할 수 있습니다.
 
 1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드**를 선택합니다.
 
@@ -295,7 +293,7 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고 **인덱스**
 
 ## <a name="next-steps"></a>다음 단계
 
-AI 지원 Cognitive Service 알고리즘을 인덱서 파이프라인에 연결할 수 있습니다. 다음 단계로 다음 자습서를 계속 진행합니다.
+JSON Blob을 인덱싱하는 데 사용할 수 있는 방법 및 옵션에는 여러 가지가 있습니다. 다음 단계로 다양한 옵션을 검토하고 테스트하여 자신의 시나리오에 가장 적합한 옵션을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [AI로 인덱싱](cognitive-search-tutorial-blob.md)
+> [Azure Search Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법](search-howto-index-json-blobs.md)

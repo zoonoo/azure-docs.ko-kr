@@ -7,36 +7,32 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076890"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500637"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>빠른 시작: Azure CLI를 사용하여 Service Bus 큐 만들기
-
-Microsoft Azure Service Bus는 안전한 메시징과 안정성을 제공하는 엔터프라이즈 통합 메시지 broker입니다. 일반적으로 전형적인 Service Bus 시나리오에는 둘 이상의 애플리케이션, 서비스 또는 프로세스를 서로 분리하고(애플리케이션이 동시에 온라인 상태일 필요는 없음), 상태 또는 데이터 변경 내용을 전송하고, 애플리케이션 간에 메시지를 보내는 작업이 포함됩니다. 
-
-예를 들어 소매 회사는 보급 및 재고 업데이트를 위해 POS(판매 시점 관리) 데이터를 백오피스 또는 지역 유통 센터로 보낼 수 있습니다. 이 경우 클라이언트 응용 프로그램은 Service Bus 큐에서 메시지를 보내고 받습니다.
-
-![큐](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 이 빠른 시작에서는 Azure CLI 및 Service Bus Java 라이브러리를 사용하여 Service Bus에서 메시지를 보내고 받는 방법에 대해 설명합니다. 마지막으로, 더 많은 기술적 세부 정보에 관심이 있으면 샘플 코드의 주요 요소에 대한 [설명을 참조](#understand-the-sample-code)할 수 있습니다.
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>필수 조건
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
+**시작해보기** 단추를 사용하여 Cloud Shell을 시작하는 경우 자격 증명을 사용하여 Azure에 로그인합니다. 
 
-Azure Portal의 오른쪽 위 모서리에 있는 메뉴에서 Cloud Shell 단추를 클릭하고, **환경 선택** 드롭다운에서 **Bash**를 선택합니다. 
+웹 브라우저에서 직접 또는 Azure Portal에서 Cloud Shell을 시작한 경우 **PowerShell**이 Cloud Shell의 왼쪽 위 모서리에 표시되면 **Bash**로 전환합니다. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>Azure CLI를 사용하여 리소스 만들기
-
-Cloud Shell에서 다음 명령을 실행하여 Service Bus 리소스를 프로비전합니다. 모든 자리 표시자를 적절한 값으로 바꿔야 합니다. Java 샘플 프로그램에는 BasicQueue라는 큐 이름이 필요하므로 이를 변경하지 않습니다. 
+Cloud Shell에서 다음 명령을 실행하여 Service Bus 리소스를 프로비전합니다. 모든 자리 표시자를 적절한 값으로 바꿔야 합니다. Java 샘플 프로그램에는 BasicQueue라는 큐 이름이 필요하므로 이를 변경하지 않습니다. 실행하기 전에 값을 바꿀 수 있도록 복사/붙여넣기 명령을 하나씩 실행할 수도 있습니다. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -373,12 +369,12 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 큐에서 메시지를 보내고 받는 데 필요한 Service Bus 네임스페이스 및 기타 리소스를 만들었습니다. 메시지를 보내고 받기 위한 코드를 작성하는 방법에 대해 자세히 알아보려면 Service Bus에 대한 다음 자습서로 계속 진행하세요.
+이 문서에서는 큐에서 메시지를 보내고 받는 데 필요한 Service Bus 네임스페이스 및 기타 리소스를 만들었습니다. 메시지를 보내고 받기 위한 코드 작성에 대해 자세히 알아보려면 **메시지 보내기 및 받기** 섹션의 자습서로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [Azure CLI 및 Java를 사용하여 인벤토리 업데이트](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [메시지 보내기 및 받기](service-bus-dotnet-get-started-with-queues.md)
 
-[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create
