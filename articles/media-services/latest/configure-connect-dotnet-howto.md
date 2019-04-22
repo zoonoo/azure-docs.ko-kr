@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361246"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>.NET으로 Media Services v3 API에 연결
@@ -225,17 +225,17 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: 업로드, 인코딩 및 스트리밍 비디오-.NET](stream-files-tutorial-with-api.md) 
-- [자습서: Media Services v3-.NET을 사용 하 여 live Stream](stream-live-tutorial-with-api.md)
-- [자습서: Media Services v3-.NET을 사용 하 여 비디오를 분석 합니다.](analyze-videos-tutorial-with-api.md)
-- [로컬 파일-.NET에서에서 작업 입력 만들기](job-input-from-local-file-how-to.md)
-- [HTTPS URL-.NET에서에서 작업 입력 만들기](job-input-from-http-how-to.md)
-- [사용자 지정 변환-.NET을 사용 하 여 인코딩](customize-encoder-presets-how-to.md)
-- [AES-128 동적 암호화 및 키 배달 서비스-.NET 사용](protect-with-aes128.md)
-- [DRM 동적 암호화 및 라이선스 배달 서비스 사용-.NET](protect-with-drm.md)
-- [기존 정책-.NET에서에서 서명 키 가져오기](get-content-key-policy-dotnet-howto.md)
-- [Media Services-.NET을 사용 하 여 필터 만들기](filters-dynamic-manifest-dotnet-howto.md)
-- [Media Services v3 사용 하 여 Azure Functions v2의 비디오-주문형 예제를 고급](https://aka.ms/ams3functions)
+- [자습서: 비디오 업로드, 인코딩 및 스트리밍 - .NET](stream-files-tutorial-with-api.md) 
+- [자습서: Media Services v3으로 라이브 스트리밍 - .NET](stream-live-tutorial-with-api.md)
+- [자습서: Media Services v3으로 비디오 분석 - .NET](analyze-videos-tutorial-with-api.md)
+- [로컬 파일에서 작업 입력 만들기 - .NET](job-input-from-local-file-how-to.md)
+- [HTTPS URL에서 작업 입력 만들기 - .NET](job-input-from-http-how-to.md)
+- [사용자 지정 변환으로 인코딩 - .NET](customize-encoder-presets-how-to.md)
+- [AES-128 동적 암호화 및 키 전달 서비스 사용 - .NET](protect-with-aes128.md)
+- [DRM 동적 암호화 및 라이선스 배달 서비스 사용 - .NET](protect-with-drm.md)
+- [기존 정책에서 서명 키 가져오기 - .NET](get-content-key-policy-dotnet-howto.md)
+- [Media Services로 필터 만들기 - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Media Services v3 및 Azure Functions v2의 고급 비디오 주문형 예제](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>참고 항목
 

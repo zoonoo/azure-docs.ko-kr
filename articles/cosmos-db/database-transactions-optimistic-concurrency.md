@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279513"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>트랜잭션 및 낙관적 동시성 제어
@@ -20,7 +20,7 @@ ms.locfileid: "59279513"
 
 Azure Cosmos DB의 데이터베이스 엔진은 스냅숏 격리를 사용한 전체 ACID(원자성, 일관성, 격리, 내구성) 준수 트랜잭션을 지원합니다. 데이터베이스의 모든 작업 범위 내에서 컨테이너의 [논리 파티션을](partition-data.md) 파티션의 복제본을 호스팅하는 데이터베이스 엔진 내에서 트랜잭션으로 실행 됩니다. 이러한 작업은 쓰기(논리 파티션 내에서 하나 이상의 항목을 업데이트) 및 읽기 작업을 모두 포함합니다. 다음 표에서는 다양한 작업 및 트랜잭션 형식을 설명합니다.
 
-| **작업(Operation)**  | **작업 유형** | **단일 또는 다중 항목 트랜잭션** |
+| **작업**  | **작업 유형** | **단일 또는 다중 항목 트랜잭션** |
 |---------|---------|---------|
 | 삽입(사전/사후 트리거 없음) | 쓰기 | 단일 항목 트랜잭션 |
 | 삽입(사전/사후 트리거 있음) | 쓰기 및 읽기 | 다중 항목 트랜잭션 |
@@ -64,4 +64,4 @@ Azure Cosmos 컨테이너에 저장된 모든 항목에는 시스템 정의 `_et
 - [Azure Cosmos 데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md)
 - [일관성 수준](consistency-levels.md)
 - [충돌 유형 및 해결 정책](conflict-resolution-policies.md)
-- [저장 프로시저, 트리거 및 사용자 정의 함수](stored-procedures-triggers-udfs.md)
+- [저장된 프로시저, 트리거 및 사용자 정의 함수](stored-procedures-triggers-udfs.md)

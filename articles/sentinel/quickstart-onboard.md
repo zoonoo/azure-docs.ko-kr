@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276646"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Azure 등록 Sentinel 미리 보기
@@ -49,7 +49,7 @@ Azure 등록 Sentinel 먼저 하려면 Azure Sentinel 사용 하도록 설정 �
 1. Azure portal로 이동 합니다.
 2. Azure Sentinel 만들어지면 구독 선택 되어 있는지 확인 합니다. 
 3. Azure Sentinel 검색 합니다. 
-   ![검색](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. **+추가**를 클릭합니다.
 1. 사용 하거나 새로 만들 작업 영역을 선택 합니다. 둘 이상의 작업 영역에 Azure Sentinel를 실행할 수 있지만 데이터는 단일 작업 영역에 격리 되어 있습니다.

@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281491"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>맵에 거품형 계층 추가
@@ -76,4 +76,4 @@ Point 개체 배열, 데이터 원본 및 거품형 계층이 생성되고 맵�
 > [기호 계층 추가](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [사용 하 여 데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)
+> [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)

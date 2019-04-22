@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258473"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
@@ -113,11 +113,11 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
      - 스크립트를 실행 하려면 녹색 재생 단추를 선택 합니다.
 
 >[!IMPORTANT]
->보안 유지를 위해 Azure에서 Windows 가상 데스크톱 환경의 좋습니다 Vm에서 인바운드 포트 3389를 열지 마십시오. Windows 가상 데스크톱에 열려 있는 인바운드 포트 3389 호스트 풀의 Vm에 액세스 하는 사용자에 대 한 필요 하지 않습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 사용 하는 것이 좋습니다 [just in time VM 액세스](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)합니다.
+>Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)를 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 호스트 풀 했으므로 Remoteapp을 사용 하 여 채울 수 있습니다. Windows Virtual Desktop에서 앱을 관리하는 방법에 대한 자세한 내용은 앱 그룹 관리 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [관리 그룹 자습서 앱](./manage-app-groups.md)
+> [앱 그룹 관리 자습서](./manage-app-groups.md)

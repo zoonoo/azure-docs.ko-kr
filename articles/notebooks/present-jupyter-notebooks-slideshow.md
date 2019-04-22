@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280471"
 ---
 # <a name="run-a-notebook-slideshow"></a>Notebook 슬라이드 쇼 실행
@@ -102,7 +102,7 @@ Notebook을 슬라이드 쇼로 준비하려면 두 기본 작업을 거처야 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 구성 및 프로젝트 관리](configure-manage-azure-notebooks-projects.md)
-- [방법: 노트 내에서 패키지 설치](install-packages-jupyter-notebook.md)
+- [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
+- [방법: Notebook에서 패키지 설치](install-packages-jupyter-notebook.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
-- [방법: 데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
+- [방법: 데이터 리소스 액세스](access-data-resources-jupyter-notebooks.md)

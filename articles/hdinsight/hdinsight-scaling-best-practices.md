@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
 ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050682"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
@@ -35,7 +35,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음 유틸리티를 제공 
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
 |[Azure 클래식 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 조정 \<clusterName > \<대상 인스턴스의 수가 >|
-|[Azure portal](https://portal.azure.com)|HDInsight 클러스터 창의 열을 선택 합니다 **클러스터 크기** 왼쪽 메뉴에서 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
+|[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창의 열을 선택 합니다 **클러스터 크기** 왼쪽 메뉴에서 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
 ![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -154,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![안전 모드 해제](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> `-D` 스위치는 HDInsight의 기본 파일 시스템이 Azure Storage 또는 Azure Data Lake Storage 중 하나이므로 필요합니다. `-D` 명령이 로컬 HDFS 파일 시스템에 대해 실행 되도록 지정 합니다.
+> `-D` 스위치는 HDInsight의 기본 파일 시스템이 Azure Storage 또는 Azure Data Lake Storage 중 하나이므로 필요합니다. `-D`는 명령이 로컬 HDFS 파일 시스템에 대해 실행되도록 지정합니다.
 
 다음으로, HDFS 상태의 세부 정보를 표시하는 보고서를 볼 수 있습니다.
 

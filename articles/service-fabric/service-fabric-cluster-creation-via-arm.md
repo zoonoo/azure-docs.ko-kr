@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
 ms.openlocfilehash: 52623183139be2b8ac6b12d3adca64e72de932d3
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050325"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -170,7 +170,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 클러스터를 보호하는 데 사용할 인증서가 있는 경우 다음 명령을 사용하여 클러스터를 만듭니다.
 
-결국 다른 용도로 사용할 CA 서명 인증서인 경우 키 자격 증명 모음에 특별히 고유한 리소스 그룹을 제공하는 것이 좋습니다. Key Vault를 자체 리소스 그룹에 배치하는 것이 좋습니다. 이렇게 하면 키 및 비밀은 유실하지 않고 Service Fabric 클러스터가 있는 리소스 그룹과 같은 계산 및 스토리지 리소스 그룹을 제거할 수 있습니다. **사용자 Key Vault를 포함하는 리소스 그룹은 해당 그룹을 사용하는 클러스터와 *동일한 지역에 있어야* 합니다.**
+결국 다른 용도로 사용할 CA 서명 인증서인 경우 키 자격 증명 모음에 특별히 고유한 리소스 그룹을 제공하는 것이 좋습니다. Key Vault를 자체 리소스 그룹에 배치하는 것이 좋습니다. 이렇게 하면 키 및 비밀은 유실하지 않고 Service Fabric 클러스터가 있는 리소스 그룹과 같은 계산 및 스토리지 리소스 그룹을 제거할 수 있습니다. **키 자격 증명 모음을 포함하는 리소스 그룹은 해당 그룹을 사용하는 클러스터와 *동일한 지역에 있어야* 합니다.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>모듈에 제공되는 기본 5개 노드 1개 노드 형식 템플릿 사용
 사용되는 템플릿은 [Azure 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)에서 사용할 수 있습니다.

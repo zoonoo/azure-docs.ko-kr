@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009585"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>REST API 호출을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
@@ -88,11 +88,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -183,11 +183,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -216,11 +216,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
  
    **요청 본문**
@@ -250,11 +250,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -294,11 +294,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -351,11 +351,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -438,11 +438,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. |
  
    **요청 본문**
@@ -533,7 +533,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
@@ -554,11 +554,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -586,11 +586,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -622,11 +622,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -661,11 +661,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-    **헤더 요청**
+    **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -700,7 +700,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
@@ -722,11 +722,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -754,11 +754,11 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **헤더 요청**
+   **요청 헤더**
 
    |요청 헤더  |설명  |
    |---------|---------|
-   |*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+   |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
    **요청 본문**
@@ -784,11 +784,11 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**헤더 요청**
+**요청 헤더**
 
 |요청 헤더  |설명  |
 |---------|---------|
-|*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
 |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
 **요청 본문**
@@ -811,11 +811,11 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**헤더 요청**
+**요청 헤더**
 
 |요청 헤더  |설명  |
 |---------|---------|
-|*콘텐츠 형식*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
 |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다. | 
 
 **요청 본문**

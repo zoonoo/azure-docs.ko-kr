@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
 ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358240"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>백업 및 복원에 Azure VM 암호화
@@ -32,8 +32,8 @@ Azure Backup를 백업 하 고 다음 표에 요약 된 것 처럼와 Azure AD �
 
 **VM 디스크 유형** | **ADE (BEK/dm 암호화)** | **ADE 및 KEK**
 --- | --- | ---
-**Unmanaged** | 예 | 예
-**관리**  | 예 | 예
+**관리 되지 않는** | 예 | 예
+**관리 되는**  | 예 | 예
 
 - 에 대해 자세히 알아보세요 [ADE](../security/azure-security-disk-encryption-overview.md)를 [Key Vault](../key-vault/key-vault-overview.md), 및 [Kek](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/)합니다.
 - 읽기를 [FAQ](../security/azure-security-disk-encryption-faq.md) Azure VM 디스크 암호화에 대 한 합니다.

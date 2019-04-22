@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264559"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
@@ -175,11 +175,11 @@ VM에서 실행 중인 백업 확장이 Azure 공용 IP 주소에 아웃 바운�
 - 오류를 표시 하는 경우 또는 실행 문제가 vm에 연결 **ExtensionSnapshotFailedNoNetwork** 연결을 시도할 때 명시적으로 허용 해야 액세스 백업 확장이 Azure 공용 IP와 통신할 수 있도록 백업 트래픽에 대 한 주소입니다. 액세스 메서드는 다음 표에 요약 되어 있습니다.
 
 
-**옵션** | **액션(Action)** | **세부 정보** 
+**옵션** | **작업** | **세부 정보** 
 --- | --- | --- 
 **NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다.<br/><br/> 허용 및 모든 주소 범위 관리를 대신 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 규칙을 추가할 수 있습니다는 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)합니다. | [서비스 태그](../virtual-network/security-overview.md#service-tags)에 대해 자세히 알아보세요.<br/><br/> 서비스 태그 액세스 관리를 간소화 하 고 추가 비용이 발생 하지 않습니다.
 **프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 저장소뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
-**Azure 방화벽 설정** | Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다. | VNet 서브넷에서 설정 하는 Azure 방화벽이 있는 경우 사용 하기 간편 합니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에 Fqdn을 수정할 수 없습니다.<br/><br/> Azure Vm 디스크를 관리 하는 경우 추가 열어야 할 수 있습니다 (8443) 방화벽에서 포트입니다.
+**Azure Firewall 설정** | Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다. | VNet 서브넷에서 설정 하는 Azure 방화벽이 있는 경우 사용 하기 간편 합니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에 Fqdn을 수정할 수 없습니다.<br/><br/> Azure Vm 디스크를 관리 하는 경우 추가 열어야 할 수 있습니다 (8443) 방화벽에서 포트입니다.
 
 #### <a name="establish-network-connectivity"></a>네트워크 연결 설정
 
@@ -229,8 +229,8 @@ NSG가 VM 액세스를 관리 하는 경우 필요한 범위 및 포트에 백�
      - 이 줄을 **/etc/environment** 파일에 추가합니다.
        - **http_proxy = http: \/ /프록시 IP 주소: 프록시 포트**
      - 이 줄을 **/etc/waagent.conf** 파일에 추가합니다.
-         - **HttpProxy.Host=proxy IP 주소**
-         - **HttpProxy.Port=proxy 포트**
+         - **HttpProxy.Host=proxy IP address**
+         - **HttpProxy.Port=proxy port**
    - Windows 머신의 브라우저 설정에서 프록시를 사용함으로 지정합니다. 현재 사용자 계정에서 프록시를 사용하는 경우 시스템 계정 수준에서 설정을 적용하려면 이 스크립트를 사용할 수 있습니다.
        ```powershell
       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"

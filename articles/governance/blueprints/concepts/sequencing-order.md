@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266191"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
@@ -25,7 +25,7 @@ Azure 청사진 사용을 **시퀀싱 순서** blueprint 정의 할당을 처리
 
 JSON 예제에는 사용자 고유의 값으로 바꿔야 하는 변수가 있습니다.
 
-- `{YourMG}` -관리 그룹의 이름으로 대체 합니다.
+- `{YourMG}` - 사용자의 관리 그룹 이름으로 대체
 
 ## <a name="default-sequencing-order"></a>기본 시퀀싱 순서
 
@@ -46,7 +46,7 @@ Blueprint 정의 아티팩트를 배포 하는 순서에 대 한 지시문 포�
 
 큰 blueprint 정의 작성 하는 경우 특정 순서에 따라 만들려는 리소스에 대 한 해야 할 수도 있습니다. 이 시나리오의 가장 일반적인 사용 패턴은 blueprint 정의 여러 Azure Resource Manager 템플릿을 포함 하는 경우에 합니다. Blueprints는 시퀀싱 순서를 정의할 수 있도록 허용하여 이 패턴을 처리합니다.
 
-JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니다. Blueprint 정의 리소스 그룹 및 아티팩트 개체에 대 한이 속성을 지원 합니다. `dependsOn` 특정 아티팩트 만들어지기 전에 만들어야 하는 아티팩트 이름의 문자열 배열이입니다.
+JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니다. Blueprint 정의 리소스 그룹 및 아티팩트 개체에 대 한이 속성을 지원 합니다. `dependsOn`은 특정 아티팩트가 만들어지기 전에 만들어야 하는 아티팩트 이름의 문자열 배열입니다.
 
 ### <a name="example---ordered-resource-group"></a>예제-리소스 그룹 정렬
 

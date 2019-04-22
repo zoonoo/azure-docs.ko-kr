@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 0337b2a7a228052dacfb35982ee6e8d62372fb29
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264219"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>관리 태그 지정을 위한 비즈니스 용어집 설정
@@ -82,4 +82,4 @@ Azure Data Catalog의 비즈니스 용어집과 여기에서 사용할 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [비즈니스 용어집 작업에 대 한 REST API 설명서](/rest/api/datacatalog/data-catalog-glossary)
+* [비즈니스 용어집 작업에 대한 REST API 설명서](/rest/api/datacatalog/data-catalog-glossary)

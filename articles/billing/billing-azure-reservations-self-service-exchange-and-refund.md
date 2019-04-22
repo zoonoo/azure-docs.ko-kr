@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281984"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure 예약에 대 한 환불 및 셀프 서비스 교환
@@ -85,11 +85,11 @@ Premium storage는 해당 VM 크기를 지원 하지 않는 VM 크기에 대해 
 ## <a name="next-steps"></a>다음 단계
 
 - 예약을 관리하는 방법을 알아보려면 [Azure Reservations 관리](billing-manage-reserved-vm-instance.md)를 참조하세요.
-- Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
+- Azure Reservations에 대한 자세한 내용은 다음 문서를 참조하세요.
     - [Azure Reservations란?](billing-save-compute-costs-reservations.md)
-    - [Azure에서 예약 관리](billing-manage-reserved-vm-instance.md)
-    - [예약 할인은 적용 하는 방법 이해](billing-understand-vm-reservation-charges.md)
-    - [종 량 제 구독에 대 한 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
-    - [Enterprise 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
-    - [예약을 사용 하 여 포함 하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
-    - [파트너 센터 클라우드 솔루션 공급자 (CSP) 프로그램에서 azure 예약](/partner-center/azure-reservations)
+    - [Azure에서 Reservations 관리](billing-manage-reserved-vm-instance.md)
+    - [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+    - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
+    - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+    - [예약에 포함되지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
+    - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)

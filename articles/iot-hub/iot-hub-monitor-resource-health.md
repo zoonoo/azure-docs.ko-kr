@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274045"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
@@ -503,4 +503,4 @@ IoT Hub의 상태를 확인하려면 다음 단계를 수행합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [IoT Hub 메트릭 이해](iot-hub-metrics.md)
-* [Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [IoT 원격 모니터링 및에 IoT hub와 사서함을 연결 하는 Azure Logic Apps를 사용 하 여 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

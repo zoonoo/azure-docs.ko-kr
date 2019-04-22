@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359002"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
@@ -227,7 +227,7 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 - Microsoft Word
 - Microsoft Yammer
 
-**설명**
+**주의**
 
 - 승인된 클라이언트 앱은 Intune 모바일 애플리케이션 관리 기능을 지원합니다.
 - **승인된 클라이언트 앱 필요** 요구 사항:
@@ -244,7 +244,7 @@ Windows 7, iOS, Android 및 macOS에서 Azure AD는 Azure AD를 사용 하 여 �
 - Microsoft OneDrive
 - Microsoft Outlook
 
-**설명**
+**주의**
 
 - 앱 보호 정책에 대 한 앱 정책 보호를 사용 하 여 Intune 모바일 응용 프로그램 관리 기능을 지원합니다.
 - 합니다 **앱 보호 정책 필요** 요구 사항:

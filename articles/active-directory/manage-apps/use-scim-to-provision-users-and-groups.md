@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007144"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
@@ -61,7 +61,7 @@ Azure AD의 특정 프로필을 구현 하는 응용 프로그램에 자동으�
 ### <a name="getting-started"></a>시작
 Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이션" 기능을 사용하여 이 문서에서 설명한 SCIM 프로필을 지원하는 애플리케이션을 Azure Active Directory에 연결할 수 있습니다. 일단 연결되면 Azure AD는 할당된 사용자 및 그룹에 대해 애플리케이션의 SCIM 엔드포인트를 쿼리하고, 할당 세부 정보에 따라 이러한 사용자 및 그룹을 만들거나 수정하는 동기화 프로세스를 40분마다 실행합니다.
 
-**SCIM을 지 원하는 응용 프로그램을 연결 합니다.**
+**SCIM을 지원하는 애플리케이션을 연결하려면:**
 
 1. 에 로그인 합니다 [Azure Active Directory 포털](https://aad.portal.azure.com)합니다. 
 
@@ -134,7 +134,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 다음 그림에서는 응용 프로그램의 id 저장소에 사용자의 수명 주기를 관리 하려면 Azure Active Directory가 SCIM 서비스를는 메시지를 보여 줍니다.  
 
 ![][4]
-*그림 4: 사용자 프로 비전 및 시퀀스 프로 비전 해제*
+*그림 4: 사용자 프로비전 및 시퀀스 프로비전 해제*
 
 ### <a name="group-provisioning-and-de-provisioning"></a>그룹 프로비전 및 프로비전 해제
 그룹 프로 비전 및 프로 비전 해제는 선택적입니다. 구현 하 고 사용 하도록 설정 하는 경우 다음 그림과 메시지를 Azure AD 응용 프로그램의 id 저장소에 있는 그룹의 수명 주기를 관리 하려면 SCIM 서비스에 보냅니다.  두 가지 방법으로 사용자에 대 한 메시지에서 해당 메시지가 서로 다릅니다. 
@@ -143,7 +143,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 * 참조 특성에 특정 값이 있는지를 확인하는 요청은 멤버 특성에 대한 요청입니다.  
 
 ![][5]
-*그림 5: 그룹 프로 비전 및 시퀀스 프로 비전 해제*
+*그림 5: 그룹 프로비전 및 시퀀스 프로비전 해제*
 
 ### <a name="scim-protocol-requests-and-responses"></a>SCIM 프로토콜 요청 및 응답
 이 섹션에서는 Azure AD SCIM 클라이언트 및 예제에서 내보내는 예제 SCIM 요청 예상된 응답을 제공 합니다. 최상의 결과이 형식으로 이러한 요청을 처리 하 고 예상된 응답을 내보낼 앱을 코드를 작성 해야 합니다.
@@ -154,47 +154,47 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 - [사용자 작업](#user-operations)
   - [사용자 만들기](#create-user)
     - [요청](#request)
-    - [response](#response)
+    - [응답](#response)
   - [사용자 가져오기](#get-user)
     - [요청](#request-1)
-    - [response](#response-1)
+    - [응답](#response-1)
   - [쿼리에서 사용자 가져오기](#get-user-by-query)
     - [요청](#request-2)
-    - [response](#response-2)
+    - [응답](#response-2)
   - [쿼리-결과에서 사용자 가져오기](#get-user-by-query---zero-results)
     - [요청](#request-3)
-    - [response](#response-3)
+    - [응답](#response-3)
   - [사용자 업데이트 [다중값된 속성]](#update-user-multi-valued-properties)
     - [요청](#request-4)
-    - [response](#response-4)
+    - [응답](#response-4)
   - [사용자 업데이트 [단일 값 속성]](#update-user-single-valued-properties)
     - [요청](#request-5)
-    - [response](#response-5)
+    - [응답](#response-5)
   - [사용자 삭제](#delete-user)
     - [요청](#request-6)
-    - [response](#response-6)
+    - [응답](#response-6)
 - [그룹 작업](#group-operations)
   - [그룹 만들기](#create-group)
     - [요청](#request-7)
-    - [response](#response-7)
+    - [응답](#response-7)
   - [그룹 가져오기](#get-group)
     - [요청](#request-8)
-    - [response](#response-8)
+    - [응답](#response-8)
   - [Displayname 그룹 가져오기](#get-group-by-displayname)
     - [요청](#request-9)
-    - [response](#response-9)
+    - [응답](#response-9)
   - [업데이트 그룹 [비 멤버 특성]](#update-group-non-member-attributes)
     - [요청](#request-10)
-    - [response](#response-10)
+    - [응답](#response-10)
   - [업데이트 그룹 [구성원을 추가 합니다.]](#update-group-add-members)
     - [요청](#request-11)
-    - [response](#response-11)
+    - [응답](#response-11)
   - [그룹 [멤버 제거]를 업데이트 합니다.](#update-group-remove-members)
     - [요청](#request-12)
-    - [response](#response-12)
+    - [응답](#response-12)
   - [그룹 삭제](#delete-group)
     - [요청](#request-13)
-    - [response](#response-13)
+    - [응답](#response-13)
 
 ### <a name="user-operations"></a>사용자 작업
 
@@ -230,7 +230,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 ```
 
 ##### <a name="response"></a>response
-*HTTP/1.1 201 Created*
+*Http/1.1 201 생성 됨*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
@@ -470,7 +470,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
 ```
 
 ##### <a name="response"></a>response
-*HTTP/1.1 201 Created*
+*Http/1.1 201 생성 됨*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
@@ -617,12 +617,12 @@ Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어
 ### <a name="code-samples"></a>코드 샘플
 이 프로세스는 쉽게 [코드 샘플](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) 제공 하는 SCIM 웹 서비스 끝점을 만들고 자동 프로 비전을 보여 줍니다. 샘플은 사용자 및 그룹을 나타내는 쉼표로 구분 된 값의 행을 사용 하 여 파일을 유지 관리 하는 공급자입니다.    
 
-**필수 조건**
+**필수 구성 요소**
 
 * Visual Studio 2013 이상
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * ASP.NET framework 4.5를 SCIM 엔드포인트로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
-* [Azure AD Premium의 평가판 또는 사용이 허가 된 버전을 사용 하 여 Azure 구독](https://azure.microsoft.com/services/active-directory/)
+* [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 
 ### <a name="getting-started"></a>시작하기
 Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트를 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
@@ -1260,12 +1260,12 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 
 
 ## <a name="related-articles"></a>관련 문서
-* [사용자 프로 비전/프로 비전 해제가 SaaS 앱 자동화](user-provisioning.md)
-* [사용자 프로 비전 특성 매핑 사용자 지정](customize-application-attributes.md)
+* [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
+* [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
 * [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
-* [사용자 프로 비전에 대 한 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)
+* [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
 * [계정 프로비전 알림](user-provisioning.md)
-* [SaaS 앱 통합 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

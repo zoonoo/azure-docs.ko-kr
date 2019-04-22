@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265154"
 ---
 # <a name="quickstart-clone-a-notebook"></a>빠른 시작: Notebook 복제
@@ -52,7 +52,7 @@ ms.locfileid: "59265154"
 
 1. 복제가 완료되면 Azure Notebooks에서 모든 파일의 복사본을 볼 수 있는 새 프로젝트로 이동됩니다.
 
-    [![](media/quickstarts/completed-clone.png "완료 된 복제본의 보기")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "완료된 클론 보기")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>노트 공유
 
@@ -77,4 +77,4 @@ ms.locfileid: "59265154"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter notebook을 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)

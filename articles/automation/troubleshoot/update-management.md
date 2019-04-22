@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274589"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
@@ -45,7 +45,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 방문하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
 2. 복제된 이미지를 사용하는 경우:
    1. Log Analytics 작업 영역의 범위 구성에 대 한 저장된 된 검색에서 VM을 제거할 `MicrosoftDefaultScopeConfig-Updates` 표시 됩니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
-   2. 실행 `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   2. `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force` 실행
    3. `Restart-Service HealthService`를 실행하여 `HealthService`를 다시 시작합니다. 그러면 키가 다시 생성되고 새 UUID가 생성됩니다.
    4. 이 작동 하지 않으면 sysprep 이미지 첫 번째 사후 MMA 에이전트를 설치 합니다.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
 ms.openlocfilehash: 13eb800cd64e0de736b1fdea308a03d8a8d0f046
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358204"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Azure Backup을 사용하여 암호화된 VM의 Key Vault 키 및 암호 복원
@@ -66,7 +66,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 위에서 생성된 JSON 파일을 사용하여 비밀 이름 및 값을 가져오고 set secret cmdlet에 제공하여 해당 비밀(BEK)을 다시 키 자격 증명 모음에 지정합니다. **VM이 BEK 및 KEK를 사용하여 암호화된 경우** 이러한 cmdlet을 사용합니다.
 
-**Windows VM이 BEK 및 KEK를 사용 하 여 암호화 된 경우 이러한 cmdlet을 사용 합니다.**
+**Windows VM이 BEK 및 KEK를 사용하여 암호화된 경우 이러한 cmdlet을 사용합니다.**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -76,7 +76,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-**Linux VM이 BEK 및 KEK를 사용 하 여 암호화 된 경우 이러한 cmdlet을 사용 합니다.**
+**Linux VM이 BEK 및 KEK를 사용하여 암호화된 경우 이러한 cmdlet을 사용합니다.**
 
 ```powershell
 $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData

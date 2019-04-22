@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358000"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
@@ -33,9 +33,9 @@ ms.locfileid: "59358000"
 
 Hyper-V 호스트 서버에서 필요한 사항은 배포 시나리오에 따라 달라집니다. Hyper-V 필수 구성 요소를 확인해 보세요.
 
-* [Azure로 Hyper-v Vm (VMM 없음) 복제](site-recovery-hyper-v-site-to-azure.md)
-* [Azure로 Hyper-v Vm (VMM 포함) 복제](site-recovery-vmm-to-azure.md)
-* [Hyper-v Vm을 보조 데이터 센터로 복제](site-recovery-vmm-to-vmm.md)
+* [Azure로 Hyper-V VM 복제(VMM 없이)](site-recovery-hyper-v-site-to-azure.md)
+* [Azure로 Hyper-V VM 복제(VMM 사용)](site-recovery-vmm-to-azure.md)
+* [보조 데이터 센터에 Hyper-V VM 복제](site-recovery-vmm-to-vmm.md)
 * 보조 데이터 센터에 복제하는 경우 [Hyper-V VM에 대해 지원되는 게스트 운영 체제](https://technet.microsoft.com/library/mt126277.aspx)에 대해 알아보세요.
 * Azure에 복제하는 경우에는 [Azure에서 지원되는](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)모든 게스트 운영 체제를 Site Recovery에서도 지원합니다.
 
@@ -114,8 +114,8 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>SDK와 함께 Site Recovery 시나리오를 자동화할 수 있습니까?
 예. Rest API, PowerShell 또는 Azure SDK를 사용하여 Site Recovery 워크플로를 자동화할 수 있습니다. PowerShell을 사용하여 Hyper-V를 Azure로 복제하기 위한 현재 지원되는 시나리오:
 
-- [PowerShell을 사용 하 여 VMM 없이 Hyper-v 복제](hyper-v-azure-powershell-resource-manager.md)
-- [Powershell을 사용 하 여 VMM 사용 하 여 Hyper-v를 복제 합니다.](hyper-v-vmm-powershell-resource-manager.md)
+- [PowerShell을 사용하여 VMM 없이 Hyper-V 복제](hyper-v-azure-powershell-resource-manager.md)
+- [Powershell을 사용하여 VMM으로 Hyper-V 복제](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>복제
 
@@ -206,7 +206,7 @@ Site Recovery는 복제용으로 설정된 Hyper-V VM에서는 어떤 항목도 
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
-장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세한 정보](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>장애 조치된 데이터는 복원되나요?
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA에 따라 보조 Azure 데이터 센터에 장애 조치하도록 설계되었습니다. 장애 조치가 발생하면 메타데이터와 자격 증명 모음이 자격 증명 모음에 대해 선택한 지리적 지역과 동일한 지역에 유지되고 있는지 확인합니다.

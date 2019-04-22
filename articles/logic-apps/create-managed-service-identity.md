@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010552"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID로 리소스에 인증 및 액세스
@@ -37,7 +37,7 @@ ms.locfileid: "59010552"
 
 시스템 할당 관리 ID의 경우 ID를 수동으로 만들 필요가 없습니다. 논리 앱에 대한 시스템 할당 관리 ID를 만들려면 다음과 같은 방법을 사용합니다. 
 
-* [Azure portal](#azure-portal) 
+* [Azure Portal](#azure-portal) 
 * [Azure 리소스 관리자 템플릿](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
@@ -113,7 +113,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
 
 | 자산 | 값 | 설명 | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | "개체 ID"로 표시 되는 식별자 GUID (Globally Unique) Azure AD 테 넌 트에서 및 경우에 따라 논리 앱을 나타내는 또는 `objectID` | 
+| **principalId** | <*principal-ID*> | Azure AD 테넌트의 논리 앱을 나타내는 GUID(Globally Unique Identifier)이며 가끔 "개체 ID" 또는 `objectID`로 표시됨 | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | 논리 앱이 멤버로 속해 있는 Azure AD 테넌트를 나타내는 GUID(Globally Unique Identifier). Azure AD 테넌트 내부에서 서비스 주체는 논리 앱 인스턴스와 이름이 같습니다. | 
 ||| 
 

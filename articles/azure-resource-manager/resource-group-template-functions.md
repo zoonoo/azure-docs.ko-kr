@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280318"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 템플릿 함수
@@ -52,8 +52,8 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
-* [교집합](resource-group-template-functions-array.md#intersection)
-* [json :](resource-group-template-functions-array.md#json)
+* [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
@@ -85,7 +85,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 ## <a name="deployment-value-functions"></a>배포 값 함수
 Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
 
-* [배포](resource-group-template-functions-deployment.md#deployment)
+* [deployment](resource-group-template-functions-deployment.md#deployment)
 * [매개 변수](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
@@ -102,7 +102,7 @@ Resource Manager는 논리 조건 사용을 위한 다음 함수를 제공합니
 * [bool](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
-* [또는](resource-group-template-functions-logical.md#or)
+* [or](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -122,7 +122,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
-* [ssNoversion](resource-group-template-functions-numeric.md#int)
+* [int](resource-group-template-functions-numeric.md#int)
 * [min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
@@ -147,7 +147,7 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 * [providers](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
-* [ResourceId](resource-group-template-functions-resource.md#resourceid)
+* [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscription](resource-group-template-functions-resource.md#subscription)
 
 <a id="base64" />
@@ -195,18 +195,18 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
 * [format](resource-group-template-functions-string.md#format)
-* [GUID](resource-group-template-functions-string.md#guid)
-* [indexof](resource-group-template-functions-string.md#indexof)
+* [guid](resource-group-template-functions-string.md#guid)
+* [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
-* [lastindexof](resource-group-template-functions-string.md#lastindexof)
+* [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)
 * [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
-* [startswith](resource-group-template-functions-string.md#startswith)
-* [문자열](resource-group-template-functions-string.md#string)
+* [startsWith](resource-group-template-functions-string.md#startswith)
+* [string](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)

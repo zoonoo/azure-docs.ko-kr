@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359109"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell을 사용하여 Service Bus 리소스 관리
@@ -47,9 +47,9 @@ Service Bus 네임 스페이스를 사용할 때 사용할 수 있습니다 합�
 
 이 예제에서는 스크립트에 `$Namespace`과(와) `$Location`(이)라는 몇 가지 로컬 변수를 만듭니다.
 
-* `$Namespace` 사용 하려는 Service Bus 네임 스페이스의 이름이입니다.
-* `$Location` 네임 스페이스를 프로 비전 우리는 데이터 센터를 식별 합니다.
-* `$CurrentNamespace` 에서는 검색 (또는 만들어서) 하는 참조 네임 스페이스를 저장 합니다.
+* `$Namespace`은(는) 사용하려는 Service Bus 네임스페이스의 이름입니다.
+* `$Location`은(는) 네임스페이스를 프로비전할 데이터 센터를 식별합니다.
+* `$CurrentNamespace`에는 검색하거나 만드는 참조 네임스페이스가 저장됩니다.
 
 실제 스크립트에서 `$Namespace` 및 `$Location`은(는) 매개 변수로 전달할 수 있습니다.
 
@@ -170,8 +170,8 @@ Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -Queu
 
 다음 블로그 게시물에 설명된 것처럼 Service Bus 엔터티를 관리하는 몇 가지 다른 방법이 있습니다.
 
-* [Service Bus 큐, 토픽 및 PowerShell 스크립트를 사용 하 여 구독을 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Service Bus Namespace 및 PowerShell 스크립트를 사용 하 여 이벤트 허브를 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [PowerShell 스크립트를 사용하여 Service Bus 큐, 토픽 및 구독을 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [PowerShell 스크립트를 사용하여 Service Bus 네임스페이스 및 Event Hub를 만드는 방법](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 * [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

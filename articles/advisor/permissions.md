@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052794"
 ---
 # <a name="permissions-in-azure-advisor"></a>Azure Advisor에 대 한 사용 권한
@@ -54,4 +54,4 @@ Advisor에서 구독 또는 리소스 그룹을 구성 하려고 할 때 포함 
 이 문서에서는 관리자 권한을 사용자에 RBAC를 사용 하는 방법 및 일반적인 문제를 해결 하는 방법의 개요를 제공 했습니다. Advisor에 대해 자세히 알아보려면 다음을 참조하세요.
 
 - [Azure Advisor란?](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Azure Adviser 시작](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Azure Advisor 시작](https://docs.microsoft.com/azure/advisor/advisor-get-started)

@@ -9,10 +9,10 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288428"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>프리미엄 Azure 파일 공유를 만드는 방법
@@ -156,7 +156,7 @@ az login
 
 CLI를 사용 하 여 premium 파일 상호 작용을 하 여 shell에 확장을 추가 해야 합니다.
 
-이렇게 하려면 Cloud Shell 또는 로컬 셸을 사용 하 여 다음 명령을 입력 합니다. `az extension add --name storage-preview`
+이렇게 하려면 Cloud Shell이나 로컬 셸을 사용하여 다음 명령을 입력합니다. `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

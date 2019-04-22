@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006730"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Azure 리소스에 대한 거부 할당 이해
@@ -56,12 +56,12 @@ ms.locfileid: "59006730"
 
 ## <a name="system-defined-principal"></a>시스템 정의 보안 주체
 
-거부 할당을 지원하기 위해 **시스템 정의 보안 주체**가 도입되었습니다. 이 보안 주체는 Azure AD 디렉터리의 모든 사용자, 그룹, 서비스 주체 및 관리 ID를 나타냅니다. 보안 주체 ID가 0만 포함하는 GUID `00000000-0000-0000-0000-000000000000`이고 보안 주체 유형이 `SystemDefined`이면 보안 주체는 모든 보안 주체를 나타냅니다. `SystemDefined` 함께 사용할 수 있습니다 `ExcludePrincipals` 일부 사용자를 제외한 모든 보안 주체를 거부 합니다. `SystemDefined` 다음 제약 조건이 있습니다.
+거부 할당을 지원하기 위해 **시스템 정의 보안 주체**가 도입되었습니다. 이 보안 주체는 Azure AD 디렉터리의 모든 사용자, 그룹, 서비스 주체 및 관리 ID를 나타냅니다. 보안 주체 ID가 0만 포함하는 GUID `00000000-0000-0000-0000-000000000000`이고 보안 주체 유형이 `SystemDefined`이면 보안 주체는 모든 보안 주체를 나타냅니다. `SystemDefined`와 `ExcludePrincipals`를 결합하면 일부 사용자를 제외한 모든 보안 주체를 거부할 수 있습니다. `SystemDefined`에는 다음 제약 조건이 있습니다.
 
 - `Principals`에서만 사용할 수 있으며 `ExcludePrincipals`에서는 사용할 수 없습니다.
-- `Principals[i].Type` `SystemDefined`로 설정해야 합니다.
+- `Principals[i].Type`은 `SystemDefined`로 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기](deny-assignments-portal.md)
+* [보기에는 Azure portal을 사용 하 여 Azure 리소스에 대 한 할당 거부](deny-assignments-portal.md)
 * [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)

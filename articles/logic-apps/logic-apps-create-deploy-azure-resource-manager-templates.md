@@ -11,21 +11,21 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357111"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용 하 여 논리 앱 배포
 
 논리 앱을 배포 하기 위한 Azure Resource Manager 템플릿을 만들면 다음과 같은이 방법으로 템플릿을 배포할 수 있습니다.
 
-* [Azure portal](#portal)
+* [Azure Portal](#portal)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
-* [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
-* [Azure DevOps Azure Pipelines](#azure-pipelines)
+* [Azure 리소스 관리자 REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure DevOps Azure 파이프라인](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -33,7 +33,7 @@ ms.locfileid: "59357111"
 
 논리 앱 템플릿을 Azure에 자동으로 배포 하려면 다음을 선택할 수 있습니다 **Azure에 배포** 단추를 Azure portal에 로그인 하 고 논리 앱에 대 한 정보에 대 한 라는 메시지가 표시 됩니다. 그런 다음 논리 앱 템플릿 또는 매개 변수에 필요한 내용을 가능 합니다.
 
-[![DAzure에 eploy](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Azure에 배포](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 예를 들어 묻는이 정보에 대 한 Azure portal에 로그인 한 후:
 
@@ -66,7 +66,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-* [리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
 * [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
@@ -88,7 +88,7 @@ az deployment create --location <location> --template-uri https://raw.githubuser
 
 자세한 내용은 다음 항목을 참조하세요. 
 
-* [리소스 관리자 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 * [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
 

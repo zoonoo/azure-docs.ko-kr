@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264457"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
@@ -288,7 +288,7 @@ Avere vFXT for Azure를 시작하려면 다음 문서를 참조하여 사용자 
 
 * [Avere vFXT 시스템 계획](avere-vfxt-deploy-plan.md)
 * [배포 개요](avere-vfxt-deploy-overview.md)
-* [Avere vFXT 클러스터를 작성 하기 위한 준비](avere-vfxt-prereqs.md)
+* [Avere vFXT 클러스터 만들기 준비](avere-vfxt-prereqs.md)
 * [Avere vFXT 클러스터 배포](avere-vfxt-deploy.md)
 
 Avere vFXT의 기능 및 사용 사례에 대해 자세히 알아보려면 [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/)를 참조하세요.

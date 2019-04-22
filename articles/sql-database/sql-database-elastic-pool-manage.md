@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267585"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database의 탄력적 풀 관리
@@ -74,12 +74,12 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql 탄력적 풀 만들기](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|탄력적 풀을 만듭니다.|
-|[az sql 탄력적 풀 목록](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|서버에서 탄력적 풀의 목록을 반환합니다.|
-|[az sql 탄력적 풀 목록 db](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[az sql 탄력적 풀 목록 버전](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|사용 가능한 풀 DTU 설정, 저장소 용량 한도 및 데이터베이스별 설정이 포함됩니다. 세부 정보 표시를 줄이기 위해 추가 저장소 용량 한도 및 데이터베이스별 설정은 기본적으로 숨겨져 있습니다.|
-|[az sql 탄력적 풀 업데이트](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|탄력적 풀을 업데이트합니다.|
-|[az sql 탄력적 풀 삭제](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|탄력적 풀을 삭제합니다.|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|탄력적 풀을 만듭니다.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|서버에서 탄력적 풀의 목록을 반환합니다.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|사용 가능한 풀 DTU 설정, 저장소 용량 한도 및 데이터베이스별 설정이 포함됩니다. 세부 정보 표시를 줄이기 위해 추가 저장소 용량 한도 및 데이터베이스별 설정은 기본적으로 숨겨져 있습니다.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|탄력적 풀을 업데이트합니다.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|탄력적 풀을 삭제합니다.|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: 풀링된 데이터베이스 관리
 
@@ -91,11 +91,11 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 
 | 명령 | 설명 |
 | --- | --- |
-|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
+|[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |탄력적 풀 간에 데이터베이스를 이동합니다.|
-|[DROP DATABASE (TRANSACT-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
+|[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|SQL Database 서버에서 모든 탄력적 풀에 대한 리소스 사용량 통계를 반환합니다. 각 탄력적 풀에는 15초의 보고 기간마다 행이 하나씩 있습니다(분당 행 4개) 여기에는 풀의 모든 데이터베이스에 의한 CPU, IO, 로그, 저장소 계산 및 동시 요청/세션 사용률이 포함됩니다.|
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL Database 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
+|[sys.database_service_objectives(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Azure SQL Database 또는 Azure SQL Data Warehouse가 있는 경우 버전(서비스 계층), 서비스 목표(가격 책정 계층) 및 탄력적 풀 이름을 반환합니다. Azure SQL Database 서버의 마스터 데이터베이스에 로그인하면 모든 데이터베이스에 대한 정보를 반환합니다. Azure SQL Data Warehouse의 경우 마스터 데이터베이스에 연결되어 있어야 합니다.|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API: 탄력적 풀 및 풀링된 데이터베이스 관리
 
@@ -103,18 +103,18 @@ SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리�
 
 | 명령 | 설명 |
 | --- | --- |
-|[탄력적 풀-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|새 탄력적 풀을 만들거나 기존 탄력적 풀을 업데이트합니다.|
-|[탄력적 풀-Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|탄력적 풀을 삭제합니다.|
-|[탄력적 풀-Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|탄력적 풀을 가져옵니다.|
-|[탄력적 풀-List by server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|서버에서 탄력적 풀의 목록을 반환합니다.|
-|[탄력적 풀-Update](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|기준 탄력적 풀을 업데이트합니다.|
+|[탄력적 풀 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|새 탄력적 풀을 만들거나 기존 탄력적 풀을 업데이트합니다.|
+|[탄력적 풀 - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|탄력적 풀을 삭제합니다.|
+|[탄력적 풀 - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|탄력적 풀을 가져옵니다.|
+|[탄력적 풀 - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|서버에서 탄력적 풀의 목록을 반환합니다.|
+|[탄력적 풀 - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|기준 탄력적 풀을 업데이트합니다.|
 |[탄력적 풀 활동](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|탄력적 풀 활동을 반환합니다.|
 |[탄력적 풀 데이터베이스 활동](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|탄력적 풀 내에서 데이터베이스에 대한 활동을 반환합니다.|
-|[데이터베이스-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
-|[데이터베이스-Get](https://docs.microsoft.com/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
-|[데이터베이스-List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스-List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스-Update](https://docs.microsoft.com/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[데이터베이스 - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

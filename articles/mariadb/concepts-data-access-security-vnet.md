@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006696"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
@@ -140,7 +140,7 @@ Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** �
 
 ## <a name="next-steps"></a>다음 단계
 VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
-- [Azure portal을 사용 하 여 MariaDB VNet 규칙에 대 한 Azure Database를 만들고](howto-manage-vnet-portal.md)
+- [Azure Portal을 사용하여 Azure Database for MariaDB VNet 규칙 만들기 및 관리](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)

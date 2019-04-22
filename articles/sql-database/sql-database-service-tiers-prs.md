@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359635"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS 서비스 계층(미리 보기)이 더 이상 사용되지 않음 - 마이그레이션 옵션
@@ -48,7 +48,7 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 ### <a name="premium-rs-databases"></a>프리미엄 RS 데이터베이스
 
-|**현재 경우...**|**VCore 기반 비교 가능한로 마이그레이션하는 중...**|**DTU 기반 비교 가능한로 마이그레이션하는 중...**|
+|**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
 |프리미엄 RS 1|범용 1 vCore(Gen4)|표준 3|
 |프리미엄 RS 2|범용 2 vCore(Gen4)|표준 4|
@@ -57,7 +57,7 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 ### <a name="premium-rs-pools"></a>프리미엄 RS 풀
 
-|**현재 경우...**|**VCore 기반 비교 가능한로 마이그레이션하는 중...**|**DTU 기반 비교 가능한로 마이그레이션하는 중...**|
+|**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
 |프리미엄 RS 풀 125 DTU|범용 1 vCore(Gen4)|표준 풀 100 eDTU|
 |프리미엄 RS 풀 250 DTU|범용 2 vCore(Gen4)|표준 풀 250 eDTU|
@@ -68,14 +68,14 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 최적의 성능 및 비용 조합을 유지하려면 IO 집약적 단일 데이터베이스를 현재 미리 보기로 제공되는 vCore 기반 하이퍼스케일 계층으로 마이그레이션하고, IO 집약적 데이터베이스 풀을 일반 공급되는 중요 비즈니스용 계층으로 마이그레이션하는 것이 좋습니다.  다음 vCore 기반 옵션은 현재 성능을 유지하거나 향상시키며, Azure 하이브리드 혜택과 예약 용량 가격과 함께 사용할 경우 비용 절감 효과를 가져올 수 있습니다.
 
-|**현재 경우...**|**VCore 기반 비교 가능한로 마이그레이션하는 중...**|**DTU 기반 비교 가능한로 마이그레이션하는 중...**|
+|**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
 |프리미엄 RS 1|(미리 보기) 하이퍼스케일 1 vCore(Gen4) 또는 중요 비즈니스용 1 vCore(Gen4)|프리미엄 1|
 |프리미엄 RS 2|(미리 보기) 하이퍼스케일 2 vCore(Gen4) 또는 중요 비즈니스용 2 vCore(Gen4)|프리미엄 2|
 |프리미엄 RS 4|(미리 보기) 하이퍼스케일 4 vCore(Gen4) 또는 중요 비즈니스용 4 vCore(Gen4)|프리미엄 4
 |프리미엄 RS 6|(미리 보기) 하이퍼스케일 6 vCore(Gen4) 또는 중요 비즈니스용 6 vCore(Gen4)|프리미엄 6|
 
-|**현재 경우...**|**VCore 기반 비교 가능한로 마이그레이션하는 중...**|**DTU 기반 비교 가능한로 마이그레이션하는 중...**|
+|**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
 |프리미엄 RS 풀 125 DTU|중요 비즈니스용 2 vCore(Gen4)|프리미엄 풀 125 eDTU|
 |프리미엄 RS 풀 250 DTU|중요 비즈니스용 2 vCore(Gen4)|프리미엄 풀 250 eDTU|

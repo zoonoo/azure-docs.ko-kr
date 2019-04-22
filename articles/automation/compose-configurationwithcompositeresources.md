@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278625"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>복합 리소스를 사용하여 Azure Automation 상태 구성(DSC)에서 DSC 구성 작성
@@ -32,11 +32,11 @@ Azure Portal의 복합 리소스에서 구성을 할당하려면 먼저 구성�
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 선택합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 또는 **컴파일된 구성** 탭을 클릭한 다음, 페이지 맨 위에 있는 메뉴에서 **구성 작성**을 클릭합니다.
 1. **기본** 단계에서 새 구성 이름(필수)을 제공하고 새 구성에 포함하려는 각 복합 리소스의 행에서 아무 곳이나 클릭한 후, **다음**을 클릭하거나 **소스 코드** 단계를 클릭합니다. 다음 단계에서 **PSExecutionPolicy** 및 **RenameAndDomainJoin** 복합 리소스를 선택했습니다.
-   ![Compose 구성 페이지의 기본 사항 단계의 스크린샷](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
+   ![구성 작성 페이지의 기본 단계의 스크린샷](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
 1. **소스 코드** 단계에서는 선택한 복합 리소스의 작성된 구성의 모양을 보여 줍니다. 모든 매개 변수의 병합 및 매개 변수가 복합 리소스에 전달되는 방법을 확인할 수 있습니다. 새 소스 코드 검토가 완료되면 **다음**을 클릭하거나 **매개 변수** 단계를 클릭합니다.
-   ![Compose 구성 페이지의 소스 코드 단계 스크린샷](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
+   ![구성 작성 페이지의 소스 코드 단계의 스크린샷](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
 1. **매개 변수** 단계에서는 각 복합 리소스가 보유한 매개 변수가 공개되므로 매개 변수를 제공할 수 있습니다. 매개 변수에 대한 설명이 있는 경우 매개 변수 필드 옆에 표시됩니다. 필드가 **PSCredential** 형식 매개 변수인 경우 구성할 드롭다운은 현재 Automation 계정의 **자격 증명** 개체 목록을 제공합니다. **+ 자격 증명 추가** 옵션도 사용할 수 있습니다. 모든 필수 매개 변수를 입력한 후 **저장 및 컴파일**을 클릭합니다.
-   ![매개 변수 단계의 compose 구성 페이지의 스크린샷](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
+   ![구성 작성 페이지의 매개 변수 단계의 스크린샷](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
 새 구성이 저장되면 이 구성은 컴파일을 위해 제출됩니다. 가져온 모든 구성처럼 컴파일 작업 상태를 볼 수 있습니다. 자세한 내용은 [컴파일 작업 보기](automation-dsc-getting-started.md#viewing-a-compilation-job)를 참조하세요.
 

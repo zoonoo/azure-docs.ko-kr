@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274632"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 데이터 탐색기용 쿼리 작성
@@ -901,7 +901,7 @@ StormEvents
 
 [**funnel_sequence_completion 플러그 인**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): 서로 다른 기간 내에서 완료된 시퀀스 단계의 경로를 계산합니다.
 
-다음 쿼리는 시퀀스의 완료 깔때기형 차트를 확인 합니다. `Hail -> Tornado -> Thunderstorm -> Wind` "전체" 시간 1, 4 시간 및 1 일에 (`[1h, 4h, 1d]`).
+다음 쿼리는 1시간/4시간/1일의 “전체” 시간(`[1h, 4h, 1d]`) 동안  `Hail -> Tornado -> Thunderstorm -> Wind` 시퀀스의 완료 경로를 확인합니다.
 
 **\[**[**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 

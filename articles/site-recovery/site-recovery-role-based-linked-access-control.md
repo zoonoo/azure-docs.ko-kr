@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281712"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
@@ -40,7 +40,7 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 
 | **리소스 종류** | **배포 모델** | **사용 권한** |
 | --- | --- | --- |
-| 컴퓨팅 | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
+| 컴퓨팅 | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -50,7 +50,7 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
 |  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| 네트워크 | 리소스 관리자 | Microsoft.Network/networkInterfaces/read |
+| 네트워크 | Resource Manager | Microsoft.Network/networkInterfaces/read |
 |  |  | Microsoft.Network/networkInterfaces/write |
 |  |  | Microsoft.Network/networkInterfaces/delete |
 |  |  | Microsoft.Network/networkInterfaces/join/action |
@@ -59,11 +59,11 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | 클래식 | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | 리소스 관리자 | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | 클래식 | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| 리소스 그룹 | 리소스 관리자 | Microsoft.Resources/deployments/* |
+| 리소스 그룹 | Resource Manager | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Resource Manager 및 클래식 배포 모델에 대해 각각 'Virtual Machine 참여자' 및 '클래식 Virtual Machine 참여자' [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 사용하는 것이 좋습니다.

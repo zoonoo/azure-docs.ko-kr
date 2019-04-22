@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278771"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
@@ -64,7 +64,7 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 가용성 영역을 사용하려면 [지원되는 Azure 지역](../availability-zones/az-overview.md#regions-that-support-availability-zones)에 확장 집합을 만들어야 합니다. 다음 방법 중 하나를 사용하여 가용성 영역을 사용하는 확장 집합을 만들 수 있습니다.
 
-- [Azure portal](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 리소스 관리자 템플릿](#use-azure-resource-manager-templates)

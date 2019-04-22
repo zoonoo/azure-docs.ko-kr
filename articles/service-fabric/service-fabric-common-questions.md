@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
 ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359428"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
@@ -111,13 +111,13 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 
-| **바이러스 백신 제외 된 디렉터리** |
+| **바이러스 백신 제외된 디렉터리** |
 | --- |
 | Program Files\Microsoft Service Fabric |
 | FabricDataRoot(클러스터 구성에서) |
 | FabricLogRoot(클러스터 구성에서) |
 
-| **바이러스 백신 제외 된 프로세스** |
+| **바이러스 백신 제외된 프로세스** |
 | --- |
 | Fabric.exe |
 | FabricHost.exe |

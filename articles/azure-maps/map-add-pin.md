@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269489"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
@@ -79,7 +79,7 @@ ms.locfileid: "59269489"
 > [팝업 추가](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [사용 하 여 데이터 기반 스타일 식](data-driven-style-expressions-web-sdk.md)
+> [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [도형 추가](map-add-shape.md)
@@ -88,4 +88,4 @@ ms.locfileid: "59269489"
 > [거품형 계층 추가](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [HTML 작성자를 추가 합니다.](map-add-bubble-layer.md)
+> [HTML 표식 추가](map-add-bubble-layer.md)

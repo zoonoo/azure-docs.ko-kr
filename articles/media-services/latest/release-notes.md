@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266990"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
@@ -69,47 +69,47 @@ V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
 
 ### <a name="new-commands"></a>새 명령
 
-- [az ams 계정](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams 계정 필터](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
 - [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
 - [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
 - [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams 작업](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams 라이브 이벤트](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams 라이브 출력](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams 스트리밍 끝점](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams 스트리밍 로케이터](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
 - [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 미디어 예약 단위를 관리할 수 있습니다. 자세한 내용은 [미디어 예약 단위 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
 
 ### <a name="new-features-and-breaking-changes"></a>새 기능과 주요 변경 내용
 
 #### <a name="asset-commands"></a>자산 명령
 
-- ```--storage-account``` 및 ```--container``` 인수를 추가 합니다.
+- ```--storage-account``` 및 ```--container``` 인수가 추가되었습니다.
 - ```az ams asset get-sas-url``` 명령에서 만료 시간(현재+23시간) 및 사용 권한(읽기)에 대한 기본값이 추가되었습니다.
 
 #### <a name="job-commands"></a>작업 명령
 
-- ```--correlation-data``` 및 ```--label``` 추가 인수
-- ```--output-asset-names``` 이름이 ```--output-assets```합니다. 이제 'assetName = label' 형식으로 공백으로 구분된 자산 목록을 허용합니다. 레이블이 없는 자산은 ‘assetName=’과 같이 보낼 수 있습니다.
+- ```--correlation-data``` 및 ```--label``` 인수가 추가되었습니다.
+- ```--output-asset-names```의 이름이 ```--output-assets```으로 바뀌었습니다. 이제 'assetName = label' 형식으로 공백으로 구분된 자산 목록을 허용합니다. 레이블이 없는 자산은 ‘assetName=’과 같이 보낼 수 있습니다.
 
 #### <a name="streaming-locator-commands"></a>스트리밍 로케이터 명령
 
-- ```az ams streaming locator``` 기본 명령으로 대체 ```az ams streaming-locator```합니다.
-- ```--streaming-locator-id``` 및 ```--alternative-media-id support``` 인수를 추가 합니다.
-- ```--content-keys argument``` 업데이트 하는 인수입니다.
-- ```--content-policy-name``` 이름이 ```--content-key-policy-name```합니다.
+- ```az ams streaming locator``` 기본 명령이 ```az ams streaming-locator```로 바뀌었습니다.
+- ```--streaming-locator-id``` 및 ```--alternative-media-id support``` 인수가 추가되었습니다.
+- ```--content-keys argument``` 인수가 업데이트되었습니다.
+- ```--content-policy-name```의 이름이 ```--content-key-policy-name```으로 바뀌었습니다.
 
 #### <a name="streaming-policy-commands"></a>스트리밍 정책 명령
 
-- ```az ams streaming policy``` 기본 명령으로 대체 ```az ams streaming-policy```합니다.
+- ```az ams streaming policy``` 기본 명령이 ```az ams streaming-policy```로 바뀌었습니다.
 - ```az ams streaming-policy create```에 암호화 매개 변수 지원이 추가되었습니다.
 
 #### <a name="transform-commands"></a>변환 명령
 
-- ```--preset-names``` 인수 바뀝니다 ```--preset```합니다. 이제 한 번에 1개의 출력/사전 설정만 설정할 수 있습니다(더 추가하려면 ```az ams transform output add```를 실행해야 함). 또한 사용자 정의 JSON에 경로를 전달하여 사용자 정의 StandardEncoderPreset을 설정할 수 있습니다.
-- ```az ams transform output remove``` 제거할 출력 인덱스를 전달 하 여 수행할 수 있습니다.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 에 추가 하는 인수 ```az ams transform create``` 고 ```az ams transform output add``` 명령입니다.
+- ```--preset-names``` 인수가 ```--preset```으로 바뀌었습니다. 이제 한 번에 1개의 출력/사전 설정만 설정할 수 있습니다(더 추가하려면 ```az ams transform output add```를 실행해야 함). 또한 사용자 정의 JSON에 경로를 전달하여 사용자 정의 StandardEncoderPreset을 설정할 수 있습니다.
+- 제거할 출력 인덱스를 전달하여 ```az ams transform output remove```를 수행할 수 있습니다.
+- ```az ams transform create``` 및 ```az ams transform output add``` 명령에 ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 인수가 추가되었습니다.
 
 ## <a name="october-2018---ga"></a>2018년 10월 - GA
 

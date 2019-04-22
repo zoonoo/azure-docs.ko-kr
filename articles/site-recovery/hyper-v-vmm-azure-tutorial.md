@@ -9,17 +9,17 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361298"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
 이 문서에서는 온-프레미스 Hyper-v Vm 재해 복구를 사용 하 여 Azure에서 System Center Virtual Machine Manager (VMM)를 관리에 대 한 복제를 사용 하도록 설정 하는 방법을 설명 합니다 [Azure Site Recovery](site-recovery-overview.md) 서비스입니다. 그런 다음 VMM을 사용 하지 않는 경우 [이 자습서를 따라](hyper-v-azure-tutorial.md)합니다.
 
-온-프레미스 VMware Vm에 대 한 Azure로 재해 복구를 설정 하는 방법을 보여 주는 시리즈의 세 번째 자습서입니다. 이전 자습서에서는 우리가 [온-프레미스 Hyper-v 환경 준비](hyper-v-prepare-on-premises-tutorial.md) Azure로 재해 복구에 대 한 합니다. 
+이 자습서는 온-프레미스 VMware VM을 Azure로 재해 복구하도록 설정하는 방법을 보여주는 자습서 시리즈 중 세 번째 자습서입니다. 이전 자습서에서는 우리가 [온-프레미스 Hyper-v 환경 준비](hyper-v-prepare-on-premises-tutorial.md) Azure로 재해 복구에 대 한 합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "59361298"
 
 
 > [!NOTE]
-> 자습서는 시나리오에 대 한 가장 간단한 배포 경로를 보여 줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 사이트 복구의 목차는 방법 섹션의 문서를 검토 합니다.
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -45,11 +45,11 @@ ms.locfileid: "59361298"
 
 ## <a name="select-a-replication-goal"></a>복제 목표 선택
 
-1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음을 선택합니다. 자격 증명 모음 준비한 **ContosoVMVault** 이전 자습서에서.
+1. **Recovery Services 자격 증명 모음**에서 자격 증명 모음을 선택합니다. 이전 자습서에서는 **ContosoVMVault** 자격 증명 모음을 준비했습니다.
 2. **시작**에서**Site Recovery**를 클릭합니다. 그런 다음 **인프라 준비**를 클릭합니다.
 3. **보호 목표** > **컴퓨터가 있는?** 선택 **온-프레미스**합니다.
-4. **수행 하려는 컴퓨터를 복제?** 를 선택 **Azure**합니다.
-5. **컴퓨터가 가상화 되어 있습니까?** 선택 **예, Hyper-v를 사용 하 여**입니다.
+4. **머신을 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
+5. **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용**을 선택합니다.
 6. **System Center VMM을 사용하고 있습니까?** 에서 **예**를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
     ![복제 목표](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -57,8 +57,8 @@ ms.locfileid: "59361298"
 
 ## <a name="confirm-deployment-planning"></a>배포 계획 확인
 
-1. **배포 계획**대규모 배포를 계획 하는 경우, Hyper-v에 대 한 페이지의 링크에서 Deployment Planner를 다운로드 합니다. [자세한](hyper-v-deployment-planner-overview.md) Hyper-v 배포를 계획 하는 방법에 대 한 합니다.
-2. 이 자습서에서는 deployment planner가 필요가 있습니다. **배포 계획을 완료 하셨나요?** 를 선택 **나중에 수행**합니다. 그런 후 **OK**를 클릭합니다.
+1. **배포 계획**에서 대규모 배포를 계획 중인 경우 페이지의 링크를 통해 Hyper-V용 Deployment Planner를 다운로드합니다. Hyper-V 배포 계획에 대해 [자세히 알아보세요](hyper-v-deployment-planner-overview.md).
+2. 이 자습서에서는 Deployment Planner가 필요하지 않습니다. **배포 계획을 완료 하셨나요?** 를 선택 **나중에 수행**합니다. 그런 후 **OK**를 클릭합니다.
 
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
@@ -119,7 +119,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 ## <a name="set-up-a-replication-policy"></a>복제 정책 설정
 
 1. **인프라 준비** > **복제 설정** > **+만들기 및 연결**을 클릭합니다.
-2. **만들기 및 연결 정책**에서 정책 이름을 지정합니다. 바로 우리가 사용할 **ContosoReplicationPolicy**합니다.
+2. **만들기 및 연결 정책**에서 정책 이름을 지정합니다. 여기서는 **ContosoReplicationPolicy**를 사용합니다.
 3. 기본 설정을 그대로 적용하고 **확인**을 클릭합니다.
     - **복사 빈도**는 초기 복제 후 5분마다 델타 데이터가 복제됨을 나타냅니다.
     - **복구 지점 보존** 나타냅니다 각 복구 지점 2 시간 동안 유지 됩니다.
@@ -142,4 +142,4 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [재해 복구 훈련 실행](tutorial-dr-drill-azure.md)
+> [재해 복구 드릴 실행](tutorial-dr-drill-azure.md)

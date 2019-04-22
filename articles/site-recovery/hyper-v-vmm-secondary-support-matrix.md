@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360804"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
@@ -36,7 +36,7 @@ Windows Server 2016 |  Windows Server 2016 및 2012 R2 호스트가 혼합된 VM
 
 다음 표에서는 Site Recovery를 사용하여 복제된 컴퓨터에 대한 운영 체제 지원을 요약합니다. 워크로드를 지원되는 운영 체제에서 실행할 수 있습니다.
 
-**Windows 버전** | **-Hyper-v (VMM 포함)**
+**Windows 버전** | **Hyper-V(VMM 포함)**
 --- | ---
 Windows Server 2016 | Windows Server 2016에서 [Hyper-V가 지원하는](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) 게스트 운영 체제 
 Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) 게스트 운영 체제
@@ -70,7 +70,7 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 
 ### <a name="host-storage"></a>호스트 저장소
 
-**Storage (호스트)** | **지원됨**
+**Storage(호스트)** | **지원됨**
 --- | --- 
 NFS | N/A
 SMB 3.0 |  예
@@ -99,7 +99,7 @@ RDM | N/A
 
 ## <a name="vaults"></a>자격 증명 모음
 
-**액션(Action)** | **지원됨**
+**작업** | **지원됨**
 --- | --- 
 리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아닙니다.
 리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다.
@@ -108,7 +108,7 @@ RDM | N/A
 
 공급자는 VMM 서버 간의 통신을 조정합니다. 
 
-**최신 버전** | **업데이트**
+**최신** | **업데이트**
 --- | --- 
 5.1.19([포털에서 사용 가능](https://aka.ms/downloaddra)) | [최신 기능 및 수정](https://support.microsoft.com/kb/3155002)
 
@@ -116,5 +116,5 @@ RDM | N/A
 
 ## <a name="next-steps"></a>다음 단계
 
-[보조 사이트에 VMM 클라우드의 Hyper-v Vm 복제](tutorial-vmm-to-vmm.md)
+[VMM 클라우드의 Hyper-V VM에서 보조 사이트로 복제](tutorial-vmm-to-vmm.md)
 

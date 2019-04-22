@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360516"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 개인 모델 사용자 지정
@@ -54,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
-|**name**|**Type**|**필수**|**설명**|
+|**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
 |location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
 |accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
@@ -99,7 +99,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**name**|**Type**|**필수**|**설명**|
+|**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
 |location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
 |accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
@@ -136,7 +136,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**name**|**Type**|**필수**|**설명**|
+|**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
 |location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
 |accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
@@ -191,7 +191,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**name**|**Type**|**필수**|**설명**|
+|**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
 |location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
 |accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
@@ -212,4 +212,4 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ## <a name="next-steps"></a>다음 단계
 
-[Video Indexer 웹 사이트를 사용 하 여 사용자 모델을 사용자 지정](customize-person-model-with-website.md)
+[Video Indexer 웹 사이트를 사용하여 개인 모델 사용자 지정](customize-person-model-with-website.md)

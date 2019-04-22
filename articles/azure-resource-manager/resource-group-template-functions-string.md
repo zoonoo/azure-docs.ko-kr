@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278788"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
@@ -34,18 +34,18 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [endsWith](#endswith)
 * [first](#first)
 * [format](#format)
-* [GUID](#guid)
-* [indexof](#indexof)
+* [guid](#guid)
+* [indexOf](#indexof)
 * [last](#last)
-* [lastindexof](#lastindexof)
+* [lastIndexOf](#lastindexof)
 * [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
 * [split](#split)
-* [startswith](#startswith)
-* [문자열](#string)
+* [startsWith](#startswith)
+* [string](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)

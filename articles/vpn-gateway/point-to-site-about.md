@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282103"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
@@ -47,7 +47,7 @@ Azure 기본 인증서 인증을 사용하는 경우 디바이스에 있는 클�
 
 AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자격 증명을 사용하여 Azure에 연결할 수 있습니다. AD 서버와 통합되는 RADIUS 서버가 필요합니다. 또한 조직에서 기존 RADIUS 배포를 활용할 수도 있습니다.   
   
-RADIUS 서버를 온-프레미스 또는 Azure VNET에 배포할 수 있습니다. 인증하는 동안 Azure VPN Gateway에서 통과 역할을 수행하여 RADIUS 서버와 연결된 디바이스 간에 인증 메시지를 전달합니다. 따라서 RADIUS 서버에 대한 게이트웨이 연결 가능성이 중요합니다. RADIUS 서버가 온-프레미스 없는 경우 Azure에서 온-프레미스 사이트로 VPN S2S 연결은 복원이 필요 합니다.  
+RADIUS 서버를 온-프레미스 또는 Azure VNET에 배포할 수 있습니다. 인증하는 동안 Azure VPN Gateway에서 통과 역할을 수행하여 RADIUS 서버와 연결된 디바이스 간에 인증 메시지를 전달합니다. 따라서 RADIUS 서버에 대한 게이트웨이 연결 가능성이 중요합니다. RADIUS 서버가 온-프레미스에 있는 경우 연결 가능성을 위해 Azure에서 온-프레미스 사이트로의 VPN S2S 연결이 필요합니다.  
   
 RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇게 하면 Azure 인증서 인증 대신 P2S 인증서 인증용 RADIUS 서버 및 엔터프라이즈 인증서 배포를 사용할 수 있습니다. 장점은 루트 인증서와 해지된 인증서를 Azure에 업로드할 필요가 없다는 것입니다.
 
@@ -90,9 +90,9 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 
 P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서에는 P2S 구성을 수행하는 단계와 VPN 클라이언트 디바이스를 구성하기 위한 링크가 포함되어 있습니다.
 
-* [P2S 연결 구성-RADIUS 인증](point-to-site-how-to-radius-ps.md)
+* [P2S 연결 구성 - RADIUS 인증](point-to-site-how-to-radius-ps.md)
 
-* [P2S 연결 구성-Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [P2S 연결 구성 - Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 * [OpenVPN 구성](vpn-gateway-howto-openvpn.md)
 
@@ -106,8 +106,8 @@ P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [P2S 연결 구성-RADIUS 인증](point-to-site-how-to-radius-ps.md)
+* [P2S 연결 구성 - RADIUS 인증](point-to-site-how-to-radius-ps.md)
 
-* [P2S 연결 구성-Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [P2S 연결 구성 - Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **"OpenVPN"는 OpenVPN i n c.의 상표**

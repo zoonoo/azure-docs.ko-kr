@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276414"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>로그 데이터 및 Azure Monitor에서 작업 영역 관리
@@ -35,9 +35,9 @@ Log Analytics 작업 영역을 만들려면 해야 합니다.
 
 작업 영역 만들기에 대 한 내용은 다음 문서를 참조 하세요.
 
-- [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)
-- [Azure CLI 2.0으로 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-cli.md)
-- [Azure PowerShell로 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-posh.md)
+- [Azure portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md)
+- [Azure CLI 2.0을 사용 하 여 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-cli.md)
+- [Azure PowerShell을 사용 하 여 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>필요한 작업 영역의 수 결정
 Log Analytics 작업 영역은 Azure 리소스이며 Azure Monitor에서 데이터가 수집, 집계, 분석 및 표시되는 컨테이너입니다. Azure 구독당 여러 작업 영역을 포함할 수 있으며 이들 간의 손쉬운 쿼리 기능을 사용하여 두 개 이상의 작업 영역에 액세스할 수 있습니다. 이 섹션에서는 둘 이상의 작업 영역을 만들 때 유용할 수 있는 시기를 설명합니다.

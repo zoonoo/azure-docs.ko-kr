@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270985"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
@@ -40,7 +40,7 @@ ms.locfileid: "59270985"
 ### <a name="supported-scenarios"></a>지원되는 시나리오
 Site Recovery는 표에 요약된 대로 SQL Server를 보호할 수 있습니다.
 
-**시나리오** | **보조 사이트 대상** | **Azure 대상**
+**시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
 **Hyper-V** | 예 | 예
 **VMware** | 예 | 예
@@ -62,15 +62,15 @@ Site Recovery는 재해 복구 솔루션을 제공하기 위해 표에 요약된
 **기능** | **세부 정보** | **SQL Server** |
 --- | --- | ---
 **Always On 가용성 그룹** | SQL Server의 여러 독립 실행형 인스턴스는 여러 노드가 있는 장애 조치 클러스터에서 실행됩니다.<br/><br/>SQL Server 인스턴스에서 복사(미러링)할 수 있는 장애 조치 그룹으로 데이터베이스를 그룹화하여 공유 저장소가 필요하지 않습니다.<br/><br/>기본 사이트 및 하나 이상의 보조 사이트 간에 재해 복구를 제공합니다. 동기 복제 및 자동 장애 조치를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정할 수 있습니다. | SQL Server 2016, SQL Server 2014 및 SQL Server 2012 Enterprise Edition
-**장애 조치 클러스터링 (Always On FCI)** | SQL Server는 온-프레미스 SQL Server 작업의 고가용성을 위해 Windows 장애 조치(failover) 클러스터링을 활용합니다.<br/><br/>공유 디스크를 사용하는 SQL Server 서버의 인스턴스를 실행하는 노드는 장애 조치 클러스터에서 구성됩니다. 인스턴스가 다운되는 경우 클러스터는 다른 것을 장애 조치합니다.<br/><br/>클러스터는 공유 저장소의 오류 또는 중단을 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 VHDX와 함께 구현할 수 있습니다. | SQL Server Enterprise 버전<br/><br/>SQL Server Standard 버전(노드가 두 개로 제한됨)
-**데이터베이스 미러링 (보호 우선 모드)** | 하나의 보조 복사본으로 단일 데이터베이스를 보호합니다. 높은 보안(동기) 및 고성능(비동기) 복제 모드에서 모두 사용할 수 있습니다. 장애 조치 클러스터가 필요하지 않습니다. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 모든 버전
+**장애 조치(failover) 클러스터링(Always On FCI)** | SQL Server는 온-프레미스 SQL Server 작업의 고가용성을 위해 Windows 장애 조치(failover) 클러스터링을 활용합니다.<br/><br/>공유 디스크를 사용하는 SQL Server 서버의 인스턴스를 실행하는 노드는 장애 조치 클러스터에서 구성됩니다. 인스턴스가 다운되는 경우 클러스터는 다른 것을 장애 조치합니다.<br/><br/>클러스터는 공유 저장소의 오류 또는 중단을 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 VHDX와 함께 구현할 수 있습니다. | SQL Server Enterprise 버전<br/><br/>SQL Server Standard 버전(노드가 두 개로 제한됨)
+**데이터베이스 미러링(높은 보안 모드)** | 하나의 보조 복사본으로 단일 데이터베이스를 보호합니다. 높은 보안(동기) 및 고성능(비동기) 복제 모드에서 모두 사용할 수 있습니다. 장애 조치 클러스터가 필요하지 않습니다. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 모든 버전
 **독립 실행형 SQL Server** | SQL Server 및 데이터베이스는 단일 서버(실제 또는 가상)에서 호스팅됩니다. 호스트 클러스터링은 가상 서버인 경우 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 없습니다. | Enterprise 또는 Standard 에디션
 
 ## <a name="deployment-recommendations"></a>배포 권장 사항
 
 이 표에서는 Site Recovery와 SQL Server BCDR 기술을 통합하기 위한 권장 사항을 요약합니다.
 
-| **버전** | **버전** | **배포** | **온-프레미스에 온-프레미스** | **온-프레미스에서 Azure로** |
+| **버전** | **에디션** | **배포** | **온-프레미스에 온-프레미스** | **온-프레미스에서 Azure로** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 또는 2012 |Enterprise |장애 조치 클러스터 인스턴스 |Always On 가용성 그룹 |Always On 가용성 그룹 |
 || Enterprise |고가용성을 위한 Always On 가용성 그룹 |Always On 가용성 그룹 |Always On 가용성 그룹 |
@@ -101,7 +101,7 @@ SQL Server를 제대로 실행하려면 보조 복구 사이트에서 Active Dir
 
 1. Azure Automation 계정에 스크립트를 가져옵니다. 여기에는 [Resource Manager 가상 머신](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) 및 [클래식 가상 머신](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1)에서 SQL 가용성 그룹의 장애 조치(failover) 스크립트가 포함됩니다.
 
-    [![DAzure에 eploy](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Azure에 배포](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. ASR-SQL-FailoverAG를 복구 계획의 첫 번째 그룹에 대한 이전 작업으로 추가합니다.

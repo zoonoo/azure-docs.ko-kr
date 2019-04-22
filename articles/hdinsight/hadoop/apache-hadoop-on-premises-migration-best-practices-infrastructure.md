@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274692"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
@@ -97,7 +97,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [HDInsight에 타사 Apache Hadoop 응용 프로그램 설치](../hdinsight-apps-install-applications.md)
+- [HDInsight에 타사 Apache Hadoop 애플리케이션 설치](../hdinsight-apps-install-applications.md)
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Azure Marketplace에 HDInsight 애플리케이션 게시](../hdinsight-apps-publish-applications.md)
 
@@ -168,7 +168,7 @@ HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니�
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure 가상 네트워크-개요](../../virtual-network/virtual-networks-overview.md)
+- [Azure 가상 네트워크 개요](../../virtual-network/virtual-networks-overview.md)
 - [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure 서비스에 안전하게 연결
@@ -178,7 +178,7 @@ HDInsight에서 지 원하는 [virtual network 서비스 끝점](../../virtual-n
 자세한 내용은 다음 문서를 참조하세요.
 
 - [가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [서비스 끝점을 사용 하 여 HDInsight 보안 강화](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [서비스 엔드포인트를 사용하여 HDInsight 보안 강화](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -194,4 +194,4 @@ Azure Virtual Network와 VPN 게이트웨이를 사용하여 HDInsight를 온-�
 
 이 시리즈의 다음 문서를 읽어보세요.
 
-- [온-프레미스에서 Azure HDInsight Hadoop 마이그레이션에 대 한 저장소 모범 사례](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [온-프레미스에서 Azure HDInsight Hadoop 마이그레이션에 대한 저장소 모범 사례](apache-hadoop-on-premises-migration-best-practices-storage.md)

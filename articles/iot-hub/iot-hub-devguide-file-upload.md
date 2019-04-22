@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050733"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
@@ -25,7 +25,7 @@ IoT Hub 자체를 통한 브로커 메시지 대신 IoT Hub는 연결된 Azure S
 
 그런 다음, 디바이스에서 [업로드를 초기화](iot-hub-devguide-file-upload.md#initialize-a-file-upload)한 다음, 업로드가 완료되면 [IoT Hub에 알릴](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) 수 있습니다. 필요에 따라 디바이스에서 IoT Hub에 업로드가 완료되었음을 알리면 서비스에서 [알림 메시지](iot-hub-devguide-file-upload.md#file-upload-notifications)를 생성할 수 있습니다.
 
-### <a name="when-to-use"></a>사용 시기
+### <a name="when-to-use"></a>사용하는 경우
 
 파일 업로드를 사용하여 간헐적으로 연결된 디바이스로 업로드되거나 대역폭을 절약하기 위해 압축된 미디어 파일과 대형 원격 분석 배치를 보냅니다.
 
@@ -152,7 +152,7 @@ IoT Hub를 사용하여 디바이스에서 파일을 업로드하는 방법에 �
 
 * [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)
 
-* [사용 하 여 장치 쌍 상태 및 구성 동기화](iot-hub-devguide-device-twins.md)
+* [디바이스 쌍을 사용하여 상태 및 구성 동기화](iot-hub-devguide-device-twins.md)
 
 * [디바이스에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
 
@@ -160,4 +160,4 @@ IoT Hub를 사용하여 디바이스에서 파일을 업로드하는 방법에 �
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
-* [장치에서 IoT Hub를 사용 하 여 클라우드로 파일을 업로드 하는 방법](iot-hub-csharp-csharp-file-upload.md)
+* [IoT Hub를 사용하여 디바이스에서 클라우드로 파일을 업로드하는 방법](iot-hub-csharp-csharp-file-upload.md)

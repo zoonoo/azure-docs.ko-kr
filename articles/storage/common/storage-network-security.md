@@ -9,10 +9,10 @@ ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280743"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
@@ -362,7 +362,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ### <a name="storage-analytics-data-access"></a>저장소 분석 데이터 액세스
 
-경우에 따라 네트워크 경계 밖에서 진단 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 네트워크 규칙에 예외를 허용하여 스토리지 계정 로그 파일, 메트릭 테이블 또는 둘 모두에 대한 읽기 액세스를 허용할 수 있습니다. [저장소 분석 작업에 대해 알아봅니다.](/azure/storage/storage-analytics)
+경우에 따라 네트워크 경계 밖에서 진단 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 네트워크 규칙에 예외를 허용하여 스토리지 계정 로그 파일, 메트릭 테이블 또는 둘 모두에 대한 읽기 액세스를 허용할 수 있습니다. [저장소 분석 작업에 대한 자세한 정보](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>예외 관리
 

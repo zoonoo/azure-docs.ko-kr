@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276952"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Linux IaaS VM용 Azure Disk Encryption 사용 
@@ -42,13 +42,13 @@ ms.locfileid: "59276952"
 
 Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 명령을 사용하여 실행 중인 IaaS 가상 머신에서 암호화를 사용하도록 설정합니다.
 
-- **실행 중인 VM을 암호화 합니다.**
+- **실행 중인 VM 암호화:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
      ```
 
-- **KEK를 사용 하 여 실행 중인 VM을 암호화 합니다.**
+- **KEK를 사용하여 실행 중인 VM 암호화:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
@@ -133,7 +133,7 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
 | 매개 변수 | 설명 |
 | --- | --- |
 | vmName | 암호화 작업을 실행할 VM의 이름. |
-| keyVaultName | BitLocker 키가 업로드될 Key Vault의 이름. Cmdlet을 사용 하 여 가져올 수 있습니다 `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`|
+| keyVaultName | BitLocker 키가 업로드될 Key Vault의 이름. cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`을 사용하여 가져올 수 있습니다.|
 | keyVaultResourceGroup | 키 자격 증명 모음을 포함하는 리소스 그룹의 이름|
 |  keyEncryptionKeyURL | 생성된 BitLocker 키를 암호화하는 데 사용되는 주요 암호화 키의 URL. UseExistingKek 드롭다운 목록에서 **nokek**를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek**를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
 | volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_, _Data_ 및 _All_입니다. 
@@ -152,12 +152,12 @@ Linux 확장 집합 데이터 디스크 암호화에 대한 배치 파일 예제
 
 [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable)을 사용하여 Windows 가상 머신 확장 집합에서 암호화를 사용하도록 설정합니다. 확장 집합에서 업그레이드 정책을 수동으로 설정하는 경우 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances)를 사용하여 암호화를 시작합니다. 리소스 그룹, VM 및 키 자격 증명 모음은 필수 구성 요소로 이미 만들어져 있어야 합니다. 
 
--  **실행 중인 가상 머신 확장 집합을 암호화 합니다.**
+-  **실행 중인 가상 머신 확장 집합 암호화**
     ```azurecli-interactive
     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault"
     ```
 
--  **암호화 키를 래핑하지 KEK를 사용 하 여 설정 하는 실행 중인 가상 머신 확장**
+-  **키를 래핑하는 KEK를 사용하여 실행 중인 가상 머신 확장 집합 암호화**
      ```azurecli-interactive
      az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault"
      ```
@@ -256,7 +256,7 @@ RAID 볼륨 또는 LVM 볼륨이 아닌, RAID 볼륨 또는 LVM 볼륨을 구성
 ### <a name="bkmk_EFAPSH"> </a> Azure CLI에서 EncryptFormatAll 매개변수 사용
 Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 명령을 사용하여 실행 중인 IaaS 가상 머신에서 암호화를 사용하도록 설정합니다.
 
--  **EncryptFormatAll를 사용 하 여 실행 중인 VM을 암호화 합니다.**
+-  **EncryptFormatAll을 사용하여 실행 중인 VM 암호화:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --encrypt-format-all
@@ -339,13 +339,13 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 
 Powershell 구문과 달리 CLI에서는 사용자가 암호화를 사용하도록 설정할 때 고유 시퀀스 버전을 제공하지 않아도 됩니다. CLI는 고유 시퀀스 버전 값을 자동으로 생성하여 사용합니다.
 
--  **실행 중인 VM의 데이터 볼륨을 암호화 합니다.**
+-  **실행 중인 VM의 데이터 볼륨 암호화:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
      ```
 
-- **KEK를 사용 하 여 실행 중인 VM의 데이터 볼륨을 암호화 합니다.**
+- **KEK를 사용하여 실행 중인 VM의 데이터 볼륨 암호화:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
@@ -413,4 +413,4 @@ Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 �
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Windows 용 Azure Disk Encryption을 사용 하도록 설정](azure-security-disk-encryption-windows.md)
+> [Windows용 Azure Disk Encryption 사용](azure-security-disk-encryption-windows.md)

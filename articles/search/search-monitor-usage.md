@@ -12,10 +12,10 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010416"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
@@ -62,7 +62,7 @@ Azure Search는 관리하는 개체 이외의 데이터를 저장하지 않으�
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 기록된 된 이벤트 및 메트릭을 쿼리 아래 스키마를 기반으로 상관 관계가 지정 된 앱에서 사용자 이벤트와 함께 합니다. 이는 애플리케이션 코드를 통해 제출된 필터 요청과는 달리 사용자 작업 또는 신호를 고려하여 사용자 시작 검색의 이벤트를 매핑하는 유일한 솔루션입니다. 이 방법을 사용하려면 요청 정보를 Application Insights로 라우팅하는 계측 코드를 원본 파일에 복사하여 붙여넣습니다. 자세한 내용은 [트래픽 분석 검색](search-traffic-analytics.md)을 참조하세요. |
 | [Azure Monitor 로그](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 기록된 된 이벤트 및 메트릭을 쿼리 아래 스키마를 기반으로 합니다. Log Analytics 작업 영역에 이벤트가 기록 됩니다. 작업 영역에 대해 쿼리를 실행하여 로그에서 자세한 정보를 반환할 수 있습니다. 자세한 내용은 참조 하세요. [Azure Monitor 로그로 시작](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob 저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 기록된 된 이벤트 및 메트릭을 쿼리 아래 스키마를 기반으로 합니다. 이벤트는 Blob 컨테이너에 기록되고 JSON 파일로 저장됩니다. JSON 편집기를 사용하여 파일 내용을 봅니다.|
+| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 기록된 된 이벤트 및 메트릭을 쿼리 아래 스키마를 기반으로 합니다. 이벤트는 Blob 컨테이너에 기록되고 JSON 파일로 저장됩니다. JSON 편집기를 사용하여 파일 내용을 봅니다.|
 | [이벤트 허브](https://docs.microsoft.com/azure/event-hubs/) | 기록된 이벤트 및 쿼리 메트릭은 이 문서에서 설명하는 스키마를 기반으로 합니다. 이 서비스는 매우 큰 로그에 대한 대체 데이터 수집 서비스로 선택합니다. |
 
 Azure Monitor 로그와 Blob storage는 Azure 구독의의 수명 동안 무료로 사용해 보세요 수 있도록 무료 공유 서비스로 사용할 수 있습니다. 애플리케이션 데이터 크기가 특정 제한을 초과하지 않으면 Application Insights 평가판을 등록하여 사용할 수 있습니다(자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/monitor/) 참조).
@@ -96,7 +96,7 @@ Azure Monitor 로그와 Blob storage는 Azure 구독의의 수명 동안 무료�
 * insights-logs-operationlogs: 검색 트래픽 로그인 경우
 * insights-metrics-pt1m: 메트릭인 경우
 
-**컨테이너가 Blob 스토리지에 표시될 때까지 1시간이 걸립니다. 시간 및 컨테이너당 하나의 Blob가 있습니다.**
+**걸리는 시간이 1 시간 전에 컨테이너는 Blob 저장소에 표시 됩니다. 시간당 컨테이너의 blob 하나 있습니다.**
 
 [Visual Studio Code](#download-and-open-in-visual-studio-code) 또는 다른 JSON 편집기를 사용하여 파일을 볼 수 있습니다. 
 
@@ -117,8 +117,8 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | operationVersion |문자열 |"2017-11-11" |사용된 api-version |
 | 카테고리 |문자열 |"OperationLogs" |constant |
 | resultType |문자열 |"Success" |가능한 값은 다음과 같습니다. Success 또는 Failure |
-| resultSignature |int |200 |HTTP 결과 코드 |
-| durationMS |int |50 |밀리초 단위의 작업 기간 |
+| resultSignature |ssNoversion |200 |HTTP 결과 코드 |
+| durationMS |ssNoversion |50 |밀리초 단위의 작업 기간 |
 | properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 **속성 스키마**
@@ -127,7 +127,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | --- | --- | --- | --- |
 | 설명 |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
 | 쿼리 |문자열 |"?search=AzureSearch&$count=true&api-version=2017-11-11" |쿼리 매개 변수 |
-| 문서 |int |42 |처리된 문서 수 |
+| 문서 |ssNoversion |42 |처리된 문서 수 |
 | IndexName |문자열 |"testindex" |작업과 연결된 인덱스의 이름 |
 
 ## <a name="metrics-schema"></a>메트릭 스키마
@@ -139,11 +139,11 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | ResourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
 | metricName |문자열 |"Latency" |메트릭 이름 |
 | 실시간 |Datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
-| average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
-| minimum |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
-| maximum |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
-| total |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
-| count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
+| average |ssNoversion |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
+| minimum |ssNoversion |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
+| maximum |ssNoversion |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
+| total |ssNoversion |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
+| count |ssNoversion |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
 | timegrain |문자열 |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
 
 모든 메트릭은 1 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.

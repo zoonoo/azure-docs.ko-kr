@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358117"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>클라우드 기반 Azure Multi-factor Authentication을 계획합니다.
@@ -315,5 +315,5 @@ Azure MFA를 사용 하 여 일반적인 문제에 대 한 솔루션을 찾을 �
 ## <a name="next-steps"></a>다음 단계
 
 * [인증 방법이란?](concept-authentication-methods.md)
-* [Azure Multi-factor Authentication 및 Azure AD 셀프 서비스 암호 재설정에 대 한 수렴 형된 등록을 사용 하도록 설정](concept-registration-mfa-sspr-converged.md)
+* [Azure Multi-Factor Authentication 및 Azure AD 셀프 서비스 암호 재설정에 융합 등록 사용](concept-registration-mfa-sspr-converged.md)
 * 사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.

@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360509"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
@@ -65,7 +65,7 @@ Site Recovery에서는 다음 작업을 위해 VMware 서버에 액세스해야 
 Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 및 FedRAMP JAB 평가를 수행하는 중입니다.
 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 ### <a name="how-can-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 대략적인 요금을 계산할 수는 방법
 
 사용할 수는 [가격 책정 계산기](https://aka.ms/asr_pricing_calculator) Site Recovery를 사용 하는 동안 비용을 예측 합니다.
@@ -265,7 +265,7 @@ Recovery Services 자격 증명 모음에서 클릭 **구성 서버** 에 **Site
 VMware에서 Azure로 복구하는 경우 사용할 수 있는 가장 오래된 복구 지점은 72시간입니다.
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>장애 조치 후 Azure VM에 액세스하려면 어떻게 할까요?
-장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세한 정보](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+장애 조치 후에 보안 인터넷 연결, 사이트 간 VPN 또는 Azure ExpressRoute를 통해 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>장애 조치된 데이터는 복원되나요?
 

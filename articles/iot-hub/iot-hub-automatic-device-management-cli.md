@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012967"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Azure CLI를 사용 하 여 대규모로 자동 IoT 장치 관리
@@ -99,11 +99,11 @@ Desired 속성을 사용 하 여 장치 쌍의 집합을 업데이트 하 고 �
 
 * --**config-id** - IoT Hub에 만들 구성의 이름입니다. 구성에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다.
 
-* --**labels** - 구성을 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 이름, 값 쌍입니다. 예를 들어 `HostPlatform, Linux` 또는 `Version, 3.0.1`
+* --**labels** - 구성을 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 이름, 값 쌍입니다. 예를 들어 `HostPlatform, Linux` 또는 `Version, 3.0.1`와 같습니다.
 
 * --**content** - 원하는 쌍 속성으로 설정할 대상 콘텐츠의 파일 경로 또는 인라인 JSON입니다. 
 
-* --**hub-name** - 구성을 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. 명령 사용 하 여 원하는 구독으로 전환 `az account set -s [subscription name]`
+* --**hub-name** - 구성을 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
 * --**target-condition** - 대상 조건을 입력하여 이 구성의 대상으로 지정할 디바이스를 결정합니다. 조건은 디바이스 쌍 태그 또는 원하는 디바이스 쌍 속성을 기반으로 하며, 식 형식과 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`과 같습니다. 
 
@@ -122,7 +122,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-id** - IoT Hub에 있는 구성의 이름입니다.
 
-* --**hub-name** - 구성이 있는 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. 명령 사용 하 여 원하는 구독으로 전환 `az account set -s [subscription name]`
+* --**hub-name** - 구성이 있는 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
 명령 창에서 구성을 검사합니다. **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
 
@@ -172,7 +172,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**set** - 구성에서 속성을 업데이트합니다. 다음 속성을 업데이트할 수 있습니다.
 
-    * 예를 들어 targetCondition- `targetCondition=tags.location.state='Oregon'`
+    * targetCondition - 예: `targetCondition=tags.location.state='Oregon'`
 
     * 레이블 
 
@@ -196,14 +196,14 @@ az iot hub configuration delete --config-id [configuration id] \
 
 이 문서에서는 구성 및 크기 조정 시 IoT 장치를 모니터링 하는 방법을 알아보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-* [대량으로 IoT Hub 디바이스 ID를 관리합니다.](iot-hub-bulk-identity-mgmt.md)
+* [대량으로 IoT Hub 장치 ID 관리](iot-hub-bulk-identity-mgmt.md)
 * [IoT Hub 메트릭](iot-hub-metrics.md)
 * [작업 모니터링](iot-hub-operations-monitoring.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용 하 여 AI를에 지 장치로 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 

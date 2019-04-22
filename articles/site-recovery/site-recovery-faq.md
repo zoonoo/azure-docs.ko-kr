@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
 ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361353"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
@@ -55,7 +55,7 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>단일 Azure Pack 및 단일 VMM 서버 배포가 지원되나요?
 예, Hyper-V 가상 머신을 Azure에 복제하거나 서비스 공급자 사이트 간에 복제할 수 있습니다.  서비스 공급자 사이트 간에 복제할 경우 Azure Runbook 통합을 사용할 수 없습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 ### <a name="where-can-i-find-pricing-information"></a>찾을 수 있는 가격 책정 정보?
 검토 [Site Recovery 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/) 세부 정보입니다.
@@ -186,8 +186,8 @@ LRS 또는 GRS 저장소를 해야합니다. 지역 정전이 발생하거나 �
 ### <a name="can-i-throttle-bandwidth-allotted-for-replication-traffic"></a>복제 트래픽에 할당 된 대역폭을 제한할 수 있습니까?
 예. 자세한 내용은 다음이 문서에서 대역폭 제한에 대 한 합니다.
 
-* [VMware Vm 및 물리적 서버 복제를 위한 용량 계획](site-recovery-plan-capacity-vmware.md)
-* [Azure로 Hyper-v Vm 복제를 위한 용량 계획](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [VMware VM 및 물리적 서버를 복제하기 위한 용량 계획](site-recovery-plan-capacity-vmware.md)
+* [Azure에 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 
 
@@ -215,17 +215,17 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-fail-back-to-a-different-host"></a>다른 호스트로 다시 내 온-프레미스 호스트가 응답 하지 않거나 충돌 없는 경우를 조치할 수 있나요?
 예, 대체 위치 복구를 사용하여 Azure에서 다른 호스트로 장애 복구(failback)를 수행할 수 있습니다.
 
-* [VMware 가상 컴퓨터](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Hyper-v 가상 컴퓨터에 대 한](hyper-v-azure-failback.md#perform-failback)
+* [VMware 가상 머신](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Hyper-V 가상 머신](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="automation"></a>Automation
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>SDK와 함께 Site Recovery 시나리오를 자동화할 수 있습니까?
 예. Rest API, PowerShell 또는 Azure SDK를 사용하여 Site Recovery 워크플로를 자동화할 수 있습니다. 현재 PowerShell을 사용하여 Site Recovery를 배포하기 위한 지원되는 시나리오:
 
-* [Azure PowerShell Resource Manager로 Vmm 클라우드의 Hyper-v Vm 복제](hyper-v-vmm-powershell-resource-manager.md)
-* [Azure PowerShell Resource Manager를 VMM 없이 Hyper-v Vm 복제](hyper-v-azure-powershell-resource-manager.md)
-* [PowerShell 리소스 관리자를 사용 하 여 Azure에 VMware 복제](vmware-azure-disaster-recovery-powershell.md)
+* [VMM 클라우드의 Hyper-V VM을 Azure PowerShell Resource Manager로 복제](hyper-v-vmm-powershell-resource-manager.md)
+* [Hyper-V VM을 VMM 없이 Azure PowerShell Resource Manager로 복제](hyper-v-azure-powershell-resource-manager.md)
+* [PowerShell 리소스 관리자를 사용하여 VMware에서 Azure로 복제](vmware-azure-disaster-recovery-powershell.md)
 
 ## <a name="componentprovider-upgrade"></a>구성 요소/공급자 업그레이드
 

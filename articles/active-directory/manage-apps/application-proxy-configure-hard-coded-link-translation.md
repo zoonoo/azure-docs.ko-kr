@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262553"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
@@ -148,4 +148,4 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 ## <a name="next-steps"></a>다음 단계
 동일한 내부 및 외부 URL을 사용하도록 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 사용](application-proxy-configure-custom-domain.md)
 
-[SharePoint 2013에 대 한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)
+[SharePoint 2013에 대한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)

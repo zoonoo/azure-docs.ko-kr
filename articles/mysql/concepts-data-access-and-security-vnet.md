@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006613"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Azure Database for MySQL에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
@@ -142,8 +142,8 @@ Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** �
 
 ## <a name="next-steps"></a>다음 단계
 VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
-- [Azure portal을 사용 하 여 MySQL VNet 규칙에 대 한 Azure Database를 만들고](howto-manage-vnet-using-portal.md)
-- [Azure CLI를 사용 하 여 MySQL VNet 규칙에 대 한 Azure Database를 만들고](howto-manage-vnet-using-cli.md)
+- [Azure Portal을 사용하여 Azure Database for MySQL VNet 규칙 만들기 및 관리](howto-manage-vnet-using-portal.md)
+- [Azure CLI를 사용하여 Azure Database for MySQL VNet 규칙 만들기 및 관리](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

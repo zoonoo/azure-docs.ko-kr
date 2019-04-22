@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258745"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란?
@@ -78,7 +78,7 @@ ms.locfileid: "59258745"
 
 - [Azure AD 등록 디바이스](../devices/overview.md#azure-ad-registered-devices)
 - [Azure AD 조인 디바이스](../devices/overview.md#azure-ad-joined-devices)  
-- [하이브리드 Azure AD 가입 디바이스](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [하이브리드 Azure AD 조인 디바이스](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스를 요구하는 방법](require-managed-devices.md)을 참조하세요.
 
@@ -174,9 +174,9 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 자세한 내용은 다음을 참조하세요.
 
-- [SharePoint Online을 사용 하 여 제한 된 액세스를 사용 하도록 설정](https://aka.ms/spolimitedaccessdocs)
+- [SharePoint Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/spolimitedaccessdocs)
 
-- [Exchange Online을 사용 하 여 제한 된 액세스를 사용 하도록 설정](https://aka.ms/owalimitedaccess)
+- [Exchange Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>다음 단계
 

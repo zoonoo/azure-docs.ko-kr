@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281644"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs-진단 삭제 된 알림
@@ -88,7 +88,7 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 디바이스�
 
 템플릿을 사용하는 경우 [템플릿]에 설명된 지침을 따릅니다.
 
-**잘못 된 등록**
+**잘못된 등록**
 
 알림 허브가 올바르게 구성되고 태그 또는 태그 식이 올바르게 사용된다면 유효한 대상이 발견됩니다. 이러한 대상에 알림을 보내야 합니다. 그런 다음, Notification Hubs 서비스가 여러 일괄 처리 프로세스를 병렬로 시작합니다. 각 일괄 처리는 등록 집합에 메시지를 보냅니다.
 
@@ -125,7 +125,7 @@ Notification Hubs에서 알림이 삭제의 근본 원인을 진단 하는 경�
 
 각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [Azure Notification Hubs 시작]을 참조하세요.
 
-**Azure portal**
+**Azure Portal**
 
 자격 증명을 검토하고 푸시 알림 서비스 개발자 포털에서 얻은 자격 증명과 일치시키려면 Azure Portal에서 **액세스 정책** 탭으로 이동합니다.
 
@@ -166,7 +166,7 @@ Notification Hubs에서 알림이 삭제의 근본 원인을 진단 하는 경�
 
 ### <a name="verify-message-notifications"></a>알림 메시지 확인
 
-**Azure portal**
+**Azure Portal**
 
 서비스 백 엔드를 실행하지 않고 클라이언트에 테스트 알림을 보내려면 **지원 + 문제 해결**에서 **테스트 보내기**를 선택합니다.
 
@@ -180,8 +180,8 @@ Visual Studio에서 테스트 알림을 보낼 수도 있습니다.
 
 Visual Studio 서버 탐색기에서 Notification Hubs를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Notification hubs에 대 한 장치 등록 보기]
-* [심층 분석: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]
+* [알림 허브에 대한 디바이스 등록 보기]
+* [심층 조사: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]
 * [Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>실패한 알림 디버그 및 알림 결과 검토
@@ -200,7 +200,7 @@ REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-**예 (.NET SDK)**
+**예(.NET SDK)**
 
 다음은 .NET SDK를 사용하여 네이티브 팝업(토스트 알림) 알림을 보내는 예제입니다.
 
@@ -243,7 +243,7 @@ The Token obtained from the Token Provider is wrong
 
 ### <a name="review-telemetry"></a>원격 분석 검토
 
-**Azure portal**
+**Azure Portal**
 
 포털에서 알림 허브의 모든 활동에 대한 간략한 개요를 확인할 수 있습니다.
 
@@ -288,8 +288,8 @@ The Token obtained from the Token Provider is wrong
 [FCM 메시지 정보]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Notification hubs에 대 한 장치 등록 보기]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[심층 분석: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[알림 허브에 대한 디바이스 등록 보기]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[심층 조사: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
 [Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [프로그래밍 방식 원격 분석 액세스]: https://msdn.microsoft.com/library/azure/dn458823.aspx

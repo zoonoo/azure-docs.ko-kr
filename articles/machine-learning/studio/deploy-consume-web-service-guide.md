@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
 ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359643"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio 웹 서비스: 배포 및 사용
@@ -37,7 +37,7 @@ Studio 포털 및 Microsoft Azure Machine Learning 웹 서비스 포털에서 �
 * 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
 
   * [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)
-  * [여러 지역에 웹 서비스를 배포 하는 방법](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [여러 지역에 웹 서비스를 배포하는 방법](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>웹 서비스 리소스 공급자 API(Azure Resource Manager API) 사용
 
@@ -96,7 +96,7 @@ Azure Machine Learning 웹 서비스 포털에서 웹 서비스를 테스트할 
 웹 서비스를 사용하는 Excel 템플릿을 다운로드할 수 있습니다.
 
 * [Excel에서 Azure Machine Learning 웹 서비스 사용](consuming-from-excel.md)
-* [Excel 용 추가 기능에서 Azure Machine Learning 웹 서비스](excel-add-in-for-web-services.md)
+* [Azure Machine Learning 웹 서비스용 Excel 추가 기능](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>REST 기반 클라이언트에서
 

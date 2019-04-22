@@ -16,10 +16,10 @@ ms.date: 03/28/2019
 ms.author: pbutlerm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009737"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Fulfillment Api 버전 1 (사용 되지 않음)
@@ -191,7 +191,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 엔드포인트 변경을 통해 현재 구독한 요금제를 새 요금제로 변환할 수 있습니다.
 
-**패치**
+**PATCH**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
@@ -255,7 +255,7 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 *요청*
 
-**삭제**
+**DELETE**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 

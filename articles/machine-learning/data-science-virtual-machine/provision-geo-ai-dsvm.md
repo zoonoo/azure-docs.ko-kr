@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008841"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure에서 지역 인공 지능 Virtual Machine 프로비전 
@@ -95,4 +95,4 @@ ArcGIS 계정을 사용하여 ArcGIS Pro 데스크톱에 로그인하면 지리 
 
 다음 항목의 지침을 따라 지역 AI 데이터 과학 VM을 사용하기 시작합니다.
 
-* [지리적 AI 데이터 과학 VM 사용](use-geo-ai-dsvm.md)
+* [지역 AI 데이터 과학 VM 사용](use-geo-ai-dsvm.md)

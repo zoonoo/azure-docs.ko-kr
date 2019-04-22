@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009371"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
@@ -80,7 +80,7 @@ HANA 큰 인스턴스 단위의 목록에서 단일 장치를 클릭 하 고 단
 해당 특성이 표시 된 다른 특성을 보고 Azure VM 특성 보다 거의 다르게 보입니다. 왼쪽에 있는 머리글을 추가 하는 몇 가지 태그 뿐만 아니라 리소스 그룹, Azure 지역, 구독 이름 및 ID 표시 됩니다. 기본적으로 HANA 큰 인스턴스 단위 경우 할당 된 태그가 없습니다. 헤더의 오른쪽에 배포가 완료 된 경우 할당 단위의 이름을 나열 됩니다. 운영 체제와 함께 IP 주소가 표시 됩니다. 로 CPU의 수를 사용 하 여 HANA 큰 인스턴스 단위를 입력 하는 Vm을 사용 하 여 스레드 및 메모리 같습니다도 합니다. 서로 다른 HANA 큰 인스턴스 단위에 대 한 자세한 내용은 다음과 같습니다.
 
 - [HLI에 사용 가능한 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [SAP HANA(대규모 인스턴스) 저장소 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [SAP HANA (큰 인스턴스) 저장소 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 헤더의 오른쪽 열에서 추가 필드를 HANA 큰 인스턴스 단위의 전원 상태를 알립니다.
 
@@ -149,6 +149,6 @@ HANA 큰 인스턴스 단위의 Azure 포털 표시에서 HANA 큰 인스턴스 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 SAP HANA(대규모 인스턴스)를 모니터링하는 방법](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [Azure의 SAP HANA (큰 인스턴스)를 모니터링 하는 방법](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 - [HANA 쪽에서 모니터링 및 문제 해결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
 

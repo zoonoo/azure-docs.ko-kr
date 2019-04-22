@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360286"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Hyper-V와 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보
@@ -57,7 +57,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 * 각 일괄 처리를 보호할 순서
 * 각 일괄 처리에 대한 초기 복제 완료 예상 시간
 
-**DR Azure로 예상 비용**
+**Azure로 DR에 대한 예상 비용**
 * Azure로 DR에 대한 총 예상 비용: 계산, 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용
 * VM별 자세한 비용 분석
 
@@ -70,7 +70,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 ## <a name="support-matrix"></a>지원 매트릭스
 
-| | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-v에서 보조 사이트로**|**VMware에서 보조 사이트로**
+| | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
 지원되는 시나리오 |예|예|아닙니다.|예*|아닙니다.
 지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
@@ -84,7 +84,7 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 
 | 서버 요구 사항 | 설명 |
 |---|---|
-|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>머신 구성: 8개 vCPU, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Visual Studio 2012 용 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>도구를 실행 중인 클라이언트 VM의 TrustedHosts 목록에 프로파일링할 모든 Hyper-V 서버를 추가해야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
+|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>머신 구성: 8개 vCPU, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>도구를 실행 중인 클라이언트 VM의 TrustedHosts 목록에 프로파일링할 모든 Hyper-V 서버를 추가해야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
 | 보고서 생성 | Microsoft Excel 2013 이상을 포함한 모든 Windows PC 또는 Windows Server |
 | 사용자 권한 | VM 목록 가져오기 및 프로파일링 작업을 수행하는 동안 Hyper-V 클러스터/Hyper-V 호스트에 액세스하기 위한 관리자 계정입니다.<br>프로파일링해야 하는 모든 호스트에는 자격 증명(예: 사용자 이름 및 암호)이 동일한 도메인 관리자 계정이 있어야 합니다.
  |

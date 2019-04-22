@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360787"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
@@ -297,25 +297,25 @@ Invoke-AzHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedCon
 azure storage blob
 ```
 
-**클래식 Azure CLI를 사용 하 여 파일을 업로드 하는 예제**
+**파일을 업로드하기 위해 Azure 클래식 CLI를 사용하는 예제**
 
 ```cli
 azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**클래식 Azure CLI를 사용 하 여 파일을 다운로드 하는 예제**
+**파일을 다운로드하기 위해 Azure 클래식 CLI를 사용하는 예제**
 
 ```cli
 azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**클래식 Azure CLI를 사용 하 여 파일을 삭제 하는 예제**
+**파일을 삭제하기 위해 Azure 클래식 CLI를 사용하는 예제**
 
 ```cli
 azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 ```
 
-**Azure 클래식 CLI를 사용 하 여 목록 파일의 예**
+**파일을 나열하기 위해 Azure 클래식 CLI를 사용하는 예제**
 
 ```cli
 azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
@@ -335,7 +335,7 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 자세한 내용은 다음을 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
-* [Azure Data Lake Storage 시작하기](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Azure Data Lake Storage 시작](../data-lake-store/data-lake-store-get-started-portal.md).
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]

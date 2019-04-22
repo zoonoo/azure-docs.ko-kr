@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267149"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
@@ -131,7 +131,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
 ## <a name="next-steps"></a>다음 단계
 * [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)
-* [사용자 지정 도메인에 CDN 콘텐츠를 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
+* [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](../cdn/cdn-map-content-to-custom-domain.md)
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
@@ -141,6 +141,6 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

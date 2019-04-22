@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357632"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
@@ -26,8 +26,8 @@ ms.locfileid: "59357632"
 
 다음에 나오는 내용은 서로 다른 언어 및 환경을 대상으로 하는 두 가지 섹션으로 분할됩니다. 테스트를 빌드하는 방법은 다음을 참조하세요.
 
-- [C#xUnit 사용한 Visual Studio에서](#c-in-visual-studio)
-- [Jest 사용 하 여 VS Code의 JavaScript](#javascript-in-vs-code)
+- [xUnit을 사용한 Visual Studio의 C#](#c-in-visual-studio)
+- [Jest를 사용한 VS Code의 JavaScript](#javascript-in-vs-code)
 
 샘플 리포지토리는 [GitHub](https://github.com/Azure-Samples/azure-functions-tests)에서 사용할 수 있습니다.
 

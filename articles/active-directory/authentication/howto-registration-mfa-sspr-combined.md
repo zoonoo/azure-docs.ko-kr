@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280573"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>보안 정보 등록 결합 사용 (미리 보기)
@@ -57,6 +57,6 @@ Internet Explorer에서 사이트 할당 목록 영역을 구성한 경우 다�
 
 [셀프 서비스 암호 재설정 구성](howto-sspr-deployment.md)
 
-[Azure Multi-Factor Authentication 구성](howto-mfa-getstarted.md)
+[Azure Multi-factor Authentication 구성](howto-mfa-getstarted.md)
 
 [결합 된 보안 정보 등록 문제 해결](howto-registration-mfa-sspr-combined-troubleshoot.md)

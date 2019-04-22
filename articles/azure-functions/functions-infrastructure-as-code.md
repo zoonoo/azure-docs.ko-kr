@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270906"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
@@ -27,8 +27,8 @@ Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있
 템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하십시오.
 
 샘플 템플릿은 다음을 참조하세요.
-- [소비 계획에서 함수 앱]
-- [Azure App Service 계획에서 함수 앱]
+- [소비 계획의 함수 앱]
+- [Azure App Service 계획의 함수 앱]
 
 > [!NOTE]
 > Azure Functions 호스팅에 대 한 프리미엄 요금제는 현재 미리 보기 중입니다. 자세한 내용은 [Azure Functions 프리미엄 요금제](functions-premium-plan.md)합니다.
@@ -645,7 +645,7 @@ Linux 앱도 포함 됩니다는 `linuxFxVersion` 아래의 속성 `siteConfig`�
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
@@ -669,10 +669,10 @@ HTML을 사용하는 예는 다음과 같습니다.
 Azure Functions를 개발하고 구성하는 방법에 대해 자세히 알아봅니다.
 
 * [Azure Functions 개발자 참조](functions-reference.md)
-* [Azure 함수 앱 설정을 구성 하는 방법](functions-how-to-use-azure-function-app-settings.md)
-* [첫 번째 Azure function 만들기](functions-create-first-azure-function.md)
+* [Azure 함수 앱 설정을 구성하는 방법](functions-how-to-use-azure-function-app-settings.md)
+* [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 
-[소비 계획에서 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Azure App Service 계획에서 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[소비 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[Azure App Service 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

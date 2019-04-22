@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279978"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
@@ -76,8 +76,8 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{YourMG}` -관리 그룹의 이름으로 대체 합니다.
-- `{subscriptionId}` -구독 ID로 대체 합니다.
+- `{YourMG}` - 사용자의 관리 그룹 이름으로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
 
 ##### <a name="blueprint-level-parameter"></a>청사진 수준 매개 변수
 

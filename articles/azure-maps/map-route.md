@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: codepen
 ms.openlocfilehash: b8205383c25ba04212126e0e6ca1bd44e4efad1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264525"
 ---
 # <a name="show-directions-from-a-to-b"></a>A에서 B로의 방향 표시
@@ -29,7 +29,7 @@ ms.locfileid: "59264525"
 
 위의 코드에서 첫 번째 코드 블록은 map 개체를 생성 하 고 구독 키를 사용 하는 인증 메커니즘을 설정 합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록을 만듭니다는 `SubscriptionKeyCredentialPolicy` 구독 키를 사용 하 여 Azure Maps로 HTTP 요청을 인증 합니다. `atlas.service.MapsURL.newPipeline()` 에서는 합니다 `SubscriptionKeyCredential` 정책을 만들고를 [파이프라인](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스. 합니다 `routeURL` Azure Maps로 URL을 나타내는 [경로](https://docs.microsoft.com/rest/api/maps/route) 작업 합니다.
+두 번째 코드 블록을 만듭니다는 `SubscriptionKeyCredentialPolicy` 구독 키를 사용 하 여 Azure Maps로 HTTP 요청을 인증 합니다. `atlas.service.MapsURL.newPipeline()`은 `SubscriptionKeyCredential` 정책을 인식하고 [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) 인스턴스를 만듭니다. `routeURL`은 Azure Maps [경로](https://docs.microsoft.com/rest/api/maps/route) 작업에 대한 URL을 나타냅니다.
 
 세 번째 코드 블록을 만들고 추가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 지도 개체입니다.
 
@@ -79,4 +79,4 @@ ms.locfileid: "59264525"
 > [맵에 트래픽 표시](./map-show-traffic.md)
 
 > [!div class="nextstepaction"]
-> [맵-마우스 이벤트와 상호 작용](./map-events.md)
+> [맵 - 마우스 이벤트 상호 작용](./map-events.md)

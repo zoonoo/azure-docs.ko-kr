@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050947"
 ---
 # <a name="symmetric-key-attestation"></a>대칭 키 증명
@@ -49,7 +49,7 @@ SAS 토큰은 다음과 같은 형식입니다.
 | 값 | 설명 |
 | --- | --- |
 | {signature} |HMAC-SHA256 서명 문자열입니다. 개별 등록의 경우 이 서명은 대칭 키(기본 또는 보조)를 사용하여 해시를 수행함으로써 생성됩니다. 등록 그룹의 경우, 등록 그룹 키에서 파생된 키가 해시를 수행하는 데 사용됩니다. 해시는 `URL-encoded-resourceURI + "\n" + expiry` 형식의 메시지에서 수행됩니다. **중요**: HMAC-SHA256 계산을 수행 하는 사용 하기 전에 키 base64에서 디코딩할 수 해야 합니다. 또한 서명 결과는 URL로 인코딩되어야 합니다. |
-| {resourceURI} |Device Provisioning Service 인스턴스의 범위 ID로 시작되는, 이 토큰으로 액세스할 수 있는 등록 엔드포인트의 URI입니다. 예를 들면 다음과 같습니다. `{Scope ID}/registrations/{Registration ID}` |
+| {resourceURI} |Device Provisioning Service 인스턴스의 범위 ID로 시작되는, 이 토큰으로 액세스할 수 있는 등록 엔드포인트의 URI입니다. 예를 들어 `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
 | {URL-encoded-resourceURI} |소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 대칭 키 증명이 있는 프로비저닝이 **등록**인 경우 사용되는 정책 이름입니다. |
@@ -115,5 +115,5 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 대칭 키 증명에 대해 이해했으면, 다음 문서에서 자세한 내용을 확인해보십시오.
 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* [자동 프로 비전 개념](./concepts-auto-provisioning.md)
-* [자동 프로 비전을 사용 하 여 시작](./quick-setup-auto-provision.md) 
+* [자동 프로비전의 개념에 대해 알아보기](./concepts-auto-provisioning.md)
+* [자동 프로비전 사용 시작](./quick-setup-auto-provision.md) 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
 ms.openlocfilehash: f718e57e257a79a18ad4d0b6b47c10f855b6db60
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007007"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
@@ -201,8 +201,8 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 - **Azure Monitor 로그**: 향상된 인사이트에 대해 [네트워크 보안 그룹 분석](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) 솔루션을 사용할 수 있습니다. 솔루션은 가상 머신에서 네트워크 인터페이스의 MAC 주소당 트래픽을 허용하거나 거부하는 NSG 규칙에 대한 시각화를 제공합니다.
 - **Azure Storage 계정**: PT1H.json 파일에 데이터가 기록됩니다. 다음을 찾을 수 있습니다.
-  - 다음 경로에 대 한 이벤트 로그: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-  - 다음 경로에 대 한 규칙 카운터 로그: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - 다음 경로에서 이벤트 로그: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - 다음 경로에서 규칙 카운터 로그: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>다음 단계
 

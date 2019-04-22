@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012952"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Azure portal을 사용 하 여 대규모로 자동 IoT 장치 관리
@@ -202,14 +202,14 @@ SELECT deviceId FROM devices
 
 이 문서에서는 구성 및 크기 조정 시 IoT 장치를 모니터링 하는 방법을 알아보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-* [대량으로 IoT Hub 디바이스 ID를 관리합니다.](iot-hub-bulk-identity-mgmt.md)
+* [대량으로 IoT Hub 장치 ID 관리](iot-hub-bulk-identity-mgmt.md)
 * [IoT Hub 메트릭](iot-hub-metrics.md)
 * [작업 모니터링](iot-hub-operations-monitoring.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용 하 여 AI를에 지 장치로 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 

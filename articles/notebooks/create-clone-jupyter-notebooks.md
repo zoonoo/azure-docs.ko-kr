@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282324"
 ---
 # <a name="create-and-clone-projects"></a>프로젝트 만들기 및 복제
@@ -30,7 +30,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 `https://notebooks.azure.com/<userID>/projects`의 **내 프로젝트** 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
 
-[![MAzure Notebooks의 y 프로젝트 대시보드](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Azure Notebooks의 내 프로젝트 대시보드](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 사용자 ID를 소유한 계정으로 로그인하는지 여부에 따라 대시보드에서 할 수 있는 일이 달라집니다.
 
@@ -42,7 +42,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 | **삭제** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 취소할 수 없습니다. |
 | **터미널** | 소유자 | 프로젝트 서버를 시작한 다음, 해당 서버에 대한 bash 터미널을 사용하여 새 브라우저 창을 엽니다. |
 | **+ 새 프로젝트** | 소유자 | 새 프로젝트를 만듭니다. [새 프로젝트 만들기](#create-a-new-project)를 참조하세요. |
-| **GitHub 리포지토리를 업로드 합니다.** | 소유자 | GitHub에서 프로젝트를 가져옵니다. [GitHub에서 프로젝트를 가져옵니다](#import-a-project-from-github). |
+| **GitHub 리포지토리 업로드** | 소유자 | GitHub에서 프로젝트를 가져옵니다. [GitHub에서 프로젝트를 가져옵니다](#import-a-project-from-github). |
 | **복제** | 모든 사람 | 선택한 프로젝트를 사용자 고유의 계정에 복사합니다. 사용자가 아직 로그인하지 않은 경우 로그인하라는 메시지를 표시합니다. [프로젝트 복제](#clone-a-project)를 참조하세요. |
 
 ### <a name="obtain-a-launch-badge"></a>시작 배지 얻기
@@ -120,9 +120,9 @@ GitHub에서 리포지토리를 가져오면 해당 기록도 함께 가져옵�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [샘플 노트북을 탐색](azure-notebooks-samples.md)
-- [방법: 구성 및 프로젝트 관리](configure-manage-azure-notebooks-projects.md)
-- [방법: 노트 내에서 패키지 설치](install-packages-jupyter-notebook.md)
+- [샘플 Notebook 살펴보기](azure-notebooks-samples.md)
+- [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
+- [방법: Notebook에서 패키지 설치](install-packages-jupyter-notebook.md)
 - [방법: 슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
 - [방법: 데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)

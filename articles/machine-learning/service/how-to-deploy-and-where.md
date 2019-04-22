@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280896"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
@@ -621,7 +621,7 @@ Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge �
 
 장치를 등록 하는 다른 방법은 다음과 같습니다.
 
-* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
 * [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
@@ -645,11 +645,11 @@ Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge �
 
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
-* [ML 모델을 웹 서비스로 배포 사용](how-to-consume-web-service.md)
-* [일괄 처리 예측을 실행 하는 방법](how-to-run-batch-predictions.md)
+* [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
+* [일괄 처리 예측 실행 방법](how-to-run-batch-predictions.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
-* [Azure Machine Learning 서비스 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Azure Machine Learning 서비스를 사용 하 여 Azure Virtual Network를 사용 하 여](how-to-enable-virtual-network.md)
-* [추천 시스템을 구축 하기 위한 모범 사례](https://github.com/Microsoft/Recommenders)
+* [Azure Machine Learning Service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)
+* [추천 시스템 빌드 모범 사례](https://github.com/Microsoft/Recommenders)
 * [Azure에서 실시간 추천 API 빌드](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359034"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
@@ -107,21 +107,21 @@ VM을 수동으로 추가하려면:
 
 1. 이 구성과 일치하는 대략적인 VM 크기 및 VM 수에 따라 다음 열을 채웁니다. 
 
-    a. **Vm 수**
+    a. **VM 수**
 
-    b. **IaaS 크기 (선택)**
+    b. **IaaS 크기(선택)**
 
-    다. **표준/프리미엄 저장소 유형**
+    다. **저장소 유형(표준/프리미엄)**
 
     d. **VM 총 저장소 크기(GB)**
 
-    e. **연간에서 DR 드릴 횟수**
+    e. **연간 DR 드릴 횟수**
 
-    f. **각 DR 드릴 기간 (일)**
+    f. **각 DR 드릴 기간(일)**
 
     g. **OS 종류**
 
-    h. **데이터 중복**
+    h. **데이터 중복성**
 
     i. **AHUB(Azure Hybrid Use Benefit)**
 

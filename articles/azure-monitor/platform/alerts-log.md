@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006943"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
@@ -119,7 +119,7 @@ ms.locfileid: "59006943"
     > 로그 경고 규칙은 사용자가 제공한 사용자 지정 쿼리 기반 논리로 구성되므로 확인된 상태를 사용하지 않습니다. 로그 경고 규칙에 지정된 조건이 충족되므로 해당 경고 규칙이 발생합니다.
 
 1. 위쪽 표시줄에서 **규칙 관리** 단추를 선택하여 규칙 관리 섹션으로 이동합니다. 여기에 비활성화된 경고를 포함한 만들어진 모든 경고 규칙이 나열됩니다.
-    ![ 경고 규칙 관리](media/alerts-log/manage-alert-rules.png)
+    ![경고 규칙 관리](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 로그 경고 관리
 

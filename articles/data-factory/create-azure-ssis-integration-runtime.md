@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361479"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS Integration Runtime 만들기
@@ -33,7 +33,7 @@ ms.locfileid: "59361479"
 
 이 문서에서는 Azure-SSIS IR을 프로비전하는 다양한 방법을 보여줍니다.
 
-- [Azure portal](#azure-portal)
+- [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure Resource Manager 템플릿](#azure-resource-manager-template)
 
@@ -69,7 +69,7 @@ ADF 및 Azure-SSIS IR이 현재 사용 가능한 Azure 지역의 목록은 [지�
 | 기능 | 단일 데이터베이스/탄력적 풀| 관리되는 인스턴스 |
 |---------|--------------|------------------|
 | **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[ADF 파이프라인의 패키지 실행 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
-| **Authentication** | ADF의 관리 ID를 사용하여 모든 AAD 그룹을 **db_owner** 역할의 구성원으로 나타내는 포함된 데이터베이스 사용자로 SSISDB를 만들 수 있습니다.<br/><br/>[Azure SQL Database 서버의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | ADF의 관리 ID를 나타내는 포함된 데이터베이스 사용자를 통해 SSISDB를 만들 수 있습니다. <br/><br/>[Azure SQL Database Managed Instance의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
+| **인증** | ADF의 관리 ID를 사용하여 모든 AAD 그룹을 **db_owner** 역할의 구성원으로 나타내는 포함된 데이터베이스 사용자로 SSISDB를 만들 수 있습니다.<br/><br/>[Azure SQL Database 서버의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | ADF의 관리 ID를 나타내는 포함된 데이터베이스 사용자를 통해 SSISDB를 만들 수 있습니다. <br/><br/>[Azure SQL Database Managed Instance의 SSISDB 생성을 위한 Azure AD 인증 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
 | **서비스 계층** | Azure SQL Database 서버를 통해 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | Managed Instance를 통해 Azure-SSIS IR을 만들 때는 SSISDB의 서비스 계층을 선택할 수 없습니다. Managed Instance의 모든 데이터베이스는 해당 인스턴스에 할당된 동일한 리소스를 공유합니다. |
 | **가상 네트워크** | 가상 네트워크 서비스 엔드포인트가 포함된 Azure SQL Database 서버를 사용하거나 온-프레미스 데이터 저장소에 액세스해야 하는 경우 Azure-SSIS IR에서 조인할 Azure Resource Manager 가상 네트워크만 지원됩니다. | Azure-SSIS IR에서 조인할 Azure Resource Manager 가상 네트워크만 지원됩니다. 가상 네트워크는 항상 필요합니다.<br/><br/>Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우 Azure-SSIS IR은 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링 또는 가상 네트워크 간 연결을 사용하는 것이 좋습니다. [애플리케이션을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요. |
 | **분산 트랜잭션** | 탄력적 트랜잭션을 통해 지원됩니다. MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. SSIS 패키지가 MSDTC를 사용하여 분산형 트랜잭션을 조정할 경우 Azure SQL Database용 탄력적 트랜잭션으로 마이그레이션하는 것을 고려하세요. 자세한 내용은 [클라우드 데이터베이스의 분산 트랜잭션](../sql-database/sql-database-elastic-transactions-overview.md)을 참조하세요. | 지원되지 않습니다. |

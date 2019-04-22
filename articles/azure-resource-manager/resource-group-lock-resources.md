@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360434"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기 
@@ -71,12 +71,12 @@ Resource Manager 템플릿을 사용 하 여 잠금을 배포를 이름 및 범�
 잠금을 적용 하는 경우를 **리소스**, 다음 형식을 사용 합니다.
 
 * name - `{resourceName}/Microsoft.Authorization/{lockName}`
-* 입력- `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 잠금을 적용 하는 경우를 **리소스 그룹** 또는 **구독**, 다음 형식을 사용 합니다.
 
 * name - `{lockName}`
-* 입력- `Microsoft.Authorization/locks`
+* type - `Microsoft.Authorization/locks`
 
 다음 예제에서는 웹 사이트에 App Service 계획, 웹 사이트 및 잠금을 만드는 템플릿을 보여 줍니다. 잠금의 리소스 종류는 잠그려는 리소스의 리소스 종류로, **입니다**. 잠금의 이름은 리소스 이름을 **/Microsoft.Authorization/** 과 연결하여 만들어집니다.
 

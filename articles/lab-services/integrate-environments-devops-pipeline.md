@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357396"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>환경에 Azure DevOps CI/CD 파이프라인 통합
@@ -62,7 +62,7 @@ Azure DevTest Labs를 사용 하 여 CI/CD 파이프라인에 통합 하려면, 
 4. 에 대 한 **템플릿 이름**, 프로그램 소스 코드 리포지토리 * 저장 환경의 이름을 선택 합니다. 
 5. 합니다 **랩 이름**를 **리포지토리 이름**, 및 **템플릿 이름** Azure 리소스 Id의 친숙 한 표시 합니다. 이름을 수동으로 입력 오류를 발생 시킬을 드롭 다운 목록을 사용 하 여 정보를 선택 합니다.
 6. 에 대 한 **환경 이름**, 랩 내에서 환경 인스턴스를 고유 하 게 식별 하는 이름을 입력 합니다.  랩 내에서 고유 해야 합니다.
-7. 합니다 **매개 변수 파일** 하며 **매개 변수**, 환경에 전달할 사용자 지정 매개 변수를 허용 합니다. 하나 또는 둘 다 매개 변수 값을 설정할 수 있습니다. 예를 들어 매개 변수 섹션 사용 됩니다. 다음 예와 같이 환경에서 정의한 변수의 이름을 사용합니다. `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
+7. 합니다 **매개 변수 파일** 하며 **매개 변수**, 환경에 전달할 사용자 지정 매개 변수를 허용 합니다. 하나 또는 둘 다 매개 변수 값을 설정할 수 있습니다. 예를 들어 매개 변수 섹션 사용 됩니다. 예를 들어 환경에 정의 된 변수의 이름을 사용 합니다. `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
 8. 템플릿의 출력 섹션에서 환경 템플릿 내에서 정보를 통해 전달할 수 있습니다. 확인할 **환경 템플릿 출력을 기반으로 하는 Create 출력 변수** 태스크에서 데이터를 사용할 수 있도록 합니다. `$(Reference name.Output Name)` 패턴에 따라입니다. 예를 들어, 참조 이름 DTL 이며 템플릿에서 출력 이름을 위치 하는 경우 변수 것 `$(DTL.location)`입니다.
 
 ## <a name="delete-the-environment"></a>환경 삭제

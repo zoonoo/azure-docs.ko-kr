@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360643"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
@@ -236,9 +236,9 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 ## <a name="next-steps"></a>다음 단계
 
-[조직에 대 한 셀프 서비스 암호를 사용 하도록 설정](quickstart-sspr.md)
+[조직에 대해 셀프 서비스 암호 재설정을 사용하도록 설정](quickstart-sspr.md)
 
-[조직에 대 한 Azure Multi-factor Authentication을 사용 하도록 설정](howto-mfa-getstarted.md)
+[조직에 Azure Multi-Factor Authentication을 사용하도록 설정](howto-mfa-getstarted.md)
 
 [테 넌 트의 결합 된 등록을 사용 하도록 설정](howto-registration-mfa-sspr-combined.md)
 

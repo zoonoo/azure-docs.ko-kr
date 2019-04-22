@@ -12,10 +12,10 @@ author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
 ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259187"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 및 Azure Machine Learning: 상호 운용 가능한 AI 모델 만들기 및 배포
@@ -37,7 +37,7 @@ ONNX 모델을 시각화하고 더 빠르게 작성하기 위한 도구 에코�
 
 Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX 모델을 배포](#deploy)할 수 있습니다. [Windows ML](https://docs.microsoft.com/windows/ai/)을 사용해 Windows 10 디바이스로 ONNX 모델을 배포할 수도 있습니다. ONNX 커뮤니티에서 제공되는 변환기를 사용하면 다른 플랫폼으로도 배포가 가능합니다. 
 
-[![O교육, 변환기 및 배포를 보여 주는 NNX 흐름 다이어그램](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[![교육, 변환기 및 배포를 보여 주는 ONNX 흐름 다이어그램](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>ONNX 모델 가져오기
 
@@ -54,7 +54,7 @@ Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX �
 |모델에 대한 프레임워크|변환 예제 또는 도구|
 |-----|-------|
 |PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|TensorFlow|[tensorflow onnx 변환기](https://github.com/onnx/tensorflow-onnx)|
+|TensorFlow|[tensorflow-onnx 변환기](https://github.com/onnx/tensorflow-onnx)|
 |Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
 |MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit-Learn, CoreML<br/>XGBoost 및 libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
@@ -208,9 +208,9 @@ ONNX 모델을 만들고 배포하는 예제 노트는 [how-to-use-azureml/deplo
 ONNX에 대해 자세히 알아보거나 프로젝트에 참가합니다.
 + [ONNX 프로젝트 웹 사이트](https://onnx.ai)
 
-+ [GitHub에서 ONNX 코드](https://github.com/onnx/onnx)
++ [GitHub의 ONNX 코드](https://github.com/onnx/onnx)
 
 ONNX Runtime에 대해 자세히 알아보거나 프로젝트에 참가합니다.
-+ [ONNX 런타임 GitHub 리포지토리](https://github.com/Microsoft/onnxruntime)
++ [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
 
 

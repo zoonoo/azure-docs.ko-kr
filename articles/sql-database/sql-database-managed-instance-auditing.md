@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357431"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리되는 인스턴스 감사 시작
@@ -60,7 +60,7 @@ ms.locfileid: "59357431"
 
         ![Blob 컨테이너 속성 단추](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. 복사 아이콘을 클릭하여 컨테이너 URL을 복사하고 나중에 사용할 수 있도록 메모장 등에서 URL을 저장합니다. 컨테이너 URL 형식 이어야 합니다. `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. 복사 아이콘을 클릭하여 컨테이너 URL을 복사하고 나중에 사용할 수 있도록 메모장 등에서 URL을 저장합니다. 컨테이너 URL 형식은 `https://<StorageName>.blob.core.windows.net/<ContainerName>`이어야 합니다.
 
         ![Blob 컨테이너 URL 복사](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "59357431"
 
 추가 정보는 다음을 참조하세요.
 
-- [Azure SQL Database 및 SQL Server에서 데이터베이스의 단일 데이터베이스, 탄력적 풀, s 및 관리 되는 인스턴스 간의 감사 차이점](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Azure SQL Database 및 SQL Server의 데이터베이스에서 단일 데이터베이스, 탄력적 풀 및 관리되는 인스턴스 간의 감사 차이점](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -237,7 +237,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 - 새로운 구문 `TO EXTERNAL MONITOR` 도 허브 및 Azure Monitor 로그 대상으로 사용할 수 있도록 제공 됩니다.
 - SQL Database에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 **지원되지 않습니다**.
 - 종료 옵션은 **지원되지 않습니다**.
-- `queue_delay` 0은 **지원 되지 않습니다**합니다.
+- `queue_delay` 0은 **지원되지 않습니다**.
 
 ## <a name="next-steps"></a>다음 단계
 

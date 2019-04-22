@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278567"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱스 정책
@@ -71,6 +71,6 @@ Azure Cosmos DB에서는 언제든지 컨테이너의 인덱싱 정책을 업데
 다음 문서에서 인덱싱에 대해 자세히 알아보세요.
 
 * [인덱싱 개요](index-overview.md)
-* [인덱스 형식](index-types.md)
+* [인덱싱 형식](index-types.md)
 * [인덱스 경로](index-paths.md)
-* [인덱싱 정책을 관리 하는 방법](how-to-manage-indexing-policy.md)
+* [인덱싱 정책을 관리하는 방법](how-to-manage-indexing-policy.md)

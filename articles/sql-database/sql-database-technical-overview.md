@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358342"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스란 무엇입니까
@@ -254,10 +254,10 @@ SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database �
 - 단일 데이터베이스 및 탄력적 풀의 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 - 이러한 빠른 시작을 참조하여 다음 항목을 시작하세요.
 
-  - [Azure portal에서 SQL database 만들기](sql-database-single-database-get-started.md)  
-  - [Azure CLI를 사용 하 여 SQL database 만들기](sql-database-get-started-cli.md)
-  - [PowerShell을 사용 하 여 SQL database 만들기](sql-database-get-started-powershell.md)
+  - [Azure Portal에서 SQL Database 만들기](sql-database-single-database-get-started.md)  
+  - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-get-started-cli.md)
+  - [PowerShell을 사용하여 SQL Database 만들기](sql-database-get-started-powershell.md)
 
 - 일련의 Azure CLI 및 PowerShell 샘플은 다음을 참조하세요.
-  - [SQL Database에 대 한 azure CLI 샘플](sql-database-cli-samples.md)
-  - [SQL Database에 대 한 azure PowerShell 샘플](sql-database-powershell-samples.md)
+  - [SQL Database에 대한 Azure CLI 샘플](sql-database-cli-samples.md)
+  - [SQL Database에 대한 Azure PowerShell 샘플](sql-database-powershell-samples.md)

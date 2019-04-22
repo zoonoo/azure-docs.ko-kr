@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006746"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
@@ -137,7 +137,7 @@ Security Center가 만든 작업 영역을 선택하려면:
     a.  Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
      
     b.  목록의 원하는 구독에 대한 설정 열에서 **설정 편집**을 클릭하여 에이전트를 연결하려는 원하는 작업 영역을 선택합니다.
-        ![작업 영역 선택][8] c입니다. 가격 책정 계층을 설정합니다.
+        ![작업 영역 선택][8] c. 가격 책정 계층을 설정합니다.
         ![가격 책정 계층 선택][9] 
    
    >[!NOTE]
@@ -263,9 +263,9 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
 
 4. Resource Manager 템플릿을 사용하여 새 VM에 에이전트를 배포하려면 OMS 가상 머신 확장을 설치합니다.
 
-   a.  [Windows 용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-windows.md)
+   a.  [Windows용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Linux 용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-linux.md)
+   b.  [Linux용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-linux.md)
 5. 기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다.
 
    > [!NOTE]

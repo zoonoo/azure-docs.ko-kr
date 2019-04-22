@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360808"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure에서 적절한 SQL Server 옵션 선택
@@ -66,7 +66,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 여러 데이터베이스를 프로비전 및 관리하는 전체 관리 비용을 최소한으로 줄이는 데 최적화되어 있습니다. 가상 머신, 운영 체제 또는 데이터베이스 소프트웨어를 관리할 필요가 없으므로 지속적인 관리 비용을 줄입니다. 업그레이드, 고가용성 또는 [백업](sql-database-automated-backups.md)을 관리할 필요가 없습니다. 일반적으로 Azure SQL Database는 단일 IT 또는 개발 리소스로 관리되는 데이터베이스 수를 크게 늘립니다. 또한 [탄력적 풀](sql-database-elastic-pool.md)은 테넌트 격리, 데이터베이스 간에 리소스를 공유하여 비용을 줄이는 기능을 비롯한 기능으로 SaaS 다중 테넌트 애플리케이션 아키텍처를 지원합니다. [관리되는 인스턴스](sql-database-managed-instance.md)는 데이터베이스 간에 리소스를 공유하는 기능뿐만 아니라 기존 애플리케이션을 쉽게 마이그레이션할 수 있게 해주는 인스턴스 범위 기능을 지원합니다.
 
-- **Azure Vm에서 실행 중인 SQL Server**
+- **Azure VM에서 실행되는 SQL Server**
 
 기존 애플리케이션을 Azure로 마이그레이션하거나 기존 온-프레미스 애플리케이션을 하이브리드 배포의 클라우드로 확장하는 데 최적화됩니다. 또한 가상 머신에서 SQL Server를 사용하여 기존 SQL Server 애플리케이션을 개발하고 테스트할 수 있습니다. Azure VM의 SQL Server를 사용할 경우 전용 SQL Server 인스턴스와 클라우드 기반 VM에 대한 모든 관리 권한을 갖습니다. 이 옵션은 가상 머신을 유지 관리하는 IT 리소스를 이미 갖춘 조직에게 가장 적합합니다. 이러한 기능을 사용하면 애플리케이션 관련 성능 및 가용성 요구 사항을 해결하는 고도로 사용자 지정된 시스템을 구축할 수 있습니다.
 
@@ -74,13 +74,13 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 | | SQL Database 단일 데이터베이스 및 탄력적 풀 | SQL Database 관리되는 인스턴스 |SQL Server를 사용하는 Azure 가상 머신 |
 | --- | --- | --- |---|
-| **적합한 환경:** |개발 및 마케팅에서 시간 제약 조건이 있고 안정적인 최신 SQL Server 기능을 사용하려는, 클라우드용으로 설계된 새 애플리케이션 | 최소한의 변경으로 클라우드로 마이그레이션되며 안정적인 최신 SQL Server 기능을 사용하려는 새 애플리케이션 또는 기존 온-프레미스 애플리케이션  | 변경 없이 또는 최소한의 변경으로 클라우드로 빠르게 마이그레이션해야 하는 기존 애플리케이션 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 |
+| **최적 용도:** |개발 및 마케팅에서 시간 제약 조건이 있고 안정적인 최신 SQL Server 기능을 사용하려는, 클라우드용으로 설계된 새 애플리케이션 | 최소한의 변경으로 클라우드로 마이그레이션되며 안정적인 최신 SQL Server 기능을 사용하려는 새 애플리케이션 또는 기존 온-프레미스 애플리케이션  | 변경 없이 또는 최소한의 변경으로 클라우드로 빠르게 마이그레이션해야 하는 기존 애플리케이션 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 |
 |  | 데이터베이스에 대한 기본 제공 고가용성, 재해 복구 및 업그레이드가 필요한 팀 | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | SQL Server에 대한 고가용성, 재해 복구 및 패치를 구성, 미세 조정, 사용자 지정 및 관리할 수 있는 팀 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. |
 |  | 기본 운영 체제 및 구성 설정을 관리하지 않으려는 팀입니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 모든 관리 권한이 있는 사용자 지정 환경이 필요합니다. |
 |  | 최대 100TB의 데이터베이스. | 최대 8TB. | 저장소의 최대 64TB를 사용하는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. |
 | **호환성** | 대부분의 온-프레미스 데이터베이스 수준 기능을 지원합니다. | 거의 모든 온-프레미스 인스턴스 수준 및 데이터베이스 수준 기능을 지원합니다. | 모든 온-프레미스 기능을 지원합니다. |
 | **리소스:** | 기본 인프라를 구성하고 관리하는 데 IT 리소스를 사용하지 않지만 애플리케이션 계층에 중점을 두려고 합니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 구성 및 관리를 위한 일부 IT 리소스가 있습니다. 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. |
-| **총 소유 비용:** | 하드웨어 비용을 제거하고 관리 비용을 절감합니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 하드웨어 비용을 제거합니다. |
+| **총 소유 비용** | 하드웨어 비용을 제거하고 관리 비용을 절감합니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 하드웨어 비용을 제거합니다. |
 | **비즈니스 연속성:** |Azure SQL Database는 [기본 제공된 내결함성 인프라 기능](sql-database-high-availability.md) 외에도 [자동화된 백업](sql-database-automated-backups.md), [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore), [지리적 복원](sql-database-recovery-using-backups.md#geo-restore), [활성 지역 복제](sql-database-active-geo-replication.md) 및 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 등의 기능을 제공하여 비즈니스 연속성을 향상시킵니다. 자세한 내용은 [SQL Database 비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일하며, 사용자가 시작한 복사 전용 백업을 추가로 사용할 수 있습니다. | Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 애플리케이션에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요. |
 | **하이브리드 클라우드:** |온-프레미스 애플리케이션은 Azure SQL Database의 데이터에 액세스할 수 있습니다. | Azure ExpressRoute 또는 VPN Gateway를 사용하여 [기본 가상 네트워크 구현](sql-database-managed-instance-vnet-configuration.md) 및 온-프레미스 환경에 연결 | Azure VM의 SQL Server를 사용하면 애플리케이션을 일부는 클라우드에서, 일부는 온-프레미스에서 실행할 수 있습니다. 예를 들어 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)를 통해 클라우드로 온-프레미스 네트워크 및 Active Directory 도메인을 확장할 수 있습니다. 하이브리드 클라우드 솔루션에 대한 자세한 내용은 [클라우드로 온-프레미스 데이터 솔루션 확장](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)을 참조하세요. |
 |  | [SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx) 를 구독자로 지원하여 데이터를 복제합니다. | 복제는 관리되는 인스턴스에 미리 보기 기능으로 지원됩니다. | [SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx), [Always On 가용성 그룹](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services 및 로그 전달을 완전히 지원하여 데이터를 복제합니다. 또한 기존의 SQL Server 백업은 완벽하게 지원됩니다. |
@@ -119,14 +119,14 @@ PaaS 또는 IaaS 중에서 SQL Database의 호스트를 결정할 때 영향을 
 
 클라우드 플랫폼을 사용하기 시작하면 애플리케이션을 실행하는 비용에는 새 개발 및 진행 중인 관리 비용과 공용 클라우드 플랫폼 서비스 비용이 포함됩니다.
 
-**Azure SQL Database를 사용 하 여 하는 경우:**
+**Azure SQL Database를 사용하는 경우:**
 
 - 최소화된 관리 비용
 - 마이그레이션된 애플리케이션에 대한 제한된 개발 비용(관리되는 인스턴스)
 - SQL Database 서비스 비용
 - 하드웨어 구매 비용 없음
 
-**SQL Server를 사용 하 여 Azure Vm에서 하는 경우:**
+**Azure VM의 SQL Server를 사용하는 경우:**
 
 - 높은 관리 비용
 - 마이그레이션된 애플리케이션에 대한 제한된 개발 비용 또는 개발 비용 없음
@@ -137,7 +137,7 @@ PaaS 또는 IaaS 중에서 SQL Database의 호스트를 결정할 때 영향을 
 
 - [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)
 - [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)에 대한 [가상 머신 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)
-- [Azure 요금 계산기](https://azure.microsoft.com/pricing/calculator/)
+- [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>관리
 

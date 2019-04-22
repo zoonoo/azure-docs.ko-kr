@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
 ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281052"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
@@ -72,10 +72,10 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 1. 게이트웨이를 삭제합니다.
-1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure Powershell-클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [원하는 형식의 새 게이트웨이 만들고 VPN 설정 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. [Azure PowerShell - 클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [원하는 형식의 새 게이트웨이 만들기 및 VPN 설정 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet'이 필요한가요?
 

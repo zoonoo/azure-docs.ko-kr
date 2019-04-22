@@ -9,10 +9,10 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283650"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 언어 참조 
@@ -34,7 +34,7 @@ SELECT <select_specification>
     [ ORDER BY <sort_specification> ]  
 ```  
   
- **설명**  
+ **주의**  
   
  각 절에 대한 자세한 내용은 다음 섹션을 참조하세요.  
   
@@ -62,7 +62,7 @@ SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. �
 
 쿼리 언어는 다음과 같은 T-SQL 스타일 주석을 지원합니다.  
 
--   SQL 문 `-- comment text [newline]`  
+-   `-- comment text [newline]` SQL 문  
 
 공백 문자와 주석은 문법에서 아무런 의미가 없지만 토큰을 분리하는 데 사용해야 합니다. 예를 들어 `-1e5`는 단일 숫자 토큰이지만, `: – 1 e5`는 숫자 1과 식별자 e5가 뒤에 나오는 마이너스 토큰입니다.  
 
@@ -106,9 +106,9 @@ SELECT <select_specification>
 
   계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
   
-**설명**  
+**주의**  
   
-`SELECT *` 구문은 FROM 절에서 정확히 하나의 별칭을 선언한 경우에만 유효합니다. `SELECT *` 프로젝션이 없다고 필요한 경우에 유용할 수 있는 id 프로젝션을 제공 합니다. SELECT *는 FROM 절이 지정되고 단일 입력 원본만 도입된 경우에만 유효합니다.  
+`SELECT *` 구문은 FROM 절에서 정확히 하나의 별칭을 선언한 경우에만 유효합니다. `SELECT *`는 ID 프로젝션을 제공하며, 이는 프로젝션이 필요하지 않은 경우 유용할 수 있습니다. SELECT *는 FROM 절이 지정되고 단일 입력 원본만 도입된 경우에만 유효합니다.  
   
 `SELECT <select_list>`와 `SELECT *`는 "syntactic sugar(구문적 설탕)"이며 다음과 같이 간단한 SELECT 문을 사용하여 표현할 수 있습니다.  
   
@@ -124,7 +124,7 @@ SELECT <select_specification>
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-**관련 항목**  
+**참고 항목**  
   
 [스칼라 식](#bk_scalar_expressions)  
 [SELECT 절](#bk_select_query)  
@@ -194,7 +194,7 @@ FROM <from_specification>
   
   지정된 컨테이너 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
   
-**설명**  
+**주의**  
   
 `<from_source>(`에서 제공되거나 유추되는 모든 별칭은 고유해야 합니다. `<container_expression>.`property_name 구문은 `<container_expression>' ['"property_name"']'`과 같습니다. 그러나 속성 이름에 비식별자 문자가 포함되어 있으면 후자의 구문을 사용할 수 있습니다.  
   
@@ -226,7 +226,7 @@ FROM <from_specification>
   
 ### <a name="examples-of-joins"></a>조인 예제  
   
-From 절에 살펴보겠습니다. `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` FROM 절을 살펴보겠습니다.  
   
  각 원본에서 `input_alias1, input_alias2, …, input_aliasN`을 정의하도록 합니다. 이 FROM 절은 N 튜플(N개 값이 포함된 튜플)의 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다.  
   
@@ -236,11 +236,11 @@ From 절에 살펴보겠습니다. `<from_source1> JOIN <from_source2> JOIN ... 
   
 - input_alias1을 참조하는 문서 범위로 `<from_source2>`를 지정하고 다음 집합을 나타냅니다.  
   
-    {1, 2}에 대 한 `input_alias1 = A,`  
+    `input_alias1 = A,`의 경우 {1, 2}  
   
-    {3} 에 대 한 `input_alias1 = B,`  
+    `input_alias1 = B,`의 경우 {3}  
   
-    {4, 5}에 대 한 `input_alias1 = C,`  
+    `input_alias1 = C,`의 경우 {4, 5}  
   
 - `<from_source1> JOIN <from_source2>` FROM 절은 다음과 같은 튜플을 만듭니다.  
   
@@ -254,17 +254,17 @@ From 절에 살펴보겠습니다. `<from_source1> JOIN <from_source2> JOIN ... 
   
 - `input_alias1`를 참조하는 문서 범위로 `<from_source2>`을 지정하고 다음 집합을 나타냅니다.  
   
-    {1, 2}에 대 한 `input_alias1 = A,`  
+    `input_alias1 = A,`의 경우 {1, 2}  
   
-    {3} 에 대 한 `input_alias1 = B,`  
+    `input_alias1 = B,`의 경우 {3}  
   
-    {4, 5}에 대 한 `input_alias1 = C,`  
+    `input_alias1 = C,`의 경우 {4, 5}  
   
 - `input_alias2`를 참조하는 문서 범위로 `<from_source3>`을 지정하고 다음 집합을 나타냅니다.  
   
-    {100, 200}에 대 한 `input_alias2 = 1,`  
+    `input_alias2 = 1,`의 경우 {100, 200}  
   
-    {300} 에 대 한 `input_alias2 = 3,`  
+    `input_alias2 = 3,`의 경우 {300}  
   
 - `<from_source1> JOIN <from_source2> JOIN <from_source3>` FROM 절은 다음과 같은 튜플을 만듭니다.  
   
@@ -283,17 +283,17 @@ From 절에 살펴보겠습니다. `<from_source1> JOIN <from_source2> JOIN ... 
   
 - input_alias1을 참조하는 문서 범위로 <from_source2>를 지정하고 다음 집합을 나타냅니다.  
   
-    {1, 2}에 대 한 `input_alias1 = A,`  
+    `input_alias1 = A,`의 경우 {1, 2}  
   
-    {3} 에 대 한 `input_alias1 = B,`  
+    `input_alias1 = B,`의 경우 {3}  
   
-    {4, 5}에 대 한 `input_alias1 = C,`  
+    `input_alias1 = C,`의 경우 {4, 5}  
   
 - `<from_source3>`을 `input_alias1`로 범위 지정하고 다음 집합을 나타냅니다.  
   
-    {100, 200}에 대 한 `input_alias2 = A,`  
+    `input_alias2 = A,`의 경우 {100, 200}  
   
-    {300} 에 대 한 `input_alias2 = C,`  
+    `input_alias2 = C,`의 경우 {300}  
   
 - `<from_source1> JOIN <from_source2> JOIN <from_source3>` FROM 절은 다음과 같은 튜플을 만듭니다.  
   
@@ -329,7 +329,7 @@ WHERE <filter_condition>
   
    계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
   
-  **설명**  
+  **주의**  
   
   문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다.  
   
@@ -367,7 +367,7 @@ ORDER BY <sort_specification>
   
    지정된 열의 값을 오름차순 또는 내림차순으로 정렬하도록 지정합니다. ASC는 가장 낮은 값에서 가장 높은 값으로 정렬합니다. DESC는 가장 높은 값에서 가장 낮은 값으로 정렬합니다. ASC가 기본 정렬 순서입니다. 널 값은 가능한 가장 낮은 값으로 처리됩니다.  
   
-  **설명**  
+  **주의**  
   
   쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
   
@@ -456,7 +456,7 @@ ORDER BY <sort_specification>
   
    지정된 매개 변수 이름의 값을 나타냅니다. 매개 변수 이름에는 첫 번째 문자로 \@가 하나 있어야 합니다.  
   
-  **설명**  
+  **주의**  
   
   기본 제공 또는 사용자 정의 스칼라 함수를 호출할 때 모든 인수가 정의되어야 합니다. 인수 중 하나라도 정의되지 않으면 함수가 호출되지 않고 결과가 정의되지 않습니다.  
   
@@ -469,53 +469,53 @@ ORDER BY <sort_specification>
   
  **undefined** 값 처리 입력 값 형식 요구 사항 및 일치하지 않는 형식의 값 처리에 대한 자세한 내용은 아래의 **연산자 범주** 표를 참조하세요.  
   
- **연산자 범주:**  
+ **연산자 범주**  
   
-|**Category**|**세부 정보**|  
+|**범주**|**세부 정보**|  
 |-|-|  
-|**산술 연산**|연산자에서 입력은 숫자여야 합니다. 출력도 숫자입니다. 입력 중 하나가 **undefined**이거나 숫자 이외의 형식이면 결과는 **undefined**입니다.|  
+|**산술**|연산자에서 입력은 숫자여야 합니다. 출력도 숫자입니다. 입력 중 하나가 **undefined**이거나 숫자 이외의 형식이면 결과는 **undefined**입니다.|  
 |**비트**|연산자에서 입력은 부호 있는 32비트 정수여야 합니다. 출력도 부호 있는 32비트 정수입니다.<br /><br /> 정수가 아닌 값은 끝수를 자릅니다. 양수 값은 끝수 내림되고, 음수 값은 끝수 올림됩니다.<br /><br /> 32비트 정수 범위를 벗어나는 값은 2의 보수 표기 중 마지막 32비트를 취하여 변환됩니다.<br /><br /> 입력 중 하나가 **undefined**이거나 숫자 이외의 형식이면 결과는 **undefined**입니다.<br /><br /> **참고:** 위의 동작은 JavaScript 비트 연산자 동작과 호환됩니다.|  
 |**논리**|연산자에서 입력은 부울이어야 합니다. 출력도 부울입니다.<br />입력 중 하나가 **undefined**이거나 부울 이외의 형식이면 결과는 **undefined**입니다.|  
 |**비교**|연산자에서 입력은 동일한 형식이어야 하며 undefined가 아니어야 합니다. 출력은 부울입니다.<br /><br /> 입력 중 하나가 **undefined**이거나 다른 형식의 입력이면 결과는 **undefined**입니다.<br /><br /> 값 순서 지정에 대한 자세한 내용은 **비교 연산자의 값 순서 지정** 표를 참조하세요.|  
-|**문자열**|연산자에서 입력은 문자열이어야 합니다. 출력도 문자열입니다.<br />입력 중 하나가 **undefined**이거나 문자열 이외의 형식이면 결과는 **undefined**입니다.|  
+|**string**|연산자에서 입력은 문자열이어야 합니다. 출력도 문자열입니다.<br />입력 중 하나가 **undefined**이거나 문자열 이외의 형식이면 결과는 **undefined**입니다.|  
   
  **단항 연산자:**  
   
-|**name**|**연산자**|**세부 정보**|  
+|**Name**|**연산자**|**세부 정보**|  
 |-|-|-|  
-|**산술 연산**|+<br /><br /> -|숫자 값을 반환합니다.<br /><br /> 비트 부정입니다. 음수 값을 반환합니다.|  
+|**산술**|+<br /><br /> -|숫자 값을 반환합니다.<br /><br /> 비트 부정입니다. 음수 값을 반환합니다.|  
 |**비트**|~|보수입니다. 숫자 값의 보수를 반환합니다.|  
-|**논리**|**NOT**|부정입니다. 부정 부울 값을 반환합니다.|  
+|**논리**|**다음이 아님**|부정입니다. 부정 부울 값을 반환합니다.|  
   
  **이항 연산자:**  
   
-|**name**|**연산자**|**세부 정보**|  
+|**Name**|**연산자**|**세부 정보**|  
 |-|-|-|  
-|**산술 연산**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|더하기<br /><br /> 빼기<br /><br /> 곱하기<br /><br /> 나누기<br /><br /> Modulo 연산|  
+|**산술**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|더하기<br /><br /> 빼기<br /><br /> 곱하기<br /><br /> 나누기<br /><br /> Modulo 연산|  
 |**비트**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|비트 OR<br /><br /> 비트 AND<br /><br /> 비트 XOR<br /><br /> 왼쪽 시프트<br /><br /> 오른쪽 시프트<br /><br /> 0 채우기 오른쪽 시프트|  
-|**논리**|**AND**<br /><br /> **또는**|논리 결합입니다. 두 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 논리적 분리. 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.|  
+|**논리**|**및**<br /><br /> **또는**|논리 결합입니다. 두 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 논리적 분리. 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.|  
 |**비교**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|같음 - 두 인수가 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 같지 않음 - 인수가 같지 않으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 큼 - 첫 번째 인수가 두 번째 인수보다 크면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 크거나 같음 - 첫 번째 인수가 두 번째 인수보다 크거나 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 작음 - 첫 번째 인수가 두 번째 인수보다 작으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 작거나 같음 - 첫 번째 인수가 두 번째 인수보다 작거나 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 병합 - 첫 번째 인수가 **undefined** 값이면 두 번째 인수를 반환합니다.|  
-|**문자열**|**&#124;&#124;**|연결 - 두 인수의 연결을 반환합니다.|  
+|**String**|**&#124;&#124;**|연결 - 두 인수의 연결을 반환합니다.|  
   
  **삼항 연산자:**  
 
-|**name**|**연산자**|**세부 정보**| 
+|**Name**|**연산자**|**세부 정보**| 
 |-|-|-|  
 |삼항 연산자|?|첫 번째 인수가 **true**로 평가되면 두 번째 인수를 반환하고, 그렇지 않으면 세 번째 인수를 반환합니다.|  
 
   
- **비교 값의 순서 지정**  
+ **비교 연산자의 값 순서 지정**  
   
-|**Type**|**값 순서**|  
+|**형식**|**값 순서**|  
 |-|-|  
 |**Undefined**|비교할 수 없음|  
 |**Null**|단일 값: **null**|  
 |**Number**|자연수입니다.<br /><br /> Negative Infinity(음의 무한대) 값은 다른 Number 값보다 작습니다.<br /><br /> Positive Infinity(양의 무한대) 값은 다른 Number 값보다 큽니다. **NaN** 값은 비교할 수 없습니다. **NaN**과 비교하면 **undefined** 값이 됩니다.|  
-|**문자열**|사전순 정렬|  
-|**배열**|순서를 지정하지 않지만 동등하게 지정합니다.|  
+|**String**|사전순 정렬|  
+|**Array**|순서를 지정하지 않지만 동등하게 지정합니다.|  
 |**Object**|순서를 지정하지 않지만 동등하게 지정합니다.|  
   
- **설명**  
+ **주의**  
   
  Cosmos DB에서 값 형식은 데이터베이스에서 검색될 때까지 알 수 없는 경우가 종종 있습니다. 쿼리의 효율적인 실행을 지원하기 위해 대부분의 연산자에는 엄격한 형식 요구 사항이 있습니다. 또한 연산자 자체는 암시적 변환을 수행하지 않습니다.  
   
@@ -532,16 +532,16 @@ ORDER BY <sort_specification>
 ##  <a name="bk_constants"></a> 상수  
  리터럴 또는 스칼라 값이라고도 하는 상수는 특정 데이터 값을 나타내는 기호입니다. 상수의 형식은 나타내는 값의 데이터 형식에 따라 다릅니다.  
   
- **스칼라 데이터 형식을 지원 합니다.**  
+ **지원되는 스칼라 데이터 형식:**  
   
-|**Type**|**값 순서**|  
+|**형식**|**값 순서**|  
 |-|-|  
 |**Undefined**|단일 값: **undefined**|  
 |**Null**|단일 값: **null**|  
-|**BOOLEAN**|값: **false**, **true**.|  
+|**Boolean**|값: **false**, **true**.|  
 |**Number**|IEEE 754 표준의 두 자리 부동 소수점 숫자입니다.|  
-|**문자열**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
-|**배열**|0개 이상의 요소 시퀀스입니다. 각 요소는 Undefined를 제외한 모든 스칼라 데이터 형식의 값일 수 있습니다.|  
+|**String**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
+|**Array**|0개 이상의 요소 시퀀스입니다. 각 요소는 Undefined를 제외한 모든 스칼라 데이터 형식의 값일 수 있습니다.|  
 |**Object**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
   
  **구문**  
@@ -654,7 +654,7 @@ ORDER BY <sort_specification>
   
 3.  일부 문서 경로 식을 나타내는 별칭을 참조합니다.  
   
-     **구문 표기 규칙**  
+     **구문 규칙**  
   
      다음 표에서는 아래 SQL 참조의 구문을 설명하는 데 사용되는 규칙을 설명합니다.  
   
@@ -691,11 +691,11 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
-|[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
-|[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
+|[COS](#bk_cos)|[COT](#bk_cot)|[각도](#bk_degrees)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[로그](#bk_log)|  
+|[LOG10](#bk_log10)|[PI](#bk_pi)|[전원](#bk_power)|  
+|[라디안](#bk_radians)|[반올림](#bk_round)|[SIN](#bk_sin)|  
+|[SQRT](#bk_sqrt)|[정사각형](#bk_square)|[로그인](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
@@ -1047,7 +1047,7 @@ EXP (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **설명**  
+  **주의**  
   
   **e**(2.718281…) 상수는 자연 로그의 밑입니다.  
   
@@ -1157,7 +1157,7 @@ LOG10 (<numeric_expression>)
   
   숫자 식을 반환합니다.  
   
-  **설명**  
+  **주의**  
   
   LOG10과 POWER 함수는 서로 역의 관계가 있습니다. 예를 들어 10 ^ LOG10(n) = n입니다.  
   
@@ -1843,13 +1843,13 @@ SELECT
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[길이](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
-|[복제](#bk_replicate)|[역방향](#bk_reverse)|[RIGHT](#bk_right)|  
+|[INDEX_OF](#bk_index_of)|[왼쪽](#bk_left)|[LENGTH](#bk_length)|  
+|[낮은](#bk_lower)|[LTRIM](#bk_ltrim)|[바꾸기](#bk_replace)|  
+|[복제](#bk_replicate)|[역방향](#bk_reverse)|[오른쪽](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
-|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
-|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
+|[StringToObject](#bk_stringtoobject)|[하위 문자열](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[위](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.  
@@ -3295,6 +3295,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>다음 단계  
 
-- [SQL 구문 및 Cosmos DB에 대 한 SQL 쿼리](how-to-sql-query.md)
+- [Cosmos DB에 대한 SQL 구문 및 SQL 쿼리](how-to-sql-query.md)
 
 - [Cosmos DB 설명서](https://docs.microsoft.com/azure/cosmos-db/)  

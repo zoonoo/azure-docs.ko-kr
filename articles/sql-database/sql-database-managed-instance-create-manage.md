@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359142"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL Database Managed Instance에 대한 관리 API 참조
@@ -58,15 +58,15 @@ Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하려면 �
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql mi 만들기](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Managed Instance를 만듭니다.|
-|[az sql mi 목록](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|사용 가능한 Managed Instance를 나열합니다.|
+|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Managed Instance를 만듭니다.|
+|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|사용 가능한 Managed Instance를 나열합니다.|
 |[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Managed Instance에 대한 세부 정보를 가져옵니다.|
-|[az sql mi 업데이트](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Managed Instance를 업데이트합니다.|
-|[az sql mi 삭제](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Managed Instance를 제거합니다.|
-|[az sql midb 만들기](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |관리되는 데이터베이스를 만듭니다.|
-|[az sql midb 목록](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|사용 가능한 관리되는 데이터베이스를 나열합니다.|
-|[az sql midb에서 복원](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|관리되는 데이터베이스를 복원합니다.|
-|[az sql midb 삭제](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|관리되는 데이터베이스를 제거합니다.|
+|[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Managed Instance를 업데이트합니다.|
+|[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Managed Instance를 제거합니다.|
+|[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |관리되는 데이터베이스를 만듭니다.|
+|[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|사용 가능한 관리되는 데이터베이스를 나열합니다.|
+|[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|관리되는 데이터베이스를 복원합니다.|
+|[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|관리되는 데이터베이스를 제거합니다.|
 
 ## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: 인스턴스 데이터베이스 만들기 및 관리
 
@@ -79,7 +79,7 @@ Managed Instance를 만든 후에 인스턴스 데이터베이스를 만들고 �
 
 | 명령 | 설명 |
 | --- | --- |
-|[데이터베이스 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|새 Managed Instance 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|새 Managed Instance 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결되어 있어야 합니다.|
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Azure SQL Managed Instance 데이터베이스를 수정합니다.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>REST API: Managed Instance 만들기 및 관리
@@ -88,12 +88,12 @@ Managed Instance를 만들고 관리하려면 다음 REST API 요청을 사용�
 
 | 명령 | 설명 |
 | --- | --- |
-|[관리 되는 인스턴스-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Managed Instance를 만들거나 업데이트합니다.|
-|[관리 되는 인스턴스-삭제](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Managed Instance를 삭제합니다.|
-|[관리 되는 인스턴스-Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Managed Instance를 가져옵니다.|
-|[관리 되는 인스턴스-목록](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|구독에서 Managed Instance 목록을 반환합니다.|
-|[관리 되는 인스턴스-리소스 그룹 목록](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|리소스 그룹에서 Managed Instance 목록을 반환합니다.|
-|[관리 되는 인스턴스-업데이트](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Managed Instance를 업데이트합니다.|
+|[Managed Instances - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Managed Instance를 만들거나 업데이트합니다.|
+|[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Managed Instance를 삭제합니다.|
+|[Managed Instances - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Managed Instance를 가져옵니다.|
+|[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|구독에서 Managed Instance 목록을 반환합니다.|
+|[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|리소스 그룹에서 Managed Instance 목록을 반환합니다.|
+|[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Managed Instance를 업데이트합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

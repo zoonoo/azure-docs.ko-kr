@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283412"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 복사
@@ -55,16 +55,16 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **SqlServer** | 예 |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **SqlServer** | 예 |
 | connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. 다음 샘플을 참조하세요.<br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
 | userName |Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. 예: **domainname\\username**. |아닙니다. |
-| password |userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |아닙니다. |
+| 암호 |userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |아닙니다. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 >[!TIP]
 >"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
 
-**예제 1: SQL 인증 사용**
+**예 1: SQL 인증 사용**
 
 ```json
 {
@@ -85,7 +85,7 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-**예제 2: Azure Key Vault에 암호를 사용 하 여 SQL 인증 사용**
+**예제 2: Azure Key Vault의 암호를 사용하는 SQL 인증 사용**
 
 ```json
 {
@@ -114,7 +114,7 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-**예제 3: Windows 인증 사용**
+**예 3: Windows 인증 사용**
 
 ```json
 {
@@ -148,7 +148,7 @@ SQL Server 데이터베이스 간에 데이터를 복사하려면 데이터 세�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SqlServerTable** | 예 |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SqlServerTable** | 예 |
 | tableName |연결된 서비스가 참조하는 SQL Server 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제:**
@@ -180,8 +180,8 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SqlSource** | 예 |
-| sqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. |아니오 |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SqlSource** | 예 |
+| SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. |아니오 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아닙니다. |
 
@@ -190,7 +190,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 - **sqlReaderQuery**가 SqlSource에 지정되면 복사 작업은 데이터를 가져오는 SQL Server 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
 - "sqlReaderQuery" 또는 "sqlReaderStoredProcedureName" 중 하나를 지정하지 않으면 JSON 데이터 세트의 "structure" 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 SQL Server에 대해 실행합니다. 데이터 세트 정의에 "structure"가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
-**예: SQL 쿼리를 사용 하 여**
+**예: SQL 쿼리 사용**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 ]
 ```
 
-**예: 저장된 프로시저를 사용합니다.**
+**예: 저장 프로시저 사용**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 ]
 ```
 
-**저장된 프로시저 정의:**
+**저장 프로시저 정의:**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -283,7 +283,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 type 속성을 다음으로 설정해야 합니다. **SqlSink** | 예 |
+| 형식 | 복사 작업 싱크의 type 속성을 다음으로 설정해야 합니다. **SqlSink** | 예 |
 | writeBatchSize |SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10000) |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예제: “00:30:00”(30분) |아닙니다. |
 | preCopyScript |SQL Server에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아닙니다. |
@@ -294,7 +294,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 > [!TIP]
 > SQL Server로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. UPSERT 또는 추가 비즈니스 논리를 수행하려면 SqlSink에서 저장 프로시저를 사용합니다. 자세한 내용은 [SQL 싱크에 대한 저장 프로시저 호출](#invoking-stored-procedure-for-sql-sink)을 참조하세요.
 
-**예제 1: 데이터 추가**
+**예 1: 데이터 추가**
 
 ```json
 "activities":[
@@ -326,7 +326,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 ]
 ```
 
-**예제 2: upsert에 대해 복사 중 저장된 프로시저를 호출**
+**예 2: upsert에 대해 복사 중 저장 프로시저 호출**
 
 자세한 내용은 [SQL 싱크에 대한 저장 프로시저 호출](#invoking-stored-procedure-for-sql-sink)을 참조하세요.
 
@@ -513,36 +513,36 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |BOOLEAN |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| DateTime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
-| Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| 10진수 |10진수 |
+| FILESTREAM 특성(varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| 이미지 |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |10진수 |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |10진수 |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |단일 |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |10진수 |
 | sql_variant |Object |
-| text |String, Char[] |
-| time |TimeSpan |
+| 텍스트 |String, Char[] |
+| 실시간 |timespan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 >[!NOTE]
 > 데이터 형식이 10진수 중간 형식으로 매핑되는 경우 ADF는 현재 최대 28 자릿수의 데이터를 지원합니다. 28보다 큰 자릿수의 데이터가 있는 경우 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.

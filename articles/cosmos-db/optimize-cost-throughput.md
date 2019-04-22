@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009770"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
@@ -39,13 +39,13 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 
 4. 개별 컨테이너에서 특정 처리량을 설정하는 대신, 데이터베이스 내의 컨테이너 집합에서 집계된 처리량을 얻는 데 관심이 있습니다.
 
-**경우에 개별 컨테이너에 대 한 처리량을 프로 비전 하는 것이 좋습니다.**
+**다음과 같은 경우 개별 컨테이너에서 처리량을 프로비전하는 것이 좋습니다.**
 
 1. 소수의 Azure Cosmos 컨테이너가 있습니다. Azure Cosmos DB는 스키마에 독립적이기 때문에 컨테이너는 다른 유형의 스키마를 갖는 항목을 포함할 수 있으며, 고객이 각 엔터티에 대해 하나씩 여러 컨테이너 유형을 만들 필요가 없습니다. 10~20개의 컨테이너를 단일 컨테이너로 그룹화할 수 있는 경우 항상 고려해야 하는 옵션이 있습니다. 컨테이너의 최소 RU 수가 400개인 경우 10~20개 컨테이너를 모두 하나로 풀링하는 것이 비용 측면에서 더 효율적일 수 있습니다. 
 
 2. 특정 컨테이너에 대한 처리량을 제어하고 지정된 컨테이너에 대해 SLA에서 지원하는 처리량을 보장하려고 합니다.
 
-**위의 두 전략의 하이브리드를 고려 합니다.**
+**위의 두 전략을 혼합하는 것을 고려하세요.**
 
 1. 앞서 언급한 것처럼 Azure Cosmos DB는 위의 두 전략에 대한 믹스 앤 매치를 허용하므로, 이제 Azure Cosmos 데이터베이스 내에 데이터베이스에 대해 프로비전된 처리량을 공유할 수 있는 컨테이너와 프로비전 처리량 중에서 전용 처리량을 사용할 수 있는 컨테이너가 함께 존재할 수 있습니다. 
 

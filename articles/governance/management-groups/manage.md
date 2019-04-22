@@ -7,10 +7,10 @@ ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272481"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
@@ -350,7 +350,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 - [관리 그룹을 만들어 Azure 리소스 구성](create.md)
-- [변경, 삭제 또는 관리 그룹을 관리 하는 방법](manage.md)
+- [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)
 - [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](/powershell/module/az.resources#resources)
-- [REST API에서 관리 그룹을 검토](/rest/api/resources/managementgroups)
+- [REST API에서 관리 그룹 검토](/rest/api/resources/managementgroups)
 - [Azure CLI에서 관리 그룹 검토](/cli/azure/account/management-group)
