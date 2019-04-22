@@ -14,11 +14,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5d80381815524658d91067ee880eba47c394058
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793580"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59783556"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
@@ -60,7 +60,7 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 
 
-    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com` 
+    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com`. 
 
     - **사전 인증 방법**: Azure Active Directory(권장되지만 필수는 아님) 
 

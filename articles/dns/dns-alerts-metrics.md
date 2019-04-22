@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434464"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683038"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 메트릭 및 경고
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. 이 문서에서는 Azure DNS 서비스에 대한 메트릭 및 경고를 설명합니다.
 
 ## <a name="azure-dns-metrics"></a>Azure DNS 메트릭
 
-Azure DNS는 서비스에서 호스트되는 DNS의 특정 측면을 모니터링할 수 있도록 고객에게 메트릭을 제공합니다. 또한 Azure DNS 메트릭을 사용하여 관심 조건에 따라 경고를 구성하고 받을 수 있습니다. 메트릭은 [Azure Monitor 서비스](../azure-monitor/index.yml)를 통해 제공됩니다. Azure DNS는 DNS 영역에 대한 Azure Monitor를 통해 다음 메트릭을 제공합니다.
+Azure DNS 서비스에서 호스트 되는 해당 DNS 영역의 특정 측면을 모니터링할 수 있도록 고객에 대 한 메트릭을 제공 합니다. 또한 Azure DNS 메트릭을 사용하여 관심 조건에 따라 경고를 구성하고 받을 수 있습니다. 메트릭은 [Azure Monitor 서비스](../azure-monitor/index.yml)를 통해 제공됩니다. Azure DNS는 DNS 영역에 대한 Azure Monitor를 통해 다음 메트릭을 제공합니다.
 
 -   QueryVolume
 -   RecordSetCount
@@ -40,7 +40,9 @@ Azure Monitor 설명서 페이지에서 [이러한 메트릭의 정의](../azure
 
 ### <a name="query-volume"></a>쿼리 볼륨
 
-Azure DNS의 *쿼리 볼륨* 메트릭은 DNS 영역에 대한 Azure DNS가 받는 DNS 쿼리의 볼륨(쿼리 트래픽)을 표시합니다. 측정 단위는 Count이며 집계는 시간의 경과를 통해 받는 모든 쿼리의 합계입니다. 이 메트릭을 보려면 Azure Portal의 모니터 탭에서 메트릭(미리 보기) 탐색기 환경을 선택합니다. 리소스 드롭다운에서 DNS 영역을 선택하고, 쿼리 볼륨 메트릭을 선택하고, 집계로 합계를 선택합니다. 아래 스크린샷은 예제를 보여줍니다.  메트릭 탐색기 환경 및 차트에 대한 자세한 내용은 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-charts.md)를 참조하세요.
+Azure DNS의 *쿼리 볼륨* 메트릭은 DNS 영역에 대한 Azure DNS가 받는 DNS 쿼리의 볼륨(쿼리 트래픽)을 표시합니다. 측정 단위는 Count이며 집계는 시간의 경과를 통해 받는 모든 쿼리의 합계입니다. 
+
+이 메트릭을 보려면 Azure Portal의 모니터 탭에서 메트릭(미리 보기) 탐색기 환경을 선택합니다. 리소스 드롭다운에서 DNS 영역을 선택하고, 쿼리 볼륨 메트릭을 선택하고, 집계로 합계를 선택합니다. 아래 스크린샷은 예제를 보여줍니다.  메트릭 탐색기 환경 및 차트에 대한 자세한 내용은 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-charts.md)를 참조하세요.
 
 ![쿼리 볼륨](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579345"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698778"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -342,8 +342,8 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
-| BlobCount    | 저장소 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
+| BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType**, 및 **BlobTier** ([정의](#metrics-dimensions)) |
+| BlobCount    | 저장소 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType**, 및 **BlobTier** ([정의](#metrics-dimensions)) |
 | ContainerCount    | 저장소 계정의 컨테이너 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | IndexCapacity     | ADLS Gen2 계층적 인덱스에 사용한 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
@@ -392,11 +392,12 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 | 차원 이름 | 설명 |
 | ------------------- | ----------------- |
-| BlobType | Blob 메트릭용 Blob 형식만. 지원 되는 값은 **BlockBlob** 및 **PageBlob**입니다. 추가 Blob는 BlockBlob에 포함됩니다. |
-| ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외한 다른 모든 서버 쪽 오류입니다. </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외한 다른 모든 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청입니다.|
-| GeoType | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값은 기본 및 보조를 포함합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
-| ApiName | 작업 이름입니다. 예를 들면 다음과 같습니다. <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요. |
-| Authentication | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>AccountKey: 트랜잭션이 스토리지 계정 키를 사용하여 인증됩니다.</li> <li>SAS: 트랜잭션이 공유 액세스 서명을 사용하여 인증됩니다.</li> <li>OAuth: 트랜잭션이 OAuth 액세스 토큰을 사용하여 인증됩니다.</li> <li>Anonymous: 트랜잭션이 익명으로 요청됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>AnonymousPreflight: 트랜잭션이 실행 전 요청입니다.</li> |
+| **BlobType** | Blob 메트릭용 Blob 형식만. 지원 되는 값 **BlockBlob**하십시오 **PageBlob**, 및 **Azure Data Lake Storage**합니다. 추가 Blob는 BlockBlob에 포함됩니다. |
+| **BlobTier** | Azure storage는 가장 비용 효율적인 방식으로 blob 개체 데이터를 저장할 수 있는 다양 한 액세스 계층을 제공 합니다. 에 대해 자세히 알아보기 [Azure Storage blob 계층](../blobs/storage-blob-storage-tiers.md)합니다. 지원 되는 값은 다음과 같습니다. <br/> <li>**핫**: 핫 계층</li> <li>**쿨**: 쿨 계층</li> <li>**보관**: 보관 계층</li> <li>**Premium**: 블록 blob에 대 한 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: 프리미엄 페이지 blob에 대 한 계층 유형</li> <li>**표준**: 표준 페이지 Blob에 대 한 계층 유형</li> <li>**Untiered**: 범용 v1 storage 계정에 대 한 계층 유형</li> |
+| **GeoType** | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값을 포함 **주** 하 고 **보조**합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
+| **ResponseType** | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>**ServerOtherError**: 설명한 것을 제외한 다른 모든 서버 쪽 오류입니다. </li> <li>**ServerBusyError**: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li>**ServerTimeoutError**: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li>**AuthorizationError**: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li>**NetworkError**: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>**ClientThrottlingError**: 클라이언트 쪽 제한 오류입니다. </li> <li>**ClientTimeoutError**: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li>**ClientOtherError**: 설명한 것을 제외한 다른 모든 클라이언트 쪽 오류입니다. </li> <li>**성공**: 성공한 요청입니다.</li> |
+| **ApiName** | 작업 이름입니다. 예를 들면 다음과 같습니다. <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요. |
+| **인증** | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>**AccountKey**: 트랜잭션이 스토리지 계정 키를 사용하여 인증됩니다.</li> <li>**SAS**: 트랜잭션이 공유 액세스 서명을 사용하여 인증됩니다.</li> <li>**OAuth**: 트랜잭션이 OAuth 액세스 토큰을 사용하여 인증됩니다.</li> <li>**익명**: 트랜잭션이 익명으로 요청됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>**AnonymousPreflight**: 트랜잭션이 실행 전 요청입니다.</li> |
 
 메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공**을 포함한 **ResponseType** 차원을 필터링해야 합니다. 또는 블록 Blob에 대한 **BlobCount** 값을 조사하는 경우 **BlockBlob**을 포함한 **BlobType** 차원을 필터링해야 합니다.
 

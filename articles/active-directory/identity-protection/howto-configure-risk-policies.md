@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517541"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699036"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>방법: Azure Active Directory Identity Protection에서 위험 정책 구성(새로 고침)
 
@@ -41,7 +41,8 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 
 로그인 위험 정책은 특정 로그인 위험 수준에 대해 구성할 수 있는 자동화된 응답입니다. 사용자의 응답에서 리소스에 대한 액세스를 차단할 수 있으며 액세스하기 위해 MFA(Multi-Factor Authentication) 시도를 통과해야 할 수 있습니다.
 
-   
+사용자 로그인 위험 정책에 따라 트리거되는 MFA 프롬프트를 성공적으로 완료 되 면 피드백 합법적인 사용자 로부터 발생 한 로그인 Id 보호를 제공 합니다. 따라서 MFA 프롬프트를 트리거하는 로그인 위험 이벤트는 자동으로 닫을 수 하 고 Id 보호 위험 사용자의 권한 상승에 영향을 주는에서이 이벤트를 하지 것입니다. 로그인 위험 정책을 사용 하면 사용자가 MFA에 대 한 메시지가 표시 되 면 자체 수정 하도록 허용 및 위험한 로그인은 연결 된 이후에 자동으로 닫기 위험한 로그인 뷰에서 번잡 함을 줄이는 기능을 줄일 수 있습니다.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>로그인 위험 정책에 액세스하려면 어떻게 할까요?
    
 로그인 위험 정책은 [Azure AD ID 보호 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy)의 **구성** 섹션에 있습니다.

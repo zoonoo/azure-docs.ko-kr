@@ -1,96 +1,89 @@
-items:
 - name: Azure Sentinel Preview 설명서
   href: index.yml
 - name: 개요
   href: overview.md
 - name: 빠른 시작
-  items:
-  - name: Azure Sentinel 등록
-    href: quickstart-onboard.md
-  - name: 경고 표시
-    href: quickstart-get-visibility.md
   expanded: true
+  items:
+    - name: Azure Sentinel 등록
+      href: quickstart-onboard.md
+    - name: 경고 표시
+      href: quickstart-get-visibility.md
 - name: 자습서
   items:
-  - name: 의심스러운 위협 검색
-    href: tutorial-detect-threats.md
-  - name: 사례 조사
-    href: tutorial-investigate-cases.md
-  - name: 위협에 대응
-    href: tutorial-respond-threats-playbook.md
+    - name: 의심스러운 위협 검색
+      href: tutorial-detect-threats.md
+    - name: 사례 조사
+      href: tutorial-investigate-cases.md
+    - name: 위협에 대응
+      href: tutorial-respond-threats-playbook.md
 - name: 방법 가이드
   items:
-  - name: 데이터 원본 연결
-    href: connect-data-sources.md
-    items:
-    - name: Microsoft 서비스 연결
+    - name: 데이터 원본 연결
+      href: connect-data-sources.md
       items:
-      - name: Azure AD 연결
-        href: connect-azure-active-directory.md
-      - name: Office 365 연결
-        href: connect-office-365.md
-      - name: Cloud App Security 연결
-        href: connect-cloud-app-security.md
-      - name: Azure 활동 로그 연결
-        href: connect-azure-activity.md
-      - name: Azure AD ID 보호 연결
-        href: connect-azure-ad-identity-protection.md
-      - name: Azure Information Protection 연결
-        href: connect-azure-information-protection.md
-      - name: Azure ATP 연결
-        href: connect-azure-atp.md
-      - name: Azure Security Center 연결
-        href: connect-azure-security-center.md
-      - name: Microsoft 웹 애플리케이션 방화벽 연결
-        href: connect-microsoft-waf.md
-      - name: Windows 방화벽 연결
-        href: connect-windows-firewall.md
-      - name: Windows 보안 이벤트 연결
-        href: connect-windows-security-events.md
-    - name: 외부 솔루션 연결
+        - name: Microsoft 서비스 연결
+          items:
+            - name: Azure AD 연결
+              href: connect-azure-active-directory.md
+            - name: Office 365 연결
+              href: connect-office-365.md
+            - name: Cloud App Security 연결
+              href: connect-cloud-app-security.md
+            - name: Azure 활동 로그 연결
+              href: connect-azure-activity.md
+            - name: Azure AD ID 보호 연결
+              href: connect-azure-ad-identity-protection.md
+            - name: Azure Information Protection 연결
+              href: connect-azure-information-protection.md
+            - name: Azure ATP 연결
+              href: connect-azure-atp.md
+            - name: Azure Security Center 연결
+              href: connect-azure-security-center.md
+            - name: Microsoft 웹 애플리케이션 방화벽 연결
+              href: connect-microsoft-waf.md
+            - name: Windows 방화벽 연결
+              href: connect-windows-firewall.md
+            - name: Windows 보안 이벤트 연결
+              href: connect-windows-security-events.md
+        - name: 외부 솔루션 연결
+          items:
+            - name: 제네릭 CEF 연결
+              href: connect-common-event-format.md
+            - name: Barracuda 연결
+              href: connect-barracuda.md
+            - name: Check Point 연결
+              href: connect-checkpoint.md
+            - name: Palo Alto Networks 연결
+              href: connect-paloalto.md
+            - name: Fortinet 연결
+              href: connect-fortinet.md
+            - name: F5 연결
+              href: connect-f5.md
+            - name: Syslog 연결
+              href: connect-syslog.md
+            - name: Symantec ICDX 연결
+              href: connect-symantec.md
+            - name: Cisco 연결
+              href: connect-cisco.md
+        - name: 위협 인텔리전스 연결
+          href: connect-threat-intelligence.md
+    - name: 사냥
+      href: hunting.md
       items:
-      - name: 제네릭 CEF 연결
-        href: connect-common-event-format.md
-      - name: Barracuda 연결
-        href: connect-barracuda.md
-      - name: Check Point 연결
-        href: connect-checkpoint.md
-      - name: Palo Alto Networks 연결
-        href: connect-paloalto.md
-      - name: Fortinet 연결
-        href: connect-fortinet.md
-      - name: F5 연결
-        href: connect-f5.md
-      - name: Syslog 연결
-        href: connect-syslog.md
-      - name: Symantec ICDX 연결
-        href: connect-symantec.md
-      - name: Cisco 연결
-        href: connect-cisco.md
-    - name: 위협 인텔리전스 연결
-      href: connect-threat-intelligence.md
-  - name: 사냥
-    href: hunting.md
-    items:
-    - name: 사냥에 Notebook 사용
-      href: notebooks.md
-    - name: 사냥에 책갈피 사용
-      href: bookmarks.md
-  - name: 퓨전 사용
-    href: connect-fusion.md
+        - name: 사냥에 Notebook 사용
+          href: notebooks.md
+        - name: 사냥에 책갈피 사용
+          href: bookmarks.md
+    - name: 퓨전 사용
+      href: connect-fusion.md
 - name: 리소스
   items:
-  - name: 유용한 리소스
-    href: resources.md
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Azure 보안, 개인 정보 보호 및 규정 준수 블로그
-    href: https://blogs.msdn.com/b/azuresecurity/
-  - name: 국가별 가용성
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 886f07fa45e7795251d50880a977cfbc331dfb2b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494000"
+    - name: 유용한 리소스
+      href: resources.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 'Azure 보안, 개인 정보 보호 및 규정 준수 블로그'
+      href: 'https://blogs.msdn.com/b/azuresecurity/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'

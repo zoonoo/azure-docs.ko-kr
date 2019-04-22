@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875154"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683176"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -44,7 +44,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 에 [Azure portal](https://portal.azure.com/)를 클릭 하 여 데이터베이스를 선택 하는 개별 데이터베이스의 사용률을 모니터링할 수 있습니다는 **모니터링** 차트. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
 
 - CPU 비율
-- DTU 백분율
+- DTU 비율
 - 데이터 IO 비율
 - 데이터베이스 크기 비율
 
@@ -80,7 +80,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 - 다음 [동적 관리 뷰](sql-database-monitoring-with-dmvs.md)를 사용합니다.
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database 데이터베이스에 대한 CPU, I/O 및 메모리 사용량을 반환합니다. 데이터베이스에 작업이 없는 경우에도 한 행은 15초 간격으로 존재합니다. 기록 데이터는 1시간 동안 유지됩니다.
-  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database에 대한 CPU 사용량 및 저장소 데이터를 반환합니다. 데이터는 5분 간격 이내로 수집 및 집계됩니다.
+  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database에 대한 CPU 사용량 및 저장소 데이터를 반환합니다. 데이터는 5분 미만 간격으로 수집되고 집계됩니다.
 
 > [!IMPORTANT]
 > 이러한 DMV를 사용하여 CPU 사용률 문제를 해결하는 T-SQL 쿼리 집합은 [CPU 성능 문제 식별](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조하세요.
@@ -103,7 +103,6 @@ PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램�
 이러한 유형의 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 - 이 [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/)(매개 변수 진단) 블로그 게시물
-- 이 [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/)(매개 변수 검색 문제 및 해결 방법) 블로그 게시물
 - 이렇게 [elephant and mouse parameter sniffing](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)(코끼리 및 쥐 매개 변수 검색) 블로그 게시물
 - 이 [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)(동적 SQL 및 매개 변수가 있는 쿼리의 계획 품질) 블로그 게시물
 
@@ -189,7 +188,7 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 이전 차트에 표시된 것처럼, 가장 일반적인 대기는 다음과 같습니다.
 
 - 잠금(차단)
-- 입력/출력
+- I/O
 - `tempdb` 관련 콘텐츠
 - 메모리 부여 대기
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803267"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681729"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "58803267"
 
 ## <a name="storage-account-support"></a>저장소 계정 지원
 
-수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
+수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
 ## <a name="pricing"></a>가격 
 
@@ -45,7 +45,7 @@ ms.locfileid: "58803267"
 추가, 편집 또는 Azure portal을 사용 하 여 정책을 제거 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI [REST Api](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), 또는 클라이언트 도구입니다. 이 문서에는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
 
 > [!NOTE]
-> 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
+> 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 필요한 바이패스 됩니다: `Logging,  Metrics,  AzureServices`합니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -116,7 +116,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 | 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
 |----------------|----------------|-------|----------|
 | 이름           | 문자열 |규칙 이름은 최대 256 개의 영숫자 문자를 포함할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True  |
-| 사용 | BOOLEAN | 두 일 하는 규칙을 허용 하는 선택적 부울을 사용할 수 없습니다. 기본값은 설정 되어 있지 않으면 true입니다. | False | 
+| 사용 | BOOLEAN | 두 일 하는 규칙을 허용 하는 선택적 부울을 사용할 수 없습니다. 기본값은 설정 되어 있지 않으면 true입니다. | 거짓 | 
 | 형식           | 열거형 값 | 현재 유효한 형식이 `Lifecycle`합니다. | True  |
 | 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True  |
 
@@ -178,7 +178,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 수명 주기 관리 계층화 및 삭제의 blob 및 blob 스냅숏 삭제를 지원합니다. Blob 또는 Blob 스냅숏에 대한 각 규칙에 하나 이상의 작업을 정의합니다.
 
-| 조치        | 기본 Blob                                   | 스냅숏      |
+| 액션(Action)        | 기본 Blob                                   | 스냅숏      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | 현재 핫 계층에서 Blob을 지원합니다.         | 지원되지 않음 |
 | tierToArchive | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |

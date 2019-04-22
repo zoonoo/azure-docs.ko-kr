@@ -12,57 +12,81 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/15/2019
 ms.author: damaerte
-ms.openlocfilehash: a02642540e6eb39f35b9cc0d38d187a7afa36b7a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 2511f2c8fb706e232cde9ee4c02c7f8114bd3a2b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243451"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699222"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell 창 사용
 
 이 문서에는 Cloud Shell 창을 사용하는 방법에 대해 설명합니다.
 
 ## <a name="swap-between-bash-and-powershell-environments"></a>Bash와 PowerShell 환경 간의 교환
-![](media/using-the-shell-window/env-selector.png)
 
-Azure Cloud Shell 도구 모음에서 환경 선택기를 사용하여 Bash 및 PowerShell 환경 간에 교환합니다.
+Azure Cloud Shell 도구 모음에서 환경 선택기를 사용하여 Bash 및 PowerShell 환경 간에 교환합니다.  
+![환경 선택](media/using-the-shell-window/env-selector.png)
 
 ## <a name="restart-cloud-shell"></a>Cloud Shell 다시 시작
-![](media/using-the-shell-window/restart.png)
+컴퓨터 상태를 다시 설정하려면 Azure Cloud Shell 도구 모음에서 다시 시작 아이콘을 클릭합니다.  
+![Cloud Shell 다시 시작](media/using-the-shell-window/restart.png)
 > [!WARNING]
 > Cloud Shell을 다시 시작하면 컴퓨터 상태가 다시 설정되고 Azure 파일 공유에서 유지하지 않는 파일은 모두 손실됩니다.
 
-* 컴퓨터 상태를 다시 설정하려면 Azure Cloud Shell 도구 모음에서 다시 시작 아이콘을 클릭합니다.
+## <a name="change-the-text-size"></a>텍스트 크기 변경
+창의 왼쪽 상단에서 설정 아이콘을 클릭한 다음 "텍스트 크기" 옵션 위로 마우스를 가져가 원하는 텍스트 크기를 선택합니다. 선택 사항이 세션 전반에서 유지됩니다.
+![텍스트 크기](media/using-the-shell-window/text-size.png)
+
+## <a name="change-the-font"></a>글꼴 변경
+창의 왼쪽 상단에서 설정 아이콘을 클릭 한 다음 "글꼴" 옵션 위로 하 고 원하는 글꼴을 선택 합니다.  선택 사항이 세션 전반에서 유지됩니다.
+![Font](media/using-the-shell-window/text-font.png)
+
+## <a name="upload-and-download-files"></a>파일 업로드 및 다운로드
+창의 왼쪽 맨 위에 있는 업로드/다운로드 파일 아이콘을 클릭 업로드 또는 다운로드를 선택 합니다.  
+![파일 업로드/다운로드](media/using-the-shell-window/uploaddownload.png)
+* 파일 업로드를 사용 하 여 팝업, 로컬 컴퓨터에 파일을 찾아 하 고, 원하는 파일을 선택 하 고, "열기" 단추를 클릭 합니다.  에 업로드할 파일을 `/home/user` 디렉터리입니다.
+* 파일을 다운로드 하는 것에 대 한 팝업 창에 정규화 된 파일 경로 입력 하 고 "다운로드" 단추를 선택 합니다.  
+> [!NOTE] 
+> 파일 및 파일 경로 대/소문자 구분 Cloud Shell에서. Double에 대/소문자 구분 파일 경로 확인 합니다.
+
+## <a name="open-another-cloud-shell-window"></a>다른 Cloud Shell 창을 엽니다.
+Cloud Shell 별도 프로세스로 존재 하도록 각 세션을 허용 하 여 브라우저 탭에서 여러 개의 동시 세션 수 있습니다.
+세션을 종료하는 경우 동일한 컴퓨터에서 실행하더라도 각 프로세스가 독립적으로 실행되므로 각 세션 창을 개별적으로 종료해야 합니다.  
+창의 왼쪽 맨 위에 새 세션 열기 아이콘을 클릭 합니다. 기존 컨테이너에 연결 하는 다른 세션에는 새 탭이 열립니다.
+![새 세션 열기](media/using-the-shell-window/newsession.png)
+
+## <a name="cloud-shell-editor"></a>Cloud Shell 편집기
+* 참조 된 [Azure Cloud Shell 편집기를 사용 하 여](using-cloud-shell-editor.md) 페이지입니다.
+
+## <a name="web-preview"></a>웹 미리 보기
+위쪽에서 웹 미리 보기 아이콘을 클릭 "구성"을 선택 창의 왼쪽에, 원하는 포트를 엽니다.  선택 하거나 "Open port"만 포트를 엽니다 또는 "열고" 포트를 열고 새 탭의 포트를 미리 봅니다.  
+![웹 미리 보기](media/using-the-shell-window/preview.png)  
+<br>
+![포트 구성](media/using-the-shell-window/preview-configure.png)  
+창의 왼쪽 맨 위에 웹 미리 보기 아이콘을 클릭 "미리 보기 포트..." 선택 새 탭에서 열려 있는 포트를 미리 보려면. 창의 왼쪽 맨 위에 웹 미리 보기 아이콘을 클릭 "포트 닫기..." 선택 열려 있는 포트를 닫습니다.  
+![미리 보기/포트 닫기](media/using-the-shell-window/preview-options.png)
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Cloud Shell 창 최소화 및 최대화
-![](media/using-the-shell-window/minmax.png)
-* 창을 숨기려면 창의 오른쪽 위에 있는 최소화 아이콘을 클릭합니다. 숨기기를 취소하려면 Cloud Shell 아이콘을 다시 클릭합니다.
-* 창을 최대 높이로 설정하려면 최대화 아이콘을 클릭합니다. 창을 이전 크기로 복원하려면 복원 아이콘을 클릭합니다.
-
-## <a name="concurrent-sessions"></a>동시 세션
-Cloud Shell을 사용하면 각 세션이 별도의 Bash 프로세스로 존재할 수 있게 하여 브라우저 탭에서 여러 개의 세션을 동시에 수행할 수 있습니다.
-세션을 종료하는 경우 동일한 컴퓨터에서 실행하더라도 각 프로세스가 독립적으로 실행되므로 각 세션 창을 개별적으로 종료해야 합니다.
+창을 숨기려면 창의 오른쪽 위에 있는 최소화 아이콘을 클릭합니다. 숨기기를 취소하려면 Cloud Shell 아이콘을 다시 클릭합니다.
+창을 최대 높이로 설정하려면 최대화 아이콘을 클릭합니다. 창을 이전 크기로 복원하려면 복원 아이콘을 클릭합니다.  
+![창을 최대화 또는 최소화](media/using-the-shell-window/minmax.png)
 
 ## <a name="copy-and-paste"></a>복사 및 붙여넣기
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## <a name="resize-cloud-shell-window"></a>Cloud Shell 창 크기 조정
-* 도구 모음의 위쪽 가장자리를 클릭한 채 위/아래로 끌어 Cloud Shell 창의 크기를 조정합니다.
+도구 모음의 위쪽 가장자리를 클릭한 채 위/아래로 끌어 Cloud Shell 창의 크기를 조정합니다.
 
 ## <a name="scrolling-text-display"></a>텍스트 표시 스크롤
-* 마우스 또는 터치 패드로 터미널 텍스트까지 스크롤합니다.
-
-## <a name="changing-the-text-size"></a>텍스트 크기 변경
-![](media/using-the-shell-window/text-size.png)
-* 창의 왼쪽 상단에서 설정 아이콘을 클릭한 다음 "텍스트 크기" 옵션 위로 마우스를 가져가 원하는 텍스트 크기를 선택합니다. 선택 사항이 세션 전반에서 유지됩니다.
+마우스 또는 터치 패드로 터미널 텍스트까지 스크롤합니다.
 
 ## <a name="exit-command"></a>종료 명령
 `exit`를 실행하면 활성 세션이 종료됩니다. 이 동작은 기본적으로 상호 작용 없이 20분 후에 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Cloud Shell의 Bash 빠른 시작](quickstart.md)
-[Azure Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md)
+[Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
+[Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md)

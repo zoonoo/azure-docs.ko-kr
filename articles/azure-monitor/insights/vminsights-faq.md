@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243776"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698283"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>VM용 Azure Monitor(미리 보기) 질문과 대답
 Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -100,7 +100,7 @@ VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음
 * 이제 모니터링된 VM은 클라이언트 그룹 노드에 포함됩니다. 도넛형 차트에서는 그룹에서 모니터링된 가상 머신 및 모니터링되지 않는 가상 머신의 비율을 보여줍니다.  그룹이 확장되면 머신의 목록을 필터링하는 데 사용할 수도 있습니다.
 * 이제 모니터링된 가상 머신은 서버 포트 그룹 노드에 포함됩니다. 도넛형 차트에서는 그룹에서 모니터링된 머신 및 모니터링되지 않는 머신의 비율을 보여줍니다.  그룹이 확장되면 머신의 목록을 필터링하는 데 사용할 수도 있습니다.
 * 맵 스타일은 Application insights에서 앱 맵을 사용하여 더욱 일관되게 업데이트되었습니다.
-* 사이드 패널이 업데이트되었지만 서비스 맵에서 지원된 통합의 전체 기능(업데이트 관리, 변경 내용 추적, 보안 및 서비스 데스크)이 포함되지 않습니다. 
+* 쪽 패널 업데이트 되었으며 및 통합의 서비스 맵-업데이트 관리, 변경 내용 추적, 보안 및 서비스 데스크에에서 지원 하 던 중 일부만 필요가 없습니다. 
 * 맵에 대한 그룹 및 머신을 선택하는 옵션이 업데이트되어 이제 구독, 리소스 그룹, Azure 가상 머신 확장 집합 및 클라우드 서비스를 지원합니다.
 * VM용 Azure Monitor 맵 기능에서 새 서비스 맵 머신 그룹을 만들 수 없습니다.  
 
@@ -125,6 +125,12 @@ VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>성능 탭의 네트워크 차트가 Azure VM 개요 페이지의 네트워크 차트와 다르게 보이는 이유는?
 
 Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정값에 따라 차트가 표시됩니다.  Azure VM 개요에 대한 네트워크 차트의 경우 청구되는 네트워크 트래픽만 표시합니다.  여기에는 VNet 간 트래픽이 포함되지 않습니다.  VM용 Azure Monitor에 대해 표시된 데이터 및 차트는 게스트 VM의 데이터를 기반으로 하고 네트워크 차트는 VNet 간 트래픽을 비롯하여 해당 VM에 대한 인바운드 및 아웃바운드인 모든 TCP/IP 트래픽을 표시합니다.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>VMConnection에 저장 되 고 통합 문서 연결 패널에 표시 된 데이터에 대 한 응답 시간 측정 방법
+
+응답 시간은 근사값입니다. 응용 프로그램의 코드를 계측 하지 수행 되므로 파악 하지 못해도 실제로 요청을 시작 하는 시점 및 응답이 도착 하는 경우. 대신 데이터 연결에서 전송 되 고 해당 연결에서 다시 가져온 데이터를 관찰 했습니다. 이 에이전트 추적 이러한 송신 및 수신 하 고 연결할 하려고: 시퀀스 뒤에 보내기 시퀀스로 수신 요청/응답 쌍으로 해석 됩니다. 이러한 작업 간의 시간 응답 시간입니다. 네트워크 대기 시간 및 서버 처리에 포함 됩니다.
+
+이 근사치 프로토콜 요청/응답 기반에 적합 합니다: 단일 요청에 연결 하는 사용자는 단일 응답에 도착 합니다. 이 경우 HTTP (S) (파이프라인)를 제외 하지만 다른 프로토콜에 대 한 충족 하지 않습니다.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Log Analytics 무료 가격 플랜을 사용하고 있는 경우 제한 사항이 있나요?
 *무료* 가격 책정 계층을 사용하여 Log Analytics 작업 영역에 Azure Monitor를 구성한 경우 VM용 Azure Monitor 맵 기능은 5대의 작업 영역에 연결된 머신만 지원합니다. 무료 작업 영역에 5대의 VM이 연결되어 있는 경우 VM 중 하나의 연결을 끊은 후 나중에 새 VM을 연결하면 맵 페이지에서 새 VM이 모니터링 및 반영되지 않습니다.  

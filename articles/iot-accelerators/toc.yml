@@ -1,300 +1,293 @@
-items:
 - name: IoT 솔루션 가속기 설명서
   href: index.md
 - name: 개요
-  items:
-  - name: IoT 솔루션 가속기란
-    href: about-iot-accelerators.md
-  - name: AzureIoTSolution.com
-    href: iot-accelerators-permissions.md
   expanded: true
+  items:
+    - name: IoT 솔루션 가속기란
+      href: about-iot-accelerators.md
+    - name: AzureIoTSolution.com
+      href: iot-accelerators-permissions.md
 - name: 원격 모니터링
   items:
-  - name: 개요
-    href: iot-accelerators-remote-monitoring-sample-walkthrough.md
-    items:
-    - name: 아키텍처 선택
-      href: iot-accelerators-remote-monitoring-architectural-choices.md
-  - name: 빠른 시작
-    items:
-    - name: 원격 모니터링 솔루션 사용
-      href: quickstart-remote-monitoring-deploy.md
-  - name: 자습서
-    items:
-    - name: IoT 디바이스 모니터링
-      href: iot-accelerators-remote-monitoring-monitor.md
-    - name: 디바이스 문제 검색
-      href: iot-accelerators-remote-monitoring-automate.md
-    - name: 디바이스 구성
-      href: iot-accelerators-remote-monitoring-manage.md
-    - name: 경고에 대한 근본 원인 분석 수행
-      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-    - name: 경고 사용 및 디바이스 문제 수정
-      href: iot-accelerators-remote-monitoring-maintain.md
-    - name: 디바이스 구성 일괄 업데이트
-      href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
-    - name: 에지에서 이상 검색
-      href: iot-accelerators-remote-monitoring-edge.md
-  - name: 방법 가이드
-    items:
-    - name: 솔루션 배포
+    - name: 개요
+      href: iot-accelerators-remote-monitoring-sample-walkthrough.md
       items:
-      - name: CLI를 사용하여 배포
-        href: iot-accelerators-remote-monitoring-deploy-cli.md
-      - name: Visual Studio를 사용하여 로컬 배포
-        href: iot-accelerators-remote-monitoring-deploy-local.md
-      - name: VS Code를 사용하여 로컬 배포
-        href: iot-accelerators-remote-monitoring-deploy-local-vscode.md
-      - name: IntelliJ를 사용하여 로컬 배포
-        href: iot-accelerators-remote-monitoring-deploy-local-java.md
-      - name: Docker를 사용하여 로컬 배포
-        href: iot-accelerators-remote-monitoring-deploy-local-docker.md
-    - name: 실제 디바이스 연결
+        - name: 아키텍처 선택
+          href: iot-accelerators-remote-monitoring-architectural-choices.md
+    - name: 빠른 시작
       items:
-      - name: Windows에서 C
-        href: iot-accelerators-connecting-devices.md
-      - name: Linux에서 C
-        href: iot-accelerators-connecting-devices-linux.md
-      - name: Raspberry Pi의 C
-        href: iot-accelerators-connecting-pi-c.md
-      - name: Node.js(일반)
-        href: iot-accelerators-connecting-devices-node.md
-      - name: Raspberry Pi의 Node.js
-        href: iot-accelerators-connecting-pi-node.md
-      - name: MXChip IoT DevKit
-        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
-    - name: 디바이스 시뮬레이션
+        - name: 원격 모니터링 솔루션 사용
+          href: quickstart-remote-monitoring-deploy.md
+    - name: 자습서
       items:
-      - name: 시뮬레이션된 디바이스 만들기
-        href: iot-accelerators-remote-monitoring-create-simulated-device.md
-      - name: 시뮬레이션된 디바이스 배포
-        href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
-    - name: UI 사용자 지정
-      href: iot-accelerators-remote-monitoring-customize.md
+        - name: IoT 디바이스 모니터링
+          href: iot-accelerators-remote-monitoring-monitor.md
+        - name: 디바이스 문제 검색
+          href: iot-accelerators-remote-monitoring-automate.md
+        - name: 디바이스 구성
+          href: iot-accelerators-remote-monitoring-manage.md
+        - name: 경고에 대한 근본 원인 분석 수행
+          href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+        - name: 경고 사용 및 디바이스 문제 수정
+          href: iot-accelerators-remote-monitoring-maintain.md
+        - name: 디바이스 구성 일괄 업데이트
+          href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
+        - name: 에지에서 이상 검색
+          href: iot-accelerators-remote-monitoring-edge.md
+    - name: 방법 가이드
       items:
-      - name: 페이지 추가
-        href: iot-accelerators-remote-monitoring-customize-page.md
-      - name: 서비스 추가
-        href: iot-accelerators-remote-monitoring-customize-service.md
-      - name: 그리드 추가
-        href: iot-accelerators-remote-monitoring-customize-grid.md
-      - name: 플라이아웃 추가
-        href: iot-accelerators-remote-monitoring-customize-flyout.md
-      - name: 패널 추가
-        href: iot-accelerators-remote-monitoring-customize-panel.md
-    - name: 마이크로 서비스 사용자 지정 및 다시 배포
-      href: iot-accelerators-microservices-example.md
-    - name: 디바이스 구성 패키지 가져오기
-      href: iot-accelerators-remote-monitoring-import-adm-package.md
-    - name: IoT Edge 디바이스 연결
+        - name: 솔루션 배포
+          items:
+            - name: CLI를 사용하여 배포
+              href: iot-accelerators-remote-monitoring-deploy-cli.md
+            - name: Visual Studio를 사용하여 로컬 배포
+              href: iot-accelerators-remote-monitoring-deploy-local.md
+            - name: VS Code를 사용하여 로컬 배포
+              href: iot-accelerators-remote-monitoring-deploy-local-vscode.md
+            - name: IntelliJ를 사용하여 로컬 배포
+              href: iot-accelerators-remote-monitoring-deploy-local-java.md
+            - name: Docker를 사용하여 로컬 배포
+              href: iot-accelerators-remote-monitoring-deploy-local-docker.md
+        - name: 실제 디바이스 연결
+          items:
+            - name: Windows에서 C
+              href: iot-accelerators-connecting-devices.md
+            - name: Linux에서 C
+              href: iot-accelerators-connecting-devices-linux.md
+            - name: Raspberry Pi의 C
+              href: iot-accelerators-connecting-pi-c.md
+            - name: Node.js(일반)
+              href: iot-accelerators-connecting-devices-node.md
+            - name: Raspberry Pi의 Node.js
+              href: iot-accelerators-connecting-pi-node.md
+            - name: MXChip IoT DevKit
+              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+        - name: 디바이스 시뮬레이션
+          items:
+            - name: 시뮬레이션된 디바이스 만들기
+              href: iot-accelerators-remote-monitoring-create-simulated-device.md
+            - name: 시뮬레이션된 디바이스 배포
+              href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
+        - name: UI 사용자 지정
+          href: iot-accelerators-remote-monitoring-customize.md
+          items:
+            - name: 페이지 추가
+              href: iot-accelerators-remote-monitoring-customize-page.md
+            - name: 서비스 추가
+              href: iot-accelerators-remote-monitoring-customize-service.md
+            - name: 그리드 추가
+              href: iot-accelerators-remote-monitoring-customize-grid.md
+            - name: 플라이아웃 추가
+              href: iot-accelerators-remote-monitoring-customize-flyout.md
+            - name: 패널 추가
+              href: iot-accelerators-remote-monitoring-customize-panel.md
+        - name: 마이크로 서비스 사용자 지정 및 다시 배포
+          href: iot-accelerators-microservices-example.md
+        - name: 디바이스 구성 패키지 가져오기
+          href: iot-accelerators-remote-monitoring-import-adm-package.md
+        - name: IoT Edge 디바이스 연결
+          items:
+            - name: IoT Edge 디바이스 추가
+              href: iot-accelerators-remote-monitoring-add-edge-device.md
+            - name: IoT Edge 패키지 가져오기
+              href: iot-accelerators-remote-monitoring-import-edge-package.md
+        - name: 이메일 작업 구성
+          href: iot-accelerators-remote-monitoring-email-actions.md
+        - name: 액세스 제어 구성
+          href: iot-accelerators-remote-monitoring-rbac.md
+        - name: 원격 분석 탐색
+          items:
+            - name: PowerBI를 사용하여 원격 분석 시각화
+              href: iot-accelerators-integrate-data-powerbi.md
+            - name: 원격 모니터링과 Azure Time Series Insights 통합
+              href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
+            - name: Data Lake를 사용하여 원격 분석 수행
+              href: iot-accelerators-integrate-data-lake.md
+            - name: 원격 분석 탐색기에 액세스 권한 부여
+              href: iot-accelerators-remote-monitoring-rbac-tsi.md
+        - name: SIM 데이터 통합
+          href: iot-accelerators-remote-monitoring-telefonica-sim.md
+    - name: 참고 자료
       items:
-      - name: IoT Edge 디바이스 추가
-        href: iot-accelerators-remote-monitoring-add-edge-device.md
-      - name: IoT Edge 패키지 가져오기
-        href: iot-accelerators-remote-monitoring-import-edge-package.md
-    - name: 이메일 작업 구성
-      href: iot-accelerators-remote-monitoring-email-actions.md
-    - name: 액세스 제어 구성
-      href: iot-accelerators-remote-monitoring-rbac.md
-    - name: 원격 분석 탐색
+        - name: 디바이스 모델 스키마
+          href: iot-accelerators-remote-monitoring-device-schema.md
+        - name: 디바이스 모델 동작
+          href: iot-accelerators-remote-monitoring-device-behavior.md
+    - name: 리소스
       items:
-      - name: PowerBI를 사용하여 원격 분석 시각화
-        href: iot-accelerators-integrate-data-powerbi.md
-      - name: 원격 모니터링과 Azure Time Series Insights 통합
-        href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
-      - name: Data Lake를 사용하여 원격 분석 수행
-        href: iot-accelerators-integrate-data-lake.md
-      - name: 원격 분석 탐색기에 액세스 권한 부여
-        href: iot-accelerators-remote-monitoring-rbac-tsi.md
-    - name: SIM 데이터 통합
-      href: iot-accelerators-remote-monitoring-telefonica-sim.md
-  - name: 참고 자료
-    items:
-    - name: 디바이스 모델 스키마
-      href: iot-accelerators-remote-monitoring-device-schema.md
-    - name: 디바이스 모델 동작
-      href: iot-accelerators-remote-monitoring-device-behavior.md
-  - name: 리소스
-    items:
-    - name: 개발자 참조 가이드(.NET)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide
-    - name: 개발자 참조 가이드(Java)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide
-    - name: 개발자 문제 해결 가이드
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide
-    - name: GitHub 리포지토리(.NET)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
-    - name: GitHub 리포지토리(Java)
-      href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
-    - name: 원격 모니터링 FAQ
-      href: iot-accelerators-faq-rm-v2.md
+        - name: 개발자 참조 가이드(.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'
+        - name: 개발자 참조 가이드(Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/wiki/Developer-Reference-Guide'
+        - name: 개발자 문제 해결 가이드
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide'
+        - name: GitHub 리포지토리(.NET)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet'
+        - name: GitHub 리포지토리(Java)
+          href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-java'
+        - name: 원격 모니터링 FAQ
+          href: iot-accelerators-faq-rm-v2.md
 - name: 산업용 IoT
   items:
-  - name: 개요
-    items:
-    - name: 산업용 IoT란?
-      href: overview-iot-industrial.md
-    - name: OPC 쌍
+    - name: 개요
       items:
-      - name: OPC 쌍이란?
-        href: overview-opc-twin.md
-      - name: OPC 쌍 아키텍처
-        href: overview-opc-twin-architecture.md
-    - name: OPC 자격 증명 모음
+        - name: 산업용 IoT란?
+          href: overview-iot-industrial.md
+        - name: OPC 쌍
+          items:
+            - name: OPC 쌍이란?
+              href: overview-opc-twin.md
+            - name: OPC 쌍 아키텍처
+              href: overview-opc-twin-architecture.md
+        - name: OPC 자격 증명 모음
+          items:
+            - name: OPC 자격 증명 모음이란?
+              href: overview-opc-vault.md
+        - name: 연결된 팩터리
+          items:
+            - name: 연결된 팩터리 개요
+              href: iot-accelerators-connected-factory-features.md
+            - name: 연결된 팩터리 아키텍처
+              href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: 빠른 시작
       items:
-      - name: OPC 자격 증명 모음이란?
-        href: overview-opc-vault.md
-    - name: 연결된 팩터리
+        - name: 연결된 팩터리 솔루션 사용
+          href: quickstart-connected-factory-deploy.md
+    - name: 방법 가이드
       items:
-      - name: 연결된 팩터리 개요
-        href: iot-accelerators-connected-factory-features.md
-      - name: 연결된 팩터리 아키텍처
-        href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: 빠른 시작
-    items:
-    - name: 연결된 팩터리 솔루션 사용
-      href: quickstart-connected-factory-deploy.md
-  - name: 방법 가이드
-    items:
-    - name: 연결된 팩터리
+        - name: 연결된 팩터리
+          items:
+            - name: 대시보드 사용
+              href: iot-accelerators-connected-factory-dashboard.md
+            - name: 게이트웨이 배포
+              href: iot-accelerators-connected-factory-gateway-deployment.md
+            - name: OPC 게시자 사용
+              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
+            - name: 솔루션 가속기 구성
+              href: iot-accelerators-connected-factory-configure.md
+            - name: 솔루션 가속기 사용자 지정
+              href: iot-accelerators-connected-factory-customize.md
+        - name: OPC 쌍
+          items:
+            - name: OPC 쌍 서비스 배포
+              href: howto-opc-twin-deploy-existing.md
+            - name: IoT Edge에 OPC 쌍 모듈 배포
+              href: howto-opc-twin-deploy-modules.md
+            - name: OPC 쌍 종속성만 배포
+              href: howto-opc-twin-deploy-dependencies.md
+        - name: OPC 자격 증명 모음
+          items:
+            - name: 기존 프로젝트에 OPC 자격 증명 모음 배포
+              items:
+                - name: OPC 클라이언트 및 OPC PLC 통신 보호
+                  href: howto-opc-vault-deploy-existing-client-plc-communication.md
+                - name: OPC UA 클라이언트 및 OPC UA 서버 애플리케이션 보호
+                  href: howto-opc-vault-deploy-existing-client-server-communication.md
+            - name: 처음부터 OPC 자격 증명 모음 배포
+              href: howto-opc-vault-deploy-scratch.md
+    - name: 리소스
       items:
-      - name: 대시보드 사용
-        href: iot-accelerators-connected-factory-dashboard.md
-      - name: 게이트웨이 배포
-        href: iot-accelerators-connected-factory-gateway-deployment.md
-      - name: OPC 게시자 사용
-        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-      - name: 솔루션 가속기 구성
-        href: iot-accelerators-connected-factory-configure.md
-      - name: 솔루션 가속기 사용자 지정
-        href: iot-accelerators-connected-factory-customize.md
-    - name: OPC 쌍
-      items:
-      - name: OPC 쌍 서비스 배포
-        href: howto-opc-twin-deploy-existing.md
-      - name: IoT Edge에 OPC 쌍 모듈 배포
-        href: howto-opc-twin-deploy-modules.md
-      - name: OPC 쌍 종속성만 배포
-        href: howto-opc-twin-deploy-dependencies.md
-    - name: OPC 자격 증명 모음
-      items:
-      - name: 기존 프로젝트에 OPC 자격 증명 모음 배포
-        items:
-        - name: OPC 클라이언트 및 OPC PLC 통신 보호
-          href: howto-opc-vault-deploy-existing-client-plc-communication.md
-        - name: OPC UA 클라이언트 및 OPC UA 서버 애플리케이션 보호
-          href: howto-opc-vault-deploy-existing-client-server-communication.md
-      - name: 처음부터 OPC 자격 증명 모음 배포
-        href: howto-opc-vault-deploy-scratch.md
-  - name: 리소스
-    items:
-    - name: GitHub 리포지토리
-      href: https://github.com/Azure/azure-iot-connected-factory
-    - name: 연결된 팩터리 FAQ
-      href: iot-accelerators-faq-cf.md
+        - name: GitHub 리포지토리
+          href: 'https://github.com/Azure/azure-iot-connected-factory'
+        - name: 연결된 팩터리 FAQ
+          href: iot-accelerators-faq-cf.md
 - name: 디바이스 시뮬레이션
   items:
-  - name: 개요
-    href: iot-accelerators-device-simulation-overview.md
-  - name: 빠른 시작
-    items:
-    - name: 디바이스 시뮬레이션 솔루션 사용
-      href: quickstart-device-simulation-deploy.md
-  - name: 자습서
-    items:
-    - name: 시뮬레이션 만들기 및 실행
-      href: iot-accelerators-device-simulation-create-simulation.md
-    - name: 사용자 지정 시뮬레이션된 디바이스 만들기
-      href: iot-accelerators-device-simulation-create-custom-device.md
-  - name: 방법 가이드
-    items:
-    - name: 기존 IoT Hub 사용
-      href: iot-accelerators-device-simulation-choose-hub.md
-    - name: 고급 시뮬레이션된 디바이스 만들기
-      href: iot-accelerators-device-simulation-advanced-device.md
-    - name: Time Series Insights를 사용하여 원격 분석 시각화
-      href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Protbuf를 사용하여 원격 분석 직렬화
-      href: iot-accelerators-device-simulation-protobuf.md
-    - name: 사용자 지정 Docker 이미지 배포
-      href: iot-accelerators-device-simulation-deploy-image.md
-  - name: 리소스
-    items:
-    - name: 개발자 참조 가이드
-      href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
-    - name: GitHub 리포지토리
-      href: https://github.com/Azure/device-simulation-dotnet
+    - name: 개요
+      href: iot-accelerators-device-simulation-overview.md
+    - name: 빠른 시작
+      items:
+        - name: 디바이스 시뮬레이션 솔루션 사용
+          href: quickstart-device-simulation-deploy.md
+    - name: 자습서
+      items:
+        - name: 시뮬레이션 만들기 및 실행
+          href: iot-accelerators-device-simulation-create-simulation.md
+        - name: 사용자 지정 시뮬레이션된 디바이스 만들기
+          href: iot-accelerators-device-simulation-create-custom-device.md
+    - name: 방법 가이드
+      items:
+        - name: 기존 IoT Hub 사용
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: 고급 시뮬레이션된 디바이스 만들기
+          href: iot-accelerators-device-simulation-advanced-device.md
+        - name: Time Series Insights를 사용하여 원격 분석 시각화
+          href: iot-accelerators-device-simulation-time-series-insights.md
+        - name: Protbuf를 사용하여 원격 분석 직렬화
+          href: iot-accelerators-device-simulation-protobuf.md
+        - name: 사용자 지정 Docker 이미지 배포
+          href: iot-accelerators-device-simulation-deploy-image.md
+    - name: 리소스
+      items:
+        - name: 개발자 참조 가이드
+          href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
+        - name: GitHub 리포지토리
+          href: 'https://github.com/Azure/device-simulation-dotnet'
 - name: 예측 유지 관리
   items:
-  - name: 개요
-    href: iot-accelerators-predictive-walkthrough.md
-  - name: 빠른 시작
-    items:
-    - name: 예측 유지 관리 솔루션 사용
-      href: quickstart-predictive-maintenance-deploy.md
-  - name: 리소스
-    items:
-    - name: GitHub 리포지토리
-      href: https://github.com/Azure/azure-iot-predictive-maintenance
+    - name: 개요
+      href: iot-accelerators-predictive-walkthrough.md
+    - name: 빠른 시작
+      items:
+        - name: 예측 유지 관리 솔루션 사용
+          href: quickstart-predictive-maintenance-deploy.md
+    - name: 리소스
+      items:
+        - name: GitHub 리포지토리
+          href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
 - name: 참조 아키텍처
   items:
-  - name: 개요
-    href: iot-accelerators-architecture-overview.md
-  - name: 다운로드
-    href: https://aka.ms/iotrefarchitecture
-  - name: 파트너 구현
-    items:
-    - name: Intel 연결 물류 플랫폼
-      href: https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform
-    - name: 에지 동력계 분석
-      href: https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis
-    - name: 디지털 사이니지 솔루션
-      href: https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution
+    - name: 개요
+      href: iot-accelerators-architecture-overview.md
+    - name: 다운로드
+      href: 'https://aka.ms/iotrefarchitecture'
+    - name: 파트너 구현
+      items:
+        - name: Intel 연결 물류 플랫폼
+          href: 'https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform'
+        - name: 에지 동력계 분석
+          href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
+        - name: 디지털 사이니지 솔루션
+          href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
 - name: 관련 항목
   items:
-  - name: 솔루션
-    items:
-    - name: IoT 솔루션 가속기
-      href: /azure/iot-accelerators
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: 플랫폼 서비스
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
-      href: /azure/iot-dps
-    - name: IoT 서비스 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: 지도
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Microsoft Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT 디바이스 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-  - name: Stream Analytics
-    href: /azure/stream-analytics/
-  - name: Event Hubs
-    href: /azure/event-hubs/
-  - name: Machine Learning
-    href: /azure/machine-learning/
+    - name: 솔루션
+      items:
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: 플랫폼 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning 서비스
+          href: /azure/iot-dps
+        - name: IoT 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 지도
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 디바이스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Stream Analytics
+      href: /azure/stream-analytics/
+    - name: Event Hubs
+      href: /azure/event-hubs/
+    - name: Machine Learning
+      href: /azure/machine-learning/
 - name: 리소스
   items:
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: iot-accelerators-faq.md
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-  - name: 원격 모니터링 V1
-    href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5adec8ee936df920e2b96c38c5a2e78828af5b2e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496457"
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: FAQ
+      href: iot-accelerators-faq.md
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'
+    - name: 원격 모니터링 V1
+      href: 'https://docs.microsoft.com/previous-versions/azure/iot-suite/'

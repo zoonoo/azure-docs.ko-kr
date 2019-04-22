@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 7e120980ed1379fb4ea18bca9f1e84938964cac5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882821"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684160"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
@@ -98,12 +98,12 @@ Data Lake Storage Gen1을 사용하여 데이터를 복원하는 경우 HA/DR �
 
 다음은 Data Lake Storage Gen1 계정 간의 복제를 오케스트레이션하는 데 권장되는 상위 세 가지 옵션과 각각의 주요 차이점입니다.
 
-|  |Distcp  |Azure Data Factory  |AdlCopy  |
+|  |Distcp  |Azure 데이터 팩터리  |AdlCopy  |
 |---------|---------|---------|---------|
-|**규모 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
+|**크기 조정 제한**     | 작업자 노드로 제한됨        | 최대 클라우드 데이터 이동 단위로 제한됨        | 분석 단위로 제한됨        |
 |**델타 복사 지원**     |   예      | 아니오         | 아닙니다.         |
 |**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
-|**지원 되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
+|**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
 |**OS 지원**     |Hadoop을 실행하는 모든 OS         | N/A          | 윈도우 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
@@ -185,7 +185,6 @@ IoT 작업에서는 수많은 제품, 디바이스, 조직 및 고객에 걸쳐 
 * [Azure Data Lake Storage Gen1의 액세스 제어](data-lake-store-access-control.md)
 * [Azure Data Lake Storage Gen1의 보안](data-lake-store-security-overview.md)
 * [Azure Data Lake Storage Gen1의 성능 조정](data-lake-store-performance-tuning-guidance.md)
-* [Azure 데이터 레이크 저장소 Gen1를 사용 하 여 HDInsight Spark를 사용 하기 위한 지침을 조정 하는 성능](data-lake-store-performance-tuning-spark.md)
-* [성능 조정 HDInsight Hive를 사용 하 여 Azure 데이터 레이크 저장소 Gen1를 사용 하 여에 대 한 지침](data-lake-store-performance-tuning-hive.md)
-* [Azure Data Factory를 사용 하 여 Azure 데이터 레이크 저장소 Gen1에 대 한 데이터 오케스트레이션](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [데이터 레이크 저장소 Gen1를 사용 하 여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Data Lake Storage Gen1에서 HDInsight Spark를 사용하기 위한 성능 조정 지침](data-lake-store-performance-tuning-spark.md)
+* [Azure Data Lake Storage Gen1에서 HDInsight Hive를 사용하기 위한 성능 조정 지침](data-lake-store-performance-tuning-hive.md)
+* [Data Lake Storage Gen1로 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/16/2019
 ms.author: jingwang
-ms.openlocfilehash: c2257dac60ed92859e3df3360ce55558b176de91
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010198"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681219"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -136,21 +136,21 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
     - 애플리케이션 키
     - 테넌트 ID
 
-1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
+2. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
 
-1. 서비스 주체에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터 웨어하우스에 연결합니다. 다음 T-SQL을 실행합니다.
+3. 서비스 주체에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터 웨어하우스에 연결합니다. 다음 T-SQL을 실행합니다.
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행합니다.
+4. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행 하거나 더 많은 옵션을 참조 하십시오 [여기](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)합니다.
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. Azure Data Factory에서 **Azure SQL Data Warehouse 연결된 서비스를 구성**합니다.
+5. Azure Data Factory에서 **Azure SQL Data Warehouse 연결된 서비스를 구성**합니다.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>서비스 주체 인증을 사용하는 연결된 서비스 예제
@@ -184,36 +184,23 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 데이터 팩터리는 특정 팩터리를 나타내는 [Azure 리소스에 대한 관리 ID](data-factory-service-identity.md)와 연결할 수 있습니다. Azure SQL Data Warehouse 인증에 대 한 관리 되는이 id를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터 웨어하우스의 데이터에 액세스하고 복사할 수 있습니다.
 
-> [!IMPORTANT]
-> PolyBase에 대 한 현재 지원 되지 않는 관리 되는 id 인증 합니다.
-
 관리 되는 id 인증을 사용 하려면 다음이 단계를 수행 합니다.
 
-1. **Azure AD에서 그룹을 만듭니다.** 그룹의 멤버인 관리 되는 id를 확인 합니다.
+1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. 관리 되는 id 관리자 역할을 사용 하 여 그룹에 부여 하면 3-4 단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
 
-   1. Azure portal에서 data factory 관리 id를 찾습니다. 데이터 팩터리의 **속성**으로 이동합니다. 서비스 ID의 ID를 복사합니다.
-
-   1. [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) 모듈을 설치합니다. `Connect-AzureAD` 명령을 사용하여 로그인합니다. 그룹을 만들고 구성원으로 관리 되는 id를 추가 하려면 다음 명령을 실행 합니다.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-
-1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다.
-
-1. Azure AD 그룹에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터 웨어하우스에 연결합니다. 다음 T-SQL을 실행합니다. 
+2. **[포함 된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  Data Factory 관리 서비스 Id에 대 한 합니다. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터 웨어하우스에 연결합니다. 다음 T-SQL을 실행합니다. 
     
     ```sql
-    CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. 일반적으로 SQL 사용자 및 기타 사용자에 대해 수행하듯이 **Azure AD 그룹에 필요한 권한을 부여**합니다. 예를 들어, 다음 코드를 실행합니다.
+3. **Data Factory 관리 서비스 Id에 필요한 권한을 부여** 하듯이 일반적으로 SQL 사용자 및 다른 사용자에 대 한 합니다. 다음 코드를 실행 하거나 더 많은 옵션을 참조 하십시오 [여기](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)합니다.
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Azure AD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. Azure Data Factory에서 **Azure SQL Data Warehouse 연결된 서비스를 구성**합니다.
+5. Azure Data Factory에서 **Azure SQL Data Warehouse 연결된 서비스를 구성**합니다.
 
 **예제:**
 
@@ -277,7 +264,7 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하려면 복사 작업 �
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **SqlDWSource**로 설정해야 합니다. | 예 |
-| sqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오 |
+| SqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니오 |
 | storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니오 |
 
@@ -415,9 +402,6 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 * 원본 데이터가 Azure Blob Storage 또는 Azure Data Lake Store에 있고 형식이 PolyBase와 호환되는 경우, PolyBase를 사용하여 Azure SQL Data Warehouse에 직접 복사합니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 기능은 데이터를 PolyBase 호환 형식으로 자동으로 변환합니다. 또한 Azure Blob Storage에 데이터를 저장합니다. 그런 다음, SQL Data Warehouse에 데이터를 로드합니다.
 
-> [!IMPORTANT]
-> PolyBase는 현재 MSI 기반 Azure AD 애플리케이션 토큰 인증에 대해 지원되지 않습니다.
-
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase를 사용한 직접 복사
 
 SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 지원합니다. 서비스 주체를 원본으로 사용하며 특정 파일 형식 요구 사항이 있습니다. 원본 데이터가 이 섹션에 설명된 조건을 충족하는 경우, PolyBase를 사용하여 원본 데이터 저장소에서 Azure SQL Data Warehouse로 직접 복사합니다. 조건을 충족하지 않는 경우, [PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)를 사용합니다.
@@ -427,7 +411,7 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
 
 조건을 충족하지 않는 경우, Azure Data Factory는 설정을 확인한 후 데이터 이동을 위해 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
-1. **원본에 연결된 서비스** 유형은 계정 키 인증을 사용하는 Azure Blob 스토리지(**AzureBLobStorage**/**AzureStorage**) 또는 서비스 주체 인증을 사용하는 Azure Data Lake Storage Gen1(**AzureDataLakeStore**)입니다.
+1. 합니다 **원본에 연결 된 서비스** 형식은 Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) 사용 하 여 **계정 키 인증**  또는 Azure Data Lake 저장소 Gen1 (**AzureDataLakeStore**)와 **서비스 주체 인증**합니다.
 2. **입력 데이터 세트** 유형은 **AzureBlob** 또는 **AzureDataLakeStoreFile**입니다. `type` 속성 아래의 형식 유형은 다음 구성을 사용하는 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
 
    1. `fileName`은 와일드 카드 필터를 포함하지 않습니다.
@@ -581,36 +565,36 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL D
 |:--- |:--- |
 | bigint | Int64 |
 | binary | Byte[] |
-| bit | Boolean |
+| bit | BOOLEAN |
 | char | String, Char[] |
-| date | DateTime |
-| Datetime | DateTime |
-| datetime2 | DateTime |
+| date | Datetime |
+| DateTime | Datetime |
+| datetime2 | Datetime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
-| FILESTREAM attribute (varbinary(max)) | Byte[] |
+| 10진수 | 10진수 |
+| FILESTREAM 특성(varbinary(max)) | Byte[] |
 | Float | Double |
-| image | Byte[] |
+| 이미지 | Byte[] |
 | int | Int32 |
-| money | Decimal |
+| money | 10진수 |
 | nchar | String, Char[] |
 | ntext | String, Char[] |
-| numeric | Decimal |
+| numeric | 10진수 |
 | nvarchar | String, Char[] |
-| real | Single |
+| real | 단일 |
 | rowversion | Byte[] |
-| smalldatetime | DateTime |
+| smalldatetime | Datetime |
 | smallint | Int16 |
-| smallmoney | Decimal |
+| smallmoney | 10진수 |
 | sql_variant | Object |
-| text | String, Char[] |
-| time | TimeSpan |
+| 텍스트 | String, Char[] |
+| 실시간 | timespan |
 | timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |
 | varchar | String, Char[] |
-| xml | Xml |
+| xml | xml |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md##supported-data-stores-and-formats)을 참조하세요.

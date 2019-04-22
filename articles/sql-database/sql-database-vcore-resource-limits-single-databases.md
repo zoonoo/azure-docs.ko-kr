@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/17/2019
+ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260233"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699358"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
@@ -28,7 +28,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-[Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 또는 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
+[Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 또는 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 계산 크기 및 스토리지 용량을 설정할 수 있습니다.
 
 > [!IMPORTANT]
 > 크기 조정 고려 사항 및 지침을 참조 하세요 [단일 데이터베이스 확장](sql-database-single-database-scale.md)합니다.
@@ -96,7 +96,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |저장소 유형|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |대상 IOPS(64KB)|500|1000|1500|2000|2500|3000|3500|
-|로그 속도 제한 (MBps)|2.5|56|7.5|10|12.5|15|17.5|
+|로그 속도 제한 (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|1400|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|
 |복제본 수|1|1|1|1|1|1|1|
@@ -276,7 +276,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 ## <a name="next-steps"></a>다음 단계
 
 - 단일 데이터베이스에 대한 DTU 리소스 제한의 경우 [DTU 기반 구매 모델을 사용하여 단일 데이터베이스에 대한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)을 참조하세요.
-- 탄력적 풀에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
+- 탄력적 풀에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다.
 - 탄력적 풀에 대한 DTU 리소스 제한의 경우 [DTU 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md)을 참조합니다.
 - 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조합니다.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.

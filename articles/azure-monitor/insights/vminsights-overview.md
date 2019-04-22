@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004594"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697892"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
 
-VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 성능과 Windows 및 Linux Vm의 상태를 분석 하 고 해당 프로세스 및 다른 리소스와 외부 프로세스에 대 한 종속성을 모니터링 합니다. 
+VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 
 
 VM용 Azure Monitor 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 애플리케이션 종속성 모니터링에 대한 지원이 포함됩니다. 다음 세 가지 주요 기능이 심층적인 인사이트를 제공합니다.
 
@@ -39,7 +39,7 @@ VM용 Azure Monitor 솔루션에는 온-프레미스 또는 다른 클라우드 
 * Map
 
 >[!NOTE]
->현재 상태 기능은 Azure Virtual Machines 및 가상 머신 확장 집합에만 제공됩니다. 성능 및 지도 기능 환경 또는 다른 클라우드 공급자의 Azure Vm 및 호스트 된 virtual machines를 모두 지원 합니다.
+>현재 상태 기능을 Azure 가상 머신에 대해서만 제공 됩니다. 성능 및 지도 기능 환경 또는 다른 클라우드 공급자의 Azure Vm, Azure VM scale sets 및 호스팅되는 virtual machines를 지원 합니다.
 
 Azure Monitor 로그와 통합하면 강력한 집계, 필터링을 제공하고, 시간에 따른 데이터 추세를 분석할 수 있습니다. Azure Monitor 또는 서비스 맵 단독으로는 워크로드를 포괄적으로 모니터링할 수 없습니다.  
 

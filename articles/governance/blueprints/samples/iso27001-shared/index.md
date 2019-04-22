@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ca473474c62d0cb57c3ee76095740568398c67d7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c54d8aedb9464364f93a087de4bdb00c693a96ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272753"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698914"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
@@ -36,7 +36,7 @@ VDC는 Microsoft에서 대기업 고객과 함께 사용하는 입증된 참조 
 - [Log Analytics](../../../../azure-monitor/overview.md)는 첫 번째 Azure 서비스로 배포되어 보안 배포를 시작한 순간부터 모든 작업과 서비스가 중앙 위치에 기록되도록 합니다.
 - 온-프레미스 데이터 센터에 다시 연결하기 위한 서브넷을 지원하는 가상 네트워크, 인터넷 연결을 위한 수신 및 송신 스택, 다음을 비롯한 전체 마이크로 세분화를 위해 NSG 및 ASG를 사용하는 공유 서비스 서브넷:
   - 수신 스택 서브넷에 배포된 [Azure Firewall](../../../../firewall/overview.md)을 통해서만 액세스할 수 있는, 관리 용도로 사용되는 Jumpbox 또는 요새 호스트
-  - Jumpbox를 통해서만 액세스할 수 있는 ADDS(Active Directory 디렉터리 서비스) 및 DNS를 실행하는 두 대의 가상 머신, VPN 또는 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 연결을 통해서만 AD를 복제하도록 구성할 수 있습니다(청사진으로 배포되지 않음).
+  - Jumpbox를 통해서만 액세스할 수 있는 ADDS(Active Directory 도메인 서비스) 및 DNS를 실행하는 두 대의 가상 머신, VPN 또는 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 연결을 통해서만 AD를 복제하도록 구성할 수 있습니다(청사진으로 배포되지 않음).
   - [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) 및 표준 DDoS 보호 사용
 - 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) 인스턴스
 

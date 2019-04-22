@@ -1,7 +1,7 @@
 ---
 title: 모델 해석력
 titleSuffix: Azure Machine Learning service
-description: 모델에서 예측을 수행 하는 이유를 설명 하기 위해 Azure Machine Learning Interpretability SDK를 사용 하는 방법에 알아봅니다. 모델에서 예측을 수행 하는 방법을 이해 하려면 학습 및 추론 하는 동안 사용할 수 있습니다.
+description: 모델에서 Azure Machine Learning Interpretability SDK를 사용 하 여 예측을 수행 하는 이유를 설명 하는 방법에 알아봅니다. 모델에서 예측을 수행 하는 방법을 이해 하려면 학습 및 추론 하는 동안 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494443"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682460"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 모델 interpretability
 
 이 문서에서는 모델의 예측을 수행 하는 이유를 설명 하는 방법을 배우게 됩니다 Azure Machine Learning Interpretability SDK를 사용 하 여 만든 것입니다. 모델 설명 수은 다음과 같은 이유로 중요 합니다.
 
@@ -25,9 +25,10 @@ ms.locfileid: "59494443"
 * 데이터 과학자를 파악 하려는 **파악 하도록 모델을 쿼리 하는 방법을**합니다. 또한에서 합리적인된 결정을 내릴 수 있는 도구가 필요 **모델을 향상 시킬 방법**합니다.
 * 회사를 알아야 **다양 한 모델의 동작 입력 배포판** 및 **모델의 동작 방식을 특정 입력을 분석 하는 동안**.
 
-Machine learning interpretability은 두 단계의 기계 학습 개발 주기에서 중요: **교육** 시간 및 **추론** 시간:
+Machine learning interpretability은 두 단계의 기계 학습 개발 주기에서 중요 합니다. 
 
 * 하는 동안 **교육**: 모델 디자이너 및 계산기 interpretability 도구 신뢰를 구축 하기 이해 관계자에 게 모델의 출력을 설명 하기 위해 필요 합니다. 또한 모델에 대 한 정보는 모델을 디버그 하 고 동작 해당 목표를 일치 하는지 여부를 결정을 내릴 수 있도록 해야 합니다. 마지막으로, 모델이 없습니다 편향 되어 있는지 확인 해야 합니다.
+
 * 하는 동안 **추론**: 예측 모델을 사용 하는 사람들에 게 설명할 수 있기 때문 되도록 해야 합니다. 예를 들어, 이유 모델 담보 대출, 거부 또는 않은 투자 포트폴리오를 위험이 높은 예측?
 
 Azure Machine Learning Interpretability SDK 통합 기술을 Microsoft에서 개발한 및 타사 라이브러리 (예: SHAP 및 라임)를 입증 합니다. SDK 통합된 라이브러리 간에 공통 API를 만들고 Azure Machine Learning 서비스를 통합 합니다. 이 SDK를 사용 하 여, 기계 학습 모델을 설명할 수 있습니다 **모든 데이터에 대해 전 세계**, 또는 **특정 데이터 요소에 로컬로** 최신의 기술을 사용 하기 쉬운 하 고 확장 가능한 방식으로 사용 하 합니다.
@@ -91,7 +92,7 @@ __Meta explainers__ 자동으로 적합 한를 직접 설명을 선택 하 고 �
 
 다음 다이어그램은 메타 explainers 직접의 두 집합 간의 관계를 보여 줍니다.
 
-[![MLearning Interpretability 아키텍처 achine](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Machine Learning Interpretability 아키텍처](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>지원 되는 모델
 

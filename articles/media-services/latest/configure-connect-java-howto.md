@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 9177a1ae1f2939979d1f824c98b6018a83c2779f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
-ms.translationtype: MT
+ms.openlocfilehash: 27a4a30dd0eb449726a99d02f2409632aa327567
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502265"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683429"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Media Services v3 API-Java에 연결
 
 이 아티클에서 Azure Media Services v3 Java SDK에 연결 하는 메서드는 서비스 보안 주체 로그인을 사용 하 여 합니다.
 
-이 문서에서는 Visual Studio Code는 앱 개발에 사용 됩니다.
+이 문서에서는 샘플 앱을 개발 하려면 Visual Studio Code 사용 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,9 +54,9 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-1. Visual Studio Code에서 프로젝트가 있는 폴더를 엽니다. 
-1. 찾기 및 열기를 `pom.xml`입니다. 
-1. 필요한 종속성을 추가 합니다. 그 중 하나인 [com.microsoft.azure.mediaservices.v2018_07_01:azure mgmt 미디어](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)합니다.
+1. Visual Studio Code에서 프로젝트가 있는 폴더를 엽니다
+1. 찾기 및 열기를 `pom.xml`
+1. 필요한 종속성을 추가 합니다.
 
     ```xml
     <dependency>
@@ -74,7 +74,6 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
       <artifactId>azure-client-authentication</artifactId>
       <version>1.6.5</version>
     </dependency>
-    </dependency>
     ```
 
 ## <a name="connect-to-the-java-client"></a>Java 클라이언트에 연결
@@ -84,7 +83,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
     ```java
     package com.azure.ams;
     ```
-2. 패키지 문에서 다음과 같은 import 문을 추가합니다.
+1. 패키지 문에서 다음과 같은 import 문을 추가합니다.
    
    ```java
    import com.microsoft.azure.AzureEnvironment;
@@ -92,7 +91,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-2. 요청을 해야 하는 Active Directory 자격 증명을 만들려면 App 클래스의 main 메서드에 다음 코드를 추가 하 고에서 가져온 값을 설정 [Api 액세스](access-api-cli-how-to.md):
+1. 요청을 해야 하는 Active Directory 자격 증명을 만들려면 App 클래스의 main 메서드에 다음 코드를 추가 하 고에서 가져온 값을 설정 [Api 액세스](access-api-cli-how-to.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -115,16 +114,15 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
       System.out.println(e.toString());
    }
    ```
+1. 앱을 실행합니다.
 
 ## <a name="see-also"></a>참고 항목
 
 - [Media Services 개념](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
 - [Java 참조](https://aka.ms/ams-v3-java-ref)
-- [https://search.maven.org/](https://search.maven.org/)
+- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제는 `import com.microsoft.azure.management.mediaservices.v2018_07_01.Asset;` 받고 엔터티를 조작 합니다.<br/>
-예를 들어 계정의 모든 자산을 가져옵니다. `Observable<Asset> asyncAssets = 
-                    manager.assets().listAsync(groupId, accountId).last();`
+이제는 `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` 받고 엔터티를 조작 합니다.

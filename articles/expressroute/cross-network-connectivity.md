@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59052659"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784742"
 ---
-# <a name="cross-network-connectivity"></a>네트워크를 통한 연결
+# <a name="cross-network-connectivity"></a>네트워크 간 연결
 
 Fabrikam Inc.는 미국 동부에 있는 대규모의 실제 Azure 배포 기업입니다. Fabrikam은 ExpressRoute를 통해 해당 온-프레미스와 Azure 배포 간에 백 엔드 연결을 유지합니다. 마찬가지로, Contoso Ltd. 미국 서부의 Azure 배포를 현재 상태에 있습니다. Contoso는 ExpressRoute를 통해 해당 온-프레미스와 Azure 배포 간에 백 엔드 연결을 유지합니다.  
 

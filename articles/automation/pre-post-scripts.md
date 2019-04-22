@@ -1,22 +1,22 @@
 ---
-title: Azure에서 업데이트 관리 배포에 대한 사전 및 사후 스크립트 구성(미리 보기)
+title: 구성 업데이트 관리 배포에 Azure에서 사전 및 사후 스크립트
 description: 이 문서에서는 업데이트 배포를 위해 사전 및 사후 스크립트를 구성하고 관리하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263811"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698745"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
+# <a name="manage-pre-and-post-scripts"></a>관리 사전 및 사후 스크립트
 
 사전 및 사후 스크립트를 사용하면 업데이트 배포 이전(사전 작업)과 이후(사후 작업)에 Automation 계정에서 PowerShell Runbook을 실행할 수 있습니다. 사전 및 사후 스크립트는 로컬이 아닌 Azure 컨텍스트에서 실행됩니다. 업데이트 배포의 시작 부분에서 사전 스크립트 실행합니다. 사후 스크립트는 배포가 끝나고, 구성된 모든 다시 부팅이 진행된 후에 실행됩니다.
 
@@ -26,7 +26,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 ## <a name="using-a-prepost-script"></a>사전/사후 스크립트 사용
 
-업데이트 배포에 사전 및/또는 사후 스크립트를 사용하려면 업데이트 배포부터 만들어야 합니다. **사전 스크립트 + 사후 스크립트(미리 보기)** 를 선택합니다. 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.  
+업데이트 배포에 사전 및/또는 사후 스크립트를 사용하려면 업데이트 배포부터 만들어야 합니다. 선택 **사전 스크립트 + 후 스크립트**합니다. 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.  
 
 ![스크립트 선택](./media/pre-post-scripts/select-scripts.png)
 
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>비 Azure 머신과의 상호 작용
+## <a name="interacting-with-machines"></a>컴퓨터와 상호 작용
+
+사전 및 사후 작업 runbook을 Automation 계정 및 배포의 컴퓨터에 직접적으로 실행합니다. 또한 사전 및 사후 작업 Azure 컨텍스트 내에서 실행 하 고 비 Azure 컴퓨터에 액세스할 수 없는 합니다. 다음 섹션에서는 Azure VM 또는 비 Azure 컴퓨터를 지 수의 상호 작용 컴퓨터 직접 보여 줍니다.
+
+### <a name="interacting-with-azure-machines"></a>Azure 컴퓨터와 상호 작용
+
+사전 및 사후 작업은 runbook으로 실행 및 배포에 Azure Vm에서 고유 하 게 실행 되지 않습니다. Azure Vm을 사용 하 여 상호 작용에 다음 항목이 있어야 합니다.
+
+* 실행 계정
+* 실행 하려는 runbook
+
+Azure 컴퓨터와 상호 작용을 사용 해야 합니다 [Invoke AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) Azure Vm을 사용 하 여 상호 작용 하는 cmdlet입니다. 이 작업을 수행 하는 방법의 예로, runbook 예제를 참조 하세요 [업데이트 관리-실행 명령을 사용 하 여 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)합니다.
+
+### <a name="interacting-with-non-azure-machines"></a>비 Azure 머신과의 상호 작용
 
 사전 및 사후 작업은 Azure 컨텍스트에서 실행되며 비 Azure 머신에는 액세스할 수 없습니다. 비 Azure 머신과 상호 작용하려면 다음 항목이 있어야 합니다.
 
@@ -215,38 +228,7 @@ $variable = Get-AutomationVariable -Name $runId
 * 로컬에서 실행하려는 Runbook
 * 부모 Runbook
 
-비 Azure 머신과 상호 작용하기 위해 부모 Runbook이 Azure 컨텍스트에서 실행됩니다. 이 Runbook은 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet을 사용하여 자식 Runbook을 호출합니다. `-RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다.
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+비 Azure 머신과 상호 작용하기 위해 부모 Runbook이 Azure 컨텍스트에서 실행됩니다. 이 Runbook은 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet을 사용하여 자식 Runbook을 호출합니다. `-RunOn` 매개 변수를 지정하고, 스크립트가 실행될 Hybrid Runbook Worker의 이름을 제공해야 합니다. 이 작업을 수행 하는 방법의 예로, runbook 예제를 참조 하세요 [업데이트 관리-로컬로 스크립트 실행](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)합니다.
 
 ## <a name="abort-patch-deployment"></a>패치 배포를 중단 합니다.
 

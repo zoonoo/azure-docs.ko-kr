@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358134"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784163"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure Maps 지원 언어
 Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습니다.  다음 표에서는 각 서비스에 지원되는 언어 코드를 제공합니다.  

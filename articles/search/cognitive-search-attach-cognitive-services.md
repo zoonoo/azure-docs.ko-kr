@@ -7,36 +7,35 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880418"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683973"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
-AI 알고리즘은 Azure Search 인덱싱 작업에서 구조화되지 않은 데이터를 처리하는 데 사용되는 [Cognitive Search 파이프라인](cognitive-search-concept-intro.md)을 구동합니다. 이러한 알고리즘은 이미지 분석 및 OCR(광학 문자 인식)을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)과 엔터티 인식, 핵심 구 추출 및 기타 강화를 위한 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)를 비롯한 [Cognitive Services 리소스](https://azure.microsoft.com/services/cognitive-services/)를 기준으로 합니다.
+AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-search-concept-intro.md) Azure Search의 구조화 되지 않은 데이터 처리에 사용 합니다. 이러한 알고리즘은 이미지 분석 및 OCR(광학 문자 인식)을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)과 엔터티 인식, 핵심 구 추출 및 기타 강화를 위한 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)를 비롯한 [Cognitive Services 리소스](https://azure.microsoft.com/services/cognitive-services/)를 기준으로 합니다.
 
 제한된 수의 문서를 보강하거나 크고 빈번한 워크로드에 대해 유료 Cognitive Services 리소스를 연결할 수 있습니다. 이 문서에서는 Cognitive Services 리소스를 인지 기술에 연결하여 [Azure Search 인덱싱](search-what-is-an-index.md) 중에 데이터를 보강하는 방법을 알아봅니다.
 
 파이프라인이 Cognitive Services API와 관련이 없는 기술로 구성된 경우 여전히 Cognitive Services 리소스를 연결해야 합니다. 이렇게 하면 **무료** 리소스가 재정의되어 일별 보강 횟수가 낮게 제한됩니다. Cognitive Services API에 바인딩되지 않은 기술의 경우 요금이 부과되지 않습니다. 이러한 기술에는 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md), [텍스트 병합기](cognitive-search-skill-textmerger.md), [텍스트 분할자](cognitive-search-skill-textsplit.md) 및 [쉐이퍼](cognitive-search-skill-shaper.md)가 포함됩니다.
 
 > [!NOTE]
-> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 그러면 기술을 실행한 요금을 청구할 수 있습니다. 또한 문서 해독 단계의 일부인 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+> 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때는 청구 가능 Cognitive Services 리소스를 연결해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> [기본 제공 인지 기술](cognitive-search-predefined-skills.md)을 실행하면 직접 작업을 수행한 것과 동일한 요율로 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services)이 부과됩니다. 이미지 추출은 현재 미리 보기 가격으로 Azure Search 요금이 청구됩니다. 자세한 내용은 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400) 또는 [청구 작동 방식](search-sku-tier.md#how-billing-works)을 참조하세요.
+> 실행 [기본 제공 cognitive 기술](cognitive-search-predefined-skills.md) 실행에 따라 청구 됩니다 합니다 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services)에서 작업을 직접 수행 해야 하는 경우 동일한 비율입니다. 이미지 추출은에 반영 하 여 Azure Search 비용이 합니다 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
 
 
 ## <a name="use-free-resources"></a>무료 리소스 사용
 
 제한된 무료 처리 옵션을 사용하여 인지 검색 자습서 및 빠른 시작 연습을 완료할 수 있습니다. 
 
-> [!Important]
-> 2019년 2월 1일부터 **무료(제한적 보강)** 가 하루 20개 문서로 제한됩니다. 
+**(제한 된 강화) 무료** 구독 당 하루 20 문서로 제한 됩니다.
 
 1. **데이터 가져오기** 마법사를 엽니다.
 
@@ -56,15 +55,21 @@ AI 알고리즘은 Azure Search 인덱싱 작업에서 구조화되지 않은 �
 
 Cognitive Services API를 호출하는 기술에 대해서만 요금이 청구됩니다. 와 같은 비 API 기반 기술을 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md), [텍스트 병합기](cognitive-search-skill-textmerger.md), [텍스트 분할자](cognitive-search-skill-textsplit.md) 및 [쉐이퍼](cognitive-search-skill-shaper.md) 기술과 같은 비 API 기반 기술에는 요금이 청구되지 않습니다.
 
-1. **Cognitive Services 연결**의 **데이터 가져오기** 마법사에서 기존 리소스를 선택하거나 **새 Cognitive Services 리소스 만들기**를 클릭합니다.
+1. 엽니다는 **데이터 가져오기** 마법사는 데이터 원본을 선택 하 고 계속 해 서 **cognitive search 추가 (선택 사항)** 합니다. 
 
-1. **새 Cognitive Services 리소스 만들기**에는 리소스를 만들 수 있는 새 탭이 열립니다. 리소스에 고유한 이름을 지정합니다.
+1. 확장 **Cognitive Services 연결** 선택한 후 **새 Cognitive Services 리소스 만들기**합니다. 리소스를 만들 수 있도록 새 탭이 열립니다. 
 
-1. 새 Cognitive Services 리소스를 만들면 **동일한 지역을 선택** Azure Search 리소스와 합니다.
+   ![Cognitive Services 리소스 만들기](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Cognitive Services 리소스 만들기")
 
-1. 올인원 가격 책정 계층, **S0**을 선택합니다. 이 계층은 인지 검색에 미리 정의된 기술을 지원하는 Vision 및 Language 기능을 제공합니다.
+1. 위치에 지역 간 아웃 바운드 대역폭 요금을 방지 하려면 Azure Search와 같은 영역을 선택 합니다.
 
-    ![새 Cognitive Services 리소스 만들기](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "새 Cognitive Services 리소스 만들기")
+1. 가격 책정 계층 선택 **S0** Cognitive Services 기능을 Azure Search에서 사용 하는 미리 정의 된 기술을 다시 비전 및 언어 기능을 포함 하 여 모든 통합 된 단일 컬렉션을 가져옵니다. 
+
+   S0 계층의 경우에서 찾을 수 있습니다 속도 특정 워크 로드에 대 한 합니다 [Cognitive Services 가격 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다.
+  
+   + **제공 선택**, 했는지 *Cognitive Services* 을 선택 합니다.
+   + 언어 기능에 대 한 요금 아래의 *텍스트 분석 표준* AI 인덱싱에 적용 합니다. 
+   + 비전 기능에 대 한 요금 아래의 *컴퓨터 비전 S1* 적용 됩니다.
 
 1. **만들기**를 클릭하여 새 Cognitive Services 리소스를 프로비전합니다. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094537"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682311"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 다른 랩의 VM 가져오기
 Azure DevTest Labs 서비스를 사용하면 개발 및 테스트 활동을 위한 VM(가상 머신) 관리 방식을 크게 개선할 수 있습니다. 이 서비스에서는 팀 또는 인프라 요구 사항 변경 시 랩 간에 VM을 이동할 수 있습니다. VM을 이동해야 할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다. 
@@ -42,7 +42,7 @@ Azure DevTest Labs 서비스를 사용하면 개발 및 테스트 활동을 위�
 현재는 Azure PowerShell 및 REST API를 통해서만 특정 랩의 VM을 다른 랩으로 가져올 수 있습니다.
 
 ### <a name="use-powershell"></a>PowerShell 사용
-[Azure DevTest Lab Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines)에서 PowerShell 스크립트 파일 ImportVirtualMachines.ps1을 로컬 드라이브에 다운로드합니다. 
+[Azure DevTest Lab Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)에서 PowerShell 스크립트 파일 ImportVirtualMachines.ps1을 로컬 드라이브에 다운로드합니다. 
 
 #### <a name="import-a-single-vm"></a>단일 VM 가져오기
 원본 랩의 단일 VM을 대상 랩으로 가져오려면 ImportVirtualMachines.ps1 스크립트를 실행합니다. DestinationVirtualMachineName 매개 변수를 사용하면 복사하는 VM의 새 이름을 지정할 수 있습니다. 

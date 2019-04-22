@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501317"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698455"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft id 플랫폼 및 암시적 권한 부여 흐름
 
@@ -52,7 +52,7 @@ Microsoft id 플랫폼 끝점을 사용 하 여 사용자를 모두 개인 및 �
 
 ## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
 
-처음에 사용자 앱에 로그인 하려면 보낼 수 있습니다는 [OpenID Connect](v2-protocols-oidc.md) 권한 부여 요청 및 가져오기는 `id_token` Microsoft id 플랫폼 끝점에서.
+처음에 사용자 앱에 로그인 하려면 보낼 수 있습니다는 [OpenID Connect](v2-protocols-oidc.md) 인증 요청 및 가져오기는 `id_token` Microsoft id 플랫폼 끝점에서.
 
 > [!IMPORTANT]
 > 성공적으로 ID 토큰을 앱 등록을 요청 합니다 [Azure portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지에는 암시적 허용 흐름을 선택 하 여 올바르게 사용할 수 있어야 합니다. **액세스 토큰을** 및 **ID 토큰** 아래의 합니다 **암시적 권한 부여** 섹션입니다. 사용 하지 않는 경우는 `unsupported_response` 오류가 반환 됩니다. **입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다.** 입니다.
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | 선택 사항 |결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 기본적으로 액세스 토큰을 쿼리하지만 요청에 id_token이 포함된 경우에는 조각화됩니다. |
 | `state` | 권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
 | `nonce` | 필수 |결과 id_token에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다. 그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. id_token 요청 시에만 필수입니다. |
-| `prompt` | 선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다. 현재 유효한 값은 'login', 'none', 'select_account', 'consent'뿐입니다. `prompt=login` single-sign에서 요청에 자격 증명을 입력 하 여 사용자를 강제로 됩니다. `prompt=none` -반대 되는 사용자가 어떠한 대화형 프롬프트도 표시 되지 않도록 합니다. Single sign-on을 통해 요청을 자동으로 완료할 수 없습니다, 하는 경우 Microsoft id 플랫폼 끝점 오류가 반환 됩니다. `prompt=select_account` 모든 세션에서 기억 계정이 표시 되는 위치는 계정 선택기에 사용자를 보냅니다. `prompt=consent` 사용자가 로그인 한 후, 사용자에 게 앱에 권한을 부여 하는 OAuth 동의 대화 상자가 트리거됩니다. |
+| `prompt` | 선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다. 현재 유효한 값은 'login', 'none', 'select_account', 'consent'뿐입니다. `prompt=login` 은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다. `prompt=none` -반대 되는 사용자가 어떠한 대화형 프롬프트도 표시 되지 않도록 합니다. Single sign-on을 통해 요청을 자동으로 완료할 수 없습니다, 하는 경우 Microsoft id 플랫폼 끝점 오류가 반환 됩니다. `prompt=select_account`는 세션에 저장된 모든 계정이 표시되는 계정 선택기로 사용자를 전송합니다. `prompt=consent` 는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
 | `login_hint`  |선택 사항 |사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다.|
 | `domain_hint` | 선택 사항 |`consumers` 또는 `organizations` 중 하나일 수 있습니다. 전자 메일 기반 검색 프로세스를 건너뜁니다 고 포함 하는 경우 해당 사용자 거친 로그인 페이지에는 좀 더 효율적인된 사용자 경험을 합니다. 앱이 id_token에서 `tid` 클레임을 추출하여 재인증 과정에서 이 매개 변수를 종종 사용합니다. `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`(Microsoft 계정 소비자 테넌트)인 경우 `domain_hint=consumers`를 사용해야 합니다. 그렇지 않으면 재인증 중에 `domain_hint=organizations`를 사용할 수 있습니다. |
 

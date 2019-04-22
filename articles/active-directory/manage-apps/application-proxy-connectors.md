@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853014"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684092"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -74,6 +74,8 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 다음과 같은 경우 커넥터를 업데이트할 때 가동 중지 시간이 발생할 수 있습니다.  
 - 커넥터가 하나만 있으면 두 번째 커넥터를 설치하고 [커넥터 그룹을 만드는](application-proxy-connector-groups.md) 것이 좋습니다. 이렇게 하면 가동 중지 시간을 방지하고 보다 높은 가용성을 제공할 수 있습니다.  
 - 업데이트를 시작했을 때 커넥터가 트랜잭션 중에 있었습니다. 초기 트랜잭션이 손실되지만, 브라우저에서 자동으로 작업을 다시 시도하거나 사용자가 페이지를 새로 고칠 수 있습니다. 요청을 다시 보내면 백업 커넥터에 트래픽이 라우팅됩니다.
+
+이전에 릴리스된 버전 및 변경 내용에 대한 정보를 보려면 [애플리케이션 프록시-버전 릴리스 내역](application-proxy-release-version-history.md)을 참조하세요.
 
 ## <a name="creating-connector-groups"></a>커넥터 그룹 만들기
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: 60ea945a70f7660fb0f3b8b8c82d9317eabadeb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58115728"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59685861"
 ---
 > [!IMPORTANT]
 > ASM(Azure Service Manager)을 사용하여 HDInsight 리소스를 관리하는 Azure CLI 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거되었습니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 Azure CLI 명령을 사용합니다.

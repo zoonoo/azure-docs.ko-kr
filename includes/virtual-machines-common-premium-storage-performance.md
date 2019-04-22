@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542288"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737199"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -67,7 +67,7 @@ Premium Storage 디스크를 대규모 VM에 연결하는 경우 Azure는 해당
 
 더 높은 IOPS 및 처리량을 얻기 위해 애플리케이션을 최적화하는 경우 애플리케이션의 대기 시간에 영향을 줍니다. 애플리케이션 성능 튜닝 후 항상 애플리케이션의 대기 시간을 평가하여 예기치 않은 높은 대기 시간 동작을 방지합니다.
 
-Managed Disks에 다음 제어 평면 작업 한 저장소 위치에서 다른 디스크의 움직임을 포함할 수 있습니다. 이 백그라운드 미만 일반적으로 24 시간 동안 디스크에서 데이터의 양에 따라를 완료 하려면 몇 시간이 걸릴 수 있는 데이터 복사본을 통해 조정 됩니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.
+Managed Disks에 다음 제어 평면 작업 한 저장소 위치에서 다른 디스크의 움직임을 포함할 수 있습니다. 이 백그라운드 미만 일반적으로 24 시간 동안 디스크에서 데이터의 양에 따라를 완료 하려면 몇 시간이 걸릴 수 있는 데이터 복사본을 통해 조정 됩니다. 이 시간 동안 응용 프로그램 일부 읽기 원래 위치로 리디렉션되도록 하 고 완료 하는 데 걸리는 일반적인 읽기 대기 시간 보다 높은 발생할 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.
 
 - 저장소 유형을 업데이트 합니다.
 - 분리 및 다른 하나의 VM에서 디스크를 연결 합니다.
@@ -119,7 +119,7 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 | **초당 IOPS 또는 트랜잭션** |저장소 디스크에 발급된 초당 I/O 요청 수입니다. |디스크 읽기/초  <br> 디스크 쓰기/초 |tps  <br> r/s  <br> w/s |
 | **디스크 읽기 및 쓰기** |디스크에서 수행되는 읽기 및 쓰기 작업의 %입니다. |% 디스크 읽기 시간  <br> % 디스크 쓰기 시간 |r/s  <br> w/s |
 | **처리량** |초당 디스크에서 읽거나 디스크에 쓴 데이터 양입니다. |디스크 읽기 바이트/초  <br>  디스크 쓰기 바이트/초 |kB_read/s <br> kB_wrtn/s |
-| **대기 시간** |디스크 IO 요청을 완료하는 총 시간입니다. |평균 디스크 초/읽기  <br> 평균 디스크 초/쓰기 |await  <br> svctm |
+| **대기 시간** |디스크 IO 요청을 완료하는 총 시간입니다. |평균 디스크 초/읽기  <br> 평균 디스크 초/쓰기 |await  <br>  svctm |
 | **IO 크기** |I/O의 요청의 크기는 저장소 디스크에 발급합니다. |평균 디스크 바이트/읽기  <br> 평균 디스크 바이트/쓰기 |avgrq-sz |
 | **큐 크기** |저장소 디스크에서 읽거나 저장소 디스크에 쓰도록 대기 중인 미해결 I/O 요청의 수입니다. |현재 디스크 큐 길이 |avgqu-sz |
 | **최대 메모리** |애플리케이션을 원활하게 실행하는데 필요한 메모리의 양 |% 사용 중인 커밋된 바이트 |vmstat 사용 |
@@ -261,7 +261,8 @@ Premium Storage 디스크에는 Standard Storage 디스크에 비해 더 높은 
 Azure Premium Storage를 활용하는 높은 확장성의 VM에는 BlobCache 라는 다중 계층 캐싱 기술이 있습니다. BlobCache는 캐싱에 대해 Virtual Machine RAM 및 로컬 SSD의 조합을 사용합니다. 이 캐시는 Premium Storage 영구 디스크 및 VM 로컬 디스크에 사용할 수 있습니다. 기본적으로 이 캐시 설정은 OS 디스크에 대해 읽기/쓰기로 Premium Storage에서 호스팅되는 데이터 디스크에 대해 읽기 전용으로 설정됩니다. Premium Storage 디스크에서 디스크 캐싱을 사용하면 높은 확장성의 VM은 기본 디스크 성능을 초과하는 매우 높은 수준의 성능을 얻을 수 있습니다.
 
 > [!WARNING]
-> 디스크 캐싱은 최대 4TiB의 디스크 크기에만 지원됩니다.
+> 디스크 캐싱 4 TiB 보다 큰 디스크에 대 한 지원 되지 않습니다. 여러 디스크 VM에 연결 되어 있으면 각 디스크는 4 TiB 하거나 더 작은 지원 캐싱입니다.
+>
 > Azure 디스크의 캐시 설정을 변경하면 대상 디스크가 분리되었다가 다시 연결됩니다. 운영 체제 디스크인 경우 VM이 다시 시작됩니다. 디스크 캐시 설정을 변경하기 전에 이 중단의 영향을 받을 수 있는 모든 애플리케이션/서비스를 중지합니다.
 
 BlobCache를 작동하는 방법에 대한 자세한 내용은 내부 [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) 블로그 게시물을 참조하세요.
@@ -353,7 +354,7 @@ Linux에서 MDADM 유틸리티를 사용하여 디스크를 함께 스트라이�
 
 예를 들어 애플리케이션에 의해 생성된 IO 요청이 디스크 스트라이프 크기보다 큰 경우 스토리지 시스템은 둘 이상의 디스크에 스트라이프 단위 경계를 넘어 작성합니다. 해당 데이터에 액세스할 때 요청을 완료하려면 둘 이상의 스트라이프 단위 간을 검색해야 합니다. 이러한 동작의 누적 된 효과로 성능이 상당히 저하될 수 있습니다. 반면에 IO 요청 크기가 스트라이프 크기보다 작고 기본적으로 임의일 경우 IO 요청은 병목 상태가 발생하고 궁극적으로 IO 성능이 저하되는 동일한 디스크에 추가할 수 있습니다.
 
-애플리케이션이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO 요청의 경우 더 큰 스트라이프 크기를 사용합니다. Premium Storage에서 실행되는 애플리케이션에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL server OLTP 워크 로드의 경우 64KB 및 데이터 웨어하우징 워크 로드에 대해 256KB의 스트라이프 크기를 구성 합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) 를 참조하세요.
+애플리케이션이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO에 대 한 요청을 더 큰 스트라이프 크기를 사용 합니다. Premium Storage에서 실행되는 애플리케이션에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL server OLTP 워크 로드의 경우 64KB 및 데이터 웨어하우징 워크 로드에 대해 256KB의 스트라이프 크기를 구성 합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) 를 참조하세요.
 
 > [!NOTE]
 >  DS 시리즈 VM에 최대 32개의 Premium Storage 디스크를 GS 시리즈 VM에 64개의 Premium Storage 디스크를 함께 스트라이프할 수 있습니다.

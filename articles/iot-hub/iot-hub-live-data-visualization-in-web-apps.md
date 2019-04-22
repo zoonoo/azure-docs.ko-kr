@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: b870c432ea8021d9eeb14eec85ff9912b96ddc96
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 070f37a969411cfc4caf5f2d2b089ccfae759ca2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270883"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683200"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Azure App Service의 Web Apps 기능을 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -35,7 +35,7 @@ ms.locfileid: "59270883"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* 다음 요구 사항을 다루는 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md)
+* 완료 합니다 [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서; 중 하나 예를 들어 [node.js 사용 하 여 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 이러한 다음 요구 사항을 다룹니다.
 
   * 활성 Azure 구독
   * 구독 중인 IoT Hub

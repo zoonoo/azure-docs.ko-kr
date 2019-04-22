@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 04/16/2019
 ms.author: orspod
-ms.openlocfilehash: 6138fadd060051c1b4264cd844ca2a4b8c28116a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880035"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682494"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사
 
@@ -38,6 +38,9 @@ Azure Data Explorer 커넥터를 사용하여 다음을 수행할 수 있습니�
 * 싱크의 경우 대상 테이블에 데이터를 추가합니다.
 
 ## <a name="getting-started"></a>시작
+
+>[!TIP]
+>Azure Data Explorer 커넥터를 사용 하 여 연습을 참조 하세요 [Azure Data Factory를 사용 하 여 Azure 데이터 탐색기에서 데이터 복사](../data-explorer/data-factory-load-data.md)합니다.
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,7 +75,7 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. 이 일반적으로 알고으로 "**AAD 응용 프로그램 클라이언트 ID**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 일반적으로 알고으로 "**AAD 응용 프로그램 키**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 
-**연결 된 서비스 속성 예제:**
+**연결된 서비스 속성 예제:**
 
 ```json
 {
@@ -106,7 +109,7 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 | 형식 | **형식** 속성을 **AzureDataExplorerTable**로 설정해야 합니다. | 예 |
 | 테이블 | 연결된 서비스가 참조하는 테이블의 이름입니다. | 싱크의 경우 예이며, 원본의 경우 아니오입니다. |
 
-**데이터 집합 속성 예제**
+**데이터 세트 속성 예제**
 
 ```json
 {

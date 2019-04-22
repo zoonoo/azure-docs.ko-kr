@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7231b6a33c94dfe029f41f034c7674b386090d7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104053"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682397"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Azure Event Hubs에 대한 샘플이 있는 Git 리포지토리 
 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)에 대한 Event Hubs 샘플을 찾을 수 있습니다. 이러한 샘플은 [Azure Event Hubs](/azure/event-hubs/)의 주요 기능을 보여줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
@@ -29,8 +29,8 @@ ms.locfileid: "53104053"
 
 | 샘플 이름 | 설명 | 
 | ----------- | ----------- | 
-| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | 이 샘플에서는 이벤트 허브로 이벤트 집합을 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여줍니다. |
-| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | 이 샘플에서는 이벤트 프로세서 호스트 라이브러리를 사용하여 이벤트 허브에서 이벤트 집합을 수신하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여줍니다.  | 
+| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | 이 샘플에서는 이벤트 허브로 이벤트 집합을 전송하는 .NET Core 콘솔 애플리케이션을 작성하는 방법을 보여줍니다. |
+| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | 이 샘플에서는 이벤트 프로세서 호스트 라이브러리를 사용하여 이벤트 허브에서 이벤트 집합을 수신하는 .NET Core 콘솔 애플리케이션을 작성하는 방법을 보여줍니다.  | 
 
 ## <a name="java-samples"></a>Java 샘플
 
@@ -50,7 +50,7 @@ ms.locfileid: "53104053"
 [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub 리포지토리에서 Azure Event Hubs에 대한 Python 샘플을 찾을 수 있습니다.
 
 ## <a name="nodejs-samples"></a>Node.js 샘플
-[azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub 리포지토리에서 Azure Event Hubs에 대한 Node.js 샘플을 찾을 수 있습니다.
+Azure Event Hubs에 대 한 Node.js 샘플을 찾을 수 합니다 [js에 대 한 azure sdk](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub 리포지토리.
 
 ## <a name="go-samples"></a>Go 샘플
 [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub 리포지토리에서 Azure Event Hubs에 대한 Go 샘플을 찾을 수 있습니다.

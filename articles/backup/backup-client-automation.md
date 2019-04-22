@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: c2f6d8262d47a537667ef7b25333a3beff425bbe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878692"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698490"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -116,7 +116,7 @@ MARSAgentInstaller.exe /?
 
 사용 가능한 옵션은 다음과 같습니다.
 
-| 옵션 | 세부 정보 | 기본값 |
+| 옵션 | 세부 정보 | Default |
 | --- | --- | --- |
 | /q |자동 설치 |- |
 | /p:"위치" |Azure Backup 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -200,9 +200,11 @@ Server properties updated successfully.
 
 Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
 
+선택 하 여 보안 pin을 생성 해야 합니다 **생성**아래에 있는 **설정** > **속성** > **보안 PIN** 에 **Recovery Services 자격 증명 모음** Azure 포털의 섹션입니다. 그런 다음이를 사용 하 여는 `generatedPIN` 명령에서:
+
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
-Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase
+Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>"
 ```
 
 ```Output

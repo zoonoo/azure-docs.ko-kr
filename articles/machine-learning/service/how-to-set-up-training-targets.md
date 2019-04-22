@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046158"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683905"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정
 
@@ -38,7 +38,7 @@ Azure Machine Learning SDK, Azure Portal 또는 Azure CLI를 사용하여 컴퓨
 Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
 
-|학습용 컴퓨팅 대상| GPU 가속 | 자동화됨<br/> 하이퍼 매개 변수 튜닝 | 자동화됨</br> Machine Learning | Azure Machine Learning 파이프라인 |
+|학습용 컴퓨팅 대상| GPU 가속 | 자동<br/> 하이퍼 매개 변수 튜닝 | 자동</br> Machine Learning | Azure Machine Learning 파이프라인 |
 |----|:----:|:----:|:----:|:----:|
 |[로컬 컴퓨터](#local)| 가능할 수도 있음 | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning 컴퓨팅](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -91,7 +91,7 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 * [로컬 컴퓨터](#local)
 * [Azure Machine Learning 컴퓨팅](#amlcompute)
-* [원격 가상 컴퓨터](#vm)
+* [원격 가상 머신](#vm)
 * [Azure HDInsight](#hdinsight)
 
 
@@ -121,7 +121,7 @@ Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은
 Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 수 있습니다. 실행에 대해 컴퓨팅이 자동으로 만들어집니다. 실행이 완료되면 컴퓨팅이 자동으로 삭제됩니다. 
 
 > [!NOTE]
-> 사용할 노드의 최대 수를 지정 하려면 일반적으로 설정한 `node_count` 노드의 수입니다. 현재 (04/04/2019) 작업에서이 방지 하는 버그입니다. 사용 하 여이 문제를 해결 합니다 `amlcompute._cluster_max_node_count` 실행된 구성의 속성입니다. 예: `run_config.amlcompute._cluster_max_node_count = 5`
+> 사용할 노드의 최대 수를 지정 하려면 일반적으로 설정한 `node_count` 노드의 수입니다. 현재 (04/04/2019) 작업에서이 방지 하는 버그입니다. 사용 하 여이 문제를 해결 합니다 `amlcompute._cluster_max_node_count` 실행된 구성의 속성입니다. 예: `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > Azure Machine Learning 컴퓨팅의 실행 기반 만들기는 현재 미리 보기로 제공됩니다. 하이퍼 매개 변수 튜닝 또는 자동화된 Machine Learning을 사용 중인 경우에는 실행 기반 만들기를 사용하지 마세요. 하이퍼 매개 변수 튜닝 또는 자동화된 기계 학습을 사용하려면 [영구적 컴퓨팅](#persistent) 대상을 대신 만듭니다.
@@ -361,8 +361,8 @@ Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대�
     > [!NOTE]
     > Microsoft에서는 암호보다 더 안전한 SSH 키를 권장합니다. 암호는 무차별 암호 대입 공격에 취약합니다. SSH 키는 암호화 서명을 사용합니다. Azure Virtual Machines에 사용할 SSH 키를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
     >
-    > * [만들고 Linux 또는 macOS에서 SSH 키 사용](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [만들고 Windows에서 SSH 키 사용](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Linux 또는 macOS에서 SSH 키를 만들고 사용](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [Windows에서 SSH 키를 만들고 사용](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. __연결__을 선택합니다. 
 1. 목록에서 컴퓨팅 대상을 선택하여 연결 작업의 상태를 봅니다.
@@ -377,7 +377,6 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 
 자세한 내용은 [리소스 관리](reference-azure-machine-learning-cli.md#resource-management)를 참조하세요.
 
-
 ## <a id="submit"></a>학습 실행 제출
 
 실행 구성을 만든 후 실행 구성을 사용하여 해당 실험을 실행합니다.  학습 실행을 제출하는 코드 패턴은 모든 유형의 컴퓨팅 대상에서 동일합니다.
@@ -385,6 +384,13 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 1. 실행할 실험 만들기
 1. 실행을 제출합니다.
 1. 실행이 완료될 때까지 기다립니다.
+
+> [!IMPORTANT]
+> 교육 실행을 제출할 때 학습 스크립트를 포함 하는 디렉터리의 스냅숏이 생성 되어 계산 대상으로 전송 됩니다. 또한 작업 영역에서 실험의 일부로 저장 됩니다. 파일을 변경 하 고 실행을 제출 하는 경우 변경된 된 파일만 다시 업로드 됩니다.
+>
+> 만들기를 방지 하기 파일 스냅숏이 포함 되는 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 디렉터리에 파일 및 파일에 추가 합니다. 합니다 `.amlignore` 동일한 구문을 사용 하 여 파일과 패턴으로 [.gitignore](https://git-scm.com/docs/gitignore) 파일입니다. 두 파일이 존재 하는 경우는 `.amlignore` 파일이 우선 합니다.
+> 
+> 자세한 내용은 [스냅숏](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
 
 ### <a name="create-an-experiment"></a>실험 만들기
 
@@ -399,8 +405,6 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 * **source_directory**: 학습 스크립트를 포함하는 원본 디렉터리
 * **스크립트**: 학습 스크립트 식별
 * **run_config**: 학습이 발생할 위치를 차례로 정의하는 실행 구성입니다.
-
-학습 실행을 제출하면 학습 스크립트가 포함된 디렉터리의 스냅숏이 생성되어 컴퓨팅 대상으로 전송됩니다. 자세한 내용은 [스냅숏](concept-azure-machine-learning-architecture.md#snapshot)을 참조하세요.
 
 예를 들어 [로컬 대상](#local) 구성을 사용하려면:
 
@@ -428,4 +432,4 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)은 모델 학습에 관리되는 컴퓨팅 대상을 사용합니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
 * [RunConfiguration 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 참조를 확인합니다.
-* [Azure Machine Learning 서비스를 사용 하 여 Azure Virtual Network를 사용 하 여](how-to-enable-virtual-network.md)
+* [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)

@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 9b6db1b7171652ea5ace4db370b72dc22b6bdc90
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049645"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784843"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub 가격 책정 정보
 
@@ -23,7 +23,7 @@ ms.locfileid: "59049645"
 
 ## <a name="charges-per-operation"></a>작업당 요금
 
-| 작업 | 대금 청구 정보 | 
+| 작업(Operation) | 대금 청구 정보 | 
 | --------- | ------------------- |
 | ID 레지스트리 작업 <br/> (만들기, 검색, 목록, 업데이트, 삭제) | 요금이 부과되지 않습니다. |
 | 디바이스-클라우드 메시지 | IoT Hub에 수신 시, 성공적으로 전송된 메시지는 4KB 청크 단위로 요금이 청구됩니다.  예를 들어 6KB 메시지에는 2개 메시지로 요금이 청구됩니다. |

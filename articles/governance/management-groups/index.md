@@ -1,12 +1,18 @@
 ---
 title: Azure 관리 그룹으로 리소스 구성 - Azure Governance
-description: '관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.'
+description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699392"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -37,11 +43,11 @@ ms.topic: overview
 ## <a name="root-management-group-for-each-directory"></a>각 디렉터리에 대한 루트 관리 그룹
 
 각 디렉터리에는 "루트" 관리 그룹이라고 하는 단일 최상위 관리 그룹이 부여됩니다.
-이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 이 루트 관리 그룹은 전역 정책 및 RBAC 할당을 디렉터리 수준에서 적용하는 것을 허용합니다. [Azure AD 글로벌 관리자는 처음에 이 루트 그룹의 소유자가 되도록 자신을 승격해야 합니다](../../role-based-access-control/elevate-access-global-admin.md). 관리자는 그룹의 소유자가 되면 계층 구조를 관리할 다른 디렉터리 사용자 또는 그룹에 모든 RBAC 역할을 할당할 수 있습니다.
+이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 이 루트 관리 그룹은 전역 정책 및 RBAC 할당을 디렉터리 수준에서 적용하는 것을 허용합니다. 처음에 이 루트 그룹의 사용자 액세스 관리자 역할을 위해 [Azure AD 글로벌 관리자는 자신을 승격해야 합니다](../../role-based-access-control/elevate-access-global-admin.md). 액세스 권한 승격 후, 관리자는 다른 디렉터리 사용자 또는 그룹에 모든 RBAC 역할을 할당하여 계층 구조를 관리할 수 있습니다. 관리자 권한으로 자신의 계정을 루트 관리 그룹의 소유자로 할당할 수 있습니다.
 
 ### <a name="important-facts-about-the-root-management-group"></a>루트 관리 그룹에 대한 중요한 사실
 
-- 기본적으로 루트 관리 그룹의 이름 및 ID가 제공됩니다. 표시 이름은 언제든지 Azure Portal 내에서 다른 이름을 표시하도록 업데이트할 수 있습니다.
+- 기본적으로 루트 관리 그룹의 이름 및 ID가 제공됩니다. 표시 이름은 언제든지 Azure Portal 내에서 다른 이름을 표시하도록 업데이트할 수 있습니다. [이름을 변경](manage.md#change-the-name-of-a-management-group)하려면 루트 관리 그룹에 소유자 또는 기여자 역할이 할당되어야 합니다.
   - 이름은 "테넌트 루트 그룹"입니다.
   - ID는 Azure Active Directory ID입니다.
 - 루트 관리 그룹은 다른 관리 그룹과는 다르게 이동하거나 삭제할 수 없습니다.  
@@ -63,7 +69,7 @@ ms.topic: overview
 
 ## <a name="trouble-seeing-all-subscriptions"></a>모든 구독 표시 관련 문제
 
-2018년 6월 25일 이전에 미리 보기 초기 단계의 관리 그룹을 사용하여 시작된 몇몇 디렉터리에는 모든 구독이 계층 구조에 적용되지 않는 문제가 발생할 수 있습니다.  계층 구조에 모든 구독을 적용하는 프로세스는 디렉터리의 루트 관리 그룹에 대한 역할 또는 정책 할당이 완료된 후에 구현되었습니다.
+2018년 6월 25일 이전에 미리 보기에서 초기 단계의 관리 그룹을 사용하기 시작한 몇몇 디렉터리에는 모든 구독이 계층 구조 내에 있지 않은 문제를 볼 수 있습니다. 계층 구조에 모든 구독을 적용하는 프로세스는 디렉터리의 루트 관리 그룹에 대한 역할 또는 정책 할당이 완료된 후에 구현되었습니다. 
 
 ### <a name="how-to-resolve-the-issue"></a>문제 해결 방법
 

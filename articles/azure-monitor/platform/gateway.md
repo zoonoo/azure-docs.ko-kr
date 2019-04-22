@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437342"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699273"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 게이트웨이 사용 하 여 인터넷 액세스 없이 컴퓨터 연결
 
@@ -124,9 +124,9 @@ Azure portal에서 Log Analytics 게이트웨이 가져오려면 다음이 단�
 1. **설정** 아래 작업 영역 블레이드에서 **고급 설정**을 선택합니다.
 1. 로 이동 **연결 된 원본** > **Windows 서버** 선택한 **Log Analytics 다운로드 게이트웨이**합니다.
 
-## <a name="install-the-log-analytics-gateway"></a>Log Analytics 게이트웨이 설치
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>설치 마법사를 사용 하 여 Log Analytics 게이트웨이 설치
 
-게이트웨이 설치 하려면 다음이 단계를 수행 합니다.  (Log Analytics Forwarder를 호출 하는 이전 버전을 설치한 경우 업그레이드 됩니다이 릴리스로.)
+설치 마법사를 사용 하 여 게이트웨이 설치 하려면 다음이 단계를 수행 합니다. 
 
 1. 대상 폴더에서 **Log Analytics gateway.msi**를 두 번 클릭합니다.
 1. **Welcome** 페이지에서 **다음**을 선택합니다.
@@ -152,6 +152,40 @@ Azure portal에서 Log Analytics 게이트웨이 가져오려면 다음이 단�
 
    ![OMS 게이트웨이 실행 되 고 있는지 보여 주는 스크린 샷의 로컬 서비스](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>명령줄을 사용 하 여 Log Analytics 게이트웨이 설치
+게이트웨이에 대 한 에이전트용된 파일은 명령줄 또는 다른 자동화 된 메서드에서 자동 설치를 지 원하는 Windows 설치 관리자 패키지입니다. Windows Installer에 대 한 표준 명령줄 옵션을 사용 하 여 잘 모르는 경우 [명령줄 옵션](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)합니다.   
+
+다음 표에서 설치를 지 원하는 매개 변수를 강조 표시 합니다.
+
+|매개 변수| 메모|
+|----------|------| 
+|PORTNUMBER | 게이트웨이에 대 한 TCP 포트 번호에서 수신 대기를 |
+|프록시 | 프록시 서버의 IP 주소 |
+|INSTALLDIR | 게이트웨이 소프트웨어 파일의 설치 디렉터리를 지정 하려면 정규화 된 경로 |
+|사용자 이름 | 프록시 서버를 사용 하 여 인증 하려면 사용자 Id |
+|암호 | 프록시를 사용 하 여 인증 하는 Id 사용자의 암호 |
+|LicenseAccepted | 값을 지정 **1** 사용권 계약에 동의 확인 하려면 |
+|HASAUTH | 값을 지정 **1** 사용자 이름/암호 매개 변수를 지정 하는 경우 |
+|HASPROXY | 값을 지정 **1** 에 대 한 IP 주소를 지정 하는 경우 **프록시** 매개 변수 |
+
+자동으로 게이트웨이 설치 하 고 특정 프록시 주소, 포트 번호를 사용 하 여 구성 하려면 다음을 입력 합니다.
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+설치를 숨깁니다 /qn 명령줄 옵션을 사용 하 여, /qb 자동 설치 하는 동안 설치 프로그램을 보여 줍니다.  
+
+프록시를 사용 하 여 인증할 때 자격 증명을 제공 해야 할 경우 다음을 입력 합니다.
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+설치 후 확인할 수 있습니다 설정이 허용 (exlcuding 사용자 이름 및 암호) 다음 PowerShell cmdlet을 사용 하 여:
+
+- **Get-OMSGatewayConfig** – 게이트웨이가에서 수신 하도록 구성 된 TCP 포트를 반환 합니다.
+- **Get-OMSGatewayRelayProxy** –와 통신 하도록 구성 된 프록시 서버의 IP 주소를 반환 합니다.
 
 ## <a name="configure-network-load-balancing"></a>네트워크 부하 분산 구성 
 네트워크 부하 분산 (NLB) Microsoft를 사용 하 여 사용 하 여 고가용성을 위해 게이트웨이 구성할 수 있습니다 [네트워크 로드 균형 조정 (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)하십시오 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), 또는 하드웨어 기반 부하 분산 장치. 부하 분산 장치는 노드 전반에 걸쳐 Log Analytics 에이전트 또는 Operations Manager 관리 서버에서 요청된 연결을 리디렉션하여 트래픽을 관리합니다. 게이트웨이 서버가 하나 다운되면 트래픽은 다른 노드로 리디렉션됩니다.
@@ -283,9 +317,9 @@ Log Analytics와의 통합을 완료 한 후 실행 하 여 변경 내용을 제
 | 미국 중남부 |scus-jobruntimedata-prod-su1.azure-automation.net |
 | 미국 동부 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | 캐나다 중부 |cc-jobruntimedata-prod-su1.azure-automation.net |
-| 북유럽 |ne-jobruntimedata-prod-su1.azure-automation.net |
+| 유럽 북부 |ne-jobruntimedata-prod-su1.azure-automation.net |
 | 동남아시아 |sea-jobruntimedata-prod-su1.azure-automation.net |
-| 인도 중부 |cid-jobruntimedata-prod-su1.azure-automation.net |
+| 중앙 인도 |cid-jobruntimedata-prod-su1.azure-automation.net |
 | 일본 |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | 오스트레일리아 |ase-jobruntimedata-prod-su1.azure-automation.net |
 
@@ -298,9 +332,9 @@ Log Analytics와의 통합을 완료 한 후 실행 하 여 변경 내용을 제
 | 미국 중남부 |scus-agentservice-prod-1.azure-automation.net |
 | 미국 동부 2 |eus2-agentservice-prod-1.azure-automation.net |
 | 캐나다 중부 |cc-agentservice-prod-1.azure-automation.net |
-| 북유럽 |ne-agentservice-prod-1.azure-automation.net |
+| 유럽 북부 |ne-agentservice-prod-1.azure-automation.net |
 | 동남아시아 |sea-agentservice-prod-1.azure-automation.net |
-| 인도 중부 |cid-agentservice-prod-1.azure-automation.net |
+| 중앙 인도 |cid-agentservice-prod-1.azure-automation.net |
 | 일본 |jpe-agentservice-prod-1.azure-automation.net |
 | 오스트레일리아 |ase-agentservice-prod-1.azure-automation.net |
 

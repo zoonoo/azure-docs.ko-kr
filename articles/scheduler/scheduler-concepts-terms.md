@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651272"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683055"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
 
@@ -39,21 +39,27 @@ Azure Scheduler REST API는 다음과 같은 주요 엔터티 또는 리소스�
 
 ### <a name="job-management"></a>작업 관리
 
-작업을 만들고 편집하기 위한 조작을 지원합니다. 모든 작업은 기존 작업 컬렉션에 속해야 하므로 암시적으로 만들어지지 않습니다. 자세한 내용은 [Scheduler REST API - 작업](https://docs.microsoft.com/rest/api/scheduler/jobs)을 참조하세요. 이러한 작업에 대한 URI 주소는 다음과 같습니다.
+작업을 만들고 편집하기 위한 조작을 지원합니다. 모든 작업은 기존 작업 컬렉션에 속해야 하므로 암시적으로 만들어지지 않습니다. 자세한 내용은 [Scheduler REST API - 작업](https://docs.microsoft.com/rest/api/scheduler/jobs)을 참조하세요. 이러한 작업에 대 한 URI 주소는 다음과 같습니다.
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### <a name="job-collection-management"></a>작업 컬렉션 관리
 
-할당량 및 공유 설정에 매핑되는 작업 및 작업 컬렉션을 만들고 편집하기 위한 조작을 지원합니다. 예를 들어 할당량은 최대 작업 수와 최소 되풀이 간격을 지정합니다. 자세한 내용은 [Scheduler REST API - 작업 컬렉션](https://docs.microsoft.com/rest/api/scheduler/jobcollections)을 참조하세요. 이러한 작업에 대한 URI 주소는 다음과 같습니다.
+할당량 및 공유 설정에 매핑되는 작업 및 작업 컬렉션을 만들고 편집하기 위한 조작을 지원합니다. 예를 들어 할당량은 최대 작업 수와 최소 되풀이 간격을 지정합니다. 자세한 내용은 [Scheduler REST API - 작업 컬렉션](https://docs.microsoft.com/rest/api/scheduler/jobcollections)을 참조하세요. 이러한 작업에 대 한 URI 주소는 다음과 같습니다.
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### <a name="job-history-management"></a>작업 기록 관리
 
-작업 경과 시간, 작업 실행 결과 등, 60일 간의 작업 실행 기록을 가져오기 위한 GET 작업을 지원합니다. 상태를 기초로 한 필터링을 위해 쿼리 문자열 매개 변수 지원을 포함합니다. 자세한 내용은 [Scheduler REST API - 작업 기록 나열](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory)을 참조하세요. 이 작업에 대한 URI 주소는 다음과 같습니다.
+작업 경과 시간, 작업 실행 결과 등, 60일 간의 작업 실행 기록을 가져오기 위한 GET 작업을 지원합니다. 상태를 기초로 한 필터링을 위해 쿼리 문자열 매개 변수 지원을 포함합니다. 자세한 내용은 [Scheduler REST API - 작업 기록 나열](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory)을 참조하세요. 이 작업에 대 한 URI 주소는 다음과 같습니다.
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## <a name="job-types"></a>작업 유형
 
@@ -245,7 +251,7 @@ SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세
 | **interval** | 아닙니다. | 1에서 1000(포함) 사이 | **frequency**에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
 | **schedule** | 아닙니다. | 다름 | 더 복잡한 일정 및 고급 일정에 대한 세부 정보입니다. **hours**, **minutes**, **weekDays**, **months** 및 **monthDays**를 참조하세요. | 
 | **hours** | 아닙니다. | 1 - 24 | 작업 실행 시기에 대한 시간 표식이 포함된 배열 | 
-| **minutes** | 아닙니다. | 1 - 24 | 작업 실행 시기에 대한 분 표식이 포함된 배열 | 
+| **minutes** | 아닙니다. | 0 ~ 59 | 작업 실행 시기에 대한 분 표식이 포함된 배열 | 
 | **months** | 아닙니다. | 1 - 12 | 작업 실행 시기에 대한 월 표식이 포함된 배열 | 
 | **monthDays** | 아닙니다. | 다름 | 작업 실행 시기에 대한 날짜 표식이 포함된 배열 | 
 | **weekDays** | 아닙니다. | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | 작업 실행 시기에 대한 요일 표식이 포함된 배열 | 

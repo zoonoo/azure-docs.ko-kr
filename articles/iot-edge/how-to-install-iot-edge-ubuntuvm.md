@@ -1,7 +1,7 @@
 ---
 title: Ubuntu Virtual Machines에서 Azure IoT Edge 실행 | Microsoft Docs
 description: Ubuntu 16.04 Azure Marketplace Virtual Machines에 대한 Azure IoT Edge 설정 지침
-author: gregman
+author: gregman-msft
 manager: arjmands
 ms.reviewer: kgremban
 ms.service: iot-edge
@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: gregman
-ms.openlocfilehash: 5cb15f45508b60a1b7f8c9049b8779c1b7d31150
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757935"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698591"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -41,7 +41,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     1.  잠시 기다리면, 연결 문자열이 설정되었음을 나타내는 성공 메시지가 화면에 표시됩니다.
 
 
-## <a name="deploy-from-the-azure-portal"></a>Azure Portal에서 배포
+## <a name="deploy-from-the-azure-portal"></a>Azure portal에서 배포
 Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LTS + Azure IoT Edge 런타임**을 선택하여 VM 생성 워크플로를 시작합니다. 여기에서, 위의 “Azure Marketplace에서 배포” 지침에 있는 3-4단계를 완료합니다.
 
 ## <a name="deploy-from-azure-cli"></a>Azure CLI에서 배포
@@ -95,6 +95,6 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
 
 런타임을 설치하여 IoT Edge 디바이스를 프로비전했으므로 [IoT Edge 모듈을 배포](how-to-deploy-modules-portal.md)할 수 있습니다.
 
-Edge 런타임을 제대로 설치하는 데 문제가 있는 경우 [문제 해결](troubleshoot.md) 페이지를 체크 아웃하세요.
+IoT Edge 런타임이 제대로 설치를 사용 하 여 문제가 경우 체크 아웃 합니다 [문제 해결](troubleshoot.md) 페이지입니다.
 
 기존 설치를 최신 버전의 IoT Edge로 업데이트하려면 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요.

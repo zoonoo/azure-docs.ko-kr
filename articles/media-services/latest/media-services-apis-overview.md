@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 5ae7563892cb4792f5c329b2850d7b88d37c0e7d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617399"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698275"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 Api를 Media Services를 사용 하 여 개발
 
@@ -38,7 +38,7 @@ Azure AD 응용 프로그램 및 서비스 주체를 만드는 경우 응용 프
 
 다음 그림에서는 숫자 순서로 요청 흐름을을 나타냅니다.
 
-![중간 계층 앱](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![중간 계층 앱](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. 중간 계층 앱에는 다음 매개 변수가 있는 Azure AD 액세스 토큰을 요청 합니다.  
 

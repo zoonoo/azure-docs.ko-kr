@@ -4,17 +4,16 @@ description: Azure Virtual Machines, Service Fabric 또는 Cloud Services에서 
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822139"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699101"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -32,23 +31,23 @@ ms.locfileid: "55822139"
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 | 아티팩트 | path |
 | --- | --- |
-| **Azure 진단 구성 파일** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Azure Diagnostics 구성 파일** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **로그 파일** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
 | **진단 데이터에 대한 로컬 저장소** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
 | **모니터링 에이전트 구성 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Azure 진단 확장 패키지** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
+| **Azure Diagnostics 확장 패키지** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **로그 컬렉션 유틸리티 경로** | %SystemDrive%\Packages\GuestAgent\ |
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>가상 머신
 | 아티팩트 | path |
 | --- | --- |
-| **Azure 진단 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Azure Diagnostics 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
 | **진단 데이터에 대한 로컬 저장소** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
 | **모니터링 에이전트 구성 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **상태 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
-| **Azure 진단 확장 패키지** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
+| **Azure Diagnostics 확장 패키지** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Packages |
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
@@ -82,7 +81,7 @@ Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를
 구성이 올바르게 설정되었지만 여전히 메트릭 데이터를 볼 수 없는 경우 다음 지침을 사용하여 문제를 해결해 보세요.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure Diagnostics가 시작되지 않음
+## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단이 시작 되지 않음
 Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
 
 이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 이전 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
@@ -105,9 +104,16 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 해결 방법: 진단 구성을 수정하고 진단을 다시 설치합니다.
 
-저장소 계정이 올바르게 구성되었으면 컴퓨터에 원격 액세스하고 DiagnosticsPlugin.exe 및 MonAgentCore.exe가 실행되고 있는지 확인합니다. 실행 중이 아니면 Azure Diagnostics가 시작되지 않음의 단계 따릅니다.
+저장소 계정을 컴퓨터에 원격 액세스를 올바르게 구성된 되어 있는지 확인 *DiagnosticsPlugin.exe* 하 고 *MonAgentCore.exe* 실행 됩니다. 실행 중이 아니면 [Azure Diagnostics가 시작되지 않음](#azure-diagnostics-is-not-starting)의 단계를 따릅니다.
 
 프로세스가 실행되고 있으면 [데이터가 로컬로 캡처되고 있습니까?](#is-data-getting-captured-locally)로 이동하고 여기서 지침을 따릅니다.
+
+문제가 해결 되지 않으면이 하려고 합니다.
+
+1. 에이전트 제거
+2. Remove directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. 에이전트를 다시 설치
+
 
 ### <a name="part-of-the-data-is-missing"></a>일부 데이터가 누락됨
 전부가 아니라 일부 데이터만 가져온다는 것은 데이터 수집/전송 파이프라인은 올바르게 설정되었음을 의미합니다. 문제의 범위를 좁히려면 여기서 하위 섹션을 따릅니다.

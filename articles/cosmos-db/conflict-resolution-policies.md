@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407422"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684228"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>충돌 유형 및 해결 정책
 
@@ -37,11 +37,11 @@ Azure Cosmos DB는 쓰기 충돌을 해결 하는 유연한 정책 기반 메커
   > [!NOTE]
   > 최종 작성자 인정(Last Write Wins)은 기본 충돌 해결 정책입니다. 이 다음과 같은 Api에 대 한 제공 됩니다. SQL, MongoDB, Cassandra, Gremlin 및 Table입니다.
 
-  자세한 내용은 [LWW 충돌 해결 정책을 사용하는 예제](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)를 참조하세요.
+  자세한 내용은 [LWW 충돌 해결 정책을 사용하는 예제](how-to-manage-conflicts.md)를 참조하세요.
 
 - **사용자 지정**: 이 해결 정책은 충돌을 조정하기 위한 애플리케이션 정의 의미 체계용으로 설계되었습니다. 등록 해야이 정책은 Azure Cosmos 컨테이너를 설정 하는 경우는 *저장된 프로시저를 병합*입니다. 이 프로시저는 서버의 데이터베이스 트랜잭션 내에서 충돌을 감지 하는 경우에 자동으로 호출 됩니다. 시스템은 커밋 프로토콜의 일부로 병합 프로시저의 실행에 대해 정확히 한 번의 보장을 제공합니다.  
 
-  사용자 지정 해결 옵션을 사용 하 여 컨테이너를 구성 하 고 컨테이너에 병합 프로시저를 등록 하지 못했습니다 또는 병합 프로시저가 런타임에 예외를 throw 하는 경우 충돌에 기록 됩니다 합니다 *충돌 피드*합니다. 그러면, 애플리케이션은 충돌 피드에서 충돌을 수동으로 해결해야 합니다. 자세한 내용은 [사용자 지정 해결 정책을 사용하는 방법 및 충돌 피드를 사용하는 방법의 예제](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)를 참조하세요.
+  사용자 지정 해결 옵션을 사용 하 여 컨테이너를 구성 하 고 컨테이너에 병합 프로시저를 등록 하지 못했습니다 또는 병합 프로시저가 런타임에 예외를 throw 하는 경우 충돌에 기록 됩니다 합니다 *충돌 피드*합니다. 그러면, 애플리케이션은 충돌 피드에서 충돌을 수동으로 해결해야 합니다. 자세한 내용은 [사용자 지정 해결 정책을 사용하는 방법 및 충돌 피드를 사용하는 방법의 예제](how-to-manage-conflicts.md)를 참조하세요.
 
   > [!NOTE]
   > 사용자 지정 충돌 해결 정책은 SQL API 계정에서만 사용할 수 있습니다.
@@ -51,6 +51,5 @@ Azure Cosmos DB는 쓰기 충돌을 해결 하는 유연한 정책 기반 메커
 충돌 해결 정책을 구성 하는 방법을 알아봅니다.
 
 * [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
-* [LWW 충돌 해결 정책을 사용하는 방법](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [사용자 지정 충돌 해결 정책을 사용하는 방법](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [충돌 해결 정책 관리 하는 방법](how-to-manage-conflicts.md)
 * [피드 충돌에서 읽는 방법](how-to-manage-conflicts.md#read-from-conflict-feed)

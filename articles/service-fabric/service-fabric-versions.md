@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191650"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681610"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -30,7 +30,9 @@ ms.locfileid: "57191650"
 - [Azure 클러스터에서 Service Fabric 버전 업그레이드](service-fabric-cluster-upgrade.md)
 - [독립 실행형 windows server 클러스터에서 Service Fabric 버전 업그레이드](service-fabric-cluster-upgrade-windows-server.md)
 
-다음은 지원되는 Service Fabric 버전과 지원 종료 날짜 목록입니다.
+## <a name="supported-versions"></a>지원되는 버전
+
+다음 표에서 지원 되는 Service Fabric 버전과 지원 종료 날짜를 나열 합니다.
 
 | **클러스터의 Service Fabric 런타임** | **클러스터 버전에서 직접 업그레이드할 수 있습니다.** |**호환 가능한 SDK / NuGet 패키지 버전** | **지원 종료 날짜** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ ms.locfileid: "57191650"
 | 6.2.* | 6.0.232.* |버전 3.1보다 작거나 같음 |2018년 10월 26일   |
 | 6.3.* | 6.1.480.* |버전 3.2보다 작거나 같음 |31,2019 년 3 월  |
 | 6.4.* | 6.2.301.* |버전 3.3보다 작거나 같음 |현재 버전 및 종료 날짜 |
+
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
+
+ 다음 표에서 지원 되는 Service Fabric 버전에 대 한 지원 되는 운영 체제를 나열합니다.
+
+| **운영 체제** | **가장 오래 된 지원 되는 Service Fabric 버전** |
+| --- | --- |
+| Windows Server 2012 R2 | 모든 버전 |
+| Windows Server 2016 | 모든 버전 |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

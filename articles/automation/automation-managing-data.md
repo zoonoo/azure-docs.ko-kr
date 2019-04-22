@@ -10,11 +10,11 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916838"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784979"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation 데이터 관리
 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.
@@ -71,7 +71,7 @@ Azure Automation 계정의 표준인 지역에서 복제는 중복성을 위해 
 | --- | --- |
 | 미국 중남부 |미국 중북부 |
 | 미국 동부 2 |미국 중부 |
-| 서유럽 |북유럽 |
+| 서유럽 |유럽 북부 |
 | 동남아시아 |동아시아 |
 | 일본 동부 |일본 서부 |
 

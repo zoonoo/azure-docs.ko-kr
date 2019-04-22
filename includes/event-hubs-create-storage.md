@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 690e0da160042b7ac432b1a36c024a8a8f439823
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125227"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684670"
 ---
-## <a name="create-a-storage-account-for-event-processor-host"></a>이벤트 처리기 호스트에 대한 저장소 계정 만들기
+### <a name="create-a-storage-account-for-event-processor-host"></a>이벤트 처리기 호스트에 대한 저장소 계정 만들기
 이벤트 처리기 호스트는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 병렬 수신을 수행하는 지능형 에이전트입니다. 검사점 지정을 위해 이벤트 처리기 호스트에는 저장소 계정이 필요합니다. 다음 예제에서는 저장소 계정을 만들고 액세스를 위해 키를 가져오는 방법을 보여 줍니다.
 
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**를 선택합니다.

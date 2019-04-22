@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 16f59ecaf934813890cd25e89896182378f376ed
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 9d52114f5d01beca53ed48ee2114dc98cc20f3a2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549070"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682427"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Azure Application Gateway-Azure portal 사용 하 여 HTTP 요청 및 응답 헤더를 다시 작성
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Application Gateway v2는 v1 SKU에 대 한 헤더 재작성 기능 이므로 SKU를 사용할 수 없습니다를 해야 합니다. V2 SKU가 없는 경우 만듭니다는 [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) 시작 하기 전에 합니다.
+Application Gateway v2는 v1 SKU에 대 한 헤더 재작성 기능 이므로 SKU를 사용할 수 없습니다를 해야 합니다. V2 SKU가 없는 경우 만듭니다는 [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) 시작 하기 전에 합니다.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>헤더를 다시 작성 하는 데 필요한 항목은
 

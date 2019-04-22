@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 04163bea8f4c1247f42b65c35c2b82910e623bc9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661380"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699135"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.
 
-   MAC OS X의 경우 다음 추가 명령을 실행하여 myactorsvcTestClient 폴더를 컨테이너 내에서 동일한 위치에 복사해야 합니다.
+   MAC OS X의 경우 다음 추가 명령을 실행 하 여 컨테이너 내에서 동일한 위치로 myactorsvcTestClient 폴더를 복사 해야 합니다.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

@@ -7,14 +7,14 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02c7f53c090559ca0ada46ec90de3a44b0518a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003459"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683595"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
 
@@ -29,8 +29,7 @@ ms.locfileid: "58003459"
     2. ExpressRoute - ExpressRoute는 온-프레미스 또는 공동 장소 시설에 있는 인프라와 Microsoft 데이터 센터 간에 비공개 연결을 만들어 주는 Azure 서비스입니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. 자세한 내용은 [ExpressRoute 회로 만들기 및 수정](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)을 참조하세요.
     1. Data Box 온라인 데이터 전송 - Data Box Edge 및 Data Box Gateway는 사용자 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 저장소 게이트웨이 기능이 포함된 가상 어플라이언스입니다. 자세한 내용은 [Azure Data Box 설명서 - 온라인 전송](https://docs.microsoft.com/azure/databox-online/)을 참조하세요.
 1.  오프라인 데이터 배송
-    1. 가져오기/내보내기 서비스 - 물리적 디스크를 Azure에 보내 업로드되도록 할 수 있습니다. 자세한 내용은 [Azure Import/Export 서비스란?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)을 참조하세요.
-    1. Data Box 오프라인 데이터 전송 - 네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 대량 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 사용자 조직과 Azure 데이터 센터 간에 배송됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다. 자세한 내용은 [Azure Data Box 설명서 - 오프라인 전송](https://docs.microsoft.com/azure/databox/)을 참조하세요.
+    1. Data Box 오프라인 데이터 전송 - 네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 대량 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 사용자 조직과 Azure 데이터 센터 간에 배송됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다. 오프 라인 전송 Data Box 장치에 대 한 자세한 내용은 참조 하세요. [Azure Data Box 설명서-오프 라인 전송](https://docs.microsoft.com/azure/databox/)합니다. Hadoop 클러스터의 마이그레이션에 대 한 자세한 내용은 [온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션에 사용 하 여 Azure Data Box](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)합니다.
 
 다음 표에는 데이터 볼륨 및 네트워크 대역폭에 따른 대략적인 데이터 전송 기간이 정리되어 있습니다. 데이터 마이그레이션 예상 시간이 3주를 초과하는 경우 Data Box를 사용합니다.
 

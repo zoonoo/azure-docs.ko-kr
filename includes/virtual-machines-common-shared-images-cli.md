@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 547e0b08b2a57b4b9192f11907f77160142d4466
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 36c4757feb367fd39ae94640cb8e8a0f1714a0d3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192128"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737194"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -66,7 +66,7 @@ az sig image-definition create \
 
 ## <a name="create-an-image-version"></a>이미지 버전 만들기 
  
-[az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 사용하여 필요에 따라 이미지의 버전을 만듭니다. 이미지 버전을 만드는 기준선으로 사용할 관리되는 이미지의 ID를 전달해야 합니다. [az image list](/cli/azure/image?view#az-image-list)를 사용하여 리소스 그룹에 있는 이미지에 대한 정보를 가져올 수 있습니다. 이 예에서 이미지의 버전은 *1.0.0*이며, *미국 중서부*, *미국 중남부* 및 미국 동부 2* 지역에서 총 5개의 복제본을 만듭니다.
+[az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 사용하여 필요에 따라 이미지의 버전을 만듭니다. 이미지 버전을 만드는 기준선으로 사용할 관리되는 이미지의 ID를 전달해야 합니다. [az image list](/cli/azure/image?view#az-image-list)를 사용하여 리소스 그룹에 있는 이미지에 대한 정보를 가져올 수 있습니다. 이 예제에서는 이미지의 버전은 *1.0.0* 스러운에서 5 개의 복제본을 만드는 것은 합니다 *미국 중서부* 지역, 1 개 복제본에서는 *미국 중남부* 지역 및 1 복제본에는 *미국 동부 2* 지역입니다.
 
 ```azurecli-interactive 
 az sig image-version create \

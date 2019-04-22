@@ -1,315 +1,308 @@
-items:
 - name: Azure Search 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure Search란?
-    href: search-what-is-azure-search.md
-  - name: 인식 검색이란?
-    href: cognitive-search-concept-intro.md
+    - name: Azure Search란?
+      href: search-what-is-azure-search.md
+    - name: 인식 검색이란?
+      href: cognitive-search-concept-intro.md
 - name: 빠른 시작
-  items:
-  - name: 서비스 만들기
-    href: search-create-service-portal.md
-  - name: 포털
-    items:
-    - name: 인덱스 로드 및 쿼리
-      href: search-get-started-portal.md
-    - name: AI로 보강(Cognitive Search)
-      href: cognitive-search-quickstart-blob.md
-  - name: C#
-    items:
-    - name: 1 - 인덱스 만들기
-      href: search-create-index-dotnet.md
-    - name: 2 - 데이터 로드
-      href: search-import-data-dotnet.md
-    - name: 3 - 인덱스 검색
-      href: search-query-dotnet.md
-  - name: postman
-    href: search-fiddler.md
-  - name: PowerShell
-    href: search-create-index-rest-api.md
   expanded: true
+  items:
+    - name: 서비스 만들기
+      href: search-create-service-portal.md
+    - name: 포털
+      items:
+        - name: 인덱스 로드 및 쿼리
+          href: search-get-started-portal.md
+        - name: AI로 보강(Cognitive Search)
+          href: cognitive-search-quickstart-blob.md
+    - name: 'C#'
+      items:
+        - name: 1 - 인덱스 만들기
+          href: search-create-index-dotnet.md
+        - name: 2 - 데이터 로드
+          href: search-import-data-dotnet.md
+        - name: 3 - 인덱스 검색
+          href: search-query-dotnet.md
+    - name: postman
+      href: search-fiddler.md
+    - name: PowerShell
+      href: search-create-index-rest-api.md
 - name: 자습서
   items:
-  - name: Azure SQL Database 인덱싱
-    href: search-indexer-tutorial.md
-  - name: Azure JSON Blob 인덱싱
-    href: search-semi-structured-data.md
-  - name: AI를 사용하여 인덱싱(Cognitive Services)
-    href: cognitive-search-tutorial-blob.md
+    - name: Azure SQL Database 인덱싱
+      href: search-indexer-tutorial.md
+    - name: Azure JSON Blob 인덱싱
+      href: search-semi-structured-data.md
+    - name: AI를 사용하여 인덱싱(Cognitive Services)
+      href: cognitive-search-tutorial-blob.md
 - name: 샘플
   items:
-  - name: Azure 코드 샘플
-    href: https://azure.microsoft.com/resources/samples/?service=search
+    - name: Azure 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=search'
 - name: 교육
   items:
-  - name: 기술 마이닝 부트캠프
-    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
-  - name: 앱에 검색 추가(Pluralsight)
-    href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-  - name: Microsoft Azure 개발자 과정(Pluralsight)
-    href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
+    - name: 기술 마이닝 부트캠프
+      href: 'https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/'
+    - name: 앱에 검색 추가(Pluralsight)
+      href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
+    - name: Microsoft Azure 개발자 과정(Pluralsight)
+      href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: 개념
   items:
-  - name: 전체 텍스트 검색
-    href: search-lucene-query-architecture.md
-  - name: 다중 테넌트 지원을 위한 디자인 패턴
-    href: search-modeling-multitenant-saas-applications.md
+    - name: 전체 텍스트 검색
+      href: search-lucene-query-architecture.md
+    - name: 다중 테넌트 지원을 위한 디자인 패턴
+      href: search-modeling-multitenant-saas-applications.md
 - name: 방법 가이드
   items:
-  - name: 용량 계획
-    items:
-    - name: 계층 선택
-      href: search-sku-tier.md
-    - name: 서비스 제한
-      href: search-limits-quotas-capacity.md
-    - name: 파티션 및 복제본 크기 조정
-      href: search-capacity-planning.md
-    - name: 배포 전략 및 모범 사례
-      href: search-performance-optimization.md
-  - name: 보안
-    items:
-    - name: 보안 개요
-      href: search-security-overview.md
-    - name: 서비스 키 관리
-      href: search-security-api-keys.md
-    - name: 역할 기반 관리자 액세스
-      href: search-security-rbac.md
-    - name: 보안 필터
-      href: search-security-trimming-for-azure-search.md
-    - name: AAD ID에 대한 필터링
-      href: search-security-trimming-for-azure-search-with-aad.md
-  - name: 개발
-    items:
-    - name: API 버전
-      href: search-api-versions.md
-    - name: .NET으로 작성된 개발
-      href: search-howto-dotnet-sdk.md
-    - name: Node.js로 작성된 개발
-      href: search-get-started-nodejs.md
-    - name: Java로 작성된 개발
-      href: search-get-started-java.md
-    - name: SDK 업그레이드
+    - name: 용량 계획
       items:
-      - name: .NET SDK 5.0
-        href: search-dotnet-sdk-migration-version-5.md
-      - name: .NET SDK 3.0
-        href: search-dotnet-sdk-migration.md
-      - name: .NET SDK 1.1
-        href: search-dotnet-sdk-migration-version-1.md
-      - name: .NET 관리 SDK
-        href: search-dotnet-mgmt-sdk-migration.md
-    - name: REST API 업그레이드
-      href: search-api-migration.md
-  - name: 인덱스 만들기
-    items:
-    - name: 기본 인덱스 만들기
-      href: search-what-is-an-index.md
-    - name: 인덱스 만들기(포털)
-      href: search-create-index-portal.md
-    - name: 분석기
+        - name: 계층 선택
+          href: search-sku-tier.md
+        - name: 서비스 제한
+          href: search-limits-quotas-capacity.md
+        - name: 파티션 및 복제본 크기 조정
+          href: search-capacity-planning.md
+        - name: 배포 전략 및 모범 사례
+          href: search-performance-optimization.md
+    - name: 보안
       items:
-      - name: 분석기 추가
-        href: search-analyzers.md
-      - name: 언어 분석기 추가
-        href: index-add-language-analyzers.md
-      - name: 사용자 지정 분석기 추가
-        href: index-add-custom-analyzers.md
-    - name: 자동 완성
+        - name: 보안 개요
+          href: search-security-overview.md
+        - name: 서비스 키 관리
+          href: search-security-api-keys.md
+        - name: 역할 기반 관리자 액세스
+          href: search-security-rbac.md
+        - name: 보안 필터
+          href: search-security-trimming-for-azure-search.md
+        - name: AAD ID에 대한 필터링
+          href: search-security-trimming-for-azure-search-with-aad.md
+    - name: 개발
       items:
-      - name: 제안기 만들기
-        href: index-add-suggesters.md
-      - name: 예제(제안 사항, 자동 완성)
-        href: search-autocomplete-tutorial.md
-    - name: 동의어
+        - name: API 버전
+          href: search-api-versions.md
+        - name: .NET으로 작성된 개발
+          href: search-howto-dotnet-sdk.md
+        - name: Node.js로 작성된 개발
+          href: search-get-started-nodejs.md
+        - name: Java로 작성된 개발
+          href: search-get-started-java.md
+        - name: SDK 업그레이드
+          items:
+            - name: .NET SDK 5.0
+              href: search-dotnet-sdk-migration-version-5.md
+            - name: .NET SDK 3.0
+              href: search-dotnet-sdk-migration.md
+            - name: .NET SDK 1.1
+              href: search-dotnet-sdk-migration-version-1.md
+            - name: .NET 관리 SDK
+              href: search-dotnet-mgmt-sdk-migration.md
+        - name: REST API 업그레이드
+          href: search-api-migration.md
+    - name: 인덱스 만들기
       items:
-      - name: 동의어 추가
-        href: search-synonyms.md
-      - name: 동의어 예제
-        href: search-synonyms-tutorial-sdk.md
-    - name: 복합 데이터 형식 모델링
-      href: search-howto-complex-data-types.md
-    - name: 관계형 데이터 모델링
-      href: search-example-adventureworks-modeling.md
-    - name: 다중 레벨 패싯 모델링
-      href: search-example-adventureworks-multilevel-faceting.md
-  - name: 데이터 로드
-    items:
-    - name: 데이터 가져오기 개요
-      href: search-what-is-data-import.md
-    - name: 데이터 가져오기(포털)
-      href: search-import-data-portal.md
-    - name: 인덱스 다시 작성
-      href: search-howto-reindex.md
-    - name: 큰 데이터 집합 인덱싱
-      href: search-howto-large-index.md
-    - name: 동시 업데이트 처리
-      href: search-howto-concurrency.md
-    - name: 인덱서
+        - name: 기본 인덱스 만들기
+          href: search-what-is-an-index.md
+        - name: 인덱스 만들기(포털)
+          href: search-create-index-portal.md
+        - name: 분석기
+          items:
+            - name: 분석기 추가
+              href: search-analyzers.md
+            - name: 언어 분석기 추가
+              href: index-add-language-analyzers.md
+            - name: 사용자 지정 분석기 추가
+              href: index-add-custom-analyzers.md
+        - name: 자동 완성
+          items:
+            - name: 제안기 만들기
+              href: index-add-suggesters.md
+            - name: '예제(제안 사항, 자동 완성)'
+              href: search-autocomplete-tutorial.md
+        - name: 동의어
+          items:
+            - name: 동의어 추가
+              href: search-synonyms.md
+            - name: 동의어 예제
+              href: search-synonyms-tutorial-sdk.md
+        - name: 복합 데이터 형식 모델링
+          href: search-howto-complex-data-types.md
+        - name: 관계형 데이터 모델링
+          href: search-example-adventureworks-modeling.md
+        - name: 다중 레벨 패싯 모델링
+          href: search-example-adventureworks-multilevel-faceting.md
+    - name: 데이터 로드
       items:
-      - name: 인덱서 개요
-        href: search-indexer-overview.md
-      - name: Blob Storage 인덱서
-        href: search-howto-indexing-azure-blob-storage.md
-      - name: Table Storage 인덱서
-        href: search-howto-indexing-azure-tables.md
-      - name: SQL DB 인덱서
-        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-      - name: Cosmos DB 인덱서
-        href: search-howto-index-cosmosdb.md
-      - name: 일대다 BLOB 인덱싱
-        href: search-howto-index-one-to-many-blobs.md
-      - name: CSV Blob 인덱싱
-        href: search-howto-index-csv-blobs.md
-      - name: JSON Blob 인덱싱
-        href: search-howto-index-json-blobs.md
-      - name: SQL Server VM에 연결
-        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: 필드 매핑
-        href: search-indexer-field-mappings.md
-      - name: 일반적인 문제 해결
-        href: search-indexer-troubleshooting.md
-  - name: AI 인덱싱(Cognitive Search)
-    items:
-    - name: Cognitive Services 리소스 연결
-      href: cognitive-search-attach-cognitive-services.md
-    - name: 기술 집합 정의
-      href: cognitive-search-defining-skillset.md
-    - name: 주석 참조
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: 인덱스 필드에 매핑
-      href: cognitive-search-output-field-mapping.md
-    - name: 이미지에서 정보 처리 및 추출
-      href: cognitive-search-concept-image-scenarios.md
-    - name: 사용자 지정 기술 통합
-      href: cognitive-search-custom-skill-interface.md
-    - name: 예제 - 사용자 지정 기술
-      href: cognitive-search-create-custom-skill-example.md
-    - name: 문제 해결 팁
-      href: cognitive-search-concept-troubleshooting.md
-    - name: 문서 링크
-      href: cognitive-search-resources-documentation.md
-  - name: 쿼리 데이터
-    items:
-    - name: 기본 쿼리 만들기
-      href: search-query-overview.md
-    - name: 검색 탐색기(포털)
-      href: search-explorer.md
-    - name: 단순 쿼리 구문
-      href: query-simple-syntax.md
-    - name: 전체 Lucene 쿼리 구문
-      href: query-lucene-syntax.md
-    - name: 예제(단순 구문)
-      href: search-query-simple-examples.md
-    - name: 예제(전체 Lucene)
-      href: search-query-lucene-examples.md
-  - name: 데이터 필터링 및 정렬
-    items:
-    - name: 필터 개요
-      href: search-filters.md
-    - name: 패싯 필터
-      href: search-filters-facets.md
-    - name: 패싯 탐색 추가
-      href: search-faceted-navigation.md
-    - name: 필터 및 OrderBy 식 구문과 예제
-      href: query-odata-filter-orderby-syntax.md
-  - name: 결과 처리
-    items:
-    - name: 페이지 관련 기능
-      href: search-pagination-page-layout.md
-  - name: 관련성 튜닝
-    items:
-    - name: 점수 매기기 프로필 추가
-      href: index-add-scoring-profiles.md
-  - name: 관리
-    items:
-    - name: 포털 관리
-      href: search-manage.md
-    - name: PowerShell 관리
-      href: search-manage-powershell.md
-  - name: 모니터링
-    items:
-    - name: 작업 모니터링 및 로깅
-      href: search-monitor-usage.md
-    - name: 트래픽 분석 검색
-      href: search-traffic-analytics.md
+        - name: 데이터 가져오기 개요
+          href: search-what-is-data-import.md
+        - name: 데이터 가져오기(포털)
+          href: search-import-data-portal.md
+        - name: 인덱스 다시 작성
+          href: search-howto-reindex.md
+        - name: 큰 데이터 집합 인덱싱
+          href: search-howto-large-index.md
+        - name: 동시 업데이트 처리
+          href: search-howto-concurrency.md
+    - name: 인덱서를 사용하여 데이터 로드
+      items:
+        - name: 인덱서 개요
+          href: search-indexer-overview.md
+        - name: Blob Storage 인덱서
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Table Storage 인덱서
+          href: search-howto-indexing-azure-tables.md
+        - name: SQL DB 인덱서
+          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+        - name: Cosmos DB 인덱서
+          href: search-howto-index-cosmosdb.md
+        - name: 일대다 BLOB 인덱싱
+          href: search-howto-index-one-to-many-blobs.md
+        - name: CSV Blob 인덱싱
+          href: search-howto-index-csv-blobs.md
+        - name: JSON Blob 인덱싱
+          href: search-howto-index-json-blobs.md
+        - name: SQL Server VM에 연결
+          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: 필드 매핑
+          href: search-indexer-field-mappings.md
+        - name: 일반적인 문제 해결
+          href: search-indexer-troubleshooting.md
+    - name: AI 인덱싱(Cognitive Search)
+      items:
+        - name: Cognitive Services 리소스 연결
+          href: cognitive-search-attach-cognitive-services.md
+        - name: 기술 집합 정의
+          href: cognitive-search-defining-skillset.md
+        - name: 주석 참조
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: 인덱스 필드에 매핑
+          href: cognitive-search-output-field-mapping.md
+        - name: 이미지에서 정보 처리 및 추출
+          href: cognitive-search-concept-image-scenarios.md
+        - name: 사용자 지정 기술 통합
+          href: cognitive-search-custom-skill-interface.md
+        - name: 예제 - 사용자 지정 기술
+          href: cognitive-search-create-custom-skill-example.md
+        - name: 문제 해결 팁
+          href: cognitive-search-concept-troubleshooting.md
+        - name: 문서 링크
+          href: cognitive-search-resources-documentation.md
+    - name: 쿼리 데이터
+      items:
+        - name: 기본 쿼리 만들기
+          href: search-query-overview.md
+        - name: 검색 탐색기(포털)
+          href: search-explorer.md
+        - name: 단순 쿼리 구문
+          href: query-simple-syntax.md
+        - name: 전체 Lucene 쿼리 구문
+          href: query-lucene-syntax.md
+        - name: 예제(단순 구문)
+          href: search-query-simple-examples.md
+        - name: 예제(전체 Lucene)
+          href: search-query-lucene-examples.md
+    - name: 데이터 필터링 및 정렬
+      items:
+        - name: 필터 개요
+          href: search-filters.md
+        - name: 패싯 필터
+          href: search-filters-facets.md
+        - name: 패싯 탐색 추가
+          href: search-faceted-navigation.md
+        - name: 필터 및 OrderBy 식 구문과 예제
+          href: query-odata-filter-orderby-syntax.md
+    - name: 결과 처리
+      items:
+        - name: 페이지 관련 기능
+          href: search-pagination-page-layout.md
+    - name: 관련성 튜닝
+      items:
+        - name: 점수 매기기 프로필 추가
+          href: index-add-scoring-profiles.md
+    - name: 관리
+      items:
+        - name: 포털 관리
+          href: search-manage.md
+        - name: PowerShell 관리
+          href: search-manage-powershell.md
+    - name: 모니터링
+      items:
+        - name: 작업 모니터링 및 로깅
+          href: search-monitor-usage.md
+        - name: 트래픽 분석 검색
+          href: search-traffic-analytics.md
 - name: 참고 자료
   items:
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
-  - name: Azure PowerShell
-    href: /powershell/module/az.search
-  - name: .NET
-    href: /dotnet/api/?term=microsoft.azure.search
-  - name: .NET(관리)
-    href: /dotnet/api/?term=microsoft.azure.management.search
-  - name: Python(관리)
-    href: /python/api/?view=azure-python&term=search
-  - name: REST (영문)
-    href: /rest/api/searchservice
-  - name: REST(관리)
-    href: /rest/api/searchmanagement
-  - name: REST(미리 보기)
-    href: search-api-preview.md
-  - name: Resource Manager 템플릿
-    href: /azure/templates/microsoft.search/searchservices
-  - name: 인식 기술 참조
-    href: cognitive-search-predefined-skills.md
-    items:
-    - name: 핵심 문구 추출
-      href: cognitive-search-skill-keyphrases.md
-    - name: 언어 검색
-      href: cognitive-search-skill-language-detection.md
-    - name: 명명된 엔터티 인식
-      href: cognitive-search-skill-named-entity-recognition.md
-    - name: 엔터티 인식
-      href: cognitive-search-skill-entity-recognition.md
-    - name: 텍스트 병합기
-      href: cognitive-search-skill-textmerger.md
-    - name: 텍스트 나누기
-      href: cognitive-search-skill-textsplit.md
-    - name: 데이터
-      href: cognitive-search-skill-sentiment.md
-    - name: 이미지 분석
-      href: cognitive-search-skill-image-analysis.md
-    - name: OCR
-      href: cognitive-search-skill-ocr.md
-    - name: 쉐이퍼
-      href: cognitive-search-skill-shaper.md
-    - name: 사용되지 않는 기술
-      href: cognitive-search-skill-deprecated.md
-  - name: 사용자 지정 기술(미리 보기)
-    items:
-    - name: 사용자 지정 Web API
-      href: cognitive-search-custom-skill-web-api.md
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: /powershell/module/az.search
+    - name: .NET
+      href: /dotnet/api/?term=microsoft.azure.search
+    - name: .NET(관리)
+      href: /dotnet/api/?term=microsoft.azure.management.search
+    - name: Python(관리)
+      href: /python/api/?view=azure-python&term=search
+    - name: REST (영문)
+      href: /rest/api/searchservice
+    - name: REST(관리)
+      href: /rest/api/searchmanagement
+    - name: REST(미리 보기)
+      href: search-api-preview.md
+    - name: Resource Manager 템플릿
+      href: /azure/templates/microsoft.search/searchservices
+    - name: 인식 기술 참조
+      href: cognitive-search-predefined-skills.md
+      items:
+        - name: 핵심 문구 추출
+          href: cognitive-search-skill-keyphrases.md
+        - name: 언어 검색
+          href: cognitive-search-skill-language-detection.md
+        - name: 명명된 엔터티 인식
+          href: cognitive-search-skill-named-entity-recognition.md
+        - name: 엔터티 인식
+          href: cognitive-search-skill-entity-recognition.md
+        - name: 텍스트 병합기
+          href: cognitive-search-skill-textmerger.md
+        - name: 텍스트 나누기
+          href: cognitive-search-skill-textsplit.md
+        - name: 데이터
+          href: cognitive-search-skill-sentiment.md
+        - name: 이미지 분석
+          href: cognitive-search-skill-image-analysis.md
+        - name: OCR
+          href: cognitive-search-skill-ocr.md
+        - name: 쉐이퍼
+          href: cognitive-search-skill-shaper.md
+        - name: 사용되지 않는 기술
+          href: cognitive-search-skill-deprecated.md
+    - name: 사용자 지정 기술(미리 보기)
+      items:
+        - name: 사용자 지정 Web API
+          href: cognitive-search-custom-skill-web-api.md
 - name: 리소스
   items:
-  - name: Azure 커뮤니티 지원
-    href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure 업데이트
-    href: https://azure.microsoft.com/updates/?product=search
-  - name: 데모 사이트
-    items:
-    - name: 재무 파일 데모
-      href: https://wolterskluwereap.azurewebsites.net/
-    - name: JFK 파일 데모
-      href: https://aka.ms/jfkfiles
-    - name: NYC 작업 데모
-      href: https://aka.ms/azjobsdemo
-    - name: 검색 분석기 데모
-      href: https://alice.unearth.ai/
-    - name: 사용 사례 검색
-      href: https://searchsamples.azurewebsites.net/
-  - name: FAQ
-    href: search-faq-frequently-asked-questions.md
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/search/
-  - name: 동영상
-    href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 4dd56447ccedca7b01022b914502d5ad76e3e6a7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492671"
+    - name: Azure 커뮤니티 지원
+      href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: 데모 사이트
+      items:
+        - name: 재무 파일 데모
+          href: 'https://wolterskluwereap.azurewebsites.net/'
+        - name: JFK 파일 데모
+          href: 'https://aka.ms/jfkfiles'
+        - name: NYC 작업 데모
+          href: 'https://aka.ms/azjobsdemo'
+        - name: 검색 분석기 데모
+          href: 'https://alice.unearth.ai/'
+        - name: 사용 사례 검색
+          href: 'https://searchsamples.azurewebsites.net/'
+    - name: FAQ
+      href: search-faq-frequently-asked-questions.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/search/'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

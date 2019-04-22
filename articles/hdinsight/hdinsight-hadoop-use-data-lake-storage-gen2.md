@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 7e21d4c6705213cb57f058c062fff0ff4957a52a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802544"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681865"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -139,6 +139,5 @@ Azure 서비스에서 관리 되는 id의 형식이 두 가지: 시스템 할당
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 미리 보기 사용](../storage/blobs/data-lake-storage-use-hdi-cluster.md)
 * [Data Lake Storage Gen2 미리 보기와 Azure HDInsight 통합 - ACL 및 보안 업데이트](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Azure Data Lake Storage Gen2 미리 보기 소개](../storage/blobs/data-lake-storage-introduction.md)

@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501258"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698166"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Azure AD Connect에서 수정 된 기본 규칙 수정
 
@@ -76,12 +76,12 @@ Azure AD Connect 동기화에 대 한 기본 규칙을 사용 하 여 제공 됩
 
  ![기본 규칙](media/how-to-connect-fix-default-rules/default3a.png)
 
-규칙 이름을 고유한 명명 규칙에 따라, 여기에서 사용 했습니다 **사용자 지정 In from AD-사용자**, 즉 규칙은 사용자 지정 규칙은 메타 버스에 AD 커넥터 공간에서 인바운드 규칙입니다. 
+규칙 이름을 고유한 명명 규칙에 따라, 여기에서 사용 했습니다 **사용자 지정 In from AD-사용자**, 즉 규칙은 사용자 지정 규칙은 메타 버스에 AD 커넥터 공간에서 인바운드 규칙입니다.   
 
  ![기본 규칙](media/how-to-connect-fix-default-rules/default3b.png)
 
-규칙의 향후 유지 관리는이 규칙의 목적은 이란 무엇 이며 왜 필요 했습니다 처럼 쉽게 규칙의 고유한 설명을 제공 합니다.
-연결 된 시스템 (포리스트) 선택 특성의 원본입니다. 그런 다음 연결 된 시스템 개체 유형 및 메타 버스 개체 유형입니다.
+규칙의 향후 유지 관리는이 규칙의 목표 등이 필요한 이유는 쉽게 규칙의 고유한 설명을 제공 합니다.
+연결 된 시스템 (포리스트)-특성 원본을 선택 합니다. 그런 다음 연결 된 시스템 개체 유형 및 메타 버스 개체 형식을 선택 합니다.
 
 0 – 사이의 우선 순위 값 지정 99 (수를 줄이려면, 더 높은 우선 순위). 과 같은 다른 필드 'Tag', ' 암호 동기화 사용 ' 및 'Disabled' 기본값으로 유지 합니다.
 

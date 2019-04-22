@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482949"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699016"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -260,6 +260,18 @@ IoT Edge를 디바이스에 처음으로 설치하는 경우 Edge 에이전트�
    ```
 
 6. **템플릿 검토** 페이지에서 **제출**을 선택합니다.
+
+## <a name="open-ports-on-gateway-device"></a>게이트웨이 장치에서 포트 열기
+
+표준 IoT Edge 장치는 IoT Hub를 사용 하 여 모든 통신이 아웃 바운드 연결을 통해 수행 되기 때문에 함수에 대 한 모든 인바운드 연결이 필요 하지 않습니다. 그러나 게이트웨이 장치는 다운스트림 장치에서 메시지를 받을 수 있으려면 필요 하기 때문에 다릅니다.
+
+작동 하려면 게이트웨이 시나리오의 경우 다운스트림 장치에서 인바운드 트래픽을 위해 열린 IoT Edge 허브의 지원 되는 프로토콜의 하나 이상 이어야 합니다. 지원 되는 portocols MQTT, AMQP 및 HTTPS 됩니다.
+
+| 포트 | 프로토콜 |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>다운스트림 디바이스에서 메시지 라우팅
 IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림 디바이스에서 전송된 메시지를 라우팅할 수 있습니다. 그러면 클라우드로 데이터를 보내기 전에 게이트웨이에서 실행되는 모듈에서 분석을 수행할 수 있습니다. 

@@ -17,20 +17,20 @@ ms.date: 03/19/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd3d5a19e861bd738f3c618610aadb77da30b384
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520346"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698965"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>방법: 다단계 인증 등록 정책 구성
 
-Azure AD ID 보호를 사용하면 정책을 구성하여 MFA(Multi-Factor Authentication) 등록의 롤아웃을 관리할 수 있습니다. 이 문서에서는 어떤 정책을 어떻게 구성하는지에 대해 설명합니다.
+Azure AD Id 보호 등록 MFA를 요구 하는 정책을 구성 하 여 multi-factor authentication (MFA) 등록의 롤아웃을 관리할 수 있습니다. 이 문서에서는 어떤 정책을 어떻게 구성하는지에 대해 설명합니다.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>다단계 인증 등록 정책이란?
 
-Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야 하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 두 번째 계층을 제공합니다.  
+Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야 하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 두 번째 계층을 제공합니다. 사용자가 MFA 프롬프트에 응답할 수 순서로 먼저 MFA에 등록 해야 합니다. 
 
 다음과 같은 이유로, 사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다.
 
@@ -39,7 +39,7 @@ Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다�
 - 조직에서 계정 손상을 방지 및 복구하도록 준비하는 데 중요한 역할 수행
 
 
-자세한 내용은 [Azure Multi-Factor Authentication 정의](../authentication/multi-factor-authentication.md)
+MFA에 대 한 자세한 내용은 참조 하세요. [Azure Multi-factor Authentication 이란?](../authentication/multi-factor-authentication.md)
 
 
 ## <a name="how-do-i-access-the-mfa-registration-policy"></a>MFA 등록 정책에 액세스하려면 어떻게 할까요?
@@ -53,13 +53,13 @@ MFA 등록 정책은 **Azure AD ID 보호 페이지**의 [구성](https://portal
 
 ## <a name="policy-settings"></a>정책 설정
 
-로그인 위험 정책을 구성할 때 다음을 설정해야 합니다.
+MFA 등록 정책을 구성할 때 설정 해야 합니다.
 
 - 정책이 적용되는 사용자 및 그룹:
 
     ![개요](./media/howto-mfa-policy/11.png)
 
-- 적용할 액세스 유형:  
+- MFA 등록 적용-요구 하려는 컨트롤:  
 
     ![Access](./media/howto-mfa-policy/12.png)
 

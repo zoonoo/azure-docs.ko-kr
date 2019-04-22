@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 374ffc3a9d181d0596b5a4af1cd8082023e227fe
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498522"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698731"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -81,13 +81,14 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |Salesforce 보고서<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint<sup>[1](#tab1400b)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Sybase 데이터베이스     |  
 |TXT 파일  |
 |XML 테이블<sup>[1](#tab1400b)</sup>    |  
 ||
  
-<a name="tab1400b">1</a> 테이블 형식 1400 이상 모델에만 해당됩니다.
+<a name="tab1400b">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
+<a name="filesSP">2</a> -온-프레미스 SharePoint의 파일 지원 되지 않습니다.
 
 ## <a name="specifying-a-different-provider"></a>다른 공급자 지정
 

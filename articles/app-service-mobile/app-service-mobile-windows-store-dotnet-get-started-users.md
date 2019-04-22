@@ -1,6 +1,6 @@
 ---
 title: UWP(유니버설 Windows 플랫폼) 앱에 인증 추가 | Microsoft Docs
-description: Azure App Service Mobile Apps를 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 사용해서 UWP(유지버설 Windows 플랫폼) 앱 사용자를 인증하는 방법을 알아봅니다.
+description: Azure App Service Mobile Apps를 사용 하 여 다양 한 등의 id 공급자를 사용 하 여 유니버설 Windows 플랫폼 (UWP) 앱의 사용자를 인증 하는 방법을 알아봅니다. AAD, Google, Facebook, Twitter 및 Microsoft
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306577"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698685"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Windows 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,15 +35,13 @@ ms.locfileid: "38306577"
 
 보안 인증을 위해서는 앱에 대한 새로운 URL 체계를 정의해야 합니다. 이를 통해 인증 시스템은 인증 프로세스가 완료되면 앱으로 다시 리디렉션될 수 있습니다. 이 자습서에서는 전체적으로 URL 체계 _appname_을 사용합니다. 그러나 선택한 어떤 URL 체계도 사용 가능합니다. 이 체계는 모바일 애플리케이션에 고유해야 합니다. 서버 쪽에서 리디렉션을 사용하도록 설정하려면:
 
-1. [Azure Portal]에서 해당 App Service를 선택합니다.
+1. [Azure Portal](https://ms.portal.azure.com)에서 해당 App Service를 선택합니다.
 
 2. **인증/권한 부여** 메뉴 옵션을 클릭합니다.
 
 3. **허용되는 외부 리디렉션 URL**에서 `url_scheme_of_your_app://easyauth.callback`을 입력합니다.  이 문자열의 **url_scheme_of_your_app**은 모바일 애플리케이션에 대한 URL 체계입니다.  이 체계는 프로토콜에 대한 일반 URL 사양을 따라야 합니다(문자 및 숫자만 사용하고 문자로 시작).  여러 위치에서 URL 체계에 따라 모바일 애플리케이션 코드를 조정해야 할 경우 선택한 문자열을 적어두어야 합니다.
 
-4. **확인**을 클릭합니다.
-
-5. **저장**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -143,7 +141,7 @@ ms.locfileid: "38306577"
             Window.Current.Activate();
             base.OnActivated(args);
         }
-6. Package.appxmanifest 파일을 열고 **선언**으로 이동한 후 **사용 가능한 선언** 드롭다운 목록에서 **프로토콜**을 선택하고 **추가** 단추를 클릭합니다. 이제 **프로토콜** 선언의 **속성**을 구성합니다. **표시 이름**에서 응용 프로그램의 사용자에게 표시할 이름을 추가합니다. **이름**에 {url_scheme_of_your_app}를 추가합니다.
+6. Package.appxmanifest 파일을 열고 **선언**으로 이동한 후 **사용 가능한 선언** 드롭다운 목록에서 **프로토콜**을 선택하고 **추가** 단추를 클릭합니다. 이제 **프로토콜** 선언의 **속성**을 구성합니다. **표시 이름**에서 애플리케이션의 사용자에게 표시할 이름을 추가합니다. **이름**에 {url_scheme_of_your_app}를 추가합니다.
 7. F5 키를 눌러 앱을 실행하고 **로그인** 단추를 클릭한 다음 선택한 ID 공급자로 앱에 로그인합니다. 성공적으로 로그인되고 나면 앱이 오류 없이 실행되고 백 엔드를 쿼리하여 데이터를 업데이트할 수 있습니다.
 
 ## <a name="tokens"></a>클라이언트에 인증 토큰 저장

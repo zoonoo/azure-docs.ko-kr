@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881191"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699307"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 가용성 향상
 
@@ -66,6 +66,10 @@ Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트�
 
 활성-활성 구성에서 VPN gateway의 두 인스턴스는 온-프레미스 VPN 장치에 S2S VPN 터널을 설정 합니다. 게이트웨이 인스턴스 하나에서 계획된 유지 관리 이벤트 또는 계획되지 않은 이벤트가 발생하면 트래픽이 다른 활성 IPsec 터널로 전송되도록 자동 전환됩니다. Azure Advisor는 활성-활성으로 구성되지 않은 VPN 게이트웨이를 식별하여 고가용성을 유지할 수 있도록 해당 게이트웨이를 구성하라는 제안 메시지를 표시합니다.
 
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>프로덕션 VPN gateway를 사용 하 여 프로덕션 워크 로드를 실행 합니다.
+
+Azure Advisor는 기본 SKU가 있는 모든 VPN gateway에 대 한 확인 하 고 대신 프로덕션 SKU를 사용 하는 것이 좋습니다. 기본 SKU는 개발 및 테스트 목적으로 설계 되었습니다. 프로덕션 Sku 수가 높을수록 터널, BGP 지원, 활성-활성 구성 옵션, 사용자 지정 Ipsec/IKE 정책 및 높은 안정성 및 가용성을 제공합니다.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
@@ -79,5 +83,5 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 시작](advisor-get-started.md)
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
-* [Advisor 보안 권장 사항 관리](advisor-security-recommendations.md)
+* [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 

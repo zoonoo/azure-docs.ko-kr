@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541039"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683956"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -29,13 +29,13 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>확장 집합에 대한 상위 질문과 대답
 
-**Q.** 크기 집합에 포함할 수 있는 VM 수는 몇 개인가요?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>크기 집합에 포함할 수 있는 VM 수는 몇 개인가요?
 
-**A.** 확장 집합에는 플랫폼 이미지에 기반하여 0~1,000대의 VM, 사용자 지정 이미지에 기반하여 0~600대의 VM을 포함할 수 있습니다.
+확장 집합에는 플랫폼 이미지에 기반하여 0~1,000대의 VM, 사용자 지정 이미지에 기반하여 0~600대의 VM을 포함할 수 있습니다.
 
-**Q.** 크기 집합 내에서 데이터 디스크가 지원되나요?
+### <a name="are-data-disks-supported-within-scale-sets"></a>크기 집합 내에서 데이터 디스크가 지원되나요?
 
-**A.** 예. 크기 집합은 집합에서 모든 VM에 적용되는 연결된 데이터 디스크 구성을 정의할 수 있습니다. 자세한 내용은 [}Azure 확장 집합 및 연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)를 참조하세요. 데이터를 저장하는 기타 옵션은 다음과 같습니다.
+예. 크기 집합은 집합에서 모든 VM에 적용되는 연결된 데이터 디스크 구성을 정의할 수 있습니다. 자세한 내용은 [}Azure 확장 집합 및 연결된 데이터 디스크](virtual-machine-scale-sets-attached-disks.md)를 참조하세요. 데이터를 저장하는 기타 옵션은 다음과 같습니다.
 
 * Azure 파일(SMB 공유 드라이브)
 * OS 드라이브
@@ -43,33 +43,33 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 * Azure 데이터 서비스(예: Azure 테이블, Azure Blob)
 * 외부 데이터 서비스(예: 원격 데이터베이스)
 
-**Q.** 크기 집합을 지원하는 Azure 지역은 어디인가요?
+### <a name="which-azure-regions-support-scale-sets"></a>크기 집합을 지원하는 Azure 지역은 어디인가요?
 
-**A.** 모든 지역에서 크기 집합을 지원합니다.
+모든 지역에서 확장 집합을 지원합니다.
 
-**Q.** 사용자 지정 이미지를 사용하여 크기 집합을 어떻게 만드나요?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 크기 집합을 어떻게 만드나요?
 
-**A.** VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
+VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
 
-**Q.** 내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
-**A.** 가용성을 최대화하기 위해 업데이트 도메인과 장애 도메인이 균등하도록 가상 머신이 확장 집합에서 제거됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
+가용성을 최대화하기 위해 업데이트 도메인과 장애 도메인이 균등하도록 가상 머신이 확장 집합에서 제거됩니다. ID가 가장 높은 VM이 먼저 제거됩니다.
 
-**Q.** 그런 다음 용량을 15에서 18로 늘리면 어떻게 되나요?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>그런 다음 용량을 15에서 18로 늘리면 어떻게 되나요?
 
-**A.** 용량을 18로 늘리면 3개의 새로운 VM 생성됩니다. VM 인스턴스 ID는 이전의 가장 큰 값에서 증가합니다(예: 20, 21, 22). VM은 장애 도메인과 업데이트 도메인에 균등하게 분배됩니다.
+용량을 18로 늘리면 3개의 새로운 VM 생성됩니다. VM 인스턴스 ID는 이전의 가장 큰 값에서 증가합니다(예: 20, 21, 22). VM은 장애 도메인과 업데이트 도메인에 균등하게 분배됩니다.
 
-**Q.** 크기 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>크기 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
 
-**A.** 예, [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md) 확장 집합을 사용할 수 있습니다.
+예, [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md) 확장 집합을 사용할 수 있습니다.
 
-**Q.** 크기 집합은 Azure 가용성 집합과 작업이 가능한가요?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>크기 집합은 Azure 가용성 집합과 작업이 가능한가요?
 
-**A.** 지역(비 영역) 확장 집합은 *배치 그룹*을 사용합니다. 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적 가용성 집합으로 역할을 합니다. 100개 이상의 VM 확장 집합은 여러 배치 그룹으로 확장합니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
+지역(비 영역) 확장 집합은 *배치 그룹*을 사용합니다. 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적 가용성 집합으로 역할을 합니다. 100개 이상의 VM 확장 집합은 여러 배치 그룹으로 확장합니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
 
-**Q.** 확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
-**A.** 예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
+예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
 ## <a name="autoscale"></a>자동 크기 조정

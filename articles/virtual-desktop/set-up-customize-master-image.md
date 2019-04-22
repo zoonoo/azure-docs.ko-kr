@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505603"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698318"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -274,7 +274,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxId
 1. Active Directory 서버에서 엽니다는 **그룹 정책 관리 콘솔**합니다.
 2. 사용자 도메인 및 그룹 정책 개체를 확장 합니다.
 3. 마우스 오른쪽 단추로 클릭 합니다 **그룹 정책 개체** 선택한 그룹 정책 설정에 대해 만든 **편집**합니다.
-4. 에 **그룹 정책 관리 편집기**, 이동할 **컴퓨터 구성** > **정책은** > **관리 템플릿을** > **Windows 구성 요소** > **수평 RDSH 서비스 보기** > **원격 데스크톱 세션 호스트** > **장치 및 리소스 리디렉션**합니다.
+4. 에 **그룹 정책 관리 편집기**, 이동할 **컴퓨터 구성** > **정책은** > **관리 템플릿을** > **Windows 구성 요소** > **원격 데스크톱 서비스** > **원격 데스크톱 세션 호스트**   >  **장치 및 리소스 리디렉션**합니다.
 5. 사용 하도록 설정 합니다 **표준 시간대의 리디렉션 허용** 설정 합니다.
 
 또한 표준 시간대를 리디렉션할 마스터 이미지에이 명령을 실행할 수 있습니다.
@@ -367,8 +367,8 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 
 이미지를 만들었으므로 만들 수도 있고 호스트 풀 업데이트. 호스트 풀 만들기 및 업데이트 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 합니다.
 
-- [Azure Resource Manager 템플릿으로 호스트 풀 만들기](create-host-pools-arm-template.md)
-- [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
-- [PowerShell을 사용한 호스트 풀 만들기](create-host-pools-powershell.md)
-- [호스트 풀에 대한 사용자 프로필 공유 설정](create-host-pools-user-profile.md)
-- [Windows Virtual Desktop 부하 분산 방법 구성](configure-host-pool-load-balancing.md)
+- [Azure Resource Manager 템플릿을 사용 하 여 호스트 풀 만들기](create-host-pools-arm-template.md)
+- [자습서: Azure Marketplace를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
+- [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md)
+- [호스트 풀에 대 한 사용자 프로필 공유 설정](create-host-pools-user-profile.md)
+- [Windows 가상 데스크톱 부하 분산 방법 구성](configure-host-pool-load-balancing.md)

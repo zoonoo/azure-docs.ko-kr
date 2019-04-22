@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544155"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682683"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Azure Application Gateway의 HTTP 헤더 다시 쓰기(공개 미리 보기)
+# <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더를 다시 작성
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사용하여 추가 정보를 전달할 수 있습니다. HSTS 같은 보안 관련 헤더 필드를 추가 하는 등 몇 가지 중요 한 시나리오를 수행 하면 이러한 HTTP 헤더를 다시 작성/X-XSS-보호에서 포트 정보를 제거 하는 중요 한 정보를 통해 확인할 수 있습니다 하는 필드 응답 헤더를 제거 합니다. X-전달 기능에 대 한 헤더 등 Application gateway는 추가, 제거 또는 HTTP 요청 및 응답 헤더를 요청 하는 동안 업데이트 하는 기능을 지원 하 고 응답 패킷의 클라이언트와 백 엔드 풀 간에 이동 합니다. 또한, 특정 조건이 충족 될 경우에 지정 된 헤더는 다시 작성할 수 있도록 조건을 추가 하는 기능을 제공 합니다.
+HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사용하여 추가 정보를 전달할 수 있습니다. HSTS 같은 보안 관련 헤더 필드를 추가 하는 등 몇 가지 중요 한 시나리오를 수행 하면 이러한 HTTP 헤더를 다시 작성/X-XSS-보호에서 포트 정보를 제거 하는 중요 한 정보를 통해 확인할 수 있습니다 하는 필드 응답 헤더를 제거 합니다. X-전달 기능에 대 한 헤더 등 Application gateway는 추가, 제거 또는 HTTP 요청 및 응답 헤더를 요청 하는 동안 업데이트 하는 기능을 지원 하 고 응답 패킷의 클라이언트와 백 엔드 풀 간에 이동 합니다. 이 특정 조건이 충족 될 경우에 지정 된 헤더는 다시 작성할 수 있도록 조건을 추가 하는 기능을 제공 합니다. 기능에서는 여러 [서버 변수](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) 도움이 되는 요청 및 응답, 강력한 다시 쓰기 규칙을 확인 하는 방법에 대 한 추가 정보를 저장 합니다.
 > [!NOTE]
 >
 > HTTP 헤더 다시 쓰기 지원은 [새 SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)에만 제공됩니다.
+
+![헤더를 다시 작성](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>지원 되는 헤더를 다시 작성
 
@@ -35,7 +37,7 @@ HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사�
 - 응답의 HTTP 헤더
 - 응용 프로그램 게이트웨이 서버 변수
 
-인지 여부 지정된 된 변수가 있는 지정된 된 변수가 특정 값을 정확 하 게 일치 하는지 여부 지정된 된 변수는 특정 패턴을 정확 하 게 일치 하는지 여부를 평가 하는 조건을 사용할 수 있습니다. [Perl 호환 일반 식 (PCRE) 라이브러리](https://www.pcre.org/) 조건에 일치 하는 정규식 패턴을 구현 하는 데 사용 됩니다. 정규식 구문에 대 한 자세한 내용은 참조는 [Perl 정규식 man 페이지](http://perldoc.perl.org/perlre.html)합니다.
+인지 여부 지정된 된 변수가 있는 지정된 된 변수가 특정 값을 정확 하 게 일치 하는지 여부 지정된 된 변수는 특정 패턴을 정확 하 게 일치 하는지 여부를 평가 하는 조건을 사용할 수 있습니다. [Perl 호환 일반 식 (PCRE) 라이브러리](https://www.pcre.org/) 조건에 일치 하는 정규식 패턴을 구현 하는 데 사용 됩니다. 정규식 구문에 대 한 자세한 내용은 참조는 [Perl 정규식 man 페이지](https://perldoc.perl.org/perlre.html)합니다.
 
 ## <a name="rewrite-actions"></a>작업을 다시 작성
 
@@ -124,6 +126,18 @@ Application gateway의 도메인 이름에 location 헤더에 호스트 이름�
 응용 프로그램 응답에 필요한 헤더를 구현 하 여 여러 가지 보안 취약점을 해결할 수 있습니다. 이러한 보안 헤더의 일부는 X XSS 보호, 보안-전송-Strict, 콘텐츠-보안 정책, 등입니다. 모든 응답에 대 한 이러한 헤더를 설정 하려면 응용 프로그램 게이트웨이 사용할 수 있습니다.
 
 ![보안 헤더](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>원치 않는 헤더를 삭제 합니다.
+
+백 엔드 서버 이름, 운영 체제에서 라이브러리 세부 정보 등과 같은 중요 한 정보를 표시 하는 HTTP 응답에서 해당 헤더를 제거 하 시겠습니까 수 있습니다. 이 제거 하려면 application gateway를 사용할 수 있습니다.
+
+![헤더를 삭제합니다.](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>헤더의 유무를 확인 합니다.
+
+헤더 또는 서버 변수의 현재 상태에 대 한 HTTP 요청 또는 응답 헤더를 평가할 수 있습니다. 특정 헤더가 있는 경우에 헤더 다시 쓰기를 수행 하려는 경우에 유용 합니다.
+
+![헤더의 유무를 확인 하는 중](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>제한 사항
 
