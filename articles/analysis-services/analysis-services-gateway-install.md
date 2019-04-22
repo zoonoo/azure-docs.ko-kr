@@ -9,10 +9,10 @@ ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894169"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
@@ -32,7 +32,7 @@ ms.locfileid: "58894169"
 * 8GB 메모리
 * 64비트 버전의 Windows 2012 R2 이상
 
-**중요 한 고려 사항:**
+**중요 고려 사항:**
 
 * 설치하는 동안 Azure로 게이트웨이를 등록하는 경우 구독에 대한 기본 지역이 선택됩니다. 다른 지역을 선택할 수 있습니다. 서버가 여러 지역에 있는 경우 각 지역에 대한 게이트웨이를 설치해야 합니다. 
 * 도메인 컨트롤러에 게이트웨이를 설치할 수 없습니다.
@@ -98,7 +98,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
    * **리소스 그룹**: 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
 
-   * **위치**: 게이트웨이를 등록한 지역을 선택합니다.
+   * **Location**: 게이트웨이를 등록한 지역을 선택합니다.
 
    * **설치 이름**: 게이트웨이 설치가 선택되어 있지 않으면 등록한 게이트웨이를 선택합니다. 
 

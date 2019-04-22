@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895582"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>웹후크 및 Azure Logic Apps를 사용하여 이벤트 기반 워크플로 또는 작업 만들기
@@ -33,7 +33,7 @@ ms.locfileid: "58895582"
 
 논리 앱 디자이너에서 HTTP 트리거를 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 
 
-**웹 후크 트리거를 추가 하려면**
+**웹후크 트리거를 사용하려면**
 
 1. **HTTP 웹후크** 트리거를 논리 앱의 첫 번째 단계로 추가합니다.
 2. 웹후크 구독 및 구독 취소 호출에 대한 매개 변수를 입력합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "58895582"
 
 논리 앱 디자이너에서 웹후크 동작을 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-actions)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 
 
-**웹 후크 동작을 추가 하려면**
+**웹후크 동작을 추가하려면**
 
 1. **다음 단계** > **동작 추가**를 선택합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "58895582"
 
 ## <a name="webhook-triggers"></a>웹후크 트리거
 
-| 조치 | 설명 |
+| 액션(Action) | 설명 |
 | --- | --- |
 | HTTP 웹후크 |필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 논리 앱을 실행합니다. |
 
@@ -114,11 +114,11 @@ ms.locfileid: "58895582"
 | --- | --- | --- |
 | headers |object |웹후크 요청 헤더 |
 | 본문 |object |웹후크 요청 개체 |
-| 상태 코드 |int |웹후크 요청 상태 코드 |
+| 상태 코드 |ssNoversion |웹후크 요청 상태 코드 |
 
 ## <a name="webhook-actions"></a>웹후크 작업
 
-| 조치 | 설명 |
+| 액션(Action) | 설명 |
 | --- | --- |
 | HTTP 웹후크 |필요에 따라 URL을 호출할 수 있는 서비스에 대한 콜백 URL을 구독하여 워크플로 단계를 다시 시작합니다. |
 
@@ -150,7 +150,7 @@ ms.locfileid: "58895582"
 | --- | --- | --- |
 | headers |object |웹후크 요청 헤더 |
 | 본문 |object |웹후크 요청 개체 |
-| 상태 코드 |int |웹후크 요청 상태 코드 |
+| 상태 코드 |ssNoversion |웹후크 요청 상태 코드 |
 
 ## <a name="next-steps"></a>다음 단계
 

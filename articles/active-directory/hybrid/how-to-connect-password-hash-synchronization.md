@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916379"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
@@ -119,7 +119,7 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 ### <a name="password-hash-synchronization-and-fips"></a>암호 해시 동기화 및 FIPS
 서버가 FIPS(Federal Information Processing Standard)에 따라 잠긴 다음 MD5가 비활성화됩니다.
 
-**암호 해시 동기화에 MD5를 사용 하려면 다음 단계를 수행 합니다.**
+**암호 해시 동기화에 MD5를 사용하려면 다음 단계를 수행합니다.**
 
 1. %programfiles%\Azure AD Sync\Bin으로 이동합니다.
 2. miiserver.exe.config를 엽니다.
@@ -143,6 +143,6 @@ Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우
 암호 해시 동기화에 문제가 있으면 [암호 해시 동기화 문제 해결](tshoot-connect-password-hash-synchronization.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure AD Connect 동기화: 사용자 지정 동기화 옵션](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
-* [ADFS에서 암호 해시 동기화로 마이그레이션에 대 한 단계별 배포 계획 가져오기](https://aka.ms/authenticationDeploymentPlan)
+* [ADFS에서 암호 해시 동기화로 마이그레이션하기 위한 단계별 배포 계획 가져오기](https://aka.ms/authenticationDeploymentPlan)

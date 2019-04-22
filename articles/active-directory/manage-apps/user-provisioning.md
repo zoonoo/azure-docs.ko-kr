@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894409"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
@@ -57,14 +57,14 @@ Azure Active Directory (Azure AD)를 사용 하면 생성, 유지 관리 및 클
     
 합니다 **Azure AD 프로 비전 서비스** 각 응용 프로그램 공급 업체에서 제공 하는 사용자 관리 API 끝점에 연결 하 여 SaaS 앱 및 다른 시스템에 사용자를 프로 비전 합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로 비전 서비스를 만들고 수도 있습니다, 업데이트, 그룹 및 역할과 같은 추가 id 관련 개체를 제거 합니다. 
 
-![프로 비전](./media/user-provisioning/provisioning0.PNG)
-*그림 1: Azure AD Provisioning Service**
+![프로비전](./media/user-provisioning/provisioning0.PNG)
+그림 1: Azure AD Provisioning Service*
 
-![아웃 바운드 프로 비전](./media/user-provisioning/provisioning1.PNG)
-*그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로**
+![아웃바운드 프로비전](./media/user-provisioning/provisioning1.PNG)
+그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로*
 
-![인바운드 프로 비전](./media/user-provisioning/provisioning2.PNG)
-*그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로**
+![인바운드 프로비전](./media/user-provisioning/provisioning2.PNG)
+그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
@@ -277,9 +277,9 @@ Azure portal에서 감사 로그를 읽는 방법에 대 한 자세한 내용은
 
 ## <a name="related-articles"></a>관련 문서
 
-- [SaaS 앱 통합 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
-- [사용자 프로 비전 특성 매핑 사용자 지정](customize-application-attributes.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
+- [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
 - [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
-- [사용자 프로 비전에 대 한 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)
+- [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
 - [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
 - [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

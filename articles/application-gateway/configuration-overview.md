@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
 ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58906126"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
@@ -346,4 +346,4 @@ App service에 기존 사용자 지정 DNS 이름이 매핑되는 사용자 지�
 
 - [Azure portal에서 응용 프로그램 게이트웨이 만들기](quick-create-portal.md)
 - [PowerShell을 사용 하 여 응용 프로그램 게이트웨이 만들기](quick-create-powershell.md)
-- [Azure CLI를 사용하여 Application Gateway 만들기](quick-create-cli.md)
+- [Azure CLI를 사용 하 여 응용 프로그램 게이트웨이 만들기](quick-create-cli.md)

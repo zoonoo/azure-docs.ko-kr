@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895971"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
@@ -80,5 +80,5 @@ Video Indexer가 유용할 수 있는 몇 가지 시나리오는 다음과 같�
 Video Indexer를 시작할 준비가 되었습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Video Indexer 웹 사이트 시작](video-indexer-get-started.md)
-- [Video Indexer REST API를 사용 하 여 프로세스 콘텐츠](video-indexer-use-apis.md)
-- [응용 프로그램에서 시각적 위젯 포함](video-indexer-embed-widgets.md)
+- [Video Indexer REST API를 사용하여 콘텐츠 처리](video-indexer-use-apis.md)
+- [애플리케이션에 시각적 위젯 포함](video-indexer-embed-widgets.md)

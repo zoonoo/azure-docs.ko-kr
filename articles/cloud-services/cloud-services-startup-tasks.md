@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917620"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>클라우드 서비스에 대한 시작 작업 구성 및 실행 방법
@@ -59,7 +59,7 @@ ms.locfileid: "58917620"
 6. [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) 메서드가 호출됩니다.
 
 ## <a name="example-of-a-startup-task"></a>시작 작업의 예
-시작 작업은 [작업] 요소의 **ServiceDefinition.csdef** 파일에서 정의됩니다. **commandLine** 특성은 시작 배치 파일 또는 콘솔 명령의 이름 및 매개 변수를 지정하고 **executionContext** 특성은 시작 작업의 권한 수준을 지정하며 **taskType** 특성은 작업이 실행될 방법을 지정합니다.
+시작 작업은 [ServiceDefinition.csdef] 요소의 **ServiceDefinition.csdef** 파일에서 정의됩니다. **commandLine** 특성은 시작 배치 파일 또는 콘솔 명령의 이름 및 매개 변수를 지정하고 **executionContext** 특성은 시작 작업의 권한 수준을 지정하며 **taskType** 특성은 작업이 실행될 방법을 지정합니다.
 
 이 예에서는 환경 변수 **MyVersionNumber**가 시작 작업에 대해 생성되고 값 "**1.0.0.0**"으로 설정됩니다.
 
@@ -88,7 +88,7 @@ EXIT /B 0
 > 
 
 ## <a name="description-of-task-attributes"></a>작업 특성 설명
-다음은 **ServiceDefinition.csdef** 파일의 [작업] 요소 특성을 설명합니다.
+다음은 **ServiceDefinition.csdef** 파일의 [ServiceDefinition.csdef] 요소 특성을 설명합니다.
 
 **commandLine** - 시작 작업에 대한 명령줄을 지정합니다.
 
@@ -101,7 +101,7 @@ EXIT /B 0
 
 * **제한**  
    시작 작업이 역할과 동일한 권한으로 실행됩니다. [런타임] 요소에 대한 **executionContext** 특성 또한 **제한**인 경우 사용자 권한이 사용됩니다.
-* **elevated**  
+* **상승**  
    시작 작업이 관리자 권한으로 실행됩니다. 이를 통해 시작 작업이 역할 자체의 권한 수준을 높이지 않고 프로그램을 설치하고 IIS 구성을 변경하고 기타 관리자 수준 작업을 수행할 수 있습니다.  
 
 > [!NOTE]
@@ -112,7 +112,7 @@ EXIT /B 0
 **taskType** -시작 작업이 실행되는 방식을 지정합니다.
 
 * **간단한**  
-  작업이 동기적으로 한 번에 하나씩 [작업] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
+  작업이 동기적으로 한 번에 하나씩 [ServiceDefinition.csdef] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
   
   > [!NOTE]
   > **간단** 작업이 0이 아닌 **errorlevel**로 끝나는 경우 인스턴스가 차단됩니다. 후속 **간단** 시작 작업과 역할 자체는 시작되지 않습니다.
@@ -120,21 +120,21 @@ EXIT /B 0
   > 
   
     배치 파일이 0의 **errorlevel**로 끝나는지 확인하려면 배치 파일 프로세스의 끝에 명령 `EXIT /B 0`을 실행합니다.
-* **background**  
+* **백그라운드**  
    작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다.
-* **전경**  
+* **포그라운드**  
    작업이 비동기적으로 역할의 시작과 병렬로 실행됩니다. **포그라운드** 및 **백그라운드** 작업 사이의 주요 차이점은 **포그라운드** 작업은 작업이 종료될 때까지 작업이 재활용 또는 종료되는 것을 방지합니다. **백그라운드** 작업은 이러한 제한이 없습니다.
 
 ## <a name="environment-variables"></a>환경 변수
 환경 변수는 시작 작업에 정보를 전달하는 방법입니다. 예를 들어 설치할 프로그램을 포함하는 Blob에 경로를 배치하거나 역할이 사용할 포트 번호 또는 시작 작업의 기능을 제어할 설정을 배치할 수 있습니다.
 
-시작 작업에 대한 환경 변수에는 [RoleEnvironment] 클래스의 멤버에 따라 동적 환경 변수 및 환경 변수 두 가지가 있습니다. 두 변수는 모두 [ServiceDefinition.csdef] 파일의 [환경] 섹션에 있으며 모두 [변수] 요소 및 **이름** 특성을 사용합니다.
+시작 작업에 대한 환경 변수에는 [RoleEnvironment] 클래스의 멤버에 따라 동적 환경 변수 및 환경 변수 두 가지가 있습니다. 두 변수는 모두 [ServiceDefinition.csdef] 파일의 [환경] 섹션에 있으며 모두 [값] 요소 및 **이름** 특성을 사용합니다.
 
 정적 환경 변수는 **변수** 요소의 [값] 특성을 사용합니다. 위의 예제에서는 "**1.0.0.0**"의 정적 값이 있는 환경 변수 **MyVersionNumber**를 만듭니다. 다른 예제는 "**준비**’ 또는 "**프로덕션**"의 값을 수동으로 설정하여 **StagingOrProduction** 환경 변수의 값에 따라 다른 시작 작업을 수행할 수 있는 **StagingOrProduction** 환경 변수를 만드는 것입니다.
 
 RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변수** 요소의 [값] 특성을 사용하지 않습니다. 대신 적절한 **XPath** 특성 값이 있는 [RoleInstanceValue] 자식 요소는 [RoleEnvironment] 클래스의 특정 멤버에 따라 환경 변수를 만드는데 사용됩니다. 다양한 [RoleEnvironment] 값에 액세스하는 **XPath** 특성에 대한 값은 [여기](cloud-services-role-config-xpath.md)에서 찾을 수 있습니다.
 
-예를 들어 인스턴스가 컴퓨팅 에뮬레이터에서 실행되는 경우 "**true**"이고 클라우드에서 실행되는 경우 "**false**"인 환경 변수를 만들려면 다음 [변수] 및 [RoleInstanceValue] 요소를 사용합니다.
+예를 들어 인스턴스가 컴퓨팅 에뮬레이터에서 실행되는 경우 "**true**"이고 클라우드에서 실행되는 경우 "**false**"인 환경 변수를 만들려면 다음 [값] 및 [RoleInstanceValue] 요소를 사용합니다.
 
 ```xml
 <Startup>
@@ -161,10 +161,10 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변�
 [포장합니다](cloud-services-model-and-package.md) .  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[작업]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [시작]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[값]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

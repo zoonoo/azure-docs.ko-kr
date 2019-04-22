@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894921"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
@@ -61,7 +61,7 @@ App Service는 웹 서버와 웹 애플리케이션 모두의 정보에 로깅�
 |**오류** | 오류, 위험 |
 |**Warning** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
-|**자세한 정보 표시** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
+|**자세한 정보** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
 |-|-|
 
 **애플리케이션 로깅**의 경우 디버그를 위해 파일 시스템 옵션을 일시적으로 켤 수 있습니다. 이 옵션은 12시간 후에 자동으로 꺼집니다. 또한 Blob Storage 옵션을 켜서 로그를 쓸 Blob 컨테이너를 선택할 수도 있습니다.
@@ -126,13 +126,13 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 Visual Studio Application Insights는 로그 필터링과 검색을 위한 도구 및 요청과 다른 이벤트와 로그를 연결하기 위한 도구를 제공합니다.
 
 1. Visual Studio의 프로젝트에 Application Insights SDK 추가
-   * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. 인터페이스는 Application Insights 리소스를 만드는 방법을 포함한 단계를 설명합니다. [자세한 정보](../azure-monitor/app/asp-net.md)
+   * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다. 인터페이스는 Application Insights 리소스를 만드는 방법을 포함한 단계를 설명합니다. [자세히 알아보기](../azure-monitor/app/asp-net.md)
 2. 추적 수신기 패키지를 프로젝트에 추가 합니다.
    * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. 자동으로 로그를 삭제하려면 `Microsoft.ApplicationInsights.TraceListener` [자세히 알아보기](../azure-monitor/app/asp-net-trace-logs.md)
 3. 프로젝트를 업로드하고 실행하여 로그 데이터를 생성합니다.
-4. [Azure Portal](https://portal.azure.com/)에서 새 Application Insights 리소스를 찾아서 **검색**을 엽니다. 요청, 사용량 및 다른 원격 분석과 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세한 정보](../azure-monitor/app/diagnostic-search.md)
+4. [Azure Portal](https://portal.azure.com/)에서 새 Application Insights 리소스를 찾아서 **검색**을 엽니다. 요청, 사용량 및 다른 원격 분석과 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](../azure-monitor/app/diagnostic-search.md)
 
-[Application Insights를 사용 하 여 추적 성능에 자세히 알아보기](../azure-monitor/app/azure-web-apps.md)
+[Application Insights로 추적되는 성능에 대해 알아보기](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 방법: 로그 스트리밍
 애플리케이션을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. Azure CLI를 개발 환경에 로깅 정보를 스트리밍할 수 있습니다.
@@ -183,7 +183,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 파일 시스템에 로깅하면 사용 가능한 세 가지 메서드의 가장 기본적인 정보를 제공하며 시간, 프로세스 ID, 이벤트 수준 및 메시지만 제공합니다.
 
-**Blob 저장소**
+**Blob Storage**
 
 Blob Storage에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 형식으로 저장됩니다. 이벤트에 대해 좀 더 세부적인 정보를 제공하기 위해 추가 필드가 로깅됩니다. CSV에서 다음 속성이 각 행에 사용됩니다.
 
@@ -230,6 +230,6 @@ Blob에 저장된 데이터는 다음 예제와 비슷합니다.
 >
 
 ## <a name="nextsteps"></a> 다음 단계
-* [Azure App Service를 모니터링 하는 방법](web-sites-monitor.md)
+* [Azure App Service에서 모니터링하는 방법](web-sites-monitor.md)
 * [Visual Studio에서 Azure App Service 문제 해결](troubleshoot-dotnet-visual-studio.md)
 * [HDInsight에서 앱 로그 분석](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

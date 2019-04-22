@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895786"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
@@ -90,7 +90,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값 `*.js;iisnode.yml`
+변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;iisnode.yml`입니다.
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-디버그 콘솔 사이트로 이동 `https://yoursite.scm.azurewebsites.net/DebugConsole`
+디버그 콘솔 사이트 `https://yoursite.scm.azurewebsites.net/DebugConsole`로 이동합니다.
 
 site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프롬프트가 표시됩니다.
 
@@ -274,7 +274,7 @@ win32 오류 코드를 표시하도록 애플리케이션에 대해 FREB를 사�
 | 503 |1002 |win32 오류 코드로 실제 원인을 확인하세요. – 요청을 node.exe로 디스패치할 수 없습니다. |
 | 503 |1003 |명명된 파이프 사용량이 너무 많음 – node.exe에서 CPU를 과도하게 사용 중인지 확인하세요. |
 
-NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. Azure App Service에서 이 값은5000으로 설정됩니다. 따라서 node.exe는 명명된 파이프에서 한 번에 5000개의 요청만 받아들일 수 있습니다. 이 값은 Azure App Service에서 실행 중인 대부분의 노드 애플리케이션에서 충분합니다. 수 해야 503.1003이 표시 되지 Azure App Service에서 높은 값을 `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. Azure App Service에서 이 값은5000으로 설정됩니다. 따라서 node.exe는 명명된 파이프에서 한 번에 5000개의 요청만 받아들일 수 있습니다. 이 값은 Azure App Service에서 실행 중인 대부분의 노드 애플리케이션에서 충분합니다. `NODE_PENDING_PIPE_INSTANCES`에 대한 값이 높으므로 Azure App Service에 503.1003이 표시되지 않아야 합니다.
 
 ## <a name="more-resources"></a>추가 리소스
 
@@ -283,6 +283,6 @@ Azure App Service에서 다음 링크를 따라 node.js 애플리케이션에 �
 * [Azure App Service에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)
 * [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Azure 애플리케이션에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service 웹 앱: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 개발자 센터](../nodejs-use-node-modules-azure-apps.md)
 * [Super 암호 Kudu 디버그 콘솔 탐색](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

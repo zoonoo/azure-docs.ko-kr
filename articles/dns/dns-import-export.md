@@ -7,10 +7,10 @@ ms.service: dns
 ms.date: 4/3/2019
 ms.author: victorh
 ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905412"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기
@@ -67,9 +67,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 값
 
-* `<resource group>` Azure DNS에서 영역에 대 한 리소스 그룹의 이름이입니다.
-* `<zone name>` 영역의 이름이입니다.
-* `<zone file name>` 가져올 영역 파일의 경로/이름입니다.
+* `<resource group>` 은(는) Azure DNS의 영역에 대한 리소스 그룹의 이름입니다.
+* `<zone name>` 은(는) 영역의 이름입니다.
+* `<zone file name>` 은(는) 가져올 영역 파일의 경로/이름입니다.
 
 이 이름이 있는 영역이 리소스 그룹에 없는 경우 생성됩니다. 영역이 이미 있는 경우 가져온 레코드 집합은 기존 레코드 집합으로 병합됩니다. 
 
@@ -161,9 +161,9 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 값
 
-* `<resource group>` Azure DNS에서 영역에 대 한 리소스 그룹의 이름이입니다.
-* `<zone name>` 영역의 이름이입니다.
-* `<zone file name>` 내보낼 영역 파일의 경로/이름입니다.
+* `<resource group>` 은(는) Azure DNS의 영역에 대한 리소스 그룹의 이름입니다.
+* `<zone name>` 은(는) 영역의 이름입니다.
+* `<zone file name>` 은(는) 내보낼 영역 파일의 경로/이름입니다.
 
 영역 가져오기와 마찬가지로 먼저 로그인하고 구독을 선택한 다음 리소스 관리자 모드를 사용하도록 Azure CLI를 구성해야 합니다.
 

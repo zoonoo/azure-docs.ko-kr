@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895040"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 재호스팅 메인프레임
@@ -119,7 +119,7 @@ Azure Government 이러한 유형의 환경 해야 하는 시스템에 대 한 F
 - [메인프레임 항목에 대 한 백서](mainframe-white-papers.md)
 - [메인프레임 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [문제 해결](/azure/virtual-machines/troubleshooting/)
-- [메인프레임에서 Azure로의 마이그레이션에 대한 상세 설명](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Azure로 마이그레이션 메인프레임 익히기](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

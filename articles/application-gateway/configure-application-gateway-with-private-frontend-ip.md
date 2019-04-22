@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905541"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>내부 부하 분산 장치 (ILB) 끝점을 사용 하 여 응용 프로그램 게이트웨이 구성
@@ -30,7 +30,7 @@ Azure Application Gateway는 인터넷 연결 VIP 또는 내부 끝점 (프런�
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure portal에 로그인 <https://portal.azure.com>
+<https://portal.azure.com>에서 Azure Portal에 로그인
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
@@ -70,7 +70,7 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 3. 가상 머신에 대해 다음 값을 입력합니다.
    - *myVM* - 가상 머신의 이름
    - *azureuser* - 관리자 사용자 이름
-   - *Azure123456!* 암호
+   - *Azure123456!* - 암호
    - **기존 항목 사용**을 선택한 다음, *myResourceGroupAG*를 선택합니다.
 4. **확인**을 클릭합니다.
 5. 선택 **DS1_V2** 크기의 가상 머신 및 클릭 **선택**합니다.

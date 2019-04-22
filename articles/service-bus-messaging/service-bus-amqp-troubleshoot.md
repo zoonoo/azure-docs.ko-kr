@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58910047"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Azure Service Bus의 AMQP 오류
@@ -51,8 +51,8 @@ AMQP 및 Service Bus에 대해 자세히 알아보려면 다음 링크를 방문
 
 * [Service Bus AMQP 개요]
 * [AMQP 1.0 프로토콜 가이드]
-* [Windows Server 용 Service Bus의 AMQP]
+* [Windows Server용 Service Bus의 AMQP]
 
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
 [AMQP 1.0 프로토콜 가이드]: service-bus-amqp-protocol-guide.md
-[Windows Server 용 Service Bus의 AMQP]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[Windows Server용 Service Bus의 AMQP]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

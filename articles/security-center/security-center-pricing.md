@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
 ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905293"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
@@ -64,8 +64,8 @@ Security Center에서는 다음을 비롯하여 하이브리드 클라우드 작
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 가격 책정 방식에 대해 알아보았습니다. 표준 계층의 강화된 보안 및 고급 위협 보호에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [고급 위협 검색](security-center-threat-report.md)
-- [Just-in-time VM 액세스 제어](security-center-just-in-time.md)
+- [고급 위협 감지](security-center-threat-report.md)
+- [Just-In-Time VM 액세스 제어](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

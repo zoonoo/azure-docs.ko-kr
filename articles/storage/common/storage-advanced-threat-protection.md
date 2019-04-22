@@ -9,15 +9,15 @@ ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
 ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904120"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 
-Azure Storage에 대 한 advanced Threat Protection 제공를 액세스 하거나 악용 저장소 계정은 비정상적이 고 잠재적으로 해로운 시도 감지 하는 보안 인텔리전스 계층을 추가 합니다. 이 보호 레이어를 사용하면 보안 전문가가 되거나 보안 모니터링 시스템을 관리할 필요 없이 위협을 해결 수 있습니다. 
+Azure Storage를 위한 Advanced Threat Protection은 스토리지 계정에 대한 비정상적이며 잠재적으로 유해한 액세스 또는 악용 시도를 탐지하는 추가 보안 인텔리전스 계층을 제공합니다. 이 보호 레이어를 사용하면 보안 전문가가 되거나 보안 모니터링 시스템을 관리할 필요 없이 위협을 해결 수 있습니다. 
 
 비정상 활동에서 발생 하는 경우 보안 경고가 트리거됩니다.  이러한 보안 경고와 통합 되어 [Azure Security Center](https://azure.microsoft.com/services/security-center/), 의심 스러운 활동을 조사 및 위협을 해결 하는 방법에 대 한 권장 사항 세부 정보를 사용 하 여 구독 관리자에 게 전자 메일을 통해도 전송 됩니다.
 
@@ -80,8 +80,8 @@ Rest API 명령을 사용 하 여 만들기, 업데이트 또는 특정 저장�
 
 다음 PowerShell cmdlet을 사용 합니다.
 
-  * [Advanced Threat Protection 사용](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-  * [Get Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Advanced Threat Protection을 사용 하도록 설정](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Advanced Threat Protection 가져오기](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Advanced Threat Protection을 사용 하지 않도록 설정](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ## <a name="explore-security-anomalies"></a>보안 문제를 탐색 합니다.

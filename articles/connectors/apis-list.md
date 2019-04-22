@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895886"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
@@ -77,7 +77,7 @@ Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기�
 |   |   | 
 |---|---| 
 | [![기본 제공 아이콘][data-operations-icon]<br/>**데이터 작업**][data-operations-doc] | 데이터를 사용하여 수행하는 작업: <p>- **Compose**: 다양 한 형식으로 여러 입력에서 단일 출력을 만듭니다. <br>- **CSV 테이블 만들기**: JSON 개체를 사용 하 여 배열에서 쉼표로 구분 된 값 (CSV) 테이블을 만듭니다. <br>- **HTML 테이블 만들기**: JSON 개체를 사용 하 여 배열에서 HTML 테이블을 만듭니다. <br>- **배열 필터링**: 조건을 충족 하는 다른 배열의 항목에서 배열을 만듭니다. <br>- **조인**: 배열에 있는 모든 항목에서 문자열을 만들고 지정된 된 구분 기호를 사용 하 여 해당 항목을 구분 합니다. <br>- **JSON 구문 분석**: 워크플로에서 이러한 속성을 사용할 수 있도록 속성 및 JSON 콘텐츠에서 해당 값에서 친숙 한 토큰을 만듭니다. <br>- **선택**: 항목 또는 다른 배열의 값을 변환 하 고 지정 된 속성에 해당 항목을 매핑 하 여 JSON 개체를 사용 하 여 배열 만들기 | 
-| ![기본 제공 아이콘][date-time-icon]<br/>**Date Time** | 타임스탬프를 사용하여 수행하는 작업: <p>- **시간**: 타임 스탬프에 지정 된 단위 수를 추가 합니다. <br>- **표준 시간대 변환**: 원본 표준 시간대의 타임스탬프를 대상 표준 시간대로 변환합니다. <br>- **현재**: 현재 타임스탬프를 문자열로 반환합니다. <br>- **미래 시간 가져오기**: 지정한 시간 단위를 더한 현재 타임스탬프를 반환합니다. <br>- **과거 시간 가져오기**: 지정한 시간 단위를 뺀 현재 타임스탬프를 반환합니다. <br>- **시간에서 뺄**: 타임스탬프에서 시간 단위 수를 뺍니다. |
+| ![기본 제공 아이콘][date-time-icon]<br/>**날짜/시간 삽입** | 타임스탬프를 사용하여 수행하는 작업: <p>- **시간**: 타임 스탬프에 지정 된 단위 수를 추가 합니다. <br>- **표준 시간대 변환**: 원본 표준 시간대의 타임스탬프를 대상 표준 시간대로 변환합니다. <br>- **현재**: 현재 타임스탬프를 문자열로 반환합니다. <br>- **미래 시간 가져오기**: 지정한 시간 단위를 더한 현재 타임스탬프를 반환합니다. <br>- **과거 시간 가져오기**: 지정한 시간 단위를 뺀 현재 타임스탬프를 반환합니다. <br>- **시간에서 뺄**: 타임스탬프에서 시간 단위 수를 뺍니다. |
 | [![기본 제공 아이콘][variables-icon]<br/>**변수**][variables-doc] | 변수를 사용하여 수행하는 작업: <p>- **배열 변수에 추가**: 변수로 저장 하는 배열의 마지막 항목으로 값을 삽입 합니다. <br>- **문자열 변수에 추가**: 변수로 저장 된 문자열의 마지막 문자 값을 삽입 합니다. <br>- **감소 변수**: 상수 값으로 변수를 줄입니다. <br>- **변수 증가**: 변수를 상수 값을 늘립니다. <br>- **변수 초기화**: 변수를 만들고 해당 데이터 형식 및 초기 값을 선언 합니다. <br>- **변수 설정**: 기존 변수에 다른 값을 할당 합니다. |
 |  |  | 
 
@@ -177,7 +177,7 @@ Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱
 
 * [커넥터의 전체 목록](https://docs.microsoft.com/connectors) 확인
 * [첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [논리 앱에 대 한 사용자 지정 커넥터 만들기](https://docs.microsoft.com/connectors/custom-connectors/)
+* [논리 앱에 대한 사용자 지정 커넥터 만들기](https://docs.microsoft.com/connectors/custom-connectors/)
 * [논리 앱에 대한 사용자 지정 API 만들기](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Misc doc links-->

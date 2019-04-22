@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895016"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
@@ -77,15 +77,15 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 ## <a name="remoteview"></a>서버 탐색기에서 앱 파일 액세스
 일반적으로 Web.config 파일에서 `customErrors` 플래그를 `On` 또는 `RemoteOnly`로 설정한 상태로 웹 프로젝트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 다음 중 하나와 유사합니다.
 
-**'/' 응용 프로그램에서 서버 오류:**
+**'/' 애플리케이션의 서버 오류:**
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
-**오류가 발생 했습니다.**
+**오류가 발생했습니다.**
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 
-**웹 사이트 페이지를 표시할 수 없습니다.**
+**웹 사이트에서 페이지를 표시할 수 없습니다.**
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
@@ -257,13 +257,13 @@ public ActionResult About()
 ## <a name="logsoverview"></a>진단 로그 개요
 App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같은 종류의 로그를 생성할 수 있습니다.
 
-* **응용 프로그램 추적 로그**<br/>
+* **애플리케이션 추적 로그**<br/>
   애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스의 메서드를 호출하여 이러한 로그를 생성합니다.
 * **웹 서버 로그**<br/>
   웹 서버는 앱에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
 * **자세한 오류 메시지 로그**<br/>
   웹 서버는 실패한 HTTP 요청(상태 코드 400 이상을 발생하는 요청)에 대해 일부 추가 정보가 수록된 HTML 페이지를 생성합니다.
-* **실패 한 요청 추적 로그**<br/>
+* **실패한 요청 추적 로그**<br/>
    웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
 
 로깅 기능을 사용하면 앱 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 애플리케이션 로그의 경우 특정 심각도 수준 이상의 로그만 작성되도록 지정할 수 있습니다. 새 앱을 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
@@ -622,7 +622,7 @@ Visual Studio를 사용하여 App Service 앱에서 생성된 로그를 쉽게 �
 ### <a name="app-service-troubleshooting"></a>App Service 문제 해결
 Azure App Service에서 앱 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [앱을 모니터링 하는 방법](web-sites-monitor.md)
+* [앱을 모니터링하는 방법](web-sites-monitor.md)
 * [Visual Studio 2013을 사용하여 Azure App Service에서 메모리 누수 검사](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
 * [알아 두면 도움이 되는 Azure App Service 온라인 도구](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
 
@@ -639,9 +639,9 @@ Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 
 App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure App Service의 원격 디버깅 소개.](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/)
-* [원격 디버깅 내의 원격 디버깅 Azure App Service 파트 2-소개](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Azure App Service 3 부-다중 인스턴스 환경 및 GIT에서 원격 디버깅 소개](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
-* [Webjob 디버깅 (비디오)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
+* [Azure App Service의 원격 디버깅 소개 2부 - 원격 디버깅 세부 정보](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Azure App Service의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Webjob 디버깅(비디오)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 앱에 Azure 웹 API 또는 Mobile Services 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)을 참조하세요.
 
@@ -656,7 +656,7 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
   추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener)를 언급하지 않습니다.
 * [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](/previous-versions/b0ectfxd(v=vs.140))<br/>
   이 문서도 오래되었지만 소개 자료에서 다루지 않은 일부 추가 정보가 포함되어 있습니다.
-* [ASP.NET MVC Razor 뷰에서 추적합니다.](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [ASP.NET MVC Razor 뷰에서 추적](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Razor 뷰의 추적 정보와 더불어, MVC 애플리케이션의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 애플리케이션의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](/previous-versions/bb397417(v=vs.140))에서 Global.asax를 참조하세요. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
 
 ``` c#
@@ -671,7 +671,7 @@ catch (Exception ex)
 }
 ```
 
-* [스트리밍에서 진단 추적 로깅는 Azure 명령줄 (glimpse 포함)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+* [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
    이 사용설명서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 애플리케이션을 디버그하는 데 사용하는 도구입니다.
 * [David Ebbo와 함께 하는 Web Apps 로깅 및 진단](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Web Apps에서 로그 스트리밍](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   은 Scott Hanselman과 David Ebbo가 제작한 비디오입니다.
@@ -687,7 +687,7 @@ catch (Exception ex)
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [IIS 성능 문제 또는 LogParser를 사용 하 여 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
-* [블로그는 Robert mcmurray의 LogParser 사용 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>실패한 요청 로그 분석

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918725"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
@@ -74,9 +74,9 @@ Azure에 대 한 예약에 대 한 자세한 내용은 다음 문서를 참조 �
 - [Azure에 대 한 예약 이란?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure에 대 한 예약 관리](billing-manage-reserved-vm-instance.md)
-- [예약 할인은 적용 하는 방법 이해](billing-understand-vm-reservation-charges.md)
-- [종 량 제 구독에 대 한 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
-- [Enterprise 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

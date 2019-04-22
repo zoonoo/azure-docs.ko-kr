@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916039"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
@@ -87,9 +87,9 @@ Media Services v3의 라이브 스트리밍 워크플로 이해 하려면 먼저
 
 ## <a name="other-important-articles"></a>다른 중요 문서
 
-- [권장되는 라이브 인코더](recommended-on-premises-live-encoders.md)
+- [추천되는 라이브 인코더](recommended-on-premises-live-encoders.md)
 - [클라우드 DVR 사용](live-event-cloud-dvr.md)
-- [라이브 이벤트 유형을 기능 비교](live-event-types-comparison.md)
+- [라이브 이벤트 유형의 기능 비교](live-event-types-comparison.md)
 - [상태 및 청구](live-event-states-billing.md)
 - [대기 시간](live-event-latency.md)
 

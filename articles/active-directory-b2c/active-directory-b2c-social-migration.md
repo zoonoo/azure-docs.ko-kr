@@ -11,10 +11,10 @@ ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894904"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: 소셜 ID가 있는 사용자 마이그레이션
@@ -29,11 +29,11 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 
 * **소셜 계정의** ID는 `userIdentities` 컬렉션에 저장됩니다. 이 항목은 facebook.com과 같은 `issuer`(ID 공급자 이름)와 발급자의 고유 사용자 ID인 `issuerUserId`를 지정합니다. `userIdentities` 특성에는 소셜 ID 공급자의 고유 사용자 ID와 소셜 계정 유형을 지정하는 하나 이상의 UserIdentity 레코드가 포함됩니다.
 
-* **소셜 ID와 로컬 계정 결합**. 언급했듯이 로컬 계정 로그인 이름과 소셜 계정 ID는 다른 특성에 저장됩니다. `signInNames` 로컬 계정에 대 한 사용 `userIdentities` 소셜 계정에 대 한 합니다. 단일 Azure AD B2C 계정은 로컬 계정이거나 소셜 계정이거나 하나의 사용자 레코드에서 로컬 계정을 소셜 ID와 결합할 수 있습니다. 이러한 동작을 통해 단일 계정을 관리할 수 있고 사용자는 로컬 계정 자격 증명이나 소셜 ID로 로그인이 가능합니다.
+* **소셜 ID와 로컬 계정 결합**. 언급했듯이 로컬 계정 로그인 이름과 소셜 계정 ID는 다른 특성에 저장됩니다. `signInNames`는 로컬 계정에 사용되며 `userIdentities`는 소셜 계정에 사용됩니다. 단일 Azure AD B2C 계정은 로컬 계정이거나 소셜 계정이거나 하나의 사용자 레코드에서 로컬 계정을 소셜 ID와 결합할 수 있습니다. 이러한 동작을 통해 단일 계정을 관리할 수 있고 사용자는 로컬 계정 자격 증명이나 소셜 ID로 로그인이 가능합니다.
 
-* `UserIdentity` 입력-Azure AD B2C 테 넌 트의 소셜 계정 사용자의 id에 대 한 정보를 포함 합니다.
-  * `issuer` Facebook.com 등의 사용자 식별자를 발급 한 id 공급자의 문자열 표현입니다.
-  * `issuerUserId` Base64 형식으로 소셜 id 공급자에서 사용 하는 고유한 사용자 식별자입니다.
+* `UserIdentity` 형식 - Azure AD B2C 테넌트의 소셜 계정 사용자 ID에 대한 정보가 포함됩니다.
+  * `issuer` 사용자 ID를 발급한 ID 공급자의 문자열 표현(예: facebook.com)입니다.
+  * `issuerUserId` 소셜 ID 공급자가 사용하는 base64 형식의 고유한 사용자 ID입니다.
 
     ```JSON
     "userIdentities": [{

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893455"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
@@ -85,9 +85,9 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 
 원시 또는 외부 녹음에 백그라운드 노이즈가 있는 경우 이 매개변수를 사용합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 지정할 수 있는 값은 다음과 같습니다.
 
-- `Default` -인덱스 및 오디오와 비디오 둘 다를 사용 하 여 통찰력을 얻기
-- `AudioOnly` -인덱스 및 오디오 전용 (무시 하 고 비디오)를 사용 하 여 통찰력을 얻기
-- `DefaultWithNoiseReduction` -인덱스 및 오디오 스트림에 대 노이즈 감소 알고리즘을 적용 하는 동안 오디오와 비디오 둘 다에서 정보를 추출
+- `Default` – 오디오와 비디오를 모두 사용하여 인사이트를 인덱싱하고 추출합니다.
+- `AudioOnly` – 오디오만(비디오 무시) 사용하여 인사이트를 인덱싱하고 추출합니다.
+- `DefaultWithNoiseReduction` – 오디오 스트림에 노이즈 감소 알고리즘을 적용하는 한편, 오디오와 비디오 모두에서 인사이트를 인덱싱하고 추출합니다.
 
 가격은 선택한 인덱싱 옵션에 따라 달라집니다.  
 

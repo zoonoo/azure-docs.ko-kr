@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904630"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
@@ -223,7 +223,7 @@ Azure AD 암호 보호를 위한 두 명의 필수 설치 관리자 이며 사�
 
 1. 선택 사항: 특정 포트에서 수신 대기할 암호 보호에 대 한 프록시 서비스를 구성 합니다.
    * 도메인 컨트롤러에 암호 보호를 위한 DC 에이전트 소프트웨어를 프록시 서비스와 통신 하도록 TCP를 통한 RPC를 사용 합니다. 프록시 서비스는 기본적으로 모든 사용 가능한 동적 RPC 끝점에서 수신합니다. 하지만이 필요한 경우 네트워킹 토폴로지 또는 환경의 방화벽 요구 사항으로 인해 특정 TCP 포트로 수신 하도록 서비스를 구성할 수 있습니다.
-      * <a id="static" /></a>정적 포트에서 실행되도록 서비스를 구성하려면 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용합니다.
+      * <a id="static" /></a>고정 포트에서 실행 되도록 서비스를 구성 하려면 사용 된 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
 
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
@@ -289,4 +289,4 @@ DC 에이전트 소프트웨어 설계의 높은 가용성과 관련 된 일반�
 
 온-프레미스 서버에서 Azure AD 암호 보호 해야 하는 서비스를 설치한 했으므로 [설치 후 구성 및 보고 정보 수집을 수행할](howto-password-ban-bad-on-premises-operations.md) 배포를 완료 합니다.
 
-[Azure AD 암호 보호에 대 한 개념적 개요](concept-password-ban-bad-on-premises.md)
+[Azure AD 암호 보호에 대한 개념적 개요](concept-password-ban-bad-on-premises.md)

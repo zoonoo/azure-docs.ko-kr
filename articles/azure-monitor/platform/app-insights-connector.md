@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905701"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
@@ -54,7 +54,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아닙니다. | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | 아닙니다. | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure Storage 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](collect-azure-metrics-logs.md) | 아닙니다. | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -99,9 +99,9 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | **열** | **설명** |
 | --- | --- |
-| 애플리케이션 - 애플리케이션 수 | 애플리케이션 리소스에 애플리케이션 수를 표시합니다. 애플리케이션 이름과 각 항목의 애플리케이션 레코드 수도 나열합니다. 로그 검색을 실행할 번호를 클릭 합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  호스트별 애플리케이션 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여주는 애플리케이션에 대한 로그 검색을 실행할 애플리케이션 이름을 클릭합니다. |
-| 데이터 볼륨 - 데이터를 전송하는 호스트 | 데이터를 전송하는 컴퓨터 호스트의 수를 보여 줍니다. 컴퓨터 호스트 및 각 호스트의 레코드 수도 나열합니다. 로그 검색을 실행할 번호를 클릭 합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> 호스트별 애플리케이션 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여주는 호스트에 대한 로그 검색을 실행할 컴퓨터 이름을 클릭합니다. |
-| 가용성 - 웹 테스트 결과 | 웹 테스트 결과를 성공 또는 실패로 나타내는 도넛형 차트를 보여 줍니다. 로그 검색을 실행 하려면 차트를 클릭 합니다. <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> 결과는 모든 테스트의 성공 및 실패 수를 보여 줍니다. 마지막 1분 동안 트래픽이 발생한 모든 Web Apps가 표시됩니다. 실패한 웹 테스트에 대한 세부 정보를 보여주는 로그 검색을 보려면 애플리케이션 이름을 클릭합니다. |
+| 애플리케이션 - 애플리케이션 수 | 애플리케이션 리소스에 애플리케이션 수를 표시합니다. 애플리케이션 이름과 각 항목의 애플리케이션 레코드 수도 나열합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br>  호스트별 애플리케이션 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여주는 애플리케이션에 대한 로그 검색을 실행할 애플리케이션 이름을 클릭합니다. |
+| 데이터 볼륨 - 데이터를 전송하는 호스트 | 데이터를 전송하는 컴퓨터 호스트의 수를 보여 줍니다. 컴퓨터 호스트 및 각 호스트의 레코드 수도 나열합니다. <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. <br><br> 호스트별 애플리케이션 레코드, 원격 분석 유형별 레코드 및 형식별 모든 데이터(마지막 날 기준)를 보여주는 호스트에 대한 로그 검색을 실행할 컴퓨터 이름을 클릭합니다. |
+| 가용성 - 웹 테스트 결과 | 웹 테스트 결과를 성공 또는 실패로 나타내는 도넛형 차트를 보여 줍니다. 차트를 클릭하면 <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code>에 대한 로그 검색이 실행됩니다. <br><br> 결과는 모든 테스트의 성공 및 실패 수를 보여 줍니다. 마지막 1분 동안 트래픽이 발생한 모든 Web Apps가 표시됩니다. 실패한 웹 테스트에 대한 세부 정보를 보여주는 로그 검색을 보려면 애플리케이션 이름을 클릭합니다. |
 | 서버 요청 – 시간당 요청 | 다양한 애플리케이션의 시간당 서버 요청에 대한 꺾은선형 차트를 보여줍니다. 차트의 선을 마우스로 가리키면 특정 시점에 요청을 가장 많이 수신한 상위 3개 애플리케이션이 표시됩니다. 요청을 수신한 애플리케이션 목록과 선택한 기간의 요청 수도 보여줍니다. <br><br>다양한 애플리케이션의 시간당 서버 요청에 대한 더 자세한 꺾은선형 차트를 보여주는 <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 그래프를 클릭합니다. <br><br> 요청 목록, 시간 및 요청 기간에 따른 요청 차트, 요청 응답 코드 목록을 보여주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code>에 대한 로그 검색을 실행하려면 목록에서 애플리케이션을 클릭합니다.   |
 | 실패 - 시간당 실패한 요청 수 | 시간당 실패한 애플리케이션 요청 수에 대한 꺾은선형 차트를 보여줍니다. 차트를 마우스로 가리키면 특정 시점에 실패한 요청이 가장 많은 상위 3개 애플리케이션이 표시됩니다. 각 애플리케이션의 실패한 요청 수가 표시된 애플리케이션 목록도 보여줍니다. 실패한 애플리케이션 요청을 자세한 꺾은선형 차트로 보여주는 <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>실패한 요청, 시간 및 요청 기간에 따른 실패한 요청 차트, 실패한 요청 응답 코드 목록을 보여 주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다. |
 | 예외 – 시간당 예외 | 시간당 예외에 대한 꺾은선형 차트를 보여 줍니다. 차트를 마우스로 가리키면 특정 시점에 예외가 가장 많은 상위 3개 애플리케이션이 표시됩니다. 각 애플리케이션의 예외 수가 표시된 애플리케이션 목록도 보여줍니다. 예외에 대한 더 자세한 연결 차트를 보여 주는 <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code>에 대한 로그 검색을 실행하려면 차트를 클릭합니다. <br><br>예외 목록, 시간 및 실패한 요청에 따른 예외 차트, 예외 형식 목록을 보여 주는 <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code>에 대한 로그 검색을 실행하려면 목록에서 항목을 클릭합니다.  |

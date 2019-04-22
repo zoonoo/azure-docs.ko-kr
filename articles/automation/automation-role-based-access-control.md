@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918793"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
@@ -55,10 +55,10 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 애플�
 
 Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 다음 표에서는 역할에 부여되거나 거부된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|모든 유형의 리소스 만들기 및 관리|
-|**작업 안 함**||
+|**조치 없음**||
 |Microsoft.Authorization/*/Delete| 역할 및 역할 할당을 삭제합니다.       |
 |Microsoft.Authorization/*/Write     |  역할 및 역할 할당을 만듭니다.       |
 |Microsoft.Authorization/elevateAccess/Action    | 사용자 액세스 관리자를 만드는 기능을 거부합니다.       |
@@ -67,7 +67,7 @@ Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 
 
 Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Automation 계정에서 모든 리소스를 봅니다. |
 
@@ -75,7 +75,7 @@ Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 �
 
 Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Automation 계정의 모든 Runbook에 대한 Runbook 이름 및 속성을 읽을 수 있습니다.  참고: 개별 Runbook에 액세스하도록 연산자를 제어하려는 경우에는 이 역할을 설정하지 말고 대신 ‘Automation 작업 연산자’ 및 ‘Automation Runbook 연산자’ 역할을 조합하여 사용합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
 |Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Hybrid Runbook Worker 리소스를 읽습니다.|
@@ -102,7 +102,7 @@ Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Auto
 
 Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩니다. 그러면 연산자 권한이 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
 |Microsoft.Automation/automationAccounts/jobs/read|Runbook의 작업을 나열합니다.|
@@ -120,7 +120,7 @@ Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩�
 
 Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Automation Runbook 연산자 역할은 Runbook의 이름 및 속성을 볼 수 있습니다.  ‘Automation 작업 연산자’ 역할과 결합된 이 역할은 연산자가 Runbook에 대한 작업을 만들고 관리할 수 있도록 설정합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Runbook을 나열합니다.        |
 |Microsoft.Authorization/*/read      | 권한 부여를 읽습니다.        |
@@ -133,7 +133,7 @@ Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Aut
 
 Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.Automation/automationAccounts/*|Automation 계정을 관리합니다.|
@@ -153,20 +153,20 @@ Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모�
 
 Log Analytics Reader는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. 다음 표에서는 역할에 부여되고 거부된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Azure Monitor 로그에서 쿼리를 관리 합니다.|
 |Microsoft.OperationalInsights/workspaces/search/action|Azure Monitor 로그 데이터를 검색 합니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
-|**작업 안 함**| |
+|**조치 없음**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|공유 액세스 키를 읽을 수 없습니다.|
 
 ### <a name="monitoring-contributor"></a>Monitoring Contributor
 
 Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.AlertsManagement/alerts/*|경고를 관리합니다.|
@@ -192,7 +192,7 @@ Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 �
 
 Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.OperationalInsights/workspaces/search/action|Log Analytics 작업 영역 검색|
@@ -202,7 +202,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 사용자 액세스 관리자는 Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**작업**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|모든 리소스 읽기|
 |Microsoft.Authorization/*|권한 부여 관리|
@@ -214,7 +214,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 ### <a name="onboarding-from-a-virtual-machine"></a>가상 머신에서 온보딩
 
-|**조치**  |**사용 권한**  |**최소 범위**  |
+|**작업**  |**사용 권한**  |**최소 범위**  |
 |---------|---------|---------|
 |새 배포 쓰기      | Microsoft.Resources/deployments/*          |구독          |
 |새 리소스 그룹 쓰기      | Microsoft.Resources/subscriptions/resourceGroups/write        | 구독          |
@@ -237,7 +237,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 ### <a name="onboarding-from-automation-account"></a>Automation 계정에서 온보딩
 
-|**조치**  |**사용 권한** |**최소 범위**  |
+|**작업**  |**사용 권한** |**최소 범위**  |
 |---------|---------|---------|
 |새 배포 만들기     | Microsoft.Resources/deployments/*        | 구독         |
 |새 리소스 그룹 만들기     | Microsoft.Resources/subscriptions/resourceGroups/write         | 구독        |
@@ -251,7 +251,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |저장된 검색 만들기/편집     | Microsoft.OperationalInsights/workspaces/write        | 작업 영역        |
 |범위 구성 만들기/편집     | Microsoft.OperationalInsights/workspaces/write        | 작업 영역        |
 |범위 구성에 솔루션 연결      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | 해결 방법         |
-|**2 단계-등록 여러 Vm**     |         |         |
+|**2단계 - 여러 VM 온보딩**     |         |         |
 |VMOnboarding 블레이드 - MMA 확장 만들기     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
 |저장된 검색 만들기/편집     | Microsoft.OperationalInsights/workspaces/write           | 작업 영역        |
 |범위 구성 만들기/편집  | Microsoft.OperationalInsights/workspaces/write   | 작업 영역|

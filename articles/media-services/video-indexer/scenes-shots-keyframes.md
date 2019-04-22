@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896556"
 ---
-# <a name="scenes-shots-and-keyframes"></a>장면, 샷과 키프레임
+# <a name="scenes-shots-and-keyframes"></a>장면, 샷 및 키 프레임
 
 Video Indexer 구조적 및 의미적 속성을 기반으로 하는 temporal 단위로 (32–128kb 비디오를 지원 합니다. 이 기능을 사용 하면 고객을 쉽게 검색, 관리 및 다양 한 세분성에 따라 해당 비디오 콘텐츠를 편집 합니다. 예를 들어, 백그라운드에서, 스크린샷,이 항목에서 설명 하는 키 프레임에 기반 합니다. 합니다 **장면 감지** 기능은 현재 미리 보기로 제공 됩니다.   
 
-![장면, 샷과 키프레임](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![장면, 샷 및 키 프레임](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
 
 ## <a name="scene-detection-preview"></a>장면 감지 (미리 보기)
 

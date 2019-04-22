@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895752"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
@@ -244,4 +244,4 @@ Azure Functions는 단일 응용 프로그램 인스턴스 내에서 여러 함�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [첫 번째 지 속성 함수 만들기C#](durable-functions-create-first-csharp.md)
+> [C#로 첫 번째 지속형 함수 만들기](durable-functions-create-first-csharp.md)

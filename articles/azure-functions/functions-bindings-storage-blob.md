@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
 ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895852"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
@@ -23,7 +23,7 @@ ms.locfileid: "58895852"
 이 문서에서는 Azure Functions에서 Azure Blob Storage 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Blob에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 문서에는 각 바인딩에 대한 섹션이 포함됩니다.
 
 * [Blob 트리거](#trigger)
-* [Blob 입력된 바인딩](#input)
+* [Blob 입력 바인딩](#input)
 * [Blob 출력 바인딩](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
@@ -79,7 +79,7 @@ Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue 저장소 트리�
 
 * [C#](#trigger---c-example)
 * [C# 스크립트(.csx)](#trigger---c-script-example)
-* [자바](#trigger---java-example)
+* [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
@@ -316,11 +316,11 @@ public void run(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**형식** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**type** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
-|**이름** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
-|**경로** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)입니다.  [Blob 이름 패턴](#trigger---blob-name-patterns)일 수 있습니다. |
-|**connection** | **연결** | 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
+|**path** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)입니다.  [Blob 이름 패턴](#trigger---blob-name-patterns)일 수 있습니다. |
+|**연결** | **연결** | 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -464,7 +464,7 @@ Blob Storage 입력 바인딩을 사용하여 Blob을 읽습니다.
 
 * [C#](#input---c-example)
 * [C# 스크립트(.csx)](#input---c-script-example)
-* [자바](#input---java-examples)
+* [Java](#input---java-examples)
 * [JavaScript](#input---javascript-example)
 * [Python](#input---python-example)
 
@@ -636,8 +636,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
-* [HTTP 트리거, 쿼리 문자열에서 blob 이름 조회](#http-trigger-look-up-blob-name-from-query-string-java)
-* [큐 트리거, 큐 메시지에서 수신 하는 blob 이름](#queue-trigger-receive-blob-name-from-queue-message-java)
+* [HTTP 트리거, 쿼리 문자열에서 Blob 이름 조회](#http-trigger-look-up-blob-name-from-query-string-java)
+* [큐 트리거, 큐 메시지에서 Blob 이름 수신](#queue-trigger-receive-blob-name-from-queue-message-java)
 
 #### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP 트리거, 쿼리 문자열에서 Blob 이름 조회(Java)
 
@@ -727,11 +727,11 @@ public static void Run(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**형식** | 해당 없음 | `blob`로 설정해야 합니다. |
+|**type** | 해당 없음 | `blob`로 설정해야 합니다. |
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
-|**이름** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
-|**경로** |**BlobPath** | Blob에 대한 경로입니다. |
-|**connection** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
+|**path** |**BlobPath** | Blob에 대한 경로입니다. |
+|**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -769,7 +769,7 @@ Blob Storage 출력 바인딩을 사용하여 Blob을 작성합니다.
 
 * [C#](#output---c-example)
 * [C# 스크립트(.csx)](#output---c-script-example)
-* [자바](#output---java-examples)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
 * [Python](#output---python-example)
 
@@ -960,8 +960,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
-* [OutputBinding를 사용 하 여 HTTP 트리거](#http-trigger-using-outputbinding-java)
-* [함수 반환 값을 사용 하 여 큐 트리거](#queue-trigger-using-function-return-value-java)
+* [HTTP 트리거, OutputBinding 사용](#http-trigger-using-outputbinding-java)
+* [큐 트리거, 함수 반환 값 사용](#queue-trigger-using-function-return-value-java)
 
 #### <a name="http-trigger-using-outputbinding-java"></a>HTTP 트리거, OutputBinding 사용(Java)
 
@@ -1061,11 +1061,11 @@ public static void Run(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**형식** | 해당 없음 | `blob`로 설정해야 합니다. |
+|**type** | 해당 없음 | `blob`로 설정해야 합니다. |
 |**direction** | 해당 없음 | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
-|**이름** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
-|**경로** |**BlobPath** | blobco의 경로입니다. |
-|**connection** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
+|**path** |**BlobPath** | blobco의 경로입니다. |
+|**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1109,7 +1109,7 @@ JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure functions 트리거 및 바인딩에 자세히 알아보기](functions-triggers-bindings.md)
+* [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]

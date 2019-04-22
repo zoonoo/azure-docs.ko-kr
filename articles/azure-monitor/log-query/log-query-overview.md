@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
 ms.openlocfilehash: dcac701f3c1b6d64a7017c31679c019b91103ba2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904732"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Azure Monitor의 로그 데이터 분석
@@ -30,14 +30,14 @@ Azure Monitor에서 로그 데이터를 검색하려면 로그 쿼리가 필요�
 
 Azure Monitor에서 쿼리를 사용할 다양 한 방법을 다음과 같습니다.
 
-- **포털입니다.** [Azure Portal](portals.md)에서 로그 데이터에 대한 대화형 분석을 수행할 수 있습니다.  그러면 다양한 형식 및 시각화로 쿼리를 편집하고 결과를 분석할 수 있습니다.  
-- **경고 규칙입니다.** [경고 규칙](../platform/alerts-overview.md)은 작업 영역에서 데이터의 문제를 사전에 식별합니다.  각 경고 규칙은 일정한 간격으로 자동으로 실행되는 로그 검색을 기반으로 합니다.  경고를 만들어야 하는지 여부를 결정하도록 결과를 검사합니다.
-- **대시보드입니다.** 쿼리 결과를 [Azure 대시보드](../learn/tutorial-logs-dashboards.md)에 고정하여 로그 및 메트릭 데이터를 함께 시각화하고 다른 Azure 사용자와 선택적으로 공유할 수 있습니다. 
-- **레이아웃.**  [뷰 디자이너](../platform/view-designer.md)를 통해 사용자 대시보드에 포함될 데이터의 시각화를 만들 수 있습니다.  로그 쿼리는 각 뷰의 [타일](../platform/view-designer-tiles.md) 및 [시각화 파트](../platform/view-designer-parts.md)에서 사용되는 데이터를 제공합니다.  
+- **포털.** [Azure Portal](portals.md)에서 로그 데이터에 대한 대화형 분석을 수행할 수 있습니다.  그러면 다양한 형식 및 시각화로 쿼리를 편집하고 결과를 분석할 수 있습니다.  
+- **경고 규칙.** [경고 규칙](../platform/alerts-overview.md)은 작업 영역에서 데이터의 문제를 사전에 식별합니다.  각 경고 규칙은 일정한 간격으로 자동으로 실행되는 로그 검색을 기반으로 합니다.  경고를 만들어야 하는지 여부를 결정하도록 결과를 검사합니다.
+- **대시보드.** 쿼리 결과를 [Azure 대시보드](../learn/tutorial-logs-dashboards.md)에 고정하여 로그 및 메트릭 데이터를 함께 시각화하고 다른 Azure 사용자와 선택적으로 공유할 수 있습니다. 
+- **뷰.**  [뷰 디자이너](../platform/view-designer.md)를 통해 사용자 대시보드에 포함될 데이터의 시각화를 만들 수 있습니다.  로그 쿼리는 각 뷰의 [타일](../platform/view-designer-tiles.md) 및 [시각화 파트](../platform/view-designer-parts.md)에서 사용되는 데이터를 제공합니다.  
 
-- **내보냅니다.**  Azure Monitor에서 Excel 또는 [Power BI](../platform/powerbi.md)로 데이터를 가져오는 경우 로그 쿼리를 만들어 내보낼 데이터를 정의합니다.
-- **PowerShell을 사용하여 키 백업 파일 복원** 명령줄 또는 사용 하는 Azure Automation runbook에서 PowerShell 스크립트를 실행할 수 있습니다 [Get AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults) Azure Monitor에서 로그 데이터를 검색 합니다.  이 cmdlet에는 검색할 데이터를 결정하는 쿼리가 필요합니다.
-- **Azure Monitor 로그 API입니다.**  REST API 클라이언트는 [Azure Monitor Logs API](../platform/alerts-overview.md)를 통해 작업 영역에서 로그 데이터를 검색할 수 있습니다.  API 요청에는 검색할 데이터를 확인하기 위해 Azure Monitor에 대해 실행되는 쿼리가 포함됩니다.
+- **내보내기.**  Azure Monitor에서 Excel 또는 [Power BI](../platform/powerbi.md)로 데이터를 가져오는 경우 로그 쿼리를 만들어 내보낼 데이터를 정의합니다.
+- **PowerShell.** 명령줄 또는 사용 하는 Azure Automation runbook에서 PowerShell 스크립트를 실행할 수 있습니다 [Get AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults) Azure Monitor에서 로그 데이터를 검색 합니다.  이 cmdlet에는 검색할 데이터를 결정하는 쿼리가 필요합니다.
+- **Azure Monitor Logs API.**  REST API 클라이언트는 [Azure Monitor Logs API](../platform/alerts-overview.md)를 통해 작업 영역에서 로그 데이터를 검색할 수 있습니다.  API 요청에는 검색할 데이터를 확인하기 위해 Azure Monitor에 대해 실행되는 쿼리가 포함됩니다.
 
 ![로그 검색](media/log-query-overview/queries-overview.png)
 

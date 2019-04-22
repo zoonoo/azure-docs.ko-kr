@@ -12,10 +12,10 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916974"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
@@ -109,7 +109,7 @@ OCR 기술을 사용하면 이미지에서 텍스트를 검색하는 데 사용�
 
 일반적인 시나리오에서는 다음 단계를 수행하여 텍스트와 이미지 원본 텍스트를 비롯한 모든 파일 콘텐츠를 포함하는 단일 문자열을 만듭니다.  
 
-1. [Normalized_images 추출](#get-normalized-images)
+1. [normalized_images 추출](#get-normalized-images)
 1. `"/document/normalized_images"`을 입력으로 사용하여 OCR 기술 실행
 1. 파일에서 추출된 원시 텍스트와 해당 이미지의 텍스트 표현을 병합합니다. [텍스트 병합](cognitive-search-skill-textmerger.md) 기술을 사용하여 큰 단일 문자열에 두 텍스트 청크를 통합할 수 있습니다.
 
@@ -218,9 +218,9 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
 ```
 
 ## <a name="see-also"></a>참고 항목
-+ [인덱서 (REST) 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [이미지 기술 분석](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)
 + [텍스트 병합 기술](cognitive-search-skill-textmerger.md)
-+ [기술 집합을 정의 하는 방법](cognitive-search-defining-skillset.md)
-+ [풍부한 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

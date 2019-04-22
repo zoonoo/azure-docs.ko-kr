@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905095"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 지 속성 함수를 실행 하는 방법
@@ -133,7 +133,7 @@ WebJobs SDK는 다음과 같은 Azure Functions 기능을 지원하지 않습니
 
 * [FunctionName 특성](#functionname-attribute)
 * [HTTP 트리거](#http-trigger)
-* [지 속성 함수 HTTP 관리 API](#http-management-api)
+* [지속성 함수 HTTP 관리 API](#http-management-api)
 
 ### <a name="functionname-attribute"></a>FunctionName 특성
 

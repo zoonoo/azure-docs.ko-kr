@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893400"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
@@ -81,7 +81,7 @@ Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음�
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 동작
 동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다.  HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다. [작업에 대해 자세히 알아봅니다.](../connectors/apis-list.md)
 
-| 조치 | 설명 |
+| 액션(Action) | 설명 |
 | --- | --- |
 | HTTP + Swagger |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
 
@@ -108,7 +108,7 @@ HTTP 응답
 | --- | --- | --- |
 | headers |object |응답 헤더 |
 | 본문 |object |응답 개체 |
-| 상태 코드 |int |HTTP 상태 코드 |
+| 상태 코드 |ssNoversion |HTTP 상태 코드 |
 
 ### <a name="http-responses"></a>HTTP 응답
 다양한 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 해당 응답 및 설명을 대략적으로 요약해서 보여 줍니다.

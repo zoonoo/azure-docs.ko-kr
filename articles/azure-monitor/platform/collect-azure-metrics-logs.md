@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006276"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에 Azure 서비스 로그 및 메트릭 수집
@@ -42,20 +42,20 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | 진단 |             | |
 | 이벤트 허브 네임스페이스     | Microsoft.EventHub/namespaces           | 진단 | 진단 | |
 | IoT Hub                | Microsoft.Devices/IotHubs               |             | 진단 | |
-| Key Vault               | Microsoft.KeyVault/vaults               | 진단 |             | [KeyVault Analytics](../insights/azure-key-vault.md) |
-| 부하 분산 장치          | Microsoft.Network/loadBalancers         | 진단 |             |  |
+| Key Vault               | Microsoft.KeyVault/vaults               | 진단 |             | [KeyVault 분석](../insights/azure-key-vault.md) |
+| Load Balancer          | Microsoft.Network/loadBalancers         | 진단 |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | 진단 | 진단 | |
 | 네트워크 보안 그룹 | Microsoft.Network/networksecuritygroups | 진단 |             | [Azure 네트워크 보안 그룹 분석](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
-| 복구 자격 증명         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services 분석 (미리 보기)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+| 복구 자격 증명         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services 분석(미리 보기)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Search 서비스         | Microsoft.Search/searchServices         | 진단 | 진단 | |
-| Service Bus 네임스페이스   | Microsoft.ServiceBus/namespaces         | 진단 | 진단 | [Service Bus 분석 (미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Storage     |             | [Service Fabric 분석 (미리 보기)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
+| Service Bus 네임스페이스   | Microsoft.ServiceBus/namespaces         | 진단 | 진단 | [Service Bus 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Service Fabric          |                                         | Storage     |             | [Service Fabric 분석(미리 보기)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL(v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | 진단 | [Azure SQL Analytics(미리 보기)](../insights/azure-sql.md) |
-| Storage                 |                                         |             | 스크립트      | [Azure Storage 분석 (미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
+| Storage                 |                                         |             | 스크립트      | [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | 내선 번호   | 내선 번호 <br> 진단  | |
 | Virtual Machines 확장 집합 | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | 진단 | |
 | 웹 서버 팜        | Microsoft.Web/serverfarms               |             | 진단 | |
-| 웹 사이트               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 진단 | [Azure Web Apps Analytics(미리 보기)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| 웹 사이트               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 진단 | [Azure Web Apps 분석(미리 보기)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

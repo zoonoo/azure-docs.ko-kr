@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 163edd544a2d93e380b8906df3e0055711321c95
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918861"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>만들기 및 Java의 Azure 공간 앵커를 사용 하 여 앵커를 찾는 방법
@@ -25,7 +25,7 @@ ms.locfileid: "58918861"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 앵커를 공유할 수 있습니다. 여러 다른 개발 환경을 지원합니다. 이 문서에서는 Azure 공간 앵커 SDK, java이 든,를 사용 하는 방법에 자세히 알아봅니다.
+Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 앵커를 공유할 수 있습니다. 여러 가지 다양한 개발 환경을 지원합니다. 이 문서에서는 Azure 공간 앵커 SDK, java이 든,를 사용 하는 방법에 자세히 알아봅니다.
 
 - 올바르게 설정 하 고 Azure 공간 앵커 세션을 관리 합니다.
 - 페이지를 만들고 로컬 앵커에 속성을 설정 합니다.
@@ -36,8 +36,8 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 이 가이드를 완료 하려면 했는지 확인 합니다.
 
-- 읽고 합니다 [Azure 공간 앵커 개요](../overview.md)합니다.
-- 중 하나를 완료 합니다 [5 분 퀵 스타트](../index.yml)합니다.
+- [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
+- [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
 - Java에 대 한 기본 지식입니다.
 - 에 대 한 기본 지식이 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5 합니다.
 

@@ -14,19 +14,19 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905633"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용 하는 OData 데이터 피드에서 소스 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](data-factory-odata-connector.md)
-> * [버전 2 (현재 버전)](../connector-odata.md)
+> * [버전 2(현재 버전)](../connector-odata.md)
 
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 OData 커넥터](../connector-odata.md)를 참조하세요.
+> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 OData 커넥터](../connector-odata.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 OData 소스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
@@ -218,7 +218,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 }
 ```
 
-**Azure Storage 연결 된 서비스:**
+**Azure Storage 연결된 서비스:**
 
 ```json
 {
@@ -232,7 +232,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 }
 ```
 
-**OData 입력된 데이터 집합:**
+**OData 입력 데이터 세트:**
 
 "external": "true"로 설정하면 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 
@@ -264,7 +264,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 
 데이터 세트 정의에서 **경로** 를 지정하는 것은 선택 사항입니다.
 
-**Azure Blob 출력 데이터 집합:**
+**Azure Blob 출력 데이터 세트:**
 
 데이터는 1시간마다 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
@@ -324,7 +324,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 }
 ```
 
-**OData 원본 및 Blob 싱크를 사용 하는 파이프라인의 복사 작업:**
+**OData 소스 및 Blob 싱크를 사용하는 파이프라인의 복사 작업:**
 
 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 OData 소스에서 최신 데이터를 선택합니다.
 

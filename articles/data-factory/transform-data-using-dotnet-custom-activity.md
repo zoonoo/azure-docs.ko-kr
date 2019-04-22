@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904579"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -382,10 +382,10 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요.
 
 * [U-SQL 작업](transform-data-using-data-lake-analytics.md)
-* [하이브 활동](transform-data-using-hadoop-hive.md)
-* [Pig 활동](transform-data-using-hadoop-pig.md)
-* [MapReduce 활동](transform-data-using-hadoop-map-reduce.md)
+* [Hive 작업](transform-data-using-hadoop-hive.md)
+* [Pig 작업](transform-data-using-hadoop-pig.md)
+* [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
-* [Spark 활동](transform-data-using-spark.md)
+* [Spark 작업](transform-data-using-spark.md)
 * [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

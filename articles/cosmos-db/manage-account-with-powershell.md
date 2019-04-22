@@ -8,10 +8,10 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 01c351ad08399c0b42e831e325b3f818741d1d83
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904375"
 ---
 # <a name="manage-azure-cosmos-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 리소스 관리
@@ -39,15 +39,15 @@ ms.locfileid: "58904375"
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name>  -Location "<resource-group-location>" -Name <database-account-name> -Properties $CosmosDBProperties
     
-* `<write-region-location>` 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
-* `<read-region-location>` 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
-* `<ip-range-filter>` CIDR 형식으로 지정 된 데이터베이스 계정에 대 한 클라이언트 Ip의 허용된 목록으로 포함할 IP 주소 또는 IP 주소 범위 집합을 지정 합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
-* `<default-consistency-level>` Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
-* `<max-interval>` 제한 된 부실 일관성을 사용 하는 경우이 값 허용 부실 (초) 시간 크기를 나타냅니다. 값의 허용 범위는 1-100입니다.
-* `<max-staleness-prefix>` 제한 된 부실 일관성을 사용 하는 경우이 값의 허용 된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<resource-group-location>` 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
-* `<database-account-name>` 만들려는 Azure Cosmos DB 데이터베이스 계정의 이름입니다. 소문자, 숫자, '-'(대시) 문자만 사용할 수 있으며, 3-50자여야 합니다.
+* `<write-region-location>` - 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
+* `<read-region-location>` - 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
+* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
+* `<default-consistency-level>`Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
+* `<max-interval>` - 제한된 부실(Bounded Staleness) 일관성과 함께 사용되는 경우 이 값은 부실 허용 시간(초)을 나타냅니다. 값의 허용 범위는 1-100입니다.
+* `<max-staleness-prefix>` - 제한된 부실 일관성과 함께 사용되는 경우 이 값은 허용된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<resource-group-location>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
+* `<database-account-name>` - 만들어질 Azure Cosmos DB 데이터베이스 계정의 이름입니다. 소문자, 숫자, '-'(대시) 문자만 사용할 수 있으며, 3-50자여야 합니다.
 
 예제: 
 
@@ -74,15 +74,15 @@ ms.locfileid: "58904375"
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name> -Name <database-account-name> -Properties $CosmosDBProperties
     
-* `<write-region-location>` 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
-* `<read-region-location>` 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
-* `<default-consistency-level>` Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
-* `<ip-range-filter>` CIDR 형식으로 지정 된 데이터베이스 계정에 대 한 클라이언트 Ip의 허용된 목록으로 포함할 IP 주소 또는 IP 주소 범위 집합을 지정 합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
-* `<max-interval>` 제한 된 부실 일관성을 사용 하는 경우이 값 허용 부실 (초) 시간 크기를 나타냅니다. 값의 허용 범위는 1-100입니다.
-* `<max-staleness-prefix>` 제한 된 부실 일관성을 사용 하는 경우이 값의 허용 된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<resource-group-location>` 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
-* `<database-account-name>` 업데이트할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<write-region-location>` - 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
+* `<read-region-location>` - 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
+* `<default-consistency-level>`Azure Cosmos DB 계정의 기본 일관성 수준입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
+* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.
+* `<max-interval>` - 제한된 부실(Bounded Staleness) 일관성과 함께 사용되는 경우 이 값은 부실 허용 시간(초)을 나타냅니다. 값의 허용 범위는 1-100입니다.
+* `<max-staleness-prefix>` - 제한된 부실 일관성과 함께 사용되는 경우 이 값은 허용된 부실 요청 수를 나타냅니다. 이 값의 허용 범위는 1-2,147,483,647입니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<resource-group-location>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
+* `<database-account-name>` - 업데이트할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제: 
 
@@ -98,8 +98,8 @@ ms.locfileid: "58904375"
 
     Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
     
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<database-account-name>` 삭제할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<database-account-name>` - 삭제할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
@@ -111,8 +111,8 @@ ms.locfileid: "58904375"
 
     Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
@@ -136,8 +136,8 @@ Azure Cosmos DB 계정을 만들면 해당 서비스에서 Azure Cosmos DB 계�
 
     $keys = Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
@@ -149,8 +149,8 @@ MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하�
 
     $keys = Invoke-AzResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 
@@ -162,9 +162,9 @@ MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하�
 
     Invoke-AzResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
-* `<key-kind>` 네 가지 유형의 키 중 하나: ["Primary" | " 보조 "|" PrimaryReadonly "|" SecondaryReadonly"]를 다시 생성 합니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<key-kind>` - 다시 생성할 네 가지 유형의 키, 즉 ["Primary"|"Secondary"|"PrimaryReadonly"|"SecondaryReadonly"] 중 하나입니다.
 
 예제:
 
@@ -177,10 +177,10 @@ MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하�
     $failoverPolicies = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0},@{"locationName"="<read-region-location>"; "failoverPriority"=1})
     Invoke-AzResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-* `<write-region-location>` 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
-* `<read-region-location>` 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
-* `<resource-group-name>` 이름을 합니다 [Azure 리소스 그룹] [ azure-resource-groups] 새 Azure Cosmos DB 데이터베이스 계정이 속하는를 합니다.
-* `<database-account-name>` Azure Cosmos DB 데이터베이스 계정의 이름입니다.
+* `<write-region-location>` - 데이터베이스 계정의 쓰기 하위 지역의 위치 이름입니다. 이 위치에는 0인 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 정확히 쓰기 하위 지역 하나만 있어야 합니다.
+* `<read-region-location>` - 데이터베이스 계정의 읽기 하위 지역의 위치 이름입니다. 이 위치에는 0보다 큰 장애 조치 우선 순위 값이 있어야 합니다. 데이터베이스 계정마다 읽기 하위 지역이 둘 이상 있을 수 있습니다.
+* `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
+* `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
 예제:
 

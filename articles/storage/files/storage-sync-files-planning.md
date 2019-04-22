@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918640"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
@@ -240,7 +240,7 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | 브라질 남부 | 상파울루 Paolo 상태 |
 | 캐나다 중부 | 토론토 |
 | 캐나다 동부 | 퀘벡 시티 |
-| 인도 중부 | 푸네 |
+| 중앙 인도 | 푸네 |
 | 미국 중부 | 아이오와 |
 | 동아시아 | 홍콩 |
 | 미국 동부 | 버지니아 |
@@ -248,7 +248,7 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | 일본 동부 | 도쿄, 사이타마 |
 | 일본 서부 | 오사카 |
 | 미국 중북부 | 일리노이 |
-| 북유럽 | 아일랜드 |
+| 유럽 북부 | 아일랜드 |
 | 미국 중남부 | 텍사스 |
 | 인도 남부 | 첸나이 |
 | 동남아시아 | 싱가포르 |
@@ -273,20 +273,20 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | 오스트레일리아 남동부 | 오스트레일리아 동부     |
 | 캐나다 중부      | 캐나다 동부        |
 | 캐나다 동부         | 캐나다 중부     |
-| 인도 중부       | 인도 남부        |
+| 중앙 인도       | 인도 남부        |
 | 미국 중부          | 미국 동부 2          |
 | 동아시아           | 동남아시아     |
 | 미국 동부             | 미국 서부            |
 | 미국 동부 2           | 미국 중부         |
 | 한국 중부       | 한국 남부        |
 | 한국 남부         | 한국 중부      |
-| 북유럽        | 서유럽        |
+| 유럽 북부        | 서유럽        |
 | 미국 중북부    | 미국 중남부   |
-| 인도 남부         | 인도 중부      |
+| 인도 남부         | 중앙 인도      |
 | 동남아시아      | 동아시아          |
 | 영국 남부            | 영국 서부            |
 | 영국 서부             | 영국 남부           |
-| 서유럽         | 북유럽       |
+| 서유럽         | 유럽 북부       |
 | 미국 서부             | 미국 동부            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
@@ -294,7 +294,7 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 
 ## <a name="next-steps"></a>다음 단계
 * [방화벽 및 프록시 설정 고려](storage-sync-files-firewall-and-proxy.md)
-* [Azure Files 배포에 대한 계획](storage-files-planning.md)
+* [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 * [Azure Files 배포](storage-files-deployment-guide.md)
 * [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 * [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

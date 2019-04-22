@@ -11,10 +11,10 @@ ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895057"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
@@ -126,7 +126,7 @@ B2C Help
 각 명령에 대한 간략한 설명을 표시합니다. 이 명령 중 하나를 호출할 때마다 `B2CGraphClient` 은 Azure AD Graph API에 요청합니다.
 
 ### <a name="get-an-access-token"></a>액세스 토큰 가져오기
-Graph API에 대한 요청은 인증을 위한 액세스 토큰이 필요합니다. `B2CGraphClient` 오픈 소스 Active Directory 인증 라이브러리 (ADAL)를 사용 하 여 액세스 토큰을 획득할 수 있도록 합니다. ADAL을 사용하면 간단한 API를 제공하고 액세스 토큰의 캐싱과 같은 중요한 일부 세부 정보를 처리하여 토큰을 쉽게 얻을 수 있습니다. 그러나 ADAL을 사용하여 토큰을 가져올 필요가 없습니다. HTTP 요청을 선별하여 토큰을 가져올 수도 있습니다.
+Graph API에 대한 요청은 인증을 위한 액세스 토큰이 필요합니다. `B2CGraphClient` 은 오픈 소스 ADAL(Active Directory 인증 라이브러리)를 사용하여 액세스 토큰을 획득할 수 있도록 합니다. ADAL을 사용하면 간단한 API를 제공하고 액세스 토큰의 캐싱과 같은 중요한 일부 세부 정보를 처리하여 토큰을 쉽게 얻을 수 있습니다. 그러나 ADAL을 사용하여 토큰을 가져올 필요가 없습니다. HTTP 요청을 선별하여 토큰을 가져올 수도 있습니다.
 
 > [!NOTE]
 > 이 코드 샘플에서는 Graph API와 통신하기 위해 ADAL v2를 사용합니다.  Azure AD Graph API와 함께 사용할 수 있는 액세스 토큰을 가져오기 위해 ADAL v2 또는 v3를 사용해야 합니다.
@@ -355,7 +355,7 @@ B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-`B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 애플리케이션이 있습니다. `B2CGraphClient` 자체 응용 프로그램 id를 사용 하 여 Azure AD Graph API에 인증할 수 있습니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 애플리케이션에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
+`B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 애플리케이션이 있습니다. `B2CGraphClient`는 고유한 애플리케이션 ID를 사용하여 Azure AD Graph API에 인증합니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 애플리케이션에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
 
 * 테넌트에서 애플리케이션에 적절한 권한을 부여해야 합니다.
 * 이제 ADAL(MSAL 아님)을 사용하여 액세스 토큰을 가져와야 합니다. (또한 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보낼 수 있습니다.)

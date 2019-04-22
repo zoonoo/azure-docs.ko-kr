@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904494"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
@@ -41,7 +41,7 @@ ms.locfileid: "58904494"
 1. `F1` 키를 클릭하여 명령 팔레트를 열고, **Azure IoT Device Workbench: 예제 열기...** 를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
 
 1. IoT Workbench 예제 페이지에서 **DPS를 사용하여 디바이스 등록**을 찾고 **샘플 열기**를 클릭합니다. 기본 경로를 선택하여 샘플 코드를 다운로드합니다.
-    ![열기 예제](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
+    ![샘플 열기](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>디바이스 보안 스토리지에 고유 디바이스 비밀 저장
 
@@ -61,13 +61,13 @@ DevKit에 UDS를 저장하려면:
 1. DevKit에서 **A 단추**를 누른 상태로 **다시 설정** 단추를 눌렀다 떼고, **A 단추**를 뗍니다. DevKit가 구성 모드로 전환합니다.
 
 1. `F1` 키를 클릭하여 명령 팔레트를 열고, **Azure IoT Device Workbench: 디바이스 설정 구성... > UDS(고유한 디바이스 문자열) 구성**을 입력하고 선택합니다.
-  ![UD를 구성 합니다.](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
+  ![UDS 구성](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. 생성된 UDS 문자열을 적어 둡니다. X.509 인증서를 생성하는 데 필요합니다. 그런 다음, `Enter` 키를 누릅니다.
-  ![UD를 복사 합니다.](media/how-to-connect-mxchip-iot-devkit/copy-uds.png)
+  ![UDS 복사](media/how-to-connect-mxchip-iot-devkit/copy-uds.png)
 
 1. UDS가 STSAFE에 성공적으로 구성되었는지 알림에서 확인합니다.
-  ![UD 성공 구성](media/how-to-connect-mxchip-iot-devkit/config-uds-success.png)
+  ![UDS 성공 구성](media/how-to-connect-mxchip-iot-devkit/config-uds-success.png)
 
 > [!NOTE]
 > 또는 Putty와 같은 유틸리티를 사용하여 직렬 포트를 통해 UDS를 구성할 수 있습니다. 이렇게 하려면 [ 구성 모드 사용](https://microsoft.github.io/azure-iot-developer-kit/docs/use-configuration-mode/)을 따릅니다.
@@ -77,10 +77,10 @@ DevKit에 UDS를 저장하려면:
 디바이스 코드에서 테넌트 격리를 보장하도록 [디바이스 프로비저닝 엔드포인트](/azure/iot-dps/concepts-service#device-provisioning-endpoint) 및 ID 범위를 지정해야 합니다.
 
 1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 창을 선택하고, **글로벌 디바이스 엔드포인트** 및 **ID 범위** 값을 적어둡니다.
-  ![장치 프로 비전 서비스 전역 엔드포인트 및 ID 범위](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
+  ![Device Provisioning Service 글로벌 엔드포인트 및 ID 범위](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
 1. **DeKitDPS.ino**를 엽니다. `[Global Device Endpoint]` 및 `[ID Scope]`를 찾아 방금 적어둔 값으로 바꿉니다.
-  ![장치 프로 비전 서비스 끝점](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
+  ![디바이스 프로비저닝 서비스 엔드포인트](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. 코드의 `registrationId` 변수를 채웁니다. 최대 128자의 영숫자, 소문자 및 하이픈 조합만 허용됩니다. 값도 적어 둡니다.
   ![등록 ID](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
@@ -100,7 +100,7 @@ DevKit에 UDS를 저장하려면:
 1. `tool` 폴더에서 `dps_cert_gen.exe`를 실행합니다.
 
 1. 컴파일된 이진 파일 위치를 `..\.build\DevKitDPS`로 지정합니다. 그런 다음, 방금 적어둔 **UDS** 및 **registrationId**를 붙여넣습니다. 
-  ![X.509를 생성 합니다.](media/how-to-connect-mxchip-iot-devkit/gen-x509.png)
+  ![X.509 생성](media/how-to-connect-mxchip-iot-devkit/gen-x509.png)
 
 1. `.pem` X.509 인증서는 동일한 폴더에 생성됩니다.
   ![X.509 파일](media/how-to-connect-mxchip-iot-devkit/pem-file.png)
@@ -111,7 +111,7 @@ DevKit에 UDS를 저장하려면:
   ![개별 등록 추가](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
 1. **기본 인증서 .pem 또는 .cer 파일** 옆의 파일 아이콘을 클릭하여 생성된 `.pem` 파일을 업로드합니다.
-  ![.Pem 업로드](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
+  ![.pem 업로드](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
 
 ## <a name="verify-the-devkit-is-registered-with-azure-iot-hub"></a>DevKit가 Azure IoT Hub에 등록되었는지 확인
 
@@ -122,7 +122,7 @@ DevKit의 **다시 설정** 단추를 누릅니다. DevKit 화면에 **DPS 연�
 1. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다.
 1. 장치의 IoT Hub 클라이언트 애플리케이션이 사용자 허브에 연결됩니다.
 1. 허브에 성공적으로 연결되면 IoT Hub의 Device Explorer에 디바이스가 표시됩니다.
-  ![디바이스 등록됨](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
+  ![등록된 디바이스](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

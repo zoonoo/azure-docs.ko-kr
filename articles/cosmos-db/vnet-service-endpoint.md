@@ -8,10 +8,10 @@ ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894938"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 Azure Cosmos DB 액세스
@@ -61,6 +61,6 @@ NSG 규칙은 가상 네트워크를 사용하여 서브넷 간의 연결을 제
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가상 네트워크 내의 서브넷에 대 한 Azure Cosmos 계정 액세스를 제한 하는 방법](how-to-configure-vnet-service-endpoint.md)
-* [Azure Cosmos 계정에 대 한 IP 방화벽을 구성 하는 방법](how-to-configure-firewall.md)
+* [가상 네트워크 내의 서브넷에 대한 Azure Cosmos 계정 액세스를 제한하는 방법](how-to-configure-vnet-service-endpoint.md)
+* [Azure Cosmos 계정에 대해 IP 방화벽을 구성하는 방법](how-to-configure-firewall.md)
 

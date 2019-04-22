@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892829"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>요청 및 응답 구성 요소 시작
@@ -76,7 +76,7 @@ HTTP 응답 작업을 추가하는 방법은 다음과 같습니다.
 ## <a name="response-action"></a>응답 작업
 여기에는 이 커넥터가 지원하는 작업에 대한 세부 정보가 나와 있습니다. 요청 트리거와 함께 나올 때만 사용할 수 있는 단일 응답 작업이 있습니다.
 
-| 조치 | 설명 |
+| 액션(Action) | 설명 |
 | --- | --- |
 | response |상호 관련된 HTTP 요청에 대한 응답을 반환합니다. |
 

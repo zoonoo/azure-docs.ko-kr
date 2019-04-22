@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 30d99c3f4767eb50361f7074c0d508fcf309faca
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896598"
 ---
 # <a name="run-micro-focus-enterprise-server-40-in-a-docker-container-on-azure"></a>Micro Focus Enterprise Server 4.0을 Azure에서 Docker 컨테이너에서 실행
@@ -117,7 +117,7 @@ Docker 응용 프로그램에 이식성 및 격리를 추가합니다. 예를 �
 
      ![Es acctdemo 이미지를 표시 하는 명령 창](media/container-05.png)
 
-## <a name="run-the-image"></a>이미지를 실행 합니다. 
+## <a name="run-the-image"></a>이미지 실행 
 
 1.  Enterprise Server 4.0 및 명령 프롬프트에서 입력 acctdemo 응용 프로그램을 시작 합니다.
 

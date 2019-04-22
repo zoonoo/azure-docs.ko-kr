@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915785"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
@@ -93,7 +93,7 @@ ID 공급자의 리디렉션 URL을 구성할 때 `https://login.microsoftonline
 
 예제:
 
-- [사용자 지정 정책을 사용 하 여 OAuth1 id 공급자로 Twitter 추가](active-directory-b2c-custom-setup-twitter-idp.md)
+- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](active-directory-b2c-custom-setup-twitter-idp.md)
 
 
 

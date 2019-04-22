@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
 ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892809"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure CSP(클라우드 솔루션 공급자)의 Azure AD(Active Directory) Domain Services
@@ -79,7 +79,7 @@ Azure CSP 구독에서 관리되는 도메인을 관리하는 경우 다음과 �
 * **CSP 관리 에이전트는 자격 증명을 사용하여 관리되는 도메인에 대한 관리 작업을 지속적으로 수행할 수 없음:** CSP 관리 사용자는 자격 증명을 사용하여 관리되는 도메인에 대한 일상적인 관리 작업을 수행할 수 없습니다. 이러한 사용자는 고객의 Azure AD 디렉터리의 외부에 위치하며 해당 자격 증명은 고객의 Azure AD 디렉터리 내에서 사용할 수 없습니다. 따라서 Azure AD Domain Services에는 이러한 사용자의 Kerberos 및 NTLM 암호 해시에 대한 액세스 권한이 없습니다. 결과적으로 Azure AD Domain Services 관리되는 도메인에서 이러한 사용자를 인증할 수 없습니다.
 
   > [!WARNING]
-  > **관리 되는 도메인에서 지속적인 관리 작업을 수행 하는 고객의 디렉터리 내에서 사용자 계정을 만들어야 합니다.**
+  > **관리되는 도메인에서 지속적인 관리 작업을 수행하기 위해 고객의 디렉터리 내에서 사용자 계정을 만들어야 합니다.**
   > CSP 관리 사용자의 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 없습니다. 이렇게 하려면 고객의 Azure AD 디렉터리에 속한 사용자 계정의 자격 증명을 사용합니다. 가상 머신을 관리되는 도메인에 가입하고, DNS를 관리하고, 그룹 정책 관리하는 등의 작업에 이러한 자격 증명이 필요합니다.
   >
 
@@ -90,4 +90,4 @@ Azure CSP 구독에서 관리되는 도메인을 관리하는 경우 다음과 �
 * [Azure CSP 프로그램에 등록](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program)하고 Azure CSP를 통해 비즈니스를 만듭니다.
 * [Azure CSP에서 사용할 수 있는 Azure 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services) 목록을 검토합니다.
 * [PowerShell을 사용하여 Azure AD Domain Services 사용](active-directory-ds-enable-using-powershell.md)
-* [Azure AD Domain Services 시작](active-directory-ds-getting-started.md)
+* [Azure AD 도메인 서비스 시작](active-directory-ds-getting-started.md)

@@ -12,10 +12,10 @@ ms.date: 01/17/2019
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905259"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
@@ -949,7 +949,7 @@ GIT 모드에 있는 경우에 하드 코드 된 속성에 템플릿 매개 변�
 #### <a name="triggers"></a>트리거
 
 * 아래 `typeProperties`, 두 속성을 매개 변수화 됩니다. 첫 번째 `maxConcurrency`기본값을 갖도록 지정 되 고 유형은 `string`합니다. 기본 매개 변수 이름을 갖는 `<entityName>_properties_typeProperties_maxConcurrency`합니다.
-* `recurrence` 속성 또한 매개 변수화 됩니다. 문자열로, 매개 변수 이름과 기본값을 사용 하 여 매개 변수화 할 수 있는 해당 수준의 모든 속성 지정 됩니다. 예외가 합니다 `interval` 숫자 형식으로 매개 변수화 되 고 매개 변수 이름의 접미사로 붙은 속성 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`합니다. 마찬가지로,는 `freq` 속성은 문자열 및 문자열로 매개 변수화 됩니다. 그러나는 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 그 뒤에 있습니다. 예: `<entityName>_freq`
+* `recurrence` 속성 또한 매개 변수화 됩니다. 문자열로, 매개 변수 이름과 기본값을 사용 하 여 매개 변수화 할 수 있는 해당 수준의 모든 속성 지정 됩니다. 예외가 합니다 `interval` 숫자 형식으로 매개 변수화 되 고 매개 변수 이름의 접미사로 붙은 속성 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`합니다. 마찬가지로,는 `freq` 속성은 문자열 및 문자열로 매개 변수화 됩니다. 그러나는 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 그 뒤에 있습니다. 예: `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 

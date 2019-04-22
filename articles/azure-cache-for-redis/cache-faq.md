@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
 ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895599"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
@@ -70,7 +70,7 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 * [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
 * [StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
-* [연결에 대한 성능 고려 사항](#performance-considerations-around-connections)
+* [성능 고려 사항 및 연결](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>모니터링 및 문제 해결 FAQ
 이 섹션의 FAQ는 일반적인 모니터링 및 문제 해결 질문을 다룹니다. Azure Cache for Redis 인스턴스를 모니터링하고 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md) 및 [Azure Cache for Redis 문제를 해결하는 방법](cache-how-to-troubleshoot.md)을 참조하세요.
@@ -80,7 +80,7 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 * [내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?](#why-was-my-client-disconnected-from-the-cache)
 
 ## <a name="prior-cache-offering-faqs"></a>이전 캐시 제공 FAQ
-* [내게 적합한 Azure 캐시 기능은?](#which-azure-cache-offering-is-right-for-me)
+* [내게 적합한 Azure 캐시 기능](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>Azure Cache for Redis란?
 Azure Cache for Redis는 널리 사용되는 오픈 소스 소프트웨어 [Redis](https://redis.io/)를 기반으로 합니다. Microsoft에서 관리하여 Azure 내의 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 Azure Cache for Redis에 대한 액세스를 제공합니다. 자세한 개요는 Azure.com의 [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) 제품 페이지를 참조하세요.
@@ -135,7 +135,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
 | 가격 책정 계층  | 크기 | CPU 코어 | 사용 가능한 대역폭 | 1KB 값 크기 | 1KB 값 크기 |
 | --- | --- | --- | --- | --- | --- |
-| **표준 캐시 크기** | | |**(Mb/s) 초당 메가 비트 / m b / 초 (MB/s)** |**초당 요청 (RP) 비-SSL** |**초당 요청 (RP) SSL** |
+| **표준 캐시 크기** | | |**Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** |**RPS(초당 요청 수) 비 SSL** |**RPS(초당 요청 수) SSL** |
 | C0 |250MB |공유됨 |100/12.5 |15,000 |7,500 |
 | C1 |1 GB |1 |500/62.5 |38,000 |20,720 |
 | C2 |2.5GB |2 |500/62.5 |41,000 |37,000 |
@@ -143,7 +143,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 | C4 |13GB |2 |500/62.5 |60,000 |55,000 |
 | C5 |26GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53GB |8 |2,000 / 250 |126,000 |120,000 |
-| **프리미엄 캐시 크기** | |**분할 영역당 CPU 코어** | **(Mb/s) 초당 메가 비트 / m b / 초 (MB/s)** |**두 번째 (RP) 비 SSL, 분 당 요청** |**두 번째 (RP) SSL, 분 할당 초당 요청 수** |
+| **프리미엄 캐시 크기** | |**분할 영역당 CPU 코어** | **Mb/s(초당 메가비트) / MB/s(초당 메가바이트)** |**RPS(초당 요청 수) 비 SSL, 분할당** |**RPS(초당 요청 수) SSL, 분할당** |
 | P1 |6GB |2 |1,500 / 187.5 |180,000 |172,000 |
 | P2 |13GB |4 |3,000 / 375 |350,000 |341,000 |
 | P3 |26GB |4 |3,000 / 375 |350,000 |341,000 |
@@ -173,8 +173,8 @@ Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/det
 
 다른 클라우드에서 Azure Cache for Redis를 사용할 때 고려해야 할 사항에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [Azure Government 데이터베이스-Azure Redis 캐시](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure 중국 클라우드-Azure Redis 캐시](https://www.azure.cn/home/features/redis-cache/)
+- [Azure Government 데이터베이스 - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure 중국 클라우드 - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
 Azure Government 클라우드, Azure 중국 클라우드 및 Microsoft Azure 독일에서 PowerShell을 통해 Azure Cache for Redis를 사용하는 방법에 대한 자세한 내용은 [다른 클라우드에 연결하는 방법 - Azure Cache for Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)을 참조하세요.
@@ -192,7 +192,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
 
 보통은 클라이언트의 기본값으로 충분합니다. 워크로드에 따라 옵션을 미세 조정할 수 있습니다.
 
-* **다시 시도**
+* **재시도**
   * ConnectRetry 및 ConnectTimeout에 대한 일반적인 지침은 페일 패스트 및 다시 시도입니다. 이 지침은 클라이언트가 Redis 명령을 실행하고 응답을 수신하는 데 걸리는 평균 시간 및 워크로드에 따라 달라집니다.
   * 연결 상태를 확인하고 직접 다시 연결하는 대신 StackExchange.Redis가 자동으로 다시 연결하도록 합니다. **ConnectionMultiplexer.IsConnected 속성을 사용하지 마세요**.
   * 때로는 사용자가 다시 시도하면 사태가 더욱 심각해지고 결코 복구되지 않는 문제가 발생할 수도 있습니다. 이 경우 Microsoft Patterns & Practices 그룹이 게시한 [다시 시도 일반 지침](../best-practices-retry-general.md)의 설명에 따라 지수 백오프 다시 시도 알고리즘 사용을 고려해야 합니다.
@@ -269,7 +269,7 @@ Microsoft Azure Cache for Redis는 인기 있는 오픈 소스 Azure Cache for R
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> 키를 URL로 인코딩된 경우 같은 메시지와 함께 예외가 나타날 수 있습니다. `Failed to parse session.save_path`
+> 키가 URL로 인코드되지 않으면 `Failed to parse session.save_path`와 비슷한 메시지와 함께 예외가 발생할 수 있습니다.
 >
 >
 
@@ -402,9 +402,9 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정
 서버 GC를 사용하면 클라이언트를 최적화하고 StackExchange.Redis를 사용하는 경우 더 나은 성능 및 처리량을 제공할 수 있습니다. 서버 GC 및 사용하도록 설정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [서버 GC를 사용 하도록 설정 하려면](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
-* [가비지 컬렉션 기본 사항](/dotnet/standard/garbage-collection/fundamentals)
-* [가비지 컬렉션 및 성능](/dotnet/standard/garbage-collection/performance)
+* [서버 GC를 사용하도록 설정하려면](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [가비지 수집 기본 사항](/dotnet/standard/garbage-collection/fundamentals)
+* [가비지 수집 및 성능](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>연결에 대한 성능 고려 사항
@@ -467,12 +467,12 @@ Redis 성공의 또 다른 중요한 측면은 이를 기반으로 구축된 정
 Azure Cache for Redis를 시작하는 방법에 대한 자세한 내용은 [Azure Cache for Redis를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md) 및 [Azure Cache for Redis 설명서](index.md)를 참조하세요.
 
 ### <a name="managed-cache-service"></a>관리된 캐시 서비스
-[Managed Cache service는 2016 년 11 월 30 일 사용 중지 되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache Service는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)(영문)
 
 보관된 설명서를 보려면 [보관된 Managed Cache Service 설명서](/previous-versions/azure/azure-services/dn386094(v=azure.100))를 참조하세요.
 
 ### <a name="in-role-cache"></a>In-Role Cache
-[In-role Cache는 2016 년 11 월 30 일 사용 중지 되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)(영문)
 
 보관된 설명서를 보려면 [보관된 In-Role Cache 설명서](/previous-versions/azure/azure-services/dn386103(v=azure.100))를 참조하세요.
 

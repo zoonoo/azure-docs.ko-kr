@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918691"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 언어 모델 사용자 지정
@@ -147,4 +147,4 @@ Video Indexer 실제 수정 사용자를 기반으로 모델의 해당 비디오
 
 ## <a name="next-steps"></a>다음 단계
 
-[언어 모델 Api를 사용 하 여 사용자 지정](customize-language-model-with-api.md)
+[API를 사용하여 언어 모델 사용자 지정](customize-language-model-with-api.md)

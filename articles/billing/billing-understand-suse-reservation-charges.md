@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
 ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917790"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure의 SUSE Linux Enterprise 소프트웨어 예약 계획 할인은 적용 하는 방법 이해
@@ -126,12 +126,12 @@ Azure Portal Marketplace 이름:
 
 예약에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-- [Azure Reservations란?](billing-save-compute-costs-reservations.md)
-- [Azure 예약을 사용 하 여 SUSE 소프트웨어 계획에 대 한 요금을 선불합니다](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Azure 예약이란?](billing-save-compute-costs-reservations.md)
+- [Azure 예약에서 SUSE 소프트웨어 요금제에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure 예약 관리](billing-manage-reserved-vm-instance.md)
-- [종 량 제 구독에 대 한 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
-- [Enterprise 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [Azure Reservations 관리](billing-manage-reserved-vm-instance.md)
+- [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
+- [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

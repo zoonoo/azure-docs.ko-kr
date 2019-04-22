@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: anzaman
 ms.openlocfilehash: 8dd535d97e40fe1dd4358d782db60940af1dd95d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892843"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 개인 모델 사용자 지정
@@ -201,4 +201,4 @@ Video Indexer 인덱스는 및 있습니다가 이미 인덱싱된 경우이 새
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자 모델 Api를 사용 하 여 사용자 지정](customize-person-model-with-api.md)
+[API를 사용하여 개인 모델 사용자 지정](customize-person-model-with-api.md)

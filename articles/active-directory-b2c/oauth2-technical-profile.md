@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918929"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
@@ -112,7 +112,7 @@ ID 공급자의 리디렉션 URL을 구성할 때 `https://login.microsoftonline
 
 예제:
 
-- [사용자 지정 정책을 사용 하 여 OAuth2 id 공급자로 Google + 추가](active-directory-b2c-custom-setup-goog-idp.md)
+- [사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가](active-directory-b2c-custom-setup-goog-idp.md)
 
 
 

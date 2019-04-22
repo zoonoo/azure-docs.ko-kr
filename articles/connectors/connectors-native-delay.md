@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893727"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>지연 및 다음 기간까지 지연 동작 시작
@@ -58,7 +58,7 @@ A*는 필수 필드 임을 의미합니다.
 | 표시 이름 | 속성 이름 | 설명 |
 | --- | --- | --- |
 | Count* |count |지연할 시간 단위 수 |
-| Unit* |단위 |시간 단위: `Second`하십시오 `Minute`, `Hour`, 또는 `Day` |
+| Unit* |단위 |시간 단위: `Second`, `Minute`, `Hour` 또는 `Day` |
 
 <br>
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905735"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell로 Log Analytics 작업 영역 만들기
@@ -31,9 +31,9 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
  
 Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.
 
-* [Azure virtual machines에서 데이터를 수집 합니다.](../learn/quick-collect-azurevm.md)
-* [하이브리드 Linux 컴퓨터에서 데이터를 수집 합니다.](../learn/quick-collect-linux-computer.md)
-* [하이브리드 Windows 컴퓨터에서 데이터를 수집 합니다.](quick-collect-windows-computer.md)
+* [Azure 가상 머신에서 데이터 수집](../learn/quick-collect-azurevm.md)
+* [하이브리드 Linux 컴퓨터에서 데이터 수집](../learn/quick-collect-linux-computer.md)
+* [하이브리드 Windows 컴퓨터에서 데이터 수집](quick-collect-windows-computer.md)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 

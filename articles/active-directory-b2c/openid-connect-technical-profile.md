@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916770"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OpenId Connect 기술 프로필 정의
@@ -104,9 +104,9 @@ ID 공급자의 리디렉션 URI를 구성할 때 `https://login.microsoftonline
 
 예제:
 
-- [Microsoft 계정 (MSA)으로 사용자 지정 정책을 사용 하 여 id 공급자로 추가](active-directory-b2c-custom-setup-msa-idp.md)
-- [Azure AD 계정을 사용 하 여 로그인](active-directory-b2c-setup-aad-custom.md)
-- [사용자 지정 정책을 사용 하는 다중 테 넌 트 Azure AD id 공급자에 로그인 할 수 있습니다.](active-directory-b2c-setup-commonaad-custom.md)
+- [사용자 지정 정책을 사용하여 MSA(Microsoft 계정)를 ID 공급자로 추가](active-directory-b2c-custom-setup-msa-idp.md)
+- [Azure AD 계정을 사용하여 로그인](active-directory-b2c-setup-aad-custom.md)
+- [사용자 지정 정책을 사용하여 사용자가 다중 테넌트 Azure AD ID 공급자에 로그인하도록 허용](active-directory-b2c-setup-commonaad-custom.md)
 
  
 

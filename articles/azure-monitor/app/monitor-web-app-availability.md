@@ -14,10 +14,10 @@ ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005736"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
@@ -92,7 +92,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
     ![Visual Studio Enterprise 버전에서 웹 성능 및 부하 테스트 템플릿으로 프로젝트를 만듭니다.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *웹 성능 및 부하 테스트 템플릿으로 표시 되지 않나요?* - Visual Studio Enterprise를 닫습니다. **Visual Studio 설치 관리자**를 열고 Visual Studio Enterprise 설치를 수정합니다. **개별 구성 요소** 아래에서 **웹 성능 및 부하 테스트 도구**를 선택합니다.
+   * *웹 성능 및 부하 테스트 템플릿이 보이지 않으십니까?* - Visual Studio Enterprise를 닫습니다. **Visual Studio 설치 관리자**를 열고 Visual Studio Enterprise 설치를 수정합니다. **개별 구성 요소** 아래에서 **웹 성능 및 부하 테스트 도구**를 선택합니다.
 
 2. .webtest 파일을 열고 기록을 시작합니다.
 
@@ -175,7 +175,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 서비스에 대한 유지 관리를 수행하는 동안 가용성 테스트 또는 관련된 경고 규칙을 사용하지 않도록 설정할 수 있습니다.
 
-![웹 테스트를 사용 하지 않도록 설정](./media/monitor-web-app-availability/6disable.png)
+![웹 테스트 사용 안 함](./media/monitor-web-app-availability/6disable.png)
 ![테스트 편집](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>오류가 표시되는 경우
@@ -211,10 +211,10 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 >  [새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 사용하여 경고 규칙 심각도 및 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)이 포함된 알림 기본 설정은 경고 환경에서 구성**되어야 합니다**. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
 
 1. 가용성 테스트를 저장한 후 세부 정보 탭에서 방금 만든 테스트 옆에 있는 줄임표를 클릭합니다. "경고 편집"을 클릭합니다.
-![편집 후 저장](./media/monitor-web-app-availability/9editalert.png)
+![저장 후 편집](./media/monitor-web-app-availability/9editalert.png)
 
 2. 원하는 심각도 수준, 규칙 설명 및 가장 중요한 것으로 이 경고 규칙에 대해 사용하려는 알림 기본 설정을 보유한 작업 그룹을 설정합니다.
-![편집 후 저장](./media/monitor-web-app-availability/10editalert.png)
+![저장 후 편집](./media/monitor-web-app-availability/10editalert.png)
 
 
 > [!NOTE]
@@ -293,7 +293,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 ## <a name="qna"></a> FAQ
 
-* *사이트는 괜찮아 보이지만 표시 테스트 실패? 이유는 Application Insights 경고 me?*
+* *사이트는 괜찮아 보이는데 테스트 실패가 표시되나요? Application Insights에서 경고하는 이유는?*
 
     * 테스트를 통해 "종속 요청 구문 분석"이 활성화되나요? 결국 스크립트, 이미지 등과 같은 리소스에 대한 엄격한 검사가 실시됩니다. 이러한 유형의 오류는 브라우저에서 눈에 띄지 않을 수 있습니다. 모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다. 테스트가 이러한 리소스 오류에 둔감해지도록 하려면 테스트 구성에서 "종속 요청 구문 분석"을 선택 취소합니다. 
 
@@ -305,21 +305,21 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
     * 모든 위치 또는 그 중 일부에서만 실패를 보고했나요? 일부에서만 실패를 보고한 경우는 네트워크/CDN 문제일 수도 있습니다. 마찬가지로 빨간색 점을 클릭하면 그 위치에서 실패를 보고한 이유를 파악하는 데 도움이 됩니다.
 
-* *경고가 트리거되면 또는 해결 하는 경우 전자 메일 또는 둘 다 가져오지 않은 있나요?*
+* *경고가 트리거되거나 해결되거나 둘 다인 경우 이메일을 가져오지 못하나요?*
 
     클래식 경고 구성을 선택하여 이메일을 직접 나열하거나 배포 목록에서 알림을 수신하도록 구성되었는지 확인합니다. 그렇다면 배포 목록 구성을 선택하여 해당 목록에서 외부 이메일을 수신할 수 있는지 확인합니다. 또한 메일 관리자에게 이 문제를 일으킬 수 있도록 구성된 정책이 있는지 확인합니다.
 
-* *웹 후크 알림을 받지 못했습니다?*
+* *webhook 알림을 받지 못했습니다.*
 
     webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook 요청을 성공적으로 처리하는지 확인합니다. 자세한 내용은 [이것](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook)을 참조하세요.
 
-* *프로토콜 위반 오류로 일시적 테스트 오류?*
+* *프로토콜 위반 오류로 인한 일시적 테스트 오류인가요?*
 
     이 오류("프로토콜 위반, CR 뒤에 LF가 와야 함")는 서버(또는 종속성)와 관련된 문제를 나타내며 잘못된 헤더가 응답에 설정된 경우에 발생합니다. 부하 분산 장치 또는 CDN으로 인해 발생할 수 있습니다. 특히 일부 헤더는 줄 끝을 표시하는 데 CRLF를 사용하지 않았을 수 있으며 이는 HTTP 사양을 위반하기 때문에 .NET WebRequest 수준에서 유효성 검사가 실패합니다. 위반한 헤더를 찾기 위해 응답을 검사합니다.
     
     참고: HTTP 헤더의 유효성 검사가 완화된 브라우저에서는 URL이 실패하지 않을 수 있습니다. 이 문제에 대한 자세한 설명은 http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/ 블로그 게시물을 참조하세요.  
     
-* *테스트 실패를 진단 하려면 관련된 서버 쪽 원격 분석을 표시 되지 않습니다.*
+* *테스트 실패를 진단할만한 관련 서버 쪽 원격 분석 데이터가 표시되지 않습니다.*
     
     서버 쪽 애플리케이션에 대해 Application Insights를 설정한 경우, [샘플링](../../azure-monitor/app/sampling.md)이 작동 중이기 때문일 수 있습니다. 다른 가용성 결과를 선택합니다.
 
@@ -327,15 +327,15 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
     아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
 
-* *HTTPS가 지원 되나요?*
+* *HTTPS가 지원됩니까?*
 
     TLS 1.1 및 TLS 1.2를 지원합니다. 현재 확인 하지 않는 것 HTTPS 인증서 오류에 대 한 합니다.  
 
-* *"웹 테스트" 및 "가용성 테스트" 간의 차이?*
+* *"웹 테스트" 및 "가용성 테스트" 간의 차이가 있나요?*
 
     두 용어는 같은 의미로 참조할 수 있습니다. 가용성 테스트는 다단계 웹 테스트 외에 단일 URL ping 테스트를 포함한 보다 일반적인 용어입니다.
     
-* *방화벽 뒤에서 실행 되는 내부 서버에서 가용성 테스트를 사용 하려고 합니다.*
+* *방화벽 뒤에 실행되는 내부 서버에서 가용성 테스트를 사용하려 합니다.*
 
     가능한 해결 방법으로 다음 두 가지가 있습니다.
     
@@ -350,11 +350,11 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
     * 다른 웹 테스트에 대한 참조는 지원되지 않습니다.
     * 데이터 원본은 지원되지 않습니다.
 
-* *다중 단계 테스트가 완료 되지 않으면*
+* *다중 단계 테스트가 완료되지 않습니다.*
 
     테스트당 100개 요청의 제한이 있습니다. 또한 테스트가 2분을 초과해 실행되는 경우에도 중지됩니다.
 
-* *클라이언트 인증서를 사용 하 여 테스트를 실행할 수는 방법*
+* *클라이언트 인증서로 테스트를 실행하는 방법*
 
     죄송합니다만, 지원되지 않습니다.
 

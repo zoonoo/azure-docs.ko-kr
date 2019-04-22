@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894358"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
@@ -166,7 +166,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 다음 어셈블리는 Azure Functions 호스팅 환경에 의해 자동으로 추가됩니다.
 
-* `mscorlib`.
+* `mscorlib`,
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -284,16 +284,16 @@ let mylog(log: ILogger, text: string) =
 
 `#load` 지시문에 제공하는 경로는 `.fsx` 파일의 위치에 상대적입니다.
 
-* `#load "logger.fsx"` 함수 폴더에 있는 파일을 로드 합니다.
-* `#load "package\logger.fsx"` 에 있는 파일을 로드 합니다 `package` 함수 폴더의 폴더입니다.
-* `#load "..\shared\mylogger.fsx"` 에 있는 파일을 로드 합니다 `shared` 즉, 함수 폴더와 동일한 수준의 폴더 바로 아래 `wwwroot`.
+* `#load "logger.fsx"`는 함수 폴더에 있는 파일을 로드합니다.
+* `#load "package\logger.fsx"`는 함수 폴더의 `package` 폴더에 있는 파일을 로드합니다.
+* `#load "..\shared\mylogger.fsx"`는 함수 폴더와 동일한 수준의 `shared` 폴더 즉, `wwwroot`에 있는 파일을 로드합니다.
 
 `#load` 지시문은 `.fs`파일이 아닌 `.fsx`(F# 스크립트) 파일에서만 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [F#가이드](/dotnet/articles/fsharp/index)
+* [F# 가이드](/dotnet/articles/fsharp/index)
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 * [Azure Functions 개발자 참조](functions-reference.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)

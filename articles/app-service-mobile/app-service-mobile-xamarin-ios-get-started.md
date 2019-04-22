@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892435"
 ---
 # <a name="create-a-xamarinios-app"></a>Xamarin.iOS 앱 만들기
@@ -71,7 +71,7 @@ ms.locfileid: "58892435"
 >
 
 ## <a name="next-steps"></a>다음 단계
-* [앱에 오프 라인 동기화 추가](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [앱에 오프라인 동기화 추가](app-service-mobile-xamarin-ios-get-started-offline-data.md)
 * [앱에 인증 추가](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md)
@@ -88,4 +88,4 @@ ms.locfileid: "58892435"
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/

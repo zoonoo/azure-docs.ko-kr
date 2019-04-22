@@ -6,10 +6,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892486"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 CICS BankDemo 설정
@@ -272,4 +272,4 @@ TN3270 BankDemo 응용 프로그램에 액세스 하는 세션에 대 한 수신
 - [메인프레임 마이그레이션-포털](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [메인프레임에서 Azure로의 마이그레이션에 대한 상세 설명](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Azure로 마이그레이션 메인프레임 익히기](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
