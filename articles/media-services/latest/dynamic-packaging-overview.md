@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886457"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
@@ -200,5 +200,5 @@ DASH 매니페스트 예는 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[업로드, 인코딩, stream 비디오](stream-files-tutorial-with-api.md)
+[비디오 업로드, 인코드 및 스트리밍](stream-files-tutorial-with-api.md)
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878505"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
@@ -27,19 +27,19 @@ Azure에서 트래픽을 Azure, 온-프레미스 및 인터넷 리소스간에 �
 
 Azure는 시스템 경로를 자동으로 만들고 가상 네트워크의 각 서브넷에 경로를 할당합니다. 시스템 경로를 만들거나 시스템 경로를 제거할 수는 없지만 [사용자 지정 경로](#custom-routes)를 사용하여 일부 시스템 경로를 재정의할 수 있습니다. Azure는 각 서브넷에 대한 기본 시스템 경로를 만들고, 특정 Azure 기능을 사용하면 특정 서브넷 또는 모든 서브넷에 [선택적 기본 경로](#optional-default-routes)를 추가합니다.
 
-### <a name="default"></a>기본값
+### <a name="default"></a>Default
 
 각 경로에는 주소 접두사와 다음 홉 유형이 포함되어 있습니다. 서브넷에서 나가는 트래픽을 경로의 주소 접두사에 있는 IP 주소로 보낼 때 접두사가 포함된 경로가 Azure에서 사용하는 경로입니다. 여러 경로에 동일한 접두사 또는 겹치는 접두사가 있는 경우 [Azure에서 경로를 선택하는 방법](#how-azure-selects-a-route)에 대해 자세히 알아봅니다. 가상 네트워크를 만들 때마다 Azure에서 가상 네트워크 내의 각 서브넷에 대해 다음과 같은 기본 시스템 경로를 자동으로 만듭니다.
 
 
 |원본 |주소 접두사                                        |다음 홉 유형  |
 |-------|---------                                               |---------      |
-|기본값|가상 네트워크에서 고유한 접두사                           |가상 네트워크|
-|기본값|0.0.0.0/0                                               |인터넷       |
-|기본값|10.0.0.0/8                                              |없음           |
-|기본값|172.16.0.0/12                                           |없음           |
-|기본값|192.168.0.0/16                                          |없음           |
-|기본값|100.64.0.0/10                                           |없음           |
+|Default|가상 네트워크에서 고유한 접두사                           |가상 네트워크|
+|Default|0.0.0.0/0                                               |인터넷       |
+|Default|10.0.0.0/8                                              |없음           |
+|Default|172.16.0.0/12                                           |없음           |
+|Default|192.168.0.0/16                                          |없음           |
+|Default|100.64.0.0/10                                           |없음           |
 
 이전 표에서 나열된 다음 홉 유형은 Azure에서 나열된 주소 접두사로 향하는 트래픽을 라우팅하는 방법을 나타냅니다. 다음 홉 유형에 대한 설명은 다음과 같습니다.
 
@@ -59,9 +59,9 @@ Azure는 다른 Azure 기능에 대한 추가 기본 시스템 경로를 추가�
 
 |원본                 |주소 접두사                       |다음 홉 유형|경로가 추가되는 가상 네트워크 내의 서브넷|
 |-----                  |----                                   |---------                    |--------|
-|기본값                |가상 네트워크에서 고유한 접두사 - 예: 10.1.0.0/16|VNet 피어링                 |모두|
+|Default                |가상 네트워크에서 고유한 접두사 - 예: 10.1.0.0/16|VNet 피어링                 |모두|
 |가상 네트워크 게이트웨이|온-프레미스에서 BGP를 통해 보급되거나 로컬 네트워크 게이트웨이에 구성된 접두사     |가상 네트워크 게이트웨이      |모두|
-|기본값                |여러 접두사                               |VirtualNetworkServiceEndpoint|서비스 엔드포인트를 사용하도록 설정된 서브넷만|
+|Default                |여러 접두사                               |VirtualNetworkServiceEndpoint|서비스 엔드포인트를 사용하도록 설정된 서브넷만|
 
 - **VNet(가상 네트워크) 피어링**: 두 가상 네트워크 간에 가상 네트워크 피어링을 만드는 경우 피어링이 만들어지는 각 가상 네트워크의 주소 공간 내의 각 주소 범위에 대한 경로가 추가됩니다. [가상 네트워크 피어링](virtual-network-peering-overview.md)에 대해 자세히 알아보세요.  
 - **가상 네트워크 게이트웨이**: 가상 네트워크 게이트웨이가 가상 네트워크에 추가되면 다음 홉 유형으로 나열되는 *가상 네트워크 게이트웨이*가 포함된 하나 이상의 경로가 추가됩니다. 게이트웨이에서 서브넷에 경로를 추가하기 때문에 원본도 *가상 네트워크 게이트웨이*입니다. 온-프레미스 네트워크 게이트웨이에서 Azure 가상 네트워크 게이트웨이와 [BGP](#border-gateway-protocol)(Border Gateway Protocol) 경로를 교환하는 경우 온 프레미스 네트워크 게이트웨이에서 전파되는 각 경로에 대한 경로가 추가됩니다. 가능한 가장 큰 주소 범위로 온-프레미스 경로를 요약하는 것이 가장 좋으므로 가장 적은 수의 경로가 Azure 가상 네트워크 게이트웨이로 전파됩니다. Azure 가상 네트워크 게이트웨이에 전파할 수 있는 경로의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)을 참조하세요.
@@ -141,7 +141,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 |원본   |주소 접두사  |다음 홉 유형           |
 |---------|---------         |-------                 |
-|기본값  | 0.0.0.0/0        |인터넷                |
+|Default  | 0.0.0.0/0        |인터넷                |
 |사용자     | 0.0.0.0/0        |가상 네트워크 게이트웨이 |
 
 트래픽이 경로 테이블에 속한 다른 경로의 주소 접두사 외부에 있는 IP 주소로 향하는 경우 사용자 정의 경로가 시스템 기본 경로보다 우선 순위가 높으므로 Azure는 **사용자** 원본 경로를 선택합니다.
@@ -181,7 +181,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 ### <a name="requirements"></a>요구 사항
 
 1. 동일한 Azure 지역에 두 개의 가상 네트워크를 구현하고 리소스에서 가상 네트워크 간에 통신할 수 있도록 합니다.
-2. 온-프레미스 네트워크에서 인터넷을 통한 VPN 터널을 통해 두 가상 네트워크와 안전하게 통신할 수 있도록 합니다. *또는 ExpressRoute 연결을 사용할 수 있지만이 예제에서는 VPN 연결이 사용 됩니다.*
+2. 온-프레미스 네트워크에서 인터넷을 통한 VPN 터널을 통해 두 가상 네트워크와 안전하게 통신할 수 있도록 합니다. *또는 ExpressRoute 연결을 사용할 수 있지만 이 예제에서는 VPN 연결이 사용됩니다.*
 3. 하나의 가상 네트워크에 하나의 서브넷이 있는 경우:
  
     - Azure Storage 및 서브넷 내의 아웃바운드 트래픽을 제외하고는 서브넷의 모든 아웃바운드 트래픽을 검사하고 로깅하기 위해 네트워크 가상 어플라이언스를 통과하도록 합니다.
@@ -207,17 +207,17 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 |ID  |원본 |시스템 상태  |주소 접두사    |다음 홉 유형          |다음 홉 IP 주소|사용자 정의 경로 이름| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |기본값|올바르지 않음|10.0.0.0/16         |가상 네트워크        |                   |              |
+|1   |Default|올바르지 않음|10.0.0.0/16         |가상 네트워크        |                   |              |
 |2   |사용자   |Active |10.0.0.0/16         |가상 어플라이언스      |10.0.100.4         |Within-VNet1  |
 |3   |사용자   |Active |10.0.0.0/24         |가상 네트워크        |                   |Within-Subnet1|
-|4   |기본값|올바르지 않음|10.1.0.0/16         |VNet 피어링           |                   |              |
-|5   |기본값|올바르지 않음|10.2.0.0/16         |VNet 피어링           |                   |              |
+|4   |Default|올바르지 않음|10.1.0.0/16         |VNet 피어링           |                   |              |
+|5   |Default|올바르지 않음|10.2.0.0/16         |VNet 피어링           |                   |              |
 |6   |사용자   |Active |10.1.0.0/16         |없음                   |                   |ToVNet2-1-Drop|
 |7   |사용자   |Active |10.2.0.0/16         |없음                   |                   |ToVNet2-2-Drop|
-|8   |기본값|올바르지 않음|10.10.0.0/16        |가상 네트워크 게이트웨이|[X.X.X.X]          |              |
+|8   |Default|올바르지 않음|10.10.0.0/16        |가상 네트워크 게이트웨이|[X.X.X.X]          |              |
 |9   |사용자   |Active |10.10.0.0/16        |가상 어플라이언스      |10.0.100.4         |To-On-Prem    |
-|10  |기본값|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |기본값|올바르지 않음|0.0.0.0/0           |인터넷               |                   |              |
+|10  |Default|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|11  |Default|올바르지 않음|0.0.0.0/0           |인터넷               |                   |              |
 |12  |사용자   |Active |0.0.0.0/0           |가상 어플라이언스      |10.0.100.4         |Default-NVA   |
 
 각 경로 ID에 대한 설명은 다음과 같습니다.
@@ -241,22 +241,22 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 |원본  |시스템 상태  |주소 접두사    |다음 홉 유형             |다음 홉 IP 주소|
 |------- |-------|------              |-------                   |--------           
-|기본값 |Active |10.0.0.0/16         |가상 네트워크           |                   |
-|기본값 |Active |10.1.0.0/16         |VNet 피어링              |                   |
-|기본값 |Active |10.2.0.0/16         |VNet 피어링              |                   |
-|기본값 |Active |10.10.0.0/16        |가상 네트워크 게이트웨이   |[X.X.X.X]          |
-|기본값 |Active |0.0.0.0/0           |인터넷                  |                   |
-|기본값 |Active |10.0.0.0/8          |없음                      |                   |
-|기본값 |Active |100.64.0.0/10       |없음                      |                   |
-|기본값 |Active |172.16.0.0/12       |없음                      |                   |
-|기본값 |Active |192.168.0.0/16      |없음                      |                   |
+|Default |Active |10.0.0.0/16         |가상 네트워크           |                   |
+|Default |Active |10.1.0.0/16         |VNet 피어링              |                   |
+|Default |Active |10.2.0.0/16         |VNet 피어링              |                   |
+|Default |Active |10.10.0.0/16        |가상 네트워크 게이트웨이   |[X.X.X.X]          |
+|Default |Active |0.0.0.0/0           |인터넷                  |                   |
+|Default |Active |10.0.0.0/8          |없음                      |                   |
+|Default |Active |100.64.0.0/10       |없음                      |                   |
+|Default |Active |172.16.0.0/12       |없음                      |                   |
+|Default |Active |192.168.0.0/16      |없음                      |                   |
 
 *Subnet2*의 경로 테이블에는 Azure에서 만든 모든 기본 경로 및 선택적인 VNet 피어링 및 가상 네트워크 게이트웨이 경로가 포함되어 있습니다. 게이트웨이 및 피어링이 가상 네트워크에 추가되었을 때 Azure에서 선택적 경로를 가상 네트워크의 모든 서브넷에 추가했습니다. 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로가 *Subnet1*에 추가되었을 때 Azure에서 *Subnet1* 경로 테이블로부터 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 및 100.64.0.0/10 주소 접두사에 대한 경로를 제거했습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-- [경로 및 네트워크 가상 어플라이언스를 사용 하 여 사용자 정의 경로 테이블 만들기](tutorial-create-route-table-portal.md)
-- [Azure VPN Gateway에 대 한 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [경로 및 네트워크 가상 어플라이언스로 사용자 정의 경로 테이블 만들기](tutorial-create-route-table-portal.md)
+- [Azure VPN Gateway에서 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute에서 BGP 사용](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [서브넷에 대한 모든 경로 보기](diagnose-network-routing-problem.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.
 - 가상 머신과 대상 IP 주소 간의 [다음 홉 유형을 확인합니다](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Network Watcher 다음 홉 기능을 사용하면 트래픽이 서브넷에서 나가야 하는지 또는 생각하는 위치로 라우팅되는지 여부를 확인할 수 있습니다.

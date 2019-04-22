@@ -18,10 +18,10 @@ ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879259"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
@@ -101,9 +101,9 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
 ### <a name="check-which-applications-will-be-impacted"></a>어떤 애플리케이션이 영향을 받는지 확인합니다.
 
-1. 이전 단계에서 네임 스페이스를 사용 하 고 이동 `https://<namespace>.accesscontrol.windows.net`
+1. 이전 단계에서 해당 네임스페이스를 사용하고 `https://<namespace>.accesscontrol.windows.net`으로 이동합니다.
 
-    네임 스페이스 중 하나는 contoso-테스트 하는 경우로 이동 하는 예를 들어, `https://contoso-test.accesscontrol.windows.net`
+    예를 들어, 네임스페이스 중 하나가 contoso-test이면 `https://contoso-test.accesscontrol.windows.net`으로 이동합니다.
 
 1. **신뢰 관계**에서 **신뢰 당사자 애플리케이션**을 선택하여 ACS 사용 중지에 의해 영향을 받는 애플리케이션 목록을 확인합니다.
 1. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
@@ -133,8 +133,8 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 | ------- | -------- |
 | Azure Service Bus | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Redis Azure Cache로 마이그레이션](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Cognitive Services Api로 마이그레이션](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Managed Cache | [Azure Cache for Redis로 마이그레이션](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Cognitive Services API로 마이그레이션](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Azure App Service의 Logic Apps 기능으로 마이그레이션](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Azure AD 인증으로 마이그레이션](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Azure Backup 에이전트 업그레이드](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
@@ -154,7 +154,7 @@ SharePoint 2013, 2016 및 SharePoint Online 고객이 클라우드, 온-프레�
 | ------- | -------- |
 | Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제, 수행할 수 있습니다 [프레미스 앱에서 Azure AD 앱 갤러리 SharePoint를 사용 하 여 Azure AD에 직접 SharePoint 연결](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)합니다. |
 | [앱 인증 및 온-프레미스 sharepoint에서 서버-투-서버 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
-| [SharePoint 추가 기능 (호스팅된 공급자 및 호스팅된 SharePoint)에 대 한 낮은 신뢰 권한 부여](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
+| [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 | [SharePoint 클라우드 하이브리드 검색](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>수동 인증을 사용하는 웹 애플리케이션
@@ -207,7 +207,7 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | SAML 1.1 | 지원됨 | 미리 보기 |
 | SAML 2.0 | 지원됨 | 지원됨 |
 | SWT | 지원됨 | 지원되지 않음 |
-| **사용자 지정** | | |
+| **사용자 정의** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 지원되지 않음 |
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 지원됨 |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- 페더레이션된 ID 공급자의 클레임 전달 불가<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행 불가<br />- 상수 값을 사용하여 출력 클레임 발행 가능<br />- Azure AD에 동기화된 사용자의 속성을 바탕으로 출력 클레임 발행 가능 |
@@ -258,7 +258,7 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | SAML 1.1 | 지원됨 | 지원되지 않음 |
 | SAML 2.0 | 지원됨 | 지원되지 않음 |
 | SWT | 지원됨 | 지원되지 않음 |
-| **사용자 지정** | | |
+| **사용자 정의** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 사용자 지정 CSS를 이용하여 UI 사용자 지정 가능 |
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- ID 공급자의 클레임 전달 가능. 일부 클레임에는 사용자 지정 정책 필요<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 사용자 지정 정책을 통해 입력 클레임의 값을 바탕으로 출력 클레임 발행 가능<br />- 사용자 지정 정책을 통해 상수 값을 바탕으로 출력 클레임 발행 가능 |
@@ -332,8 +332,8 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 서버-투-서버 시나리오를 구현하는 방법은 아래의 리소스를 참조하세요.
 
 - [Azure AD 개발자 가이드](https://aka.ms/aaddev)의 서비스-투-서비스 섹션
-- [단순한 암호 클라이언트 자격 증명을 사용 하 여 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
-- [인증서 클라이언트 자격 증명을 사용 하 여 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+- [단순한 암호 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
+- [인증서 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping ID 또는 Auth0로 마이그레이션
 

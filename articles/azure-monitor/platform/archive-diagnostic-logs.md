@@ -76,7 +76,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| ResourceId |예 |진단 설정을 설정하려는 리소스의 리소스 ID입니다. |
+| resourceId |예 |진단 설정을 설정하려는 리소스의 리소스 ID입니다. |
 | StorageAccountId |아닙니다. |진단 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | Categories |아닙니다. |활성화할 로그 범주의 쉼표로 구분된 목록입니다. |
 | Enabled |예 |이 리소스에 대한 진단 활성화 여부를 나타내는 부울입니다. |

@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886083"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
@@ -75,7 +75,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 다음 예제에서는 사용자가 자신의 애플리케이션과 리소스에 액세스할 수 있는 복원력 있는 액세스 제어를 제공하기 위해 만들어야 하는 정책을 설명합니다. 이 예제에서는 액세스 권한을 부여하려는 대상 사용자가 있는 **AppUsers** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다.
 이 정책 세트 예제는 **AppUsers**에서 선택한 사용자에게 액세스 권한을 부여하거나, 신뢰할 수 있는 디바이스에서 연결하는 경우 선택한 애플리케이션에 액세스하거나, MFA와 같은 강력한 인증을 제공합니다. 응급 계정과 핵심 관리자는 여기서 제외됩니다.
 
-**CA 완화 정책 설정:**
+**CA 완화 정책 세트:**
 
 * 정책 1: 대상 그룹 외부의 사용자에 대한 액세스 차단
   * 사용자 및 그룹: 모든 사용자 포함, AppUsers, CoreAdmins 및 EmergencyAccess 제외
@@ -137,7 +137,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 다음 예제를 참조하세요. **예제 A - 중요 업무용 공동 작업 앱에 대한 액세스를 복원하는 대응 CA 정책**은 일반적인 회사 대응 정책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
 
-**예 A-업무용 공동 작업 앱 액세스를 복원 하려면 대체 CA 정책:**
+**예제 A - 중요 업무용 공동 작업 앱에 대한 액세스를 복원하는 대응 CA 정책:**
 
 * 정책 1: Exchange 및 SharePoint에 대한 도메인 조인 디바이스 필요
   * 이름: EM001 - 응급 상황에서 사용: MFA 중단[1/4] - Exchange SharePoint - 하이브리드 Azure AD 조인 필요
@@ -179,7 +179,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 **예제 B - Salesforce에 대한 모바일 액세스를 허용하는 대응 CA 정책** 예제에서는 비즈니스 앱의 액세스가 복원됩니다. 이 시나리오에서 고객은 일반적으로 판매 직원이 모바일 디바이스에서 Salesforce(Azure AD를 통한 Single Sign-On으로 구성됨)에 액세스하여 규정 준수 디바이스에서만 허용되도록 요구합니다. 이 경우 중단이 발생하면 디바이스의 규정 준수를 평가하는 데 문제가 있으며, 판매 팀이 거래를 성사시키기 위해 Salesforce에 액세스해야 하는 중요한 시점에 중단이 발생하는 것입니다. 이러한 대응 정책을 통해 중요한 사용자는 모바일 디바이스에서 Salesforce에 액세스할 수 있으므로 거래를 계속 성사시키고 비즈니스를 중단하지 않을 수 있습니다. 이 예제에서 **SalesforceContingency**에는 액세스를 유지해야 하는 모든 판매 직원이 포함되며, **SalesAdmins**에는 Salesforce의 필수 관리자가 포함됩니다.
 
-**예 B-대체 CA 정책:**
+**예제 B - 대응 CA 정책:**
 
 * 정책 1: SalesContingency 팀에 속하지 않은 모든 사용자 차단
   * 이름: EM001 - 응급 상황에서 사용: 디바이스 규정 준수 중단[1/2]- Salesforce - SalesforceContingency를 제외한 모든 사용자 차단
@@ -262,11 +262,11 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 ## <a name="learn-more"></a>자세한 정보
 
 * [Azure AD 인증 설명서](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
-* [Azure AD에서 응급 액세스 관리 계정의 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+* [Azure AD에서 응급 액세스 관리 계정 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Azure Active Directory의 명명된 위치 구성](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Windows Hello for Business 배포 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
-  * [암호 지침-Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+* [하이브리드 Azure Active Directory 조인 디바이스를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+* [비즈니스용 Windows Hello 배포 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+  * [암호 지침 - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Azure Active Directory 조건부 액세스의 조건이란?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Azure Active Directory 조건부 액세스의 액세스 제어란?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

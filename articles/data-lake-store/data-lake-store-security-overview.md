@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883305"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
@@ -111,6 +111,6 @@ Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake 
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
-* [데이터 레이크 저장소 Gen1 시작](data-lake-store-get-started-portal.md)
-* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 

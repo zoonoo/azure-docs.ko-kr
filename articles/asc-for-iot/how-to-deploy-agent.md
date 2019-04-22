@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862423"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>선택 하 고 IoT 장치의 보안 에이전트 배포
 
 > [!IMPORTANT]
-> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 IoT 용 azure Security Center (ASC) 모니터링 하 고 IoT 장치에서 데이터를 수집 하는 보안 에이전트에 대 한 참조 아키텍처를 제공 합니다.

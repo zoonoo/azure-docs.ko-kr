@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878726"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드 계획 및 배포 검사 목록 
@@ -60,8 +60,8 @@ ms.locfileid: "58878726"
         2.  동일한 영역 내의 고가용성의 경우, Azure에서 원하는 DBMS가 제공해야 하는 기능을 확인합니다. 대부분의 DBMS는 프로덕션 시스템에서 권장되는 동기화 방법인 동기 상시 대기를 제공합니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) 및 관련 문서부터 시작해서 다양한 데이터베이스에 대한 SAP 관련 설명서를 확인하세요.
             1.  SQL Server에 대해 [여기](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017)에서 설명된 것처럼, DBMS 계층의 공유 디스크 구성에서 Windows 장애 조치(Failover) 클러스터 서비스를 사용하는 것은 지원되지 **않습니다**. 대신, 다음과 같은 솔루션을 사용할 수 있습니다.
                 1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
-                2.  [Oracle 데이터 가드](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
-                3.  [HANA 시스템 복제](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
+                2.  [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+                3.  [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  여러 Azure 지역 간에 재해 복구의 경우, 다른 DBMS 공급업체가 제공하는 가능한 기능을 확인합니다. 대부분은 비동기 복제 또는 로그 전달을 지원합니다.
         4.  SAP 애플리케이션 계층의 경우, 동일한 Azure 지역 또는 DR 지역에 있는 프로덕션 배포의 복제본인 비즈니스 재발 테스트 시스템을 실행할지 여부를 정의합니다. 후자의 경우, 해당 비즈니스 재발 시스템을 프로덕션의 DR 대상으로 지정할 수 있습니다.
         5.  DR 사이트에 비프로덕션 시스템을 배치하지 않으려면 SAP 애플리케이션 계층을 Azure DR 지역에 복제하는 실행 가능한 방법으로 Azure Site Recovery를 검토합니다. [다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)도 참조하세요. 
@@ -72,13 +72,13 @@ ms.locfileid: "58878726"
     2.  Azure 내 네트워크 토폴로지 및 다른 SAP 시스템의 할당
     3.  Azure의 인프라 및 SAP 애플리케이션을 관리하는 다른 팀을 위한 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 구조
     3.  리소스 그룹 토폴로지 
-    4.  [태그 전략](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
+    4.  [태그 지정 전략](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
     5.  VM 및 기타 인프라 구성 요소 및/또는 논리적 이름에 대한 명명 규칙
 5.  Microsoft 프리미어 지원 계약 – MS TAM(기술 담당 관리자)을 식별합니다. SAP의 지원 요구 사항에 대해서는 SAP 지원 참고 [#2015553](https://launchpad.support.sap.com/#/notes/2015553)을 읽어보세요. 
 6.  Azure 구독의 수 및 다른 구독의 코어 할당량을 정의합니다. 필요에 따라 [지원 요청을 열어 Azure 구독 할당량을 늘립니다](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). 
 7.  SAP 데이터를 Azure로 마이그레이션하기 위한 데이터 감소 및 데이터 마이그레이션 계획. SAP NetWeaver 시스템의 경우 SAP는 많은 수의 데이터 볼륨을 제한하는 방법에 대한 지침을 제공합니다. SAP는 SAP ERP 시스템의 데이터 관리에 대해 [이 심층 가이드](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF)를 발표했습니다. 그러나 일부 콘텐츠는 일반적으로 NetWeaver 및 S/4HANA 시스템에 적용됩니다.
 8.  자동화된 배포 방법을 정의하고 결정합니다. Azure의 인프라 배포 이면에서 사용되는 자동화의 목표는 결정적 방식으로 배포하고 결정적 결과를 얻는 것입니다. 많은 고객이 Powershell 또는 CLI 기반 스크립트를 사용합니다. 하지만 SAP용 Azure 인프라를 배포하고 SAP 소프트웨어를 설치하는 데 사용할 수 있는 다양한 오픈 소스 기술이 있습니다. GitHub에서 예제를 찾을 수 있습니다.
-    1.  [Azure Cloud에서 자동화 된 SAP 배포](https://github.com/Azure/sap-hana)
+    1.  [Azure Cloud의 자동화된 SAP 배포](https://github.com/Azure/sap-hana)
     2.  [SAP HANA 설치](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  고객, 시스템 통합업체, Microsoft 및 기타 관련 당사자 간의 정기적인 디자인 및 배포 검토 케이던스를 정의합니다.
 

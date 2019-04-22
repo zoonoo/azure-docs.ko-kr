@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884723"
 ---
 # <a name="deploy-multiple-guest-executables"></a>여러 개의 게스트 실행 파일 배포
@@ -29,8 +29,8 @@ ms.locfileid: "58884723"
 Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 애플리케이션 패키지를 생성할 수 있습니다. [Visual Studio를 사용하여 기존 애플리케이션 패키징](service-fabric-deploy-existing-app.md)을 참조하세요. 첫 번째 게스트 실행 파일을 추가한 후 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가-&gt;새 Service Fabric 서비스**를 선택하여 솔루션에 두 번째 게스트 실행 프로젝트를 추가합니다. 참고: Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 애플리케이션 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다. 
 
 ## <a name="samples"></a>샘플
-* [패키징 및 게스트 실행 파일 배포에 대 한 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [두 게스트 실행 파일의 샘플 (C# 및 nodejs) REST를 사용 하 여 이름 지정 서비스를 통해 통신](https://github.com/Azure-Samples/service-fabric-containers)
+* [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>수동으로 여러 게스트 실행 애플리케이션 패키징
 또는 실행 게스트를 수동으로 패키징할 수 있습니다. 수동 패키징의 경우 이 문서에서는 [https://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool)에서 제공되는 Service Fabric 패키징 도구를 사용합니다.
@@ -73,7 +73,7 @@ Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 애플
 * **/target** : 패키지를 만들 디렉터리를 정의합니다. 이 디렉터리는 원본 디렉터리와 달라야 합니다.
 * **/appname** : 기존 애플리케이션의 애플리케이션 이름을 정의합니다. 이 이름은 매니페스트에서 Service Fabric 애플리케이션 이름이 아니라 서비스 이름으로 변환된다는 점을 이해하는 것이 중요합니다.
 * **/exe**: Service Fabric이 시작할 실행 파일을 정의합니다. 이 예에서는 `node.exe`입니다.
-* **/ma** : 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다.  `/ma:'bin/www'` 패키징 도구를 사용 하 여 지시 `bin/www` node.exe의 인수로 합니다.
+* **/ma** : 실행 파일을 시작하는 데 사용되는 인수를 정의합니다. Node.js가 설치되지 않았기 때문에 서비스 패브릭에서 `node.exe bin/www`를 실행하여 Node.js 웹 서버를 시작해야 합니다.  `/ma:'bin/www'`는 패키징 도구에 `bin/www`를 node.exe의 인수로 사용하도록 지시합니다.
 * **/AppType**: Service Fabric 애플리케이션 형식 이름을 정의합니다.
 
 /target 매개 변수에서 지정한 디렉터리로 이동하면 다음과 같이 도구가 완벽하게 작동하는 서비스 패브릭 패키지를 만든 것을 볼 수 있습니다.
@@ -217,5 +217,5 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 및 컨테이너 개요](service-fabric-containers-overview.md)에서 컨테이너 배포 방법을 알아봅니다.
-* [패키징 및 게스트 실행 파일 배포에 대 한 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [두 게스트 실행 파일의 샘플 (C# 및 nodejs) REST를 사용 하 여 이름 지정 서비스를 통해 통신](https://github.com/Azure-Samples/service-fabric-containers)
+* [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)

@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862712"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
 
 > [!IMPORTANT]
-> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 IoT 가격 책정 모델에 대 한 Azure 보안 센터 (ASC)에 대해 설명, 모든 관련 된 비용 요약 및 관리 하는 방법에 설명 합니다.
@@ -85,6 +85,6 @@ IoT 용 ASC에 두 가지 유형의 관련된 비용을 직접 가격의 일부�
 ## <a name="see-also"></a>참고 항목
 
 - 액세스에 [원시 보안 데이터](how-to-security-data-access.md)
-- [디바이스 조사](how-to-investigate-device.md)
+- [장치를 조사 합니다.](how-to-investigate-device.md)
 - 이해 및 탐색 [보안 권장 사항](concept-recommendations.md)
 - 이해 및 탐색 [보안 경고](concept-security-alerts.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
 ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879695"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
@@ -137,5 +137,5 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
 
 Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
 
-* [IoT Hub (빠른 시작)를 사용 하 여 시작](quickstart-send-telemetry-dotnet.md)
+* [IoT Hub 시작(빠른 시작)](quickstart-send-telemetry-dotnet.md)
 * [Azure IoT Hub란?](about-iot-hub.md)

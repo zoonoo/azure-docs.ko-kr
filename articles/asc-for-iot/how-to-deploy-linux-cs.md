@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862105"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>IoT 용 Azure Security Center를 배포할 C#-Linux에 대 한 보안 에이전트 기반
 
 > [!IMPORTANT]
-> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 가이드에서는 설치 및 IoT에 대 한 Azure 보안 센터 (ASC)를 배포 하는 방법을 설명 C#-Linux에서 보안 에이전트를 기반으로 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "58862105"
 
 1. 패키지의 콘텐츠를 추출하고 _/Install_ 폴더로 이동합니다.
 
-1. 에 실행 권한을 추가 합니다 **InstallSecurityAgent 스크립트** 실행 하 여 `chmod +x InstallSecurityAgent.sh` 
+1. `chmod +x InstallSecurityAgent.sh`를 실행하여 **InstallSecurityAgent 스크립트**에 실행 권한을 추가합니다. 
 
 1. 다음으로, 다음을 실행합니다. 
 
@@ -75,7 +75,7 @@ ms.locfileid: "58862105"
 - 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 
 
-추가 도움말을 보려면 -help 매개 변수를 사용하여 스크립트를 실행합니다. `./InstallSecurityAgent.sh --help`
+추가 도움말을 보려면 -help 매개 변수를 사용하여 스크립트를 실행합니다(`./InstallSecurityAgent.sh --help`).
 
 ### <a name="uninstall-the-agent"></a>에이전트 제거
 
@@ -118,7 +118,7 @@ ms.locfileid: "58862105"
 
    1. 오류에 대한 자세한 내용을 확인하려면 로그 파일을 살펴봅니다.  
 
-       로그 파일 위치는: `/var/ASCIoTAgent/IotAgentLog.log`
+       로그 파일 위치는 `/var/ASCIoTAgent/IotAgentLog.log`입니다.
 
        2단계에서 **logFilePath**에 대해 선택한 이름에 따라 파일 위치 경로를 변경합니다. 
 

@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>자습서: Azure Active Directory와 Workpath 통합
@@ -58,13 +58,13 @@ Workpath와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 ## <a name="adding-workpath-from-the-gallery"></a>갤러리에서 Workpath 추가
 Workpath의 Azure AD 통합을 구성하려면 갤러리의 Workpath를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 Workpath를 추가 하려면 다음 단계를 수행 합니다.**
+**갤러리에서 Workpath를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![애플리케이션][2]
     
@@ -99,7 +99,7 @@ Workpath에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Workpath 애플리케이션에서 Single Sign-On을 구성합니다.
 
-**Workpath와 Azure AD에서 single sign-on 구성 하려면 다음 단계를 수행 합니다.**
+**Workpath에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal의 **Workpath** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
@@ -113,9 +113,9 @@ Workpath에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On](./media/workpath-tutorial/tutorial_workpath_url.png)
 
-    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. **식별자** 텍스트 상자에서 `https://api.workpath.com/v1/saml/metadata/<instancename>` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://api.workpath.com/v1/saml/assert/<instancename>`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://api.workpath.com/v1/saml/assert/<instancename>`
 
 1. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
@@ -175,7 +175,7 @@ Workpath에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ![Azure AD 사용자 만들기][100]
 
-**Azure ad에서 테스트 사용자를 만들려면 다음 단계를 수행 합니다.**
+**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
 1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -212,7 +212,7 @@ Workpath는 사용자 프로비전 시간에만 지원합니다. 인증 후 사�
 
 ![사용자 할당][200] 
 
-**Britta Simon을 Workpath에 할당 하려면 다음 단계를 수행 합니다.**
+**Britta Simon을 Workpath에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
@@ -246,7 +246,7 @@ Workpath는 사용자 프로비전 시간에만 지원합니다. 인증 후 사�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

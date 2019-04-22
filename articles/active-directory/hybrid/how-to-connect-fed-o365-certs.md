@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883448"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
@@ -96,7 +96,7 @@ AD FS에서 구성된 인증서 및 지정된 도메인에 대한 Azure AD 트�
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3단계: 인증서가 곧 만료되는지 확인
 Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서 "이후가 아님" 아래에 있는 날짜를 확인합니다. 날짜가 30일 이내인 경우 조치를 취해야 합니다.
 
-| AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 조치 |
+| AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 액션(Action) |
 |:---:|:---:|:---:|:---:|:---:|
 | 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
 | 예 |아닙니다. |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
@@ -112,9 +112,9 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 
 다음을 확인하여 인증서를 자동으로 업데이트할 수 있는지 확인합니다.
 
-**1. AD FS 속성 AutoCertificateRollover를 True로 설정 되어야 합니다.** 이는 기존 항목이 만료되기 전에 AD FS가 자동으로 새 토큰 서명 및 토큰 암호 해독 인증서를 생성함을 의미합니다.
+**1. AD FS 속성 AutoCertificateRollover를 True로 설정해야 합니다.** 이는 기존 항목이 만료되기 전에 AD FS가 자동으로 새 토큰 서명 및 토큰 암호 해독 인증서를 생성함을 의미합니다.
 
-**2. AD FS 페더레이션 메타 데이터는 공개적으로 액세스할 수 있습니다.**  공용 인터넷(회사 네트워크 외부)에 있는 컴퓨터에서 다음 URL로 이동하여 공개적으로 페더레이션 메타 데이터에 액세스할 수 있는지 확인합니다.
+**2. AD FS 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다.**  공용 인터넷(회사 네트워크 외부)에 있는 컴퓨터에서 다음 URL로 이동하여 공개적으로 페더레이션 메타 데이터에 액세스할 수 있는지 확인합니다.
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
@@ -134,7 +134,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 **AutoCertificateRollover**가 **False**로 설정된 AD FS의 기본이 아닌 구성을 사용하는 경우 사용자 지정 인증서(자체 서명되지 않음)을 사용할 가능성이 높습니다. AD FS 토큰 서명 인증서를 갱신하는 방법에 대한 포괄적인 지침은 [AD FS 자체 서명된 인증서를 사용하지 않는 고객에 대한 지침](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert)을 참고하세요.
 
-**페더레이션 메타 데이터를 공개적으로 사용할 수 없습니다.**
+**페더레이션 메타데이터를 공개적으로 사용할 수 없습니다.**
 
 반면에 **AutoCertificateRollover**가 **True**로 설정되었지만 페더레이션 메타데이터가 공개적으로 액세스할 수 없는 경우 먼저 AD FS에서 새 토큰 서명 인증서를 생성했는지를 확인합니다. 다음 단계를 수행하여 새 토큰 서명 인증서를 확인합니다.
 

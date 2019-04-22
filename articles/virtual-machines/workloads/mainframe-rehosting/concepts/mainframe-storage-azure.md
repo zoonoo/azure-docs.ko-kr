@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
 ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896347"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>메인프레임 저장소를 Azure로 이동
@@ -107,15 +107,15 @@ Blob 저장소는 Azure에서 가장 큰 볼륨의 저장소를 제공합니다.
 - [메인프레임 마이그레이션](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [메인프레임 재호스팅 Azure Virtual Machines에서](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [메인프레임 계산을 Azure로 이동](mainframe-compute-Azure.md)
-- [Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
+- [Azure Blob, Azure Files 또는 Azure Disks를 사용 하는 경우 결정](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
 - [Azure VM 워크 로드에 대 한 표준 SSD Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
 
 ### <a name="ibm-resources"></a>IBM 리소스
 
 - [IBM Z에 병렬 Sysplex](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
 - [IBM CICS 및 결합 기능: 향상 된 기능](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Db2 pureScale 기능 설치에 대 한 필수 사용자 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt-인스턴스 명령 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [Db2 pureScale 기능 설치에 대한 필수 사용자 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt - 인스턴스 명령 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 - [Db2 pureScale 클러스터형 데이터베이스 솔루션](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
@@ -126,6 +126,6 @@ Blob 저장소는 Azure에서 가장 큰 볼륨의 저장소를 제공합니다.
 
 ### <a name="more-migration-resources"></a>추가 마이그레이션 리소스
 
-- [Alliance을 현대화 하는 플랫폼: Azure에서 IBM Db2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
-- [Azure 가상 데이터 센터 클라우드로 리프트 앤 시프트 가이드](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Platform Modernization Alliance: Azure에서 IBM Db2](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+- [Azure Virtual Data Center 리프트 앤 시프트 가이드](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

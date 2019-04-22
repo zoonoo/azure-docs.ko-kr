@@ -13,10 +13,10 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877809"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
@@ -68,7 +68,7 @@ Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만�
 1. **Maven 프로젝트** 도구 모음을 엽니다.
 1. **수명 주기**를 확장하고 **패키지**를 엽니다. 새로 만든 대상 디렉터리에 솔루션이 빌드 및 패키징됩니다.
 1. **플러그 인** > **azure-functions**를 확장하고 **azure-functions:run**을 열어 Azure Functions 로컬 런타임을 시작합니다.  
-  ![Azure Functions에 대 한 maven 도구 모음](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![Azure Functions에 대한 Maven 도구 모음](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. 함수 테스트를 완료했으면 실행 대화 상자를 닫습니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.
 

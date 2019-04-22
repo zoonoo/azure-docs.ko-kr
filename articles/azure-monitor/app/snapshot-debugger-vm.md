@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877741"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서.NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
@@ -77,7 +77,7 @@ ms.locfileid: "58877741"
 
 3. 애플리케이션의 `Startup` 클래스를 수정하여 스냅숏 수집기의 원격 분석 프로세서를 추가하고 구성합니다.
 
-    다음 코드를 추가 하는 문을 사용 하 여 `Startup.cs`
+    명령문을 사용하여 다음 항목을 `Startup.cs`에 추가합니다.
 
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;

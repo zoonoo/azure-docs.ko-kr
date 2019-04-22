@@ -15,10 +15,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862865"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
@@ -146,7 +146,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **WebSudo를 사용하지 않으려는 경우(보안 관리자 세션 해제)**:
 
-  * Jira의 경우 보안 관리자 세션(즉, 관리 기능에 액세스하기 전에 암호 확인)이 기본적으로 사용됩니다. Jira 인스턴스에서이 기능을 제거 하려는 경우 jira-config.properties 파일에서 다음 줄을 지정 합니다. `ira.websudo.is.disabled = true`
+  * Jira의 경우 보안 관리자 세션(즉, 관리 기능에 액세스하기 전에 암호 확인)이 기본적으로 사용됩니다. Jira 인스턴스에서 이 기능을 제거하려는 경우 jira-config.properties 파일에서 다음 줄을 지정합니다. `ira.websudo.is.disabled = true`
 
   * Confluence의 경우 [Confluence 지원 사이트](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)의 단계를 따릅니다.
 

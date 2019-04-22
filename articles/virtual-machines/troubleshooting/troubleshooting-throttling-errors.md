@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
 ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880715"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
@@ -79,8 +79,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API 호출 속도 및 제한 오류 분석기
 문제 해결 기능의 미리 보기 버전은 Compute 리소스 공급자의 API에 대해 사용 가능합니다. 이러한 PowerShell cmdlet은 작업당 시간 간격당 API 요청률 및 작업 그룹(정책)당 제한 위반에 대한 통계를 제공합니다.
--   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-   [내보내기-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [내보내기-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 API 호출 통계는 구독의 클라이언트 동작에 대한 유용한 인사이트를 제공하고 제한을 발생시키는 호출 패턴을 쉽게 식별할 수 있습니다.
 

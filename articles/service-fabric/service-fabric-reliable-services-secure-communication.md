@@ -15,16 +15,16 @@ ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
 ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886270"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
-> * [C#Windows에서](service-fabric-reliable-services-secure-communication.md)
-> * [Java on Linux](service-fabric-reliable-services-secure-communication-java.md)
+> * [Windows에서 C#](service-fabric-reliable-services-secure-communication.md)
+> * [Linux에서 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 

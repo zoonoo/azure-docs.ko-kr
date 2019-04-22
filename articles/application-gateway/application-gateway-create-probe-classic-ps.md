@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861882"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -150,7 +150,7 @@ Get-AzureApplicationGateway AppGwTest
 
 |매개 변수|설명|
 |---|---|
-|**name** |사용자 지정 프로브에 대한 참조 이름입니다. |
+|**Name** |사용자 지정 프로브에 대한 참조 이름입니다. |
 | **프로토콜** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
 | **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예를 들어, 웹 사이트 http을 사용 하는 경우:\//contoso.com/, 다음 사용자 지정 프로브를 구성할 수 있습니다 "http:\//contoso.com/path/custompath.htm" 프로브를 성공적으로 HTTP에 응답을 검사 합니다.|
 | **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|

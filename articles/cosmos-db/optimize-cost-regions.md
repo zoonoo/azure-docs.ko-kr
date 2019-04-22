@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876743"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 여러 지역 비용 최적화
 
 언제든지 Azure Cosmos 계정에서 지역을 추가 및 제거할 수 있습니다. 다양한 Azure Cosmos 데이터베이스 및 컨테이너에 대해 구성하는 처리량은 계정과 연결된 각 지역에 예약됩니다. Azure Cosmos 계정의 모든 데이터베이스 및 컨테이너에서 구성된 RU/초의 합계인 시간당 프로비전된 처리량이 `T`이고, 데이터베이스 계정과 연결된 Azure 지역의 수가 `N`이면 지정된 시간에 대해 Cosmos 계정의 총 프로비전된 처리량은 다음과 같습니다.
 
-1. `T x N RU/s` Azure Cosmos 계정의 단일 쓰기 지역으로 구성 됩니다 하는 경우. 
+1. Azure Cosmos 계정의 단일 쓰기 지역으로 구성된 경우 `T x N RU/s` 
 
-1. `T x (N+1) RU/s` 경우에 Azure Cosmos 계정 쓰기를 처리할 수 있는 모든 지역으로 구성 됩니다. 
+1. Azure Cosmos 계정이 쓰기를 처리할 수 있는 모든 지역으로 구성된 경우 `T x (N+1) RU/s` 
 
 단일 쓰기 지역으로 프로비전된 처리량 비용은 100RU당 $0.008/시간이며, 여러 쓰기 가능 지역으로 프로비전된 처리량 비용은 100RU당 $0.016/시간입니다. 자세한 내용은 Azure Cosmos DB [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
@@ -31,7 +31,7 @@ ms.locfileid: "58876743"
 
 처리량 10KRU/s로 프로비전된 컨테이너가 미국 서부에 있고 이번 달에 1TB 데이터를 저장한다고 가정합니다. 각각 스토리지와 처리량이 동일한 3개 지역(미국 동부, 북유럽 및 동아시아)을 추가하고, 전역 분산형 앱에서 모든 지역의 컨테이너에 쓰려고 한다고 가정합니다. 총 월간 청구 금액은 다음과 같습니다(1개월은 31일로 가정).
 
-|**항목**|**사용량 (월별)**|**비용**|**월간 비용**|
+|**항목**|**사용량(월간)**|**비용**|**월간 비용**|
 |----|----|----|----|
 |미국 서부의 컨테이너에 대한 처리량 청구(다중 쓰기 지역) |10K RU/s * 24 * 31 |100RU당 $0.016/시간 |$1,190.40 |
 |3개 추가 지역인 미국 동부, 북유럽 및 동아시아에 대한 처리량 청구(다중 쓰기 지역) |(3 + 1) * 10K RU/s * 24 * 31 |100RU당 $0.016/시간 |$4,761.60 |

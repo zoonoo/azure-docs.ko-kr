@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862780"
 ---
 # <a name="tutorial-configure-security-agents"></a>자습서: 보안 에이전트 구성
 
 > [!IMPORTANT]
-> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 IoT 보안 에이전트에 대 한 Azure 보안 센터 (ASC) 설명 ASC IoT 보안 에이전트에 대 한 구성으로 변경 하는 방법입니다.
@@ -120,18 +120,18 @@ IoT 보안 에이전트에 대 한 각 ASC의 에이전트 구성 개체의 desi
 
 |이벤트 이름| PropertyName | 기본값| 스냅숏 이벤트| 세부 정보 상태  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|진단 이벤트|eventPriorityDiagnostic| 꺼짐| False| 에이전트 관련 진단 이벤트입니다. 이 이벤트를 사용 하 여 자세한 정보 로깅에 대 한 합니다.| 
-|구성 오류 |eventPriorityConfigurationError |낮음 |False |에이전트는 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.| 
+|진단 이벤트|eventPriorityDiagnostic| 꺼짐| 거짓| 에이전트 관련 진단 이벤트입니다. 이 이벤트를 사용 하 여 자세한 정보 로깅에 대 한 합니다.| 
+|구성 오류 |eventPriorityConfigurationError |낮음 |거짓 |에이전트는 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.| 
 |삭제 된 이벤트 통계 |eventPriorityDroppedEventsStatistics |낮음 |True |에이전트 관련 이벤트 통계. |
 |메시지 통계|eventPriorityMessageStatistics |낮음 |True  |에이전트 관련 메시지 통계입니다. |
 |연결 된 하드웨어|eventPriorityConnectedHardware |낮음 |True  |스냅숏의 모든 하드웨어 장치에 연결 합니다.|
 |수신 대기 포트|eventPriorityListeningPorts |높음 |True  |장치에서 열려 있는 모든 수신 포트의 스냅숏.|
-|프로세스 만들기 |eventPriorityProcessCreate |낮음 |False |감사 프로세스는 장치에서 생성 합니다.|
-|프로세스 종료|eventPriorityProcessTerminate |낮음 |False |감사는 장치에서 종료를 처리합니다.| 
+|프로세스 만들기 |eventPriorityProcessCreate |낮음 |거짓 |감사 프로세스는 장치에서 생성 합니다.|
+|프로세스 종료|eventPriorityProcessTerminate |낮음 |거짓 |감사는 장치에서 종료를 처리합니다.| 
 |시스템 정보 |eventPrioritySystemInformation |낮음 |True  |스냅숏으로 시스템 정보 (예: OS 또는 CPU)입니다.| 
 |로컬 사용자| eventPriorityLocalUsers |높음 |True |시스템 내에서 등록 된 로컬 사용자는 스냅숏. |
-|로그인|  eventPriorityLogin |높음|False|장치 (로컬 및 원격 로그인)에 로그인 이벤트를 감사 합니다.|
-|연결 만들기 |eventPriorityConnectionCreate|낮음|False|장치에서 만들어지고 TCP 연결을 감사 합니다. |
+|로그인|  eventPriorityLogin |높음|거짓|장치 (로컬 및 원격 로그인)에 로그인 이벤트를 감사 합니다.|
+|연결 만들기 |eventPriorityConnectionCreate|낮음|거짓|장치에서 만들어지고 TCP 연결을 감사 합니다. |
 |방화벽 구성| eventPriorityFirewallConfiguration|낮음|True |장치 방화벽 구성 (방화벽 규칙)의 스냅숏. |
 |OS 기준| eventPriorityOSBaseline| 낮음|True |장치 OS 기준의 스냅숏을 확인 합니다.|
  
@@ -140,4 +140,4 @@ IoT 보안 에이전트에 대 한 각 ASC의 에이전트 구성 개체의 desi
 
 - [ASC IoT 권장 사항에 대 한 이해](concept-recommendations.md)
 - [ASC IoT 경고에 대 한 탐색](concept-security-alerts.md)
-- [원시 보안 데이터 액세스](how-to-security-data-access.md)
+- [원시 보안 데이터에 액세스](how-to-security-data-access.md)

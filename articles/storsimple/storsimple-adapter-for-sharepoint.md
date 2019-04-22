@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885590"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
@@ -59,7 +59,7 @@ RBS를 구성하기 전에 다음을 검토합니다.
 
 * 콘텐츠의 총 크기가(콘텐츠 데이터베이스 크기와 연결되고 구체화된 BLOB의 크기를 더한 크기) SharePoint에서 지원하는 RBS 크기 제한을 초과하지 않도록 합니다. 이 제한은 200GB입니다. 
   
-    **측정값 콘텐츠 데이터베이스 및 BLOB 크기**
+    **콘텐츠 데이터베이스 및 BLOB 크기를 측정하려면**
   
   1. 중앙 관리 WFE에서 이 쿼리를 실행합니다. SharePoint 관리 셸을 시작하고 다음 Windows PowerShell 명령을 입력하여 콘텐츠 데이터베이스의 크기를 가져옵니다.
      
@@ -84,7 +84,7 @@ RBS를 구성하기 전에 다음을 검토합니다.
 * StorSimple 디바이스에 콘텐츠 데이터베이스를 저장하지 않는 경우 RBS를 지원하는 기존의 SQL Server 고가용성 모범 사례를 사용합니다. SQL Server 미러링이 지원하지 않는 반면 SQL Server 클러스터링은 RBS를 지원합니다. 
 
 > [!WARNING]
-> RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 디바이스로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
+> RBS를 사용하도록 설정하지 않은 경우 콘텐츠 데이터베이스를 StorSimple 디바이스로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
 
 ## <a name="storsimple-adapter-for-sharepoint-installation"></a>SharePoint 설치용 StorSimple 어댑터
 SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 디바이스를 구성해야 하고 SharePoint 서버 팜 및 SQL Server 인스턴스화가 필수 구성 요소를 충족하는지 확인합니다. 이 자습서에서는 SharePoint용 StorSimple 어댑터 설치 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다.

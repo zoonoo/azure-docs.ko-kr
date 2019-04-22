@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880647"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
@@ -29,7 +29,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하는
 사용자 지정 정책 설정에서 가장 일반적인 오류는 형식이 잘못 지정된 XML입니다. 좋은 XML 편집기가 거의 필수입니다. 좋은 XML 편집기는 XML을 기본적으로 표시하고, 콘텐츠를 색상으로 구분하며, 일반적인 용어를 미리 채우고, XML 요소를 인덱싱된 상태로 유지하며, 스키마로 유효성을 검사할 수 있습니다. 다음은 권장되는 두 XML 편집기입니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [메모장 + +](https://notepad-plus-plus.org/)
+* [메모장++](https://notepad-plus-plus.org/)
 
 XML 파일을 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다. 시작 팩의 루트 폴더에서 XML 스키마 정의 TrustFrameworkPolicy_0.3.0.0.xsd를 가져옵니다. 자세한 내용을 보려면 XML 편집기 문서에서 *XML 도구* 및 *XML 유효성 검사*를 찾습니다.
 
@@ -44,7 +44,7 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 오류 코드 조각: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * ClaimType 값의 철자가 틀렸거나 ClaimType 값이 스키마에 없습니다.
 * ClaimType 값이 정책 파일 중 하나 이상에 정의되어 있어야 합니다. 
-    예를 들면 다음과 같습니다. `<ClaimType Id="socialIdpUserId">`
+    예: `<ClaimType Id="socialIdpUserId">`
 * ClaimType이 확장 파일에 정의되어 있지만 기본 파일의 TechnicalProfile 값에도 사용된 경우 기본 파일을 업로드하면 오류가 발생합니다.
 
 오류 코드 조각: `...makes a reference to a ClaimsTransformation with id...`
@@ -66,11 +66,11 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 ## <a name="recommended-practices"></a>권장 사례
 
-**여러 버전의 시나리오를 유지 합니다. 응용 프로그램을 사용 하 여 프로젝트에 그룹화 합니다.** 기본, 확장 및 신뢰 당사자 파일은 서로 직접 종속됩니다. 그룹으로 저장합니다. 새로운 기능이 정책에 추가되면 별도 작업 버전을 유지합니다. 상호 작용하는 애플리케이션 코드를 사용하여 사용자 고유의 파일 시스템에 작업 버전을 준비합니다.  애플리케이션은 테넌트의 여러 다른 신뢰 당사자 정책을 호출할 수 있습니다. Azure AD B2C 정책에서 예상하는 클레임에 종속될 수도 있습니다.
+**여러 버전의 시나리오를 유지하고 애플리케이션과 함께 프로젝트에 그룹화합니다.** 기본, 확장 및 신뢰 당사자 파일은 서로 직접 종속됩니다. 그룹으로 저장합니다. 새로운 기능이 정책에 추가되면 별도 작업 버전을 유지합니다. 상호 작용하는 애플리케이션 코드를 사용하여 사용자 고유의 파일 시스템에 작업 버전을 준비합니다.  애플리케이션은 테넌트의 여러 다른 신뢰 당사자 정책을 호출할 수 있습니다. Azure AD B2C 정책에서 예상하는 클레임에 종속될 수도 있습니다.
 
-**개발 하 고 알려진된 사용자 경험을 사용 하 여 기술 프로필을 테스트 합니다.** 테스트된 시작 팩 정책을 사용하여 기술 프로파일을 설정합니다. 고유한 사용자 환경에 통합하기 전에 개별적으로 테스트합니다.
+**알려진 사용자 환경으로 기술 프로필을 개발 및 테스트합니다.** 테스트된 시작 팩 정책을 사용하여 기술 프로파일을 설정합니다. 고유한 사용자 환경에 통합하기 전에 개별적으로 테스트합니다.
 
-**개발 및 테스트 된 기술 프로필로 사용자 경험을 테스트 합니다.** 사용자 환경의 오케스트레이션 단계를 증분 방식으로 변경합니다. 의도한 시나리오를 점진적으로 작성합니다.
+**테스트된 기술 프로필을 통해 사용자 환경을 개발 및 테스트합니다.** 사용자 환경의 오케스트레이션 단계를 증분 방식으로 변경합니다. 의도한 시나리오를 점진적으로 작성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

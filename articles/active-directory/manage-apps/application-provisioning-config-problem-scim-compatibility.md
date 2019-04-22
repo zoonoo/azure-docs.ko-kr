@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880154"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
@@ -35,7 +35,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 ## <a name="scim-20-compliance-issues-and-status"></a>SCIM 2.0 준수 문제 및 상태
 
-| **SCIM 2.0 규정 준수 문제** |  **고정?** | **수정 날짜**  |  
+| **SCIM 2.0 준수 문제** |  **수정?** | **수정 날짜**  |  
 |---|---|---|
 | Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예  |  2018년 12월 18일 | 
 | 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | 
@@ -112,5 +112,5 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 
 
 ## <a name="next-steps"></a>다음 단계
-[프로 비전 및 프로 비전 해제가 SaaS 응용 프로그램에 자세히 알아보기](user-provisioning.md)
+[SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 구성에 대해 자세히 알아보기](user-provisioning.md)
 

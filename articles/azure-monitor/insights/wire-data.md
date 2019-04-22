@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882075"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 실시간 데이터 2.0 (미리 보기) 솔루션
@@ -187,7 +187,7 @@ Windows 또는 Linux 컴퓨터는 서비스에 직접 연결할 수 없으면, L
 Windows를 실행하는 각 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
 1. [사용자 환경에서 호스트되는 Windows 컴퓨터에서 데이터 수집](../../azure-monitor/platform/agent-windows.md)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
-2. 이전 섹션의 링크를 사용 하 여 Windows 종속성 에이전트를 다운로드 하 고 다음 명령을 사용 하 여 실행 합니다. `InstallDependencyAgent-Windows.exe`
+2. 이전 섹션의 링크를 사용하여 Windows 종속성 에이전트를 다운로드한 후 다음 명령을 사용하여 실행합니다. `InstallDependencyAgent-Windows.exe`
 3. 마법사에 따라 에이전트를 설치합니다.
 4. 종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 %Programfiles%\Microsoft Dependency Agent\logs입니다.
 
@@ -230,7 +230,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 종속성 에이전트에 대한 파일은 다음 디렉터리에 있습니다.
 
-| **파일** | **위치** |
+| **파일** | **위치**: |
 | --- | --- |
 | 코어 파일 | /opt/microsoft/dependency-agent |
 | 로그 파일 | /var/opt/microsoft/dependency-agent/log |
@@ -421,4 +421,4 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로그를 검색](../../azure-monitor/log-query/log-query-overview.md) 하여 자세한 실시간 데이터 검색 레코드를 볼 수 있습니다.
+- [로그를 검색](../../azure-monitor/log-query/log-query-overview.md)하여 자세한 실시간 데이터 검색 레코드를 볼 수 있습니다.

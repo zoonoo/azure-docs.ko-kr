@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883567"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
@@ -111,10 +111,10 @@ ms.locfileid: "58883567"
 
 4. HDInsight 클러스터를 만들고 구성 중 Azure Virtual Network를 선택합니다. 클러스터 만들기 프로세스를 이해하려면 다음 문서의 단계를 사용하세요.
 
-    * [Azure portal을 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)
-    * [Azure PowerShell을 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [클래식 Azure CLI를 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-    * [Azure Resource Manager 템플릿을 사용 하 여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+    * [Azure Portal을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Azure PowerShell을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+    * [Azure 클래식 CLI를 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Azure Resource Manager 템플릿을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
    > [!IMPORTANT]  
    > 가상 네트워크에 HDInsight 추가하기는 선택적 구성 단계입니다. 클러스터를 구성할 때 가상 네트워크를 선택해야 합니다.
@@ -284,12 +284,12 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
     | &nbsp; | 중국 동부 | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | 인바운드 |
     | &nbsp; | 중국 북부 2 | 40.73.37.141</br>40.73.38.172 | 443 | 인바운드 |
     | &nbsp; | 중국 동부 2 | 139.217.227.106</br>139.217.228.187 | 443 | 인바운드 |
-    | 유럽 | 북유럽 | 52.164.210.96</br>13.74.153.132 | 443 | 인바운드 |
+    | 유럽 | 유럽 북부 | 52.164.210.96</br>13.74.153.132 | 443 | 인바운드 |
     | &nbsp; | 서유럽| 52.166.243.90</br>52.174.36.244 | 443 | 인바운드 |
     | 프랑스 | 프랑스 중부| 20.188.39.64</br>40.89.157.135 | 443 | 인바운드 |
     | 독일 | 독일 중부 | 51.4.146.68</br>51.4.146.80 | 443 | 인바운드 |
     | &nbsp; | 독일 북동부 | 51.5.150.132</br>51.5.144.101 | 443 | 인바운드 |
-    | 인도 | 인도 중부 | 52.172.153.209</br>52.172.152.49 | 443 | 인바운드 |
+    | 인도 | 중앙 인도 | 52.172.153.209</br>52.172.152.49 | 443 | 인바운드 |
     | &nbsp; | 인도 남부 | 104.211.223.67<br/>104.211.216.210 | 443 | 인바운드 |
     | 일본 | 일본 동부 | 13.78.125.90</br>13.78.89.60 | 443 | 인바운드 |
     | &nbsp; | 일본 서부 | 40.74.125.69</br>138.91.29.150 | 443 | 인바운드 |
@@ -328,7 +328,7 @@ UDR(사용자 정의 경로)을 사용 중인 경우 경로를 지정하고 “�
 
 다음 리소스 관리 템플릿은 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 만듭니다. 또한 이 템플릿은 가상 네트워크에 HDInsight 클러스터를 만듭니다.
 
-* [보안된 Azure Virtual Network 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [보안 Azure Virtual Network 및 HDInsight Hadoop 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
 > 이 예제에 사용된 IP 주소를 사용 중인 Azure 지역에 맞게 변경합니다. 이 정보는 [네트워크 보안 그룹 및 사용자 정의 경로가 있는 HDInsight](#hdinsight-ip) 섹션에서 확인할 수 있습니다.
@@ -576,7 +576,7 @@ $vnet | Set-AzVirtualNetwork
     
     * `192.168.0.1` 값을 온-프레미스 DNS 서버의 IP 주소로 바꿉니다. 이 항목은 다른 모든 DNS 요청을 온-프레미스 DNS 서버에 라우팅합니다.
 
-3. 구성을 사용하려면 바인딩을 다시 시작합니다. 예: `sudo service bind9 restart`
+3. 구성을 사용하려면 바인딩을 다시 시작합니다. 예: `sudo service bind9 restart`.
 
 4. 온-프레미스 DNS 서버에 조건부 전달자를 추가합니다. 1단계에서 DNS 접미사에 대한 요청을 사용자 지정 DNS 서버에 보내도록 조건부 전달자를 구성합니다.
 

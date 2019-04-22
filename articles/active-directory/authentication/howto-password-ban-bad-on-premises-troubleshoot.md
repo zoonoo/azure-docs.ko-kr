@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863182"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 암호 보호 문제 해결
@@ -152,6 +152,6 @@ Azure AD 암호 보호 소프트웨어 및 정리를 모든 관련 된 상태에
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 암호 보호에 대 한 질문과 대답](howto-password-ban-bad-on-premises-faq.md)
+[Azure AD 암호 보호에 대한 질문과 대답](howto-password-ban-bad-on-premises-faq.md)
 
 전역 및 사용자 지정 금지된 암호 목록에 대한 자세한 내용은 [잘못된 암호 금지](concept-password-ban-bad.md) 문서 참조

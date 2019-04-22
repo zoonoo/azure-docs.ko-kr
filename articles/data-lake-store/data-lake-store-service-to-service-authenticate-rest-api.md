@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c48f7d7608b2b70f4ae41e2af5792cff72bb0dd2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885726"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
@@ -52,6 +52,6 @@ ms.locfileid: "58885726"
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 REST API를 사용하여 Data Lake Storage Gen1로 인증하는 서비스 간 인증을 사용하는 방법을 배웠습니다. 이제 다음 문서를 통해 REST API를 Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [REST API를 사용 하 여 데이터 레이크 저장소 Gen1에서 계정 관리 작업](data-lake-store-get-started-rest-api.md)
-* [REST API를 사용 하 여 데이터 레이크 저장소 Gen1에서 데이터 작업](data-lake-store-data-operations-rest-api.md)
+* [REST API를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-rest-api.md)
+* [REST API를 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-data-operations-rest-api.md)
 

@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862168"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>포털을 사용하여 Application Gateway에 대한 사용자 지정 프로브 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-probe-classic-ps.md)
 
@@ -51,12 +51,12 @@ Application Gateway 아직 없는 경우 방문 [Application Gateway 만들기](
 
    |**설정** | **값** | **세부 정보**|
    |---|---|---|
-   |**name**|customProbe|포털에서 액세스할 수 있는 프로브의 이름입니다.|
+   |**Name**|customProbe|포털에서 액세스할 수 있는 프로브의 이름입니다.|
    |**프로토콜**|HTTP 또는 HTTPS | 상태 프로브에서 사용하는 프로토콜입니다.|
    |**호스트**|예: contoso.com|프로브에 사용되는 호스트 이름입니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다릅니다.|
-   |**path**|/ 또는 다른 경로|사용자 지정 프로브의 전체 url 중 나머지 부분입니다. 유효한 경로는 '/'로 시작합니다. Http의 기본 경로:\//contoso.com 삼아 '/' |
-   |**간격 (초)**|30|상태를 확인하기 위해 프로브가 실행되는 주기입니다. 30초 이하 값을 설정하는 것은 권장되지 않습니다.|
-   |**제한 시간 (초)**|30|프로브에서 시간 초과되기 전에 대기하는 시간입니다. 시간 제한 간격은 http 호출이 백 엔드 상태 페이지를 사용하도록 설정할 수 있을만큼 충분히 높아야 합니다.|
+   |**Path**|/ 또는 다른 경로|사용자 지정 프로브의 전체 url 중 나머지 부분입니다. 유효한 경로는 '/'로 시작합니다. Http의 기본 경로:\//contoso.com 삼아 '/' |
+   |**간격(초)**|30|상태를 확인하기 위해 프로브가 실행되는 주기입니다. 30초 이하 값을 설정하는 것은 권장되지 않습니다.|
+   |**시간 제한(초)**|30|프로브에서 시간 초과되기 전에 대기하는 시간입니다. 시간 제한 간격은 http 호출이 백 엔드 상태 페이지를 사용하도록 설정할 수 있을만큼 충분히 높아야 합니다.|
    |**비정상 임계값**|3|비정상으로 간주되는 실패한 시도 횟수입니다. 임계값이 0이면 상태 확인에 실패한 경우 백 엔드는 즉시 비정상인 것으로 결정됩니다.|
 
    > [!IMPORTANT]

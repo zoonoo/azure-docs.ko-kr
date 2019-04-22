@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877587"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
@@ -432,13 +432,13 @@ a. 디바이스를 허용 목록에 추가되었는지를 확인하려면 다음
 | &nbsp; |`iscsiadm –m session –s <sessionid> -P 3` |iSCSI 세션 및 호스트에서 검색된 볼륨의 상태 확인 |
 | &nbsp; |`iscsi –m session` |호스트와 StorSimple 디바이스 간에 설정된 모든 iSCSI 세션 표시 |
 |  | | |
-| **다중 경로** |`service multipathd start` |다중 경로 디먼 시작 |
+| **다중 경로 지정** |`service multipathd start` |다중 경로 디먼 시작 |
 | &nbsp; |`service multipathd stop` |다중 경로 디먼 중지 |
 | &nbsp; |`service multipathd restart` |다중 경로 디먼 다시 시작 |
 | &nbsp; |`chkconfig multipathd on` </br> 또는 </br> `mpathconf –with_chkconfig y` |부팅 시 시작되도록 다중 경로 디먼 설정 |
 | &nbsp; |`multipathd –k` |문제 해결을 위한 대화형 콘솔 시작 |
 | &nbsp; |`multipath –l` |다중 경로 연결 및 디바이스 나열 |
-| &nbsp; |`mpathconf --enable` |샘플 mulitpath.conf 파일 만들기 `/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` | `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>다음 단계

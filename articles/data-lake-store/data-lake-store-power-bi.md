@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880069"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Power BI를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석
@@ -97,5 +97,5 @@ ms.locfileid: "58880069"
 Power BI Desktop에서 시각화를 만들고 나면, Power BI 서비스에 게시하여 다른 사람들과 공유할 수 있습니다. 수행하는 방법에 대한 지침은 [Power BI Desktop에서 게시](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [Data Lake Analytics를 사용 하 여 데이터 레이크 저장소 Gen1에서 데이터를 분석 합니다.](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake Analytics를 사용한 Data Lake Storage Gen1의 데이터 분석](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

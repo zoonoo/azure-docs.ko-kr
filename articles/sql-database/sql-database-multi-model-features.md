@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892469"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database의 다중 모델 기능
@@ -140,7 +140,7 @@ CREATE TABLE Collection (
 ## <a name="next-steps"></a>다음 단계
 Azure SQL Database의 다중 모델 기능도 Azure SQL Database와 SQL Server 간에 공유되는 핵심 SQL Server 데이터베이스 엔진 기능입니다. 이러한 기능에 대한 자세한 내용을 보려면 SQL 관계형 데이터베이스 설명서 페이지를 방문하세요.
 
-* [그래프 처리](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [그래프 처리 중](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [JSON 데이터](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
 * [공간 지원](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [XML 데이터](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

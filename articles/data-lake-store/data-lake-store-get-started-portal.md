@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883584"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
@@ -46,7 +46,7 @@ Azure Portal을 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 �
    * **이름**. Data Lake Storage Gen1 계정의 고유한 이름을 입력합니다.
    * **구독**. 새 Data Lake Storage Gen1 계정을 만들려는 구독을 선택합니다.
    * **리소스 그룹**. 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 리소스 그룹을 만듭니다. 리소스 그룹은 애플리케이션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure의 리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)을 참조하세요.
-   * **위치**: Data Lake Storage Gen1 계정을 만들려는 위치를 선택합니다.
+   * **Location**: Data Lake Storage Gen1 계정을 만들려는 위치를 선택합니다.
    * **암호화 설정**. 세 개의 옵션이 있습니다.
      
      * **암호화를 활성화하지 않습니다**.
@@ -123,8 +123,8 @@ Data Lake Storage Gen1 계정을 삭제하려면 Data Lake Storage Gen1 블레�
 ![Data Lake Storage Gen1 계정 삭제](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Data Lake 계정 삭제")
 
 ## <a name="next-steps"></a>다음 단계
-* [빅 데이터 요구 사항에 대 한 사용 하 여 Azure 데이터 레이크 저장소 Gen1](data-lake-store-data-scenarios.md) 
-* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics를 사용 하 여 Data Lake Storage Gen1를 사용 하 여](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight를 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용](data-lake-store-data-scenarios.md) 
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 

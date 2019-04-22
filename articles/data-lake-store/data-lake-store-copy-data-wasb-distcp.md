@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884468"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Distcp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen1 간에 데이터 복사
@@ -26,7 +26,7 @@ ms.locfileid: "58884468"
 >
 >
 
-Azure Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터가 있는 경우 Distcp와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 스토리지(WASB)에서 **보내고 받는** 데이터를 Data Lake Storage Gen1 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
+Azure Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터가 있는 경우 Distcp와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 저장소(WASB)에서 **보내고 받는** 데이터를 Data Lake Storage Gen1 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -68,7 +68,7 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
 
 Distcp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사본 수를 설정하는 것이 Data Lake Storage Gen1에서 Distcp를 최적화하는 가장 중요한 매개 변수입니다. 동시 복사의 수는 명령줄에서 매퍼 수(‘m’) 매개 변수를 설정하여 제어합니다. 이 매개 변수는 데이터를 복사하는 데 사용되는 최대 매퍼 수를 지정합니다. 기본값은 20입니다.
 
-**예**
+**예제**
 
     hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
 
@@ -82,7 +82,7 @@ Distcp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
-**예**
+**예제**
 
 클러스터에 4개의 D14v2 노드가 있고 10개의 다른 폴더에서 10TB의 데이터를 전송하려고 한다고 가정해보겠습니다. 각 폴더에는 다양한 크기의 데이터가 포함되어 있고 각 폴더 내의 파일 크기가 서로 다릅니다.
 
@@ -111,7 +111,7 @@ Distcp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 * Azure Blob Storage 계정에서 복사하는 경우 Blob Storage 쪽에서 복사 작업이 제한될 수도 있습니다. 따라서 복사 작업의 성능이 저하됩니다. Azure Blob Storage의 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한](../azure-subscription-service-limits.md)에서 Azure Storage 제한을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [Azure Storage Blob에서 Data Lake 저장소 Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
-* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics를 사용 하 여 Data Lake Storage Gen1를 사용 하 여](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight를 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

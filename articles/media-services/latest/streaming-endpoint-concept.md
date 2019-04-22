@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881021"
 ---
 # <a name="streaming-endpoints"></a>스트리밍 엔드포인트
@@ -29,9 +29,9 @@ Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https:/
 
 ## <a name="naming-convention"></a>명명 규칙
 
-기본 끝점: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+기본 엔드포인트: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
-모든 추가 끝점: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+추가 엔드포인트: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
 ## <a name="types"></a>형식  
 
@@ -42,13 +42,13 @@ Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https:/
 |type|배율 단위|설명|
 |--------|--------|--------|  
 |**표준 스트리밍 엔드포인트**(권장)|0|기본 스트리밍 끝점은는 **표준** 하지만 프리미엄 유형으로 변경할 수 있습니다.<br/> 표준 형식에는 거의 모든 스트리밍 시나리오 및 대상 크기에 대 한 권장 되는 옵션입니다. **표준** 유형은 아웃바운드 대역폭을 자동으로 확장합니다. 이 유형의 스트리밍 끝점에서 처리량이 최대 600mbps입니다. CDN에 캐시할 비디오 조각을 스트리밍 끝점 대역폭을 사용 하지 마십시오.<br/>요구 사항이 매우 까다로운 고객을 위해, Media Services는 가장 규모가 큰 인터넷 대상 사용자를 위해 용량을 스케일 아웃할 수 있는 **프리미엄** 스트리밍 엔드포인트를 제공합니다. 큰 대상 그룹 및 동시 시청자를 예상 하는 경우에 문의 amsstreaming\@이동 해야 하는지 여부에 대 한 지침은 microsoft.com 합니다 **Premium** 형식입니다. |
-|**프리미엄 스트리밍 끝점**|>0|**프리미엄** 스트리밍 엔드포인트는 고급 워크로드에 적합하며, 확장성 있는 전용 대역폭 용량을 제공합니다. `scaleUnits`를 조정하여 **프리미엄** 유형으로 이동합니다. `scaleUnits` 200mbps 단위로 구입할 수 있는 전용된 송신 용량을 제공 합니다. **프리미엄** 유형을 사용할 경우 설정된 각 단위가 애플리케이션에 대한 추가 대역폭 용량을 제공합니다. |
+|**프리미엄 스트리밍 엔드포인트**|>0|**프리미엄** 스트리밍 엔드포인트는 고급 워크로드에 적합하며, 확장성 있는 전용 대역폭 용량을 제공합니다. `scaleUnits`를 조정하여 **프리미엄** 유형으로 이동합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용할 경우 설정된 각 단위가 애플리케이션에 대한 추가 대역폭 용량을 제공합니다. |
  
 ## <a name="comparing-streaming-types"></a>스트리밍 유형 비교
 
 ### <a name="features"></a>기능
 
-기능|Standard|프리미엄
+기능|Standard|Premium
 ---|---|---
 처음 15일 무료| 예 |아닙니다.
 처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용하여 크기를 조정합니다.
@@ -77,8 +77,8 @@ IP 필터링 G20/사용자 지정 호스트 <sup>1</sup>|예|예
   - 반환된 된 결과 확인 한 `HTTP Error Code 412` (PreconditionFailed) "스트리밍 끝점 CdnEnabled 속성 설정할 수 없습니다 true로 현재 지역에서 CDN 기능을 사용할 수 없는." 메시지와 함께 
 
     이 오류가 발생하면 데이터 센터가 통합을 지원하지 않는 것입니다. 다른 데이터 센터를 시도해보세요.
-- `cdnProfile` - `cdnEnabled` 로 설정 된 true 전달할 수도 있습니다 `cdnProfile` 값입니다. `cdnProfile` CDN 끝점 지점 만들어지는 CDN 프로필의 이름이입니다. 기존 cdnProfile을 제공하거나 새로 만들 수 있습니다. 값이 NULL이고 `cdnEnabled`가 true이면 기본값 “AzureMediaStreamingPlatformCdnProfile”이 사용됩니다. 제공된 `cdnProfile`이 이미 있으면 그 아래에 엔드포인트가 생성됩니다. 프로필이 없으면 새 프로필을 자동으로 생성 됩니다.
-- `cdnProvider` -전달할 수도 있습니다 CDN을 사용 하는 경우 `cdnProvider` 값입니다. `cdnProvider` 공급자가 사용 될 제어 합니다. 현재 "StandardVerizon", "PremiumVerizon" 및 "StandardAkamai"의 세 값이 지원됩니다. 값이 제공 되지 경우 및 `cdnEnabled` 가 true 이면 "StandardVerizon" (즉, 기본값) 사용 됩니다.
+- `cdnProfile` - `cdnEnabled` 로 설정 된 true 전달할 수도 있습니다 `cdnProfile` 값입니다. `cdnProfile`은 CDN 엔드포인트가 생성되는 CDN 프로필의 이름입니다. 기존 cdnProfile을 제공하거나 새로 만들 수 있습니다. 값이 NULL이고 `cdnEnabled`가 true이면 기본값 “AzureMediaStreamingPlatformCdnProfile”이 사용됩니다. 제공된 `cdnProfile`이 이미 있으면 그 아래에 엔드포인트가 생성됩니다. 프로필이 없으면 새 프로필을 자동으로 생성 됩니다.
+- `cdnProvider` -전달할 수도 있습니다 CDN을 사용 하는 경우 `cdnProvider` 값입니다. `cdnProvider`는 사용할 공급자를 제어합니다. 현재 "StandardVerizon", "PremiumVerizon" 및 "StandardAkamai"의 세 값이 지원됩니다. 값이 제공 되지 경우 및 `cdnEnabled` 가 true 이면 "StandardVerizon" (즉, 기본값) 사용 됩니다.
 - `crossSiteAccessPolicies` -다양 한 클라이언트에 대 한 사이트 간 액세스 정책을 지정 하는 데 사용 합니다. 자세한 내용은 [도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) 및 [여러 도메인 간에 서비스를 사용하도록 지정](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)을 참조하세요.<br/>만을 부드러운 스트리밍으로 적용 됩니다.
 - `customHostNames` -사용자 지정 호스트 이름에 전달 하는 트래픽을 허용 하도록 스트리밍 끝점을 구성 하는 데 사용 합니다.  이 속성이 표준 및 프리미엄 스트리밍 끝점에 대 한 유효 하 고 설정할 수 있습니다 `cdnEnabled`: false.
     

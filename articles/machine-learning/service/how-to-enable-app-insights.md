@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885505"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Application Insights를 사용하여 Azure Machine Learning 모델 모니터링
@@ -85,15 +85,15 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 
 1. **배포** 탭에서 Application Insights를 사용하도록 설정하려는 서비스를 선택합니다.
 
-   [![L배포 탭에서 서비스의 ist](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![배포 탭의 서비스 목록](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. **편집**을 선택합니다.
 
-   [![Edit 단추](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![편집 단추](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. **고급 설정**에서 **AppInsights 진단 사용** 확인란을 선택합니다.
 
-   [![S선택 된 확인란 진단을 사용 하도록 설정 하는 것에 대 한](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![진단을 사용하도록 설정하기 위한 확인란을 선택함](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. 화면 맨 아래에서 **업데이트**를 선택하여 변경 내용을 적용합니다. 
 
@@ -101,11 +101,11 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 엽니다.
 1. **배포**를 선택하고 서비스를 선택한 후 **편집**을 선택합니다.
 
-   [![U편집 단추 se](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![편집 단추 사용](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. **고급 설정**에서 **AppInsights 진단 사용** 확인란을 선택 취소합니다. 
 
-   [![C진단을 사용 하도록 설정 하는 것에 대 한 확인 상자를 알아본](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![진단을 사용하도록 설정하기 위한 확인란을 선택 취소함](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. 화면 맨 아래에서 **업데이트**를 선택하여 변경 내용을 적용합니다. 
  
@@ -119,12 +119,12 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 
 1. **개요** 탭을 선택하면 서비스에 대한 기본 메트릭 집합이 표시됩니다.
 
-   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![개요](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. 사용자 지정 추적을 살펴보려면 **분석**을 선택합니다.
 4. 스키마 섹션에서 **추적**을 선택합니다. 그런 후 **실행**을 선택하여 쿼리를 실행합니다. 데이터가 테이블 형식으로 표시되며 점수 매기기 파일에서 사용자 지정 호출로 매핑되어야 합니다. 
 
-   [![C사용자 지정 추적](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![사용자 지정 추적](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights란?](../../azure-monitor/app/app-insights-overview.md)을 참조하세요.
     

@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f2228726d4edc25efe46a660d25d398959c3ea59
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58851808"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017을 사용 하 여 개발 하 고 Azure IoT Edge (미리 보기)에 대 한 모듈 디버그
@@ -36,7 +36,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다.
 
-이 문서에서는 Visual Studio 2017을 기본 개발 도구로 사용하기 때문에 Visual Studio를 설치해야 합니다. 포함 되어 있는지 확인 합니다 **Azure 개발** 하 고 **c + +를 사용한 데스크톱 개발** Visual Studio 2017 설치에서 워크 로드. 할 수 있습니다 [Visual Studio 2017 수정](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) 필요한 워크 로드를 추가 합니다.
+이 문서에서는 Visual Studio 2017을 기본 개발 도구로 사용하기 때문에 Visual Studio를 설치해야 합니다. 포함 되어 있는지 확인 합니다 **Azure 개발** 하 고 **를 사용한 데스크톱 개발 C++**  Visual Studio 2017 설치에서 워크 로드. 할 수 있습니다 [Visual Studio 2017 수정](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) 필요한 워크 로드를 추가 합니다.
 
 Visual Studio 2017이 준비되면 다음 도구와 구성 요소도 필요합니다.
 

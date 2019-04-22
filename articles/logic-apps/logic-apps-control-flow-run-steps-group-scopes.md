@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882415"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위가 지정된 그룹 상태에 따라 작업 실행
@@ -79,20 +79,20 @@ ms.locfileid: "58882415"
 
       | 설정 | 값 | 설명 |
       | ------- | ----- | ----------- |
-      | **이동 경로 1** | <*start*> | 경로의 출발지를 입력합니다. | 
-      | **이동 경로 2** | <*end*> | 경로의 도착지를 입력합니다. | 
-      | **하지 말아야 할 일** | 없음 | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목을 입력합니다. 가능한 값은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요. | 
-      | **최적화** | timeWithTraffic | 거리, 현재 교통 정보와 관련된 시간 등 경로를 최적화하기 위한 매개 변수를 선택합니다. 이 예에서는 "timeWithTraffic" 값을 사용합니다. | 
-      | **거리 단위** | <*원하는 단위*> | 경로를 계산하기 위한 거리 단위를 입력합니다. 이 예제에서는이 값을 사용합니다. "마일" | 
-      | **여행 모드** | Driving | 경로에 대한 이동 모드를 입력합니다. 이 예에서는 "운전" 값을 사용합니다. | 
-      | **전송 날짜-시간** | 없음 | 대중교통 모드에만 적용됩니다. | 
-      | **전송 날짜 형식** | 없음 | 대중교통 모드에만 적용됩니다. | 
+      | **Waypoint 1** | <*start*> | 경로의 출발지를 입력합니다. | 
+      | **Waypoint 2** | <*end*> | 경로의 도착지를 입력합니다. | 
+      | **Avoid** | 없음 | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목을 입력합니다. 가능한 값은 [경로 계산](https://msdn.microsoft.com/library/ff701717.aspx)을 참조하세요. | 
+      | **Optimize** | timeWithTraffic | 거리, 현재 교통 정보와 관련된 시간 등 경로를 최적화하기 위한 매개 변수를 선택합니다. 이 예에서는 "timeWithTraffic" 값을 사용합니다. | 
+      | **Distance unit** | <*원하는 단위*> | 경로를 계산하기 위한 거리 단위를 입력합니다. 이 예제에서는이 값을 사용합니다. "마일" | 
+      | **Travel mode** | Driving | 경로에 대한 이동 모드를 입력합니다. 이 예에서는 "운전" 값을 사용합니다. | 
+      | **Transit Date-Time** | 없음 | 대중교통 모드에만 적용됩니다. | 
+      | **Transit Date-Type Type** | 없음 | 대중교통 모드에만 적용됩니다. | 
       ||||  
 
 1. 운행과 관련된 현재 이동 시간이 지정된 시간을 초과하는지 확인하는 [조건을 추가](../logic-apps/logic-apps-control-flow-conditional-statement.md)합니다. 
    이 예제에서는 다음 단계를 따릅니다.
 
-   1. 이 설명이 포함 되도록 조건을 이름을 바꿉니다. **트래픽 시간 지정 된 시간 보다 큰 경우**
+   1. 이 설명이 포함되도록 조건 이름을 바꿉니다. **트래픽 시간 지정 된 시간 보다 큰 경우**
 
    1. 맨 왼쪽 열에서 **값 선택** 상자 내부를 클릭하면 동적 콘텐츠 목록이 표시됩니다. 이 목록에서 초 단위의 **운행 기간 트래픽** 필드를 선택합니다. 
 
@@ -151,7 +151,7 @@ ms.locfileid: "58882415"
   
        이제 **본문** 필드가 다음 예와 같습니다.
 
-       !["본문" 필드 완성](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![완성 된 "본문" 필드](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. 논리 앱을 저장합니다.
@@ -183,7 +183,7 @@ ms.locfileid: "58882415"
 
    ![추가된 범위](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. 범위 아래에서 범위의 상태를 확인하는 조건을 추가합니다. 이 설명이 포함 되도록 조건을 이름을 바꿉니다. **범위가 실패 한 경우**
+1. 범위 아래에서 범위의 상태를 확인하는 조건을 추가합니다. 이 설명이 포함되도록 조건 이름을 바꿉니다. **범위가 실패 한 경우**
 
    ![범위 상태를 확인하는 조건 추가](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
@@ -397,7 +397,7 @@ ms.locfileid: "58882415"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [(조건문) 조건에 따라 단계 실행](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [다른 값 (switch 문)에 따라 단계 실행](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [실행 단계를 반복 (루프)](../logic-apps/logic-apps-control-flow-loops.md)
-* [실행 또는 병렬 단계 (분기)를 병합 합니다.](../logic-apps/logic-apps-control-flow-branches.md)
+* [조건에 따라 단계 실행(조건문)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [다른 값에 따라 단계 실행(switch 문)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [단계 실행 및 반복(루프)](../logic-apps/logic-apps-control-flow-loops.md)
+* [병렬 단계 실행 및 병합(분기)](../logic-apps/logic-apps-control-flow-branches.md)

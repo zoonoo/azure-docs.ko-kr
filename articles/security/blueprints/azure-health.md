@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885947"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 ## <a name="overview"></a>개요
 
-**Azure 보안 및 규정 준수 청사진-HIPAA/HITRUST 의료 데이터 및 AI를 수집, 저장, 분석, identity, 상호 작용 하는 방법을 설명 하 고 안전 하 게 하는 동안 상태 데이터를 사용 하 여 솔루션을 배포 하는 Azure PaaS 및 IaaS 솔루션의 턴키 배포 제공 업계 규정 준수 요구 사항에 맞게 수 있다는입니다. 청사진에 클라우드 채택 및 규제 되는 데이터를 사용 하 여 고객에 대 한 사용률을 가속화 하는 데 도움이 됩니다.**
+**Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 및 IaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족함과 동시에 의료 데이터가 포함된 솔루션을 수집/저장/분석/상호 작용/식별하고 안전하게 배포하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
 
 Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 종단 간 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 
 
@@ -46,7 +46,7 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 - 자주 묻는 질문은 [FAQ](https://aka.ms/healthblueprintfaq) 가이드에서 찾을 수 있습니다.
 
--   **아키텍처 다이어그램입니다.** 청사진 및 사용 사례 예제 시나리오에 사용되는 참조 아키텍처를 보여 줍니다.
+-   **아키텍처 다이어그램**. 청사진 및 사용 사례 예제 시나리오에 사용되는 참조 아키텍처를 보여 줍니다.
 
 -   [IaaS 확장](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) 이 솔루션에서는 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하도록 하 고 안전 하 게 클라우드 기반 서비스 및 솔루션을 관리 하는 권한 있는 액세스 워크스테이션을 구현 하는 방법을 보여 줍니다. 
 
@@ -59,7 +59,7 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 -   **[고객 구현 매트릭스](https://aka.ms/healthcrmblueprint)** Microsoft Excel 통합 문서에는 관련 HITRUST 요구 사항이 나와 있으며, Microsoft와 고객이 각각의 HITRUST 요구 사항을 충족시키는 방법에 대해 설명합니다.
 
--   **[상태 검토입니다.](https://aka.ms/healthreviewpaper)** 이 솔루션은 Coalfire systems, Inc.에서 검토되었습니다. 상태 규정 준수(HIPAA 및 HITRUST) 검토 및 구현에 대한 지침은 이 솔루션에 대한 감사자 검토와, 블루프린트를 프로덕션 가능한 배포로 전환하기 위한 고려 사항을 제공합니다.
+-   **[상태 검토.](https://aka.ms/healthreviewpaper)** 이 솔루션은 Coalfire systems, Inc.에서 검토되었습니다. 상태 규정 준수(HIPAA 및 HITRUST) 검토 및 구현에 대한 지침은 이 솔루션에 대한 감사자 검토와, 블루프린트를 프로덕션 가능한 배포로 전환하기 위한 고려 사항을 제공합니다.
 
 ## <a name="architectural-diagram"></a>아키텍처 다이어그램
 
@@ -148,38 +148,38 @@ CMIO는 의료 조직의 정보학/기술과 의료 전문가 간의 격차를 �
 ### <a name="users-and-roles"></a>사용자 및 역할
 
 
-**사이트 관리자-Alex**
+**사이트 관리자 - Alex**
 
-*전자 메일: Alex\_SiteAdmin*
+*이메일: Alex\_SiteAdmin*
 
 Alex의 업무는 온-프레미스 네트워크를 관리하는 부담을 줄이고 관리 비용을 절감할 수 있는 기술을 평가하는 것입니다. Alex는 몇 시간 동안 Azure를 평가하고 있지만 환자 데이터를 클라우드에 저장하기 위해 HiTrust 규정 준수 요구 사항을 충족하는 데 필요한 서비스를 구성하기 위해 노력했습니다. Alex는 Azure 의료 AI를 선택하여 HiTrust에 대한 고객 요구 사항을 충족하기 위한 요구 사항을 해결한 규정 준수 준비 의료 솔루션을 배포했습니다.
 
-**데이터 과학자-Debra**
+**데이터 과학자 - Debra**
 
-*전자 메일: Debra\_DataScientist*
+*이메일: Debra\_DataScientist*
 
 Debra는 의료 레코드를 분석하여 환자 진료에 대한 정보를 제공하는 모델을 사용하고 만드는 업무를 담당하고 있습니다. Debra는 SQL 및 R 통계 프로그래밍 언어를 사용하여 모델을 만듭니다.
 
-**데이터베이스 분석가-Danny**
+**데이터베이스 분석가 - Danny**
 
-*전자 메일: Danny\_DBAnalyst*
+*이메일: Danny\_DBAnalyst*
 
 Danny는 Contosoclinic의 모든 환자 데이터를 저장하는 Microsoft SQL Server와 관련된 모든 항목에 대한 기본 연락처입니다. Danny는 최근에 Azure SQL Database에 익숙해진 숙련된 SQL Server 관리자입니다.
 
-**최고 의료 정보 책임자-Caroline**
+**CMIO - Caroline**
 
 Caroline은 Chris(진료 라인 관리자) 및 Debra(데이터 과학자)와 협력하여 환자의 체류 기간에 영향을 주는 요소를 결정합니다.
 Caroline은 LOS(체류 기간) 솔루션의 예측을 사용하여 리소스가 병원 네트워크에서 적절하게 할당되고 있는지 확인합니다. 예를 들어 이 솔루션에 제공된 대시보드를 사용합니다.
 
-**Care Line Manager -- Chris**
+**진료 라인 관리자 - Chris**
 
-*전자 메일: Chris\_CareLineManager*
+*이메일: Chris\_CareLineManager*
 
 Contosoclinic에서 환자의 입원과 퇴원을 직접 관리해야 하는 개인으로서 Chris는 LOS 솔루션에서 생성된 예측을 사용하여 환자가 시설에 체류하고 있는 동안 적절한 직원이 환자를 돌볼 수 있도록 합니다.
 
-**감사자-Han**
+**감사자 - Han**
 
-*전자 메일: Han\_감사자*
+*이메일: Han\_Auditor*
 
 Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자이며, Contosoclinc의 네트워크를 검토하기 위해 고용되었습니다. Han은 청사진 및 LOS 솔루션을 통해 중요한 개인 데이터를 저장, 처리 및 표시할 수 있도록 하기 위해 솔루션과 함께 제공된 고객 책임 매트릭스를 검토할 수 있습니다.
 
@@ -268,7 +268,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 **2. 새 환자 입원**
 
 데모 스크립트. .\\HealthcareDemo.ps1을 **BulkPatientadmission** 스위치와 함께 사용하는 경우 **데모 배포 및 실행**의 설명에 따라 다음 처리 파이프라인을 실행합니다. ![](images/securetransact.png)
-**1. Azure Function[이 트리거되고 함수에서 Azure Active 디렉터리의 ](/rest/api/)전달자 토큰을 요청합니다.
+**1. Azure Function**이 트리거되고 함수에서 Azure Active 디렉터리의 [전달자 토큰](/rest/api/)을 요청합니다.
 
 **2. Key Vault**에 요청한 토큰과 연결된 비밀을 요청합니다.
 
@@ -351,7 +351,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 ## <a name="security"></a>보안
 
 ### <a name="azure-security-center"></a>Azure Security Center
-- [Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙 집중식 보기를 제공합니다. 적절한 보안 제어가 준비되고 올바르게 구성되었는지와 주의가 필요한 리소스를 한눈에 빠르게 확인할 수 있습니다. 
+- [Azure Security Center](https://azure.microsoft.com/services/security-center/)는 모든 Azure 리소스의 보안 상태에 대한 중앙화된 보기를 제공합니다. 적절한 보안 제어가 준비되고 올바르게 구성되었는지와 주의가 필요한 리소스를 한눈에 빠르게 확인할 수 있습니다. 
 
 - [Azure Advisor](/azure/advisor/advisor-overview)는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: facbcd6def7451ca83bdf00fe9b7c7cac2c74945
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879950"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
@@ -29,28 +29,28 @@ ms.locfileid: "58879950"
 >EventStore API는 Azure에서 실행되는 Windows 클러스터에 대해서만 Service Fabric 버전 6.4로 일반 공급됩니다.
 
 EventStore API는 REST 엔드포인트를 통해 직접 액세스하거나 프로그래밍 방식으로 액세스할 수 있습니다. 쿼리에 따라 올바른 데이터를 수집하는 데 필요한 몇 가지 매개 변수가 있습니다. 이러한 매개 변수에는 일반적으로 다음이 포함됩니다.
-* `api-version`: 사용 중인 EventStore Api의 버전
-* `StartTimeUtc`: 살펴보려고는 기간의 시작 날짜를 정의 합니다.
+* `api-version`: 사용 중인 EventStore API 버전
+* `StartTimeUtc`: 관심 있는 기간의 시작을 정의합니다.
 * `EndTimeUtc`: 기간의 끝
 
 이러한 매개 변수 외에도 다음과 같은 선택적 매개 변수가 있습니다.
-* `timeout`: 요청 작업을 수행 하는 것에 대 한 기본 60 두 번째 제한 재정의
-* `eventstypesfilter`: 이렇게 하면 특정 이벤트 유형을 필터링 하는 옵션
-* `ExcludeAnalysisEvents`: '분석' 이벤트를 반환 하지 않습니다. 기본적으로 EventStore 쿼리는 가능한 경우 “분석” 이벤트와 함께 반환됩니다. 분석 이벤트는 일반적인 Service Fabric 이벤트 이외의 추가 컨텍스트 또는 정보를 포함하고 더 심층적으로 분석하는 다양한 운영 채널 이벤트입니다.
-* `SkipCorrelationLookup`: 클러스터에서 잠재적 상호 관련 된 이벤트에 대 한 보이지 않습니다. 기본적으로 EventStore는 클러스터 간의 이벤트를 상호 연결하려고 시도하고, 가능한 경우 이벤트를 함께 연결합니다. 
+* `timeout`: 요청 작업을 수행하기 위한 60초(기본값) 시간 제한을 재정의합니다.
+* `eventstypesfilter`: 특정 이벤트 유형을 필터링하는 옵션이 제공됩니다.
+* `ExcludeAnalysisEvents`: '분석' 이벤트를 반환하지 않습니다. 기본적으로 EventStore 쿼리는 가능한 경우 “분석” 이벤트와 함께 반환됩니다. 분석 이벤트는 일반적인 Service Fabric 이벤트 이외의 추가 컨텍스트 또는 정보를 포함하고 더 심층적으로 분석하는 다양한 운영 채널 이벤트입니다.
+* `SkipCorrelationLookup`: 클러스터에서 상호 연결된 잠재적 이벤트를 찾지 않습니다. 기본적으로 EventStore는 클러스터 간의 이벤트를 상호 연결하려고 시도하고, 가능한 경우 이벤트를 함께 연결합니다. 
 
 클러스터의 각 엔터티는 이벤트에 대한 쿼리가 될 수 있습니다. 또한 해당 유형의 모든 엔터티에 대한 이벤트를 쿼리할 수도 있습니다. 예를 들어 클러스터의 특정 노드 또는 모든 노드에 대한 이벤트를 쿼리할 수 있습니다. 이벤트를 쿼리할 수 있는 현재의 엔터티 집합은 쿼리를 구성하는 방법에 따라 다음과 같습니다.
 * 클러스터: `/EventsStore/Cluster/Events`
-* 노드: `/EventsStore/Nodes/Events`
-* 노드: `/EventsStore/Nodes/<NodeName>/$/Events`
-* 응용 프로그램: `/EventsStore/Applications/Events`
-* 응용 프로그램: `/EventsStore/Applications/<AppName>/$/Events`
-* 서비스: `/EventsStore/Services/Events`
-* 서비스: `/EventsStore/Services/<ServiceName>/$/Events`
-* 파티션: `/EventsStore/Partitions/Events`
-* 파티션: `/EventsStore/Partitions/<PartitionID>/$/Events`
-* 복제본: `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
-* 복제본: `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
+* 노드(전체): `/EventsStore/Nodes/Events`
+* 노드(특정): `/EventsStore/Nodes/<NodeName>/$/Events`
+* 애플리케이션(전체): `/EventsStore/Applications/Events`
+* 애플리케이션(특정): `/EventsStore/Applications/<AppName>/$/Events`
+* 서비스(전체): `/EventsStore/Services/Events`
+* 서비스(특정): `/EventsStore/Services/<ServiceName>/$/Events`
+* 파티션(전체): `/EventsStore/Partitions/Events`
+* 파티션(특정): `/EventsStore/Partitions/<PartitionID>/$/Events`
+* 복제본(전체): `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
+* 복제본(특정): `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
 
 >[!NOTE]
 >애플리케이션 또는 서비스 이름을 참조할 때 쿼리에 "fabric:/" 접두사가 포함될 필요가 없습니다. 또한 애플리케이션 또는 서비스 이름에 "/"가 있는 경우 쿼리를 계속 작동하려면 "~"로 전환합니다. 예를 들어 애플리케이션이 "fabric:/App1/FrontendApp"으로 표시되면 애플리케이션 특정 쿼리가 `/EventsStore/Applications/App1~FrontendApp/$/Events`로 구성됩니다.
@@ -121,8 +121,7 @@ Body:
 
 [Service Fabric 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)를 통해 EventStore를 프로그래밍 방식으로 쿼리할 수도 있습니다.
 
-설정 하 여 서비스 패브릭 클라이언트를 만든 후 다음과 같이 EventStore에 액세스 하 여 이벤트를 쿼리할 수 있습니다.
-`sfhttpClient.EventStore.<request>`
+Service Fabric 클라이언트가 설정되면 `sfhttpClient.EventStore.<request>`와 같이 EventStore에 액세스하여 이벤트를 쿼리할 수 있습니다.
 
 `GetClusterEventListAsync` 함수를 통해 `2018-04-03T18:00:00Z`과 `2018-04-04T18:00:00Z` 사이의 모든 클러스터 이벤트를 요청하는 예제는 다음과 같습니다.
 
@@ -181,40 +180,33 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 *클러스터 업그레이드:*
 
-마지막으로 클러스터를 만들었습니다. 또는 지난 주 업그레이드 시도 확인 하려면 EventStore에서 "ClusterUpgradeCompleted" 이벤트에 대 한 쿼리를 통해 클러스터에 최근에 완료 된 업그레이드에 대 한 Api를 쿼리할 수 있습니다.
-`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
+지난 주에 클러스터가 성공적으로 업그레이드되었거나 업그레이드를 시도한 가장 최근 시간을 확인하려면 EventStore에서 “ClusterUpgradeComplete” 이벤트를 쿼리하여 API를 통해 최근에 완료된 업그레이드를 클러스터에 쿼리할 수 있습니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
 
 *클러스터 업그레이드 문제:*
 
-마찬가지로 최근의 클러스터 업그레이드에 문제가 있는 경우 클러스터 엔터티에 대한 모든 이벤트를 쿼리할 수 있습니다. 업그레이드 시작 및 업그레이드가 성공적으로 수행된 각 UD를 포함한 다양한 이벤트가 표시됩니다. 또한 롤백이 시작된 지점에 대한 이벤트 및 해당 상태 이벤트도 표시됩니다. 사용이 쿼리는 다음과 같습니다.
-`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+마찬가지로 최근의 클러스터 업그레이드에 문제가 있는 경우 클러스터 엔터티에 대한 모든 이벤트를 쿼리할 수 있습니다. 업그레이드 시작 및 업그레이드가 성공적으로 수행된 각 UD를 포함한 다양한 이벤트가 표시됩니다. 또한 롤백이 시작된 지점에 대한 이벤트 및 해당 상태 이벤트도 표시됩니다. 여기에 사용할 쿼리는 다음과 같습니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *노드 상태 변경 내용:*
 
-지난 노드 상태 변경 확인 며칠-때 노드를 위 또는 아래로 오류가 발생 했습니다. 또는 된 활성화 또는 비활성화 (플랫폼, 카오스 서비스 또는 사용자 입력을 통해)-다음 쿼리를 사용 합니다.
-`https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+지난 며칠 동안 변경된 노드 상태, 즉 플랫폼, 카오스 서비스 또는 사용자 입력에 따라 노드가 위/아래로 이동하거나 활성화되거나 비활성화된 경우를 확인하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*응용 프로그램 이벤트:*
+*애플리케이션 이벤트:*
 
-최근의 애플리케이션 배포 및 업그레이드를 추적할 수도 있습니다. 다음 쿼리를 사용 하 여 클러스터의 모든 응용 프로그램 이벤트를 참조 하세요.
-`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+최근의 애플리케이션 배포 및 업그레이드를 추적할 수도 있습니다. 클러스터의 애플리케이션 이벤트를 모두 표시하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*응용 프로그램에 대 한 과거 상태:*
+*애플리케이션에 대한 과거 상태:*
 
 애플리케이션 수명 주기 이벤트만 보는 것 외에도, 특정 애플리케이션의 상태에 대한 기록 데이터를 볼 수도 있습니다. 이 작업은 데이터를 수집하려는 애플리케이션 이름을 지정하여 수행할 수 있습니다. 애플리케이션 상태 이벤트를 모두 가져오려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport` 만료되었을(TTL(Time to Live)이 경과된 경우) 수 있는 상태 이벤트를 포함하려면 쿼리의 끝에 `,ApplicationHealthReportExpired`를 추가하여 두 가지 유형의 이벤트를 필터링합니다.
 
-*"MyApp"의 모든 서비스에 대 한 과거 상태:*
+*"myApp"의 모든 서비스에 대한 과거 상태:*
 
-서비스에 대한 상태 보고서 이벤트는 현재 해당 애플리케이션 엔터티 아래에서 `DeployedServicePackageNewHealthReport` 이벤트로 표시됩니다. "App1"에 대 한 서비스 수행 방법을 보려면 다음 쿼리를 사용 하세요.
-`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+서비스에 대한 상태 보고서 이벤트는 현재 해당 애플리케이션 엔터티 아래에서 `DeployedServicePackageNewHealthReport` 이벤트로 표시됩니다. "App1"에 대한 서비스의 수행 방식을 확인하려면 다음 쿼리를 사용합니다. `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *파티션 재구성:*
 
-클러스터에서 발생한 모든 파티션 이동을 확인하려면 `PartitionReconfigured` 이벤트를 쿼리합니다. 이렇게 하면 클러스터의 문제를 진단할 때 특정 시간에 특정 노드에서 실행된 작업을 파악할 수 있습니다. 이 작업을 수행 하는 샘플 쿼리는 다음과 같습니다.
-`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
+클러스터에서 발생한 모든 파티션 이동을 확인하려면 `PartitionReconfigured` 이벤트를 쿼리합니다. 이렇게 하면 클러스터의 문제를 진단할 때 특정 시간에 특정 노드에서 실행된 작업을 파악할 수 있습니다. 이를 수행하는 쿼리 샘플은 다음과 같습니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
 
 *카오스 서비스:*
 
-클러스터 수준에서 노출되는 카오스 서비스가 시작되거나 중지된 경우에 대한 이벤트가 있습니다. 최근의 카오스 서비스 사용을 보려면 다음 쿼리를 사용 합니다.
-`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
+클러스터 수준에서 노출되는 카오스 서비스가 시작되거나 중지된 경우에 대한 이벤트가 있습니다. 최근의 카오스 서비스 사용을 확인하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891892"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
@@ -84,7 +84,7 @@ Azure Portal에 기본 제공된 함수 편집기를 사용하면 코드와 *fun
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.
 
-* [Azure 기능](https://github.com/Azure/Azure-Functions)
+* [Azure Functions](https://github.com/Azure/Azure-Functions)
 * [Azure Functions 호스트](https://github.com/Azure/azure-functions-host/)
 * [Azure Functions 포털](https://github.com/azure/azure-functions-ux)
 * [Azure Functions 템플릿](https://github.com/azure/azure-functions-templates)

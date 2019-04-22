@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878573"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
@@ -62,10 +62,10 @@ SAML 요청 NameIDPolicy에 대 한 요소를 포함 하지 않습니다, Azure 
 | NameID 형식 | 설명 |
 |---------------|-------------|
 | **기본값** | Azure AD 기본 소스 형식을 사용 합니다. |
-| **영구적** | Azure AD는 영구 NameID 형식으로 사용 합니다. |
+| **영구** | Azure AD는 영구 NameID 형식으로 사용 합니다. |
 | **EmailAddress** | NameID 형식으로 azure AD 전자 메일 주소를 사용 합니다. |
-| **지정되지 않음** | Azure AD는 지정 되지 않음 NameID 형식으로 사용 합니다. |
-| **임시** | Azure AD는 NameID 형식으로 일시적이 지를 사용 합니다. |
+| **지정 되지 않은** | Azure AD는 지정 되지 않음 NameID 형식으로 사용 합니다. |
+| **Transient** | Azure AD는 NameID 형식으로 일시적이 지를 사용 합니다. |
 
 NameIDPolicy 특성에 대 한 자세한 내용은 참조 하세요 [Single Sign On SAML 프로토콜](single-sign-on-saml-protocol.md)합니다.
 
@@ -131,6 +131,6 @@ NameIDPolicy 특성에 대 한 자세한 내용은 참조 하세요 [Single Sign
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD에서 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
-* [Azure AD 응용 프로그램 갤러리에 있지 않은 응용 프로그램에서 single sign on 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [SAML 기반 single sign on 문제 해결](howto-v1-debug-saml-sso-issues.md)
+* [Azure AD의 애플리케이션 관리](../manage-apps/what-is-application-management.md)
+* [Azure AD 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [SAML 기반 Single Sign-On 문제 해결](howto-v1-debug-saml-sso-issues.md)

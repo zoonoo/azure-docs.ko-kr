@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862916"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법 
 
 > [!IMPORTANT]
-> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 IoT Hub를 사용 하 여 인증 하려면 AzureIoTSecurity 에이전트를 사용 하 여 사용할 수 있습니다 다른 인증 방법을 설명 합니다.
@@ -63,8 +63,8 @@ ms.locfileid: "58862916"
 
 |매개 변수|설명|옵션|
 |---------|---------------|---------------|
-|**ID**|인증 모드| **모듈** 또는 **장치**|
-|**형식**|인증 유형|**SymmetricKey** 또는 **SelfSignedCertificate**|
+|**identity**|인증 모드| **모듈** 또는 **장치**|
+|**type**|인증 유형|**SymmetricKey** 또는 **SelfSignedCertificate**|
 |**filePath**|인증서 또는 대칭 키를 포함 하는 파일에 대 한 전체 경로 절대| |
 |**gatewayHostname**|IoT Hub의 FQDN|예제: ContosoIotHub.azure-devices.net|
 |**deviceId**|디바이스 ID|예제: MyDevice1|
@@ -114,4 +114,4 @@ ms.locfileid: "58862916"
 ## <a name="see-also"></a>참고 항목
 - [보안 에이전트 개요](security-agent-architecture.md)
 - [보안 에이전트 배포](how-to-deploy-agent.md)
-- [원시 보안 데이터 액세스](how-to-security-data-access.md)
+- [원시 보안 데이터에 액세스](how-to-security-data-access.md)

@@ -16,15 +16,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876925"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>문제 해결: Azure AD Connect 설치 문제
 
-## **<a name="recommended-steps"></a>권장되는 단계**
+## <a name="recommended-steps"></a>**권장되는 단계**
 적합한 [Azure AD Connect 설치 유형](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation)을 확인합니다. 기본 설치 조건을 충족하는 경우 기본 설치를 선택할 것을 강력하게 권장합니다. 기본 설치는 설치를 완료하는 데 필요한 최소한의 옵션만 제공하므로 문제가 발생할 가능성이 낮습니다. 
 
 그러나 기본 설치 기준을 충족하지 않아 사용자 지정 설치를 수행해야 하는 경우 여기서 제공하는 모범 사례를 따르면 일반적인 문제를 방지할 수 있습니다. 설명이 너무 길어지지 않도록 여기서는 몇 가지 옵션만 언급합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "58876925"
 
     ![AD 포리스트 계정](media/tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
 
-### **<a name="common-issues"></a>일반적인 문제**
+### <a name="common-issues"></a>**일반적인 문제**
 
 * [온-프레미스 Active Directory를 사용 하 여 연결 문제](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)합니다.
 
@@ -47,13 +47,13 @@ ms.locfileid: "58876925"
 
 * [온-프레미스 Active Directory를 통한 권한 문제](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account)합니다.
 
-## **<a name="recommended-documents"></a>권장되는 문서**
-* [Azure AD Connect에 대한 필수 조건](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
+## <a name="recommended-documents"></a>**권장되는 문서**
+* [Azure AD Connect에 대한 필수 구성 요소](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
 * [Azure AD Connect에 사용할 설치 유형 선택](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-select-installation)
 * [기본 설정을 사용하여 Azure AD Connect 시작](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-express)
 * [Azure AD Connect의 사용자 지정 설치](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)
-* [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)
-* [Azure AD Connect: 준비 서버는 무엇입니까?](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)
+* [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) 문서 참조).
+* [Azure AD Connect: 준비 서버란?](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)
 * [ADConnectivityTool PowerShell 모듈이란?](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-adconnectivitytools)
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883193"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 서비스에 대 한 작업 영역 만들기
@@ -165,7 +165,7 @@ ms.locfileid: "58883193"
 * Azure Storage 계정
 * Azure Key Vault
 * Azure Application Insights
-* Azure Container Registry
+* Azure 컨테이너 레지스트리
 * Azure Machine Learning 작업 영역
 
 리소스 그룹은 서비스를 보관하는 컨테이너입니다. Azure Machine Learning 작업 영역에는 다양한 서비스가 필요합니다.
@@ -182,11 +182,11 @@ ms.locfileid: "58883193"
 
 템플릿에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [Azure Resource Manager 템플릿 사용 하 여 응용 프로그램 배포](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure 리소스 관리자 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure Resource Manager 템플릿으로 애플리케이션 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices 리소스 종류](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 편집__ 화면이 표시되면 이 문서의 템플릿을 붙여넣습니다.
 1. __저장__을 선택하여 템플릿을 사용합니다. 다음 정보를 제공하고 나열된 사용 약관에 동의합니다.

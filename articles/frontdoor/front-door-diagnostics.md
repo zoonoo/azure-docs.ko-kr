@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862117"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>메트릭 및 Azure 프런트 도어 서비스에서 로그를 모니터링합니다.
@@ -38,7 +38,7 @@ Azure 프런트 도어 서비스를 사용 하면 다음과 같은 방법으로 
 | BackendRequestCount | 백 엔드 요청 수 | 카운트 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
 | BackendRequestLatency | 백 엔드 요청 대기 시간 | 밀리초 | 백 엔드 | Front Door에서 백 엔드의 마지막 응답 바이트를 받을 때까지 Front Door에서 백 엔드로 요청이 전송될 때 계산된 시간 |
 | BackendHealthPercentage | 백 엔드 상태 비율 | 백분율 | 백 엔드</br>BackendPool | Front Door에서 백 엔드로 성공한 상태 프로브의 비율 |
-| WebApplicationFirewallRequestCount | 웹 애플리케이션 방화벽 요청 수 | 카운트 | PolicyName</br>RuleName</br>조치 | Front Door의 애플리케이션 계층 보안에 의해 처리된 클라이언트 요청 수 |
+| WebApplicationFirewallRequestCount | 웹 애플리케이션 방화벽 요청 수 | 카운트 | PolicyName</br>RuleName</br>액션(Action) | Front Door의 애플리케이션 계층 보안에 의해 처리된 클라이언트 요청 수 |
 
 ## <a name="activity-log"></a>활동 로그
 
@@ -92,5 +92,5 @@ Azure 프런트 도어 서비스를 사용 하면 다음과 같은 방법으로 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door 프로필 만들기](quickstart-create-front-door.md)
+- [첫 번째 관문 프로필 만들기](quickstart-create-front-door.md)
 - [첫 번째 관문의 작동 원리](front-door-routing-architecture.md)

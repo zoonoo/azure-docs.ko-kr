@@ -9,10 +9,10 @@ ms.date: 04/26/2018
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882228"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
@@ -344,7 +344,7 @@ azcopy \
 ```
 
 ### <a name="customizing-the-mime-content-type-mapping"></a>MIME 콘텐츠 형식 매핑 사용자 지정
-AzCopy는 콘텐츠 형식에 대한 파일 확장명의 매핑을 포함하는 구성 파일을 사용합니다. 이 매핑을 사용자 지정하고 필요에 따라 새 쌍을 추가할 수 있습니다. 매핑은 위치  ```/usr/lib/azcopy/AzCopyConfig.json```
+AzCopy는 콘텐츠 형식에 대한 파일 확장명의 매핑을 포함하는 구성 파일을 사용합니다. 이 매핑을 사용자 지정하고 필요에 따라 새 쌍을 추가할 수 있습니다. 매핑은 ```/usr/lib/azcopy/AzCopyConfig.json```에 위치
 
 ## <a name="blob-copy"></a>Blob: 복사
 ### <a name="copy-single-blob-within-storage-account"></a>Storage 계정 내 단일 Blob 복사
@@ -418,7 +418,7 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy` 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
+`--sync-copy`는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
 
 ## <a name="file-download"></a>파일: 다운로드
 ### <a name="download-single-file"></a>단일 파일 다운로드
@@ -704,21 +704,21 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 
 ### <a name="azure-storage-documentation"></a>Azure Storage 설명서
 * [Azure Storage 소개](../storage-introduction.md)
-* [저장소 계정 만들기](../storage-create-storage-account.md)
-* [Storage 탐색기를 사용하여 Blob 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+* [저장소 계정을 만드는](../storage-create-storage-account.md)
+* [저장소 탐색기를 사용하여 Blob 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Azure Storage에서 Azure CLI 사용](../storage-azure-cli.md)
 * [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Java에서 Blob Storage를 사용하는 방법](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Node.js에서 Blob Storage를 사용하는 방법](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Python에서 Blob storage를 사용 하는 방법](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Python에서 File Storage를 사용하는 방법](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage 블로그 게시물:
 * [Linux 미리 보기에서 AzCopy 발표](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Azure Storage 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: 동기 복사 및 사용자 지정된 콘텐츠 형식 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: AzCopy 3.0의 일반 가용성을 발표 및 미리 보기 릴리스 AzCopy 4.0의 테이블 및 파일 지원](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: 대량 복사 시나리오에 최적화](https://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: 읽기 액세스 지역 중복 저장소에 대 한 지원](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: 다시 시작 가능 모드 및 SAS 토큰을 사용 하 여 데이터를 전송 합니다.](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: 계정 간 Blob 복사를 사용 하 여](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Azure Blob에 대 한 파일 업로드/다운로드](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: 읽기 액세스 지역 중복 저장소 지원](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: 크로스 계정 Blob 복사 사용(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

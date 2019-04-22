@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885675"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
@@ -149,10 +149,10 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
-* [Azure Storage Blob에서 Data Lake 저장소 Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
-* [Azure Data Lake Analytics를 사용 하 여 Data Lake Storage Gen1를 사용 하 여](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight를 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
+* [Data Lake Storage Gen1을 통해 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake Storage Gen1을 통해 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [PowerShell을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)
-* [Get Started with Data Lake 저장소 Gen1가.NET SDK를 사용 하 여](data-lake-store-get-started-net-sdk.md)
-* [데이터 레이크 저장소 Gen1에 대 한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
+* [.NET SDK를 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-net-sdk.md)
+* [Data Lake Storage Gen1에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 

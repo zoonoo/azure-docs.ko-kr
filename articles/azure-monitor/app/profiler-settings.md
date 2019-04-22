@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884162"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
@@ -125,7 +125,7 @@ App Services **앱 설정** 창으로 이동하여 다음 설정을 확인합니
     ![확장 업데이트 점검][check-for-extension-update]
 
 ## <a name="next-steps"></a>다음 단계
-[Profiler를 사용 하도록 설정 하 고 추적을 보고](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[Profiler 사용 및 추적 보기](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

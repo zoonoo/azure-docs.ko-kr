@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861845"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Azure 프런트 도어 서비스의 HTTP 헤더에 대 한 프로토콜 지원
@@ -54,7 +54,7 @@ ms.locfileid: "58861845"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door 만들기](quickstart-create-front-door.md)
+- [프런트 도어 만들기](quickstart-create-front-door.md)
 - [첫 번째 관문의 작동 원리](front-door-routing-architecture.md)
 
 <!--Image references-->

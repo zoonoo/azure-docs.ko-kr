@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/02/2019
 ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863001"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps 및 Azure Functions를 사용하여 첫 번째 서버리스 앱 개발 - Visual Studio
@@ -29,18 +29,18 @@ Visual Studio에서 서버리스 앱을 빌드하는 데 필요한 항목은 다
 
 * 다음 도구가 없으면 다운로드하여 설치합니다.
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 또는 2015-Community edition 이상</a>합니다. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 또는 2015 - Community Edition 이상</a>. 
   이 빠른 시작에서는 무료로 제공되는 Visual Studio Community 2017을 사용합니다.
 
     > [!IMPORTANT]
-    > Visual Studio 2019 또는 2017를 설치할 때 선택 했는지 확인 합니다 **Azure 개발** 워크 로드.
-    > Visual Studio 2019 클라우드 탐색기 Azure portal에서 논리 앱 디자이너를 열 수 있지만 포함 된 논리 앱 디자이너를 열고 아직 없습니다.
+    > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
+    > Visual Studio 2019의 경우 클라우드 탐색기는 Azure Portal의 논리 앱 디자이너를 열 수 있지만 사용자는 포함된 논리 앱 디자이너를 열 수 없습니다.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for.NET (2.9.1 이상)</a>합니다. <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>에 대해 자세히 알아보세요.
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">.NET용 Microsoft Azure SDK(2.9.1 이상)</a>. <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>에 대해 자세히 알아보세요.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Visual Studio 버전에 대 한 azure Logic Apps 도구:
+  * 원하는 Visual Studio 버전용 Azure Logic Apps 도구:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
 
@@ -73,11 +73,11 @@ Visual Studio에서 서버리스 앱을 빌드하는 데 필요한 항목은 다
    > [!NOTE]
    > **클라우드** 범주 또는 **Azure 리소스 그룹** 프로젝트가 없으면 Visual Studio용 Azure SDK를 설치했는지 확인합니다.
 
-   Visual Studio 2019를 사용 하는 경우 다음이 단계를 수행 합니다.
+   Visual Studio 2019를 사용하는 경우 다음 단계를 따르세요.
 
-   1. 에 **새 프로젝트를 만듭니다** 상자에서를 **Azure 리소스 그룹** 하거나 시각적 개체에 대 한 프로젝트 템플릿을 C# 또는 Visual Basic의 경우 선택한 **다음**.
+   1. **새 프로젝트 만들기** 상자에서 Visual C# 또는 Visual Basic용 **Azure 리소스 그룹** 프로젝트 템플릿을 선택하고 **다음**을 선택합니다.
 
-   1. 이름을 사용 하려는 Azure 리소스 그룹 및 기타 프로젝트 정보를 제공 합니다. 작업을 완료하면 **만들기**를 선택합니다.
+   1. 사용하려는 Azure 리소스 그룹의 이름과 기타 프로젝트 정보를 지정합니다. 작업을 완료하면 **만들기**를 선택합니다.
 
 1. 프로젝트 이름과 위치를 제공한 다음, **확인**을 선택합니다.
 
@@ -157,4 +157,4 @@ Azure에 이미 배포된 논리 앱에 대해서도 Visual Studio에서 해당 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Visual Studio로 논리 앱 관리](manage-logic-apps-with-visual-studio.md)
+* [Visual Studio에서 논리 앱 관리](manage-logic-apps-with-visual-studio.md)

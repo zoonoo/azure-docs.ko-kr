@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883278"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor의 VMware 모니터링 (사용 되지 않음) 솔루션
@@ -49,7 +49,7 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
 ### <a name="configure-syslog-collection"></a>Syslog 수집 구성
 1. vSphere에 syslog를 전달하도록 설정합니다. Syslog 전달을 설정하는 데 도움이 되는 자세한 내용은 [ESXi 5.0 이상(2003322)에서 syslog 구성](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322)을 참조하세요. **ESXi 호스트 구성** > **소프트웨어** > **고급 설정** > **Syslog**로 이동합니다.
    ![vsphereconfig](./media/vmware/vsphere1.png)  
-1. *Syslog.global.logHost* 필드에서 Linux 서버 및 *1514* 포트 번호를 추가합니다. 예를 들어 `tcp://hostname:1514` 또는 `tcp://123.456.789.101:1514`
+1. *Syslog.global.logHost* 필드에서 Linux 서버 및 *1514* 포트 번호를 추가합니다. 예를 들어 `tcp://hostname:1514` 또는 `tcp://123.456.789.101:1514`와 같습니다.
 1. Syslog의 ESXi 호스트 방화벽을 엽니다. **ESXi 호스트 구성** > **소프트웨어** > **보안 프로필** > **방화벽**으로 이동한 다음 **속성**을 엽니다.  
 
     ![vspherefw](./media/vmware/vsphere2.png)  
@@ -186,20 +186,20 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
 
 * ESXi 호스트가 omsagent를 실행하는 VM에 데이터를 올바르게 푸시하지 않습니다. 테스트하려면 다음 단계를 수행합니다.
 
-  1. 를 확인 하려면 ssh를 사용 하 여 ESXi 호스트에 로그온 하 고 다음 명령을 실행 합니다. `nc -z ipaddressofVM 1514`
+  1. 확인하려면 ssh를 사용하여 ESXi 호스트에 로그인하고 다음 명령을 실행합니다. `nc -z ipaddressofVM 1514`
 
       실행에 실패한 경우 고급 구성의 vSphere 설정이 올바르지 않을 수 있습니다. syslog 전달을 위해 ESXi 호스트를 설정하는 방법에 대한 자세한 내용은 [syslog 수집 구성](#configure-syslog-collection)을 참조하세요.
-  1. Syslog 포트 연결에 성공 했지만 여전히 데이터가 보이지, 하는 경우에 ESXi 호스트 syslog를 다시 로드를 사용 하 여 ssh 명령을 실행 합니다. `esxcli system syslog reload`
+  1. Syslog 포트 연결에 성공했지만 여전히 데이터가 보이지 않는 경우 ssh를 통해 다음 명령을 실행하여 ESXi 호스트에서 syslog를 다시 로드하세요. `esxcli system syslog reload`
 * Log Analytics 에이전트가 설치된 VM이 올바르게 설정되지 않았습니다. 이를 테스트하려면 다음 단계를 수행합니다.
 
-  1. Log Analytics는 1514 포트에서 수신 대기합니다. 이 열려 있는지를 확인 하려면 다음 명령을 실행 합니다. `netstat -a | grep 1514`
+  1. Log Analytics는 1514 포트에서 수신 대기합니다. 이 포트가 열려 있는지 확인하려면 다음 명령을 실행합니다. `netstat -a | grep 1514`
   1. 포트 `1514/tcp`가 열려 있는지 확인해야 합니다. 그렇지 않으면 omsagent가 제대로 설치되어 있는지 확인합니다. 포트 정보가 보이지 않으면 syslog 포트가 VM에서 열려 있지 않은 것입니다.
 
-    a. `ps -ef | grep oms`를 사용하여 Log Analytics 에이전트가 실행 중인지 확인합니다. 실행 하지 않는 경우 명령을 실행 하 여 프로세스를 시작 `sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. `ps -ef | grep oms`를 사용하여 Log Analytics 에이전트가 실행 중인지 확인합니다. 실행되고 있지 않은 경우 `sudo /opt/microsoft/omsagent/bin/service_control start` 명령을 실행하여 프로세스를 시작합니다.
 
      b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 파일을 엽니다.
 
-     다. 그룹 설정을 확인 하 고 적절 한 사용자가 유효 하 고 유사한 확인 합니다. `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     다. 적절한 사용자 및 그룹 설정이 유효한지 확인합니다(`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`와 유사함).
 
      d. 파일이 없거나 사용자 및 그룹 정책 설정이 잘못된 경우 [Linux 서버를 준비](#prepare-a-linux-server)하여 정정 작업을 수행합니다.
 

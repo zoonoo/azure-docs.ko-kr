@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883244"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
@@ -69,15 +69,15 @@ Service Fabric의 목표는 오류를 거의 항상 자동으로 관리하는 �
 
 업그레이드 도메인은 소프트웨어가 동시에 업그레이드되는 영역을 모델링하는 데 유용합니다. 이로 인해 업그레이드 도메인은 계획된 업그레이드 동안 소프트웨어가 가동 중단되는 경계도 정의합니다. Service Fabric 및 서비스의 업그레이드는 둘 다 동일한 모델을 따릅니다. 롤링 업그레이드, 업그레이드 도메인 및 의도치 않은 변경이 클러스터와 서비스에 영향을 미치지 않도록 하는 Service Fabric 상태 모델에 대한 자세한 내용은 다음 문서를 참조하세요.
 
- - [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
- - [응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)
+ - [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
+ - [애플리케이션 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)
  - [Service Fabric 상태 모델](service-fabric-health-introduction.md)
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 제공된 클러스터 맵을 사용하여 클러스터의 레이아웃을 시각화할 수 있습니다.
 
 <center>
 
-![노드는 서비스 패브릭 탐색기에서 장애 도메인에 분산됩니다.][sfx-cluster-map]
+![Service Fabric Explorer에서 장애 도메인에 분산 하는 노드][sfx-cluster-map]
 </center>
 
 > [!NOTE]

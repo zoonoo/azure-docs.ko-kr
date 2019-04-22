@@ -11,10 +11,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/02/2019
 ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862746"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
@@ -32,11 +32,11 @@ ms.locfileid: "58862746"
 
 * 다음 도구가 없으면 다운로드하여 설치합니다. 
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 또는 2015-Community edition 이상</a>합니다. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 또는 2015 - Community Edition 이상</a>. 
   이 빠른 시작에서는 무료로 제공되는 Visual Studio Community 2017을 사용합니다.
 
     > [!IMPORTANT]
-    > Visual Studio 2019 또는 2017를 설치할 때 선택 했는지 확인 합니다 **Azure 개발** 워크 로드.
+    > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
     > 자세한 내용은 [Visual Studio 클라우드 탐색기에서 Azure 계정과 연결 된 리소스를 관리할](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)합니다.
     >
     > Visual Studio 2019에서 클라우드 탐색기 Azure portal에서 논리 앱 디자이너를 열 수 있지만 포함 된 논리 앱 디자이너를 열고 아직 없습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "58862746"
 
   * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
 
-  * Visual Studio 버전에 대 한 azure Logic Apps 도구:
+  * 원하는 Visual Studio 버전용 Azure Logic Apps 도구:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
     
@@ -202,4 +202,4 @@ Logic Apps 디자이너에서 논리 앱 프로젝트를 열 때 Azure 구독을
 이 문서에서는 Visual Studio를 사용하여 배포된 논리 앱을 관리하는 방법을 배웠습니다. 다음으로 배포에 대한 논리 앱 정의 사용자 지정에 대해 알아보겠습니다.
 
 > [!div class="nextstepaction"]
-> [JSON에서 논리 앱 정의 작성](../logic-apps/logic-apps-author-definitions.md)
+> [JSON에서 논리 앱 정의를 작성](../logic-apps/logic-apps-author-definitions.md)

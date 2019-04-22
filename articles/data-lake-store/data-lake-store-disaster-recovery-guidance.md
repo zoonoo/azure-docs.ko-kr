@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878114"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 데이터용 재해 복구 지침
@@ -25,8 +25,8 @@ Azure Data Lake Storage Gen1에서는 LRS(로컬 중복 스토리지)를 제공�
 ## <a name="disaster-recovery-guidance"></a>재해 복구 지침
 모든 고객은 자체적으로 재해 복구 계획을 준비하는 것이 중요합니다. 재해 복구 계획을 빌드하려면 이 아티클의 정보를 참고합니다. 여기에는 고유한 계획을 직접 만들 수 있는 리소스가 있습니다.
 
-* [Azure 응용 프로그램에 대 한 고가용성 및 재해 복구](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Azure 복원력 기술 지침](../resiliency/resiliency-technical-guidance.md)
+* [Azure 애플리케이션에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+* [Azure 복구력 기술 지침](../resiliency/resiliency-technical-guidance.md)
 
 ### <a name="best-practices"></a>모범 사례
 재해 복구 계획의 요구에 맞는 빈도로 다른 지역의 다른 Data Lake Storage Gen1 계정에 중요한 데이터를 복사하는 것이 좋습니다. [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) 또는 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)를 포함하여 데이터를 복사하는 다양한 메서드가 있습니다. Azure Data Factory는 반복적으로 데이터 이동 파이프라인을 만들고 배포하기 위한 유용한 서비스입니다.
@@ -43,5 +43,5 @@ Data Lake Storage Gen1에서 자동화된 복제본을 통해 데이터 복원 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
-* [데이터 레이크 저장소 Gen1의 데이터 보안 유지](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 

@@ -9,13 +9,13 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58851793"
 ---
-# <a name="common-alert-schema"></a>경고 공통 스키마
+# <a name="common-alert-schema"></a>일반 경고 스키마
 
 이 문서에서는 일반적인 경고 스키마 무엇 인지 설명 하 고 사용 하도록 설정 하는 방법을 사용할 때의 이점입니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "58851793"
 
 일반 경고 스키마 주로 스스로 매니페스트 경고 알림에 합니다. 표시 되는 향상 된 사항은 다음과 같습니다.
 
-| 조치 | 향상된 기능|
+| 액션(Action) | 향상된 기능|
 |:---|:---|
 | sms | 모든 경고 유형에 대 한 일관 된 SMS 템플릿입니다. |
 | Email | 일관적이 고 자세한 전자 메일 템플릿을 쉽게 한눈에 문제를 진단할 수 있습니다. 포털에 영향을 받는 리소스 경고 인스턴스에 포함 된 딥 링크 빠르게 재구성 프로세스로 이동할 수 있는지 확인 합니다. |

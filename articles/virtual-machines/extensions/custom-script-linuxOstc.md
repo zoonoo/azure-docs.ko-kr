@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882432"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
@@ -124,7 +124,7 @@ ms.locfileid: "58882432"
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | 문자열 |
 | 형식 | CustomScriptForLinux | 문자열 |
-| typeHandlerVersion | 1.5 | int |
+| typeHandlerVersion | 1.5 | ssNoversion |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute(예) | python MyPythonScript.py \<my-param1\> | 문자열 |
 | enableInternalDNSCheck | true | 부울 |
@@ -133,11 +133,11 @@ ms.locfileid: "58882432"
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 
-* `fileUris`: (옵션, 문자열 배열) 스크립트의 uri 목록
-* `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True, DNS 확인을 사용 하지 않도록 설정 하려면 False로 설정 합니다.
-* `commandToExecute`: (옵션, 문자열) 실행할 진입점 스크립트
-* `storageAccountName`: (옵션, 문자열) 저장소 계정의 이름
-* `storageAccountKey`: (옵션, 문자열) 저장소 계정의 액세스 키
+* `fileUris`: (선택 사항 문자열 배열) 스크립트의 URI 목록
+* `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True이며 DNS 확인을 해제하려면 False로 설정합니다.
+* `commandToExecute`: (선택 사항, 문자열) 실행할 진입점 스크립트.
+* `storageAccountName`: (선택 사항, 문자열) 저장소 계정의 이름
+* `storageAccountKey`: (선택 사항, 문자열) 저장소 계정의 액세스 키
 
 공용 또는 보호된 설정에서 다음 값을 설정할 수 있습니다. 공용 및 보호된 설정 모두에서 이러한 값을 설정하지 않아야 합니다.
 

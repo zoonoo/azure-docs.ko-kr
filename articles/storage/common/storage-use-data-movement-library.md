@@ -10,10 +10,10 @@ ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878743"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
@@ -32,7 +32,7 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 - URL에서 Blob Storage로 파일을 복사합니다.
 - Blob Storage 간에 복사합니다.
 
-**필요 합니다.**
+**필요한 항목**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure 저장소 계정](storage-quickstart-create-account.md)
@@ -49,12 +49,12 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 3. Visual Studio Code에서 이 디렉터리를 엽니다. 이 단계는 Windows에서 `code .`를 입력하여 명령줄을 통해 빠르게 수행할 수 있습니다.
 4. Visual Studio Code Marketplace에서 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다. Visual Studio Code를 다시 시작합니다.
 5. 이 시점에서 두 가지 프롬프트가 표시됩니다. 하나는 "빌드 및 디버그에 필요한 자산"을 추가하는 것입니다. "예"를 클릭합니다. 또 다른 프롬프트는 해결되지 않은 종속성을 복원하는 것입니다. "복원"을 클릭합니다.
-6. `.vscode` 아래에서 `launch.json`을 수정하여 외부 터미널을 콘솔로 사용합니다. 이 설정은로 읽어야 합니다. `"console": "externalTerminal"`
+6. `.vscode` 아래에서 `launch.json`을 수정하여 외부 터미널을 콘솔로 사용합니다. 이 설정은 `"console": "externalTerminal"`로 읽어야 합니다.
 7. Visual Studio Code를 사용하면 .NET Core 애플리케이션을 디버그할 수 있습니다. `F5` 키를 눌러 애플리케이션을 실행하고 설정이 작동하는지 확인합니다. 콘솔에 "Hello World!" 가 표시됩니다.
 
 ## <a name="add-data-movement-library-to-your-project"></a>프로젝트에 데이터 이동 라이브러리 추가
 
-1. `<project-name>.csproj` 파일의 `dependencies` 섹션에 최신 버전의 데이터 이동 라이브러리를 추가합니다. 이 버전은 작성 시 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+1. `<project-name>.csproj` 파일의 `dependencies` 섹션에 최신 버전의 데이터 이동 라이브러리를 추가합니다. 이 문서를 작성한 시점에서 해당 버전은 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`입니다.
 2. 프로젝트를 복원하기 위해 프롬프트가 표시됩니다. "복원" 단추를 클릭합니다. 또한 프로젝트 디렉터리의 루트에 `dotnet restore` 명령을 입력하여 명령줄에서 프로젝트를 복원할 수도 있습니다.
 
 다음과 같이 `<project-name>.csproj`을 수정합니다.

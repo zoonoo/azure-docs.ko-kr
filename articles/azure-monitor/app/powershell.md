@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883414"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 만들기
@@ -168,8 +168,8 @@ ms.locfileid: "58883414"
 
     ``` 
    
-   * `-ResourceGroupName` 새 리소스를 만들려는 그룹이입니다.
-   * `-TemplateFile` 사용자 지정 매개 변수 앞에 있어야 합니다.
+   * `-ResourceGroupName`은 새 리소스를 만들려는 그룹입니다.
+   * `-TemplateFile`은 사용자 지정 매개 변수 앞에 있어야 합니다.
    * `-appName` 만들려는 리소스의 이름입니다.
 
 다른 매개 변수를 추가할 수 있습니다. 템플릿의 매개 변수 섹션에서 해당 설명을 찾을 수 있습니다.
@@ -449,7 +449,7 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 * [Application Insights 리소스 만들기](powershell-script-create-resource.md) - 템플릿을 사용하지 않는 빠른 방법입니다.
 * [경고 설정](powershell-alerts.md)
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Azure 진단을 Application Insights에 보내기](powershell-azure-diagnostics.md)
-* [GitHub에서 Azure에 배포](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Application Insights에 Azure 진단 보내기](powershell-azure-diagnostics.md)
+* [GitHub에서 Azure로 배포](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [릴리스 주석 만들기](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

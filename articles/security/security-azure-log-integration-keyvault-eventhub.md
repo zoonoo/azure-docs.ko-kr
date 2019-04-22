@@ -12,10 +12,10 @@ ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883924"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure Log Integration 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
@@ -45,7 +45,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Azure Log Integration](security-azure-log-integration-overview.md)
+- [Azure 로그 통합](security-azure-log-integration-overview.md)
 
 
 ## <a name="initial-setup"></a>초기 설치
@@ -89,13 +89,13 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 1. 인증이 성공 하면 로그인 되어 있습니다. 구독 ID 및 구독 이름을 메모해 두세요. 이후 단계를 완료하는 데 필요합니다.
 
 1. 나중에 사용할 값을 저장하는 변수를 만듭니다. 다음 각 PowerShell 줄을 입력합니다. 환경에 맞게 값을 조정해야 할 수도 있습니다.
-    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (구독 이름은 다를 수 있습니다. 이는 이전 명령의 출력에서 볼 수 있습니다.)
-    - ```$location = 'West US'``` (이 변수는 리소스를 만들 위치를 전달 합니다. 이 변수를 선택한 위치로 변경할 수 있습니다.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'```(구독 이름은 다를 수 있습니다. 이는 이전 명령의 출력에서 볼 수 있습니다.)
+    - ```$location = 'West US'```(이 변수는 리소스를 만들 위치를 전달하는 데 사용됩니다. 이 변수를 선택한 위치로 변경할 수 있습니다.)
     - ```$random = Get-Random```
-    - ```$name = 'azlogtest' + $random``` (이름을 아무 것도 될 수 있지만 소문자 문자 및 숫자만 포함 해야 합니다.)
-    - ```$storageName = $name``` (이 변수는 저장소 계정 이름에 사용할 수 됩니다.)
-    - ```$rgname = $name``` (이 변수는 리소스 그룹 이름에 사용할 수 됩니다.)
-    - ```$eventHubNameSpaceName = $name``` (이벤트 허브 네임 스페이스의 이름입니다.)
+    - ```$name = 'azlogtest' + $random```(이름은 임의로 지정할 수 있지만 소문자와 숫자만 포함해야 합니다.)
+    - ```$storageName = $name```(이 변수는 저장소 계정 이름에 사용됩니다.)
+    - ```$rgname = $name```(이 변수는 리소스 그룹 이름에 사용됩니다.)
+    - ```$eventHubNameSpaceName = $name```(이벤트 허브 네임스페이스의 이름입니다.)
 1. 작업할 구독을 지정합니다.
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -157,8 +157,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. 암호를 설정하고 읽어서 추가 로그 항목을 생성합니다.
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
-   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![반환된 암호](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: alkohli
 ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881769"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure 데이터 상자 Gateway 시스템 요구 사항
@@ -48,7 +48,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 
 ## <a name="supported-virtualization-platforms-for-device"></a>디바이스에 지원되는 가상화 플랫폼
 
-| **운영 체제/플랫폼**  |**버전**   |**메모**  |
+| **운영 체제/플랫폼**  |**버전**   |**참고 사항**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware 도구는 지원되지 않습니다.         |
@@ -95,5 +95,5 @@ Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭�
 
 ## <a name="next-step"></a>다음 단계
 
-* [Azure 데이터 상자 게이트웨이 배포](data-box-gateway-deploy-prep.md)
+* [Azure Data Box Gateway 배포](data-box-gateway-deploy-prep.md)
 

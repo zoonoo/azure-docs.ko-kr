@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883675"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Azure Monitor에서 Log Analytics VM 확장 문제 해결
@@ -42,19 +42,19 @@ ms.locfileid: "58883675"
 *Microsoft Monitoring Agent* VM 확장이 설치되지 않거나 문제를 보고할 경우 다음 절차를 수행하여 문제를 해결할 수 있습니다.
 
 1. [KB 2965986](https://support.microsoft.com/kb/2965986#mt1)의 절차를 통해 Azure VM 에이전트가 올바르게 설치되어 작동하는지 확인합니다.
-   * VM 에이전트 로그 파일을 검토할 수도 있습니다. `C:\WindowsAzure\logs\WaAppAgent.log`
+   * VM 에이전트 로그 파일 `C:\WindowsAzure\logs\WaAppAgent.log`를 검토할 수도 있습니다.
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-   * [Azure VM 에이전트를 설치 합니다.](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Azure VM 에이전트 설치](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. 다음 절차를 통해 Microsoft Monitoring Agent 확장 하트 비트 작업이 실행되고 있는지 확인합니다.
    * 가상 머신에 로그인합니다.
    * 작업 스케줄러를 열고 `update_azureoperationalinsight_agent_heartbeat` 작업을 찾습니다.
    * 작업이 활성화되었고 1분 간격으로 실행되는지 확인합니다.
-   * 하트 비트 로그 파일을 체크인 `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
-3. Microsoft Monitoring Agent VM 확장 로그 파일 검토 `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+   * `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`에서 하트비트 로그 파일을 확인합니다.
+3. `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`에서 Microsoft Monitoring Agent VM 확장 로그 파일을 검토합니다.
 4. 가상 머신이 PowerShell 스크립트를 실행할 수 있는지 확인합니다.
 5. C:\Windows\temp 권한이 변경되지 않았는지 확인합니다.
-6. 가상 컴퓨터에서 관리자 권한 PowerShell 창에서 다음을 입력 하 여 Microsoft Monitoring Agent의 상태를 확인 합니다. `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-7. Microsoft Monitoring Agent 설치 로그 파일 검토 `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+6. 가상 컴퓨터 `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`에 나타나는 PowerShell 창에서 다음을 입력하여Microsoft Monitoring Agent의 상태를 봅니다. 
+7. `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`에서 Microsoft Monitoring Agent 설정 로그 파일을 검토합니다.
 
 자세한 내용은 [Windows 확장 문제 해결](../../virtual-machines/extensions/oms-windows.md)을 참조하세요.
 
@@ -62,11 +62,11 @@ ms.locfileid: "58883675"
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 *Linux용 Log Analytics 에이전트* VM 확장이 설치되지 않거나 보고되지 않으면 다음 단계를 수행하여 문제를 해결할 수 있습니다.
 
-1. 확장 상태 이면 *알 수 없는* VM 에이전트 로그 파일을 검토 하 여 제대로 작동 하 고 Azure VM 에이전트가 설치 되어 있는지 확인 `/var/log/waagent.log`
+1. 확장 상태가 *알 수 없음*이면 VM 에이전트 로그 파일 `/var/log/waagent.log`를 검토하여 Azure VM 에이전트가 올바르게 설치되어 작동하고 있는지 확인합니다. 
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-   * [Linux Vm에 Azure VM 에이전트 설치](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. 다른 비정상 상태에 대 한 Log Analytics 에이전트 Linux VM 확장 로그 파일에 대 한 검토 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 및 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
-3. 확장 상태가 정상 이지만 데이터 업로드 하지 않은 경우 Linux 로그 파일에 대 한 Log Analytics 에이전트를 검토 `/var/opt/microsoft/omsagent/log/omsagent.log`
+   * [Linux VM에 Azure VM 에이전트 설치](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+2. 그 밖의 비정상 상태에 대해 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 및 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`에서 Linux용 Log Analytics VM 확장 로그 파일을 검토합니다.
+3. 확장 상태가 정상이나 데이터가 업로드되지 않는 경우 `/var/opt/microsoft/omsagent/log/omsagent.log`에서 Linux용 Log Analytics 에이전트 로그 파일을 검토합니다.
 
 자세한 내용은 [Linux 확장 문제 해결](../../virtual-machines/extensions/oms-linux.md)을 참조하세요.
 

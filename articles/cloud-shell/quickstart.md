@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882092"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
@@ -99,6 +99,6 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
    ```
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Shell의 Bash에 대 한 파일 유지 알아보기](persisting-shell-storage.md) <br>
-[Azure CLI에 알아봅니다](https://docs.microsoft.com/cli/azure/) <br>
-[Azure Files storage에 알아보기](../storage/files/storage-files-introduction.md) <br>
+[Azure Cloud Shell의 Bash에 대한 파일 유지에 관해 알아보기](persisting-shell-storage.md) <br>
+[Azure CLI에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
+[Azure Files Storage에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>
