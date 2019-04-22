@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050240"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
@@ -61,7 +61,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 
 편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 이 샘플은 [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 사용할 수 있습니다.
 
-**모든 단계를 수행 해야 합니다.**
+**모든 단계를 수행해야 합니다.**
 
 1. 클러스터를 배포하는 데 사용한 Resource Manager 템플릿을 엽니다. (이전 리포지토리에서 샘플을 다운로드한 경우 5-VM-1-NodeTypes-Secure_Step1.JSON을 사용하여 보안 클러스터를 배포한 다음, 해당 템플릿을 엽니다.)
 
@@ -291,8 +291,8 @@ Get-ServiceFabricClusterHealth
 ## <a name="next-steps"></a>다음 단계
 클러스터 관리에 대한 자세한 내용은 다음 문서를 읽어보세요.
 
-* [Service Fabric 클러스터 업그레이드 프로세스 및 사용자 요구 사항](service-fabric-cluster-upgrade.md)
-* [클라이언트에 대 한 역할 기반 액세스 설정](service-fabric-cluster-security-roles.md)
+* [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
+* [클라이언트에 대한 역할 기반 액세스 설정](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

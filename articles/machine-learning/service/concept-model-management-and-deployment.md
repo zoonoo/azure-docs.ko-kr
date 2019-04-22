@@ -12,10 +12,10 @@ ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275445"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
@@ -28,12 +28,12 @@ ms.locfileid: "59275445"
 1. Azure Machine Learning Service 작업 영역에서 호스팅되는 레지스트리에 **모델 등록**
 1. 이식 가능한 컨테이너에서 점수 매기기 스크립트 및 종속성과 모델이 쌍을 이루는 **이미지 등록** 
 1. 클라우드 또는 에지 디바이스에서 웹 서비스로 이미지 **배포**
-1. **모니터링 하 고 데이터를 수집 합니다.**
+1. **모니터링 및 데이터 수집**
 1. 새 이미지를 사용하도록 배포를 **업데이트**합니다.
 
 각 단계는 독립적으로 또는 단일 배포 명령의 일환으로 수행할 수 있습니다. 또한 이 그래픽에서 보여 주듯이 배포를 **CI/CD 워크플로**에 통합할 수 있습니다.
 
-[!['Azure Machine Learning 지속적인 통합/지속적인 배포 (CI/CD) 주기 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[![' Azure Machine Learning 지속적인 통합/지속적인 배포 (CI/CD) 주기 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>1단계: 모델 등록
 
@@ -75,7 +75,7 @@ Azure Container Registry에 업로드 하 고 Azure Machine Learning 서비스�
 
 또한 웹 서비스 배포도 검색할 수 있습니다. 예를 들어 특정 모델 또는 이미지의 모든 배포를 검색할 수 있습니다.
 
-[![Inferencing 대상](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![추론 대상](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 클라우드의 다음 배포 대상에 이미지를 배포할 수 있습니다.
 

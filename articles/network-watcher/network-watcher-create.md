@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051566"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
@@ -113,6 +113,6 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 * [다음 홉](network-watcher-next-hop-overview.md)
 * [보안 그룹 보기](network-watcher-security-group-view-overview.md)
 * [NSG 흐름 로깅](network-watcher-nsg-flow-logging-overview.md)
-* [가상 네트워크 게이트웨이 문제 해결](network-watcher-troubleshoot-overview.md)
+* [Virtual Network 게이트웨이 문제 해결](network-watcher-troubleshoot-overview.md)
 
 Network Watcher 인스턴스가 있으면 가상 머신 내에서 패킷 캡처를 사용하도록 설정할 수 있습니다. 방법을 알아보려면 [경고가 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 참조하세요.

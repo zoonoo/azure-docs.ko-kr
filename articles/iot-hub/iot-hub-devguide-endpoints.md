@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: 5015068f9b165190bef3b0cb97ddb194e173303e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045920"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
@@ -75,10 +75,10 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 IoT Hub는 현재 추가 엔드포인트로 다음과 같은 Azure 서비스를 지원합니다.
 
-* Azure Storage 컨테이너
+* Azure Storage 컨테이너 
 * Event Hubs
 * Service Bus 큐
-* Service Bus 항목
+* Service Bus 토픽
 
 추가할 수 있는 엔드포인트의 수에 대한 제한은 [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요.
 
@@ -86,7 +86,7 @@ REST API를 사용할 수 있습니다 [끝점 상태 가져오기](https://docs
 
 |상태|설명|
 |---|---|
-|정상|끝점은 예상 대로 메시지를 수락.|
+|healthy|끝점은 예상 대로 메시지를 수락.|
 |비정상|이 끝점에 데이터를 보내도록 IoT Hub 다시 시도 하 고 끝점에서 예상 대로 메시지를 수락 하지 않습니다. IoT Hub 상태 최종적으로 일관 된 상태를 설정한 경우 비정상 끝점의 상태를 정상으로 업데이트 됩니다.|
 |알 수 없음|IoT Hub 끝점을 사용 하 여 연결 되었습니다. 메시지가 배달 하거나이 끝점에서 거부 했습니다.|
 |배달 못 한 편지|IoT Hub retrial 기간에 대 한 보내는 메시지를 다시 시도 후 끝점에 메시지를 수락 하지 않습니다.|

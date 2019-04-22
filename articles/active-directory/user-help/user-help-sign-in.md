@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268359"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>2단계 인증 또는 보안 정보를 사용하여 로그인
@@ -26,7 +26,7 @@ ms.locfileid: "59268359"
 > [!Note]
 > 2단계 인증 방법을 계속 사용하는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서의 지침에 따라 인증 방법을 설정해야 합니다.
 > 
-> 관리자가 보안 정보 환경을 켠 경우 이러한 단계별 문서를 사용하여 인증 방법을 설정해야 합니다.<ul><li>[보안 정보 인증 앱을 사용 하도록 설정](security-info-setup-auth-app.md)</li><li>[보안 정보 텍스트 메시징 사용 하도록 설정](security-info-setup-text-msg.md)</li><li>[보안 정보는 전화 통화를 사용 하도록 설정](security-info-setup-phone-number.md)</li></ul>
+> 관리자가 보안 정보 환경을 켠 경우 이러한 단계별 문서를 사용하여 인증 방법을 설정해야 합니다.<ul><li>[인증 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)</li><li>[문자 메시지를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)</li><li>[전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>모바일 디바이스에서 인증자 앱 알림을 사용하여 로그인
 

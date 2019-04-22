@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046498"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 공동 작업 초대 상환
@@ -63,7 +63,7 @@ Azure AD 사용 약관 기능을 사용하여 초기 상환 프로세스 동안 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가](add-users-administrator.md)
+- [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](add-users-administrator.md)
 - [정보 근로자가 Azure Active Directory에 B2B 공동 작업 사용자를 추가하는 방법](add-users-information-worker.md)
-- [PowerShell을 사용 하 여 Azure Active Directory B2B 공동 작업 사용자 추가](customize-invitation-api.md#powershell)
+- [PowerShell을 사용하여 Azure Active Directory B2B 공동 작업 사용자 추가](customize-invitation-api.md#powershell)
 - [게스트 사용자로써 조직 나가기](leave-the-organization.md)

@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271631"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
@@ -71,7 +71,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
-* [파티션 간 보조 인덱스 패턴](#inter-partition-secondary-index-pattern)
+* [파티션 내 보조 인덱스 패턴](#inter-partition-secondary-index-pattern)
 * [복합 키 패턴](#compound-key-pattern)
 * EGT(엔터티 그룹 트랜잭션)
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)
@@ -362,7 +362,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
-* [앞/뒤에 추가 안티패턴](#prepend-append-anti-pattern)  
+* [앞/뒤에 추가된 안티패턴](#prepend-append-anti-pattern)  
 * [엔터티 검색](#retrieving-entities)  
 
 ## <a name="high-volume-delete-pattern"></a>대용량 삭제 패턴

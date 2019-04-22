@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046738"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>사용자 VHD에서 Azure VM 배포
@@ -34,7 +34,7 @@ ms.locfileid: "59046738"
 |  **매개 변수**             |   **설명**                                                              |
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | 기존 Azure 리소스 그룹 이름입니다.  일반적으로 Key Vault와 연결된 동일한 RG를 사용합니다.  |
-| TemplateFile               | 파일의 전체 경로 이름 `VHDtoImage.json`                                    |
+| TemplateFile               | 파일 `VHDtoImage.json`의 전체 경로 이름입니다.                                    |
 | userStorageAccountName     | 저장소 계정 이름                                                    |
 | sNameForPublicIP           | 공용 IP에 대한 DNS 이름입니다. 소문자여야 합니다.                                  |
 | subscriptionId             | Azure 구독 식별자입니다.                                                  |
@@ -42,7 +42,7 @@ ms.locfileid: "59046738"
 | vmName                     | 가상 머신의 이름입니다.                                                    |
 | vaultName                  | Key Vault의 이름입니다.                                                          |
 | vaultResourceGroup         | Key Vault의 리소스 그룹입니다.
-| certificateUrl             | 예를 들어 키 자격 증명 모음에 저장 된 버전을 포함 하 여 인증서의 Url:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl             | Key Vault에 저장된 버전을 포함하는 인증서의 URL(예: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`) |
 | vhdUrl                     | 가상 하드 디스크의 URL입니다.                                                   |
 | vmSize                     | 가상 머신 인스턴스의 크기입니다.                                           |
 | publicIPAddressName        | 공용 IP 주소의 이름입니다.                                                  |

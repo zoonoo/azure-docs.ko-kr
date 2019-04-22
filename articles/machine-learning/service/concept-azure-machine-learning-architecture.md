@@ -11,17 +11,17 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489950"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
 아키텍처, 개념 및 Azure Machine Learning 서비스에 대 한 워크플로 알아봅니다. 다음 다이어그램에서 서비스의 주요 구성 요소와 서비스를 사용하기 위한 일반적인 워크플로를 보여줍니다.
 
-[![Azure Machine Learning 서비스 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning Service 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 ## <a name="workflow"></a>워크플로
 
@@ -68,7 +68,7 @@ Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 
 다음은 작업 영역의 분류 체계를 보여주는 다이어그램입니다.
 
-[![Workspace 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>실험
 
@@ -234,7 +234,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 Azure Machine Learning Service를 시작하려면 다음을 참조하세요.
 
-* [Azure Machine Learning 서비스란?](overview-what-is-azure-ml.md)
+* [Azure Machine Learning Service란?](overview-what-is-azure-ml.md)
 * [Azure Machine Learning 서비스 작업 영역 만들기](setup-create-workspace.md)
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)
 * [Resource Manager 템플릿을 사용 하 여 작업 영역 만들기](how-to-create-workspace-template.md)

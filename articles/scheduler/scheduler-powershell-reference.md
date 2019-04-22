@@ -10,10 +10,10 @@ ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 4b179c50af8b1ffc4313a49da978f178915ec9cc
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489899"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Azure Scheduler용 PowerShell cmdlet 참조
@@ -56,7 +56,7 @@ Get-Help <cmdlet name> -Full
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Scheduler 정의](scheduler-intro.md)
+* [Azure Scheduler란?](scheduler-intro.md)
 * [개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
-* [만들기 및 Azure portal-첫 번째 작업 예약](scheduler-get-started-portal.md)
+* [첫 번째 작업 만들기 및 예약 - Azure Portal](scheduler-get-started-portal.md)
 * [Azure Scheduler REST API 참조](https://msdn.microsoft.com/library/mt629143)

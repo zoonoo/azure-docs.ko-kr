@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267211"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정
@@ -124,8 +124,8 @@ ServiceNow, Box 및 Google Apps 등의 응용 프로그램의 그룹 개체와 �
    * *참조* - 특성에 대상 애플리케이션의 다른 테이블에 저장된 값을 참조하는 ID가 포함됩니다.
    * *문자열* - 특성에 텍스트 문자열이 포함됩니다. 
 * **기본 키 여부** -여부 특성은 대상 개체의 스키마에 기본 키 필드로 정의 됩니다.
-* **Required?** -특성 인지 대상 응용 프로그램 또는 시스템에서 채울 필요가 있습니다.
-* **다중 값?** -여부 특성 값을 여러 개 지원 합니다.
+* **필수 여부** -특성 인지 대상 응용 프로그램 또는 시스템에서 채울 필요가 있습니다.
+* **다중 값 여부** -여부 특성 값을 여러 개 지원 합니다.
 * **대소문자 구분 여부** -여부 특성 값은 대/소문자 구분 방식으로 평가 됩니다.
 * **API 식** -특정 프로 비전 커넥터 (예: Workday)에 대 한 설명서에서 지시한 경우가 아니면 사용 하지 마세요.
 * **참조 된 개체 특성** -경우 참조 형식 특성을이 메뉴를 사용 하면 특성과 연결 된 값이 포함 된 대상 응용 프로그램에서 테이블 및 특성을 선택 합니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 참조 테이블 및 지정된 된 응용 프로그램에 대 한 지원 되는 기본 ID 필드는 미리 구성 되며 현재 Azure portal을 사용 하 여 편집할 수 없습니다 하며 사용 하 여 편집할 수 있습니다 합니다 [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)합니다.
@@ -153,10 +153,10 @@ ServiceNow, Box 및 Google Apps 등의 응용 프로그램의 그룹 개체와 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [사용자 프로 비전/프로 비전 해제가 SaaS 앱 자동화](user-provisioning.md)
-* [특성 매핑을 위한 식 작성](functions-for-customizing-application-data.md)
-* [사용자 프로 비전에 대 한 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)
+* [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
+* [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
+* [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
-* [SaaS 앱 통합 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 
 

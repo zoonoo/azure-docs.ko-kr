@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490723"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
@@ -86,8 +86,8 @@ OAuth 2.0 및 OpenID Connect의 Microsoft id 플랫폼 구현을 확인 Jwt로 �
 
 일부 예제 요청을 확인할 준비가 되었다면 아래 자습서 중 하나를 시작합니다. 각각 특정 인증 시나리오에 해당합니다. 사용자에 게 맞는 흐름 결정을 할 경우 체크 아웃 [Microsoft id 플랫폼을 사용 하 여 빌드할 수 있는 앱 유형을](v2-app-types.md)합니다.
 
-* [OAuth 2.0을 사용 하 여 모바일 및 네이티브 응용 프로그램 빌드](v2-oauth2-auth-code-flow.md)
-* [OpenID Connect로 웹 앱 빌드](v2-protocols-oidc.md)
-* [OAuth 2.0 암시적 흐름을 사용 하 여 단일 페이지 앱 구축](v2-oauth2-implicit-grant-flow.md)
-* [디먼 또는 OAuth 2.0 클라이언트 자격 증명 흐름을 사용 하 여 서버 쪽 프로세스 빌드](v2-oauth2-client-creds-grant-flow.md)
-* [OAuth 2.0-대신-의 흐름을 사용 하 여 web API에서에서 토큰 가져오기](v2-oauth2-on-behalf-of-flow.md)
+* [OAuth 2.0를 사용하여 모바일 및 네이티브 애플리케이션 빌드](v2-oauth2-auth-code-flow.md)
+* [OpenID Connect를 사용하는 웹앱 빌드](v2-protocols-oidc.md)
+* [OAuth 2.0 암시적 흐름으로 단일 페이지 앱 구축](v2-oauth2-implicit-grant-flow.md)
+* [OAuth 2.0 클라이언트 자격 증명 흐름으로 디먼 또는 서버 쪽 프로세스 빌드](v2-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 On Behalf Of 흐름으로 웹 API에서 토큰 가져오기](v2-oauth2-on-behalf-of-flow.md)

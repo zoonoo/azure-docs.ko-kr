@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046187"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
@@ -46,7 +46,7 @@ Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및
 > 
 > 
 
-**필수 조건**
+**필수 구성 요소**
 
 * Azure 구독이 필요합니다. [여기](https://azure.microsoft.com/free/)서 평가판에 등록할 수 있습니다.
 * Azure 포털에서 데이터 과학 Virtual Machine을 프로비전하는 방법에 대한 지침은 [가상 머신 만들기](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)에서 확인할 수 있습니다.
@@ -275,9 +275,9 @@ github.com에서 제공하는 여러 리소스를 통해 Git를 사용하여 Git
 ### <a name="azure-blob"></a>Azure Blob
 Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 클라우드 저장소입니다. 이 섹션에서는 Azure Blob으로 데이터를 이동하고 Azure Blob에 저장된 데이터에 액세스하는 방법을 설명합니다.
 
-**필수 요소**
+**필수 구성 요소**
 
-* **[Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob Storage 계정을 만듭니다.**
+* (선택 사항) 팀 및 프로젝트의 공유 **Azure File Storage[를 해당 ](https://portal.azure.com)DSVM**(데이터 과학 Virtual Machine)에 탑재합니다.
 
 ![Azure Portal에서 스토리지 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -286,7 +286,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 ![스토리지 계정에 액세스하는 Azure Storage 탐색기의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**VM에서 Azure Blob으로 데이터를 이동 합니다. AzCopy**
+**VM에서 Azure Blob: AzCopy로 데이터 이동**
 
 로컬 파일과 Blob Storage 간에 데이터를 이동하려면 명령줄 또는 PowerShell에서 AzCopy를 사용합니다.
 
@@ -311,20 +311,20 @@ Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storag
 
 ![업로드된 CSV 파일을 표시하는 스토리지 계정의 스크린샷](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**VM에서 Azure Blob으로 데이터를 이동 합니다. Azure Storage 탐색기**
+**VM에서 Azure Blob: Azure Storage 탐색기로 데이터 이동**
 
 Azure Storage 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드 하려면 대상 컨테이너를 선택 하 고 클릭 합니다 **업로드할** 단추.![ Azure Storage 탐색기에서 업로드 단추 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
-* 클릭 된 **...**  의 오른쪽에는 **파일** 상자를 클릭 하 여 파일 시스템에서 업로드할 파일을 하나 이상 선택 **업로드** 파일을 업로드 하려면.![ 업로드 파일 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
+* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다. ![Storage 탐색기에서 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
+* **파일** 상자 오른쪽의 **...** 을 클릭하고, 파일 시스템에서 업로드할 파일을 하나 이상 선택하고 **업로드**를 클릭하여 파일 업로드를 시작합니다. ![파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Azure Blob에서 데이터 읽기: Machine Learning 판독기 모듈**
+**Azure Blob: Machine Learning 판독기 모듈에서 데이터 읽기**
 
 Azure Machine Learning Studio에서 **데이터 가져오기 모듈**을 사용하여 Blob에서 데이터를 읽을 수 있습니다.
 
 ![Machine Learning Studio에서 데이터 가져오기 모듈의 스크린샷](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Azure Blob에서 데이터 읽기: Python ODBC**
+**Azure Blob: Python ODBC에서 데이터 읽기**
 
 **BlobService** 라이브러리를 사용하여 Jupyter Notebook 또는 Python 프로그램의 Blob에서 직접 데이터를 읽을 수 있습니다.
 
@@ -379,7 +379,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-data-lake"></a>Azure Data Lake
 빅 데이터 분석 작업용의 초대형 리포지토리인 Azure Data Lake Storage는 HDFS(Hadoop 분산 파일 시스템)와 호환됩니다. Hadoop, Spark 및 Azure Data Lake Analytics와 작동합니다. 이 섹션에서는 Azure Data Lake 저장소에 데이터를 이동하고 Azure Data Lake 분석을 사용하여 분석을 실행하는 방법을 알아봅니다.
 
-**필수 요소**
+**필수 구성 요소**
 
 * [Azure 포털](https://portal.azure.com)에서 Azure Data Lake Analytics를 만듭니다.
 
@@ -389,7 +389,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 ![Visual Studio에서 Data Lake Tools의 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**VM에서 Data Lake로 데이터를 이동 합니다. Azure Data Lake 탐색기**
+**VM에서 Data Lake: Azure Data Lake Explorer로 데이터 이동**
 
 **Azure Data Lake Explorer** 를 사용하여 Virtual Machine의 로컬 파일에서 Data Lake Storage로 데이터를 업로드할 수 있습니다.
 
@@ -397,7 +397,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 [ADF(Azure Data Factory)](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure Data Lake와의 데이터 이동을 운용하는 데이터 파이프라인을 구축할 수도 있습니다. 데이터 파이프라인을 구축하는 단계를 안내하는 이 [문서](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/)를 참조하세요.
 
-**Azure Blob에서 Data Lake에 데이터를 읽기: U-SQL**
+**Azure Blob에서 Data Lake: U-SQL로 데이터 읽기**
 
 데이터가 Azure Blob Storage에 상주하는 경우 U SQL 쿼리를 사용하여 Azure 스토리지 Blob에서 직접 데이터를 읽을 수 있습니다. U-SQL 쿼리를 작성하기 전에 Blob Storage 계정이 Azure Data Lake에 연결되었는지 확인합니다. **Azure Portal**로 이동하여 Azure Data Lake Analytics 대시보드를 찾은 다음 **데이터 원본 추가**를 클릭하고 스토리지 유형을 **Azure Storage**로 선택한 후에 Azure Storage 계정 이름 및 키를 연결합니다. 그러면 저장소 계정에 저장된 데이터를 참조할 수 있습니다.
 
@@ -453,7 +453,7 @@ USING Outputters.Csv();
 
 ![작업 대화 상자 상태의 스크린샷](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**Data Lake에서 데이터를 쿼리 합니다. U-SQL**
+**Data Lake: U-SQL의 데이터 쿼리**
 
 Azure Data Lake에 데이터 세트가 수집되면 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)를 사용하여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-SQL과 비슷하지만 C#의 일부 기능이 결합되어 사용자가 사용자 지정 모듈, 사용자 정의 함수 등을 작성할 수 있습니다. 이전 단계의 스크립트를 사용할 수 있습니다.
 
@@ -468,7 +468,7 @@ Azure Data Lake에 데이터 세트가 수집되면 [U-SQL 언어](../../data-la
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터
 Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase 및 Storm 서비스입니다. 데이터 과학 가상 머신에서 Azure HDInsight 클러스터를 쉽게 사용할 수 있습니다.
 
-**필수 요소**
+**필수 구성 요소**
 
 * [Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob Storage 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 
@@ -592,7 +592,7 @@ for i in range(1,13):
 
 데이터가 HDI 클러스터에 로드되면 Azure Storage를 탐색기에서 데이터를 검사할 수 있습니다. 그리고 HDI 클러스터에서 만든 데이터베이스 nyctaxidb가 있습니다.
 
-**데이터 탐색: Python에서 hive 쿼리**
+**데이터 탐색: Python에서 Hive 쿼리**
 
 데이터가 Hadoop 클러스터에 있기 때문에 pyodbc 패키지를 사용하여 Hadoop 클러스터에 연결한 후 Hive를 사용하여 데이터베이스를 쿼리하여 데이터 탐색 및 기능 엔지니어링을 수행할 수 있습니다. 필수 조건 단계에서 만든 기존 테이블을 볼 수 있습니다.
 
@@ -817,7 +817,7 @@ pd.read_sql(queryString,connection)
 
 ![테이블에서 데이터의 상위 행](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-**Machine Learning을 사용 하 여 HDI에서 데이터 읽기: 판독기 모듈**
+**Machine Learning을 사용하여 HDI에서 데이터 읽기: 판독기 모듈**
 
 Machine Learning Studio의 **판독기** 모듈을 사용하여 Hadoop 클러스터의 데이터베이스에 액세스할 수도 있습니다. HDI 클러스터의 자격 증명과 Azure Storage 계정을 연결하여 HDI 클러스터의 데이터베이스를 사용한 기계 학습 모델 빌드를 가능하도록 합니다.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045085"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기
@@ -27,10 +27,10 @@ ms.locfileid: "59045085"
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다. 
 > 
-> * [큐와 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
-> * [토픽 및 구독이 있는 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
-> * [큐 및 권한 부여 규칙을 사용 하 여 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
-> * [토픽, 구독 및 규칙이 있는 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [큐가 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-queue.md)
+> * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
+> * [큐 및 권한 부여 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
+> * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 최신 템플릿을 확인하려면 Service Bus에 대한 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리 및 검색을 방문하세요.
 
@@ -40,7 +40,7 @@ ms.locfileid: "59045085"
 ## <a name="quick-deployment"></a>빠른 배포
 JSON을 작성하지 않고 PowerShell/CLI 명령을 실행하지 않고 샘플을 실행하려면 다음 단추를 선택합니다.
 
-[![DAzure에 eploy](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Azure에 배포](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 템플릿을 수동으로 만들고 배포하려면 이 문서의 다음 섹션을 참조하세요.
 
@@ -203,7 +203,7 @@ Azure CLI를 사용하여 리소스를 배포하려면 JSON 파일이 있는 폴
 이 문서에서는 Service Bus 네임스페이스를 만들었습니다. 다른 빠른 시작을 참조하여 큐, 토픽/구독을 만들고 사용하는 방법에 대해 알아봅니다. 
 
 - [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
-- [Service Bus 큐 항목 시작](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Service Bus 큐 토픽 시작](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/

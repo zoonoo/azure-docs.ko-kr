@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047942"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>프로그래밍 방식으로 Service Fabric 클러스터의 크기 조정 
@@ -34,9 +34,9 @@ Azure에서 실행되는 Service Fabric 클러스터는 가상 머신 확장 집
 서비스 주체는 다음 단계에 따라 만들 수 있습니다.
 
 1. 가상 머신 확장 집합에 액세스할 수 있는 사용자로 Azure CLI(`az login`)에 로그인합니다.
-2. 서비스를 사용 하 여 주체 만들기 `az ad sp create-for-rbac`
+2. `az ad sp create-for-rbac`을 사용하여 서비스 주체를 만듭니다.
     1. 나중에 사용할 수 있도록 appId(다른 곳에서는 'client ID'라고도 함), 이름, 암호, 테넌트를 기록해 둡니다.
-    2. 사용 하 여 볼 수 있는 구독 ID로도 해야 `az account list`
+    2. 구독 ID도 필요하며 `az account list`를 사용하여 확인할 수 있습니다.
 
 다음과 같이 자격 증명을 사용하여 Fluent 계산 라이브러리에 로그인할 수 있습니다(`IAzure`와 같은 핵심 Fluent Azure 형식은 [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) 패키지에 있음).
 
@@ -128,6 +128,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 사용자 고유의 자동 크기 조정 논리를 구현하려면 먼저 다음과 같은 개념과 유용한 API부터 숙지해야 합니다.
 
-- [수동으로 또는 자동 크기 조정 규칙을 사용 하 여 크기 조정](./service-fabric-cluster-scale-up-down.md)
+- [수동으로 또는 자동 크기 조정 규칙을 사용하여 크기 조정](./service-fabric-cluster-scale-up-down.md)
 - [.NET용 Fluent Azure Management 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/Fluent)(Service Fabric 클러스터의 기본 가상 가상 머신 확장 집합과 상호 작용하는 데 유용함)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)(Service Fabric 클러스터 및 그 노드와 상호 작용하는 데 유용함)

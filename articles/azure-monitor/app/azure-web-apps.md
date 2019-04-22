@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489625"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
@@ -118,7 +118,7 @@ ms.locfileid: "59489625"
 * 선택 **설정을** > **응용 프로그램 설정**
    * 응용 프로그램 설정에서 새로 추가 **앱 설정 이름은** 하 고 **값**:
 
-     이름: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      값: `false`
 
@@ -137,7 +137,7 @@ Application Insights로 원격 분석 수집을 사용 하도록 설정 하기 �
 |앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  기본 모드에 필수적인 기능 최적의 성능을 보장 하기 위해 사용 됩니다. | `default` 또는 `recommended`합니다. |
+|XDT_MicrosoftApplicationInsights_Mode |  기본 모드에 필수적인 기능 최적의 성능을 보장 하기 위해 사용 됩니다. | `default` 또는 `recommended`입니다. |
 |InstrumentationEngine_EXTENSION_VERSION | 제어 하는 경우 이진 재작성 엔진 `InstrumentationEngine` 켜 집니다. 이 설정은 성능에 영향 및 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL 및 Azure 테이블이 텍스트 컨트롤 종속성 호출이 함께 캡처됩니다. 성능 경고:이 설정을 사용 하려면를 `InstrumentationEngine`입니다. | `~1` |
 
@@ -326,7 +326,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 1. 응용 프로그램을 통해 모니터링 되는 확인 `ApplicationInsightsAgent`합니다.
     * 확인 `ApplicationInsightsAgent_EXTENSION_VERSION` 앱 설정 "~ 2"의 값으로 설정 됩니다.
 2. 응용 프로그램 모니터링 요구 사항을 충족 하는지 확인 합니다.
-    * 찾을 대상 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * 로 이동 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![스크린샷 https://yoursitename.scm.azurewebsites/applicationinsights 결과 페이지](./media/azure-web-apps/app-insights-sdk-status.png)
 

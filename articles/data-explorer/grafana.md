@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048319"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana의 Azure Data Explorer에서 데이터 시각화
@@ -210,4 +210,4 @@ Grafana에 대한 데이터 원본으로 Azure Data Explorer 구성을 완료했
 
 [Azure 데이터 탐색기용 쿼리 작성](write-queries.md)
 
-[자습서: Power BI에서 Azure 데이터 탐색기에서 데이터 시각화](visualize-power-bi.md)
+[자습서: ](visualize-power-bi.md) Power BI에서 Azure Data Explorer의 데이터 시각화

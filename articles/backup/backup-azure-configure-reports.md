@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278828"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
@@ -150,6 +150,6 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 �
 ## <a name="next-steps"></a>다음 단계
 저장소 계정을 구성하고 Azure Backup 콘텐츠 팩을 가져온 후에 수행할 수 있는 다음 단계는 보고서를 사용자 지정하고 보고 데이터 모델을 사용하여 보고서를 만드는 것입니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Backup 보고 데이터 모델을 사용 하 여](backup-azure-reports-data-model.md)
+* [Azure Backup 보고 데이터 모델 사용](backup-azure-reports-data-model.md)
 * [Power BI에서 보고서 필터링](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Power BI에서 보고서 만들기](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

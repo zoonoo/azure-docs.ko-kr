@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046685"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
@@ -30,7 +30,7 @@ VHD(가상 하드 디스크), 즉 일반화된 운영 체제 VHD 및 0개 이상
 VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 참조하세요.
 
 - [VM 이미지](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM 이미지 PowerShell '방법 '](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM 이미지 PowerShell '방법'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -53,10 +53,10 @@ VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 �
 VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 되었습니다.
 
 1. **새로 만들기**를 클릭하고, **템플릿 배포**를 검색한 다음, **편집기에서 사용자 고유의 템플릿 작성**을 선택합니다.  <br/>
-   ![Azure portal에서 VHD 배포 템플릿 빌드](./media/publishvm_021.png)
+   ![Azure Portal에서 VHD 배포 템플릿 작성](./media/publishvm_021.png)
 
 1. 이 [JSON 템플릿](./cpp-deploy-json-template.md)을 복사하여 편집기에 붙여넣고, **저장**을 클릭합니다. <br/>
-   ![Azure portal에서 VHD 배포 템플릿 저장](./media/publishvm_022.png)
+   ![Azure Portal에서 VHD 배포 템플릿 저장](./media/publishvm_022.png)
 
 1. 표시된 **사용자 지정 배포** 속성 페이지에 대한 매개 변수 값을 제공합니다.
 
@@ -72,7 +72,7 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
    | OS 종류                     | VM 운영 체제: `Windows` \| `Linux`                                    |
    | 구독 ID             | 선택한 구독의 식별자                                      |
    | 위치                    | 배포의 지리적 위치                                        |
-   | VM 크기                     | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)예 `Standard_A2` |
+   | VM 크기                     | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)(예: `Standard_A2`) |
    | 공용 IP 주소 이름      | 공용 IP 주소의 이름                                               |
    | VM 이름                     | 새 VM의 이름                                                           |
    | Virtual Network 이름        | VM에서 사용하는 가상 네트워크의 이름                                   |

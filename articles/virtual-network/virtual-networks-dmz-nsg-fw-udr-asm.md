@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426531"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>예 3: 방화벽, UDR 및 Nsg를 사용 하 여 네트워크를 보호 하는 경계 네트워크 빌드
@@ -27,7 +27,7 @@ ms.locfileid: "59426531"
 
 이 예제 경계 네트워크를 만듭니다 (DMZ, 완충 지역 및 스크린 된 서브넷으로도 알려짐). 이 예제에서는 방화벽, 4 명의 Windows 서버, 사용자 정의 라우팅을 (UDR), IP 전달 및 네트워크 보안 그룹 (Nsg)을 구현합니다. 이 문서에서는 각 단계를 이해할 수 있도록 관련 명령을 통해 안내 합니다. 트래픽 시나리오 섹션에서는 또한 설명 방어에서 경계 네트워크에서 방어 계층을 통해 트래픽을 진행 하는 방법입니다. 마지막으로, 참조 섹션에서는 모든 코드 및 테스트 하 고 다양 한 시나리오를 실험할 수 있도록이 환경을 구축 하는 지침을 포함 합니다.
 
-![NVA, NSG 및 UDR이 있는 양방향 경계 네트워크][1]
+![NVA, NSG 및 UDR을 사용 하 여 양방향 경계 네트워크][1]
 
 ## <a name="environment-setup"></a>환경 설정
 
@@ -207,7 +207,7 @@ Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
 
 방화벽 전달 규칙을 만들어야 합니다. 방화벽 차단 또는 모든 인바운드, 아웃 바운드 및 intra virtual-네트워크 트래픽을 전달 하기 때문에 많은 방화벽 규칙이 필요 합니다. 또한 방화벽 보안 서비스 공용 IP 주소 (서로 다른 포트)에서 모든 인바운드 트래픽을 처리 해야 합니다. 재작업을 방지 하도록 나중에, 서브넷 및 방화벽 규칙을 설정 하기 전에 논리적 흐름을 다이어그램으로 모범 사례를 따릅니다. 다음 그림은 이 예제의 방화벽 규칙을 논리적으로 나타낸 것입니다.
 
-![방화벽 규칙에 대한 논리적 보기][2]
+![방화벽 규칙에 대한 논리 뷰][2]
 
 > [!NOTE]
 > 관리 포트는 네트워크 가상 어플라이언스에 따라 달라 집니다. 이 예제에서는 포트 22, 801, 807을 사용 하는 Barracuda NextGen Firewall을 보여 줍니다. 장치를 관리 하는 정확한 포트를 찾으려면 어플라이언스 공급 업체 설명서를 참조 하세요.

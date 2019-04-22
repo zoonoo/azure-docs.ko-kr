@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048115"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
@@ -176,7 +176,7 @@ ms.locfileid: "59048115"
 
 구성 서버의 %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository 폴더로 이동 합니다. 필요에 따라 설치 관리자 운영 체제를 확인 합니다. 다음 표에서 각 VMware VM 및 물리적 서버 운영 체제 설치 관리자 파일을 요약합니다. 시작하기 전에 [지원되는 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines)를 검토할 수 있습니다.
 
-**설치 관리자 파일** | **운영 체제 (64 비트만 해당)**
+**설치 관리자 파일** | **운영 체제(64비트만 해당)**
 --- | ---
 Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1
 Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | RHEL(Red Hat Enterprise Linux) 6.* </br> CentOS 6.*

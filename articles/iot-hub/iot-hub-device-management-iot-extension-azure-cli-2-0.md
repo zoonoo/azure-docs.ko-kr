@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043009"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681423"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 디바이스 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "48043009"
 
 이러한 옵션을 사용하는 방법에 대한 차이점과 지침에 대한 자세한 내용은 [디바이스-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md) 및 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
 
-장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 디바이스 쌍에 대한 자세한 내용은 [디바이스 쌍 시작](iot-hub-node-node-twin-getstarted.md)을 참조하세요.
+디바이스 쌍은 디바이스의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 디바이스 쌍에 대한 자세한 내용은 [디바이스 쌍 시작](iot-hub-node-node-twin-getstarted.md)을 참조하세요.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -49,13 +49,13 @@ ms.locfileid: "48043009"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* 다음 요구 사항을 다루는 자습서 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md)을 완료합니다.
+* 완료 합니다 [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서; 중 하나 예를 들어 [node.js 사용 하 여 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 다음 요구 사항을 다루며::
 
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 
-* 이 자습서를 진행하는 동안 디바이스가 클라이언트 응용 프로그램을 사용해서 실행되고 있어야 합니다.
+* 이 자습서를 진행하는 동안 장치가 클라이언트 애플리케이션을 사용해서 실행되고 있어야 합니다.
 
 * [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)
 
@@ -109,7 +109,7 @@ az iot hub device-twin show -n <your hub name> -d <your device id>
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
-다음 명령을 실행하여 장치에 역할(role = temperature&humidity) 필드를 추가합니다.
+다음 명령을 실행하여 디바이스에 역할(role = temperature&amp;humidity) 필드를 추가합니다.
 
 ```bash
 az iot hub device-twin update \
@@ -120,14 +120,14 @@ az iot hub device-twin update \
 
 ## <a name="device-twin-queries"></a>디바이스 쌍 쿼리
 
-다음 명령을 실행하여 role = 'temperature & humidity' 태그가 있는 장치를 쿼리합니다.
+다음 명령을 실행하여 role = 'temperature &amp; humidity' 태그가 있는 디바이스를 쿼리합니다.
 
 ```bash
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
-다음 명령을 실행하여 role = 'temperature & humidity' 태그가 있는 장치를 제외한 모든 장치를 쿼리합니다.
+다음 명령을 실행하여 role = 'temperature &amp; humidity' 태그가 있는 디바이스를 제외한 모든 디바이스를 쿼리합니다.
 
 ```bash
 az iot hub query --hub-name <your hub name> \

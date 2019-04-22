@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051759"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
@@ -141,7 +141,7 @@ ms.locfileid: "59051759"
 
 약간만 수정하면 동일한 코드를 productId 및 userId에도 사용할 수 있습니다.
 
-**C#returnUrl의 해시를 생성 하는 코드**
+**returnUrl의 해시를 생성하는 C# 코드**
 
 ```csharp
 using System.Security.Cryptography;
@@ -158,7 +158,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-**ReturnUrl의 해시를 생성 하는 NodeJS 코드**
+**returnUrl의 해시를 생성하는 NodeJS 코드**
 
 ```
 var crypto = require('crypto');
@@ -184,10 +184,10 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[single sign-on (SSO) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[사용자 만들기]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[제품 구독에 대 한 REST API를 호출합니다.]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[SSO(Single-Sign-On) 토큰을 요청]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
+[사용자를 만듭니다]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[제품 구독을 위해 REST API를 호출]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
-[아래 제공 된 예제 코드]: #delegate-example-code
+[아래 제공된 예제 코드]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 

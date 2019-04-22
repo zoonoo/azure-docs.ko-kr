@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045597"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
@@ -92,8 +92,8 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 | --- | --- |
 | **인라인 수집** | 즉시 |
 | **쿼리에서 수집** | 쿼리 시간 + 처리 시간 |
-| **저장소에서 수집 합니다.** | 다운로드 시간 + 처리 시간 |
-| **큐에 대기 중인된 수집** | 일괄 처리 시간 + 처리 시간 |
+| **저장소에서 수집** | 다운로드 시간 + 처리 시간 |
+| **큐에 대기된 수집** | 일괄 처리 시간 + 처리 시간 |
 | |
 
 처리 시간은 데이터 크기에 따라 달라지며 몇 초 미만입니다. 일괄 처리 시간의 기본값은 5분입니다.
@@ -141,10 +141,10 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Event Hub에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
+> [이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Azure 데이터 탐색기로 Event Grid 구독을 사용 하 여 데이터를 수집 합니다.](ingest-data-event-grid.md)
+> [Event Grid 구독을 사용하여 Azure Data Explorer로 데이터 수집](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
 > [Kafka에서 Azure Data Explorer로 데이터 수집](ingest-data-kafka.md)

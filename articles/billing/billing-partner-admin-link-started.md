@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270186"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
@@ -122,19 +122,19 @@ C:\ az managementpartner delete --partner-id 12345
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**파트너 ID를 연결할 수는?**
+**파트너 ID를 연결할 수 있는 사용자는 누구인가요?**
 
 고객의 Azure 리소스를 관리하는 파트너 조직의 모든 사용자는 파트너 ID를 계정에 연결할 수 있습니다.
 
-**수 파트너 ID에 연결 되 면 변경할 수 있나요?**
+**파트너 ID가 연결된 후에 파트너 ID를 변경할 수 있나요?**
 
 예. 연결된 파트너 ID를 변경하거나, 추가하거나, 제거할 수 있습니다.
 
-**경우에 어떻게 사용자가 고객 테 넌 트를 둘 이상에서 계정을?**
+**사용자가 둘 이상의 고객 테넌트에 계정을 보유한 경우에 어떻게 되나요?**
 
 파트너 ID와 계정 간의 연결은 고객 테넌트 각각에 수행됩니다. 각 고객 테넌트에서 파트너 ID를 연결합니다.
 
-**다른 파트너 또는 고객 편집 또는 제거할 수 파트너 ID에 대 한 링크?**
+**다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?**
 
 링크는 사용자 계정 수준에서 연결됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다. 
 

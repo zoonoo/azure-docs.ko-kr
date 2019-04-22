@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1e67c22a55068ce42cb1eb6d9c0c9bdf8215f44e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167986"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679040"
 ---
-# <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Azure IoT Central 애플리케이션에서 디바이스 관리(새 UI 디자인)
+# <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 장치 관리
 
 이 문서에서는 운영자로서 Azure IoT Central 애플리케이션에서 디바이스를 관리하는 방법을 설명합니다. 운영자로서 다음과 같은 일을 할 수 있습니다.
 

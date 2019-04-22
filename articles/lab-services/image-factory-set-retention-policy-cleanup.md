@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490742"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리를 만듭니다.
@@ -26,8 +26,8 @@ ms.locfileid: "59490742"
 계속 하기 전에 다음이 문서를 수행 해야 합니다.
 
 - [이미지 팩터리 만들기](image-factory-create.md)
-- [Azure DevOps에서 이미지 팩터리 실행](image-factory-set-up-devops-lab.md)
-- [사용자 지정 이미지 저장 및 여러 랩에 배포](image-factory-save-distribute-custom-images.md)
+- [Azure DevOps에서 이미지 팩터리를 실행 합니다.](image-factory-set-up-devops-lab.md)
+- [사용자 지정 이미지를 저장 하 고 여러 개의 랩에 배포](image-factory-save-distribute-custom-images.md)
 
 다음 항목이 위치에 이미 있어야 합니다.
 

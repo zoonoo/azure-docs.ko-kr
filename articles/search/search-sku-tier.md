@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270957"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681576"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -64,35 +64,36 @@ Azure search에서 비용이 Aure 검색에서 발생 하는 방법은 세 가�
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1. 핵심 서비스 비용 (고정 및 변수)
 
-서비스 자체에 대 한 최소 요금 청구는 첫 번째 검색 단위 (1 개 복제본 x 1 파티션) 및 서비스를이 구성 보다 적은 권한으로 실행할 수 없으므로이 크기는 서비스의 수명에 대 한 상수입니다. 
+서비스 자체에 대 한 최소 요금 청구는 첫 번째 검색 단위 (1 개 복제본 x 1 파티션) 및 서비스는이 구성을 보다 적은 권한으로 실행할 수 없으므로이 금액 서비스의 수명 동안 고정 됩니다. 
 
-다음 스크린 샷에서 당 단위 가격 책정이 표시 되어 Free, Basic 및 S1 (S2, S3, L1 및 L2는 표시 되지 않음). 만든 경우는 **기본**를 **표준**, 또는 **저장소 최적화** 서비스 월간 비용에 대해 표시 되는 값을 평균는 *가격-1*하 고 *가격-2* 각각. 연속 된 각 계층에서 큰 계산 능력과 저장소 용량 이므로 단가 각 계층에 대 한 이동 합니다.
+최소를 추가할 수 있습니다 하지 복제본과 파티션을 독립적으로. 예를 들어, 복제본 또는 파티션으로 추가할 수 있습니다. 복제본 및 파티션의 통해 용량 증가 증분 가변 비용 구성 요소를 구성합니다. 
+
+청구는 기준으로 한 [수식 (복제본 파티션 x 속도 x)](#search-units)합니다. 요율을 선택한 가격 책정 계층에 따라 달라 집니다.
+
+다음 스크린 샷에서 당 단위 가격 책정이 표시 되어 Free, Basic 및 S1 (S2, S3, L1 및 L2는 표시 되지 않음). 만든 경우는 **기본**를 **표준**, 또는 **저장소 최적화** 서비스 월간 비용에 대해 표시 되는 값을 평균는 *가격-1*하 고 *가격-2* 각각. 연속 된 각 계층에서 큰 계산 능력과 저장소 용량 이므로 단가 각 계층에 대 한 이동 합니다. Azure Search에 대 한 요금에 게시 되는 [Azure Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)합니다.
 
 ![당 단위 가격 책정](./media/search-sku-tier/per-unit-pricing.png "당 단위 가격 책정")
 
-추가 복제본 및 파티션의 초기 비용에 추가 된 기능입니다. 검색 서비스에 복제본 및 파티션 최소 구성으로 각 중 하나 이므로 필요 합니다. 최소, 추가한 하지 복제본과 파티션을 독립적으로 합니다. 예를 들어, 복제본 또는 파티션으로 추가할 수 있습니다. 
+검색 솔루션 비용을 가격 책정 및 용량을 선형 (double 비용 보다 더 많은 용량이 두 배로) 알 수 있습니다. 수식 작동 하는 방법의 예제를 참조 하세요 ["복제본 및 파티션의 할당 하는 방법"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)합니다.
 
-추가 복제본 및 파티션의 따라 요금이 청구 되는 [수식을](#search-units)합니다. 비용 (double 비용 보다 더 많은 용량이 두 배로) 선형있지 않습니다. 수식 작동 하는 방법의 예제를 참조 하세요 ["복제본 및 파티션의 할당 하는 방법"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)합니다.
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. 인덱싱 중 데이터 송신 요금이 발생 합니다.
 
-이용 [Azure Search 인덱서](search-indexer-overview.md) 영향 서비스가 있는 위치에 따라 청구 될 수 있습니다. 데이터와 동일한 지역에서 Azure Search 서비스를 만든 경우에 완전 하 게 데이터 송신 요금을 제거할 수 있습니다.
+이용 [Azure Search 인덱서](search-indexer-overview.md) 서비스 위치에 따라 청구 영향이 발생할 수 있습니다. 데이터와 동일한 지역에서 Azure Search 서비스를 만든 경우에 완전 하 게 데이터 송신 요금을 제거할 수 있습니다. 다음 사항은에서 합니다 [대역폭 가격 책정 페이지](https://azure.microsoft.com/pricing/details/bandwidth/)합니다.
 
-+ Azure에서 서비스에 모든 인바운드 데이터에 대 한 요금이 없습니다.
++ Microsoft은 Azure Search에서 Azure에서 서비스에 모든 인바운드 데이터 또는 모든 아웃 바운드 데이터에 대해 청구 하지 않습니다.
 
-+ Azure Search에서 모든 아웃 바운드 데이터에 대 한 요금이 없습니다.
++ 다중 서비스 솔루션의 모든 서비스가 동일한 지역에 되었을 때 네트워크를 통과 하는 데이터에 대 한 요금은 있습니다.
 
-+ 데이터 또는 파일 SQL DB, Cosmos, Blob storage에서에서 아웃 바운드 무료로 (Azure Search에 인바운드)으로 모든 서비스가 동일한 지역에 있습니다.
-
-+ Storage 및 Azure Search 다른 지역의 경우 아웃 바운드 데이터 또는 파일에 대 한 요금이 적용지 않습니다.
-
-Azure 지역 간에 데이터를 라우팅, 대역폭 요금은 해당 리소스에 대 한 청구서에 표시 됩니다. 이러한 요금은 Azure Search 청구서의 일부가 아닌 이지만 전체 청구 금액에서 해당 요금 인덱서를 데이터 또는 파일 연결을 통해 끌어오기를 사용 하는 경우 표시 됩니다 때문에 여기 언급 됩니다.
-
-인덱서를 사용 하지 않는 경우 대역폭 요금이 없습니다. 
+서비스가 서로 다른 지역에 있으면 아웃 바운드 데이터에 대 한 요금이 적용지 않습니다. 이러한 요금은 Azure Search 요금의 일부는 본질적으로 아니지만 데이터를 끌어오는 데이터 또는 AI를 보강 한 인덱서를 사용 하 여 서로 다른 지역에서는 보면 전체 청구 금액에 반영 해당 비용 때문에 여기 언급 됩니다. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI 보강 Cognitive Services를 사용 하 여 인덱싱
 
-에 대 한 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md) 만 문서 해독 하는 동안 이미지 추출 문서에서 추출 된 이미지의 수에 따라 청구 됩니다. 텍스트 추출은 현재 무료입니다. 자연어 처리와 같은 다른 강화에 기반한 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) Cognitive Services 리소스에 대해 요금이 청구 됩니다. 보강에는 Cognitive Services를 사용하여 직접 작업을 수행한 경우와 동일한 요금이 청구됩니다.
+에 대 한 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md), 가격 책정 계층에 대 한 종 량 제 처리는 S0에서 청구 가능한 Cognitive Services 리소스에 연결 계획 해야 합니다. 비용은 없습니다 "고정" 연결 된 Cognitive Services에 연결 합니다. 필요한 처리에 대해서만 지불 합니다.
+
+문서 해독 하는 동안 이미지 추출은 청구 하 여 Azure Search 비용이 문서에서 추출 된 이미지의 수를 기반으로 합니다. 텍스트 추출은 현재 무료입니다. 
+
+자연어 처리와 같은 다른 강화에 기반한 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) Cognitive Services를 사용 하 여 직접 작업을 수행 했습니다 처럼 같은 속도로 Cognitive Services 리소스에 대해 요금이 청구 됩니다. 자세한 내용은 [기술 집합을 사용 하 여 Cognitive Services 리소스 연결](cognitive-search-attach-cognitive-services.md)합니다.
 
 <a name="search-units"></a>
 

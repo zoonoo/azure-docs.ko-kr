@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: 89303e5c827fc24540d345a9a2b9a0743e453a4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257130"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
@@ -180,17 +180,17 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
     이러한 문은 다음 작업을 수행합니다.
 
-    * `DROP TABLE` -테이블이 있는 경우 삭제 됩니다.
+    * `DROP TABLE` - 테이블이 있으면 삭제됩니다.
 
-    * `CREATE EXTERNAL TABLE` -만듭니다는 **외부** hive에서 테이블. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
+    * `CREATE EXTERNAL TABLE` - Hive에서 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
-    * `ROW FORMAT` -얼마나 데이터 형식이 있습니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
+    * `ROW FORMAT` - 데이터의 형식을 지정하는 방식입니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 
-    * `STORED AS TEXTFILE LOCATION` -데이터가 저장 되는 위치 및 파일 형식입니다.
+    * `STORED AS TEXTFILE LOCATION` - 데이터를 저장하는 위치 및 파일 형식입니다.
 
-    * `SELECT` -모든 행의 수를 선택 합니다. 여기서 열 **t4** 값을 포함 **[ERROR]** 합니다. 이 값을 포함하는 세 개의 행이 있으므로 이 쿼리는 **3** 값을 반환합니다.
+    * `SELECT` - 열 **t4**에 값 **[ERROR]** 가 포함된 모든 행의 수를 선택합니다. 이 값을 포함하는 세 개의 행이 있으므로 이 쿼리는 **3** 값을 반환합니다.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Hive는 디렉터리의 모든 파일에 스키마를 적용 하려고 합니다. 이 경우 디렉터리에 스키마와 일치하지 않는 파일이 포함되어 있습니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 명령문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.
+    * `INPUT__FILE__NAME LIKE '%.log'` - Hive는 디렉터리의 모든 파일에 스키마를 적용하려고 합니다. 이 경우 디렉터리에 스키마와 일치하지 않는 파일이 포함되어 있습니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 명령문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.
 
    > [!NOTE]  
    > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. 예를 들어 자동화된 데이터 업로드 프로세스 또는 MapReduce 작업이 있습니다.
@@ -284,7 +284,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 HDInsight의 Hive에 대한 보다 일반적인 내용은 다음 문서를 참조하세요.
 
-* [Apache Hive를 사용 하 여 HDInsight에서 Apache Hadoop을 사용 하 여](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop을 사용하여 작업할 수 있는 다른 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

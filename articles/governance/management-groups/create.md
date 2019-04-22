@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259814"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
@@ -98,7 +98,7 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 - [관리 그룹을 만들어 Azure 리소스 구성](create.md)
-- [변경, 삭제 또는 관리 그룹을 관리 하는 방법](manage.md)
+- [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)
 - [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](/powershell/module/az.resources#resources)
-- [REST API에서 관리 그룹을 검토](/rest/api/resources/managementgroups)
+- [REST API에서 관리 그룹 검토](/rest/api/resources/managementgroups)
 - [Azure CLI에서 관리 그룹 검토](/cli/azure/account/management-group)

@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279315"
 ---
 # <a name="compare-remote-access-solutions"></a>원격 액세스 솔루션 비교
@@ -64,5 +64,5 @@ Azure AD 애플리케이션 프록시는 유사한 제품과 비교할 때 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 응용 프로그램을 사용 하 여 온-프레미스 응용 프로그램에 대 한 보안 원격 액세스를 제공 합니다.](application-proxy.md)
+- [Azure AD 애플리케이션을 사용하여 온-프레미스 애플리케이션에 대한 보안된 원격 액세스를 제공하는 방법](application-proxy.md)
 - [Forefront TMG 및 UAG에서 애플리케이션 프록시로 전환(영문)](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/)

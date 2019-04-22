@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426225"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
@@ -76,7 +76,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 | 자산 | 설명 |
 | --- | --- |
-| `Type` | *Heartbeat*|
+| `Type` | *하트비트*|
 | `Category` | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버*합니다.|
 | `Computer` | 컴퓨터 이름입니다.|
 | `OSType` | Windows 또는 Linux 운영 체제입니다.|

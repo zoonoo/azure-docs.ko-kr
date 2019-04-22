@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275898"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
@@ -132,4 +132,4 @@ PEM 파일 형식에 대 한 다음과 같은 유형의 가져오기 지원합�
 
 ## <a name="see-also"></a>관련 항목
 
-- [키, 비밀 및 인증서 정보](about-keys-secrets-and-certificates.md)
+- [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

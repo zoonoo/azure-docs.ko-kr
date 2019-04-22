@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
 ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046277"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>템플릿을 사용하여 Azure Firewall 배포
@@ -32,7 +32,7 @@ Azure Firewall에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-**설치 하는 템플릿을 사용 하 여 Azure 방화벽을 배포 합니다.**
+**템플릿을 사용하여 Azure Firewall을 설치 및 배포하려면**
 
 1. [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)에서 템플릿에 액세스합니다.
    
@@ -71,4 +71,4 @@ Remove-AzResourceGroup -Name MyResourceGroup
 다음으로, Azure Firewall 로그를 모니터링할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure 방화벽 로그 모니터링](./tutorial-diagnostics.md)
+> [자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358495"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617417"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
@@ -54,7 +54,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
-1. Azure Portal에서 **+리소스 만들기**를 클릭하고, Marketplace에서 **Recovery Services**를 검색합니다.
+1. Azure Portal에서 **+리소스 만들기**를 클릭하고, Marketplace에서 **복구**를 검색합니다.
 2. **Backup 및 Site Recovery(OMS)** 를 클릭하고, Backup 및 Site Recovery 페이지에서 **만들기**를 클릭합니다. 
 1. **Recovery Services 자격 증명 모음** > **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서의 집합의 경우 **ContosoVMVault**를 사용합니다.
 2. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다. 이 자습서에서는 **contosoRG**를 사용합니다.
@@ -70,10 +70,10 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 온-프레미스 머신이 Azure 관리 디스크에 복제됩니다. 장애 조치(failover)가 발생하는 경우 이러한 관리 디스크에서 Azure VM이 생성되고 이 절차에서 지정된 Azure 네트워크에 조인됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 선택합니다.
-2. 배포 모델로 선택되어 있는 **리소스 관리자**를 허용합니다.
+2. 배포 모델로 선택되어 있는 **리소스 관리자**를 유지합니다.
 3. **이름**에 네트워크 이름을 입력합니다. 이름은 Azure 리소스 그룹 내에서 고유해야 합니다. 이 자습서에서는 **ContosoASRnet**을 사용합니다.
 4. 네트워크를 만들 리소스 그룹을 지정합니다. 기존 리소스 그룹인 **contosoRG**를 사용합니다.
-5. **주소 범위**에 네트워크 범위를 입력합니다. 여기서는 **10.0.0.0/24**를 사용하고 서브넷은 사용하지 않습니다.
+5. **주소 범위**에 네트워크 범위를 입력합니다. 여기서는 **10.1.0.0/24**를 사용하고 서브넷은 사용하지 않습니다.
 6. **구독**에서 네트워크를 만드는 데 사용할 구독을 선택합니다.
 7. **위치**에서 Recovery Services 자격 증명 모음이 생성된 지역과 동일한 지역을 선택합니다. 이 자습서에서는 **서유럽**입니다.  네트워크는 자격 증명 모음과 동일한 지역에 있어야 합니다.
 8. 네트워크에 서비스 엔드포인트가 없는 기본 DDoS 보호의 기본 옵션을 그대로 둡니다.

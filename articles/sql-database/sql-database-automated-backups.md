@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545827"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678601"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
-SQL Database는 7-35일 동안 유지되는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 데이터 센터를 사용할 수 없는 경우에도 백업이 유지되도록 합니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 백업을 위해 아무 작업도 수행할 필요가 없으며 [백업 보존 기간을 변경](#how-to-change-the-pitr-backup-retention-period)할 수 있습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 보안 규칙에서 오랫동안(최대 10년) 백업을 사용할 수 있도록 요구하는 경우, [장기 보존](sql-database-long-term-retention.md)을 구성할 수 있습니다.
+SQL Database 데이터베이스 백업을 7-35 일 사이 유지 되는 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소 (RA-GRS)를 사용 하 여 데이터 센터를 사용할 수 없는 경우에 유지 됩니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 백업을 위해 아무 작업도 수행할 필요가 없으며 [백업 보존 기간을 변경](#how-to-change-the-pitr-backup-retention-period)할 수 있습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 보안 규칙에서 오랫동안(최대 10년) 백업을 사용할 수 있도록 요구하는 경우, [장기 보존](sql-database-long-term-retention.md)을 구성할 수 있습니다.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

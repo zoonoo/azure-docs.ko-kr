@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281219"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
@@ -36,18 +36,18 @@ ms.locfileid: "59281219"
 | 기본 제공 역할 | 설명 |
 | --- | --- |
 | [소유자](#owner) | 리소스 액세스를 비롯한 모든 것을 관리할 수 있습니다. |
-| [참가자](#contributor) | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
+| [기여자](#contributor) | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
 | [판독기](#reader) | 모든 것을 볼 수 있지만 변경은 할 수 없습니다. |
 | [AcrDelete](#acrdelete) | acr 삭제 |
 | [AcrImageSigner](#acrimagesigner) | acr 이미지 서명자 |
 | [AcrPull](#acrpull) | acr pull |
 | [AcrPush](#acrpush) | acr push |
-| [AcrQuarantineReader](#acrquarantinereader) | acr 격리 데이터 읽기 권한자 |
+| [AcrQuarantineReader](#acrquarantinereader) | acr 격리 데이터 판독기 |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr 격리 데이터 작성자 |
 | [API Management 서비스 참가자](#api-management-service-contributor) | 서비스 및 API를 관리할 수 있습니다. |
 | [API Management 서비스 운영자 역할](#api-management-service-operator-role) | 서비스를 관리할 수 있지만 API는 관리할 수 없습니다. |
 | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | 서비스 및 API에 대한 읽기 전용 액세스 |
-| [Application Insights 구성 요소 참가자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
+| [Application Insights 구성 요소 기여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
 | [Application Insights 스냅숏 디버거](#application-insights-snapshot-debugger) | Application Insights 스냅숏 디버거를 사용하여 수집한 디버그 스냅숏을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
 | [Automation 작업 연산자](#automation-job-operator) | Automation Runbook을 사용하여 작업을 만들고 관리합니다. |
 | [Automation 운영자](#automation-operator) | 자동화 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. |
@@ -57,21 +57,21 @@ ms.locfileid: "59281219"
 | [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. |
 | [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. |
 | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. |
-| [Backup 참가자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+| [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
 | [Backup 읽기 권한자](#backup-reader) | 백업 서비스를 볼 수 있지만 변경할 수는 없습니다. |
 | [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 |
-| [BizTalk 참가자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [CD 엔드포인트 참가자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+| [BizTalk 기여자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
-| [CDN 프로필 참가자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+| [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 프로필 독자](#cdn-profile-reader) | CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
-| [클래식 네트워크 참가자](#classic-network-contributor) | 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [클래식 Storage 계정 참가자](#classic-storage-account-contributor) | 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
+| [클래식 네트워크 기여자](#classic-network-contributor) | 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [클래식 Storage 계정 기여자](#classic-storage-account-contributor) | 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [클래식 저장소 계정 키 운영자 서비스 역할](#classic-storage-account-key-operator-service-role) | 클래식 저장소 계정 키 운영자가 클래식 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
-| [클래식 Virtual Machine 참가자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
+| [Classic Virtual Machine 참가자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 | [Cognitive Services 기여자](#cognitive-services-contributor) | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. |
-| [Cognitive Services 데이터 판독기(미리 보기)](#cognitive-services-data-reader-preview) | Cognitive Services 데이터를 읽을 수 있습니다. |
+| [Cognitive Services 데이터 판독기 (미리 보기)](#cognitive-services-data-reader-preview) | Cognitive Services 데이터를 읽을 수 있습니다. |
 | [Cognitive Services 사용자](#cognitive-services-user) | Cognitive Services의 키를 읽고 나열할 수 있습니다. |
 | [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
@@ -83,63 +83,63 @@ ms.locfileid: "59281219"
 | [Data Lake Analytics 개발자](#data-lake-analytics-developer) | 사용자 자신의 작업을 제출, 모니터링 및 관리할 수 있지만 Data Lake Analytics 계정을 만들거나 삭제할 수는 없습니다. |
 | [데이터 제거자](#data-purger) | 분석 데이터를 제거할 수 있습니다. |
 | [DevTest Lab 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
-| [DNS 영역 참가자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
-| [DocumentDB 계정 참가자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
+| [DNS 영역 기여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
+| [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
 | [EventGrid EventSubscription 기여자](#eventgrid-eventsubscription-contributor) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
 | [EventGrid EventSubscription 읽기 권한자](#eventgrid-eventsubscription-reader) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
 | [HDInsight 도메인 서비스 기여자](#hdinsight-domain-services-contributor) | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
-| [지능형 시스템 계정 참가자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
-| [Key Vault 참가자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [지능형 시스템 계정 기여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [키 자격 증명 모음 기여자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [랩 작성자](#lab-creator) | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. |
-| [Log Analytics 참가자](#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
+| [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
 | [Log Analytics 독자](#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
-| [논리 앱 참가자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [논리 앱 기여자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [논리 앱 운영자](#logic-app-operator) | 논리 앱을 읽고, 설정하고, 해제할 수 있습니다. |
 | [관리되는 애플리케이션 운영자 역할](#managed-application-operator-role) | 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다. |
 | [Managed Applications 읽기 권한자](#managed-applications-reader) | 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다. |
-| [관리 ID 참가자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
+| [관리 ID 기여자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
 | [관리 ID 운영자](#managed-identity-operator) | 사용자 할당 ID를 읽고 할당합니다. |
 | [관리 그룹 참가자](#management-group-contributor) | 관리 그룹 참가자 역할 |
 | [관리 그룹 읽기 권한자](#management-group-reader) | 관리 그룹 읽기 권한자 역할 |
 | [Monitoring Contributor](#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 | [모니터링 메트릭 게시자](#monitoring-metrics-publisher) | Azure 리소스에 대한 게시 메트릭 사용 |
 | [Monitoring Reader](#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
-| [네트워크 참가자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [NewRelic APM 계정 참가자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정 및 애플리케이션을 관리할 수 있지만 액세스할 수는 없습니다. |
+| [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정 및 애플리케이션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [읽기 권한자 및 데이터 액세스](#reader-and-data-access) | 모든 것을 볼 수 있지만, 저장소 계정 또는 포함된 리소스를 삭제하거나 만들 수는 없습니다. 또한 저장소 계정 키에 액세스하여 저장소 계정에 포함된 모든 데이터를 읽고 쓸 수 있습니다. |
 | [Redis Cache 참가자](#redis-cache-contributor) | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [리소스 정책 참가자(미리 보기)](#resource-policy-contributor-preview) | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
 | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
-| [Search 서비스 참가자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
 | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
 | [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
-| [Site Recovery 참가자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
+| [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
-| [Spatial Anchors 계정 참가자](#spatial-anchors-account-contributor) | 계정에서 Spatial Anchors를 관리할 수 있지만 삭제할 수는 없습니다. |
-| [Spatial Anchors 계정 소유자](#spatial-anchors-account-owner) | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
-| [Spatial Anchors 계정 판독기](#spatial-anchors-account-reader) | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
-| [SQL DB 참가자](#sql-db-contributor) | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
+| [공간 앵커 계정 기여자](#spatial-anchors-account-contributor) | 계정에서 Spatial Anchors를 관리할 수 있지만 삭제할 수는 없습니다. |
+| [공간 앵커 계정 소유자](#spatial-anchors-account-owner) | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
+| [공간 앵커 계정 판독기](#spatial-anchors-account-reader) | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
+| [SQL DB 기여자](#sql-db-contributor) | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
 | [SQL 보안 관리자](#sql-security-manager) | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
-| [SQL Server 참가자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
-| [Storage 계정 참가자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
+| [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
+| [Storage 계정 기여자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 저장소 계정 키 운영자가 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
-| [Storage Blob 데이터 Contributor](#storage-blob-data-contributor) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
+| [Storage Blob 데이터 기여자](#storage-blob-data-contributor) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
 | [Storage Blob 데이터 소유자](#storage-blob-data-owner) | POSIX 액세스 제어 할당을 포함하여 Azure Storage Blob 컨테이너 및 데이터에 대한 모든 액세스 권한을 허용합니다. |
-| [Storage Blob 데이터 Reader](#storage-blob-data-reader) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스를 허용합니다. |
-| [Storage 큐 데이터 Contributor](#storage-queue-data-contributor) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
-| [Storage 큐 데이터 메시지 프로세서](#storage-queue-data-message-processor) | Azure Storage 큐 메시지에 대한 미리 보기, 수신 및 삭제 권한 허용 |
+| [Storage Blob 데이터 읽기 권한자](#storage-blob-data-reader) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스를 허용합니다. |
+| [Storage 큐 데이터 기여자](#storage-queue-data-contributor) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
+| [Storage 큐 데이터 메시지 처리기](#storage-queue-data-message-processor) | Azure Storage 큐 메시지에 대한 미리 보기, 수신 및 삭제 권한 허용 |
 | [Storage 큐 데이터 메시지 보낸 사람](#storage-queue-data-message-sender) | Azure Storage 큐 메시지 보내기 허용 |
-| [Storage 큐 데이터 Reader](#storage-queue-data-reader) | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스를 허용합니다. |
+| [Storage 큐 데이터 판독기](#storage-queue-data-reader) | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스를 허용합니다. |
 | [지원 요청 참가자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. |
-| [Traffic Manager 참가자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
+| [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. |
 | [가상 머신 관리자 로그인](#virtual-machine-administrator-login) | 포털에서 Virtual Machines를 보고 관리자 권한으로 로그인합니다. |
-| [가상 머신 참가자](#virtual-machine-contributor) | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
+| [Virtual Machine 참가자](#virtual-machine-contributor) | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 | [가상 머신 사용자 로그인](#virtual-machine-user-login) | 포털에서 Virtual Machines를 보고 일반 사용자 권한으로 로그인합니다. |
 | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. |
-| [웹 사이트 참가자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. |
 
 
 ## <a name="owner"></a>소유자
@@ -148,7 +148,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 리소스 액세스를 비롯한 모든 것을 관리할 수 있습니다. |
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
-> | **작업** |  |
+> | **actions** |  |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -163,7 +163,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
-> | **작업** |  |
+> | **actions** |  |
 > | * | 모든 유형의 리소스 만들기 및 관리 |
 > | **NotActions** |  |
 > | Microsoft.Authorization/*/Delete | 역할 및 역할 할당 삭제 |
@@ -182,7 +182,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 모든 것을 볼 수 있지만 변경은 할 수 없습니다. |
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -197,7 +197,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | acr 삭제 |
 > | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | 컨테이너 레지스트리에 있는 아티팩트를 삭제 합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -212,7 +212,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | acr 이미지 서명자 |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -227,7 +227,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | acr pull |
 > | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -242,7 +242,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | acr push |
 > | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
 > | **NotActions** |  |
@@ -258,7 +258,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | acr 격리 데이터 읽기 권한자 |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -273,7 +273,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | acr 격리 데이터 작성자 |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 격리된 이미지의 격리 상태를 작성/수정합니다. |
 > | **NotActions** |  |
@@ -289,7 +289,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 서비스 및 API를 관리할 수 있습니다. |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ApiManagement/service/* | API Management 서비스 만들기 및 관리 |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
@@ -310,7 +310,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 서비스를 관리할 수 있지만 API는 관리할 수 없습니다. |
 > | **Id** | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ApiManagement/service/*/read | API Management 서비스 인스턴스 읽기 |
 > | Microsoft.ApiManagement/service/backup/action | 사용자가 제공한 저장소 계정의 지정된 컨테이너로 API Management 서비스를 백업합니다. |
 > | Microsoft.ApiManagement/service/delete | API Management 서비스 인스턴스를 삭제합니다. |
@@ -337,9 +337,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 서비스 및 API에 대한 읽기 전용 액세스 |
+> | **설명** | 서비스 및 API에 읽기 전용 액세스 |
 > | **Id** | 71522526-b88f-4d52-b57f-d31fc3546d0d |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ApiManagement/service/*/read | API Management 서비스 인스턴스 읽기 |
 > | Microsoft.ApiManagement/service/read | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
@@ -359,9 +359,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Application Insights 구성 요소를 관리할 수 있음 |
+> | **설명** | Application Insights 구성 요소를 관리할 수 있습니다. |
 > | **Id** | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.Insights/components/* | Insights 구성 요소 만들기 및 관리 |
@@ -383,7 +383,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Application Insights 스냅숏 디버거를 사용하여 수집한 디버그 스냅숏을 보고 다운로드할 수 있는 사용자 권한을 제공합니다. 이러한 사용 권한은 [소유자](#owner) 또는 [기여자](#contributor) 역할에 포함되지 않습니다. |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Insights/components/*/read |  |
@@ -403,7 +403,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Automation Runbook을 사용하여 작업을 만들고 관리합니다. |
 > | **Id** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Hybrid Runbook Worker 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/jobs/read | Azure Automation 작업을 가져옵니다. |
@@ -428,9 +428,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 자동화 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. |
+> | **설명** | Automation 운영자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. |
 > | **Id** | d3881f73-407a-4167-8283-e981cbba0404 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Hybrid Runbook Worker 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/jobs/read | Azure Automation 작업을 가져옵니다. |
@@ -465,7 +465,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. |
 > | **Id** | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Azure Automation Runbook을 가져옵니다. |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -485,7 +485,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 수 만들고 Avere vFXT 클러스터를 관리 합니다. |
 > | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/*/read |  |
 > | Microsoft.Compute/availabilitySets/* |  |
@@ -520,7 +520,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Avere vFXT 클러스터에서 클러스터 관리에 사용 |
 > | **Id** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Compute/virtualMachines/read | 가상 머신의 속성을 가져옵니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Network/networkInterfaces/write | 네트워크 인터페이스를 만들거나 기존 네트워크 인터페이스를 업데이트합니다.  |
@@ -547,7 +547,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 클러스터 관리자 자격 증명 작업을 나열합니다. |
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -562,7 +562,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 클러스터 사용자 자격 증명 작업을 나열합니다. |
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 관리되는 클러스터의 clusterUser 자격 증명을 나열합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -577,7 +577,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure Stack 등록을 관리할 수 있습니다. |
 > | **Id** | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Azure Stack Marketplace 제품에 대한 세부 정보 검색 |
 > | Microsoft.AzureStack/registrations/products/read | Azure Stack Marketplace 제품의 속성 가져오기 |
 > | Microsoft.AzureStack/registrations/read | Azure Stack 등록의 속성 가져오기 |
@@ -594,7 +594,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 > | **Id** | 5e467623-bb1f-42f4-a55d-6e525e11384b |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.RecoveryServices/locations/* |  |
@@ -651,7 +651,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
 > | **Id** | 00c29273-979b-4161-815c-10b084fb9324 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 작업의 상태를 반환합니다. |
@@ -723,7 +723,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 백업 서비스를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 작업의 상태를 반환합니다. |
@@ -776,7 +776,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 결제 데이터에 대해 읽기 권한 허용 |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Billing/*/read | 대금 청구 정보 읽기 |
 > | Microsoft.Commerce/*/read |  |
@@ -797,7 +797,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.BizTalkServices/BizTalk/* | BizTalk 서비스 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
@@ -818,7 +818,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 > | **Id** | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -840,7 +840,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -862,7 +862,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 > | **Id** | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -884,7 +884,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | 8f96442b-4075-438f-813d-ad51ab4019af |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
@@ -906,7 +906,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.ClassicNetwork/* | 클래식 네트워크 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -927,7 +927,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 > | **Id** | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.ClassicStorage/storageAccounts/* | 저장소 계정 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -948,7 +948,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 클래식 저장소 계정 키 운영자가 클래식 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
 > | **Id** | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | 저장소 계정의 액세스 키를 나열합니다. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | 저장소 계정에 대한 기존 액세스 키를 다시 생성합니다. |
 > | **NotActions** |  |
@@ -964,7 +964,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 > | **Id** | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.ClassicCompute/domainNames/* | 클래식 계산 도메인 이름 만들기 및 관리 |
 > | Microsoft.ClassicCompute/virtualMachines/* | 가상 머신 만들기 및 관리 |
@@ -995,7 +995,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. |
 > | **Id** | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.CognitiveServices/* |  |
 > | Microsoft.Features/features/read | 구독 기능을 가져옵니다. |
@@ -1026,7 +1026,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Cognitive Services 데이터를 읽을 수 있습니다. |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -1041,7 +1041,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Cognitive Services의 키를 읽고 나열할 수 있습니다. |
 > | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | 키를 나열합니다. |
 > | Microsoft.Insights/alertRules/read | 클래식 메트릭 경고를 읽습니다. |
@@ -1066,9 +1066,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
+> | **설명** | Azure Cosmos DB 계정 데이터를 읽을 수 있습니다. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
 > | **Id** | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 역할 및 역할 할당은 각 사용자에게 부여된 사용 권한을 읽을 수 있습니다. |
 > | Microsoft.DocumentDB/*/read | 컬렉션 읽기 |
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | 데이터베이스 계정 읽기 전용 키를 읽습니다. |
@@ -1089,7 +1089,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
 > | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | 백업 구성하는 요청 제출 |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | 복원 요청 제출 |
 > | **NotActions** |  |
@@ -1105,7 +1105,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 비용을 확인하고 비용 구성(예: 예산, 내보내기)을 관리할 수 있음 |
 > | **Id** | 434105ed-43f6-45c7-a02f-909b2ba83430 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
 > | Microsoft.Billing/billingPeriods/read | 사용할 수 있는 청구 기간을 나열합니다. |
@@ -1125,7 +1125,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 비용 데이터 및 구성(예: 예산, 내보내기)을 확인할 수 있음 |
 > | **Id** | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Billing/billingPeriods/read | 사용할 수 있는 청구 기간을 나열합니다. |
@@ -1145,7 +1145,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. |
 > | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -1165,7 +1165,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 주문하기나 주문 세부 정보 편집 및 다른 사용자에게 액세스 권한 부여 외에 Data Box 서비스를 관리할 수 있습니다. |
 > | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Databox/*/read |  |
 > | Microsoft.Databox/jobs/listsecrets/action |  |
@@ -1186,7 +1186,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.DataFactory/dataFactories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
 > | Microsoft.DataFactory/factories/* | 데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리합니다. |
@@ -1208,7 +1208,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 사용자 자신의 작업을 제출, 모니터링 및 관리할 수 있지만 Data Lake Analytics 계정을 만들거나 삭제할 수는 없습니다. |
 > | **Id** | 47b7735b-770e-4598-a7da-8b91488b4c88 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | Microsoft.DataLakeAnalytics/accounts/* |  |
@@ -1243,7 +1243,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 분석 데이터를 제거할 수 있습니다. |
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Insights/components/*/read |  |
 > | Microsoft.Insights/components/purge/action | Application Insights에서 데이터 삭제 |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
@@ -1261,7 +1261,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Compute/availabilitySets/read | 가용성 집합의 속성을 가져옵니다. |
 > | Microsoft.Compute/virtualMachines/*/read | 가상 머신(VM 크기, 런타임 상태, VM 확장 등)의 속성 읽기 |
@@ -1306,7 +1306,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 > | **Id** | befefa01-2a29-4197-83a8-272ff33ce314 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.Network/dnsZones/* | DNS 영역 및 레코드 만들기 및 관리 |
@@ -1327,7 +1327,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
 > | **Id** | 5bd9cd88-fe45-4216-938b-f97437e15450 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.DocumentDb/databaseAccounts/* | Azure Cosmos DB 계정 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
@@ -1348,7 +1348,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
 > | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.EventGrid/eventSubscriptions/* |  |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 항목 유형별로 전역 이벤트 구독을 나열합니다. |
@@ -1371,7 +1371,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | EventGrid 이벤트 구독을 읽을 수 있습니다. |
 > | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.EventGrid/eventSubscriptions/read | EventSubscription을 읽습니다. |
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 항목 유형별로 전역 이벤트 구독을 나열합니다. |
@@ -1391,7 +1391,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
 > | **Id** | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
@@ -1406,9 +1406,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
+> | **설명** | 지능형 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 03a6d094-3444-4b3d-88af-7477090a9e5e |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.IntelligentSystems/accounts/* | 지능형 시스템 계정 만들기 및 관리 |
@@ -1427,9 +1427,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
+> | **설명** | Key Vault를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.KeyVault/* |  |
@@ -1450,7 +1450,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. |
 > | **Id** | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | 랩 계정에서 랩을 만듭니다. |
@@ -1471,7 +1471,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
 > | **Id** | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/* |  |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
@@ -1498,7 +1498,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
 > | **Id** | 73c42c96-874c-492b-b04d-ab87d138a893 |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | 새 엔진을 사용하여 검색합니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
@@ -1516,7 +1516,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 논리 앱을 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 저장소 계정의 액세스 키를 나열합니다. |
 > | Microsoft.ClassicStorage/storageAccounts/read | 지정된 계정의 저장소 계정을 반환합니다. |
@@ -1548,9 +1548,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 논리 앱을 읽고, 설정하고, 해제할 수 있습니다. |
+> | **설명** | 논리 앱을 읽고, 사용하거나 사용하지 않도록 설정할 수 있습니다. |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/*/read | Insights 경고 규칙을 읽습니다. |
 > | Microsoft.Insights/diagnosticSettings/*/read | Logic Apps에 대한 진단 설정을 가져옵니다. |
@@ -1580,7 +1580,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다. |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
 > | Microsoft.Solutions/*/action |  |
@@ -1597,7 +1597,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다. |
 > | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Solutions/jitRequests/* |  |
@@ -1614,7 +1614,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
 > | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
@@ -1636,7 +1636,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 사용자 할당 ID를 읽고 할당합니다. |
 > | **Id** | f1a07417-d97a-45cb-824c-7a7467783830 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -1657,7 +1657,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 관리 그룹 참가자 역할 |
 > | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Management/managementGroups/delete | 관리 그룹을 삭제합니다. |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | Microsoft.Management/managementGroups/subscriptions/delete | 관리 그룹에서 구독의 연결을 해제합니다. |
@@ -1676,7 +1676,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 관리 그룹 읽기 권한자 역할 |
 > | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -1689,9 +1689,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+> | **설명** | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
@@ -1729,7 +1729,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure 리소스에 대한 게시 메트릭 사용 |
 > | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -1744,9 +1744,9 @@ ms.locfileid: "59281219"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+> | **설명** | 모든 모니터링 데이터(메트릭, 로그 등)를 읽을 수 있습니다. [Azure Monitor에서의 역할, 권한 및 보안 시작](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -1763,7 +1763,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.Network/* | 네트워크 만들기 및 관리 |
@@ -1784,7 +1784,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | New Relic Application Performance Management 계정 및 애플리케이션을 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 5d28c62d-5b37-4476-8438-e587778df237 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -1805,7 +1805,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 모든 것을 볼 수 있지만, 저장소 계정 또는 포함된 리소스를 삭제하거나 만들 수는 없습니다. 또한 저장소 계정 키에 액세스하여 저장소 계정에 포함된 모든 데이터를 읽고 쓸 수 있습니다. |
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 > | **NotActions** |  |
@@ -1821,7 +1821,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Cache/redis/* | Redis 캐시 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
@@ -1842,7 +1842,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Authorization/policyassignments/* | 정책 할당을 만들고 관리합니다. |
 > | Microsoft.Authorization/policydefinitions/* | 정책 정의를 만들고 관리합니다. |
@@ -1862,7 +1862,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -1883,7 +1883,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -1904,7 +1904,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Authorization/policyAssignments/* | 정책 할당 만들기 및 관리 |
 > | Microsoft.Authorization/policyDefinitions/* | 정책 정의 만들기 및 관리 |
@@ -1929,7 +1929,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.ClassicCompute/*/read | 클래식 가상 머신에 대한 구성 정보 읽기 |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | 클래식 가상 머신에 대한 구성 정보 쓰기 |
@@ -1953,7 +1953,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Security Center에서만: 권장 사항 및 경고를 보고, 보안 정책을 보고, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.operationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
@@ -1975,7 +1975,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 > | **Id** | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -2016,7 +2016,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 > | **Id** | 494ae006-db33-4328-bf46-533a6560a3ca |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
@@ -2087,7 +2087,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
 > | **Id** | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
@@ -2132,7 +2132,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 계정에서 Spatial Anchors를 관리할 수 있지만 삭제할 수는 없습니다. |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2152,7 +2152,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2173,7 +2173,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2191,7 +2191,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
 > | **Id** | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -2239,7 +2239,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 > | **Id** | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | Microsoft 권한 부여 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 진행 되지 않습니다. |
@@ -2294,7 +2294,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
 > | **Id** | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -2345,7 +2345,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 저장소 계정으로 관리할 수 있습니다. 저장소 계정에는 데이터에 대 한 액세스를 제공 하지 않습니다. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 모든 권한 부여 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Insights/diagnosticSettings/* | 진단 설정 관리 |
@@ -2368,7 +2368,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 허용 목록 및 저장소 계정 액세스 키 다시 생성 합니다. |
 > | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 된 저장소 계정에 대 한 액세스 키를 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 된 저장소 계정에 대 한 액세스 키 다시 생성 합니다. |
 > | **NotActions** |  |
@@ -2384,7 +2384,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 읽기, 쓰기 및 Azure Storage 컨테이너 및 blob을 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | 컨테이너의 메타 데이터 또는 속성을 수정 합니다. |
@@ -2403,7 +2403,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure Storage blob 컨테이너 및 POSIX 액세스 제어 할당을 포함 하 여 데이터에 대 한 전체 액세스를 제공 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | 컨테이너에 대 한 전체 권한입니다.  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2418,7 +2418,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 페이지를 읽고 Azure Storage 컨테이너 및 blob을 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환 합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2433,7 +2433,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 읽기, 쓰기 및 Azure Storage 큐 및 큐 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐를 삭제 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환 합니다. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | 큐 메타 데이터 또는 속성을 수정 합니다. |
@@ -2452,7 +2452,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 피킹, 검색 및 Azure Storage 큐에서 메시지를 삭제 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2468,7 +2468,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure Storage 큐에 메시지를 추가 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
-> | **작업** |  |
+> | **actions** |  |
 > | *없음* |  |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2483,7 +2483,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 페이지를 읽고 Azure Storage 큐 및 큐 메시지를 나열 합니다. 지정 된 데이터 작업에 필요한 되는 동작에 알아보려면 [blob 및 큐 데이터 작업을 호출 하는 것에 대 한 권한을](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)합니다. |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -2498,7 +2498,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 지원 요청을 만들고 관리할 수 있습니다. |
 > | **Id** | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -2515,7 +2515,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 > | **Id** | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Network/trafficManagerProfiles/* |  |
@@ -2536,7 +2536,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. |
 > | **Id** | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
-> | **작업** |  |
+> | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Authorization/* | 권한 부여 관리 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -2553,7 +2553,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 포털에서 Virtual Machines를 보고 관리자 권한으로 로그인합니다. |
 > | **Id** | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
@@ -2573,7 +2573,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 가상 머신을 관리할 수 있지만 가상머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Compute/availabilitySets/* | 계산 가용성 집합 만들기 및 관리 |
 > | Microsoft.Compute/locations/* | 계산 위치 만들기 및 관리 |
@@ -2625,7 +2625,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 포털에서 Virtual Machines를 보고 일반 사용자 권한으로 로그인합니다. |
 > | **Id** | fb879df8-f326-4884-b1cf-06f3ad86be52 |
-> | **작업** |  |
+> | **Actions** |  |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
@@ -2644,7 +2644,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -2666,7 +2666,7 @@ ms.locfileid: "59281219"
 > | --- | --- |
 > | **설명** | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | de139f84-1756-47ae-9be6-808fbbe84772 |
-> | **작업** |  |
+> | **actions** |  |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Insights/components/* | Insights 구성 요소 만들기 및 관리 |

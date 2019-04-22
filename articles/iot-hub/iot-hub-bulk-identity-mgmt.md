@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049975"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>IoT Hub 장치 id 대량에서 가져오기 및 내보내기
@@ -256,11 +256,11 @@ JobProperties importJob =
 | importMode | 설명 |
 | --- | --- |
 | **createOrUpdate** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **만들기** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **업데이트** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 제공된 된 입력된 데이터를 사용 하 여 기존 정보를 덮어씁니다를 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **create** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **update** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 제공된 된 입력된 데이터를 사용 하 여 기존 정보를 덮어씁니다를 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **updateIfMatchETag** |장치가 이미 존재 하는 지정 된 경우 **ID**, 경우에 제공 된 입력된 데이터가 기존 정보를 덮어씁니다를 **ETag** 일치 합니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 | **createOrUpdateIfMatchETag** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **삭제** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 삭제 됩니다 합니다 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **delete** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 삭제 됩니다 합니다 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **deleteIfMatchETag** |장치가 이미 존재 하는 지정 된 경우 **ID**, 경우에 삭제 되는 **ETag** 일치 합니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
 > [!NOTE]
@@ -425,7 +425,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용 하 여 AI를에 지 장치로 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283072"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark 작업 최적화
@@ -26,7 +26,7 @@ ms.locfileid: "59283072"
 
 Spark 버전 Rdd를 사용 하 여 데이터를 Spark 1.3을 추상화 하 고 1.6 Dataframe 및 데이터 집합을 도입 각각 했습니다. 다음 상대적인 장점을 고려합니다.
 
-* **DataFrames**
+* **데이터 프레임**
     * 대부분의 상황에서 최선의 선택
     * Catalyst를 통해 쿼리 최적화 제공
     * 전체 단계 코드 생성
@@ -41,7 +41,7 @@ Spark 버전 Rdd를 사용 하 여 데이터를 Spark 1.3을 추상화 하 고 1
     * serialization/deserialization 오버헤드 추가
     * 높은 GC 오버헤드
     * 전체 단계 코드 생성 중단
-* **Rdd**
+* **RDD**
     * 새 사용자 지정 RDD를 빌드할 필요가 없는 경우 RDD를 사용할 필요가 없습니다.
     * Catalyst를 통해 쿼리 최적화 안 함
     * 전체 단계 코드 생성 안 함
@@ -61,9 +61,9 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 | 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb[s]:**//url/ | **Standard** | 예 | 임시 클러스터 |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **더 빠름** | 예 | 임시 클러스터 |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **더 빠름** | 예 | 임시 클러스터 |
-| 로컬 HDFS | **hdfs:**//url/ | **가장 빠른** | 아닙니다. | 대화형 24/7 클러스터 |
+| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **보다 빠름** | 예 | 임시 클러스터 |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **보다 빠름** | 예 | 임시 클러스터 |
+| 로컬 HDFS | **hdfs:**//url/ | **가장 빠름** | 아닙니다. | 대화형 24/7 클러스터 |
 
 ## <a name="use-the-cache"></a>캐시 사용
 
@@ -78,7 +78,7 @@ Spark는 `.persist()`, `.cache()`, `CACHE TABLE`과 같은 다양한 방법을 �
     * 메모리 내 캐싱 및 SSD 캐싱 사용
 
 * 로컬 HDFS(권장)
-    * `hdfs://mycluster` 경로입니다.
+    * `hdfs://mycluster` 경로
     * SSD 캐싱 사용
     * 클러스터를 삭제하면 캐시된 데이터가 손실되므로 캐시를 다시 빌드해야 함
 
@@ -160,9 +160,9 @@ Spark 클러스터 워크로드에 따라 기본이 아닌 Spark 구성을 사�
 
 다음은 조정할 수 있는 몇 가지 공통 매개 변수입니다.
 
-* `--num-executors` 실행 기의 적절 한 수를 설정합니다.
-* `--executor-cores` 각 실행 기 코어 수를 설정합니다. 일반적으로 다른 프로세스가 사용 가능한 메모리 중 일부를 소비하기 때문에 중간 규모의 실행기를 사용해야 합니다.
-* `--executor-memory` YARN에서 힙 크기를 제어 하는 각 실행 기에 대 한 메모리 크기를 설정 합니다. 실행 오버헤드를 위해 약간의 메모리를 유지해야 합니다.
+* `--num-executors`에서 실행기의 적절한 수를 설정합니다.
+* `--executor-cores`에서 각 실행기의 코어 수를 설정합니다. 일반적으로 다른 프로세스가 사용 가능한 메모리 중 일부를 소비하기 때문에 중간 규모의 실행기를 사용해야 합니다.
+* `--executor-memory`에서 각 실행기의 메모리 크기를 설정하며 이를 통해 YARN에서 힙 크기를 제어합니다. 실행 오버헤드를 위해 약간의 메모리를 유지해야 합니다.
 
 ### <a name="select-the-correct-executor-size"></a>올바른 실행기 크기 선택
 
@@ -214,8 +214,8 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그](apache-spark-job-debugging.md)
-* [HDInsight의 Apache Spark 클러스터용 리소스 관리](apache-spark-resource-manager.md)
-* [Apache Spark REST API를 사용 하 여 Apache Spark 클러스터에 원격 작업 제출](apache-spark-livy-rest-interface.md)
-* [Apache Spark 튜닝](https://spark.apache.org/docs/latest/tuning.html)
-* [실제로 조정 하 여 Apache Spark 작업 하는 방법 이므로 작동](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [HDInsight에서 Apache Spark 클러스터용 리소스 관리](apache-spark-resource-manager.md)
+* [Apache Spark REST API를 사용하여 Apache Spark 클러스터에 원격 작업 제출](apache-spark-livy-rest-interface.md)
+* [Apache Spark 조정](https://spark.apache.org/docs/latest/tuning.html)
+* [작동하도록 Apache Spark 작업을 실제로 조정하는 방법](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo Serialization](https://github.com/EsotericSoftware/kryo)

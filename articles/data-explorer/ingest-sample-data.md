@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050631"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Azure 데이터 탐색기로 샘플 데이터 수집
@@ -23,7 +23,7 @@ ms.locfileid: "59050631"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[데이터베이스를 테스트 클러스터](create-cluster-database-portal.md)
+[테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>데이터 수집
 
@@ -60,7 +60,7 @@ ms.locfileid: "59050631"
 > [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
 
 > [!div class="nextstepaction"]
-> [쿼리 쓰기](write-queries.md)
+> [쿼리 작성](write-queries.md)
 
 > [!div class="nextstepaction"]
 > [Azure 데이터 탐색기 데이터 수집](ingest-data-overview.md)

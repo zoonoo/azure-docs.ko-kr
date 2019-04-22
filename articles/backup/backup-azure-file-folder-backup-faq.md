@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426259"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
@@ -113,8 +113,8 @@ Backup 데이터는 등록된 자격 증명 모음의 데이터 센터로 전송
 
 ## <a name="restore"></a>복원
 
-### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>진행 중인 복원 작업을 취소 하면 어떻게 되나요?
-진행 중인 복원 작업을 취소 되 면 복원 프로세스가 중지 되 고 모든 파일을 취소 하기 전에 복원 모든 롤백 없이 구성 된 대상 (원래 또는 대체 위치)에 남아 있습니다.
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>진행 중인 복원 작업을 취소하면 어떻게 되나요?
+진행 중인 복원 작업이 취소되면 복원 프로세스가 중지되고 취소 전에 모든 파일이 복원되면 롤백 없이 구성된 대상(원래 또는 대체 위치)에 남아 있습니다.
 
 
 ## <a name="manage-backups"></a>백업 관리

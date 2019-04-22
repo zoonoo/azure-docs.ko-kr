@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58791629"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에 명명된 값을 사용하는 방법
@@ -38,9 +38,9 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 | name | 값 | Secret | 태그들 |
 | --- | --- | --- | --- |
-| ContosoHeader |TrackingId |False |Contoso |
+| ContosoHeader |TrackingId |거짓 |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |False | |
+| ExpressionProperty |@(DateTime.Now.ToString()) |거짓 | |
 
 ## <a name="to-add-and-edit-a-property"></a>속성을 추가하고 편집하려면
 

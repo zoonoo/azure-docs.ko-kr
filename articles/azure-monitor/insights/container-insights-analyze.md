@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426395"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해 
@@ -71,7 +71,7 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 | |Warning |N/A |
 | |중요 |<100% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
-|**노드** | | |
+|**Node** | | |
 | |Healthy |>85% |
 | |Warning |60-84% |
 | |중요 |<60% |

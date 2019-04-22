@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904205"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679349"
 ---
-# <a name="set-up-a-device-template-new-ui-design"></a>디바이스 템플릿 설정(새 UI 디자인)
+# <a name="set-up-a-device-template"></a>디바이스 템플릿 설정
 
 장치 템플릿은 Azure IoT Central 애플리케이션에 연결하는 장치 유형의 특징과 동작을 정의하는 청사진입니다.
 
@@ -197,8 +197,8 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
    ![위치에 대한 세부 정보가 있는 "위치 구성" 양식](./media/howto-set-up-template/locationcloudproperty2.png)
 
    위치를 추가하려면 지원되는 두 가지 형식이 있습니다.
-   - **위치 주소로**
-   - **좌표 위치**
+   - **주소로서 위치**
+   - **좌표로서 위치**
 
 4. **저장**을 선택합니다. 운영자는 **Device Explorer**에서 위치 값을 업데이트할 수 있습니다.
 

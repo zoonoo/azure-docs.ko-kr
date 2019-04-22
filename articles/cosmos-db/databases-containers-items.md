@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB 데이터베이스, 컨테이�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762908"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678805"
 ---
 # <a name="work-with-databases-containers-and-items"></a>데이터베이스, 컨테이너 및 항목 작업
 
@@ -61,7 +61,7 @@ Azure Cosmos 컨테이너는 스키마에 구애받지 않는 항목 컨테이�
 
 사용 하 여 [변경 피드](change-feed.md), 컨테이너의 논리 파티션 각각의 관리 되는 작업 로그를 구독할 수 있습니다. 변경 피드는 항목의 이전 및 이후 이미지와 함께 컨테이너에 수행된 모든 업데이트의 로그를 제공합니다. 참조 [변경 피드를 사용 하 여 반응 형 응용 프로그램을 빌드하는 방법을](serverless-computing-database.md)합니다. 또한 변경 피드는 컨테이너에서 정책을 사용 하 여 변경 피드에 보존 기간을 구성할 수 있습니다. 
 
-등록할 수 있습니다 [저장된 프로시저, 트리거, 사용자 정의 함수 (Udf)](stored-procedures-triggers-udfs.md) 하 고 [프로시저 병합](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) Azure Cosmos 컨테이너를 사용 하 여 합니다. 
+등록할 수 있습니다 [저장된 프로시저, 트리거, 사용자 정의 함수 (Udf)](stored-procedures-triggers-udfs.md) 하 고 [프로시저 병합](how-to-manage-conflicts.md) Azure Cosmos 컨테이너를 사용 하 여 합니다. 
 
 지정할 수는 [unique key 제약 조건을](unique-keys.md) Azure Cosmos 컨테이너에서. 고유 키 정책을 만들면 논리 파티션 키당 하나 이상의 값의 고유성을 보장합니다. 고유 키 정책을 사용하여 컨테이너가 생성되면 고유 키 제약 조건으로 지정된 값을 가진 새 항목 또는 업데이트된 항목을 생성할 수 없습니다. 자세한 내용은 [고유 키 제약 조건](unique-keys.md)을 참조하세요.
 
@@ -117,7 +117,7 @@ API 선택에 따라 Azure Cosmos 항목은 컬렉션의 문서, 테이블의 �
 |_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
 |_ts | 시스템 생성 | 항목의 마지막 업데이트의 타임 스탬프 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
 |_self | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
-|id | 여기서는 | 논리 파티션 내의 사용자 정의 고유 이름. 사용자가 id를 지정하지 않으면 시스템이 자동으로 생성합니다. | 예 | 예 | 예 | 예 | 예 |
+|id | 여기서는 | 논리 파티션 내의 사용자 정의 고유 이름. 사용자 ID를 지정 하지 않으면 시스템이 자동으로 생성 됩니다. | 예 | 예 | 예 | 예 | 예 |
 |임의의 사용자 정의 속성 | 사용자 정의 | API 네이티브 표현에 표시되는 사용자 정의 속성(JSON, BSON, CQL 등) | 예 | 예 | 예 | 예 | 예 |
 
 ### <a name="operations-on-items"></a>항목에 대한 작업

@@ -14,16 +14,16 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046982"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Service Fabric Linux 클러스터 노드에 대한 디스크 암호화 사용 
 > [!div class="op_single_selector"]
-> * [Linux 용 디스크 암호화](service-fabric-enable-azure-disk-encryption-linux.md)
-> * [Windows 용 디스크 암호화](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Linux용 디스크 암호화](service-fabric-enable-azure-disk-encryption-linux.md)
+> * [Windows용 디스크 암호화](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 

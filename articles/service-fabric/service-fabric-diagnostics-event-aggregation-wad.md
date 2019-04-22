@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046296"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집
@@ -192,7 +192,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ### <a name="update-storage-quota"></a>저장소 할당량 업데이트
 
-확장으로 채워진 테이블은 할당량에 도달할 때까지 계속 확장되므로 할당량 크기를 줄이는 방안을 고려해 볼 수 있습니다. 기본값은 50GB 이며 있는 템플릿에서 구성할 수는 `overallQuotaInMB` 아래의 필드 `DiagnosticMonitorConfiguration`
+확장으로 채워진 테이블은 할당량에 도달할 때까지 계속 확장되므로 할당량 크기를 줄이는 방안을 고려해 볼 수 있습니다. 기본값은 50GB이며 `DiagnosticMonitorConfiguration` 아래의 `overallQuotaInMB` 필드에 있는 템플릿에서 구성할 수 있습니다.
 
 ```json
 "overallQuotaInMB": "50000",
@@ -348,8 +348,8 @@ Azure 진단을 제대로 구성하면 스토리지 테이블에서 ETW 및 Even
 >[!NOTE]
 >현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스를 구현하지 않으면 테이블이 계속 커집니다. 현재 [Watchdog 샘플](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 실행되는 데이터 그루밍 서비스의 예제가 있고, 30일 또는 90일 넘어서 로그를 저장해야 하는 적절한 이유가 없다면 직접 작성하는 것이 좋습니다.
 
-* [진단 확장을 사용 하 여 성능 카운터 또는 로그를 수집 하는 방법 알아보기](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [이벤트 분석 및 Application Insights 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-oms.md)
-* [이벤트 분석 및 Application Insights 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-oms.md)

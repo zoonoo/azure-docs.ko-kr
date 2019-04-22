@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
 ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488714"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 시작
@@ -56,8 +56,8 @@ OUTPUT @searchlog
 
 ### <a name="key-concepts"></a>주요 개념
 * **Rowset 변수**: 행 집합을 생성 하는 각 쿼리 식은 변수에 할당할 수 있습니다. U-SQL은 스크립트의 T-SQL 변수 이름 지정 패턴(예: `@searchlog`)을 따릅니다.
-* **EXTRACT** 키워드는 파일에서 데이터를 읽고 읽기에 대한 스키마를 정의합니다. `Extractors.Tsv` 탭으로 구분 된 값 파일에 대 한 기본 제공 U-SQL 추출기를입니다. 사용자 지정 추출기를 개발할 수 있습니다.
-* **OUTPUT**은 행 집합의 데이터를 파일에 씁니다. `Outputters.Csv()` 쉼표로 구분 된 값 파일을 만들려면 기본 제공 U-SQL outputter를입니다. 사용자 지정 출력기를 개발할 수 있습니다.
+* **EXTRACT** 키워드는 파일에서 데이터를 읽고 읽기에 대한 스키마를 정의합니다. `Extractors.Tsv`는 탭으로 구분된 값 파일에 대한 기본 제공 U-SQL 추출기입니다. 사용자 지정 추출기를 개발할 수 있습니다.
+* **OUTPUT**은 행 집합의 데이터를 파일에 씁니다. `Outputters.Csv()`는 쉼표로 구분된 값 파일을 만들기 위한 기본 제공 U-SQL 출력기입니다. 사용자 지정 출력기를 개발할 수 있습니다.
 
 ### <a name="file-paths"></a>파일 경로
 
@@ -225,5 +225,5 @@ U-SQL HAVING 절은 HAVING 조건을 만족하는 그룹으로 출력을 제한�
 고급 집계 시나리오의 경우 U-SQL 참조 설명서에서 [집계, 분석 및 참조 기능](/u-sql/built-in-functions)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
+* [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 * [Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)

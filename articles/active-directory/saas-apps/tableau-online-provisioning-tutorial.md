@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270789"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Tableau Online 구성
@@ -44,7 +44,7 @@ ms.locfileid: "59270789"
 ## <a name="adding-tableau-online-from-the-gallery"></a>갤러리에서 Tableau Online 추가
 Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Tableau Online을 구성하기 전에 Tableau Online을 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 Tableau Online 추가 하려면 다음 단계를 수행 합니다.**
+**Azure AD 애플리케이션 갤러리에서 Tableau Online을 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -58,9 +58,9 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Tableau
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 입력 **Tableau Online**를 선택 **Tableau Online** 결과 패널에서 클릭 **추가** 단추는 응용 프로그램을 추가 합니다.
+4. 검색 상자에 **Tableau Online**을 입력하고, 결과 패널에서 **Tableau Online**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-    ![결과 목록에서 tableau Online](common/search-new-app.png)
+    ![결과 목록의 Tableau Online](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>Tableau Online에 사용자 할당
 
@@ -91,7 +91,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 2. 애플리케이션 목록에서 **Tableau Online**을 선택합니다.
 
-    ![응용 프로그램 목록에서 Tableau Online 링크](common/all-applications.png)
+    ![애플리케이션 목록의 Tableau Online 링크](common/all-applications.png)
 
 3. **프로비전** 탭을 선택합니다.
 
@@ -170,12 +170,12 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [로그를 검토 하 고 프로 비전 활동에 대 한 보고서를 확인 하는 방법에 알아봅니다](../manage-apps/check-status-user-account-provisioning.md)
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

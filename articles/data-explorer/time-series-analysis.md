@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273076"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 시계열 분석
@@ -58,9 +58,9 @@ demo_make_series1
 
 - 다음과 같은 경우 [`make-series`](/azure/kusto/query/make-seriesoperator) 연산자를 사용하여 세 개의 시계열 집합을 만듭니다.
     - `num=count()`: 트래픽의 시계열
-    - `range(min_t, max_t, 1h)`: 시계열 시간 범위 (가장 오래 된 및 최신 타임 스탬프 테이블 레코드의)에서 1 시간 bin에 만들어집니다.
-    - `default=0`: 일반 시계열을 만들려면 누락 된 bin에 대 한 fill 메서드를 지정 합니다. 또는 변경을 위해 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 및 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 사용
-    - `byOsVer`: os 파티션
+    - `range(min_t, max_t, 1h)`: 시계열은 시간 범위에서 1시간 bin 단위로 만들어짐(가장 오래되고 최신의 테이블 레코드의 타임 스탬프)
+    - `default=0`: 기본 시계열을 만들려면 누락된 bin에 대한 채우기 메서드를 지정합니다. 또는 변경을 위해 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 및 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 사용
+    - `byOsVer`: OS별 파티션
 - 실제 시계열 데이터 구조는 각 시간 bin 단위당 집계된 값의 숫자형 배열입니다. 시각화를 위해 `render timechart`를 사용합니다.
 
 위의 테이블에는 3개의 파티션이 있습니다. 다음과 같은 별도의 시계열을 만들 수 있습니다. 그래프에 표시된 대로 각 OS 버전에 대해 Windows 10(빨간색), Windows 7(파란색) 및 Windows 8.1(녹색)
@@ -78,7 +78,7 @@ demo_make_series1
 - 일반 필터링 함수에는 다음과 같은 두 가지가 있습니다.
     - [`series_fir()`](/azure/kusto/query/series-firfunction): FIR 필터를 적용합니다. 이동 평균의 간단한 계산 및 변경 내용 검색에 대한 시계열 차별화에 사용합니다.
     - [`series_iir()`](/azure/kusto/query/series-iirfunction): IIR 필터를 적용합니다. 지수 평활법 및 누적 합계에 사용합니다.
-- `Extend` 새 이동 평균 시리즈를 추가 하 여 시계열 5 개의 bin 크기 (이라는 *ma_num*) 쿼리에:
+- `Extend` 5개 bin 크기의 새 이동 평균 계열(*ma_num*이라고 함)을 쿼리에 추가하여 설정한 시계열.
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));

@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201928"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684143"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
-Azure HDInsight는 Azure Storage 및 Azure Data Lake Store(Gen1 및 Gen2)를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. Azure Storage, Data Lake Store Gen1 및 Gen2는 고객에게 원활한 환경을 제공하기 위해 HDFS 확장으로 설계되었습니다. 이를 통해 Hadoop 에코시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Storage, Data Lake Store Gen1 및 Gen2는 데이터 스토리지 및 해당 데이터의 계산에 최적화된 별개의 파일 시스템입니다. Azure Storage 사용 시 얻을 수 있는 혜택에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용][hdinsight-storage], [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md) 및 [HDInsight에서 Data Lake Store Gen2 사용](../storage/blobs/data-lake-storage-use-hdi-cluster.md)을 참조하세요.
+Azure HDInsight는 Azure Storage 및 Azure Data Lake Store(Gen1 및 Gen2)를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. Azure Storage, Data Lake Store Gen1 및 Gen2는 고객에게 원활한 환경을 제공하기 위해 HDFS 확장으로 설계되었습니다. 이를 통해 Hadoop 에코시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Storage, Data Lake Store Gen1 및 Gen2는 데이터 스토리지 및 해당 데이터의 계산에 최적화된 별개의 파일 시스템입니다. Azure Storage 사용 시 얻을 수 있는 혜택에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용][hdinsight-storage], [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md) 및 [HDInsight에서 Data Lake Store Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,7 +30,7 @@ Azure HDInsight는 Azure Storage 및 Azure Data Lake Store(Gen1 및 Gen2)를 통
 
     - [HDInsight에서 Azure Storage 사용][hdinsight-storage]
     - [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md)
-    - [HDInsight에서 Data Lake Store Gen2 사용](../storage/blobs/data-lake-storage-use-hdi-cluster.md)  
+    - [HDInsight에서 Data Lake Store Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Azure Storage에 데이터 업로드
 

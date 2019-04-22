@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272209"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
@@ -83,7 +83,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 }
 ```
 
-**예 2: Azure Key Vault에 암호를 사용 하 여 SQL 인증을 사용 합니다.**
+**예제 2: Azure Key Vault의 암호를 사용하는 SQL 인증 사용**
 
 ```json
 {
@@ -112,7 +112,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 }
 ```
 
-**예 3: Windows 인증 사용**
+**예제 3: Windows 인증 사용**
 
 ```json
 {
@@ -149,7 +149,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사하려면 데이�
 | type | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예. |
 | tableName |이 속성은 연결된 서비스가 참조하는 데이터베이스 인스턴스의 테이블이나 뷰 이름입니다. | 값은 원본의 경우 No이고 싱크의 경우 Yes입니다. |
 
-**예**
+**예제**
 
 ```json
 {
@@ -188,7 +188,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 - **SqlSource**에 대해 **sqlReaderQuery**가 지정되어 있으면 복사 작업은 Managed Instance 원본에 대해 이 쿼리를 실행하여 데이터를 가져옵니다. 저장 프로시저가 매개 변수를 사용하는 경우에는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수도 있습니다.
 - **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 세트 JSON의 "structure" 섹션에 정의된 열이 쿼리를 생성하는 데 사용됩니다. `select column1, column2 from mytable` 쿼리는 Managed Instance에 대해 실행됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
-**예제: SQL 쿼리를 사용 하 여**
+**예제: SQL 쿼리 사용**
 
 ```json
 "activities":[
@@ -220,7 +220,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 ]
 ```
 
-**예제: 저장된 프로시저를 사용 합니다.**
+**예제: 저장 프로시저 사용**
 
 ```json
 "activities":[
@@ -256,7 +256,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 ]
 ```
 
-**저장된 프로시저 정의**
+**저장 프로시저 정의**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -292,7 +292,7 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 > [!TIP]
 > Azure SQL Database Managed Instance로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. upsert 또는 추가 비즈니스 논리를 수행하려면 SqlSink에서 저장 프로시저를 사용합니다. 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 
-**예제 1: 데이터를 추가 합니다.**
+**예제 1: 데이터 추가**
 
 ```json
 "activities":[
@@ -324,7 +324,7 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 ]
 ```
 
-**예 2: Upsert에 대해 복사 중 저장된 프로시저를 호출 합니다.**
+**예제 2: upsert를 위한 복사 중에 저장 프로시저 호출**
 
 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 
@@ -514,7 +514,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사할 때는 Managed
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -540,7 +540,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사할 때는 Managed
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 >[!NOTE]
 > 10진수 중간 형식으로 매핑되는 데이터 형식의 경우 Azure Data Factory는 현재 최대 28자리의 데이터를 지원합니다. 자릿수가 28자리를 초과하는 데이터가 있으면 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.

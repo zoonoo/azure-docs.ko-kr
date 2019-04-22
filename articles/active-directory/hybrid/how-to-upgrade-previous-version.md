@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267041"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
@@ -108,7 +108,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. 업그레이드가 완료 된 후에 재정의 추가 되었는지 확인 하려면 다음 cmdlet을 실행 합니다. `Get-ADSyncSchedulerConnectorOverride | fl`
+2. 업그레이드가 완료된 후 다음 cmdlet을 실행하여 추가된 재정의를 확인합니다. `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > 재정의는 커넥터마다 다릅니다. 다음 예제에서는 전체 가져오기 단계와 전체 동기화 단계가 온-프레미스 AD 커넥터 및 Azure AD 커넥터 둘 다에 추가되었습니다.
@@ -117,7 +117,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 3. 추가된 기존 재정의를 적어둡니다.
    
-4. 전체 가져오기 및 임의 커넥터에서 전체 동기화 둘 다에 대 한 재정의 제거 하려면 다음 cmdlet을 실행 합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. 임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 제거하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    모든 커넥터에서 재정의를 제거하려면 다음 PowerShell 스크립트를 실행합니다.
 
@@ -128,12 +128,12 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
    }
    ```
 
-5. 스케줄러를 다시 시작 하려면 다음 cmdlet을 실행 합니다. `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. 스케줄러를 다시 시작하려면 다음 cmdlet을 실행합니다. `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > 가능한 한 빨리 필수 동기화 단계를 실행해야 합니다. Synchronization Service Manager를 사용하여 수동으로 이 단계를 실행하거나, ADSyncSchedulerConnectorOverride cmdlet을 사용하여 재정의를 다시 추가할 수 있습니다.
 
-임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대 한 재정의 추가 하려면 다음 cmdlet을 실행 합니다.  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 추가하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>문제 해결
 다음 섹션에는 Azure AD Connect 업그레이드 문제가 발생할 때 사용할 수 있는 문제 해결 정보가 포함되어 있습니다.
@@ -144,7 +144,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 ![오류](./media/how-to-upgrade-previous-version/error1.png)
 
-이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이 경우를 확인 하려면 PowerShell 창을 열고 Cmdlet을 실행 `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이러한 경우인지 확인하려면 PowerShell 창을 열고 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`를 실행합니다.
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

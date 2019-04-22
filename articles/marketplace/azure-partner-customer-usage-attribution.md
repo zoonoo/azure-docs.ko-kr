@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
 ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050155"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
@@ -284,7 +284,7 @@ Marketplace 온 보 딩 및/또는 고객 사용 특성에 대 한 도움이 필
 
 1. **요청 시작**을 선택합니다.
 
-1. 다음 페이지에서 필요한 값을 입력합니다. 선택 **계속**합니다.
+1. 다음 페이지에서 필요한 값을 입력합니다. **계속**을 선택합니다.
 
 1. 다음 페이지에서 필요한 값을 입력합니다.
 
@@ -316,19 +316,19 @@ Microsoft 파트너 기술 컨설턴트로 서 사용자의 요구를 범위에 
 
 ## <a name="faq"></a>FAQ
 
-**템플릿의 GUID를 추가 하는 이점은 무엇 인가요?**
+**템플릿에 GUID를 추가하면 어떤 이점이 있나요?**
 
 Microsoft는 influenced 용도에 파트너의 솔루션과 insights의 고객 배포에 대 한 보기를 제공합니다. Microsoft와 파트너는 모두 이 정보를 사용하여 영업 팀 간에 긴밀한 관계를 구축할 수 있습니다. Microsoft와 파트너는 이 정보를 사용하여 개별 파트너가 Azure 성장에 미치는 영향에 대한 일관된 보기를 얻을 수 있습니다.
 
-**GUID를 추가한 후 변경할 수 있습니까?**
+**GUID는 추가된 후에 변경할 수 있나요?**
 
 예, 고객 또는 구현 파트너는 템플릿을 사용자 지정할 수 있으며 GUID를 변경하거나 제거할 수 있습니다. 파트너에 사전에 GUID를 제거 하거나 편집 하지 않으려면 고객 및 파트너 리소스 및 GUID 역할 설명 하는 것이 좋습니다. GUID가 변경되면 기존이 아닌 새 배포 및 리소스에만 영향을 줍니다.
 
-**GitHub와 같은 Microsoft 이외의 저장소에서 배포 된 템플릿은 추적할 수 있나요?**
+**GitHub 등의 타사 리포지토리에서 배포된 템플릿을 추적할 수 있나요?**
 
 예, 템플릿을 배포할 때 GUID가 있는 한 사용량이 추적됩니다. 파트너는 프로필을 Azure Marketplace 외부에서 배포에 사용 되는 Guid를 등록 하는 CPP에 해야 합니다.
 
-**고객도 reporting 수신?**
+**고객도 보고를 받나요?**
 
 고객은 Azure Portal 내에서 개별 리소스 또는 고객 정의 리소스 그룹의 사용량을 추적할 수 있습니다.
 
@@ -336,7 +336,7 @@ Microsoft는 influenced 용도에 파트너의 솔루션과 insights의 고객 �
 
 배포 및 사용량을 파트너 솔루션에 연결하는 이 새로운 방법은 파트너 솔루션을 Azure 사용량에 연결하는 메커니즘을 제공합니다. DPOR는 컨설팅(시스템 통합자) 또는 관리(관리 서비스 공급자) 파트너를 고객의 Azure 구독과 연결하기 위한 것입니다.
 
-**Azure Storage의 GUID 생성기 폼을 사용 하 여 혜택 이란?**
+**Azure Storage의 GUID 생성기 양식을 사용하면 어떤 이점이 있나요?**
 
 Azure Storage의 GUID 생성기 양식은 필요한 형식의 GUID를 생성하도록 보장합니다. 또한, Azure Storage의 데이터 평면 추적 방법을 사용하는 경우 Marketplace 제어 평면 추적에 동일한 GUID를 활용할 수 있습니다. 이렇게 하면 별도의 GUIDS를 유지하지 않고도 파트너 특성으로 단일 통합 GUID를 활용할 수 있습니다.
 

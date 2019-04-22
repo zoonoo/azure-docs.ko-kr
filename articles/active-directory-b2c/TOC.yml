@@ -85,8 +85,8 @@ items:
     href: add-native-application.md
   - name: 나이 제한 구성
     href: basic-age-gating.md
-  - name: 토큰 구성
-    href: active-directory-b2c-token-session-sso.md
+  - name: 세션 동작 구성
+    href: session-behavior.md
   - name: 언어 사용자 지정
     href: active-directory-b2c-reference-language-customization.md
   - name: 암호 사용자 지정
@@ -111,8 +111,6 @@ items:
       href: active-directory-b2c-ui-customization-custom.md
     - name: 동적으로 UI 사용자 지정
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: 토큰 사용자 지정
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: 사용자 지정 특성 정의
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: 로그인 유지 사용
@@ -147,8 +145,6 @@ items:
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: 페이지 계약
       href: page-contract.md
-    - name: 액세스 토큰을 통해 전달
-      href: idp-pass-through-custom.md
     - name: 암호 복잡성
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: 암호 변경
@@ -159,6 +155,12 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: 토큰
+      items:
+      - name: 토큰 사용자 지정
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: 액세스 토큰을 통해 전달
+        href: idp-pass-through-custom.md
     - name: 사용자 동작 추적
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: 참고 자료
@@ -272,10 +274,6 @@ items:
       href: active-directory-b2c-devquickstarts-ios.md
     - name: 앱 인증을 사용한 Android
       href: active-directory-b2c-devquickstarts-android.md
-  - name: 액세스 토큰 가져오기
-    href: active-directory-b2c-access-tokens.md
-  - name: 액세스 토큰을 통해 전달
-    href: idp-pass-through-user-flow.md
   - name: 보고서 사용량
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: 리소스 소유자 암호 자격 증명
@@ -284,6 +282,14 @@ items:
     href: direct-signin.md
   - name: 셀프 서비스 암호 재설정 설정
     href: active-directory-b2c-reference-sspr.md
+  - name: 토큰
+    items:
+    - name: 토큰 구성
+      href: configure-tokens.md
+    - name: 액세스 토큰을 통해 전달
+      href: idp-pass-through-user-flow.md
+    - name: 액세스 토큰 요청
+      href: active-directory-b2c-access-tokens.md
   - name: b2clogin.com 사용
     href: b2clogin.md
   - name: Azure AD Graph API 사용
@@ -326,9 +332,9 @@ items:
     href: active-directory-b2c-support.md
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886576"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681134"

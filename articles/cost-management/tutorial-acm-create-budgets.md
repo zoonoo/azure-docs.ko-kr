@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490717"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
@@ -123,4 +123,4 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 비용 관리 데이터에 대한 되풀이 내보내기를 만들려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [내보낸 데이터 만들기 및 관리](tutorial-export-acm-data.md)
+> [내보낸 데이터를 만들고 관리](tutorial-export-acm-data.md)

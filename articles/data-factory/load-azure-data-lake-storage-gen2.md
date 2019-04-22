@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
 ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269268"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
@@ -141,4 +141,4 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 ## <a name="next-steps"></a>다음 단계
 
 * [복사 작업 개요](copy-activity-overview.md)
-* [Azure Data Lake 저장소 Gen2 커넥터](connector-azure-data-lake-storage.md)
+* [Azure Data Lake Storage Gen2 커넥터](connector-azure-data-lake-storage.md)

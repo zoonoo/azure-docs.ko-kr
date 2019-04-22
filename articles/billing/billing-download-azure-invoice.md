@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264066"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서 보기 및 다운로드
@@ -135,10 +135,10 @@ Microsoft 고객 계약에 있는 경우에 전자 메일로 청구서 받기에
 
 청구서 및 요금에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Microsoft Azure사용량 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)
-- [Microsoft Azure 청구서 이해](billing-understand-your-bill.md)
+- [에 Microsoft Azure 사용 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)
+- [Microsoft Azure 요금 청구 방식 이해](billing-understand-your-bill.md)
 - [Azure 청구서에서 용어 이해](billing-understand-your-invoice.md)
-- [용어를 이해 하 여 Microsoft Azure의 자세한 사용 현황](billing-understand-your-usage.md)
+- [Microsoft Azure 세부 사용량의 용어 이해](billing-understand-your-usage.md)
 - [조직의 Azure 가격을 확인합니다](billing-ea-pricing.md)
 
 Microsoft 고객 계약에 있는 경우 참조 하세요.

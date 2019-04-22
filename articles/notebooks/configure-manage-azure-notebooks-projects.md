@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268010"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
@@ -95,7 +95,7 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 
 | 항목 종류 | 설명 | 명령 동작 |
 | --- | --- | --- |
-| **노트북** | Jupyter Notebook입니다. | Notebook의 파일 이름 및 언어를 지정하는 팝업을 표시합니다. |
+| **Notebook** | Jupyter Notebook입니다. | Notebook의 파일 이름 및 언어를 지정하는 팝업을 표시합니다. |
 | **폴더** | 하위 폴더입니다. | 프로젝트의 파일 목록에 폴더 이름을 입력하는 편집 필드를 만듭니다. |
 | **빈 파일** | 텍스트, 데이터 등의 콘텐츠를 저장할 수 있는 파일입니다. | 프로젝트의 파일 목록에 파일 이름을 입력하는 편집 필드를 만듭니다. |
 | **Markdown** | Markdown 파일입니다. | 프로젝트의 파일 목록에 파일 이름을 입력하는 편집 필드를 만듭니다. |
@@ -222,5 +222,5 @@ Python Notebook의 코드 셀에서 명령을 사용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일을 사용 하 여 작동 합니다.](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)
 - [Notebook에서 클라우드 데이터 액세스](access-data-resources-jupyter-notebooks.md)

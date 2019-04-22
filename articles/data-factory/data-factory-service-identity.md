@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260751"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 소개 하는 경우는 다음 항목을 참조 하 고 data factory를 사용 하는 방법을 관리 id:
 
 - [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)
-- [관리 되는 id를 사용 하 여 Azure 리소스 인증을 위해 Azure Data Lake Store에서 데이터 복사](connector-azure-data-lake-store.md)
+- [Azure 리소스 인증을 위해 관리 ID를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)
 
 참조 [Azure 리소스 개요에 대 한 Id 관리](/azure/active-directory/managed-identities-azure-resources/overview) 에 Azure 리소스를 관리 되는 id는 data factory에 대 한 관리 되는 id에 대 한 자세한 배경 기반으로 합니다. 

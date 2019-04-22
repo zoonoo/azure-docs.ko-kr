@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490640"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
@@ -18,7 +18,7 @@ ms.locfileid: "59490640"
 Azure Migrate에는 프로젝트당 1500개의 컴퓨터 제한이 있습니다. 이 문서에서는 [Azure Migrate](migrate-overview.md)를 사용하여 많은 수의 온-프레미스 가상 머신을 평가하는 방법을 설명합니다.
 
 > [!NOTE]
-> 단일 어플라이언스를 사용 하 여 단일 프로젝트에서 최대 10,000 개의 VMware Vm 검색을 허용 하는 미리 보기 릴리스에 사용할 수 있는 것을 시도 하는 데 관심이 있다면 등록 하세요 [여기 있습니다.](https://aka.ms/migratefuture)
+> 당사는 단일 어플라이언스를 사용하여 단일 프로젝트에서 최대 10,000대의 VMware VM을 검색할 수 있는 미리 보기 릴리스를 제공한 바 있습니다. 체험 사용에 관심이 있는 분은 [여기](https://aka.ms/migratefuture)에서 가입하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051583"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
@@ -45,7 +45,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 
 ### <a name="ike-phase-1-setup"></a>IKE 1단계 설정
 
-| **자산** | **PolicyBased** | **경로 기반 및 표준 또는 고성능 VPN gateway** |
+| **속성** | **정책 기반** | **경로 기반 및 표준 또는 고성능 VPN Gateway** |
 | --- | --- | --- |
 | IKE 버전 |IKEv1 |IKEv2 |
 | Diffie-Hellman 그룹 |그룹 2(1024비트) |그룹 2(1024비트) |
@@ -85,7 +85,7 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아닙니다.|
-| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
+| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아닙니다.|
 | UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 아니요 |
 | VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니요 |
 | PlatformInActive | 플랫폼에 문제가 있습니다. | 아니요|

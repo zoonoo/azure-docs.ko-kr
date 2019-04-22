@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046125"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
@@ -29,12 +29,12 @@ ms.locfileid: "59046125"
 이 문서는 가상 네트워크 간에 VPN 게이트웨이 연결을 만드는 데 도움이 됩니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다. 이 문서의 단계는 클래식 배포 모델 및 Azure Portal에 적용됩니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [다른 배포 모델-Azure portal에 연결](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [다른 배포 모델-PowerShell 연결](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [다양한 배포 모델 간 연결 - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [다양한 배포 모델 간 연결 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
@@ -78,7 +78,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 다음 테이블에는 VNet을 정의하는 방법의 예가 나와 있습니다. 범위는 지침으로만 참고하고, 실제 가상 네트워크에 사용할 범위를 기록합니다. 이 정보는 이후 단계에서 필요합니다.
 
-**예**
+**예제**
 
 | Virtual Network | 주소 공간 | 지역 | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
@@ -98,7 +98,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 이 문서를 연습으로 사용하는 경우 다음 예제 값을 사용할 수 있습니다.
 
-**TestVNet1에 대 한 값**
+**TestVNet1에 대한 값**
 
 이름: TestVNet1<br>
 주소 공간 10.11.0.0/16, 10.12.0.0/16 (선택 사항)<br>
@@ -108,7 +108,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 위치: 미국 동부<br>
 게이트웨이 서브넷: 10.11.1.0/27
 
-**TestVNet4에 대 한 값**
+**TestVNet4에 대한 값**
 
 이름: TestVNet4<br>
 주소 공간 10.41.0.0/16, 10.42.0.0/16 (선택 사항)<br>
@@ -118,13 +118,13 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 위치: 미국 서부<br>
 게이트웨이 서브넷: 10.41.1.0/27
 
-**Vnet을 만들 때 염두 다음 설정 합니다.**
+**VNet을 만드는 경우 다음 설정에 유념하세요.**
 
 * **Virtual Network 주소 공간** – Virtual Network 주소 공간 페이지에서 가상 네트워크에 사용할 주소 범위를 지정합니다. 가상 네트워크에 배포하는 VM 및 다른 역할 인스턴스에 할당될 동적 IP 주소입니다.<br>선택하는 주소 공간은 이 VNet이 연결될 다른 VNet 또는 온-프레미스 위치의 주소 공간과 겹칠 수 없습니다.
 
 * **위치** – 가상 네트워크를 만들 때 Azure 위치(지역)와 연결합니다. 예를 들어 실제로 West US에 배치할 가상 네트워크에 VM을 배포하려는 경우 해당 위치를 선택합니다. 가상 네트워크를 만든 후에는 가상 네트워크에 연결된 위치를 변경할 수 없습니다.
 
-**Vnet을 만든 후 다음 설정을 추가할 수 있습니다.**
+**VNet을 만든 후에는 다음 설정을 추가할 수 있습니다.**
 
 * **주소 공간** – 이 구성에는 주소 공간이 더 필요하지 않지만 VNet을 만든 후 주소 공간을 더 추가할 수 있습니다.
 

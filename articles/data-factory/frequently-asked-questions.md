@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048217"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
@@ -145,7 +145,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 Data Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터 집합 및 연결 된 서비스](concepts-datasets-linked-services.md)
+- [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)
 - [파이프라인 및 활동](concepts-pipelines-activities.md)
 - [통합 런타임](concepts-integration-runtime.md)
 
@@ -157,7 +157,7 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 �
 
 - [블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [설명서 홈페이지](/azure/data-factory)
-- [제품 홈 페이지](https://azure.microsoft.com/services/data-factory/)
+- [제품 홈페이지](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>기술 심층 분석 
 
@@ -211,5 +211,5 @@ Microsoft 도움말 이나 데이터 흐름을 사용 하 여 문제 해결을 �
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.
 
-- [빠른 시작: 데이터 팩터리를 만듭니다.](quickstart-create-data-factory-dot-net.md)
-- [자습서: 클라우드에서 데이터 복사](tutorial-copy-data-dot-net.md)
+- [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
+- [자습서: 클라우드에 데이터 복사](tutorial-copy-data-dot-net.md)

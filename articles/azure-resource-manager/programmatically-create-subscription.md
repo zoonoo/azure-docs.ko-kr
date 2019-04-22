@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256926"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>프로그래밍 방식으로 Azure 엔터프라이즈 구독 만들기(미리 보기)
@@ -40,7 +40,7 @@ ms.locfileid: "59256926"
 
 다음 명령을 실행하려면 기본적으로 구독이 생성되는 디렉터리인 계정 소유자의 *홈 디렉터리*에 로그인해야 합니다.
 
-# [<a name="rest"></a>REST (영문)](#tab/rest)
+# <a name="resttabrest"></a>[REST (영문)](#tab/rest)
 
 모든 등록 계정을 나열하도록 요청합니다.
 
@@ -73,7 +73,7 @@ Azure는 액세스할 수 있는 모든 등록 계정의 목록으로 응답합�
 }
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet을 사용하여 액세스 권한이 있는 모든 등록 계정을 나열합니다.
 
@@ -89,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다.
 
@@ -130,7 +130,7 @@ Azure는 계정의 개체 ID 및 이메일 주소 목록으로 응답합니다.
 
 다음 예제에서는 *개발 팀 구독*이라는 구독을 만드는 요청을 만들고 구독 제안은 *MS-AZR-0017P*(일반 EA)입니다. 등록 계정은 SignUpEngineering@contoso.com에 대한 등록 계정인 `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(자리 표시자 값, 이 값은 GUID)입니다. 또한 구독에 대한 RBAC 소유자로 두 명의 사용자를 선택적으로 추가합니다.
 
-# [<a name="rest"></a>REST (영문)](#tab/rest)
+# <a name="resttabrest"></a>[REST (영문)](#tab/rest)
 
 요청 경로에 있는 `enrollmentAccount`의 `id`를 사용하여 구독을 만듭니다.
 
@@ -159,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 응답에서 모니터링에 대한 `subscriptionOperation` 개체를 얻습니다. 구독 만들기가 완료되면 `subscriptionOperation` 개체는 구독 ID가 있는 `subscriptionLink` 개체를 반환합니다.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 이 미리 보기 모듈을 사용하려면 `Install-Module Az.Subscription -AllowPrerelease`를 먼저 실행하여 설치합니다. `-AllowPrerelease`가 작동하는지 확인하려면 [Get PowerShellGet Module](/powershell/gallery/installing-psget)에서 최신 버전의 PowerShellGet을 설치합니다.
 
@@ -180,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 모든 매개 변수의 전체 목록을 보려면 [New-AzSubscription](/powershell/module/az.subscription.preview)을 참조하세요.
 
-# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 이 미리 보기 확장을 사용하려면 `az extension add --name subscription`을 먼저 실행하여 설치합니다.
 

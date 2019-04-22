@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044375"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
@@ -32,7 +32,7 @@ Azure IoT Hub를 통해 [디바이스 쌍 속성 및 태그](iot-hub-devguide-de
 작업은 솔루션 백 엔드에 의해 시작되고 IoT Hub에 의해 유지 관리됩니다. 서비스 지향 URI(`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`)를 통해 작업을 시작하고 서비스 지향 URI(`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`)를 통해 작업 실행 진행 상태를 쿼리할 수 있습니다. 작업이 시작된 후 실행 중인 작업의 상태를 새로 고치기 위해 작업 쿼리를 실행합니다.
 
 > [!NOTE]
-> 작업을 시작할 때 속성 이름과 값만 포함 될 수 있습니다-US-ASCII로 출력 가능한 영숫자, 다음 집합에서 제외 합니다. `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> 작업을 시작할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>직접 메서드를 실행할 작업
 
@@ -118,7 +118,7 @@ User-Agent: <sdk-name>/<sdk-version>
 | **jobId** |작업에 대해 애플리케이션에서 제공한 ID입니다. |
 | **startTime** |작업에 대해 애플리케이션에서 제공한 시작 시간(ISO-8601)입니다. |
 | **endTime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
-| **형식** |작업 형식: |
+| **type** |작업 형식: |
 | | **scheduledUpdateTwin**: Desired 속성 또는 태그 집합을 업데이트 하는 데 작업. |
 | | **scheduledDeviceMethod**: 장치 쌍의 집합에서 장치 메서드를 호출 하는 데 작업. |
 | **status** |작업의 현재 상태입니다. 가능한 상태 값: |

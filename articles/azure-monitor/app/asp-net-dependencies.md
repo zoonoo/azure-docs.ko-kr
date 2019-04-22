@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273110"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
@@ -152,9 +152,9 @@ ms.locfileid: "59273110"
 표준 종속성 추적 모듈을 해제하려는 경우, [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 DependencyTrackingTelemetryModule에 대한 참조를 삭제합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
-*종속성 성공 플래그는 항상 true 또는 false 보여 줍니다.*
+*종속성 성공 플래그는 항상 true 또는 false로 표시됩니다.*
 
-*SQL 쿼리를 전체에 표시 되지 않습니다.*
+*SQL 쿼리가 일부만 표시됩니다.*
 
 애플리케이션에 대한 종속성 모니터링을 사용하도록 설정하려면 올바른 구성을 선택했는지 확인하고 아래 표를 참조하십시오.
 
@@ -168,4 +168,4 @@ ms.locfileid: "59273110"
 ## <a name="next-steps"></a>다음 단계
 * [예외](../../azure-monitor/app/asp-net-exceptions.md)
 * [사용자 및 페이지 데이터](../../azure-monitor/app/javascript.md)
-* [가용성](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425970"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
@@ -87,7 +87,7 @@ IoT Central 응용 프로그램을 사용 하 여 많은 수의 장치를 등록
 
 - [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)에 대한 샘플 구현.
 
-- [C에서 장치 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [C의 샘플 디바이스 클라이언트.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### <a name="for-testing-purposes-only"></a>테스트 목적 으로만
 
@@ -115,7 +115,7 @@ IoT Central 사용 하도록 설정 하는 주요 시나리오는 대용량 없�
 
     - **X.509 인증서의 경우:** [추가 하 고 루트/중간 인증서를 확인 하기](#connect-devices-using-x509-certificates) 다음 단계에서 장치 인증서를 생성 하는 데 사용 합니다.
     - **SAS:** 기본 키를 복사 합니다. 이 키는 IoT Central 응용 프로그램에 대 한 그룹 SAS 키가입니다. 다음 단계에서는 장치 SAS 키를 생성 하는 키를 사용 합니다.
-    ![SAS 연결 설정](media/concepts-connectivity/connection-settings-sas.png)
+    ![연결 설정 SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. 장치 자격 증명 생성
     - **X.509 인증서:** 루트 또는 IoT Central 응용 프로그램에 추가 하는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 소문자를 사용 해야 **장치 ID** 리프 인증서의 CNAME로 합니다. 이 테스트용 으로만 사용 [명령줄 도구](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) 장치 인증서를 생성 합니다.
@@ -168,7 +168,7 @@ IoT Central 사용 하도록 설정 하는 주요 시나리오는 대용량 없�
 
 IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사용됩니다.
 
-- [디바이스-클라우드 메시징](../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [디바이스-클라우드 메시지](../iot-hub/iot-hub-devguide-messages-d2c.md)
 - [디바이스 쌍](../iot-hub/iot-hub-devguide-device-twins.md)
 
 다음 표에는 Azure IoT Central 디바이스 기능이 IoT Hub 기능에 매핑되는 방식이 요약되어 있습니다.
@@ -181,8 +181,8 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 디바이스 SDK 사용에 대해 자세히 알아보려면 다음 문서 중 하나에서 코드 예제를 참조하세요.
 
-- [Azure IoT Central 응용 프로그램에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
-- [Azure IoT Central 응용 프로그램을 Raspberry Pi 장치 연결](howto-connect-raspberry-pi-python.md)
+- [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
+- [Azure IoT Central 애플리케이션에 Raspberry Pi 장치 연결](howto-connect-raspberry-pi-python.md)
 - [Azure IoT Central 애플리케이션에 DevDiv 키트 장치 연결](howto-connect-devkit.md)
 
 ### <a name="protocols"></a>프로토콜
@@ -205,7 +205,7 @@ IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사�
 
 Azure IoT Central의 장치 연결에 대 한 알아보았습니다 했으므로 다음 제안된 단계는 다음과 같습니다.
 
-- [준비 하 고 DevKit 장치 연결](howto-connect-devkit.md)
-- [준비 하 고 Raspberry Pi 연결](howto-connect-raspberry-pi-python.md)
-- [Azure IoT Central 응용 프로그램에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
+- [DevKit 디바이스 준비 및 연결](howto-connect-devkit.md)
+- [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)
+- [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
 - [C SDK: 장치 클라이언트 SDK를 프로 비전](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

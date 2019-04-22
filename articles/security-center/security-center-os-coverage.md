@@ -3,7 +3,7 @@ title: Azure Security Center에서 지원하는 기능 및 플랫폼 | Microsoft
 description: 이 문서에서는 Azure Security Center에서 지원하는 기능 및 플랫폼 목록을 제공합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5422ba1b29ac48a7255f25ac0beb43e3481d256a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 4/17/2019
+ms.author: monhaber
+ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105895"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678312"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -37,11 +37,12 @@ ms.locfileid: "56105895"
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Windows 컴퓨터 및 VM에 대해 지원되는 플랫폼
 다음 Windows 운영 체제가 지원됩니다.
 
-* Windows Server 2008
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows Server 2008
 
 > [!NOTE]
 > Windows Defender ATP와의 통합은 Windows Server 2012 R2 및 Windows Server 2016만 지원합니다.
@@ -99,11 +100,11 @@ ms.locfileid: "56105895"
 |------|------|-----|-----|
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| Trend Micro - 모든 버전 | Windows Server 제품군  | 아니요 | 예 |
-| Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
-| McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
-| Kaspersky| Windows Server 제품군  | 아니요 | 아니요  |
-| Sophos| Windows Server 제품군  | 아니요 | 아니요  |
+| Trend Micro - 모든 버전 | Windows Server 제품군  | 아닙니다. | 예 |
+| Symantec v12.1.1100+| Windows Server 제품군  | 아닙니다. | 예 |
+| McAfee v10+ | Windows Server 제품군  | 아닙니다. | 예 |
+| Kaspersky| Windows Server 제품군  | 아닙니다. | 아닙니다.  |
+| Sophos| Windows Server 제품군  | 아닙니다. | 아닙니다.  |
 
 > [!NOTE]
 > - Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.

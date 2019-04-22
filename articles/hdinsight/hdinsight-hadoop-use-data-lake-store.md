@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: ed8884462030e10625f332b182bd900e833f34f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272736"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용
@@ -60,8 +60,8 @@ Data Lake Storage Gen1을 추가 스토리지 계정으로 사용하면 클러�
 
 HDInsight가 Data Lake Storage Gen1을 기본 스토리지로 하여 배포되는 경우 클러스터 관련 파일은 `adl://mydatalakestore/<cluster_root_path>/`에 저장됩니다. 여기서 `<cluster_root_path>`는 Data Lake Storage에서 만드는 폴더의 이름입니다. 각 클러스터에 대한 루트 경로를 지정하면 동일한 Data Lake Storage 계정을 둘 이상의 클러스터에 사용할 수 있습니다. 따라서 다음 위치에 설정할 수 있습니다.
 
-* Cluster1 경로 사용할 수 있습니다. `adl://mydatalakestore/cluster1storage`
-* 클러스터 2 경로 사용할 수 있습니다. `adl://mydatalakestore/cluster2storage`
+* 클러스터1에 `adl://mydatalakestore/cluster1storage` 경로를 사용할 수 있습니다.
+* 클러스터2에 `adl://mydatalakestore/cluster2storage` 경로를 사용할 수 있습니다.
 
 두 클러스터 모두 동일한 Data Lake Storage Gen1 계정인 **mydatalakestore**를 사용하는 것에 유의하세요. 각 클러스터는 Data Lake Storage의 자체 루트 파일 시스템에 액세스 권한을 갖습니다. 특히 Azure Portal 배포 환경에서는 **/clusters/\<clustername>** 과 같은 폴더 이름을 루트 경로로 사용할지 묻는 메시지가 표시됩니다.
 
@@ -159,9 +159,9 @@ HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있
 Data Lake Storage Gen1에 대한 액세스로 HDInsight 클러스터를 만드는 방법에 대한 자세한 지침은 다음 링크를 사용하세요.
 
 * [포털 사용](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [PowerShell 사용 (기본 저장소로 Data Lake 저장소 Gen1)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [PowerShell 사용 (추가 저장소로 Data Lake 저장소 Gen1)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
-* [Azure 템플릿을 사용 하 여](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+* [PowerShell 사용(Data Lake Storage Gen1을 기본 스토리지로)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [PowerShell 사용(Data Lake Storage Gen1을 추가 스토리지로)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Azure 템플릿 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 ## <a name="refresh-the-hdinsight-certificate-for-data-lake-storage-gen1-access"></a>Data Lake Storage Gen1 액세스에 대한 HDInsight 인증서 새로 고침
 
@@ -243,8 +243,8 @@ Invoke-AzResourceAction `
 자세한 내용은 다음을 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
-* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [데이터 레이크 저장소 Gen1를 사용 하 여 HDInsight 클러스터를 만들어 Azure PowerShell을 사용 하 여](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+* [Azure PowerShell을 사용하여 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]

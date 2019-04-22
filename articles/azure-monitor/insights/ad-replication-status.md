@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425851"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
@@ -119,32 +119,32 @@ AD 복제 상태 타일에는 현재 발생한 복제 오류 수가 표시됩니
 ![Excel에서 내보낸 AD 복제 상태 오류](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>AD 복제 상태 FAQ
-**Q: AD 복제 상태 데이터 업데이트 되는 빈도?**
+**Q: AD 복제 상태 데이터는 얼마나 자주 업데이트되나요?**
 A: 정보는 5일마다 업데이트됩니다.
 
-**Q: 이 데이터가 업데이트 되는 빈도 구성 하는 방법이?**
+**Q: 이 데이터가 업데이트되는 빈도를 구성하는 방법이 있나요?**
 A: 지금은 없습니다.
 
-**Q: 복제 상태를 보려면 내 Log Analytics 작업 영역에 내 도메인 컨트롤러의 모든 추가 해야 합니까?**
+**Q: 복제 상태를 보려면 내 Log Analytics 작업 영역에 내 도메인 컨트롤러를 모두 추가해야 하나요?**
 A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 도메인 컨트롤러의 데이터가 Azure Monitor에 전송됩니다.
 
-**Q: 내 Log Analytics 작업 영역에 도메인 컨트롤러를 추가하고 싶지 않습니다. 여전히 AD 복제 상태 솔루션을를 사용할 수 있나요?**
+**Q: 내 Log Analytics 작업 영역에 도메인 컨트롤러를 추가하고 싶지 않습니다. 여전히 AD 복제 상태 솔루션을 사용할 수 있습니까?**
 
 A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할 수 있습니다. [비도메인 컨트롤러 사용](#enable-non-domain-controller)을 참조하세요.
 
-**Q: 데이터 수집을 수행 하는 프로세스의 이름은 무엇입니까?**
+**Q: 데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?**
 A: AdvisorAssessment.exe
 
-**Q: 어떻게 하기까지 걸리는 시간 데이터를 수집 하려면?**
+**Q: 데이터를 수집하려면 시간이 얼마나 걸리나요?**
 A: 데이터 수집 시간은 Active Directory 환경의 크기에 따라 달라지지만 일반적으로 약 15분 미만이 소요됩니다.
 
-**Q: 어떤 유형의 데이터를 수집 하나요?**
+**Q: 어떤 유형의 데이터를 수집하나요?**
 A: 복제 정보는 LDAP를 통해 수집됩니다.
 
-**Q: 데이터를 수집 하는 경우 구성 하는 방법이?**
+**Q: 데이터를 수집하는 경우 구성하는 방법이 있나요?**
 A: 지금은 없습니다.
 
-**Q: 데이터를 수집 하려면 어떤 권한이 필요 하나요?**
+**Q: 데이터를 수집하려면 어떤 권한이 필요합니까?**
 A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.
 
 ## <a name="troubleshoot-data-collection-problems"></a>데이터 수집 문제 해결

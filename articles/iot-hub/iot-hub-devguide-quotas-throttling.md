@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: 14c563fda48bc7c54dcce1e1ccbfba716b6c73ad
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049606"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
@@ -70,7 +70,7 @@ IoT Hub 제한 동작에 대한 자세한 내용은 [IoT Hub 제한](https://azu
 
 IoT Hub에는 다른 작업 제한도 적용됩니다.
 
-| 작업 | 제한 |
+| 작업(Operation) | 제한 |
 | --------- | ----- |
 | 파일 업로드 URI | 10000 SAS URI는 한 번에 저장소 계정에 대해 나올 수 있습니다. <br/> 10 SAS URI/장치는 한 번에 나올 수 있습니다. |
 | 작업<sup>1</sup> | 작업 기록은 30일까지 유지됩니다. <br/> 최대 동시 작업은 1개(무료), S1, 5(S2의 경우), 10(S3의 경우)입니다. |

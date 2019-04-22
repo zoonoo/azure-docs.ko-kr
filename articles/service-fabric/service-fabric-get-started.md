@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/02/2019
 ms.author: aljo
 ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275500"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
@@ -91,10 +91,10 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 ## <a name="next-steps"></a>다음 단계
 개발 환경의 설정을 마쳤으므로 앱을 빌드하고 실행하기 시작할 수 있습니다.
 
-* [만들기, 배포 및 응용 프로그램을 관리 하는 방법을 알아봅니다](service-fabric-tutorial-create-dotnet-app.md)
-* [프로그래밍 모델에 알아봅니다. Reliable Services 및 Reliable Actors](service-fabric-choose-framework.md)
-* [GitHub에서 Service Fabric 코드 샘플 확인](https://aka.ms/servicefabricsamples)
-* [Service Fabric Explorer를 사용 하 여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
+* [애플리케이션 만들기, 배포 및 관리하는 방법 알아보기](service-fabric-tutorial-create-dotnet-app.md)
+* [프로그래밍 모델에 대해 알아보기: Reliable Services 및 Reliable Actors](service-fabric-choose-framework.md)
+* [GitHub의 서비스 패브릭 코드 샘플 확인](https://aka.ms/servicefabricsamples)
+* [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 캠페인 페이지"

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: b383a4f85a039eb8eed87e2e78940aaf48b30a33
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425919"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
@@ -52,7 +52,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 | 구성 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | 구성 |`auth.gfx.ms` | |`443` |
 | 구성 |`login.live.com` | |`443` |
-| 설치 |`packages.nuget.org` 하십시오 `nuget.org`하십시오 `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet 다운로드) | |`443` |
+| 설치 |`packages.nuget.org`, `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net`(NuGet 다운로드) | |`443` |
 
 ## <a name="availability-tests"></a>가용성 테스트
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.

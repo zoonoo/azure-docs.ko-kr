@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258538"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
@@ -128,7 +128,7 @@ Notebook 내에서, 항상 코드 셀에서 `!pip install` 같은 명령을 사�
 1. 환경 설정에 *requirements.txt* 파일이 있기 때문에 "컨테이너가 준비될 때까지 기다리십시오"라는 메시지가 표시됩니다. **확인**을 선택하여 메시지를 닫고 Notebook에서 계속 작업을 진행할 수 있지만, 환경이 완전히 설정되기 전에는 코드 셀을 실행할 수 없습니다.
 1. Jupyter 인터페이스에서 Notebook이 열리고 기본적으로 코드 셀 하나가 비어 있습니다.
 
-    [![IAzure 노트북에서 새 notebook의 초기 보기](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Azure Notebooks의 새 Notebook 초기 보기](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Notebook 인터페이스 둘러보기
 
@@ -144,7 +144,7 @@ Notebook이 실행 중이면 코드 및 Markdown 셀을 추가하고, 해당 셀
 (F) Notebook을 신뢰할 수 있는지 여부를 나타내는 표시기(기본값은 **신뢰할 수 없음**).
 (G) 작업 표시기와 함께 Notebook을 실행하는 데 사용되는 커널.
 
-[![PJupyter 인터페이스의 기본 UI 영역](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Jupyter 인터페이스의 주 UI 영역](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter는 주 UI 요소를 둘러보는 기능을 기본적으로 제공합니다. 둘러보기를 시작하려면 **도움말** > **사용자 인터페이스 둘러보기** 명령을 선택하고 팝업을 클릭합니다.
 
@@ -421,13 +421,13 @@ Notebook의 *.ipynb* 파일을 다운로드하여 Python 확장을 사용해 Vis
 
 ## <a name="next-steps"></a>다음 단계
 
-- [샘플 노트북을 탐색](azure-notebooks-samples.md)
+- [샘플 Notebook 살펴보기](azure-notebooks-samples.md)
 
 방법 문서:
 
 - [프로젝트 만들기 및 복제](create-clone-jupyter-notebooks.md)
-- [구성 및 프로젝트 관리](configure-manage-azure-notebooks-projects.md)
-- [노트 내에서 패키지 설치](install-packages-jupyter-notebook.md)
+- [프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
+- [Notebook 내에서 패키지 설치](install-packages-jupyter-notebook.md)
 - [슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
 - [데이터 파일 작업](work-with-project-data-files.md)
 - [데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)

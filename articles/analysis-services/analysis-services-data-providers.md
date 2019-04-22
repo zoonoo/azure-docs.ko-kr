@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270866"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
@@ -23,8 +23,8 @@ ms.locfileid: "59270866"
 
 |다운로드  |제품 버전  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.15.26    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.15.26      |
+|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.15.26    |
+|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.15.26      |
 |[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.17.1.0    |
 |[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.17.1.0     |
 
@@ -93,4 +93,4 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
 
 ## <a name="next-steps"></a>다음 단계
 [Excel로 연결](analysis-services-connect-excel.md)    
-[Power BI로 연결](analysis-services-connect-pbi.md)
+[Power BI와 연결](analysis-services-connect-pbi.md)

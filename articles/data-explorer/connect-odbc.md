@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59043884"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>ODBC 사용 하 여 Azure 데이터 탐색기로 연결
@@ -102,4 +102,4 @@ ODBC 구성을 완료 했다면, 이제 Tableau에 샘플 데이터를 가져올
 
 [Azure 데이터 탐색기용 쿼리 작성](write-queries.md)
 
-[자습서: Power BI에서 Azure 데이터 탐색기에서 데이터 시각화](visualize-power-bi.md)
+[자습서: ](visualize-power-bi.md) Power BI에서 Azure Data Explorer의 데이터 시각화

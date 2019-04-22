@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489659"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>오늘 날짜에 C# 식 사용
 
-오늘 날짜를 가져오려면 다음 사용할 수 있습니다 C# 식: `DateTime.Now.ToString("M/d/yyyy")`
+오늘 날짜를 끌어오려면 `DateTime.Now.ToString("M/d/yyyy")` C# 식을 사용할 수 있습니다.
 
 다음은 스크립트에서 이 식을 사용하는 방법의 예입니다.
 
@@ -534,8 +534,8 @@ public class MyTypeFormatter : IFormatter<MyType>
 * **Serialize**: 제공된 스트림에 지정된 루트를 사용하여 개체 또는 개체 그래프를 직렬화합니다.
 
 `MyType` 인스턴스: 해당 형식 인스턴스입니다.  
-`IColumnWriter` 기록기 / `IColumnReader` 판독기: 기본 열 스트림입니다.  
-`ISerializationContext` 컨텍스트: 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다.
+`IColumnWriter` writer / `IColumnReader` reader: 기본 열 스트림입니다.  
+`ISerializationContext` context: 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다.
 
 * **Intermediate**: 원본 또는 대상 컨텍스트가 지속형 저장소가 아님을 지정합니다.
 
@@ -1267,9 +1267,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output` 각 입력된 행에 대해 호출 됩니다. `IUnstructuredWriter output` 행 집합을 반환합니다.
+* `Output`은 각 입력 행에 대해 호출됩니다. `IUnstructuredWriter output` 행 집합을 반환합니다.
 * 생성자 클래스는 사용자 정의 출력자에 매개 변수를 전달하는 데 사용됩니다.
-* `Close` 비용이 많이 드는 상태를 해제 하거나 마지막 행 쓰여진 시기를 결정 하도록 선택적으로 재정의 됩니다.
+* `Close`는 비용이 높은 상태를 해제하거나 마지막 행이 기록된 시점을 판단하기 위해 선택적으로 재정의하는 데 사용됩니다.
 
 **SqlUserDefinedOutputter** 특성은 사용자 정의 출력자로 등록해야 하는 형식임을 나타냅니다. 이 클래스는 상속될 수 없습니다.
 

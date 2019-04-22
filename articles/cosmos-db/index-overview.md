@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265698"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
@@ -59,6 +59,6 @@ Azure Cosmos 데이터베이스는 각 항목의 정보를 저장하고 쿼리 �
 다음 문서에서 인덱싱에 대해 자세히 알아보세요.
 
 - [인덱싱 정책](index-policy.md)
-- [인덱스 형식](index-types.md)
+- [인덱싱 형식](index-types.md)
 - [인덱스 경로](index-paths.md)
-- [인덱싱 정책을 관리 하는 방법](how-to-manage-indexing-policy.md)
+- [인덱싱 정책을 관리하는 방법](how-to-manage-indexing-policy.md)

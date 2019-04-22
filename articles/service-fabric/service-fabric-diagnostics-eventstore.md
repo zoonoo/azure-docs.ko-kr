@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662910"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681525"
 ---
 # <a name="eventstore-service-overview"></a>EventStore 서비스 개요
 
@@ -72,7 +72,7 @@ EventStore 서비스에는 클러스터의 이벤트 간에 상관 관계를 지
 
 ### <a name="azure-cluster"></a>Azure 클러스터
 
-클러스터의 Azure Resource Manager 템플릿에서 [클러스터 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 수행하고 다음 코드를 추가하면 EventStore 서비스를 사용할 수 있습니다. `upgradeDescription` 섹션은 노드에서 다시 시작을 트리거하도록 구성 업그레이드를 구성합니다. 다른 업데이트에서 섹션을 제거할 수 있습니다.
+클러스터의 Azure Resource Manager 템플릿에서 켜면 EventStore 서비스를 수행 하 여는 [클러스터 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md) 및 다음 코드를 추가, 사용 하 여의 PlacementConstraints EventStore의 복제본을 배치 하려면 시스템 서비스에 대 한 전용 된 NodeType에 예를 들어 특정 NodeType의 서비스입니다. `upgradeDescription` 섹션은 노드에서 다시 시작을 트리거하도록 구성 업그레이드를 구성합니다. 다른 업데이트에서 섹션을 제거할 수 있습니다.
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ EventStore 서비스에는 클러스터의 이벤트 간에 상관 관계를 지
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

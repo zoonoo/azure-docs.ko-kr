@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426492"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679077"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -134,10 +134,10 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 시스템 패치를 시작하려면 업데이트 관리 솔루션을 사용하도록 설정해야 합니다. 다양한 방법으로 업데이트 관리에 컴퓨터를 등록할 수 있습니다. 아래에는 권장/지원되는 솔루션 등록 방법이 나와 있습니다.
 
-* [가상 컴퓨터에서](automation-onboard-solutions-from-vm.md)
-* [여러 컴퓨터를 검색 합니다.](automation-onboard-solutions-from-browse.md)
-* [Automation 계정에서](automation-onboard-solutions-from-automation-account.md)
-* [Azure Automation runbook을 사용 하 여](automation-onboard-solutions.md)
+* [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
+* [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
+* [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
+* [Azure Automation Runbook 사용](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>비 Azure 컴퓨터가 등록되어 있는지 확인
 
@@ -208,9 +208,9 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 
 ## <a name="install-updates"></a>업데이트 설치
 
-작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다. 업데이트 배포는 예약된 일정에 따라 하나 이상의 컴퓨터에 필요한 업데이트를 설치합니다. 배포 날짜 및 시간과 배포 범위에 포함할 컴퓨터 또는 컴퓨터 그룹을 지정합니다. 컴퓨터 그룹에 대 한 자세한 내용은 참조 하세요 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)합니다.
+작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다. 업데이트 배포를 만들려면 Automation 계정에 대 한 쓰기 액세스 있어야 하며 배포에서 된 모든 Azure Vm에 대 한 쓰기 액세스를 대상으로 합니다. 업데이트 배포는 예약된 일정에 따라 하나 이상의 컴퓨터에 필요한 업데이트를 설치합니다. 배포 날짜 및 시간과 배포 범위에 포함할 컴퓨터 또는 컴퓨터 그룹을 지정합니다. 컴퓨터 그룹에 대 한 자세한 내용은 참조 하세요 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)합니다.
 
- 업데이트 배포에 컴퓨터 그룹이 포함되면 일정을 만들 때 그룹 멤버 자격이 한 번만 평가됩니다. 이후의 그룹 변경 내용은 반영되지 않습니다. 이 문제를 해결하려면 [동적 그룹](#using-dynamic-groups)을 사용하세요. 이러한 그룹은 배포 시 확인되고 쿼리를 통해 정의됩니다.
+업데이트 배포에 컴퓨터 그룹이 포함되면 일정을 만들 때 그룹 멤버 자격이 한 번만 평가됩니다. 이후의 그룹 변경 내용은 반영되지 않습니다. 이 사용 하이 여 해결 하기 위해 [동적 그룹](#using-dynamic-groups), 이러한 그룹은 배포 시 계산은 하며 Azure Vm 또는 비 Azure Vm에 대 한 저장된 된 검색에 대 한 쿼리에 의해 정의 됩니다.
 
 > [!NOTE]
 > Azure Marketplace에서 배포된 Windows 가상 머신은 기본적으로 Windows 업데이트 서비스에서 자동으로 업데이트를 받도록 설정됩니다. 이 동작은 이 솔루션을 추가하거나 작업 영역에 Windows 가상 머신을 추가해도 달라지지 않습니다. 이 솔루션을 사용하여 업데이트를 적극적으로 관리하지 않는 경우 기본 동작(업데이트 자동 적용)이 적용됩니다.
@@ -219,13 +219,13 @@ Ubuntu에서 유지 관리 기간 외에 업데이트가 적용되지 않도록 
 
 Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise Linux) 이미지에서 만든 가상 머신은 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다. 다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.
 
-새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. **새 업데이트 배포** 창이 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
+새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. 합니다 **새 업데이트 배포** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
 | 자산 | 설명 |
 | --- | --- |
 | Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
-| 업데이트할 그룹(미리 보기)|구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. 자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
+| 업데이트 그룹 |Azure 컴퓨터에 대 한 배포에 포함 하려면 Azure Vm의 동적 그룹을 만들려는 구독, 리소스 그룹, 위치 및 태그의 조합을 기준으로 쿼리를 정의 합니다. </br></br>비 Azure 컴퓨터에 대 한 기존 저장 된 배포에 포함 하는 비 Azure 컴퓨터의 그룹을 선택 하려면 검색을 선택 합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
 |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
 |업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [포함 동작](automation-update-management.md#inclusion-behavior)을 참조하세요. |
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>동적 그룹을 사용 하 여
 
-업데이트 관리는 Azure VM의 동적 그룹을 업데이트 배포 대상으로 지정하는 기능을 제공합니다. 이러한 그룹은 쿼리를 통해 정의되고, 업데이트 배포가 시작되면 해당 그룹의 멤버가 평가됩니다. 동적 그룹 클래식 Vm을 사용 하 여 작동 하지 않습니다. 쿼리를 정의할 때 다음 항목을 함께 사용하여 동적 그룹을 채울 수 있습니다.
+업데이트 관리 업데이트 배포에 대 한 Azure 또는 비 Azure Vm의 동적 그룹을 대상으로 하는 기능을 제공 합니다. 이러한 그룹은 컴퓨터를 추가 하려면 배포를 편집 해야 하므로 배포 시에 평가 됩니다.
+
+> [!NOTE]
+> 업데이트 배포를 만들 때 적절 한 권한이 있어야 합니다. 자세한 내용은 참조 하세요 [업데이트 설치](#install-updates)합니다.
+
+### <a name="azure-machines"></a>Azure 컴퓨터
+
+이러한 그룹은 쿼리를 통해 정의되고, 업데이트 배포가 시작되면 해당 그룹의 멤버가 평가됩니다. 동적 그룹 클래식 Vm을 사용 하 여 작동 하지 않습니다. 쿼리를 정의할 때 다음 항목을 함께 사용하여 동적 그룹을 채울 수 있습니다.
 
 * 구독
 * 리소스 그룹
@@ -579,6 +586,12 @@ Update
 동적 그룹의 결과를 미리 보려면 **미리 보기** 단추를 클릭합니다. 이 미리 보기는 당시의 그룹 멤버를 보여주며, 이 예제에서는 **Role** is equal to **BackendServer** 태그가 지정된 머신을 검색합니다. 더 많은 머신에 이 태그를 추가하면 해당 그룹에 대한 향후 배포 시에 추가됩니다.
 
 ![미리 보기 그룹](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>비 Azure 컴퓨터
+
+비 azure 컴퓨터에 저장 된 검색 라고도 컴퓨터 그룹의 동적 그룹을 만드는 데 사용 됩니다. 저장된 된 검색을 만드는 방법에 알아보려면 참조 [컴퓨터 그룹을 만드는](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)합니다. 그룹에 생성 되 면 저장 된 검색의 목록에서 선택할 수 있습니다. 클릭 **미리 보기** 당시에 저장된 된 검색의 컴퓨터를 미리 보려면.
+
+![그룹 선택](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager와 상호 작용
 

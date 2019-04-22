@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046090"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
@@ -54,7 +54,7 @@ ms.locfileid: "59046090"
 * 중복 검색
 * Express 엔터티
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 이 섹션은 Service Bus 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다.
 
 [Service Bus 가격 및 대금 청구](https://azure.microsoft.com/pricing/details/service-bus/) 문서에서는 Service Bus의 요금 청구 기준에 대해 설명합니다. Service Bus 가격 책정 옵션에 대한 특정 정보는 [Service Bus 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
@@ -121,8 +121,8 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ## <a name="next-steps"></a>다음 단계
 Service Bus에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Service Bus 프리미엄 (블로그 게시물) 소개](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Azure Service Bus 프리미엄 (channel 9) 소개](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Azure Service Bus 프리미엄 소개(블로그 게시물)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Azure Service Bus 프리미엄 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus 개요](service-bus-messaging-overview.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 

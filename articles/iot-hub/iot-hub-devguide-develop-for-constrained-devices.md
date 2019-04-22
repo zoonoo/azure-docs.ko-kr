@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261397"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
@@ -83,4 +83,4 @@ _LL_ 인덱스가 없는 다른 API 집합을 편의 계층이라고 하며 작�
 
 Azure IoT C SDK 아키텍처에 대한 자세한 내용은 다음을 참조하세요.
 -   [Azure IoT C SDK 소스 코드](https://github.com/Azure/azure-iot-sdk-c/)
--   [소개 C 용 azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md)
+-   [C용 Azure IoT 디바이스 SDK 소개](iot-hub-device-sdk-c-intro.md)

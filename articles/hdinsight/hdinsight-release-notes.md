@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 6ba9e77faeb297f9862b39384d397b478dc7cf36
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 5769f90ef69a82497194ff6de01b378acc84deec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617736"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678397"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 릴리스 정보
 
@@ -29,7 +29,7 @@ Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분�
 
 ## <a name="new-features"></a>새로운 기능
 
-HDInsight 4.0을 사용 하 여 중요 한 변경 내용에 대 한 자세한 내용은.을 참조 하세요 [HDI 4.0의 새로운 기능?](../hdinsight/hdinsight-version-release.md#whats-new-in-hdi-40)합니다.
+HDInsight 4.0을 사용 하 여 중요 한 변경 내용에 대 한 자세한 내용은.을 참조 하세요 [HDI 4.0의 새로운 기능?](../hdinsight/hdinsight-version-release.md)합니다.
 
 ## <a name="component-versions"></a>구성 요소 버전
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58802493"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스  
@@ -34,7 +34,7 @@ Media Services는 [Azure AD(Azure Active Directory) 기반 인증](../../active-
 > [!NOTE]
 > 액세스 제어 권한 부여는 2018 년 6 월 1 일에 사용 되지 않았습니다.
 
-## <a name="access-control"></a>Access Control
+## <a name="access-control"></a>액세스 제어
 
 Azure Media REST 요청이 성공하기 위해서는 호출하는 사용자에게 액세스를 시도하는 Media Services 계정에 대한 참가자 또는 소유자 역할이 있어야 합니다.  
 소유자 역할이 있는 사용자만 새 사용자 또는 앱에 미디어 리소스(계정) 액세스 권한을 제공할 수 있습니다. 참가자 역할은 미디어 리소스만 액세스할 수 있습니다.

@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045487"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD ID 거버넌스란?
@@ -68,15 +68,15 @@ PIM(Azure AD Privileged Identity Management)에서는 Azure AD, Azure 및 기타
 
 모든 고객에 대해 완벽한 솔루션이나 권장 사항이 없는 반면 다음 구성에서는 더 안전하고 생산적인 인력을 보장하기 위해 Microsoft에서 권장하는 기준 정책이 무엇인지에 대한 가이드를 제공합니다.
 
-- [Id 및 장치 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [ID 및 장치 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [권한 있는 액세스 보안](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>액세스 검토
 
 - [액세스 검토란?](access-reviews-overview.md)
-- [액세스 검토를 사용 하 여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)
-- [액세스 검토로 게스트 액세스 관리](manage-guest-access-with-access-reviews.md)
+- [액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)
+- [액세스 검토를 사용하여 게스트 액세스 관리](manage-guest-access-with-access-reviews.md)
 - [Azure AD 역할의 액세스 검토를 시작 합니다.](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>사용 약관

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271521"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
@@ -68,9 +68,9 @@ Azure Storage는 데이터 형식 및 액세스해야 하는 방법에 따라 �
 
 Azure Cosmos DB는 JSON 문서에 대해 완벽하게 인덱싱된 NoSQL 스토리지를 제공합니다.) 다음 문서에서는 Python에서 Cosmos DB를 사용하는 다양한 방법을 제공합니다.
 
-- [Python 사용 하 여 빌드는 SQL API 앱](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [MongoDB에 대 한 Azure Cosmos DB의 API로 Flask 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [Python 및 Gremlin API를 사용 하 여 그래프 데이터베이스 만들기](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
+- [Python 사용하여 SQL API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
+- [Azure Cosmos DB의 MongoDB API를 사용하여 Flask 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Python 및 Gremlin API를 사용하여 그래프 데이터베이스 만들기](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Python 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Python 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
@@ -80,12 +80,12 @@ Cosmos DB로 작업할 때 [Azure-cosmosdb-table](https://pypi.org/project/azure
 
 Azure는 사용할 수 있는 많은 다른 데이터베이스 형식을 제공 합니다. 아래 문서에서는 Python에서 해당 데이터베이스에 액세스하기 위한 지침을 제공합니다.
 
-- [Azure Database for PostgreSQL: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [빠른 시작: Python을 사용 하 여 Azure Redis Cache를 사용 합니다.](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Azure Database for PostgreSQL Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [빠른 시작: Python으로 Azure Redis Cache사용](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [Azure Database for MySQL: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/)
-  - [Azure Data factory 복사 마법사](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
+  - [Azure Data Factory 복사 마법사](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일을 사용 하 여 작동 합니다.](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)

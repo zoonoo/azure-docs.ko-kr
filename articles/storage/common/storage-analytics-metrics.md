@@ -9,10 +9,10 @@ ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489292"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics 메트릭 (클래식)
@@ -139,7 +139,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 
 ||||  
 |-|-|-|  
-|**메트릭**|**테이블 이름**|**메모**|  
+|**Metrics**(메트릭)|**테이블 이름**|**참고 사항**|  
 |시간 메트릭|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|2013-08-15 이전 버전에서는 이러한 테이블 라고 했습니다.<br /><br /> $MetricsTransactionsBlob <br /><br /> $MetricsTransactionsTable<br /><br />  $MetricsTransactionsQueue<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |분 메트릭|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell을 사용 하 여 설정할 수 있습니다. 또는 프로그래밍 방식으로 합니다.<br /><br /> 파일 서비스에 대 한 메트릭은 버전 2015-04-05부터 사용할 수 있습니다.|  
 |용량|$MetricsCapacityBlob|Blob service만 해당 합니다.|  
@@ -148,7 +148,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**타임 스탬프**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**가용성**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|**PartitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**가용성**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
@@ -229,4 +229,4 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 * [Storage 계정을 모니터링 하는 방법](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
 * [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
 * [저장소 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
-* [저장소 분석 로깅](storage-analytics-logging.md)
+* [스토리지 분석 로깅](storage-analytics-logging.md)

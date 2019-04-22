@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762653"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VM 마이그레이션의 크기 조정
@@ -21,7 +21,7 @@ ms.locfileid: "58762653"
 - 대상 VM의 기본 NIC에 대해서만 고정 IP 주소를 지정할 수 있습니다.
 - 스크립트는 Azure 하이브리드 혜택 관련 입력을 허용하지 않으므로 포털에서 복제된 VM의 속성을 수동으로 업데이트해야 합니다.
 
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-does-it-work"></a>어떻게 작동합니까?
 
 ### <a name="prerequisites"></a>필수 조건
 시작하기 전에 다음 단계를 수행해야 합니다.

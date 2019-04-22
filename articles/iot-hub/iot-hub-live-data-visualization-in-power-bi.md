@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 5349a8a81c1d1361637b4fc9cf83e1ee83f5276a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265511"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677989"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -37,7 +37,7 @@ Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시�
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* 다음 요구 사항을 다루는 자습서 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
+* 완료 합니다 [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서; 중 하나 예를 들어 [node.js 사용 하 여 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 이러한 다음 요구 사항을 다룹니다.
   
   * 활성 Azure 구독.
   * 구독 중인 Azure IoT Hub
@@ -61,7 +61,7 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
    **리소스 그룹**: IoT Hub에서 사용하는 것과 동일한 리소스 그룹을 사용합니다.
 
-   **위치**: 리소스 그룹과 동일한 위치를 사용합니다.
+   **Location**: 리소스 그룹과 동일한 위치를 사용합니다.
 
    **대시보드에 고정**: 대시보드에서 IoT Hub에 쉽게 액세스하려면 이 옵션을 선택합니다.
 

@@ -14,10 +14,10 @@ ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272388"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Azure DevTest Labs를 사용 하는 인기 있는 시나리오
@@ -85,5 +85,5 @@ A **개념 증명** 배포 조직 값을 설정 하는 단일 팀에서 집중�
 다음 문서를 읽어보세요.
 
 - [DevTest Lab 개념](devtest-lab-concepts.md)
-- [DevTest Lab FAQ](devtest-lab-faq.md)
+- [DevTest Labs FAQ](devtest-lab-faq.md)
 
