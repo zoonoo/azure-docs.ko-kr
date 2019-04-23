@@ -34,8 +34,8 @@ Azure Maps [GET 지오펜스](https://docs.microsoft.com/rest/api/maps/spatial/g
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | 유효 기간의 시작 날짜/시간입니다. |
 | endTime   | DateTime  | true |  유효 기간의 종료 날짜/시간입니다. |
-| recurrenceType | 문자열 | false |   기간의 되풀이 유형입니다. 값은 `Daily`, `Weekly`, `Monthly` 또는 `Yearly`일 수 있습니다. 기본값은 `Daily`입니다.|
-| businessDayOnly | BOOLEAN | false |  데이터가 영업일에만 유효한지 여부를 나타냅니다. 기본값은 `false`입니다.|
+| recurrenceType | string | false |   기간의 되풀이 유형입니다. 값은 `Daily`, `Weekly`, `Monthly` 또는 `Yearly`일 수 있습니다. 기본값은 `Daily`입니다.|
+| businessDayOnly | Boolean | false |  데이터가 영업일에만 유효한지 여부를 나타냅니다. 기본값은 `false`입니다.|
 
 
 * 모든 좌표 값은 `WGS84`에 정의된 [위도, 경도]로 표시됩니다.
