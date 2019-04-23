@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 95ba3c905541d2168dcbbc1bb2c1bc1d05468cb5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526506"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006423"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 언어 감지 컨테이너 배포
 
@@ -325,7 +325,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
     |줄 91<br> `apiKey` 속성|Text Analytics 리소스 키|
-    |줄 92<br> `billing` 속성|Text Analytics 리소스의 청구 엔드포인트입니다.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |줄 92<br> `billing` 속성|Text Analytics 리소스의 청구 엔드포인트입니다.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     **apiKey** 및 **청구 엔드포인트**는 Kubernetes 오케스트레이션 정의의 일부로 설정되므로 웹 사이트 컨테이너가 이러한 항목을 알아야 하거나 요청의 일부로 전달해야 할 필요가 없습니다. 웹 사이트 컨테이너는 오케스트레이터 이름 `language`로 언어 감지 컨테이너를 나타냅니다. 
 

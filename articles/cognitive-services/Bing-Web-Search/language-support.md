@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 9cd9adfd9d882f3781f519846ce22767123da36c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652266"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999127"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
 
@@ -40,7 +40,7 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |핀란드|FI|
 |프랑스|FR|
 |독일|DE|
-|홍콩|HK|
+|홍콩 특별 행정구|HK|
 |인도|IN|
 |인도네시아|ID|
 |이탈리아|IT|
@@ -83,7 +83,7 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩|중국어 번체|zh-HK|
+|홍콩 특별 행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|

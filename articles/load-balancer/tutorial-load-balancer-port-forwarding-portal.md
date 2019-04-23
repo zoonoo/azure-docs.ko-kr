@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118360"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007511"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>자습서: 포털을 사용하여 Azure Load Balancer에서 포트 전달 구성
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |가용성 영역| **영역 중복**을 선택합니다.    |
      
     >[!NOTE]
-     >가용성 영역을 지원하는 위치에 부하 분산 장치 및 해당 리소스를 모두 만들어야 합니다. 자세한 내용은 [가용성 영역을 지원하는 지역](../availability-zones/az-overview.md#regions-that-support-availability-zones)을 참조하세요. 
+     >가용성 영역을 지원하는 위치에 부하 분산 장치 및 해당 리소스를 모두 만들어야 합니다. 자세한 내용은 [가용성 영역을 지원하는 지역](../availability-zones/az-overview.md#services-support-by-region)을 참조하세요. 
 
 3. **검토 + 만들기** 탭에서 **만들기**를 클릭합니다.  
   

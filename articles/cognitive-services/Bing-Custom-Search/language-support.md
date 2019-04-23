@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 942e61b0ee69402d516982c66a852d5e26304809
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859440"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006780"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
 
@@ -42,7 +42,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |핀란드|FI|
 |프랑스|FR|
 |독일|DE|
-|홍콩|HK|
+|홍콩 특별 행정구|HK|
 |인도|IN|
 |인도네시아|ID|
 |이탈리아|IT|
@@ -86,7 +86,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩|중국어 번체|zh-HK|
+|홍콩 특별 행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|

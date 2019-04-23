@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897521"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006831"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
 LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다. 
@@ -47,16 +47,16 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 
 *기본 문자 최댓값은 50자입니다. 
 
-## <a name="intent-and-entity-naming"></a>의도 및 엔터티 이름 지정
-의도 및 엔터티 이름에 다음 문자를 사용하지 마세요.
+<a name="intent-and-entity-naming"></a>
 
-|문자|이름|
+## <a name="object-naming"></a>개체 이름 지정
+
+다음 이름에는 다음 문자를 사용 하지 마십시오.
+
+|Object|문자를 제외 합니다.|
 |--|--|
-|`{`|왼쪽 중괄호|
-|`}`|오른쪽 중괄호|
-|`[`|왼쪽 대괄호|
-|`]`|오른쪽 대괄호|
-|`\`|백슬래시|
+|의도, 엔터티 및 역할 이름|`:`<br>`$`|
+|버전 이름|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>키 사용
 

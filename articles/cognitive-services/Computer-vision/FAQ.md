@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351952"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004876"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Computer Vision API 질문과 대답
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351952"
 
 -----
 
-**질문**: *Computer Vision에서 어떤 언어가 지원되나요?*
-
-**대답**: 지원되는 언어는 다음과 같습니다.
-
-| | | 지원되는 언어 | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| 덴마크어(da-DK)  | 네덜란드어(nl-NL)     | 영어           | 핀란드어(fi-FI)            |프랑스어(fr-FR)
-| 독일어(de-DE)  | 그리스어(el-GR)     | 헝가리어(hu-HU) | 이탈리아어(it-IT)            | 일본어(ja-JP)
-| 한국어(ko-KR)  | 노르웨이어(nb-NO) | 폴란드어(pl-PL)    | 포르투갈어(pt-BR) (pt-PT) | 러시아어(ru-RU)
-| 스페인어(es-ES)   | 스웨덴어(sv-SV)     | 터키어(tr-TR)   |                            |
-
------
-
 **질문**: *Computer Vision을 사용하여 자동차 번호판을 읽을 수 있나요?*
 
 **대답**: Vision API는 OCR을 사용하여 우수한 텍스트 감지 성능을 제공하지만, 현재는 자동차 번호판에 최적화되지 않았습니다. Microsoft는 서비스를 개선하기 위해 지속적으로 노력하고 있으며, 자동차 번호판 인식을 위한 OCR를 기능 요청 목록에 추가했습니다.
-
------
-
-**질문**: *필기 인식에 지원되는 언어는 무엇인가요?*
-
-**대답**: 현재 영어만 지원됩니다.
 
 -----
 

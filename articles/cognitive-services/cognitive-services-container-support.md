@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: c6cf3f188309891b0456b034e3809a0f0209c124
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489436"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005964"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -25,7 +25,7 @@ ms.locfileid: "59489436"
 
 다음 비디오는 Cognitive Services 컨테이너를 사용하는 방법을 보여줍니다.
 
-[![CCognitive Services에 대 한 데모를 ontainer](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
+[![Cognitive Services에 대한 컨테이너 데모](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
 [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Text Analytics](text-analytics/overview.md) 및 [LUIS(Language Understanding)](LUIS/what-is-luis.md) 서비스는 [Microsoft Azure](https://azure.microsoft.com)에서 사용할 수 있습니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 이러한 서비스에 사용할 수 있는 Azure 리소스를 만들고 살펴보세요.
 
@@ -33,7 +33,7 @@ ms.locfileid: "59489436"
 
 - **데이터 제어**: 고객은 이러한 Cognitive Services가 데이터를 처리하도록 허용할 것인지 선택할 수 있습니다. 이는 클라우드로 데이터를 전송할 수는 없지만 Cognitive Services 기술에 액세스해야 하는 고객에게 필수입니다. 하이브리드 환경의 데이터, 관리, ID 및 보안에 걸쳐 일관성을 지원합니다.
 - **모델 업데이트 제어**: 고객이 솔루션에 배포된 모델의 버전 관리 및 업데이트를 유연하게 처리할 수 있습니다.
-- **이식 가능한 아키텍처**: Azure, 온-프레미스 및 에지에 배포할 수 있는 이식 가능한 애플리케이션 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](../azure-stack/index.yml)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)를 참조하세요.
+- **이식 가능한 아키텍처**: Azure, 온-프레미스 및 에지에 배포할 수 있는 이식 가능한 애플리케이션 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](/azure-stack/operator)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
 - **높은 처리량/짧은 대기 시간**: Cognitive Services가 애플리케이션 로직 및 데이터와 물리적으로 가까운 거리에서 실행되게 만들어서 높은 처리량과 짧은 대기 시간이라는 요구 사항에 맞게 크기를 조정하는 기능을 고객에게 제공합니다. 컨테이너는 TPS(초당 트랜잭션 수)를 제한하지 않으며, 고객이 필요한 하드웨어 리소스를 제공한다면 스케일업 및 스케일아웃이 가능합니다. 
 
 
@@ -81,7 +81,7 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하고 탐색합니다.
 
-* [설치 및 Computer Vision 컨테이너 사용](Computer-vision/computer-vision-how-to-install-containers.md)
-* [설치 하 고 얼굴 컨테이너 사용](Face/face-how-to-install-containers.md)
-* [설치 및 Text Analytics 컨테이너 사용](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [설치 하 고 LUIS (Language Understanding) 컨테이너를 사용 합니다.](LUIS/luis-container-howto.md)
+* [Computer Vision 컨테이너 설치 및 사용](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Face 컨테이너 설치 및 사용](Face/face-how-to-install-containers.md)
+* [Text Analytics 컨테이너 설치 및 사용](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+* [LUIS(Language Understanding) 컨테이너 설치 및 사용](LUIS/luis-container-howto.md)

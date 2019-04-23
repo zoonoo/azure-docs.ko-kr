@@ -1,28 +1,28 @@
 ---
 title: 개체 검색-Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 개체를 검색하는 데 관련된 개념입니다.
+description: 사용 및 제한의 Computer Vision API-개체 검색 기능에 관련 된 개념에 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496941"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001850"
 ---
-# <a name="object-detection"></a>개체 감지
+# <a name="detect-common-objects-in-images"></a>이미지에서 공통 개체를 검색 합니다.
 
 개체 검색은 [태깅](concept-tagging-images.md)과 유사하지만, API는 검색된 각 개체에 대해 경계 상자 좌표(픽셀 단위)를 반환합니다. 예를 들어 이미지에 개, 고양이 및 사람이 포함된 경우 검색 작업을 실행하면 해당 개체를 해당 좌표와 함께 이미지에 나열합니다. 이 기능을 사용하여 이미지의 개체 간 관계를 처리할 수 있습니다. 또한 이미지에 동일한 태그의 인스턴스가 여러 개 있는지 여부를 확인할 수 있습니다.
 
-Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되는 생물에 적용합니다. 이 시점에서 관계가 없습니다 정식 태그 분류 사이의 개체 검색 분류 합니다. 개념 수준에서 검색 API를 검색 한 다음 개체 및 생물, 동안 태그 API를 사용 하 여 경계 상자의 지역화할 수 없습니다는 "실내" 등의 상황에 맞는 용어를 포함할 수도 있습니다.
+Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되는 생물에 적용합니다. 현재 없는 형식 간에 관계가 있기 태그 분류 및 개체 검색 분류 합니다. 개념 수준에서 검색 API를 검색 한 다음 개체 및 생물, 동안 태그 API를 사용 하 여 경계 상자의 지역화할 수 없습니다는 "실내" 등의 상황에 맞는 용어를 포함할 수도 있습니다.
 
 ## <a name="object-detection-example"></a>개체 검색 예제
 

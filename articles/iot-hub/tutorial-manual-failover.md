@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093738"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002904"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행(공개 미리 보기)
 
@@ -49,9 +49,6 @@ ms.locfileid: "58093738"
 
     **지역**: 미리 보기의 일부인 가까운 지역을 선택합니다. 이 자습서에서는 `westus2`를 사용합니다. Azure 지역 쌍을 이루는 지역 간에서만 장애 조치를 수행할 수 있습니다. westus2를 사용하는 지역 쌍을 이루는 지역은 WestCentralUS입니다.
     
-   > [!NOTE]
-   > 수동 장애 조치(failover)는 현재 공개 미리 보기 상태이며 다음 Auzre 지역에서는 제공되지 *않습니다*. 미국 동부, 미국 서부, 북유럽, 유럽 서부, 브라질 남부, 미국 중남부.
-
    **IoT Hub이름**: IoT Hub의 이름을 지정합니다. 허브 이름은 전역적으로 고유해야 합니다. 
 
    ![IoT Hub를 만드는 기본 사항 창을 보여주는 스크린샷](./media/tutorial-manual-failover/create-hub-02-basics.png)
