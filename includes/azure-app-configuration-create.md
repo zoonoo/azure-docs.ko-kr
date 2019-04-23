@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227187"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012288"
 ---
 1. 새 앱 구성 저장소를 만들려면 [Azure Portal](https://aka.ms/azconfig/portal)에 로그인합니다. 페이지의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다. **Marketplace 검색** 상자에서 **App Configuration**을 입력하고 Enter 키를 누릅니다.
 
@@ -35,14 +35,3 @@ ms.locfileid: "58227187"
 4. **만들기**를 선택합니다. 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 5. 배포가 완료되면 **설정** > **액세스 키**를 차례로 선택합니다. 기본 읽기 전용 또는 기본 읽기-쓰기 키 연결 문자열 중 하나를 적어 두세요. 이 연결 문자열은 나중에 사용자가 만든 앱 구성 저장소와 통신하도록 애플리케이션을 구성하는 데 사용합니다.
-
-6. **키/값 탐색기** > **+ 만들기**를 차례로 선택하여 다음 키-값 쌍을 추가합니다.
-
-    | 키 | 값 |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | 흰색 |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | 검정 |
-    | TestApp:Settings:Message | Azure App Configuration의 정보 |
-
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.

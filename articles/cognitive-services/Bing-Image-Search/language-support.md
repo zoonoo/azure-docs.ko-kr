@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 92316d3f84f0a8d3cda0e98fd8ae751eb78b7e56
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337705"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009483"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 언어 및 지역 지원
 
@@ -47,7 +47,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |핀란드|FI|
 |프랑스|FR|
 |독일|DE|
-|홍콩|HK|
+|홍콩 특별 행정구|HK|
 |인도|IN|
 |인도네시아|ID|
 |이탈리아|IT|
@@ -91,7 +91,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |핀란드|핀란드어|fi-FI|
 |프랑스|프랑스어|fr-FR|
 |독일|독일어|de-DE|
-|홍콩|중국어 번체|zh-HK|
+|홍콩 특별 행정구|중국어 번체|zh-HK|
 |인도|영어|en-IN|
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|

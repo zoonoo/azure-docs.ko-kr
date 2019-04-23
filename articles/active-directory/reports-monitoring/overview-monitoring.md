@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 모니터링이란? (미리 보기) | Microsoft Docs
+title: Azure Active Directory 모니터링이란? | Microsoft Docs
 description: Azure Active Directory 모니터링에 대한 일반 개요를 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de416d18505d0258da446318b3dc6a9853ff13e7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434860"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009043"
 ---
-# <a name="what-is-azure-active-directory-monitoring-preview"></a>Azure Active Directory 모니터링이란? (미리 보기)
+# <a name="what-is-azure-active-directory-monitoring"></a>Azure Active Directory 모니터링이란?
 
 이제 Azure AD(Azure Active Directory) 모니터링을 사용하여 Azure AD 활동 로그를 다른 엔드포인트로 라우팅할 수 있습니다. 그런 다음, 활동 로그를 장기간 사용할 수 있도록 보존할 수도 있고, 타사 SIEM(보안 정보 및 이벤트 관리) 도구와 통합하여 환경에 대한 인사이트를 얻을 수도 있습니다.
 
@@ -63,7 +63,7 @@ Azure 스토리지 계정으로 로그를 라우팅하면 [보존 정책](refere
 
 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 여러 원본의 모니터링 데이터를 통합하고, 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공하는 솔루션입니다. Azure AD 활동 로그를 Azure Monitor 로그에 보내면 수집된 데이터를 빠르게 검색, 모니터링 및 경고할 수 있습니다. [데이터를 Azure Monitor 로그에 보내는 방법](howto-integrate-activity-logs-with-log-analytics.md)에 대해 알아보세요.
 
-Azure AD 활동 로그용으로 미리 작성된 보기를 설치하여 로그인 및 감사 이벤트가 관련된 일반적인 시나리오를 모니터링할 수 있습니다. [Azure AD 활동 로그에 대한 Log Analytics 보기를 설치하고 사용하는 방법](howto-install-use-log-analytics-views.md)에 대해 알아보세요.
+Azure AD 활동 로그용으로 미리 작성된 보기를 설치하여 로그인 및 감사 이벤트가 관련된 일반적인 시나리오를 모니터링할 수 있습니다. [Azure AD 활동 로그에 대한 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md) 방법에 대해 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
