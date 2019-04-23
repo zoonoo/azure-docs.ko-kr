@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505578"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997311"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Text Analytics(미리 보기)에서 명명된 엔터티 인식을 사용하는 방법
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>텍스트 분석의 명명 된 엔터티 인식 사용 방법
 
-[Entity Recognition API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)는 구조화되지 않은 텍스트를 사용하고, 각 JSON 문서에 대해 웹의 추가 정보 링크(Wikipedia 및 Bing)가 있는 명확히 구분된 엔터티 목록을 반환합니다. 
+합니다 [명명 된 엔터티 인식 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) 구조화 되지 않은 텍스트를 받아서 각 JSON 문서에 대 한 링크를 사용 하 여 엔터티를 명확 하 게 목록을 추가 정보 (Wikipedia 및 Bing)는 웹에서 반환 합니다. 
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>엔터티 링크 및 명명된 엔터티 인식
 
@@ -28,12 +28,10 @@ ms.locfileid: "59505578"
 ### <a name="entity-linking"></a>엔터티 연결
 엔터티 링크 설정은 텍스트에서 찾은 엔터티의 ID를 식별하고 명확하게 구분하는 기능입니다(예: "Mars"가 행성 또는 로마의 전쟁의 신으로 사용되고 있는지 확인). 이 프로세스를 수행하려면 인식된 엔터티가 연결되는 기술 자료가 있어야 합니다. Wikipedia가 `entities` 엔드포인트 텍스트 분석의 기술 자료로 사용됩니다.
 
-Text Analytics [버전 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)에서는 엔터티 링크만 사용할 수 있습니다.
-
 ### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 NER(명명된 엔터티 인식)은 텍스트의 다른 엔터티를 식별하고 미리 정의된 클래스로 분류하는 기능입니다. 지원되는 엔터티 클래스는 다음과 같습니다.
 
-Text Analytics [버전 2.1 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)에서는 엔터티 링크 및 NER(명명된 엔터티 인식)을 둘 다 사용할 수 있습니다.
+Text Analytics에 [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), 엔터티 연결 및 명명 된 엔터티 인식 (NER)를 모두 사용할 수 있습니다.
 
 ### <a name="language-support"></a>언어 지원
 
@@ -44,7 +42,7 @@ Text Analytics [버전 2.1 미리 보기](https://westus.dev.cognitive.microsoft
 | Type  | 하위 유형 | 예 |
 |:-----------   |:------------- |:---------|
 | 사람        | 해당 없음\*         | "Jeff", "Bill Gates"     |
-| 위치      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
+| Location      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
 | 조직  | 해당 없음\*         | "Microsoft"   |
 | 수량      | Number        | "6", "six"     | 
 | 수량      | 백분율    | "50%", "fifty percent"| 
@@ -71,7 +69,7 @@ Text Analytics [버전 2.1 미리 보기](https://westus.dev.cognitive.microsoft
 
 ## <a name="preparation"></a>준비
 
-id, text, language 형식의 JSON 문서가 있어야 합니다.
+이 형식으로 JSON 문서 있어야 합니다. ID, 텍스트, 언어
 
 현재 지원되는 언어는 [이 목록](../text-analytics-supported-languages.md)을 참조하세요.
 
@@ -94,16 +92,16 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 요청 정의에 대한 자세한 내용은 [텍스트 분석 API를 호출하는 방법](text-analytics-how-to-call-api.md)에서 찾을 수 있습니다. 편의상 다음 사항을 다시 설명합니다.
 
-+ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 연결 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 연결 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ 엔터티 추출에 대한 HTTP 엔드포인트를 설정합니다. 여기에 포함 해야 합니다는 `/entities` 리소스: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ 엔터티 추출에 대한 HTTP 엔드포인트를 설정합니다. `/entities` 리소스를 포함해야 합니다(예: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`).
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
@@ -280,18 +278,16 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 이 문서에서는 Cognitive Services의 텍스트 분석을 사용하여 엔터티 링크 설정에 대한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
-+ [Entities API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)를 선택한 언어로 사용할 수 있습니다.
-+ 요청 본문의 JSON 문서에는 id, text 및 language 코드가 포함됩니다.
++ [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)를 선택한 언어로 사용할 수 있습니다.
++ 요청 본문에 JSON 문서는 ID, 텍스트 및 언어 코드를 포함합니다.
 + POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](text-analytics-how-to-access-key.md)를 사용하여 `/entities` 엔드포인트에 대해 수행됩니다.
 + 연결된 엔터티(각 문서 ID에 대한 신뢰도 점수, 오프셋 및 웹 링크 포함)로 구성된 응답 출력은 모든 애플리케이션에서 사용할 수 있습니다.
-
-## <a name="see-also"></a>참고 항목 
-
- [Text Analytics 개요](../overview.md)  
- [질문과 대답(FAQ)](../text-analytics-resource-faq.md)</br>
- [텍스트 분석 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [텍스트 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+* [Text Analytics 개요](../overview.md)  
+* [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
+* [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712) 

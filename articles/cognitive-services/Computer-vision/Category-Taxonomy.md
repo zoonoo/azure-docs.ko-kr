@@ -13,7 +13,7 @@ ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
 ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59995951"

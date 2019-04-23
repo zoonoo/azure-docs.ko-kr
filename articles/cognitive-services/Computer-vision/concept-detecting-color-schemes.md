@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313078"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998620"
 ---
 # <a name="detect-color-schemes-in-images"></a>이미지에서 색 구성표 검색
 
@@ -30,7 +30,7 @@ Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미�
 
 다음 예제에서는 예제 이미지의 색 구성표를 검색할 때 Computer Vision에서 반환된 JSON 응답을 보여줍니다. 이 경우 예제 이미지는 흑백 이미지가 아니라 기조 전경색 및 배경색이 검은색이고 전체 이미지의 주조색이 검은색과 흰색입니다.
 
-![옥외 산](./Images/mountain_vista.png)
+![야외 Mountain 일몰, 개인의 실루엣을 사용 하 여](./Images/mountain_vista.png)
 
 ```json
 {
