@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750208"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149931"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -33,7 +33,7 @@ Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용�
 
 사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
 
-이 자습서의 3ds Max 장면 샘플은 Bash 스크립트 샘플 및 JSON 구성 파일과 함께 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)에 있습니다. 3ds Max 장면은 [Autodesk 3ds Max 샘플 파일](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)에서 제공된 것입니다. (Autodesk 3ds Max 샘플 파일은 Creative 일반 저작자 표시 - 비영리 목적 - 동일 조건 변경 허락 라이선스에 따라 사용할 수 있습니다. Copyright © Autodesk, Inc.)
+이 자습서의 3ds Max 장면 샘플은 Bash 스크립트 샘플 및 JSON 구성 파일과 함께 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)에 있습니다. 3ds Max 장면은 [Autodesk 3ds Max 샘플 파일](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)에서 제공된 것입니다. (Autodesk 3ds Max 샘플 파일은 Creative 일반 저작자 표시 - 비영리 목적 - 동일 조건 변경 허락 라이선스에 따라 사용할 수 있습니다. Copyright © Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -96,7 +96,7 @@ az storage container create \
     --name scenefiles
 ```
 
-[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 예를 들면 다음과 같습니다.
+[GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max)의 `MotionBlur-Dragon-Flying.max` 장면을 로컬 작업 디렉터리로 다운로드합니다. 예: 
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>태스크 출력 보기
 
-태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 예를 들면 다음과 같습니다.
+태스크를 실행하는 데 몇 분이 걸립니다. [az batch task list](/cli/azure/batch/task#az-batch-task-list) 명령을 사용하여 태스크의 상태를 봅니다. 예: 
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 예를 들면 다음과 같습니다.
+[az batch task show](/cli/azure/batch/task#az-batch-task-show) 명령을 사용하여 개별 태스크에 대한 세부 정보를 봅니다. 예: 
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예를 들면 다음과 같습니다.
+태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 스토리지 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예: 
 
 ```azurecli-interactive
 az storage blob download-batch \
