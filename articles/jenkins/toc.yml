@@ -1,81 +1,74 @@
-items:
 - name: Azure의 Jenkins
   href: index.yml
 - name: 개요
   items:
-  - name: Azure에서 Jenkins 정보
-    href: overview.md
+    - name: Azure에서 Jenkins 정보
+      href: overview.md
 - name: 빠른 시작
-  items:
-  - name: Jenkins 서버 만들기
-    href: install-jenkins-solution-template.md
   expanded: true
-- name: 자습서
   items:
-  - name: 1. 설치
-    items:
     - name: Jenkins 서버 만들기
       href: install-jenkins-solution-template.md
-  - name: 2. 구성
-    items:
-    - name: Azure Container Instances를 사용하여 크기 조정
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
-    - name: Azure VM 에이전트를 사용하여 크기 조정
-      href: jenkins-azure-vm-agents.md
-  - name: 3. CI/CD 구현
-    items:
-    - name: AKS
+- name: 자습서
+  items:
+    - name: 1. 설치
       items:
-      - name: Kubernetes에 대한 CI/CD
-        href: /azure/aks/jenkins-continuous-deployment
-        maintainContext: true
-      - name: 파란색/녹색 패턴을 사용하여 AKS에 배포
-        href: jenkins-aks-blue-green-deployment.md
-    - name: App Service
+        - name: Jenkins 서버 만들기
+          href: install-jenkins-solution-template.md
+    - name: 2. 구성
       items:
-      - name: 파이프라인 작업에서 Azure 리소스 만들기
-        href: execute-cli-jenkins-pipeline.md
-      - name: GitHub에서 App Service로 앱 배포
-        href: tutorial-jenkins-deploy-web-app-azure-app-service.md
-    - name: Azure DevOps에서 Jenkins 사용
-      href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
-      maintainContext: true
-    - name: Azure Functions에 배포
-      href: jenkins-azure-functions-deploy.md
-    - name: Azure Storage에 게시
-      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-      maintainContext: true
-    - name: Linux VM에 대한 CI/CD
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
-      maintainContext: true
-    - name: Service Fabric에 대한 CI/CD
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
-      maintainContext: true
+        - name: Azure Container Instances를 사용하여 크기 조정
+          href: /azure/container-instances/container-instances-jenkins
+          maintainContext: true
+        - name: Azure VM 에이전트를 사용하여 크기 조정
+          href: jenkins-azure-vm-agents.md
+    - name: 3. CI/CD 구현
+      items:
+        - name: AKS
+          items:
+            - name: Kubernetes에 대한 CI/CD
+              href: /azure/aks/jenkins-continuous-deployment
+              maintainContext: true
+            - name: 파란색/녹색 패턴을 사용하여 AKS에 배포
+              href: jenkins-aks-blue-green-deployment.md
+        - name: App Service
+          items:
+            - name: 파이프라인 작업에서 Azure 리소스 만들기
+              href: execute-cli-jenkins-pipeline.md
+            - name: GitHub에서 App Service로 앱 배포
+              href: tutorial-jenkins-deploy-web-app-azure-app-service.md
+        - name: Azure DevOps에서 Jenkins 사용
+          href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+          maintainContext: true
+        - name: Azure Functions에 배포
+          href: jenkins-azure-functions-deploy.md
+        - name: Azure Storage에 게시
+          href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          maintainContext: true
+        - name: Linux VM에 대한 CI/CD
+          href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+          maintainContext: true
+        - name: Service Fabric에 대한 CI/CD
+          href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+          maintainContext: true
 - name: 방법
   items:
-  - name: App Service 플러그 인 사용
-    href: deploy-jenkins-app-service-plugin.md
+    - name: App Service 플러그 인 사용
+      href: deploy-jenkins-app-service-plugin.md
 - name: 샘플
   items:
-  - name: 샘플 작업 및 스크립트
-    href: https://github.com/azure/jenkins
+    - name: 샘플 작업 및 스크립트
+      href: 'https://github.com/azure/jenkins'
 - name: 리소스
   items:
-  - name: Azure용 Jenkins 플러그 인
-    href: jenkins-plugins.md
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: Jenkins 홈
-    href: https://jenkins.io/
-  - name: Jenkins X 홈
-    href: https://jenkins-x.io
-  - name: Jenkins 아키텍처
-    href: /azure/architecture/reference-architectures/jenkins/
-    maintainContext: true
-ms.openlocfilehash: c83891a0037f009d539f2d1101697a554f478b1d
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621365"
+    - name: Azure용 Jenkins 플러그 인
+      href: jenkins-plugins.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Jenkins 홈
+      href: 'https://jenkins.io/'
+    - name: Jenkins X 홈
+      href: 'https://jenkins-x.io'
+    - name: Jenkins 아키텍처
+      href: /azure/architecture/reference-architectures/jenkins/
+      maintainContext: true

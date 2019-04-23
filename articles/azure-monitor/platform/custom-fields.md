@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789725"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002870"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에서 사용자 지정 필드 만들기
 
@@ -81,7 +81,7 @@ Azure Portal에서 Log Analytics 작업 영역의 **고급 설정** 메뉴에서
 사용자 지정 필드를 제거하는 방법은 두 가지입니다.  첫 번째는 위의 설명대로 전체 목록을 볼 때 각 필드의 **제거** 옵션입니다.  다른 방법은 레코드를 검색하고 필드 왼쪽의 단추를 클릭하는 것입니다.  메뉴에 사용자 지정 필드를 제거하는 옵션이 표시됩니다.
 
 ## <a name="sample-walkthrough"></a>샘플 연습
-다음 섹션은 사용자 지정 필드를 만드는 전체 예제를 안내합니다.  이 예제는 서비스 변경 상태를 나타내는 Windows 이벤트의 서비스 이름을 추출합니다.  이 시스템에 대 한 로그온 Windows 컴퓨터에서에서 서비스 제어 관리자에 의해 생성 된 이벤트에 사용 합니다.  이 예제를 계속하려면, [시스템 로그에 대한 정보 이벤트를 수집](data-sources-windows-events.md)해야 합니다.
+다음 섹션은 사용자 지정 필드를 만드는 전체 예제를 안내합니다.  이 예제는 서비스 변경 상태를 나타내는 Windows 이벤트의 서비스 이름을 추출합니다.  Windows 컴퓨터에서 시스템 시작 중 서비스 제어 관리자에 의해 생성 된 이벤트에 따라 달라 집니다.  이 예제를 계속하려면, [시스템 로그에 대한 정보 이벤트를 수집](data-sources-windows-events.md)해야 합니다.
 
 서비스 시작 또는 중지를 나타내는 이벤트인, 이벤트 ID가 7036인 서비스 제어 관리자의 모든 이벤트를 반환하기 위해서 다음 쿼리를 입력합니다.
 

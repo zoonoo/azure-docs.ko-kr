@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833434"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999470"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
@@ -56,7 +56,7 @@ ms.locfileid: "52833434"
 
 이 문제를 해결하려면:
 
-장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못된 네트워크에 있거나 실행되지 않는 경우(중지 상태 또는 종료) 구성 서버에서 VM의 모바일 서비스에 연결하여 다시 보호를 시작할 수 없습니다.
+장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터에 잘못 된 네트워크 또는 (응답 하지 않거나 종료) 실행 중이 아닌 경우 다시 보호를 시작 하도록 VM에서 모바일 서비스를 구성 서버에 연결할 수 없습니다.
 
 * 온-프레미스와의 통신을 다시 시작할 수 있도록 VM을 다시 시작합니다.
 * Azure 가상 머신을 시작한 후에 다시 보호 작업을 다시 시작합니다.

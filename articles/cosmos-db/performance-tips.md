@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861896"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000626"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -85,6 +85,11 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 4. **스레드/작업의 수 늘리기**
 
     Azure Cosmos DB 호출은 네트워크를 통해 수행되므로 클라이언트 애플리케이션이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [작업 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 Azure Cosmos DB를 읽거나 쓰는 작업을 대략 수백 개 만듭니다.
+
+5. **가속화 된 네트워킹을 사용 하도록 설정**
+
+   대기 시간 및 CPU 지터 줄이려면는 클라이언트 가상 컴퓨터는 가속화 된 네트워킹 사용 하도록 설정 하는 것이 좋습니다. 참조를 [가속 네트워킹을 사용 하 여 Windows 가상 컴퓨터를 만들](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 [가속 네트워킹을 사용 하 여 Linux 가상 머신 만들기](../virtual-network/create-vm-accelerated-networking-cli.md) 가속된 네트워킹을 사용 하는 문서입니다.
+
 
 ## <a name="sdk-usage"></a>SDK 사용
 1. **최신 SDK 설치**

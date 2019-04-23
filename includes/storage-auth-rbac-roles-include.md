@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 9b8418dba12748915666c6a91ee65b37c0f59ace
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804616"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150220"
 ---
-Azure는 저장소 데이터에 액세스 하기 위한 다음과 같은 기본 제공 RBAC 역할을 제공합니다.
+Azure는 Azure AD를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한을 부여 하는 것에 대 한 다음 기본 제공 RBAC 역할을 제공 하 고 OAuth:
 
 - [저장소 Blob 데이터 소유자](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Data Lake Storage Gen2(미리 보기)에 대한 소유권을 설정하고 POSIX 액세스 제어를 관리하는 데 사용합니다. 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](../articles/storage/blobs/data-lake-storage-access-control.md)를 참조하세요.
 - [Storage Blob 데이터 기여자](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Blob 스토리지 리소스에 대한 읽기/쓰기/삭제 권한을 부여하는 데 사용합니다.
@@ -25,7 +25,5 @@ Azure는 저장소 데이터에 액세스 하기 위한 다음과 같은 기본 
 - [Storage 큐 데이터 메시지 프로세서](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Azure Storage 큐의 메시지에 대 한 삭제 권한을 부여 피킹, 검색를 사용 합니다.
 - [Storage 큐 데이터 메시지 보낸 사람](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): 부여를 사용 하 여 Azure Storage 큐의 메시지에 사용 권한을 추가 합니다.
 
-> [!IMPORTANT]
-> RBAC 역할 할당에 전파 하는 데 최대 5 분 정도 걸릴 수 있습니다.
-
-기본 제공 역할을 Azure Storage에 정의하는 방법에 대한 자세한 내용은 [역할 정의 이해](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview)를 참조하세요. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 [Access Control에 대 한 사용자 지정 역할 만들기](../articles/role-based-access-control/custom-roles.md)합니다. 
+> [!NOTE]
+> RBAC 역할 할당이 전파 하는 데 최대 5 분을 사용할 수 있는 점을 염두에 두십시오.

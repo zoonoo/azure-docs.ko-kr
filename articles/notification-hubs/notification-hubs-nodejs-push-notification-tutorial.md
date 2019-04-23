@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889790"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995006"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -63,25 +63,24 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 > 자세한 내용은 공식 [NPM 블로그](https://blog.npmjs.org/post/85484771375/how-to-install-npm)에서 NPM 설치에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="import-the-module"></a>모듈 가져오기
-
 텍스트 편집기를 사용하여 다음을 애플리케이션의 `server.js` 파일 맨 위에 추가합니다.
 
-    ```javascript
-    var azure = require('azure');
-    ```
+```javascript
+var azure = require('azure-sb');
+```
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>Azure 알림 허브 연결 설정
 
 `NotificationHubService` 개체를 사용하면 알림 허브에서 작업할 수 있습니다. 다음 코드는 `hubname`이라는 알림 허브에 대한 `NotificationHubService` 개체를 만듭니다. 이 코드를 `server.js` 파일의 위쪽에 있는 Azure 모듈을 가져오는 명령문 뒤에 추가합니다.
 
-    ```javascript
-    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
-    ```
+```javascript
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
 
 다음 단계를 수행하여 [Azure Portal]에서 `connectionstring` 연결 값을 가져옵니다.
 
 1. 왼쪽 탐색 창에서 **찾아보기**를 클릭합니다.
-2. **Notification Hubs**를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 참조할 수 있습니다.
+2. **Notification Hubs**를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 참조할 수 있습니다 합니다 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 새 알림 허브를 만드는 데 도움이 필요한 경우.
 3. **설정**을 선택합니다.
 4. **액세스 정책**을 클릭합니다. 공유 및 전체 액세스 연결 문자열이 모두 표시됩니다.
 
@@ -111,18 +110,18 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 
 다음 코드는 `NotificationHubService`에서 공개하는 `GcmService` 인스턴스를 사용하여 등록된 모든 클라이언트에 푸시 알림을 보냅니다.
 
-    ```javascript
-    var payload = {
-      data: {
-        message: 'Hello!'
-      }
-    };
-    notificationHubService.gcm.send(null, payload, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = {
+  data: {
+    message: 'Hello!'
+  }
+};
+notificationHubService.gcm.send(null, payload, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>방법: iOS 애플리케이션에 푸시 알림 보내기
 
@@ -136,16 +135,16 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 
 다음 코드는 `NotificationHubService`에서 공개하는 `ApnsService` 인스턴스를 사용하여 모든 클라이언트에 경고 메시지를 보냅니다.
 
-    ```javascript
-    var payload={
-        alert: 'Hello!'
-      };
-    notificationHubService.apns.send(null, payload, function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload={
+    alert: 'Hello!'
+  };
+notificationHubService.apns.send(null, payload, function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>방법: Windows Phone 애플리케이션에 푸시 알림 보내기
 
@@ -162,14 +161,14 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 
 다음 샘플 코드는 `NotificationHubService`에서 공개하는 `MpnsService` 인스턴스를 사용하여 알림 푸시 알림을 보냅니다.
 
-    ```javascript
-    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>방법: UWP(유니버설 Windows 플랫폼) 애플리케이션에 푸시 알림 보내기
 
@@ -185,14 +184,14 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 
 다음 코드는 `NotificationHubService`에서 공개하는 `WnsService` 인스턴스를 사용하여 UWP 앱에 알림 푸시 알림을 보냅니다.
 
-    ```javascript
-    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-      if(!error){
-         // notification sent
-      }
-    });
-    ```
+```javascript
+var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  if(!error){
+      // notification sent
+  }
+});
+```
 
 ## <a name="next-steps"></a>다음 단계
 

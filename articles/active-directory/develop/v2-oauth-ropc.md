@@ -1,5 +1,5 @@
 ---
-title: ROPC를 사용 하 여 사용자 로그인을 사용 하 여 Microsoft id 플랫폼 | Azure
+title: 리소스 소유자 암호 자격 증명 (ROPC) 권한 부여를 사용 하 여 사용자 로그인을 사용 하 여 Microsoft id 플랫폼 | Azure
 description: 리소스 소유자 암호 자격 증명 권한 부여를 사용하여 브라우저 없는 인증 흐름을 지원합니다.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499940"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004944"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
-Microsoft identity 플랫폼에서 지 원하는 [리소스 소유자 암호 자격 증명 (ROPC) 부여](https://tools.ietf.org/html/rfc6749#section-4.3), 응용 프로그램 사용자가 암호를 직접 처리 하 여 로그인 할 수 있습니다. ROPC 흐름에는 높은 수준의 신뢰 및 사용자 노출이 필요하며, 개발자는 다른 더 안전한 흐름을 사용할 수 없는 경우에만 이 흐름을 사용해야 합니다.
+Microsoft identity 플랫폼에서 지 원하는 [리소스 소유자 암호 자격 증명 (ROPC) 부여](https://tools.ietf.org/html/rfc6749#section-4.3), 응용 프로그램 사용자가 암호를 직접 처리 하 여 로그인 할 수 있습니다. ROPC 흐름은 높은 수준의 신뢰 및 사용자 노출 하며 다른, 보다 안전한 흐름을 사용할 수 없는 경우이 흐름에만 사용 해야 합니다.
 
 > [!IMPORTANT]
+>
 > * Microsoft id 플랫폼 끝점은 Azure AD 테 넌 트에 없습니다 개인 계정에 대 한 ROPC만 지원합니다. 이는 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`) 또는 `organizations` 엔드포인트를 사용해야 함을 의미합니다.
 > * Azure AD 테넌트에 초대된 개인 계정은 ROPC를 사용할 수 없습니다.
 > * 암호가 없는 계정은 ROPC를 통해 로그인할 수 없습니다. 이 경우 앱에 다른 흐름을 사용하는 것이 좋습니다.
@@ -38,7 +39,7 @@ Microsoft identity 플랫폼에서 지 원하는 [리소스 소유자 암호 자
 
 다음 다이어그램은 ROPC 흐름을 보여 줍니다.
 
-![ROPC 흐름](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![ROPC 흐름](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>권한 부여 요청
 
@@ -69,11 +70,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | 필수 | `password`로 설정해야 합니다. |
 | `username` | 필수 | 사용자의 메일 주소입니다. |
 | `password` | 필수 | 사용자 암호입니다. |
-| `scope` | 권장 | 앱에 필요한 [범위](v2-permissions-and-consent.md) 또는 권한의 공백으로 구분된 목록입니다. 이러한 범위는 관리자 또는 대화형 흐름의 사용자가 미리 동의해야 합니다. |
+| `scope` | 권장 | 앱에 필요한 [범위](v2-permissions-and-consent.md) 또는 권한의 공백으로 구분된 목록입니다. 대화형 흐름을 사용자나 관리자가 사전에 이러한 범위에 동의 해야 합니다. |
 
 ### <a name="successful-authentication-response"></a>성공적인 인증 응답
 
-다음은 성공적인 토큰 응답의 예제를 보여 줍니다.
+다음 예제에서는 성공적인 토큰 응답을 보여 줍니다.
 
 ```json
 {
@@ -88,9 +89,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 매개 변수 | 형식 | 설명 |
 | --------- | ------ | ----------- |
-| `token_type` | 문자열 | 항상 `Bearer`로 설정합니다. |
+| `token_type` | String | 항상 `Bearer`로 설정합니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰이 유효한 범위를 나열합니다. |
-| `expires_in`| ssNoversion | 포함된 액세스 토큰이 유효한 시간(초)입니다. |
+| `expires_in`| int | 포함된 액세스 토큰이 유효한 시간(초)입니다. |
 | `access_token`| 불투명 문자열 | 요청된 [범위](v2-permissions-and-consent.md)에 대해 발급되었습니다. |
 | `id_token` | JWT | 원래 `scope` 매개 변수에 `openid` 범위가 포함된 경우에 발급됩니다. |
 | `refresh_token` | 불투명 문자열 | 원래 `scope` 매개 변수에 `offline_access`가 포함된 경우에 발급됩니다. |
@@ -105,7 +106,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |------ | ----------- | -------------|
 | `invalid_grant` | 인증에 실패했습니다. | 자격 증명이 올바르지 않거나 클라이언트에 요청된 범위에 대한 동의가 없습니다. 범위를 부여 하지 하는 경우는 `consent_required` 오류가 반환 됩니다. 이 오류가 발생하면 클라이언트는 WebView 또는 브라우저를 사용하여 대화형 프롬프트로 사용자를 전송해야 합니다. |
 | `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 유형이 지원 되지 않습니다 합니다 `/common` 또는 `/consumers` 인증 컨텍스트.  대신 `/organizations`를 사용하세요. |
-| `invalid_client` | 앱이 잘못 설정되었습니다. | 이 경우에 발생할 수 있습니다는 `allowPublicClient` 속성으로 설정 되지 true 합니다 [응용 프로그램 매니페스트](reference-app-manifest.md)합니다. ROPC 권한 부여에 리디렉션 URI가 없으므로 `allowPublicClient` 속성이 필요합니다. 속성이 설정되지 않으면 Azure AD는 앱이 공용 클라이언트 애플리케이션 또는 기밀 클라이언트 애플리케이션인지 확인할 수 없습니다. ROPC는 공용 클라이언트 앱에만 지원됩니다. |
+| `invalid_client` | 앱이 잘못 설정되었습니다. | 이 경우에 발생할 수 있습니다는 `allowPublicClient` 속성으로 설정 되지 true 합니다 [응용 프로그램 매니페스트](reference-app-manifest.md)합니다. ROPC 권한 부여에 리디렉션 URI가 없으므로 `allowPublicClient` 속성이 필요합니다. 속성이 설정되지 않으면 Azure AD는 앱이 공용 클라이언트 애플리케이션 또는 기밀 클라이언트 애플리케이션인지 확인할 수 없습니다. ROPC 공용 클라이언트 앱 에서만 지원 됩니다. |
 
 ## <a name="learn-more"></a>자세한 정보
 

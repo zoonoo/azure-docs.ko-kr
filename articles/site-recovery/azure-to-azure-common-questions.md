@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649886"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149736"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>일반적인 질문: Azure 간 복제
 
@@ -67,7 +67,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 
 아니요, Site Recovery에는 인터넷 연결이 필요하지 않습니다. [이 문서](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)에 설명된 대로 Site Recovery URL과 IP 범위에 액세스해야 합니다.
 
-### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>계층별로 별도의 리소스 그룹이 있는 애플리케이션을 복제할 수 있습니까? 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>계층별로 별도의 리소스 그룹이 있는 애플리케이션을 복제할 수 있습니까?
 예, 애플리케이션을 복제하고 재해 복구 구성을 별도의 리소스 그룹에 유지할 수도 있습니다.
 예를 들어 각 계층 앱, 데이터베이스 및 웹이 별도의 리소스 그룹에 있는 애플리케이션이 있다면 [복제 마법사](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)를 세 번 클릭해야 모든 계층이 보호됩니다. ASR은 이러한 세 계층을 세 개의 리소스 그룹에 복제합니다.
 
@@ -89,11 +89,12 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>충돌 일치 복구 지점 생성 빈도는 어느 정도인가요?
 Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다.
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>애플리케이션 일치 복구 지점은 무엇인가요? 
-애플리케이션 일치 복구 지점은 애플리케이션 일치 스냅숏에서 만들어집니다. 애플리케이션 일치 복구 지점은 크래시 일치 스냅숏과 동일한 데이터를 캡처하고 메모리에 있는 모든 데이터와 처리 중인 모든 트랜잭션을 추가합니다. 추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅숏은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
+### <a name="what-is-an-application-consistent-recovery-point"></a>애플리케이션 일치 복구 지점은 무엇인가요?
+애플리케이션 일치 복구 지점은 애플리케이션 일치 스냅숏에서 만들어집니다. 애플리케이션 일치 복구 지점은 크래시 일치 스냅숏과 동일한 데이터를 캡처하고 메모리에 있는 모든 데이터와 처리 중인 모든 트랜잭션을 추가합니다.
+추가 콘텐츠로 인해, 애플리케이션 일관성이 있는 스냅숏은 가장 복잡하며 가장 오랜 시간이 걸립니다. 애플리케이션 일치 복구 지점은 데이터베이스 운영 체제와 SQL 서버 등의 애플리케이션에 권장됩니다.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>애플리케이션 일치 복구 지점이 애플리케이션 성능에 미치는 영향은 무엇입니까?
-애플리케이션 일치 복구 지점은 메모리와 프로세스의 모든 데이터를 캡처하므로 애플리케이션을 수신 거부하기 위해 Windows에 VSS 같은 프레임워크가 필요합니다. 워크로드가 이미 바쁘게 진행되고 있는 상태에서 이 작업이 매우 자주 수행될 경우 성능이 저하될 수 있습니다. 일반적으로 데이터베이스 이외 워크로드의 경우 앱 일치 복구 지점에 낮은 빈도를 사용하지 않는 것이 좋고, 데이터베이스 워크로드에도 1시간이면 충분합니다. 
+애플리케이션 일치 복구 지점은 메모리와 프로세스의 모든 데이터를 캡처하므로 애플리케이션을 수신 거부하기 위해 Windows에 VSS 같은 프레임워크가 필요합니다. 워크로드가 이미 바쁘게 진행되고 있는 상태에서 이 작업이 매우 자주 수행될 경우 성능이 저하될 수 있습니다. 일반적으로 데이터베이스 이외 워크로드의 경우 앱 일치 복구 지점에 낮은 빈도를 사용하지 않는 것이 좋고, 데이터베이스 워크로드에도 1시간이면 충분합니다.
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>애플리케이션 일치 복구 지점 생성의 최소 빈도는 어느 정도인가요?
 Site Recovery는 1 시간 동안에서 최소 빈도 사용 하 여 프로그램 응용 프로그램 일치 복구 지점을 만듭니다 수 있습니다.
@@ -216,7 +217,11 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 다시 보호 후 장애 복구에 대한 시간은 일반적으로 주 지역에서 보조 지역으로 장애 조치(failover)를 수행하는 시간과 비슷합니다.
 
 ## <a name="capacity"></a>용량
-### <a name="does-site-recovery-work-with-reserved-instance"></a>예약 인스턴스를 사용 하 여 Site Recovery가 작동 하나요?
+
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>어떻게이 용량 보장 대상 지역의 Azure Vm에 대 한?
+Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Azure Site Recovery (ASR) 팀은 작업, Vm 재해에 대 한 ASR로 보호 되도록 하기 위해 복구를 성공적으로 배포할 재해 복구 (DR) 지역에서 때마다 ASR 장애 조치 작업이 시작 됩니다.
+
+### <a name="does-site-recovery-work-with-reserved-instances"></a>Reserved Instances를 사용 하 여 Site Recovery가 작동 하나요?
 예를 구입할 수 있습니다 [이더라도 인스턴스가](https://azure.microsoft.com/pricing/reserved-vm-instances/) DR 지역 및 ASR 장애 조치 작업에서는 사용 하 여 해당 합니다. </br> 추가 구성은 고객 으로부터 필요 하지 않습니다.
 
 

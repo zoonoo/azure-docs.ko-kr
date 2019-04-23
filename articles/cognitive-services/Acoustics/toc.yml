@@ -1,52 +1,45 @@
-items:
 - name: 프로젝트 Acoustics 설명서
 - name: 개요
   items:
-  - name: 프로젝트 Acoustics란?
-    href: what-is-acoustics.md
+    - name: 프로젝트 Acoustics란?
+      href: what-is-acoustics.md
 - name: 빠른 시작
   items:
-  - name: Unity 빠른 시작
-    href: unity-quickstart.md
-  - name: Unreal 빠른 시작
-    href: unreal-quickstart.md
+    - name: Unity 빠른 시작
+      href: unity-quickstart.md
+    - name: Unreal 빠른 시작
+      href: unreal-quickstart.md
 - name: 자습서
   items:
-  - name: Unity
-    items:
-    - name: Unity를 사용하여 음향 효과 베이킹
-      href: unity-baking.md
-    - name: Unity 디자인 워크플로
-      href: unity-workflow.md
-  - name: Unreal/Wwise
-    items:
-    - name: Unreal/Wwise를 사용하여 음향 효과 베이킹
-      href: unreal-baking.md
-    - name: Unreal/Wwise 디자인 워크플로
-      href: unreal-workflow.md
+    - name: Unity
+      items:
+        - name: Unity를 사용하여 음향 효과 베이킹
+          href: unity-baking.md
+        - name: Unity 디자인 워크플로
+          href: unity-workflow.md
+    - name: Unreal/Wwise
+      items:
+        - name: Unreal/Wwise를 사용하여 음향 효과 베이킹
+          href: unreal-baking.md
+        - name: Unreal/Wwise 디자인 워크플로
+          href: unreal-workflow.md
 - name: 개념
   items:
-  - name: 음향 시뮬레이션을 사용한 디자인 개념
-    href: design-process.md
-  - name: 베이킹 확인
-    href: bake-resolution.md
+    - name: 음향 시뮬레이션을 사용한 디자인 개념
+      href: design-process.md
+    - name: 베이킹 확인
+      href: bake-resolution.md
 - name: 방법
   items:
-  - name: Azure Batch 계정 만들기
-    href: create-azure-account.md
-  - name: Unity에 Project Acoustics 통합
-    href: unity-integration.md
-  - name: Unreal/Wwise에 Project Acoustics 통합
-    href: unreal-integration.md
+    - name: Azure Batch 계정 만들기
+      href: create-azure-account.md
+    - name: Unity에 Project Acoustics 통합
+      href: unity-integration.md
+    - name: Unreal/Wwise에 Project Acoustics 통합
+      href: unreal-integration.md
 - name: 리소스
   items:
-  - name: 질문과 대답
-    href: faq.md
-  - name: 알려진 문제
-    href: known-issues.md
-ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787886"
+    - name: 질문과 대답
+      href: faq.md
+    - name: 알려진 문제
+      href: known-issues.md

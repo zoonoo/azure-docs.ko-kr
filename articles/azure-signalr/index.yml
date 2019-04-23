@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2b7bbac4de56bce7696b543c07bd40028db5e7a0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533071"
 documentType: LandingData
 title: Azure SignalR Service 설명서
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: Azure SignalR Service 설명서 - 자습서, API 참조
+  title: 'Azure SignalR Service 설명서 - 자습서, API 참조'
   meta.description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core SignalR which is an open source library that simplifies adding real-time web functionality to applications.
   services: azure-signalr
   author: v-chmccl
@@ -22,60 +16,60 @@ metadata:
 abstract:
   description: Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 관리 서비스입니다.
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: 실시간 통신을 위해 Azure SignalR Service를 사용하여 첫 번째 웹 애플리케이션을 개발하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
-      text: ASP.NET Core
-      href: /azure/azure-signalr/signalr-quickstart-dotnet-core
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_js.svg
-      text: JavaScript
-      href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-      text: C#
-      href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/logo_java.svg
-      text: 자바
-      href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_REST.svg
-      text: REST API
-      href: /azure/azure-signalr/signalr-quickstart-rest-api
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Azure SignalR Service 애플리케이션을 빌드하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 실시간 통신을 위해 Azure SignalR Service를 사용하여 첫 번째 웹 애플리케이션을 개발하는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
+            text: ASP.NET Core
+            href: /azure/azure-signalr/signalr-quickstart-dotnet-core
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
+            text: JavaScript
+            href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Csharp.svg'
+            text: 'C#'
+            href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/logo_java.svg'
+            text: 자바
+            href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_REST.svg'
+            text: REST API
+            href: /azure/azure-signalr/signalr-quickstart-rest-api
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">ASP.NET Core Identity와 Azure SignalR Service 통합</a>
-    - html: <a href="/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions">인증을 사용하여 서버리스 실시간 앱 빌드</a>
-- title: 샘플
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Azure SignalR Service 애플리케이션을 빌드하는 방법을 알아봅니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">ASP.NET Core Identity와 Azure SignalR Service 통합</a>
+          - html: <a href="/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions">인증을 사용하여 서버리스 실시간 앱 빌드</a>
+  - title: 샘플
     items:
-    - html: <a href="https://github.com/aspnet/AzureSignalR-samples">Azure SignalR 코드 샘플</a>
-    - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://github.com/aspnet/AzureSignalR-samples">Azure SignalR 코드 샘플</a>'
+          - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
+  - title: 참고 자료
     items:
-    - title: 명령줄
-      html: <p><a href="signalr-reference-cli.md">Azure CLI</a></p>
-    - title: Languages
-      html: >
-        <p><a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core 서버 SDK</a></p> <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Azure Functions 바인딩</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript 클라이언트</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET 표준 클라이언트</a></p> <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java 클라이언트</a></p>
-    - title: REST (영문)
-      html: <p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: <p><a href="signalr-reference-cli.md">Azure CLI</a></p>
+          - title: Languages
+            html: |
+              <p><a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core 서버 SDK</a></p> <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Azure Functions 바인딩</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript 클라이언트</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET 표준 클라이언트</a></p> <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java 클라이언트</a></p>
+          - title: REST (영문)
+            html: '<p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a></p>'

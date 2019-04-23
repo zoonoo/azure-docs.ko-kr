@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: 78158f49748a8e9e08f3695860d95a2a6eff9fd4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402442"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004230"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob storage: 핫, 쿨 및 보관 액세스 계층
 
@@ -100,7 +100,7 @@ Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageserv
 
 ### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
 
-Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다. [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)를 참조하여 자세히 알아보세요.  
+Blob 저장소 수명 주기 관리는 최상의 액세스 계층으로 데이터를 전환 하는 데 데이터 수명 주기가 끝날 때 만료를 사용할 수 있는 풍부한, 규칙 기반 정책을 제공 합니다. [Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)를 참조하여 자세히 알아보세요.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 수준 계층화 청구
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075035"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002037"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Video Indexer API로 언어 모델 사용자 지정
 
@@ -47,17 +47,17 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 --data-ascii "{body}" 
 ```
 
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
-|modelName|문자열|예|언어 모델의 이름입니다.|
-|언어|문자열|예|언어 모델의 언어입니다. <br/>**language** 매개 변수에는 BCP-47 형식 'language tag-region'(예: 'en-US')으로 언어를 지정해야 합니다. 지원되는 언어는 영어(en-US), 독일어(de-DE), 스페인어(es-SP), 아랍어(ar-EG), 프랑스어(fr-FR), 힌두어(hi-HI), 이탈리아어(it-IT), 일본어(ja-JP), 포르투갈어(pt-BR), 러시아어(ru-RU) 및 중국어(zh-CN)입니다.  |
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|modelName|string|예|언어 모델의 이름입니다.|
+|언어|string|예|언어 모델의 언어입니다. <br/>**language** 매개 변수에는 BCP-47 형식 'language tag-region'(예: 'en-US')으로 언어를 지정해야 합니다. 지원되는 언어는 영어(en-US), 독일어(de-DE), 스페인어(es-SP), 아랍어(ar-EG), 프랑스어(fr-FR), 힌두어(hi-HI), 이탈리아어(it-IT), 일본어(ja-JP), 포르투갈어(pt-BR), 러시아어(ru-RU) 및 중국어(zh-CN)입니다.  |
 
 ### <a name="request-body"></a>요청 본문
 
@@ -118,16 +118,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5bac3cf761779a6c2ab27?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -183,16 +183,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5ba53782606e91f65be9d?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -225,17 +225,17 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 --data-ascii "{body}" 
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b3ce85f4684240bdb78f?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
-|modelName|문자열|아닙니다.|모델에 제공할 수 있는 새 이름입니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|modelName|string|아닙니다.|모델에 제공할 수 있는 새 이름입니다.|
 |enable|부울|아닙니다.|이 모델의 모든 파일을 사용하도록 설정할지(true) 또는 사용하지 않도록 설정할지(false)를 선택합니다.|
 
 ### <a name="request-body"></a>요청 본문
@@ -294,18 +294,18 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b60547f33c1c2b2d1375?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|fileId|문자열|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
-|fileName|문자열|아닙니다.|파일 이름을 업데이트할 새 이름입니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|fileId|string|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|fileName|string|아닙니다.|파일 이름을 업데이트할 새 이름입니다.|
 |enable|부울|아닙니다.|언어 모델에서 이 파일이 사용 가능으로 설정되어 있는지(true) 또는 사용 불가능으로 설정되어 있는지(false)를 업데이트합니다.|
 
 ### <a name="request-body"></a>요청 본문
@@ -344,16 +344,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4fcbd9b437d27d53f16)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get)합니다.
 
 ### <a name="request-parameters-and-request-body"></a>매개 변수 및 요청 본문 요청
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -409,15 +409,15 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4979e6ecbd30faa6f75?)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -480,17 +480,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b57b5de51e64ee52242e)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|fileId|문자열|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|fileId|string|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -517,17 +517,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b73f9e6416d7a9965b42)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|fileId|문자열|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|fileId|string|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -566,17 +566,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Langua
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
 ```
  
-[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b99e522cb47bd9679122)합니다.
+[필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수 
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountID|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|modelId|문자열|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
-|fileId|문자열|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountID|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|modelId|string|예|파일을 포함하는 언어 모델의 ID(언어 모델을 만들 때 생성)입니다.|
+|fileId|string|예|업데이트하려는 파일의 ID(언어 모델을 만들거나 업데이트할 때 파일을 업로드하는 동안 생성)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문 
 

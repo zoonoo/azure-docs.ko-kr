@@ -1,124 +1,117 @@
-items:
 - name: Bing Web Search API 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Bing Web Search란?
-    href: overview.md
-    expanded: true
-  - name: Bing Search API 비교
-    href: ../Bing-Web-Search/bing-api-comparison.md
+    - name: Bing Web Search란?
+      href: overview.md
+      expanded: true
+    - name: Bing Search API 비교
+      href: ../Bing-Web-Search/bing-api-comparison.md
 - name: 빠른 시작
   items:
-  - name: REST API
-    items:
-    - name: C#
-      href: quickstarts/csharp.md
-    - name: Go
-      href: quickstarts/go.md
-    - name: 자바
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
-  - name: SDK
-    items:
-    - name: C#
-      href: web-search-sdk-quickstart.md
-    - name: 자바
-      href: web-sdk-java-quickstart.md
-    - name: Node.js
-      href: web-search-sdk-node-quickstart.md
-    - name: Python
-      href: web-sdk-python-quickstart.md
+    - name: REST API
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Go
+          href: quickstarts/go.md
+        - name: 자바
+          href: quickstarts/java.md
+        - name: Node.js
+          href: quickstarts/nodejs.md
+        - name: PHP
+          href: quickstarts/php.md
+        - name: Python
+          href: quickstarts/python.md
+        - name: Ruby
+          href: quickstarts/ruby.md
+    - name: SDK
+      items:
+        - name: 'C#'
+          href: web-search-sdk-quickstart.md
+        - name: 자바
+          href: web-sdk-java-quickstart.md
+        - name: Node.js
+          href: web-search-sdk-node-quickstart.md
+        - name: Python
+          href: web-sdk-python-quickstart.md
 - name: 자습서
   items:
-  - name: 단일 페이지 웹앱 빌드
-    href: tutorial-bing-web-search-single-page-app.md
+    - name: 단일 페이지 웹앱 빌드
+      href: tutorial-bing-web-search-single-page-app.md
 - name: 샘플
   items:
-  - name: REST 샘플
-    href: https://github.com/Azure-Samples/cognitive-services-REST-api-samples
-  - name: SDK 샘플
-    href: sdk-samples.md
+    - name: REST 샘플
+      href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples'
+    - name: SDK 샘플
+      href: sdk-samples.md
 - name: 방법 가이드
   items:
-  - name: 답변 필터링
-    href: filter-answers.md
-  - name: 결과 순위 지정
-    href: rank-results.md
-  - name: 적중 항목 강조 표시 처리
-    href: hit-highlighting.md
-  - name: 결과 페이지 표시
-    href: paging-webpages.md
-  - name: 크기 조정 및 자르기 썸네일
-    href: resize-and-crop-thumbnails.md
-  - name: v5에서 v7로 업그레이드
-    href: bing-web-upgrade-guide-v5-to-v7.md
+    - name: 답변 필터링
+      href: filter-answers.md
+    - name: 결과 순위 지정
+      href: rank-results.md
+    - name: 적중 항목 강조 표시 처리
+      href: hit-highlighting.md
+    - name: 결과 페이지 표시
+      href: paging-webpages.md
+    - name: 크기 조정 및 자르기 썸네일
+      href: resize-and-crop-thumbnails.md
+    - name: v5에서 v7로 업그레이드
+      href: bing-web-upgrade-guide-v5-to-v7.md
 - name: 개념
   items:
-  - name: Autosuggest 검색 용어
-    href: autosuggest-bing-search-terms.md
-  - name: 검색 응답
-    href: search-responses.md
-  - name: 제한 요청
-    href: throttling-requests.md
+    - name: Autosuggest 검색 용어
+      href: autosuggest-bing-search-terms.md
+    - name: 검색 응답
+      href: search-responses.md
+    - name: 제한 요청
+      href: throttling-requests.md
 - name: 참고 자료
   items:
-  - name: Bing Web Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
-  - name: Bing Web Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Azure PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet
-    - name: 자바
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/websearch?view=azure-node-latest
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
-  - name: 사용 및 표시 요구 사항
-    href: Use-display-requirements.md
+    - name: Bing Web Search API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
+    - name: Bing Web Search API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Azure PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet'
+        - name: 자바
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/websearch?view=azure-node-latest'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch'
+    - name: 사용 및 표시 요구 사항
+      href: Use-display-requirements.md
 - name: 리소스
   items:
-  - name: API 키 가져오기
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
-  - name: Bing Web Search 엔드포인트
-    href: web-search-endpoints.md
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
-  - name: 국가별 가용성
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: 언어 및 지역 지원
-    href: language-support.md
-  - name: Bing Web Search API에 대한 분석
-    href: bing-web-stats.md
-  - name: 지원
-    items:
-    - name: 사용자 의견 포럼
-      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
-    - name: 스택 오버플로
-      href: https://stackoverflow.com/search?q=bing+web+search
-    - name: 기술 자료
-      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 75b3f3b85150d4db586281c45a8ba3ff1f35971f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236042"
+    - name: API 키 가져오기
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+    - name: Bing Web Search 엔드포인트
+      href: web-search-endpoints.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 언어 및 지역 지원
+      href: language-support.md
+    - name: Bing Web Search API에 대한 분석
+      href: bing-web-stats.md
+    - name: 지원
+      items:
+        - name: 사용자 의견 포럼
+          href: 'https://cognitive.uservoice.com/forums/555907-bing-web-search-api'
+        - name: 스택 오버플로
+          href: 'https://stackoverflow.com/search?q=bing+web+search'
+        - name: 기술 자료
+          href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'

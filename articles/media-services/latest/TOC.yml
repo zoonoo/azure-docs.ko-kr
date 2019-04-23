@@ -242,6 +242,9 @@
       href: /azure/templates/microsoft.media/allversions
 - name: 리소스
   items:
+    - name: Azure Media Services 커뮤니티
+      displayName: 'forums, twitter, feedback'
+      href: media-services-community.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
     - name: 가격

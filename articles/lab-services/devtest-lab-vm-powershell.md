@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0e68958070e9c35e12dd9446b351f880dfea6f69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a9629cd14c71a163612c2c4ba3c7b109a52b91ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793252"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008361"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 DevTest Labs를 사용 하 여 가상 머신 만들기
 이 문서에서는 Azure PowerShell을 사용 하 여 Azure DevTest Labs에서 가상 컴퓨터를 만드는 방법을 보여 줍니다. Azure DevTest Labs에서 랩의 가상 머신 만들기를 자동화 하려면 PowerShell 스크립트를 사용할 수 있습니다. 
@@ -27,10 +27,10 @@ ms.locfileid: "59793252"
 시작하기 전에
 
 - [랩 만들기](devtest-lab-create-lab.md) 기존 랩이 문서의 스크립트 또는 명령을 테스트 하려면 사용 하지 않으려는 경우. 
-- [Azure PowerShell 설치](/powershell/azure/azurerm/other-install) 하거나 Azure portal에 통합 된 Azure Cloud Shell을 사용 합니다. 
+- [Azure PowerShell 설치](/powershell/azure/install-az-ps?view=azps-1.7.0) 하거나 Azure portal에 통합 된 Azure Cloud Shell을 사용 합니다. 
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
-이 섹션의 샘플 스크립트를 사용 하 여 [Invoke-azurermresourceaction](/powershell/module/azurerm.resources/invoke-azurermresourceaction) cmdlet.  이 cmdlet은 랩의 리소스 ID를 수행 하는 작업의 이름 (`createEnvironment`), 및 필요한 매개 변수를 해당 작업을 수행 합니다. 매개 변수를 모든 가상 머신에 대 한 설명 속성을 포함 하는 해시 테이블에 있습니다. 
+이 섹션의 샘플 스크립트를 사용 합니다 [Invoke AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) cmdlet.  이 cmdlet은 랩의 리소스 ID를 수행 하는 작업의 이름 (`createEnvironment`), 및 필요한 매개 변수를 해당 작업을 수행 합니다. 매개 변수를 모든 가상 머신에 대 한 설명 속성을 포함 하는 해시 테이블에 있습니다. 
 
 ```powershell
 [CmdletBinding()]
@@ -48,11 +48,11 @@ pushd $PSScriptRoot
 
 try {
     if ($SubscriptionId -eq $null) {
-        $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+        $SubscriptionId = (Get-AzContext).Subscription.SubscriptionId
     }
 
     $API_VERSION = '2016-05-15'
-    $lab = Get-AzureRmResource -ResourceId "/subscriptions/$SubscriptionId/resourceGroups/$LabResourceGroup/providers/Microsoft.DevTestLab/labs/$LabName"
+    $lab = Get-AzResource -ResourceId "/subscriptions/$SubscriptionId/resourceGroups/$LabResourceGroup/providers/Microsoft.DevTestLab/labs/$LabName"
 
     if ($lab -eq $null) {
        throw "Unable to find lab $LabName resource group $LabResourceGroup in subscription $SubscriptionId."
@@ -61,9 +61,9 @@ try {
     #For this example, we are getting the first allowed subnet in the first virtual network
     #  for the lab.
     #If a specific virtual network is needed use | to find it. 
-    #ie $virtualNetwork = @(Get-AzureRmResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION) | Where-Object Name -EQ "SpecificVNetName"
+    #ie $virtualNetwork = @(Get-AzResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION) | Where-Object Name -EQ "SpecificVNetName"
 
-    $virtualNetwork = @(Get-AzureRmResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION)[0]
+    $virtualNetwork = @(Get-AzResource -ResourceType  'Microsoft.DevTestLab/labs/virtualnetworks' -ResourceName $LabName -ResourceGroupName $lab.ResourceGroupName -ApiVersion $API_VERSION)[0]
 
     $labSubnetName = $virtualNetwork.properties.allowedSubnets[0].labSubnetName
 
@@ -107,7 +107,7 @@ try {
     #The following line is the same as invoking
     # https://azure.github.io/projects/apis/#!/Labs/Labs_CreateEnvironment rest api
 
-    Invoke-AzureRmResourceAction -ResourceId $lab.ResourceId -Action 'createEnvironment' -Parameters $parameters -ApiVersion $API_VERSION -Force -Verbose
+    Invoke-AzResourceAction -ResourceId $lab.ResourceId -Action 'createEnvironment' -Parameters $parameters -ApiVersion $API_VERSION -Force -Verbose
 }
 finally {
    popd

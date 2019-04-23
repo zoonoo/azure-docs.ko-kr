@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7ec8d7df1ab9480fd0b0cd98182b5fb49e957d9e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407360"
 documentType: LandingData
 title: Azure 가상 WAN
 metadata:
-  document_id: 
-  title: 가상 WAN 설명서 - 자습서, API 참조 | Microsoft Docs
-  meta.description: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+  document_id: null
+  title: '가상 WAN 설명서 - 자습서, API 참조 | Microsoft Docs'
+  meta.description: 'Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.'
   services: virtual-wan
   author: cherylmc
   manager: jeconnoc
@@ -21,26 +15,26 @@ metadata:
   ms.date: 10/01/2018
   ms.author: cherylmc
 abstract:
-  description: Azure 가상 WAN을 구성하고, 만들고, 관리하는 방법을 알아봅니다. 안전한 전역 규모 분기 연결을 빌드합니다.
+  description: 'Azure 가상 WAN을 구성하고, 만들고, 관리하는 방법을 알아봅니다. 안전한 전역 규모 분기 연결을 빌드합니다.'
 sections:
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Azure Virtual WAN을 사용하여 연결을 구성하고, 만들고, 관리하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
-    className: spaced Bullet
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">사이트 간 연결</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">지점 및 사이트 간 연결</a>
-    - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute 연결</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Azure Virtual WAN을 사용하여 연결을 구성하고, 만들고, 관리하는 방법을 알아봅니다.'
+      - type: list
+        style: unordered
+        className: spaced Bullet
+        items:
+          - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">사이트 간 연결</a>
+          - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">지점 및 사이트 간 연결</a>
+          - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">ExpressRoute 연결</a>
+  - title: 참고 자료
     items:
-    - title: 명령줄
-      html: <p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>
-    - title: REST (영문)
-      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API 참조</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: '<p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>'
+          - title: REST (영문)
+            html: '<p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API 참조</a></p>'

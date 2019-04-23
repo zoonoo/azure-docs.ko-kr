@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846375"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148937"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Blob 또는 큐 데이터에 액세스 하려면 Azure portal을 사용 하 여
 
@@ -47,7 +47,7 @@ Azure AD 계정을 사용 하 여 Azure portal에서 blob 또는 큐 데이터�
 
 Blob 또는 큐 데이터에 대 한 액세스를 지 원하는 기본 제공 역할은 다음과 같습니다.
 
-- [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Posix 액세스 제어를 Azure Data Lake 저장소 Gen2 (미리 보기).
+- [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Data Lake 저장소 Gen2에 대 한 POSIX 액세스 제어입니다.
 - [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Blob에 대 한 읽기/쓰기/삭제 권한입니다.
 - [Storage Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Blob에 대 한 읽기 / 쓰기 권한입니다.
 - [Storage 큐 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): 큐에 대 한 읽기/쓰기/삭제 권한입니다.

@@ -1,52 +1,46 @@
-items:
 - name: Bing Local Business Search API 설명서
   href: index.yml
   expanded: true
+  items: null
 - name: 개요
-  items:
-  - name: Bing Local Business Search API란?
-    href: overview.md
-  - name: Bing Search API 비교
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: Bing Local Business Search API란?
+      href: overview.md
+    - name: Bing Search API 비교
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: 빠른 시작
   items:
-  - name: REST API
-    items:
-    - name: C# 사용
-      href: quickstarts/local-quickstart.md
-    - name: Java 사용
-      href: quickstarts/local-search-java-quickstart.md
-    - name: Node 사용
-      href: quickstarts/local-search-node-quickstart.md
-    - name: Python 사용
-      href: quickstarts/local-search-python-quickstart.md
-    expanded: true
+    - name: REST API
+      expanded: true
+      items:
+        - name: 'C# 사용'
+          href: quickstarts/local-quickstart.md
+        - name: Java 사용
+          href: quickstarts/local-search-java-quickstart.md
+        - name: Node 사용
+          href: quickstarts/local-search-node-quickstart.md
+        - name: Python 사용
+          href: quickstarts/local-search-python-quickstart.md
 - name: 개념
   items:
-  - name: 쿼리 및 응답 사용
-    href: local-search-query-response.md
-  - name: 지리적 경계를 설정하여 결과 필터링
-    href: specify-geographic-search.md
-  - name: 로컬 비즈니스 검색 범주
-    href: local-categories.md
+    - name: 쿼리 및 응답 사용
+      href: local-search-query-response.md
+    - name: 지리적 경계를 설정하여 결과 필터링
+      href: specify-geographic-search.md
+    - name: 로컬 비즈니스 검색 범주
+      href: local-categories.md
 - name: 참고 자료
   items:
-  - name: 사용 및 표시 요구 사항
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
-  - name: Local Business Search API 참조
-    href: local-search-reference.md
+    - name: 사용 및 표시 요구 사항
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
+    - name: Local Business Search API 참조
+      href: local-search-reference.md
 - name: 리소스
   items:
-  - name: Cognitive Services 체험하기
-    href: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api
-  - name: 가격 정보
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/
-ms.openlocfilehash: 14c891c74accb4cca537e24ddbdcb99ae36618c9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507504"
+    - name: Cognitive Services 체험하기
+      href: 'https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api'
+    - name: 가격 정보
+      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/'

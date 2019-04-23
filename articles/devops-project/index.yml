@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 19e4fbed8f8ea9b051ffb493b0c6b9a1f4eb48b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162381"
 documentType: LandingData
 title: Azure DevOps Projects
 metadata:
-  document_id: 
+  document_id: null
   title: Azure DevOps Projects 설명서 - 빠른 시작 및 자습서
-  meta.description: 
+  meta.description: null
   services: devops-project
   author: mlearned
   manager: douge
@@ -24,58 +18,58 @@ abstract:
   description: Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다.
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: _img\video-devops-project.png
       width: 250
-    title: DevOps Project 비디오로 CI/CD 만들기(8:53)
-    href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
+    title: 'DevOps Project 비디오로 CI/CD 만들기(8:53)'
+    href: 'https://channel9.msdn.com/Events/Connect/2017/T174/player/'
     width: 250
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: 앱 유형을 빌드하고 선택한 Azure 서비스에 배포하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: media\logo_net.svg
-      text: .NET
-      href: /azure/devops-project/azure-devops-project-aspnet-core
-    - image:
-        src: media\logo_nodejs.svg
-      text: Node.js
-      href: /azure/devops-project/azure-devops-project-nodejs
-    - image:
-        src: media\logo_java.svg
-      text: 자바
-      href: /azure/devops-project/azure-devops-project-java
-    - image:
-        src: media\logo_python.svg
-      text: Python
-      href: /azure/devops-project/azure-devops-project-python
-    - image:
-        src: media\logo_php.svg
-      text: PHP
-      href: /azure/devops-project/azure-devops-project-php
-    - image:
-        src: media\logo_ruby.svg
-      text: Ruby
-      href: /azure/devops-project/azure-devops-project-ruby
-    - image:
-        src: media\logo_gopher.svg
-      text: Go
-      href: /azure/devops-project/azure-devops-project-go
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: DevOps Projects를 사용하여 릴리스 파이프라인을 만드는 방법 알아보기
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 앱 유형을 빌드하고 선택한 Azure 서비스에 배포하는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media\logo_net.svg
+            text: .NET
+            href: /azure/devops-project/azure-devops-project-aspnet-core
+          - image:
+              src: media\logo_nodejs.svg
+            text: Node.js
+            href: /azure/devops-project/azure-devops-project-nodejs
+          - image:
+              src: media\logo_java.svg
+            text: 자바
+            href: /azure/devops-project/azure-devops-project-java
+          - image:
+              src: media\logo_python.svg
+            text: Python
+            href: /azure/devops-project/azure-devops-project-python
+          - image:
+              src: media\logo_php.svg
+            text: PHP
+            href: /azure/devops-project/azure-devops-project-php
+          - image:
+              src: media\logo_ruby.svg
+            text: Ruby
+            href: /azure/devops-project/azure-devops-project-ruby
+          - image:
+              src: media\logo_gopher.svg
+            text: Go
+            href: /azure/devops-project/azure-devops-project-go
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/devops-project/azure-devops-project-github">GitHub를 사용하여 사용자 고유의 코드 가져오기</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-vms">Azure Virtual Machines에 ASP.NET 앱 배포</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">ASP.NET 앱 및 Azure SQL Database 배포</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-aks">Azure Container Service 및 Kubernetes에 앱 배포</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Azure Service Fabric에 앱 배포</a>
+      - type: paragraph
+        text: DevOps Projects를 사용하여 릴리스 파이프라인을 만드는 방법 알아보기
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/devops-project/azure-devops-project-github">GitHub를 사용하여 사용자 고유의 코드 가져오기</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-vms">Azure Virtual Machines에 ASP.NET 앱 배포</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-sql-database">ASP.NET 앱 및 Azure SQL Database 배포</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-aks">Azure Container Service 및 Kubernetes에 앱 배포</a>
+          - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Azure Service Fabric에 앱 배포</a>

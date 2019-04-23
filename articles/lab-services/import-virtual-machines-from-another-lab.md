@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546594"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148903"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 다른 lab에서 가상 컴퓨터 가져오기
-이 문서에서는 다른 lab에서 랩에 가상 컴퓨터를 가져오는 방법에 대 한 정보를 제공 합니다. 
+이 문서에서는 다른 lab에서 랩에 가상 컴퓨터를 가져오는 방법에 대 한 정보를 제공 합니다.
 
 ## <a name="scenarios"></a>시나리오
-다른 랩에 하나의 랩의 Vm을 가져와야 하는 몇 가지 시나리오는 다음과 같습니다. 
+다른 랩에 하나의 랩의 Vm을 가져와야 하는 몇 가지 시나리오는 다음과 같습니다.
 
 - 팀의 개별 엔터프라이즈 내 다른 그룹으로 이동 하 고 새 팀의 DevTest Labs에 개발자 데스크톱을 사용 하려고 합니다.
 - 그룹에 도달한를 [구독 수준 할당량](../azure-subscription-service-limits.md) 구독이 몇 개를 팀 분할 하려고 합니다.
@@ -34,8 +34,8 @@ ms.locfileid: "59546594"
 
 프로세스는 다소 시간이 걸리며 다음 요인의 영향:
 
-- (이므로 복사 작업 및 이동 작업 아님) 원본 컴퓨터에 연결 된 디스크의 수/크기 
-- 대상 (예: 미국 동부 지역 동남 아시아로) 까지의 거리입니다.  
+- (이므로 복사 작업 및 이동 작업 아님) 원본 컴퓨터에 연결 된 디스크의 수/크기
+- 대상 (예: 미국 동부 지역 동남 아시아로) 까지의 거리입니다.
 
 프로세스가 완료 되 면 원본 가상 머신을 종료 하 고 새 대상 환경에서 실행 중인 하나 남아 있습니다.
 
@@ -47,12 +47,12 @@ ms.locfileid: "59546594"
 - 현재이 기능은 Powershell 및 REST API를 통해서만 지원 됩니다.
 
 ## <a name="use-powershell"></a>PowerShell 사용
-ImportVirtualMachines.ps1 파일을 다운로드 합니다 [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)합니다. 대상 랩에 단일 VM 또는 원본 랩의 모든 Vm을 가져오는 스크립트를 사용할 수 있습니다. 
+ImportVirtualMachines.ps1 파일을 다운로드 합니다 [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)합니다. 대상 랩에 단일 VM 또는 원본 랩의 모든 Vm을 가져오는 스크립트를 사용할 수 있습니다.
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>PowerShell을 사용 하 여 단일 VM을 가져오려면
 이 powershell 스크립트를 실행 필요 VM 원본 및 대상 랩을 식별 하 고 필요에 따라 대상 컴퓨터에 사용할 새 이름을 제공 합니다.
 
-```powershell 
+```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
                             -SourceVirtualMachineName "<Name of the VM to be imported from the source lab> " `
@@ -63,7 +63,7 @@ ImportVirtualMachines.ps1 파일을 다운로드 합니다 [GitHub](https://gith
 
 ### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>PowerShell를 사용 하 여 원본 랩의 모든 Vm 가져오기
 원본 가상 컴퓨터를 지정 하지 않으면 스크립트 DevTest 랩에서 모든 Vm을 자동으로 가져옵니다.  예를 들면 다음과 같습니다.
- 
+
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
                             -SourceDevTestLabName "<Name of the source lab>" `
@@ -83,7 +83,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## <a name="next-steps"></a>다음 단계
-다음 문서를 참조하세요. 
+다음 문서를 참조하세요.
 
 - [랩에 대한 정책 설정](devtest-lab-get-started-with-lab-policies.md)
 - [질문과 대답](devtest-lab-faq.md)

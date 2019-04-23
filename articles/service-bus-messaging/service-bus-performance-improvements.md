@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501640"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996025"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 
@@ -94,6 +94,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
 일괄 처리는 청구 가능 메시징 작업의 수에 영향을 주지 않으며 [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)을 사용하여 Service Bus 클라이언트 프로토콜에 대해서만 사용할 수 있습니다. HTTP 프로토콜은 일괄 처리를 지원하지 않습니다.
+
+> [!NOTE]
+> BatchFlushInterval 설정 일괄 처리 응용 프로그램의 관점에서 암시적 인지 확인 합니다. 즉, 응용 프로그램은 sendasync () 및 CompleteAsync()를 호출 하 고 특정 일괄 처리 호출을 수행 하지 않습니다.
+>
+> 명시적 클라이언트 쪽 일괄 처리를 활용 하 여 구현할 수 있습니다를 메서드 호출-아래 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> 여기 메시지의 결합 된 크기의 가격 책정 계층에서 지 원하는 최대 크기 미만 이어야 합니다.
 
 ## <a name="batching-store-access"></a>저장소 액세스 일괄 처리
 

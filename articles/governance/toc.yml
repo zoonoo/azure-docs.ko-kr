@@ -1,62 +1,55 @@
-items:
 - name: Azure Governance 설명서
   href: index.yml
 - name: 개요
-  items:
-  - name: Azure Management
-    href: azure-management.md
   expanded: true
+  items:
+    - name: Azure Management
+      href: azure-management.md
 - name: 구성 요소 및 서비스
-  items:
-  - name: 관리 그룹
-    items:
-    - name: 개요
-      href: management-groups/index.md
-    - name: 생성
-      href: management-groups/create.md
-    - name: 관리
-      href: management-groups/manage.md
-  - name: Resource Graph
-    href: resource-graph/overview.md
-  - name: 정책
-    href: policy/overview.md
-  - name: Blueprints
-    href: blueprints/overview.md
   expanded: true
+  items:
+    - name: 관리 그룹
+      items:
+        - name: 개요
+          href: management-groups/index.md
+        - name: 생성
+          href: management-groups/create.md
+        - name: 관리
+          href: management-groups/manage.md
+    - name: Resource Graph
+      href: resource-graph/overview.md
+    - name: 정책
+      href: policy/overview.md
+    - name: Blueprints
+      href: blueprints/overview.md
 - name: 구현
-  items:
-  - name: 엔터프라이즈 클라우드 채택
-    items:
-    - name: 클라우드 리소스 거버넌스란?
-      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-    - name: Azure에서 리소스 액세스 거버넌스
-      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-    - name: 단일 팀을 위한 거버넌스 디자인
-      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-    - name: 여러 팀을 위한 거버넌스 디자인
-      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-  - name: Azure Enterprise Scaffold
-    items:
-    - name: 규범적 구독 거버넌스
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-    - name: Azure Enterprise Scaffold 구현
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
   expanded: true
+  items:
+    - name: 엔터프라이즈 클라우드 채택
+      items:
+        - name: 클라우드 리소스 거버넌스란?
+          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+        - name: Azure에서 리소스 액세스 거버넌스
+          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+        - name: 단일 팀을 위한 거버넌스 디자인
+          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+        - name: 여러 팀을 위한 거버넌스 디자인
+          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+    - name: Azure Enterprise Scaffold
+      items:
+        - name: 규범적 구독 거버넌스
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+        - name: Azure Enterprise Scaffold 구현
+          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
 - name: 리소스
   items:
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: 사용자 음성
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: 거버넌스 비디오
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
-  - name: 거버넌스 YouTube 채널
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-ms.openlocfilehash: 1d6a62a682762060898d8599c5cee18929ef86e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673907"
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 사용자 음성
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+    - name: 거버넌스 비디오
+      href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
+    - name: 거버넌스 YouTube 채널
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

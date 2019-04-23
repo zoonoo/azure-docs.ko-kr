@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aff96931f95442c67d08521e72952dd79dad44e2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698318"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999878"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -204,7 +204,7 @@ OneDrive 컴퓨터별 모드로 설치 하는 방법을 다음과 같습니다.
 5. 컴퓨터별 모드로 OneDrive를 설치 하려면이 명령을 실행 합니다.
 
     ```batch
-    Run "[staged location]\OneDriveSetup.exe /allusers"
+    Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. 모든 사용자에 대 한 로그인을 시작 하는 OneDrive를 구성 하려면이 명령을 실행 합니다.
@@ -313,7 +313,7 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\S
 컬렉션에 대 한 피드백 허브 원격 분석 데이터를 Windows 10 Enterprise 다중 세션에서이 명령을 실행 합니다.
 
 ```batch
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
 ```
 

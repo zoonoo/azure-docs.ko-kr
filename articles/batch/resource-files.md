@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501093"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995628"
 ---
 # <a name="creating-and-using-resource-files"></a>만들기 및 리소스 파일 사용
 
@@ -72,7 +72,7 @@ SAS URL을 생성 하는 대신 컨테이너 및 Azure Blob storage에서 해당
 
 를 구성 하 고 SAS URL을 작성 하는 대신 blob 데이터에 액세스 하려면 Azure 저장소 컨테이너의 이름을 사용할 수 있습니다. 저장소 컨테이너 autostorage 계정과 알려진 Batch 계정에 연결 된 Azure storage 계정에 해야를 사용 합니다. Autostorage 계정의 저장소 컨테이너 이름을 사용 하 여 구성 하 고 저장소 컨테이너에 액세스 하려면 SAS URL 만들기를 건너뛸 수 있습니다.
 
-이 예제에서는 리소스 파일 만들기에 사용 되는 데이터에에서 이미 있다고 Batch 계정에 연결 된 Azure Storage 계정을 가정 합니다. Autostorage 계정이 없으면의 단계를 참조 [Batch 계정 만들기](/create-a-batch-account.md) 만들고 계정을 연결 하는 방법에 대 한 세부 정보에 대 한 합니다.
+이 예제에서는 리소스 파일 만들기에 사용 되는 데이터에에서 이미 있다고 Batch 계정에 연결 된 Azure Storage 계정을 가정 합니다. Autostorage 계정이 없으면의 단계를 참조 [Batch 계정 만들기](batch-account-create-portal.md) 만들고 계정을 연결 하는 방법에 대 한 세부 정보에 대 한 합니다.
 
 연결 된 저장소 계정을 사용 하 여 만들고 저장소 컨테이너 SAS URL을 구성할 필요가 없습니다. 대신, 연결 된 저장소 계정의 저장소 컨테이너의 이름을 제공 합니다.
 

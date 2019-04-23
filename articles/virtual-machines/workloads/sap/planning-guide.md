@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501334"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999538"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -1141,8 +1141,8 @@ Azure Portal에서는 이 작업을 수행할 수 없습니다. Azure PowerShell
 
 PS cmdlet 논리의 기본 흐름은 다음과 같습니다.
 
-* 저장소 계정 컨텍스트 만들기는 **소스** 사용 하 여 저장소 계정 *새로 만들기-AzStorageContext* -참조 <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
-* 저장소 계정 컨텍스트 만들기 합니다 **대상** 사용 하 여 저장소 계정 *새로 만들기-AzStorageContext* -참조 <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* 저장소 계정 컨텍스트 만들기는 **소스** 사용 하 여 저장소 계정 *새로 만들기-AzStorageContext* -참조 <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* 저장소 계정 컨텍스트 만들기 합니다 **대상** 사용 하 여 저장소 계정 *새로 만들기-AzStorageContext* -참조 <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * 복사 시작
 
 ```powershell

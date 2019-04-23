@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 4c4c03fffa5786bf3a50f4d2c03511f0a2de0f48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250954"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994950"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 토픽에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -29,6 +29,8 @@ ms.locfileid: "51250954"
 -   [기본 사용 인증](api-management-authentication-policies.md#Basic) - 기본 인증을 사용하여 백 엔드 서비스를 인증합니다.  
   
 -   [클라이언트 인증서 사용 인증](api-management-authentication-policies.md#ClientCertificate) - 클라이언트 인증서를 사용하여 백 엔드 서비스를 인증합니다.  
+
+-   [관리 되는 id를 사용 하 여 인증](api-management-authentication-policies.md#ManagedIdentity) -사용 하 여 인증 합니다 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) API Management 서비스에 대 한 합니다.  
   
 ##  <a name="Basic"></a> 기본 사용 인증  
  `authentication-basic` 정책을 사용하여 기본 인증을 사용하는 백 엔드 서비스를 인증합니다. 이 정책은 HTTP 권한 부여 헤더를 정책에서 제공한 자격 증명에 해당하는 값으로 효과적으로 설정합니다.  
@@ -47,21 +49,21 @@ ms.locfileid: "51250954"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|인증-기본|루트 요소입니다.|yes|  
+|인증-기본|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|Default|  
 |----------|-----------------|--------------|-------------|  
-|사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|yes|해당 없음|  
-|암호|기본 자격 증명의 비밀번호를 지정합니다.|yes|해당 없음|  
+|사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|N/A|  
+|password|기본 자격 증명의 비밀번호를 지정합니다.|예|N/A|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
--   **정책 섹션:** 인바운드  
+-   **정책 섹션:** inbound  
   
 -   **정책 범위:** API  
   
@@ -82,23 +84,58 @@ ms.locfileid: "51250954"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|인증-인증서|루트 요소입니다.|yes|  
+|인증-인증서|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|Default|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|클라이언트 인증서에 대한 지문입니다.|yes|해당 없음|  
+|thumbprint|클라이언트 인증서에 대한 지문입니다.|예|N/A|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
--   **정책 섹션:** 인바운드  
+-   **정책 섹션:** inbound  
   
 -   **정책 범위:** API  
+
+##  <a name="ManagedIdentity"></a> 관리 되는 id를 사용 하 여 인증  
+ 사용 된 `authentication-managed-identity` API Management 서비스의 관리 되는 id를 사용 하 여 백 엔드 서비스를 사용 하 여 인증 하는 정책입니다. 이 정책은 효과적으로 관리 되는 id를 사용 하 여 지정된 된 리소스에 액세스 하기 위한 Azure Active Directory에서 액세스 토큰을 가져오려고 합니다. 
   
+### <a name="policy-statement"></a>정책 문  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### <a name="example"></a>예  
+  
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" /> 
+```  
+  
+### <a name="elements"></a>요소  
+  
+|Name|설명|필수|  
+|----------|-----------------|--------------|  
+|authentication-managed-identity |루트 요소입니다.|예|  
+  
+### <a name="attributes"></a>특성  
+  
+|Name|설명|필수|Default|  
+|----------|-----------------|--------------|-------------|  
+|resource|문자열입니다. Azure Active Directory에서 대상 웹 API (보안된 리소스)의 앱 ID URI입니다.|예|N/A|  
+|output-token-variable-name|문자열입니다. 개체 형식으로 토큰 값을 받는 컨텍스트 변수의 이름을 `string`입니다.|아닙니다.|N/A|  
+|ignore-error|부울 값입니다. 경우 설정 `true`, 정책 파이프라인 계속 액세스 토큰을 가져오지 않은 경우에 실행 됩니다.|아닙니다.|false|  
+  
+### <a name="usage"></a>사용 현황  
+ 이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+  
+-   **정책 섹션:** inbound  
+  
+-   **정책 범위:** global, product, API, operation  
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.

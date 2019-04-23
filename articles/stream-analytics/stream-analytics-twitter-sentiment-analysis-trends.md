@@ -9,14 +9,17 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994939"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003703"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
+
+> [!IMPORTANT] 
+> Twitter 응용 프로그램 만들기를 통해 사용할 수 없게 되 [apps.twitter.com](https://apps.twitter.com/)합니다. 이 자습서는 새 Twitter API를 포함 하도록 업데이트 중입니다.
 
 실시간 Twitter 이벤트를 Azure Event Hubs로 가져와서 소셜 미디어 분석을 위한 감정 분석 솔루션을 구축하는 방법을 알아봅니다. 그런 다음 Azure Stream Analytics 쿼리를 작성하여 데이터를 분석하고 나중에 사용할 수 있도록 결과를 저장하거나 대시보드 및 [Power BI](https://powerbi.com/)를 사용하여 실시간으로 통찰력 있는 정보를 제공할 수 있습니다.
 
@@ -282,7 +285,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 |항목 | 지정된 키워드와 일치하는 항목|
 |SentimentScore | Sentiment140의 관심도|
 |작성자 | 트윗을 보낸 Twitter 핸들|
-|텍스트 | 트윗의 전체 본문|
+|Text | 트윗의 전체 본문|
 
 
 ## <a name="create-an-output-sink"></a>출력 싱크 만들기

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811293"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995543"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -384,12 +384,13 @@ public async Task Process(MessagePayload message)
 각 메시지는 자체 비동기 제어 흐름에서 처리되어야 합니다. 자세한 내용은 [나가는 종속성 추적](#outgoing-dependencies-tracking) 섹션을 참조하세요.
 
 ## <a name="long-running-background-tasks"></a>장기 실행 백그라운드 작업 실행 
+
 일부 애플리케이션은 사용자 요청으로 인해 발생할 수 있는 장기 실행 작업을 시작합니다. 추적/계측 관점에서 이는 요청이나 종속성 계측과 다르지 않습니다. 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -414,9 +415,9 @@ async Task BackgroundTask()
 }
 ```
 
-이 예제에서 `telemetryClient.StartOperation`은 `RequestTelemetry`를 만들고 상관 컨텍스트를 채웁니다. 작업을 예약한 들어오는 요청으로 만들어진 부모 작업이 있다고 가정해 보겠습니다. 들어오는 요청과 동일한 비동기 제어 흐름에서 `BackgroundTask`가 시작되는 한 해당 부모 작업과 상관 관계가 지정됩니다. `BackgroundTask` 및 모든 중첩된 원격 분석 항목은 요청이 종료된 후에도 원인이 된 요청과의 상관 관계가 자동으로 지정됩니다.
+이 예제에서 `telemetryClient.StartOperation`은 `DependencyTelemetry`를 만들고 상관 컨텍스트를 채웁니다. 작업을 예약한 들어오는 요청으로 만들어진 부모 작업이 있다고 가정해 보겠습니다. 들어오는 요청과 동일한 비동기 제어 흐름에서 `BackgroundTask`가 시작되는 한 해당 부모 작업과 상관 관계가 지정됩니다. `BackgroundTask` 및 모든 중첩된 원격 분석 항목은 요청이 종료된 후에도 원인이 된 요청과의 상관 관계가 자동으로 지정됩니다.
 
-연결된 작업(`Activity`)이 없는 백그라운드 스레드에서 작업이 시작되면 `BackgroundTask`에는 부모가 없습니다. 그러나 중첩된 작업이 있을 수 있습니다. 이 작업에서 보고되는 모든 원격 분석 항목과 `BackgroundTask`에서 만들어진 `RequestTelemetry` 사이의 상관 관계가 지정됩니다.
+연결된 작업(`Activity`)이 없는 백그라운드 스레드에서 작업이 시작되면 `BackgroundTask`에는 부모가 없습니다. 그러나 중첩된 작업이 있을 수 있습니다. 이 작업에서 보고되는 모든 원격 분석 항목과 `BackgroundTask`에서 만들어진 `DependencyTelemetry` 사이의 상관 관계가 지정됩니다.
 
 ## <a name="outgoing-dependencies-tracking"></a>나가는 종속성 추적
 사용자 고유의 종속성 종류 또는 Application Insights에서 지원하지 않는 작업을 추적할 수 있습니다.

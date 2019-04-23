@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7fa903f65a6c7d244ff424eae4a0def258b50bbc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278771"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994710"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -62,7 +62,7 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 단일 영역에서 확장 집합을 만들 경우 해당 VM 인스턴스가 모두 실행되는 영역을 제어하고 해당 영역 내에서만 확장 집합을 관리하고 확장 집합의 크기를 자동 조정합니다. 영역 중복 확장 집합을 사용하여 여러 영역에 걸쳐 있는 단일 확장 집합을 만들 수 있습니다. VM 인스턴스를 만들 때 기본적으로 영역에 균등하게 배포됩니다. 영역 중 하나가 중단되어야 확장 집합이 용량이 증가하도록 자동으로 확장되지 않습니다. 가장 좋은 방법은 CPU 또는 메모리 사용량을 기반으로 자동 크기 조정 규칙을 구성하는 것입니다. 확장 집합은 자동 크기 조정 규칙을 통해 다른 작업 영역에서 새 인스턴스를 확장하여 한 영역의 VM 인스턴스 손실에 대응할 수 있습니다.
 
-가용성 영역을 사용하려면 [지원되는 Azure 지역](../availability-zones/az-overview.md#regions-that-support-availability-zones)에 확장 집합을 만들어야 합니다. 다음 방법 중 하나를 사용하여 가용성 영역을 사용하는 확장 집합을 만들 수 있습니다.
+가용성 영역을 사용하려면 [지원되는 Azure 지역](../availability-zones/az-overview.md#services-support-by-region)에 확장 집합을 만들어야 합니다. 다음 방법 중 하나를 사용하여 가용성 영역을 사용하는 확장 집합을 만들 수 있습니다.
 
 - [Azure Portal](#use-the-azure-portal)
 - Azure CLI

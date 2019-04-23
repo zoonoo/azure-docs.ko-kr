@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492203"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004434"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
@@ -495,8 +495,8 @@ ms.locfileid: "59492203"
 |:--- |:--- |:--- |
 | condition | 아닙니다. | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. 참조 [조건을](#condition)합니다. |
 | apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. |
-| 형식 |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. |
-| 이름 |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. |
+| 형식 |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). 사용 가능한 값을 확인 하려면 참조 [템플릿 참조](/azure/templates/)합니다. 자식 리소스에 대 한 형식의 형식을 부모 리소스 내에 중첩 된 부모 리소스 외부 정의 했거나이 있는지 여부에 따라 달라 집니다. 참조 [자식 리소스](#child-resources)합니다. |
+| 이름 |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. 자식 리소스에 대 한 이름 형식은 부모 리소스 내에 중첩 된 부모 리소스 외부 정의 했거나이 있는지 여부에 따라 달라 집니다. 참조 [자식 리소스](#child-resources)합니다. |
 | location |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. |
 | tags |아닙니다. |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
 | 설명 |아닙니다. |템플릿에서 리소스를 문서화하는 내용에 대한 참고입니다. 자세한 내용은 [템플릿의 주석](resource-group-authoring-templates.md#comments)을 참조하세요. |
@@ -506,11 +506,11 @@ ms.locfileid: "59492203"
 | sku | 아닙니다. | 일부 리소스에서는 SKU를 정의하는 값을 허용합니다. 예를 들어 저장소 계정에 대한 중복 유형을 지정할 수 있습니다. |
 | kind | 아닙니다. | 일부 리소스에서는 배포하는 리소스 종류를 정의하는 값을 허용합니다. 예를 들어 만들 Cosmos DB 종류를 지정할 수 있습니다. |
 | 계획 | 아닙니다. | 일부 리소스에서는 배포할 계획을 정의하는 값을 허용합니다. 예를 들어 가상 머신에 대한 마켓플레이스 이미지를 지정할 수 있습니다. | 
-| 리소스 |아닙니다. |정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 유형만 제공합니다. 자식 리소스의 정규화된 유형에는 부모 리소스 유형이 포함됩니다(예: **Microsoft.Web/sites/extensions**). 부모 리소스에 대한 종속성은 암시되지 않습니다. 해당 종속성을 명시적으로 정의해야 합니다. |
+| 리소스 |아닙니다. |정의 중인 리소스에 종속되는 하위 리소스입니다. 부모 리소스의 스키마에서 허용되는 리소스 유형만 제공합니다. 부모 리소스에 대한 종속성은 암시되지 않습니다. 해당 종속성을 명시적으로 정의해야 합니다. 참조 [자식 리소스](#child-resources)합니다. |
 
 ### <a name="condition"></a>조건
 
-배포 중 리소스를 만들지 여부를 결정해야 하는 경우, `condition` 요소를 사용합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
+사용 하 여 리소스를 만들지 여부를 배포 하는 동안 결정 해야 할, 경우를 `condition` 요소입니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 값은 전체 리소스에만 적용할 수 있습니다.
 
 일반적으로 새 리소스를 만들거나 기존 리소스를 사용하려는 경우 이 값을 사용합니다. 예를 들어 새 저장소 계정 배포 여부 또는 기존 저장소 계정 사용 여부를 지정하려면 다음을 사용합니다.
 
@@ -652,45 +652,57 @@ ms.locfileid: "59492203"
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-중첩된 경우 형식은 `databases`로 설정되지만 전체 리소스 형식은 `Microsoft.Sql/servers/databases`입니다. `Microsoft.Sql/servers/`는 부모 리소스 종류에서 유추되므로 입력하지 않습니다. 자식 리소스 이름은 `exampledatabase`로 설정되지만 전체 이름에는 부모 이름이 포함됩니다. `exampleserver`는 부모 리소스에서 유추되므로 입력하지 않습니다.
-
-자식 리소스 유형의 형식은 다음과 같습니다. `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-자식 리소스 이름의 형식은 다음과 같습니다. `{parent-resource-name}/{child-resource-name}`
-
 그러나 서버 내에서 데이터베이스를 정의할 필요는 없습니다. 최상위 수준에 자식 리소스를 정의할 수 있습니다. 부모 리소스가 동일한 템플릿에서 배포되지 않는 경우 또는 `copy`를 사용하여 둘 이상의 자식 리소스를 만들려는 경우, 이 방법을 사용할 수 있습니다. 이 방법을 사용하는 경우 전체 리소스 유형을 입력하고 자식 리소스 이름에 부모 리소스 이름을 포함해야 합니다.
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+형식 및 이름에 대해 제공한 값을 자식 리소스가 부모 리소스 내에서 또는 부모 리소스 외부에서 정의 되었는지 여부에 따라 다릅니다.
+
+부모 리소스에서 중첩 된 경우 사용 합니다.
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+부모 리소스 외부에서 정의 하는 경우 사용 합니다.
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+중첩 형식으로 설정 됩니다 `databases` 전체 리소스 형식은 여전히 이지만 `Microsoft.Sql/servers/databases`합니다. `Microsoft.Sql/servers/`는 부모 리소스 종류에서 유추되므로 입력하지 않습니다. 자식 리소스 이름은 `exampledatabase`로 설정되지만 전체 이름에는 부모 이름이 포함됩니다. `exampleserver`는 부모 리소스에서 유추되므로 입력하지 않습니다.
 
 리소스에 대한 정규화된 참조를 생성할 때 형식과 이름의 세그먼트를 결합하는 순서는 단순히 두 세그먼트의 연결이 아닙니다. 대신, 네임스페이스 뒤에 구체성이 낮은 순으로 *형식/이름* 쌍의 시퀀스를 사용합니다.
 
@@ -724,7 +736,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 |:--- |:--- |:--- |
 | outputName |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | condition |아닙니다. | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
-| 형식 |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. |
+| 형식 |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 지정 하는 경우 **securestring** 출력 형식에 대 한 값 배포 기록에서 표시 되지 않으면 및 다른 서식 파일에서 검색할 수 없습니다. 둘 이상의 템플릿에서 비밀 값을 사용 하려면 Key Vault에 비밀을 저장 하 고 매개 변수 파일에서 비밀을 참조할 합니다. 자세한 내용은 [배포 동안 보안 매개 변수 값을 전달 하기 위해 사용 하 여 Azure Key Vault](resource-manager-keyvault-parameter.md)합니다. |
 | 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
 
 ### <a name="define-and-use-output-values"></a>출력 값 정의 및 사용

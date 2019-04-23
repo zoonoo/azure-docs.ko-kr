@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
 ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188716"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 애플리케이션 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 애플리케이션 배포를 Traffic Manager에서 '엔드포인트'로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 엔드포인트를 선택합니다. Traffic Manager는 현재 엔드포인트 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)을 참조하세요.

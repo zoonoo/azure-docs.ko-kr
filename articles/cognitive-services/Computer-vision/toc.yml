@@ -1,208 +1,201 @@
-items:
 - name: Computer Vision API 설명서
   href: index.yml
 - name: 개요
-  items:
-  - name: Computer Vision이란?
-    href: Home.md
   expanded: true
+  items:
+    - name: Computer Vision이란?
+      href: Home.md
 - name: 빠른 시작
   items:
-  - name: REST API 사용
-    items:
-    - name: 원격 이미지 분석
+    - name: REST API 사용
       items:
-      - name: cURL
-        href: QuickStarts/curl-analyze.md
-      - name: Go
-        href: QuickStarts/go-analyze.md
-      - name: 자바
-        href: QuickStarts/java-analyze.md
-      - name: JavaScript
-        href: QuickStarts/javascript-analyze.md
-      - name: Node.js
-        href: QuickStarts/node-analyze.md
-      - name: PHP
-        href: QuickStarts/php-analyze.md
-      - name: Python
-        href: QuickStarts/python-analyze.md
-      - name: Ruby
-        href: QuickStarts/ruby-analyze.md
-    - name: 로컬 이미지 분석
+        - name: 원격 이미지 분석
+          items:
+            - name: cURL
+              href: QuickStarts/curl-analyze.md
+            - name: Go
+              href: QuickStarts/go-analyze.md
+            - name: 자바
+              href: QuickStarts/java-analyze.md
+            - name: JavaScript
+              href: QuickStarts/javascript-analyze.md
+            - name: Node.js
+              href: QuickStarts/node-analyze.md
+            - name: PHP
+              href: QuickStarts/php-analyze.md
+            - name: Python
+              href: QuickStarts/python-analyze.md
+            - name: Ruby
+              href: QuickStarts/ruby-analyze.md
+        - name: 로컬 이미지 분석
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-analyze.md
+            - name: Python
+              href: QuickStarts/python-disk.md
+        - name: 썸네일 생성
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-thumb.md
+            - name: cURL
+              href: QuickStarts/curl-thumb.md
+            - name: Go
+              href: QuickStarts/go-thumb.md
+            - name: 자바
+              href: QuickStarts/java-thumb.md
+            - name: JavaScript
+              href: QuickStarts/javascript-thumb.md
+            - name: Node.js
+              href: QuickStarts/node-thumb.md
+            - name: PHP
+              href: QuickStarts/php-thumb.md
+            - name: Python
+              href: QuickStarts/python-thumb.md
+            - name: Ruby
+              href: QuickStarts/ruby-thumb.md
+        - name: 인쇄된 텍스트 추출
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-print-text.md
+            - name: cURL
+              href: QuickStarts/curl-print-text.md
+            - name: Go
+              href: QuickStarts/go-print-text.md
+            - name: 자바
+              href: QuickStarts/java-print-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-print-text.md
+            - name: Node.js
+              href: QuickStarts/node-print-text.md
+            - name: PHP
+              href: QuickStarts/php-print-text.md
+            - name: Python
+              href: QuickStarts/python-print-text.md
+            - name: Ruby
+              href: QuickStarts/ruby-print-text.md
+        - name: 필기 텍스트 추출
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: 자바
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: 도메인 모델 사용
+          items:
+            - name: PHP
+              href: QuickStarts/php-domain.md
+            - name: Python
+              href: QuickStarts/python-domain.md
+    - name: .NET SDK 사용
       items:
-      - name: C#
-        href: QuickStarts/CSharp-analyze.md
-      - name: Python
-        href: QuickStarts/python-disk.md
-    - name: 썸네일 생성
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-thumb.md
-      - name: cURL
-        href: QuickStarts/curl-thumb.md
-      - name: Go
-        href: QuickStarts/go-thumb.md
-      - name: 자바
-        href: QuickStarts/java-thumb.md
-      - name: JavaScript
-        href: QuickStarts/javascript-thumb.md
-      - name: Node.js
-        href: QuickStarts/node-thumb.md
-      - name: PHP
-        href: QuickStarts/php-thumb.md
-      - name: Python
-        href: QuickStarts/python-thumb.md
-      - name: Ruby
-        href: QuickStarts/ruby-thumb.md
-    - name: 인쇄된 텍스트 추출
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-print-text.md
-      - name: cURL
-        href: QuickStarts/curl-print-text.md
-      - name: Go
-        href: QuickStarts/go-print-text.md
-      - name: 자바
-        href: QuickStarts/java-print-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-print-text.md
-      - name: Node.js
-        href: QuickStarts/node-print-text.md
-      - name: PHP
-        href: QuickStarts/php-print-text.md
-      - name: Python
-        href: QuickStarts/python-print-text.md
-      - name: Ruby
-        href: QuickStarts/ruby-print-text.md
-    - name: 필기 텍스트 추출
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-hand-text.md
-      - name: 자바
-        href: QuickStarts/java-hand-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-hand-text.md
-      - name: Python
-        href: QuickStarts/python-hand-text.md
-    - name: 도메인 모델 사용
-      items:
-      - name: PHP
-        href: QuickStarts/php-domain.md
-      - name: Python
-        href: QuickStarts/python-domain.md
-  - name: .NET SDK 사용
-    items:
-    - name: 이미지 분석
-      href: quickstarts-sdk/csharp-analyze-sdk.md
-    - name: 썸네일 생성
-      href: quickstarts-sdk/csharp-thumb-sdk.md
-    - name: 텍스트 추출
-      href: quickstarts-sdk/csharp-hand-text-sdk.md
-  - name: Python SDK 사용
-    href: quickstarts-sdk/python-sdk.md
+        - name: 이미지 분석
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: 썸네일 생성
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: 텍스트 추출
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
+    - name: Python SDK 사용
+      href: quickstarts-sdk/python-sdk.md
 - name: 자습서
   items:
-  - name: 이미지에 대한 메타데이터 생성
-    href: Tutorials/storage-lab-tutorial.md
+    - name: 이미지에 대한 메타데이터 생성
+      href: Tutorials/storage-lab-tutorial.md
 - name: 개념
   items:
-  - name: 이미지에 태그 지정
-    href: concept-tagging-images.md
-  - name: 개체 검색
-    href: concept-object-detection.md
-  - name: 브랜드 검색
-    href: concept-brand-detection.md
-  - name: 이미지 분류
-    href: concept-categorizing-images.md
-  - name: 이미지 설명
-    href: concept-describing-images.md
-  - name: 얼굴 감지
-    href: concept-detecting-faces.md
-  - name: 이미지 형식 검색
-    href: concept-detecting-image-types.md
-  - name: 도메인 특정 콘텐츠 검색
-    href: concept-detecting-domain-content.md
-  - name: 색 구성표 검색
-    href: concept-detecting-color-schemes.md
-  - name: 썸네일 생성
-    href: concept-generating-thumbnails.md
-  - name: 인쇄되고 필기된 텍스트 인식
-    href: concept-recognizing-text.md
-  - name: 성인 및 외설 콘텐츠 검색
-    href: concept-detecting-adult-content.md
+    - name: 이미지에 태그 지정
+      href: concept-tagging-images.md
+    - name: 개체 검색
+      href: concept-object-detection.md
+    - name: 브랜드 검색
+      href: concept-brand-detection.md
+    - name: 이미지 분류
+      href: concept-categorizing-images.md
+    - name: 이미지 설명
+      href: concept-describing-images.md
+    - name: 얼굴 감지
+      href: concept-detecting-faces.md
+    - name: 이미지 형식 검색
+      href: concept-detecting-image-types.md
+    - name: 도메인 특정 콘텐츠 검색
+      href: concept-detecting-domain-content.md
+    - name: 색 구성표 검색
+      href: concept-detecting-color-schemes.md
+    - name: 썸네일 생성
+      href: concept-generating-thumbnails.md
+    - name: 인쇄되고 필기된 텍스트 인식
+      href: concept-recognizing-text.md
+    - name: 성인 및 외설 콘텐츠 검색
+      href: concept-detecting-adult-content.md
 - name: 방법 가이드
   items:
-  - name: Computer Vision 사용
-    items:
-    - name: 자바
-      href: Tutorials/java-tutorial.md
-    - name: JavaScript
-      href: Tutorials/javascript-tutorial.md
-    - name: Python
-      href: Tutorials/PythonTutorial.md
-  - name: 구독 키 얻기
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
-  - name: Computer Vision API 호출
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: 컨테이너 사용
-    items:
-    - name: 컨테이너 설치 및 실행
-      href: computer-vision-how-to-install-containers.md
-    - name: 컨테이너 구성
-      href: computer-vision-resource-container-config.md
-  - name: Computer Vision 연결 서비스 사용
-    href: vs-computer-vision-connected-service.md
-  - name: 실시간 비디오 분석
-    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+    - name: Computer Vision 사용
+      items:
+        - name: 자바
+          href: Tutorials/java-tutorial.md
+        - name: JavaScript
+          href: Tutorials/javascript-tutorial.md
+        - name: Python
+          href: Tutorials/PythonTutorial.md
+    - name: Computer Vision API 호출
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+    - name: 컨테이너 사용
+      items:
+        - name: 컨테이너 설치 및 실행
+          href: computer-vision-how-to-install-containers.md
+        - name: 컨테이너 구성
+          href: computer-vision-resource-container-config.md
+    - name: Computer Vision 연결 서비스 사용
+      href: vs-computer-vision-connected-service.md
+    - name: 실시간 비디오 분석
+      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: 참고 자료
   items:
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Azure PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Computer Vision API v2.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
-  - name: Computer Vision API v1.0
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
-  - name: SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
-    - name: Android(Java)
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
-    - name: Swift
-      href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Azure PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Computer Vision API v2.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44'
+    - name: Computer Vision API v1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision'
+        - name: Android(Java)
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
+        - name: Swift
+          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
 - name: 리소스
   items:
-  - name: 샘플
-    items:
-    - name: 이미지 처리 앱 검색
-      href: Tutorials/CSharpTutorial.md
-    - name: 기타 Computer Vision 예제
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: FAQ
-    href: FAQ.md
-  - name: 가격 책정 및 제한
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-  - name: 범주 분류
-    href: Category-Taxonomy.md
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: 국가별 가용성
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 2fc31b518155f49cd17b86780e6accbacc2ba354
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192312"
+    - name: 샘플
+      items:
+        - name: 이미지 처리 앱 검색
+          href: Tutorials/CSharpTutorial.md
+        - name: 기타 Computer Vision 예제
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: FAQ
+      href: FAQ.md
+    - name: 범주 분류
+      href: Category-Taxonomy.md
+    - name: 언어 지원
+      href: language-support.md
+    - name: 가격 책정 및 제한
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

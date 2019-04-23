@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554205"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012504"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 
@@ -22,10 +22,11 @@ ms.locfileid: "57554205"
 | (임의 작업) Azure Automation 계정당 30 초 마다 전송할 수 있는 새 작업의 최대 수 |100 |이 한도 도달 하면 작업을 만드는 후속 요청이 실패 합니다. 클라이언트는 오류 응답을 받습니다.|
 | 최대 시간 (임의 작업) Automation 계정당 동일한 인스턴스에서 실행 되는 동시 작업 수 |200 |이 한도 도달 하면 작업을 만드는 후속 요청이 실패 합니다. 클라이언트는 오류 응답을 받습니다.|
 | 30 일 롤링 기간에 대 한 메타 데이터 작업의 최대 저장소 크기 | 10GB (약 4 백만 작업)|이 한도 도달 하면 작업을 만드는 후속 요청이 실패 합니다. |
+| 최대 작업 스트림 제한|1MB|단일 스트림을 1MB 보다 클 수 없습니다.|
 | Automation 계정당 30 초 마다 가져올 수 있는 모듈의 최대 수 |5 ||
 | 모듈의 최대 크기 |100 MB ||
 | 작업 실행 시간, 무료 계층 |월별 구독당 500분 ||
-| 샌드박스 당 허용 되는 디스크 공간의 최대 크기<sup>1</sup> |1GB |Azure 샌드박스에 적용 됩니다.|
+| 샌드박스 당 허용 되는 디스크 공간의 최대 크기<sup>1</sup> |1 GB |Azure 샌드박스에 적용 됩니다.|
 | 샌드박스를 제공 하는 메모리의 최대 크기<sup>1</sup> |400 MB |Azure 샌드박스에 적용 됩니다.|
 | 최대 샌드박스 당 허용 되는 네트워크 소켓<sup>1</sup> |1,000 |Azure 샌드박스에 적용 됩니다.|
 | Runbook 당 허용 된 최대 런타임<sup>1</sup> |3시간 |Azure 샌드박스에 적용 됩니다.|
@@ -43,7 +44,7 @@ ms.locfileid: "57554205"
 
 다음 표에서 변경 내용 추적에 대 한 컴퓨터당 추적된 항목 제한 합니다.
 
-| **Resource** | **제한**| **참고** |
+| **리소스** | **제한**| **참고 사항** |
 |---|---|---|
 |파일|500||
 |레지스트리|250||

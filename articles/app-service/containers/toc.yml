@@ -1,236 +1,229 @@
-items:
 - name: Linux의 App Service 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Web Apps 정보
-    href: ../overview.md
-  - name: Linux의 App Service 정보
-    href: app-service-linux-intro.md
-  - name: 호스팅 옵션 비교
-    href: ../overview-compare.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Web Apps 정보
+      href: ../overview.md
+    - name: Linux의 App Service 정보
+      href: app-service-linux-intro.md
+    - name: 호스팅 옵션 비교
+      href: ../overview-compare.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: 빠른 시작
-  items:
-  - name: .NET Core 앱 만들기
-    href: quickstart-dotnetcore.md
-  - name: PHP 앱 만들기
-    href: quickstart-php.md
-  - name: Node.js 앱 만들기
-    href: quickstart-nodejs.md
-  - name: Java 앱 만들기
-    href: quickstart-java.md
-  - name: Python 앱 만들기
-    href: quickstart-python.md
-  - name: Ruby 앱 만들기
-    href: quickstart-ruby.md
-  - name: 사용자 지정 컨테이너 실행
-    href: quickstart-docker-go.md
-  - name: 다중 컨테이너 앱 만들기
-    href: quickstart-multi-container.md
   expanded: true
+  items:
+    - name: .NET Core 앱 만들기
+      href: quickstart-dotnetcore.md
+    - name: PHP 앱 만들기
+      href: quickstart-php.md
+    - name: Node.js 앱 만들기
+      href: quickstart-nodejs.md
+    - name: Java 앱 만들기
+      href: quickstart-java.md
+    - name: Python 앱 만들기
+      href: quickstart-python.md
+    - name: Ruby 앱 만들기
+      href: quickstart-ruby.md
+    - name: 사용자 지정 컨테이너 실행
+      href: quickstart-docker-go.md
+    - name: 다중 컨테이너 앱 만들기
+      href: quickstart-multi-container.md
 - name: 자습서
   items:
-  - name: DB를 사용한 앱
-    items:
-    - name: SQL DB를 사용한 .NET Core
-      href: tutorial-dotnetcore-sqldb-app.md
-    - name: Postgres를 사용하는 Ruby
-      href: tutorial-ruby-postgres-app.md
-    - name: MySQL을 사용하는 PHP
-      href: tutorial-php-mysql-app.md
-    - name: MongoDB를 사용하는 Node.js
-      href: tutorial-nodejs-mongodb-app.md
-    - name: Postgres를 사용하는 Python
-      href: tutorial-python-postgresql-app.md
-    - name: Spring 데이터를 사용하는 Java
-      href: tutorial-java-spring-cosmosdb.md
-    - name: Postgres를 사용하는 Java Enterprise
-      href: tutorial-java-enterprise-postgresql-app.md
-  - name: 다중 컨테이너 앱
-    href: tutorial-multi-container-app.md
-  - name: ACR에서 컨테이너 실행
-    href: tutorial-custom-docker-image.md
-  - name: 사용자 지정 도메인 매핑
-    href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: SSL 인증서 바인딩
-    href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: CDN 추가
-    href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 사용자 인증
-    href: tutorial-auth-aad.md
+    - name: DB를 사용한 앱
+      items:
+        - name: SQL DB를 사용한 .NET Core
+          href: tutorial-dotnetcore-sqldb-app.md
+        - name: Postgres를 사용하는 Ruby
+          href: tutorial-ruby-postgres-app.md
+        - name: MySQL을 사용하는 PHP
+          href: tutorial-php-mysql-app.md
+        - name: MongoDB를 사용하는 Node.js
+          href: tutorial-nodejs-mongodb-app.md
+        - name: Postgres를 사용하는 Python
+          href: tutorial-python-postgresql-app.md
+        - name: Spring 데이터를 사용하는 Java
+          href: tutorial-java-spring-cosmosdb.md
+        - name: Postgres를 사용하는 Java Enterprise
+          href: tutorial-java-enterprise-postgresql-app.md
+    - name: 다중 컨테이너 앱
+      href: tutorial-multi-container-app.md
+    - name: ACR에서 컨테이너 실행
+      href: tutorial-custom-docker-image.md
+    - name: 사용자 지정 도메인 매핑
+      href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: SSL 인증서 바인딩
+      href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: CDN 추가
+      href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 사용자 인증
+      href: tutorial-auth-aad.md
 - name: 샘플
   items:
-  - name: Azure CLI
-    href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: Azure PowerShell
-    href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure CLI
+      href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Azure PowerShell
+      href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: 개념
   items:
-  - name: App Service 작동 방법
-    href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: App Service 계획
-    href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: App Service 환경
-    href: ../environment/intro.md
-  - name: 인바운드 및 아웃바운드 IP
-    href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 인증 및 권한 부여
-    href: ../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 배포 형식 선택
-    href: choose-deployment-type.md
-  - name: 진단
-    href: ../overview-diagnostics.md
+    - name: App Service 작동 방법
+      href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: App Service 계획
+      href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: App Service 환경
+      href: ../environment/intro.md
+    - name: 인바운드 및 아웃바운드 IP
+      href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 인증 및 권한 부여
+      href: ../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 배포 형식 선택
+      href: choose-deployment-type.md
+    - name: 진단
+      href: ../overview-diagnostics.md
 - name: 방법 가이드
   items:
-  - name: 앱 구성
-    items:
-    - name: 앱 설정 사용
-      href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: ASP.NET Core 구성
-      href: configure-language-dotnetcore.md
-    - name: Node.js 구성
-      href: configure-language-nodejs.md
-    - name: PHP 구성
-      href: configure-language-php.md
-    - name: Java 구성
-      href: configure-language-java.md
-    - name: Python 구성
-      href: how-to-configure-python.md
-    - name: Ruby 구성
-      href: configure-language-ruby.md
-    - name: 사용자 지정 컨테이너 구성
-      href: configure-custom-container.md
-    - name: Storage에서 콘텐츠 제공
-      href: how-to-serve-content-from-azure-storage.md
-  - name: Deploy to Azure
-    items:
-    - name: 앱 배포
+    - name: 앱 구성
       items:
-      - name: FTP를 통해 배포
-        href: ../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: 클라우드 동기화를 통해 배포
-        href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: 연속 배포
-        href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: 로컬 Git에서 배포
-        href: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: 템플릿을 사용하여 배포
-        href: ../deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: Maven이 있는 Java SE
-        href: https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 배포 자격 증명 설정
-      href: ../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 스테이징 환경 만들기
-      href: ../deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 사용자 지정 도메인 매핑
-    items:
-    - name: 도메인 구입
-      href: ../manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Traffic Manager로 도메인 매핑
-      href: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 활성 도메인 마이그레이션
-      href: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 앱 보안
-    items:
-    - name: SSL 인증서 구입
-      href: ../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 사용자 인증
+        - name: 앱 설정 사용
+          href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: ASP.NET Core 구성
+          href: configure-language-dotnetcore.md
+        - name: Node.js 구성
+          href: configure-language-nodejs.md
+        - name: PHP 구성
+          href: configure-language-php.md
+        - name: Java 구성
+          href: configure-language-java.md
+        - name: Python 구성
+          href: how-to-configure-python.md
+        - name: Ruby 구성
+          href: configure-language-ruby.md
+        - name: 사용자 지정 컨테이너 구성
+          href: configure-custom-container.md
+        - name: Storage에서 콘텐츠 제공
+          href: how-to-serve-content-from-azure-storage.md
+    - name: Deploy to Azure
       items:
-      - name: Azure AD를 사용하여 인증
-        href: ../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: Facebook을 사용하여 인증
-        href: ../configure-authentication-provider-facebook.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: Google을 사용하여 인증
-        href: ../configure-authentication-provider-google.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: Microsoft 계정을 사용하여 인증
-        href: ../configure-authentication-provider-microsoft.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: Twitter를 사용하여 인증
-        href: ../configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 고급 인증
-      href: ../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: TLS 상호 인증 구성
-      href: ../app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 앱 크기 조정
-    items:
-    - name: 서버 용량 강화
-      href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 여러 인스턴스로 규모 확장
-      href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 고밀도 호스팅
-      href: ../manage-scale-per-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 앱 모니터링
-    items:
-    - name: SSH를 통해 앱에 연결
-      href: app-service-linux-ssh-support.md
-    - name: 할당량 및 경고
-      href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 로그 사용 설정
-      href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 앱 관리
-    items:
-    - name: 앱 백업
-      href: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 백업 복원
-      href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 앱 복제
-      href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 리소스 이동
-      href: ../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations
+        - name: 앱 배포
+          items:
+            - name: FTP를 통해 배포
+              href: ../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: 클라우드 동기화를 통해 배포
+              href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: 연속 배포
+              href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: 로컬 Git에서 배포
+              href: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: 템플릿을 사용하여 배포
+              href: ../deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Maven이 있는 Java SE
+              href: 'https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json'
+        - name: 배포 자격 증명 설정
+          href: ../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 스테이징 환경 만들기
+          href: ../deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 사용자 지정 도메인 매핑
+      items:
+        - name: 도메인 구입
+          href: ../manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Traffic Manager로 도메인 매핑
+          href: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 활성 도메인 마이그레이션
+          href: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 앱 보안
+      items:
+        - name: SSL 인증서 구입
+          href: ../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 사용자 인증
+          items:
+            - name: Azure AD를 사용하여 인증
+              href: ../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Facebook을 사용하여 인증
+              href: ../configure-authentication-provider-facebook.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Google을 사용하여 인증
+              href: ../configure-authentication-provider-google.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Microsoft 계정을 사용하여 인증
+              href: ../configure-authentication-provider-microsoft.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Twitter를 사용하여 인증
+              href: ../configure-authentication-provider-twitter.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 고급 인증
+          href: ../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: TLS 상호 인증 구성
+          href: ../app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 앱 크기 조정
+      items:
+        - name: 서버 용량 강화
+          href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 여러 인스턴스로 규모 확장
+          href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 고밀도 호스팅
+          href: ../manage-scale-per-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 앱 모니터링
+      items:
+        - name: SSH를 통해 앱에 연결
+          href: app-service-linux-ssh-support.md
+        - name: 할당량 및 경고
+          href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 로그 사용 설정
+          href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 앱 관리
+      items:
+        - name: 앱 백업
+          href: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 백업 복원
+          href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 앱 복제
+          href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 리소스 이동
+          href: '../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations'
 - name: 참고 자료
   items:
-  - name: Azure CLI
-    href: /cli/azure/appservice
-  - name: Azure PowerShell
-    href: /powershell
-  - name: REST API
-    href: /rest/api/appservice/
+    - name: Azure CLI
+      href: /cli/azure/appservice
+    - name: Azure PowerShell
+      href: /powershell
+    - name: REST API
+      href: /rest/api/appservice/
 - name: 리소스
   items:
-  - name: Linux의 App Service FAQ
-    href: app-service-linux-faq.md
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: 할당량 정보
-    href: ../../azure-subscription-service-limits.md#app-service-limits
-  - name: 서비스 업데이트
-    href: https://azure.microsoft.com/updates/?product=app-service
-  - name: 모범 사례
-    href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: 샘플
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: 동영상
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-  - name: 쿡북
-    items:
-    - name: 참조 아키텍처
-      href: /azure/architecture/reference-architectures/app-service-web-app/
-    - name: 배포 스크립트
-      href: https://azure.microsoft.com/documentation/scripts/
-  - name: 문제 해결
-    items:
-    - name: Visual Studio를 사용하여 문제 해결
-      href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Node.js 앱 문제 해결
-      href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: HTTP 502/503 문제 해결
-      href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: 성능 문제 해결
-      href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: FAQ
+    - name: Linux의 App Service FAQ
+      href: app-service-linux-faq.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: 할당량 정보
+      href: '../../azure-subscription-service-limits.md#app-service-limits'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: 모범 사례
+      href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+    - name: 쿡북
       items:
-      - name: 가용성, 성능 및 애플리케이션 FAQ
-        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: 배포 FAQ
-        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: 오픈 소스 기술 FAQ
-        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-      - name: 구성 및 관리 FAQ
-        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-ms.openlocfilehash: 250501832c3daaeee9935c2796e6da9df3483e35
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544875"
+        - name: 참조 아키텍처
+          href: /azure/architecture/reference-architectures/app-service-web-app/
+        - name: 배포 스크립트
+          href: 'https://azure.microsoft.com/documentation/scripts/'
+    - name: 문제 해결
+      items:
+        - name: Visual Studio를 사용하여 문제 해결
+          href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Node.js 앱 문제 해결
+          href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: HTTP 502/503 문제 해결
+          href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: 성능 문제 해결
+          href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: FAQ
+          items:
+            - name: '가용성, 성능 및 애플리케이션 FAQ'
+              href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: 배포 FAQ
+              href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: 오픈 소스 기술 FAQ
+              href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: 구성 및 관리 FAQ
+              href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json

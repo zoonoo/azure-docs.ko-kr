@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792220"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007885"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 
@@ -43,7 +43,7 @@ IoT 서비스 경고 및 증명 정보에 대 한 azure Security Center (ASC) Io
 데이터 스토리지에 대한 Log Analytics 작업 영역을 찾으려면 다음을 수행합니다.
 
 1. IoT Hub를 엽니다. 
-1. **보안**을 클릭한 다음, **설정**을 선택합니다.
+1. 아래 **보안**, 클릭 **개요**를 선택한 후 **설정**합니다.
 1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다. 
 1. **저장**을 클릭합니다. 
 
@@ -94,7 +94,7 @@ Insights 및 IoT 장치에 대 한 원시 데이터에 액세스 하려면 Log A
 
 ### <a name="open-ports"></a>포트 열기
 
-장치에서 포트에서에서 현재 사용 중인 또는 사용한 아웃 찾으려면 다음 kql 쿼리를 사용 합니다. 
+장치에서 포트는 현재 사용 또는 사용 된를 확인 하려면 다음 kql 쿼리를 사용 합니다. 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Insights 및 IoT 장치에 대 한 원시 데이터에 액세스 하려면 Log A
 
     Use the query results to discover:
   1. 어떤 사용자가 디바이스에 로그인했습니까?
-  2. 사용자 로그인에 로그인 할는?
+  2. 로그인 하는 사용자가 로그인 할?
   3. 로그인한 사용자가 예상 IP 주소 또는 예기치 않은 IP 주소에서 연결했습니까?
   
 ### <a name="process-list"></a>프로세스 목록
 
-프로세스 목록을 확인 하려면은 예상 되는 사용으로 다음 kql 쿼리입니다. 
+프로세스 목록을 예상 대로 인지를 확인 하려면 다음 kql 쿼리를 사용 합니다. 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -188,4 +188,5 @@ Insights 및 IoT 장치에 대 한 원시 데이터에 액세스 하려면 Log A
   3. 명령줄 실행에 올바른 예상 인수가 포함되었습니까?
 
 ## <a name="next-steps"></a>다음 단계
+
 디바이스를 조사하고 위험을 더 잘 이해한 후에는 IoT 솔루션 보안 상태를 향상시키기 위해 [사용자 지정 경고 구성](quickstart-create-custom-alerts.md)을 고려할 수 있습니다. 디바이스 에이전트가 아직 없는 경우 결과를 향상시키려면 [보안 에이전트를 배포](how-to-deploy-agent.md)하거나 [기존 디바이스 에이전트의 구성을 변경](how-to-agent-configuration.md)하는 것이 좋습니다. 

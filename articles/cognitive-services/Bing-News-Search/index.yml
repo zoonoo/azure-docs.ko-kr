@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0249d47bad38e29e073e86f89d6ad453950bad44
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726111"
 documentType: LandingData
 title: Bing News Search API 설명서
 titleSuffix: Azure Cognitive Services
 metadata:
-  title: Bing News Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
+  title: 'Bing News Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
   description: Bing News Search API를 사용하여 웹에서 뉴스를 검색하는 방법을 알아봅니다.
   services: cognitive-services
   author: mikedodaro
@@ -24,83 +18,83 @@ metadata:
 abstract:
   description: Bing News Search API를 사용하면 애플리케이션에서 Bing의 뉴스 검색 기능을 통합할 수 있습니다. 해당 API에서 검색 쿼리를 보내서 여러 범주 및 원본에서 bing.com/news와 비슷한 관련 뉴스 기사를 가져올 수 있습니다.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-news-search/search-the-web
+            html: <p>Bing News Search API에 대한 자세한 정보</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Bing News Search API란?
+          - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+            html: <p>Bing News Search API에 검색 요청을 보내는 방법을 알아봅니다.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 검색 쿼리 보내기
+          - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+            html: <p>뉴스의 여러 형식 및 범주를 검색하는 방법을 알아봅니다.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 뉴스 검색
+  - title: 5분 빠른 시작
     items:
-    - href: /azure/cognitive-services/bing-news-search/search-the-web
-      html: <p>Bing News Search API에 대한 자세한 정보</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Bing News Search API란?
-    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
-      html: <p>Bing News Search API에 검색 요청을 보내는 방법을 알아봅니다.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: 검색 쿼리 보내기
-    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
-      html: <p>뉴스의 여러 형식 및 범주를 검색하는 방법을 알아봅니다.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: 뉴스 검색
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: '다음을 사용하여 웹에서 뉴스 검색:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: '다음을 사용하여 웹에서 뉴스 검색:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: news-search-sdk-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: news-sdk-java-quickstart
+            text: 자바
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: news-search-sdk-node-quickstart
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: news-sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: ruby
+            text: Ruby
+  - title: 단계별 자습서
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: news-search-sdk-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: news-sdk-java-quickstart
-      text: 자바
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: news-search-sdk-node-quickstart
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: news-sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: ruby
-      text: Ruby
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Bing News Search API를 사용하여 애플리케이션을 개발합니다.
-  - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">단일 페이지 웹앱</a>
-- title: 샘플
-  items:
-  - type: paragraph
-    text: 'Bing News Search API에 대한 샘플 찾기:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Bing News Search API를 사용하여 애플리케이션을 개발합니다.
+      - type: paragraph
+        text: <a href="tutorial-bing-news-search-single-page-app">단일 페이지 웹앱</a>
+  - title: 샘플
     items:
-    - html: <a href="sdk.md">코드 샘플</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Bing News Search API에 대한 샘플 찾기:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="sdk.md">코드 샘플</a>
+  - title: 참고 자료
     items:
-    - title: API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">Bing News Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">Bing News Search API v5</a></p>
-    - title: SDK
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch">Go</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">Bing News Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">Bing News Search API v5</a></p>'
+          - title: SDK
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-newssearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch">Go</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

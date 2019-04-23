@@ -4,14 +4,14 @@ description: 이 문서는 Site Recovery를 사용하여 VMware VM 및 물리적
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: ca9e58dbae6952f7e432868c7ede7dc42741a87b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104253"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149999"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
 
@@ -170,10 +170,10 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
 
-   | **매개 변수 이름** | **Value** |
+   | **매개 변수 이름** | **값** |
    |--|--|
-   | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
-   | 명령줄 | install.bat |
+   | Name | Microsoft Azure Mobility Service(Windows) 설치 |
+   | 명령 줄 | install.bat |
    | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 
    ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
@@ -395,9 +395,9 @@ cd /tmp
 
 8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
 
-    | **매개 변수 이름** | **Value** |
+    | **매개 변수 이름** | **값** |
    |--|--|
-   | 이름 | Microsoft Azure Mobility Service(Linux) 설치 |
+   | Name | Microsoft Azure Mobility Service(Linux) 설치 |
    | 명령 줄 | ./install_linux.sh |
    | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 

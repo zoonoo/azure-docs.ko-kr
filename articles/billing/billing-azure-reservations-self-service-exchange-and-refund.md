@@ -1,7 +1,6 @@
 ---
 title: 셀프 서비스 교환 및 Azure 예약에 대 한 환불 | Microsoft Docs
 description: 교환할 수 있습니다 하는 방법에 대해 알아봅니다. Azure 예약 환불 또는 합니다.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281984"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009313"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure 예약에 대 한 환불 및 셀프 서비스 교환
 
-Azure 예약에 변화 하는 요구를 충족 하기 위해 유연성을 제공 합니다. 동일한 형식의 다른 예약에 대 한 예약을 교환할 수 있습니다. 더 이상 필요한 경우에 최대 50,000 USD 연간 예약을 환불 수 없습니다.
+Azure 예약에 변화 하는 요구를 충족 하기 위해 유연성을 제공 합니다. 예약을 동일한 유형의 다른 예약으로 교환할 수 있습니다. 예약이 더 이상 필요 없는 경우 연간 50,000USD까지 예약을 환불할 수 있습니다.
 
-셀프 서비스 교환 및 취소 기능이 미국 정부 기업 계약 고객에 대해 사용할 수 없습니다. 종 량 제 및 CSP를 포함 한 다른 US Government 구독 유형은 지원 됩니다.
+US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능을 사용할 수 없습니다. 종 량 제 및 CSP를 포함 한 다른 US Government 구독 유형은 지원 됩니다.
+
+바꾸거나 기존 예약 상환 예약 순서에 대 한 소유자 액세스를 해야 합니다.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>기존 예약 된 인스턴스를 교환 합니다.
 
@@ -32,14 +33,14 @@ Azure 예약에 변화 하는 요구를 충족 하기 위해 유연성을 제공
 
 1. 환불 및 클릭 하려는 예약을 선택 **Exchange**합니다.  
     ![반환할 예약을 보여 주는 예제 이미지](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. 구매 수량을 입력 하 고 원하는 VM 제품을 선택 합니다. 새 구매 합계 반환 총 이상 인지 확인 합니다. [구입 하기 전에 적절 한 크기 결정](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)합니다.  
+2. 구매하려는 VM 제품을 선택하고 수량을 입력합니다. 새 구매 합계 반환 총 이상 인지 확인 합니다. [구입 하기 전에 적절 한 크기 결정](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)합니다.  
     ![Exchange를 사용 하 여 구매할 VM 제품을 보여 주는 예제 이미지](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. 검토 하 고 트랜잭션을 완료 합니다.  
     ![VM 제품 반환을 완료 하는 exchange를 사용 하 여 구매를 보여 주는 예제 이미지](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 예약을 환불로 이동 **예약 세부 정보** 누릅니다 **환불**합니다.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>Exchange 트랜잭션이 처리 및 반환 하는 방법
+## <a name="how-transactions-are-processed"></a>트랜잭션은 처리 하는 방법
 
 먼저 Microsoft는 기존 예약을 취소 하 고 해당 예약에 대 한 비례 배분 금액을 환불 합니다. 교환 인 경우 새 구매 처리 됩니다. Microsoft는 결제 방법을 확인 하 고 계정 유형에 따라 다음 방법 중 하나를 사용 하 여 환불을 처리 합니다.
 
@@ -49,7 +50,7 @@ Money 교환에 대 한 약정에 추가 되 고 원래 구매 하나를 사용 
 
 원래 구매 초과분으로 만들어진 경우 크레딧 메모가 Microsoft에 발급 합니다.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>종 량 제 청구서 지불 고객 및 클라우드 솔루션 공급자 프로그램
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>종 량 제 청구서 지급 및 CSP 프로그램
 
 원래 예약 구매 송장이 취소가 만들어지고 새 송장을 환불이 가능 합니다. 교환에 대 한 새 청구서에는 환불 및 새 구매 보여 줍니다. 환불 금액의 구매에 대 한 조정 됩니다. 만 예약을 환불을 Microsoft와 비례 배분된 양을 유지 이후 예약 구매에 대해 조정 하는 고 합니다.
 
@@ -74,7 +75,7 @@ Money 교환에 대 한 약정에 추가 되 고 원래 구매 하나를 사용 
 - 예약 소유자만 환불을 처리할 수 있습니다. [에 대해 알아봅니다 예약을 관리할 수 있는 사용자를 추가 또는 변경 하는 방법을](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)합니다.
 - Microsoft 권리를 모든 반환에 대 한 12% 페널티를 충전 페널티 현재 부과 되지 않지만 합니다.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>비 premium storage는 premium 저장소 예약에 대 한 예약 VM 교환
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Premium storage에 대 한 Exchange 비 premium storage
 
 Premium storage는 해당 VM 크기를 지원 하지 않는 VM 크기에 대해 구매한 예약을 교환할 수 있습니다. 예를 들어를 _F1_ 에 _F1s_합니다. Exchange가 하도록 예약 세부 정보로 이동 하 고 클릭 **Exchange**합니다. Exchange가 새 트랜잭션을 만들거나 reserved instance의 용어를 다시 설정 하지 않습니다.
 

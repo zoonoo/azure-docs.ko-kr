@@ -4,17 +4,17 @@ description: 업데이트 관리 에이전트의 문제를 해결하는 방법�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/14/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: aafed492e83066be20b4728a2617527351291a5b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813112"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150118"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>업데이트 관리에서 Linux 에이전트 확인 결과 이해
 
@@ -25,6 +25,9 @@ ms.locfileid: "55813112"
 * **준비** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간 이내입니다.
 * **연결이 끊김** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간을 넘습니다.
 * **구성되지 않음** - 업데이트 에이전트가 확인되지 않거나 온보딩을 완료하지 않았습니다.
+
+> [!NOTE]
+> Azure 포털에 표시 하 고 컴퓨터의 현재 상태 간에 약간의 지연이 있을 수 있습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 

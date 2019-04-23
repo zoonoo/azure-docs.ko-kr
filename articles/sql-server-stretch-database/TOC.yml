@@ -1,63 +1,56 @@
-items:
 - name: SQL Server Stretch Database 설명서
   href: index.md
 - name: 개요
   items:
-  - name: Stretch Database란?
-    href: /sql/sql-server/stretch-database/stretch-database
-  - name: 제한 및 차단 문제
-    href: /sql/sql-server/stretch-database/limitations-for-stretch-database
+    - name: Stretch Database란?
+      href: /sql/sql-server/stretch-database/stretch-database
+    - name: 제한 및 차단 문제
+      href: /sql/sql-server/stretch-database/limitations-for-stretch-database
 - name: 시작
   items:
-  - name: 데이터베이스 및 테이블 식별
-    href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
-  - name: 마법사 실행
-    href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
+    - name: 데이터베이스 및 테이블 식별
+      href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+    - name: 마법사 실행
+      href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
 - name: 방법
   items:
-  - name: 사용
-    items:
-    - name: 데이터베이스 사용
-      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
-    - name: 테이블 사용
-      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
-    - name: 마이그레이션할 행 선택
-      href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
-  - name: 관리
-    items:
-    - name: 데이터 마이그레이션 모니터링
-      href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
-    - name: 마이그레이션 일시 중지 및 다시 시작
-      href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
-    - name: 관리 및 문제 해결
-      href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
-    - name: 백업
-      href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
-    - name: 복원
-      href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
-    - name: Stretch Database 사용 안 함
-      href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
+    - name: 사용
+      items:
+        - name: 데이터베이스 사용
+          href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
+        - name: 테이블 사용
+          href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
+        - name: 마이그레이션할 행 선택
+          href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
+    - name: 관리
+      items:
+        - name: 데이터 마이그레이션 모니터링
+          href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
+        - name: 마이그레이션 일시 중지 및 다시 시작
+          href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
+        - name: 관리 및 문제 해결
+          href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
+        - name: 백업
+          href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
+        - name: 복원
+          href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
+        - name: Stretch Database 사용 안 함
+          href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
 - name: 참고 자료
   items:
-  - name: 코드 샘플
-    href: https://azure.microsoft.com/resources/samples/?service=sql-server-database
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=sql-server-database'
 - name: 리소스
   items:
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: 블로그
-    href: https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/sql-server-stretch-database/
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: 서비스 업데이트
-    href: https://azure.microsoft.com/updates/?product=sql-server-stretch-database
-  - name: 동영상
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database
-ms.openlocfilehash: ba3a3cfe763f17e07dc4bcd0c3106acbc352577f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340662"
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 블로그
+      href: 'https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/sql-server-stretch-database/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=sql-server-stretch-database'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database'

@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 4/11/2019
+ms.date: 4/20/2019
 ms.author: tamram
-ms.openlocfilehash: b3e2f018a3f1ba2563ba8cf2df6dfd4959be592e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d96f400332b7953b34a157b3b52cf00bb20db76e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737193"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012517"
 ---
 | 리소스 | 대상        |
 |----------|---------------|
@@ -23,4 +23,4 @@ ms.locfileid: "59737193"
 | Blob 컨테이너 별로 저장 된 액세스 정책 최대 수 | 5 |
 |단일 Blob의 목표 처리량 |저장소 계정 송/수신 제한까지<sup>1</sup> |
 
-<sup>1</sup> 단일 개체 처리량 등을 망라 하는 여러 가지 요인에 따라 달라 집니다: 동시성, 작업 크기, 성능 계층, 업로드에 대 한 소스 및 다운로드에 대 한 대상의 속도.
+<sup>1</sup> 단일 개체 처리량 등을 망라 하는 여러 가지 요인에 따라 달라 집니다: 동시성, 요청 크기, 성능 계층, 업로드에 대 한 소스 및 다운로드에 대 한 대상의 속도. 활용 하기 위해 [처리량이 높은 블록 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) > 4 MiB (> 256 MiB 프리미엄 성능 블록 blob storage 또는 Data Lake 저장소 Gen2)는 Put Blob 또는 블록 배치 요청 크기를 사용 하는 성능 향상.

@@ -1,70 +1,63 @@
-items:
 - name: IT 운영자용 Azure
   items:
-  - name: Azure 시작
-    href: azure-operations-guide.md
-  - name: 빠른 시작
-    items:
-    - name: Virtual Machines
+    - name: Azure 시작
+      href: azure-operations-guide.md
+    - name: 빠른 시작
       items:
-      - name: Windows 가상 머신
-        href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Linux 가상 머신
-        href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Virtual Network
+        - name: Virtual Machines
+          items:
+            - name: Windows 가상 머신
+              href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Linux 가상 머신
+              href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Virtual Network
+          items:
+            - name: Azure 포털을 사용하여 가상 네트워크 만들기
+              href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: 보안
+          items:
+            - name: 역할 할당을 사용하여 리소스 관리
+              href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        - name: Azure Stack
+          items:
+            - name: Azure Stack 배포 개요
+              href: /azure-stack/asdk/asdk-download
+        - name: Azure Backup
+          items:
+            - name: Azure Portal에서 VM 백업
+              href: ../../backup/quick-backup-vm-portal.md
+        - name: Azure Site Recovery
+          items:
+            - name: 다른 Azure 지역에 Azure VM 복제
+              href: ../../site-recovery/azure-to-azure-quickstart.md
+    - name: 자습서
       items:
-      - name: Azure 포털을 사용하여 가상 네트워크 만들기
-        href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: 보안
+        - name: Virtual Machines
+          items:
+            - name: Windows VM 만들기 및 관리
+              href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Linux VM 만들기 및 관리
+              href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Jenkins CI/CD 파이프라인
+              href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: VM 부하 분산
+              href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: Azure 리소스 관리자 템플릿 작성
+              href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+            - name: 대규모 VM 백업
+              href: ../../backup/tutorial-backup-vm-at-scale.md
+    - name: 방법 가이드
       items:
-      - name: 역할 할당을 사용하여 리소스 관리
-        href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-    - name: Azure Stack
+        - name: Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드 하는 방법
+          href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: 리소스
       items:
-      - name: Azure Stack 배포 개요
-        href: ../../azure-stack/azure-stack-deploy-overview.md
-    - name: Azure Backup
-      items:
-      - name: Azure Portal에서 VM 백업
-        href: ../../backup/quick-backup-vm-portal.md
-    - name: Azure Site Recovery
-      items:
-      - name: 다른 Azure 지역에 Azure VM 복제
-        href: ../../site-recovery/azure-to-azure-quickstart.md
-  - name: 자습서
-    items:
-    - name: Virtual Machines
-      items:
-      - name: Windows VM 만들기 및 관리
-        href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Linux VM 만들기 및 관리
-        href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Jenkins CI/CD 파이프라인
-        href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: VM 부하 분산
-        href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: Azure 리소스 관리자 템플릿 작성
-        href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-      - name: 대규모 VM 백업
-        href: ../../backup/tutorial-backup-vm-at-scale.md
-  - name: 방법 가이드
-    items:
-    - name: Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드 하는 방법
-      href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
-  - name: 리소스
-    items:
-    - name: Azure 제품 카탈로그
-      href: https://docs.microsoft.com/azure/#pivot=products
-    - name: Azure 로드맵
-      href: https://azure.microsoft.com/roadmap/
-    - name: 요금 계산기
-      href: https://azure.microsoft.com/pricing/calculator/
-    - name: Microsoft Azure 포털 개요
-      href: https://azure.microsoft.com/documentation/articles/azure-portal-overview/
-  - name: 참조
-ms.openlocfilehash: baa4d388f26c46974c1037c3ecf723a445774591
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341359"
+        - name: Azure 제품 카탈로그
+          href: 'https://docs.microsoft.com/azure/#pivot=products'
+        - name: Azure 로드맵
+          href: 'https://azure.microsoft.com/roadmap/'
+        - name: 요금 계산기
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Microsoft Azure 포털 개요
+          href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
+    - name: 참조

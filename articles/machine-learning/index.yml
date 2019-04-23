@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519932"
 abstract:
-  description: 다음 Azure Machine Learning 제품을 사용하여 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다.  자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.
+  description: '다음 Azure Machine Learning 제품을 사용하여 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다.  자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.'
 documentType: LandingData
 metadata:
   author: j-martens
-  description: 사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.
+  description: '사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.'
   ms.author: jmartens
   ms.subservice: core
   ms.date: 12/04/2018
@@ -19,86 +13,86 @@ metadata:
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   services: machine-learning
-  title: Azure Machine Learning 설명서 – 자습서, API 참조 | Microsoft Docs
+  title: 'Azure Machine Learning 설명서 – 자습서, API 참조 | Microsoft Docs'
 sections:
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>이 서비스에서 데이터 과학자가 CLI/Python 도구 및 라이브러리와 다양한 Azure 데이터 및 계산 서비스를<br/> 다양한 Azure 데이터 및 컴퓨팅 서비스를 사용하여 Azure CLI, Python 도구 및 라이브러리를 사용합니다. 자세히 알아보기...</p>
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning 서비스
-    style: cards
-    type: list
-- items:
-  - text: Azure Machine Learning 서비스를 사용하여 설정하고 시작합니다.
-    type: paragraph
-  - text: <b>빠른 시작:</b>
-    type: paragraph
   - items:
-    - html: <a href="service/quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
-    - html: <a href="service/quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
-    style: unordered
-    type: list
-  - text: <b>MNIST 데이터를 사용하는 이미지 분류 자습서:</b>
-    type: paragraph
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/machine-learning/service/overview-what-is-azure-ml
+            html: '<p>이 서비스에서 데이터 과학자가 CLI/Python 도구 및 라이브러리와 다양한 Azure 데이터 및 계산 서비스를<br/> 다양한 Azure 데이터 및 컴퓨팅 서비스를 사용하여 Azure CLI, Python 도구 및 라이브러리를 사용합니다. 자세히 알아보기...</p>'
+            image:
+              src: /azure/machine-learning/media/index/i_machine-learning.svg
+            title: Azure Machine Learning 서비스
+        style: cards
+        type: list
   - items:
-    - html: '1부: <a href="service/tutorial-train-models-with-aml">고유한 모델 학습</a>'
-    - html: '2부: <a href="service/tutorial-deploy-models-with-aml">해당 모델 배포</a>'
-    style: unordered
-    type: list
-  - text: <b>NYC 택시 데이터를 사용하는 회귀 모델링 자습서:</b>
-    type: paragraph
+      - text: Azure Machine Learning 서비스를 사용하여 설정하고 시작합니다.
+        type: paragraph
+      - text: '<b>빠른 시작:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
+          - html: <a href="service/quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
+        style: unordered
+        type: list
+      - text: '<b>MNIST 데이터를 사용하는 이미지 분류 자습서:</b>'
+        type: paragraph
+      - items:
+          - html: '1부: <a href="service/tutorial-train-models-with-aml">고유한 모델 학습</a>'
+          - html: '2부: <a href="service/tutorial-deploy-models-with-aml">해당 모델 배포</a>'
+        style: unordered
+        type: list
+      - text: '<b>NYC 택시 데이터를 사용하는 회귀 모델링 자습서:</b>'
+        type: paragraph
+      - items:
+          - html: '1부: <a href="service/tutorial-data-prep">모델링을 위한 데이터 준비</a>'
+          - html: '2부: <a href="service/tutorial-auto-train-models">사용자에 대해 자동화된 ML 학습 모델 허용</a>'
+        style: unordered
+        type: list
+      - text: '<b>사용자 모델 사용:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/how-to-consume-web-service">요청-응답 모델 사용</a>
+          - html: <a href="service/how-to-run-batch-predictions">ML 파이프라인을 사용하는 일괄 처리 예측</a>
+        style: unordered
+        type: list
+    title: 빠른 시작 및 자습서
   - items:
-    - html: '1부: <a href="service/tutorial-data-prep">모델링을 위한 데이터 준비</a>'
-    - html: '2부: <a href="service/tutorial-auto-train-models">사용자에 대해 자동화된 ML 학습 모델 허용</a>'
-    style: unordered
-    type: list
-  - text: <b>사용자 모델 사용:</b>
-    type: paragraph
-  - items:
-    - html: <a href="service/how-to-consume-web-service">요청-응답 모델 사용</a>
-    - html: <a href="service/how-to-run-batch-predictions">ML 파이프라인을 사용하는 일괄 처리 예측</a>
-    style: unordered
-    type: list
-  title: 빠른 시작 및 자습서
-- items:
-  - className: cardsM
-    columns: 2
-    items:
-    - href: /azure/cognitive-services/
-      html: <p>앱, 웹 사이트 및 봇에 지능형 알고리즘을 제공하는 API입니다.</p>
-      image:
-        src: /azure/machine-learning/media/index/cognitive-services.png
-      title: Cognitive Services
-    - href: /azure/machine-learning/studio/
-      html: <p>R 또는 Python에서 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 공동 끌어서 놓기 도구입니다. </p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
-    - href: /sql/advanced-analytics/r/r-services
-      html: <p>R 및 Python 둘 다에 대한 지원을 포함하는 데이터베이스 내 분석입니다.</p>
-      image:
-        src: /azure/machine-learning/media/index/logo_sql.png
-      title: SQL Server Machine Learning 서비스
-    - href: /machine-learning-server/
-      html: <p>유연한 엔터프라이즈 기계 학습 플랫폼으로, Windows, Linux 및 HDInsight Spark와 Hadoop 클러스터에서 R 및 Python 배포를 지원합니다.</p>
-      image:
-        src: /azure/machine-learning/media/index/ml-server.png
-      title: Microsoft Machine Learning 서버
-    - href: /azure/machine-learning/team-data-science-process
-      html: <p>팀에 도움이 되는 공동 데이터 과학 방법론은 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공합니다.</p>
-      image:
-        src: /azure/machine-learning/media/index/tdsp.png
-      title: Team Data Science Process
-    - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>DSVM(Data Science Virtual Machine) 및 DLVM(Deep Learning Virtual Machine)을 사용하여 소프트웨어를 설치하거나 구성하지 않고 실험합니다. 인기 있는 데이터 분석, 기계 학습 및 AI 도구가 사전 설치되어 있습니다.</p>
-      image:
-        src: /azure/machine-learning/media/index/virtualmachine.svg
-      title: 데이터 과학 Virtual Machine
-    style: cards
-    type: list
-  title: 기타 Microsoft Machine Learning 기술
+      - className: cardsM
+        columns: 2
+        items:
+          - href: /azure/cognitive-services/
+            html: '<p>앱, 웹 사이트 및 봇에 지능형 알고리즘을 제공하는 API입니다.</p>'
+            image:
+              src: /azure/machine-learning/media/index/cognitive-services.png
+            title: Cognitive Services
+          - href: /azure/machine-learning/studio/
+            html: "<p>R 또는 Python에서 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 공동 끌어서 놓기 도구입니다.\_</p>"
+            image:
+              src: /azure/machine-learning/media/index/machine-learning-studio.svg
+            title: Azure Machine Learning Studio
+          - href: /sql/advanced-analytics/r/r-services
+            html: <p>R 및 Python 둘 다에 대한 지원을 포함하는 데이터베이스 내 분석입니다.</p>
+            image:
+              src: /azure/machine-learning/media/index/logo_sql.png
+            title: SQL Server Machine Learning 서비스
+          - href: /machine-learning-server/
+            html: '<p>유연한 엔터프라이즈 기계 학습 플랫폼으로, Windows, Linux 및 HDInsight Spark와 Hadoop 클러스터에서 R 및 Python 배포를 지원합니다.</p>'
+            image:
+              src: /azure/machine-learning/media/index/ml-server.png
+            title: Microsoft Machine Learning 서버
+          - href: /azure/machine-learning/team-data-science-process
+            html: <p>팀에 도움이 되는 공동 데이터 과학 방법론은 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공합니다.</p>
+            image:
+              src: /azure/machine-learning/media/index/tdsp.png
+            title: Team Data Science Process
+          - href: /azure/machine-learning/data-science-virtual-machine/
+            html: '<p>DSVM(Data Science Virtual Machine) 및 DLVM(Deep Learning Virtual Machine)을 사용하여 소프트웨어를 설치하거나 구성하지 않고 실험합니다. 인기 있는 데이터 분석, 기계 학습 및 AI 도구가 사전 설치되어 있습니다.</p>'
+            image:
+              src: /azure/machine-learning/media/index/virtualmachine.svg
+            title: 데이터 과학 Virtual Machine
+        style: cards
+        type: list
+    title: 기타 Microsoft Machine Learning 기술
 title: Azure Machine Learning 설명서

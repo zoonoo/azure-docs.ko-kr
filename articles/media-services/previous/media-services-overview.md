@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a98d3acc3f45772f9e28c23a639f495b75bea0a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: efdc3f657712794325f8af6f1b0178915e7a8e6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850052"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000303"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요 
 
@@ -75,12 +75,6 @@ Azure Media Services 개념은 [개념](media-services-concepts.md)을 참조하
 자세한 내용은 [AMS 시나리오 및 데이터 센터에서 기능 및 서비스의 사용 가용성](scenarios-and-availability.md)을 참조하세요.
 
 ## <a name="service-level-agreement-sla"></a>SLA(서비스 수준 계약)
-
-* Media Services Encoding을 위해 REST API 트랜잭션의 99.9% 가용성을 보장합니다.
-* 표준 또는 프리미엄 스트리밍 엔드포인트를 구매하는 경우 스트리밍을 위해 기존 미디어 콘텐츠에 대해 99.9% 가용성을 보장하는 요청을 서비스합니다.
-* 라이브 채널을 위해 실행 중인 채널이 최소 99.9%의 시간 동안 외부 연결을 사용할 수 있도록 보장됩니다.
-* Content Protection을 위해 최소 99.9%의 시간 동안 주요 요청을 처리할 것을 보장합니다.
-* 인덱서를 위해 99.9%의 시간 동안 Encoding 예약 단위로 처리되는 인덱서 작업 요청을 서비스합니다.
 
 자세한 내용은 [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 

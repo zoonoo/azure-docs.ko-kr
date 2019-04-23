@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 29e64a02cd4af3e1679283ffddb4afab065f8747
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609135"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007664"
 ---
 # <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
 
@@ -42,7 +42,7 @@ ms.locfileid: "59609135"
 | 볼리비아                             | BO        | USD          |
 | 보스니아 헤르체고비나              | BA        | USD          |
 | 보츠와나                            | BW        | USD          |
-| 브라질                              | BR        | BRL          |
+| 브라질                              | BR        | BRL\*        |
 | 브루나이                              | BN        | USD          |
 | 불가리아                            | BG        | EUR          |
 | 카메룬                            | CM        | USD          |
@@ -164,3 +164,5 @@ ms.locfileid: "59609135"
 | 잠비아                              | ZM        | USD          |
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
+
+\* 브라질에서 고객의 경우 Marketplace를 통해 클라우드 솔루션 공급자 (CSP) USD를 사용합니다.

@@ -1,103 +1,96 @@
-items:
 - name: Database Migration Service 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: DMS(Database Migration Service)란?
-    href: dms-overview.md
+    - name: DMS(Database Migration Service)란?
+      href: dms-overview.md
 - name: 빠른 시작
   items:
-  - name: 서비스 만들기 - 포털
-    href: quickstart-create-data-migration-service-portal.md
+    - name: 서비스 만들기 - 포털
+      href: quickstart-create-data-migration-service-portal.md
 - name: 자습서
   items:
-  - name: SQL Server를 Azure SQL DB로 오프라인 마이그레이션
-    href: tutorial-sql-server-to-azure-sql.md
-  - name: SQL Server를 Azure SQL DB로 온라인 마이그레이션
-    href: tutorial-sql-server-azure-sql-online.md
-  - name: SQL Server를 Azure SQL DB Managed Instance로 오프라인 마이그레이션
-    href: tutorial-sql-server-to-managed-instance.md
-  - name: SQL Server를 Azure SQL DB Managed Instance로 온라인 마이그레이션
-    href: tutorial-sql-server-managed-instance-online.md
-  - name: RDS SQL Server를 Azure SQL DB 또는 Azure SQL DB Managed Instance 온라인으로 마이그레이션
-    href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - name: MySQL을 Azure DB for MySQL로 온라인 마이그레이션
-    href: tutorial-mysql-azure-mysql-online.md
-  - name: PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
-    href: tutorial-postgresql-azure-postgresql-online.md
-  - name: MongoDB를 Azure Cosmos DB Mongo API로 오프라인 마이그레이션
-    href: tutorial-mongodb-cosmos-db.md
-  - name: MongoDB를 Azure Cosmos DB Mongo API로 온라인 마이그레이션
-    href: tutorial-mongodb-cosmos-db-online.md
+    - name: SQL Server를 Azure SQL DB로 오프라인 마이그레이션
+      href: tutorial-sql-server-to-azure-sql.md
+    - name: SQL Server를 Azure SQL DB로 온라인 마이그레이션
+      href: tutorial-sql-server-azure-sql-online.md
+    - name: SQL Server를 Azure SQL DB Managed Instance로 오프라인 마이그레이션
+      href: tutorial-sql-server-to-managed-instance.md
+    - name: SQL Server를 Azure SQL DB Managed Instance로 온라인 마이그레이션
+      href: tutorial-sql-server-managed-instance-online.md
+    - name: RDS SQL Server를 Azure SQL DB 또는 Azure SQL DB Managed Instance 온라인으로 마이그레이션
+      href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+    - name: MySQL을 Azure DB for MySQL로 온라인 마이그레이션
+      href: tutorial-mysql-azure-mysql-online.md
+    - name: PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
+      href: tutorial-postgresql-azure-postgresql-online.md
+    - name: MongoDB를 Azure Cosmos DB Mongo API로 오프라인 마이그레이션
+      href: tutorial-mongodb-cosmos-db.md
+    - name: MongoDB를 Azure Cosmos DB Mongo API로 온라인 마이그레이션
+      href: tutorial-mongodb-cosmos-db-online.md
 - name: 방법 가이드
   items:
-  - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB로 마이그레이션
-    href: howto-sql-server-to-azure-sql-powershell.md
-  - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB MI로 마이그레이션
-    href: howto-sql-server-to-azure-sql-mi-powershell.md
-  - name: 마이그레이션 작업 모니터링
-    href: how-to-monitor-migration-activity.md
-  - name: SSIS 패키지를 Azure로 마이그레이션
-    href: how-to-migrate-ssis-packages.md
+    - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB로 마이그레이션
+      href: howto-sql-server-to-azure-sql-powershell.md
+    - name: PowerShell을 사용하여 SQL Server를 Azure SQL DB MI로 마이그레이션
+      href: howto-sql-server-to-azure-sql-mi-powershell.md
+    - name: 마이그레이션 작업 모니터링
+      href: how-to-monitor-migration-activity.md
+    - name: SSIS 패키지를 Azure로 마이그레이션
+      href: how-to-migrate-ssis-packages.md
 - name: 리소스
   items:
-  - name: 데이터베이스 마이그레이션 시나리오 상태
-    href: resource-scenario-status.md
-  - name: 필수 구성 요소의 개요
-    href: pre-reqs.md
-  - name: Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지
-    href: resource-network-topologies.md
-  - name: 알려진 문제
-    items:
-    - name: 알려진 문제 - Azure SQL DB로 온라인 마이그레이션
-      href: known-issues-azure-sql-online.md
-    - name: 알려진 문제 - Azure DB for MySQL로 온라인 마이그레이션
-      href: known-issues-azure-mysql-online.md
-    - name: 알려진 문제 - Azure DB for PostgreSQL로 온라인 마이그레이션
-      href: known-issues-azure-postgresql-online.md
-  - name: 동영상
-    items:
-    - name: 데이터베이스 마이그레이션 가이드 사용
-      href: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
-    - name: 마이그레이션 프로세스 및 권장 도구/서비스
-      href: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
-    - name: 필수 구성 요소 해결 및 DMS 인스턴스 만들기
-      href: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
-    - name: SQL Server 2008을 Azure SQL Database Managed Instance로 마이그레이션
-      href: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-    - name: PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션
-      href: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
-    - name: 온라인 마이그레이션 모니터링 및 중단 수행
-      href: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
-    - name: Oracle을 Azure SQL Database로 마이그레이션
-      href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
-    - name: MongoDB를 Azure Cosmos DB로 마이그레이션
-      href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-  - name: 도구 및 지침
-    items:
-    - name: 데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구
-      href: dms-tools-matrix.md
-    - name: 데이터베이스 마이그레이션 가이드
-      href: https://aka.ms/datamigration
-    - name: Data Migration Assistant
-      href: https://aka.ms/dma
-    - name: SQL Server Migration Assistant
-      href: https://aka.ms/ssma
-    - name: 데이터베이스 실험 도우미
-      href: https://aka.ms/dea-docs
-  - name: 질문과 대답
-    href: faq.md
-  - name: 사용자 의견 피드백
-    href: https://feedback.azure.com/forums/906100-azure-database-migration-service
-  - name: 가격
-    href: https://aka.ms/dms-pricing
-  - name: 서비스 업데이트
-    href: https://azure.microsoft.com/updates/?product=database-migration
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 9cbf896989373638cd97e28ab4e5303b49958887
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555978"
+    - name: 데이터베이스 마이그레이션 시나리오 상태
+      href: resource-scenario-status.md
+    - name: 필수 구성 요소의 개요
+      href: pre-reqs.md
+    - name: Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지
+      href: resource-network-topologies.md
+    - name: 알려진 문제
+      items:
+        - name: 알려진 문제 - Azure SQL DB로 온라인 마이그레이션
+          href: known-issues-azure-sql-online.md
+        - name: 알려진 문제 - Azure DB for MySQL로 온라인 마이그레이션
+          href: known-issues-azure-mysql-online.md
+        - name: 알려진 문제 - Azure DB for PostgreSQL로 온라인 마이그레이션
+          href: known-issues-azure-postgresql-online.md
+    - name: 동영상
+      items:
+        - name: 데이터베이스 마이그레이션 가이드 사용
+          href: 'https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/'
+        - name: 마이그레이션 프로세스 및 권장 도구/서비스
+          href: 'https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/'
+        - name: 필수 구성 요소 해결 및 DMS 인스턴스 만들기
+          href: 'https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/'
+        - name: SQL Server 2008을 Azure SQL Database Managed Instance로 마이그레이션
+          href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/'
+        - name: PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션
+          href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/'
+        - name: 온라인 마이그레이션 모니터링 및 중단 수행
+          href: 'https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/'
+        - name: Oracle을 Azure SQL Database로 마이그레이션
+          href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/'
+        - name: MongoDB를 Azure Cosmos DB로 마이그레이션
+          href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'
+    - name: 도구 및 지침
+      items:
+        - name: 데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구
+          href: dms-tools-matrix.md
+        - name: 데이터베이스 마이그레이션 가이드
+          href: 'https://aka.ms/datamigration'
+        - name: Data Migration Assistant
+          href: 'https://aka.ms/dma'
+        - name: SQL Server Migration Assistant
+          href: 'https://aka.ms/ssma'
+        - name: 데이터베이스 실험 도우미
+          href: 'https://aka.ms/dea-docs'
+    - name: 질문과 대답
+      href: faq.md
+    - name: 사용자 의견 피드백
+      href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
+    - name: 가격
+      href: 'https://aka.ms/dms-pricing'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=database-migration'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'

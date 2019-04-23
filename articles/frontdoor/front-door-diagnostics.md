@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862117"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009755"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>메트릭 및 Azure 프런트 도어 서비스에서 로그를 모니터링합니다.
 
@@ -65,7 +65,7 @@ Azure 프런트 도어 서비스를 사용 하면 다음과 같은 방법으로 
 
 첫 번째 관문 서비스에 대 한 진단 로그를 구성:
 
-1. Azure API Management 서비스를 선택 합니다.
+1. Azure 프런트 도어 서비스를 선택 합니다.
 
 2. 선택할 **진단 설정**합니다.
 

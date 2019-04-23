@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762500"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004757"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -88,7 +88,7 @@ Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 최소 처리량
 
 .NET SDK를 사용 하 여 [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) 메서드를 사용 하면 컨테이너 또는 데이터베이스의 최소 처리량을 검색할 수 있습니다. 
 
-언제 든 지 컨테이너 또는 데이터베이스를 프로 비전된 된 처리량을 확장할 수 있습니다. 유휴 시간을 4 시간 후에 규모 축소 작업을 실행할 수 있습니다. 유휴 기간이 시간으로 정의 했습니다. 제공 하지 않는 컨테이너 또는 데이터베이스를 포함 하는 규모 확장 및 규모 축소 바꾸기 작업 기간입니다. 
+언제 든 지 컨테이너 또는 데이터베이스를 프로 비전된 된 처리량을 확장할 수 있습니다. 
 
 ## <a name="comparison-of-models"></a>모델 비교
 

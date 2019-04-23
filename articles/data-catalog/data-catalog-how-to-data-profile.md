@@ -2,18 +2,18 @@
 title: Azure Data Catalog에서 데이터 프로파일링 데이터 원본을 사용하는 방법
 description: Azure Data Catalog에서 데이터 원본을 등록할 경우 테이블 및 열 수준 데이터 프로필을 포함하는 방법 및 데이터 프로필을 사용하여 데이터 원본을 이해하는 방법을 강조한 방법 문서입니다.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: b40bbe7d1eb89f934d6ae07688e698f1949f8e76
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410241"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004315"
 ---
 # <a name="data-profile-data-sources"></a>데이터 원본 데이터 프로파일링
 ## <a name="introduction"></a>소개
@@ -83,6 +83,6 @@ ms.locfileid: "47410241"
 ## <a name="summary"></a>요약
 데이터 프로파일링은 등록된 데이터 자산에 대한 통계와 정보를 제공하여 비즈니스 문제를 해결하기 위해 데이터의 적합성을 결정할 수 있도록 합니다. 주석 달기 및 데이터 원본을 문서화하는 작업과 함께 데이터 프로필은 사용자가 데이터를 잘 이해할 수 있도록 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
 * [Azure 데이터 카탈로그 시작](data-catalog-get-started.md)

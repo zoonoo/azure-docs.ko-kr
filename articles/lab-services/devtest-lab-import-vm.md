@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: cb4a3ec9be82957b4c0366ec232f1147c52d0251
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682311"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148775"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 다른 랩의 VM 가져오기
-Azure DevTest Labs 서비스를 사용하면 개발 및 테스트 활동을 위한 VM(가상 머신) 관리 방식을 크게 개선할 수 있습니다. 이 서비스에서는 팀 또는 인프라 요구 사항 변경 시 랩 간에 VM을 이동할 수 있습니다. VM을 이동해야 할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다. 
+Azure DevTest Labs 서비스를 사용하면 개발 및 테스트 활동을 위한 VM(가상 머신) 관리 방식을 크게 개선할 수 있습니다. 이 서비스에서는 팀 또는 인프라 요구 사항 변경 시 랩 간에 VM을 이동할 수 있습니다. VM을 이동해야 할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
 - 한 팀원이 기업 내의 다른 그룹으로 이동하면서 개발 VM을 새 팀의 랩으로 가져가려는 경우
 - 그룹의 구동 수준 할당량이 소진되어 팀을 여러 구독으로 분할하려는 경우
@@ -42,10 +42,10 @@ Azure DevTest Labs 서비스를 사용하면 개발 및 테스트 활동을 위�
 현재는 Azure PowerShell 및 REST API를 통해서만 특정 랩의 VM을 다른 랩으로 가져올 수 있습니다.
 
 ### <a name="use-powershell"></a>PowerShell 사용
-[Azure DevTest Lab Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)에서 PowerShell 스크립트 파일 ImportVirtualMachines.ps1을 로컬 드라이브에 다운로드합니다. 
+[Azure DevTest Lab Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)에서 PowerShell 스크립트 파일 ImportVirtualMachines.ps1을 로컬 드라이브에 다운로드합니다.
 
 #### <a name="import-a-single-vm"></a>단일 VM 가져오기
-원본 랩의 단일 VM을 대상 랩으로 가져오려면 ImportVirtualMachines.ps1 스크립트를 실행합니다. DestinationVirtualMachineName 매개 변수를 사용하면 복사하는 VM의 새 이름을 지정할 수 있습니다. 
+원본 랩의 단일 VM을 대상 랩으로 가져오려면 ImportVirtualMachines.ps1 스크립트를 실행합니다. DestinationVirtualMachineName 매개 변수를 사용하면 복사하는 VM의 새 이름을 지정할 수 있습니다.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -58,7 +58,7 @@ Azure DevTest Labs 서비스를 사용하면 개발 및 테스트 활동을 위�
 
 
 #### <a name="importing-all-vms"></a>모든 VM 가져오기
-ImportVirtualMachines.ps1 스크립트를 실행할 때 원본 랩의 VM을 지정하지 않으면 스크립트는 원본 랩의 모든 VM을 대상 랩으로 가져옵니다. 
+ImportVirtualMachines.ps1 스크립트를 실행할 때 원본 랩의 VM을 지정하지 않으면 스크립트는 원본 랩의 모든 VM을 대상 랩으로 가져옵니다.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -68,7 +68,7 @@ ImportVirtualMachines.ps1 스크립트를 실행할 때 원본 랩의 VM을 지�
 ```
 
 ### <a name="use-rest-api"></a>REST API 사용
-다음 예제에 나와 있는 것처럼 대상 랩에 대해 REST API를 호출하고 소스 랩, 구독 및 VM 정보를 매개 변수로 전달합니다. 
+다음 예제에 나와 있는 것처럼 대상 랩에 대해 REST API를 호출하고 소스 랩, 구독 및 VM 정보를 매개 변수로 전달합니다.
 
 ```json
 POST https://management.azure.com/subscriptions/<ID of the target/destination subscription>/resourceGroups/<Name of the resource group that contains the destination lab>/providers/Microsoft.DevTestLab/labs/<Name of the lab to which the VMs are copied>/ImportVirtualMachine?api-version=2017-04-26-preview
@@ -82,5 +82,3 @@ POST https://management.azure.com/subscriptions/<ID of the target/destination su
 
 - VM 크기 조정에 대한 자세한 내용은 [VM 크기 조정](devtest-lab-resize-vm.md)을 참조하세요.
 - VM 다시 배포에 대한 자세한 내용은 [VM 다시 배포](devtest-lab-redeploy-vm.md)를 참조하세요.
-
-

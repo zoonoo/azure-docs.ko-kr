@@ -1,17 +1,17 @@
 ---
 title: Azure Site Recovery를 사용 하 여 Azure로 재해 복구에 대 한 VMware vm 복제를 사용 하도록 설정 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용 하 여 재해 복구를 위해 Azure로 복제에 대 한 VMware Vm을 사용 하도록 설정 하는 방법을 설명 합니다.
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 4/18/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.author: ramamill
+ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418112"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004740"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -89,7 +89,7 @@ VMware 가상 머신을 복제 하는 경우이 정보 사항에 유의 해야 �
     ![계산 및 네트워크 속성 창](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Azure VM 이름: 필요한 경우 Azure 요구 사항을 충족 하도록 이름을 수정 합니다.
-    * 대상 VM 크기 또는 VM 유형: 기본 VM 크기가 원본 VM 크기에 따라 선택 됩니다. 장애 조치 전에 언제 든 지 요구 사항에 따라 다른 VM 크기를 선택할 수 있습니다. VM 디스크 크기는 또한 원본 디스크 크기를 기준으로 하 고 장애 조치 후에 변경할 수 있습니다 note 합니다. 디스크 크기 및 IOPS 속도에 대해 자세히 알아보려면 [Windows VM 디스크에 대 한 확장성 및 성능 목표](../virtual-machines/windows/disk-scalability-targets.md)합니다.
+    * 대상 VM 크기 또는 VM 유형: 기본 VM 크기를 기준으로 대상 Azure 지역에서에서 디스크 수, NIC 수, CPU 코어 수, 메모리 및 사용 가능한 VM 역할 크기를 포함 하는 몇 가지 매개 변수 선택 됩니다. Azure Site Recovery는 모든 조건을 충족 하는 첫 번째 사용 가능한 VM 크기를 선택 합니다. 장애 조치 전에 언제 든 지 요구 사항에 따라 다른 VM 크기를 선택할 수 있습니다. VM 디스크 크기는 또한 원본 디스크 크기를 기준으로 하 고 장애 조치 후에 변경할 수 있습니다 note 합니다. 디스크 크기 및 IOPS 속도에 대해 자세히 알아보려면 [Windows VM 디스크에 대 한 확장성 및 성능 목표](../virtual-machines/windows/disk-scalability-targets.md)합니다.
 
     *  리소스 그룹: 선택할 수 있습니다는 [리소스 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)에서 가상 컴퓨터는 장애 조치 후의 일부가 됩니다. 장애 조치 전에 언제 든 지가이 설정을 변경할 수 있습니다. 장애 조치 후 가상 머신을 다른 리소스 그룹으로 마이그레이션하는 경우 해당 가상 컴퓨터에 대 한 보호 설정을 중단 합니다.
     * 가용성 집합: 선택할 수 있습니다는 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) 가상 컴퓨터가 장애 조치 후에 포함 되어야 하는 경우. 가용성 집합을 선택 하면 다음 정보를 염두에서에 둡니다.

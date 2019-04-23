@@ -1,83 +1,76 @@
-items:
 - name: Identity Protection 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure AD Identity Protection이란?
-    href: overview.md
+    - name: Azure AD Identity Protection이란?
+      href: overview.md
 - name: 빠른 시작
   items:
-  - name: 세션 위험이 감지되면 액세스 차단
-    href: quickstart-sign-in-risk-policy.md
+    - name: 세션 위험이 감지되면 액세스 차단
+      href: quickstart-sign-in-risk-policy.md
 - name: 개념
-  items:
-  - name: 취약성이란?
-    href: vulnerabilities.md
-  - name: 알림이란?
-    href: notifications.md
-  - name: 로그인 환경이란?
-    href: flows.md
   expanded: false
-- name: 방법 가이드
   items:
-  - name: ID 보호
-    items:
-    - name: Azure Active Directory Identity Protection 사용
-      href: enable.md
-    - name: MFA 등록 정책 구성
-      href: howto-mfa-policy.md
-    - name: 로그인 위험 정책 구성
-      href: howto-sign-in-risk-policy.md
-    - name: 사용자 위험 정책 구성
-      href: howto-user-risk-policy.md
-    - name: 활성 위험 이벤트 닫기
-      href: howto-close-active-risk-events.md
-    - name: 사용자 차단 해제
-      href: howto-unblock-user.md
-    - name: 위험 이벤트 시뮬레이션
-      href: playbook.md
-    - name: FAQ
-      href: faqs.md
-  - name: ID 보호(새로 고침)
-    items:
-    - name: 개요
-      href: overview-v2.md
-    - name: 보안 개요
-      href: security-overview.md
-    - name: 위험한 사용자 및 로그인 조사
-      href: howto-investigate-risky-users-signins.md
-    - name: 위험 정책 구성
-      href: howto-configure-risk-policies.md
-    - name: 검색 정확도 향상
-      href: howto-improve-detection-accuracy.md
-    - name: FAQ 및 알려진 문제
-      href: known-issues.md
+    - name: 취약성이란?
+      href: vulnerabilities.md
+    - name: 알림이란?
+      href: notifications.md
+    - name: 로그인 환경이란?
+      href: flows.md
+- name: 방법 가이드
   expanded: true
+  items:
+    - name: ID 보호
+      items:
+        - name: Azure Active Directory Identity Protection 사용
+          href: enable.md
+        - name: MFA 등록 정책 구성
+          href: howto-mfa-policy.md
+        - name: 로그인 위험 정책 구성
+          href: howto-sign-in-risk-policy.md
+        - name: 사용자 위험 정책 구성
+          href: howto-user-risk-policy.md
+        - name: 활성 위험 이벤트 닫기
+          href: howto-close-active-risk-events.md
+        - name: 사용자 차단 해제
+          href: howto-unblock-user.md
+        - name: 위험 이벤트 시뮬레이션
+          href: playbook.md
+        - name: FAQ
+          href: faqs.md
+    - name: ID 보호(새로 고침)
+      items:
+        - name: 개요
+          href: overview-v2.md
+        - name: 보안 개요
+          href: security-overview.md
+        - name: 위험한 사용자 및 로그인 조사
+          href: howto-investigate-risky-users-signins.md
+        - name: 위험 정책 구성
+          href: howto-configure-risk-policies.md
+        - name: 검색 정확도 향상
+          href: howto-improve-detection-accuracy.md
+        - name: FAQ 및 알려진 문제
+          href: known-issues.md
 - name: 참고 자료
   items:
-  - name: Microsoft Graph API 사용
-    href: graph-get-started.md
-  - name: 위험 이벤트
-    href: risk-events-reference.md
-  - name: 용어
-    href: glossary.md
+    - name: Microsoft Graph API 사용
+      href: graph-get-started.md
+    - name: 위험 이벤트
+      href: risk-events-reference.md
+    - name: 용어
+      href: glossary.md
 - name: 리소스
   items:
-  - name: Azure 피드백 포럼
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN 포럼
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: 서비스 업데이트
-    href: ../fundamentals/whats-new.md
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: 동영상
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 8c48b383ccd2ac30dc9598cd2da0f043afae43dc
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910949"
+    - name: Azure 피드백 포럼
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: 서비스 업데이트
+      href: ../fundamentals/whats-new.md
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

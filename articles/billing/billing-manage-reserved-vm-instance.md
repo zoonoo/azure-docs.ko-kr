@@ -1,24 +1,23 @@
 ---
 title: Azure 예약 관리 | Microsoft Docs
 description: 구독 범위를 변경하고 Azure 예약에 대한 액세스 권한을 관리하는 방법에 대해 알아봅니다.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904444"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994966"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -29,7 +28,19 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>예약할 범위 변경
+## <a name="reservation-order-and-reservation"></a>예약 주문 및 예약
+
+예약을 구매 하는 경우 두 개체가 만들어집니다. **예약 주문을** 하 고 **예약**합니다.
+
+구매 시 예약 순서를 하나의 예약 그 아래에 있습니다. 분할, 병합, 부분 환불 또는 exchange 등의 작업에서 새 예약을 만들 합니다 **예약 주문**합니다.
+
+이동할 예약 순서를 보려면 **예약** > 예약을 선택한 다음 클릭 합니다 **예약 주문 ID**합니다.
+
+![예약 주문 ID를 표시 하는 예약 주문 세부 정보의 예제 ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+해당 예약 주문에서 예약에 사용 권한을 상속 받습니다.
+
+## <a name="change-the-reservation-scope"></a>예약 범위를 변경 합니다.
 
  예약 할인 가상 머신, SQL 데이터베이스, Azure Cosmos DB 또는 예약과 일치 하 고 예약 범위에서 실행 하는 다른 리소스에 적용 됩니다. 청구 컨텍스트는 예약을 구입하는 데 사용되는 구독에 따라 달라집니다.
 
@@ -47,9 +58,12 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>예약을 관리할 수 있는 사용자 추가 또는 변경
 
-예약에 대한 역할에 사용자를 추가하여 예약의 관리를 위임할 수 있습니다. 기본적으로 예약을 구입한 사용자 및 계정 관리자는 예약에 대한 소유자 역할입니다.
+예약 순서 또는 예약에서 역할에 사용자를 추가 하 여 예약 관리를 위임할 수 있습니다. 기본적으로 예약 순서와 계정 관리자를 배치 하는 사용자 역할이 소유자 예약 주문 및 예약 합니다.
 
-예약 할인을 받은 구독에서 독립적으로 예약에 대한 액세스 권한을 관리할 수 있습니다. 예약을 관리하는 사용 권한을 부여할 때 구독을 관리하는 권한을 제공하는 것은 아닙니다. 또한 누군가에게 예약의 범위 내에서 구독을 관리하는 사용 권한을 부여할 때 예약을 관리하는 권한을 제공하는 것은 아닙니다.
+예약 할인을 받는 구독에서 독립적으로 예약 주문 및 예약에 대 한 액세스를 관리할 수 있습니다. 예약 순서 또는 예약을 관리 하는 권한을 부여할 때 제공 하지는 않습니다 해당 구독을 관리할 수 있는 권한이 있습니다. 마찬가지로, 예약의 범위에서 구독을 관리 하는 사용 권한을 부여할 경우 제공 하지는 않습니다 하 예약 순서 또는 예약을 관리 하는 권한입니다.
+
+Exchange 또는 환불을 수행 하려면 사용자는 예약 순서에 대 한 액세스가 있어야 합니다. 다른 사용자에 권한을 부여할 때 예약 순서를 예약 하지에 권한을 부여 하는 것이 좋습니다.
+
 
 예약에 대한 액세스 관리를 위임하려면:
 

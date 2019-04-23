@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671744"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118734"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제
 
@@ -35,6 +35,12 @@ ms.locfileid: "58671744"
 - Azure Advisor는 개별 구독에 대 한 구매 권장 사항을 제공합니다.  
 - 공유 범위와 단일 구독 범위에 대 한 구매 권장 사항을 가져오려면 Api를 사용할 수 있습니다. 자세한 내용은 [예약 인스턴스 구매 권장 사항 Api 기업 고객을 위한](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)합니다.
 - EA 고객의 경우에 대 한 권장 사항을 공유에 대 한 구매 및 단일 구독 범위에서 사용할 수는 [Azure 소비 Insights Power BI 콘텐츠 팩](/power-bi/service-connect-to-azure-consumption-insights)합니다.
+
+### <a name="classic-vms-and-cloud-services"></a>클래식 Vm 및 cloud services
+
+가상 머신 예약 인스턴스는 자동으로 모두 클래식 Vm에 적용 하 고 클라우드 서비스 인스턴스 크기 유연성을 사용 하는 경우. 클래식 Vm 또는 cloud services에 대 한 모든 특수 Sku 없습니다. 동일한 VM Sku에 적용 합니다.
+
+예를 들어, 클래식 Vm 또는 클라우드 서비스를 Azure Resource Manager 기반 Vm을 변환할 수 있습니다. 이 예제에서는 예약 할인 일치 Vm에 자동으로 적용 됩니다. 하지 않아도 됩니다 *exchange* 기존 예약 된 인스턴스-자동으로 적용 됩니다.
 
 ### <a name="analyze-your-usage-information"></a>사용 정보를 분석 합니다.
 구입 해야 하는 예약을 결정 하는 데 사용 정보를 분석 해야 합니다.
@@ -74,14 +80,8 @@ Reserved VM Instances는 몇 가지 예외를 사용 하 여 대부분의 VM 크
     |다음에 맞게 최적화     |VM 인스턴스 크기 유연성은 동일한 [VM 크기 그룹](https://aka.ms/RIVMGroups)의 다른 VM에 예약 할인을 적용합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 그러면 필요할 때 VM 인스턴스를 시작하는 기능을 더욱 신뢰할 수 있습니다. 용량 우선 순위는 예약 범위가 단일 구독일 때에 사용할 수 있습니다. |
     |용어        |1년 또는 3년입니다.|
     |수량    |예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 VM 인스턴스의 수입니다. 예를 들어 미국 동부 지역에서 10개의 Standard_D2 VM을 실행 중인 경우 실행 중인 모든 컴퓨터에 대한 혜택을 극대화하려면 수량을 10으로 지정할 수 있습니다. |
-5. **비용 계산**을 선택하면 예약 비용을 볼 수 있습니다.
 
-    ![예약 구매를 제출하기 전의 스크린샷](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. **구매**를 선택합니다.
-7. 구매 상태를 보려면 **이 예약 보기**를 선택합니다.
-
-    ![예약 구매를 제출한 후의 스크린샷](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>예약 구매 후 변경
 

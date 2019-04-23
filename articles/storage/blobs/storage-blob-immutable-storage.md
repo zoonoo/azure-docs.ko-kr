@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445698"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996033"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
@@ -41,7 +41,7 @@ Azure Blob storage에 대 한 변경할 수 없는 저장소를 사용 하면 �
 
 - **컨테이너 수준 구성**: 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 간단한 컨테이너 수준 설정을 사용 하 여 사용자 수 만들기 및 잠금 시간 기준 보존 정책, 보존 간격, 집합 및 지우기 법적 저장 등을 확장 합니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
 
-- **감사 로깅 지원**: 각 컨테이너에 감사 로그가 포함됩니다. 최대 3개의 보존 간격 연장 로그를 사용하여 잠긴 시간 기준 보존 정책에 대해 시간 기준 보존 명령을 최대 5개까지 표시합니다. 시간 기준 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 보존 간격이 포함됩니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 SEC 17a-4(f) 규정 지침에 따라 컨테이너 수명 동안 유지됩니다. [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 를 사용 하도록 설정 하는 동안 모든 제어 평면 작업의 자세한 로그를 보여 줍니다 [Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md) 유지 및 데이터 평면 작업을 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
+- **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그를 포함합니다. 표시 7 시간 기준 보존 잠긴된 시간 기준 보존 정책에 대 한 명령 및 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격이 포함 됩니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4(f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 를 사용 하도록 설정 하는 동안 모든 제어 평면 작업의 자세한 로그를 보여 줍니다 [Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md) 유지 및 데이터 평면 작업을 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -82,6 +82,20 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 <sup>1</sup> 응용 프로그램에서는 이러한 작업을 한 번 새 blob을 만듭니다. 모든 후속 덮어쓰기 변경할 수 없는 컨테이너에 기존 blob 경로에서 작업이 허용 되지 않습니다.
 
+## <a name="supported-values"></a>지원되는 값
+
+### <a name="time-based-retention"></a>시간 기반 보존
+- 저장소 계정에 대 한 잠금된 시간을 기준으로 변경할 수 없는 정책 사용 하 여 컨테이너의 최대 수는 1,000입니다.
+- 최소 보존 간격은 1 일입니다. 최대값은 146,000 일 (400 년)입니다.
+- 컨테이너에 대 한 최대 잠긴된 시간을 기준으로 변경할 수 없는 정책에 대 한 보존 간격을 확장 하는 편집은 5입니다.
+- 컨테이너에 대 한 7 시간 기준 보존 정책 감사 로그의 최대 기간 정책에 대 한 유지 됩니다.
+
+### <a name="legal-hold"></a>법적 보존
+- 저장소 계정의 경우 법적 보존이 설정된 컨테이너의 최대 수는 1,000개입니다.
+- 컨테이너의 경우 법적 보존 태그의 최대 수는 10개입니다.
+- 법적 보존 태그의 최소 길이 영숫자 3 자입니다. 최대 길이 영숫자 23 자입니다.
+- 컨테이너에 대 한 법적 10 개 사이로 정책의 기간에 대 한 로그를 보관 하는 정책 감사를 보유 합니다.
+
 ## <a name="pricing"></a>가격
 
 이 기능을 사용하는 경우 추가 요금이 부과되지 않습니다. 변경 불가능한 데이터는 일반적으로 변경 가능한 데이터와 동일한 방식으로 가격이 책정됩니다. Azure Blob Storage의 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
@@ -90,7 +104,6 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 변경할 수 없는 저장소는 범용 v2 및 Blob Storage 계정에 대해서만 사용할 수 있습니다. 이러한 계정을 통해 관리 되어야 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)합니다. 기존 범용 v1 저장소 계정을 업그레이드에 대 한 자세한 내용은 [저장소 계정을 업그레이드](../common/storage-account-upgrade.md)합니다.
 
 최신 릴리스는 [Azure portal](https://portal.azure.com)를 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), 및 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) Azure Blob storage에 대 한 변경할 수 없는 저장소를 지원 합니다. [클라이언트 라이브러리 지원](#client-libraries) 도 제공 됩니다.
-
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -152,16 +165,6 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 - [Python 클라이언트 라이브러리 버전 2.0.0 릴리스 후보 2 이상](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Java 클라이언트 라이브러리](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="supported-values"></a>지원되는 값
-
-- 보존 간격의 최솟값은 1일이고, 최대값은 146,000 일 (400 년)입니다.
-- 저장소 계정의 경우 변경 불가능한 정책이 잠겨 있는 컨테이너의 최대 수는 1,000개입니다.
-- 저장소 계정의 경우 법적 보존이 설정된 컨테이너의 최대 수는 1,000개입니다.
-- 컨테이너의 경우 법적 보존 태그의 최대 수는 10개입니다.
-- 법적 보존 태그의 최대 길이는 23자의 영숫자이고, 최소 길이는 3자의 문자입니다.
-- 컨테이너의 경우 잠겨 있는 변경 불가능한 정책에 허용되는 보존 간격 연장의 최대 수는 3개입니다.
-- 변경 불가능한 정책이 잠겨 있는 컨테이너의 경우 시간 기준 보존 정책 로그의 최대 수는 5개이고, 컨테이너 보존 기간 동안 유지되는 법적 보존 정책 로그의 최대 수는 10개입니다.
-
 ## <a name="faq"></a>FAQ
 
 **웜 규정 준수의 설명서를 제공 하나요?**
@@ -178,7 +181,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 
 **법적 보존 및 시간 기반 보존 정책을 적용할 수 있나요?**
 
-컨테이너에는 법적 보존 정책 및 시간 기준 보존 정책이 모두 있을 수 있습니다. 유효 보존 기간이 만료된 경우에도 법적 보존이 지워질 때까지 해당 컨테이너의 모든 Blob은 변경 불가능한 상태로 유지됩니다. 반대로, 모든 법적 보존이 지워진 경우에도 유효 보존 기간이 만료될 때까지 Blob은 변경 불가능한 상태로 유지됩니다.
+예, 컨테이너를 동시에 법적 보존 및 시간 기준 보존 정책이 있을 수 있습니다. 유효 보존 기간이 만료된 경우에도 법적 보존이 지워질 때까지 해당 컨테이너의 모든 Blob은 변경 불가능한 상태로 유지됩니다. 반대로, 모든 법적 보존이 지워진 경우에도 유효 보존 기간이 만료될 때까지 Blob은 변경 불가능한 상태로 유지됩니다.
 
 **법적 보존 정책을 법적 절차에 대해서만 아니면 다른 사용 시나리오가 있습니다?**
 
@@ -202,13 +205,13 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 
 **기능을 경험해 볼 수 있는 평가판 또는 유예 기간이 제공되나요?**
 
-예. 시간 기준 보존 정책을 처음으로 만들면 해당 정책은 *잠금* 상태가 됩니다. 이 상태에서는 필요에 따라 보존 간격을 변경할 수 있습니다. 즉 해당 정책을 늘리거나 줄이고, 심지어 삭제할 수도 있습니다. 정책을 잠근 후에는 보존 간격이 만료될 때까지 잠금 상태가 유지됩니다. 이 잠긴된 정책은 보존 간격이 수정 및 삭제를 방지합니다. *잠금 해제* 상태는 기능 평가 목적으로만 사용하고, 24 시간 내에 해당 정책을 잠그는 것이 좋습니다. 이러한 사례는 SEC 17a-4(f) 및 기타 규정을 준수하는 데 도움이 됩니다.
+예. 시간 기준 보존 정책을 처음 만들 때에 *잠기지 않은* 상태입니다. 이 상태에서는 필요에 따라 보존 간격을 변경할 수 있습니다. 즉 해당 정책을 늘리거나 줄이고, 심지어 삭제할 수도 있습니다. 정책을 잠근 후에는 보존 간격이 만료될 때까지 잠금 상태가 유지됩니다. 이 잠긴된 정책은 보존 간격이 수정 및 삭제를 방지합니다. *잠금 해제* 상태는 기능 평가 목적으로만 사용하고, 24 시간 내에 해당 정책을 잠그는 것이 좋습니다. 이러한 사례는 SEC 17a-4(f) 및 기타 규정을 준수하는 데 도움이 됩니다.
 
 **일시 삭제 정책 변경할 수 없는 blob와 함께 사용할 수 있습니까?**
 
 예. [Azure Blob storage에 대 한 일시 삭제](storage-blob-soft-delete.md) 법적 또는 시간 기준 보존 정책에 관계 없이 저장소 계정 내의 모든 컨테이너에 적용 됩니다. 변경할 수 없는 웜 정책을 적용 하 고 확인 하기 전에 추가 보호에 대해 일시 삭제를 사용 하도록 설정 하는 것이 좋습니다. 
 
-**국가 및 정부 클라우드에서 이 기능을 사용할 수 있나요?**
+**사용 가능한 기능은 여기서?**
 
 변경이 불가능한 스토리지는 Azure 공용, 중국 및 Government 지역에서 사용할 수 있습니다. 지원 및 전자 메일 문의 변경할 수 없는 저장소를 사용할 수 없는 지역의 경우 azurestoragefeedback@microsoft.com합니다.
 

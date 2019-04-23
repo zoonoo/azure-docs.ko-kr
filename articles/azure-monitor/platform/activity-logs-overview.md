@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496882"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995662"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -65,6 +65,9 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * PowerShell Cmdlet, CLI 또는 REST API를 통해 쿼리합니다.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure Portal에서 활동 로그 쿼리
+
+> [!NOTE] 
+> 활동 로그는 90 일 동안 백 엔드에 로그를 저장합니다. 이 데이터를 유지 하려는 경우 구성 하십시오를 **로그 프로필** 아래 설명 된 대로 합니다. 
 
 Azure Portal 내에서는 다음과 같은 여러 위치에서 활동 로그를 볼 수 있습니다.
 * **활동 로그**는 왼쪽 탐색 창의 **모든 서비스** 아래에서 에서 활동 로그를 검색하여 액세스할 수 있습니다.

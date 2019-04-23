@@ -1,107 +1,100 @@
-items:
 - name: Front Door Service 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure Front Door Service란?
-    href: front-door-overview.md
+    - name: Azure Front Door Service란?
+      href: front-door-overview.md
 - name: 빠른 시작
   items:
-  - name: Front Door 만들기
-    href: quickstart-create-front-door.md
+    - name: Front Door 만들기
+      href: quickstart-create-front-door.md
 - name: 자습서
   items:
-  - name: Front Door에 사용자 지정 도메인 추가
-    href: front-door-custom-domain.md
-  - name: 사용자 지정 도메인에 HTTPS 사용
-    href: front-door-custom-domain-https.md
-  - name: Front Door에 대한 지역 필터링 정책 설정
-    href: front-door-tutorial-geo-filtering.md
+    - name: Front Door에 사용자 지정 도메인 추가
+      href: front-door-custom-domain.md
+    - name: 사용자 지정 도메인에 HTTPS 사용
+      href: front-door-custom-domain-https.md
+    - name: Front Door에 대한 지역 필터링 정책 설정
+      href: front-door-tutorial-geo-filtering.md
 - name: 샘플
   items:
-  - name: Resource Manager 템플릿
-    href: front-door-quickstart-template-samples.md
+    - name: Resource Manager 템플릿
+      href: front-door-quickstart-template-samples.md
 - name: 개념
   items:
-  - name: 백 엔드 및 백 엔드 풀
-    href: front-door-backend-pool.md
-  - name: Front Door를 통한 캐싱
-    href: front-door-caching.md
-  - name: 지역 필터링
-    href: front-door-geo-filtering.md
-  - name: 상태 프로브
-    href: front-door-health-probes.md
-  - name: Front Door에서 요청에 대해 라우팅을 일치시키는 방법
-    href: front-door-route-matching.md
-  - name: HTTP/2 지원
-    href: front-door-http2.md
-  - name: HTTP 헤더 프로토콜 지원
-    href: front-door-http-headers-protocol.md
-  - name: Azure 애플리케이션 배달 제품군을 통해 부하 분산
-    href: front-door-lb-with-azure-app-delivery-suite.md
-  - name: 모니터링
-    href: front-door-diagnostics.md
-  - name: 라우팅 아키텍처
-    href: front-door-routing-architecture.md
-  - name: 트래픽 라우팅 방법
-    href: front-door-routing-methods.md
-  - name: URL 다시 쓰기
-    href: front-door-url-rewrite.md
-  - name: WAF
-    items:
-    - name: 개요
-      href: waf-overview.md
-    - name: 사용자 지정 규칙
-      href: waf-front-door-custom-rules.md
-    - name: 정책 설정
-      href: waf-front-door-policy-settings.md
-    - name: 모니터링 및 로깅
-      href: waf-front-door-monitor.md
+    - name: 백 엔드 및 백 엔드 풀
+      href: front-door-backend-pool.md
+    - name: Front Door를 통한 캐싱
+      href: front-door-caching.md
+    - name: 지역 필터링
+      href: front-door-geo-filtering.md
+    - name: 상태 프로브
+      href: front-door-health-probes.md
+    - name: Front Door에서 요청에 대해 라우팅을 일치시키는 방법
+      href: front-door-route-matching.md
+    - name: HTTP/2 지원
+      href: front-door-http2.md
+    - name: HTTP 헤더 프로토콜 지원
+      href: front-door-http-headers-protocol.md
+    - name: Azure 애플리케이션 배달 제품군을 통해 부하 분산
+      href: front-door-lb-with-azure-app-delivery-suite.md
+    - name: 모니터링
+      href: front-door-diagnostics.md
+    - name: 라우팅 아키텍처
+      href: front-door-routing-architecture.md
+    - name: 트래픽 라우팅 방법
+      href: front-door-routing-methods.md
+    - name: URL 다시 쓰기
+      href: front-door-url-rewrite.md
+    - name: WAF
+      items:
+        - name: 개요
+          href: waf-overview.md
+        - name: 사용자 지정 규칙
+          href: waf-front-door-custom-rules.md
+        - name: 정책 설정
+          href: waf-front-door-policy-settings.md
+        - name: 모니터링 및 로깅
+          href: waf-front-door-monitor.md
 - name: 방법 가이드
   items:
-  - name: 문제 해결
-    items:
-    - name: 라우팅 문제 해결
-      href: front-door-troubleshoot-routing.md
-    - name: 허용된 인증 기관
-      href: front-door-troubleshoot-allowed-ca.md
-  - name: WAF 구성
-    items:
-    - name: WAF 정책 구성 - 포털
-      href: waf-front-door-create-portal.md
-    - name: WAF 정책 구성 - Azure PowerShell
-      href: waf-front-door-custom-rules-powershell.md
-    - name: 사용자 지정 응답 코드 구성
-      href: waf-front-door-configure-custom-response-code.md
-    - name: WAF 속도 제한 구성 - Azure PowerShell
-      href: waf-front-door-rate-limit-powershell.md
+    - name: 문제 해결
+      items:
+        - name: 라우팅 문제 해결
+          href: front-door-troubleshoot-routing.md
+        - name: 허용된 인증 기관
+          href: front-door-troubleshoot-allowed-ca.md
+    - name: WAF 구성
+      items:
+        - name: WAF 정책 구성 - 포털
+          href: waf-front-door-create-portal.md
+        - name: WAF 정책 구성 - Azure PowerShell
+          href: waf-front-door-custom-rules-powershell.md
+        - name: 사용자 지정 응답 코드 구성
+          href: waf-front-door-configure-custom-response-code.md
+        - name: WAF 속도 제한 구성 - Azure PowerShell
+          href: waf-front-door-rate-limit-powershell.md
 - name: FAQ
   items:
-  - name: Front Door FAQ
-    href: front-door-faq.md
-  - name: WAF FAQ
-    href: waf-faq.md
+    - name: Front Door FAQ
+      href: front-door-faq.md
+    - name: WAF FAQ
+      href: waf-faq.md
 - name: 참고 자료
   items:
-  - name: Azure CLI
-    href: /cli/azure/ext/front-door/
-  - name: Azure PowerShell
-    href: /powershell/module/az.frontdoor
-  - name: REST API
-    href: /rest/api/frontdoor
+    - name: Azure CLI
+      href: /cli/azure/ext/front-door/
+    - name: Azure PowerShell
+      href: /powershell/module/az.frontdoor
+    - name: REST API
+      href: /rest/api/frontdoor
 - name: 리소스
   items:
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/frontdoor/
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: 서비스 업데이트
-    href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 7ac4e84bf714dabdbfb0c587122287d02b6b3bbe
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680114"
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=frontdoor'

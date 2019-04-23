@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ae435c379a55ee2b3246cb3e757b79295c57988e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338295"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000065"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 저장소 모범 사례
 
@@ -89,9 +89,9 @@ Azure Data Lake Storage는 HDFS 및 POSIX 스타일 액세스 제어 모델을 �
 - [Azure Portal을 사용하여 Data Lake Storage가 있는 HDInsight 클러스터 만들기](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Azure HDInsight 클러스터에 Data Lake Storage 사용](../hdinsight-hadoop-use-data-lake-store.md)
 
-### <a name="azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2(미리 보기)
+### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2는 최신 스토리지 제품이며 이 문서의 작성 당시에는 미리 보기로 제공됩니다. Azure Data Lake Storage의 1세대에서 핵심 기능을 Azure Blob Storage로 직접 통합된 Hadoop 호환 파일 시스템 엔드포인트와 통합합니다. 이 향상된 기능은 개체 저장소의 크기 조정 및 비용 혜택을 일반적으로 온-프레미스 파일 시스템에만 연결된 안정성 및 성능과 결합합니다.
+Azure Data Lake 저장소 Gen2는 최신 저장소를 제공 합니다. Azure Data Lake Storage의 1세대에서 핵심 기능을 Azure Blob Storage로 직접 통합된 Hadoop 호환 파일 시스템 엔드포인트와 통합합니다. 이 향상된 기능은 개체 저장소의 크기 조정 및 비용 혜택을 일반적으로 온-프레미스 파일 시스템에만 연결된 안정성 및 성능과 결합합니다.
 
 ADLS Gen 2는  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md)를 기반으로 빌드되었으며 이를 사용하면 파일 시스템 및 개체 스토리지 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다. 파일 시스템 의미 체계, 파일 수준 보안 및 확장과 같은  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md)의 기능은  [Azure Blob 스토리지](../../storage/blobs/storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 높은 가용성/재해 복구 기능 및 대규모 SDK/도구 에코시스템과 결합됩니다. Data Lake Storage Gen2에서 분석 워크로드에 맞게 최적화된 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 스토리지의 모든 특성이 유지됩니다.
 
@@ -115,7 +115,7 @@ ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Data Lake Storage Gen2 미리 보기 소개](../../storage/data-lake-storage/introduction.md)
+- [Azure Data Lake Storage Gen2 소개](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob FileSystem 드라이버(ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 - [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 

@@ -4,7 +4,7 @@
   items:
     - name: Project URL Preview란?
       href: overview.md
-    - name: URL Preview 끝점
+    - name: URL Preview 엔드포인트
       href: endpoint.md
 - name: 빠른 시작
   expanded: true
@@ -17,7 +17,7 @@
       href: javascript.md
     - name: 노드
       href: node-quickstart.md
-    - name: 파이썬
+    - name: Python
       href: python-quickstart.md
 - name: 참고 자료
   expanded: true

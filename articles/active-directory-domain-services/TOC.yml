@@ -1,154 +1,147 @@
-items:
 - name: Azure AD Domain Services 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure AD Domain Services란?
-    href: active-directory-ds-overview.md
-  - name: FAQ
-    href: active-directory-ds-faqs.md
-  - name: 사용자에게 적합한가요?
-    items:
-    - name: Windows Server AD와 비교
-      href: active-directory-ds-comparison.md
-    - name: Azure AD 조인과 비교
-      href: active-directory-ds-compare-with-azure-ad-join.md
-  - name: 새로운 기능
-    href: https://azure.microsoft.com/updates/?product=active-directory-ds
-  - name: 기능
-    href: active-directory-ds-features.md
-  - name: 시나리오
-    href: active-directory-ds-scenarios.md
-  - name: 동기화 작동 방법
-    href: active-directory-ds-synchronization.md
-  - name: 호환 가능한 타사 소프트웨어
-    href: active-directory-ds-compatible-software.md
+    - name: Azure AD Domain Services란?
+      href: active-directory-ds-overview.md
+    - name: FAQ
+      href: active-directory-ds-faqs.md
+    - name: 사용자에게 적합한가요?
+      items:
+        - name: Windows Server AD와 비교
+          href: active-directory-ds-comparison.md
+        - name: Azure AD 조인과 비교
+          href: active-directory-ds-compare-with-azure-ad-join.md
+    - name: 새로운 기능
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
+    - name: 기능
+      href: active-directory-ds-features.md
+    - name: 시나리오
+      href: active-directory-ds-scenarios.md
+    - name: 동기화 작동 방법
+      href: active-directory-ds-synchronization.md
+    - name: 호환 가능한 타사 소프트웨어
+      href: active-directory-ds-compatible-software.md
 - name: 시작하기
   items:
-  - name: '작업 1: 기본 설정 구성'
-    href: active-directory-ds-getting-started.md
-  - name: '작업 2: 네트워크 설정 구성'
-    href: active-directory-ds-getting-started-network.md
-  - name: '작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화'
-    href: active-directory-ds-getting-started-admingroup.md
-  - name: '작업 4: 가상 네트워크에 대한 DNS 설정 업데이트'
-    href: active-directory-ds-getting-started-dns.md
-  - name: '작업 5: 암호 해시 동기화 사용'
-    href: active-directory-ds-getting-started-password-sync.md
+    - name: '작업 1: 기본 설정 구성'
+      href: active-directory-ds-getting-started.md
+    - name: '작업 2: 네트워크 설정 구성'
+      href: active-directory-ds-getting-started-network.md
+    - name: '작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화'
+      href: active-directory-ds-getting-started-admingroup.md
+    - name: '작업 4: 가상 네트워크에 대한 DNS 설정 업데이트'
+      href: active-directory-ds-getting-started-dns.md
+    - name: '작업 5: 암호 해시 동기화 사용'
+      href: active-directory-ds-getting-started-password-sync.md
 - name: 방법
   items:
-  - name: 관리형 도메인의 상태 확인
-    href: active-directory-ds-check-health.md
-  - name: Azure CSP 구독에서 Azure AD Domain Services 사용
-    href: active-directory-ds-csp.md
-  - name: PowerShell을 사용하여 Azure AD Domain Services 사용
-    href: active-directory-ds-enable-using-powershell.md
-  - name: Azure AD부터 관리형 도메인까지 범위가 지정된 동기화 구성
-    href: active-directory-ds-scoped-synchronization.md
-  - name: 관리되는 도메인 보호
-    href: active-directory-ds-secure-your-domain.md
-  - name: 관리 되는 도메인에 OU 만들기
-    href: active-directory-ds-admin-guide-create-ou.md
-  - name: 관리형 도메인에 그룹 관리형 서비스 계정 만들기
-    href: active-directory-ds-create-gmsa.md
-  - name: 관리형 도메인에서 그룹 정책 관리
-    href: active-directory-ds-admin-guide-administer-group-policy.md
-  - name: 관리형 도메인에서 암호 정책 구성
-    href: active-directory-ds-password-policy.md
-  - name: 가상 네트워크 선택
-    href: active-directory-ds-networking.md
-  - name: 애플리케이션 배포
-    items:
-    - name: SharePoint Server에 대한 프로필 동기화 지원 구성
-      href: active-directory-ds-enable-sharepoint-profile-sync.md
-    - name: Kerberos 제한된 위임 구성
-      href: active-directory-ds-enable-kcd.md
-    - name: Azure AD 애플리케이션 프록시 배포
-      href: active-directory-ds-deploy-azure-app-proxy.md
-  - name: 관리형 도메인 삭제
-    href: active-directory-ds-disable-aadds.md
+    - name: 관리형 도메인의 상태 확인
+      href: active-directory-ds-check-health.md
+    - name: Azure CSP 구독에서 Azure AD Domain Services 사용
+      href: active-directory-ds-csp.md
+    - name: PowerShell을 사용하여 Azure AD Domain Services 사용
+      href: active-directory-ds-enable-using-powershell.md
+    - name: Azure AD부터 관리형 도메인까지 범위가 지정된 동기화 구성
+      href: active-directory-ds-scoped-synchronization.md
+    - name: 관리되는 도메인 보호
+      href: active-directory-ds-secure-your-domain.md
+    - name: 관리 되는 도메인에 OU 만들기
+      href: active-directory-ds-admin-guide-create-ou.md
+    - name: 관리형 도메인에 그룹 관리형 서비스 계정 만들기
+      href: active-directory-ds-create-gmsa.md
+    - name: 관리형 도메인에서 그룹 정책 관리
+      href: active-directory-ds-admin-guide-administer-group-policy.md
+    - name: 관리형 도메인에서 암호 정책 구성
+      href: active-directory-ds-password-policy.md
+    - name: 가상 네트워크 선택
+      href: active-directory-ds-networking.md
+    - name: 애플리케이션 배포
+      items:
+        - name: SharePoint Server에 대한 프로필 동기화 지원 구성
+          href: active-directory-ds-enable-sharepoint-profile-sync.md
+        - name: Kerberos 제한된 위임 구성
+          href: active-directory-ds-enable-kcd.md
+        - name: Azure AD 애플리케이션 프록시 배포
+          href: active-directory-ds-deploy-azure-app-proxy.md
+    - name: 관리형 도메인 삭제
+      href: active-directory-ds-disable-aadds.md
 - name: 관리되는 도메인 가입
   items:
-  - name: Windows Server VM
-    href: active-directory-ds-admin-guide-join-windows-vm-portal.md
-  - name: 템플릿의 Windows Server VM
-    href: active-directory-ds-join-windows-vm-template.md
-  - name: CentOS
-    href: active-directory-ds-join-centos-linux-vm.md
-  - name: CoreOS
-    href: active-directory-ds-join-coreos-linux-vm.md
-  - name: Red Hat Enterprise Linux
-    href: active-directory-ds-join-rhel-linux-vm.md
-  - name: Ubuntu Server
-    href: active-directory-ds-join-ubuntu-linux-vm.md
+    - name: Windows Server VM
+      href: active-directory-ds-admin-guide-join-windows-vm-portal.md
+    - name: 템플릿의 Windows Server VM
+      href: active-directory-ds-join-windows-vm-template.md
+    - name: CentOS
+      href: active-directory-ds-join-centos-linux-vm.md
+    - name: CoreOS
+      href: active-directory-ds-join-coreos-linux-vm.md
+    - name: Red Hat Enterprise Linux
+      href: active-directory-ds-join-rhel-linux-vm.md
+    - name: Ubuntu Server
+      href: active-directory-ds-join-ubuntu-linux-vm.md
 - name: 관리되는 도메인 관리
   items:
-  - name: 관리되는 도메인 관리
-    href: active-directory-ds-admin-guide-administer-domain.md
-  - name: 관리되는 도메인에서 DNS 관리
-    href: active-directory-ds-admin-guide-administer-dns.md
-  - name: 이메일 알림 업데이트
-    href: active-directory-ds-notifications.md
+    - name: 관리되는 도메인 관리
+      href: active-directory-ds-admin-guide-administer-domain.md
+    - name: 관리되는 도메인에서 DNS 관리
+      href: active-directory-ds-admin-guide-administer-dns.md
+    - name: 이메일 알림 업데이트
+      href: active-directory-ds-notifications.md
 - name: 관리되는 도메인에 대한 LDAP 구성
   items:
-  - name: '작업 1: 보안 LDAP를 위한 인증서 가져오기'
-    href: active-directory-ds-admin-guide-configure-secure-ldap.md
-  - name: '작업 2: 보안 LDAP 인증서 내보내기'
-    href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-  - name: '작업 3: Azure Portal을 사용하여 관리형 도메인에 대해 보안 LDAP를 사용하도록 설정'
-    href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-  - name: '작업 4: 인터넷에서 관리되는 도메인에 액세스하도록 DNS 구성'
-    href: active-directory-ds-ldaps-configure-dns.md
-  - name: '작업 5: 관리형 도메인에 바인딩 및 보안 LDAP 액세스 잠금'
-    href: active-directory-ds-ldaps-bind-lockdown.md
-  - name: 보안 LDAP 문제 해결
-    href: active-directory-ds-ldaps-troubleshoot.md
+    - name: '작업 1: 보안 LDAP를 위한 인증서 가져오기'
+      href: active-directory-ds-admin-guide-configure-secure-ldap.md
+    - name: '작업 2: 보안 LDAP 인증서 내보내기'
+      href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
+    - name: '작업 3: Azure Portal을 사용하여 관리형 도메인에 대해 보안 LDAP를 사용하도록 설정'
+      href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
+    - name: '작업 4: 인터넷에서 관리되는 도메인에 액세스하도록 DNS 구성'
+      href: active-directory-ds-ldaps-configure-dns.md
+    - name: '작업 5: 관리형 도메인에 바인딩 및 보안 LDAP 액세스 잠금'
+      href: active-directory-ds-ldaps-bind-lockdown.md
+    - name: 보안 LDAP 문제 해결
+      href: active-directory-ds-ldaps-troubleshoot.md
 - name: 문제 해결
   items:
-  - name: 문제 해결 가이드
-    href: active-directory-ds-troubleshooting.md
-  - name: 경고 문제 해결
-    href: active-directory-ds-troubleshoot-alerts.md
-    items:
-    - name: 손상된 NSG 구성 수정
-      href: active-directory-ds-troubleshoot-nsg.md
-    - name: 누락된 서비스 주체 복원
-      href: active-directory-ds-troubleshoot-service-principals.md
-    - name: 보안 LDAP 오류
-      href: active-directory-ds-troubleshoot-ldaps.md
-  - name: 일치하지 않는 테넌트 오류 해결
-    href: active-directory-ds-mismatched-tenant-error.md
-  - name: 일시 중단된 도메인
-    href: active-directory-ds-suspension.md
+    - name: 문제 해결 가이드
+      href: active-directory-ds-troubleshooting.md
+    - name: 경고 문제 해결
+      href: active-directory-ds-troubleshoot-alerts.md
+      items:
+        - name: 손상된 NSG 구성 수정
+          href: active-directory-ds-troubleshoot-nsg.md
+        - name: 누락된 서비스 주체 복원
+          href: active-directory-ds-troubleshoot-service-principals.md
+        - name: 보안 LDAP 오류
+          href: active-directory-ds-troubleshoot-ldaps.md
+    - name: 일치하지 않는 테넌트 오류 해결
+      href: active-directory-ds-mismatched-tenant-error.md
+    - name: 일시 중단된 도메인
+      href: active-directory-ds-suspension.md
 - name: 참고 자료
   items:
-  - name: 코드 샘플
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
 - name: 관련 항목
   items:
-  - name: Azure Active Directory
-    href: ../active-directory/fundamentals/active-directory-whatis.md
-  - name: Azure Active Directory B2C
-    href: ../active-directory-b2c/active-directory-b2c-overview.md
-  - name: Multi-Factor Authentication
-    href: ../active-directory/authentication/multi-factor-authentication.md
+    - name: Azure Active Directory
+      href: ../active-directory/fundamentals/active-directory-whatis.md
+    - name: Azure Active Directory B2C
+      href: ../active-directory-b2c/active-directory-b2c-overview.md
+    - name: Multi-Factor Authentication
+      href: ../active-directory/authentication/multi-factor-authentication.md
 - name: 리소스
   items:
-  - name: Azure AD 피드백 포럼
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: 문의처
-    href: active-directory-ds-contact-us.md
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/active-directory-ds/
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: 서비스 업데이트
-    href: https://azure.microsoft.com/updates/?product=active-directory-ds
-ms.openlocfilehash: 8559569df09bf611286730868f50d0bf1878182b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341121"
+    - name: Azure AD 피드백 포럼
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 문의처
+      href: active-directory-ds-contact-us.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'

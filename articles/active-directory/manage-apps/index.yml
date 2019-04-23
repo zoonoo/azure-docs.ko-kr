@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335881"
 documentType: LandingData
 title: 애플리케이션 관리 설명서
 metadata:
@@ -14,44 +8,44 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.
+  description: 'Azure Active Directory는 클라우드 및 온-프레미스 애플리케이션에 안전하고 원활한 액세스를 제공합니다. 또한 암호를 관리할 필요가 없습니다. 최종 사용자는 한 번 로그인하여 Office 365 및 수천 개의 다른 애플리케이션에 액세스할 수 있습니다. 빠른 시작, 자습서 및 가이드를 사용하여 애플리케이션을 관리하고 배포하는 방법을 알아봅니다.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Azure AD를 사용하여 애플리케이션에 대한 액세스 보호(1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Azure AD를 사용하여 애플리케이션에 대한 액세스 보호(1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Azure Active Directory를 통해 액세스하는 사용자에 대한 애플리케이션을 추가하는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: 애플리케이션 추가
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: 애플리케이션 보기
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: 애플리케이션에 간단하고 안전한 로그인 프로세스를 사용하도록 설정하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Azure Active Directory를 통해 액세스하는 사용자에 대한 애플리케이션을 추가하는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: 애플리케이션 추가
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: 애플리케이션 보기
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: 단계별 자습서
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Saas 애플리케이션 자습서</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Single Sign-on 구성</a>
+      - type: paragraph
+        text: 애플리케이션에 간단하고 안전한 로그인 프로세스를 사용하도록 설정하는 방법을 알아봅니다.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Saas 애플리케이션 자습서</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Single Sign-on 구성</a>

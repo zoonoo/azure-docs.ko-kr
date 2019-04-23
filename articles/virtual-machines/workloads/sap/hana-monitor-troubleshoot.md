@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616359"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005250"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
 
@@ -63,7 +63,7 @@ SAP HANA 성능과 관련된 적용 가능한 FAQ는 다음 SAP 참고 사항에
 
 ![로드 그래프는 높은 CPU 사용량 또는 과거의 높은 사용량을 표시할 수 있습니다.](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-CPU 사용률로 인해 트리거되는 경고는 특정 트랜잭션 실행, 데이터 로드, 장기 실행 SQL 문 및 잘못된 쿼리 성능(예: HANA 큐브의 BW)을 비롯한 다른 여러 가지 원인으로 발생할 수 있습니다.
+CPU 사용률로 인해 트리거되는 경고 등을 망라 하는 몇 가지 원인으로 인해 일어날 수: 특정 트랜잭션, 데이터 로드에 응답 하지 않는 장기 실행 중인 SQL 문 및 잘못 된 쿼리 성능 (예를 들어, 작업 실행 HANA 큐브의 BW).
 
 참조 된 [SAP HANA 문제 해결: CPU 관련 원인 및 솔루션](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) 자세한 문제 해결 단계에 대 한 사이트입니다.
 

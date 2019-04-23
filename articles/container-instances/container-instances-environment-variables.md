@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606891"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994778"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Container instances에서 환경 변수를 설정 합니다.
 
@@ -143,18 +143,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Azure Portal 예제
 
-Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정하려면 컨테이너를 만들 때 **구성** 페이지에서 지정합니다.
+Azure portal에서 컨테이너를 시작 하는 경우 환경 변수 설정 지정에 **고급** 컨테이너를 만들 때 페이지입니다.
 
-포털로 배포할 때 현재 세 개의 변수로 제한되며, 이 `"variableName":"value"` 형식으로 입력해야 합니다.
-
-예를 보려면 시작 합니다 [aci wordcount] [ aci-wordcount] 사용 하 여 컨테이너를 *NumWords* 및 *MinLength* 변수입니다.
-
-1. **구성**에서 **재시작 정책**을 *실패 시*로 설정합니다.
-2. 첫 번째 변수에 `"NumWords":"5"`를 입력하고, **추가 환경 변수 추가** 아래에서 **예**를 선택하고, 두 번째 변수에 `"MinLength":"8"`을 입력합니다. **확인**을 선택하여 확인한 다음, 컨테이너를 배포합니다.
+1. 에 **고급** 페이지에서 설정 된 **다시 시작 정책** 를 *실패 시*
+2. 아래 **환경 변수**를 입력 `NumWords` 값을 사용 하 여 `5` 첫 번째 변수에 입력 `MinLength` 값을 사용 하 여 `8` 두 번째 변수에 대 한 합니다. 
+1. 선택 **검토 + 만들기** 확인 하 고 다음 컨테이너를 배포 합니다.
 
 ![환경 변수 사용 단추 및 텍스트 상자를 표시하는 포털 페이지][portal-env-vars-01]
 
-컨테이너의 로그를 보려면 **설정**에서 **컨테이너**, **로그**를 차례로 선택합니다. 이전 CLI 및 PowerShell 섹션에서 표시된 출력과 유사하게 스크립트의 동작이 환경 변수에서 수정된 방법을 볼 수 있습니다. 각각이 8개 문자의 최소 길이로 5개의 단어만 표시됩니다.
+아래에 있는 컨테이너의 로그를 보려면 **설정을** 선택 **컨테이너**, 한 다음 **로그**합니다. 이전 CLI 및 PowerShell 섹션에서 표시된 출력과 유사하게 스크립트의 동작이 환경 변수에서 수정된 방법을 볼 수 있습니다. 각각이 8개 문자의 최소 길이로 5개의 단어만 표시됩니다.
 
 ![컨테이너 로그 출력을 표시하는 포털][portal-env-vars-02]
 

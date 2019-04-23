@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d5e17b3618d179354c9f2a467250b8eb489827ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460712"
 documentType: LandingData
 title: Azure Firewall 설명서
 metadata:
-  title: Azure Firewall 설명서 - 자습서, API 참조
-  meta.description: Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  title: 'Azure Firewall 설명서 - 자습서, API 참조'
+  meta.description: 'Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: firewall
   author: vhorne
   ms.service: firewall
@@ -17,37 +11,37 @@ metadata:
   ms.date: 9/24/2018
   ms.author: victorh
 abstract:
-  description: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서는 Azure 가상 네트워크 리소스를 보호하도록 애플리케이션 수준 및 네트워크 수준 정책을 설정하는 방법을 보여줍니다.
+  description: '클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서는 Azure 가상 네트워크 리소스를 보호하도록 애플리케이션 수준 및 네트워크 수준 정책을 설정하는 방법을 보여줍니다.'
 sections:
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Azure Firewall을 배포하는 방법 알아보기
-  - type: list
-    style: unordered
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Azure Portal을 사용하여 Azure Firewall 배포 및 구성</a>
-    - html: <a href="/azure/firewall/tutorial-hybrid-ps">하이브리드 네트워크에 배포</a>
-    - html: <a href="/azure/firewall/tutorial-firewall-dnat">DNAT를 사용하여 인바운드 트래픽 필터링</a>
-    - html: <a href="/azure/firewall/tutorial-diagnostics">로그 모니터링</a>
-- title: 샘플
-  items:
-  - type: paragraph
-    text: 일반 작업에 대한 스크립트 샘플입니다.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Azure Firewall을 배포하는 방법 알아보기
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Azure Portal을 사용하여 Azure Firewall 배포 및 구성</a>
+          - html: <a href="/azure/firewall/tutorial-hybrid-ps">하이브리드 네트워크에 배포</a>
+          - html: <a href="/azure/firewall/tutorial-firewall-dnat">DNAT를 사용하여 인바운드 트래픽 필터링</a>
+          - html: <a href="/azure/firewall/tutorial-diagnostics">로그 모니터링</a>
+  - title: 샘플
     items:
-    - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 일반 작업에 대한 스크립트 샘플입니다.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
+  - title: 참고 자료
     items:
-    - title: 명령줄
-      html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-    - title: REST (영문)
-      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API 참조</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">Azure CLI</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+          - title: REST (영문)
+            html: '<p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API 참조</a></p>'

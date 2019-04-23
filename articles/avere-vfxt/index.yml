@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3052d856d83a7bf7cbb41a90f92b598c8c24cd5e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669152"
 documentType: LandingData
 title: Avere vFXT for Azure 설명서
 metadata:
@@ -17,14 +11,14 @@ metadata:
   ms.date: 10/31/2018
   ms.author: v-erkell
 abstract:
-  description: Avere vFXT for Azure는 데이터 집약적인 HPC(고성능 컴퓨팅) 작업을 위한 클라우드 기반 캐시 계층을 제공합니다. 계산 노드에 가깝게 파일을 캐시하는 Avere vFXT는 읽기 속도를 높여서 최대 부하에도 좀 더 원활하게 작업할 수 있게 도와줍니다. Avere vFXT는 클라이언트 코어가 1,000~40,000개인 시스템에서 가장 잘 작동합니다. <p>Avere vFXT는 기존 온-프레미스 데이터 저장소와 함께 작동하여 데이터 센터에 장기 저장되는 활성 파일에 대한 Azure 기반 계산 리소스 로컬 액세스를 제공할 수 있습니다.
+  description: 'Avere vFXT for Azure는 데이터 집약적인 HPC(고성능 컴퓨팅) 작업을 위한 클라우드 기반 캐시 계층을 제공합니다. 계산 노드에 가깝게 파일을 캐시하는 Avere vFXT는 읽기 속도를 높여서 최대 부하에도 좀 더 원활하게 작업할 수 있게 도와줍니다. Avere vFXT는 클라이언트 코어가 1,000~40,000개인 시스템에서 가장 잘 작동합니다. <p>Avere vFXT는 기존 온-프레미스 데이터 저장소와 함께 작동하여 데이터 센터에 장기 저장되는 활성 파일에 대한 Azure 기반 계산 리소스 로컬 액세스를 제공할 수 있습니다.'
 sections:
-- title: Avere vFXT for Azure 시작
-  items:
-  - type: list
-    style: unordered
+  - title: Avere vFXT for Azure 시작
     items:
-    - html: <a href="avere-vfxt-deploy-plan">Avere vFXT for Azure 시스템 계획</a>
-    - html: <a href="avere-vfxt-deploy-overview">Avere vFXT 배포 알아보기</a>
-    - html: <a href="avere-vfxt-prereqs">필수 구성 요소 충족</a>
-    - html: <a href="avere-vfxt-deploy">Avere vFXT 클러스터 배포</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="avere-vfxt-deploy-plan">Avere vFXT for Azure 시스템 계획</a>
+          - html: <a href="avere-vfxt-deploy-overview">Avere vFXT 배포 알아보기</a>
+          - html: <a href="avere-vfxt-prereqs">필수 구성 요소 충족</a>
+          - html: <a href="avere-vfxt-deploy">Avere vFXT 클러스터 배포</a>

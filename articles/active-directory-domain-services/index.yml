@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: eea379cbf2fae2f443fc077111ede517e3fa3647
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175964"
 documentType: LandingData
 title: Azure AD Domain Services 설명서
 metadata:
   title: Azure AD Domain Services 설명서
   description: Active Directory Domain Services를 사용하여 도메인 컨트롤러를 사용하지 않고 Azure 가상 머신을 도메인에 조인하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 그룹 정책을 사용하여 가상 머신을 관리하는 방법을 보여 줍니다.
-  keywords: Azure AD, Azure, 도메인 가입, 그룹 정책, LDAP, Kerberos, 도메인 컨트롤러, DC, 리프트 앤 시프트
+  keywords: 'Azure AD, Azure, 도메인 가입, 그룹 정책, LDAP, Kerberos, 도메인 컨트롤러, DC, 리프트 앤 시프트'
   author: mahesh-unnikrishnan
   ms.author: maheshu
   manager: daveba
@@ -20,83 +14,83 @@ metadata:
   ms.service: active-directory
   ms.subservice: domain-services
 sections:
-- items:
-  - type: markdown
-    text: Active Directory Domain Services를 사용하여 도메인 컨트롤러를 사용하지 않고 Azure 가상 머신을 도메인에 조인하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 그룹 정책을 사용하여 가상 머신을 관리하는 방법을 보여 줍니다.
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: markdown
+        text: Active Directory Domain Services를 사용하여 도메인 컨트롤러를 사용하지 않고 Azure 가상 머신을 도메인에 조인하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 그룹 정책을 사용하여 가상 머신을 관리하는 방법을 보여 줍니다.
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: active-directory-ds-overview.md
+            html: <p>Azure AD Domain Services로 가능한 작업에 대해 알아보세요.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_investigate.svg'
+            title: Azure AD Domain Services란?
+          - href: active-directory-ds-getting-started.md
+            html: <p>간단한 연습을 통해 사용자 고유의 관리되는 도메인을 만듭니다.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            title: 시작하기
+          - href: active-directory-ds-contact-us.md
+            html: <p>필요할 때 도움을 받습니다.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_support.svg'
+            title: 지원 받기
+          - href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
+            html: <p>Azure AD Domain Services의 새로운 기능을 알아봅니다.</p>
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_whats-new.svg'
+            title: 새로운 기능
+  - title: 동영상
     items:
-    - href: active-directory-ds-overview.md
-      html: <p>Azure AD Domain Services로 가능한 작업에 대해 알아보세요.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_investigate.svg
-      title: Azure AD Domain Services란?
-    - href: active-directory-ds-getting-started.md
-      html: <p>간단한 연습을 통해 사용자 고유의 관리되는 도메인을 만듭니다.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_deploy.svg
-      title: 시작하기
-    - href: active-directory-ds-contact-us.md
-      html: <p>필요할 때 도움을 받습니다.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_support.svg
-      title: 지원 받기
-    - href: https://azure.microsoft.com/updates/?product=active-directory-ds
-      html: <p>Azure AD Domain Services의 새로운 기능을 알아봅니다.</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_whats-new.svg
-      title: 새로운 기능
-- title: 동영상
-  items:
-  - type: markdown
-    text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
-- title: 예정된 문서
-  items:
-  - type: list
-    style: unordered
+      - type: markdown
+        text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
+  - title: 예정된 문서
     items:
-    - html: <a href="active-directory-ds-comparison.md">서비스가 적합한지 결정</a>
-    - html: <a href="active-directory-ds-features.md">Azure AD Domain Services의 기능</a>
-    - html: <a href="active-directory-ds-scenarios.md">서비스 사용 방법</a>
-    - html: <a href="active-directory-ds-synchronization.md">Azure AD Domain Services에서 동기화가 작동하는 방식 이해</a>
-    - html: <a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Azure AD Domain Services의 가격 책정</a>
-- title: 애플리케이션 및 Azure AD Domain Services
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-comparison.md">서비스가 적합한지 결정</a>
+          - html: <a href="active-directory-ds-features.md">Azure AD Domain Services의 기능</a>
+          - html: <a href="active-directory-ds-scenarios.md">서비스 사용 방법</a>
+          - html: <a href="active-directory-ds-synchronization.md">Azure AD Domain Services에서 동기화가 작동하는 방식 이해</a>
+          - html: '<a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Azure AD Domain Services의 가격 책정</a>'
+  - title: 애플리케이션 및 Azure AD Domain Services
     items:
-    - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Azure AD 앱 프록시 배포</a>
-    - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">SharePoint 서버에 대한 프로필 동기화</a>
-    - html: <a href="active-directory-ds-enable-kcd.md">Kerberos 제한 위임 구성</a>
-- title: 방법 문서
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Azure AD 앱 프록시 배포</a>
+          - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">SharePoint 서버에 대한 프로필 동기화</a>
+          - html: <a href="active-directory-ds-enable-kcd.md">Kerberos 제한 위임 구성</a>
+  - title: 방법 문서
     items:
-    - html: <a href="active-directory-ds-check-health.md">관리되는 도메인의 상태 확인</a>
-    - html: <a href="active-directory-ds-csp.md">Azure CSP 구독 및 Azure AD Domain Services</a>
-    - html: <a href="active-directory-ds-admin-guide-administer-dns.md">DNS 관리</a>
-    - html: <a href="active-directory-ds-networking.md">가상 네트워크 선택</a>
-    - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">보안 LDAP 구성</a>
-    - html: <a href="active-directory-ds-admin-guide-create-ou.md">OU 만들기</a>
-    - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">그룹 정책 관리</a>
-- title: 문제 해결 문서
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-check-health.md">관리되는 도메인의 상태 확인</a>
+          - html: <a href="active-directory-ds-csp.md">Azure CSP 구독 및 Azure AD Domain Services</a>
+          - html: <a href="active-directory-ds-admin-guide-administer-dns.md">DNS 관리</a>
+          - html: <a href="active-directory-ds-networking.md">가상 네트워크 선택</a>
+          - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">보안 LDAP 구성</a>
+          - html: <a href="active-directory-ds-admin-guide-create-ou.md">OU 만들기</a>
+          - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">그룹 정책 관리</a>
+  - title: 문제 해결 문서
     items:
-    - html: <a href="active-directory-ds-troubleshooting.md">문제 해결 가이드</a>
-    - html: <a href="active-directory-ds-troubleshoot-alerts.md">관리되는 도메인에서 경고 문제 해결</a>
-    - html: <a href="active-directory-ds-faqs.md">질문과 대답</a>
-    - html: <a href="https://azure.microsoft.com/support/options/">지원 받기</a>
-- title: 기타 리소스
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="active-directory-ds-troubleshooting.md">문제 해결 가이드</a>
+          - html: <a href="active-directory-ds-troubleshoot-alerts.md">관리되는 도메인에서 경고 문제 해결</a>
+          - html: <a href="active-directory-ds-faqs.md">질문과 대답</a>
+          - html: '<a href="https://azure.microsoft.com/support/options/">지원 받기</a>'
+  - title: 기타 리소스
     items:
-    - html: <a href="https://feedback.azure.com/forums/169401-azure-active-directory/">UserVoice에서 Azure AD Domain Services에 대한 피드백 제공</a>
-    - html: <a href="https://azure.microsoft.com/roadmap/?category=security-identity">Azure 로드맵</a>
-    - html: <a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">문의처</a>
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://feedback.azure.com/forums/169401-azure-active-directory/">UserVoice에서 Azure AD Domain Services에 대한 피드백 제공</a>'
+          - html: '<a href="https://azure.microsoft.com/roadmap/?category=security-identity">Azure 로드맵</a>'
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">문의처</a>'

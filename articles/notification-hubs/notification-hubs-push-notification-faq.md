@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524194"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998926"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -53,17 +53,6 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 > [!NOTE]
 > 푸시 알림은 타사 플랫폼 알림 시스템(예: Apple APNS 및 Google FCM)에 의존하므로 이러한 메시지 배달에 대한 SLA 보장이 없습니다. Notification Hubs에서 플랫폼 알림 시스템(SLA 보장)에 대한 전송을 일괄 처리하면 푸시를 제공하는 것(SLA 보장 안 함)은 플랫폼 알림 시스템의 책임입니다.
-
-### <a name="which-customers-are-using-notification-hubs"></a>어떤 고객이 Notification Hubs를 사용하나요?
-
-많은 고객이 Notification Hubs를 사용합니다. 주목할 만한 고객은 여기에 나열되어 있습니다.
-
-* 2014년 소치 동계 올림픽: 수 백 개의 관심 그룹에서 300만 대 이상의 디바이스를 사용하여 1억 5천만 개 이상의 알림을 2주 동안 디스패치했습니다. [사례 연구: Sochi]
-* Skanska: [사례 연구: Skanska]
-* Seattle Times: [사례 연구: Seattle Times]
-* Mural.ly: [사례 연구: Mural.ly]
-* 7Digital: [사례 연구: 7Digital]
-* Bing Apps: 수 천만 대의 디바이스에서 매일 3백만 건의 알림을 전송했습니다.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>내 허브 또는 네임스페이스를 다른 계층으로 업그레이드하거나 다운그레이드하려면 어떻게 해야 합니까?
 
@@ -219,11 +208,6 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Azure Portal]: https://portal.azure.com
 [Notification Hubs 가격 책정]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[사례 연구: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[사례 연구: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[사례 연구: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[사례 연구: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[사례 연구: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs 시작 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Chrome 앱 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

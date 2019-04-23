@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680709"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008701"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Salesforce 에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 - Salesforce 개발자, Professional, Enterprise 또는 Unlimited Edition.
 - Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인 간에 데이터 복사
 
-Salesforce 커넥터는 사용 하 여 Salesforce REST API를 기반으로 빌드됩니다 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 에서 데이터 복사에 대 한 및 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 데이터를 복사 합니다.
+Salesforce 커넥터는 사용 하 여 Salesforce REST/대량 API를 기반으로 빌드됩니다 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 에서 데이터 복사에 대 한 및 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 데이터를 복사 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

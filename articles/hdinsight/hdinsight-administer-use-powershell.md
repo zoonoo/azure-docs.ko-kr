@@ -7,40 +7,25 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/17/2019
 ms.author: tylerfox
-ms.openlocfilehash: 09574647aae8725a614dd20fd0247b0f8cf8b68a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 6cf05437d5fc181a9fadae110a44efd88d06a2da
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446976"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011622"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Azure HDInsight의 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리하는 방법을 알아봅니다. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](https://msdn.microsoft.com/library/azure/dn479228.aspx)를 참조하세요.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 관리 하는 방법을 알아봅니다 [Apache Hadoop](https://hadoop.apache.org/) Az Azure PowerShell 모듈을 사용 하 여 Azure HDInsight에서 클러스터. HDInsight PowerShell cmdlet의 목록에 대 한 참조를 [Az.HDInsight 참조](https://docs.microsoft.com/powershell/module/az.hdinsight)합니다.
 
-**필수 구성 요소**
+## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
-
-* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-
-## <a name="install-azure-powershell"></a>Azure Powershell 설치
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
-Azure PowerShell 버전 0.9x를 설치한 경우 최신 버전을 설치하기 전에 제거해야 합니다.
-
-설치된 PowerShell 버전을 확인하려면
-
-```powershell
-Get-Module *Az*
-```
-
-이전 버전을 제거하려면 제어판에서 프로그램 및 기능을 실행합니다.
+* PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview) 설치 합니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
 [Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -75,9 +60,6 @@ Remove-AzResourceGroup -Name <Resource Group Name>
 ## <a name="scale-clusters"></a>클러스터 크기 조정
 클러스터 크기 조정 기능을 사용하여 클러스터를 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 작업자 노드 수를 변경합니다.
 
-> [!NOTE]  
-> HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다.  [클러스터 나열 및 표시](hdinsight-administer-use-portal-linux.md#showClusters)를 참조하세요.
-
 HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노드 수를 변경하는 영향은 다음과 같습니다.
 
 * Apache Hadoop
@@ -90,9 +72,9 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     HBase 클러스터가 실행 중인 동안 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 지역 서버는 크기 조정 작업을 완료하는 몇 분 안에 자동으로 균형을 맞춥니다. 그러나 클러스터의 헤드 노드에 로그인한 다음 명령 프롬프트 창에서 다음 명령을 실행하여 자동으로 지역 서버의 균형을 맞출 수도 있습니다.
 
     ```bash
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
     ```
 
 * Apache Storm
@@ -169,6 +151,10 @@ HTTP 액세스 권한 부여/해지와 같은 절차입니다. 클러스터에 H
 ## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
 다음 PowerShell 스크립트에서는 클러스터에 대한 기본 저장소 계정 이름 및 관련 정보를 가져오는 방법을 보여 줍니다.
 
+> [!IMPORTANT]  
+> 에 대 한 값 `DefaultStorageAccount`, 및 `DefaultStorageContainer` 에서 반환 되지 않습니다 [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) 때 [보안 전송](../storage/common/storage-require-secure-transfer.md) 저장소 계정에서 사용 하도록 설정 됩니다.
+
+
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -226,34 +212,14 @@ $resourceGroupName = $cluster.ResourceGroup
 [Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>개발자와 관리자는 응용 프로그램을 빌드하거나 관리하는 데 필요한 유틸리티를 모든 가상 머신이나 역할 인스턴스에 다 설치하지 않고, 모든 구성 요소에서 사용할 수 있는 File Storage 공유에 저장할 수 있습니다.
-[HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
+
+참조 [HDInsight에 데이터 업로드](hdinsight-upload-data.md)합니다.
 
 ## <a name="see-also"></a>관련 항목
+
 * [HDInsight Cmdlet 참조 설명서](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
-* [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
-* [HDInsight 클러스터 만들기][hdinsight-provision]
-* [HDInsight에 데이터 업로드][hdinsight-upload-data]
-* [프로그래밍 방식으로 Apache Hadoop 작업 제출][hdinsight-submit-jobs]
-* [Azure HDInsight 시작][hdinsight-get-started]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-
-[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
-
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
+* [명령줄 인터페이스를 사용 하 여 HDInsight 관리](hdinsight-administer-use-command-line.md)
+* [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
+* [프로그래밍 방식으로 Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)

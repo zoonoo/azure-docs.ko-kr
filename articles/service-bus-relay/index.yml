@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7eba9c526f26254a400eaee1a00644399d3979a8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612103"
 documentType: LandingData
 title: Azure Service Bus Relay 설명서
 metadata:
   title: Azure Service Bus Relay 설명서
-  meta.description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
+  meta.description: 'Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.'
   services: service-bus-relay
   author: spelluru
   manager: femila
@@ -22,42 +16,42 @@ metadata:
 abstract:
   description: Azure Relay 서비스는 방화벽 연결을 열거나 회사 네트워크 인프라를 주입식으로 변경하지 않고도 회사 엔터프라이즈 네트워크와 공용 클라우드 내에서 온-프레미스와 클라우드 환경 사이의 하이브리드 애플리케이션을 용이하게 합니다.
 sections:
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: <b>하이브리드 연결</b>
-  - type: list
-    style: ordered
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">메시지 보내기 및 받기 - .NET WebSockets</a>
-    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">메시지 보내기 및 받기 - .NET HTTP</a>
-    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">메시지 보내기 및 받기 - Node.js WebSockets</a>
-    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">메시지 보내기 및 받기 - Node.js HTTP</a>
-  - type: paragraph
-    text: <b>WCF(Windows Communication Foundation) 릴레이:</b>
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: <b>하이브리드 연결</b>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">메시지 보내기 및 받기 - .NET WebSockets</a>
+          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">메시지 보내기 및 받기 - .NET HTTP</a>
+          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">메시지 보내기 및 받기 - Node.js WebSockets</a>
+          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">메시지 보내기 및 받기 - Node.js HTTP</a>
+      - type: paragraph
+        text: '<b>WCF(Windows Communication Foundation) 릴레이:</b>'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay">클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출</a>
+          - html: <a href="/azure/service-bus-relay/service-bus-relay-tutorial">네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 노출</a>
+          - html: <a href="/azure/service-bus-relay/service-bus-relay-rest-tutorial">네트워크 외부의 애플리케이션에 온-프레미스 WCF 서비스 노출</a>
+  - title: 샘플
     items:
-    - html: <a href="/azure/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay">클라우드의 웹 응용 프로그램에 온-프레미스 WCF 서비스 노출</a>
-    - html: <a href="/azure/service-bus-relay/service-bus-relay-tutorial">네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 노출</a>
-    - html: <a href="/azure/service-bus-relay/service-bus-relay-rest-tutorial">네트워크 외부의 응용 프로그램에 온-프레미스 WCF 서비스 노출</a>
-- title: 샘플
-  items:
-  - type: paragraph
-    text: GitHub의 샘플
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: GitHub의 샘플
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">VNet</a>'
+          - html: '<a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">WCF(Windows Communication Foundation)</a>'
+  - title: 참고 자료
     items:
-    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">VNet</a>
-    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">WCF(Windows Communication Foundation)</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 언어
-      html: <p><a href="/dotnet/api/microsoft.azure.relay?view=azure-dotnet">.NET Framework</a></p>
-    - title: REST (영문)
-      html: <p><a href="/rest/api/servicebus/">REST API 참조</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Languages
+            html: <p><a href="/dotnet/api/microsoft.azure.relay?view=azure-dotnet">.NET Framework</a></p>
+          - title: REST (영문)
+            html: <p><a href="/rest/api/servicebus/">REST API 참조</a></p>

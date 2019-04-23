@@ -1,55 +1,48 @@
-items:
 - name: Azure Notebooks 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure Notebooks란?
-    href: azure-notebooks-overview.md
+    - name: Azure Notebooks란?
+      href: azure-notebooks-overview.md
 - name: 빠른 시작
   items:
-  - name: 로그인 및 사용자 ID 설정
-    href: quickstart-sign-in-azure-notebooks.md
-  - name: Notebook 만들기 및 공유
-    href: quickstart-create-share-jupyter-notebook.md
-  - name: Notebook 복제
-    href: quickstart-clone-jupyter-notebook.md
-  - name: 로컬 Jupyter Notebook 마이그레이션
-    href: quickstart-migrate-local-jupyter-notebook.md
-  - name: 사용자 지정 환경 사용
-    href: quickstart-create-jupyter-notebook-project-environment.md
+    - name: 로그인 및 사용자 ID 설정
+      href: quickstart-sign-in-azure-notebooks.md
+    - name: Notebook 만들기 및 공유
+      href: quickstart-create-share-jupyter-notebook.md
+    - name: Notebook 복제
+      href: quickstart-clone-jupyter-notebook.md
+    - name: 로컬 Jupyter Notebook 마이그레이션
+      href: quickstart-migrate-local-jupyter-notebook.md
+    - name: 사용자 지정 환경 사용
+      href: quickstart-create-jupyter-notebook-project-environment.md
 - name: 자습서
   items:
-  - name: Notebook 만들기 및 실행
-    href: tutorial-create-run-jupyter-notebook.md
+    - name: Notebook 만들기 및 실행
+      href: tutorial-create-run-jupyter-notebook.md
 - name: 샘플
   items:
-  - name: 샘플 Notebook
-    href: azure-notebooks-samples.md
+    - name: 샘플 Notebook
+      href: azure-notebooks-samples.md
 - name: 개념
   items:
-  - name: 계정
-    href: azure-notebooks-user-account.md
-  - name: 프로필
-    href: azure-notebooks-user-profile.md
+    - name: 계정
+      href: azure-notebooks-user-account.md
+    - name: 프로필
+      href: azure-notebooks-user-profile.md
 - name: 방법 가이드
   items:
-  - name: 프로젝트 만들기 및 복제
-    href: create-clone-jupyter-notebooks.md
-  - name: 프로젝트 관리 및 구성
-    href: configure-manage-azure-notebooks-projects.md
-  - name: Notebook에서 패키지 설치
-    href: install-packages-jupyter-notebook.md
-  - name: 슬라이드 쇼 제공
-    href: present-jupyter-notebooks-slideshow.md
-  - name: 데이터 파일 작업
-    href: work-with-project-data-files.md
-  - name: 데이터 리소스에 액세스
-    href: access-data-resources-jupyter-notebooks.md
-  - name: Azure Machine Learning Services 사용
-    href: use-machine-learning-services-jupyter-notebooks.md
-ms.openlocfilehash: 95122e9ec45fb606e07a29e474e411d6e49278c0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852411"
+    - name: 프로젝트 만들기 및 복제
+      href: create-clone-jupyter-notebooks.md
+    - name: 프로젝트 관리 및 구성
+      href: configure-manage-azure-notebooks-projects.md
+    - name: Notebook에서 패키지 설치
+      href: install-packages-jupyter-notebook.md
+    - name: 슬라이드 쇼 제공
+      href: present-jupyter-notebooks-slideshow.md
+    - name: 데이터 파일 작업
+      href: work-with-project-data-files.md
+    - name: 데이터 리소스에 액세스
+      href: access-data-resources-jupyter-notebooks.md
+    - name: Azure Machine Learning Services 사용
+      href: use-machine-learning-services-jupyter-notebooks.md

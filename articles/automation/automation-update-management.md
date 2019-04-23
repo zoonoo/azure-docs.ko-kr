@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679077"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149702"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -208,7 +208,7 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 
 ## <a name="install-updates"></a>업데이트 설치
 
-작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다. 업데이트 배포를 만들려면 Automation 계정에 대 한 쓰기 액세스 있어야 하며 배포에서 된 모든 Azure Vm에 대 한 쓰기 액세스를 대상으로 합니다. 업데이트 배포는 예약된 일정에 따라 하나 이상의 컴퓨터에 필요한 업데이트를 설치합니다. 배포 날짜 및 시간과 배포 범위에 포함할 컴퓨터 또는 컴퓨터 그룹을 지정합니다. 컴퓨터 그룹에 대 한 자세한 내용은 참조 하세요 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)합니다.
+작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다. 업데이트 배포를 만들려면 Automation 계정에 대 한 쓰기 액세스 및 배포의 대상으로 하는 모든 Azure Vm에 대 한 쓰기 액세스 해야 합니다. 업데이트 배포는 예약된 일정에 따라 하나 이상의 컴퓨터에 필요한 업데이트를 설치합니다. 배포 날짜 및 시간과 배포 범위에 포함할 컴퓨터 또는 컴퓨터 그룹을 지정합니다. 컴퓨터 그룹에 대 한 자세한 내용은 참조 하세요 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)합니다.
 
 업데이트 배포에 컴퓨터 그룹이 포함되면 일정을 만들 때 그룹 멤버 자격이 한 번만 평가됩니다. 이후의 그룹 변경 내용은 반영되지 않습니다. 이 사용 하이 여 해결 하기 위해 [동적 그룹](#using-dynamic-groups), 이러한 그룹은 배포 시 계산은 하며 Azure Vm 또는 비 Azure Vm에 대 한 저장된 된 검색에 대 한 쿼리에 의해 정의 됩니다.
 
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Windows의 타사 패치
 
-업데이트 관리는 WSUS 또는 Windows 업데이트를 활용하여 지원되는 Windows 시스템을 패치합니다. [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-)(Updates Publisher)와 같은 도구를 사용하면 WSUS에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오를 사용하면 업데이트 관리에서 타사 소프트웨어를 통해 WSUS를 업데이트 리포지토리로 사용하는 머신을 패치할 수 있습니다. 업데이트 게시자 구성 방법을 알아보려면 [업데이트 게시자 설치](/sccm/sum/tools/install-updates-publisher)를 참조하세요.
+업데이트 관리는 지원 되는 Windows 시스템을 패치 하는 로컬로 구성 된 업데이트 리포지토리에 의존 합니다. 이 WSUS 또는 Windows 업데이트입니다. [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+)(Updates Publisher)와 같은 도구를 사용하면 WSUS에 사용자 지정 업데이트를 게시할 수 있습니다. 이 시나리오에는 타사 소프트웨어를 사용 하 여 해당 업데이트 리포지토리로 System Center Configuration Manager를 사용 하는 패치 컴퓨터로 업데이트 관리할 수 있습니다. 업데이트 게시자 구성 방법을 알아보려면 [업데이트 게시자 설치](/sccm/sum/tools/install-updates-publisher)를 참조하세요.
 
 ## <a name="ports"></a>네트워크 계획
 

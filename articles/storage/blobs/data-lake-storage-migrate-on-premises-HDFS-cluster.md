@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518043"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998297"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box를 사용 하 여 Azure Storage에 온-프레미스 HDFS 저장소에서 데이터를 마이그레이션하려면
 
@@ -133,4 +133,4 @@ Microsoft Data Box 장치 배송 준비 하려면 다음이 단계를 따릅니�
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight 클러스터를 사용 하 여 Data Lake 저장소 Gen2 작동 하는 방법을 알아봅니다. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/Azure/storage/blobs/data-lake-storage-use-hdi-cluster?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 참조
+HDInsight 클러스터를 사용 하 여 Data Lake 저장소 Gen2 작동 하는 방법을 알아봅니다. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)을 참조하세요.

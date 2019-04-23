@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848393"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009075"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "58848393"
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>자동 장애 조치(failover) 그룹 용어 및 기능
 
-- **장애 조치 그룹**
+- **장애 조치 그룹 (안개)**
 
   장애 조치(failover) 그룹은 주 지역의 중단으로 인해 주 데이터베이스를 모두 또는 일부 사용할 수 없게 될 경우 한 단위로 다른 지역에 장애 조치(failover)될 수 있는, 관리되는 단일 인스턴스 내에 있거나 단일 SQL Database 서버에 의해 관리되는 데이터베이스 그룹입니다.
 
@@ -77,11 +77,11 @@ ms.locfileid: "58848393"
 
   - **읽기/쓰기 수신기에 대한 SQL Database 서버 DNS CNAME 레코드**
 
-     SQL Database 서버에서 현재 주 데이터베이스의 URL을 가리키는 장애 조치(failover) 그룹에 대한 DNS CNAME 레코드가 `failover-group-name.database.windows.net`으로 생성됩니다.
+     SQL Database 서버에서 현재 주 데이터베이스의 URL을 가리키는 장애 조치(failover) 그룹에 대한 DNS CNAME 레코드가 `<fog-name>.database.windows.net`으로 생성됩니다.
 
   - **읽기/쓰기 수신기에 대한 Managed Instance DNS CNAME 레코드**
 
-     Managed Instance에서 현재 주 데이터베이스의 URL을 가리키는 장애 조치(failover) 그룹에 대한 DNS CNAME 레코드가 `failover-group-name.zone_id.database.windows.net`으로 생성됩니다.
+     Managed Instance에서 현재 주 데이터베이스의 URL을 가리키는 장애 조치(failover) 그룹에 대한 DNS CNAME 레코드가 `<fog-name>.zone_id.database.windows.net`으로 생성됩니다.
 
 - **장애 조치 그룹 읽기 전용 수신기**
 
@@ -89,11 +89,11 @@ ms.locfileid: "58848393"
 
   - **읽기 전용 수신기에 대한 SQL Database 서버 DNS CNAME 레코드**
 
-     SQL Database 서버에서 보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기에 대한 DNS CNAME 레코드가 `failover-group-name.secondary.database.windows.net`으로 생성됩니다.
+     SQL Database 서버에서 보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기에 대한 DNS CNAME 레코드가 `'.secondary.database.windows.net`으로 생성됩니다.
 
   - **읽기 전용 수신기에 대한 Managed Instance DNS CNAME 레코드**
 
-     Managed Instance에서 보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기에 대한 DNS CNAME 레코드가 `failover-group-name.zone_id.database.windows.net`으로 생성됩니다.
+     Managed Instance에서 보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기에 대한 DNS CNAME 레코드가 `<fog-name>.zone_id.database.windows.net`으로 생성됩니다.
 
 - **자동 장애 조치 정책**
 
@@ -156,11 +156,11 @@ RBAC를 해야 장애 조치 그룹을 업데이트 하려면 장애 조치 그�
 
 - **OLTP 워크로드에 읽기-쓰기 수신기 사용**
 
-  OLTP 작업을 수행할 때 `failover-group-name.database.windows.net`을 서버 URL로 사용하면 자동으로 주 데이터베이스에 연결됩니다. 이 URL은 장애 조치(failover) 후에 변경되지 않습니다. 장애 조치(failover) 시에는 DNS 레코드가 업데이트되므로 클라이언트 DNS 캐시를 새로 고친 후에만 클라이언트 연결이 새 주 데이터베이스로 리디렉션됩니다.
+  OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 사용하면 자동으로 주 데이터베이스에 연결됩니다. 이 URL은 장애 조치(failover) 후에 변경되지 않습니다. 장애 조치(failover) 시에는 DNS 레코드가 업데이트되므로 클라이언트 DNS 캐시를 새로 고친 후에만 클라이언트 연결이 새 주 데이터베이스로 리디렉션됩니다.
 
 - **읽기 전용 워크로드에 읽기 전용 수신기 사용**
 
-  특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `failover-group-name.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한 **ApplicationIntent=ReadOnly**를 사용하여 연결 문자열 읽기 의도를 표시하는 것이 좋습니다.
+  특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 읽기 전용 세션의 경우 `<fog-name>.secondary.database.windows.net`을 서버 URL로 사용하면 자동으로 보조 데이터베이스에 연결됩니다. 또한 **ApplicationIntent=ReadOnly**를 사용하여 연결 문자열 읽기 의도를 표시하는 것이 좋습니다.
 
 - **성능 저하에 대한 대비**
 
@@ -206,7 +206,7 @@ RBAC를 해야 장애 조치 그룹을 업데이트 하려면 장애 조치 그�
 
 - **OLTP 워크로드에 읽기-쓰기 수신기 사용**
 
-  OLTP 작업을 수행할 때 `failover-group-name.zone_id.database.windows.net`을 서버 URL로 사용하면 자동으로 주 데이터베이스에 연결됩니다. 이 URL은 장애 조치(failover) 후에 변경되지 않습니다. 장애 조치(failover) 시에는 DNS 레코드가 업데이트되므로 클라이언트 DNS 캐시를 새로 고친 후에만 클라이언트 연결이 새로운 주 데이터베이스로 리디렉션됩니다. 보조 인스턴스는 주 인스턴스와 DNS 영역을 공유하므로 클라이언트 애플리케이션이 동일한 SAN 인증서를 사용하여 다시 연결할 수 있습니다.
+  OLTP 작업을 수행할 때 `<fog-name>.zone_id.database.windows.net`을 서버 URL로 사용하면 자동으로 주 데이터베이스에 연결됩니다. 이 URL은 장애 조치(failover) 후에 변경되지 않습니다. 장애 조치(failover) 시에는 DNS 레코드가 업데이트되므로 클라이언트 DNS 캐시를 새로 고친 후에만 클라이언트 연결이 새로운 주 데이터베이스로 리디렉션됩니다. 보조 인스턴스는 주 인스턴스와 DNS 영역을 공유하므로 클라이언트 애플리케이션이 동일한 SAN 인증서를 사용하여 다시 연결할 수 있습니다.
 
 - **읽기 전용 쿼리를 위해 지역 복제된 보조 데이터베이스에 직접 연결**
 
@@ -214,8 +214,8 @@ RBAC를 해야 장애 조치 그룹을 업데이트 하려면 장애 조치 그�
 
   > [!NOTE]
   > 특정 서비스 계층에서 Azure SQL Database는 [읽기 전용 복제본](sql-database-read-scale-out.md)을 사용하여 읽기 전용 복제본의 용량 및 연결 문자열의 `ApplicationIntent=ReadOnly` 매개 변수를 통해 읽기 전용 쿼리 워크로드를 부하를 분산할 수 있도록 지원합니다. 지역 복제된 보조 데이터베이스를 구성한 경우 이 기능을 사용하여 주 위치 또는 지역 복제된 위치에 있는 읽기 전용 복제본에 연결할 수 있습니다.
-  > - 주 위치의 읽기 전용 복제본에 연결하려면 `failover-group-name.zone_id.database.windows.net`을 사용합니다.
-  > - 보조 위치의 읽기 전용 복제본에 연결 하려면 사용 하 여 `failover-group-name.secondary.zone_id.database.windows.net`입니다.
+  > - 주 위치의 읽기 전용 복제본에 연결하려면 `<fog-name>.zone_id.database.windows.net`을 사용합니다.
+  > - 보조 위치의 읽기 전용 복제본에 연결 하려면 사용 하 여 `<fog-name>.secondary.zone_id.database.windows.net`입니다.
 
 - **성능 저하에 대한 대비**
 

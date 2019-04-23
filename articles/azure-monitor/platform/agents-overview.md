@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371930"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003501"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 모니터링 에이전트 개요 
 Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자에 호스팅되는 Microsoft Windows 및 Linux를 실행하는 가상 머신에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다. VM을 모니터링하는 데 사용할 수 있는 세 가지 에이전트 유형은 다음과 같습니다.
@@ -70,7 +70,7 @@ Log Analytics 에이전트는 다음 작업을 수행할 때 사용해야 합니
 * [Application Insights](https://docs.microsoft.com/azure/application-insights/) 및 [Azure Security Center](https://docs.microsoft.com/azure/security-center/)와 같은 Azure 서비스로서 기본적으로 Log Analytics에 직접 데이터를 저장합니다.  
 
 ## <a name="dependency-agent"></a>종속성 에이전트
-종속성 에이전트는 원래 Microsoft의 외부에서 개발된 서비스 맵 솔루션의 일부로 개발되었습니다. [서비스 맵](../insights/service-map.md) 및 [VM용 Azure Monitor](../insights/vminsights-overview.md)는 Windows 및 Linux 가상 머신에 종속성 에이전트가 필요하며, Log Analytics 에이전트와 통합되어 가상 머신에서 실행 중인 프로세스 및 외부 프로세스 종속성에 대해 검색된 데이터를 수집합니다. Log Analytics 작업 영역에서이 데이터를 저장 하 고 검색 된 상호 연결 된 구성 요소를 시각화 합니다.
+종속성 에이전트는 원래 Microsoft에서 개발 되지 않은 서비스 맵 솔루션의 일부로 개발 되었습니다. [서비스 맵](../insights/service-map.md) 하 고 [Vm에 대 한 Azure Monitor](../insights/vminsights-overview.md) 종속성 에이전트가 필요 Windows 및 Linux virtual machines와 통합 됩니다 가상에서 실행 중인 프로세스에 대 한 검색 된 데이터를 수집 하도록 Log Analytics 에이전트 컴퓨터 및 외부 프로세스 종속성입니다. Log Analytics 작업 영역에서이 데이터를 저장 하 고 검색 된 상호 연결 된 구성 요소를 시각화 합니다.
 
 VM을 모니터링하기 위해 이러한 에이전트의 몇 가지 조합이 필요할 수 있습니다. 에이전트를 Azure 확장으로 나란히 설치할 수 있지만 Linux에서는 Log Analytics 에이전트를 먼저 설치*해야*합니다. 그렇지 않으면 설치가 실패합니다. 
 

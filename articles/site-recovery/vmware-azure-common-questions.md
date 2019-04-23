@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360509"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004774"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -111,7 +111,7 @@ Site Recovery는 Azure의 managed disks로 온-프레미스 VMware Vm 및 물리
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>변경 관리 되는 디스크 유형을 컴퓨터를 보호
 
-예, 쉽게 수행할 수 있습니다 [관리 되는 디스크의 형식을 변경](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)합니다. 그러나 관리 되는 디스크 유형은 가능한 경우 변경 된 후 장애 조치 또는 장애 조치 테스트 수행 해야 하는 경우 생성 될 새 복구 지점에 대 한 대기 합니다.
+예, 쉽게 수행할 수 있습니다 [관리 되는 디스크의 형식을 변경](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)합니다. 종류를 변경 하기 전에 Azure portal에서 관리 되는 디스크 리소스를 이동 하 여 디스크에 대 한 SAS URL을 해지 하는 확인 합니다. 개요 블레이드에서 모든 진행 중인 내보내기를 취소 합니다. SAS URL이 해지 되 면 몇 분 내에서 디스크의 형식을 변경 합니다. 그러나 관리 디스크 유형을 변경 하는 경우 Azure Site Recovery에 의해 생성 될 새 복구 지점에 대 한 대기 합니다. 앞으로 장애 조치 또는 테스트 장애 조치에 대해 새 복구 지점을 사용 합니다.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>복제 관리 디스크에서 관리 되지 않는 디스크를 전환할 수 있나요?
 

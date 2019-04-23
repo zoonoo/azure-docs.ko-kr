@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093891"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998280"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 서버의 SQL Database 리소스 한도
 
@@ -75,7 +75,7 @@ ms.locfileid: "58093891"
 - 계산 리소스에 대한 경합 때문에 작업자 사용률이 증가할 경우 쿼리를 최적화하여 각 쿼리의 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
 ## <a name="transaction-log-rate-governance"></a>트랜잭션 로그 속도 거 버 넌 스 
-트랜잭션 로그 속도 거 버 넌 스 프로세스 대량 같은 워크 로드에 대해 높은 수집 속도 제한 하는 데 Azure SQL Database에서 insert, SELECT INTO 이며 인덱스 작성 합니다. 이러한 한도 추적 하 여 로그 레코드 생성 속도가 1 초 미만의 수준에서 적용, 얼마나 많은 IOs에 관계 없이 제한 처리량 데이터 파일에 대해 발급 될 수 있습니다.  트랜잭션 로그 생성 속도 현재 선형적으로 하드웨어 종속 하는 지점까지, 속도 최대 로그를 사용 하 여 구매 모델 vCore 사용 하 여 48 MB/s 되을 허용 합니다. 
+트랜잭션 로그 속도 거 버 넌 스 프로세스 대량 같은 워크 로드에 대해 높은 수집 속도 제한 하는 데 Azure SQL Database에서 insert, SELECT INTO 이며 인덱스 작성 합니다. 이러한 한도 추적 하 여 로그 레코드 생성 속도가 1 초 미만의 수준에서 적용, 얼마나 많은 IOs에 관계 없이 제한 처리량 데이터 파일에 대해 발급 될 수 있습니다.  트랜잭션 로그 생성 속도 현재 선형적으로 하드웨어 종속 하는 지점까지, 속도 최대 로그를 사용 하 여 구매 모델 vCore 사용 하 여 96 MB/s 되을 허용 합니다. 
 
 > [!NOTE]
 > 트랜잭션 로그 파일에 실제 물리적 Io 제어 되지 않거나 제한 합니다. 
@@ -98,7 +98,7 @@ ms.locfileid: "58093891"
 |||
 
 원하는 확장성에 방해가 되는 로그 속도 제한에 도달할 경우 다음 옵션을 고려 합니다.
-- 최대 48 MB/s 로그 속도 얻기 위해 더 큰 계층으로 강화 합니다. 
+- 최대 96 MB/s 로그 속도 얻기 위해 더 큰 계층으로 강화 합니다. 
 - 데이터가 로드 일시적인 경우 ETL 프로세스에서 데이터를 준비 하는 예: 로드할 수 있습니다 (작업이 최소한으로 로깅되)는 tempdb에 있습니다. 
 - 분석 시나리오를 설명 하는 클러스터형된 columnstore 테이블에 로드 합니다. 이 압축으로 인해 필수 로그 속도를 낮춥니다. 이 기술은 CPU 사용률이 증가 하 고 클러스터형된 columnstore 인덱스를 활용 하는 데이터 집합에만 적용 됩니다. 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906126"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998909"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -228,9 +228,9 @@ V2 SKU에 대 한 정확한 일치 하는 경우 URL 경로 맵의 경로 순서
 ![응용 프로그램 게이트웨이 구성 요소 대화 상자](./media/configuration-overview/configure-redirection.png)
 
 HTTP-HTTPS 리디렉션이 대 한 자세한 내용은 다음을 참조 하세요.
-- [Azure portal을 사용 하 여 HTTP-HTTP 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [PowerShell을 사용 하 여 HTTP-HTTP 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [Azure CLI를 사용 하 여 HTTP에 HTTP 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Azure portal을 사용 하 여 HTTP-HTTPS 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [PowerShell을 사용 하 여 HTTP-HTTPS 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [Azure CLI를 사용 하 여 HTTP-HTTPS 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
 ##### <a name="external-site"></a>외부 사이트
 

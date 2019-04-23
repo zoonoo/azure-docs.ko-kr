@@ -5,22 +5,27 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c5e6a44409e082f10a532759e3403f6b5801fdca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 6c83298b102d6782647f3baebf6f98e43cb3ad7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551595"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011846"
 ---
 스토리지 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하며 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징 및 대형 트랜잭션 데이터베이스에 이상적입니다.  예를 들어 Cassandra, MongoDB, Cloudera 및 Redis가 있습니다. 이 문서에서는 각 최적화 크기에 대한 로컬 스토리지 처리량 및 네트워크 대역폭뿐 아니라 vCPU, 데이터 디스크 및 NIC 수에 대한 정보를 제공합니다.
 
 Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어 부스트가 2.55GHz이고 최대 부스트가 3.0GHz인 [AMD EPYC&trade; 7551 프로세서](https://www.amd.com/en/products/epyc-7000-series)에서 실행되는 직접 매핑된 로컬 NVMe 스토리지가 특징입니다. Lsv2 시리즈 VM은 동시 다중 스레딩 구성을 통해 8~80vCPU 크기로 제공됩니다.  vCPU당 8GiB 메모리, 8vCPU당 1.92TB NVMe SSD M.2 디바이스 한 대가 있으며, L80s v2에서 최대 19.2TB(10x1.92TB)를 사용할 수 있습니다.
 
 > [!NOTE]
-> Lsv2 시리즈 Vm은 영구 데이터 디스크를 사용 하는 것이 아니라 VM에 직접 연결 된 노드에서 로컬 디스크를 사용 하도록 최적화 됩니다. 이렇게 하면 워크로드에 대한 IOPS/처리량이 향상됩니다. Lsv2 시리즈는 영구 데이터 디스크에서 달성할 수 있는 IOPS를 높이기 위해 로컬 캐시의 생성을 지원 하지 않습니다. 높은 처리량 및 로컬 디스크의 IOPS Lsv2 시리즈 Vm 하기에 이상적인 단일 VM의 오류가 발생할 경우 지 속성을 달성 하기 위해 여러 Vm 간에 데이터를 복제 하는 Apache Cassandra 및 MongoDB와 같은 NoSQL 저장소입니다.
+> Lsv2 시리즈 Vm은 영구 데이터 디스크를 사용 하는 것이 아니라 VM에 직접 연결 된 노드에서 로컬 디스크를 사용 하도록 최적화 됩니다. 이렇게 하면 워크로드에 대한 IOPS/처리량이 향상됩니다. Ls 시리즈 고 Lsv2 영구 데이터 디스크에서 달성할 수 있는 IOPs를 높이기 위해 로컬 캐시의 생성을 지원 하지 않습니다.
+>
+> 높은 처리량 및 로컬 디스크의 IOPs Lsv2 및 Ls 시리즈 Vm을 하기에 이상적인 단일 VM의 오류가 발생할 경우 지 속성을 달성 하기 위해 여러 Vm 간에 데이터를 복제 하는 Apache Cassandra 및 MongoDB와 같은 NoSQL 저장소입니다.
+>
+> 자세한 내용은 참조 하세요 [Lsv2-시리즈 virtual machines에서 성능을 최적화](../articles/virtual-machines/linux/storage-performance.md)합니다.  
+
 
 ## <a name="lsv2-series"></a>Lsv2 시리즈
 

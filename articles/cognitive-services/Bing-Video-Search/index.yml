@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: daeb5bcbfbc609c293a6b3f55e61aaa29566b768
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728525"
 documentType: LandingData
 title: Bing Video Search API 설명서
 metadata:
-  title: Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
+  title: 'Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
   description: Bing Video Search API 검색을 사용하고 웹에서 비디오를 찾는 방법을 알아봅니다.
   services: cognitive-services
   author: mikedodaro
@@ -23,83 +17,83 @@ metadata:
 abstract:
   description: Bing Video Search API를 사용하면 애플리케이션에서 Bing의 비디오 검색 기능을 통합할 수 있습니다. API에 검색 쿼리를 보내면 bing.com/videos와 비슷한 관련 고품질 비디오를 가져오고 표시할 수 있습니다.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-video-search/overview
+            html: <p>Bing Video Search API에 대한 자세한 내용</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Bing Video Search API란?
+          - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
+            html: <p>Bing에 Video 검색 쿼리를 보내는 방법 알아보기</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 검색 쿼리 보내기
+          - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+            html: '<p>검색 결과 필터링, 비디오 미리 보기 가져오기, 검색 쿼리 확장 방법 알아보기</p>'
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 웹에서 비디오 가져오기
+  - title: 5분 빠른 시작
     items:
-    - href: /azure/cognitive-services/bing-video-search/overview
-      html: <p>Bing Video Search API에 대한 자세한 내용</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Bing Video Search API란?
-    - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
-      html: <p>Bing에 Video 검색 쿼리를 보내는 방법 알아보기</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: 검색 쿼리 보내기
-    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-      html: <p>검색 결과 필터링, 비디오 미리 보기 가져오기, 검색 쿼리 확장 방법 알아보기</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: 웹에서 비디오 가져오기
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: 다음을 사용하여 웹에서 비디오를 검색합니다.
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 다음을 사용하여 웹에서 비디오를 검색합니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: quickstarts/sdk-csharp-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: quickstarts/sdk-java-quickstart
+            text: 자바
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: quickstarts/nodejs
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: quickstarts/php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: quickstarts/sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: quickstarts/ruby
+            text: Ruby
+  - title: 단계별 자습서
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: quickstarts/sdk-csharp-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: quickstarts/sdk-java-quickstart
-      text: 자바
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: quickstarts/php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: quickstarts/sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: quickstarts/ruby
-      text: Ruby
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Bing Video Search API를 사용하여 애플리케이션을 개발합니다.
-  - type: paragraph
-    text: <a href="tutorial-bing-video-search-single-page-app">단일 페이지 웹앱</a>
-- title: 샘플
-  items:
-  - type: paragraph
-    text: 'Bing Video Search API에 대한 샘플 찾기:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Bing Video Search API를 사용하여 애플리케이션을 개발합니다.
+      - type: paragraph
+        text: <a href="tutorial-bing-video-search-single-page-app">단일 페이지 웹앱</a>
+  - title: 샘플
     items:
-    - html: <a href="sdk.md">코드 샘플</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Bing Video Search API에 대한 샘플 찾기:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="sdk.md">코드 샘플</a>
+  - title: 참고 자료
     items:
-    - title: API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">Bing Video Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">Bing Video Search API v5</a></p>
-    - title: SDK
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/videosearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">Bing Video Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">Bing Video Search API v5</a></p>'
+          - title: SDK
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-videosearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable">Java</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

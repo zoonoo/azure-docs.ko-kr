@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>자습서: O.C. Tanner - AppreciateHub와 Tanner - AppreciateHub
@@ -193,7 +193,7 @@ O.C. Tanner - AppreciateHub를 사용하여 Azure AD Single Sign-On을 구성하
 
 이 섹션은 O.C.에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. 액세스 권한을 부여합니다.
 
-**O.C.에서 Britta Simon이라는 사용자를 만들려면 Tanner - AppreciateHub를 사용하여 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+**O.C.에서 Britta Simon이라는 사용자를 만들려면 Tanner - AppreciateHub, 다음 단계를 수행합니다.**
 
 [O.C. Tanner - AppreciateHub 지원 팀](mailto:sso@octanner.com)에 요청하여 Azure AD에서 Britta Simon이라는 사용자 이름이 동일한 값인 nameID 특성을 가진 사용자를 만듭니다.
 
@@ -207,6 +207,6 @@ O.C.를 클릭할 때 Tanner - AppreciateHub 타일을 클릭하면 SSO가 설�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

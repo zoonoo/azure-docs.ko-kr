@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798949"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003686"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
@@ -112,7 +112,7 @@ Azure Monitor는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 
 | Data | 설명 |
 |:---|:---|
-| 컨테이너에 대 한 azure Monitor | 인벤토리 및 성능 데이터를 수집한 [컨테이너에 대 한 Azure Monitor](../insights/container-insights-overview.md)합니다. 참조 [컨테이너 데이터 수집 세부 정보](../insights/container-insights-analyze.md#container-data-collection-details) 테이블 목록은 합니다. |
+| 컨테이너용 Azure Monitor | 인벤토리 및 성능 데이터를 수집한 [컨테이너에 대 한 Azure Monitor](../insights/container-insights-overview.md)합니다. 참조 [컨테이너 데이터 수집 세부 정보](../insights/container-insights-log-search.md#container-records) 테이블 목록은 합니다. |
 | VM용 Azure Monitor | 지도 및 성능 데이터를 수집한 [Vm에 대 한 Azure Monitor](../insights/vminsights-overview.md)합니다. 참조 [Vm에 대 한 Azure Monitor의 로그를 쿼리 하는 방법을](../insights/vminsights-log-search.md) 자세한 방법은이 데이터를 쿼리 합니다. |
 
 ### <a name="custom"></a>사용자 지정 

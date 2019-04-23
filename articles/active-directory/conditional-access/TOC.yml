@@ -1,81 +1,74 @@
-items:
 - name: 조건부 액세스 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 조건부 액세스란?
-    href: overview.md
+    - name: 조건부 액세스란?
+      href: overview.md
 - name: 빠른 시작
   items:
-  - name: 특정 앱에 대한 MFA 필요
-    href: app-based-mfa.md
-  - name: 사용 약관 허용 필요
-    href: require-tou.md
-  - name: 세션 위험이 감지되면 액세스 차단
-    href: app-sign-in-risk.md
+    - name: 특정 앱에 대한 MFA 필요
+      href: app-based-mfa.md
+    - name: 사용 약관 허용 필요
+      href: require-tou.md
+    - name: 세션 위험이 감지되면 액세스 차단
+      href: app-sign-in-risk.md
 - name: 자습서
   items:
-  - name: 클래식 MFA 정책 마이그레이션
-    href: policy-migration-mfa.md
+    - name: 클래식 MFA 정책 마이그레이션
+      href: policy-migration-mfa.md
 - name: 개념
-  items:
-  - name: 기준 보호
-    href: baseline-protection.md
-  - name: 조건
-    href: conditions.md
-  - name: 위치 조건
-    href: location-condition.md
-  - name: 컨트롤
-    href: controls.md
-  - name: 서비스 종속성
-    href: service-dependencies.md
-  - name: What if 도구
-    href: what-if-tool.md
   expanded: false
-- name: 방법 가이드
   items:
-  - name: 조건부 액세스 배포 계획
-    href: plan-conditional-access.md
-  - name: 모범 사례
-    href: best-practices.md
-  - name: 레거시 인증 차단
-    href: block-legacy-authentication.md
-  - name: Exchange Online 및 SharePoint Online에 대한 액세스 제어
-    href: conditional-access-for-exo-and-spo.md
-  - name: 클래식 정책 마이그레이션
-    href: policy-migration.md
-  - name: 승인된 클라이언트 앱 필요
-    href: app-based-conditional-access.md
-  - name: 앱 보호 정책 필요
-    href: app-protection-based-conditional-access.md
-  - name: 관리 디바이스 필요
-    href: require-managed-devices.md
-  - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
-    href: untrusted-networks.md
-  - name: 사용 약관 필요
-    href: terms-of-use.md
+    - name: 기준 보호
+      href: baseline-protection.md
+    - name: 조건
+      href: conditions.md
+    - name: 위치 조건
+      href: location-condition.md
+    - name: 컨트롤
+      href: controls.md
+    - name: 서비스 종속성
+      href: service-dependencies.md
+    - name: What if 도구
+      href: what-if-tool.md
+- name: 방법 가이드
   expanded: true
+  items:
+    - name: 조건부 액세스 배포 계획
+      href: plan-conditional-access.md
+    - name: 모범 사례
+      href: best-practices.md
+    - name: 레거시 인증 차단
+      href: block-legacy-authentication.md
+    - name: Exchange Online 및 SharePoint Online에 대한 액세스 제어
+      href: conditional-access-for-exo-and-spo.md
+    - name: 클래식 정책 마이그레이션
+      href: policy-migration.md
+    - name: 승인된 클라이언트 앱 필요
+      href: app-based-conditional-access.md
+    - name: 앱 보호 정책 필요
+      href: app-protection-based-conditional-access.md
+    - name: 관리 디바이스 필요
+      href: require-managed-devices.md
+    - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
+      href: untrusted-networks.md
+    - name: 사용 약관 필요
+      href: terms-of-use.md
 - name: 참고 자료
   items:
-  - name: 기술 참조
-    href: technical-reference.md
+    - name: 기술 참조
+      href: technical-reference.md
 - name: 리소스
   items:
-  - name: Azure 피드백 포럼
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN 포럼
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: 서비스 업데이트
-    href: ../fundamentals/whats-new.md
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: 동영상
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 1db270043ea996b72f47ee00dbd07f1bd33a1e48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787035"
+    - name: Azure 피드백 포럼
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: 서비스 업데이트
+      href: ../fundamentals/whats-new.md
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 108f737f88f8b470846b3699fb4cccce6e08541f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409094"
 documentType: LandingData
 title: ExpressRoute 설명서
 metadata:
-  document_id: 
+  document_id: null
   title: ExpressRoute
-  meta.description: Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.
+  meta.description: 'Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.'
   author: cherylmc
   manager: jeconnoc
   ms.service: ExpressRoute
@@ -20,42 +14,42 @@ metadata:
   ms.date: 05/18/2018
   ms.author: cherylmc
 abstract:
-  description: ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 빠른 개인 연결을 설정하는 방법에 대해 알아봅니다. 자습서, REST API 및 기타 설명서를 통해 ExpressRoute 회로를 구성하고 관리할 수 있습니다.
+  description: 'ExpressRoute를 사용하여 온-프레미스 인프라 또는 공동 시설의 Microsoft 클라우드 서비스에 빠른 개인 연결을 설정하는 방법에 대해 알아봅니다. 자습서, REST API 및 기타 설명서를 통해 ExpressRoute 회로를 구성하고 관리할 수 있습니다.'
 sections:
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: ExpressRoute 회로를 구성 및 관리하는 방법에 대해 알아보세요.
-  - type: list
-    style: unordered
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">ExpressRoute 회로 만들기 및 수정</a>
-    - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">피어링 구성 만들기 및 수정</a>
-    - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">가상 네트워크를 ExpressRoute 회로에 연결합니다.</a>
-    - html: <a href="/azure/expressroute/how-to-routefilter-portal">Microsoft 피어링용 경로 필터 구성</a>
-- title: 무료 Pluralsight 동영상 교육
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: ExpressRoute 회로를 구성 및 관리하는 방법에 대해 알아보세요.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">ExpressRoute 회로 만들기 및 수정</a>
+          - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">피어링 구성 만들기 및 수정</a>
+          - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">가상 네트워크를 ExpressRoute 회로에 연결합니다.</a>
+          - html: <a href="/azure/expressroute/how-to-routefilter-portal">Microsoft 피어링용 경로 필터 구성</a>
+  - title: 무료 Pluralsight 동영상 교육
     items:
-    - title: Azure 관리자
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Azure 솔루션 설계자
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure 관리자
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+          - title: Azure 솔루션 설계자
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+  - title: 참고 자료
     items:
-    - title: 명령줄
-      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
-    - title: REST (영문)
-      html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API 참조</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">클래식 REST API 참조</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: '<p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>'
+          - title: REST (영문)
+            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API 참조</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">클래식 REST API 참조</a></p>'

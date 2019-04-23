@@ -1,17 +1,17 @@
 ---
 title: Azure Data Catalog에서 데이터 원본을 검색하는 방법
 description: 이 문서는 검색 및 필터링을 포함하는 Azure Data Catalog 및 Azure Data Catalog 포털의 적중 항목 강조 표시 기능을 사용하여 등록된 데이터 자산을 검색하는 방법을 강조 표시합니다.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 892a0909f68d89acc463d37edd466dba6a721177
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792151"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007868"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 검색하는 방법
 
