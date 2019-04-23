@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879151"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796313"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리를 만듭니다.
 이 문서에서 제공 되는 샘플 스크립트를 사용 하 여 사용자 지정 이미지 팩터리를 설정 하는 방법을 보여 줍니다.는 [Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory)합니다.

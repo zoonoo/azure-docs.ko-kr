@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 38e776a5398ea5217a0d7e385d6ebb45d2199d51
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0e5137a8183f378ee5960846e281222c6ecaaa47
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044610"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995713"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>자습서: Azure에서 실행되는 Service Fabric 클러스터를 제거
 
@@ -121,4 +121,3 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 Service Fabric 클러스터를 검사 및 관리하는 방법을 알아봅니다.
 * 클러스터 노드의 [Windows 운영 체제를 패치](service-fabric-patch-orchestration-application.md)하는 방법을 알아보세요.
 * [Windows 클러스터](service-fabric-diagnostics-event-aggregation-wad.md)에 대한 이벤트를 집계하거나 수집하고, [Log Analytics를 설정](service-fabric-diagnostics-oms-setup.md)하여 클러스터 이벤트를 모니터링하는 방법을 알아보세요.
-ms-setup.md)를 사용하여 클러스터 이벤트를 모니터링합니다.
