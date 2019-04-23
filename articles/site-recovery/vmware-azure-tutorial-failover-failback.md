@@ -10,11 +10,11 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9206e751fadab7a09c696fbe262aecdde002ae74
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357214"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797668"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms"></a>장애 조치(Failover) 및 장애 복구(Failback) VMware VM
 
@@ -36,7 +36,7 @@ ms.locfileid: "59357214"
 이전 자습서 완료:
 
 1. VMware VM, Hyper-V VM 및 물리적 머신의 온-프레미스 재해 복구가 Azure에 수행되도록 [Azure를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
-2. 재해 복구를 위한 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 환경을 준비합니다. 물리적 서버에 대한 재해 복구를 설정하는 경우 [지원 매트릭스](vmware-physical-secondary-support-matrix.md)를 검토합니다.
+2. 재해 복구용 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 환경을 준비합니다. 물리적 서버에 대한 재해 복구를 설정하는 경우 [지원 매트릭스](vmware-physical-secondary-support-matrix.md)를 검토합니다.
 3. [VMware VM](vmware-azure-tutorial.md), [Hyper-V VM](hyper-v-azure-tutorial.md) 또는 [물리적 컴퓨터](physical-azure-disaster-recovery.md)에 대한 재해 복구를 설정합니다.
 4. [재해 복구 드릴](tutorial-dr-drill-azure.md)을 실행하여 모든 항목이 예상대로 작동하는지 확인합니다.
 

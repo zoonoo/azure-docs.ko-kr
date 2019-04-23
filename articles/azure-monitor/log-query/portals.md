@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: bwren
 ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259034"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798479"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Azure Monitor에서 로그 데이터 보기 및 분석
 Log Analytics는 Azure Monitor에서 로그 데이터를 사용하고 쿼리를 만드는 기본 환경입니다. Log Analytics는 **Azure Monitor** 메뉴의 **로그**에서 엽니다. [Azure Portal에서 Log Analytics 시작](get-started-portal.md)에서 이 포털에 대한 소개를 보고 기능을 살펴볼 수 있습니다.

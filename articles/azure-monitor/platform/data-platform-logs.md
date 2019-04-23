@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
 ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360634"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798949"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor의 로그
 
@@ -66,7 +66,7 @@ Azure Monitor 로그에서 데이터를 사용 하 여 검색 됩니다는 [로�
 
 오픈 [Application Insights에서 Log Analytics](../app/analytics.md) Application Insights 데이터를 분석 합니다.
 
-![Application Insights 분석](media/data-platform-logs/app-insights-analytics.png)
+![Application Insights Analytics](media/data-platform-logs/app-insights-analytics.png)
 
 사용 하 여 로그 데이터를 검색할 수도 있습니다는 [Log Analytics API](https://dev.loganalytics.io/documentation/overview) 하며 [Application Insights REST API](https://dev.applicationinsights.io/documentation/overview)합니다.
 
