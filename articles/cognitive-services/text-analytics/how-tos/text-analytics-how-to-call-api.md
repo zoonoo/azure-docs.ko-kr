@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122878"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011255"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "58122878"
 다시 말하지만 Text Analytics는 상태 비저장 서비스이므로 관리할 데이터 자산이 없습니다. 텍스트는 업로드되고, 수신된 후 분석됩니다. 그러면 결과가 호출 애플리케이션에 즉시 반환됩니다.
 
 > [!Tip]
-> 1번 호출하여 API의 작동 방식을 보려는 경우 [API 문서 페이지](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)에서 사용할 수 있는 기본 제공 **API 테스트 콘솔**에서 POST 요청을 보낼 수 있습니다. 설치할 필요는 없으며, 액세스 키 및 JSON 문서를 요청에 붙여 넣기만 하면 됩니다. 
+> 1번 호출하여 API의 작동 방식을 보려는 경우 [API 문서 페이지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)에서 사용할 수 있는 기본 제공 **API 테스트 콘솔**에서 POST 요청을 보낼 수 있습니다. 설치할 필요는 없으며, 액세스 키 및 JSON 문서를 요청에 붙여 넣기만 하면 됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -60,10 +60,10 @@ Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.
 
    리소스 엔드포인트는 다음과 같습니다(지역마다 다를 수 있음).
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. 다음 세 개의 요청 헤더를 설정합니다.
 
@@ -81,10 +81,10 @@ Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.
 
 5. 의도한 분석에 적합한 형식으로 일부 JSON 문서를 붙여 넣습니다. 특정 분석에 대한 자세한 내용은 아래 항목을 참조하세요.
 
-   + [언어 감지](text-analytics-how-to-language-detection.md)  
-   + [핵심 구 추출](text-analytics-how-to-keyword-extraction.md)  
-   + [감정 분석](text-analytics-how-to-sentiment-analysis.md)  
-   + [엔터티 인식(미리 보기)](text-analytics-how-to-entity-linking.md)  
+  + [언어 감지](text-analytics-how-to-language-detection.md)  
+  + [핵심 구 추출](text-analytics-how-to-keyword-extraction.md)  
+  + [감정 분석](text-analytics-how-to-sentiment-analysis.md)  
+  + [엔터티 인식](text-analytics-how-to-entity-linking.md)  
 
 
 6. **보내기**를 클릭하여 요청을 제출합니다. 분당 최대 100개의 요청을 제출할 수 있습니다. 

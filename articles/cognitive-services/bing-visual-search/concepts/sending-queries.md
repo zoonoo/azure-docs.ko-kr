@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: MT
+ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489351"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011695"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>검색 쿼리를 Bing Visual Search API로 보내기
 
@@ -73,7 +73,7 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 
 다음은 요청에서 지정해야 하는 쿼리 매개 변수입니다. 최소한 포함 해야 합니다 `mkt` 쿼리 매개 변수:
 
-| name | 값 | Type | 필수 |
+| Name | 값 | Type | 필수 |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | 결과에서 발생 한 위치를 나타내는 2 자리 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [mkt](#mkt) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | 문자열 | 아닙니다.       |
 | <a name="mkt" />mkt   | 결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알 수 있는 경우에 항상 시장을 지정 해야 합니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [cc](#cc) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | 문자열 | 예      |
@@ -87,8 +87,8 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 | 헤더 | 설명 |
 | --- | --- |
 | <a name="acceptlanguage" />Accept-Language  | 선택적 요청 헤더입니다.<br /><br /> 사용자 인터페이스 문자열에 사용할 언어의 쉼표로 구분된 목록입니다. 목록은 기본 설정의 내림차순으로 표시됩니다. 필요한 형식을 포함하여 자세한 내용은 [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)을 참조하세요.<br /><br /> 이 헤더와 [setLang](#setlang) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 이 헤더를 설정하는 경우, [cc](#cc) 쿼리 매개 변수도 지정해야 합니다. 결과를 반환할 지역/국가를 결정하기 위해 Bing은 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 이 언어를 `cc` 매개 변수 값과 결합합니다. 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾거나 집계 또는 기본 지역/국가를 결과에 사용합니다. Bing을 사용 하는, 시장의 확인 하려면 참조는 `BingAPIs-Market` 헤더입니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 헤더와 `cc` 쿼리 매개 변수를 사용합니다. 여러 언어를 지정하지 않는 경우 [mkt](#mkt) 및 [setLang](#setlang) 쿼리 매개 변수를 사용합니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.  |
-| <a name="contenttype" />콘텐츠 형식  |     |
-| <a name="market" />BingAPIs 시장    | 응답 헤더입니다.<br /><br /> 요청에서 사용하는 지역/국가입니다. 형식은 \<languageCode\>-\<countryCode\>입니다. 예를 들어 en-US입니다.  |
+| <a name="contenttype" />Content-Type  |     |
+| <a name="market" />BingAPIs-Market    | 응답 헤더입니다.<br /><br /> 요청에서 사용하는 지역/국가입니다. 형식은 \<languageCode\>-\<countryCode\>입니다. 예를 들어 en-US입니다.  |
 | <a name="traceid" />BingAPIs-TraceId  | 응답 헤더입니다.<br /><br /> 요청의 세부 정보를 포함하는 로그 항목의 ID입니다. 오류가 발생하면 이 ID를 캡처합니다. 문제를 확인하고 해결할 수 없는 경우 지원 팀에게 제공할 다른 정보와 함께 이 ID를 기재합니다. |
 | <a name="subscriptionkey" />Ocp-Apim-Subscription-Key | 필수 요청 헤더입니다.<br /><br /> [Cognitive Services](https://www.microsoft.com/cognitive-services/)에서 이 서비스에 등록할 때 받은 구독 키입니다. |
 | <a name="pragma" />Pragma |   |
@@ -98,7 +98,7 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 | <a name="location" />X-Search-Location   | 선택적 요청 헤더입니다.<br /><br /> 클라이언트의 지리적 위치를 설명하는 키/값 쌍의 세미콜론으로 구분된 목록입니다. Bing은 위치 정보를 사용하여 유해 정보 차단 동작을 결정하고 관련된 로컬 콘텐츠를 반환합니다. 키/값 쌍을 \<키\>:\<값\>으로 지정합니다. 다음은 사용자 위치를 지정하는 데 사용하는 키입니다.<br /><br /><ul><li>lat&mdash;필수. 클라이언트 위치의 위도(도)입니다. 위도는 -90.0보다 크거나 같고 +90.0보다 작거나 같아야 합니다. 음수 값은 남위를 나타내고, 양수 값은 북위를 나타냅니다.<br /><br /></li><li>long&mdash;필수. 클라이언트 위치의 경도(도)입니다. 경도는 -180.0보다 크거나 같고 +180.0보다 작거나 같아야 합니다. 음수 값은 서경을 나타내고, 양수 값은 동경을 나타냅니다.<br /><br /></li><li>re&mdash;필수. 좌표의 가로 정확도를 지정하는 반경(미터)입니다. 디바이스의 위치 서비스에서 반환된 값을 전달합니다. 일반적인 값은 GPS에서 Wi-fi에 대 한 22m, 셀 탑 3 각 측량 380 m 및 역방향 IP 조회를 위해 18000 m 수 있습니다.<br /><br /></li><li>ts&mdash;선택 사항. 클라이언트가 위치에 있었던 시간의 UTC UNIX 타임스탬프입니다. UNIX 타임스탬프는 1970년 1월 1일 이후의 시간(초)입니다.<br /><br /></li><li>head&mdash;선택 사항입니다. 클라이언트 상대적인 이동 방향입니다. 정북을 기준으로 시계 반대 방향으로 계산해서, 이동 방향을 0에서 360 사이의 도로 지정합니다. `sp` 키가 0이 아닌 경우에만 이 키를 지정합니다.<br /><br /></li><li>sp&mdash;선택 사항. 클라이언트 디바이스가 이동하는 가로 벡터(속도)(초당 미터)입니다.<br /><br /></li><li>alt&mdash;선택 사항. 클라이언트 디바이스의 고도(미터)입니다.<br /><br /></li><li>are&mdash;선택 사항입니다. 좌표의 세로 정확도를 지정하는 반경(미터)입니다. `alt` 키를 지정하는 경우에만 이 키를 지정합니다.<br /><br /></li></ul> **참고:** 많은 키가 선택 사항이지만 제공하는 정보가 많을수록 위치 결과가 더 정확합니다.<br /><br /> **참고:** 사용자의 지리적 위치는 선택 사항이지만 항상 지정하는 것이 좋습니다. 클라이언트의 IP 주소가 사용자의 실제 위치를 정확하게 반영하지 않는 경우(예: 클라이언트가 VPN을 사용하는 경우) 위치를 제공하는 것이 특히 중요합니다. 최상의 결과이 헤더를 포함 해야 및 `X-MSEdge-ClientIP` 헤더 최소한이 헤더를 포함 해야 합니다.       |
 
 > [!NOTE]
-> 유의 해야 합니다 [Bing Search API 사용 및 표시 요구 사항](/../bing-web-search/use-display-requirements.md) 이러한 헤더의 사용에 대 한 포함 하 여 모든 적용 가능한 법규를 준수 해야 합니다. 예를 들어 유럽 등의 특정 관할지에서는 사용자 디바이스에 특정 추적 디바이스를 배치하기 전에 사용자 동의를 받아야 하는 요구 사항이 있습니다.
+> 유의 해야 합니다 [Bing Search API 사용 및 표시 요구 사항](../../bing-web-search/use-display-requirements.md) 이러한 헤더의 사용에 대 한 포함 하 여 모든 적용 가능한 법규를 준수 해야 합니다. 예를 들어 유럽 등의 특정 관할지에서는 사용자 디바이스에 특정 추적 디바이스를 배치하기 전에 사용자 동의를 받아야 하는 요구 사항이 있습니다.
 
 <a name="content-form-types" />
 
@@ -400,5 +400,5 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ## <a name="see-also"></a>참고 항목
 
-- [Bing Visual Search API란?](../overview.md)
-- [자습서: Visual Search 단일 페이지 웹앱 만들기](../tutorial-bing-visual-search-single-page-app.md)
+- [Bing Visual Search API 란?](../overview.md)
+- [자습서: 비주얼 검색 단일 페이지 웹 앱 만들기](../tutorial-bing-visual-search-single-page-app.md)
