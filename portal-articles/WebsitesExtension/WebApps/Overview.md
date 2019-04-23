@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530870"
 ---
 # <a name="app-service-documentation"></a>App Service 설명서
 Azure App Service를 사용하면 인프라뿐만 아니라 언어 또는 웹 프레임워크 런타임도 관리하지 않고 선택한 프로그래밍 언어로 웹 애플리케이션을 만들고 호스팅할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps Services 또는 Git 리포지토리에서 자동화된 배포를 사용합니다. 빠른 시작, 자습서 및 샘플을 통해 Azure App Service를 사용하는 방법을 알아봅니다.

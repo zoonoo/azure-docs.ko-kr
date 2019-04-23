@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: tamram
 ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009311"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>빠른 시작: .NET을 사용하여 Azure Storage에 큐 만들기
@@ -269,6 +269,6 @@ Azure Queues를 사용하는 .NET 개발에 대한 다음 추가 리소스를 �
 이 빠른 시작에서 .NET을 사용하여 큐에 메시지를 추가하고, 큐의 메시지를 피킹하고, 메시지를 큐에서 제거하고 처리하는 방법을 알아보았습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Queue 스토리지로 애플리케이션 간 통신](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Azure Queue Storage로 애플리케이션 간 통신](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.

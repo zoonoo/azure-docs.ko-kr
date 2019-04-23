@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>자습서: New Relic과 Azure Active Directory 통합
@@ -106,7 +106,7 @@ New Relic에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – 자신의 New Relic 계정 ID를 반드시 대체해야 합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 URL을 입력합니다. `rpm.newrelic.com`
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `rpm.newrelic.com` URL을 입력합니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -237,7 +237,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

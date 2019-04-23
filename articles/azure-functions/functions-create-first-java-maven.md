@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버를 사용하지 않는 아키텍처
+keywords: Azure 함수, 함수, 이벤트 처리, 계산, 서버리스 아키텍처
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
@@ -13,10 +13,10 @@ ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58801847"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기

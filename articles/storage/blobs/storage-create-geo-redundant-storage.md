@@ -10,10 +10,10 @@ ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: c4e81d9be09855cde986bfd21f8f688fa7d1341e
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793719"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
@@ -234,7 +234,7 @@ Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 �
 샘플을 실행하려면 명령줄에서 Maven을 사용합니다.
 
 1. 셸을 열고 복제된 디렉터리 내에서 **storage-blobs-java-v10-quickstart**로 이동합니다.
-2. [https://slack.botframework.com](`mvn compile exec:java`) 을 입력합니다.
+2. `mvn compile exec:java`을 입력합니다.
 
 이 샘플은 Windows 사용자의 기본 디렉터리인 **AppData\Local\Temp**에 테스트 파일을 만듭니다. 그러면 샘플은 입력할 수 있는 다음 명령 옵션을 제공합니다.
 
