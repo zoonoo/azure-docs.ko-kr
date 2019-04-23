@@ -11,13 +11,13 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: ff3549ce77a2b691dcaaa94b6a59e9c011ff6e21
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053004"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796106"
 ---
-# <a name="add-remove-and-sort-favorites"></a>추가, 제거 및 정렬 즐겨찾기
+# <a name="add-remove-and-sort-favorites"></a>즐겨찾기 추가, 제거 및 정렬
 
 항목에서 추가 하거나 제거 하 **즐겨찾기** 가장 자주 사용 하는 서비스를 신속 하 게 이동할 수 있도록 목록입니다. 일부 공용 서비스에 이미 추가 했으므로 사용자 **즐겨찾기** 목록, 있지만 하려는 사용자 지정 합니다. 에 변경 내용을 볼 혼자 라면 **즐겨찾기**합니다.
 

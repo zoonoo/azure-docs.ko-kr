@@ -264,7 +264,7 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하려면 복사 작업 �
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **SqlDWSource**로 설정해야 합니다. | 예 |
-| SqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오 |
+| sqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니오 |
 | storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니오 |
 
@@ -565,36 +565,36 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL D
 |:--- |:--- |
 | bigint | Int64 |
 | binary | Byte[] |
-| bit | BOOLEAN |
+| bit | Boolean |
 | char | String, Char[] |
-| date | Datetime |
-| DateTime | Datetime |
-| datetime2 | Datetime |
+| date | DateTime |
+| DateTime | DateTime |
+| datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| 10진수 | 10진수 |
-| FILESTREAM 특성(varbinary(max)) | Byte[] |
+| Decimal | Decimal |
+| FILESTREAM attribute (varbinary(max)) | Byte[] |
 | Float | Double |
-| 이미지 | Byte[] |
+| image | Byte[] |
 | int | Int32 |
-| money | 10진수 |
+| money | Decimal |
 | nchar | String, Char[] |
 | ntext | String, Char[] |
-| numeric | 10진수 |
+| numeric | Decimal |
 | nvarchar | String, Char[] |
-| real | 단일 |
+| real | Single |
 | rowversion | Byte[] |
-| smalldatetime | Datetime |
+| smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | 10진수 |
+| smallmoney | Decimal |
 | sql_variant | Object |
 | 텍스트 | String, Char[] |
-| 실시간 | timespan |
+| time | TimeSpan |
 | timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |
 | varchar | String, Char[] |
-| xml | xml |
+| Xml | Xml |
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md##supported-data-stores-and-formats)을 참조하세요.
