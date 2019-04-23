@@ -1,109 +1,102 @@
-items:
 - name: Custom Vision Service 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Custom Vision이란?
-    href: home.md
+    - name: Custom Vision이란?
+      href: home.md
 - name: 빠른 시작
   items:
-  - name: .NET SDK 사용
-    items:
-    - name: 이미지 분류
-      href: csharp-tutorial.md
-    - name: 개체 감지
-      href: csharp-tutorial-od.md
-  - name: Python SDK 사용
-    items:
-    - name: 이미지 분류
-      href: python-tutorial.md
-    - name: 개체 감지
-      href: python-tutorial-od.md
-  - name: Java SDK 사용
-    items:
-    - name: 이미지 분류
-      href: java-tutorial.md
-    - name: 개체 감지
-      href: java-tutorial-od.md
-  - name: Node.js SDK 사용
-    items:
-    - name: 이미지 분류
-      href: node-tutorial.md
-    - name: 개체 감지
-      href: node-tutorial-object-detection.md
-  - name: Go SDK 사용
-    items:
-    - name: 이미지 분류
-      href: go-tutorial.md
-    - name: 개체 감지
-      href: go-tutorial-object-detection.md
+    - name: .NET SDK 사용
+      items:
+        - name: 이미지 분류
+          href: csharp-tutorial.md
+        - name: 개체 감지
+          href: csharp-tutorial-od.md
+    - name: Python SDK 사용
+      items:
+        - name: 이미지 분류
+          href: python-tutorial.md
+        - name: 개체 감지
+          href: python-tutorial-od.md
+    - name: Java SDK 사용
+      items:
+        - name: 이미지 분류
+          href: java-tutorial.md
+        - name: 개체 감지
+          href: java-tutorial-od.md
+    - name: Node.js SDK 사용
+      items:
+        - name: 이미지 분류
+          href: node-tutorial.md
+        - name: 개체 감지
+          href: node-tutorial-object-detection.md
+    - name: Go SDK 사용
+      items:
+        - name: 이미지 분류
+          href: go-tutorial.md
+        - name: 개체 감지
+          href: go-tutorial-object-detection.md
 - name: 자습서
   items:
-  - name: 모바일용 로고 탐지기
-    href: logo-detector-mobile.md
+    - name: 모바일용 로고 탐지기
+      href: logo-detector-mobile.md
 - name: 방법 가이드
   items:
-  - name: 분류자 빌드
-    href: getting-started-build-a-classifier.md
-  - name: 모델 테스트
-    href: test-your-model.md
-  - name: 분류자 개선
-    href: getting-started-improving-your-classifier.md
-  - name: 예측 API 사용
-    href: use-prediction-api.md
-  - name: 모델 내보내기
-    items:
-    - name: 모바일로 모델 내보내기
-      href: export-your-model.md
-    - name: Windows ML를 사용한 ONNX 모델 사용
-      href: custom-vision-onnx-windows-ml.md
-    - name: Python에서 TensorFlow 모델 실행
-      href: export-model-python.md
-  - name: 계정 데이터 내보내기 또는 삭제
-    href: ./export-delete-data.md
-  - name: 제한된 평가판 프로젝트를 Azure로 이동
-    href: ./move-your-project-to-azure.md
-  - name: 3.0 API로 앱 업데이트
-    href: ./update-application-to-3.0-sdk.md
+    - name: 분류자 빌드
+      href: getting-started-build-a-classifier.md
+    - name: 모델 테스트
+      href: test-your-model.md
+    - name: 분류자 개선
+      href: getting-started-improving-your-classifier.md
+    - name: 예측 API 사용
+      href: use-prediction-api.md
+    - name: 모델 내보내기
+      items:
+        - name: 모바일로 모델 내보내기
+          href: export-your-model.md
+        - name: Windows ML를 사용한 ONNX 모델 사용
+          href: custom-vision-onnx-windows-ml.md
+        - name: Python에서 TensorFlow 모델 실행
+          href: export-model-python.md
+    - name: 계정 데이터 내보내기 또는 삭제
+      href: ./export-delete-data.md
+    - name: 제한된 평가판 프로젝트를 Azure로 이동
+      href: ./move-your-project-to-azure.md
+    - name: 3.0 API로 앱 업데이트
+      href: ./update-application-to-3.0-sdk.md
 - name: 참고 자료
   items:
-  - name: Custom Vision 교육 API
-    href: https://go.microsoft.com/fwlink/?linkid=865446
-  - name: Custom Vision 예측 API
-    href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: 용어
-    href: glossary-of-terms.md
-  - name: SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
-    - name: 자바
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
-    - name: Go - 학습
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
-    - name: Go - 예측
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
+    - name: Custom Vision 교육 API
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: Custom Vision 예측 API
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: 용어
+      href: glossary-of-terms.md
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet'
+        - name: 자바
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python'
+        - name: Go - 학습
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training'
+        - name: Go - 예측
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction'
 - name: 리소스
   items:
-  - name: 샘플
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: 한도 및 할당량
-    href: limits-and-quotas.md
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: 국가별 가용성
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: 릴리스 정보
-    href: release-notes.md
-ms.openlocfilehash: df39e49ac586fc8e74a0b94074d94e7a6293e4e5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044762"
+    - name: 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: 한도 및 할당량
+      href: limits-and-quotas.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 릴리스 정보
+      href: release-notes.md

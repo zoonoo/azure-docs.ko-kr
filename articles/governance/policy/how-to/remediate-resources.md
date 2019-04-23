@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283446"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794994"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -138,7 +138,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
-   ![모든 서비스에 대 한 정책 검색](../media/remediate-resources/search-policy.png)
+   ![모든 서비스에서 정책 검색](../media/remediate-resources/search-policy.png)
 
 1. Azure Policy 페이지의 왼쪽에서 **수정**을 선택합니다.
 

@@ -243,7 +243,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | 자산 | 설명 |
 |:--- |:--- |
 | schedule name |일정의 이름을 포함하는 단일 **이름** 엔터티입니다. |
-| runbook name |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
+| runbook name  |runbook 이름을 포함하는 단일 **name** 엔터티입니다.  |
 
 
 

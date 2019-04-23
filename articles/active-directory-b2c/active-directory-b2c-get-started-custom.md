@@ -11,11 +11,11 @@ ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b414529d7756812f1e1e16d2d0184c8472c0c55f
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916753"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798063"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -114,7 +114,7 @@ Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 I
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. SocialAndLocalAccounts 폴더에서 `yourtenant`을 실제 테넌트 이름으로 바꿔 모든 파일을 편집합니다. 예: `contosoTenant.onmicrosoft.com` XML 편집기가 필요하면 간단한 플랫폼 간 편집기인 [Visual Studio Code를 사용해 보세요](https://code.visualstudio.com/download).
+2. SocialAndLocalAccounts 폴더에서 `yourtenant`을 실제 테넌트 이름으로 바꿔 모든 파일을 편집합니다. 예: `contosoTenant.onmicrosoft.com`. XML 편집기가 필요하면 간단한 플랫폼 간 편집기인 [Visual Studio Code를 사용해 보세요](https://code.visualstudio.com/download).
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>사용자 지정 정책에 응용 프로그램 ID 추가
 

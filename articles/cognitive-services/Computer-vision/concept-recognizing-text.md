@@ -1,5 +1,5 @@
 ---
-title: 인쇄되고 필기된 텍스트 인식 - Computer Vision
+title: 인쇄/필기 한 텍스트, Computer Vision 인식
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지에서 인쇄되고 필기된 텍스트를 인식하는 데 관련된 개념입니다.
 services: cognitive-services
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588978"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998243"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>인쇄되고 필기된 텍스트 인식
 
-Computer Vision 감지 하 고 이미지에 표시 되는 인쇄 하거나 필기 한 텍스트를 추출 하는 서비스의 수를 제공 합니다. 다양 한 사용 방법, 의료 기록, 보안, 뱅킹 등 시나리오에에서 유용합니다. 다음 세 가지 섹션 3 세부 다양 한 텍스트 인식 Api는 각각에 서로 다른 사용 사례에 대 한 최적화 합니다.
+Computer Vision 감지 하 고 이미지에 표시 되는 인쇄 하거나 필기 한 텍스트를 추출 하는 서비스의 수를 제공 합니다. 다양 한 노트와 의료 기록, 보안, 뱅킹 시나리오에서에서 유용 합니다. 다음 세 가지 섹션 3 세부 다양 한 텍스트 인식 Api는 각각에 서로 다른 사용 사례에 대 한 최적화 합니다.
 
 ## <a name="read-api"></a>읽기 API
 
@@ -45,13 +45,11 @@ Computer Vision 감지 하 고 이미지에 표시 되는 인쇄 하거나 필�
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (광학 문자 인식) API
 
-Computer Vision OCR (광학 문자 인식) API는 읽기 API와 유사한 있지만 동기적으로 실행 하 고 큰 문서에 대 한 최적화 되지 않은 것입니다. 더 많은 언어를 사용 하 여 작동 하지만 이전 인식 모델을 사용합니다.
-
-OCR은 25개 언어를 지원합니다. 아랍어, 중국어 간체, 중국어 번체, 체코어, 덴마크어, 네덜란드어, 영어, 핀란드어, 프랑스어, 독일어, 그리스어, 헝가리어, 이탈리아어, 일본어, 한국어, 노르웨이어, 폴란드어, 포르투갈어, 루마니아어, 러시아어, 세르비아어(키릴 문자 및 라틴 문자), 슬로바키아어, 스페인어, 스웨덴어 및 터키어입니다. OCR은 감지된 텍스트의 언어를 자동으로 감지합니다.
+Computer Vision OCR (광학 문자 인식) API는 읽기 API와 유사한 있지만 동기적으로 실행 하 고 큰 문서에 대 한 최적화 되지 않은 것입니다. 작동 하지만 이전 인식 모델을 사용 하 여 추가 언어; 참조 [언어 지원](language-support.md#text-recognition) 지원 되는 언어의 전체 목록입니다.
 
 필요한 경우, OCR은 가로 이미지 축을 중심으로 회전 오프셋(도)을 반환하여 인식된 텍스트의 회전을 정정합니다. OCR는 또한 다음 그림에 표시 된 대로 각 단어의 프레임 좌표를 제공 합니다.
 
-![이미지가 회전되고 텍스트가 읽고 설명되고 있음을 나타내는 다이어그램](./Images/vision-overview-ocr.png)
+![회전할 이미지 및 읽고 구분 된 텍스트](./Images/vision-overview-ocr.png)
 
 참조를 [OCR 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 에 대해 자세히 알아보세요.
 

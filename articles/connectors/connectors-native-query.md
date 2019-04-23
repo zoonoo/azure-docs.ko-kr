@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893570"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794882"
 ---
 # <a name="get-started-with-the-query-action"></a>쿼리 작업 시작
 쿼리 작업을 사용하면 배치 및 배열을 통해 다음을 수행하는 워크플로를 완료할 수 있습니다.
@@ -56,7 +56,7 @@ ms.locfileid: "58893570"
 ## <a name="query-action"></a>쿼리 작업
 여기에는 이 커넥터가 지원하는 동작에 대한 세부 정보가 나와 있습니다. 커넥터에는 한 개의 가능한 작업이 있습니다.
 
-| 조치 | 설명 |
+| 액션(Action) | 설명 |
 | --- | --- |
 | 배열 필터링 |배열에 있는 각 항목에 대한 조건을 평가하고 결과를 반환 |
 

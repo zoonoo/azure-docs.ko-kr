@@ -1,204 +1,197 @@
-items:
 - name: QnA Maker 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: QnA Maker란?
-    href: Overview/overview.md
+    - name: QnA Maker란?
+      href: Overview/overview.md
 - name: 빠른 시작
   items:
-  - name: 새 기술 자료 만들기
-    href: How-To/create-knowledge-base.md
-  - name: 기술 자료에서 응답 가져오기
-    items:
-    - name: Postman 사용
-      href: Quickstarts/get-answer-from-kb-using-postman.md
-    - name: cURL 사용
-      href: Quickstarts/get-answer-from-kb-using-cURL.md
-  - name: REST API 사용
-    items:
     - name: 새 기술 자료 만들기
-      items:
-      - name: C#
-        href: Quickstarts/create-new-kb-csharp.md
-      - name: Go
-        href: Quickstarts/create-new-kb-go.md
-      - name: 자바
-        href: Quickstarts/create-new-kb-java.md
-      - name: Node.js
-        href: Quickstarts/create-new-kb-nodejs.md
-      - name: Python
-        href: Quickstarts/create-new-kb-python.md
-    - name: 기술 자료 게시
-      items:
-      - name: C#
-        href: Quickstarts/publish-kb-csharp.md
-      - name: Go
-        href: Quickstarts/publish-kb-go.md
-      - name: 자바
-        href: Quickstarts/publish-kb-java.md
-      - name: Node.js
-        href: Quickstarts/publish-kb-nodejs.md
-      - name: Python
-        href: Quickstarts/publish-kb-python.md
+      href: How-To/create-knowledge-base.md
     - name: 기술 자료에서 응답 가져오기
       items:
-      - name: C#
-        href: Quickstarts/get-answer-from-knowledge-base-csharp.md
-      - name: Go
-        href: Quickstarts/get-answer-from-knowledge-base-go.md
-      - name: 자바
-        href: Quickstarts/get-answer-from-knowledge-base-java.md
-      - name: Node.js
-        href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
-      - name: Python
-        href: Quickstarts/get-answer-from-knowledge-base-python.md
+        - name: Postman 사용
+          href: Quickstarts/get-answer-from-kb-using-postman.md
+        - name: cURL 사용
+          href: Quickstarts/get-answer-from-kb-using-cURL.md
+    - name: REST API 사용
+      items:
+        - name: 새 기술 자료 만들기
+          items:
+            - name: 'C#'
+              href: Quickstarts/create-new-kb-csharp.md
+            - name: Go
+              href: Quickstarts/create-new-kb-go.md
+            - name: 자바
+              href: Quickstarts/create-new-kb-java.md
+            - name: Node.js
+              href: Quickstarts/create-new-kb-nodejs.md
+            - name: Python
+              href: Quickstarts/create-new-kb-python.md
+        - name: 기술 자료 게시
+          items:
+            - name: 'C#'
+              href: Quickstarts/publish-kb-csharp.md
+            - name: Go
+              href: Quickstarts/publish-kb-go.md
+            - name: 자바
+              href: Quickstarts/publish-kb-java.md
+            - name: Node.js
+              href: Quickstarts/publish-kb-nodejs.md
+            - name: Python
+              href: Quickstarts/publish-kb-python.md
+        - name: 기술 자료에서 응답 가져오기
+          items:
+            - name: 'C#'
+              href: Quickstarts/get-answer-from-knowledge-base-csharp.md
+            - name: Go
+              href: Quickstarts/get-answer-from-knowledge-base-go.md
+            - name: 자바
+              href: Quickstarts/get-answer-from-knowledge-base-java.md
+            - name: Node.js
+              href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
+            - name: Python
+              href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: 자습서
   items:
-  - name: KB에서 만들기 및 대답
-    displayName: curl, publish, chit-chat, chit chat
-    href: Tutorials/create-publish-query-in-portal.md
-  - name: C#를 사용하여 KB에서 만들기 및 대답
-    href: Tutorials/create-publish-answer.md
-  - name: QnA Maker 봇 만들기
-    href: Tutorials/create-qna-bot.md
+    - name: KB에서 만들기 및 대답
+      displayName: 'curl, publish, chit-chat, chit chat'
+      href: Tutorials/create-publish-query-in-portal.md
+    - name: 'C#를 사용하여 KB에서 만들기 및 대답'
+      href: Tutorials/create-publish-answer.md
+    - name: QnA Maker 봇 만들기
+      href: Tutorials/create-qna-bot.md
 - name: 개념
   items:
-  - name: 기술 자료
-    displayName: metadata, pair
-    href: Concepts/knowledge-base.md
-  - name: 기술 자료의 개발 수명 주기
-    href: Concepts/development-lifecycle-knowledge-base.md
-  - name: 모범 사례
-    displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
-    href: Concepts/best-practices.md
-  - name: 신뢰도 점수
-    displayName: DefaultAnswer, Default answer
-    href: Concepts/confidence-score.md
-  - name: 지원되는 데이터 원본
-    displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
-    href: Concepts/data-sources-supported.md
+    - name: 기술 자료
+      href: Concepts/knowledge-base.md
+      displayName: 'metadata, pair'
+    - name: 기술 자료의 개발 수명 주기
+      href: Concepts/development-lifecycle-knowledge-base.md
+    - name: 모범 사례
+      href: Concepts/best-practices.md
+      displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
+    - name: 신뢰도 점수
+      displayName: 'DefaultAnswer, Default answer'
+      href: Concepts/confidence-score.md
+    - name: 지원되는 데이터 원본
+      href: Concepts/data-sources-supported.md
+      displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: 방법 가이드
   items:
-  - name: 기술 자료 관리
-    items:
-    - name: 기술 자료 만들기 및 게시
-      displayName: create bot, bot, publish to bot, test, edit
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: 기술 자료에 chit-chat 추가
-      href: How-to/chit-chat-knowledge-base.md
-    - name: 기술 자료 마이그레이션
-      href: Tutorials/migrate-knowledge-base.md
-    - name: 기술 자료 편집
-      displayName: metadata, pair
-      href: How-To/edit-knowledge-base.md
-    - name: 보안 SharePoint 파일 추가
-      displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-      href: How-To/add-sharepoint-datasources.md
-    - name: 기술 자료에 대한 공동 작업
-      href: How-To/collaborate-knowledge-base.md
-    - name: 다른 언어로 된 기술 자료 만들기
-      href: How-To/language-knowledge-base.md
-    - name: 기술 자료 테스트
-      href: How-To/test-knowledge-base.md
-    - name: 활성 학습을 사용하여 기술 자료 개선
-      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning
-      href: How-to/improve-knowledge-base.md
-  - name: 기술 자료 사용
-    items:
-    - name: GenerateAnswer API로 메타데이터 사용
-      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters
-      href: How-To/metadata-generateanswer-usage.md
-    - name: 봇 사용
-      href: Tutorials/integrate-qnamaker-luis.md
-  - name: 서비스 관리
-    items:
-    - name: QnA Maker 서비스 설정
-      href: How-To/set-up-qnamaker-service-azure.md
-    - name: 기술 자료에 대한 분석 가져오기
-      href: How-To/get-analytics-knowledge-base.md
-    - name: 키 관리
-      href: How-To/key-management.md
-    - name: QnA Maker 배포를 위한 용량 선택
-      href: Tutorials/choosing-capacity-qnamaker-deployment.md
-    - name: QnA Maker 서비스 업그레이드
-      href: How-To/upgrade-qnamaker-service.md
-    - name: QnA Maker를 위해 비즈니스 연속성 계획 만들기
-      href: How-To/business-continuity-plan.md
-    - name: QnAMaker 런타임 문제 해결 및 업데이트
-      href: How-To/troubleshooting-runtime.md
-  - name: REST API 사용
-    items:
-    - name: C#
-      href: Quickstarts/csharp.md
-    - name: 자바
-      href: Quickstarts/java.md
-    - name: Node.js
-      href: Quickstarts/nodejs.md
-    - name: Python
-      href: Quickstarts/python.md
-    - name: Go
-      href: Quickstarts/go.md
+    - name: 기술 자료 관리
+      items:
+        - name: 기술 자료 만들기 및 게시
+          href: Quickstarts/create-publish-knowledge-base.md
+          displayName: 'create bot, bot, publish to bot, test, edit'
+        - name: 기술 자료에 chit-chat 추가
+          href: How-to/chit-chat-knowledge-base.md
+        - name: 기술 자료 마이그레이션
+          href: Tutorials/migrate-knowledge-base.md
+        - name: 기술 자료 편집
+          href: How-To/edit-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: 보안 SharePoint 파일 추가
+          href: How-To/add-sharepoint-datasources.md
+          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
+        - name: 기술 자료에 대한 공동 작업
+          href: How-To/collaborate-knowledge-base.md
+        - name: 다른 언어로 된 기술 자료 만들기
+          href: How-To/language-knowledge-base.md
+        - name: 기술 자료 테스트
+          href: How-To/test-knowledge-base.md
+        - name: 활성 학습을 사용하여 기술 자료 개선
+          href: How-to/improve-knowledge-base.md
+          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
+    - name: 기술 자료 사용
+      items:
+        - name: GenerateAnswer API로 메타데이터 사용
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters'
+        - name: 봇 사용
+          href: Tutorials/integrate-qnamaker-luis.md
+    - name: 서비스 관리
+      items:
+        - name: QnA Maker 서비스 설정
+          href: How-To/set-up-qnamaker-service-azure.md
+        - name: 기술 자료에 대한 분석 가져오기
+          href: How-To/get-analytics-knowledge-base.md
+        - name: 키 관리
+          href: How-To/key-management.md
+        - name: QnA Maker 배포를 위한 용량 선택
+          href: Tutorials/choosing-capacity-qnamaker-deployment.md
+        - name: QnA Maker 서비스 업그레이드
+          href: How-To/upgrade-qnamaker-service.md
+        - name: QnA Maker를 위해 비즈니스 연속성 계획 만들기
+          href: How-To/business-continuity-plan.md
+        - name: QnAMaker 런타임 문제 해결 및 업데이트
+          href: How-To/troubleshooting-runtime.md
+    - name: REST API 사용
+      items:
+        - name: 'C#'
+          href: Quickstarts/csharp.md
+        - name: 자바
+          href: Quickstarts/java.md
+        - name: Node.js
+          href: Quickstarts/nodejs.md
+        - name: Python
+          href: Quickstarts/python.md
+        - name: Go
+          href: Quickstarts/go.md
 - name: 참고 자료
   items:
-  - name: REST API 참조
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
-  - name: FAQ
-    href: faqs.md
-  - name: 제한
-    href: limits.md
-  - name: 용어
-    href: glossary.md
-  - name: HTTP 응답 코드
-    displayName: 200, 2xx, 400, 401, 403, 404
-    href: http-response-codes.md
-  - name: 샘플
-    items:
-    - name: QnA Maker 도움말 봇
-      href: https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot
-  - name: SDK
-    items:
-    - name: C#
+    - name: REST API 참조
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff'
+    - name: FAQ
+      href: faqs.md
+    - name: 제한
+      href: limits.md
+    - name: 용어
+      href: glossary.md
+    - name: HTTP 응답 코드
+      displayName: '200, 2xx, 400, 401, 403, 404'
+      href: http-response-codes.md
+    - name: 샘플
       items:
-      - name: NuGet
-        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
-    - name: Go
+        - name: QnA Maker 도움말 봇
+          href: 'https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot'
+    - name: SDK
       items:
-      - name: SDK)
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
-    - name: Node.js
-      items:
-      - name: NPM
-        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
-    - name: Python
-      items:
-      - name: Pip
-        href: https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/
-    - name: Ruby
-      items:
-      - name: Gem
-        href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
+        - name: 'C#'
+          items:
+            - name: NuGet
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/'
+        - name: Go
+          items:
+            - name: SDK)
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker'
+        - name: Node.js
+          items:
+            - name: NPM
+              href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
+        - name: Python
+          items:
+            - name: Pip
+              href: 'https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/'
+        - name: Ruby
+          items:
+            - name: Gem
+              href: 'https://rubygems.org/gems/azure_cognitiveservices_qnamaker'
 - name: 리소스
   items:
-  - name: 국가별 가용성
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: 가격 책정 및 제한
-    href: https://aka.ms/qnamaker-pricing
-  - name: 언어 지원
-    href: Overview/language-support.md
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/QnAMaker
-  - name: UserVoice
-    href: https://aka.ms/qnamaker-uservoice
-  - name: 검색
-    href: https://docs.microsoft.com/search/index?search=QnAMaker
-  - name: 블로그
-    href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 20b828d768787de721deb2010ef1c2de2f0b1905
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262588"
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격 책정 및 제한
+      href: 'https://aka.ms/qnamaker-pricing'
+    - name: 언어 지원
+      href: Overview/language-support.md
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
+    - name: UserVoice
+      href: 'https://aka.ms/qnamaker-uservoice'
+    - name: 검색
+      href: 'https://docs.microsoft.com/search/index?search=QnAMaker'
+    - name: 블로그
+      href: 'https://blog.botframework.com/category/QnAMaker/'
