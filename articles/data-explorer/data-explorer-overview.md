@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044177"
 ---
 # <a name="what-is-azure-data-explorer"></a>Azure 데이터 탐색기란?
@@ -46,7 +46,7 @@ Azure 데이터 탐색기의 작업은 일반적으로 다음 패턴을 따릅�
 
 1. **데이터베이스 만들기:** ‘클러스터’를 만들고 해당 클러스터에서 하나 이상의 ‘데이터베이스’를 만듭니다. [빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md)
 
-1. **데이터 수집:** 쿼리를 실행할 수 있도록 데이터를 데이터베이스 테이블에 로드합니다. [빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
+1. **데이터 수집:** 쿼리를 실행할 수 있도록 데이터를 데이터베이스 테이블에 로드합니다. [빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
 1. **데이터베이스 쿼리:** 웹 애플리케이션을 사용하여 쿼리를 실행하고 결과를 검토 및 공유합니다. Azure Portal에서 사용하거나 독립 실행형 애플리케이션으로 사용할 수 있습니다. 또한 쿼리를 프로그래밍 방식으로(SDK 사용) 또는 REST API 엔드포인트로 보낼 수 있습니다. [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
 
@@ -72,6 +72,6 @@ Azure 데이터 탐색기 및 해당 쿼리 언어에 대한 사용자 의견을
 
 [빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md)
 
-[빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
+[빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
 [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)

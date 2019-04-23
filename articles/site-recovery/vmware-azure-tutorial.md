@@ -10,10 +10,10 @@ ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357868"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
@@ -32,7 +32,7 @@ ms.locfileid: "59357868"
 > * VMware VM을 복제하도록 설정
 
 > [!NOTE]
-> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 지침은 Site Recovery 목차의 방법 섹션에 있는 문서를 검토하세요.
+> 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 내용은 Site Recovery 목차의 방법 섹션에 있는 문서를 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -195,4 +195,4 @@ ms.locfileid: "59357868"
 ## <a name="next-steps"></a>다음 단계
 복제를 설정한 후에는 모든 것이 예상대로 작동하도록 보장하기 위한 훈련을 실행합니다.
 > [!div class="nextstepaction"]
-> [재해 복구 훈련 실행](site-recovery-test-failover-to-azure.md)
+> [재해 복구 드릴 실행](site-recovery-test-failover-to-azure.md)

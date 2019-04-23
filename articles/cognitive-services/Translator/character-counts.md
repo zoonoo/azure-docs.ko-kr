@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917416"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Translator Text API에서 문자 수를 계산하는 방법
@@ -24,8 +24,8 @@ Translator Text API는 입력된 텍스트의 모든 유니코드 코드 포인�
 중요한 항목은 다음과 같습니다.
 
 * 요청 본문에서 Translator Text API로 전달되는 텍스트
-   * `Text` 변환,, 음역 및 사전 조회 메서드를 사용 하는 경우
-   * `Text` 및 `Translation` 사전 예제 메서드를 사용 하는 경우
+   * `Text`: 번역, 변환 및 사전 조회 메서드를 사용하는 경우
+   * `Text` 및 `Translation`: 사전 예제 메서드를 사용하는 경우
 * 모두 태그: 요청 본문의 텍스트 필드 내 HTML, XML 태그 등. 요청을 빌드하는 데 사용되는 JSON 표기법(예: “텍스트:”)은 계산되지 않습니다.
 * 개별 문자
 * 문장 부호

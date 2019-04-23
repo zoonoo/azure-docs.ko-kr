@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360174"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스 시작하기
@@ -66,7 +66,7 @@ ms.locfileid: "59360174"
  이전 단계에서 설명한 대로 네트워크 환경을 만들지 않았다면 Azure Portal에서 대신 만들 수 있습니다. 이 때 유일한 단점은 나중에 변경할 수 없는 몇 가지 기본 매개 변수가 구성에 사용된다는 점입니다. 또는 다음을 사용할 수 있습니다.
 
 - [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
-- [Resource Manager 템플릿이 포함된 PowerShell](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
+- [Resource Manager와 PowerShell 템플릿](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
 - [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
 - [Resource Manager 템플릿](sql-database-single-database-get-started-template.md)
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918810"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
@@ -58,7 +58,7 @@ Translator Text API 구독 또는 [Cognitive Services 다중 서비스](https://
 |헤더|설명|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
-|권한 부여|*인증 토큰을 전달 하는 경우 Cognitive Services 구독을 사용 합니다.*<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
+|권한 부여|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
 |Ocp-Apim-Subscription-Region|*Cognitive Services 다중 서비스 구독을 사용 하 여 다중 서비스 비밀 키를 전달 하는 경우 사용 합니다.*<br/>값은 다중 서비스 구독의 지역입니다. 다중 서비스 구독을 사용 하지 않는 경우이 값은 선택 사항입니다.|
 
 ###  <a name="secret-key"></a>비밀 키

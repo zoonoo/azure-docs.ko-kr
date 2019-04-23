@@ -12,10 +12,10 @@ ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
 ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918844"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
@@ -117,7 +117,7 @@ Service Bus는 다음 Azure 서비스와 완벽하게 통합됩니다.
 
 - [Event Grid](https://azure.microsoft.com/services/event-grid/) 
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Functions](https://azure.microsoft.com/services/functions/) 
+- [함수](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
@@ -125,7 +125,7 @@ Service Bus는 다음 Azure 서비스와 완벽하게 통합됩니다.
 
 Service Bus 메시징 사용을 시작하려면 다음 문서를 참조하세요.
 
-* [Azure 메시지 서비스 비교](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
+* [Azure 메시징 서비스 비교](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Azure Service Bus [표준 및 프리미엄](https://azure.microsoft.com/pricing/details/service-bus/) 계층 및 해당 가격 책정에 대한 자세한 정보
 * [Azure Service Bus 프리미엄 계층의 성능 및 대기 시간](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) 또는 [JMS](service-bus-java-how-to-use-jms-api-amqp.md)에서 빠른 시작 시도

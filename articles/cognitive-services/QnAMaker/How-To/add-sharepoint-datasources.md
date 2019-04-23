@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281746"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안된 Sharepoint 데이터 소스 추가
@@ -103,11 +103,11 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. 검색할 `QnAMakerPortalSharepoint` QnA Maker 앱을 선택 합니다. 
 
-    [![S엔터프라이즈 앱 목록의 QnAMakerPortalSharepoint에 대 한 earch](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![엔터프라이즈 앱 목록의 QnAMakerPortalSharepoint 검색](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
 1. 아래 **보안**로 이동 하세요 **권한을**합니다. 선택 **조직에 대 한 관리자 동의 부여**합니다. 
 
-    [![SActive Directory 관리자에 대 한 인증 된 사용자 선택](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Active Directory 관리자에 대 한 인증 된 사용자를 선택 합니다.](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
 1. Active Directory에 대 한 권한을 부여할 수 있는 권한이 있는 로그온 계정을 선택 합니다. 
 
@@ -174,4 +174,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [기술 자료에 대한 공동 작업](collaborate-knowledge-base.md)
+> [기술 자료에서 공동 작업](collaborate-knowledge-base.md)

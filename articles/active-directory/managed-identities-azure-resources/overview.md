@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261465"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
@@ -73,7 +73,7 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
     1. Azure Instance Metadata Service ID 엔드포인트를 서비스 주체 클라이언트 ID 및 인증서로 업데이트합니다.
     1. VM 확장(2019년 1월에 사용 중단될 예정)을 프로비전하고 서비스 주체 클라이언트 ID 및 인증서를 추가합니다. (이 단계는 사용 중단될 예정입니다.)
 4. VM에 ID가 생긴 후에는 서비스 주체 정보를 사용하여 Azure 리소스에 대한 VM 액세스 권한을 부여합니다. Azure Resource Manager를 호출하려면 Azure AD에서 RBAC(역할 기반 액세스 제어)를 사용하여 VM 서비스 주체에 적절한 역할을 할당합니다. Key Vault를 호출하려면 Key Vault의 특정 비밀 또는 키에 대한 액세스 권한을 코드에 부여합니다.
-5. VM에서 실행되는 코드는 Azure Instance Metadata Service 엔드포인트에서 토큰을 요청할 수 있으며, VM 내에서만 액세스할 수 있습니다. `http://169.254.169.254/metadata/identity/oauth2/token`
+5. VM에서 실행되는 코드는 Azure Instance Metadata Service 엔드포인트에서 토큰(`http://169.254.169.254/metadata/identity/oauth2/token`)을 요청할 수 있으며, VM 내에서만 액세스할 수 있습니다.
     - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
     - API 버전 매개 변수는 IMDS 버전을 지정하고, api-version=2018-02-01 이상을 사용합니다.
 
@@ -95,7 +95,7 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
    > [!Note]
    > 이 단계를 3단계 전에 수행할 수도 있습니다.
 
-5. VM에서 실행되는 코드는 Azure Instance Metadata Service ID 엔드포인트에서 토큰을 요청할 수 있으며, VM 내에서만 액세스할 수 있습니다. `http://169.254.169.254/metadata/identity/oauth2/token`
+5. VM에서 실행되는 코드는 Azure Instance Metadata Service ID 엔드포인트에서 토큰(`http://169.254.169.254/metadata/identity/oauth2/token`)을 요청할 수 있으며, VM 내에서만 액세스할 수 있습니다.
     - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
     - 클라이언트 ID 매개 변수는 토큰이 요청되는 ID를 지정합니다. 이 값은 단일 VM에 사용자 할당 ID가 두 개 이상 있을 때 분명히 하기 위해 필요합니다.
     - API 버전 매개 변수는 Azure Instance Metadata Service 버전을 지정합니다. `api-version=2018-02-01` 이상을 사용하세요.
@@ -115,16 +115,16 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 
 Windows VM에서 관리 ID를 사용하는 방법:
 
-* [Azure Data Lake Store 액세스](tutorial-windows-vm-access-datalake.md)
+* [Azure Data Lake Store에 액세스](tutorial-windows-vm-access-datalake.md)
 * [Azure Resource Manager 액세스](tutorial-windows-vm-access-arm.md)
-* [Azure SQL 액세스](tutorial-windows-vm-access-sql.md)
+* [Azure SQL에 액세스](tutorial-windows-vm-access-sql.md)
 * [액세스 키를 사용하여 Azure Storage에 액세스](tutorial-windows-vm-access-storage.md)
 * [공유 액세스 서명을 사용하여 Azure Storage에 액세스](tutorial-windows-vm-access-storage-sas.md)
 * [Azure Key Vault를 사용하여 비 Azure AD 리소스에 액세스](tutorial-windows-vm-access-nonaad.md)
 
 Linux VM에서 관리 ID를 사용하는 방법:
 
-* [Azure Data Lake Store 액세스](tutorial-linux-vm-access-datalake.md)
+* [Azure Data Lake Store에 액세스](tutorial-linux-vm-access-datalake.md)
 * [Azure Resource Manager 액세스](tutorial-linux-vm-access-arm.md)
 * [액세스 키를 사용하여 Azure Storage에 액세스](tutorial-linux-vm-access-storage.md)
 * [공유 액세스 서명을 사용하여 Azure Storage에 액세스](tutorial-linux-vm-access-storage-sas.md)
@@ -133,7 +133,7 @@ Linux VM에서 관리 ID를 사용하는 방법:
 다른 Azure 서비스에서 관리 ID를 사용하는 방법:
 
 * [Azure App Service](/azure/app-service/overview-managed-identity)
-* [Azure 기능](/azure/app-service/overview-managed-identity)
+* [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)

@@ -14,10 +14,10 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279384"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기
@@ -64,7 +64,7 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 ![Azure Resource Manager가 여러 인스턴스 생성](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. 저장소 계정 리소스 정의에 `copy` 요소를 추가합니다. copy 요소에서 이 루프의 반복 횟수와 변수를 지정합니다. count 값은 양의 정수여야 하며 800을 초과할 수 없습니다.
-2. `copyIndex()` 함수는 루프에서 현재 반복을 반환합니다. 인덱스를 이름 접두사로 사용합니다. `copyIndex()` 0부터 시작합니다. 인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 예를 들어 *copyIndex(1)* 입니다.
+2. `copyIndex()` 함수는 루프에서 현재 반복을 반환합니다. 인덱스를 이름 접두사로 사용합니다. `copyIndex()`는 0부터 시작합니다. 인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 예를 들어 *copyIndex(1)* 입니다.
 3. 더 이상 사용되지 않으므로 **변수** 요소를 삭제합니다.
 4. **출력** 요소를 삭제합니다. 더 이상 필요 없습니다.
 
@@ -126,14 +126,14 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 
 세 개의 모든 저장소 계정을 나열하려면 --name 매개 변수를 생략합니다.
 
-# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

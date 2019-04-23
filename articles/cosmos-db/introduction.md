@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280947"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
@@ -98,7 +98,7 @@ Cosmos DB의 핵심 개념인 [턴키 글로벌 배포](distribute-data-globally
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.
 
 * [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
-* [Azure Cosmos DB의 MongoDB용 API 시작](create-mongodb-nodejs.md)
+* [Azure Cosmos DB의 MongoDB API 시작](create-mongodb-nodejs.md)
 * [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
 * [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
 * [Azure Cosmos DB Table API 시작](create-table-dotnet.md)

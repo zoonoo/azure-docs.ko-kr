@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269302"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
@@ -165,10 +165,10 @@ Resource Manager는 설치에 포함되지 않은 특정 소프트웨어를 설�
 
 템플릿을 정의하면 Azure에 리소스를 배포할 준비가 되었습니다. 리소스를 배포하려면 다음을 참조하세요.
 
-* [리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md)
-* [리소스 관리자 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)
-* [리소스 관리자 템플릿과 Azure 포털로 리소스 배포](resource-group-template-deploy-portal.md)
-* [리소스 관리자 템플릿과 리소스 관리자 REST API로 리소스 배포](resource-group-template-deploy-rest.md)
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](resource-group-template-deploy.md)
+* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](resource-group-template-deploy-cli.md)
+* [Resource Manager 템플릿과 Azure Portal로 리소스 배포](resource-group-template-deploy-portal.md)
+* [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](resource-group-template-deploy-rest.md)
 
 ## <a name="safe-deployment-practices"></a>안전한 배포 사례
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: diberry
 ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267058"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습 
@@ -64,5 +64,5 @@ LUIS 포털에서 학습은 **학습** 단추를 한 번만 누르면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [LUIS 사용 하 여 제안 된 길이 발언 레이블](luis-how-to-review-endpoint-utterances.md) 
+* [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endpoint-utterances.md) 
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md) 

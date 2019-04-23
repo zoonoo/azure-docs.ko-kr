@@ -16,10 +16,10 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a59dbd934ba1a449f7671d433529513b9f14c80
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>자습서: Cisco Cloud와 Azure Active Directory 통합
@@ -105,9 +105,9 @@ Cisco Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Cisco Cloud 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. `<subdomain>.cisco.com`
+    a. **식별자** 텍스트 상자에서 `<subdomain>.cisco.com` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.cisco.com/sp/ACS.saml2`
+    b. **회신 URL** 텍스트 상자에서 `https://<subdomain>.cisco.com/sp/ACS.saml2` 패턴을 사용하여 URL을 입력합니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -221,6 +221,6 @@ Cisco Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

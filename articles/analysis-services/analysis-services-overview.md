@@ -9,10 +9,10 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893132"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
@@ -255,7 +255,7 @@ Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure 평가판 가입](https://azure.microsoft.com/offers/ms-azr-0044p/)   
+> [Azure 평가판 등록](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
 > [빠른 시작: 서버 만들기 - 포털](analysis-services-create-server.md)   

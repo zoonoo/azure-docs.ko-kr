@@ -11,10 +11,10 @@ ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: a5b6c22b3917784b20ad11bddf200d1546c48597
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882872"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기
@@ -136,4 +136,4 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 시리즈의 2부로 이동하여 지수 다시 시도와 병렬 처리를 사용하여 저장소 계정으로 대량의 데이터를 업로드합니다.
 
 > [!div class="nextstepaction"]
-> [스토리지 계정에 대량의 대용량 파일을 병렬로 업로드](storage-blob-scalable-app-upload-files.md)
+> [저장소 계정에 대량의 대용량 파일을 병렬로 업로드](storage-blob-scalable-app-upload-files.md)

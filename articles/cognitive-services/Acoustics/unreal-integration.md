@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006491"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>소음 Unreal 및 Wwise 통합 프로젝트
@@ -80,7 +80,7 @@ Wwise을 이미 통합 한 경우에 Wwise 게임에 다시 배포 합니다. �
 
     ![제공 된 스크립트 Wwise 패치를 Windows 탐색기의 스크린샷 창 강조 표시](media/patch-wwise-script.png)
 
-* DirectX SDK 설치, DXSDK_DIR에 포함 된 줄을 주석 처리할 필요 없는 경우 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* DirectX SDK가 설치되어 있지 않은 경우 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`에DXSDK_DIR이 포함된 줄을 주석으로 처리해야 합니다.
 
     ![DXSDK 주석 처리를 보여주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
 

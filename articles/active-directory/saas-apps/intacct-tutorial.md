@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 31bc5622c6c6c3dd00bc59b5d8f3aa349055d125
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>자습서: Intacct와 Azure Active Directory 통합
@@ -211,7 +211,7 @@ Intacct에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 Azure AD 사용자가 Intacct에 로그인할 수 있도록 설정하려면 Intacct로 프로비전되어야 합니다. Intacct의 경우 프로비전은 수동 작업입니다.
 
-**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
 1. **Intacct** 테넌트에 로그인합니다.
 
@@ -246,7 +246,7 @@ Azure AD 사용자가 Intacct에 로그인할 수 있도록 설정하려면 Inta
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

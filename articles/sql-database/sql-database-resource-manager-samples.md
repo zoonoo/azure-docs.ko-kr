@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
 ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59356826"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure SQL Database용 Azure Resource Manager 템플릿
@@ -33,8 +33,8 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 | [논리 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | 이 Azure Resource Manager 템플릿은 Azure SQL Database에 대한 논리 서버를 만듭니다. |
 | [탄력적 풀](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | 이 템플릿을 통해 새 탄력적 풀 그리고 풀과 연결된 새 SQL Server 및 새 SQL Database를 배포하여 할당할 수 있습니다. |
 | [장애 조치(failover) 그룹](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | 이 템플릿은 두 개의 Azure SQL 논리 서버와 SQL 데이터베이스 및 장애 조치(failover) 그룹을 만듭니다.|
-| [고급 위협 보호](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | 이 템플릿을 통해 Advanced Threat Protection이 설정된 Azure SQL 논리 서버와 선택적 Azure SQL Database를 배포할 수 있습니다. SQL Advanced Threat Protection은 SQL 고급 보안 기능에 대한 통합 패키지입니다.|
-| [위협 감지](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | 이 템플릿을 통해 각 데이터베이스의 경고 이메일 주소를 사용하여 Azure SQL 논리 서버 그리고 위협 탐지가 설정된 Azure SQL Database 세트를 배포할 수 있습니다. 위협 탐지는 SQL ATP(Advanced Threat Protection) 제품의 일부이며 SQL 서버 및 데이터베이스에 대한 잠재적 위협에 대응하는 보안 레이어를 제공합니다.|
+| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | 이 템플릿을 통해 Advanced Threat Protection이 설정된 Azure SQL 논리 서버와 선택적 Azure SQL Database를 배포할 수 있습니다. SQL Advanced Threat Protection은 SQL 고급 보안 기능에 대한 통합 패키지입니다.|
+| [위협 탐지](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | 이 템플릿을 통해 각 데이터베이스의 경고 이메일 주소를 사용하여 Azure SQL 논리 서버 그리고 위협 탐지가 설정된 Azure SQL Database 세트를 배포할 수 있습니다. 위협 탐지는 SQL ATP(Advanced Threat Protection) 제품의 일부이며 SQL 서버 및 데이터베이스에 대한 잠재적 위협에 대응하는 보안 레이어를 제공합니다.|
 | [Azure Blob Storage 감사](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | 이 템플릿을 통해 Blob 스토리지에 감사 로그를 쓰도록 설정된 Azure SQL 논리 서버를 배포할 수 있습니다. Azure SQL Database 감사는 데이터베이스 이벤트를 추적하여 Azure 스토리지 계정, OMS 작업 영역 또는 Event Hubs에 배치할 수 있는 감사 로그에 기록합니다.|
 | [Azure Event Hub 감사](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | 이 템플릿을 통해 기존 Event Hub에 감사 로그를 쓰도록 설정된 Azure SQL 서버를 배포할 수 있습니다. Event Hub에 감사 이벤트를 보내려면 감사 설정을 `Enabled` `State`로 지정하고 `IsAzureMonitorTargetEnabled`를 `true`로 설정합니다. 또한 `master` 데이터베이스에서 `SQLSecurityAuditEvents` 진단 로그 범주를 사용하여 진단 설정을 구성합니다(서버 수준 감사인 경우). Azure SQL Database 및 SQL Data Warehouse 감사는 데이터베이스 이벤트를 추적하여 Azure 스토리지 계정, OMS 작업 영역 또는 Event Hubs에 배치할 수 있는 감사 로그에 기록합니다.|
 | [SQL Database를 사용하는 Azure 웹앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | 이 샘플은 "기본" 서비스 수준에서 체험판 Azure 웹앱과 SQL Database를 만듭니다.|

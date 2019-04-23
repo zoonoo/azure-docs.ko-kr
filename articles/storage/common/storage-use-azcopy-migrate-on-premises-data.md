@@ -9,10 +9,10 @@ ms.date: 12/14/2017
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877501"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
@@ -59,7 +59,7 @@ Blob은 항상 컨테이너에 업로드해야 하므로 첫 번째 단계는 �
 
 AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) 또는 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download)의 Blob Storage에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
     azcopy \
         --source /mnt/myfolder \
@@ -67,7 +67,7 @@ AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microso
         --dest-key <key> \
         --recursive
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
@@ -82,7 +82,7 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 [파일을 업로
 
 대상에 없는 원본 리소스만 복사하려는 경우 AzCopy 명령에 `--exclude-older` 및 `--exclude-newer`(Linux) 또는 `/XO` 및 `/XN`(Windows) 매개 변수를 지정합니다. AzCopy는 해당 타임스탬프에 따라 업데이트된 데이터만 업로드합니다.
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
     azcopy \
     --source /mnt/myfolder \
@@ -91,7 +91,7 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 [파일을 업로
     --recursive \
     --exclude-older
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
@@ -102,11 +102,11 @@ AzCopy 명령 스크립트를 실행하는 예약된 작업 또는 cron 작업�
 
 AzCopy 명령을 텍스트 편집기에 복사합니다. AzCopy 명령의 매개 변수 값을 적절한 값으로 업데이트합니다. 파일을 AzCopy에 대해 `script.sh`(Linux) 또는 `script.bat`(Windows)로 저장합니다.
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
@@ -117,7 +117,7 @@ AzCopy는 자세한 정보 표시 `--verbose`(Linux) 또는 `/V`(Windows) 옵션
 이 자습서에서 [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx)는 Windows에서 예약된 작업을 만드는 데 사용됩니다. [Crontab](http://crontab.org/) 명령은 Linux에서 cron 작업을 만드는 데 사용됩니다.
  **Schtasks**를 통해 관리자는 로컬 또는 원격 컴퓨터에서 예약된 작업을 만들고, 삭제하고, 쿼리하고, 변경하고, 실행 및 종료할 수 있습니다. **Cron**을 통해 Linux 및 Unix 사용자는 [cron 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)을 사용하여 지정된 날짜와 시간에 명령 또는 스크립트를 실행할 수 있습니다.
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 Linux에서 cron 작업을 만들려면 터미널에 다음 명령을 입력합니다.
 
@@ -128,7 +128,7 @@ crontab -e
 
 명령에서 cron 식 `*/5 * * * *`을 지정하면 셸 스크립트 `script.sh`에서 5분마다 실행해야 함을 나타냅니다. 스크립트를 매일, 매월 또는 매년 특정 시간에 실행하도록 예약할 수 있습니다. 작업 실행을 위한 날짜 및 시간 설정에 대해 자세히 알아보려면 [cron 식](https://en.wikipedia.org/wiki/Cron#CRON_expression)을 참조하세요.
 
-# [<a name="windows"></a> Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 Windows에서 예약된 작업을 만들려면 명령 프롬프트 또는 PowerShell에서 다음 명령을 입력합니다.
 

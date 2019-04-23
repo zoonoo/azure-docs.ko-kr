@@ -12,10 +12,10 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
 ms.openlocfilehash: 58807aa5a540de6eaa9a337caa0c34fee9408296
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361437"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
@@ -59,7 +59,7 @@ Scott은 Dev Spaces를 사용하지 _않고도_ 몇 가지 방법으로 자신�
 먼저 서비스의 기준을 배포해야 합니다. 이 배포는 로컬 코드의 동작과 확인된 버전을 손쉽게 비교할 수 있도록 “마지막으로 성공한 항목”을 나타냅니다. 그런 다음, 더 큰 애플리케이션의 컨텍스트 내에서 *mywebapi*에 대한 변경 내용을 테스트할 수 있도록 이 기준에 따라 자식 공간을 만듭니다.
 
 1. [Dev Spaces 샘플 애플리케이션](https://github.com/Azure/dev-spaces)을 복제합니다. `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. 원격 분기 *azds_updates*를 체크 아웃합니다. `git checkout -b azds_updates origin/azds_updates`
+1. 원격 분기 *azds_updates*를 확인합니다. `git checkout -b azds_updates origin/azds_updates`
 1. 두 서비스에 대한 F5/디버그 세션은 모두 닫고, 프로젝트는 Visual Studio 창에서 열어 둡니다.
 1. _mywebapi_ 프로젝트가 있는 Visual Studio 창으로 전환합니다.
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.

@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>자습서: Pluralsight와 Azure Active Directory 통합
@@ -106,17 +106,17 @@ Pluralsight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Pluralsight 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<instancename>.pluralsight.com/sso/<companyname>`
+    a. **로그인 URL** 텍스트 상자에서 `https://<instancename>.pluralsight.com/sso/<companyname>` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 상자에 다음 URL을 입력합니다. `www.pluralsight.com`
+    b. **식별자** 상자에서 `www.pluralsight.com` URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    다. **회신 URL** 텍스트 상자에서 `https://<instancename>.pluralsight.com/sp/ACS.saml2` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Pluralsight 클라이언트 지원 팀](mailto:support@pluralsight.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. Pluralsight 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.  **편집**  아이콘을 클릭하여  **사용자 특성**  대화 상자를 엽니다.
-    ![이미지](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     >[!NOTE]
     >조직에 맞는 EmployeeID 등과 같은 적절한 값으로 **"고유 ID"** 특성을 추가할 수도 있습니다. 또한 이는 필수 특성이 아니지만 고유한 사용자를 식별하기 위해 추가할 수 있습니다.
@@ -220,7 +220,7 @@ Pluralsight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

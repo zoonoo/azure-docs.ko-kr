@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362129"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>자습서: Azure AD 셀프 서비스 암호 재설정 파일럿 배포 완료
@@ -60,7 +60,7 @@ ms.locfileid: "59362129"
 
 ## <a name="test-sspr-as-a-user"></a>사용자로 SSPR 테스트
 
-파일럿 그룹의 구성원인 비 관리자 테스트 사용자를 사용하여 셀프 서비스 암호 재설정을 테스트합니다. **관리자 역할이 할당된 계정을 사용하는 경우 인증 방법 및 번호가 Microsoft가 선택한 관리자 정책 관리 방법과 다를 수 있다는 점에 유의합니다.**
+파일럿 그룹의 구성원인 비 관리자 테스트 사용자를 사용하여 셀프 서비스 암호 재설정을 테스트합니다. **관리자 역할이 할당된 계정을 사용할 경우 인증 방법 및 수가 Microsoft 관리 관리자 정책으로 선택한 것과 다를 수 있습니다.**
 
 1. 새 InPrivate 또는 incognito 모드 브라우저 창을 엽니다.
 1. [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)에서 등록 포털을 사용하여 셀프 서비스 암호 재설정 사용자 등록을 테스트합니다.

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884689"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps로 일정에 따른 트래픽 확인
@@ -62,7 +62,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **Name** | LA-TravelTime | 논리 앱의 이름 | 
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독의 이름 | 
    | **리소스 그룹** | LA-TravelTime-RG | 관련 리소스를 구성하는 데 사용된 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름 | 
-   | **위치** | 미국 동부 2 | 논리 앱에 대한 정보를 저장할 지역 | 
+   | **위치**: | 미국 동부 2 | 논리 앱에 대한 정보를 저장할 지역 | 
    | **Log Analytics** | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. | 
    |||| 
 
@@ -78,8 +78,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    !["예약-되풀이" 트리거를 찾아서 추가](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. **되풀이** 셰이프에서 **줄임표**(**...**) 단추를 선택하고 **이름 바꾸기**를 선택합니다. 이 설명이 포함되도록 트리거 이름을 바꿉니다.
-```Check travel time every weekday morning```
+2. **되풀이** 셰이프에서 **줄임표**(**...**) 단추를 선택하고 **이름 바꾸기**를 선택합니다. ```Check travel time every weekday morning``` 설명이 포함되도록 트리거 이름을 바꿉니다.
 
    ![트리거 이름 바꾸기](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -130,8 +129,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **API 키** | <*your-Bing-Maps-key*> | 이전에 받은 Bing 지도 키를 입력합니다. Bing 지도 키가 없는 경우 <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">키를 가져오는 방법</a>을 알아보세요. | 
    | | | |  
 
-4. 이 설명이 포함되도록 작업 이름을 바꿉니다.
-```Get route and travel time with traffic```
+4. ```Get route and travel time with traffic``` 설명이 포함되도록 작업 이름을 바꿉니다.
 
 5. 여기에 설명된 것처럼 **경로 가져오기** 작업에 대한 세부 정보를 입력합니다. 예를 들어 다음과 같습니다.
 
@@ -139,13 +137,13 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    | 설정 | 값 | 설명 |
    | ------- | ----- | ----------- |
-   | **중간 지점 1** | <*시작 위치*> | 경로의 출발지 | 
-   | **중간 지점 2** | <*마지막 위치*> | 경로의 도착지 | 
-   | **하지 말아야 할 일** | 없음 | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목 | 
-   | **최적화** | timeWithTraffic | 거리, 현재 트래픽 하에서의 이동 시간 등 경로를 최적화하기 위한 매개 변수. "timeWithTraffic" 매개 변수 선택 | 
-   | **거리 단위** | <*원하는 단위*> | 경로의 거리 단위. 이 문서에서는 다음 단위를 사용합니다. "마일"  | 
-   | **이동 모드** | Driving | 경로의 이동 모드. 이 모드를 선택합니다. "Driving" | 
-   | **전송 날짜 및 시간** | 없음 | 수송 모드에만 적용 | 
+   | **Waypoint 1** | <*시작 위치*> | 경로의 출발지 | 
+   | **Waypoint 2** | <*마지막 위치*> | 경로의 도착지 | 
+   | **Avoid** | 없음 | 고속도로, 톨게이트 등 경로에서 피해야 하는 항목 | 
+   | **Optimize** | timeWithTraffic | 거리, 현재 트래픽 하에서의 이동 시간 등 경로를 최적화하기 위한 매개 변수. "timeWithTraffic" 매개 변수 선택 | 
+   | **Distance unit** | <*원하는 단위*> | 경로의 거리 단위. 이 문서에서는 다음 단위를 사용합니다. "마일"  | 
+   | **Travel mode** | Driving | 경로의 이동 모드. 이 모드를 선택합니다. "Driving" | 
+   | **Transit Date-Time** | 없음 | 수송 모드에만 적용 | 
    | **날짜 및 시간 형식** | 없음 | 수송 모드에만 적용 | 
    |||| 
 
@@ -167,15 +165,14 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    !["변수 - 변수 초기화" 작업 선택](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. 이 설명이 포함되도록 이 작업의 이름을 바꿉니다.
-```Create variable to store travel time```
+3. ```Create variable to store travel time``` 설명이 포함되도록 이 작업의 이름을 바꿉니다.
 
 4. 여기에 설명된 대로 변수에 대한 세부 정보를 입력합니다.
 
    | 설정 | 값 | 설명 | 
    | ------- | ----- | ----------- | 
    | **Name** | travelTime | 변수의 이름 | 
-   | **Type** | 정수  | 변수의 데이터 형식 | 
+   | **형식** | 정수  | 변수의 데이터 형식 | 
    | **값** | 현재 이동 시간을 초 단위에서 분 단위로 변환하는 식입니다(이 표 아래의 단계 참조). | 변수의 초기 값 | 
    |||| 
 
@@ -193,7 +190,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
       브라우저가 넓으면 동적 콘텐츠 목록이 나타납니다. 
       브라우저가 좁으면 현재 포커스가 지정된 편집 상자 아래에 매개 변수 목록이 인라인으로 표시됩니다.
 
-   2. 식 편집기에서 이 식을 입력합니다. ```div(,60)```
+   2. 식 편집기에서 ```div(,60)``` 식을 입력합니다.
 
       !["div(,60)" 식 입력](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
@@ -222,7 +219,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 1. 이전 작업에서 **+ 새 단계** > **조건 추가**를 선택합니다. 
 
-2. 이 설명이 포함되도록 조건 이름을 바꿉니다. ```If travel time exceeds limit```
+2. ```If travel time exceeds limit``` 설명이 포함되도록 조건 이름을 바꿉니다.
 
 3. 여기에 설명된 것처럼 **travelTime**이 지정된 제한을 초과하는지 확인하는 조건을 작성합니다.
 
@@ -259,8 +256,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    Logic Apps는 전자 메일 계정에 대한 연결을 만듭니다.
 
-4. 이 설명이 포함되도록 작업 이름을 바꿉니다.
-```Send email with travel time```
+4. ```Send email with travel time``` 설명이 포함되도록 작업 이름을 바꿉니다.
 
 5. **받는 사람** 상자에 받는 사람의 이메일 주소를 입력합니다. 테스트를 위해 자신의 이메일 주소를 사용합니다.
 

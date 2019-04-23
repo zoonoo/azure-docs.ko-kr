@@ -13,10 +13,10 @@ ms.author: carlrab
 ms.reviewer: ''
 ms.date: 02/08/2019
 ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361425"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성
@@ -47,11 +47,11 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az 그룹 만들기](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az sql 서버 만들기](/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
-| [az sql 서버 방화벽 만들기](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 입력한 IP 주소 범위의 SQL Database 서버에 있는 모든 단일 데이터베이스와 탄력적 풀에 액세스가 가능하도록 방화벽 규칙을 만듭니다. |
-| [az sql db 만들기](/cli/azure/sql/db#az-sql-db-create) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
-| [az 그룹 삭제](/cli/azure/resource#az-resource-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 입력한 IP 주소 범위의 SQL Database 서버에 있는 모든 단일 데이터베이스와 탄력적 풀에 액세스가 가능하도록 방화벽 규칙을 만듭니다. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

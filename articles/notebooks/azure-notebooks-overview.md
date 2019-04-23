@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280114"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 개요
 
 Azure Notebooks는 무료 호스티드 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 단일 캔버스인 *Notebook*(jupyter.org의 이미지 허가)으로 손쉽게 결합할 수 있습니다.
 
-[![EJupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Jupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 이 강력한 코드, 그래픽 및 설명 텍스트의 조합으로 인해 Jupyter는 데이터 과학 교육, 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링 및 기계 학습 모델의 개발을 비롯한 다양한 용도에 대중화되었습니다.
 
@@ -115,7 +115,7 @@ Azure Notebooks에 대한 질문을 논의하려면 [GitHub 리포지토리](htt
   
   - [프로젝트 만들기 및 복제](create-clone-jupyter-notebooks.md)
   - [프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
-  - [노트 내에서 패키지 설치](install-packages-jupyter-notebook.md)
+  - [Notebook 내에서 패키지 설치](install-packages-jupyter-notebook.md)
   - [슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
   - [데이터 파일 작업](work-with-project-data-files.md)
   - [데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)

@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904069"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows 컨테이너를 사용하여 ASP.NET 앱을 Azure App Service로 마이그레이션(미리 보기)
@@ -31,7 +31,7 @@ ms.locfileid: "58904069"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- <a href="https://hub.docker.com/" target="_blank">Docker 허브 계정 가입</a>
+- <a href="https://hub.docker.com/" target="_blank">Docker 허브 계정 등록</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Windows용 Docker 설치</a>
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Windows 컨테이너를 실행하도록 Docker 전환</a>
 - **ASP.NET과 웹 개발** 및 **Azure 개발** 워크로드와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 설치</a> Visual Studio 2017이 설치되어 있는 경우:
@@ -130,7 +130,7 @@ _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
@@ -180,7 +180,7 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-**축하합니다!** ASP.NET 애플리케이션이 Windows 컨테이너의 Azure App Service로 마이그레이션되었습니다.
+**축하합니다.** ASP.NET 애플리케이션이 Windows 컨테이너의 Azure App Service로 마이그레이션되었습니다.
 
 ## <a name="see-container-start-up-logs"></a>컨테이너 시작 로그를 참조하세요.
 

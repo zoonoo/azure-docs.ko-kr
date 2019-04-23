@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>자습서: Veritas Enterprise Vault.cloud SSO와 Azure Active Directory 통합
@@ -105,7 +105,7 @@ Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-On을 구성하려
 
     ![Veritas Enterprise Vault.cloud SSO 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. **로그인 URL** 텍스트 상자에서 `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>` 패턴을 사용하여 URL을 입력합니다.
 
     b. **식별자** 상자에서 데이터 센터를 기준으로 URL을 사용합니다.
 
@@ -208,7 +208,7 @@ Veritas Enterprise Vault.cloud SSO에서 Azure AD Single Sign-On을 구성하려
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

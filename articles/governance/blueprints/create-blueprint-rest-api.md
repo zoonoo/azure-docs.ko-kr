@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273161"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API로 Azure Blueprint 정의 및 할당
@@ -70,8 +70,8 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{YourMG}` - 사용자의 관리 그룹 ID로 바꾸기
-- `{subscriptionId}` - 사용자의 구독 ID로 바꾸기
+- `{YourMG}` - 사용자의 관리 그룹 ID로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
 
 > [!NOTE]
 > 청사진을 구독 수준에서 만들 수도 있습니다. 예를 보려면 [구독 수준에서 청사진 만들기 예제](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)를 참조하세요.
@@ -336,9 +336,9 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{tenantId}` - 테넌트 ID로 바꾸기
-- `{YourMG}` - 사용자의 관리 그룹 ID로 바꾸기
-- `{subscriptionId}` - 사용자의 구독 ID로 바꾸기
+- `{tenantId}` - 테넌트 ID로 대체
+- `{YourMG}` - 사용자의 관리 그룹 ID로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
 
 1. Azure Blueprint 서비스 주체에게 대상 구독에서 **소유자** 역할을 제공합니다. AppId는 정적(`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)이지만 서비스 주체 ID는 테넌트별로 다릅니다. 테넌트에 대한 세부 정보는 다음 REST API를 사용하여 요청할 수 있습니다. 여기에는 권한 부여가 다른 [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)가 사용됩니다.
 

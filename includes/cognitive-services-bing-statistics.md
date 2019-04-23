@@ -10,7 +10,7 @@ ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
 ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2019
 ms.locfileid: "54193433"
@@ -27,7 +27,7 @@ Bing은 24시간마다 분석 데이터를 업데이트하고 최대 13개월 �
 
 ## <a name="accessing-your-analytics"></a>분석 액세스
 
-분석 대시보드에 액세스하려면 https://bingapistatistics.com으로 이동합니다. 유료 구독을 가져오는 데 사용할 계정과 동일한 MSA(Microsoft 계정)를 사용하여 로그인되어 있는지 확인합니다.
+분석 대시보드에 액세스하려면 https://bingapistatistics.com 으로 이동합니다. 유료 구독을 가져오는 데 사용할 계정과 동일한 MSA(Microsoft 계정)를 사용하여 로그인되어 있는지 확인합니다.
 
 ## <a name="filtering-the-data"></a>데이터 필터링
 

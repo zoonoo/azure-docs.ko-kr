@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010382"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Speech SDK를 사용하여 오디오 입력 디바이스 선택
@@ -383,5 +383,5 @@ JavaScript에서는 [MediaDevices.enumerateDevices()](https://developer.mozilla.
 
 ## <a name="see-also"></a>참고 항목
 
-- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

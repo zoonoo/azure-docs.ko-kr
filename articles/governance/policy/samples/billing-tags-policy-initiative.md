@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275014"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>샘플 - 청구 태그 정책 이니셔티브
@@ -28,7 +28,7 @@ ms.locfileid: "59275014"
 
 ## <a name="deploy-with-the-portal"></a>포털을 사용하여 배포
 
-[![DAzure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 

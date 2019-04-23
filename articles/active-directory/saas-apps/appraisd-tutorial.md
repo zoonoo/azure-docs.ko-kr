@@ -16,10 +16,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>자습서: Appraisd와 Azure Active Directory 통합
@@ -109,7 +109,7 @@ Appraisd에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     b. **릴레이 상태** 텍스트 상자에 URL을 입력합니다. `<TENANTCODE>`
 
-    다. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://app.appraisd.com/saml/<TENANTCODE>`
+    다. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > 자습서 뒷부분에서 설명하는 Appraisd SSO 구성 페이지에서 실제 로그온 URL 및 릴레이 상태 값을 확인합니다.
@@ -242,7 +242,7 @@ Appraisd에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 Azure AD 사용자가 Appraisd에 로그인할 수 있게 하려면 Appraisd로 프로비전되어야 합니다. Appraisd에서는 수동으로 프로비전합니다.
 
-**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
 1. 보안 관리자 권한으로 Appraisd에 로그인합니다.
 
@@ -276,6 +276,6 @@ Azure AD 사용자가 Appraisd에 로그인할 수 있게 하려면 Appraisd로 
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

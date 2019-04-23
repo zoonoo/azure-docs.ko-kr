@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918317"
 ---
 # <a name="how-to-return-n-best-translations"></a>N-Best 번역 반환 방법
@@ -38,7 +38,7 @@ Microsoft Translator API의 GetTranslations() 및 GetTranslationsArray() 메서�
 | 매개 변수 | 설명 |
 |:---|:---|
 | appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + 액세스 토큰을 포함하는 문자열을 지정합니다.|
-| 텍스트 | **필수** 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|
+| text | **필수** 번역할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|
 | from | **필수** 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. |
 | to | **필수** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다. |
 | maxTranslations | **필수** 반환할 번역의 최대 수를 나타내는 int입니다. |

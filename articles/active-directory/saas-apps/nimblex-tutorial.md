@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>자습서: Nimblex와 Azure Active Directory 통합
@@ -107,11 +107,11 @@ Nimblex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     ![Nimblex 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<YOUR APPLICATION PATH>/Login.aspx`
+    a. **로그인 URL** 텍스트 상자에서 `https://<YOUR APPLICATION PATH>/Login.aspx` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다. `https://<YOUR APPLICATION PATH>/`
+    b. **식별자** 텍스트 상자에서 `https://<YOUR APPLICATION PATH>/` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<path-to-application>/SamlReply.aspx`
+    다. **회신 URL** 텍스트 상자에서 `https://<path-to-application>/SamlReply.aspx` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Nimblex 클라이언트 지원 팀](mailto:support@ebms.com.au)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -226,7 +226,7 @@ Nimblex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

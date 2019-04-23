@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916634"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Translator Text API에서 욕설 필터링을 추가합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "58916634"
 Translate() 메서드는 새 요소인 “ProfanityAction”이 포함된 “options” 매개 변수를 사용합니다. ProfanityAction에 허용되는 값은 “NoAction”, “Marked” 및 “Deleted”입니다.
 
 ## <a name="accepted-values-of-profanityaction-and-examples"></a>ProfanityAction에 허용되는 값과 예
-|ProfanityAction 값 | 조치 | 예제: 원본 - 일본어 | 예제: 대상 - 영어|
+|ProfanityAction 값 | 액션(Action) | 예제: 원본 - 일본어 | 예제: 대상 - 영어|
 | :---|:---|:---|:---|
 | NoAction | 기본값 옵션을 설정하지 않는 것과 같습니다. 욕설이 원본에서 대상으로 전달됩니다. | 彼は変態です。 | He is a jerk. |
 | Marked | 욕설 단어가 XML 태그 \<profanity> ... \</profanity>로 묶입니다. | 彼は変態です。 | He is a \<profanity>jerk\</profanity>. |
@@ -34,4 +34,4 @@ Translate() 메서드는 새 요소인 “ProfanityAction”이 포함된 “opt
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [욕설 Translator API 호출을 사용 하 여 필터링을 적용합니다](reference/v3-0-translate.md)
+> [Translator API 호출을 사용하여 욕설 필터링 적용](reference/v3-0-translate.md)

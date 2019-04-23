@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 00154ac3c94a1f43872aff3be29ddd108a4173f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>자습서: Springer Link와 Azure Active Directory 통합
@@ -107,7 +107,7 @@ Springer Link에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://fsso.springer.com`
 
-    b. **회신 URL** 텍스트 상자에 URL을 입력합니다. `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
+    b. **회신 URL** 텍스트 상자에서 `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider` URL을 입력합니다.
 
     다. **추가 URL 설정**을 클릭합니다.
 
@@ -120,7 +120,7 @@ Springer Link에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
     **로그인 URL** 텍스트 상자에서 `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. `<entityID>` **Springer Link 설정** 섹션에서 복사한 Azure AD 식별자로, 자습서의 뒷부분에 설명되어 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. `<entityID>`는 **Springer Link 설정** 섹션에서 복사한 Azure AD 식별자로, 자습서의 뒷부분에 설명되어 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 아이콘을 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 컴퓨터에 저장합니다.
 
@@ -205,7 +205,7 @@ Springer Link에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

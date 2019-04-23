@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad55656ba91c2f344024700344550849a36ed9b6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>자습서: Jobbadmin과 Azure Active Directory 통합
@@ -105,11 +105,11 @@ Jobbadmin에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Jobbadmin 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    a. **로그온 URL** 텍스트 상자에서 `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<instancename>.jobnorge.no`
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<instancename>.jobnorge.no` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이러한 값을 얻으려면 [Jobbadmin 클라이언트 지원 팀](https://www.jobbnorge.no/om-oss/kontakt-oss)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -197,6 +197,6 @@ Jobbadmin에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

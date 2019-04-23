@@ -9,10 +9,10 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876820"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정으로 데이터 마이그레이션
@@ -39,7 +39,7 @@ ms.locfileid: "58876820"
 테이블 데이터 마이그레이션을 수행하려면 다음 작업을 완료하세요.
 
 1. 마이그레이션 도구를 [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)에서 다운로드합니다.
-2. 시나리오에 맞는 명령줄 인수를 사용하여 `dt.exe`를 실행합니다. `dt.exe` 에서 사용하는 명령의 형식은 다음과 같습니다.
+2. 시나리오에 맞는 명령줄 인수를 사용하여 `dt.exe`를 실행합니다. `dt.exe`에서 사용하는 형식은 다음과 같습니다.
 
    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
@@ -147,4 +147,4 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/m
 이제 다음 자습서로 진행하여 Azure Cosmos DB 테이블 API를 사용하여 데이터를 쿼리하는 방법을 알아볼 수 있습니다. 
 
 > [!div class="nextstepaction"]
->[데이터를 쿼리하는 방법](../cosmos-db/tutorial-query-table.md)
+>[데이터는 어떻게 쿼리하나요?](../cosmos-db/tutorial-query-table.md)

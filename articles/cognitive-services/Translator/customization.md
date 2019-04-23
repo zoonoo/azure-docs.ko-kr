@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918232"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
@@ -27,7 +27,7 @@ Microsoft Custom Translator는 Microsoft Translator 서비스의 기능으로, �
 
 Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 사용되는 용어를 이해하는 신경망 번역 시스템을 빌드할 수 있습니다. 그런 후에 사용자 지정된 변환 시스템은 기존 애플리케이션, 워크플로 및 웹 사이트에 통합됩니다.
 
-### <a name="how-does-it-work"></a>작동 원리
+### <a name="how-does-it-work"></a>어떻게 작동합니까?
 
 이전에 번역된 문서(광고, 웹 페이지, 설명서 등)를 사용하여 일반 번역 시스템보다 도메인별 용어 및 스타일을 더 잘 반영하는 번역 시스템을 빌드합니다. 사용자는 TMX, XLIFF, TXT, DOCX 및 XLSX 문서를 업로드할 수 있습니다.  
 
@@ -66,4 +66,4 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용자 지정 변환기를 사용 하 여 사용자 지정된 언어 시스템 설정](https://aka.ms/CustomTranslatorDocs)
+> [Custom Translator를 사용하여 사용자 지정된 언어 시스템 설정](https://aka.ms/CustomTranslatorDocs)

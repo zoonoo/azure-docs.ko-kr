@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
 ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916113"
 ---
 # <a name="data-filtering"></a>데이터 필터링
@@ -49,9 +49,9 @@ Custom Translator는 학습 데이터에서 테스트 및 튜닝 문서에 제�
 
 ## <a name="unescaped-xml-tags"></a>이스케이프되지 않은 XML 태그
 필터링은 이스케이프되지 않은 태그를 이스케이프된 태그로 변환합니다.
-* `&lt;` 됩니다. `&amp;lt;`
-* `&gt;` 됩니다. `&amp;gt;`
-* `&amp;` 됩니다. `&amp;amp;`
+* `&lt;`는 `&amp;lt;`가 됩니다.
+* `&gt;`는 `&amp;gt;`가 됩니다.
+* `&amp;`는 `&amp;amp;`가 됩니다.
 
 ## <a name="invalid-characters"></a>잘못된 문자
 Custom Translator는 유니코드 문자 U+FFFD가 포함된 문장을 제거합니다. 문자 U+FFFD는 실패한 인코딩 변환을 나타냅니다.

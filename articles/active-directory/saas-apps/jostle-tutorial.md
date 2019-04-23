@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6304f4afa05850ced8b88bb81c0f94e4a31fb5be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277273"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>자습서: Jostle과 Azure Active Directory 통합
@@ -105,11 +105,11 @@ Jostle에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![Jostle 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://login-prod.jostle.us`
+    a. **로그온 URL** 텍스트 상자에 `https://login-prod.jostle.us` URL을 입력합니다.
 
-    b. **식별자** 상자에 다음 URL을 입력합니다. `https://jostle.us`
+    b. **식별자** 상자에 URL `https://jostle.us`을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 다음 URL을 입력합니다. `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
+    다. **회신 URL** 텍스트 상자에서 URL `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`을 입력합니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -197,6 +197,6 @@ Jostle에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

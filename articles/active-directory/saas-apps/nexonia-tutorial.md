@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: d5f2f31f87bc3732b7b3a5593217ebde4ee213c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>자습서: Nexonia와 Azure Active Directory 통합
@@ -106,7 +106,7 @@ Nexonia에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `Nexonia`
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    b. **회신 URL** 텍스트 상자에서 `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > [회신 URL] 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이 값을 가져오려면 [Nexonia 클라이언트 지원 팀](https://nexonia.zendesk.com/hc/requests/new)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -194,7 +194,7 @@ Nexonia에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

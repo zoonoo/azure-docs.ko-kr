@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895159"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
@@ -46,7 +46,7 @@ LUIS 사용자 콘텐츠, LUIS 웹 포털 또는 LUIS (프로그래밍 라고도
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 LUIS 사용자 포털에서 데이터를 보려는 모든 권한이 있 LUIS 제작 (라고도 하며 프로그래밍 방식으로) Api를 통해 내보낼 수 있어야 합니다. 다음 표에서 데이터 내보내기 LUIS 제작 (라고도 하며 프로그래밍 방식으로) Api 통해 지원 되는 링크를 표시 합니다.
 
-| | **사용자 계정** | **애플리케이션** | **Utterance(s)** | **최종 사용자 쿼리** |
+| | **사용자 계정** | **애플리케이션** | **발언** | **최종 사용자 쿼리** |
 | --- | --- | --- | --- | --- |
 | **API** | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 

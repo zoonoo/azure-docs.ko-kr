@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361797"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup이란?
@@ -58,17 +58,17 @@ Azure Backup 및 Azure Site Recovery 서비스는 모두 BCDR(비즈니스 연�
 
 다음 표의 항목을 사용하여 BCDR 요구 사항을 파악합니다.
 
-**Objective** | **세부 정보** | **비교**
+**목표** | **세부 정보** | **비교**
 --- | --- | ---
 **데이터 백업/보존** | 규정 준수 관점에서 필요한 경우 백업 데이터를 며칠, 몇 개월 또는 심지어 몇 년 동안 유지하고 저장할 수 있습니다. | Azure Backup과 같은 백업 솔루션을 사용하면 백업하려는 데이터를 세밀하게 선택하고 백업 및 보존 정책을 미세하게 튜닝할 수 있습니다.<br/><br/> Site Recovery는 이와 같은 미세 튜닝을 허용하지 않습니다.
-**복구 지점 목표(RPO)** | 복구 작업을 수행해야 할 때 용인되는 데이터 손실의 양입니다. | 백업에는 더 가변적인 RPO가 있습니다.<br/><br/> 일반적으로 VM 백업은 1일의 RPO를 가지며 데이터베이스 백업은 15분 정도의 RPO를 갖습니다.<br/><br/> 복제가 연속적이거나 빈번하므로 Site Recovery에서는 낮은 RPO를 제공합니다. 이로 인해 원본과 복제본 복사본 간의 델타가 작습니다.
-**복구 시간 목표(RTO)** |복구 또는 복원을 완료하는 데 걸리는 시간의 양입니다. | 더 큰 RPO로 인해 백업 솔루션이 처리해야 하는 데이터의 양이 일반적으로 훨씬 더 많고 결과적으로 RTO가 더 길어집니다. 예를 들어 테이프에서 데이터를 복원하면 오프사이트 위치에서 테이프를 전송하는 데 걸리는 시간에 따라 몇 일이 걸릴 수 있습니다.
+**RPO(복구 지점 목표)** | 복구 작업을 수행해야 할 때 용인되는 데이터 손실의 양입니다. | 백업에는 더 가변적인 RPO가 있습니다.<br/><br/> 일반적으로 VM 백업은 1일의 RPO를 가지며 데이터베이스 백업은 15분 정도의 RPO를 갖습니다.<br/><br/> 복제가 연속적이거나 빈번하므로 Site Recovery에서는 낮은 RPO를 제공합니다. 이로 인해 원본과 복제본 복사본 간의 델타가 작습니다.
+**RTO(복구 시간 목표)** |복구 또는 복원을 완료하는 데 걸리는 시간의 양입니다. | 더 큰 RPO로 인해 백업 솔루션이 처리해야 하는 데이터의 양이 일반적으로 훨씬 더 많고 결과적으로 RTO가 더 길어집니다. 예를 들어 테이프에서 데이터를 복원하면 오프사이트 위치에서 테이프를 전송하는 데 걸리는 시간에 따라 몇 일이 걸릴 수 있습니다.
 
 ## <a name="what-backup-scenarios-are-supported"></a>지원되는 백업 시나리오는 무엇인가요?
 
 Azure Backup은 온-프레미스 머신과 Azure VM을 모두 백업할 수 있습니다.
 
-**컴퓨터** | **백업 시나리오**
+**머신** | **백업 시나리오**
 --- | ---
 **온-프레미스 백업** |  1) 온-프레미스 Windows 머신에서 Azure Backup MARS(Microsoft Azure Recovery Services) 에이전트를 실행하여 개별 파일 및 시스템 상태를 백업합니다. <br/><br/>2) 온-프레미스 머신을 백업 서버(System Center DPM(Data Protection Manager) 또는 MABS(Microsoft Azure Backup Server))에 백업한 다음, Azure의 Azure Backup Recovery Services 자격 증명 모음에 백업하도록 백업 서버를 구성합니다.
 **Azure VM** | 1) 개별 Azure VM에 백업을 사용하도록 설정합니다. 백업을 사용하도록 설정하면 Azure Backup은 VM에서 실행되는 Azure VM 에이전트의 확장을 설치합니다. 이 에이전트는 전체 VM을 백업합니다.<br/><br/> 2) Azure VM에서 MARS 에이전트를 실행합니다. VM의 개별 파일 및 폴더를 백업하려는 경우에 유용합니다.<br/><br/> 3) Azure에서 실행되는 DPM 서버 또는 MABS에 Azure VM을 백업합니다. 그런 다음, Azure Backup을 사용하는 자격 증명 모음에 DPM 서버/MABS를 백업합니다.
@@ -86,10 +86,10 @@ Azure Backup은 온-프레미스 머신과 Azure VM을 모두 백업할 수 있�
 
 ## <a name="what-can-i-back-up"></a>어떤 것을 백업할 수 있나요?
 
-**컴퓨터** | **백업 방법** | **백업**
+**머신** | **백업 방법** | **백업**
 --- | --- | ---
 **온-프레미스 Windows VM** | MARS 에이전트 실행 | 파일, 폴더, 시스템 상태를 백업합니다.<br/><br/> Linux 머신은 지원되지 않습니다.
-**온-프레미스 머신** | DPM/MABS에 백업 | 파일/폴더/공유/볼륨 및 앱별 데이터를 포함하여 [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) 또는 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs)로 보호되는 모든 것을 백업합니다.
+**온-프레미스 컴퓨터** | DPM/MABS에 백업 | 파일/폴더/공유/볼륨 및 앱별 데이터를 포함하여 [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) 또는 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs)로 보호되는 모든 것을 백업합니다.
 **Azure VM** | Azure VM 에이전트 백업 확장 실행 | 전체 VM 백업
 **Azure VM** | MARS 에이전트 실행 | 파일, 폴더, 시스템 상태를 백업합니다.<br/><br/> Linux 머신은 지원되지 않습니다.
 **Azure VM** | Azure에서 실행되는 MABS/DPM에 백업 | 파일/폴더/공유/볼륨 및 앱별 데이터를 포함하여 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) 또는 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807)으로 보호되는 모든 것을 백업합니다.

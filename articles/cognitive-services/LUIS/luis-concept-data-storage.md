@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893200"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding(LUIS) Cognitive Services의 데이터 저장 및 제거
@@ -34,7 +34,7 @@ LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소
 <a name="utterances-in-an-intent"></a>
 
 ### <a name="delete-example-utterances-from-an-intent"></a>예제에서는 길이 발언 의도에서 삭제
-[LUIS](luis-reference-regions.md) 학습에 사용되는 예제 발언을 삭제합니다. LUIS 앱에서 예제 발화를 삭제하면 예제 발화는 LUIS 웹 서비스에서 제거되고 내보낼 수 없습니다.
+[LUIS](luis-reference-regions.md) 학습에 사용되는 예제 발언을 삭제합니다. LUIS 앱에서 예제 발언을 삭제하면 LUIS 웹 서비스에서 제거되고 내보낼 수 없게 됩니다.
 
 <a name="utterances-in-review"></a>
 
@@ -66,4 +66,4 @@ LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [내보내기 및 앱을 삭제 하는 방법에 대 한 설명](luis-how-to-start-new-app.md)
+> [앱 내보내기 및 삭제에 대해 알아보기](luis-how-to-start-new-app.md)

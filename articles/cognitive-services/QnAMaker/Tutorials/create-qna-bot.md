@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263879"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>자습서: Azure를 사용 하 여 QnA Bot 만들기 Bot 서비스 v4
 
 QnA 채팅 봇 만들기의 **게시** 기존 기술 자료에 대 한 페이지입니다. 이 봇 Bot Framework SDK v4를 사용합니다. 봇 빌드 위해 어떠한 코드도 작성할 필요가 없습니다, 모든 코드를 제공 됩니다.
 
-**이 자습서에서는 다음 방법에 대해 알아봅니다.**
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -41,7 +41,7 @@ QnA 채팅 봇 만들기의 **게시** 기존 기술 자료에 대 한 페이지
 
 1. QnA Maker 포털에서로 이동 합니다 **게시** 페이지 및 기술 자료를 게시 합니다. 선택 **봇 만들기**합니다. 
 
-    ![QnA Maker 포털의 게시 페이지를 이동한 다음 기술 자료를 게시 합니다. 봇을 만들기를 선택 합니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
+    ![QnA Maker 포털에서 [게시] 페이지로 이동하여 기술 자료를 게시합니다. [봇 만들기]를 선택합니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
     봇 만들기 구성을 사용 하 여 Azure portal이 열립니다.
 
@@ -52,15 +52,15 @@ QnA 채팅 봇 만들기의 **게시** 기존 기술 자료에 대 한 페이지
     |봇 이름|`my-tutorial-kb-bot`|봇에 대 한 Azure 리소스 이름입니다.|
     |구독|용도 참조 하세요.|QnA Maker 리소스를 만드는 데 사용한 것과 동일한 구독을 선택 합니다.|
     |리소스 그룹|`my-tutorial-rg`|봇와 관련 된 모든 Azure 리소스에 사용 되는 리소스 그룹입니다.|
-    |위치|`west us`|봇의 Azure 리소스 위치입니다.|
+    |Location|`west us`|봇의 Azure 리소스 위치입니다.|
     |가격 책정 계층 |`F0`|Azure bot service에 대 한 무료 계층입니다.|
     |앱 이름|`my-tutorial-kb-bot-app`|봇을을 지원 하도록 웹 앱입니다. QnA Maker 서비스 이미 사용 하는 동일한 앱 이름을 하지 해야 수 있습니다. 다른 리소스를 사용 하 여 QnA Maker의 웹 앱을 공유 하는 것은 지원 되지 않습니다.|
     |SDK 언어|C#|Bot framework SDK 사용 하는 기본 프로그래밍 언어입니다. 중에서 선택 C# 또는 Node.js.|
-    |QnA Auth Key|**변경 안 함**|이 값은 채워집니다.|
-    |App Service 계획/위치|**변경 안 함**|이 자습서에서는 위치 중요 하지 않습니다.|
-    |Azure Storage|**변경 안 함**|대화 데이터는 Azure Storage 테이블에 저장 됩니다.|
-    |Application Insights|**변경 안 함**|로깅은 Application Insights로 전송 됩니다.|
-    |Microsoft 앱 ID|**변경 안 함**|Active directory 사용자 및 암호가 필요 합니다.|
+    |QnA 인증 기|**변경 하지 마세요**|이 값은 채워집니다.|
+    |앱 서비스 플랜/위치|**변경 하지 마세요**|이 자습서에서는 위치 중요 하지 않습니다.|
+    |Azure Storage|**변경 하지 마세요**|대화 데이터는 Azure Storage 테이블에 저장 됩니다.|
+    |Application Insights|**변경 하지 마세요**|로깅은 Application Insights로 전송 됩니다.|
+    |Microsoft 앱 ID|**변경 하지 마세요**|Active directory 사용자 및 암호가 필요 합니다.|
 
     ![이러한 설정을 사용 하 여 기술 자료 봇을 만듭니다.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
@@ -111,5 +111,5 @@ QnA 채팅 봇 만들기의 **게시** 기존 기술 자료에 대 한 페이지
 
 ## <a name="see-also"></a>참고 항목
 
-- [기술 자료 관리](https://qnamaker.ai)
-- [다른 채널에서 봇을 사용 하도록 설정](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [Manage your knowledge base](https://qnamaker.ai)(기술 자료 관리)
+- [Enable your bot in different channels](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)(다양한 채널에서 봇 사용)

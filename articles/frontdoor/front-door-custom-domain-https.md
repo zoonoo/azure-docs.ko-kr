@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
 ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050980"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
@@ -249,7 +249,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
     Azure Front Door Service는 SNI TLS/SSL을 사용합니다.
 
-3. *DigiCert로부터 도메인 확인 이메일을 받지 못한 경우 어떻게 하나요?*
+3. *DigiCert로부터 도메인 확인 메일을 받지 못한 경우 어떻게 하나요?*
 
     엔드포인트 호스트 이름을 직접 가리키는 사용자 지정 도메인에 대한 CNAME 항목이 있고 afdverify 하위 도메인 이름을 사용하지 않는 경우에는 도메인 확인 메일이 수신되지 않습니다. 유효성 검사가 자동으로 수행됩니다. 그렇지 않은 경우 CNAME 항목이 없고 24시간 내에 이메일을 받지 못했으면 Microsoft 지원에 문의하세요.
 
@@ -257,7 +257,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
     
     SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
 
-5. *내 DNS 공급자에게 Certificate Authority Authorization 레코드가 필요하나요?*
+5. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
 
     아니요, CAA 레코드는 현재 필요하지 않습니다. 그러나 이 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다.
 

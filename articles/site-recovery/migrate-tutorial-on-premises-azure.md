@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357983"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
@@ -90,7 +90,7 @@ Hyper-V | [복제 정책](hyper-v-azure-tutorial.md#set-up-a-replication-policy)
 --- | --- 
 VMware | VMware VM에 대해 [복제를 사용하도록 설정](vmware-azure-enable-replication.md)합니다.
 물리적 머신 | 물리적 머신에 [복제를 사용하도록 설정](physical-azure-disaster-recovery.md#enable-replication)합니다.
-Hyper-V | [복제 사용](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> System Center VMM을 사용하여 배포된 Hyper-V에 대한 [복제를 사용](hyper-v-vmm-azure-tutorial.md#enable-replication)하도록 설정합니다.
+Hyper-V | [복제 활성화](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> System Center VMM을 사용하여 배포된 Hyper-V에 대한 [복제를 사용](hyper-v-vmm-azure-tutorial.md#enable-replication)하도록 설정합니다.
 
 
 ## <a name="run-a-test-migration"></a>테스트 마이그레이션 실행

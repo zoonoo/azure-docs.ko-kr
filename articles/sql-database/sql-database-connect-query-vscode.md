@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357124"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio Code를 사용하여 Azure SQL Database 연결 및 쿼리
@@ -48,7 +48,7 @@ ms.locfileid: "59357124"
 
 ## <a name="configure-visual-studio-code"></a>Visual Studio Code 구성
 
-### **<a name="mac-os"></a>Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 
 macOS의 경우 mssql 확장에서 사용하는 .NET Core의 필수 구성 요소인 OpenSSL을 설치해야 합니다. 터미널을 열고 다음 명령을 입력하여 **brew** 및 **OpenSSL**을 설치합니다.
 
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### **<a name="linux-ubuntu"></a>Linux(Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
 
 특별한 구성이 필요 없습니다.
 
-### **<a name="windows"></a> Windows**
+### <a name="windows"></a>**Windows**
 
 특별한 구성이 필요 없습니다.
 
@@ -110,7 +110,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
    | ------------ | ------------------ | ------------------------------------------------- |
    | **서버 이름** | 정규화된 서버 이름 | 예: **mynewserver20170313.database.windows.net**. |
    | **데이터베이스 이름** | mySampleDatabase | 연결할 데이터베이스입니다. |
-   | **Authentication** | SQL 로그인| 이 자습서에서는 SQL 인증을 사용합니다. |
+   | **인증** | SQL 로그인| 이 자습서에서는 SQL 인증을 사용합니다. |
    | **사용자 이름** | 사용자 이름 | 서버를 만드는 데 사용되는 서버 관리자 계정의 사용자 이름입니다. |
    | **암호(SQL 로그인)** | 암호 | 서버를 만드는 데 사용되는 서버 관리자 계정의 암호입니다. |
    | **암호를 저장하시겠습니까?** | 예 또는 아니요 | 매번 암호를 입력하지 않으려면 **예**를 선택합니다. |

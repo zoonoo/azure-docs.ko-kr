@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: ebc8b7ce4ed0242f1bc62e3b97b6594cfe810374
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915750"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Translator Text API를 사용하여 IP 방화벽 뒤에서 변환하는 방법
@@ -31,4 +31,4 @@ api.cognitive.microsofttranslator.com의 IP 주소 - 2018년 11월 20일 기준 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Translator API 호출에서 IP 방화벽 뒤에 변환](reference/v3-0-translate.md)
+> [Translator API 호출의 IP 방화벽 뒤에 변환](reference/v3-0-translate.md)

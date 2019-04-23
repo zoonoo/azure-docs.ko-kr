@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361596"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정
@@ -50,11 +50,11 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az 그룹 만들기](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az sql 서버 만들기](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
-| [az sql db 사용량 표시](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | 단일 또는 풀링된 데이터베이스의 크기 사용량 정보가 표시됩니다. |
-| [az sql db 업데이트](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 데이터베이스 속성(예: 서비스 계층 또는 계산 크기)을 업데이트하거나 데이터베이스 정보를 탄력적 풀 간에 이동합니다. |
-| [az 그룹 삭제](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | 단일 또는 풀링된 데이터베이스의 크기 사용량 정보가 표시됩니다. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 데이터베이스 속성(예: 서비스 계층 또는 계산 크기)을 업데이트하거나 데이터베이스 정보를 탄력적 풀 간에 이동합니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계

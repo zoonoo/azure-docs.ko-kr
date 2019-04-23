@@ -9,10 +9,10 @@ ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049152"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>자습서: Azure 파일 동기화를 사용하여 Windows 파일 서버 확장
@@ -223,7 +223,7 @@ Azure 파일 동기화를 배포하려면 먼저 선택한 구독의 리소스 �
    | **Name** | 저장소 동기화 서비스의 고유 이름(구독별)입니다.<br><br>이 자습서의 경우 _afssyncservice02_를 사용합니다. |
    | **구독** | 이 자습서에 대해 사용하는 Azure 구독입니다. |
    | **리소스 그룹** | 스토리지 동기화 서비스를 포함하는 리소스 그룹입니다.<br><br>이 자습서의 경우 _afsresgroup101918_을 사용합니다. |
-   | **위치** | 미국 동부 |
+   | **위치**: | 미국 동부 |
 
 1. 작업이 끝나면 **만들기**를 선택하여 **저장소 동기화 서비스**를 배포합니다.
 1. **알림** 탭 > **리소스로 이동**을 선택합니다.
@@ -308,7 +308,7 @@ Azure 파일 동기화 에이전트를 설치한 후 서버 등록 UI가 자동�
    | ----- | ----- |
    | 값 | 설명 |
    | **등록된 서버** | 사용자가 만든 서버의 이름입니다. 이 자습서의 경우 *afsvm101918*을 사용합니다. |
-   | **path** | 사용자가 만든 드라이브에 대한 Windows Server 경로입니다. 이 자습서의 경우 *f:\filestosync*를 사용합니다. |
+   | **Path** | 사용자가 만든 드라이브에 대한 Windows Server 경로입니다. 이 자습서의 경우 *f:\filestosync*를 사용합니다. |
    | **클라우드 계층화** | 이 자습서에 대해 사용하지 않는 상태로 둡니다. |
    | **사용 가능한 볼륨 공간** | 이 자습서에 대해 비워 둡니다. |
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
 ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895818"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
@@ -36,14 +36,14 @@ LUIS가 학습을 효율적으로 진행하려면 예제 및 엔드포인트 발
 
 |실행 사항|금지 사항|
 |--|--|
-|[고유 의도 정의 합니다.](#do-define-distinct-intents) |[의도에 많은 예제 발언 추가](#dont-add-many-example-utterances-to-intents) |
-|[각 의도 대 한 최적 사이의 너무 일반적인 특정 너무 찾기](#do-find-sweet-spot-for-intents)|[LUIS를 사용 하 여 교육 플랫폼으로 서](#dont-use-luis-as-a-training-platform)|
-|[반복적으로 앱 빌드](#do-build-the-app-iteratively)|[다른 형식을 무시 하 고 동일한 형식의 여러 예제 발언 추가](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[구 목록 및 패턴을 이후 반복에서 추가](#do-add-phrase-lists-and-patterns-in-later-iterations)|[혼합 의도 및 엔터티 정의](#dont-mix-the-definition-of-intents-and-entities)|
-|None 의도를 제외한 [모든 의도에서 발언의 균형 맞추기](#balance-your-utterances-across-all-intents)<br>[None 의도에 예제 발화 추가](#do-add-example-utterances-to-none-intent)|[사용 가능한 모든 값을 사용 하 여 구 목록 만들기](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[활성 학습을 위한 제안 기능 활용](#do-leverage-the-suggest-feature-for-active-learning)|[너무 많은 패턴 추가](#dont-add-many-patterns)|
-|[앱의 성능 모니터링](#do-monitor-the-performance-of-your-app)|[학습 및 추가 예 utterance 마다를 사용 하 여 게시](#dont-train-and-publish-with-every-single-example-utterance)|
-|[각 앱 반복에 대 한 버전을 사용 합니다.](#do-use-versions-for-each-app-iteration)||
+|[고유한 의도 정의](#do-define-distinct-intents) |[의도에 많은 예제 발화 추가](#dont-add-many-example-utterances-to-intents) |
+|[각 의도에 너무 일반적 및 너무 구체적 사이에 안정적인 지점 찾기](#do-find-sweet-spot-for-intents)|[LUIS를 학습 플랫폼으로 사용](#dont-use-luis-as-a-training-platform)|
+|[반복적으로 앱 빌드](#do-build-the-app-iteratively)|[동일한 형식의 많은 예제 발화를 추가하여 다른 형식 무시](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[이후 반복에서 구문 목록 및 패턴 추가](#do-add-phrase-lists-and-patterns-in-later-iterations)|[의도 및 엔터티 정의 혼합](#dont-mix-the-definition-of-intents-and-entities)|
+|None 의도를 제외한 [모든 의도에서 발언의 균형 맞추기](#balance-your-utterances-across-all-intents)<br>[None 의도에 예제 발화 추가](#do-add-example-utterances-to-none-intent)|[모든 가능한 값을 사용하여 구문 목록 만들기](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[활성 학습의 제안 기능 활용](#do-leverage-the-suggest-feature-for-active-learning)|[너무 많은 패턴 추가](#dont-add-many-patterns)|
+|[앱 성능 모니터링](#do-monitor-the-performance-of-your-app)|[추가된 모든 단일 예제를 사용하여 학습 및 게시](#dont-train-and-publish-with-every-single-example-utterance)|
+|[앱 반복마다 버전 사용](#do-use-versions-for-each-app-iteration)||
 
 ## <a name="do-define-distinct-intents"></a>고유한 의도 정의
 각 의도의 어휘가 해당 의도에만 사용되고 다른 의도와 겹치지 않는지 확인합니다. 예를 들어, 항공사 항공편 및 호텔과 같은 여행 계획을 처리하는 앱을 사용하려는 경우, 이러한 주제 영역을 발언 내부에 별도의 의도로 포함하거나 특정 데이터의 엔터티가 있는 동일한 의도로 포함하도록 선택할 수 있습니다.

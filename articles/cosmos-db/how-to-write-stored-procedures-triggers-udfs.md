@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268419"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
@@ -26,7 +26,7 @@ Azure Cosmos DB에서는 사용자가 **저장 프로시저**, **트리거** 및
 
 저장 프로시저는 JavaScript를 사용하여 작성되고, Azure Cosmos 컨테이너 내에서 항목을 만들고, 업데이트하고, 읽고, 쿼리하고, 삭제할 수 있습니다. 저장 프로시저는 컬렉션별로 등록되며 해당 컬렉션에 있는 모든 문서 또는 첨부 파일에서 작동할 수 있습니다.
 
-**예**
+**예제**
 
 "Hello World" 응답을 반환하는 단순한 저장 프로시저는 다음과 같습니다.
 
@@ -324,4 +324,4 @@ Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수
 
 * [Azure Cosmos DB에서 Azure Cosmos DB 저장 프로시저, 트리거 및 사용자 정의 함수 작업](stored-procedures-triggers-udfs.md)
 
-* [Azure Cosmos DB에서 JavaScript LINQ(Language-Integrated Query) API 작업](javascript-query-api.md)
+* [Azure Cosmos DB에서 JavaScript 언어 통합 쿼리 API 작업](javascript-query-api.md)

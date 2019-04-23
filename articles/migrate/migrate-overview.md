@@ -8,10 +8,10 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275456"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
@@ -37,7 +37,7 @@ Azure Migrate의 기능:
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
 -  다음 지역에서만 Azure Migrate 프로젝트를 만들 수 있지만, 여전히 다른 대상 Azure 위치를 평가할 수 있습니다.
 
-    **Geography** | **저장 위치**
+    **지리** | **스토리지 위치**
     --- | ---
     Azure Government | 미국 정부 버지니아
     아시아 | 동남 아시아 또는 동아시아
@@ -57,7 +57,7 @@ Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.
 
 평가 설정은 필요에 따라 사용자 지정할 수 있습니다. 평가 속성은 다음 표에 요약되어 있습니다.
 
-**자산** | **세부 정보**
+**속성** | **세부 정보**
 --- | ---
 **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>현재 Azure Migrate는 마이그레이션 대상 위치로 33개 지역을 지원합니다. [지역을 확인합니다](https://azure.microsoft.com/global-infrastructure/services/). 기본적으로 대상 지역은 미국 동부로 설정되어 있습니다.
 **저장소 유형** | 평가의 일부인 모든 VM에 대해 할당하려는 관리형 디스크의 형식입니다. 크기 조정 기준이 *온-프레미스 크기 조정으로*인 경우 프리미엄 디스크(기본값), 표준 SSD 디스크 또는 표준 HDD 디스크 중에서 대상 디스크 종류를 지정할 수 있습니다. *성능 기반 크기 조정*의 경우, 위의 옵션과 함께 자동화를 선택할 수 있는 옵션이 있습니다. 이는 VM의 성능 데이터에 따라 디스크 크기 권장 사항이 자동으로 이루어집니다. 예를 들어 [99.9%의 단일 인스턴스 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 달성하려는 경우, 저장소 유형을 프리미엄 관리 디스크로 지정하고자 할 수도 있습니다. 즉, 평가 시 모든 디스크가 프리미엄 관리 디스크로 권장됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다.

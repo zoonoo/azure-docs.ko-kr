@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358059"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
@@ -55,8 +55,8 @@ Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://az
 
 Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [미국 정부에 대 한 azure portal](https://portal.azure.us)
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [미국 정부의 Azure Portal](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
 
@@ -74,19 +74,19 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 > [!TIP]
 > Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
-> * [그렇다면 원했는데](https://stackoverflow.com/help/how-to-ask)
-> * [최소한의 완전 하 고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
+> * [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
+> * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
 샘플은 오픈 소스로 게시되는 경우가 많습니다. 질문이나 문제가 있으면 해당 GitHub 리포지토리에 *문제*를 제기합니다. 끌어오기 요청을 제출할 수도 있습니다. 다음 목록에는 샘플 리포지토리에 대한 링크가 포함되어 있습니다.
 
-* [음성 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [디바이스 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [장치 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 버그 보고서 또는 기능 요청을 만들거나 일반적인 질문을 하고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
 
-**버그를 설명 합니다.**
+**버그 설명**
 
 버그에 대한 명확하고 간결한 설명입니다.
 
@@ -96,11 +96,11 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 1. ...
 2. ...
 
-**예상된 된 동작**
+**예상 동작**
 
 예상한 동작에 대한 명확하고 간결한 설명입니다.
 
-**Cognitive Services 음성 SDK의 버전**
+**Cognitive Services 음성 SDK 버전**
 
 사용하고 있는 SDK 버전입니다.
 

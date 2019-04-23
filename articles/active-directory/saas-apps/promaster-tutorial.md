@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 66393ffa5e8837b104e42df03ab3af5d6deea936
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>자습서: ProMaster(Inlogik 개발)와 Azure Active Directory 통합
@@ -51,7 +51,7 @@ ProMaster(Inlogik 개발)와 Azure AD의 통합을 구성하려면 다음 항목
 
 Azure AD에 ProMaster(Inlogik 개발)를 통합하도록 구성하려면 갤러리의 ProMaster(Inlogik 개발)를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리의 ProMaster(Inlogik 개발)를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 ProMaster(Inlogik 개발)를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -208,7 +208,7 @@ ProMaster(Inlogik 제공)에서 Azure AD Single Sign-On을 구성하려면 다�
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

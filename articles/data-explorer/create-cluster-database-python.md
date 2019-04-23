@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045204"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Python을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
@@ -106,8 +106,8 @@ pip install azure-mgmt-kusto
    | cluster_name | *mykustocluster* | 데이터베이스가 만들어지는 클러스터의 이름입니다.|
    | database_name | *mykustodatabase* | 데이터베이스의 이름입니다.|
    | resource_group_name | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
-   | soft_delete_period | *3650일, 0:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
-   | hot_cache_period | *3650일, 0:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
+   | soft_delete_period | *3650 days, 0:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
+   | hot_cache_period | *3650 days, 0:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
 
 1. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
 

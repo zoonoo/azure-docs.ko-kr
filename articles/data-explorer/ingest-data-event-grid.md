@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/30/2019
 ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051855"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>빠른 시작: Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
@@ -42,9 +42,9 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
     | 이벤트 스키마 | *Event Grid 스키마* | Event Grid에 사용해야 하는 스키마입니다. |
     | 항목 종류 | *Storage 계정* | Event Grid 항목의 종류입니다. |
     | 항목 리소스 | *gridteststorage* | 사용자 스토리지 계정의 이름입니다. |
-    | 모든 이벤트 형식 구독 | *지우기* | 모든 이벤트에 대한 알림을 받지 않습니다. |
-    | 정의된 이벤트 유형 | *만든 BLOB * | 알림을 받을 특정 이벤트 |
-    | 엔드포인트 유형 | *이벤트 허브(영문)* | 이벤트를 보낼 엔드포인트 유형 |
+    | 모든 이벤트 형식 구독 | *clear* | 모든 이벤트에 대한 알림을 받지 않습니다. |
+    | 정의된 이벤트 유형 | *만든 Blob* | 알림을 받을 특정 이벤트 |
+    | 엔드포인트 유형 | *Event Hubs* | 이벤트를 보낼 엔드포인트 유형 |
     | 엔드포인트 | *test-hub* | 앞에서 만든 이벤트 허브입니다. |
     | | |
 

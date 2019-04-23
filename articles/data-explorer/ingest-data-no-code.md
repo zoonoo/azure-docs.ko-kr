@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262910"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>자습서: 코드를 한 줄도 쓰지 않고 Azure Data Explorer에서 데이터 수집
@@ -268,7 +268,7 @@ Azure 진단 로그를 사용하면 스토리지 계정 또는 이벤트 허브�
 
 1. Azure Portal에서 Azure Resource Manager 템플릿을 사용하여 이벤트 허브를 만듭니다. 이 문서의 나머지 단계를 수행하려면, **Azure에 배포** 단추를 마우스 오른쪽 단추로 클릭하고 **새 창에서 열기**를 선택합니다. **Azure에 배포** 단추를 선택하면 Azure Portal로 이동합니다.
 
-    [![DAzure 단추에 배포](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Azure에 배포 단추](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Event Hubs 네임스페이스 및 진단 로그에 대한 이벤트 허브를 만듭니다.
 
@@ -278,9 +278,9 @@ Azure 진단 로그를 사용하면 스토리지 계정 또는 이벤트 허브�
 
     **설정** | **제안 값** | **설명**
     |---|---|---|
-    | **구독** | *사용자의 구독* | 이벤트 허브에 사용할 Azure 구독을 선택합니다.|
+    | **구독** | *구독* | 이벤트 허브에 사용할 Azure 구독을 선택합니다.|
     | **리소스 그룹** | *test-resource-group* | 새 리소스 그룹을 만듭니다. |
-    | **위치** | 요구에 가장 적합한 지역을 선택합니다. | 다른 리소스와 동일한 위치에 Event Hubs 네임스페이스를 만듭니다.
+    | **위치**: | 요구에 가장 적합한 지역을 선택합니다. | 다른 리소스와 동일한 위치에 Event Hubs 네임스페이스를 만듭니다.
     | **네임스페이스 이름** | *AzureMonitoringData* | 네임스페이스를 식별하는 고유한 이름을 선택합니다.
     | **이벤트 허브 이름** | *DiagnosticLogsData* | 이벤트 허브는 고유한 범위 지정 컨테이너 역할을 하는 네임스페이스 아래에 배치됩니다. |
     | **소비자 그룹 이름** | *adxpipeline* | 소비자 그룹 이름을 만듭니다. 소비자 그룹을 사용하면 각기 별도의 이벤트 스트림 보기가 표시되는 여러 애플리케이션을 사용할 수 있습니다. |
@@ -379,7 +379,7 @@ Azure 진단 로그를 사용하면 스토리지 계정 또는 이벤트 허브�
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | **테이블** | *DiagnosticLogsRawRecords* | *TestDatabase* 데이터베이스에 만든 테이블입니다. |
-    | **데이터 형식** | *JSON* | 테이블에 사용되는 형식입니다. |
+    | **날짜 형식** | *JSON* | 테이블에 사용되는 형식입니다. |
     | **열 매핑** | *DiagnosticLogsRecordsMapping* | *TestDatabase* 데이터베이스에 만든 매핑이며, 들어오는 JSON 데이터를 *DiagnosticLogsRecords* 테이블의 열 이름 및 데이터 형식에 매핑합니다.|
     | | |
 
@@ -408,7 +408,7 @@ Azure 진단 로그를 사용하면 스토리지 계정 또는 이벤트 허브�
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | **테이블** | *ActivityLogsRawRecords* | *TestDatabase* 데이터베이스에 만든 테이블입니다. |
-    | **데이터 형식** | *JSON* | 테이블에 사용되는 형식입니다. |
+    | **날짜 형식** | *JSON* | 테이블에 사용되는 형식입니다. |
     | **열 매핑** | *ActivityLogsRawRecordsMapping* | *TestDatabase* 데이터베이스에 만든 매핑이며, 들어오는 JSON 데이터를 *ActivityLogsRawRecords* 테이블의 열 이름 및 데이터 형식에 매핑합니다.|
     | | |
 

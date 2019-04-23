@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273841"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Language Understanding 앱을 사용하여 음성 서비스 통합
@@ -66,7 +66,7 @@ Azure Portal에서 LUIS 앱용 **Cognitive Service**(LUIS) 키를 [만듭니다]
 
 Speech SDK는 이미 참조로 포함되어 있습니다. 
 
-[![SMicrosoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷](./media/luis-tutorial-speech-to-intent/nuget-package.png "Microsoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Microsoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷](./media/luis-tutorial-speech-to-intent/nuget-package.png "Microsoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>C# 코드 수정
 `Program.cs` 파일을 열고 다음 변수를 변경합니다.
@@ -74,7 +74,7 @@ Speech SDK는 이미 참조로 포함되어 있습니다.
 |변수 이름|목적|
 |--|--|
 |LUIS_assigned_endpoint_key|[게시] 페이지에서 엔드포인트 URL의 할당된 구독 키 값에 해당합니다.|
-|LUIS_endpoint_key_region|예를 들어, 엔드포인트 URL의 첫 번째 하위 도메인에 해당합니다 `westus`|
+|LUIS_endpoint_key_region|엔드포인트 URL의 첫 번째 하위 도메인에 해당합니다(예: `westus`).|
 |LUIS_app_ID|**app/** 다음의 엔드포인트 URL 경로에 해당합니다.|
 
 `Program.cs` 파일에는 이미 [인적 자원] 의도가 매핑되어 있습니다.

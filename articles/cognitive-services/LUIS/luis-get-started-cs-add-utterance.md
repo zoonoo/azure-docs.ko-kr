@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273467"
 ---
 # <a name="quickstart-change-model-using-c"></a>빠른 시작: C#을 사용하여 모델 변경
@@ -140,4 +140,4 @@ ConsoleApp1.exe --add utterances.json --train --status
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [프로그래밍 방식으로 LUIS 앱 만들기](luis-tutorial-node-import-utterances-csv.md) 
+> [프로그래밍 방식으로 LUIS 앱 빌드](luis-tutorial-node-import-utterances-csv.md) 

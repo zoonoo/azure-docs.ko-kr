@@ -11,10 +11,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/08/2019
 ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269047"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>빠른 시작: 1 - C#에서 Azure Search 인덱스 만들기
@@ -22,7 +22,7 @@ ms.locfileid: "59269047"
 > * [C#](search-create-index-dotnet.md)
 > * [포털](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 >*
 
 이 문서에서는 C# 및 [.NET SDK](https://aka.ms/search-sdk)를 사용하여 [Azure Search 인덱스](search-what-is-an-index.md)를 만드는 프로세스를 안내합니다. 인덱스를 만들고, 로드하고, 쿼리하는 3부 연습의 첫 번째 과정입니다. 인덱스를 만들려면 다음 작업을 수행합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "59269047"
 
 ## <a name="2---create-a-client"></a>2 - 클라이언트 만들기
 
-Azure Search .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만듭니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` API 키를 래핑합니다.
+Azure Search .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만듭니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` 는 API 키를 래핑합니다.
 
 다음 코드는 Program.cs 파일에서 찾을 수 있습니다. 애플리케이션의 구성 파일(appsettings.json)에 저장된 검색 서비스 이름과 API 키에 대한 값을 사용하여 `SearchServiceClient`를 새로 만듭니다.
 
@@ -93,7 +93,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 }
 ```
 
-`SearchServiceClient` `Indexes` 속성이 있습니다. 이 속성은 Azure Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
+`SearchServiceClient`에는 `Indexes` 속성이 있습니다. 이 속성은 Azure Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
 
 > [!NOTE]
 > `SearchServiceClient` 클래스는 검색 서비스에 대한 연결을 관리합니다. 너무 많은 연결이 열리는 것을 방지하기 위해 되도록 애플리케이션에서 단일 `SearchServiceClient` 인스턴스를 공유합니다. 해당 메서드는 스레드로부터 안전하므로 이러한 공유를 사용할 수 있습니다.
