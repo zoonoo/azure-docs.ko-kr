@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: bd91d9201e81c884b48b41de27146c186eeb9598
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188104"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000847"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 
@@ -247,7 +247,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 8. **Azure Blob Storage 및 Azure Data Lake Store 탑재 마이그레이션**
 
-   노트북 기반 솔루션을 사용하여 모든 [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store(Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) 탑재 지점을 수동으로 다시 탑재합니다. 저장소 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
+   수동으로 모든 다시 탑재 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 노트북 기반 솔루션을 사용 하 여 요소를 탑재 합니다. 저장소 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
 
 9. **클러스터 init 스크립트 마이그레이션**
 

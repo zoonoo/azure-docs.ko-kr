@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: bfafc74cbcb97f28cc085196a2cbaf4e9bf2e871
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548322"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005624"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Azure Application Gateway-Azure PowerShell을 사용 하 여 HTTP 요청 및 응답 헤더를 다시 작성
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - 이 자습서에서는 Azure PowerShell을 로컬로 실행해야 합니다. Az 모듈 버전 1.0.0 이상을 설치해야 합니다. `Import-Module Az`를 실행한 후 `Get-Module Az`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
-- Application Gateway v2는 v1 SKU에 대 한 헤더 재작성 기능 이므로 SKU를 사용할 수 없습니다를 해야 합니다. V2 SKU가 없는 경우 만듭니다는 [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) 시작 하기 전에 합니다.
+- Application Gateway v2는 v1 SKU에 대 한 헤더 재작성 기능 이므로 SKU를 사용할 수 없습니다를 해야 합니다. V2 SKU가 없는 경우 만듭니다는 [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) 시작 하기 전에 합니다.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>헤더를 다시 작성 하는 데 필요한 항목은
 

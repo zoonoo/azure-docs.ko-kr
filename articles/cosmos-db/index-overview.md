@@ -1,64 +1,99 @@
 ---
 title: Azure Cosmos DB의 인덱싱
 description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고
-author: rimman
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: ecf53251020ce1b639a5bf8da65f5d31ff699db9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265698"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996733"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB-개요의 인덱싱
 
-Azure Cosmos DB는 스키마에 구애받지 않는 데이터베이스이며 스키마나 인덱스 관리를 처리할 필요 없이 애플리케이션을 빠르게 반복할 수 있습니다. 기본적으로 Azure Cosmos DB는 개발자에게 스키마 또는 보조 인덱스를 요청하지 않고 컨테이너의 모든 항목을 자동으로 인덱싱합니다.
+Azure Cosmos DB는 스키마 나 인덱스 관리를 사용 하 여 처리할 필요 없이 응용 프로그램에서 반복할 수 있도록 하는 스키마 제약 없는 데이터베이스입니다. 기본적으로 Azure Cosmos DB 자동 인덱싱의 모든 항목에 대 한 모든 속성에 [컨테이너](databases-containers-items.md#azure-cosmos-containers) 모든 스키마를 정의 하거나 보조 인덱스를 구성 하지 않고도 합니다.
 
-## <a name="items-as-trees"></a>트리로서의 항목
+이 문서의 목표는 쿼리 성능 향상을 위해 인덱스를 사용 하는 방법 및 Azure Cosmos DB에서 데이터를 인덱스 하는 방법을 설명 합니다. 사용자 지정 하는 방법을 살펴보기 전에이 섹션을 통해 이동 하는 것이 좋습니다 [인덱싱 정책](index-policy.md)합니다.
 
-항목 컨테이너에 JSON 문서로 프로젝션 하 고 트리로 나타내는 Azure Cosmos DB 정규화 구조 및 인스턴스 값 모두 항목에서 통합의 개념에는 **경로 구조를 동적으로 인코딩된** . 이 표현에 속성 이름과 해당 값 모두를 포함 하는 JSON 문서를의 각 레이블은 트리의 노드가 됩니다. 트리의 리프 실제 값을 포함 하 고 중간 노드는 스키마 정보를 포함 합니다. 다음 그림은 두 만든 트리를 나타내는 Azure Cosmos 컨테이너에 있는 항목 (1 및 2):
+## <a name="from-items-to-trees"></a>트리 항목에서
 
-![Azure Cosmos 컨테이너의 서로 다른 두 개의 항목을 표현하는 트리](./media/index-overview/indexing-as-tree.png)
+항목은 컨테이너에 저장 될 때마다 해당 콘텐츠는 JSON 문서를으로 프로젝션 하 고 트리 표현으로 변환. 따라서 해당 항목의 모든 속성을 가져옵니다 트리에서 노드로 표시 한다는 것입니다. 의사 루트 노드를 부모 항목의 모든 첫 번째 수준 속성에 만들어집니다. 리프 노드는 항목으로 전달 하는 실제 스칼라 값을 포함 합니다.
 
-의사 루트 노드 아래에 있는 JSON 문서에서 레이블로 해당 실제 노드를 부모로 만들어집니다. 중첩된 데이터 구조는 트리의 계층 구조를 만듭니다. 숫자 값(예: 0, 1, ...)을 사용하여 레이블이 지정된 인위적인 중간 노드는 열거형 및 배열 인덱스를 나타내는 데 사용됩니다.
+예를 들어이 항목을 고려 합니다.
 
-## <a name="index-paths"></a>인덱스 경로
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB를 트리로 JSON 문서 및 인덱스는 Azure Cosmos 컨테이너에서 항목을 프로젝션합니다. 그런 다음 트리 내 경로 대 한 인덱스 정책을 튜닝할 수 있습니다. 인덱싱에서 경로를 포함하거나 제외하도록 선택할 수도 있습니다. 따라서 쿼리 패턴을 사전에 알고 있는 시나리오에서 쓰기 성능이 향상되고 인덱스 스토리지를 줄일 수 있습니다. 자세한 내용은 참조 하세요 [인덱스 경로](index-paths.md)합니다.
+다음 트리를 나타내는 수 됩니다.
 
-## <a name="indexing-under-the-hood"></a>인덱싱: 내부 살펴보기
+![트리로 표시 되는 이전 항목](./media/index-overview/item-as-tree.png)
 
-Azure Cosmos 데이터베이스에 적용 됩니다 *자동 인덱싱* 는 트리의 모든 경로 인덱싱된 특정 경로 제외를 구성 하지 않으면 데이터에 있습니다.
+트리에서 배열을 인코딩하는 방법을 참고: 배열에서 모든 항목 배열 내에서 해당 항목의 인덱스를 사용 하 여 레이블이 지정 된 중간 노드를 가져옵니다 (0, 1 등.).
 
-Azure Cosmos 데이터베이스는 각 항목의 정보를 저장하고 쿼리 시 효율적인 표현을 활용하기 위해 반전된 인덱스 데이터 구조를 사용합니다. 인덱스 트리는 컨테이너의 개별 항목을 나타내는 트리의 모든 집합의 합집합을 사용 하 여 생성 된 문서입니다. 새 항목이 추가 되거나 기존 항목 컨테이너에 업데이트 되는 인덱스 트리 시간이 지남에 따라 증가 합니다. 관계형 데이터베이스 인덱싱와 달리 Azure Cosmos DB 다시 시작 되지 않는부터 인덱싱을 새 필드가 도입 됩니다. 기존 인덱스 구조에 새 항목이 추가 됩니다. 
+## <a name="from-trees-to-property-paths"></a>속성 경로 트리에서
 
-인덱스 트리의 각 노드는 이라는 레이블 및 위치 값을 포함 하는 인덱스 항목의 *용어*, 라는 항목의 id를 *게시물*합니다. 중괄호에 게시물 (예를 들어 {1,2}) 반전 된 인덱스 그림과에서 해당 항목에 같은 *Document1* 및 *Document2* 지정 된 레이블 값을 포함 하 합니다. 스키마 레이블 및 인스턴스 값 모두를 균일 하 게 처리 하는 중요 한 이유를 더 큰 인덱스 내에서 모든 항목은 압축입니다. 여전히 리프에 있는 인스턴스 값은 반복되지 않으며, 스키마 레이블이 서로 다른 항목 간에서 서로 다른 역할에 있을 수 있지만 동일한 값입니다. 다음 이미지는 두 개의 다른 항목에 대 한 반전 된 인덱스를 보여줍니다.
+Azure Cosmos DB 항목 트리로 변환 하는 이유는 이유는 해당 트리 내에서 해당 경로에서 참조 하는 속성 수 있기 때문입니다. 속성에 대 한 경로 가져오려고 수 그 속성에 루트 노드에서 트리를 탐색 하 고 트래버스된 각 노드의 레이블을 연결 합니다.
 
-![인덱스 내부, 반전된 인덱싱](./media/index-overview/inverted-index.png)
+위에서 설명한 예제에서는 항목의 각 속성에 대 한 경로 다음과 같습니다.
 
-> [!NOTE]
-> 반전된 인덱스는 정보 검색 도메인의 검색 엔진에 사용되는 인덱싱 구조와 유사하게 나타날 수 있습니다. Azure Cosmos DB는 이 방법을 사용하여 사용자가 해당 스키마 구조에 관계 없이 모든 항목에 대한 데이터베이스를 검색할 수 있도록 합니다.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-정규화된 경로의 경우 인덱스는 값의 형식 정보와 함께 루트에서 값까지의 모든 전달 경로를 인코딩합니다. 경로 값 인덱싱 범위, 공간 등의 다양 한 형식을 제공 하도록 인코딩됩니다. 값 인코딩은 경로 세트의 조합 또는 고유한 값을 제공하기 위해 설계되었습니다.
+항목 기록 되는 경우 Azure Cosmos DB 각 속성의 경로 및 해당 값 효율적으로 인덱싱합니다.
+
+## <a name="index-kinds"></a>인덱스 종류
+
+Azure Cosmos DB는 현재 두 가지 유형의 인덱스를 지원합니다.
+
+합니다 **범위** 인덱스 종류에 사용 됩니다.
+
+- 같음 쿼리: `SELECT * FROM container c WHERE c.property = 'value'`
+- 범위 쿼리: `SELECT * FROM container c WHERE c.property > 'value'` (적합 `>`, `<`, `>=`합니다 `<=`, `!=`)
+- `ORDER BY` 쿼리: `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` 쿼리: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+스칼라 값 (문자열 또는 숫자)에 대해 범위 인덱스를 사용할 수 있습니다.
+
+합니다 **공간** 인덱스 종류에 사용 됩니다.
+
+- 지리 공간적 거리 쿼리: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- 쿼리 내에서 지리 공간: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+형식이 올바르게 지정에서 공간 인덱스를 사용할 수 있습니다 [GeoJSON](geospatial.md) 개체입니다. Points, LineStrings 및 Polygons는 현재 지원 됩니다.
 
 ## <a name="querying-with-indexes"></a>인덱스를 사용한 쿼리
 
-반전된 인덱스를 사용하면 쿼리에서 쿼리 조건자를 일치하는 문서를 신속하게 식별할 수 있습니다. 스키마와 인스턴스 값 경로의 관점에서 균일 하 게에서 취급 하 여 반전된 된 인덱스는 또한 트리입니다. 따라서 인덱스 및 결과는 유효한 JSON 문서로 직렬화할 수 있으며, 트리 표현으로 반환될 때 문서 자체로 반환될 수 있습니다. 이 방법을 사용하면 추가 쿼리 시 결과를 재귀적으로 사용할 수 있습니다. 다음 이미지는 지점 쿼리에서의 인덱싱 예제를 보여줍니다.  
+경로 데이터를 인덱싱할 때 추출한 쉽게 쿼리를 처리 하는 경우 인덱스를 조회 합니다. 일치 하는 `WHERE` 쿼리 조건자를 매우 신속 하 게 일치 하는 항목을 식별할 수는 인덱싱된 경로의 목록 사용 하 여 쿼리 절.
 
-![지점 쿼리 예제](./media/index-overview/index-point-query.png)
+예를 들어 다음 쿼리는 것이 좋습니다: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`합니다. (항목, 모든 위치에 "프랑스"으로 해당 국가 필터링) 쿼리 조건자에는 아래 빨간색으로 강조 표시 된 경로 일치는:
 
-범위 쿼리를 작성 *GermanTax* 되는 [사용자 정의 함수](stored-procedures-triggers-udfs.md#udfs) 쿼리 처리의 일부로 실행 합니다. 사용자 정의 함수는 쿼리를 통합 하는 다양 한 프로그래밍 논리를 제공할 수 있는 모든 등록된 JavaScript 함수입니다. 다음 이미지는 범위 쿼리에서의 인덱싱 예제를 보여줍니다.
+![트리 내에서 특정 경로 일치 하는](./media/index-overview/matching-path.png)
 
-![범위 쿼리 예제](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> `ORDER BY` 절 *항상* 범위 필요한 인덱스 및 참조 경로가 없는 경우 실패 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서에서 인덱싱에 대해 자세히 알아보세요.
 
 - [인덱싱 정책](index-policy.md)
-- [인덱싱 형식](index-types.md)
-- [인덱스 경로](index-paths.md)
 - [인덱싱 정책을 관리하는 방법](how-to-manage-indexing-policy.md)

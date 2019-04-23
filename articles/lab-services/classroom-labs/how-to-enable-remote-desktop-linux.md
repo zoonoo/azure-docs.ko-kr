@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 28f963ab807cbd679b7efe8b034ab91f2893198e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659459"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005352"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>설정 하 고 Azure Lab Services의 랩에 Linux 가상 머신에 대 한 원격 데스크톱 사용
 이 문서에서는 다음 태스크를 수행 하는 방법을 보여 줍니다.
@@ -35,6 +35,7 @@ ms.locfileid: "58659459"
 > [!IMPORTANT] 
 > 사용 하도록 설정 **원격 데스크톱 연결** 만 열립니다 합니다 **RDP** Linux 컴퓨터에서 포트입니다. 강사로 서 하는 처음으로 SSH를 사용 하 여 Linux 컴퓨터에 연결 하 고 나중에 RDP를 사용 하 여 Linux 컴퓨터에 연결할 수 있도록 RDP 및 GUI 패키지를 설치 합니다. 그런 다음, **게시** 이미지 학생 학생 Linux Vm의 RDP 수 있도록 합니다. 
 
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
 현재 원격 데스크톱 연결을 다음 운영 체제에 사용할 수 있습니다.
 
 - openSUSE Leap 42.3

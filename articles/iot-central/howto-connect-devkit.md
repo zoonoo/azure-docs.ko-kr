@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617821"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006185"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "59617821"
 이 문서의 단계를 완료 하려면 다음 리소스가 필요 합니다.
 
 1. **샘플 Devkits** 애플리케이션 템플릿으로 만든 Azure IoT Central 애플리케이션. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
-1. DevKit 디바이스. DevKit 디바이스를 구매하려면 [MXChip IoT DevKit](http://mxchip.com/az3166)를 방문하세요.
+1. DevKit 디바이스. DevKit 디바이스를 구매하려면 [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)를 방문하세요.
 
 ## <a name="sample-devkits-application"></a>샘플 Devkits 애플리케이션
 
@@ -208,12 +208,12 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>상태 
-| name          | 표시 이름   | 정상 | 주의 | 위험 | 
+| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 디바이스 상태   | 녹색  | 주황색  | 빨강    | 
 
 #### <a name="events"></a>이벤트 
-| name             | 표시 이름      | 
+| Name             | 표시 이름      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 단추 B 누름  | 
 
@@ -239,13 +239,13 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
 | 디바이스 속성 | 디바이스 위치   | location  | location    |
-| 텍스트            | 제조 일자     | manufacturedIn   | N/A       |
+| Text            | 제조 일자     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>명령
 
 | 표시 이름 | 필드 이름 | 반환 형식 | 입력된 필드의 표시 이름 | 입력된 필드 이름 | 입력된 필드 형식 |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| echo         | echo       | 텍스트        | 표시할 값         | displayedValue   | 텍스트             |
+| echo         | echo       | text        | 표시할 값         | displayedValue   | text             |
 | 카운트다운    | 카운트다운  | number      | 계산               | countFrom        | number           |
 
 ## <a name="next-steps"></a>다음 단계

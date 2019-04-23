@@ -1,5 +1,5 @@
 ---
-title: v2 API에서 생성된 Video Indexer 출력 검사
+title: V2 API에 의해 생성 된 Azure Media Services 비디오 인덱서 출력 검토
 titlesuffix: Azure Media Services
 description: 이 항목에서는 v2 API에서 생성된 Video Indexer 출력을 검사합니다.
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280216"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011326"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>API에 의해 생성 된 비디오 인덱서 출력 검토
 
@@ -279,40 +279,24 @@ id|블록의 ID입니다.|
 |인스턴스|키워드가 표시되는 시간 범위 목록(키워드가 여러 번 나타날 수 있음)입니다.|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>얼굴
@@ -421,7 +405,7 @@ id|블록의 ID입니다.|
 
 #### <a name="scenes"></a>장면
 
-|name|설명|
+|Name|설명|
 |---|---|
 |id|장면 id입니다.|
 |인스턴스|이 장면 (장면 있습니다 1 개 인스턴스)의 시간 범위 목록입니다.|
@@ -573,7 +557,7 @@ id|블록의 ID입니다.|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|name|설명|
+|Name|설명|
 |---|---|
 |id|오디오 효과 ID입니다.|
 |형식|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|

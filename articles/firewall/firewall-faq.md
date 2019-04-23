@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: a89a7e3abbb94465a2ea5eb61eda3e967c26d1f0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680829"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997566"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -137,7 +137,7 @@ ExpressRoute 또는 VPN 게이트웨이 통한 온-프레미스에 강제 터널
 
 아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](/articles/firewall/rule-processing.md)를 참조하세요.
 
-## <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>와일드 카드를 방식으로 응용 프로그램 규칙 대상 FQDN에서?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>와일드 카드는 응용 프로그램 규칙 대상 FQDN에서에서 어떻게 작동 하나요?
 
 구성 하는 경우 ***. contoso.com**, 있도록 *anyvalue*. contoso.com 있지만 contoso.com (도메인 루트)이 아니라 합니다. 도메인 루트를 허용 하려는 경우 FQDN 대상으로 명시적으로 구성 해야 합니다.
 

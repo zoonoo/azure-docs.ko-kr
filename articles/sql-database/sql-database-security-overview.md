@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523701"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001085"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -88,9 +88,9 @@ SQL Database는 감사 및 위협 검색 기능을 제공하여 고객 데이터
 
 SQL Database 감사는 데이터베이스 활동을 추적하며 고객이 소유한 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 기록하여 보안 표준 규정 준수 상태를 유지할 수 있도록 지원합니다. 사용자는 감사를 통해 진행 중인 데이터베이스 활동을 모니터링하고 이전 활동을 분석 및 조사하여 잠재적 위협이나 악용 의심 사례 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
 
-### <a name="threat-detection"></a>위협 감지
+### <a name="advanced-threat-protection"></a>고급 위협 보호
 
-위협 탐지를 수행하면 감사 로그를 분석해 유해한 데이터베이스 액세스 또는 악용 시도와 비정상적인 동작을 파악함으로써 감사 효율성을 개선할 수 있습니다. SQL 삽입 공격, 데이터 침투 가능성, 무차별 암호 대입 공격(brute force attack) 등의 의심스러운 활동이나 비정상적인 액세스 패턴이 있으면 경고가 생성됩니다. [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 위협 탐지 경고를 확인할 수 있습니다. 여기서는 의심스러운 활동의 세부 정보가 제공되며, 위협 완화를 위한 조치와 함께 추가 조사를 위한 권장 사항이 제공됩니다. 위협 탐지 비용은 $15/서버/월입니다. 최초 60일 동안은 무료로 사용 가능합니다. 자세한 내용은 [SQL Database 위협 탐지 시작](sql-database-threat-detection.md)을 참조하세요.
+Advanced Threat Protection은 비정상적인 동작 및 데이터베이스를 액세스 하거나 악용 잠재적으로 해로운 시도 검색 하 여 SQL Server 로그를 분석 합니다. SQL 주입, 잠재적인 데이터 침입 및 brute force 공격 또는 액세스에서 문제에 대 한 패턴 권한 에스컬레이션 및 위반 된 자격 증명을 사용 하 여 같은 의심 스러운 활동에 대 한 경고를 만듭니다. 경고에서 표시 되는 [Azure Security Center](https://azure.microsoft.com/services/security-center/), 여기서 의심 스러운 활동의 세부 정보 제공 되 고 권장 사항에 대 한 추가 조사 위협을 완화 하기 위해 작업을 함께 지정 합니다. 서버당 추가 요금에 대 한 advanced Threat Protection은 사용할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection을 사용 하 여 시작](sql-database-threat-detection.md)합니다.
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -155,7 +155,7 @@ SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 �
 
 자세한 내용은 [데이터 검색 및 분류 시작](sql-database-data-discovery-and-classification.md)을 참조하세요.
 
-### <a name="compliance"></a>규정 준수
+### <a name="compliance"></a>준수
 
 Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 참조는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 있는 SQL Database 규정 준수 인증의 최신 목록을 찾을 수 있습니다.
 

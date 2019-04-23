@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
-ms.openlocfilehash: 708df64802ace17fa77b4e0a695c9f1c3bd18a77
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 958a3249fd2e8af9faeb827f07efc21c8184a100
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610271"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006984"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -54,7 +54,31 @@ Hive 작업에는 다양 한 ACID 및 ACID이 아닌 테이블을 포함할 수 
 alter table myacidtable compact 'major';
 ```
 
-이 압축 HDInsight 3.6 및 HDInsight 4.0 ACID 테이블 다른 ACID 델타를 이해 하기 때문에 필요 합니다. 압축은 테이블 일관성을 보장 하는 초기 상태를 적용 합니다. 압축 완료 되 면 HDInsight 4.0의 모든 HDInsight 3.6 ACID 테이블을 사용할 수 있을 정도로 metastore와 테이블 마이그레이션에 대 한 이전 단계 됩니다.
+이 압축 HDInsight 3.6 및 HDInsight 4.0 ACID 테이블 ACID 델타를 다르게 이해 하기 때문에 필요 합니다. 압축은 일관성을 보장 하는 초기 상태를 적용 합니다. 섹션 4 개를 [마이그레이션 설명서를 Hive](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) HDInsight 3.6 ACID 테이블 대량 압축에 대 한 지침이 포함 되어 있습니다.
+
+Metastore 마이그레이션 및 압축 단계를 완료 한 후에 실제 웨어하우스를 마이그레이션할 수 있습니다. Hive 웨어하우스 마이그레이션이 완료 HDInsight 4.0 웨어하우스 다음 속성을 갖습니다.
+
+* HDInsight 3.6에서 외부 테이블은 HDInsight 4.0의 외부 테이블을 됩니다.
+* HDInsight 3.6에서 관리 되는 테이블을 비트랜잭션 HDInsight 4.0의 외부 테이블 수 있습니다.
+* HDInsight 3.6에서 트랜잭션 관리 되는 테이블은 HDInsight 4.0에서 관리 되는 테이블을 됩니다.
+
+마이그레이션을 실행 하기 전에 웨어하우스가의 속성을 조정 해야 합니다. 예를 들어, 일부 테이블 (예:는 HDInsight 3.6 클러스터) 제 3 자에서 액세스할 수는 예상 되는 경우 해당 테이블 이어야 합니다 외부 마이그레이션이 완료 되 면 합니다. HDInsight 4.0에서는 모든 관리 되는 테이블은 트랜잭션. 따라서 HDInsight 4.0에서 관리 되는 테이블은 4.0 HDInsight 클러스터에만 액세스 해야 합니다.
+
+테이블 속성 올바르게 설정 되 면 SSH 셸을 사용 하 여 클러스터 헤드 노드 중 하나에서 Hive 웨어하우스 마이그레이션 도구를 실행 합니다.
+
+1. 클러스터 헤드 노드에 SSH를 사용 하 여에 연결 합니다. 자세한 내용은 [SSH를 사용 하 여 HDInsight에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. 실행 하 여 Hive 사용자로 로그인 셸 열기 `sudo su - hive`
+1. Hortonworks Data Platform 스택 버전을 실행 하 여 확인 `ls /usr/hdp`합니다. 다음 명령에서 사용 해야 하는 버전 문자열을 표시 됩니다.
+1. 셸에서 다음 명령을 실행 합니다. 대체 `${{STACK_VERSION}}` 이전 단계에서 버전 문자열을 사용 하 여:
+
+```bash
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+```
+
+마이그레이션 도구에는 다음이 완료 되 면 Hive 웨어하우스가 HDInsight 4.0에 대 한 준비 됩니다. 
+
+> [!Important]
+> HDInsight 4.0 (3.6에서 비롯 한 테이블 마이그레이션)에서 관리 되는 테이블에서 다른 서비스 또는 응용 프로그램을 HDInsight 3.6 클러스터를 포함 하 여 액세스할 수 없습니다.
 
 ## <a name="secure-hive-across-hdinsight-versions"></a>HDInsight 버전 간에 보안 Hive
 
@@ -74,9 +98,9 @@ HDInsight 4.0에서는 HiveCLI Beeline을 사용 하 여 대체 되었습니다.
 
 HDInsight 3.6의 경우 Hive 서버와 상호 작용에 대 한 GUI 클라이언트에서는 Ambari Hive 보기입니다. 4.0 HDInsight Hive 보기 사용 하 여 Hortonworks Analytics Studio DAS (Data)를 대체합니다. DAS는 HDInsight 클러스터의 기본 제공 하지 않습니다 하 고 공식적으로 지원 되는 패키지를 않습니다. 그러나 DAS 설치할 수 있습니다 클러스터에서 다음과 같습니다.
 
-1. 다운로드 합니다 [DAS 패키지 설치 스크립트](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) 모두 클러스터 헤드 노드에서 실행 합니다. 스크립트 동작으로이 스크립트를 실행 하지 마십시오.
-2. 다운로드 합니다 [DAS 서비스 설치 스크립트](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) 스크립트 작업으로 실행 합니다. 선택 **헤드** 노드 형식의 스크립트 동작 인터페이스에서 선택 합니다.
-3. 스크립트 동작이 완료 되 면 선택한 Ambari로 이동 **Data Analytics Studio** 서비스 목록에서. 모든 DAS 서비스가 중지 됩니다. 오른쪽 위 모서리에서 선택 **동작** 하 고 **시작**합니다. 이제 실행 하 고 DAS 사용 하 여 쿼리를 디버그할 수 있습니다.
+실행에 대 한 노드 형식으로 "헤드 노드"를 사용 하 여 클러스터에 대 한 스크립트 작업을 시작 합니다. 다음 URI는 "Bash 스크립트 URI"로 표시 된 텍스트 상자에 붙여 넣습니다. https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+
 
 DAS를 설치한 후 쿼리 뷰어에서 실행 한 쿼리에 표시 되지 않는 경우, 다음 단계를 수행 합니다.
 

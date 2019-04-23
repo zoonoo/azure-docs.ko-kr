@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851793"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149379"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -39,14 +39,14 @@ ms.locfileid: "58851793"
 |:---|:---|
 | sms | 모든 경고 유형에 대 한 일관 된 SMS 템플릿입니다. |
 | Email | 일관적이 고 자세한 전자 메일 템플릿을 쉽게 한눈에 문제를 진단할 수 있습니다. 포털에 영향을 받는 리소스 경고 인스턴스에 포함 된 딥 링크 빠르게 재구성 프로세스로 이동할 수 있는지 확인 합니다. |
-| 웹 후크/논리 앱/a z 함수 | 일관 된 JSON 구조 모든 경고 유형에 대해 여러 경고 유형의 통합을 쉽게 빌드할 수 있습니다. |
+| 웹 후크/논리 앱/a z 함수/자동화 Runbook | 일관 된 JSON 구조 모든 경고 유형에 대해 여러 경고 유형의 통합을 쉽게 빌드할 수 있습니다. |
 
 새 스키마 가까운 미래에 다양 한 경고 사용 환경을 Azure portal과 Azure 모바일 앱에서 사용할 수도 됩니다. 
 
-[웹 후크/논리 앱/Azure Functions에 대 한 스키마 정의 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
+[웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 스키마 정의 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> 다음 작업을 공통 경고 스키마를 지원 하지 않습니다. ITSM 커넥터, Automation Runbook입니다.
+> 다음 작업을 공통 경고 스키마를 지원 하지 않습니다. ITSM 커넥터입니다.
 
 ## <a name="how-do-i-enable-the-common-alert-schema"></a>일반 경고 스키마 사용 하도록 설정 하는 방법
 
@@ -54,11 +54,10 @@ ms.locfileid: "58851793"
 
 > [!NOTE]
 > 1. 다음 경고 유형에 공통 스키마는 기본적으로 지원 (없습니다 선택할 필요).
->     * 오류 이상 경고
+>     * 스마트 감지 경고
 > 1. 현재 다음 경고 유형에 공통 스키마를 지원 하지 않습니다.
->     * 서비스 상태 경고
->     * 활동 로그-보안 경고
 >     * 생성 된 경고 [Vm에 대 한 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * 생성 된 경고 [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
 ### <a name="through-the-azure-portal"></a>Azure portal을 통해
 
@@ -69,7 +68,7 @@ ms.locfileid: "58851793"
 
 ### <a name="through-the-action-groups-rest-api"></a>REST API 작업 그룹을 통해
 
-사용할 수도 있습니다는 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 일반적인 경고 스키마에 옵트인 합니다. 하면서 합니다 [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API 호출을 플래그 "useCommonAlertSchema" (옵트인)을 ' true ' 또는 'f a l' (옵트아웃)에 전자 메일/웹 후크/논리 앱/Azure 함수는 다음 작업 중 하나에 대 한 설정할 수 있습니다.
+사용할 수도 있습니다는 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 일반적인 경고 스키마에 옵트인 합니다. 하면서 합니다 [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API 호출을 플래그 "useCommonAlertSchema" (옵트인)을 ' true ' 또는 'f a l' (opt out) 하는 다음 작업 중 필요한-전자 메일/웹 후크/논리 앱/a z 함수/automation runbook에 대 한 설정할 수 있습니다.
 
 예를 들어 다음 요청 본문에 대 한 합니다 [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API는 다음을 수행 합니다.
 
@@ -125,7 +124,7 @@ ms.locfileid: "58851793"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [웹 후크/논리 앱/Azure Functions에 대 한 공통 경고 스키마 정의입니다.](https://aka.ms/commonAlertSchemaDefinitions)
+- [웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 공통 경고 스키마 정의입니다.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 

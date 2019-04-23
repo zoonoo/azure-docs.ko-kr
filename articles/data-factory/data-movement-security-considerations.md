@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099987"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996131"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 | 원본      | 대상                              | 네트워크 구성                    | 통합 런타임 설정                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅 통합 런타임은 가상 네트워크의 온-프레미스 또는 Azure 가상 머신에 설치할 수 있습니다. |
-| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅 통합 런타임은 가상 네트워크의 온-프레미스 또는 Azure 가상 머신에 설치할 수 있습니다. |
-| 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링)            | 자체 호스팅 통합 런타임을 온-프레미스에 설치해야 합니다. |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
+| 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅된 통합 런타임은 가상 네트워크에 Azure 가상 머신에 설치 되어야 합니다.  |
+| 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute (Microsoft 피어 링)            | 자체 호스팅된 integration runtime에서 온-프레미스 설치 수 또는 Azure 가상 컴퓨터에 있습니다. |
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Azure Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스 간에 데이터를 이동시키기 위한 자체 호스팅 통합 런타임의 사용법을 보여 줍니다.
 
@@ -174,7 +174,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 | 인바운드 포트 | 설명                              |
 | ------------- | ---------------------------------------- |
-| 8050(TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
+| 8060 (TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 
 ![게이트웨이 포트 요구 사항](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 **자체 호스팅 통합 런타임을 다른 데이터 팩터리에서 공유할 수 있습니까?**
 
-이 기능을 지원하지 않습니다. 적극적으로 노력하고 있습니다.
+예. 자세한 내용은 [여기](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/)를 참조하세요.
 
 **자체 호스팅 통합 런타임 작동에 필요한 포트 요구 사항은 무엇입니까?**
 

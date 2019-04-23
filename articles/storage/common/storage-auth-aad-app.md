@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: c4959d6abd1b33c81f731ad0479bd59d271c7797
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446071"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149166"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Blob 및 큐에 대 한 액세스를 위해 응용 프로그램에서 Azure Active Directory를 사용 하 여 인증
 
@@ -192,5 +192,5 @@ REST에서 Azure Storage 작업 권한을 부여 하는 방법에 대 한 자세
 ## <a name="next-steps"></a>다음 단계
 
 - Azure storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요 [RBAC 사용 하 여 저장소 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
-- 관리 되는 id를 사용 하 여 Azure Storage를 사용 하 여 Azure 리소스에 대 한 자세한 내용은 참조 하세요 [blob 및 Azure 사용 하 여 큐에 대 한 인증 액세스 identities를 관리 되는 Azure 리소스에 대 한](storage-auth-aad-msi.md)합니다.
-- Azure AD id를 사용 하 여 Azure CLI 및 PowerShell에 로그인 하는 방법에 알아보려면 참조 [CLI 또는 PowerShell을 사용 하 여 Azure Storage에 액세스 하려면 Azure AD id를 사용 하 여](storage-auth-aad-script.md)입니다.
+- 관리 되는 id를 사용 하 여 Azure Storage를 사용 하 여 Azure 리소스에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 blob 및 Azure Active Directory 및 관리 되는 id를 사용 하 여 큐에 대 한 액세스를 인증](storage-auth-aad-msi.md)합니다.
+- Azure AD 자격 증명을 사용 하 여 Azure CLI 및 PowerShell 명령을 실행 하는 방법에 알아보려면 참조 [blob 또는 큐 데이터에 액세스 하려면 Azure AD 자격 증명을 사용 하 여 실행 하는 Azure CLI 또는 PowerShell 명령을](storage-auth-aad-script.md)합니다.

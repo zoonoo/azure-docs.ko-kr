@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497069"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006134"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스에 대 한 연결 아키텍처
 
@@ -97,7 +97,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| name       |포트                        |프로토콜|원본           |대상|액션(Action)|
+| Name       |포트                        |프로토콜|원본           |대상|액션(Action)|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |허용 |
 |mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
@@ -105,13 +105,13 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| name       |포트          |프로토콜|원본           |대상|액션(Action)|
+| Name       |포트          |프로토콜|원본           |대상|액션(Action)|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |허용 |
 |mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
 
 > [!IMPORTANT]
-> 포트 9000에 대 한 하나의 인바운드 규칙만 9003, 한지 확인 합니다. 포트 80, 443, 12000에 대 한 아웃 바운드 규칙 1438, 1440, 1452 및 하나입니다. 인스턴스에 Azure Resource Manager를 통해 인바운드 및 출력 규칙이 각 포트에 대해 별도로 구성 된 경우 배포 실패를 프로 비전을 관리 합니다. 배포 오류 코드로 실패 이러한 포트 별도 규칙에 있는 경우 `VnetSubnetConflictWithIntendedPolicy`
+> 포트 9000에 대 한 하나의 인바운드 규칙만 9003, 한지 확인 합니다. 포트 80, 443, 12000에 대 한 아웃 바운드 규칙 1438, 1440, 1452 및 하나입니다. 인스턴스에 Azure Resource Manager를 통해 인바운드 및 아웃 바운드 규칙이 각 포트에 대해 별도로 구성 된 경우 배포 실패를 프로 비전을 관리 합니다. 배포 오류 코드로 실패 이러한 포트 별도 규칙에 있는 경우 `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI 서브넷 폼 10.x.x.x/y의 서브넷에 IP 주소 범위를 가리킵니다. 서브넷 속성에서 Azure portal에서이 정보를 찾을 수 있습니다.
 
@@ -122,7 +122,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="user-defined-routes"></a>사용자 정의 경로
 
-|name|주소 접두사|다음 홉|
+|Name|주소 접두사|다음 홉|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|인터넷|

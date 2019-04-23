@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: a0e3b0758f8c70bec14d533ef62ce75f57a198cb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259655"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002666"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>iOS용 오프라인 FairPlay 스트리밍 
 
@@ -27,7 +27,10 @@ ms.locfileid: "58259655"
 > * [버전 3](../latest/offline-fairplay-for-ios.md)
 > * [버전 2](media-services-protect-hls-with-offline-fairplay.md)
 
- Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+
+Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
 
 - Microsoft PlayReady
 - Google Widevine

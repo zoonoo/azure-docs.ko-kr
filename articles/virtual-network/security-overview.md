@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798692"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996784"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -32,11 +32,11 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
 |자산  |설명  |
 |---------|---------|
-|name|네트워크 보안 그룹 내에서 고유한 이름입니다.|
+|Name|네트워크 보안 그룹 내에서 고유한 이름입니다.|
 |우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
 |원본 또는 대상| 아무 또는 개별 IP 주소, CIDR(클래스 없는 도메인 간 라우팅) 블록(예: 10.0.0.0/24), [서비스 태그](#service-tags) 또는 [애플리케이션 보안 그룹](#application-security-groups)입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 사설 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 사설 IP 주소로 변환한 후에, 그리고 Azure가 사설 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. Azure [IP 주소](virtual-network-ip-addresses-overview-arm.md)에 대해 자세히 알아보세요. 범위, 서비스 태그 또는 애플리케이션 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정하는 기능(여러 서비스 태그 또는 애플리케이션 그룹을 지정할 수 없음)은 [보강된 보안 규칙](#augmented-security-rules)이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다. [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.|
 |프로토콜     | TCP, UDP 또는 Any(제한되지는 않지만 TCP, UDP 및 ICMP 포함)입니다. ICMP를 단독으로 지정할 수 없으므로 ICMP가 필요한 경우 다른 것과 함께 사용해야 합니다. |
-|방향| 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다.|
+|Direction| 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다.|
 |포트 범위     |개별 포트나 포트의 범위를 지정할 수 있습니다. 예를 들어 80 또는 10000-10005과 같이 지정할 수 있습니다. 범위를 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 동일한 보안 규칙에 여러 개의 포트 또는 포트 범위를 지정할 수 없습니다.   |
 |액션(Action)     | 허용 또는 거부        |
 
@@ -57,7 +57,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
  다음 서비스 태그는 보안 규칙 정의에서 사용할 수 있습니다. 해당 이름은 [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 따라 조금씩 다릅니다.
 
-* **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(가상 네트워크에 대해 정의된 모든 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링](virtual-network-peering-overview.md)된 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 연결된 가상 네트워크가 포함됩니다.
+* **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그는 가상 네트워크 주소 공간 (모든 CIDR 범위는 가상 네트워크에 대해 정의 된)를 포함 모든 온-프레미스 주소 공간을 연결 하 고 [피어 링](virtual-network-peering-overview.md) 가상 네트워크 또는 가상 네트워크에 연결을 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 해결에 사용 되는 접두사 [사용자 정의 경로](virtual-networks-udr-overview.md)합니다.
 * **AzureLoadBalancer**(Resource Manager)(클래식의 경우 **AZURE_LOADBALANCER**): Azure의 인프라 부하 분산 디바이스를 나타내는 기본 태그입니다. 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
 * **Internet**(Resource Manager)(클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
 * **AzureCloud**(Resource Manager만 해당): 이 태그는 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)를 포함한 Azure에 대한 IP 주소 공간을 나타냅니다. 값으로 *AzureCloud*를 지정하는 경우 트래픽은 Azure 공용 IP 주소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCloud에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure AzureCloud에 액세스를 허용하려는 경우 *AzureCloud.EastUS*를 서비스 태그로 지정할 수 있습니다. 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802962"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001595"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -126,11 +126,11 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 ### <a name="the-owning-group"></a>소유 그룹
 
-POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들어 "alice" 사용자는 "finance" 그룹에 속할 수 있습니다. 또한 Alice는 여러 그룹에 속할 수 있지만 항상 한 그룹을 주 그룹으로 지정합니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
+POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들어 사용자 "Alice"는 "finance" 그룹에 속할 수 있습니다. 또한 Alice는 여러 그룹에 속할 수 있지만 항상 한 그룹을 주 그룹으로 지정합니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>새 파일 또는 디렉터리에 대한 소유 그룹 할당
 
-* **사례 1**: 루트 디렉터리("/")입니다. 이 디렉터리는 Data Lake Storage Gen2 파일 시스템을 만들 때 만들어집니다. 이 경우 소유 그룹은 OAuth를 사용하여 파일 시스템을 만든 사용자로 설정됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용하여 파일 시스템을 만드는 경우 소유자 및 소유 그룹은 **$superuser**로 설정됩니다.
+* **사례 1**: 루트 디렉터리("/")입니다. 이 디렉터리는 Data Lake Storage Gen2 파일 시스템을 만들 때 만들어집니다. 이 경우 소유 그룹은 OAuth를 사용하여 파일 시스템을 만든 사용자로 설정됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 파일 시스템이 만들 경우 소유자 및 소유 그룹으로 설정 됩니다 **$superuser**합니다.
 * **사례 2**(다른 모든 경우): 새 항목을 만들 때 소유 그룹이 부모 디렉터리에서 복사됩니다.
 
 #### <a name="changing-the-owning-group"></a>소유 그룹 변경
@@ -285,7 +285,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 서비스 주체에 대 한 Acl을 정의할 때의 개체 ID (OID)을 사용 하는 것이 중요 합니다 *서비스 주체* 사용자가 만든 앱 등록에 대 한 합니다. 등록 된 앱에서 특정 별도 서비스 주체는 반드시 Azure AD 테 넌 트입니다. 등록 된 앱에 Azure portal에 표시 되는 OID 하지만 *서비스 주체* 다른 다른 OID가 있습니다.
 
-앱 등록에 해당 하는 서비스 주체에 대 한 OID를 가져오려고 사용할 수는 `az ad sp show` 명령입니다. 매개 변수로 응용 프로그램 ID를 지정 합니다. 다음은 예제 앱 Id를 사용 하 여 앱 등록에 해당 하는 서비스 주체에 대 한 OID를 얻는 방법에 18218b12-1895-43e9-ad80-6e8fc1ea88ce =. Azure CLI에서 다음 명령을 실행합니다.
+앱 등록에 해당 하는 서비스 주체에 대 한 OID를 가져오려고 사용할 수는 `az ad sp show` 명령입니다. 매개 변수로 응용 프로그램 ID를 지정 합니다. 다음은 예제 앱 ID를 사용 하 여 앱 등록에 해당 하는 서비스 주체에 대 한 OID를 얻는 방법에 18218b12-1895-43e9-ad80-6e8fc1ea88ce =. Azure CLI에서 다음 명령을 실행합니다.
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799476"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149132"
 ---
 # <a name="registration-management"></a>등록 관리
 
@@ -36,11 +36,11 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 등록은 태그 및 아마도 템플릿을 가진 디바이스에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 디바이스 토큰 또는 FCM 등록 ID일 수 있습니다. 태그는 디바이스 핸들의 정확한 집합에 알림을 올바른 디바이스 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
 
 > [!NOTE]
-> Azure Notification Hubs는 등록당 최대 60개 태그를 지원합니다.
+> Azure Notification Hubs는 최대 장치 당 60 태그를 지원합니다.
 
 ### <a name="installations"></a>설치
 
-설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 디바이스 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 디바이스 자체에서 등록하는 경우 설치를 지원하기 위해 [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
+설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 디바이스 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 디바이스 자체에서 등록하는 경우 설치를 지원하기 위해 [Notification Hubs REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
 
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 
@@ -48,7 +48,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 - 설치 모델 특수 태그 형식을 지원 (`$InstallationId:{INSTALLATION_ID}`) 알림을 특정 장치에 직접 보낼 수 있도록 합니다. 예를 들어, 앱의 코드의 설치 ID를 설정 하는 경우 `joe93developer` 이 특정 장치에 대 한 개발자에 대 한 알림을 보낼 때이 장치를 대상 수를 `$InstallationId:{joe93developer}` 태그입니다. 따라서 추가 코딩 하지 않고도 특정 장치를 선택할 수 있습니다.
 - 또한 설치를 사용하여 부분적인 등록 업데이트를 수행할 수도 있습니다. 설치의 부분 업데이트는 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902)을 사용하여 PATCH 메서드에서 요청됩니다. 이는 등록 시 태그를 업데이트하려고 할 때 유용합니다. 전체 등록을 풀다운한 다음 모든 이전 태그를 다시 보낼 필요가 없습니다.
 
-설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://msdn.microsoft.com/library/azure/mt621153.aspx) 또는 [설치 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)을 참조하세요.
+설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) 또는 [설치 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)을 참조하세요.
 
 ```json
 // Example installation format to show some supported properties

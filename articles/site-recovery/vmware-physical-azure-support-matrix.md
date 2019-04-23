@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/22/2019
 ms.author: raynew
-ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618059"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149454"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -74,11 +74,12 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.10<b>
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
+14.04 LTS | [9.24][9.24 UR] | 3.13.0-24-generic 3.13.0-167-generic를<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic 4.4.0-143-generic를<br/>4.15.0-1023-azure 4.15.0-1040-azure |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-generic 3.13.0-165-generic를<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic 4.4.0-142-generic를<br/>4.15.0-1023-azure 4.15.0-1037-azure |
 14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-generic~3.13.0-164-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-140-generic<br/>4.15.0-1023-azure~4.15.0-1036-azure |
 14.04 LTS | [9.21][9.21 UR] | 3.13.0-24-generic에서 3.13.0-163-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-140-generic<br/>4.15.0-1023-azure에서 4.15.0-1035-azure |
-14.04 LTS | [9.20][9.20 UR] | 3.13.0-24-generic에서 3.13.0-153-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-138-generic<br/>4.15.0-1023-azure에서 4.15.0-1025-azure |
 |||
+16.04 LTS | [9.23][9.24 UR] | 4.4.0-21-generic 4.4.0-143-generic를<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic 4.15.0-46-generic<br/>4.11.0-1009-azure 4.11.0-1018-azure를<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure 4.15.0-1040-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-21-generic 4.4.0-142-generic를<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic 4.15.0-45-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure 4.15.0-1037-azure|
 16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-generic에서 4.4.0-140-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic~4.15.0-43-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure~4.15.0-1036-azure|
 16.04 LTS | [9.21][9.21 UR] | 4.4.0-21-generic에서 4.4.0-140-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic에서 4.15.0-42-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0-1035-azure|
@@ -89,19 +90,20 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.10<b>
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
-Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR]| 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.16.0-4-amd64에서 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR] | 3.16.0-4-amd64에서 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.8-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 지원되는 커널 버전
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>4.4.162-94.79-default에 SP3 4.4.73-5-default</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.24][9.24 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>4.4.175-94.79-default에 SP3 4.4.73-5-default</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default에서 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.156-94.72-default |
-SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default에서 4.4.156-94.64-default |
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 저장소
 
@@ -116,7 +118,7 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버 | 지원되지 않습
 디렉터리 | [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) 이전 <br/> 1. /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리는(별도의 파티션/파일 시스템으로 설정된 경우) 모두 원본 서버의 동일한 OS 디스크에 있어야 합니다.</br>2. /boot는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터는 위의 제한이 적용되지 않습니다. 둘 이상의 디스크에 걸쳐 있는 LVM 볼륨의 /boot은 지원되지 않습니다.
 루트 디렉터리 | 한 가상 머신에 여러 부트 디스크가 있을 수 없습니다. <br/><br/> 부트 디스크가 없는 컴퓨터는 보호할 수 없습니다.
 
-사용 가능한 공간 요구 사항| /root 파티션에서 2GB <br/><br/> 설치 폴더 XFSv5에서 250MB | XFS 파일 시스템의 XFSv5 기능(예: 메타데이터 체크섬)은 모바일 서비스 버전 9.10 이상에서 지원됩니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. ftype이 1로 설정되면 XFSv5 기능이 사용 중입니다.
+사용 가능한 공간 요구 사항| /root 파티션에서 2GB <br/><br/> 설치 폴더 XFSv5에서 250MB | XFS 파일 시스템의 XFSv5 기능(예: 메타데이터 체크섬)은 모바일 서비스 버전 9.10 이상에서 지원됩니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. 경우 `ftype` XFSv5 기능이 사용 중 1로 설정 됩니다.
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
 
@@ -181,6 +183,14 @@ Docker 디스크 구성 | 아닙니다.
 게스트/서버 - 디스크 제외 | 예
 게스트/서버 다중 경로(MPIO) | 아닙니다.
 게스트/서버 EFI/UEFI 부팅 | VMware Vm 또는 Windows Server 2012를 실행 하는 물리적 서버를 마이그레이션하는 경우 또는 나중에 Azure를 지원 합니다.<br/><br/> 만 마이그레이션에 대 한 Vm을 복제할 수 있습니다. 온-프레미스로 장애 복구는 지원 되지 않습니다.<br/><br/> 서버는 OS 디스크에 4개 이상의 파티션을 가질 수 없습니다.<br/><br/> Mobility Service 버전 9.13 이상이 필요합니다.<br/><br/> NTFS만 지원 됩니다.
+
+## <a name="replication-channels"></a>복제 채널
+
+|**복제 유형**   |**지원됨**  |
+|---------|---------|
+|오프 로드 데이터 전송 (ODX)    |       아닙니다.  |
+|오프라인 시드        |   아닙니다.      |
+| Azure Data Box | 아닙니다.
 
 
 ## <a name="azure-storage"></a>Azure 저장소

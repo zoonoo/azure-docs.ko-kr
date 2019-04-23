@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194711"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006865"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -47,13 +47,13 @@ Blob Storage API가 Azure Data Lake Gen2 API와 상호 운용 가능하지 않�
 
 Blob Storage API 및 Azure Data Lake Gen2 API는 서로 상호 운용되지 않습니다.
 
-Blob API를 사용하는 도구, 애플리케이션, 서비스 또는 스크립트를 가지고 있고 이들을 사용하여 본인의 계정에 업로드하는 모든 콘텐츠로 작업하려는 경우 Blob API가 Azure Data Lake Gen2 API와 상호 운용할 수 있게 될 때까지 본인의 Blob Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정하지 마세요. 계층 구조 네임스페이스 없이 스토리지 계정을 사용하면 디렉터리 및 파일 시스템 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
+Blob API를 사용하는 도구, 애플리케이션, 서비스 또는 스크립트를 가지고 있고 이들을 사용하여 본인의 계정에 업로드하는 모든 콘텐츠로 작업하려는 경우 Blob API가 Azure Data Lake Gen2 API와 상호 운용할 수 있게 될 때까지 본인의 Blob Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정하지 마세요. 계층적 네임 스페이스가 없는 저장소 계정을 사용 하 여 다음 디렉터리 및 파일 시스템 액세스 제어 목록 같은 Data Lake 저장소 Gen2 특정 기능에 액세스할 수 없는 의미 합니다.
 
 ## <a name="azure-storage-explorer"></a>Azure Storage 탐색기
 
 Azure Storage 탐색기를 사용하여 Data Lake Storage Gen2 계정을 보거나 관리하려면 [무료 다운로드](https://azure.microsoft.com/features/storage-explorer/)로 제공되는 도구의 `1.6.0` 이상 버전이 있어야 합니다.
 
-Azure Portal에 포함된 Storage 탐색기 버전은 현재 계층 구조 네임스페이스 기능이 사용하도록 설정된 Data Lake Storage Gen2 계정 보기 또는 관리를 지원하지 않습니다.
+Azure portal에 포함 되어 있는 저장소 탐색기의 버전을 현재 수행 하는 참고 보기 또는 계층 구조 네임 스페이스 기능을 사용 하면 Data Lake 저장소 Gen2 계정 관리를 지원 합니다.
 
 ## <a name="blob-viewing-tool"></a>Blob 보기 도구
 

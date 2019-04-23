@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548834"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010384"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>자동화된 Machine Learning 실험 구성
 
@@ -121,7 +121,7 @@ y_valid |   pandas 데이터 프레임 또는 numpy 배열 | data_train, label |
 sample_weight | pandas 데이터 프레임 또는 numpy 배열 |   data_train, label, columns| _선택 사항_ 각 샘플에 대한 가중치입니다. 데이터 요소에 대해 서로 다른 가중치를 할당하려는 경우에 사용합니다.
 sample_weight_valid | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |    _선택 사항_ 각 유효성 검사 샘플에 대한 가중치입니다. 지정하지 않으면 sample_weight가 학습과 유효성 검사 간에 분할됩니다.
 data_train |    pandas 데이터 프레임 |  X, y, X_valid, y_valid |    학습할 모든 데이터(기능 + 레이블)입니다.
-label | 문자열  | X, y, X_valid, y_valid |  레이블을 나타내는 data_train의 열입니다.
+label | string  | X, y, X_valid, y_valid |  레이블을 나타내는 data_train의 열입니다.
 열 | 문자열 배열  ||  _선택 사항_ 기능에 사용할 열의 허용 목록입니다.
 cv_splits_indices   | 정수 배열 ||  _선택 사항_ 교차 유효성 검사를 위해 데이터를 분할할 인덱스 목록입니다.
 
@@ -179,7 +179,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 
 ## <a name="configure-your-experiment-settings"></a>실험 설정 구성
 
-자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)를 참조하세요.  
+자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)를 참조하세요.  
 
 일부 사례:
 
@@ -210,7 +210,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
         n_cross_validations=5)
     ```
 
-세 가지 `task` 매개 변수 값에 적용할 알고리즘의 목록을 확인 합니다.  `whitelist` 또는 `blacklist` 매개 변수를 사용하여 사용 가능한 알고리즘 반복을 포함 또는 제외하도록 추가로 수정합니다. 지원 되는 모델 목록을 복지부 [SupportedAlgorithms 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+세 가지 `task` 매개 변수 값에 적용할 알고리즘의 목록을 확인 합니다.  `whitelist` 또는 `blacklist` 매개 변수를 사용하여 사용 가능한 알고리즘 반복을 포함 또는 제외하도록 추가로 수정합니다. 지원 되는 모델 목록에서 찾을 수 있습니다 [SupportedAlgorithms 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)합니다.
 
 ## <a name="primary-metric"></a>기본 메트릭
 기본 메트릭; 와 같이 위의 예에서는 최적화에 대 한 모델을 학습 하는 동안 사용할 메트릭을 결정 합니다. 기본 메트릭은 선택할 수 있습니다 선택 하면 작업 형식에 의해 결정 됩니다. 사용 가능한 메트릭 목록은 다음과 같습니다.
@@ -240,43 +240,6 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 
 ## <a name="ensemble-models"></a>앙상블 모델
 달리 단일 모델을 사용 하 여 여러 모델을 결합 함으로써 여 machine learning 결과 예측 성능을 개선 하는 앙상블 학습 합니다. 사용 하 여 machine learning 자동화 하는 경우 사용 하 여 앙상블 모델을 학습 시킬 수는 [정렬 된 앙상블 초기화를 사용 하 여 Caruana 앙상블 선택 알고리즘](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)합니다. 앙상블 반복 실행의 마지막 반복으로 표시 됩니다.
-
-## <a name="time-series-forecasting"></a>시계열 예측
-시간 시계열 예측 작업 형식에 대 한 추가 매개 변수를 정의 해야 합니다.
-1. time_column_name-학습 데이터가 포함 된 날짜/시간 계열의 열 이름을 정의 하는 필수 매개 변수입니다. 
-1. max_horizon-학습 데이터의 주기 성과에 따라를 예측 하려는 시간의 길이 정의 합니다. 예를 들어 매일 시간 조직을 사용 하 여 학습 데이터에 있으면 얼마나 멀리 확장에서 정의한 모델에 대 한 학습을 원하는 날짜입니다.
-1. grain_column_names-개별 시계열 데이터를 학습 데이터를 포함 하는 열 이름을 정의 합니다. 예를 들어 저장소에서 특정 브랜드의 판매를 예측 하는 경우 store와 brand 열 수준이 열으로 정의할는 있습니다.
-
-이러한 예제를 보려면 아래에서 사용 중인 설정을 notebook 예제를 사용할 수 [여기](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)합니다.
-
-```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
-
-# View the number of time series data with defined grains
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
-    'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 ## <a name="run-experiment"></a>실험 실행
 

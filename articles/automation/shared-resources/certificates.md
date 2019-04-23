@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab8a231d4d44cfe2bfaf7c003ca57772a7a1814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896392"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010282"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Automation의 인증서 자산
 
@@ -33,7 +33,7 @@ AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Azure Automation으로 새 인증서를 만듭니다.|
 [Remove-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Azure Automation에서 인증서를 제거합니다.|
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|인증서 파일 업로드 및 .pfx 암호 설정을 포함하여 기존 인증서에 대한 속성을 설정합니다.|
-|[Add-AzureCertificate](/previous-versions/azure/dn495214)|지정된 클라우드 서비스에 대한 서비스 인증서를 업로드합니다.|
+|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|지정된 클라우드 서비스에 대한 서비스 인증서를 업로드합니다.|
 
 ## <a name="activities"></a>활동
 

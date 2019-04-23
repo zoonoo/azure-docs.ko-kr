@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 62ad2e2b294a0589c9d52ddbce1339b8d55062e4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629603"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149039"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure Vm 복원
 
@@ -31,7 +31,6 @@ ms.locfileid: "58629603"
 - [자세한](backup-azure-recovery-services-vault-overview.md) Recovery Services 자격 증명 모음에 대 한 합니다.
 - [검토](backup-architecture.md#architecture-direct-backup-of-azure-vms) Azure VM 백업에 대 한 아키텍처 [알아봅니다](backup-azure-vms-introduction.md) 백업 프로세스 및 [검토](backup-support-matrix-iaas.md) 지원, 제한 사항 및 필수 구성 요소입니다.
 - Recovery Services에 대 한 PowerShell 개체 계층 구조를 검토 합니다.
-
 
 ## <a name="recovery-services-object-hierarchy"></a>Recovery Services 개체 계층 구조
 
@@ -54,7 +53,7 @@ ms.locfileid: "58629603"
     ```powershell
     Get-Command *azrecoveryservices*
     ```
- 
+
     Azure Backup, Azure Site Recovery 및 Recovery Services 자격 증명 모음의 별칭과 cmdlet이 나타납니다. 다음 이미지는 표시되는 예이며 cmdlet의 전체 목록이 아닙니다.
 
     ![Recovery Services 목록](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
@@ -77,9 +76,11 @@ ms.locfileid: "58629603"
     ```
 
 6. 다음 명령을 사용하여 공급자가 성공적으로 등록되었는지 확인할 수 있습니다.
+
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
     명령 출력에서 **RegistrationState**는 **등록됨**으로 변경해야 합니다. 그렇지 않으면 실행 하는 경우는 **[등록 AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet을 다시 합니다.
 
 
@@ -152,7 +153,7 @@ Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy Ge
 ```
 
 > [!NOTE]
-> 백업 자격 증명 모음에 보호 된 항목이 없는 경우에 저장소 중복을 수정할 수 있습니다.
+> 자격 증명 모음에 보호된 백업 항목이 없는 경우에만 스토리지 중복을 수정할 수 있습니다.
 
 ### <a name="create-a-protection-policy"></a>보호 정책 만들기 
 
@@ -241,9 +242,49 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Azure Government 클라우드를 사용 하는 경우 다음 사용 하 여 값 ff281ffe-705c-4f53-9f37-a40e6f2c68f3 ServicePrincipalName 매개 변수에서 [집합 AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
+## <a name="monitoring-a-backup-job"></a>백업 작업 모니터링
+
+Azure Portal을 사용하지 않고 백업 작업과 같은 장기 실행 작업을 모니터링할 수 있습니다. 진행 중인 작업의 상태를 가져오려면 합니다 [Get AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. 이 cmdlet은 특정 자격 증명 모음에 대한 백업 작업을 가져오고 해당 자격 증명 모음은 자격 증명 모음 컨텍스트에 지정됩니다. 다음 예제에서는 배열과 같은 진행 중인 작업의 상태를 가져와 $joblist 변수에 상태를 저장합니다.
+
+```powershell
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
+$joblist[0]
+```
+
+다음 예제와 유사하게 출력됩니다.
+
+```
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+```
+
+이러한 작업을 완료 하기 위해 불필요 한 추가 코드는-폴링하는 대신 사용 합니다 [대기 AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. 이 cmdlet은 작업이 완료되거나 지정된 시간 제한 값에 도달할 때까지 실행을 일시 중지합니다.
+
+```powershell
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+```
+
+## <a name="manage-azure-vm-backups"></a>Azure VM 백업 관리
+
 ### <a name="modify-a-protection-policy"></a>보호 정책 수정
 
 보호 정책을 수정 하려면 사용 하 여 [집합 AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) 여 SchedulePolicy 또는 RetentionPolicy 개체를 수정 합니다.
+
+#### <a name="modifying-scheduled-time"></a>예약 된 시간 수정
+
+보호 정책을 만들 때 시작 시간을 기본적으로 할당 됩니다. 다음 예제에서는 보호 정책의 시작 시간을 수정 하는 방법을 보여 줍니다.
+
+````powershell
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = $UtcTime.ToUniversalTime()
+$SchPol.ScheduleRunTimes[0] = $UtcTime
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol
+````
+
+#### <a name="modifying-retention"></a>보존 수정
 
 다음 예제는 복구 지점 보존 기간을 365일로 변경합니다.
 
@@ -267,14 +308,15 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 기본값은 2가 됩니다, 그리고 사용자 1의 최소 및 최대 5 개를 사용 하 여 값을 설정할 수 있습니다. 매주 백업 정책에 대 한 기간은 5로 설정 되며 변경할 수 없습니다.
 
-## <a name="trigger-a-backup"></a>백업 트리거
+### <a name="trigger-a-backup"></a>백업 트리거
 
-사용 하 여 [백업 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) 백업 작업을 트리거할 수 있습니다. 초기 백업인 경우 전체 백업입니다. 후속 백업에서는 증분 복사를 수행합니다. 사용 해야 **[집합 AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** 백업 작업을 트리거하기 전에 자격 증명 모음 컨텍스트를 설정 합니다. 다음 예제에서는 자격 증명 모음 컨텍스트가 이미 설정되었다고 가정합니다.
+사용 하 여 [백업 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) 백업 작업을 트리거할 수 있습니다. 초기 백업인 경우 전체 백업입니다. 후속 백업에서는 증분 복사를 수행합니다. 다음 예에서는 VM을 60 일 동안 보존할 백업 합니다.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
 $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzRecoveryServicesBackupItem -Item $item
+$endDate = (Get-Date).AddDays(60).ToUniversalTime()
+$job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 다음 예제와 유사하게 출력됩니다.
@@ -290,28 +332,42 @@ V2VM              Backup              InProgress          4/23/2016             
 >
 >
 
-## <a name="monitoring-a-backup-job"></a>백업 작업 모니터링
+### <a name="change-policy-for-backup-items"></a>백업 항목에 대 한 정책 변경
 
-Azure Portal을 사용하지 않고 백업 작업과 같은 장기 실행 작업을 모니터링할 수 있습니다. 진행 중인 작업의 상태를 가져오려면 합니다 [Get AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. 이 cmdlet은 특정 자격 증명 모음에 대한 백업 작업을 가져오고 해당 자격 증명 모음은 자격 증명 모음 컨텍스트에 지정됩니다. 다음 예제에서는 배열과 같은 진행 중인 작업의 상태를 가져와 $joblist 변수에 상태를 저장합니다.
+사용자 기존 정책을 수정 하거나 Policy2를 Policy1에서 백업 항목의 정책을 변경할 수 있습니다. 백업 항목에 대 한 정책으로 전환 하려면 단순히 관련 정책을 가져올 항목을 백업 하 고 사용 합니다 [사용 AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) 매개 변수로 백업 항목을 사용 하 여 명령입니다.
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>"
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
+````
+
+명령 백업 구성 완료 되 고 다음과 같은 출력이 반환 될 때까지 대기 합니다.
 
 ```powershell
-$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
-$joblist[0]
-```
-
-다음 예제와 유사하게 출력됩니다.
-
-```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   ----------
-V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+------------     ---------            ------               ---------                 -------                   -----
+TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-이러한 작업을 완료 하기 위해 불필요 한 추가 코드는-폴링하는 대신 사용 합니다 [대기 AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. 이 cmdlet은 작업이 완료되거나 지정된 시간 제한 값에 도달할 때까지 실행을 일시 중지합니다.
+### <a name="stop-protection"></a>보호 중지
 
-```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
-```
+#### <a name="retain-data"></a>데이터 보관
+
+사용자는 보호를 중지 하려는, 하는 경우 사용할 수 있습니다는 [사용 안 함-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet. 이 예약된 된 백업을 중지 되지만까지 지 원하는 데이터를 영구적으로 유지 됩니다.
+
+````powershell
+$bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
+````
+
+#### <a name="delete-backup-data"></a>백업 데이터 삭제
+
+저장된 된 백업 데이터를 자격 증명 모음에서에서 완전히 제거 하기 위해 추가 '-RemoveRecoveryPoints' 플래그/교체 하는 [protection 명령 ' disable'](#retain-data)합니다.
+
+````powershell
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+````
 
 ## <a name="restore-an-azure-vm"></a>Azure VM 복원
 

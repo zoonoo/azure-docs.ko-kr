@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650124"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006012"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -302,7 +302,7 @@ SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure
   이 문서에서는 클라이언트 쪽 암호화에 대해 설명하고, 저장소 클라이언트 라이브러리를 사용하여 4개의 저장소 서비스에서 리소스를 암호화하고 해독하는 예를 제공합니다. 또한 Azure Key Vault에 대해서도 설명합니다.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Azure 디스크 암호화를 사용하여 가상 머신에 사용되는 디스크 암호화
-Azure Disk Encryption을 새로운 기능입니다. 이 기능을 사용하면 IaaS Virtual Machine에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다.
+Azure Disk Encryption을 사용 하면 OS 디스크 및 IaaS Virtual Machine에서 사용 되는 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다.
 
 이 솔루션은 Microsoft Azure에서 사용되도록 설정될 경우 IaaS VM에 대해 다음 시나리오를 지원합니다.
 

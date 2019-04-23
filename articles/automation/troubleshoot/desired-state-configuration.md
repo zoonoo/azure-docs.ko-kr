@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c067d6f02ceeca9bf390ab5421dcfe463e9f758d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699084"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002581"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -41,6 +41,31 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 * 구성을 삭제 하려면 "제거-AzAutomationDscConfiguration" Az Cmdlet을 사용 합니다.
 * 이 cmdlet에 대 한 설명서는 아직 업데이트 되지 않았습니다.  그때 까지는 AzureRM 모듈에 대 한 설명서를 참조 하십시오.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+
+### <a name="failed-to-register-agent"></a>시나리오: Dsc 에이전트를 등록 하지 못했습니다.
+
+#### <a name="issue"></a>문제
+
+실행 하려고 할 때 `Set-DscLocalConfigurationManager` 또는 오류를 수신 하는 다른 DSC cmdlet:
+
+```error
+Registration of the Dsc Agent with the server
+https://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000 failed. The
+underlying error is: Failed to register Dsc Agent with AgentId 00000000-0000-0000-0000-000000000000 with the server htt
+ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-0000-0000-000000000000/Nodes(AgentId='00000000-0000-0000-0000-000000000000'). .
+    + CategoryInfo          : InvalidResult: (root/Microsoft/...gurationManager:String) [], CimException
+    + FullyQualifiedErrorId : RegisterDscAgentCommandFailed,Microsoft.PowerShell.DesiredStateConfiguration.Commands.Re
+   gisterDscAgentCommand
+    + PSComputerName        : <computerName>
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 일반적으로 방화벽, 프록시 서버 또는 다른 네트워크 오류 뒤에 사용 되는 컴퓨터에 의해 발생 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+컴퓨터에 Azure Automation DSC에 대 한 적절 한 끝점에 대 한 액세스를 확인 하 고 다시 시도 하세요. 포트 및 필요한 주소 목록을 참조 하세요. [네트워크 계획](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>시나리오: 노드가 "찾을 수 없음" 오류로 실패한 상태임
 

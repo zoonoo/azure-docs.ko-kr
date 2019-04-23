@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683176"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001578"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -85,9 +85,9 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 > [!IMPORTANT]
 > 이러한 DMV를 사용하여 CPU 사용률 문제를 해결하는 T-SQL 쿼리 집합은 [CPU 성능 문제 식별](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조하세요.
 
-### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>쿼리의 매개 변수가 중요한 쿼리 실행 계획 문제 해결
+### <a name="ParamSniffing"></a> 쿼리 매개 변수가 중요 쿼리 실행 계획 문제가 문제 해결
 
-PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램이 특정 매개 변수 값(또는 값 세트)에 대해서만 최적 상태인 쿼리 실행 계획을 생성하고 캐시된 계획이 연속 실행에 사용되는 매개 변수 값에 대한 최적이 아닌 시나리오를 나타냅니다. 최적이 아닌 계획을 사용하면 쿼리 성능 문제가 발생하고 전반적인 워크로드 처리량이 저하될 수 있습니다.
+PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램이 특정 매개 변수 값(또는 값 세트)에 대해서만 최적 상태인 쿼리 실행 계획을 생성하고 캐시된 계획이 연속 실행에 사용되는 매개 변수 값에 대한 최적이 아닌 시나리오를 나타냅니다. 최적이 아닌 계획을 사용하면 쿼리 성능 문제가 발생하고 전반적인 워크로드 처리량이 저하될 수 있습니다. 매개 변수 스니핑 및 쿼리 처리에 대 한 자세한 내용은 참조는 [쿼리 처리 아키텍처 가이드](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing)합니다.
 
 문제를 완화하는 데 사용되는 몇 가지 해결 방법과 관련된 절충안 및 단점은 다음과 같습니다.
 
@@ -102,17 +102,17 @@ PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램�
 
 이러한 유형의 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- 이 [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/)(매개 변수 진단) 블로그 게시물
-- 이렇게 [elephant and mouse parameter sniffing](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)(코끼리 및 쥐 매개 변수 검색) 블로그 게시물
-- 이 [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)(동적 SQL 및 매개 변수가 있는 쿼리의 계획 품질) 블로그 게시물
+- 이렇게 [매개 변수를 찾았습니다](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) 블로그 게시물
+- 이 [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)(동적 SQL 및 매개 변수가 있는 쿼리의 계획 품질) 블로그 게시물
+- 이 [SQL Server에서 SQL 쿼리 최적화 기술: 매개 변수 스니핑](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) 블로그 게시물
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>부적절한 매개 변수화로 인한 컴파일 활동 문제 해결
 
 쿼리에 리터럴이 있는 경우 데이터베이스 엔진이 자동으로 문을 매개 변수화하도록 선택하거나, 사용자가 컴파일 수를 줄이기 위해 문을 명시적으로 매개 변수화할 수 있습니다. 패턴이 같지만 다른 리터럴 값을 사용하는 쿼리를 여러 번 컴파일하면 CPU 사용률이 높아질 수 있습니다. 마찬가지로, 리터럴을 계속 포함하는 쿼리를 부분적으로만 매개 변수화해도 데이터베이스 엔진이 추가로 매개 변수화하지는 않습니다.  다음은 부분적으로 매개 변수가 있는 쿼리 예제입니다.
 
 ```sql
-select * from t1 join t2 on t1.c1=t2.c1
-where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
 이전 예제에서 `t1.c1`은 `@p1`을 사용하지만 `t2.c2`는 계속해서 GUID를 리터럴로 사용합니다. 이러한 경우 `c2` 값을 변경하면 쿼리는 다른 쿼리로 처리되고 새 컴파일이 발생합니다. 이전 예제에서 컴파일을 줄이려면 GUID도 매개 변수화해야 합니다.
@@ -120,24 +120,24 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 다음 쿼리는 쿼리가 적절히 매개 변수화되었는지를 확인하기 위한 쿼리 해시별 쿼리 수를 보여 줍니다.
 
 ```sql
-   SELECT  TOP 10  
-      q.query_hash
-      , count (distinct p.query_id ) AS number_of_distinct_query_ids
-      , min(qt.query_sql_text) AS sampled_query_text
-   FROM sys.query_store_query_text AS qt
-      JOIN sys.query_store_query AS q
-         ON qt.query_text_id = q.query_text_id
-      JOIN sys.query_store_plan AS p 
-         ON q.query_id = p.query_id
-      JOIN sys.query_store_runtime_stats AS rs 
-         ON rs.plan_id = p.plan_id
-      JOIN sys.query_store_runtime_stats_interval AS rsi
-         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
-   WHERE
-      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
-      AND query_parameterization_type_desc IN ('User', 'None')
-   GROUP BY q.query_hash
-   ORDER BY count (distinct p.query_id) DESC
+SELECT  TOP 10  
+  q.query_hash
+  , count (distinct p.query_id ) AS number_of_distinct_query_ids
+  , min(qt.query_sql_text) AS sampled_query_text
+FROM sys.query_store_query_text AS qt
+  JOIN sys.query_store_query AS q
+     ON qt.query_text_id = q.query_text_id
+  JOIN sys.query_store_plan AS p 
+     ON q.query_id = p.query_id
+  JOIN sys.query_store_runtime_stats AS rs 
+     ON rs.plan_id = p.plan_id
+  JOIN sys.query_store_runtime_stats_interval AS rsi
+     ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+WHERE
+  rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+  AND query_parameterization_type_desc IN ('User', 'None')
+GROUP BY q.query_hash
+ORDER BY count (distinct p.query_id) DESC
 ```
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>문제 쿼리 해결 또는 더 많은 리소스 제공
@@ -183,7 +183,7 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 - CPU를 많이 소비하는 쿼리가 여전히 실행 중일 수 있으며 쿼리가 완료되지 않았습니다.
 - 장애 조치(Failover)가 발생했을 때 CPU를 많이 소비하는 쿼리가 실행 중이었습니다.
 
-쿼리 저장소 및 대기 통계 추적 동적 관리 뷰는 성공적으로 완료되고 제한 시간을 초과한 쿼리의 결과만 표시하고, 현재 실행 중인 문에 대한 데이터는 표시하지 않습니다(완료될 때까지).  동적 관리 뷰 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)를 사용하여 현재 실행 중인 쿼리와 관련된 작업자 시간을 추적할 수 있습니다.
+쿼리 저장소 및 대기 통계 추적 동적 관리 뷰는 성공적으로 완료되고 제한 시간을 초과한 쿼리의 결과만 표시하고, 현재 실행 중인 문에 대한 데이터는 표시하지 않습니다(완료될 때까지). 동적 관리 뷰 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)를 사용하여 현재 실행 중인 쿼리와 관련된 작업자 시간을 추적할 수 있습니다.
 
 이전 차트에 표시된 것처럼, 가장 일반적인 대기는 다음과 같습니다.
 
@@ -198,6 +198,8 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 > - [I/O 성능 문제 식별](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [`tempdb` 성능 문제 식별](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [메모리 부여 대기 식별](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox-대기 및 래치](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>보다 많은 리소스와 함께 데이터베이스 성능 개선
 

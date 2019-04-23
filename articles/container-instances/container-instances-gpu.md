@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351374"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000660"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
 Azure Container Instances에서 컴퓨팅 작업이 많은 특정한 워크로드를 실행하려면 *GPU 리소스*를 사용하여 [컨테이너 그룹](container-instances-container-groups.md)을 배포합니다. 그룹의 컨테이너 인스턴스는 CUDA 및 딥 러닝 애플리케이션과 같은 컨테이너 워크로드를 실행하는 동안 하나 이상의 NVIDIA Tesla GPU에 액세스할 수 있습니다.
 
-이 문서에서 볼 수 있듯이, 컨테이너 그룹을 배포할 때 [YAML 파일](container-instances-multi-container-yaml.md) 또는 [Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하여 GPU 리소스를 추가할 수 있습니다.
+이 문서에서는 사용 하 여 컨테이너 그룹을 배포할 때 GPU 리소스를 추가 하는 방법을 보여 줍니다.는 [YAML 파일](container-instances-multi-container-yaml.md) 하거나 [Resource Manager 템플릿을](container-instances-multi-container-group.md)합니다. Azure portal을 사용 하 여 컨테이너 인스턴스를 배포 하는 경우에 GPU 리소스를 지정할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
@@ -61,7 +61,7 @@ GPU 리소스를 배포 하는 경우에 CPU 및 메모리 리소스를 앞의 �
 
 * **가격 책정** - GPU 리소스가 없는 컨테이너 그룹과 마찬가지로, Azure는 GPU 리소스가 있는 컨테이너 그룹의 *기간* 동안 사용된 리소스 비용을 청구합니다. 이 기간은 컨테이너의 첫 번째 이미지를 끌어온 시점부터 컨테이너 그룹이 종료되는 시점 사이의 시간으로 계산됩니다. 컨테이너 그룹을 배포하는 시간은 포함되지 않습니다.
 
-  GPU 리소스가 없는 컨테이너 그룹보다 GPU 리소스가 있는 컨테이너 그룹의 가격 책정이 더 높습니다. [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/container-instances/)를 참조하세요.
+  [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/container-instances/)를 참조하세요.
 
 * **CUDA 드라이버** - GPU 리소스가 있는 컨테이너 인스턴스는 NVIDIA CUDA 드라이버 및 컨테이너 런타임이 미리 프로비전되므로, CUDA 워크로드용으로 개발된 컨테이너 이미지를 사용할 수 있습니다.
 

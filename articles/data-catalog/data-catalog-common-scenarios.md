@@ -2,18 +2,18 @@
 title: Azure 데이터 카탈로그 일반적인 시나리오
 description: 높은 가치의 데이터 원본 등록 및 검색을 포함한 Azure Data Catalog에 대한 일반적인 시나리오의 개요를 통해 셀프서비스 비즈니스 인텔리전스를 실현하고 데이터 원본과 프로세스에 대한 기존 정보를 획득합니다.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 531c5890cb2164b51d7b383d0b1fdd1b92d9e8eb
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405032"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010809"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure 데이터 카탈로그 일반적인 시나리오
 이 문서에서는 조직에서 Azure Data Catalog를 통해 기존 데이터 원본에서 더 많은 가치를 얻을 수 있는 일반적인 시나리오를 보여줍니다.
@@ -34,7 +34,7 @@ Azure Data Catalog를 시작하는 경우 데이터 소비자의 여러 팀에�
 
 이 시나리오는 가치가 높은 데이터 소스에 주석을 추가하여 이해와 액세스가 쉽도록 만들 수 있는 기회를 주기도 합니다. 이 과정의 중요한 측면 하나는 사용자가 데이터 소스에 대한 액세스를 어떻게 요청할 수 있는지에 대한 정보를 포함시키는 것입니다. Azure Data Catalog를 사용하면 데이터 원본 액세스를 제어하는 역할을 하는 사용자 또는 팀의 이메일 주소, 외부 도구 또는 문서 링크, 액세스 요청 프로세스를 설명하는 자유 텍스트를 제공할 수 있습니다. 이 정보는 등록된 데이터 원본을 찾았으나 액세스 권한이 없는 사용자가 데이터 원본 소유자가 정의하고 제어하는 절차에 따라 손쉽게 액세스를 요청하는 데 도움이 됩니다.
 
-## <a name="scenario-2-self-service-business-intelligence"></a>시나리오 2: 셀프서비스 비즈니스 인텔리전스
+## <a name="scenario-2-self-service-business-intelligence"></a>시나리오 2: 셀프 서비스 비즈니스 인텔리전스
 기존의 기업 비즈니스 인텔리전스 솔루션은 많은 기업의 데이터 시스템에서 여전히 중요한 부분이지만, 비즈니스의 변화 속도로 인해 셀프 서비스 BI가 점점 더 중요해지고 있습니다. 셀프 서비스 BI를 사용하면 정보 근로자와 분석가는 중앙 IT 팀에 의존하거나 중앙 IT팀의 일정 및 가용성에 제약을 받지 않고 보고서, 통합 문서 및 대시보드를 만들 수 있습니다.
 
 셀프 서비스 BI 시나리오에서는 사용자가 여러 소스의 데이터를 결합하는 것이 일반적이며, 이러한 소스 중 상당수는 이전에 BI 및 분석에 사용되지 않은 것입니다. 이러한 데이터 원본 중 일부가 이미 알려진 경우도 있겠지만, 특정 작업에 대한 데이터 원본을 찾아서 평가하는 작업이 어려울 수 있습니다.
@@ -47,7 +47,7 @@ Azure Data Catalog를 사용하면 조직에서 이 반복되는 활동을 없�
 
 이 시나리오에서는 셀프 서비스 BI에 중점을 두고 있지만 대규모 기업 BI 프로젝트에도 동일한 패턴과 과제가 적용됩니다. Data Catalog를 사용하면 조직에서 데이터 원본 수동 검색 프로세스가 개입되는 모든 활동을 개선할 수 있습니다.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>시나리오 3: 조직에 관한 정보 찾기
+## <a name="scenario-3-capturing-tribal-knowledge"></a>시나리오 3: 에 관한 정보
 작업을 수행하는 데 어떤 데이터가 필요하고 해당 데이터가 어디에 있는지 어떻게 알 수 있나요?
 
 일정 시간 동안 일하면 아마도 그냥 알게 될 것입니다. 점진적 학습 과정을 겪고 시간이 지남에 따라 일상적인 작업에 중요한 데이터 원본에 대해 배우게 됩니다.

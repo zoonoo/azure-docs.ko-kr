@@ -4,7 +4,7 @@ description: Azure에서 OpenShift 배포 문제를 해결합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540349"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001119"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Azure에서 OpenShift 배포 문제 해결
 
@@ -42,9 +42,9 @@ ansible 플레이북 호스트에 대해 SSH를 수행합니다. OKD 템플릿(�
 
 ## <a name="log-files"></a>로그 파일
 
-호스트 준비 스크립트에 대한 로그 파일(stderr 및 stdout)은 모든 호스트의 /var/lib/waagent/custom-script/download/0에 있습니다. 호스트를 준비하는 동안 오류가 발생한 경우 이 로그 파일을 보고 오류를 확인합니다.
+호스트 준비 스크립트에 대 한 로그 파일 (stderr 및 stdout)에 위치한 `/var/lib/waagent/custom-script/download/0` 모든 호스트에 있습니다. 호스트를 준비하는 동안 오류가 발생한 경우 이 로그 파일을 보고 오류를 확인합니다.
 
-준비 스크립트가 성공적으로 실행된 경우 ansible 플레이북 호스트의 /var/lib/waagent/custom-script/download/1 디렉터리에 있는 로그 파일을 조사해야 합니다. OpenShift를 실제로 설치하는 동안 오류가 발생한 경우 stdout 파일에 오류가 표시됩니다. 추가 지원을 받으려면 이 정보를 사용하여 고객 지원팀에 문의하세요.
+준비 스크립트를 성공적으로 실행 하는 경우 다음 로그 파일에 `/var/lib/waagent/custom-script/download/1` ansible 플레이 북 호스트의 디렉터리를 검사 해야 합니다. OpenShift를 실제로 설치하는 동안 오류가 발생한 경우 stdout 파일에 오류가 표시됩니다. 추가 지원을 받으려면 이 정보를 사용하여 고객 지원팀에 문의하세요.
 
 예제 출력
 
@@ -93,11 +93,11 @@ Failure summary:
 
 ### <a name="private-key-has-a-passphrase"></a>개인 키에 암호가 있음
 
-SSH에 대한 사용 권한이 거부되었다는 오류가 표시됩니다. ansible 플레이북 호스트에 대해 SSH를 수행하여 개인 키의 암호를 확인합니다.
+권한이 거부 된에 대 한 ssh 오류가 표시 됩니다. ssh 개인 키에 대 한 암호를 확인 하 고 ansible 플레이 북 호스트로 합니다.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>개인 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
 
-개인 키가 ansible 플레이북 호스트 - ~/.ssh/id_rsa에 삽입되었습니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
+개인 키 ansible 플레이 북 호스트-~/.ssh/id_rsa에 복사 됩니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>서비스 주체 자격 증명이 잘못 입력됨
 

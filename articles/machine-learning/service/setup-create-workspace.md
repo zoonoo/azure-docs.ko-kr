@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
-ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547951"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007001"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Azure Machine Learning 서비스 작업 영역 만들기
 
@@ -27,7 +27,9 @@ Azure Machine Learning 서비스를 사용 하려면 필요는 [ **Azure Machine
 * Azure Resource Manager 템플릿
 * [Azure 기계 학습 CLI](#cli)
 
-다른 자습서 및 방법 문서에 필수 구성 요소로 여기의 단계를 사용 하 여 만든 작업 영역을 사용할 수 있습니다. 
+다른 자습서 및 방법 문서에 필수 구성 요소로 여기의 단계를 사용 하 여 만든 작업 영역을 사용할 수 있습니다.
+
+로컬 Python 환경에서 자동화 된 기계 학습을 설정 하는 스크립트를 사용 하려는 경우 참조 하는 [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) 지침은.  
 
 작업 영역을 만든 다음 Azure 리소스를 자동으로 (지역적으로 사용 가능한 경우) 추가 됩니다.
  

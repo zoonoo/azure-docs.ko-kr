@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370315"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000932"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
@@ -106,14 +106,14 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 피지                                                |                  |                |              |      ✓     |          ✓         |
 | 프랑스령 폴리네시아                                    |                 |                |              |      ✓     |          ✓         |
 | 허드 섬 및 맥도널드 제도                   |                 |                |              |      ✓     |          ✓         |
-| 홍콩                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 홍콩 특별 행정구                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 인도네시아                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 인도                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | 일본                                               |                 |                |              |      ✓     |          ✓         |
 | 키리바시                                            |                 |                |              |      ✓     |          ✓         |
 | 한국                                         |                 |                |              |      ✓     |          ✓         |
 | 라오스                                                |                 |                |              |      ✓     |          ✓         |
-| 마카오 특별행정구                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 마카오                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 말레이시아                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 미크로네시아                                          |                 |                |              |      ✓     |          ✓         |
 | 몽골                                            |                 |                |              |      ✓     |          ✓         |
@@ -189,7 +189,7 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 리히텐슈타인                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 리투아니아                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 룩셈부르크                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| 북마케도니아 공화국                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 북마케도니아                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 몰타                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | 몰도바                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 모나코                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

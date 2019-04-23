@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918640"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996359"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -113,7 +113,7 @@ Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도�
 ### <a name="system-requirements"></a>시스템 요구 사항
 - Windows Server 2012 R2, Windows Server 2016 또는 Windows Server 2019를 실행하는 서버.
 
-    | 버전 | 지원되는 SKU | 지원되는 배포 옵션 |
+    | Version | 지원되는 SKU | 지원되는 배포 옵션 |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
     | Windows Server 2016 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
@@ -242,7 +242,7 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | 캐나다 동부 | 퀘벡 시티 |
 | 중앙 인도 | 푸네 |
 | 미국 중부 | 아이오와 |
-| 동아시아 | 홍콩 |
+| 동아시아 | 홍콩 특별 행정구 |
 | 미국 동부 | 버지니아 |
 | 미국 동부2 | 버지니아 |
 | 일본 동부 | 도쿄, 사이타마 |

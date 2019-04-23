@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 7f850cdfe99fce81c9be045b4882dc42bf2aa5f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551099"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001884"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성
 
@@ -121,7 +121,9 @@ WordPress와 같은 다중 컨테이너 앱에는 제대로 작동 하려면 영
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `${WEBAPP_STORAGE_HOME}`. `WEBAPP_STORAGE_HOME`은 앱의 영구 저장소에 매핑되는 App Service의 환경 변수입니다. 예를 들면 다음과 같습니다.
+사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `${WEBAPP_STORAGE_HOME}`. 
+
+`WEBAPP_STORAGE_HOME`은 앱의 영구 저장소에 매핑되는 App Service의 환경 변수입니다. 예를 들면 다음과 같습니다.
 
 ```yaml
 wordpress:
@@ -130,6 +132,19 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
+```
+
+### <a name="use-custom-storage-in-docker-compose"></a>Docker Compose에 사용자 지정 저장소를 사용 합니다.
+
+사용자 지정 id를 사용 하 여 다중 컨테이너 앱을 사용 하 여 azure Storage (Azure Files 또는 Azure Blob)을 탑재할 수 있습니다. 사용자 지정 id 이름을 보려면 실행 [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)합니다.
+
+사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `custom-id`. 예를 들면 다음과 같습니다.
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>미리 보기 제한 사항
@@ -148,7 +163,7 @@ wordpress:
 - command
 - entrypoint
 - 환경
-- 이미지
+- Image
 - ports
 - restart
 - services
@@ -172,7 +187,7 @@ wordpress:
 - args
 - command
 - 컨테이너
-- 이미지
+- Image
 - 이름
 - ports
 - spec
@@ -187,4 +202,4 @@ wordpress:
 > [자습서: 개인 컨테이너 리포지토리에서 배포](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [자습서: WordPress 다중 컨테이너 앱](tutorial-multi-container-app.md)
+> [자습서: 다중 컨테이너 WordPress 앱](tutorial-multi-container-app.md)

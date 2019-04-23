@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784895"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006491"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
@@ -69,9 +69,9 @@ ms.locfileid: "59784895"
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-[**인사이트 가져오기 위젯**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API를 사용하여 인지 인사이트 위젯 콘텐츠를 가져오거나, 위와 같이 [**비디오 액세스 토큰 가져오기**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)를 사용하고 URL에 쿼리 매개 변수로 추가합니다. 이 URL을 **iframe**의 **src** 값으로 지정합니다.
+[**인사이트 가져오기 위젯**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API를 사용하여 인지 인사이트 위젯 콘텐츠를 가져오거나, 위와 같이 [**비디오 액세스 토큰 가져오기**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)를 사용하고 URL에 쿼리 매개 변수로 추가합니다. 이 URL을 **iframe**의 **src** 값으로 지정합니다.
 
-웹 애플리케이션에 있는 것처럼 포함된 위젯에 인사이트 편집 기능을 제공하려면 편집 권한이 있는 액세스 토큰을 전달해야 합니다. **&allowEdit=true**인 [**인사이트 가져오기 위젯**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) 또는 [**비디오 액세스 토큰 가져오기**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)를 사용합니다. 
+웹 애플리케이션에 있는 것처럼 포함된 위젯에 인사이트 편집 기능을 제공하려면 편집 권한이 있는 액세스 토큰을 전달해야 합니다. **&allowEdit=true**인 [**인사이트 가져오기 위젯**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [**비디오 액세스 토큰 가져오기**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)를 사용합니다. 
 
 ## <a name="widgets-interaction"></a>위젯 상호 작용
 

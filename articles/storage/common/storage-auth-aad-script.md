@@ -1,29 +1,29 @@
 ---
-title: Blob 및 큐 데이터에 액세스 하려면 Azure AD id 아래에서 Azure CLI 또는 PowerShell 명령을 실행 | Microsoft Docs
-description: Azure CLI 및 PowerShell 명령을 실행 하 여 Azure Storage blob 및 큐 데이터를 Azure AD id에 로그인을 지원 합니다. 세션에 액세스 토큰이 제공되고 호출 작업에 권한을 부여하는 데 사용됩니다. 권한은 Azure AD id에 할당 된 RBAC 역할에 따라 다릅니다.
+title: Azure CLI 또는 PowerShell 명령을 실행 하는 blob 또는 큐 데이터에 액세스 하려면 Azure AD 자격 증명을 사용 하 여 | Microsoft Docs
+description: Azure CLI 및 PowerShell 명령을 실행 하 여 Azure Storage blob 및 큐 데이터를 Azure AD 자격 증명으로 로그인을 지원 합니다. 세션에 액세스 토큰이 제공되고 호출 작업에 권한을 부여하는 데 사용됩니다. 권한은 Azure AD 보안 주체에 할당 된 RBAC 역할에 따라 다릅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787001"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149651"
 ---
-# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>CLI 또는 PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하려면 Azure AD id 사용
+# <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Blob 또는 큐 데이터에 액세스 하려면 Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행합니다
 
-Azure Storage에 로그인 하 여 Azure Active Directory (Azure AD) id에서 스크립트 명령을 실행할 수 있도록 하는 Azure CLI 및 PowerShell에 대 한 확장을 제공 합니다. Azure AD ID는 사용자, 그룹 또는 애플리케이션 서비스 주체일 수도 있고, [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수도 있습니다. 역할 기반 액세스 제어 (RBAC)를 통해 Azure AD id에 blob 및 큐 데이터에 액세스 하는 권한을 할당할 수 있습니다. Azure Storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 Azure Storage 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
+Azure Storage에 로그인 하 여 Azure Active Directory (Azure AD) 자격 증명으로 스크립트 명령을 실행할 수 있도록 하는 Azure CLI 및 PowerShell에 대 한 확장을 제공 합니다. Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell에 로그인 할 때 OAuth 2.0 액세스 토큰을 반환 됩니다. 해당 토큰은 자동으로 Blob 또는 큐 저장소에 대 한 후속 데이터 작업 권한을 부여 하려면 CLI 또는 PowerShell에서 사용 됩니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
-Azure AD id를 사용 하 여 Azure CLI 또는 PowerShell에 로그인 할 때 해당 id에서 Azure Storage에 액세스 하기 위한 액세스 토큰이 반환 됩니다. 그런 후 CLI 또는 PowerShell에서는 자동으로 해당 토큰을 사용하여 Azure Storage에 대한 작업 권한을 부여합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
+Blob 및 큐 데이터 역할 기반 액세스 제어 (RBAC)를 통해 Azure AD 보안 주체에 권한을 할당할 수 있습니다. Azure Storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요. [RBAC 사용 하 여 Azure Storage 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
 
 ## <a name="supported-operations"></a>지원되는 작업
 
-확장은 컨테이너 및 큐 작업에 지원 됩니다. 어떤 작업을 호출할 수 있는 로그인 Azure CLI 또는 PowerShell을 Azure AD id에 부여 된 권한에 따라 달라 집니다. Azure Storage 컨테이너 또는 큐에 대한 권한은 RBAC(역할 기반 액세스 제어)를 통해 할당됩니다. 예를 들어, 데이터 읽기 권한자 역할이 해당 ID에 할당되면 컨테이너 또는 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. 데이터 참가자 역할이 ID에 할당되면 컨테이너 또는 큐나 포함된 데이터를 읽거나, 쓰거나, 삭제하는 스크립팅 명령을 실행할 수 있습니다. 
+확장은 컨테이너 및 큐 작업에 지원 됩니다. 어떤 작업을 호출할 수 있는 로그인 Azure CLI 또는 PowerShell을 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. Azure Storage 컨테이너 또는 큐에 대한 권한은 RBAC(역할 기반 액세스 제어)를 통해 할당됩니다. 예를 들어, 할당 된 경우는 **Blob 데이터 판독기** 역할을 컨테이너 또는 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. 지정 된 경우는 **Blob 데이터 기여자** 역할을 읽기, 쓰기 또는 컨테이너, 큐 또는 포함 된 데이터를 삭제 하는 스크립트 명령을 실행할 수 있습니다. 
 
 컨테이너 또는 큐를 대상으로 하는 각 Azure Storage 작업에 필요한 사용 권한에 대한 자세한 내용은 [REST 작업 호출을 위한 권한](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)을 참조하세요.  
 
@@ -129,5 +129,5 @@ Azure CLI를 지원 합니다 `--auth-mode` blob 및 큐 데이터 작업에 대
 ## <a name="next-steps"></a>다음 단계
 
 - Azure storage에 대 한 RBAC 역할에 대 한 자세한 내용은 참조 하세요 [RBAC 사용 하 여 저장소 데이터에 대 한 관리 액세스 권한을](storage-auth-aad-rbac.md)합니다.
-- 관리 되는 id를 사용 하 여 Azure Storage를 사용 하 여 Azure 리소스에 대 한 자세한 내용은 참조 하세요 [blob 및 Azure 사용 하 여 큐에 대 한 인증 액세스 identities를 관리 되는 Azure 리소스에 대 한](storage-auth-aad-msi.md)합니다.
+- 관리 되는 id를 사용 하 여 Azure Storage를 사용 하 여 Azure 리소스에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 blob 및 Azure Active Directory 및 관리 되는 id를 사용 하 여 큐에 대 한 액세스를 인증](storage-auth-aad-msi.md)합니다.
 - 저장소 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [저장소 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.

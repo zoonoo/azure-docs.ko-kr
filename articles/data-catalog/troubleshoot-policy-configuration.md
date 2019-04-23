@@ -1,17 +1,17 @@
 ---
 title: Azure Data Catalog에 대 한 Azure Active Directory 정책을 구성 하는 방법
 description: 하지만 데이터 원본 등록 도구에 로그인 하려고 할 때 Azure Data Catalog 포털에 로그인 할 수 있는 상황이 발생할 수 있습니다, 오류 메시지가 발생 합니다.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
-ms.openlocfilehash: 558f8845f5469bf157188e20f1ec65a07ff8355f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59363146"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996444"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory 정책 구성
 

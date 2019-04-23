@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: 4d867a8befb9333ebf33b9ac7ba179e25f0b9f9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3c2587fceed265c9768b6ea6f2ecf3b9a8b7b1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698574"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011351"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 PowerShell 모듈
 
@@ -50,20 +50,17 @@ PowerShell 클래식 Az 또는 AzureRM "new" 및 "클래식" 리소스 유형이
 
 ## <a name="support-table"></a> PowerShell 지원 표
 
- **Studio 작업 영역** | **Az** |  **AzureRM** | **PowerShell 클래식** |
-| --- | --- | --- | --- |
-| 작업 영역 만들기/삭제 | [Resource Manager 템플릿](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager 템플릿](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
-| 작업 영역 사용자 관리 |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| 약정 플랜 관리 | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | New-AzureRmMlCommitmentPlan |
-|||
-| **웹 서비스** | **Az** | **AzureRM** | **PowerShell 클래식** |
-| 웹 서비스 관리 | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> ("new" 웹 서비스) | New-AzureRmMlWebService <br> ("new" 웹 서비스) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> ("클래식" 웹 서비스) |
-| 엔드포인트/키 관리 |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> ("new" 웹 서비스) | Get-AzureRmMlWebServiceKeys <br> ("new" 웹 서비스) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> ("클래식" 웹 서비스) |
-|||
-| **사용자 자산** | **Az** | **AzureRM** | **PowerShell 클래식** |
-| 데이터 세트/학습된 모델 관리 |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
-| 실험 관리 |  |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
-| 사용자 지정 모듈 관리 |  |  | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
+
+| | **Az** |  **PowerShell 클래식** |
+| --- | --- | --- |
+| 작업 영역 만들기/삭제 | [Resource Manager 템플릿](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| 작업 영역 약정 계획 관리 | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
+| 작업 영역 사용자 관리 |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
+| 웹 서비스 관리 | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("new" 웹 서비스)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("클래식" 웹 서비스) |
+| 웹 서비스 끝점/키 관리 |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| 사용자 데이터 집합/학습 모델 관리| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
+| 사용자 실험 관리 |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
+| 사용자 지정 모듈 관리 | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
 
 
 ## <a name="next-steps"></a>다음 단계

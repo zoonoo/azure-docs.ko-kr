@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.openlocfilehash: b5c833798f8533e7c6fbe3595a726ac6ce56e2d2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682817"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998263"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -75,7 +75,7 @@ Azure Stream Analytics는 지리 공간 참조 데이터 인덱싱을 지원합�
 
 **이전 수준:** Upsert 동작이 *삽입 또는 병합*입니다.
 
-**1.2 수준:** CosmosDB 출력을 사용 하 여 대량 API 통합을 기본 처리량을 최대화 하 고 효율적으로 제한 요청을 처리 합니다.
+**1.2 수준:** CosmosDB 출력을 사용 하 여 대량 API 통합을 기본 처리량을 최대화 하 고 효율적으로 제한 요청을 처리 합니다. 자세한 내용은 [Azure Cosmos DB 페이지에 Azure Stream Analytics 출력](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12)합니다.
 
 Upsert 동작은 *삽입 또는 바꾸기*합니다.
 

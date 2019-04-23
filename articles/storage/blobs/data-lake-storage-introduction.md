@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009423"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009466"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -43,7 +43,7 @@ Data Lake Storage Gen2의 기본적인 부분은 [계층 구조 네임스페이�
 
 -   **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라 청구 요금이 바뀌므로 [Azure Blob Storage 수명 주기](storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용이 최소한으로 유지됩니다.
 
--   **최적화된 드라이버**: ABFS 드라이버는 빅 데이터 분석을 위해 [특별히 최적화](data-lake-storage-abfs-driver.md)되었습니다. 해당 REST API는 DFS 엔드포인트(dfs.core.windows.net)를 통해 표시됩니다.
+-   **최적화된 드라이버**: ABFS 드라이버가 [특히 최적화](data-lake-storage-abfs-driver.md) 빅 데이터 분석에 대 한 합니다. 해당 REST Api 끝점을 통해 표시 됩니다 `dfs.core.windows.net`합니다.
 
 ### <a name="scalability"></a>확장성
 

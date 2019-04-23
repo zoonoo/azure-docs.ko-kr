@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045597"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011262"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
@@ -52,7 +52,7 @@ Azure Data Explorer는 현재 다음을 지원합니다.
 
 ### <a name="ingestion-using-integration-services"></a>통합 서비스를 사용한 수집
 
-* Azure 데이터 팩터리 (ADF)를 azure에서 사용 하 여 Azure 데이터 탐색기에서 데이터를 복사 하는 분석 워크 로드를 위한 완전히 관리 되는 데이터 통합 서비스 [지원 되는 데이터 저장소 및 형식](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)합니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Explorer에(서) 데이터 복사](/azure/data-factory/connector-azure-data-explorer)를 참조하세요.
+* Azure 데이터 팩터리 (ADF)를 azure에서 사용 하 여 Azure 데이터 탐색기에서 데이터를 복사 하는 분석 워크 로드를 위한 완전히 관리 되는 데이터 통합 서비스 [지원 되는 데이터 저장소 및 형식](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)합니다. 자세한 내용은 [Azure 데이터 탐색기로 Azure Data Factory에서 데이터를 복사](/azure/data-explorer/data-factory-load-data)합니다.
 
 ### <a name="programmatic-ingestion"></a>프로그래밍 방식 수집
 

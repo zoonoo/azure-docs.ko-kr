@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984053"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006675"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -86,7 +86,7 @@ ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](https://aka.ms/applicationconnectivitymonitorguide)
+* [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [블로그 게시물](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>트래픽 분석

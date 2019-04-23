@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796313"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148988"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리를 만듭니다.
-이 문서에서 제공 되는 샘플 스크립트를 사용 하 여 사용자 지정 이미지 팩터리를 설정 하는 방법을 보여 줍니다.는 [Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory)합니다.
+이 문서에서 제공 되는 샘플 스크립트를 사용 하 여 사용자 지정 이미지 팩터리를 설정 하는 방법을 보여 줍니다.는 [Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory)합니다.
 
 ## <a name="whats-an-image-factory"></a>이미지 팩터리 란?
 이미지 팩터리는 빌드하고 원하는 모든 구성을 사용 하 여 정기적으로 자동으로 이미지를 배포 하는 코드와 구성 솔루션입니다. 이미지 팩터리 이미지는 항상 최신 이며 지속적인 유지 관리 거의 0 전체 프로세스가 자동화 되 면 합니다. 및 이미지에 필요한 모든 구성이 이미 이기 때문에 시간을 저장 합니다 기본 OS를 사용 하 여 VM을 만든 후 시스템을 수동으로 구성 합니다.
@@ -39,7 +39,7 @@ DevTest Labs에서 준비 상태가 개발자 데스크톱을 가져오려면 �
 
 ![솔루션의 상위 수준 보기](./media/create-image-factory/high-level-view-of-solution.png)
 
-[DevTest Labs에 대 한 VSTS 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) 개별 단계를 실행할 수 있도록 합니다. 
+[DevTest Labs에 대 한 VSTS 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) 개별 단계를 실행할 수 있도록 합니다.
 
 - 사용자 지정 이미지 만들기
 - VM 만들기

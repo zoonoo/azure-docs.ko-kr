@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497930"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996512"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -61,7 +61,7 @@ Azure Stack 워크로드에서 사용되는 모든 가상 머신은 동일한 Az
 각 Azure Stack 가상 머신에는 `D:\` 볼륨으로 사용자에게 제공되는 임시 디스크 저장소가 제공됩니다. Azure Backup에 필요한 로컬 준비 영역은 `D:\`에 위치하도록 구성할 수 있습니다. 캐시 위치는 `C:\`에 배치할 수 있습니다. 이러한 방식으로 Azure Backup Server 가상 머신에 연결된 데이터 디스크에서 저장소가 떨어지지 않아도 됩니다.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>로컬 디스크 및 Azure에 백업 데이터 저장
-Azure Backup Server는 작업 복구를 위해 가상 머신에 연결된 Azure 디스크에 백업 데이터를 저장합니다. 디스크 및 저장소 공간이 가상 머신에 연결되면 Azure Backup Server에서는 저장소를 관리합니다. 백업 데이터 저장소의 크기는 [Azure Stack 가상 머신](../azure-stack/user/azure-stack-storage-overview.md) 각각에 연결된 디스크의 크기와 수에 따라 달라집니다. 각 Azure Stack VM 크기에는 가상 머신에 연결할 수 있는 디스크의 최대 수가 포함됩니다. 예를 들어 A2는 4개의 디스크입니다. A3은 8개의 디스크입니다. A4는 16개의 디스크입니다. 또한 디스크 크기와 수는 총 백업 저장소 풀을 결정합니다.
+Azure Backup Server는 작업 복구를 위해 가상 머신에 연결된 Azure 디스크에 백업 데이터를 저장합니다. 디스크 및 저장소 공간이 가상 머신에 연결되면 Azure Backup Server에서는 저장소를 관리합니다. 백업 데이터 저장소의 크기는 [Azure Stack 가상 머신](/azure-stack/user/azure-stack-storage-overview) 각각에 연결된 디스크의 크기와 수에 따라 달라집니다. 각 Azure Stack VM 크기에는 가상 머신에 연결할 수 있는 디스크의 최대 수가 포함됩니다. 예를 들어 A2는 4개의 디스크입니다. A3은 8개의 디스크입니다. A4는 16개의 디스크입니다. 또한 디스크 크기와 수는 총 백업 저장소 풀을 결정합니다.
 
 > [!IMPORTANT]
 > 5일 넘게 Azure Backup Server에 연결된 디스크에서 작업 복구(백업) 데이터를 유지**하지** 않아야 합니다.
@@ -73,7 +73,7 @@ Azure에서 백업 데이터를 저장하려면 Recovery Services 자격 증명 
  
 ### <a name="scaling-deployment"></a>배포 크기 조정
 배포의 크기를 조정하려는 경우 다음 옵션을 사용할 수 있습니다.
-  - 강화 - A 시리즈부터 D 시리즈까지 Azure Backup Server 가상 머신의 크기를 늘리고, [Azure Stack 가상 머신 지침당](../azure-stack/user/azure-stack-manage-vm-disks.md) 로컬 저장소를 늘립니다.
+  - 강화 - A 시리즈부터 D 시리즈까지 Azure Backup Server 가상 머신의 크기를 늘리고, [Azure Stack 가상 머신 지침당](/azure-stack/user/azure-stack-manage-vm-disks) 로컬 저장소를 늘립니다.
   - 데이터 오프로드 - Azure에 이전 데이터를 전송하고, Azure Backup Server에 연결된 저장소에 최신 데이터만 유지합니다.
   - 규모 확장 - Azure Backup Server를 더 추가하여 워크로드를 보호합니다.
 

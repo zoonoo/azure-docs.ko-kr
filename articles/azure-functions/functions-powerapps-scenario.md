@@ -12,15 +12,15 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579126"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002487"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps에서 함수 호출
-[PowerApps](https://powerapps.microsoft.com) 플랫폼은 비즈니스 전문가가 기존 응용 프로그램 코드 없이도 앱을 빌드할 수 있도록 디자인되었습니다. 전문 개발자는 Azure Functions를 사용하여 PowerApps 앱 작성자에게 기술적 세부 사항은 숨기면서 PowerApps의 기능을 확장할 수 있습니다.
+[PowerApps](https://powerapps.microsoft.com) 플랫폼은 비즈니스 전문가가 기존 애플리케이션 코드 없이도 앱을 빌드할 수 있도록 디자인되었습니다. 전문 개발자는 Azure Functions를 사용하여 PowerApps 앱 작성자에게 기술적 세부 사항은 숨기면서 PowerApps의 기능을 확장할 수 있습니다.
 
 이 항목의 앱은 풍차에 대한 유지 관리 시나리오를 토대로 빌드합니다. 이 항목에서는 [함수에 대한 OpenAPI 정의 만들기](functions-openapi-definition.md)에 정의된 함수를 호출하는 방법을 보여 줍니다. 이 함수는 풍차에 대한 응급 복구가 비용 효율적인지 여부를 확인합니다.
 
@@ -38,6 +38,9 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 > * 앱에서 데이터를 보기 위한 컨트롤을 추가합니다.
 > * 함수를 호출하고 데이터를 표시하기 위한 컨트롤을 추가합니다.
 > * 앱을 실행하여 복구가 비용 효율적인지 여부를 확인합니다.
+
+> [!IMPORTANT]
+> OpenAPI 기능은 현재 미리 보기 상태이며 Azure Functions 런타임 1.x 버전에만 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -1,6 +1,6 @@
 ---
-title: 웹 후크/논리 앱/Azure Functions에 대 한 일반적인 경고 스키마 정의
-description: 웹 후크/논리 앱/Azure Functions에 대 한 일반적인 경고 스키마 정의 이해합니다.
+title: 웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 일반적인 경고 스키마 정의
+description: 웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 일반적인 경고 스키마 정의 이해합니다.
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010399"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149413"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
-이 문서에 설명 합니다 [일반적인 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs) 웹 후크/논리 앱/Azure Functions에 대 한 합니다. 
+이 문서에 설명 합니다 [일반적인 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs) 웹 후크/논리 앱/a z 함수/Automation Runbook에 대 한 합니다. 
 
 ## <a name="overview"></a>개요
 
@@ -88,7 +88,7 @@ ms.locfileid: "59010399"
 | originAlertId | 모니터링 하는 것이 서비스에서 생성 된 경고 인스턴스 ID입니다. |
 | firedDateTime | Utc에서 경고 인스턴스가 발생 된 날짜 시간 |
 | resolvedDateTime | 경고 인스턴스에 대 한 모니터 조건이 '해결' utc에서로 설정 되었을 때의 날짜 시간입니다. 현재 메트릭 경고에만 적용 됩니다.|
-| 설명 | 경고 규칙에 정의 된 대로 설명 |
+| description | 경고 규칙에 정의 된 대로 설명 |
 |essentialsVersion| Essentials 섹션에 대 한 버전 번호입니다.|
 |alertContextVersion | AlertContext 섹션에 대 한 버전 번호 |
 

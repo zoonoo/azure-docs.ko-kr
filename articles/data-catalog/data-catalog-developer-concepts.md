@@ -2,18 +2,18 @@
 title: Azure 데이터 카탈로그 개발자 개념
 description: 카탈로그 REST API를 통해 노출된 것으로 Azure 데이터 카탈로그 개념적 모델의 주요 개념을 소개합니다.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: bca006ab33379f52281f77fb5a04a24022bac373
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314556"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006695"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 데이터 카탈로그 개발자 개념
 Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라우드소싱 데이터 원본 메타데이터에 대한 기능을 제공하는 완전히 관리되는 클라우드 서비스입니다. 개발자는 REST API를 통해 서비스를 사용할 수 있습니다. 서비스에서 구현되는 개념을 이해 하는 것은 개발자가 **Azure 데이터 카탈로그**를 성공적으로 통합하는 데 중요합니다.

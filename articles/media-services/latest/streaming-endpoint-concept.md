@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881021"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999453"
 ---
 # <a name="streaming-endpoints"></a>스트리밍 엔드포인트
 
@@ -35,7 +35,7 @@ Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https:/
 
 ## <a name="types"></a>형식  
 
-**스트리밍 엔드포인트**의 유형으로는 표준 및 **프리미엄** 두 가지가 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다. 
+**스트리밍 엔드포인트**의 유형으로는 **표준** 및 **프리미엄** 두 가지가 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다. 
 
 다음 표에 해당 유형이 설명되어 있습니다.  
 
@@ -52,7 +52,6 @@ Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https:/
 ---|---|---
 처음 15일 무료| 예 |아닙니다.
 처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용하여 크기를 조정합니다.
-SLA | 99.9|99.9(SU당 200Mbps)입니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN 없음.|Azure CDN, 타사 CDN 또는 CDN 없음.
 청구를 계산합니다.| 매일|매일
 동적 암호화|예|예
@@ -86,7 +85,7 @@ IP 필터링 G20/사용자 지정 호스트 <sup>1</sup>|예|예
 
     다음은 서로 다른 Azure 지역에 대 한 확인 레코드에서 사용할 예상된 DNS 영역입니다.
   
-  - 북아메리카, 유럽, 싱가포르, 홍콩, 일본:
+  - North America, Europe, 싱가포르, 홍콩 특별 행정구, 일본:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

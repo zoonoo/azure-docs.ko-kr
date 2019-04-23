@@ -2,18 +2,18 @@
 title: Azure Data Catalog 개발자 샘플
 description: 이 문서에서는 데이터 카탈로그 REST API에 대해 사용 가능한 개발자 샘플의 개요를 제공합니다.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a4f88b63fa91dcec52b86be568ef4c98ee82c277
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1f62a5583b7beef2dc535065a6c0d3bcb34fe7b4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404328"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009636"
 ---
 # <a name="data-catalog-developer-samples"></a>데이터 카탈로그 개발자 샘플
 데이터 카탈로그 REST API를 사용하여 데이터 카탈로그 앱 개발을 시작합니다. 데이터 카탈로그 REST API는 데이터 카탈로그 리소스에 대한 등록, 주석 달기 및 데이터 자산을 프로그래밍 방식으로 검색하기 위해 프로그래밍 방식으로 액세스를 제공하는 REST 기반 API입니다.

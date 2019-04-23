@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cdca2823962c442c9142fa439795269f419aa489
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189685"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009905"
 ---
 # <a name="input-metadata"></a>입력 메타데이터 
 
@@ -179,7 +179,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **Lyrics**<br /><br /> 필수 |**xs:int** |이 트랙에 가사가 있음을 나타내려면 이 속성을 1로 설정합니다. |
 | **Karaoke**<br /><br /> 필수 |**xs:int** |가라오케 트랙(배경 음악, 보컬 없음)임을 나타내려면 이 성을 1로 설정합니다. |
 | **Forced**<br /><br /> 필수 |**xs:int** |강제 프레젠테이션임을 나타내려면 이 속성을 1로 설정합니다. |
-| **HearingImpaired**<br /><br /> 필수 |**xs:int** |청각 장애자용 트랙임을 나타내려면 이 속성을 1로 설정합니다. |
+| **HearingImpaired**<br /><br /> 필수 |**xs:int** |1로 청각 사람들을 위해이 트랙 임을 나타내려면이 특성을 설정 합니다. |
 | **VisualImpaired**<br /><br /> 필수 |**xs:int** |시각 장애자용 트랙임을 나타내려면 이 속성을 1로 설정합니다. |
 | **CleanEffects**<br /><br /> 필수 |**xs: int** |이 트랙에 새 효과가 있음을 나타내려면 이 속성을 1로 설정합니다. |
 | **AttachedPic**<br /><br /> 필수 |**xs: int** |이 트랙에 그림이 있음을 나타내려면 이 속성을 1로 설정합니다. |

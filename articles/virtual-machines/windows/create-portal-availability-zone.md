@@ -16,30 +16,30 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 23d1e53785ece50943d732db12b4cf460ba6752a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: e813b26a91d25fbaa1298acd455f27d2cac705f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767484"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997056"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
 
 이 문서는 Azure Portal을 사용하여 Azure 가용성 영역에서 가상 머신을 만드는 단계를 안내합니다. [가용성 영역](../../availability-zones/az-overview.md)은 Azure 지역에서 물리적으로 별도 영역입니다. 가용성 영역을 사용하여 가능성이 적은 실패 또는 전체 데이터 센터의 손실로부터 앱 및 데이터를 보호합니다.
 
-가용성 영역을 사용하려면 [지원되는 Azure 지역](../../availability-zones/az-overview.md#regions-that-support-availability-zones)에 가상 머신을 만들어야 합니다.
+가용성 영역을 사용하려면 [지원되는 Azure 지역](../../availability-zones/az-overview.md#services-support-by-region)에 가상 머신을 만들어야 합니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인 
+## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
+2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다. 
 
-3. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 가용성 영역을 지원하는 미국 동부 2와 같은 위치를 선택합니다. 완료되면 **확인**을 클릭합니다.
+3. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 가용성 영역을 지원하는 미국 동부 2와 같은 위치를 선택합니다. 완료되면 **확인**을 클릭합니다.
 
     ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 

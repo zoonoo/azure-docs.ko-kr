@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361811"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002751"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>가상 네트워크 및 거의 100%의 호환성으로 SQL Database 고급 데이터 보안 사용
 
@@ -126,7 +126,7 @@ Managed Instance 배포 옵션은 Azure 클라우드와 SQL Server 데이터베�
 Managed Instance는 Azure 클라우드의 다른 테넌트와 추가로 격리되는 보안을 제공합니다. 보안 격리에는 다음이 포함됩니다.
 
 - Azure ExpressRoute 또는 VPN Gateway를 사용하여 [기본 가상 네트워크 구현](sql-database-managed-instance-connectivity-architecture.md) 및 온-프레미스 환경에 연결
-- SQL 엔드포인트가 개인 IP 주소를 통해서만 노출되므로 개인 Azure 또는 하이브리드 네트워크에서 안전하게 연결
+- 기본 배포의 경우에 SQL 끝점은 개인 Azure 또는 하이브리드 네트워크에서 안전 하 게 연결을 허용 하는 개인 IP 주소를 통해서만 노출 됩니다.
 - 전용 기본 인프라(컴퓨팅, 스토리지)를 제공하는 단일 테넌트
 
 다음 다이어그램은 애플리케이션에 대한 다양한 연결 옵션을 설명합니다.

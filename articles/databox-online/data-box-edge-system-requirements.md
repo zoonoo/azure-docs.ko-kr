@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006351"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996750"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure 데이터 상자 가장자리에 대 한 시스템 요구 사항
 
@@ -82,7 +82,7 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 
 | URL 패턴                      | 구성 요소 또는 기능                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 컨테이너 레지스트리(필수)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 컨테이너 레지스트리(필수)               |
 | https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 | https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             | 
 
@@ -94,7 +94,7 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 
 | URL 패턴                      | 구성 요소 또는 기능                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft 컨테이너 레지스트리(필수)               |
 | https://\*.azure-devices.us              | IoT Hub 액세스(필수)           |
 | https://\*.azurecr.us                    | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 

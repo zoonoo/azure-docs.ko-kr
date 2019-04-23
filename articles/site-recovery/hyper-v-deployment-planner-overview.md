@@ -2,17 +2,17 @@
 title: Hyper-V VM과 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보 | Microsoft Docs
 description: Hyper-V VM과 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner에 대해 알아봅니다.
 author: mayurigupta13
-manager: garavd
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e40a6b69b1cc4785b3055eaa31905c9ee88170e2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360286"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001510"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Hyper-V와 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보
 
@@ -73,7 +73,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
 지원되는 시나리오 |예|예|아닙니다.|예*|아닙니다.
-지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
+지원되는 버전 | vCenter 6.7, 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음
 
@@ -132,7 +132,7 @@ E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
   >각 새 Deployment Planner는 .zip 파일의 누적 업데이트입니다. 최신 파일을 이전 폴더로 복사할 필요가 없습니다. 새 폴더를 만들어 사용할 수 있습니다.
 
 ## <a name="version-history"></a>버전 기록
-최신 Azure Site Recovery Deployment Planner 도구 버전 2.3은입니다.
+최신 Azure Site Recovery Deployment Planner 도구 버전은 2.4입니다.
 가리킵니다 [Azure Site Recovery Deployment Planner 버전 기록](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) 각 업데이트에 추가 된 수정에 대 한 페이지입니다.
 
 

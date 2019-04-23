@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879695"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007630"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -82,8 +82,6 @@ Microsoft 시작 장애 조치(failover)가 제공하는 RTO로는 비즈니스 
 > - 프로덕션 환경에서 사용 중인 IoT Hub에서는 테스트 훈련을 수행하면 안 됩니다.
 >
 > - 수동 장애 조치(failover)는 Azure 지역 쌍을 이루는 지역 간에 허브를 영구적으로 마이그레이션하는 메커니즘으로 사용하지 않아야 합니다. 이렇게 하면 이전 주 지역에 상주하는 디바이스로부터 허브에 대해 작업을 수행하는 데 대기 시간이 길어집니다.
->
-> - 수동 장애 조치(failover)는 현재 미리 보기 상태이며 다음 Auzre 지역에서는 제공되지 않습니다. 미국 동부, 미국 서부, 북유럽, 유럽 서부, 브라질 남부, 미국 중남부
 
 ### <a name="failback"></a>장애 복구
 

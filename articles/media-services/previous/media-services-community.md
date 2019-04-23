@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877074"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000048"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티  
 
@@ -37,10 +37,13 @@ ms.locfileid: "57877074"
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>토론
+
 ### <a name="twitter"></a>Twitter
+
 [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter 핸들을 사용하여 Microsoft에 문의하거나 Twitter에서 업데이트를 팔로우합니다.  [@AzureSupport](https://twitter.com/azuresupport) twitter 핸들을 사용하여 Twitter에서 지원을 요청할 수 있습니다.  
 
 ### <a name="online-forums"></a>온라인 포럼
+
 현재 제품 및 기능에 대한 질문을 하는 데 다음 포럼을 사용할 수 있습니다.
 
 현재, MSDN은 Media Services 팀의 기본 커뮤니티 포럼입니다.
@@ -48,9 +51,11 @@ ms.locfileid: "57877074"
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 또한 이 팀은 Stack Overflow에서 'azure-media-services' 태그가 지정된 질문을 모니터링합니다.
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>팀에 문의
+
 기본 전자 메일은 azure Media Services: **amshelp\@microsoft.com**합니다.
 
 다음 표에 기능 하위 팀의 전자 메일이 나열되어 있습니다.

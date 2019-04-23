@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579158"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149567"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -23,12 +23,39 @@ ms.locfileid: "59579158"
 + Azure Machine Learning의 [**Python용 기본 SDK**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-04-17"></a>2019-04-17
+
+### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning 데이터 준비 SDK v1.1.2
+
+참고: 데이터 준비 Python SDK는 더 이상 설치할 `numpy` 고 `pandas` 패키지 없습니다. 참조 [설치 지침을 업데이트](https://aka.ms/aml-data-prep-installation)합니다.
+
++ **새로운 기능**
+  + 이제 피벗 변환을 사용할 수 있습니다.
+    + 방법 가이드: [피벗 notebook](https://aka.ms/aml-data-prep-pivot-nb)
+  + 이제 네이티브 함수에서 정규식을 사용할 수 있습니다.
+    + 예제:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + 이제 사용할 수 있습니다 `to_upper`  하 고 `to_lower`  식 언어의 함수입니다.
+  + 이제 데이터 프로필에 있는 각 열의 고유 값 개수를 볼 수 있습니다.
+  + 자주 사용 되는 판독기 단계 중 일부를 전달할 수 있습니다 이제는 `infer_column_types` 인수입니다. 로 설정 된 경우 `True`, 데이터 준비를 감지 하 여 자동 열 유형으로 변환 하려고 합니다.
+    + `inference_arguments` 이제 사용 되지 않습니다.
+  + 이제 호출할 수 있습니다 `Dataflow.shape`합니다.
+
++ **버그 수정 및 향상 된 기능**
+  + `keep_columns` 이제 추가 선택적 인수를 허용 `validate_column_exists`를 확인 하는 경우의 결과 `keep_columns` 열이 포함 됩니다.
+  + 모든 판독기 단계 (파일에서 읽기)을 추가 하는 선택적 인수를 허용 `verify_exists`합니다.
+  + Pandas 데이터 프레임에서 읽고 데이터 프로필 가져오기 성능이 향상 되었습니다.
+  + 단일 인덱스를 사용 하 여 조각화를 데이터 흐름에서 한 번 실패 한 버그가 수정 되었습니다.
+
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Azure Portal
++ **새로운 기능**
   + 이제 기존 원격 계산 클러스터에서 실행할 기존 스크립트를 다시 제출할 수 있습니다. 
   + 이제 새 매개 변수를 사용 하 여 파이프라인 탭에서 게시 된 파이프라인을 실행할 수 있습니다. 
   + 실행된 세부 정보는 이제 새 스냅숏 파일 뷰어를 지원 합니다. 특정 실행을 제출할 때 디렉터리의 스냅숏을 볼 수 있습니다. 또한 실행을 시작 하려면에 전송 된 notebook을 다운로드할 수 있습니다.
+   + 이제 Azure Portal에서 부모 실행을 취소할 수 있습니다.
 
 ## <a name="2019-04-08"></a>2019-04-08
 

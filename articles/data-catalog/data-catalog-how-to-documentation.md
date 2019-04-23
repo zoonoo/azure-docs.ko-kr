@@ -2,18 +2,18 @@
 title: Azure Data Catalog에서 데이터 원본을 문서화하는 방법
 description: Azure Data Catalog에서 데이터 자산을 문서화하는 방법을 강조 표시한 방법 문서입니다.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406212"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005281"
 ---
 # <a name="document-data-sources"></a>데이터 원본 문서화
 ## <a name="introduction"></a>소개
@@ -39,9 +39,9 @@ ms.locfileid: "47406212"
 
 설명서의 수준은 데이터 자산 컨테이너의 특성 및 값을 설명하는 정도에서 컨테이너 내의 테이블 스키마에 대한 자세한 설명의 범위까지 다양합니다. 제공된 설명서의 수준은 비즈니스 요구 사항에 따라 결정되어야 합니다. 하지만 데이터 자산을 문서화하는 일반적인 몇 가지 장단점은 다음과 같습니다.
 
-* 컨테이너만 문서화: 모든 콘텐츠가 한 곳에 있지만 사용자가 필요한 정보를 결정하기 위해 필요한 세부 정보는 부족할 수 있습니다.
-* 테이블만 문서화: 콘텐츠는 해당 개체에 지정되지만 사용자가 문서를 여러 위치에서 찾아야 합니다.
-* 컨테이너 및 테이블 문서화: 가장 포괄적인 접근 방식이지만 문서의 유지 관리가 더 필요할 수 있습니다.
+* 컨테이너만 문서화: 모든 콘텐츠를 한 곳에 있지만 사용자가 합리적인된 결정을 내리는 데 필요한 세부 정보는 부족할 수 있습니다.
+* 테이블만 문서화: 콘텐츠는 해당 개체에 지정 되지만 사용자가 문서에 대 한 여러 위치.
+* 컨테이너 및 테이블 문서화: 가장 포괄적인 접근 방식 하지만 문서의 자세한 유지 관리를 제공 될 수 있습니다.
 
 ## <a name="summary"></a>요약
 **Azure Data Catalog** 로 데이터 원본을 문서화하는 작업은 필요한 만큼의 세부 정보로 데이터 자산에 대한 설명을 만들 수 있습니다.  링크를 사용하여 기존 문서 및 데이터 자산을 함께 제공하는 기존 콘텐츠 리포지토리에 저장된 콘텐츠에 연결할 수 있습니다. 사용자가 적절한 데이터 자산을 검색하면 일련의 전체 설명서를 가져올 수 있습니다.

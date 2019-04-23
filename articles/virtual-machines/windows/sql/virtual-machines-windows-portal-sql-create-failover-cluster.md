@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486321"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011370"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -116,7 +116,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
       - **이름**: 가용성 집합의 이름입니다.
       - **구독**: Azure 구독.
       - **리소스 그룹**: 기존 그룹을 사용하려는 경우 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 그룹을 선택합니다. 그렇지 않으면 **새로 만들기**를 선택하고 그룹에 대한 이름을 입력합니다.
-      - **위치**: 가상 머신을 만들 위치를 설정합니다.
+      - **Location**: 가상 머신을 만들 위치를 설정합니다.
       - **장애 도메인**: 기본값(3)을 사용하세요.
       - **업데이트 도메인**: 기본값(5)을 사용하세요.
    - **만들기**를 클릭하여 가용성 집합을 만듭니다.
@@ -372,7 +372,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    - **개인 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 할당한 동일한 IP 주소입니다.
    - **구독**: Azure 구독.
    - **리소스 그룹**: 가상 머신과 동일한 리소스 그룹을 사용합니다.
-   - **위치**: 가상 머신과 동일한 Azure 위치를 사용합니다.
+   - **Location**: 가상 머신과 동일한 Azure 위치를 사용합니다.
    다음 그림을 참조하세요.
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -399,7 +399,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
    - **이름**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
-   - **포트**: 사용 가능한 TCP 포트로 설정합니다. 이 포트에는 공개 방화벽 포트가 필요합니다. 방화벽에서 상태 프로브에 대해 설정한 [동일한 포트](#ports)를 사용합니다.
+   - **포트**: 상태 프로브에 대 한 방화벽에서 만든 포트에 설정할 [이 단계](#ports)합니다. 이 문서의 예제에서는 TCP 포트 `59999`합니다.
    - **간격**: 5초입니다.
    - **비정상 임계값**: 2번 연속 실패입니다.
 
@@ -421,7 +421,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    - **상태 프로브**: 이전에 구성한 상태 프로브를 사용합니다.
    - **세션 지속성**: 없음.
    - **유휴 제한 시간(분)**: 4.
-   - **부동 IP(Direct Server Return)**: 사용
+   - **부동 IP(Direct Server Return)**: Enabled
 
 1. **확인**을 클릭합니다.
 
