@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500739"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793166"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 

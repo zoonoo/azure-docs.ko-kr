@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59363070"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792083"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Azure PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 정책 구성
 Azure 웹 응용 프로그램 방화벽 (WAF) 정책 정의 검사 요청이 첫 번째 관문에서 도착 하는 경우에 필요 합니다.

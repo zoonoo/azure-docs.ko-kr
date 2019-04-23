@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: dfd81735b7dfd95a38caf3934fe9057adbcde5a7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357064"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790012"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Azure Resource Manager 템플릿과 함께 PowerShell을 사용하여 Azure SQL Database에서 Managed Instance 만들기
 

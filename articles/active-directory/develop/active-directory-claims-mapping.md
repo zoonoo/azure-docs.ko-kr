@@ -14,11 +14,11 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260309"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791339"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 

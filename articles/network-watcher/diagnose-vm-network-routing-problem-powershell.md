@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 6624ded670ef506dfef225a8b595da2e5ea19427
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051617"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794407"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>가상 머신 네트워크 라우팅 문제 진단 - Azure PowerShell
 
@@ -61,9 +61,9 @@ VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 PowerShell에
 
 Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트하려는 VM이 있는 지역에서 Network Watcher를 사용하도록 설정한 다음, Network Watcher의 다음 홉 기능을 사용하여 통신을 테스트해야 합니다.
 
-## <a name="enable-network-watcher"></a>Network Watcher 사용
+## <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
-미국 동부 지역에서 사용 하도록 설정 하는 네트워크 감시자가 이미 있는 경우 사용 하 여 [Get AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) network watcher를 검색 하려면. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus*라는 기존 네트워크 감시자를 검색합니다.
+미국 동부 지역에서 활성화된 네트워크 감시자가 이미 있는 경우 [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)를 사용하여 네트워크 감시자를 검색합니다. 다음 예에서는 *NetworkWatcherRG* 리소스 그룹에 있는 *NetworkWatcher_eastus*라는 기존 네트워크 감시자를 검색합니다.
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,7 +71,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-사용 하 여 network watcher 미국 동부 지역에서 사용할 수 없는 경우 [새로 만들기-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) 미국 동부 지역에서 network watcher를 만들려면:
+미국 동부 지역에서 활성화된 네트워크 감시자가 아직 없는 경우 [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher)를 사용하여 미국 동부 지역에서 네트워크 감시자를 만듭니다.
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -135,7 +135,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요한 경우 사용할 수 없습니다 [제거 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 리소스 그룹 및 포함 된 리소스를 모두 제거 하려면:
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

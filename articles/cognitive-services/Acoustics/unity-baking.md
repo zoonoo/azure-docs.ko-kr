@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494785"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790232"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project Acoustics Unity 음향 효과 베이킹 자습서
 이 자습서에서는 Unity에서 Project Acoustics를 사용하는 음향 효과 베이킹에 대해 설명합니다.

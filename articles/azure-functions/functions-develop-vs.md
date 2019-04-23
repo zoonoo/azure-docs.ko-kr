@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
 ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489557"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793762"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -207,9 +207,9 @@ Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방�
 
 ## <a name="monitoring-functions"></a>함수 모니터링
 
-함수 실행을 모니터링 하려면 Azure Application Insights를 사용 하 여 함수 앱을 통합 하 여는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Visual Studio 게시 중에 함수 앱을 만들 때는 Azure에서 함수 앱 통합이 수행되지 않습니다.
+함수 실행을 모니터링할 때는 Azure Application Insights와 함수 앱을 통합하는 방식을 사용하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Visual Studio 게시 중에 함수 앱을 만들 때는 Azure에서 함수 앱 통합이 수행되지 않습니다.
 
-함수 앱에 대 한 Application Insights를 사용 합니다.
+함수 앱에 대해 Application Insights를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 

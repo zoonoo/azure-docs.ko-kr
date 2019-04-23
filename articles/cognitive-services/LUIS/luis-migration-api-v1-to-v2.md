@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894084"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793552"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 

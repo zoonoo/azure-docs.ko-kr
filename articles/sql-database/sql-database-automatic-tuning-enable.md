@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904358"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791527"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 

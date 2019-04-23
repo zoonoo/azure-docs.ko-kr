@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862627"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792220"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 
 > [!IMPORTANT]
-> IoT 용 azure Security Center는 현재 공개 미리 보기로 제공 됩니다.
+> IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 IoT 서비스 경고 및 증명 정보에 대 한 azure Security Center (ASC) IoT 장치에서 의심 스러운 활동 징후 존재 장치가 노출 되는 하는 경우 참여 것으로 의심 되는 경우 명확한 징후를 제공 합니다. 

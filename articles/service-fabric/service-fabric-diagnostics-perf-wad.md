@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049458"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791510"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics 확장을 사용하여 성능 모니터링
 

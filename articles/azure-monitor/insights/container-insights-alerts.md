@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: magoedte
 ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282290"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791544"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor에서 성능 문제에 대 한 경고를 설정 하는 방법
 컨테이너에 대 한 azure Monitor 관리 되는 Kubernetes 클러스터 호스트 되는 Azure Kubernetes Service (AKS)에서 또는 Azure Container Instances에 배포 되는 컨테이너 워크 로드의 성능을 모니터링 합니다.

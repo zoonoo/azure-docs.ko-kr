@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278227"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792456"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Azure에 대한 VMware 재해 복구의 복제 정책 구성 및 관리
 이 아티클에서는 VMware VM을 Azure에 복제할 때 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 복제 정책을 구성하는 방법을 설명합니다.

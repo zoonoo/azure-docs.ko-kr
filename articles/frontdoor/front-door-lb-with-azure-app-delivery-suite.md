@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879662"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790327"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure 애플리케이션 배달 제품군을 통해 부하 분산
 
@@ -83,7 +83,7 @@ Load Balancer는 Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 T
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
+- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.
 
 <!--Image references-->

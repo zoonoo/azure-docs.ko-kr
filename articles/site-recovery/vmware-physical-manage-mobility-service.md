@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043811"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794238"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>보호 된 컴퓨터에서 모바일 에이전트를 관리 합니다.
 

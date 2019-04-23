@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
 ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918164"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792482"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 엔드포인트**라고 하고, 내부 연결을 **내부 엔드포인트**라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 엔드포인트를 만듭니다.
@@ -107,7 +107,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 **인스턴스** 속성은 **RoleInstance** 개체의 컬렉션을 반환합니다. 이 컬렉션은 항상 현재 인스턴스를 포함합니다. 역할이 내부 엔드포인트를 정의하지 않으면 컬렉션에 현재 인스턴스를 포함하지만 다른 인스턴스는 포함하지 않습니다. 내부 엔드포인트가 역할에 대해 정의되지 않는 경우 컬렉션에 있는 역할 인스턴스 수는 항상 1입니다. 역할이 내부 엔드포인트를 정의하는 경우 해당 인스턴스는 런타임 시 검색 가능하고 컬렉션의 인스턴스 수는 서비스 구성 파일의 역할에 지정된 인스턴스 수에 해당합니다.
 
 > [!NOTE]
-> Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure 진단](cloud-services-dotnet-diagnostics.md) 을 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
+> Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure Diagnostics](cloud-services-dotnet-diagnostics.md)를 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
 > 
 > 
 

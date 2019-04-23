@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047486"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792750"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service 개념
 
@@ -31,7 +31,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 
 디바이스 프로비전 엔드포인트는 모든 디바이스가 자동 프로비전에 사용하는 단일 엔드포인트입니다. URL은 공급 체인 시나리오에서 새 연결 정보를 사용하여 디바이스를 새로 고쳐야 하는 필요성을 경감하기 위해 모든 프로비전 서비스 인스턴스에 대해 동일합니다. ID 범위는 테넌트 격리를 보장합니다.
 
-## <a name="linked-iot-hubs"></a>연결된 IoT Hub
+## <a name="linked-iot-hubs"></a>연결된 IoT 허브
 
 Device Provisioning 서비스는 Device Provisioning 서비스에 연결된 IoT 허브에만 프로비전할 수 있습니다. IoT 허브를 Device Provisioning 서비스 인스턴스에 연결하면 서비스에 IoT 허브의 디바이스 레지스트리에 대한 읽기/쓰기 권한을 부여합니다. 링크를 사용하면 Device Provisioning 서비스는 디바이스 ID를 등록하고 디바이스 쌍에서 초기 구성을 설정할 수 있습니다. 연결된 IoT 허브는 모든 Azure 지역에 있을 수 있습니다. 다른 구독의 허브를 프로비전 서비스에 연결할 수 있습니다.
 

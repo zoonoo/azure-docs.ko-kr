@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 8a1fb0c3270d4899f05190fb1745075584f613ab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357158"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793589"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Front Door에 대한 지역 필터링 WAF 정책을 설정하는 방법
 이 자습서에서는 Azure PowerShell을 사용하여 간단한 지역 필터링 정책을 만들고 기존 Front Door 프런트 엔드 호스트에 연결하는 방법을 알아봅니다. 이 샘플 지역 필터링 정책은 미국을 제외한 모든 국가로부터의 요청을 차단합니다.

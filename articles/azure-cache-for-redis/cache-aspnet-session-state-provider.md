@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: yegu
 ms.openlocfilehash: 4a51040ecdbf22af03ce1e6edaaa0ff577bbc076
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793240"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792203"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 

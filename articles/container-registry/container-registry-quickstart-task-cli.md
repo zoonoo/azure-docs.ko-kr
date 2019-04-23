@@ -9,11 +9,11 @@ ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919756"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793389"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 

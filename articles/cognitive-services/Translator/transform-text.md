@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: 1319b7191d9b192897e1e8ab4900239bd9230bce
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916226"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789355"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>TransformText 메서드 사용 방법
 
@@ -32,7 +32,7 @@ TransformText 메서드는 소셜 미디어에 대한 텍스트 정규화 함수
 |:---|:---|
 | 권한 부여 헤더 | **필수** 애플리케이션을 식별하는 데 사용되는 HTTP 헤더입니다. "Authorization" 키와 "전달자" + " " + 액세스 토큰 값을 사용합니다. 자세한 내용은 여기를 참조하세요.|
 | 언어 | **필수** 언어 코드를 나타내는 문자열입니다. 이 매개 변수는 **en**이 언어 이름인 영어만 지원합니다.|
-| 카테고리 | **선택 사항** 번역의 범주 또는 도메인을 포함하는 문자열입니다. 이 매개 변수는 기본 옵션인 **general**만 지원합니다.|
+| category | **선택 사항** 번역의 범주 또는 도메인을 포함하는 문자열입니다. 이 매개 변수는 기본 옵션인 **general**만 지원합니다.|
 | sentence | **필수** 수정하려는 문장입니다. |
 
 ## <a name="return-value"></a>반환 값

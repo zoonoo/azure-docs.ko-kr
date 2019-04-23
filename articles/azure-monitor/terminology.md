@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
 ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848000"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789994"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor 이름 지정 및 용어 변경
 Azure 고객을 위한 모니터링 간소화를 위해 다양한 서비스가 통합되면서 Azure Monitor가 최근 상당히 변화되었습니다. 이 문서에서는 Azure Monitor 설명서의 이름 및 용어 변경 내용을 설명합니다.

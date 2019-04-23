@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272277"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791612"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
