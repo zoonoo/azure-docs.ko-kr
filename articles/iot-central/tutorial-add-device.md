@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425936"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 실제 장치 추가
@@ -358,8 +358,8 @@ Azure IoT Central 애플리케이션에 실제 디바이스를 연결했으므�
 
 디바이스 개발자로서 다음 작업 방법을 알아볼 수 있습니다.
 
-* [DevKit 디바이스(C) 준비 및 연결](howto-connect-devkit.md)
-* [Raspberry Pi(Python) 준비 및 연결](howto-connect-raspberry-pi-python.md)
-* [Raspberry Pi(C#) 준비 및 연결](howto-connect-raspberry-pi-csharp.md)
-* [Windows 10 IoT 코어 디바이스(C#) 준비 및 연결](howto-connect-windowsiotcore.md)
+* [DevKit 디바이스 준비 및 연결(C)](howto-connect-devkit.md)
+* [Raspberry Pi 준비 및 연결(Python)](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi 준비 및 연결(C#)](howto-connect-raspberry-pi-csharp.md)
+* [Windows 10 IoT Core 디바이스 준비 및 연결(C#)](howto-connect-windowsiotcore.md)
 * [Azure IoT Central 애플리케이션에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)

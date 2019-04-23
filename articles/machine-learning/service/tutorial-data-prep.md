@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: cd77dcc7202f61a801d29d42f61815c8ce7c2067
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496217"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698360"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
@@ -84,7 +84,7 @@ Azure Notebooks로 시작하는 것이 쉽습니다! Azure Machine Learning Data
 패키지가 아직 없는 경우 다음을 사용하여 필요한 패키지를 설치합니다.
 
 ```shell
-pip install "azureml-dataprep>=1.1.0,<1.2.0"
+pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
 SDK를 가져옵니다.
@@ -157,8 +157,7 @@ green_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -172,7 +171,7 @@ green_df.head(5)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>공급업체</th>
+      <th>vendor</th>
       <th>pickup_datetime</th>
       <th>dropoff_datetime</th>
       <th>store_forward</th>
@@ -686,8 +685,7 @@ time_split_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -701,7 +699,7 @@ time_split_df.head(5)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>공급업체</th>
+      <th>vendor</th>
       <th>pickup_datetime</th>
       <th>pickup_datetime_1</th>
       <th>pickup_datetime_2</th>
@@ -881,8 +879,7 @@ transformed_features_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th:only-of-type { vertical-align: middle; }
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -896,7 +893,7 @@ transformed_features_df.head(5)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>공급업체</th>
+      <th>vendor</th>
       <th>pickup_datetime</th>
       <th>pickup_weekday</th>
       <th>pickup_hour</th>

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5e55399337e06314a5079f9d0e692a771855f8ca
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885352"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>자습서: Azure Active Directory와 GoodPractice Toolkit 통합
 
@@ -52,7 +53,7 @@ GoodPractice Toolkit와 Azure AD의 통합을 구성하려면 다음 항목이 �
 
 GoodPractice Toolkit가 Azure AD에 통합되도록 구성하려면 갤러리의 GoodPractice Toolkit를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리의 GoodPractice Toolkit를 추가하려면 다음 단계를 수행합니다.**
+**갤러리에서 GoodPractice Toolkit를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
@@ -69,7 +70,7 @@ GoodPractice Toolkit가 Azure AD에 통합되도록 구성하려면 갤러리의
 4. 검색 상자에서 **GoodPractice Toolkit**를 입력하고, 결과 패널에서 **GoodPractice Toolkit**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 GoodPractice Toolkit](common/search-new-app.png)
-   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
 이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 하여 GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 GoodPractice Toolkit의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -79,8 +80,8 @@ GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하고 테스트하�
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[GoodPractice Toolkit Single Sign-On 구성](#configure-goodpractice-toolkit-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[GoodPractice Toolkit 테스트 사용자 만들기](#create-goodpractice-toolkit-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 GoodPractice Toolkit에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[GoodPractice Toolkit 테스트 사용자 만들기](#create-goodpractice-toolkit-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 GoodPractice Toolkit에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -146,10 +147,9 @@ GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. 예: BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -193,7 +193,7 @@ GoodPractice Toolkit에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

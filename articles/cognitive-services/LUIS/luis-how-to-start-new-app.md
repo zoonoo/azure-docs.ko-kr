@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891432"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679655"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis.ai) 포털에서 또는 LUIS 제작 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -67,10 +67,19 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis
 
 * 앱 이름이 이미 있습니다. 앱을 다시 가져오기 및 설정 합니다 **선택적 이름** 새 이름입니다. 
 
-## <a name="export-app"></a>앱 내보내기
+## <a name="export-app-for-backup"></a>백업에 대 한 앱 내보내기
 
-1. **내 앱** 페이지에서 **새 앱 가져오기**를 선택합니다.
-1. **새 앱 가져오기** 대화 상자에서 LUIS 앱을 정의하는 JSON 파일을 선택합니다.
+1. 온 **Myapps** 페이지에서 **내보내기**합니다.
+1. 선택 **JSON으로 내보내기**합니다. 브라우저 앱의 현재 사용 중인 버전을 다운로드합니다.
+1. 모델을 보관 하려면 백업 시스템에이 파일을 추가 합니다.
+
+## <a name="export-app-for-containers"></a>컨테이너에 대 한 앱 내보내기
+
+1. 온 **Myapps** 페이지에서 **내보내기**합니다.
+1. 선택 **컨테이너로 내보냅니다** 다음 내보내려는 게시 된 슬롯 (프로덕션 또는 단계)를 선택 합니다.
+1. 이 파일을 사용 하면 [LUIS 컨테이너](luis-container-howto.md)합니다. 
+
+    제외한에서는 학습 된 내보내기 아직 게시 된 모델 LUIS 컨테이너를 사용 하는 데 관심이 있다면로 이동 합니다 **버전** 여기에서 내보내고 페이지입니다. 
 
 ## <a name="delete-app"></a>앱 삭제
 

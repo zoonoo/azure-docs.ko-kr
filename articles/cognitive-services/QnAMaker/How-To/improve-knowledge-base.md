@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522199"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678992"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용 하 여 기술 자료를 개선 하기 위해
 
@@ -156,7 +156,7 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 사용자가 기존 질문 중 하나를 선택 되 면 클라이언트 응용 프로그램 사용자가 선택한을 QnA Maker의 학습 API를 사용 하 여 피드백을 보냅니다. 이 피드백 완료 활성 피드백 루프를 학습 합니다. 
 
-사용 합니다 [Azure Bot C# 예제](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) 종단 간 시나리오에서 활성 학습을 확인 합니다.
+사용 합니다 [Azure Bot 샘플](https://aka.ms/activelearningsamplebot) 종단 간 시나리오에서 활성 학습을 확인 합니다.
 
 ## <a name="train-api"></a>학습 API
 
@@ -169,7 +169,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|이름|Type|목적|
+|HTTP 요청 속성|Name|Type|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |호스트 하위 도메인|QnAMaker 리소스 이름|문자열|Azure 구독에서 QnA Maker에 대 한 호스트 이름입니다. 기술 자료를 게시 한 후 설정 페이지에서 제공 됩니다. |

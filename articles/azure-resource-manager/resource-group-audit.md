@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802290"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786102"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>리소스에 대한 작업을 감사하기 위해 활동 로그 보기
 

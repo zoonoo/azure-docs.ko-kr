@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e4c5942dfba62a2c869e4eeceb9018fc926d9de9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259547"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681253"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>자습서: Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의(새 UI 디자인)
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의
 
 이 자습서에서는 작성기로서 Microsoft Azure IoT Central 애플리케이션에서 새 장치 유형을 정의하기 위해 장치 템플릿을 사용하는 방법을 알려줍니다. 디바이스 템플릿은 디바이스 유형에 대해 원격 분석, 상태, 속성 및 설정을 정의합니다.
 

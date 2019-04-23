@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
 ms.openlocfilehash: bb28972469ca33a7fb33a50a8ce2e9bf326222b8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425800"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
@@ -91,5 +91,5 @@ Java SDK는 [Speech Devices SDK](speech-devices-sdk.md)에도 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독](https://azure.microsoft.com/try/cognitive-services/)
-* [음성의 인식 하는 방법을 참조 하세요.C#](quickstart-csharp-dotnet-windows.md)
+* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

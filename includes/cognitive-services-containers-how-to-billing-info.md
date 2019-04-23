@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2019
-ms.openlocfilehash: 200e2dfd2dd4f9aedd9256b307491a0b207ea124
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/16/2019
+ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57964214"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684653"
 ---
 컨테이너에 대 한 쿼리 사용에 대 한 Azure 리소스의 가격 책정 계층으로 청구를 `<ApiKey>`입니다.
 
@@ -26,7 +26,7 @@ Cognitive Services 컨테이너는 계량에 대 한 청구 끝점에 연결 하
 | 옵션 | 설명 |
 |--------|-------------|
 | `ApiKey` | 청구 정보를 추적하는 데 사용되는 Cognitive Service 리소스의 API 키입니다.<br/>이 옵션의 값은 `Billing`에 지정된 프로비저닝된 리소스에 대한 API 키로 설정해야 합니다. |
-| `Billing` | 청구 정보를 추적하는 데 사용되는 Cognitive Service 리소스의 엔드포인트입니다.<br/>이 옵션의 값은 프로비전된 LUIS Azure 리소스의 엔드포인트 URI로 설정해야 합니다.|
+| `Billing` | 청구 정보를 추적하는 데 사용되는 Cognitive Service 리소스의 엔드포인트입니다.<br/>이 옵션의 값은 프로 비전 된 Azure 리소스의 URI 끝점으로 설정 되어야 합니다.|
 | `Eula` | 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.<br/>이 옵션의 값은 `accept`로 설정해야 합니다. |
 
 

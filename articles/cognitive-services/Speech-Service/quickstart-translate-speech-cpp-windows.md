@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59499821"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>빠른 시작: C++용 Speech SDK를 사용하여 음성 번역
@@ -69,5 +69,5 @@ ms.locfileid: "59499821"
 
 ## <a name="see-also"></a>참고 항목
 
-- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

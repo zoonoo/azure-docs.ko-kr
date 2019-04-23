@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883116"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678567"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker 컨테이너 구성 
 
@@ -42,11 +42,11 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 ## <a name="apikey-setting"></a>ApiKey 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 이 값은 [`Billing`](#billing-setting) 구성 설정에 대해 지정된 _Language Understanding_ 리소스에 대한 유효한 키여야 합니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대 한 값을 지정 해야 하며 값에 대 한 유효한 키 여야 합니다.는 _Cognitive Services_ 에 대 한 지정 된 리소스는 [ `Billing` ](#billing-setting) 구성 설정입니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **키** 아래에 있는 **Language Understanding** 리소스 관리
+* Azure Portal: **Cognitive Services** 리소스 관리 아래에 있는 **키**
 * LUIS 포털: **키 및 엔드포인트 설정** 페이지 
 
 시작 키 또는 작성 키를 사용하지 마세요. 
@@ -57,14 +57,17 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 ## <a name="billing-setting"></a>청구 설정
 
-`Billing` 설정은 컨테이너에 대한 미터 청구 정보를 추적하는 데 사용되는 Azure 기반 _Language Understanding_ 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 _Language Understanding_ 리소스에 대해 유효한 엔드포인트 URI여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
+`Billing` 설정은 끝점 URI를 지정의 합니다 _Cognitive Services_ Azure에서 리소스 계량 컨테이너에 대 한 청구 정보를 사용 합니다. 이 구성 설정에 대 한 값을 지정 해야 하며 값은 유효한 끝점 URI 여야 합니다.에 _Cognitive Services_ Azure에서 리소스입니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Language Understanding** 개요, 레이블이 지정 `Endpoint`
+* Azure Portal: **Cognitive Services** 개요, 레이블이 지정 `Endpoint`
 * LUIS 포털: 엔드포인트 URI의 일부인 **키 및 엔드포인트 설정** 페이지
 
-|필수| name | 데이터 형식 | 설명 |
+포함 해야 합니다 `luis/v2.0` 표에 표시 된 것과 같이 URL에 라우팅:
+
+
+|필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
@@ -96,7 +99,7 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 다음 테이블은 지원되는 설정을 설명합니다.
 
-|필수| name | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |예| `Input` | 문자열 | 입력 탑재의 대상입니다. 기본값은 `/input`입니다. LUIS 패키지 파일의 위치입니다. <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
 |아닙니다.| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. LUIS 쿼리 로그 및 컨테이너 로그를 포함합니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -109,16 +112,18 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 * **줄 연속 문자**: 다음 섹션에서 Docker 명령은 줄 연속 문자 같은 백 슬래시, `\`을 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
 * **인수 순서**: Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
 
+포함 해야 합니다 `luis/v2.0` 표에 표시 된 것과 같이 URL에 라우팅입니다.
+
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
 | Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | 학습된 LUIS 애플리케이션의 엔드포인트 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | 청구 엔드포인트 값은 Azure Portal의 Language Understanding 개요 페이지에서 사용할 수 있습니다.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | 청구 끝점 값은 Azure에서 사용할 수 있는 `Cognitive Services` 개요 페이지. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](luis-container-howto.md#billing)를 참조하세요.
-> ApiKey 값은 LUIS 포털의 키 및 엔드포인트 페이지에서 **키**이며 Azure Language Understanding 리소스 키 페이지에서도 사용할 수 있습니다. 
+> ApiKey 값은는 **키** LUIS 포털에서 페이지의 키 및 끝점에서 및 Azure에서 사용할 수 있는 이기도 `Cognitive Services` 리소스 [키] 페이지. 
 
 ### <a name="basic-example"></a>기본 예제
 

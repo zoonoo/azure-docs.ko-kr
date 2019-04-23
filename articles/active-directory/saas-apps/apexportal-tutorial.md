@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852596"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680131"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>자습서: Apex Portal과 Azure Active Directory 통합
 
@@ -68,7 +69,7 @@ Apex Portal의 Azure AD 통합을 구성하려면 갤러리의 Apex Portal을 �
 
 4. 검색 상자에 **Apex Portal**를 입력하고 결과 패널에서 **Apex Portal**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Apex Portal](common/search-new-app.png)
+    ![결과 목록의 Apex Portal](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -106,9 +107,9 @@ Apex Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Apex Portal 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<customer name>.apexanalytix.com/saml/sso.aspx` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<customer name>.apexportal.net/saml/sso.aspx` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://<customer name>.apexanalytix.com/saml/sso.aspx` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<customer name>.apexportal.net/saml/sso.aspx` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Apex Portal 클라이언트 지원 팀](mailto:support@apexanalytix.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -120,7 +121,7 @@ Apex Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
     | Name | 원본 특성|
-    | ------------------- | -------------------- |
+    | -------- | --------- |
     | FIRSTNAME | user.givenname |
     | LASTNAME | user.surname |
     | MAIL | user.mail |
@@ -180,10 +181,9 @@ Apex Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. 예: BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -233,4 +233,3 @@ Apex Portal에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 - [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

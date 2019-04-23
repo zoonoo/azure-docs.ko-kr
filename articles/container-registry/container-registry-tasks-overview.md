@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256195"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789113"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화
 
@@ -99,7 +99,7 @@ ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성
 
 OS 및 프레임 워크는 클라우드에서 컨테이너 이미지를 작성 하 여 패치를 자동화 하는 준비 된 경우 3 부작 확인해 [ACR 작업 자습서 시리즈](container-registry-tutorial-quick-task.md)합니다.
 
-필요에 따라 설치를 [Visual Studio Code 용 Docker 확장](https://code.visualstudio.com/docs/azure/docker) 하며 [Azure 계정](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) 에 Azure 컨테이너 레지스트리를 사용 하는 확장 합니다. 끌어오기 및 이미지를 Azure container registry에 푸시 또는 Visual Studio Code 내에서 모든 ACR 태스크를 실행 합니다.
+선택적으로 Azure 컨테이너 레지스트리와 작동할 [Visual Studio Code용 Docker 확장](https://code.visualstudio.com/docs/azure/docker)과 [Azure 계정](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) 확장을 설정합니다. Visual Studio Code 내에서 Azure 컨테이너 레지스트리에 이미지를 밀어넣고 끌어오거나, ACR Tasks를 실행합니다.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

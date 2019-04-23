@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754899"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678542"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>스테이징 또는 프로덕션 앱에 영향을 주지 않고 버전을 사용하여 편집 및 테스트
 
@@ -24,7 +24,7 @@ ms.locfileid: "58754899"
 
 버전을 사용하려면 **내 앱** 페이지에서 해당 이름을 선택하여 앱을 연 다음, 위쪽 표시줄에서 **관리**를 선택하고 왼쪽 탐색에서 **버전**을 선택합니다. 
 
-버전 목록은 게시된 버전, 게시 위치 및 현재 활성 버전을 보여 줍니다. 
+버전의 목록은 여기서 게시 하 고 버전은 현재 활성 버전을 게시 합니다. 
 
 [![관리 섹션, 버전 페이지](./media/luis-how-to-manage-versions/versions-import.png "관리 섹션, 버전 페이지")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -67,5 +67,5 @@ ms.locfileid: "58754899"
 
 * 버전을 **삭제**하려면 목록에서 버전을 선택한 다음, 도구 모음에서 **삭제**를 선택합니다. **확인**을 선택합니다. 
 * 버전의 **이름을 바꾸려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **이름 바꾸기**를 선택합니다. 새 이름을 입력하고 **완료**를 선택합니다. 
-* 버전을 **내보내려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **앱 내보내기**를 선택합니다. 파일은 로컬 머신에 다운로드됩니다. 
+* 버전을 **내보내려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **앱 내보내기**를 선택합니다. 백업에 대 한 내보내기, 선택 하는 JSON을 선택 **컨테이너에 대 한 내보내기** 하 [LUIS 컨테이너에서이 앱을 사용 하 여](luis-container-howto.md)입니다.  
 

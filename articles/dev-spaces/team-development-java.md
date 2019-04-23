@@ -11,11 +11,11 @@ description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신�
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
 manager: mmontwil
 ms.openlocfilehash: 29a50a871702985b64c594d5bd3700d4e29f40df
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361215"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788312"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 

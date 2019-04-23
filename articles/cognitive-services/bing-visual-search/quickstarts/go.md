@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
 ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048022"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784709"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>빠른 시작: Bing Visual Search REST API 및 Go를 사용하여 이미지 인사이트 가져오기
 

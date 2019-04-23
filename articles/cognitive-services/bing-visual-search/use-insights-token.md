@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493878"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력을 제공 합니다.
@@ -475,8 +475,8 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>다음 단계
 
-[Visual Search 단일 페이지 웹앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search API란?](overview.md)  
-[Cognitive Services 체험하기](https://aka.ms/bingvisualsearchtryforfree)  
-[무료 평가판 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[비주얼 검색 단일 페이지 웹 앱 만들기](tutorial-bing-visual-search-single-page-app.md)  
+[Bing Visual Search API 란?](overview.md)  
+[Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
+[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [이미지-비주얼 검색](https://aka.ms/bingvisualsearchreferencedoc)

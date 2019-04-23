@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492412"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Project Acoustics Unreal/Wwise 빠른 시작
@@ -50,7 +50,7 @@ Project Acoustics Unreal 플러그 인의 경우 Wwise Unreal 플러그 인 API�
 
     ![Wwise 프로젝트를 패치하는 스크립트를 보여주는 Windows 탐색기 창의 스크린샷](media/patch-wwise-script.png)
 
-* DirectX SDK가 설치되어 있지 않은 경우 DXSDK_DIR이 포함된 줄을 주석으로 처리해야 합니다. `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* DirectX SDK가 설치되어 있지 않은 경우 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`에DXSDK_DIR이 포함된 줄을 주석으로 처리해야 합니다.
 
     ![DXSDK 주석 처리를 보여주는 코드 편집기의 스크린샷](media/directx-sdk-comment.png)
 

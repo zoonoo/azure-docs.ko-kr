@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279944"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678227"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>자습서: Azure IoT Central 운영자 보기 사용자 지정(새 UI 디자인)
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 보기 사용자 지정
 
 이 자습서에서는 작성기로서 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 설명합니다. 작성기로서 애플리케이션을 변경하는 경우 Microsoft Azure IoT Central 애플리케이션에서 연산자의 뷰를 미리 볼 수 있습니다.
 
@@ -161,4 +161,4 @@ ms.locfileid: "59279944"
 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 알아보았으므로 제안된 다음 단계는 다음과 같습니다.
 
 * [디바이스 모니터링(연산자로서)](tutorial-monitor-devices.md)
-* [애플리케이션에 새 디바이스 추가(연산자 및 디바이스 개발자로서)](tutorial-add-device.md)
+* [애플리케이션에 새 장치 추가(연산자 및 장치 개발자로서)](tutorial-add-device.md)

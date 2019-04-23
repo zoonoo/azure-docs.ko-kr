@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882126"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677785"
 ---
 # <a name="configure-face-docker-containers"></a>Face Docker 컨테이너 구성
 
@@ -31,11 +31,11 @@ ms.locfileid: "58882126"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 이 값은 [`Billing`](#billing-configuration-setting) 구성 설정에 대해 지정된 _Face_ 리소스에 대한 유효한 키여야 합니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대 한 값을 지정 해야 하며 값에 대 한 유효한 키 여야 합니다.는 _Cognitive Services_ 에 대 한 지정 된 리소스는 [ `Billing` ](#billing-configuration-setting) 구성 설정입니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **키** 아래에 있는 **Face의** 리소스 관리
+* Azure Portal: **Cognitive Services** 리소스 관리 아래에 있는 **키**
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 설정
 
@@ -43,13 +43,15 @@ ms.locfileid: "58882126"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 측정하는 데 사용되는 Azure의 _Face_ 리소스에 대한 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure의 _Face_ 리소스에 대한 유효한 엔드포인트 URI여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
+`Billing` 설정은 끝점 URI를 지정의 합니다 _Cognitive Services_ Azure에서 리소스 계량 컨테이너에 대 한 청구 정보를 사용 합니다. 이 구성 설정에 대 한 값을 지정 해야 하며 값은 유효한 끝점 URI 여야 합니다.에 _Cognitive Services_ Azure에서 리소스입니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **얼굴의** 개요, 레이블이 지정 `Endpoint`
+* Azure Portal: **Cognitive Services** 개요, 레이블이 지정 `Endpoint`
 
-|필수| name | 데이터 형식 | 설명 |
+추가 해야 합니다 _얼굴_ 예제에 표시 된 대로 끝점 URI로 라우팅할 합니다. 
+
+|필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | 문자열 | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -59,7 +61,7 @@ ms.locfileid: "58882126"
 
 `CloudAI` 섹션의 구성 설정은 컨테이너에 고유한 컨테이너 관련 옵션을 제공합니다. `CloudAI` 섹션에서 Face 컨테이너에 대해 지원되는 설정과 개체는 다음과 같습니다.
 
-| name | 데이터 형식 | 설명 |
+| Name | 데이터 형식 | 설명 |
 |------|-----------|-------------|
 | `Storage` | Object | Face 컨테이너에서 사용되는 스토리지 시나리오입니다. `Storage` 개체에 대한 스토리지 시나리오 및 관련 설정에 대한 자세한 내용은 [스토리지 시나리오 설정](#storage-scenario-settings)을 참조하세요. |
 
@@ -78,9 +80,9 @@ Face 컨테이너는 저장되는 콘텐츠에 따라 Blob, 캐시, 메타데이
 
 스토리지 시나리오 및 관련 구성 설정은 `CloudAI` 구성 섹션의 `Storage` 개체에서 관리됩니다. `Storage` 개체에서 사용할 수 있는 구성 설정은 다음과 같습니다.
 
-| name | 데이터 형식 | 설명 |
+| Name | 데이터 형식 | 설명 |
 |------|-----------|-------------|
-| `StorageScenario` | 문자열 | 컨테이너에서 지원되는 스토리지 시나리오입니다. 사용할 수 있는 값은 다음과 같습니다.<br/>`Memory` 기본 값입니다. 일시적인 단일 노드 사용을 위해 컨테이너에서 비영구, 비분산 및 메모리 내 스토리지를 사용합니다. 컨테이너가 중지되거나 제거되면 해당 컨테이너의 스토리지가 삭제됩니다.<br/>`Azure` 컨테이너는 저장소에 대 한 Azure 리소스를 사용합니다. 컨테이너가 중지되거나 제거되더라도 해당 컨테이너의 스토리지가 유지됩니다.|
+| `StorageScenario` | 문자열 | 컨테이너에서 지원되는 스토리지 시나리오입니다. 사용할 수 있는 값은 다음과 같습니다.<br/>`Memory` - 기본값입니다. 일시적인 단일 노드 사용을 위해 컨테이너에서 비영구, 비분산 및 메모리 내 스토리지를 사용합니다. 컨테이너가 중지되거나 제거되면 해당 컨테이너의 스토리지가 삭제됩니다.<br/>`Azure` - 컨테이너에서 스토리지에 대한 Azure 리소스를 사용합니다. 컨테이너가 중지되거나 제거되더라도 해당 컨테이너의 스토리지가 유지됩니다.|
 | `ConnectionStringOfAzureStorage` | 문자열 | 컨테이너에서 사용되는 Azure Storage 리소스에 대한 연결 문자열입니다.<br/>`Azure`가 `StorageScenario` 구성 설정으로 지정된 경우에만 이 설정이 적용됩니다. |
 | `ConnectionStringOfCosmosMongo` | 문자열 | 컨테이너에서 사용되는 Azure Cosmos DB 리소스에 대한 MongoDB 연결 문자열입니다.<br/>`Azure`가 `StorageScenario` 구성 설정으로 지정된 경우에만 이 설정이 적용됩니다. |
 
@@ -120,7 +122,7 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](face-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
-|옵션| name | 데이터 형식 | 설명 |
+|옵션| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | 문자열 | Face 컨테이너에는 사용되지 않습니다.|
 |옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -136,12 +138,12 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 | Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
-|{BILLING_KEY} | Face 리소스의 엔드포인트 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | 지역을 포함하는 청구 엔드포인트 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | Cognitive Services 리소스의 끝점 키입니다. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | 지역 및 얼굴 라우팅를 포함 하 여 청구 끝점 값입니다.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](face-how-to-install-containers.md#billing)를 참조하세요.
-> ApiKey 값은 Azure Face 리소스 키 페이지의 **키**입니다. 
+> ApiKey 값은는 **키** azure에서 `Cognitive Services` 리소스 [키] 페이지입니다. 
 
 ## <a name="face-container-docker-examples"></a>Face 컨테이너 Docker 예제
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046311"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788430"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -344,10 +344,10 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 |들어오는 쿼리 요청|    엔드포인트 유형|  제공된 응답|
 |--|--|--|
 |모두 |  A / AAAA / CNAME |  대상 엔드포인트| 
-|변수를 잠그기 위한 |    A / CNAME | 대상 엔드포인트|
-|변수를 잠그기 위한 |    AAAA |  NODATA |
+|A |    A / CNAME | 대상 엔드포인트|
+|A |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  대상 엔드포인트|
-|AAAA | 변수를 잠그기 위한 | NODATA |
+|AAAA | A | NODATA |
 |CNAME |    CNAME | 대상 엔드포인트|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -357,7 +357,7 @@ Traffic Manager를 사용하면 IPv4 또는 IPv6 주소를 사용하여 엔드�
 |들어오는 쿼리 요청|    엔드포인트 유형 | 제공된 응답|
 |--|--|--|
 |모두 |  A와 AAAA의 혼합 | 대상 엔드포인트|
-|변수를 잠그기 위한 |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
+|A |    A와 AAAA의 혼합 | 형식 A의 유일한 대상 엔드포인트|
 |AAAA   |A와 AAAA의 혼합|     형식 AAAA의 유일한 대상 엔드포인트|
 |CNAME |    A와 AAAA의 혼합 | NODATA |
 

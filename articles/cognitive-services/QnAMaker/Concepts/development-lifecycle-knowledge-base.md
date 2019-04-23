@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4acecb9d15f820ba092f36d8fa3ea204658d2dba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276782"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684024"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다. 
@@ -35,14 +35,23 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 
 이  테스트-업데이트 반복 과정은 사용자가 결과에 만족할 때까지 계속됩니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 
-많은 기술 자료를 사용 하 여 자동화 된 테스트를 [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) 하며 `isTest=true` 쿼리 문자열 매개 변수는 쿼리는 `test` 대신 하 여 게시 된 기술 자료입니다. 
+많은 기술 자료를 사용 하 여 자동화 된 테스트를 [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) 및 `isTest` 속성에는 쿼리 본문을 `test` 대신 하 여 게시 된 기술 자료입니다. 
+
+```json
+{
+  "question": "example question",
+  "top": 3,
+  "userId": "Default",
+  "isTest": true
+}
+```
 
 ## <a name="publish-the-knowledge-base"></a>기술 자료 게시
 기술 자료 테스트를 마쳤으면 기술 자료를 게시할 수 있습니다. 게시는 테스트를 마친 최신 버전의 기술 자료를 **게시된** 기술 자료를 나타내는 전용 Azure Search 인덱스에 푸시합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
 이러한 방식으로, 테스트 버전의 기술 자료 변경 내용은 프로덕션 애플리케이션에 있을지도 모르는 게시된 버전에 영향을 주지 않습니다.
 
-각각의 기술 자료를 테스트 대상으로 지정할 수 있습니다. API를 사용하면 generateAnswer 호출에서 `isTest=true` 플래그가 있는 테스트 버전의 기술 자료를 대상으로 지정할 수 있습니다.
+각각의 기술 자료를 테스트 대상으로 지정할 수 있습니다. Api를 사용 하 고 기술 자료의 테스트 버전 대상 지정할 수 있습니다 `isTest` 속성 generateAnswer 호출의 본문입니다.
 
 [기술 자료 게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 방법을 알아보세요.
 

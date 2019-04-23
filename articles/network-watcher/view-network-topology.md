@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
 ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044331"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786832"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
 
@@ -142,7 +142,7 @@ ms.locfileid: "59044331"
 
 - **이름**: 리소스의 이름입니다.
 - **Id**: 리소스 그룹의 URI입니다.
-- **위치**: 리소스가 있는 Azure 지역입니다.
+- **Location**: 리소스가 있는 Azure 지역입니다.
 - **Associations**: 참조되는 개체에 대한 연결 목록입니다. 각 연결에는 다음과 같은 속성이 있습니다.
     - **AssociationType**: 자식 개체 및 부모 개체 간의 관계를 참조합니다. 유효한 값은 *포함* 또는 *관련됨*입니다.
     - **이름**: 참조되는 리소스의 이름입니다.

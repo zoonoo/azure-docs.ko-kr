@@ -9,11 +9,11 @@ ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803581"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787001"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>CLI 또는 PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하려면 Azure AD id 사용
 

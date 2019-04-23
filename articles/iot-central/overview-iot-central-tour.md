@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4908130cc0d59e42adb4f7ab2239e5b57dc08b89
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774305"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678652"
 ---
-# <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Azure IoT Central UI 둘러보기(새 UI 디자인)
+# <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
 
 이 문서에서는 Microsoft Azure IoT Central UI를 소개합니다. UI를 사용하여 Azure IoT Central 솔루션과 연결된 디바이스를 생성, 관리 및 사용할 수 있습니다.
 

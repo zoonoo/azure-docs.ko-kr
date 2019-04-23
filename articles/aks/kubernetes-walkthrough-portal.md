@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9a7cbc22ce6034db0ab7d5229104c644ec3f0330
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad93df6d628c91cddcf8e0a51c6ea11991e7b024
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087740"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684126"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
@@ -106,6 +106,8 @@ spec:
       labels:
         app: azure-vote-back
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
         image: redis
@@ -144,6 +146,8 @@ spec:
       labels:
         app: azure-vote-front
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1

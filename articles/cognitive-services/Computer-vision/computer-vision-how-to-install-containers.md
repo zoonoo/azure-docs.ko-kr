@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520652"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679604"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|텍스트 인식 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 엔드포인트 URI를 가져오기 위한 [_텍스트 인식_](vision-api-how-to-topics/howtosubscribe.md) Azure 리소스. 두 값 모두 Azure Portal의 텍스트 인식 개요 및 키 페이지에서 제공되며 컨테이너를 시작하는 데 필요합니다.<br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 값이 모두 리소스에 대 한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요한. 추가 해야 합니다 `vision/v2.0` BILLING_ENDPOINT_URI 예제에 나와 있는 것 처럼 끝점 URI로 라우팅할 합니다. <br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>개인 컨테이너 레지스트리에 대한 액세스 요청
@@ -91,8 +91,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 | Placeholder | 값 |
 |-------------|-------|
-|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되며, Azure Portal의 텍스트 인식 키 페이지에서 제공됩니다.  |
-|{BILLING_ENDPOINT_URI} | 청구 엔드포인트 URI 값입니다.|
+|{BILLING_KEY} | 이 키 컨테이너를 시작 하는 데 사용 되 고 Azure에서 사용할 수 있습니다 `Cognitive Services` [키] 페이지입니다.  |
+|{BILLING_ENDPOINT_URI} | 청구 엔드포인트 URI 값입니다. 예제가입니다. `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+
+추가 해야 합니다 `vision/v2.0` BILLING_ENDPOINT_URI 예제에 나와 있는 것 처럼 끝점 URI로 라우팅할 합니다.
 
 다음 예`docker run`에서 매개 변수를 사용자 고유값으로 바꿉니다.
 

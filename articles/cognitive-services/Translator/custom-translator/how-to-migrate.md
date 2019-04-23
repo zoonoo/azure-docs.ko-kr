@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901528"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698402"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -119,6 +119,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 프로젝트, 학습 및 문서에 대한 더 자세한 마이그레이션 보고서를 보려면 CSV로 세부 정보 내보내기 옵션이 있습니다.
 
 ## <a name="implementation-notes"></a>구현 참고 사항
+* 아직 시스템 언어를 사용 하 여 쌍에서 사용할 수 있는 사용자 지정 변환기만 데이터에 액세스 하거나 사용자 지정 변환기를 통해 배포 취소에 사용할 수 있습니다. 이러한 프로젝트는 프로젝트 페이지에서 "사용할 수 없음"으로 표시 됩니다. 사용자 지정 변환기를 사용 하 여 새 언어 쌍의 사용 가능 해지면 프로젝트 시스템을 학습 하 고 배포에 대해 활성화 됩니다. 
 * 허브에서 Custom Translator로 프로젝트를 마이그레이션하면 허브 학습 또는 프로젝트에 아무런 영향도 주지 않습니다. 마이그레이션하는 중에는 허브에서 프로젝트 또는 문서를 삭제하지 않으며 모델 배포를 취소하지 않습니다.
 * 프로젝트당 한 번만 마이그레이션할 수 있습니다. 프로젝트에서 마이그레이션을 반복해야 하는 경우 당사에 연락하세요.
 * 사용자 지정 변환기 NMT 언어 쌍와 영어를 지원합니다. [지원 되는 언어의 전체 목록을 보려면](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)합니다. 허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다. 지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다. 새 모델을 학습할 수 없습니다. 또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.

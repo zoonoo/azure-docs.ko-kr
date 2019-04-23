@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904749"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788838"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Azure Monitor에서 컨테이너 로그를 실시간으로 보는 방법(미리 보기)
 현재 미리 보기로 있는 이 기능은 Kubectl 명령을 실행하지 않고도 AKS(Azure Kubernetes Service) 컨테이너 로그(stdout/stderr)에 대한 실시간 보기를 제공합니다. 이 옵션을 선택하면 **컨테이너** 보기에서 컨테이너 성능 데이터 테이블 아래에 새 창이 나타납니다.  여기에는 실시간으로 문제를 해결하는 데 더 많은 도움을 주기 위해 컨테이너 엔진에서 생성하는 라이브 로깅이 표시됩니다. **참가자** 클러스터 리소스에 대 한 액세스는이 기능이 작동 하기 위해 필요 합니다.
