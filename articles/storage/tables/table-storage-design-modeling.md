@@ -2,18 +2,19 @@
 title: Azure Storage 테이블 디자인에서 관계 모델링 | Microsoft Docs
 description: Table Storage 솔루션을 설계할 때 모델링 프로세스를 이해합니다.
 services: storage
-author: MarkMcGeeAtAquent
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
+origin.date: 04/23/2018
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502539"
 ---
 # <a name="modeling-relationships"></a>관계 모델링
 이 아티클에서는 Azure Table Storage 솔루션을 디자인할 수 있도록 모델링 프로세스를 설명합니다.

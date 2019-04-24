@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398641"
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 이 문서에서는 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure Machine Learning Studio에서 가져온 것입니다. 

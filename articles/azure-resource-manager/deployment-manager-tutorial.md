@@ -14,10 +14,10 @@ ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880052"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
@@ -309,7 +309,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
     ```
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment` 은(는) 비동기 호출입니다. 성공 메시지는 성공적으로 배포가 시작되었다는 의미일 뿐입니다. 배포를 확인하려면 이 절차의 2단계와 4단계를 참조하세요.
+    > `New-AzResourceGroupDeployment`는 비동기 호출입니다. 성공 메시지는 성공적으로 배포가 시작되었다는 의미일 뿐입니다. 배포를 확인하려면 이 절차의 2단계와 4단계를 참조하세요.
 
 2. Azure Portal을 사용하여 서비스 토폴로지와 밑줄 표시된 리소스가 성공적으로 만들어졌는지 확인합니다.
 

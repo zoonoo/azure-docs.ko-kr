@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442007"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -33,9 +33,9 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 프로비전 커넥터는 지원되는 애플리케이션에 [제공된 설명서](../saas-apps/tutorial-list.md)에 따라 [Azure Portal](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
 
-* **Azure 관리 포털** - 이 문서에서는 주로 지정된 애플리케이션에 대한 프로비전 요약 보고서와 자세한 프로비전 감사 로그를 제공하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색하는 방법에 대해 설명합니다.
+* **Azure 관리 포털** - 이 문서에서는 주로 지정된 애플리케이션에 대한 프로비저닝 요약 보고서와 자세한 프로비저닝 감사 로그를 제공하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색하는 방법에 대해 설명합니다.
 
-* **감사 API** - Azure Active Directory는 자세한 프로비전 감사 로그를 프로그래밍 방식으로 검색할 수 있게 해주는 감사 API도 제공합니다. 이 API의 사용과 관련하여 [Azure Active Directory 감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 문서를 참조하세요. 이 문서에서는 API를 사용하는 방법을 구체적으로 다루지 않지만, 감사 로그에 기록되는 프로비전 이벤트 유형에 대해서는 자세히 설명합니다.
+* **감사 API** - Azure Active Directory는 자세한 프로비저닝 감사 로그를 프로그래밍 방식으로 검색할 수 있게 해주는 감사 API도 제공합니다. 이 API의 사용과 관련하여 [Azure Active Directory 감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 문서를 참조하세요. 이 문서에서는 API를 사용하는 방법을 구체적으로 다루지 않지만, 감사 로그에 기록되는 프로비전 이벤트 유형에 대해서는 자세히 설명합니다.
 
 ### <a name="definitions"></a>정의
 

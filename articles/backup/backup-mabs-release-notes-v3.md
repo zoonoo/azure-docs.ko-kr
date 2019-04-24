@@ -10,11 +10,11 @@ ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: d37245d7eed39ee9d219578db9e0a50d758ba9a2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499701"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 이 문서에서는 MABS(Microsoft Azure Backup Server) V3에 대해 알려진 문제와 해결 방법을 제공합니다.

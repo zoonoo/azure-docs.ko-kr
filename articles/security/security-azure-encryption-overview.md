@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
 ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444519"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -86,7 +86,7 @@ Key Vault를 사용한 클라이언트 쪽 암호화에 대해 자세히 알아�
 
 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Azure의 범용 관계형 데이터베이스 서비스입니다. SQL Database는 TDE(투명한 데이터 암호화) 기능을 통한 서버 쪽 암호화와 Always Encrypted 기능을 통한 클라이언트 쪽 암호화를 모두 지원합니다.
 
-#### <a name="transparent-data-encryption"></a>투명한 데이터 암호화
+#### <a name="transparent-data-encryption"></a>Transparent Data Encryption
 
 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde)는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)를 사용하여 [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../sql-database/sql-database-technical-overview.md) 및 [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 데이터 파일을 실시간으로 암호화하는 데 사용됩니다.
 

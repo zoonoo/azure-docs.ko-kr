@@ -17,6 +17,8 @@
   items:
     - name: Docker 컨테이너에서 실행 중인 SQL Server 쿼리
       href: vnet-injection-sql-server.md
+    - name: Cosmos DB 서비스 엔드포인트 사용
+      href: service-endpoint-cosmosdb.md
     - name: ETL 작업 수행
       href: databricks-extract-load-sql-data-warehouse.md
     - name: Event Hubs를 사용한 데이터 스트리밍

@@ -14,11 +14,11 @@ ms.author: celested
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202692"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440235"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드는 Azure AD(Active Directory)에 대한 LoB(기간 업무) 애플리케이션 개발의 개요를 제공하며, Active Directory/Office 365 글로벌 관리자용으로 작성되었습니다.

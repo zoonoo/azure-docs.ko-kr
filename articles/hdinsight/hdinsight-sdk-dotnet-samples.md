@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 94e2f007f70d55387b641b3d9166fa84f26f16ba
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: f589c5e23be105086d2908fb7db72e69c781e726
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580946"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678261"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: .NET 샘플
 
@@ -41,7 +41,7 @@ ms.locfileid: "59580946"
 * [Azure Data Lake Storage Gen2로 Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
 * [ESP(Enterprise Security Package)를 사용하여 Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
 
-[hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) GitHub 리포지토리를 복제를 통해 이러한 .NET용 샘플을 가져올 수 있습니다.
+[hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) GitHub 리포지토리를 복제하여 이러한 .NET용 샘플을 가져올 수 있습니다.
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 

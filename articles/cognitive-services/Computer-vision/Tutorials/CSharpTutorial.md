@@ -1,22 +1,22 @@
 ---
 title: '샘플: C#에서 이미지 처리 앱 탐색'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Microsoft Cognitive Services의 Computer Vision API를 사용하는 기본 Windows 앱을 탐색합니다. OCR를 수행하고, 썸네일을 만들고, 이미지의 시각적 기능으로 작업합니다.
+titleSuffix: Azure Cognitive Services
+description: Azure Cognitive Services의 Computer Vision API를 사용하는 기본 Windows 앱을 탐색합니다. OCR를 수행하고, 썸네일을 만들고, 이미지의 시각적 기능으로 작업합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310946"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004026"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -33,7 +33,7 @@ Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합�
 샘플 앱을 탐색하기 전에 다음 필수 조건을 충족하는지 확인합니다.
 
 * [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 이상이 있어야 합니다.
-* Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+* Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 

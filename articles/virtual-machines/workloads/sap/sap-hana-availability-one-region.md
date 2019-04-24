@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f2defd60ec6b835ec856c9253a92f1d6817e861
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 687012e73b4b0c869b491ac1c9ea128662b23510
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391484"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
 이 문서에서는 한 Azure 지역 내의 여러 가용성 시나리오에 대해 설명합니다. Azure에는 전 세계에 걸쳐 많은 지역이 있습니다. Azure 지역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. Azure 지역 내의 VM에 SAP HANA를 배포하는 경우 Microsoft는 HANA 인스턴스가 있는 단일 VM의 배포를 제공합니다. 가용성을 높이기 위해 HANA 시스템 복제를 가용성 용도로 사용하는 [Azure 가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) 내에 두 개의 HANA 인스턴스가 있는 두 개의 VM을 배포할 수 있습니다. 
 
 현재 Azure는 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 제공하고 있습니다. 이 문서에서는 가용성 영역에 대해 자세히 설명하지 않습니다. 그러나 가용성 집합과 가용성 영역을 사용하는 방법에 대한 일반적인 내용이 설명되어 있습니다.
 
-가용성 영역이 제공되는 Azure 지역에는 여러 데이터 센터가 있습니다. 데이터 센터는 전원, 냉각 및 네트워크의 공급 장치와 독립적입니다. 단일 Azure 지역 내에 서로 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에 애플리케이션을 배포하기 위해서입니다. 영역에 배포할 때 전원 및 네트워크의 문제가 하나의 Azure 가용성 영역 인프라에만 영향을 준다면, Azure 지역 내 애플리케이션 배포는 계속 작동합니다. 일부 용량이 줄어들 수도 있습니다. 예를 들어 한 영역의 VM이 손실될 수 있지만 다른 두 영역의 VM은 계속 가동되어 실행됩니다. 
+가용성 영역이 제공되는 Azure 지역에는 여러 데이터 센터가 있습니다. 데이터 센터는 전원, 냉각 및 네트워크의 공급 장치와 독립적입니다. 단일 Azure 지역 내에 서로 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에 응용 프로그램을 배포하기 위해서입니다. 영역에 배포할 때 전원 및 네트워크의 문제가 하나의 Azure 가용성 영역 인프라에만 영향을 준다면, Azure 지역 내 응용 프로그램 배포는 계속 작동합니다. 일부 용량이 줄어들 수도 있습니다. 예를 들어 한 영역의 VM이 손실될 수 있지만 다른 두 영역의 VM은 계속 가동되어 실행됩니다. 
  
 Azure 가용성 집합은 가용성 집합 내에 배치한 VM 리소스를 Azure 데이터 센터에 배포할 때 서로 간에 오류가 격리되도록 하는 데 도움이 되는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 일부 Azure 문서에서 이 구성은 다른 [업데이트 및 장애 도메인](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)의 배치라고 합니다. 이러한 배치는 일반적으로 Azure 데이터 센터 내에 있습니다. 전원 및 네트워크 문제가 배포하는 데이터 센터에 영향을 준다고 가정하면, 한 Azure 지역의 모든 용량에 영향을 줍니다.
 
@@ -117,7 +117,7 @@ SAP HANA 측면에서 볼 때, 사용되는 복제 모드가 동기화되고 자
 
 ![저장소 복제 및 장애 조치가 있는 두 VM의 다이어그램](./media/sap-hana-availability-one-region/two_vm_HSR_sync_auto_pre_preload.PNG)
 
-RPO=0 및 낮은 RTO 시간을 달성할 수 있기 때문에 이 솔루션은 선택할 수 있습니다. SAP HANA 클라이언트에서 가상 IP 주소를 사용하여 HANA 시스템 복제 구성에 연결하도록 SAP HANA 클라이언트 연결을 구성합니다. 이러한 구성은 보조 노드에 장애 조치하는 경우 애플리케이션을 다시 구성할 필요가 없습니다. 이 시나리오에서는 주 VM 또는 보조 VM에 대한 Azure VM SKU가 동일해야 합니다.
+RPO=0 및 낮은 RTO 시간을 달성할 수 있기 때문에 이 솔루션은 선택할 수 있습니다. SAP HANA 클라이언트에서 가상 IP 주소를 사용하여 HANA 시스템 복제 구성에 연결하도록 SAP HANA 클라이언트 연결을 구성합니다. 이러한 구성은 보조 노드에 장애 조치하는 경우 응용 프로그램을 다시 구성할 필요가 없습니다. 이 시나리오에서는 주 VM 또는 보조 VM에 대한 Azure VM SKU가 동일해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

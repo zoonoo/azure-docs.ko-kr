@@ -15,11 +15,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60438329"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -82,7 +82,7 @@ ms.locfileid: "58439042"
 - 조건부 액세스
 - 핵심 디렉터리
 - 권한 관리
-- ID 보호
+- Identity Protection
 - 사용자 초대
 - PIM
 - 셀프 서비스 그룹 관리

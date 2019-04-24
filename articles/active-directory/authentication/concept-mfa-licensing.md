@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415687"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "58310003"
 
 다음 표에서는 세 가지 버전의 Multi-Factor Authentication 간 차이점을 설명합니다.
 
-| 버전 | 설명 |
+| Version | 설명 |
 | --- | --- |
 | Office 365용 Multi-Factor Authentication <br> Microsoft 365 Business |이 버전은 Office 365 애플리케이션에서만 작동되며 Office 365 또는 Microsoft 365 포털에서 관리됩니다. 관리자는 [2단계 인증을 사용하여 Office 365 리소스의 보안을 유지](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)할 수 있습니다. 이 버전은 Office 365 또는 Microsoft 365 Business 구독의 일부입니다. |
 | Azure AD 관리자를 위한 Multi-Factor Authentication | Azure AD 테넌트에서 Azure AD 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 2단계 인증을 사용하도록 설정할 수 있습니다.|

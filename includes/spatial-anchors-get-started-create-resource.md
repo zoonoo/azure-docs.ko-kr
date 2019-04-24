@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: dc8d3c2d400204f53b05bb5536af95679541f3f6
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305200"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632940"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Spatial Anchors 리소스 만들기
 
@@ -25,7 +25,7 @@ Azure Portal의 왼쪽 탐색 창에서 **리소스 만들기**를 선택합니�
 
 **Spatial Anchors 계정** 대화 상자에서 다음을 수행합니다.
 
-- 고유한 리소스 이름을 입력합니다.
+- 일반 영숫자 문자를 사용하여 고유한 리소스 이름을 입력합니다.
 - 리소스를 연결할 구독을 선택합니다.
 - **새로 만들기**를 선택하여 리소스 그룹을 만듭니다. 이름을 **myResourceGroup**으로 지정하고 **확인**을 선택합니다.
       [!INCLUDE [resource group intro text](resource-group.md)]
@@ -34,7 +34,11 @@ Azure Portal의 왼쪽 탐색 창에서 **리소스 만들기**를 선택합니�
 
    ![리소스 만들기](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-리소스가 만들어지면 리소스 속성을 볼 수 있습니다. 리소스의 **계정 ID** 값을 텍스트 편집기에 복사합니다. 나중에 필요합니다.
+리소스를 만든 후 Azure Portal은 배포가 완료되었음을 표시합니다. **리소스로 이동**을 클릭합니다.
+
+![배포 완료](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+
+그런 다음, 리소스 속성을 볼 수 있습니다. 리소스의 **계정 ID** 값을 텍스트 편집기에 복사합니다. 나중에 필요합니다.
 
    ![리소스 속성](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 

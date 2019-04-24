@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: a0053f950b36351b06d08630cbf9977f53f2ed47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23108251"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319567"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 시리즈 시스템 제한이란?
 

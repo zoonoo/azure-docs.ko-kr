@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516491"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -34,7 +34,7 @@ ms.locfileid: "55733436"
 | | |
 | ------------- | ------------- |
 | 무엇인가요?   | 로컬 관계형 데이터베이스 인스턴스      |
-| 지원되는 DSVM 버전      |  Windows      |
+| 지원되는 DSVM 버전      | Windows      |
 | 일반적인 사용 용도      | 더 작은 데이터 세트를 사용하여 로컬에서 빠른 개발 <br/> In-database R 실행   |
 | 샘플에 대한 링크      |    뉴욕 시 데이터 세트의 작은 샘플은 SQL 데이터베이스 `nyctaxi`로 로드됩니다. <br/> Microsoft R 및 데이터베이스 내 분석을 보여주는 Jupyter 샘플은 다음에서 찾을 수 있습니다.<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | DSVM의 관련 도구       | SQL Server Management Studio <br/> ODBC/JDBC 드라이버<br/> pyodbc, RODBC<br />Apache Drill      |
@@ -101,7 +101,7 @@ Ubuntu Linux DSVM 버전의 Microsoft R Server Spark 컨텍스트에서 실행�
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>DSVM에 구성/설치 방법 
 |플랫폼|설치 위치($SPARK_HOME)|
 |:--------|:--------|
-| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

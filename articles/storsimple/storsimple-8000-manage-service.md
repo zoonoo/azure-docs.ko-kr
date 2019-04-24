@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506627"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 디바이스에 StorSimple 디바이스 관리자 서비스 배포
 
@@ -194,16 +194,16 @@ Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 디바�
 | 업데이트 검사, 다운로드 및 설치                                                                                             | 예            |
 | 디바이스 비활성화                                                                                                               | 예            |
 | 디바이스 삭제                                                                                                                   | 예            |
-| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아니요             |
-| 볼륨 만들기, 수정 및 삭제                                                                                             | 아니요             |
-| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니요             |
-| 수동 백업 수행                                                                                                            | 아니요             |
+| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 아닙니다.             |
+| 볼륨 만들기, 수정 및 삭제                                                                                             | 아닙니다.             |
+| 백업 정책 만들기, 수정 및 삭제                                                                                      | 아닙니다.             |
+| 수동 백업 수행                                                                                                            | 아닙니다.             |
 | 예약된 백업 수행                                                                                                         | 해당 없음 |
-| backupset에서 복원                                                                                                        | 아니요             |
+| backupset에서 복원                                                                                                        | 아닙니다.             |
 | 업데이트 3.0 이상을 실행하는 디바이스에 복제 <br> 원본 디바이스는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 예            |
-| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 아니요             |
+| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 아닙니다.             |
 | 원본 디바이스로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 디바이스에서 업데이트 3.0 이후 버전을 실행하는 디바이스로)                                                               | 예            |
-| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | 아니요             |
+| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | 아닙니다.             |
 | 경고 지우기                                                                                                                  | 예            |
 | 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 예            |
 | 디바이스 컨트롤러 설정 및 해제                                                                                              | 예            |

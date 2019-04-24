@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447005"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana의 Azure Data Explorer에서 데이터 시각화
 
@@ -156,7 +156,7 @@ Grafana에 대한 데이터 원본으로 Azure Data Explorer를 구성하려면 
     | 구독 ID | 구독 ID | SubscriptionId |
     | 테넌트 ID | 디렉터리 ID | tenant |
     | 클라이언트 ID | 애플리케이션 UI | appId |
-    | 클라이언트 암호 | 암호 | 암호 |
+    | 클라이언트 암호 | 암호 | password |
     | | | |
 
 1. **저장 & 테스트**를 선택합니다.

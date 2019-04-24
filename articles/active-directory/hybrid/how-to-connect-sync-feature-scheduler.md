@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347926"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
+# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: 스케줄러
 이 토픽은 Azure AD Connect 동기화(동기화 엔진이라고도 함)의 기본 제공 스케줄러를 설명합니다.
 
 이 기능은 빌드 1.1.105.0(2016년 2월에 발표됨)에서 도입되었습니다.

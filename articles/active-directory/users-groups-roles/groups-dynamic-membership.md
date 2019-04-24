@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471645"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 
 * 자산
 * 연산자
-* 값
+* Value
 
 식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
 
@@ -60,8 +60,8 @@ user.department -eq "Sales"
 
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
-* BOOLEAN
-* 문자열
+* Boolean
+* String
 * 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.

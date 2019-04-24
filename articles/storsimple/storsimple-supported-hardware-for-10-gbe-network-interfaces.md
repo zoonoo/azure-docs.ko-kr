@@ -1,6 +1,6 @@
 ---
 title: StorSimple 10GbE 인터페이스에 대한 하드웨어 | Microsoft Docs
-description: StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 SFP(Small Form Factor Pluggable) 트랜시버, 케이블 및 스위치에 대해 설명합니다.
+description: StorSimple 디바이스의 10GbE 네트워크 인터페이스에 대해 지원되는 SFP(Small Form Factor Pluggable) 트랜시버, 케이블 및 스위치에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,71 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302537"
 ---
-# <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
+# <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple 디바이스의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
 ## <a name="overview"></a>개요
-이 문서에서는 Microsoft Azure StorSimple 장치를 사용하는 보조 하드웨어에 대한 정보를 제공합니다.
+이 문서에서는 Microsoft Azure StorSimple 디바이스를 사용하는 보조 하드웨어에 대한 정보를 제공합니다.
 
-## <a name="list-of-devices-tested-by-microsoft"></a>Microsoft에서 테스트한 장치 목록
-Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, 케이블 및 스위치가 장치와 최적으로 작동되도록 테스트했습니다. (새 하드웨어를 테스트하는 대로 다음 표가 업데이트됩니다.)
+## <a name="list-of-devices-tested-by-microsoft"></a>Microsoft에서 테스트한 디바이스 목록
+Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, 케이블 및 스위치가 디바이스와 최적으로 작동되도록 테스트했습니다. (새 하드웨어를 테스트하는 대로 다음 표가 업데이트됩니다.)
 
 ### <a name="sfp-transceivers"></a>SFP + 트랜시버
 | 계정을 | 모델 |
 | --- | --- |
-| Cisco |SFP-10G-SR |
+| 시스코 |SFP-10G-SR |
 
 ### <a name="cables"></a>케이블
-| S. 번호 | 계정을 | 모델 |
+| S. 아니요. | 계정을 | 모델 |
 | --- | --- | --- |
-| 1. |Cisco |SFP-H10GB-CU1M |
-| 2. |Cisco |SFP-H10GB-CU2M |
-| 3. |Cisco |SFP-H10GB-CU3M |
+| 1. |시스코 |SFP-H10GB-CU1M |
+| 2. |시스코 |SFP-H10GB-CU2M |
+| 3. |시스코 |SFP-H10GB-CU3M |
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>스위치
-| S. 번호 | 계정을 | 모델 |
+| S. 아니요. | 계정을 | 모델 |
 | --- | --- | --- |
-| 1. |Cisco |N3K-C3172PQ-10GE |
-| 2. |Cisco |N3K-C3048-ZM-F |
-| 3. |Cisco |N5K-C5596UP-FA |
+| 1. |시스코 |N3K-C3172PQ-10GE |
+| 2. |시스코 |N3K-C3048-ZM-F |
+| 3. |시스코 |N5K-C5596UP-FA |
 
-## <a name="list-of-devices-tested-in-the-field"></a>필드에서 테스트한 장치 목록
-이 섹션에는 StorSimple 고객이 필드에 성공적으로 배포한 장치 목록이 포함되어 있습니다. Microsoft에서 테스트하지 않았지만 StorSimple 장치와 작업할 수 있습니다.
+## <a name="list-of-devices-tested-in-the-field"></a>필드에서 테스트한 디바이스 목록
+이 섹션에는 StorSimple 고객이 필드에 성공적으로 배포한 디바이스 목록이 포함되어 있습니다. Microsoft에서 테스트하지 않았지만 StorSimple 디바이스와 작업할 수 있습니다.
 
-| 매개 변수 | 값 |
+| 매개 변수 | Value |
 | --- | --- |
 | 스위치 제조사 |Juniper |
 | 스위치 모델 |ex4550-32F |
 | 스위치 운영 체제 버전 |JunOS 12.3R9.4 |
 | 블레이드 모델 |포트 등록(PIC 0) |
 | 송수신 장치 제조사 |Juniper |
-| 송수신 장치 모델 |부품 번호 740-021308  <br></br> 부품 번호 740-030658 |
+| 송수신 장치 모델 |부품 번호 740-021308  <br></br>  부품 번호 740-030658 |
 | 송수신 장치 펌웨어 버전 |Rev 01 버전 0.0(보고됨) |
 | 케이블 모델 |이중 점퍼 LC/LC 50/125µ, OM3, LSZH |
 | StorSimple 모델 |8600 |
 | StorSimple 소프트웨어 버전 |6.3.9600.17491 |
 
-## <a name="list-of-devices-tested-by-oem-provider-mellanox"></a>OEM 공급자(Mellanox)가 테스트한 장치 목록
-다음 소형 폼팩터 플러그형(SFP) 트랜시버, 케이블 및 스위치는 StorSimple 장치의 10GbE 네트워크 인터페이스와 같은 Mellanox 네트워크 인터페이스와 최적으로 작동되도록 Mellanox에서 테스트되었습니다.
+## <a name="list-of-devices-tested-by-oem-provider-mellanox"></a>OEM 공급자(Mellanox)가 테스트한 디바이스 목록
+다음 소형 폼팩터 플러그형(SFP) 트랜시버, 케이블 및 스위치는 StorSimple 디바이스의 10GbE 네트워크 인터페이스와 같은 Mellanox 네트워크 인터페이스와 최적으로 작동되도록 Mellanox에서 테스트되었습니다.
 
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Mellanox에서 지원하는 케이블 및 모듈
-다음 표에서 Mellanox에서 지 원하는 케이블 및 모듈을 나열합니다. Microsoft에서 테스트하지 않았지만 StorSimple 장치와 작업할 수 있습니다.
+다음 표에서 Mellanox에서 지 원하는 케이블 및 모듈을 나열합니다. Microsoft에서 테스트하지 않았지만 StorSimple 디바이스와 작업할 수 있습니다.
 
-| S. 번호 | 속도 | 모델 | 설명 | 계정을 |
+| S. 아니요. | 속도 | 모델 | 설명 | 계정을 |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |CAB-SFP-SFP-1M |수동 구리 케이블 SFP+10Gb/s 1m |Arista |
 | 2. |10GbE |CAB-SFP-SFP-2M |수동 구리 케이블 SFP+10Gb/s 2m |Arista |
 | 3. |10GbE |CAB-SFP-SFP-3M |수동 구리 케이블 SFP+10Gb/s 3m |Arista |
 | 4. |10GbE |CAB-SFP-SFP-5M |수동 구리 케이블 SFP+10Gb/s 5m |Arista |
-| 5. |10GbE |Cisco SFP-H10GBCU1M |Cisco SFP+ 케이블 |Cisco |
-| 6. |10GbE |Cisco SFP-H10GBCU3M |Cisco SFP+ 케이블 |Cisco |
-| 7. |10GbE |Cisco SFP-H10GBCU5M |Cisco SFP+ 케이블 |Cisco |
+| 5. |10GbE |Cisco SFP-H10GBCU1M |Cisco SFP+ 케이블 |시스코 |
+| 6. |10GbE |Cisco SFP-H10GBCU3M |Cisco SFP+ 케이블 |시스코 |
+| 7. |10GbE |Cisco SFP-H10GBCU5M |Cisco SFP+ 케이블 |시스코 |
 | 8. |10GbE |J9281B HP X242 10G |SFP + SFP + 1m 구리 케이블 연결 |HP |
 | 9. |10GbE |455883-B21 HP BLc |10Gb SR SFP+ Opt |HP |
 | 10. |10GbE |455886-B21 HP BLc |10Gb LR SFP+ Opt |HP |
@@ -109,15 +109,15 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 | 35. |10GbE |MC3309130-00A Mt |수동 구리 케이블 1x SFP + 10Gb/s 30awg 0.5m |Mellanox 기술 |
 
 ### <a name="switches-supported-by-mellanox"></a>Mellanox에서 지원하는 스위치
-다음 표는 Mellanox에서 지원하는 스위치를 나열합니다. Microsoft에서 테스트하지 않았지만 StorSimple 장치와 작업할 수 있습니다.
+다음 표는 Mellanox에서 지원하는 스위치를 나열합니다. Microsoft에서 테스트하지 않았지만 StorSimple 디바이스와 작업할 수 있습니다.
 
-| S. 번호 | 속도 | 모델 | 설명 | 계정을 |
+| S. 아니요. | 속도 | 모델 | 설명 | 계정을 |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |HP ProCurve 6120XG 10GbE 이더넷 블레이드 스위치 |HP |
 | 2. |10GbE |538113-B21 |HP 10GbE 통과 모듈(PTM) |HP |
 | 3. |10GbE |EN4093 |IBM PureFlex System Fabric EN4093 10기가비트 확장성 있는 스위치 모듈 |IBM |
-| 4. |1GbE |3020 |Cisco Catalyst 3020 1GbE 스위치 블레이드 |Cisco |
-| 5. |1GbE |3020X |Cisco Catalyst 3020X 1GbE 스위치 블레이드 |Cisco |
+| 4. |1GbE |3020 |Cisco Catalyst 3020 1GbE 스위치 블레이드 |시스코 |
+| 5. |1GbE |3020X |Cisco Catalyst 3020X 1GbE 스위치 블레이드 |시스코 |
 | 6. |1GbE |438030-B21 |HP 1GbE 스위치 모듈 - GbE2c 계층 2/3 이더넷 블레이드 전환 |HP |
 | 7. |1GbE |6120G |HP ProCurve 6120G/XG 1GbE 스위치 블레이드 |HP |
 

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381961"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -68,7 +68,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 웹 브라우저 |양식 기반 인증  |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
 | Outlook |자격 증명 확인 |자격 증명 확인 |
 | 비즈니스용 Skype(Lync) |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
-| OneDrive for Business |자격 증명 확인 |Single Sign-On |
+| 비즈니스용 OneDrive |자격 증명 확인 |Single Sign-On |
 | Office Pro Plus 구독 |자격 증명 확인 |Single Sign-On |
 
 **외부 또는 신뢰할 수 없는 원본**:
@@ -158,7 +158,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * DNS 도메인은 단일 Azure AD Directory에만 등록될 수 있으므로, 온-프레미스 AD 내의 사용자 UPN도 별도의 네임스페이스를 사용해야 합니다.
 * Azure AD의 한 인스턴스에서 사용자가 해당 인스턴스에서 사용자를 확인할 수 있습니다.  다른 인스턴스에 있는 사용자를 확인할 수 없습니다.
 * 하나의 Azure AD Directory만 온-프레미스 AD를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
-* 상호 배타성은 쓰기 저장에도 적용됩니다.  이렇게 하면 단일 온-프레미스 구성으로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다.  다음 내용이 포함됩니다.
+* 상호 배타성은 쓰기 저장에도 적용됩니다.  이렇게 하면 단일 온-프레미스 구성으로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다.  다음을 포함합니다.
   * 기본 구성으로 쓰기 저장 그룹화
   * 디바이스 쓰기 저장
 

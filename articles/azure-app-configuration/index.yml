@@ -15,11 +15,20 @@ metadata:
   ms.author: yegu
 abstract:
   description: Azure App Configuration은 개발자가 애플리케이션 구성을 간단하고 안전하게 중앙 집중화하도록 도와주는 관리형 서비스입니다.
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/videos/getting-started.png
+      width: 250
+    title: '시작(14:41)'
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    width: 250
 sections:
   - title: 5분 빠른 시작
     items:
       - type: paragraph
-        text: Azure App Configuration을 사용하여 첫 번째 웹 애플리케이션을 개발하는 방법을 알아보세요.
+        text: Azure App Configuration을 사용하여 첫 번째 애플리케이션을 개발하는 방법을 알아보세요.
       - type: list
         style: icon48
         items:

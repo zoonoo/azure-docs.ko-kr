@@ -11,11 +11,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
 ms.openlocfilehash: 59602977c1b7f6dd0524c6535d8458d3eb1a3f26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505909"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 가상 머신 문제를 해결하는 방법
 
@@ -25,7 +25,7 @@ Linux 가상 머신의 경우 포털에서 콘솔 로그의 출력을 볼 수 �
 
 **부트 진단** 옵션을 선택하여 로그 및 스크린샷을 볼 수 있습니다.
 
-![리소스 관리자](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>일반적인 부팅 오류
 

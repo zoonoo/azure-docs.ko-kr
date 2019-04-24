@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444882"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
 ## <a name="overview"></a>개요
@@ -40,14 +40,14 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="reference-the-sendgrid-net-class-library"></a>SendGrid.NET 클래스 라이브러리 참조
-[SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid) 는 SendGrid API를 가져오고 응용 프로그램에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은 Microsoft Visual Studio 2015 이상에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다.
+[SendGrid NuGet 패키지](https://www.nuget.org/packages/Sendgrid) 는 SendGrid API를 가져오고 애플리케이션에서 종속성을 모두 갖도록 구성하는 가장 쉬운 방법입니다. NuGet은 Microsoft Visual Studio 2015 이상에 포함된 Visual Studio 확장 프로그램으로서 라이브러리 및 도구를 쉽게 설치하고 업데이트할 수 있습니다.
 
 > [!NOTE]
 > Visual Studio 2015보다 이전 버전의 Visual Studio를 실행 중인 경우 NuGet을 설치하려면 [https://www.nuget.org](https://www.nuget.org)로 이동하여 **Install NuGet** 단추를 클릭합니다.
 >
 >
 
-응용 프로그램에서 SendGrid NuGet 패키지를 설치하려면 다음을 수행합니다.
+애플리케이션에서 SendGrid NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1. **새 프로젝트**를 클릭하고 **템플릿**을 선택합니다.
 
@@ -100,7 +100,7 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
 
 메일을 보내려면 SendGrid API 키를 제공해야 합니다. API 키를 구성하는 방법에 대한 세부 정보가 필요한 경우 SendGrid의 API 키 [설명서][documentation]를 방문하세요.
 
-Azure Portal에서 응용 프로그램 설정을 클릭하고 앱 설정 아래에 키/값 쌍을 추가하여 이러한 자격 증명을 저장할 수 있습니다.
+Azure Portal에서 애플리케이션 설정을 클릭하고 앱 설정 아래에 키/값 쌍을 추가하여 이러한 자격 증명을 저장할 수 있습니다.
 
  ![Azure 앱 설정][azure_app_settings]
 
@@ -248,7 +248,7 @@ SendGrid는 메일 설정 및 추적 설정을 사용하여 추가 메일 기능
     msg.SetClickTracking(true);
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>방법: 추가 SendGrid 서비스 사용
-SendGrid는 Azure 응용 프로그램 내에서 추가 기능을 활용하는 데 사용할 수 있는 여러 API 및 웹후크를 제공합니다. 자세한 내용은 [SendGrid API 참조][SendGrid API documentation]를 참조하세요.
+SendGrid는 Azure 애플리케이션 내에서 추가 기능을 활용하는 데 사용할 수 있는 여러 API 및 웹후크를 제공합니다. 자세한 내용은 [SendGrid API 참조][SendGrid API documentation]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.

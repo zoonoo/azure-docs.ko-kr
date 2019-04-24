@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 4b1164c3dedc5d8a2fa02d70f66ff00afe604836
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30834002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532467"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Azure Network Watcher의 연결 문제 해결 소개
 
@@ -74,7 +74,7 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 
 연결 문제 해결은 연결에 대한 오류 형식을 반환합니다. 다음 테이블에 반환된 현재 오류 형식의 목록이 나와 있습니다.
 
-|유형  |설명  |
+|Type  |설명  |
 |---------|---------|
 |CPU     | 높은 CPU 사용률       |
 |메모리     | 높은 메모리 사용률       |

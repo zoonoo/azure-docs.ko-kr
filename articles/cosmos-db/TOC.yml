@@ -138,15 +138,11 @@
         - name: 인덱싱
           items:
             - name: 개요
+              displayName: 'range, spatial'
               href: index-overview.md
-            - name: 인덱스 정책
+            - name: 인덱싱 정책
               displayName: 'consistent, none'
               href: index-policy.md
-            - name: 인덱스 형식
-              displayName: 'hash, range, spatial'
-              href: index-types.md
-            - name: 인덱스 경로
-              href: index-paths.md
         - name: 변경 피드
           items:
             - name: 개요
@@ -165,6 +161,17 @@
           href: unique-keys.md
         - name: 트랜잭션 및 낙관적 동시성 제어
           href: database-transactions-optimistic-concurrency.md
+    - name: 변경 피드
+      items:
+        - name: 개요
+          href: change-feed.md
+        - name: 변경 피드 읽기
+          href: read-change-feed.md
+        - name: 변경 피드 프로세서
+          href: change-feed-processor.md
+        - name: Azure Functions 트리거
+          displayName: change feed
+          href: change-feed-functions.md
     - name: 서버 쪽 프로그래밍
       items:
         - name: '저장 프로시저, 트리거 및 UDF'
@@ -216,7 +223,61 @@
 - name: 'Cassandra, MongoDB 및 기타 API'
   expanded: true
   items:
-    - name: Azure Cosmos DB의 API for MongoDB
+    - name: Cassandra API
+      items:
+        - name: 소개
+          href: cassandra-introduction.md
+        - name: 유선 프로토콜 지원
+          href: cassandra-support.md
+        - name: 빠른 시작
+          items:
+            - name: .NET
+              href: create-cassandra-dotnet.md
+            - name: 자바
+              href: create-cassandra-java.md
+            - name: Node.js
+              href: create-cassandra-nodejs.md
+            - name: Python
+              href: create-cassandra-python.md
+        - name: 자습서
+          items:
+            - name: 1 - 데이터 만들기 및 관리
+              href: create-cassandra-api-account-java.md
+            - name: 2 - 데이터 로드
+              href: cassandra-api-load-data.md
+            - name: 3 - 데이터 쿼리
+              href: cassandra-api-query-data.md
+            - name: 4 - 데이터 마이그레이션
+              displayName: import
+              href: cassandra-import-data.md
+        - name: 방법 가이드
+          items:
+            - name: Spring 데이터 저장 및 관리
+              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
+              maintainContext: true
+            - name: Cassandra 및 Spark
+              items:
+                - name: 소개
+                  href: cassandra-spark-generic.md
+                - name: Databricks를 사용하여 연결
+                  href: cassandra-spark-databricks.md
+                - name: HDInsight를 사용하여 연결
+                  href: cassandra-spark-hdinsight.md
+                - name: 키스페이스 및 테이블 만들기
+                  href: cassandra-spark-ddl-ops.md
+                - name: 데이터 삽입
+                  href: cassandra-spark-create-ops.md
+                - name: 데이터 읽기
+                  href: cassandra-spark-read-ops.md
+                - name: 데이터 Upsert
+                  href: cassandra-spark-upsert-ops.md
+                - name: 데이터 삭제
+                  href: cassandra-spark-delete-ops.md
+                - name: 집계 작업
+                  href: cassandra-spark-aggregation-ops.md
+                - name: 테이블 데이터 복사
+                  href: cassandra-spark-table-copy-ops.md
+    - name: MongoDB API
       items:
         - name: 소개
           href: mongodb-introduction.md
@@ -260,13 +321,18 @@
                   href: tutorial-develop-mongodb-react.md
             - name: 2 - 데이터 마이그레이션
               displayName: import
-              href: 'https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json'
+              href: /azure/dms/tutorial-mongodb-cosmos-db
+              maintainContext: true
             - name: 3 - 데이터 쿼리
               href: tutorial-query-mongodb.md
             - name: 4 - 전세계로 데이터 배포
               href: tutorial-global-distribution-mongodb.md
         - name: 방법 가이드
           items:
+            - name: 사전 마이그레이션 가이드
+              href: mongodb-pre-migration.md
+            - name: 사후 마이그레이션 가이드
+              href: mongodb-post-migration.md
             - name: 연결 문자열 가져오기
               href: connect-mongodb-account.md
             - name: Studio 3T를 사용하여 연결
@@ -324,60 +390,6 @@
             - name: Spring 데이터 저장 및 관리
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
-    - name: Cassandra API
-      items:
-        - name: 소개
-          href: cassandra-introduction.md
-        - name: 유선 프로토콜 지원
-          href: cassandra-support.md
-        - name: 빠른 시작
-          items:
-            - name: .NET
-              href: create-cassandra-dotnet.md
-            - name: 자바
-              href: create-cassandra-java.md
-            - name: Node.js
-              href: create-cassandra-nodejs.md
-            - name: Python
-              href: create-cassandra-python.md
-        - name: 자습서
-          items:
-            - name: 1 - 데이터 만들기 및 관리
-              href: create-cassandra-api-account-java.md
-            - name: 2 - 데이터 로드
-              href: cassandra-api-load-data.md
-            - name: 3 - 데이터 쿼리
-              href: cassandra-api-query-data.md
-            - name: 4 - 데이터 마이그레이션
-              displayName: import
-              href: cassandra-import-data.md
-        - name: 방법 가이드
-          items:
-            - name: Spring 데이터 저장 및 관리
-              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
-              maintainContext: true
-            - name: Cassandra 및 Spark
-              items:
-                - name: 소개
-                  href: cassandra-spark-generic.md
-                - name: Databricks를 사용하여 연결
-                  href: cassandra-spark-databricks.md
-                - name: HDInsight를 사용하여 연결
-                  href: cassandra-spark-hdinsight.md
-                - name: 키스페이스 및 테이블 만들기
-                  href: cassandra-spark-ddl-ops.md
-                - name: 데이터 삽입
-                  href: cassandra-spark-create-ops.md
-                - name: 데이터 읽기
-                  href: cassandra-spark-read-ops.md
-                - name: 데이터 Upsert
-                  href: cassandra-spark-upsert-ops.md
-                - name: 데이터 삭제
-                  href: cassandra-spark-delete-ops.md
-                - name: 집계 작업
-                  href: cassandra-spark-aggregation-ops.md
-                - name: 테이블 데이터 복사
-                  href: cassandra-spark-table-copy-ops.md
     - name: 테이블 API
       items:
         - name: 소개
@@ -420,7 +432,8 @@
             - name: Ruby
               href: table-storage-how-to-use-ruby.md
             - name: 'F#'
-              href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+              maintainContext: true
         - name: 방법 가이드
           items:
             - name: Table API를 사용하여 앱 빌드
@@ -483,10 +496,8 @@
           href: storage-explorer.md
         - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
           href: data-explorer.md
-        - name: 인덱싱
-          items:
-            - name: 인덱싱 관리
-              href: how-to-manage-indexing-policy.md
+        - name: 인덱싱 정책 관리
+          href: how-to-manage-indexing-policy.md
     - name: 피드 변경
       items:
         - name: 여러 Azure Cosmos DB 트리거
@@ -526,7 +537,8 @@
         - name: 진단 로깅
           href: logging.md
         - name: Logic Apps를 통한 애플리케이션 로깅
-          href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
+          href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
+          maintainContext: true
     - name: 모니터
       items:
         - name: 메트릭으로 모니터링
@@ -578,17 +590,21 @@
         - name: Azure App Service
           href: create-website.md
         - name: Azure Search 인덱서
-          href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/search/search-howto-index-cosmosdb
+          maintainContext: true
         - name: Azure 기능
           items:
             - name: 서버리스 컴퓨팅
               href: serverless-computing-database.md
             - name: Azure 함수 바인딩
-              href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
+              href: /azure/azure-functions/functions-bindings-cosmosdb
+              maintainContext: true
         - name: Azure 데이터 팩터리
-          href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
+          href: /azure/data-factory/connector-azure-cosmos-db
+          maintainContext: true
         - name: Azure Stream Analytics
-          href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
+          href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
+          maintainContext: true
         - name: Logic Apps 및 Service Bus
           href: change-feed-hl7-fhir-logic-apps.md
         - name: Azure Event Hubs 및 Azure Storage
@@ -601,7 +617,8 @@
         - name: Azure Databricks(Spark 커넥터)
           href: spark-connector.md
         - name: Spark 및 Kafka
-          href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
+          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
+          maintainContext: true
         - name: ODBC 드라이버
           href: odbc-driver.md
     - name: Bulk Executor 라이브러리

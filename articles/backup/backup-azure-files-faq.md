@@ -53,7 +53,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 - 인도 중부(INC)
 - 인도 남부(INS)
 - 한국 중부(KRC)
-- 대한민국(KRS)
+- 한국 남부(KRS)
 - 미국 중북부(NCUS)
 - 북유럽(NE)
 - 미국 중남부(SCUS)
@@ -74,7 +74,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 미리 보기 동안에는 자격 증명 모음당 최대 50개의 저장소 계정에서 Azure 파일 공유를 보호할 수 있습니다. 또한 자격 증명 모음당 최대 200개의 Azure 파일 공유를 보호할 수 있습니다.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>동일한 저장소 계정의 두 파일 공유를 서로 다른 자격 증명 모음에서 보호할 수 있나요?
- 아니요. 한 저장소 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
+아니요. 한 저장소 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
 
 ## <a name="backup"></a>Backup
 

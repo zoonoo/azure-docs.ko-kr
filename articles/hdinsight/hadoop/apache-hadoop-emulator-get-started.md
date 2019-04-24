@@ -3,7 +3,6 @@ title: -에뮬레이터-Azure HDInsight는 Apache Hadoop 샌드박스를 사용 
 description: 'Apache Hadoop 에코 시스템을 사용하는 방법에 대해 알아보려면 Azure 가상 머신에서 Hortonworks의 Hadoop 샌드박스를 설정할 수 있습니다. '
 keywords: Hadoop 에뮬레이터, Hadoop 샌드박스
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
 ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005765"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536309"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Apache Hadoop 샌드박스를 가상 컴퓨터에서 에뮬레이터를 사용 하 여 시작
 

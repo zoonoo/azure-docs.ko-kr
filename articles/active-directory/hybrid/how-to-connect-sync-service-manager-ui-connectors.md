@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384189"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
 
@@ -31,7 +31,7 @@ ms.locfileid: "57431175"
 커넥터 탭은 동기화 엔진이 연결된 모든 시스템을 관리하는 데 사용됩니다.
 
 ## <a name="connector-actions"></a>커넥터 작업
-| 조치 | 주석 |
+| 액션(Action) | 주석 |
 | --- | --- |
 | 생성 |사용 안 함. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
 | properties |모든 도메인 및 OU 필터링에 사용 |

@@ -2,19 +2,26 @@
 title: HDInsight에서 Apache Hive와 함께 사용할 Java UDF(사용자 정의 함수) 만들기 - Azure
 description: Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 03/21/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537635"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
@@ -24,7 +31,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
 
 * HDInsight에서 Hadoop 클러스터입니다. 참조 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)합니다.
 * [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
-* [Apache Maven](https://maven.apache.org/download.cgi) 제대로 [설치](https://maven.apache.org/install.html) Apache에 따라 합니다.  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
+* Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html) [Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 * 합니다 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 클러스터 기본 저장소에 대 한 합니다. Wasb 하는 것: / / Azure storage의 경우 abfs: / / Azure Data Lake 저장소 Gen2 또는 adl: / / Azure Data Lake 저장소 Gen1에 대 한 합니다. URI wasbs 것에 대해 Azure Storage 또는 Data Lake 저장소 Gen2 전송 보안을 사용 하는 경우: / / 또는 abfss: / / 각각도 참조 하세요 [보안 전송](../../storage/common/storage-require-secure-transfer.md)합니다.
 
 * 텍스트 편집기 또는 Java IDE
@@ -194,13 +201,13 @@ cd C:\HDI
 2. 사용 된 `scp` 다음 명령을 입력 하 여 HDInsight 클러스터에 파일을 복사 하는 명령:
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
     ```
 
 3. 다음 명령을 입력 하 여 SSH를 사용 하 여 클러스터에 연결 합니다.
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ssh sshuser@mycluster-ssh.azurehdinsight.cn
     ```
 
 4. 열린 SSH 세션에서 HDInsight 저장소에 jar 파일을 복사 합니다.

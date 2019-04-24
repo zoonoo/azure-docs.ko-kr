@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440795"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 감사 기록 보기
 모든 권한 있는 역할에 대 한 지정된 된 기간 내의 모든 사용자 할당 및 활성화를 확인 하려면 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 감사 기록에 사용할 수 있습니다. 테넌트에서 관리자, 최종 사용자 및 동기화 작업을 비롯한 활동의 전체 감사 기록을 보려는 경우 [Azure Active Directory 액세스 및 사용 보고서](../reports-monitoring/overview-reports.md)

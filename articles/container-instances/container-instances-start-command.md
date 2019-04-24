@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: cbe14066cfd7493806176e834373e952daf19339
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537652"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>기본 명령줄 작업을 재정의 하려면 컨테이너 인스턴스에서 명령줄 설정
 
@@ -63,7 +63,7 @@ ms.locfileid: "59610258"
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --environment-variables NumWords=3 MinLength=5 \
     --restart-policy OnFailure
 ```
@@ -88,7 +88,7 @@ az container logs --resource-group myResourceGroup --name mycontainer1
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -111,7 +111,7 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 런타임 시 사용자 지정 명령 줄에서 여러 컨테이너를 사용 하 여 큰 데이터 집합을 처리 하는 일괄 처리 등의 작업 기반 시나리오를 활용할 수 있습니다. 작업 기반 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 참조 하세요. [다시 시작 정책을 사용 하 여 컨테이너 화 된 작업을 실행할](container-instances-restart-policy.md)합니다.
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469131"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 앱 관리자 역할 위임
 
@@ -58,7 +58,7 @@ Azure Portal에서 애플리케이션 액세스 관리 기능을 부여하려면
 
 ## <a name="delegate-app-ownership"></a>앱 소유권 위임
 
-앱 소유자와 앱 등록 소유자는 각각 자신이 소유한 앱 애플리케이션 또는 앱 등록만 관리할 수 있습니다. 예를 들어 Salesforce 애플리케이션의 소유자를 추가하는 경우 해당 소유자는 Salesforce에 대한 액세스 및 구성을 관리할 수 있지만 다른 애플리케이션에 대해서는 관리할 수 없습니다. 한 앱에 많은 소유자가 있을 수 있으며, 한 사용자가 많은 앱의 소유자가 될 수도 있습니다.
+앱 소유자 및 앱 등록 소유자 관리할 수 있습니다 각 응용 프로그램 또는 자신이 소유한 앱 등록 합니다. 예를 들어 Salesforce 애플리케이션의 소유자를 추가하는 경우 해당 소유자는 Salesforce에 대한 액세스 및 구성을 관리할 수 있지만 다른 애플리케이션에 대해서는 관리할 수 없습니다. 한 앱에 많은 소유자가 있을 수 있으며, 한 사용자가 많은 앱의 소유자가 될 수도 있습니다.
 
 애플리케이션 소유자는 다음을 수행할 수 있습니다.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/27/2018
 ms.author: srrengar
 ms.openlocfilehash: d1b3dc25dd9bda9d7f9d9152c2a94cea8321f5cf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482610"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
 
@@ -175,7 +175,7 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
 ## <a name="next-steps"></a>다음 단계
 
 - [Service Fabric의 애플리케이션 모니터링](service-fabric-diagnostics-event-generation-app.md)에 대해 자세히 알아봅니다.
-- [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [Microsoft Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md)을 사용하는 로깅에 대해 알아봅니다.
+- [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 및 [Microsoft Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)를 사용하는 로깅에 대해 알아봅니다.
 
 
 

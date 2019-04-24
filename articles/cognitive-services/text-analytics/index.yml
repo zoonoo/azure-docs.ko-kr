@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 77c69ea24adeef7960b1f16670a2e34ffaf5aca7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728267"
 documentType: LandingData
 title: 텍스트 분석 API 설명서
 metadata:
-  title: 텍스트 분석 API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs
-  description: 텍스트 분석 API를 사용하여 텍스트에 대한 고급 자연어 처리를 수행하는 방법을 알아봅니다. 자습서에서는 작성 코드가 텍스트 분석 서비스를 사용하는 방법을 보여줍니다.
+  title: '텍스트 분석 API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs'
+  description: 'Text Analytics API는 원시 텍스트에 대한 고급 자연어 처리를 제공하는 클라우드 기반 서비스이며 감정 분석, 핵심 구 추출, 명명된 엔터티 인식, 언어 감지의 네 가지 주요 기능을 포함하고 있습니다.'
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,76 +16,76 @@ metadata:
   ms.date: 09/24/2018
   ms.author: nitinme
 abstract:
-  description: 텍스트 분석 API는 클라우드 기반 서비스로 원시 텍스트에 대한 고급 자연어 처리를 제공하며, 감정 분석, 핵심 구 추출 및 언어 감지 등 세 가지 주요 기능을 포함합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+  description: 'Text Analytics API는 원시 텍스트에 대한 고급 자연어 처리를 제공하는 클라우드 기반 서비스이며 감정 분석, 핵심 구 추출, 명명된 엔터티 인식, 언어 감지의 네 가지 주요 기능을 포함하고 있습니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/text-analytics/overview
+            html: <p>Text Analytics API에 대해 알아봅니다.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Text Analytics란?
+          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+            html: <p>Text Analytics API에 등록하는 방법을 알아봅니다.</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Text Analytics API에 등록
+          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+            html: <p>Text Analytics API에 대한 액세스 키 및 엔드포인트를 가져오는 방법을 알아봅니다.</p>
+            image:
+              src: ../media/index/i_tasks.svg
+            title: Text Analytics API에 대한 액세스 키
+  - title: 5분 빠른 시작
     items:
-    - href: /azure/cognitive-services/text-analytics/overview
-      html: <p>Text Analytics API에 대해 알아봅니다.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Text Analytics란?
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
-      html: <p>Text Analytics API에 등록하는 방법을 알아봅니다.</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: Text Analytics API에 등록
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-      html: <p>Text Analytics API에 대한 액세스 키 및 엔드포인트를 가져오는 방법을 알아봅니다.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Text Analytics API에 대한 액세스 키
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: 언어를 감지하고, 감정을 분석하고, 핵심 구를 추출하여 Text Analytics API를 시작합니다.
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: '언어를 감지하고, 감정을 분석하고, 핵심 구를 추출하고, 엔터티를 인식하여 Text Analytics API를 시작하세요.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            href: quickstarts/csharp
+          - image:
+              src: media/index/logo_java.svg
+            text: 자바
+            href: quickstarts/java
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js
+            href: quickstarts/nodejs
+          - image:
+              src: media/index/logo_python.svg
+            text: Python
+            href: quickstarts/python
+          - image:
+              src: media/index/logo_go.svg
+            text: Go
+            href: quickstarts/go
+  - title: 단계별 자습서
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      text: C&#35;
-      href: quickstarts/csharp
-    - image:
-        src: media/index/logo_java.svg
-      text: 자바
-      href: quickstarts/java
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: quickstarts/nodejs
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts/python
-    - image:
-        src: media/index/logo_go.svg
-      text: Go
-      href: quickstarts/go
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: 텍스트 분석 API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 텍스트 분석 API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Power BI를 사용한 텍스트 분석</a>
+          - html: '<a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">PowerApps에서 텍스트 분석</a>'
+  - title: 참고 자료
     items:
-    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Power BI를 사용한 텍스트 분석</a>
-    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">PowerApps에서 텍스트 분석</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST (영문)
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">API 참조</a></p>
-    - title: SDK
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST (영문)
+            html: '<p><a href="https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7">API 참조</a></p>'
+          - title: SDK
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

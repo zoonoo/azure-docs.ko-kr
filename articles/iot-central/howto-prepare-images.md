@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519093"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드
 
@@ -56,7 +56,7 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 
 다음 표에는 사용할 수 있는 이미지 크기가 요약되어 있습니다.
 
-| 위치 | 크기 |
+| Location | 크기 |
 | -------- | ------ |
 | 애플리케이션 관리자 | 268x160픽셀 |
 | 디바이스 템플릿 | 64x64픽셀 |

@@ -14,11 +14,11 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486586"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,13 +63,13 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 FTP 연결 서비스에만 해당하는 JSON 요소에 대해 설명합니다.
 
-| 자산 | 설명 | 필수 | 기본값 |
+| 자산 | 설명 | 필수 | Default |
 | --- | --- | --- | --- |
 | 형식 |FtpServer로 설정합니다. |예 |&nbsp; |
 | host |FTP 서버의 이름 또는 IP 주소를 지정합니다. |예 |&nbsp; |
 | authenticationType |인증 유형을 지정합니다. |예 |기본, 익명 |
 | 사용자 이름 |FTP 서버에 액세스하는 사용자를 지정합니다. |아닙니다. |&nbsp; |
-| 암호 |사용자(사용자 이름)의 암호를 지정합니다. |아닙니다. |&nbsp; |
+| password |사용자(사용자 이름)의 암호를 지정합니다. |아닙니다. |&nbsp; |
 | encryptedCredential |FTP 서버 액세스를 위한 암호화된 자격 증명을 지정합니다. |아닙니다. |&nbsp; |
 | gatewayName |온-프레미스 FTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 게이트웨이 이름을 지정합니다. |아닙니다. |&nbsp; |
 | 포트 |FTP 서버가 수신 대기하는 포트를 지정합니다. |아닙니다. |21 |

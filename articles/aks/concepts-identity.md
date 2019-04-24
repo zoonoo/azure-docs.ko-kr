@@ -2,17 +2,18 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 액세스 및 ID
 description: Azure Active Directory 통합, Kubernetes RBAC(역할 기반 액세스 제어), 역할 및 바인딩을 포함하여 AKS(Azure Kubernetes Service)의 액세스 및 ID에 대해 알아봅니다.
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+origin.date: 02/28/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
+ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467062"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -92,7 +93,7 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: aad-integration.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

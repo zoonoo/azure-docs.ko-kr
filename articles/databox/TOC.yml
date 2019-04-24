@@ -1,130 +1,127 @@
-items:
 - name: Azure Data Box 설명서 - 오프라인 전송
   href: /azure/databox
   items:
-  - name: Data Box
-    items:
-    - name: 개요
+    - name: Data Box
       items:
-      - name: Data Box란?
-        href: data-box-overview.md
-    - name: 빠른 시작
+        - name: 개요
+          items:
+            - name: Data Box란?
+              href: data-box-overview.md
+        - name: 빠른 시작
+          expanded: true
+          items:
+            - name: 설정 - Azure Portal
+              href: data-box-quickstart-portal.md
+        - name: 자습서
+          items:
+            - name: 1 - 주문
+              href: data-box-deploy-ordered.md
+            - name: 2 - 설정
+              href: data-box-deploy-set-up.md
+            - name: 3 - 연결 및 복사
+              items:
+                - name: SMB를 통해
+                  href: data-box-deploy-copy-data.md
+                - name: NFS를 통해
+                  href: data-box-deploy-copy-data-via-nfs.md
+                - name: REST를 통해
+                  href: data-box-deploy-copy-data-via-rest.md
+                - name: 데이터 복사 서비스를 통해
+                  href: data-box-deploy-copy-data-via-copy-service.md
+                - name: 관리형 디스크로
+                  href: data-box-deploy-copy-data-from-vhds.md
+            - name: '4 - 반환, 업로드, 확인'
+              href: data-box-deploy-picked-up.md
+        - name: 개념
+          items:
+            - name: 보안 지침 읽기
+              href: data-box-safety.md
+            - name: 요구 사항 검토
+              items:
+                - name: Data Box
+                  href: data-box-system-requirements.md
+                - name: Data Box Blob Storage의 경우
+                  href: data-box-system-requirements-rest.md
+            - name: 제한 이해
+              href: data-box-limits.md
+            - name: 보안 검토
+              href: data-box-security.md
+            - name: FAQ
+              href: data-box-faq.md
+        - name: 방법
+          items:
+            - name: Azure 포털을 통해 관리
+              href: data-box-portal-admin.md
+            - name: 로컬 웹 UI를 통해 관리
+              href: data-box-local-web-ui-admin.md
+            - name: Blob 계층으로 데이터 이동
+              href: data-box-how-to-set-data-tier.md
+            - name: 디바이스에 케이블 연결
+              href: data-box-cable-options.md
+            - name: 지원에 문의
+              href: data-box-disk-contact-microsoft-support.md
+            - name: 마이그레이션
+              items:
+                - name: SharePoint Online으로
+                  href: 'https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context'
+                - name: Azure 파일 동기화로
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: HDFS 저장소에서
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+            - name: 문제 해결
+              items:
+                - name: Data Box Blob 스토리지 이슈
+                  href: data-box-troubleshoot-rest.md
+    - name: Data Box Disk
       items:
-      - name: 설정 - Azure Portal
-        href: data-box-quickstart-portal.md
-      expanded: true
-    - name: 자습서
+        - name: 개요
+          items:
+            - name: Data Box 디스크란?
+              href: data-box-disk-overview.md
+        - name: 빠른 시작
+          expanded: true
+          items:
+            - name: 설정 - Azure Portal
+              href: data-box-disk-quickstart-portal.md
+        - name: 자습서
+          items:
+            - name: 1 - 주문
+              href: data-box-disk-deploy-ordered.md
+            - name: 2 - 설정
+              href: data-box-disk-deploy-set-up.md
+            - name: 3 - 복사 및 유효성 검사
+              href: data-box-disk-deploy-copy-data.md
+            - name: '4 - 반환, 업로드, 확인'
+              href: data-box-disk-deploy-picked-up.md
+        - name: 개념
+          items:
+            - name: 요구 사항 검토
+              href: data-box-disk-system-requirements.md
+            - name: 제한 이해
+              href: data-box-disk-limits.md
+            - name: 보안 검토
+              href: data-box-disk-security.md
+            - name: FAQ
+              href: data-box-disk-faq.md
+        - name: 방법
+          items:
+            - name: Azure 포털을 통해 관리
+              href: data-box-portal-ui-admin.md
+            - name: 디스크 문제 해결
+              href: data-box-disk-troubleshoot.md
+            - name: 지원에 문의
+              href: data-box-disk-contact-microsoft-support.md
+    - name: Data Box Heavy
       items:
-      - name: 1 - 주문
-        href: data-box-deploy-ordered.md
-      - name: 2 - 설정
-        href: data-box-deploy-set-up.md
-      - name: 3 - 연결 및 복사
-        items:
-        - name: SMB를 통해
-          href: data-box-deploy-copy-data.md
-        - name: NFS를 통해
-          href: data-box-deploy-copy-data-via-nfs.md
-        - name: REST를 통해
-          href: data-box-deploy-copy-data-via-rest.md
-        - name: 데이터 복사 서비스를 통해
-          href: data-box-deploy-copy-data-via-copy-service.md
-        - name: 관리형 디스크로
-          href: data-box-deploy-copy-data-from-vhds.md
-      - name: 4 - 반환, 업로드, 확인
-        href: data-box-deploy-picked-up.md
-    - name: 개념
+        - name: 개요
+          items:
+            - name: Data Box Heavy란?
+              href: data-box-heavy-overview.md
+    - name: 리소스
       items:
-      - name: 보안 지침 읽기
-        href: data-box-safety.md
-      - name: 요구 사항 검토
-        items:
-        - name: Data Box
-          href: data-box-system-requirements.md
-        - name: Data Box Blob Storage의 경우
-          href: data-box-system-requirements-rest.md
-      - name: 제한 이해
-        href: data-box-limits.md
-      - name: 보안 검토
-        href: data-box-security.md
-      - name: FAQ
-        href: data-box-faq.md
-    - name: 방법
-      items:
-      - name: Azure 포털을 통해 관리
-        href: data-box-portal-admin.md
-      - name: 로컬 웹 UI를 통해 관리
-        href: data-box-local-web-ui-admin.md
-      - name: Blob 계층으로 데이터 이동
-        href: data-box-how-to-set-data-tier.md
-      - name: 디바이스에 케이블 연결
-        href: data-box-cable-options.md
-      - name: 지원에 문의
-        href: data-box-disk-contact-microsoft-support.md
-      - name: 마이그레이션
-        items:
-        - name: SharePoint Online으로
-          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=/azure/databox/context/context
-        - name: Azure 파일 동기화로
-          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-        - name: HDFS 저장소에서
-          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
-  - name: Data Box Disk
-    items:
-    - name: 개요
-      items:
-      - name: Data Box 디스크란?
-        href: data-box-disk-overview.md
-    - name: 빠른 시작
-      items:
-      - name: 설정 - Azure Portal
-        href: data-box-disk-quickstart-portal.md
-      expanded: true
-    - name: 자습서
-      items:
-      - name: 1 - 주문
-        href: data-box-disk-deploy-ordered.md
-      - name: 2 - 설정
-        href: data-box-disk-deploy-set-up.md
-      - name: 3 - 복사 및 유효성 검사
-        href: data-box-disk-deploy-copy-data.md
-      - name: 4 - 반환, 업로드, 확인
-        href: data-box-disk-deploy-picked-up.md
-    - name: 개념
-      items:
-      - name: 요구 사항 검토
-        href: data-box-disk-system-requirements.md
-      - name: 제한 이해
-        href: data-box-disk-limits.md
-      - name: 보안 검토
-        href: data-box-disk-security.md
-      - name: FAQ
-        href: data-box-disk-faq.md
-    - name: 방법
-      items:
-      - name: Azure 포털을 통해 관리
-        href: data-box-portal-ui-admin.md
-      - name: 디스크 문제 해결
-        href: data-box-disk-troubleshoot.md
-      - name: 지원에 문의
-        href: data-box-disk-contact-microsoft-support.md
-  - name: Data Box Heavy
-    items:
-    - name: 개요
-      items:
-      - name: Data Box Heavy란?
-        href: data-box-heavy-overview.md
-  - name: 리소스
-    items:
-    - name: Data Box 제품
-      href: https://azure.microsoft.com/services/storage/databox/data/
-    - name: Data Box 가격 책정
-      href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Data Box Disk 가격 책정
-      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: 159fbf5782e51cc316e2b7f4474a5ddc94cf8a59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794009"
+        - name: Data Box 제품
+          href: 'https://azure.microsoft.com/services/storage/databox/data/'
+        - name: Data Box 가격 책정
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/'
+        - name: Data Box Disk 가격 책정
+          href: 'https://azure.microsoft.com/pricing/details/storage/databox/disk/'

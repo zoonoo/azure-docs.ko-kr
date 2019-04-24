@@ -1,17 +1,18 @@
 ---
 title: Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션 최적화
 description: 이 문서에서는 Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2018
+origin.date: 10/25/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422709"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션 최적화 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.

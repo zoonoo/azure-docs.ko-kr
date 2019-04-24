@@ -1,349 +1,344 @@
-items:
 - name: 하이브리드 ID 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 하이브리드 ID란?
-    href: whatis-hybrid-identity.md
-    maintainContext: true
+    - name: 하이브리드 ID란?
+      href: whatis-hybrid-identity.md
+      maintainContext: true
 - name: 자습서
-  items:
-  - name: PHS를 사용하여 단일 AD 포리스트 AD 환경을 클라우드로 통합
-    href: tutorial-password-hash-sync.md
-  - name: PTA를 사용하여 단일 AD 포리스트 AD 환경을 클라우드로 통합
-    href: tutorial-passthrough-authentication.md
-  - name: 단일 AD 포리스트 환경을 클라우드로 페더레이션
-    href: tutorial-federation.md
-  - name: Azure AD Connect에서 AD FS에 대한 백업으로 PHS 설정
-    href: tutorial-phs-backup.md
   expanded: true
+  items:
+    - name: PHS를 사용하여 단일 AD 포리스트 AD 환경을 클라우드로 통합
+      href: tutorial-password-hash-sync.md
+    - name: PTA를 사용하여 단일 AD 포리스트 AD 환경을 클라우드로 통합
+      href: tutorial-passthrough-authentication.md
+    - name: 단일 AD 포리스트 환경을 클라우드로 페더레이션
+      href: tutorial-federation.md
+    - name: Azure AD Connect에서 AD FS에 대한 백업으로 PHS 설정
+      href: tutorial-phs-backup.md
 - name: 개념
   items:
-  - name: Azure AD Connect 및 Connect Health
-    items:
-    - name: Azure AD Connect 및 Connect Health란?
-      href: whatis-azure-ad-connect.md
-    - name: 올바른 인증 선택
-      href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
-    - name: ID 동기화 및 중복 특성 복원력
-      href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
-  - name: 암호 해시 동기화
-    items:
-    - name: 암호 해시 동기화란?
-      href: whatis-phs.md
-    - name: 암호 해시 동기화 작동 방식
-      href: how-to-connect-password-hash-synchronization.md
-  - name: 통과 인증
-    items:
-    - name: 통과 인증이란?
-      href: how-to-connect-pta.md
-    - name: 통과 인증 작동 방식
-      href: how-to-connect-pta-how-it-works.md
-    - name: 통과 인증 현재 제한 사항
-      href: how-to-connect-pta-current-limitations.md
-    - name: 통과 인증에 대한 보안 심층 분석
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: 통과 인증 및 사용자 개인 정보
-      href: how-to-connect-pta-user-privacy.md
-  - name: 페더레이션
-    items:
-    - name: 페더레이션이란?
-      href: whatis-fed.md
-    - name: 페더레이션 작동 방식
-      href: how-to-connect-fed-whatis.md
-    - name: Azure AD 페더레이션 호환성 목록
-      href: how-to-connect-fed-compatibility.md
-  - name: SSO(Single sign-on)
-    items:
-    - name: Single Sign-On이란?
-      href: how-to-connect-sso.md
-    - name: Single Sign-On 작동 방식
-      href: how-to-connect-sso-how-it-works.md
-    - name: Single Sign-On 및 사용자 개인 정보
-      href: how-to-connect-sso-user-privacy.md
-  - name: Azure AD Connect 동기화
-    items:
-    - name: Azure AD Connect 동기화란?
-      href: how-to-connect-sync-whatis.md
-    - name: Azure AD Connect 동기화 기능
-      href: how-to-connect-syncservice-features.md
-    - name: Azure AD Connect 동기화 서비스 관리자란?
-      href: how-to-connect-sync-service-manager-ui.md
-    - name: Azure AD Connect 동기화 기술 개념
-      href: how-to-connect-sync-technical-concepts.md
-    - name: Azure AD Connect 동기화 아키텍처 이해
-      href: concept-azure-ad-connect-sync-architecture.md
-    - name: 선언적 프로비전 이해
-      href: concept-azure-ad-connect-sync-declarative-provisioning.md
-    - name: 선언적 프로비전 식 이해
-      href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-    - name: 기본 구성 이해
-      href: concept-azure-ad-connect-sync-default-configuration.md
-    - name: 사용자 및 연락처 이해
-      href: concept-azure-ad-connect-sync-user-and-contacts.md
-    - name: 섀도 특성 이해
-      href: how-to-connect-syncservice-shadow-attributes.md
+    - name: Azure AD Connect 및 Connect Health
+      items:
+        - name: Azure AD Connect 및 Connect Health란?
+          href: whatis-azure-ad-connect.md
+        - name: 올바른 인증 선택
+          href: 'https://docs.microsoft.com/azure/security/azure-ad-choose-authn'
+        - name: ID 동기화 및 중복 특성 복원력
+          href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+    - name: 암호 해시 동기화
+      items:
+        - name: 암호 해시 동기화란?
+          href: whatis-phs.md
+        - name: 암호 해시 동기화 작동 방식
+          href: how-to-connect-password-hash-synchronization.md
+    - name: 통과 인증
+      items:
+        - name: 통과 인증이란?
+          href: how-to-connect-pta.md
+        - name: 통과 인증 작동 방식
+          href: how-to-connect-pta-how-it-works.md
+        - name: 통과 인증 현재 제한 사항
+          href: how-to-connect-pta-current-limitations.md
+        - name: 통과 인증에 대한 보안 심층 분석
+          href: how-to-connect-pta-security-deep-dive.md
+        - name: 통과 인증 및 사용자 개인 정보
+          href: how-to-connect-pta-user-privacy.md
+    - name: 페더레이션
+      items:
+        - name: 페더레이션이란?
+          href: whatis-fed.md
+        - name: 페더레이션 작동 방식
+          href: how-to-connect-fed-whatis.md
+        - name: Azure AD 페더레이션 호환성 목록
+          href: how-to-connect-fed-compatibility.md
+    - name: SSO(Single sign-on)
+      items:
+        - name: Single Sign-On이란?
+          href: how-to-connect-sso.md
+        - name: Single Sign-On 작동 방식
+          href: how-to-connect-sso-how-it-works.md
+        - name: Single Sign-On 및 사용자 개인 정보
+          href: how-to-connect-sso-user-privacy.md
+    - name: Azure AD Connect 동기화
+      items:
+        - name: Azure AD Connect 동기화란?
+          href: how-to-connect-sync-whatis.md
+        - name: Azure AD Connect 동기화 기능
+          href: how-to-connect-syncservice-features.md
+        - name: Azure AD Connect 동기화 서비스 관리자란?
+          href: how-to-connect-sync-service-manager-ui.md
+        - name: Azure AD Connect 동기화 기술 개념
+          href: how-to-connect-sync-technical-concepts.md
+        - name: Azure AD Connect 동기화 아키텍처 이해
+          href: concept-azure-ad-connect-sync-architecture.md
+        - name: 선언적 프로비전 이해
+          href: concept-azure-ad-connect-sync-declarative-provisioning.md
+        - name: 선언적 프로비전 식 이해
+          href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
+        - name: 기본 구성 이해
+          href: concept-azure-ad-connect-sync-default-configuration.md
+        - name: 사용자 및 연락처 이해
+          href: concept-azure-ad-connect-sync-user-and-contacts.md
+        - name: 섀도 특성 이해
+          href: how-to-connect-syncservice-shadow-attributes.md
 - name: 방법 가이드
   items:
-  - name: 설치 및 업그레이드
-    items:
-    - name: 설치 로드맵
-      href: how-to-connect-install-roadmap.md
-    - name: 설치 필수 구성 요소
-      href: how-to-connect-install-prerequisites.md
-    - name: 설치 유형 선택
-      href: how-to-connect-install-select-installation.md
-    - name: Express 설정을 사용하여 Azure AD Connect 설치(암호 해시 동기화)
-      href: how-to-connect-install-express.md
-    - name: Azure AD Connect 페더레이션 또는 다른 사용자 지정 설정 설치
-      href: how-to-connect-install-custom.md
-    - name: PTA(통과 인증)를 사용하여 Azure AD Connect 설치
-      href: how-to-connect-pta-quick-start.md
-    - name: Azure AD Connect Health 설치
-      href: how-to-connect-health-agent-install.md
-    - name: 자동 업그레이드
-      href: how-to-connect-install-automatic-upgrade.md
-    - name: 두 번째로 설치 마법사 실행
-      href: how-to-connect-installation-wizard.md
-    - name: Azure AD Connect의 새 버전으로 업그레이드
-      href: how-to-upgrade-previous-version.md
-    - name: DirSync 또는 Azure AD Sync에서 업그레이드
-      href: how-to-dirsync-upgrade-get-started.md
-    - name: 기존 ADSync 데이터베이스를 사용하여 설치
-      href: how-to-connect-install-existing-database.md
-    - name: SQL 위임된 관리자 권한을 사용하여 설치
-      href: how-to-connect-install-sql-delegation.md
-    - name: PTA에 대한 미리 보기 에이전트 업그레이드
-      href: how-to-connect-pta-upgrade-preview-authentication-agents.md
-    - name: SQL Express에서 SQL Server로 Azure AD Connect 데이터베이스 이동
-      href: how-to-connect-install-move-db.md
-    - name: Azure AD가 이미 있는 경우
-      href: how-to-connect-install-existing-tenant.md
-    - name: 설치 후 작업
-      href: how-to-connect-post-installation.md
-  - name: 계획 및 디자인
-    items:
-    - name: 설계 개념
-      href: plan-connect-design-concepts.md
-    - name: Azure AD Connect에 대한 토폴로지
-      href: plan-connect-topologies.md
-    - name: Azure AD Connect의 성능에 영향을 주는 요인
-      href: plan-connect-performance-factors.md
-    - name: 사용자가 로그인하는 방법
-      href: plan-connect-user-signin.md
-    - name: Azure AD userPrincipalName 채우기
-      href: plan-connect-userprincipalname.md
-    - name: 인스턴스에 대한 특별 고려 사항
-      href: reference-connect-instances.md
-    - name: 마이그레이션
+    - name: 설치 및 업그레이드
       items:
-      - name: 페더레이션에서 PHS로 마이그레이션
-        href: plan-migrate-adfs-password-hash-sync.md
-      - name: 페더레이션에서 PTA로 마이그레이션
-        href: plan-migrate-adfs-pass-through-authentication.md
-    - name: 하이브리드 ID 설계 고려 사항
+        - name: 설치 로드맵
+          href: how-to-connect-install-roadmap.md
+        - name: 설치 필수 구성 요소
+          href: how-to-connect-install-prerequisites.md
+        - name: 설치 유형 선택
+          href: how-to-connect-install-select-installation.md
+        - name: Express 설정을 사용하여 Azure AD Connect 설치(암호 해시 동기화)
+          href: how-to-connect-install-express.md
+        - name: Azure AD Connect 페더레이션 또는 다른 사용자 지정 설정 설치
+          href: how-to-connect-install-custom.md
+        - name: PTA(통과 인증)를 사용하여 Azure AD Connect 설치
+          href: how-to-connect-pta-quick-start.md
+        - name: Azure AD Connect Health 설치
+          href: how-to-connect-health-agent-install.md
+        - name: 자동 업그레이드
+          href: how-to-connect-install-automatic-upgrade.md
+        - name: 두 번째로 설치 마법사 실행
+          href: how-to-connect-installation-wizard.md
+        - name: Azure AD Connect의 새 버전으로 업그레이드
+          href: how-to-upgrade-previous-version.md
+        - name: DirSync 또는 Azure AD Sync에서 업그레이드
+          href: how-to-dirsync-upgrade-get-started.md
+        - name: 기존 ADSync 데이터베이스를 사용하여 설치
+          href: how-to-connect-install-existing-database.md
+        - name: SQL 위임된 관리자 권한을 사용하여 설치
+          href: how-to-connect-install-sql-delegation.md
+        - name: PTA에 대한 미리 보기 에이전트 업그레이드
+          href: how-to-connect-pta-upgrade-preview-authentication-agents.md
+        - name: SQL Express에서 SQL Server로 Azure AD Connect 데이터베이스 이동
+          href: how-to-connect-install-move-db.md
+        - name: Azure AD가 이미 있는 경우
+          href: how-to-connect-install-existing-tenant.md
+        - name: 설치 후 작업
+          href: how-to-connect-post-installation.md
+    - name: 계획 및 디자인
       items:
-      - name: 하이브리드 ID 설계 고려 사항 개요
-        href: plan-hybrid-identity-design-considerations-overview.md
-      - name: ID 요구 사항 확인
-        href: plan-hybrid-identity-design-considerations-business-needs.md
-      - name: 동기화 요구 사항 확인
-        href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
-      - name: 다단계 인증 요구 사항 확인
-        href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
-      - name: 수명 주기 채택 전략 확인
-        href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
-      - name: 데이터 보호 전략 정의
-        href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
-      - name: 데이터 보호 요구 사항 계획
-        href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
-      - name: 콘텐츠 관리 요구 사항 확인
-        href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
-      - name: 액세스 제어 요구 사항 확인
-        href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
-      - name: 사고 대응 요구 사항 확인
-        href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
-      - name: 하이브리드 ID 수명 주기에 대한 계획
-        href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
-      - name: 채택 전략 정의
-        href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
-      - name: 하이브리드 ID 설계 고려 사항 - 다음 단계
-        href: plan-hybrid-identity-design-considerations-nextsteps.md
-      - name: 하이브리드 ID 도구 비교
-        href: plan-hybrid-identity-design-considerations-tools-comparison.md
-  - name: Azure AD Connect 관리
-    items:
-    - name: 장치 쓰기 저장 사용
-      href: how-to-connect-device-writeback.md
-    - name: 장치 옵션
-      href: how-to-connect-device-options.md
-    - name: Azure AD Connect에서 추가 기능
-      href: how-to-connect-preview.md
-    - name: 실수로 인한 삭제 방지
-      href: how-to-connect-sync-feature-prevent-accidental-deletes.md
-    - name: AD 휴지통 사용
-      href: how-to-connect-sync-recycle-bin.md
-    - name: AD DS Connect 계정 구성
-      href: how-to-connect-configure-ad-ds-connector-account.md
-    - name: Azure AD 동기화 서비스 계정 암호 변경
-      href: how-to-connect-sync-change-serviceacct-pass.md
-    - name: Azure AD Connect 계정 변경
-      href: how-to-connect-azureadaccount.md
-    - name: AD DS Connect 계정 암호 변경
-      href: how-to-connect-sync-change-addsacct-pass.md
-  - name: 통과 인증 관리
-    items:
-    - name: 통과 인증 시작
-      href: how-to-connect-pta-quick-start.md
-    - name: 통과 인증 FAQ
-      href: how-to-connect-pta-faq.md
-  - name: 페더레이션 서비스 관리
-    items:
-    - name: Azure AD Connect를 사용하여 페더레이션 관리
-      href: how-to-connect-fed-management.md
-    - name: 페더레이션에 대한 여러 도메인 지원
-      href: how-to-connect-install-multiple-domains.md
-    - name: AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
-      href: how-to-connect-fed-single-adfs-multitenant-federation.md
-    - name: O365 및 Azure AD에 대한 페더레이션 인증서 갱신
-      href: how-to-connect-fed-o365-certs.md
-    - name: AD FS에 대한 SSL 인증서 업데이트
-      href: how-to-connect-fed-ssl-update.md
-    - name: Azure AD를 사용하여 AD FS 신뢰 관리
-      href: how-to-connect-azure-ad-trust.md
-    - name: 애플리케이션에 대한 그룹 클레임 구성
-      href: how-to-connect-fed-group-claims.md
-    - name: O365 RP의 해시 알고리즘 변경
-      href: how-to-connect-fed-sha256-guidance.md
-    - name: Idp로 SAML 2.0 서버 사용
-      href: how-to-connect-fed-saml-idp.md
-    - name: 하이브리드 Azure AD 조인 구성 후 작업
-      href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
-  - name: Single Sign-On 관리
-    items:
-    - name: Single Sign-On 시작
-      href: how-to-connect-sso-quick-start.md
-    - name: Single Sign-On FAQ
-      href: how-to-connect-sso-faq.md
-  - name: Azure AD Connect Health 관리
-    items:
-    - name: Azure AD Connect Health 작업
-      href: how-to-connect-health-operations.md
-    - name: AD FS와 함께 Azure AD Connect Health 사용
-      href: how-to-connect-health-adfs.md
-    - name: AD FS를 지원하는 Azure AD Connect Health에 대한 위험한 IP 보고서
-      href: how-to-connect-health-adfs-risky-ip.md
-    - name: 동기화에 Azure AD Connect Health 사용
-      href: how-to-connect-health-sync.md
-    - name: AD DS와 함께 Azure AD Connect Health 사용
-      href: how-to-connect-health-adds.md
-    - name: 상태 서비스 데이터 만료
-      href: how-to-connect-health-data-freshness.md
-    - name: 중복 특성 동기화 오류 진단
-      href: how-to-connect-health-diagnose-sync-errors.md
-    - name: Azure AD Connect Health 경고 카탈로그
-      href: how-to-connect-health-alert-catalog.md
-  - name: Azure AD Connect 동기화 관리
-    items:
-    - name: 준비 서버 및 재해 복구
-      href: how-to-connect-sync-staging-server.md
-    - name: 기본 구성 변경에 대한 모범 사례
-      href: how-to-connect-sync-best-practices-changing-default-configuration.md
-    - name: 기본 구성 변경
-      href: how-to-connect-sync-change-the-configuration.md
-    - name: 수정된 기본 규칙 수정
-      href: how-to-connect-fix-default-rules.md
-    - name: 디렉터리 확장 구성
-      href: how-to-connect-sync-feature-directory-extensions.md
-    - name: 기본 설정 데이터 위치 구성
-      href: how-to-connect-sync-feature-preferreddatalocation.md
-    - name: 필터링 구성
-      href: how-to-connect-sync-configure-filtering.md
-    - name: 스케줄러 관리
-      href: how-to-connect-sync-feature-scheduler.md
-    - name: 동기화 규칙 만들기 및 사용자 지정
-      href: how-to-connect-create-custom-sync-rule.md
-    - name: Azure AD Connect 동기화 서비스 관리자
+        - name: 설계 개념
+          href: plan-connect-design-concepts.md
+        - name: Azure AD Connect에 대한 토폴로지
+          href: plan-connect-topologies.md
+        - name: Azure AD Connect의 성능에 영향을 주는 요인
+          href: plan-connect-performance-factors.md
+        - name: 사용자가 로그인하는 방법
+          href: plan-connect-user-signin.md
+        - name: Azure AD userPrincipalName 채우기
+          href: plan-connect-userprincipalname.md
+        - name: 인스턴스에 대한 특별 고려 사항
+          href: reference-connect-instances.md
+        - name: 마이그레이션
+          items:
+            - name: 페더레이션에서 PHS로 마이그레이션
+              href: plan-migrate-adfs-password-hash-sync.md
+            - name: 페더레이션에서 PTA로 마이그레이션
+              href: plan-migrate-adfs-pass-through-authentication.md
+        - name: 하이브리드 ID 설계 고려 사항
+          items:
+            - name: 하이브리드 ID 설계 고려 사항 개요
+              href: plan-hybrid-identity-design-considerations-overview.md
+            - name: ID 요구 사항 확인
+              href: plan-hybrid-identity-design-considerations-business-needs.md
+            - name: 동기화 요구 사항 확인
+              href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+            - name: 다단계 인증 요구 사항 확인
+              href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+            - name: 수명 주기 채택 전략 확인
+              href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+            - name: 데이터 보호 전략 정의
+              href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
+            - name: 데이터 보호 요구 사항 계획
+              href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+            - name: 콘텐츠 관리 요구 사항 확인
+              href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+            - name: 액세스 제어 요구 사항 확인
+              href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+            - name: 사고 대응 요구 사항 확인
+              href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
+            - name: 하이브리드 ID 수명 주기에 대한 계획
+              href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+            - name: 채택 전략 정의
+              href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+            - name: 하이브리드 ID 설계 고려 사항 - 다음 단계
+              href: plan-hybrid-identity-design-considerations-nextsteps.md
+            - name: 하이브리드 ID 도구 비교
+              href: plan-hybrid-identity-design-considerations-tools-comparison.md
+    - name: Azure AD Connect 관리
       items:
-      - name: 서비스 관리자 작업 탭 관리
-        href: how-to-connect-sync-service-manager-ui-operations.md
-      - name: 서비스 관리자로 커넥터 사용
-        href: how-to-connect-sync-service-manager-ui-connectors.md
-      - name: 메타버스 디자이너
-        href: how-to-connect-sync-service-manager-ui-mvdesigner.md
-      - name: 메타 버스 검색
-        href: how-to-connect-sync-service-manager-ui-mvsearch.md
-  - name: 문제 해결
-    items:
-    - name: Azure AD Connect 관리 에이전트란?
-      href: whatis-aadc-admin-agent.md
-    - name: ADConnectivityTools PowerShell 모듈이란?
-      href: how-to-connect-adconnectivitytools.md
-    - name: 연결
-      href: tshoot-connect-connectivity.md
-    - name: 동기화 중 오류
-      href: tshoot-connect-sync-errors.md
-    - name: 개체가 동기화되지 않음
-      href: tshoot-connect-object-not-syncing.md
-    - name: 문제 해결 작업을 사용한 개체 동기화
-      href: tshoot-connect-objectsync.md
-    - name: 암호 해시 동기화
-      href: tshoot-connect-password-hash-synchronization.md
-    - name: 통과 인증
-      href: tshoot-connect-pass-through-authentication.md
-    - name: SSO(Single sign-on)
-      href: tshoot-connect-sso.md
-    - name: userCertificate로 인해 발생한 LargeObject 오류
-      href: tshoot-connect-largeobjecterror-usercertificate.md
-    - name: LocalDB 10GB 제한에서 복구하는 방법
-      href: tshoot-connect-recover-from-localdb-10gb-limit.md
-    - name: SQL 연결
-      href: tshoot-connect-tshoot-sql-connectivity.md
-    - name: 특성 동기화
-      href: tshoot-connect-attribute-not-syncing.md
-    - name: 설치 문제
-      href: tshoot-connect-install-issues.md
+        - name: 장치 쓰기 저장 사용
+          href: how-to-connect-device-writeback.md
+        - name: 장치 옵션
+          href: how-to-connect-device-options.md
+        - name: Azure AD Connect에서 추가 기능
+          href: how-to-connect-preview.md
+        - name: 실수로 인한 삭제 방지
+          href: how-to-connect-sync-feature-prevent-accidental-deletes.md
+        - name: AD 휴지통 사용
+          href: how-to-connect-sync-recycle-bin.md
+        - name: AD DS Connect 계정 구성
+          href: how-to-connect-configure-ad-ds-connector-account.md
+        - name: Azure AD 동기화 서비스 계정 암호 변경
+          href: how-to-connect-sync-change-serviceacct-pass.md
+        - name: Azure AD Connect 계정 변경
+          href: how-to-connect-azureadaccount.md
+        - name: AD DS Connect 계정 암호 변경
+          href: how-to-connect-sync-change-addsacct-pass.md
+    - name: 통과 인증 관리
+      items:
+        - name: 통과 인증 시작
+          href: how-to-connect-pta-quick-start.md
+        - name: 통과 인증 FAQ
+          href: how-to-connect-pta-faq.md
+    - name: 페더레이션 서비스 관리
+      items:
+        - name: Azure AD Connect를 사용하여 페더레이션 관리
+          href: how-to-connect-fed-management.md
+        - name: 페더레이션에 대한 여러 도메인 지원
+          href: how-to-connect-install-multiple-domains.md
+        - name: AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
+          href: how-to-connect-fed-single-adfs-multitenant-federation.md
+        - name: O365 및 Azure AD에 대한 페더레이션 인증서 갱신
+          href: how-to-connect-fed-o365-certs.md
+        - name: AD FS에 대한 SSL 인증서 업데이트
+          href: how-to-connect-fed-ssl-update.md
+        - name: Azure AD를 사용하여 AD FS 신뢰 관리
+          href: how-to-connect-azure-ad-trust.md
+        - name: 애플리케이션에 대한 그룹 클레임 구성
+          href: how-to-connect-fed-group-claims.md
+        - name: O365 RP의 해시 알고리즘 변경
+          href: how-to-connect-fed-sha256-guidance.md
+        - name: Idp로 SAML 2.0 서버 사용
+          href: how-to-connect-fed-saml-idp.md
+        - name: 하이브리드 Azure AD 조인 구성 후 작업
+          href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+    - name: Single Sign-On 관리
+      items:
+        - name: Single Sign-On 시작
+          href: how-to-connect-sso-quick-start.md
+        - name: Single Sign-On FAQ
+          href: how-to-connect-sso-faq.md
+    - name: Azure AD Connect Health 관리
+      items:
+        - name: Azure AD Connect Health 작업
+          href: how-to-connect-health-operations.md
+        - name: AD FS와 함께 Azure AD Connect Health 사용
+          href: how-to-connect-health-adfs.md
+        - name: AD FS를 지원하는 Azure AD Connect Health에 대한 위험한 IP 보고서
+          href: how-to-connect-health-adfs-risky-ip.md
+        - name: 동기화에 Azure AD Connect Health 사용
+          href: how-to-connect-health-sync.md
+        - name: AD DS와 함께 Azure AD Connect Health 사용
+          href: how-to-connect-health-adds.md
+        - name: 상태 서비스 데이터 만료
+          href: how-to-connect-health-data-freshness.md
+        - name: 중복 특성 동기화 오류 진단
+          href: how-to-connect-health-diagnose-sync-errors.md
+        - name: Azure AD Connect Health 경고 카탈로그
+          href: how-to-connect-health-alert-catalog.md
+    - name: Azure AD Connect 동기화 관리
+      items:
+        - name: 준비 서버 및 재해 복구
+          href: how-to-connect-sync-staging-server.md
+        - name: 기본 구성 변경에 대한 모범 사례
+          href: how-to-connect-sync-best-practices-changing-default-configuration.md
+        - name: 기본 구성 변경
+          href: how-to-connect-sync-change-the-configuration.md
+        - name: 수정된 기본 규칙 수정
+          href: how-to-connect-fix-default-rules.md
+        - name: 디렉터리 확장 구성
+          href: how-to-connect-sync-feature-directory-extensions.md
+        - name: 기본 설정 데이터 위치 구성
+          href: how-to-connect-sync-feature-preferreddatalocation.md
+        - name: 필터링 구성
+          href: how-to-connect-sync-configure-filtering.md
+        - name: 스케줄러 관리
+          href: how-to-connect-sync-feature-scheduler.md
+        - name: 동기화 규칙 만들기 및 사용자 지정
+          href: how-to-connect-create-custom-sync-rule.md
+        - name: Azure AD Connect 동기화 서비스 관리자
+          items:
+            - name: 서비스 관리자 작업 탭 관리
+              href: how-to-connect-sync-service-manager-ui-operations.md
+            - name: 서비스 관리자로 커넥터 사용
+              href: how-to-connect-sync-service-manager-ui-connectors.md
+            - name: 메타버스 디자이너
+              href: how-to-connect-sync-service-manager-ui-mvdesigner.md
+            - name: 메타 버스 검색
+              href: how-to-connect-sync-service-manager-ui-mvsearch.md
+    - name: 문제 해결
+      items:
+        - name: Azure AD Connect 관리 에이전트란?
+          href: whatis-aadc-admin-agent.md
+        - name: ADConnectivityTools PowerShell 모듈이란?
+          href: how-to-connect-adconnectivitytools.md
+        - name: 연결
+          href: tshoot-connect-connectivity.md
+        - name: 동기화 중 오류
+          href: tshoot-connect-sync-errors.md
+        - name: 개체가 동기화되지 않음
+          href: tshoot-connect-object-not-syncing.md
+        - name: 설치 중 원본 앵커
+          href: tshoot-connect-source-anchor.md
+        - name: 문제 해결 작업을 사용한 개체 동기화
+          href: tshoot-connect-objectsync.md
+        - name: 암호 해시 동기화
+          href: tshoot-connect-password-hash-synchronization.md
+        - name: 통과 인증
+          href: tshoot-connect-pass-through-authentication.md
+        - name: SSO(Single sign-on)
+          href: tshoot-connect-sso.md
+        - name: userCertificate로 인해 발생한 LargeObject 오류
+          href: tshoot-connect-largeobjecterror-usercertificate.md
+        - name: LocalDB 10GB 제한에서 복구하는 방법
+          href: tshoot-connect-recover-from-localdb-10gb-limit.md
+        - name: SQL 연결
+          href: tshoot-connect-tshoot-sql-connectivity.md
+        - name: 특성 동기화
+          href: tshoot-connect-attribute-not-syncing.md
+        - name: 설치 문제
+          href: tshoot-connect-install-issues.md
 - name: 참고 자료
   items:
-  - name: 포트 및 프로토콜이 필요한 하이브리드 ID
-    href: reference-connect-ports.md
-  - name: Azure AD Connect 버전 내역
-    href: reference-connect-version-history.md
-  - name: Azure AD Connect Health 버전 내역
-    href: reference-connect-health-version-history.md
-  - name: 커넥터 버전 내역
-    href: reference-connect-sync-connector-version-history.md
-  - name: 계정 및 사용 권한
-    href: reference-connect-accounts-permissions.md
-  - name: Azure AD Connect FAQ
-    href: reference-connect-faq.md
-  - name: Azure AD Connect Health FAQ
-    href: reference-connect-health-faq.md
-  - name: Azure AD Connect 사용자 개인 정보
-    href: reference-connect-user-privacy.md
-  - name: Azure AD Connect Health 사용자 개인 정보
-    href: reference-connect-health-user-privacy.md
-  - name: 독일의 Azure AD Connect
-    href: reference-connect-germany.md
-  - name: DirSync 사용 중단
-    href: reference-connect-dirsync-deprecated.md
-  - name: 동기화된 특성
-    href: reference-connect-sync-attributes-synchronized.md
-  - name: 함수 참조
-    href: reference-connect-sync-functions-reference.md
-  - name: Azure AD 페더레이션 호환성 목록
-    href: how-to-connect-fed-compatibility.md
-  - name: TLS 1.2 적용
-    href: reference-connect-tls-enforcement.md
-  - name: ADSyncConfig 참조
-    href: reference-connect-adsyncconfig.md
-  - name: ADSyncTools 참조
-    href: reference-connect-adsynctools.md
-  - name: ADConnectivityTools 참조
-    href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: aac9615fde8547493851ba513156ec860c51c13c
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498284"
+    - name: 포트 및 프로토콜이 필요한 하이브리드 ID
+      href: reference-connect-ports.md
+    - name: Azure AD Connect 버전 내역
+      href: reference-connect-version-history.md
+    - name: Azure AD Connect Health 버전 내역
+      href: reference-connect-health-version-history.md
+    - name: 커넥터 버전 내역
+      href: reference-connect-sync-connector-version-history.md
+    - name: 계정 및 사용 권한
+      href: reference-connect-accounts-permissions.md
+    - name: Azure AD Connect FAQ
+      href: reference-connect-faq.md
+    - name: Azure AD Connect Health FAQ
+      href: reference-connect-health-faq.md
+    - name: Azure AD Connect 사용자 개인 정보
+      href: reference-connect-user-privacy.md
+    - name: Azure AD Connect Health 사용자 개인 정보
+      href: reference-connect-health-user-privacy.md
+    - name: 독일의 Azure AD Connect
+      href: reference-connect-germany.md
+    - name: DirSync 사용 중단
+      href: reference-connect-dirsync-deprecated.md
+    - name: 동기화된 특성
+      href: reference-connect-sync-attributes-synchronized.md
+    - name: 함수 참조
+      href: reference-connect-sync-functions-reference.md
+    - name: Azure AD 페더레이션 호환성 목록
+      href: how-to-connect-fed-compatibility.md
+    - name: TLS 1.2 적용
+      href: reference-connect-tls-enforcement.md
+    - name: ADSyncConfig 참조
+      href: reference-connect-adsyncconfig.md
+    - name: ADSyncTools 참조
+      href: reference-connect-adsynctools.md
+    - name: ADConnectivityTools 참조
+      href: reference-connect-adconnectivitytools.md

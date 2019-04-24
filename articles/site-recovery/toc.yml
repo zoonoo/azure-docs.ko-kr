@@ -29,6 +29,8 @@
           href: azure-to-azure-tutorial-migrate.md
         - name: 가용성 영역으로 Azure VM 이동
           href: move-Azure-VMs-AVset-Azone.md
+        - name: 정부 지역과 공용 지역 간에 Azure VM 이동
+          href: region-move-cross-geos.md
     - name: Azure로 VMware VM 재해 복구
       items:
         - name: Azure 준비
@@ -175,6 +177,10 @@
               href: azure-to-azure-autoupdate.md
             - name: Azure Site Recovery에 대한 업데이트
               href: service-updates-how-to.md
+            - name: 서버 제거 및 보호 사용 안 함
+              href: site-recovery-manage-registration-and-protection.md
+            - name: 자격 증명 모음 삭제
+              href: delete-vault.md
     - name: VMware에서 Azure로 재해 복구
       items:
         - name: 네트워킹 설정

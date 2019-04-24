@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457479"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -45,7 +45,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 2. 다음 인증서가 올바른 위치에 있는지 확인합니다.
 
-    | 인증서 | 위치 |
+    | 인증서 | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
@@ -122,7 +122,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 1. 다음 인증서가 올바른 위치에 있는지 확인합니다.
 
-    | 인증서 | 위치 |
+    | 인증서 | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|

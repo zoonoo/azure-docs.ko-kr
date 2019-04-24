@@ -17,11 +17,11 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: acccc553c5b63b2acd0f9793b0397b25145449dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477439"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure 인프라를 구성 하 고 Azure 네이티브 virtual machines (Vm)에 배포 된 SAP HANA 시스템을 작동 하는 방법에 지침을 제공 합니다. 또한이 문서에서는 SAP HANA를 위한 스케일 아웃 M128s VM SKU에 대 한 구성 정보를 포함합니다. 이 문서에서는 다음 내용을 포함 하는 표준 SAP 설명서를 대체 하기 위한 되지 않습니다.

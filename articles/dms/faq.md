@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 3da3a8dbe337f649fe7d0516b49c03a2f01d7eea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb685c501c6aff2b44820ba3986bd6942308838f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532574"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대한 FAQ
 이 문서에는 Azure Database Migration Service 사용에 대한 일반적인 질문이 관련된 답변과 함께 나열되어 있습니다.

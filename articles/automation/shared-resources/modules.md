@@ -10,11 +10,11 @@ ms.date: 03/13/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500398"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈을 관리
 
@@ -55,7 +55,7 @@ PowerShell 갤러리에서 모듈을 가져오려면,로 이동 https://www.powe
 
 다음은 내부에서 cmdlet의 목록을 `Orchestrator.AssetManagement.Cmdlets` 모든 Automation 계정으로 가져온 모듈입니다. 이러한 cmdlet runbook 및 DSC 구성에 액세스할 수 있으며 Automation 계정 내 자산을 사용 하 여 상호 작용할 수 있도록 합니다. 내부 cmdlet은 암호를 검색할 수 있도록 또한에서 암호화 **변수** 값을 **자격 증명**, 및 암호화 **연결** 필드입니다. Azure PowerShell cmdlet에서 이러한 비밀을 검색 하지 못합니다. 이러한 cmdlet에 암시적으로 사용 하는 경우 Azure를 연결할 수 필요 하지 않습니다. 실행 계정을 사용 하 여 Azure에 인증 해야 하는 등의 연결을 해야 하는 시나리오에 유용 합니다.
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

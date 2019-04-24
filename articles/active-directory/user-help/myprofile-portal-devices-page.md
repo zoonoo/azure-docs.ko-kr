@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475856"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>내 프로필(미리 보기) 포털에서 연결된 디바이스 관리
 회사 또는 학교 계정을 사용하여 연결된 디바이스를 관리할 수 있으며, **내 프로필** 포털의 **디바이스** 페이지에서 더 이상 소유하지 않는 디바이스를 비활성화할 수 있습니다.

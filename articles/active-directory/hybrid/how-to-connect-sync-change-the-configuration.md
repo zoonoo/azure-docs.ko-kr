@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244017"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -266,9 +266,9 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 3. **새 규칙 추가** 단추를 클릭하여 새 인바운드 규칙을 만듭니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | 특성 | Value | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예: *In from AD – User UserType* |
+    | Name | *이름 제공* | 예: *In from AD – User UserType* |
     | 설명 | *설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 AD 커넥터 선택* |  |
     | 연결된 시스템 개체 유형 | **User** |  |
@@ -278,7 +278,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
 5. **범위 지정 필터** 탭으로 이동하여 **다음 절이 있는 단일 범위 지정 필터 그룹**을 추가합니다.
 
-    | 특성 | 연산자 | 값 |
+    | 특성 | 연산자 | Value |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | 사용자\_ |
 
@@ -288,13 +288,13 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | UserType | extensionAttribute1 | 선택 취소됨 | 주 지역에서 |
+    | 직접 | UserType | extensionAttribute1 | 선택 취소 되어 있음 | 주 지역에서 |
 
     또 다른 예로 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 <em>@partners.fabrikam123.org</em>로 끝나는 경우 모든 사용자를 게스트로 동기화하는 것이 좋습니다. 다음과 같은 식을 구현할 수 있습니다.
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 식 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"멤버","게스트"),Error("UserType을 결정하기 위한 UserPrincipalName이 없습니다.")) | 선택 취소됨 | 주 지역에서 |
+    | 식 | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"멤버","게스트"),Error("UserType을 결정하기 위한 UserPrincipalName이 없습니다.")) | 선택 취소 되어 있음 | 주 지역에서 |
 
 7. **추가**를 클릭하여 인바운드 규칙을 만듭니다.
 
@@ -308,9 +308,9 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 3. **새 규칙 추가** 단추를 클릭합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | 특성 | Value | 세부 정보 |
     | ----- | ------ | --- |
-    | 이름 | *이름 제공* | 예: *Out to AAD – User UserType* |
+    | Name | *이름 제공* | 예: *Out to AAD – User UserType* |
     | 설명 | *설명 제공* ||
     | 연결된 시스템 | *AAD 커넥터 선택* ||
     | 연결된 시스템 개체 유형 | **User** ||
@@ -320,10 +320,10 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
 5. **범위 지정 필터** 탭으로 이동하여 **다음 두 절이 있는 단일 범위 지정 필터 그룹**을 추가합니다.
 
-    | 특성 | 연산자 | 값 |
+    | 특성 | 연산자 | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 사용자 |
-    | cloudMastered | NOTEQUAL | True |
+    | cloudMastered | NOTEQUAL | True  |
 
     범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예제에서는 *Out to AD – User Identity* 기본 동기화 규칙과 동일한 범위 지정 필터를 사용합니다. 온-프레미스 Active Directory와 동기화되지 않은 User 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 
@@ -331,7 +331,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | UserType | UserType | 선택 취소됨 | 주 지역에서 |
+    | 직접 | UserType | UserType | 선택 취소 되어 있음 | 주 지역에서 |
 
 7. **추가**를 클릭하여 아웃바운드 규칙을 만듭니다.
 

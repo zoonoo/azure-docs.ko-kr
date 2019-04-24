@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496797"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678142"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -45,7 +45,13 @@ Azure Storage 계정의 경우:
 
 ## <a name="create-a-daily-export"></a>일일 내보내기 만들기
 
-데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. 비용 분석 페이지의 맨 위에 있는 **내보내기**를 클릭한 다음, 내보내기 옵션을 선택합니다. 예를 들어,**내보내기 예약**을 클릭합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+데이터 내보내기를 만들거나 보려면 또는 내보내기를 예약하려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **비용 분석**을 선택합니다. 예를 들어 **구독**으로 이동하여 목록에서 구독을 선택한 다음, 메뉴에서 **비용 분석**을 선택합니다. 비용 분석 페이지의 맨 위에 있는 **내보내기**를 클릭한 다음, 내보내기 옵션을 선택합니다. 예를 들어,**내보내기 예약**을 클릭합니다.  
+
+> [!NOTE]
+> 구독 외에도 리소스 그룹, 계정, 부서 및 등록에서 내보내기를 만들 수 있습니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+> 
+> 
+
 
 **추가**를 클릭하고 내보내기의 이름을 입력한 다음, **월간 누계 비용 매일 내보내기** 옵션을 선택합니다. **다음**을 클릭합니다.
 

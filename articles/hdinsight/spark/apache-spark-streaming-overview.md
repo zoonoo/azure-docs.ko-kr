@@ -2,19 +2,27 @@
 title: Azure HDInsight의 Spark Streaming
 description: HDInsight Spark 클러스터에서 Spark 스트리밍 애플리케이션을 사용하는 방법.
 services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: maxluk
+manager: jhubbard
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/11/2019
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/11/2019
+ms.date: 04/15/2019
+ms.author: v-yiso
 ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539318"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
@@ -34,7 +42,7 @@ DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을
 
 각 RDD는 *일괄 처리 간격*이라는 사용자 정의 시간 프레임을 통해 수집된 이벤트를 나타냅니다. 각 일괄 처리 간격이 지나면 해당 간격에서 모든 데이터를 포함하는 새 RDD가 생성됩니다. RDD의 연속 집합은 DStream으로 수집됩니다. 예를 들어 일괄 처리 간격이 1초 긴 경우 DStream에서 해당 초 동안 수집된 모든 데이터를 포함하는 하나의 RDD를 포함하는 일괄 처리를 매 초 내보냅니다. DStream을 처리할 때 이러한 일괄 처리 중 하나에 온도 이벤트가 나타납니다. Spark 스트리밍 애플리케이션은 이벤트를 포함하는 일괄 처리를 처리하고 각 RDD에 저장된 데이터에서 궁극적으로 작업을 수행합니다.
 
-![온도 이벤트를 사용하는 예제 DStream](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![온도 이벤트를 사용하는 예제 DStream ](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Spark 스트리밍 애플리케이션의 구조
 
@@ -54,8 +62,7 @@ Spark 스트리밍 애플리케이션은 수집 원본에서 데이터를 받고
 이 정의는 정적이며 애플리케이션을 실행할 때까지 데이터가 처리되지 않습니다.
 
 #### <a name="create-a-streamingcontext"></a>StreamingContext 만들기
-
-클러스터를 가리키는 SparkContext에서 StreamingContext를 만듭니다. StreamingContext를 만들 때 초로 일괄 처리의 크기를 지정합니다. 예를 들어:  
+클러스터를 가리키는 SparkContext에서 StreamingContext를 만듭니다. StreamingContext를 만들 때 초로 일괄 처리의 크기를 지정합니다. 예를 들어:
 
 ```
 import org.apache.spark._
@@ -91,7 +98,6 @@ wordCounts.print()
 ```
 
 ### <a name="run-the-application"></a>애플리케이션 실행
-
 스트리밍 애플리케이션을 시작하고 종료 신호를 받을 때까지 실행합니다.
 
 ```
@@ -106,44 +112,44 @@ Spark Stream API와 지원되는 이벤트 원본, 변환 및 출력 작업에 �
 ```
 class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-    /** Start the thread that simulates receiving data */
-    def onStart() {
-        new Thread("Dummy Source") { override def run() { receive() } }.start()
-    }
+        /** Start the thread that simulates receiving data */
+        def onStart() {
+            new Thread("Dummy Source") { override def run() { receive() } }.start()
+        }
 
-    def onStop() {  }
+        def onStop() {  }
 
-    /** Periodically generate a random number from 0 to 9, and the timestamp */
-    private def receive() {
-        var counter = 0  
-        while(!isStopped()) {
+        /** Periodically generate a random number from 0 to 9, and the timestamp */
+        private def receive() {
+            var counter = 0  
+            while(!isStopped()) {
             store(Iterator((counter, System.currentTimeMillis)))
             counter += 1
             Thread.sleep(5000)
+            }
         }
     }
-}
 
-// A batch is created every 30 seconds
-val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+    // A batch is created every 30 seconds
+    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-// Set the active SQLContext so that we can access it statically within the foreachRDD
-org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    // Set the active SQLContext so that we can access it statically within the foreachRDD
+    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
 
-// Create the stream
-val stream = ssc.receiverStream(new DummySource())
+    // Create the stream
+    val stream = ssc.receiverStream(new DummySource())
 
-// Process RDDs in the batch
-stream.foreachRDD { rdd =>
+    // Process RDDs in the batch
+    stream.foreachRDD { rdd =>
 
-    // Access the SQLContext and create a table called demo_numbers we can query
-    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-    _sqlContext.createDataFrame(rdd).toDF("value", "time")
-        .registerTempTable("demo_numbers")
-} 
+        // Access the SQLContext and create a table called demo_numbers we can query
+        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+        _sqlContext.createDataFrame(rdd).toDF("value", "time")
+            .registerTempTable("demo_numbers")
+    } 
 
-// Start the stream processing
-ssc.start()
+    // Start the stream processing
+    ssc.start()
 ```
 
 위의 응용 프로그램을 시작한 후 약 30 초 동안 기다립니다.  그런 다음 예를 들어이 SQL 쿼리를 사용 하 여 일괄 처리에 있는 값의 현재 집합을 정기적으로 데이터 프레임 쿼리할 수 있습니다.

@@ -16,11 +16,11 @@ ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>자습서: ServiceChannel과 Azure Active Directory 통합
 
@@ -145,7 +145,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
-    d. **확인**을 클릭합니다.
+    d.  **확인**을 클릭합니다.
     
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 

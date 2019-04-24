@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472173"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>동적 그룹 만들기 및 상태 확인
 
@@ -48,9 +48,9 @@ Azure Active Directory (Azure AD)에서 사용자 또는 장치 속성을 기반
 
 입력 한 규칙을 유효 하지 않으면 규칙을 처리할 수 없습니다는 이유 설명은 포털의 오른쪽 위 모서리에 표시 됩니다. 규칙을 수정 하는 방법을 이해 하도록 신중 하 게를 읽습니다.
 
-## <a name="turn-on-or-off-welcome-email"></a>켜기 / 끄기 환영 전자 메일
+## <a name="turn-on-or-off-welcome-email"></a>환영 이메일 켜기 또는 끄기
 
-새 Office 365 그룹을 만들 때 시작 알림 그룹에 추가 된 사용자를 전송 됩니다. 나중에 사용자 또는 장치의 특성이 변경, 조직에서 모든 동적 그룹 규칙은 멤버 자격 변경에 대 한 처리 됩니다. 추가 된 사용자는 다음도 시작 알림을 받습니다. 이 동작을 해제할 수 있습니다 [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps)합니다. 
+새 Office 365 그룹을 만들 때 시작 알림 그룹에 추가 된 사용자를 전송 됩니다. 나중에 사용자 또는 장치의 특성이 변경, 조직에서 모든 동적 그룹 규칙은 멤버 자격 변경에 대 한 처리 됩니다. 그런 다음, 추가된 사용자도 환영 알림을 받습니다. 이 동작을 해제할 수 있습니다 [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps)합니다. 
 
 ## <a name="check-processing-status-for-a-rule"></a>규칙에 대 한 처리 상태를 확인 합니다.
 

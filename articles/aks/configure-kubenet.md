@@ -9,11 +9,11 @@ ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
 ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466774"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 

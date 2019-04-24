@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d982ea49bdc24ccd9894c98435f1e3012d9dd156
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469097"
 ---
 # <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>PowerShell을 사용 하 여 Azure Active Directory 관리자 역할 할당
 
-Azure PowerShell을 사용 하 여 사용자 계정에 역할을 할당 하는 방법을 자동화할 수 있습니다. 이 문서에서는 합니다 [Azure Active Directory PowerShell 버전 2](https:/docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 모듈입니다.
+Azure PowerShell을 사용 하 여 사용자 계정에 역할을 할당 하는 방법을 자동화할 수 있습니다. 이 문서에서는 합니다 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) 모듈입니다.
 
 ## <a name="prepare-powershell"></a>PowerShell을 준비
 

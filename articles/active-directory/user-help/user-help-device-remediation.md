@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473806"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>“여기서는 거기에 접근할 수 없습니다.” 오류 메시지가 표시되는 잠재적 원인
 조직의 내부 웹앱 또는 서비스에 액세스하는 동안 **여기서는 거기에 접근할 수 없습니다.** 라는 오류 메시지가 표시될 수 있습니다. 이 메시지는 조직에서 디바이스가 조직 리소스에 액세스하지 못하도록 방지하는 정책을 설정했음을 의미합니다. 이 문제를 해결하기 위해 결과적으로 기술 지원 팀에 문의해야 할 수 있지만 먼저 다음 작업을 시도할 수 있습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "57452040"
 ![네트워크에 연결되어 있는지 여부와 관련된 오류 메시지](media/user-help-device-remediation/network-version.png)
 
 ### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>디바이스가 네트워크에 가입되어 있는지 여부를 확인하려면
-1. 회사 또는 학교 계정을 사용하여 Windows에 로그인합니다. 예: alain@contoso.com
+1. 회사 또는 학교 계정을 사용하여 Windows에 로그인합니다. 예: alain@contoso.com.
 
 2. VPN(가상 사설망) 또는 DirectAccess를 통해 회사 네트워크에 연결합니다.
 

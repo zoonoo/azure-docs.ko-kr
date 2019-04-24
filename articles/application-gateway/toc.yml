@@ -1,246 +1,243 @@
-items:
 - name: Application Gateway 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 애플리케이션 게이트웨이 정보
-    href: overview.md
-  - name: 새로운 기능
-    href: whats-new.md
+    - name: 애플리케이션 게이트웨이 정보
+      href: overview.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
-  items:
-  - name: Application Gateway 만들기 - Portal
-    href: quick-create-portal.md
-  - name: Application Gateway 만들기 - PowerShell
-    href: quick-create-powershell.md
-  - name: Application Gateway 만들기 - Azure CLI
-    href: quick-create-cli.md
   expanded: true
+  items:
+    - name: Application Gateway 만들기 - Portal
+      href: quick-create-portal.md
+    - name: Application Gateway 만들기 - PowerShell
+      href: quick-create-powershell.md
+    - name: Application Gateway 만들기 - Azure CLI
+      href: quick-create-cli.md
 - name: 자습서
   items:
-  - name: 웹 애플리케이션 방화벽 사용
-    href: application-gateway-web-application-firewall-portal.md
-  - name: SSL을 통한 보안
-    href: create-ssl-portal.md
-  - name: 다중 사이트 호스트
-    href: create-multiple-sites-portal.md
-  - name: URL 경로
-    href: create-url-route-portal.md
-  - name: 웹 트래픽 리디렉션
-    href: tutorial-url-redirect-cli.md
-  - name: 자동 크기 조정 및 영역 중복
-    href: tutorial-autoscale-ps.md
+    - name: 웹 애플리케이션 방화벽 사용
+      href: application-gateway-web-application-firewall-portal.md
+    - name: SSL을 통한 보안
+      href: create-ssl-portal.md
+    - name: 다중 사이트 호스트
+      href: create-multiple-sites-portal.md
+    - name: URL 경로
+      href: create-url-route-portal.md
+    - name: 웹 트래픽 리디렉션
+      href: tutorial-url-redirect-cli.md
+    - name: 자동 크기 조정 및 영역 중복
+      href: tutorial-autoscale-ps.md
 - name: 샘플
   items:
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
 - name: 개념
   items:
-  - name: 기본 사항
-    items:
-    - name: 애플리케이션 게이트웨이 작동 원리
-      href: how-application-gateway-works.md
-    - name: 애플리케이션 게이트웨이 구성 요소
-      href: application-gateway-components.md
-    - name: 구성 개요
-      href: configuration-overview.md
-  - name: 라우팅
-    items:
-    - name: 다중 사이트 호스팅
-      href: multiple-site-overview.md
-    - name: URL 라우팅
-      href: url-route-overview.md
-    - name: 리디렉션
-      href: redirect-overview.md
-    - name: HTTP 헤더 다시 쓰기
-      href: rewrite-http-headers.md
-    - name: 사용자 지정 오류 페이지
-      href: custom-error.md
-  - name: SSL
-    items:
-    - name: SSL 종료 및 엔드투엔드 SSL
-      href: ssl-overview.md
-    - name: SSL 정책 개요
-      href: application-gateway-ssl-policy-overview.md
-  - name: WAF
-    items:
-    - name: 웹 애플리케이션 방화벽
-      href: waf-overview.md
-    - name: WAF 구성
-      href: application-gateway-waf-configuration.md
-  - name: 상태 모니터링
-    items:
-    - name: 상태 프로브
-      href: application-gateway-probe-overview.md
-    - name: 진단
-      href: application-gateway-diagnostics.md
-  - name: 자동 크기 조정 및 영역 중복
-    href: application-gateway-autoscaling-zone-redundant.md
-  - name: App Service 웹앱 및 다중 테넌트 지원
-    href: application-gateway-web-app-overview.md
-  - name: WebSocket 지원
-    href: application-gateway-websocket.md
-  - name: FAQ
-    href: application-gateway-faq.md
+    - name: 기본 사항
+      items:
+        - name: 애플리케이션 게이트웨이 작동 원리
+          href: how-application-gateway-works.md
+        - name: 애플리케이션 게이트웨이 구성 요소
+          href: application-gateway-components.md
+        - name: 구성 개요
+          href: configuration-overview.md
+    - name: 라우팅
+      items:
+        - name: 다중 사이트 호스팅
+          href: multiple-site-overview.md
+        - name: URL 라우팅
+          href: url-route-overview.md
+        - name: 리디렉션
+          href: redirect-overview.md
+        - name: HTTP 헤더 다시 쓰기
+          href: rewrite-http-headers.md
+        - name: 사용자 지정 오류 페이지
+          href: custom-error.md
+    - name: SSL
+      items:
+        - name: SSL 종료 및 엔드투엔드 SSL
+          href: ssl-overview.md
+        - name: SSL 정책 개요
+          href: application-gateway-ssl-policy-overview.md
+        - name: Key Vault 사용
+          href: key-vault-certs.md
+    - name: WAF
+      items:
+        - name: 웹 애플리케이션 방화벽
+          href: waf-overview.md
+        - name: WAF 구성
+          href: application-gateway-waf-configuration.md
+    - name: 상태 모니터링
+      items:
+        - name: 상태 프로브
+          href: application-gateway-probe-overview.md
+        - name: 진단
+          href: application-gateway-diagnostics.md
+    - name: 자동 크기 조정 및 영역 중복
+      href: application-gateway-autoscaling-zone-redundant.md
+    - name: App Service 웹앱 및 다중 테넌트 지원
+      href: application-gateway-web-app-overview.md
+    - name: WebSocket 지원
+      href: application-gateway-websocket.md
+    - name: FAQ
+      href: application-gateway-faq.md
 - name: 방법 가이드
   items:
-  - name: 단일 사이트 호스트
-    items:
-    - name: Azure PowerShell
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: Azure CLI
-      href: tutorial-manage-web-traffic-cli.md
-    - name: Template
-      href: create-vmss-template.md
-  - name: 내부 부하 분산 장치 구성
-    items:
-    - name: Azure portal
-      href: configure-application-gateway-with-private-frontend-ip.md
-    - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md
-  - name: SSL 구성
-    items:
-    - name: SSL 종료
+    - name: 단일 사이트 호스트
       items:
-      - name: SSL 종료 - PowerShell
-        href: tutorial-ssl-powershell.md
-      - name: SSL 종료 - Azure CLI
-        href: tutorial-ssl-cli.md
-    - name: 엔드투엔드 SSL
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
+        - name: Azure CLI
+          href: tutorial-manage-web-traffic-cli.md
+        - name: Template
+          href: create-vmss-template.md
+    - name: 내부 부하 분산 장치 구성
       items:
-      - name: 엔드투엔드 SSL - 포털
-        href: end-to-end-ssl-portal.md
-      - name: 엔드투엔드 SSL - PowerShell
-        href: application-gateway-end-to-end-ssl-powershell.md
-    - name: 인증서 관리
+        - name: Azure portal
+          href: configure-application-gateway-with-private-frontend-ip.md
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: SSL 구성
       items:
-      - name: 허용 목록 백 엔드에 대한 인증서 만들기
-        href: certificates-for-backend-authentication.md
-      - name: 인증서 갱신
-        href: renew-certificates.md
-    - name: SSL 정책
+        - name: SSL 종료
+          items:
+            - name: SSL 종료 - PowerShell
+              href: tutorial-ssl-powershell.md
+            - name: SSL 종료 - Azure CLI
+              href: tutorial-ssl-cli.md
+            - name: Key Vault 구성 - PowerShell
+              href: configure-keyvault-ps.md
+        - name: 엔드투엔드 SSL
+          items:
+            - name: 엔드투엔드 SSL - 포털
+              href: end-to-end-ssl-portal.md
+            - name: 엔드투엔드 SSL - PowerShell
+              href: application-gateway-end-to-end-ssl-powershell.md
+        - name: 인증서 관리
+          items:
+            - name: 허용 목록 백 엔드에 대한 인증서 만들기
+              href: certificates-for-backend-authentication.md
+            - name: 인증서 갱신
+              href: renew-certificates.md
+        - name: SSL 정책
+          items:
+            - name: SSL 정책 구성
+              href: application-gateway-configure-ssl-policy-powershell.md
+    - name: 웹 애플리케이션 방화벽 구성
       items:
-      - name: SSL 정책 구성
-        href: application-gateway-configure-ssl-policy-powershell.md
-  - name: 웹 애플리케이션 방화벽 구성
-    items:
-    - name: Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Azure CLI
-      href: tutorial-restrict-web-traffic-cli.md
-  - name: WAF 규칙 세트 구성
-    items:
-    - name: Azure portal
-      href: application-gateway-customize-waf-rules-portal.md
-    - name: Azure PowerShell
-      href: application-gateway-customize-waf-rules-powershell.md
-    - name: Azure CLI
-      href: application-gateway-customize-waf-rules-cli.md
-  - name: URL 경로
-    items:
-    - name: Azure PowerShell
-      href: tutorial-url-route-powershell.md
-    - name: Azure CLI
-      href: tutorial-url-route-cli.md
-  - name: 다중 사이트 호스트
-    items:
-    - name: Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
-    - name: Azure CLI
-      href: tutorial-multiple-sites-cli.md
-  - name: 트래픽 리디렉션
-    items:
-    - name: 외부 트래픽
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
+        - name: Azure CLI
+          href: tutorial-restrict-web-traffic-cli.md
+    - name: WAF 규칙 세트 구성
       items:
-      - name: Azure PowerShell
-        href: redirect-external-site-powershell.md
-      - name: Azure CLI
-        href: redirect-external-site-cli.md
-    - name: HTTP - HTTPS
+        - name: Azure portal
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: application-gateway-customize-waf-rules-cli.md
+    - name: URL 경로
       items:
-      - name: Azure portal
-        href: redirect-http-to-https-portal.md
-      - name: Azure PowerShell
-        href: redirect-http-to-https-powershell.md
-      - name: Azure CLI
-        href: redirect-http-to-https-cli.md
-    - name: 내부 트래픽 리디렉션
+        - name: Azure PowerShell
+          href: tutorial-url-route-powershell.md
+        - name: Azure CLI
+          href: tutorial-url-route-cli.md
+    - name: 다중 사이트 호스트
       items:
-      - name: Azure PowerShell
-        href: redirect-internal-site-powershell.md
-      - name: Azure CLI
-        href: redirect-internal-site-cli.md
-    - name: Azure PowerShell을 사용하여 웹 트래픽 리디렉션
-      href: tutorial-url-redirect-powershell.md
-  - name: HTTP 헤더 다시 쓰기
-    items:
-    - name: Azure portal
-      href: rewrite-http-headers-portal.md
-    - name: Azure PowerShell
-      href: add-http-header-rewrite-rule-powershell.md
-  - name: App Service 웹앱 및 다중 테넌트 서비스 구성
-    items:
-    - name: 포털
-      href: configure-web-app-portal.md
-    - name: Azure PowerShell
-      href: create-web-app.md
-  - name: 사용자 지정 프로브 구성
-    items:
-    - name: 포털
-      href: application-gateway-create-probe-portal.md
-    - name: 클래식 PowerShell
-      href: application-gateway-create-probe-classic-ps.md
-    - name: Resource Manager PowerShell
-      href: application-gateway-create-probe-ps.md
-  - name: 문제 해결
-    items:
-    - name: App Service Environment에서 ILB
-      href: create-gateway-internal-load-balancer-app-service-environment.md
-    - name: App Service의 URL로 리디렉션
-      href: troubleshoot-app-service-redirection-app-service-url.md
-    - name: 세션 선호도 문제
-      href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-    - name: 잘못된 게이트웨이(502) 오류
-      href: application-gateway-troubleshooting-502.md
+        - name: Azure PowerShell
+          href: tutorial-multiple-sites-powershell.md
+        - name: Azure CLI
+          href: tutorial-multiple-sites-cli.md
+    - name: 트래픽 리디렉션
+      items:
+        - name: 외부 트래픽
+          items:
+            - name: Azure PowerShell
+              href: redirect-external-site-powershell.md
+            - name: Azure CLI
+              href: redirect-external-site-cli.md
+        - name: HTTP - HTTPS
+          items:
+            - name: Azure portal
+              href: redirect-http-to-https-portal.md
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: Azure CLI
+              href: redirect-http-to-https-cli.md
+        - name: 내부 트래픽 리디렉션
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: Azure CLI
+              href: redirect-internal-site-cli.md
+        - name: Azure PowerShell을 사용하여 웹 트래픽 리디렉션
+          href: tutorial-url-redirect-powershell.md
+    - name: HTTP 헤더 다시 쓰기
+      items:
+        - name: Azure portal
+          href: rewrite-http-headers-portal.md
+        - name: Azure PowerShell
+          href: add-http-header-rewrite-rule-powershell.md
+    - name: App Service 웹앱 및 다중 테넌트 서비스 구성
+      items:
+        - name: 포털
+          href: configure-web-app-portal.md
+        - name: Azure PowerShell
+          href: create-web-app.md
+    - name: 사용자 지정 프로브 구성
+      items:
+        - name: 포털
+          href: application-gateway-create-probe-portal.md
+        - name: 클래식 PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: 문제 해결
+      items:
+        - name: App Service Environment에서 ILB
+          href: create-gateway-internal-load-balancer-app-service-environment.md
+        - name: App Service의 URL로 리디렉션
+          href: troubleshoot-app-service-redirection-app-service-url.md
+        - name: 세션 선호도 문제
+          href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
+        - name: 잘못된 게이트웨이(502) 오류
+          href: application-gateway-troubleshooting-502.md
 - name: 참고 자료
   items:
-  - name: CRS 규칙
-    href: application-gateway-crs-rulegroups-rules.md
-  - name: Azure CLI
-    href: /cli/azure/network/application-gateway
-  - name: Azure PowerShell
-    href: /powershell/azure/overview
-  - name: .NET
-    href: /dotnet/api
-  - name: 자바
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST (영문)
-    href: /rest/api/applicationgateway
-  - name: Azure 리소스 관리자
-    href: ../azure-resource-manager/resource-group-overview.md
+    - name: CRS 규칙
+      href: application-gateway-crs-rulegroups-rules.md
+    - name: Azure CLI
+      href: /cli/azure/network/application-gateway
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: .NET
+      href: /dotnet/api
+    - name: 자바
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST (영문)
+      href: /rest/api/applicationgateway
+    - name: Azure 리소스 관리자
+      href: ../azure-resource-manager/resource-group-overview.md
 - name: 리소스
   items:
-  - name: 작성자 템플릿
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: 커뮤니티 템플릿
-    href: https://azure.microsoft.com/documentation/templates
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: 국가별 가용성
-    href: https://azure.microsoft.com/regions/services/
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 26ec063b5ad05325eb654a3b112eb5dd6ef23bcc
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547383"
+    - name: 작성자 템플릿
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 커뮤니티 템플릿
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-application-gateway'

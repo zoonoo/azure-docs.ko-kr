@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497374"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해 
 컨테이너용 Azure Monitor를 사용하면 성능 차트 및 상태 정보를 통해 AKS(Azure Kubernetes Service) 클러스터의 워크로드를 모니터링할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 특정 AKS 클러스터를 모니터링할 때에도 ACI(Azure Container Instances)를 볼 수 있습니다.
@@ -40,8 +40,9 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 **모니터링되는 클러스터** 탭에서 다음 정보를 살펴볼 수 있습니다.
 
 1. 중요 또는 비정상 상태인 클러스터 수와 정상 또는 보고하지 않음(알 수 없는 상태라고도 함) 상태인 클러스터 수.
-1. 내 [AKS 엔진(Azure Kubernetes 엔진)](https://github.com/Azure/aks-engine)이 모두 정상인가요?
-1. 클러스터당 배포된 노드, 사용자 및 시스템 Pod 수.  
+2. 내 [AKS 엔진(Azure Kubernetes 엔진)](https://github.com/Azure/aks-engine)이 모두 정상인가요?
+3. 얼마나 많은 노드, 사용자 및 시스템 pod 클러스터당 배포는?
+4. 디스크 공간 크기를 사용할 수는 용량 문제를?
 
 다음과 같은 상태가 있습니다. 
 
@@ -55,7 +56,7 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 * **올바르게 구성되지 않음** - 지정된 작업 영역에서 컨테이너용 Azure Monitor가 올바르게 구성되지 않았습니다.
 * **데이터 없음** - 최근 30분 동안 작업 영역에 데이터가 보고되지 않았습니다.
 
-세 상태 중 *최악*의 상태를 전반적인 클러스터 상태로 계산하며, 한 가지 예외가 있습니다. 세 상태 중 하나라도 *알 수 없음*이면 전반적인 클러스터 상태는 **알 수 없음**으로 표시됩니다.  
+전반적인 클러스터 상태를 계산 하는 상태 *최저* 세 가지 상태 중 하나라도 한 가지 예외로 – 세 가지 상태 *알 수 없는*, 전반적인 클러스터 상태 **알수없음**.  
 
 다음 표에서는 다중 클러스터 보기에서 모니터링되는 클러스터의 상태를 제어하는 계산 방법을 자세히 분석합니다.
 
@@ -131,9 +132,9 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 
 ![Kubernetes 큐브 뷰 속성 창 예제](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-계층 구조에서 개체를 펼치면 선택한 개체에 따라 속성 창이 업데이트됩니다. 이 창에서 창 위쪽의 **Kubernetes 이벤트 로그 보기** 링크를 클릭하여 미리 정의된 로그 검색을 통해 Kubernetes 이벤트를 볼 수도 있습니다. Kubernetes 로그 데이터를 보는 방법에 대한 자세한 내용은 [로그를 검색하여 데이터 분석](#search-logs-to-analyze-data)을 참조하세요. **컨테이너** 보기에서 컨테이너를 검토할 때 컨테이너 로그를 실시간으로 볼 수 있습니다. 이 기능 및 액세스 권한을 부여하고 제어하는 데 필요한 구성에 대한 자세한 내용은 [컨테이너용 Azure Monitor를 사용하여 실시간으로 컨테이너 로그를 보는 방법](container-insights-live-logs.md)을 참조하세요. 
+계층 구조에서 개체를 펼치면 선택한 개체에 따라 속성 창이 업데이트됩니다. 이 창에서 창 위쪽의 **Kubernetes 이벤트 로그 보기** 링크를 클릭하여 미리 정의된 로그 검색을 통해 Kubernetes 이벤트를 볼 수도 있습니다. Kubernetes 로그 데이터를 보는 방법에 대한 자세한 내용은 [로그를 검색하여 데이터 분석](container-insights-log-search.md)을 참조하세요. **컨테이너** 보기에서 컨테이너를 검토할 때 컨테이너 로그를 실시간으로 볼 수 있습니다. 이 기능 및 액세스 권한을 부여하고 제어하는 데 필요한 구성에 대한 자세한 내용은 [컨테이너용 Azure Monitor를 사용하여 실시간으로 컨테이너 로그를 보는 방법](container-insights-live-logs.md)을 참조하세요. 
 
-페이지 맨 위에 있는 **+ 필터 추가** 옵션을 사용하여 보기의 결과를 **서비스**, **노드** 또는 **네임스페이스**로 필터링하고, 필터 범위를 선택한 다음, **값 선택** 필드에 표시된 값 중에서 하나를 선택합니다.  필터가 구성되면 AKS 클러스터의 측면을 살펴볼 때 필터가 전역적으로 적용됩니다.  수식은 등호만 지원됩니다.  첫 번째 필터에 필터를 추가하여 결과를 더 좁힐 수 있습니다.  예를 들어 **노드**로 필터를 지정한 경우 두 번째 필터는 **서비스** 또는 **네임스페이스**만 선택할 수 있습니다.  
+사용 하 여는 **+ 필터 추가** 하 여 뷰에 대 한 결과 필터링 할 옵션 페이지의 맨 위에서 **Service**, **노드**, **Namespace**, 또는  **노드 풀** 선택한 필터 범위를 선택한 후 다음에 표시 된 값 중 하나는 **값을 선택** 필드입니다.  필터가 구성되면 AKS 클러스터의 측면을 살펴볼 때 필터가 전역적으로 적용됩니다.  수식은 등호만 지원됩니다.  첫 번째 필터에 필터를 추가하여 결과를 더 좁힐 수 있습니다.  예를 들어 **노드**로 필터를 지정한 경우 두 번째 필터는 **서비스** 또는 **네임스페이스**만 선택할 수 있습니다.  
 
 ![필터를 사용하여 결과를 좁히는 예제](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -172,7 +173,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| name | 호스트의 이름입니다. |
+| Name | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
 | 평균, 최소, 최대, 50번째, 90번째 | 선택한 기간 동안 백분위를 기준으로 하는 평균 노드 실제 값입니다. 평균 값은 노드에 대해 설정된 CPU/메모리 제한에서 측정됩니다. Pod 및 컨테이너의 경우에는 호스트에서 보고된 평균 값입니다. |
@@ -201,7 +202,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| name | 컨트롤러의 이름입니다.|
+| Name | 컨트롤러의 이름입니다.|
 | 상태 | *확인*, *종료됨*, *실패함*, *중지됨* 또는 *일시 정지됨*과 같은 상태로 실행이 완료된 컨테이너의 롤업 상태입니다. 컨테이너가 실행 중이지만 상태가 제대로 표시되지 않았거나 에이전트에 의해 선택되지 않았고 30분 넘게 응답하지 않은 경우 상태는 *알 수 없음*이 됩니다. 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 각 엔터티에 선택한 메트릭 및 백분위 수의 평균 백분율의 평균을 롤업 합니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -238,7 +239,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| name | 컨트롤러의 이름입니다.|
+| Name | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -258,49 +259,6 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 | ![종료됨 상태 아이콘](./media/container-insights-analyze/containers-terminated-icon.png) | 성공적으로 중지됨 또는 중지하지 못함|  
 | ![실패 상태 아이콘](./media/container-insights-analyze/containers-failed-icon.png) | 실패 상태 |  
 
-
-## <a name="container-data-collection-details"></a>컨테이너 데이터 컬렉션 세부 정보
-컨테이너 인사이트는 컨테이너 호스트 및 컨테이너로부터 다양한 성능 메트릭과 로그 데이터를 수집합니다. 데이터는 3분마다 수집됩니다.
-
-### <a name="container-records"></a>컨테이너 레코드
-
-다음 표에는 컨테이너용 Azure Monitor에서 수집하는 레코드 및 로그 검색 결과에 표시되는 데이터 유형의 예가 나와 있습니다.
-
-| 데이터 형식 | 로그 검색의 데이터 유형 | 필드 |
-| --- | --- | --- |
-| 호스트 및 컨테이너에 대한 성능 | `Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| 컨테이너 인벤토리 | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| 컨테이너 이미지 인벤토리 | `ContainerImageInventory` | TimeGenerated, 컴퓨터, 이미지, ImageTag, ImageSize, VirtualSize, 실행 중, 일시 중지됨, 중지됨, 실패, SourceSystem, ImageID, TotalContainer |
-| 컨테이너 로그 | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| 컨테이너 서비스 로그 | `ContainerServiceLog`  | TimeGenerated, 컴퓨터, TimeOfCommand, 이미지, 명령, SourceSystem, ContainerID |
-| 컨테이너 노드 인벤토리 | `ContainerNodeInventory_CL`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| 컨테이너 프로세스 | `ContainerProcess_CL` | TimeGenerated, 컴퓨터, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes 클러스터의 Pod 인벤토리 | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
-| Kubernetes 클러스터의 노드 부분 인벤토리 | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Kubernetes 이벤트 | `KubeEvents_CL` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
-| Kubernetes 클러스터의 서비스 | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-
-## <a name="search-logs-to-analyze-data"></a>로그를 검색하여 데이터 분석
-Log Analytics에서는 현재 클러스터 구성이 최적 상태로 실행되고 있는지를 파악하는 데 도움이 되도록 추세를 찾아보거나, 병목 상태를 진단하거나, 예측하거나 데이터 간 상관 관계를 파악할 수 있습니다. 미리 정의된 로그 검색을 즉시 사용하거나, 원하는 방식으로 정보를 반환하도록 사용자 지정할 수 있습니다. 
-
-미리 보기 창에서 **Kubernetes 이벤트 로그 보기** 또는 **컨테이너 로그 보기** 옵션을 선택하여 작업 영역에서 데이터에 대한 대화형 분석을 수행할 수 있습니다. 사용자가 있던 Azure Portal 페이지의 오른쪽에 **로그 검색** 페이지가 나타납니다.
-
-![Log Analytics에서 데이터 분석](./media/container-insights-analyze/container-health-log-search-example.png)   
-
-Log Analytics에 전달되는 컨테이너 로그 출력은 STDOUT 및 STDERR입니다. 컨테이너용 Azure Monitor는 AKS(Azure로 관리되는 Kubernetes)를 모니터링하고 이로 인해 생성되는 데이터 양이 많으므로 Kube 시스템은 오늘 수집되지 않습니다. 
-
-### <a name="example-log-search-queries"></a>로그 검색 쿼리 예제
-한두 가지 예제로 시작하는 쿼리를 작성한 다음, 요구 사항에 맞게 수정하는 것이 유용한 경우가 많습니다. 고급 쿼리를 작성하는 데 도움이 되도록 다음과 같은 샘플 쿼리를 테스트해 볼 수 있습니다.
-
-| 쿼리 | 설명 | 
-|-------|-------------|
-| ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | 컨테이너의 수명 주기 정보 모두 나열| 
-| KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | kubernetes 이벤트|
-| ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | 이미지 인벤토리 | 
-| **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 CPU | 
-| **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 메모리 |
-
 ## <a name="next-steps"></a>다음 단계
-컨테이너용 Azure Monitor는 고객이 지원하는 프로세스 및 절차에 따라 복사 및 수정하도록 미리 정의된 경고 세트를 포함하고 있지 않습니다. [컨테이너를 위한 Azure Monitor로 성능 경고 만들기](container-insights-alerts.md)를 검토하여 높은 CPU 및 메모리 사용률에 권장되는 경고를 만드는 방법에 대해 알아봅니다.  
+- 검토 합니다 [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고를 만들](container-insights-alerts.md) DevOps 또는 운영 프로세스 및 프로시저를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대 한 경고를 만드는 방법. 
+- 뷰 [쿼리 예제 로그](container-insights-log-search.md#search-logs-to-analyze-data) 에 미리 정의 된 쿼리 및 평가 하거나 경고를 시각화, 분석 하 여 클러스터에 대 한 사용자 지정 하는 예제를 참조 하세요.

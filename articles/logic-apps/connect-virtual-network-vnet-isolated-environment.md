@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511306"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -67,30 +67,31 @@ ms.locfileid: "58522318"
 
 올바르게 작동하고 액세스 가능한 상태로 유지되려면 ISE(통합 서비스 환경)에 가상 네트워크에서 사용 가능한 특정 포트가 있어야 합니다. 이러한 포트 중 하나를 사용할 수 없는 경우 ISE에 액세스할 수 없게 되며, ISE 작동이 중지될 수 있습니다. 가상 네트워크에서 ISE를 사용할 때 일반적인 설정 문제는 차단된 포트가 하나 이상 있는 경우입니다. ISE와 대상 시스템 간의 연결에 사용하는 커넥터에 자체 포트 요구 사항이 있을 수도 있습니다. 예를 들어 FTP 커넥터를 사용하여 FTP 시스템과 통신하는 경우 명령 전송을 위한 포트 21과 같이 FTP 시스템에서 사용하는 포트가 사용 가능한지 확인합니다.
 
-ISE 프로그램을 배포 하는 가상 네트워크의 서브넷 간 트래픽을 제어 하려면 설정할 수 있습니다 [네트워크 보안 그룹](../virtual-network/security-overview.md) 하 여 해당 서브넷에 대해 [서브넷 간에 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)합니다. 이 표에서는 ISE에서 사용하는 가상 네트워크의 포트 및 해당 포트가 사용되는 위치를 설명합니다. [서비스 태그](../virtual-network/security-overview.md#service-tags)는 보안 규칙을 만들 때 복잡성을 최소화하는 데 도움이 되는 IP 주소 접두사 그룹을 나타냅니다.
+ISE 프로그램을 배포 하는 가상 네트워크의 서브넷 간 트래픽을 제어 하려면 설정할 수 있습니다 [네트워크 보안 그룹](../virtual-network/security-overview.md) 하 여 해당 서브넷에 대해 [서브넷 간에 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)합니다. 이 표에서는 ISE에서 사용하는 가상 네트워크의 포트 및 해당 포트가 사용되는 위치를 설명합니다. 합니다 [Resource Manager 서비스 태그](../virtual-network/security-overview.md#service-tags) 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사의 그룹을 나타냅니다.
 
 > [!IMPORTANT]
 > 서브넷 내에서 내부 통신용 ISE 이러한 서브넷 내에서 모든 포트를 열어야에 필요 합니다.
 
 | 목적 | 방향 | 포트 | 원본 서비스 태그 | 대상 서비스 태그 | 메모 |
 |---------|-----------|-------|--------------------|-------------------------|-------|
-| Azure Logic Apps에서 받는 통신 | 아웃바운드 | 80 및 443 | VIRTUAL_NETWORK | 인터넷 | Logic Apps 서비스 통신 하는 외부 서비스에 종속 된 포트 |
-| Azure Active Directory | 아웃바운드 | 80 및 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
-| Azure Storage 종속성 | 아웃바운드 | 80 및 443 | VIRTUAL_NETWORK | Storage | |
-| Intersubnet 통신 | 인바운드 및 아웃바운드 | 80 및 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | 서브넷 간 통신 |
-| Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 인터넷  | VIRTUAL_NETWORK | 모든 요청 트리거 또는 논리 앱에 존재 하는 웹 후크를 호출 하는 서비스를 컴퓨터에 대 한 IP 주소입니다. 닫거나이 포트를 차단 하는 요청 트리거가 있는 논리 앱에 대 한 HTTP 호출을 방지 합니다.  |
-| 논리 앱 실행 기록 | 인바운드 | 443 | 인터넷  | VIRTUAL_NETWORK | 논리 앱을 볼 수 있는 컴퓨터에 대 한 IP 주소의 실행 기록 합니다. 닫거나이 포트를 차단 하지 않도록 있지만 있습니다 실행된 기록 보기, 입력을 확인할 수 없습니다 하 고 출력 하는 각 단계에 대 한 실행 기록 합니다. |
-| 연결 관리 | 아웃바운드 | 443 | VIRTUAL_NETWORK  | 인터넷 | |
-| 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
-| Logic Apps 디자이너 - 동적 속성 | 인바운드 | 454 | 인터넷  | VIRTUAL_NETWORK | Logic Apps에서 요청이 들어 올 [끝점에 액세스 해당 지역의 IP 주소를 인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound)합니다. |
-| App Service 관리 종속성 | 인바운드 | 454 및 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| 커넥터 배포 | 인바운드 | 454 & 3443 | 인터넷  | VIRTUAL_NETWORK | 배포 하 고 커넥터 업데이트 필요 합니다. 닫거나이 포트를 차단한 ISE 배포 실패 시키고 커넥터 업데이트 또는 수정을 방지 합니다. |
-| Azure SQL 종속성 | 아웃바운드 | 1433 | VIRTUAL_NETWORK | SQL |
-| Azure Resource Health | 아웃바운드 | 1886 | VIRTUAL_NETWORK | 인터넷 | 리소스 상태에 상태를 게시 하기 위한 |
-| API Management - 관리 엔드포인트 | 인바운드 | 3443 | APIManagement  | VIRTUAL_NETWORK | |
-| 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | 아웃바운드 | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | 인바운드 <br>아웃바운드 | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | 또한 Redis 용 Azure 캐시를 사용 하는 ISE를 열어야 이러한 [Redis FAQ에 대 한 Azure 캐시에서 설명 하는 아웃 바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)합니다. |
-| Azure Load Balancer | 인바운드 | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
+| Azure Logic Apps에서 받는 통신 | 아웃바운드 | 80 및 443 | VirtualNetwork | 인터넷 | Logic Apps 서비스 통신 하는 외부 서비스에 종속 된 포트 |
+| Azure Active Directory | 아웃바운드 | 80 및 443 | VirtualNetwork | AzureActiveDirectory | |
+| Azure Storage 종속성 | 아웃바운드 | 80 및 443 | VirtualNetwork | Storage | |
+| Intersubnet 통신 | 인바운드 및 아웃바운드 | 80 및 443 | VirtualNetwork | VirtualNetwork | 서브넷 간 통신 |
+| Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 인터넷  | VirtualNetwork | 모든 요청 트리거 또는 논리 앱에 존재 하는 웹 후크를 호출 하는 서비스를 컴퓨터에 대 한 IP 주소입니다. 닫거나이 포트를 차단 하는 요청 트리거가 있는 논리 앱에 대 한 HTTP 호출을 방지 합니다.  |
+| 논리 앱 실행 기록 | 인바운드 | 443 | 인터넷  | VirtualNetwork | 논리 앱을 볼 수 있는 컴퓨터에 대 한 IP 주소의 실행 기록 합니다. 닫거나이 포트를 차단 하지 않도록 있지만 있습니다 실행된 기록 보기, 입력을 확인할 수 없습니다 하 고 출력 하는 각 단계에 대 한 실행 기록 합니다. |
+| 연결 관리 | 아웃바운드 | 443 | VirtualNetwork  | 인터넷 | |
+| 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
+| Azure Traffic Manager에서 통신 | 인바운드 | 443 | AzureTrafficManager | VirtualNetwork | |
+| Logic Apps 디자이너 - 동적 속성 | 인바운드 | 454 | 인터넷  | VirtualNetwork | Logic Apps에서 요청이 들어 올 [끝점에 액세스 해당 지역의 IP 주소를 인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound)합니다. |
+| App Service 관리 종속성 | 인바운드 | 454 및 455 | AppServiceManagement | VirtualNetwork | |
+| 커넥터 배포 | 인바운드 | 454 & 3443 | 인터넷  | VirtualNetwork | 배포 하 고 커넥터 업데이트 필요 합니다. 닫거나이 포트를 차단한 ISE 배포 실패 시키고 커넥터 업데이트 또는 수정을 방지 합니다. |
+| Azure SQL 종속성 | 아웃바운드 | 1433 | VirtualNetwork | SQL |
+| Azure Resource Health | 아웃바운드 | 1886 | VirtualNetwork | 인터넷 | 리소스 상태에 상태를 게시 하기 위한 |
+| API Management - 관리 엔드포인트 | 인바운드 | 3443 | APIManagement  | VirtualNetwork | |
+| 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | 아웃바운드 | 5672 | VirtualNetwork  | EventHub | |
+| 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | 인바운드 <br>아웃바운드 | 6379-6383 | VirtualNetwork  | VirtualNetwork | 또한 Redis 용 Azure 캐시를 사용 하는 ISE를 열어야 이러한 [Redis FAQ에 대 한 Azure 캐시에서 설명 하는 아웃 바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)합니다. |
+| Azure Load Balancer | 인바운드 | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>

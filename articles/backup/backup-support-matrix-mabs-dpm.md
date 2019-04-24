@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254647"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM 백업 하기 위한 지원 매트릭스
 
@@ -46,7 +46,7 @@ DPM/MABS 및 Azure Backup을 사용 하 여 백업을 다음과 같이 작동 �
 1. MARS(Microsoft Azure Recovery Services) 에이전트가 DPM 서버/MABS에 설치됩니다.
 1. MARS 에이전트를 DPM/MABS 디스크를 Azure Backup을 사용 하 여 Azure에서 백업 Recovery Services 자격 증명 백업.
 
-자세한 내용은 다음을 참조하세요.
+추가 정보
 
 - MABS 아키텍처에 대해 [자세히 알아봅니다](backup-architecture.md#architecture-back-up-to-dpmmabs).
 - [지원 되는 검토](backup-support-matrix-mars-agent.md) MARS 에이전트에 대 한 합니다.
@@ -130,9 +130,9 @@ DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
 
 **MABS-Azure 연결** | **구독** | **백업/복원** 
 --- | --- | --- 
-연결됨 | Active | DPM/MABS 디스크에 백업 합니다.<br/><br/> Azure에 백업 합니다.<br/><br/> 디스크에서 복원 합니다.<br/><br/> Azure에서 복원 합니다.
+연결됨 | 활성 | DPM/MABS 디스크에 백업 합니다.<br/><br/> Azure에 백업 합니다.<br/><br/> 디스크에서 복원 합니다.<br/><br/> Azure에서 복원 합니다.
 연결됨 | 만료됨/프로비전 해제됨 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 구독이 만료 되 면 디스크 또는 Azure에서 복원할 수 있습니다.<br/><br/> 구독을 해제 하는 경우에 디스크 또는 Azure에서 복원할 수 없습니다. Azure 복구 지점이 삭제됩니다.
-15일 넘게 연결되지 않음 | Active | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 디스크 또는 Azure에서 복원할 수 있습니다.
+15일 넘게 연결되지 않음 | 활성 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 디스크 또는 Azure에서 복원할 수 있습니다.
 15일 넘게 연결되지 않음 | 만료됨/프로비전 해제됨 | 디스크 또는 Azure에 대한 백업이 없습니다.<br/><br/> 구독이 만료 되 면 디스크 또는 Azure에서 복원할 수 있습니다.<br/><br/> 구독을 해제 하는 경우에 디스크 또는 Azure에서 복원할 수 없습니다. Azure 복구 지점이 삭제됩니다.
 
 ## <a name="dpmmabs-storage-support"></a>DPM/MABS 스토리지 지원

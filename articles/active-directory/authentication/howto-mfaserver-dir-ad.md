@@ -13,11 +13,11 @@ ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358466"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
@@ -32,7 +32,7 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 | 기능 | 설명 |
 | --- | --- |
 | Active Directory 사용 |Active Directory 사용 옵션을 선택하면 가져오기 및 동기화를 위해 Active Directory를 사용합니다.  기본 설정입니다. <br>참고: Active Directory 통합이 제대로 작동하려면 컴퓨터를 도메인에 가입하고 도메인 계정으로 로그인합니다. |
-| 트러스트된 도메인 포함 |**트러스트된 도메인 포함**을 선택하면 에이전트가 현재 도메인, 포리스트의 다른 도메인 또는 포리스트 트러스트와 관련된 도메인에서 트러스트된 도메인에 연결을 시도합니다.  트러스트된 도메인에서 사용자를 가져오거나 동기화하지 않을 때는 확인란을 선택 취소하여 성능을 향상시킵니다.  기본적으로 선택되어 있습니다. |
+| 신뢰할 수 있는 도메인 포함 |**트러스트된 도메인 포함**을 선택하면 에이전트가 현재 도메인, 포리스트의 다른 도메인 또는 포리스트 트러스트와 관련된 도메인에서 트러스트된 도메인에 연결을 시도합니다.  트러스트된 도메인에서 사용자를 가져오거나 동기화하지 않을 때는 확인란을 선택 취소하여 성능을 향상시킵니다.  기본적으로 선택되어 있습니다. |
 | 특정 LDAP 구성 사용 |LDAP 사용 옵션을 선택하면 가져오기 및 동기화를 위해 지정된 LDAP 설정을 사용합니다. 참고: LDAP 사용을 선택하면 사용자 인터페이스가 Active Directory에서 LDAP로 참조를 변경합니다. |
 | 편집 단추 |편집 단추를 통해 현재 LDAP 구성 설정을 수정할 수 있습니다. |
 | 특성 범위 쿼리 사용 |특성 범위 쿼리 사용 여부를 나타냅니다.  특성 범위 쿼리를 사용하면 다른 레코드 특성에 있는 항목을 기반으로 레코드를 한정하는 디렉터리 검색을 효율적으로 실행할 수 있습니다.  Azure Multi-Factor Authentication 서버는 특성 범위 쿼리를 사용하여 보안 그룹의 구성원인 사용자를 효율적으로 쿼리합니다.   <br>참고:  특성 범위 쿼리가 지원되지만 사용하지 말아야 하는 몇 가지 경우가 있습니다.  예를 들어 Active Directory는 보안 그룹에 둘 이상의 도메인에 속한 구성원이 포함되어 있는 경우 특성 범위 쿼리에 문제가 있을 수 있습니다. 이 경우 확인란을 선택 취소합니다. |

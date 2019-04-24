@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 31c559c1ab314b7e1f29bd96f74d6d82cfcc0420
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392837"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
 > [!div class="op_single_selector"]
@@ -65,6 +65,6 @@ ms.locfileid: "58670050"
 ## <a name="next-steps"></a>다음 단계
 위에서 로컬 진단을 위해 애플리케이션에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 애플리케이션을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
 
-* [Azure 진단을 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Azure Diagnostics를 사용하여 로그를 수집하는 방법](service-fabric-diagnostics-how-to-setup-wad.md)
 * [EventFlow를 사용하여 이벤트 집계 및 수집](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

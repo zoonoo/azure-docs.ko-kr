@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387628"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
 Microsoft Azure Service Fabric은 확장성이 뛰어난 매우 안정적인 분산된 애플리케이션을 위한 차세대 클라우드 애플리케이션 플랫폼입니다. 분산된 클라우드 애플리케이션을 패키징, 배포, 업그레이드 및 관리하 위한 여러 가지 새로운 기능을 소개합니다. 
