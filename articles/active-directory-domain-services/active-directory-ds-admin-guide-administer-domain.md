@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: f1e3272bd8f0d353a7bf817d7f79d2d596277caa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361274"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인 관리
 이 문서에서는 Azure AD(Active Directory) 도메인 서비스 관리되는 도메인을 관리하는 방법을 보여 줍니다.
@@ -119,7 +119,7 @@ TechNet의 지침에 따라 Windows 클라이언트 가상 머신에 [원격 서
 
 <br>
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="related-content"></a>관련 내용
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
 * [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
 * [원격 서버 관리 도구 배포](https://technet.microsoft.com/library/hh831501.aspx)

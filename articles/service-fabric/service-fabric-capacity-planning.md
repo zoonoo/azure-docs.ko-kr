@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ac8abbdbbe9125ea036d837c08e1089aa6d1e55d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: d7ca566b86ed79aa773d7af2553223c79ed9944a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60342012"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Service Fabric 애플리케이션의 용량 계획
 이 문서에서는 Azure Service Fabric 애플리케이션을 실행하는 데 필요한 리소스(CPU, RAM, 디스크 스토리지) 양을 추정하는 방법을 배웁니다. 대부분의 경우 시간이 지나면서 리소스 요구 사항도 변합니다. 일반적으로 서비스를 개발/테스트하는 단계에서는 리소스가 적게 필요하고, 프로덕션 단계로 넘어가서 애플리케이션의 인기가 높아지면 더 많은 리소스가 필요하게 됩니다. 애플리케이션을 설계할 때에는 현재의 장기 요구 사항을 고려하고 고객의 높은 요구 사항에 따라 서비스를 확장할 수 있도록 선택을 내리도록 합니다.
@@ -51,7 +51,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 위에서는 상태 저장 서비스가 하나라고 간주합니다. 상태 저장 서비스가 여러 개 있으면 다른 서비스와 관련된 DB_Size를 방정식에 추가해야 합니다. 또는 각 상태 저장 서비스에 대해 별도로 노드 수를 계산할 수 있습니다.  분산되지 않은 복제본 또는 파티션이 서비스 내에 존재할 수 있습니다. 파티션이 다른 파티션보다 더 많은 데이터를 포함할 수도 있습니다. 분할에 대한 자세한 내용은 [모범 사례의 분할 문서](service-fabric-concepts-partitioning.md)을 참조하세요. 하지만 위의 방정식은 서비스 패브릭이 최적화된 방식으로 복제본을 여러 노드에 분산시키므로 어떤 파티션 및 복제본에도 관계없이 적용됩니다.
 
 ## <a name="use-a-spreadsheet-for-cost-calculation"></a>비용 계산을 위한 스프레드시트 사용
-이제 공식에 실제 숫자를 대입해 보겠습니다. [예제 스프레드시트](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) 는 세 가지 유형의 데이터 개체가 포함된 응용 프로그램의 용량을 계획하는 방법을 보여줍니다. 각 개체에 대해 크기 그리고 예상되는 개체 수를 추정합니다. 또한 각 개체 유형에 대해 원하는 복제본 수를 선택합니다. 스프레드시트가 클러스터에 저장될 총 메모리 양을 계산해줍니다.
+이제 공식에 실제 숫자를 대입해 보겠습니다. [예제 스프레드시트](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx)는 세 가지 유형의 데이터 개체가 포함된 애플리케이션의 용량을 계획하는 방법을 보여줍니다. 각 개체에 대해 크기 그리고 예상되는 개체 수를 추정합니다. 또한 각 개체 유형에 대해 원하는 복제본 수를 선택합니다. 스프레드시트가 클러스터에 저장될 총 메모리 양을 계산해줍니다.
 
 그런 다음 VM 크기와 월간 비용을 입력합니다. 스프레드시트에서는 이 VM을 기반으로 노드와 물리적으로 맞추기 위해 데이터를 분할하는 데 사용해야 하는 최소 파티션 수를 알려줍니다. 애플리케이션의 특정 계산 및 네트워크 트래픽 요구 사항을 수용할 수 있도록 파티션 수를 많이 늘리고 싶은 분들도 있을 것입니다. 스프레드시트에서는 사용자 프로필 개체를 관리하는 파티션 수를 1~6개로 늘려가면서 보여줍니다.
 

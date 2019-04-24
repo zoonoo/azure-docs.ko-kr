@@ -19,11 +19,11 @@ ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60354335"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 what if 도구란?
 
@@ -102,7 +102,7 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 이 설정은 [로그인 위험 조건](conditions.md#sign-in-risk)을 모방합니다.   
 
 
-## <a name="evaluation"></a>평가 
+## <a name="evaluation"></a>평가판 
 
 **What if**를 클릭하여 평가를 시작합니다. 평가 결과는 다음으로 구성된 보고서를 제공합니다. 
 

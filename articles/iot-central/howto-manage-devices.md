@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364183"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 장치 관리
 
@@ -92,7 +92,7 @@ Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 선택 **연결**:
 
-    ![디바이스 연결을 클릭합니다.](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![디바이스 연결](./media/howto-manage-devices/UnassociatedDevices2.png)
 
 1. 사용 가능한 템플릿 목록에서 템플릿을 선택 하 고 선택 **연결**합니다.
 

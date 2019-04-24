@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372263"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 Azure 크레딧 잔액을 추적합니다
 
@@ -37,7 +37,7 @@ Azure portal에서 Microsoft 고객 계약에 대 한 Azure 크레딧 잔액을 
 
    ![비용 관리 + 청구 포털의 검색을 보여 주는 스크린샷](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. 청구 프로필으로 이동 합니다. 사용자 액세스에 따라 청구 계정을 선택 해야 합니다. 청구 계정에서 선택 **청구 프로필** 및 청구 프로필을 사용 합니다.
+3. 청구 프로필로 이동합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 선택 **청구 프로필** 및 청구 프로필을 사용 합니다.
 
 4. 선택 **크레딧은**합니다.
 
@@ -61,8 +61,8 @@ Azure portal에서 Microsoft 고객 계약에 대 한 Azure 크레딧 잔액을 
    |----------------------|--------------------------------------------------------|
    | 원본               | 크레딧 획득 원본 |
    | 시작 날짜           | 크레딧을 획득 하는 경우 날짜 |
-   | 만료 날짜      | 크레딧 만료 날짜 |
-   | Balance              | 마지막 청구서 기준으로 분산 |
+   | 만료일      | 크레딧 만료 날짜 |
+   | 잔액              | 마지막 청구서 기준으로 분산 |
    | 원래 크기      | 크레딧의 금액을 원래 |
    | 상태               | 크레딧의 현재 상태입니다. 사용, 만료 되었거나 만료 상태 활성화 수 있습니다. |
 
@@ -93,7 +93,7 @@ Azure 크레딧은 결제 방법 중 하나입니다. 서비스 수준 크레딧
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

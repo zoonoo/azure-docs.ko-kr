@@ -1,7 +1,6 @@
 ---
 title: Spark를 사용하여 Application Insights 로그 분석 - Azure HDInsight
-description: Application Insight 로그를 Blob 저장소에 내보낸 다음 HDInsight에서 Spark를 사용하여 로그를 분석하는 방법을 알아봅니다.
-services: hdinsight
+description: Application Insight 로그를 Blob Storage에 내보낸 다음, HDInsight에서 Spark를 사용하여 로그를 분석하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326651"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
@@ -43,13 +42,13 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 다음 다이어그램은 이 예제의 서비스 아키텍처를 보여 줍니다.
 
-![다이어그램에서는 데이터를 Application Insights에서 Blob 저장소로 전달하고 HDInsight의 Spark에서 처리하는 방법을 보여 줍니다.](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
+![File Storage는 이제 일반적으로 사용 가능하며 SMB 2.1과 SMB 3.0을 모두 지원합니다.](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
 ### <a name="azure-storage"></a>Azure 저장소
 
 Application Insights가 Blob에 원격 분석 정보를 지속적으로 내보내도록 구성될 수 있습니다. 그러면 HDInsight는 Blob에 저장된 데이터를 읽을 수 있습니다. 그러나 따라야 할 몇 가지 요구 사항이 있습니다.
 
-* **위치**: Storage 계정 및 HDInsight가 다른 위치에 있는 경우 대기 시간이 증가할 수 있습니다. 또한 지역 간에 이동하는 데이터에 송신 요금이 적용되면 비용이 증가합니다.
+* **Location**: Storage 계정 및 HDInsight가 다른 위치에 있는 경우 대기 시간이 증가할 수 있습니다. 또한 지역 간에 이동하는 데이터에 송신 요금이 적용되면 비용이 증가합니다.
 
     > [!WARNING]  
     > HDInsight와 다른 위치에서는 Storage 계정을 사용할 수 없습니다.
@@ -238,7 +237,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
 
         Creating HiveContext as 'sqlContext'
         SparkContext and HiveContext created. Executing user code ...
-5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. `CONTAINER` 및 `STORAGEACCOUNT`를 Application Insights 로그를 포함하는 Azure Storage 계정 이름 및 BLOB 컨테이너 이름으로 바꿉니다.
+5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. `CONTAINER` 및 `STORAGEACCOUNT`를 Application Insights 로그를 포함하는 Azure Storage 계정 이름 및 Blob 컨테이너 이름으로 바꿉니다.
 
    ```scala
    %%bash

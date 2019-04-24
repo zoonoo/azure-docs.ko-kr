@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123507"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360353"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 클레임 변환
 
@@ -29,7 +29,7 @@ ms.locfileid: "58123507"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | 항목 | 문자열 | 출력 클레임에 추가할 ClaimType입니다. |
+| InputClaim | item | string | 출력 클레임에 추가할 ClaimType입니다. |
 | InputClaim | collection | stringCollection | [선택 사항] 지정하는 경우 클레임 변환에서 이 컬렉션의 항목을 복사한 다음 출력 컬렉션 클레임 끝에 추가합니다. |
 | OutputClaim | collection | stringCollection | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다. |
 
@@ -64,7 +64,7 @@ ms.locfileid: "58123507"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [선택 사항] 지정하는 경우 클레임 변환에서 이 컬렉션의 항목을 복사한 다음 출력 컬렉션 클레임 끝에 추가합니다. |
-| InputParameter | 항목 | 문자열 | 출력 클레임에 추가할 값입니다. |
+| InputParameter | item | string | 출력 클레임에 추가할 값입니다. |
 | OutputClaim | collection | stringCollection | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다. |
 
 신규 또는 기존 stringCollection에 문자열 값을 추가하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 상수 전자 메일 주소(admin@contoso.com)를 **otherMails** 클레임에 추가합니다. 
@@ -99,7 +99,7 @@ ms.locfileid: "58123507"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | 클레임 변환에서 항목을 가져오는 데 사용하는 ClaimType입니다. |
-| OutputClaim | extractedItem | 문자열 | 이 ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. 컬렉션의 첫 번째 항목입니다. |
+| OutputClaim | extractedItem | string | 이 ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. 컬렉션의 첫 번째 항목입니다. |
 
 다음 예제에서는 **otherMails** 클레임을 읽고 첫 번째 항목을 **email** 클레임에 반환합니다. 
 

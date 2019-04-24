@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
 ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330522"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -87,7 +87,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
    * **SKU 크기**: 애플리케이션 게이트웨이의 크기이며 소형, 중형 및 대형을 사용 가능합니다.
    * **인스턴트 개수**: 인스턴스의 수이며 2에서 10사이의 값입니다.
    * **리소스 그룹**: 애플리케이션 게이트웨이를 보유하는 리소스 그룹입니다. 기존 리소스 그룹이나 새 리소스 그룹을 선택할 수 있습니다.
-   * **위치**: 애플리케이션 게이트웨이의 지역이며 리소스 그룹과 동일한 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
+   * **Location**: 애플리케이션 게이트웨이의 지역이며 리소스 그룹과 동일한 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
 3. **확인**을 클릭합니다.
 4. Application Gateway에 대한 가상 네트워크, 서브넷, 프런트 엔드 IP 및 수신기 구성을 정의합니다. 이 시나리오에서 프런트 엔드 IP 주소는 **공용**이며 따라서 나중에 Traffic Manager 프로필에 엔드포인트로 추가할 수 있습니다.
 5. 다음 옵션 중 하나를 사용하여 수신기를 구성합니다.

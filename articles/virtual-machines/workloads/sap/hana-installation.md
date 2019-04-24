@@ -15,11 +15,11 @@ ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202952"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -149,7 +149,7 @@ Azure의 SAP HANA(대규모 인스턴스)에 대한 저장소 레이아웃은 SA
 
 저장소 볼륨에 대한 명명 규칙은 아래 테이블에 나열되어 있습니다.
 
-| 저장소 사용 | 탑재 이름 | 볼륨 이름 | 
+| 스토리지 사용량 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
 | HANA data | /hana/data/SID/mnt0000\<m> | 저장소 IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA log | /hana/log/SID/mnt0000\<m> | 저장소 IP:/hana_log_SID_mnt00001_tenant_vol |

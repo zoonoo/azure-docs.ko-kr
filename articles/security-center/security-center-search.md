@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
 ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332607"
 ---
 # <a name="azure-security-center-search"></a>Azure Security Center 검색
 Azure Security Center를 사용 하 여 [Azure Monitor의 로그 검색](../log-analytics/log-analytics-log-searches.md) 검색 하 여 보안 데이터를 분석 합니다. Azure Monitor 로그 신속 하 게 검색 하 고 데이터를 통합 하는 쿼리 언어를 포함 합니다. Security Center에서 Azure Monitor 로그 검색 쿼리를 생성 하 고 수집 된 데이터 분석을 활용할 수 있습니다.

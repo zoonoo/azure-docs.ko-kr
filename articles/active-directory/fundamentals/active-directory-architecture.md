@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249792"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처란?
 Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](active-directory-whatis.md)을 참조하세요.
@@ -75,7 +75,7 @@ Azure AD의 파티션 디자인은 엔터프라이즈 AD 디자인에 비해 단
 
 쓰기는 승인되기 이전에 두 개 이상의 데이터 센터에 영구적으로 커밋됩니다. 그러려면 먼저 주 서버에서 쓰기를 커밋한 다음 즉시 하나 이상의 다른 데이터 센터에 해당 쓰기를 복제합니다. 이 쓰기 작업으로 인해 기본 서버를 호스트하는 데이터 센터가 심각하게 파손되더라도 데이터는 손실되지 않습니다.
 
-Azure AD는 장애 조치(failover) 시에 데이터가 손실되지 않도록 [RTO(복구 시간 목표)](https://en.wikipedia.org/wiki/Recovery_time_objective)를 0으로 유지합니다. 다음 내용이 포함됩니다.
+Azure AD는 장애 조치(failover) 시에 데이터가 손실되지 않도록 [RTO(복구 시간 목표)](https://en.wikipedia.org/wiki/Recovery_time_objective)를 0으로 유지합니다. 다음을 포함합니다.
 -  토큰 발급 및 디렉터리 읽기
 -  디렉터리 쓰기에는 5분 정도의 RTO만 허용
 

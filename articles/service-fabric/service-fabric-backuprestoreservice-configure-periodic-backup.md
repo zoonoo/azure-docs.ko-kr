@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
 ms.openlocfilehash: 31c5feac577dc5e9e0eed9ced9ccfe25c12d3086
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310473"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -29,7 +29,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
 
 2. **백업 활성화**: 이 단계에서는 **1단계**에서 만든 백업 정책을 필요한 엔터티, _애플리케이션_, _서비스_ 또는 _파티션_과 연결합니다.
 
-## <a name="create-backup-policy"></a>Backup 정책 만들기
+## <a name="create-backup-policy"></a>백업 정책 만들기
 
 백업 정책은 다음 구성으로 이루어집니다.
 

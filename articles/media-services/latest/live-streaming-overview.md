@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322490"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -53,7 +53,7 @@ Media Services를 사용 하 여 미리 보기에서 라이브 스트림에서 �
 
 ### <a name="pass-through"></a>통과
 
-![통과](./media/live-streaming/pass-through.svg)
+![pass-through(통과)](./media/live-streaming/pass-through.svg)
 
 통과 **라이브 이벤트**를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 LiveEvent에 전송(RTMP 또는 조각난 MP4 프로토콜 사용)할 수 있습니다. 그러면 라이브 이벤트는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 실행 시간이 긴 라이브 이벤트에 대 한 이러한 통과 라이브 이벤트를 최적화 하거나 24 x 365 선형 라이브 스트리밍. 
 

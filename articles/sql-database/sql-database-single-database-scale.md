@@ -7,17 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/20/2019
-ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 471ded9cd94623929630155f1a3c613bf00576a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331845"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -27,7 +27,7 @@ ms.locfileid: "58286264"
 > [!IMPORTANT]
 > Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
 
-## <a name="change-compute-resources-vcores-or-dtus"></a>변경 계산 리소스 (Dtu 또는 vcore 수)
+## <a name="change-compute-size-vcores-or-dtus"></a>계산 크기를 변경 (Dtu 또는 vcore 수)
 
 Dtu 또는 Vcore 수를 처음 선택한 후 있습니다 수 늘리거나 단일 데이터베이스를 사용 하 여 실제 환경에 따라 동적으로 [Azure portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)를 [TRANSACT-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [ PowerShell](/powershell/module/az.sql/set-azsqldatabase)서 [Azure CLI](/cli/azure/sql/db#az-sql-db-update), 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)합니다.
 
@@ -67,6 +67,37 @@ Dtu 또는 Vcore 수를 처음 선택한 후 있습니다 수 늘리거나 단�
 > [!TIP]
 > 진행 중인 작업을 모니터링하려면 [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list)(SQL REST API를 사용하여 작업 관리), [Manage operations using CLI](/cli/azure/sql/db/op)(CLI를 사용하여 작업 관리), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)(T-SQL을 사용하여 작업 관리) 및 다음 두 가지 PowerShell 명령, 즉 [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 하 고 [중지 AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)합니다.
 
+### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>서비스 계층 변경 또는 계산 작업의 크기를 조정할 취소
+
+서비스 계층을 변경 하거나 계산 작업의 크기를 조정할 취소할 수 있습니다.
+
+#### <a name="azure-portal"></a>Azure portal
+
+데이터베이스 개요 블레이드로 이동 **알림을** 및 진행 중인 작업이 있는지를 나타내는 타일을 클릭 합니다.
+
+![진행 중인 작업](media/sql-database-single-database-scale/ongoing-operations.png)
+
+다음으로 레이블이 지정 된 단추를 클릭 **이 작업을 취소**합니다.
+
+![진행 중인 작업 취소](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
+
+#### <a name="powershell"></a>PowerShell
+
+PowerShell 명령 프롬프트에서 설정 된 `$ResourceGroupName`, `$ServerName`, 및 `$DatabaseName`를 넣은 후 다음 명령을 실행:
+
+```PowerShell
+$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
+if(-not [string]::IsNullOrEmpty($OperationName))
+    {
+        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
+        "Operation " + $OperationName + " has been canceled"
+    }
+    else
+    {
+        "No service tier change or compute rescaling operation found"
+    }
+```
+
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>변경 시 추가 고려 사항 서비스 계층 또는 크기 조정 계산 크기
 
 - 상위 서비스 계층이나 계산 크기로 업그레이드하는 경우 더 큰 크기(최대 크기)를 명시적으로 지정하지 않는 한 최대 데이터베이스 크기는 증가하지 않습니다.
@@ -77,7 +108,7 @@ Dtu 또는 Vcore 수를 처음 선택한 후 있습니다 수 늘리거나 단�
 - 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. **기본** 계층으로 다운그레이드하는 경우 백업 보존 기간이 더 짧아집니다. [Azure SQL Database 백업](sql-database-automated-backups.md)을 참조하세요.
 - 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
-### <a name="billing-during-rescaling"></a>크기 조정 중의 요금 청구
+### <a name="billing-during-compute-rescaling"></a>계산 크기 조정 중의 요금 청구
 
 사용량 또는 데이터베이스가 한 시간 미만 동안 활성 상태였는지 여부와 관계없이, 해당 시간에 적용된 최고 서비스 계층 + 계산 크기를 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다.
 
@@ -102,9 +133,9 @@ Dtu 또는 Vcore 수를 처음 선택한 후 있습니다 수 늘리거나 단�
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>DTU 기반 구매 모델: 최대 크기가 1TB보다 큰 경우 P11 및 P15의 제한 사항
+## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>1TB 보다 큰 P11 및 P15 제약 조건 때 최대 크기
 
-현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다. 자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요. 다음 고려 사항 및 제한 사항은 최대 크기가 1TB보다 큰 P11 및 P15 데이터베이스에 적용됩니다.
+현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다. 다음 고려 사항 및 제한 사항은 최대 크기가 1TB보다 큰 P11 및 P15 데이터베이스에 적용됩니다.
 
 - P11 또는 P15 데이터베이스에 대 한 최대 크기를 1TB 보다 큰 어느 값으로 설정, 하는 경우 다음이 또는 가능 복원 P11 또는 P15 데이터베이스에 복사 합니다.  그런 다음 데이터베이스 재조정 중 작업 시 할당 된 공간의 양이 새 계산 크기의 최대 크기 제한을 초과 하지 제공 다른 계산 크기로 재조정 수 있습니다.
 - 활성 지역 복제 시나리오의 경우:

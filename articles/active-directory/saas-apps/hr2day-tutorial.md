@@ -16,11 +16,11 @@ ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60275072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>자습서: HR2day by Merces와 Azure Active Directory 통합
 
@@ -240,7 +240,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. **사용자 및 그룹** 대화 상자의 **사용자 목록**에서 **Britta Simon**을 선택합니다.
 
-1. **선택** 단추를 클릭합니다.
+1. 클릭 합니다 **선택** 단추입니다.
 
 1. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
     

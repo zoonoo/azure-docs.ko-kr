@@ -1,7 +1,6 @@
 ---
 title: Azure 예약 자동화용 API | Microsoft Docs
 description: 프로그래밍 방식으로 예약 정보를 가져오는 데 사용할 수 있는 Azure API에 대해 알아봅니다.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371209"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -55,7 +54,7 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 
 - 조직이 만드는 가상 머신이 예약의 VM 크기와 일치하는지 확인합니다.
 - 인스턴스 크기 유연성이 켜져 있는지 확인합니다. 자세한 내용은 [예약 관리 - 예약 VM 인스턴스에 대한 최적화 설정 변경](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조하세요.
-- 보다 광범위하게 적용되도록 예약의 범위를 공유로 변경합니다. 자세한 내용은 [예약 관리 - 예약 범위 변경](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation)을 참조하세요.
+- 보다 광범위하게 적용되도록 예약의 범위를 공유로 변경합니다. 자세한 내용은 [예약 관리 - 예약 범위 변경](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)을 참조하세요.
 - 사용하지 않은 수량을 교환합니다. 자세한 내용은 [예약 관리 - 취소 및 교환](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges)을 참조하세요.
 
 ## <a name="give-access-to-reservations"></a>예약에 대한 액세스 권한 부여
@@ -68,7 +67,7 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 
 ## <a name="split-or-merge-reservation"></a>예약 분할 또는 병합
 
-한 예약 내에서 둘 이상의 리소스 인스턴스를 구입한 후에는 예약 내의 인스턴스를 다른 구독에 할당하는 것이 좋습니다. 동일한 청구 컨텍스트 내의 모든 구독에 적용되도록 예약 범위를 변경할 수 있습니다. 하지만 비용 관리 또는 예산 목적을 위해서는 범위를 "단일 구독"으로 유지하고 예약 인스턴스를 특정 구독에 할당할 수 있습니다. 
+한 예약 내에서 둘 이상의 리소스 인스턴스를 구입한 후에는 예약 내의 인스턴스를 다른 구독에 할당하는 것이 좋습니다. 동일한 청구 컨텍스트 내의 모든 구독에 적용되도록 예약 범위를 변경할 수 있습니다. 하지만 비용 관리 또는 예산 목적을 위해서는 범위를 "단일 구독"으로 유지하고 예약 인스턴스를 특정 구독에 할당할 수 있습니다.
 
 예약을 분할하려면 API [예약 - 분할](/rest/api/reserved-vm-instances/reservation/split)을 사용합니다. PowerShell을 사용하여 예약을 분할할 수도 있습니다. 자세한 내용은 [예약 관리 - 예약을 두 개로 예약으로 분할](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations)을 참조하세요.
 
@@ -76,7 +75,7 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 
 ## <a name="change-scope-for-a-reservation"></a>예약 범위 변경
 
-예약 범위는 청구 컨텍스트에서 단일 구독이나 모든 구독일 수 있습니다. 단일 구독으로 범위를 설정하는 경우 예약은 선택한 구독에서 실행 중인 리소스와 일치됩니다. 범위를 공유로 설정하는 경우 Azure에서 예약을 청구 컨텍스트 내 모든 구독에서 실행하는 리소스와 일치시킵니다. 청구 컨텍스트는 예약을 구입하는 데 사용되는 구독에 따라 달라집니다. 자세한 내용은 [예약 관리 - 범위 변경](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation)을 참조하세요.
+예약 범위는 청구 컨텍스트에서 단일 구독이나 모든 구독일 수 있습니다. 단일 구독으로 범위를 설정하는 경우 예약은 선택한 구독에서 실행 중인 리소스와 일치됩니다. 범위를 공유로 설정하는 경우 Azure에서 예약을 청구 컨텍스트 내 모든 구독에서 실행하는 리소스와 일치시킵니다. 청구 컨텍스트는 예약을 구입하는 데 사용되는 구독에 따라 달라집니다. 자세한 내용은 [예약 관리 - 범위 변경](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)을 참조하세요.
 
 범위를 프로그래밍 방식으로 변경하려면 API [예약 - 업데이트](/rest/api/reserved-vm-instances/reservation/update)를 사용합니다.
 

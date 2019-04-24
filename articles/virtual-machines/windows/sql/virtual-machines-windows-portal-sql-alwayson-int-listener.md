@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326107"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 머신에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "58107885"
 
 5. **부하 분산 장치 만들기** 대화 상자에서 다음과 같이 부하 분산 장치를 구성합니다.
 
-   | 설정 | 값 |
+   | 설정 | Value |
    | --- | --- |
    | **Name** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
    | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
@@ -109,7 +109,7 @@ Azure에서 백 엔드 주소 풀에 대한 설정이 업데이트됩니다. 이
 
 3. **프로브 추가** 블레이드에서 프로브를 구성합니다. 다음 값을 사용하여 프로브를 구성합니다.
 
-   | 설정 | 값 |
+   | 설정 | Value |
    | --- | --- |
    | **Name** |프로브를 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointProbe**입니다. |
    | **프로토콜** |**TCP** |
@@ -135,7 +135,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 
 3. **부하 분산 규칙 추가** 블레이드에서 부하 분산 규칙을 구성합니다. 다음 설정을 사용합니다. 
 
-   | 설정 | 값 |
+   | 설정 | Value |
    | --- | --- |
    | **Name** |부하 분산 규칙을 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointListener**입니다. |
    | **프로토콜** |**TCP** |
@@ -165,7 +165,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 
 1. 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기 
 
-2. 수신기를 온라인 상태로 만들기
+2. 수신기를 온라인 상태로 전환합니다.
 
 ### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>5단계: 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기
 이 단계에서는 장애 조치(Failover) 클러스터 관리자와 SQL Server Management Studio에서 가용성 그룹 수신기를 수동으로 만듭니다.
@@ -221,7 +221,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
 7. 다음 설정을 사용하여 상태 검색을 추가합니다.
 
-   |설정 |값
+   |설정 |Value
    |:-----|:----
    |**Name** |프로브를 식별하는 이름입니다.
    |**프로토콜** |TCP
@@ -235,7 +235,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
 10. 다음 설정을 사용하여 새 부하 분산 규칙을 구성합니다.
 
-    |설정 |값
+    |설정 |Value
     |:-----|:----
     |**Name** |부하 분산 규칙을 식별하는 이름입니다. 
     |**프런트 엔드 IP 주소** |만든 IP 주소를 선택합니다. 
@@ -246,7 +246,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
     |**상태 프로브** |만든 프로브를 선택합니다.
     |**세션 지속성** |없음
     |**유휴 제한 시간(분)** |기본값(4)
-    |**부동 IP(Direct Server Return)** | 사용
+    |**부동 IP(Direct Server Return)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>새 IP 주소를 사용하도록 가용성 그룹 구성
 
@@ -284,7 +284,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
 1. 다음 설정을 사용하여 부하 분산 규칙을 만듭니다.
 
-   |설정 |값
+   |설정 |Value
    |:-----|:----
    |**Name** |분산 가용성 그룹에 대한 부하 분산 규칙을 식별하는 이름입니다. 
    |**프런트 엔드 IP 주소** |가용성 그룹과 동일한 프런트 엔드 IP 주소를 사용합니다.
@@ -295,7 +295,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
    |**상태 프로브** |만든 프로브를 선택합니다.
    |**세션 지속성** |없음
    |**유휴 제한 시간(분)** |기본값(4)
-   |**부동 IP(Direct Server Return)** | 사용
+   |**부동 IP(Direct Server Return)** | Enabled
 
 분산 가용성 그룹에 참여하는 다른 가용성 그룹의 부하 분산 장치에 대해 이 단계를 반복합니다.
 

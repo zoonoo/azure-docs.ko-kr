@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: ergreenl
 ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359435"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory 조인과 Azure Active Directory Domain Services 중에서 선택
 이 문서에서는 Azure AD(Active Directory) 조인과 Azure AD Domain Services의 차이를 설명하고 사용 사례를 기반으로 선택하도록 도와줍니다.
@@ -58,7 +58,7 @@ Azure AD Domain Services는 Azure 가상 네트워크에서 관리되는 AD 도�
 |:---| --- | --- |
 | 다음에 의해 디바이스가 제어됨 | Azure AD | Azure AD Domain Services 관리되는 도메인 |
 | 디렉터리의 표현 | Azure AD 디렉터리의 디바이스 개체. | AAD-DS 관리되는 도메인의 컴퓨터 개체. |
-| 인증 | OAuth/OpenID Connect 기반 프로토콜 | Kerberos, NTLM 프로토콜 |
+| Authentication | OAuth/OpenID Connect 기반 프로토콜 | Kerberos, NTLM 프로토콜 |
 | 관리 | Intune과 같은 MDM(모바일 디바이스 관리) 소프트웨어 | 그룹 정책 |
 | 네트워킹 | 인터넷을 통해 작동 | 컴퓨터가 관리되는 도메인과 동일한 가상 네트워크에 있어야 합니다.|
 | 유용한 경우 | 최종 사용자 모바일 또는 데스크톱 디바이스 | Azure에 배포된 서버 가상 머신 |

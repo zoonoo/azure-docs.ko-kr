@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343219"
 ---
 # <a name="virtual-machine-support-tab"></a>가상 머신 지원 탭
 
-**새 제안** 페이지의 **지원** 탭을 통해 제안에 대한 기술 및 사용자 지원 리소스를 제공할 수 있습니다.  **엔지니어링**, **고객 지원** 및 **지원 URL**의 세 가지 영역으로 나뉩니다.
+**새 제안** 페이지의 **지원** 탭을 통해 제안에 대한 기술 및 사용자 지원 리소스를 제공할 수 있습니다.  이 세 가지 영역으로 구분 됩니다. **엔지니어링**하십시오 **고객 지원**, 및 **Url을 지원**합니다.
 
 ![가상 머신에 대한 새 제안 양식의 지원 탭](./media/publishvm_012.png)
 
-위치:
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |

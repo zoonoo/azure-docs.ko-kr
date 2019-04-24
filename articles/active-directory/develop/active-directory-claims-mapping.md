@@ -14,11 +14,11 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300481"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -105,7 +105,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | grant_type |
 | graph |
 | group_sids |
-| groups |
+| 그룹 |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -142,7 +142,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| 암호 |
+| password |
 | platf |
 | polids |
 | pop_jwk |
@@ -156,9 +156,9 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
-| role |
-| roles |
+| 리소스 |
+| 역할 |
+| 역할 |
 | scope |
 | scp |
 | sid |
@@ -290,7 +290,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 | 사용자 | givenname | 이름 |
 | 사용자 | displayname | 표시 이름 |
 | 사용자 | objectId | ObjectID |
-| 사용자 | mail | 메일 주소 |
+| 사용자 | 메일 | 메일 주소 |
 | 사용자 | userprincipalname | 사용자 계정 이름 |
 | 사용자 | department|department|
 | 사용자 | onpremisessamaccountname | 온-프레미스 SAM 계정 이름 |
@@ -361,7 +361,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 |TransformationMethod|예상 입력|예상 출력|설명|
 |-----|-----|-----|-----|
 |Join|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
-|ExtractMailPrefix|mail|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
+|ExtractMailPrefix|메일|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
 
 **InputClaims:** InputClaims 요소를 사용하여 클레임 스키마 항목의 데이터를 변환에 전달합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
 
@@ -386,7 +386,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 |원본|ID|설명|
 |-----|-----|-----|
-| 사용자 | mail|메일 주소|
+| 사용자 | 메일|메일 주소|
 | 사용자 | userprincipalname|사용자 계정 이름|
 | 사용자 | onpremisessamaccountname|온-프레미스 SAM 계정 이름|
 | 사용자 | employeeid|직원 ID|

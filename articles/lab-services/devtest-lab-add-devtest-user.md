@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311422"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -41,19 +41,19 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
 | 랩에 사용자 추가 |아닙니다. |사용자 계정 컨트롤 |아닙니다. |
-| 비용 설정 업데이트 |아닙니다. |예 |예 |
+| 비용 설정 업데이트 |아닙니다. |예 |예. |
 | **VM 기본 작업** | | | |
-| 사용자 지정 이미지 추가 및 제거 |아닙니다. |예 |예 |
-| 수식 추가, 업데이트 및 삭제 |예 |예 |예 |
+| 사용자 지정 이미지 추가 및 제거 |아닙니다. |예 |예. |
+| 수식 추가, 업데이트 및 삭제 |예. |예 |예. |
 | Azure Marketplace 이미지를 허용 목록에 추가 |아닙니다. |예 |예 |
 | **VM 작업** | | | |
-| VM 만들기 |예 |예 |예 |
-| VM 시작, 중지 및 삭제 |사용자가 만든 VM만 |예 |예 |
-| VM 정책 업데이트 |아닙니다. |예 |예 |
-| VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |예 |예 |
+| VM 만들기 |예. |예 |예 |
+| VM 시작, 중지 및 삭제 |사용자가 만든 VM만 |예. |예. |
+| VM 정책 업데이트 |아닙니다. |예 |예. |
+| VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |예. |예 |
 | **아티팩트 작업** | | | |
-| 아티팩트 리포지토리 추가 및 제거 |아닙니다. |예 |예 |
-| 아티팩트 적용 |예 |예 |예 |
+| 아티팩트 리포지토리 추가 및 제거 |아닙니다. |예 |예. |
+| 아티팩트 적용 |예. |예 |예. |
 
 > [!NOTE]
 > 사용자가 VM을 만들면 해당 사용자는 만든 VM의 **소유자** 역할에 자동으로 할당됩니다.

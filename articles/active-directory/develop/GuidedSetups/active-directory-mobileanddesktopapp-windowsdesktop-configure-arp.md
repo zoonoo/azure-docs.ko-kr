@@ -17,11 +17,11 @@ ms.author: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc9b5cbc4904c6b2238e56742381feb4d2811437
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301144"
 ---
 # <a name="add-the-applications-registration-information-to-your-app"></a>앱에 애플리케이션의 등록 정보 추가
 이 단계에서는 프로젝트에 애플리케이션 ID를 추가해야 합니다.

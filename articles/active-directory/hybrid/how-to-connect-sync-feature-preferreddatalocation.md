@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348252"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 설정 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -59,7 +59,7 @@ Office 365의 모든 지역 목록은 [데이터 위치](https://aka.ms/datamaps
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원
 
-Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 특히 다음에 대한 내용을 설명합니다.
+Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 * Azure AD Connector의 **User** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 * 메타버스의 **Person** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
@@ -124,9 +124,9 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 3. 새 인바운드 규칙을 만들려면 **새 규칙 추가**를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 자세히 |
+    | 특성 | Value | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
+    | Name | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
     | 설명 | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **User** |  |
@@ -139,7 +139,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    |직접 | preferredDataLocation | 원본 특성 선택 | 선택 취소 되어 있음 | 업데이트 |
+    |직접 | preferredDataLocation | 원본 특성 선택 | 선택 취소 되어 있음 | 주 지역에서 |
 
 7. 인바운드 규칙을 만들려면 **추가**를 선택합니다.
 
@@ -153,9 +153,9 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 3. **새 규칙 추가**를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 자세히 |
+    | 특성 | Value | 세부 정보 |
     | ----- | ------ | --- |
-    | 이름 | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
+    | Name | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
     | 설명 | *설명 제공* ||
     | 연결된 시스템 | *Azure AD 커넥터에 선택* ||
     | 연결된 시스템 개체 유형 | **User** ||
@@ -165,10 +165,10 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
 5. **범위 지정 필터** 탭으로 이동하여 다음 두 절이 있는 단일 범위 지정 필터 그룹을 추가합니다.
 
-    | 특성 | 연산자 | 값 |
+    | 특성 | 연산자 | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 사용자 |
-    | cloudMastered | NOTEQUAL | 참 |
+    | cloudMastered | NOTEQUAL | True  |
 
     범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예에서는 "Out to AD - User Identity" OOB(out-of-box) 동기화 규칙과 동일한 범위 지정 필터를 사용합니다. 온-프레미스 Active Directory와 동기화되지 않은 **User** 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
 
@@ -176,7 +176,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
-    | 직접 | preferredDataLocation | preferredDataLocation | 선택 취소 되어 있음 | 업데이트 |
+    | 직접 | preferredDataLocation | preferredDataLocation | 선택 취소 되어 있음 | 주 지역에서 |
 
 7. **추가**를 클릭하여 아웃바운드 규칙을 만듭니다.
 

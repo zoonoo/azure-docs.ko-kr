@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288546"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 보안 경고를 구성 합니다.
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **심각도** | 낮음 |
+| **Severity** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 사용자에게 필요 없는 권한 있는 역할이 할당되면 공격 위험이 증대됩니다. 또한 잘 사용되지 않는 계정에서는 공격자가 드러나지 않을 가능성이 더 큽니다. |
 | **해결 방법** | 목록의 사용자를 검토하고 필요 없는 권한 있는 역할에서 제거합니다. |
 | **방지** | 업무 근거가 있는 사용자에게만 권한 있는 역할을 할당합니다. </br>사용자가 액세스 권한이 계속 필요한지 확인하도록 정기적인 [액세스 검토](pim-how-to-start-security-review.md)를 예약합니다. |
@@ -51,7 +51,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **심각도** | 낮음 |
+| **Severity** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | MFA가 없으면 손상된 사용자가 권한 있는 역할을 활성화할 수 있습니다. |
 | **해결 방법** | 역할 목록을 검토하고 모든 역할에 [MFA를 요구](pim-how-to-change-default-settings.md)합니다. |
 | **방지** | [모든 역할에 대해 MFA를 요구합니다](pim-how-to-change-default-settings.md).  |
@@ -61,7 +61,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **심각도** | 낮음 |
+| **Severity** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 현재 테넌트에 Azure AD Premium P2가 없습니다. |
 | **해결 방법** | [Azure AD 버전](../fundamentals/active-directory-whatis.md)에 대한 정보를 검토합니다. Azure AD Premium P2로 업그레이드합니다. |
 
@@ -69,7 +69,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **심각도** | 중간 |
+| **Severity** | 중간 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 지난 90일 동안에서 자신의 암호를 변경하지 않은 권한 있는 역할의 계정입니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **심각도** | 높음 |
+| **Severity** | 높음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | PIM 외부에서 수행된 권한 있는 역할 할당이 제대로 모니터링되지 않고 있으며 활성 공격을 나타낼 수 있습니다. |
 | **해결 방법** | 목록의 사용자를 검토하고 PIM 외부에서 할당된 권한 있는 역할에서 제거합니다. |
 | **방지** | 사용자가 PIM 외부에서 권한 있는 역할이 할당되는 위치를 조사하고 향후 해당 위치에서의 할당을 금지합니다. |
@@ -90,7 +90,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **심각도** | 낮음 |
+| **Severity** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 글로벌 관리자는 가장 높은 권한 있는 역할입니다. 글로벌 관리자가 손상되면 공격자가 모든 권한에 대한 액세스를 확보하게 되므로 시스템 전체가 위험합니다. |
 | **해결 방법** | 목록에서 사용자를 검토하고 글로벌 관리자 역할이 절대적으로 필요하지 않은 모든 사용자를 제거합니다. </br>이런 사용자에게는 낮은 권한의 역할을 할당합니다. |
 | **방지** | 사용자에게 필요한 최소한의 권한 있는 역할을 할당합니다. |
@@ -103,7 +103,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 사용
 
 | | |
 | --- | --- |
-| **심각도** | 낮음 |
+| **Severity** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유하는 계정을 갖는 권한 있는 역할에 대해 [MFA를 요구합니다](pim-how-to-change-default-settings.md). |

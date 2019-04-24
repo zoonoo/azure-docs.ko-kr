@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381827"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>빠른 시작: Azure Active Directory Identity Protection을 사용하여 세션 위험 검색 시 액세스 차단  
 
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 로그인 위험 조건부 액세스 정책을 만드는 방법을 설명합니다. 정책에서 다음을 설정합니다.
 
-|설정 |값|
+|설정 |Value|
 |---     | --- |
 | 사용자  | Alain Charon  |
 | 조건 | 로그인 위험, 중간 이상 |

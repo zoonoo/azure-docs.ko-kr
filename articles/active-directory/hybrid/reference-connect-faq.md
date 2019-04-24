@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381457"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -52,7 +52,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 이 시나리오는 2016년 2월 빌드부터 지원됩니다.
 
 **Q: Azure AD DS(Azure Active Directory Domain Services) 상태 에이전트는 서버 코어에서 작동하나요?**  
-예 에이전트가 설치되면 다음 PowerShell cmdlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
+예. 에이전트가 설치되면 다음 PowerShell cmdlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -106,7 +106,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 
 ## <a name="environment"></a>Environment
 **Q: Azure AD Connect가 설치되면 서버 이름을 바꿀 수 있나요?**  
-번호 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
+아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  
@@ -128,7 +128,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 이 사이트에서 설명하는 cmdlet을 제외하고 Azure AD Connect에 있는 다른 PowerShell cmdlet은 고객이 사용할 수 없습니다.
 
 **Q: Synchronization Service Manager의 "서버 내보내기/서버 가져오기" 옵션을 사용하여 서버 간에 구성을 이동할 수 있나요?**  
-번호 이 옵션은 모든 구성 설정을 검색하는 것이 아니므로 사용하면 안됩니다. 그 대신 마법사를 사용하여 두 번째 서버에서 기본 구성을 만들고, 동기화 규칙 편집기를 사용하여 서버 간에 사용자 지정 규칙을 이동하도록 PowerShell 스크립트를 생성합니다. 자세한 내용은 [스윙 마이그레이션](how-to-upgrade-previous-version.md#swing-migration)을 참조하세요.
+아니요. 이 옵션은 모든 구성 설정을 검색하는 것이 아니므로 사용하면 안됩니다. 그 대신 마법사를 사용하여 두 번째 서버에서 기본 구성을 만들고, 동기화 규칙 편집기를 사용하여 서버 간에 사용자 지정 규칙을 이동하도록 PowerShell 스크립트를 생성합니다. 자세한 내용은 [스윙 마이그레이션](how-to-upgrade-previous-version.md#swing-migration)을 참조하세요.
 
 **Q: Azure 로그인 페이지에 대한 암호를 캐시할 수 있나요? 그리고 이 암호에 *autocomplete = "false"* 특성이 있는 암호 입력 요소가 포함되어 있으므로 이 캐싱을 방지할 수 있나요?**  
 현재 autocomplete 태그를 포함하여 **암호** 필드의 HTML 특성을 수정하는 기능은 지원되지 않습니다. 현재 **암호** 필드에 특성을 추가할 수 있는 사용자 지정 JavaScript를 허용하는 기능을 개발하고 있습니다.
@@ -137,7 +137,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 현재 autocomplete 태그를 포함하여 **암호** 입력 필드의 HTML 특성을 수정하는 기능은 지원되지 않습니다. 현재 **암호** 필드에 특성을 추가할 수 있는 사용자 지정 JavaScript를 허용하는 기능을 개발하고 있습니다.
 
 **Q: 동시 세션을 방지할 수 있는 방법이 있나요?**  
-번호
+아니요.
 
 ## <a name="auto-upgrade"></a>자동 업그레이드
 

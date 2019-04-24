@@ -1,7 +1,6 @@
 ---
 title: Apache Spark를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 description: HDInsight Spark 클러스터와 Azure SQL Database 간에 연결을 설정하여 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/15/2018
 ms.openlocfilehash: 2b818350c19d1d9ff34bcdac0e438def0f859e40
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327012"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 

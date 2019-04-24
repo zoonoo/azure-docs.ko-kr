@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372025"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 추가 Azure 구독 만들기
 
@@ -63,11 +63,11 @@ Azure 구독을 만들 수 있는 권한을 부여할 수는 청구서 섹션에
 
    ![구독에 대 한 포털에서 검색을 보여 주는 스크린샷](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. 송장 섹션으로 이동 합니다. 사용자 액세스에 따라 대금 청구 계정 또는 청구 프로필을 선택 해야 합니다. 대금 청구 계정 또는 프로필에서 선택 **섹션에서는 송장** 와 다음 송장 부분을 지정 합니다.
+3. 청구서 섹션으로 이동합니다. 사용자 액세스에 따라 대금 청구 계정 또는 청구 프로필을 선택 해야 합니다. 대금 청구 계정 또는 프로필에서 선택 **섹션에서는 송장** 와 다음 송장 부분을 지정 합니다.
 
 4. 선택 **액세스 관리 (IAM)** 위 왼쪽에서 합니다.
 
-5. 선택 페이지의 맨 위에서 **추가**합니다.
+5. 페이지 맨 위에서 **추가**를 선택합니다.
 
 6. 선택 **Azure 구독 작성자** 역할에 대 한 합니다.
 
@@ -80,7 +80,7 @@ Azure 구독을 만들 수 있는 권한을 부여할 수는 청구서 섹션에
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
 

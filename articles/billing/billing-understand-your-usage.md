@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369627"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
 
@@ -54,10 +54,10 @@ ms.locfileid: "57897149"
 |초과 수량 |소비된 수량과 포함된 수량 간의 차이를 나타냅니다. 이 수량에 대해 요금이 청구됩니다. 제품에 포함된 수량이 없는 종량제 제품의 경우 이 합계는 소비된 수량과 동일합니다. |
 |약정 기간 내 |6개월 또는 12개월 제품과 관련된 약정 금액에서 공제된 측정기 요금을 나타냅니다. 측정기 요금은 시간순으로 공제됩니다. |
 |통화 |현재 청구 기간에 사용된 통화입니다. |
-|초과분 |6개월 또는 12개월 제품과 관련된 약정 금액을 초과하는 측정기 요금을 나타냅니다. |
+|초과 |6개월 또는 12개월 제품과 관련된 약정 금액을 초과하는 측정기 요금을 나타냅니다. |
 |약정 요율 |6개월 또는 12개월 제품과 관련된 총 약정 금액을 기반으로 하는 약정 요율을 나타냅니다. |
 |비용 |청구 가능 단위당 청구되는 요율입니다. |
-|값 |평균 수량 열과 요율 열을 곱한 결과를 보여 줍니다. 소비된 수량이 포함된 수량을 초과하지 않으면 이 열에 청구되는 비용이 없습니다. |
+|Value |평균 수량 열과 요율 열을 곱한 결과를 보여 줍니다. 소비된 수량이 포함된 수량을 초과하지 않으면 이 열에 청구되는 비용이 없습니다. |
 
 ### <a name="daily-usage"></a>일일 사용량
 

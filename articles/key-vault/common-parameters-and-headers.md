@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc6c937e37ebb7919ca271e765ad6460c104e43b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b420999dad6f34e4868013e2d466d8bacb60b2c6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306039"
 ---
 # <a name="common-parameters-and-headers"></a>공통 매개 변수 및 헤더
 
@@ -45,8 +45,8 @@ ms.locfileid: "57405048"
 
 |요소 이름 | Type | 설명 |
 |---|---|---|
-| 코드 | 문자열 | 발생한 오류의 형식입니다.|
-| Message | 문자열 | 오류 원인에 대한 설명입니다. |
+| 코드 | string | 발생한 오류의 유형입니다.|
+| Message | string | 오류 원인에 대한 설명입니다. |
 
 
 

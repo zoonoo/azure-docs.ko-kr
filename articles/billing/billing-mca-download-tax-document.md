@@ -16,11 +16,11 @@ ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57250758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371549"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 세금 문서를 보고 합니다.
 

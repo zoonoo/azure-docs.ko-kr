@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 38b283ed666b39b4e090bd95051a4454a9b47e62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4b193dd41c137907e56e2bf38b18ebcf2f2b481a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326875"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -33,6 +33,9 @@ ms.locfileid: "57975664"
 |**현재 지원되는 프레임워크**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* 버그 수정
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * 일반 공급 릴리스
@@ -60,8 +63,9 @@ ms.locfileid: "57975664"
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
-| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
+| Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |2019 년 4 월 19 일 |--- |
 | [1.0.0](#1.0.0) |2019년 3월 13일 |--- |
 | [0.11.0-preview](#0.11.0-preview) |2019 년 3 월 5 일 |--- |
 | [0.10.1-preview](#0.10.1-preview) |2019년 1월 22일 |--- |

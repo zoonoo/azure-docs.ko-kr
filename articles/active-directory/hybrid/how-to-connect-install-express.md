@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244566"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>기본 설정을 사용하여 Azure AD Connect 시작
 인증을 위한 단일 포리스트 토폴로지 및 **암호 해시 동기화**가 있는 경우 Azure AD Connect [Express 설정](how-to-connect-password-hash-synchronization.md)을 사용합니다. **Express 설정** 은 기본 옵션이며 가장 일반적으로 배포된 시나리오에 사용됩니다. 몇 번의 클릭만으로 온-프레미스 디렉터리를 클라우드로 확장할 수 있습니다.
@@ -71,7 +71,7 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 
 ## <a name="related-documentation"></a>관련 설명서
 
-| 항목 | 링크 |
+| 항목 | 연결 |
 | --- | --- |
 | Azure AD Connect 개요 | [Azure Active Directory와 온-프레미스 디렉터리 통합](whatis-hybrid-identity.md)
 | 사용자 지정된 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md) |

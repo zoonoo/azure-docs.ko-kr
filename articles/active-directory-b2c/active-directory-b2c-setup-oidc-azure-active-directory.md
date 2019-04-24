@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0da27c5ce872d1b4e1b4c63f6f4207bb5ca4d6ef
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316360"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -32,7 +32,7 @@ Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-dir
 2. Azure AD 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 디렉터리 및 구독 필터를 클릭하고 Azure AD 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **새 애플리케이션 등록**을 선택합니다.
-5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`
+5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`.
 6. **애플리케이션 종류**에서 `Web app / API`를 선택합니다.
 7. **Sign-On URL**의 경우, 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`는 Azure AD B2C 테넌트의 이름으로 바뀝니다. 예 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
@@ -61,7 +61,7 @@ Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-dir
     ```
 
 8. **클라이언트 ID**에 대해 이전에 기록한 애플리케이션 ID를 입력하고 **클라이언트 암호**에 대해 이전에 기록한 키 값을 입력하세요.
-9. 선택적으로 **Domain_hint**의 값을 입력합니다. 예: `ContosoAD` 이 값은 요청에서 *domain_hint*를 사용하여 이 ID 공급자를 참조할 때 사용할 값입니다. 
+9. 선택적으로 **Domain_hint**의 값을 입력합니다. 예: `ContosoAD`. 이 값은 요청에서 *domain_hint*를 사용하여 이 ID 공급자를 참조할 때 사용할 값입니다. 
 10. **확인**을 클릭합니다.
 11. **이 ID 공급자의 클레임을 매핑**하고 다음 클레임을 설정하세요.
     

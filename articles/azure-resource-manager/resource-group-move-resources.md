@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239178"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -63,20 +63,20 @@ ms.locfileid: "59528240"
 * Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
-* Azure DevOps - 타사 확장을 구매한 Azure DevOps 조직은 [구매를 취소](https://go.microsoft.com/fwlink/?linkid=871160)해야 구독 간에 계정을 이동할 수 있습니다.
+* Azure DevOps-단계에 따라 [대금 청구에 사용 되는 Azure 구독을 변경할](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops)합니다.
 * Azure Maps
 * Azure Monitor 로그
 * Azure Relay
 * Azure Stack - 등록
-* Batch
+* 일괄 처리
 * BizTalk Services
-* Bot 서비스
+* Bot Service
 * CDN
 * Cloud Services - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry - 지역 복제를 사용하는 경우 컨테이너 레지스트리를 이동할 수 없습니다.
+* 컨테이너 레지스트리
 * Content Moderator
-* Cost Management
+* 비용 관리
 * Customer Insights
 * Data Catalog
 * Data Factory
@@ -105,7 +105,7 @@ ms.locfileid: "59528240"
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
 * Recovery Services 자격 증명 모음 - [미리 보기](#recovery-services-limitations)에 등록합니다.
 * Azure의 SAP HANA
-* Scheduler
+* 스케줄러
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
 * Service Bus
 * Service Fabric
@@ -135,17 +135,17 @@ ms.locfileid: "59528240"
 * Azure Firewall
 * AKS(Azure Kubernetes Service)
 * Azure Migrate
-* Azure NetApp Files
+* Azure NetApp 파일
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * 클래식 애플리케이션
-* Container Instances
+* 컨테이너 인스턴스
 * 컨테이너 서비스
 * Data Box
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
 * Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
-* Managed Applications
+* 관리 애플리케이션
 * Microsoft Genomics
 * 보안
 * Site Recovery

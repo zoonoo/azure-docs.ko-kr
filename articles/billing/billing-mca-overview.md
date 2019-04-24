@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371458"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 대금 청구 계정 시작
 
@@ -30,7 +30,7 @@ ms.locfileid: "57337416"
 
 Microsoft 고객 계약에 대 한 대금 청구 계정 송장 및 지불 방법을 관리할 수 있도록 하나 이상의 청구 프로필을 포함 합니다. 각 청구 프로필에는 비용 청구 프로필의 청구서를 구성할 수 있는 하나 이상의 송장 섹션이 포함 되어 있습니다.
 
-다음 다이어그램은 대금 청구 계정, 청구 프로필 및 송장 섹션 간의 관계를 보여 줍니다.
+다음 다이어그램은 청구 계정, 청구 프로필 및 청구서 섹션 간의 관계를 보여줍니다.
 
 ![Microsoft 고객 계약에 대 한 청구 계층을 보여 주는 다이어그램](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
@@ -85,7 +85,7 @@ Azure 계획은 청구 프로필을 만들 때 자동으로 사용 됩니다. �
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

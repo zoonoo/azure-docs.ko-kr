@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60365080"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>ExpressRoute 직접 구성 하는 방법
 
@@ -224,7 +224,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
 
 기본적으로 ExpressRoute Direct 리소스가 있는 구독에서 10개의 회로를 만들 수 있습니다. 이 제한은 지원 서비스에서 늘릴 수 있습니다. 사용자는 프로비전된 대역폭과 사용된 대역폭을 둘 다 추적할 책임이 있습니다. 프로비전된 대역폭은 ExpressRoute Direct 리소스에 있는 모든 회로의 대역폭 합계이고, 사용된 대역폭은 기본 물리적 인터페이스의 물리적 사용량입니다.
 
-위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 이러한 항목은 다음과 같습니다. 40Gbps 및 100Gbps.
+위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 다음과 같습니다. 40Gbps 및 100Gbps.
 
 표준 또는 프리미엄 회로를 만들 수 있습니다. 표준 회로는 비용에 포함되지만, 프리미엄 회로는 선택한 대역폭을 기준으로 비용이 부과됩니다. ExpressRoute Direct에서는 무제한이 지원되지 않으므로 데이터 통신 연결로만 회로를 만들 수 있습니다.
 

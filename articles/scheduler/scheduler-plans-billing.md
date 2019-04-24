@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344311"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Azure Scheduler의 플랜 및 청구 방식
 
@@ -82,6 +82,6 @@ P20 프리미엄 작업 컬렉션은 P10 프리미엄 작업 컬렉션과 같은
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Scheduler 정의](scheduler-intro.md)
+* [Azure Scheduler란?](scheduler-intro.md)
 * [Azure Scheduler 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 * [Azure Scheduler 제한, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)

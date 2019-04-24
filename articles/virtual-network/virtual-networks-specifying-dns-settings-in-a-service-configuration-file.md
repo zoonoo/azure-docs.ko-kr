@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
 ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232751"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>서비스 구성 파일에서 DNS 설정 지정
 ## <a name="dns-elements"></a>DNS 요소
@@ -38,7 +38,7 @@ ms.locfileid: "51247180"
 > 
 > 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Azure 서비스 구성 스키마(.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
 [Azure Virtual Network 구성 스키마](https://go.microsoft.com/fwlink/?LinkId=248093)

@@ -9,11 +9,11 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346300"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작
 ## <a name="overview"></a>개요 ##
@@ -36,7 +36,7 @@ ms.locfileid: "59523616"
 | ENABLE `<Action Group Short name>` | 작업 그룹의 SMS 다시 설정 |
 | STOP | 모든 작업 그룹의 추가 SMS 해제 |
 | START | 모든 작업 그룹의 SMS 다시 설정 |
-| HELP | 이 문서에 대한 링크가 포함된 응답이 사용자에게 전송됩니다. |
+| 도움말 | 이 문서에 대한 링크가 포함된 응답이 사용자에게 전송됩니다. |
 
 >[!NOTE]
 >사용자가 SMS 경고를 구독 취소했지만 새 작업 그룹에 추가된 경우 새 작업 그룹에 대한 SMS 경고를 받게 되지만 이전의 모든 작업 그룹에서 구독 취소 상태로 남아 있습니다.

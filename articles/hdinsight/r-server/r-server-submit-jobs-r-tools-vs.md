@@ -1,7 +1,6 @@
 ---
 title: Visual Studio용 R 도구에서 작업 제출 - Azure HDInsight
 description: 로컬 Visual Studio 컴퓨터에서 HDInsight 클러스터로 R 작업을 제출합니다.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 3165adf09281f4ad35b77c2e0fbb89e40c04c631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120961"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364505"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -120,7 +119,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
     1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **저장소 계정**을 선택합니다.
 
-        ![스토리지 계정](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
+        ![저장소 계정](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
     2. 클러스터의 기본 저장소 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
 

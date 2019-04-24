@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370699"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>엔터프라이즈 등록에서 Azure Reservation 사용량 이해
 
@@ -31,7 +31,7 @@ ms.locfileid: "58648302"
 
 다음 섹션에서는 미국 동부 지역에서 Standard_D1_v2 Windows VM을 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
 
-| 필드 | 값 |
+| 필드 | Value |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |수량 |1|
@@ -57,7 +57,7 @@ ms.locfileid: "58648302"
 
 미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
 
-| 필드 | 값 |
+| 필드 | Value |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |수량 |2|
@@ -92,7 +92,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
+- [Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Reservations 관리](billing-manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)

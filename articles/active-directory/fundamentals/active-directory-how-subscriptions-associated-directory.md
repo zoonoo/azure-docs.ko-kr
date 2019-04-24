@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248737"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -76,7 +76,7 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 
 1. 키 자격 증명 모음 테 넌 트 ID를 변경 해야 모든 키 자격 증명 모음에 있는 경우 자세한 내용은 [구독 이동 후 주요 자격 증명 모음 테 넌 트 ID 변경](../../key-vault/key-vault-subscription-move-fix.md)합니다.
 
-2. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](../../azure-stack/azure-stack-registration.md)합니다.
+2. 이 구독을 사용 하 여 Azure Stack에 등록 하는 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)합니다.
 
 
 

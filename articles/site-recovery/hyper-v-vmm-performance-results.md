@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363552"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제에 대한 테스트 결과
 
@@ -145,7 +145,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * VHDX 디스크를 사용하는 모든 VM입니다.
 * 표에 요약된 작업을 실행하는 VM입니다. 모두 VMM 템플릿으로 생성되었습니다.
 
-| 워크로드 | VM 수 | 최소 RAM(GB) | 최대 RAM(GB) | VM당 논리 디스크 크기(GB) | 최대 IOPS |
+| 작업 | VM 수 | 최소 RAM(GB) | 최대 RAM(GB) | VM당 논리 디스크 크기(GB) | 최대 IOPS |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
@@ -159,7 +159,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * Site Recovery는 온-프레미스 간 보호로 구성됨
 * VMM 서버에는 Hyper-V 클러스터 서버 및 해당 VM을 비롯하여 4개의 클라우드로 구성됩니다.
 
-| 기본 VMM 클라우드 | 보호되는 VM | 복제 빈도 | 추가 복구 지점 |
+| 기본 VMM 클라우드 | 보호된 VM | 복제 빈도 | 추가 복구 지점 |
 | --- | --- | --- | --- |
 | PrimaryCloudRpo15m |142 |15분 |없음 |
 | PrimaryCloudRpo30s |47 |30초 |없음 |

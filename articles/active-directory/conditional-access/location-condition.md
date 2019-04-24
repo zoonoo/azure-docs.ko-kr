@@ -13,11 +13,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60354675"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건이란? 
 
@@ -34,7 +34,7 @@ Azure AD는 장치에 앱에서 single sign-on을 사용 하도록 설정 하 �
 
 위치는 명명된 위치 또는 다단계 인증의 신뢰할 수 있는 IP를 나타내는 네트워크 위치에 대한 레이블입니다.
 
-## <a name="named-locations"></a>명명된 위치
+## <a name="named-locations"></a>이름 지정된 위치
 
 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가 및 지역의 논리적 그룹을 만들 수 있습니다.
 
@@ -101,7 +101,7 @@ IPv4 및 IPv6 트래픽에 조건부 액세스 정책이 적용 됩니다. 현�
 
 기본적으로 **모든 위치**를 선택하면 정책이 모든 IP 주소(인터넷의 모든 주소)에 적용됩니다. 이 설정은 명명된 위치로 구성한 IP 주소로 제한되지 않습니다. **모든 위치**를 선택해도 정책에서 특정 위치를 제외할 수 있습니다. 예를 들어, 신뢰할 수 있는 위치를 제외한 모든 위치에 정책을 적용하여, 회사 네트워크를 제외한 모든 위치로 범위를 설정할 수 있습니다.
 
-### <a name="all-trusted-locations"></a>신뢰할 수 있는 모든 위치
+### <a name="all-trusted-locations"></a>모든 신뢰된 위치
 
 이 옵션은 다음에 적용됩니다.
 

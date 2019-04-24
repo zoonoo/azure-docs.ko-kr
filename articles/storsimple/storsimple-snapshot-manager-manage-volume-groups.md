@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303153"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리
 ## <a name="overview"></a>개요
@@ -51,8 +51,8 @@ ms.locfileid: "23109851"
 | 결과 열 | 설명 |
 |:--- |:--- |
 | Name |**이름** 열에는 볼륨 그룹의 이름이 포함됩니다. |
-| 애플리케이션 |**응용 프로그램** 열은 Windows 호스트에 현재 설치되어 실행 중인 VSS 기록기의 수를 표시합니다. |
-| 선택 |**선택** 열은 볼륨 그룹에 포함된 볼륨의 수를 표시합니다. 0이면 볼륨 그룹의 볼륨에 연결된 애플리케이션이 없음을 나타냅니다. |
+| 애플리케이션 |**애플리케이션** 열은 Windows 호스트에 현재 설치되어 실행 중인 VSS 기록기의 수를 표시합니다. |
+| 선택한 상태 |**선택** 열은 볼륨 그룹에 포함된 볼륨의 수를 표시합니다. 0이면 볼륨 그룹의 볼륨에 연결된 애플리케이션이 없음을 나타냅니다. |
 | 가져옴 |**가져옴** 열은 가져온 볼륨의 수를 표시합니다. 이 열이 **True**로 설정되면 볼륨 그룹을 Azure Portal에서 가져왔으며 StorSimple 스냅숏 관리자에서 만들지 않았음을 나타냅니다. |
 
 > [!NOTE]
@@ -75,9 +75,9 @@ ms.locfileid: "23109851"
 3. 다음 정보를 입력합니다.
    
    1. **이름** 상자에 새 볼륨 그룹에 대해 고유한 이름을 입력합니다.
-   2. **응용 프로그램** 상자에서 볼륨 그룹에 추가할 볼륨과 연결된 응용 프로그램을 선택합니다.
+   2. **애플리케이션** 상자에서 볼륨 그룹에 추가할 볼륨과 연결된 애플리케이션을 선택합니다.
       
-       **응용 프로그램** 상자에는 StorSimple 볼륨을 사용하고 VSS 기록기를 사용하도록 설정된 응용 프로그램만 나열됩니다. VSS 기록기는 기록기가 인식하는 모든 볼륨이 StorSimple 볼륨인 경우에만 활성화됩니다. 애플리케이션 상자가 비어 있으면 Azure StorSimple 볼륨을 사용하고 VSS 기록기를 지원하는 애플리케이션이 설치되어 있지 않습니다. (현재 Azure StorSimple은 Microsoft Exchange 및 SQL Server를 지원합니다.) VSS 기록기에 대한 자세한 내용은 [Windows 볼륨 섀도 복사본 서비스와의 통합](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)을 참조하세요.
+       **애플리케이션** 상자에는 StorSimple 볼륨을 사용하고 VSS 기록기를 사용하도록 설정된 애플리케이션만 나열됩니다. VSS 기록기는 기록기가 인식하는 모든 볼륨이 StorSimple 볼륨인 경우에만 활성화됩니다. 애플리케이션 상자가 비어 있으면 Azure StorSimple 볼륨을 사용하고 VSS 기록기를 지원하는 애플리케이션이 설치되어 있지 않습니다. (현재 Azure StorSimple은 Microsoft Exchange 및 SQL Server를 지원합니다.) VSS 기록기에 대한 자세한 내용은 [Windows 볼륨 섀도 복사본 서비스와의 통합](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)을 참조하세요.
       
        애플리케이션을 선택하면 연결된 모든 볼륨이 자동으로 선택됩니다. 반대로, 특정 애플리케이션과 연결된 볼륨을 선택하면 **애플리케이션** 상자에서 해당 애플리케이션이 자동으로 선택됩니다. 
    3. **볼륨** 상자에서 볼륨 그룹에 추가할 StorSimple 볼륨을 선택합니다. 

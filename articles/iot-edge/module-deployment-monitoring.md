@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318209"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
 
@@ -51,7 +51,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 각 모듈의 구성 메타데이터에는 다음 항목이 포함됩니다. 
 
-* 버전 
+* Version 
 * Type 
 * 상태(예: 실행 중 또는 중지됨) 
 * 다시 시작 정책 

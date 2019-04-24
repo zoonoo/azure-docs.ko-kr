@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor의 Azure Active Directory 활동 로그(미리 보기) | Microsoft Docs
-description: Azure Monitor의 Azure Active Directory 활동 로그 소개(미리 보기)
+title: Azure Monitor에서 azure Active Directory 활동 로그 | Microsoft Docs
+description: Azure Monitor에서 소개 Azure Active Directory 활동 로그
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286698"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure Monitor의 Azure AD 활동 로그(미리 보기)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor에서 azure AD 활동 로그
 
-이제 장기 보존 및 데이터 인사이트를 위해 Azure AD(Azure Active Directory) 활동 로그를 여러 엔드포인트에 라우팅할 수 있습니다. Azure Monitor에서 Azure AD 로그인의 공개 미리 보기를 사용하여 다음을 수행할 수 있습니다.
+긴 용어 보존 및 데이터 통찰력에 대 한 여러 끝점에 Azure Active Directory (Azure AD) 활동 로그를 라우팅할 수 있습니다. 이 기능을 사용 하면 수 있습니다.
 
 * 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
 * Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
@@ -72,14 +72,14 @@ Azure AD 라이선스가 이미 있는 경우 저장소 계정 및 이벤트 허
 
 모든 감사 로그 이벤트는 약 2KB의 데이터 저장소를 사용합니다. 사용자가 100,000명이고 하루에 약 150만 개의 이벤트가 발생하는 테넌트의 경우 하루에 약 3GB의 데이터 저장소가 필요합니다. 약 5분 단위로 쓰기가 발생하므로 매달 약 9000개의 쓰기 작업을 예상할 수 있습니다. 
 
-다음 표에는 미국 서부에서 범용 v2 저장소 계정을 1년 이상 보유할 때 발생할 것으로 예상되는 테넌트 크기에 따른 예상 비용이 정리되어 있습니다. 애플리케이션의 예상 데이터 볼륨에 해당하는 정확한 예상 가격을 계산하려면 [Azure 저장소 가격 계산기](https://azure.microsoft.com/pricing/details/storage/blobs/)를 사용하세요. 
+다음 표에는 미국 서부에서 범용 v2 저장소 계정을 1년 이상 보유할 때 발생할 것으로 예상되는 테넌트 크기에 따른 예상 비용이 정리되어 있습니다. 애플리케이션의 예상 데이터 볼륨에 해당하는 정확한 예상 가격을 계산하려면 [Azure 저장소 가격 계산기](https://azure.microsoft.com/pricing/details/storage/blobs/)를 사용하세요. 테이블에는 처리/저장소 비용 및 구독 비용 없습니다만 포함 됩니다. 
 
-| 로그 범주 | 사용자 수 | 일간 이벤트 수 | 월간 데이터 볼륨(예상치) | 월간 비용(예상치) | 연간 비용(예상치) |
-|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| 감사 | 100,000 | 150만&nbsp; | 90GB | $1.93 | $23.12 |
-| 감사 | 1,000 | 15,000 | 900MB | $0.02 | $0.24 |
-| 로그인 | 1,000 | 34,800 | 4GB | $0.13 | $1.56 |
-| 로그인 | 100,000 | 1500만&nbsp; | 1.7TB | $35.41 | $424.92 | 
+
+| 로그 범주       | 사용자 수 | 일간 이벤트 수 | 이벤트 / 월 (30 일) | (동부 표준시) USD에서 월별 비용 |
+| ---                | ---             | ---            | ---                        | ---                          | 
+| 감사 및 로그인 | 100,000         | 16,500,000     | 495,000,000                | $1093                        |
+| 감사              | 100,000         | 1,500,000      | 45,000,000                 | $246.66                      |
+| 로그인           | 100,000         | 15,000,000     | 450,000,000                | $847.28                      |
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>활동 로그에 대한 이벤트 허브 메시지

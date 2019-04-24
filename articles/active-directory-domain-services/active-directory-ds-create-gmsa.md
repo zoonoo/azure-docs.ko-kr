@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: ergreenl
 ms.openlocfilehash: ef21383db52d45d996f2c6c1d6900ebba2349635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359401"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 그룹 관리 서비스 계정(gMSA) 만들기
 이 문서는 Azure AD Domain Services 관리되는 도메인에서 관리 서비스 계정을 만드는 방법을 보여 줍니다.

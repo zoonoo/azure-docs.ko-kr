@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345299"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>RBAC를 사용하여 Azure 리소스에 대한 외부 사용자의 액세스 관리
 

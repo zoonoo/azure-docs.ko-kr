@@ -13,13 +13,13 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326346"
 ---
-# <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 응용 프로그램에서 단일 테넌트 복원
+# <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 애플리케이션에서 단일 테넌트 복원
 
 테넌트별 데이터베이스 모델을 사용하면 다른 테넌트에 영향을 주지 않으면서 단일 테넌트를 이전의 특정 시점으로 간편하게 복원할 수 있습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "53274431"
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip SaaS 앱이 배포되었습니다. 5분 이내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+* Wingtip SaaS 앱이 배포되었습니다. 5분 이내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>SaaS 테넌트 복원 패턴 소개
@@ -50,13 +50,13 @@ ms.locfileid: "53274431"
 
 데이터베이스가 [활성 지역 복제](sql-database-active-geo-replication.md)와 병렬 데이터베이스로 복원을 사용하는 경우 필요한 데이터를 복원된 사본에서 원래 데이터베이스로 복사하는 것이 좋습니다. 원본 데이터베이스를 복원된 데이터베이스로 바꾸는 경우 활성 지역 복제를 다시 구성하고 다시 동기화해야 합니다.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용 프로그램 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-데이터베이스가 생성되면 복원할 수 있는 첫 번째 전체 백업이 되기까지 10~15분 정도 걸립니다. 응용 프로그램을 설치한 지 얼마 지나지 않았다면 이 시나리오를 진행하기 전에 조금 기다려야 할 수도 있습니다.
+데이터베이스가 생성되면 복원할 수 있는 첫 번째 전체 백업이 되기까지 10~15분 정도 걸립니다. 애플리케이션을 설치한 지 얼마 지나지 않았다면 이 시나리오를 진행하기 전에 조금 기다려야 할 수도 있습니다.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>실수로 데이터를 삭제하는 테넌트 시뮬레이션
 
@@ -126,7 +126,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > * 병렬 데이터베이스에 데이터베이스 복원(병렬)
@@ -136,6 +136,6 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Wingtip SaaS 응용 프로그램을 기반으로 작성된 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Wingtip SaaS 애플리케이션을 기반으로 작성된 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)
 * [SQL Database 백업에 대한 자세한 정보](sql-database-automated-backups.md)

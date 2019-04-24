@@ -14,11 +14,11 @@ ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
 ms.openlocfilehash: 0befc5e00cf31960a0ecda3f739e65477c740edd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60374057"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>개발자 분석 도구에 대한 릴리스 정보
 
@@ -256,7 +256,7 @@ NLog, log4net, System.Diagnostics.Tracing을 이미 사용 중인 경우, 모든
 ### <a name="jump-from-an-exception-to-method-in-source-code"></a>예외에서 소스 코드의 메서드로 이동
 이제 Application Insights Search 창의 프로덕션 앱에서 예외가 보이면 예외가 발생하는 코드의 메서드로 바로 이동할 수 있습니다. 올바른 프로젝트를 로드만 하면 Application Insights가 나머지를 알아서 수행합니다. (Application Insights Search 창에 대한 자세한 내용은 다음 섹션의 버전 4.0에 대한 릴리스 정보를 참조하세요.)
 
-작동 원리 솔루션이 열리지 않는 경우에도 Applications Insights 검색을 사용할 수 있습니다. 스택 추적 영역에 정보 메시지를 표시되고 스택 추적의 많은 항목을 사용할 수 없습니다.
+어떻게 작동합니까? 솔루션이 열리지 않는 경우에도 Applications Insights 검색을 사용할 수 있습니다. 스택 추적 영역에 정보 메시지를 표시되고 스택 추적의 많은 항목을 사용할 수 없습니다.
 
 파일 정보를 사용할 수 있는 경우 일부 항목은 연결할 수 있지만 솔루션 정보 항목이 여전히 표시됩니다.
 

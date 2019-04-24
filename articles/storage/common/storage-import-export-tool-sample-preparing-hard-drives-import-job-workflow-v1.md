@@ -9,18 +9,18 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320587"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로
 이 항목에서는 가져오기 작업을 위해 드라이브를 준비하는 전체 과정을 설명합니다.  
   
 이 예제에서는 `mystorageaccount`라는 Window Azure Storage 계정에 다음 데이터를 가져옵니다.  
   
-|위치|설명|  
+|Location|설명|  
 |--------------|-----------------|  
 |H:\Video|비디오 컬렉션, 총 5TB|  
 |H:\Photo|사진 컬렉션, 총 30GB|  
@@ -44,7 +44,7 @@ ms.locfileid: "58311716"
   
 이 예제에서는 두 개의 3TB 하드 드라이브면 충분합니다. 그러나 원본 디렉터리 `H:\Video`에 5TB의 데이터가 있고 단일 하드 드라이브의 용량이 3TB인 경우 Microsoft Azure Import/Export 도구를 실행하기 전에 `H:\Video`를 두 개의 작은 디렉터리인, `H:\Video1` 및 `H:\Video2`로 나누어야 합니다. 이 단계에서는 다음과 같은 원본 디렉터리를 생성합니다.  
   
-|위치|크기|대상 가상 디렉터리 또는 Blob|  
+|Location|크기|대상 가상 디렉터리 또는 Blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2.5TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2.5TB|https:\//mystorageaccount.blob.core.windows.net/video|  

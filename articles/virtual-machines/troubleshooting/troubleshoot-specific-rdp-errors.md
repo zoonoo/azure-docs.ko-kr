@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318700"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Azure에서 Windows VM에 대한 특정 RDP 오류 메시지 문제 해결
 Azure에서 Windows 가상 머신(VM)에 원격 데스크톱 연결을 사용할 때 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 발생할 수 있는 일반적인 일부 오류 메시지와 이 문제를 해결하기 위한 문제 해결 단계에 대해 자세히 설명합니다. RDP를 사용하여 VM에 연결하는 데 문제가 있지만 특정 오류 메시지가 발생하지 않는다면 [원격 데스크톱에 대한 자세한 문제 해결 가이드](troubleshoot-rdp-connection.md)를 참조하세요.
@@ -31,13 +31,13 @@ Azure에서 Windows 가상 머신(VM)에 원격 데스크톱 연결을 사용할
 * [라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다](#rdplicense).
 * [원격 데스크톱에서 컴퓨터 "이름"을 찾을 수 없습니다](#rdpname).
 * [인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](#rdpauth)
-* [Windows 보안 오류: 자격 증명이 작동하지 않습니다](#wincred).
+* [Windows 보안 오류: 자격 증명이 작동하지 않았습니다](#wincred).
 * [이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다](#rdpconnect).
 
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다.
-원인: 원격 데스크톱 서버 역할에 대한 120일 라이선스 유예 기간이 만료되었고 라이선스를 설치해야 합니다.
+원인: 원격 데스크톱 서버 역할에 대 한 일 라이선스 유예 기간이 만료 하 고 라이선스를 설치 해야 합니다.
 
 대안으로 포털에서 RDP 파일의 로컬 복사본을 저장하고 PowerShell 명령 프롬프트에서 이 명령을 실행하여 연결합니다. 이 단계를 따르면 해당 연결에만 라이선스를 사용할 수 없게 됩니다.
 
@@ -50,7 +50,7 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>원격 데스크톱에서 컴퓨터 "name"을 찾을 수 없습니다.
-원인: 컴퓨터의 원격 데스크톱 클라이언트가 RDP 파일의 설정에 있는 컴퓨터의 이름을 확인할 수 없습니다.
+원인: 컴퓨터의 원격 데스크톱 클라이언트가 RDP 파일의 설정에서 컴퓨터의 이름을 확인할 수 없습니다.
 
 가능한 해결 방법:
 
@@ -68,9 +68,9 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.
-원인: 대상 VM이 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
+원인: 대상 VM의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾을 수 없습니다.
 
-사용자 이름이 *SecurityAuthority*\\*UserName*(예: CORP\User1) 형식인 경우 *SecurityAuthority* 부분은 VM의 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
+폼에서 사용자 이름이 표시 되는 경우 *SecurityAuthority*\\*UserName* (예: CORP\User1)는 *SecurityAuthority* 부분은 VM의 컴퓨터 이름 (로컬 보안 기관) 또는 Active Directory 도메인 이름입니다.
 
 가능한 해결 방법:
 
@@ -80,13 +80,13 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows 보안 오류: 자격 증명이 작동하지 않습니다.
-원인: 대상 VM에서 계정 이름 및 암호의 유효성을 확인할 수 없습니다.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows 보안 오류: 자격 증명 작동 하지 않았습니다.
+원인: 대상 VM에 계정 이름과 암호를 확인할 수 없습니다.
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-* 로컬 계정의 경우 *ComputerName*\\*UserName* 구문(예: SQL1\Admin4798)을 사용합니다.
-* 도메인 계정의 경우 *DomainName*\\*UserName* 구문(예: CONTOSO\peterodman)을 사용합니다.
+* 로컬 계정에 대 한 사용 합니다 *ComputerName*\\*UserName* 구문 (예: SQL1\Admin4798).
+* 도메인 계정을 사용 합니다 *DomainName*\\*UserName* 구문 (예: CONTOSO\peterodman)입니다.
 
 VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 경우 사용자가 로그인할 때 사용한 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 그러면 로컬 계정이 삭제됩니다.
 
@@ -99,7 +99,7 @@ VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 �
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다.
-원인: 연결에 사용한 계정에 원격 데스크톱 로그인 권한이 없습니다.
+원인: 연결에 사용 되는 계정에 원격 데스크톱 로그인 권한이 없습니다.
 
 모든 Windows 컴퓨터에는 원격으로 로그인할 수 있는 계정 및 그룹을 포함하는 원격 데스크톱 사용자 로컬 그룹이 있습니다. 로컬 관리자 그룹의 구성원도 액세스 권한을 갖고 있지만 원격 데스크톱 사용자 로컬 그룹에 표시되지 않은 계정도 있습니다. 도메인에 가입된 컴퓨터의 경우 해당 도메인의 도메인 관리자도 로컬 관리자 그룹에 포함됩니다.
 

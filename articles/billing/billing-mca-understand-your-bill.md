@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372182"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Microsoft 고객 계약의 청구서 요금 이해
 
@@ -51,7 +51,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정, 송장 청구 모든 �
     |트랜잭션 유형     |  구매, cancel 및 사용량 요금이 같은 트랜잭션 유형  |
     |제품군     | 가상 컴퓨터에 대 한 계산 또는 Azure SQL database 용 데이터베이스와 같은 제품의 범주|
     |제품 sku     | 제품의 인스턴스를 식별 하는 고유 코드 |
-    |Amount     |  트랜잭션 크기      |
+    |금액     |  트랜잭션 크기      |
     |청구서 섹션     | 프로필의 청구서의이 섹션에는 트랜잭션 표시 |
     |청구 프로필     | 이 청구 프로필의이 청구서에 트랜잭션이 표시 |
 

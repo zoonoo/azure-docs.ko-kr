@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: c9accf09da240f6d3235edd3c9da1876529d8654
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318903"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
@@ -57,7 +57,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 이 문제는 원격 데스크톱 서비스가 VM에서 실행되지 않기 때문에 발생합니다. 원인은 다음 시나리오에 따라 달라질 수 있습니다. 
 
 - TermService 서비스가 **사용 안 함**으로 설정됩니다. 
-- TermService 서비스가 충돌하거나 중단됩니다. 
+- TermService 서비스 충돌 하거나 응답 하지 않습니다. 
 - 잘못 된 구성에는 TermService이 때문에 시작 되지 않음.
 
 ## <a name="solution"></a>해결 방법
@@ -146,7 +146,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
     1. [VM에 데이터 디스크를 연결합니다](../windows/attach-managed-disk-portal.md
 ).
-    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예: `copy C:\temp\ProcMonTrace.PML F:\` 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다.
+    2. 새 드라이브에 파일을 복사할 수 있는 직렬 콘솔을 사용합니다. 예: `copy C:\temp\ProcMonTrace.PML F:\`. 이 명령에서 F는 연결된 데이터 디스크의 드라이브 문자입니다.
     3. 데이터 드라이브를 분리하고 프로세스 모니터 ubstakke가 설치되어 있는 작동 중인 VM에서 연결합니다.
 
 6. 작동 중인 VM에서 프로세스 모니터를 사용하여 **ProcMonTrace.PML**을 엽니다. 그런 다음, 다음 스크린샷에 나온 것처럼  **결과가 액세스 거부됨**으로 필터링합니다.
@@ -222,6 +222,6 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 4. [OS 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md). 그런 다음, 문제가 해결되었는지 확인합니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 해결하세요.

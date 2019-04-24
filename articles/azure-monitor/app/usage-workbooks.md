@@ -14,11 +14,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60373626"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
 
@@ -159,7 +159,7 @@ CPU 성능의 그리드 시각화를 제공하기 위해 통합 문서로 가져
 
   |         |          |
    | ---------------- |:-----|
-   | **Text**    | 사용자가 텍스트 상자를 편집하고 필요에 따라 쿼리를 제공하여 기본 값을 입력할 수 있습니다. |
+   | **텍스트 모드**    | 사용자가 텍스트 상자를 편집하고 필요에 따라 쿼리를 제공하여 기본 값을 입력할 수 있습니다. |
    | **드롭다운** | 사용자는 값 집합 중에서 선택합니다. |
    | **시간 범위 선택기**| 사용자는 미리 정의된 시간 범위 값 집합 중에서 선택하거나 사용자 지정 시간 범위 중에서 선택합니다.|
    | **리소스 선택기** | 사용자는 통합 문서에 대해 선택한 리소스 중에서 선택합니다.|

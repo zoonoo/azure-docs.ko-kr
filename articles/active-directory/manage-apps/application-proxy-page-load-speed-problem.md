@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a4110ceddb55de1990d85597f8c1a9618743f946
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292727"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>애플리케이션 프록시 애플리케이션을 로드하는 데 시간이 너무 오래 걸림
 

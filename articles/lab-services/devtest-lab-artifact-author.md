@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311136"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs 가상 머신에 대한 사용자 지정 아티팩트 만들기
 
@@ -56,12 +56,12 @@ ms.locfileid: "58116829"
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
 | $schema |아닙니다. |JSON 스키마 파일의 위치입니다. JSON 스키마 파일은 정의 파일의 유효성을 검사하는 데 도움이 될 수 있습니다. |
-| title |예 |랩에 표시되는 아티팩트의 이름입니다. |
+| title |예. |랩에 표시되는 아티팩트의 이름입니다. |
 | description |예 |랩에 표시되는 아티팩트에 대한 설명입니다. |
 | iconUri |아닙니다. |랩에 표시되는 아이콘의 URI입니다. |
-| targetOsType |예 |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
-| 매개 변수 |아닙니다. |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
-| runCommand |예 |VM에서 실행되는 아티팩트 설치 명령입니다. |
+| targetOsType |예. |아티팩트가 설치되는 VM의 운영 체제입니다. 지원되는 옵션은 Windows 및 Linux입니다. |
+| parameters |아닙니다. |아티팩트 설치 명령이 컴퓨터에서 실행될 때 제공되는 값으로 아티팩트를 사용자 지정할 수 있습니다. |
+| runCommand |예. |VM에서 실행되는 아티팩트 설치 명령입니다. |
 
 ### <a name="artifact-parameters"></a>아티팩트 매개 변수
 정의 파일의 매개 변수 섹션에서 아티팩트를 설치할 때 사용자가 입력할 수 있는 값을 지정합니다. 아티팩트 설치 명령에서 다음 값을 참조할 수 있습니다.
@@ -78,9 +78,9 @@ ms.locfileid: "58116829"
 
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
-| 형식 |예 |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
-| displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
-| description |예 |랩에 표시되는 매개 변수의 설명입니다. |
+| 형식 |예. |매개 변수 값의 형식입니다. 허용되는 형식에 대해 다음 목록을 참조하세요. |
+| displayName |예. |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. |
+| description |예. |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
 

@@ -17,17 +17,17 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293922"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
 Azure Active Directory 애플리케이션 프록시 및 PingAccess는 Azure Active Directory 고객에게 더 많은 애플리케이션에 대한 액세스를 제공하도록 파트너 관계를 맺고 있습니다. PingAccess는 [기존 애플리케이션 프록시 제품](application-proxy.md)을 확장하여 인증에 헤더를 사용하는 애플리케이션에 대한 Single Sign-On 액세스를 포함하고 있습니다.
 
-## <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess는 무엇입니까?
+## <a name="what-is-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess란?
 
 Azure Active Directory용 PingAccess는 인증에 헤더를 사용하는 애플리케이션에 대한 액세스 및 Single Sign-On을 사용자에게 부여할 수 있도록 하는 PingAccess 제품입니다. 애플리케이션 프록시는 Azure AD를 사용하여 액세스를 인증한 다음 커넥터 서비스를 통해 트래픽을 전달하여 다른 앱과 같이 이러한 앱을 처리합니다. PingAccess는 애플리케이션에서 읽을 수 있는 형식으로 인증을 받도록 앱 앞에 위치하고 Azure AD의 액세스 토큰을 헤더로 변환합니다.
 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 12ed395855b9d870f8f6e3564dc5b3b899b9c6c1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326481"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>일반적인 인증 오류 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "53313873"
 
 ## <a name="unauthorized-error"></a>권한 없음 오류 발생
 
-`401 unauthorized` 오류가 일관되게 발생하면 유효한 액세스 토큰을 사용하는지 확인합니다.  [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)에 설명된 기본 Azure AD(Azure Active Directory) 응용 프로그램 및 서비스 주체를 아직 만들지 않았으면 만듭니다. 그런 다음, 애플리케이션 또는 간단한 HTTP POST 요청을 사용하여 액세스를 확인합니다.  다음 그림에 나와 있는 것처럼 테넌트 ID, 애플리케이션 ID, 개체 ID 및 비밀 키를 포함하여 액세스 토큰을 획득합니다.
+`401 unauthorized` 오류가 일관되게 발생하면 유효한 액세스 토큰을 사용하는지 확인합니다.  [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)에 설명된 기본 Azure AD(Azure Active Directory) 애플리케이션 및 서비스 주체를 아직 만들지 않았으면 만듭니다. 그런 다음, 애플리케이션 또는 간단한 HTTP POST 요청을 사용하여 액세스를 확인합니다.  다음 그림에 나와 있는 것처럼 테넌트 ID, 애플리케이션 ID, 개체 ID 및 비밀 키를 포함하여 액세스 토큰을 획득합니다.
 
 ![401 오류 해결](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 

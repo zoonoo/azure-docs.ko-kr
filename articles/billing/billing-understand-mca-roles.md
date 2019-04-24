@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370970"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure의 Microsoft 고객 계약 관리자 역할 이해
 
@@ -148,7 +148,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>송장 섹션 사용 권한 및 속성 관리
 
-|작업|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|청구 계정 소유자|청구 계정 참가자|청구 계정 판독기 | |
+|태스크|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|청구 계정 소유자|청구 계정 참가자|청구 계정 판독기 | |
 |---|---|---|---|---|---|---|---|---|
 |송장 섹션의 모든 사용 권한 보기|✔|✔|✔|✔|✔|✔|✔| |
 |다른 사용자가 보고 송장 섹션을 관리 하는 권한 부여|✔|✘|✘|✘|✘|✘|✘| |
@@ -157,15 +157,15 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 ### <a name="manage-products-for-invoice-section"></a>송장 섹션에 대 한 제품 관리
 
-|작업|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|청구 계정 소유자|청구 계정 참가자|청구 계정 판독기
+|태스크|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|청구 계정 소유자|청구 계정 참가자|청구 계정 판독기
 |---|---|---|---|---|---|---|---|
 |송장 섹션에서 구매한 모든 제품 보기|✔|✔|✔|✘|✔|✔|✔|
 |취소와 같은 청구서 섹션에 대 한 제품에 대 한 청구를 관리, 자동 갱신을 등 해제|✔|✔|✘|✘|✘|✘|✘|
 |제품에 대 한 변경 송장 섹션|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>송장 섹션에 대 한 구독 관리
+### <a name="manage-subscriptions-for-invoice-section"></a>청구서 섹션에 대한 구독 관리
 
-|작업|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|청구 계정 소유자|청구 계정 참가자|청구 계정 판독기
+|태스크|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|청구 계정 소유자|청구 계정 참가자|청구 계정 판독기
 |---|---|---|---|---|---|---|---|
 |송장 섹션에 대 한 모든 Azure 구독을 보려면|✔|✔|✔|✘|✔|✔|✔|
 |구독에 대 한 변경 송장 섹션|✔|✔|✘|✘|✘|✘|✘|
@@ -175,7 +175,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 
 다음 표에서 구독의 컨텍스트에서 작업을 완료 해야 하는 어떤 역할을 보여 줍니다.
 
-|작업|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|
+|태스크|청구서 섹션 소유자|청구서 섹션 참가자|청구서 섹션 리더|Azure 구독 작성자|
 |---|---|---|---|---|
 |Azure 구독을 만들려면|✔|✔|✘|✔|
 |구독에 대 한 비용 센터를 업데이트 합니다.|✔|✔|✘|✘|
@@ -206,7 +206,7 @@ Microsoft 고객 계약에 대 한 대금 청구 계정을 관리 하려면 다�
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## <a name="next-steps"></a>다음 단계

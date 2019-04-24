@@ -11,11 +11,11 @@ ms.date: 5/06/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bca20bdcf682b040a2fe0b14bf06bc6ca59528b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317448"
 ---
 # <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션에 소비자 등록 및 로그인
 

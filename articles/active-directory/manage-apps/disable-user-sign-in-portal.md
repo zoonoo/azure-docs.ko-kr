@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a168c3415996ff97137c4e312348f74a48e9531b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291452"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화
 사용자가 Azure Active Directory (Azure AD)에서에 로그인 할 수 있도록 엔터프라이즈 응용 프로그램을 사용 하지 않도록 설정 하는 것이 쉽습니다. 엔터프라이즈 앱을 관리 하는 적절 한 권한이 필요 합니다. 및 디렉터리에 대 한 전역 관리자 여야 합니다.

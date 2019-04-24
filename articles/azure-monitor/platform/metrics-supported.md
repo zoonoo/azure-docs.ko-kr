@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255847"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -506,10 +506,10 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|---|
 |JobEndedSuccess|성공한 작업|카운트|합계|성공한 작업의 수입니다.|차원 없음|
 |JobEndedFailure|실패한 작업|카운트|합계|실패한 작업 수입니다.|차원 없음|
-|JobEndedCancelled|취소된 작업|카운트|합계|취소된 작업 수입니다.|차원 없음|
+|JobEndedCanceled|취소 된 작업|카운트|합계|취소 된 작업 수입니다.|차원 없음|
 |JobAUEndedSuccess|성공한 AU 시간|초|합계|성공한 작업에 대한 총 AU 시간입니다.|차원 없음|
 |JobAUEndedFailure|실패한 AU 시간|초|합계|실패한 작업에 대한 총 AU 시간입니다.|차원 없음|
-|JobAUEndedCancelled|취소된 AU 시간|초|합계|취소된 작업에 대한 총 AU 시간입니다.|차원 없음|
+|JobAUEndedCanceled|취소 된 AU 시간|초|합계|취소 된 작업에 대 한 총 AU 시간입니다.|차원 없음|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -876,7 +876,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |RunsCompleted|실행 완료됨|카운트|합계|실행 완료된 워크플로 수|차원 없음|
 |RunsSucceeded|실행 성공함|카운트|합계|실행 성공한 워크플로 수|차원 없음|
 |RunsFailed|실행 실패함|카운트|합계|실행 실패한 워크플로 수|차원 없음|
-|RunsCancelled|실행 취소됨|카운트|합계|실행 취소된 워크플로 수|차원 없음|
+|RunsCanceled|실행 취소 됨|카운트|합계|취소 실행 워크플로의 수입니다.|차원 없음|
 |RunLatency|실행 대기 시간|초|평균|완료된 워크플로 실행 대기 시간 |차원 없음|
 |RunSuccessLatency|실행 성공 대기 시간|초|평균|성공한 워크플로 실행 대기 시간 |차원 없음|
 |RunThrottledEvents|실행 제한 이벤트|카운트|합계|워크플로 작업 또는 트리거 제한 이벤트 수|차원 없음|
@@ -1092,8 +1092,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |registration.get|등록 읽기 작업|카운트|합계|성공한 모든 등록 쿼리의 수입니다.|차원 없음|
 |registration.delete|등록 삭제 작업|카운트|합계|성공한 모든 등록 삭제의 수입니다.|차원 없음|
 |incoming|들어오는 메시지 |카운트|합계|성공한 모든 API 호출 전송의 수입니다. |차원 없음|
-|incoming.scheduled|전송된 예약된 푸시 알림|카운트|합계|취소된 예약된 푸시 알림|차원 없음|
-|incoming.scheduled.cancel|취소된 예약된 푸시 알림|카운트|합계|취소된 예약된 푸시 알림|차원 없음|
+|incoming.scheduled|전송된 예약된 푸시 알림|카운트|합계|예약 된 푸시 알림 취소|차원 없음|
+|incoming.scheduled.cancel|예약 된 푸시 알림 취소|카운트|합계|예약 된 푸시 알림 취소|차원 없음|
 |scheduled.pending|보류 중인 예약된 알림|카운트|합계|보류 중인 예약된 알림|차원 없음|
 |installation.all|설치 관리 작업|카운트|합계|설치 관리 작업|차원 없음|
 |installation.get|설치 작업 가져오기|카운트|합계|설치 작업 가져오기|차원 없음|
@@ -1513,7 +1513,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |Http5xx|Http 서버 오류|카운트|합계|Http 서버 오류|인스턴스|
 |MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|인스턴스|
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|인스턴스|
-|FunctionExecutionUnits|함수 실행 단위|카운트|합계|함수 실행 단위|인스턴스|
+|FunctionExecutionUnits|함수 실행 단위|MB / 시간 (밀리초)|합계|[함수 실행 단위](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|인스턴스|
 |FunctionExecutionCount|함수 실행 횟수|카운트|합계|함수 실행 횟수|인스턴스|
 |PrivateBytes|프로세스 바이트|바이트|평균|프로세스 바이트|인스턴스|
 |IoReadBytesPerSecond|초당 IO 읽기 바이트 수|초당 바이트 수|합계|초당 IO 읽기 바이트 수|인스턴스|

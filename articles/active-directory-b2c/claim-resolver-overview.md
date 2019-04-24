@@ -11,11 +11,11 @@ ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313837"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -43,14 +43,14 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 
 다음 섹션은 사용 가능한 클레임 해결 프로그램을 나열합니다.
 
-### <a name="culture"></a>문화권
+### <a name="culture"></a>Culture
 
 | 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
-| {Culture:LCID}   | 언어 코드의 LCID | 1033 |
+| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | ko-KR |
+| {Culture:LCID}   | 언어 코드의 LCID | 18 |
 | {Culture:RegionName} | 지역에 대한 2자 ISO 코드 | US |
-| {Culture:RFC5646} | RFC5646 언어 코드 | en-US |
+| {Culture:RFC5646} | RFC5646 언어 코드 | ko-KR |
 
 ### <a name="policy"></a>정책
 
@@ -65,14 +65,14 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 
 | 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |`domain_hint` 쿼리 문자열 매개 변수입니다. | facebook.com |
 | {OIDC:LoginHint} |  `login_hint` 쿼리 문자열 매개 변수입니다. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`입니다. | 해당 없음 |
+| {OIDC:MaxAge} | `max_age`입니다. | N/A |
 | {OIDC:Nonce} |`Nonce` 쿼리 문자열 매개 변수입니다. | defaultNonce |
 | {OIDC:Prompt} | `prompt` 쿼리 문자열 매개 변수입니다. | 로그인 |
-| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC:scope} |`scope` 쿼리 문자열 매개 변수입니다. | openid |
 
 ### <a name="context"></a>Context
@@ -95,13 +95,13 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 | {OAUTH-KV:campaignId} | 쿼리 문자열 매개 변수입니다. | hawaii |
 | {OAUTH-KV:app_session} | 쿼리 문자열 매개 변수입니다. | A3C5R |
 | {OAUTH-KV:loyalty_number} | 쿼리 문자열 매개 변수입니다. | 1234 |
-| {OAUTH-KV:any custom query string} | 쿼리 문자열 매개 변수입니다. | 해당 없음 |
+| {OAUTH-KV:any custom query string} | 쿼리 문자열 매개 변수입니다. | N/A |
 
 ### <a name="oauth2"></a>OAuth2
 
 | 클레임 | 설명 | 예 |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | 액세스 토큰 | 해당 없음 |
+| {oauth2:access_token} | 액세스 토큰 | N/A |
 
 ## <a name="how-to-use-claim-resolvers"></a>클레임 해결 프로그램 사용 방법
 

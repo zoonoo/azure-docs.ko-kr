@@ -11,25 +11,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309823"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
 
 > [!IMPORTANT]
-> 2019년 7월 31일부로, StorSimple 5000/7000 시리즈는 지원 종료(EOS) 상태에 도달합니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
+> 2019 년 7 월 9 일에 StorSimple 5000/7000 시리즈는 지원 (EOS) 상태 끝에 도달 합니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
 
 데이터 마이그레이션은 데이터를 한 저장소 위치에서 다른 저장소 위치로 이동하는 프로세스입니다. 여기서는 활성 애플리케이션을 중단하거나 비활성화하지 않고 조직의 현재 데이터를 한 장치에서 다른 장치로 정확히 복사한 다음, 모든 I/O(입/출력) 작업을 새 장치로 리디렉션해야 합니다. 
 
 StorSimple 5000 및 7000 시리즈 저장소 디바이스에 대한 서비스는 2019년 7월에 종료될 예정입니다. 이는 Microsoft에서 2019년 7월 이후에는 StorSimple 5000/7000 시리즈용 하드웨어 및 소프트웨어를 더 이상 지원할 수 없음을 의미합니다. 이러한 디바이스를 사용하는 고객은 자신의 StorSimple 데이터를 Azure의 다른 하이브리드 저장소 솔루션으로 마이그레이션해야 합니다. 이 문서에서는 데이터를 StorSimple 5000/7000 시리즈 디바이스에서 AFS(Azure 파일 동기화)로 마이그레이션하는 방법에 대해 설명합니다.
 
-## <a name="intended-audience"></a>대상 그룹
+## <a name="intended-audience"></a>대상 독자
 
 이 문서는 데이터 센터에 StorSimple 5000/7000 시리즈 디바이스를 배포하고 관리하는 IT(정보 기술) 전문가 및 지식 근로자를 대상으로 합니다. Windows Server를 통해 StorSimple 디바이스를 파일 서버 작업에 사용하는 고객에게는 이 마이그레이션 경로가 특히 매력적일 수 있습니다. Azure 파일 동기화 기능이 조직에 적합하다고 판단되는 경우 이 문서는 StorSimple에서 해당 솔루션으로 전환하는 방법을 이해하는 데 도움이 됩니다.
 
@@ -56,7 +56,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 - StorSimple 볼륨은 호스트에 탑재되고 파일 공유를 포함합니다.
 - 호스트에는 로컬로 캐시된 데이터를 저장할 수 있을 만큼 충분한 로컬 저장소가 있습니다.
 - Azure 파일 동기화를 배포하는 데 사용할 Azure 구독에 소유자 수준 권한으로 액세스합니다. 소유자 또는 관리자 수준의 권한이 없으면 동기화 그룹에 대한 클라우드 엔드포인트를 만들 때 문제가 발생할 수 있습니다.
-- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) 를 참조하세요.
+- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)합니다.
   - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
 
 ## <a name="migration-process"></a>마이그레이션 프로세스

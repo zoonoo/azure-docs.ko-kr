@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0826614c22809eba7a86f683aa970a664ed9825
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288093"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -164,7 +164,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 - ID 보안 보호 개요
 - 사용자
 - 그룹
-- Enterprise 애플리케이션
+- 엔터프라이즈 응용 프로그램
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>ID 보안 보호에서 사용자 로그인 데이터
 
@@ -189,10 +189,10 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 - 애플리케이션 UI
 - 애플리케이션
 - 클라이언트
-- 위치
+- Location
 - IP 주소
 - Date
-- 필요한 MFA
+- MFA 필요
 - 로그인 상태
 
 > [!NOTE]

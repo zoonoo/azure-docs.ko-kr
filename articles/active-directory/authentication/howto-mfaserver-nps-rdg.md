@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bc47f1f3e7022b566181220e203d33564b5b93b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358307"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
 
@@ -68,7 +68,7 @@ RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 R
 8. 인증 공급자를 **이 서버에서 요청 인증**으로 변경합니다. 이 정책은 NPS가 Azure MFA 서버에서 RADIUS 요청을 수신할 때 루프 조건이 될 수 있는 Azure Multi-Factor Authentication 서버에 RADIUS 요청을 전송하는 대신 로컬로 인증이 발생하도록 합니다.
 9. 루프 조건을 방지하려면 새 정책이 **연결 요청 정책** 창의 원래 정책 위에 정렬되어 있는지 확인합니다.
 
-## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 구성
+## <a name="configure-azure-multi-factor-authentication"></a>Azure 다단계 인증을 구성합니다.
 
 Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의 RADIUS 프록시로 구성됩니다.  RD 게이트웨이 서버와 별개의 도메인에 가입된 서버에 설치해야 합니다. 다음 절차에 따라 Azure Multi-Factor Authentication 서버를 구성합니다.
 

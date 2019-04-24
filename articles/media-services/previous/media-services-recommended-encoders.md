@@ -10,11 +10,11 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332655"
 ---
 # <a name="recommended-on-premises-encoders"></a>권장 온-프레미스 인코더
 Azure Media Services를 통해 라이브 스트리밍을 사용하는 경우 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 라이브 인코딩 채널을 사용 하 여 온-프레미스 인코더를 사용 하려는 경우 인코더는 고품질 단일 비트 전송률 스트림을 출력으로 푸시 해야 합니다. 통과 채널을 사용 하 여 온-프레미스 인코더를 사용 하려는 경우 인코더는 다중 비트 전송률 스트림을 원하는 모든 출력 품질이 포함 된 출력으로 푸시 해야 합니다. 자세한 내용은 [인코더를 프레미스에 사용한 라이브 스트리밍](media-services-live-streaming-with-onprem-encoders.md)합니다.

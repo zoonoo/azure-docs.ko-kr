@@ -18,11 +18,11 @@ ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efbf448770bfcf797d6bf01cd3c28dc98023adff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299789"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>방법: 응용 프로그램의 게시자 도메인 (미리 보기)를 구성 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "59793896"
 
 | 테 넌 트 도메인이 | 기본값은 게시자 도메인 |
 |-------------------------|----------------------------|
-| null | null |
+| Null | Null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | - *.onmicrosoft.com<br/>- domain1.com<br/>-domain2.com (기본) | domain2.com |
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358652"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -131,13 +131,13 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 |:--- |:--- |
 | User Portal URL(사용자 포털 URL) | 포털이 호스트되는 URL을 입력합니다. |
 | Primary authentication(기본 인증) | 포털에 로그인할 때 사용할 인증 형식을 지정합니다. Windows, Radius 또는 LDAP 인증 중 하나입니다. |
-| Allow users to log in(로그인 허용) | 사용자 포털의 로그인 페이지에서 사용자 이름 및 암호를 입력할 수 있습니다. 이 옵션을 선택하지 않으면 상자는 회색으로 표시됩니다. |
-| Allow user enrollment(등록 허용) | 사용자가 설치 화면에서 전화 번호와 같은 추가 정보를 입력하여 Multi-Factor Authentication에 등록할 수 있습니다. 백업 휴대폰 프롬프트를 통해 보조 전화 번호를 지정할 수 있습니다. 타사 OATH 토큰 프롬프트를 통해 타사 OATH 토큰을 지정할 수 있습니다. |
-| Allow users to initiate One-Time Bypass(일회성 바이패스 시작 허용) | 일회성 바이패스를 시작할 수 있습니다. 사용자가 이 옵션을 설정하면 다음번에 로그인할 때 적용됩니다. 바이패스(초) 프롬프트의 상자에서 기본값 300초를 변경할 수 있습니다. 변경하지 않으면 일회성 바이패스는 300초가 지나면 만료됩니다. |
-| Allow users to select method(방법 선택 허용) | 사용자가 자신의 기본 연락 방법을 지정할 수 있습니다. 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰 옵션 중 방법을 선택할 수 있습니다. |
-| Allow users to select language(언어 선택 허용) | 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰에 사용되는 언어를 변경할 수 있습니다. |
+| 사용자가 로그인할 수 있도록 허용 | 사용자 포털의 로그인 페이지에서 사용자 이름 및 암호를 입력할 수 있습니다. 이 옵션을 선택하지 않으면 상자는 회색으로 표시됩니다. |
+| 사용자 등록 허용 | 사용자가 설치 화면에서 전화 번호와 같은 추가 정보를 입력하여 Multi-Factor Authentication에 등록할 수 있습니다. 백업 휴대폰 프롬프트를 통해 보조 전화 번호를 지정할 수 있습니다. 타사 OATH 토큰 프롬프트를 통해 타사 OATH 토큰을 지정할 수 있습니다. |
+| 사용자가 일회성 바이패스를 시작할 수 있도록 허용 | 일회성 바이패스를 시작할 수 있습니다. 사용자가 이 옵션을 설정하면 다음번에 로그인할 때 적용됩니다. 바이패스(초) 프롬프트의 상자에서 기본값 300초를 변경할 수 있습니다. 변경하지 않으면 일회성 바이패스는 300초가 지나면 만료됩니다. |
+| 사용자가 방법을 선택할 수 있도록 허용 | 사용자가 자신의 기본 연락 방법을 지정할 수 있습니다. 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰 옵션 중 방법을 선택할 수 있습니다. |
+| 사용자가 언어를 선택할 수 있도록 허용 | 전화 통화, 문자 메시지, 모바일 앱 또는 OATH 토큰에 사용되는 언어를 변경할 수 있습니다. |
 | Allow users to activate mobile app(모바일 앱 활성화 허용) | 서버에서 사용되는 모바일 앱 활성화 프로세스를 완료하기 위한 활성화 코드를 생성할 수 있습니다.  앱을 활성화할 수 있는 디바이스 수를 1부터 10 사이로 설정할 수도 있습니다. |
-| Use security questions for fallback(대체 방법으로 보안 질문 사용) | 2단계 검증에 실패한 경우 보안 질문을 허용합니다. 답변이 맞아야 하는 보안 질문의 수를 지정할 수 있습니다. |
+| 대체 방식으로 보안 질문 사용 | 2단계 검증에 실패한 경우 보안 질문을 허용합니다. 답변이 맞아야 하는 보안 질문의 수를 지정할 수 있습니다. |
 | Allow users to associate third-party OATH token(타사 OATH 토큰 연결 허용) | 타사 OATH 토큰을 지정할 수 있습니다. |
 | Use OATH token for fallback(대체 방법으로 OATH 토큰 사용) | 2단계 검증이 실패한 경우 OATH 토큰을 사용할 수 있도록 합니다. 세션 제한 시간(분)을 지정할 수도 있습니다. |
 | 로깅 사용 | 사용자 포털에서 로깅을 사용합니다. 로그 파일은 C:\Program Files\Multi-Factor Authentication Server\Logs에 있습니다. |

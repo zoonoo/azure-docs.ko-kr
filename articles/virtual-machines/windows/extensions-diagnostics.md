@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 58c520ecbaf764140748167e458c301ab56de375
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232872"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure Diagnostics 확장
 
@@ -37,7 +37,7 @@ Azure Diagnostics 확장은 대상 가상 머신이 인터넷에 연결되어 �
 
 ## <a name="extension-schema"></a>확장 스키마
 
-[Azure 진단 확장 스키마 및 속성 값은 이 문서에 설명되어 있습니다.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[Azure Diagnostics 확장 스키마 및 속성 값은 이 문서에 설명되어 있습니다.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>템플릿 배포
 
@@ -59,9 +59,9 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzVMDiagnosticsExtension` 명령을 사용하여 Azure 진단 확장을 기존 가상 머신에 추가할 수 있습니다. [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure 진단을 사용하도록 설정](ps-extensions-diagnostics.md)을 참조하세요.
+`Set-AzVMDiagnosticsExtension` 명령을 사용하여 Azure Diagnostics 확장을 기존 가상 머신에 추가할 수 있습니다. [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정](ps-extensions-diagnostics.md)을 참조하세요.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ```powershell
@@ -84,12 +84,12 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Azure 진단 확장에 대한 보다 포괄적인 문제 해결 가이드는 [이 문서를 참조](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md)하세요.
+Azure Diagnostics 확장에 대한 보다 포괄적인 문제 해결 가이드는 [이 문서를 참조](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md)하세요.
 
 ### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 진단 확장에 대한 자세한 정보](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Azure Diagnostics 확장에 대해 자세히 알아보기](../../azure-monitor/platform/diagnostics-extension-overview.md)
 * [확장 스키마 및 버전 검토](../../azure-monitor/platform/diagnostics-extension-schema.md)

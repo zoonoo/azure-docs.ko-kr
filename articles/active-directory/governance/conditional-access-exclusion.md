@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351603"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>조건부 액세스 정책에서 제외 된 사용자 관리를 사용 하 여 Azure AD 액세스 검토
 
@@ -36,7 +36,7 @@ IT 관리자 권한으로 [Azure AD 조건부 액세스](../conditional-access/o
 
 또 다른 예로 조건부 액세스에서 [명명된 위치](../conditional-access/location-condition.md)를 사용하여 사용자가 해당 테넌트에 액세스할 수 있도록 하지 않으려는지방 및 지역 집합을 구성할 수 있습니다.
 
-![명명된 위치](./media/conditional-access-exclusion/named-locations.png)
+![이름 지정된 위치](./media/conditional-access-exclusion/named-locations.png)
 
 그러나 경우에 따라 사용자에게는 이러한 차단된 국가에서 로그인할 정당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장이나 개인적인 여행 중일 수도 있습니다. 이 예제에서 이러한 국가를 차단하는 조건부 액세스 정책에는 정책에서 제외된 사용자 전용 클라우드 보안 그룹이 있을 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323814"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
 이 문서는 [CDN 파일 압축](cdn-improve-performance.md)관련 문제를 해결하는 데 도움이 됩니다.
@@ -117,5 +117,5 @@ ms.locfileid: "59790997"
 **Via** HTTP 헤더는 요청이 프록시 서버에 의해 전달되고 있음을 웹 서버에 알립니다.  기본적으로 Microsoft IIS 웹 서버는 요청에 **Via** 헤더가 들어 있으면 응답을 압축하지 않습니다.  이 동작을 재정의하려면 다음 단계를 수행합니다.
 
 * **IIS 6**: [설정 HcNoCompressionForProxies = "FALSE" IIS 메타 베이스 속성](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 이상**: [모두 설정 **noCompressionForHttp10** 하 고 **noCompressionForProxies** 서버 구성에서 False로](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 이상**: [모두 설정 **noCompressionForHttp10** 하 고 **noCompressionForProxies** 서버 구성에서 False로](https://www.iis.net/configreference/system.webserver/httpcompression)
 

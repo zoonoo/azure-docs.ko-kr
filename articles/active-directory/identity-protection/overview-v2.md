@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294290"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>갱신된 Azure Active Directory ID 보호 소개
 
@@ -203,7 +203,7 @@ ID 보호에서는 배포 전반에 걸쳐 관리 활동을 균형 있게 수행
 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
  
-## <a name="licensing"></a>라이선스
+## <a name="licensing"></a>라이선싱
 
 >[!NOTE]
 > 갱신된 ID 보호의 공개 미리 보기 기간 동안에는 Azure AD Premium P2 고객만 위험한 사용자 보고서 및 위험한 로그인 보고서에 액세스할 수 있습니다.
@@ -212,11 +212,11 @@ ID 보호에서는 배포 전반에 걸쳐 관리 활동을 균형 있게 수행
 
 | 기능 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| 사용자 위험 정책 | 예 | 아니오 | 아닙니다. |
-| 로그인 위험 정책 | 예 | 아니오 | 아닙니다. |
+| 사용자 위험 정책 | 예. | 아니오 | 아닙니다. |
+| 로그인 위험 정책 | 예. | 아니오 | 아닙니다. |
 | 위험한 사용자 보고서 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
 | 위험한 로그인 보고서 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
-| MFA 등록 정책 | 예 | 아니오 | 아닙니다. |
+| MFA 등록 정책 | 예. | 아니오 | 아닙니다. |
 
 
 

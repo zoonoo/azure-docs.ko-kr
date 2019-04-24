@@ -1,7 +1,6 @@
 ---
 title: Azure 리소스에 대한 예약 보기 | Microsoft Docs
 description: Azure Portal에서 Azure 예약을 보는 방법을 알아봅니다.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369166"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure portal에서 Azure 예약 확인
 
 구독 유형 및 권한에 따라 여러 가지 방법으로 Azure에 대 한 예약을 볼 수 있습니다.
 
-## <a name="view-reservations-as-owner-or-reader"></a>소유자 또는 읽기 권한자로 예약 보기
+## <a name="view-purchased-reservations"></a>구매한 예약 확인
 
-기본적으로 예약을 구매하면 구매한 사용자와 계정 관리자가 예약을 볼 수 있습니다. 구매한 사용자와 계정 관리자에는 예약에 대한 소유자 역할이 자동으로 할당됩니다. 다른 사용자가 예약을 볼 수 있도록 하려면 예약에 대한 **소유자** 또는 **읽기 권한자**로 추가해야 합니다. 자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요.
- 
+기본적으로 예약을 구매하면 구매한 사용자와 계정 관리자가 예약을 볼 수 있습니다. 와 계정 관리자가 자동으로 예약 주문 및 예약에 소유자 역할을 가져옵니다. 다른 사람이 예약을 볼 수 있도록 추가 해야 하는 **소유자** 하거나 **판독기** 예약 순서 또는 예약 합니다.
+
+자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요.
+
 소유자 또는 읽기 권한자로 예약을 보려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **예약**에서 검색합니다.
-
-    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. 소유자 또는 읽기 권한자 역할을 보유한 예약 목록이 표시됩니다.
+2. **예약**에서 검색합니다.
+    ![Azure portal 검색을 보여 주는 스크린샷](./media/billing-view-reservation/portal-reservation-search.png)  
+3. 목록은 소유자 또는 읽기 권한자 역할이 있는 모든 예약을 보여 줍니다. 각 예약 마지막 알려진된 사용률 백분율을 보여 줍니다.  
+    ![예약의 목록을 보여 주는 예제](./media/billing-view-reservation/view-reservations.png)
+4. 예약을 선택 하 고 지난 5 일 동안의 사용률 추세를 참조 하세요.  
+    ![예제 표시 예약 사용률 추세](./media/billing-view-reservation/reservation-utilization.png)
+5. 가져올 수도 있습니다는 [예약 사용률](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) Reserved Instance 사용량 API를 사용 하 여와 합니다 [Microsoft Azure 소비 Insights Power BI 콘텐츠 팩](/power-bi/service-connect-to-azure-consumption-insights)합니다.
 
 예약 범위를 변경하거나, 예약을 분할하거나, 예약을 관리할 수 있는 사용자를 변경해야 하는 경우에는 [Azure 예약 관리](billing-manage-reserved-vm-instance.md)를 참조하세요.
 
@@ -68,7 +71,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 서비스 계획을 구입 합니다.
 
 - [Cosmos DB 예약 용량 선불](../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
+- [Azure SQL Database 예약 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 
 소프트웨어 플랜을 구입 합니다.

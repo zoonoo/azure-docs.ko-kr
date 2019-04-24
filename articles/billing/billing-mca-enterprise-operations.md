@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/24/2018
 ms.author: banders
 ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371339"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 대금 청구 계정에 기업 계약 작업을 완료 합니다.
 
@@ -146,7 +146,7 @@ Azure portal에서 청구서 섹션에 대 한 Azure 구독을 만들 수 있습
 
 하거나 구독에 대 한 요금을 볼 수 있습니다에 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 또는 Azure 비용 분석 합니다. Azure 비용 분석에 대 한 자세한 내용은 참조 하세요. [탐색 및 분석 비용 분석을 사용 하 여 비용](../cost-management/quick-acm-cost-analysis.md)합니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

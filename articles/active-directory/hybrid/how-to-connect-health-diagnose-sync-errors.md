@@ -15,11 +15,11 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349984"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
 
@@ -69,7 +69,7 @@ Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리�
 
 | 상태 | 무엇을 의미하나요? |
 | ------------------ | -----------------|
-| 시작 안함 | 이 진단 프로세스를 방문하지 않았습니다. 진단 결과에 따라 포털에서 바로 동기화 오류를 해결하는 방법이 있습니다. |
+| 시작되지 않음 | 이 진단 프로세스를 방문하지 않았습니다. 진단 결과에 따라 포털에서 바로 동기화 오류를 해결하는 방법이 있습니다. |
 | 수동 수정 필요 | 이 오류는 포털에서 사용할 수 있는 수정 기준에 맞지 않습니다. 충돌하는 개체 형식이 사용자가 아니거나, 이미 진단 단계를 진행했지만 포털에서 사용할 수 있는 해결 방법이 없습니다. 후자에 속하는 경우 온-프레미스 쪽에서의 수정은 여전히 솔루션 중 하나입니다. [온-프레미스 수정에 대해 자세히 알아보세요](https://support.microsoft.com/help/2647098). | 
 | 동기화 보류 중 | 수정이 적용되었습니다. 그 다음 동기화 주기에서 오류가 수정될 때까지 포털이 대기 중입니다. |
 

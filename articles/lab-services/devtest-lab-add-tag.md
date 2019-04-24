@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311371"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "51247044"
 * NIC
 * IP 주소
 * 부하 분산 장치
-* Storage 계정
+* 저장소 계정
 * 관리 디스크
 
 [랩 만들기](devtest-lab-create-lab.md)를 수행할 때 태그를 적용한 다음 나중에 태그 블레이드의 구성 및 설정을 통해 태그를 관리할 수 있습니다.
@@ -42,8 +42,8 @@ ms.locfileid: "51247044"
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 대시보드의 **모든 리소스** 아래에 랩이 이미 표시되어 있을 수 있습니다.
-1. 랩 목록에서 태그를 추가하거나 관리하려는 랩을 선택합니다.  
-1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.  
+1. 랩 목록에서 태그를 추가하거나 관리하려는 랩을 선택합니다.
+1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.
 
     ![구성 및 정책 단추](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ ms.locfileid: "51247044"
 
 다음 제한 사항이 태그에 적용됩니다.
 
-* 각 리소스 또는 리소스 그룹에는 최대 15개의 태그 이름/값 쌍이 포함될 수 있습니다. 이 제한은 리소스 그룹 또는 리소스에 직접 적용되는 태그에만 적용됩니다. 리소스 그룹은 각각 15개의 태그 이름/값 쌍이 있는 여러 리소스를 포함할 수 있습니다. 
+* 각 리소스 또는 리소스 그룹에는 최대 15개의 태그 이름/값 쌍이 포함될 수 있습니다. 이 제한은 리소스 그룹 또는 리소스에 직접 적용되는 태그에만 적용됩니다. 리소스 그룹은 각각 15개의 태그 이름/값 쌍이 있는 여러 리소스를 포함할 수 있습니다.
 * 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다. 저장소 계정에서 태그 이름은 128자로 제한되며 태그 값은 256자로 제한됩니다.
 * 태그는 해당 리소스 그룹의 리소스에 의해 상속되지 않은 리소스 그룹에 적용됩니다.
 
@@ -66,4 +66,4 @@ PowerShell 또는 Azure CLI를 사용하여 태그를 관리하는 방법을 비
 
 ## <a name="next-steps"></a>다음 단계
 * 사용자 지정된 정책을 사용하여 구독 전체에 제한 사항 및 규칙을 적용할 수 있습니다. 정의한 정책을 사용하려면 모든 리소스에 특정 태그 값이 있어야 할 수도 있습니다. 자세한 내용은 [정책 및 일정 설정](devtest-lab-set-lab-policy.md)을 참조하세요.
-* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/Samples)를 탐색합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색합니다.

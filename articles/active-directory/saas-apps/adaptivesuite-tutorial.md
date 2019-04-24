@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d42c86ec262cd9d3d3db3035d252429e44c1208f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>자습서: Adaptive Insights와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Adaptive Insights와 Azure AD의 통합을 구성하려면 다음 항목이 필�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Adaptive Insights 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -62,19 +62,19 @@ Adaptive Insights가 Azure AD에 통합되도록 구성하려면 갤러리의 Ad
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
-    ![이미지](./media/adaptivesuite-tutorial/selectazuread.png)
+    ![Image](./media/adaptivesuite-tutorial/selectazuread.png)
 
 2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/a_select_app.png)
+    ![Image](./media/adaptivesuite-tutorial/a_select_app.png)
     
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/a_new_app.png)
+    ![Image](./media/adaptivesuite-tutorial/a_new_app.png)
 
 4. 검색 상자에 **Adaptive Insights**를 입력하고 결과 패널에서 **Adaptive Insights**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![이미지](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
+     ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -98,19 +98,19 @@ Adaptive Insights에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. [Azure Portal](https://portal.azure.com/)의 **Adaptive Insights** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
+    ![Image](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
 
 2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
+    ![Image](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
 
 3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
+    ![Image](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
 
 4. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
+    ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
     a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://login.adaptiveinsights.com:443/samlsso/<unique-id>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -121,7 +121,7 @@ Adaptive Insights에서 Azure AD Single Sign-On을 구성하고 테스트하려�
  
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 **인증서(Base64)** 를 컴퓨터에 다운로드하고 저장합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
+    ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
 
 6. **Adaptive Insights 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -133,7 +133,7 @@ Adaptive Insights에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     다. 로그아웃 URL
 
-    ![이미지](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
+    ![Image](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
 
 7. 다른 웹 브라우저 창에서 Adaptive Insights 회사 사이트에 관리자로 로그인합니다.
 
@@ -179,20 +179,20 @@ Adaptive Insights에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/d_users_and_groups.png)
+    ![Image](./media/adaptivesuite-tutorial/d_users_and_groups.png)
 
 2. 화면 위쪽에서 **새 사용자**를 선택합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/d_adduser.png)
+    ![Image](./media/adaptivesuite-tutorial/d_adduser.png)
 
 3. 사용자 속성에서 다음 단계를 수행합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/d_userproperties.png)
+    ![Image](./media/adaptivesuite-tutorial/d_userproperties.png)
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. 에 **사용자 이름** 필드 형식 **brittasimon\@yourcompanydomain.extension**  
-    예를 들어 IPv4 주소를 사용하는 경우 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
@@ -233,19 +233,19 @@ Azure AD 사용자가 Adaptive Insights에 로그인할 수 있도록 하려면 
 
 1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/d_all_applications.png)
+    ![Image](./media/adaptivesuite-tutorial/d_all_applications.png)
 
 2. 애플리케이션 목록에서 **Adaptive Insights**를 선택합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
+    ![Image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
+    ![Image](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
 
 4. **추가** 단추를 선택하고 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![이미지](./media/adaptivesuite-tutorial/d_assign_user.png)
+    ![Image](./media/adaptivesuite-tutorial/d_assign_user.png)
 
 4. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 

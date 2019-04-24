@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303353"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Azure 공간 앵커 지원 옵션
 
@@ -31,8 +31,8 @@ Azure 공간 앵커에 대 한 Azure Portal 내에서 기술 지원 티켓을 �
 
 1. 지원 티켓 필드 완료 한 경우: 
 
-- 문제 유형: 기술
-- 서비스: 공간 앵커
+- 문제 유형: 기술적
+- 서비스: Spatial Anchors
 
 ![Azure 포털 지원 티켓 필드](./media/spatial-anchor-support3.png)
 

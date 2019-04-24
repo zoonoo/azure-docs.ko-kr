@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288374"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM에서 Azure 리소스 역할 설정 구성
 
@@ -75,7 +75,7 @@ Azure 리소스 역할 설정을 구성한 경우에 Azure 리소스 역할 할�
 > [!NOTE] 
 > 리소스 관리자는 지정된 종료 날짜가 있는 모든 할당을 갱신할 수 있습니다. 또한 멤버는 [역할 할당을 확장 또는 갱신](pim-resource-roles-renew-extend.md)하도록 셀프 서비스 요청을 시작할 수 있습니다.
 
-## <a name="require-multi-factor-authentication"></a>Multi-Factor Authentication 필요
+## <a name="require-multi-factor-authentication"></a>다단계 인증 기능 필요
 
 PIM은 서로 다른 두 가지 시나리오에 대해 Azure MFA(Multi-Factor Authentication)의 선택적 적용을 제공합니다.
 
@@ -101,7 +101,7 @@ PIM은 서로 다른 두 가지 시나리오에 대해 Azure MFA(Multi-Factor Au
 
 멤버가 활성 할당에 대해 또는 활성화될 때 근거를 입력하도록 요구할 수 있습니다. 근거를 요구하려면 **활성 할당에 대한 근거 필요** 확인란 또는 **활성화에 대한 근거 필요** 확인란을 선택합니다.
 
-## <a name="require-approval-to-activate"></a>활성화할 승인 필요
+## <a name="require-approval-to-activate"></a>활성화하려면 승인이 필요함
 
 역할을 활성화하기 위해 승인을 요구하려는 경우 다음 단계를 수행합니다.
 

@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353634"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 이 문서에서는 Azure AD(Azure Active Directory) Connect를 사용하여 AD FS(Active Directory Federation Services)를 관리 및 사용자 지정하는 방법을 설명합니다. 또한 AD FS 팜의 완벽한 구성을 위해 수행해야 할 수 있는 다른 일반적인 AD FS 작업을 포함합니다.
@@ -64,7 +64,7 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
 
     **구성 준비** 페이지는 트러스트를 복구하기 위해 수행할 작업 목록을 표시합니다.
 
-    ![구성 준비](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![구성 준비 완료](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. **설치** 를 클릭하여 트러스트를 복구합니다.
 
@@ -98,7 +98,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 2. **Azure AD에 연결** 페이지에서 Azure AD에 대한 전역 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
 
-   ![Azure에 연결](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Azure AD에 연결](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. 도메인 관리자 자격 증명을 제공합니다.
 
@@ -131,7 +131,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 2. Azure 전역 관리자 자격 증명을 제공합니다.
 
-   ![Azure에 연결](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Azure AD에 연결](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. **SSL 인증서 지정** 페이지에서 Azure AD Connect를 사용하여 AD FS 팜을 구성했을 때 제공한 PFX 파일에 대한 암호를 제공합니다.
    ![인증서 암호](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -148,7 +148,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 6. **구성 준비** 페이지에서 마법사는 수행할 작업 목록을 표시합니다.
 
-   ![구성 준비](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![구성 준비 완료](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. **설치** 를 클릭하여 구성을 완료합니다. 구성이 완료되면 마법사에서 서버에 대한 연결을 확인하는 옵션을 제공합니다. **확인** 을 클릭하여 연결을 확인합니다.
 
@@ -164,7 +164,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 
 2. 마법사의 다음 페이지에서 Azure AD 전역 관리자 자격 증명을 제공합니다.
 
-   ![Azure에 연결](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
+   ![Azure AD에 연결](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
 
 3. **원격 액세스 자격 증명** 페이지에서 도메인 관리자 자격 증명을 제공합니다.
 
@@ -178,7 +178,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 
 5. **다음**을 클릭합니다. **구성 준비** 페이지에 Azure AD Connect가 수행할 작업 목록이 표시됩니다. **설치** 를 클릭하여 구성을 완료합니다.
 
-   ![구성 준비](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
+   ![구성 준비 완료](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
 > [!NOTE]
 > 추가 페더레이션된 도메인의 사용자는 Azure AD에 로그인하기 전에 동기화되어야 합니다.

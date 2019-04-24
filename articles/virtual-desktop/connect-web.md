@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328870"
 ---
-# <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용 하 여 연결
+# <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용하여 연결
 
 웹 클라이언트를 사용 하면 시간이 많이 걸리는 설치 프로세스 없이 웹 브라우저에서 Windows 가상 데스크톱 미리 보기 리소스에 액세스할 수 있습니다.
 

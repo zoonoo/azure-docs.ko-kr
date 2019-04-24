@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292795"
 ---
 # <a name="compare-remote-access-solutions"></a>원격 액세스 솔루션 비교
 
@@ -34,20 +34,20 @@ Azure Active Directory 애플리케이션 프록시는 Microsoft에서 제공하
 
 | 기능 | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| 인증서 인증 | 예 | 예 | - | - |
-| 선택적으로 브라우저 앱 게시 | 예 | 예 | 예 | 예 |
-| 사전 인증 및 Single Sign-On | 예 | 예 | 예 | 예 | 
-| 계층 2/3 방화벽 | 예 | 예 | - | - |
-| 전달 프록시 기능 | 예 | - | - | - |
-| VPN 기능 | 예 | 예 | - | - |
-| 다양한 프로토콜 지원 | - | 예 | 예, HTTP를 통해 실행하는 경우 | 예, HTTP 또는 원격 데스크톱 게이트웨이를 통해 실행하는 경우 |
+| 인증서 인증 | 예. | 예. | - | - |
+| 선택적으로 브라우저 앱 게시 | 예. | 예 | 예 | 예 |
+| 사전 인증 및 Single Sign-On | 예. | 예 | 예 | 예. | 
+| 계층 2/3 방화벽 | 예. | 예. | - | - |
+| 전달 프록시 기능 | 예. | - | - | - |
+| VPN 기능 | 예. | 예. | - | - |
+| 다양한 프로토콜 지원 | - | 예. | 예, HTTP를 통해 실행하는 경우 | 예, HTTP 또는 원격 데스크톱 게이트웨이를 통해 실행하는 경우 |
 | ADFS 프록시 서버 역할 수행 | - | 예 | 예 | - |
-| 애플리케이션 액세스에 대한 단일 포털 | - | 예 | - | 예 |
-| 응답 본문 링크 변환 | 예 | 예 | - | 예 | 
-| 헤더를 사용한 인증 | - | 예 | - | 예, PingAccess 사용 | 
+| 애플리케이션 액세스에 대한 단일 포털 | - | 예. | - | 예. |
+| 응답 본문 링크 변환 | 예. | 예 | - | 예 | 
+| 헤더를 사용한 인증 | - | 예. | - | 예, PingAccess 사용 | 
 | 클라우드 규모 보안 | - | - | - | 예 | 
 | 조건부 액세스 | - | 예 | - | 예 |
-| DMZ(완충 영역)에 구성 요소 없음 | - | - | - | 예 |
+| DMZ(완충 영역)에 구성 요소 없음 | - | - | - | 예. |
 | 인바운드 연결 없음 | - | - | - | 예 |
 
 대부분의 시나리오에 대 한 최신 솔루션으로 Azure AD Application Proxy 권장 합니다. 웹 애플리케이션 프록시는 AD FS용 프록시 서버가 필요한 시나리오에서만 사용할 수 있으며, Azure Active Directory에서는 사용자 지정 도메인을 사용할 수 없습니다. 

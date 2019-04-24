@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311303"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 for Customer Engagement 상점 세부 정보 탭
 
@@ -52,7 +52,7 @@ ms.locfileid: "57997943"
 |    **필드**          |  **설명**               |
 |  ---------------      |  ---------------               |
 |  산업           | 앱에 가장 적합한 산업을 선택합니다(최대 2개). 아무 것도 적용되지 않는 경우 선택하지 않은 채 비워 둘 수 있습니다.  |
-|  범주           | 앱과 관련된 범주를 선택합니다. 1~3개의 옵션을 선택합니다.  |
+|  Categories           | 앱과 관련된 범주를 선택합니다. 1~3개의 옵션을 선택합니다.  |
 |  앱 유형             | AppSource에서 사용할 앱에 대한 평가판의 유형을 선택합니다. **체험**은 애플리케이션을 추가 비용 없이 사용할 수 있음을 나타내고, **평가판**은 고객이 짧은 기간 동안 추가 비용 없이 앱을 사용해 볼 수 있음을 나타내며, **나에게 연락**은 고객이 AppSource에서 앱 평가판을 요청할 수 있음을 나타냅니다.  |
 | 앱 도움말 링크 | 앱에 대한 온라인 설명서 또는 다른 도움말 리소스의 URL입니다.  |
 | 지원되는 국가/지역 | 팝업 대화 상자를 통해 앱이 제공되는 지리적 지역을 선택할 수 있습니다.  기본값은 전 세계 배포입니다. |

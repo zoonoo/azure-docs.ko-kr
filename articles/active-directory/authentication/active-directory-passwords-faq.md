@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359061"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 
@@ -41,12 +41,12 @@ ms.locfileid: "57878196"
   >
 * **Q:  그룹에 대해 암호 재설정을 사용하도록 설정한 후 모든 사용자에게 이를 사용하도록 설정하려는 경우, 사용자가 다시 등록해야 하나요?**
 
-  > **A:**  아니요. 인증 데이터를 채운 사용자는 다시 등록할 필요가 없습니다.
+  > **A:** 아니요. 인증 데이터를 채운 사용자는 다시 등록할 필요가 없습니다.
   >
   >
 * **Q:  내 사용자 대신 암호 재설정 데이터를 정의할 수 있나요?**
 
-  > **A:** 예. Azure AD Connect, PowerShell, [Azure Portal](https://portal.azure.com) 또는 Office 365 관리 센터에서 암호 재설정 데이터를 정의할 수 있습니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
+  > **A:** Azure AD Connect, PowerShell 사용 하 여이 수행할 수는 예는 [Azure portal](https://portal.azure.com), 또는 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요.
   >
   >
 * **Q:  온-프레미스에서 본인 확인 질문 데이터를 동기화할 수 있나요?**
@@ -61,7 +61,7 @@ ms.locfileid: "57878196"
   >
 * **Q:  내 사용자를 등록해야 암호 재설정을 사용할 수 있나요?**
 
-  > **A:**  아니요. 관리자가 사용자를 대신하여 충분한 인증 정보를 정의한 경우 사용자가 등록하지 않아도 됩니다. 디렉터리의 적절한 필드에 데이터를 올바른 형식으로 저장했다면 암호 재설정이 올바르게 작동합니다.
+  > **A:** 아니요. 관리자가 사용자를 대신하여 충분한 인증 정보를 정의한 경우 사용자가 등록하지 않아도 됩니다. 디렉터리의 적절한 필드에 데이터를 올바른 형식으로 저장했다면 암호 재설정이 올바르게 작동합니다.
   >
   >
 * **Q:  내 사용자 대신 인증 전화, 인증 메일 인증 또는 대체 인증 전화 필드를 동기화하거나 설정할 수 있나요?**
@@ -159,7 +159,7 @@ ms.locfileid: "57878196"
   >
 * **Q:  사용자는 동일한 본인 확인 질문을 두 번 이상 등록할 수 있나요?**
 
-  > **A:**  아니요. 한 번 등록한 질문은 또다시 등록할 수 없습니다.
+  > **A:** 아니요. 한 번 등록한 질문은 또다시 등록할 수 없습니다.
   >
   >
 * **Q:  등록 및 재설정을 위한 보안 질문의 최소 제한을 설정할 수 있나요?**
@@ -239,7 +239,7 @@ ms.locfileid: "57878196"
   >
   >
 
-## <a name="password-writeback"></a>비밀번호 쓰기 저장
+## <a name="password-writeback"></a>암호 쓰기 저장(writeback)
 
 * **Q:  비밀번호 쓰기 저장은 배후에서 어떻게 작동하나요?**
 

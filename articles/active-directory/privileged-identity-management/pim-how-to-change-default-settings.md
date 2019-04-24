@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288717"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>PIM에서 Azure AD 역할 설정 구성
 
@@ -37,7 +37,7 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
 
     ![Azure AD 역할-설정](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-1. **역할**을 클릭합니다.
+1. **역할**을 누릅니다.
 
 1. 설정을 구성하려는 역할을 선택합니다.
 
@@ -49,7 +49,7 @@ Azure AD 역할에 대 한 설정을 열려면 다음이 단계를 수행 합니
 
 **활성화** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간(시간 단위)을 설정합니다. 이 값은 1 ~ 72시간 사이가 될 수 있습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 **알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 정보는 무단 또는 불법 활성화를 탐지하는 데 유용할 수 있습니다.
 

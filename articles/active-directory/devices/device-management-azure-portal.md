@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 516a2d3b0f81bcef1ed636be9d1da9a270cc7069
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297499"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스를 관리하는 방법
 
@@ -77,7 +77,7 @@ Azure Portal을 사용하여 디바이스를 관리하려면 해당 디바이스
 
 - **사용자가 디바이스를 Azure AD에 등록할 수 있습니다.** - 디바이스를 Azure AD에 [등록](overview.md#azure-ad-registered-devices)할 수 있게 하려면 이 설정을 구성해야 합니다. **없음**을 선택하는 경우 디바이스가 Azure AD 조인 또는 하이브리드 Azure AD 조인 디바이스가 아닌 경우 등록할 수 없습니다. Office 365용 Microsoft Intune 또는 MDM(모바일 디바이스 관리)에 등록하려면 먼저 디바이스를 등록해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음**은 사용할 수 없습니다.
 
-- **디바이스에 연결하려면 Multi-factor Auth 필요** - 사용자가 Azure AD에 디바이스를 [조인](overview.md#azure-ad-joined-devices)하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 이 설정은 Windows 10 또는 Windows 7에 대한 하이브리드 조인에는 영향을 주지 않습니다. Windows 10의 Azure AD 조인 및 Windows 10/iOS/Android의 BYO 디바이스 등록에만 이 설정이 적용됩니다. 
+- **디바이스에 연결하려면 Multi-factor Auth 필요** - 사용자가 Azure AD에 디바이스를 [조인](overview.md#azure-ad-joined-devices)하기 위해 또 다른 인증 수단을 제공해야 하는지 여부를 선택할 수 있습니다. 기본값은 **No**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 이 설정은 Windows 10 또는 Windows 7에 대한 하이브리드 조인에는 영향을 주지 않습니다. Windows 10의 Azure AD 조인 및 Windows 10/iOS/Android의 BYO 디바이스 등록에만 이 설정이 적용됩니다. 
 
 - **최대 디바이스 수** - 이 설정을 사용하여 Azure AD에서 사용자가 보유할 수 있는 디바이스의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 디바이스 견적은 현재 Azure AD에 조인되었거나 Azure AD에 등록된 모든 디바이스에 대해 계산됩니다. 기본값은 **20**입니다.
 
@@ -251,7 +251,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 - 작업
 - 날짜 범위
 - 대상
-- 초기자(작업자)
+- 행위자(시작한 사람)
 
 필터 이외의 방법으로도 특정 항목을 검색할 수 있습니다.
 

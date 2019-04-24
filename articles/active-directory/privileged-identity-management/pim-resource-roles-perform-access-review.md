@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60287477"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 액세스 검토 수행
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업에서는 Azure의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 

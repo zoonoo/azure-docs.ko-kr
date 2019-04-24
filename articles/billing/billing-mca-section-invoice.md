@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371617"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>비용을 구성 하려면 청구서에 섹션을 만들려면
 
@@ -38,7 +38,7 @@ ms.locfileid: "57551622"
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. 선택 페이지의 맨 위에서 **추가**합니다.
+4. 페이지 맨 위에서 **추가**를 선택합니다.
 
 5. 송장 섹션의 이름을 입력 합니다.
 
@@ -57,6 +57,6 @@ ms.locfileid: "57551622"
 - [다른 Azure 구독을 만들 수 있는 권한이 제공](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
 - [다른 청구 계정에 사용자의 Azure 구독 청구 소유권 가져오기](billing-mca-request-billing-ownership.md)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

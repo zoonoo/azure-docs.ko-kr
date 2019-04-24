@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345484"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -80,7 +80,7 @@ Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응
 |---------|---------|
 | [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md) | Queue Storage에 사용자 지정 이벤트를 보내는 방법을 설명합니다. |
 
-## <a name="webhooks"></a>웹후크
+## <a name="webhooks"></a>WebHook
 
 이벤트에 응답하는 사용자 지정 가능한 엔드포인트에는 웹후크를 사용합니다.
 

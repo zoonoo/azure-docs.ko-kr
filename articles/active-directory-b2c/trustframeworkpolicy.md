@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 558e9c3a3bfd43f6ceb958bc3be55d58e1eb7f91
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360489"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -40,13 +40,13 @@ ms.locfileid: "55150243"
 
 | 특성 | 필수 | 설명 |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
-| TenantObjectId | 아니요 | Azure AD(Azure Active Directory) B2C 테넌트의 고유한 개체 식별자입니다. |
+| PolicySchemaVersion | 예. | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
+| TenantObjectId | 아닙니다. | Azure AD(Azure Active Directory) B2C 테넌트의 고유한 개체 식별자입니다. |
 | TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
-| PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
+| PolicyId | 예. | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
 | PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
-| DeploymentMode | 아니요 | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
-| UserJourneyRecorderEndpoint | 아니요 | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
+| DeploymentMode | 아닙니다. | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
+| UserJourneyRecorderEndpoint | 아닙니다. | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
 
 
 다음 예제는 **TrustFrameworkPolicy** 요소를 지정하는 방법을 보여 줍니다.
@@ -88,7 +88,7 @@ ms.locfileid: "55150243"
 
 **BasePolicy** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 | 설명 |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 테넌트의 식별자입니다. |
 | PolicyId | 1:1 | 부모 정책의 식별자입니다. |

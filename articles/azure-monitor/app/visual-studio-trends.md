@@ -16,11 +16,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372789"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio에서 추세 분석
 Application Insights 추세 도구는 웹 애플리케이션의 중요한 원격 분석 이벤트가 시간이 지남에 따라 어떻게 변했는지 시각화하여, 문제와 잘못된 부분을 신속하게 식별하는 데 도움을 줍니다. 더 자세한 진단 정보에 연결하면 추세를 통해 앱의 성능을 향상시키고 예외의 원인을 추적하며 사용자 지정 이벤트로부터 새로운 정보를 발견할 수 있습니다.
@@ -77,7 +77,7 @@ Application Insights 추세는 앱의 원격 분석으로부터 시계열 시각
 > 
 > 
 
-## <a name="filter"></a>Filter
+## <a name="filter"></a>필터
 창의 맨 아래에서 필터 컨트롤로 보다 구체적인 추세를 검색합니다. 필터를 적용하려면 해당 이름을 클릭합니다. 원격 분석의 특정 차원에 숨어 있을 수 있는 추세를 검색하기 위해 여러 필터 사이를 신속하게 전환할 수 있습니다. 예외 형식 등 한 차원에서 필터를 적용하는 경우, 흐리게 표시되더라도 다른 차원의 필터를 클릭할 수 있습니다. 필터를 적용하지 않으려면 다시 클릭합니다. 동일한 차원의 여러 필터를 선택하려면 Ctrl 키를 누르고 클릭합니다.
 
 ![추세 필터](./media/visual-studio-trends/TrendsFiltering-750.png)

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332995"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Security Center에서 보안 구성 수정
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center에서는 OS 구성이 권장 보안 구성 규칙과 일치하지 않을 경우 취약성을 해결하도록 권장하며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.
@@ -29,7 +29,7 @@ Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 �
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 "보안 구성 수정"은 Security Center에서 권장 사항으로 표시됩니다. 권장 사항은 **권장 사항** > **Compute 및 앱** 아래 표시됩니다.
 
-이 예제에서는 **Compute 및 앱** 아래의 “보안 구성 수정” 권장 사항을 살펴보겠습니다.
+이 예제에서는 **Compute 및 앱** 아래의 "보안 구성 수정" 권장 사항을 살펴보겠습니다.
 1. Security Center의 왼쪽 창에서 **Compute 및 앱**을 선택합니다.  
    **Compute 및 앱** 창이 열립니다.
 

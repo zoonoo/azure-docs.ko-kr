@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371921"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>다른 사용자의 Azure 구독의 소유권 청구
 
@@ -39,12 +39,12 @@ ms.locfileid: "57890936"
 
    ![비용 관리 + 청구에 대 한 Azure portal 검색을 보여 주는 스크린샷](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. 송장 섹션으로 이동 합니다. 사용자 액세스에 따라 대금 청구 계정 또는 청구 프로필을 선택 해야 합니다. 대금 청구 계정 또는 프로필에서 선택 **섹션에서는 송장** 와 다음 송장 부분을 지정 합니다.
+3. 청구서 섹션으로 이동합니다. 사용자 액세스에 따라 대금 청구 계정 또는 청구 프로필을 선택 해야 합니다. 대금 청구 계정 또는 프로필에서 선택 **섹션에서는 송장** 와 다음 송장 부분을 지정 합니다.
    <!-- Todo - Add a screenshot -->
 
 4. 선택 **요청을 전송할** 왼쪽 아래에서에서.
 
-5. 선택 페이지의 맨 위에서 **추가**합니다.
+5. 페이지 맨 위에서 **추가**를 선택합니다.
 
 6. 청구 소유권을 요청 하는 사용자의 이메일 주소를 입력 합니다. 사용자는 Microsoft Online 서비스 프로그램 대금 청구 계정에 계정 관리자 또는 엔터프라이즈 규약에 대해 계정 소유자 여야 합니다. 자세한 내용은 [Azure portal에서 청구 계정 보기](billing-view-all-accounts.md)합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "57890936"
 
    ![비용 관리 + 청구에 대 한 Azure portal 검색을 보여 주는 스크린샷](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. 송장 섹션으로 이동 합니다. 사용자 액세스에 따라 대금 청구 계정 또는 청구 프로필을 선택 해야 합니다. 대금 청구 계정 또는 프로필에서 선택 **섹션에서는 송장** 와 다음 송장 부분을 지정 합니다.
+3. 청구서 섹션으로 이동합니다. 사용자 액세스에 따라 대금 청구 계정 또는 청구 프로필을 선택 해야 합니다. 대금 청구 계정 또는 프로필에서 선택 **섹션에서는 송장** 와 다음 송장 부분을 지정 합니다.
    <!-- Todo - Add a screenshot -->
 
 4. 선택 **요청을 전송할** 왼쪽 아래에서에서.
@@ -81,7 +81,7 @@ ms.locfileid: "57890936"
    |---------|---------|
    |요청 날짜|이전 요청이 전송 된 경우 날짜|
    |받는 사람|청구 소유권을 전송 요청을 전송 하는 사용자의 전자 메일 주소|
-   |만료 날짜|요청 만료 날짜|
+   |만료일|요청 만료 날짜|
    |상태|전송 요청의 상태|
 
     이전 요청이 다음 상태 중 하나일 수 있습니다.
@@ -89,7 +89,7 @@ ms.locfileid: "57890936"
    |상태|정의|
    |---------|---------|
    |진행 중|사용자는 전송 요청을 수락 하지 않은|
-   |처리 중|사용자는 전송 요청을 승인 합니다. 사용자가 선택한 구독에 대 한 결제를 송장 섹션 전송 되는지|
+   |처리하는 중|사용자는 전송 요청을 승인 합니다. 사용자가 선택한 구독에 대 한 결제를 송장 섹션 전송 되는지|
    |Completed| 사용자가 선택한 청구서 섹션으로 전송 되는 구독에 대 한 청구|
    |오류와 함께 완료|요청이 완료 되지만 사용자가 선택한 일부 구독에 대 한 청구 전송할 수 없습니다.|
    |만료됨|사용자가 시간에 요청을 허용 하지 않은 및 만료|
@@ -159,7 +159,7 @@ SaaS 제품 구독을 사용 하 여 전송 하지 않습니다. 사용자에 �
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 액세스를 확인 합니다.
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

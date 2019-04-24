@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371175"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
@@ -27,7 +27,7 @@ Azure 하이브리드 혜택에는 예약 된 가상 머신 인스턴스에서 �
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 소프트웨어 요금제는 예약 요금에 포함되지 않습니다.
 
-| MeterId | 사용량 파일의 MeterName | VM별 사용 |
+| 요금제 ID | 사용량 파일의 MeterName | VM별 사용 |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reservation-Windows Svr Burst(1 코어) | B 시리즈 |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reservation-Windows Svr Burst(2 코어) | B 시리즈 |
@@ -52,7 +52,7 @@ Azure 하이브리드 혜택에는 예약 된 가상 머신 인스턴스에서 �
 
 ## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>클라우드 서비스 소프트웨어 미터는 예약 비용에 포함되지 않음
 
-| MeterId | 사용량 파일의 MeterName |
+| 요금제 ID | 사용량 파일의 MeterName |
 | ------- | ------------------------|
 |ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU 라이선스|
 |e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU 라이선스|

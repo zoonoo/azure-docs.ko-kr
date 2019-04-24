@@ -19,11 +19,11 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60354363"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 서비스 종속성 이란? 
 
@@ -61,7 +61,7 @@ ms.locfileid: "58522033"
 | Azure Data Lake     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 | Microsoft 클래스 룸 | Exchange                                    | 초기 바인딩 |
 |                     | SharePoint                                  | 초기 바인딩  |
-| Microsoft 팀     | Exchange                                    | 초기 바인딩 |
+| Microsoft Teams     | Exchange                                    | 초기 바인딩 |
 |                     | MS Planner                                  | 런타임에 바인딩  |
 |                     | SharePoint                                  | 초기 바인딩 |
 |                     | 비즈니스 온라인용 Skype                   | 초기 바인딩 |
@@ -70,8 +70,8 @@ ms.locfileid: "58522033"
 | Outlook의 그룹      | Exchange                                    | 초기 바인딩 |
 |                     | SharePoint                                  | 초기 바인딩 |
 | PowerApps           | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
-|                     | Windows Azure Active Directory              | 초기 바인딩 |
-| Project             | Dynamics CRM                                | 초기 바인딩 |
+|                     | Microsoft Azure Active Directory              | 초기 바인딩 |
+| 프로젝트             | Dynamics CRM                                | 초기 바인딩 |
 | 비즈니스용 Skype  | Exchange                                    | 초기 바인딩 |
 | Visual Studio       | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 

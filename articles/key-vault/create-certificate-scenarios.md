@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306022"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
 적용 대상: Azure
@@ -296,7 +296,7 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 |방법|요청 URI|
 |------------|-----------------|
-|패치|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
@@ -417,9 +417,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|요소 이름|필수|Type|버전|설명|
+|요소 이름|필수|Type|Version|설명|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|예|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
+|x5c|예.|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
 
 ### <a name="response"></a>response
 

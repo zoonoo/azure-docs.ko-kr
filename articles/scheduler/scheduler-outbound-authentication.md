@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344351"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Azure Scheduler에 대한 아웃바운드 인증
 
@@ -47,9 +47,9 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 | 요소 | 필수 | 설명 |
 |---------|----------|-------------|
 | **인증**(부모 요소) | SSL 클라이언트 인증서를 사용하기 위한 인증 개체 |
-| **type** | yes | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다. |
-| **pfx** | yes | PFX 파일의 Base64 인코딩 콘텐츠 |
-| **암호** | yes | PFX 파일에 액세스하기 위한 암호 |
+| **type** | 예 | 인증 형식입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다. |
+| **pfx** | 예. | PFX 파일의 Base64 인코딩 콘텐츠 |
+| **암호** | 예. | PFX 파일에 액세스하기 위한 암호 |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>응답 본문 - 클라이언트 인증서 
@@ -59,7 +59,7 @@ Scheduler는 다음과 같은 인증 모델을 지원합니다.
 | 요소 | 설명 | 
 |---------|-------------| 
 | **인증**(부모 요소) | SSL 클라이언트 인증서를 사용하기 위한 인증 개체 |
-| **type** | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다. |
+| **type** | 인증 형식입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`입니다. |
 | **certificateThumbprint** |인증서의 지문 |
 | **certificateSubjectName** |인증서의 고유한 주체 이름 |
 | **certificateExpiration** | 인증서 만료 날짜 |
@@ -167,9 +167,9 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 | 요소 | 필수 | 설명 |
 |---------|----------|-------------|
 | **인증**(부모 요소) | 기본 인증을 사용하기 위한 인증 개체 | 
-| **type** | yes | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
-| **사용자 이름** | yes | 인증하기 위한 사용자 이름 | 
-| **암호** | yes | 인증하기 위한 암호 |
+| **type** | 예 | 인증 형식입니다. 기본 인증의 경우 이 값은 `Basic`입니다. | 
+| **사용자 이름** | 예 | 인증하기 위한 사용자 이름 | 
+| **암호** | 예. | 인증하기 위한 암호 |
 |||| 
 
 ### <a name="response-body---basic"></a>응답 본문 - 기본
@@ -179,7 +179,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 | 요소 | 설명 | 
 |---------|-------------|
 | **인증**(부모 요소) | 기본 인증을 사용하기 위한 인증 개체 |
-| **type** | 인증 유형입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
+| **type** | 인증 형식입니다. 기본 인증의 경우 이 값은 `Basic`입니다. |
 | **사용자 이름** | 인증된 사용자 이름 |
 ||| 
 
@@ -284,12 +284,12 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 | 요소 | 필수 | 설명 |
 |---------|----------|-------------|
-| **인증**(부모 요소) | yes | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
-| **type** | yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
-| **테넌트** | yes | Azure AD 테넌트의 테넌트 식별자입니다. Azure AD 테넌트의 테넌트 식별자를 찾으려면 Azure PowerShell에서 `Get-AzureAccount` 명령을 실행하세요. |
-| **대상** | yes | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. | 
-| **clientId** | yes | Azure AD 애플리케이션의 클라이언트 ID | 
-| **암호** | yes | 토큰을 요청하는 클라이언트의 비밀 | 
+| **인증**(부모 요소) | 예 | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
+| **type** | 예. | 인증 형식입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. |
+| **테넌트** | 예 | Azure AD 테넌트의 테넌트 식별자입니다. Azure AD 테넌트의 테넌트 식별자를 찾으려면 Azure PowerShell에서 `Get-AzureAccount` 명령을 실행하세요. |
+| **대상** | 예. | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. | 
+| **clientId** | 예. | Azure AD 애플리케이션의 클라이언트 ID | 
+| **암호** | 예. | 토큰을 요청하는 클라이언트의 비밀 | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>응답 본문 - Active Directory OAuth
@@ -299,7 +299,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 | 요소 | 설명 |
 |---------|-------------|
 | **인증**(부모 요소) | ActiveDirectoryOAuth 인증을 사용하기 위한 인증 개체 |
-| **type** | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| **type** | 인증 형식입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 | **테넌트** | Azure AD 테넌트의 테넌트 식별자 |
 | **대상** | 이 값은 `https://management.core.windows.net/`으로 설정됩니다. |
 | **clientId** | Azure AD 애플리케이션의 클라이언트 ID |

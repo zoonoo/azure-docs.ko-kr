@@ -11,11 +11,11 @@ ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ef264622be1e66c98f8c7f17cf3e04b3239e8553
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360098"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가
 
@@ -48,7 +48,7 @@ Azure AD에서 사용자 로그인을 허용하려면 Azure AD 테넌트 내에 
 2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD 테넌트가 포함된 디렉터리를 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **새 애플리케이션 등록**을 선택합니다.
-5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`
+5. 애플리케이션의 이름을 입력합니다. 예: `Azure AD B2C App`.
 6. **애플리케이션 종류**에서 `Web app / API`를 선택합니다.
 7. **Sign-On URL**의 경우, 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`는 Azure AD B2C 테넌트의 이름으로 바뀝니다.
 
@@ -56,7 +56,7 @@ Azure AD에서 사용자 로그인을 허용하려면 Azure AD 테넌트 내에 
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
     
-    예: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`
+    예: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
     
     이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
 
@@ -103,10 +103,10 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-    예: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`
+    예: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. **클라이언트 ID**에 이전에 기록한 애플리케이션 ID를 입력하고, **클라이언트 암호**에 이전에 기록한 키 값을 입력합니다.
-9. 선택적으로 **Domain_hint**의 값을 입력합니다. 예: `ContosoAD` 
+9. 선택적으로 **Domain_hint**의 값을 입력합니다. 예: `ContosoAD`. 
 10. **확인**을 클릭합니다.
 11. **이 ID 공급자의 클레임을 매핑**하고 다음 클레임을 설정하세요.
     

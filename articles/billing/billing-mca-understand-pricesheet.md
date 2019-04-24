@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371362"
 ---
 # <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 가격표의 용어 이해
 
@@ -42,13 +42,13 @@ ms.locfileid: "57880758"
 | 서비스 제품군  | Azure 서비스의 형식입니다. 예: 계산, 분석, 보안 |
 | 제품  | 요금이 발생 하는 제품의 이름입니다. 예: 기본 SQL DB 및 표준 SQL DB  |
 | productId  | 해당 미터 되는 제품에 대 한 고유 식별자입니다. |
-| unitOfMeasure  | 서비스에 대 한 청구에 대 한 측정 단위를 식별합니다. 예를 들어, 계산 서비스는 시간당 요금이 청구 됩니다. |
+| 측정 단위  | 서비스에 대 한 청구에 대 한 측정 단위를 식별합니다. 예를 들어, 계산 서비스는 시간당 요금이 청구 됩니다. |
 | meterId  | 측정기에 대 한 고유 식별자입니다. |
-| meterName  | 측정기의 이름입니다. 측정기의 Azure 서비스를 배포할 수 있는 리소스를 나타냅니다. |
-| meterCategory  | 측정기에 대 한 분류 범주 이름입니다. 예를 들어 _Cloud services_하십시오 _네트워킹_등입니다. |
+| 요금제 이름  | 측정기의 이름입니다. 측정기의 Azure 서비스를 배포할 수 있는 리소스를 나타냅니다. |
+| 요금제 범주  | 측정기에 대 한 분류 범주 이름입니다. 예를 들어 _Cloud services_하십시오 _네트워킹_등입니다. |
 | meterType  |  미터 형식의 이름입니다. |
-| meterSubCategory  | 미터 하위 분류 범주의 이름입니다.  |
-| meterRegion  | 서비스에 대 한 미터를 사용할 수 있는 영역의 이름입니다. 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다.    |
+| 요금제 하위 범주  | 미터 하위 분류 범주의 이름입니다.  |
+| 요금제 지역  | 서비스에 대 한 미터를 사용할 수 있는 영역의 이름입니다. 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다.    |
 | tierId  | 해당 하는 경우 가격 책정 계층을 식별 합니다. 이 설정에 대 한 계층화 된 가격 가격은 다를 때 기준에 사용 된 단위 수에 tierMinimumUnits와 함께에서 작동 합니다.    |
 | tierMinimumUnits  | 가격은 정의 된 계층 범위 하한값을 정의 합니다. 예를 들어 범위는 0-100, tierMinimumUnits 0이 됩니다.  |
 | effectiveStartDate  | 시작 가격에 적용 될 때 날짜입니다. |

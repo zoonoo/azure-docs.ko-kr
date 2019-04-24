@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 3f988e61c152be820e7e490e13908fb4ab54e6c5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314602"
 ---
 # <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Active Directory B2C 테넌트에 네이티브 클라이언트 애플리케이션 추가
 

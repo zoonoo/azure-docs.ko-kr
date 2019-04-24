@@ -1,7 +1,6 @@
 ---
 title: Apache Hive를 ETL 도구로 사용 - Azure HDInsight
 description: Apache Hive를 사용하여 Azure HDInsight에서 데이터를 ETL(추출, 변환 및 로드)합니다.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343372"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
@@ -72,7 +71,7 @@ Hive를 사용하여 다음을 비롯한 다양한 대상으로 데이터를 출
 * 관계형 데이터(예: SQL Server 또는 Azure SQL Database)
 * 데이터 웨어하우스(예: Azure SQL Data Warehouse)
 * Excel
-* Azure 테이블 및 Blob 저장소
+* Azure 테이블 및 Blob Storage
 * 데이터를 특정 형식으로 또는 특정 형식의 정보 구조를 포함하는 파일로 처리해야 하는 애플리케이션 또는 서비스
 * JSON 문서 저장소(예: <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>)
 

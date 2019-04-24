@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366556"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
 
@@ -84,19 +84,19 @@ ms.locfileid: "58103029"
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
 
 공급자 상태: 프로비전 안 됨<BR>
-회로 상태: 사용
+회로 상태: Enabled
 
 ![프로비전 프로세스 시작](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 연결 공급자가 사용자에 대해 활성화를 처리 중이면 회로가 다음 상태로 변경됩니다.
 
 공급자 상태: 프로비전<BR>
-회로 상태: 사용
+회로 상태: Enabled
 
 ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 공급자 상태: 프로비전됨<BR>
-회로 상태: 사용
+회로 상태: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. 회로 키의 상태를 주기적으로 확인
 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
 ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370205"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure 용 Red Hat Enterprise 소프트웨어 예약 계획 할인은 적용 하는 방법 이해
 
@@ -59,7 +59,7 @@ Azure Portal Marketplace 이름:
 - Red Hat Enterprise Linux 7.6
 - Red Hat Enterprise Linux 7 (최신 lvm)
 
-|Red Hat VM | MeterId| 비율| 예제 VM 크기|
+|Red Hat VM | 요금제 ID| 비율| 예제 VM 크기|
 | -------| ------------------------| --- |--- |
 |1-4 vCPU VM 라이선스|077a07bb-20f8-4bc6-b596-ab7211a1e247|1|D4s_v3|
 |1-4 vCPU VM 라이선스|2f96d035-3bac-46d6-b2bc-c6daa0938536|1|D4s_v3|
@@ -83,7 +83,7 @@ Azure Portal Marketplace 이름:
 
 Azure Portal Marketplace 이름:
 
-|Red Hat VM | MeterId | 비율|예제 VM 크기|
+|Red Hat VM | 요금제 ID | 비율|예제 VM 크기|
 | ------- | --- | ------------------------| --- | --- |
 |1-4 vCPU VM 라이선스 |4d902611-eed7-4060-a33e-3c7fdbac6406|1|D4s_v3|
 |5 + vCPU VM 라이선스|6dfb482b-23ea-487f-810c-e66360f025de|2.333333333|D8s_v3|
@@ -92,7 +92,7 @@ Azure Portal Marketplace 이름:
 
 Azure Portal Marketplace 이름:
 
-|Red Hat VM | MeterId | 비율|예제 VM 크기|
+|Red Hat VM | 요금제 ID | 비율|예제 VM 크기|
 | ------- |------------------------| --- | --- |
 |1-4 vCPU VM 라이선스|e9711132-d9d9-450c-8203-25cfc4bce8de|1|D4s_v3|
 |5 + vCPU VM 라이선스|93954aa4-b55f-4b7b-844d-a119d6bf3c4e|2|D8s_v3|
@@ -106,7 +106,7 @@ Azure Portal Marketplace 이름:
 - SAP 용 Red Hat Enterprise Linux 7.4
 - Red Hat Enterprise Linux 7.5 for SAP
 
-|Red Hat VM | MeterId | 비율|예제 VM 크기|
+|Red Hat VM | 요금제 ID | 비율|예제 VM 크기|
 | ------- |------------------------| --- |--- |
 |1 개의 vCPU VM 라이선스|25889e91-c740-42ac-bc52-6b8f73b98575|1|D2s_v3|
 |2 vCPU VM 라이선스|2a0c92c8-23a7-4dc9-a39c-c4a73a85b5da|1|D2s_v3|
@@ -134,7 +134,7 @@ Azure Portal Marketplace 이름:
 - Red Hat Enterprise Linux 7.2 for SAP HANA
 - Red Hat Enterprise Linux 7.3 for SAP HANA
 
-|Red Hat VM | MeterId | 비율|예제 VM 크기|
+|Red Hat VM | 요금제 ID | 비율|예제 VM 크기|
 | ------- |------------------------| --- |--- |
 |1 개의 vCPU VM 라이선스|be0a59d1-eed7-47ec-becd-453267753793|1|D2s_v3|
 |2 vCPU VM 라이선스|3b97c9f5-f5d5-4fd3-a421-b78fca32a656|1|D2s_v3|

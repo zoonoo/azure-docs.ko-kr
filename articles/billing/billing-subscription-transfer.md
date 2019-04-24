@@ -18,11 +18,11 @@ ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371158"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
@@ -64,7 +64,7 @@ ms.locfileid: "59678822"
    ![첫 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image4.png)
 
    ![두 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/image5.png)
-1. 성공! 구독이 이제 양도됩니다.
+1. 성공 구독이 이제 양도됩니다.
 
 <a id="EA"></a>
 

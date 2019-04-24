@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 44cd18be888b18e8b045114b420ddd48ec909e3e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371046"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361033"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -154,7 +154,7 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 
 사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 주체 등에 연결해야 합니다.
 
-스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 그런 다음 아래 작업을 수행합니다.
+스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 다음을 수행 합니다.
 
 1. 관리 Windows PowerShell 프롬프트를 엽니다.
 1. PowerShell 프롬프트에서 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`를 입력하고 **Enter** 키를 누릅니다.
@@ -202,7 +202,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
    ![트러스트를 설정 하려면 공유 비밀 만들기](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-1. **확인**을 클릭하여 대화 상자를 닫습니다.
+1. **확인** 을 클릭하여 대화 상자를 닫습니다.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>원격 데스크톱 게이트웨이 NPS에서 RADIUS 시간 제한 값 구성
 
@@ -242,7 +242,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
    ![서버 그룹을 지정 하는 인증 설정을 구성 합니다.](./media/howto-mfa-nps-extension-rdg/image15.png)
 
-1. **취소**를 클릭합니다.
+1. 클릭 **취소**합니다.
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>NPS 확장이 설치된 서버에 NPS 구성
 

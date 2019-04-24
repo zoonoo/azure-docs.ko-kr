@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197139"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Azure 리소스에 대한 거부 할당 이해
 
@@ -40,19 +40,19 @@ ms.locfileid: "59006730"
 > [!div class="mx-tableFixed"]
 > | 자산 | 필수 | 형식 | 설명 |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | 예 | 문자열 | 거부 할당의 표시 이름입니다. 이름은 지정된 범위에 대해 고유해야 합니다. |
-> | `Description` | 아닙니다. | 문자열 | 거부 할당의 설명입니다. |
+> | `DenyAssignmentName` | 예. | String | 거부 할당의 표시 이름입니다. 이름은 지정된 범위에 대해 고유해야 합니다. |
+> | `Description` | 아닙니다. | String | 거부 할당의 설명입니다. |
 > | `Permissions.Actions` | Actions 또는 DataActions 하나 이상 | 문자열[] | 거부 할당이 액세스를 차단하는 관리 작업을 지정하는 문자열 배열입니다. |
 > | `Permissions.NotActions` | 아닙니다. | 문자열[] | 거부 할당에서 제외할 관리 작업을 지정하는 문자열 배열입니다. |
 > | `Permissions.DataActions` | Actions 또는 DataActions 하나 이상 | 문자열[] | 거부 할당이 액세스를 차단하는 데이터 작업을 지정하는 문자열 배열입니다. |
 > | `Permissions.NotDataActions` | 아닙니다. | 문자열[] | 거부 할당에서 제외할 데이터 작업을 지정하는 문자열 배열입니다. |
-> | `Scope` | 아닙니다. | 문자열 | 거부 할당이 적용되는 범위를 지정하는 범위입니다. |
-> | `DoNotApplyToChildScopes` | 아닙니다. | BOOLEAN | 거부 할당이 하위 범위에 적용되는지 여부를 지정합니다. 기본값은 False입니다. |
+> | `Scope` | 아닙니다. | String | 거부 할당이 적용되는 범위를 지정하는 범위입니다. |
+> | `DoNotApplyToChildScopes` | 아닙니다. | Boolean | 거부 할당이 하위 범위에 적용되는지 여부를 지정합니다. 기본값은 False입니다. |
 > | `Principals[i].Id` | 예 | 문자열[] | 거부 할당이 적용되는 Azure AD 보안 주체 개체 ID(사용자, 그룹, 서비스 주체 또는 관리 ID)의 배열입니다. 모든 보안 주체를 나타내려면 빈 GUID `00000000-0000-0000-0000-000000000000`으로 설정합니다. |
 > | `Principals[i].Type` | 아닙니다. | 문자열[] | Principals[i].Id로 표시되는 개체 유형의 배열입니다. 모든 보안 주체를 나타내려면 `SystemDefined`로 설정합니다. |
 > | `ExcludePrincipals[i].Id` | 아닙니다. | 문자열[] | 거부 할당이 적용되지 않는 Azure AD 보안 주체 개체 ID(사용자, 그룹, 서비스 주체 또는 관리 ID)의 배열입니다. |
 > | `ExcludePrincipals[i].Type` | 아닙니다. | 문자열[] | ExcludePrincipals[i].Id로 표시되는 개체 유형의 배열입니다. |
-> | `IsSystemProtected` | 아닙니다. | BOOLEAN | 이 거부 할당이 Azure에서 생성되었으며 편집하거나 삭제할 수 없는지 여부를 지정합니다. 현재 모든 거부 할당은 시스템에서 보호됩니다. |
+> | `IsSystemProtected` | 아닙니다. | Boolean | 이 거부 할당이 Azure에서 생성되었으며 편집하거나 삭제할 수 없는지 여부를 지정합니다. 현재 모든 거부 할당은 시스템에서 보호됩니다. |
 
 ## <a name="system-defined-principal"></a>시스템 정의 보안 주체
 

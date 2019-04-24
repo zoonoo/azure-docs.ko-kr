@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60365593"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ ms.locfileid: "58079471"
 
 1. ExpressRoute 페이지에서 **권한 부여**를 클릭한 다음, 권한 부여에 대한 **이름**을 입력하고 **저장**을 클릭합니다.
 
-   ![권한 부여](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![인증](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. 구성이 저장되면 **리소스 ID** 및 **권한 부여 키**를 복사합니다.
 
    ![인증 키](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)

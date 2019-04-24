@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322857"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 for Customer Engagement 애플리케이션 시험 사용 탭
 
@@ -47,7 +47,7 @@ Dynamic 365 애플리케이션에 대한 시험 사용 환경은 자동으로 Mi
 |    ---------                  |  ---------------                |
 |      설명              |   시험 사용에서 수행할 수 있는 작업을 설명합니다. 기본 HTML 태그를 사용하여 이 설명의 서식을 지정할 수 있습니다. 예: &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; 및 제목  |
 |  사용자 설명서                  |   고객이 시험 사용 환경을 진행하는 데 사용할 수 있는 사용자 설명서를 업로드합니다. 이 문서는 .pdf 파일이어야 합니다.              |
-|  시험 사용 데모 비디오(선택 사항) |  시험 사용에 대한 연습 비디오를 제공할 수 있습니다. 고객은 시험 사용을 진행하기 전에 이 비디오를 시청할 수 있습니다. YouTube 또는 Vimeo에 비디오 URL을 제공합니다. **+비디오 추가**를 선택하면 다음 정보를 제공하라는 메시지가 표시됩니다.<ul><li>이름</li><li>URL</li><li>썸네일(PNG 형식, 533x324픽셀)</li></ul>  |
+|  시험 사용 데모 비디오(선택 사항) |  시험 사용에 대한 연습 비디오를 제공할 수 있습니다. 고객은 시험 사용을 진행하기 전에 이 비디오를 시청할 수 있습니다. YouTube 또는 Vimeo에 비디오 URL을 제공합니다. **+비디오 추가**를 선택하면 다음 정보를 제공하라는 메시지가 표시됩니다.<ul><li>Name</li><li>URL</li><li>썸네일(PNG 형식, 533x324픽셀)</li></ul>  |
 |   |   |
 
 

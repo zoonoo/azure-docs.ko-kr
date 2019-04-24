@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
 ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331794"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 
@@ -89,10 +89,10 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
 2. 게시물 만들기
    - [SSMS(SQL Server Management Studio) 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   - [TRANSACT-SQL 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+   - [Transact-SQL 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
 3. 구독 만들기
    - [SSMS(SQL Server Management Studio) 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   - [TRANSACT-SQL 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+   - [Transact-SQL 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
 SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
 

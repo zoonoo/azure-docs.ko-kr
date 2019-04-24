@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318415"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -105,37 +105,37 @@ Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 
 |수집되는 데이터                              |  |  | 성능 시나리오 |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | 빠른 성능 분석 | 벤치마킹 | 성능 분석 | Azure Files 분석 | 고급 성능 분석 |
-| 이벤트 로그의 정보       | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 시스템 정보                | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 볼륨 매핑                        | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 디스크 매핑                          | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 실행 중인 작업                     | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 저장소 안정성 카운터      | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 저장소 정보               | yes                        | 예                                | 예                      | 예                  | yes                  |
-| Fsutil 출력                     | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 필터 드라이버 정보                | yes                        | 예                                | 예                      | 예                  | yes                  |
-| Netstat 출력                    | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 네트워크 구성             | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 방화벽 구성            | yes                        | 예                                | 예                      | 예                  | yes                  |
-| SQL Server 구성          | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 성능 진단 추적 *  | yes                        | 예                                | 예                      | 예                  | yes                  |
-| 성능 카운터 추적 **      |                            |                                    | yes                      |                      | yes                  |
-| SMB 카운터 추적 **              |                            |                                    |                          | yes                  |                      |
-| SQL Server 카운터 추적 **       |                            |                                    | yes                      |                      | yes                  |
-| XPerf 추적                       |                            |                                    |                          |                      | yes                  |
-| StorPort 추적                    |                            |                                    |                          |                      | yes                  |
-| 네트워크 추적                     |                            |                                    |                          | yes                  | yes                  |
-| Diskspd 벤치마크 추적 ***       |                            | yes                                |                          |                      |                      |
+| 이벤트 로그의 정보       | 예.                        | 예                                | 예                      | 예                  | 예                  |
+| 시스템 정보                | 예.                        | 예                                | 예                      | 예                  | 예.                  |
+| 볼륨 매핑                        | 예.                        | 예                                | 예                      | 예                  | 예.                  |
+| 디스크 매핑                          | 예.                        | 예                                | 예                      | 예                  | 예.                  |
+| 실행 중인 태스크                     | 예.                        | 예                                | 예                      | 예                  | 예                  |
+| 저장소 안정성 카운터      | 예.                        | 예                                | 예                      | 예                  | 예.                  |
+| 저장소 정보               | 예.                        | 예                                | 예                      | 예                  | 예                  |
+| Fsutil 출력                     | 예                        | 예                                | 예                      | 예                  | 예.                  |
+| 필터 드라이버 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
+| Netstat 출력                    | 예.                        | 예                                | 예                      | 예                  | 예                  |
+| 네트워크 구성             | 예                        | 예                                | 예                      | 예                  | 예                  |
+| 방화벽 구성            | 예.                        | 예                                | 예                      | 예                  | 예.                  |
+| SQL Server 구성          | 예.                        | 예                                | 예                      | 예                  | 예.                  |
+| 성능 진단 추적 *  | 예.                        | 예                                | 예                      | 예                  | 예.                  |
+| 성능 카운터 추적 **      |                            |                                    | 예.                      |                      | 예                  |
+| SMB 카운터 추적 **              |                            |                                    |                          | 예                  |                      |
+| SQL Server 카운터 추적 **       |                            |                                    | 예                      |                      | 예.                  |
+| XPerf 추적                       |                            |                                    |                          |                      | 예.                  |
+| StorPort 추적                    |                            |                                    |                          |                      | 예                  |
+| 네트워크 추적                     |                            |                                    |                          | 예                  | 예                  |
+| Diskspd 벤치마크 추적 ***       |                            | 예.                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>성능 진단 추적 (*)
 
 백그라운드에서 규칙 기반 엔진을 실행하여 데이터를 수집하고 지속적인 성능 문제를 진단합니다. 현재 지원되는 규칙은 다음과 같습니다.
 
-- HighCpuUsage 규칙: 높은 CPU 사용량 기간을 검색하고 해당 기간 동안의 최고 CPU 사용량 소비자를 표시합니다.
-- HighDiskUsage 규칙: 실제 디스크에 대한 높은 디스크 사용량 기간을 검색하고 해당 기간 동안의 최고 디스크 사용량 소비자를 표시합니다.
-- HighResolutionDiskMetric 규칙: 각 실제 디스크에 대한 50밀리초당 IOPS, 처리량 및 IO 대기 시간 메트릭을 표시합니다. 디스크 제한 기간을 빠르게 식별하는 데 유용합니다.
-- HighMemoryUsage 규칙: 높은 메모리 사용 기간을 검색하고 해당 기간 동안의 최고 메모리 사용량 소비자를 표시합니다.
+- HighCpuUsage 규칙: 높은 CPU 사용량 기간을 검색 하 고 해당 기간 동안의 최고 CPU 사용량 소비자를 표시 합니다.
+- HighDiskUsage 규칙: 물리적 디스크에 높은 디스크 사용량 기간을 검색 하 고 해당 기간 동안의 최고 디스크 사용량 소비자를 표시 합니다.
+- HighResolutionDiskMetric 규칙: 각 물리적 디스크에 대 한 50 밀리초 당 IOPS, 처리량 및 IO 대기 시간 메트릭을 보여 줍니다. 디스크 제한 기간을 빠르게 식별하는 데 유용합니다.
+- HighMemoryUsage 규칙: 높은 메모리 사용량 기간을 검색 하 고 해당 기간 동안의 메모리 최대 사용량 소비자를 표시 합니다.
 
 > [!NOTE] 
 > 현재 .NET Framework 4.5 이상 버전이 포함된 Windows 버전이 지원됩니다.
@@ -167,7 +167,7 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
 
 -  이 도구는 성능 문제가 있는 VM에서 실행해야 합니다. 
 
--  지원되는 운영 체제는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016, Windows 8.1과 Windows 10입니다.
+-  다음 운영 체제가 지원됩니다. Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016; Windows 8.1 및 Windows 10입니다.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>프로덕션 VM에서 도구 실행 시 발생할 수 있는 문제
 
