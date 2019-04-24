@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: b91a53d17d64afb0a56f745505f10e8cabbc22cc
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 922389b7c6c1bb7ad1d9b8f6ec35ccc1c5656723
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390854"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>예약된 리소스 이름 오류 해결
 
@@ -26,7 +26,7 @@ ms.locfileid: "34357064"
 
 ## <a name="symptom"></a>증상
 
-공용 끝점을 통해 사용할 수 있는 리소스를 배포할 때 다음 오류가 표시될 수 있습니다.
+공용 엔드포인트를 통해 사용할 수 있는 리소스를 배포할 때 다음 오류가 표시될 수 있습니다.
 
 ```
 Code=ReservedResourceName;
@@ -35,7 +35,7 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## <a name="cause"></a>원인
 
-공용 끝점이 있는 리소스의 이름에는 예약어 또는 상표를 사용할 수 없습니다.
+공용 엔드포인트가 있는 리소스의 이름에는 예약어 또는 상표를 사용할 수 없습니다.
 
 예약어는 다음과 같습니다.
 

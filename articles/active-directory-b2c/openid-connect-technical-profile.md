@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: e8bfa5a3e60efe860b5e7197d96ebe5ce3a86030
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418284"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OpenId Connect 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 프로토콜 ID 공급자를 지원합니다. OpenID Connect 1.0은 OAuth 2.0을 토대로 ID 계층을 정의하고 최신 인증 프로토콜을 나타냅니다.  OpenId Connect 기술 프로필을 사용하면 Azure AD와 같은 OpenId Connect 기반 ID 공급자와 페더레이션하여 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인하도록 허용할 수 있습니다.
+Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 프로토콜 ID 공급자를 지원합니다. OpenID Connect 1.0은 OAuth 2.0을 토대로 ID 계층을 정의하고 최신 인증 프로토콜을 나타냅니다. OpenId Connect 기술 프로필을 사용 하 여 Azure AD와 같은 OpenId Connect 기반된 id 공급자를 사용 하 여 페더레이션 할 수 있습니다. 페더레이션 id 공급자를 사용 하 여 기존 소셜 로그인 또는 엔터프라이즈 id 사용자를를 수 있습니다.
 
 ## <a name="protocol"></a>프로토콜
 
@@ -52,7 +52,7 @@ Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015
 
 다음 예제는 Microsoft 계정 ID 공급자가 반환한 클레임을 보여 줍니다.
 
-- **socialIdpUserId** 클레임에 매핑된 **sub** 클레임입니다.
+- **sub** 매핑되는 클레임을 **issuerUserId** 클레임입니다.
 - **displayName** 클레임에 매핑된 **name** 클레임입니다.
 - 이름 매핑이 없는 **email**입니다.
 
@@ -65,7 +65,7 @@ Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015
 <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
   <OutputClaim ClaimTypeReferenceId="email" />
 </OutputClaims>
@@ -75,13 +75,13 @@ Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
+| client_id | 예. | ID 공급자의 애플리케이션 식별자입니다. |
 | IdTokenAudience | 아닙니다. | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
-| METADATA | 예 | 잘 알려진 openid 구성 엔드포인트라고도 하는 OpenID Connect Discovery 사양에 따라 서식이 지정된 JSON 구성 문서를 가리키는 URL입니다. |
+| METADATA | 예. | 잘 알려진 openid 구성 엔드포인트라고도 하는 OpenID Connect Discovery 사양에 따라 서식이 지정된 JSON 구성 문서를 가리키는 URL입니다. |
 | ProviderName | 아닙니다. | ID 공급자의 이름입니다. |
 | response_types | 아닙니다. | OpenID Connect Core 1.0 사양에 따른 응답 유형입니다. 가능한 값은 `id_token`, `code` 또는 `token`입니다. |
 | response_mode | 아닙니다. | ID 공급자가 결과를 다시 Azure AD B2C에 보내는 데 사용하는 방법입니다. 가능한 값은 `query`, `form_post`(기본값) 또는 `fragment`입니다. |
-| scope | 아닙니다. | OpenID Connect Core 1.0 사양에 따라 정의된 액세스 요청의 범위입니다. 예를 들어 `openid`, `profile` 및 `email`입니다. |
+| scope | 아닙니다. | OpenID Connect Core 1.0 사양에 따라 정의 된 요청의 범위입니다. 예를 들어 `openid`, `profile` 및 `email`입니다. |
 | HttpBinding | 아닙니다. | 액세스 토큰 및 클레임 토큰 엔드포인트에 필요한 HTTP 바인딩입니다. 가능한 값은 `GET` 또는 `POST`입니다.  |
 | ValidTokenIssuerPrefixes | 아닙니다. | Azure Active Directory와 같은 다중 테넌트 ID 공급자를 사용할 때 각 테넌트에 로그인하는 데 사용할 수 있는 키입니다. |
 | UsePolicyInRedirectUri | 아닙니다. | 리디렉션 URI를 구성할 때 정책을 사용할지 여부를 나타냅니다. ID 공급자에서 애플리케이션을 구성할 때 리디렉션 URI를 지정해야 합니다. 리디렉션 URI는 Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`(login.microsoftonline.com은 your-tenant-name.b2clogin.com으로 변경될 수 있음)를 가리킵니다.  `false`를 지정하는 경우 사용하는 각 정책에 대해 리디렉션 URI를 추가해야 합니다. 예: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp` |
@@ -98,7 +98,7 @@ Azure AD(Azure Active Directory) B2C는 [OpenId Connect](https://openid.net/2015
 
 ## <a name="redirect-uri"></a>리디렉션 URI
  
-ID 공급자의 리디렉션 URI를 구성할 때 `https://login.microsoftonline.com/te/tenant/oauth2/authresp`를 입력합니다. **tenant**를 해당 테넌트의 이름(예: contosob2c.onmicrosoft.com)으로 바꿔야 합니다. 리디렉션 URI는 모두 소문자여야 합니다.
+ID 공급자의 리디렉션 URI를 구성할 때 `https://login.microsoftonline.com/te/tenant/oauth2/authresp`를 입력합니다. 바꿔야 **테 넌 트** 테 넌 트의 이름 (예: contosob2c.onmicrosoft.com) 또는 테 넌 트의 id입니다. 리디렉션 URI는 모두 소문자여야 합니다.
 
 **login.microsoftonline.com** 대신 **b2clogin.com** 도메인을 사용하는 경우 login.microsoftonline.com 대신 b2clogin.com을 사용해야 합니다.
 

@@ -11,17 +11,17 @@ ms.date: 03/18/2019
 ms.author: davidmu
 ms.component: B2C
 ms.openlocfilehash: ac422a00a919903063c96ac096882036b99a63e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384989"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 쿠키 정의
 
 다음 표에서 Azure Active Directory B2C에서 사용 하는 쿠키를 나열 합니다.
 
-| name | 도메인 | 만료 | 목적 |
+| Name | 도메인 | 만료 | 목적 |
 | ----------- | ------ | -------------------------- | --------- |
 | x-ms-cpim-admin | main.b2cadmin.ext.azure.com | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 테 넌 트에서 사용자 구성원 자격 데이터를 보유합니다. 테 넌 트 사용자를 멤버의 수준 (관리자 또는 사용자)의 멤버 자격의 경우 |
 | x-ms-cpim-slice | b2clogin.com login.microsoftonline.com, 브랜드 도메인 | 끝 [브라우저 세션](active-directory-b2c-token-session-sso.md) | 적절 한 프로덕션 인스턴스에 요청을 라우팅하는 데 있습니다. |

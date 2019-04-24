@@ -11,11 +11,11 @@ ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: db43487dd9f0f424456fba0f57593b36de031327
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384768"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
 

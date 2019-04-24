@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
 ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402535"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
 
@@ -55,7 +55,7 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 
     ![연결 구성 창](media/service-map-scom/scom-config-spn.png)
 
-3. **구독 선택** 창에서 Azure 구독, Azure 리소스 그룹(Log Analytics 작업 영역을 포함하는 그룹), Log Analytics 작업 영역을 선택하고 **다음**을 클릭합니다.
+3. **구독 선택** 창에서 Azure 구독, Azure 리소스 그룹(Log Analytics 작업 영역을 포함하는 그룹), Log Analytics 작업 영역을 선택한 후, **다음**을 클릭합니다.
 
     ![Operations Manager 구성 작업 영역](media/service-map-scom/scom-config-workspace.png)
 

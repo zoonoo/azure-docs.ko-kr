@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0462ae68194fa22d99339b2ef369e3bbe3deabb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85a339d2638e2223815a4ae539f37c439a4eac91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387104"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -33,12 +33,12 @@ ms.locfileid: "58077465"
 Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 선택 된 **디렉터리 및 구독 필터** 최상위 메뉴에서 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크 - 미리 보기**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
 6. **옵션**으로는 `Upload`을 선택합니다.
-7. 정책 키의 **이름**을 입력합니다. 예: `SamlCert` `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+7. 정책 키의 **이름**을 입력합니다. 예: `SamlCert`. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 8. 개인 키가 있는 인증서 .pfx 파일을 찾아 선택합니다.
 9. **만들기**를 클릭합니다.
 
@@ -71,7 +71,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
             <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userPrincipalName" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
@@ -110,7 +110,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInADFS`
+5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInADFS`.
 
 ### <a name="display-the-button"></a>단추 표시
 
@@ -128,13 +128,13 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 여기서는 Azure AD B2C가 ADFS 계정과 통신하여 토큰을 수신하는 작업을 연결합니다.
 
 1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
-2. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
+2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
     
-    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 **ID**로 업데이트합니다. 예: `Contoso-SAML2`
+    **TechnicalProfileReferenceId**의 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. 예: `Contoso-SAML2`.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
@@ -151,7 +151,7 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 
 - **your-tenant**를 테넌트 이름(예: your-tenant.onmicrosoft.com)으로
 - **your-policy**를 정책 이름으로. 예를 들어 B2C_1A_signup_signin_adfs로 바꿉니다.
-- **your-technical-profile**을 SAML ID 공급자 기술 프로필의 이름으로 예를 들어 Contoso-SAML2로 바꿉니다.
+- **사용자 프로필 기술** SAML id 공급자 기술 프로필의 이름입니다. 예를 들어 Contoso-SAML2로 바꿉니다.
  
 브라우저를 열고 URL로 이동합니다. 올바른 URL을 입력했는지와 XML 메타데이터 파일에 대한 액세스 권한이 있는지 확인합니다. ADFS 관리 스냅인을 사용하여 새 신뢰 당사자 트러스트를 추가하고 설정을 수동으로 구성하려면 페더레이션 서버에서 다음 절차를 수행합니다. 로컬 컴퓨터에서 **관리자**또는 동등한 멤버 자격은 최소한 이 절차를 완료해야 합니다.
 
@@ -170,7 +170,7 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
     | LDAP 특성 | 나가는 클레임 형식 |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
-    | Surname | family_name |
+    | 성 | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | 이메일 |
     | Display-Name | 이름 |
@@ -196,7 +196,7 @@ Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통�
 만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInADFS.xml*로 바꿉니다.
-2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예: `SignUpSignInADFS`
+2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예: `SignUpSignInADFS`.
 3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_adfs`으로 업데이트할 수 있습니다.
 4. 새로 만든 사용자 경험의 ID(SignUpSignInADFS)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.

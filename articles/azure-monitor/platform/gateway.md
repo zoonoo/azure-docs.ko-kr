@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396431"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 게이트웨이 사용 하 여 인터넷 액세스 없이 컴퓨터 연결
 
@@ -75,7 +75,7 @@ Log Analytics 게이트웨이를 실행할 지정 된 컴퓨터에는 다음과 
 
 Log Analytics 게이트웨이 이러한 언어로 제공 됩니다.
 
-- 중국어 (간체)
+- 중국어 간체
 - 중국어 (번체)
 - 체코어
 - 네덜란드어
@@ -364,7 +364,7 @@ Log Analytics 게이트웨이의 구성 설정을 업데이트 하는 작업을 
 | **Cmdlet** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |키(필수) <br> Value |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시 및 자격 증명 설정:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시 설정: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |(자동으로 다운로드 로컬로 구성 되어 허용 된 호스트, 호스트 허용)에 현재 허용 된 호스트 가져오기 |`Get-OMSGatewayAllowedHost` | 
@@ -406,7 +406,7 @@ Log Analytics 게이트웨이의 구성 설정을 업데이트 하는 작업을 
 | **Name** | **설명** |
 | --- | --- |
 | Log Analytics 게이트웨이/활성 클라이언트 연결 |활성 클라이언트 네트워크(TCP) 연결의 수 |
-| Log Analytics 게이트웨이/오류 수 |오류 수 |
+| Log Analytics 게이트웨이/오류 수 |오류 개수 |
 | Log Analytics 게이트웨이/연결된 클라이언트 |연결된 클라이언트 수 |
 | Log Analytics 게이트웨이/오류 수 |TLS 유효성 검사 오류로 인한 거부 횟수 |
 

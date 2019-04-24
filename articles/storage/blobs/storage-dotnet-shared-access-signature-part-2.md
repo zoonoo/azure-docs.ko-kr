@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 5dcb9f16b589b8332d5fcf35c9d8b4cd914460f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392503"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>공유 액세스 서명 2부: Blob Storage에서 SAS 만들기 및 사용
 

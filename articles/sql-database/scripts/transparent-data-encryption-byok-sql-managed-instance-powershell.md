@@ -11,17 +11,17 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c08b5559fd599fb297f294a54aed67c65676aee4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/19/2019
+ms.openlocfilehash: 8eb924b3dc6ff912db402596c763dd69b85147a3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390718"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 사용자 고유 키를 사용하여 Managed Instance에서 투명한 데이터 암호화 관리
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>Azure Key Vault (미리 보기)에서 사용자 고유 키를 사용 하 여 관리 되는 인스턴스에서 투명 한 데이터 암호화 관리
 
-이 PowerShell 스크립트 예제는 Azure Key Vault의 키를 사용하여 Azure SQL Managed Instance에 대한 Bring Your Own Key 시나리오에서 TDE(투명한 데이터 암호화)를 구성합니다. BYOK(Bring Your Own Key) 지원을 통한 TDE에 대한 자세한 내용은 [Azure SQL에 대한 TDE Bring Your Own Key](../transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
+이 PowerShell 스크립트 예제 Azure SQL 관리 되는 인스턴스, Azure Key Vault에서 키를 사용 하 여에 대 한 Bring Your Own Key (미리 보기) 시나리오에서 Transparent Data Encryption (TDE)를 구성 합니다. BYOK(Bring Your Own Key) 지원을 통한 TDE에 대한 자세한 내용은 [Azure SQL에 대한 TDE Bring Your Own Key](../transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

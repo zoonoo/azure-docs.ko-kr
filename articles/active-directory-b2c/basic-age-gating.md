@@ -11,11 +11,11 @@ ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383935"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -33,15 +33,15 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 
 | 국가 | 국가 이름 | 보호자의 동의가 필요한 미성년자의 나이 | 미성년자의 나이 |
 | ------- | ------------ | ----------------- | --------- |
-| 기본값 | 없음 | 없음 | 18 |
+| Default | 없음 | 없음 | 18 |
 | AE | 아랍에미리트 | 없음 | 21 |
 | AT | 오스트리아 | 14 | 18 |
 | BE | 벨기에 | 14 | 18 |
 | BG | 불가리아 | 16 | 18 |
 | BH | 바레인 | 없음 | 21 |
 | CM | 카메룬 | 없음 | 21 |
-| CY | 키프로스 | 16 | 18 |
-| CZ | 체코 | 16 | 18 |
+| CY | 사이프러스 | 16 | 18 |
+| CZ | 체코 공화국 | 16 | 18 |
 | DE | 독일 | 16 | 18 |
 | DK | 덴마크 | 16 | 18 |
 | EE | 에스토니아 | 16 | 18 |

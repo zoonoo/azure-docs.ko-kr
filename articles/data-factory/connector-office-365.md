@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405973"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Office 365에서 Azure로 데이터 복사 
 
@@ -27,7 +27,7 @@ Azure Data Factory를 사용하면 Office 365 테넌트의 풍부한 조직 데�
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-현재 단일 복사 작업 내에서 **Office 365의 데이터를 [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) 및 [Azure Data Lake Storage Gen2 (미리 보기)](connector-azure-data-lake-storage.md)에 JSON 형식**(setOfObjects 형식)으로만 복사할 수 있습니다. Office 365를 다른 유형의 데이터 저장소나 다른 형식으로 로드하려면, 첫 번째 복사 작업을 후속 복사 작업과 연결하여 [지원되는 ADF 대상 저장소](copy-activity-overview.md#supported-data-stores-and-formats)로 데이터를 추가로 로드할 수 있습니다("지원되는 데이터 저장소 및 형식" 표의 "싱크로 지원" 열 참조).
+이제 단일 복사 작업 내에서 할 수 있습니다 **에 Office 365에서 데이터 복사 [Azure Blob Storage](connector-azure-blob-storage.md)를 [Azure 데이터 레이크 저장소 Gen1](connector-azure-data-lake-store.md), 및 [Azure Data Lake 저장소 Gen2 ](connector-azure-data-lake-storage.md) JSON 형식으로** (setOfObjects 형식). Office 365를 다른 유형의 데이터 저장소나 다른 형식으로 로드하려면, 첫 번째 복사 작업을 후속 복사 작업과 연결하여 [지원되는 ADF 대상 저장소](copy-activity-overview.md#supported-data-stores-and-formats)로 데이터를 추가로 로드할 수 있습니다("지원되는 데이터 저장소 및 형식" 표의 "싱크로 지원" 열 참조).
 
 >[!IMPORTANT]
 >- 데이터 팩터리와 싱크 데이터 저장소가 포함된 Azure 구독은 Office 365 테넌트와 동일한 Azure AD(Azure Active Directory) 테넌트에 속해야 합니다.
@@ -79,12 +79,12 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성을 다음으로 설정해야 합니다. **Office365** | 예 |
-| office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예 |
-| servicePrincipalTenantId | Azure AD 웹 애플리케이션이 상주하는 테넌트 정보를 지정합니다. | 예 |
+| type | 형식 속성을 다음으로 설정해야 합니다. **Office365** | 예. |
+| office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예. |
+| servicePrincipalTenantId | Azure AD 웹 애플리케이션이 상주하는 테넌트 정보를 지정합니다. | 예. |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 Integration Runtime입니다.  지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. | 예. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 Integration Runtime입니다.  지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아닙니다. |
 
 >[!NOTE]
 > **office365TenantId**와 **servicePrincipalTenantId** 사이의 차이점 및 제공할 해당 값:
@@ -119,9 +119,9 @@ Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **Office365Table** | 예 |
+| type | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **Office365Table** | 예. |
 | tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets)를 참조하세요. | 예 |
-| 조건자 | Office 365에서 추출하기 위해 특정 행을 필터링하는 데 사용할 수 있는 조건자 식입니다.  각 테이블에 대한 조건자 필터링 및 필터 식 형식에 사용할 수 있는 열을 알아보려면 [여기](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters)를 참조하세요. | 아니요<br>(조건자가 지정되지 않는 경우 기본값은 최근 30일 동안의 데이터를 추출하는 것입니다.) |
+| 조건자 | Office 365에서 추출하기 위해 특정 행을 필터링하는 데 사용할 수 있는 조건자 식입니다.  각 테이블에 대한 조건자 필터링 및 필터 식 형식에 사용할 수 있는 열을 알아보려면 [여기](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters)를 참조하세요. | 아닙니다.<br>(조건자가 지정되지 않는 경우 기본값은 최근 30일 동안의 데이터를 추출하는 것입니다.) |
 
 **예제**
 

@@ -19,11 +19,11 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411218"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 이 문서에서는 [Microsoft 앱 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)에 있는 다양한 기능에 대한 컨텍스트와 설명을 제공합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "58095877"
 공개 키가 포함된 인증서를 업로드해야 합니다.
 
 ## <a name="profile"></a>프로필
-앱 등록 포털의 프로필 섹션을 사용하여 애플리케이션에 대한 로그인 페이지를 사용자 지정할 수 있습니다. 현재 로그인 페이지의 애플리케이션 로고, 서비스 약관 URL 및 개인정보처리방침 URL을 변경할 수 있습니다. 로고는 15KB 이하인 GIP, PNG 또는 JPEG 파일로 된 투명한 48 x 48 또는 50 x 50 픽셀 이미지여야 합니다. 값을 변경하고 결과 로그인 페이지를 확인해 보세요!
+앱 등록 포털의 프로필 섹션을 사용하여 애플리케이션에 대한 로그인 페이지를 사용자 지정할 수 있습니다. 현재 로그인 페이지의 애플리케이션 로고, 서비스 약관 URL 및 개인정보처리방침 URL을 변경할 수 있습니다. 로고는 15KB 이하의 GIF, PNG 또는 JPEG 파일로 된 투명한 48 x 48 또는 50 x 50픽셀 이미지여야 합니다. 값을 변경하고 결과 로그인 페이지를 확인해 보세요!
 
 ## <a name="live-sdk-support"></a>Live SDK 지원
 "Live SDK 지원"을 사용하도록 설정하면 만든 애플리케이션 암호 모두가 Azure AD 및 Microsoft 계정 데이터 저장소 모두에 프로비전됩니다. 이렇게 하면 애플리케이션을 Microsoft 계정 서비스(login.live.com)와 직접 통합할 수 있습니다. Azure AD v2.0 엔드포인트를 사용하는 것이 아니라 Microsoft 계정을 직접 사용하여 앱을 빌드하려면 Live SDK 지원을 사용하도록 설정되어 있는지 확인해야 합니다.

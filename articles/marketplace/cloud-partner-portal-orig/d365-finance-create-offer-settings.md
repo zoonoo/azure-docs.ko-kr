@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397824"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>제품 설정 양식을 작성하는 방법
 =======================================
@@ -27,7 +27,7 @@ ms.locfileid: "48808440"
 제품 설정 양식은 제품 설정을 지정하는 기본 양식입니다.
 아래에서는 필수 필드에 대해 설명합니다.
 
-### <a name="offer-id"></a>제품 ID
+### <a name="offer-id"></a>제공 ID
 
 `OfferId`는 게시자 프로필 내의 제품 고유 ID입니다.
 이 ID는 제품 URL에 표시됩니다. 소문자 영숫자 문자 또는 대시(-)로만 구성할 수 있습니다. ID는 대시로 끝내면 안 되며 최대 50문자를 포함할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
@@ -42,7 +42,7 @@ ms.locfileid: "48808440"
 이 드롭다운 목록을 사용하여 이 제품을 게시할 게시자 프로필을 선택할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
 
 
-### <a name="name"></a>이름
+### <a name="name"></a>Name
 
 Microsoft [AppSource](https://appsource.microsoft.com/)에 표시되는 앱/제품의 표시 이름입니다. 최대 50문자를 포함할 수 있습니다.
 

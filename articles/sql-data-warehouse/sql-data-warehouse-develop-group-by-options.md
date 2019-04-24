@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 69a76ae9d6f355fe401b438ec2ab89d6606ba46c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402340"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>SQL Data Warehouse의 GROUP BY 옵션
 솔루션 개발을 위한 Azure SQL Data Warehouse의 GROUP BY 옵션 구현을 위한 팁.

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390073"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -25,13 +25,13 @@ ms.locfileid: "58005536"
 1. 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 2. **리소스 만들기**를 클릭합니다. **마켓플레이스 검색** 필드에 ‘Virtual Network’를 입력합니다. 반환된 목록에서 **Virtual Network**를 찾아서 클릭하여 **Virtual Network** 페이지를 엽니다.
 3. Virtual Network 페이지 아래쪽의 **배포 모델 선택** 목록에서 **리소스 관리자**가 선택되었는지 확인한 다음, **만들기**를 클릭합니다. 그러면 **가상 네트워크 만들기** 페이지가 열립니다.
-4. **가상 네트워크 만들기** 페이지에서 VNet 설정을 구성합니다. 필드를 채울 때 필드에 입력한 문자가 유효하면 빨간색 느낌표가 녹색 확인 표시가 됩니다. 다음 값을 사용합니다.
+4. **가상 네트워크 만들기** 페이지에서 VNet 설정을 구성합니다. 필드를 채울 때 필드에 입력한 문자가 유효하면 빨간색 느낌표가 녹색 확인 표시가 됩니다. 다음 값을 사용 합니다.
 
    - **이름**: TestVNet1
    - **주소 공간**: 10.1.0.0/16
    - **구독**: 나열 된 구독이 사용 하려는 하나 인지 확인 합니다. 드롭다운을 사용하여 구독을 변경할 수 있습니다.
    - **리소스 그룹**: TestRG1
-   - **위치**: 미국 동부
+   - **Location**: 미국 동부
    - **서브넷**: 프런트 엔드
    - **주소 범위**: 10.1.0.0/24
 
@@ -64,7 +64,7 @@ ms.locfileid: "58005536"
    - **게이트웨이 유형**: VPN 
    - **VPN 유형**: 경로 기반
    - **SKU**: VpnGw1
-   - **위치**: 미국 동부
+   - **Location**: 미국 동부
    - **가상 네트워크**: 클릭 **가상 네트워크/가상 네트워크 선택** 열려는 합니다 **가상 네트워크 선택** 페이지입니다. **VNet1**을 선택합니다.
    - **공용 IP 주소**: 이 설정은 VPN Gateway에 연결되는 공용 IP 주소 개체를 지정합니다. VPN Gateway가 생성될 때 공용 IP 주소가 이 개체에 동적으로 할당됩니다. 현재 VPN Gateway는 *동적* 공용 IP 주소 할당만 지원합니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
 

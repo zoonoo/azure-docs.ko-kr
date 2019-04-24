@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393488"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화
  Azure Monitor 로그는 클라우드에서 호스팅되는 애플리케이션 및 서비스에서 원격 분석 데이터를 수집 및 분석하고, 가용성과 성능을 최대화하는 데 도움이 되는 분석 도구를 제공합니다. 이 문서에서는 Azure Monitor 로그 정보를 얻고 클러스터에서 발생 하는 문제를 해결 하려면 쿼리를 실행 하는 방법을 간략하게 설명 합니다. 다음과 같은 일반적인 질문을 해결합니다.

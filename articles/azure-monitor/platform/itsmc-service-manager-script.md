@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395019"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "59785230"
 
 - Azure 구독 정보
 - 리소스 그룹 이름
-- 위치
+- Location
 - Service Manager 서버 세부 정보(서버 이름, 도메인, 사용자 이름 및 암호)
 - 웹앱에 대한 사이트 이름 접두사
 - ServiceBus 네임스페이스.

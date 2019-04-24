@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
 ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417285"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD Domain Services가 사용 사례에 적합한지 결정하는 방법
 Azure AD Domain Services를 사용하면 Azure에서 ID 인프라 유지 관리에 대해 걱정할 필요없이 Azure 인프라 서비스에서 워크로드를 배포할 수 있습니다. 이 관리되는 서비스는 고유한 서비스에 배포하고 관리하는 일반적인 Windows Server Active Directory 배포와 다릅니다. 서비스는 쉽게 배포할 수 있으며 자동화된 상태 모니터링 및 업데이트 관리를 제공합니다. 서비스를 지속적으로 개발하여 일반적인 배포 시나리오에 대한 지원을 추가할 예정입니다.
@@ -117,7 +117,7 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 
 [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)을 게시하여 DIY 설치를 보다 쉽게 만들 수 있습니다.
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="related-content"></a>관련 내용
 * [기능 - Azure AD Domain Services](active-directory-ds-features.md)
 * [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

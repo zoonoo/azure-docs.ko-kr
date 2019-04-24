@@ -9,11 +9,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387063"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -66,7 +66,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
    ```
 
-### <a name="list-accounts"></a>계정 나열
+### <a name="list-accounts"></a>계정 목록 표시
 
 특정 리소스 그룹 내의 데이터 레이크 분석 계정 나열
 

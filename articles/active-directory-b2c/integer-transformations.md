@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 358ee07b8fd32edded084d406e490cae9f557fdd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397144"
 ---
 # <a name="integer-claims-transformations"></a>정수 클레임 변환
 
