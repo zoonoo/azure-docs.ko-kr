@@ -167,19 +167,19 @@ IoT Edge에 특정되는 예제는 리프 디바이스에서 게이트웨이 디
 FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
-### <a name="sink"></a>sink
-싱크는 메시지를 보낼 위치를 정의합니다. 모듈 및 IoT Hub만 메시지를 받을 수 있습니다. 메시지를 다른 디바이스로 라우팅할 수 없습니다. 싱크 속성에는 와일드카드 옵션이 없습니다. 
+### <a name="sink"></a>싱크
+싱크는 메시지를 보낼 위치를 정의합니다. 모듈 및 IoT Hub로만 메시지를 보낼 수 있으며, 다른 디바이스로는 라우팅할 수 없습니다. 싱크 속성에는 와일드카드 옵션이 없습니다. 
 
-싱크 속성은 다음 값 중 하나일 수 있습니다.
+싱크 속성은 다음과 같습니다.
 
-| sink | 설명 |
+| 싱크 | 설명 |
 | ---- | ----------- |
-| `$upstream` | 메시지를 IoT Hub로 보냅니다. |
-| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 특정 모듈의 특정 입력으로 메시지 보내기 |
+| `$upstream` | IoT Hub로 메시지 전송 |
+| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 특정 모듈의 특정 입력으로 메시지 전송 |
 
-IoT Edge는 최소 한 번의 보장을 제공합니다. IoT Edge 허브는 로컬로 경우 경로를 해당 싱크에 메시지를 배달할 수 없습니다 메시지를 저장 합니다. 예를 들어, IoT Edge 허브는 IoT Hub 또는 대상 모듈에 연결할 수 없으면 연결 되지 않았습니다.
+IoT Edge는 최소 한 번의 보장을 제공합니다. IoT Edge 허브는 라우트가 메시지를 싱크로 전달할 수 없는 경우 메시지를 로컬에 저장합니다. 예를 들어, IoT Edge 허브가 IoT 허브에 연결할 수 없거나 대상 모듈이 연결되어 있지 않은 경우입니다.
 
-에 지정 된 시간까지 메시지를 저장 하는 IoT Edge 허브는 `storeAndForwardConfiguration.timeToLiveSecs` 의 속성을 [IoT Edge 허브 desired 속성](module-edgeagent-edgehub.md)합니다.
+IoT Edge 허브는 [IoT Edge 허브 선호 속성](module-edgeagent-edgehub.md) 중 `storeAndForwardConfiguration.timeToLiveSecs` 속성에 지정된 기간 동안 메시지를 저장합니다.
 
 ## <a name="define-or-update-desired-properties"></a>원하는 속성 정의 또는 업데이트 
 
