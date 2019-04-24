@@ -1,7 +1,6 @@
 ---
 title: YARN에서 고가용성 Spark Streaming 작업 만들기 - Azure HDInsight
 description: 고가용성 시나리오에 대한 Spark Streaming을 설정하는 방법
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
 ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53649724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536953"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Apache Spark Streaming 작업 만들기
 
@@ -68,7 +67,7 @@ HDInsight에서 클러스터 작업은 YARN(*Yet Another Resource Negotiator*)�
 
 **실행기**가 실패하면 Spark에서 해당 작업 및 수신기를 자동으로 다시 시작하므로, 필요한 구성 변경이 없습니다.
 
-그러나 **드라이버**가 실패하면 관련 실행기가 모두 실패하고, 수신된 모든 블록 및 계산 결과가 손실됩니다. 드라이버 오류에서 복구하려면 [이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)에 설명되어 있는 *DStream 검사점*을 사용합니다. DStream 검사점은 DStream의 DAG(*방향성 비순환 그래프*)를 Azure Storage와 같은 내결함성 있는 저장소에 주기적으로 저장합니다.  검사점 기능은 Spark Structured Streaming이 검사점 정보에서 실패한 드라이버를 다시 시작할 수 있도록 합니다.  이러한 드라이버 다시 시작으로 인해 새 실행기가 시작되고 수신기도 다시 시작됩니다.
+그러나 **드라이버**가 실패하면 관련 실행기가 모두 실패하고, 수신된 모든 블록 및 계산 결과가 손실됩니다. 드라이버 오류에서 복구하려면 [이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)에 설명되어 있는 *DStream 검사점*을 사용합니다. DStream 검사점은 DStream의 DAG(*방향성 비순환 그래프*)를 Azure Storage와 같은 내결함성 있는 스토리지에 주기적으로 저장합니다.  검사점 기능은 Spark Structured Streaming이 검사점 정보에서 실패한 드라이버를 다시 시작할 수 있도록 합니다.  이러한 드라이버 다시 시작으로 인해 새 실행기가 시작되고 수신기도 다시 시작됩니다.
 
 DStream 검사점을 사용하여 드라이버를 복구하려면
 

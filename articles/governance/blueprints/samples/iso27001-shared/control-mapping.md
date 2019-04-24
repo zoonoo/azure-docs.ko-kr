@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 93a26311216ca5682c02a319f989b3d342a33ce1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256484"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005301"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑
 
@@ -26,6 +26,12 @@ Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않
 
 - [미리 보기]: Audit minimum number of owners for subscription
 - [미리 보기]: Audit maximum number of owners for a subscription
+
+## <a name="a821-classification-of-information"></a>A.8.2.1 정보의 분류
+
+Azure의 [SQL Vulnerability Assessment 서비스](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)는 데이터베이스에 저장된 중요한 데이터를 검색하는 데 도움이 되며 해당 데이터를 분류하기 위한 권장 사항을 포함합니다. 이 청사진은 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 SQL Vulnerability Assessment 검사 중에 식별된 취약성이 해결되었는지 감사합니다.
+
+- [미리 보기]: Monitor SQL vulnerability assessment results in Azure Security Center
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 네트워크 및 네트워크 서비스 액세스
 
@@ -41,22 +47,17 @@ Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관�
 - 클래식 가상 머신의 사용 감사
 - 관리 디스크를 사용하지 않는 VM 감사
 
-## <a name="a922-user-access-provisioning"></a>A.9.2.2 사용자 액세스 프로비전
-
-Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하기 위해 [RBAC(역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. 이 청사진은 SQL Servers 및 [Service Fabric](../../../../service-fabric/service-fabric-overview.md)에 대한 [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) 인증 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 3개를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 이 청사진은 사용자 지정 RBAC 규칙의 사용을 감사하는 Azure Policy 정의도 할당합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
-
-- SQL Server에 대한 Azure Active Directory 관리자의 프로비전 감사
-- Service Fabric의 클라이언트 인증에 대한 Azure Active Directory의 사용 감사
-- 사용자 지정 RBAC 규칙의 사용 감사
-
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 권한 있는 액세스 권한 관리
 
-이 청사진은 소유자 및/또는 쓰기 권한이 있는 외부 계정 및 다단계 인증을 사용하지 않는 소유자 및/또는 쓰기 권한을 가진 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 4개를 할당하여, 권한 있는 액세스 권한을 제한 및 제어하는 데 도움이 됩니다.
+이 청사진은 소유자 및/또는 쓰기 권한이 있는 외부 계정 및 다단계 인증을 사용하지 않는 소유자 및/또는 쓰기 권한을 가진 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 4개를 할당하여, 권한 있는 액세스 권한을 제한 및 제어하는 데 도움이 됩니다. Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하기 위해 RBAC(역할 기반 액세스 제어)를 구현합니다. 또한 이 청사진은 SQL Servers 및 Service Fabric에 대한 Azure Active Directory 인증 사용을 감사하는 Azure Policy 정의 3개를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 이 청사진은 사용자 지정 RBAC 규칙의 사용을 감사하는 Azure Policy 정의도 할당합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
 
 - [미리 보기]: Audit accounts with owner permissions who are not MFA enabled on a subscription
 - [미리 보기]: Audit accounts with write permissions who are not MFA enabled on a subscription
 - [미리 보기]: Audit external accounts with owner permissions on a subscription
 - [미리 보기]: Audit external accounts with write permissions on a subscription
+- SQL Server에 대한 Azure Active Directory 관리자의 프로비전 감사
+- Service Fabric의 클라이언트 인증에 대한 Azure Active Directory의 사용 감사
+- 사용자 지정 RBAC 규칙의 사용 감사
 
 ## <a name="a924-management-of-secret-authentication-information-of-users"></a>A.9.2.4 사용자의 비밀 인증 정보 관리
 
@@ -83,6 +84,14 @@ Azure는 Azure의 리소스에 대한 액세스 권한이 있는 사용자를 �
 
 - [미리 보기]: Audit deprecated accounts on a subscription
 - [미리 보기]: Audit deprecated accounts with owner permissions on a subscription
+
+## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 보안 로그온 프로시저
+
+이 청사진은 다단계 인증을 사용하지 않는 계정을 감사하는 Azure Policy 정의 세 개를 할당합니다. Azure Multi-Factor Authentication은 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 강력한 인증을 제공합니다. 다단계 인증을 사용하지 않고 계정을 모니터링하면 손상될 가능성이 더 높은 계정을 식별할 수 있습니다.
+
+- [미리 보기]: Audit accounts with owner permissions who are not MFA enabled on a subscription
+- [미리 보기]: Audit accounts with read permissions who are not MFA enabled on a subscription
+- [미리 보기]: Audit accounts with write permissions who are not MFA enabled on a subscription
 
 ## <a name="a943-password-management-system"></a>A.9.4.3 암호 관리 시스템
 
@@ -122,7 +131,8 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 이벤트 로깅
 
-이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 7개를 할당하여 시스템 이벤트가 기록되도록 하는 데 도움이 됩니다. 또한 할당된 정책은 가상 머신이 로그를 지정된 로그 분석 작업 영역에 보내지 않는지도 감사합니다.
+이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 7개를 할당하여 시스템 이벤트가 기록되도록 하는 데 도움이 됩니다.
+진단 로그는 Azure 리소스 내에서 수행된 작업에 대한 인사이트를 제공합니다.
 
 - [미리 보기]: Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
 - [미리 보기]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
@@ -132,9 +142,39 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 - 진단 설정 감사
 - SQL 감사 서버 수준 감사 설정
 
-## <a name="a121-management-of-technical-vulnerabilities"></a>A.12.1 기술 취약성 관리
+## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 관리자 및 운영자 로그
 
-이 청사진은 누락된 시스템 업데이트, 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의 5개를 할당하여 정보 시스템 취약성을 관리하는 데 도움이 됩니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다.
+이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 Azure Policy 정의 7개를 할당하여 시스템 이벤트가 기록되도록 합니다. 진단 로그는 Azure 리소스 내에서 수행된 작업에 대한 인사이트를 제공합니다.
+
+- [미리 보기]: Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: Monitor unaudited SQL database in Azure Security Center
+- 진단 설정 감사
+- SQL 감사 서버 수준 감사 설정
+
+## <a name="a1244-clock-synchronization"></a>A.12.4.4 클럭 동기화
+
+이 청사진은 Azure 리소스에 대한 로그 설정을 감사하는 Azure Policy 정의 7개를 할당하여 시스템 이벤트가 기록되도록 합니다. Azure 로그는 동기화된 내부 클록을 사용하여 리소스 간 이벤트의 시간 관련 레코드를 만듭니다.
+
+- [미리 보기]: Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: VMSS의 Dependency Agent 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- [미리 보기]: Monitor unaudited SQL database in Azure Security Center
+- 진단 설정 감사
+- SQL 감사 서버 수준 감사 설정
+
+## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 운영 체제에 소프트웨어 설치
+
+적응형 애플리케이션 제어는 Azure에 있는 VM에서 실행할 수 있는 애플리케이션을 제어하는 데 도움이 되는 Azure Security Center의 솔루션입니다. 이 청사진은 허용된 애플리케이션 세트에 대한 변경 사항을 모니터링하는 Azure Policy 정의를 할당합니다. 이 기능을 사용하면 Azure VM에서 소프트웨어 및 애플리케이션 설치를 제어할 수 있습니다.
+
+- [미리 보기]: Monitor possible app Whitelisting in Azure Security Center
+
+## <a name="a1261-management-of-technical-vulnerabilities"></a>A.12.6.1 기술 취약성 관리
+
+이 청사진은 Azure Security Center에서 누락된 시스템 업데이트, 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의 5개를 할당하여 정보 시스템 취약성을 관리하는 데 도움이 됩니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다.
 
 - [미리 보기]: Monitor missing Endpoint Protection in Azure Security Center
 - [미리 보기]: Monitor missing system updates in Azure Security Center
@@ -150,9 +190,12 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="a1311-network-controls"></a>A.13.1.1 네트워크 제어
 
-이 청사진은 관대한 규칙을 사용하여 네트워크 보안 그룹을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 네트워크를 관리하고 제어하는 데 도움이 됩니다. 너무 관대한 규칙은 원치 않는 네트워크 액세스를 허용할 수 있으며, 검토를 거쳐야 합니다.
+이 청사진은 관대한 규칙을 사용하여 네트워크 보안 그룹을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 네트워크를 관리하고 제어하는 데 도움이 됩니다. 너무 관대한 규칙은 원치 않는 네트워크 액세스를 허용할 수 있으며, 검토를 거쳐야 합니다. 또한 이 청사진은 보호되지 않는 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 세 개의 Azure Policy 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
 
 - [미리 보기]: Monitor permissive network access in Azure Security Center
+- [미리 보기]: Monitor unprotected network endpoints in Azure Security Center
+- [미리 보기]: Monitor unprotected web application in Azure Security Center
+- 스토리지 계정에 대한 무제한 네트워크 액세스 감사
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 정보 전송 정책 및 절차
 
@@ -160,24 +203,6 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 - Redis Cache에 대한 보안 연결의 사용만 감사
 - 스토리지 계정에 대한 보안 전송 감사
-
-## <a name="a1413-protecting-application-services-transactions"></a>A.14.1.3 애플리케이션 서비스 트랜잭션 보호
-
-이 청사진은 보호되지 않는 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의 3개를 할당하여 정보 시스템 자산을 보호하는 데 도움이 됩니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
-
-- [미리 보기]: Monitor unprotected network endpoints in Azure Security Center
-- [미리 보기]: Monitor unprotected web application in Azure Security Center
-- 스토리지 계정에 대한 무제한 네트워크 액세스 감사
-
-## <a name="a1613-reporting-information-security-weaknesses"></a>A.16.1.3 정보 보안 약점 보고
-
-이 청사진은 Azure Security Center의 취약성, 패치 상태 및 맬웨어 경고를 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의 5개를 할당하여 시스템 취약성에 대한 인식을 유지하는 데 도움이 됩니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다.
-
-- [미리 보기]: Monitor missing Endpoint Protection in Azure Security Center
-- [미리 보기]: Monitor missing system updates in Azure Security Center
-- [미리 보기]: Monitor OS vulnerabilities in Azure Security Center
-- [미리 보기]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [미리 보기]: Monitor VM Vulnerabilities in Azure Security Center
 
 ## <a name="next-steps"></a>다음 단계
 

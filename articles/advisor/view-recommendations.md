@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: 9f599a63fd5f52420f1b79e769d4f7bca9683b32
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59052839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467909"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>관심 있는 주제에 Azure Advisor 권장 사항 보기
 

@@ -14,11 +14,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486944"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -106,7 +106,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | 캐나다 | 캐나다 동부 | 캐나다 중부 |
 | &nbsp; | 캐나다 중부 | 캐나다 중부 |
 | 브라질 | 브라질 남부 | 브라질 남부 |
-| 유럽 | 북유럽 | 북유럽 |
+| 유럽 | 유럽 북부 | 유럽 북부 |
 | &nbsp; | 서유럽 | 서유럽 |
 | 영국 | 영국 서부 | 영국 남부 |
 | &nbsp; | 영국 남부 | 영국 남부 |
@@ -114,9 +114,9 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 동아시아 | 동남아시아 |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 동부 |
 | &nbsp; | 오스트레일리아 남동부 | 오스트레일리아 남동부 |
-| 인도 | 인도 중부 | 인도 중부 |
-| &nbsp; | 인도 서부 | 인도 중부 |
-| &nbsp; | 인도 남부 | 인도 중부 |
+| 인도 | 중앙 인도 | 중앙 인도 |
+| &nbsp; | 인도 서부 | 중앙 인도 |
+| &nbsp; | 인도 남부 | 중앙 인도 |
 | 일본 | 일본 동부 | 일본 동부 |
 | &nbsp; | 일본 서부 | 일본 동부 |
 | 한국 | 한국 중부 | 한국 중부 |

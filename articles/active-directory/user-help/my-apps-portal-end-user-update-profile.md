@@ -14,19 +14,19 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483020"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>My Apps 포털에서 프로필 및 계정 정보를 업데이트
-회사 또는 학교 계정을 사용 하 여 웹 기반 **My Apps** 포털을 확인 하 고 시작 하는 다양 한 조직의 클라우드 기반 앱에서 프로필 및 계정 정보를 보려면 일부를 업데이트 하 여 **그룹** 정보를 수행 **액세스 검토** 앱 및 그룹에 대 한 합니다. 에 액세스할 수 없는 경우는 **My Apps** 포털 문의 해야 기술 지원팀 사용 권한에 대 한 합니다.
+웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자 인 경우 설정 하 고에서 클라우드 기반 앱을 관리 하는 방법에 대 한 자세한 정보를 찾을 수 있습니다 합니다 [응용 프로그램 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)합니다.
+>이 콘텐츠는 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="view-your-organization-related-profile-information"></a>프로필 조직 관련 정보 보기
 에 포함 하도록 선택 하는 조직에 따라 프로그램 **프로필** 페이지의 **My Apps** 포털에 표시 될 수 있습니다 특정 업무와 관련 된 세부 정보를 장치 및 작업을 프로그램과 함께 추가 조직이 속한 합니다.

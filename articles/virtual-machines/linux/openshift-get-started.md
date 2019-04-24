@@ -4,7 +4,7 @@ description: Azure의 OpenShift 개요입니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/01/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542427"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
@@ -32,15 +32,7 @@ OpenShift는 컨테이너 오케스트레이션 및 관리를 위한 Kubernetes�
 - 간편한 배포 및 확장
 - 팀 및 애플리케이션에 대한 장기 수명 유지 관리
 
-OpenShift의 여러 버전을 사용할 수 있습니다.
-
-- OpenShift Container Platform
-- Azure의 OpenShift(Q1 CY2019 말에 제공될 완전 관리형 OpenShift)
-- OKD(이전의 OpenShift Origin)
-- OpenShift Dedicated
-- OpenShift Online
-
-이 문서에 설명된 5가지 버전 중 2가지 즉, OpenShift Container Platform 및 OKD만 고객이 Azure에서 배포할 수 있습니다.
+사용할 수는 OpenShift의 여러 버전이 있습니다.  이러한 버전 중 2 개만 고객이 Azure에 배포 하는 데 현재 사용할 수 있습니다. OpenShift Container Platform 및 OKD (이전의 OpenShift Origin).
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
@@ -48,29 +40,19 @@ Container Platform은 Red Hat이 제공하고 지원하는 엔터프라이즈급
 
 고객이 전체 플랫폼 "소유" 하기 때문에 해당 온-프레미스 데이터 센터 또는 공용 클라우드 (예: Azure)에서 설치할 수 있습니다.
 
-## <a name="openshift-on-azure"></a>OpenShift On Azure
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
-OpenShift On Azure는 Azure에서 실행되는 OpenShift의 완전 관리형 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 클러스터는 고객의 Azure 구독에 배포됩니다. 이 서비스는 현재 비공개 미리 보기로 제공되며 Q1 CY2019 말에 GA될 예정입니다. 비공개 미리 보기에 참가하려는 고객은 [추천 양식](https://aka.ms/openshiftazureinterest)을 작성해주세요.  GA가 좀 더 가까워지면 추가 정보가 제공될 것입니다.
+Azure의 Red Hat OpenShift는 Azure에서 실행 되는 OpenShift의 완전히 관리 되는 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 클러스터는 고객의 Azure 구독에 배포됩니다. 서비스 GA 월 2019 해결 될 예정입니다. 관리 되는 서비스에 대 한 별도 설명서 면 사용할 수는 서비스가 GA입니다.
 
-## <a name="okd-formerly-openshift-origin"></a>OKD(이전의 OpenShift Origin)
+## <a name="okd"></a>OKD
 
 OKD는 커뮤니티가 지원하는 OpenShift의 [오픈 소스](https://www.okd.io/) 업스트림 프로젝트입니다. OKD는 CentOS 또는 RHEL(Red Hat Enterprise Linux)에 설치할 수 있습니다.
-
-## <a name="openshift-dedicated"></a>OpenShift Dedicated
-
-Dedicated는 OpenShift Container Platform을 사용하는 Red Hat이 관리하는 *단일 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 클러스터 한 고객 전용 이며 공용 클라우드 (예: Azure)에서 실행 됩니다. 시작 클러스터에는 4개의 애플리케이션 노드가 포함되며 모든 비용은 연 단위로 선불로 지불됩니다.
-
-## <a name="openshift-online"></a>OpenShift Online
-
-Online은 Container Platform을 사용하는 Red Hat이 관리하는 *다중 테넌트* OpenShift입니다. Red Hat이 모든 기본 인프라(예: VM, OpenShift 클러스터, 네트워킹, 저장소 등)를 관리합니다. 
-
-이 버전을 통해 고객은 컨테이너를 배포하지만 컨테이너가 실행되는 호스트를 제어할 수 없습니다. Online은 다중 테넌트이므로 컨테이너가 다른 고객의 컨테이너와 동일한 VM 호스트에 함께 배치될 수 있습니다. 비용은 컨테이너당 청구됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure에서 OpenShift에 대한 일반적인 필수 조건 구성](./openshift-prerequisites.md)
 - [Azure에서 OpenShift Container Platform 배포](./openshift-container-platform.md)
-- [Azure에 OKD 배포](./openshift-okd.md)
+- [OpenShift 컨테이너 플랫폼 자체 관리 되는 Marketplace 제품을 배포](./openshift-marketplace-self-managed.md)
 - [Azure Stack에 OpenShift 배포](./openshift-azure-stack.md)
 - [배포 후 작업](./openshift-post-deployment.md)
 - [OpenShift 배포 문제 해결](./openshift-troubleshooting.md)

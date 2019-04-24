@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 16cb27ab330118d1bb59cf4f3d782bf55fa28d43
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60517076"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Azure IoT Central Explorer를 사용하여 디바이스 연결 모니터링
 
@@ -79,7 +79,7 @@ iotc-explorer login
 iotc-explorer monitor-messages
 ```
 
-출력:
+출력
 
 ![monitor-messages 명령 출력](media/howto-use-iotc-explorer/monitormessages.png)
 
@@ -103,7 +103,7 @@ iotc-explorer monitor-messages --raw
 iotc-explorer get-twin <your-device-id>
 ```
 
-출력:
+출력
 
 ![get-twin 명령 출력](media/howto-use-iotc-explorer/getdevicetwin.png)
 

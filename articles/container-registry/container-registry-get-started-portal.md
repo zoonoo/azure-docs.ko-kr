@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93c22475a4043d1cbf5cb0ad7f9b134e8ac717cc
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f41d51981c4da9ee089282da8b8d4cc5f37a4aed
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298418"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682987"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 개인 컨테이너 레지스트리 만들기
 
@@ -25,7 +25,7 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -61,7 +61,7 @@ az acr login --name <acrName>
 
 레지스트리의 이미지를 나열하려면 포털에서 레지스트리로 이동하여 **리포지토리**를 선택한 다음, `docker push`를 사용하여 만든 리포지토리를 선택합니다.
 
-이 예제에서 **busybox** 리포지토리를 선택하면 **TAGS**에 `v1` 태그가 지정된 이미지가 표시됩니다.
+이 예제에서 **helloworld** 리포지토리를 선택하고 **태그**에서 `v1` 태그가 지정된 이미지를 볼 수 있습니다.
 
 ![Azure Portal에 컨테이너 이미지 나열][qs-portal-09]
 

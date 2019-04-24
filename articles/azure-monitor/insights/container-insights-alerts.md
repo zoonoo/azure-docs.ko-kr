@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494629"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor에서 성능 문제에 대 한 경고를 설정 하는 방법
 컨테이너에 대 한 azure Monitor 관리 되는 Kubernetes 클러스터 호스트 되는 Azure Kubernetes Service (AKS)에서 또는 Azure Container Instances에 배포 되는 컨테이너 워크 로드의 성능을 모니터링 합니다.
@@ -285,5 +285,5 @@ let endDateTime = now();
 
 ## <a name="next-steps"></a>다음 단계
 
-* 뷰 [쿼리 예제 로그](container-insights-analyze.md#search-logs-to-analyze-data) 미리 정의 된 쿼리 및 평가 하거나 다른 경고 시나리오에 대 한 사용자 지정 하는 예제에 대해 알아보십시오.
-* Azure Monitor 및 AKS 클러스터의 다른 측면을 모니터링 하는 방법에 대 한 자세한 내용은 참조 하세요 [보기 Azure Kubernetes Service 상태](container-insights-analyze.md)합니다.
+- 뷰 [쿼리 예제 로그](container-insights-log-search.md#search-logs-to-analyze-data) 에 미리 정의 된 쿼리 및 평가 하거나 경고를 시각화, 분석 하 여 클러스터에 대 한 사용자 지정 하는 예제를 참조 하세요.
+- Azure Monitor 및 AKS 클러스터의 다른 측면을 모니터링 하는 방법에 대 한 자세한 내용은 참조 하세요 [보기 Azure Kubernetes Service 상태](container-insights-analyze.md)합니다.

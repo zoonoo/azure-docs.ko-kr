@@ -17,20 +17,20 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ed2830b704d379e2ecc5a5e548f831800af56d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526387"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997600"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여 주는 코드 샘플이 포함되어 있습니다.
+이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 개정 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플이 포함되어 있습니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-uwp/uwp-intro.svg)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-uwp/uwp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
@@ -72,7 +72,7 @@ ms.locfileid: "59526387"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
- - [Visual Studio 2017 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+ - [Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 
@@ -89,7 +89,7 @@ ms.locfileid: "59526387"
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 >
 > > [!TIP]
-> > *애플리케이션 ID* 값을 찾으려면 **개요** 페이지로 이동합니다.
+> > *애플리케이션 ID* 값을 찾으려면 포털의 **개요** 섹션으로 이동합니다.
 
 #### <a name="step-4-run-your-application"></a>4단계: 애플리케이션 실행
 
@@ -119,7 +119,7 @@ Install-Package Microsoft.Identity.Client -IncludePrerelease
 using Microsoft.Identity.Client;
 ```
 
-그런 다음, 아래 코드를 사용하여 MSAL을 초기화합니다.
+그런 다음, 다음 코드를 사용하여 MSAL을 초기화합니다.
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
@@ -133,7 +133,7 @@ PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>토큰 요청
 
-MSAL은 두 가지 메서드 `AcquireTokenInteractive` 및 `AcquireTokenSilent`를 사용하여 대화형으로 토큰을 획득합니다.
+MSAL에는 UWP 앱에서 토큰 획득을 위한 두 가지 메서드인 `AcquireTokenInteractive` 및 `AcquireTokenSilent`가 있습니다.
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
@@ -155,7 +155,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
-사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분은 사용자 개입 없이 토큰 가져오기 및 갱신을 자동으로 처리하려고 합니다. 초기 `AcquireTokenAsync` 메서드 다음에 `AcquireTokenSilent` 메서드를 사용하여 토큰을 가져와서 보호된 리소스에 액세스할 수 있습니다.
+초기 `AcquireTokenAsync` 메서드 다음에 보호된 리소스에 액세스하는 토큰을 가져오려면 `AcquireTokenSilent` 메서드를 사용합니다. 사용자가 리소스에 액세스해야 할 때마다 자격 증명의 유효성을 검사할 필요가 없도록 하려고 합니다. 대부분의 경우 사용자 개입 없이 토큰 획득 및 갱신 처리
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

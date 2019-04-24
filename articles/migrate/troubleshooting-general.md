@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533218"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -82,7 +82,7 @@ Azure Migrate 프로젝트를 삭제하면 마이그레이션 프로젝트와 �
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>CPU, 메모리 및 디스크에 대 한 성능 데이터가 0으로 표시 됩니다.
 
-Azure Migrate는 온-프레미스 Vm의 성능 데이터를 수집 하도록 온-프레미스 환경을 지속적으로 프로필입니다. 사용자 환경의 검색을 방금 시작한 경우 수행 해야 하는 성능 데이터 수집에 대 한 하루 이상 기다려야 해야 합니다. 1 일 때까지 기다리지 않고 평가 만들어지면 성능 메트릭에 0으로 표시 됩니다. 하루를 기다린 후 새 평가 만들기 또는 평가 보고서에서 '다시 계산' 옵션을 사용 하 여 기존 평가 업데이트 합니다.
+Azure Migrate는 온-프레미스 환경을 지속적으로 프로파일링하면서 온-프레미스 VM의 성능 데이터를 수집합니다. 환경 검색을 방금 시작한 경우 성능 데이터 수집이 완료될 때까지 적어도 하루 이상 기다려야 합니다. 하루를 기다리지 않았는데 평가가 작성된 경우 성능 메트릭이 0으로 표시됩니다. 하루를 기다린 후 새 평가를 만들거나 평가 보고서의 '다시 계산' 옵션을 사용하여 기존 평가를 업데이트할 수 있습니다.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>마이그레이션 프로젝트를 만들 때 Azure 지역을 지정했습니다. 검색된 메타데이터가 저장되는 정확한 Azure 지역은 어떻게 확인할 수 있나요?
 

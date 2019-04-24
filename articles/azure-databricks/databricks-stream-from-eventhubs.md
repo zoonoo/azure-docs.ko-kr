@@ -10,14 +10,17 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087128"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004842"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
+
+> [!IMPORTANT]
+> Twitter 애플리케이션 만들기는 [apps.twitter.com](https://apps.twitter.com/)을 통해 더 이상 제공되지 않습니다. 이 자습서는 새 Twitter API를 포함하도록 업데이트 중입니다.
 
 이 자습서에서는 데이터 수집 시스템을 Azure Databricks와 연결하여 데이터를 거의 실시간으로 Apache Spark 클러스터로 스트리밍합니다. Azure Event Hubs를 사용하여 데이터 수집 시스템을 설정한 다음, Azure Databricks에 연결하여 들어오는 메시지를 처리합니다. 데이터 스트림에 액세스하려면 Twitter API를 사용하여 트윗을 Event Hubs로 수집합니다. Azure Databricks에 데이터가 있으면 분석 작업을 실행하여 데이터를 자세히 분석할 수 있습니다. 
 

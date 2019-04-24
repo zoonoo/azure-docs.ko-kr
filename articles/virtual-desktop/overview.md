@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049441"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004587"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Windows Virtual Desktop Preview란? 
 
@@ -54,13 +54,16 @@ Windows Virtual Desktop을 사용하면 다음과 같이 확장 가능하고 유
 
 Windows Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이션에 사용자를 연결하려면 몇 가지 조건을 충족해야 합니다.
 
-첫째, 배포하려는 데스크톱 및 앱에 따라 사용자에게 다음과 같은 [적절한 라이선스](https://azure.microsoft.com/pricing/details/virtual-desktop/)가 있어야 합니다.
+Windows Virtual Desktop은 현재 다음 두 가지 OS만 지원합니다.
+- Windows 10 Enterprise 다중 세션
+- Windows Server 2016
+
+다음 OS에 대한 지원을 추가할 계획이므로 배포하려는 데스크톱 및 앱에 따라 사용자에게 [적절한 라이선스](https://azure.microsoft.com/pricing/details/virtual-desktop/)가 있는지 확인합니다.
 
 |OS|필수 라이선스|
 |---|---|
-|Windows 10 Enterprise 다중 세션 또는 Windows 10 단일 세션|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|Software Assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
+
+|Windows 10 Enterprise 다중 세션 또는 Windows 10 Enterprise | Microsoft E3, E5, A3, A5, 비즈니스<br>Windows E3, E5, A3, A5| |Windows 7 Enterprise |Microsoft E3, E5, A3, A5, 비즈니스<br>Windows E3, E5, A3, A5| |Windows Server 2012 R2, 2016, 2019|Software assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
 
 Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
 
@@ -97,4 +100,4 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 시작하려면 테넌트를 만들어야 합니다. 테넌트를 만드는 자세한 방법을 알아보려면 테넌트 만들기 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Windows Virtual Desktop 미리 보기에서 테넌트 만들기](tenant-setup-azure-active-directory.md)
+> [Windows Virtual Desktop Preview에서 테넌트 만들기](tenant-setup-azure-active-directory.md)

@@ -9,7 +9,7 @@ ms.date: 02/06/2019
 ms.author: danlep
 ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
 ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/25/2019
 ms.locfileid: "58417746"
@@ -26,7 +26,7 @@ Azure Container Registry는 기존 레지스트리에서 이미지를 복사하�
 
 * 비 Azure 개인 컨테이너 레지스트리에서 가져오기
 
-Azure Container Registry로 이미지를 가져오는 경우 Docker CLI 명령을 사용하는 것보다 다음과 같은 혜택이 있습니다.
+Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지를 가져오는 경우 다음과 같은 이점이 있습니다.
 
 * 클라이언트 환경에는 로컬 Docker 설치가 필요하지 않으므로 지원되는 OS 유형과 관계없이 컨테이너 이미지를 가져옵니다.
 

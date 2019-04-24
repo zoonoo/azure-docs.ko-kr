@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369448"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995917"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -25,7 +25,7 @@ Azure Container Instances를 사용하여 Azure에서 서버리스 Docker 컨테
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
- https://portal.azure.com에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-free-account]을 만듭니다.
 
@@ -35,31 +35,29 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-free-acc
 
 ![Azure Portal에서 새 컨테이너 인스턴스를 만들기 시작][aci-portal-01]
 
-**컨테이너 이름**, **컨테이너 이미지** 및 **리소스 그룹** 텍스트 상자에 다음 값을 입력합니다. 다른 값은 기본값으로 두고 **확인**을 선택합니다.
+**기본 사항** 페이지의 **리소스 그룹**, **컨테이너 이름** 및 **컨테이너 이미지** 텍스트 상자에 다음 값을 입력합니다. 다른 값은 기본값으로 두고 **확인**을 선택합니다.
 
+* 리소스 그룹: **새로 만들기** > `myresourcegroup`
 * 컨테이너 이름: `mycontainer`
 * 컨테이너 이미지: `mcr.microsoft.com/azuredocs/aci-helloworld`
-* 리소스 그룹: **새로 만들기** > `myResourceGroup`
 
 ![Azure Portal에서 새 컨테이너 인스턴스의 기본 설정 구성][aci-portal-03]
 
-이 빠른 시작의 경우 **공용**의 기본 설정을 그대로 유지하여 공개 Microsoft `aci-helloworld` 이미지를 배포합니다. 이 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
+이 빠른 시작의 경우 **공용**의 기본 **이미지 형식** 설정을 사용하여 공개 Microsoft `aci-helloworld` 이미지를 배포합니다. 이 Linux 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
 
-**구성** 아래에서 컨테이너의 **DNS 이름 레이블**을 지정합니다. 이름은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 컨테이너는 `<dns-name-label>.<region>.azurecontainer.io`에서 공개적으로 연결할 수 있습니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
-
-**구성**에서 다른 설정은 기본값으로 두고 **확인**을 선택하여 구성의 유효성 검사를 실행합니다.
+**네트워킹** 페이지에서 컨테이너의 **DNS 이름 레이블**을 지정합니다. 이름은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 컨테이너는 `<dns-name-label>.<region>.azurecontainer.io`에서 공개적으로 연결할 수 있습니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
 ![Azure Portal에서 새 컨테이너 인스턴스 구성][aci-portal-04]
 
-유효성 검사가 완료되면 컨테이너 설정의 요약 정보가 표시됩니다. **확인**을 선택하여 컨테이너 배포 요청을 제출합니다.
+다른 설정을 해당 기본값으로 유지한 다음, **검토 + 만들기**를 선택합니다.
+
+유효성 검사가 완료되면 컨테이너 설정의 요약 정보가 표시됩니다. **만들기**를 선택하여 컨테이너 배포 요청을 제출합니다.
 
 ![Azure Portal에서 새 컨테이너 인스턴스의 설정 요약][aci-portal-05]
 
 배포가 시작되면 배포가 진행 중임을 알려주는 알림이 표시됩니다. 컨테이너 그룹이 배포되면 다른 알림이 표시됩니다.
 
-![Azure Portal에서 새 컨테이너 인스턴스를 만들기 진행 상황][aci-portal-08]
-
-**리소스 그룹** > **myResourceGroup** > **mycontainer**로 차례로 이동하여 컨테이너 그룹에 대한 개요를 엽니다. 컨테이너 인스턴스의 **FQDN**(정규화된 도메인 이름) 및 **상태**를 기록해 둡니다.
+**리소스 그룹** > **myresourcegroup** > **mycontainer**로 차례로 이동하여 컨테이너 그룹에 대한 개요를 엽니다. 컨테이너 인스턴스의 **FQDN**(정규화된 도메인 이름) 및 **상태**를 기록해 둡니다.
 
 ![Azure Portal의 컨테이너 그룹 개요][aci-portal-06]
 

@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475030"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>My Apps 포털을 사용 하 여 문제 해결
 로그인 또는 사용 하 여 문제가 발생 하는 경우는 **My Apps** 포털 문제 해결 팁에 대 한 도움말 기술 지원팀 또는 관리자에 문의 하기 전에 이러한 시도 합니다.

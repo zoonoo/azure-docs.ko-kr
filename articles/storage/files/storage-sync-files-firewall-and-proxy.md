@@ -2,18 +2,18 @@
 title: Azure 파일 동기화 온-프레미스 방화벽 및 프록시 설정 | Microsoft Docs
 description: Azure 파일 동기화 온-프레미스 네트워크 구성
 services: storage
-author: fauhse
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
-ms.author: fauhse
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 35904c3854ddbcf3648c8a226d56f73be890b6ad
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460484"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -119,11 +119,11 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저�
 | 공용 | 동아시아 | https://kailani11.one.microsoft.com | 동남아시아 | https://tm-kailani11.one.microsoft.com |
 | 공용 | 미국 동부 | https://kailani1.one.microsoft.com | 미국 서부 | https://tm-kailani1.one.microsoft.com |
 | 공용 | 미국 동부 2 | https://kailani-ess.one.microsoft.com | 미국 중부 | https://tm-kailani-ess.one.microsoft.com |
-| 공용 | 북유럽 | https://kailani7.one.microsoft.com | 서유럽 | https://tm-kailani7.one.microsoft.com |
+| 공용 | 유럽 북부 | https://kailani7.one.microsoft.com | 서유럽 | https://tm-kailani7.one.microsoft.com |
 | 공용 | 동남아시아 | https://kailani10.one.microsoft.com | 동아시아 | https://tm-kailani10.one.microsoft.com |
 | 공용 | 영국 남부 | https://kailani-uks.one.microsoft.com | 영국 서부 | https://tm-kailani-uks.one.microsoft.com |
 | 공용 | 영국 서부 | https://kailani-ukw.one.microsoft.com | 영국 남부 | https://tm-kailani-ukw.one.microsoft.com |
-| 공용 | 서유럽 | https://kailani6.one.microsoft.com | 북유럽 | https://tm-kailani6.one.microsoft.com |
+| 공용 | 서유럽 | https://kailani6.one.microsoft.com | 유럽 북부 | https://tm-kailani6.one.microsoft.com |
 | 공용 | 미국 서부 | https://kailani.one.microsoft.com | 미국 동부 | https://tm-kailani.one.microsoft.com |
 | 정부 | 미국 정부 애리조나 | https://usgovarizona01.afs.azure.us | 미국 정부 텍사스 | https://tm-usgovarizona01.afs.azure.us |
 | 정부 | 미국 정부 텍사스 | https://usgovtexas01.afs.azure.us | 미국 정부 애리조나 | https://tm-usgovtexas01.afs.azure.us |

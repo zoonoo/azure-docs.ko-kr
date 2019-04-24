@@ -10,11 +10,11 @@ ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467564"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>ACS(Azure Container Service)에서 AKS(Azure Kubernetes Service)로 마이그레이션
 
@@ -48,7 +48,7 @@ AKS에서 Kubernetes 제어 평면을 관리하는 동안에도 새 클러스터
 
 예제:
 
-| name | 카운트 | VM 크기 | 운영 체제 |
+| Name | 카운트 | VM 크기 | 운영 체제 |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |

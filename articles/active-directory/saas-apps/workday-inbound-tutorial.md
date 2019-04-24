@@ -16,11 +16,11 @@ ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386077"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -152,8 +152,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
+| 아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| 아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
 
   ![시나리오 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| 아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| 아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-|  아니요. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
-|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| 아니요. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
+| 아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -532,10 +532,10 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 | **PreferredNameData**  |  displayName |     |   만들기 + 업데이트 |
 | **Company**         | company   |     |  만들기 + 업데이트 |
 | **SupervisoryOrganization**  | department  |     |  만들기 + 업데이트 |
-| **ManagerReference**   | manager  |     |  만들기 + 업데이트 |
+| **ManagerReference**   | 관리자  |     |  만들기 + 업데이트 |
 | **BusinessTitle**   |  title     |     |  만들기 + 업데이트 | 
 | **AddressLineData**    |  streetAddress  |     |   만들기 + 업데이트 |
-| **Municipality**   |   l   |     | 만들기 + 업데이트 |
+| **Municipality**   |   L   |     | 만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**      |   co |     |   만들기 + 업데이트 |
 | **CountryReferenceTwoLetter**    |  C  |     |         만들기 + 업데이트 |
 | **CountryRegionReference** |  st     |     | 만들기 + 업데이트 |
@@ -714,7 +714,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 3. 이 작업을 수행하면 초기 동기화가 시작되고, Workday 테넌트에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다. 
 
-4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 후 Active Directory에 추가 또는 업데이트되는지와 같은 프로비전 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. 감사 로그를 검토하고 프로비저닝 오류를 수정하는 방법에 대한 지침은 문제 해결 섹션을 참조하세요.
+4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 다음, Active Directory에 추가 또는 업데이트되는지와 같은 프로비저닝 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. 감사 로그를 검토하고 프로비저닝 오류를 수정하는 방법에 대한 지침은 문제 해결 섹션을 참조하세요.
 
 5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
@@ -1181,8 +1181,8 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| 다음 메시지와 함께 감사 로그에서 내보내기 작업 오류가 표시되는 경우. ‘오류: OperationsError-SvcErr: 작업 오류가 발생했습니다. 디렉터리 서비스에 상위 참조가 구성되지 않았습니다. 따라서 디렉터리 서비스가 이 포리스트 밖에 있는 개체로 참조할 수 없습니다.’* | 일반적으로 이 오류는 ‘Active Directory Container’ OU가 제대로 설정되지 않은 경우 또는 *parentDistinguishedName*에 사용되는 식 매핑 관련 문제가 있는 경우 나타납니다. | ‘Active Directory Container’ OU 매개 변수에 오타가 있는지 확인합니다. 특성 매핑에서 *parentDistinguishedName*을 사용하는 경우 항상 AD 도메인 내에서 알려진 컨테이너로 평가되는지 확인합니다. 감사 로그의 ‘내보내기’ 이벤트에서 생성된 값을 확인합니다. |
-|2.| 다음과 같이 감사 로그에서 내보내기 작업 오류가 표시되는 경우. 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 ‘오류: ConstraintViolation-AtrErr: 요청의 값이 잘못되었습니다. 특성 값이 허용 가능한 값 범위에 없습니다. \n오류 세부 정보: CONSTRAINT_ATT_TYPE - company’*. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 ‘내보내기’ 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
+|1.| 다음 메시지와 함께 감사 로그에서 내보내기 작업 오류가 표시되는 경우. ‘오류: OperationsError-SvcErr: 작업 오류가 발생했습니다. 디렉터리 서비스에 상위 참조가 구성되지 않았습니다. 따라서 디렉터리 서비스가 이 포리스트 밖에 있는 개체로 참조할 수 없습니다.’* | 일반적으로 이 오류는 ‘Active Directory Container’ OU가 제대로 설정되지 않은 경우 또는 *parentDistinguishedName*에 사용되는 식 매핑 관련 문제가 있는 경우 나타납니다. | ‘Active Directory Container’ OU 매개 변수에 오타가 있는지 확인합니다. 특성 매핑에서 *parentDistinguishedName*을 사용하는 경우 항상 AD 도메인 내에서 알려진 컨테이너로 평가되는지 확인합니다. 감사 로그의 *내보내기* 이벤트에서 생성된 값을 확인합니다. |
+|2.| 다음과 같이 감사 로그에서 내보내기 작업 오류가 표시되는 경우. 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 ‘오류: ConstraintViolation-AtrErr: 요청의 값이 잘못되었습니다. 특성 값이 허용 가능한 값 범위에 없습니다. \n오류 세부 정보: CONSTRAINT_ATT_TYPE - company’*. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 *내보내기* 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
 
 #### <a name="ad-user-account-update-errors"></a>AD 사용자 계정 업데이트 오류
 
@@ -1190,7 +1190,7 @@ AD 사용자 계정 업데이트 프로세스 중에 프로비전 서비스는 W
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| ‘EventName = EntrySynchronizationError 및 ErrorCode = EndpointUnavailable’ 메시지와 함께 감사 로그에 동기화 규칙 작업 오류가 표시되는 경우 | 이 오류는 온-프레미스 프로비전 에이전트에서 발생한 처리 오류로 인해 프로비전 서비스가 Active Directory에서 사용자 프로필 데이터를 검색할 수 없는 경우 나타납니다. | 프로비전 에이전트 이벤트 뷰어 로그에서 읽기 작업(이벤트 ID #2로 필터링) 관련 문제를 나타내는 오류 이벤트를 확인합니다. |
+|1.| ‘EventName = EntrySynchronizationError 및 ErrorCode = EndpointUnavailable’ 메시지와 함께 감사 로그에 동기화 규칙 작업 오류가 표시되는 경우 | 이 오류는 온-프레미스 프로비전 에이전트에서 발생한 처리 오류로 인해 프로비전 서비스가 Active Directory에서 사용자 프로필 데이터를 검색할 수 없는 경우 나타납니다. | 프로비저닝 에이전트 이벤트 뷰어 로그에서 읽기 작업(이벤트 ID #2로 필터링) 관련 문제를 나타내는 오류 이벤트를 확인합니다. |
 |2.| AD의 특정 사용자에 대한 AD의 관리자 특성이 업데이트되지 않는 경우 | 이 오류는 범위 지정 규칙을 사용 중이고 사용자의 관리자가 범위를 벗어나는 경우 발생할 가능성이 가장 큽니다. 관리자의 일치하는 ID 특성(예: EmployeeID)이 대상 AD 도메인에 없거나 올바른 값으로 설정되지 않은 경우에도 이 문제가 발생할 수 있습니다. | 범위 지정 필터를 검토하고 범위에 관리자 사용자를 추가합니다. AD의 관리자 프로필을 확인하여 일치하는 ID 특성 값이 있는지 확인합니다. |
 
 ## <a name="managing-your-configuration"></a>구성 관리
@@ -1384,7 +1384,7 @@ Microsoft Graph Explorer에서 다음 PUT 쿼리를 구성하고 [servicePrincip
 
 ## <a name="managing-personal-data"></a>개인 데이터 관리
 
-Active Directory용 Workday 프로비전 솔루션을 사용하려면 프로비전 에이전트를 온-프레미스 Windows Server에 설치해야 하고, 이 에이전트는 Workday-AD 특성 매핑에 따라 개인 데이터를 포함할 수 있는 Windows 이벤트 로그에 로그를 만듭니다. 사용자 개인 정보 관련 의무를 준수하기 위해 이벤트 로그를 지우는 Windows 예약 작업을 설정하여 48시간이 지난 데이터가 이벤트 로그에 보존되지 않도록 할 수 있습니다.
+Active Directory용 Workday 프로비저닝 솔루션을 사용하려면 프로비저닝 에이전트를 온-프레미스 Windows Server에 설치해야 하고, 이 에이전트는 Workday-AD 특성 매핑에 따라 개인 데이터를 포함할 수 있는 Windows 이벤트 로그에 로그를 만듭니다. 사용자 개인 정보 관련 의무를 준수하기 위해 이벤트 로그를 지우는 Windows 예약 작업을 설정하여 48시간이 지난 데이터가 이벤트 로그에 보존되지 않도록 할 수 있습니다.
 
 Azure AD 프로비전 서비스는 GDPR 분류의 **데이터 프로세서** 범주에 속합니다. 이 서비스는 데이터 프로세서 파이프라인으로, 주요 파트너 및 최종 소비자에게 데이터 처리 서비스를 제공합니다. Azure AD 프로비전 서비스는 사용자 데이터를 생성하지 않으며 개인 데이터가 수집되는 방법 및 해당 데이터의 사용 방법을 독립적으로 제어하지 않습니다. Azure AD 프로비전 서비스의 데이터 검색, 집계, 분석 및 보고는 기존 엔터프라이즈 데이터를 기반으로 합니다.
 
@@ -1394,7 +1394,7 @@ Azure AD 프로비전 서비스는 GDPR 분류의 **데이터 프로세서** 범
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
 * [Microsoft Graph API를 사용하여 프로비전 구성을 관리하는 방법 알아보기](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

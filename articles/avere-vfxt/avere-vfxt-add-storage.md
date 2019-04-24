@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515893"
 ---
 # <a name="configure-storage"></a>저장소 구성
 
@@ -118,10 +118,10 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
 
 1. 다음 정보를 입력하여 클라우드 코어 파일러에 대한 자격 증명을 만듭니다. 
 
-   | 필드 | 값 |
+   | 필드 | Value |
    | --- | --- |
    | 자격 증명 이름 | 설명이 포함된 이름 |
-   | 서비스 종류 | (Azure Storage 액세스 키 선택) |
+   | 서비스 유형 | (Azure Storage 액세스 키 선택) |
    | 테넌트 | 저장소 계정 이름 |
    | 구독 | 구독 ID |
    | 저장소 액세스 키 | Azure 저장소 계정 키(이전 단계에서 복사됨) | 

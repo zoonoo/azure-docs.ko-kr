@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531088"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 시리즈 업데이트 2.2 릴리스 정보
 
@@ -63,7 +63,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 ## <a name="known-issues-in-update-22"></a>업데이트 2.2의 알려진 문제
 다음 표에서 이 릴리스의 알려진 문제를 간략하게 설명합니다.
 
-|  아니요. | 기능 | 문제 | 주석/해결 방법 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
+| 아니요. | 기능 | 문제 | 주석/해결 방법 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- | --- |
 | 1 |디스크 쿼럼 |드문 경우에 8600 디바이스의 EBOD 인클로저에 있는 대부분의 디스크의 연결이 끊겨 디스크 쿼럼이 없는 경우, 스토리지 풀이 오프라인 상태가 됩니다. 디스크가 다시 연결되더라도 오프라인 상태로 유지됩니다. |디바이스를 다시 부팅해야 합니다. 문제가 지속되면 다음 단계에 대해 Microsoft 지원에 문의하세요. |예 |아닙니다. |
 | 2 |잘못된 컨트롤러 ID |컨트롤러가 교체되면 컨트롤러 0이 컨트롤러 1로 표시될 수 있습니다. 컨트롤러 교체 중, 이미지가 피어 노드에서 로드되면 컨트롤러 ID는 처음에 피어 컨트롤러의 ID로 표시될 수 있습니다. 드문 경우에 시스템을 다시 부팅한 후 이 동작이 나타날 수도 있습니다. |추가적인 조치가 필요하지 않습니다. 컨트롤러 교체를 완료 한 후 이 상황이 저절로 해결됩니다. |예 |아닙니다. |

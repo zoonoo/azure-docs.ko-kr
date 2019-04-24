@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight 4.0 개요
+title: HDInsight 4.0 개요 - Azure
 description: HDInsight 3.6을 HDInsight 4.0 기능, 제한 사항 및 업그레이드 권장 사항과 비교합니다.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,18 +7,18 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: af9f8a9e4d67c74910f60c70a0aee5c2439d6209
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 553f50897afaaf9c677e84f9cfffbff7d2c1e607
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609203"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679682"
 ---
-# <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 개요
+# <a name="hdinsight-40-overview"></a>HDInsight 4.0 개요
 
-Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDI(HDInsight) 4.0은 [HDP(Hortonworks Data Platform) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)의 Apache Hadoop 구성 요소의 클라우드 배포판입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
+Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다. HDInsight 4.0은 [HDP(Hortonworks Data Platform) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)의 Apache Hadoop 구성 요소의 클라우드 배포판입니다. 이 문서에서는 가장 최근 Azure HDInsight 릴리스 및 업그레이드 방법에 대한 정보를 제공합니다.
 
-## <a name="whats-new-in-hdi-40"></a>HDI 4.0의 새로운 기능
+## <a name="whats-new-in-hdinsight-40"></a>HDInsight 4.0의 새로운 기능
 
 ### <a name="apache-hive-30-and-llap"></a>Apache Hive 3.0 및 LLAP
 
@@ -67,7 +67,7 @@ HDInsight 4.0에서 Apache Spark는 다음 시나리오를 지원합니다.
 * Hive 스트리밍 테이블의 변경 피드에서 Spark 스트리밍 작업을 실행합니다.
 * Spark Structured Streaming 작업에서 직접 ORC 파일을 만듭니다.
 
-Spark에서 직접 Hive 트랜잭션 테이블에 실수로 액세스하여 일관성 없는 결과, 중복된 데이터 또는 데이터 손상이 발생하는 것에 대해 더 이상 걱정할 필요가 없습니다. HDI 4.0에서 Spark 테이블 및 Hive 테이블은 별도 Metastore에 보관됩니다. Hive Data Warehouse Connector를 사용하여 Spark 외부 테이블로 Hive 트랜잭션 테이블을 명시적으로 등록합니다.
+Spark에서 직접 Hive 트랜잭션 테이블에 실수로 액세스하여 일관성 없는 결과, 중복된 데이터 또는 데이터 손상이 발생하는 것에 대해 더 이상 걱정할 필요가 없습니다. HDInsight 4.0에서 Spark 테이블 및 Hive 테이블은 별도 Metastore에 보관됩니다. Hive Data Warehouse Connector를 사용하여 Spark 외부 테이블로 Hive 트랜잭션 테이블을 명시적으로 등록합니다.
 
 [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html)에 대해 자세히 알아봅니다.
 
@@ -82,22 +82,19 @@ Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
 
 [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html)에 대해 자세히 알아봅니다.
 
-## <a name="how-to-upgrade-to-hdi-40"></a>HDI 4.0으로 업그레이드하는 방법
+## <a name="how-to-upgrade-to-hdinsight-40"></a>HDInsight 4.0으로 업그레이드하는 방법
 
-모든 주요 릴리스와 마찬가지로 프로덕션 환경에서 최신 버전을 구현하기 전에 구성 요소를 철저히 테스트해야 합니다. HDI 4.0을 업그레이드 프로세스를 시작하는 데 사용할 수 있지만 HDI 3.6은 실수로 인한 오류 발생을 방지하기 위해 기본 옵션입니다.
+모든 주요 릴리스와 마찬가지로 프로덕션 환경에서 최신 버전을 구현하기 전에 구성 요소를 철저히 테스트해야 합니다. HDInsight 4.0을 업그레이드 프로세스를 시작하는 데 사용할 수 있지만 HDInsight 3.6은 실수로 인한 오류 발생을 방지하기 위해 기본 옵션입니다.
 
-이전 버전의 HDI에서 HDI 4.0으로 지원되는 업그레이드 경로가 없습니다. Metastore와 Blob 데이터 형식이 변경되었으므로 HDI 4.0은 이전 버전과 호환되지 않습니다. 새 HDI 4.0 환경을 현재 프로덕션 환경과 별도로 유지해야 합니다. HDI 4.0을 현재 환경에 배포하는 경우 Metastore가 업그레이드되며 되돌릴 수 없습니다.  
+이전 버전의 HDInsight에서 HDInsight 4.0으로 지원되는 업그레이드 경로가 없습니다. Metastore와 Blob 데이터 형식이 변경되었으므로 HDInsight 4.0은 이전 버전과 호환되지 않습니다. 새 HDInsight 4.0 환경을 현재 프로덕션 환경과 별도로 유지해야 합니다. HDInsight 4.0을 현재 환경에 배포하는 경우 Metastore가 업그레이드되며 되돌릴 수 없습니다.  
 
 ## <a name="limitations"></a>제한 사항
 
-* HDI 4.0은 MapReduce를 지원하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
-
-* Hive 보기는 HDI 4.0에서 더 이상 사용할 수 없습니다. 
-
+* HDInsight 4.0은 MapReduce를 지원하지 않습니다. 대신 Apache Tez를 사용하세요. [Apache Tez](https://tez.apache.org/)에 대해 자세히 알아봅니다.
+* HDInsight 4.0은 Apache Storm을 지원하지 않습니다. 
+* Hive 보기는 HDInsight 4.0에서 더 이상 사용할 수 없습니다. 
 * Apache Zeppelin의 셸 인터프리터는 Spark 및 대화형 쿼리 클러스터에서 지원되지 않습니다.
-
 * LLAP는 Spark-LLAP 클러스터에서 *사용하지 않도록 설정*할 수 없으며, 이를 해제할 수만 있습니다.
-
 * Azure Data Lake Storage Gen2는 Spark 클러스터에 Juypter 노트북을 저장할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

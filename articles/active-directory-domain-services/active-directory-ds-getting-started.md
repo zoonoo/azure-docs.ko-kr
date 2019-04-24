@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
 ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418209"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "58122912"
 * Azure AD Domain Services를 활성화하려면 Azure AD 디렉터리에 **전역 관리자** 권한이 필요합니다.
 
 
-## <a name="enable-azure-ad-domain-services"></a>Azure AD Domain Services 활성화
+## <a name="enable-azure-ad-domain-services"></a>Azure AD Domain Services 사용
 
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
 

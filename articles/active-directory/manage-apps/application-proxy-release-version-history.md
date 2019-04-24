@@ -17,11 +17,11 @@ ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441664"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 애플리케이션 프록시: 버전 릴리스 내역
 이 문서는 버전 및 출시 된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 기능을 나열 합니다. Azure AD 팀 새로운 특징과 기능을 사용 하 여 응용 프로그램 프록시를 정기적으로 업데이트합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다.
