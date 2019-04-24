@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486467"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
@@ -111,7 +111,7 @@ ms.locfileid: "54017619"
 *  DB2 드라이버는 이제 게이트웨이 설치 패키지에 포함됩니다. 별도로 설치할 필요가 없습니다.
 *  이제 DB2 드라이버는 이미 지원되는 플랫폼(Linux, Unix 및 Windows)과 함께 i(AS/400)용 z/OS 및DB2를 지원합니다.
 *  온-프레미스 데이터 저장소에 대한 Azure Cosmos DB를 원본 또는 대상으로 사용하도록 지원합니다.
-*  이미 지원되는 범용 저장소 계정과 함께 콜드/핫 Blob 저장소에서/으로 데이터를 복사하도록 지원합니다.
+*  이미 지원되는 범용 스토리지 계정과 함께 콜드/핫 Blob Storage에서/으로 데이터를 복사하도록 지원합니다.
 *  원격 로그인 권한이 있는 게이트웨이를 통해 온-프레미스 SQL Server에 연결할 수 있습니다.  
 
 ## <a name="2060131"></a>2.0.6013.1

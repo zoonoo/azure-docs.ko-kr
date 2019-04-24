@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448639"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
 
@@ -108,12 +108,12 @@ HTTP 응답
 | --- | --- | --- |
 | headers |object |응답 헤더 |
 | 본문 |object |응답 개체 |
-| 상태 코드 |ssNoversion |HTTP 상태 코드 |
+| 상태 코드 |int |HTTP 상태 코드 |
 
 ### <a name="http-responses"></a>HTTP 응답
 다양한 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 해당 응답 및 설명을 대략적으로 요약해서 보여 줍니다.
 
-| name | 설명 |
+| Name | 설명 |
 | --- | --- |
 | 200 |확인 |
 | 202 |수락됨 |

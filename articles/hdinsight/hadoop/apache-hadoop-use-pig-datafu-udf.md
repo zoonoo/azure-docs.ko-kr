@@ -1,7 +1,6 @@
 ---
 title: HDInsight에서 Apache Pig와 함께 Apache DataFu 사용 - Azure
 description: Apache DataFu Pig는 Apache Hadoop에서 Apache Pig와 함께 사용하기 위한 라이브러리 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445114"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>HDInsight에서 Apache Pig와 함께 Apache DataFu Pig 사용
 
@@ -88,11 +87,11 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 > [!IMPORTANT]  
 > 이전 섹션의 단계에 따라 DataFu를 수동으로 설치한 경우 사용하기 전에 등록해야 합니다.
 >
-> * 클러스터에서 Azure Storage를 사용하는 경우 `wasb://` 경로를 사용합니다. 예: `register wasb:///example/jars/datafu-pig-1.4.0.jar`
+> * 클러스터에서 Azure Storage를 사용하는 경우 `wasb://` 경로를 사용합니다. 예: `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
 >
-> * 클러스터에서 Azure Data Lake Store Gen2를 사용하는 경우 `abfs://` 경로를 사용합니다. 예: `register abfs://home/example/jars/datafu-pig-1.4.0.jar`
+> * 클러스터에서 Azure Data Lake Store Gen2를 사용하는 경우 `abfs://` 경로를 사용합니다. 예: `register abfs://home/example/jars/datafu-pig-1.4.0.jar`.
 >
-> * 클러스터에서 Azure Data Lake Store Gen1을 사용하는 경우 `adl://` 경로를 사용합니다. 예: `register adl://home/example/jars/datafu-pig-1.4.0.jar`
+> * 클러스터에서 Azure Data Lake Store Gen1을 사용하는 경우 `adl://` 경로를 사용합니다. 예: `register adl://home/example/jars/datafu-pig-1.4.0.jar`.
 
 종종 DataFu 함수에 대한 별칭을 정의합니다. 다음 예제에서는 `SHA`의 별칭을 정의합니다.
 

@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 09/27/2018
 ms.author: diberry
 ms.openlocfilehash: 445434b3315d9316721656e15bc8886d82f6f1ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "58114978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530970"
 ---
 프로그램 클래스 안에 다음 코드 블록을 추가합니다.
 

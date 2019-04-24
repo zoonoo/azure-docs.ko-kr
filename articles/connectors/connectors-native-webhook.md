@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447239"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>웹후크 및 Azure Logic Apps를 사용하여 이벤트 기반 워크플로 또는 작업 만들기
 
@@ -114,7 +114,7 @@ ms.locfileid: "58895582"
 | --- | --- | --- |
 | headers |object |웹후크 요청 헤더 |
 | 본문 |object |웹후크 요청 개체 |
-| 상태 코드 |ssNoversion |웹후크 요청 상태 코드 |
+| 상태 코드 |int |웹후크 요청 상태 코드 |
 
 ## <a name="webhook-actions"></a>웹후크 작업
 
@@ -150,7 +150,7 @@ ms.locfileid: "58895582"
 | --- | --- | --- |
 | headers |object |웹후크 요청 헤더 |
 | 본문 |object |웹후크 요청 개체 |
-| 상태 코드 |ssNoversion |웹후크 요청 상태 코드 |
+| 상태 코드 |int |웹후크 요청 상태 코드 |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483231"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 애플리케이션 설정
 
@@ -59,7 +59,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 이 드롭다운 목록을 사용하여 이 제품을 게시할 게시자 프로필을 선택할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>Name
 
 제품에 대한 표시 이름입니다. [AppSource](https://appsource.microsoft.com/)에 표시할 이름입니다. 최대 50문자를 포함할 수 있습니다.
 
@@ -106,7 +106,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 앱에 가장 부합되는 산업을 선택합니다. 앱이 여러 산업과 관련되는 경우 이 항목은 비워 둘 수 있습니다.
 
-### <a name="categories"></a>범주
+### <a name="categories"></a>Categories
 
 앱과 관련이 있는 범주를 선택합니다. 최대 3개를 선택합니다.
 

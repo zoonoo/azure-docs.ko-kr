@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: ergreenl
 ms.openlocfilehash: 30448ecdcce8ccd8929a35ed69cc36675c627c14
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416639"
 ---
 # <a name="azure-ad-domain-services---supported-regions"></a>Azure AD Domain Services - 지원되는 지역
 Azure AD Domain Services를 사용할 수 있는 지역을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/)를 참조하세요.

@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58114350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456031"
 ---
 애플리케이션에서 로그인만 사용하려면 **로그인** 사용자 흐름을 사용합니다. 이 사용자 흐름은 로그인 시 고객이 경험하는 환경 및 로그인 성공 시 애플리케이션이 수신하는 토큰의 콘텐츠에 대해 설명합니다.
 
@@ -39,3 +40,4 @@ ms.locfileid: "58114350"
 > [!NOTE]
 > 사용자 흐름 만들기 및 업데이트가 적용되려면 최대 1분이 걸립니다.
 >
+

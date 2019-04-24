@@ -9,11 +9,11 @@ ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459940"
 ---
 # <a name="virtual-wan-partners"></a>Virtual WAN 파트너
 
@@ -48,17 +48,17 @@ ms.locfileid: "49958689"
 
 고객은 디바이스 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 디바이스 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
 
-* 온-프레미스 디바이스 컨트롤러에 대한 Azure Active Directory 애플리케이션을 만듭니다.
+* 온-프레미스 장치 컨트롤러에 대한 Azure Active Directory 애플리케이션을 만듭니다.
 * 애플리케이션 ID 및 인증 키 가져오기
 * 테넌트 ID 가져오기
 * 애플리케이션을 “기여자”에 할당
 
-###  <a name="branch"></a>분기 장치 정보 업로드
+###  <a name="branch"></a>분기 디바이스 정보 업로드
 
 Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용자 환경을 디자인합니다. VPNSite의[REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnsites)를 사용하여 Virtual WAN에서 사이트 정보를 작성할 수 있습니다. 모든 분기 SDWAN/VPN 디바이스를 제공하거나 적절하게 디바이스 사용자 지정을 선택할 수 있습니다.
 
 
-### <a name="device"></a>장치 구성 다운로드 및 연결
+### <a name="device"></a>디바이스 구성 다운로드 및 연결
 
 이 단계는 Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정을 포함합니다. 이 단계에서는 공급자를 사용하지 않는 고객은 수동으로 Azure 구성을 다운로드하고 온-프레미스 SDWAN/VPN 디바이스에 적용합니다. 공급자는 이 단계를 자동화해야 합니다. 디바이스 컨트롤러는 'GetVpnConfiguration' REST API를 호출하여 일반적으로 다음 파일과 비슷하게 표시되는 Azure 구성을 다운로드할 수 있습니다.
 
@@ -71,7 +71,7 @@ Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용�
 
 디바이스 구성 파일에는 온-프레미스 VPN 디바이스를 구성할 때 사용할 설정이 포함되어 있습니다. 이 파일을 볼 때 다음 정보를 확인합니다.
 
-* **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 장치 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
+* **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 디바이스 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션에서는 다음 정보를 제공합니다.
 
     * 가상 허브 VNet의 **주소 공간**.<br>예제:

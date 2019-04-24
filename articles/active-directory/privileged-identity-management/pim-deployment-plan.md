@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440636"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -99,7 +99,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>관련자: Azure AD 역할에 대한 PIM
 
-| 이름 | 역할 | 조치 |
+| Name | 역할 | 액션(Action) |
 | --- | --- | --- |
 | 이름 및 이메일 | **설계자 또는 Azure 글로벌 관리자 식별**<br/>이 변경을 조직의 핵심 ID 관리 인프라와 일치시키는 방법을 정의할 책임이 있는 ID 관리 팀 출신 담당자입니다. | SO/R/I |
 | 이름 및 이메일 | **서비스 소유자 / 라인 관리자**<br/>서비스 또는 서비스 그룹의 IT 소유자 출신 담당자입니다. 자신의 팀에 대해 의사 결정을 하고 PIM을 실행하도록 도와 주는 핵심 역할을 합니다. | SO/R/I |
@@ -109,7 +109,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>관련자: Azure 리소스 역할에 대한 PIM
 
-| 이름 | 역할 | 조치 |
+| Name | 역할 | 액션(Action) |
 | --- | --- | --- |
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>다음에 대한 PIM을 배포하려는 각 구독 또는 리소스의 IT 소유자 출신 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |

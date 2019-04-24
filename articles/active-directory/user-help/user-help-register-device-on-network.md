@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473676"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>조직의 네트워크에 개인 디바이스 등록
 개인 디바이스(일반적으로 휴대폰이나 태블릿)를 조직의 네트워크에 등록합니다. 디바이스가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다.
@@ -50,7 +50,7 @@ ms.locfileid: "57439743"
 
     ![연결 옵션이 강조 표시된 회사 또는 학교 액세스 화면](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. **회사 또는 학교 계정 추가** 화면에서 회사 또는 학교 계정에 대한 이메일 주소를 입력한 후 **다음**을 선택합니다. 예: alain@contoso.com
+3. **회사 또는 학교 계정 추가** 화면에서 회사 또는 학교 계정에 대한 이메일 주소를 입력한 후 **다음**을 선택합니다. 예: alain@contoso.com.
 
 4. 회사 또는 학교 계정에 로그인한 다음, **로그인**을 선택합니다.
 

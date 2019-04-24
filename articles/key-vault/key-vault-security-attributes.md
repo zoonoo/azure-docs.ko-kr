@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fa36a3c1eb6bda109c7985fa7cade496d2ccf9f4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461423"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Azure Key Vault에 대 한 일반적인 보안 특성
 
@@ -28,18 +28,18 @@ ms.locfileid: "59677802"
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 | 모든 개체가 암호화됩니다. |
 | 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 | 모든 통신은 암호화된 API 호출을 통해 수행됩니다. |
-| 암호화 키 처리(CMK, BYOK 등)| 예 | 고객 키 자격 증명 모음에 있는 모든 키를 제어합니다. 하드웨어 보안 모듈 (HSM) 지원 키를 지정한 경우에 FIPS 수준 2 HSM 키, 인증서 또는 암호를 보호 합니다. |
-| 열 수준 암호화(Azure Data Services)| N/A |  |
+| 암호화 키 처리 (예: CMK, BYOK)| 예 | 고객 키 자격 증명 모음에 있는 모든 키를 제어합니다. 하드웨어 보안 모듈 (HSM) 지원 키를 지정한 경우에 FIPS 수준 2 HSM 키, 인증서 또는 암호를 보호 합니다. |
+| 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 | HTTPS를 사용합니다. |
 
 ## <a name="network-segmentation"></a>네트워크 분할
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
-| 서비스 엔드포인트 지원| 예 | Vnet(Virtual Network) 서비스 엔드포인트를 사용합니다. |
+| 서비스 끝점 지원| 예 | Vnet(Virtual Network) 서비스 엔드포인트를 사용합니다. |
 | vNET 삽입 지원| 아닙니다. |  |
-| 네트워크 격리/방화벽 지원| 예 | Vnet 방화벽 규칙을 사용합니다. |
-| 강제 터널링 지원 | 아닙니다. |  |
+| 네트워크 격리 및 방화벽 지원| 예 | Vnet 방화벽 규칙을 사용합니다. |
+| 강제 터널링 지원| 아닙니다. |  |
 
 ## <a name="detection"></a>감지
 
@@ -47,12 +47,12 @@ ms.locfileid: "59677802"
 |---|---|--|
 | Azure 지원 (예: Log analytics, App insights)를 모니터링 합니다.| 예 | Log Analytics를 사용합니다. |
 
-## <a name="iam-support"></a>IAM 지원
+## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 
 | 보안 특성 | 예/아니요 | 메모|
 |---|---|--|
-| 액세스 관리 - 인증| 예 | 인증은 Azure Active Directory를 통해 수행됩니다. |
-| 액세스 관리 - 권한 부여| 예 | Key Vault 액세스 정책을 사용합니다. |
+| Authentication| 예 | 인증은 Azure Active Directory를 통해 수행됩니다. |
+| 권한 부여| 예 | Key Vault 액세스 정책을 사용합니다. |
 
 
 ## <a name="audit-trail"></a>감사 내역

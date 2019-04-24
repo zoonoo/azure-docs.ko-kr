@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics: 일반적인 질문 - FAQ | Microsoft Docs'
+title: 'Microsoft Genomics: 일반적인 질문-질문과 대답 | Microsoft Docs'
 titleSuffix: Azure
 description: Microsoft Genomics에 대해 고객이 일반적으로 하는 질문에 대한 답입니다.
 services: genomics
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683903"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445552"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
@@ -73,7 +73,8 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 ## <a name="what-genome-references-can-i-use"></a>어떤 게놈 참조를 사용할 수 있나요?
 
 지원되는 참조는 다음과 같습니다.
- |참고 자료              | `-pa/--process-args`의 값 |
+
+ |참조              | `-pa/--process-args`의 값 |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -84,15 +85,15 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 
 msgen은 다음 형식으로 구성 파일을 이해합니다.
 * 모든 옵션은 키에서 콜론으로 구분된 값이 있는 키-값 쌍으로 제공됩니다.
-공백은 무시됩니다.
+  공백은 무시됩니다.
 * `#`으로 시작하는 줄은 무시됩니다.
 * 긴 형식의 명령줄 인수는 선행 대시를 제거하고 단어 간 대시를 밑줄로 바꾸어 키로 변환할 수 있습니다. 다음은 몇 가지 변환 예입니다.
 
- |명령줄 인수            | 구성 파일 줄 |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |명령줄 인수            | 구성 파일 줄 |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468320"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -157,7 +157,7 @@ Task | 최소 권한 역할 | 추가 역할
 그룹 소유자 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 관리자
 그룹 속성 업데이트 | 그룹 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 사용자 관리자
 
-## <a name="identity-protection"></a>ID 보호
+## <a name="identity-protection"></a>Identity Protection
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------

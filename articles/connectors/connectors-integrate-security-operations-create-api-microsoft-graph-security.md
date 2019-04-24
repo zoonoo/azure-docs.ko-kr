@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
 ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448051"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Microsoft Graph Security 및 Azure Logic Apps와 보안 작업을 통합하여 위협 방지 향상
 
@@ -36,7 +36,7 @@ Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 A
 
 * Microsoft Graph Security 커넥터를 사용하려면 [Microsoft Graph Security 인증 요구 사항](https://aka.ms/graphsecurityauth)의 일부인 ‘명시적으로 제공된’ Azure AD(Active Directory) 테넌트 관리자 동의가 있어야 합니다. 이 동의에는 [Azure Portal](https://portal.azure.com)에서 확인할 수 있는 Microsoft Graph Security 커넥터의 애플리케이션 ID 및 이름이 필요합니다.
 
-   | 자산 | 값 |
+   | 자산 | Value |
    |----------|-------|
    | **애플리케이션 이름** | `MicrosoftGraphSecurityConnector` |
    | **애플리케이션 ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -87,7 +87,7 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 이 커넥터에서 사용할 수 있는 쿼리에 대한 자세한 내용은 [Microsoft Graph Security 경고 참조 문서](https://docs.microsoft.com/graph/api/alert-list)를 참조하세요. 이 커넥터를 사용하여 향상된 환경을 빌드하려면 커넥터가 지원하는 [스키마 속성 경고](https://docs.microsoft.com/graph/api/resources/alert)를 자세히 알아보세요.
 
-| 조치 | 설명 |
+| 액션(Action) | 설명 |
 |--------|-------------|
 | **경고 가져오기** | 하나 이상의 [경고 속성](https://docs.microsoft.com/graph/api/resources/alert)을 기준으로 필터링된 경고를 가져옵니다. 예: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **ID로 경고 가져오기** | 경고 ID를 기준으로 특정 경고를 가져옵니다. | 
@@ -101,7 +101,7 @@ Microsoft Graph는 [‘구독’](https://docs.microsoft.com/graph/api/resources
 
 `security/alerts?$filter=status eq 'New'`
 
-| 조치 | 설명 |
+| 액션(Action) | 설명 |
 |--------|-------------|
 | **구독 만들기** | 변경 내용에 대해 알리는 [구독을 만듭니다](https://docs.microsoft.com/graph/api/subscription-post-subscriptions). 원하는 특정 경고 유형에 대해 이 구독을 필터링할 수 있습니다. 예를 들어 높은 심각도 경고에 대해 알리는 구독을 만들 수 있습니다. |
 | **활성 구독 가져오기** | [만료되지 않은 구독을 가져옵니다](https://docs.microsoft.com/graph/api/subscription-list). | 

@@ -17,11 +17,11 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c70df45f448502978254a60747eb168ea33dd86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>자습서: LINE WORKS와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ LINE WORKS와 Azure AD를 통합하도록 구성하려면 다음 항목이 필�
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 LINE WORKS 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -156,7 +156,7 @@ LINE WORKS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. 에 **사용자 이름** 필드에 입력 **brittasimon\@yourcompanydomain.extension**  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
