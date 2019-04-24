@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
 ms.openlocfilehash: 65ea8622187d0665e4680f4162ddff0bc01e6eb9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306769"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>외부 권한 부여자를 사용하여 요청 인증
 

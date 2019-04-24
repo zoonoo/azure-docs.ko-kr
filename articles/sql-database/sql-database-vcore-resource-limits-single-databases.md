@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/17/2019
 ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331114"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
@@ -269,7 +269,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|30000|
 |복제본 수|2|2|2|2|2|2|2|2|
 |다중 AZ|N/A|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|해당 사항 없음|N/A|
-|읽기 확장|예|예|예|예|예|예|예|예|
+|읽기 확장|예|예|예|예|예|예|예|예.|
 |포함되는 백업 저장소(미리 보기 제한)|7|7|7|7|7|7|7|7|
 |||
 

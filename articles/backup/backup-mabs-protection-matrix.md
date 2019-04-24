@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237608"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
 
@@ -22,7 +22,7 @@ ms.locfileid: "58094646"
 
 ## <a name="protection-support-matrix"></a>보호 지원 매트릭스
 
-|워크로드|버전|Azure Backup 서버</br> installation|Azure Backup</br> 서버 V3|Azure Backup</br> 서버 V2|보호 및 복구|
+|작업|Version|Azure Backup 서버</br> installation|Azure Backup</br> 서버 V3|Azure Backup</br> 서버 V2|보호 및 복구|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |클라이언트 컴퓨터(64비트 및 32비트)|윈도우 10|물리적 서버<br /><br />Hyper-V 가상 머신<br /><br />VMware 가상 머신|Y|Y|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|물리적 서버<br /><br />Hyper-V 가상 컴퓨터|Y|Y|파일<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. DPM은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅숏을 생성하고 스냅숏은 볼륨이 1GB 이상인 경우에만 작동합니다.|

@@ -18,11 +18,11 @@ ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57ec1939dd1f5445583200776e489f7596f572f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250317"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory의 테넌시
 
@@ -36,10 +36,10 @@ Azure AD(Azure Active Directory)에서는 사용자 및 앱과 같은 개체를 
 
 Azure Portal에서 대상 그룹을 다음과 같이 설정하여 앱을 단일 테넌트 또는 다중 테넌트로 구성할 수 있습니다.
 
-| 대상 | 단일/다중 테넌트 | 로그인할 수 있는 사용자 | 
+| 대상 그룹 | 단일/다중 테넌트 | 로그인할 수 있는 사용자 | 
 |----------|--------| ---------|
-| 이 디렉터리의 계정에만 해당 | 단일 테넌트 | 디렉터리의 모든 사용자 및 게스트 계정은 사용자의 애플리케이션 또는 API를 사용할 수 있습니다.<br>*대상 그룹이 조직 내부자인 경우 이 옵션을 사용합니다.* |
-| Azure AD 디렉터리의 계정 | 다중 테넌트 | Microsoft에서 회사 또는 학교 계정을 사용하는 모든 사용자 및 게스트는 사용자의 애플리케이션 또는 API를 사용할 수 있습니다. 여기에는 Office 365를 사용하는 학교 및 회사가 포함됩니다.<br>*대상 그룹이 비즈니스 또는 교육용 고객인 경우 이 옵션을 사용합니다.* |
+| 이 디렉터리의 계정에만 해당 | 단일 테넌트 | 디렉터리의 모든 사용자 및 게스트 계정이 응용 프로그램 또는 API를 사용할 수 있습니다.<br>*대상 그룹이 조직 내부자인 경우 이 옵션을 사용합니다.* |
+| 모든 Azure AD 디렉터리의 계정 | 다중 테넌트 | Microsoft에서 회사 또는 학교 계정을 사용하는 모든 사용자 및 게스트는 사용자의 애플리케이션 또는 API를 사용할 수 있습니다. 여기에는 Office 365를 사용하는 학교 및 회사가 포함됩니다.<br>*대상 그룹이 비즈니스 또는 교육용 고객인 경우 이 옵션을 사용합니다.* |
 | Azure AD 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com) | 다중 테넌트 | 회사나 학교 계정 또는 개인 Microsoft 계정을 사용하는 모든 사용자는 사용자의 애플리케이션 또는 API를 사용할 수 있습니다. Skype 및 Xbox와 같은 서비스에 로그인하는 데 사용되는 개인 계정뿐만 아니라 Office 365를 사용하는 학교 및 회사가 포함됩니다.<br>*다양한 Microsoft 계정을 대상으로 지정하려면 이 옵션을 사용합니다.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>다중 테넌트 앱에 대한 모범 사례

@@ -11,11 +11,11 @@ ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317314"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 
@@ -102,7 +102,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이�
 2. **UserJourneys** 요소를 찾고, `SignUpOrSignIn` 식별자를 사용하는 **UserJourney** 요소의 전체 내용을 복사합니다.
 3. 확장 파일을 엽니다(예: *TrustFrameworkExtensions.xml*). 그리고 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. **UserJourney** 요소 전체를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 새 사용자 경험에 대한 식별자 값을 변경합니다(예: 예: `SignUpOrSignInWithKmsi`
+5. 새 사용자 경험에 대한 식별자 값을 변경합니다(예: 예: `SignUpOrSignInWithKmsi`.
 6. 마지막으로, 첫 번째 오케스트레이션 단계에서 **ContentDefinitionReferenceId** 값을 `api.signuporsigninwithkmsi`로 변경합니다. 이 값을 설정하면 사용자 경험에서 확인란이 활성화됩니다. 
 7. 확장 파일을 저장 및 업로드하고, 모든 유효성 검사가 성공했는지 확인합니다.
 
@@ -147,8 +147,8 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이�
 만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
 1. 작업 디렉터리에 *SignUpOrSignIn.xml* 파일의 복사본을 만든 다음, 이름을 바꿉니다(예: *SignUpOrSignInWithKmsi.xml*).
-2. 새 파일을 열고, **TrustFrameworkPolicy**의 **PolicyId** 특성을 고유 값으로 업데이트합니다. 이 특성은 정책의 이름입니다(예: 예: `SignUpOrSignInWithKmsi`
-3. 만든 새 사용자 경험의 식별자와 일치하도록 **DefaultUserJourney** 요소의 **ReferenceId** 특성을 변경합니다(예: 예: `SignUpOrSignInWithKmsi`
+2. 새 파일을 열고, **TrustFrameworkPolicy**의 **PolicyId** 특성을 고유 값으로 업데이트합니다. 이 특성은 정책의 이름입니다(예: 예: `SignUpOrSignInWithKmsi`.
+3. 만든 새 사용자 경험의 식별자와 일치하도록 **DefaultUserJourney** 요소의 **ReferenceId** 특성을 변경합니다(예: 예: `SignUpOrSignInWithKmsi`.
 
     KMSI는 첫 번째 자식 요소로 **SingleSignOn**, **SessionExpiryType** 및 **SessionExpiryInSeconds**를 사용하는 **UserJourneyBehaviors** 요소를 통해 구성됩니다. **KeepAliveInDays** 특성은 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 다음 예제에서 KMSI 세션은 사용자가 자동 인증을 수행하는 빈도에 관계없이 `7`일 후에 자동으로 만료됩니다. **KeepAliveInDays** 값을 `0`으로 설정하면 KMSI 기능이 해제됩니다. 이 값은 기본적으로 `0`입니다. **SessionExpiryType** 값이 `Rolling`이면 사용자가 자동 인증을 수행할 때마다 KMSI 세션이 `7`일 연장됩니다.  `Rolling`을 선택하면 일 수를 최소로 유지해야 합니다. 
 

@@ -10,11 +10,11 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396169"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure Diagnostics 데이터 스트리밍
 Azure Diagnostics에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -39,7 +39,7 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 
 * Azure Diagnostics 확장 1.6(기본적으로[Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
 * [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 애플리케이션에서 Azure 진단의 기존 구성은 다음과 같습니다.
+* *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 애플리케이션에서 Azure Diagnostics의 기존 구성은 다음과 같습니다.
   * Visual Studio: [Azure Cloud Services 및 Virtual Machines에서 진단 구성](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [PowerShell을 사용하여 Azure Cloud Services에 진단 사용](../../cloud-services/cloud-services-diagnostics-powershell.md)
 * [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)

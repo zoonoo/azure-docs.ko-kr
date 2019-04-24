@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415624"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방법: Azure AD 셀프 서비스 암호 재설정
 
@@ -64,7 +64,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 * 모바일 앱 알림(미리 보기)
 * 모바일 앱 코드(미리 보기)
 * Email
-* 휴대폰
+* 모바일 폰
 * 사무실 전화
 * 보안 질문
 
@@ -93,7 +93,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 * 관리자가 하나의 방법으로 암호를 재설정하도록 요구하는 경우 사용 가능한 유일한 옵션은 인증 코드입니다.
 * 관리자가 두 가지 방법으로 암호를 재설정하도록 요구하는 경우, 사용자는 다른 활성화된 방법과 함께 **알림** 또는 **확인 코드**를 사용하여 재설정할 수 있습니다.
 
-| 재설정에 필요한 방법 수  | 1 | 2 |
+| 재설정에 필요한 방법 수 | 1 | 2 |
 | :---: | :---: | :---: |
 | 모바일 앱 기능 사용 가능 | 코드 | 코드 또는 알림 |
 
@@ -144,7 +144,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 유효한 값은 0-730일이며, 여기서 "0"은 사용자가 해당 인증 정보를 다시 확인하도록 요청받지 않습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 ### <a name="notify-users-on-password-resets"></a>사용자에게 암호 재설정에 대해 알림
 
@@ -178,7 +178,7 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 * 스위치를 **예**로 설정하면 쓰기 저장이 사용하도록 설정되며, 페더레이션되고, 통과 인증 또는 암호 해시 동기화된 사용자는 암호를 다시 설정할 수 있습니다.
 * 스위치를 **아니요**로 설정하면 쓰기 저장을 사용하지 않도록 설정되며, 페더레이션되고, 통과 인증 또는 암호 해시 동기화된 사용자는 암호를 다시 설정할 수 없습니다.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>사용자가 해당 암호를 재설정하지 않고 계정의 잠금을 해제할 수 있음
+### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>사용자가 암호를 재설정하지 않고 계정을 잠금 해제할 수 있음
 
 이 컨트롤은 암호 재설정 포털을 방문하는 사용자에게 암호를 다시 설정하지 않고 온-프레미스 Active Directory 계정의 잠금을 해제할 수 있는 옵션을 제공하는지 여부를 지정합니다. 기본적으로 Azure AD는 암호 재설정을 수행할 때 계정을 잠금 해제합니다. 이 설정을 사용하여 다음 두 가지 작업을 구분합니다.
 

@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295015"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>Azure AD Connect 관리 에이전트란? 
 Azure AD Connect 관리 에이전트는 Azure Active Directory Connect는 Azure Active Directory Connect 서버에 설치 된 새 구성 요소입니다. Microsoft 지원 엔지니어가 지원 사례를 열 때 문제를 해결 하는 데 도움이 되는 Active Directory 환경의 특정 데이터를 수집 하는 것이 됩니다.

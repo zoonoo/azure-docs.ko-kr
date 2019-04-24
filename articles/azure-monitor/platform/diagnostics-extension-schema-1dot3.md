@@ -10,11 +10,11 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238063"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 이상 구성 스키마
 > [!NOTE]
@@ -422,7 +422,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**PublicConfig**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PrivateConfig**|선택 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**IsEnabled**|부울 값입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**IsEnabled**|Boolean입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig*
@@ -644,12 +644,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |특성|Type|설명|  
 |---------------|----------|-----------------|  
-|**name**|문자열|sinkname을 식별하는 문자열입니다.|  
+|**name**|string|sinkname을 식별하는 문자열입니다.|  
 
 |요소|Type|설명|  
 |-------------|----------|-----------------|  
-|**Application Insights**|문자열|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
-|**Channels**|문자열|스트림하는 각 추가 필터링에 대한|  
+|**Application Insights**|string|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
+|**Channels**|string|스트림하는 각 추가 필터링에 대한|  
 
 ## <a name="channels-element"></a>Channels 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -660,7 +660,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |요소|Type|설명|  
 |-------------|----------|-----------------|  
-|**채널**|문자열|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="channel-element"></a>채널 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -692,5 +692,5 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="isenabled-element"></a>IsEnabled 요소  
  *Tree: Root - DiagnosticsConfiguration - IsEnabled*
 
- 부울 값입니다. `true`를 사용하여 진단을 사용하도록 설정하거나 `false`를 사용하여 진단을 사용하지 않도록 설정합니다.
+ Boolean입니다. `true`를 사용하여 진단을 사용하도록 설정하거나 `false`를 사용하여 진단을 사용하지 않도록 설정합니다.
 

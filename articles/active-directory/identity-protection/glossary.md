@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452826"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory ID 보호 용어집
 ### <a name="at-risk-user"></a>위험(사용자)
@@ -31,7 +31,7 @@ ms.locfileid: "58521944"
 ### <a name="atypical-sign-in-location"></a>비정상적인 로그인 위치
 특정 사용자, 비슷한 사용자 또는 테넌트에 일반적이지 않은 지리적 위치에서 시도하는 로그인입니다.
 
-### <a name="azure-ad-identity-protection"></a>Azure AD ID 보호
+### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 Azure Active Directory의 보안 모듈입니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
@@ -157,7 +157,7 @@ Azure Active Directory에서 ID를 인증하는 프로세스 또는 동작이며
 ### <a name="user-risk-policy"></a>사용자 위험 정책
 로그인을 고려하고 미리 정의된 조건 및 규칙에 따라 완화를 적용하는 조건부 액세스 정책입니다.
 
-### <a name="users-flagged-for-risk"></a>위험에 대한 플래그가 지정된 사용자
+### <a name="users-flagged-for-risk"></a>위험 플래그가 지정된 사용자
 활성화되거나 수정된 위험 이벤트를 가진 사용자입니다
 
 ### <a name="vulnerability"></a>취약점

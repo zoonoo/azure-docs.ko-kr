@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 201fef6b3e773daa18ae252d1d5734d8d87419b5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464494"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -84,6 +84,8 @@ roleRef:
 
 때 *developer1\@contoso.com* 가 인증 AKS 클러스터에 대 한 리소스에 대 한 모든 권한을 갖습니다 합니다 *재무 앱* 네임 스페이스입니다. 이 방식으로 리소스에 대한 액세스를 논리적으로 분리하고 제어합니다. 이전 섹션에 설명된 대로 Kubernetes RBAC는 Azure AD 통합과 함께 사용해야 합니다.
 
+RBAC를 사용 하 여 Kubernetes 리소스에 대 한 액세스를 제어 하려면 Azure AD 그룹을 사용 하는 방법을 참조 하세요 [역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 AKS에서 클러스터 리소스에 대 한 액세스 제어] [ azure-ad-rbac].
+
 ## <a name="use-pod-identities"></a>Pod ID 사용
 
 **모범 사례 가이드** - 고정된 자격 증명은 노출이나 남용의 위험이 있으므로 Pod 또는 컨테이너 이미지 내에서 사용하지 마세요. 대신 Pod ID를 사용하여 중앙 Azure AD ID 솔루션을 통해 액세스를 자동으로 요청합니다.
@@ -128,8 +130,9 @@ AKS의 클러스터 작업에 대한 자세한 내용은 다음 모범 사례를
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[azure-ad-rbac]: azure-ad-rbac.md

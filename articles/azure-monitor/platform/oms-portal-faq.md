@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453185"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -25,7 +25,7 @@ Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구
 이 문서에서는 이 전환을 수행하는 사용자를 위한 일반적인 질문에 대답합니다.  OMS 포털에서 Log Analytics를 사용한 경우 여기서 Azure Portal에서 동일한 작업을 수행할 수 있는 방법을 찾을 수 있습니다.
 
 ## <a name="do-i-need-to-migrate-anything"></a>마이그레이션해야 하는 사항이 있나요?
- 아니요. Log Analytics 자체는 변경되지 않으므로 마이그레이션해야 하는 사항은 없습니다. Log Analytics에 액세스하는 데 사용하는 인터페이스만 변경됩니다. 실제로, 현재 OMS 포털에서 사용하는 것과 동일한 작업 영역, 솔루션, 뷰 및 로그 검색을 Azure Portal에서 액세스할 수 있습니다.
+아니요. Log Analytics 자체는 변경되지 않으므로 마이그레이션해야 하는 사항은 없습니다. Log Analytics에 액세스하는 데 사용하는 인터페이스만 변경됩니다. 실제로, 현재 OMS 포털에서 사용하는 것과 동일한 작업 영역, 솔루션, 뷰 및 로그 검색을 Azure Portal에서 액세스할 수 있습니다.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Azure에서 Log Analytics를 어디서 찾을 수 있습니까?
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.  **모든 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. **Log Analytics**를 선택한 다음, 사용자의 작업 영역을 선택합니다. 작업 영역에 대한 요약 페이지가 표시됩니다.

@@ -14,11 +14,11 @@ ms.date: 03/05/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389732"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 

@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748428"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505572"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>클래식 배포 모델의 할당 오류 시나리오와 관련된 문제 해결 단계
 
@@ -116,7 +116,7 @@ New_General* 또는 New_VMSizeNotSupported\*
 
 **클러스터 고정의 원인**
 
-지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 그 결과 선호도 그룹에 배치된 계산 리소스가 위의 "할당 시나리오: 선호도 그룹(VM/서비스 근접성)" 섹션의 설명처럼 동일한 제약 조건에 바인딩되었습니다. 계산 리소스는 한 개의 클러스터에 연결됩니다.
+지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 결과적으로, 선호도 그룹에 배치 하는 리소스에 설명 된 대로 동일한 제약 조건에 의해 바인딩된를 계산 합니다 "할당 시나리오: 선호도 그룹 (V m/서비스 근접성) "위의 섹션입니다. 계산 리소스는 한 개의 클러스터에 연결됩니다.
 
 **해결 방법**
 

@@ -5,16 +5,16 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/11/2018
+ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453831"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Azure Monitor의 모니터링 사용량 및 예상 비용
 
@@ -102,155 +102,14 @@ Microsoft Operations Management Suite E1 및 E2를 구매한 고객은 [Log Anal
 
 ## <a name="moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환
 
-구독의 새 가격 책정 모델을 사용하기로 했다면 **사용량 및 예상 비용** 페이지의 **가격 책정 모델 선택** 옵션을 선택합니다.
+지정 된 구독의 새 가격 책정 모델을 채택 하기로 한 경우 각 Application Insights 리소스를 열기로 이동 합니다 **사용량 및 예상된 비용** 가격 책정 계층에 기본에서 되지 않는지 확인 수 및 각 Log Analytics로 이동 작업 영역, 열린 각 합니다 **가격 책정 계층** 페이지 및 변경 된 **GB 당 (2018)** 가격 책정 계층. 
 
-![새 가격 책정 모델의 사용량 및 예상 비용 모니터링 스크린 샷](./media/usage-estimated-costs/006.png)
-
-**가격 책정 모델 선택** 페이지가 열립니다. 이전 페이지에서 본 각 구독 목록을 보여 줍니다.
-
-![가격 책정 모델 선택 스크린 샷](./media/usage-estimated-costs/007.png)
-
-구독을 새 가격 책정 모델로 전환하려면 확인란을 선택하고 **저장**을 선택하기만 하면 됩니다. 같은 방법으로 기존 가격 책정 모델로 되돌릴 수 있습니다. 가격 책정 모델을 변경하려면 구독 소유자나 참가자 권한이 필요합니다.
+> [!NOTE]
+> 모든 Application Insights 리소스 및 지정된 된 구독 내에서 Log Analytics 작업 영역에는 최신 가격 책정 모델을 채택 하는 요구 사항 이제 제거 된 큰 유연성 및 좀 더 간편한 구성을 허용 합니다. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>새 가격 책정 모델로 전환 자동화
 
-아래 스크립트는 Azure PowerShell 모듈이 필요합니다. 최신 버전이 설치되었는지 확인하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
+위에서 설명 했 듯이 동시에, 새 가격 책정 모델로 구독에서 모든 모니터링 리소스를 이동 하는 요구 사항이 없는 이므로 ``migratetonewpricingmodel`` 작업의 영향을 주지 더 이상. 이제 이동할 수 있습니다 Application Insights 리소스 및 Log Analytics 작업 영역 별도로 최신 가격 책정 계층에 있습니다.  
 
-최신 버전의 Azure PowerShell이 설치되어 있으면 먼저 ``Connect-AzAccount`` 명령을 실행합니다.
+Application insights를 사용 하 여이 변경을 자동화 설명 되어 있습니다 [집합 AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) 사용 하 여 ``-PricingPlan "Basic"`` Log Analytics를 사용 하 여 및 [집합-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) 사용 하 여 ``-sku "PerGB2018"``입니다. 
 
-``` PowerShell
-# To check if your subscription is eligible to adjust pricing models.
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-isGrandFatherableSubscription의 결과가 True이면 이 구독의 가격 책정 모델을 전환할 수 있다는 의미입니다. optedInDate의 값이 없으면 이 구독이 이전 가격 책정 모델로 설정되어 있다는 의미입니다.
-
-```
-isGrandFatherableSubscription optedInDate
------------------------------ -----------
-                         True            
-```
-
-이 구독을 새로운 가격 책정 모델로 마이그레이션하려면 다음 명령을 실행합니다.
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-```
-
-변경 작업이 성공했는지 확인하려면 다음 명령을 다시 실행합니다.
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-마이그레이션이 성공하면 다음과 비슷한 결과가 표시됩니다.
-
-```
-isGrandFatherableSubscription optedInDate                      
------------------------------ -----------                      
-                         True 2018-05-31T13:52:43.3592081+00:00
-```
-
-이제 optInDate에는 이 구독에 새 가격 책정 모델이 적용된 시간의 타임스탬프가 포함되어 있습니다.
-
-이전 가격 책정 모델로 되돌리려면 다음 명령을 실행합니다.
-
-```powershell
- $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action rollbacktolegacypricingmodel `
- -Force
-```
-
-``-Action listmigrationdate``가 포함된 이전 스크립트를 다시 실행하면 구독이 기존 가격 책정 모델로 전환되었음을 알리는 빈 optedInDate 값이 표시됩니다.
-
-구독이 여러 개 있고 동일한 테넌트에 호스팅되는 구독을 마이그레이션하려는 경우 다음 스크립트를 사용하여 사용자 고유의 변형을 만들 수 있습니다.
-
-```powershell
-#Query tenant and create an array comprised of all of your tenants subscription IDs
-$TenantId = <Your-tenant-id>
-$Tenant =Get-AzSubscription -TenantId $TenantId
-$Subscriptions = $Tenant.Id
-```
-
-테넌트의 모든 구독이 새 가격 책정 모델에 적합한지 확인하려면 다음 명령을 실행합니다.
-
-```powershell
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-}
-```
-
-세 개의 배열을 생성하는 스크립트를 만들어서 스크립트를 추가로 구체화할 수 있습니다. 모든 구독 Id는 하나의 배열만 구성 됩니다 ```isGrandFatherableSubscription``` True로 설정 하 고 optedInDate 현재 없는 값입니다. 두 번째 구독 배열은 현재 새 가격 책정 모델에 있습니다. 및의 새 가격 책정 모델에 대 한 적격 없는 테 넌 트의 구독 Id로만 채워진는 세 번째 배열:
-
-```powershell
-[System.Collections.ArrayList]$Eligible= @{}
-[System.Collections.ArrayList]$NewPricingEnabled = @{}
-[System.Collections.ArrayList]$NotEligible = @{}
-
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-
-     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
-     {
-     $Eligible.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
-     {
-     $NewPricingEnabled.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $False)
-     {
-     $NotEligible.add($id)
-     }
-}
-```
-
-> [!NOTE]
-> 구독 수에 따라 위의 스크립트를 실행하는 데 약간의 시간이 걸릴 수 있습니다. .add() 메서드를 사용하기 때문에 항목이 각 배열에 추가될 때 PowerShell 창에 증분 값이 반영됩니다.
-
-구독을 세 개의 배열로 나누었으니, 결과를 신중하게 검토해야 합니다. 배열 콘텐츠의 백업 복사본을 만들어 놓으면 나중에 필요할 때 변경 내용을 간편하게 되돌릴 수 있습니다. 현재 이전 가격 책정 모델이 적용되는 모든 적격 구독을 새 가격 책정 모델로 변환하기로 결정한 경우 다음과 같은 방법으로 이 작업을 수행할 수 있습니다.
-
-```powershell
-Foreach ($id in $Eligible)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-}
-
-```

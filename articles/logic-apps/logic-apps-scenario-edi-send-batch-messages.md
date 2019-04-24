@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428025"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 일괄 처리로 거래 업체에 EDI 메시지 보내기
 
@@ -55,17 +55,17 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 이 일괄 처리 수신자에 대한 일괄 처리 모드, 이름, 릴리스 기준, X12 계약 및 다른 설정을 지정합니다. 
 
-1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio에서 "BatchX12Messages"라는 이름으로 논리 앱을 만듭니다.
+1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio에서 이름이 "BatchReceiver"인 "BatchX12Messages"
 
 2. [통합 계정에 논리 앱을 연결합니다](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. Logic Apps 디자이너에서 논리 앱 워크플로를 시작하는 **Batch** 트리거를 추가합니다. 검색 상자에서 필터로 “일괄 처리”를 입력합니다. **일괄 처리 메시지** 트리거를 선택합니다.
+3. Logic Apps 디자이너에서 논리 앱 워크플로를 시작하는 **Batch** 트리거를 추가합니다. 검색 상자에서 필터로 “일괄 처리”를 입력합니다. 다음 트리거를 선택합니다. **일괄 처리 메시지**
 
    ![Batch 트리거 추가](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. 일괄 처리 수신자 속성을 설정합니다. 
 
-   | 자산 | 값 | 메모 | 
+   | 자산 | Value | 메모 | 
    |----------|-------|-------|
    | **일괄 처리 모드** | 인라인 |  |  
    | **일괄 처리 이름** | TestBatch | **인라인** 일괄 처리 모드에서만 사용 가능 | 
@@ -82,9 +82,9 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 5. 이제 각 일괄 처리를 인코딩하는 작업을 추가합니다. 
 
-   1. 일괄 처리 트리거에서 **새 단계**를 선택합니다.
+   1. 일괄 처리 트리거 아래에서 **새 단계**를 선택합니다.
 
-   2. 검색 상자에 "X12 일괄 처리"를 필터로 입력하고, **<*version*> - X12 일괄 처리 인코딩** 작업(모든 버전)을 선택합니다. 
+   2. 검색 상자에 입력 "X 12 일괄 처리"를 필터로 및이 작업 (모든 버전)을 선택 합니다. **일괄 처리 인코딩 <*버전*>-X12** 
 
       ![X12 일괄 처리 인코딩 작업 선택](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -118,7 +118,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 1. X12 인코딩 작업에서 **새 단계**를 선택합니다. 
 
-2. 검색 상자에 "http"를 필터로 입력합니다. **HTTP - HTTP** 작업을 선택합니다.
+2. 검색 상자에 "http"를 필터로 입력합니다. 현재 선택한 작업: **HTTP - HTTP**
     
    ![HTTP 작업 선택](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
@@ -149,9 +149,9 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 * 일괄 처리 수신자와 일괄 처리 발신자에서 동일한 Azure 지역 *및* Azure 구독을 공유하는지 확인합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
-1. "SendX12MessagesToBatch"라는 이름으로 또 다른 논리 앱을 만듭니다. 
+1. 이름이 "BatchSender"인 다른 논리 앱을 "SendX12MessagesToBatch" 
 
-2. 검색 상자에 “http 요청”을 필터로 입력합니다. **HTTP 요청을 받은 경우** 트리거를 선택합니다. 
+2. 검색 상자에 “http 요청”을 필터로 입력합니다. 다음 트리거를 선택합니다. **HTTP 요청을 수신 되는 경우** 
    
    ![요청 트리거 추가](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,15 +160,15 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
    1. HTTP 요청 작업에서 **새 단계**를 선택합니다.
 
    2. 검색 상자에서 필터로 “일괄 처리”를 입력합니다. 
-   **작업** 목록을 선택한 다음, **일괄 처리 트리거가 있는 Logic Apps 워크플로를 선택합니다. - 일괄 처리로 메시지 보내기** 작업을 선택합니다.
+   **작업** 목록을 선택한 다음 **일괄 처리 트리거를 사용하여 Logic Apps 워크플로 선택 - 일괄 처리로 메시지 보내기** 작업을 선택합니다.
 
-      !["일괄 처리 트리거가 있는 Logic Apps 워크플로 선택"을 선택합니다.](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
+      !["일괄 처리 트리거가 있는 Logic Apps 워크플로를 선택합니다." 선택](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
    3. 이제 이전에 만든 "BatchX12Messages" 논리 앱을 선택합니다.
 
       ![“일괄 처리 수신기” 논리 앱 선택](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. **Batch_messages - <*your-batch-receiver*>** 작업을 선택합니다.
+   4. 현재 선택한 작업: **일괄 처리 메시지 - <*일괄 처리 수신자*>** 작업을 선택합니다.
 
       !["Batch_messages" 작업 선택](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
@@ -176,7 +176,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
    | 자산 | 설명 | 
    |----------|-------------| 
-   | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
+   | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 런타임에 일괄 처리 이름의 유효성을 검사합니다. 이 이름은 수신자 논리 앱이 지정한 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
    | **메시지 콘텐츠** | 보내려는 메시지에 대한 콘텐츠입니다. 이 예에서는 **본문** 토큰입니다. | 
    ||| 
    

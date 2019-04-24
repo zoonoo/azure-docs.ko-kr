@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394206"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
@@ -27,12 +27,12 @@ ms.locfileid: "58669285"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites-and-recommendations"></a>필수 조건 및 권장 사항
+## <a name="prerequisites-and-recommendations"></a>필수 구성 요소 및 권장 사항
 
 이 문서의 솔루션에서 사용하는 도구는 다음과 같습니다. 다음과 같이 설정하고 구성하는 것이 좋습니다.
 
 * [Service Fabric이 있는 Application Insights](service-fabric-tutorial-monitoring-aspnet.md)
-* [클러스터에서 Azure 진단 사용](service-fabric-diagnostics-event-aggregation-wad.md)
+* [클러스터에서 Azure Diagnostics 사용](service-fabric-diagnostics-event-aggregation-wad.md)
 * [Log Analytics 작업 영역 설정](service-fabric-diagnostics-oms-setup.md)
 * [성능 카운터를 추적하는 Log Analytics 에이전트](service-fabric-diagnostics-oms-agent.md)
 

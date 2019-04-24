@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404699"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>진단 및 Azure Functions에서 Azure Cosmos DB 트리거를 사용 하는 경우 문제 해결
 
@@ -31,7 +31,7 @@ ms.locfileid: "59685854"
 
 확장 패키지의 핵심 기능에 Azure Cosmos DB 트리거 및 바인딩에 대 한 지원을 제공 하는 것입니다. 또한 합니다 [Azure Cosmos DB.NET SDK](sql-api-sdk-dotnet-core.md), 트리거 및 바인딩을 사용 하지 않고 프로그래밍 방식으로 Azure Cosmos DB를 사용 하 여 상호 작용 하려는 경우 유용 합니다.
 
-경우에 사용 하려면 Azure Cosmos DB SDK를 추가 하지 프로젝트에 다른 NuGet 패키지 참조 하는지 확인 합니다. 대신 **Azure Functions 확장 패키지를 통해 해결 SDK 참조 하도록**합니다.
+하는 경우 Azure Cosmos DB SDK를 사용 하는 추가 하지 말아야 프로젝트에 다른 NuGet 패키지 참조를 확인 합니다. 대신 **Azure Functions 확장 패키지를 통해 해결 SDK 참조 하도록**합니다.
 
 또한의 고유한 인스턴스를 수동으로 만들려는 경우 합니다 [Azure Cosmos DB SDK 클라이언트](./sql-api-sdk-dotnet-core.md), 클라이언트의 인스턴스를 하나만 갖는 패턴을 따라야 [Singleton 패턴 방식을 사용 하 여](../azure-functions/manage-connections.md#documentclient-code-example-c) . 이 프로세스는 작업에서 잠재적인 소켓 문제를 방지 합니다.
 

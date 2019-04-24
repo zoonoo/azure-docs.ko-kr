@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 00710183828892c81d3ea887e4394237288eb6bb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452518"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303539"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 배포 단계
 
@@ -45,7 +45,7 @@ ms.locfileid: "55452518"
 성능이 우수한 일단의 모델을 확보했으면 다른 애플리케이션에서 사용하도록 운영할 수 있습니다. 비즈니스 요구 사항에 따라 예측을 실시간 또는 배치 방식으로 수행합니다. 모델을 배포하려면 열린 API 인터페이스를 사용하여 공개합니다. 이 인터페이스를 사용하면 다음과 같은 다양한 애플리케이션에서 모델을 쉽게 사용할 수 있습니다.
 
    * 온라인 웹 사이트
-   * 스프레드시트 
+   * 스프레드 시트 
    * 대시보드
    * 기간 업무 애플리케이션 
    * 백 엔드 애플리케이션 

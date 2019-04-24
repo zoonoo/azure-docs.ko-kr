@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74ba9b8d0ce86a5c663eb9fbb6190e2bcf4513d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306990"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Azure에서 기존 Windows VM 재시작 또는 크기 조정 관련 배포 문제 해결
 중지된 Azure Virtual Machine(VM)을 시작하거나, 기존 Azure AM의 크기를 조정하려다 접하는 일반적인 오류는 할당 오류입니다. 이런 오류는 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없을 때 발생합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "47412684"
 
 [활동 로그를 보고 Azure 리소스 관리](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>문제: 중지된 VM 시작 시 오류
+## <a name="issue-error-when-starting-a-stopped-vm"></a>문제: 중지 된 VM을 시작 하는 동안 오류가 발생 했습니다.
 중지된 VM을 시작하려는데 할당 오류가 발생했습니다.
 
 ### <a name="cause"></a>원인
@@ -45,7 +45,7 @@ ms.locfileid: "47412684"
   2. VM을 모두 중지한 후에, 중지된 각각의 VM을 선택하고 시작을 클릭합니다.
 * 나중에 다시 시작 요청을 다시 시도합니다.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>문제: 기존 VM 재시작 시 오류
+## <a name="issue-error-when-resizing-an-existing-vm"></a>문제: 기존 VM의 크기를 조정 하는 동안 오류가 발생 했습니다.
 기존 VM의 크기를 조정하려는데 할당 오류가 발생했습니다.
 
 ### <a name="cause"></a>원인

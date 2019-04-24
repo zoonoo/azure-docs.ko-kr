@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430130"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -130,14 +130,6 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 ### <a name="enable-network-watcher"></a>Network Watcher 사용
 
 트래픽을 분석하려면 기존 network watcher가 있거나 트래픽을 분석할 NSG가 있는 각 지역에서 [network watcher를 사용하도록 설정](network-watcher-create.md)해야 합니다. [지원되는 지역](#supported-regions)에 호스트된 NSG에 대해 트래픽 분석을 사용하도록 설정할 수 있습니다.
-
-### <a name="re-register-the-network-resource-provider"></a>네트워크 리소스 공급자 다시 등록
-
-트래픽 분석을 사용하려면 네트워크 리소스 공급자를 다시 등록해야 합니다. 다음 코드 상자에서 **시도**를 클릭하여 Azure Cloud Shell을 엽니다. Cloud Shell이 자동으로 Azure 구독에 로그인합니다. Cloud Shell이 열리면 다음 명령을 입력하여 네트워크 리소스 공급자를 다시 등록합니다.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### <a name="select-a-network-security-group"></a>네트워크 보안 그룹 선택
 

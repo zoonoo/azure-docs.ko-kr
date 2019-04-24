@@ -18,11 +18,11 @@ ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f01555933ca8b3d0c48a956d3deb4b3356b4e1a2
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564961"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410844"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 동의 프레임워크
 
@@ -40,7 +40,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 1. 리소스/API에 액세스할 수 있는 특정 사용 권한을 요청해야 하는 웹 클라이언트 애플리케이션이 있다고 가정합니다. 다음 섹션에서 이 구성을 수행하는 방법을 알아봅니다. 하지만 기본적으로 Azure Portal을 사용하여 구성 시 사용 권한 요청을 선언합니다. 다른 구성 설정과 마찬가지로 애플리케이션 Azure AD 등록의 일부입니다.
 
-    ![다른 애플리케이션에 대한 권한](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![다른 응용 프로그램에 대한 권한](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
 
 1. 애플리케이션의 사용 권한이 업데이트되었고 애플리케이션이 실행 중이며 사용자가 처음으로 사용하는 것임을 고려하세요. 먼저 애플리케이션은 Azure AD의 `/authorize` 엔드포인트에서 권한 부여 코드를 가져와야 합니다. 그런 다음 권한 부여 코드를 사용하여 새로운 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다.
 

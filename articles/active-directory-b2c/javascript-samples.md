@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1b4bd904a9936c401f6b0ea6ac9663c20bc92b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397093"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용하기 위한 JavaScript 샘플
 
@@ -140,7 +140,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-코드에서 `terms-of-use-url`을 해당 사용 약관 링크로 바꿉니다. 디렉터리의 경우 **termsOfUse**라는 새 사용자 특성을 만든 다음, 사용자 흐름에 대한 사용자 특성으로 **termsOfUse**를 포함합니다.
+코드에서 `termsOfUseUrl`을 해당 사용 약관 링크로 바꿉니다. 디렉터리의 경우 **termsOfUse**라는 새 사용자 특성을 만든 다음, 사용자 흐름에 대한 사용자 특성으로 **termsOfUse**를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

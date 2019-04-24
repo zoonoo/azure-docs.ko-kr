@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397944"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Storefront 세부 정보 양식을 작성하는 방법
 ===========================================
@@ -36,15 +36,15 @@ ms.locfileid: "49389378"
 
 ### <a name="offer-description"></a>제품 설명
 
-이 설명은 AppSource의 **제안 요약** 바로 아래에 표시됩니다. 솔루션을 설명할 때 기본 기술 또는 운영 기능에만 집중하지 않습니다. 잠재 고객이 나중에 세부 정보를 알아볼 수 있습니다. 주요 목표는 전환, 즉 잠재 고객의 행동을 이끌어내도록 동기를 부여하는 것입니다. 최적의 방법은 고객이 겪을 수 있는 고통을 상기시키고, 솔루션을 사용하면 경험하게 될 이점을 참조하는 것입니다. 원하는 강력한 결과를 명확하게 표현합니다. 설명의 끝 부분에 앱 방문 페이지에 대한 링크를 추가하는 것이 좋습니다. 허용되는 최대 길이는 1,300자입니다.
+이 설명은 AppSource의 **제안 요약** 바로 아래에 표시됩니다. 솔루션을 설명할 때 기본 기술 또는 운영 기능에만 집중하지 않습니다. 잠재 고객이 나중에 세부 정보를 알아볼 수 있습니다. 주요 목표는 전환, 즉 잠재 고객의 행동을 이끌어내도록 동기를 부여하는 것입니다. 최적의 방법은 고객이 겪을 수 있는 고통을 상기시키고, 솔루션을 사용하면 경험하게 될 이점을 참조하는 것입니다. 원하는 강력한 결과를 명확하게 표현합니다. 설명의 끝 부분에 앱 방문 페이지에 대한 링크를 추가하는 것이 좋습니다. 허용되는 최댓값은 1300자입니다.
 
 ### <a name="industries"></a>산업
 
-앱에 가장 잘 부합되는 업계를 선택합니다. 앱이 여러 업계와 관련되는 경우 이 항목은 비워 둘 수 있습니다.
+앱에 가장 부합되는 산업을 선택합니다. 앱이 여러 업계와 관련되는 경우 이 항목은 비워 둘 수 있습니다.
 
-### <a name="categories"></a>범주
+### <a name="categories"></a>Categories
 
-앱과 관련되는 범주를 선택합니다. 범주를 하나 이상 선택합니다(최대 3개). 고객이 AppSource에서 범주를 기준으로 검색할 수 있으므로 신중하게 선택합니다.
+앱과 관련이 있는 범주를 선택합니다. 범주를 하나 이상 선택합니다(최대 3개). 고객이 AppSource에서 범주를 기준으로 검색할 수 있으므로 신중하게 선택합니다.
 
 ### <a name="app-type"></a>앱 유형
 
@@ -119,7 +119,7 @@ AppSource의 앱 세부 정보 페이지에 표시됩니다. *png 형식만 허�
 
 ### <a name="lead-destination"></a>잠재 대상 고객
 
-잠재 고객이 저장될 CRM 시스템을 선택합니다. Salesforce, Marketo, Microsoft Dynamics CRM 중 하나가 있는 경우 여기서 \"Azure Table\"을 선택합니다. 여기서 선택하는 CRM 시스템은 AppSource에서 앱을 체험하려는 최종 사용자(잠재 고객)의 세부 정보를 작성하는 곳입니다. 선택한 CRM 시스템에 따라 이어지는 필드 집합을 완성하는 방법을 알아보려면 아래에서 해당 URL을 클릭하세요.
+잠재 고객을 저장할 CRM 시스템을 선택합니다. 선택 \"Azure Table\" 여기 있는 다음 CRM 시스템의 경우: Salesforce, Marketo, Microsoft Dynamics CRM. 여기서 선택하는 CRM 시스템은 AppSource에서 앱을 사용해 보는 최종 사용자(잠재 고객)의 세부 정보를 작성하는 곳입니다. 선택한 CRM 시스템에 따라 다음 필드 집합을 완료하는 방법을 알아보려면 아래에서 해당 URL을 클릭합니다.
 
 -   [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

@@ -11,11 +11,11 @@ ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396770"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필 정의
 
@@ -62,7 +62,7 @@ CryptographicKeys 요소에는 다음 특성이 포함됩니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| issuer_secret | 예 | JWT 토큰에 서명하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenSigningKeyContainer`에서 구성한 ](active-directory-b2c-get-started-custom.md) 키입니다. | 
+| issuer_secret | 예. | JWT 토큰에 서명하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenSigningKeyContainer`에서 구성한 ](active-directory-b2c-get-started-custom.md) 키입니다. | 
 | issuer_refresh_token_key | 예 | 새로 고침 토큰을 암호화하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenEncryptionKeyContainer`에서 ](active-directory-b2c-get-started-custom.md) 키를 구성했습니다. |
 
 

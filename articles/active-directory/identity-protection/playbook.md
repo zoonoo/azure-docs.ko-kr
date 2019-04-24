@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294381"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 
@@ -42,7 +42,7 @@ ms.locfileid: "58518911"
 
 안전한 방법으로 다른 위험 이벤트를 시뮬레이션할 수 없습니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
 
 이 위험 이벤트에 대한 자세한 내용은 [익명 IP 주소에서 로그인](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)을 참조하세요. 
 
@@ -58,7 +58,7 @@ ms.locfileid: "58518911"
 
 로그인이 10 ~ 15분 이내에 ID 보호 대시보드에 나타납니다. 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>알 수 없는 위치에서 로그인
+### <a name="sign-ins-from-unfamiliar-locations"></a>일반적이지 않은 위치에서의 로그인
 
 이 위험 이벤트에 대한 자세한 내용은 [알 수 없는 위치에서 로그인](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)을 참조하세요. 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304289"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>VM에 아티팩트 추가
 VM을 만드는 동안에 기존 아티팩트를 추가할 수 있습니다. 이러한 아티팩트 수를 [공용 DevTest Labs Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 사용자 고유의 Git 리포지토리에 있습니다. 이 문서에서는 Azure portal에서 Azure PowerShell을 사용 하 여 아티팩트를 추가 하는 방법을 보여 줍니다. 

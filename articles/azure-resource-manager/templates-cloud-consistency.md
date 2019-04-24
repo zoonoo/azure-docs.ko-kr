@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388135"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -673,5 +673,5 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Resource Manager 템플릿 고려 사항](../azure-stack/user/azure-stack-develop-templates.md)
+* [Azure Resource Manager 템플릿 고려 사항](/azure-stack/user/azure-stack-develop-templates)
 * [Azure Resource Manager 템플릿에 대한 모범 사례](resource-group-authoring-templates.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27742816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418974"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple 디바이스의 백업 배터리 모듈 교체
 
@@ -40,12 +40,12 @@ Microsoft Azure StorSimple 디바이스의 기본 엔클로저 PCM(전원 및 �
 StorSimple 디바이스에 대한 백업 배터리 모듈은 FRU(현장 교체 디바이스)입니다. PCM에 설치하기 전에는 원래 포장 안에 배터리 모듈을 보관해야 합니다. 백업 배터리를 꺼내려면 다음 단계를 수행합니다.
 
 #### <a name="to-remove-the-backup-battery-module"></a>백업 배터리 모듈을 꺼내려면
-1. Azure Portal에서 StorSimple 디바이스 관리자 서비스 블레이드로 이동합니다. **장치**로 이동한 후 장치 목록에서 장치를 선택합니다. **모니터** > **하드웨어 상태**로 이동합니다. **공유 구성 요소**아래에서 배터리 상태를 확인합니다.
+1. Azure Portal에서 StorSimple 디바이스 관리자 서비스 블레이드로 이동합니다. **디바이스**로 이동한 후 디바이스 목록에서 디바이스를 선택합니다. **모니터** > **하드웨어 상태**로 이동합니다. **공유 구성 요소**아래에서 배터리 상태를 확인합니다.
 2. 배터리에서 오류가 발생한 PCM을 식별합니다. 그림 1은 StorSimple 디바이스의 뒷면의 보여 줍니다.
    
     ![디바이스 기본 엔클로저 모듈의 백플레인](./media/storsimple-battery-replacement/IC740994.png)
    
-    **그림 1** PCM 및 컨트롤러 모듈을 표시하는 기본 장치 뒷면
+    **그림 1** PCM 및 컨트롤러 모듈을 표시하는 기본 디바이스 뒷면
    
    | 레이블 | 설명 |
    |:--- |:--- |
@@ -83,7 +83,7 @@ StorSimple 디바이스의 기본 엔클로저의 PCM에 교체 배터리 모듈
 #### <a name="to-install-the-battery-module"></a>배터리 모듈을 설치하려면
 1. 백업 배터리 모듈을 PCM에 올바른 방향으로 놓습니다.
 2. 배터리 모듈 핸들을 아래로 완전히 눌러 커넥터를 장착합니다.
-3. [StorSimple 장치의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md)의 지침에 따라 기본 엔클로저의 PCM을 교체합니다.
+3. [StorSimple 디바이스의 전원 및 냉각 모듈 교체](storsimple-8000-power-cooling-module-replacement.md)의 지침에 따라 기본 엔클로저의 PCM을 교체합니다.
 4. 바꾸기가 완료되면 Azure Portal에서 디바이스로 이동한 후 **모니터** > **하드웨어 상태**로 이동합니다. 설치가 성공적으로 수행되었는지 확인하려면 배터리 상태를 확인합니다. 녹색 상태는 배터리가 정상임을 나타냅니다.
 
 ## <a name="maintain-the-backup-battery-module"></a>백업 배터리 모듈 유지 관리

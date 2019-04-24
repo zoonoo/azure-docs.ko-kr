@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: cd18d71d26410767a2d3119c12a1339bdc84bd33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301461"
 ---
 1. 구성 서버에서 CSPSConfigtool.exe를 시작합니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, *설치 위치*\home\svsystems\bin 폴더에 있습니다.
 2. **계정 관리** > **계정 추가**를 클릭합니다.

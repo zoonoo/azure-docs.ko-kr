@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 473f9db7eb507fa910657696590bb656a8aff52f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: db065c78008e47326155e9e2b3a0f65031ec4cd9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478432"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
 
@@ -76,4 +76,4 @@ Azure 로그 통합에 대한 자세한 내용은 다음을 참조하세요.
 * [Azure 로그용 Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324): 이 다운로드 센터 페이지에서는 Azure Log Integration에 대한 세부 정보, 시스템 요구 사항 및 설치 지침이 제공됩니다.
 * [Azure Log Integration 소개](security-azure-log-integration-overview.md): 이 문서에서는 Azure Log Integration, 주요 기능 및 작동 원리를 소개합니다.
 * [Azure Log Integration FAQ](security-azure-log-integration-faq.md): 이 문서는 Azure 로그 통합에 대한 질문에 답변합니다.
-* [Azure 진단 및 Azure 감사 로그용 새로운 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.
+* [Azure Diagnostics 및 Azure 감사 로그용 새로운 기능](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): 이 블로그 게시물에서는 Azure 리소스 운영에 대한 정보 수집에 도움이 되는 Azure 감사 로그 및 기타 기능에 대해 소개합니다.

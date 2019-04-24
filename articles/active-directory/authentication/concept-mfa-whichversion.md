@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a099fa8d223643e5b339d35c0ff5cf7a5589049c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415573"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>우리 조직에 적합한 Azure MFA 버전은 무엇입니까?
 
@@ -44,7 +44,7 @@ MFA(Multi-Factor Authentication)를 어디에 어떻게 배포할 것인지 결�
 
 다음으로, 조직의 사용자가 어디에 있는지 확인하면 MFA 서버를 사용하는 클라우드 또는 온-프레미스 중 어떤 솔루션이 더 적합한지 결정하는 데 도움이 됩니다.
 
-| 사용자 위치 | 클라우드의 MFA | MFA 서버  |
+| 사용자 위치 | 클라우드의 MFA | MFA 서버 |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |● |● |
@@ -56,7 +56,7 @@ MFA(Multi-Factor Authentication)를 어디에 어떻게 배포할 것인지 결�
 
 다음 표는 클라우드에서 Multi-Factor Authentication과 함께 사용할 수 있는 경우와 Multi-Factor Authentication 서버와 함께 사용할 수 있는 경우에 대한 기능 비교입니다.
 
-| 기능 | 클라우드의 MFA | MFA 서버  |
+| 기능 | 클라우드의 MFA | MFA 서버 |
 | --- |:---:|:---:|
 | 두 번째 단계로 모바일 앱 알림 | ● | ● |
 | 두 번째 단계로 모바일 앱 확인 코드 | ● | ● |

@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7de6705ad38133b8321caabb7b0f4093284af503
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291491"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>방법: Azure AD SAML 토큰 암호화 구성(미리 보기)
 

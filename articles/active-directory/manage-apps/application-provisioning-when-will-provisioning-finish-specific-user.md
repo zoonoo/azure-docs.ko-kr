@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d2bb3b7385467d2606a2a4fa0afb43b9440ab79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293701"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>특정 사용자가 애플리케이션에 액세스할 수 있는 시점 파악
 애플리케이션에서 자동 사용자 프로비저닝을 사용하는 경우 Azure AD는 정기적으로 예약된 시간 간격(일반적으로 10분 간격)으로 [사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)과 같은 항목을 기반으로 앱에서 사용자 계정을 자동으로 프로비저닝하고 업데이트합니다.
@@ -38,7 +38,7 @@ Azure AD와 앱 간의 첫 번째 동기화는 Azure AD 디렉터리의 크기�
 
 선택한 사용자에 대한 프로비저닝 상태를 보려면 Azure AD의 감사 로그를 참조하세요.
 
-프로비저 감사 로그는 Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애플리케이션 이름\]&gt; 감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비저닝** 범주의 로그를 필터링하여 해당 앱의 프로비저닝 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 
+프로비저 감사 로그는 Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애플리케이션 이름\]&gt; 감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비전** 범주의 로그를 필터링하여 해당 앱의 프로비전 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 
 
 예를 들어 Azure AD 측에서 "사용자 계정 이름" 또는 "메일 주소"를 일치하는 특성으로 구성하고 프로비저닝하지 않는 사용자의 값이 "audrey@contoso.com"인 경우 감사 로그에서 "audrey@contoso.com"을 검색한 후 반환된 항목을 검토합니다.
 

@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437673"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI 콘텐츠 팩 사용 방법
 
@@ -59,7 +59,7 @@ Azure AD Power BI 콘텐츠 팩에는 다음과 같은 보고서가 포함되어
 
 - 사용자 이름
 - IP 주소
-- 위치 
+- Location 
 - 로그인 상태 
 
 **SSPR 깔때기**: 이 보고서는 조직에서 SSPR 도구가 어떻게 사용되고 있는지 파악하는 데 도움이 됩니다. SSPR 도구를 통해 몇 차례의 암호 재설정이 시도되었고 그중 몇 건이 성공했는지 확인할 수 있습니다. 암호 재설정 실패를 심층 분석하고 특정 실패가 발생한 이유를 살펴볼 수도 있습니다. 
@@ -112,7 +112,7 @@ Power BI 보고서의 매일 새로 고침을 예약하려면 **데이터 세트
 
 Power BI와 관련된 일반적인 도움말은 이 [도움말 문서](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 확인하세요.
 
-### <a name="refresh-failed"></a>새로 고침 실패 
+### <a name="refresh-failed"></a>새로 고치지 못했습니다. 
  
 **이 오류가 표시되는 방법**: Power BI 또는 새로 고침 기록 실패 상태로 인해 이메일을 받습니다. 
 

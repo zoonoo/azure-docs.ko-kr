@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255071"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -70,12 +70,12 @@ Azure Monitor를 사용 하 여 통신 하도록 Operations Manager 에이전트
 |\*.ods.opinsights.azure.com| 443 |예|  
 |\*.oms.opinsights.azure.com| 443|예|  
 |\*.blob.core.windows.net| 443|예|  
-|\*.azure-automation.net| 443|예|  
+|\*.azure-automation.net| 443|예.|  
 |**관리 서버**|||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.blob.core.windows.net| 443| 예|  
 |\*.ods.opinsights.azure.com| 443| 예|  
-|*.azure-automation.net | 443| 예|  
+|*.azure-automation.net | 443| 예.|  
 |**Azure Monitor에 operations Manager 콘솔**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  

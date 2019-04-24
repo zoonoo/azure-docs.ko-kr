@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: ''
-ms.openlocfilehash: fe8f9f271599d688878d61aee64273690d02c2b8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.openlocfilehash: 44393f80ab6ea01f0c2f52cb01dcd6241fab3d2d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442592"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 응용 프로그램 프록시 배포 계획
 
@@ -105,7 +105,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 다음은 영역은 조직의 비즈니스 요구 사항을 정의 해야 합니다. 각 영역에는 요구 사항 예가 포함 되어 있습니다.
 
- **Access**
+ **액세스 권한**
 
 * 도메인 및 Azure AD 사용자는 장치에 연결 된 모든 도메인에 가입 되거나 Azure AD를 사용 하 여 때 안전 하 게 사용 하 여 원활 하 게에서 single sign-on (SSO) 게시 된 응용 프로그램에 액세스할 수 있습니다.
 
@@ -158,7 +158,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 3. 그런 다음 응용 프로그램에 대 한 SSO 메서드를 추가 하 고 액세스 유효성 검사를 다시 테스트.
 4. 조건부 액세스 및 필요에 따라 MFA 정책을 적용 합니다. 테스트 하 고 액세스의 유효성을 검사 합니다.
 
-**문제 해결 도구**: 이 문제를 해결 하는 경우 항상 커넥터 호스트에서 브라우저에서 게시 된 응용 프로그램에 대 한 액세스를 검사 하 여 시작 하 고 응용 프로그램이 예상 대로 작동 하는지 확인 합니다. 단순할수록 근본 원인을 확인 하는 쉽게 설치, 따라서 고려 같은 하나의 커넥터만 및 없습니다 SSO를 사용 하 여 최소 구성으로 문제를 재현 하 합니다. 경우에 따라 Telerik의 Fiddler와 같은 도구를 디버깅 하는 웹 프록시를 통해 액세스 하는 응용 프로그램에 대 한 액세스 또는 콘텐츠 문제를 해결 하는 필수적인 입증할 수 있습니다. Fiddler 추적 하는 데 도움이 하 여 iOS 및 Android와 같은 모바일 플랫폼에 대 한 트래픽을 디버그 프록시 역할도 할 수 있습니다 및 거의 아무 것도 구성할 수 있는 프록시를 통해 경로에 있습니다. 참조 된 [문제 해결 가이드](/application-proxy-troubleshoot.md) 자세한 내용은 합니다.
+**문제 해결 도구**: 이 문제를 해결 하는 경우 항상 커넥터 호스트에서 브라우저에서 게시 된 응용 프로그램에 대 한 액세스를 검사 하 여 시작 하 고 응용 프로그램이 예상 대로 작동 하는지 확인 합니다. 단순할수록 근본 원인을 확인 하는 쉽게 설치, 따라서 고려 같은 하나의 커넥터만 및 없습니다 SSO를 사용 하 여 최소 구성으로 문제를 재현 하 합니다. 경우에 따라 Telerik의 Fiddler와 같은 도구를 디버깅 하는 웹 프록시를 통해 액세스 하는 응용 프로그램에 대 한 액세스 또는 콘텐츠 문제를 해결 하는 필수적인 입증할 수 있습니다. Fiddler 추적 하는 데 도움이 하 여 iOS 및 Android와 같은 모바일 플랫폼에 대 한 트래픽을 디버그 프록시 역할도 할 수 있습니다 및 거의 아무 것도 구성할 수 있는 프록시를 통해 경로에 있습니다. 참조 된 [문제 해결 가이드](application-proxy-troubleshoot.md) 자세한 내용은 합니다.
 
 ## <a name="implement-your-solution"></a>솔루션 구현
 

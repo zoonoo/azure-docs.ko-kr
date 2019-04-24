@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: b-juche
 ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452911"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>용량 풀 또는 볼륨 크기 조정
 필요에 따라 용량 풀 또는 볼륨의 크기를 변경할 수 있습니다. 

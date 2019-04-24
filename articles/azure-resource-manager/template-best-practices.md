@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389579"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
 
@@ -44,7 +44,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 리소스 그룹에 리소스를 배포할 때 리소스 그룹 리소스에 대 한 메타 데이터를 저장 합니다. 메타 데이터는 리소스 그룹의 위치에 저장 됩니다.
 
-리소스 그룹의 지역에 일시적으로 사용할 수 없는 경우 메타 데이터를 사용할 수 없기 때문에 리소스 그룹에 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상 대로 작동 하지만 업데이트는 불가능 합니다. 위험을 최소화 하려면 동일한 지역에 리소스 그룹 및 리소스를 찾습니다.
+리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 위험을 최소화하려면 동일한 지역에 있는 리소스 그룹 및 리소스를 찾습니다.
 
 ## <a name="parameters"></a>매개 변수
 이 섹션의 정보는 [매개 변수](resource-group-authoring-templates.md#parameters)로 작업하는 경우 도움이 될 수 있습니다.

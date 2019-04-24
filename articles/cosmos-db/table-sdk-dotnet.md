@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791731"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330349"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET API: 다운로드 및 릴리스 정보
 
@@ -82,7 +82,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 사용 중지된 SDK를 사용하는 Azure Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 <br/>
 
-| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
+| Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |2019년 1월 22일|--- |
 | [2.0.0](#2.0.0) |2018년 9월 26일|--- |

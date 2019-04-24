@@ -11,11 +11,11 @@ ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198821"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -270,7 +270,7 @@ Spacious,||air-condition*+"Ocean view"
 | 용어 | 문서 목록 |
 |------|---------------|
 | air | 3
-| and | 4
+| 및 | 4
 | beach | 1
 | conditioned | 3
 | comfortable | 3
@@ -281,7 +281,7 @@ Spacious,||air-condition*+"Ocean view"
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
-| on |2
+| 날짜 |2
 | quiet | 4
 | rooms  | 1, 3
 | secluded | 4
@@ -291,7 +291,7 @@ Spacious,||air-condition*+"Ocean view"
 | to | 1
 | view | 1, 2, 3
 | walking | 1
-| 다음으로 바꿀 수 있습니다. | 3
+| 포함 문자열 | 3
 
 
 **쿼리 용어를 인덱싱된 용어와 연결**

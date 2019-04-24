@@ -13,18 +13,18 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60413720"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>B2B 공동 작업에 대한 지원 받기
 
 설명서를 읽고 올바르게 수행했지만 여전히 기능을 작동시킬 수 없으신가요? 지원 티켓을 엽니다(지원 계획 필요).
 
 1. [Azure Portal](https://portal.azure.com)에서 도움말 및 지원 블레이드로 이동하고 새 지원 요청을 선택합니다.
-   - 문제 유형: 기술
+   - 문제 유형: 기술적
    - 구독: 영향을 주는 구독 선택
      - 서비스: Active Directory
      - 지원 계획: 관련 지원 계획 선택

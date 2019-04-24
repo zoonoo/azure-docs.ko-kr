@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286929"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>PIM의 Azure AD 역할 보안 마법사
 
@@ -63,7 +63,7 @@ Azure Active Directory (Azure AD) 관리 PIM (Privileged Identity) 조직에 대
 
     변환이 완료되면 알림이 표시됩니다.
 
-    ![공지](./media/pim-security-wizard/notification-completion.png)
+    ![알림](./media/pim-security-wizard/notification-completion.png)
 
 다른 권한 있는 역할 할당을 적격으로 변환하려면 마법사를 다시 실행하면 됩니다. PIM 인터페이스 마법사를 대신 사용 하려는 경우 참조 [PIM에서 Azure AD 역할 할당](pim-how-to-add-role-to-user.md)합니다.
 

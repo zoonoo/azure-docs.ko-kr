@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471961"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -69,7 +69,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 > * 만료를 처음 설정할 경우 만료 간격보다 오래된 모든 그룹은 만료되기 전까지 30일로 설정됩니다. 하루 이내로 첫 번째 갱신 알림 전자 메일이 전송됩니다. 예를 들어 그룹 A가 400일 전에 만들어졌으며 만료 기간은 180일로 설정됩니다. 만료 설정을 적용하면 그룹 A는 소유자가 갱신하지 않는 한 삭제되기 전에 30일이 있습니다.
 > * 동적 그룹이 삭제되고 복원되는 경우 새 그룹으로 표시되며 규칙에 따라 다시 채워집니다. 이 프로세스는 최대 24시간까지 걸릴 수 있습니다.
 
-## <a name="email-notifications"></a>전자 메일 알림
+## <a name="email-notifications"></a>메일 알림
 
 이와 같은 전자 메일 알림은 그룹의 만료 30일, 15일 및 1일 전에 Office 365 그룹 소유자에게 전송됩니다. 이메일의 언어는 그룹 소유자의 기본 설정 언어 또는 테넌트 언어에 따라 결정됩니다. 그룹 소유자가 기본 설정 언어를 정의했거나 여러 소유자가 동일한 기본 설정 언어를 사용하는 경우 해당 언어가 사용됩니다. 다른 모든 경우에는 테넌트 언어가 사용됩니다.
 
@@ -81,7 +81,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 ![그룹 삭제 전자 메일 알림](./media/groups-lifecycle/deletion-notification.png)
 
-[Azure Active Directory에서 삭제된 Office 365 그룹 복원](groups-restore-deleted.md)에서 설명된 대로 **그룹 복원**을 선택하거나 PowerShell cmdlet을 사용하여 30일 내에 그룹을 복원할 수 있습니다. 30 일 그룹 복원 기간 없는 사용자 지정 가능한 note 하십시오.
+[Azure Active Directory에서 삭제된 Office 365 그룹 복원](groups-restore-deleted.md)에서 설명된 대로 **그룹 복원**을 선택하거나 PowerShell cmdlet을 사용하여 30일 내에 그룹을 복원할 수 있습니다. 30일 그룹 복원 기간은 사용자 지정할 수 없습니다.
     
 복원하는 그룹에 문서, SharePoint 사이트 또는 기타 영구 개체가 포함된 경우 그룹 및 해당 내용을 완전히 복원하는 데 최대 24시간이 걸릴 수 있습니다.
 

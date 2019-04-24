@@ -19,11 +19,11 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74c79dbfb397a8e6d87de75b5468414f2b7adf2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251702"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스(공유 암호 또는 인증서)
 
@@ -62,7 +62,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | grant_type |필수 |요청된 부여 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
 | client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 애플리케이션의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션을 차례로 클릭합니다. client_id는 *애플리케이션 ID*입니다. |
 | client_secret |필수 |Azure AD에서 호출 웹 서비스 또는 디먼 애플리케이션에 대해 등록된 키를 입력합니다. 키를 만들려면 Azure Portal에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션, **설정** 및 **키**를 차례로 클릭하고, 키를 추가합니다.  이 비밀을 제공하는 경우 URL로 인코딩합니다. |
-| resource |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**, **앱 등록**, 서비스 애플리케이션 및 **설정**과 **속성**을 차례로 클릭합니다. |
+| 리소스 |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**, **앱 등록**, 서비스 애플리케이션 및 **설정**과 **속성**을 차례로 클릭합니다. |
 
 #### <a name="example"></a>예
 다음 HTTP POST는 https://service.contoso.com/ 웹 서비스에 대한 [액세스 토큰](access-tokens.md)을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
@@ -110,7 +110,7 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 | expires_in |액세스 토큰이 유효한 기간(초)입니다. |
 | expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
 | not_before |액세스 토큰은 사용할 수 있게 되는 시작 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 토큰 유효 기간까지의 기간(초)으로 표시됩니다.|
-| resource |수신 웹 서비스의 앱 ID URI입니다. |
+| 리소스 |수신 웹 서비스의 앱 ID URI입니다. |
 
 #### <a name="example-of-response"></a>응답 예제
 다음 예제는 웹 서비스에 액세스 토큰 요청에 대한 성공 응답을 보여줍니다.

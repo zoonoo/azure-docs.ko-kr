@@ -10,11 +10,11 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405180"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -32,7 +32,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle 데이터베이스
+*   Oracle Database
 *   PostgreSQL
 *   SAP 애플리케이션 서버 
 *   SAP 메시지 서버
@@ -418,7 +418,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
 다양한 로그를 찾을 수 있는 다른 위치는 다음과 같습니다.
 
-| 로그 형식 | 위치 | 
+| 로그 형식 | Location | 
 |----------|----------| 
 | **설치 관리자 로그** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
 | **구성 로그** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log | 

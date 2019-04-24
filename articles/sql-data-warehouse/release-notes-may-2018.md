@@ -11,17 +11,17 @@ ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
 ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402703"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 5월 
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 5월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다. 
 
 ## <a name="gen-2-instances"></a>Gen2 인스턴스
-![alt](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/2528b41b-f09f-45b1-aa65-fc60d562d3bd.png) Azure SQL Data Warehouse Compute에 최적화된 Gen2 계층은 클라우드 데이터 웨어하우징에 대한 새로운 성능 표준을 설정합니다. 고객은 현재 세대에 비해 최대 쿼리 성능이 5배, 동시성이 4배, 컴퓨팅 능력이 5배 향상된 성능을 사용할 수 있습니다. 단일 클러스터에서 128개의 동시 쿼리를 제공할 수 있으며 이는 클라우드 데이터 웨어하우스 서비스 중 최고의 성능입니다.
+![alt](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/2528b41b-f09f-45b1-aa65-fc60d562d3bd.png) Azure SQL Data Warehouse 컴퓨팅 최적화 Gen2 계층은 클라우드 데이터 웨어하우징에 대한 새로운 성능 표준을 설정합니다. 고객은 현재 세대에 비해 최대 쿼리 성능이 5배, 동시성이 4배, 컴퓨팅 능력이 5배 향상된 성능을 사용할 수 있습니다. 단일 클러스터에서 128개의 동시 쿼리를 제공할 수 있으며 이는 클라우드 데이터 웨어하우스 서비스 중 최고의 성능입니다.
 
 Azure Data의 부사장인 Rohan Kumar의 [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)(Azure SQL Data Warehouse를 사용하여 Turbocharge 클라우드 분석) 블로그 발표를 참조하세요.
 

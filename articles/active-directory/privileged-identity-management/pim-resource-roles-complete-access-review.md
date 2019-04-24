@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 837be3ccdbd133f6bf372779dadff4d3c574a2e8
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288258"
 ---
 # <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 액세스 검토 완료
 [액세스 검토가 시작](pim-resource-roles-start-access-review.md)된 후에 권한 있는 역할 관리자가 권한이 있는 액세스를 검토할 수 있습니다. Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 자동으로 사용자에 대 한 액세스 검토에 게 요청 하는 전자 메일을 보냅니다. 사용자가 메일을 받지 못하는 경우 [액세스 검토를 수행하는 방법](pim-resource-roles-perform-access-review.md)에 대한 지침을 보낼 수 있습니다.
@@ -44,7 +44,7 @@ ms.locfileid: "58578240"
 ### <a name="stop"></a>중지
 모든 액세스 검토는 종료 날짜가 있지만, **중지** 단추를 사용하여 일찍 완료할 수 있습니다. 이 시간까지 자신의 검토를 완료하지 않은 모든 사용자는 검토를 중지한 후 완료할 수 없습니다. 검토를 중단한 후에는 다시 시작할 수 없습니다.
 
-### <a name="reset"></a>다시 설정
+### <a name="reset"></a>재설정
 액세스 검토를 다시 설정하여 모든 결정 사항을 제거할 수 있습니다. 액세스 검토를 다시 설정하면 모든 사용자가 다시 검토되지 않음으로 표시됩니다. 
 
 ### <a name="apply"></a>적용

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: deaa6a9ff49fea2093c94a039aab0d7de0c95359
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418072"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 그룹 정책 관리
 Azure Active Directory Domain Services는 'AADDC 사용자' 및 'AADDC 컴퓨터' 컨테이너에 대한 기본 제공 GPO(그룹 정책 개체)를 포함합니다. 이러한 기본 제공 GPO를 사용자 지정하여 관리되는 도메인에서 그룹 정책을 구성할 수 있습니다. 또한 'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인에서 자체 사용자 지정 OU를 만들 수 있습니다. 사용자 지정 GPO을 만들고 이러한 사용자 지정 OU에 연결할 수도 있습니다. 'AAD DC 관리자' 그룹에 속한 사용자에게 관리되는 도메인에 대한 그룹 정책 관리 권한이 부여됩니다.
@@ -125,7 +125,7 @@ Windows Server 가상 머신을 프로비전하기 위한 첫 번째 작업은 �
 
 [그룹 정책 관리 콘솔](https://technet.microsoft.com/library/cc753298.aspx) 사용에 대한 자세한 내용은 Technet에서 확인할 수 있습니다.
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="related-content"></a>관련 내용
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
 * [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)

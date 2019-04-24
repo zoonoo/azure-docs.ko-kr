@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 03e306b62250f2bb033cc14e856a59760b5406c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c34ff487f03d90b16b6660fbad77c3a16699e165
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303488"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>StorSimple 스냅숏 관리자를 사용하여 백업 작업 보기 및 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "23109861"
 다음 절차를 사용하여 예약된 백업 작업을 볼 수 있습니다.
 
 #### <a name="to-view-scheduled-jobs"></a>예약된 작업을 보려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다. 
+1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다. 
 2. **범위** 창에서 **작업** 노드를 확장한 다음 **예약됨**을 클릭합니다. **결과** 창에 다음 정보가 표시됩니다.
    
    * **이름** – 예약된 스냅숏의 이름
@@ -49,7 +49,7 @@ ms.locfileid: "23109861"
 다음 절차를 사용하여 최근 24시간 동안 완료된 백업 및 복원 작업을 볼 수 있습니다.
 
 #### <a name="to-view-recent-jobs"></a>최근 작업을 보려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다.
 2. **범위** 창에서 **작업** 노드를 확장한 다음 **최근 24시간**을 클릭합니다. **결과** 창에 최근 24시간 동안의 백업 작업이 표시됩니다(최대 64개 작업까지). 지정한 **보기** 옵션에 따라 **결과** 창에 다음 정보가 나타납니다.
    
    * **이름** – 예약된 스냅숏의 이름
@@ -69,7 +69,7 @@ ms.locfileid: "23109861"
 다음 절차를 사용하여 현재 실행 중인 작업을 볼 수 있습니다.
 
 #### <a name="to-view-currently-running-jobs"></a>현재 실행 중인 작업을 보려면
-1. 바탕 화면 아이콘을 클릭하여 StorSimple 스냅숏 관리자를 시작합니다.
+1. 바탕 화면 아이콘을 클릭하여 StorSimple Snapshot Manager를 시작합니다.
 2. **범위** 창에서 **작업** 노드를 확장한 다음 **실행 중**을 클릭합니다. 지정한 **보기** 옵션에 따라 **결과** 창에 다음 정보가 나타납니다.
    
    * **이름** – 예약된 스냅숏의 이름
@@ -85,6 +85,6 @@ ms.locfileid: "23109861"
 3. 특정 작업에 대해 추가 작업을 수행하려면 **결과** 창에서 해당 작업 이름을 마우스 오른쪽 단추로 클릭하고 메뉴 옵션 중에서 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+* [StorSimple Snapshot Manager를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
 * [StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그를 관리](storsimple-snapshot-manager-manage-backup-catalog.md)하는 방법을 알아봅니다.
 

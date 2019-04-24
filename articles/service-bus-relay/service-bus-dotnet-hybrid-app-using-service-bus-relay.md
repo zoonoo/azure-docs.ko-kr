@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419913"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출 
 이 문서에서는 Microsoft Azure 및 Visual Studio로 하이브리드 클라우드 애플리케이션을 구축하는 방법을 보여줍니다. 여러 Azure 리소스를 사용하고 클라우드에서 실행하는 애플리케이션을 만들 수 있습니다.

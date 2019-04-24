@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465383"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
@@ -27,7 +27,7 @@ ms.locfileid: "51218640"
 
 ## <a name="running-kube-advisor"></a>kube-advisor 실행
 
-[RBAC(역할 기반 액세스 제어)](aad-integration.md)용으로 구성된 클러스터에서 도구를 실행하려면 다음 명령을 사용합니다. 첫 번째 명령은 Kubernetes 서비스 계정을 만듭니다. 두 번째 명령은 이 서비스 계정을 사용하여 Pod에서 도구를 실행하고 종료 후 Pod를 삭제하도록 구성합니다. 
+[RBAC(역할 기반 액세스 제어)](azure-ad-integration.md)용으로 구성된 클러스터에서 도구를 실행하려면 다음 명령을 사용합니다. 첫 번째 명령은 Kubernetes 서비스 계정을 만듭니다. 두 번째 명령은 이 서비스 계정을 사용하여 Pod에서 도구를 실행하고 종료 후 Pod를 삭제하도록 구성합니다. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

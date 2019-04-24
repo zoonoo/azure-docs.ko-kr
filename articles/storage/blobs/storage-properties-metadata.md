@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392401"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>속성 및 메타데이터 설정 및 검색
 
@@ -27,7 +27,7 @@ Azure Storage의 개체는 시스템 속성 및 사용자 정의 메타데이터
 > [!IMPORTANT]
 > 저장소 리소스의 속성 또는 메타데이터 값이 채워지지 않은 경우에는 코드가 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하는지 확인합니다.
 >
-> 메타 데이터 이름/값 쌍은 유효한 HTTP 헤더 이므로 HTTP 헤더와 관련 된 모든 제한 사항을 준수 해야 하며 메타 데이터 이름 유효한 HTTP 헤더 이름 이어야 합니다 하 고 ASCII 문자만 포함 될 수 있습니다 및으로 대/소문자 처리 해야 합니다. 비 ASCII 문자가 포함 된 메타 데이터 값은 Base64로 인코딩된 또는 URL 인코딩 이어야 합니다.
+> 메타 데이터 이름/값 쌍은 유효한 HTTP 헤더 이므로 HTTP 헤더와 관련 된 모든 제한 사항을 준수 해야 하며 메타 데이터 이름은 유효한 HTTP 헤더 이름 이어야 합니다. 유효 하 고 C# 식별자는 ASCII 문자만 포함 될 수 있습니다 및으로 대/소문자 처리 해야 합니다. 비 ASCII 문자가 포함 된 메타 데이터 값은 Base64로 인코딩된 또는 URL 인코딩 이어야 합니다.
 
 ## <a name="setting-and-retrieving-properties"></a>속성 설정 및 검색
 속성 값을 검색하려면 Blob 또는 컨테이너에서 **FetchAttributesAsync** 메서드를 호출하여 속성을 채운 다음 값을 읽습니다.

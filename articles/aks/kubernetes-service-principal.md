@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: iainfou
 ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464941"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -89,7 +89,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 다음 섹션에서는 만들 필요가 있는 일반적인 위임에 대해 자세히 설명합니다.
 
-### <a name="azure-container-registry"></a>Azure Container Registry
+### <a name="azure-container-registry"></a>Azure 컨테이너 레지스트리
 
 ACR(Azure Container Registry)을 컨테이너 이미지 저장소로 사용하는 경우 이미지를 읽고 끌어오기 위해서는 AKS 클러스터에 대한 사용 권한을 부여해야 합니다. AKS 클러스터의 서비스 주체에는 레지스트리에서 *Reader* 역할이 위임되어야 합니다. 자세한 단계는 [AKS에 ACR에 대한 액세스 권한 부여][aks-to-acr]를 참조하세요.
 

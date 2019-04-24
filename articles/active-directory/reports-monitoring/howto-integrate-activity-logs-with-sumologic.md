@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor(미리 보기)를 사용하여 SumoLogic으로 Azure Active Directory 로그 스트리밍 | Microsoft Docs
-description: Azure Monitor(미리 보기)를 사용하여 SumoLogic과 Azure Active Directory 로그를 통합하는 방법 알아보기
+title: Azure Monitor를 사용 하 여 SumoLogic에 대 한 Azure Active Directory 로그 Stream | Microsoft Docs
+description: Azure Monitor를 사용 하 여 SumoLogic과 Azure Active Directory 로그를 통합 하는 방법에 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed1b96052117534f319bbf9570618e6481032f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437211"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437861"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 SumoLogic과 Azure Active Directory 로그 통합
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Azure Monitor를 사용 하 여 SumoLogic과 Azure Active Directory 로그 통합
 
 이 문서에서는 Azure Monitor를 사용하여 SumoLogic과 Azure AD(Azure Active Directory) 로그를 통합하는 방법을 알아봅니다. 먼저 Azure 이벤트 허브에 로그를 라우트한 다음, SumoLogic과 이벤트 허브를 통합합니다.
 

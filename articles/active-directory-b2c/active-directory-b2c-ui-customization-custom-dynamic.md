@@ -11,11 +11,11 @@ ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316804"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -159,7 +159,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 3. **웹앱 이름** 상자에서 고유한 앱 이름을 입력합니다(유효한 문자: a-z, A-Z, 0-9 및 -(하이픈)). 웹앱의 URL은 `http://<app_name>.azurewebsites.NET`이며, 여기서 `<app_name>`은 웹앱 이름입니다. 자동으로 생성된 이름을 적용할 수 있습니다. 이 이름은 고유합니다.
 
-4. **만들기**를 선택하여 Azure 리소스 만들기를 시작합니다.
+4. **만들기**를 선택하여 Azure 리소스를 만듭니다.
 
     ![App Service 속성 제공](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish3.png)
 

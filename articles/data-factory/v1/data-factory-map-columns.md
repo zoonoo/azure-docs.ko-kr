@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238125"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 세트 열을 대상 데이터 세트 열에 매핑
 > [!NOTE]
@@ -73,7 +73,7 @@ ms.locfileid: "54017466"
 }
 ```
 
-이 예제에서 출력 테이블에는 구조가 있으며 그 구조가 Azure Blob 저장소에 있는 Blob을 가리킵니다.
+File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록 Blob입니다.  옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
 
 ```json
 {

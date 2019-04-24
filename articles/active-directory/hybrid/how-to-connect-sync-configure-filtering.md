@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243245"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화: 필터링 구성
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
@@ -123,7 +123,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 도메인 필터를 설정하려면 다음 단계를 수행합니다.
 
 1.  Azure AD Connect 마법사를 시작 합니다.
-2.  **Configure**를 클릭합니다.
+2.  클릭 **구성**합니다.
 3.  선택 **동기화 옵션 사용자 지정** 누릅니다 **다음**합니다.
 4.  Azure AD 자격 증명 입력
 5.  에 **연결 된 디렉터리** 화면 클릭 **다음**합니다.

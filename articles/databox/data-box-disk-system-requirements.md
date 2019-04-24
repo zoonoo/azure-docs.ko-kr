@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387471"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk 시스템 요구 사항
 
@@ -58,11 +58,11 @@ Linux 클라이언트의 경우 Data Box Disk 도구 집합이 다음 필수 소
 
 Data Box Disk에 대해 지원되는 저장소 형식의 목록은 다음과 같습니다.
 
-| **Storage 계정** | **참고 사항** |
+| **저장소 계정** | **참고 사항** |
 | --- | --- |
 | 클래식 | Standard |
 | 범용  |표준; V1 및 V2 모두 지원됩니다. 핫 및 쿨 계층은 모두 지원됩니다. |
-| Blob storage 계정 | |
+| Blob Storage 계정 | |
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다.

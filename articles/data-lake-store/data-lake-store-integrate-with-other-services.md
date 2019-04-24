@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197088"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합
 Azure Data Lake Storage Gen1을 다른 Azure 서비스와 함께 사용하여 광범위한 시나리오를 활용할 수 있습니다. 다음 문서에는 Data Lake Storage Gen1과 통합될 수 있는 서비스가 나열되어 있습니다.

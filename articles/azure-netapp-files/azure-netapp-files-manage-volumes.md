@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: c8ac14f11d7f2eeed050997de42da4f512b46bc5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254752"
 ---
 # <a name="manage-volumes-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 볼륨 관리
 볼륨을 보고, 업데이트 또는 삭제하여 볼륨을 관리할 수 있습니다. 

@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb22e3cc93baebac023c0148812c6a4c6c95be60
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288612"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM 관리를 위해 다른 관리자에게 액세스 권한 부여
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) PIM Privileged Identity Management ()는 조�
 
 1. **Azure AD 역할**을 클릭합니다.
 
-1. **역할**을 클릭합니다.
+1. **역할**을 누릅니다.
 
     ![PIM Azure AD 역할-역할](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
@@ -76,7 +76,7 @@ Azure Active Directory (Azure AD) PIM Privileged Identity Management ()는 조�
 
 1. **Azure AD 역할**을 클릭합니다.
 
-1. **역할**을 클릭합니다.
+1. **역할**을 누릅니다.
 
 1. **권한 있는 역할 관리자** 역할을 클릭하여 멤버 페이지를 엽니다.
 

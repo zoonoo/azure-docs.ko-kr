@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324050"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Azure CDN 규칙 엔진 참조
 이 아티클에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 제공되는 일치 조건 및 기능에 대해 자세히 설명합니다.

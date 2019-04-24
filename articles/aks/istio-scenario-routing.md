@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465890"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio를 사용하여 인텔리전트 라우팅 및 카나리 릴리스 사용
 
@@ -23,8 +23,8 @@ ms.locfileid: "52893339"
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 배포
-> * 응용 프로그램 업데이트
+> * 애플리케이션 배포
+> * 애플리케이션 업데이트
 > * 애플리케이션의 카나리아 릴리스 출시
 > * 출시 완료
 
@@ -46,7 +46,7 @@ ms.locfileid: "52893339"
 
 버전 *2.0*이 사용자의 하위 집합에서 예상대로 작동하면 모든 사용자에게 *2.0* 버전을 출시합니다.
 
-## <a name="deploy-the-application"></a>응용 프로그램 배포
+## <a name="deploy-the-application"></a>애플리케이션 배포
 
 Azure Kubernetes Service(AKS) 클러스터에 애플리케이션을 배포합니다. 다음 다이어그램에서는 이 섹션의 끝부분에서 Istio 수신 게이트웨이를 통해 처리되는 인바운드 요청을 사용하여 모든 구성 요소의 버전 *1.0*을 어떻게 실행하는지를 보여줍니다.
 
@@ -163,7 +163,7 @@ kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{
 
 화면 맨 아래에 있는 정보는 앱에서 *Voting-app*의 버전 *1.0* 및 스토리지 옵션으로 버전 *1.0*(Redis)을 사용하고 있음을 보여줍니다.
 
-## <a name="update-the-application"></a>응용 프로그램 업데이트
+## <a name="update-the-application"></a>애플리케이션 업데이트
 
 분석 구성 요소의 새 버전을 배포합니다. 이 새 버전 *1.1*은 각 카테고리에 대한 수 외에도 합계 및 백분율을 표시합니다.
 

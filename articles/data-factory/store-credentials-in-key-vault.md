@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
 ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311899"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
@@ -43,8 +43,8 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **AzureKeyVault**. | 예 |
-| baseUrl | Azure Key Vault URL을 지정합니다. | 예 |
+| type | type 속성을 다음으로 설정해야 합니다. **AzureKeyVault**. | 예. |
+| baseUrl | Azure Key Vault URL을 지정합니다. | 예. |
 
 **제작 UI 사용:**
 
@@ -76,8 +76,8 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 필드의 type 속성을 다음으로 설정해야 합니다. **AzureKeyVaultSecret**. | 예 |
-| secretName | Azure Key Vault의 비밀 이름입니다. | 예 |
+| 형식 | 필드의 type 속성을 다음으로 설정해야 합니다. **AzureKeyVaultSecret**. | 예. |
+| secretName | Azure Key Vault의 비밀 이름입니다. | 예. |
 | secretVersion | Azure Key Vault의 비밀 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아닙니다. |
 | store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | 예 |
 

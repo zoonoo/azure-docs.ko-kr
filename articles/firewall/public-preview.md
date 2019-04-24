@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
 ms.openlocfilehash: fe1b8f9d56b0f4faa0baa25463b2aa29a59715cb
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193075"
 ---
 # <a name="enable-the-azure-firewall-public-preview"></a>Azure Firewall 공개 미리 보기 사용하도록 설정
 

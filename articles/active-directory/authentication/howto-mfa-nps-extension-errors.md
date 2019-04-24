@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414939"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
@@ -66,7 +66,7 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 
 경우에 따라 인증 요청이 실패했기 때문에 Multi-Factor Authentication에서 메시지가 표시될 수 있습니다. 이것은 제품 구성에 따른 오류가 아니며 인증 요청이 거부된 이유를 설명하는 의도적인 경고입니다.
 
-| 오류 코드 | 오류 메시지 | 권장되는 단계 | 
+| 오류 코드 | 오류 메시지 | 권장 단계 | 
 | ---------- | ------------- | ----------------- |
 | **OathCodeIncorrect** | 잘못된 코드를 입력했거나 OATH 코드가 올바르지 않습니다. | 사용자가 잘못된 코드를 입력했습니다. 새 코드를 요청하거나 다시 로그인하여 다시 시도하도록 합니다. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | 허용되는 최대 코드 다시 시도 횟수에 도달했습니다. | 사용자가 너무 여러 번 확인 요청에 실패했습니다. 설정에 따라 관리자가 차단을 해제해야 할 수 있습니다.  |

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232786"
 ---
 ## <a name="multi-and-single-instance-vms"></a>다중 및 단일 인스턴스 VM
 Azure에서 실행하는 많은 고객에게는 VM이 작동 중단 시간(약 15분)으로 인해 유지 관리하는 동안 발생하는 계획된 유지 관리를 수행하는 경우 예약할 수 있는지가 중요합니다. 가용성 집합을 사용하여 프로비전된 VM이 계획된 유지 관리를 받는 시기를 제어할 수 있습니다.
@@ -52,7 +52,7 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureA
 ## <a name="for-single-instance-configuration"></a>단일 인스턴스 구성의 경우
 이러한 VM을 가용성 집합에 추가하여 계획된 유지 관리가 단일 인스턴스 구성의 VM에 영향을 미치는 시간을 선택할 수 있습니다.
 
-단계별 과정
+단계별
 
 1. 단일 인스턴스 구성의 VM에 대한 계획된 유지 관리가 실행되기 7일 전에 사용자에게 전자 메일이 전송됩니다. 업데이트되는 단일 인스턴스 VM의 구독 ID 및 이름이 전자 메일 본문에 포함됩니다.
 2. 이 7일 동안 단일 인스턴스 VM을 같은 지역의 가용성 집합에 추가하여 인스턴스가 다시 부팅되는 시간을 선택할 수 있습니다. 이렇게 구성을 변경하면 가상 머신이 다시 부팅됩니다. 유지 관리가 목표인 하나의 물리적 호스트에서 유지 관리가 목표가 아닌 다른 물리적 호스트로 Virtual Machine이 이동되기 때문입니다.

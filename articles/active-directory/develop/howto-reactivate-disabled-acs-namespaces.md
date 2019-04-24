@@ -17,11 +17,11 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299721"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
 
@@ -93,7 +93,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
 1. Azure Portal에 로그인하고 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만듭니다.
 1. 다음 예제와 같이 새 지원 요청 양식을 입력합니다.
 
-    | 지원 요청 필드 | 값 |
+    | 지원 요청 필드 | Value |
     |-----------------------|--------------------|
     | **문제 유형** | `Technical` |
     | **구독** | 구독에 대한 설정 |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236672"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>명령줄 도구를 사용 하 여 Azure DevTest Labs 가상 머신을 시작 및 중지 하려면
 이 문서에서는 Azure PowerShell 또는 Azure CLI를 사용 하 여 시작 하거나 Azure DevTest Labs의 랩에서 가상 머신을 중지 하는 방법을 보여 줍니다. 이러한 작업을 자동화 하는 PowerShell/CLI 스크립트를 만들 수 있습니다. 
@@ -34,7 +34,7 @@ Azure DevTest Labs는 빠르고 쉬우며 간결한 개발/테스트 환경을 �
 - 흐름의 시작 부분에서 시작, 빌드 컴퓨터 Vm 사용, 컴퓨터 또는 인프라를 테스트 프로세스가 완료 되 면 Vm을 중지 하도록 CI/CD 워크플로에서 작업으로 사용 합니다. 이 예제는 Azure DevTest Labs를 사용 하 여 사용자 지정 이미지 팩터리 것입니다.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-다음 PowerShell 스크립트는 랩에서 VM을 시작합니다. [호출 AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) 이 스크립트에 대 한 기본 초점 이기도 합니다. 합니다 **ResourceId** 매개 변수는 랩의 VM에 대 한 정규화 된 리소스 ID입니다. **동작** 매개 변수는 위치를 **시작** 또는 **중지** 옵션은 필요에 따라 설정 됩니다.
+다음 PowerShell 스크립트는 랩에서 VM을 시작합니다. [호출 AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) 이 스크립트에 대 한 기본 초점 이기도 합니다. 합니다 **ResourceId** 매개 변수는 랩의 VM에 대 한 정규화 된 리소스 ID입니다. **동작** 매개 변수는 위치를 **시작** 또는 **중지** 옵션은 필요에 따라 설정 됩니다.
 
 ```powershell
 # The id of the subscription

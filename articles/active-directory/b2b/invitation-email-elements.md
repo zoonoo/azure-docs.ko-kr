@@ -13,28 +13,28 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412833"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
 
 초대 전자 메일은 온보드의 파트너를 Azure AD에서 B2B 공동 작업 사용자로 불러오기 위한 중요한 구성 요소입니다. 받는 사람의 신뢰를 높이는 데 사용할 수 있습니다. 전자 메일에 적법성과 사회적 증거를 전자 메일에 추가하여 받는 사람이 안심하고 **시작** 단추를 선택하여 초대를 수락할 수 있습니다. 이 신뢰는 공유 마찰을 줄이는 데 핵심적입니다. 또한 이 템플릿을 통해 전자 메일도 보기 좋게 구성할 수 있습니다.
 
-![B2B 초대 전자 메일을 보여 주는 스크린샷](media/invitation-email-elements/invitation-email.png)
+![B2B 초대 이메일을 보여 주는 스크린샷](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>전자 메일 설명
 전자 메일의 몇 가지 요소를 확인하여 이러한 기능을 최대한 활용하는 방법에 대해 살펴보겠습니다.
 
-### <a name="subject"></a>제목
+### <a name="subject"></a>Subject
 이메일의 제목은 다음 패턴을 따릅니다. &lt;tenantname&gt; 조직에 초대되었습니다.
 
 ### <a name="from-address"></a>보낸 사람 주소
 보낸 사람 주소에 대해서는 LinkedIn 유사 패턴을 사용합니다.  초대자가 누구인지와 어떤 회사에 소속되어 있는지를 명확히 하고 전자 메일이 Microsoft 전자 메일 주소에서 전송된 것인지를 명확히 해야 합니다. 형식: Microsoft 초대 <invites@microsoft.com> 나 &lt;초대자 표시 이름&gt; 에서 &lt;tenantname&gt; (Microsoft)를 통해 <invites@microsoft.com>합니다.
 
-### <a name="reply-to"></a>회신
+### <a name="reply-to"></a>회신 대상
 회신 전자 메일은 사용 가능할 때 초대자의 전자 메일로 설정되므로 전자 메일에 회신하면 초대자에게 전자 메일이 다시 전송됩니다.
 
 ### <a name="branding"></a>브랜딩

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404428"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉, 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -299,22 +299,22 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-|방향 |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
-|컴퓨터 |컴퓨터 FQDN |
-|Process |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
-|SourceIp |원본의 IP 주소 |
-|DestinationIp |대상의 IP 주소 |
-|DestinationPort |대상의 포트 번호 |
-|프로토콜 |연결에 사용되는 프로토콜입니다.  값은 *tcp*입니다. |
+| `Direction` |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
+| `Machine` |컴퓨터 FQDN |
+| `Process` |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
+| `SourceIp` |원본의 IP 주소 |
+| `DestinationIp` |대상의 IP 주소 |
+| `DestinationPort` |대상의 포트 번호 |
+| `Protocol` |연결에 사용되는 프로토콜입니다.  값은 *tcp*입니다. |
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
 | 자산 | 설명 |
 |:--|:--|
-|LinksEstablished |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
-|LinksTerminated |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
-|LinksFailed |보고 기간 동안 실패한 물리적 네트워크 연결의 수. 이 정보는 현재 아웃바운드 연결에 대해서만 사용할 수 있습니다. |
-|LinksLive |보고 기간의 마지막에 시작된 물리적 네트워크 연결의 수|
+| `LinksEstablished` |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
+| `LinksTerminated` |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
+| `LinksFailed` |보고 기간 동안 실패한 물리적 네트워크 연결의 수. 이 정보는 현재 아웃바운드 연결에 대해서만 사용할 수 있습니다. |
+| `LinksLive` |보고 기간의 마지막에 시작된 물리적 네트워크 연결의 수|
 
 #### <a name="metrics"></a>메트릭
 
@@ -322,12 +322,12 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-|BytesSent |보고 기간 동안 전송된 총 바이트 수 |
-|BytesReceived |보고 기간 동안 수신된 총 바이트 수 |
-|응답 |보고 기간 동안 관찰된 응답의 수 
-|ResponseTimeMax |보고 기간 동안 관찰된 최대 응답 시간(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
-|ResponseTimeMin |보고 기간 동안 관찰된 최소 응답 시간(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
-|ResponseTimeSum |보고 기간 동안 관찰된 모든 응답 시간의 합계(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
+| `BytesSent` |보고 기간 동안 전송된 총 바이트 수 |
+| `BytesReceived` |보고 기간 동안 수신된 총 바이트 수 |
+| `Responses` |보고 기간 동안 관찰된 응답의 수 
+| `ResponseTimeMax` |보고 기간 동안 관찰된 최대 응답 시간(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
+| `ResponseTimeMin` |보고 기간 동안 관찰된 최소 응답 시간(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
+| `ResponseTimeSum` |보고 기간 동안 관찰된 모든 응답 시간의 합계(밀리초).  값이 없는 경우 속성은 비어 있습니다.|
 
 보고할 데이터의 세 번째 형식은 호출자가 원격 엔드포인트에서 처리 및 응답할 연결을 통해 전송된 요청을 대기하는 데 걸리는 시간인 응답 시간입니다. 보고된 응답 시간은 기본 애플리케이션 프로토콜의 true 응답 시간에 대한 추정치입니다. 물리적 네트워크 연결의 원본 및 대상 끝 사이의 데이터 흐름을 관찰하여 그에 따른 추론 방식을 사용하여 계산됩니다. 개념적으로는 발신자가 요청의 마지막 바이트를 보낸 시간과 응답의 마지막 바이트가 다시 도착할 때의 시간 사이에는 차이가 있습니다. 이러한 두 타임스탬프는 지정된 물리적 연결에서 요청 및 응답 이벤트를 설명하는 데 사용됩니다. 그 차이는 단일 요청의 응답 시간을 나타냅니다. 
 
@@ -348,26 +348,26 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-|RemoteCountry |RemoteIp를 호스팅하는 국가 이름입니다.  예: *United States* |
-|RemoteLatitude |지리적 위치 위도입니다.  예: *47.68* |
-|RemoteLongitude |지리적 위치 경도입니다.  예: *-122.12* |
+| `RemoteCountry` |RemoteIp를 호스팅하는 국가 이름입니다.  예: *United States* |
+| `RemoteLatitude` |지리적 위치 위도입니다.  예: *47.68* |
+| `RemoteLongitude` |지리적 위치 경도입니다.  예: *-122.12* |
 
 #### <a name="malicious-ip"></a>악성 IP
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
 | 자산 | 설명 |
 |:--|:--|
-|MaliciousIp |RemoteIp 주소 |
-|IndicatorThreadType |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
-|설명 |관찰된 위협에 대한 설명입니다. |
-|TLPLevel |TLP(Traffic Light Protocol) 수준은 정의된 *White*, *Green*, *Amber*, *Red* 값 중 하나입니다. |
-|신뢰도 |값은 *0 - 100*입니다. |
-|심각도 |값은 *0 - 5*입니다. 여기서 *5*는 가장 심각하고 *0*은 심각하지 않습니다. 기본값은 *3*입니다.  |
-|FirstReportedDateTime |공급자가 표시기를 처음 보고한 시간입니다. |
-|LastReportedDateTime |표시기가 Interflow에 의해 마지막으로 확인된 시간입니다. |
-|IsActive |표시기가 *True* 또는 *False* 값으로 비활성화되었음을 나타냅니다. |
-|ReportReferenceLink |지정된 관찰 가능 개체와 관련된 보고서의 링크입니다. |
-|AdditionalInformation |관찰된 위협에 대한 추가 정보(해당되는 경우)를 제공합니다. |
+| `MaliciousIp` |RemoteIp 주소 |
+| `IndicatorThreadType` |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
+| `Description` |관찰된 위협에 대한 설명입니다. |
+| `TLPLevel` |TLP(Traffic Light Protocol) 수준은 정의된 *White*, *Green*, *Amber*, *Red* 값 중 하나입니다. |
+| `Confidence` |값은 *0 - 100*입니다. |
+| `Severity` |값은 *0 - 5*입니다. 여기서 *5*는 가장 심각하고 *0*은 심각하지 않습니다. 기본값은 *3*입니다.  |
+| `FirstReportedDateTime` |공급자가 표시기를 처음 보고한 시간입니다. |
+| `LastReportedDateTime` |표시기가 Interflow에 의해 마지막으로 확인된 시간입니다. |
+| `IsActive` |표시기가 *True* 또는 *False* 값으로 비활성화되었음을 나타냅니다. |
+| `ReportReferenceLink` |지정된 관찰 가능 개체와 관련된 보고서의 링크입니다. |
+| `AdditionalInformation` |관찰된 위협에 대한 추가 정보(해당되는 경우)를 제공합니다. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 레코드
 *ServiceMapComputer_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
@@ -399,7 +399,7 @@ Linux:
 
 | 자산 | 설명 |
 |:--|:--|
-| `Type | *ServiceMapProcess_CL* |
+| `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | 작업 영역 내 프로세스에 대한 고유 식별자 |
 | `ResourceName_s` | 프로세스를 실행 중인 컴퓨터 내의 프로세스에 대한 고유 식별자|

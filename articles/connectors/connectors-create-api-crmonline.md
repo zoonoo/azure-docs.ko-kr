@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313751"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Dynamics 365 레코드 관리
 
@@ -52,8 +52,8 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
    | 자산 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **조직 이름** | 예 | 모니터링할 조직의 Dynamics 365 인스턴스의 이름, 예를 들어 "Contoso" |
-   | **엔터티 이름** | 예 | 모니터링할 엔터티의 이름, 예를 들어 "리드" | 
+   | **조직 이름** | 예. | 모니터링할 조직의 Dynamics 365 인스턴스의 이름, 예를 들어 "Contoso" |
+   | **엔터티 이름** | 예. | 모니터링할 엔터티의 이름, 예를 들어 "리드" | 
    | **Frequency(빈도)** | 예 | 트리거와 관련된 업데이트를 확인할 때 간격으로 사용할 시간 단위 |
    | **간격** | 예 | 다음 확인 때까지 경과할 초, 분, 시간, 일, 주, 달 수 |
    ||| 
@@ -75,10 +75,10 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
    | 자산 | 필수 | 설명 |
    |----------|----------|-------------|
    | **조직 이름** | 예 | 레코드를 만들려는 경우, 반드시 트리거의 동일한 인스턴스는 아니지만, 이 예제에서는 "Contoso"인 Dynamics 365 인스턴스 |
-   | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
+   | **엔터티 이름** | 예. | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
    | | |
 
-   ![작업 세부 정보](./media/connectors-create-api-crmonline/action-details.png)
+   ![작업 정보](./media/connectors-create-api-crmonline/action-details.png)
 
 1. **제목** 상자가 사용자 작업에 표시되는 경우 동적 콘텐츠 목록이 표시되도록 **제목** 내부를 클릭합니다. 이 목록에서 새 잠재 고객 레코드와 연결된 작업 레코드에 포함될 필드 값을 선택합니다.
 
@@ -94,7 +94,7 @@ Azure Logic Apps 및 Dynamics 365 커넥터를 사용하여 Dynamics 365의 사�
 
 1. 수동으로 논리 앱을 실행하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
 
-   ![논리 앱 실행](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+   ![Logic Apps 실행](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 1. 이제 논리 앱의 워크플로를 트리거할 수 있도록 Dynamics 365의 잠재 고객 레코드를 만듭니다.
 
@@ -120,7 +120,7 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 
 이 표에서는 일부 필드 형식 및 해당 값에 대한 필수 데이터 형식에 대해 설명합니다.
 
-| 필드 형식 | 필수 데이터 유형 | 설명 | 
+| 필드 유형 | 필수 데이터 유형 | 설명 | 
 |------------|--------------------|-------------|
 | 텍스트 필드 | 한 줄의 텍스트 | 이러한 필드에는 한 줄의 텍스트 또는 텍스트 형식이 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제에서는 필드*: **설명을** 고 **범주** | 
 | 정수 필드 | 정수 | 일부 필드에는 정수 또는 정수 형식이 포함된 동적 콘텐츠가 필요합니다. <p><p>*예제에서는 필드*: **완료율** 고 **기간** | 
@@ -136,7 +136,7 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 | **소유자 유형** | **시스템 사용자**이거나 **팀**이어야 합니다. |
 | **관련 항목** | 계정 ID 또는 연락처 레코드 ID 등의 유효한 레코드 ID여야 합니다. |
 | **관련 유형** | **계정** 또는 **연락처** 등의 조회 유형이어야 합니다. |
-| **고객** | 계정 ID 또는 연락처 레코드 ID 등의 유효한 레코드 ID여야 합니다. |
+| **Customer** | 계정 ID 또는 연락처 레코드 ID 등의 유효한 레코드 ID여야 합니다. |
 | **고객 유형** | **계정** 또는 **연락처** 등의 조회 유형이어야 합니다. |
 |||
 

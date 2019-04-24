@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
 ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418560"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>관리되는 도메인에 대한 보안 LDAP(LDAPS) 인증서가 있는 .PFX 파일 만들기
 

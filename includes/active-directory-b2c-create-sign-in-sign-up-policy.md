@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58114657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455657"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "58114657"
 
 ![사용자 흐름 실행 선택](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
-| 설정      | 값  |
+| 설정      | Value  |
 | ------------ | ------ |
 | **애플리케이션** | Contoso B2C 앱 |
 | **회신 URL** | `https://localhost:44316/` |

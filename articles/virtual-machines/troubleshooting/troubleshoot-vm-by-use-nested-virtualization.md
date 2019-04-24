@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444372"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩된 가상화를 사용하여 문제 Azure VM 해결
 
@@ -35,13 +35,13 @@ ms.locfileid: "51005601"
 
 -   복구 VM은 문제 VM과 동일한 유형의 저장소 계정(표준 또는 프리미엄)을 사용해야 합니다.
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1단계: 복구 VM 만들기 및 Hyper-V 역할 설치
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1단계: 복구 VM 만들기 및 Hyper-v 역할 설치
 
 1.  새 복구 VM을 만듭니다.
 
     -  운영 체제: Windows Server 2016 Datacenter
 
-    -  크기: 중첩된 가상화를 지원하는 최소 두 개의 코어를 가진 V3 시리즈 자세한 내용은 [새 Dv3 및 Ev3 VM 크기 소개](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)를 참조하세요.
+    -  크기: 중첩 된 가상화를 지 원하는 두 개 이상의 코어를 사용 하 여 모든 V3 시리즈입니다. 자세한 내용은 [새 Dv3 및 Ev3 VM 크기 소개](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)를 참조하세요.
 
     -  문제 VM과 동일한 위치, 저장소 계정 리소스 그룹입니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "51005601"
 
 13. 서버가 Hyper-V 역할을 설치하도록 허용합니다. 몇 분 정도 걸리며 서버가 자동으로 재부팅됩니다.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2단계: 복구 VM의 Hyper-V 서버에서 문제 VM 만들기
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2단계: 복구 VM의 Hyper-v 서버에서 문제 VM 만들기
 
 1.  문제 VM의 디스크 이름을 기록하고 문제 VM을 삭제합니다. 연결된 모든 디스크를 유지하고 있는지 확인합니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "51005601"
 
 4.  디스크 관리(diskmgmt.msc)를 엽니다. 문제 VM의 디스크가 **오프라인**으로 설정되어 있는지 확인합니다.
 
-5.  Hyper-V 관리자 열기: **서버 관리자**에서 **Hyper-V 역할**을 선택합니다. 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hyper-V 관리자**를 선택합니다.
+5.  Hyper-v 관리자를 엽니다. **서버 관리자**를 선택 합니다 **하이퍼-V 역할**합니다. 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hyper-V 관리자**를 선택합니다.
 
 6.  Hyper-V 관리자에서 복구 VM을 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기** > **Virtual Machine** > **다음**을 선택합니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "51005601"
 
 19. 이제 온-프레미스 VM으로 VM을 사용할 수 있습니다. 필요한 문제 해결 단계를 따를 수 있습니다.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>3단계: Azure에서 Azure VM 다시 만들기
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>3단계: Azure에서 Azure VM을 다시 만들기
 
 1.  VM을 온라인으로 다시 가져온 후 Hyper-V 관리자에서 VM을 종료합니다.
 

@@ -12,11 +12,11 @@ ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5f6145e581393d874871d214515a660f987d1d7f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253388"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>고급 Spark로 데이터 탐색 및 모델링
 
@@ -82,7 +82,7 @@ Spark는 Azure Storage Blob(WASB라고도 함)를 읽고 쓸 수 있습니다. �
     import datetime
     datetime.datetime.now()
 
-**출력**
+**OUTPUT**
 
 datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
@@ -185,7 +185,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 위의 셀을 실행하는 데 걸린 시간: 276.62초
 
@@ -330,7 +330,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
-**출력**
+**OUTPUT**
 
 126050
 
@@ -381,7 +381,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 위의 셀을 실행하는 데 걸린 시간: 3.14초
 
@@ -474,7 +474,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력**
+**OUTPUT**
 
 위의 셀을 실행하는 데 걸린 시간: 0.31초
 
@@ -515,7 +515,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력**
+**OUTPUT**
 
 위의 셀을 실행하는 데 걸린 시간: 11.67초
 
@@ -546,7 +546,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력** 
+**OUTPUT** 
 
 위의 셀을 실행하는 데 걸린 시간: 0.13초
 
@@ -661,7 +661,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
@@ -714,7 +714,7 @@ Intercept: -0.0111216486893
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 Area under PR = 0.985336538462
 
@@ -767,7 +767,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     plt.show()
 
 
-**출력**
+**OUTPUT**
 
 ![일반적인 접근 방식에 대한 로지스틱 회귀 분석 ROC 곡선](./media/spark-advanced-data-exploration-modeling/logistic-regression-roc-curve.png)
 
@@ -794,7 +794,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 
-**출력**
+**OUTPUT**
 
 위의 셀을 실행하는 데 걸린 시간: 34.57초
 
@@ -850,7 +850,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**출력**
+**OUTPUT**
 
 위의 셀을 실행하는 데 걸린 시간: 107.98초
 
@@ -886,7 +886,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     plt.show()
 
 
-**출력**
+**OUTPUT**
 
 ![MLlib의 CrossValidator를 사용하는 로지스틱 회귀 분석 ROC 곡선](./media/spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
 
@@ -935,7 +935,7 @@ ROC 곡선을 그리고 예측을 수행하는 코드는 다음과 같습니다.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 Area under ROC = 0.985336538462
 
@@ -979,7 +979,7 @@ Area under ROC = 0.985336538462
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력**
+**OUTPUT**
 
 Area under ROC = 0.985336538462
 
@@ -1110,7 +1110,7 @@ R-sqr = 0.597963951127
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**출력**
+**OUTPUT**
 
 RMSE = 0.931981967875
 
@@ -1161,7 +1161,7 @@ R-sqr = 0.733445485802
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 RMSE = 0.928172197114
 
@@ -1258,7 +1258,7 @@ R-sqr = 0.732680354389
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 위의 셀을 실행하는 데 걸린 시간: 161.21초
 
@@ -1283,7 +1283,7 @@ R-sqr을 계산하는 코드는 다음과 같습니다.
     print("R-sqr = %s" % r2)
 
 
-**출력**
+**OUTPUT**
 
 R-sqr = 0.619184907088
 
@@ -1370,7 +1370,7 @@ R-sqr = 0.619184907088
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**출력**
+**OUTPUT**
 
 RMSE = 0.906972198262
 
@@ -1406,7 +1406,7 @@ R-sqr = 0.740751197012
     oneHotTESTregScaled.unpersist()
 
 
-**출력**
+**OUTPUT**
 
 PythonRDD[122] at RDD at PythonRDD.scala: 43
 
@@ -1421,7 +1421,7 @@ PythonRDD[122] at RDD at PythonRDD.scala: 43
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**출력**
+**OUTPUT**
 
 logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0316_47_30.096528"
 
@@ -1435,7 +1435,7 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
-## <a name="whats-next"></a>다음 작업
+## <a name="whats-next"></a>다음 항목은 무엇인가요?
 Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점수를  매기고 평가하는 방법을 배울 수 있습니다.
 
 **모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark로 빌드된 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.

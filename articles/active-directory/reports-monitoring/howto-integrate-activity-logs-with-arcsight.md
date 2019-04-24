@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그를 통합하는 방법(미리 보기) | Microsoft Docs
-description: Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그를 통합하는 방법(미리 보기) 알아보기
+title: Azure Monitor를 사용 하 여 ArcSight를 사용 하 여 Azure Active Directory 로그를 통합 하는 방법 | Microsoft Docs
+description: Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그를 통합 하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437025"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 ArcSight와 Azure Active Directory 로그 통합
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용 하 여 ArcSight와 Azure Active Directory 로그 통합
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview)는 플랫폼에서 보안 위협을 탐지하여 대응하는 데 도움이 되는 보안 정보 및 이벤트 관리(SIEM)입니다. 이제 Azure AD용 ArcSight 커넥터를 사용하는 Azure Monitor를 사용하여 ArcSight로 Azure AD(Azure Active Directory) 로그를 라우팅할 수 있습니다. 이 기능을 통해 ArcSight를 사용하여 테넌트에 보안 위협이 있는지 모니터링할 수 있습니다.  
 
@@ -59,4 +59,4 @@ ms.locfileid: "58438107"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Azure Monitor 이벤트 허브용 ArcSight SmartConnector의 구성 가이드](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

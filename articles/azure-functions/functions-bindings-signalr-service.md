@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306837"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
@@ -48,7 +48,7 @@ SignalR Service 주석을 Java 함수에서를 사용 하려면 종속성을 추
 ```
 
 > [!NOTE]
-> Java에서 Azure Functions 핵심 도구 (호스트 버전 2.0.12332)의 이상 2.4.419 버전을 사용 하 고 있는지 확인 SignalR Service 바인딩을 사용 합니다.
+> Java에서 SignalR Service 바인딩을 사용하려면 Azure Functions Core Tools 버전 2.4.419 이상(호스트 버전 2.0.12332)을 사용하고 있는지 확인합니다.
 
 ## <a name="using-signalr-service-with-azure-functions"></a>Azure Functions를 사용 하 여 SignalR Service를 사용 하 여
 

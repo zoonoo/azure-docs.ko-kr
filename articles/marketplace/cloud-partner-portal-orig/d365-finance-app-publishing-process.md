@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398062"
 ---
 <a name="app-publishing-steps"></a>앱 게시 단계
 ====================
@@ -69,7 +69,7 @@ ms.locfileid: "48807840"
 이 요청을 진행해도 AppSource에서 앱이 라이브로 전환되는 것은 아니며, 대신 Microsoft 내부 유효성 검사 프로세스가 트리거됩니다.
 
 
-**마케팅 및 기술 응용 프로그램 유효성 검사**
+**마케팅 및 기술 애플리케이션 유효성 검사**
 
 이 단계에서는 마케팅 및 기술 유효성 검사가 동시에 진행됩니다. 필수 요구 사항 및 권장 사항은 [앱 제출을 위한 검사 목록](https://aka.ms/CheckBeforeYouSubmit) 및 [Dynamics 365 for Finance and Operations용 앱 개발 백서](https://go.microsoft.com/fwlink/?linkid=841518) 지침 문서를 참조하세요. 유효성 검사 프로세스에서는 다음과 같은 작업이 수행됩니다.
 -  게시자와 협의하여 미해결 문의 사항과 문제를 해결합니다.  
@@ -79,7 +79,7 @@ ms.locfileid: "48807840"
 이러한 단계는 대개 1주일 이상 걸릴 수 있으므로 게시자가 클라우드 파트너 포털에 계속 로그인하고 있을 필요는 없습니다.
 
 
-**서비스를 통해 응용 프로그램 게시**
+**서비스를 통해 애플리케이션 게시**
 
 제품 최종 처리가 진행되고 있습니다. 앱이 마케팅 및 기술 유효성 검사를 모두 통과했지만 AppSource에 게시할 수 있도록 몇 가지 최종 처리를 진행해야 합니다.
 

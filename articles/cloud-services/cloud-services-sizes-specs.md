@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406426"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
@@ -68,6 +68,7 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
+| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -165,6 +166,17 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 | Standard_E16_v3 | 16        | 128           | 400                  | 8/극히 높음 |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8/극히 높음 |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8/극히 높음 |
+
+## <a name="f-series"></a>F 시리즈
+
+
+| 크기            | CPU 코어 | 메모리: GiB   | 임시 스토리지(SSD): GiB       | 최대 NIC 수/네트워크 대역폭 |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
+| Standard_F2     | 2         | 4             | 32                   | 2 / 1500 |
+| Standard_F4     | 4         | 8             | 64                   | 4 / 3000 |
+| Standard_F8     | 8         | 16            | 128                  | 8 / 6000 |
+| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
 
 
 ## <a name="g-series"></a>G 시리즈

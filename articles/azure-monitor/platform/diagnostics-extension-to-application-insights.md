@@ -9,11 +9,11 @@ ms.date: 03/19/2016
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f7e21b805c64522005dce3e7d04aa158e1c21032
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396141"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure Diagnostics 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure Diagnostics 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 세트나 전체를 파이핑할 수 있습니다.
@@ -211,11 +211,11 @@ Application Insights에 대한 싱크 예제 구성:
 ## <a name="limitations"></a>제한 사항
 
 - **성능 카운터가 아닌 로그 유형인 채널** 성능 카운터 요소를 사용하여 채널을 지정하는 경우 무시됩니다.
-- **채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다.** 예를 들어 로그 요소에서 애플리케이션 로그 오류를 수집하고 Application Insight 싱크에 자세한 정보 표시 로그를 보내려고 시도할 수 없습니다. *scheduledTransferLogLevelFilter* 특성은 항상 싱크를 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다.
+- **채널에 대한 로그 수준은 Azure 진단에서 수집되는 로그 수준을 초과할 수 없습니다.** 예를 들어 로그 요소에서 애플리케이션 로그 오류를 수집하고 Application Insight 싱크에 자세한 정보 표시 로그를 보내려고 시도할 수 없습니다. *scheduledTransferLogLevelFilter* 특성은 항상 싱크에 전송하려는 로그와 같거나 더 많은 로그를 수집해야 합니다.
 - **Application Insights에 Azure 진단 확장에서 수집된 Blob 데이터를 보낼 수 없습니다.** 예를 들어 *디렉터리* 노드에 지정된 모든 항목입니다. 크래시 덤프의 경우 실제 크래시 덤프는 Blob Storage에 보내지고 크래시 덤프가 생성된 알림이 Application Insights에 전송됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Application Insights에서 [Azure 진단 정보를 보는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)에 대해 알아봅니다.
-* [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) 을 사용하여 애플리케이션에 대한 Azure 진단 확장을 사용하도록 설정합니다.
+* [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md)을 사용하여 애플리케이션에 대한 Azure 진단 확장을 사용하도록 설정합니다.
 * [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)를 사용하여 애플리케이션에 대한 Azure 진단 확장을 사용하도록 설정합니다.
 

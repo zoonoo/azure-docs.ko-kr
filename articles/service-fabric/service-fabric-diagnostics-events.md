@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: b4270b9438a397ec09537c9d6343515ebc21af98
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393030"
 ---
 # <a name="service-fabric-events"></a>Service Fabric 이벤트 
 
 Service Fabric 플랫폼은 클러스터 내에서 발생하는 주요 운영 활동에 대한 여러 가지 구조화된 이벤트를 기록합니다. 클러스터 업그레이드부터 복제본 배치 결정까지 이 범위에 포함됩니다. Service Fabric에서 노출하는 각 이벤트는 클러스터의 다음 엔터티 중 하나로 매핑됩니다.
-* 프로비전
+* 클러스터
 * 애플리케이션
 * 서비스
 * 파티션

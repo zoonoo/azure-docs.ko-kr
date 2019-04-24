@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242632"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -115,7 +115,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 사용자의 인트라넷 영역 설정을 수정하는 두 가지 방법이 있습니다.
 
-| 옵션 | 관리 고려 사항 | 사용자 환경 |
+| 옵션 | 관리 고려 사항 | 사용자 경험 |
 | --- | --- | --- |
 | 그룹 정책 | 관리자가 인트라넷 영역 설정의 편집을 잡금니다. | 사용자가 고유한 설정을 수정할 수 없습니다. |
 | 그룹 정책 기본 설정 |  관리자가 인트라넷 영역 설정을 편집하도록 허용합니다. | 사용자가 고유한 설정을 수정할 수 있습니다. |

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor(미리 보기)를 사용하여 Splunk로 Azure Active Directory 로그 스트리밍 | Microsoft Docs
-description: Azure Monitor(미리 보기)를 사용하여 Splunk와 Azure Active Directory 로그를 통합하는 방법 알아보기
+title: Azure Active Directory 로그를 Azure Monitor를 사용 하 여 Splunk Stream | Microsoft Docs
+description: Azure Monitor를 사용 하 여 Splunk와 Azure Active Directory 로그를 통합 하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94039655a6cbe7878fa1f61ce759485392dc7e98
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 70befad3208f34fe62fbb0a59cea4bf6ea01ce16
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284769"
 ---
-# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 Splunk와 Azure AD 로그 통합
+# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Splunk를 사용 하 여 Azure AD 로그 통합
 
 이 문서에서는 Azure Monitor를 사용하여 Splunk와 Azure Active Directory(Azure AD) 로그를 통합하는 방법을 알아봅니다. 먼저 Azure 이벤트 허브에 로그를 라우트한 다음, Splunk와 이벤트 허브를 통합합니다.
 

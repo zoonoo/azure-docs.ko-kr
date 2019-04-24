@@ -11,11 +11,11 @@ ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193154"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크 로드 및 인덱스, 문서, 수량에 대 한 최대 제한은 및 다른 개체가 있는지 여부에 종속 되어 있습니다 [Azure Search를 프로 비전](search-create-service-portal.md) 에 **무료**, **기본**합니다  **표준**, 또는 **저장소에 최적화 된** 가격 책정 계층입니다.

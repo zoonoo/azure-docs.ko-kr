@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
 ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417007"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 이 문서에서는 관리되는 도메인의 기본 암호 정책과 이러한 정책을 구성할 수 있는 방법을 설명합니다.

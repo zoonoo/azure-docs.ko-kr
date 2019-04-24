@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Azure Data Explorer로/에서 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: orspod
-ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.author: orspodek
+ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394509"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Explorer로/에서 데이터 복사
 
@@ -68,12 +68,12 @@ Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **형식** 속성을 **AzureDataExplorer**로 설정해야 합니다. | 예 |
-| endpoint | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
-| 데이터베이스 | 데이터베이스의 이름입니다. | 예 |
-| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. 이 일반적으로 알고으로 "**기관 ID**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. Azure Portal의 오른쪽 위를 마우스로 가리켜 검색합니다. | 예 |
+| 형식 | **형식** 속성을 **AzureDataExplorer**로 설정해야 합니다. | 예. |
+| 엔드포인트 | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예. |
+| 데이터베이스 | 데이터베이스의 이름입니다. | 예. |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. 이 일반적으로 알고으로 "**기관 ID**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. Azure Portal의 오른쪽 위를 마우스로 가리켜 검색합니다. | 예. |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. 이 일반적으로 알고으로 "**AAD 응용 프로그램 클라이언트 ID**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 일반적으로 알고으로 "**AAD 응용 프로그램 키**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 일반적으로 알고으로 "**AAD 응용 프로그램 키**"의 [Kusto 문자열](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예. |
 
 **연결된 서비스 속성 예제:**
 
@@ -106,7 +106,7 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **형식** 속성을 **AzureDataExplorerTable**로 설정해야 합니다. | 예 |
+| 형식 | **형식** 속성을 **AzureDataExplorerTable**로 설정해야 합니다. | 예. |
 | 테이블 | 연결된 서비스가 참조하는 테이블의 이름입니다. | 싱크의 경우 예이며, 원본의 경우 아니오입니다. |
 
 **데이터 세트 속성 예제**
@@ -138,7 +138,7 @@ Azure Data Explorer에서 데이터를 복사하려면 복사 작업 원본의 *
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 **형식** 속성을 다음으로 설정해야 합니다. **AzureDataExplorerSource** | 예 |
-| 쿼리 | [KQL 형식](/azure/kusto/query/)으로 제공되는 읽기 전용 요청입니다. 사용자 지정 KQL 쿼리를 참조로 사용합니다. | 예 |
+| 쿼리 | [KQL 형식](/azure/kusto/query/)으로 제공되는 읽기 전용 요청입니다. 사용자 지정 KQL 쿼리를 참조로 사용합니다. | 예. |
 | queryTimeout | 쿼리 요청 전의 대기 시간이 초과되었습니다. 기본값은 10분(00:10:00)이며, 허용되는 최댓값은 1시간(01:00:00)입니다. | 아닙니다. |
 
 >[!NOTE]
@@ -183,7 +183,7 @@ Azure Data Explorer로 데이터를 복사하려면 복사 작업 원본의 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 **형식** 속성을 다음으로 설정해야 합니다. **AzureDataExplorerSink** | 예 |
+| 형식 | 복사 작업 싱크의 **형식** 속성을 다음으로 설정해야 합니다. **AzureDataExplorerSink** | 예. |
 | ingestionMappingName | 미리 생성된 된 이름의 **[매핑을](/azure/kusto/management/mappings#csv-mapping)** Kusto 테이블에 있습니다. 에 적용 되는 데이터 탐색기-Azure로 원본에서 열을 매핑할 **[지원 되는 모든 원본 저장소/형식을](copy-activity-overview.md#supported-data-stores-and-formats)** 비롯 하 여 CSV/JSON/Avro 형식 등, 복사 활동을 사용 하 여 [열 매핑](copy-activity-schema-and-type-mapping.md) (이름별 암시적 또는 명시적으로 구성 된 대로) 및/또는 Azure Data Explorer 매핑. | 아닙니다. |
 
 **예제:**
@@ -219,4 +219,7 @@ Azure Data Explorer로 데이터를 복사하려면 복사 작업 원본의 형�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+
+* Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+
+* 에 대해 자세히 알아보세요 [Azure 데이터 탐색기로 Azure Data Factory에서 데이터를 복사](/azure/data-explorer/data-factory-load-data)합니다.

@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308196"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 가상 머신의 성능 진단
 
@@ -123,7 +123,7 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 ![성능 진단 인사이트 세부 정보의 스크린샷](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>전체 성능 진단 보고서 다운로드 및 검토
-**보고서 다운로드** 단추를 사용하여 저장소 및 네트워크 구성, 성능 카운터, 추적, 프로세스 목록 및 로그와 같은 다양한 추가 진단 정보가 포함된 HTML 보고서를 다운로드할 수 있습니다. 콘텐츠는 선택한 분석에 따라 달라집니다. 고급 문제 해결의 보고서에는 추가 정보 및 높은 CPU 사용량, 높은 디스크 사용량 및 과도한 메모리를 사용하는 프로세스에 관련된 대화형 차트가 포함될 수 있습니다. 성능 진단 보고서에 대한 자세한 내용은 [진단 보고서 검토](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report)를 참조하세요.
+**보고서 다운로드** 단추를 사용하여 스토리지 및 네트워크 구성, 성능 카운터, 추적, 프로세스 목록 및 로그와 같은 다양한 추가 진단 정보가 포함된 HTML 보고서를 다운로드할 수 있습니다. 콘텐츠는 선택한 분석에 따라 달라집니다. 고급 문제 해결의 보고서에는 추가 정보 및 높은 CPU 사용량, 높은 디스크 사용량 및 과도한 메모리를 사용하는 프로세스에 관련된 대화형 차트가 포함될 수 있습니다. 성능 진단 보고서에 대한 자세한 내용은 [진단 보고서 검토](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report)를 참조하세요.
 
 ## <a name="manage-performance-diagnostics-reports"></a>성능 진단 보고서 관리
 **보고서 삭제** 단추를 사용하여 하나 이상의 성능 진단 보고서를 삭제할 수 있습니다.

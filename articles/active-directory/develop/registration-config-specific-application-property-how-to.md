@@ -16,11 +16,11 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173201"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299059"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대한 특정 필드를 작성하는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "56173201"
 | 필드            | 설명                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Name             | 애플리케이션 이름입니다. 최소 4자 이상이어야 합니다.                |
-| 애플리케이션 형식 | **웹앱/웹 API**: 웹 애플리케이션, 웹 API 또는 둘 모두를 나타내는 애플리케이션입니다. 
+| 응용 프로그램 유형 | **웹앱/웹 API**: 웹 애플리케이션, 웹 API 또는 둘 모두를 나타내는 애플리케이션입니다. 
 | |**네이티브**: 사용자의 디바이스 또는 컴퓨터에 설치할 수 있는 애플리케이션입니다.           |
 | 로그온 URL      | 사용자가 애플리케이션을 사용하기 위해 로그인하는 URL                                  |
 

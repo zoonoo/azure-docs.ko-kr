@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394407"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 애플리케이션 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -165,7 +165,7 @@ Service Fabric은 특정 엔터티(예: 클러스터 노드 및 서비스 복제
 * Service Fabric 노드에서 실행되지만 Service Fabric 서비스로 구현되지 않는 내부 watchdog
 * Service Fabric 클러스터 외부의 리소스를 조사하는 외부 Watchdog(예: Gomez와 같은 모니터링 서비스)
 
-기본적으로 Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 바로 보고합니다. [시스템 상태 보고서](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)는 상태를 통해 클러스터 및 애플리케이션의 기능 및 플래그 문제에 대한 가시성을 제공합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 Service Fabric 런타임 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 서비스의 비즈니스 논리의 상태 모니터링을 제공하거나 응답이 없는 프로세스를 감지하지 않습니다. 서비스 논리에 맞는 상태 정보를 추가하려면 서비스에서 [사용자 지정 상태 보고를 구현](service-fabric-report-health.md)합니다.
+기본적으로 Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 바로 보고합니다. [시스템 상태 보고서](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)는 상태를 통해 클러스터 및 애플리케이션의 기능 및 플래그 문제에 대한 가시성을 제공합니다. 애플리케이션 및 서비스의 경우, 시스템 상태 보고서는 Service Fabric 런타임 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 서비스의 비즈니스 논리의 상태 모니터링을 제공 하지 않거나 응답 하지 않는 프로세스를 검색 합니다. 서비스 논리에 맞는 상태 정보를 추가하려면 서비스에서 [사용자 지정 상태 보고를 구현](service-fabric-report-health.md)합니다.
 
 Service Fabric은 여러 가지 다음 방법으로 상태 저장소에 집계된 [상태 보고서를 볼](service-fabric-view-entities-aggregated-health.md) 수 있습니다.
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 또는 기타 시각화 도구

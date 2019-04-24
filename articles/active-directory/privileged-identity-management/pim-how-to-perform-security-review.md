@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60287815"
 ---
 # <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할의 액세스 검토 수행
 Azure AD (Active Directory) Privileged Identity Management (PIM) 기업 리소스에 Azure AD 및 Office 365 또는 Microsoft Intune과 같은 기타 Microsoft online services에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다.  

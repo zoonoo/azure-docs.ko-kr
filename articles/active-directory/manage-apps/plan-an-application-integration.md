@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1223c96bffdf125da0c47fc932d46cfa84fa45c8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291265"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
@@ -70,7 +70,7 @@ ms.locfileid: "56187783"
 * [Azure 애플리케이션 갤러리에서 애플리케이션 사용](what-is-single-sign-on.md)
 * [SaaS 애플리케이션 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
 
-### <a name="authentication-types"></a>인증 형식
+### <a name="authentication-types"></a>인증 유형
 애플리케이션에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 애플리케이션을 사용하는 애플리케이션과 사용될 수 있습니다. Azure AD와 함께 사용할 애플리케이션 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [암호 기반 Single Sign On](what-is-single-sign-on.md)을 참조하세요.
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Azure AD 앱 프록시를 사용하는 SSO 사용

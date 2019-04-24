@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437042"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -73,7 +73,7 @@ ms.locfileid: "58437444"
 
 **A:** 다음 표에는 활동 로그의 데이터 보존 기간이 나열되어 있습니다. 자세한 내용은 [Azure AD 보고서 데이터 보존 정책](reference-reports-data-retention.md)을 참조하세요.
 
-| 보고서                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| 보고                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | 감사 로그             | 7 일        | 30일             | 30일             |
 | 로그인               | N/A           | 30일             | 30일             |
@@ -162,10 +162,10 @@ ms.locfileid: "58437444"
 * **적용되지 않음**: 정책 조건이 충족되지 않았기 때문일 수 있습니다.
 * **사용 안 함**: 정책이 사용 안 함 상태이기 때문입니다. 
     
-**Q: 모든 로그인 보고서의 정책 이름이 CA 정책 이름과 일치하지 않습니다. 그 이유는 무엇일까요?**
+**Q: 모든 로그인 보고서의 정책 이름이 CA 정책 이름과 일치하지 않습니다. 이유**
 
 **A:** 모든 로그인 보고서의 정책 이름은 로그인 시점의 CA 정책 이름을 기준으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.
 
-**Q: 내 로그인이 조건부 액세스 정책으로 인해 차단되었으나 로그인 활동 보고서에는 로그인이 성공했다고 나옵니다. 그 이유는 무엇일까요?**
+**Q: 내 로그인이 조건부 액세스 정책으로 인해 차단되었으나 로그인 활동 보고서에는 로그인이 성공했다고 나옵니다. 이유**
 
 **A:** 현재 로그인 보고서는 조건부 액세스가 적용될 때 Exchange ActiveSync 시나리오에 대한 정확한 결과를 표시하지 못할 수도 있습니다. 보고서의 로그인 결과가 성공적인 로그인으로 표시되나, 조건부 액세스 정책으로 인해 실제로는 로그인에 실패한 경우가 있을 수도 있습니다. 

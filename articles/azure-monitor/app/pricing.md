@@ -14,11 +14,11 @@ ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254526"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -40,7 +40,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정][pricing]을 참조하세요.
 
-### <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
+### <a name="multi-step-web-tests"></a>다단계 웹 테스트
 
 [다중 단계 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다.
 

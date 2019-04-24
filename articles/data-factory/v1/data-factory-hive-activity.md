@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236148"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -75,15 +75,15 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 ## <a name="syntax-details"></a>구문 세부 정보
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| name |작업의 이름 |예 |
-| 설명 |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
-| 형식 |HDinsightHive |예. |
-| inputs |Hive 활동에서 사용된 입력 |아니요 |
-| 출력 |Hive 활동에서 생성된 출력 |예 |
-| linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| script |Hive 스크립트 인라인 지정 |아니요 |
-| script path |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
-| defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
+| 이름 |작업의 이름 |예 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아닙니다. |
+| 형식 |HDinsightHive |예 |
+| inputs |Hive 활동에서 사용된 입력 |아닙니다. |
+| outputs |Hive 활동에서 생성된 출력 |예. |
+| linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예. |
+| script |Hive 스크립트 인라인 지정 |아닙니다. |
+| script path |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아닙니다. |
+| defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아닙니다. |
 
 ## <a name="example"></a>예
 회사에서 출시한 게임을 사용자가 플레이한 시간을 파악하려는 게임 로그 분석의 예를 살펴보겠습니다. 

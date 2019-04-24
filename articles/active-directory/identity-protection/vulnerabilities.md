@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294239"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 
@@ -43,7 +43,7 @@ Azure Multi-factor Authentication 사용자 인증에 대 한 보안의 두 번�
 
 자세한 내용은 [Azure Multi-Factor Authentication이란?](../authentication/multi-factor-authentication.md)을 참조하세요.
 
-## <a name="unmanaged-cloud-apps"></a>관리되지 않은 클라우드 앱
+## <a name="unmanaged-cloud-apps"></a>관리되지 않는 클라우드 앱
 
 이 취약점을 사용하면 조직에서 관리되지 않은 클라우드 앱을 식별할 수 있습니다.
 
@@ -53,7 +53,7 @@ IT 직원에 게 종종 조직에서 모든 클라우드 응용 프로그램의 
 
 자세한 내용은 [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)를 참조하세요.
 
-## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management에서 보안 경고
+## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management의 보안 경고
 
 이 취약점을 사용하여 조직에서 권한있는 ID에 대한 경고를 검색하고 해결할 수 있습니다.  
 

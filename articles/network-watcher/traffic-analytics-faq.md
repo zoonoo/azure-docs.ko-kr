@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236612"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -130,12 +130,6 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 
 지원되는 지역을 선택합니다. 지원되지 않는 영역을 선택할 경우 "찾을 수 없음" 오류가 표시됩니다. 지원되는 지역은 이 문서의 앞 부분에 나와 있습니다.
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>이유가 오류 "실패에 대 한 흐름 로그 설정을 업데이트... InternalServerError... " 미국 버지니아 주 정부에서 NSG를 사용 하도록 설정 하면 하는 경우?
-
-'Microsoft.Network' 리소스 공급자를 다시 등록 미국 버지니아 주 정부 구독에 있지 않은 버그 때문입니다. 팀이에 대 한 수정에 작동 합니다. 이 문제를 해결 해야 [수동으로 'Microsoft.Network' RP를 다시 등록](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors)합니다. 
-
-문제가 지속 되 면 지원에 문의 하세요. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>NSG 흐름 로그 페이지에 상태가 “로드 실패”로 표시되면 어떻게 하나요?
 

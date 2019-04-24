@@ -3,8 +3,8 @@ title: Azure를 변환할 표준에서 프리미엄 또는 표준에는 프리�
 description: Azure CLI를 사용 하 여 프리미엄 또는 표준으로 프리미엄을 표준에서 디스크 저장소를 관리 하는 Azure를 변환 하는 방법.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 18730f662f36000e1efc826c35bebde79dbf0e79
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328785"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Azure를 변환할 표준에서 프리미엄 또는 표준에는 프리미엄 디스크 저장소 관리
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406449"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용
 
@@ -95,7 +95,7 @@ Azure DevOps Services에서 RDP 확장을 사용하려면 빌드 파이프라인
 
 1. 빌드 단계가 완료되면 **Azure 클라우드 서비스 배포** 단계를 추가하고 해당 속성을 설정합니다.
 
-1. 배포 단계가 완료되면 **Azure Powershell** 단계를 추가하고, **표시 이름** 속성을 "Azure 배포: RDP 확장 사용"(또는 다른 적절한 이름)으로 설정하고, 적절한 Azure 구독을 선택합니다.
+1. 배포 단계를 수행한 후 추가 **Azure Powershell** 단계에서 설정 해당 **표시 이름** 속성을 "Azure 배포: RDP 확장을 사용 하도록 설정"(또는 다른 적절 한 이름) 적절 한 Azure 구독을 선택 합니다.
 
 1. **스크립트 유형**을 "인라인"으로 설정하고, 아래 코드를 **인라인 스크립트** 필드에 붙여넣습니다. (또한 이 스크립트를 사용하여 프로젝트에 `.ps1` 파일을 만들고, **스크립트 유형**을 "스크립트 파일 경로"로 설정하고, 이 파일을 가리키도록 **스크립트 경로**를 설정할 수도 있습니다.)
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
 ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236636"
 ---
 # <a name="azure-backup-support-matrix"></a>Azure Backup 지원 매트릭스
 
@@ -117,10 +117,10 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**DPM/MABS 없이 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
-**Azure VM** | ![예][green] | ![예][green]
-**DPM 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
-**MABS 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
+**DPM/MABS 없이 온-프레미스 Windows 컴퓨터** | ![예.][green] | ![예.][green]
+**Azure VM** | ![예.][green] | ![예.][green]
+**DPM 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예.][green] | ![예.][green]
+**MABS 사용 하 여 Azure Vm 또는 온-프레미스 Windows 컴퓨터** | ![예.][green] | ![예.][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -133,7 +133,7 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 --- | --- | ---
 **온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![예][green]
 **VM 확장을 사용 하 여 Azure Vm의 백업** | 해당 없음 | 해당 없음
-**MABS/DPM을 사용 하 여 Azure 온-프레미스/컴퓨터에 백업** | ![예][green] | ![예][green]
+**MABS/DPM을 사용 하 여 Azure 온-프레미스/컴퓨터에 백업** | ![예.][green] | ![예][green]
 
 ## <a name="retention-limits"></a>보존 제한
 

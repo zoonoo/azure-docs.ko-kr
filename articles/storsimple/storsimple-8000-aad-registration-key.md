@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309873"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple에 새 인증 사용
 
@@ -61,7 +61,7 @@ StorSimple 8000 시리즈 디바이스를 사용하는 경우 다음 테이블�
 | 실행 중인 디바이스| 수행할 작업                                    |
 |--------------------------|------------------------|
 | 업데이트 5 이상을 실행 중이고 디바이스가 오프라인 상태입니다. <br> URL이 허용 목록에 없다는 경고가 표시됩니다.|1. 인증 URL을 포함하도록 방화벽 규칙을 수정합니다. [인증 URL](#url-changes-for-aad-authentication)을 참조하세요.<br>2. [서비스에서 AAD 등록 키를 받습니다](#aad-based-registration-keys).<br>3. [StorSimple 8000 시리즈 디바이스의 Windows PowerShell 인터페이스에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. `Redo-DeviceRegistration` cmdlet을 사용하여 Windows PowerShell을 통해 디바이스를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
-| 업데이트 5 이상을 실행 중이고 디바이스가 온라인 상태입니다.| 추가적인 조치가 필요하지 않습니다.                                       |
+| 업데이트 5 이상을 실행 중이고 디바이스가 온라인 상태입니다.| 별도의 작업이 필요 없습니다.                                       |
 | 업데이트 4 이상을 실행 중이고 디바이스가 오프라인 상태입니다. |1. 인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br>2. [카탈로그 서버를 통해 업데이트 5를 다운로드합니다](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [핫픽스 메서드를 통해 업데이트 5를 적용합니다](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [서비스에서 AAD 등록 키를 받습니다](#aad-based-registration-keys).<br>5. [StorSimple 8000 시리즈 디바이스의 Windows PowerShell 인터페이스에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. `Redo-DeviceRegistration` cmdlet을 사용하여 Windows PowerShell을 통해 디바이스를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
 | 업데이트 4 이상을 실행 중이고 디바이스가 온라인 상태입니다. |인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br> Azure Portal을 통해 업데이트 5를 설치합니다.              |
 | 업데이트 5 이전 버전으로 공장 재설정.      |디바이스에서 이전 소프트웨어를 실행하는 동안 포털에 AAD 기반 등록 키가 표시됩니다. 디바이스에서 업데이트 4 또는 이전 버전을 실행하는 경우 이전 시나리오의 단계를 따릅니다.              |

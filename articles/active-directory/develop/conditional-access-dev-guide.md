@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410759"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -104,7 +104,7 @@ Azure AD 조건부 액세스는 [Azure AD Premium](https://docs.microsoft.com/az
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>시나리오: On-Behalf-Of 흐름을 수행하는 앱
 
-이 시나리오에서는 원시 앱이 웹 서비스/API를 호출하는 경우를 연습합니다. 이 서비스에서는 “On-Behalf-Of” 흐름을 차례로 수행하여 다운스트림 서비스를 호출합니다. 이 경우, 다운스트림 서비스(Web API 2)에 조건부 액세스 정책을 적용했고 서버/디먼 앱보다는 원시 앱을 사용합니다. 
+이 시나리오에서는 원시 앱이 웹 서비스/API를 호출하는 경우를 연습합니다. 따라서이 서비스는 다운스트림 서비스를 호출 하려면 "-대신-의" 흐름입니다. 이 경우, 다운스트림 서비스(Web API 2)에 조건부 액세스 정책을 적용했고 서버/디먼 앱보다는 원시 앱을 사용합니다. 
 
 ![On-Behalf-Of 흐름을 수행하는 앱 다이어그램](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -145,7 +145,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![새 토큰을 요청하는 여러 서비스에 액세스하는 앱](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-앱에서 ADAL 라이브러리를 사용하는 경우 토큰을 획득하지 못하면 항상 대화형으로 다시 시도합니다. 이 대화형 요청이 발생하면 최종 사용자는 조건부 액세스를 준수할 수 있는 기회를 얻게 됩니다. 요청이 `AcquireTokenSilentAsync` 또는 `PromptBehavior.Never`인 경우를 제외하고 앱은 최종 사용자가 정책을 준수할 수 있는 기회를 제공하기 위해 대화형 ```AcquireToken``` 요청을 수행해야 합니다.
+앱에서 ADAL 라이브러리를 사용하는 경우 토큰을 획득하지 못하면 항상 대화형으로 다시 시도합니다. 이 대화형 요청이 발생하면 최종 사용자는 조건부 액세스를 준수할 수 있는 기회를 얻게 됩니다. 이 요청이 아닌를 `AcquireTokenSilentAsync` 또는 `PromptBehavior.Never` 앱을 대화형 수행 해야 하는 경우 ```AcquireToken``` 최종 사용자는 정책을 준수할 수 있도록 지정 합니다. 요청 합니다.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>시나리오: ADAL.js를 사용하는 SPA(단일 페이지 앱)
 

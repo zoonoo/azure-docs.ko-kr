@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294912"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>방법: 다단계 인증 등록 정책 구성
 
-Azure AD Id 보호 등록 MFA를 요구 하는 정책을 구성 하 여 multi-factor authentication (MFA) 등록의 롤아웃을 관리할 수 있습니다. 이 문서에서는 어떤 정책을 어떻게 구성하는지에 대해 설명합니다.
+Azure AD Id 보호 등록 MFA를 요구 하는 정책을 구성 하 여 multi-factor authentication (MFA) 등록의 롤아웃을 관리할 수 있습니다. 이 문서에는 어떤 정책에 사용할 수 있습니다 및 구성 하는 방법을 설명 합니다.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>다단계 인증 등록 정책이란?
 
@@ -75,7 +75,7 @@ MFA 등록 정책을 구성할 때 설정 해야 합니다.
 
 
 
-## <a name="user-experience"></a>사용자 환경
+## <a name="user-experience"></a>사용자 경험
 
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.

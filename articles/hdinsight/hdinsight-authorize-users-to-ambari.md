@@ -1,7 +1,6 @@
 ---
 title: 사용자에게 Ambari 보기에 대한 권한 부여 - Azure HDInsight
 description: ESP가 사용되는 HDInsight 클러스터에 대한 Ambari 사용자 및 그룹 권한을 관리하는 방법을 설명합니다.
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: cf001d86356f4dd5fd3735803f0e329aa1e0940d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255059"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
@@ -108,7 +107,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
 ![역할 블록 보기](./media/hdinsight-authorize-users-to-ambari/roles-block-view.png)
 
-### <a name="list-view"></a>목록 보기
+### <a name="list-view"></a>목록 뷰
 
 목록 보기는 두 개의 범주에서 신속한 편집 기능을 제공합니다. 사용자 및 그룹
 

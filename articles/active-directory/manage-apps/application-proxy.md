@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292602"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스 
 
@@ -64,7 +64,7 @@ Azure AD 애플리케이션 프록시는:
 | 애플리케이션 프록시 서비스 | 이 애플리케이션 프록시 서비스는 클라우드에서 Azure AD의 일부로 실행됩니다. 사용자의 로그온 토큰을 애플리케이션 프록시 커넥터에 전달합니다. 애플리케이션 프록시는 요청이 있을 시 액세스 가능한 모든 헤더를 클라이언트 IP 주소에 전달하고 프로토콜에 따라 헤더를 설정합니다. 들어오는 프록시 요청에 이미 헤더가 있는 경우 헤더의 값인 쉼표로 구분된 목록의 끝에 클라이언트 IP 주소가 추가됩니다.|
 | 애플리케이션 프록시 커넥터 | 커넥터는 네트워크 내부의 Windows Server에서 실행되는 간단한 에이전트입니다. 커넥터는 클라우드 애플리케이션과 온-프레미스 애플리케이션의 애플리케이션 프록시 서비스 사이에서 이루어지는 통신을 관리합니다. 커넥터가 아웃바운드 연결만 사용하므로 인바운드 포트를 열거나 DMZ에 아무 것도 배치할 필요가 없습니다. 커넥터는 상태를 저장하지 않으며 필요에 따라 클라우드에서 정보를 가져옵니다. 커넥터에 대한 정보 및 부하 분산 및 인증하는 방법은 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.|
 | AD(Active Directory) | Active Directory는 온-프레미스에서 실행되어 도메인 계정에 대한 인증을 수행합니다. Single Sign-On이 구성되면 커넥터가 AD와 통신하여 필요한 추가 인증을 수행합니다.
-| 온-프레미스 애플리케이션 | 마지막으로, 사용자는 온-프레미스 애플리케이션에 액세스할 수 있습니다. 
+| 온-프레미스 응용 프로그램 | 마지막으로, 사용자는 온-프레미스 애플리케이션에 액세스할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 애플리케이션 프록시를 시작하려면 [자습서: 애플리케이션 프록시를 통해 원격 액세스를 위한 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)를 참조하세요. 

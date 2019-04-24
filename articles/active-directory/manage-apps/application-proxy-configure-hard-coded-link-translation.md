@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437736"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -83,10 +83,10 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 - **하드 코드된 내부 링크** - `http://expenses` 같은 다른 온-프레미스 앱이나 `http://expenses/logo.jpg` 같은 게시된 파일에 대한 링크입니다. 링크 변환 기능은 하드 코드된 내부 링크에서 작동하며 해당 링크를 원격 사용자가 통과해야 하는 외부 URL을 가리키도록 변경합니다.
 
 포함에 대 한 응용 프로그램 프록시 링크 변환 지 HTML 코드 태그의 전체 목록:
-* a
+* 하나
 * audio
 * 자료
-* button
+* 단추
 * div
 * 포함
 * 폼
@@ -96,14 +96,14 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 * iframe
 * 이미지
 * input
-* link
+* 링크
 * menuitem
 * meta
-* object
+* 개체
 * script
-* 원본
+* 원본(source)
 * 추적
-* video
+* 비디오
 
 또한 CSS 내 URL 특성 또한 변환 됩니다.
 

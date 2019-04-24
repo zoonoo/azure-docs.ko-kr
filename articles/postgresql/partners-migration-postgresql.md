@@ -7,12 +7,12 @@ manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: 63facf52531d1f58e4022085503da96a797f60df
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: cbb9328e35160979fcf1e52b6da9dcdd9441a243
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251812"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Azure Database for PostgreSQL 마이그레이션 파트너
 Azure Database for PostgreSQL 솔루션을 광범위하게 지원하려면 다양한 업계 선도 파트너 및 도구에서 선택하면 됩니다. 이 문서에서는 Azure Database for PostgreSQL을 지원하는 마이그레이션 솔루션을 제공하는 Microsoft 파트너를 중점적으로 소개합니다.

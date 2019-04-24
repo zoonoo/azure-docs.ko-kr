@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406756"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -148,7 +148,7 @@ traces
 
 사용자 지정 구성 없이 Application Insights를 사용할 수 있습니다. 대용량 데이터의 기본 구성 될 수 있습니다. Visual Studio Azure 구독을 사용하는 경우 Application Insights에 대한 데이터 제한에 도달할 수 있습니다. 이 문서 뒷부분에 나오는 구성 함수를 Application Insights로 전송 하는 데이터를 사용자 지정 하는 방법을 알아봅니다. 함수 앱에 대 한 로깅이에 구성 되어 합니다 [host.json] 파일입니다.
 
-### <a name="categories"></a>범주
+### <a name="categories"></a>Categories
 
 Azure Functions 로거에는 모든 로그에 대한 *범주*가 포함되어 있습니다. 범주는 런타임 코드 또는 함수 코드의 어느 부분이 로그를 작성했는지를 나타냅니다. 
 

@@ -9,11 +9,11 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320570"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로
 
@@ -23,7 +23,7 @@ ms.locfileid: "57439268"
 
 이 예제에서는 `mystorageaccount`라는 Azure Storage 계정에 다음 데이터를 가져옵니다.
 
-|위치|설명|데이터 크기|
+|Location|설명|데이터 크기|
 |--------------|-----------------|-----|
 |H:\Video\ |비디오 컬렉션|12 TB|
 |H:\Photo\ |사진 컬렉션|30GB|

@@ -11,11 +11,11 @@ ms.date: 11/01/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 65c74b7451c5a605ca8c2e866296c87c0320b730
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316904"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리
 

@@ -9,11 +9,11 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237686"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
 Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI를 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](diagnostic-logs-overview.md)** 를 거의 실시간으로 애플리케이션에 스트리밍할 수 있습니다.

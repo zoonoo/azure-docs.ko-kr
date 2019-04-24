@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 15ac70891f23d95709d1998bca1ce29ad735cb87
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444251"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 
@@ -90,7 +90,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 �
 
 자세한 정보:
 
-* [Azure Key Vault란?](../key-vault/key-vault-overview.md)
+* [Azure 키 자격 증명 모음이란?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault 블로그](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>가상 머신 디스크 암호화
@@ -158,7 +158,7 @@ Security Center는 다음과 같은 방법을 통해 가상 머신의 보안을 
 * [Azure Security Center 질문과 대답](../security-center/security-center-faq.md)
 * [Azure Security Center 계획 및 작업](../security-center/security-center-planning-and-operations-guide.md)
 
-## <a name="compliance"></a>규정 준수
+## <a name="compliance"></a>준수
 
 Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주요 규정 준수 프로그램 인증을 받았습니다. 이러한 인증을 통해 여러분이 직접 만드는 Azure 애플리케이션도 규정 준수 요구 사항을 충족하기 쉽고 비즈니스가 다양한 국내 및 국제 규정 요구 사항을 충족하기도 쉽습니다.
 

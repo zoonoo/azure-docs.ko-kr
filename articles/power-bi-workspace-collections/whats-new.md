@@ -3,17 +3,17 @@ title: Power BI 작업 영역 컬렉션의 새로운 기능
 description: Power BI 작업 영역 컬렉션의 새로운 기능에 대한 최신 정보 얻기
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: b29996b8e2cd9a95b9c1566036b1009b65c18bfa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341984"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 새로운 기능
 

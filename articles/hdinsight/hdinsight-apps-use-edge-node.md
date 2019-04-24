@@ -1,7 +1,6 @@
 ---
 title: HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용 - Azure
 description: 클라이언트로 사용할 수 있는 HDInsight 클러스터에 빈 에지 노드를 추가한 다음 HDInsight 애플리케이션을 테스트/호스트하는 방법입니다.
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: aa9cdbaece2714dd4869268f394e6840fe42edda
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253535"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -80,7 +79,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
    
    * **구독**: 이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.
    * **리소스 그룹**: 기존 HDInsight 클러스터에 사용되는 리소스 그룹을 선택합니다.
-   * **위치**: 기존 HDInsight 클러스터의 위치를 선택합니다.
+   * **Location**: 기존 HDInsight 클러스터의 위치를 선택합니다.
    * **클러스터 이름**: 기존 HDInsight 클러스터의 이름을 입력합니다.
    * **에지 노드 크기**: VM 크기 중 하나를 선택합니다. VM 크기는 작업자 노드 VM 크기 요구 사항을 충족해야 합니다. 권장되는 작업자 노드 VM 크기에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)를 참조하세요.
    * **에지 노드 접두사**: 기본값은 **new**입니다.  에지 노드 이름의 기본값은 **new-edgenode**가 사용됩니다.  포털에서 접두사를 사용자 지정할 수 있습니다. 템플릿에서 전체 이름을 사용자 지정할 수도 있습니다.
@@ -103,7 +102,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
    
    * **구독**: 이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.
    * **리소스 그룹**: 클러스터에 사용되는 새 리소스 그룹을 만듭니다.
-   * **위치**: 리소스 그룹의 위치를 선택합니다.
+   * **Location**: 리소스 그룹의 위치를 선택합니다.
    * **클러스터 이름**: 만들려는 새 클러스터의 이름을 입력합니다.
    * **클러스터 로그인 사용자 이름**: Hadoop HTTP 사용자 이름을 입력합니다.  기본 이름은 **admin**입니다.
    * **클러스터 로그인 암호**: Hadoop HTTP 사용자 암호를 입력합니다.

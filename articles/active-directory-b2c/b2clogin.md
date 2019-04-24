@@ -11,11 +11,11 @@ ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314585"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -24,7 +24,7 @@ Azure AD(Azure Active Directory) B2C 애플리케이션의 등록 및 로그인�
 b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩니다.
 
 - 쿠키 헤더에서 Microsoft 서비스가 사용하는 공간이 줄어듭니다.
-- URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. 예: `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`
+- URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. 예: `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
 >[!NOTE]
 > 테 넌 트 이름 및 테 넌 트 GUID 다음과 같이 사용할 수 있습니다.

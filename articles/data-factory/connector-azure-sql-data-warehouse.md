@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203388"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -399,22 +399,29 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure SQL Data Warehouse에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 자세한 비교는 [성능 참조](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure SQL Data Warehouse에 1TB 로드](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse)를 참조하세요.
 
-* 원본 데이터가 Azure Blob Storage 또는 Azure Data Lake Store에 있고 형식이 PolyBase와 호환되는 경우, PolyBase를 사용하여 Azure SQL Data Warehouse에 직접 복사합니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
+* 원본 데이터에 있으면 **Azure Blob, Azure Data Lake 저장소 Gen1 또는 Azure Data Lake 저장소 Gen2**, 및 **형식이 PolyBase 호환**, 복사 활동을 사용 하 여 Azure에 있도록 PolyBase를 직접 호출 SQL Data Warehouse 원본에서 데이터를 끌어옵니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 기능은 데이터를 PolyBase 호환 형식으로 자동으로 변환합니다. 또한 Azure Blob Storage에 데이터를 저장합니다. 그런 다음, SQL Data Warehouse에 데이터를 로드합니다.
 
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase를 사용한 직접 복사
 
-SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 지원합니다. 서비스 주체를 원본으로 사용하며 특정 파일 형식 요구 사항이 있습니다. 원본 데이터가 이 섹션에 설명된 조건을 충족하는 경우, PolyBase를 사용하여 원본 데이터 저장소에서 Azure SQL Data Warehouse로 직접 복사합니다. 조건을 충족하지 않는 경우, [PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)를 사용합니다.
+SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake 저장소 Gen1 및 Azure Data Lake 저장소 Gen2 직접 지원합니다. 이 섹션에 설명 된 조건을 충족 하는 원본 데이터를 PolyBase 사용 하 여 원본 데이터 저장소에서 직접 Azure SQL Data Warehouse로 복사 합니다. 조건을 충족하지 않는 경우, [PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)를 사용합니다.
 
 > [!TIP]
-> Data Lake Store에서 SQL Data Warehouse로 데이터를 효율적으로 복사하려면 [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/)(SQL Data Warehouse와 함께 Data Lake Store를 사용할 경우, Azure Data Factory에서 데이터의 인사이트를 쉽고 편리하게 얻을 수있음)에서 자세한 내용을 참조하세요.
+> SQL Data Warehouse로 데이터를 효율적으로 복사를 하려면에서 자세히 알아보세요 [Azure Data Factory를 사용 하면 더 쉽고 편리 하 게 SQL Data Warehouse를 사용 하 여 Data Lake Store를 사용 하는 경우 데이터에서 통찰력을 끌어내는](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/)합니다.
 
 조건을 충족하지 않는 경우, Azure Data Factory는 설정을 확인한 후 데이터 이동을 위해 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
-1. 합니다 **원본에 연결 된 서비스** 형식은 Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) 사용 하 여 **계정 키 인증**  또는 Azure Data Lake 저장소 Gen1 (**AzureDataLakeStore**)와 **서비스 주체 인증**합니다.
-2. **입력 데이터 세트** 유형은 **AzureBlob** 또는 **AzureDataLakeStoreFile**입니다. `type` 속성 아래의 형식 유형은 다음 구성을 사용하는 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
+1. 합니다 **원본 서비스에 연결 된** 형식 및 인증 메서드를 사용 하는 것:
 
-   1. `fileName`은 와일드 카드 필터를 포함하지 않습니다.
+    | 지원 되는 원본 데이터 저장소 형식 | 지원 되는 원본 인증 유형 |
+    |:--- |:--- |
+    | [Azure Blob](connector-azure-blob-storage.md) | 계정 키 인증 |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | 서비스 주체 인증 |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 계정 키 인증 |
+
+2. 합니다 **원본 데이터 집합 형식** 입니다 **ParquetFormat**를 **OrcFormat**, 또는 **TextFormat**, 다음 구성을 통해:
+
+   1. `folderPath` 및 `fileName` 와일드 카드 필터를 포함 하지 않습니다.
    2. `rowDelimiter`는 **\n**이어야 합니다.
    3. `nullValue`는 **빈 문자열**("")로 설정되거나 기본값으로 남아 있고, `treatEmptyAsNull`은 기본값으로 남아 있거나 true로 설정됩니다.
    4. `encodingName`이 기본값인 **utf-8**로 설정되어 있습니다.
@@ -423,7 +430,7 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -431,10 +438,6 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```
@@ -574,7 +577,7 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL D
 | Decimal | Decimal |
 | FILESTREAM attribute (varbinary(max)) | Byte[] |
 | Float | Double |
-| image | Byte[] |
+| Image | Byte[] |
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |

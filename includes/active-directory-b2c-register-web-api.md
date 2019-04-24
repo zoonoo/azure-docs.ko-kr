@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
 ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "58115608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454843"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "58115608"
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | Contoso B2C API | 소비자에게 API를 설명하는 애플리케이션 **이름**을 입력합니다. | 
 | **웹앱/웹 API 포함** | yes | 웹 API에 **예**를 선택합니다. |
-| **암시적 흐름 허용** | 예 | 애플리케이션이 [OpenID Connect 로그인](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)을 사용할 경우 **예** 선택 |
+| **암시적 흐름 허용** | 예. | 애플리케이션이 [OpenID Connect 로그인](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)을 사용할 경우 **예** 선택 |
 | **회신 URL** | `https://localhost:44316/` | 회신 URL은 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트입니다. 이 예에서는 앱 API가 로컬이고 포트 44316에서 수신하고 있습니다. |
 | **앱 ID URI** | api | 앱 ID URI는 웹 API에 사용하는 식별자입니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. |
 

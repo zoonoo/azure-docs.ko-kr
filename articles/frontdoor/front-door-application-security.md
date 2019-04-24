@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193920"
 ---
 # <a name="application-layer-security-with-front-door"></a>Front Door와 애플리케이션 계층 보안
 Azure Front Door Service는 SQL 주입 또는 교차 사이트 스크립팅(XSS)과 같은 일반적인 웹 취약점 악용과 네트워크 공격으로부터 웹 애플리케이션을 보호하는 웹 애플리케이션 보호 기능을 제공합니다. http(s) 프런트 엔드를 사용할 수 있게 설정된 Front Door의 애플리케이션 계층 보안은 전역적으로 배포되며, 항상 켜져 있으므로 백 엔드와 멀리 떨어진 Azure의 네트워크 에지에서 악의적인 공격을 막아줍니다. 보안 및 성능이 더욱 최적화된 Front Door는 최종 사용자에게 빠르고 안전한 웹 환경을 제공합니다.

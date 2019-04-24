@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237499"
 ---
 # <a name="create-and-clone-projects"></a>프로젝트 만들기 및 복제
 
@@ -39,7 +39,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 | **실행** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
 | **다운로드** | 모든 사람 | 선택한 프로젝트의 복사본을 ZIP 파일로 다운로드합니다. |
 | **공유** | 모든 사람 | 선택한 프로젝트의 URL을 가져오고, 소셜 미디어에 공유하고, URL이 포함된 이메일을 보내고, URL을 사용하여 "Notebook 시작" 배지([시작 배지 얻기](#obtain-a-launch-badge) 참조)가 있는 HTML 또는 Markdown 코드를 모두 얻을 수 있는 공유 팝업을 표시합니다. |
-| **삭제** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 취소할 수 없습니다. |
+| **Delete** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 취소할 수 없습니다. |
 | **터미널** | 소유자 | 프로젝트 서버를 시작한 다음, 해당 서버에 대한 bash 터미널을 사용하여 새 브라우저 창을 엽니다. |
 | **+ 새 프로젝트** | 소유자 | 새 프로젝트를 만듭니다. [새 프로젝트 만들기](#create-a-new-project)를 참조하세요. |
 | **GitHub 리포지토리 업로드** | 소유자 | GitHub에서 프로젝트를 가져옵니다. [GitHub에서 프로젝트를 가져옵니다](#import-a-project-from-github). |
@@ -78,11 +78,11 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| about | 계정 | 관리 | api | 블로그 | 클래스 룸 |
+| 정보 | 계정 | 관리 | api | 블로그 | 클래스 룸 |
 | 콘텐츠 | dashboard | 탐색 | faq | help | html |
-| home | 수입 | 도서관 | 관리 | 신규 | notebook |
+| 홈 | 가져오기 | 도서관 | 관리 | 새로 만들기 | notebook |
 | notebooks | pdf | 미리 보기 | 가격 책정 | 프로필 | 검색 |
-| status | support | test | | | |
+| status | 지원 | test | | | |
 
 프로젝트 ID로 이러한 단어 중 하나를 사용 하려는 경우는 **새 프로젝트 만들기** 하 고 **프로젝트 설정을** "라이브러리 id에는 예약 된 식별자입니다." 팝업이 표시
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor(미리 보기)에서 Azure Active Directory 감사 로그 스키마 해석 | Microsoft Docs
-description: Azure Monitor(미리 보기)에서 사용을 위해 Azure AD 감사 로그 스키마 설명
+title: Azure Monitor에서 Azure Active Directory 감사 로그 스키마를 해석 | Microsoft Docs
+description: Azure Monitor에서 사용 하기 위해 Azure AD 감사 로그 스키마를 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4832776dee7c478996bcfc2a903a6d8e2a3c4426
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437076"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)에서 Azure AD 감사 로그 스키마 해석
 
@@ -149,10 +149,10 @@ ms.locfileid: "58436968"
 
 | 필드 이름 | 설명 |
 |------------|-------------|
-| 실시간       | 날짜 및 시간(UTC)입니다. |
+| time       | 날짜 및 시간(UTC)입니다. |
 | operationName | 작업의 이름입니다. |
 | operationVersion | 클라이언트에서 요청한 REST API 버전입니다. |
-| 카테고리 | 현재 *감사*는 유일하게 지원되는 값입니다. |
+| category | 현재 *감사*는 유일하게 지원되는 값입니다. |
 | tenantId | 로그와 연결된 테넌트 GUID입니다. |
 | resultType | 작업의 결과입니다. 결과는 *성공* 또는 *실패*일 수 있습니다. |
 | resultSignature |  이 필드를 매핑 해제하고 안전하게 무시할 수 있습니다. | 

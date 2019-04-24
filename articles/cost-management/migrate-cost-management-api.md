@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311952"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업 계약에서 Microsoft 고객 계약 Api로 마이그레이션
 
@@ -174,25 +174,25 @@ Azure 서비스 사용, 제 3 자 Marketplace 사용량 및 다음과 같은 Api
 | --- | --- | --- |
 | 계정 ID | N/A | 구독 작성자 추적 되지 않습니다. InvoiceSectionId (departmentId 동일)을 사용 합니다. |
 | AccountNameAccountOwnerId 및 AccountOwnerEmail | N/A | 구독 작성자 추적 되지 않습니다. InvoiceSectionName (departmentName 동일)을 사용 합니다. |
-| 추가 정보 | additionalInfo | &nbsp;  |
+| 추가 정보 | 추가 정보 | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | 이러한 속성은 반대는 참고 합니다. IsAzureCreditEnabled true 이면 ChargesBilledSeparately false가 됩니다. |
-| ConsumedQuantity | quantity | &nbsp; |
+| 사용한 수량 | 수량 | &nbsp; |
 | 사용한 서비스 | consumedService | 정확한 문자열 값이 달라질 수 있습니다. |
 | 사용한 서비스 ID | 없음 | &nbsp; |
-| CostCenter | costCenter | &nbsp; |
+| CostCenter | 비용 센터 | &nbsp; |
 | 날짜 및 usageStartDate | date | &nbsp;  |
 | 일 | 없음 | 날짜에서 하루를 구문 분석합니다. |
 | 부서 ID | InvoiceSectionId | 정확한 값이 다릅니다. |
 | DepartmentName | InvoiceSectionName | 정확한 문자열 값이 달라질 수 있습니다. 필요한 경우 학부에 맞게 송장 섹션을 구성 합니다. |
 | ExtendedCost 및 비용 | costInBillingCurrency | &nbsp;  |
-| InstanceId | ResourceId | &nbsp;  |
+| InstanceId | resourceId | &nbsp;  |
 | 반복 청구 여부 | 없음 | &nbsp;  |
-| 위치 | location | &nbsp;  |
-| 미터 범주 | meterCategory | 정확한 문자열 값이 달라질 수 있습니다. |
-| MeterId | meterId | 정확한 문자열 값이 다릅니다. |
-| 요금제 이름 | meterName | 정확한 문자열 값이 달라질 수 있습니다. |
-| 요금제 지역 | meterRegion | 정확한 문자열 값이 달라질 수 있습니다. |
-| 미터 하위 범주 | meterSubCategory | 정확한 문자열 값이 달라질 수 있습니다. |
+| Location | location | &nbsp;  |
+| 미터 범주 | 요금제 범주 | 정확한 문자열 값이 달라질 수 있습니다. |
+| 요금제 ID | meterId | 정확한 문자열 값이 다릅니다. |
+| 요금제 이름 | 요금제 이름 | 정확한 문자열 값이 달라질 수 있습니다. |
+| 요금제 지역 | 요금제 지역 | 정확한 문자열 값이 달라질 수 있습니다. |
+| 미터 하위 범주 | 요금제 하위 범주 | 정확한 문자열 값이 달라질 수 있습니다. |
 | 월 | 없음 | 날짜에서 월을 구문 분석합니다. |
 | 제품 이름 | 없음 | PublisherName과 productOrderName를 사용 합니다. |
 | OfferId | 없음 | &nbsp;  |
@@ -200,24 +200,24 @@ Azure 서비스 사용, 제 3 자 Marketplace 사용량 및 다음과 같은 Api
 | PartNumber | 없음 | 및 사용 하 여 meterId productOrderName 가격을 고유 하 게 식별 합니다. |
 | 계획 이름 | productOrderName | &nbsp;  |
 | 제품 | 제품 |   |
-| ProductId | productId | 정확한 문자열 값이 다릅니다. |
+| 제품 ID | productId | 정확한 문자열 값이 다릅니다. |
 | 게시자 이름 | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | 정확한 문자열 값이 다릅니다. |
-| 리소스 위치 | resourceLocation | &nbsp;  |
+| 리소스 위치 | 리소스 위치 | &nbsp;  |
 | 리소스 위치 ID | 없음 | &nbsp;  |
 | 리소스 비용 | effectivePrice | &nbsp;  |
 | 서비스 관리자 ID | N/A | &nbsp;  |
-| 서비스 정보 1 | serviceInfo1 | &nbsp;  |
-| 서비스 정보 2 | serviceInfo2 | &nbsp;  |
-| ServiceName | meterCategory | 정확한 문자열 값이 달라질 수 있습니다. |
-| ServiceTier | meterSubCategory | 정확한 문자열 값이 달라질 수 있습니다. |
+| 서비스 정보 1 | 서비스 정보 1 | &nbsp;  |
+| 서비스 정보 2 | 서비스 정보 2 | &nbsp;  |
+| ServiceName | 요금제 범주 | 정확한 문자열 값이 달라질 수 있습니다. |
+| ServiceTier | 요금제 하위 범주 | 정확한 문자열 값이 달라질 수 있습니다. |
 | 저장소 서비스 식별자 | N/A | &nbsp;  |
 | 구독 GUID | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
 | 태그들 | tags | Tags 속성은 중첩 된 properties 속성 필요가 루트 개체에 적용 됩니다. |
-| 측정 단위 | unitOfMeasure | 정확한 문자열 값이 다릅니다. |
+| 측정 단위 | 측정 단위 | 정확한 문자열 값이 다릅니다. |
 | usageEndDate | date | &nbsp;  |
 | Year | 없음 | 날짜의 연도 구문 분석합니다. |
 | (새로 만들기) | 청구 통화 | 요금은 사용 되는 통화입니다. |
@@ -371,7 +371,7 @@ HTTP Status 200
 | --- | --- | --- |
 | billingPeriodId  | _해당 사항 없음_ | 사용할 수 없습니다. Microsoft 고객 계약에 대 한 송장 및 연결 된 가격표 billingPeriodId의 개념을 대체 합니다. |
 | meterId  | meterId | &nbsp;  |
-| unitOfMeasure  | unitOfMeasure | 정확한 문자열 값이 달라질 수 있습니다. |
+| 측정 단위  | 측정 단위 | 정확한 문자열 값이 달라질 수 있습니다. |
 | includedQuantity  | includedQuantity | Microsoft 고객 계약의 서비스에 대 한 적용 되지 않습니다. |
 | partNumber  | _해당 사항 없음_ | 대신, productOrderName (offerId 동일) 및 meterid의 조합을 사용 합니다. |
 | unitPrice  | unitPrice | 단가는 Microsoft 고객 계약에서 사용 하는 서비스에 적용 됩니다. |
@@ -431,16 +431,16 @@ EA의 등록 범위의 API 응답 및 속성은 동일 합니다. 속성을 동�
 | 이전 Azure Resource Manager 가격 시트 API 속성  | 새 Microsoft 고객 계약 가격표 API 속성   | 설명 |
 | --- | --- | --- |
 | 측정기 ID | _meterId_ | 측정기에 대 한 고유 식별자입니다. MeterId와 동일 합니다. |
-| 요금제 이름 | meterName | 측정기의 이름입니다. 미터는 Azure 서비스 배포 가능한 리소스를 나타냅니다. |
+| 요금제 이름 | 요금제 이름 | 측정기의 이름입니다. 미터는 Azure 서비스 배포 가능한 리소스를 나타냅니다. |
 | 미터 범주  | 서비스 | 측정기에 대 한 분류 범주 이름입니다. Microsoft 고객 계약 가격표에서 서비스와 동일 합니다. 정확한 문자열 값이 다릅니다. |
-| 미터 하위 범주 | meterSubCategory | 미터 subclassification 범주의 이름입니다. 서비스의 고급 기능 집합 차별화의 분류를 기반으로 합니다. 예를 들어, 기본 SQL DB은 표준 SQL DB를 vs. |
-| 요금제 지역 | meterRegion | &nbsp;  |
+| 미터 하위 범주 | 요금제 하위 범주 | 미터 subclassification 범주의 이름입니다. 서비스의 고급 기능 집합 차별화의 분류를 기반으로 합니다. 예를 들어, 기본 SQL DB은 표준 SQL DB를 vs. |
+| 요금제 지역 | 요금제 지역 | &nbsp;  |
 | 단위 | _해당 사항 없음_ | UnitOfMeasure에서 구문 분석할 수 있습니다. |
-| 측정 단위 | unitOfMeasure | &nbsp;  |
+| 측정 단위 | 측정 단위 | &nbsp;  |
 | 부품 번호 | _해당 사항 없음_ | 대신 partNumber, 사용 하 여 productOrderName 및 MeterId 청구 프로필에 대 한 가격을 고유 하 게 식별 합니다. 필드는 MCA 청구서에서 partNumber 대신 MCA 청구서에 표시 됩니다. |
 | 단가 | unitPrice | Microsoft 고객 계약 단위 가격입니다. |
 | 통화 코드 | pricingCurrency | Microsoft 고객 계약에서 통화 가격 책정 및 청구 통화 가격을 나타냅니다. 통화 코드 Microsoft 고객 계약의 pricingCurrency와 같습니다. |
-| 포함된 용량 | includedQuantity | Microsoft 고객 계약의 서비스에는 적용 되지 않습니다. 값이 0 인을 사용 하 여 보여 줍니다. |
+| 포함된 수량 | includedQuantity | Microsoft 고객 계약의 서비스에는 적용 되지 않습니다. 값이 0 인을 사용 하 여 보여 줍니다. |
 |  ID 제공  | productOrderName | OfferId, 대신 productOrderName를 사용 합니다. 그러나 동일 하지는 않습니다 OfferId, productOrderName 및 미터 확인 Microsoft 고객 계약의 가격 책정 합니다. 레거시 등록에서 meterId 및 Offerid 관련이 있습니다. |
 
 Microsoft 고객 계약에 대 한 가격은 기업 계약 다르게 정의 됩니다. 기업 등록 계약에서 서비스에 대 한 가격은 제품, PartNumber, 측정기, 및 제품에 대 한 고유한 것입니다. PartNumber Microsoft 고객 계약에서 사용 되지 않습니다.
@@ -461,7 +461,7 @@ Microsoft 고객 계약의 일부인 Azure 소비 서비스 가격은 meterId pr
 |---|---|
 | billingPeriodId | 적용 되지 않습니다. MCA에 대 한 InvoiceId에 해당합니다. |
 | offerId | 사용할 수 없습니다. MCA에서 productOrderName에 해당합니다. |
-| meterCategory  | 사용할 수 없습니다. MCA에서 서비스에 해당합니다. |
+| 요금제 범주  | 사용할 수 없습니다. MCA에서 서비스에 해당합니다. |
 | 단위 | 사용할 수 없습니다. UnitOfMeasure에서 구문 분석할 수 있습니다. |
 | currencyCode | MCA에서 pricingCurrency와 동일 합니다. |
 | meterLocation | MCA에서 meterRegion와 동일 합니다. |

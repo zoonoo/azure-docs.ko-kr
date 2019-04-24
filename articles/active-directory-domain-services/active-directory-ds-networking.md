@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
 ms.openlocfilehash: 3eba9f504f98d250ad60de3b4dd775effaad2040
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417151"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
@@ -138,7 +138,7 @@ Azure AD Domain Services 관리되는 도메인은 Azure의 단일 가상 네트
 
 <br>
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="related-content"></a>관련 내용
 * [Azure 가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)
 * [클래식 배포 모델에 대한 VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure 네트워크 보안 그룹](../virtual-network/security-overview.md)

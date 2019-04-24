@@ -15,18 +15,18 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194370"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기
 
 [거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이 문서에서는 Azure Portal을 사용하여 거부 할당을 보는 방법에 대해 설명합니다.
 
 > [!NOTE]
-> 이때 사용자가 직접 추가할 수는 유일한 방법은 할당은 Azure Blueprint를 사용 하 여 거부 합니다. 자세한 내용은 [Azure 청사진 리소스 잠금 사용 하 여 새 리소스를 보호](../governance/blueprints/tutorials/protect-new-resources.md)합니다.
+> 현재 자체 거부 할당을 추가할 수 있는 유일한 방법은 Azure Blueprints를 사용하는 것입니다. 자세한 내용은 [Azure Blueprints 리소스 잠금으로 새 리소스 보호](../governance/blueprints/tutorials/protect-new-resources.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

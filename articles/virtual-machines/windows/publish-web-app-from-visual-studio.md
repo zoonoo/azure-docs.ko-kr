@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204423"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
@@ -106,7 +106,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 - 각각의 업로드 후 웹 애플리케이션의 깨끗한 사본이 웹 서버에 있는지 확인하려면(이전 배포와 관련하여 다른 파일이 남아 있지 않음) **설정** 탭에서 **대상의 추가 파일 제거** 탭을 선택합니다.
 
-- 경고: 이 설정으로 게시하면 웹 서버의 모든 파일이 삭제됩니다(wwwroot 디렉터리). 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
+- 경고: 이 설정 사용 하 여 게시 웹 서버 (wwwroot 디렉터리)에 있는 모든 파일을 삭제 합니다. 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
 
 ![게시 설정 - 설정 페이지]
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
 ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323285"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 Verizon 특정 HTTP 헤더
 
@@ -40,7 +40,7 @@ X-Forwarded-For | 요청자의 IP 주소를 나타냅니다.| 10.10.10.10
 X-Forwarded-Proto | 요청의 프로토콜을 나타냅니다. | http
 X-Host | 요청의 호스트 이름을 나타냅니다. | cdn.mydomain.com
 X-Midgress | 요청이 추가 CDN 서버를 통해 프록시되었는지 여부를 나타냅니다. 예를 들어 POP 서버-원본 실드 서버 또는 POP 서버-ADN 게이트웨이 서버 프록시 연결이 있습니다. <br />중간 트래픽이 발생할 때만 요청에 이 헤더가 추가됩니다. 이 경우 헤더가 1로 설정되어 요청이 추가 CDN 서버를 통해 프록시되었음을 나타냅니다.| 1
-[호스트](#host-request-header) | 요청된 콘텐츠를 찾을 수 있는 호스트와 포트를 식별합니다. | marketing.mydomain.com:80
+[Host](#host-request-header) | 요청된 콘텐츠를 찾을 수 있는 호스트와 포트를 식별합니다. | marketing.mydomain.com:80
 [X-Gateway-List](#x-gateway-list-request-header) | ADN: 고객 원본에 할당 된 ADN 게이트웨이 서버 장애 조치 목록을 식별 합니다. <br />원본 실드: 고객 원본에 할당 된 원본 실드 서버 집합을 나타냅니다. | `icn1,hhp1,hnd1`
 X-EC-_&lt;name&gt;_ | *X-EC*로 시작하는 요청 헤더(예: X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md))는 CDN에서 사용하도록 예약됩니다.| waf-production
 

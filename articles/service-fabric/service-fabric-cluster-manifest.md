@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386723"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
 이 문서에서는 *ClusterConfig.json* 파일에서 설정할 수 있는 독립 실행형 Azure Service Fabric 클러스터의 구성 설정을 설명합니다. 이 파일을 사용하여 오류 및 업그레이드 도메인 측면에서 네트워크 토폴로지뿐만 아니라 클러스터의 노드, 보안 구성에 관한 정보를 지정합니다.  구성 설정을 변경 또는 추가한 후 [독립 실행형 클러스터를 만들](service-fabric-cluster-creation-for-windows-server.md)거나 [독립 실행형 클러스터의 구성을 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)할 수 있습니다.
@@ -98,7 +98,7 @@ reliabilityLevel이라는 개념은 클러스터의 주 노드에서 실행될 �
 }
 ```
 
-metadata는 클러스터 진단에 대한 설명이며, 설정에 따라 지정될 수 있습니다. 이러한 변수는 성능 카운터뿐만 아니라 ETW 추적 로그 및 크래시 덤프를 수집하는 데에도 유용합니다. ETW 추적 로그에 대한 자세한 내용은 [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) 및 [ETW 추적](https://msdn.microsoft.com/library/ms751538.aspx)을 참조하세요. [크래시 덤프](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) 및 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)를 포함한 모든 로그는 컴퓨터의 connectionString 폴더로 보낼 수 있습니다. 또한 AzureStorage를 사용하여 진단을 저장할 수 있습니다. 다음 샘플 코드 조각을 참조하세요.
+metadata는 클러스터 진단에 대한 설명이며, 설정에 따라 지정될 수 있습니다. 이러한 변수는 성능 카운터뿐만 아니라 ETW 추적 로그 및 크래시 덤프를 수집하는 데에도 유용합니다. ETW 추적 로그에 대한 자세한 내용은 [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) 및 [ETW 추적](https://msdn.microsoft.com/library/ms751538.aspx)을 참조하세요. [크래시 덤프](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) 및 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)를 포함한 모든 로그는 머신의 connectionString 폴더로 보낼 수 있습니다. 또한 AzureStorage를 사용하여 진단을 저장할 수 있습니다. 다음 샘플 코드 조각을 참조하세요.
 
 ```json
 "diagnosticsStore": {

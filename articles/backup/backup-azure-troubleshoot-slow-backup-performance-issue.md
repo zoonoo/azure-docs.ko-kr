@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337632"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 이 문서에서는 Azure Backup을 사용할 때 파일 및 폴더의 느린 백업 성능 문제에 대한 원인을 진단하는 데 도움이 되는 문제 해결 지침을 제공합니다. Azure Backup 에이전트를 사용하여 파일을 백업하는 경우 백업 프로세스가 예상보다 오래 걸릴 수 있습니다. 이러한 지연은 다음 중 하나 이상에 의해 발생할 수 있습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "51248472"
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>원인: 컴퓨터의 성능 병목 현상
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>원인: 컴퓨터의 성능 병목 상태
 백업 중인 컴퓨터의 병목 현상으로 인해 지연이 발생할 수 있습니다. 예를 들어 컴퓨터가 디스크에 읽거나 쓰는 기능 또는 네트워크를 통해 데이터를 전송하는 데 사용할 수 있는 대역폭으로 인해 병목 현상이 발생할 수 있습니다.
 
 Windows에서는 이러한 병목 상태를 검색할 수 있는 [성능 모니터](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon)라는 기본 제공 도구를 제공합니다.
@@ -55,7 +55,7 @@ Windows에서는 이러한 병목 상태를 검색할 수 있는 [성능 모니�
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>원인: 다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해함
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>원인: 다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해
 Windows 시스템 내의 다른 프로세스가 Azure Backup 에이전트 프로세스의 성능에 부정적인 영향을 미치는 경우가 확인되었습니다. 예를 들어 Azure Backup 에이전트 및 다른 프로그램을 함께 사용하여 데이터를 백업하거나 바이러스 백신 소프트웨어가 실행되고 있고 백업할 파일이 잠겨 있는 경우 파일을 여러 번 잠그면서 경합이 발생할 수 있습니다. 이 경우 백업이 실패하거나 작업이 예상보다 오래 걸릴 수 있습니다.
 
 이 시나리오에서 가장 좋은 방법은 다른 백업 프로그램을 해제하고 Azure Backup 에이전트의 백업 시간이 달라지는지 확인하는 것입니다. 일반적으로 여러 개의 백업이 동시에 실행되지 않도록 하는 것만으로도 백업이 서로 영향을 주지 않도록 할 수 있습니다.
@@ -68,12 +68,12 @@ Windows 시스템 내의 다른 프로세스가 Azure Backup 에이전트 프로
 
 <a id="cause3"></a>
 
-## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>원인: Backup 에이전트가 Azure 가상 컴퓨터에서 실행되고 있음
+## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>원인: Azure 가상 머신에서 실행 되는 backup 에이전트
 VM에서 백업 에이전트를 실행하는 경우 실제 컴퓨터에서 실행할 때보다 성능이 더 느려집니다. 이것은 IOPS 제한 때문으로 예상됩니다.  그러나 백업되는 데이터 드라이브를 Azure Premium Storage로 전환하여 성능을 최적화할 수 있습니다. 이 문제를 해결하기 위해 계속 노력 중이며, 이후 릴리스에서 수정 사항을 사용할 수 있게 될 것입니다.
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>원인: 많은 수(수백만 개)의 파일 백업
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>원인: 많은 수 (수백만 개)의 파일 백업
 이동하는 데이터의 양이 많을수록 시간이 더 오래 걸립니다. 경우에 따라 백업 시간은 데이터의 크기뿐만 아니라 파일 또는 폴더 수와도 관련이 있습니다. 특히 수백만 개의 작은 파일(몇 바이트에서 몇 킬로바이트 크기)을 백업하는 경우 더욱 그렇습니다.
 
 이 동작은 데이터를 백업하고 Azure로 이동하는 동안 Azure에서 동시에 파일 카탈로그를 만들기 때문에 발생합니다. 간혹 카탈로그 작업이 예상보다 오래 걸릴 수도 있습니다.

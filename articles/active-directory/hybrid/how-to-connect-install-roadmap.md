@@ -14,11 +14,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243712"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
@@ -40,7 +40,7 @@ ms.locfileid: "57193157"
 [설치 후](how-to-connect-post-installation.md) 예상 대로 작동되는지 확인하고 사용자에게 라이선스를 할당해야 합니다.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect를 설치하기 위한 다음 단계
-|항목 |링크|  
+|항목 |연결|  
 | --- | --- |
 |Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](./how-to-connect-install-express.md)|
@@ -75,13 +75,13 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 [자동 업그레이드](how-to-connect-install-automatic-upgrade.md) 는 빠른 설정 설치에 기본적으로 사용되고 Azure AD Connect가 항상 최신 릴리스로 업데이트되도록 합니다.
 
 ### <a name="next-steps-to-configure-sync-features"></a>동기화 기능을 구성하는 다음 단계
-|항목 |링크|  
+|항목 |연결|  
 | --- | --- |
 |필터링 구성 | [Azure AD Connect 동기화: 필터링 구성](how-to-connect-sync-configure-filtering.md)|
 |암호 해시 동기화 | [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)|
 |통과 인증 | [통과 인증](how-to-connect-pta.md)
-|비밀번호 쓰기 저장 | [암호 관리 시작](../authentication/quickstart-sspr.md)|
-|디바이스 쓰기 저장 | [Azure AD Connect에서 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md)|
+|암호 쓰기 저장(writeback) | [암호 관리 시작](../authentication/quickstart-sspr.md)|
+|디바이스 쓰기 저장(writeback) | [Azure AD Connect에서 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md)|
 |실수로 인한 삭제 방지 | [Azure AD Connect 동기화: 실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |자동 업그레이드 | [Azure AD Connect: 자동 업그레이드](how-to-connect-install-automatic-upgrade.md)|
 
@@ -95,7 +95,7 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 동기화의 구성 모델은 [선언적 프로비전](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)이라고 합니다. 고급 특성 흐름은 [함수](reference-connect-sync-functions-reference.md) 를 사용하여 특성 변환을 표현합니다. Azure AD Connect와 함께 제공되는 도구를 사용하여 전체 구성을 보고 검사할 수 있습니다. 구성에 변경이 필요한 경우 새 릴리스를 손쉽게 채택할 수 있도록 [모범 사례](how-to-connect-sync-best-practices-changing-default-configuration.md) 에 따라야 합니다.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Azure AD Connect Sync를 사용자 지정하는 다음 단계
-|항목 |링크|  
+|항목 |연결|  
 | --- | --- |
 |모든 Azure AD Connect Sync 문서 | [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)|
 |기술 개념 | [Azure AD Connect 동기화: 기술 개념](how-to-connect-sync-technical-concepts.md)|
@@ -119,7 +119,7 @@ ADFS는 [복수 도메인](how-to-connect-install-multiple-domains.md)을 지원
 ADFS 서버가 Azure AD에서 인증서를 자동으로 업데이트하도록 구성되지 않았거나 비 ADFS 솔루션을 사용하는 경우에는 [인증서를 업데이트](how-to-connect-fed-o365-certs.md)해야 하는 경우 알림이 표시됩니다.
 
 ### <a name="next-steps-to-configure-federation-features"></a>페더레이션 기능을 구성하는 다음 단계
-|항목 |링크|  
+|항목 |연결|  
 | --- | --- |
 |모든 AD FS 문서 | [Azure AD Connect 및 페더레이션](how-to-connect-fed-whatis.md)|
 |ADFS에 하위 도메인 구성 | [Azure AD로 페더레이션에 대한 여러 도메인 지원](how-to-connect-install-multiple-domains.md)|

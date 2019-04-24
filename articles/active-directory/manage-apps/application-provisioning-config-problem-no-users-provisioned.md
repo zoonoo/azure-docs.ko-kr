@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443218"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>사용자가 Azure AD 갤러리 애플리케이션에 프로비전되지 않음
 앱에 연결할 Azure AD에 제공된 앱 자격 증명이 유효한지 확인을 비롯하여 응용 프로그램에 대해 자동 프로비전이 구성되면 사용자 및/또는 그룹이 앱에 프로비전됩니다. 프로비전은 다음 사항에 의해 결정됩니다.
@@ -32,7 +32,7 @@ ms.locfileid: "56182972"
   
 사용자가 프로비저닝되지 않는다는 것을 확인했으면 Azure AD의 감사 로그를 참조하세요. 특정 사용자에 대한 로그 항목을 검색합니다.
 
-프로비저 감사 로그는 Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애플리케이션 이름\]&gt; 감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비저닝** 범주의 로그를 필터링하여 해당 앱의 프로비저닝 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 예를 들어 Azure AD 측에서 “사용자 계정 이름” 또는 “이메일 주소”를 일치하는 특성으로 구성하고 프로비저닝하지 않는 사용자의 값이 “audrey@contoso.com”인 경우 감사 로그에서 “audrey@contoso.com”을 검색한 다음, 반환된 항목을 검토합니다.
+프로비저 감사 로그는 Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애플리케이션 이름\]&gt; 감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비전** 범주의 로그를 필터링하여 해당 앱의 프로비전 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 예를 들어 Azure AD 측에서 “사용자 계정 이름” 또는 “이메일 주소”를 일치하는 특성으로 구성하고 프로비저닝하지 않는 사용자의 값이 “audrey@contoso.com”인 경우 감사 로그에서 “audrey@contoso.com”을 검색한 다음, 반환된 항목을 검토합니다.
 
 프로비저닝 감사 로그는 프로비저닝 범위에 있는 할당된 사용자에 대해 Azure AD 쿼리, 해당 사용자의 존재에 대해 대상 앱 쿼리, 시스템 간의 사용자 객체 비교를 비롯하여 프로비저닝 서비스에서 수행한 모든 작업을 기록합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "56182972"
 다음은 시작 위치를 파악한 경우 검색할 수 있는 일반적인 문제 영역 목록입니다.
 
 - [프로비전 서비스가 시작하지 않는 것 같음](#provisioning-service-does-not-appear-to-start)
-- [사용자가 할당된 경우에도 감사 로그에 사용자가 생략되고 프로비전되지 않았다고 표시됨](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+- [사용자가 할당된 경우에도 감사 로그에 사용자가 생략되고 프로비저닝되지 않았다고 표시됨](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>프로비전 서비스가 시작하지 않는 것 같음
 Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt;\[애플리케이션 이름\]&gt;프로비전** 섹션에서 **프로비전 상태**를 **켜기**로 설정하는 경우 이후 다시 로드 후 기타 상태 세부 정보가 해당 페이지에 표시되지 않으면 서비스가 실행 중이지만 아직 초기 동기화를 완료하지 않았을 수 있습니다. 위에 설명된 **감사 로그**를 확인하여 서비스에서 수행 중인 작업과 오류가 있는지 확인합니다.

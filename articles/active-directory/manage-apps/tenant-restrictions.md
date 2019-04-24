@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291242"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>SaaS 클라우드 응용 프로그램에 대 한 액세스를 관리 하는 데 사용 하 여 테 넌 트 제한
 
@@ -107,7 +107,7 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 응용 프로그램, 클라이언트 또는 상태에서 필터링 할 수 있습니다. 선택 하는 경우는 **열** 단추, 다음 필드의 조합 사용 하 여 데이터를 표시 하도록 선택할 수 있습니다.
 
-- **User**
+- **사용자**
 - **애플리케이션**
 - **상태**
 - **Date**
@@ -136,7 +136,7 @@ Outlook 및 Skype 테 넌 트 제한을 효과적으로 우회할에 최신 인�
 
 Windows의 Outlook에서 고객은 최종 사용자가 프로필에 승인되지 않은 메일 계정을 추가하는 것을 방지하는 제한을 구현하도록 선택할 수 있습니다. 예제를 보려면 [비기본 Exchange 계정 추가 금지](https://gpsearch.azurewebsites.net/default.aspx?ref=1) 그룹 정책 설정을 참조하세요.
 
-## <a name="testing"></a>테스트
+## <a name="testing"></a>테스트하는 중
 
 전체 조직에 대 한 구현 하기 전에 테 넌 트 제한을 사용해 하려는 경우 두 가지 옵션이 있습니다: 프록시 설정의 단계별된 롤아웃 또는 Fiddler와 같은 도구를 사용 하는 호스트 기반 방식입니다.
 

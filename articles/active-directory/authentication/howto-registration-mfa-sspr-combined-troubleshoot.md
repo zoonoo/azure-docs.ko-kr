@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414627"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기) 문제 해결
 

@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60289996"
 ---
 # <a name="start-using-pim"></a>PIM 사용
 
@@ -68,7 +68,7 @@ PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 
     예를 들어 전화 확인을 제공하도록 요청하는 메시지가 표시될 수 있습니다.
 
-    ![추가 보안 확인](./media/pim-getting-started/additional-security-verification.png)
+    ![추가 보안 인증](./media/pim-getting-started/additional-security-verification.png)
 
 1. 확인 절차를 완료하면 **동의** 단추를 클릭합니다.
 

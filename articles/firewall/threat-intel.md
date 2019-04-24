@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194050"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure 방화벽 위협 인텔리전스 기반 필터링-공개 미리 보기
 
-경고를 알려진 악성 IP 주소 및 도메인 트래픽을 거부 하 여 방화벽에 대 한 위협 인텔리전스 기반 필터링을 사용할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드가에서 제공 됩니다. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Microsoft 위협 인텔리전스를 구동 하 고 Azure Security Center를 비롯 한 여러 서비스에서 사용 됩니다.
+방화벽에서 알려진 악성 IP 주소 및 도메인과 주고받는 트래픽을 경고하고 거부할 수 있도록 하기 위해 위협 인텔리전스 기반 필터링을 사용하도록 설정할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Microsoft 위협 인텔리전스를 구동 하 고 Azure Security Center를 비롯 한 여러 서비스에서 사용 됩니다.
 
 ![방화벽 위협 인텔리전스](media/threat-intel/firewall-threat.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "57730523"
 }
 ```
 
-## <a name="testing"></a>테스트
+## <a name="testing"></a>테스트하는 중
 
 - **아웃 바운드 테스트** -환경의 손상 된 것 처럼 아웃 바운드 트래픽 경고는 드물게 발생 해야 합니다. 하는 데 테스트 아웃 바운드 경고도 작업 하는 경고를 트리거하는 테스트 FQDN을 만들었습니다. 사용 하 여 **testmaliciousdomain.eastus.cloudapp.azure.com** 아웃 바운드 테스트 합니다.
 

@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254074"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
 
@@ -23,7 +23,7 @@ Azure에서 리소스 및 애플리케이션을 배포하는 동안 성능 및 �
 ## <a name="send-custom-metrics"></a>사용자 지정 메트릭 보내기
 다음과 같은 여러 가지 방법으로 사용자 지정 메트릭을 Azure Monitor로 보낼 수 있습니다.
 - Azure Application Insights SDK를 사용하여 애플리케이션을 계측하고 사용자 지정 원격 분석을 Azure Monitor로 보냅니다. 
-- [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [가상 머신 확장 집합](collect-custom-metrics-guestos-resource-manager-vmss.md), [클래식 VM](collect-custom-metrics-guestos-vm-classic.md) 또는 [클래식 Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)에 WAD(Microsoft Azure 진단) 확장을 설치하고 성능 카운터를 Azure Monitor로 보냅니다. 
+- [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [가상 머신 확장 집합](collect-custom-metrics-guestos-resource-manager-vmss.md), [클래식 VM](collect-custom-metrics-guestos-vm-classic.md) 또는 [클래식 Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)에 WAD(Microsoft Azure Diagnostics) 확장을 설치하고 성능 카운터를 Azure Monitor로 보냅니다. 
 - Azure Linux VM에 [InfluxData Telegraf 에이전트](collect-custom-metrics-linux-telegraf.md)를 설치하고 Azure Monitor 출력 플러그 인을 사용하여 메트릭을 보냅니다.
 - 사용자 지정 메트릭을 [Azure Monitor REST API`https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`, ](../../azure-monitor/platform/metrics-store-custom-rest-api.md)에 직접 보냅니다.
 
@@ -38,7 +38,7 @@ Azure Monitor에 사용자 지정 메트릭을 보낼 때 보고되는 각 데�
 > [!NOTE]  
 > 사용자 지정 메트릭을 내보내기 위해 Azure AD 토큰을 요청하는 경우 토큰이 요청되는 대상 그룹 또는 리소스가 https://monitoring.azure.com/이어야 합니다. 후행 슬래시(‘/’)를 포함해야 합니다.
 
-### <a name="subject"></a>제목
+### <a name="subject"></a>Subject
 이 속성은 사용자 지정 메트릭이 보고되는 Azure 리소스 ID를 캡처합니다. 이 정보는 수행되는 API 호출의 URL에 인코딩됩니다. 각 API는 단일 Azure 리소스에 대한 메트릭 값만 전송할 수 있습니다.
 
 > [!NOTE]  
@@ -60,7 +60,7 @@ Azure Monitor에 전송되는 각 데이터 요소는 타임스탬프를 사용�
 ### <a name="namespace"></a>네임스페이스
 네임스페이스는 유사한 메트릭을 함께 분류 또는 그룹화하는 방법입니다. 네임스페이스를 사용하면 각기 다른 인사이트 또는 성능 지표를 수집할 수 있는 메트릭 그룹을 격리할 수 있습니다. 예를 들어, 앱을 프로파일링하는 메모리 사용 메트릭을 추적하는 **ContosoMemoryMetrics**라는 네임스페이스가 있을 수 있습니다. **ContosoAppTransaction**이라는 또 다른 네임스페이스는 응용 프로그램의 사용자 트랜잭션에 대한 모든 메트릭을 추적할 수 있습니다.
 
-### <a name="name"></a>이름
+### <a name="name"></a>Name
 **이름**은 보고되는 메트릭의 이름입니다. 일반적으로 이름은 측정 대상을 식별하기에 충분한 정보를 제공합니다. 예를 들어, 지정된 VM에서 사용된 메모리 바이트 수를 측정하는 메트릭이 있습니다. 메트릭 이름은 **사용 중인 메모리 바이트**일 수 있습니다.
 
 ### <a name="dimension-keys"></a>차원 키
@@ -175,7 +175,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 |미국 중서부| https:\//westcentralus.monitoring.azure.com/ |
 |미국 서부 2| https:\//westus2.monitoring.azure.com/ |
 |동남아시아| https:\//southeastasia.monitoring.azure.com/ |
-|북유럽| https:\//northeurope.monitoring.azure.com/ |
+|유럽 북부| https:\//northeurope.monitoring.azure.com/ |
 |서유럽| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>할당량 및 제한

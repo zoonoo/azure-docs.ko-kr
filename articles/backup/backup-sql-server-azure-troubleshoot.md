@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254661"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "58916689"
 
 기능 고려 사항 보기, 문서를 참조 [Azure Vm에서 SQL Server에 대 한 백업](backup-azure-sql-database.md#feature-consideration-and-limitations)합니다.
 
-## <a name="sql-server-permissions"></a>SQL Server 사용 권한
+## <a name="sql-server-permissions"></a>SQL Server 권한
 
 가상 머신에서 SQL Server 데이터베이스에 대한 보호를 구성하려면 가상 머신에 **AzureBackupWindowsWorkload** 확장이 설치되어 있어야 합니다. **UserErrorSQLNoSysadminMembership** 오류가 발생하면 SQL 인스턴스에서 필요한 백업 권한이 없다는 의미입니다. 이 오류를 해결하려면 [마켓플레이스 SQL VM이 아닌 VM에 대한 사용 권한 설정](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)의 단계를 수행하세요.
 

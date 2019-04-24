@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242259"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -63,12 +63,12 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|예\*|아니요|예|예\*\*\*|해당 없음
-|Windows 8.1|예\*|해당 없음|예|예\*\*\*|해당 없음
-|Windows 8|예\*|해당 없음|예|예\*\*\*|해당 없음
-|Windows 7|예\*|해당 없음|예.|예\*\*\*|해당 없음
-|Windows Server 2012 R2 이상|예\*\*|해당 없음|예.|예\*\*\*|해당 없음
-|Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
+|윈도우 10|예\*|아닙니다.|예.|예\*\*\*|N/A
+|Windows 8.1|예\*|N/A|예|예\*\*\*|N/A
+|Windows 8|예\*|N/A|예.|예\*\*\*|N/A
+|Windows 7|예\*|N/A|예|예\*\*\*|N/A
+|Windows Server 2012 R2 이상|예\*\*|N/A|예|예\*\*\*|N/A
+|Mac OS X|N/A|N/A|예\*\*\*|예\*\*\*|예\*\*\*
 
 
 \*Internet Explorer 버전 10 이상 필요

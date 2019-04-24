@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60289025"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>게스트 사용자를 초대 하 고 PIM에서 Azure 리소스 역할 할당
 
@@ -91,7 +91,7 @@ PIM을 사용 하 여 게스트를 초대할 수 있으며 멤버 사용자와 �
 
 1. **멤버 또는 그룹 선택**을 클릭합니다.
 
-    ![멤버 또는 그룹 선택](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![구성원 또는 그룹 선택](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. 게스트를 초대 하려면 클릭 **초대**합니다.
 

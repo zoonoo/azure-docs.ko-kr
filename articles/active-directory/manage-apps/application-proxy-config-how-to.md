@@ -17,17 +17,17 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f22f064043467bf52c23cab547a7e6c8ba2205
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443189"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 구성하는 방법
 
 이 문서에서는 온-프레미스 애플리케이션을 클라우드에 노출하도록 Azure AD 내의 애플리케이션 프록시 애플리케이션을 구성하는 방법에 대해 설명합니다.
 
-## <a name="recommended-documents"></a>권장되는 문서 
+## <a name="recommended-documents"></a>권장 문서 
 
 관리 포털을 통한 애플리케이션 프록시 애플리케이션의 초기 구성 및 생성에 대해 배우려면 [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](application-proxy-add-on-premises-application.md)를 따릅니다.
 

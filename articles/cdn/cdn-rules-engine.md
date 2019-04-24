@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2ac43b472758f3403bc87bf3d64321eb97109f53
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335609"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진을 사용하여 HTTP 동작 재정의
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -102,4 +102,4 @@ Azure CDN 규칙 엔진을 사용하면 HTTP 요청을 처리하는 방법을 �
 * [규칙 엔진 일치 조건](cdn-rules-engine-reference-match-conditions.md)
 * [규칙 엔진 조건식](cdn-rules-engine-reference-conditional-expressions.md)
 * [규칙 엔진 기능](cdn-rules-engine-reference-features.md)
-* [Azure Fridays: Azure CDN의 강력하고 새로운 프리미엄 기능](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (동영상)
+* [Azure Fridays: Azure CDN의 강력한 새로운 프리미엄 기능](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (비디오)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324829"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 프리미엄 계층
 > [!div class="op_single_selector"]
@@ -37,12 +37,12 @@ Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함�
 
 세 가지 쿼리 문자열 모드를 사용할 수 있습니다.
 
-- **standard-cache**: 기본 모드입니다. 이 모드에서는 CDN POP(상호 접속 위치) 노드가 첫 번째 요청에서 요청자의 쿼리 문자열을 원본 서버로 전달하고 자산을 캐시합니다. 캐시된 자산이 만료될 때까지 POP 서버에서 제공되는 해당 자산의 모든 후속 요청은 쿼리 문자열을 무시합니다.
+- **standard-cache**: 기본 모드. 이 모드에서는 CDN POP(상호 접속 위치) 노드가 첫 번째 요청에서 요청자의 쿼리 문자열을 원본 서버로 전달하고 자산을 캐시합니다. 캐시된 자산이 만료될 때까지 POP 서버에서 제공되는 해당 자산의 모든 후속 요청은 쿼리 문자열을 무시합니다.
 
     >[!IMPORTANT] 
     > 이 계정의 모든 경로에 대해 토큰 권한 부여를 사용하도록 설정하면 표준 캐시 모드만 사용할 수 있습니다. 
 
-- **no-cache**: 이 모드에서 쿼리 문자열이 포함된 요청은 CDN POP 노드에서 캐시되지 않습니다. POP 노드가 원본 서버에서 직접 자산을 검색하고 각 요청과 함께 요청자에게 전달합니다.
+- **no-cache**: 이 모드에서는 쿼리 문자열이 포함 된 요청은 CDN POP 노드에서 캐시 되지 않습니다. POP 노드가 원본 서버에서 직접 자산을 검색하고 각 요청과 함께 요청자에게 전달합니다.
 
 - **unique-cache**: 이 모드에서는 쿼리 문자열을 포함하여 고유한 URL이 있는 각 요청이 고유 캐시가 있는 고유 자산으로 처리됩니다. 예를 들어 example.ashx?q=test1에 대한 요청의 경우 원본 서버에서의 응답이 POP 노드에서 캐시되고 그와 동일한 쿼리 문자열을 가진 후속 캐시에 대해 반환됩니다. example.ashx?q=test2에 대한 요청은 자체 TTL(Time To Live) 설정과 함께 별도의 자산으로 캐시됩니다.
    

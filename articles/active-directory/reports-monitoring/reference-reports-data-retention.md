@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437059"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 
@@ -66,7 +66,7 @@ ms.locfileid: "59683736"
 
 **작업 보고서**    
 
-| 보고서                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 보고                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | 감사 로그             | 7 일        |  7 일        | 30일             | 30일             |
 | 로그인               | N/A           |  N/A           | 30일             | 30일             |
@@ -76,7 +76,7 @@ Azure Monitor를 사용하여 스토리지 계정으로 라우팅하여 위에�
 
 **보안 신호**
 
-| 보고서         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| 보고         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--            | :--                 | :--                 |
 | 위험에 노출된 사용자  | 7 일        | 7 일         | 30일             | 90일             |
 | 위험한 로그인 | 7 일        | 7 일         |  30일            | 90일             |

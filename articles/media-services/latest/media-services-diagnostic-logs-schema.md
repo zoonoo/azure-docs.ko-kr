@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
 ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322253"
 ---
 # <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
@@ -38,7 +38,7 @@ ms.locfileid: "58850636"
 
 이러한 속성은 키 배달 로그 스키마와 관련이 있습니다.
 
-|name|설명|
+|Name|설명|
 |---|---|
 |keyId|요청된 된 키의 ID입니다.|
 |keyType|다음 값 중 하나일 수 있습니다. 암호화 되지 않은 "지우기", "FairPlay", "PlayReady" 또는 "Widevine"|
