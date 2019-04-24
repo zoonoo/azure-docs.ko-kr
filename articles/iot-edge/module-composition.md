@@ -177,10 +177,9 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 | `$upstream` | IoT Hub로 메시지 전송 |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 특정 모듈의 특정 입력으로 메시지 전송 |
 
-IoT Edge는 최소한 한 번의 메시지 전송을 보장을 제공합니다. IoT Edge 허브는 메시지를 싱크로 전송하지 못할 때 그 메시지를 로컬에 저장합니다.
-IoT Edge 허브는 로컬로 경우 경로를 해당 싱크에 메시지를 배달할 수 없습니다 메시지를 저장 합니다. 예를 들어, IoT Edge 허브가 IoT Hub에 연결하지 못하는 경우, 또는 대상 모듈과 연결할 수 없는 경우가 해당됩니다.
+IoT Edge는 최소 한 번의 보장을 제공합니다. IoT Edge 허브는 라우트가 메시지를 싱크로 전달할 수 없는 경우 메시지를 로컬에 저장합니다. 예를 들어, IoT Edge 허브가 IoT 허브에 연결할 수 없거나 대상 모듈이 연결되어 있지 않은 경우입니다.
 
-IoT Edge 허브는 [IoT Edge 허브 desired 속성](module-edgeagent-edgehub.md) 중 `storeAndForwardConfiguration.timeToLiveSecs`에 지정된 기간동안 메시지를 저장합니다.
+IoT Edge 허브는 [IoT Edge 허브 선호 속성](module-edgeagent-edgehub.md) 중 `storeAndForwardConfiguration.timeToLiveSecs` 속성에 지정된 기간 동안 메시지를 저장합니다.
 
 ## <a name="define-or-update-desired-properties"></a>원하는 속성 정의 또는 업데이트 
 
