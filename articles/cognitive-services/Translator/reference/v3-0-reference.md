@@ -12,7 +12,7 @@ ms.date: 03/29/2018
 ms.author: v-jansko
 ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918810"
@@ -34,7 +34,7 @@ Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다. �
 Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. 현재 6개 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions)에 있습니다.
 
 * **아메리카:** 미국 서부 2 및 미국 중서부 
-* **아시아 태평양:** 동남 아시아 및 대한민국
+* **아시아 태평양:** 동남 아시아 및 한국 남부
 * **유럽:** 유럽 북부 및 유럽 서부
 
 Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 데이터 센터 오류가 발생한 경우 요청은 지역 외부로 라우팅될 수 있습니다.
