@@ -2,20 +2,21 @@
 title: Azure SQL Data Warehouse 작업에 대해 알아보기 | Microsoft Docs
 description: 'SQL Data Warehouse의 탄력성 덕분에 DWU(데이터 웨어하우스 단위)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다. '
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: design
-ms.date: 04/17/2018
-ms.author: kevin
+ms.component: design
+origin.date: 04/17/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531199"
 ---
 # <a name="data-warehouse-workload"></a>데이터 웨어하우스 워크로드
 데이터 웨어하우스 워크로드란 데이터 웨어하우스에 대해 발생하는 모든 작업을 나타냅니다. 데이터 웨어하우스 워크로드는 데이터를 웨어하우스에 로드, 데이터 웨어하우스에서 분석 및 보고 수행, 데이터 웨어하우스에서 데이터 관리 및 데이터 웨어하우스로부터 데이터를 내보내는 전체 프로세스를 포괄합니다. 이러한 구성 요소의 깊이와 범위는 일반적으로 데이터 웨어하우스의 성숙도 수준과 관련이 있습니다.

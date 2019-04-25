@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391364"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -63,10 +63,10 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| 이름                       | 필수 | 형식                                                                                | 설명  |
+| Name                       | 필수 | 형식                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | 문자열                                                                              | 리소스 위치. |
-| 이름                       |          | 문자열                                                                              | 가상 머신의 이름. |
+| location                   | True      | string                                                                              | 리소스 위치. |
+| 이름                       |          | string                                                                              | 가상 머신의 이름. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 가상 머신에 대한 하드웨어 설정을 지정합니다. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 저장소 설정을 지정합니다. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 가상 머신에 대한 운영 체제 설정을 지정합니다. |
@@ -137,7 +137,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| 이름        | 형식                                                                              | 설명 |
+| Name        | 형식                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 확인          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |
