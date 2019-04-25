@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: a7b4975a81c0966e5cbff0c8b940c9231e66f32b
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407643"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007970"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Azure Front Door용 도메인의 지역 필터링이란?
 
@@ -97,7 +97,7 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | GR | 그리스|
 | GT | 과테말라|
 | GY | 가이아나|
-| HK | 홍콩|
+| HK | 홍콩 특별 행정구|
 | HN | 온두라스|
 | HR | 크로아티아|
 | HT | 아이티|
@@ -132,15 +132,15 @@ WAF 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니�
 | LT | 리투아니아|
 | LU | 룩셈부르크|
 | LV | 라트비아|
-| LY | 리비아|
+| LY | 리비아 |
 | MA | 모로코|
 | MD | 몰도바|
 | MG | 마다가스카르|
-| MK | 북마케도니아 공화국|
+| MK | 북마케도니아|
 | ML | 말리|
 | MM | 미얀마|
 | MN | 몽골|
-| MO | 마카오 특별행정구|
+| MO | 마카오|
 | MQ | 마르티니크|
 | MR | 모리타니|
 | MT | 몰타|

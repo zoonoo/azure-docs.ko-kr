@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 79854c71410c7e796961f23c8c31a4d0809cd69c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 2a4c4c7431752ade60161af84b4cc15f010af656
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527985"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995747"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -39,9 +39,14 @@ ms.locfileid: "59527985"
 5. 호스트 컴퓨터에서 [AzCopy 7.1.0을 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다. AzCopy를 사용하여 호스트 컴퓨터에서 Azure Data Box Blob 스토리지에 데이터를 복사합니다.
 
 
-## <a name="connect-to-data-box-blob-storage"></a>Data Box Blob 스토리지에 연결
+## <a name="connect-via-http-or-https"></a>http 또는 https를 통해 연결
 
-*http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결할 수 있습니다. 일반적으로 *https*는 Data Box Blob 스토리지에 연결하기 위한 안전하고 권장되는 방법입니다. *Http*는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다. *http* 또는 *https* 중 무엇으로 Data Box Blob 스토리지에 연결했는지에 따라 단계가 달라질 수 있습니다.
+*http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결할 수 있습니다.
+
+- *Https*는 Data Box Blob 스토리지에 안전하게 연결할 수 있는 권장 방법입니다.
+- *Http*는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
+
+*http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결할 때 연결 단계가 서로 다릅니다.
 
 ## <a name="connect-via-http"></a>http를 통해 연결
 
@@ -52,11 +57,11 @@ ms.locfileid: "59527985"
 
 이러한 각 단계는 다음 섹션에 설명되어 있습니다.
 
-#### <a name="add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>디바이스 IP 주소 및 Blob 서비스 엔드포인트를 원격 호스트에 추가
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
-#### <a name="configure-partner-software-and-verify-connection"></a>파트너 소프트웨어 구성 및 연결 확인
+### <a name="configure-partner-software-and-verify-connection"></a>파트너 소프트웨어 구성 및 연결 확인
 
 [!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
@@ -67,8 +72,8 @@ ms.locfileid: "59527985"
 https를 통해 Azure Blob 스토리지 REST API에 연결하려면 다음 단계를 수행해야 합니다.
 
 - Azure Portal에서 인증서 다운로드
-- 원격 관리를 위해 호스트 컴퓨터 준비
-- 디바이스 IP 및 Blob 서비스 엔드포인트를 원격 호스트에 추가
+- 클라이언트 또는 원격 호스트의 인증서 가져오기
+- 클라이언트 또는 원격 호스트에 디바이스 IP 및 Blob 서비스 엔드포인트 추가
 - 타사 소프트웨어 구성 및 연결 확인
 
 이러한 각 단계는 다음 섹션에 설명되어 있습니다.
@@ -83,20 +88,15 @@ Azure Portal을 사용하여 인증서를 다운로드합니다.
 
     ![Azure Portal에서 인증서 다운로드](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
-### <a name="prepare-the-host-for-remote-management"></a>원격 관리를 위해 호스트 준비
+### <a name="import-certificate"></a>인증서 가져오기 
 
-다음 단계에 따라 *https* 세션을 사용하는 원격 연결을 위해 Windows 클라이언트를 준비합니다.
+HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의 SSL 인증서가 필요합니다. 이 인증서를 클라이언트 애플리케이션에서 사용할 수 있게 만드는 방법은 애플리케이션마다 그리고 운영 체제와 배포판마다 다릅니다. 어떤 애플리케이션은 시스템의 인증서 저장소로 인증서를 가져온 후 인증서에 액세스할 수 있고, 어떤 애플리케이션은 이 메커니즘을 사용하지 않습니다.
 
-- 클라이언트 또는 원격 호스트의 루트 저장소로 .cer 파일을 가져옵니다.
-- 디바이스 IP 주소 및 Blob 서비스 엔드포인트를 Windows 클라이언트에서 호스트 파일에 추가합니다.
+이 섹션에는 일부 애플리케이션과 관련된 정보가 설명되어 있습니다. 다른 애플리케이션에 대한 자세한 내용은 사용하시는 애플리케이션 및 운영 체제에 대한 설명서를 참조하세요.
 
-아래에서는 앞서 나온 각 절차에 대해 설명합니다.
+다음 단계에 따라 `.cer` 파일을 Windows 또는 Linux 클라이언트의 루트 저장소로 가져옵니다. Windows 시스템의 경우 Windows PowerShell 또는 Windows Server UI를 사용하여 시스템으로 인증서를 가져와서 설치할 수 있습니다.
 
-#### <a name="import-the-certificate-on-the-remote-host"></a>원격 호스트에서 인증서 가져오기
-
-Windows PowerShell 또는 Windows Server UI를 사용하여 호스트 시스템에서 인증서를 가져오고 설치할 수 있습니다.
-
-**PowerShell 사용**
+#### <a name="use-windows-powershell"></a>Windows PowerShell 사용
 
 1. 관리자 권한으로 Windows PowerShell 세션을 시작합니다.
 2. 명령 프롬프트에 다음을 입력합니다.
@@ -105,9 +105,9 @@ Windows PowerShell 또는 Windows Server UI를 사용하여 호스트 시스템�
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-**Windows Server UI 사용**
+#### <a name="use-windows-server-ui"></a>Windows Server UI 사용
 
-1.  .cer 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 인증서 가져오기 마법사가 시작됩니다.
+1.  `.cer` 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
 2.  **저장소 위치**에 대해 **로컬 컴퓨터**를 선택하고 **다음**을 클릭합니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
@@ -120,13 +120,29 @@ Windows PowerShell 또는 Windows Server UI를 사용하여 호스트 시스템�
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-### <a name="to-add-device-ip-address-and-blob-service-endpoint-to-the-remote-host"></a>디바이스 IP 주소 및 Blob 서비스 엔드포인트를 원격 호스트에 추가하려면
+#### <a name="use-a-linux-system"></a>Linux 시스템 사용
 
-수행할 단계는 *http*를 통해 연결하는 동안 사용했던 단계와 동일합니다.
+인증서를 가져오는 방법은 배포판에 따라 달라집니다.
 
-### <a name="configure-partner-software-to-establish-connection"></a>파트너 소프트웨어를 구성하여 연결 설정
+Ubuntu 및 Debian 같은 여러 배포판은 `update-ca-certificates` 명령을 사용합니다.  
 
-수행할 단계는 *http*를 통해 연결하는 동안 사용했던 단계와 동일합니다. 유일한 차이점은 *http 옵션 사용*을 선택하지 않은 상태로 두어야 한다는 것입니다.
+- `.crt` 확장명이 포함되도록 Base64 인코딩 인증서 파일의 이름을 바꾸고 `/usr/local/share/ca-certificates directory`에 복사합니다.
+- `update-ca-certificates`명령을 실행합니다.
+
+RHEL, Fedora 및 CentOS의 최신 버전은 `update-ca-trust` 명령을 사용합니다.
+
+- 인증서 파일을 `/etc/pki/ca-trust/source/anchors` 디렉터리에 복사합니다.
+- `update-ca-trust`을 실행합니다.
+
+자세한 내용은 해당 배포판의 설명서를 참조하세요.
+
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가 
+
+[*http*를 통해 연결할 때 디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가](#add-device-ip-address-and-blob-service-endpoint)와 동일한 단계를 따릅니다.
+
+### <a name="configure-partner-software-and-verify-connection"></a>파트너 소프트웨어 구성 및 연결 확인
+
+[*http*를 통해 연결할 때 사용되는 파트너 소프트웨어 구성](#configure-partner-software-and-verify-connection)의 단계를 따릅니다. 유일한 차이점은 *http 옵션 사용*을 선택하지 않은 상태로 두어야 한다는 것입니다.
 
 ## <a name="copy-data-to-data-box"></a>Data Box에 데이터 복사
 
@@ -199,7 +215,6 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 파일을 업로�
 #### <a name="windows"></a> Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
-
 
 다음 단계는 배송할 디바이스를 준비하는 것입니다.
 

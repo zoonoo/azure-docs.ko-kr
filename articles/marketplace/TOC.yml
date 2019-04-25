@@ -1,472 +1,465 @@
-items:
 - name: Azure Marketplace 및 AppSource 설명서
   href: index.md
   items:
-  - name: Azure Marketplace 및 AppSource 로드맵
-    href: ./marketplace-roadmap.md
-  - name: Azure Marketplace 정책 및 용어
-    href: ./policies-terms.md
-  - name: Azure Marketplace 및 AppSource 개요 및 이점
-    href: ./marketplace-publishers-guide.md
-    items:
-    - name: Marketplace에서 게시자 되기
-      href: ./become-publisher.md
+    - name: Azure Marketplace 및 AppSource 로드맵
+      href: ./marketplace-roadmap.md
+    - name: Azure Marketplace 정책 및 용어
+      href: ./policies-terms.md
+    - name: Azure Marketplace 및 AppSource 개요 및 이점
+      href: ./marketplace-publishers-guide.md
       items:
-      - name: Microsoft 계정 만들기
-        href: ./guidelines.md
-      - name: Dev Center에 등록
-        href: ./register-dev-center.md
-      - name: Azure 파트너 고객 사용량 특성
-        href: ./azure-partner-customer-usage-attribution.md
-    - name: 하나의 Marketplace, 두 개의 상점
-      href: ./comparing-appsource-azure-marketplace.md
-    - name: 옵션 및 고려 사항 게시
-      href: ./determine-your-listing-type.md
-      items:
-      - name: 잠재 고객 관리
-        href: ./lead-management-for-cloud-marketplace.md
-      - name: Azure Marketplace에서 거래
-        href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
-      - name: 전용 제품
-        href: ./private-offers.md
-      - name: 표준 계약
-        href: ./standard-contract.md
-    - name: 제품 형식별 게시 가이드
-      href: ./publisher-guide-by-offer-type.md
-      items:
-      - name: Virtual Machines
-        href: ./marketplace-virtual-machines.md
-      - name: 'Azure 애플리케이션: 솔루션 템플릿'
-        href: ./marketplace-solution-templates.md
-      - name: 'Azure 애플리케이션: 관리형 애플리케이션'
-        href: ./marketplace-managed-apps.md
-      - name: SaaS 앱
-        href: ./marketplace-saas-applications-technical-publishing-guide.md
-      - name: 컨테이너
-        href: ./marketplace-containers.md
-      - name: IoT Edge 모듈
-        href: ./iot-edge-module.md
-      - name: 컨설팅 서비스
-        href: ./consulting-services.md
-      - name: Office 365, Dynamics 365 및 Power BI 게시 가이드
-        href: ./appsource-offer-publishing-guide.md
-      - name: Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
-        href: ./enable-appsource-marketplace-using-azure-ad.md
-    - name: 마케팅 모범 사례
-      href: ./gtm-marketing-best-practices.md
-      items:
-      - name: 목록에 제품 추가 모범 사례
-        href: ./gtm-offer-listing-best-practices.md
-      - name: 추천 받기
-        href: ./gtm-how-to-get-featured.md
-      - name: Marketplace 콘텐츠 유효성 검사
-        href: ./marketplace-criteria-content-validation.md
-      - name: 클라우드 솔루션 공급 기업
-        href: ./cloud-solution-providers.md
-    - name: Marketplace 혜택
-      href: ./gtm-your-marketplace-benefits.md
-      items:
-      - name: Microsoft를 통한 비즈니스 홍보
-        href: ./gtm-promote-your-business.md
-      - name: 기본 설정 솔루션
-        href: ./preferred-solutions.md
-      - name: 통합된 솔루션
-        href: ./integrated-solutions.md
-    - name: Azure Marketplace 및 AppSource 지원
-      href: ./support-azure-marketplace.md
-      items:
-      - name: Marketplace FAQ
-        href: ./marketplace-faq-publisher-guide.md
-      - name: 지리적 가용성 및 통화
-        href: ./marketplace-geo-availability-currencies.md
+        - name: Marketplace에서 게시자 되기
+          href: ./become-publisher.md
+          items:
+            - name: Microsoft 계정 만들기
+              href: ./guidelines.md
+            - name: Dev Center에 등록
+              href: ./register-dev-center.md
+            - name: Azure 파트너 고객 사용량 특성
+              href: ./azure-partner-customer-usage-attribution.md
+        - name: '하나의 Marketplace, 두 개의 상점'
+          href: ./comparing-appsource-azure-marketplace.md
+        - name: 옵션 및 고려 사항 게시
+          href: ./determine-your-listing-type.md
+          items:
+            - name: 잠재 고객 관리
+              href: ./lead-management-for-cloud-marketplace.md
+            - name: Azure Marketplace에서 거래
+              href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+            - name: 전용 제품
+              href: ./private-offers.md
+            - name: 표준 계약
+              href: ./standard-contract.md
+        - name: 제품 형식별 게시 가이드
+          href: ./publisher-guide-by-offer-type.md
+          items:
+            - name: Virtual Machines
+              href: ./marketplace-virtual-machines.md
+            - name: 'Azure 애플리케이션: 솔루션 템플릿'
+              href: ./marketplace-solution-templates.md
+            - name: 'Azure 애플리케이션: 관리형 애플리케이션'
+              href: ./marketplace-managed-apps.md
+            - name: SaaS 앱
+              href: ./marketplace-saas-applications-technical-publishing-guide.md
+            - name: 컨테이너
+              href: ./marketplace-containers.md
+            - name: IoT Edge 모듈
+              href: ./iot-edge-module.md
+            - name: 컨설팅 서비스
+              href: ./consulting-services.md
+            - name: 'Office 365, Dynamics 365 및 Power BI 게시 가이드'
+              href: ./appsource-offer-publishing-guide.md
+            - name: Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
+              href: ./enable-appsource-marketplace-using-azure-ad.md
+        - name: 마케팅 모범 사례
+          href: ./gtm-marketing-best-practices.md
+          items:
+            - name: 목록에 제품 추가 모범 사례
+              href: ./gtm-offer-listing-best-practices.md
+            - name: 추천 받기
+              href: ./gtm-how-to-get-featured.md
+            - name: Marketplace 콘텐츠 유효성 검사
+              href: ./marketplace-criteria-content-validation.md
+            - name: 클라우드 솔루션 공급 기업
+              href: ./cloud-solution-providers.md
+        - name: Marketplace 혜택
+          href: ./gtm-your-marketplace-benefits.md
+          items:
+            - name: Microsoft를 통한 비즈니스 홍보
+              href: ./gtm-promote-your-business.md
+            - name: 기본 설정 솔루션
+              href: ./preferred-solutions.md
+            - name: 통합된 솔루션
+              href: ./integrated-solutions.md
+        - name: Azure Marketplace 및 AppSource 지원
+          href: ./support-azure-marketplace.md
+          items:
+            - name: Marketplace FAQ
+              href: ./marketplace-faq-publisher-guide.md
+            - name: 지리적 가용성 및 통화
+              href: ./marketplace-geo-availability-currencies.md
 - name: 클라우드 파트너 포털
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
-  - name: 포털 둘러보기
-    href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
-    items:
-    - name: 포털 탐색
-      href: ./cloud-partner-portal/portal-tour/cpp-portal-navigation.md
-    - name: 새 제품 메뉴
-      href: ./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md
-    - name: 모든 제품 페이지
-      href: ./cloud-partner-portal/portal-tour/cpp-all-offers-page.md
-    - name: 승인 페이지
-      href: ./cloud-partner-portal/portal-tour/cpp-approvals-page.md
-    - name: 모든 게시자 페이지
-      href: ./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md
-    - name: 사용자 페이지
-      href: ./cloud-partner-portal/portal-tour/cpp-users-page.md
-    - name: 감사 기록 페이지
-      href: ./cloud-partner-portal/portal-tour/cpp-history-page.md
-    - name: 인사이트 페이지
-      href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
-  - name: 포털 관리
-    href: ./cloud-partner-portal/portal-manage/cpp-portal-management.md
-    items:
-    - name: 계정 관리에 대한 필수 구성 요소
-      href: ./cloud-partner-portal/portal-manage/cpp-manage-prerequisites.md
-    - name: 게시 프로필 관리
-      href: ./cloud-partner-portal/portal-manage/cpp-manage-publisher-profile.md
-    - name: 사용자 관리
-      href: ./cloud-partner-portal/portal-manage/cpp-manage-users.md
-  - name: 비즈니스 관리
-    items:
-    - name: SEO 지침
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md
-    - name: GDPR 규정 준수
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
-    - name: 비공개 SKU
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
-    - name: 잠재 고객 관리
+    - name: 포털 둘러보기
+      href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
-      - name: 잠재 고객 구성
-        href: ./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md
-      - name: Azure 테이블
-        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md
-      - name: Dynamics
-        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md
-      - name: HTTPS 엔드포인트
-        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md
-      - name: Marketo
-        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md
-      - name: Salesforce
-        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
-    - name: Seller Insights
+        - name: 포털 탐색
+          href: ./cloud-partner-portal/portal-tour/cpp-portal-navigation.md
+        - name: 새 제품 메뉴
+          href: ./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md
+        - name: 모든 제품 페이지
+          href: ./cloud-partner-portal/portal-tour/cpp-all-offers-page.md
+        - name: 승인 페이지
+          href: ./cloud-partner-portal/portal-tour/cpp-approvals-page.md
+        - name: 모든 게시자 페이지
+          href: ./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md
+        - name: 사용자 페이지
+          href: ./cloud-partner-portal/portal-tour/cpp-users-page.md
+        - name: 감사 기록 페이지
+          href: ./cloud-partner-portal/portal-tour/cpp-history-page.md
+        - name: 인사이트 페이지
+          href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
+    - name: 포털 관리
+      href: ./cloud-partner-portal/portal-manage/cpp-portal-management.md
       items:
-      - name: 시작하기
-        href: ./cloud-partner-portal-orig/si-getting-started.md
-      - name: 새로운 기능
-        href: ./cloud-partner-portal-orig/si-changes.md
-      - name: 웹 분석
-        href: ./cloud-partner-portal-orig/web-analytics.md
-      - name: 정의
-        href: ./cloud-partner-portal-orig/si-insights-definitions-v4.md
-      - name: Insights FAQ
-        href: ./cloud-partner-portal-orig/si-faqs.md
-  - name: Marketplace 제품
-    href: ./cloud-partner-portal/cpp-marketplace-offers.md
-    items:
-    - name: 제품 관리
-      href: ./cloud-partner-portal/manage-offers/cpp-manage-offers.md
+        - name: 계정 관리에 대한 필수 구성 요소
+          href: ./cloud-partner-portal/portal-manage/cpp-manage-prerequisites.md
+        - name: 게시 프로필 관리
+          href: ./cloud-partner-portal/portal-manage/cpp-manage-publisher-profile.md
+        - name: 사용자 관리
+          href: ./cloud-partner-portal/portal-manage/cpp-manage-users.md
+    - name: 비즈니스 관리
       items:
-      - name: 제품 만들기
-        href: ./cloud-partner-portal/manage-offers/cpp-create-offer.md
-      - name: 제품 게시
-        href: ./cloud-partner-portal/manage-offers/cpp-publish-offer.md
-      - name: 제품 상태 보기
-        href: ./cloud-partner-portal/manage-offers/cpp-view-status-offer.md
-      - name: 제품 업데이트
-        href: ./cloud-partner-portal/manage-offers/cpp-update-offer.md
-      - name: 제품 삭제
-        href: ./cloud-partner-portal/manage-offers/cpp-delete-offer.md
-    - name: 시험 사용
-      items:
-      - name: 시험 사용이란?
-        href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
-      - name: Azure Resource Manager 시험 사용
-        href: ./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md
-      - name: 호스트형 시험 사용
-        href: ./cloud-partner-portal/test-drive/hosted-test-drive.md
-      - name: 논리 앱 시험 사용
-        href: ./cloud-partner-portal/test-drive/logic-app-test-drive.md
-      - name: 시험 사용을 위한 변환 예제
-        href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
-      - name: 마케팅 및 모범 사례
-        href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
-    - name: Azure 애플리케이션 제품
-      href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
-      - name: Azure 애플리케이션 제품 만들기
-        href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md
-        - name: SKU 탭
-          href: ./cloud-partner-portal/azure-applications/cpp-skus-tab.md
-        - name: 시험 사용 탭
-          href: ./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md
-        - name: Marketplace 탭
-          href: ./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md
-        - name: 지원 탭
-          href: ./cloud-partner-portal/azure-applications/cpp-support-tab.md
-      - name: 기술 자산 만들기
-        href: ./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md
-      - name: Azure 애플리케이션 제품 게시
-        href: ./cloud-partner-portal/azure-applications/cpp-publish-offer.md
-      - name: 검토 피드백 처리
-        href: ./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md
-      - name: 기존 제품 업데이트
-        href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
-    - name: 컨설팅 서비스
-      href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
-      - name: 컨설팅 서비스 제품 만들기
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
-        - name: 상점 세부 정보 탭
-          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
-      - name: 컨설팅 서비스 제품 게시
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
-    - name: 컨테이너 제품
-      href: ./cloud-partner-portal/containers/cpp-containers-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/containers/cpp-prerequisites.md
-      - name: 컨테이너 제품 만들기
-        href: ./cloud-partner-portal/containers/cpp-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
-        - name: SKU 탭
-          href: ./cloud-partner-portal/containers/cpp-skus-tab.md
-        - name: Marketplace 탭
-          href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
-        - name: 지원 탭
-          href: ./cloud-partner-portal/containers/cpp-support-tab.md
-      - name: 컨테이너 기술 자산 만들기
-        href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
-      - name: 컨테이너 제품 게시
-        href: ./cloud-partner-portal/containers/cpp-publish-offer.md
-      - name: 기존 제품 업데이트
-        href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
-    - name: Dynamics 365 for Business Central 제품
-      href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
-      items:
-      - name: 게시 개요
-        href: ./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md
-      - name: 새 제품 만들기
-        href: ./cloud-partner-portal-orig/d365-finance-create-new-offer.md
-      - name: 제품 설정
-        href: ./cloud-partner-portal-orig/d365-finance-create-offer-settings.md
-      - name: 기술 세부 정보
-        href: ./cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md
-      - name: 상점 세부 정보
-        href: ./cloud-partner-portal-orig/d365-finance-create-storefront-details.md
-      - name: 게시 프로세스
-        href: ./cloud-partner-portal-orig/d365-finance-app-publishing-process.md
-    - name: Dynamics 365 for Customer Engagement 제품
-      href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
-      - name: 고객 참여 제품 만들기
-        href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md
-        - name: 기술 정보 탭
-          href: ./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md
-        - name: 시험 사용 탭
-          href: ./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md
-        - name: 상점 세부 정보 탭
-          href: ./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md
-        - name: 연락처 탭
-          href: ./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md
-      - name: 고객 참여 기술 자산 만들기
-        href: ./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md
-      - name: 고객 참여 제품 게시
-        href: ./cloud-partner-portal/dyn365ce/cpp-publish-offer.md
-    - name: Dynamics 365 for Operations 제품
-      href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal-orig/pre-requisites.md
-      - name: 게시 방법
-        href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
-      - name: LCS 구독
-        href: ./cloud-partner-portal-orig/lcs-subscription.md
-      - name: 코드 업그레이드
-        href: ./cloud-partner-portal-orig/code-upgrade.md
-      - name: 데이터 엔터티
-        href: ./cloud-partner-portal-orig/data-entities.md
-      - name: BPM 및 방법론
-        href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
-      - name: 도움말 wiki
-        href: ./cloud-partner-portal-orig/help-wiki.md
-    - name: IoT Edge 모듈 제품
-      href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-      - name: IoT Edge 모듈 제품 만들기
-        href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-        - name: SKU 탭
-          href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-        - name: Marketplace 탭
-          href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-        - name: 지원 탭
-          href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-      - name: IoT Edge 모듈 기술 자산 만들기
-        href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-      - name: IoT Edge 모듈 제안 게시
-        href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-      - name: 기존 제품 업데이트
-        href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
-    - name: Power BI 앱 제품
-      href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-      - name: Power BI 앱 제품 만들기
-        href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-        - name: 기술 정보 탭
-          href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-        - name: 상점 세부 정보 탭
-          href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-        - name: 연락처 탭
-          href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-      - name: Power BI 앱 기술 자산 만들기
-        href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-      - name: Power BI 앱 제안 게시
-        href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-      - name: 기존 제품 업데이트
-        href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
-    - name: SaaS 애플리케이션 제품
-      href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
-      - name: SaaS 애플리케이션 제품 만들기
-        href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
-        - name: 기술 정보 탭
-          href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
-        - name: 계획 탭
-          href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
-        - name: 채널 정보 탭
-          href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
-        - name: 시험 사용 탭
-          href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
-        - name: 상점 세부 정보 탭
-          href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
-        - name: 연락처 탭
-          href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
-      - name: 제품 게시
-        href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
-      - name: 기존 제품 업데이트
-        href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
-      - name: SaaS 처리 API
-        href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
-        items:
-        - name: SaaS 애플리케이션 등록
-          href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
-        - name: SaaS API v1(사용되지 않음)
-          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-        - name: SaaS API v2
-          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
-    - name: 가상 머신 제안
-      href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-      items:
-      - name: 필수 조건
-        href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
-      - name: VM 제품 만들기
-        href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
-        items:
-        - name: 제품 설정 탭
-          href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
-        - name: SKU 탭
-          href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
-        - name: 시험 사용 탭
-          href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
-        - name: Marketplace 탭
-          href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
-        - name: 지원 탭
-          href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
-      - name: VM 기술 자산 만들기
-        href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
-        items:
-        - name: VHD 만들기
-          href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
-        - name: 일반적인 VHD 생성 문제
-          href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
-        - name: VM에 연결
-          href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
-        - name: VM 구성
-          href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
-        - name: Windows 원격 관리
-          href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
+        - name: SEO 지침
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md
+        - name: GDPR 규정 준수
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
+        - name: 비공개 SKU
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
+        - name: 잠재 고객 관리
           items:
-          - name: VM 생성 후 WinRM 구성
-            href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
-        - name: VM 배포
-          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
+            - name: 잠재 고객 구성
+              href: ./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md
+            - name: Azure 테이블
+              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md
+            - name: Dynamics
+              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md
+            - name: HTTPS 엔드포인트
+              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md
+            - name: Marketo
+              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md
+            - name: Salesforce
+              href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
+        - name: Seller Insights
           items:
-          - name: 사용자 VM 이미지 만들기
-            href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
-          - name: Key Vault 인증서 만들기
-            href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
-            items:
-            - name: Key Vault 배포 템플릿
-              href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
-        - name: 사용자 VHD의 VM 배포
-          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
+            - name: 시작하기
+              href: ./cloud-partner-portal-orig/si-getting-started.md
+            - name: 새로운 기능
+              href: ./cloud-partner-portal-orig/si-changes.md
+            - name: 웹 분석
+              href: ./cloud-partner-portal-orig/web-analytics.md
+            - name: 정의
+              href: ./cloud-partner-portal-orig/si-insights-definitions-v4.md
+            - name: Insights FAQ
+              href: ./cloud-partner-portal-orig/si-faqs.md
+    - name: Marketplace 제품
+      href: ./cloud-partner-portal/cpp-marketplace-offers.md
+      items:
+        - name: 제품 관리
+          href: ./cloud-partner-portal/manage-offers/cpp-manage-offers.md
           items:
-          - name: VHD 배포 템플릿
-            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
-          - name: Marketplace의 VM 배포
-            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
-        - name: VM 이미지 인증
-          href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
-        - name: VM 자체 테스트 클라이언트
-          href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
-        - name: SAS URI 가져오기
-          href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
-        - name: 일반적인 SAS URL 문제
-          href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
-      - name: VM 제품 게시
-        href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
-      - name: 기존 제품 업데이트
-        href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
-  - name: API 참조
-    items:
-    - name: 개요
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-    - name: 필수 조건
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
-    - name: 고려 사항
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
-    - name: 동시성 제어
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
-    - name: 제품 검색
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
-    - name: 특정 제품 검색
-      href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
-    - name: 제품 추가 또는 수정
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
-    - name: 제안 상태 검색
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
-    - name: 제안 게시
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
-    - name: 작업 검색
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
-    - name: 작업 취소
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
-    - name: 실시간 전송
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
-    - name: 가상 머신 제품 가격 책정
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
-    - name: 인증 오류 문제 해결
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
-  - name: 지원 받기
-    href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-ms.openlocfilehash: 20c4838d32be47332a68b7f2585a9ad19141d4b9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683803"
+            - name: 제품 만들기
+              href: ./cloud-partner-portal/manage-offers/cpp-create-offer.md
+            - name: 제품 게시
+              href: ./cloud-partner-portal/manage-offers/cpp-publish-offer.md
+            - name: 제품 상태 보기
+              href: ./cloud-partner-portal/manage-offers/cpp-view-status-offer.md
+            - name: 제품 업데이트
+              href: ./cloud-partner-portal/manage-offers/cpp-update-offer.md
+            - name: 제품 삭제
+              href: ./cloud-partner-portal/manage-offers/cpp-delete-offer.md
+        - name: 시험 사용
+          items:
+            - name: 시험 사용이란?
+              href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
+            - name: Azure Resource Manager 시험 사용
+              href: ./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md
+            - name: 호스트형 시험 사용
+              href: ./cloud-partner-portal/test-drive/hosted-test-drive.md
+            - name: 논리 앱 시험 사용
+              href: ./cloud-partner-portal/test-drive/logic-app-test-drive.md
+            - name: 시험 사용을 위한 변환 예제
+              href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
+            - name: 마케팅 및 모범 사례
+              href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
+        - name: Azure 애플리케이션 제품
+          href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
+            - name: Azure 애플리케이션 제품 만들기
+              href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md
+                - name: SKU 탭
+                  href: ./cloud-partner-portal/azure-applications/cpp-skus-tab.md
+                - name: 시험 사용 탭
+                  href: ./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md
+                - name: Marketplace 탭
+                  href: ./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md
+                - name: 지원 탭
+                  href: ./cloud-partner-portal/azure-applications/cpp-support-tab.md
+            - name: 기술 자산 만들기
+              href: ./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md
+            - name: Azure 애플리케이션 제품 게시
+              href: ./cloud-partner-portal/azure-applications/cpp-publish-offer.md
+            - name: 검토 피드백 처리
+              href: ./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md
+            - name: 기존 제품 업데이트
+              href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
+        - name: 컨설팅 서비스
+          href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
+            - name: 컨설팅 서비스 제품 만들기
+              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
+                - name: 상점 세부 정보 탭
+                  href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
+            - name: 컨설팅 서비스 제품 게시
+              href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+        - name: 컨테이너 제품
+          href: ./cloud-partner-portal/containers/cpp-containers-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/containers/cpp-prerequisites.md
+            - name: 컨테이너 제품 만들기
+              href: ./cloud-partner-portal/containers/cpp-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
+                - name: SKU 탭
+                  href: ./cloud-partner-portal/containers/cpp-skus-tab.md
+                - name: Marketplace 탭
+                  href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
+                - name: 지원 탭
+                  href: ./cloud-partner-portal/containers/cpp-support-tab.md
+            - name: 컨테이너 기술 자산 만들기
+              href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
+            - name: 컨테이너 제품 게시
+              href: ./cloud-partner-portal/containers/cpp-publish-offer.md
+            - name: 기존 제품 업데이트
+              href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
+        - name: Dynamics 365 for Business Central 제품
+          href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
+          items:
+            - name: 게시 개요
+              href: ./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md
+            - name: 새 제품 만들기
+              href: ./cloud-partner-portal-orig/d365-finance-create-new-offer.md
+            - name: 제품 설정
+              href: ./cloud-partner-portal-orig/d365-finance-create-offer-settings.md
+            - name: 기술 세부 정보
+              href: ./cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md
+            - name: 상점 세부 정보
+              href: ./cloud-partner-portal-orig/d365-finance-create-storefront-details.md
+            - name: 게시 프로세스
+              href: ./cloud-partner-portal-orig/d365-finance-app-publishing-process.md
+        - name: Dynamics 365 for Customer Engagement 제품
+          href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
+            - name: 고객 참여 제품 만들기
+              href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md
+                - name: 기술 정보 탭
+                  href: ./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md
+                - name: 시험 사용 탭
+                  href: ./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md
+                - name: 상점 세부 정보 탭
+                  href: ./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md
+                - name: 연락처 탭
+                  href: ./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md
+            - name: 고객 참여 기술 자산 만들기
+              href: ./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md
+            - name: 고객 참여 제품 게시
+              href: ./cloud-partner-portal/dyn365ce/cpp-publish-offer.md
+        - name: Dynamics 365 for Operations 제품
+          href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal-orig/pre-requisites.md
+            - name: 게시 방법
+              href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
+            - name: LCS 구독
+              href: ./cloud-partner-portal-orig/lcs-subscription.md
+            - name: 코드 업그레이드
+              href: ./cloud-partner-portal-orig/code-upgrade.md
+            - name: 데이터 엔터티
+              href: ./cloud-partner-portal-orig/data-entities.md
+            - name: BPM 및 방법론
+              href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
+            - name: 도움말 wiki
+              href: ./cloud-partner-portal-orig/help-wiki.md
+        - name: IoT Edge 모듈 제품
+          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
+            - name: IoT Edge 모듈 제품 만들기
+              href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
+                - name: SKU 탭
+                  href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
+                - name: Marketplace 탭
+                  href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
+                - name: 지원 탭
+                  href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
+            - name: IoT Edge 모듈 기술 자산 만들기
+              href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
+            - name: IoT Edge 모듈 제안 게시
+              href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
+            - name: 기존 제품 업데이트
+              href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+        - name: Power BI 앱 제품
+          href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
+            - name: Power BI 앱 제품 만들기
+              href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
+                - name: 기술 정보 탭
+                  href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
+                - name: 상점 세부 정보 탭
+                  href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
+                - name: 연락처 탭
+                  href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
+            - name: Power BI 앱 기술 자산 만들기
+              href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
+            - name: Power BI 앱 제안 게시
+              href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
+            - name: 기존 제품 업데이트
+              href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
+        - name: SaaS 애플리케이션 제품
+          href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
+            - name: SaaS 애플리케이션 제품 만들기
+              href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
+                - name: 기술 정보 탭
+                  href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
+                - name: 계획 탭
+                  href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
+                - name: 채널 정보 탭
+                  href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
+                - name: 시험 사용 탭
+                  href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
+                - name: 상점 세부 정보 탭
+                  href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
+                - name: 연락처 탭
+                  href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
+            - name: 제품 게시
+              href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
+            - name: 기존 제품 업데이트
+              href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
+            - name: SaaS 처리 API
+              href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
+              items:
+                - name: SaaS 애플리케이션 등록
+                  href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
+                - name: SaaS API v1(사용되지 않음)
+                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
+                - name: SaaS API v2
+                  href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
+        - name: 가상 머신 제안
+          href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+          items:
+            - name: 필수 조건
+              href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
+            - name: VM 제품 만들기
+              href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
+              items:
+                - name: 제품 설정 탭
+                  href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
+                - name: SKU 탭
+                  href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
+                - name: 시험 사용 탭
+                  href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
+                - name: Marketplace 탭
+                  href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
+                - name: 지원 탭
+                  href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
+            - name: VM 기술 자산 만들기
+              href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
+              items:
+                - name: VHD 만들기
+                  href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
+                - name: 일반적인 VHD 생성 문제
+                  href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
+                - name: VM에 연결
+                  href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
+                - name: VM 구성
+                  href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
+                - name: Windows 원격 관리
+                  href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
+                  items:
+                    - name: VM 생성 후 WinRM 구성
+                      href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
+                - name: VM 배포
+                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
+                  items:
+                    - name: 사용자 VM 이미지 만들기
+                      href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
+                    - name: Key Vault 인증서 만들기
+                      href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
+                      items:
+                        - name: Key Vault 배포 템플릿
+                          href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
+                - name: 사용자 VHD의 VM 배포
+                  href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
+                  items:
+                    - name: VHD 배포 템플릿
+                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
+                    - name: Marketplace의 VM 배포
+                      href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
+                - name: VM 이미지 인증
+                  href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
+                - name: VM 자체 테스트 클라이언트
+                  href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
+                - name: SAS URI 가져오기
+                  href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
+                - name: 일반적인 SAS URL 문제
+                  href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
+            - name: VM 제품 게시
+              href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
+            - name: 기존 제품 업데이트
+              href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
+    - name: API 참조
+      items:
+        - name: 개요
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+        - name: 필수 조건
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+        - name: 고려 사항
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
+        - name: 동시성 제어
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
+        - name: 제품 검색
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+        - name: 특정 제품 검색
+          href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
+        - name: 제품 추가 또는 수정
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+        - name: 제안 상태 검색
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
+        - name: 제안 게시
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
+        - name: 작업 검색
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
+        - name: 작업 취소
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
+        - name: 실시간 전송
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+        - name: 가상 머신 제품 가격 책정
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+        - name: 인증 오류 문제 해결
+          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+    - name: 지원 받기
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md

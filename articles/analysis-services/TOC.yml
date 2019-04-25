@@ -1,168 +1,161 @@
-items:
 - name: Analysis Services 설명서
   href: index.md
 - name: 개요
   items:
-  - name: Analysis Services란?
-    href: analysis-services-overview.md
+    - name: Analysis Services란?
+      href: analysis-services-overview.md
 - name: 빠른 시작
   items:
-  - name: 서버 만들기 - 포털
-    href: analysis-services-create-server.md
-  - name: 서버 만들기 - PowerShell
-    href: analysis-services-create-powershell.md
-  - name: 서버 방화벽 구성 - 포털
-    href: analysis-services-qs-firewall.md
+    - name: 서버 만들기 - 포털
+      href: analysis-services-create-server.md
+    - name: 서버 만들기 - PowerShell
+      href: analysis-services-create-powershell.md
+    - name: 서버 방화벽 구성 - 포털
+      href: analysis-services-qs-firewall.md
 - name: 자습서
   items:
-  - name: 1 - 포털에서 샘플 모델 추가
-    href: analysis-services-create-sample-model.md
-  - name: 2 - 서버 관리자 및 사용자 역할 구성
-    href: tutorials/analysis-services-tutorial-roles.md
-  - name: 3 - Power BI Desktop을 사용하여 연결
-    href: tutorials/analysis-services-tutorial-pbid.md
+    - name: 1 - 포털에서 샘플 모델 추가
+      href: analysis-services-create-sample-model.md
+    - name: 2 - 서버 관리자 및 사용자 역할 구성
+      href: tutorials/analysis-services-tutorial-roles.md
+    - name: 3 - Power BI Desktop을 사용하여 연결
+      href: tutorials/analysis-services-tutorial-pbid.md
 - name: 개념
   items:
-  - name: 인증 및 사용자 권한
-    href: analysis-services-manage-users.md
-  - name: 서비스 사용자를 사용한 자동화
-    href: analysis-services-service-principal.md
-  - name: 클라이언트 라이브러리
-    href: analysis-services-data-providers.md
-  - name: 호환성 수준
-    href: analysis-services-compat-level.md
-  - name: 온-프레미스 데이터 원본에 연결
-    href: analysis-services-gateway.md
-  - name: 서버에 연결
-    href: analysis-services-connect.md
-  - name: 고가용성
-    href: analysis-services-bcdr.md
-  - name: 지원되는 데이터 원본
-    href: analysis-services-datasource.md
+    - name: 인증 및 사용자 권한
+      href: analysis-services-manage-users.md
+    - name: 서비스 사용자를 사용한 자동화
+      href: analysis-services-service-principal.md
+    - name: 클라이언트 라이브러리
+      href: analysis-services-data-providers.md
+    - name: 호환성 수준
+      href: analysis-services-compat-level.md
+    - name: 온-프레미스 데이터 원본에 연결
+      href: analysis-services-gateway.md
+    - name: 서버에 연결
+      href: analysis-services-connect.md
+    - name: 고가용성
+      href: analysis-services-bcdr.md
+    - name: 지원되는 데이터 원본
+      href: analysis-services-datasource.md
 - name: 방법
   items:
-  - name: 서버
-    items:
-    - name: Backup 및 복원
-      href: analysis-services-backup.md
-    - name: 서버 이름 별칭 구성
-      href: analysis-services-server-alias.md
-    - name: 규모 확장 구성
-      href: analysis-services-scale-out.md
-    - name: 온-프레미스 데이터 게이트웨이 설치 및 구성
-      href: analysis-services-gateway-install.md
-    - name: Azure Virtual Network에서 데이터 원본에 게이트웨이 사용
-      href: analysis-services-vnet-gateway.md
-    - name: 서버 관리
-      href: analysis-services-manage.md
-    - name: 서버 메트릭 모니터링
-      href: analysis-services-monitor.md
-    - name: 진단 로깅 설정
-      href: analysis-services-logging.md
-    - name: 서비스 주체 만들기 - Azure Portal
-      href: ../active-directory/develop/howto-create-service-principal-portal.md
-    - name: 서비스 주체 만들기 - PowerShell
-      href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
-    - name: 서버 관리자 역할에 서비스 주체 추가
-      href: analysis-services-addservprinc-admins.md
-  - name: 모델
-    items:
-    - name: Visual Studio에서 배포(SSDT)
-      href: analysis-services-deploy.md
-    - name: REST API를 사용하여 새로 고침
-      href: analysis-services-async-refresh.md
-    - name: Visual Studio에서 데이터 모델링 - Adventure Works(1400) 자습서
-      href: tutorials/aas-adventure-works-tutorial.md
+    - name: 서버
       items:
-      - name: 1 - 테이블 형식 모델 프로젝트 만들기
-        href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-      - name: 2 - 데이터 가져오기
-        href: tutorials/aas-lesson-2-get-data.md
-      - name: 3 - 날짜 테이블로 표시
-        href: tutorials/aas-lesson-3-mark-as-date-table.md
-      - name: 4 - 관계 만들기
-        href: tutorials/aas-lesson-4-create-relationships.md
-      - name: 5 - 계산된 열 만들기
-        href: tutorials/aas-lesson-5-create-calculated-columns.md
-      - name: 6 - 측정값 만들기
-        href: tutorials/aas-lesson-6-create-measures.md
-      - name: 7 - 핵심 성과 지표 만들기
-        href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-      - name: 8 - 큐브 뷰 만들기
-        href: tutorials/aas-lesson-8-create-perspectives.md
-      - name: 9 - 계층 구조 만들기
-        href: tutorials/aas-lesson-9-create-hierarchies.md
-      - name: 10 - 파티션 만들기
-        href: tutorials/aas-lesson-10-create-partitions.md
-      - name: 11 - 역할 만들기
-        href: tutorials/aas-lesson-11-create-roles.md
-      - name: 12 - Excel에서 분석
-        href: tutorials/aas-lesson-12-analyze-in-excel.md
-      - name: 13 - 배포
-        href: tutorials/aas-lesson-13-deploy.md
-      - name: 추가 단원 - 세부 정보 행
-        href: tutorials/aas-supplemental-lesson-detail-rows.md
-      - name: 추가 단원 - 동적 보안
-        href: tutorials/aas-supplemental-lesson-dynamic-security.md
-      - name: 추가 단원 - 불규칙한 계층 구조
-        href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
-  - name: 보안
-    items:
-    - name: 데이터베이스 사용자 관리
-      href: analysis-services-database-users.md
-    - name: 서버 관리자 관리
-      href: analysis-services-server-admins.md
-  - name: 연결
-    items:
-    - name: Excel로 연결
-      href: analysis-services-connect-excel.md
-    - name: Power BI로 연결
-      href: analysis-services-connect-pbi.md
-    - name: .odc 파일 만들기
-      href: analysis-services-odc.md
+        - name: Backup 및 복원
+          href: analysis-services-backup.md
+        - name: 서버 이름 별칭 구성
+          href: analysis-services-server-alias.md
+        - name: 규모 확장 구성
+          href: analysis-services-scale-out.md
+        - name: 온-프레미스 데이터 게이트웨이 설치 및 구성
+          href: analysis-services-gateway-install.md
+        - name: Azure Virtual Network에서 데이터 원본에 게이트웨이 사용
+          href: analysis-services-vnet-gateway.md
+        - name: 서버 관리
+          href: analysis-services-manage.md
+        - name: 서버 메트릭 모니터링
+          href: analysis-services-monitor.md
+        - name: 진단 로깅 설정
+          href: analysis-services-logging.md
+        - name: 서비스 주체 만들기 - Azure Portal
+          href: ../active-directory/develop/howto-create-service-principal-portal.md
+        - name: 서비스 주체 만들기 - PowerShell
+          href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
+        - name: 서버 관리자 역할에 서비스 주체 추가
+          href: analysis-services-addservprinc-admins.md
+    - name: 모델
+      items:
+        - name: Visual Studio에서 배포(SSDT)
+          href: analysis-services-deploy.md
+        - name: REST API를 사용하여 새로 고침
+          href: analysis-services-async-refresh.md
+        - name: Visual Studio에서 데이터 모델링 - Adventure Works(1400) 자습서
+          href: tutorials/aas-adventure-works-tutorial.md
+          items:
+            - name: 1 - 테이블 형식 모델 프로젝트 만들기
+              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
+            - name: 2 - 데이터 가져오기
+              href: tutorials/aas-lesson-2-get-data.md
+            - name: 3 - 날짜 테이블로 표시
+              href: tutorials/aas-lesson-3-mark-as-date-table.md
+            - name: 4 - 관계 만들기
+              href: tutorials/aas-lesson-4-create-relationships.md
+            - name: 5 - 계산된 열 만들기
+              href: tutorials/aas-lesson-5-create-calculated-columns.md
+            - name: 6 - 측정값 만들기
+              href: tutorials/aas-lesson-6-create-measures.md
+            - name: 7 - 핵심 성과 지표 만들기
+              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
+            - name: 8 - 큐브 뷰 만들기
+              href: tutorials/aas-lesson-8-create-perspectives.md
+            - name: 9 - 계층 구조 만들기
+              href: tutorials/aas-lesson-9-create-hierarchies.md
+            - name: 10 - 파티션 만들기
+              href: tutorials/aas-lesson-10-create-partitions.md
+            - name: 11 - 역할 만들기
+              href: tutorials/aas-lesson-11-create-roles.md
+            - name: 12 - Excel에서 분석
+              href: tutorials/aas-lesson-12-analyze-in-excel.md
+            - name: 13 - 배포
+              href: tutorials/aas-lesson-13-deploy.md
+            - name: 추가 단원 - 세부 정보 행
+              href: tutorials/aas-supplemental-lesson-detail-rows.md
+            - name: 추가 단원 - 동적 보안
+              href: tutorials/aas-supplemental-lesson-dynamic-security.md
+            - name: 추가 단원 - 불규칙한 계층 구조
+              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+    - name: 보안
+      items:
+        - name: 데이터베이스 사용자 관리
+          href: analysis-services-database-users.md
+        - name: 서버 관리자 관리
+          href: analysis-services-server-admins.md
+    - name: 연결
+      items:
+        - name: Excel로 연결
+          href: analysis-services-connect-excel.md
+        - name: Power BI로 연결
+          href: analysis-services-connect-pbi.md
+        - name: .odc 파일 만들기
+          href: analysis-services-odc.md
 - name: 참고 자료
   items:
-  - name: PowerShell
-    href: analysis-services-powershell.md
-  - name: REST (영문)
-    href: /rest/api/analysisservices
-  - name: Resource Manager 템플릿
-    href: /azure/templates/microsoft.analysisservices/servers
-  - name: DAX
-    href: https://msdn.microsoft.com/library/gg413422.aspx
-  - name: 파워 쿼리 M
-    href: https://msdn.microsoft.com/library/mt211003.aspx
-  - name: 테이블 형식 모델 스크립팅 언어(TMSL)
-    href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
-  - name: 테이블 형식 개체 모델(TOM)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
-  - name: 리소스 및 개체 제한
-    href: analysis-services-capacity-limits.md
+    - name: PowerShell
+      href: analysis-services-powershell.md
+    - name: REST (영문)
+      href: /rest/api/analysisservices
+    - name: Resource Manager 템플릿
+      href: /azure/templates/microsoft.analysisservices/servers
+    - name: DAX
+      href: 'https://msdn.microsoft.com/library/gg413422.aspx'
+    - name: 파워 쿼리 M
+      href: 'https://msdn.microsoft.com/library/mt211003.aspx'
+    - name: 테이블 형식 모델 스크립팅 언어(TMSL)
+      href: 'https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference'
+    - name: 테이블 형식 개체 모델(TOM)
+      href: 'https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo'
+    - name: 리소스 및 개체 제한
+      href: analysis-services-capacity-limits.md
 - name: 리소스
   items:
-  - name: 샘플
-    href: analysis-services-samples.md
-  - name: Analysis Services 팀 블로그
-    href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Azure Analysis Services 포럼
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-  - name: Azure 상태
-    href: https://azure.microsoft.com/status/
-  - name: 사용자 의견
-    href: https://feedback.azure.com/forums/556165-azure-analysis-services
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/analysis-services/
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/azure-analysis-services
-  - name: 동영상
-    href: https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest
-ms.openlocfilehash: 4d3a592d4d0d9bd0a75dcd1cc76deb2a273bdf09
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525265"
+    - name: 샘플
+      href: analysis-services-samples.md
+    - name: Analysis Services 팀 블로그
+      href: 'https://blogs.msdn.microsoft.com/analysisservices/'
+    - name: Azure Analysis Services 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Azure 상태
+      href: 'https://azure.microsoft.com/status/'
+    - name: 사용자 의견
+      href: 'https://feedback.azure.com/forums/556165-azure-analysis-services'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/analysis-services/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-analysis-services'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest'

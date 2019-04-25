@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450949"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995067"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio의 연결된 서비스를 사용하여 Computer Vision API에 연결
 
@@ -38,15 +38,15 @@ Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추�
 1. **솔루션 탐색기**에서 **추가** > **연결된 서비스**를 선택합니다.
    연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
 
-   ![Visual Studio 프로젝트에서 오른쪽 클릭 메뉴의 스크린샷: 추가 > 연결된 서비스](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Visual Studio 프로젝트에서 오른쪽 클릭 메뉴: 추가 > 연결된 서비스](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. 사용 가능한 서비스 메뉴에서 **Cognitive Services Computer Vision API**를 선택합니다.
 
-   ![연결된 서비스 메뉴에서 Computer Vision을 사용하여 분석 이미지를 강조 표시](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![연결된 서비스 메뉴: 이미지를 분석하는 중...이 설명되어 있습니다.](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Visual Studio에 로그인하고 사용자 계정과 연결된 Azure 구독이 있는 경우 구독이 포함된 드롭다운 목록이 페이지에 표시됩니다.
 
-   ![강조 표시된 구독 드롭다운을 사용한 “Computer Vision API” Visual Studio 창](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![구독 드롭다운이 강조 표시된 Computer Vision API 창](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. 사용하려는 구독을 선택하고, Computer Vision API의 이름을 선택하거나 편집 링크를 선택하여 자동으로 생성된 이름을 수정하고 리소스 그룹 및 가격 책정 계층을 선택합니다.
 
@@ -98,7 +98,7 @@ Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추�
 
 1. 이미지 파일을 마우스 오른쪽 단추로 클릭하고, 속성을 선택한 후 **변경된 내용만 복사**를 선택합니다. 
 
-   ![이미지 속성 창에서 출력 디렉터리로 복사가 변경된 내용만 복사로 설정됨](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![이미지 속성 창에서 새로 복사할 출력 디렉터리 집합으로 복사](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Configure 메서드를 다음 코드로 바꾸어 Computer Vision API에 액세스하고 이미지를 테스트합니다.
 

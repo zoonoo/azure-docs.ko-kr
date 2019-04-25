@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400254"
 documentType: LandingData
 title: Windows Virtual Desktop Preview 설명서
 metadata:
-  title: Windows Virtual Desktop Preview 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
+  title: 'Windows Virtual Desktop Preview 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs'
   description: Azure용 Windows Virtual Desktop Preview는 클라우드에서 가상화된 다중 사용자 Windows 10 Enterprise 환경입니다.
   author: Heidilohr
   manager: daveba
@@ -20,28 +14,28 @@ metadata:
 abstract:
   description: 모든 디바이스에 가상 데스크톱 환경 및 원격 앱을 제공하세요. Microsoft 365와 Azure를 통합하여 사용자에게 탁월한 크기 조정 기능과 저렴한 IT 비용을 갖춘 유일한 다중 세션 Windows 10 환경을 제공하세요.
 sections:
-- title: 개요
-  items:
-  - type: paragraph
-    text: Windows Virtual Desktop Preview에 대한 정보 및 사용 방법을 알아봅니다. 자습서, 방법, 참조 콘텐츠 등을 통해 호스트 풀 및 테넌트를 설정하고 Windows Virtual Desktop 환경에서 사용자에게 역할을 할당하는 방법을 보여줍니다.
-  - type: list
-    style: unordered
+  - title: 개요
     items:
-    - html: <a href="/azure/virtual-desktop/overview">Windows Virtual Desktop Preview란?</a>
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Windows Virtual Desktop을 설치 및 구성하는 방법을 알아보고, 준비가 되면 클라이언트에 연결하는 방법을 알아봅니다.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Windows Virtual Desktop Preview에 대한 정보 및 사용 방법을 알아봅니다. 자습서, 방법, 참조 콘텐츠 등을 통해 호스트 풀 및 테넌트를 설정하고 Windows Virtual Desktop 환경에서 사용자에게 역할을 할당하는 방법을 보여줍니다.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-desktop/overview">Windows Virtual Desktop Preview란?</a>
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Windows Virtual Desktop에서 테넌트 만들기</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Azure Marketplace를 사용하여 호스트 풀 만들기</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">Windows Virtual Desktop에 대한 앱 그룹 관리</a>
-    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Windows Virtual Desktop을 설치 및 구성하는 방법을 알아보고, 준비가 되면 클라이언트에 연결하는 방법을 알아봅니다.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Windows Virtual Desktop에서 테넌트 만들기</a>
+          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Azure Marketplace를 사용하여 호스트 풀 만들기</a>
+          - html: <a href="/azure/virtual-desktop/manage-app-groups">Windows Virtual Desktop에 대한 앱 그룹 관리</a>
+          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당</a>
+  - title: 참고 자료
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

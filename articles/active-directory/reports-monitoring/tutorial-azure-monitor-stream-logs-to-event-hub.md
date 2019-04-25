@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍(미리 보기) | Microsoft Docs
-description: 이벤트 허브로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기(미리 보기)
+title: 자습서 - Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍 | Microsoft Docs
+description: 이벤트 허브로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436934"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995601"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍(미리 보기)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍
 
 이 자습서에서는 Azure 이벤트 허브로 Azure AD(Azure Active Directory) 로그를 스트리밍하도록 Azure Monitor 진단 설정을 지정하는 방법을 알아봅니다. 이 메커니즘을 사용하여 로그를 QRadar 및 Splunk 같은 타사 SIEM(보안 정보 및 이벤트 관리) 도구와 통합할 수 있습니다.
 

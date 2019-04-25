@@ -2,19 +2,19 @@
 title: Azure Power BI Embedded 설명서 - 자습서, API 참조 | Microsoft Docs
 description: 앱에 Power BI 데이터 시각화 및 대화형 보고서를 포함하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
 services: power-bi-embedded
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 manager: kfile
 layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 8c7ee917234891123392a7954bf704e1ff2a70e1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: decbe7c59f46ea77b1f5088bab8daf64722f2a8c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110702"
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 설명서
 

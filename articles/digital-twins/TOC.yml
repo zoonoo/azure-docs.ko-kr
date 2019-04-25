@@ -1,127 +1,120 @@
-items:
 - name: Azure Digital Twins
   href: index.yml
 - name: 개요
   items:
-  - name: Azure Digital Twins 정보
-    href: about-digital-twins.md
+    - name: Azure Digital Twins 정보
+      href: about-digital-twins.md
 - name: 빠른 시작
   items:
-  - name: 사용 가능한 공간 찾기
-    href: quickstart-view-occupancy-dotnet.md
+    - name: 사용 가능한 공간 찾기
+      href: quickstart-view-occupancy-dotnet.md
 - name: 자습서
   items:
-  - name: Digital Twins를 사용하여 건물 모니터링
-    items:
-    - name: 배포 및 구성
-      href: tutorial-facilities-setup.md
-    - name: 조건 프로비전 및 모니터링
-      href: tutorial-facilities-udf.md
-    - name: Logic Apps를 사용하여 알림
-      href: tutorial-facilities-events.md
-    - name: TSI를 사용하여 이벤트 시각화
-      href: tutorial-facilities-analyze.md
+    - name: Digital Twins를 사용하여 건물 모니터링
+      items:
+        - name: 배포 및 구성
+          href: tutorial-facilities-setup.md
+        - name: 조건 프로비전 및 모니터링
+          href: tutorial-facilities-udf.md
+        - name: Logic Apps를 사용하여 알림
+          href: tutorial-facilities-events.md
+        - name: TSI를 사용하여 이벤트 시각화
+          href: tutorial-facilities-analyze.md
 - name: 개념
   items:
-  - name: Digital Twins 개체 모델 및 공간 인텔리전스 그래프
-    href: concepts-objectmodel-spatialgraph.md
-  - name: 디바이스 연결 및 원격 분석 수신
-    href: concepts-device-ingress.md
-  - name: 데이터 처리 및 사용자 정의 함수
-    href: concepts-user-defined-functions.md
-  - name: 이벤트 라우팅 및 메시지
-    href: concepts-events-routing.md
-  - name: 공개 미리 보기 서비스 제한
-    href: concepts-service-limits.md
-  - name: 보안
-    items:
-    - name: 보안 모범 사례
-      href: security-best-practices.md
-    - name: 역할 기반 액세스 제어
-      href: security-role-based-access-control.md
-    - name: 역할 할당 만들기 및 관리
-      href: security-create-manage-role-assignments.md
-    - name: 관리 API 인증
-      href: security-authenticating-apis.md
+    - name: Digital Twins 개체 모델 및 공간 인텔리전스 그래프
+      href: concepts-objectmodel-spatialgraph.md
+    - name: 디바이스 연결 및 원격 분석 수신
+      href: concepts-device-ingress.md
+    - name: 데이터 처리 및 사용자 정의 함수
+      href: concepts-user-defined-functions.md
+    - name: 이벤트 라우팅 및 메시지
+      href: concepts-events-routing.md
+    - name: 공개 미리 보기 서비스 제한
+      href: concepts-service-limits.md
+    - name: 보안
+      items:
+        - name: 보안 모범 사례
+          href: security-best-practices.md
+        - name: 역할 기반 액세스 제어
+          href: security-role-based-access-control.md
+        - name: 역할 할당 만들기 및 관리
+          href: security-create-manage-role-assignments.md
+        - name: 관리 API 인증
+          href: security-authenticating-apis.md
 - name: 방법 가이드
   items:
-  - name: 다중 테넌트 애플리케이션 사용
-    href: how-to-multitenant-applications.md
-  - name: 사용자 정의 함수 만들기
-    href: how-to-user-defined-functions.md
-  - name: 엔드포인트를 통해 이벤트 및 메시지 라우팅
-    href: how-to-egress-endpoints.md
-  - name: 개체에 Blob 추가
-    href: how-to-add-blobs.md
-  - name: Digital Twins Swagger 사용
-    href: how-to-use-swagger.md
-  - name: 사용자 정의 함수 디버그
-    href: how-to-diagnose-user-defined-functions.md
-  - name: 모니터링 구성
-    href: how-to-configure-monitoring.md
-  - name: Digital Twins API 쿼리
-    items:
-    - name: Postman 설정
-      href: how-to-configure-postman.md
-    - name: Digital Twins API 사용
-      href: how-to-navigate-apis.md
-    - name: 일반적인 쿼리 패턴
-      href: how-to-query-common-apis.md
+    - name: 다중 테넌트 애플리케이션 사용
+      href: how-to-multitenant-applications.md
+    - name: 사용자 정의 함수 만들기
+      href: how-to-user-defined-functions.md
+    - name: 엔드포인트를 통해 이벤트 및 메시지 라우팅
+      href: how-to-egress-endpoints.md
+    - name: 개체에 Blob 추가
+      href: how-to-add-blobs.md
+    - name: Digital Twins Swagger 사용
+      href: how-to-use-swagger.md
+    - name: 사용자 정의 함수 디버그
+      href: how-to-diagnose-user-defined-functions.md
+    - name: 모니터링 구성
+      href: how-to-configure-monitoring.md
+    - name: Digital Twins API 쿼리
+      items:
+        - name: Postman 설정
+          href: how-to-configure-postman.md
+        - name: Digital Twins API 사용
+          href: how-to-navigate-apis.md
+        - name: 일반적인 쿼리 패턴
+          href: how-to-query-common-apis.md
 - name: 참고 자료
   items:
-  - name: 사용자 정의 함수 클라이언트 라이브러리
-    href: reference-user-defined-functions-client-library.md
+    - name: 사용자 정의 함수 클라이언트 라이브러리
+      href: reference-user-defined-functions-client-library.md
 - name: 관련 항목
   items:
-  - name: 솔루션
-    items:
-    - name: IoT 솔루션 가속기
-      href: /azure/iot-accelerators
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: 플랫폼 서비스
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
-      href: /azure/iot-dps
-    - name: IoT 서비스 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: 지도
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Microsoft Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT 장치 SDK
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: 솔루션
+      items:
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-accelerators
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: 플랫폼 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning 서비스
+          href: /azure/iot-dps
+        - name: IoT 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 지도
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 장치 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
-  - name: C#용 Azure Digital Twins 샘플(.NET)
-    href: https://github.com/Azure-Samples/digital-twins-samples-csharp
-  - name: Azure Digital Twins REST API
-    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/digital-twins/
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Azure Digital Twins Graph 뷰어
-    href: https://github.com/Azure/azure-digital-twins-graph-viewer
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
-  - name: 고객 사례
-    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/
-  - name: Azure IoT 개발자 센터
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: 동영상
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 0a76dbffc41106af5df540d29c1d7171f1506202
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664865"
+    - name: 'C#용 Azure Digital Twins 샘플(.NET)'
+      href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
+    - name: Azure Digital Twins REST API
+      href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Azure Digital Twins Graph 뷰어
+      href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+    - name: 고객 사례
+      href: 'https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/'
+    - name: Azure IoT 개발자 센터
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: 동영상
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'

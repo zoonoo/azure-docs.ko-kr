@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: a8d144b2cb8ee18c69dc4c4768b09422d44bade2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617323"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680402"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -91,7 +91,10 @@ Azure 구독 또는 Cosmos DB 체험 계정:
 1. **Microsoft.Azure.DocumentDB**를 찾아서 선택하고, 아직 설치되지 않은 경우 **설치**를 선택합니다.
    
    Azure Cosmos DB SQL API 클라이언트 라이브러리의 패키지 ID는 [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)입니다.
-   
+
+   > [!NOTE]
+   > .NET Core를 사용하는 경우 [.NET Core 문서](./sql-api-dotnetcore-get-started.md)를 참조하세요.
+
    ![Azure Cosmos DB 클라이언트 SDK를 찾기 위한 NuGet 메뉴의 스크린샷](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
    
    솔루션 변경 내용의 미리 보기에 대한 메시지가 표시되면 **확인**을 선택합니다. 라이선스 승인에 대한 메시지가 표시되면 **동의함**을 선택합니다.

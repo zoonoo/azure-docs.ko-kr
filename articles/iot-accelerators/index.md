@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 12/17/2018
 ms.author: dobett
 ms.openlocfilehash: 2295ca75b7ca266506dbc45b9017a08001ce6e2a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451211"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>IoT 솔루션 가속기 설명서
 
@@ -149,7 +149,7 @@ IoT 솔루션 가속기를 사용하는 방법을 알아봅니다. 이러한 아
 <h3>IoT 솔루션 가속기 및 구현하는 키 시나리오에 대해 알아보기:</h3>
 
 1. [IoT 디바이스 모니터링](iot-accelerators-remote-monitoring-monitor.md)
-1. [모니터링 솔루션에 연결된 디바이스를 사용하여 문제 검색](iot-accelerators-remote-monitoring-automate.md)
+1. [모니터링 솔루션에 연결된 디바이스를 사용하여 문제 감지](iot-accelerators-remote-monitoring-automate.md)
 1. [모니터링 솔루션에 연결된 디바이스 구성 및 관리](iot-accelerators-remote-monitoring-manage.md)
 1. [경고에 대한 근본 원인 분석 수행](iot-accelerators-remote-monitoring-root-cause-analysis.md)
 1. [경고 사용 및 디바이스 문제 수정](iot-accelerators-remote-monitoring-maintain.md)

@@ -1,7 +1,7 @@
-- name: 화자 인식 설명서
+- name: Speaker Recognition 설명서
 - name: 개요
   items:
-    - name: 화자 인식에 대해 알아보기
+    - name: Speaker Recognition에 대해 알아보기
       href: Home.md
 - name: 참고 자료
   items:
@@ -12,7 +12,7 @@
           items:
             - name: Android
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
-            - name: Windows
+            - name: ' Windows'
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
 - name: 리소스
   items:

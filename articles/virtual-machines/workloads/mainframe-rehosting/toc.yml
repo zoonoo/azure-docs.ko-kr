@@ -1,55 +1,48 @@
-items:
 - name: 메인프레임 재호스팅
   items:
-  - name: 개요
-    items:
-    - name: 시작하기
-      href: overview.md
-    - name: 워크로드
-      href: partner-workloads.md
-  - name: 개념
-    items:
-    - name: 컴퓨팅
-      href: concepts/mainframe-compute-azure.md
-    - name: Storage
-      href: concepts/mainframe-storage-azure.md
-  - name: Micro Focus
-    items:
-    - name: 시작하기
-      href: microfocus/get-started.md
-    - name: Enterprise Server 설치
-      href: microfocus/set-up-micro-focus-azure.md
-    - name: CICS BankDemo 실행
-      href: microfocus/demo.md
-    - name: 컨테이너의 Enterprise Server
-      href: microfocus/run-enterprise-server-container.md
-  - name: TmaxSoft OpenFrame
-    items:
-    - name: 시작하기
-      href: tmaxsoft/get-started.md
-    - name: OpenFrame 설치
-      href: tmaxsoft/install-openframe-azure.md
-  - name: IBM
-    items:
-    - name: 시작하기
-      href: ibm/get-started.md
-    - name: IBM zD&T 설치
-      href: ibm/install-ibm-z-environment.md
-    - name: zD&T에서 ADCD 설정
-      href: ibm/demo.md
-    - name: IBM DB2 pureScale
-      href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-    - name: IBM DB2 pureScale 배포
-      href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-  - name: 리소스
-    items:
-    - name: 백서
-      href: mainframe-white-papers.md
-    - name: Azure 로드맵
-      href: https://azure.microsoft.com/updates/
-ms.openlocfilehash: c0cec35997d398045f9c34904c8ee07755724572
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788856"
+    - name: 개요
+      items:
+        - name: 시작하기
+          href: overview.md
+        - name: 워크로드
+          href: partner-workloads.md
+    - name: 개념
+      items:
+        - name: 컴퓨팅
+          href: concepts/mainframe-compute-azure.md
+        - name: Storage
+          href: concepts/mainframe-storage-azure.md
+    - name: Micro Focus
+      items:
+        - name: 시작하기
+          href: microfocus/get-started.md
+        - name: Enterprise Server 설치
+          href: microfocus/set-up-micro-focus-azure.md
+        - name: CICS BankDemo 실행
+          href: microfocus/demo.md
+        - name: 컨테이너의 Enterprise Server
+          href: microfocus/run-enterprise-server-container.md
+    - name: TmaxSoft OpenFrame
+      items:
+        - name: 시작하기
+          href: tmaxsoft/get-started.md
+        - name: OpenFrame 설치
+          href: tmaxsoft/install-openframe-azure.md
+    - name: IBM
+      items:
+        - name: 시작하기
+          href: ibm/get-started.md
+        - name: IBM zD&T 설치
+          href: ibm/install-ibm-z-environment.md
+        - name: zD&T에서 ADCD 설정
+          href: ibm/demo.md
+        - name: IBM DB2 pureScale
+          href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+        - name: IBM DB2 pureScale 배포
+          href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+    - name: 리소스
+      items:
+        - name: 백서
+          href: mainframe-white-papers.md
+        - name: Azure 로드맵
+          href: 'https://azure.microsoft.com/updates/'

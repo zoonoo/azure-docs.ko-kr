@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517014"
 documentType: LandingData
 title: Azure Database for MariaDB 설명서
 metadata:
-  title: Azure MariaDB 설명서 - 자습서, API 참조
+  title: 'Azure MariaDB 설명서 - 자습서, API 참조'
   description: Azure Database for MariaDB는 오픈 소스 MariaDB 데이터베이스 엔진을 기반으로 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
   author: ajlam
   ms.author: andrela
@@ -16,49 +10,49 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/25/2019
 abstract:
-  description: Azure Database for MariaDB는 오픈 소스 MariaDB 서버 엔진을 기반으로 하는 관계형 데이터베이스 서비스입니다.  예측 가능한 성능과 동적인 확장성으로 중요 업무 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다. 사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for MariaDB로 애플리케이션을 개발해보세요. 빠른 시작, 자습서 및 샘플을 통해 Azure Database for MariaDB를 사용하는 방법을 알아봅니다.
+  description: 'Azure Database for MariaDB는 오픈 소스 MariaDB 서버 엔진을 기반으로 하는 관계형 데이터베이스 서비스입니다.  예측 가능한 성능과 동적인 확장성으로 중요 업무 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다. 사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for MariaDB로 애플리케이션을 개발해보세요. 빠른 시작, 자습서 및 샘플을 통해 Azure Database for MariaDB를 사용하는 방법을 알아봅니다.'
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: 다음을 사용하여 Azure에 MariaDB 데이터베이스를 만드는 방법을 알아봅니다.
-  - type: list
-    style: icon48
+  - title: 5분 빠른 시작
     items:
-    - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
-    - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: 데이터베이스를 설계하고 앱을 개발하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 다음을 사용하여 Azure에 MariaDB 데이터베이스를 만드는 방법을 알아봅니다.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Azure Portal
+            href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
+  - title: 단계별 자습서
     items:
-    - html: 데이터베이스 설계&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
-- title: 샘플
-  items:
-  - type: paragraph
-    text: 일반적인 작업을 관리하기 위한 스크립트를 찾습니다.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 데이터베이스를 설계하고 앱을 개발하는 방법을 알아봅니다.
+      - type: list
+        style: unordered
+        items:
+          - html: '데이터베이스 설계&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>'
+  - title: 샘플
     items:
-    - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Azure CLI</a>
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 일반적인 작업을 관리하기 위한 스크립트를 찾습니다.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Azure CLI</a>
+  - title: 참고 자료
     items:
-    - title: 명령줄
-      html: <p><a href="/cli/azure/mariadb">Azure CLI</a></p>
-    - title: REST (영문)
-      html: <p><a href="/rest/api/mariadb/">REST API</a></p>
-    - title: Azure 리소스 관리자
-      html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Resource Manager 템플릿</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령줄
+            html: <p><a href="/cli/azure/mariadb">Azure CLI</a></p>
+          - title: REST (영문)
+            html: <p><a href="/rest/api/mariadb/">REST API</a></p>
+          - title: Azure 리소스 관리자
+            html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Resource Manager 템플릿</a></p>

@@ -1,97 +1,90 @@
-items:
 - name: 개요
   items:
-  - name: Windows SQL Server VM
-    href: ../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
-  - name: FAQ
-    href: ../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Windows SQL Server VM
+      href: ../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/virtual-machines/windows/'
+    - name: FAQ
+      href: ../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: 시작
   items:
-  - name: Azure Portal에서 VM 프로비저닝
-    href: ../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: Azure PowerShell을 사용하여 VM 프로비저닝
-    href: virtual-machines-windows-classic-ps-sql-create.md
-  - name: VM에 연결
-    href: virtual-machines-windows-classic-sql-connect.md
-  - name: SQL Server 데이터베이스 마이그레이션
-    href: ../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Azure Portal에서 VM 프로비저닝
+      href: ../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Azure PowerShell을 사용하여 VM 프로비저닝
+      href: virtual-machines-windows-classic-ps-sql-create.md
+    - name: VM에 연결
+      href: virtual-machines-windows-classic-sql-connect.md
+    - name: SQL Server 데이터베이스 마이그레이션
+      href: ../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: 방법
   items:
-  - name: 고가용성 구성
-    items:
-    - name: 고가용성 옵션
-      href: ../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: PowerShell을 사용하여 Always On 가용성 그룹 구성
-      href: virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-    - name: 가용성 그룹에 대한 내부 수신기 구성
-      href: virtual-machines-windows-classic-ps-sql-int-listener.md
-    - name: 가용성 그룹에 대한 외부 수신기 구성
-      href: virtual-machines-windows-classic-ps-sql-ext-listener.md
-    - name: 온-프레미스 가용성 그룹을 Azure에 확장
-      href: virtual-machines-windows-classic-sql-onprem-availability.md
-  - name: 관리
-    items:
-    - name: SQL Server IaaS 에이전트 확장 사용
-      href: virtual-machines-windows-classic-sql-server-agent-extension.md
-    - name: 자동화된 패치
-      href: virtual-machines-windows-classic-sql-automated-patching.md
-    - name: Azure Key Vault 통합 구성
-      href: virtual-machines-windows-classic-ps-sql-keyvault.md
-    - name: Premium Storage 사용
-      href: virtual-machines-windows-classic-sql-server-premium-storage.md
-    - name: 보안 고려사항
-      href: ../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: Backup 및 복원
-    items:
+    - name: 고가용성 구성
+      items:
+        - name: 고가용성 옵션
+          href: ../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+        - name: PowerShell을 사용하여 Always On 가용성 그룹 구성
+          href: virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+        - name: 가용성 그룹에 대한 내부 수신기 구성
+          href: virtual-machines-windows-classic-ps-sql-int-listener.md
+        - name: 가용성 그룹에 대한 외부 수신기 구성
+          href: virtual-machines-windows-classic-ps-sql-ext-listener.md
+        - name: 온-프레미스 가용성 그룹을 Azure에 확장
+          href: virtual-machines-windows-classic-sql-onprem-availability.md
+    - name: 관리
+      items:
+        - name: SQL Server IaaS 에이전트 확장 사용
+          href: virtual-machines-windows-classic-sql-server-agent-extension.md
+        - name: 자동화된 패치
+          href: virtual-machines-windows-classic-sql-automated-patching.md
+        - name: Azure Key Vault 통합 구성
+          href: virtual-machines-windows-classic-ps-sql-keyvault.md
+        - name: Premium Storage 사용
+          href: virtual-machines-windows-classic-sql-server-premium-storage.md
+        - name: 보안 고려사항
+          href: ../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
     - name: Backup 및 복원
-      href: ../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: 자동화된 백업
-      href: virtual-machines-windows-classic-sql-automated-backup.md
-    - name: 백업 및 복원에 Azure Storage 사용
-      href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: 비즈니스 인텔리전스
-    items:
-    - name: Azure VM의 SQL Server Business Intelligence
-      href: virtual-machines-windows-classic-ps-sql-bi.md
-    - name: Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
-      href: virtual-machines-windows-classic-sql-server-reportviewer.md
-    - name: Azure PowerShell을 사용하여 보고서 서버로 Azure VM 만들기
-      href: virtual-machines-windows-classic-ps-sql-report.md
-  - name: 성능 모범 사례
-    href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: 애플리케이션 패턴
-    href: ../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+      items:
+        - name: Backup 및 복원
+          href: ../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+        - name: 자동화된 백업
+          href: virtual-machines-windows-classic-sql-automated-backup.md
+        - name: 백업 및 복원에 Azure Storage 사용
+          href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: 비즈니스 인텔리전스
+      items:
+        - name: Azure VM의 SQL Server Business Intelligence
+          href: virtual-machines-windows-classic-ps-sql-bi.md
+        - name: Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
+          href: virtual-machines-windows-classic-sql-server-reportviewer.md
+        - name: Azure PowerShell을 사용하여 보고서 서버로 Azure VM 만들기
+          href: virtual-machines-windows-classic-ps-sql-report.md
+    - name: 성능 모범 사례
+      href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: 애플리케이션 패턴
+      href: ../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: 참고 자료
   items:
-  - name: Azure PowerShell
-    href: /powershell/azure/overview?view=azuresmps-3.7.0
-  - name: Azure CLI
-    href: /cli/azure/
-  - name: T-SQL
-    href: https://docs.microsoft.com/sql/t-sql/language-reference
-  - name: SQL Server 드라이버
-    href: https://docs.microsoft.com/sql/connect/sql-server-drivers
-  - name: REST (영문)
-    href: /rest/api/
+    - name: Azure PowerShell
+      href: /powershell/azure/overview?view=azuresmps-3.7.0
+    - name: Azure CLI
+      href: /cli/azure/
+    - name: T-SQL
+      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+    - name: SQL Server 드라이버
+      href: 'https://docs.microsoft.com/sql/connect/sql-server-drivers'
+    - name: REST (영문)
+      href: /rest/api/
 - name: 리소스
   items:
-  - name: MSDN 포럼
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: SSDT(SQL Server Data Tools)
-    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
-  - name: SSMS(SQL Server Management Studio)
-    href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
-  - name: SQL Server 도구
-    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
-ms.openlocfilehash: 66cc42f9be1a2147597e81ec774b01aa7b59e383
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341172"
+    - name: MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: SSDT(SQL Server Data Tools)
+      href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+    - name: SSMS(SQL Server Management Studio)
+      href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'
+    - name: SQL Server 도구
+      href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>자습서: OrgChart Now와 Azure Active Directory 통합
@@ -114,7 +114,7 @@ OrgChart Now에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     **로그인 URL** 텍스트 상자에서 `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > `<YourEntityID>` 는 **OrgChart Now 설정** 섹션에서 복사한 **Azure AD 식별자**로, 자습서의 뒷부분에 설명되어 있습니다.
+    > `<YourEntityID>`는 **OrgChart Now 설정** 섹션에서 복사한 **Azure AD 식별자**로, 자습서의 뒷부분에 설명되어 있습니다.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -235,7 +235,7 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,87 +1,80 @@
-items:
 - name: 컨테이너용 Azure
   href: index.yml
   items:
-  - name: AKS(Azure Kubernetes Service)
-    href: https://docs.microsoft.com/azure/aks/
-    items:
-    - name: AKS 소개
-      href: ../aks/intro-kubernetes.md
-    - name: 빠른 시작 - AKS 클러스터 배포
-      href: ../aks/kubernetes-walkthrough.md
-    expanded: true
-  - name: ACI(Container Instances)
-    href: https://docs.microsoft.com/azure/container-instances/
-    items:
-    - name: 빠른 시작 - 컨테이너 인스턴스 만들기
-      href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-    - name: 자습서 - 컨테이너 빌드 및 배포
+    - name: AKS(Azure Kubernetes Service)
+      href: 'https://docs.microsoft.com/azure/aks/'
+      expanded: true
       items:
-      - name: 1 - 컨테이너 이미지 만들기
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app
-      - name: 2 - 컨테이너 레지스트리 만들기
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr
-      - name: 3 - 앱 배포
-        href: https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app
-  - name: ACR(Container Registry)
-    href: https://docs.microsoft.com/azure/container-registry/
-    items:
-    - name: 빠른 시작 - 레지스트리 만들기
-      href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-    - name: 자습서 - 컨테이너 이미지 빌드
+        - name: AKS 소개
+          href: ../aks/intro-kubernetes.md
+        - name: 빠른 시작 - AKS 클러스터 배포
+          href: ../aks/kubernetes-walkthrough.md
+    - name: ACI(Container Instances)
+      href: 'https://docs.microsoft.com/azure/container-instances/'
       items:
-      - name: 1 - Azure에서 이미지 빌드
-        href: ../container-registry/container-registry-tutorial-quick-task.md
-      - name: 2 - 이미지 빌드 자동화
-        href: ../container-registry/container-registry-tutorial-build-task.md
-      - name: 3 - 기본 이미지 업데이트 빌드
-        href: ../container-registry/container-registry-tutorial-base-image-update.md
-  - name: Web App for Containers
-    href: https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro
-    items:
-    - name: 컨테이너용 Azure Web Apps에 사용자 지정 Docker 이미지 사용
-      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image
-    - name: 자습서 - 다중 컨테이너 앱
-      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app
-  - name: Service Fabric
-    href: https://docs.microsoft.com/azure/service-fabric/
-    items:
-    - name: 개요 - Service Fabric 및 컨테이너
-      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview
-    - name: 방법
+        - name: 빠른 시작 - 컨테이너 인스턴스 만들기
+          href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
+        - name: 자습서 - 컨테이너 빌드 및 배포
+          items:
+            - name: 1 - 컨테이너 이미지 만들기
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app'
+            - name: 2 - 컨테이너 레지스트리 만들기
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-acr'
+            - name: 3 - 앱 배포
+              href: 'https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-deploy-app'
+    - name: ACR(Container Registry)
+      href: 'https://docs.microsoft.com/azure/container-registry/'
       items:
-      - name: Windows에서 컨테이너 애플리케이션 만들기
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers
-      - name: Linux에서 컨테이너 애플리케이션 만들기
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux
-      - name: 기존 .NET 애플리케이션 컨테이너화
-        href: https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container
-  - name: Windows 컨테이너
-    href: https://docs.microsoft.com/azure/virtual-machines/windows/overview
-    items:
-    - name: 빠른 시작 - Windows Server에서의 Windows 컨테이너
-      href: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server
-    - name: Windows 컨테이너 정보
-      href: https://docs.microsoft.com/virtualization/windowscontainers/about/index
-  - name: 참고 자료
-    items:
-    - name: Azure Container Instances(az container)
-      href: https://docs.microsoft.com/cli/azure/container
-    - name: Azure Container Service(az acs)
-      href: https://docs.microsoft.com/cli/azure/acs
-    - name: Azure Container Registry(az acr)
-      href: https://docs.microsoft.com/cli/azure/acr
-    - name: Web App for Containers(az appservice)
-      href: https://docs.microsoft.com/cli/azure/appservice
-    - name: Azure App Service Web App(az webapp)
-      href: https://docs.microsoft.com/cli/azure/webapp
-    - name: Azure Service Fabric(az sf)
-      href: https://docs.microsoft.com/cli/azure/sf
-    - name: Azure Virtual Machines(az vm)
-      href: https://docs.microsoft.com/cli/azure/vm
-ms.openlocfilehash: 9ee48a00784c0ca9fa00507e2956e34e7e6792d5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486234"
+        - name: 빠른 시작 - 레지스트리 만들기
+          href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+        - name: 자습서 - 컨테이너 이미지 빌드
+          items:
+            - name: 1 - Azure에서 이미지 빌드
+              href: ../container-registry/container-registry-tutorial-quick-task.md
+            - name: 2 - 이미지 빌드 자동화
+              href: ../container-registry/container-registry-tutorial-build-task.md
+            - name: 3 - 기본 이미지 업데이트 빌드
+              href: ../container-registry/container-registry-tutorial-base-image-update.md
+    - name: Web App for Containers
+      href: 'https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro'
+      items:
+        - name: 컨테이너용 Azure Web Apps에 사용자 지정 Docker 이미지 사용
+          href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image'
+        - name: 자습서 - 다중 컨테이너 앱
+          href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app'
+    - name: Service Fabric
+      href: 'https://docs.microsoft.com/azure/service-fabric/'
+      items:
+        - name: 개요 - Service Fabric 및 컨테이너
+          href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview'
+        - name: 방법
+          items:
+            - name: Windows에서 컨테이너 애플리케이션 만들기
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers'
+            - name: Linux에서 컨테이너 애플리케이션 만들기
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux'
+            - name: 기존 .NET 애플리케이션 컨테이너화
+              href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container'
+    - name: Windows 컨테이너
+      href: 'https://docs.microsoft.com/azure/virtual-machines/windows/overview'
+      items:
+        - name: 빠른 시작 - Windows Server에서의 Windows 컨테이너
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server'
+        - name: Windows 컨테이너 정보
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/about/index'
+    - name: 참고 자료
+      items:
+        - name: Azure Container Instances(az container)
+          href: 'https://docs.microsoft.com/cli/azure/container'
+        - name: Azure Container Service(az acs)
+          href: 'https://docs.microsoft.com/cli/azure/acs'
+        - name: Azure Container Registry(az acr)
+          href: 'https://docs.microsoft.com/cli/azure/acr'
+        - name: Web App for Containers(az appservice)
+          href: 'https://docs.microsoft.com/cli/azure/appservice'
+        - name: Azure App Service Web App(az webapp)
+          href: 'https://docs.microsoft.com/cli/azure/webapp'
+        - name: Azure Service Fabric(az sf)
+          href: 'https://docs.microsoft.com/cli/azure/sf'
+        - name: Azure Virtual Machines(az vm)
+          href: 'https://docs.microsoft.com/cli/azure/vm'

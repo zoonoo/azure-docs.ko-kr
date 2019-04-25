@@ -1,96 +1,89 @@
-items:
 - name: Azure의 Terraform 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure의 Terraform 정보
-    href: terraform-overview.md
+    - name: Azure의 Terraform 정보
+      href: terraform-overview.md
 - name: 빠른 시작
-  items:
-  - name: 여러 서비스 애플리케이션 만들기
-    href: terrafom-quickstart.md
-  - name: Terraform 설치 및 구성
-    href: /azure/virtual-machines/linux/terraform-install-configure
-    maintainContext: true
-  - name: Linux VM 만들기
-    href: /azure/virtual-machines/linux/terraform-create-complete-vm
-    maintainContext: true
   expanded: true
+  items:
+    - name: 여러 서비스 애플리케이션 만들기
+      href: terrafom-quickstart.md
+    - name: Terraform 설치 및 구성
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Linux VM 만들기
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
 - name: 자습서
   items:
-  - name: App Service
-    items:
-    - name: Terraform 및 Azure 공급자 배포 슬롯
-      href: terraform-slot-walkthru.md
-  - name: 컨테이너
-    items:
-    - name: AKS로 Kubernetes 클러스터 만들기
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: AKS와 함께 수신 컨트롤러로 Application Gateway를 사용하는 Kubernetes 클러스터 만들기
-      href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
-  - name: 인프라
-    items:
-    - name: MSI가 활성화된 Terraform VM 만들기
-      href: terraform-vm-msi.md
-    - name: Terraform 모듈을 사용하여 VM 클러스터 만들기
-      href: terraform-create-vm-cluster-module.md
-    - name: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: 인프라를 사용하여 VM 확장 집합 프로비전
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Packer 사용자 지정 이미지에서 VM 확장 집합 프로비전
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-  - name: 네트워크
-    items:
-    - name: 허브 및 스포크 토폴로지
+    - name: App Service
       items:
-      - name: 1. 허브 및 스포크 토폴로지 만들기
-        href: terraform-hub-spoke-introduction.md
-      - name: 2. 온-프레미스 가상 네트워크 만들기
-        href: terraform-hub-spoke-on-prem.md
-      - name: 3. 허브 가상 네트워크 만들기
-        href: terraform-hub-spoke-hub-network.md
-      - name: 4. 허브 가상 네트워크 어플라이언스 만들기
-        href: terraform-hub-spoke-hub-nva.md
-      - name: 5. 스포크 네트워크 만들기
-        href: terraform-hub-spoke-spoke-network.md
-      - name: 6. 네트워크 토폴로지 연결 유효성 검사
-        href: terraform-hub-spoke-validation.md
-  - name: 도구
-    items:
-    - name: Terraform Visual Studio Code 확장 설치
-      href: terraform-vscode-extension.md
-    - name: Yeoman을 사용하여 Terraform 기본 템플릿 만들기
-      href: terraform-vscode-module-generator.md
-    - name: Terratest를 사용하여 Terraform 모듈 테스트
-      href: terratest-in-terraform-modules.md
+        - name: Terraform 및 Azure 공급자 배포 슬롯
+          href: terraform-slot-walkthru.md
+    - name: 컨테이너
+      items:
+        - name: AKS로 Kubernetes 클러스터 만들기
+          href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: AKS와 함께 수신 컨트롤러로 Application Gateway를 사용하는 Kubernetes 클러스터 만들기
+          href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: 인프라
+      items:
+        - name: MSI가 활성화된 Terraform VM 만들기
+          href: terraform-vm-msi.md
+        - name: Terraform 모듈을 사용하여 VM 클러스터 만들기
+          href: terraform-create-vm-cluster-module.md
+        - name: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
+          href: terraform-create-vm-cluster-with-infrastructure.md
+        - name: 인프라를 사용하여 VM 확장 집합 프로비전
+          href: terraform-create-vm-scaleset-network-disks-hcl.md
+        - name: Packer 사용자 지정 이미지에서 VM 확장 집합 프로비전
+          href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: 네트워크
+      items:
+        - name: 허브 및 스포크 토폴로지
+          items:
+            - name: 1. 허브 및 스포크 토폴로지 만들기
+              href: terraform-hub-spoke-introduction.md
+            - name: 2. 온-프레미스 가상 네트워크 만들기
+              href: terraform-hub-spoke-on-prem.md
+            - name: 3. 허브 가상 네트워크 만들기
+              href: terraform-hub-spoke-hub-network.md
+            - name: 4. 허브 가상 네트워크 어플라이언스 만들기
+              href: terraform-hub-spoke-hub-nva.md
+            - name: 5. 스포크 네트워크 만들기
+              href: terraform-hub-spoke-spoke-network.md
+            - name: 6. 네트워크 토폴로지 연결 유효성 검사
+              href: terraform-hub-spoke-validation.md
+    - name: 도구
+      items:
+        - name: Terraform Visual Studio Code 확장 설치
+          href: terraform-vscode-extension.md
+        - name: Yeoman을 사용하여 Terraform 기본 템플릿 만들기
+          href: terraform-vscode-module-generator.md
+        - name: Terratest를 사용하여 Terraform 모듈 테스트
+          href: terratest-in-terraform-modules.md
 - name: 샘플
   items:
-  - name: 구성 템플릿
-    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+    - name: 구성 템플릿
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
 - name: 개념
   items:
-  - name: Azure Cloud Shell 통합
-    href: terraform-cloud-shell.md
+    - name: Azure Cloud Shell 통합
+      href: terraform-cloud-shell.md
 - name: 방법 가이드
   items:
-  - name: Azure Storage의 저장소 상태
-    href: terraform-backend.md
+    - name: Azure Storage의 저장소 상태
+      href: terraform-backend.md
 - name: 참고 자료
   items:
-  - name: Azure 모듈 레지스트리
-    href: https://registry.terraform.io/modules/Azure
-  - name: Terraform 참조
-    href: https://aka.ms/terraform
+    - name: Azure 모듈 레지스트리
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Terraform 참조
+      href: 'https://aka.ms/terraform'
 - name: 리소스
   items:
-  - name: Azure 및 Terraform
-    href: https://azure.microsoft.com/solutions/devops/terraform/
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d83e1cbd4f3cd5d8a0a9ec167e197b53f20e0630
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999435"
+    - name: Azure 및 Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'

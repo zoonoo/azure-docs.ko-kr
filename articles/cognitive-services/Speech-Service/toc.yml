@@ -1,273 +1,267 @@
-items:
+# displayName: additional text for filtering down the ToC in meaningful way.
 - name: Speech Services 설명서
   href: index.yml
 - name: 개요
-  items:
-  - name: Speech Services란?
-    href: overview.md
-  - name: 음성 텍스트 변환
-    displayName: recognize speech, speech recognition, speech-to-text, stt
-    href: speech-to-text.md
-  - name: 텍스트 음성 변환
-    displayName: synthesize speech, speech synthesis, text-to-speech, tts
-    href: text-to-speech.md
-  - name: 음성 번역
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    href: speech-translation.md
   expanded: true
+  items:
+    - name: Speech Services란?
+      href: overview.md
+    - name: 음성 텍스트 변환
+      href: speech-to-text.md
+      displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+    - name: 텍스트 음성 변환
+      href: text-to-speech.md
+      displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+    - name: 음성 번역
+      href: speech-translation.md
+      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
 - name: 빠른 시작
   items:
-  - name: 음성 SDK
-    items:
-    - name: 음성 텍스트 변환
+    - name: 음성 SDK
       items:
-      - name: C#(.NET Framework Windows)
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-csharp-dotnet-windows.md
-      - name: C#(.NET Core Windows)
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-csharp-dotnetcore-windows.md
-      - name: C#(UWP)
-        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
-        href: quickstart-csharp-uwp.md
-      - name: C#(Unity)
-        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, unity 3d, windows, android, universal windows platform, uwp
-        href: quickstart-csharp-unity.md
-      - name: C++(Windows)
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-cpp-windows.md
-      - name: C++(Linux)
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-cpp-linux.md
-      - name: C++(macOS)
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-cpp-macos.md
-      - name: Java(Android)
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-java-android.md
-      - name: Java(Windows, macOS, Linux)
-        displayName: recognize speech, speech recognition, speech-to-text, stt, jre, jvm
-        href: quickstart-java-jre.md
-      - name: JavaScript(브라우저)
-        href: quickstart-js-browser.md
-      - name: JavaScript(Node.js)
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-js-node.md
-      - name: Objective-C(iOS)
-        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
-        href: quickstart-objectivec-ios.md
-      - name: Objective-C(macOS)
-        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
-        href: quickstart-objective-c-macos.md
-      - name: Python
-        displayName: recognize speech, speech recognition, speech-to-text, stt
-        href: quickstart-python.md
-    - name: 음성 변환
+        - name: 음성 텍스트 변환
+          items:
+            - name: 'C#(.NET Framework Windows)'
+              href: quickstart-csharp-dotnet-windows.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+            - name: 'C#(.NET Core Windows)'
+              href: quickstart-csharp-dotnetcore-windows.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+            - name: 'C#(UWP)'
+              href: quickstart-csharp-uwp.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
+            - name: 'C#(Unity)'
+              href: quickstart-csharp-unity.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, unity 3d, windows, android, universal windows platform, uwp'
+            - name: C++(Windows)
+              href: quickstart-cpp-windows.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+            - name: C++(Linux)
+              href: quickstart-cpp-linux.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+            - name: C++(macOS)
+              href: quickstart-cpp-macos.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+            - name: Java(Android)
+              href: quickstart-java-android.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+            - name: 'Java(Windows, macOS, Linux)'
+              href: quickstart-java-jre.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt, jre, jvm'
+            - name: JavaScript(브라우저)
+              href: quickstart-js-browser.md
+            - name: JavaScript(Node.js)
+              href: quickstart-js-node.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+            - name: Objective-C(iOS)
+              href: quickstart-objectivec-ios.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt, xcode'
+            - name: Objective-C(macOS)
+              href: quickstart-objective-c-macos.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt, xcode'
+            - name: Python
+              href: quickstart-python.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+        - name: 음성 변환
+          items:
+            - name: 'C#(.NET Core Windows)'
+              href: quickstart-translate-speech-dotnetcore-windows.md
+            - name: 'C#(.NET Framework Windows)'
+              href: quickstart-translate-speech-dotnetframework-windows.md
+            - name: 'C#(UWP)'
+              href: quickstart-translate-speech-uwp.md
+              displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
+            - name: C++(Windows)
+              href: quickstart-translate-speech-cpp-windows.md
+            - name: 'Java(Windows, Linux)'
+              href: quickstart-translate-speech-java-jre.md
+        - name: 텍스트 음성 변환
+          items:
+            - name: 'C#(.NET Framework Windows)'
+              href: quickstart-text-to-speech-dotnet-windows.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+            - name: C++(Windows)
+              href: quickstart-text-to-speech-cpp-windows.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+            - name: C++(Linux)
+              href: quickstart-text-to-speech-cpp-linux.md
+              displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+    - name: REST API
       items:
-      - name: C#(.NET Core Windows)
-        href: quickstart-translate-speech-dotnetcore-windows.md
-      - name: C#(.NET Framework Windows)
-        href: quickstart-translate-speech-dotnetframework-windows.md
-      - name: C#(UWP)
-        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
-        href: quickstart-translate-speech-uwp.md
-      - name: C++(Windows)
-        href: quickstart-translate-speech-cpp-windows.md
-      - name: Java(Windows, Linux)
-        href: quickstart-translate-speech-java-jre.md
-    - name: 텍스트 음성 변환
-      items:
-      - name: C#(.NET Framework Windows)
-        displayName: synthesize speech, speech synthesis, text-to-speech, tts
-        href: quickstart-text-to-speech-dotnet-windows.md
-      - name: C++(Windows)
-        displayName: synthesize speech, speech synthesis, text-to-speech, tts
-        href: quickstart-text-to-speech-cpp-windows.md
-      - name: C++(Linux)
-        displayName: synthesize speech, speech synthesis, text-to-speech, tts
-        href: quickstart-text-to-speech-cpp-linux.md
-  - name: REST API
-    items:
-    - name: 지역에서 지원되는 음성 목록
-      items:
-      - name: Node.js
-        href: quickstart-nodejs-get-text-to-speech-voices.md
-      - name: Python
-        href: quickstart-python-get-text-to-speech-voices.md
-    - name: 텍스트 음성 변환
-      items:
-      - name: C#(.NET Core)
-        href: quickstart-dotnet-text-to-speech.md
-      - name: Node.js
-        href: quickstart-nodejs-text-to-speech.md
-      - name: Python
-        href: quickstart-python-text-to-speech.md
-  - name: Speech Devices SDK
-    displayName: roobo, speech devices sdk
-    href: speech-devices-sdk-qsg.md
+        - name: 지역에서 지원되는 음성 목록
+          items:
+            - name: Node.js
+              href: quickstart-nodejs-get-text-to-speech-voices.md
+            - name: Python
+              href: quickstart-python-get-text-to-speech-voices.md
+        - name: 텍스트 음성 변환
+          items:
+            - name: 'C#(.NET Core)'
+              href: quickstart-dotnet-text-to-speech.md
+            - name: Node.js
+              href: quickstart-nodejs-text-to-speech.md
+            - name: Python
+              href: quickstart-python-text-to-speech.md
+    - name: Speech Devices SDK
+      href: speech-devices-sdk-qsg.md
+      displayName: 'roobo, speech devices sdk'
 - name: 자습서
   items:
-  - name: LUIS, C#을 통해 음성 의도 인식
-    displayName: recognize intent, intent recognition, language understanding service, luis
-    href: how-to-recognize-intents-from-speech-csharp.md
-  - name: Flask 앱을 빌드하여 변환 및 텍스트, REST 합성
-    href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
-    maintainContext: true
+    - name: 'LUIS, C#을 통해 음성 의도 인식'
+      href: how-to-recognize-intents-from-speech-csharp.md
+      displayName: 'recognize intent, intent recognition, language understanding service, luis'
+    - name: 'Flask 앱을 빌드하여 변환 및 텍스트, REST 합성'
+      maintainContext: true
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
 - name: 방법 가이드
   items:
-  - name: Speech Services에 등록
-    href: get-started.md
-  - name: 일괄 처리 전사(REST)
-    displayName: recognize speech, speech recognition, speech-to-text, stt
-    href: batch-transcription.md
-  - name: 오디오 입력 스트림 사용(SDK)
-    href: how-to-use-audio-input-streams.md
-  - name: 압축 오디오 입력 스트림 사용(SDK)
-    displayName: mp3, opus, ogg, flac
-    href: how-to-use-compressed-audio-input-streams.md
-  - name: 오디오 입력 디바이스 선택(SDK)
-    displayName: audio, microphone, input, device
-    href: how-to-select-audio-input-devices.md
-  - name: 로깅 사용(SDK)
-    displayName: debug, log, logging
-    href: how-to-use-logging.md
-  - name: 사용자 지정
-    items:
-    - name: 음성 텍스트 변환
+    - name: Speech Services에 등록
+      href: get-started.md
+    - name: 일괄 처리 전사(REST)
+      href: batch-transcription.md
+      displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+    - name: 오디오 입력 스트림 사용(SDK)
+      href: how-to-use-audio-input-streams.md
+    - name: 압축 오디오 입력 스트림 사용(SDK)
+      href: how-to-use-compressed-audio-input-streams.md
+      displayName: 'mp3, opus, ogg, flac'
+    - name: 오디오 입력 디바이스 선택(SDK)
+      href: how-to-select-audio-input-devices.md
+      displayName: 'audio, microphone, input, device'
+    - name: 로깅 사용(SDK)
+      href: how-to-use-logging.md
+      displayName: 'debug, log, logging'
+    - name: 사용자 지정
       items:
-      - name: 사용자 지정을 위한 음성 텍스트 준비
-        href: prepare-transcription.md
-      - name: 어쿠스틱 모델 사용자 지정
-        href: how-to-customize-acoustic-models.md
-      - name: 언어 모델 사용자 지정
-        href: how-to-customize-language-model.md
-      - name: 발음 사용자 지정
-        href: how-to-customize-pronunciation.md
-      - name: 사용자 지정 인식 엔드포인트 만들기
-        href: how-to-create-custom-endpoint.md
-    - name: 텍스트 음성 변환
+        - name: 음성 텍스트 변환
+          items:
+            - name: 사용자 지정을 위한 음성 텍스트 준비
+              href: prepare-transcription.md
+            - name: 어쿠스틱 모델 사용자 지정
+              href: how-to-customize-acoustic-models.md
+            - name: 언어 모델 사용자 지정
+              href: how-to-customize-language-model.md
+            - name: 발음 사용자 지정
+              href: how-to-customize-pronunciation.md
+            - name: 사용자 지정 인식 엔드포인트 만들기
+              href: how-to-create-custom-endpoint.md
+        - name: 텍스트 음성 변환
+          items:
+            - name: 음성 글꼴 만들기(봇 브랜드 음성)
+              href: how-to-customize-voice-font.md
+            - name: 음성 샘플 기록
+              href: record-custom-voice-samples.md
+        - name: 사용자 지정 절전 모드 해제 단어 만들기(디바이스 SDK)
+          href: speech-devices-sdk-create-kws.md
+          displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
+    - name: 마이그레이션
       items:
-      - name: 음성 글꼴 만들기(봇 브랜드 음성)
-        href: how-to-customize-voice-font.md
-      - name: 음성 샘플 기록
-        href: record-custom-voice-samples.md
-    - name: 사용자 지정 절전 모드 해제 단어 만들기(디바이스 SDK)
-      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-      href: speech-devices-sdk-create-kws.md
-  - name: 마이그레이션
-    items:
-    - name: Bing Speech에서
-      href: how-to-migrate-from-bing-speech.md
-    - name: Custom Speech Service에서
-      href: how-to-migrate-from-custom-speech-service.md
-    - name: Translator Speech API에서
-      href: how-to-migrate-from-translator-speech-api.md
+        - name: Bing Speech에서
+          href: how-to-migrate-from-bing-speech.md
+        - name: Custom Speech Service에서
+          href: how-to-migrate-from-custom-speech-service.md
+        - name: Translator Speech API에서
+          href: how-to-migrate-from-translator-speech-api.md
 - name: 샘플
   items:
-  - name: 음성 SDK
-    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
-  - name: Speech Devices SDK
-    href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-  - name: Text-to-speech(REST)
-    href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
-  - name: 일괄 처리 전사(REST)
-    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
+    - name: 음성 SDK
+      href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
+    - name: Speech Devices SDK
+      href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+    - name: Text-to-speech(REST)
+      href: 'https://github.com/Azure-Samples/Cognitive-Speech-TTS'
+    - name: 일괄 처리 전사(REST)
+      href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch'
 - name: 참고 자료
   items:
-  - name: 음성 SDK
-    items:
-    - name: 개요
-      displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
-      href: speech-sdk.md
-    - name: 릴리스 정보
-      href: releasenotes.md
-    - name: C++
-      href: https://aka.ms/csspeech/cppref
-    - name: C#
-      href: https://aka.ms/csspeech/csharpref
-    - name: Java/Android
-      href: https://aka.ms/csspeech/javaref
-    - name: JavaScript/Node.js
-      href: https://aka.ms/csspeech/javascriptref
-    - name: Objective-C
-      href: https://aka.ms/csspeech/objectivecref
-    - name: Python
-      href: https://aka.ms/csspeech/pythonref
-  - name: Speech Devices SDK
-    items:
-    - name: 음성 디바이스 SDK 가져오기
-      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
-    - name: 릴리스 정보
-      href: devices-sdk-release-notes.md
-  - name: REST API
-    items:
-    - name: 음성 텍스트 변환
-      displayName: speech-to-text, speech recognition
-      href: rest-speech-to-text.md
-    - name: 텍스트 음성 변환
-      displayName: text-to-speech, speech synthesis
-      href: rest-text-to-speech.md
-    - name: 일괄 처리 전사 및 사용자 지정
-      displayName: Batch transcription, transcription, custom models, customization, model management
-      href: https://westus.cris.ai/swagger/ui/index
-    - name: Webhook
-      displayName: Webhooks
-      href: webhooks.md
-  - name: Swagger 설명서
-    href: swagger-documentation.md
-  - name: SSML(Speech Synthesis Markup Language)
-    href: speech-synthesis-markup.md
-  - name: PowerShell
-    href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: 언어 지원
-    href: language-support.md
-  - name: 영역
-    href: regions.md
+    - name: 음성 SDK
+      items:
+        - name: 개요
+          href: speech-sdk.md
+          displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+        - name: 릴리스 정보
+          href: releasenotes.md
+        - name: C++
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: 'C#'
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java/Android
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript/Node.js
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          href: 'https://aka.ms/csspeech/pythonref'
+    - name: Speech Devices SDK
+      items:
+        - name: 음성 디바이스 SDK 가져오기
+          href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+        - name: 릴리스 정보
+          href: devices-sdk-release-notes.md
+    - name: REST API
+      items:
+        - name: 음성 텍스트 변환
+          href: rest-speech-to-text.md
+          displayName: 'speech-to-text, speech recognition'
+        - name: 텍스트 음성 변환
+          href: rest-text-to-speech.md
+          displayName: 'text-to-speech, speech synthesis'
+        - name: 일괄 처리 전사 및 사용자 지정
+          href: 'https://westus.cris.ai/swagger/ui/index'
+          displayName: 'Batch transcription, transcription, custom models, customization, model management'
+        - name: Webhook
+          href: webhooks.md
+          displayName: Webhooks
+    - name: Swagger 설명서
+      href: swagger-documentation.md
+    - name: SSML(Speech Synthesis Markup Language)
+      href: speech-synthesis-markup.md
+    - name: PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: 언어 지원
+      href: language-support.md
+    - name: 영역
+      href: regions.md
 - name: 리소스
   items:
-  - name: FAQ
-    items:
-    - name: 음성 텍스트 변환
-      displayName: recognize speech, speech recognition, speech-to-text, stt
-      href: faq-stt.md
-    - name: 텍스트 음성 변환
-      displayName: synthesize speech, speech synthesis, text-to-speech, tts
-      href: faq-text-to-speech.md
-    - name: 음성 번역
-      displayName: translate speech, speech translation, translator, s2s, speech to speech
-      href: https://www.microsoft.com/translator/faq.aspx
-  - name: 음성 SDK 라이선스
-    displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample
-    items:
-    - name: License
-      href: https://aka.ms/csspeech/license201809
-    - name: 타사 알림
-      href: https://aka.ms/csspeech/toctpn
-  - name: Speech Devices SDK
-    displayName: roobo, speech devices sdk
-    href: speech-devices-sdk.md
-    items:
-    - name: License
-      displayName: roobo, speech devices sdk
-      href: speech-devices-sdk-license.md
-    - name: 타사 알림
-      displayName: roobo, speech devices sdk
-      href: devices-sdk-third-party-notices.md
-  - name: Speech SDK 문제 해결
-    href: troubleshooting.md
-  - name: 지원
-    href: support.md
-  - name: 가격 책정 및 제한
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: 개인정보처리방침
-    href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: d1efcf30314e5afdaec6906493e2c083f3e0701e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679367"
+    - name: FAQ
+      items:
+        - name: 음성 텍스트 변환
+          href: faq-stt.md
+          displayName: 'recognize speech, speech recognition, speech-to-text, stt'
+        - name: 텍스트 음성 변환
+          href: faq-text-to-speech.md
+          displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+        - name: 음성 번역
+          href: 'https://www.microsoft.com/translator/faq.aspx'
+          displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+    - name: 음성 SDK 라이선스
+      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
+      items:
+        - name: License
+          href: 'https://aka.ms/csspeech/license201809'
+        - name: 타사 알림
+          href: 'https://aka.ms/csspeech/toctpn'
+    - name: Speech Devices SDK
+      href: speech-devices-sdk.md
+      displayName: 'roobo, speech devices sdk'
+      items:
+        - name: License
+          href: speech-devices-sdk-license.md
+          displayName: 'roobo, speech devices sdk'
+        - name: 타사 알림
+          href: devices-sdk-third-party-notices.md
+          displayName: 'roobo, speech devices sdk'
+    - name: Speech SDK 문제 해결
+      href: troubleshooting.md
+    - name: 지원
+      href: support.md
+    - name: 가격 책정 및 제한
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: 개인정보처리방침
+      href: 'https://privacy.microsoft.com/privacystatement'

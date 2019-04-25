@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371159"
 documentType: LandingData
 title: Azure Machine Learning 서비스 설명서
 metadata:
-  title: Azure Machine Learning 서비스 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Azure Machine Learning Service는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 SDK 및 서비스를 제공합니다. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요. 빠른 시작 및 자습서를 시작해 보세요.
+  title: 'Azure Machine Learning 서비스 설명서 - 자습서, API 참조 | Microsoft Docs'
+  description: 'Azure Machine Learning Service는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 SDK 및 서비스를 제공합니다. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요. 빠른 시작 및 자습서를 시작해 보세요.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -22,60 +16,60 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning Service는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 SDK 및 서비스를 제공합니다. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요. 빠른 시작 및 자습서를 시작해 보세요.
+  description: 'Azure Machine Learning Service는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 SDK 및 서비스를 제공합니다. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요. 빠른 시작 및 자습서를 시작해 보세요.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 130
       src: media/index/video.png
       width: 250
-    title: 비디오 보기(9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    title: '비디오 보기(9:58)'
+    href: 'https://www.youtube.com/watch?v=GBDSBInvz08'
     width: 250
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Azure Machine Learning Service에서   <a href="setup-create-workspace">작업 영역을 만들</a>면 다음과 같은 빠른 시작을 사용하기 시작할 수 있습니다.
-  - type: list
-    style: unordered
+  - title: 5분 빠른 시작
     items:
-    - html: <a href="quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
-    - html: <a href="quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: 데이터를 준비하고, 실험을 설정하며, 기계 학습 모델을 학습 및 운영하는 방법에 대해 알아봅니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: "Azure Machine Learning Service에서 \_ <a href=\"setup-create-workspace\">작업 영역을 만들</a>면 다음과 같은 빠른 시작을 사용하기 시작할 수 있습니다."
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="quickstart-run-cloud-notebook">클라우드에서 실험 실행</a>(설치 필요 없음)
+          - html: <a href="quickstart-run-local-notebook">로컬 Notebook 서버를 사용하여 실험 실행</a>(로컬 SDK 설치)
+  - title: 단계별 자습서
     items:
-    - html: 이미지 분류 모델을 <a href="tutorial-train-models-with-aml">학습</a> 및 <a href="tutorial-deploy-models-with-aml">배포</a>합니다(<b>2부 시리즈</b>).
-    - html: <a href="tutorial-data-prep">데이터를 준비</a>하고 <a href="tutorial-auto-train-models">자동화된 기계 학습을 사용</a>하여 회귀 모델을 학습 및 조정합니다(<b>2부 시리즈</b>).
-- title: 샘플
-  items:
-  - type: paragraph
-    text: GitHub에서 서비스를 살펴보는 데 도움이 되는 <a href="samples-notebooks">Jupyter Notebook</a>을 찾습니다.
-- title: 참고 자료
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: '데이터를 준비하고, 실험을 설정하며, 기계 학습 모델을 학습 및 운영하는 방법에 대해 알아봅니다.'
+      - type: list
+        style: unordered
+        items:
+          - html: 이미지 분류 모델을 <a href="tutorial-train-models-with-aml">학습</a> 및 <a href="tutorial-deploy-models-with-aml">배포</a>합니다(<b>2부 시리즈</b>).
+          - html: <a href="tutorial-data-prep">데이터를 준비</a>하고 <a href="tutorial-auto-train-models">자동화된 기계 학습을 사용</a>하여 회귀 모델을 학습 및 조정합니다(<b>2부 시리즈</b>).
+  - title: 샘플
     items:
-    - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a>: 핵심 기능, 자동화된 기계 학습, 파이프라인 등입니다.'
-    - html: '<a href="https://aka.ms/data-prep-sdk">데이터 준비</a> Python SDK: 데이터를 준비하고 변환합니다.'
-    - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK: 배포된 웹 서비스에서 데이터를 수집합니다.'
-- title: 기타 Azure Machine Learning 기술
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: GitHub에서 서비스를 살펴보는 데 도움이 되는 <a href="samples-notebooks">Jupyter Notebook</a>을 찾습니다.
+  - title: 참고 자료
     items:
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
-    - title: 데이터 과학 Virtual Machine
-      href: /azure/machine-learning/data-science-virtual-machine/
-      image:
-        src: media/index/virtual-machines.svg
-        href: /azure/machine-learning/data-science-virtual-machine/
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a>: 핵심 기능, 자동화된 기계 학습, 파이프라인 등입니다.'
+          - html: '<a href="https://aka.ms/data-prep-sdk">데이터 준비</a> Python SDK: 데이터를 준비하고 변환합니다.'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK: 배포된 웹 서비스에서 데이터를 수집합니다.'
+  - title: 기타 Azure Machine Learning 기술
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/
+          - title: 데이터 과학 Virtual Machine
+            href: /azure/machine-learning/data-science-virtual-machine/
+            image:
+              src: media/index/virtual-machines.svg
+              href: /azure/machine-learning/data-science-virtual-machine/

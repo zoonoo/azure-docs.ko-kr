@@ -1,39 +1,32 @@
-items:
 - name: 전용 HSM 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 전용 HSM 개요
-    href: overview.md
+    - name: 전용 HSM 개요
+      href: overview.md
 - name: 자습서
   items:
-  - name: CLI를 사용하여 기존 가상 네트워크에 HSM 배포
-    href: tutorial-deploy-hsm-cli.md
-  - name: PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
-    href: tutorial-deploy-hsm-powershell.md
+    - name: CLI를 사용하여 기존 가상 네트워크에 HSM 배포
+      href: tutorial-deploy-hsm-cli.md
+    - name: PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
+      href: tutorial-deploy-hsm-powershell.md
 - name: 개념
   items:
-  - name: 고가용성
-    href: high-availability.md
-  - name: 모니터링
-    href: monitoring.md
-  - name: 네트워킹
-    href: Networking.md
-  - name: 물리적 보안
-    href: physical-security.md
-  - name: 지원 가능성
-    href: supportability.md
+    - name: 고가용성
+      href: high-availability.md
+    - name: 모니터링
+      href: monitoring.md
+    - name: 네트워킹
+      href: Networking.md
+    - name: 물리적 보안
+      href: physical-security.md
+    - name: 지원 가능성
+      href: supportability.md
 - name: 방법 가이드
   items:
-  - name: 배포 아키텍처 결정
-    href: deployment-architecture.md
+    - name: 배포 아키텍처 결정
+      href: deployment-architecture.md
 - name: 리소스
   items:
-  - name: 질문과 대답
-    href: faq.md
-ms.openlocfilehash: f0efd79e23aef90f54a38602694a8636e0789804
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317979"
+    - name: 질문과 대답
+      href: faq.md
