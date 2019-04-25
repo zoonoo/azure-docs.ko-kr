@@ -5,15 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+origin.date: 12/26/2018
+ms.date: 01/21/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448506"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하는 인덱싱
 
@@ -79,14 +80,14 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 ## <a name="ttl-indexes"></a>TTL 인덱스
 
 특정 컬렉션에서 문서 만료를 활성화하려면 ["TTL index"(Time to Live 인덱스)](../cosmos-db/time-to-live.md)를 만들어야 합니다. TTL 인덱스는 "expireAfterSeconds" 값을 가진 _ts 필드의 인덱스입니다.
- 
+
 예제:
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
 위의 명령은 마지막 10초에서 수정되지 않은 ```db.coll``` 컬렉션의 문서를 삭제합니다. 
- 
+
 > [!NOTE]
 > **_ts**는 Cosmos DB 전용 필드이며 MongoDB 클라이언트에서 액세스할 수 없습니다. 문서의 마지막 수정의 타임스탬프를 포함하는 예약된(시스템) 속성입니다.
 >
@@ -98,3 +99,5 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ## <a name="next-steps"></a>다음 단계
 * [Azure Cosmos DB의 인덱싱](../cosmos-db/index-policy.md)
 * [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB의 데이터 만료](../cosmos-db/time-to-live.md)
+
+<!-- Update_Description: update meta properties  -->

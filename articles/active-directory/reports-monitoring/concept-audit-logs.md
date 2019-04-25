@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441134"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -99,7 +99,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 조건부 액세스
 - 핵심 디렉터리
 - 권한 관리
-- ID 보호
+- Identity Protection
 - 사용자 초대
 - PIM
 - 셀프 서비스 그룹 관리

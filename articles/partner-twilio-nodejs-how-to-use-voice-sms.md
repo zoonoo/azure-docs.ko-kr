@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: wpickett
 ms.openlocfilehash: d9f419c48f64ba697e031dfc680bc9cb12bba5c4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422917"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Azure에서 음성, VoIP 및 SMS 메시징을 위해 Twilio 사용
 이 가이드에서는 Azure에서 Twilio 및 node.js와 통신하는 앱을 빌드하는 방법을 보여 줍니다.
@@ -238,8 +238,8 @@ app.post('/sms', (request, response) => {
 이제 node.js 및 Twilio를 사용하여 통신하는 앱을 빌드하는 방법에 대한 기본 사항을 배웠습니다. 그러나 이러한 예제는 Twilio 및 node.js를 사용하여 수행할 수 있는 작업의 극히 일부에 불과합니다. Twilio와 node.js 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [공식 모듈 문서][docs]
-* [node.js 응용 프로그램에 VoIP 사용 자습서][voipnode]
-* [Votr - node.js 및 CouchDB를 사용한 실시간 SMS 투표 응용 프로그램(세 부분으로 구성되어 있음)][votr]
+* [node.js 애플리케이션에 VoIP 사용 자습서][voipnode]
+* [Votr - node.js 및 CouchDB를 사용한 실시간 SMS 투표 애플리케이션(세 부분으로 구성되어 있음)][votr]
 * [node.js를 사용한 브라우저에서의 쌍 프로그래밍][pair]
 
 Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.

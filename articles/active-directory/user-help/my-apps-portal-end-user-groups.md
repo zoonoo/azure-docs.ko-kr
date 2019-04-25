@@ -13,20 +13,20 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483415"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>My Apps 포털에서 그룹 정보를 업데이트
-회사 또는 학교 계정을 사용 하 여 웹 기반 **My Apps** 포털을 확인 하 고 시작 하는 다양 한 조직의 클라우드 기반 앱에서 프로필 및 계정 정보를 보려면 일부를 업데이트 하 여 **그룹** 정보를 수행 **액세스 검토** 앱 및 그룹에 대 한 합니다. 에 액세스할 수 없는 경우는 **My Apps** 포털 문의 해야 기술 지원팀 사용 권한에 대 한 합니다.
+웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자 인 경우 설정 하 고에서 클라우드 기반 앱을 관리 하는 방법에 대 한 자세한 정보를 찾을 수 있습니다 합니다 [응용 프로그램 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)합니다.
+>이 콘텐츠는 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="view-your-groups-information"></a>그룹 정보 보기
 관리자가 볼 수 있는 권한을 부여한 경우는 **그룹** 타일을 할 수 있습니다.
@@ -53,17 +53,19 @@ ms.locfileid: "58340463"
 
     - **소유 그룹을 검토 합니다.** 그룹에 대 한 정보 보기에서 조직 내에서 소유 하는 **내가 소유한 그룹** 영역입니다. 특정 그룹 이름을 선택 하면 그룹 종류, 멤버의 수, 연결 정책을 활성 구성원 목록 등 그룹에 대 한 자세한 세부 정보를 사용 하 여 제공 합니다.
 
-    - **새 그룹을 만듭니다.** 소유자로 있습니다를 사용 하 여 새 그룹 만들기를 **내가 소유한 그룹** 영역입니다. 특정 단계를 참조 하세요 [새 그룹을 만들고](#create-a-new-group) 이 문서의 섹션입니다.
+    - **새 그룹을 만듭니다.** 소유자로 있습니다를 사용 하 여 새 그룹 만들기를 **내가 소유한 그룹** 영역입니다. 특정 단계에 대 한 참조를 [새 그룹을 만들](#create-a-new-group) 이 문서의 섹션입니다.
 
-    - **기존 그룹을 편집 합니다.** 고유한 그룹에 대 한 세부 정보를 편집 합니다. 특정 단계를 참조 하세요 [기존 그룹 편집](#edit-an-existing-group) 이 문서의 섹션입니다.
+    - **기존 그룹을 편집 합니다.** 고유한 그룹에 대 한 세부 정보를 편집 합니다. 특정 단계에 대 한 참조를 [기존 그룹 편집](#edit-an-existing-group) 이 문서의 섹션입니다.
 
-    - **구성원 추가 또는 제거 합니다.** 추가 하거나 사용자가 소유한 그룹에 대 한 구성원을 제거 합니다. 특정 단계를 참조 하세요 [추가 또는 제거 멤버인](#add-or-remove-a-member) 이 문서의 섹션입니다.
+    - **구성원 추가 또는 제거 합니다.** 추가 하거나 사용자가 소유한 그룹에 대 한 구성원을 제거 합니다. 특정 단계에 대 한 참조를 [추가 또는 제거 멤버](#add-or-remove-a-member) 이 문서의 섹션입니다.
 
-    - **그룹을 삭제 합니다.** 사용자가 소유한 모든 그룹을 삭제 합니다. 특정 단계를 참조 하세요 [그룹을 삭제](#delete-a-group) 이 문서의 섹션입니다.
+    - **Office 365 그룹을 갱신 합니다.** 조직에서 허용 하는 경우에 Office 365 그룹을 갱신할 수 있습니다. 특정 단계에 대 한 참조를 [Office 365 그룹을 갱신](#renew-an-office-365-group) 이 문서의 섹션입니다. 
+
+    - **그룹을 삭제 합니다.** 사용자가 소유한 모든 그룹을 삭제 합니다. 특정 단계에 대 한 참조를 [그룹을 삭제](#delete-a-group) 이 문서의 섹션입니다.
 
     - **구성원 인 그룹을 검토 합니다.** 구성원 인 모든 그룹의 이름을 표시 합니다 **내가 속한 그룹** 영역입니다. 특정 그룹 이름을 선택 하면 그룹 종류, 멤버의 수, 연결 정책을 활성 구성원 목록 등 그룹에 대 한 자세한 세부 정보를 사용 하 여 제공 합니다.
 
-    - **그룹에 가입 합니다.** 아직 수행 하지 않은 멤버에서 기존 그룹에 참가 합니다 **내가 속한 그룹** 영역입니다. 특정 단계를 참조 하세요 [기존 그룹에 참가](#join-an-existing-group)합니다.
+    - **그룹에 가입 합니다.** 아직 수행 하지 않은 멤버에서 기존 그룹에 참가 합니다 **내가 속한 그룹** 영역입니다. 특정 단계에 대 한 참조를 [기존 그룹에 참가](#join-an-existing-group)합니다.
 
 ## <a name="create-a-new-group"></a>새 그룹 만들기
 1. 에 **그룹** 페이지에서 **그룹 만들기** 에서 합니다 **내가 소유한 그룹** 영역입니다.
@@ -117,6 +119,18 @@ ms.locfileid: "58340463"
 3. 멤버를 실수로 추가한 경우 멤버 조직에 두면 선택 하 여 멤버를 제거할 수 있습니다 **구성원 제거** 에서 해당 멤버의 이름 옆에 *&lt;group_name&gt;* 페이지.
 
     ![제거 링크가 강조 표시 된 멤버 제거](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Office 365 그룹을 갱신 합니다.
+조직에서 허용 하는 경우에 만료 날짜를 확장 하는 Office 365 그룹을 갱신할 수 있습니다.
+
+### <a name="to-renew-a-group"></a>그룹 갱신
+1. 갱신 하 고 선택 하려는 Office 365 그룹 선택 **그룹 갱신**합니다.
+
+    ![만료 날짜를 확장 하는 Office 365 그룹을 갱신 합니다.](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. 클릭 **확인** 확인 메시지를 닫습니다.
+
+    페이지를 새로 고치면 업데이트 한 후 표시 됩니다 **마지막 갱신** 하 고 **만료 그룹** 날짜입니다.
 
 ## <a name="delete-a-group"></a>그룹 삭제
 언제 든 지 자신의 그룹 중 하나를 삭제할 수 있습니다. 그러나 그룹을 실수로 삭제 하는 경우 만들고 멤버를 다시 추가 하는 것이 해야 합니다.

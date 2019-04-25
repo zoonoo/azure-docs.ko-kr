@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4daab0255e739e011dca3ae0a016e3a15c7213b0
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440321"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 엔터프라이즈 앱에 사용자 또는 그룹을 할당하려면 엔터프라이즈 앱을 관리하기 위한 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다.

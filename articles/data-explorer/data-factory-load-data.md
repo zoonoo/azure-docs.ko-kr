@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59619104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447877"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>Azure 데이터 탐색기로 Azure Data Factory에서 데이터 복사
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure 데이터 탐색기로 데이터 복사 
 
 Azure 데이터 탐색기는 대용량 IoT 장치, 응용 프로그램 및 웹 사이트 등 여러 소스에서 스트리밍 데이터에서 실시간 분석을 위해 빠르고 완전히 관리 되는 데이터 분석 서비스입니다. 반복적으로 데이터를 탐색 하 고 패턴 및 제품을 개선, 고객 환경을 개선에 대 한 오류를 식별 합니다. 장치를 모니터링 하 고 작업을 향상 합니다. 새로운 질문을 살펴보고, 단 몇 분 만에 답변을 확인할 수 있습니다. Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 서비스를 사용 하 여 기존 시스템에서 Azure 데이터 탐색기 데이터베이스를 데이터로 채우면 시간을 절약할를 분석 솔루션을 빌드할 때입니다.
 
@@ -32,7 +32,7 @@ Azure Data Factory는 Azure 데이터 탐색기로 데이터를 로드 하기 �
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [Azure 데이터 탐색기 클러스터 및 데이터베이스를](create-cluster-database-portal.md)
-* Amazon S3.
+* 데이터 원본입니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -147,10 +147,6 @@ Azure 데이터 탐색기의 새 연결 된 서비스는 아래에 지정 된 Az
 
     ![ADX 대상 데이터 저장소](media/data-factory-load-data/destination-data-store.png)
 
-1. **출력 파일 또는 폴더 선택**, 출력 폴더 이름을 입력, 설정을 확인 하 고 선택 **다음**합니다.
-
-    ![출력 폴더 지정](media/data-factory-load-data/specify-path.png)
-
 1. **테이블 매핑**대상 테이블 이름을 설정 하 고 선택 **다음**합니다.
 
     ![대상 데이터 집합 테이블 매핑](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -186,6 +182,8 @@ Azure 데이터 탐색기의 새 연결 된 서비스는 아래에 지정 된 Az
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결 된 서비스, 데이터 집합 및 파이프라인을 편집 하는 방법에 대 한 자세한 정보는 [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal)
+* 에 대 한 자세한 합니다 [Azure Data Explorer 커넥터](/azure/data-factory/connector-azure-data-explorer) Azure Data Factory에서.
+
+* 연결 된 서비스, 데이터 집합 및 파이프라인을 편집 하는 방법에 대 한 자세한 정보는 [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal)합니다.
 
 * 에 대 한 자세한 [Azure 데이터 탐색기 쿼리](/azure/data-explorer/web-query-data) 데이터를 쿼리 합니다.

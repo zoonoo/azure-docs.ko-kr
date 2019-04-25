@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440201"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 비갤러리 애플리케이션에 로그인하는 문제
 
@@ -264,7 +264,7 @@ Single sign-on을 하는 동안 로그인 요청에 없는 경우 명시적 회�
 
 6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 에 **회신 URL (Assertion Consumer Service URL)**, 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`
+7.  응용 프로그램이 로드 되 면 엽니다 **기본 SAML 구성**합니다. 에 **회신 URL (Assertion Consumer Service URL)**, 시스템에서 사용 되지 않는 삭제 또는 기본 회신 Url 생성 합니다. 예: `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

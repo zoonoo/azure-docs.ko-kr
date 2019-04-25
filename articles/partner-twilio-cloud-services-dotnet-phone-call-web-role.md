@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
 ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422805"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법
 이 가이드에서는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 설명합니다. 결과적으로 애플리케이션은 다음 스크린샷에 표시된 대로 지정된 번호와 메시지를 사용하여 호출하라는 메시지를 사용자에게 표시합니다.

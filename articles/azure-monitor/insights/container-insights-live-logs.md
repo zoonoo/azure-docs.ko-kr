@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497662"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Azure Monitor에서 컨테이너 로그를 실시간으로 보는 방법(미리 보기)
 현재 미리 보기로 있는 이 기능은 Kubectl 명령을 실행하지 않고도 AKS(Azure Kubernetes Service) 컨테이너 로그(stdout/stderr)에 대한 실시간 보기를 제공합니다. 이 옵션을 선택하면 **컨테이너** 보기에서 컨테이너 성능 데이터 테이블 아래에 새 창이 나타납니다.  여기에는 실시간으로 문제를 해결하는 데 더 많은 도움을 주기 위해 컨테이너 엔진에서 생성하는 라이브 로깅이 표시됩니다. **참가자** 클러스터 리소스에 대 한 액세스는이 기능이 작동 하기 위해 필요 합니다.
@@ -65,7 +65,7 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
 2. `kubectl create -f LogReaderRBAC.yaml` 명령을 실행하여 클러스터 규칙 바인딩을 만듭니다. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Azure Active Directory를 사용하여 AKS 구성
-사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음 구성하는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/aad-integration.md)을 참조하세요. [클라이언트 애플리케이션](../../aks/aad-integration.md#create-client-application)을 만들고 **리디렉션 URI**를 지정하는 단계를 수행하는 동안 `https://ininprodeusuxbase.microsoft.com/*` 목록에 다른 URI를 추가해야 합니다.  
+사용자 인증에 Azure AD(Active Directory)를 사용하도록 AKS를 구성할 수 있습니다. 처음 구성하는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration.md)을 참조하세요. [클라이언트 애플리케이션](../../aks/azure-ad-integration.md#create-client-application)을 만들고 **리디렉션 URI**를 지정하는 단계를 수행하는 동안 `https://ininprodeusuxbase.microsoft.com/*` 목록에 다른 URI를 추가해야 합니다.  
 
 >[!NOTE]
 >Single Sign-On을 위해 Azure Active Directory를 사용하여 인증을 구성하는 작업은 새 AKS 클러스터의 초기 배포 중에만 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다.  
@@ -92,4 +92,5 @@ Kubernetes RBAC 권한 부여를 사용하도록 설정한 경우 클러스터 �
 ![라이브 로그 창의 라이브 보기 일시 중지](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure Monitor를 사용하고 AKS 클러스터의 다른 측면을 모니터링하는 방법을 계속 알아보려면 [Azure Kubernetes 서비스 상태](container-insights-analyze.md)를 참조하세요.
+- Azure Monitor를 사용하고 AKS 클러스터의 다른 측면을 모니터링하는 방법을 계속 알아보려면 [Azure Kubernetes 서비스 상태](container-insights-analyze.md)를 참조하세요.
+- 뷰 [쿼리 예제 로그](container-insights-log-search.md#search-logs-to-analyze-data) 에 미리 정의 된 쿼리 및 평가 하거나 경고를 시각화, 분석 하 여 클러스터에 대 한 사용자 지정 하는 예제를 참조 하세요.

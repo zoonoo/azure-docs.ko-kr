@@ -1,17 +1,18 @@
 ---
 title: Azure Database for PostgreSQL 서버에서 대량 삽입 최적화
 description: 이 문서에서는 Azure Database for PostgreSQL 서버에서 대량 삽입 작업을 최적화하는 방법을 설명합니다.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 03/04/2019
 ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422120"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 대량 삽입을 최적화하고 임시 데이터 사용 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 대량 삽입 작업을 최적화하고 임시 데이터를 사용하는 방법을 설명합니다.
