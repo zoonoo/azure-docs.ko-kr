@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4f9f4ccb53f9530122f0a2463f8f45b596856282
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006581"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149685"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>빠른 시작: IoT 허브(Android)에 연결된 디바이스 제어
 
@@ -125,15 +125,13 @@ az iot hub show-connection-string --name YourIoTHubName --output table
    > * 프로젝트에서 참조한 Android Gradle 플러그 인 및 Gradle의 버전이 사용자의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
    > * Android SDK에 대한 사용권 계약에 서명하지 않았습니다. 빌드 출력의 지침에 따라 사용권 계약에 서명하고 SDK를 다운로드합니다.
 
-
 4. 빌드가 완료되면 **실행** > **'앱' 실행**을 클릭합니다. 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
 
 5. 앱이 로드되면 **시작** 단추를 클릭하여 IoT Hub로 원격 분석 데이터를 보내기 시작합니다.
 
-    ![애플리케이션](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![클라이언트 디바이스 android 앱의 샘플 스크린샷](media/quickstart-control-device-android/sample-screenshot.png)
 
 런타임 중에 원격 분석 간격을 업데이트하려면 서비스 SDK 샘플을 실행 중인 상태에서 물리적 디바이스 또는 에뮬레이터에서 앱이 실행 중인 상태여야 합니다.
-
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
@@ -146,12 +144,12 @@ az iot hub show-connection-string --name YourIoTHubName --output table
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     다음 스크린샷은 Android 디바이스가 보낸 원격 분석 데이터를 IoT 허브가 수신할 때 출력을 보여줍니다.
 
-      ![Azure CLI를 사용하여 디바이스 메시지 읽기](media/quickstart-send-telemetry-android/read-data.png)
+      ![Azure CLI를 사용하여 디바이스 메시지 읽기](media/quickstart-control-device-android/read-data.png)
 
 기본적으로 원격 분석 앱은 Android 디바이스에서 5초마다 원격 분석 데이터를 보냅니다. 다음 섹션에서는 직접 메서드 호출을 사용하여 Android IoT 디바이스의 원격 분석 간격을 업데이트합니다.
-
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
@@ -180,7 +178,6 @@ IoT Hub 백엔드 서비스 애플리케이션은 일반적으로 IoT Hub의 모
    > * 프로젝트에서 참조한 Android Gradle 플러그 인 및 Gradle의 버전이 사용자의 Android Studio 버전과 맞지 않습니다. [이러한 지침](https://developer.android.com/studio/releases/gradle-plugin)에 따라 설치용 플러그 인 및 Gradle의 올바른 버전을 참조하고 설치합니다.
    > * Android SDK에 대한 사용권 계약에 서명하지 않았습니다. 빌드 출력의 지침에 따라 사용권 계약에 서명하고 SDK를 다운로드합니다.
 
-
 4. 빌드가 완료되면 **실행** > **'앱' 실행**을 클릭합니다. 별도의 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행되도록 앱을 구성합니다. 물리적 디바이스 또는 에뮬레이터에서 Android 앱을 실행하는 방법에 대한 자세한 내용은 [앱 실행](https://developer.android.com/training/basics/firstapp/running-app)을 참조하세요.
 
 5. 앱이 로드되면**메시징 간격 설정** 값을 **1000**으로 업데이트하고 **호출**을 클릭합니다.
@@ -192,8 +189,6 @@ IoT Hub 백엔드 서비스 애플리케이션은 일반적으로 IoT Hub의 모
 6. 앱은 메서드가 성공적으로 실행되었는지 여부를 나타내는 승인을 받습니다.
 
     ![직접 메서드 승인](media/quickstart-control-device-android/direct-method-ack.png)
-
-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

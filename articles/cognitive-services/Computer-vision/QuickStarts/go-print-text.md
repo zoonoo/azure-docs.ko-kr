@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1efbb963deb71f9fa35660ecb6111413e2553e4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d679bf95855232fd64403873e0aea2f24c0af19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904323"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000949"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Go를 사용하여 인쇄된 텍스트 추출(OCR)
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - [Go](https://golang.org/dl/)가 설치되어 있어야 합니다.
-- Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 
 ## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
 

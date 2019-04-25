@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622198"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680250"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -183,18 +183,18 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | 자산  | Type | 설명 |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 부울 | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
-| time | 날짜-시간 | 게이트웨이에서 HTTP 요청을 수신하는 타임스탬프 |
+| 실시간 | 날짜-시간 | 게이트웨이에서 HTTP 요청을 수신하는 타임스탬프 |
 | operationName | string | 상수 값 'Microsoft.ApiManagement/GatewayLogs' |
-| category | string | 상수 값 'GatewayLogs' |
+| 카테고리 | string | 상수 값 'GatewayLogs' |
 | durationMS | 정수 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
 | callerIpAddress | string | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
-| correlationId | string | API Management에서 할당하는 고유의 http 요청 식별자 |
+| CorrelationId | string | API Management에서 할당하는 고유의 http 요청 식별자 |
 | location | string | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
 | httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
-| resourceId | string | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| ResourceId | string | API Management 리소스의 ID /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | 현재 요청의 속성 |
-| method | string | 들어오는 요청의 HTTP 메서드 |
-| url | string | 들어오는 요청의 URL |
+| 메서드 | string | 들어오는 요청의 HTTP 메서드 |
+| URL | string | 들어오는 요청의 URL |
 | clientProtocol | string | 들어오는 요청의 HTTP 프로토콜 버전 |
 | responseCode | 정수 | 클라이언트로 전송된 HTTP 응답의 상태 코드 |
 | backendMethod | string | 백 엔드로 전송된 요청의 HTTP 메서드 |
@@ -203,7 +203,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | backendProtocol | string | 백 엔드로 전송된 요청의 HTTP 프로토콜 버전 | 
 | requestSize | 정수 | 요청을 처리하는 동안 클라이언트에서 받은 바이트 수 | 
 | responseSize | 정수 | 요청을 처리하는 동안 클라이언트로 전송된 바이트 수 | 
-| cache | string | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
+| 캐시 | string | 요청 처리에서 API Management 캐시 개입 상태(적중, 놓침, 없음) | 
 | cacheTime | 정수 | 전체 API Management 캐시 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
 | backendTime | 정수 | 전체 백 엔드 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
 | clientTime | 정수 | 전체 클라이언트 IO(연결, 바이트 송신 및 수신)에 소요된 시간(밀리초) | 
@@ -213,13 +213,13 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | userId | string | 현재 요청에 대한 사용자 엔터티 식별자 | 
 | apimSubscriptionId | string | 현재 요청에 대한 구독 엔터티 식별자 | 
 | backendId | string | 현재 요청에 대한 백 엔드 엔터티 식별자 | 
-| lastError | object | 마지막 요청 처리 오류 | 
+| LastError | object | 마지막 요청 처리 오류 | 
 | elapsed | 정수 | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간까지 경과한 시간(밀리초) | 
-| source | string | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
+| 원본 | string | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
 | scope | string | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 범위 | 
 | section | string | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 섹션 | 
 | reason | string | 오류 원인 | 
-| message | string | 오류 메시지 | 
+| Message | string | 오류 메시지 | 
 
 ## <a name="next-steps"></a>다음 단계
 

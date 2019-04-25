@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: 0f324d39db38b17d436583277d60d87b2878d131
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880793"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149600"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -170,7 +170,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 엔터티는 [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx)에서 파생된 사용자 지정 클래스를 사용하여 C# 개체에 매핑됩니다. 테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다.
 
-**CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 폴더**를 선택하고 이름을 **Model**로 지정합니다. Model 폴더 내에 **CustimerEntity.cs**라는 클래스를 추가하고, 여기에 다음 코드를 추가합니다.
+**CosmosTableSamples** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **추가**, **새 폴더**를 선택하고 이름을 **Model**로 지정합니다. Model 폴더 내에 **CustomerEntity.cs**라는 클래스를 추가하고, 여기에 다음 코드를 추가합니다.
 
 ```csharp
 namespace CosmosTableSamples.Model

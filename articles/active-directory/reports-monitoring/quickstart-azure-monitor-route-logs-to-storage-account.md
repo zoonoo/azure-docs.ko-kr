@@ -1,6 +1,6 @@
 ---
-title: 자습서 - 스토리지 계정에 Azure Active Directory 로그 보관(미리 보기) | Microsoft Docs
-description: 스토리지 계정으로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기(미리 보기)
+title: 자습서 - 스토리지 계정에 Azure Active Directory 로그 보관 | Microsoft Docs
+description: 스토리지 계정으로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0198fe1ce61c8f78e315d1166a7ea03aae20d592
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434724"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999504"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>자습서: Azure 스토리지 계정에 Azure AD 로그 보관(미리 보기)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>자습서: Azure 스토리지 계정에 Azure AD 로그 보관
 
 이 자습서에서는 Azure AD(Azure Active Directory) 로그를 Azure 스토리지 계정으로 라우팅하도록 Azure Monitor 진단 설정을 지정하는 방법을 알아봅니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "58434724"
 
     ![진단 설정](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. 약 15분 후 스토리지 계정으로 로그가 푸시되었는지 확인합니다. [Azure Portal](https://portal.azure.com)로 이동하고, **저장소 계정**을 선택하고, 이전에 사용한 저장소 계정을 선택하고, **Blob**을 선택합니다. **감사 로그**에서 **insights-log-audit**를 선택합니다. **로그인 로그**에 **insights-logs-signin**을 선택합니다.
+12. 약 15분 후 저장소 계정으로 로그가 푸시되었는지 확인합니다. [Azure Portal](https://portal.azure.com)로 이동하고, **저장소 계정**을 선택하고, 이전에 사용한 저장소 계정을 선택하고, **Blob**을 선택합니다. **감사 로그**에서 **insights-log-audit**를 선택합니다. **로그인 로그**에 **insights-logs-signin**을 선택합니다.
 
     ![Storage 계정](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 

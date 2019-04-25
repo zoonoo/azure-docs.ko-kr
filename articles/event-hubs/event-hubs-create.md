@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: a7976c0798bd78fd51632d3025147526a645b041
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9cd7a207a76ddfbeeb3b2e6b46abbc6423825093
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528799"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681015"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -92,10 +92,16 @@ Event Hubs 네임스페이스는 정규화된 도메인 이름으로 참조되�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 리소스 그룹, Event Hubs 네임스페이스 및 이벤트 허브를 만들었습니다. 이벤트 허브에서 이벤트를 보내고 받는 단계별 지침은 다음 자습서를 참조하세요.  
+이 문서에서는 리소스 그룹, Event Hubs 네임스페이스 및 이벤트 허브를 만들었습니다. 이벤트 허브에서 이벤트를 보내거나 받기 위한 단계별 지침은 **이벤트 보내기 및 받기** 자습서를 참조하세요. 
 
-- **이벤트 허브로 이벤트 전송**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **이벤트 허브에서 이벤트 수신**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.JS](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C(보내기 전용)](event-hubs-c-getstarted-send.md)
+- [Apache Storm(받기 전용)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

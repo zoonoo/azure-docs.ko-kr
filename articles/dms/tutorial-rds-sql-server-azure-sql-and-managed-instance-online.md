@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/20/2019
+ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886406"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998977"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 RDS SQL Server를 Azure SQL Database 관리형 인스턴스로 온라인 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 RDS SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 또는 [Azure SQL Database 관리형 인스턴스](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)로 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2012 이상의 RDS SQL Server 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database 또는 Azure SQL Database 관리형 인스턴스로 마이그레이션합니다.
@@ -187,7 +187,14 @@ DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니�
  
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 4. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **AWS RDS for SQL Server**를 선택하고, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Database**를 선택합니다.
+
+    > [!NOTE]
+    > 대상 서버 유형에 대해 Azure SQL Database 싱글톤 데이터베이스 및 Azure SQL Database 관리형 인스턴스로 마이그레이션하려면 **Azure SQL Database**를 선택합니다.
+
 5. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션**을 선택합니다.
+
+    > [!IMPORTANT]
+    > **온라인 데이터 마이그레이션**을 선택합니다. 이 시나리오에서는 오프라인 마이그레이션이 지원되지 않습니다.
 
     ![Database Migration Service 프로젝트 만들기](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 

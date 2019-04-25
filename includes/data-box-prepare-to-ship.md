@@ -2,19 +2,19 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/07/2019
+ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c7e5231650ec1afb97a72ec0cf26cb8f80088b63
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a8070d25e2606d8ad72ac231a0a208072c612c5c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440414"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737197"
 ---
 마지막 단계는 배송할 디바이스를 준비하는 것입니다. 이 단계에서는 모든 디바이스 공유가 오프라인 상태가 됩니다. 이 프로세스를 시작한 후에는 공유에 액세스할 수 없습니다.
 
 > [!IMPORTANT]
-> 배송 준비는 Azure 명명 규칙을 준수하지 않는 데이터를 플래그 지정하기 때문에 필요합니다. 이 단계를 건너뛰면 확인되지 않은 데이터로 인해 잠재적인 데이터 업로드 오류가 발생할 수 있습니다.
+> 배송 준비는 Azure 명명 규칙을 준수하지 않는 데이터를 플래그 지정하기 때문에 필요합니다. 이 단계를 건너뛰면 부적합한 데이터로 인해 잠재적인 데이터 업로드 오류가 발생할 수 있습니다.
 
 1. **배송 준비**로 이동하여 **준비 시작**을 클릭합니다. 기본적으로 체크섬은 배송을 준비하는 동안 계산된 인라인입니다. 체크섬 컴퓨팅은 데이터의 크기에 따라 다소 시간이 걸릴 수 있습니다. 
    

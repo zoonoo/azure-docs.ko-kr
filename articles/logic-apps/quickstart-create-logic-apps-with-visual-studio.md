@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/02/2019
 ms.openlocfilehash: 10ed3ec8b29048a7ede51a6d98e9f1ebb7f44cf6
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862984"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
@@ -119,7 +119,7 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
    | 사용자 프로필 목록 | Contoso <br> jamalhartnett@contoso.com | 기본적으로 로그인하는 데 사용되는 계정 |
    | **구독** | Pay-As-You-Go <br> (jamalhartnett@contoso.com) | Azure 구독 및 연결된 계정에 대한 이름 |
    | **리소스 그룹** | MyLogicApp-RG <br> (미국 서부) | 논리 앱에 대한 리소스를 저장하고 배포하기 위한 Azure 리소스 그룹 및 위치 |
-   | **위치** | MyLogicApp-RG2 <br> (미국 서부) | 리소스 그룹 위치를 사용하지 않으려면 다른 위치 |
+   | **위치**: | MyLogicApp-RG2 <br> (미국 서부) | 리소스 그룹 위치를 사용하지 않으려면 다른 위치 |
    ||||
 
 1. Logic Apps 디자이너가 열리고 소개 비디오 및 많이 사용되는 트리거가 포함된 페이지를 보여줍니다. 
@@ -213,5 +213,5 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 이 아티클에서는 Visual Studio를 사용하여 논리 앱을 빌드하고 배포하고 실행했습니다. Visual Studio를 사용하여 논리 앱에 대한 고급 배포를 관리하고 수행하는 방법을 자세히 알아보려면 이 아티클을 참조합니다.
 
 > [!div class="nextstepaction"]
-> * [Visual Studio로 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)
-> * [Visual Studio를 사용하여 논리 앱용 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
+> * [Visual Studio에서 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Visual Studio를 사용하여 논리 앱에 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 352bc20bb4082dd14b810a6afe85653cfd67e7e1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224472"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011285"
 ---
 # <a name="key-value-store"></a>키-값 저장소
 
@@ -106,4 +106,5 @@ App Configuration의 키 값에는 필요에 따라 레이블 특성이 있을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개념: 지정 시간 스냅숏](concept-point-time-snapshot.md)  
+> [!div class="nextstepaction"]
+> [지정 시간 스냅숏](./concept-point-time-snapshot.md)  

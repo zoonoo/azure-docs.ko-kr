@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2ae5cd0fd177f64bed5ed0705207c6a3e81a1b24
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878199"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997447"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>빠른 시작: Computer Vision C# SDK를 사용하여 필기 텍스트 추출
 
@@ -24,7 +24,7 @@ ms.locfileid: "58878199"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+* Computer Vision 구독 키입니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 * [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
 
@@ -205,4 +205,4 @@ Pack my box with five dozen liquor jugs
 이미지를 분석하고, 유명인 및 랜드마크를 검색하고, 썸네일을 만들고, 인쇄 및 필기 텍스트를 추출하는 데 사용되는 Computer Vision API를 탐색합니다.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API 살펴보기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Computer Vision API 탐색](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

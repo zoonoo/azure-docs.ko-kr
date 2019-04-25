@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64f78b04d433c81302499addf15c3d19621bbf9f
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 9838add4f83434848d61f3ae86db71765efdc59a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919876"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995730"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 단계별 지침
 
@@ -57,12 +57,12 @@ Android Studio를 시작합니다. **Android Studio 시작** 창에서 **새 And
 </application>
 ```
 
-다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드에서는 앱이 ARCore 버전 1.5를 대상으로 하는지 확인합니다(Azure Spatial Anchors에서 ARCore 1.6 이상에 대한 지원이 곧 제공될 예정임). 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화**를 클릭합니다.
+다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드에서는 앱이 ARCore 버전 1.7을 대상으로 하는지 확인합니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화**를 클릭합니다.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.5.0'
+    implementation 'com.google.ar:core:1.7.0'
     ...
 }
 ```
@@ -71,7 +71,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a>을 사용하면 OpenGL을 익히지 않고도 증강 현실 앱에서 사실적인 3D 장면을 간단하게 렌더링할 수 있습니다.
 
-다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드를 사용하면 앱에서 `Sceneform`에 필요한 Java 8의 언어 구문을 사용할 수 있습니다. 또한 앱에서 사용하는 ARCore 버전과 일치해야 하므로 앱에서 `Sceneform` 버전 1.5를 대상으로 하는지도 확인할 수 있습니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화**를 클릭합니다.
+다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드를 사용하면 앱에서 `Sceneform`에 필요한 Java 8의 언어 구문을 사용할 수 있습니다. 또한 앱에서 사용하는 ARCore 버전과 일치해야 하므로 앱에서 `Sceneform` 버전 1.7을 대상으로 하는지도 확인할 수 있습니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화**를 클릭합니다.
 
 ```
 android {
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
     ...
 }
 ```

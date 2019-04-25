@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: eabfca64a4bdf1f72375575161111ddaff55eba3
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487420"
 ---
 Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프라인에 추가할 수 있는 다음과 같은 변환 작업을 지원합니다.
 
@@ -20,7 +20,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 | [MapReduce](../articles/data-factory/v1/data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop 스트리밍](../articles/data-factory/v1/data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Spark](../articles/data-factory/v1/data-factory-spark.md) | HDInsight [Hadoop] |
-| [Machine Learning 작업: Batch 실행 및 업데이트 리소스](../articles/data-factory/v1/data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](../articles/data-factory/v1/data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [저장 프로시저](../articles/data-factory/v1/data-factory-stored-proc-activity.md) |Azure SQL, Azure SQL Data Warehouse 또는 SQL Server |
 | [데이터 레이크 분석 U-SQL](../articles/data-factory/v1/data-factory-usql-activity.md) |Azure 데이터 레이크 분석 |
 | [DotNet](../articles/data-factory/v1/data-factory-use-custom-activities.md) |HDInsight [Hadoop] 또는 Azure Batch |

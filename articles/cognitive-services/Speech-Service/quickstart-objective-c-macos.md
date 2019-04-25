@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
 ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012476"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Objective-C로 음성 인식
@@ -79,7 +79,7 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
 1. XCode에서 `helloworld.xcworkspace` 작업 영역을 엽니다.
-1. 자동으로 생성된 `AppDelegate.m` 파일의 콘텐츠를 다음으로 바꿉니다. [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
+1. 자동으로 생성된 `AppDelegate.m` 파일의 콘텐츠를 [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]로 바꿉니다.
 1. 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
 
@@ -92,5 +92,5 @@ Xcode를 시작하고, **파일** > **새로 만들기** > **프로젝트**를 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [GitHub에서 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)
+> [GitHub의 Objective-C 샘플 살펴보기](https://aka.ms/csspeech/samples)
 

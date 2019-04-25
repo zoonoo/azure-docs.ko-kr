@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8c2c31b4d87ac2db123c0cae63679e3773734b4f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a76eab5d51dd73fb6b38ebebaa8421e789274f84
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226286"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994795"
 ---
 # <a name="what-is-azure-app-configuration"></a>Azure App Configuration이란?
 
@@ -68,4 +68,5 @@ App Configuration은 애플리케이션 비밀을 저장하는 데 사용되는 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: ASP.NET 웹앱 만들기](quickstart-aspnet-core-app.md) 
+> [!div class="nextstepaction"]
+> [ASP.NET Core 웹앱 만들기](./quickstart-aspnet-core-app.md)  

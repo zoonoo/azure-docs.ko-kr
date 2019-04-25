@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2769384957b6cf6484163c4d9e54d042877794ec
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c1ad38b6dbf4914d3126f2c9166813c286762079
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451657"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009619"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 C#을 사용하여 필기 텍스트 추출
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio 2015 이상](https://visualstudio.microsoft.com/downloads/)이 있어야 합니다.
-- Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 
 ## <a name="create-and-run-the-sample-application"></a>애플리케이션 예제 만들기 및 실행
 

@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579481"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682562"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -74,6 +74,7 @@ ms.locfileid: "59579481"
 
 1. Zip 파일을 루트 폴더에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio(AppModelv2-WebApp-OpenIDConnect-DotNet.sln)에서 솔루션 열기
+1. Visual Studio 버전에 따라 프로젝트 `AppModelv2-WebApp-OpenIDConnect-DotNet` 및 **NuGet 패키지 복원**을 마우스 오른쪽 단추로 클릭해야 할 수 있습니다.
 1. **Web.config**를 편집하고 매개 변수 `ClientId` 및 `Tenant`를 다음으로 바꿉니다.
 
     ```xml
@@ -103,7 +104,7 @@ OWIN 미들웨어 패키지로 ASP.NET의 OpenID Connect를 사용하는 쿠키 
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb
+Install-Package Microsoft.Owin.Host.SystemWeb  
 ```
 
 ### <a name="owin-startup-class"></a>OWIN 시작 클래스

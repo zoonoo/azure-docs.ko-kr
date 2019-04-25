@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "52156795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486842"
 ---
 | Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원 |
 |:--- |:--- |:--- |:--- |
-| **Azure** |[Azure Blob 저장소](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
+| **Azure** |[Azure Blob Storage](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |

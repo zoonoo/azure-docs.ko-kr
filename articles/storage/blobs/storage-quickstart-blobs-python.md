@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 8dff81d3f3594798a1b08184af0098f3bd86c12c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607401"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011047"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>빠른 시작: Python을 사용하여 Blob 업로드, 다운로드 및 나열
 
-이 빠른 시작에서 Python을 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드 및 다운로드하고, 나열하는 방법을 알아봅니다. Blob은 텍스트 또는 이진 데이터(예: 이미지, 문서, 스트리밍 미디어, 저장 데이터 등)를 어느 정도 저장할 수 있는 간단한 개체로, 파일 공유, 테이블 스키마 및 메시지 큐의 Azure Storage에서 뚜렷이 나타납니다. (자세한 내용은 [Azure Storage 소개](/azure/storage/common/storage-introduction.md)를 참조하세요.)
+이 빠른 시작에서 Python을 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드 및 다운로드하고, 나열하는 방법을 알아봅니다. Blob은 텍스트 또는 이진 데이터(예: 이미지, 문서, 스트리밍 미디어, 저장 데이터 등)를 어느 정도 저장할 수 있는 간단한 개체로, 파일 공유, 테이블 스키마 및 메시지 큐의 Azure Storage에서 뚜렷이 나타납니다. (자세한 내용은 [Azure Storage 소개](/azure/storage/common/storage-introduction)를 참조하세요.)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,7 +45,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 애플리케이션에서 저장소 계정 이름과 계정 키를 입력하여 `BlockBlobService` 개체를 만듭니다. IDE의 솔루션 탐색기에서 *example.py* 파일을 엽니다. `accountname` 및 `accountkey` 값을 사용자의 계정 이름 및 키로 바꿉니다. 
 
 ```python 
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
 ```
 
 ## <a name="run-the-sample"></a>샘플 실행
@@ -92,11 +92,11 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 이 섹션에서는 개체를 인스턴스화하고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob를 공용 Blob로 유지합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
 
 ```python 
-# Create the BlockBlockService that is used to call the Blob service for the storage account
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+# Create the BlockBlockService that is used to call the Blob service for the storage account.
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
  
 # Create a container called 'quickstartblobs'.
-container_name ='quickstartblobs'
+container_name = 'quickstartblobs'
 block_blob_service.create_container(container_name) 
 
 # Set the permission so the blobs are public.
@@ -106,29 +106,29 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 blob이 가장 일반적으로 사용되므로 이 빠른 시작 가이드에서도 사용합니다.  
 
-Blob에 파일을 업로드하려면 디렉터리 이름을 로컬 드라이브의 파일 이름과 조인하여 전체 파일 경로를 가져옵니다. 그런 다음, `create\_blob\_from\_path` 메서드를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
+Blob에 파일을 업로드하려면 디렉터리 이름을 로컬 드라이브의 파일 이름과 조인하여 전체 파일 경로를 가져옵니다. 그런 다음, `create_blob_from_path` 메서드를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
 
-샘플 코드는 업로드 및 다운로드에 사용할 로컬 파일을 만들고, 해당 파일이 `file\_path\_to\_file`로 업로드되고 Blob의 이름이 `local\_file\_name`으로 업로드되도록 저장합니다. 다음 예제에서는 **quickstartblobs**라는 저장소에 이 파일을 업로드합니다.
+샘플 코드는 업로드 및 다운로드에 사용할 로컬 파일을 만들고 해당 파일이 *full_path_to_file* 및 Blob 이름 *local_file_name*으로 업로드되게 저장합니다. 다음 예제에서는 **quickstartblobs**라는 저장소에 이 파일을 업로드합니다.
 
 ```python
 # Create a file in Documents to test the upload and download.
-local_path=os.path.expanduser("~\Documents")
-local_file_name ="QuickStart_" + str(uuid.uuid4()) + ".txt"
-full_path_to_file =os.path.join(local_path, local_file_name)
+local_path = os.path.expanduser("~\Documents")
+local_file_name = "QuickStart_" + str(uuid.uuid4()) + ".txt"
+full_path_to_file = os.path.join(local_path, local_file_name)
 
 # Write text to the file.
-file = open(full_path_to_file,  'w')
+file = open(full_path_to_file, 'w')
 file.write("Hello, World!")
 file.close()
 
 print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
-# Upload the created file, use local_file_name for the blob name
+# Upload the created file, use local_file_name for the blob name.
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-Blob Storage에서 사용할 수 있는 몇 가지 업로드 메서드가 있습니다. 예를 들어 메모리 스트림이 있는 경우 `create\_blob\_from\_path` 대신 `create\_blob\_from\_stream` 메서드를 사용할 수 있습니다. 
+Blob Storage에서 사용할 수 있는 몇 가지 업로드 메서드가 있습니다. 예를 들어 메모리 스트림이 있는 경우 `create_blob_from_path` 대신 `create_blob_from_stream` 메서드를 사용할 수 있습니다. 
 
 블록 blob 크기는 4.7TB까지 가능하며, Excel 스프레드시트에서 큰 비디오 파일까지 다양할 수 있습니다. 페이지 Blob은 IaaS VM을 백업하는 VHD 파일에 주로 사용됩니다. 추가 Blob은 파일에 쓰고 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 사용됩니다. Blob Storage에 저장된 대부분의 개체는 블록 Blob입니다.
 
@@ -137,7 +137,7 @@ Blob Storage에서 사용할 수 있는 몇 가지 업로드 메서드가 있습
 `list_blobs` 메서드를 사용하여 컨테이너의 파일 목록을 가져옵니다. 이 메서드는 생성기를 반환합니다. 다음 코드는 Blob 목록을 검색한 다음,&mdash; 이 과정을 반복하여&mdash; 컨테이너에서 찾은 Blob의 이름을 표시합니다.  
 
 ```python
-# List the blobs in the container
+# List the blobs in the container.
 print("\nList blobs in the container")
 generator = block_blob_service.list_blobs(container_name)
 for blob in generator:
@@ -146,21 +146,21 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>Blob 다운로드
 
-`the get\_blob\_to\_path` 메서드를 사용하여 Blob를 로컬 디스크에 다운로드합니다. 다음 코드는 이전 섹션에서 업로드된 Blob를 다운로드합니다. 로컬 디스크에서 두 파일을 확인할 수 있도록 *_DOWNLOADED*가 접미사로 Blob 이름에 추가됩니다. 
+`get_blob_to_path` 메서드를 사용하여 Blob를 로컬 디스크에 다운로드합니다. 다음 코드는 이전 섹션에서 업로드된 Blob를 다운로드합니다. 로컬 디스크에서 두 파일을 확인할 수 있도록 *_DOWNLOADED*가 접미사로 Blob 이름에 추가됩니다. 
 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name ,'.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>리소스 정리
-이 빠른 시작 가이드에서는 업로드된 Blob이 더 이상 필요하지 않으면 `delete\_container` 메서드를 사용하여 전체 컨테이너를 삭제해도 됩니다. 대신 개별 파일을 삭제하려면 `delete\_blob` 메서드를 사용합니다.
+이 빠른 시작 가이드에서는 업로드된 Blob이 더 이상 필요하지 않으면 `delete_container` 메서드를 사용하여 전체 컨테이너를 삭제해도 됩니다. 대신 개별 파일을 삭제하려면 `delete_blob` 메서드를 사용합니다.
 
 ```python
-# Clean up resources. This includes the container and the temp files
+# Clean up resources. This includes the container and the temp files.
 block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)

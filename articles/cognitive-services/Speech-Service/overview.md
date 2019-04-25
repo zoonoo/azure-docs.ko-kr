@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010195"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
@@ -80,7 +80,7 @@ Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [음성 SDK](speech-sdk-reference.md)
+* [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: 음성 텍스트 변환](rest-speech-to-text.md)
 * [REST API: 텍스트 음성 변환](rest-text-to-speech.md)
@@ -89,4 +89,4 @@ Azure Speech Services는 기본 제공 모델에 잘 작동하지만, 제품 또
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [평가판 Speech Service 구독 키 받기](get-started.md)
+> [무료로 Speech Service 구독 키 받기](get-started.md)

@@ -15,27 +15,30 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0562d222bce07f74ef5355ad0e3d6b8844c33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096625"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007358"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure에서 첫 번째 Java 웹앱 만들기
 
 [Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/)를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여 줍니다.
 
-> [!NOTE]
->
-> 이 빠른 시작의 단계에서는 Eclipse IDE를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여주지만, IntelliJ IDEA Ultimate Edition 또는 Community Edition을 사용할 수 있습니다. 자세한 내용은 [IntelliJ를 사용하여 Azure용 Hello World 웹앱 만들기](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)를 참조하세요.
->
+> [!IMPORTANT]
+> Linux의 Azure App Service는 관리형 Tomcat, Java SE 및 WildFly 제품을 사용하여 Linux에서 Java 웹앱을 호스트팅하는 옵션이기도 합니다. Linux에서 App Service를 시작하려는 경우 [빠른 시작: Linux의 App Service에서 Java 앱 만들기](containers/quickstart-java.md)를 참조하세요.
 
 이 빠른 시작을 완료하면 웹 브라우저에서 애플리케이션을 봤을 때 다음 그림과 같이 표시됩니다.
 
 !["Hello Azure!" 예제 웹앱](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+>
+> 이 빠른 시작의 단계에서는 Eclipse IDE를 사용하여 App Service에 Java 웹앱을 배포하는 방법을 보여주지만, IntelliJ IDEA Ultimate Edition 또는 Community Edition을 사용할 수 있습니다. 자세한 내용은 [IntelliJ를 사용하여 Azure용 Hello World 웹앱 만들기](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)를 참조하세요.
+>
 
 ## <a name="prerequisites"></a>필수 조건
 

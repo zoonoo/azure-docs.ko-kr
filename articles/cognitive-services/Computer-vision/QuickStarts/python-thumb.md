@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0f131c7363a608962910f2cf0e5794972bf6208
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 9962874600e259a639c70b7b180e5fc2a940461f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648934"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999555"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 썸네일 생성
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 - [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
 
 ## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행

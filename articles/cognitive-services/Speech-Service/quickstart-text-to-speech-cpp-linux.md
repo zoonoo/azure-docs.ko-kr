@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: c0981ec993f3717f3ec3d3da987a5977b212fb9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012486"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Linux 기반 C++에서 음성 합성
@@ -137,4 +137,4 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
 ## <a name="see-also"></a>참고 항목
 
 - [음성 글꼴 사용자 지정](how-to-customize-voice-font.md)
-- [음성 샘플 기록](record-custom-voice-samples.md)
+- [음성 샘플 레코드](record-custom-voice-samples.md)

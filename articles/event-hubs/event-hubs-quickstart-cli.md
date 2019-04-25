@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a26084480f8ca24f2b66375e863dd2231fff6b00
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3bc7b409d590ac096b70431ae009fed36c968307
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103509"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680012"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 이벤트 허브 만들기
 
@@ -74,10 +74,16 @@ az eventhubs eventhub create --name <event hub name> --resource-group <resource 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 리소스 그룹, Event Hubs 네임스페이스 및 이벤트 허브를 만들었습니다. 이벤트 허브에서 이벤트를 보내고 받는 단계별 지침은 다음 자습서를 참조하세요.  
+이 문서에서는 리소스 그룹, Event Hubs 네임스페이스 및 이벤트 허브를 만들었습니다. 이벤트 허브에서 이벤트를 보내거나 받기 위한 단계별 지침은 **이벤트 보내기 및 받기** 자습서를 참조하세요. 
 
-- **이벤트 허브로 이벤트 전송**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **이벤트 허브에서 이벤트 수신**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.JS](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C(보내기 전용)](event-hubs-c-getstarted-send.md)
+- [Apache Storm(받기 전용)](event-hubs-storm-getstarted-receive.md)
 
 [계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli

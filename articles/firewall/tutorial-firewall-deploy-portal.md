@@ -9,10 +9,10 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492317"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
@@ -108,7 +108,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    |가상 머신 이름     |**Srv-Jump**|
    |지역     |이전과 동일함|
    |관리자 사용자 이름     |**azureuser**|
-   |암호     |**Azure123456!**|
+   |암호     |**Azure123456!** -|
 
 4. **인바운드 포트 규칙** 아래의 **공용 인바운드 포트**에서 **선택한 포트 허용**을 선택합니다.
 5. **인바운드 포트 선택**에서 **RDP(3389)** 를 선택합니다.

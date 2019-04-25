@@ -14,18 +14,20 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575780"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998093"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 .NET Core 앱 만들기
 
 Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 분리된 한 곳에서 모든 애플리케이션 설정을 쉽게 저장하고 관리할 수 있습니다. 이 빠른 시작은 .NET Core 콘솔 앱으로 서비스를 통합하는 방법을 보여줍니다.
 
 이 빠른 시작의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
+
+![빠른 시작 앱 실행](./media/quickstarts/dotnet-core-app-run.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,6 +38,14 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 ## <a name="create-an-app-configuration-store"></a>앱 구성 저장소 만들기
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. **키/값 탐색기** > **+ 만들기**를 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+
+    | 키 | 값 |
+    |---|---|
+    | TestApp:Settings:Message | Azure App Configuration의 정보 |
+
+    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
 
 ## <a name="create-a-net-core-console-app"></a>.NET Core 콘솔 앱 만들기
 
@@ -99,8 +109,6 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 
         dotnet run
 
-    ![빠른 시작 앱 실행](./media/quickstarts/dotnet-core-app-run.png)
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
@@ -110,4 +118,4 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 이 빠른 시작에서는 새 앱 구성 저장소를 만들고, [앱 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 .NET Core 콘솔 앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 리소스 통합용 관리 ID](./integrate-azure-managed-service-identity.md)
+> [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)

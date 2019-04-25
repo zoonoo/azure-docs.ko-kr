@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887423"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011302"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정을 감지하는 방법
 
-[감정 분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)는 텍스트 입력을 평가하고 각 문서에 대한 감정 점수(0(부정) ~ 1(긍정))를 반환합니다.
+[감정 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)는 텍스트 입력을 평가하고 각 문서에 대한 감정 점수(0(부정) ~ 1(긍정))를 반환합니다.
 
 이 기능은 소셜 미디어, 고객 검토 및 토론 포럼에서 긍정적이거나 부정적인 감정을 감지하는 데 유용합니다. 사용자는 콘텐츠를 제공하고, 서비스에서는 모델 및 학습 데이터를 제공합니다.
 
@@ -37,7 +37,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 감정 분석에서는 사용할 텍스트를 더 작은 청크로 분할하여 제공하면 더 높은 품질의 결과를 생성합니다. 이는 구 블록이 클수록 더 잘 수행되는 핵심 구 추출과는 반대입니다. 두 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
 
-id, text, language 형식의 JSON 문서가 있어야 합니다.
+다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트, 언어
 
 문서 크기는 문서당 5,120자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 감정 분석을 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다.
 
@@ -77,16 +77,16 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 요청 정의에 대한 자세한 내용은 [텍스트 분석 API를 호출하는 방법](text-analytics-how-to-call-api.md)에서 찾을 수 있습니다. 편의상 다음 사항을 다시 설명합니다.
 
-+ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [감정 분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [감정 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`).
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTP 엔드포인트를 설정합니다. `/sentiment` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`).
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
@@ -135,9 +135,9 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 이 문서에서는 Cognitive Services의 Text Analytics를 사용하여 감정 분석에 대한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
-+ [감정 분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)는 선택한 언어로 사용할 수 있습니다.
-+ 요청 본문의 JSON 문서에는 id, text 및 language 코드가 포함됩니다.
-+ POST 요청은 구독에 유효한 개인 설정 [액세스 키와 엔드포인트](text-analytics-how-to-access-key.md)를 사용하여 `/sentiment` 엔드포인트에 수행되는 요청입니다.
++ [감정 분석 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)는 선택한 언어로 사용할 수 있습니다.
++ 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
++ POST 요청은 개인 설정된 [액세스 키와 구독에 유효한 엔드포인트](text-analytics-how-to-access-key.md)를 사용하여 `/sentiment` 엔드포인트에 대해 수행됩니다.
 + 각 문서 ID에 대한 감정 점수로 구성된 응답 출력은 Excel 및 Power BI를 포함하여 JSON을 허용하는 모든 앱으로 스트림할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목 

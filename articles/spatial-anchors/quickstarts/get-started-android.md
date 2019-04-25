@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880050"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995900"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
 
@@ -34,10 +34,10 @@ ms.locfileid: "57880050"
 
 - <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>가 설치된 Windows 또는 macOS 머신.
   - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>도 필요합니다.
-  - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 명령 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 입력한 다음, 그런 다음, `brew install git`을 실행합니다.
+  - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 명령 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`을 입력합니다. 그런 다음, `brew install git`을 실행합니다.
   - NDK 샘플을 빌드하려면 Android Studio에 NDK 및 CMake 3.6 SDK Tools를 설치해야 합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
-- 앱은 ARCore 1.5(ARCore 1.6+에 대한 지원은 곧 제공될 예정)를 대상으로 해야 합니다.
+- 앱은 ARCore 1.7을 대상으로 해야 합니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "57880050"
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Android NDK 샘플을 빌드하는 경우 [여기](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.5.0/libraries/include/arcore_c_api.h)에서 `arcore_c_api.h`를 다운로드하여 `Android\NDK\libraries\include`에 배치해야 합니다.
+Android NDK 샘플을 빌드하는 경우 [여기](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h)에서 `arcore_c_api.h`를 다운로드하여 `Android\NDK\libraries\include`에 배치해야 합니다.
 
 Android Studio를 엽니다.
 

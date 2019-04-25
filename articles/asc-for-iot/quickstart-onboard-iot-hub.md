@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862389"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010563"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 서비스 사용
 
@@ -45,7 +45,7 @@ ms.locfileid: "58862389"
 IoT Hub에서 보안을 사용하도록 설정하려면 다음을 수행합니다. 
 
 1. Azure Portal에서 **IoT Hub**를 엽니다. 
-2. 왼쪽 메뉴에서 **보안**을 선택하고 엽니다. 
+2. **보안** 메뉴에서 **개요**를 클릭한 다음, **미리 보기 시작**을 클릭합니다. 
 3. **IoT 보안 사용**을 선택합니다. 
 4. Log Analytics 작업 영역 세부 정보를 제공합니다. 
    - **원시 이벤트** 토글을 **켜기**로 전환하여 기본 스토리지 정보 유형 외에도 **원시 이벤트**를 저장하도록 선택합니다. 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812075"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150084"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 
@@ -28,6 +28,9 @@ ms.locfileid: "55812075"
 > * TSI 샘플 애플리케이션.
 > * TSI JavaScript 클라이언트 라이브러리.
 > * 샘플 애플리케이션이 라이브러리를 사용하여 TSI 데이터를 시각화하는 방법.
+
+> [!NOTE]
+> Time Series Insights 샘플 애플리케이션 소스 파일은 제공된 [GitHub 샘플 리포지토리](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)에서 찾을 수 있습니다.
 
 ## <a name="video"></a>비디오: 
 
@@ -57,7 +60,7 @@ ms.locfileid: "55812075"
 
 ### <a name="page-source-and-structure"></a>페이지 원본 및 구조
 
-먼저 브라우저에 렌더링한 페이지 이면의 HTML 및 JavaScript 소스 코드를 보겠습니다. 모든 요소를 연습하지는 않고 주요 섹션에 대해 알아보면서 페이지가 작동하는 방법에 대한 감각을 제공합니다.
+먼저 브라우저에 렌더링한 페이지 이면의 [HTML 및 JavaScript 소스 코드](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html)를 보겠습니다. 모든 요소를 연습하지는 않고 주요 섹션에 대해 알아보면서 페이지가 작동하는 방법에 대한 감각을 제공합니다.
 
 1. 브라우저에서 **개발자 도구**를 엽니다. 현재 페이지를 구성하는 HTML 요소, 일명 HTML 또는 DOM 트리를 검사합니다.
 
@@ -83,7 +86,7 @@ ms.locfileid: "55812075"
 
 3. `<div class="chartsWrapper">` 요소를 확장하면 더 많은 하위 `<div>` 요소를 찾을 수 있습니다. 이러한 요소는 각 차트 컨트롤 예제의 위치를 지정하는 데 사용됩니다. 각 차트 예제마다 하나씩 `<div>` 요소 여러 쌍이 있는 것을 확인할 수 있습니다.
 
-   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예를 들면 다음과 같습니다. "전체 크기 범례가 있는 고정 꺾은선형 차트"
+   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예:  "전체 크기 범례가 있는 고정 꺾은선형 차트"
    - 두 번째(`class="rowOfCards"`) 요소는 실제 차트 컨트롤을 한 줄 안에 배치하는 추가 하위 `<div>` 요소를 포함한 상위 요소입니다.
 
    ![본문 div 요소](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -101,7 +104,7 @@ ms.locfileid: "55812075"
 
 다음 개념은 다목적이며 TSI 클라이언트 라이브러리 API에 일반적으로 적용할 수 있습니다.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
 앞에서 언급했듯이 이 샘플은 사용자 인증을 위해 ADAL의 OAuth 2.0 지원을 사용하는 SPA입니다. 다음은 스크립트의 이 섹션에서 몇 가지 관심 지점입니다.
 
@@ -109,7 +112,7 @@ ms.locfileid: "55812075"
 
 2. 나중에 애플리케이션은 Azure AD에서 "액세스 토큰"을 요청합니다. 액세스 토큰은 특정 서비스/API 식별자( https://api.timeseries.azure.com )에 대해 유한한 권한 집합을 할당하기 위해 발급됩니다. 서비스/API 식별자를 토큰 "대상"이라고도 합니다. 토큰 권한은 로그인한 사용자를 대신하여 발급됩니다. 서비스/API의 식별자는 역시 애플리케이션의 Azure AD 등록에 포함된 또 다른 속성입니다. ADAL은 애플리케이션에 대한 액세스 토큰을 반환한 후 TSI 서비스 API에 액세스할 때 "전달자 토큰"으로 전달됩니다.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### <a name="control-identification"></a>컨트롤 식별
 
@@ -191,7 +194,7 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 
 [페이지 원본 및 구조 섹션](#page-source-and-structure)의 단계 #3부터 재현하여 차트 컨트롤을 각각 설명 제목 행이 있는 페이지의 행에 배열합니다. 이 예제에서는 "동일한 데이터의 여러 차트 형식" 제목 `<div>` 요소 아래에 3개 차트가 채워지고, 제목 아래의 `<div>` 요소 3개에 바인딩됩니다.
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 다음과 같은 JavaScript 코드 섹션은 앞에서 요약한 패턴을 사용하여 TSI 집계 식을 만들고 이 식을 사용하여 TSI 데이터를 쿼리하고 차트 3개를 렌더링합니다. `tsiClient.ux` 네임스페이스 `LineChart`, `BarChart`, `PieChart`에서 각 차트를 만들고 렌더링하기 위해 사용한 형식 3가지에 주목하세요. 또한 차트 3개 모두 동일한 집계 식 데이터 `transformedResult`를 사용할 수 있다는 점에도 주목하세요.
 
@@ -283,9 +286,12 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 > * TSI JavaScript 클라이언트 라이브러리에 API 사용.
 > * JavaScript를 사용하여 차트 컨트롤을 만들고 TSI 데이터로 채우기.
 
-앞에서 설명했듯이, TSI 샘플 애플리케이션은 데모 데이터 집합을 사용합니다. 자기 자신의 TSI 환경 및 데이터 집합을 만들 수 있는 방법을 알아보려면 다음 문서로 계속 진행하세요.
+보는 바와 같이, TSI 샘플 애플리케이션은 데모 데이터 세트를 사용합니다. 자기 자신의 TSI 환경 및 데이터 집합을 만들 수 있는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure Time Series Insights 환경 만들기](tutorial-create-populate-tsi-environment.md)
 
+또는 다음과 같은 TSI 샘플 애플리케이션 소스 파일을 봅니다.
 
+> [!div class="nextstepaction"]
+> [TSI 샘플 앱 리포지토리](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

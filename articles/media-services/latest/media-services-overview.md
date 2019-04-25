@@ -13,17 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755913"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999827"
 ---
-# <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
+# <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
 Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 애플리케이션 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 장치 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 애플리케이션을 만들 수 있도록 도와줍니다. 
 
@@ -79,6 +79,10 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 * [이벤트 모니터링 - 포털](monitor-events-portal-how-to.md)
 * [다중 DRM으로 동적으로 암호화 - .NET](protect-with-drm.md) 
 * [사용자 지정 변환을 사용하여 인코딩하는 방법 - CLI](custom-preset-cli-howto.md)
+
+## <a name="provide-feedback"></a>피드백 제공
+
+[Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563373"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011246"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>예제: Computer Vision API를 호출하는 방법
 
@@ -47,8 +47,7 @@ ms.locfileid: "59563373"
 
 Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 키는 쿼리 문자열 매개 변수를 통해 전달되거나 요청 헤더에서 지정되어야 합니다.
 
-구독 키를 얻으려면 [구독 키를 얻는 방법](../Vision-API-How-to-Topics/HowToSubscribe.md
-)을 참조하세요.
+평가판 키를 가져오려면 [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)를 참조하세요. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 
 1. 쿼리 문자열을 통한 구독 키 전달은 아래 Computer Vision API 예제를 확인합니다.
 

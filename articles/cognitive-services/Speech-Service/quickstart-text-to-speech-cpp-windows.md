@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: 732816ce10836d5828e7f325a3eb3fe31627d4f4
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012488"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows에서 C++로 음성 합성
@@ -69,4 +69,4 @@ ms.locfileid: "59012488"
 ## <a name="see-also"></a>참고 항목
 
 - [음성 글꼴 사용자 지정](how-to-customize-voice-font.md)
-- [음성 샘플 기록](record-custom-voice-samples.md)
+- [음성 샘플 레코드](record-custom-voice-samples.md)

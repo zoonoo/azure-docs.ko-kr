@@ -9,11 +9,11 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.openlocfilehash: 6af620f54acb3bf782f05b81f12aca2103cddf47
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753843"
 ---
 >[!IMPORTANT]
 >직접 만든 리소스는 다른 Azure Machine Learning Service 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다. 

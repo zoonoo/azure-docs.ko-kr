@@ -11,15 +11,15 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269115"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>빠른 시작: Postman을 사용하여 Azure Search REST API 검색
 > [!div class="op_single_selector"]
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
 > * [포털](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요**페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
+1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
 1. **설정** > **키**에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
@@ -85,7 +85,7 @@ URL은 `hotel` 인덱스 이름을 포함하도록 확장됩니다.
 Postman에서 이렇게 하려면 다음을 수행합니다.
 
 1. 동사를 **PUT**으로 변경
-2. 다음 URL을 복사하여 붙여넣기 `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. 이 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`에 복사
 3. 아래에 표시된 인덱스 정의를 요청 본문에 제공
 4. 페이지 맨 아래에 있는 **보내기**
 
@@ -129,7 +129,7 @@ URL은 `docs` 컬렉션 및 `index` 작업을 포함하도록 확장됩니다.
 Postman에서 이렇게 하려면 다음을 수행합니다.
 
 1. 동사를 **POST**로 변경
-2. 다음 URL을 복사하여 붙여넣기 `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. 이 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`에 복사
 3. 아래에 표시된 JSON 문서를 요청 본문에 제공
 4. 페이지 맨 아래에 있는 **보내기**
 
@@ -219,7 +219,7 @@ URL은 검색 연산자를 사용하여 지정된 쿼리 문자열을 포함하�
 Postman에서 이렇게 하려면 다음을 수행합니다.
 
 + 동사를 **GET**으로 변경
-+ 다음 URL을 복사하여 붙여넣기 `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ 이 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`에 복사
 + 페이지 맨 아래에 있는 **보내기**
 
 이 쿼리는 "motel"이라는 용어를 검색하고 검색 결과에 문서의 수를 반환합니다. **보내기**를 클릭한 후 요청 및 응답은 Postman의 다음 스크린샷과 유사합니다. 상태 코드는 200이어야 합니다.
@@ -228,7 +228,7 @@ Postman에서 이렇게 하려면 다음을 수행합니다.
 
 
 ## <a name="get-index-properties"></a>인덱스 속성 가져오기
-시스템 정보를 쿼리하여 문서 수와 스토리지 사용량을 가져올 수도 있습니다. `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+시스템을 쿼리하여 문서 수와 저장소 사용량을 가져올 수도 있습니다. `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 Postman에서 요청은 다음과 유사하며 응답에는 문서 수와 사용된 공간(바이트 단위)이 포함됩니다.
 
@@ -247,7 +247,7 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 다음 스크린샷과 같은 요청을 작성합니다. 동사로 **GET**을 선택합니다. Fiddler가 `User-Agent=Fiddler`를 추가합니다. 두 개의 추가 요청 헤더를 그 아래 새 줄에 붙여넣을 수 있습니다. 서비스에 대한 관리자 액세스 키를 사용하여 서비스의 content-type 및 api-key를 포함시킵니다.
 
-대상에 대해 다음 URL의 수정된 버전을 복사하여 붙여넣습니다. `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+대상에 대해 `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11` URL의 수정된 버전을 복사합니다.
 
 ![Fiddler 요청 헤더][1]
 
@@ -270,11 +270,11 @@ api-version 구문이 다른 점에 유의하세요. 이 요청의 경우 `?`를
 
 다음 예제 쿼리는 [검색 인덱스 작업(Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 문서에서 가져온 것입니다. 이 문의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
 
-**공백을 바꾸기 전(lastRenovationDate desc):**
+**공백이 교체되기 전(lastRenovationDate desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-**공백을 +로 바꾼 후(lastRenovationDate+desc):**
+**공백이 +로 교체된 후(lastRenovationDate+desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 

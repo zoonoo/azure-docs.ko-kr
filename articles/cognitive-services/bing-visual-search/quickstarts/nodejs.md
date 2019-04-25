@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: scottwhi
 ms.openlocfilehash: 9414bac220d928618b403aa2f7df7748772e0e9a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047571"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>빠른 시작: Bing Visual Search REST API 및 Node.js를 사용하여 이미지 인사이트 가져오기
@@ -34,7 +34,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Node.js](https://nodejs.org/en/download/)
+* [Node.JS](https://nodejs.org/en/download/)
 * JavaScript에 대한 요청 모듈. `npm install request` 명령을 사용하여 모듈을 설치할 수 있습니다.
 * form-data 모듈. `npm install form-data` 명령을 사용하여 모듈을 설치할 수 있습니다. 
 
@@ -91,4 +91,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Visual Search 단일 페이지 웹앱 만들기](../tutorial-bing-visual-search-single-page-app.md)
+> [Visual Search 단일 페이지 웹앱 빌드](../tutorial-bing-visual-search-single-page-app.md)

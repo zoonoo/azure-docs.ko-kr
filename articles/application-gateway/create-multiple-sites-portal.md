@@ -1,24 +1,24 @@
 ---
-title: 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기 - Azure Portal
-description: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
+title: 자습서 - Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
+description: 이 자습서에서는 Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080170"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999028"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
-Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예제를 사용한다고 가정합니다.
+Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예를 사용한다고 가정합니다.
 
-이 문서에서는 다음 방법을 설명합니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 애플리케이션 게이트웨이 만들기
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
       -Settings $publicSettings
     ```
 
-3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. 이름을 입력 *fabrikamVM* 집합 AzVMExtension에서 VMName의 값과 이름에 대 한 합니다.
+3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzVMExtension에서 VMName의 값과 이름에 *fabrikamVM*의 이름을 입력합니다.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>가상 머신으로 백 엔드 풀 만들기
 
@@ -146,7 +146,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 규칙은 나열된 순서대로 처리되고 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
 
-이 예제에서는 애플리케이션 게이트웨이가 생성되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다. 
+이 예제에서는 애플리케이션 게이트웨이가 생성되었을 때 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다.
 
 1. **규칙**을 클릭한 다음, **기본**을 클릭합니다.
 2. 이름에 *contosoRule*을 입력합니다.
@@ -179,6 +179,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![애플리케이션 게이트웨이에서 fabrikam 사이트 테스트](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+애플리케이션 게이트웨이로 만든 리소스가 더 이상 필요 없으면 리소스 그룹을 제거합니다. 리소스 그룹을 제거하면 애플리케이션 게이트웨이 및 모든 관련 리소스도 함께 제거됩니다.
+
+리소스 그룹을 제거하려면:
+
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+2. **리소스 그룹** 페이지의 목록에서 **myResourceGroupAG**를 검색하여 선택합니다.
+3. **리소스 그룹** 페이지에서 **리소스 그룹 삭제**를 선택합니다.
+4. **리소스 그룹 이름 입력**에 *myResourceGroupAG*를 입력하고 **삭제**를 선택합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-[Application Gateway를 사용하여 App Service 구성](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Azure Application Gateway를 통해 수행할 수 있는 작업에 대해 자세히 알아보기](application-gateway-introduction.md)

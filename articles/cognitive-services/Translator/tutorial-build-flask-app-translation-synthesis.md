@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007461"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
@@ -670,7 +670,7 @@ flask run
 
 ### <a name="call-the-text-to-speech-api"></a>텍스트 음성 변환 API 호출
 
-텍스트를 음성으로 변환하는 함수를 작성해 보겠습니다. 이 함수는 `input_text` 및 `voice_font` 두 인수를 사용합니다. 이 함수는 사용자가 앱에서 텍스트 음성 변환 단추를 누를 때마다 호출됩니다. `input_text` 텍스트를 번역하는 호출에 의해 반환된 번역 출력이며, `voice_font`는 HTML의 음성 글꼴 선택기의 값입니다.
+텍스트를 음성으로 변환하는 함수를 작성해 보겠습니다. 이 함수는 `input_text` 및 `voice_font` 두 인수를 사용합니다. 이 함수는 사용자가 앱에서 텍스트 음성 변환 단추를 누를 때마다 호출됩니다. `input_text`는 텍스트를 번역하는 호출에 의해 반환된 번역 출력이고 `voice_font`는 HTML의 음성 글꼴 선택기에서 가져온 값입니다.
 
 1. 작업 디렉터리의 루트에 `synthesize.py`라는 파일을 만들어 보겠습니다.
 
@@ -963,5 +963,5 @@ flask run
 ## <a name="next-steps"></a>다음 단계
 
 * [Translator Text API 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
-* [Text Analytics API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+* [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

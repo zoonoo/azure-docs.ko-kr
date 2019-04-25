@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523361"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997787"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 그룹 구성원 자격을 검색하기 위해 Windows VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 Microsoft Graph API에 액세스하는 방법을 보여줍니다. Azure 리소스에 대한 관리 ID는 Azure에서 자동으로 관리되며 이를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다.  이 자습서에서는 Azure AD 그룹의 VM ID 구성원 자격을 쿼리합니다. 예를 들어 그룹 정보는 권한 부여 결정에 종종 사용됩니다. 내부에서 VM의 관리 ID는 Azure AD의 **서비스 주체**로 표시됩니다. 그룹 쿼리를 수행하기 전에 Azure AD의 그룹에 VM ID를 나타내는 서비스 주체를 추가합니다. 이 작업은 Azure PowerShell, Azure AD PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다.
+이 자습서에서는 Windows VM(가상 머신)에 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스하여 그룹 멤버 자격을 검색하는 방법을 보여 줍니다. Azure 리소스에 대한 관리 ID는 Azure에서 자동으로 관리되며 이를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다.  이 자습서에서는 Azure AD 그룹의 VM ID 구성원 자격을 쿼리합니다. 예를 들어 그룹 정보는 권한 부여 결정에 종종 사용됩니다. 내부에서 VM의 관리 ID는 Azure AD의 **서비스 주체**로 표시됩니다. 그룹 쿼리를 수행하기 전에 Azure AD의 그룹에 VM ID를 나타내는 서비스 주체를 추가합니다. 이 작업은 Azure PowerShell, Azure AD PowerShell 또는 Azure CLI를 사용하여 수행할 수 있습니다.
 
 > [!div class="checklist"]
 > * Azure에 연결

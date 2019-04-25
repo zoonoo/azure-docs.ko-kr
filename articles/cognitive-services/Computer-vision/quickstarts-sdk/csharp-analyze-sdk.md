@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 636072b011c258e8e5ecb05b761bfab8d67e439a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: a88f1d0b2290bc4f5f52827960ea3bed94053c62
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609390"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997226"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Computer Vision SDK 및 C#을 사용하여 이미지 분석
 
@@ -24,7 +24,7 @@ ms.locfileid: "59609390"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+* Computer Vision 구독 키입니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 * [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
 

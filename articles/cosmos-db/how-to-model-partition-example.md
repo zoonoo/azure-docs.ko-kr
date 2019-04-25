@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 3/27/2019
 ms.author: thweiss
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919896"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
@@ -124,7 +124,7 @@ ms.locfileid: "58919896"
 
 ![users 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C1.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 7ms | 5.71RU | ✅ |
 
@@ -134,7 +134,7 @@ ms.locfileid: "58919896"
 
 ![users 컨테이너에서 단일 항목 검색](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 2ms | 1RU | ✅ |
 
@@ -144,7 +144,7 @@ ms.locfileid: "58919896"
 
 ![posts 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C2.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 9ms | 8.76RU | ✅ |
 
@@ -156,7 +156,7 @@ ms.locfileid: "58919896"
 
 각 추가 쿼리는 정확히 성능과 확장성을 최대화하기 위해 해당 컨테이너의 파티션 키를 필터링합니다. 하지만 결국에는 4개의 작업을 수행하여 하나의 게시물을 반환해야 하므로 이 부분은 다음 반복에서 개선됩니다.
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 9ms | 19.54RU | ⚠ |
 
@@ -171,7 +171,7 @@ ms.locfileid: "58919896"
 - 댓글 및 좋아요의 수를 집계하는 쿼리는 첫 번째 쿼리에서 반환된 각 게시물에 대해 실행되어야 합니다.
 - 주 쿼리는 `posts` 컨테이너의 파티션 키를 필터링하지 않으므로 컨테이너 전체에서 팬아웃 및 파티션 검사가 수행됩니다.
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 130ms | 619.41RU | ⚠ |
 
@@ -181,7 +181,7 @@ ms.locfileid: "58919896"
 
 ![posts 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C2.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 7ms | 8.57RU | ✅ |
 
@@ -193,7 +193,7 @@ ms.locfileid: "58919896"
 
 주 쿼리는 컨테이너의 파티션 키를 필터링하지만, 사용자 이름을 개별적으로 집계하면 전체 성능이 저하됩니다. 이 부분은 나중에 개선됩니다.
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 23ms | 27.72RU | ⚠ |
 
@@ -203,7 +203,7 @@ ms.locfileid: "58919896"
 
 ![posts 컨테이너에 단일 항목 쓰기](./media/how-to-model-partition-example/V1-C2.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 6ms | 7.05RU | ✅ |
 
@@ -213,7 +213,7 @@ ms.locfileid: "58919896"
 
 ![게시물에 대한 모든 좋아요 검색 및 추가 데이터 수집](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 59ms | 58.92RU | ⚠ |
 
@@ -225,7 +225,7 @@ ms.locfileid: "58919896"
 
 또 다시, 초기 쿼리에서 `posts` 컨테이너의 파티션 키를 필터링하지 않으므로 비용이 많이 드는 팬아웃이 트리거됩니다. 더욱이 훨씬 더 큰 결과 집합을 대상으로 하고 `ORDER BY` 절을 사용하여 결과를 정렬하므로 요청 단위 측면에서 비용이 더 많이 듭니다.
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 306ms | 2063.54RU | ⚠ |
 
@@ -314,7 +314,7 @@ function createComment(postId, comment) {
 이 저장 프로시저는 게시물의 ID와 새 댓글의 본문을 매개 변수로 사용하여 다음을 수행합니다.
 
 - 게시물 검색
-- 증분 `commentCount`
+- `commentCount` 증분
 - 게시물 대체
 - 새 댓글 추가
 
@@ -356,7 +356,7 @@ function updateUsernames(userId, username) {
 
 - `userId`와 일치하는 모든 항목(게시물, 댓글 또는 좋아요 항목일 수 있음) 가져오기
 - 각 항목의 경우
-  - 대체 `userUsername`
+  - `userUsername` 대체
   - 항목 대체
 
 > [!IMPORTANT]
@@ -370,7 +370,7 @@ function updateUsernames(userId, username) {
 
 ![posts 컨테이너에서 단일 항목 검색](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 2ms | 1RU | ✅ |
 
@@ -380,7 +380,7 @@ function updateUsernames(userId, username) {
 
 ![게시물에 대한 모든 댓글 검색](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 4ms | 7.72RU | ✅ |
 
@@ -390,7 +390,7 @@ function updateUsernames(userId, username) {
 
 ![게시물에 대한 모든 좋아요 검색](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 4ms | 8.92RU | ✅ |
 
@@ -409,8 +409,8 @@ function updateUsernames(userId, username) {
 이 상황에 대해 생각하는 방법은 다음과 같이 실제로 간단합니다.
 
 1. 이 요청은 특정 사용자에 대한 모든 게시물을 가져오려고 하므로 `userId`를 *필터링해야 합니다*.
-1. 분할되지 않은 `posts` 컨테이너에 대해 실행되므로 효율적으로 수행되지 않습니다. `userId`
-1. 분명히 말하면, 이 요청을 *분할된* 컨테이너에 대해 실행하여 성능 문제를 해결할 수 있습니다. `userId`
+1. `userId`로 분할되지 않은 `posts` 컨테이너에 대해 실행되므로 효율적으로 수행되지 않습니다.
+1. 분명히 말하면, `userId`로 *분할된* 컨테이너에 대해 이 요청을 실행하여 성능 문제를 해결할 수 있습니다.
 1. 이미 `users` 컨테이너가 있습니다!
 
 따라서 전체 게시물을 `users` 컨테이너에 복제하여 두 번째 수준의 비정규화를 도입합니다. 이렇게 하면 다른 차원을 따라서만 분할된 게시물 복사본을 효과적으로 얻을 수 있으므로 `userId`로 검색하는 것이 더 효율적입니다.
@@ -450,7 +450,7 @@ function updateUsernames(userId, username) {
 
 ![사용자에 대한 모든 게시물 검색](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 4ms | 6.46RU | ✅ |
 
@@ -534,7 +534,7 @@ function truncateFeed() {
 
 ![최근 게시물 검색](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **대기 시간** | **RU 크기** | **성능** |
+| **대기 시간** | **RU 요금** | **성능** |
 | --- | --- | --- |
 | 9ms | 16.97RU | ✅ |
 

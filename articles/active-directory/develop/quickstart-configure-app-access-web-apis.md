@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995209"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999589"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성(미리 보기)
 

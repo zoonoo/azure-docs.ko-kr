@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 데이터 관리 '
-description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2 계정과 디렉터리 및 파일에 파일 시스템을 만드는 방법을 알아봅니다. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2 계정의 파일 시스템과 디렉터리 및 파일을 만드는 방법을 알아봅니다. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.subservice: data-lake-storage-gen2
@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: 6f3aa81f0fa2497db02d069e93e007b43c37beb9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b6add3c2402df9c0db2284945269d3fbaa1c65e1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250455"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995475"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>빠른 시작: Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2 계정에서 데이터 관리
 
@@ -26,7 +26,7 @@ ms.locfileid: "55250455"
 
 이 빠른 시작을 사용하려면 Azure Storage 탐색기를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage 탐색기를 설치하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
 
-## <a name="log-in-to-storage-explorer"></a>Storage 탐색기에 로그인
+## <a name="sign-in-to-storage-explorer"></a>Storage 탐색기에 로그인
 
 처음 시작하는 경우 **Microsoft Azure Storage 탐색기 - 연결** 창이 표시됩니다. Storage 탐색기에서는 몇 가지 방법으로 스토리지 계정에 연결할 수 있지만, 현재는 ACL을 관리하는 한 가지 방법만 지원됩니다.
 
@@ -38,15 +38,15 @@ ms.locfileid: "55250455"
 
 ![Microsoft Azure Storage 탐색기 - 연결 창](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-작업이 완료되면 Azure Storage 탐색기는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 스토리지뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
+작업이 완료되면 Azure Storage 탐색기는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 스토리지뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
 
 ![Microsoft Azure Storage 탐색기 - 연결 창](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-filesystem"></a>파일 시스템 만들기
+## <a name="create-a-file-system"></a>파일 시스템 만들기
 
 Blob은 항상 디렉터리에 업로드됩니다. 컴퓨터의 폴더에서 파일을 구성하는 것처럼 컨테이너를 사용하여 Blob 그룹을 구성할 수 있습니다.
 
-디렉터리를 만들려면 진행 단계에서 만든 스토리지 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. 파일 시스템의 이름을 입력합니다. 완료되면 **Enter**를 눌러 파일 시스템을 만듭니다. Blob 디렉터리가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
+디렉터리를 만들려면 진행 단계에서 만든 스토리지 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. 파일 시스템에 대한 이름을 입력합니다. 완료되면 **Enter**를 눌러 파일 시스템을 만듭니다. Blob 디렉터리가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
 
 ![Microsoft Azure Storage 탐색기 - 파일 시스템 만들기](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 

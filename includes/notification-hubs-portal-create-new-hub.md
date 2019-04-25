@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60423298"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택하고, **모바일** 섹션에서 **Notification Hubs**를 선택합니다. 서비스 이름 옆에서 별표(`*`)를 선택하여 왼쪽 메뉴의 **즐겨찾기** 섹션에 추가합니다. **Notification Hubs**가 **즐겨찾기**에 추가되면 왼쪽 메뉴에서 선택합니다. 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2019
 ms.author: glenga
 ms.custom: include file, fasttrack-edit
-ms.openlocfilehash: 3b0be31afbce78c0de8dc919245e92bee7af04b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b009fafc818a06bdda309b3e025251cc0997e47
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57964213"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737192"
 ---
 ## <a name="update-the-function"></a>함수 업데이트
 
@@ -33,7 +33,7 @@ public static async Task<IActionResult> Run(
 
 ### <a name="javascript"></a>JavaScript
 
-새 함수에 대한 function.json 파일을 열고, 텍스트 편집기에서 열고, **bindings.httpTrigger**의 **authLevel** 속성을 `anonymous`로 업데이트하고, 변경 내용을 저장합니다.
+텍스트 편집기에서 새 함수에 대한 function.json 파일을 열고 **바인딩**의 **authLevel** 속성을 `anonymous`로 업데이트하고, 변경 내용을 저장합니다.
 
 ```json
   "bindings": [

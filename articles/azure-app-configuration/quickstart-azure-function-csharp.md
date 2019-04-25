@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579583"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003244"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>빠른 시작: App Configuration으로 Azure 함수 만들기
 
@@ -38,6 +38,14 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 ## <a name="create-an-app-configuration-store"></a>앱 구성 저장소 만들기
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. **키/값 탐색기** > **+ 만들기**를 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+
+    | 키 | 값 |
+    |---|---|
+    | TestApp:Settings:Message | Azure App Configuration의 정보 |
+
+    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -114,4 +122,4 @@ Azure App Configuration은 Azure의 관리형 구성 서비스로서, 코드와 
 이 빠른 시작에서는 새 앱 구성 저장소를 만들고, Azure 함수 앱에서 사용했습니다. App Configuration을 사용하는 방법을 자세히 알아보려면 인증에 대해 설명하는 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 리소스 통합용 관리 ID](./integrate-azure-managed-service-identity.md)
+> [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)

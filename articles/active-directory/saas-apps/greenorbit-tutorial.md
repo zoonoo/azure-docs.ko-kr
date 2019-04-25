@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6720d888aae313a2e6ad2ce4df458adba8742f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: b05c91138f3140abe6a08964fa06caef988e5f49
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565362"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>자습서: GreenOrbit와 Azure Active Directory 통합
 
@@ -56,7 +56,7 @@ GreenOrbit와 Azure AD 통합을 구성하려면 갤러리의 GreenOrbit를 관�
 
 **갤러리에서 GreenOrbit를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ GreenOrbit와 Azure AD 통합을 구성하려면 갤러리의 GreenOrbit를 관�
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-3. 새 애플리케이션을 추가하려면 대화 상자 맨 위에 있는 **새 애플리케이션** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
@@ -108,9 +108,9 @@ GreenOrbit에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
     ![GreenOrbit 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.GreenOrbit.com` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.yourcompanydomain.extension` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `http://<SUBDOMAIN>.trial.GreenOrbit.com` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<SUBDOMAIN>.yourcompanydomain.extension` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [GreenOrbit 클라이언트 지원 팀](mailto:support@greenorbit.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 68cf4561d24a84c5aacefbe5fbd11bcd7e0576aa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 01a64345285149a50c226ebb344982425a813156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878556"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995084"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
 Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션할 수 있습니다.
@@ -32,6 +32,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
+- 처리량 추정, 파티션 키 선택 및 인덱싱 정책과 같은 [사전 마이그레이션 완료](../cosmos-db/mongodb-pre-migration.md) 단계.
 - [Azure Cosmos DB의 API for MongoDB 계정을 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 사이트 간 연결을 온-프레미스 원본 서버에 제공하는 Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNET(Virtual Network)을 만듭니다.
 
@@ -175,6 +176,10 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 - 마이그레이션이 완료되면 Azure Cosmos DB 계정을 검사하여 모든 컬렉션이 성공적으로 마이그레이션되었는지 확인할 수 있습니다.
 
     ![작업 상태 완료됨](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+
+## <a name="post-migration-optimization"></a>마이그레이션 후 최적화
+
+MongoDB 데이터베이스에 저장된 데이터를 MongoDB용 Azure Cosmos DB의 API로 마이그레이션한 후 Azure Cosmos DB에 연결하고 데이터를 관리할 수 있습니다. 인덱싱 정책 최적화, 기본 일관성 수준 업데이트 또는 Azure Cosmos DB 계정에 대한 글로벌 배포 구성과 같은 다른 마이그레이션 후 최적화 단계를 수행할 수도 있습니다. 자세한 내용은 [마이그레이션 후 최적화](../cosmos-db/mongodb-post-migration.md) 문서를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

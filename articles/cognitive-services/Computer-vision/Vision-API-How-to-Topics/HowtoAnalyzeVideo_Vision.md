@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351850"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001561"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>실시간으로 비디오를 분석하는 방법
 
@@ -216,7 +216,7 @@ VideoFrameAnalyzer의 이미지, 음성, 비디오 또는 텍스트 해석 기�
 
 ## <a name="summary"></a>요약
 
-이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법과 샘플 코드를 사용하여 시작하는 방법을 배웠습니다. [Microsoft Cognitive Services 등록 페이지](https://azure.microsoft.com/try/cognitive-services/)에서 체험 API 키를 사용하여 앱 빌드를 시작할 수 있습니다. 
+이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법과 샘플 코드를 사용하여 시작하는 방법을 배웠습니다. [Azure Cognitive Services 등록 페이지](https://azure.microsoft.com/try/cognitive-services/)에서 체험 API 키를 사용하여 앱 빌드를 시작할 수 있습니다. 
 
 [GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 보내주세요. 더 광범위한 API 피드백의 경우  [UserVoice 사이트](https://cognitive.uservoice.com/)를 이용하셔도 됩니다.
 

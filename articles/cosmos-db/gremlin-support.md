@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275558"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
@@ -158,13 +158,13 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | `addV` | 그래프에 꼭짓점을 추가합니다. | [addV 단계](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
 | `and` | 모든 순회가 값을 반환하는지 확인합니다. | [and 단계](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
 | `as` | 단계의 출력에 변수를 할당하는 단계 변조기 | [as 단계](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | `group`에서 사용되는 단계 변조기 `order` | [by 단계](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `by` | `group` 및 `order`에서 사용되는 단계 변조기 | [by 단계](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
 | `coalesce` | 결과를 반환하는 첫 번째 순회를 반환합니다. | [coalesce 단계](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | 상수 값을 반환합니다. 다음과 함께 사용됨: `coalesce`| [constant 단계](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `constant` | 상수 값을 반환합니다. `coalesce`에 사용됩니다.| [constant 단계](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
 | `count` | 순회에서 해당 개수를 반환합니다. | [count 단계](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
 | `dedup` | 중복 항목을 제거하고 값을 반환합니다. | [dedup 단계](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
 | `drop` | 값(꼭짓점/에지)을 삭제합니다. | [drop 단계](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `executionProfile` | 실 된 Gremlin 단계에서 생성된 모든 작업에 대한 설명을 작성합니다. | [executionProfile 단계단계](graph-execution-profile.md) |
+| `executionProfile` | 실 된 Gremlin 단계에서 생성된 모든 작업에 대한 설명을 작성합니다. | [executionProfile 단계](graph-execution-profile.md) |
 | `fold` | 결과의 집계를 계산하는 장벽으로 작동합니다.| [fold 단계](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
 | `group` | 지정된 레이블을 기준으로 값을 그룹화합니다.| [group 단계](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
 | `has` | 속성, 꼭짓점, 에지를 필터링하는 데 사용됩니다. `hasLabel`, `hasId`, `hasNot` 및 `has` 변형을 지원합니다. | [has 단계](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
@@ -173,7 +173,7 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 | `limit` | 순회의 항목 수를 제한하는 데 사용됩니다.| [limit 단계](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
 | `local` | local은 하위 쿼리와 비슷하게 순회 섹션을 래핑합니다. | [local 단계](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
 | `not` | 필터의 부정을 생성하는 데 사용됩니다. | [not 단계](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | 결과를 생성하는 경우 지정된 순회의 결과를 반환하고, 그렇지 않으면 호출하는 요소를 반환합니다. | [선택적 단계](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `optional` | 결과를 생성하는 경우 지정된 순회의 결과를 반환하고, 그렇지 않으면 호출하는 요소를 반환합니다. | [optional 단계](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
 | `or` | 순회 중 하나 이상이 값을 반환하도록 합니다. | [or 단계](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
 | `order` | 결과를 지정된 정렬 순서로 반환합니다. | [order 단계](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
 | `path` | 순회의 전체 경로를 반환합니다. | [path 단계](https://tinkerpop.apache.org/docs/current/reference/#path-step) |

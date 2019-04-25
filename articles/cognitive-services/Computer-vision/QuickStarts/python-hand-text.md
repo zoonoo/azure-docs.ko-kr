@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aa2c29a5b2becad75bae0f9ca9f88ab25a35d17f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 1863cabeecd425386597be7b76d6a3438c2b4a80
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883261"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000745"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 필기 텍스트 추출
 
@@ -27,14 +27,14 @@ ms.locfileid: "58883261"
 
 [MyBinder](https://mybinder.org)의 Jupyter Notebook을 사용하면 이 빠른 시작을 단계별로 실행할 수 있습니다. Binder를 시작하려면 다음 단추를 선택합니다.
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![시작 바인더 단추](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/try/cognitive-services/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
-- Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다.
 
 ## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
 

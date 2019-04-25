@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012490"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>빠른 시작: .NET Framework용 Speech SDK를 사용하여 음성 합성(Windows)
@@ -71,4 +71,4 @@ GitHub에서 최신 [Cognitive Services Speech SDK 샘플](https://github.com/Az
 ## <a name="see-also"></a>참고 항목
 
 - [음성 글꼴 사용자 지정](how-to-customize-voice-font.md)
-- [음성 샘플 기록](record-custom-voice-samples.md)
+- [음성 샘플 레코드](record-custom-voice-samples.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247905"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682800"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
 
@@ -26,11 +26,11 @@ ms.locfileid: "43247905"
 
 기존 API를 가져오려는 경우 [관련 항목](#related-topics) 섹션을 참조하세요.
 
-이 문서에서는 빈 API를 만들고 [httpbin.org](http://httpbin.org)(공용 테스트 서비스)를 백 엔드 API로 지정합니다.
+이 문서에서는 빈 API를 만들고 [httpbin.org](https://httpbin.org)(공용 테스트 서비스)를 백 엔드 API로 지정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
+다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,10 +48,10 @@ ms.locfileid: "43247905"
     |**Name**|**값**|**설명**|
     |---|---|---|
     |**표시 이름**|*빈 API*" |이 이름은 개발자 포털에 표시됩니다.|
-    |**웹 서비스 URL**(선택 사항)| "*http://httpbin.org*"| 모의 API를 만들려는 경우에는 아무 것도 입력할 필요가 없습니다. <br/>이 예에서는 [http://httpbin.org](http://httpbin.org)를 입력합니다. 이것은 공용 테스트 서비스입니다. <br/>자동으로 백 엔드에 매핑되는 API를 가져오려는 경우 [관련 항목](#related-topics) 섹션의 항목 중 하나를 참조하세요.|
+    |**웹 서비스 URL**(선택 사항)| "*https://httpbin.org*"| 모의 API를 만들려는 경우에는 아무 것도 입력할 필요가 없습니다. <br/>이 예에서는 [https://httpbin.org](https://httpbin.org)를 입력합니다. 이것은 공용 테스트 서비스입니다. <br/>자동으로 백 엔드에 매핑되는 API를 가져오려는 경우 [관련 항목](#related-topics) 섹션의 항목 중 하나를 참조하세요.|
     |**URL 구성표**|"*HTTPS*"|이 경우 백 엔드에 비보안 HTTP 액세스가 있더라도 백 엔드에 대해 보안 HTTPS APIM 액세스를 지정합니다. <br/>이러한 종류의 시나리오(HTTPS-HTTP)를 HTTPS 종단이라고 합니다. 가상 네트워크 내에 API가 있는 경우(HTTPS가 사용되지 않더라도 액세스의 보안이 유지된다는 것을 아는 경우) 이 작업을 수행할 수 있습니다. <br/>일부 CPU 주기를 줄이기 위해 "HTTPS 종단"을 사용하려고 할 수도 있습니다.|
     |**URL 접미사**|"*hbin*"| 접미사는 이 APIM 인스턴스에서 이 특정 API를 식별하는 이름입니다. 이 APIM 인스턴스 내에서 고유해야 합니다.|
-    |**제품**|"*Unlimited*" |API를 제품에 연결하여 API를 게시합니다. API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.<br/><br/>제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.<br/><br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품인 **Starter** 및 **Unlimited**와 함께 제공됩니다.| 
+    |**제품**|"*Unlimited*" |API를 제품에 연결하여 API를 게시합니다. API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.<br/><br/>제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.<br/><br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품과 함께 제공됩니다. **Starter** 및 **Unlimited**입니다.| 
 5. **만들기**를 선택합니다.
 
 이때 백 엔드 API의 작업에 매핑되는 APIM의 작업은 없습니다. APIM을 통해서가 아니라 백 엔드를 통해 노출되는 작업을 호출하는 경우 **404**가 표시됩니다.

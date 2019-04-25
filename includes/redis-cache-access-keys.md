@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 50264dfba401f623c4ad14a6310303f2787fc85f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552057"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Azure Portal을 사용하여 호스트 이름, 포트 및 액세스 키를 검색합니다.
 

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e86ae61a6aec6c546b36c52f3f3875cbebdc838e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861930"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>자습서: Absorb LMS와 Azure Active Directory 통합
 
@@ -38,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Absorb LMS와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Absorb LMS Single Sign-On이 설정된 플랜
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -120,11 +121,15 @@ Absorb LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Absorb LMS 클라이언트 지원 팀](https://support.absorblms.com/hc/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **메타데이터 XML**를 다운로드하고 컴퓨터에 저장합니다.
+5. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다.
+
+    ![이미지](common/edit-attribute.png)
+
+6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-6. **Absorb LMS 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+7. **Absorb LMS 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -162,7 +167,7 @@ Absorb LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     d. **모드** 상자에서 **ID 공급자 시작됨**을 선택합니다.
 
-    e. **ID 속성** 상자에 Azure AD에서 사용자 ID로 구성한 속성을 선택합니다. 예를 들어 Azure AD에서 *userPrincipalName*을 선택했으면 **사용자 이름**을 선택합니다.
+    e. **ID 속성** 상자에 Azure AD에서 사용자 ID로 구성한 속성을 선택합니다. 예를 들어 Azure AD에서 *nameidentifier*를 선택한 경우 **사용자 이름**을 선택합니다.
 
     f. **Signature Type**(서명 유형)으로 **Sha256**을 선택합니다.
 
@@ -194,7 +199,7 @@ Absorb LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.

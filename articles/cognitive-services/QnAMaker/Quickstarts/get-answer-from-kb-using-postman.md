@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d12051821faa60940bf2acc569c6552561b4b3ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 24bd6731faa9788dc336db199aa9776813e7348f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267943"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683446"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>빠른 시작: Postman을 사용하여 기술 자료에서 답변 가져오기
 
@@ -36,44 +36,42 @@ ms.locfileid: "59267943"
 
 다음 이미지의 노란색 숫자는 다음 단계에서 사용할 이름/값 쌍을 나타냅니다.
 
-[![Publish 결과](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
+[![게시 결과](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png)](../media/qnamaker-quickstart-get-answer-with-postman/publish-settings.png#lightbox)
 
 Postman을 사용하여 대답을 생성하려면 다음 단계를 완료합니다.
 
 1. Postman을 엽니다. 구성 요소를 선택하도록 요청한 경우 **기본 요청** 구성 요소를 선택합니다. **요청 이름**을 `Generate QnA Maker answer`로 설정하고, **컬렉션**을 `Generate QnA Maker answers`로 설정합니다. 컬렉션에 저장하지 않으려는 경우 **취소** 단추를 선택합니다.
 1. 작업 영역에서 HTTP 메서드로 **POST**를 선택합니다.
 
-    [![IPostman에서 POST 메서드 설정](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
+    [![Postman에서 POST 메서드 설정](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png)](../media/qnamaker-quickstart-get-answer-with-postman/postman-select-post-method.png#lightbox)
 
 1. URL에 대해 HOST 값(이미지의 #2)과 POST 값(이미지의 #1)을 연결하여 전체 URL을 만듭니다. 전체 예제 URL은 다음과 같습니다. 
 
     `https://qnamaker-f0.azurewebsites.net/qnamaker/knowledgebases/e1115f8c-d01b-4698-a2ed-85b0dbf3348c/generateAnswer`
 
-    [![IPostman에서 전체 URL 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
+    [![Postman에서 전체 URL 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-method-and-url.png#lightbox)
 
 1. URL 아래의 **헤더** 탭을 선택하고 **일괄 편집**을 선택합니다. 
 
 1. 텍스트 영역(이미지의 #3 및 #4)에 헤더를 복사합니다.
 
-    [![IPostman에서 헤더 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
+    [![Postman에서 헤더를 설정합니다.](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-headers.png#lightbox)
 
 1. **본문** 탭을 선택합니다.
 1. **원시** 형식을 선택하고 질문을 나타내는 JSON(이미지의 #5)을 입력합니다.
 
     `{"question":"How do I programmatically update my Knowledge Base?"}`
 
-    [![IPostman에서 본문 JSON 값 설정](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
+    [![Postman에서 본문 JSON 값을 설정합니다.](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png)](../media/qnamaker-quickstart-get-answer-with-postman/set-postman-body-json-value.png#lightbox)
 
 1. **보내기** 단추를 선택합니다.
 1. 응답에는 클라이언트 애플리케이션에 중요할 수 있는 기타 정보와 함께 대답이 포함됩니다. 
 
-    [![IPostman에서 본문 JSON 값 설정](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
+    [![Postman에서 본문 JSON 값을 설정합니다.](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png)](../media/qnamaker-quickstart-get-answer-with-postman/receive-postman-response.png#lightbox)
 
 ## <a name="use-staging-endpoint"></a>준비 엔드포인트 사용
 
-준비 엔드포인트에서 대답을 가져오려면 값이 `true`인 `isTest` 쿼리 문자열 부울 매개 변수를 통해 URL을 추가합니다.
-
-`?isTest=true`
+준비 엔드포인트에서 대답을 가져오려면 값이 `isTest` 본문 속성이 있는 URL을 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

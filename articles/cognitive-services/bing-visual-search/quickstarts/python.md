@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7ec37b4c3bdeb924b3e35dbcb5d07a478611f631
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047129"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>빠른 시작: Bing Visual Search REST API 및 Python을 사용하여 이미지 인사이트 가져오기

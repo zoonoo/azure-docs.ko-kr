@@ -3,16 +3,16 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스가 어떻게 대규모의 복잡한 리소스 쿼리를 지원하는지 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 03/30/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d76a5b32403bd14f18181580f891925130808922
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269291"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002887"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -21,11 +21,13 @@ Azure Resource Graph는 모든 구독 및 관리 그룹에서 대규모로 쿼�
 - 리소스 속성별로 복합 필터링, 그룹화 및 정렬을 사용하여 리소스를 쿼리하는 기능
 - 거버넌스 요구 사항에 따라 리소스를 반복적으로 탐색하고 결과 식을 정책 정의로 변환하는 기능
 - 광범위한 클라우드 환경에서 정책을 적용할 때 미치는 영향을 평가하는 기능
+- [리소스 속성에 대한 세부 변경 내용](./how-to/get-resource-changes.md)(미리 보기)에 대한 기능.
 
 이 설명서에서는 각 기능을 자세히 설명합니다.
 
 > [!NOTE]
-> Azure Resource Graph는 Azure Portal의 새로운 '모든 리소스' 탐색 환경에서 사용됩니다. 이 기능은 대규모 환경을 관리할 필요가 있는 고객을 도와주도록 디자인되었습니다.
+> Azure Resource Graph는 Azure Portal의 새로운 찾아보기 '모든 리소스' 탐색 환경과 Azure Policy의 [변경 내역](../policy/how-to/determine-non-compliance.md#change-history-preview)에서 사용됩니다.
+> _시각적 개체 차이_. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph가 Azure Resource Manager를 보완하는 방법
 
@@ -33,13 +35,19 @@ Azure Resource Manager는 현재 여러 리소스 필드, 특히 리소스 이�
 
 Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다.
 
+Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
+
+- 각 리소스 공급자를 별도로 호출하지 않고 리소스 공급자가 반환하는 속성에 액세스합니다.
+- 리소스에 대한 지난 14일 동안의 변경 기록을 보고 변경된 속성과 시기를 확인합니다. (미리 보기)
+
 ## <a name="the-query-language"></a>쿼리 언어
 
 지금까지 Azure Resource Graph에 대해 알아보았으므로 이제 쿼리 생성 방법을 자세히 살펴보겠습니다.
 
 Azure Resource Graph의 쿼리 언어는 Azure Data Explorer의 [Kusto 쿼리 언어](../../data-explorer/data-explorer-overview.md)에 기반을 두고 있다는 것을 이해하는 것이 중요합니다.
 
-먼저 Azure Resource Graph에서 사용할 수 있는 작업 및 함수에 대한 자세한 내용은 [Resource Graph 쿼리 언어](./concepts/query-language.md)를 참조하세요. 리소스를 찾아보려면 [리소스 탐색](./concepts/explore-resources.md)을 참조하세요.
+먼저 Azure Resource Graph에서 사용할 수 있는 작업 및 함수에 대한 자세한 내용은 [Resource Graph 쿼리 언어](./concepts/query-language.md)를 참조하세요.
+리소스를 찾아보려면 [리소스 탐색](./concepts/explore-resources.md)을 참조하세요.
 
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Resource Graph의 권한
 
@@ -58,7 +66,7 @@ Resource Graph는 Azure CLI, Azure PowerShell 및 Azure SDK for .NET을 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리 실행
-- [Azure PowerShell](first-query-powershell.md)로 첫 번째 쿼리 실행
-- [시작 쿼리](./samples/starter.md)로 시작
-- [고급 쿼리](./samples/advanced.md)를 통해 이해 확장
+- [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
+- [Azure PowerShell](first-query-powershell.md)로 첫 번째 쿼리를 실행합니다.
+- [시작 쿼리](./samples/starter.md)로 시작합니다.
+- [고급 쿼리](./samples/advanced.md)를 통해 이해를 향상시킵니다.

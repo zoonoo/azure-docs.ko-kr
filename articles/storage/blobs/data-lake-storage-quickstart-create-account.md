@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456009"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995679"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
-Azure Data Lake Storage Gen2는 HDFS(Hadoop 분산 파일 시스템)에서 작동하도록 조정된 네이티브 디렉터리 기반 파일 시스템을 제공하는 [계층 구조 네임스페이스 서비스를 지원](data-lake-storage-introduction.md)합니다. HDFS에서 Data Lake Storage Gen2 데이터에 액세스하려면 [ABFS 드라이버](data-lake-storage-abfs-driver.md)를 통해 액세스할 수 있습니다.
+Azure Data Lake Storage Gen2는 HDFS(Hadoop 분산 파일 시스템)에서 작동하도록 조정된 네이티브 디렉터리 기반 파일 시스템을 제공하는 [계층 구조 네임스페이스를 지원](data-lake-storage-introduction.md)합니다. HDFS에서 Data Lake Storage Gen2 데이터에 액세스하려면 [ABFS 드라이버](data-lake-storage-abfs-driver.md)를 통해 액세스할 수 있습니다.
 
 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 통해 계정을 만드는 방법을 보여 줍니다.
 
@@ -112,7 +112,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면
 
 먼저 [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) 모듈의 최신 버전을 설치합니다.
 
-그런 다음, PowerShell 모듈을 업그레이드하고, Azure 구독에 로그인하고, 리소스 그룹을 만든 이후에 스토리지 계정을 만듭니다.
+그런 다음, powershell 모듈을 업그레이드하고, Azure 구독에 로그인하고, 리소스 그룹을 만든 다음, 스토리지 계정을 만듭니다.
 
 ### <a name="upgrade-your-powershell-module"></a>PowerShell 모듈 업그레이드
 
@@ -128,7 +128,7 @@ Az.Storage 모듈 설치
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인
+### <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
 `Login-AzAccount` 명령을 사용하고 화면의 지시에 따라 인증합니다.
 
@@ -178,7 +178,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-CLI의 로컬 설치에 로그인하려면 로그인 명령을 실행합니다.
+CLI의 로컬 설치에 로그인하려면 다음과 같은 로그인 명령을 실행합니다.
 
 ```cli
 az login

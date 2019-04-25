@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ce870bfb8d29f7a808962e4d273388ab31186f10
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270526"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997410"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 개인 Docker 컨테이너 레지스트리 소개
 
@@ -44,11 +44,11 @@ Azure에는 Azure 컨테이너 레지스트리를 관리하는 Azure 명령줄 �
 
 * **리포지토리** - 레지스트리에는 이름은 같지만 태그나 다이제스트가 다른 컨테이너 이미지의 가상 그룹인 리포지토리가 하나 이상 있습니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예: 
 
-  * `myregistry.azurecr.io/aspnetcore:1.0.1` 은(는) 회사 차원의 이미지를 나타냅니다.
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` 은(는) 보증 부서 차원에서 공유되는 .NET 앱을 빌드하는 데 사용되는 이미지를 나타냅니다.
-  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` 은(는) 보증 부서에서 소유한 고객 제출 앱에 그룹화된 웹 이미지를 나타냅니다.
+  * `myregistry.azurecr.io/aspnetcore:1.0.1`은 회사 차원의 이미지를 나타냅니다.
+  * `myregistry.azurecr.io/warrantydept/dotnet-build`는 보증 부서 차원에서 공유되는 .NET 앱을 빌드하는 데 사용되는 이미지를 나타냅니다.
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web`은 보증 부서에서 소유한 고객 제출 앱에 그룹화된 웹 이미지를 나타냅니다.
 
-* **이미지** - 리포지토리에 저장되며 각 이미지는 Docker 호환 컨테이너의 읽기 전용 스냅숏입니다. Azure 컨테이너 레지스트리는 Windows 및 Linux 이미지 모두를 포함할 수 있습니다. 모든 컨테이너 배포에 대한 이미지 이름을 제어합니다. 표준 [Docker 명령](https://docs.docker.com/engine/reference/commandline/)을 사용하여 이미지를 리포지토리로 밀어넣거나 이미지를 리포지토리에서 끌어옵니다. Azure Container Registry는 컨테이너 이미지 외에도 Kubernetes에 애플리케이션을 배포하는 데 사용되는 [Helm 차트](container-registry-helm-repos.md)와 같은 [관련 콘텐츠 형식](container-registry-image-formats.md)을 저장합니다.
+* **이미지** - 리포지토리에 저장되며 각 이미지는 Docker 호환 컨테이너의 읽기 전용 스냅숏입니다. Azure 컨테이너 레지스트리는 Windows 및 Linux 이미지 모두를 포함할 수 있습니다. 모든 컨테이너 배포에 대한 이미지 이름을 제어합니다. 표준 [Docker 명령](https://docs.docker.com/engine/reference/commandline/)을 사용하여 이미지를 리포지토리로 밀어넣거나 이미지를 리포지토리에서 끌어옵니다. Azure Container Registry는 Docker 컨테이너 이미지 외에도 [Helm 차트](container-registry-helm-repos.md)와 같은 [관련 콘텐츠 형식](container-registry-image-formats.md) 및 [OCI(Open Container Initiative) 이미지 형식 사양](https://github.com/opencontainers/image-spec/blob/master/spec.md)에 빌드된 이미지를 저장합니다.
 
 * **컨테이너** - 컨테이너는 소프트웨어 애플리케이션을 정의하며 코드, 런타임, 시스템 도구 및 라이브러리를 포함하는 완전한 파일 시스템으로 래핑된 종속성을 정의합니다. 컨테이너 레지스트리에서 끌어온 Windows 또는 Linux 이미지를 기반으로 Docker 컨테이너를 실행합니다. 단일 컴퓨터에서 실행되는 컨테이너는 운영 체제 커널을 공유합니다. Docker 컨테이너는 모든 주요 Linux 배포판, macOS 및 Windows로 완전히 이식이 가능합니다.
 

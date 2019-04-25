@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/21/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa6a88971ca69fa910435d00722dcdf12db44f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf2576aa112d58e499f0c4a16bf8e9261114974b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880894"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>자습서: Clear Review와 Azure Active Directory 통합
 
@@ -38,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Clear Review와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Clear Review Single Sign-on이 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -118,33 +119,21 @@ Clear Review에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Clear Review 클라이언트 지원 팀](https://clearreview.com/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. Clear Review 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+6. Clear Review 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Clear Review 애플리케이션에서는 **nameidentifier**가 **user.mail**과 매핑되어야 하기 때문에, **편집** 아이콘을 클릭하고 특성 매핑을 변경하여 특성을 편집해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 
-7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
-    
-    | Name | 원본 특성 | 
-    | ---------------| --------------- |
-    | 이름 식별자 값   | user.mail |
+7. **사용자 특성 및 클레임** 대화 상자에서 다음 단계를 수행합니다.
 
-    a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
+    a. **이름 식별자 값**의 오른쪽에 있는 **편집 아이콘**을 클릭합니다.
 
-    ![이미지](common/new-save-attribute.png)
+    ![이미지](./media/clearreview-tutorial/attribute02.png)
 
-    ![이미지](common/new-attribute-details.png)
+    ![이미지](./media/clearreview-tutorial/attribute01.png)
 
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **원본 특성** 목록에서 해당 행에 대한 **user.mail** 특성 값을 선택합니다.
 
-    다. **네임스페이스**를 비워 둡니다.
-
-    d. 원본을 **특성**으로 선택합니다.
-
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
-
-    f. **확인**을 클릭합니다.
-
-    g. **저장**을 클릭합니다.
+    다. **저장**을 클릭합니다.
 
 8. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -168,7 +157,7 @@ Clear Review에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
     ![Single Sign-On 구성 저장 단추](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. 페이지 맨 아래에서 **Change**를 선택합니다.
+3. 페이지 하단의 **통합** 섹션에서 **Single Sign On 설정**의 오른쪽에 있는 **변경** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
@@ -184,7 +173,7 @@ Clear Review에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 �
 
     d. 다운로드한 인증서를 메모장에서 열고, **X.509 인증서** 텍스트 상자에 콘텐츠를 붙여넣습니다.   
 
-5. **저장**을 클릭합니다.
+    e. **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 

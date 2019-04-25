@@ -13,10 +13,10 @@ ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490536"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
@@ -41,8 +41,8 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
     | 언어 | 내선 번호 |
     | -------- | --------- |
-    | **C#** | [Visual Studio Code용 C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **자바** | [Java에 대한 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
+    | **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
+    | **Java** | [Java에 대한 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
     | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
 
     \* 또한 Core 도구에서 필요합니다.
