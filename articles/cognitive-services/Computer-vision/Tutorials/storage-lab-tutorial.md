@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Storage 이미지에 대한 메타데이터 생성'
+title: '자습서: Azure 이미지에 대한 메타데이터 생성'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Azure Computer Vision 서비스를 웹앱에 통합하여 이미지에 대한 메타데이터를 생성하는 방법을 알아봅니다.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448002"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005993"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
@@ -52,11 +52,11 @@ Azure 계정에 사용할 Computer Vision 리소스를 만들어야 합니다. �
 
 1. 리소스 그룹의 메뉴로 돌아가서 방금 만든 Computer Vision API 구독을 클릭합니다. **엔드포인트** 아래의 URL을 잠시 후에 쉽게 검색할 수 있는 위치에 복사합니다. 그런 다음, **액세스 키 표시**를 클릭합니다.
 
-    ![액세스 키 보기](../Images/copy-vision-endpoint.png)
+    ![설명된 엔드포인트 URL 및 액세스 키 링크가 있는 Azure Portal 페이지](../Images/copy-vision-endpoint.png)
 
 1. 다음 창에서 **키 1**의 값을 클립보드에 복사합니다.
 
-    ![액세스 키 복사](../Images/copy-vision-key.png)
+    ![키 관리 대화 상자(설명된 복사 단추 포함)](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Computer Vision 자격 증명 추가
 
@@ -136,7 +136,7 @@ Visual Studio에서 변경 내용을 저장하고 **Ctrl+F5**를 눌러 브라�
 
 연결된 모든 메타데이터를 보려면 Azure Storage 탐색기를 사용하여 이미지에 사용하고 있는 스토리지 컨테이너를 봅니다. 컨테이너에서 임의의 Blob을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 대화 상자에서 키-값 쌍 목록이 표시됩니다. 컴퓨터에서 생성된 이미지 설명은 "캡션" 항목에 저장되고, 검색 키워드는 "Tag0", "Tag1" 등에 저장됩니다. 완료되면 **취소**를 클릭하여 대화 상자를 닫습니다.
 
-![Blob 메타데이터](../Images/blob-metadata.png)
+![메타데이터 태그가 나열된 이미지 속성 대화 상자 창](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

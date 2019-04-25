@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 애플리케이션으로 알림을 푸시하는 방법을 알아봅니다.
+description: Azure Notification Hubs를 사용하여 Windows 유니버설 플랫폼 애플리케이션으로 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 author: jwargo
@@ -15,23 +15,23 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403207"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006933"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-이 자습서에서는 알림 허브를 만들어 UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림을 보냅니다. WNS(Windows 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 그런 다음, 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트할 수 있습니다.
+이 자습서에서는 알림 허브를 만들어 UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림을 보냅니다. WNS(Windows 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 그런 다음, 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트합니다.
 
 > [!NOTE]
 > [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)에서 이 자습서에 대해 완료된 코드를 찾을 수 있습니다.
 
-이 자습서에서 수행하는 단계는 다음과 같습니다.
+다음 단계를 수행하세요.
 
 > [!div class="checklist"]
 > * Windows 스토어에서 앱 만들기
@@ -45,6 +45,11 @@ ms.locfileid: "58403207"
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) 이상 버전
 - [UWP 앱 개발 도구 설치](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - 활성 Windows 스토어 계정
+- **앱 및 기타 발신자에서 알림 가져오기** 설정이 활성화되어 있는지 확인합니다. 
+    - 컴퓨터에서 **설정** 창을 시작합니다.
+    - **시스템** 타일을 선택합니다.
+    - 왼쪽 메뉴에서 **알림 및 작업**을 선택합니다. 
+    - **앱 및 기타 발신자에서 알림 가져오기** 설정이 활성화되어 있는지 확인합니다. 활성화되어 있지 않으면 활성화합니다. 
 
 이 자습서를 완료해야 다른 모든 UWP 앱용 Notification Hubs 자습서를 진행할 수 있습니다.
 
@@ -170,8 +175,7 @@ UWP 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결�
     ![알림 메시지](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## <a name="next-steps"></a>다음 단계
-
-이 자습서에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+포털 또는 콘솔 앱을 사용하여 모든 Windows 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[특정 디바이스에 알림 푸시](

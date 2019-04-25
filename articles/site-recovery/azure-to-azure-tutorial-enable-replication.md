@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ff18a14b314b5757629205f4bf0eb134411688ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853133"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678848"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -86,7 +86,7 @@ URL 대신 IP 주소를 사용하여 아웃바운드 연결을 제어하려는 �
   - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery 서비스 엔드포인트 IP 주소](https://aka.ms/site-recovery-public-ips)
 
-이 [스크립트](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)를 사용하여 필요한 NSG 규칙을 만들 수 있습니다.
+NSG를 사용하는 경우 원본 지역에 대한 스토리지 서비스 태그 NSG 규칙을 만들 수 있습니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## <a name="verify-azure-vm-certificates"></a>Azure VM 인증서 확인
 

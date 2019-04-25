@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459433"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage 탐색기 시작
 
@@ -99,7 +99,7 @@ Storage 탐색기는 Storage 계정에 연결하는 여러 방법을 제공합�
 
 2. 이제 왼쪽 창에는 사용자가 로그인한 모든 Azure 계정이 표시됩니다. 다른 계정에 연결하려면 **계정 추가**를 선택합니다.
 
-3. 국내 클라우드 또는 Azure Stack에 로그인하려는 경우 **Azure 환경** 드롭다운을 클릭하여 사용하려는 Azure 클라우드를 선택합니다. 환경을 선택했으면 **로그인...** 단추를 클릭합니다. Azure Stack에 로그인하는 경우 자세한 내용은 [Azure Stack 구독에 저장소 탐색기 연결](azure-stack/user/azure-stack-storage-connect-se.md)을 참조하세요.
+3. 국내 클라우드 또는 Azure Stack에 로그인하려는 경우 **Azure 환경** 드롭다운을 클릭하여 사용하려는 Azure 클라우드를 선택합니다. 환경을 선택했으면 **로그인...** 단추를 클릭합니다. Azure Stack에 로그인하는 경우 자세한 내용은 [Azure Stack 구독에 저장소 탐색기 연결](/azure-stack/user/azure-stack-storage-connect-se)을 참조하세요.
 
     ![로그인 옵션][2]
 

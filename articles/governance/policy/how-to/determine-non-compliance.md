@@ -3,16 +3,16 @@ title: 규정 비준수의 원인 확인
 description: 리소스를 호환 되지 않는 경우 여러 가지 가능한 이유가 있습니다. 비 호환성을 일으킨 원인을 확인 하는 방법을 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499325"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -124,6 +124,8 @@ Azure 리소스 정책 규칙을 준수 하도록 결정 되 면 리소스를 �
    ![정책 변경 기록을 변경 기록 페이지의 시각적 Diff](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색 된 변경 내용은 리소스의 현재 호환성 상태 관련이 있을 수 있습니다.
+
+변경 기록 데이터가 제공한 [Azure 리소스 그래프](../../resource-graph/overview.md)합니다. Azure portal 외부에서이 정보를 쿼리, 참조 [리소스 변경 내용을 가져오려면](../../resource-graph/how-to/get-resource-changes.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

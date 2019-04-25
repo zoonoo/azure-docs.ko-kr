@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: fae790f9b2d5ecc492f7ece5d259809e8664898d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457105"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "57991895"
 
 다음 표에는 몇 가지 일반적인 디바이스 및 관련 도움말이 나열되어 있습니다.
 
-|제품    |참조                                                |
+|Product    |참조                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Azure VPN에 대해 커뮤니티에서 제안하는 Cisco ASA 솔루션](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Azure VPN에 대해 커뮤니티에서 제안하는 Cisco ISR 솔루션](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
