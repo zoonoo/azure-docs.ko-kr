@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 일관성을 관리하는 방법 알아보기
 description: Azure Cosmos DB에서 일관성을 관리하는 방법 알아보기
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.date: 04/17/2019
+ms.author: rimman
+ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904324"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678448"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "58904324"
 
 ## <a name="configure-the-default-consistency-level"></a>기본 일관성 수준 구성
 
-기본 일관성 수준은 클라이언트에서 기본적으로 사용하는 일관성 수준입니다. 이는 클라이언트에서 재정의할 수 있습니다.
+[기본 일관성 수준](consistency-levels.md)은 클라이언트에서 기본적으로 사용하는 일관성 수준입니다. 클라이언트는 언제든지 기본 일관성 수준을 재정의할 수 있습니다.
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-다음 예제에서는 미국 동부 및 서부 지역에서 다중 마스터를 사용하도록 설정된 새 Azure Cosmos DB 계정을 만듭니다. 기본 일관성 정책은 Session(세션)으로 설정됩니다.
+이 예제에서는 미국 동부 및 미국 서부 지역에 다중 쓰기 지역을 사용하도록 설정된 새 Azure Cosmos 계정을 만듭니다. 기본 일관성 수준은 *세션* 일관성으로 설정됩니다.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -59,15 +59,15 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="portal"></a>포털
+### <a name="azure-portal"></a>Azure portal
 
-기본 일관성 수준을 보거나 수정하려면 Azure Portal에 로그인합니다. Azure Cosmos DB 계정을 찾아서 **기본 일관성** 창을 엽니다. 새 기본값으로 사용하려는 일관성 수준을 선택한 다음, **저장**을 선택합니다.
+기본 일관성 수준을 보거나 수정하려면 Azure Portal에 로그인합니다. Azure Cosmos 계정을 찾아서 **기본 일관성** 창을 엽니다. 새 기본값으로 사용하려는 일관성 수준을 선택한 다음, **저장**을 선택합니다.
 
 ![Azure Portal의 일관성 메뉴](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>기본 일관성 수준 재정의
 
-클라이언트는 서비스에서 설정된 기본 일관성 수준을 재정의할 수 있습니다. 이 옵션은 전체 클라이언트 또는 요청별로 설정할 수 있습니다.
+클라이언트는 서비스에서 설정한 기본 일관성 수준을 재정의할 수 있습니다. 일관성 수준을 요청별로 설정할 수 있으며, 이렇게 하면 계정 수준에서 설정된 기본 일관성 수준이 재정의됩니다.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -131,6 +131,8 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ```
 
 ## <a name="utilize-session-tokens"></a>세션 토큰 사용
+
+Azure Cosmos DB의 일관성 수준 중 하나는 *세션* 일관성입니다. 기본적으로 Cosmos 계정에 적용되는 기본 수준입니다. *세션* 일관성을 작업할 때 클라이언트는 설정된 일관성 수준을 유지하기 위해 각 읽기/쿼리 요청과 관련하여 내부적으로 세션 토큰을 사용합니다.
 
 세션 토큰을 수동으로 관리하려면 응답에서 세션 토큰을 가져와서 요청별로 설정합니다. 세션 토큰을 수동으로 관리할 필요가 없으면 다음 샘플을 사용할 필요가 없습니다. SDK는 세션 토큰을 자동으로 추적합니다. 세션 토큰을 수동으로 설정하지 않으면 기본적으로 SDK에서 최신 세션 토큰을 사용합니다.
 
@@ -209,15 +211,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>PBS(확률적 제한된 부실) 메트릭 모니터링
 
-PBS 메트릭을 보려면 Azure Portal에서 Cosmos DB 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택합니다. **강력하게 일관된 워크로드 기반 읽기 확률(PBS 참조)** 이라는 그래프를 살펴봅니다.
+최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](http://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택합니다. **강력하게 일관된 워크로드 기반 읽기 확률(PBS 참조)** 이라는 그래프를 살펴봅니다.
 
 ![Azure Portal의 PBS 그래프](./media/how-to-manage-consistency/pbs-metric.png)
 
-이 메트릭을 보려면 Azure Cosmos DB 메트릭 메뉴를 사용합니다. Azure 모니터링 메트릭 환경에는 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 데이터 충돌을 관리하는 방법을 자세히 알아보거나 Azure Cosmos DB의 다음 핵심 개념으로 이동합니다. 다음 문서를 참조하세요.
 
+* [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
 * [Azure 지역 간 충돌 관리](how-to-manage-conflicts.md)
 * [분할 및 데이터 배포](partition-data.md)
+* [최신 분산 데이터베이스 시스템 디자인의 일관성 절충](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [고가용성](high-availability.md)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

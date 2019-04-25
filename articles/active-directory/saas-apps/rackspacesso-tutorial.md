@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 61466f3574ba7a88665a8d78818d0a4c12716bbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269795"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009934"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>자습서: Rackspace SSO와 Azure Active Directory 통합
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Rackspace SSO와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Rackspace SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -72,7 +72,7 @@ Rackspace SSO가 Azure AD로 통합되도록 구성하려면 Rackspace SSO를 �
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
 이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Rackspace SSO에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 Rackspace SSO의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+Rackspace에서 Single Sign-On을 사용하는 경우 Rackspace 사용자는 Rackspace 포털에 처음 로그인할 때 자동으로 만들어집니다. 
 
 Rackspace SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
@@ -80,8 +80,8 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 2. **[Rackspace SSO Single Sign-On 구성](#configure-rackspace-sso-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Rackspace SSO 테스트 사용자 만들기](#create-rackspace-sso-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Rackspace SSO에 만듭니다.
-6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Rackspace 제어판에서 특성 매핑 설정](#set-up-attribute-mapping-in-the-rackspace-control-panel)** - Azure AD 사용자에게 Rackspace 역할을 할당합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -101,31 +101,41 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **기본 SAML 구성** 섹션에서, [URL](https://login.rackspace.com/federate/sp.xml)에서 다운로드할 수 있는 **서비스 공급자 메타데이터 파일**을 업로드하고 다음 단계를 수행합니다.
 
-    ![Rackspace SSO 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
+    a. **메타데이터 파일 업로드**를 클릭합니다.
 
-    **로그온 URL** 텍스트 상자에 `https://login.rackspace.com/federate/` URL을 입력합니다.
+    ![이미지](common/upload-metadata.png)
+
+    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+
+    ![이미지](common/browse-upload-metadata.png)
+
+    다. 메타데이터 파일이 성공적으로 업로드되면 필요한 URL이 자동으로 채워집니다.
+
+    d. **로그온 URL** 텍스트 상자에 `https://login.rackspace.com/federate/` URL을 입력합니다.
+
+    ![Rackspace SSO 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)   
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-6. **Rackspace SSO 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
-
-    ![구성 URL 복사](common/copy-configuration-urls.png)
-
-    a. 로그인 URL
-
-    b. Azure AD 식별자
-
-    다. 로그아웃 URL
+이 파일은 Rackspace에 업로드되어 필요한 ID 페더레이션 구성 설정을 채웁니다.
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>Rackspace SSO Single Sign-On 구성
 
-**Rackspace SSO** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Rackspace SSO 지원 팀](https://support.rackspace.com/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Rackspace SSO** 쪽에서 Single Sign-On을 구성하려면 다음을 수행합니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
+1. [제어판에 ID 공급자 추가](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)에서 설명서를 참조하세요.
+1. 이 설명서가 다음 작업을 수행하는 단계를 안내합니다.
+    1. 새 ID 공급자 만들기
+    1. 사용자가 로그인할 때 귀사를 식별하기 위해 사용하는 이메일 도메인을 지정합니다.
+    1. Azure 제어판에서 이전에 다운로드한 **페더레이션 메타데이터 XML**을 업로드합니다.
+
+이렇게 하면 Azure 및 Rackspace가 연결하는 데 필요한 기본 SSO 설정이 올바르게 구성됩니다.
+
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
@@ -143,7 +153,7 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
@@ -175,21 +185,64 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-rackspace-sso-test-user"></a>Rackspace SSO 테스트 사용자 만들기
+### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Rackspace 제어판에서 특성 매핑 설정
 
-이 섹션에서는 Rackspace SSO에서 Britta Simon이라는 사용자를 만듭니다. Rackspace SSO 플랫폼에 사용자를 추가하려면  [Rackspace SSO 지원 팀](https://support.rackspace.com/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+Rackspace는 **특성 매핑 정책**을 사용하여 Single Sign-On 사용자에게 Rackspace 역할 및 그룹을 할당합니다. **특성 매핑 정책**은 Azure AD SAML 클레임을 Rackspace에 필요한 사용자 구성으로 변환합니다. 추가 설명서는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)에서 확인할 수 있습니다. 몇 가지 고려할 사항:
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+* Azure AD 그룹을 사용하여 다양한 수준의 Rackspace 액세스 권한을 할당하려면 Azure **Rackspace SSO** Single Sign-On 설정에서 그룹 클레임을 사용하도록 설정해야 합니다. 그러면 **특성 매핑 정책**을 사용하여 해당 그룹을 원하는 Rackspace 역할 및 그룹에 일치시킵니다.
+
+    ![그룹 클레임 설정](common/sso-groups-claim.png)
+
+* 기본적으로 Azure AD는 그룹의 이름 대신 SAML 그룹에 있는 Azure AD 그룹의 UID를 보냅니다. 그러나 Azure AD에 온-프레미스 Active Directory를 동기화하는 경우 그룹의 실제 이름을 보내는 옵션이 있습니다.
+
+    ![그룹 클레임 이름 설정](common/sso-groups-claims-names.png)
+
+다음 **특성 매핑 정책** 예제는 다음과 같은 작업을 보여줍니다.
+1. Rackspace 사용자의 이름을 `user.name` SAML 클레임으로 설정합니다. 아무 클레임이나 사용할 수 있지만 사용자의 이메일 주소가 포함된 필드로 설정하는 것이 가장 일반적입니다.
+1. Azure AD 그룹을 일치시키거나 그룹 이름 또는 그룹 UID에 의해 사용자에 대한 Rackspace 역할 `admin` 및 `billing:admin`을 설정합니다. `roles` 필드에 있는 `"{0}"`의 *대체*를 사용하며, 이는 `remote` 규칙 식의 결과로 바뀝니다.
+1. `"{D}"` *기본 대체*를 사용하여 Rackspace가 SAML 교환 시 표준 및 잘 알려진 SAML 클레임을 조회하여 추가 SAML 필드를 검색하게 합니다.
+
+```yaml
+---
+mapping:
+    rules:
+    - local:
+        user:
+          domain: "{D}"
+          name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+          email: "{D}"
+          roles:
+              - "{0}"
+          expire: "{D}"
+      remote:
+          - path: |
+              (
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
+              )
+            multiValue: true
+  version: RAX-1
+```
+> [!TIP]
+> 정책 파일을 편집할 때 반드시 YAML 구문의 유효성을 검사하는 텍스트 편집기를 사용해야 합니다.
+
+더 많은 예제는 Rackspace [특성 매핑 기본 사항 설명서](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/)를 참조하세요.
+
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Rackspace SSO 타일을 클릭하면 SSO를 설정한 Rackspace SSO에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
+**Rackspace SSO** Single Sign-On 설정의 **유효성 검사** 단추를 사용할 수도 있습니다.
+
+   ![SSO 유효성 검사 단추](common/sso-validate-sign-on.png)
+
 ## <a name="additional-resources"></a>추가 리소스
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -13,7 +13,7 @@
       href: java-quickstart.md
     - name: 노드
       href: node-quickstart.md
-    - name: 파이썬
+    - name: Python
       href: python-quickstart.md
 - name: 개념
   items:

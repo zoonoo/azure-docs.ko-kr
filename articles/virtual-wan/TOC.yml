@@ -1,61 +1,54 @@
-items:
 - name: 가상 WAN 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 가상 WAN 정보
-    href: virtual-wan-about.md
+    - name: 가상 WAN 정보
+      href: virtual-wan-about.md
 - name: 자습서
   items:
-  - name: 사이트 간 연결 만들기
-    href: virtual-wan-site-to-site-portal.md
-  - name: ExpressRoute 연결 만들기
-    href: virtual-wan-expressroute-portal.md
-  - name: 지점 및 사이트 간 연결 만들기
-    href: virtual-wan-point-to-site-portal.md
+    - name: 사이트 간 연결 만들기
+      href: virtual-wan-site-to-site-portal.md
+    - name: ExpressRoute 연결 만들기
+      href: virtual-wan-expressroute-portal.md
+    - name: 지점 및 사이트 간 연결 만들기
+      href: virtual-wan-point-to-site-portal.md
 - name: 개념
   items:
-  - name: 위치 및 파트너
-    href: virtual-wan-locations-partners.md
-  - name: Virtual WAN의 Office 365 제어판
-    href: virtual-wan-office365-overview.md
+    - name: 위치 및 파트너
+      href: virtual-wan-locations-partners.md
+    - name: Virtual WAN의 Office 365 제어판
+      href: virtual-wan-office365-overview.md
 - name: 방법 가이드
   items:
-  - name: 가상 허브에서 NVA로 트래픽 라우팅
-    items:
-    - name: Azure portal
-      href: virtual-wan-route-table-portal.md
-    - name: Azure PowerShell
-      href: virtual-wan-route-table.md
-  - name: Virtual WAN 파트너 - 자동화
-    href: virtual-wan-configure-automation-providers.md
+    - name: 가상 허브에서 NVA로 트래픽 라우팅
+      items:
+        - name: Azure portal
+          href: virtual-wan-route-table-portal.md
+        - name: Azure PowerShell
+          href: virtual-wan-route-table.md
+    - name: Virtual WAN 파트너 - 자동화
+      href: virtual-wan-configure-automation-providers.md
 - name: 참고 자료
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.network#networking
-  - name: REST (영문)
-    href: /rest/api/azure
-  - name: Azure CLI
-    href: /cli/azure/ext/virtual-wan
+    - name: Azure PowerShell
+      href: '/powershell/module/az.network#networking'
+    - name: REST (영문)
+      href: /rest/api/azure
+    - name: Azure CLI
+      href: /cli/azure/ext/virtual-wan
 - name: 리소스
   items:
-  - name: FAQ
-    href: virtual-wan-faq.md
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: 블로그
-    href: https://azure.microsoft.com/blog/topics/networking
-  - name: 구독 및 서비스 한도
-    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/virtual-wan
-  - name: 요금 계산기
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla
-ms.openlocfilehash: 555af48950df4afab512951a7c3ae53e41663427
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579736"
+    - name: FAQ
+      href: virtual-wan-faq.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: 구독 및 서비스 한도
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'

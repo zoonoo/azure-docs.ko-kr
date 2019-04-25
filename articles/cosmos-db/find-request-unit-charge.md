@@ -4,20 +4,20 @@ description: Azure Cosmos 컨테이너에 대해 실행한 작업의 요청 단�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053043"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683837"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 RU(요청 단위) 요금 찾기
 
 이 문서에서는 Azure Cosmos 컨테이너에 대해 실행한 작업의 [요청 단위](request-units.md) 사용량을 찾는 다양한 방법을 제공합니다. 현재 Azure Portal을 사용하거나 SDK 중 하나를 통해 Azure Cosmos DB에서 다시 보낸 응답을 검사하여 이 사용량을 측정할 수 있습니다.
 
-## <a name="core-api"></a>코어 API
+## <a name="sql-core-api"></a>SQL(Core) API
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
@@ -25,13 +25,13 @@ ms.locfileid: "59053043"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. [새 Azure Cosmos DB 계정을 만들고](create-sql-api-dotnet.md#create-account) 해당 계정을 데이터와 함께 피드하거나 이미 데이터를 포함하는 기존 계정을 선택할 수 있습니다.
+1. [새 Azure Cosmos 계정을 만들고](create-sql-api-dotnet.md#create-account) 데이터를 입력하거나, 이미 데이터가 들어 있는 기존 Azure Cosmos 계정을 선택합니다.
 
 1. **Data Explorer** 창을 열고 작업할 컨테이너를 선택합니다.
 
 1. **새 SQL 쿼리**를 클릭합니다.
 
-1. 올바른 쿼리를 입력한 다음, **쿼리 실행**을 클릭합니다.
+1. 유효한 쿼리를 입력한 다음, **쿼리 실행**을 클릭합니다.
 
 1. **쿼리 통계**를 클릭하여 방금 실행한 요청에 대한 실제 요청 요금을 표시합니다.
 
@@ -135,7 +135,7 @@ while (query.hasMoreResults()) {
 
 ### <a name="use-the-python-sdk"></a>Python SDK 사용
 
-[Python SDK](https://pypi.org/project/azure-cosmos/)(사용법은 [이 빠른 시작](create-sql-api-python.md) 참조)의 `CosmosClient` 개체는 마지막 실행한 작업에 대해 기본 HTTP API에서 반환된 모든 헤더를 매핑하는 `last_response_headers` 사전을 표시합니다. 요청 요금은 `x-ms-request-charge` 키 아래에서 사용할 수 있습니다.
+[Python SDK](https://pypi.org/project/azure-cosmos/)(사용법은 [이 빠른 시작](create-sql-api-python.md) 참조)의 `CosmosClient` 개체는 마지막으로 실행된 작업의 기본 HTTP API에서 반환된 모든 헤더를 매핑하는 `last_response_headers` 사전을 표시합니다. 요청 요금은 `x-ms-request-charge` 키 아래에서 사용할 수 있습니다.
 
 ```python
 response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB
 
-요청 단위 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이스 명령](https://docs.mongodb.com/manual/reference/command/)에 의해 표시됩니다. 이 명령은 마지막 실행한 작업의 이름, 해당 요청 요금 및 해당 기간을 포함하는 문서를 반환합니다.
+요청 단위 요금은 `getLastRequestStatistics.`라는 사용자 지정 [데이터베이스 명령](https://docs.mongodb.com/manual/reference/command/)을 통해 표시됩니다. 이 명령은 마지막으로 실행된 작업의 이름, 해당 요청 요금 및 해당 기간을 포함하는 문서를 반환합니다.
 
 ### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
@@ -155,7 +155,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. [새 Azure Cosmos DB 계정을 만들고](create-mongodb-dotnet.md#create-a-database-account) 해당 계정을 데이터와 함께 피드하거나 이미 데이터를 포함하는 기존 계정을 선택할 수 있습니다.
+1. [새 Azure Cosmos 계정을 만들고](create-mongodb-dotnet.md#create-a-database-account) 데이터를 입력하거나, 이미 데이터가 들어 있는 기존 계정을 선택합니다.
 
 1. **Data Explorer** 창을 열고 작업할 컬렉션을 선택합니다.
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>MongoDB Node.js 드라이버 사용
 
-[공식 MongoDB Node.js 드라이버](https://mongodb.github.io/node-mongodb-native/)(사용법은 [이 빠른 시작](create-mongodb-nodejs.md) 참조)를 사용하는 경우 `Db` 개체에 대해 `command` 메서드를 호출하여 명령을 실행할 수 있습니다.
+[공식 MongoDB Node.js 드라이버](https://mongodb.github.io/node-mongodb-native/)(사용법은 [이 빠른 시작](create-mongodb-nodejs.md) 참조)를 사용하는 경우 `db` 개체에 대해 `command` 메서드를 호출하여 명령을 실행할 수 있습니다.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -230,7 +230,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ### <a name="use-drivers-and-sdk"></a>드라이버 및 SDK 사용
 
-Gremlin API에서 반환되는 헤더는 현재 Gremlin.NET 및 Java SDK에서 표시하는 사용자 지정 상태 특성에 매핑됩니다. 요청 요금은 `x-ms-request-charge` 키 아래에서 사용할 수 있습니다.
+Gremlin API에서 반환되는 헤더는 현재 Gremlin .NET 및 Java SDK에서 표시하는 사용자 지정 상태 특성에 매핑됩니다. 요청 요금은 `x-ms-request-charge` 키 아래에서 사용할 수 있습니다.
 
 ### <a name="use-the-net-sdk"></a>.NET SDK 사용
 
@@ -252,7 +252,7 @@ Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-reques
 
 ## <a name="table-api"></a>테이블 API
 
-현재 테이블 작업에 대한 요청 단위 요금을 반환하는 유일한 SDK는 [.NET 표준 SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)(사용법은 [이 빠른 시작](create-table-dotnet.md) 참조)뿐입니다. `TableResult` 개체는 Azure Cosmos DB의 Table API에 대해 사용하는 경우 SDK에 의해 채워지는 `RequestCharge` 속성을 표시합니다.
+현재 테이블 작업에 대한 요청 단위 요금을 반환하는 유일한 SDK는 [.NET 표준 SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)(사용법은 [이 빠른 시작](create-table-dotnet.md) 참조)입니다. `TableResult` 개체는 Azure Cosmos DB의 Table API에 대해 사용하는 경우 SDK에 의해 채워지는 `RequestCharge` 속성을 표시합니다.
 
 ```csharp
 CloudTable tableReference = client.GetTableReference("table");
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 요청 단위 사용의 최적화에 대해 알아보려면 다음 문서를 참조하세요.
 
-* [Azure Cosmos DB에서 프로비전된 처리량 비용 최적화](optimize-cost-throughput.md)
-* [Azure Cosmos DB에서 쿼리 비용 최적화](optimize-cost-queries.md)
+* [Azure Cosmos DB의 요청 단위 및 처리량](request-units.md)
+* [Azure Cosmos DB의 프로비저닝된 처리량 비용 최적화](optimize-cost-throughput.md)
+* [Azure Cosmos DB의 쿼리 비용 최적화](optimize-cost-queries.md)
+* [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
+* [컨테이너의 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)

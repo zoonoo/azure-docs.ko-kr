@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6768d2a313a1d781c6db23dff404aed2efc99f31
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228341"
 documentType: LandingData
 title: Custom Decision Service 설명서
 metadata:
-  title: Custom Decision Service 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
-  meta.description: Learn how to create a contextual, decision-making API that improves with experience
+  title: 'Custom Decision Service 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs'
+  meta.description: 'Learn how to create a contextual, decision-making API that improves with experience'
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -21,34 +15,34 @@ metadata:
   ms.date: 05/01/2018
   ms.author: nolachar
 abstract:
-  description: Custom Decision Service를 통해 사용할수록 더욱 개선되는 클라우드 기반의 상황에 따른 의사 결정 API가 포함된 인텔리전트 시스템을 만드세요. Custom Decision Service는 강화 학습의 효과를 이용하고 애플리케이션의 콘텐츠를 조정하여 전체 사용자의 참여를 최대화합니다. 이 시스템은 실시간으로 해당 결정에 사용자 피드백을 통합하고 몇 분 안에 새로운 추세 및 주요 스토리에 대응합니다. 이러한 빠른 시작을 통해 애플리케이션을 등록하고 브라우저 또는 앱에서 API를 호출하는 방법을 알아봅니다. 그런 다음, 자습서를 사용하여 문서를 개인 설정하고 콘텐츠를 기계 학습에 대해 준비된 "기능"으로 표시합니다.
+  description: 'Custom Decision Service를 통해 사용할수록 더욱 개선되는 클라우드 기반의 상황에 따른 의사 결정 API가 포함된 인텔리전트 시스템을 만드세요. Custom Decision Service는 강화 학습의 효과를 이용하고 애플리케이션의 콘텐츠를 조정하여 전체 사용자의 참여를 최대화합니다. 이 시스템은 실시간으로 해당 결정에 사용자 피드백을 통합하고 몇 분 안에 새로운 추세 및 주요 스토리에 대응합니다. 이러한 빠른 시작을 통해 애플리케이션을 등록하고 브라우저 또는 앱에서 API를 호출하는 방법을 알아봅니다. 그런 다음, 자습서를 사용하여 문서를 개인 설정하고 콘텐츠를 기계 학습에 대해 준비된 "기능"으로 표시합니다.'
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: 애플리케이션을 등록하고 브라우저 또는 스마트폰 앱에서 직접 Azure Custom Decision Service API를 호출합니다.
-  - type: list
-    style: unordered
+  - title: 5분 빠른 시작
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">애플리케이션 등록</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">브라우저에서 API 호출</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">앱에서 API 호출</a>
-- title: 단계별 자습서
-  items:
-  - type: paragraph
-    text: Custom Decision Service API를 사용하여 웹 사이트 프런트 페이지의 문서를 개인 설정하고 콘텐츠를 기계 학습에 대해 준비된 "기능"으로 지정합니다.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 애플리케이션을 등록하고 브라우저 또는 스마트폰 앱에서 직접 Azure Custom Decision Service API를 호출합니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">애플리케이션 등록</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">브라우저에서 API 호출</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">앱에서 API 호출</a>
+  - title: 단계별 자습서
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">문서 개인 설정</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
-- title: 참고 자료
-  items:
-  - type: paragraph
-    text: 이러한 API는 함께 작동합니다. 사용자 지정 의사 결정에 영향을 주는 API 참조에는 세 가지 API가 있습니다. 실험 API를 사용하면 LogDownloader API에 의해 생성된 로그 파일을 사용할 수 있습니다. 자세한 시나리오는 문서에서 공유됩니다.
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Custom Decision Service API를 사용하여 웹 사이트 프런트 페이지의 문서를 개인 설정하고 콘텐츠를 기계 학습에 대해 준비된 "기능"으로 지정합니다.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">문서 개인 설정</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
+  - title: 참고 자료
     items:
-    - title: API
-      html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">실험</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>
+      - type: paragraph
+        text: 이러한 API는 함께 작동합니다. 사용자 지정 의사 결정에 영향을 주는 API 참조에는 세 가지 API가 있습니다. 실험 API를 사용하면 LogDownloader API에 의해 생성된 로그 파일을 사용할 수 있습니다. 자세한 시나리오는 문서에서 공유됩니다.
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API
+            html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">실험</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>

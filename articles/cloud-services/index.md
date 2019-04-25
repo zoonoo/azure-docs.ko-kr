@@ -1,6 +1,6 @@
 ---
 title: Azure Cloud Services 설명서 - 자습서, API 참조 | Microsoft Docs
-description: 자습서, API 참조 및 기타 설명서에서는 Cloud Services를 사용하여 가용성 및 확장이 뛰어난 클라우드 응용 프로그램 및 API를 호스트하고 실행하는 방법을 보여 줍니다.
+description: 자습서, API 참조 및 기타 설명서에서는 Cloud Services를 사용하여 가용성 및 확장이 뛰어난 클라우드 애플리케이션 및 API를 호스트하고 실행하는 방법을 보여 줍니다.
 services: cloud-services
 author: czeumault
 manager: carolz
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 300762cd98f66af80dd6fd7079005ef17ece2ade
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 80f28d5f42dfacd2fa5d553b545bff5708eb09ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24101885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629143"
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services 설명서
 
-Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드 응용 프로그램 및 API를 호스트하고 실행하는 방법에 대해 알아봅니다.  자습서, API 참조 및 기타 설명서에서는 가상 컴퓨터 호스트를 관리하고 소프트웨어를 구성, 패치 및 설치하는 방법을 보여 줍니다.
+Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드 애플리케이션 및 API를 호스트하고 실행하는 방법에 대해 알아봅니다.  자습서, API 참조 및 기타 설명서에서는 가상 머신 호스트를 관리하고 소프트웨어를 구성, 패치 및 설치하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,14 +100,14 @@ Cloud Services를 사용하여 가용성 및 확장성이 뛰어난 클라우드
 
 ---
 
-<h2>참조</h2>
+<h2>참고 자료</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>언어</h3>
+                        <h3>Languages</h3>
                         <p><a href="/azure/cloud-services/schema-csdef-file">.csdef XML 스키마</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe 스키마</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole 스키마</a></p>

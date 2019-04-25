@@ -5,18 +5,18 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629156"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998110"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>자습서: 연결을 설정 하 고 Azure 데이터 가장자리가 상자의 활성화 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>자습서: Azure Data Box Edge 연결, 설정 및 활성화 
 
 이 자습서에는 로컬 웹 UI를 사용하여 Azure Data Box Edge 디바이스에 연결하고, 설정하고, 활성화하는 방법을 설명합니다.
 
@@ -37,9 +37,9 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>로컬 웹 UI 설정에 연결 
 
-1. 고정 IP 주소 192.168.100.5와 서브넷 255.255.255.0 사용 하 여 데이터 가장자리가 상자의 장치에 연결할 컴퓨터에서 이더넷 어댑터를 구성 합니다.
+1. 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 Data Box Edge 디바이스에 연결하도록 컴퓨터의 이더넷 어댑터를 구성합니다.
 
-2. 디바이스의 포트 1에 컴퓨터를 연결합니다. 다음 그림에서는 사용 하 여 장치에서 포트 1을 식별 합니다.
+2. 디바이스의 포트 1에 컴퓨터를 연결합니다. 다음 일러스트레이션을 사용하여 디바이스의 포트 1을 찾습니다.
 
     ![케이블로 연결된 디바이스의 백플레인](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
@@ -59,7 +59,7 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
     ![Data Box Edge 디바이스 로그인 페이지](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
 6. 디바이스 관리자 암호를 변경하라는 메시지가 표시되면 변경합니다.  
-    새 암호는 8 ~ 16 자 포함 되어야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.
+    새 암호는 8-16자여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.
 
 이제 디바이스의 대시보드에 있습니다.
 
@@ -70,12 +70,12 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
 ![로컬 웹 UI "대시보드" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 1. 왼쪽 창에서 **디바이스 이름**을 선택하고 디바이스에 대한 친숙한 이름을 입력합니다.  
-    친숙 한 이름은 1에서 15 자까지 사용할 하 고 문자, 숫자 및 하이픈만 포함할 합니다.
+    식별 이름은 문자, 숫자 및 하이픈을 포함하는 1-15자로 구성되어야 합니다.
 
-    ![로컬 웹 UI "장치 이름" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![로컬 웹 UI "디바이스 이름" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (선택 사항) 왼쪽 창에서 **네트워크 설정**을 선택하고 설정을 구성합니다.  
-    물리적 장치에서 6 개의 네트워크 인터페이스가 있습니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. 포트 3, 4 포트, 포트 5 및 6 포트는 10gbps 네트워크 인터페이스로 사용할 수 있는 모든 25-Gbps 네트워크 인터페이스입니다. 포트 1은 관리 전용 포트로 자동으로 구성되고, 포트 2 및 포트 6은 모두 데이터 포트입니다. 합니다 **네트워크 설정** 페이지는 아래와 같습니다.
+    물리적 디바이스에 6개의 네트워크 인터페이스가 있습니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. 포트 3, 포트 4, 포트 5 및 포트 6은 모두 25Gbps 네트워크 인터페이스이며 10Gbps 네트워크 인터페이스로 사용할 수도 있습니다. 포트 1은 관리 전용 포트로 자동으로 구성되고, 포트 2 및 포트 6은 모두 데이터 포트입니다. 아래는 **네트워크 설정** 페이지입니다.
     
     ![로컬 웹 UI "네트워크 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -115,16 +115,16 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
 
     3. 필요에 따라 **보조 NTP 서버** 상자에 디바이스의 보조 서버를 입력합니다.
 
-    4. 유효성을 검사 하 고 구성 된 시간 설정을 적용 하려면 선택 **설정을 적용**합니다.
+    4. 구성한 시간 설정의 유효성을 검사하고 적용하려면 **설정 적용**을 선택합니다.
 
         ![로컬 웹 UI "시간 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. (선택 사항) 왼쪽된 창에서 선택 **저장소 설정** 장치의 저장소 복원 력을 구성 합니다. 이 기능은 현재 미리 보기로 제공됩니다. 기본적으로 장치에 대 한 저장소 중복이 되지 않습니다 하 고 장치에서 데이터 디스크에 오류가 발생할 경우 데이터 손실이 발생 하는 합니다. 복원 옵션을 사용 하도록 설정 하면 저장소 장치를 다시 구성 됩니다 및 장치 데이터 손실 없이 한 데이터 디스크 오류를 견딜 수 있습니다. 복원 력 있는 저장소 구성 장치의 사용 가능한 용량을 줄일 수 있습니다.
+5. (선택 사항) 왼쪽 창에서 **스토리지 설정**을 선택하여 디바이스의 스토리지 복원력을 구성합니다. 이 기능은 현재 미리 보기로 제공됩니다. 기본적으로 디바이스의 스토리지는 복원력이 없으므로 디바이스의 데이터 디스크에서 오류가 발생하면 데이터가 손실됩니다. 복원력 옵션을 사용하도록 설정하면 디바이스의 스토리지가 다시 구성되고, 한 데이터 디스크에서 오류가 발생하더라도 디바이스가 데이터 손실 없이 유지됩니다. 복원력 있는 스토리지를 구성하면 디바이스의 사용 가능한 용량이 감소합니다.
 
     > [!IMPORTANT] 
-    > 장치를 활성화 하기 전에 복원 력은 구성할 수 있습니다. 
+    > 디바이스를 활성화하기 전에만 복원력을 구성할 수 있습니다. 
 
-    ![로컬 웹 UI "저장소 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+    ![로컬 웹 UI "스토리지 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
 
 6. 왼쪽 창에서 **클라우드 설정**을 선택하고 Azure Portal에서 Data Box Edge 서비스로 디바이스를 활성화합니다.
     
@@ -133,15 +133,15 @@ Data Box Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 
        
         ![로컬 웹 UI "클라우드 설정" 페이지](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
-    3. 먼저 장치가 활성화 됩니다. 장치는 모든 중요 업데이트를 검색 한 다음 및 사용 가능한 경우 업데이트를 자동으로 적용 됩니다. 그 결과 알림이 표시 됩니다.
+    3. 먼저 디바이스가 활성화됩니다. 그런 다음, 디바이스를 검사하여 중요 업데이트를 확인하고, 사용 가능한 업데이트가 있으면 자동으로 적용됩니다. 그 영향에 대한 알림이 표시됩니다.
 
-        대화 상자에는 역시 복구 키를 복사 하 고 안전한 위치에 저장 해야 합니다. 이 키는 장치가 부팅 될 수 없습니다. 이벤트 데이터를 복구 하려면 사용 됩니다.
+        또한 대화 상자에 복구 키가 표시되는데, 이 키를 복사하여 안전한 위치에 저장해야 합니다. 이 키는 디바이스를 부팅할 수 없는 상황이 발생하면 데이터를 복구하는 데 사용됩니다.
 
-        ![로컬 웹 UI "클라우드 설정" 페이지 업데이트](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+        ![로컬 웹 UI "클라우드 설정" 페이지 업데이트됨](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. 업데이트가 성공적으로 완료 된 후 몇 분 정도 대기 해야 합니다. 장치가 성공적으로 활성화 되어 있는지를 나타내는 페이지를 업데이트 합니다.
+    4. 업데이트가 성공적으로 완료된 후 몇 분 정도 기다려야 할 수도 있습니다. 페이지가 업데이트되면 디바이스가 성공적으로 활성화된 것으로 나타납니다.
 
-        ![로컬 웹 UI "클라우드 설정" 페이지 업데이트](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![로컬 웹 UI "클라우드 설정" 페이지 업데이트됨](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 디바이스 설정이 완료되었습니다. 이제 디바이스에서 공유를 추가할 수 있습니다.
 
