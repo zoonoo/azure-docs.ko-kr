@@ -21,7 +21,7 @@ ms.locfileid: "57845225"
 Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션을 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다. 
 
 또한 DevOps Projects는 다음을 수행합니다.
-* Azure SQL Database와 같은 Azure 리소스를 자동으로 만듭니다.
+* Azure SQL 데이터베이스와 같은 Azure 리소스를 자동으로 만듭니다.
 * Azure Pipelines에서 CI용 빌드 파이프라인을 포함하는 릴리스 파이프라인을 만들고 구성합니다.
 * CD용 릴리스 파이프라인을 설정합니다. 
 * 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
@@ -34,16 +34,16 @@ Azure DevOps Projects는 기존 코드와 Git 리포지토리를 가져오거나
 > * CI 파이프라인 검토
 > * CD 파이프라인 검토
 > * Azure Repos에 변경 내용 커밋 및 자동으로 Azure에 배포
-> * 1단계: Azure SQL Database에 연결 
+> * Azure SQL 데이터베이스에 연결 
 > * 리소스 정리
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료 구독을 구할 수 있습니다.
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>DevOps Projects에서 ASP.NET 앱 및 Azure SQL Database용 프로젝트 만들기
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>DevOps Projects에서 ASP.NET 앱 및 Azure SQL 데이터베이스용 프로젝트 만들기
 
-DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Projects는 선택한 Azure 구독에서 Azure SQL Database 같은 Azure 리소스를 만듭니다.
+DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Projects는 선택한 Azure 구독에서 Azure SQL 데이터베이스와 같은 Azure 리소스를 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -162,9 +162,9 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 
 1. 릴리스가 완료된 후 애플리케이션을 새로 고쳐 변경 내용을 확인합니다.
 
-## <a name="connect-to-the-azure-sql-database"></a>1단계: Azure SQL Database에 연결
+## <a name="connect-to-the-azure-sql-database"></a>Azure SQL 데이터베이스에 연결
 
-Azure SQL Database에 연결할 적절한 권한이 필요합니다.
+Azure SQL 데이터베이스에 연결할 적절한 권한이 필요합니다.
 
 1. DevOps Projects 대시보드에서 **SQL Database**를 선택하여 SQL Database에 대한 관리 페이지로 이동합니다.
    
@@ -180,7 +180,7 @@ Azure SQL Database에 연결할 적절한 권한이 필요합니다.
 1. **암호 재설정**을 선택하고, SQL Server 관리자 로그인 암호를 입력한 다음, **저장**을 선택합니다.  
     이 자습서의 뒷부분에서 사용하므로 이 암호를 보관해야 합니다.
 
-    필요에 따라 이제 SQL Server Management Studio 또는 Visual Studio와 같은 클라이언트 도구를 사용하여 SQL Server 및 Azure SQL Database에 연결할 수 있습니다. 연결할 **서버 이름** 속성을 사용합니다.
+    필요에 따라 이제 SQL Server Management Studio 또는 Visual Studio와 같은 클라이언트 도구를 사용하여 SQL Server 및 Azure SQL 데이터베이스에 연결할 수 있습니다. 연결할 **서버 이름** 속성을 사용합니다.
 
     처음에 DevOps Projects에서 프로젝트를 구성하는 동안 데이터베이스 사용자 이름을 변경하지 않는 경우 사용자 이름은 이메일 주소의 로컬 파트입니다. 예를 들어 이메일 주소가 *johndoe\@microsoft.com*인 경우 사용자 이름은 *johndoe*입니다.
 
@@ -189,7 +189,7 @@ Azure SQL Database에 연결할 적절한 권한이 필요합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-테스트하는 경우 리소스를 정리하여 요금이 청구되지 않도록 할 수 있습니다. 더 이상 필요하지 않은 경우 이 자습서에서 만든 Azure SQL Database와 관련 리소스를 삭제할 수 있습니다. 이렇게 하려면 DevOps Projects 대시보드의 **삭제** 기능을 사용합니다.
+테스트하는 경우 리소스를 정리하여 요금이 청구되지 않도록 할 수 있습니다. 더 이상 필요하지 않은 경우 이 자습서에서 만든 Azure SQL 데이터베이스와 관련 리소스를 삭제할 수 있습니다. 이렇게 하려면 DevOps Projects 대시보드의 **삭제** 기능을 사용합니다.
 
 > [!IMPORTANT]
 > 다음 절차에서는 리소스를 영구적으로 삭제합니다. *삭제* 기능은 Azure 및 Azure DevOps에서 DevOps Projects의 프로젝트에서 만든 데이터를 제거하므로 이 데이터를 검색할 수 없게 됩니다. 표시되는 메시지를 신중하게 읽은 후 이 절차를 따릅니다.
@@ -208,7 +208,7 @@ Azure SQL Database에 연결할 적절한 권한이 필요합니다.
 > * CI 파이프라인 검토
 > * CD 파이프라인 검토
 > * Azure Repos에 변경 내용 커밋 및 자동으로 Azure에 배포
-> * 1단계: Azure SQL Database에 연결 
+> * Azure SQL 데이터베이스에 연결 
 > * 리소스 정리
 
 CI/CD 파이프라인에 대한 자세한 내용은 다음을 참조하세요.

@@ -34,7 +34,7 @@ ms.locfileid: "56957932"
 - [온-프레미스 SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 복사](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 ## <a name="delta-data-loading-from-sql-db-by-using-the-change-tracking-technology"></a>변경 내용 추적 기술을 사용하여 SQL DB에서 델타 데이터 로드
-변경 내용 추적 기술은 애플리케이션에 효율적인 변경 내용 추적 메커니즘을 제공하는 SQL Server 및 Azure SQL Database의 경 솔루션입니다. 이를 통해 애플리케이션에서 삽입되거나 업데이트되거나 삭제된 데이터를 쉽게 식별할 수 있습니다. 
+변경 내용 추적 기술은 애플리케이션에 효율적인 변경 내용 추적 메커니즘을 제공하는 SQL Server 및 Azure SQL Database의 간단한 솔루션입니다. 이를 통해 애플리케이션에서 삽입되거나 업데이트되거나 삭제된 데이터를 쉽게 식별할 수 있습니다. 
 
 이 방식에 대한 워크플로는 다음 다이어그램과 같습니다.
 

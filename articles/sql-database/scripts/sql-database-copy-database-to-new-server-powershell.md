@@ -1,5 +1,5 @@
 ---
-title: PowerShell 예제 복사 Azure SQL Database 새 서버 | Microsoft Docs
+title: PowerShell 예제 복사 Azure SQL 데이터베이스 새 서버 | Microsoft Docs
 description: SQL Database를 새 서버에 복사하는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database

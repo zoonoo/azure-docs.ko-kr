@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57833916"
@@ -146,4 +146,4 @@ ms.locfileid: "57833916"
 
 이 문서에서는 투명한 데이터 암호화를 사용하여 데이터베이스의 인증서 보호 암호화 키를 온-프레미스 또는 IaaS SQL Server에서 Azure SQL Database Managed Instance로 마이그레이션하는 방법을 알아보았습니다.
 
-Azure SQL Database Managed Instance로 데이터베이스 백업을 복원하는 방법을 알아보려면 [Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
+Azure SQL Database Managed Instance로 데이터베이스 백업을 복원하는 방법을 알아보려면 [Azure SQL Database Managed Instance에 데이터베이스 백업 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.

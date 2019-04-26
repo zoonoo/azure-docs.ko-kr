@@ -18,7 +18,7 @@ ms.locfileid: "57999946"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 원시 CSV 데이터 파일을 사용하고, HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight에서 [Apache Hive](https://hive.apache.org/)를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](https://sqoop.apache.org/)을 사용하여 Azure SQL Database로 해당 데이터를 로드합니다. 이 문서에서는 공개적으로 사용할 수 있는 비행 데이터를 사용합니다.
+이 자습서에서는 원시 CSV 데이터 파일을 사용하고, HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight에서 [Apache Hive](https://hive.apache.org/)를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](https://sqoop.apache.org/)을 사용하여 Azure SQL 데이터베이스로 해당 데이터를 로드합니다. 이 문서에서는 공개적으로 사용할 수 있는 비행 데이터를 사용합니다.
 
 > [!IMPORTANT]  
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 Azure HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * **HDInsight의 Linux 기반 Hadoop 클러스터** 새 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 단계는 [HDInsight에서 Apache Hadoop 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* **Azure SQL Database**. Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
+* **Azure SQL Database**. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [Azure Portal에서 Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 
 * **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
@@ -207,7 +207,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
 
 ## <a name="create-a-sql-database-table"></a>SQL Database 테이블 만들기
 
-이 섹션에서는 Azure SQL 데이터베이스를 이미 만들었다고 가정합니다. 아직 SQL Databases가 없는 경우 [Azure Portal에서 Azure SQL Databases 만들기](../sql-database/sql-database-get-started.md)의 정보를 사용하여 만듭니다.
+이 섹션에서는 Azure SQL 데이터베이스를 이미 만들었다고 가정합니다. 아직 SQL 데이터베이스가 없는 경우 [Azure Portal에서 Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)의 정보를 사용하여 만듭니다.
 
 이미 SQL Database가 있는 경우 서버 이름을 가져와야 합니다. 서버를 찾으려면 [Azure Portal](https://portal.azure.com)에서 이름을 지정하고, **SQL Databases**를 선택한 다음, 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 **서버 이름** 열에 나열됩니다.
 

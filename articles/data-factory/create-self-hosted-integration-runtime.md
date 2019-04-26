@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
 ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/15/2019
 ms.locfileid: "59565543"
@@ -241,13 +241,13 @@ download.microsoft.com | 443 | 업데이트 다운로드에 사용됨
 ### <a name="copy-data-from-a-source-to-a-sink"></a>원본에서 싱크로 데이터 복사
 방화벽 규칙이 회사 방화벽, 자체 호스팅 통합 런타임 컴퓨터의 Windows 방화벽 및 데이터 스토리지 자체에 올바르게 설정되어 있는지 확인합니다. 이러한 규칙을 사용하면 자체 호스팅 통합 런타임이 원본과 싱크에 모두 정상적으로 연결할 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
 
-예를 들어 온-프레미스 데이터 스토리지에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크로 복사하려면 다음 단계를 수행합니다.
+예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크로 복사하려면 다음 단계를 수행합니다.
 
 1. Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 1433에서 아웃바운드 TCP 통신을 허용합니다.
-2. Azure SQL Database의 방화벽 설정을 구성하여 허용된 IP 주소 목록에 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 추가합니다.
+2. Azure SQL 데이터베이스의 방화벽 설정을 구성하여 허용된 IP 주소 목록에 자체 호스팅 통합 런타임 머신의 IP 주소를 추가합니다.
 
 > [!NOTE]
-> 방화벽이 아웃바운드 포트 1433을 허용하지 않으면 자체 호스팅 통합 런타임은 Azure SQL Database에 직접 액세스할 수 없습니다. 이 경우 Azure SQL Database 및 Azure SQL Data Warehouse로의 [준비된 복사](copy-activity-performance.md)를 사용할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS(포트 443)만 필요합니다.
+> 방화벽이 아웃바운드 포트 1433을 허용하지 않으면 자체 호스팅 통합 런타임은 Azure SQL 데이터베이스에 직접 액세스할 수 없습니다. 이 경우 Azure SQL Database 및 Azure SQL Data Warehouse로의 [준비된 복사](copy-activity-performance.md)를 사용할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS(포트 443)만 필요합니다.
 
 
 ## <a name="proxy-server-considerations"></a>프록시 서버 고려 사항

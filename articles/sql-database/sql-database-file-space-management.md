@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57881166"
@@ -24,7 +24,7 @@ ms.locfileid: "57881166"
 이 문서에서는 Azure SQL Database의 단일 및 풀링된 데이터베이스에 대한 다양한 종류의 스토리지 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database의 관리되는 인스턴스 배포 옵션에는 적용되지 않습니다.
+> 이 문서는 Azure SQL Database의 관리형 인스턴스 배포 옵션에는 적용되지 않습니다.
 
 ## <a name="overview"></a>개요
 

@@ -58,7 +58,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzRouteTable](/powershell/module/az.network/New-AzRouteTable) | 경로 테이블을 만듭니다. |
 | [Get-AzRouteTable](/powershell/module/az.network/Get-AzRouteTable) | 경로 테이블을 가져옵니다. |
 | [Set-AzRouteTable](/powershell/module/az.network/Set-AzRouteTable) | 경로 테이블에 대한 목표 상태를 설정합니다. |
-| [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Azure SQL Database 관리형 인스턴스를 만듭니다. |
+| [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Azure SQL Database 관리형 인스턴스 만들기 |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 
