@@ -37,7 +37,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>범용 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 
-|계산 크기|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|컴퓨팅 크기|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|3|4|5|6|
@@ -60,7 +60,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>범용 서비스 계층: 4세대 컴퓨팅 플랫폼(2부)
 
-|계산 크기|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
+|컴퓨팅 크기|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|7|8|9|10|16|24|
@@ -83,7 +83,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>범용 서비스 계층: 5세대 컴퓨팅 플랫폼(1부)
 
-|계산 크기|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|컴퓨팅 크기|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|
 |vCore 수|2|4|6|8|10|12|14|
@@ -106,7 +106,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>범용 서비스 계층: 5세대 컴퓨팅 플랫폼(2부)
 
-|계산 크기|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|컴퓨팅 크기|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|
 |vCore 수|16|18|20|24|32|40|80|
@@ -131,7 +131,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>중요 비즈니스 서비스 계층: 4세대 컴퓨팅 플랫폼(1부)
 
-|계산 크기|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|컴퓨팅 크기|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|3|4|5|6|
@@ -155,7 +155,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>중요 비즈니스 서비스 계층: 4세대 컴퓨팅 플랫폼(2부)
 
-|계산 크기|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|컴퓨팅 크기|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|7|8|9|10|16|24|
@@ -179,7 +179,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>중요 비즈니스 서비스 계층: 5세대 컴퓨팅 플랫폼(1부)
 
-|계산 크기|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|컴퓨팅 크기|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|
 |vCore 수|2|4|6|8|10|12|14|
@@ -203,7 +203,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>중요 비즈니스 서비스 계층: 5세대 컴퓨팅 플랫폼(2부)
 
-|계산 크기|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|컴퓨팅 크기|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|
 |vCore 수|16|18|20|24|32|40|80|
