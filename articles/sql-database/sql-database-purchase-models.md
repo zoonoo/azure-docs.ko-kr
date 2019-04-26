@@ -29,7 +29,7 @@ Azure SQL Database를 사용하면 성능 및 비용 요구에 적합한 완벽�
 Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 있습니다.
 
 - [Azure SQL Database](sql-database-technical-overview.md)의 [단일 데이터베이스](sql-database-single-databases-manage.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 배포 옵션은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다.
-- Azure SQL Database의 [관리되는 인스턴스](sql-database-managed-instance.md) 배포 옵션은 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)만 제공합니다.
+- Azure SQL Database의 [관리형 인스턴스](sql-database-managed-instance.md) 배포 옵션은 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)만 제공합니다.
 
 > [!IMPORTANT]
 > [하이퍼스케일 서비스 계층(미리 보기)](sql-database-service-tier-hyperscale.md)은 vCore 구매 모델을 사용하는 단일 데이터베이스에 대해서만 공개 미리 보기로 제공됩니다.

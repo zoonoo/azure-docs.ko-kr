@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Azure SQL Database 관리되는 인스턴스 | Microsoft Docs
-description: Azure SQL Database - 관리되는 인스턴스를 빠르게 시작하는 방법 알아보기
+title: 빠른 시작 - Azure SQL Database 관리형 인스턴스 | Microsoft Docs
+description: Azure SQL Database - 관리형 인스턴스를 빠르게 시작하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360174"
 ---
-# <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스 시작하기
+# <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리형 인스턴스 시작하기
 
 [관리형 인스턴스](sql-database-managed-instance-index.yml) 배포 옵션은 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진과 거의 100% 호환되는 데이터베이스를 만들며, 일반적인 보안 문제를 해결하는 원시 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객에게 친숙한 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. 이 문서에서는 관리형 인스턴스를 신속하게 구성 및 생성하고 데이터베이스를 마이그레이션하는 방법을 알아봅니다.
 

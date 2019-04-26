@@ -1,6 +1,6 @@
 ---
 title: PowerShell - TDE 보호기 제거 - Azure SQL Database| Microsoft Docs
-description: BYOK(Bring Your Own Key) 지원을 통해 TDE를 사용하는 Azure SQL Database 또는 데이터 웨어하우스에 대해 손상 가능성이 있는 TDE 보호기에 대처하기 위한 방법 가이드
+description: BYOK(Bring Your Own Key) 지원을 통해 TDE를 사용하는 Azure SQL Database 또는 데이터 웨어하우스에 대해 손상 가능성이 있는 TDE 보호기에 대처하기 위한 방법 가이드.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59495040"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
-이 빠른 시작에서는 Azure Portal에서 Azure SQL Database [관리되는 인스턴스](sql-database-managed-instance.md)를 만드는 방법을 안내합니다.
+이 빠른 시작에서는 Azure Portal에서 Azure SQL Database [관리형 인스턴스](sql-database-managed-instance.md)를 만드는 방법을 안내합니다.
 
 > [!IMPORTANT]
 > 제한 사항은 [지원되는 지역](sql-database-managed-instance-resource-limits.md#supported-regions)과 [지원되는 구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)을 참조하세요.

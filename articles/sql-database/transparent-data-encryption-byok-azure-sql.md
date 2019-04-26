@@ -115,7 +115,7 @@ Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터
 
 암호화된 데이터베이스에 대한 TDE 보호기의 고가용성을 유지하려면 기존 또는 원하는 SQL Database 장애 조치 그룹 또는 활성 지역 복제 인스턴스를 기반으로 하여 중복 Azure Key Vault를 구성해야 합니다.  각 지역 복제 서버에는 동일한 Azure 지역의 서버와 공동 배치해야 하는 별도의 키 자격 증명 모음이 필요합니다. 한 지역에서 중단으로 인해 주 데이터베이스에 액세스할 수 없게 되고 장애 조치가 트리거되면, 보조 데이터베이스에서 보조 키 자격 증명 모음을 사용하여 인수할 수 있습니다.
 
-지역 복제된 Azure SQL Database에 필요한 Azure Key Vault 구성은 다음과 같습니다.
+지역 복제된 Azure SQL 데이터베이스에 필요한 Azure Key Vault 구성은 다음과 같습니다.
 
 - 지역에 하나의 키 자격 증명 모음이 있는 주 데이터베이스 및 지역에 하나의 키 자격 증명 모음이 있는 하나의 보조 데이터베이스가 있습니다.
 - 하나 이상의 보조 데이터베이스가 필요합니다(최대 4개 지원).
@@ -188,6 +188,6 @@ Get-AzSqlServerKeyVaultKey `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-SQL Database 백업 복구에 대한 자세한 내용은 [Azure SQL Database 복구](sql-database-recovery-using-backups.md)를 참조하세요. SQL Data Warehouse 백업 복구에 대한 자세한 내용은 [Azure SQL Data Warehouse 복구](../sql-data-warehouse/backup-and-restore.md)를 참조하세요.
+SQL Database 백업 복구에 대한 자세한 내용은 [Azure SQL 데이터베이스 복구](sql-database-recovery-using-backups.md)를 참조하세요. SQL Data Warehouse 백업 복구에 대한 자세한 내용은 [Azure SQL Data Warehouse 복구](../sql-data-warehouse/backup-and-restore.md)를 참조하세요.
 
 백업된 로그 파일에 대한 추가 고려 사항: TDE 보호기가 회전되었고 데이터베이스에서 현재 새 TDE 보호기를 사용하고 있는 경우에도 백업된 로그 파일은 원래 TDE 암호기로 암호화된 상태로 유지됩니다.  복원할 때 데이터베이스를 복원하려면 두 키가 모두 필요합니다.  로그 파일에서 이 Azure Key Vault에 저장된 TDE 보호기를 사용하는 동안 데이터베이스에서 서비스 관리 TDE를 사용하도록 변경한 경우에도 복원할 때 이 키가 필요합니다.

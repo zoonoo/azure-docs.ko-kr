@@ -113,7 +113,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 이 자습서에서는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure SQL Data Warehouse는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드하기 전에 데이터를 준비하는 스토리지입니다. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
-이 단계에서는 Azure SQL Database를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 
+이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 
 
 1. 창의 아래쪽에서 **연결**을 클릭하고, 도구 모음에서 **+ 새로 만들기**를 클릭합니다. 
 
@@ -126,9 +126,9 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     1. **이름**에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다. 
     1. **서버 이름**에 대해 Azure SQL Server를 선택합니다.
     1. **데이터베이스 이름**에 대해 Azure SQL Database를 선택합니다. 
-    1. Azure SQL Database에 연결할 **사용자의 이름**을 입력합니다. 
+    1. Azure SQL 데이터베이스에 연결할 **사용자의 이름**을 입력합니다. 
     1. 사용자에 대한 **암호**를 입력합니다. 
-    1. 지정된 정보를 사용하여 Azure SQL Database에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
+    1. 지정된 정보를 사용하여 Azure SQL 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
     1. **저장**을 클릭합니다.
 
         ![Azure SQL Database 설정](./media/tutorial-bulk-copy-portal/azure-sql-database-settings.png)
@@ -142,9 +142,9 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     1. **이름**에 대해 **AzureSqlDWLinkedService**를 입력합니다. 
     1. **서버 이름**에 대해 Azure SQL Server를 선택합니다.
     1. **데이터베이스 이름**에 대해 Azure SQL Database를 선택합니다. 
-    1. Azure SQL Database에 연결할 **사용자의 이름**을 입력합니다. 
+    1. Azure SQL 데이터베이스에 연결할 **사용자의 이름**을 입력합니다. 
     1. 사용자에 대한 **암호**를 입력합니다. 
-    1. 지정된 정보를 사용하여 Azure SQL Database에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
+    1. 지정된 정보를 사용하여 Azure SQL 데이터베이스에 대한 연결을 테스트하려면 **연결 테스트**를 클릭합니다.
     1. **저장**을 클릭합니다.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>스테이징 Azure Storage 연결된 서비스 만들기
@@ -181,7 +181,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 1. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
 
    1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
-   1. **테이블**에 대해 임의의 테이블을 선택합니다. 이 테이블은 더미 테이블입니다. 파이프라인을 만들 때 원본 데이터 세트에 대한 쿼리를 지정합니다. 이 쿼리는 Azure SQL Database에서 데이터를 추출하는 데 사용됩니다. 또는 **편집** 확인란을 클릭하고 **dummyName**을 테이블 이름으로 입력할 수 있습니다. 
+   1. **테이블**에 대해 임의의 테이블을 선택합니다. 이 테이블은 더미 테이블입니다. 파이프라인을 만들 때 원본 데이터 세트에 대한 쿼리를 지정합니다. 이 쿼리는 Azure SQL 데이터베이스에서 데이터를 추출하는 데 사용됩니다. 또는 **편집** 확인란을 클릭하고 **dummyName**을 테이블 이름으로 입력할 수 있습니다. 
 
       ![원본 데이터 세트 연결 페이지](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  

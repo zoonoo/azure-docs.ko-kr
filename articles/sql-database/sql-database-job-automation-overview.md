@@ -1,6 +1,6 @@
 ---
 title: Azure SQL 작업 자동화 | Microsoft Docs
-description: 작업 자동화를 사용하여 하나 이상의 Azure SQL Database의 세트에서 T-SQL(Transact-SQL) 스크립트 실행
+description: 작업 자동화를 사용하여 하나 이상의 Azure SQL 데이터베이스의 세트에서 T-SQL(Transact-SQL) 스크립트 실행
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -21,8 +21,8 @@ ms.locfileid: "57901970"
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 
 Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업을 수행하도록 하나 이상의 데이터베이스에 대해 주기적으로 실행되는 작업을 만들고 예약할 수 있습니다. 모든 작업은 실행의 상태를 기록하고 오류가 발생하는 경우 작업을 자동으로 다시 시도합니다.
-대상 데이터베이스 또는 작업이 실행되는 Azure SQL Database의 그룹을 정의할 수 있으며, 작업 실행을 위한 일정도 정의할 수 있습니다.
-작업은 대상 데이터베이스의 로그인 태스크를 처리합니다. 또한 Azure SQL Database 그룹에서 실행할 Transact-SQL 스크립트를 정의, 유지 관리 및 보존합니다.
+대상 데이터베이스 또는 작업이 실행되는 Azure SQL 데이터베이스의 그룹을 정의할 수 있으며, 작업 실행을 위한 일정도 정의할 수 있습니다.
+작업은 대상 데이터베이스의 로그인 태스크를 처리합니다. 또한 Azure SQL 데이터베이스 그룹에서 실행할 Transact-SQL 스크립트를 정의, 유지 관리 및 보존합니다.
 
 ## <a name="when-to-use-automated-jobs"></a>자동화된 작업을 사용하는 경우
 
@@ -34,7 +34,7 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
   - 인덱스를 다시 작성하여 쿼리 성능 향상 사용량이 적은 시간 중과 같이 데이터베이스 컬렉션에 대해 되풀이해서 실행하려면 작업을 구성합니다.
   - 지속적으로 데이터베이스 집합에서 중앙 테이블로 쿼리 결과 수집 지속적으로 성능 쿼리를 실행하고 실행할 추가 작업을 트리거하도록 구성할 수 있습니다.
 - 보고에 대한 데이터 수집
-  - Azure SQL Database의 컬렉션에서 단일 대상 테이블로 데이터를 집계합니다.
+  - Azure SQL 데이터베이스의 컬렉션에서 단일 대상 테이블로 데이터를 집계합니다.
   - 큰 데이터베이스 집합에 대해 더 오래 실행되는 데이터 처리 쿼리(예: 고객 원격 분석 수집) 실행. 추가 분석을 위해 결과가 단일 대상 테이블에 수집됩니다.
 - 데이터 이동
   - 데이터베이스에서 변경된 내용을 다른 데이터베이스로 복제하거나 원격 데이터베이스에서 만들어진 업데이트를 수집하고 변경된 내용을 데이터베이스에 적용하는 작업을 만듭니다.
@@ -47,7 +47,7 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
 - **SQL 에이전트 작업**은 Managed Instance에서 사용할 수 있는 클래식 및 입증된 SQL Server 작업 예약 구성 요소입니다. SQL 에이전트 작업은 단일 데이터베이스에서 사용할 수 없습니다.
 - **Elastic Database 작업**은 하나 또는 여러 Azure SQL Database에서 사용자 지정 작업을 실행하는 작업 예약 서비스입니다.
 
-SQL 에이전트(온-프레미스 및 SQL Database Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL Database의 단일 데이터베이스 및 SQL Data Warehouse의 데이터베이스에서 사용 가능) 사이의 몇 가지 차이점을 주목할 필요가 있습니다.
+SQL 에이전트(온-프레미스 및 SQL Database Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL 데이터베이스의 단일 데이터베이스 및 SQL Data Warehouse의 데이터베이스에서 사용 가능) 사이의 몇 가지 차이점을 주목할 필요가 있습니다.
 
 |  |탄력적 작업  |SQL 에이전트 |
 |---------|---------|---------|

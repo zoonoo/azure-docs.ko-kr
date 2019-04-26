@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58444977"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>빠른 시작: Python을 사용하여 Azure SQL Database 쿼리
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>빠른 시작: Python을 사용하여 Azure SQL 데이터베이스 쿼리
 
- 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. SDK에 대한 자세한 내용은 [참조](https://docs.microsoft.com/python/api/overview/azure/sql) 문서, [pyodbc GitHub 리포지토리](https://github.com/mkleehammer/pyodbc/wiki/) 및 [pyodbc 샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)에서 확인하세요.
+ 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure SQL 데이터베이스에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. SDK에 대한 자세한 내용은 [참조](https://docs.microsoft.com/python/api/overview/azure/sql) 문서, [pyodbc GitHub 리포지토리](https://github.com/mkleehammer/pyodbc/wiki/) 및 [pyodbc 샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)에서 확인하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

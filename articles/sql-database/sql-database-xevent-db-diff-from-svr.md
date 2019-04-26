@@ -1,6 +1,6 @@
 ---
 title: SQL Database의 확장 이벤트| Microsoft Docs
-description: Azure SQL Database의 확장 이벤트(XEvent)와 Microsoft SQL Server의 이벤트 세션 간 차이점에 대해 설명합니다.
+description: Azure SQL Database의 확장 이벤트(XEvents)와 Microsoft SQL Server의 이벤트 세션 간 차이점에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -94,7 +94,7 @@ Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>새로운 [DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](https://msdn.microsoft.com/library/bb677293.aspx) 가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
+Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](https://msdn.microsoft.com/library/bb677293.aspx)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
 | DMV의 이름 | 설명 |
 |:--- |:--- |
@@ -200,7 +200,7 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 - [Microsoft SQL Server의 확장 이벤트에 대한 Jonathan Kehayias의 블로그](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-- Azure SQL Database에 대한 매개 변수로 범위가 좁혀지는 Azure *서비스 업데이트* 웹 페이지
+- Azure SQL Database에 대한 매개 변수로 범위가 좁혀지는 Azure *서비스 업데이트* 웹 페이지:
     - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 

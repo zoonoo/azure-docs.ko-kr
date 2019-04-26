@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 규모 확장 | Microsoft Docs
+title: Azure SQL 데이터베이스 규모 확장 | Microsoft Docs
 description: ShardMapManager 및 .NET용 탄력적 데이터베이스를 사용하는 방법
 services: sql-database
 ms.service: sql-database

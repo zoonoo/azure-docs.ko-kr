@@ -1,6 +1,6 @@
 ---
 title: 인덱싱 중에 데이터 원본을 탐색하기 위한 인덱서 - Azure Search
-description: 검색 가능한 데이터를 추출하여 Azure Search 인덱스에 입력하기 위해 Azure SQL Database, Azure Cosmos DB 또는 Azure Storage를 탐색합니다.
+description: 검색 가능한 데이터를 추출하여 Azure Search 인덱스에 입력하기 위해 Azure SQL 데이터베이스, Azure Cosmos DB 또는 Azure Storage를 탐색합니다.
 author: HeidiSteen
 manager: cgronlun
 services: search

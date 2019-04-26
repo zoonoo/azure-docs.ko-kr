@@ -1,6 +1,6 @@
 ---
-title: CLI 예제 모니터링 크기 조정 단일 SQL Database | Microsoft Docs
-description: 단일 Azure SQL Database를 모니터링하고 크기를 조정하는 Azure CLI 예제 스크립트
+title: CLI 예제 모니터링 크기 조정 단일 Azure SQL 데이터베이스 | Microsoft Docs
+description: 단일 Azure SQL 데이터베이스를 모니터링하고 크기를 조정하는 Azure CLI 예제 스크립트
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance

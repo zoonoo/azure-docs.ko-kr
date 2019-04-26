@@ -30,7 +30,7 @@ SQL 데이터 동기화의 개요는 [Azure SQL 데이터 동기화를 사용하
 SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예제는 [Azure SQL 데이터베이스를 동기화하는 방법](scripts/sql-database-sync-data-between-sql-databases.md) 또는 [Azure SQL Database와 SQL Server 온-프레미데이스 터베이스 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 현재 Azure SQL Data Sync는 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
+> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="create-sync-group"></a>동기화 그룹 만들기
 

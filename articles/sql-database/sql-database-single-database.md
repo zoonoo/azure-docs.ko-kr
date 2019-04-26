@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 단일 데이터베이스란? | Microsoft Docs
-description: Azure SQL Database의 단일 데이터베이스에 대해 알아봅니다.
+description: Azure SQL Database의 단일 데이터베이스에 대해 알아보기
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -21,7 +21,7 @@ ms.locfileid: "60331539"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
-단일 데이터베이스 배포 옵션은 자체 리소스 집합을 사용하여 Azure SQL Database에 데이터베이스를 만들고 SQL Database 서버를 통해 관리됩니다. 단일 데이터베이스를 사용하면 각 데이터베이스가 서로 격리되고 이식 가능하며, [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 보장된 컴퓨팅 크기 내에서 자체의 고유 서비스 계층을 갖추게 됩니다.
+단일 데이터베이스 배포 옵션은 자체 리소스 세트를 사용하여 Azure SQL Database에 데이터베이스를 만들고 SQL Database 서버를 통해 관리됩니다. 단일 데이터베이스를 사용하면 각 데이터베이스가 서로 격리되고 이식 가능하며, [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 보장된 컴퓨팅 크기 내에서 자체의 고유 서비스 계층을 갖추게 됩니다.
 
 > [!IMPORTANT]
 > 단일 데이터베이스는 Azure SQL Database의 세 가지 배포 옵션 중 하나입니다. 나머지 두 가지 옵션은 [탄력적 풀](sql-database-elastic-pool.md)과 [관리되는 인스턴스](sql-database-managed-instance.md)입니다.
