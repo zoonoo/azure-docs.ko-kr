@@ -79,13 +79,13 @@ ms.locfileid: "36265010"
   
 | Name     | type   | 설명                                                                                               | 필수 |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| 원본   | string | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.     | 예      |
-| 이유   | string | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 아니오       |
-| Message  | string | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
-| 범위    | string | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 아니오       |
-| 섹션  | string | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".       | 아니오       |
-| path     | string | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                        | 아니오       |
-| PolicyId | string | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아니오       |
+| `Source`   | string | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.     | 예      |
+| `Reason`   | string | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 아니오       |
+| `Message`  | string | 사람이 읽을 수 있는 오류 설명입니다.                                                                         | 예      |
+| `Scope`    | string | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 아니오       |
+| `Section`  | string | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".       | 아니오       |
+| `Path`     | string | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                        | 아니오       |
+| `PolicyId` | string | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아니오       |
 
 > [!TIP]
 > context.Response.StatusCode를 통해 상태 코드에 액세스할 수 있습니다.  
