@@ -23,13 +23,13 @@ Azure SQL Data Warehouse의 테이블 디자인에 대한 주요 개념을 알�
 
 ## <a name="determine-table-category"></a>테이블 범주 확인 
 
-[스타 스키마](https://en.wikipedia.org/wiki/Star_schema)는 데이터를 팩트 및 차원 테이블로 구성합니다. 일부 테이블은 팩트 또는 차원 테이블로 이동하기 전의 통합 또는 준비 데이터에 사용됩니다. 테이블을 디자인할 때 테이블 데이터가 팩트, 차원 또는 통합 테이블에 속하는지를 결정합니다. 이 결정은 적절한 테이블 구조 및 배포를 알려줍니다. 
+[스타 스키마](https://en.wikipedia.org/wiki/Star_schema)는 데이터를 팩트 및 차원 테이블로 구성합니다. 일부 테이블은 팩트 또는 차원 테이블로 이동하기 전의 통합 또는 스테이징 데이터에 사용됩니다. 테이블을 디자인할 때 테이블 데이터가 팩트, 차원 또는 통합 테이블에 속하는지를 결정합니다. 이 결정은 적절한 테이블 구조 및 배포를 알려줍니다. 
 
 - **팩트 테이블**에는 일반적으로 트랜잭션 시스템에서 생성된 다음, 데이터 웨어하우스에 로드된 정량적 데이터가 있습니다. 예를 들어 소매점에서 판매 트랜잭션을 매일 생성한 다음 분석을 위해 데이터 웨어하우스의 팩트 테이블에 데이터를 로드합니다.
 
 - **차원 테이블**에는 변경될 수 있지만 일반적으로 드물게 변경되는 특성 데이터가 있습니다. 예를 들어 고객의 이름과 주소는 차원 테이블에 저장되고, 고객 프로필이 변경될 때만 업데이트됩니다. 대형 팩트 테이블의 크기를 최소화하기 위해 고객의 이름과 주소는 팩트 테이블의 모든 행에 있지 않아도 됩니다. 대신, 팩트 테이블과 차원 테이블에서 고객 ID를 공유할 수 있습니다. 쿼리는 두 테이블을 조인하여 고객 프로필과 트랜잭션을 연결할 수 있습니다. 
 
-- **통합 테이블**에서는 데이터를 통합하거나 준비할 수 있습니다. 통합 테이블을 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 준비 테이블에 데이터를 로드하고 준비 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
+- **통합 테이블**에서는 데이터를 통합하거나 스테이징 할 수 있습니다. 통합 테이블을 일반 테이블, 외부 테이블 또는 임시 테이블로 만들 수 있습니다. 예를 들어 스테이징 테이블에 데이터를 로드하고 스테이징 중인 데이터에 대한 변환을 수행한 다음 프로덕션 테이블에 데이터를 삽입할 수 있습니다.
 
 ## <a name="schema-and-table-names"></a>스키마 및 테이블 이름
 스키마는 테이블 그룹을 비슷한 방식으로 함께 사용 하는 좋은 방법입니다.  마이그레이션하려는 경우 여러 데이터베이스 온-프레미스 솔루션에서 SQL Data warehouse, SQL Data Warehouse의 한 스키마로 모든 팩트, 차원 및 통합 테이블을 마이그레이션하도록 적합 합니다. 예를 들어 [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) 샘플 데이터 웨어하우스의 모든 테이블을 wwi라는 하나의 스키마 내에 저장할 수 있습니다. 다음 코드에서는 wwi라는 [사용자 정의 스키마](/sql/t-sql/statements/create-schema-transact-sql)를 만듭니다.
@@ -59,19 +59,19 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>임시 테이블
-임시 테이블은 세션 기간 동안만 유지됩니다. 다른 사용자가 임시 결과 표시 하지 못하도록 설정 및 정리에 대 한 필요성을 줄이기 위해 임시 테이블을 사용할 수 있습니다.  임시 테이블 빠른 성능을 제공 하기 위해 로컬 저장소를 활용 합니다.  자세한 내용은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요.
+임시 테이블은 세션 기간 동안만 유지됩니다. 다른 사용자가 임시 결과를 보지 못하도록 하고 또한 정리에 대한 필요성을 줄이기 위해 임시 테이블을 사용할 수 있습니다.  임시 테이블은 빠른 성능을 제공 하기 위해 로컬 저장소를 활용 합니다.  자세한 내용은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요.
 
 ### <a name="external-table"></a>외부 테이블
-외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE AS SELECT 문과 함께 사용하는 경우 외부 테이블에서 선택하면 데이터를 SQL Data Warehouse로 가져옵니다. 따라서 외부 테이블은 데이터 로드에 유용합니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
+외부 테이블은 Azure Storage Blob 또는 Azure Data Lake Store에 있는 데이터를 가리킵니다. CREATE TABLE AS SELECT 문과 함께 사용하는 경우 외부 테이블에서 선택하여 데이터를 SQL Data Warehouse로 가져옵니다. 따라서 외부 테이블은 데이터 로드에 유용합니다. 로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)를 참조하세요.
 
 ## <a name="data-types"></a>데이터 형식
 SQL Data Warehouse는 가장 일반적으로 사용되는 데이터 형식을 지원합니다. 지원되는 데이터 형식의 목록은 CREATE TABLE 문의 [CREATE TABLE 참조의 데이터 형식](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes)을 참조하세요. 데이터 형식 사용에 대한 지침은 [데이터 형식](sql-data-warehouse-tables-data-types.md)을 참조하세요.
 
 ## <a name="distributed-tables"></a>분산 테이블
-SQL Data Warehouse의 기본 기능은 방법이 저장 하 고에서 테이블을 작업할 수 있습니다 [배포판](massively-parallel-processing-mpp-architecture.md#distributions)합니다.  SQL Data Warehouse는 데이터, 라운드 로빈 (기본값), 해시 배포에 대 한 세 가지 메서드를 지원 하 고 복제 합니다.
+SQL Data Warehouse의 기본 기능은 [분산](massively-parallel-processing-mpp-architecture.md#distributions)을 통해 테이블에서 작업하고 저장할 수 있습니다.  SQL Data Warehouse는 해시 분산, 복제, 라운드 로빈(기본값)의 3가지 데이터 분산 방법을 지원합니다.
 
 ### <a name="hash-distributed-tables"></a>해시 분산 테이블
-해시 분산된 테이블은 행 분산 열의 값을 기반으로 합니다. 해시 분산된 테이블은 대형 테이블에서 쿼리에 대 한 높은 성능을 달성 하도록 설계 되었습니다. 배포 열을 선택할 때 고려해 야 할 여러 요인이 있습니다. 
+해시 분산된 테이블은 분산 열의 값을 기반으로 행을 분산합니다. 해시 분산된 테이블은 대형 테이블에서 쿼리에 대한 높은 성능을 달성 하도록 설계 되었습니다. 배포 열을 선택할 때 고려해야 할 여러 요인이 있습니다. 
 
 자세한 내용은 [분산 테이블에 대한 디자인 지침](sql-data-warehouse-tables-distribute.md)을 참조하세요.
 
@@ -86,28 +86,28 @@ SQL Data Warehouse의 기본 기능은 방법이 저장 하 고에서 테이블�
 자세한 내용은 [분산 테이블에 대한 디자인 지침](sql-data-warehouse-tables-distribute.md)을 참조하세요.
 
 ### <a name="common-distribution-methods-for-tables"></a>테이블에 대한 일반적인 분산 방법
-테이블 범주에 따라 선택할 테이블 배포 옵션이 결정되는 경우가 많습니다. 
+테이블 범주에 따라 분산 테이블을 선택하는 옵션이 결정되는 경우가 많습니다. 
 
-| 테이블 범주 | 권장 배포 옵션 |
+| 테이블 범주 | 권장 분산 옵션 |
 |:---------------|:--------------------|
-| 팩트           | 클러스터형 columnstore 인덱스와 함께 해시 배포를 사용합니다. 동일한 배포 열에서 두 해시 테이블을 조인하면 성능이 향상됩니다. |
+| 팩트           | 클러스터형 columnstore 인덱스와 함께 해시 분산을 사용합니다. 동일한 분산 열에서 두 해시 테이블을 조인하면 성능이 향상됩니다. |
 | 차원      | 작은 테이블에는 복제를 사용합니다. 테이블이 너무 커서 각 계산 노드에 저장할 수 없는 경우 해시 분산을 사용합니다. |
-| 스테이징        | 준비 테이블에는 라운드 로빈을 사용합니다. CTAS를 사용하면 빠르게 로드됩니다. 준비 테이블에 데이터가 있으면 INSERT를 사용 하는 중... 프로덕션 테이블에 데이터를 이동 하려면 선택 합니다. |
+| 스테이징        | 스테이징 테이블에는 라운드 로빈을 사용합니다. CTAS를 사용하면 빠르게 로드됩니다. 스테이징 테이블에 데이터가 있으면 프로덕션 테이블에 데이터를 이동 하려면 INSERT...SELECT를 사용 합니다. |
 
 ## <a name="table-partitions"></a>테이블 파티션
-분할된 테이블은 데이터 범위에 따라 테이블 행에 저장하고 작업을 수행합니다. 예를 들어 테이블을 일, 월 또는 연도별로 분할할 수 있습니다. 쿼리 검색을 파티션 내의 데이터로 제한하는 파티션 제거를 통해 쿼리 성능을 향상시킬 수 있습니다. 파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. SQL Data Warehouse의 데이터는 이미 분산되어 있으므로 파티션이 너무 많으면 쿼리 성능이 느려질 수 있습니다. 자세한 내용은 [분할 지침](sql-data-warehouse-tables-partition.md)을 참조하세요.  비어 있지 않은 파티션 테이블로 전환는 파티션의 경우, TRUNCATE_TARGET 옵션을 사용 하는 것이 좋습니다에 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 문 경우 기존 데이터가 잘릴 수 있습니다. 모든 기존 데이터를 덮어쓰지 SalesFact에 변환 된 일일 데이터에서 코드 스위치 아래. 
+분할된 테이블은 데이터 범위에 따라 테이블 행에 저장하고 작업을 수행합니다. 예를 들어 테이블을 일, 월 또는 연도별로 분할할 수 있습니다. 쿼리 검색을 파티션 내의 데이터로 제한하는 파티션 제거를 통해 쿼리 성능을 향상시킬 수 있습니다. 파티션 전환을 통해 데이터를 유지 관리할 수도 있습니다. SQL Data Warehouse의 데이터는 이미 분산되어 있으므로 파티션이 너무 많으면 쿼리 성능이 느려질 수 있습니다. 자세한 내용은 [분할 지침](sql-data-warehouse-tables-partition.md)을 참조하세요. 비어 있지 않은 파티션 테이블로 전환하는 파티션의 경우, 기존 데이터를 잘라내야 한다면 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) 문에서 TRUNCATE_TARGET 옵션을 사용 하는 것이 좋습니다. 다음 코드는 변환된 일일 데이터를 기존 데이터를 덮어쓰면서 SalesFact에 전환합니다. 
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ## <a name="columnstore-indexes"></a>Columnstore 인덱스
-기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 저장소는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 저장소 구조인 경우도 있습니다.  힙 테이블은 최종 테이블을 변환 되는 준비 테이블 같은 임시 데이터를 로드 하는 것에 대 한 특히 유용할 수 있습니다.
+기본적으로 SQL Data Warehouse는 테이블을 클러스터형 columnstore 인덱스로 저장합니다. 이러한 형태의 데이터 저장소는 대형 테이블에서 데이터 압축률과 쿼리 성능이 높습니다.  일반적으로 클러스터형 columnstore 인덱스가 가장 좋은 옵션이지만 클러스터형 인덱스 또는 힙이 적절한 저장소 구조인 경우도 있습니다.  힙 테이블은 최종 테이블로 변환 되는 스테이징 테이블 같은 임시 데이터를 로드 하는 경우 특히 유용할 수 있습니다.
 
 columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)을 참조하세요. columnstore 인덱스 성능을 향상하려면 [columnstore 인덱스의 행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 
 ## <a name="statistics"></a>통계
-쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 가 쿼리 성능 향상을 위해 쿼리 조인에 사용 된 열에 특히 개별 열에 대 한 통계가 해야 합니다. [통계를 만드는](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) 자동으로 수행 합니다.  그러나 통계를 업데이트 하는 중 자동으로 이루어지지는지 않습니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
+쿼리 최적화 프로그램은 쿼리 실행 계획을 만들 때 열 수준 통계를 사용합니다. 쿼리 성능 향상을 위해, 특히 쿼리 조인에 사용 된 개별 열에 대한 통계가 있는 것이 중요합니다. [통계를 만드는 것은](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) 자동으로 수행 합니다.  그러나 통계를 업데이트 하는 것은 자동으로 이루어지지 않습니다. 많은 행을 추가하거나 변경한 후에는 통계를 업데이트합니다. 예를 들어 로드 후 통계를 업데이트합니다. 자세한 내용은 [통계 가이드](sql-data-warehouse-tables-statistics.md)를 참조하세요.
 
 ## <a name="commands-for-creating-tables"></a>테이블을 만드는 명령
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
@@ -134,7 +134,7 @@ SQL Data Warehouse는 다른 데이터베이스에서 제공하는 테이블 기
 - [인덱싱된 뷰](/sql/relational-databases/views/create-indexed-views)
 - [시퀀스](/sql/t-sql/statements/create-sequence-transact-sql)
 - [스파스 열](/sql/relational-databases/tables/use-sparse-columns)
-- 서로게이트 키. [ID](sql-data-warehouse-tables-identity.md)로 구현합니다.
+- 대체 키. [ID](sql-data-warehouse-tables-identity.md)로 구현합니다.
 - [동의어](/sql/t-sql/statements/create-synonym-transact-sql)
 - [트리거](/sql/t-sql/statements/create-trigger-transact-sql)
 - [고유 인덱스](/sql/t-sql/statements/create-index-transact-sql)
