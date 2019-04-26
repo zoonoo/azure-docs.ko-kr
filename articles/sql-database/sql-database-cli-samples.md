@@ -37,10 +37,10 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 |---|---|
 |**단일 데이터베이스 및 탄력적 풀 만들기**||
 | [단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 단일 Azure SQL Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. |
-| [탄력적 풀 만들기 및 풀된 데이터베이스 이동](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 SQL 탄력적 풀을 만들고, 풀링된 Azure SQL Database를 이동하고, 계산 크기를 변경합니다.|
+| [탄력적 풀 만들기 및 풀된 데이터베이스 이동](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 SQL 탄력적 풀을 만들고, 풀링된 Azure SQL 데이터베이스 이동하고, 컴퓨팅 크기를 변경합니다.|
 |**단일 데이터베이스 및 탄력적 풀 크기 조정**||
-| [단일 데이터베이스 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 데이터베이스의 크기 정보를 쿼리한 후에 단일 Azure SQL 데이터베이스를 다양한 계산 크기로 확장합니다. |
-| [탄력적 풀 크기 조정](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 SQL 탄력적 풀을 다른 계산 크기로 조정합니다.  |
+| [단일 데이터베이스 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 데이터베이스의 크기 정보를 쿼리한 후에 단일 Azure SQL 데이터베이스를 다양한 컴퓨팅 크기로 확장합니다. |
+| [탄력적 풀 크기 조정](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 이 CLI 스크립트 예제는 SQL 탄력적 풀을 다른 컴퓨팅 크기로 조정합니다.  |
 |||
 
 [단일 데이터베이스 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)에 대해 자세히 알아봅니다.

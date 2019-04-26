@@ -220,7 +220,7 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
     ProvisioningState : Succeeded
     ```
 
-   SQL Database Server에 대해 **Azure 서비스 방문 허용** 설정이 켜져 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
+   SQL 데이터베이스 서버에 대해 **Azure 서비스 방문 허용** 설정이 켜져 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
     1. [Azure Portal](https://portal.azure.com)에 로그인
     1. 왼쪽에 있는 **더 많은 서비스 >** 를 클릭하고 **데이터베이스** 범주에서 **SQL 서버**를 클릭합니다.
