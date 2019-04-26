@@ -112,4 +112,4 @@ ms.locfileid: "59495040"
   - Azure 가상 머신에서 관리되는 인스턴스에 연결하는 방법을 보여주는 빠른 시작은 [Azure 가상 머신 연결 구성](sql-database-managed-instance-configure-vm.md)을 참조하세요.
   - 온-프레미스 클라이언트 컴퓨터에서 지점 및 사이트 간 연결을 사용하여 관리되는 인스턴스에 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 - 온-프레미스의 기존 SQL Server 데이터베이스를 Managed Instance로 복원하려면 [마이그레이션용 Azure DMS(Database Migration Service)](../dms/tutorial-sql-server-to-managed-instance.md)를 사용하여 데이터베이스 백업 파일에서 복원하거나 [T-SQL RESTORE 명령](sql-database-managed-instance-get-started-restore.md)을 사용하여 데이터베이스 백업 파일에서 복원하면 됩니다.
-- 기본 제공 문제 해결 인텔리전스를 사용하는 Managed Instance 데이터베이스 성능의 고급 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Database 모니터링](../azure-monitor/insights/azure-sql.md)을 참조하세요.
+- 기본 제공 문제 해결 인텔리전스를 사용하는 관리형 인스턴스 데이터베이스 성능의 고급 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Database 모니터링](../azure-monitor/insights/azure-sql.md)을 참조하세요.

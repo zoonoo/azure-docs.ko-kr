@@ -32,7 +32,7 @@ Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적
 
 ## <a name="connected-sources"></a>연결된 소스
 
-Azure SQL 분석은 단일, 풀링, Managed Instance 데이터베이스 등 Azure SQL Database에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 전용 모니터링 솔루션입니다. 솔루션 Azure Monitor에 연결할 에이전트를 사용 하지 않으므로, 솔루션 호스팅되는 SQL Server 온-프레미스 또는 Vm에서 모니터링을 지원, 아래 호환성 표를 참조 하지 않습니다.
+Azure SQL Analytics는 단일, 풀링, Managed Instance 데이터베이스 등 Azure SQL 데이터베이스에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 전용 모니터링 솔루션입니다. 솔루션 Azure Monitor에 연결할 에이전트를 사용 하지 않으므로, 솔루션 호스팅되는 SQL Server 온-프레미스 또는 Vm에서 모니터링을 지원, 아래 호환성 표를 참조 하지 않습니다.
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58108749"
@@ -57,7 +57,7 @@ W=12주(84일), M=12개월(365일), Y=10년(3650일), WeekOfYear=15(4월 15일 �
 
 
 
-위의 정책을 수정하고 W=0(주별 백업 없음)으로 설정하는 경우 백업 복사본의 주기는 강조 표시된 날짜까지 위의 표에 나와 있는 것처럼 변경됩니다. 이러한 백업을 유지하는 데 필요한 저장소 크기는 적절하게 줄어듭니다. 
+위의 정책을 수정하고 W=0(주별 백업 없음)으로 설정하는 경우 백업 복사본의 주기는 강조 표시된 날짜까지 위의 표에 나와 있는 것처럼 변경됩니다. 이러한 백업을 유지하는 데 필요한 스토리지 용량은 적절하게 줄어듭니다. 
 
 > [!NOTE]
 > 1. LTR 복사본은 Azure 저장소 서비스에서 생성되므로 복사 프로세스는 기존 데이터베이스에 성능 영향을 주지 않습니다.

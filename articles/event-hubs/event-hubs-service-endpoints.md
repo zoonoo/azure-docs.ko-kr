@@ -59,7 +59,7 @@ TCP/IP에서 HTTPS를 수행하는 경로를 비롯한 구획 간의 즉시 IP �
 
 *가상 네트워크 규칙*은 Azure Event Hubs 네임스페이스가 특정 가상 네트워크 서브넷의 연결을 수락할지 여부를 제어하는 방화벽 보안 기능입니다.
 
-Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에 **Virtual Network 서비스 엔드포인트**를 만들고, [서비스 엔드포인트 개요][vnet-sep]에 설명된 대로 “Microsoft.EventHub”에 사용하도록 설정해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 *가상 네트워크 규칙*을 사용하여 Event Hubs 네임스페이스를 바인딩합니다.
+Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에 **Virtual Network 서비스 엔드포인트**를 만들고, [서비스 엔드포인트 개요][vnet-sep]에 설명된 대로 "Microsoft.EventHub"에 사용하도록 설정해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 *가상 네트워크 규칙*을 사용하여 Event Hubs 네임스페이스를 바인딩합니다.
 
 가상 네트워크 규칙은 가상 네트워크 서브넷을 사용하는 Event Hubs 네임스페이스의 연결입니다. 규칙이 있는 한 서브넷에 바인딩된 모든 워크로드는 Event Hubs 네임스페이스에 대한 액세스 권한이 부여됩니다. Event Hubs 자체는 아웃바운드 연결을 설정하지 않고, 액세스 권한을 가져올 필요도 없습니다. 따라서 이 규칙을 사용하여 서브넷에 대한 액세스 권한이 부여되지 않습니다.
 

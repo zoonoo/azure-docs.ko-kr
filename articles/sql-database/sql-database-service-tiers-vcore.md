@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357938"
@@ -33,7 +33,7 @@ vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스의 
 
 ## <a name="service-tier-characteristics"></a>서비스 계층 특성
 
-vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 세 가지 서비스 계층을 제공합니다. 서비스 계층은 다양한 계산 크기, 고가용성 설계, 오류 격리, 스토리지의 유형과 크기, IO 범위로 구분됩니다. 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. Azure Portal에서 서버(데이터베이스 아님) > 관리되는 백업 > 정책 구성 > 특정 시점 복원 구성 > 7 - 35일로 이동합니다.
+vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 세 가지 서비스 계층을 제공합니다. 서비스 계층은 다양한 컴퓨팅 크기, 고가용성 설계, 오류 격리, 스토리지의 유형과 크기, IO 범위로 구분됩니다. 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. Azure Portal에서 서버(데이터베이스 아님) > 관리되는 백업 > 정책 구성 > 특정 시점 복원 구성 > 7 - 35일로 이동합니다.
 
 다음 표는 이러한 세 계층 간의 차이점을 이해하는 데 도움이 됩니다.
 
@@ -122,13 +122,13 @@ DTU 기반 모델에서 vCore 기반 모델로 마이그레이션하는 것은 �
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>지역 복제 보조 데이터베이스 만들기
 
-주 데이터베이스와 동일한 서비스 계층을 사용하여 지역 복제 보조 데이터베이스만 만들 수 있습니다. 로그 생성 속도가 높은 데이터베이스의 경우, 보조 데이터베이스를 주 데이터베이스와 동일한 계산 크기로 만드는 것이 좋습니다. 단일 주 데이터베이스에 대한 탄력적 풀에서 지역 복제 보조 데이터베이스를 만드는 경우, 주 데이터베이스 계산 크기와 일치하는 `maxVCore` 설정이 풀에 있는 것이 좋습니다. 다른 탄력적 풀에 있는 기본 탄력적 풀에 지역 보조 데이터베이스를 만드는 경우, 풀의 설정은 `maxVCore`와 동일해야 합니다.
+주 데이터베이스와 동일한 서비스 계층을 사용하여 지역 복제 보조 데이터베이스만 만들 수 있습니다. 로그 생성 속도가 높은 데이터베이스의 경우, 보조 데이터베이스를 주 데이터베이스와 동일한 컴퓨팅 크기로 만드는 것이 좋습니다. 단일 주 데이터베이스에 대한 탄력적 풀에서 지역 복제 보조 데이터베이스를 만드는 경우, 주 데이터베이스 컴퓨팅 크기와 일치하는 `maxVCore` 설정이 풀에 있는 것이 좋습니다. 다른 탄력적 풀에 있는 기본 탄력적 풀에 지역 보조 데이터베이스를 만드는 경우, 풀의 설정은 `maxVCore`와 동일해야 합니다.
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>데이터베이스 복사본을 사용하여 DTU 기반 데이터베이스를 vCore 기반 데이터베이스로 변환
 
-대상 계산 크기가 원본 데이터베이스의 최대 데이터베이스 크기를 지원하는 경우 제한 또는 특별한 순서 지정 없이 DTU 기반 계산 크기의 데이터베이스를 vCore 기반 계산 크기의 데이터베이스에 복사할 수 있습니다. 데이터베이스 복사본은 복사 작업의 시작 시간에 따라 데이터의 스냅숏을 만들고 원본과 대상 간에 데이터 동기화를 수행하지 않습니다.
+대상 컴퓨팅 크기가 원본 데이터베이스의 최대 데이터베이스 크기를 지원하는 경우 제한 또는 특별한 순서 지정 없이 DTU 기반 컴퓨팅 크기의 데이터베이스를 vCore 기반 컴퓨팅 크기의 데이터베이스에 복사할 수 있습니다. 데이터베이스 복사본은 복사 작업의 시작 시간에 따라 데이터의 스냅숏을 만들고 원본과 대상 간에 데이터 동기화를 수행하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
-- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 옵션에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 단일 데이터베이스에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 탄력적 풀에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기 옵션에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.

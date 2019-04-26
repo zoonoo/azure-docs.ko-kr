@@ -31,7 +31,7 @@ ms.locfileid: "59360174"
 
 첫 번째 단계에서는 첫 번째 Managed Instance가 배치될 네트워크 환경에서 해당 인스턴스를 만들어야 하며, Managed Instance에 대한 쿼리를 실행하는 컴퓨터 또는 가상 머신에서 연결을 사용하도록 설정해야 합니다. 다음 지침을 사용할 수 있습니다.
 
-- [Azure Portal을 사용하여 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md). Azure Portal에서 필요한 매개 변수(사용자 이름/암호, 코어 수, 최대 스토리지 양)를 구성하고, 네트워킹 세부 정보 및 인프라 요구 사항에 대해 알아볼 필요 없이 Azure 네트워크 환경을 자동으로 만들 수 있습니다. 현재 관리형 인스턴스를 만들도록 허용된 [구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)이 있는지 확인합니다. 사용하려는 고유한 네트워크가 있거나 네트워크를 사용자 지정하려는 경우 [Azure SQL Database 관리형 인스턴스의 기존 가상 네트워크 구성](sql-database-managed-instance-configure-vnet-subnet.md) 또는 [Azure SQL Database 관리형 인스턴스의 가상 네트워크 만들기](sql-database-managed-instance-create-vnet-subnet.md)를 참조하세요.
+- [Azure Portal을 사용하여 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md). Azure Portal에서 필요한 매개 변수(사용자 이름/암호, 코어 수, 최대 스토리지 용량)를 구성하고, 네트워킹 세부 정보 및 인프라 요구 사항에 대해 알아볼 필요 없이 Azure 네트워크 환경을 자동으로 만들 수 있습니다. 현재 관리형 인스턴스를 만들도록 허용된 [구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)이 있는지 확인합니다. 사용하려는 고유한 네트워크가 있거나 네트워크를 사용자 지정하려는 경우 [Azure SQL Database 관리형 인스턴스의 기존 가상 네트워크 구성](sql-database-managed-instance-configure-vnet-subnet.md) 또는 [Azure SQL Database 관리형 인스턴스의 가상 네트워크 만들기](sql-database-managed-instance-create-vnet-subnet.md)를 참조하세요.
 - 관리되는 인스턴스는 공개 엔드포인트를 사용하여 자체 VNet에 생성됩니다. 클라이언트 애플리케이션 액세스의 경우 **동일한 VNet(여러 서브넷)에 VM을 만들거나** 다음과 같은 빠른 시작 중 하나를 사용하여 **클라이언트 컴퓨터에서 VNet에 대한 지점과 사이트 간 VPN 연결**을 만들 수 있습니다.
 
   - 클라이언트 애플리케이션 연결에 사용할 [관리되는 인스턴스 VNet의 Azure Virtual Machine](sql-database-managed-instance-configure-vm.md)(SQL Server Management Studio 포함)을 만듭니다.
