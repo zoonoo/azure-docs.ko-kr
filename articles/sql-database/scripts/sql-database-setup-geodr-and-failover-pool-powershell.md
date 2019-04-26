@@ -1,5 +1,5 @@
 ---
-title: PowerShell 예제 - 활성 지역 복제 - 풀된 Azure SQL Database | Microsoft Docs
+title: PowerShell 예제 - 활성 지역 복제 - 풀된 Azure SQL 데이터베이스 | Microsoft Docs
 description: Azure SQL Database에 풀링된 데이터베이스에 대한 활성 지역 복제를 설정하여 장애 조치(failover)를 수행하는 Azure PowerShell 예제 스크립트입니다.
 services: sql-database
 ms.service: sql-database

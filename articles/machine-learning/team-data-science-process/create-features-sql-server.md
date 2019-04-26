@@ -32,7 +32,7 @@ ms.locfileid: "60399297"
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md)
-* 데이터가 SQL Server에 저장되어 있습니다. 그렇지 않은 경우, 데이터를 이동하는 방법에 대한 지침은 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md) 을 참조하세요.
+* 데이터가 SQL Server에 저장되어 있습니다. 그렇지 않은 경우, 데이터를 이동하는 방법에 대한 지침은 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](move-sql-azure.md)을 참조하세요.
 
 ## <a name="sql-featuregen"></a>SQL로 기능 생성
 이 섹션에서는 SQL을 사용하여 기능을 생성하는 방법에 대해 설명합니다.  

@@ -26,7 +26,7 @@ ms.locfileid: "60331199"
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 현재 Azure SQL Data Sync는 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
+> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="sync-issues"></a>동기화 문제
 

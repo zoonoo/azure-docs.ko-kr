@@ -1,5 +1,5 @@
 ---
-title: PowerShell 예제 복원 백업 Azure SQL database | Microsoft Docs
+title: PowerShell 예제 복원 백업 Azure SQL 데이터베이스 | Microsoft Docs
 description: 자동 백업에서 이전 시점으로 Azure SQL 단일 데이터베이스를 복원하는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database

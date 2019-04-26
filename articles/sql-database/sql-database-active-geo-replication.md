@@ -144,7 +144,7 @@ RPO에 대해 지연 시간을 모니터링 하려면 *replication_lag_sec* 열�
 
 ## <a name="programmatically-managing-active-geo-replication"></a>활성 지역 복제를 프로그래밍 방식으로 관리
 
-앞서 설명한 것처럼 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 집합을 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../role-based-access-control/overview.md)을 참조하세요.
+앞서 설명한 것처럼 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../role-based-access-control/overview.md)을 참조하세요.
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: 단일 및 풀링된 데이터베이스의 장애 조치(failover) 관리
 
