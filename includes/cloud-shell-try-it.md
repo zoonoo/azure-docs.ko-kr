@@ -9,7 +9,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188071"
+ms.locfileid: "62091132"
 ---
 ## <a name="open-azure-cloud-shell"></a>Azure Cloud Shell 열기
 
