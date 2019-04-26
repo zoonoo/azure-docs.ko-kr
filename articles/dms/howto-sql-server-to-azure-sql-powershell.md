@@ -97,7 +97,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-다음 예에서는 sql 인증을 사용하여 SQLAzureTarget이라는 Azure SQL 데이터베이스 서버에 대한 연결 정보를 만드는 방법을 보여줍니다.
+다음 예제에서는 sql 인증을 사용하여 SQLAzureTarget이라는 Azure SQL 데이터베이스 서버에 대한 연결 정보를 만드는 방법을 보여줍니다.
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
