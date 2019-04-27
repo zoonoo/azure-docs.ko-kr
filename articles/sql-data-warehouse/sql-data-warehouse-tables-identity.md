@@ -1,6 +1,6 @@
 ---
-title: IDENTITY를 사용하여 서로게이트 키 만들기 - Azure SQL Data Warehouse| Microsoft Docs
-description: Azure SQL Data Warehouse의 테이블에 IDENTITY 속성을 사용하여 서로게이트 키를 만들기 위한 권장 사항 및 예제입니다.
+title: IDENTITY를 사용하여 대체 키 만들기 - Azure SQL Data Warehouse| Microsoft Docs
+description: Azure SQL Data Warehouse의 테이블에 IDENTITY 속성을 사용하여 대체 키를 만들기 위한 권장 사항 및 예제입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -17,11 +17,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55250860"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 IDENTITY를 사용하여 서로게이트 키 만들기
-Azure SQL Data Warehouse의 테이블에 IDENTITY 속성을 사용하여 서로게이트 키를 만들기 위한 권장 사항 및 예제입니다.
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 IDENTITY를 사용하여 대체 키 만들기
+Azure SQL Data Warehouse의 테이블에 IDENTITY 속성을 사용하여 대체 키를 만들기 위한 권장 사항 및 예제입니다.
 
-## <a name="what-is-a-surrogate-key"></a>서로게이트 키란?
-테이블의 서로게이트 키는 각 행에 대해 고유 식별자가 있는 열입니다. 이 키는 테이블 데이터에서 생성되지 않습니다. 데이터 웨어하우스 모델을 설계하는 경우 데이터 모델러는 해당 테이블에 서로게이트 키를 만들려고 합니다. 로드 성능에 영향을 주지 않고 간단하고 효과적으로 이 목표를 달성하기 위해 IDENTITY 속성을 사용할 수 있습니다.  
+## <a name="what-is-a-surrogate-key"></a>대체 키란?
+테이블의 대체 키는 각 행에 대해 고유 식별자가 있는 열입니다. 이 키는 테이블 데이터에서 생성되지 않습니다. 데이터 웨어하우스 모델을 설계하는 경우 데이터 모델러는 해당 테이블에 서로게이트 키를 만들려고 합니다. 로드 성능에 영향을 주지 않고 간단하고 효과적으로 이 목표를 달성하기 위해 IDENTITY 속성을 사용할 수 있습니다.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>IDENTITY 열이 있는 테이블 만들기
 IDENTITY 속성은 로드 성능에 영향을 주지 않고 데이터 웨어하우스의 모든 배포에 확장하도록 설계되었습니다. 따라서 IDENTITY를 구현하여 이러한 목표를 달성합니다. 
@@ -45,7 +45,7 @@ WITH
 이 섹션의 나머지 부분에는 보다 완전하게 이해할 수 있도록 구현의 미묘한 차이를 강조 표시합니다.  
 
 ### <a name="allocation-of-values"></a>값 할당
-IDENTITY 속성은 서로게이트 값을 할당한 순서를 보장하지 않습니다. 해당 순서는 SQL Server 및 Azure SQL Database의 동작을 반영합니다. 그러나 Azure SQL Data Warehouse에서 보장되지 않는다는 점이 더욱 분명합니다. 
+IDENTITY 속성은 대체 값을 할당한 순서를 보장하지 않습니다. 해당 순서는 SQL Server 및 Azure SQL Database의 동작을 반영합니다. 그러나 Azure SQL Data Warehouse에서 보장되지 않는다는 점이 더욱 분명합니다. 
 
 다음 예제는 그림입니다.
 
@@ -72,7 +72,7 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-앞의 예제에서 두 개의 행이 배포 1에서 연결되었습니다. 첫 번째 행에는 열 `C1`의 서로게이트 값 1이 있고 두 번째 행에는 서로게이트 값 61이 있습니다. 이 값은 모두 IDENTITY 속성에 의해 생성되었습니다. 그러나 값은 인접하게 할당되지 않습니다. 이 동작은 의도된 것입니다.
+앞의 예제에서 두 개의 행이 배포 1에서 연결되었습니다. 첫 번째 행에는 열 `C1`의 대체 값 1이 있고 두 번째 행에는 대체 값 61이 있습니다. 이 값은 모두 IDENTITY 속성에 의해 생성되었습니다. 그러나 값은 인접하게 할당되지 않습니다. 이 동작은 의도된 것입니다.
 
 ### <a name="skewed-data"></a>불균형 데이터 
 데이터 형식 값의 범위는 배포에 균등하게 분산되어 있습니다. 배포된 테이블에 불균형 데이터가 발생한 경우 데이터 형식으로 사용할 수 있는 값의 범위는 중간에 소진될 수 있습니다. 예를 들어 모든 데이터가 단일 분포에서 끝난 경우 테이블은 데이터 형식 값의 1/6에만 효율적으로 액세스할 수 있습니다. 이러한 이유로 IDENTITY 속성은 `INT` 및 `BIGINT` 데이터 형식으로 제한됩니다.
@@ -117,7 +117,7 @@ FROM    dbo.T1
 
 IDENTITY 속성이 존재한다는 것은 데이터 로딩 코드와 몇 가지 관련이 있습니다. 이 섹션에서는 IDENTITY를 사용하여 테이블로 데이터를 로드하는 몇 가지 기본 패턴을 강조 표시합니다. 
 
-IDENTITY를 사용하여 테이블에 데이터를 로드하고 서로게이트 키를 생성하려면 테이블을 만든 다음 INSERT..SELECT 또는 INSERT..VALUES를 사용하여 로드합니다.
+IDENTITY를 사용하여 테이블에 데이터를 로드하고 대체 키를 생성하려면 테이블을 만든 다음 INSERT..SELECT 또는 INSERT..VALUES를 사용하여 로드합니다.
 
 다음 예제에서는 기본 패턴을 강조 표시합니다.
  
@@ -157,7 +157,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ## <a name="system-views"></a>시스템 뷰
 [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) 카탈로그 뷰를 사용하여 IDENTITY 속성이 있는 열을 식별할 수 있습니다.
 
-이 예제에서는 데이터베이스 스키마를 보다 잘 이해할 수 있도록 다른 시스템 카탈로그 뷰와 sys.identity_column`을 통합하는 방법을 보여줍니다.
+이 예제에서는 데이터베이스 스키마를 보다 잘 이해할 수 있도록 다른 시스템 카탈로그 뷰와 sys.identity_column을 통합하는 방법을 보여줍니다.
 
 ```sql
 SELECT  sm.name
