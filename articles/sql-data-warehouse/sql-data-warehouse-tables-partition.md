@@ -225,8 +225,8 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>1 단계에서 데이터를 포함 하는 파티션으로 새 데이터를 로드 합니다.
-파티션 전환을 사용 하 여 파티션 데이터 로드는 편리 단계 사용자에 게 표시 되지 않는 테이블에 새 데이터 새 데이터의 스위치입니다.  파티션 전환을 사용 하 여 연결 된 잠금 경합을 사용 하 여 처리 하기 위해 사용 중인 시스템에 어려울 수 있습니다.  파티션에의 기존 데이터를 지울는 `ALTER TABLE` 데이터를 전환 해야 하는 데 사용 합니다.  그런 다음 다른 `ALTER TABLE` 스위치 인 새 데이터에 필요 했습니다.  SQL Data Warehouse에는 `TRUNCATE_TARGET` 옵션은 지원는 `ALTER TABLE` 명령입니다.  사용 하 여 `TRUNCATE_TARGET` 는 `ALTER TABLE` 새 데이터로 기존 파티션의 데이터를 덮어씁니다.  사용 하는 예로 `CTAS` 에서 대상 테이블로 기존 데이터를 덮어쓰지 스위치는 모든 데이터 다시 기존 데이터를 사용 하 여 새 테이블을 만들려면 새 데이터를 삽입 합니다.
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>1 단계에서 데이터를 포함 하는 파티션으로 새 데이터를 로드
+파티션 전환을 사용 하여 파티션 데이터 로드는 새 데이터의 전환을 사용자에게 표시 되지 않는 테이블에서 새 데이터를 준비하는 편리한 방법입니다.  파티션 전환관 연관된 잠금 경합을 사용 하여 처리 하하는 시스템에 해당 될 수 있습니다.  파티션에서 기존 데이터를 지울려면 데이터를 전환하는데 `ALTER TABLE`를 사용 합니다.  그런 다음, 새 데이터를 전환하는데 다른 `ALTER TABLE` 구문이 필요 합니다.  SQL Data Warehouse에서는 `ALTER TABLE` 명령에서 `TRUNCATE_TARGET` 옵션을 지원합니다. `ALTER TABLE`과 `TRUNCATE_TARGET`을 사용하여 새 데이터로 기존 파티션의 데이터를 덮어씁니다. 아래 예제는 `CTAS`를 사용하여 기존 데이터로 새 데이블을 생성하고, 새 데이터를 삽입한 후, 대상 테이블로 모든 데이터를 전환하여 기존 데이터를 덮어씁니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
