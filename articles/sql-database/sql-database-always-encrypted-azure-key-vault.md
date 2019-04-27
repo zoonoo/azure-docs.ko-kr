@@ -15,7 +15,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57884174"
@@ -86,7 +86,7 @@ AAD(Azure Active Directory) 애플리케이션을 설정하고 애플리케이�
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기** > **데이터베이스** > **SQL 데이터베이스**로 이동합니다.
-3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 방법에 대한 자세한 지침은 [첫 Azure SQL Database](sql-database-single-database-get-started.md)를 참조하세요.
+3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 방법에 대한 자세한 지침은 [첫 번째 Azure SQL 데이터베이스](sql-database-single-database-get-started.md)를 참조하세요.
    
     ![빈 데이터베이스 만들기](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
