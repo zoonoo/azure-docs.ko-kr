@@ -2345,7 +2345,7 @@ public String cosmosDbQueryById(
 |자산  |Default | 설명 |
 |---------|---------|---------| 
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
-|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.| 
+|Protocol|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.| 
 |leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다.| 
 
 ## <a name="next-steps"></a>다음 단계
