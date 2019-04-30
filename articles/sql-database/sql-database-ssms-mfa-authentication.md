@@ -20,12 +20,12 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60614169"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>AAD 다단계 인증을 사용 하 여 Azure SQL Database 및 Azure SQL Data Warehouse (MFA에 대 한 SSMS 지원)
-Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. 이 문서에서는 다양 한 인증 옵션 및 관련 된 유니버설 인증을 사용 하 여 제한을 간의 차이점을 설명 합니다. 
+Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. 이 문서에서는 다양한 인증 옵션의 차이점 및 유니버설 인증 사용 시 관련된 제한사항을 설명합니다. 
 
 **최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 
 
 
-이 문서에서 설명한 모든 기능에 대해 사용 하 여 적어도 2017 년 7 월 버전 17.2입니다.  가장 최근의 연결 대화 상자는 다음 이미지와 비슷하게 표시 됩니다.
+이 문서에서 설명하는 모든 기능에 대해서는 2017년 7월 버전 17.2를 사용합니다.  가장 최근의 연결 대화 상자는 다음 이미지와 비슷하게 표시됩니다.
  
   ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "사용자 이름 상자 완료")  
 
@@ -35,11 +35,11 @@ Active Directory 유니버설 인증에는 두 가지 비 대화형 인증 방�
     - `Active Directory - Password` 인증
     - `Active Directory - Integrated` 인증
 
-두 가지 비 대화형 인증 모델도 다양 한 응용 프로그램 (ADO.NET, JDCB, ODC 등)에서 사용할 수 있는 합니다. 이러한 두 메서드는 되지 팝업 대화 상자에서 발생합니다. 
+두 가지 비대화형 인증 모델도 있으며, 이들은 다양한 응용 프로그램(ADO.NET, JDCB, ODC 등)에서 사용할 수 있습니다. 이러한 두 메서드는 팝업 대화 상자를 표시하지 않습니다. 
 - `Active Directory - Password` 
 - `Active Directory - Integrated` 
 
-대화형 방법 이기도 Azure multi-factor authentication (MFA)은 지원 합니다. 
+대화형 방법은 또한 Azure multi-factor authentication(MFA)을 지원합니다. 
 - `Active Directory - Universal with MFA` 
 
 

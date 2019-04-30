@@ -28,10 +28,10 @@ ms.locfileid: "60403455"
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
 
-데이터 검색 및 분류는 부분을 [고급 데이터 보안](sql-database-advanced-data-security.md) ADS ()는 SQL의 고급 보안 기능에 대 한 통합된 패키지는 제공 합니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
+데이터 검색 및 분류는 SQL 고급 보안 기능의 통합 패키지로 제공되는 [고급 데이터 보안](sql-database-advanced-data-security.md)(ADS)의 부분입니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 이를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse에 연결합니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)를 참조 하세요 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)합니다.
+> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse에 관한 것입니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server(온-프레미스)에 대한 부분은 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 확인합니다.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 
@@ -93,7 +93,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
     ![데이터 분류](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
-6. 분류 엔진은 잠재적으로 중요한 데이터를 포함하는 열에 대해 데이터베이스를 스캔하여 **권장되는 열 분류** 목록을 제공합니다. 분류 권장 사항 보기 및 적용하기
+6. 분류 엔진은 잠재적으로 중요한 데이터를 포함하는 열에 대해 데이터베이스를 스캔하여 **권장되는 열 분류** 목록을 제공합니다. 분류 권장 사항을 보고 적용하려면:
 
    - 권장된 열 분류 목록을 보려면 창의 맨 아래에서 권장 사항 패널을 클릭합니다.
 
@@ -103,7 +103,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
        ![권장 사항 목록 검토](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-   - 선택한 권장 사항을 적용하려면 파란색인 **선택한 권장 사항을 받아들임** 단추를 클릭합니다.
+   - 선택한 권장 사항을 적용하려면 파란색인 **선택한 권장 사항 적용** 단추를 클릭합니다.
 
       ![권장 사항 적용](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
@@ -147,11 +147,11 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 - [데이터베이스에서 권장 되는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -지정된 된 데이터베이스의 권장 되는 민감도 레이블을 가져옵니다.
 
 ## <a name="permissions"></a>권한
-다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 읽을 수 있습니다: `Owner`, `Reader`를 `Contributor`, `SQL Security Manager` 및 `User Access Administrator`합니다.
+다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 읽을 수 있습니다: `Owner`, `Reader`, `Contributor`, `SQL Security Manager`와 `User Access Administrator`
 
-다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 수정할 수 있습니다: `Owner`, `Contributor`, `SQL Security Manager`합니다.
+다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 수정할 수 있습니다: `Owner`, `Contributor`, `SQL Security Manager`
 
-자세한 내용은 [Azure 리소스에 대 한 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+[Azure 리소스에 대한 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)에 대해 확인합니다.
 
 ## <a id="subheading-5"></a>다음 단계
 
