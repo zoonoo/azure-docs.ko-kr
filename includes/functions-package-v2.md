@@ -6,15 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.service: functions
 ms.topic: include
-ms.date: 09/04/2018
-ms.author: glenga
+origin.date: 09/04/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 4d03894ebc43cc4e76b73bd30eb6ef68bf6a71e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58114129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342948"
 ---
 다음 표에서는 각 개발 환경에서 이 바인딩에 대한 지원을 추가하는 방법을 보여줍니다.
 
@@ -25,3 +26,4 @@ ms.locfileid: "58114129"
 |포털 개발| 출력 바인딩을 추가할 때 설치    |
 
 함수 앱 프로젝트를 다시 게시하지 않고 포털에서 기존 바인딩 확장을 업데이트하는 방법을 알아보려면 [확장 업데이트](../articles/azure-functions/install-update-binding-extensions-manual.md)를 참조하세요.
+

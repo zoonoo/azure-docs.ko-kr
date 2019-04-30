@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3b596e5bad8202d88ea06c7eee114bec1063a35f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58051763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075694"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Azure ultra Ssd를 사용 하도록 설정
 
@@ -29,9 +29,9 @@ CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 응답은 아래 형식과 유사합니다. 여기서 X는 미국 동부 2에서 배포하기 위해 사용하는 지역입니다. X는 1, 2 또는 3이 될 수 있습니다.
 
-|ResourceType  |이름  |위치  |영역  |제한  |기능  |값  |
+|ResourceType  |이름  |Location  |영역  |제한  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
-|디스크     |UltraSSD_LRS         |미국 동부2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 명령에서 응답이 없으면 기능에 등록이 계속 보류 중이거나 아직 승인되지 않았다는 의미입니다.
 
