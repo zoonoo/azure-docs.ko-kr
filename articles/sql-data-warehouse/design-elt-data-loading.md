@@ -99,7 +99,7 @@ PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵�
 - [T-SQL을 이용한 PolyBase](load-data-from-azure-blob-storage-using-polybase.md): Azure Blob Storage 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다. 
 - [SSIS를 이용한 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse): 원본 데이터가 SQL Server(SQL Server 온-프레미스 또는 클라우드)에 있을 경우 효과적입니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다. 
 - [ADF(Azure Data Factory)를 이용한 PolyBase](sql-data-warehouse-load-with-data-factory.md): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다. 
-- [Azure DataBricks를 사용 하여 PolyBase](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) Databricks 데이터 프레임을 SQL Data Warehouse 테이블에서 데이터를 전송 하거나 Databricks 데이터 프레임에서 PolyBase를 사용 하여 SQL Data Warehouse 테이블에 데이터를 씁니다.
+- [Azure DataBricks를 사용하는 PolyBase](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)는 SQL Data Warehouse 테이블의 데이터를 Databricks 데이터 프레임으로 전송하거나 PolyBase를 사용하여 Databricks 데이터 프레임에서 SQL Data Warehouse 테이블로 데이터를 씁니다.
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
 
