@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 722ee6197b467454818026c960e1ce0e5b39efb4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766313"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717186"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -279,7 +279,7 @@ Linux 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 �
 
 작동 하려면 게이트웨이 시나리오의 경우 다운스트림 장치에서 인바운드 트래픽을 위해 열린 IoT Edge 허브의 지원 되는 프로토콜의 하나 이상 이어야 합니다. 지원 되는 프로토콜에는 MQTT, AMQP 및 HTTPS 됩니다.
 
-| 포트 | 프로토콜 |
+| 포트 | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |

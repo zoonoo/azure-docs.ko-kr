@@ -1,25 +1,18 @@
 ---
-title: Microsoft Azure용 가상 머신 필수 조건 | Microsoft Docs
+title: Microsoft azure 가상 머신 필수 조건 | Azure Marketplace
 description: Azure Marketplace에 VM 제안을 게시하는 데 필요한 필수 조건에 대한 목록입니다.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 5c26fd3d6c2593217aef8588e2a58377a86412ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844043"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938075"
 ---
 # <a name="virtual-machine-prerequisites"></a>가상 머신 필수 조건
 
@@ -49,7 +42,7 @@ VM(가상 머신) 솔루션을 게시하기 위한 기술적인 필수 조건은
     > 동일한 Microsoft 개발자 센터 등록 계정을 사용하여 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그온해야 합니다.
     > Azure Marketplace 제품에 대해 Microsoft 계정이 하나만 있으면 됩니다. 개별 서비스 또는 제안에만 한정될 필요가 없습니다.
     
-- 회사(또는 해당 자회사)는 Azure Marketplace에서 지원하는 판매 국가에 있어야 합니다.  이러한 국가의 최신 목록은 [Microsoft Azure Marketplace 참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)을 참조하세요.
+- 회사 (또는 해당 자회사)는 판매-에서-국가/지역에서 Azure Marketplace에서 지 원하는 있어야 합니다.  이러한 국가/지역 목록은 현재 참조 [Microsoft Azure Marketplace 참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)합니다.
 - 제품은 Azure Marketplace에서 지원하는 청구 모델과 호환되는 방식으로 허가를 받아야 합니다.  자세한 내용은 [Azure Marketplace의 청구 옵션](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace)을 참조하세요. 
 - 상업적이고 합리적인 방식으로 고객이 이용할 수 있는 기술 지원을 담당합니다. 이러한 지원은 체험, 유료 또는 커뮤니티 접근 방식을 통해 제공될 수 있습니다.
 - 소프트웨어 및 타사 소프트웨어 종속성에 대해 사용 허가를 받을 책임이 있습니다.

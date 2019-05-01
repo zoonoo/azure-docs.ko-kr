@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490044"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694125"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Azure 가상 머신 에이전트 및 확장 버전 업데이트
 
-Azure 디스크 암호화 작업은 지원 되지 않는 버전의 Azure 가상 머신에 에이전트를 사용 하 여 가상 머신 이미지에 실패할 수 있습니다. 자세한 내용은 참조 하십시오 [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)합니다.  
+Azure 디스크 암호화 작업은 지원 되지 않는 버전의 Azure 가상 머신에 에이전트를 사용 하 여 가상 머신 이미지에 실패할 수 있습니다. 암호화를 사용 하기 전에 2.2.38 이전 에이전트 버전을 사용 하 여 Linux 이미지를 업데이트 해야 합니다. 자세한 내용은 [VM에서 Azure Linux 에이전트를 업데이트 하는 방법](../virtual-machines/extensions/update-linux-agent.md) 하 고 [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)합니다.
 
 올바른 버전 Microsoft.Azure.Security.AzureDiskEncryption 또는 Microsoft.Azure.Security.AzureDiskEncryptionForLinux 게스트 에이전트 확장의 필수 이기도합니다. 확장 버전은 유지 관리 및 Azure Virtual Machine 에이전트 필수 조건을 충족 하 고 virtual machine 에이전트의 지원 되는 버전을 사용 하면 플랫폼에서 자동으로 업데이트 합니다.
 

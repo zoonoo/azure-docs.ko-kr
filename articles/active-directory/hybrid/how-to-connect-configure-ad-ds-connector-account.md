@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245565"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918489"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -25,7 +25,7 @@ PowerShell 모듈 [ADSyncConfig.psm1](reference-connect-adsyncconfig.md)은 2018
 ## <a name="overview"></a>개요 
 Azure AD Connect에서 사용하기 위해 선택하는 각 기능에 대해, 다음 PowerShell cmdlet을 사용하여 AD DS 커넥터 계정의 Active Directory 권한을 설정할 수 있습니다. 문제를 방지하려면 사용자 지정 도메인 계정으로 Azure AD Connect를 설치하여 포리스트에 연결할 때마다 Active Directory 권한을 미리 준비해야 합니다. 이 ADSyncConfig 모듈은 Azure AD Connect가 배포된 후 권한을 구성하는 데도 사용할 수 있습니다.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![ad ds 계정 개요](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Azure AD Connect 기본 설치의 경우, 필요한 모든 권한을 사용하여 자동으로 생성된 계정(MSOL_nnnnnnnnnn)을 Active Directory에 만들므로 Azure AD와 동기화하려는 조직 구성 단위 또는 특정 Active Directory 개체에 대한 권한 상속을 차단하지 않은 경우에는 이 ADSyncConfig 모듈을 사용할 필요가 없습니다. 
  
@@ -38,9 +38,9 @@ Azure AD Connect 기본 설치의 경우, 필요한 모든 권한을 사용하�
 | 암호 해시 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
-| 암호 쓰기 저장(writeback) |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
-| 디바이스 쓰기 저장(writeback) |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 디바이스 개체 및 컨테이너에 대한 쓰기 권한입니다. |
-| 그룹 쓰기 저장(writeback) |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요.|
+| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
+| 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 디바이스 개체 및 컨테이너에 대한 쓰기 권한입니다. |
+| 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>ADSyncConfig PowerShell 모듈 사용 
 ADSyncConfig 모듈에는 AD DS PowerShell 모듈과 도구에 따라 달라지므로 [AD DS용 RSAT(원격 서버 관리 도구)](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools)가 필요합니다. AD DS용 RSAT를 설치하려면 '관리자 권한으로 실행'을 사용하여 Windows PowerShell 창을 열고 다음을 실행합니다. 
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
  
 
-|Type |Name |Access |적용 대상| 
+|Type |이름 |Access |적용 대상| 
 |-----|-----|-----|-----|
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 디바이스 개체| 
 |허용 |AD DS 커넥터 계정|모든 속성 읽기 |하위 InetOrgPerson 개체| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용|AD DS 커넥터 계정|읽기/쓰기 속성|하위 User 개체|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |디렉터리 변경 내용 복제 |이 개체만(도메인 루트)| 
 |허용 |AD DS 커넥터 계정 |모든 디렉터리 변경 내용 복제 |이 개체만(도메인 루트)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |암호 재설정 |하위 User 개체| 
 |허용 |AD DS 커넥터 계정 |lockoutTime 속성 쓰기 |하위 User 개체| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |일반 읽기/쓰기 |개체 형식 그룹 및 하위 개체의 모든 특성| 
 |허용 |AD DS 커넥터 계정 |자식 개체 만들기/삭제 |개체 형식 그룹 및 하위 개체의 모든 특성| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다.  
  
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 User 개체| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 InetOrgPerson 개체| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 PublicFolder 개체| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|Type |Name |Access |적용 대상|
+|Type |이름 |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |SYSTEM |모든 권한 |이 개체 
 |허용 |엔터프라이즈 관리자 |모든 권한 |이 개체 

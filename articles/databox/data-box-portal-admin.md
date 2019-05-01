@@ -1,23 +1,23 @@
 ---
-title: Azure Data Box 포털 관리자 가이드 | Microsoft Docs
+title: Azure 포털을 통해 Azure Data Box를 관리 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Data Box를 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
+ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607112"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919202"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>Azure Portal을 사용하여 Data Box 관리
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Azure portal을 사용 하 여 Azure Data Box를 관리 하려면
 
-이 문서에서는 Data Box에서 수행할 수 있는 몇 가지 복잡한 워크플로 및 관리 작업을 설명합니다. 로컬 웹 UI 또는 Azure Portal을 통해 Data Box를 관리할 수 있습니다. 
+이 문서에서는 복잡 한 워크플로 및 Azure Data Box에서 수행할 수 있는 관리 작업의 일부를 설명 합니다. 로컬 웹 UI 또는 Azure Portal을 통해 Data Box를 관리할 수 있습니다.
 
 이 아티클은 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure Portal을 사용하여 주문과 Data Box를 관리하고 주문이 완료될 때까지의 상태를 추적합니다.
 

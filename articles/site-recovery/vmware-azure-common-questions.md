@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125562"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925512"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -93,8 +93,8 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 Site Recovery는 Azure의 managed disks로 온-프레미스 VMware Vm 및 물리적 서버를 복제 합니다.
 - Site Recovery 프로세스 서버는 대상 지역의 캐시 저장소 계정에 복제 로그를 기록합니다.
-- 이러한 로그는 관리 되는 디스크에서 복구 지점을 만들 사용 됩니다.
-- 장애 조치가 발생 하는 경우 선택한 복구 지점이 대상 관리 되는 디스크를 만드는 데 사용 됩니다.
+- 이러한 로그는 Azure에서 복구 지점을 만들 데 asrseeddisk의 접두사를 포함 하는 디스크를 관리 합니다.
+- 장애 조치가 발생 하는 경우 새 대상 관리 되는 디스크를 만들려면 선택한 복구 지점이 사용 됩니다. 이 관리 디스크는 Azure에서 VM에 연결 됩니다.
 - 저장소 계정 (이전 2019 년 3 월) 이전에 복제 된 Vm 영향을 받지 않습니다.
 
 
@@ -111,7 +111,7 @@ Site Recovery는 Azure의 managed disks로 온-프레미스 VMware Vm 및 물리
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>변경 관리 되는 디스크 유형을 컴퓨터를 보호
 
-예, 쉽게 수행할 수 있습니다 [관리 되는 디스크의 형식을 변경](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)합니다. 종류를 변경 하기 전에 Azure portal에서 관리 되는 디스크 리소스를 이동 하 여 디스크에 대 한 SAS URL을 해지 하는 확인 합니다. 개요 블레이드에서 모든 진행 중인 내보내기를 취소 합니다. SAS URL이 해지 되 면 몇 분 내에서 디스크의 형식을 변경 합니다. 그러나 관리 디스크 유형을 변경 하는 경우 Azure Site Recovery에 의해 생성 될 새 복구 지점에 대 한 대기 합니다. 앞으로 장애 조치 또는 테스트 장애 조치에 대해 새 복구 지점을 사용 합니다.
+예, 쉽게 수행할 수 있습니다 [관리 되는 디스크의 형식을 변경](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) 진행 중인 복제에 대 한 합니다. 종류를 변경 하기 전에 관리 디스크에 없는 SAS URL 생성 되도록 확인 합니다. Azure portal에서 관리 되는 디스크 리소스를 이동한 개요 블레이드에서 SAS URL 배너 있는지 확인 합니다. 있는 경우 진행 중인 내보내기를 취소 하 고를 클릭 합니다. 완료 되 면 몇 분 내에서 디스크의 형식을 변경 합니다. 그러나 관리 디스크 유형을 변경 하는 경우 Azure Site Recovery에 의해 생성 될 새 복구 지점에 대 한 대기 합니다. 앞으로 장애 조치 또는 테스트 장애 조치에 대해 새 복구 지점을 사용 합니다.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>복제 관리 디스크에서 관리 되지 않는 디스크를 전환할 수 있나요?
 
@@ -133,6 +133,10 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+
+
+### <a name="what-is-asrseeddisk"></a>Asrseeddisk 란?
+모든 원본 디스크 데이터를 관리 디스크로 Azure에 복제 됩니다. 이 디스크의 asrseeddisk의 접두사입니다. 원본 디스크 및 모든 복구 지점 스냅숏의 복사본을 저장합니다.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>복제에서 디스크 제외
 예, 디스크를 제외할 수 있습니다.
@@ -249,7 +253,7 @@ Recovery Services 자격 증명 모음에서 클릭 **구성 서버** 에 **Site
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>복제 활성화 하는 동안 프로세스 서버를 선택할 수 없습니다.
 
-9.24 버전에서 향상 된 기능 제공에 내용이 [제품 설명서](vmware-azure-manage-process-server.md#process-server-selection-guidance) 스케일 아웃 프로세스 서버를 설정 하는 경우에 합니다. 프로세스 서버 제한을 방지 하 고 비정상 프로세스 서버의 사용을 방지 하기 위해입니다.
+9.24 버전에서 향상 된 기능 제공에 내용이 [server 경고 처리](vmware-physical-azure-monitor-process-server.md#process-server-alerts) 스케일 아웃 프로세스 서버를 설정 하는 경우에 합니다. 프로세스 서버 제한을 방지 하 고 비정상 프로세스 서버의 사용을 방지 하기 위해입니다.
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>프로세스 서버의 정확한 상태를 가져오려면 어떻게 해야 합니까?
 

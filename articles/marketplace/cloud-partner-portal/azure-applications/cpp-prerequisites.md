@@ -1,25 +1,18 @@
 ---
-title: Azure 애플리케이션 제품 필수 구성 요소 | Microsoft Docs
+title: Azure 응용 프로그램에 대 한 제품 필수 조건 | Azure Marketplace
 description: Azure Marketplace에서 Azure 애플리케이션 제품을 게시하기 위한 필수 구성 요소입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744927"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942889"
 ---
 # <a name="azure-application-prerequisites"></a>Azure 애플리케이션 필수 구성 요소
 
@@ -36,7 +29,7 @@ ms.locfileid: "60744927"
 * Azure 빠른 시작 템플릿<br> 자세한 내용은 다음을 참조하세요.
 
   * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 커뮤니티가 참여한 템플릿을 사용하여 Azure Resource Manager를 통해 Azure 리소스를 배포하여 생산성을 높일 수 있습니다. Azure Resource Manager를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속 항목과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계 중에 애플리케이션을 반복해서 배포합니다.
-  * [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 이 리포지토리는 커뮤니티가 참여한 현재 사용 가능한 모든 Azure Resource Manager 템플릿을 포함합니다. 검색 가능 템플릿 인덱스는 https://azure.microsoft.com/en-us/documentation/templates/에서 유지 관리됩니다.
+  * [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 이 리포지토리는 커뮤니티가 참여한 현재 사용 가능한 모든 Azure Resource Manager 템플릿을 포함합니다. 검색 가능 템플릿 인덱스는 https://azure.microsoft.com/documentation/templates/에서 유지 관리됩니다.
 * UI 정의 만들기<br>
 자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요. 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 애플리케이션을 만들기 위한 사용자 인터페이스를 생성합니다.
 
@@ -50,7 +43,7 @@ ms.locfileid: "60744927"
 >[!NOTE]
 >동일한 Microsoft 개발자 센터 등록 계정을 사용하여 Cloud 파트너 포털에 로그온해야 합니다. Azure Marketplace 제품에 대해 Microsoft 계정이 하나만 있으면 됩니다. 이 계정은 개별 서비스 또는 제품에 한정되지 않아야 합니다.
 
-* 회사(또는 해당 자회사)는 Azure Marketplace에서 지원하는 판매 국가에 있어야 합니다. 이러한 국가의 최신 목록은 [Microsoft Azure Marketplace 참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)을 참조하세요.
+* 판매-에서-국가/지역에서 Azure Marketplace에서 지 원하는 회사 (또는 해당 자회사) 이어야 합니다. 이러한 국가/지역 목록은 현재 참조 [Microsoft Azure Marketplace 참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)합니다.
 * 제품은 Azure Marketplace에서 지원하는 청구 모델과 호환되는 방식으로 허가를 받아야 합니다. 자세한 내용은 Azure Marketplace의 [청구 옵션](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations)을 참조하세요.
 * 상업적이고 합리적인 방식으로 고객이 이용할 수 있는 기술 지원을 담당합니다. 이러한 지원은 체험, 유료 또는 커뮤니티 접근 방식을 통해 제공될 수 있습니다.
 * 소프트웨어 및 타사 소프트웨어 종속성에 대해 사용 허가를 받을 책임이 있습니다.

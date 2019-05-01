@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939524"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database의 다중 모델 기능
 
@@ -90,7 +90,7 @@ JSON 텍스트가 있는 경우 JSON에서 데이터를 추출하거나 기본 �
 
 ## <a name="spatial-features"></a>공간 기능
 
-공간 데이터는 기하학적 개체의 물리적 위치 및 모양 정보를 나타냅니다. 이러한 개체는 지점 위치이거나 국가, 도로 또는 호수와 같은 더 복잡한 개체일 수 있습니다.
+공간 데이터는 기하학적 개체의 물리적 위치 및 모양 정보를 나타냅니다. 이러한 개체는 지점 위치 또는 국가/지역도 또는 호수와 같은 더 복잡 한 개체 수 있습니다.
 
 Azure SQL Database는 두 개의 공간 데이터 형식(기하 도형 데이터 형식 및 지리 데이터 형식)을 지원합니다.
 - 기하 도형 형식은 유클리드(평면) 좌표계의 데이터를 나타냅니다.

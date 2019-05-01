@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2130dcc27f81eb1e33fa56a7a4f963d81ac0de5b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799559"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926110"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -82,7 +82,7 @@ Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 
 ```
 
 노드 구성 이름에 대 한 이름을 사용 하 고 있는지 확인 합니다 *노드 구성* 및 구성은 없습니다.
-구성을 사용 되는 스크립트에 정의 된 [노드 구성 (MOF 파일)를 컴파일하는 데](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile)합니다.
+구성을 사용 되는 스크립트에 정의 된 [노드 구성 (MOF 파일)를 컴파일하는 데](https://docs.microsoft.com/azure/automation/automation-dsc-compile)합니다.
 이름을 마침표 뒤에 구성을 항상 `.` 고 `localhost` 또는 특정 컴퓨터 이름입니다.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 템플릿의 DSC 확장

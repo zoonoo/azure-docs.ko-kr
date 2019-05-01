@@ -1,20 +1,18 @@
 ---
-title: 클라우드 솔루션 공급자 | Azure
+title: 클라우드 솔루션 공급자 | Azure Marketplace
 description: 게시자에서 이제 Microsoft CSP 파트너 채널을 통해 해당 제품을 판매할 수 있습니다.
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 516cb10fe368334d8fe30d998857d0688dcae972
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d39ebf993498cea3ede11e07c5e71628287b81ac
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726907"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938545"
 ---
 # <a name="cloud-solution-providers"></a>클라우드 솔루션 공급 기업
 

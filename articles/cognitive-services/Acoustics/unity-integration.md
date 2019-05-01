@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8605fe2ea86f875b5c5fd8ea451a287442dcd51b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316289"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922499"
 ---
 # <a name="project-acoustics-unity-integration"></a>프로젝트 소음 Unity 통합
 이 방법에서는 Unity 프로젝트에 플러그 인을 프로젝트 소음 Unity의 통합을 설명합니다.
 
 소프트웨어 요구 사항:
-* [Unity 2018.2 +](http://unity3d.com) Windows에 대 한
+* Windows용 [Unity 2018.2+](https://unity3d.com)
 * [프로젝트 소음 Unity 패키지](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>플러그 인 가져오기
@@ -30,16 +30,16 @@ ms.locfileid: "58316289"
 
     ![스크린 샷의 Unity 패키지 가져오기 메뉴](media/import-package.png)  
 
-* 선택 **ProjectAcoustics.unitypackage**
+* **ProjectAcoustics.unitypackage** 선택
 
 기존 프로젝트에 플러그 인을 가져오려는 경우 프로젝트의 루트에 C# 컴파일러에 대한 옵션을 지정하는 **mcs.rsp** 파일이 이미 있을 것입니다. 프로젝트 Acoustics 플러그 인과 함께 제공되는 mcs.rsp 파일에 해당 파일의 내용을 병합해야 합니다.
 
 ## <a name="enable-the-plugin"></a>플러그 인을 사용하도록 설정
 음향 효과 도구 키트의 준비 부분에는 .NET 4.x 스크립팅 런타임 버전이 필요합니다. 패키지를 가져오면 Unity 플레이어 설정이 업데이트됩니다. 이 설정을 적용하려면 Unity를 다시 시작합니다.
 
-![Unity 플레이어 설정 스크린 샷 패널](media/player-settings.png)
+![Unity 플레이어 설정 패널의 스크린샷](media/player-settings.png)
 
-![선택한.NET 4.5를 사용 하 여 Unity 플레이어 설정 스크린 샷 패널](media/net45.png)
+![.NET 4.5를 선택한 Unity 플레이어 설정 패널의 스크린샷](media/net45.png)
 
 ## <a name="set-up-audio-dsp"></a>오디오 DSP 설정
 프로젝트 소음 오디오 런타임 DSP Unity 오디오 엔진 입체 음향 프레임 워크에 통합 되는 포함 되어 있습니다. HRTF 기반 및 이동 공간화를 포함합니다. 사용 하 여 Unity 오디오 설정을 열어 프로젝트 소음 DSP을 사용 하도록 설정 **편집 > 프로젝트 설정 > 오디오**를 선택한 다음 **프로젝트 소음** 으로 **입체 음향 플러그 인** 프로젝트에 대 한 합니다. 있는지 확인 합니다 **DSP 버퍼 크기** 최상의 성능으로 설정 됩니다.
@@ -60,7 +60,7 @@ ms.locfileid: "58316289"
 ## <a name="enable-acoustic-design"></a>Acoustic 디자인을 사용 하도록 설정
 스크립트를 첨부할 **AcousticsAdjust** 사운드 원본를 클릭 하 여 추가 원본 디자인 매개 변수를 사용 하도록 설정 하려면 장면에 **구성 요소 추가** 선택 하 고 **스크립트 > 소음 조정** :
 
-![Unity AcousticsAdjust 스크린 샷 스크립트](media/acoustics-adjust.png)
+![Unity AcousticsAdjust 스크립트의 스크린샷](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [Unity에 대 한 프로젝트 소음을 사용 하 여 장면에 적용](unity-baking.md)

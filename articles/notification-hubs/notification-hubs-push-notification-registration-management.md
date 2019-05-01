@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457739"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685385"
 ---
 # <a name="registration-management"></a>등록 관리
 
@@ -40,7 +40,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 
 ### <a name="installations"></a>설치
 
-설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 디바이스 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 디바이스 자체에서 등록하는 경우 설치를 지원하기 위해 [Notification Hubs REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
+설치는 푸시 모음 관련 속성을 포함하고 있는 향상된 등록입니다. 이는 디바이스 등록에 대한 최근의 가장 우수한 방식입니다. 그러나 아직 클라이언트 쪽 .NET SDK([백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/))에서는 지원되지 않습니다.  즉, 클라이언트 디바이스 자체에서 등록하는 경우 설치를 지원하기 위해 [Notification Hubs REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 접근 방식을 사용해야 합니다. 백 엔드 서비스를 사용하는 경우 [백 엔드 작업을 위한 알림 허브 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용할 수 있습니다.
 
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 
@@ -48,7 +48,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 - 설치 모델 특수 태그 형식을 지원 (`$InstallationId:{INSTALLATION_ID}`) 알림을 특정 장치에 직접 보낼 수 있도록 합니다. 예를 들어, 앱의 코드의 설치 ID를 설정 하는 경우 `joe93developer` 이 특정 장치에 대 한 개발자에 대 한 알림을 보낼 때이 장치를 대상 수를 `$InstallationId:{joe93developer}` 태그입니다. 따라서 추가 코딩 하지 않고도 특정 장치를 선택할 수 있습니다.
 - 또한 설치를 사용하여 부분적인 등록 업데이트를 수행할 수도 있습니다. 설치의 부분 업데이트는 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902)을 사용하여 PATCH 메서드에서 요청됩니다. 이는 등록 시 태그를 업데이트하려고 할 때 유용합니다. 전체 등록을 풀다운한 다음 모든 이전 태그를 다시 보낼 필요가 없습니다.
 
-설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) 또는 [설치 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)을 참조하세요.
+설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 또는 [설치 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation)을 참조하세요.
 
 ```json
 // Example installation format to show some supported properties
@@ -95,7 +95,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 
 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하려면 장치 설치에서 해당 장치와 연결된 모든 템플릿을 JSON 형식으로 유지합니다(위 샘플 참조). 템플릿 이름은는 동일한 디바이스에 대한 서로 다른 템플릿을 대상 도움이 됩니다.
 
-각 템플릿 이름은 템플릿 본문 및 선택적 태그 집합에 매핑됩니다. 또한 각 플랫폼이 추가 템플릿 속성을 가질 수 있습니다. Windows 스토어(WNS 사용) 및 Windows Phone 8(MPNS 사용)의 경우 추가 헤더 집합이 템플릿의 일부일 수 있습니다. APN의 경우 만료 속성을 상수 또는 템플릿 식으로 설정할 수 있습니다. 설치 속성의 전체 목록은 [REST를 사용하여 설치 만들기 또는 덮어쓰기](https://msdn.microsoft.com/library/azure/mt621153.aspx) 항목을 참조하세요.
+각 템플릿 이름은 템플릿 본문 및 선택적 태그 집합에 매핑됩니다. 또한 각 플랫폼이 추가 템플릿 속성을 가질 수 있습니다. Windows 스토어(WNS 사용) 및 Windows Phone 8(MPNS 사용)의 경우 추가 헤더 집합이 템플릿의 일부일 수 있습니다. APN의 경우 만료 속성을 상수 또는 템플릿 식으로 설정할 수 있습니다. 설치 속성의 전체 목록은 [REST를 사용하여 설치 만들기 또는 덮어쓰기](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) 항목을 참조하세요.
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Windows 스토어 앱용 보조 타일
 
@@ -120,7 +120,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>설치를 사용하여 디바이스에서 알림 허브에 등록하는 예제 코드
 
-현재 이 기능은 [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx)를 사용해서만 지원됩니다.
+현재 이 기능은 [Notification Hubs REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)를 사용해서만 지원됩니다.
 
 설치를 업데이트하는 경우 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902) 을 사용하여 PATCH 메서드를 사용할 수도 있습니다.
 

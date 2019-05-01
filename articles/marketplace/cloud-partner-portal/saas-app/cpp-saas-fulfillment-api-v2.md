@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace-SaaS Fulfillment API V2 | Microsoft Docs
+title: SaaS Fulfillment API V2 | Azure Marketplace
 description: 연결된 처리 V2 Api를 사용 하 여 Azure Marketplace에 SaaS 제품을 만드는 방법에 설명 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594720"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941987"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS Fulfillment Api 버전 2 
 
@@ -39,7 +32,7 @@ Microsoft SaaS 서비스 SaaS 구독 구매의 전체 수명 주기를 관리 �
 
 #### <a name="provisioning"></a>프로비전
 
-고객 구매에서 시작 하는 경우 ISV는 AuthCode URL 매개 변수를 사용 하 여 고객 대화형 웹 페이지에서이 정보를 받습니다. AuthCode 유효성을 검사 하 고 프로 비전 하는 데 필요한 세부 정보에 대 한 교환할 수 있습니다.  SaaS 서비스 프로 비전 완료 되 면 활성화 호출을 처리 완료 되 고 고객이 대금을 청구할 수는 신호를 보냅니다.  다음 다이어그램은 프로 비전 시나리오에 대 한 API 호출의 순서를 보여줍니다.  
+고객이 구매를 시작, ISV URL 매개 변수를 사용 하 여 고객 대화형 웹 페이지에서 인증 코드를이 정보를 받습니다. 예를 들어: `https://contoso.com/signup?token=..`여기서는 파트너 센터에서 방문 페이지 URL 공급자 `https://contoso.com/signup`합니다. 인증 코드의 유효성을 검사 하 고 해결 API를 호출 하 여 프로 비전 하는 데 필요한 세부 정보에 대 한 교환할 수 있습니다.  SaaS 서비스 프로 비전 완료 되 면 활성화 호출을 처리 완료 되 고 고객이 대금을 청구할 수는 신호를 보냅니다.  다음 다이어그램은 프로 비전 시나리오에 대 한 API 호출의 순서를 보여줍니다.  
 
 ![SaaS 서비스를 프로 비전을 위한 API를 호출 합니다.](./media/saas-post-provisioning-api-v2-calls.png)
 
@@ -87,15 +80,73 @@ SaaS 서비스에서
 |     ----------------     |     ----------                         |
 | `subscriptionId`         | SaaS 리소스에 대 한 GUID 식별자  |
 | `name`                   | 고객이 제공한이 리소스에 대 한 이름 |
-| `publisherId`            | 예를 들어 "conotosocorporation" 각 출판사에 대해 자동으로 생성 된 고유한 문자열 식별자 |
-| `offerId`                | 예를 들어 "contosooffer1" 각 제품에 대 한 자동으로 생성 된 고유한 문자열 식별자  |
-| `planId`                 | 각 계획/sku에 대 한 예를 들어 "contosobasicplan" 자동으로 생성 된 고유한 문자열 식별자 |
+| `publisherId`            | 예를 들어 "contoso" 각 게시자에 대 한 고유한 문자열 식별자 |
+| `offerId`                | 예를 들어 "offer1" 각 제품에 대 한 고유한 문자열 식별자  |
+| `planId`                 | 각 계획/sku에 대 한 예를 들어 "silver" 고유 문자열 식별자 |
 | `operationId`            | 특정 작업에 대 한 GUID 식별자  |
-|  `action`                | 하거나 리소스에서 수행 되는 작업 `subscribe`, `unsubscribe`하십시오 `suspend`, `reinstate`, 또는 `changePlan`  |
+|  `action`                | 하거나 리소스에서 수행 되는 작업 `subscribe`, `unsubscribe`를 `suspend`합니다 `reinstate`, 또는 `changePlan`, `changeQuantity`, `transfer`  |
 |   |   |
 
 전역적으로 고유 식별자 ([Guid](https://en.wikipedia.org/wiki/Universally_unique_identifier))는 일반적으로 자동으로 생성 된 128 비트 (32 16 진수) 숫자입니다. 
 
+#### <a name="resolve-a-subscription"></a>구독 확인 
+
+확인 끝점에 영구 리소스 id입니다. marketplace 토큰을 확인 하려면 게시자를 사용 하도록 설정 리소스 ID는 SAAS 구독의 고유 식별자입니다.  사용자가 ISV의 웹 사이트로 리디렉션되면 URL에 쿼리 매개 변수의 토큰이 포함됩니다. ISV는 이 토큰을 사용하고, 이를 확인하는 요청을 수행해야 합니다. 응답에는 고유한 SAAS 구독 ID, 이름, 제품 ID 및 리소스 계획이 포함됩니다. 이 토큰은 한 시간 동안만 유효합니다. 
+
+**Post:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+
+*쿼리 매개 변수:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  이 요청에 사용할 작업의 버전  |
+
+*요청 헤더:*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  콘텐츠 형식      | `application/json` |
+|  x-ms-requestid    |  가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
+|  x-ms-correlationid |  클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자 토큰 가져오기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  x-ms-marketplace-token  |  Azure에서 SaaS ISV의 웹 사이트에 사용자가 리디렉션될 경우 URL에 토큰 쿼리 매개 변수 (에 대 한 예를 들어: `https://contoso.com/signup?token=..`). *참고:* URL을 사용 하기 전에 브라우저에서 토큰 값을 디코딩합니다.  |
+
+*응답 코드:*
+
+코드: 200<br>
+SaaS 구독으로 불투명 토큰을 확인합니다.<br>
+
+```json
+Response body:
+{
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "offer1",
+    "planId": "silver",
+    "quantity": "20" 
+}
+```
+
+코드: 404<br>
+찾을 수 없음
+
+코드: 400<br>
+잘못된 요청입니다. x-ms-marketplace-토큰 누락, 잘못 되었거나 만료 된 경우
+
+코드: 403<br>
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+
+코드: 500<br>
+내부 서버 오류
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
 
 ### <a name="subscription-api"></a>구독 API
 
@@ -121,7 +172,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 | 콘텐츠 형식       |  `application/json`  |
 | x-ms-requestid     |  가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 | x-ms-correlationid |  클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-| 권한 부여      |  JWT(JSON Web Token) 전달자 토큰입니다.  |
+| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:*
 
@@ -135,7 +186,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
           "id": "<guid>",
           "name": "Contoso Cloud Solution",
           "publisherId": "contoso",
-          "offerId": "cont-cld-tier2",
+          "offerId": "offer1",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
@@ -159,7 +210,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 
 
 코드: 403 <br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다. 
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다. 
 
 코드: 500 내부 서버 오류
 
@@ -192,7 +243,7 @@ API 구독에는 다음 HTTPS 작업을 지원합니다. **가져올**, **Post**
 |  콘텐츠 형식      |  `application/json`  |
 |  x-ms-requestid    |  가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  x-ms-correlationid |  클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     |  JSON 웹 토큰 (JWT) 전달자 토큰  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:*
 
@@ -205,9 +256,9 @@ Response Body:
         "id":"",
         "name":"Contoso Cloud Solution",
         "publisherId": "contoso",
-        "offerId": "cont-cld-tier2",
+        "offerId": "offer1",
         "planId": "silver",
-        "quantity": "10"",
+        "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
               "tenantId": "<guid>"
           },
@@ -224,7 +275,7 @@ Response Body:
 찾을 수 없음<br> 
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류<br>
@@ -239,7 +290,7 @@ Response Body:
 
 #### <a name="list-available-plans"></a>사용 가능한 계획 목록
 
-현재 사용자에 대 한 개인/공개 오퍼 있는지 확인 하려면이 호출을 사용 합니다.
+현재 게시자에 대 한 개인/공개 오퍼 있는지 확인 하려면이 호출을 사용 합니다.
 
 **가져오기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
@@ -256,7 +307,7 @@ Response Body:
 |   콘텐츠 형식     |  `application/json` |
 |   x-ms-requestid   |   가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  x-ms-correlationid  | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
-|  권한 부여     |  JSON 웹 토큰 (JWT) 전달자 토큰 |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *응답 코드:*
 
@@ -279,7 +330,7 @@ Response Body:
 찾을 수 없음<br> 
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다. <br> 
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다. <br> 
 
 코드: 500<br>
 내부 서버 오류<br>
@@ -290,66 +341,6 @@ Response Body:
       "code": "UnexpectedError", 
       "message": "An unexpected error has occurred." 
     } 
-```
-
-#### <a name="resolve-a-subscription"></a>구독 확인 
-
-영구 리소스 id입니다. marketplace 토큰을 확인 하면 해결 끝점 리소스 ID는 SAAS 구독의 고유 식별자입니다.  사용자가 ISV의 웹 사이트로 리디렉션되면 URL에 쿼리 매개 변수의 토큰이 포함됩니다. ISV는 이 토큰을 사용하고, 이를 확인하는 요청을 수행해야 합니다. 응답에는 고유한 SAAS 구독 ID, 이름, 제품 ID 및 리소스 계획이 포함됩니다. 이 토큰은 한 시간 동안만 유효합니다. 
-
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
-
-*쿼리 매개 변수:*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  이 요청에 사용할 작업의 버전  |
-
-*요청 헤더:*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  콘텐츠 형식      | `application/json` |
-|  x-ms-requestid    |  가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
-|  x-ms-correlationid |  클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-|  권한 부여     |  JSON 웹 토큰 (JWT) 전달자 토큰  |
-|  x-ms-marketplace-token  |  Azure에서 SaaS ISV의 웹 사이트에 사용자가 리디렉션될 경우 URL에 토큰 쿼리 매개 변수입니다. *참고:* URL을 사용 하기 전에 브라우저에서 토큰 값을 디코딩합니다. |
-
-*응답 코드:*
-
-코드: 200<br>
-SaaS 구독으로 불투명 토큰을 확인합니다.<br>
-
-```json
-Response body:
-{
-    "subscriptionId": "<guid>",  
-    "subscriptionName": "Contoso Cloud Solution",
-    "offerId": "cont-cld-tier2",
-    "planId": "silver",
-    "quantity": "20",
-    "operationId": "<guid>"  
-}
-```
-
-코드: 404<br>
-찾을 수 없음
-
-코드: 400<br>
-잘못 된 요청 유효성 검사 오류
-
-코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
-
-코드: 500<br>
-내부 서버 오류
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
 ```
 
 #### <a name="activate-a-subscription"></a>구독 활성화
@@ -370,7 +361,7 @@ Response body:
 |  콘텐츠 형식      | `application/json`  |
 |  x-ms-requestid    | 가급적 GUID 클라이언트에서 요청을 추적 하는 것에 대 한 고유한 문자열 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid  | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 문자열에서 서버 쪽 이벤트를 사용 하 여 클라이언트 작업의 모든 이벤트를 상호 연결합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     |  JSON 웹 토큰 (JWT) 전달자 토큰 |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *요청:*
 
@@ -393,7 +384,7 @@ Response body:
 잘못 된 요청 유효성 검사 오류
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -407,9 +398,9 @@ Response body:
 }
 ```
 
-#### <a name="update-a-subscription"></a>구독 업데이트
+#### <a name="change-the-plan-on-the-subscription"></a>구독에서 계획 변경
 
-업데이트 하거나 제공 된 값을 사용 하 여 구독 계획을 변경 합니다.
+구독 계획을 업데이트 합니다.
 
 **Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
 
@@ -427,15 +418,14 @@ Response body:
 |  콘텐츠 형식      | `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.    |
-| 권한 부여      |  JWT(JSON Web Token) 전달자 토큰입니다.  |
+| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *요청 페이로드:*
 
 ```json
 Request Body:
 {
-    "planId": "gold",
-    "quantity": ""
+    "planId": "gold"
 }
 ```
 
@@ -448,7 +438,7 @@ Request Body:
 *응답 코드:*
 
 코드: 202<br>
-ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
+계획을 변경 하는 요청이 수락 되었습니다. ISV는 성공/실패를 확인 하려면 작업 위치를 폴링 하려면 필요 합니다. <br>
 
 코드: 404<br>
 찾을 수 없음
@@ -460,7 +450,73 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 >한 번에 패치가 적용 된, 둘 다가 아닌 계획 또는 수량만 될 수 있습니다. 사용 하 여 구독에서 편집 **업데이트** 에 없는 `allowedCustomerOperations`합니다.
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+
+코드: 500<br>
+내부 서버 오류
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
+
+#### <a name="change-the-quantity-on-the-subscription"></a>구독에 수량 변경
+
+구독에 수량을 업데이트 합니다.
+
+**Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
+
+*쿼리 매개 변수:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
+| subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+
+*요청 헤더:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  콘텐츠 형식      | `application/json` |
+|  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
+|  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.    |
+| 권한 부여      |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*요청 페이로드:*
+
+```json
+Request Body:
+{
+    "quantity": 5
+}
+```
+
+*요청 헤더:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+| Operation-Location | 작업의 상태를 가져오려면 리소스에 연결 합니다.   |
+
+*응답 코드:*
+
+코드: 202<br>
+수락됨 수량을 변경 하는 요청이 수락 되었습니다. ISV는 성공/실패를 확인 하려면 작업 위치를 폴링 하려면 필요 합니다. <br>
+
+코드: 404<br>
+찾을 수 없음
+
+코드: 400<br>
+잘못 된 요청 유효성 검사 오류입니다.
+
+>[!Note]
+>한 번에 패치가 적용 된, 둘 다가 아닌 계획 또는 수량만 될 수 있습니다. 사용 하 여 구독에서 편집 **업데이트** 에 없는 `allowedCustomerOperations`합니다.
+
+코드: 403<br>
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -494,7 +550,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 |   콘텐츠 형식     |  `application/json` |
 |  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.   |
 |  x-ms-correlationid  |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.   |
-|  권한 부여     |  JWT(JSON Web Token) 전달자 토큰입니다.   |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *응답 코드:*
 
@@ -508,7 +564,7 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 구독을 삭제 **삭제할** 나타나지 `allowedCustomerOperations`합니다.
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 500<br>
 내부 서버 오류
@@ -527,10 +583,134 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 
 작업 API를 다음 패치 및 Get 작업을 지원합니다.
 
+#### <a name="list-outstanding-operations"></a>목록 처리 중인 작업 
 
-#### <a name="update-a-subscription"></a>구독 업데이트
+현재 게시자에 대 한 처리 중인 작업을 나열합니다. 
 
-제공 된 값을 사용 하 여 구독을 업데이트 합니다.
+**가져오기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+
+*쿼리 매개 변수:*
+
+|             |        |
+|  ---------------   |  ---------------  |
+|    ApiVersion                |   이 요청에 사용할 작업의 버전입니다.                |
+| subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
+
+*요청 헤더:*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|   콘텐츠 형식     |  `application/json` |
+|  x-ms-requestid    |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
+|  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*응답 코드:*
+
+코드: 200<br> 보류 중인 구독에서 작업의 목록을 가져옵니다.<br>
+응답 페이로드:
+
+```json
+[{
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",  
+    "status": "NotStarted"  
+}]
+```
+
+코드: 404<br>
+찾을 수 없음
+
+코드: 400<br>
+잘못 된 요청 유효성 검사 오류
+
+코드: 403<br>
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+
+코드: 500<br>
+내부 서버 오류
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+
+#### <a name="get-operation-status"></a>작업 상태 가져오기
+
+지정 된 트리거된 비동기 작업의 상태를 추적 하려면 게시자를 사용 하도록 설정 (구독 / 구독을 취소 / 변경 계획 / 변경 수량).
+
+**가져오기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+
+*쿼리 매개 변수:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
+
+*요청 헤더:*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  콘텐츠 형식      |  `application/json`   |
+|  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
+|  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
+|  권한 부여     |[JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*응답 코드:* 코드: 200<br> SaaS 작업 보류 된 가져옵니다.<br>
+응답 페이로드:
+
+```json
+Response body:
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",
+    "status": "NotStarted"
+}
+
+```
+
+코드: 404<br>
+찾을 수 없음
+
+코드: 400<br>
+잘못 된 요청 유효성 검사 오류
+
+코드: 403<br>
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
+ 
+코드: 500<br> 내부 서버 오류
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+#### <a name="update-the-status-of-an-operation"></a>작업의 상태를 업데이트 합니다.
+
+제공 된 값을 사용 하 여 성공/실패를 표시 하는 작업의 상태를 업데이트 합니다.
 
 **Patch:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -549,16 +729,17 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 |   콘텐츠 형식     | `application/json`   |
 |   x-ms-requestid   |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다. |
-|  권한 부여     |  JWT(JSON Web Token) 전달자 토큰입니다.  |
+|  권한 부여     |  [JSON 웹 토큰 (JWT) 전달자를 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *요청 페이로드:*
 
 ```json
 {
-    "planId": "cont-cld-tier2",
+    "planId": "offer1",
     "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
+
 ```
 
 *응답 코드:*
@@ -572,137 +753,11 @@ ISV는 계획을 변경 하거나 변경 수량을 시작합니다. <br>
 잘못 된 요청 유효성 검사 오류
 
 코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
+권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 또는 요청이 현재 게시자에 속하지 않는 인수에 액세스 하려고 합니다.
 
 코드: 409<br>
 충돌 합니다. 예를 들어 최신 트랜잭션이 이미 충족
 
-코드: 500<br> 내부 서버 오류
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### <a name="list-outstanding-operations"></a>목록 처리 중인 작업 
-
-현재 사용자에 대 한 처리 중인 작업을 나열합니다. 
-
-**가져오기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
-
-*쿼리 매개 변수:*
-
-|             |        |
-|  ---------------   |  ---------------  |
-|    ApiVersion                |   이 요청에 사용할 작업의 버전입니다.                |
-| subscriptionId     | 해결 API를 사용 하 여 토큰을 해결 한 후에 얻은 SaaS 구독의 고유 식별자입니다.  |
-
-*요청 헤더:*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|   콘텐츠 형식     |  `application/json` |
-|  x-ms-requestid    |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-|  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     |  JWT(JSON Web Token) 전달자 토큰입니다.  |
-
-*응답 코드:*
-
-코드: 200<br> 보류 중인 구독에서 작업의 목록을 가져옵니다.<br>
-응답 페이로드:
-
-```json
-[{
-    "id": "<guid>",  
-    "activityId": "<guid>",
-    "subscriptionId": "<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",  
-    "status": "NotStarted"  
-}]
-```
-
-코드: 404<br>
-찾을 수 없음
-
-코드: 400<br>
-잘못 된 요청 유효성 검사 오류
-
-코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
-
-코드: 500<br>
-내부 서버 오류
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### <a name="get-operation-status"></a>작업 상태 가져오기
-
-사용자가 지정된 트리거된 비동기 작업 (구독/구독 취소/변경 계획)의 상태를 추적할 수 있습니다.
-
-**가져오기:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
-
-*쿼리 매개 변수:*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  이 요청에 사용할 작업의 버전입니다.  |
-
-*요청 헤더:*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  콘텐츠 형식      |  `application/json`   |
-|  x-ms-requestid    |   클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-|  x-ms-correlationid |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수 서버 쪽에서 이벤트를 사용 하 여 클라이언트 작업에서 모든 이벤트를 상호 연결 합니다. 이 값이 제공 되지 않는 경우 하나 생성 되며 응답 헤더에 제공 합니다.  |
-|  권한 부여     | JWT(JSON Web Token) 전달자 토큰입니다.  |
-
-*응답 코드:* 코드: 200<br> SaaS 작업 보류 된 가져옵니다.<br>
-응답 페이로드:
-
-```json
-Response body:
-{
-    "id  ": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",
-    "status": "NotStarted"
-}
-
-```
-
-코드: 404<br>
-찾을 수 없음
-
-코드: 400<br>
-잘못 된 요청 유효성 검사 오류
-
-코드: 403<br>
-권한이 없습니다. 인증 토큰 입력 하지 않았으므로 유효 하지 않은 있거나 요청이 현재 사용자에 속하지 않는 인수에 액세스 하려고 합니다.
- 
 코드: 500<br> 내부 서버 오류
 
 ```json
@@ -724,14 +779,21 @@ Response body:
     "operationId": "<guid>",
     "activityId": "<guid>",
     "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
+    "offerId": "offer1",
     "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
-    "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
+    "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
 
+Where action can be one of these: 
+       Subscribe, (When the resource has been activated)
+       Unsubscribe, (When the resource has been deleted)
+       ChangePlan, (When the change plan operation has completed)
+       ChangeQuantity, (When the change quantity operation has completed),
+       Suspend, (When resource has been suspended)
+       Reinstate, (When resource has been reinstated after suspension)
 ```
 
 

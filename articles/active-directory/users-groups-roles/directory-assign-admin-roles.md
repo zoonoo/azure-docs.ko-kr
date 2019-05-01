@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472399"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920492"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -58,6 +58,18 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   * 보안 그룹 및 Office 365 그룹 소유자: 그룹 멤버 자격을 관리할 수 있습니다. 해당 그룹은 중요한 개인 정보 또는 Azure AD 및 다른 위치의 중요한 구성에 대한 액세스 권한을 부여할 수 있습니다.
   * Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
   * 중요한 개인 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자
+
+* **[B2C 사용자 흐름 관리자](#b2c-user-flow-administrator)**: 이 역할의 사용자를 만들고 B2C 사용자 (즉, "기본 제공" 정책) Azure Portal에서 흐름을 관리할 수 있습니다. 만들거나 사용자 흐름을 편집 하 여 이러한 사용자에이 게 사용자 경험의 html/CSS/javascript 내용을 변경, 사용자 한 흐름 당 MFA 요구 사항을 변경, 토큰의 클레임을 테 넌 트의 모든 정책에 대 한 세션 설정을 조정 합니다. 반면에이 역할 않습니다 하지 사용자 데이터를 검토 하는 기능을 포함 또는 테 넌 트 스키마에 포함 된 특성에 대 한 변경입니다. Id 경험 프레임 워크를 변경 (즉, 사용자 지정) 정책은 또한이 역할의 범위를 벗어납니다.
+
+* **[B2C 사용자 흐름 특성 관리자](#b2c-user-flow-attribute-administrator)**: 이 역할의 사용자를 추가 하거나 테 넌 트의 모든 사용자 흐름을 사용할 수 있는 사용자 지정 특성을 삭제 합니다. 따라서이 역할의 사용자 또는 최종 사용자 스키마에 새 요소를 추가 및 모든 사용자 흐름의 동작에 영향을 줄를 직접 하지 변경 될 데이터를 최종 사용자에 게 요청 하 고 궁극적으로 응용 프로그램에 클레임으로 전송 될 수 있습니다. 이 역할 사용자 흐름을 편집할 수 없습니다.
+
+* **[B2C IEF Keyset 관리자](#b2c-ief-keyset-administrator)**:    사용자가 정책 키를 만들고 수 및 토큰 암호화에 대 한 비밀 토큰 서명 및 암호화/암호 해독을 클레임 합니다. 새 키에 기존 키 컨테이너를 추가 하면이 제한 된 관리자가 기존 응용 프로그램에 영향을 주지 않고 필요에 따라 암호를 롤오버 수 있습니다. 이 사용자는 이러한 암호 및 생성 후에 해당 만료 날짜의 전체 콘텐츠를 볼 수 있습니다.
+    
+  <b>중요:</b> 중요 한 역할입니다. 키 집합의 관리자 역할 사전 프로덕션 및 프로덕션 중에 신중 하 게 할당 해 고 신중 하 게 감사 해야 합니다.
+
+* **[B2C IEF 정책 관리자](#b2c-ief-policy-administrator)**: 이 역할의 사용자 만들기, 읽기, 업데이트 및 Azure AD B2C에서 모든 사용자 지정 정책을 삭제 및 했으므로 다음 관련 Azure AD B2C 테 넌 트에서 Id 경험 프레임 워크를 완전히 제어할 수가 있어야 합니다. 정책을 편집 하 여이 사용자 수 외부 id 공급자와의 직접 페더레이션을 설정할 디렉터리 스키마를 변경, 모든 사용자 용 콘텐츠 (HTML, CSS, JavaScript)를 변경, 새 사용자 만들기, 보내기는 인증을 완료 하기 위한 요구 사항 변경 사용자 데이터를 포함 하 여 외부 시스템 마이그레이션, 전체와 암호 및 전화 번호와 같은 중요 한 필드를 포함 하는 모든 사용자 정보를 편집 합니다. 반대로,이 역할 암호화 키를 변경 하거나 페더레이션 테 넌 트에 사용할 암호를 편집할 수 없습니다.
+
+  <b>중요:</b> B2 IEF 정책 관리자는 프로덕션 환경에서 테 넌 트에 대 한 매우 제한적으로 할당 해야 하는 매우 중요 한 역할을 합니다. 이러한 사용자가 긴밀 하 게 감사할 활동, 특히 프로덕션 환경에서 테 넌 트에 대 한 합니다.
 
 * **[대금 청구 관리자](#billing-administrator)**: 구매, 구독 관리, 지원 티켓 관리 및 서비스 상태 모니터링을 수행할 수 있습니다.
 
@@ -110,6 +122,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Exchange 서비스 관리자”로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Exchange 관리자"입니다. [Exchange 관리 센터](https://go.microsoft.com/fwlink/p/?LinkID=529144)의 “Exchange Online 관리자”입니다. 
 
+* **[외부 Id 공급자 관리자](#external-identity-provider-administrator)**: 이 관리자는 외부 id 공급자와 Azure Active Directory 테 넌 트 사이 페더레이션을 관리합니다. 이 역할을 통해 사용자는 새 id 공급자를 추가 하 고 모든 사용 가능한 설정 (예: 인증 경로 키 컨테이너 할당 되는 서비스 id)를 구성할 수 있습니다. 이 사용자는 외부 id 공급자 로부터 인증을 신뢰 하도록 테 넌 트를 설정할 수 있습니다. 최종 사용자 환경에 대 한 결과 영향 테 넌 트의 유형에 따라 달라 집니다.
+  * Azure Active Directory 테 넌 트를 직원 및 파트너: 즉시 (예: Gmail)와 페더레이션 추가는 모든 게스트 초대를 아직 상환 영향을 줍니다. 참조 [B2B 게스트 사용자를 id 공급자로 Google 추가](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)합니다.
+  * Azure Active Directory B2C 테 넌 트: (예: Facebook, 또는 다른 Azure Active Directory를 사용 하 여) 페더레이션 추가 즉시 영향을 주지 않습니다 최종 사용자 흐름에서 사용자 흐름 (즉, 기본 제공 정책) 옵션으로 id 공급자 추가 될 때까지 합니다. 참조 [Microsoft 계정을 id 공급자로 구성](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) 예입니다. 사용자 흐름을 변경 하려면 "B2C 사용자 흐름 관리자"의 제한 된 역할은 필수입니다.
 
 * **[글로벌 관리자/회사 관리자](#company-administrator)**: 이 역할의 사용자는 Azure Active Directory의 모든 관리 기능뿐 아니라 Microsoft 365 보안 센터, Microsoft 365 규정 준수 센터, Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같이 Azure Active Directory ID를 사용하는 서비스에도 액세스할 수 있습니다. Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
 
@@ -314,6 +329,34 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+
+### <a name="b2c-user-flow-administrator"></a>B2C 사용자 흐름 관리자
+사용자 흐름의 모든 측면을 만들고 설정 합니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | 페이지를 읽고 Azure Active Directory B2C에서 사용자 흐름을 구성 합니다. |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C 사용자 흐름 특성 관리자
+모든 사용자 흐름에 사용할 수 있는 특성 스키마를 만들고 설정 합니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | 페이지를 읽고 Azure Active Directory B2C에서 사용자 특성을 구성 합니다. |
+
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF Keyset 관리자
+페더레이션 및 Identity Experience Framework에서 암호화에 대 한 비밀을 관리 합니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | 읽기 및 Azure Active Directory B2C에서 키 집합을 구성 합니다. |
+
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF 정책 관리자
+정책 만들기 및 관리 신뢰 프레임 워크 Identity Experience Framework에서.
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | 읽기 및 Azure Active Directory B2C에서 사용자 지정 정책을 구성 합니다. |
 
 ### <a name="billing-administrator"></a>대금 청구 관리자
 결제 정보 업데이트와 같은 일반 결제 관련 작업을 수행할 수 있습니다.
@@ -675,6 +718,13 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+
+### <a name="external-identity-provider-administrator"></a>외부 Id 공급자 관리자
+직접 페더레이션에서 사용할 id 공급자를 구성 합니다.
+
+| **actions** | **설명** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | 읽고 Azure Active Directory B2C에서 id 공급자를 구성 합니다. |
 
 ### <a name="guest-inviter"></a>게스트 초대자
 ‘멤버가 게스트를 초대할 수 있음’ 설정에 관계없이 게스트 사용자를 초대할 수 있습니다.

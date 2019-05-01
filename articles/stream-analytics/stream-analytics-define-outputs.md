@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481190"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926055"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 출력 유형을 설명 합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용 하 여 수행할 수 있습니다 비즈니스 분석 및 데이터 웨어하우징 데이터를 추가 합니다.
@@ -182,7 +182,7 @@ Power BI는 선입 선출 (FIFO) 보존 정책을 사용 합니다. 200,000 개 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Stream Analytics에서 Power BI는 데이터 형식 변환
 Azure Stream Analytics는 출력 스키마가 변경되면 런타임 시 동적으로 데이터 모델을 업데이트합니다. 열 이름 변경, 열 형식 변경 및 열 추가 또는 제거 작업이 모두 추적됩니다.
 
-데이터 형식 변환 표 [Stream Analytics 데이터 형식](https://msdn.microsoft.com/library/azure/dn835065.aspx) Power bi [엔터티 데이터 모델 (EDM) 형식을](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model)이면 Power BI 데이터 집합 및 테이블을 존재 하지 않습니다.
+데이터 형식 변환 표 [Stream Analytics 데이터 형식](https://msdn.microsoft.com/library/azure/dn835065.aspx) Power bi [엔터티 데이터 모델 (EDM) 형식을](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model)이면 Power BI 데이터 집합 및 테이블을 존재 하지 않습니다.
 
 Stream Analytics에서 | Power BI로
 -----|-----
@@ -283,7 +283,7 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국(21Vianet) 및 
 | 속성 이름 | 설명 |
 | --- | --- |
 | 출력 별칭 | Stream Analytics 쿼리에서 이 출력을 참조할 별칭입니다. |
-| sink | Azure Cosmos DB. |
+| 싱크 | Azure Cosmos DB. |
 | 가져오기 옵션 | 선택할 **구독에서 Cosmos DB 선택** 또는 **Cosmos DB 제공 설정을 수동으로**합니다.
 | 계정 ID | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다. |
 | 계정 키 | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다. |

@@ -2,17 +2,17 @@
 title: Azure Application Gateway 구성 개요
 description: 이 문서에서는 Azure Application Gateway의 구성 요소를 구성 하는 방법 설명
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998909"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946821"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -71,7 +71,7 @@ Azure 내부 사용을 위해 각 서브넷에서 5 개의 IP 주소를 예약 �
 
 V1 SKU에 대 한 사용자 정의 경로 (Udr) 엔드-투-엔드 요청/응답 통신 변경 하지는 않습니다으로 Application Gateway 서브넷에서 지원 됩니다. 예를 들어, 패킷 검사에 대 한 방화벽 어플라이언스를 가리키도록 Application Gateway 서브넷에서 UDR을 설정할 수 있습니다. 하지만 패킷을 검사 후 의도 한 대상에 연결할 수 있는지 확인 해야 합니다. 이렇게 하지 않으면 잘못 된 상태 프로브 또는 트래픽 라우팅 동작 될 수 있습니다. 학습된 경로 또는 가상 네트워크에서 Azure ExpressRoute 또는 VPN 게이트웨이에서 전파 되는 기본 0.0.0.0/0 경로 포함 됩니다.
 
-V2 SKU에 대 한 Udr은 Application Gateway 서브넷에서 지원 되지 않습니다. 자세한 내용은 [자동 크기 조정 및 Application Gateway에 대 한 영역 중복](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations)합니다.
+V2 SKU에 대 한 Udr은 Application Gateway 서브넷에서 지원 되지 않습니다. 자세한 내용은 [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku)합니다.
 
 > [!NOTE]
 > 상태를 사용 하면 Application Gateway 서브넷에서 Udr을 사용 하 여 [백 엔드 상태 보기](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) "알 수 없습니다."로 표시 Application Gateway 로그 및 메트릭을 실패 생성이 됩니다. 백 엔드 상태, 로그 및 메트릭을 볼 수 있도록 Application Gateway 서브넷에서 Udr을 사용 하지 않는 것이 좋습니다.
@@ -84,7 +84,7 @@ V2 SKU에 대 한 Udr은 Application Gateway 서브넷에서 지원 되지 않�
 
 1 개인 IP 주소 또는 공용 IP 주소를 하나만 지원 됩니다. Application gateway를 만들 때에 프런트 엔드 IP를 선택 합니다.
 
-- 공용 IP에 대 한 새 공용 IP 주소를 만들 수도 있고 기존 공용 IP를 사용 하 여 application gateway와 동일한 위치에 키를 누릅니다. (정적 또는 동적) 새 공용 IP를 선택 하는 IP 주소 유형을 만드는 경우 나중에 변경할 수 없습니다. 자세한 내용은 [동적 공용 IP 주소와 정적](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address)합니다.
+- 공용 IP에 대 한 새 공용 IP 주소를 만들 수도 있고 기존 공용 IP를 사용 하 여 application gateway와 동일한 위치에 키를 누릅니다. (정적 또는 동적) 새 공용 IP를 선택 하는 IP 주소 유형을 만드는 경우 나중에 변경할 수 없습니다. 자세한 내용은 [동적 공용 IP 주소와 정적](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address)합니다.
 
 - 개인 IP에 대 한 application gateway가 만들어지는 서브넷의 개인 IP 주소를 지정할 수 있습니다. 하나를 지정 하지 않으면, 임의의 IP 주소 서브넷에서 자동으로 선택 됩니다. 자세한 내용은 [내부 부하 분산 장치를 사용 하 여 응용 프로그램 게이트웨이 만들기](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)합니다.
 
@@ -118,7 +118,7 @@ V2 SKU에 대 한 다중 사이트 수신기는 기본 수신기 보다 먼저 �
 
 프런트 엔드 포트를 선택 합니다. 기존 포트를 선택 하거나 새로 만듭니다. 값을 선택 합니다 [허용 되는 포트의 범위](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports)합니다. 80 및 443 같은 잘 알려진 포트 뿐 아니라 적합 한 모든 허용 되는 사용자 지정 포트를 사용할 수 있습니다. 공용 또는 개인 연결 수신기에 대 한 포트를 사용할 수 있습니다.
 
-### <a name="protocol"></a>프로토콜
+### <a name="protocol"></a>Protocol
 
 HTTP 또는 HTTPS를 선택 합니다.
 
@@ -259,7 +259,7 @@ Application gateway는 여기서 지정 하는 구성을 사용 하 여 백 엔�
 
 연결 드레이닝 정상적으로 계획 된 서비스 업데이트 도중 백 엔드 풀 멤버를 제거할 수 있습니다. 규칙을 만드는 동안이 설정은 백 엔드 풀의 모든 멤버에 적용할 수 있습니다. 백 엔드 풀의 모든 등록 해제 인스턴스에 새 요청을 받지는 확인 합니다. 한편, 기존 요청은 구성 된 제한 시간 내에 완료 되도록 허용 됩니다. 연결 드레이닝 API 호출에 의해 명시적으로 백 엔드 풀에서 제거 되는 백 엔드 인스턴스에 적용 됩니다. 도로 보고 되는 백 엔드 인스턴스에 적용 됩니다 *비정상* 상태에 따라 검색 합니다.
 
-### <a name="protocol"></a>프로토콜
+### <a name="protocol"></a>Protocol
 
 Application Gateway는 라우팅 요청을 백 엔드 서버에 대 한 HTTP 및 HTTPS를 지원 합니다. HTTP를 선택할 경우에 백 엔드 서버로 트래픽을 암호화 되지 않습니다. 암호화 되지 않은 통신을 허용 하지 않으면 HTTPS를 선택 합니다.
 

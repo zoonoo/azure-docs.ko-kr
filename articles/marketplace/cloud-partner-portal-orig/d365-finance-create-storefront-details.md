@@ -1,25 +1,18 @@
 ---
-title: Storefront 세부 정보 양식을 작성하는 방법 | Microsoft Docs
+title: Storefront 세부 정보 양식을 작성하는 방법
 description: 새 Dynamics 365 Business Central 앱의 Storefront 세부 정보 양식에 대한 값을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397944"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935037"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Storefront 세부 정보 양식을 작성하는 방법
 ===========================================
@@ -57,9 +50,9 @@ ms.locfileid: "60397944"
 
 ### <a name="supported-countriesregions"></a>지원되는 국가/지역
 
-이 필드는 평가판에 대한 제안을 사용할 수 있는 국가/지역을 결정합니다. Microsoft Dynamics 365 Business Central을 이미 사용할 수 있거나 미리 보기로 제공하고 있는 국가만 선택할 수 있습니다. 현재 목록은 [지원되는 국가 및 번역](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations)을 참조하세요.
+이 필드의 정보에 따라 제품 평가판을 사용할 수 있는 국가/지역이 결정됩니다. 국가/지역 Microsoft Dynamics 365 Business Central 인 이미 사용할 수 없거나 미리 보기에만 선택할 수 있습니다. 현재 목록에 대 한 참조 [국가/지역 및 번역 지원](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations)합니다.
 
-![지원되는 국가 및 번역 선택](./media/d365-financials/image008.png)
+![선택한 국가/지역 및 번역 지원](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>지원되는 언어

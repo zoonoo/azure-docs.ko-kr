@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e70850ba9e5984e36643f1b9ecc9db29eec149
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f273104366b3e583bd98ebcc6d50387a3fb1d335
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386910"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572819"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -31,18 +31,23 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
 
+## <a name="april-2019"></a>2019 년 4 월
+**에이전트 업데이트:** 
+* AD FS (3.1.46.0 버전)에 대 한 azure AD Connect Health agent 
+   1. ADFS에 대 한 중복 된 SPN 확인 경고 프로세스를 수정 합니다.
+
 ## <a name="march-2019"></a>2019 년 3 월
 **에이전트 업데이트:** 
-* AD DS (3.1.41.0 버전)에 대 한 azure AD Connect Health agent 
-* .NET 버전 컬렉션입니다.
-* 특정 범주를 누락 하는 경우 성능 카운터 수집을 개선 합니다.
-* Monitoring Agent에 여러 인스턴스 생성을 방지의 버그 수정.
+* AD DS (3.1.41.0 버전)에 대 한 azure AD Connect Health agent  
+   1. .NET 버전 수집
+   2. 특정 범주를 누락 하는 경우 성능 카운터 수집 향상
+   3. Monitoring Agent에 여러 인스턴스 생성을 방지의 버그 수정
 
 * AD FS (3.1.41.0 버전)에 대 한 azure AD Connect Health agent 
-* 통합 하 고 업그레이드 ADFSToolBox를 사용 하 여 AD FS 테스트 스크립트입니다.
-* .NET 버전 컬렉션입니다.
-* 특정 범주를 누락 하는 경우 성능 카운터 수집을 개선 합니다.
-* Monitoring Agent에 여러 인스턴스 생성을 방지의 버그 수정.
+   1. 통합 및 ADFSToolBox를 사용 하 여 AD FS 테스트 스크립트의 업그레이드
+   2. .NET 버전 컬렉션 구현
+   3. 특정 범주를 누락 하는 경우 성능 카운터 수집 향상
+   4. Monitoring Agent에 여러 인스턴스 생성을 방지의 버그 수정
 
 
 ## <a name="november-2018"></a>2018년 11월
@@ -51,15 +56,15 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 **에이전트 업데이트:** 
 * AD DS용 Azure AD Connect Health 에이전트(버전 3.1.24.0) 
-* TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
-* 글로벌 카탈로그 경고 노이즈 감소
-* 상태 에이전트 등록 버그 수정
+   1. TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
+   2. 글로벌 카탈로그 경고 노이즈 감소
+   3. 상태 에이전트 등록 버그 수정
 
-* AD FS용 Azure AD Connect Health Agent(버전 3.1.24.0)
-* TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
-* 지역화된 운영 체제에 대한 테스트 ADFSRequestToken 지원
-* 진단 에이전트 EventHandler 잠금 문제를 해결합니다.
-* 상태 에이전트 등록 버그 수정
+* AD FS용 Azure AD Connect Health Agent(버전 3.1.24.0)  
+   1. TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
+   2. 지역화된 운영 체제에 대한 테스트 ADFSRequestToken 지원
+   3. 진단 에이전트 EventHandler 잠금 문제를 해결합니다.
+   4. 상태 에이전트 등록 버그 수정
 
 ## <a name="august-2018"></a>2018년 8월 
 *  Azure AD Connect 버전 1.1.880.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.1.7.0)    

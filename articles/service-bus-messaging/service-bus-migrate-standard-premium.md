@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766303"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687074"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>프리미엄 계층으로 기존 Azure Service Bus 표준 네임 스페이스 마이그레이션
 이전에 Azure Service Bus 네임 스페이스의 표준 계층 에서만 제공 됩니다. 네임 스페이스는 개발자 환경과 낮은 처리량에 최적화 된 다중 테 넌 트 설정 합니다. 프리미엄 계층은 예측 가능한 대기 시간 및 고정된 가격으로 향상 된 처리량에 대 한 네임 스페이스 당 전용된 리소스를 제공합니다. 프리미엄 계층은 높은 처리량과 추가 엔터프라이즈 기능을 필요로 하는 프로덕션 환경에 대 한 최적화 됩니다.
@@ -62,7 +62,7 @@ Azure CLI 또는 PowerShell 도구를 사용 하 여 프리미엄 표준 Service
    ```
 
     >[!IMPORTANT]
-    > 마이그레이션 후 이름은 (post_migration_dns_name) 이전 표준 네임 스페이스 마이그레이션 후 액세스에 사용 됩니다. 이 사용 하 여 큐 및 구독을 드레이닝 하도록 하 고 네임 스페이스를 삭제 합니다.
+    > 마이그레이션 후/별칭 (post_migration_dns_name) 이전 표준 네임 스페이스 마이그레이션 후 액세스에 사용 됩니다. 이 사용 하 여 큐 및 구독을 드레이닝 하도록 하 고 네임 스페이스를 삭제 합니다.
 
 1. 표준 및 프리미엄 네임 스페이스 쌍 하 고 다음 명령을 사용 하 여 동기화를 시작 합니다.
 

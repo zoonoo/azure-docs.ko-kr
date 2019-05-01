@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074192"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919796"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>부분 구성
 
-Azure Automation 상태 구성의 사용을 지원 [부분 구성을](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs)합니다.
+Azure Automation 상태 구성의 사용을 지원 [부분 구성을](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs)합니다.
 이 시나리오에서는 DSC 구성을 여러를 독립적으로 관리 하도록 구성 됩니다 하 고 각 구성은 Azure Automation에서 retreieved 합니다.
 그러나 하나의 구성만 automation 계정당 노드에 할당할 수 있습니다.
 즉, 노드에 대 한 두 가지 구성을 사용 하는 경우 두 개의 automation 계정이 필요 합니다.
-팀이 작동 하는 방식에 대 한 자세한 내용은 공동으로 서버를 관리 하려면 함께 구성을 코드로 사용 하 여 참조 하세요 [CI/CD 파이프라인의 역할 이해 DSC](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced)합니다.
+팀이 작동 하는 방식에 대 한 자세한 내용은 공동으로 서버를 관리 하려면 함께 구성을 코드로 사용 하 여 참조 하세요 [CI/CD 파이프라인의 역할 이해 DSC](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced)합니다.
 
 ## <a name="importing-node-configurations"></a>노드 구성 가져오기
 

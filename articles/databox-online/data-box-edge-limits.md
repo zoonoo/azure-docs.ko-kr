@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Edge 제한 | Microsoft Docs
-description: Microsoft Azure Data Box Edge의 시스템 제한 및 권장 크기를 설명합니다.
+description: Azure 데이터 상자의 가장자리에 대 한 시스템 제한 및 권장된 크기를 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: a687398032adffe5e787ef1469abe0b2627a38fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b454b563cdb870ca8f07a45b796dc6b1e272502d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60758027"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924595"
 ---
 # <a name="azure-data-box-edge-limits"></a>Azure 데이터 가장자리가 상자의 제한
 
