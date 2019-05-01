@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009483"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869862"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 언어 및 지역 지원
 
@@ -32,7 +32,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 > - en-AU(영어, 오스트레일리아)
 > - zh-CN(중국어, 중국)
 
-## <a name="countries"></a>국가
+## <a name="countriesregions"></a>국가/지역
 
 |국가/지역|코드|
 |-------|----|

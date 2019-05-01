@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341645"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573373"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
 
@@ -39,6 +39,7 @@ ms.locfileid: "60341645"
 ||범용 데이터베이스|vCore 기반 구매 모델의 범용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
 ||하이퍼스케일 데이터베이스|vCore 기반 구매 모델의 하이퍼스케일 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
 ||중요 비즈니스용 데이터베이스|vCore 기반 구매 모델의 중요 비즈니스용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
+||프로 비전 된 데이터베이스|프로 비전 된 계산 계층에 구성 데이터베이스|
 |[구매 모델 및 리소스](sql-database-purchase-models.md)|DTU 기반 구매 모델|[DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)|
 ||vCore 기반 구매 모델|[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)|
 ||vCore|하이퍼바이저가 게스트 OS에 제공하는 코어|

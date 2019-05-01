@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827438"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873156"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 시계열 분석
 
@@ -260,3 +260,8 @@ demo_many_series1
 2분 미만의 시간에 ADX는 20,000개에 가까운 시계열을 분석하고 읽기 개수가 갑자기 줄어든 비정상적인 시계열 2개를 검색했습니다.
 
 ADX 빠른 성능과 결합된 이러한 고급 기능은 시계열 분석을 위해 고유하고 강력한 솔루션을 제공합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* 에 대 한 자세한 [시계열 변칙 검색 및 예측 시간](/azure/data-explorer/anomaly-detection) Azure 데이터 탐색기에서.
+* 에 대 한 자세한 [기계 학습 기능](/azure/data-explorer/machine-learning-clustering) Azure 데이터 탐색기에서.

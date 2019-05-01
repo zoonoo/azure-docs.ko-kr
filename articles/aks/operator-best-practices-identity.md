@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464494"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726618"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -108,7 +108,8 @@ Pod가 Azure 서비스에 대한 액세스를 요청하면 네트워크 규칙�
 1. 개발자는 NMI 서버를 통해 액세스 토큰을 요청하는 관리형 ID를 사용하여 Pod를 배포합니다.
 1. 토큰은 Pod에 반환되고 Azure SQL Server 인스턴스에 액세스하는 데 사용됩니다.
 
-관리 되는 pod id는 AKS 오픈 소스 프로젝트 및 Azure 기술 지원에서 지원 되지 않습니다. 커뮤니티에서 의견 및 버그를 수집 하도록 제공 됩니다. 프로젝트는 프로덕션 용도로 권장 되지 않습니다.
+> [!NOTE]
+> 관리 되는 pod id는 오픈 소스 프로젝트 및 Azure 기술 지원에서 지원 되지 않습니다.
 
 Pod ID를 사용하려면 [Kubernetes 애플리케이션의 Azure Active Directory ID][aad-pod-identity]를 참조하세요.
 

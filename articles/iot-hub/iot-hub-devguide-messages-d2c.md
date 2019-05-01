@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364514"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917416"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>다른 끝점으로 장치-클라우드 메시지를 보내도록 IoT Hub 메시지 라우팅 사용
 
@@ -119,7 +119,7 @@ IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **
 
 IoT Hub는 허브 및 메시지 전송 상태에 대한 개요를 제공하는 여러 가지 라우팅 및 엔드포인트 관련 메트릭을 제공합니다. 여러 메트릭의 정보를 결합하여 문제의 근본 원인을 식별할 수 있습니다. 예를 들어, 메트릭을 사용 하 여 **라우팅: 원격 분석 메시지 삭제** 또는 **d2c.telemetry.egress.dropped** 경로 중 하나에 대 한 쿼리에 일치 하지 않는 경우 삭제 된 메시지 수를 확인 하려면 및 대체 (fallback) 경로 사용 하지 않도록 설정 합니다. [IoT Hub 메트릭](iot-hub-metrics.md)에는 기본적으로 IoT Hub에 대해 활성화된 모든 메트릭이 나열됩니다.
 
-REST API를 사용할 수 있습니다 [끝점 상태 가져오기](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 가져오려는 [상태](iot-hub-devguide-endpoints.md#custom-endpoints) 끝점입니다. 사용 하는 것이 좋습니다 합니다 [IoT Hub 메트릭](iot-hub-metrics.md) 를 식별 하 여 소멸 또는 비정상 끝점 상태 때 오류를 디버그 라우팅 메시지 대기 시간과 관련 된 합니다. 예를 들어, Event Hubs 끝점 형식, 모니터링할 수 있습니다 **d2c.endpoints.latency.eventHubs**합니다. IoT Hub 상태 최종적으로 일관 된 상태를 설정한 경우 비정상 끝점의 상태를 정상으로 업데이트 됩니다.
+REST API를 사용할 수 있습니다 [끝점 상태 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 가져오려는 [상태](iot-hub-devguide-endpoints.md#custom-endpoints) 끝점입니다. 사용 하는 것이 좋습니다 합니다 [IoT Hub 메트릭](iot-hub-metrics.md) 를 식별 하 여 소멸 또는 비정상 끝점 상태 때 오류를 디버그 라우팅 메시지 대기 시간과 관련 된 합니다. 예를 들어, Event Hubs 끝점 형식, 모니터링할 수 있습니다 **d2c.endpoints.latency.eventHubs**합니다. IoT Hub 상태 최종적으로 일관 된 상태를 설정한 경우 비정상 끝점의 상태를 정상으로 업데이트 됩니다.
 
 Azure Monitor [진단 설정](../iot-hub/iot-hub-monitor-resource-health.md)에서 **경로** 진단 로그를 사용하면, IoT Hub가 인식하는 라우팅 쿼리 및 엔드포인트 상태를 평가하는 동안 발생하는 오류를 추적할 수 있습니다(예 : 엔드포인트가 종료됨). 사용자 지정 처리를 위해 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 이러한 진단 로그를 보낼 수 있습니다.
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
 ms.openlocfilehash: ebf1f2806a6606294c61860a24fb2f02033a4bf4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110959"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688391"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop용 .NET SDK를 사용하여 Apache Pig 작업 실행
 

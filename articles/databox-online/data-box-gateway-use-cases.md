@@ -1,18 +1,19 @@
 ---
 title: Microsoft Azure 데이터 상자 게이트웨이 사용 사례 | Microsoft Docs
-description: Azure 데이터 상자 게이트웨이 Azure로 데이터를 전송할 수 있도록 가상 어플라이언스 저장소 솔루션에 대 한 사용 사례를 설명 합니다.
+description: Azure 데이터 상자 게이트웨이 Azure로 데이터를 전송할 수 있도록 하는 가상 어플라이언스 저장소 솔루션에 대 한 사용 사례를 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.date: 03/2/2019
+ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cdc1b07b93386c0225c1e6c5f570ea1247e450b5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754184"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924404"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 사용 사례
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683609"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727320"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 기술 답변을 가져오려면
 
@@ -67,7 +67,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|HTTP 요청 속성|Name|Type|목적|
+|HTTP 요청 속성|이름|Type|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |URL 경로 매개 변수|QnAMaker 끝점 호스트|문자열|Azure 구독에 배포된 엔드포인트의 호스트 이름입니다. 기술 자료를 게시 한 후 설정 페이지에서 제공 됩니다. |
@@ -83,6 +83,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 |`question`|필수|문자열|기술 자료에 보낼 사용자 질문입니다.|
 |`top`|선택 사항|정수|출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.|
 |`userId`|선택 사항|문자열|사용자를 식별하는 고유 ID입니다. 이 ID는 채팅 로그에 기록됩니다.|
+|`scoreThreshold`|선택 사항|정수|이 임계값 보다 신뢰성 점수를 사용 하 여 대답만 반환 됩니다. 기본값은 0입니다.|
 |`isTest`|선택 사항|부울|경우 true를 반환 결과로 `testkb` 게시 된 인덱스 대신 인덱스 검색.|
 |`strictFilters`|선택 사항|문자열|지정할 경우 지정된 메타데이터가 있는 답변만 반환하라고 QnA Maker에 지시합니다. 사용 하 여 `none` 를 나타내는 응답에는 메타 데이터 필터가 있어야 합니다. |
 
@@ -93,6 +94,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",
@@ -114,7 +116,7 @@ JSON 본문을 몇 가지 설정은 다음과 같습니다.
 |Id|답변에 할당된 고유 ID입니다.|
 |질문|사용자가 제공한 질문입니다.|
 |대답|질문에 대한 답변입니다.|
-|원본|기술 자료에서 답변을 추출하거나 저장한 원본 이름입니다.|
+|source|기술 자료에서 답변을 추출하거나 저장한 원본 이름입니다.|
 |metadata|답변과 연결된 메타데이터입니다.|
 |metadata.name|메타데이터 이름입니다. (문자열, 최대 길이: 100자, 필수)|
 |metadata.value: 메타데이터 값입니다. (문자열, 최대 길이: 100자, 필수)|

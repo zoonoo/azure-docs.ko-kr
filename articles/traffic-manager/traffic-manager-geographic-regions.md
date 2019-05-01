@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: f033f8e8e686165febdd2262953b2aa871686a12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e3ea1d2a0c3e8501222d57a92fad917d465022e
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330111"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867001"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
@@ -481,8 +481,6 @@ ms.locfileid: "60330111"
         - CD(콩고 민주 공화국)
 
         - CF(중앙 아프리카 공화국)
-
-        - CG(콩고)
 
         - CI(코트디부아르)
 

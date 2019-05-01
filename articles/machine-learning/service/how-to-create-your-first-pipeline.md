@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819882"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914885"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -359,6 +359,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## <a name="view-results"></a>결과 보기
 
 모든 파이프라인 및 해당 실행 정보 목록을 참조하세요.
@@ -368,6 +369,25 @@ response = requests.post(published_pipeline1.endpoint,
  ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 특정 파이프라인을 선택하여 실행 결과를 확인합니다.
+
+## <a name="caching--reuse"></a>캐싱 및 다시 사용  
+
+최적화 하 고 파이프라인의 동작을 사용자 지정 하기 위해 캐싱 관련 몇 가지 작업을 수행 하 고 재사용할 수 있습니다. 예를 들어를 선택할 수 있습니다.
++ **출력 실행 단계의 기본 재사용 해제할** 설정 하 여 `allow_reuse=False` 하는 동안 [정의 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **스크립트를 넘어 해시 확장**, 절대 경로 또는 상대 경로를 다른 파일 및 디렉터리를 사용 하 여 source_directory 포함 하도록 합니다 `hash_paths=['<file or directory']` 
++ **다시 실행의 모든 단계에 대 한 출력 생성** 사용 하 여 `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+기본적으로 단계 다시 사용 하 여 사용 하도록 설정 하 고 기본 스크립트 파일만 해시 됩니다. 따라서 지정 된 단계에 대 한 스크립트를 동일 하 게 유지 하는 경우 (`script_name`, 입력 및 매개 변수), 실행을 이전 단계의 결과 다시 사용, 작업을 하는 컴퓨터에 전송 되지 않습니다 및 이전 실행의 결과 대신 다음 단계를 즉시 사용할 수 있습니다 .  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## <a name="next-steps"></a>다음 단계
 - [GitHub의 Jupyter 노트북](https://aka.ms/aml-pipeline-readme)을 사용하여 기계 학습 파이프라인을 추가로 살펴봅니다.

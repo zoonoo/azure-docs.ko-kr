@@ -3,17 +3,16 @@ title: Azure Marketplace 정책 및 용어 | Azure
 description: Microsoft Azure Marketplace 정책 및 용어에는 모든 판매자 및 Microsoft Azure Marketplace에서 제품에 적용 됩니다.
 services: Azure, Marketplace, AppSource
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 9dc4bfa1f2435488f7d6513f9c14e82da33a4d64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322756"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937622"
 ---
 # <a name="azure-marketplace-policies-and-terms"></a>Azure Marketplace 정책 및 용어
 
@@ -26,9 +25,12 @@ Marketplace에서 제품 사용 약관 및 정책을 사용 하 여 준수 해�
 
 ## <a name="policies-and-terms"></a>정책 및 용어
 
-* [일반 목록 및 제품 정책](https://docs.microsoft.com/legal/marketplace/general-policies)
+* [Azure Marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies)
+
 * [참가 정책](https://docs.microsoft.com/legal/marketplace/participation-policy)
+
 * [등급 및 검토 정책](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
+
 * [Azure Marketplace 약관](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>다음 단계

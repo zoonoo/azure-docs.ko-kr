@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: e395fc96c560c6c6c1671e472840ba0f2a316d98
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006780"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867839"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
 
@@ -27,7 +27,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 
 `Accept-Language` 헤더 및 `setLang` 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. 자세한 내용은 [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage)를 참조하세요.
 
-## <a name="countries"></a>국가
+## <a name="countriesregions"></a>국가/지역
 
 |국가/지역|코드|
 |-------|----|

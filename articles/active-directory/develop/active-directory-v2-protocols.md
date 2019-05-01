@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300183"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917337"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
 
@@ -51,7 +51,7 @@ Identity-as a service 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0�
 * 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**
 * 다른 몇 가지 시나리오 관련 값.
 
-자세한 내용은 [앱 등록](quickstart-v2-register-an-app.md)방법을 참조하세요.
+자세한 내용은 [앱 등록](quickstart-register-app.md)방법을 참조하세요.
 
 ## <a name="endpoints"></a>엔드포인트
 
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 여기서 `{tenant}` 은 네 개의 서로 다른 값 중 하나를 가질 수 있습니다.
 
-| Value | 설명 |
+| 값 | 설명 |
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |

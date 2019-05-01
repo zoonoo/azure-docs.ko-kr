@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074603"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919981"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -62,8 +62,8 @@ Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
-Azure 가상 머신은 Azure Resource Manager 템플릿을 통해 Azure Automation 상태 구성에 배포 및 온보드할 수 있습니다. 참조 [Desired State Configuration 서비스에서 관리 서버](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) 예제 템플릿을 등록 하는 기존 VM Azure Automation 상태 구성 합니다.
-Virtual Machine Scale Set를 관리 하는 경우 참조 예제 템플릿 [VM 크기 조정 설정 구성을 Azure Automation에서 관리 되는](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/)합니다.
+Azure 가상 머신은 Azure Resource Manager 템플릿을 통해 Azure Automation 상태 구성에 배포 및 온보드할 수 있습니다. 참조 [Desired State Configuration 서비스에서 관리 서버](https://azure.microsoft.com/resources/templates/101-automation-configuration/) 예제 템플릿을 등록 하는 기존 VM Azure Automation 상태 구성 합니다.
+Virtual Machine Scale Set를 관리 하는 경우 참조 예제 템플릿 [VM 크기 조정 설정 구성을 Azure Automation에서 관리 되는](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/)합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ PowerShell을 통해 Azure 포털의 가상 머신을 온보드하는 데 [Regis
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Azure 구독에서 가상 컴퓨터 등록
 
 다른 Azure 구독에서 가상 컴퓨터를 등록 하는 Azure Resource Manager 배포 템플릿에 DSC 확장을 사용 하는 가장 좋은 방법은 합니다.
-예제에 나와 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template)합니다.
+예제에 나와 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template)합니다.
 등록 URL 템플릿에 매개 변수로 사용 하 고 등록 키를 찾으려면 다음을 참조 하세요 [ **등록 보호** ](#secure-registration) 섹션입니다.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure 가상 머신(기본)

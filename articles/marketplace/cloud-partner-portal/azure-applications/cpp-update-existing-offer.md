@@ -1,25 +1,18 @@
 ---
-title: 기존 Azure 애플리케이션 제품 업데이트 | Microsoft Docs
+title: 기존 Azure 응용 프로그램이 제품 업데이트 | Azure Marketplace
 description: Azure Marketplace에서 기존 Azure 애플리케이션 제품을 업데이트하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744621"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942812"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>기존 Azure 애플리케이션 제품 업데이트
 

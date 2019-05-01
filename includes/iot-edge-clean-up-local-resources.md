@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/10/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: cdb60ffb3ba3c31c336c8b74c46621792c707f74
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.openlocfilehash: 2b61cc8c5c448c28e96b06afa3556688a82567ed
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40047078"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866818"
 ---
 ### <a name="delete-local-resources"></a>로컬 리소스 삭제
 
 디바이스에서 IoT Edge 런타임 및 관련 리소스를 제거하려는 경우 디바이스 운영 체제에 대한 적절한 명령을 사용합니다. 
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 IoT Edge 런타임을 제거합니다.
 
@@ -28,7 +28,7 @@ IoT Edge 런타임을 제거합니다.
    Uninstall-SecurityDaemon
    ```
 
-IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치에는 계속 남아 있습니다. 모든 컨테이너를 봅니다.
+IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 디바이스에는 계속 남아 있습니다. 모든 컨테이너를 봅니다.
 
    ```powershell
    docker ps -a

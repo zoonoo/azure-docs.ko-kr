@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368879"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865997"
 ---
 # <a name="cross-network-connectivity"></a>네트워크 간 연결
 
@@ -119,7 +119,7 @@ ExpressRoute 글로벌 환경 서로 다른 ExpressRoute 회로에 연결 된 �
 
 참조 [가상 네트워크 FAQ][VNet-FAQ]VNet 및 VNet 피어 링 추가 질문에 대 한 합니다. 참조 [ExpressRoute FAQ] [ ER-FAQ] 추가 질문이 ExpressRoute에 가상 네트워크 연결에 대 한 합니다.
 
-Global Reach는 국가별로 롤아웃됩니다. Global Reach를 원하는 국가에서 사용할 수 있는지 확인하려면 [ExpressRoute Global Reach][Global Reach]를 참조하세요.
+국가/지역에서 국가/지역 단위로 글로벌 롤백됩니다. 글로벌 환경 원하는 국가/지역에서 사용할 수 있는 경우 참조 하세요 [ExpressRoute 글로벌 환경][Global Reach]합니다.
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "적용 시나리오"

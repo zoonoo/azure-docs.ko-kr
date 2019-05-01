@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3daea17a491af8950b38f1e3183583fef63751e2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483505"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926484"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 저장소 분석 로깅
 
@@ -76,7 +76,7 @@ ms.locfileid: "61483505"
  }  
  ```  
 
-프로그래밍 방식으로 blob을 나열 하는 방법에 대 한 정보를 참조 하세요 [Blob 리소스 열거](http://msdn.microsoft.com/library/azure/hh452233.aspx) 하 고 [검색 속성 및 Blob 리소스에 대 한 메타 데이터 설정 및](http://msdn.microsoft.com/library/azure/dd179404.aspx)합니다.  
+프로그래밍 방식으로 blob을 나열 하는 방법에 대 한 정보를 참조 하세요 [Blob 리소스 열거](https://msdn.microsoft.com/library/azure/hh452233.aspx) 하 고 [검색 속성 및 Blob 리소스에 대 한 메타 데이터 설정 및](https://msdn.microsoft.com/library/azure/dd179404.aspx)합니다.  
 
 ### <a name="log-naming-conventions"></a>로그 명명 규칙
 

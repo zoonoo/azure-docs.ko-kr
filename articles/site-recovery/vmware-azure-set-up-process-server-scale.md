@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101900"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925485"
 ---
 # <a name="scale-with-additional-process-servers"></a>추가 프로세스 서버를 사용 하 여 크기 조정
 
@@ -24,7 +24,7 @@ ms.locfileid: "62101900"
 
 VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)을 수행했는지 확인합니다. 추가 프로세스 서버를 배포해야 시기와 방법을 식별하도록 도와줍니다.
 
-9.24 버전에서 새 복제에 대 한 프로세스 서버를 선택 하는 동안 지침 추가 됩니다. 프로세스 서버는 정상, 경고 및 중요 특정 조건에 따라 표시 됩니다. 프로세스 서버의 상태에 영향을 줄 수 있는 다양 한 시나리오를 이해 하려면 방문 [프로세스 서버 선택 지침](vmware-azure-manage-process-server.md#process-server-selection-guidance)합니다.
+9.24 버전에서 새 복제에 대 한 프로세스 서버를 선택 하는 동안 지침 추가 됩니다. 프로세스 서버는 정상, 경고 및 위험 특정 조건에 따라 표시 됩니다. 프로세스 서버의 상태에 영향을 줄 수 있는 다양 한 시나리오를 이해 하려면 다음을 검토 합니다 [서버 경고 처리](vmware-physical-azure-monitor-process-server.md#process-server-alerts)합니다.
 
 > [!NOTE]
 > 복제된 프로세스 서버 구성 요소를 사용하는 것은 지원되지 않습니다. 각 PS 스케일 아웃에서 이 문서의 단계를 수행할 수 있습니다.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
 ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759806"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699672"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
 이 문서에서는 Azure 게스트 OS와 함께 제공되지 않는 .NET Framework 버전을 설치하는 방법을 설명합니다. 클라우드 서비스 웹 및 작업자 역할을 구성하기 위해 게스트 OS에 .NET을 사용할 수 있습니다.

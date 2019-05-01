@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용하여 Batch Management 솔루션 인증 | Microsoft Docs
-description: Azure Resource Manager로 구축된 애플리케이션과 Batch 리소스 공급자는 Azure AD로 인증합니다.
+description: Azure Resource Manager 및 Batch 리소스 공급자를 사용 하 여 빌드된 응용 프로그램을 Azure AD로 인증 합니다.
 services: batch
 documentationcenter: .net
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 22cab5f22eccabf9176d777b1e3a3356cbf37c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f6db6d9c86e6da047c45ae7b1c43cf5f55c7e2b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722283"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922842"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
 
@@ -36,7 +36,7 @@ Batch 관리 .NET 라이브러리 및 AccountManagement 샘플을 사용하는 �
 
 Azure [Active Directory 인증 라이브러리][aad_adal](ADAL)는 애플리케이션 내에서 사용하기 위해 Azure AD에 프로그래밍 방식 인터페이스를 제공합니다. 애플리케이션에서 ADAL을 호출하려면 Azure AD 테넌트에 애플리케이션을 등록해야 합니다. 애플리케이션을 등록할 때 Azure AD 테넌트 내에서 이름을 포함하여 애플리케이션에 대한 Azure AD 정보를 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID를 제공합니다. 애플리케이션 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-AccountManagement 샘플 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합][aad_integrate]에서 [애플리케이션 추가](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 애플리케이션 유형으로 **네이티브 클라이언트 애플리케이션**을 지정합니다. **리디렉션 URI**의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 실제 엔드포인트일 필요가 없으므로 `http://myaccountmanagementsample`리디렉션 URI**에 대한 유효한 URI(예:** )를 지정할 수 있습니다.
+AccountManagement 샘플 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합][aad_integrate]에서 [애플리케이션 추가](../active-directory/develop/quickstart-register-app.md) 섹션의 단계를 따릅니다. 애플리케이션 유형으로 **네이티브 클라이언트 애플리케이션**을 지정합니다. **리디렉션 URI**의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 실제 엔드포인트일 필요가 없으므로 `http://myaccountmanagementsample`리디렉션 URI**에 대한 유효한 URI(예:** )를 지정할 수 있습니다.
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

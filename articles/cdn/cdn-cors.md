@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679873"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876217"
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS의 정의
@@ -30,9 +30,9 @@ CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형�
 
 ### <a name="for-simple-requests"></a>간단한 요청:
 
-1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트*로 정의됩니다.  https://www.contoso.com의 페이지가 fabrikam.com 원본의 사용자 데이터에 액세스하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송됩니다.
+1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트*로 정의됩니다.  Https에서 페이지가\:/ / www.contoso.com에서 fabrikam.com 원본의 사용자 데이터에 액세스 하려고, 다음 요청 헤더는 fabrikam.com으로 전송 됩니다.
 
-   `Origin: https:\//www.contoso.com`
+   `Origin: https://www.contoso.com`
 
 2. 서버는 다음으로 응답할 수 있습니다.
 

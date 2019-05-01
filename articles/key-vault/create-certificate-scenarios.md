@@ -2,23 +2,19 @@
 title: 인증서 만들기 모니터링 및 관리
 description: Key Vault를 사용하여 인증서 만들기 프로세스를 만들고, 모니터링하고, 상호 작용하기 위한 다양한 옵션을 설명하는 시나리오입니다.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729224"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
 적용 대상: Azure
@@ -296,7 +292,7 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 |방법|요청 URI|
 |------------|-----------------|
-|PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|패치|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
@@ -419,7 +415,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |요소 이름|필수|Type|Version|설명|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|예.|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
+|x5c|예|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
 
 ### <a name="response"></a>response
 

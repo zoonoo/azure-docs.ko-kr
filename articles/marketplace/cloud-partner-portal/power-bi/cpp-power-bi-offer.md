@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace-power BI 앱 제공 | Microsoft Docs
+title: Power BI 앱 제공 | Azure Marketplace
 description: Power BI 앱을 Microsoft AppSource marketplace에 게시 하는 방법.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: pbutlerm
-ms.openlocfilehash: f18a1b05e5a38a79945d8df6706dd2147d6b43df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 72de873b773f174499b0cdc7225b344ea30a137f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725848"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943042"
 ---
 # <a name="power-bi-app-offer"></a>Power BI 앱 제품
 

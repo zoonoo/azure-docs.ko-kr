@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5b6efce033efe99ed4463d6b04b24503de57407c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762789"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869988"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps 렌더링 검사
 
@@ -45,7 +45,6 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 중앙 아프리카 공화국         | ✓ | Ø |
 | 차드                             | ✓ | Ø |
 | 코모로                          | ✓ | Ø |
-| 콩고민주공화국                            | ✓ | ✓ |
 | 콩고 민주 공화국 | ✓ | ✓ |
 | 코트디부아르                    | ✓ | Ø |
 | 지부티                         | ✓ | Ø |
@@ -109,7 +108,6 @@ Azure Maps는 래스터 타일 및 벡터 타일을 모두 사용하여 맵을 �
 | 캐나다                    | ✓ | ✓ |
 | 케이맨 제도            | ✓ | ✓ |
 | 칠레                     | ✓ | ✓ |
-| 클리퍼턴 섬         | ✓ | ✓ |
 | 콜롬비아                  | ✓ | ✓ |
 | 코스타리카                | ✓ | ✓ |
 | 쿠바                      | ✓ | ✓ |

@@ -13,50 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: cc1405d2dd972aff6091a9d5b60ff9da18185286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7ebb88317da45ff496385b72c603a44d628b0202
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978105"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869068"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>Azure PowerShell(미리 보기)을 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>OS 및 Azure PowerShell을 사용 하 여 설정 하는 가상 머신 확장에 연결 된 데이터 디스크 암호화
 
 업계 표준 암호화 기술을 사용하여 미사용 데이터를 안전하게 보호하기 위해 가상 머신 확장 집합은 ADE(Azure Disk Encryption)를 지원합니다. 암호화는 Windows 및 Linux 가상 머신 확장 집합에 대해 활성화될 수 있습니다. 자세한 내용은 [Windows 및 Linux용 Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 참조하세요.
-
-> [!NOTE]
->  가상 머신 확장 집합용 Azure Disk Encryption은 현재 공개 미리 보기 단계에 있으며, 모든 Azure 공개 지역에서 이용할 수 있습니다.
 
 Azure Disk Encryption이 지원되는 경우는 다음과 같습니다.
 - 관리 디스크를 이용하여 생성된 확장 집합 지원(원시(또는 비관리) 디스크 확장 집합은 지원하지 않음).
 - Windows 확장 집합의 OS 및 데이터 볼륨. Windows 확장 집합의 OS 및 데이터 볼륨에서는 암호화 비활성화도 지원됩니다.
-- Linux 확장 집합의 데이터 볼륨. 현재 미리 보기에서는 Linux 확장 집합의 OS 디스크 암호화가 지원되지 않습니다.
+- Linux 확장 집합의 데이터 볼륨. OS 디스크 암호화는 Linux 확장 집합에 대 한 현재 지원 되지 않습니다.
 
-현재 미리 보기에서는 확장 집합 VM의 이미지로 다시 설치 작업과 업그레이드 작업이 지원되지 않습니다. 가상 머신 확장 집합용 Azure Disk Encryption은 테스트 환경에서만 사용하는 것이 권장됩니다. 미리 보기에서는 암호화된 확장 집합에서 OS 이미지를 업그레이드해야 할 필요가 있는 프로덕션 환경에서 디스크 암호화를 사용하도록 설정하지 마세요.
-
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
-
-## <a name="register-for-disk-encryption-preview"></a>디스크 암호화 미리 보기를 위해 등록
-
-가상 머신 확장 집합용 Azure Disk Encryption 미리 보기를 사용하려면 [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)를 사용하여 사용자가 구독을 직접 등록해야 합니다. 디스크 암호화 미리 보기 기능을 처음 사용할 때는 다음 단계를 수행하기만 하면 됩니다.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-
-
-등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [Get-AzProviderFeature](/powershell/module/az.resources/Get-AzProviderFeature) 명령을 사용하여 등록 상태를 확인할 수 있습니다. `RegistrationState`가 *Registered*로 보고되면 [Register-AzResourceProvider](/powershell/module/az.resources/Register-AzResourceProvider)를 사용하여 *Microsoft.Compute* 공급자를 다시 등록합니다.
-
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>디스크 암호화가 활성화된 Azure Key Vault 만들기
 
@@ -125,6 +102,26 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 
 메시지가 나타나면 *y*를 입력하여 확장 집합 VM 인스턴스에서 디스크 암호화 프로세스를 계속합니다.
 
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>키를 래핑하지 KEK를 사용 하 여 암호화를 사용 하도록 설정
+
+또한 가상 머신 확장 집합을 암호화 하는 경우 보안 강화를 위해 키 암호화 키를 사용할 수 있습니다.
+
+```azurepowershell-interactive
+$diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
+$keyVaultResourceId=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
+$keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $vaultName -Name $keyEncryptionKeyName).Key.kid;
+
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
+    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId `
+    -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
+```
+
+> [!NOTE]
+>  디스크-암호화-keyvault 매개 변수 값에 대 한 구문은 전체 식별자 문자열이 다음과 같습니다.</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> 키-암호화 키 매개 변수의 값에 대 한 구문은 전체 URI와 KEK 다음과 같습니다.</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+
 ## <a name="check-encryption-progress"></a>암호화 진행 확인
 
 디스크 암호화의 상태를 확인하려면 [Get-AzVmssDiskEncryption](/powershell/module/az.compute/Get-AzVmssDiskEncryption)을 사용합니다.
@@ -165,4 +162,5 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 머신 확장 집합을 암호화하는 데 Azure PowerShell을 사용했습니다. [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) 또는 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)에 대해 [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) 또는 템플릿을 사용할 수도 있습니다.
+- 이 문서에서는 가상 머신 확장 집합을 암호화하는 데 Azure PowerShell을 사용했습니다. [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) 또는 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)에 대해 [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) 또는 템플릿을 사용할 수도 있습니다.
+- 다른 확장 프로 비전 되 면 Azure Disk Encryption 적용 하려는 경우, 사용할 수 있습니다 [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md)합니다. 사용할 수 있습니다 [이 이들은](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) 를 시작 합니다.

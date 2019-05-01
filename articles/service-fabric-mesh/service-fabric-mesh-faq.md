@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979754"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728582"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 
@@ -28,7 +28,7 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>미리 보기에 참여하는 비용은 얼마인가요?
 
-현재 Mesh 미리 보기에 애플리케이션 또는 컨테이너를 배포하기 위한 요금은 없습니다. 하지만 테스트를 적극적으로 진행하지 않는 경우 배포된 리소스를 삭제하고 더 이상 실행하지 않는 것이 좋습니다.
+현재 Mesh 미리 보기에 애플리케이션 또는 컨테이너를 배포하기 위한 요금은 없습니다. 그러나 의견을 교환하실 수 리소스를 배포 하 고 하지 그대로 삭제 적극적으로 테스트 하는 경우가 아니면 실행 합니다.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>코어 수와 RAM의 할당량 제한이 있나요?
 
@@ -77,7 +77,9 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 리소스 그룹을 삭제하려면 `az group delete <nameOfResourceGroup>` 명령을 사용합니다.
 
-## <a name="supported-container-os-images"></a>지원되는 컨테이너 OS 이미지
+## <a name="deployments"></a>배포
+
+### <a name="what-container-images-are-supported"></a>어떤 컨테이너 이미지가 지원 되나요?
 
 Windows Fall Creators 업데이트(버전 1709) 머신에서 개발하는 경우 Windows 버전 1709 Docker 이미지만 사용할 수 있습니다.
 
@@ -90,6 +92,10 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
     - Windows Server 버전 1803
 - Linux
     - 알려진 제한 사항 없음
+
+### <a name="what-types-of-applications-can-i-deploy"></a>어떤 유형의 응용 프로그램을 배포할 수 있습니까? 
+
+응용 프로그램 리소스 (할당량에 대 한 자세한 내용은 위 참조)에 배치 제한 내에 컨테이너에서 실행 하는 아무 것도 배포할 수 있습니다. 감지 하 고 잘못 된 워크 로드를 실행 하는 것에 대 한 메시를 사용 하는 여부 (즉, 마이닝) 시스템을 아무나, 다음 권리를 배포 및 차단 목록 구독의 서비스에서 실행을 종료 합니다. 연락 하세요 우리에 게 특정 워크 로드 실행에 대 한 질문이 있는 경우. 
 
 ## <a name="developer-experience-issues"></a>개발자 환경 문제
 

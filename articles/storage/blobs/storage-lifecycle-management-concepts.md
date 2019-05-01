@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392469"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938563"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "60392469"
 
 ## <a name="add-or-remove-a-policy"></a>정책 추가 또는 제거 
 
-추가, 편집 또는 Azure portal을 사용 하 여 정책을 제거 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI [REST Api](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), 또는 클라이언트 도구입니다. 이 문서에는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
+추가, 편집 또는 Azure portal을 사용 하 여 정책을 제거 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), Azure CLI [REST Api](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), 또는 클라이언트 도구입니다. 이 문서에는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
 
 > [!NOTE]
 > 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 이러한 요청을 차단 해제할 수 있습니다. 필요한 바이패스 됩니다: `Logging,  Metrics,  AzureServices`합니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>수명 주기 관리 정책 사용 하 여 ARM 템플릿
 
+정의 하 고 ARM 템플릿을 사용 하 여 Azure 솔루션 배포의 일부로 수명 주기 관리를 배포할 수 있습니다. 다음은 배포 수명 주기 관리 정책 사용 하 여 RA-GRS GPv2 저장소 계정에 샘플 템플릿입니다. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>정책
 
@@ -167,9 +207,9 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 유효한 필터는 다음과 같습니다.
 
-| 필터 이름 | 필터 형식 | 메모 | 필수 |
+| 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서 지원 `blockBlob`합니다. | 예. |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서 지원 `blockBlob`합니다. | 예 |
 | prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어, "https://myaccount.blob.core.windows.net/container1/foo/..." 아래의 모든 Blob을 일치시키려는 경우 규칙에 대한 prefixMatch는 `container1/foo`입니다. | PrefixMatch를 정의 하지 않으면 규칙 저장소 계정 내 모든 blob에 적용 됩니다.  | 아닙니다. |
 
 ### <a name="rule-actions"></a>규칙 작업
@@ -305,8 +345,8 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>FAQ - 새 정책을 만들었습니다. 작업이 즉시 실행되지 않는 이유는 무엇인가요? 
-
+## <a name="faq"></a>FAQ 
+**작업이 실행 되는 이유 즉시 새 정책을 만든?**  
 플랫폼은 하루에 한 번 수명 주기 정책을 실행합니다. 정책에 구성한 후 처음으로 실행 하려면 몇 가지 작업 (예: 계층화 및 삭제)에 대 한 최대 24 시간이 걸릴 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계

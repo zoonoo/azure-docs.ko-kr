@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228235"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922981"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
@@ -41,7 +41,7 @@ Azure App Service Environment가 구성된 방식에 따라 에이전트 상태�
 ## <a id="profileondemand"></a> 수동으로 Profiler 트리거
 
 ### <a name="minimum-requirements"></a>최소 요구 사항 
-수동으로 프로파일러 세션을 트리거하는 사용자에 대 한 최소한 "쓰기" 액세스 권한 Application Insights 구성 요소에 대해 해당 역할에 필요 합니다. 대부분의 경우에서이 액세스 권한을 자동으로 만들어지고 추가 작업이 필요. 문제가 있는 경우에 "Application Insights 구성 요소 기여자" 역할이 추가할 구독 범위 역할을 것입니다. [Azure Monitoring과 역할 액세스 제어에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control)합니다.
+수동으로 프로파일러 세션을 트리거하는 사용자에 대 한 최소한 "쓰기" 액세스 권한 Application Insights 구성 요소에 대해 해당 역할에 필요 합니다. 대부분의 경우에서이 액세스 권한을 자동으로 만들어지고 추가 작업이 필요. 문제가 있는 경우에 "Application Insights 구성 요소 기여자" 역할이 추가할 구독 범위 역할을 것입니다. [Azure Monitoring과 역할 액세스 제어에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control)합니다.
 
 클릭 한 번으로 Profiler를 수동 트리거할 수 있습니다. 웹 성능 테스트를 실행 중이라고 가정해 보겠습니다. 이 경우 추적을 통해 부하 발생 시의 웹앱 성능을 파악해야 합니다. 부하 테스트를 실행할 시점은 알고 있으므로 추적이 캡처되는 시기를 제어할 수 있어야 합니다. 하지만 샘플링 간격이 무작위이면 추적이 캡처되는 시기를 확인하지 못할 수도 있습니다.
 

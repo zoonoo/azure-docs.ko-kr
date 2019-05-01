@@ -1,25 +1,18 @@
 ---
-title: 일반적인 Azure Marketplace용 VHD 만들기 문제(FAQ) | Microsoft Docs
+title: Azure Marketplace에 대 한 VHD 만드는 (FAQ) 동안 일반적인 문제
 description: VHD 만들기 및 관련 문제에 대한 질문과 대답입니다.
 services: Azure Marketplace
-documentationcenter: ''
 author: HannibalSII
-manager: Patrick.Butler
-editor: ''
-ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: Azure
-ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d8b532793282db18d6182237bb921bc118ea717b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744196"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938443"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>일반적인 VHD 만들기 문제(FAQ)
 

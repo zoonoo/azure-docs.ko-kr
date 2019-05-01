@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555424"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722165"
 ---
 # <a name="data-querying"></a>데이터 쿼리
 
@@ -75,11 +75,11 @@ Time Series Insights에서 사용할 수 있는 세 가지 기본 API 범주는 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음에 대해 읽어보기:
+- 에 대해 자세히 알아보세요 [저장소 및 수신](./time-series-insights-update-storage-ingress.md) Azure Time Series Insights 미리 보기에 있습니다.
 
-- [Azure Time Series Insights 미리 보기 스토리지 및 수신](./time-series-insights-update-storage-ingress.md)
-- [데이터 모델링](./time-series-insights-update-tsm.md)
-- [Time Series ID 선택 모범 사례](./time-series-insights-update-how-to-id.md)
+- Time Series Insights 미리 보기를 읽을 [데이터 모델링](./time-series-insights-update-tsm.md) 문서.
+
+- 검색할 [시간 계열 ID를 선택할 때 모범 사례](./time-series-insights-update-how-to-id.md)합니다.
 
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

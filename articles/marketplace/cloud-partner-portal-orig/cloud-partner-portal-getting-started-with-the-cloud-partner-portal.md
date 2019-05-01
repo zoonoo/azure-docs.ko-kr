@@ -1,25 +1,18 @@
 ---
-title: 시작 | Microsoft Docs
+title: 시작 하기 | Azure Marketplace
 description: 클라우드 파트너 포털 사용을 시작하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067447"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935731"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>클라우드 파트너 포털 시작
 

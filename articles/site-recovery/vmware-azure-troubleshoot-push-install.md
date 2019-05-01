@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564680"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925571"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -231,13 +231,13 @@ VSS 설치는 모바일 에이전트 설치의 일부입니다. 이 서비스는
 
 ### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>VSS 오류 -2147023824 [0x80070430] - 종료 코드 517
 
-이 오류는 Azure Site Recovery VSS 공급자 서비스가 [삭제를 위해 표시된](https://msdn.microsoft.com/en-us/library/ms838153.aspx) 경우에 발생합니다. 다음 명령줄을 실행하여 원본 머신에서 수동으로 VSS를 설치해 보세요.
+이 오류는 Azure Site Recovery VSS 공급자 서비스가 [삭제를 위해 표시된](https://msdn.microsoft.com/library/ms838153.aspx) 경우에 발생합니다. 다음 명령줄을 실행하여 원본 머신에서 수동으로 VSS를 설치해 보세요.
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>VSS 오류 -2147023841 [0x8007041F] - 종료 코드 512
 
-이 오류는 Azure Site Recovery VSS 공급자 서비스 데이터베이스가 [잠긴](https://msdn.microsoft.com/en-us/library/ms833798.aspx) 경우에 발생합니다. 다음 명령줄을 실행하여 원본 머신에서 수동으로 VSS를 설치해 보세요.
+이 오류는 Azure Site Recovery VSS 공급자 서비스 데이터베이스가 [잠긴](https://msdn.microsoft.com/library/ms833798.aspx) 경우에 발생합니다. 다음 명령줄을 실행하여 원본 머신에서 수동으로 VSS를 설치해 보세요.
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 

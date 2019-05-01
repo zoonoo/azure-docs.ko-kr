@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579362"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922472"
 ---
 # <a name="why-use-batch-transcription"></a>Batch Transcription을 사용하는 이유
 
@@ -29,7 +29,7 @@ Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디
 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 키 만들기만 수행하면 됩니다.
 
 >[!NOTE]
-> Batch Transcription을 사용하려면 Speech Services를 위한 표준 구독(S0)이 필요합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/)을 참조하세요.
+> Batch Transcription을 사용하려면 Speech Services를 위한 표준 구독(S0)이 필요합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
 
 ### <a name="custom-models"></a>사용자 지정 모델
 
@@ -72,7 +72,8 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 | `ProfanityFilterMode` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `none`, 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed`, 또는 “profanity” 태그를 추가하는 `tags`입니다. 기본 설정은 `masked`입니다. | 옵션 |
 | `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `none`, 명시적인 문장 부호를 의미하는 `dictated`, 디코더가 문장 부호를 처리하도록 하는 `automatic`, 지정된 문장 부호 또는 자동을 의미하는 `dictatedandautomatic`입니다. | 옵션 |
  | `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. | 옵션 |
+ | `AddSentiment` | 정서를 utterance 추가할 것인지 지정 합니다. 허용 되는 값은 `true` 그러면 utterance 당 감정 및 `false` (기본값) 사용 하지 않도록 합니다. | 옵션 |
 
 ### <a name="storage"></a>Storage
 
@@ -97,6 +99,57 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 기록 상태에 대 한 폴링 되지 효율적, 되었거나 최상의 사용자 환경을 제공 합니다. 상태에 대 한 폴링, 콜백, 장기 실행 기록 작업이 완료 되었을 때 클라이언트를 알려는 등록할 수 있습니다.
 
 자세한 내용은 참조 하세요. [웹 후크](webhooks.md)합니다.
+
+## <a name="sentiment"></a>데이터
+
+감정은 일괄 처리 기록 API의 새로운 기능 및 호출 센터 도메인의 중요 한 기능은 합니다. 고객이 사용할 수는 `AddSentiment` 해당 요청을 하는 매개 변수 
+
+1.  고객 만족도 대 한 정보 얻기
+2.  에이전트 (호출을 수행 하는 팀)의 성능에 대 한 통찰력 확보
+3.  음의 방향 호출 순서 대로 수행 하는 경우에 정확한 지점을 파악합니다
+4.  양수에 대 한 음수 호출을 설정 하는 경우에 무엇이 파악
+5.  같은 고객이 및 좋지 않음 제품 또는 서비스에 대 한 식별
+
+감정 점수를 매길 오디오 세그먼트 당 여기서 오디오 세그먼트를 utterance (오프셋)의 시작 사이의 바이트 스트림 끝의 검색 대기 시간 경과으로 정의 됩니다. 해당 세그먼트 내의 전체 텍스트는 감정 계산에 사용 됩니다. 전체 호출 또는 각 채널의 전체 음성에 대 한 종합 정서의 값 계산 하지 마세요. 이 추가로 적용할 도메인 소유자에 게 남아 있습니다.
+
+감정 어휘 폼에 적용 됩니다.
+
+JSON 출력 예제는 아래와 같습니다.
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+현재 베타 상태인 감정 모델을 사용 하는 기능입니다.
 
 ## <a name="sample-code"></a>샘플 코드
 

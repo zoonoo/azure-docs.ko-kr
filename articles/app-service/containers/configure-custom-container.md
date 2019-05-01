@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853323"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919733"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성
 
@@ -109,7 +109,6 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 - [Docker Compose를 사용 하 여 영구 저장소](#use-persistent-storage-in-docker-compose)
 - [미리 보기 제한 사항](#preview-limitations)
 - [Docker Compose 옵션](#docker-compose-options)
-- [Kubernetes 구성 옵션](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Docker Compose를 사용 하 여 영구 저장소
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>Docker Compose에 사용자 지정 저장소를 사용 합니다.
-
-사용자 지정 id를 사용 하 여 다중 컨테이너 앱을 사용 하 여 azure Storage (Azure Files 또는 Azure Blob)을 탑재할 수 있습니다. 사용자 지정 id 이름을 보려면 실행 [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)합니다.
-
-사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `custom-id`. 예를 들면 다음과 같습니다.
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>미리 보기 제한 사항
@@ -179,22 +165,6 @@ wordpress:
 
 > [!NOTE]
 > 명시적으로 호출 하는 다른 모든 옵션은 공개 미리 보기에서 무시 됩니다.
-
-### <a name="kubernetes-configuration-options"></a>Kubernetes 구성 옵션
-
-다음 구성 옵션은 Kubernetes에 대 한 지원 됩니다.
-
-- args
-- command
-- 컨테이너
-- Image
-- 이름
-- ports
-- spec
-
-> [!NOTE]
-> 명시적으로 호출 하는 다른 모든 옵션은 공개 미리 보기에서 지원 되지 않습니다.
->
 
 ## <a name="next-steps"></a>다음 단계
 

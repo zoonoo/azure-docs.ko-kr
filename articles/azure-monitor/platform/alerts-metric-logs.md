@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 9f47ba44e7940414932371ef1b7a360d0b01e1ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 1c744e0063d5c56b2ca17f2b6c6fa694ad13a26c
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483865"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872568"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
@@ -57,7 +57,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 
 1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요.
 2. **Log Analytics 작업 영역에 대한 에이전트 구성**: Azure VM 및/또는 온-프레미스 VM에서 이전 단계에서 사용된 Log Analytics 작업 영역으로 데이터를 보내도록 에이전트를 구성해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](../../azure-monitor/platform/agents-overview.md)를 참조하세요.
-3. **지원되는 Log Analytics 솔루션 설치**: Log Analytics 솔루션에서 Log Analytics 작업 영역으로 데이터를 보내도록 구성해야 합니다. 지원되는 솔루션은 [Windows 및 Linux에 대한 성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md), [에이전트 상태에 대한 하트비트 레코드](../../azure-monitor/insights/solution-agenthealth.md), 업데이트 관리 및 [이벤트 데이터](../../azure-monitor/platform/data-sources-windows-events.md)입니다.
+3. **지원되는 Log Analytics 솔루션 설치**: Log Analytics 솔루션 지원-Log Analytics 작업 영역에 데이터를 구성 하 고 송신 해야 합니다. 솔루션은 [Windows 및 Linux에 대 한 성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md)하십시오 [에이전트 상태에 대 한 하트 비트 레코드](../../azure-monitor/insights/solution-agenthealth.md) 하십시오 [업데이트 관리](../../automation/automation-update-management.md), 및 [이벤트 데이터](../../azure-monitor/platform/data-sources-windows-events.md)입니다.
 4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성

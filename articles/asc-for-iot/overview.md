@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253585d71ab2704efa0b3e4a06456e1d505b46ad
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232804"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919667"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>IoT 용 Azure Security Center 소개
 
@@ -33,7 +33,7 @@ ms.locfileid: "60232804"
 
 ## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>발전 하는 사이버 공격에 대 한 IoT 및 하이브리드 클라우드 워크 로드 보호
 
-사물 인터넷 세계를 변환 신속 하 게 됩니다. 연결 된 장치 및 백 엔드 시스템에서 대대적인 insights 기능을 사용 하 여 변환할 수 있습니다 이제 전례 없는 수준의 운영 및 비즈니스 조직 하는 데 강력한 응용 프로그램 및 서비스에 대 한 이러한 정보 성능을 제공 합니다. 그러나 수십억 개의 새 장치를 인터넷에 연결 되 고 우리의 일상 생활 및 우리의 비즈니스;에 통합 하는 대로 보안 운영 팀에는 해당 보안 전략 이러한 새 공격 노출 영역에 맞게 충분히 빠르게 발전을 확인 해야 합니다. 다른 시스템과 마찬가지로 구현의 모든 단계에서 보호를 해야 IoT 솔루션 보안 유지 합니다. 
+사물 인터넷 세계를 변환 신속 하 게 됩니다. 연결 된 장치 및 백 엔드 시스템에서 정보를 파악 하는 기능을 사용 하 여 전례 없는 수준의 운영 및 비즈니스 성과 달성을 돕고 강력한 응용 프로그램 및 서비스에 대 한 해당 정보를 이제 변환할 수 있습니다. 그러나 수십억 개의 새 장치를 인터넷에 연결 되 고 우리의 일상 생활 및 우리의 비즈니스;에 통합 하는 대로 보안 운영 팀에는 해당 보안 전략 이러한 새 공격 노출 영역에 맞게 충분히 빠르게 발전을 확인 해야 합니다. 다른 시스템과 마찬가지로 구현의 모든 단계에서 보호를 해야 IoT 솔루션 보안 유지 합니다. 
 
 IoT 용 azure Security Center (ASC) 워크 로드,에 지에서 실행 중인 온-프레미스 및 Azure에서 통합된 가시성 및 제어, 적응형 위협 방지 및 지능형 위협 탐지 및 응답을 제공 하 여 하이브리드 워크 로드 보호 간소화 다른 클라우드입니다. 
 

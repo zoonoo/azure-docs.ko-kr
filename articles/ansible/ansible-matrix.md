@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/22/2019
-ms.openlocfilehash: 3f5bda36368ee1fe1f37527422c6072c3ffda177
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 721179e12ed7f21312fe848a6bef1a8e19bc8083
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763318"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866058"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 
@@ -53,11 +53,10 @@ Ansible 프로 비전 및 Azure 리소스 구성에서 사용할 모듈의 제�
 | azure_rm_virtualmachinescalesetinstance_facts | -            | -                         | -            | -            | 예          | 예          |
 | **네트워킹**                              |              |                             |              |              |              |              |
 | azure_rm_appgateway                         | -            | -                           | -            | 예          | 예          | 예          |
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_appgwroute                         | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | 예          | 예          |
-| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | 예          | 예          |
+| azure_rm_appgwroute                         | -            | -                           | -            | -            | -          | 예          |
+| azure_rm_appgwroute_facts                   | -            | -                           | -            | -            | -          | 예          |
+| azure_rm_appgwroutetable                    | -            | -                           | -            | -            | -          | 예          |
+| azure_rm_appgwroutetable_facts              | -            | -                           | -            | -            | -          | 예          |
 | azure_rm_applicationsecuritygroup           | -            | -                           | -            | -            | 예          | 예          |
 | azure_rm_applicationsecuritygroup_facts     | -            | -                           | -            | -            | 예          | 예          |
 | azure_rm_cdnendpoint                        | -            | -                         | -          | -            | 예          | 예          |

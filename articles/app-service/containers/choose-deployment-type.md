@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849985"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919958"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>사용자 지정 이미지, 다중 컨테이너 또는 기본 제공 플랫폼 이미지
 
 [Linux의 App Service](app-service-linux-intro.md)는 웹에 게시된 애플리케이션을 가져오는 3가지 서로 다른 경로를 제공합니다.
 
 - **사용자 지정 이미지 배포**: 즉시 실행 가능한 패키지에 모든 파일 및 종속성을 포함하는 Docker 이미지로 앱을 “Docker화”합니다.
-- **다중 컨테이너 배포**: Docker Compose 또는 Kubernetes 구성 파일을 사용하여 앱을 여러 컨테이너 간에 “Docker화”합니다.
+- **다중 컨테이너 배포**: "Docker 화" 앱을 Docker Compose 구성 파일을 사용 하 여 여러 컨테이너입니다.
 - **기본 제공 플랫폼 이미지를 사용한 앱 배포**: 기본 제공 플랫폼 이미지는 노드 및 PHP와 같은 일반적인 웹앱 런타임 및 종속성을 포함합니다. [Azure App Service 배포 방법](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 중 하나를 사용하여 앱을 웹앱의 저장소에 배포한 후 기본 제공 플랫폼 이미지를 사용하여 실행합니다.
 
 ## <a name="which-method-is-right-for-your-app"></a>앱에 적합한 방법은 무엇인가요? 
@@ -43,3 +43,20 @@ ms.locfileid: "60849985"
 - **디스크 읽기/쓰기 요구 사항**: 모든 웹앱에는 웹 콘텐츠에 대한 스토리지 볼륨이 할당됩니다. Azure Storage에서 지원하는 이 볼륨은 앱의 파일 시스템에서 `/home`에 탑재됩니다. 컨테이너 파일 시스템의 파일과 달리, 콘텐츠 볼륨의 파일은 앱의 모든 스케일 인스턴스 간에 액세스할 수 있으며 수정 내용은 앱이 다시 시작되어도 지속됩니다. 그러나 콘텐츠 볼륨의 디스크 대기 시간은 로컬 컨테이너 파일 시스템의 대기 시간보다 높고 가변적이며, 플랫폼 업그레이드, 계획되지 않은 중단 시간 및 네트워크 연결 문제로 인해 액세스에 영향이 있을 수 있습니다. 콘텐츠 파일에 대한 많은 읽기 전용 액세스를 필요로 하는 앱은 사용자 지정 이미지 배포를 활용할 수 있으며 콘텐츠 볼륨 대신 이미지 파일 시스템에 파일을 배치합니다.
 - **빌드 리소스 사용량**: 소스에서 앱을 배포하는 경우 Kudu가 실행하는 배포 스크립트는 실행 중인 앱과 동일한 App Service 계획 계산 및 스토리지 리소스를 사용합니다. 대규모 앱 배포에서는 예상보다 더 많은 리소스 또는 시간을 사용할 수 있습니다. 특히 배포 워크플로가 많은 경우 이러한 작업에 최적화되어 있지 않은 앱 콘텐츠 볼륨에는 상당한 디스크 작업이 발생합니다. 사용자 지정 이미지는 추가 파일 전송 또는 배포 작업을 수행하지 않고도 Azure에 대한 모든 앱 파일 및 종속성을 단일 패키지로 제공합니다.
 - **신속한 반복 필요**: 앱을 Docker화하려면 추가 빌드 단계가 필요합니다. 변경 내용을 적용하려면 각 업데이트를 통해 새 이미지를 리포지토리에 밀어넣어야 합니다. 그러면 이러한 업데이트가 Azure 환경에 끌어오기됩니다. 기본 제공 컨테이너 중 하나가 앱의 요구를 충족하는 경우 소스에서 배포를 통해 개발 워크플로가 더 빨라질 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+사용자 지정 컨테이너:
+* [사용자 지정 컨테이너를 실행 합니다.](quickstart-docker-go.md)
+
+다중 컨테이너:
+* [다중 컨테이너 앱 만들기](quickstart-multi-container.md)
+
+다음 문서를 기본 제공 플랫폼 이미지를 사용 하 여 Linux의 App Service를 사용 하 여 시작할 수를 가져옵니다.
+
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-php.md)
+* [Node.JS](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)

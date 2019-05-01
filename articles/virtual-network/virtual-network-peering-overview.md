@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186844"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919299"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -78,7 +78,7 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건
 
 가상 네트워크가 글로벌 피어링될 때만 다음 제약 조건이 적용됩니다.
-- 하나의 가상 네트워크의 리소스는 전역적으로 피어 링된 된 가상 네트워크의 기본 내부 부하 분산 장치의 프런트 엔드 IP 주소를 사용 하 여 통신할 수 없습니다. 동일한 지역 내에서 기본 Load Balancer에 대 한 지원만 존재합니다. 글로벌 VNet 피어 링에 대 한 표준 Load Balancer에 대 한 지원이 있습니다.
+- 하나의 가상 네트워크의 리소스는 전역적으로 피어 링된 된 가상 네트워크의 기본 내부 부하 분산 장치의 프런트 엔드 IP 주소를 사용 하 여 통신할 수 없습니다. 동일한 지역 내에서 기본 Load Balancer에 대 한 지원만 존재합니다. 표준 Load Balancer에 대 한 지원, VNet 피어 링 및 글로벌 VNet 피어 링에 대 한 존재합니다. 글로벌 VNet 피어 링을 통해 작동 하지 것입니다는 기본 load balancer를 사용 하는 서비스 나와 [여기 있습니다.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 요구 사항 및 제약 조건에 대한 자세한 내용은 [가상 네트워크 피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 가상 네트워크에 만들 수 있는 피어링 수 제한에 대한 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
 

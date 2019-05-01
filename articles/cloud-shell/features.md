@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614355"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866494"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -50,6 +50,18 @@ Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워
 Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 반영됩니다.  `dir -Force`를 실행하여 리소스를 새로 고칠 수 있습니다.
 
 ![](media/features-powershell/azure-drive.png)
+
+### <a name="manage-exchange-online"></a>Manage Exchange Online
+
+Cloud Shell의 PowerShell에는 Exchange Online 모듈의 개인 빌드를 포함합니다.  실행 `Connect-EXOPSSession` Exchange cmdlet을 가져오려고 합니다.
+
+![](media/features-powershell/exchangeonline.png)
+
+ `Get-Command -Module tmp_*` 실행
+> [!NOTE]
+> 모듈 이름으로 시작 해야 `tmp_`, 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet 표시도 됩니다. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>오픈 소스 도구와 완벽한 통합
 

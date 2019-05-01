@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bf5126360140580282ebc1cb2bf73e1afa4d8829
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946612"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920538"
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -215,7 +215,7 @@ ms.locfileid: "60946612"
 ```
 
 > [!NOTE]
-> 관리를 통해 백 엔드 엔터티를 관리할 수 있습니다 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 하 고 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)합니다.
+> 관리를 통해 백 엔드 엔터티를 관리할 수 있습니다 [API](https://docs.microsoft.com/rest/api/apimanagement/backend) 하 고 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement)합니다.
 
 ### <a name="example"></a>예
 
@@ -270,7 +270,7 @@ ms.locfileid: "60946612"
 |이름|설명|필수|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|새 백 엔드 서비스 기준 URL입니다.|중 하나 `base-url` 또는 `backend-id` 있어야 합니다.|N/A|
-|backend-id|라우팅할 백 엔드의 식별자입니다. (백 엔드 엔터티를 통해 관리 됩니다 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 하 고 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|중 하나 `base-url` 또는 `backend-id` 있어야 합니다.|N/A|
+|backend-id|라우팅할 백 엔드의 식별자입니다. (백 엔드 엔터티를 통해 관리 됩니다 [API](https://docs.microsoft.com/rest/api/apimanagement/backend) 하 고 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|중 하나 `base-url` 또는 `backend-id` 있어야 합니다.|N/A|
 |sf-partition-key|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 이름 확인 서비스에서 특정 파티션을 확인하는 데 사용됩니다.|아닙니다.|N/A|
 |sf-replica-type|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 요청이 파티션의 주 복제본으로 이동되는지, 보조 복제본으로 이동되는지를 제어합니다. |아닙니다.|N/A|
 |sf-resolve-condition|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 새로 확인할 때마다 Service Fabric 백 엔드에 대한 호출을 반복해야 하는지를 식별하는 조건입니다.|아닙니다.|N/A|

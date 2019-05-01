@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8a2a080ee87d48d25d7d793ca0aca463f25e52eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60808832"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573556"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ ms.locfileid: "60808832"
 ### <a name="examples"></a>예
 
 #### <a name="a-dataset-with-a-parameter"></a>매개 변수가 포함된 데이터 세트
-다음 예제에서는 BlobDataset은 **경로**라는 매개 변수를 사용합니다. `@{dataset().path}` 식을 사용하여 **folderPath** 속성에 대한 값을 설정하도록 해당 값을 사용합니다. 
+다음 예제에서는 BlobDataset은 **경로**라는 매개 변수를 사용합니다. 에 대 한 값을 설정 하려면 값을 사용 합니다 **folderPath** 식을 사용 하 여 속성: `dataset().path`합니다. 
 
 ```json
 {

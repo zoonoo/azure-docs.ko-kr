@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace SEO 지침 | Microsoft Docs
+title: Azure Marketplace SEO 지침
 description: SEO(검색 엔진 최적화)를 극대화하기 위한 지침을 제공합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776797"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935140"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Azure Marketplace SEO 지침
 

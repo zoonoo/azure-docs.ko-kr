@@ -2,19 +2,17 @@
 title: 지리적 가용성 및 통화 지원 | Azure
 description: Azure Marketplace 및 AppSource에서 지리적 가용성
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 394ec230b836d55e4ce29a444566221c14efe296
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762805"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938264"
 ---
 # <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497689"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922400"
 ---
 # <a name="language-support-for-qna-maker"></a>QnA Maker에 대 한 언어 지원
 
@@ -41,7 +41,7 @@ QnA Maker 리소스 및 첫 번째 문서 또는 URL 첫 번째 기술 자료에
 
 다음 단계를 사용 하 여 기본 언어를 확인 합니다.
 
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.  
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 1. 에 대 한 확인 하 고 QnA Maker 리소스의 일부로 만든 Azure Search 리소스를 선택 합니다. Azure Search 리소스 QnA Maker 리소스와 동일한 이름으로 시작 됩니다 이름과 유형을 갖습니다 **Search 서비스**합니다. 
 1. **개요** 검색 리소스 선택 페이지 **인덱스**합니다. 
 1. **testkb** 인덱스를 선택합니다.

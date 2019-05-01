@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850238"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919777"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Node.js 앱 구성
 
@@ -55,7 +55,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="configure-nodejs-server"></a>Node.js 서버를 구성 합니다.
 
-Node.js 컨테이너 수반 [PM2](http://pm2.keymetrics.io/), 프로덕션 프로세스 관리자입니다. PM2를 사용 하 여 NPM을 사용 하 여 또는 사용자 지정 명령을 사용 하 여 시작 하려면 앱을 구성할 수 있습니다.
+Node.js 컨테이너 수반 [PM2](https://pm2.keymetrics.io/), 프로덕션 프로세스 관리자입니다. PM2를 사용 하 여 NPM을 사용 하 여 또는 사용자 지정 명령을 사용 하 여 시작 하려면 앱을 구성할 수 있습니다.
 
 - [사용자 지정 명령 실행](#run-custom-command)
 - [Npm 시작 실행](#run-npm-start)
@@ -99,12 +99,12 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- 다음 중 하나 [PM2 파일](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *나오는 내용은 process.json* 고 *ecosystem.config.js*
+- 다음 중 하나 [PM2 파일](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *나오는 내용은 process.json* 고 *ecosystem.config.js*
 
 또한 다음 확장을 사용 하 여 사용자 지정 시작 파일을 구성할 수 있습니다.
 
 - A *.js* 파일
-- A [PM2 파일](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) 확장명이 *.json*를 *. config.js*를 *.yaml*, 또는 *.yml*
+- A [PM2 파일](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) 확장명이 *.json*를 *. config.js*를 *.yaml*, 또는 *.yml*
 
 사용자 지정 시작 파일을 추가 하려면에서 다음 명령을 실행 합니다 [Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
-인기 있는 웹 프레임워크를 사용하여 표준 앱 패턴의 `X-Forwarded-*` 정보에 액세스할 수 있습니다. [Express](https://expressjs.com/)를 사용할 수 있습니다 [프록시 트러스트](http://expressjs.com/guide/behind-proxies.html)합니다. 예를 들면 다음과 같습니다.
+인기 있는 웹 프레임워크를 사용하여 표준 앱 패턴의 `X-Forwarded-*` 정보에 액세스할 수 있습니다. [Express](https://expressjs.com/)를 사용할 수 있습니다 [프록시 트러스트](https://expressjs.com/guide/behind-proxies.html)합니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ if (req.secure) {
     - 에 따라 프로그램 *package.json*, 프로덕션 모드에 대 한 서로 다른 패키지를 설치할 수 있습니다 (`dependencies` 비교 `devDependencies`).
     - 특정 웹 프레임 워크는 다르게 프로덕션 모드에서에서 정적 파일을 배포할 수 있습니다.
     - 프로덕션 모드에서 실행 하는 경우 특정 웹 프레임 워크에서 사용자 지정 시작 스크립트를 사용할 수 있습니다.
-- 개발 모드에서 App Service에서 앱을 실행 합니다. 예를 들어 [MEAN.js](http://meanjs.org/), 런타임에서에서 개발 모드에 앱을 설정할 수 있습니다 [설정 합니다 `NODE_ENV` 앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)합니다.
+- 개발 모드에서 App Service에서 앱을 실행 합니다. 예를 들어 [MEAN.js](https://meanjs.org/), 런타임에서에서 개발 모드에 앱을 설정할 수 있습니다 [설정 합니다 `NODE_ENV` 앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
