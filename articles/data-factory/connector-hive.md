@@ -42,7 +42,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **Hive** | 예 |
+| type | type 속성을 다음으로 설정해야 합니다. **Hive** | 예 |
 | host | Hive 서버의 IP 주소 또는 호스트 이름으로, 호스트가 여러 개인 경우 ‘,’로 구분합니다(serviceDiscoveryMode가 사용되는 경우에만 해당).  | 예 |
 | 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
 | serverType | Hive 서버의 유형입니다. <br/>허용되는 값은 다음과 같습니다. **HiveServer1**, **HiveServer2**, **HiveThriftServer** | 아닙니다. |

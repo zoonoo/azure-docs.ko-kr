@@ -15,7 +15,7 @@ ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60946612"
@@ -120,7 +120,7 @@ ms.locfileid: "60946612"
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|이름|설명|필수|Default|
 |----------|-----------------|--------------|-------------|
 |kind|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - javascript-friendly: 변환된 JSON에는 JavaScript 개발자에게 익숙한 양식이 있습니다.<br />- direct: 변환된 JSON은 원래 XML 문서의 구조를 반영합니다.|예|N/A|
 |apply|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - always: 항상 변환합니다.<br />- content-type-xml: 응답 Content-Type 헤더에서 XML의 존재를 나타내는 경우에만 변환합니다.|예|N/A|
@@ -156,7 +156,7 @@ ms.locfileid: "60946612"
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|이름|설명|필수|Default|
 |----------|-----------------|--------------|-------------|
 |from|검색할 문자열|예|N/A|
 |to|대체 문자열입니다. 검색 문자열을 제거하려면 길이가 0인 대체 문자열을 지정합니다.|예|N/A|
@@ -267,7 +267,7 @@ ms.locfileid: "60946612"
 
 ### <a name="attributes"></a>특성
 
-|이름|설명|필수|기본값|
+|이름|설명|필수|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|새 백 엔드 서비스 기준 URL입니다.|중 하나 `base-url` 또는 `backend-id` 있어야 합니다.|N/A|
 |backend-id|라우팅할 백 엔드의 식별자입니다. (백 엔드 엔터티를 통해 관리 됩니다 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 하 고 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|중 하나 `base-url` 또는 `backend-id` 있어야 합니다.|N/A|
@@ -403,7 +403,7 @@ ms.locfileid: "60946612"
 
 ### <a name="properties"></a>properties
 
-|이름|설명|필수|기본값|
+|이름|설명|필수|Default|
 |----------|-----------------|--------------|-------------|
 |template|본문 설정 정책이 실행될 템플릿 모드를 변경하는 데 사용됩니다. 현재 지원되는 유일한 값:<br /><br />- liquid - 본문 설정 정책은 liquid 템플릿 엔진을 사용합니다. |아닙니다.|liquid|
 
@@ -511,7 +511,7 @@ OriginalUrl.
 
 ### <a name="properties"></a>properties
 
-|이름|설명|필수|기본값|
+|이름|설명|필수|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아닙니다.|override|
 |이름|설정할 헤더의 이름을 지정합니다.|예|N/A|
@@ -571,7 +571,7 @@ OriginalUrl.
 
 ### <a name="properties"></a>properties
 
-|이름|설명|필수|기본값|
+|이름|설명|필수|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|쿼리 매개 변수가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 쿼리 매개 변수 값을 바꿉니다.<br />- skip: 기존 쿼리 매개 변수 값을 바꾸지 않습니다.<br />- append: 기존 쿼리 매개 변수 값에 값을 추가합니다.<br />- delete: 요청에서 쿼리 매개 변수를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 쿼리 매개 변수가 설정되며, 나열된 값만 결과에 설정됩니다.|아닙니다.|override|
 |이름|설정할 쿼리 매개 변수의 이름을 지정합니다.|예|N/A|
@@ -649,7 +649,7 @@ OriginalUrl.
 
 ### <a name="attributes"></a>특성
 
-|특성|설명|필수|기본값|
+|특성|설명|필수|Default|
 |---------------|-----------------|--------------|-------------|
 |template|모든 쿼리 문자열 매개 변수가 포함된 실제 웹 서비스 URL입니다. 식을 사용하는 경우 전체 값이 식이어야 합니다.|예|N/A|
 |copy-unmatched-params|원본 URL 템플릿에 없는 들어오는 요청의 쿼리 매개 변수가 re-write 템플릿에 의해 정의된 URL에 추가되는지 여부를 지정합니다.|아닙니다.|true|

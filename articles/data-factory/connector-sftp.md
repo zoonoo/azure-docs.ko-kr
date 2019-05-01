@@ -14,7 +14,7 @@ ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 9540a82933337dab112119cc791fa12d98b30aff
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61042937"
@@ -47,7 +47,7 @@ SFTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성을 다음으로 설정해야 합니다. **Sftp**. |예 |
+| type | type 속성을 다음으로 설정해야 합니다. **Sftp**. |예 |
 | host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
 | 포트 | SFTP 서버가 수신하는 포트입니다.<br/>허용되는 값은 정수이며 기본값은 **22**입니다. |아닙니다. |
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다.<br/>허용되는 값은 **true**, **false**(기본값)입니다.  | 아닙니다. |

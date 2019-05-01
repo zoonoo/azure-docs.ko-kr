@@ -2,15 +2,16 @@
 title: Azure Data Lake Storage Gen2 성능 튜닝 지침 | Microsoft Docs
 description: Azure Data Lake Storage Gen2의 성능 튜닝에 대한 지침입니다.
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
+ms.author: normesta
+ms.reviewer: stewu
 ms.openlocfilehash: f175360586428b57d1ff10e3529ae9e3283399e8
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60804780"

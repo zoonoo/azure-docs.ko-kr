@@ -2,21 +2,15 @@
 title: Marketplace 상용 트랜잭션 기능 및 고려 사항 | Azure
 description: 이 문서에서는 제품 유형에 대한 거래 가격 책정, 청구, 송장 및 지급 고려 사항을 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-documentationcenter: ''
 author: yijenj
 manager: nuno costa
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61065015"

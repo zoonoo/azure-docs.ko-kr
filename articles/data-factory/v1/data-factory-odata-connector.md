@@ -63,8 +63,8 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **OData** |예 |
-| URL |OData 서비스의 URL입니다. |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **OData** |예 |
+| url |OData 서비스의 URL입니다. |예 |
 | authenticationType |OData 소스에 연결하는 데 사용되는 인증 형식입니다. <br/><br/> 클라우드 OData의 경우 가능한 값은 익명, 기본 및 OAuth입니다(Azure Data Factory는 현재 Azure Active Directory 기반 OAuth만 지원). <br/><br/> 온-프레미스 OData의 경우 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |

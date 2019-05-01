@@ -66,7 +66,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **OnPremisesCassandra** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **OnPremisesCassandra** |예 |
 | host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
 | 포트 |Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요. 기본값: 9042 |
 | authenticationType |Basic 또는 Anonymous |예 |

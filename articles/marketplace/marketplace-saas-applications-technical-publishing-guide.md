@@ -2,21 +2,14 @@
 title: Azure Marketplace SaaS 애플리케이션 기술 게시 가이드
 description: Azure Marketplace에 SaaS 애플리케이션을 게시하는 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
 ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60765400"
