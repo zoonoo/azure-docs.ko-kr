@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database 감사 시작 | Microsoft Docs
 description: Azure SQL 데이터베이스 감사를 사용하여 데이터베이스 이벤트를 감사 로그로 추적합니다.
 services: sql-database
