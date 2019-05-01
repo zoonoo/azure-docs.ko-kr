@@ -2,21 +2,14 @@
 title: 시장 진출 서비스 - 마켓플레이스에서 추천되는 방법 | Azure
 description: 시장 진출 서비스 - 이 섹션에서는 Azure Marketplace에서 목록이 추천되는 방법을 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: bda94e648891ad5c4de810195e874a5774d6b498
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60736349"
