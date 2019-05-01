@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: efdc3f657712794325f8af6f1b0178915e7a8e6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f0a071012685ee192d4f866396a5953d0a4508c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463500"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937262"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요 
 
@@ -50,7 +50,10 @@ Media Services 솔루션을 빌드하려면 다음을 사용할 수 있습니다
 
 * [Media Services REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * 사용 가능한 클라이언트 SDK 중 하나:
-    * [.NET용 Azure Media Services SDK](https://github.com/Azure/azure-sdk-for-media-services),
+    * Azure Media Services SDK for.NET
+    
+        * [NuGet 패키지](https://www.nuget.org/packages/windowsazure.mediaservices/)
+        * [Github 소스 코드](https://github.com/Azure/azure-sdk-for-media-services)
     * [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Node.js용 Azure Media Services](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Node.js SDK의 Microsoft가 아닌 타사 버전입니다. 커뮤니티에서 유지 관리하고 현재 AMS API를 100% 포함하지 않습니다).

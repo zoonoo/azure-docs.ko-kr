@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 360b822bc78d353e91612459a70334a0bf3a56e6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189634"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708086"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법
 이 토픽에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는 데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 또한 나열된 인코더의 구성 방법을 보여 주는 자습서에 연결합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "58189634"
 단일 비트 전송률 라이브 스트림을 AMS 채널로 전송하도록 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 인코더를 구성하는 방법에 대한 정보는 [Wirecast 구성](media-services-configure-wirecast-live-encoder.md)을 참조하세요.
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
-단일 비트 전송률 라이브 스트림을 AMS 채널로 전송하도록 [Tricaster](http://newtek.com/products/tricaster-40.html) 인코더를 구성하는 방법에 대한 정보는 [Tricaster 구성](media-services-configure-tricaster-live-encoder.md)을 참조하세요.
+단일 비트 전송률 라이브 스트림을 AMS 채널로 전송하도록 [Tricaster](https://newtek.com/products/tricaster-40.html) 인코더를 구성하는 방법에 대한 정보는 [Tricaster 구성](media-services-configure-tricaster-live-encoder.md)을 참조하세요.
 
 ## <a name="elemental-live"></a>Elemental Live
 자세한 내용은 [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live)를 참조하세요.

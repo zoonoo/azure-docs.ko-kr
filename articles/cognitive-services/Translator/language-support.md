@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577595"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690140"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -28,7 +28,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 **V2 Translator API**
 
 > [!NOTE]
-> V2는 2018년 4월 30일에 사용되지 않고 2019년 4월 30일에 사용이 중단될 예정입니다.
+> V2는 2018 년 4 월 30 일에 사용 되지 않았습니다. V3 V3에서 단독으로 사용할 수 있는 새 기능을 활용 하기 위해 응용 프로그램을 마이그레이션하세요.
 
 * 통계 전용: 이 언어에 사용할 수 있는 인공신경망 시스템이 없습니다.
 * 사용할 수 있는 인공신경망: 인공신경망 시스템을 사용할 수 있습니다. `category=generalnn` 매개 변수를 사용하여 인공신경망 시스템에 액세스합니다.
@@ -230,14 +230,17 @@ Translator Text API 변환 및 문자 전사에 대해 사용할 수 있는 모�
 | 인도네시아어|   `id`    |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
+|스와힐리어| `sw`    |
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |
+|마다가스카르어|  `mg`    |
 | 노르웨이어      | `nb`          |
 | 폴란드어      | `pl`          |
 | 포르투갈어      | `pt`          |
 | 루마니아어      | `ro`          |
 | 러시아어      | `ru`          |
+|사모아어|    `sm`    |
 | 세르비아어(라틴 문자)      | `sr-Latn`          |
 | 슬로바키아어     | `sk`          |
 | 슬로베니아어      | `sl`          |

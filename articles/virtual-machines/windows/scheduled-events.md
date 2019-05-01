@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711002"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926311"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
@@ -48,7 +48,7 @@ Linux에서 예약된 이벤트에 대한 자세한 내용은 [Linux VM에 예�
 - 플랫폼에서 시작되는 유지 관리(예: 호스트 OS 업데이트)
 - 성능이 저하 된 하드웨어
 - 사용자가 시작하는 유지 관리(예: 사용자가 VM을 다시 시작하거나 다시 배포)
-- [우선 순위가 낮은 VM 제거](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) 크기 조정 설정
+- [우선 순위가 낮은 VM 제거](https://azure.microsoft.com/blog/low-priority-scale-sets) 크기 조정 설정
 
 ## <a name="the-basics"></a>기본 사항  
 

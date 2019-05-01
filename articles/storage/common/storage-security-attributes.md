@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8fa43998d0b10eddacdc9e0dd512295559814255
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101965"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711962"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Azure Storage에 대 한 일반적인 보안 특성
 
@@ -27,7 +27,7 @@ ms.locfileid: "62101965"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 |  |
-| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 | 표준 HTTPS/TLS 메커니즘을 지원 합니다.  사용자가 서비스에 전송 되기 전에 데이터를 암호화할 수도 있습니다. |
+| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예 | 표준 HTTPS/TLS 메커니즘을 지원 합니다.  사용자가 서비스에 전송 되기 전에 데이터를 암호화할 수도 있습니다. |
 | 암호화 키 처리 (예: CMK, BYOK)| 예 | 참조 [Azure Key Vault에서 고객 관리 키를 사용 하 여 Storage 서비스 암호화](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)합니다.|
 | 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 |  |
@@ -37,7 +37,7 @@ ms.locfileid: "62101965"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 서비스 끝점 지원| 예 |  |
-| vNET 삽입 지원| N/A |  |
+| VNet 삽입 지원| N/A |  |
 | 네트워크 격리 및 방화벽 지원| 예 | |
 | 강제 터널링 지원| N/A |  |
 

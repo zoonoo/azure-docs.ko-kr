@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Azure에서 가상 네트워크를 만들고 변경하거나 삭제하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
-ms.author: jdial
-ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088505"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700477"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -31,7 +31,7 @@ ms.locfileid: "58088505"
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 - Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "58088505"
      - **서브넷 주소 범위**: 범위는 가상 네트워크에 대해 입력한 주소 공간 내에 있어야 합니다. 지정할 수 있는 최소 범위는 /29이며, 서브넷에 대해 8개의 IP 주소를 제공합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 결과적으로 서브넷 주소 범위가 /29인 가상 네트워크에는 세 개의 IP 주소만 사용할 수 있습니다. 가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서 서브넷을 만든 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
      - **구독**: [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)을 선택합니다. 둘 이상의 Azure 구독에서 동일한 가상 네트워크를 사용할 수 없습니다. 그러나 단일 구독의 가상 네트워크를 [가상 네트워크 피어링](virtual-network-peering-overview.md)이 있는 다른 구독의 가상 네트워크에 연결할 수 있습니다. 가상 네트워크에 연결하는 모든 Azure 리소스는 가상 네트워크와 동일한 구독에 있어야 합니다.
      - **리소스 그룹**: 기존 [리소스 그룹](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups)을 선택하거나 새 리소스 그룹을 만듭니다. 가상 네트워크에 연결하는 Azure 리소스는 가상 네트워크와 동일한 리소스 그룹 또는 다른 리소스 그룹에 있을 수 있습니다.
-     - **위치**: 지역이라고도 하는 Azure [위치](https://azure.microsoft.com/regions/)를 선택합니다. 가상 네트워크는 하나의 Azure 위치에만 있을 수 있습니다. 그러나 VPN Gateway를 사용하여 서로 다른 위치에 있는 가상 네트워크를 연결할 수 있습니다. 가상 네트워크에 연결하는 모든 Azure 리소스는 가상 네트워크와 동일한 위치에 있어야 합니다.
+     - **Location**: 지역이라고도 하는 Azure [위치](https://azure.microsoft.com/regions/)를 선택합니다. 가상 네트워크는 하나의 Azure 위치에만 있을 수 있습니다. 그러나 VPN Gateway를 사용하여 서로 다른 위치에 있는 가상 네트워크를 연결할 수 있습니다. 가상 네트워크에 연결하는 모든 Azure 리소스는 가상 네트워크와 동일한 위치에 있어야 합니다.
 
 **명령**
 
@@ -85,7 +85,7 @@ ms.locfileid: "58088505"
    - **서브넷**: 가상 네트워크 내에 있는 서브넷 목록이 표시됩니다. 서브넷을 추가하고 제거하는 방법에 대한 자세한 내용은 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
    - **DNS 서버**: Azure 내부 DNS 서버 또는 사용자 지정 DNS 서버에서 가상 네트워크에 연결된 디바이스에 대한 이름 확인을 제공하는지 여부를 지정할 수 있습니다. Azure Portal을 사용하여 가상 네트워크를 만들 때 기본적으로 Azure의 DNS 서버가 가상 네트워크 내에서 이름을 확인하는 데 사용됩니다. DNS 서버를 수정하려면 이 문서의 [DNS 서버 변경](#change-dns-servers)에서 설명하는 단계를 완료합니다.
    - **피어링**: 구독에 기존 피어링이 있는 경우 여기에 나열됩니다. 기존 피어링에 대한 설정을 보거나, 피어링을 만들거나 변경하거나 삭제할 수 있습니다. 피어링에 대한 자세히 내용은 [가상 네트워크 피어링](virtual-network-peering-overview.md)을 참조하세요.
-   - **속성**: 가상 네트워크의 리소스 ID 및 해당 Azure 구독을 포함하여 가상 네트워크에 대한 설정을 표시합니다.
+   - **Properties**: 가상 네트워크의 리소스 ID 및 해당 Azure 구독을 포함하여 가상 네트워크에 대한 설정을 표시합니다.
    - **다이어그램**: 가상 네트워크에 연결된 모든 디바이스를 시각적으로 보여 줍니다. 다이어그램에는 디바이스에 대한 몇 가지 중요한 정보가 있습니다. 이 보기에서 디바이스를 관리하려면 다이어그램에서 디바이스를 선택합니다.
    - **일반적인 Azure 설정**: 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
      - [활동 로그](../azure-monitor/platform/activity-logs-overview.md)
@@ -171,7 +171,7 @@ ms.locfileid: "58088505"
 
 가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 조치                                  |   이름                                |
+| 액션(Action)                                  |   이름                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   가상 네트워크 읽기              |
 |Microsoft.Network/virtualNetworks/write  |   가상 네트워크 만들기 또는 업데이트  |

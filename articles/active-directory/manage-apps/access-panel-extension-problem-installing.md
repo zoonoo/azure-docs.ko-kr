@@ -16,12 +16,12 @@ ms.date: 5/4/2018
 ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216568ac43c8e1b04c91d9a8f611a0ceb2e430af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92999f23b468c975d0f95f2628b9a5069d929031
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294194"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707329"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
@@ -63,7 +63,8 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
 또한 Chrome 및 Microsoft Edge 확장은 다음 사이트에서 직접 다운로드할 수도 있습니다.
 
 - [Chrome 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Firefox 확장](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>My Apps 보안 로그인 확장 사용
 * `https://myapps.microsoft.com` 이외의 My Apps URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.

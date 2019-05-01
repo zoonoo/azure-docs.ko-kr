@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691952"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574268"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights의 분석
 Analytics는 [Application Insights](app-insights-overview.md)의 강력한 검색 및 쿼리 도구입니다. Analytics는 웹 도구이므로 설치가 필요하지 않습니다.
@@ -38,7 +38,7 @@ Application Insights 분석에서 Log Analytics 작업 영역의 데이터에 �
 
 ## <a name="query-data-in-analytics"></a>Analytics의 쿼리 데이터
 일반적인 쿼리는 테이블 이름으로 시작하며 그 뒤에 `|`로 구분된 일련의 *연산자*가 있습니다.
-예를 들어, 지난 3시간 동안 앱이 다른 국가에서 받은 요청의 개수를 살펴보겠습니다.
+예를 들어 확인해 보겠습니다 지난 3 시간 동안 받은 다른 국가/지역에서 앱을 몇 개의 요청:
 ```AIQL
 requests
 | where timestamp > ago(3h)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764350"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708798"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 토픽에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -55,7 +55,7 @@ ms.locfileid: "63764350"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|이름|설명|필수|Default|  
 |----------|-----------------|--------------|-------------|  
 |username|기본 자격 증명의 사용자 이름을 지정합니다.|예|N/A|  
 |암호|기본 자격 증명의 비밀번호를 지정합니다.|예|N/A|  
@@ -95,7 +95,7 @@ ms.locfileid: "63764350"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|이름|설명|필수|Default|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|클라이언트 인증서에 대한 지문입니다.|중 하나 `thumbprint` 또는 `certificate-id` 있어야 합니다.|N/A|  
 |인증서 id|인증서 리소스 이름입니다.|중 하나 `thumbprint` 또는 `certificate-id` 있어야 합니다.|N/A|  
@@ -130,7 +130,7 @@ ms.locfileid: "63764350"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|이름|설명|필수|Default|  
 |----------|-----------------|--------------|-------------|  
 |resource|문자열입니다. Azure Active Directory에서 대상 웹 API (보안된 리소스)의 앱 ID URI입니다.|예|N/A|  
 |output-token-variable-name|문자열입니다. 개체 형식으로 토큰 값을 받는 컨텍스트 변수의 이름을 `string`입니다.|아닙니다.|N/A|  

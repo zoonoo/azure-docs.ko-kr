@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace에 대한 일반적인 SAS URL 문제 및 수정 | Microsoft Docs
+title: 일반적인 SAS URL 문제 및 Azure Marketplace에 대 한 수정
 description: 공유 액세스 서명 URI 및 가능한 솔루션의 사용과 관련된 일반적인 문제를 나열합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: abb29cd0d31288ba7bfab7024cf7657ab6b9a3d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 4f2770312624e1ca4c939ade458a451eb03f9d20
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744130"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938372"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>일반적인 SAS URL 문제 및 수정
 

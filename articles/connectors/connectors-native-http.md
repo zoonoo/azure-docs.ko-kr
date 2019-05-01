@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447606"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713804"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 HTTP 또는 HTTPS 엔드포인트 호출
 
-Azure Logic Apps 및 HTTP(Hypertext Transfer Protocol) 커넥터를 사용하여 논리 앱을 빌드하여 모든 HTTP 또는 HTTPS 엔드포인트와 통신하는 워크플로를 자동화할 수 있습니다. 예를 들어 웹 사이트에 대한 서비스 엔드포인트를 모니터링할 수 있습니다. 해당 엔드포인트에서 웹 사이트 중지와 같은 이벤트가 발생할 때 이벤트는 논리 앱의 워크플로를 트리거하고 지정된 작업을 실행합니다. 
+Azure Logic Apps 및 HTTP(Hypertext Transfer Protocol) 커넥터를 사용하여 논리 앱을 빌드하여 모든 HTTP 또는 HTTPS 엔드포인트와 통신하는 워크플로를 자동화할 수 있습니다. 예를 들어 웹 사이트에 대한 서비스 엔드포인트를 모니터링할 수 있습니다. 해당 엔드포인트에서 웹 사이트 중지와 같은 이벤트가 발생할 때 이벤트는 논리 앱의 워크플로를 트리거하고 지정된 작업을 실행합니다.
 
 정기적으로 엔드포인트를 검사 또는 *폴링*하기 위해 워크플로에서 첫 번째 단계로 HTTP 트리거를 사용할 수 있습니다. 각 검사에서 트리거는 엔드포인트에 호출 또는 *요청*을 전송합니다. 엔드포인트의 응답은 논리 앱의 워크플로가 실행될지 여부를 결정합니다. 트리거는 응답에서 논리 앱의 작업으로 모든 콘텐츠를 전달합니다. 
 
-원하는 경우 엔드포인트 호출을 위해 워크플로의 다른 단계로 HTTP 작업을 사용할 수 있습니다. 엔드포인트의 응답은 워크플로의 나머지 작업을 실행하는 방법을 결정합니다.
+원하는 경우 엔드포인트 호출을 위해 워크플로의 다른 단계로 HTTP 작업을 사용할 수 있습니다. 엔드포인트의 응답은 워크플로의 나머지 작업을 실행하는 방법을 결정합니다. 
+
+대상 끝점의 기능을 기반으로이 커넥터는 전송 계층 보안 (TLS) 버전 1.0, 1.1 및 1.2를 지원 합니다. 논리 앱 끝점을 사용 하 여 가능한 가장 높은 지원 되는 버전을 사용 하 여 협상 합니다. 따라서 예를 들어, 끝점 1.2를 지 원하는 경우 커넥터는 사용 1.2 먼저 합니다. 이 고, 그렇지 커넥터는 다음 가장 높은 지원 되는 버전을 사용 합니다.
 
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * 호출하려는 대상 엔드포인트에 대한 URL 
 
