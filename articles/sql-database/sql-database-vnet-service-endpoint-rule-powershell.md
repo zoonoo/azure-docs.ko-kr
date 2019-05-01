@@ -38,13 +38,13 @@ ms.locfileid: "60331148"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행 됩니다.  이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 ## <a name="major-cmdlets"></a>주요 cmdlet
 
-이 문서에서는 합니다 **새로 만들기-AzSqlServerVirtualNetworkRule** 규칙을 만드는 Azure SQL Database 서버의 서브넷 끝점 액세스 제어 목록 (ACL)에 추가 하는 cmdlet입니다.
+이 문서에서는 규칙을 만드는 Azure SQL Database 서버의 액세스 제어 목록 (ACL)에 서브넷 끝점을 추가 하는 **New-AzSqlServerVirtualNetworkRule** cmdlet을 강조합니다.
 
-다음은 다른 순서를 보여 줍니다 *주요* 대 한 호출을 준비 하기 위해 실행 해야 하는 cmdlet **새로 만들기-AzSqlServerVirtualNetworkRule**합니다. 이 문서에서 이러한 호출은 [스크립트 3 “가상 네트워크 규칙”](#a-script-30)에서 수행됩니다.
+다음 목록은 **New-AzSqlServerVirtualNetworkRule**를 호출하기 위해 실행해야 하는 다른 *주요* cmdlet의 순서를 보여 줍니다. 이 문서에서 이러한 호출은 [스크립트 3 “가상 네트워크 규칙”](#a-script-30)에서 수행됩니다.
 
 1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): 서브넷 개체를 만듭니다.
 2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): 가상 네트워크에 서브넷을 제공하는 가상 네트워크를 만듭니다.
@@ -209,7 +209,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## <a name="script-3-create-an-endpoint-and-a-rule"></a>스크립트 3: 엔드포인트 및 규칙 만들기
 
-이 스크립트는 서브넷이 있는 가상 네트워크를 만듭니다. 그런 다음 **Microsoft.Sql** 엔드포인트 형식을 서브넷에 할당합니다. 마지막으로 이 스크립트는 규칙을 만드는 데 사용되는 SQL Database 서버의 ACL(액세스 제어 목록)에 서브넷을 추가합니다.
+이 스크립트는 서브넷이 있는 가상 네트워크를 만듭니다. 그런 다음 **Microsoft.Sql** 엔드포인트 형식을 서브넷에 할당합니다. 마지막으로 이 스크립트는 규칙을 만드는데 사용되는 SQL Database 서버의 ACL(액세스 제어 목록)에 서브넷을 추가합니다.
 
 ### <a name="powershell-script-3-source-code"></a>PowerShell 스크립트 3 소스 코드
 
@@ -295,7 +295,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 ## <a name="script-4-clean-up"></a>스크립트 4: 정리
 
-이 마지막 스크립트는 이전 스크립트를 데모용으로 만든 리소스를 삭제합니다. 그러나 이 스크립트는 다음 항목을 삭제하기 전에 확인 메시지를 표시합니다.
+이 마지막 스크립트는 이전 스크립트에서 데모용으로 만든 리소스를 삭제합니다. 그러나 이 스크립트는 다음 항목을 삭제하기 전에 확인 메시지를 표시합니다.
 
 - Azure SQL Database 서버
 - Azure 리소스 그룹
