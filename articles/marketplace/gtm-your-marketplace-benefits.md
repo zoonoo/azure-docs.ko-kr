@@ -2,21 +2,14 @@
 title: 시장 진출 서비스 - 마켓플레이스 혜택 | Azure
 description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출 서비스 - Microsoft 리소스에 대해 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60740068"
