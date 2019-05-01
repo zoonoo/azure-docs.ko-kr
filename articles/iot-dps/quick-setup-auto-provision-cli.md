@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363719"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
 
@@ -26,8 +26,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > 이 빠른 시작에서 만드는 IoT 허브 및 프로비전 서비스는 모두 DNS 엔드포인트로 공개적으로 검색할 수 있습니다. 이러한 리소스에 사용되는 이름을 변경하려는 경우 중요한 정보가 공개되지 않도록 합니다.
 >
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -66,7 +64,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 ```
 
 > [!TIP]
-> 이 예제에서는 프로비전 서비스를 미국 서부 지역에 만듭니다. `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나 [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 "Device Provisioning Service"를 검색함으로써 사용 가능한 위치 목록을 볼 수 있습니다. 명령에서 위치는 단일 또는 다중 단어 형식(예: westus, West US, WEST US 등)으로 지정할 수 있습니다.  값은 대/소문자를 구분하지 않습니다. 다중 단어 형식을 사용하여 위치를 지정하는 경우 값을 따옴표로 묶습니다(예: `-- location "West US"`).
+> 이 예제에서는 프로비전 서비스를 미국 서부 지역에 만듭니다. `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나 [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 “Device Provisioning Service”를 검색함으로써 사용 가능한 위치 목록을 볼 수 있습니다. 명령에서 위치는 단일 또는 다중 단어 형식(예: westus, West US, WEST US 등)으로 지정할 수 있습니다.  값은 대/소문자를 구분하지 않습니다. 다중 단어 형식을 사용하여 위치를 지정하는 경우 값을 따옴표로 묶습니다(예: `-- location "West US"`).
 >
 
 
@@ -136,5 +134,5 @@ az group delete --name my-sample-resource-group
 이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포한 후 두 리소스를 연결했습니다. 시뮬레이션된 디바이스를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 디바이스 만들기를 위한 빠른 시작을 진행하세요.
 
 > [!div class="nextstepaction"]
-> [시뮬레이션된 장치를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)
+> [시뮬레이션된 디바이스를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)
 

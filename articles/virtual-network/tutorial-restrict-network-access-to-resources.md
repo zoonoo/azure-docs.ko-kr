@@ -3,8 +3,8 @@ title: PaaS 리소스에 대한 네트워크 액세스 제한 - 자습서 - Azur
 description: 이 자습서에서는 Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트로 Azure Storage 및 Azure SQL Database와 같은 Azure 리소스에 대한 네트워크 액세스를 제한하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
-ms.author: jdial
-ms.openlocfilehash: b951386fbeca883ae61a7f8040893e55467c8e5d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.author: kumud
+ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810087"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708852"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -210,7 +210,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 ### <a name="create-the-first-virtual-machine"></a>첫 번째 가상 머신 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
-2. **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다.
+2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다.
 3. 다음 정보를 입력하거나 선택한 다음, **확인**을 선택합니다.
 
    |설정|값|

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 6f89e1e89736929b7d50444800550708a55e45db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adc74dbcb943af9ad793dbc3f59a31465f44b6fd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103420"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916794"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 텍스트 언어 검색
 
@@ -136,7 +136,7 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-"Pretty Print"(응답의 서식)로 응답을 출력하려면 이 함수를 프로그램 클래스에 추가합니다.
+“Pretty Print”(응답의 서식)로 응답을 출력하려면 이 함수를 프로그램 클래스에 추가합니다.
 ```
 static string PrettyPrint(string s)
 {
@@ -163,7 +163,7 @@ dotnet run
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가 약어는 이 [언어 목록](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)에서 찾습니다.
+국가 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 ```json
 [
