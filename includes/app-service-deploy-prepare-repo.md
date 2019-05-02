@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: df987d1e13cb5330842fbab41dae96b24b581ddb
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 2b9706241bd65ee75869d8b1fe58c6922d9e246a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227272"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951549"
 ---
 ## <a name="prepare-your-repository"></a>리포지토리 준비
 
@@ -29,7 +29,7 @@ Azure App Service Kudu 빌드 서버에서 자동 빌드를 가져오려고 하�
 | Python(Windows만 해당) | _\*.py_, _requirements.txt_ 또는 _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_ 또는 _iisstart.htm_ |
 | 웹 작업 | _App\_Data/jobs/continuous_(연속 WebJobs용) 또는 _App\_Data/jobs/triggered_(트리거된 WebJobs용)의 _\<job_name>/run.\<extension>_ 자세한 내용은 [Kudu WebJobs 설명서](https://github.com/projectkudu/kudu/wiki/WebJobs)합니다. |
-| Functions | [Azure Functions에 대한 연속 배포](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements)를 참조하세요. |
+| Functions | [Azure Functions에 대한 연속 배포](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment)를 참조하세요. |
 
 배포를 사용자 지정하려면 리포지토리 루트에 _.deployment_ 파일을 포함합니다. 자세한 내용은 [배포를 사용자 지정](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) 하 고 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)합니다.
 

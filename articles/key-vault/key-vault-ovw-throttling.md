@@ -1,25 +1,22 @@
 ---
-title: Azure Key Vault 제한 참고 자료
+title: Azure Key Vault 제한 지침
 description: Key Vault 제한은 리소스의 과용을 방지하기 위해 동시 호출 수를 제한합니다.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: ''
-ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304934"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695241"
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 참고 자료
+# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
 
 제한은 리소스의 과용을 방지하기 위해 Azure 서비스에 대한 동시 호출 수를 제한하는 사용자 시작 프로세스입니다. Azure Key Vault(AKV)는 많은 양의 요청을 처리하도록 설계되었습니다. 매우 많은 수의 요청이 발생할 경우 클라이언트의 요청을 제한하면 AKV 서비스의 최적의 성능 및 안정성을 유지하는 데 도움이 됩니다.
 

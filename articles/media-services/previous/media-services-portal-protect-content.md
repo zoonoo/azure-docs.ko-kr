@@ -14,14 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259077"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866960"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
+
+> [!NOTE]
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > Media Services v2 없는 새로운 특징 또는 기능은 추가 됩니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+>
+
  Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 128비트 암호화 키를 사용하여 AES(Advanced Encryption Standard)로 동적 암호화된 콘텐츠를 배달할 수 있습니다. PlayReady 및/또는 Widevine DRM(디지털 권한 관리)과 Apple FairPlay를 사용하여 일반적인 암호화(CENC)와 함께 사용할 수도 있습니다. 
 
 Media Services는 DRM 라이선스 및 AES 암호화되지 않은 키를 인증된 클라이언트에 배달하는 서비스를 제공합니다. Azure Portal을 사용하여 모든 암호화 형식에 대해 키/라이선스 권한 부여 정책을 만들 수 있습니다.

@@ -1,33 +1,25 @@
 ---
-title: 동시성 제어 | Microsoft Docs
+title: 동시성 제어 | Azure Marketplace
 description: 클라우드 파트너 포털 게시 API의 동시성 제어 전략에 대해 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ecf0bb6ac7fc77e804c9fc8d62aba52810de5640
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808200"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935586"
 ---
-<a name="concurrency-control"></a>동시성 제어
-===================
+# <a name="concurrency-control"></a>동시성 제어
 
 클라우드 파트너 포털 게시 API를 호출할 때는 항상 사용할 동시성 제어 전략을 명시적으로 지정해야 합니다. **If-Match** 헤더를 제공하지 않으면 HTTP 400 오류 응답이 반환됩니다. 동시성 제어를 위해 제공되는 두 가지 전략은 다음과 같습니다.
 
 -   **낙관적** - 업데이트를 수행하는 클라이언트가 데이터를 마지막으로 읽은 후 데이터가 변경되었는지를 확인합니다.
--   **마지막 데이터 적용** - 데이터를 마지막으로 읽은 시간 이후 다른 응용 프로그램이 데이터를 수정했는지에 관계없이 클라이언트가 데이터를 직접 업데이트합니다.
+-   **마지막 데이터 적용** - 데이터를 마지막으로 읽은 시간 이후 다른 애플리케이션이 데이터를 수정했는지에 관계없이 클라이언트가 데이터를 직접 업데이트합니다.
 
 <a name="optimistic-concurrency-workflow"></a>낙관적 동시성 워크플로
 -------------------------------

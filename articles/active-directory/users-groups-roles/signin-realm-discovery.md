@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468935"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920509"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 로그인 페이지에 대 한 홈 영역 검색
 
@@ -49,7 +49,7 @@ ms.locfileid: "60468935"
     ![암호는 적절 한 사용자 이름으로 잘못 입력](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> 이 기능은 이전 도메인 수준 강제로 페더레이션 홈 영역 검색에 의존 하는 페더레이션된 도메인에 영향을 미칠 수 있습니다. 페더레이션된 도메인 지원을 추가할 경우에 업데이트를 참조 하세요 [로그인 시 Microsoft 365 서비스에 대 한 홈 영역 검색](https://azure.microsoft.com/en-us/updates/signin-hrd/)합니다. 한편, 일부 조직에서는 라우팅하므로 도메인 이름이 사용자가 현재 조직의 도메인 끝점에 Azure Active Directory에 존재 하지 않지만 적절 한 도메인 이름을 포함 하는 사용자를 로그인 하 여 내부 직원 학습 합니다. 새 로그인 동작에이 허용 하지 않습니다. 사용자 이름을 수정 하려면 사용자가 알림을 한 경우 Azure Active Directory에서 존재 하지 않는 사용자 이름을 사용 하 여 로그인에 허용 되지 않습니다.
+> 이 기능은 이전 도메인 수준 강제로 페더레이션 홈 영역 검색에 의존 하는 페더레이션된 도메인에 영향을 미칠 수 있습니다. 페더레이션된 도메인 지원을 추가할 경우에 업데이트를 참조 하세요 [로그인 시 Microsoft 365 서비스에 대 한 홈 영역 검색](https://azure.microsoft.com/updates/signin-hrd/)합니다. 한편, 일부 조직에서는 라우팅하므로 도메인 이름이 사용자가 현재 조직의 도메인 끝점에 Azure Active Directory에 존재 하지 않지만 적절 한 도메인 이름을 포함 하는 사용자를 로그인 하 여 내부 직원 학습 합니다. 새 로그인 동작에이 허용 하지 않습니다. 사용자 이름을 수정 하려면 사용자가 알림을 한 경우 Azure Active Directory에서 존재 하지 않는 사용자 이름을 사용 하 여 로그인에 허용 되지 않습니다.
 >
 > 사용자 또는 사용자 조직에 사례 이전 동작에 의존 하는 경우 조직 관리자가 직원의 로그인 및 인증 설명서를 업데이트 하 고, Azure Active Directory 사용자 이름을 사용 하 여 로그인 하는 직원의 학습에 대 한 중요 한 것입니다.
   

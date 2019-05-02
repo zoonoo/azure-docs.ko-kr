@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856130"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699433"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
 이 문서에서는 Azure Machine Learning Studio를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
-### <a name="acknowledgements"></a>감사의 말
+### <a name="acknowledgements"></a>승인
 이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure Machine Learning Studio 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]
@@ -217,7 +217,7 @@ Azure Machine Learning Studio에서 제공되는 또 다른 흥미로운 기능�
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Azure AI 갤러리](https://gallery.azure.ai/)의 [Telco 변동 모델 템플릿](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
  

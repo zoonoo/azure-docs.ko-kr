@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895971"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574133"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -37,8 +37,8 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 
 ## <a name="audio-insights"></a>오디오 인사이트
 
-- **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 러시아어 및 포르투갈어(브라질)입니다. 언어가 감지되지 않으면 영어로 대체됩니다.
-- **오디오 전사**: 음성을 12개 언어의 텍스트로 변환하고 확장을 허용합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(간체), 일본어, 아랍어, 러시아어, 포르투갈어(브라질), 힌디어 및 한국어입니다.
+- **자동 언어 감지**: 기준 음성 언어를 자동으로 식별합니다. 지원 되는 언어의 언어를 검색할 수 없는 경우 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 (간체), 일본어, 러시아어 및 브라질 포르투갈어가 영어로 대체 (fallback)를 포함 합니다.
+- **오디오 전사**: 음성을 12개 언어의 텍스트로 변환하고 확장을 허용합니다. 지원 되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어 (간체), 일본어, 아랍어, 러시아어, 포르투갈어 (브라질), 힌디어, 한국어를 포함 합니다.
 - **선택 자막**: VTT, TTML, SRT의 세 가지 형식으로 선택 자막을 만듭니다.
 - **두 채널 처리**: 자동으로 감지하고, 개별적으로 전사하고, 단일 타임라인에 병합합니다.
 - **노이즈 감소**: 전화 통신 오디오 또는 노이즈가 많은 녹음을 지웁니다(Skype 필터 기준).
@@ -47,7 +47,7 @@ Azure Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(�
 - **화자 통계**: 화자 음성 비율에 대한 통계를 제공합니다.
 - **텍스트 콘텐츠 조정**: 오디오 전사에서 명시적 텍스트를 검색합니다.
 - **오디오 효과**: 박수, 음성 및 묵음과 같은 오디오 효과를 식별합니다.
-- **감정 감지**: 음성 및 오디오 신호에 따라 감정을 식별합니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.
+- **감정 감지**: (언급 되는 내용을) 음성 음성 색조 (어떻게이 언급 되는)에 기반 하는 자연 스러운 감정을 식별 합니다.  감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.
 - **번역**: 오디오 전사의 번역을 54개 언어로 만듭니다.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>오디오 및 비디오 인사이트(다중 채널)

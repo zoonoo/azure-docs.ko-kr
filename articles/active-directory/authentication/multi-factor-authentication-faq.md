@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357480"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570825"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -59,7 +59,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
    * 759731 
    * 673801
 
-Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가에는 짧은 코드를 지원하지 않습니다.
+Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외 국가/지역에 대 한 짧은 코드를 지원 하지 않습니다.
 
 ## <a name="billing"></a>결제
 
@@ -95,7 +95,7 @@ Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Excha
 
 조직에서 사용량 기반 청구를 포함하는 독립 실행형 서비스로 MFA를 구입한 경우 MFA 공급자를 만들 때 청구 모델을 선택합니다. MFA 공급자가 생성된 후에는 청구 모델을 변경할 수 없습니다. 하지만 MFA 공급자를 삭제하고 다른 청구 모델로 새 공급자를 만들 수 있습니다.
 
-MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트”)에 연결할 수 있습니다. 현재 MFA 공급자가 Azure AD 테넌트에 연결된 경우 MFA 공급자를 안전하게 삭제하고 동일한 Azure AD 테넌트에 연결된 새 MFA 공급자를 만들 수 있습니다. 또는 MFA로 설정된 모든 사용자를 처리할 만큼 충분한 MFA, Azure AD Premium 또는 Enterprise Mobility + Security(EMS) 라이선스를 구입한 경우 MFA 공급자를 모두 삭제할 수 있습니다.
+MFA 공급자를 만들면 Azure Active Directory 또는 "Azure AD 테 넌 트입니다."에 연결할 수 있습니다. 현재 MFA 공급자가 Azure AD 테 넌 트에 연결 하는 경우 안전 하 게 MFA 공급자를 삭제를 만드는 동일한 Azure AD 테 넌 트에 연결 하는 것입니다. 또는 MFA로 설정된 모든 사용자를 처리할 만큼 충분한 MFA, Azure AD Premium 또는 Enterprise Mobility + Security(EMS) 라이선스를 구입한 경우 MFA 공급자를 모두 삭제할 수 있습니다.
 
 하지만 MFA 공급자가 Azure AD 테넌트에 연결되어 있지 *않거나* 새 MFA 공급자를 다른 Azure AD 테넌트에 연결한 경우 사용자 설정 및 구성 옵션이 전송되지 않습니다. 또한 새 MFA 공급자를 통해 생성된 활성화 자격 증명을 사용하여 기존 Azure MFA 서버를 다시 활성화해야 합니다. MFA 서버를 새 MFA 공급자에 연결하기 위해 다시 활성화해도 전화 및 문자 메시지 인증에는 영향을 미치지 않지만 모바일 앱을 다시 활성화할 때까지 모바일 앱 알림이 모든 사용자에 대해 작동 중지됩니다.
 
@@ -142,7 +142,7 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 > [!NOTE]
 > Office 2013 클라이언트에 대한 최신 인증
 >
-> 앱 암호는 최신 인증을 지원하는 않는 앱에만 필요합니다. Office 2013 클라이언트는 최신 인증 프로토콜을 지원하지만 구성되어야 합니다. 이제 최신 인증이 Office 2013 용 2015 이상 년 3 월 업데이트를 실행 하는 모든 고객에 게 사용할 수 있습니다. 자세한 내용은 참조는 [Office 2013 최신 인증 공개 미리 보기 발표](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)합니다.
+> 앱 암호는 최신 인증을 지원하는 않는 앱에만 필요합니다. Office 2013 클라이언트는 최신 인증 프로토콜을 지원하지만 구성되어야 합니다. 이제 최신 인증이 Office 2013 용 2015 이상 년 3 월 업데이트를 실행 하는 모든 고객에 게 사용할 수 있습니다. 자세한 내용은 블로그 게시물을 참조 하세요 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)합니다.
 
 **Q: 사용자가 간혹 문자 메시지를 받지 못하거나 양방향 문자 메시지에 회신했는데 확인 시간이 초과된 것으로 표시된다고 합니다.**
 

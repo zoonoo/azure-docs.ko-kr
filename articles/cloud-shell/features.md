@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500620"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866494"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -51,13 +51,25 @@ Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 
 
 ![](media/features-powershell/azure-drive.png)
 
+### <a name="manage-exchange-online"></a>Manage Exchange Online
+
+Cloud Shell의 PowerShell에는 Exchange Online 모듈의 개인 빌드를 포함합니다.  실행 `Connect-EXOPSSession` Exchange cmdlet을 가져오려고 합니다.
+
+![](media/features-powershell/exchangeonline.png)
+
+ `Get-Command -Module tmp_*` 실행
+> [!NOTE]
+> 모듈 이름으로 시작 해야 `tmp_`, 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet 표시도 됩니다. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
+
 ### <a name="deep-integration-with-open-source-tooling"></a>오픈 소스 도구와 완벽한 통합
 
 Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 위해 사전 구성된 인증을 포함하고 있습니다. 예제 연습에서 사용해 보십시오.
 
 ## <a name="tools"></a>도구
 
-|Category   |name   |
+|Category   |이름   |
 |---|---|
 |Linux 도구            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -70,7 +82,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 
 ## <a name="language-support"></a>언어 지원
 
-|언어   |버전   |
+|언어   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
 |Go         |1.9        |

@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097712"
 ---
 이 단계에서는 동일한 네트워크에서 실행 중인 클라이언트 애플리케이션을 사용하여 가용성 그룹 수신기를 테스트합니다.
 
@@ -29,3 +30,4 @@ ms.locfileid: "50227056"
 
 수신기를 테스트할 때 클라이언트에서 장애 조치를 통해 수신기에 연결할 수 있는지 확인하려면 가용성 그룹을 장애 조치해야 합니다.
 
+<!-- Update_Description: update meta properties -->

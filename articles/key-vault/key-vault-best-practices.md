@@ -2,23 +2,19 @@
 title: Key Vault-Azure Key Vault를 사용 하는 모범 사례 | Microsoft Docs
 description: 이 문서에서는 Key Vault를 사용 하는 최상의 방법 중 일부를 설명합니다
 services: key-vault
-documentationcenter: ''
-author: yvprashanth
+author: mbaldwin
 manager: barbkess
 tags: azure-key-vault
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
-ms.author: prashanthyv
-ms.openlocfilehash: ee4418700cec5de1dc404c3669dd5de315aab983
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.author: mbaldwin
+ms.openlocfilehash: 27881758175ab698e4b713c0215383878272382f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368613"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700760"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Key Vault를 사용 하는 모범 사례
 

@@ -3,8 +3,8 @@ title: Azure 가상 네트워크 피어링 만들기 - 서로 다른 배포 모�
 description: 같은 Azure 구독에 존재하는 서로 다른 Azure 배포 모델을 통해 만든 가상 네트워크 간의 가상 네트워크 피어링을 만드는 방법을 학습합니다.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud;anavin
+ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652368"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694721"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독
 
@@ -51,7 +51,7 @@ Azure Portal, Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#
     - **서브넷 주소 범위**: *10.0.0.0/24*
     - **구독**: 구독 선택
     - **리소스 그룹**: **새로 만들기**를 선택하고, *myResourceGroup*을 입력합니다.
-    - **위치**: *미국 동부*
+    - **Location**: *미국 동부*
 4. **+새로 만들기**를 클릭합니다. **Marketplace 검색** 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 표시되는 **가상 네트워크**를 클릭합니다.
 5. **가상 네트워크** 블레이드의 **배포 모델 선택** 상자에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.
 6. **가상 네트워크 만들기** 블레이드에서 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
@@ -61,7 +61,7 @@ Azure Portal, Azure CLI([명령줄 인터페이스](#cli)), Azure [PowerShell](#
     - **서브넷 주소 범위**: *10.1.0.0/24*
     - **구독**: 구독 선택
     - **리소스 그룹**: **기존 항목 사용**을 선택하고, *myResourceGroup*을 선택합니다.
-    - **위치**: *미국 동부*
+    - **Location**: *미국 동부*
 7. 포털 위쪽에 있는 **리소스 검색** 상자에 *myResourceGroup*을 입력합니다. **myResourceGroup**이 검색 결과에 표시되면 클릭합니다. **myresourcegroup** 리소스 그룹에 대한 블레이드가 나타납니다. 리소스 그룹에는 이전 단계에서 만든 두 가상 네트워크가 포함되어 있습니다.
 8. **myVNet1**을 클릭합니다.
 9. 나타나는 **myVnet1** 블레이드의 왼쪽에 있는 세로 옵션 목록에서 **피어링**을 클릭합니다.

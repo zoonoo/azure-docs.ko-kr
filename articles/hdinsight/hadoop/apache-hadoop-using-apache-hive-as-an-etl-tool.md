@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e21f3eed7e631c974d34f148b85843b055deaf60
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343372"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706846"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 

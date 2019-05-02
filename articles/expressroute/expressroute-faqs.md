@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367884"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924662"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -43,7 +43,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
 
-예. ExpressRoute 회로는 추가 비용 없이 확보한 대역폭 제한의 최대 2배까지 버스트할 수 있도록 구성됩니다. 이 기능을 지원하는지 확인하려면 해당 서비스 공급자에게 문의하세요.
+예. ExpressRoute 회로는 추가 비용 없이 확보한 대역폭 제한의 최대 2배까지 버스트할 수 있도록 구성됩니다. 이 기능을 지원하는지 확인하려면 해당 서비스 공급자에게 문의하세요. 이 오랜된 기간에 대 한 되지 않으며 보장 되지 않습니다. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>가상 네트워크 및 다른 Azure 서비스와 동일한 개인 네트워크 연결을 동시에 사용할 수 있나요?
 
@@ -119,11 +119,11 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>개인 피어 링에 중복을 어떻게 구현 할까요?
 
-다른 피어 링 위치에서 여러 ExpressRoute 회로 단일 회로 사용할 수 없게 되는 경우에서 고가용성을 제공 하려면 동일한 가상 네트워크에 연결할 수 있습니다. 그런 다음 [높은 가중치를 할당](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 우선 로컬 연결에는 특정 회로 선호 합니다. 고객은 단일 실패 지점을 방지 하려면 두 개 이상의 ExpressRoute 회로 설정 하는 것이 좋습니다. 
+다른 피어 링 위치에서 여러 ExpressRoute 회로 단일 회로 사용할 수 없게 되는 경우에서 고가용성을 제공 하려면 동일한 가상 네트워크에 연결할 수 있습니다. 그런 다음 [높은 가중치를 할당](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 우선 로컬 연결에는 특정 회로 선호 합니다. 고객은 단일 실패 지점을 방지 하려면 두 개 이상의 ExpressRoute 회로 설정 하는 것이 좋습니다. 
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>어떻게 Microsoft 피어 링 중복성을 구현할 수행할 수 있나요?
 
-고객이 Microsoft와 같은 Azure Storage 또는 Azure SQL, 뿐만 아니라 다른 피어 링에 여러 회로 구현 하는 Office 365에 Microsoft 피어 링을 사용 하는 고객은 Azure 공용 서비스에 액세스 하려면 피어 링을 사용 하는 경우 좋습니다. faiure 단일 지점을 방지 하는 위치입니다. 고객 중 두 회로에서 동일한 접두사를 보급 하 고 사용할 수 [AS PATH 앞에 추가](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) 또는 온-프레미스에서 경로 확인 하도록 서로 다른 접두사를 보급 합니다.
+고객이 Microsoft와 같은 Azure Storage 또는 Azure SQL, 뿐만 아니라 다른 피어 링에 여러 회로 구현 하는 Office 365에 Microsoft 피어 링을 사용 하는 고객은 Azure 공용 서비스에 액세스 하려면 피어 링을 사용 하는 경우 좋습니다. faiure 단일 지점을 방지 하는 위치입니다. 고객 중 두 회로에서 동일한 접두사를 보급 하 고 사용할 수 [AS PATH 앞에 추가](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) 또는 온-프레미스에서 경로 확인 하도록 서로 다른 접두사를 보급 합니다.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>ExpressRoute에 연결된 가상 네트워크에서 고가용성을 보장하려면 어떻게 해야 하나요?
 

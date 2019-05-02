@@ -3,19 +3,19 @@ title: LinkedIn 계정으로 등록 및 로그인 설정 - Azure Active Director
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 LinkedIn 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cf75bd8a0fc0c078801887e22468a143154e462
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316384"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703820"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 

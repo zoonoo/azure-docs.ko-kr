@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012504"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733760"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012504"
 | 최대 샌드박스 당 허용 되는 네트워크 소켓<sup>1</sup> |1,000 |Azure 샌드박스에 적용 됩니다.|
 | Runbook 당 허용 된 최대 런타임<sup>1</sup> |3시간 |Azure 샌드박스에 적용 됩니다.|
 | 구독에서 Automation 계정의 최대 수 |제한 없음 ||
+| Automation 계정당 Hybrid Worker 그룹의 최대 수|4,000||
 |최대 단일 Hybrid Runbook Worker에서 실행할 수 있는 동시 작업 수|50 ||
 | 최대 runbook 작업 매개 변수 크기   | 킬로 비트||
 | 최대 runbook 매개 변수   | 50|50 하이퍼 매개 변수 제한에 도달 하면 매개 변수에 JSON 또는 XML 문자열에 전달 하 고 runbook을 사용 하 여 구문 분석 합니다.|

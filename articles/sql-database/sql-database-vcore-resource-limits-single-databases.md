@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: d5ada9b992afe98241162749b1c45723b89a6b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331114"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572656"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
@@ -96,7 +96,7 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 |저장소 유형|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |대상 IOPS(64KB)|500|1000|1500|2000|2500|3000|3500|
-|로그 속도 제한 (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
+|로그 속도 제한 (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|1400|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|
 |복제본 수|1|1|1|1|1|1|1|

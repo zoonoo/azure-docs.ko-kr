@@ -2,19 +2,18 @@
 title: HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행 - Azure
 description: HDInsight .NET SDK를 사용하여 Azure HDInsight Apache Hadoop에 Apache Hadoop 작업을 제출하는 방법에 대해 알아봅니다.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 31e759baa4f5e7b220eabf2bb9ffcc5cc011a354
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 947e797842000e4da2f9e22077bc32c24d6c6a74
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200466"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718845"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

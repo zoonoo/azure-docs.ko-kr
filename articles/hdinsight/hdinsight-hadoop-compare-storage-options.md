@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361787"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720475"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -31,8 +31,12 @@ HDInsight 클러스터를 만들 때 몇 가지 서로 다른 Azure 저장소 �
 |Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
 |Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
 |Azure Storage| 범용 V1 | Object | Blob | Standard | N/A | 모두 | 모두 |
-|Azure Storage| Blob Storage | Object | Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
+|Azure Storage| Blob Storage** | Object | 블록 Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
 |Azure Data Lake Storage Gen1| N/A | 계층 구조 (파일 시스템) | N/A | 해당 사항 없음 | N/A | 3.6에만 해당 | HBase를 제외한 모든 |
+
+* * HDInsight 클러스터에 대 한 계정에만 보조 저장소는 blob Storage 형식일 수 있습니다.
+
+Azure 저장소 계정 유형에 대 한 자세한 내용은 참조 하세요. [Azure storage 계정 개요](../storage/common/storage-account-overview.md)
 
 Azure Storage 액세스 계층에 대 한 자세한 내용은 참조 하세요. [Azure Blob storage: Premium (미리 보기), 핫, 쿨 및 보관 저장소 계층](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Azure Storage 액세스 계층에 대 한 자세한 내용은 참조 하세요. 
 
 | HDInsight 버전 | 기본 스토리지 | 보조 저장소 | 지원됨 |
 |---|---|---|---|
-| 3.6 & 4.0 | 표준 Blob | 표준 Blob | 예 |
-| 3.6 & 4.0 | 표준 Blob | Data Lake Storage Gen2 | 아닙니다. |
-| 3.6 & 4.0 | 표준 Blob | Data Lake Storage Gen1 | 예 |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2는 blob Storage (블록 Blob) | 예 |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 아닙니다. |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | 예 |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | 표준 Blob | 예 |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | 범용 V1, 범용 V2는 blob Storage (블록 Blob) | 예 |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 아닙니다. |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | 예 |
-| 3.6 | Data Lake Storage Gen1 | 표준 Blob | 예 |
+| 3.6 | Data Lake Storage Gen1 | 범용 V1, 범용 V2는 blob Storage (블록 Blob) | 예 |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 아닙니다. |
 | 4.0 | Data Lake Storage Gen1 | 모두 | 아닙니다. |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731502"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688355"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -21,6 +21,10 @@ ms.locfileid: "57731502"
 활동 로그 경고에 대한 자세한 내용은 [Azure 활동 로그 알림을 만드는](activity-log-alerts.md) 방법을 참조하세요.
 
 작업 그룹에 대한 자세한 내용은 [작업 그룹을 만드는](../../azure-monitor/platform/action-groups.md) 방법을 참조하세요.
+
+> [!NOTE]
+> 사용할 수도 있습니다는 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs)확장할 수 있는 단일 장점이 제공 하는, 및 웹 후크 통합에 대 한 Azure Monitor에서 모든 경고에서 경고 페이로드 통합된 서비스입니다. [일반 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
 웹후크는 인증을 위해 토큰 기반 인증을 선택적으로 사용할 수 있습니다. 웹후크 URI는 토큰 ID를 통해 저장됩니다. 예: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -176,12 +180,12 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | description |경고를 만들 때 설정하는 경고 설명입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 | timestamp |요청을 처리하는 Azure 서비스에서 이벤트를 생성한 시간입니다. |
-| ResourceId |영향을 받는 리소스의 리소스 ID입니다. |
+| resourceId |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 포함하는 `<Key, Value>` 쌍의 집합(즉, `Dictionary<String, String>`)입니다. |
 | event |이벤트에 대한 메타데이터가 포함된 요소입니다. |
 | 권한 부여 |이벤트의 역할 기반 Access Control 속성입니다. 이러한 속성에는 일반적으로 action, role 및 scope이 포함됩니다. |
-| 카테고리 |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
+| category |이벤트의 범주. 지원되는 값으로 Administrative, Alert, Security, ServiceHealth, Recommendation이 있습니다. |
 | caller |가용성에 기반한 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. 특정 시스템 호출의 경우 null일 수 있습니다. |
 | CorrelationId |일반적으로 문자열 형식의 GUID. correlationId가 있는 이벤트는 동일한 상위 작업에 속하며 일반적으로 correlationId를 공유합니다. |
 | eventDescription |이벤트에 대한 정적 텍스트 설명입니다. |

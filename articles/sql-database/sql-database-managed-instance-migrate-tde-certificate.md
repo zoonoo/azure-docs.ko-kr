@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833916"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706105"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Database Managed Instance로 마이그레이션
 
@@ -31,7 +31,7 @@ ms.locfileid: "57833916"
 완전히 관리되는 서비스를 사용하여 TDE 보호 데이터베이스와 해당 인증서를 원활하게 마이그레이션하는 대체 옵션은 [Azure Database Migration Service를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database Managed Instance용 투명한 데이터 암호화는 서비스 관리 모드에서 작동합니다. 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 복원이 완료되면 마이그레이션된 인증서가 다른 시스템 관리 인증서로 곧 대체됩니다.
+> 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 다른 보호기를 마이그레이션된 인증서 바꾼 다음 복원이 완료 된 후에 곧 서비스 관리 인증서 또는 비대칭 키에서 key vault 인스턴스에서 설정한 투명 한 데이터 암호화의 유형에 따라 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

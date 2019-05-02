@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364774"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572747"
 ---
 # <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "60364774"
 1. 구성을 시작 하려면 Azure 계정에 로그인 하 고 사용 하려는 구독을 선택 합니다.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. 사용 하려는 ExpressRoute 회로 식별 합니다. 두 ExpressRoute 회로가 지원되는 국가에 위치하고 서로 다른 피어링 위치에서 만들어진 경우에 한하여 ExpressRoute Global Reach를 사용하도록 설정할 수 있습니다. 
+2. 사용 하려는 ExpressRoute 회로 식별 합니다. 설정할 수 있습니다. ExpressRoute 글로벌 환경 모두 두 개의 ExpressRoute 회로 간의 있기만 지원 되는 국가/지역에 거주 하는 다른 피어 링 위치에 생성 된 합니다. 
 
    * 사용자 구독이 두 회로 모두를 소유하는 경우 다음 섹션에서 구성을 실행할 회로를 하나 선택할 수 있습니다.
    * 두 회로가 다른 Azure 구독에 있는 경우 하나의 Azure 구독에서 권한을 부여해야 합니다. 그런 후 다른 Azure 구독에서 구성 명령을 실행할 때 권한 부여 키를 제공합니다.

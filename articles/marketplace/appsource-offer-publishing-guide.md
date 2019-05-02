@@ -1,25 +1,18 @@
 ---
-title: Office 365, Dynamics 365, Power BI 및 Power Apps 및 Azure를 포함하는 클라우드 마켓플레이스 AppsSource 상점에 대한 AppSource 제품 게시 가이드
+title: AppsSource storefront에 대 한 AppSource 제품 게시 가이드 | Azure Marketplace
 description: Office 365, Dynamics 365, Power BI 및 Power Apps에 대한 AppSource 상점에 앱을 게시하기 위한 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: ellacroi
-manager: nunoc
-editor: ellacroi
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 943f3a4739e5dffb2a7d218bf3a82a4e882538a6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 38175bd2365ee9ab7246f0d967c364912efda37d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075671"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935694"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Office 365, Dynamics 365, Power Apps 및 Power BI 제품 게시 가이드
 

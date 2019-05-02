@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464971"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690457"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -36,7 +36,7 @@ Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실
 * **Taint**는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
 * **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.
 
-Pod를 AKS 클러스터에 배포하는 경우 Kubernetes는 toleration이 taint에 맞춰 조정되는 노드에서만 Pod를 예약합니다. 예를 들어 GPU 지원이 있는 노드의 AKS 클러스터에 노드 풀이 있다고 가정합니다. 이름(예: *gpu*)을 정의한 후 예약의 값을 정의합니다. 이 값을 *NoSchedule*로 설정하면 Kubernetes 스케줄러는 Pod가 적절한 toleration을 정의하지 않는 경우 노드에서 Pod를 예약할 수 없습니다.
+Pod를 AKS 클러스터에 배포하는 경우 Kubernetes는 toleration이 taint에 맞춰 조정되는 노드에서만 Pod를 예약합니다. 예를 들어 지원 GPU 사용 하 여 노드에 대 한 AKS 클러스터에 노드 풀이 있으므로 가정 합니다. 이름(예: *gpu*)을 정의한 후 예약의 값을 정의합니다. 이 값을 *NoSchedule*로 설정하면 Kubernetes 스케줄러는 Pod가 적절한 toleration을 정의하지 않는 경우 노드에서 Pod를 예약할 수 없습니다.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -72,6 +72,23 @@ spec:
 Taint를 적용할 경우 애플리케이션 개발자 및 소유자와 협력하여 해당 배포에서 필요한 toleration을 정의하도록 할 수 있습니다.
 
 taint 및 toleration에 대한 자세한 내용은 [taint 및 toleration 적용][k8s-taints-tolerations]을 참조하세요.
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Taints 및 AKS에서 tolerations의 동작
+
+AKS에서 노드 풀을 업그레이드할 때 taints tolerations 다음과 집합 패턴을 새 노드에 적용 하는.
+
+- **가상 머신 확장을 지원 하지 않는 기본 클러스터**
+  - -2 개 노드 클러스터가 있다고 가정해 보겠습니다 *node1* 하 고 *node2*합니다. 업그레이드할 때, 추가 노드 (*node3*) 만들어집니다.
+  - taints *node1* 에 적용 됩니다 *node3*, 한 다음 *node1* 삭제 됩니다.
+  - 다른 새 노드가 생성 됩니다 (명명 된 *node1*, 이전부터 *node1* 삭제 된), 및 *node2* taints 새에 적용 됩니다 *node1*. 차례로 *node2* 삭제 됩니다.
+  - 기본적으로 *node1* 됩니다 *node3*, 및 *node2* 됩니다 *node1*합니다.
+
+- **가상 컴퓨터를 사용 하는 클러스터 크기 집합** (현재는 AKS에서 미리 보기)
+  - 마찬가지로 있다고 가정해 보겠습니다는 2 노드 클러스터 *node1* 하 고 *node2*합니다. 노드 풀을 업그레이드합니다.
+  - 두 개의 추가 노드가 만들어지면 *node3* 및 *node4*는 taints 각각 전달 됩니다.
+  - 원래 *node1* 하 고 *node2* 삭제 됩니다.
+
+AKS에서 노드 풀을 확장 하면 taints 및 tolerations을 포함 하지 디자인 장애 조치 합니다.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>노드 선택기 및 선호도를 사용하여 Pod 예약 제어
 

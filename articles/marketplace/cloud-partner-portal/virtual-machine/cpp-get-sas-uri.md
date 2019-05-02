@@ -1,25 +1,18 @@
 ---
-title: Microsoft Azure 기반 VM 이미지에 대한 공유 액세스 서명 URI 가져오기 | Microsoft Docs
+title: Microsoft Azure 기반 VM 이미지에 대 한 공유 액세스 서명 URI를 가져올 | Azure Marketplace
 description: VM 이미지에 대한 SAS(공유 액세스 서명) URI를 가져오는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113523"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938677"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 

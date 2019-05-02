@@ -3,8 +3,8 @@ title: 가상 머신 네트워크 트래픽 필터 문제 진단 - 빠른 시작
 description: 이 빠른 시작에서는 Azure Network Watcher의 IP 흐름 확인 기능을 사용하여 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2fd297cbbb3d4471d3f03f0fb098bea395482cf9
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 460513e4818cbef8fca0cd1b84d69b3021afaab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749179"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690437"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure CLI
 

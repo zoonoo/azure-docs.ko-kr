@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f19d193bef718bd4ad3d98f2112a7e705051b729
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680879"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920073"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -112,7 +112,7 @@ App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리�
 
 애플리케이션 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 애플리케이션 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
 
-JAR 응용 프로그램을 배포 하는 경우 그 이름은 `app.jar` 기본 제공 이미지를 앱에 올바르게 식별할 수 있도록 합니다. (Maven 플러그 인은 자동으로 변경 합니다.) 경우 원하지 않는에 JAR을 바꾸려면 `app.jar`, JAR를 실행 하려면 명령 사용 하 여 셸 스크립트를 업로드할 수 있습니다. 이 스크립트에 전체 경로 붙여 합니다 [시작 파일](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) 포털의 구성 섹션에서 텍스트 상자에 붙여넣습니다.
+JAR 응용 프로그램을 배포 하는 경우 그 이름은 `app.jar` 기본 제공 이미지를 앱에 올바르게 식별할 수 있도록 합니다. (Maven 플러그 인은 자동으로 변경 합니다.) 경우 원하지 않는에 JAR을 바꾸려면 `app.jar`, JAR를 실행 하려면 명령 사용 하 여 셸 스크립트를 업로드할 수 있습니다. 이 스크립트에 전체 경로 붙여 합니다 [시작 파일](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) 포털의 구성 섹션에서 텍스트 상자에 붙여넣습니다.
 
 ### <a name="turn-on-web-sockets"></a>웹 소켓 켜기
 

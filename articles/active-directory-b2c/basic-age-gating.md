@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 나이 제한 사용 | Microsoft Docs
 description: 애플리케이션을 사용하여 미성년자를 식별하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60383935"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703280"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -40,8 +40,8 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 | BG | 불가리아 | 16 | 18 |
 | BH | 바레인 | 없음 | 21 |
 | CM | 카메룬 | 없음 | 21 |
-| CY | 사이프러스 | 16 | 18 |
-| CZ | 체코 공화국 | 16 | 18 |
+| CY | 키프로스 | 16 | 18 |
+| CZ | 체코 | 16 | 18 |
 | DE | 독일 | 16 | 18 |
 | DK | 덴마크 | 16 | 18 |
 | EE | 에스토니아 | 16 | 18 |

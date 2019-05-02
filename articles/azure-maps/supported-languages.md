@@ -1,25 +1,31 @@
 ---
-title: Azure Maps에서 지원되는 언어 | Microsoft Docs
+title: Azure Maps에서 지역화 지원을 | Microsoft Docs
 description: Azure Maps에서 지원되는 언어를 알아봅니다.
-author: juliekohler
-ms.author: julieko
-ms.date: 04/08/2019
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784163"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686778"
 ---
-# <a name="azure-maps-supported-languages"></a>Azure Maps 지원 언어
-Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습니다.  다음 표에서는 각 서비스에 지원되는 언어 코드를 제공합니다.  
+# <a name="localization-support-in-azure-maps"></a>Azure Maps에서 지역화 지원
+
+Azure Maps는 다양 한 언어 및 국가/지역을 기반으로 하는 뷰를 지원 합니다. 이 문서에서는 지원 되는 언어 및 Azure Maps 구현을 안내 하는 데 도움이 되는 뷰를 제공 합니다.
+
+
+## <a name="azure-maps-supported-languages"></a>Azure Maps 지원 언어
+
+Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습니다. 다음 표에서는 각 서비스에 지원되는 언어 코드를 제공합니다.  
   
 
-| ID         | name                   |  지도 | 검색 | 라우팅 | 트래픽 인시던트 | JS 지도 컨트롤 | 표준 시간대 |
+| ID         | 이름                   |  지도 | 검색 | 라우팅 | 트래픽 인시던트 | JS 지도 컨트롤 | 표준 시간대 |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | 아프리칸스어              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | 아랍어                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -75,3 +81,30 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
 | tr-TR      | 터키어                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | 우크라이나어               |       |    ✓   |         |                   |                |     ✓     |
 | vi-VN      | 베트남어             |       |    ✓   |         |                   |                |     ✓     |
+
+
+## <a name="azure-maps-supported-views"></a>Azure Maps 지원 보기
+
+("사용자 지역 매개 변수" 라고도 함) 하는 azure 맵 보기 매개 변수는 지정 학적 집합을 해당 국가/지역에 대 한 올바른 맵을 분쟁 테두리가 표시 되는 2 자 ISO 3166 국가 코드 및 레이블은 지도에 표시 됩니다.  기본적으로 View 매개 변수 설정 **"통합"** 합니다.  보기 목록에 없는 국가/지역 "통합" 뷰를 기본값으로 사용 됩니다. 것이 사용자의 위치를 확인 하 고 다음 해당 위치에 대해 올바르게 View 매개 변수를 설정 해야 합니다. Azure Maps에서 View 매개 변수를 사용 하 여 관련 법률을 준수 해야 합니다를 포함 하 여 맵, 이미지 및 기타 데이터와 타사 콘텐츠는는 Azure Maps를 통해 액세스 하도록 승인 하는 있는 국가 관한 매핑을 제공 됩니다.
+
+다음 표에서 지원 되는 뷰를 제공합니다.
+
+| 보기         | 설명                            |  지도 | 검색 | JS 지도 컨트롤 |
+|--------------|----------------------------------------|:-----:|:------:|:--------------:|
+| AE           | 아랍에미리트 (아랍어 뷰)    |   ✓   |        |     ✓          |
+| AR           | 아르헨티나 (아르헨티나 뷰)           |   ✓   |    ✓   |     ✓          |
+| BH           | 바레인 (아랍어 뷰)                 |   ✓   |        |     ✓          |
+| IN           | 인도 (인도 뷰)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | 이라크 (아랍어 뷰)                    |   ✓   |        |     ✓          |
+| JO           | 요르단 (아랍어 뷰)                  |   ✓   |        |     ✓          |
+| KW           | 쿠웨이트 (아랍어 뷰)                  |   ✓   |        |     ✓          |
+| LB           | 레바논 (아랍어 뷰)                 |   ✓   |        |     ✓          |
+| MA           | 모로코 (모로코 뷰)                |   ✓   |   ✓     |     ✓          |
+| OM           | 오만 (아랍어 뷰)                    |   ✓   |        |     ✓          |
+| PK           | 파키스탄 (파키스탄 뷰)              |   ✓   |    ✓    |     ✓          |
+| PS           | 팔레스타인 자치 정부 (아랍어 뷰)    |   ✓   |        |     ✓          |
+| QA           | 카타르 (아랍어 뷰)                   |   ✓   |        |     ✓          |
+| SA           | 사우디아라비아 (아랍어 뷰)            |   ✓   |        |     ✓          |
+| SY           | 시리아 (아랍어 뷰)                   |   ✓   |        |     ✓          |
+| YE           | 예멘 (아랍어 뷰)                   |   ✓   |        |     ✓          |
+| 통합      | 통합 된 보기 (기타)                  |   ✓   |   ✓     |     ✓          |

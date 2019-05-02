@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5e7e365a73c9ba9cfd91d4f93759e7af55a0ad48
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: dc018b5d09c9b33c10cd2d54ac6572537e05ed25
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30929328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64859104"
 ---
 다음 표에서는 PolicyBased VPN 게이트웨이와 RouteBased VPN 게이트웨이에 대한 요구 사항을 나열합니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다. 클래식 모델의 경우 PolicyBased VPN 게이트웨이는 정적 게이트웨이와 동일하고, Route-based 게이트웨이는 동적 게이트웨이와 동일합니다.
 

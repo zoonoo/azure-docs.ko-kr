@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: 네트워크 인터페이스의 정의, 네트워크 인터페이스를 만들고 삭제하는 방법 및 해당 설정을 변경하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
-ms.openlocfilehash: 8840944f6757813b10b01c8e512b1ef64c05a85f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888290"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695359"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>네트워크 인네트워크 인터페이스 만들기, 변경 또는 삭제
 
@@ -33,7 +34,7 @@ ms.locfileid: "56888290"
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
@@ -57,7 +58,7 @@ Azure Portal을 사용하여 가상 머신을 만들 때 Portal에서는 기본 
     |개인 IP 주소(IPv6)|아닙니다.| 이 확인란을 선택하면 네트워크 인터페이스에 할당된 IPv4 주소 외에 IPv6 주소가 네트워크 인터페이스에 할당됩니다. 네트워크 인터페이스에서 IPv6을 사용하는 경우와 관련된 중요한 정보는 이 문서의 IPv6 섹션을 참조하세요. IPv6 주소에 대해서는 할당 방법을 선택할 수 없습니다. IPv6 주소를 할당하도록 선택하면 주소는 동적 방법으로 할당됩니다.
     |IPv6 이름(**개인 IP 주소(IPv6)** 확인란을 선택해야 표시됨) |예 - **개인 IP 주소(IPv6)** 확인란을 선택하는 경우| 이 이름은 네트워크 인터페이스의 보조 IP 구성에 할당됩니다. IP 구성에 대한 자세한 내용은 [네트워크 인터페이스 설정 보기](#view-network-interface-settings)를 참조하세요.|
     |리소스 그룹|예|기존 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)을 선택하거나 리소스 그룹을 만듭니다. 네트워크 인터페이스는 연결하는 가상 머신이나 연결된 가상 네트워크와 같은 리소스 그룹에 있을 수도 있고 다른 리소스 그룹에 있을 수도 있습니다.|
-    |위치|예|네트워크 인터페이스를 연결하는 가상 컴퓨터와 네트워크 인터페이스에 연결되는 가상 네트워크가 같은 [위치](https://azure.microsoft.com/regions)(지역이라고도 함)에 있어야 합니다.|
+    |Location|예|네트워크 인터페이스를 연결하는 가상 컴퓨터와 네트워크 인터페이스에 연결되는 가상 네트워크가 같은 [위치](https://azure.microsoft.com/regions)(지역이라고도 함)에 있어야 합니다.|
 
 Portal에서는 네트워크 인터페이스를 만들 때 공용 IP 주소를 네트워크 인터페이스에 할당하는 옵션을 제공하지 않습니다. 하지만 Portal을 사용하여 가상 머신을 만들 때는 공용 IP 주소가 작성되어 네트워크 인터페이스에 할당됩니다. 네트워크 인터페이스를 만든 후 공용 IP 주소를 추가하는 방법에 대한 자세한 내용은 [IP 주소 관리](virtual-network-network-interface-addresses.md)를 참조하세요. 공용 IP 주소가 있는 네트워크 인터페이스를 만들려면 CLI 또는 PowerShell을 사용하여 네트워크 인터페이스를 만들어야 합니다.
 
@@ -248,7 +249,7 @@ Azure Network Watcher의 다음 홉 기능은 경로가 가상 머신과 엔드�
 
 네트워크 인터페이스에서 작업을 수행하려면 다음 표에 나열된 적절한 사용 권한이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 조치                                                                     | 이름                                                      |
+| 액션(Action)                                                                     | 이름                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft.Network/networkInterfaces/read                                   | 네트워크 인터페이스 가져오기                                     |
 | Microsoft.Network/networkInterfaces/write                                  | 네트워크 인터페이스 만들기 또는 업데이트                        |

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300147"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713348"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 대 한 선택적 클레임을 제공 합니다.
 
@@ -52,12 +52,12 @@ ms.locfileid: "60300147"
 
 **표 2: V1.0 및 V2.0 선택적 클레임 집합**
 
-| Name                       |  설명   | 토큰 형식 | 사용자 유형 | 메모  |
+| 이름                       |  설명   | 토큰 형식 | 사용자 유형 | 메모  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
 | `home_oid`                 | 게스트 사용자의 경우 사용자의 홈 테넌트에 있는 사용자의 개체 ID입니다.| JWT        |           | |
-| `sid`                      | 세션당 사용자 로그 아웃을 위한 사용 되는 세션 ID입니다. | JWT        |           |         |
+| `sid`                      | 세션당 사용자 로그 아웃을 위한 사용 되는 세션 ID입니다. | JWT        |  개인 및 Azure AD 계정.   |         |
 | `platf`                    | 디바이스 플랫폼    | JWT        |           | 디바이스 유형을 확인할 수 있는 관리 디바이스로 제한됩니다.|
 | `verified_primary_email`   | 사용자의 PrimaryAuthoritativeEmail에서 소싱됩니다.      | JWT        |           |         |
 | `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.   | JWT        |           |        |
@@ -80,7 +80,7 @@ ms.locfileid: "60300147"
 
 **표 3: V2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | 설명                                | 메모 |
+| JWT 클레임     | 이름                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -91,7 +91,6 @@ ms.locfileid: "60300147"
 | `family_name` | 성                       | 사용자 개체에 정의 된 대로 마지막 이름, 성 또는 사용자의 패밀리 이름을 제공 합니다. <br>"family_name":"Miller" | MSA 및 AAD에서 지원   |
 | `given_name`  | 이름                      | 첫 번째 제공 또는 "지정 된" 사용자의 이름을 사용자 개체에 설정 합니다.<br>"given_name": "Frank"                   | MSA 및 AAD에서 지원  |
 | `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. |
-| `sid`         | 세션 ID                      | MSA 사용 하 여 인증 세션 추적에 사용 되는 GUID 세션 식별자입니다. | MSA에만 해당 합니다.  Azure AD 계정에 포함 되지 않습니다. | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
@@ -164,7 +163,7 @@ ms.locfileid: "60300147"
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name        | 형식                       | 설명                                           |
+| 이름        | 형식                       | 설명                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다. |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -177,7 +176,7 @@ ms.locfileid: "60300147"
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                 | 형식                    | 설명                                                                                                                                                                                                                                                                                                   |
+| 이름                 | 형식                    | 설명                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |

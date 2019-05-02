@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772961"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
@@ -106,7 +106,7 @@ Reliable Services 런타임은 `Service Fabric Transactional Replicator` 범주 
 | --- | --- |
 | Begin Txn Operations/sec | 초당 만들어진 새 쓰기 트랜잭션의 수입니다.|
 | Txn Operations/sec | 초당 신뢰할 수 있는 컬렉션에 대해 수행된 추가/업데이트/삭제 작업의 수입니다.|
-| 로그 플러시 바이트/초 | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
+| Log Flush Bytes/sec | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
 | Throttled Operations/sec | 제한 때문에 트랜잭션 복제기가 초당 거부한 작업 수입니다. |
 | 평균 Transaction ms/Commit | 트랜잭션당 평균 커밋 대기 시간(밀리초)입니다. |
 | 평균 Flush Latency (ms) | 트랜잭션 복제기가 시작한 디스크 플러시 작업의 평균 지속 시간(밀리초)입니다. |

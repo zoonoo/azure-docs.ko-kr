@@ -1,22 +1,22 @@
 ---
-title: '일반적인 질문: Azure Site Recovery를 사용하는 Azure 간 재해 복구 | Microsoft Docs'
-description: 이 문서에는 Azure Site Recovery를 사용하여 다른 Azure 지역으로 Azure VM의 재해 복구를 설정할 때 발생하는 일반적인 질문이 요약되어 있습니다.
+title: Azure Site Recovery를 사용 하 여 Azure로 재해 복구에 대 한 일반적인 질문
+description: 이 문서에서는 Azure Site Recovery를 사용 하 여 다른 Azure 지역에 Azure Vm의 재해 복구에 대 한 일반적인 질문에 답변
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/29/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.author: asgan
+ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149736"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925664"
 ---
-# <a name="common-questions-azure-to-azure-replication"></a>일반적인 질문: Azure 간 복제
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
-이 문서에서는 Azure Site Recovery를 사용하여 Azure VM의 재해 복구(DR)를 다른 Azure 지역에 배포할 때 발생하는 일반적인 질문에 대한 답변을 제공합니다. 이 문서를 읽은 후 질문이 있으면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
+이 문서에서는 사용 하 여 다른 Azure 지역에 Azure Vm의 재해 복구에 대 한 일반적인 질문에 대 한 답변을 제공 [Site Recovery](site-recovery-overview.md)합니다. 
 
 
 ## <a name="general"></a>일반
@@ -28,15 +28,15 @@ Azure Site Recovery로 보호되는 모든 인스턴스는 처음 31일 동안 �
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 발생하나요?
 예, Azure Site Recovery는 보호된 인스턴스에 대해 처음 31일 동안 무료로 사용할 수 있지만 Azure Storage, 스토리지 트랜잭션 및 데이터 전송에 대해서는 요금이 발생할 수 있습니다. 복구된 가상 머신도 Azure Compute 요금이 발생할 수 있습니다. 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/site-recovery)를 참조하세요.
 
-### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Azure VM에서 Site Recovery를 구성하기 위한 모범 사례는 무엇입니까?
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Azure VM 재해 복구를 위한 모범 사례는 어디서 찾을 수 있습니까? 
 1. [Azure 간 아키텍처 이해](azure-to-azure-architecture.md)
 2. [지원되는 구성 및 지원되지 않는 구성 검토](azure-to-azure-support-matrix.md)
 3. [Azure VM에 대한 재해 복구 설정](azure-to-azure-how-to-enable-replication.md)
 4. [테스트 장애 조치 실행](azure-to-azure-tutorial-dr-drill.md)
 5. [주 지역에 대한 장애 조치 및 장애 복구](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>어떻게는 용량 보장 대상 지역의 Azure Vm에 대 한 되나요?
-Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Azure Site Recovery (ASR) 팀은 작업, Vm 재해에 대 한 ASR로 보호 되도록 하기 위해 복구를 성공적으로 배포할 재해 복구 (DR) 지역에서 때마다 ASR 장애 조치 작업이 시작 됩니다.
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>대상 지역에 용량 보장 하는 방법
+Site Recovery 팀은 충분 한 인프라 용량 계획에 Azure 용량 관리 팀과 협력 하 고 Vm에 대 한 Site Recovery에서 보호 되도록 하는 데 도움이 되는 성공적으로 배포 된 대상 지역 장애 조치를 시작 하는 경우.
 
 ## <a name="replication"></a>복제
 
@@ -54,6 +54,16 @@ Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 
 
 예, PowerShell을 사용하여 보호 시 디스크를 제외할 수 있습니다. 자세한 내용은 참조 하세요. [문서](azure-to-azure-exclude-disks.md)
 
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>복제 된 Vm에 새 디스크를 추가 및 복제에 사용 하도록 설정 수 있나요?
+
+예,이 Azure Vm에 대 한 관리 디스크를 사용 하 여. 복제에 사용 되는 Azure VM에 새 디스크를 추가 하면 VM에 대 한 복제 상태 경고를 사용 하 여 참고 지정 하는 VM에 하나 이상의 디스크 보호를 위해 사용할 수 있는지 보여 줍니다. 추가 된 디스크에 대 한 복제를 사용할 수 있습니다.
+- 추가 된 디스크에 대 한 보호를 사용 하는 경우 초기 복제 후 경고가 사라집니다.
+- 디스크에 대 한 복제를 사용 하도록 설정 하지 않으려는 경우 경고를 해제할를 선택할 수 있습니다.
+- 디스크를 추가 하 고이 복제를 사용 하도록 VM을 장애 조치할 때 복제 지점 복구에 사용할 수 있는 디스크가 표시 됩니다. 예를 들어, VM에 단일 디스크를 새로 추가한 디스크를 추가 하기 전에 생성 된 복제 지점 복제 지점이 2 개의 디스크의 "1"으로 구성 되는 표시 됩니다.
+
+Site Recovery는 "핫 제거" 디스크의 복제 된 VM에서 지원 하지 않습니다. VM 디스크를 제거 하면 해제 한 다음 VM에 대 한 복제를 다시 설정 해야 합니다.
+
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 Azure VM을 다른 Azure 지역에 복제할 때는 복제가 계속 진행됩니다. 자세한 내용은 [Azure 간 복제 아키텍처](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process)를 참조하세요.
 
@@ -69,7 +79,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>계층별로 별도의 리소스 그룹이 있는 애플리케이션을 복제할 수 있습니까?
 예, 애플리케이션을 복제하고 재해 복구 구성을 별도의 리소스 그룹에 유지할 수도 있습니다.
-예를 들어 각 계층 앱, 데이터베이스 및 웹이 별도의 리소스 그룹에 있는 애플리케이션이 있다면 [복제 마법사](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)를 세 번 클릭해야 모든 계층이 보호됩니다. ASR은 이러한 세 계층을 세 개의 리소스 그룹에 복제합니다.
+예를 들어 각 계층 앱, 데이터베이스 및 웹이 별도의 리소스 그룹에 있는 애플리케이션이 있다면 [복제 마법사](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication)를 세 번 클릭해야 모든 계층이 보호됩니다. Site Recovery는 세 가지 다른 리소스 그룹에 이러한 세 가지 계층을 복제 됩니다.
 
 ## <a name="replication-policy"></a>복제 정책
 
@@ -147,8 +157,8 @@ CPU를 많이 사용하기 때문에 다중 VM 일관성을 사용하도록 설�
 
 ## <a name="failover"></a>장애 조치(failover)
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>어떻게는 용량 보장 대상 지역의 Azure Vm에 대 한 되나요?
-Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Azure Site Recovery (ASR) 팀은 작업, Vm 재해에 대 한 ASR로 보호 되도록 하기 위해 복구를 성공적으로 배포할 재해 복구 (DR) 지역에서 때마다 ASR 장애 조치 작업이 시작 됩니다.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>어떻게이 용량 보장 대상 지역의 Azure Vm에 대 한?
+Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Site Recovery 팀은 작업, Vm 재해 복구에 사용할 수 있는지 확인 하는 데는 성공적으로 배포 되도록 대상 지역에 장애 조치를 시작 하는 경우.
 
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
 
@@ -156,15 +166,19 @@ Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>장애 조치(failover) 후 공용 IP 주소를 유지할 수 있나요?
 
-프로덕션 애플리케이션의 공용 IP 주소는 *장애 조치(failover) 시 유지할 수 없습니다*. 장애 조치(failover) 프로세스의 일부로 포함된 워크로드에는 대상 지역에서 사용 가능한 Azure 공용 IP 리소스를 할당해야 합니다. 수동으로 이 단계를 수행하거나 복구 계획을 통해 자동화할 수 있습니다. 복구 계획을 사용하여 공용 IP 주소를 할당하려면 [장애 조치(failover) 후 공용 IP 주소 설정](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan)을 참조하세요.  
+프로덕션 응용 프로그램의 공용 IP 주소를 장애 조치 후 유지 될 수 없습니다.
+- 장애 조치(failover) 프로세스의 일부로 포함된 워크로드에는 대상 지역에서 사용 가능한 Azure 공용 IP 리소스를 할당해야 합니다.
+- 이 작업을 수행 하거나 복구 계획을 사용 하 여 자동화할 수 있습니다.
+- 설명 하는 방법 [장애 조치 후 공용 IP 주소 설정](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan)합니다.  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>장애 조치(failover) 중 사설 IP 주소를 유지할 수 있나요?
-예, 사설 IP 주소를 유지할 수 있습니다. 기본적으로 Azure VM에 대한 DR을 사용하도록 설정하면 Site Recovery는 원본 리소스 설정에 따라 대상 리소스를 만듭니다. 고정 IP 주소를 사용하여 구성된 Azure VM의 경우 Site Recovery는 대상 VM에 동일한 IP 주소(사용 중이 아닌 경우)를 프로비전하려고 시도합니다. 다른 조건에서 사설 IP 주소를 유지하려면 [장애 조치(failover) 중 IP 주소 유지](site-recovery-retain-ip-azure-vm-failover.md)를 참조하세요.
+예, 개인 IP 주소를 유지할 수 있습니다. 기본적으로 Azure VM에 재해 복구를 사용하도록 설정하면 Site Recovery는 원본 리소스 설정에 따라 대상 리소스를 만듭니다. -고정 IP 주소를 사용 하 여 구성 하는 Azure Vm에 대 한 Site Recovery를 사용 하 여에 없는 경우 대상 VM에 대 한 동일한 IP 주소를 프로 비전 하려고 합니다.
+에 대 한 자세한 [장애 조치 중 IP 주소를 유지](site-recovery-retain-ip-azure-vm-failover.md)합니다.
 
-### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>장애 조치(failover) 후 서버에는 원본 VM과 동일한 IP 주소가 없습니다. 새 IP 주소가 할당되는 이유는 무엇인가요?
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>장애 조치 후 이유 서버는 새 IP 주소가 할당 되어 있습니까?
 
 Site Recovery는 장애 조치(failover) 시 IP 주소를 제공하려고 시도합니다. 다른 가상 머신에서 해당 IP 주소를 가져가는 경우 Site Recovery는 대상으로 사용 가능한 다음 IP 주소를 설정합니다.
-Site Recovery가 주소 지정을 처리하는 방법에 대한 자세한 내용은 [가상 네트워크에 대한 네트워크 매핑 및 IP 주소 설정](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms)을 참조하세요.
+에 대해 자세히 알아보세요 [Vnet에 대 한 IP 주소 및 네트워크 매핑 설정](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms)합니다.
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>**최신(가장 낮은 RPO)** 복구 지점은 무엇인가요?
 **최신(가장 낮은 RPO)** 옵션을 사용하면 먼저 Site Recovery 서비스로 보낸 모든 데이터를 처리한 다음, 해당 복구 지점에 장애 조치하기 전에 각 VM에 대한 복구 지점을 만듭니다. 이 옵션은 장애 조치(failover) 후에 생성된 VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
@@ -175,10 +189,10 @@ Site Recovery가 주소 지정을 처리하는 방법에 대한 자세한 내용
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>복구 지점에서 **가장 최근 처리됨** 옵션은 무엇을 의미하나요?
 **가장 최근 처리됨** 옵션은 계획 내의 모든 VM을 Site Recovery에서 처리한 최신 복구 지점으로 장애 조치합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO를 제공합니다.
 
-### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>두 개의 Azure 지역 간에 복제하는 경우 주 지역에서 예기치 않은 중단이 발생하면 어떻게 되나요?
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>주 지역 내에 예기치 않은 중단이 발생 하는 경우 어떻게 되나요?
 중단 후에 장애 조치(failover)를 트리거할 수 있습니다. Site Recovery는 주 지역에서의 연결이 없어도 장애 조치(failover)를 수행할 수 있습니다.
 
-### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>가상 머신 장애 조치(failover)의 RTO는 어떻게 되나요?
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>VM 장애 조치의 RTO 란?
 Site Recovery의 [RTO는 2시간](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)입니다. 그러나 대부분의 경우 Site Recovery는 몇 분 내에 가상 머신을 장애 조치(failover)합니다. VM이 작동할 때까지 걸린 시간이 표시되는 장애 조치(failover) 작업으로 이동하여 RTO를 계산할 수 있습니다. 복구 계획 RTO의 경우에는 아래 섹션을 참조하세요.
 
 ## <a name="recovery-plans"></a>복구 계획
@@ -214,25 +228,27 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 상황에 따라 다릅니다. 예를 들어 원본 지역 VM이 있는 경우 원본 디스크와 대상 디스크 사이의 변경 내용만 동기화됩니다. Site Recovery는 디스크를 비교하여 차등을 계산한 다음, 데이터를 전송합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. 다시 보호 중 발생하는 작업에 대한 자세한 내용은 [주 지역으로 장애 조치 된 Azure VM 다시 보호]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)를 참조하세요.
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>장애 복구(failback)하는 데 시간이 얼마나 걸리나요?
-다시 보호 후 장애 복구에 대한 시간은 일반적으로 주 지역에서 보조 지역으로 장애 조치(failover)를 수행하는 시간과 비슷합니다.
+다시 보호 후 장애 복구에 대 한 시간이 비슷합니다 일반적으로 보조 지역에 주 지역에서 장애 조치에 필요한 시간.
 
 ## <a name="capacity"></a>용량
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>어떻게이 용량 보장 대상 지역의 Azure Vm에 대 한?
-Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Azure Site Recovery (ASR) 팀은 작업, Vm 재해에 대 한 ASR로 보호 되도록 하기 위해 복구를 성공적으로 배포할 재해 복구 (DR) 지역에서 때마다 ASR 장애 조치 작업이 시작 됩니다.
+Azure 용량 관리 팀은 충분 한 인프라 용량 계획을 사용 하 여 Site Recovery 팀은 작업, Vm 재해 복구를 위해 활성화 되도록 성공적으로 배포 될 대상 지역에 장애 조치를 시작 하는 경우.
 
-### <a name="does-site-recovery-work-with-reserved-instances"></a>Reserved Instances를 사용 하 여 Site Recovery가 작동 하나요?
-예를 구입할 수 있습니다 [이더라도 인스턴스가](https://azure.microsoft.com/pricing/reserved-vm-instances/) DR 지역 및 ASR 장애 조치 작업에서는 사용 하 여 해당 합니다. </br> 추가 구성은 고객 으로부터 필요 하지 않습니다.
+### <a name="does-site-recovery-work-with-reserved-instances"></a>예약 된 인스턴스를 사용 하 여 Site Recovery가 작동 하나요?
+예를 구입할 수 있습니다 [이더라도 인스턴스가](https://azure.microsoft.com/pricing/reserved-vm-instances/) 재해 복구 지역 및 Site Recovery에서 장애 조치 작업은 사용 합니다. </br> 추가 구성은 필요하지 않습니다.
 
 
 ## <a name="security"></a>보안
+
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>복제 데이터가 Site Recovery 서비스로 전송되나요?
-아니요, Site Recovery는 복제된 데이터를 가로채지 않으며 가상 머신에서 실행되는 항목에 대한 정보가 없습니다. 복제 오케스트레이션 및 장애 조치(failover)에 필요한 메타데이터만 Site Recovery 서비스로 전송됩니다.  
+아니요, Site Recovery는 복제 된 데이터를 가로채지 하 고 Vm에서 실행 되는 대상에 대 한 정보를 갖지 않습니다. 복제 오케스트레이션 및 장애 조치(failover)에 필요한 메타데이터만 Site Recovery 서비스로 전송됩니다.  
 Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 및 FedRAMP JAB 평가를 수행하는 중입니다.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery는 복제를 암호화합니까?
-예, 전송 중 암호화 및 [Azure의 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)가 모두 지원됩니다.
+예, 두 암호화 정지 하 고 [미사용 암호화 Azure에서](https://docs.microsoft.com/azure/storage/storage-service-encryption) 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 지원 요구 사항을 [검토](azure-to-azure-support-matrix.md)합니다.
 * Azure 간 복제를[설정](azure-to-azure-tutorial-enable-replication.md)합니다.
+- 이 문서를 읽은 후 질문이 있으면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.

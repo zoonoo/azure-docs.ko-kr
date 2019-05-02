@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 388723624fde73899809b95ff8ae4ee23cf49a9d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535899"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705093"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
 

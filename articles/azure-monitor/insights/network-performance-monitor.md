@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: 29826f7f842f8dfbd7cd2a754c919f06542a161c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401941"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916754"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -263,8 +263,8 @@ Azure portal 통해 경고를 만드는 NPM 사용자 인 경우:
 3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
-경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 트리거되는이 쿼리는 기본적으로 5 분 마다입니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 따라 요금을 부과합니다.
-알림은 [Azure Monitor 가격 책정 페이지의 알림 가격](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 따라 별도로 청구됩니다.
+경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 트리거되는이 쿼리는 기본적으로 5 분 마다입니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 요금을 부과합니다.
+알림은 [Azure Monitor 가격 책정 페이지의 알림 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 별도로 청구됩니다.
 
 
 ## <a name="pricing"></a>가격

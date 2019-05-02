@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 2966a2733904200f404d67c4e825d6b9deffdea2
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 6de16b7264c7ae7ead06b4e131e7fa46c664cedd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903029"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573344"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용한 Azure Database for MariaDB 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -159,6 +159,23 @@ url = String.format("jdbc:mariadb://%s/%s?useSSL=true&trustServerCertificate=tru
 properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
+```
+
+### <a name="net-mysqlconnector"></a>.NET (MySqlConnector)
+```csharp
+var builder = new MySqlConnectionStringBuilder
+{
+    Server = "mydemoserver.mysql.database.azure.com",
+    UserID = "myadmin@mydemoserver",
+    Password = "yourpassword",
+    Database = "quickstartdb",
+    SslMode = MySqlSslMode.VerifyCA,
+    CACertificateFile = "BaltimoreCyberTrustRoot.crt.pem",
+};
+using (var connection = new MySqlConnection(builder.ConnectionString))
+{
+    connection.Open();
+}
 ```
 
 <!-- 

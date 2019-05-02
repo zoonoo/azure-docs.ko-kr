@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 37c5a97d5f7a872e916f223f2cdfc98bcdec3cad
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: b7962f42b4244121a67b88ef3bf789ce40f7b1e5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258431"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719628"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
+
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 
 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 인증에 액세스하고 Azure Media Services API에 액세스하는 방법을 알아봅니다.
 

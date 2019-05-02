@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119767"
 ---
 1. Android Studio에서 프로젝트를 엽니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "52440318"
     이 코드는 Google 인증 프로세스를 처리하는 메서드를 만듭니다. 대화 상자는 인증된 사용자의 ID를 표시합니다. 성공적으로 인증을 진행할 수 있습니다.
 
     > [!NOTE]
-    > Google 이외의 ID 공급자를 사용하는 경우 **login** 메서드에 전달된 값을 _MicrosoftAccount_, _Facebook_, _Twitter_ 또는 _windowsazureactivedirectory_ 중 하나의 값으로 변경합니다.
+    > Google 이외의 id 공급자를 사용 하는 경우 전달 되는 값을 변경 합니다 **로그인** 메서드를 다음 값 중 하나: _MicrosoftAccount_하십시오 _Facebook_, _Twitter_, 또는 _windowsazureactivedirectory_합니다.
 
 4. **OnCreate** 메서드에서 `MobileServiceClient` 개체를 인스턴스화하는 코드 다음에 다음 코드 줄을 추가합니다.
 

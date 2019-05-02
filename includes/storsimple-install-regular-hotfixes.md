@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 8cc5dbb907c342b766cebe6da36cf580ddac5e2c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61410022"
 ---
 #### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 정기적인 핫픽스를 설치하려면
 1. 디바이스 직렬 콘솔에 연결합니다. 자세한 내용은 [1단계: 직렬 콘솔에 연결](../articles/storsimple/storsimple-update-device.md#step1)을 참조하세요.

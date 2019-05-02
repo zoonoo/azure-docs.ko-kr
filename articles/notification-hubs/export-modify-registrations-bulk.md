@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490846"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575307"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>내보내기 및 Azure Notification Hubs 등록을 대량 가져오기
 생성 또는 많은 수의 알림 허브에서 등록을 수정할 필요는 시나리오가 있습니다. 이러한 시나리오 중 일부는 일괄 처리 계산 후 또는 기존 푸시 구현을 Notification Hubs를 사용 하 여 마이그레이션 태그 업데이트입니다.
@@ -34,7 +34,7 @@ ms.locfileid: "59490846"
 
 - 프로 비전 된 알림 허브입니다.
 - Azure Storage blob 컨테이너입니다.
-- 에 대 한 참조를 [Azure Storage NuGet 패키지가](https://www.nuget.org/packages/windowsazure.storage/) 하 고 [Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9)합니다.
+- 에 대 한 참조를 [Azure Storage NuGet 패키지가](https://www.nuget.org/packages/windowsazure.storage/) 하 고 [Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)합니다.
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>입력된 파일을 만들고 blob에 저장
 입력된 파일을 행당 하나씩 XML로 직렬화 된 등록의 목록을 포함 합니다. Azure SDK를 사용 하 여, 다음 코드 예제에서는 등록을 직렬화 하 고 blob 컨테이너에 업로드 하는 방법을 보여 줍니다.

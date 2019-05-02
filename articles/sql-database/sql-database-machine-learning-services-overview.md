@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b33561ad80207a5d649ac1fd497c9d6c7add78c6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997481"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723977"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>R (미리 보기)를 사용 하 여 azure SQL Database Machine Learning 서비스
 
@@ -69,6 +69,6 @@ R 사용 하 여 machine Learning Services 공개 미리 보기 동안에 프로
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL Server Machine Learning Services와의 주요 차이](sql-database-machine-learning-services-differences.md)를 참조하세요.
-- Azure SQL Database에서 Machine Learning Services(R 포함)를 사용하는 방법을 알아보려면 [빠른 시작 가이드](sql-database-connect-query-r.md)를 참조하세요.
-- 자세한 내용은 [SQL Server R 언어 자습서](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)를 참조하세요.
+- 참조 된 [SQL Server Machine Learning Services의 주요](sql-database-machine-learning-services-differences.md)합니다.
+- Azure SQL Database Machine Learning 서비스 (미리 보기) 쿼리를 R을 사용 하는 방법에 알아보려면 참조를 [빠른 시작 가이드](sql-database-connect-query-r.md)합니다.
+- 시작 하기 위한 몇 가지 간단한 R 스크립트를 참조 하세요 [만들기 및 Azure SQL Database Machine Learning 서비스 (미리 보기)에서 간단한 R 스크립트 실행된](sql-database-quickstart-r-create-script.md)합니다.

@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
 ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024895"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn을 위한 저장소 계정 구성
 
@@ -35,7 +35,7 @@ AWS 단순 저장소 서비스(S3) 버킷이 없는 경우 만들어야 합니�
 
 Cloudyn에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 저장소 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1.  [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 2. **모든 서비스**를 선택하고 **저장소 계정**을 선택한 후 사용하려는 저장소 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
 3. 저장소 계정 페이지의 **설정** 아래에서 **액세스 키**를 클릭합니다.
 4. **저장소 계정 이름** 및 **연결 문자열**을 key1 아래에 복사합니다.  

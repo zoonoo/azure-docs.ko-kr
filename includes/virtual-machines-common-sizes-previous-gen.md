@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: da1328ba826ce940115bc45ffc8d6f417eeda798
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59550141"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744391"
 ---
 이 섹션에서는 이전 세대의 가상 머신 크기에 정보를 제공합니다. 이러한 크기를 계속 사용할 수 있지만 새로운 세대도 사용 가능합니다. 
 

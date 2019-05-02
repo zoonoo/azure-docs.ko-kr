@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466774"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709884"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -165,26 +165,7 @@ az aks create \
     --client-secret <password>
 ```
 
-## <a name="associate-network-resources-with-the-node-subnet"></a>노드 서브넷으로 네트워크 리소스 연결
-
-AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이 생성됩니다. 이러한 네트워크 리소스는 AKS 제어 평면에서 관리되고, 사용자가 서비스를 만들고 공개할 때 업데이트됩니다. 다음과 같이 여 네트워크 보안 그룹 및 경로 테이블을 가상 네트워크 서브넷에 연결합니다.
-
-```azurecli-interactive
-# Get the MC_ resource group for the AKS cluster resources
-MC_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-
-# Get the route table for the cluster
-ROUTE_TABLE=$(az network route-table list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Get the network security group
-NODE_NSG=$(az network nsg list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Update the subnet to associate the route table and network security group
-az network vnet subnet update \
-    --route-table $ROUTE_TABLE \
-    --network-security-group $NODE_NSG \
-    --ids $SUBNET_ID
-```
+AKS 클러스터를 만들면 네트워크 보안 그룹 및 경로 테이블이 생성됩니다. 이러한 네트워크 리소스는 AKS 제어 평면으로 관리 됩니다. 네트워크 보안 그룹 노드에서 가상 Nic와 사용 하 여 자동 연결 됩니다. 경로 테이블은 자동으로 가상 네트워크 서브넷에 연결 합니다. 네트워크 보안 그룹 규칙 및 경로 테이블은 자동으로 업데이트를 만들고 서비스를 공개 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

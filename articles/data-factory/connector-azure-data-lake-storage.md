@@ -8,24 +8,29 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: aba469081bf1f1aa265a55ffbd683ba19bc41b6e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1b60236d0c83cca75a8a0f826835f9bec8b4b85f
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263335"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876800"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
-Azure Data Lake Storage Gen2는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)를 기반으로 하는 빅 데이터 분석 전용의 기능 세트입니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
+Azure Data Lake 저장소 Gen2 (ADLS Gen2)에 기본 제공 되는 빅 데이터 분석, 전용 기능 집합이 [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)합니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
 
-이 아티클에서는 Azure Data Factory의 복사 작업을 사용하여 ata Lake Storage Gen2 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Lake 저장소 Gen2 간에 데이터를 복사 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-지원되는 모든 원본 데이터 저장소의 데이터를 Data Lake Storage Gen2에 복사할 수 있습니다. 또한 Data Lake Storage Gen2의 데이터를 지원되는 모든 싱크 데이터 저장소에 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md) 표를 참조하세요.
+이 Azure Data Lake 저장소 Gen2 커넥터는 다음 작업에 대 한 지원 됩니다.
+
+- [복사 활동](copy-activity-overview.md) 사용 하 여 [원본/싱크 매트릭스를 지원 합니다.](copy-activity-overview.md)
+- [데이터 흐름 매핑](concepts-data-flow-overview.md)
+- [조회 작업](control-flow-lookup-activity.md)
+- [GetMetadata 작업](control-flow-get-metadata-activity.md)
 
 특히 이 커넥터는 다음을 지원합니다.
 
@@ -62,7 +67,7 @@ Azure Data Lake Storage Gen2 커넥터에서 지원하는 인증 유형은 다�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **AzureBlobFS**로 설정되어야 합니다. |예 |
-| URL | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 | 
+| url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
 | accountKey | Data Lake Storage Gen2 서비스의 계정 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
@@ -114,7 +119,7 @@ Azure Data Lake Storage Gen2 커넥터에서 지원하는 인증 유형은 다�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **AzureBlobFS**로 설정되어야 합니다. |예 |
-| URL | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 | 
+| url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
@@ -146,7 +151,7 @@ Azure Data Lake Storage Gen2 커넥터에서 지원하는 인증 유형은 다�
 
 ### <a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
 
-특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. 고유한 서비스 주체를 사용 하 여 Blob 저장소 인증에 대 한 직접 관리 되는이 id를 사용할 수 있습니다. 이렇게 하면 이 지정된 팩터리에서 Blob Storage 간에 데이터에 액세스하고 복사할 수 있습니다.
+특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. 고유한 서비스 주체를 사용 하 여 ADLS Gen2 인증에 대 한 직접 관리 되는이 id를 사용할 수 있습니다. 이 지정 된 팩터리에 ADLS Gen2에서 /로 데이터를 액세스 및 복사를 허용합니다.
 
 Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 따릅니다.
 
@@ -168,7 +173,7 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **AzureBlobFS**로 설정되어야 합니다. |예 |
-| URL | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 | 
+| url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 **예제:**
@@ -191,7 +196,55 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. Azure Data Lake Storage 데이터 세트에 다음 속성이 지원됩니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
+
+- 에 대 한 **Parquet 및 구분 기호로 분리 된 텍스트 형식**를 참조 하세요 [Parquet 및 구분 기호로 분리 된 텍스트 데이터 집합 형식](#parquet-and-delimited-text-format-dataset) 섹션입니다.
+- 와 같은 다른 형식에 대 한 **ORC/Avro/JSON/이진 파일 형식**를 참조 [다른 형식으로 데이터 집합을](#other-format-dataset) 섹션입니다.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet 및 구분 기호로 분리 된 텍스트 데이터 집합 형식
+
+ADLS Gen2에서 데이터를 복사 하 **Parquet 또는 구분 기호로 분리 된 텍스트 형식**, 참조 [Parquet 형식](format-parquet.md) 하 고 [구분 기호로 분리 된 텍스트 형식으로](format-delimited-text.md) 형식 기반의 데이터 집합에 대 한 문서 및 지원 되는 설정입니다. 다음 속성에서 ADLS Gen2 지 `location` 형식 기반의 데이터 집합의 설정:
+
+| 자산   | 설명                                                  | 필수 |
+| ---------- | ------------------------------------------------------------ | -------- |
+| 형식       | Type 속성은 아래 `location` 데이터 집합에서으로 설정 되어 있어야 **AzureBlobFSLocation**합니다. | 예      |
+| fileSystem | ADLS Gen2 파일 시스템 이름입니다.                              | 아닙니다.       |
+| folderPath | 지정된 된 파일 시스템에서 폴더 경로입니다. 와일드 카드 필터 폴더로 사용 하려는 경우이 설정은 건너뛰고 활동 원본 설정에서 지정 합니다. | 아닙니다.       |
+| fileName   | 지정 된 파일 시스템 + folderPath 아래에 있는 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정은 건너뛰고 활동 원본 설정에서 지정 합니다. | 아닙니다.       |
+
+> [!NOTE]
+> **AzureBlobFSFile** 다음 섹션에 언급 된 Parquet/텍스트 형식 사용 하 여 데이터 집합 형식으로 계속 지원-데이터 흐름 매핑 작동 하지 않습니다 하지만 이전 버전과 호환성에 대 한 복사/조회/GetMetadata 작업입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
+
+**예제:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<ADLS Gen2 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileSystem": "filesystemname",
+                "folderPath": "folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>다른 형식으로 데이터 집합
+
+ADLS Gen2에서 데이터를 복사 하 **ORC/Avro/JSON/이진 형식**, 다음 속성이 지원 됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -210,7 +263,7 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 
 ```json
 {
-    "name": "AzureDataLakeStorageDataset",
+    "name": "ADLSGen2Dataset",
     "properties": {
         "type": "AzureBlobFSFile",
         "linkedServiceName": {
@@ -218,7 +271,7 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
-            "folderPath": "mycontainer/myfolder",
+            "folderPath": "myfilesystem/myfolder",
             "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
@@ -242,23 +295,87 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 
 ### <a name="azure-data-lake-storage-gen2-as-a-source-type"></a>원본 형식인 Azure Data Lake Storage Gen2
 
-복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+- 복사본에 대 한 **Parquet 및 구분 기호로 분리 된 텍스트 형식**를 참조 하세요 [Parquet 및 구분 기호로 분리 된 텍스트 형식으로 원본](#parquet-and-delimited-text-format-source) 섹션.
+- 와 같은 다른 형식에서 복사본에 대 한 **ORC/Avro/JSON/이진 파일 형식**를 참조 [다른 형식으로 원본](#other-format-source) 섹션입니다.
 
-| 자산 | 설명 | 필수 |
-|:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **AzureBlobFSSource**로 설정해야 합니다. |예 |
-| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다. |
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet 및 구분 기호로 분리 된 텍스트 형식으로 원본
+
+ADLS Gen2에서 데이터를 복사 **Parquet 또는 구분 기호로 분리 된 텍스트 형식**를 참조 [Parquet 형식](format-parquet.md) 및 [구분 기호로 분리 된 텍스트 형식으로](format-delimited-text.md) 형식 기반의 복사 활동 원본에 대 한 문서 및 지원 되는 설정입니다. ADLS Gen2 아래에서 다음 속성이 지원 됩니다 `storeSettings` 형식 기반의 복사 원본에 설정 합니다.
+
+| 자산                 | 설명                                                  | 필수                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| 형식                     | 아래에 있는 type 속성은 `storeSettings` 으로 설정 되어 있어야 **AzureBlobFSReadSetting**합니다. | 예                                           |
+| recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다.                                            |
+| wildcardFolderPath       | 지정된 된 파일 시스템 필터 원본 폴더에 데이터 집합의 구성에서 와일드 카드 문자를 사용 하 여 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아닙니다.                                            |
+| wildcardFileName         | 지정 된 파일 시스템 + folderPath/wildcardFolderPath 필터 원본 파일에서 와일드 카드 문자를 사용 하 여 파일 이름입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 경우에 예 `fileName` 데이터 집합에 지정 되지 않은 |
+| modifiedDatetimeStart    | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다. | 아닙니다.                                            |
+| modifiedDatetimeEnd      | 위와 동일합니다.                                               | 아닙니다.                                            |
+| maxConcurrentConnections | Storage 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다.                                            |
+
+> [!NOTE]
+> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **AzureBlobFSSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성을 위해서입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
 
 **예제:**
 
 ```json
 "activities":[
     {
-        "name": "CopyFromAzureDataLakeStorage",
+        "name": "CopyFromADLSGen2",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure Data Lake Storage input dataset name>",
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureBlobFSReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>다른 형식으로 원본
+
+ADLS Gen2에서 데이터를 복사할 **ORC/Avro/JSON/이진 파일 형식**를 복사 작업에서 다음 속성이 지원 됩니다 **원본** 섹션:
+
+| 자산 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 복사 작업 원본의 형식 속성을 **AzureBlobFSSource**로 설정해야 합니다. |예 |
+| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다. |
+| maxConcurrentConnections | 데이터 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다. |
+
+**예제:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromADLSGen2",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ADLS Gen2 input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -283,19 +400,28 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 
 ### <a name="azure-data-lake-storage-gen2-as-a-sink-type"></a>싱크 형식인 Azure Data Lake Storage Gen2
 
-복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
+- 복사에 대 한 **Parquet 및 구분 기호로 분리 된 텍스트 형식**를 참조 [Parquet 및 구분 기호로 분리 된 텍스트 형식 싱크](#parquet-and-delimited-text-format-sink) 섹션입니다.
+- 와 같은 다른 형식으로 복사 **ORC/Avro/JSON/이진 파일 형식**, 참조 [다른 형식 싱크](#other-format-sink) 섹션입니다.
 
-| 자산 | 설명 | 필수 |
-|:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 형식 속성은 **AzureBlobFSSink**로 설정해야 합니다. |예 |
-| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 아닙니다. |
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet 및 구분 기호로 분리 된 텍스트 형식 싱크
+
+ADLS Gen2로 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 텍스트 형식**, 참조 [Parquet 형식](format-parquet.md) 및 [구분 기호로 분리 된 텍스트 형식으로](format-delimited-text.md) 형식 기반의 복사 활동 sink에 대 한 문서 및 지원 되는 설정입니다. ADLS Gen2 아래에서 다음 속성이 지원 됩니다 `storeSettings` 형식 기반 복사 싱크를 설정 합니다.
+
+| 자산                 | 설명                                                  | 필수 |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| 형식                     | 아래에 있는 type 속성은 `storeSettings` 으로 설정 되어 있어야 **AzureBlobFSWriteSetting**합니다. | 예      |
+| copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 아닙니다.       |
+| maxConcurrentConnections | 데이터 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다.       |
+
+> [!NOTE]
+> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **AzureBlobFSSink** 으로 다음 섹션에 언급 된 형식 복사 활동 sink는 계속 지원-이전 버전과 호환성을 위해서입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
 
 **예제:**
 
 ```json
 "activities":[
     {
-        "name": "CopyToAzureDataLakeStorage",
+        "name": "CopyToADLSGen2",
         "type": "Copy",
         "inputs": [
             {
@@ -305,7 +431,52 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
         ],
         "outputs": [
             {
-                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureBlobFSWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>다른 형식 싱크
+
+ADLS Gen2로 데이터를 복사할 **ORC/Avro/JSON/이진 파일 형식**에서 다음 속성이 지원 됩니다 합니다 **싱크** 섹션:
+
+| 자산 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 복사 작업 싱크의 형식 속성은 **AzureBlobFSSink**로 설정해야 합니다. |예 |
+| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 아닙니다. |
+| maxConcurrentConnections | 데이터 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다. |
+
+**예제:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToADLSGen2",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<ADLS Gen2 output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -345,6 +516,10 @@ Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 �
 | false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Folder1 대상 폴더가 다음 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Folder1 대상 폴더가 다음 구조로 만들어집니다. <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1에 대해 자동 생성된 이름<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Folder1 대상 폴더가 다음과 같은 구조로 만들어집니다.<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1과 File2의 내용이 자동 생성된 파일 이름이 있는 하나의 파일로 병합됩니다. File1에 대해 자동 생성된 이름<br/><br/>File3, File4, File5를 포함한 Subfolder1은 선택되지 않습니다. |
+
+## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
+
+자세한 내용은 [소스 변환](data-flow-source.md) 하 고 [변환 싱크](data-flow-sink.md) 매핑 데이터 흐름에서.
 
 ## <a name="next-steps"></a>다음 단계
 

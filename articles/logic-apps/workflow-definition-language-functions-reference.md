@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e69d43b8bec7945c5aa1b394ce7402338f6fbbfb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693258"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure Logic Apps 및 Microsoft Flow 워크플로 정의 언어에 대 한 함수 참조
 
@@ -1344,7 +1344,7 @@ dataUri('hello')
 
 데이터 URI(Uniform Resource Identifier)에 대한 이진 버전을 반환합니다.
 [decodeDataUri()](#decodeDataUri) 대신에 이 함수를 사용합니다.
-두 함수 모두 같은 방법으로 작동하지만 `decodeDataUri()`를 사용하는 것이 좋습니다.
+두 함수 모두 같은 방법으로 작동하지만 `dataUriBinary()`를 사용하는 것이 좋습니다.
 
 ```
 dataUriToBinary('<value>')
@@ -2860,7 +2860,7 @@ or(equals(1, 2), equals(1, 3))
 
 <a name="parameters"></a>
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
 워크플로 정의에서 설명 하는 매개 변수의 값을 반환 합니다.
 
@@ -3251,7 +3251,7 @@ startsWith('hello world', 'greetings')
 
 <a name="string"></a>
 
-### <a name="string"></a>string
+### <a name="string"></a>문자열
 
 값에 대한 문자열 버전을 반환합니다.
 

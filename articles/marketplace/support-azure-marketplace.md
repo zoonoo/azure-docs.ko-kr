@@ -2,24 +2,18 @@
 title: Azure Marketplace 및 AppSource 지원 | Azure
 description: Azure Marketplace 및 AppSource에 대한 지원 정보 및 링크
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791823"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937694"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace에 대한 지원  
 다음은 Marketplace에 대한 지원 옵션 목록입니다.  

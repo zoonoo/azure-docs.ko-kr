@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines에 사용되는 Azure 보안 기능 | Microsoft Docs
+title: Azure virtual machines-사용 되는 보안 기능 Azure 보안 | Microsoft Docs
 description: 이 문서에서는 Azure Virtual Machines에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444251"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872024"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
+이 문서에서는 가상 머신과 함께 사용할 수 있는 Azure 보안 기능의 핵심의 개요를 제공 합니다.
 
 Azure Virtual Machines를 사용하여 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. 이 서비스는 Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services를 지원합니다. 따라서 거의 모든 운영 체제에 모든 워크로드와 언어를 배포할 수 있습니다.
 
@@ -33,9 +34,7 @@ Azure를 사용하여 다음과 같은 보안이 강화된 규정 준수 솔루�
 * 중요한 데이터 암호화.
 * 네트워크 트래픽 보안.
 * 위협 식별 및 감지.
-* 규정 준수 요구 사항 충족.
-
-이 문서의 목표는 가상 머신과 함께 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공하는 것입니다. 문서 링크는 각 기능에 대해 자세히 알아볼 수 있도록 세부 정보를 제공합니다.  
+* 규정 준수 요구 사항 충족.  
 
 ## <a name="antimalware"></a>맬웨어 방지
 
@@ -77,20 +76,20 @@ Azure용 Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 �
 * [관리 및 API](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-자세한 정보: 
+자세한 정보:
 
 * [WDATP 시작](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [WDATP 기능의 개요](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
-키 보안을 개선하여 암호화 및 인증 보호를 강화할 수 있습니다. 중요한 키와 암호 정보를 Azure Key Vault에 보관함으로써 관리와 보안을 단순화할 수 있습니다. 
+키 보안을 개선하여 암호화 및 인증 보호를 강화할 수 있습니다. 중요한 키와 암호 정보를 Azure Key Vault에 보관함으로써 관리와 보안을 단순화할 수 있습니다.
 
 주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 애플리케이션의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
 
 자세한 정보:
 
-* [Azure 키 자격 증명 모음이란?](../key-vault/key-vault-overview.md)
+* [Azure Key Vault란?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault 블로그](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>가상 머신 디스크 암호화
@@ -133,7 +132,7 @@ Site Recovery:
 
 ## <a name="virtual-networking"></a>가상 네트워킹
 
-가상 머신은 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 머신을 Azure 가상 네트워크에 연결해야 합니다. 
+가상 머신은 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 머신을 Azure 가상 네트워크에 연결해야 합니다.
 
 Azure 가상 네트워크는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 각 논리적 Azure 가상 네트워크는 다른 모든 Azure 가상 네트워크와 격리됩니다. 이 격리를 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
 
@@ -169,14 +168,13 @@ Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 
 ## <a name="confidential-computing"></a>기밀 컴퓨팅
 
-기밀 컴퓨팅은 기술적으로 가상 머신 보안의 일부가 아니지만 가상 머신 보안의 항목은 "계산" 보안의 더 높은 수준의 주제에 속합니다. 기밀 컴퓨팅은 "계산" 보안의 범주 내에 속합니다. 
+기밀 컴퓨팅은 기술적으로 가상 머신 보안의 일부가 아니지만 가상 머신 보안의 항목은 "계산" 보안의 더 높은 수준의 주제에 속합니다. 기밀 컴퓨팅은 "계산" 보안의 범주 내에 속합니다.
 
 기밀 컴퓨팅은 데이터가 효율적인 처리에 필요한 “해제 상태”에 있는 경우 데이터가 TEE(Trusted Execution Environment https://en.wikipedia.org/wiki/Trusted_execution_environment - enclave라고도 알려짐) 내에서 보호되도록 합니다. 예제는 아래 그림에 나와 있습니다.  
 
-TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업을 볼 수 있는 방법이 없도록 합니다. 권한 있는 코드만 데이터에 액세스할 수 있도록 합니다. 코드가 변경되거나 변조되는 경우 작업이 거부되고 환경이 비활성화됩니다. TEE는 코드를 실행하는 동안 이러한 보호를 적용합니다. 
+TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업을 볼 수 있는 방법이 없도록 합니다. 권한 있는 코드만 데이터에 액세스할 수 있도록 합니다. 코드가 변경되거나 변조되는 경우 작업이 거부되고 환경이 비활성화됩니다. TEE는 코드를 실행하는 동안 이러한 보호를 적용합니다.
 
 자세한 정보:
 
 * [Azure 기밀 컴퓨팅 소개](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure 기밀 컴퓨팅](https://azure.microsoft.com/blog/azure-confidential-computing/)  
-

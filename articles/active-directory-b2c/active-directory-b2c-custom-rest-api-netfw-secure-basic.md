@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 HTTP 기본 인증을 사용하여 RESTf
 description: HTTP 기본 인증을 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 07865b2120aa91381d3711688e1a5c8e3187fab3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793384"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694657"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 

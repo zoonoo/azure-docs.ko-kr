@@ -3,19 +3,19 @@ title: Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 QQ 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 38e17308f7aab5b28509d7a3509be0de844ee94f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6eba804fc96a91d17644c903e1462c31c0fc9149
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316122"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704172"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 

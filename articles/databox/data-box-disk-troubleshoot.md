@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453340"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939631"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk에서 문제 해결
 
@@ -54,12 +54,12 @@ ms.locfileid: "57453340"
 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링합니다. 활동 로그를 통해 다음 사항을 확인할 수 있습니다.
 
 - 구독의 리소스에서 수행된 작업
-- 작업을 시작한 사람입니다. 
+- 작업을 시작한 사람입니다.
 - 작업이 발생한 시간
 - 작업의 상태.
 - 작업을 조사하는 데 도움이 될 수 있는 기타 속성 값
 
-활동 로그에는 리소스에서 수행된 모든 쓰기 작업(예: PUT, POST, DELETE)이 포함되지만 읽기 작업(예: GET)은 포함되지 않습니다. 
+활동 로그에는 리소스에서 수행된 모든 쓰기 작업(예: PUT, POST, DELETE)이 포함되지만 읽기 작업(예: GET)은 포함되지 않습니다.
 
 활동 로그는 90일 동안 유지됩니다. 시작 날짜가 90보다 더 오래되지 않은 경우 날짜 범위에 대해 쿼리할 수 있습니다. 인사이트에서 기본 제공 쿼리 중 하나로 필터링할 수도 있습니다. 예를 들어 오류를 클릭한 다음, 특정 오류를 선택하고 클릭하여 근본 원인을 이해합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "57453340"
 
 |오류 메시지/경고  |권장 사항 |
 |---------|---------|
-|[정보] 볼륨: m에 대한 BitLocker 암호 검색 중 <br>[오류] 볼륨: m에 대한 BitLocker 키를 검색하는 동안 예외가 발생함<br> 시퀀스에 요소가 없습니다.|이 오류는 대상 Data Box Disk가 오프라인인 경우 발생합니다. <br> 온라인 디스크에 `diskmgmt.msc` 도구를 사용합니다.|
+|[정보] 볼륨에 대 한 BitLocker 암호를 검색 합니다: m <br>[오류] M: 볼륨에 대 한 BitLocker 키를 검색 하는 동안 예외가 발생 했습니다.<br> 시퀀스에 요소가 없습니다.|이 오류는 대상 Data Box Disk가 오프라인인 경우 발생합니다. <br> 온라인 디스크에 `diskmgmt.msc` 도구를 사용합니다.|
 |[오류] 예외를 throw함: WMI 작업이 실패했습니다.<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=제공된 복구 암호의 형식이 잘못되었습니다. <br>BitLocker 복구 암호는 48자릿수입니다. <br>복구 암호 형식이 올바른지 확인하고 다시 시도하십시오.|Data Box Disk 잠금 해제 도구를 사용하여 먼저 디스크 잠금을 해제하고 명령을 다시 시도합니다. 자세한 내용은 다음을 참조하세요. <li> [Windows 클라이언트에 대한 Data Box Disk 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) </li><li> [Linux 클라이언트에 대한 Data Box Disk 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client) </li>|
 |[오류] 예외를 throw함: 대상 드라이이브에 DriveManifest.xml 파일이 존재합니다. <br> 이는 다른 저널 파일을 사용하여 대상 드라이브가 준비되었을 수 있음을 나타냅니다. <br>동일한 드라이브에 데이터를 더 추가하려면 이전 저널 파일을 사용합니다. 기존 데이터를 삭제하고 새 가져오기 작업의 대상 드라이브를 다시 사용하려면 드라이브에서 DriveManifest.xml을 삭제합니다. 이 명령을 새 저널 파일을 사용하여 다시 실행합니다.| 이 오류는 다수의 가져오기 세션에 대해 동일한 드라이브 집합을 사용하려고 할 때 수신됩니다. <br> 하나의 드라이브 집합은 하나의 분할 및 복사 세션에만 사용하십시오.|
 |[오류] 예외를 throw함: CopySessionId importdata-sept-test-1은 이전 복사 세션을 참조하며 새 복사 세션에 재사용 할 수 없습니다.|이 오류는 새 작업에 대해 이전에 성공적으로 완료된 직업과 동일한 작업 이름을 사용하려고 시도하면 보고됩니다.<br> 새 작업에 대해 고유한 이름을 제공하십시오.|
@@ -96,7 +96,7 @@ ms.locfileid: "57453340"
 
 정리되지 않은 파일 시스템 때문일 수 있습니다. 
 
-Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없습니다. 이 시나리오는 dislocker으로 암호 해독한 드라이브에서 지원되지 않습니다. 다음 명령을 사용하여 디바이스를 다시 탑재했을 수 있습니다. 
+Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없습니다. 이 시나리오는 dislocker으로 암호 해독한 드라이브에서 지원되지 않습니다. 다음 명령을 사용하여 디바이스를 다시 탑재했을 수 있습니다.
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Data Box Disk에서는 드라이브를 읽기-쓰기로 다시 탑재할 수 없
 
 **해결 방법**
 
-위의 오류가 표시되면 다음 해결 방법 중 하나를 시도할 수 있습니다.
+Linux 시스템에서 다음 단계를 수행 합니다.
 
-- [`ntfsfix`](https://linux.die.net/man/8/ntfsfix)(`ntfsprogs` 패키지에서 사용할 수 있음)를 설치하고 관련 파티션에 대해 실행합니다.
+1. 설치 된 `ntfsprogs` ntfsfix 유틸리티에 대 한 패키지 있습니다.
+2. 드라이브 잠금 해제 도구에서 제공 하 고 탑재 지점을 분리 합니다. 드라이브에 대 한 탑재 지점 수가 달라 집니다.
 
-- Windows 시스템에 액세스할 수 있는 경우
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Windows 시스템에 드라이브를 로드합니다.
-    - 관리자 권한으로 명령 프롬프트를 엽니다. 볼륨에 대해 `chkdsk`를 실행합니다.
-    - 볼륨을 제거한 후 다시 시도해도 됩니다.
+3. 실행 `ntfsfix` 해당 경로에 있습니다. 강조 표시 된 수는 2 단계와 동일 해야 합니다.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. 탑재 문제를 일으킬 수 있는 최대 절전 모드 메타 데이터를 제거 하려면 다음 명령을 실행 합니다.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. 새로 분리를 수행 합니다.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. 정리를 잠금 해제를 수행 하 고 탑재 합니다.
+7. 탑재 지점 파일을 작성 하 여 테스트 합니다.
+8. 탑재 해제 하 고 유효성을 검사할 파일 지 속성이 다시 탑재 합니다.
+9. 데이터 복사를 사용 하 여 계속 합니다.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>문제: 복사 후 데이터가 유지되지 않는 오류 발생
  

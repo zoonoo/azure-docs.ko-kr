@@ -9,11 +9,11 @@ ms.date: 10/19/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 61990e785741799fcbcd4e6df965953bd9944f4d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476238"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473939"
 ---
 ## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Azure Portal을 사용하여 다른 구독으로 VM 이동
 Azure Portal을 사용하여 VM 및 관련 리소스를 다른 구독으로 이동할 수 있습니다.

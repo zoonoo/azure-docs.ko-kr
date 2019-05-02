@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 3b7b821227478d8c6b5859f24c50407f9eb213fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312345"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681552"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념 
+
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 
 이 항목에서는 가장 중요한 Media Services 개념에 대한 개요를 제공합니다.
 

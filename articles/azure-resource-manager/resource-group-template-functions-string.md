@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782925"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -768,7 +768,7 @@ base64 표현을 문자열로 변환합니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| formatTest | 문자열 | Hello, 사용자입니다. 서식이 지정 된 수: 8,175,133 |
+| formatTest | String | Hello, 사용자입니다. 서식이 지정 된 수: 8,175,133 |
 
 ## <a name="guid"></a>GUID
 
@@ -1123,7 +1123,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1166,7 +1166,7 @@ NewGuid 함수에서 다른 합니다 [guid](#guid) 매개 변수를 사용 하�
 
 출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -1953,9 +1953,9 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2008,9 +2008,9 @@ URI로 인코딩된 값의 문자열입니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2063,9 +2063,9 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2134,7 +2134,7 @@ UtcNow 함수에 대 한 기본값을 사용 하는 템플릿을 다시 배포 �
 
 출력 앞의 예제에서 각 배포에 대 한 다르지만 비슷합니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | utcOutput | 문자열 | 20190305T175318Z |
 | utcShortOutput | 문자열 | 03/05/2019 |

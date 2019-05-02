@@ -7,18 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 86b9609d5141798be40f53aab8b18897484bbef8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467581"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920175"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Kubernetes 서비스를 사용 하 여 Azure Active Directory 통합
 
 사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 할 수 있습니다. 클러스터 운영자는 사용자의 id 또는 directory 그룹 멤버 자격에 따라 Kubernetes 역할 기반 액세스 제어 (RBAC)를 구성할 수도 있습니다.
 
 이 문서에서는 필요한 만드는 방법을 보여 줍니다. 그런 다음 Azure AD 지원 클러스터 배포 및 AKS 클러스터에서 기본 RBAC 역할을 만드는 Azure AD 구성 요소입니다. 할 수도 있습니다 [Azure portal을 사용 하 여 이러한 단계를 완료할][azure-ad-portal]합니다.
+
+이 문서에 사용 되는 전체 샘플 스크립트를 참조 하세요 [Azure CLI 샘플-Azure AD 사용 하 여 AKS 통합][complete-script]합니다.
 
 다음 제한 사항이 적용됩니다.
 
@@ -78,7 +80,6 @@ Azure AD에는 다음 작업을 수행할 수 있는 권한이 필요 합니다.
 
 * 디렉터리 데이터 읽기
 * 로그인 및 사용자 프로필 읽기
-* 디렉터리 데이터 읽기
 
 사용 하 여 이러한 사용 권한을 할당 합니다 [az ad app 사용 권한 추가] [ az-ad-app-permission-add] 명령:
 

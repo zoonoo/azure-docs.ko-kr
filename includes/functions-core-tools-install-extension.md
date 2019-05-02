@@ -2,33 +2,48 @@
 title: 포함 파일
 description: 포함 파일
 services: functions
-author: ggailey777
+author: craigshoemaker
 ms.service: functions
 ms.topic: include
-ms.date: 09/21/2018
-ms.author: glenga
+ms.date: 09/25/2018
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044512"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733263"
 ---
-함수를 로컬로 개발하는 경우, 터미널 또는 명령 프롬프트에서 Azure Functions 핵심 도구를 사용하여 필요한 확장을 설치할 수 있습니다.
+확장 번들의 설정을 통해 사용할 수 있는 Azure Functions 팀에서 게시 하는 모든 바인딩을 확인 합니다 *host.json* 파일입니다. 로컬 개발에 대 한 최신 버전의 했는지를 확인 [Azure Functions 핵심 도구](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)합니다.
 
-함수에 필요한 모든 바인딩을 포함하도록 *function.json* 파일을 업데이트한 후에 프로젝트 폴더에서 다음 명령을 실행합니다.
+확장 번들을 사용 하려면 업데이트 된 *host.json* 파일에 대 한 다음 항목을 포함 하도록 `extensionBundle`:
 
-```bash
-func extensions install
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-이 명령은 *function.json* 파일을 읽어 필요한 패키지를 확인하고 설치한 후 확장 프로젝트를 다시 빌드합니다. 현재 버전에서 새 바인딩을 추가하되, 기존 바인딩을 업데이트하지는 않습니다. 새 바인딩을 설치할 때 기존 바인딩을 최신 버전으로 업데이트하려면 `--force` 옵션을 사용합니다.
+- `id` Microsoft Azure Functions 확장 번들에 대 한 네임 스페이스를 참조 하는 속성입니다.
+- `version` 번들의 버전을 참조 합니다.
 
-특정 버전의 패키지를 설치하려고 하거나 *function.json* 파일을 편집하기 전에 패키지를 설치하려는 경우 다음 예제와 같이 패키지 이름에 `func extensions install` 명령을 사용합니다.
+번들 변경에서 패키지로 번들 버전 증가 합니다. 주 버전 변경이 패키지 번들의 주 버전을 이동 하는 경우에 발생 합니다. 합니다 `version` 속성에서 사용 하는 [버전 범위를 지정 하기 위한 간격 표기법](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards)합니다. 함수 런타임에서 항상 버전 범위 또는 간격에 의해 정의 된 최대 허용 버전을 선택 합니다.
 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
+프로젝트에서 확장 번들을 참조 하 되 면 모든 기본 바인딩 함수가 제공 됩니다. 사용할 수 있는 바인딩 합니다 [확장 번들](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) 됩니다.
 
-`<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다.
+|패키지  |Version  |
+|---------|---------|
+|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
+|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
+|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
+|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
+|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
+|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|

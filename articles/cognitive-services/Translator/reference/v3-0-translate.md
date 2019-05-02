@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608438"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722433"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -42,11 +42,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 [지원되는 언어](./v3-0-languages.md)를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <code>translation</code> 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
+    <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <code>translation</code> 범위에 포함된 <a href="./v3-0-languages.md">지원되는 언어</a> 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>카테고리</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 [Custom Translator](../customization.md)로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 이 매개 변수에 Custom Translator 프로젝트의 범주 ID를 추가하여 배포된 사용자 지정 시스템을 사용합니다. 기본값은 <code>general</code>입니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 이 매개 변수에 Custom Translator 프로젝트의 범주 ID를 추가하여 배포된 사용자 지정 시스템을 사용합니다. 기본값은 <code>general</code>입니다.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역에서 욕설을 처리하는 방식을 지정합니다. 가능한 값은 <code>NoAction</code>(기본값), <code>Marked</code> 또는 <code>Deleted</code>입니다. 욕설을 처리하는 방식을 알아보려면 [욕설 처리](#handle-profanity)를 참조하세요.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>번역에서 욕설을 처리하는 방식을 지정합니다. 가능한 값은 <code>NoAction</code>(기본값), <code>Marked</code> 또는 <code>Deleted</code>입니다. 욕설을 처리하는 방식을 알아보려면 <a href="#handle-profanity">욕설 처리</a>를 참조하세요.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역에서 욕설을 표시하는 방식을 지정합니다. 가능한 값은 <code>Asterisk</code>(기본값) 또는 <code>Tag</code>입니다. 욕설을 처리하는 방식을 알아보려면 [욕설 처리](#handle-profanity)를 참조하세요.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>번역에서 욕설을 표시하는 방식을 지정합니다. 가능한 값은 <code>Asterisk</code>(기본값) 또는 <code>Tag</code>입니다. 욕설을 처리하는 방식을 알아보려면 <a href="#handle-profanity">욕설 처리</a>를 참조하세요.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

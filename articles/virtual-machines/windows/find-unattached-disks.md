@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cb52956afe085c076f0a9a7c2d6810f3def32e3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4cd419e06ba44b16d24f36e937002dce5196622
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325785"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726049"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
 

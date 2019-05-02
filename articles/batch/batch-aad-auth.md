@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 4ecee0e4f01da329e44c0f65b2c204520f2da87f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548339"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922437"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -68,7 +68,7 @@ Azure AD를 사용하여 인증하는 첫 번째 단계는 Azure AD 테넌트에
 
 애플리케이션을 등록할 때 애플리케이션에 대한 정보를 Azure AD에 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID(*클라이언트 ID*라고도 함)를 제공합니다. 애플리케이션 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-Batch 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합][aad_integrate]에서 [애플리케이션 추가](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 애플리케이션을 네이티브 애플리케이션으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 실제 엔드포인트일 필요는 없습니다.
+Batch 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합][aad_integrate]에서 [애플리케이션 추가](../active-directory/develop/quickstart-register-app.md) 섹션의 단계를 따릅니다. 애플리케이션을 네이티브 애플리케이션으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 실제 엔드포인트일 필요는 없습니다.
 
 애플리케이션을 등록하면 애플리케이션 ID가 표시됩니다.
 

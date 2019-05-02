@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739233"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -32,7 +32,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 클릭 **사
 
 ![인벤토리 솔루션 등록](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-솔루션을 사용 하도록 설정 하는 경우 Log Analytics 작업 영역 및 Automation 계정 연결에 대 한 특정 지역 에서만 지원 됩니다.
+솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
 
 다음 표에 지원되는 매핑이 나와 있습니다.
 
@@ -82,7 +82,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 클릭 **사
 
 Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 선택합니다. 다음 표에는 이러한 솔루션에서 사용하는 두 가지 저장된 검색이 나와 있습니다.
 
-|name     |Category  |Alias  |
+|이름     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 업데이트        | Updates__MicrosoftDefaultComputerGroup         |

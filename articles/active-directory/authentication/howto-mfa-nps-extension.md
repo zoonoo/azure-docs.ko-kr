@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359231"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570479"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -184,6 +184,8 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다.
 
+이전에 컴퓨터 인증서가 만료 하 고 새 인증서를 생성 된 경우 만료 된 인증서를 삭제 해야 합니다. 만료 된 인증서 문제가 발생할 수 있습니다 NPS 확장을 사용 하 여 시작 필요 합니다.
+
 > [!NOTE]
 > PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
 
@@ -207,7 +209,7 @@ NPS 확장을 사용하여 RADIUS 클라이언트에 대해 MFA를 사용하도�
 
 MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 수행할 작업을 결정할 수 있습니다. *HKLM\Software\Microsoft\AzureMFA* 레지스트리 경로에서 *REQUIRE_USER_MATCH* 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 다음과 같은 단일 구성 옵션이 있습니다.
 
-| 키 | Value | Default |
+| 키 | 값 | Default |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 

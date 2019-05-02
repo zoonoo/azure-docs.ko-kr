@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483560"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939581"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -32,7 +32,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 - **하이브리드 데이터 동기화:** 데이터 동기화를 사용하면 온-프레미스 데이터베이스와 Azure SQL 데이터베이스 간에 데이터를 동기화하여 하이브리드 애플리케이션을 사용하도록 설정할 수 있습니다. 이 기능은 클라우드로 이동하려는 고객에게 표시되고 Azure에 애플리케이션의 일부를 배치할 수 있습니다.
 - **분산 애플리케이션:** 많은 경우에 다른 워크로드를 다른 데이터베이스에 분리하는 것이 좋습니다. 예를 들어 대형 프로덕션 데이터베이스가 있지만 이 데이터에 대한 보고 또는 분석 워크로드를 실행해야 하는 경우 해당 추가 워크로드에 대한 두 번째 데이터베이스를 만드는 데 도움이 됩니다. 이 방법을 사용하면 프로덕션 워크로드에 미치는 영향을 최소화합니다. 데이터 동기화를 사용하여 이러한 두 데이터베이스의 동기화를 유지할 수 있습니다.
-- **글로벌 분산 애플리케이션:** 많은 기업이 여러 지역과 여러 국가에 걸쳐 있습니다. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
+- **글로벌 분산 애플리케이션:** 많은 기업에는 여러 지역 및 여러 국가/지역 범위입니다. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
 
 다음과 같은 시나리오에서 데이터 동기화는 기본 설정된 솔루션이 아닙니다.
 

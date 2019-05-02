@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 4400b466927253e6eb81cf2ec29994d0606beea6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6b407f88196867a8cc969a15811a1157e7fde59a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176704"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922143"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 텍스트 언어 감지
 
@@ -127,7 +127,7 @@ python detect.py
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가 약어는 이 [언어 목록](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)에서 확인하세요.
+국가 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 ```json
 [

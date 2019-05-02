@@ -2,23 +2,19 @@
 title: 인증서 생성 방법
 description: Key Vault에서 인증서를 생성하는 방법입니다.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7eb4d80933e06b9eceb072bee93e2b127cfa9ffe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995533"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727445"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 

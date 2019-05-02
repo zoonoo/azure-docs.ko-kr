@@ -1,25 +1,19 @@
 ---
-title: 클라우드 파트너 포털을 통해 Dynamics 365 for Operations 제품을 만드는 방법 | Microsoft Docs
+title: 클라우드 파트너 포털을 통해 Dynamics 365 for Operations 제품을 만드는 방법
 description: 클라우드 파트너 포털을 통해 Dynamics 365 for Operations 제품을 만드는 방법
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: a9ada25641e2a56beb9083b145a507c8fd41a46f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877330"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935095"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>클라우드 파트너 포털을 통해 Dynamics 365 for Operations 제품을 만드는 방법
 

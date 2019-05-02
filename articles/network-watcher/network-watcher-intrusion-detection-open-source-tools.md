@@ -3,8 +3,8 @@ title: Azure Network Watcher 및 오픈 소스 도구를 사용하여 네트워�
 description: 이 문서에서는 Azure Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색을 수행하는 방법에 대해 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730152"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 

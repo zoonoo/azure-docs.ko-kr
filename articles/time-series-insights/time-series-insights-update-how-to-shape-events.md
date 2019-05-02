@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 344f3a8b1bdfb789251479baffeb4df15bbf2842
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557430"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718369"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
@@ -110,7 +110,7 @@ Time Series Insights 미리 보기에 이벤트를 보내는 방법을 고려해
 
 Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 조인합니다(평면화 후). 테이블에는 **유형** 등의 추가 열이 포함됩니다. 다음 예제에서는 원격 분석 데이터를 [셰이핑](./time-series-insights-send-events.md#json)하는 방법을 보여 줍니다.
 
-| deviceId  | type | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId  | Type | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | 리볼트 시뮬레이터 | 배터리 시스템 | 2018-01-17T01:17:00Z |    1.0172575712203979 |    34.7 |
 | `FXXX` | LINE_DATA    REVOLT | 시뮬레이터 |    배터리 시스템 |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -129,6 +129,6 @@ Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 지침을 실행하려면 [Azure Time Series Insights 미리 보기 쿼리 구문](./time-series-insights-query-data-csharp.md)을 참조하세요. Time Series Insights 미리 보기 데이터 액세스 REST API의 쿼리 구문에 대해 자세히 알아봅니다.
+- 이러한 지침을 실행하려면 [Azure Time Series Insights 미리 보기 쿼리 구문](./time-series-insights-query-data-csharp.md)을 참조하세요. Time Series Insights 미리 보기 데이터 액세스 REST API의 쿼리 구문에 대해 자세히 알아봅니다.
 
-지원되는 JSON 셰이프에 대한 자세한 내용은 [지원되는 JSON 셰이프](./time-series-insights-send-events.md#json)를 참조하세요.
+- 지원되는 JSON 셰이프에 대한 자세한 내용은 [지원되는 JSON 셰이프](./time-series-insights-send-events.md#json)를 참조하세요.

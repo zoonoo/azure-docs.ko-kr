@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354521"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918829"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -135,7 +135,11 @@ Azure AD 조인:
 
 ### <a name="management-platform"></a>관리 플랫폼
 
-Azure AD 조인 디바이스의 디바이스 관리는 Intune 및 MDM CSP 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
+Azure AD 가입 장치에 대 한 장치 관리는 Intune 및 MDM Csp 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
+
+> [!NOTE]
+> 그룹 정책으로 온-프레미스 Active Directory에 연결 되지 않은 Azure AD 가입 장치에서 지원 되지 않습니다. Azure AD 가입 장치를 관리는 MDM을 통한 가능
+
 
 Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
@@ -143,7 +147,6 @@ Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
 - **공동 관리** - MDM 공급자와 SCCM이 디바이스를 함께 관리합니다. 이 방법에서는 특정 측면을 관리하기 위해 SCCM 에이전트가 MDM 관리 디바이스에 설치됩니다.
 
-Azure AD 조인 디바이스가 온-프레미스 Active Directory에 연결되지 않기 때문에 그룹 정책이 지원되지 않습니다.
 
 
 그룹 정책을 사용하는 경우 [MMAT(MDM 마이그레이션 분석 도구)](https://github.com/WindowsDeviceManagement/MMAT)를 사용하여 MDM 정책 패리티를 평가합니다. 
@@ -238,7 +241,7 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
 ||셀프 서비스 설정|Windows Autopilot|대량 등록|
 |---|---|---|---|
 |설정에서 사용자 상호 작용이 필요|예|예|아닙니다.|
-|IT 활동이 필요|아닙니다.|예|예.|
+|IT 활동이 필요|아닙니다.|예|예|
 |적용 흐름|OOBE 및 설정|OOBE만|OOBE만|
 |기본 사용자에 대한 로컬 관리자 권한|기본적으로 예|구성 가능 여부|아닙니다.|
 |디바이스 OEM 지원 필요|아닙니다.|사용자 계정 컨트롤|아닙니다.|
@@ -301,7 +304,7 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 
 3. 목록에서 MDM 공급자를 선택합니다.
 
-    ![응용 프로그램 추가](./media/azureadjoin-plan/04.png)
+    ![애플리케이션 추가](./media/azureadjoin-plan/04.png)
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
@@ -329,7 +332,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 규정 준수 URL
 
 
-![응용 프로그램 추가](./media/azureadjoin-plan/06.png)
+![애플리케이션 추가](./media/azureadjoin-plan/06.png)
 
 
 각 URL에는 미리 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
@@ -350,7 +353,7 @@ MAM은 Azure AD 조인에 적용되지 않습니다.
 
 Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급자는 디바이스 관리가 시작되는 즉시 디바이스에 준수 플래그를 지정합니다. 
 
-![준수 디바이스](./media/azureadjoin-plan/46.png)
+![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
 
 이 구현을 사용하여 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스를 요구](../conditional-access/require-managed-devices.md)할 수 있습니다.
 

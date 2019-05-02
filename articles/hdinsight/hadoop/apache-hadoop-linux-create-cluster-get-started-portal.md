@@ -2,7 +2,6 @@
 title: '빠른 시작: Azure Portal을 사용하여 Apache Hadoop 및 Apache Hive 시작 - Azure HDInsight'
 description: Azure Portal을 사용하여 HDInsight 클러스터를 만들고 Hive로 데이터를 쿼리하는 방법에 대해 알아봅니다.
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 81eb750f271062bcb4891edf8008d76a18ac85c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c466840c3de9337d7bb8d22f00da0ba52227770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881200"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697809"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작
 

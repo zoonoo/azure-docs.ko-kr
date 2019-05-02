@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48ce99bd830d2c35e5cb9703d2ef754a602d534b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110285"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926160"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 비용 계산 및 크기 조정 모범 사례
 
@@ -331,7 +331,7 @@ Azure는 테넌트 청구 정보에 액세스할 수 있는 REST API를 제공�
 
 **자세한 정보:**
 - Azure Functions에 대해 [알아보기](https://azure.microsoft.com/services/functions/)
-- Azure Batch에 대해 [알아보기](https://azure.microsoft.com/en-us/services/batch/)
+- Azure Batch에 대해 [알아보기](https://azure.microsoft.com/services/batch/)
   
 ## <a name="next-steps"></a>다음 단계 
 

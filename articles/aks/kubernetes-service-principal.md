@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464941"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725300"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -126,7 +126,7 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 - 기본적으로 서비스 주체 자격 증명은 1 년 동안 유효 합니다. 할 수 있습니다 [업데이트 또는 서비스 주체 자격 증명 회전] [ update-credentials] 언제 든 지 합니다.
 - 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 애플리케이션 이름(예: *https://www.contoso.org/example*)과 연결할 수 있습니다. 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
 - 서비스 주체 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
-- Kubernetes 클러스터의 마스터 및 노드 VM에서 서비스 주체 자격 증명은 `/etc/kubernetes/azure.json` 파일에 저장됩니다.
+- Kubernetes 클러스터의 에이전트 노드 Vm에 서비스 주체 자격 증명 파일에 저장 됩니다. `/etc/kubernetes/azure.json`
 - [az aks create][az-aks-create] 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 머신의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
 - [az aks create][az-aks-create]로 만든 AKS 클러스터를 삭제하는 경우 자동으로 생성된 서비스 주체는 삭제되지 않습니다.
     - 서비스 주체를 삭제하려면 클러스터에 *servicePrincipalProfile.clientId*를 쿼리한 다음, [az ad app delete][az-ad-app-delete]로 삭제합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.

@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정을 관리하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317176"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703391"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 
@@ -23,7 +23,11 @@ ms.locfileid: "60317176"
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>토큰 수명 및 클레임 구성
 
-토큰 수명 설정을 변경하려면 변경할 정책의 신뢰 당사자 파일에 [ClaimsProviders](claimsproviders.md) 요소를 추가합니다.  **ClaimsProviders** 요소는 [TrustFrameworkPolicy](trustframeworkpolicy.md) 요소의 자식입니다. 이 안에 토큰 수명에 영향을 주는 정보를 입력해야 합니다. XML은 다음과 비슷합니다.
+토큰 수명 설정을 변경하려면 변경할 정책의 신뢰 당사자 파일에 [ClaimsProviders](claimsproviders.md) 요소를 추가합니다.  **ClaimsProviders** 요소는 [TrustFrameworkPolicy](trustframeworkpolicy.md) 요소의 자식입니다. 
+
+BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 간에 ClaimsProviders 요소를 삽입 합니다.
+
+이 안에 토큰 수명에 영향을 주는 정보를 입력해야 합니다. XML은 다음과 비슷합니다.
 
 ```XML
 <ClaimsProviders>

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249951"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918707"
 ---
 # <a name="web-api"></a>Web API
 
@@ -69,9 +69,9 @@ Web API 앱은 웹 API에서 리소스를 가져와야 하는 웹 응용 프로�
 
 ## <a name="app-registration"></a>앱 등록
 
-Azure AD v1.0 엔드포인트에 응용 프로그램을 등록하려면 [Azure AD v1.0 엔드포인트에 앱 등록](quickstart-v1-add-azure-ad-app.md)을 참조하세요.
+Azure AD의 v1.0 끝점을 사용 하 여 응용 프로그램을 등록, 참조 [앱을 등록](quickstart-register-app.md)합니다.
 
-* 단일 테넌트 - 응용 프로그램 ID 및 위임된 사용자 ID의 경우 모두, 웹 응용 프로그램과 웹 API를 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 웹 애플리케이션의 액세스를 제한하기 위해 사용됩니다. 위임된 사용자 ID 형식을 사용하는 경우 웹 응용 프로그램이 Azure Portal의 **다른 응용 프로그램에 대한 사용 권한** 드롭다운 메뉴에서 원하는 권한을 선택해야 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
+* 단일 테넌트 - 애플리케이션 ID 및 위임된 사용자 ID의 경우 모두, 웹 애플리케이션과 웹 API를 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 웹 애플리케이션의 액세스를 제한하기 위해 사용됩니다. 위임된 사용자 ID 형식을 사용하는 경우 웹 응용 프로그램이 Azure Portal의 **다른 응용 프로그램에 대한 사용 권한** 드롭다운 메뉴에서 원하는 권한을 선택해야 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
 * 다중 테넌트 - 먼저, 웹 응용 프로그램이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 애플리케이션에 동의하여 애플리케이션을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 애플리케이션에는 조직의 모든 사용자가 동의할 수 있는 사용자 수준 권한만 필요합니다. 또 일부 애플리케이션에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 애플리케이션에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 웹 애플리케이션과 웹 API가 모두 이들의 디렉터리에 등록됩니다.
 
 ## <a name="token-expiration"></a>토큰 만료

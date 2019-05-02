@@ -3,19 +3,19 @@ title: 사용자 지정 정책-Azure Active Directory B2C를 사용 하 여 Link
 description: 설정 사용자 지정 정책을 사용 하 여 Azure Active Directory B2C에서 LinkedIn 계정으로 로그인 합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/23/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bf1126a7015e668f3770835535b81c93d01cbda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 204e6ef27e4e8db89bdeb22a25ad847ec5c6bcfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387080"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706781"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 LinkedIn 계정으로 로그인하도록 설정
 
@@ -51,7 +51,7 @@ Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 응용 �
 이전에 Azure AD B2C 테넌트에서 기록했던 클라이언트 암호를 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 선택 된 **디렉터리 및 구독 필터** 최상위 메뉴에서 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
@@ -95,8 +95,8 @@ Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 응용 �
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
           </OutputClaims>
@@ -204,7 +204,7 @@ LinkedIn 기술 프로필이 필요 합니다 **ExtractGivenNameFromLinkedInResp
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
 
-Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 응용 프로그램을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
+Azure AD B2C와의 통신은 테넌트에서 만드는 애플리케이션을 통해 수행됩니다. 이 섹션에서는 테스트 애플리케이션을 아직 만들지 않은 경우 이를 만들기 위해 완료할 수 있는 선택적 단계를 설명합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 선택 된 **디렉터리 및 구독 필터** 최상위 메뉴에서 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
@@ -224,67 +224,6 @@ Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통�
 4. 새로 만든 사용자 경험의 ID(SignUpSignLinkedIn)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
 5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.
 6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
-
-
-## <a name="register-the-claims-provider"></a>클레임 공급자 등록
-
-이제 ID 공급자는 설정되었지만 등록 또는 로그인 화면에서 사용할 수는 없는 상태입니다. ID 공급자를 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 LinkedIn ID 공급자도 포함하도록 수정합니다.
-
-1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
-3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
-4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInLinkedIn`.
-
-### <a name="display-the-button"></a>단추 표시
-
-**ClaimsProviderSelection** 요소는 등록 또는 로그인 화면의 ID 공급자 단추와 비슷합니다. LinkedIn 계정에 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다.
-
-1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
-2. **ClaimsProviderSelects** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `LinkedInExchange`)으로 설정합니다.
-
-    ```XML
-    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>작업에 단추 연결
-
-이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우에는 Azure AD B2C가 LinkedIn 계정과 통신하여 토큰을 받는 작업을 연결합니다.
-
-1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
-2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
-
-    ```XML
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
-    ```
-    
-    **TechnicalProfileReferenceId**의 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. 예: `LinkedIn-OAUTH`.
-
-3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
-
-## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 애플리케이션 만들기
-
-Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 응용 프로그램을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리 사용 했는지 확인 합니다. 선택 된 **디렉터리 및 구독 필터** 최상위 메뉴에서 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
-5. 애플리케이션 이름(예: *testapp1*)을 입력합니다.
-6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에 `https://jwt.ms`를 입력합니다.
-7. **만들기**를 클릭합니다.
-
-## <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
-
-만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
-
-1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInLinkedIn.xml*로 바꿉니다.
-2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예: `SignUpSignInLinkedIn`.
-3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_linkedin`으로 업데이트할 수 있습니다.
-4. 새로 만든 사용자 경험의 ID(SignUpSignLinkedIn)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
-5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.
-6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.
-
 
 ## <a name="migration-from-v10-to-v20"></a>V1.0에서 v2.0로 마이그레이션
 
@@ -299,7 +238,7 @@ Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통�
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-받는 사람:
+아래와 같이 변경합니다.
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -325,7 +264,7 @@ Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통�
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-받는 사람:
+아래와 같이 변경합니다.
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
@@ -387,12 +326,54 @@ Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통�
 
 V2.0에 v1.0에서 LinkedIn 마이그레이션의 일부로 다른 API 추가로 호출 전자 메일 주소를 가져올 필요 합니다. 등록 하는 동안 전자 메일 주소를 가져오려면 다음을 수행 하는 경우:
 
-1. 로그인 사용자에 게 LinkedIn와 페더레이션 되도록 Azure AD B2C가 있습니다. 이 경우 액세스 토큰은 Azure AD B2C에 LinkedIn에서 전송 됩니다.
+1. 로그인 사용자에 게 LinkedIn와 페더레이션 할 Azure AD B2C를 허용 하려면 위의 단계를 완료 합니다. Azure AD B2C는 페더레이션의 일부로 LinkedIn에 대 한 액세스 토큰을 받습니다.
 2. LinkedIn 액세스 토큰을 클레임으로 저장 합니다. [여기의 지침 참조](idp-pass-through-custom.md)합니다.
-3. Azure Function을 호출 하 고 토큰을 전달할 함수 액세스 이전 단계에서 수집 된 키를 누릅니다. [여기의 지침을 참조 하세요](active-directory-b2c-rest-api-step-custom.md)
-    1. Azure 함수는 액세스 토큰을 사용 하 고 LinkedIn API를 호출 해야 (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`).
-    2. Azure 함수는 응답 및 전자 메일 주소를 구문 분석 합니다.
-    3. 전자 메일 주소 정책을 다시 반환 됩니다.
-4. 전자 메일 주소는 전자 메일 클레임에 저장 하 고 사용자 경험에서 계속 합니다.
+3. LinkedIn의에 요청을 수행 하는 클레임 공급자 추가 `/emailAddress` API. 이 요청에 권한을 부여 하기 위해 LinkedIn 액세스 토큰이 필요 합니다.
 
-등록 하는 동안 LinkedIn에서 전자 메일 주소를 가져오면 선택 사항입니다. 전자 메일을 가져올 하지 않으려는 경우 사용자가 수동으로 전자 메일 주소를 입력 하 고 유효성을 검사 해야 합니다.
+    ```XML
+    <ClaimsProvider> 
+      <DisplayName>REST APIs</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="API-LinkedInEmail">
+          <DisplayName>Get LinkedIn email</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+              <Item Key="ServiceUrl">https://api.linkedin.com/v2/emailAddress?q=members&amp;projection=(elements*(handle~))</Item>
+              <Item Key="AuthenticationType">Bearer</Item>
+              <Item Key="UseClaimAsBearerToken">identityProviderAccessToken</Item>
+              <Item Key="SendClaimsIn">Url</Item>
+              <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
+          </Metadata>
+          <InputClaims>
+              <InputClaim ClaimTypeReferenceId="identityProviderAccessToken" />
+          </InputClaims>
+          <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="elements[0].handle~.emailAddress" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+4. 사용자가 LinkedIn을 사용 하 여 로그인 할 때 API 클레임 공급자는 트리거할 수 있도록 사용자 경험에 다음 오케스트레이션 단계를 추가 합니다. 업데이트 해야 합니다 `Order` 숫자를 적절 하 게 합니다. LinkedIn 기술 프로필을 트리거하는 오케스트레이션 단계 바로 다음이 단계를 추가 합니다.
+
+    ```XML
+    <!-- Extra step for LinkedIn to get the email -->
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+          <Value>identityProvider</Value>
+          <Value>linkedin.com</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="GetEmail" TechnicalProfileReferenceId="API-LinkedInEmail" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ```
+
+등록 하는 동안 LinkedIn에서 전자 메일 주소를 가져오면 선택 사항입니다. LinkedIn에서 전자 메일을 가져올 구성 중 하나가 필요를 하지 않으려는 경우 사용자가 수동으로 전자 메일 주소를 입력 하 고 유효성을 검사 해야 합니다.
+
+LinkedIn id 공급자를 사용 하는 정책의 전체 샘플을 보려면 합니다 [사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider)합니다.

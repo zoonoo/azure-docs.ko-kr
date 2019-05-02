@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371808"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919161"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대 한 대금 청구 계정 설정
 
@@ -108,7 +108,7 @@ Azure Active Directory 테 넌 트 Microsoft 고객 계약을 서명 하는 동�
 
 새 계정에만 Microsoft 고객 계약을 서명 하는 동안 선택 된 테 넌 트에서 사용자를 지원 합니다. 기업 계약에 대 한 관리 권한이 있는 사용자가 테 넌 트의 일부 경우 설치 하는 동안 새 청구 계정에 액세스 하 게 합니다. 있지 않은 테 넌 트의 일부에 초대 하지 않는 한 새 청구 계정에 액세스할 수 없습니다.
 
-사용자를 초대 하는 경우 게스트 사용자로 테 넌 트에 추가 됩니다 않으며 대금 청구 계정에 대 한 액세스를 가져옵니다. 사용자를 초대 하려면 테 넌 트에 대 한 게스트 액세스 설정 해야 합니다. 자세한 내용은 [Azure Active Directory에서 게스트 액세스를 제어](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)입니다. 게스트 액세스를 해제 하는 경우를 켜라는 테 넌 트의 전역 관리자에 게 문의 합니다. <!-- Todo - How can they find their global administrator -->
+사용자를 초대 하는 경우 게스트 사용자로 테 넌 트에 추가 됩니다 않으며 대금 청구 계정에 대 한 액세스를 가져옵니다. 사용자를 초대 하려면 테 넌 트에 대 한 게스트 액세스 설정 해야 합니다. 자세한 내용은 [Azure Active Directory에서 게스트 액세스를 제어](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)입니다. 게스트 액세스를 해제 하는 경우를 켜라는 테 넌 트의 전역 관리자에 게 문의 합니다. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>새 청구 계정으로 대체 하는 기능
 
@@ -142,7 +142,7 @@ Azure Active Directory 테 넌 트 Microsoft 고객 계약을 서명 하는 동�
 
 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 설정 된 Azure 리소스에 대 한 액세스를 전환 하는 동안 적용 되지 않습니다.
 
-### <a name="azure-reservations"></a>Reservations
+### <a name="azure-reservations"></a>Azure Reservations
 
 기업 계약 등록의 모든 Azure 예약 새 청구 계정으로 이동 합니다. 구독에 적용되는 예약 할인은 전환 과정에서 변경되지 않습니다.
 
@@ -150,7 +150,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 설정 된 Azure �
 
 기업 계약 등록의 Azure Marketplace 제품 구독 함께 이동 됩니다. 전환 하는 동안 Marketplace 제품의 서비스 액세스 변경 내용이 없습니다.
 
-### <a name="support-plan"></a>지원 플랜
+### <a name="support-plan"></a>지원 계획
 
 지원 혜택 전환의 일부로 전송 하지 않습니다. 새 청구 계정에 Azure 구독을 활용 하려면 새 지원 플랜을 구입 합니다.
 
@@ -217,7 +217,7 @@ Azure portal 통해 기업 계약 등록에서 전환 하기 전에 요금과 �
 
 새 청구 계정에 기업 계약 등록에서 전환 되는 azure 구독에 Azure 구독 페이지에 표시 됩니다. 구독이 없는 경우 Azure portal에서 수동으로 구독의 청구를 전환 합니다. 자세한 내용은 참조 하세요. [가져오기 청구 소유권을 다른 사용자의 Azure 구독](billing-mca-request-billing-ownership.md)
 
-### <a name="azure-reservations"></a>Reservations
+### <a name="azure-reservations"></a>Azure Reservations
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -271,7 +271,7 @@ Azure 예약 새 청구 계정에 기업 계약 등록에서 이동 된 모든 �
 
 엔터프라이즈 관리자 및 부서 관리자 계정 소유자는 부서에서 Azure 구독 작성자도 표시 되는 동안 송장 섹션 소유자 또는 송장 섹션 판독기로 나열 됩니다. 기업 계약 등록의 모든 부서에 대 한 액세스를 확인 하려면 모든 송장 섹션의 단계를 반복 합니다. 모든 부서에 속하지 않았던 계정 소유자는 청구서 섹션에서 권한을 얻을 **기본 송장 섹션**합니다. 모든 관리자에 대 한 액세스를 사용할 수 없는 경우 액세스 제공할 수 있습니다 하는 Azure 포털에서. 자세한 내용은 [Azure portal에서 청구 역할 관리](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)합니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

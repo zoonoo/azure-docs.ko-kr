@@ -14,26 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: a4578703ebe224747c10956736b3be9c33a954dd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260193"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867227"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Azure 포털을 통해 인코딩 작업 진행 상태 모니터링
-> [!div class="op_single_selector"]
-> * [포털](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST (영문)](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>개요
-> [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
-> 
-> 
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. 
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: ff5d6aef48542ee18f6de91ddc418c0fcab70ece
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322423"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710174"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services 커뮤니티  
 
@@ -54,11 +54,9 @@ ms.locfileid: "60322423"
 
 | 기능 | Email |
 | --- | --- |
-| Azure 미디어 분석 |amsanalytics@microsoft.com |
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure 미디어 탐색기 |amse@microsoft.com |
 | Workflow Designer |mepd@microsoft.com |
-| 파일 스트리밍 및 패키징 |amsstreaming@microsoft.com |
 | 라이브 스트리밍 및 패키징 |amslived@microsoft.com |
 
 ## <a name="next-steps"></a>다음 단계

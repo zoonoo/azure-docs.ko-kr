@@ -2,24 +2,18 @@
 title: Azure Marketplace에 대한 게시 검사 목록 | Azure
 description: Cloud 파트너 포털을 사용하여 Azure Marketplace에 대한 게시 검사 목록.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 26041bbf392f9b2afaaf5af38f758deb7708b651
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b1bf77b7c04374ee81b730600658462a6283dedf
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728049"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937675"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Azure Marketplace에 대한 게시 검사 목록    
 게시 프로세스를 시작하기 전에 필수 구성 요소를 검토합니다.  

@@ -1,5 +1,5 @@
 ---
-title: 클라이언트 IP 제한 - Azure App Service | Microsoft Docs
+title: Azure App Service-액세스 제한 | Microsoft Docs
 description: Azure App Service를 사용 하 여 액세스 제한을 사용 하는 방법
 author: ccompy
 manager: stefsch
@@ -12,59 +12,71 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357623"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728709"
 ---
-# <a name="azure-app-service-static-access-restrictions"></a>Azure App Service에 정적 액세스 제한 #
+# <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 #
 
-액세스 제한을 사용 하면 앱에 액세스할 수 있는 IP 주소의 허용/거부 목록 정렬 우선 순위를 정의할 수 있습니다. 허용 목록에는 IPv4 및 IPv6 주소가 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 모두 거부가 표시됩니다.
+액세스 제한 사용 앱에 대 한 네트워크 액세스를 제어 하는 우선 순위 순서가 지정 된 허용/거부 목록을 정의할 수 있습니다. Azure Virtual Network 서브넷 또는 IP 주소 목록이 포함할 수 있습니다. 하나 이상의 항목의 경우는 다음 암시적인 "모두 거부" 목록 끝에 있는 합니다.
 
-App Service는 다음과 같습니다. 작업 부하를 호스팅된 작동 액세스 제한 기능 web apps, API 앱, Linux 앱, Linux 컨테이너 앱 및 함수.
+호스 티 드 작업 등을 로드 하는 모든 App Service를 사용 하 여 작동 액세스 제한 기능 web apps, API 앱, Linux 앱, Linux 컨테이너 앱 및 함수.
 
-앱에 대 한 요청이 이루어지면에서 IP 주소 액세스 제한 목록에 대해 계산 됩니다. 주소가 목록의 규칙을 기준으로 허용되지 않을 경우 서비스는 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드로 답변합니다.
+앱에는 요청이 수행 될 때 보낸 사람 주소 액세스 제한 목록에 IP 주소 규칙에 대해 평가 됩니다. 보낸 사람 주소 Microsoft.Web 서비스 끝점으로 구성 된 서브넷에 있으면 원본 서브넷에 대 한 액세스 제한 목록에서 가상 네트워크 규칙에 대해 비교 됩니다. 주소가 목록의 규칙을 기준으로 허용되지 않을 경우 서비스는 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드로 답변합니다.
 
-액세스 제한 기능을 App Service 업스트림 작업자 호스트 프로그램 코드가 실행 되는 프런트 엔드 역할에서 구현 됩니다. 따라서 액세스 제한을 효과적으로 네트워크 Acl 됩니다.  
+액세스 제한 기능이 업스트림 작업자 호스트 프로그램 코드가 실행 되는 App Service 프런트 엔드 역할에서 구현 됩니다. 따라서 액세스 제한을 효과적으로 네트워크 Acl 됩니다.
 
-![액세스 제한 흐름](media/app-service-ip-restrictions/ip-restrictions-flow.png)
+Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는 기능 이라고 [서비스 끝점][serviceendpoints]합니다. 서비스 끝점을 사용 하 여 선택한 서브넷에서 다중 테 넌 트 서비스에 대 한 액세스를 제한할 수 있습니다. 네트워킹 측면 뿐만 아니라 사용 되는 서비스에서 사용할 수 있어야 합니다. 
 
-한 번에 대 한 포털에서 액세스 제한 기능 위에 IIS에서 ipSecurity 기능 계층을 했습니다. 현재 액세스 제한 기능은 다릅니다. IpSecurity 응용 프로그램 web.config 파일 내에서 구성할 수 있습니다 하지만 모든 트래픽을 IIS에 도달 하기 전에 프런트 엔드를 따라 액세스 제한 규칙이 적용 됩니다.
+![액세스 제한 흐름](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>추가 하 고 포털에서 액세스 제한 규칙 편집 ##
 
 앱에 액세스 제한 규칙 추가 하려면 메뉴 사용 하 여 열려는 **네트워크**>**액세스 제한** 클릭 하 고 **액세스 제한 구성**
 
-![App Service 네트워킹 옵션](media/app-service-ip-restrictions/ip-restrictions.png)  
+![App Service 네트워킹 옵션](media/app-service-ip-restrictions/access-restrictions.png)  
 
 액세스 제한 사항 UI에서 앱에 대해 정의 된 액세스 제한 규칙 목록을 검토할 수 있습니다.
 
-![목록 액세스 제한](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+![목록 액세스 제한](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
-규칙이 이 이미지와 같이 구성된 경우 앱은 131.107.159.0/24의 트래픽만 수락하며, 다른 IP 주소의 트래픽은 거부됩니다.
+목록에는 모든 앱에 있는 현재 제한 사항이 표시 됩니다. 앱에서 VNet 제한이 있는 경우 테이블 서비스 끝점 Microsoft.Web 설정 된 경우 표시 됩니다. 앱에서 정의 된 제한이 없는 경우 앱 어디서 나 액세스할 수 됩니다.  
 
 클릭할 수 있습니다 **[+] 추가** 새 액세스 제한 규칙을 추가 합니다. 규칙을 추가하면 즉시 적용됩니다. 규칙은 가장 작은 번호부터 우선적으로 적용됩니다. 단일 규칙을 추가해도 암시적 모두 거부가 적용됩니다.
 
-![액세스 제한 규칙 추가](media/app-service-ip-restrictions/ip-restrictions-add.png)
+![IP 액세스 제한 규칙 추가](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
-IP 주소 표기법은 IPv4 및 IPv6 주소 둘 다에 대해 CIDR 표기법으로 지정해야 합니다. 정확한 주소를 지정하려면 1.2.3.4/32와 같이 처음 4개의 8진수로 IP 주소를 나타내고 /32로 마스크를 나타낼 수 있습니다. 모든 주소에 대한 IPv4 CIDR 표기법은 0.0.0.0/0입니다. CIDR 표기법에 대한 자세한 내용은 [Classless Inter-domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요.  
+규칙을 만들 때 허용/거부 및 규칙의 유형을 선택 해야 합니다. 또한 해야 하는 제한 및 우선 순위 값에 대 한 액세스를 제공 합니다.  필요에 따라 규칙에 이름 및 설명을 추가할 수 있습니다.  
+
+규칙 기반 IP 주소를 설정 하려면, IPv4 또는 IPv6 유형을 선택 합니다. IP 주소 표기법은 IPv4 및 IPv6 주소 둘 다에 대해 CIDR 표기법으로 지정해야 합니다. 정확한 주소를 지정하려면 1.2.3.4/32와 같이 처음 4개의 8진수로 IP 주소를 나타내고 /32로 마스크를 나타낼 수 있습니다. 모든 주소에 대한 IPv4 CIDR 표기법은 0.0.0.0/0입니다. CIDR 표기법에 대한 자세한 내용은 [Classless Inter-domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요. 
+
+![VNet 대 한 액세스 제한 규칙 추가](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+선택한 서브넷에 대 한 액세스를 제한 하는 유형의 가상 네트워크를 선택 합니다. 아래에 구독, VNet 및 서브넷을 사용 하 여 액세스 허용 하거나 거부 하려면 선택 하는 일을 할 수 있습니다. 서비스 끝점은 아직 사용 되지 Microsoft.Web를 사용 하 여 선택한 서브넷에 대 한 확인란을 하면 보내지 않도록 요청 하지 않는 한를 활성화 자동으로 됩니다. 앱 되지만 하지 서브넷에서 사용 하려는 경우는 거의 관련이 여부 서브넷에서 서비스 끝점을 사용 하도록 설정 하려면 권한이 있는 경우 있습니다. 서브넷에서 서비스 끝점을 사용 하도록 설정 하려면 다른 사용자를 가져오려는 경우에 확인란을 선택 하 고 나중에 서브넷에서 사용 하도록 설정 되 고이에 대비 하 여 서비스 끝점에 대해 구성 된 앱 수 있습니다. 
 
 기존 액세스 제한 규칙을 편집 하려면 모든 행을 클릭할 수 있습니다. 우선 순위 변경을 비롯한 편집 내용은 즉시 적용됩니다.
 
-![액세스 제한 규칙 편집](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+![액세스 제한 규칙 편집](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+
+규칙을 편집 하는 경우에 IP 주소 규칙 사이의 가상 네트워크 규칙 유형을 변경할 수 없습니다. 
+
+![액세스 제한 규칙 편집](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 규칙을 삭제하려면 규칙에서 **...** 를 클릭하고 **제거**를 클릭합니다.
 
-![액세스 제한 규칙 삭제](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+![액세스 제한 규칙 삭제](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-또한 다음 탭에서 배포 액세스를 제한할 수 있습니다. 각 규칙 추가/편집/삭제 하려면, 위와 동일한 단계를 따릅니다.
+### <a name="scm-site"></a>SCM 사이트 
 
-![목록 액세스 제한](media/app-service-ip-restrictions/ip-restrictions-scm-browse.png)
+앱에 대 한 액세스를 제어할 수 있을 뿐만 앱에서 사용 되는 scm 사이트에 액세스를 제한할 수도 있습니다. Scm 사이트는 웹 끝점 및 Kudu 콘솔을 배포 합니다. 별도로 앱에서 액세스 제한 scm 사이트에 할당 하거나 동일한 앱과 scm 사이트에 대 한 집합을 사용 하 여 수 있습니다. 앱과 동일한 제한 하도록 상자를 선택 하는 경우 모든 항목은 사라짐. 확인란의 선택을 취소 하는 경우에 scm 사이트에 앞서 사용 했던 모든 설정이 적용 됩니다. 
+
+![목록 액세스 제한](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>액세스 제한 규칙의 프로그래밍 방식으로 조작 ##
 
@@ -88,6 +100,10 @@ management.azure.com/subscriptions/**구독 ID**/resourceGroups/**리소스 그�
 
 ## <a name="function-app-ip-restrictions"></a>함수 앱 IP 제한
 
-IP 제한은 동일한 App Service 계획 기능을 사용 하 여 함수 앱 모두에 대해 사용할 수 있습니다. Ip 제한은 사용 하지 않도록 허용 되지 않는 모든 Ip에 대 한 포털 코드 편집기 note 합니다.
+IP 제한은 동일한 App Service 계획 기능을 사용 하 여 함수 앱 모두에 대해 사용할 수 있습니다. IP 제한을 사용 하도록 설정 하면 허용 되지 않는 모든 Ip에 대 한 포털 코드 편집기 사용 되지 것입니다.
 
 [여기를 참조하세요](../azure-functions/functions-networking-options.md#inbound-ip-restrictions).
+
+
+<!--Links-->
+[serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

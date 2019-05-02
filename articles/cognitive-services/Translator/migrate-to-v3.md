@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fa1733ddd70de3f8ef93452a880094ccf8b9ef56
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916719"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951466"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
 > [!NOTE]
-> V2는 2018년 4월 30일에 사용되지 않고 2019년 4월 30일에 사용이 중단될 예정입니다.
+> V2는 2018 년 4 월 30 일에 사용 되지 않았습니다. V3 V3에서 단독으로 사용할 수 있는 새 기능을 활용 하기 위해 응용 프로그램을 마이그레이션하세요.
 > 
-> Microsoft Translator 허브 2019 년 4 월 30 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
+> Microsoft Translator 허브 2019 년 5 월 17 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
 
 Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 애플리케이션을 변경하는 정보를 제공합니다. 
 
@@ -110,7 +110,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 > [!NOTE]
 > 
-> Microsoft Translator 허브 2019 년 4 월 30 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.   
+> Microsoft Translator 허브 2019 년 5 월 17 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.   
 
 Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](custom-translator/overview.md)
 
@@ -130,7 +130,6 @@ V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍
 api.cognitive.microsofttranslator.com 엔드포인트를 사용하는 경우 Translator Text API 버전 3을 사용하고 있습니다.
 
 **Translator Text API 버전 2**
-* 사용되지 않습니다. 2019년 4월 30일부로 사용 중지됩니다. 
 * 모든 ISO 20001, 20018 및 SOC 3 인증 요구 사항을 충족하지 않습니다. 
 * Translator 사용자 지정 기능으로 사용자 지정한 인공신경망 번역 시스템을 호출할 수 없습니다.
 * Microsoft Translator Hub를 사용하여 작성된 사용자 지정 번역 시스템에 대한 액세스를 제공합니다.

@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 02ebd0629fed9037054a5c22931f3e99c09073c4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998603"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920036"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux의 App Service에 있는 Azure Storage의 콘텐츠 제공
 
-이 가이드는 [Azure Storage](/azure/storage/common/storage-introduction)를 사용하여 Linux의 App Service에서 정적 콘텐츠를 제공하는 방법을 보여줍니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다. 이 가이드에서는 사용자 지정 저장소를 구성 하 여 Azure Storage에 콘텐츠를 제공 하는 방법을 배웁니다.
+이 가이드는 [Azure Storage](/azure/storage/common/storage-introduction)를 사용하여 Linux의 App Service에서 정적 콘텐츠를 제공하는 방법을 보여줍니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -67,7 +67,20 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 스토리지 컨테이너가 웹앱에 연결되면 다음 명령을 실행하여 이를 확인할 수 있습니다.
 
 ```azurecli
-az webapp config storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <resource_group> --name <app_name>
+```
+
+## <a name="use-custom-storage-in-docker-compose"></a>Docker Compose에 사용자 지정 저장소를 사용 합니다.
+
+사용자 지정 id를 사용 하 여 다중 컨테이너 앱을 사용 하 여 azure Storage는 탑재할 수 있습니다. 사용자 지정 id 이름을 보려면 실행 [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)합니다.
+
+사용자 *docker compose.yml* 파일을 매핑하는 `volumes` 옵션을 `custom-id`. 예를 들면 다음과 같습니다.
+
+```yaml
+wordpress:
+  image: wordpress:latest
+  volumes:
+  - <custom-id>:<path_in_container>
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a2bb8f5d27f1829f891a0638642093df1fa35b81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088454"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717043"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -322,6 +322,10 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 ## <a name="public"></a>Azure 공용 피어링
 
 이 섹션은 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
+
+> [!Note]
+> 새 회로 대 한 azure 공용 피어 링 하는 사용 되지 않습니다. 자세한 내용은 [ExpressRoute 피어 링](expressroute-circuit-peerings.md)합니다.
+>
 
 ### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면
 

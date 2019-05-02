@@ -1,19 +1,18 @@
 ---
 title: Azure HDInsight에서 대규모 스트리밍
 description: 확장성 있는 HDInsight 클러스터를 통해 데이터 스트리밍을 사용하는 방법입니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201163"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696920"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight에서 대규모 스트리밍
 

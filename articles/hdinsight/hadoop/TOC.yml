@@ -136,8 +136,6 @@
         - name: 빈 에지 노드 사용
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Python 스트리밍 프로그램 개발
-          href: apache-hadoop-streaming-python.md
         - name: JSON 문서 처리 및 분석
           href: using-json-in-hive.md
         - name: 'C# 사용자 정의 함수 사용'

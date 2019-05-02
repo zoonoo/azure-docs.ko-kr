@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834798"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709583"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>자습서: Coupa와 Azure Active Directory 통합
 
@@ -114,16 +114,16 @@ Coupa에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     | Environment  | URL |
     |:-------------|----|
-    | 샌드박스 | `devsso35.coupahost.com`|
-    | 프로덕션 | `prdsso40.coupahost.com`|
+    | 샌드박스 | `sso-stg1.coupahost.com`|
+    | 프로덕션 | `sso-prd1.coupahost.com`|
     | | |
 
     다. **회신 URL** 텍스트 상자에 URL을 입력합니다.
 
     | Environment | URL |
     |------------- |----|
-    | 샌드박스 | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | 프로덕션 | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | 샌드박스 | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | 프로덕션 | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.

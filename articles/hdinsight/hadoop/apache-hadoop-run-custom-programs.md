@@ -1,7 +1,6 @@
 ---
 title: 사용자 지정 MapReduce 프로그램 실행 - Azure HDInsight
 description: HDInsight에서 사용자 지정 MapReduce 프로그램을 실행하는 경우 및 방법입니다.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 5ed82fc21aedc9af394922059859f81cfba1867e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433868"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713095"
 ---
 # <a name="run-custom-mapreduce-programs"></a>사용자 지정 MapReduce 프로그램 실행
 
@@ -38,7 +37,6 @@ Map/Reduce 코드는 **Map** 및 **Reduce** 구성 요소로 구현된 두 개�
 사용자 지정 Map/Reduce 구성 요소는 일반적으로 Java로 작성됩니다. Hadoop은 C#, F#, Visual Basic, Python, JavaScript 등의 다른 언어로 개발된 구성 요소를 사용할 수 있게 해주는 스트리밍 인터페이스를 제공합니다.
 
 * 사용자 지정 Java MapReduce 프로그램 개발 연습은 [HDInsight에서 Hadoop용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)을 참조하세요.
-* Python을 사용하는 예제를 보려면 [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](apache-hadoop-streaming-python.md)을 참조하세요.
 
 다음 조건에 대한 자체 Map/Reduce 구성 요소를 만드는 것이 좋습니다.
 
@@ -76,6 +74,5 @@ Map/Reduce 코드는 **Map** 및 **Reduce** 구성 요소로 구현된 두 개�
 
 * [HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](apache-hadoop-streaming-python.md)
 * [Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](../spark/apache-spark-eclipse-tool-plugin.md)
 * [HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용](python-udf-hdinsight.md)

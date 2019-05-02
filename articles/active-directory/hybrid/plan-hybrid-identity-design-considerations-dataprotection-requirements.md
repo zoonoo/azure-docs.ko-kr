@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454890"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918787"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
 데이터를 보호하는 첫 번째 단계는 해당 데이터에 액세스할 수 있는 사용자를 식별하는 것입니다. 또한 인증 및 권한 부여 기능을 제공하기 위해 시스템을 통합할 수 있는 ID 솔루션이 필요합니다. 인증 및 권한 부여는 종종 서로 혼동되고 역할은 오해됩니다. 아래 그림에 표시된 대로 실제로 매우 다릅니다.
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![모바일 장치 수명 주기](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **모바일 디바이스 관리 수명 주기 단계**
 
@@ -44,7 +44,7 @@ ms.locfileid: "60454890"
 그러나 업계에 관계 없이 탐색 하 고 유효성을 검사해야 할 일부 보안 사항이 있습니다.
 
 ## <a name="data-protection-paths"></a>데이터 보호 경로
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![데이터 보호 경로](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **데이터 보호 경로**
 

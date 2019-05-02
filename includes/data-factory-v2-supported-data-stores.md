@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 02/26/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 223d38044b5e31c9c8e61fff74e1dd823970debd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9cd560b2236aff723001738808a2a794d11bc31f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825760"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869549"
 ---
-| 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
+| Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
@@ -32,7 +32,7 @@ ms.locfileid: "56825760"
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Search 인덱스](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
-| **데이터베이스 백업** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
+| **데이터베이스** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[드릴(미리 보기)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |

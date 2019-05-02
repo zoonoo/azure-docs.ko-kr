@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507922"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727585"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기본 Load Balancer 만들기
 
@@ -37,11 +37,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
 2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 유지한 다음, **검토 + 만들기**를 선택합니다.
 
-    | 설정                 | Value                                              |
+    | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | 구독               | 구독을 선택합니다.    |    
     | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
-    | Name                   | *myLoadBalancer*                                   |
+    | 이름                   | *myLoadBalancer*                                   |
     | 지역         | **유럽 서부**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **기본**을 선택합니다.                          |
@@ -235,21 +235,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
    VM 데스크톱이 새 창에서 열립니다. 
    
-**VM에 IIS를 설치하려면**
+**IIS를 설치 하려면**
 
-1. 서버 데스크톱에서 **서버 관리자**가 아직 열려 있지 않은 경우 **Windows 관리 도구** > **서버 관리자**로 차례로 이동합니다.
-   
-1. **서버 관리자**에서 **역할 및 기능 추가**를 선택합니다.
-   
-   ![서버 관리자 역할 추가](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. **역할 및 기능 추가 마법사**에서,
-   1. **설치 유형 선택** 페이지에서 **역할 기반 또는 기능 기반 설치**를 선택합니다.
-   1. **대상 서버 선택** 페이지에서 **MyVM1**을 선택합니다.
-   1. **서버 역할 선택** 페이지에서 **웹 서버(IIS)** 를 선택합니다. 
-   1. 필요한 도구를 설치하라는 메시지가 표시되면 **기능 추가**를 선택합니다. 
-   1. 기본값을 적용하고 **설치**를 선택합니다. 
-   1. 기능 설치가 완료되면 **닫기**를 선택합니다. 
+1. 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **모든 리소스**를 선택하고 리소스 목록에서 *myResourceGroupSLB* 리소스 그룹에 있는 **myVM1**을 선택합니다.
+2. **개요** 페이지에서 **연결**을 선택하여 VM에 RDP로 연결합니다.
+5. 이 VM을 만드는 동안 입력한 자격 증명을 사용하여 VM에 로그인합니다. 그러면 가상 머신 *myVM1*을 사용하여 원격 데스크톱 세션을 시작합니다.
+6. 서버 바탕 화면에서 **Windows 관리 도구**>**Windows PowerShell**로 이동합니다.
+7. PowerShell 창에서 다음 명령을 실행하여 IIS 서버를 설치하고, 기본 iisstart.htm 파일을 제거한 다음, VM 이름을 표시하는 새 iisstart.htm 파일을 추가합니다.
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. *myVM1*이 포함된 RDP 세션을 닫습니다.
+7. 1~6단계를 반복하여 *myVM2*에 IIS 및 업데이트된 iisstart.htm 파일을 설치합니다.
    
 1. 대상 서버를 **MyVM2**로 설정하는 것을 제외하고는 **MyVM2** 가상 머신에 대해 단계를 반복합니다.
 
@@ -257,9 +263,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 브라우저를 열고, 부하 분산 장치의 공용 IP 주소를 브라우저의 주소 표시줄에 붙여넣습니다. IIS 웹 서버 기본 페이지가 브라우저에 표시됩니다.
 
-![IIS 웹 서버](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![IIS 웹 서버](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-앱이 실행되는 3개의 모든 VM에서 부하 분산 장치가 트래픽을 분산하는 것을 확인하기 위해 웹 브라우저를 강제로 새로 고칠 수 있습니다.
+부하 분산 장치가 앱을 실행 중인 두 VM에 트래픽을 분산하고 있는지 확인하려면 웹 브라우저를 강제로 새로 고칩니다.
 ## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 부하 분산 장치 및 모든 관련 리소스를 삭제하려면 **MyResourceGroupLB** 리소스 그룹을 열고 **리소스 그룹 삭제**를 선택합니다.

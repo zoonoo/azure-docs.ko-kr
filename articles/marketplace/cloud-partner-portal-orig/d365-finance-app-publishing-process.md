@@ -1,28 +1,20 @@
 ---
-title: 앱 게시 단계 | Microsoft Docs
-description: .
+title: 앱 게시 단계 | Azure Marketplace
+description: Azure Marketplace에 응용 프로그램을 게시 하는 단계입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 04278f50366ee91738fd36e64331572e14baf17c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398062"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935137"
 ---
-<a name="app-publishing-steps"></a>앱 게시 단계
-====================
+# <a name="app-publishing-steps"></a>앱 게시 단계
 
 게시 프로세스를 시작하려면 편집기 탭 아래에서 "게시"를 클릭합니다.
 

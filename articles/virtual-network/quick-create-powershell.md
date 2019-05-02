@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 가상 네트워크를 사용하면 가상 머신과 같은 Azure 리소스가 서로 인터넷을 통해 비공개로 통신할 수 있습니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
-ms.author: jdial
-ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.author: kumud
+ms.openlocfilehash: 30b1b08e27eca826a9f882475723913810b3feb4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670423"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721858"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
@@ -158,7 +158,7 @@ mstsc /v:<publicIpAddress>
 
 1. *myVm1*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-1. [https://slack.botframework.com](`ping myVm2`) 을 입력합니다.
+1. `ping myVm2`을 입력합니다.
 
     다음과 같은 메시지가 반환됩니다.
 

@@ -2,23 +2,19 @@
 title: Azure Key Vault에 HSM 보호 키를 생성하고 전송하는 방법 - Azure Key Vault | Microsoft Docs
 description: 이 문서를 통해 Azure Key Vault에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다. BYOK, 즉 Bring Your Own Key라고도 합니다.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522731"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573001"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure Key Vault에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 
@@ -45,7 +41,7 @@ ms.locfileid: "59522731"
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Thales HSM 및 Microsoft 서비스에 대한 추가 정보
 
-Thales e-Security는 금융 서비스, 첨단 기술, 제조, 정부 및 기술 분야에서 데이터 암호화 및 사이버 보안 솔루션을 제공하는 선도적인 글로벌 기업입니다. 기업과 정부의 정보를 보호하는 지난 40년간 누적된 성과를 바탕으로, Thales 솔루션은 최대 에너지 및 항공 우주 기업 다섯 곳 중 네 곳에서 사용되고 있습니다. 또한 22개 NATO 국가에서 사용되고 있으며 전세계 지불 거래의 80퍼센트 이상의 보안을 담당하고 있습니다.
+Thales e-Security는 금융 서비스, 첨단 기술, 제조, 정부 및 기술 분야에서 데이터 암호화 및 사이버 보안 솔루션을 제공하는 선도적인 글로벌 기업입니다. 기업과 정부의 정보를 보호하는 지난 40년간 누적된 성과를 바탕으로, Thales 솔루션은 최대 에너지 및 항공 우주 기업 다섯 곳 중 네 곳에서 사용되고 있습니다. 해당 솔루션 22 NATO 국가/지역에도 사용 되는 및 둘의 80 퍼센트 전세계 지불 거래를 보호 합니다.
 
 Microsoft는 Thales과의 협력을 통해 HSM을 최첨단 상태로 향상시켰습니다. 이렇게 향상된 기능을 통해 사용자는 자신의 키에 대한 제어를 포기하지 않으면서 호스트된 서비스의 일반적인 이점을 누릴 수 있습니다. Microsoft에서 이러한 향상된 기능을 사용하여 HSM을 관리해 주므로 이 부분에 신경 쓰지 않아도 된다는 것이 특별한 장점입니다. 클라우드 서비스로써 Azure Key Vault는 급박한 요청에도 크기 확장이 가능하기 때문에 조직의 급증하는 사용량을 맞출 수 있습니다. 그와 동시에 키는 Microsoft의 HSM 내에서 보호됩니다. 키를 생성하고 Microsoft의 HSM에 전송하기 때문에 키의 수명 주기 동안 키에 대한 제어를 유지할 수 있습니다.
 

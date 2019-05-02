@@ -2,24 +2,17 @@
 title: 시장 진출 서비스 - Microsoft를 통한 비즈니스 홍보 | Azure
 description: 시장 진출 서비스 - 게시자는 이 섹션에서 Microsoft를 통한 비즈니스 홍보 방법을 알아볼 수 있습니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 026b8a85bf353dfe384077b1dc8e284d7c373046
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 8bb064deae87e6545d003ffb1fa85058926f5dee
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355285"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938046"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보
 

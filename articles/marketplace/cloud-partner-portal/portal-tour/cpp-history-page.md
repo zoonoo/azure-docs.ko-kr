@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace에 대한 감사 기록 페이지 | Microsoft Docs
-description: .
+title: Azure Marketplace에 대 한 감사 기록 페이지
+description: Azure Marketplace에 대 한 클라우드 파트너 포털에서 감사 기록 페이지의 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 6dffc7a24bb0c6b006d06a1018364f08abaaee41
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: a579008aa0954507a130bef65dc60254f9e12c03
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266568"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943481"
 ---
 # <a name="audit-history-page"></a>감사 기록 페이지
 

@@ -1,7 +1,6 @@
 ---
 title: Visual Studio 및 C#을 사용하는 Apache Storm 토폴로지 - Azure HDInsight
 description: C#으로 Storm 토폴로지를 만드는 방법을 알아봅니다. Visual Studio 용 Hadoop 도구를 사용하여 Visual Studio에서 간단한 단어 카운트 토폴로지를 만듭니다.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcb50829dca59f8a467c2c1d2381b5463ef9471
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437397"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687747"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 

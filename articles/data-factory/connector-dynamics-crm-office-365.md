@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535323"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869527"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -65,12 +65,9 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"** 이어야 합니다. | 예 |
 | serviceUri | Dynamics 인스턴스의 서비스 URL(예: `https://adfdynamics.crm.dynamics.com` ). | 예 |
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. Dynamics Online에 대해 **"Office365"** 를 지정합니다. | 예 |
-| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
-| password | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| username | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
+| 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에 연결된 서비스에 통합 런타임이 없는 경우 원본은 아니요, 싱크는 예입니다. |
-
->[!IMPORTANT]
->데이터를 Dynamics에 복사할 때 기본 Azure Integration Runtime을 복사를 실행하는 데 사용할 수 없습니다. 즉, 원본에 연결된 서비스에 지정된 통합 런타임이 없는 경우, Dynamics 인스턴스에 가까운 위치로 명시적으로 [Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir)을 만듭니다. 참조 하 여 Dynamics 인스턴스에 있는 위치를 찾을 합니다 [Dynamics 365 대 한 지역 목록](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions)합니다. 다음 예제와 같이 Dynamics에 연결된 서비스를 연결합니다.
 
 >[!NOTE]
 >Dynamics CRM/365 Online 인스턴스를 식별하는 선택적 "organizationName" 속성을 사용하기 위해 사용되는 Dynamics 커넥터. 계속 작동하겠지만, 인스턴스 검색 성능을 향상하려면 그 대신 새 "serviceUri" 속성을 지정하는 것이 좋습니다.
@@ -113,12 +110,9 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 | 포트 | 온-프레미스 Dynamics 서버의 포트입니다. | 아니요(기본값: 443) |
 | organizationName | Dynamics 인스턴스의 조직 이름입니다. | 예 |
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 **"Ifd"** 를 지정합니다. | 예 |
-| 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
-| password | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 예 |
+| username | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
+| 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 ADF에 안전하게 저장하도록 선택하거나, Azure Key Vault에 암호를 저장하고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어오도록 할 수 있습니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아보세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
-
->[!IMPORTANT]
->Dynamics에 데이터를 복사하려면 Dynamics 인스턴스에 가까운 위치에 명시적으로 [Azure Integration Runtime을 만듭니다](create-azure-integration-runtime.md#create-azure-ir). 다음 예제와 같이 연결된 서비스에 연결합니다.
 
 **예제: IFD 인증을 사용하는 IFD 지원 Dynamics 온-프레미스**
 
@@ -160,8 +154,8 @@ Dynamics 간에 데이터를 복사하려면 데이터 세트의 type 속성을 
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 원본에는 아니요(작업 원본에서 "query"가 지정된 경우)이고 싱크에는 예입니다. |
 
 > [!IMPORTANT]
->- Dynamics에서 데이터를 복사할 때 "structure" 섹션은 필요한 경우에만 포함하면 되지만, Dynamics 데이터 세트에 해당 섹션이 있으면 데이터를 확실하게 복사할 수 있으므로 포함하는 것이 좋습니다. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
->- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 세트 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
+>- Dynamics에서 데이터를 복사할 때 "structure" 섹션에는 선택 사항 이지만 항상 recommanded 결정적 복사 결과 확인 하려면 Dynamics 데이터 집합. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure-or-schema) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
+>- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 명시적 구조 정의가 없는 경우 실행을 복사 하려면 동일한 동작이 적용 됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 세트 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
 >- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 세트에서 "structure" 섹션은 선택 사항입니다. 어떤 열에 복사할 것인지는 원본 데이터 스키마에 따라 결정됩니다. 입력 데이터 세트에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
 
 **예제:**
@@ -330,7 +324,7 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |

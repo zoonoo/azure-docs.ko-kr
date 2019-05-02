@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352071"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916839"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Speech Devices SDK 시작
 
@@ -28,7 +28,7 @@ ms.locfileid: "58352071"
 
 Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정보와 소프트웨어를 수집합니다.
 
-* [ROOBO에서 개발 키트](http://ddk.roobo.com/)를 가져옵니다. 이러한 키트는 선형 또는 원형 마이크 배열 구성으로 사용할 수 있습니다. 요구 사항에 맞는 올바른 구성을 선택합니다.
+* [ROOBO에서 개발 키트](https://ddk.roobo.com/)를 가져옵니다. 이러한 키트는 선형 또는 원형 마이크 배열 구성으로 사용할 수 있습니다. 요구 사항에 맞는 올바른 구성을 선택합니다.
 
     |개발 키트 구성|스피커 위치|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
 
 ### <a name="audio"></a>오디오
 
-ROOBO는 모든 오디오를 플래시 메모리에 캡처하는 도구를 제공합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. [ROOBO 사이트](http://ddk.roobo.com/)에서 장치를 선택한 다음, 페이지 아래쪽의 **ROOBO Tools** 링크를 선택합니다.
+ROOBO는 모든 오디오를 플래시 메모리에 캡처하는 도구를 제공합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. [ROOBO 사이트](https://ddk.roobo.com/)에서 장치를 선택한 다음, 페이지 아래쪽의 **ROOBO Tools** 링크를 선택합니다.

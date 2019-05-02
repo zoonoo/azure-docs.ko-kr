@@ -1,25 +1,18 @@
 ---
-title: VHD에서 Azure Marketplace용 VM 배포 | Microsoft Docs
+title: Azure Marketplace에 대 한 Vhd에서 VM 배포
 description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046685"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938300"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
@@ -71,7 +64,7 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
    | 관리자 암호              | 새 VM에 대한 관리자 계정의 암호                                  |
    | OS 종류                     | VM 운영 체제: `Windows` \| `Linux`                                    |
    | 구독 ID             | 선택한 구독의 식별자                                      |
-   | 위치                    | 배포의 지리적 위치                                        |
+   | Location                    | 배포의 지리적 위치                                        |
    | VM 크기                     | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)(예: `Standard_A2`) |
    | 공용 IP 주소 이름      | 공용 IP 주소의 이름                                               |
    | VM 이름                     | 새 VM의 이름                                                           |

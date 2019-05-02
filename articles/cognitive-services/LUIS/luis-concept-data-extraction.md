@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526292"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867712"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터를 추출 합니다.
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -48,7 +48,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|
-|의도|문자열|topScoringIntent.intent|“GetStoreInfo”|
+|의도|String|topScoringIntent.intent|“GetStoreInfo”|
 
 챗봇 또는 LUIS 호출 앱이 둘 이상의 의도 점수를 기반으로 결정을 내리는 경우 쿼리 문자열 매개 변수, `verbose=true`를 설정하여 모든 의도의 점수를 반환합니다. 엔드포인트 응답은 다음과 같습니다.
 
@@ -77,8 +77,8 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |데이터 개체|데이터 형식|데이터 위치|값|Score|
 |--|--|--|--|:--|
-|의도|문자열|intents[0].intent|“GetStoreInfo”|0.984749258|
-|의도|문자열|intents[1].intent|“None”|0.0168218873|
+|의도|String|intents[0].intent|“GetStoreInfo”|0.984749258|
+|의도|String|intents[1].intent|“None”|0.0168218873|
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
 
@@ -108,9 +108,9 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |도메인|데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|--|
-|공공 시설|의도|문자열|intents[0].intent|“<b>Utilities</b>.ShowNext”|
-|통신|의도|문자열|intents[1].intent|<b>Communication</b>.StartOver”|
-||의도|문자열|intents[2].intent|“None”|
+|공공 시설|의도|String|intents[0].intent|“<b>Utilities</b>.ShowNext”|
+|통신|의도|String|intents[1].intent|<b>Communication</b>.StartOver”|
+||의도|String|intents[2].intent|“None”|
 
 
 ## <a name="data-from-entities"></a>엔터티의 데이터
@@ -198,7 +198,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 |데이터 개체|부모|자식|값|
 |--|--|--|--|
-|계층적 엔터티|위치|ToLocation|“paris”|
+|계층적 엔터티|Location|ToLocation|“paris”|
 
 ## <a name="composite-entity-data"></a>복합 엔터티 데이터
 [복합](luis-concept-entity-types.md) 엔터티는 기계 학습 엔터티이며 단어나 구문을 포함할 수 있습니다. 예를 들어, 다음 발화를 사용하여 미리 빌드된 `number` 및 `Location::ToLocation`의 복합 엔터티를 고려해 보세요.
@@ -441,7 +441,7 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 ### <a name="names-of-places"></a>위치 이름
 
-위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 미리 작성 된 엔터티 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 위치 정보를 추출 합니다.
+위치 이름이 설정 되 고 도시, 군, 상태, 시/도, 국가/지역 등 알고 있습니다. 미리 작성 된 엔터티 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 위치 정보를 추출 합니다.
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
 

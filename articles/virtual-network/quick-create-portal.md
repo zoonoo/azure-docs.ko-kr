@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: 이 빠른 시작에서 Azure Portal을 사용하여 가상 네트워크를 만드는 방법에 대해 알아봅니다. 가상 네트워크를 사용하면 가상 머신과 같은 Azure 리소스가 서로 인터넷을 통해 비공개로 통신할 수 있습니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
-ms.author: jdial
-ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.author: kumud
+ms.openlocfilehash: 995bc8e7b2eb4e9160b2b625067f20324df2cbfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020832"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717035"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
 
@@ -39,7 +39,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *myVirtualNetwork*를 입력합니다. |
+    | Name | *myVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | 구독 | 구독을 선택합니다.|
     | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -101,7 +101,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *myvmstorageaccount*를 입력합니다. |
+    | Name | *myvmstorageaccount*를 입력합니다. |
     | 계정 종류 | 기본값인 **스토리지(범용 v1)** 를 그대로 둡니다. |
     | 성능 | 기본값인 **표준**을 그대로 둡니다. |
     | 복제 | 기본값인 **LRS(로컬 중복 스토리지)** 를 그대로 둡니다. |
@@ -158,7 +158,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 1. *myVm1*의 원격 데스크톱에서 PowerShell을 엽니다.
 
-1. `ping myVm2` 을 입력합니다.
+1. `ping myVm2`을 입력합니다.
 
     다음과 같은 메시지가 반환됩니다.
 

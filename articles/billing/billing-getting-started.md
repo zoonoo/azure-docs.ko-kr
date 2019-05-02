@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 146c74fe751e75fb85563378be6f812802928fe2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842512"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918927"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -203,7 +203,7 @@ SLA 임계값 서비스에 따라 다릅니다. 예를 들어 SQL 웹 계층은 
 
 일부 서비스는 SLA 적용 하기 위한 필수 구성 요소는 있습니다. 예를 들어, 가상 컴퓨터에 동일한 가용성 집합에 배포 된 인스턴스가 두 개 이상 있어야 합니다.
 
-자세한 내용은 참조는 [서비스 수준 계약](https://azure.microsoft.com/en-us/support/legal/sla/) 설명서와 [Azure 서비스에 대 한 SLA 요약](https://azure.microsoft.com/en-us/support/legal/sla/summary/) 설명서.
+자세한 내용은 참조는 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 설명서와 [Azure 서비스에 대 한 SLA 요약](https://azure.microsoft.com/support/legal/sla/summary/) 설명서.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

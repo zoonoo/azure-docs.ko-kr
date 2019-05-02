@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 495c617f97b2a7f39182b7684c2c0e183c2002b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 42429f0e8e541d0481f991761ead63e4751fcc3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719730"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
 
