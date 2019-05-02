@@ -1,25 +1,18 @@
 ---
-title: 논리 앱 Test Drive | Microsoft Docs
+title: 논리 앱 시험 | Azure Marketplace
 description: Azure만이 아닌 기타 리소스나 Dynamic AX/CRM 인스턴스와 연결되는 Test Drive를 빌드하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338601"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64940017"
 ---
 <a name="logic-app-test-drive"></a>논리 앱 Test Drive
 ====================

@@ -1,25 +1,19 @@
 ---
-title: Azure Resource Manager 시험 사용 | Microsoft Docs
+title: Azure Resource Manager 시험 | Azure Marketplace
 description: Azure Resource Manager를 사용하여 Marketplace 시험 사용 빌드
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Patrick .Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: pabutler
+ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541165"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941567"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -95,7 +89,7 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 | **암호**    | 보안 문자열    | 새 임의 암호 | Lp!ACS\^2kh     |
 | **세션 ID**   | 문자열          | 고유한 시험 사용 세션 ID(GUID)입니다.    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>사용자 이름
+#### <a name="username"></a>username
 
 시험 사용은 이 매개 변수를 배포 패키지의 **기본 URI**로 초기화하므로 이 매개 변수를 사용하여 패키지에 포함된 파일의 URI를 구성할 수 있습니다.
 
@@ -122,7 +116,7 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 }
 ```
 
-#### <a name="username"></a>사용자 이름
+#### <a name="username"></a>username
 
 시험 사용은 이 매개 변수를 새 임의 사용자 이름으로 초기화합니다.
 
