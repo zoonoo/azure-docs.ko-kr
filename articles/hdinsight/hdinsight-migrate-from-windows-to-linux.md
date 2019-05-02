@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
 ms.openlocfilehash: 49f55416cb9224736acd7b8ac5eac5b6c5ba5979
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766711"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707590"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션
 

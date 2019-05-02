@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924582"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
@@ -34,7 +34,7 @@ ms.locfileid: "61291662"
 ## <a name="sample-code-and-demo"></a>샘플 코드 및 데모
 이 문서에서는 구직 검색 포털을 예로 사용합니다. 이 예제는 ASP.NET MVC 애플리케이션으로 구현됩니다.
 
--   [Azure Search 구직 포털 데모](http://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
+-   [Azure Search 구직 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 

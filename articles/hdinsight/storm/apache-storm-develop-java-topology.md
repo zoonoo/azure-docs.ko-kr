@@ -1,22 +1,20 @@
 ---
 title: Apache Storm 예제 Java 토폴로지 - Azure HDInsight
 description: 예제 단어 개수 토폴로지를 만들어 Java에서 Apache Storm 토폴로지를 만드는 방법에 대해 배웁니다.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm,apache storm example,storm java,storm topology example
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/14/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
+ms.date: 03/14/2019
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125173"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695656"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 

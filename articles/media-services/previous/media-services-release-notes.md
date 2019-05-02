@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621433"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728042"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>최신 버전을 체크 아웃 [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)합니다. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 
 Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure Media Services MSDN 포럼]에서 게시물을 제출하세요. 
 
@@ -321,10 +321,6 @@ Media Services .NET SDK의 현재 버전은 3.1.0.1입니다.
 * 현재 SSL 연결을 통해 RTMP 라이브 스트림을 수집할 수 없습니다.
 * 콘텐츠를 배달하는 출발점이 될 스트리밍 엔드포인트가 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 엔드포인트를 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍하려면 [새 스트리밍 엔드포인트를 만듭니다.](media-services-portal-manage-streaming-endpoints.md) SSL을 통해 콘텐츠를 스트리밍하려면 새 스트리밍 엔드포인트를 기준으로 하는 URL을 사용합니다.
 
-## <a id="october_changes_14"></a>2014년 10월 릴리스
-### <a id="new_encoder_release"></a>Media Services 인코더 릴리스
- Media Services Azure Media Encoder의 새 릴리스가 발표되었습니다. 최신 Media Encoder를 사용하면 출력 GB에 대해서만 요금이 청구됩니다. 그렇지 않으면 새 인코더는 이전 인코더와 호환 가능한 기능입니다. 자세한 내용은 [Media Services 가격 책정 정보]를 참조하세요.
-
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 이제 .NET용 Media Services SDK 확장의 버전이 2.0.0.3입니다.
 
@@ -396,14 +392,6 @@ Media Services .NET SDK의 현재 버전은 3.0.0.5입니다. 다음이 업데�
   * 이제 웹 예외(예: Access Control Service 토큰 요청 중)가 발생하면 치명적 오류일수록 더 빠르게 실패합니다.
 
 자세한 내용은 [.NET용 Media Services SDK의 다시 시도 논리]를 참조하세요.
-
-## <a id="april_changes_14"></a>2014년 4월 인코더 릴리스
-### <a name="april_14_enocer_changes"></a>Media Services 인코더 업데이트
-* Grass Valley EDIUS 비선형 편집기를 사용하여 작성된 AVI 파일을 수집하기 위한 지원이 추가되었습니다. 이 프로세스에서 비디오는 Grass Valley HQ/HQX 코덱을 사용하여 가볍게 압축됩니다. 자세한 내용은 [Grass Valley의 클라우드를 통한 EDIUS 7 스트리밍 발표]를 참조하세요.
-*  Media Services 인코더에서 생성된 파일의 명명 규칙을 지정하기 위한 지원이 추가되었습니다. 자세한 내용은 [Media Services 인코더 출력 파일 이름 제어](https://msdn.microsoft.com/library/azure/dn303341.aspx)를 참조하세요.
-*  비디오 및/또는 오디오 오버레이에 대한 지원이 추가되었습니다. 자세한 내용은 [오버레이 만들기](https://msdn.microsoft.com/library/azure/dn640496.aspx)를 참조하세요.
-*  여러 비디오 세그먼트를 함께 붙이기 위한 지원이 추가되었습니다. 자세한 내용은 [비디오 세그먼트 붙이기](https://msdn.microsoft.com/library/azure/dn640504.aspx)를 참조하세요.
-* MP4 코드를 변환하는 경우 오디오가 MPEG-1 Audio Layer 3(MP3라고도 함)로 인코딩되는 관련 버그가 수정되었습니다.
 
 ## <a id="jan_feb_changes_14"></a>2014년 1월/2월 릴리스
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 및 3.0.0.3
@@ -556,7 +544,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 <!--- URLs. --->
 [Azure Media Services MSDN 포럼]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API 참조]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Media Services 가격 책정 정보]: https://azure.microsoft.com/pricing/details/media-services/
+[Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [입력 메타데이터]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [출력 메타데이터]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -573,7 +561,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
 [.NET용 Media Services SDK의 다시 시도 논리]: https://msdn.microsoft.com/library/azure/dn745650.aspx
-[Grass Valley의 클라우드를 통한 EDIUS 7 스트리밍 발표]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx

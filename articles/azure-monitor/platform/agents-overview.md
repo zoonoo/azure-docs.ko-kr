@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775883"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922847"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 모니터링 에이전트 개요 
 Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자에 호스팅되는 Microsoft Windows 및 Linux를 실행하는 가상 머신에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다. VM을 모니터링하는 데 사용할 수 있는 세 가지 에이전트 유형은 다음과 같습니다.
@@ -66,7 +66,7 @@ Log Analytics 에이전트는 다음 작업을 수행할 때 사용해야 합니
 
 * 운영 체제 업데이트의 [Azure Automation 업데이트 관리](../../automation/automation-update-management.md).
 * 일관된 구성 상태를 유지 관리하는 [Azure Automation 필요한 상태 구성](../../automation/automation-dsc-overview.md).
-* [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/automation-change-tracking.md)를 사용하여 구성 변경 내용을 추적합니다.
+* [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking.md)를 사용하여 구성 변경 내용을 추적합니다.
 * [Application Insights](https://docs.microsoft.com/azure/application-insights/) 및 [Azure Security Center](https://docs.microsoft.com/azure/security-center/)와 같은 Azure 서비스로서 기본적으로 Log Analytics에 직접 데이터를 저장합니다.  
 
 ## <a name="dependency-agent"></a>종속성 에이전트

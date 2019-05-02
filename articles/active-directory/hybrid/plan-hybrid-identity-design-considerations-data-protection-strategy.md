@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918421"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
@@ -89,7 +89,7 @@ ms.locfileid: "60381662"
 ## <a name="define-access-control-options"></a>액세스 제어 옵션 정의
 다음 그림에 표시된 것처럼 사용자와 파트너가 Single Sign-On(SSO)를 사용하는 동안 Azure AD에서 사용할 수 있는 인증, 권한 부여 및 액세스 제어 기능을 활용하여 회사는 중앙 ID 리포지토리를 사용할 수 있게 됩니다.
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![중앙 집중식된 관리](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 다른 디렉터리르 사용하는 중앙 집중화된 관리 및 완전한 통합
 
@@ -115,7 +115,7 @@ Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 
 
 Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액세스 수준을 평가하는 것이 중요합니다. 사용자가 리소스에 대해 갖는 액세스 수준은 다를 수 있습니다. 또한 Azure AD가 일부 리소스에 대한 액세스를 제어하여 추가 보안 계층을 추가할 수 있는 반면 리소스 자체는 파일 서버에 있는 파일에 대 한 액세스 제어와 같이 고유한 액세스 제어 목록을 별도로 가질 수 있다는 점에 유의해야 합니다. 다음 그림에서는 하이브리드 시나리오에서 가질 수 있는 액세스 제어의 수준을 요약합니다.
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![액세스 제어](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 그림x에서 보여준 다이어그램에서 각 상호 작용은 Azure AD에서 다룰 수 있는 하나의 액세스 제어 시나리오를 나타냅니다. 아래에서 각 시나리오에 대해 설명합니다.
 

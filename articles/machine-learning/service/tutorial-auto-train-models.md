@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545232"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925753"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -101,7 +101,7 @@ import os
 
 ### <a name="configure-workspace"></a>작업 영역 구성
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
+기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
 
 `Workspace.from_config()`는 **config.json** 파일을 읽고, 세부 정보를 `ws`라는 개체에 로드합니다.  `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
 

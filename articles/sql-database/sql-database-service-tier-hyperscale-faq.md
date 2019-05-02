@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 7746d7256add185be0c67123edf63ea09b6b05a4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 679de1d5accbd0f4f955bf5af95bc8dcc97e3b78
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111835"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574281"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -132,7 +132,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>메모리 사용량이 많은 워크로드를 위해 계산에 추가 RAM을 프로비전할 수 있나요?
 
-아니요. RAM을 더 확보하려면 더 큰 계산 크기로 업그레이드해야 합니다. Gen4 하드웨어는 Gen5 하드웨어에 비해 더 많은 RAM을 제공합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 계산 크기](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier)를 참조하세요.
+아니요. RAM을 더 확보하려면 더 큰 계산 크기로 업그레이드해야 합니다. Gen4 하드웨어는 Gen5 하드웨어에 비해 더 많은 RAM을 제공합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 계산 크기](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요.
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>크기가 다른 계산 노드를 여러 개 프로비저닝할 수 있나요?
 
