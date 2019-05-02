@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446139"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924383"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata 서비스: Linux VM의 예약된 이벤트
 
@@ -49,7 +49,7 @@ Windows에서 예약된 이벤트에 대한 자세한 내용은 [Windows VM에 �
 - 플랫폼 시작 유지 관리(예: 호스트 OS 업데이트)
 - 성능이 저하 된 하드웨어
 - 사용자가 시작하는 유지 관리(예: 사용자가 VM을 다시 시작하거나 다시 배포)
-- [우선 순위가 낮은 VM 제거](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) 크기 조정 설정
+- [우선 순위가 낮은 VM 제거](https://azure.microsoft.com/blog/low-priority-scale-sets) 크기 조정 설정
 
 ## <a name="the-basics"></a>기본 사항  
 
@@ -74,7 +74,7 @@ VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불�
 ### <a name="version-and-region-availability"></a>버전 및 지역 가용성
 예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 현재 버전은 `2017-11-01`입니다.
 
-| 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
+| Version | 릴리스 종류 | 영역 | 릴리스 정보 | 
 | - | - | - | - | 
 | 2017-11-01 | 일반 공급 | 모두 | <li> 우선 순위가 낮은 VM 제거 EventType 'Preempt'에 대 한 지원 추가<br> | 
 | 2017-08-01 | 일반 공급 | 모두 | <li> IaaS VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 

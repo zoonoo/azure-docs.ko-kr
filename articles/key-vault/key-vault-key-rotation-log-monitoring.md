@@ -2,23 +2,19 @@
 title: 종단 간 키 회전 및 감사를 사용하여 Azure Key Vault 설정 | Microsoft Docs
 description: 키 회전을 설정 하 고 key vault 로그를 모니터링할 수 있도록이 방법 가이드를 사용 합니다.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: ''
-ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 785e60ddf54a3772ae7687b9d18477ef04707609
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789892"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713688"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>키 회전 및 감사를 사용하여 Azure Key Vault 설정
 

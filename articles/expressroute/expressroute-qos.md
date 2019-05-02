@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: bc946587cf54142278472652449db40096ca27b8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117217"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712319"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 요구 사항
 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 워크로드가 있습니다. ExpressRoute를 통해 음성 서비스를 사용하려면 아래에 설명한 요구 사항을 준수해야 합니다.
@@ -25,9 +25,9 @@ ms.locfileid: "54117217"
 > 
 > 
 
-다음 테이블에서는 비즈니스용 Skype에서 사용하는 DSCP 표시의 목록을 제공합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 를 참조합니다.
+다음 표에서 Microsoft Teams 및 Skype for Business에 사용한 DSCP 표시의 목록을 제공 합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 를 참조합니다.
 
-| **트래픽 클래스** | **처리(DSCP 표시)** | **비즈니스 워크로드용 Skype** |
+| **트래픽 클래스** | **처리(DSCP 표시)** | **Microsoft Teams 및 비즈니스 워크 로드에 대 한 Skype** |
 | --- | --- | --- |
 | **음성** |EF (46) |Skype/Lync 음성 |
 | **대화형** |AF41 (34) |비디오, VBSS |

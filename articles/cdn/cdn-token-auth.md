@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324515"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869419"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -33,7 +33,7 @@ ms.locfileid: "60324515"
 
 토큰 인증은 요청에 요청자에 대한 인코딩된 정보가 포함된 토큰 값을 포함하도록 요구하여 요청이 신뢰할 수 있는 사이트에서 생성되었는지 확인합니다. 인코딩된 정보가 요구 사항을 충족하는 경우에만 요청자에게 콘텐츠가 제공되며, 그렇지 않으면 요청이 거부됩니다. 다음 매개 변수 중 하나 이상을 사용하여 요구 사항을 설정할 수 있습니다.
 
-- 국가: 지정 된 국가에서 시작 된 요청 허용 하거나 거부 자신의 [국가 코드](/previous-versions/azure/mt761717(v=azure.100))합니다.
+- 국가: 지정 된 국가/지역에서 발생 하는 요청 허용 하거나 거부 자신의 [국가 코드](/previous-versions/azure/mt761717(v=azure.100))합니다.
 - URL: 지정 된 자산 또는 경로 일치 하는 요청만 허용 합니다.
 - 호스트: 허용 하거나 요청 헤더에 지정된 된 호스트를 사용 하는 요청을 거부 합니다.
 - 참조 페이지: 허용 하거나 지정된 된 참조 페이지에서 요청을 거부 합니다.
@@ -86,7 +86,7 @@ ms.locfileid: "60324515"
 
       ![CDN 토큰 인증 설정 키](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. 암호화 도구를 사용하여 암호화 매개 변수를 설정하고 토큰을 생성합니다. 암호화 도구를 사용하면 만료 시간, 국가, 참조 페이지, 프로토콜 및 클라이언트 IP(모든 조합)를 기반으로 요청을 허용하거나 거부할 수 있습니다. 토큰을 구성하기 위해 결합될 수 있는 매개 변수의 수 및 조합은 제한되지 않지만 토큰의 총 길이는 512자로 제한됩니다. 
+   4. 암호화 도구를 사용하여 암호화 매개 변수를 설정하고 토큰을 생성합니다. 암호화 도구를 사용 하 여 허용 하거나 만료 시간, 국가/지역, 참조 페이지, 프로토콜 및 클라이언트 IP (조합)을 기반으로 요청을 거부할 수 있습니다. 토큰을 구성하기 위해 결합될 수 있는 매개 변수의 수 및 조합은 제한되지 않지만 토큰의 총 길이는 512자로 제한됩니다. 
 
       ![CDN 암호화 도구](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ ms.locfileid: "60324515"
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>하나 이상의 지정된 국가에서 시작된 요청만 허용합니다. 다른 모든 국가에서 시작된 요청은 거부됩니다. 각 국가에 대해 두 문자 [ISO 3166 국가 코드](/previous-versions/azure/mt761717(v=azure.100))를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
+      >    <td>하나 이상의 지정 된 국가/지역에서 시작 된 요청만 허용 합니다. 모든 다른 국가/지역에서 발생 하는 요청이 거부 됩니다. 각 국가에 대해 두 문자 [ISO 3166 국가 코드](/previous-versions/azure/mt761717(v=azure.100))를 사용하고 각각을 쉼표로 구분하며 공백은 추가하지 않도록 합니다. 예를 들어 미국 및 프랑스에서만 액세스를 허용하려면 `US,FR`을 입력합니다.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>하나 이상의 지정된 국가에서 시작된 요청을 거부합니다. 다른 모든 국가에서 시작된 요청은 허용됩니다. 구현은 <b>ec_country_allow</b> 매개 변수와 동일합니다. 국가 코드가 <b>ec_country_allow</b> 및 <b>ec_country_deny</b> 매개 변수 둘 다로 표시되면 <b>ec_country_allow</b> 매개 변수가 우선합니다.</td>
+      >    <td>하나 이상의 지정 된 국가/지역에서 발생 하는 요청을 거부 합니다. 모든 다른 국가/지역에서 시작 된 요청만 허용 됩니다. 구현은 <b>ec_country_allow</b> 매개 변수와 동일합니다. 국가 코드가 <b>ec_country_allow</b> 및 <b>ec_country_deny</b> 매개 변수 둘 다로 표시되면 <b>ec_country_allow</b> 매개 변수가 우선합니다.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

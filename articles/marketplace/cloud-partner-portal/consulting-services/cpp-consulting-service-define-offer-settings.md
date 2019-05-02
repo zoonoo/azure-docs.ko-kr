@@ -1,25 +1,18 @@
 ---
-title: Azure 및 Dynamics 365 컨설팅 서비스 제품 - 제품 설정 정의 | Microsoft Docs
-description: Cloud 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품의 제품 설정 정의에 대한 가이드.
+title: 컨설팅 서비스 제품에 대 한 제품 설정을 정의 합니다. | Azure Marketplace
+description: Azure 또는 Dynamics 365 컨설팅 서비스 제품 Cloud 파트너 포털에서에서 Azure Marketplace 용 제품 설정을 정의 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231940"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942781"
 ---
 # <a name="offer-settings-tab"></a>제품 설정 탭
 
@@ -27,7 +20,8 @@ ms.locfileid: "54231940"
 
 ![새 컨설팅 서비스 제품 만들기 - 제품 설정 탭](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>제품 ID
+
+### <a name="offer-id"></a>제품 ID *
 
 이 식별자는 제품을 처음 제출할 때 만드는 고유한 이름입니다. 제품 ID에는 소문자 영숫자 문자, 대시 또는 밑줄만 사용해야 합니다. **제품 ID**는 URL에 표시되며 검색 엔진 결과에 영향을 줍니다. *yourcompanyname_exampleservice* 등을 예로 들 수 있습니다.
 
@@ -36,11 +30,13 @@ ms.locfileid: "54231940"
 >[!Note]
 >제품이 라이브로 표시된 후에는 식별자를 업데이트할 수 없습니다.
 
-### <a name="publisher-id"></a>게시자 ID
+
+### <a name="publisher-id"></a>게시자 ID *
 
 이 식별자는 계정과 관련이 있습니다. 조직 계정으로 로그인하고 나면 **게시자 ID**가 드롭다운 메뉴에 표시됩니다.
 
-### <a name="name"></a>이름
+
+### <a name="name"></a>이름*
 
 이 문자열은 AppSource 또는 Azure Marketplace에서 제품 이름으로 표시됩니다. **이름** 상자에는 50자까지만 입력할 수 있습니다. 검토자는 제목을 편집하여 제품 이름에 기간 및 제품 유형을 추가해야 할 수 있습니다.
 

@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790097"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876020"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
 > [!NOTE]
 > 이 문서는 별도로 명시된 곳을 제외하고 Azure 공용 클라우드 및 정부 클라우드 모두에 적용됩니다.
 
-Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위한 대시보드, 리소스를 찾기 위한 지능형 검색, 리소스 관리를 위한 태그 지정 같은 기능을 통해 다양한 관리 환경을 제공합니다. 모니터링 및 관리 워크플로를 간소화하고 통합하기 위해 Azure Portal에 OMS 포털 기능을 추가하기 시작했습니다. OMS 포털의 모든 기능은 이제 Azure Portal의 일부입니다. 사실, 트래픽 분석 같은 새 기능 중 일부는 Azure Portal에서만 사용할 수 있습니다. Azure Portal 등을 사용하여 OMS 포털에서 하던 모든 것을 수행할 수 있습니다. 아직 그렇게 하지 않은 경우 지금 Azure Portal의 사용을 시작하는 것이 좋습니다!
+**Azure 공용 클라우드에 대 한 OMS 포털 공식적으로 사용 중지 되었습니다. OMS 포털 Azure US Government Azure 클라우드는 2019 년 5 월 15 일에 공식적으로 사용 되지 것입니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 모든 질문, 피드백 또는 문제를 보낼 **LAUpgradeFeedback\@microsoft.com**합니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
 
-Azure 상용 클라우드 및 Azure 미국 정부 클라우드에 대한 **OMS 포털이 2019년 1월 15일 공식적으로 만료**되며, OMS 포털은 **2019년 3월 30일에 공식적으로 만료됩니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 모든 질문, 피드백 또는 문제를 보낼 **LAUpgradeFeedback\@microsoft.com**합니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
+Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위한 대시보드, 리소스를 찾기 위한 지능형 검색, 리소스 관리를 위한 태그 지정 같은 기능을 통해 다양한 관리 환경을 제공합니다. 모니터링 및 관리 워크플로를 간소화하고 통합하기 위해 Azure Portal에 OMS 포털 기능을 추가하기 시작했습니다. OMS 포털의 모든 기능은 이제 Azure Portal의 일부입니다. 사실, 트래픽 분석 같은 새 기능 중 일부는 Azure Portal에서만 사용할 수 있습니다. Azure Portal 등을 사용하여 OMS 포털에서 하던 모든 것을 수행할 수 있습니다. 아직 그렇게 하지 않은 경우 지금 Azure Portal의 사용을 시작하는 것이 좋습니다!
 
 ## <a name="what-is-changing"></a>변경되는 내용 
 다음 변경 사항은 OMS 포털의 사용 중단으로 공지되었습니다. 각 변경에 대한 자세한 설명은 아래 섹션에 자세히 나와 있습니다.
@@ -76,10 +76,7 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 
 ### <a name="alert-extension"></a>경고 확장  
 
-> [!NOTE]
-> 경고는 이제 공용 클라우드에 대한 Azure Portal로 완전히 확장되었습니다. OMS 포털에서 기존 경고 규칙을 볼 수 있지만 Azure Portal에서는 관리만 할 수 있습니다. Azure Portal로 경고의 확장은 Azure 정부 클라우드에 대해 2019년 2월에 시작합니다.
-
-경고는 [Azure Portal로 확장](alerts-extend.md)되었습니다. 완료되면 경고에 대한 관리 작업은 Azure Portal에서만 사용할 수 있습니다. 기존 경고는 계속 OMS 포털에 나열됩니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
+경고 되었습니다 [Azure portal로 확장](alerts-extend.md) 기존 경고는 계속 OMS 포털에 나열 되지만 Azure portal에서 에서만 관리할 수 있습니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
 
 ### <a name="alert-management-solution"></a>경고 관리 솔루션
 이전 알림의 변경으로 [경고 관리 솔루션](alert-management-solution.md)은 계속 사용할 수 있으며 Azure Portal에서 완전히 지원됩니다. Azure Marketplace에서 솔루션을 계속 설치할 수 있습니다.

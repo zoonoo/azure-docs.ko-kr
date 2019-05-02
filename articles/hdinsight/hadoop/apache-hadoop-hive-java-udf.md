@@ -1,27 +1,19 @@
 ---
 title: HDInsight에서 Apache Hive와 함께 사용할 Java UDF(사용자 정의 함수) 만들기 - Azure
 description: Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 03/21/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 03/21/2019
+ms.author: hrasheed
+ms.openlocfilehash: 24c2e8b9600b3d622d3d6b42b3bc3615a87ff853
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537635"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686623"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
@@ -201,13 +193,13 @@ cd C:\HDI
 2. 사용 된 `scp` 다음 명령을 입력 하 여 HDInsight 클러스터에 파일을 복사 하는 명령:
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
 3. 다음 명령을 입력 하 여 SSH를 사용 하 여 클러스터에 연결 합니다.
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.cn
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
 4. 열린 SSH 세션에서 HDInsight 저장소에 jar 파일을 복사 합니다.

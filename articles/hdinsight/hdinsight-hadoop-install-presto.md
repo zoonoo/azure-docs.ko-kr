@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight Linux 클러스터에 Presto 설치
 description: 스크립트 동작을 사용하여 Linux 기반 HDInsight Hadoop 클러스터에 Presto 및 Airpal을 설치하는 방법을 알아봅니다.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 2bd5e1ae02ffbb62b9a5a95846aabeeab2b448b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258346"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704807"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Hadoop 기반 HDInsight 클러스터에 Presto 설치 및 사용
 
@@ -26,7 +25,7 @@ HDInsight는 또한 Apache Hadoop 클러스터에 대한 Starburst Presto 애플
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 3.5 Hadoop 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
 
 ## <a name="what-is-presto"></a>Presto란?
-[Presto](https://prestodb.io/overview.html)는 빅 데이터에 대한 빠른 분산형 SQL 쿼리 엔진입니다. Presto는 페타바이트의 데이터를 대화형으로 쿼리하는 데 적합합니다. Presto의 구성 요소 및 작동 방법에 대한 자세한 내용은 [Presto 개념](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)을 참조하세요.
+[Presto](https://prestosql.io)는 빅 데이터에 대한 빠른 분산형 SQL 쿼리 엔진입니다. Presto는 페타바이트의 데이터를 대화형으로 쿼리하는 데 적합합니다. Presto의 구성 요소 및 작동 방법에 대한 자세한 내용은 [Presto 개념](https://prestosql.io/docs/current/overview/concepts.html)을 참조하세요.
 
 > [!WARNING]  
 > HDInsight 클러스터에 제공되는 구성 요소는 완벽히 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하도록 도움을 줍니다.
@@ -86,9 +85,9 @@ HDInsight 클러스터에서 Presto를 사용하려면 다음 단계를 수행�
    
     `select count (*) from hivesampletable;`
    
-    기본적으로 Presto에 대한 [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) 및 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 커넥터는 이미 구성되어 있습니다. Hive 커넥터는 기본 Hive 설치를 사용하도록 구성됩니다. 그러면 Hive의 모든 테이블이 Presto에 자동으로 표시됩니다.
+    기본적으로 Presto에 대한 [Apache Hive](https://prestosql.io/docs/current/connector/hive.html) 및 [TPCH](https://prestosql.io/docs/current/connector/tpch.html) 커넥터는 이미 구성되어 있습니다. Hive 커넥터는 기본 Hive 설치를 사용하도록 구성됩니다. 그러면 Hive의 모든 테이블이 Presto에 자동으로 표시됩니다.
 
-    자세한 내용은 [Presto 설명서](https://prestodb.io/docs/current/index.html)를 참조하세요.
+    자세한 내용은 [Presto 설명서](https://prestosql.io/docs/current/index.html)를 참조하세요.
 
 ## <a name="use-airpal-with-presto"></a>Presto와 함께 Airpal 사용
 
@@ -151,7 +150,7 @@ Airpal을 에지 노드에 설치하려면 다음 단계를 수행합니다.
    
     자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. `/var/lib/presto/presto-hdinsight-master/appConfig-default.json` 파일에서 구성을 변경합니다. Presto 구성에 대한 자세한 내용은 [YARN 기반 클러스터에 대한 Presto 구성 옵션](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html)을 참조하세요.
+2. `/var/lib/presto/presto-hdinsight-master/appConfig-default.json` 파일에서 구성을 변경합니다. Presto 구성에 대한 자세한 내용은 [YARN 기반 클러스터에 대한 Presto 구성 옵션](https://prestosql.github.io/presto-yarn/installation-yarn-configuration-options.html)을 참조하세요.
 
 3. 현재 실행 중인 Presto의 인스턴스를 중지하고 종료합니다.
 

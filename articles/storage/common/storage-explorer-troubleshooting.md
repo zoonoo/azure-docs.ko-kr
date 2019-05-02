@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225045"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710871"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -96,10 +96,10 @@ Storage 탐색기가 자체 서명된 인증서나 신뢰할 수 없는 인증�
 
 빈 로그인 대화 상자는 가장 많은 원인은 ADFS Storage 탐색기를 묻는 전자에서 지원 되지 않습니다 리디렉션을 수행 하 합니다. 이 문제를 해결하기 위해 디바이스 코드 흐름을 로그인에 사용할 수 있습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
-1. "미리 보기로 이동"-"장치 로그인 코드 사용" > 있습니다.
+1. 메뉴: 미리 보기-"장치 로그인 코드 사용" > 있습니다.
 2. 왼쪽 세로 막대의 플러그 아이콘 또는 계정 패널의 “계정 추가”를 통해 연결 대화 상자를 엽니다.
 3. 에 로그인 하려면 어떤 환경을 선택 합니다.
-4. “로그인” 단추를 클릭합니다.
+4. "로그인" 단추를 클릭 합니다.
 5. 다음 패널의 지침을 따릅니다.
 
 기본 브라우저가 이미 다른 계정에 로그인 하기 때문에 사용 하려는 계정에 로그인 하는 데 문제가 있다면 수 있습니다.
@@ -128,7 +128,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 3. "로그인" 키 집합을 선택합니다.
 4. 자물쇠 아이콘을 클릭하여 키 집합을 잠급니다(완료되면 자물쇠가 잠긴 모양으로 바뀌며 열려 있는 앱에 따라 몇 초 정도 걸릴 수 있음).
 
-    ![이미지](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+    ![Image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Storage 탐색기를 시작합니다.
 6. "서비스 허브가 키 집합에 액세스하려고 합니다" 같은 팝업 메시지가 나타납니다. 그럴 때 Mac 관리자 계정의 암호를 입력하고 **항상 허용**(또는 **항상 허용**을 사용할 수 경우 **허용**)을 클릭합니다.

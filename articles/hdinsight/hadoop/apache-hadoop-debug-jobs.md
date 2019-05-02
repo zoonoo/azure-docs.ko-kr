@@ -1,7 +1,6 @@
 ---
 title: 'Apache Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure HDInsight'
 description: PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다.
-services: hdinsight
 ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449497"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721004"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop 로그 분석
 
@@ -33,7 +32,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에�
 * ambariserverlog
 * ambariagentlog
 
-테이블 파일 이름은 **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>** 입니다.
+테이블 파일 이름은 **u\<ClusterName > DDMonYYYYatHHMMSSsss\<TableName >** 합니다.
 
 이 테이블은 다음 필드를 포함합니다.
 

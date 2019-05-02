@@ -1,19 +1,18 @@
 ---
 title: HDInsight에서 Hadoop을 통해 Windows PC 사용 - Azure
 description: HDInsight에서 Hadoop의 Windows PC에서 작업. PowerShell, Visual Studio 및 Linux 도구를 사용하는 클러스터를 관리 및 쿼리합니다. .NET을 사용하는 빅 데이터 솔루션을 개발합니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: b8bad1d0f53ce4e4c924734201165e1b050c153f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361475"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926022"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
@@ -30,11 +29,11 @@ PowerShell로 수행할 수 있는 작업의 예:
 * [PowerShell을 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-powershell.md)
 * [PowerShell을 사용하여 클러스터 관리](hdinsight-administer-use-powershell.md)
 
-[Azure Powershell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-az-ps) 단계에 따라 최신 버전을 가져옵니다. Azure Resource Manager용 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md)을 참조하세요.
+[Azure Powershell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-az-ps) 단계에 따라 최신 버전을 가져옵니다.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>브라우저에서 실행할 수 있는 유틸리티
 다음 유틸리티는 브라우저에서 실행되는 웹 UI가 있습니다.
-* **[Azure Cloud Shell(미리 보기)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** 은 브라우저 및 Azure Portal 내에서 실행되는 대화형 명령줄 셸입니다.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  은 브라우저에 내에서 실행 되는 대화형 명령줄 셸입니다 Azure portal.
 * **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 는 다음과 같은 다양한 종류의 작업을 관리하는 데 사용할 수 있으며 Azure Portal에서 사용 가능한 관리 및 모니터링 유틸리티입니다.
     * [REST API로 Apache Ambari 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Ambari에서 Apache Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -58,9 +57,6 @@ Visual Studio에서 .NET SDK와 함께 수행할 수 있는 작업의 예:
 * [.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Apache Hadoop에서 Apache Hive 및 Apache Pig 스트림과 함께 C# 사용자 정의 함수 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-> [!TIP]
-> .NET 솔루션을 Windows 기반 HDInsight 클러스터와 함께 실행하는 경우 Linux 기반 클러스터로의 마이그레이션을 계획하는 것이 좋습니다. 자세한 내용은 [Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)을 참조하세요.
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Spark 클러스터에 대한 Intellij IDEA 및 Eclipse IDE
 [Intellij IDEA](https://www.jetbrains.com/idea/download) 및 [Eclipse IDE](https://www.eclipse.org/downloads/)는 다음에 사용할 수 있습니다.
 * HDInsight Spark 클러스터에서 Scala Spark 애플리케이션을 개발 및 제출합니다.
@@ -78,14 +74,17 @@ HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 �
 * [Apache Spark 클러스터에서 Jupyter Notebook과 함께 커널을 사용하여 Spark 애플리케이션을 테스트하는 방법 알아보기](spark/apache-spark-zeppelin-notebook.md)
 * [Apache Spark 클러스터에서 Apache Zeppelin Notebook을 사용하여 Spark 작업을 실행하는 방법 알아보기](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Windows에서 Linux 기반 도구 및 기술 실행
 
 Linux에서만 사용 가능한 도구 또는 기술을 사용해야 하는 상황이 발생한 경우 다음 옵션을 고려합니다.
 
-* **Windows 10의 Bash(베타)** 는 Windows에서 Linux 하위 시스템을 제공합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Bash 베타를 Windows 10에서 설치 및 실행](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Windows 10에서 ubuntu의 bash** Windows에서 Linux 하위 시스템을 제공 합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. 참조 [Linux 설치 가이드에 대 한 Windows 10 용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/install-win10) 설치 단계에 대 한 합니다.  다른 [Unix 셸](https://www.gnu.org/software/bash/) 도 작동 합니다.
 * **Windows용 Docker**는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. 또한 Docker를 사용하여 로컬 Jupyter Notebook을 실행하고 HDInsight의 Spark에 원격으로 연결할 수 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** 을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
+
+## <a name="cross-platform-tools"></a>플랫폼 간 도구
+
+Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.  자세한 내용은 [Azure 명령줄 인터페이스 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Linux 기반 클러스터에서 작업하는 데 익숙하지 않은 경우 다음 문서를 참조하세요.

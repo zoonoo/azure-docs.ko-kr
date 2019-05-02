@@ -3,8 +3,8 @@ title: Azure Service Fabric CLI(sfctl) 스크립트 배포 샘플
 description: Azure Service Fabric CLI를 사용하여 Azure Service Fabric 클러스터에 애플리케이션 배포
 services: service-fabric
 documentationcenter: ''
-author: aljo-microsoft
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -12,15 +12,16 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 04/16/2018
-ms.author: aljo
+origin.date: 04/16/2018
+ms.date: 04/29/2019
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1b90c4f8a1cdc5334425ba549a71bc189bc112b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f3ab32101a46c1044954f2efe88ac05ab81af24a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622001"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
 
@@ -30,7 +31,33 @@ ms.locfileid: "58668265"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-sh[main](../../../cli_scripts/service-fabric/deploy-application/deploy-application.sh "Deploy an application to a cluster")]
+```sh
+#!/bin/bash
+
+# Select cluster
+sfctl cluster select \
+    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
+
+# Upload the application files to the image store
+# (note the last folder name, Debug in this example)
+sfctl application upload \
+    --path  C:\Code\svcfab-vs\svcfab-vs\pkg\Debug \
+    --show-progress
+
+# Register the application (manifest files) from the image store
+# (Note the last folder from the previous command is used: Debug)
+sfctl application provision \
+    --application-type-build-path Debug \
+    --timeout 500
+
+# Create an instance of the registered application and 
+# auto deploy any defined services
+sfctl application create \
+    --app-name fabric:/MyApp \
+    --app-type MyAppType \
+    --app-version 1.0.0
+
+```
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -41,3 +68,5 @@ ms.locfileid: "58668265"
 자세한 내용은 [Service Fabric CLI 설명서](../service-fabric-cli.md)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 Service Fabric CLI 샘플은 [Service Fabric CLI 샘플](../samples-cli.md)에서 확인할 수 있습니다.
+
+<!--Update_Description: update meta properties, update link -->

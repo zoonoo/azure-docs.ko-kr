@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 for Customer Engagement 제안 연락처 탭 - Azure Marketplace | Microsoft Docs
+title: 연락처 탭을 제공 하는 Dynamics 365 for Customer Engagement | Azure Marketplace
 description: AppSource Marketplace에서 Dynamics 365 for Customer Engagement 제안에 대한 연락처 정보를 구성합니다.
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082291"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942507"
 ---
 # <a name="azure-application-contacts-tab"></a>Azure 애플리케이션 연락처 탭
 
@@ -30,22 +23,22 @@ ms.locfileid: "54082291"
 
 ## <a name="specify-customer-and-engineering-contacts"></a>고객 및 엔지니어링 담당자 지정
 
-기본 **엔지니어링 담당자**를 정의하고 제안에 사용하기 위해 제공하는 값은 다음과 같습니다.
+기본 **엔지니어링 담당자**를 정의하고 제안에 사용하기 위해 제공하는 값은 다음과 같습니다. 필수 필드는 별표(*)로 표시됩니다.
 
 |    필드        |  설명                    |
 |    ---------    |  ---------------                |
-|  **Name**       |  앱에 대한 엔지니어링 담당자의 이름입니다. 이 연락처는 Microsoft에서 기술 관련 통신을 받게 됩니다.   |
-|  **Email**      |  엔지니어링 담당자의 이메일 주소  |
-|  **전화**      |  엔지니어링 담당자의 전화 번호  |
+|  **이름\***       |  앱에 대한 엔지니어링 담당자의 이름입니다. 이 연락처는 Microsoft에서 기술 관련 통신을 받게 됩니다.   |
+|  **전자 메일\***      |  엔지니어링 담당자의 이메일 주소  |
+|  **Phone\***      |  엔지니어링 담당자의 전화 번호  |
 |  |  |
 
 기본 **고객 지원 담당자**를 정의하고 제안에 사용하기 위해 제공하는 값은 다음과 같습니다.
 
 |    필드        |   설명                   |
 |    ---------    |  ---------------                |
-|  **Name**       |  앱에 대한 고객 지원 담당자의 이름입니다. 이 연락처는 Microsoft에서 지원 관련 통신을 받게 됩니다.   |
-|  **Email**      |  고객 지원 담당자의 이메일 주소  |
-|  **전화**      |  고객 지원 담당자의 전화 번호  |
+|  **이름\***       |  앱에 대한 고객 지원 담당자의 이름입니다. 이 연락처는 Microsoft에서 지원 관련 통신을 받게 됩니다.   |
+|  **전자 메일\***      |  고객 지원 담당자의 이메일 주소  |
+|  **Phone\***      |  고객 지원 담당자의 전화 번호  |
 |  |  |
 
 

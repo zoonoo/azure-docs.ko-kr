@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006134"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686283"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스에 대 한 연결 아키텍처
 
@@ -80,7 +80,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 경우 (마찬가지로 백업 및 감사 로그) 관리 되는 인스턴스 내에서 시작 하는 연결, 관리 끝점의 공용 IP 주소에서 시작 하려면 트래픽이 표시 됩니다. 관리 되는 인스턴스의 IP 주소만 허용 하도록 방화벽 규칙을 설정 하 여 관리 되는 인스턴스에서 공용 서비스에 대 한 액세스를 제한할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스의 기본 제공 방화벽 확인](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)합니다.
 
 > [!NOTE]
-> 관리 되는 인스턴스의 지역 내에 있는 Azure 서비스를 이동 하는 트래픽 라우팅 최적화 되 고 하는 이유로 든 관리 인스턴스 관리 끝점 공용 IP 주소로 nat 된 없습니다. 이런 이유로 가장 일반적으로 저장소에 대 한 IP 기반 방화벽 규칙을 사용 해야 하는 경우 서비스는 관리 되는 인스턴스에서 다른 지역에 포함 되도록 해야 합니다.
+> 이런 이유로 nat 된 없습니다 관리 되는 인스턴스 관리 끝점 공용 IP 주소 및 관리 되는 인스턴스의 지역 내에 있는 Azure 서비스에 전달 되는 트래픽에만 최적화 됩니다. 이런 이유로 가장 일반적으로 저장소에 대 한 IP 기반 방화벽 규칙을 사용 해야 하는 경우 서비스는 관리 되는 인스턴스에서 다른 지역에 포함 되도록 해야 합니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 
@@ -97,7 +97,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| Name       |포트                        |프로토콜|원본           |대상|액션(Action)|
+| 이름       |포트                        |Protocol|원본           |대상|액션(Action)|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |허용 |
 |mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
@@ -105,7 +105,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| Name       |포트          |프로토콜|원본           |대상|액션(Action)|
+| 이름       |포트          |Protocol|원본           |대상|액션(Action)|
 |------------|--------------|--------|-----------------|-----------|------|
 |관리  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |허용 |
 |mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
@@ -122,7 +122,7 @@ Microsoft에서 관리 끝점을 사용 하 여 관리 되는 인스턴스를 �
 
 ### <a name="user-defined-routes"></a>사용자 정의 경로
 
-|Name|주소 접두사|다음 홉|
+|이름|주소 접두사|다음 홉|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|인터넷|

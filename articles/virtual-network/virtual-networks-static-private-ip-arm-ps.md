@@ -3,7 +3,7 @@ title: 정적 개인 IP 주소-Azure PowerShell을 사용 하 여 VM 만들기 |
 description: PowerShell을 사용 하 여 개인 IP 주소를 사용 하 여 가상 컴퓨터를 만드는 방법에 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2019
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 812b3752bfffd16c09b466b036fb0ac91e77d5a4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9115386b0543e1ac840aec29fc7f57e7c98c03bb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104355"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685342"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>PowerShell을 사용 하 여 정적 개인 IP 주소를 사용 하 여 가상 머신 만들기
 
@@ -100,7 +100,7 @@ ms.locfileid: "58104355"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요한 경우 사용할 수 없습니다 [제거 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 리소스 그룹 및 포함 된 리소스를 모두 제거 하려면:
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

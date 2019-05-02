@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d348592589f448dab9b8b4f3a1a3eb286d464417
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109766"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723459"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>탐색기 미리 보기에서 데이터 시각화
 
@@ -191,12 +191,12 @@ Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변�
 
 **Where**: where 절을 사용하면 다음 표에 나열된 피연산자 세트를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 피연산자를 선택하여 검색을 수행하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트됩니다. 지원되는 연산자는 다음과 같습니다.
 
-| 작업 | 지원되는 형식   | 메모 |
+| 작업(Operation) | 지원되는 형식   | 메모 |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | 모든 연산자는 같은 형식이거나 NULL 상수여야 합니다. |
-| `HAS` | 문자열 | 우측 항에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열과 NULL은 허용되지 않습니다. |
+| `HAS` | String | 우측 항에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열과 NULL은 허용되지 않습니다. |
 
 [TSX(시계열 식)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx)를 읽어 지원되는 쿼리 작업 및 데이터 형식에 대해 자세히 알아봅니다.
 
@@ -216,10 +216,11 @@ Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서를 참조하세요.
-* [Azure Time Series Insights 미리 보기 스토리지 및 수신](./time-series-insights-update-storage-ingress.md)
-* [데이터 모델링](./time-series-insights-update-tsm.md)
-* [진단 및 문제 해결](./time-series-insights-update-how-to-troubleshoot.md)
+- 에 대 한 자세한 [저장소 및 수신](./time-series-insights-update-storage-ingress.md) Azure Time Series Insights 미리 보기에 있습니다.
+
+- Time Series Insights 미리 보기 문서를 참조 [데이터 모델링](./time-series-insights-update-tsm.md)합니다.
+
+- 에 대해 알아봅니다 [진단 및 문제 해결 방법](./time-series-insights-update-how-to-troubleshoot.md) Time Series Insights 인스턴스.
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

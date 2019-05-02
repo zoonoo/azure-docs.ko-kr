@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace SaaS Fulfillment Api | Microsoft Docs
+title: SaaS Fulfillment Api | Azure Marketplace
 description: Azure Marketplace을 통해 SaaS에 통합할 수 있도록 해 주는 Api 제공 fulfillment의 버전을 소개 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: pbutlerm
-ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ec206c2d637f9fb2727d72cf17087050a765672c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798737"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941973"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS 처리 API
 

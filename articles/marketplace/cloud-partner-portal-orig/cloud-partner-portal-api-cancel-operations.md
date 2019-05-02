@@ -1,28 +1,20 @@
 ---
-title: 작업 취소 API | Microsoft Docs
+title: API 작업을 취소 | Azure Marketplace
 description: 작업을 취소합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807205"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935556"
 ---
-<a name="cancel-operation"></a>작업 취소 
-=================
+# <a name="cancel-operation"></a>작업 취소 
 
 이 API는 제안에 대해 현재 진행 중인 작업을 취소합니다. [작업 검색 API](./cloud-partner-portal-api-retrieve-operations.md)를 사용하여 이 API에 전달할 `operationId`를 가져옵니다. 일반적으로 취소는 동기 작업이지만, 일부 복잡한 시나리오에서는 기존 작업을 취소하기 위해 새 작업이 필요할 수 있습니다. 이 경우 HTTP 응답 본문에는 상태 쿼리에 사용되는 작업 위치가 포함됩니다.
 
@@ -35,8 +27,8 @@ ms.locfileid: "48807205"
 
 |  **Name**    |      **설명**                                  |    **데이터 형식**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  게시자 식별자(예: `contoso`)입니다.         |   문자열          |
-| offerId      |  제안 식별자입니다.                                     |   문자열          |
+| publisherId  |  게시자 식별자(예: `contoso`)입니다.         |   String          |
+| offerId      |  제안 식별자입니다.                                     |   String          |
 | api-version  |  API의 현재 버전입니다.                               |    Date           |
 |  |  |  |
 

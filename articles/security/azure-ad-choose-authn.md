@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805264"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702298"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -49,7 +49,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 ### <a name="cloud-authentication"></a>클라우드 인증
 이 인증 방법을 선택하면 Azure AD가 사용자의 로그인 프로세스를 처리합니다. 원활한 SSO(Single Sign-On)와 결합되어 있으므로, 사용자는 자격 증명을 다시 입력하지 않고도 클라우드 앱에 로그인할 수 있습니다. 클라우드 인증을 사용할 경우 다음 두 가지 옵션 중에서 선택할 수 있습니다. 
 
-**Azure AD 암호 해시 동기화**. Azure AD에서 온-프레미스 디렉터리 개체에 대한 인증을 사용하는 가장 간단한 방법입니다. 사용자는 추가 인프라를 배포하지 않고도 온-프레미스에서 사용하는 것과 동일한 사용자 이름과 암호를 사용할 수 있습니다. ID 보호와 같은 Azure AD의 일부 프리미엄 기능에는 선택한 인증 방법에 관계없이 암호 해시 동기화가 필요합니다.
+**Azure AD 암호 해시 동기화**. Azure AD에서 온-프레미스 디렉터리 개체에 대한 인증을 사용하는 가장 간단한 방법입니다. 사용자는 추가 인프라를 배포하지 않고도 온-프레미스에서 사용하는 것과 동일한 사용자 이름과 암호를 사용할 수 있습니다. Id 보호 등의 Azure AD의 일부 프리미엄 기능 및 [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), 암호 해시 동기화에 어떤 인증 방법을 선택 해야 합니다.
 
 > [!NOTE] 
 > 암호는 일반 텍스트로 저장되거나 Azure AD에서 복원 가능한 알고리즘을 사용하여 암호화되지 않습니다. 암호 해시 동기화의 실제 프로세스에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization)을 참조하세요. 
@@ -92,7 +92,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **사용자 환경**. 사용자의 로그인 환경을 개선하려면 암호 해시 동기화를 사용하는 원활한 SSO를 배포합니다. 원활한 SSO는 사용자가 로그인한 후 불필요한 프롬프트를 방지합니다.
 
-* **고급 시나리오**. 조직에서 원하는 경우, Azure AD Premium P2가 있으면 손실된 자격 증명 보고서 등의 Azure AD ID 보호 보고서에서 ID의 정보를 사용할 수 있습니다. Windows Hello 비즈니스에 [암호 해시 동기화를 사용 하는 경우 특정 요구 사항](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)합니다. 
+* **고급 시나리오**. 조직에서 원하는 경우, Azure AD Premium P2가 있으면 손실된 자격 증명 보고서 등의 Azure AD ID 보호 보고서에서 ID의 정보를 사용할 수 있습니다. Windows Hello 비즈니스에 [암호 해시 동기화를 사용 하는 경우 특정 요구 사항](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)합니다. [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) 암호 해시 동기화를 관리 되는 도메인에서 자신의 회사 자격 증명을 사용 하 여 사용자를 프로 비전 해야 합니다.
 
     암호 해시 동기화와 함께 다단계 인증을 필요로 하는 조직은 Azure AD 다단계 인증을 사용해야 합니다. 이러한 조직은 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다.
 

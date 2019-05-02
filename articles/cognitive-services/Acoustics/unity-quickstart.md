@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317190"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917111"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Project Acoustics Unity 빠른 시작
 Unity용 Project Acoustics 샘플 콘텐츠를 사용하여 시뮬레이션 기반 디자인 컨트롤을 실험합니다.
 
 소프트웨어 요구 사항:
-* Windows용 [Unity 2018.2+](http://unity3d.com)
+* Windows용 [Unity 2018.2+](https://unity3d.com)
 * [Project Acoustics 샘플 콘텐츠 패키지](https://www.microsoft.com/download/details.aspx?id=57346)
 
 샘플 패키지에는 무엇이 포함되어 있나요?

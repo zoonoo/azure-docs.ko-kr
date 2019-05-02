@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455638"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918490"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>하이브리드 ID 수명 주기에 대한 계획
 ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 토대 중 하나입니다. 모바일 디바이스 또는 SaaS 앱에 로그인하는지와 무관하게 ID는 모든 항목에 액세스를 얻는 키입니다. 가장 높은 수준에서 ID 관리 솔루션은 프로비전한 리소스의 프로세스를 자동화하고 중앙 집중화를 포함하는 ID 리포지토리 간의 통합 및 동기화를 포함합니다. ID 솔루션은 온-프레미스 및 클라우드 전반에서 중앙 집중화된 ID여야 하며 특정 형태의 ID 페더레이션을 사용하여 중앙 집중된 인증을 유지 관리하고 외부 사용자 및 비즈니스와 안전하게 공유하며 협력해야 합니다. 리소스의 범위는 운영 체제 및 애플리케이션에서 사용자에 걸쳐 있거나 조직에 속해 있습니다. 조직 구조는 프로비전하는 정책 및 절차를 수용하기 위해 변경될 수 있습니다.
@@ -32,7 +32,7 @@ ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 �
 ## <a name="determine-hybrid-identity-management-tasks"></a>하이브리드 ID 관리 작업 결정
 조직에서 관리 작업을 배포하면 관리의 정확성 및 효율성이 향상되고 조직의 워크로드 균형을 향상시킵니다. 다음은 강력한 ID 관리 시스템을 정의하는 피벗입니다.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![id 관리 고려 사항](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 하이브리드 ID 관리 작업을 정의하려면 하이브리드 ID를 채택하는 조직의 필수 특징 일부를 이해해야 합니다. ID 원본에 사용되는 현재 리포지토리를 이해하는 것이 중요합니다. 이러한 핵심 요소를 파악하여 기본적인 요구 사항을 얻고 이를 기반으로 ID 솔루션에 대한 더 나은 설계를 결정하게 할 수 있는 보다 세부적인 질문을 던져야 합니다.  
 
@@ -61,7 +61,7 @@ ID는 엔터프라이즈 이동성 및 애플리케이션 액세스 전략의 �
 ## <a name="synchronization-management"></a>동기화 관리
 ID 관리자의 목표 중 하나는 모든 ID 공급자를 가져오고 동기화 상태를 유지할 수 있는 것입니다. 권한이 있는 마스터 ID 공급자에 기반하여 데이터 동기화를 유지합니다. 동기화된 관리 모델을 사용하는 하이브리드 ID 시나리오에서 온-프레미스 서버에 있는 모든 사용자 및 디바이스 ID를 관리하고 계정 및 필요에 따라 암호를 클라우드로 동기화합니다. 로그인에서 사용자는 클라우드에서 입력한 동일한 온-프레미스 암호를 입력하고 암호는 ID 솔루션에서 확인합니다. 이 모델은 디렉터리 동기화 도구를 사용합니다.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 ID 솔루션의 동기화를 적절히 설계하려면 다음 질문에 대답하도록 합니다. • 하이브리드 ID 솔루션에 사용할 수 있는 동기화 솔루션은 무엇입니까?
+![디렉터리 동기화](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) 하이브리드 id 솔루션의 동기화를 적절히 설계 하려면 다음 질문에 대 한 답변을 확인 합니다. • 하이브리드 id 솔루션에 사용할 수 있는 동기화 솔루션은 무엇입니까?
 • 사용할 수는 Single sign-on 기능은 무엇입니까?
 • B2B 및 B2C 간의 ID 페더레이션에 대한 옵션은 무엇입니까?
 

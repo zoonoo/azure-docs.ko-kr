@@ -17,11 +17,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286863"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682940"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -65,7 +65,7 @@ ms.locfileid: "60286863"
 - 기존 위험 이벤트의 검색 정확도 향상 
 - 향후 추가될 새 위험 이벤트 유형
 
-### <a name="leaked-credentials"></a>손실된 자격 증명
+### <a name="leaked-credentials"></a>유출된 자격 증명
 
 사이버 범죄자가 합법적인 사용자의 유효한 암호를 손상시키는 경우 범죄자는 종종 이러한 자격 증명을 공유합니다. 보통 이러한 작업은 Dark 웹 또는 붙여넣기 사이트에 공개적으로 게시하거나 암시장에서 자격 증명을 거래 또는 판매하는 방식으로 이루어집니다. Microsoft 유출된 자격 증명 서비스는 공개 및 Dark 웹 사이트를 모니터링하고 다음 대상과 협력하여 사용자 이름/암호 쌍을 획득합니다.
 
@@ -76,11 +76,11 @@ ms.locfileid: "60286863"
 
 서비스에서 사용자 이름/암호 쌍을 획득하면 AAD에 대해 사용자의 현재 유효한 자격 증명인지 확인합니다. 일치하면 사용자의 암호가 손상된 것이며 **누출된 자격 증명 위험 이벤트**가 만들어집니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 
 이 위험 이벤트 유형은 익명 프록시 IP 주소로 식별된 IP 주소에서 시도하여 성공적으로 로그인한 사용자를 식별합니다. 이 프록시는 해당 디바이스의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
 
-### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치 간 이동 불가능
+### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
 
 이 위험 이벤트 유형은 지역적으로 떨어진 위치에서 시작한 두 번의 로그인을 식별합니다. 과거 동작을 고려하면 이 위치 중 하나 이상이 사용자에 대해 불규칙적입니다. 다른 요인 중에서 이 Machine Learning 알고리즘은 두 번의 로그인 간 시간과 사용자가 첫 번째 위치에서 두 번째 위치로 이동하는 데 걸리는 시간을 고려하여 서로 다른 사용자가 동일한 자격 증명을 사용하고 있음을 나타냅니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "60286863"
 
 ID 보호는 기본 인증/레거시 프로토콜에 대한 일반적이지 않은 위치에서의 로그인을 검색합니다. 이러한 프로토콜에는 클라이언트 ID와 같은 친숙한 현대적인 기능이 없기 때문에 거짓 긍정을 줄일 만큼 원격 분석이 충분하지 않습니다. 검색된 위험 이벤트 수를 줄이려면 최신 인증으로 이동해야 합니다.   
 
-### <a name="sign-ins-from-infected-devices"></a>감염된 디바이스에서의 로그인
+### <a name="sign-ins-from-infected-devices"></a>감염된 디바이스에서 로그인
 
 이 위험 이벤트 유형은 적극적으로 봇 서버와 통신한다고 알려진 맬웨어로 감염된 디바이스에서 시도한 로그인을 식별합니다. 봇 서버와 접촉했던 IP 주소에 대해 사용자의 디바이스의 IP 주소를 상호 연결하여 결정됩니다. 
 
@@ -139,16 +139,16 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 ![위험 수준](./media/concept-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>손실된 자격 증명
+### <a name="leaked-credentials"></a>유출된 자격 증명
 
 사용자 이름 및 암호를 공격자가 사용할 수 있다고 명백히 표시하기 때문에 유출된 자격 증명 위험 이벤트는 **높음**으로 분류됩니다.
 
-### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서의 로그인
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 
 익명 IP 주소는 계정 손상을 확실히 표시하지 않기 때문에 이 위험 이벤트 유형의 위험 수준은 **보통**입니다. 사용자에게 즉시 문의하여 익명 IP 주소를 사용했는지를 확인하는 것이 좋습니다.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치 간 이동 불가능
+### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
 
 불가능한 이동은 일반적으로 해커가 성공적으로 로그인할 수 있는 훌륭한 지표입니다. 그러나 사용자가 새 디바이스를 사용하거나 조직의 다른 사용자가 일반적으로 사용하지 않는 VPN을 사용하여 이동하는 경우 가양성이 발생할 수 있습니다. 가양성의 다른 원본은 서버 IP 및 클라이언트 IP를 정확하지 않게 전달하는 애플리케이션이며 애플리케이션의 백 엔드가 호스팅되는 데이터 센터에서 발생하는 로그인의 모양을 가져올 수 있습니다(대개 이러한 Microsoft 데이터 센터는 Microsoft에서 소유한 고유의 IP 주소를 발생시키는 로그인의 모양을 제공할 수 있음). 이러한 가양성의 결과로 이 위험 이벤트에 대한 위험 수준은 **보통**입니다.
 

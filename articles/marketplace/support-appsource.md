@@ -2,24 +2,18 @@
 title: AppSource 지원 | Azure
 description: AppSource에 대한 지원 정보 및 링크입니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5fb8d4420c4d46bc8a4ffe80743578cea338dd8e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 788a50b85b47b104f12c22ea3d4c39627c412cc2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798898"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937538"
 ---
 # <a name="support-for-appsource"></a>AppSource 지원  
 AppSource에 대한 지원 옵션입니다.  

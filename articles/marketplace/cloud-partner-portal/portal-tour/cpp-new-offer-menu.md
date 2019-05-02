@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace를 위한 새 제품 메뉴 | Microsoft Docs
-description: .
+title: Azure Marketplace에 대 한 새 제품 메뉴
+description: 새로 만들기 개요는 Azure Marketplace에 대 한 클라우드 파트너 포털에서 메뉴를 제공 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 8ec1a6a6ec77838ec75666d219d90739bf74517b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656854"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943280"
 ---
 # <a name="new-offer-menu"></a>새 제품 메뉴
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: a83095b8330ccf08d777e48389c17058c6d29527
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 65d5a88f7b5d059deb633f062639e455c64ef2f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408762"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Azure Portal을 통해 업데이트를 설치하려면
 
-1. StorSimple 디바이스 관리자로 이동하고 **디바이스**를 선택합니다. 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다.
+1. StorSimple 디바이스 관리자를 이동하고 **디바이스**를 선택합니다. 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다.
 
 2. **설정**에서 **장치 업데이트**를 클릭합니다.  
 

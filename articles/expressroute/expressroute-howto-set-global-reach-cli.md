@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364217"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869976"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 ExpressRoute 글로벌 환경 구성
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>구성에 대한 ExpressRoute 회로 식별
 
-두 ExpressRoute 회로가 지원되는 국가에 있고 서로 다른 피어링 위치에 만들어진 경우 이러한 회로 간에 ExpressRoute Global Reach를 사용하도록 설정할 수 있습니다. 구독에 두 회로가 모두 있는 경우 이 문서의 뒷부분에서 설명한 대로 구성을 실행할 회로를 선택할 수 있습니다. 두 회로가 서로 다른 Azure 구독에 있는 경우 한 Azure 구독에서 권한을 부여하고, 다른 Azure 구독에서 구성 명령을 실행할 때 권한 부여 키를 전달해야 합니다.
+설정할 수 있습니다. ExpressRoute 글로벌 환경 모든 두 개의 ExpressRoute 회로 간의 있기만 지원 되는 국가/지역에 거주 하는 다른 피어 링 위치에 생성 된 합니다. 구독에 두 회로가 모두 있는 경우 이 문서의 뒷부분에서 설명한 대로 구성을 실행할 회로를 선택할 수 있습니다. 두 회로가 서로 다른 Azure 구독에 있는 경우 한 Azure 구독에서 권한을 부여하고, 다른 Azure 구독에서 구성 명령을 실행할 때 권한 부여 키를 전달해야 합니다.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>온-프레미스 네트워크 간 연결 사용
 

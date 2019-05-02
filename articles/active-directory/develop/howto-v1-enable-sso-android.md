@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410368"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917267"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO 사용
 
@@ -39,7 +39,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
-- Azure AD(Azure Active Directory)에 대한 레거시 포털을 사용하여 앱 프로비전. 자세한 내용은 [Azure AD v1.0 엔드포인트에 앱 등록](quickstart-v1-add-azure-ad-app.md)을 참조하세요.
+- Azure AD(Azure Active Directory)에 대한 레거시 포털을 사용하여 앱 프로비전. 자세한 내용은 참조 하세요. [앱 등록](quickstart-register-app.md)
 - [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)와 애플리케이션 통합
 
 ## <a name="single-sign-on-concepts"></a>Single Sign-On 개념

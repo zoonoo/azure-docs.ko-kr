@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875518"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726555"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>R 프로그래밍 언어에서 Azure Machine Learning Studio를 사용 하 여 시작
 
@@ -1320,7 +1320,7 @@ R을 시작하는 데 도움을 되는 서적이 많이 있습니다. 몇 가지
 * **Art of R 프로그래밍: Tour of Statistical Software Design** Norman matloff은 훌륭한 R에서 프로그래밍 소개  
 * **R Cookbook** Paul teetor에 R을 사용 하는 문제 및 해결 방법을 제공  
 * **' R in Action** Robert kabacoff는 다른 유용한 책입니다. 동반 [Quick R 웹 사이트](https://www.statmethods.net/) 는 유용한 리소스입니다.
-* **R 지옥** Patrick Burns로 다양 한 R에서 프로그래밍할 때 발생할 수 있는 까다롭고 어려운 주제를 다루는 놀랍도록 책은 이 책은 무료로 사용할 수 있습니다 [The R 지옥](http://www.burns-stat.com/documents/books/the-r-inferno/)합니다.
+* **R 지옥** Patrick Burns로 다양 한 R에서 프로그래밍할 때 발생할 수 있는 까다롭고 어려운 주제를 다루는 놀랍도록 책은 이 책은 무료로 사용할 수 있습니다 [The R 지옥](https://www.burns-stat.com/documents/books/the-r-inferno/)합니다.
 * R에서 고급 항목에 대 한 심층적인를 하려는 경우를 살펴 책 **고급 R** Hadley wickham 합니다. 이 책의 온라인 버전은 무료로 사용할 수 있습니다 [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/)합니다.
 
 R 시계열 패키지 카탈로그에서 찾을 수 있습니다 [CRAN Task View: 시간 시계열 분석](https://cran.r-project.org/web/views/TimeSeries.html)합니다. 특정 시계열 개체 패키지에 대한 자세한 내용은 해당 패키지에 대한 설명서를 참조하세요.

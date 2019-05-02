@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489625"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922458"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -40,6 +40,10 @@ ms.locfileid: "59489625"
 > 에이전트 기반 모니터링 및 수동 SDK 기반 계측 하는 경우 수동 계측이 설정만 적용 됩니다 검색 됩니다. 중복 데이터 방지 하는 것이 전송 합니다. 이 체크 아웃에 대해 자세히 알아보려면 합니다 [문제 해결 섹션](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) 아래.
 
 ## <a name="enable-agent-based-monitoring-net"></a>에이전트 기반 모니터링.NET을 사용 하도록 설정
+
+> [!NOTE]
+> APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression 조합은 지원 되지 않습니다. 자세한 내용은 참조에 설명 된 [문제 해결 섹션](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)합니다.
+
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택**합니다.
 
@@ -352,6 +356,15 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | 이 값이 확장에 대 한 참조가 있음을 나타냅니다 `Microsoft.AspNet.TelemetryCorrelation` 응용 프로그램에 백오프 하 고 있습니다. | 참조를 제거 합니다.
 |`AppContainsDiagnosticSourceAssembly**:true`|이 값이 확장에 대 한 참조가 있음을 나타냅니다 `System.Diagnostics.DiagnosticSource` 응용 프로그램에 백오프 하 고 있습니다.| 참조를 제거 합니다.
 |`IKeyExists:false`|이 값 계측 키를 AppSetting에 아님을 나타냅니다 `APPINSIGHTS_INSTRUMENTATIONKEY`합니다. 가능한 원인: 값을 실수로 제거 되었거나, 자동화 스크립트 등의 값을 설정 하지 않았습니다. | App Service 응용 프로그램 설정에서 설정 있는지 확인 합니다.
+
+### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression 지원 되지 않습니다.
+
+APPINSIGHTS_JAVASCRIPT_ENABLED를 사용 하는 경우 = true 콘텐츠 인코딩 되는 경우에서 오류가 발생할 수 있습니다 같은: 
+
+- 500 URL 다시 쓰기 오류
+- 500.53 HTTP 응답의 콘텐츠를 인코딩된 ('gzip') 경우 아웃 바운드 규칙을 다시 작성 하는 메시지를 사용 하 여 URL 재작성 모듈 오류를 적용할 수 없습니다. 
+
+이 APPINSIGHTS_JAVASCRIPT_ENABLED 응용 프로그램 설정으로 인해 설정할 true 및 콘텐츠 인코딩을 동시에 존재 하는 합니다. 이 시나리오는 아직 지원 되지 않습니다. 응용 프로그램 설정에서 APPINSIGHTS_JAVASCRIPT_ENABLED를 제거 하려면이 문제를 해결 합니다. 그러나이 클라이언트/브라우저 쪽 JavaScript 계측이 계속 필요한 경우 수동 SDK 참조 웹 페이지에 대 한 필요 함을 의미 합니다. 따르세요 합니다 [지침](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) JavaScript SDK를 사용 하 여 수동 계측이 대 한 합니다.
 
 Application Insights 에이전트 확장에 대 한 최신 정보를 확인 합니다 [릴리스](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)합니다.
 

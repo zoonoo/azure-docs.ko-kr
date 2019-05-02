@@ -1,25 +1,18 @@
 ---
-title: Azure SaaS 애플리케이션 제안을 위한 필수 조건 | Microsoft Docs
+title: Azure SaaS 응용 프로그램 제품 필수 조건 | Azure Marketplace
 description: SaaS 애플리케이션 제안을 Azure Marketplace에 게시하기 위한 필수 조건입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 7322a4c0ba82218d9b2ed77e4c4533cc504c2616
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: b8c70841669882afced086a797b921ce3459ab1b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008884"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942012"
 ---
 # <a name="saas-application-publishing-prerequisites"></a>SaaS 애플리케이션 게시를 위한 필수 조건
 

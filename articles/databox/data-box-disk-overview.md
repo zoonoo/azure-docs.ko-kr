@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 96ff843ada9d9043d2c10f479d488617ae56da41
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 20b8d7a6a7d6da639481045d9462c484b820a4df
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497723"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575831"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -103,6 +103,8 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 |미국 동부      |오스트레일리아 중부 |
 |미국 동부2     |오스트레일리아 중부 2|
 |일본 동부     |한국 중부 |
+|일본 서부     |한국 남부 |
+|동남아시아 |
 
 
 ## <a name="pricing"></a>가격

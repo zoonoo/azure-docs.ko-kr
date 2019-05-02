@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337751"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914941"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -121,9 +121,9 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 3. 자격 증명 모음 대시보드 메뉴에서 **백업 작업**을 클릭하여 모든 백업 작업을 표시합니다.
 
     * 백업 작업이 진행 중이면 백업 작업이 완료될 때까지 기다리거나 취소합니다.
-        * 백업 작업을 취소하려면 백업 작업을 마우스 오른쪽 단추로 클릭하고 **취소**를 클릭하거나 [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)을 사용합니다.
+        * 백업 작업을 취소하려면 백업 작업을 마우스 오른쪽 단추로 클릭하고 **취소**를 클릭하거나 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)을 사용합니다.
     * 다른 자격 증명 모음에서 백업을 다시 구성한 경우 이전 자격 증명 모음에서 실행 중인 백업이 없는지 확인합니다. 있는 경우 백업 작업을 취소합니다.
-        * 백업 작업을 취소하려면 백업 작업을 마우스 오른쪽 단추로 클릭하고 **취소**를 클릭하거나 [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)을 사용합니다.
+        * 백업 작업을 취소하려면 백업 작업을 마우스 오른쪽 단추로 클릭하고 **취소**를 클릭하거나 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)을 사용합니다.
 4. 백업 작업을 다시 시도합니다.
 
 예약된 백업 작업이 다음 백업 구성과 충돌하여 오래 걸리는 경우 [모범 사례](backup-azure-vms-introduction.md#best-practices), [백업 성능](backup-azure-vms-introduction.md#backup-performance) 및 [복원 고려 사항](backup-azure-vms-introduction.md#backup-and-restore-considerations)을 검토하세요.

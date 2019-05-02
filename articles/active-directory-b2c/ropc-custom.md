@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명
 description: Azure Active Directory B2C에서 리소스 소유자 암호 자격 증명 흐름을 구성하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d86caf5e5c6df29e00f17462f6a06602ff1245d8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419188"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688856"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -267,11 +267,11 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
 - `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
-| 키 | Value |
+| 키 | 값 |
 | --- | ----- |
-| 사용자 이름 | `user-account` |
-| password | `password1` |
-| grant_type | password |
+| username | `user-account` |
+| 암호 | `password1` |
+| grant_type | 암호 |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | 토큰 id_token |
@@ -312,12 +312,12 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 - `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
-| 키 | Value |
+| 키 | 값 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| 리소스 | `application-id` |
+| resource | `application-id` |
 | refresh_token | `refresh-token` |
 
 - `application-id`를 *ROPC_Auth_app* 등록의 애플리케이션 ID로 바꿉니다.

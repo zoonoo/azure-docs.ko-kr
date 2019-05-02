@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 4f5dbbd1da8a221fb5f8b9641e016829987db538
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dc4281c17b92e1720625764a52a34a94d6f296ab
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64732774"
 ---
 항목을 만들기 전에 범위 개념을 검토해 보겠습니다. Azure는 네 가지 관리 수준인 관리 그룹, 구독, 리소스 그룹 및 리소스를 제공합니다. [관리 그룹](../articles/billing/billing-enterprise-mgmt-group-overview.md)은 미리 보기 릴리스에 포함되어 있습니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
 

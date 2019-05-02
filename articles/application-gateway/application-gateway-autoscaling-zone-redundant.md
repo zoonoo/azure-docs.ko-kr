@@ -1,37 +1,104 @@
 ---
-title: Azure의 자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)
-description: 이 문서에서는 자동 크기 조정 및 영역 중복 기능을 포함하는 Azure Application v2 SKU를 소개합니다.
+title: 자동 크기 조정 및 Azure에서 영역 중복 응용 프로그램 게이트웨이
+description: 이 문서에서는 Azure 응용 프로그램 Standard_v2 및 자동 크기 조정 및 영역 중복 기능을 포함 하는 WAF_v2 SKU를 소개 합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/6/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 86693e829ab08c3cb7befc6f0047472e8faa61fa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548729"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947235"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)
+# <a name="autoscaling-and-zone-redundant-application-gateway"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 
 
-Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에서 성능을 향상하고 자동 크기 조정, 영역 중복, 정적 VIP 지원 등의 중요한 새 기능을 지원하는 공개 미리 보기로 제공됩니다. 일반 공급 SKU의 기존 기능은 새 v2 SKU에서 계속 지원되며, 알려진 제한 사항 섹션에 몇 가지 예외가 나열되어 있습니다. 새 v2 SKU에는 다음과 같은 향상된 기능이 포함되어 있습니다.
+Application Gateway 및 웹 응용 프로그램 방화벽 (WAF) Standard_v2 및 성능 향상을 제공 하 고 자동 크기 조정, 영역 중복 및 정적 Vip에 대 한 지원 같은 중요 한 새로운 기능에 대 한 지원을 추가 하는 WAF_v2 SKU에서 사용할 수 있습니다. 표준 및 WAF SKU 아래에서 기존 기능 계속 비교 섹션에 나열 된 몇 가지 예외를 사용 하 여 새 v2 SKU에서 지원 됩니다. 
 
-- **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 true 탄력성을 제공합니다. 새 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
+새 v2 SKU에는 다음과 같은 향상 기능이 포함 됩니다.
 
-- **영역 중복**: Application Gateway 또는 WAF 배포 하나가 여러 가용성 영역을 포함할 수 있으므로 Traffic Manager를 사용하여 각 영역에 별도의 Application Gateway 인스턴스를 프로비전하고 작동할 필요가 없습니다. Application Gateway 인스턴스가 배포되는 단일 영역 또는 여러 영역을 선택할 수 있기 때문에 영역 장애 복원력이 보장됩니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
-- **성능 향상**: 자동 크기 조정 SKU는 일반 공급 SKU보다 최대 5배 높은 SSL 오프로드 성능을 제공합니다.
-- **신속한 배포 및 업데이트 시간**: 자동 크기 조정 SKU는 일반적으로 제공되는 SKU보다 빠른 배포 및 업데이트 시간을 제공합니다.
-- **정적 VIP**: Application Gateway VIP는 이제 정적 VIP 유형만 독점적으로 지원합니다. 이렇게 하면 응용 프로그램 게이트웨이에 연결 된 VIP를 다시 시작 후에 변경 되지 않는지 합니다.
-
-> [!IMPORTANT]
-> 자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU는 현재 공개 미리 보기로 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+- **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 true 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에 Application Gateway에 고정 된 용량 (사용 하지 않도록 설정 자동 크기 조정)와 사용 하도록 설정 하는 자동 크기 조정 모드에서 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드 응용 프로그램 트래픽에서 분산을 참조 하는 응용 프로그램에 유용 합니다.
+- **영역 중복**: Application Gateway 또는 WAF 배포를 확장할 수 있습니다 여러 가용성 영역을 Traffic Manager와 함께 각 영역에서 별도 Application Gateway 인스턴스를 프로 비전 할 필요성을 제거. Application Gateway 인스턴스가 배포되는 단일 영역 또는 여러 영역을 선택할 수 있기 때문에 영역 장애 복원력이 보장됩니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
+- **정적 VIP**: Application gateway v2 SKU에서 정적 VIP를 단독으로 입력합니다. 이 응용 프로그램 게이트웨이에 연결 된 VIP를 다시 시작 후에 배포 수명 주기 동안 변경 되지 않는지 확인 합니다.
+- **헤더 재작성**: Application Gateway를 사용 하면 추가, 제거 또는 v2 SKU를 사용 하 여 HTTP 요청 및 응답 헤더를 업데이트할 수 있습니다. 자세한 내용은 참조 하세요. [Application Gateway를 사용 하 여 다시 작성 하는 HTTP 헤더](rewrite-http-headers.md)
+- **Key Vault 통합 (미리 보기)**: 응용 프로그램 게이트웨이 v2 사용 하도록 설정 하는 HTTPS 수신기에 연결 된 서버 인증서 (공개 미리 보기)에서 Key Vault를 사용 하 여 통합을 지원 합니다. 자세한 내용은 [Key Vault 인증서를 사용 하 여 SSL 종료](key-vault-certs.md)합니다.
+- **Azure Kubernetes Service 수신 컨트롤러 (미리 보기)**: Application Gateway v2 수신 컨트롤러는 Azure Application Gateway를 Kubernetes Service (AKS (Azure) AKS 클러스터 라고는 수신으로 사용 하도록 허용 합니다. 자세한 내용은 참조는 [설명서 페이지](https://azure.github.io/application-gateway-kubernetes-ingress/)합니다.
+- **성능 향상**: SKU는 최대 5 X 더 나은 SSL 제공 v2 표준/WAF SKU에 비해 성능 오프 로드 합니다.
+- **배포 및 업데이트 시간을 단축** v2 SKU 표준/WAF SKU에 비해 더 빠르게 배포 및 업데이트 시간을 제공 합니다. 또한 WAF 구성 변경 내용을 포함 됩니다.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
+## <a name="supported-regions"></a>지원되는 지역
+
+Standard_v2 및 WAF_v2 SKU는 다음 지역에서 제공 됩니다. 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부 추가 지역에 대 한 지원은 예정입니다.
+
+## <a name="pricing"></a>가격
+
+V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니다 및 인스턴스 수 또는 크기에 더 이상 연결 되어 없습니다. V2 SKU 가격의 두 구성 요소:
+
+- **고정된 가격** -이 매시간 (또는 부분 시간 동안) Standard_v2 또는 WAF_v2 게이트웨이 프로 비전 하는 가격입니다.
+- **용량 단위 가격은** -고정된 비용 외에 청구 되는 사용량 기반 비용입니다. 용량 단위 요금도 계산 된 시간 또는 부분 매시간. 용량 단위에 3 차원-단위, 영구 연결 및 처리량을 계산 합니다. 단위는 사용 하는 프로세서 용량이의 측정값을 계산 합니다. 계산 단위에 영향을 주는 요인은 TLS 연결/sec, URL 다시 쓰기 계산 및 WAF 규칙 처리입니다. 영구 연결 지정 된 청구 기간에 application gateway에 설정 된 TCP 연결의 측정값을입니다. 처리량은 지정 된 청구 기간에 자동으로 처리 하는 평균 메가 비트/초입니다.
+
+각 용량 단위는 최대의 구성 됩니다. 1 2.22 5mbps 처리량 단위 또는 2500 영구 연결을 계산합니다.
+
+계산 단위 지침:
+
+- **Standard_v2** -각 계산 단위는 RSA 2048 비트 키 TLS 인증서를 사용 하 여 초당 약 50 개의 연결 가능 합니다.
+- **WAF_v2** -각 계산 단위는 70%를 사용 하 여 트래픽 70 ~ 30% 혼합 2KB 가져오기/게시 하는 보다 작은 요청에 대 한 초당 약 10 개의 동시 요청 수 및 더 높은 남아 있습니다. WAF 성능이 저하 되지 응답 크기에 따라 현재 합니다.
+
 > [!NOTE]
-> 자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 SKU는 이제 [기본 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) 를 자동으로 해당 백 엔드 풀의 모든 리소스의 상태를 모니터링 하 고 간주 되는 백 엔드 멤버만 강조 표시 비정상입니다. 모든 사용자 지정 프로브 구성을 설정 하지 않은 한 이러한 모든 백 엔드에 대 한 기본 상태 프로브에서 자동으로 구성 합니다. 자세한 내용은 참조 하세요 [application gateway의 상태 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)합니다.
+> 현재 각 인스턴스에 약 10 명의 용량 단위로 지원.
+> 계산 단위에서 처리할 수 있는 요청 수가 TLS 인증서 키 크기, 키 교환 알고리즘, 헤더 재작성 및 WAF 들어오는 요청 크기의 경우 다양 한 조건에 따라 달라 집니다. 계산 단위 당 요청 속도 파악 하기 위한 응용 프로그램 테스트를 수행 하는 것이 좋습니다. 용량 단위 및 계산 단위를 모두 제공 될 예정를 기준으로 청구 시작 하기 전에 합니다.
+
+**미국 동부에서 가격**:
+
+|              SKU 이름                             | 고정된 가격 ($/ 시간)  | 용량 단위 가격 ($/ CU-시간)   |
+| ------------------------------------------------- | ------------------- | ------------------------------- |
+| Standard_v2                                       |    0.20             | 0.0080                          |
+| WAF_v2                                            |    0.36             | 0.0144                          |
+
+합니다 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
+
+**예 1**
+
+응용 프로그램 게이트웨이 Standard_v2 고정된 용량의 5 개의 인스턴스를 사용 하 여 수동 크기 조정 모드에서 자동 크기 조정 없이 프로 비전 됩니다.
+
+고정된 가격 744(hours) = * 0.20 달러 $148.8 = <br>
+용량 단위 = 인스턴스당 744 (시간) 10 용량 단위 * 5 개 인스턴스 * $0.008 용량 단위 시간당 $297.6 =
+
+총 요금 = $148.8 + $297.6 $446.4 =
+
+**예 2**
+
+한 달에 대 한 프로 비전 되는 Application Gateway standard_v2 및 25 새로운 SSL 연결/sec 8.88 Mbps 데이터 전송의 평균을 받으면이 시간 동안입니다. 연결은 수명이 짧으며 가정 하 고, 가격을 사용할 수도 있습니다.
+
+고정된 가격 744(hours) = * 0.20 달러 $148.8 =
+
+용량 단위 가격은 744(hours) = * Max (연결/sec에 대 한 25/50 개 계산 단위, 처리량에 대 한 8.88/2.22 용량 단위) * 0.008 = 744 * 4 * $0.008 $23.81 =
+
+총 요금 = $148.8 + 23.81 $172.61 =
+
+**예 3**
+
+응용 프로그램 게이트웨이 WAF_v2는 한 달에 대 한 프로 비전 되 고이 시간 동안 25 새로운 SSL 연결/sec 8.88 Mbps 데이터 전송의 평균을 수신 하 고 초당 80 요청 않습니다. 수명이 짧은 연결 가정 하며는 응용 프로그램에 대 한 계산 단위 계산을 지 원하는 10 개 RP 계산 단위 당 가격:
+
+고정된 가격 744(hours) = * $0.36 $267.84 =
+
+용량 단위 가격은 744(hours) = * Max (계산 단위 Max(25/50 for connections/sec, 80/10 WAF RPS), 처리량에 대 한 8.88/2.22 용량 단위) * $0.0144 = 744 * 8 * 0.0144 $85.71 =
+
+총 요금 = $267.84 + $85.71 $353.55 =
+
+합니다 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
+
+## <a name="scaling-application-gateway-and-waf-v2"></a>크기 조정 응용 프로그램 게이트웨이 및 WAF v2
+
+Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규모를 확장 합니다.
+
+- **자동 크기 조정** -자동 크기 조정 가능한 응용 프로그램 게이트웨이 및 WAF v2 Sku는 확장 또는 축소 응용 프로그램 트래픽 요구 사항에 따라 합니다. 이 모드에는 응용 프로그램 게이트웨이 크기 또는 인스턴스 수를 추측 하지 않아도 및 응용 프로그램에 더 나은 탄력성을 제공 합니다. 이 모드를 사용 하면 예상 된 최대 트래픽 부하에 대 한 프로 비전 된 최대 용량에서 게이트웨이 실행할 수 없게 하 여 비용을 절감할 수 있습니다. 고객은 최소 및 필요에 따라 최대 인스턴스 수를 지정 해야 합니다. Application Gateway 및 WAF v2 트래픽이 없는 경우에도 지정 된 최소 인스턴스 수보다 속하지 않는 보장 하는 최소 용량입니다. 요금이 청구 됩니다이 최소 용량에 대 한 모든 트래픽이 없는 경우에도 합니다. 또한 필요에 따라 지정 된 인스턴스 수를 초과 하는 응용 프로그램 게이트웨이의 확장 되지 않습니다 보장 하는 최대 인스턴스 수를 지정할 수 있습니다. 게이트웨이에서 제공 하는 트래픽 양에 요금이 계속 합니다. 인스턴스 수를 0에서 125로 까지입니다. 지정 되지 않은 경우 최대 인스턴스 수에 대 한 기본값은 20입니다.
+- **수동** -게이트웨이 자동 크기 조정 하지 될 위치는 수동 모드 또는 선택할 수 있습니다. 이 모드에서는 어떤 응용 프로그램 게이트웨이 WAF 인지 처리 가능한 보다 더 많은 트래픽을 보내는 경우 트래픽 손실에서 될 수 있습니다. 수동 모드를 사용 하 여 인스턴스 수를 지정 하는 필수입니다. 인스턴스 수는 1에서 125 인스턴스에 달라질 수 있습니다.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 및 v2 SKU 기능 비교
 
@@ -41,7 +108,10 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 | ------------------------------------------------- | -------- | -------- |
 | 자동 확장                                       |          | &#x2713; |
 | 영역 중복                                   |          | &#x2713; |
-| &nbsp;정적 VIP&nbsp;&nbsp;                      |          | &#x2713; |
+| 정적 VIP                                        |          | &#x2713; |
+| Azure Kubernetes Service (AKS) 수신 컨트롤러 |          | &#x2713; |
+| Azure Key Vault 통합                       |          | &#x2713; |
+| HTTP (S) 헤더를 다시 작성                           |          | &#x2713; |
 | URL 기반 라우팅                                 | &#x2713; | &#x2713; |
 | 다중 사이트 호스팅                             | &#x2713; | &#x2713; |
 | 트래픽 리디렉션                               | &#x2713; | &#x2713; |
@@ -50,35 +120,30 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 | 종단 간 SSL 암호화                         | &#x2713; | &#x2713; |
 | 세션 선호도                                  | &#x2713; | &#x2713; |
 | 사용자 지정 오류 페이지                                | &#x2713; | &#x2713; |
-| HTTP (S) 헤더를 다시 작성                           |          | &#x2713; |
 | WebSocket 지원                                 | &#x2713; | &#x2713; |
 | HTTP/2 지원                                    | &#x2713; | &#x2713; |
 | 연결 드레이닝                               | &#x2713; | &#x2713; |
-| Azure Kubernetes Service (AKS) 수신 컨트롤러 |          | &#x2713; |
 
-## <a name="supported-regions"></a>지원되는 지역
+> [!NOTE]
+> 자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 SKU는 이제 [기본 상태 프로브](application-gateway-probe-overview.md#default-health-probe) 를 자동으로 해당 백 엔드 풀의 모든 리소스의 상태를 모니터링 하 고 간주 되는 백 엔드 멤버만 강조 표시 비정상입니다. 모든 사용자 지정 프로브 구성을 설정 하지 않은 한 이러한 모든 백 엔드에 대 한 기본 상태 프로브에서 자동으로 구성 합니다. 자세한 내용은 참조 하세요 [application gateway의 상태 프로브](application-gateway-probe-overview.md)합니다.
 
-자동 크기 조정 SKU는 다음 하위 지역에서 사용할 수 있습니다. 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부
+## <a name="differences-with-v1-sku"></a>V1 SKU와의 차이점
 
-## <a name="pricing"></a>가격
-
-미리 보기 중에 무료입니다. Application gateway의 경우 Key Vault, virtual machines 처럼 이외의 리소스에 대 한 청구 되며, 등.
-
-## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
-
-|문제|세부 정보|
+|차이|세부 정보|
 |--|--|
 |인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 SSL 개요](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)를 참조하세요.|
 |동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
 |Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원되지 않음|
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
 |Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
-|결제|현재는 요금이 청구되지 않습니다.|
+|결제|청구 2019 년 6 월 1 일에 시작 하도록 예약 합니다.|
 |FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|
-|Netwatcher 통합|공개 미리 보기에서는 지원되지 않습니다.|
+|Netwatcher 통합|지원되지 않습니다.|
 
 ## <a name="next-steps"></a>다음 단계
+
+- [빠른 시작: Azure Application Gateway-Azure portal 사용 하 여 직접 웹 트래픽](quick-create-portal.md)
 - [Azure PowerShell을 사용하여 예약된 가상 IP 주소로 자동 크기 조정, 영역 중복 애플리케이션 게이트웨이 만들기](tutorial-autoscale-ps.md)
 - [Application Gateway](overview.md)에 대해 자세히 알아보세요.
 - [Azure Firewall](../firewall/overview.md)에 대해 자세히 알아보세요.

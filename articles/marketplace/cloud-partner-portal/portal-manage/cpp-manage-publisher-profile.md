@@ -1,25 +1,19 @@
 ---
-title: Azure Marketplace 및 AppSource 게시자 프로필 관리 | Microsoft Docs
+title: Azure Marketplace 및 AppSource 게시자 프로필 관리 | Azure Marketplace
 description: Azure Marketplace 및 AppSource 게시자 프로필을 관리 하는 방법에 설명
 services: Azure, Marketplace, AppSource, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fd3f5750f050db0d57a8747b28798c04f666b077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525655"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942231"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Azure Marketplace 및 AppSource 게시자 프로필 관리
 

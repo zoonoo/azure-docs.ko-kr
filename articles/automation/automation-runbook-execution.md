@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544758"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711577"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -78,6 +78,9 @@ else
 ### <a name="time-dependant-scripts"></a>시간 종속 스크립트
 
 Runbook을 작성할 때는 신중하게 고려해야 합니다. 앞에서 설명한 대로 Runbook은 강력하고 Runbook이 다시 시작되거나 실패할 수 있는 일시적인 오류를 처리할 수 있는 방식으로 작성되어야 합니다. Runbook이 실패 하면 다시 시도 됩니다. Runbook이 실행 되는 시간 제약 조건 내에서 일반적으로, 확인, 시작 같은 작업을 수행 하려면 runbook에서 구현 하는 실행 시간이 종료 하거나 확장 하는 논리는 특정 시간 동안에 실행 됩니다.
+
+> [!NOTE]
+> Azure 샌드박스 프로세스가 현지 시간 UTC 시간으로 설정 됩니다. Runbook의 날짜 및 시간에 대 한 계산 고려해 야이 필요 합니다.
 
 ### <a name="tracking-progress"></a>진행률 추적
 

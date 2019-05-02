@@ -10,21 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917399"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712825"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
 > [!NOTE]
 > 이 메서드는 더 이상 사용되지 않습니다. Translator Text API V3.0에서는 사용할 수 없습니다.
 > 
-> 이전에 Translator Text API V2.0에서 사용할 수 있었던 CTF(Collaborative Translation Framework)는 2018년 2월 1일부터 더 이상 사용되지 않습니다. AddTranslation 및 AddTranslationArray 함수를 사용하면 사용자가 Collaborative Translation Framework를 통해 수정할 수 있습니다. 2018년 1월 31일 이후에는 이러한 두 함수가 새 문장 제출을 허용하지 않고 사용자에게 오류 메시지가 표시됩니다. 이러한 함수는 사용 중지되며 대체되지 않습니다.
-> 
-> Translator Hub API에서 사용 가능한 유사한 기능을 통해 고유한 용어 및 스타일로 사용자 지정 번역 시스템을 빌드하고, Translator Text API의 범주 ID를 사용하여 호출할 수 있습니다. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> 이전에 Translator Text API V2.0에서 사용할 수 있었던 CTF(Collaborative Translation Framework)는 2018년 2월 1일부터 더 이상 사용되지 않습니다. AddTranslation 및 AddTranslationArray 함수를 사용하면 사용자가 Collaborative Translation Framework를 통해 수정할 수 있습니다. 2018년 1월 31일 이후에는 이러한 두 함수가 새 문장 제출을 허용하지 않고 사용자에게 오류 메시지가 표시됩니다. 이러한 함수는 사용 중지 및 대체 되지 않습니다.
 
 Collaborative(Collaborative Translation Framework) 보고 API는 CTF 스토어의 통계 및 실제 콘텐츠를 반환합니다. 이 API는 다음과 같은 점에서 GetTranslations() 메서드와 다릅니다.
 * 계정(appId 또는 Azure Marketplace 계정)에서 번역된 콘텐츠와 해당 총수만 반환합니다.
@@ -36,7 +34,7 @@ CTF 보고 API의 엔드포인트는 https://api.microsofttranslator.com/v2/beta
 
 
 ## <a name="methods"></a>메서드
-| Name |    설명|
+| 이름 |    설명|
 |:---|:---|
 | GetUserTranslationCounts 메서드 | 사용자가 만든 번역 개수를 가져옵니다. |
 | GetUserTranslations 메서드 | 사용자가 만든 번역을 검색합니다. |

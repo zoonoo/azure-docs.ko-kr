@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918232"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951440"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -43,7 +43,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
 > [!NOTE]
-> 레거시 Microsoft Translator 허브 2019 년 4 월 30 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
+> 레거시 Microsoft Translator 허브 2019 년 5 월 17 일에 만료 됩니다. [중요 한 마이그레이션 정보 및 날짜를 보려면](https://www.microsoft.com/translator/business/hub/)합니다.  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
 
@@ -60,8 +60,6 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 > [!NOTE]
 > 2018년, 2월 1일부터 AddTranslation() 및 AddTranslationArray()를 더 이상 Translator Text API V2.0에서 사용할 수 없습니다. 이러한 메서드는 실패하며 아무 결과도 기록되지 않습니다. Translator Text API v3.0은 이러한 메서드를 지원하지 않습니다.
-> 
-> 유사한 기능을 Translator Hub API에서 사용할 수 있습니다. [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

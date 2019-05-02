@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 0758105c7e2a18e976bc0c210eaf4e55e418a22d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577798"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925720"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -578,7 +578,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 예약 된 이벤트에 대 한 pacemaker 구성
 
-Azure 제품 [예정 된 이벤트](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events)합니다. 예약 된 이벤트 메타 데이터 서비스를 통해 제공 되 고 VM 종료, VM 다시 배포 등과 같은 이벤트에 대 한 준비 하려면 응용 프로그램에 대 한 시간을 허용 합니다. 리소스 에이전트 **[azure-이벤트](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 예약 된 이벤트에 대 한 모니터. 이벤트 검색 되 면 에이전트는 영향을 받는 VM에서 모든 리소스를 중지 하 고 클러스터의 다른 노드로 이동 하려고 합니다. Pacemaker 리소스를 추가 하는 달성 하기 위해 구성 되어야 합니다. 
+Azure 제품 [예정 된 이벤트](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events)합니다. 예약 된 이벤트 메타 데이터 서비스를 통해 제공 되 고 VM 종료, VM 다시 배포 등과 같은 이벤트에 대 한 준비 하려면 응용 프로그램에 대 한 시간을 허용 합니다. 리소스 에이전트 **[azure-이벤트](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 예약 된 이벤트에 대 한 모니터. 이벤트 검색 되 면 에이전트는 영향을 받는 VM에서 모든 리소스를 중지 하 고 클러스터의 다른 노드로 이동 하려고 합니다. Pacemaker 리소스를 추가 하는 달성 하기 위해 구성 되어야 합니다. 
 
 1. **[A]**  설치 된 **azure-이벤트** 에이전트입니다. 
 

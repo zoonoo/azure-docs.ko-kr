@@ -2,20 +2,21 @@
 title: Azure SQL Data Warehouse의 트랜잭션 사용 | Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
 services: sql-data-warehouse
-author: ckarst
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/22/2019
-ms.author: xiaoyul
+origin.date: 03/22/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 0b4ce6f4479552f42d32124149f64614b7e3cb70
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61439182"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
@@ -24,7 +25,7 @@ ms.locfileid: "58369499"
 예상한 것처럼 SQL Data Warehouse는 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL Data Warehouse의 성능은 SQL Server와 비교할 때 일부 기능이 제한되는 수준으로 유지됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다. 
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
-SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭션 지원의 격리 수준은 READ UNCOMMITTED로 제한되며 이 수준은 변경할 수 없습니다. READ UNCOMMITTED가 염려되는 경우 다양한 코딩 메서드를 구현하여 데이터의 더티 읽기를 방지할 수 있습니다. 가장 인기 있는 메서드는 CTAS 및 테이블 파티션 전환(슬라이딩 창 패턴이라고 하는)을 모두 사용하여 사용자 준비 중인 데이터 쿼리를 방지합니다. 데이터를 사전 필터링하는 뷰가 일반적인 접근 방법이기도 합니다.  
+SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭션 지원의 격리 수준은 READ UNCOMMITTED로 제한되며 이 수준은 변경할 수 없습니다. READ UNCOMMITTED가 염려되는 경우 다양한 코딩 메서드를 구현하여 데이터의 더티 읽기를 방지할 수 있습니다. 가장 인기 있는 메서드는 CTAS 및 테이블 파티션 전환(슬라이딩 창 패턴이라고 하는)을 모두 사용하여 준비 중인 데이터를 사용자가 쿼리하는 것을 방지합니다. 데이터를 사전 필터링하는 뷰가 일반적인 접근 방법이기도 합니다.  
 
 ## <a name="transaction-size"></a>트랜잭션 크기
 단일 데이터 수정 트랜잭션은 크기가 제한됩니다. 이러한 제한은 배포 기준으로 적용됩니다. 따라서 제한을 배포 수와 곱하여 전체 할당을 계산할 수 있습니다. 트랜잭션에 포함된 대략적인 최대 행 수를 구하려면 배포 용량을 각 행의 전체 크기로 나눕니다. 가변 길이 열의 경우에는 최대 크기를 사용하는 대신, 평균 열 길이를 사용하는 것을 고려합니다.
@@ -190,9 +191,9 @@ SQL Data Warehouse에는 트랜잭션과 관련된 몇 가지 기타 제한 사�
 
 다음과 같습니다.
 
-* 분산된 트랜잭션이 없습니다
+* 분산 트랜잭션이 없습니다
 * 중첩된 트랜잭션이 허용되지 않습니다.
-* 저장 점수를 사용할 수 없습니다.
+* 저장점을 사용할 수 없습니다.
 * 명명된 트랜잭션이 없습니다.
 * 표시된 트랜잭션이 없습니다.
 * 사용자 정의 트랜잭션 내에 CREATE TABLE과 같은 DDL 지원은 없습니다.

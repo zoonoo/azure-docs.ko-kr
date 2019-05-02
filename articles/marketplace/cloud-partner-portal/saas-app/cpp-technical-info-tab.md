@@ -1,25 +1,18 @@
 ---
-title: Azure SaaS 애플리케이션 제품 기술 구성 | Microsoft Docs
+title: Azure SaaS 응용 프로그램 제품 기술 구성 | Azure Marketplace
 description: Azure Marketplace의 SaaS 애플리케이션 제품에 대한 기술 정보를 구성합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 46dcf4aeb7ddb67028eb23dde9236f2b7709f86d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120757"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941734"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS 애플리케이션 기술 정보 탭
 
@@ -27,9 +20,11 @@ ms.locfileid: "58120757"
 
 ![기술 구성 양식](./media/saas-techinfo-techconfig.png)
 
+
 ## <a name="technical-configuration-form"></a>기술 구성 양식
 
 이 양식에는 제품 및 활용 방안의 두 개 필드가 있습니다.
+
 
 ### <a name="product-field"></a>제품 필드
 
@@ -37,6 +32,7 @@ ms.locfileid: "58120757"
 - **목록** 옵션을 선택하여 비즈니스 사용자에게 제공
 - **Microsoft를 통해 판매**를 선택하여 IT 관리자에게 제공
 빌드할 SaaS 앱의 유형을 결정하는 데 도움이 되도록 [상점 선택 이해](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#understand-storefront-selection)를 읽어 보세요.
+
 
 #### <a name="sell-through-microsoft"></a>Microsoft를 통해 판매
 이 환경을 빌드하려면 다음을 구성해야 합니다.
@@ -46,16 +42,17 @@ ms.locfileid: "58120757"
 
   ![Microsoft를 통해 판매 양식](./media/saas-techinfo-sellthrough-ms.png)
 
-다음 표에서는 Microsoft를 통해 판매의 필수 필드에 대해 설명합니다.
+다음 표에서 필수 필드에 대 한 설명 **Microsoft를 통해 판매**합니다.  필수 필드는 별표(*)로 표시됩니다.
 
 |  **필드 이름**   |  **설명**  |
 |  ---------------  |  ---------------  |
-|    미리 보기 구독 ID               |    제안이 공개적으로 사용 가능해지기 전에 미리 보기에서 제안을 테스트하는 데 사용되는 모든 Azure 구독 식별자입니다.               |
-|     시작하기 지침              |   SaaS 앱에 연결하도록 지원하기 위해 고객과 공유하는 지침입니다. &lt;p&gt;, &lt;h1&gt;, &lt;li&gt; 등의 기본 HTML 태그가 허용됩니다.                |
-|    방문 페이지 URL  |   Azure Portal로부터 획득한 후 고객이 방문하도록 설정하는 사이트 URL입니다. 이 URL은 Microsoft와의 거래를 용이하게 하기 위한 연결 API를 수신할 엔드포인트로도 사용됩니다.                |
-|  연결 웹후크    |  Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: Azure 구독이 더 이상 유효하지 않음)를 위해 연결 웹후크를 제공해야 합니다. 웹후크 시스템이 아직 준비되지 않은 경우 가장 단순한 구성은 게시되는 모든 이벤트를 수신 대기한 후 적절히 처리하는 HTTP 엔드포인트 논리 앱을 유지하는 것입니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩</a>을 참조하세요.                |
-|  Azure AD 테넌트 ID 및 앱 ID      |   사용자는 두 서비스 간 연결이 인증된 통신을 통해 설정되는지 검증할 수 있도록 Azure Portal 내에서 Active Directory 앱을 만들어야 합니다. 이러한 필드에 대해, AD 앱을 만들고, 필요한 해당 테넌트 ID 및 앱 ID를 붙여 넣습니다. 앱 ID는 publisherID와 연결되어 있습니다. 따라서 모든 제안에서 앱 ID가 동일한지 확인합니다.             |
-
+|  **미리 보기 구독 Id\***   |  제안이 공개적으로 사용 가능해지기 전에 미리 보기에서 제안을 테스트하는 데 사용되는 모든 Azure 구독 식별자입니다.  |
+|  **AAD/MSA 계정은 미리 보기\***   |  미리 보기에 대 한 액세스를 부여 되는 쉼표로 구분 하 여 Azure AD/MSA 계정입니다. |
+|  **지침을 시작 하기** |  SaaS 앱에 연결하도록 지원하기 위해 고객과 공유하는 지침입니다. &lt;p&gt;, &lt;h1&gt;, &lt;li&gt; 등의 기본 HTML 태그가 허용됩니다.    |
+|  **방문 페이지 URL\***           |  Azure Portal로부터 획득한 후 고객이 방문하도록 설정하는 사이트 URL입니다. 이 URL은 Microsoft와의 거래를 용이하게 하기 위한 연결 API를 수신할 엔드포인트로도 사용됩니다.   |
+| **연결 웹 후크\***            |  Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: Azure 구독이 더 이상 유효하지 않음)를 위해 연결 웹후크를 제공해야 합니다. 웹후크 시스템이 아직 준비되지 않은 경우 가장 단순한 구성은 게시되는 모든 이벤트를 수신 대기한 후 적절히 처리하는 HTTP 엔드포인트 논리 앱을 유지하는 것입니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩</a>을 참조하세요.    |
+|  **Azure AD 테 넌 트 ID\***  고 **앱 ID\***      |   사용자는 두 서비스 간 연결이 인증된 통신을 통해 설정되는지 검증할 수 있도록 Azure Portal 내에서 Active Directory 앱을 만들어야 합니다. 이러한 필드에 대해, AD 앱을 만들고, 필요한 해당 테넌트 ID 및 앱 ID를 붙여 넣습니다. 앱 ID는 publisherID와 연결되어 있습니다. 따라서 모든 제안에서 앱 ID가 동일한지 확인합니다.   |
+|   |   |
 
 마지막으로, **Microsoft를 통해 판매**를 선택하는 경우 **플랜**이라는 다른 새 제안 탭이 있습니다. 
 

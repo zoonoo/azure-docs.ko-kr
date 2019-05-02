@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572687"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>VCore 서비스 계층 간에 선택 하 고 DTU 서비스 계층에서 마이그레이션
 
 vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. 또한 다음과 같은 하드웨어 생성을 선택할 수 있습니다.
 
 - Gen4(4세대) - 최대 24개 논리적 CPU(Intel E5-2673 v3(Haswell) 2.4GHz 프로세서 기반), vCore = 1PP(물리적 코어), 코어당 7GB, SSD 연결
 - Gen5(5세대) - 최대 80개 논리적 CPU(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.1GB, 고속 eNVM SSD
+
 
 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산 리소스를 훨씬 더 강화할 수 있습니다.
 
@@ -40,9 +41,9 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 ||**범용**|**중요 비즈니스**|**하이퍼스케일(미리 보기)**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 스토리지 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 애플리케이션입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
-|컴퓨팅|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|
-|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB|
-|Storage|원격 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
+|CPU|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore<br/>**서버 리스 계산**<br/>Gen5: 0.5 - 4 vCore|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|
+|메모리|**계산을 프로 비전**:<br/>Gen4: 코어당 7GB<br/>Gen5: 코어당 5.1GB<br/>**서버 리스 계산**<br/>Gen5: 코어당 3GB|**계산을 프로 비전**:<br/>Gen4: 코어당 7GB<br/>Gen5: 코어당 5.1GB |**계산을 프로 비전**:<br/>Gen4: 코어당 7GB<br/>Gen5: 코어당 5.1GB|
+|Storage|원격 스토리지를 사용합니다.<br/>**계산을 프로 비전 된 단일 데이터베이스**:<br/>5GB~4TB<br/>**단일 데이터베이스 서버 리스 계산**:<br/>5GB-1TB<br/>**관리 되는 인스턴스**: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>**계산을 프로 비전 된 단일 데이터베이스**:<br/>5GB~4TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
 |IO 처리량(근사치)|단일 데이터베이스: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|TBD|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|?|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 및 복원은 빠른 복구를 위한 이러한 스냅숏을 사용합니다. 백업은 즉각적이며 IO 계산 성능에 영향을 주지 않습니다. 데이터 작업의 크기가 아닙니다(몇 시간 또는 며칠 대신 몇 분이 소요됨).|
@@ -56,16 +57,18 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 - 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용 및 중요 비즈니스용 서비스 계층](sql-database-service-tiers-general-purpose-business-critical.md)을 참조하세요.
 - vCore 기반 구매 모델의 하이퍼스케일 서비스 계층에 대한 자세한 내용은 [하이퍼스케일 서비스 계층](sql-database-service-tier-hyperscale.md)을 참조하세요.  
 
-> [!IMPORTANT]
-> vCore의 계산 용량이 1개 미만인 경우 DTU 기반 구매 모델을 사용합니다.
+
 
 ## <a name="azure-hybrid-benefit"></a>Azure 하이브리드 혜택
 
-vCore 기반 구매 모델에서 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 기존 라이선스를 SQL Database의 할인된 가격으로 교환할 수 있습니다. 이 Azure 혜택에서는 온-프레미스 SQL Server 라이선스를 통해 Software Assurance가 있는 온-프레미스 SQL Server 라이선스를 사용하여 Azure SQL Database에서 최대 30%까지 절약할 수 있습니다.
+VCore 기반 구매 모델의 프로 비전 된 컴퓨터 계층의 경우 SQL Database를 사용 하 여 할인 된 요금에 대 한 기존 라이선스를 교환할 수 있습니다 합니다 [SQL Server 용 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)합니다. 이 Azure 혜택에서는 온-프레미스 SQL Server 라이선스를 통해 Software Assurance가 있는 온-프레미스 SQL Server 라이선스를 사용하여 Azure SQL Database에서 최대 30%까지 절약할 수 있습니다.
 
 ![가격 책정](./media/sql-database-service-tiers/pricing.png)
 
-Azure 하이브리드 혜택을 사용하여 SQL Database 엔진 자체에 대해 기존 SQL Server 라이선스(**BasePrice**)를 사용하여 기존 Azure 인프라에 대해서만 비용을 지불하거나 기본 인프라 및 SQL Server 라이선스(**LicenseIncluded**) 둘 다에 대해 비용을 지불할지를 선택할 수 있습니다. Azure Portal을 사용하거나 다음 API 중 하나를 사용하여 라이선스 모델을 선택하거나 변경할 수 있습니다.
+Azure 하이브리드 혜택을 사용하여 SQL Database 엔진 자체에 대해 기존 SQL Server 라이선스(**BasePrice**)를 사용하여 기존 Azure 인프라에 대해서만 비용을 지불하거나 기본 인프라 및 SQL Server 라이선스(**LicenseIncluded**) 둘 다에 대해 비용을 지불할지를 선택할 수 있습니다.
+
+
+Azure Portal을 사용하거나 다음 API 중 하나를 사용하여 라이선스 모델을 선택하거나 변경할 수 있습니다.
 
 - PowerShell을 사용하여 라이선스 형식을 설정하거나 업데이트하려면
 
@@ -130,5 +133,5 @@ DTU 기반 모델에서 vCore 기반 모델로 마이그레이션하는 것은 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 단일 데이터베이스에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
 - 탄력적 풀에 사용할 수 있는 특정 컴퓨팅 크기 및 스토리지 크기 옵션에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a1dadc29006a365f7e614db5722fa0e92e0129d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900491"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922517"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Speech Devices SDK(미리 보기) 정보
 
@@ -39,7 +39,7 @@ Speech Devices SDK를 통해 드라이브스루 주문 시스템, 창고 내부 
 
 |||
 |-|-|
-|[![ROOBO 로고](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO는 가정용 전기 제품, 자동차, 로봇, 장난감 및 기타 산업을 위한 완벽한 AI(인공 지능) 시스템 솔루션을 제공합니다. ROOBO의 참조 디자인 개발 시간을 단축 Azure 음성 서비스와의 통합을 통해를 크게 줄입니다. [ROOBO를 방문해보세요](http://ddk.roobo.com/).|
+|[![ROOBO 로고](media/speech-devices-sdk/roobo-logo.png)](https://ddk.roobo.com/)|ROOBO는 가정용 전기 제품, 자동차, 로봇, 장난감 및 기타 산업을 위한 완벽한 AI(인공 지능) 시스템 솔루션을 제공합니다. ROOBO의 참조 디자인 개발 시간을 단축 Azure 음성 서비스와의 통합을 통해를 크게 줄입니다. [ROOBO를 방문해보세요](https://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803107"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868619"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>음성 서비스에 대 한 언어 및 지역 지원
 
@@ -29,7 +29,7 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
   코드 | 언어 | [음향 적응](how-to-customize-acoustic-models.md) | [언어 적응](how-to-customize-language-model.md) | [발음 적응](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | 아랍어(이집트), 현대 표준 | 아닙니다. | 사용자 계정 컨트롤 | 아닙니다.
- ca-ES | 카탈로니아어(스페인) | 아닙니다. | 아니요 | 아닙니다.
+ ca-ES | 카탈로니아어 | 아닙니다. | 아니요 | 아닙니다.
  da-DK | 덴마크어(덴마크) | 아닙니다. | 아니요 | 아닙니다.
  de-DE | 독일어(독일) | 예 | 예 | 아닙니다.
  en-AU | 영어(오스트레일리아) | 아닙니다. | 예 | 예
@@ -98,7 +98,7 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
 ar-EG\* | 아랍어(이집트) | Female | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)"
 ar-SA | 아랍어(사우디아라비아) | Male | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)”
 bg-BG | 불가리아어 | Male | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)”
-ca-ES | 카탈로니아어(스페인) | Female | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)”
+ca-ES | 카탈로니아어 | Female | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)”
 cs-CZ | 체코어 | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Jakub)”
 da-DK | 덴마크어 | Female | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)”
 de-AT | 독일어(오스트리아) | Male | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)”

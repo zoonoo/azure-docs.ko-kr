@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 흐름 버전 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용할 수 있는 사용자 흐름 버전을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b3750768eb7346938faec7e3c1ead232923a68bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af44658b42e9132ea89aadcbff29bdba1c13f46d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359758"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689667"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름 버전
 
@@ -35,13 +35,13 @@ Azure AD(Azure Active Directory) B2C의 사용자 흐름을 사용하면 고객 
 | 리소스 소유자 | 아닙니다. | 로컬 계정이 있는 사용자가 네이티브 애플리케이션에서 직접 로그인할 수 있도록 합니다(브라우저 필요 없음). 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li></ul> |
 | 로그인 | 아닙니다. | 사용자가 계정에 로그인할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li><li>로그인 차단</li><li>암호 재설정 강제 적용</li><li>KMSI(로그인 유지)</ul><br>이 사용자 흐름을 사용하여 사용자 인터페이스를 사용자 지정할 수 없습니다. |
 | 등록 | 아닙니다. | 사용자가 계정을 만들 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| 등록 및 로그인 | 예. | 사용자가 계정을 만들거나 계정에 로그인할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul>|
+| 등록 및 로그인 | 예 | 사용자가 계정을 만들거나 계정에 로그인할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul>|
 
 ## <a name="v2"></a>V2
 
 | 사용자 흐름 | 권장 | 설명 |
 | --------- | ----------- | ----------- |
-| 암호 재설정 v2 | 아닙니다. | 사용자가 이메일을 확인한 후 새 암호를 선택할 수 있습니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>토큰 호환성 설정</li><li>[나이 제한](basic-age-gating.md)</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| v2 암호 재설정 | 아닙니다. | 사용자가 이메일을 확인한 후 새 암호를 선택할 수 있습니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>토큰 호환성 설정</li><li>[나이 제한](basic-age-gating.md)</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | v2 로그인 | 아닙니다. | 사용자가 계정에 로그인할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li><li>[나이 제한](basic-age-gating.md)</li><li>로그인 페이지 사용자 지정</li></ul> |
-| v2 등록 | 아닙니다. | 사용자가 계정을 만들 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li><li>[나이 제한](basic-age-gating.md)</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| v2 등록 및 로그인 | 아닙니다. | 사용자가 계정을 만들거나 계정에 로그인할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[나이 제한](basic-age-gating.md)</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| v2 가입 | 아닙니다. | 사용자가 계정을 만들 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[토큰 수명](active-directory-b2c-reference-tokens.md)</li><li>토큰 호환성 설정</li><li>세션 동작</li><li>[나이 제한](basic-age-gating.md)</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| v2 가입 및 로그인 | 아닙니다. | 사용자가 계정을 만들거나 계정에 로그인할 수 있도록 합니다. 이 사용자 흐름을 사용하여 다음을 구성할 수 있습니다. <ul><li>[Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[나이 제한](basic-age-gating.md)</li><li>[암호 복잡성 요구 사항](active-directory-b2c-reference-password-complexity.md)</li></ul> |

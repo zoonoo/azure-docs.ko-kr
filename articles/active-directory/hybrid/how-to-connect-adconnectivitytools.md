@@ -1,28 +1,28 @@
 ---
 title: 'Azure AD Connect: ADConnectivityTool PowerShell 모듈이란? | Microsoft Docs'
-description: 이 문서에서는 새 ADConnectivity PowerShell 모듈을 소개합니다.
+description: 이 문서는 새로운 ADConnectivity PowerShell 모듈 및 어떻게 문제를 해결 하는 데 사용할 수 있습니다를 소개 합니다.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245678"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571125"
 ---
-# <a name="what-is-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell 모듈이란?
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell 모듈을 사용 하 여 Azure AD 연결 문제 해결
 
 ADConnectivity 도구는 다음 중 하나에서 사용되는 PowerShell 모듈입니다.
 
-- 설치하는 동안 네트워크 연결 문제로 인해 마법사에서 사용자가 제공한 Active Directory 자격 증명에 대한 유효성 검사가 제대로 수행되지 않습니다.
+- 설치 하는 동안 네트워크 연결에 문제가 있는의 성공적인 유효성 검사를 하지 못하는 경우 Active Directory 자격 증명을 마법사에서 제공 하는 사용자입니다.
 - PowerShell 세션에서 함수를 호출한 사용자가 사후 설치합니다.
 
 도구는 **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1**에 있습니다. 

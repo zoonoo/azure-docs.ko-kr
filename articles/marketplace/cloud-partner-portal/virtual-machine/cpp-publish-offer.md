@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace에 가상 머신 제안 게시 | Microsoft Docs
+title: 가상 머신 제품은 Azure Marketplace에 게시
 description: 기존 가상 머신 제안을 Azure Marketplace에 게시하는 데 필요한 단계를 나열합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639353"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938605"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>가상 머신 제안 게시
 
@@ -27,7 +20,8 @@ ms.locfileid: "49639353"
 
 ![가상 머신 제안 게시 단계](./media/publishvm_013.png)
 
-다음 표에서는 이러한 단계를 설명하고, 완료하는 데 예상되는 최대 시간을 제공합니다. <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
+다음 표에서는 이러한 단계를 설명하고, 예상되는 최대 완료 시간을 제공합니다.
+<!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
 |  **게시 단계**           | **Time**    | **설명**                                                            |

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793389"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701559"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 
@@ -52,7 +52,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry008 --s
 이제 Azure Container Registry를 사용하여 이미지를 빌드합니다. 먼저 작업 디렉터리를 만든 후, 다음 콘텐츠를 사용하여 *Dockerfile*이라는 Dockerfile을 만듭니다. 이 예제는 Linux 컨테이너 이미지를 빌드하는 간단한 예제이지만, 여러분만의 표준 Dockerfile을 만들고 다른 플랫폼에 대한 이미지를 빌드할 수도 있습니다.
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 [az acr build][az-acr-build] 명령을 실행하여 이미지를 빌드합니다. 성공적으로 빌드된 이미지는 레지스트리로 푸시됩니다. 다음 예제는 `sample/hello-world:v1` 이미지를 푸시합니다. 명령 끝부분의 `.`는 Dockerfile의 위치(이 예에서는 현재 디렉터리)를 설정합니다.

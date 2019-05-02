@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f135665b6fa7eb640526be513d2757c8e17ab8df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 979a09da805abfd6558fac90e6adedb66de438f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64859097"
 ---
 > [!NOTE]
 > 새 VPN Gateway SKU(VpnGw1, VpnGw2, 및 VpnGw3)는 리소스 관리자 배포 모델에 대해서만 지원됩니다. 클래식 가상 네트워크는 이전(레거시) SKU를 계속 사용해야 합니다.

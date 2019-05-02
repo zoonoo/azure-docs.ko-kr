@@ -1,27 +1,20 @@
 ---
-title: Azure 및 Dynamics 365 컨설팅 서비스 제품 - 제품 만들기 | Microsoft Docs
-description: Cloud 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품을 만들기 위한 지침입니다.
+title: 컨설팅 제품을 만드는 | Azure Marketplace
+description: Azure Marketplace에 대 한 클라우드 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품을 만듭니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f130f20643ba80bf706b8b5ba8f4b7eab0acaa59
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 09b9dce8e30ed3ba5ad0bac58929cd2c6d71793c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231447"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942827"
 ---
-# <a name="create-an-offer"></a>제품 만들기
+# <a name="create-a-consulting-offer"></a>컨설팅 제품 만들기
 
 이 문서에서는 컨설팅 서비스 제품을 만들고 게시하는 방법을 설명합니다.
 

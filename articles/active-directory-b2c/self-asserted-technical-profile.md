@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 자체 어설
 description: Azure Active Directory B2C의 사용자 지정 정책에서 자체 어설션된 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dcc94daeb19174b85fface05222f8842e9544adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419495"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691022"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "60419495"
 
 Azure AD(Active Directory) B2C에서 사용자가 입력을 제공해야 하는 모든 상호 작용은 자체 어설션된 기술 프로필입니다. 등록 페이지, 로그인 페이지, 암호 재설정 페이지 등을 예로 들 수 있습니다.
 
-## <a name="protocol"></a>프로토콜
+## <a name="protocol"></a>Protocol
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. 프로필이 자체 어설션되도록 하려면 **handler** 특성이 Azure AD B2C에서 사용되는 프로토콜 처리기 어셈블리의 정규화된 이름을 포함해야 합니다. `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -132,7 +132,7 @@ Azure AD(Active Directory) B2C에서 사용자가 입력을 제공해야 하는 
 | setting.showContinueButton | 아닙니다. | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.showCancelButton | 아닙니다. | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.operatingMode | 아닙니다. | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다. |
-| ContentDefinitionReferenceId | 예. | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
+| ContentDefinitionReferenceId | 예 | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
 | EnforceEmailVerification | 아닙니다. | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. | 
 | setting.showSignupLink | 아닙니다. | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.retryLimit | 아닙니다. | 사용자가 유효성 검사 기술 프로필과의 일치 여부를 확인하는 데이터의 입력을 시도할 수 있는 횟수를 제어합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.

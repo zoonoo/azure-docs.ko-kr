@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a71a0cd5888cec5c3af0e2853edf5a7f014939b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505408"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919894"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge 보안 모듈
 
@@ -27,7 +27,7 @@ ms.locfileid: "60505408"
 > IoT용 Azure Security Center는 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전을 서비스 수준 계약 없이 제공 됩니다 및 프로덕션 worklo§1ads에 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) 에 지에서 비즈니스 워크플로 수행 하는 강력한 기능을 제공 합니다.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 에 지에서 비즈니스 워크플로 수행 하는 강력한 기능을 제공 합니다.
 IoT Edge는 IoT 환경에서 수행 하는 핵심 있도록 특히 매력적인 악의적인 행위자에 대 한 합니다.
 
 IoT 보안 모듈에 대 한 azure 보안 센터 (ASC) 포괄적인 보안 솔루션을 제공 하 여 IoT Edge 장치입니다.
@@ -44,7 +44,7 @@ ASC IoT Edge에 대 한 IoT 보안 모듈에 대 한 다음 기능을 제공 합
 
 - IoT Edge 배포 매니페스트 분석 합니다.
 
-- 원시 보안 이벤트를 보내는 메시지로 집계 [IoT Edge Hub](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub)합니다.
+- 원시 보안 이벤트를 보내는 메시지로 집계 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)합니다.
 
 - 보안 모듈 쌍의 구성을 사용 하 여 제거 합니다.
 

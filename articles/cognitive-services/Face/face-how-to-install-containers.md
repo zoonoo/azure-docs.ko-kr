@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680726"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682678"
 ---
 # <a name="install-and-run-face-containers"></a>설치 하 고 얼굴 컨테이너 실행
 
@@ -34,10 +34,9 @@ Face API 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족�
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
 |Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 값이 모두 리소스에 대 한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요한. 추가 해야 합니다 `face/v1.0` BILLING_ENDPOINT_URI 예제에 나와 있는 것 처럼 끝점 URI로 라우팅할 합니다. <br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>개인 컨테이너 레지스트리에 대한 액세스 요청
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
@@ -162,5 +161,4 @@ Face API 컨테이너는 Azure 계정의 _Face API_ 리소스를 사용하여 �
 * [컨테이너 구성](face-resource-container-config.md)에서 구성 설정을 검토합니다.
 * [Face 개요](Overview.md)를 검토하여 얼굴을 감지하고 식별하는 방법을 자세히 알아봅니다.  
 * [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
-* [FAQ(질문과 대답)](FAQ.md)를 참조하여 Face 기능과 관련된 문제를 해결합니다.
 * 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250531"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704998"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -90,7 +90,7 @@ Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 Azure AD는 `AllowCreate` 특성을 무시합니다.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD는 하나의 `AuthnContextClassRef` 값 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`만 지원합니다.
+`RequestedAuthnContext` 요소는 원하는 인증 방법을 지정합니다. Azure AD로 전송되는 `AuthnRequest` 요소에서는 선택 사항입니다. Azure AD에서 지 원하는 `AuthnContextClassRef` 와 같은 값 `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`합니다.
 
 ### <a name="scoping"></a>범위 지정
 ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는 `AuthnRequest` 요소에서 선택 사항입니다.
@@ -243,7 +243,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 * `NotBefore` 특성 값은 `Assertion` 요소의 `IssueInstant` 특성 값과 같거나 약간(1초 미만) 나중입니다. Azure AD에서는 Azure AD 자체와 클라우드 서비스(서비스 공급자) 간의 시차를 고려하지 않으며 이 시간에 어떠한 버퍼도 추가하지 않습니다.
 * `NotOnOrAfter` 특성 값은 `NotBefore` 특성 값보다 70분 후입니다.
 
-#### <a name="audience"></a>대상 그룹
+#### <a name="audience"></a>대상
 
 대상 그룹을 식별하는 URI를 포함합니다. Azure AD는 이 요소의 값을 로그온이 시작된 `AuthnRequest`의 `Issuer` 요소 값으로 설정합니다. `Audience` 값을 평가하려면 애플리케이션 등록 중에 지정된 `App ID URI` 값을 사용합니다.
 

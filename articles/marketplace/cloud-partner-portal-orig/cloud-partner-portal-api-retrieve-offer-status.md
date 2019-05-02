@@ -1,25 +1,18 @@
 ---
-title: 제안 상태 검색 | Microsoft Docs
+title: 제공 상태를 검색 합니다. | Azure Marketplace
 description: API는 제안의 현재 상태를 검색합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808275"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935449"
 ---
 <a name="retrieve-offer-status"></a>제안 상태 검색 
 =====================
@@ -33,8 +26,8 @@ ms.locfileid: "48808275"
 
 |  **Name**       |   **설명**                            |  **데이터 형식** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherid    | 게시자 식별자입니다(예: `Contoso`).  |     문자열     |
-|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     문자열     |
+|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     String     |
+|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     String     |
 |  api-version    | 최신 버전 API                        |     Date       |
 |  |  |
 

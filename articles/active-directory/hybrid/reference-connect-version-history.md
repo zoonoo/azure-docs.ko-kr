@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387216"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572419"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 항목 |  세부 정보
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
-필요한 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
+필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
 
@@ -43,12 +43,12 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 이 프로세스를 진행 하면서 하는 동안 릴리스의 버전 번호로 표시 됩니다 "1.3.X.0"-같이 부 릴리스 번호 위치에 "X"를 사용 하 여이 문서에서 릴리스 "1.3."로 시작 하는 모든 버전에 대 한 유효한 지 나타냅니다. 릴리스 프로세스를 완성 한 것으로 가장 최근에 릴리스된 버전을 릴리스 버전 번호를은 업데이트 되 고 릴리스 상태 "를 다운로드 하 고 자동 업그레이드에 대 한 릴리스"으로 업데이트 됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
 
-## <a name="13x0"></a>1.3.X.0 
+## <a name="13200"></a>1.3.20.0 
 
 ### <a name="release-status"></a>릴리스 상태 
 
-3/25/2019: 대기 중
- 
+04/24/2019: 다운로드용으로 릴리스됨
+
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능 
 
 - 도메인 새로 고침을 위한 지원 추가 
@@ -64,7 +64,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - Ping에 대 한 Ws-trust 수정 프로그램을 선택 하 고 새 Azure 인스턴스에 대 한 지원을 추가 하려면 3.19.8 ADAL로 업그레이드 
 - 클레임에 대 한 그룹 수정 동기화 규칙을 samAccountName, DomainNetbios 및 DomainFQDN에서 클라우드로-필요 
 - – 자세한 기본 동기화 규칙 처리를 수정할 [여기](how-to-connect-fix-default-rules.md)합니다.
-- Windows 서비스를 실행 하는 새 에이전트를 추가 합니다. 이 에이전트를 "관리 에이전트" 라는 Microsoft 엔지니어가 지원 사례를 열 때 문제를 해결 하는 데 Azure AD Connect 서버의 원격 진단을 수 있습니다. 관리 에이전트에 대해 자세히 알아보세요 [여기](whatis-aadc-admin-agent.md)합니다. 
+- Windows 서비스를 실행 하는 새 에이전트를 추가 합니다. 이 에이전트를 "관리 에이전트" 라는 Microsoft 엔지니어가 지원 사례를 열 때 문제를 해결 하는 데 Azure AD Connect 서버의 원격 진단을 수 있습니다. 이 에이전트를 설치 및 기본적으로 사용 되지 않는.  설치 및 에이전트를 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure AD Connect 관리자 Agent 란?](whatis-aadc-admin-agent.md)합니다. 
 - 최종 사용자 사용권 계약 (EULA) 업데이트 
 - 로그인 형식으로 AD FS를 사용 하는 배포에 대 한 자동 업그레이드 지원을 추가 했습니다.  이 또한 업그레이드 프로세스의 일부로 AD FS를 Azure AD 신뢰 당사자 트러스트를 업데이트 하는 요구 사항을 제거 합니다. 
 - 두 가지 옵션을 제공 하는 Azure AD 트러스트 관리 작업을 추가 합니다: 신뢰 분석/업데이트 및 트러스트를 다시 설정 합니다. 
@@ -387,7 +387,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | Name                          | Access               | 적용 대상
+Type     | 이름                          | Access               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -406,7 +406,7 @@ AD DS 계정에 대한 설정을 강화하려면 [이 PowerShell 스크립트](h
 
 PowerShell 스크립트를 사용하여 조직에서 제공하거나 이전 Azure AD Connect 설치에서 만든 기존 AD DS 계정에 이러한 설정을 적용하려면 위에 제공된 링크에서 스크립트를 다운로드합니다.
 
-##### <a name="usage"></a>사용 현황:
+##### <a name="usage"></a>Usage:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
@@ -550,7 +550,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * AAD Connect를 사용하여 새 ADFS 팜을 설정할 때, ADFS 자격 증명을 묻는 페이지가 이동되어 이제 ADFS 및 WAP 서버를 제공하라는 메시지가 사용자에게 표시되기 전에 발생합니다.  따라서 AAD Connect에서 지정된 계정에 올바른 권한이 있는지 확인할 수 있습니다.
 * AAD Connect를 업그레이드하는 동안 ADFS AAD 트러스트가 업데이트에 실패하는 경우 더 이상 업그레이드할 수 없습니다.  이렇게 되면 사용자에게 적절한 경고 메시지가 표시되며, AAD Connect 추가 작업을 통해 트러스트를 다시 설정하도록 진행해야 합니다.
 
-### <a name="seamless-single-sign-on"></a>원활한 Single Sign-On
+### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
 * [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-pta-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
 
@@ -730,14 +730,14 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|선택|
+    |CertVersion|CertSignatureAlgorithmOid|여기서|
     |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
 
   * 다음 특성이 MV 스키마에 추가되었습니다.
-    * 그룹: 계정 이름
+    * 그룹: AccountName
     * 그룹: domainNetBios
     * 그룹: domainFQDN
     * 사용자: distinguishedName

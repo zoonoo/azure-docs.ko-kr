@@ -4,14 +4,14 @@ description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32156f39d36d8485c76dada5fd00f9ea0918598c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388066"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575431"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| DomainServices | 예. | 
+| DomainServices | 예 | 
 | DomainServices/oucontainer | 아닙니다. | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -52,7 +52,7 @@ ms.locfileid: "60388066"
 | ------------- | ----------- |
 | 구성 | 아닙니다. | 
 | generateRecommendations | 아닙니다. | 
-| 권장 사항 | 아닙니다. | 
+| 동영상 추천 기능 | 아닙니다. | 
 | suppressions | 아닙니다. | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
@@ -70,7 +70,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 서버 | 예. | 
+| servers | 예 | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | 리소스 종류 | 태그 지원 |
@@ -91,7 +91,7 @@ ms.locfileid: "60388066"
 | denyAssignments | 아닙니다. | 
 | elevateAccess | 아닙니다. | 
 | locks | 아닙니다. | 
-| 사용 권한 | 아닙니다. | 
+| 권한 | 아닙니다. | 
 | policyAssignments | 아닙니다. | 
 | policyDefinitions | 아닙니다. | 
 | policySetDefinitions | 아닙니다. | 
@@ -102,8 +102,8 @@ ms.locfileid: "60388066"
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| automationAccounts | 예. | 
-| automationAccounts/configurations | 예. | 
+| automationAccounts | 예 | 
+| automationAccounts/configurations | 예 | 
 | automationAccounts/jobs | 아닙니다. | 
 | automationAccounts/runbooks | 예 | 
 | automationAccounts/softwareUpdateConfigurations | 아닙니다. | 
@@ -120,19 +120,19 @@ ms.locfileid: "60388066"
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| b2cDirectories | 예. | 
+| b2cDirectories | 예 | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| registrations | 예. | 
+| registrations | 예 | 
 | registrations/customerSubscriptions | 아닙니다. | 
 | registrations/products | 아닙니다. | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| batchAccounts | 예. | 
+| batchAccounts | 예 | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | 리소스 종류 | 태그 지원 |
@@ -191,7 +191,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| mapApis | 예. | 
+| mapApis | 예 | 
 | updateCommunicationPreference | 아닙니다. | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
@@ -246,7 +246,7 @@ ms.locfileid: "60388066"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | edgenodes | 아닙니다. | 
-| 프로필 | 예. | 
+| 프로필 | 예 | 
 | profiles/endpoints | 예 | 
 | profiles/endpoints/customdomains | 아닙니다. | 
 | profiles/endpoints/origins | 아닙니다. | 
@@ -301,8 +301,8 @@ ms.locfileid: "60388066"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | capabilities | 아닙니다. | 
-| 디스크 | 아닙니다. | 
-| 이미지 | 아닙니다. | 
+| disks | 아닙니다. | 
+| images | 아닙니다. | 
 | osImages | 아닙니다. | 
 | osPlatformImages | 아닙니다. | 
 | publicImages | 아닙니다. | 
@@ -316,7 +316,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | 리소스 종류 | 태그 지원 |
@@ -327,18 +327,18 @@ ms.locfileid: "60388066"
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| availabilitySets | 예. | 
-| 디스크 | 예 | 
-| 이미지 | 예. | 
+| availabilitySets | 예 | 
+| disks | 예 | 
+| images | 예 | 
 | restorePointCollections | 예 | 
 | restorePointCollections/restorePoints | 아닙니다. | 
-| sharedVMImages | 예. | 
-| sharedVMImages/versions | 예. | 
-| 스냅숏 | 예 | 
-| virtualMachines | 예. | 
+| sharedVMImages | 예 | 
+| sharedVMImages/versions | 예 | 
+| snapshots | 예 | 
+| virtualMachines | 예 | 
 | virtualMachines/diagnosticSettings | 아닙니다. | 
 | virtualMachines/extensions | 예 | 
-| virtualMachineScaleSets | 예. | 
+| virtualMachineScaleSets | 예 | 
 | virtualMachineScaleSets/extensions | 아닙니다. | 
 | virtualMachineScaleSets/networkInterfaces | 아닙니다. | 
 | virtualMachineScaleSets/publicIPAddresses | 아닙니다. | 
@@ -365,7 +365,7 @@ ms.locfileid: "60388066"
 | ReservationSummaries | 아닙니다. | 
 | ReservationTransactions | 아닙니다. | 
 | 태그들 | 아닙니다. | 
-| 서비스 계약 | 아닙니다. | 
+| 용어 | 아닙니다. | 
 | UsageDetails | 아닙니다. | 
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -381,7 +381,7 @@ ms.locfileid: "60388066"
 | registries/builds | 아닙니다. | 
 | registries/builds/cancel | 아닙니다. | 
 | registries/builds/getLogLink | 아닙니다. | 
-| registries/buildTasks | 예. | 
+| registries/buildTasks | 예 | 
 | registries/buildTasks/steps | 아닙니다. | 
 | registries/eventGridFilters | 아닙니다. | 
 | registries/getBuildSourceUploadUrl | 아닙니다. | 
@@ -394,7 +394,7 @@ ms.locfileid: "60388066"
 | registries/runs | 아닙니다. | 
 | registries/runs/cancel | 아닙니다. | 
 | registries/scheduleRun | 아닙니다. | 
-| registries/tasks | 예. | 
+| registries/tasks | 예 | 
 | registries/updatePolicies | 아닙니다. | 
 | registries/webhooks | 예 | 
 | registries/webhooks/getCallbackConfig | 아닙니다. | 
@@ -403,13 +403,13 @@ ms.locfileid: "60388066"
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| containerServices | 예. | 
-| managedClusters | 예. | 
+| containerServices | 예 | 
+| managedClusters | 예 | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 애플리케이션 | 예. | 
+| 애플리케이션 | 예 | 
 | updateCommunicationPreference | 아닙니다. | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
@@ -422,7 +422,7 @@ ms.locfileid: "60388066"
 | ------------- | ----------- |
 | 경고 | 아닙니다. | 
 | BillingAccounts | 아닙니다. | 
-| 커넥터 | 예. | 
+| 커넥터 | 예 | 
 | Departments | 아닙니다. | 
 | 차원 | 아닙니다. | 
 | EnrollmentAccounts | 아닙니다. | 
@@ -434,7 +434,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| hubs | 예. | 
+| hubs | 예 | 
 | hubs/authorizationPolicies | 아닙니다. | 
 | hubs/connectors | 아닙니다. | 
 | hubs/connectors/mappings | 아닙니다. | 
@@ -451,23 +451,23 @@ ms.locfileid: "60388066"
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 작업 | 예. | 
+| jobs | 예 | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | 예. | 
+| DataBoxEdgeDevices | 예 | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| workspaces | 예. | 
+| workspaces | 예 | 
 | workspaces/virtualNetworkPeerings | 아닙니다. | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| catalogs | 예. | 
+| catalogs | 예 | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | 리소스 종류 | 태그 지원 |
@@ -477,16 +477,16 @@ ms.locfileid: "60388066"
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| dataFactories | 예. | 
+| dataFactories | 예 | 
 | dataFactories/diagnosticSettings | 아닙니다. | 
 | dataFactorySchema | 아닙니다. | 
-| factories | 예. | 
+| factories | 예 | 
 | factories/integrationRuntimes | 아닙니다. | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 | accounts/dataLakeStoreAccounts | 아닙니다. | 
 | accounts/storageAccounts | 아닙니다. | 
 | accounts/storageAccounts/containers | 아닙니다. | 
@@ -502,26 +502,26 @@ ms.locfileid: "60388066"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | services | 예 | 
-| services/projects | 예. | 
+| services/projects | 예 | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 서버 | 예. | 
+| servers | 예 | 
 | servers/recoverableServers | 아닙니다. | 
 | servers/virtualNetworkRules | 아닙니다. | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 서버 | 예 | 
+| servers | 예 | 
 | servers/recoverableServers | 아닙니다. | 
 | servers/virtualNetworkRules | 아닙니다. | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 서버 | 예. | 
+| servers | 예 | 
 | servers/advisors | 아닙니다. | 
 | servers/queryTexts | 아닙니다. | 
 | servers/recoverableServers | 아닙니다. | 
@@ -532,34 +532,34 @@ ms.locfileid: "60388066"
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| IotHubs | 예. | 
+| IotHubs | 예 | 
 | IotHubs/eventGridFilters | 아닙니다. | 
-| ProvisioningServices | 예. | 
+| ProvisioningServices | 예 | 
 | usages | 아닙니다. | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| controllers | 예. | 
+| controllers | 예 | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | labs | 예 | 
-| labs/serviceRunners | 예. | 
-| labs/virtualMachines | 예. | 
-| schedules | 예. | 
+| labs/serviceRunners | 예 | 
+| labs/virtualMachines | 예 | 
+| schedules | 예 | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | databaseAccountNames | 아닙니다. | 
-| databaseAccounts | 예. | 
+| databaseAccounts | 예 | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| domains | 예. | 
+| domains | 예 | 
 | domains/domainOwnershipIdentifiers | 아닙니다. | 
 | generateSsoRequest | 아닙니다. | 
 | topLevelDomains | 아닙니다. | 
@@ -575,17 +575,17 @@ ms.locfileid: "60388066"
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| domains | 예. | 
+| domains | 예 | 
 | domains/topics | 아닙니다. | 
 | eventSubscriptions | 아닙니다. | 
 | extensionTopics | 아닙니다. | 
-| topics | 예. | 
+| topics | 예 | 
 | topicTypes | 아닙니다. | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| clusters | 예. | 
+| clusters | 예 | 
 | namespaces | 예 | 
 | namespaces/authorizationrules | 아닙니다. | 
 | namespaces/disasterrecoveryconfigs | 아닙니다. | 
@@ -629,13 +629,13 @@ ms.locfileid: "60388066"
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| clusters | 예. | 
+| clusters | 예 | 
 | clusters/applications | 아닙니다. | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 작업 | 예 | 
+| jobs | 예 | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | 리소스 종류 | 태그 지원 |
@@ -650,13 +650,13 @@ ms.locfileid: "60388066"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | actiongroups | 예 | 
-| activityLogAlerts | 예. | 
+| activityLogAlerts | 예 | 
 | alertrules | 예 | 
 | automatedExportSettings | 아닙니다. | 
-| autoscalesettings | 예. | 
+| autoscalesettings | 예 | 
 | baseline | 아닙니다. | 
 | calculatebaseline | 아닙니다. | 
-| components | 예. | 
+| components | 예 | 
 | components/events | 아닙니다. | 
 | components/pricingPlans | 아닙니다. | 
 | components/query | 아닙니다. | 
@@ -668,14 +668,14 @@ ms.locfileid: "60388066"
 | logDefinitions | 아닙니다. | 
 | logprofiles | 아닙니다. | 
 | 로그 | 아닙니다. | 
-| metricAlerts | 예. |
+| metricAlerts | 예 |
 | migrateToNewPricingModel | 아닙니다. | 
 | myWorkbooks | 아닙니다. | 
 | 쿼리 | 아닙니다. | 
 | rollbackToLegacyPricingModel | 아닙니다. | 
 | scheduledqueryrules | 예 | 
 | vmInsightsOnboardingStatuses | 아닙니다. | 
-| webtests | 예. | 
+| webtests | 예 | 
 | workbooks | 예 | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
@@ -692,7 +692,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 그래프 | 예. | 
+| 그래프 | 예 | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 리소스 종류 | 태그 지원 |
@@ -713,18 +713,18 @@ ms.locfileid: "60388066"
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| labaccounts | 예. | 
+| labaccounts | 예 | 
 | users | 아닙니다. | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | 리소스 종류 | 태그 지원 |
@@ -734,42 +734,42 @@ ms.locfileid: "60388066"
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| integrationAccounts | 예. | 
-| workflows | 예. | 
+| integrationAccounts | 예 | 
+| workflows | 예 | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | commitmentPlans | 예 | 
 | webServices | 예 | 
-| 작업 영역 | 예. | 
+| 작업 영역 | 예 | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 | accounts/workspaces | 예 | 
-| accounts/workspaces/projects | 예. | 
-| teamAccounts | 예. | 
+| accounts/workspaces/projects | 예 | 
+| teamAccounts | 예 | 
 | teamAccounts/workspaces | 예 | 
-| teamAccounts/workspaces/projects | 예. | 
+| teamAccounts/workspaces/projects | 예 | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| workspaces | 예. | 
+| workspaces | 예 | 
 | workspaces/computes | 아닙니다. | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | Identities | 아닙니다. | 
-| userAssignedIdentities | 예. | 
+| userAssignedIdentities | 예 | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | 리소스 종류 | 태그 지원 |
@@ -783,7 +783,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 | accounts/eventGridFilters | 아닙니다. | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -803,7 +803,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| classicDevServices | 예. | 
+| classicDevServices | 예 | 
 | updateCommunicationPreference | 아닙니다. | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -826,7 +826,7 @@ ms.locfileid: "60388066"
 | mediaservices/liveEvents/liveOutputs | 아닙니다. | 
 | mediaservices/liveOutputOperations | 아닙니다. | 
 | mediaservices/streamingEndpointOperations | 아닙니다. | 
-| mediaservices/streamingEndpoints | 예. | 
+| mediaservices/streamingEndpoints | 예 | 
 | mediaservices/streamingLocators | 아닙니다. | 
 | mediaservices/streamingPolicies | 아닙니다. | 
 | mediaservices/transforms | 아닙니다. | 
@@ -840,14 +840,14 @@ ms.locfileid: "60388066"
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| applicationGateways | 예. | 
+| applicationGateways | 예 | 
 | applicationSecurityGroups | 예 | 
 | azureFirewallFqdnTags | 아닙니다. | 
-| azureFirewalls | 예. | 
+| azureFirewalls | 예 | 
 | bgpServiceCommunities | 아닙니다. | 
-| 연결 | 예. | 
+| connections | 예 | 
 | ddosCustomPolicies | 예 | 
-| ddosProtectionPlans | 예. | 
+| ddosProtectionPlans | 예 | 
 | dnsOperationStatuses | 아닙니다. | 
 | dnszones | 예 | 
 | dnszones/A | 아닙니다. | 
@@ -862,55 +862,56 @@ ms.locfileid: "60388066"
 | dnszones/SOA | 아닙니다. | 
 | dnszones/SRV | 아닙니다. | 
 | dnszones/TXT | 아닙니다. | 
-| expressRouteCircuits | 예 | 
+| expressRouteCircuits | 예 (태그 값 현재 비용 보고서에 표시 하지 않습니다) | 
 | expressRouteServiceProviders | 아닙니다. | 
-| frontdoors | 예. | 
+| frontdoors | 예 | 
 | frontdoorWebApplicationFirewallPolicies | 예 | 
 | getDnsResourceReference | 아닙니다. | 
-| interfaceEndpoints | 예. | 
+| interfaceEndpoints | 예 | 
 | internalNotify | 아닙니다. | 
-| loadBalancers | 예. | 
-| localNetworkGateways | 예. | 
-| natGateways | 예. | 
-| networkIntentPolicies | 예. | 
-| networkInterfaces | 예. | 
-| networkProfiles | 예. | 
-| networkSecurityGroups | 예. | 
-| networkWatchers | 예 | 
-| networkWatchers/connectionMonitors | 예. | 
-| networkWatchers/lenses | 예. | 
-| networkWatchers/pingMeshes | 예. | 
+| loadBalancers | 예 | 
+| localNetworkGateways | 예 | 
+| natGateways | 예 | 
+| networkIntentPolicies | 예 | 
+| networkInterfaces | 예 | 
+| networkProfiles | 예 | 
+| networkSecurityGroups | 예 | 
+| networkWatchers | 예 (태그 값 현재 비용 보고서에 표시 하지 않습니다) | 
+| networkWatchers/connectionMonitors | 예 | 
+| networkWatchers/lenses | 예 | 
+| networkWatchers/pingMeshes | 예 | 
 | privateLinkServices | 예 | 
 | publicIPAddresses | 예 | 
-| publicIPPrefixes | 예. | 
-| routeFilters | 예. | 
-| routeTables | 예. | 
-| serviceEndpointPolicies | 예. | 
+| publicIPPrefixes | 예 | 
+| routeFilters | 예 | 
+| routeTables | 예 | 
+| serviceEndpointPolicies | 예 | 
 | trafficManagerGeographicHierarchies | 아닙니다. | 
-| trafficmanagerprofiles | 예. | 
+| trafficmanagerprofiles | 예 | 
 | trafficmanagerprofiles/heatMaps | 아닙니다. | 
-| virtualHubs | 예. | 
+| virtualHubs | 예 | 
 | virtualNetworkGateways | 예 | 
-| virtualNetworks | 예. | 
+| virtualNetworks | 예 | 
+| virtualNetworks/subnets | 아닙니다. | 
 | virtualNetworkTaps | 예 | 
-| virtualWans | 예. | 
-| vpnGateways | 예 | 
-| vpnSites | 예. | 
-| webApplicationFirewallPolicies | 예. | 
+| virtualWans | 예 | 
+| vpnGateways | 예 (태그 값 현재 비용 보고서에 표시 하지 않습니다) | 
+| vpnSites | 예 | 
+| webApplicationFirewallPolicies | 예 | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| namespaces | 예. | 
+| namespaces | 예 | 
 | namespaces/notificationHubs | 예 | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 디바이스 | 아닙니다. | 
+| devices | 아닙니다. | 
 | linkTargets | 아닙니다. | 
 | storageInsightConfigs | 아닙니다. | 
-| workspaces | 예. | 
+| workspaces | 예 | 
 | workspaces/dataSources | 아닙니다. | 
 | workspaces/linkedServices | 아닙니다. | 
 | workspaces/query | 아닙니다. | 
@@ -920,8 +921,8 @@ ms.locfileid: "60388066"
 | ------------- | ----------- |
 | managementassociations | 아닙니다. | 
 | managementconfigurations | 예 | 
-| solutions | 예. | 
-| 보기 | 예. | 
+| solutions | 예 | 
+| 뷰 | 예 | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | 리소스 종류 | 태그 지원 |
@@ -935,34 +936,34 @@ ms.locfileid: "60388066"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | consoles | 아닙니다. | 
-| dashboards | 예. | 
+| dashboards | 예 | 
 | userSettings | 아닙니다. | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| workspaceCollections | 예. | 
+| workspaceCollections | 예 | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| capacities | 예. | 
+| capacities | 예 | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
+| 계정 | 예 | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | backupProtectedItems | 아닙니다. | 
-| vaults | 예. | 
+| vaults | 예 | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| namespaces | 예. | 
+| namespaces | 예 | 
 | namespaces/authorizationrules | 아닙니다. | 
 | namespaces/hybridconnections | 아닙니다. | 
 | namespaces/hybridconnections/authorizationrules | 아닙니다. | 
@@ -1007,20 +1008,20 @@ ms.locfileid: "60388066"
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 애플리케이션 | 예. | 
+| 애플리케이션 | 예 | 
 | saasresources | 아닙니다. | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 흐름 | 예. | 
+| flows | 예 | 
 | jobcollections | 예 | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | resourceHealthMetadata | 아닙니다. | 
-| searchServices | 예. | 
+| searchServices | 예 | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | 리소스 종류 | 태그 지원 |
@@ -1066,7 +1067,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| namespaces | 예. | 
+| namespaces | 예 | 
 | namespaces/authorizationrules | 아닙니다. | 
 | namespaces/disasterrecoveryconfigs | 아닙니다. | 
 | namespaces/eventgridfilters | 아닙니다. | 
@@ -1087,30 +1088,30 @@ ms.locfileid: "60388066"
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 애플리케이션 | 예. | 
-| gateways | 예. | 
-| 네트워크 | 예 | 
-| secrets | 예. | 
-| 볼륨 | 예. | 
+| 애플리케이션 | 예 | 
+| gateways | 예 | 
+| networks | 예 | 
+| secrets | 예 | 
+| volumes | 예 | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| SignalR | 예. | 
+| SignalR | 예 | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | applianceDefinitions | 예 | 
-| appliances | 예. | 
-| applicationDefinitions | 예. | 
-| 애플리케이션 | 예. | 
-| jitRequests | 예. | 
+| appliances | 예 | 
+| applicationDefinitions | 예 | 
+| 애플리케이션 | 예 | 
+| jitRequests | 예 | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| managedInstances | 예. |
+| managedInstances | 예 |
 | managedInstances/databases | 예(아래 참고를 참조) |
 | managedInstances/databases/backupShortTermRetentionPolicies | 아닙니다. |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | 아닙니다. |
@@ -1120,7 +1121,7 @@ ms.locfileid: "60388066"
 | managedInstances/keys | 아닙니다. |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | 아닙니다. |
 | managedInstances/vulnerabilityAssessments | 아닙니다. |
-| 서버 | 예. | 
+| servers | 예 | 
 | servers/administrators | 아닙니다. | 
 | servers/communicationLinks | 아닙니다. | 
 | servers/databases | 예(아래 참고를 참조) | 
@@ -1138,9 +1139,9 @@ ms.locfileid: "60388066"
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | 예. | 
+| SqlVirtualMachineGroups | 예 | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | 아닙니다. | 
-| SqlVirtualMachines | 예. | 
+| SqlVirtualMachines | 예 | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | 리소스 종류 | 태그 지원 |
@@ -1156,7 +1157,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| storageSyncServices | 예. | 
+| storageSyncServices | 예 | 
 | storageSyncServices/registeredServers | 아닙니다. | 
 | storageSyncServices/syncGroups | 아닙니다. | 
 | storageSyncServices/syncGroups/cloudEndpoints | 아닙니다. | 
@@ -1166,7 +1167,7 @@ ms.locfileid: "60388066"
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| managers | 예. | 
+| managers | 예 | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 리소스 종류 | 태그 지원 |
@@ -1193,22 +1194,22 @@ ms.locfileid: "60388066"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | providerRegistrations | 예 | 
-| 리소스 | 예. | 
+| 리소스 | 예 | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| environments | 예. | 
+| environments | 예 | 
 | environments/accessPolicies | 아닙니다. | 
-| environments/eventsources | 예. | 
-| environments/referenceDataSets | 예. | 
+| environments/eventsources | 예 | 
+| environments/referenceDataSets | 예 | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| 계정 | 예. | 
-| account/extension | 예. | 
-| account/project | 예. | 
+| 계정 | 예 | 
+| account/extension | 예 | 
+| account/project | 예 | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | 리소스 종류 | 태그 지원 |
@@ -1224,32 +1225,32 @@ ms.locfileid: "60388066"
 | apiManagementAccounts/connectionAcls | 아닙니다. | 
 | apiManagementAccounts/connections | 아닙니다. | 
 | billingMeters | 아닙니다. | 
-| 인증서 | 예 | 
+| certificates | 예 | 
 | connectionGateways | 예 | 
-| 연결 | 예 | 
+| connections | 예 | 
 | customApis | 예 | 
 | deletedSites | 아닙니다. | 
-| 함수 | 아닙니다. | 
-| hostingEnvironments | 예. | 
+| functions | 아닙니다. | 
+| hostingEnvironments | 예 | 
 | hostingEnvironments/multiRolePools | 아닙니다. | 
 | hostingEnvironments/multiRolePools/instances | 아닙니다. | 
 | hostingEnvironments/workerPools | 아닙니다. | 
 | hostingEnvironments/workerPools/instances | 아닙니다. | 
 | publishingUsers | 아닙니다. | 
-| 권장 사항 | 아닙니다. | 
+| 동영상 추천 기능 | 아닙니다. | 
 | resourceHealthMetadata | 아닙니다. | 
 | runtimes | 아닙니다. | 
 | serverFarms | 예 | 
 | serverFarms/workers | 아닙니다. | 
-| 사이트 | 예 | 
+| sites | 예 | 
 | sites/domainOwnershipIdentifiers | 아닙니다. | 
 | sites/hostNameBindings | 아닙니다. | 
 | sites/instances | 아닙니다. | 
 | sites/instances/extensions | 아닙니다. | 
-| sites/premieraddons | 예. | 
+| sites/premieraddons | 예 | 
 | sites/recommendations | 아닙니다. | 
 | sites/resourceHealthMetadata | 아닙니다. | 
-| sites/slots | 예. | 
+| sites/slots | 예 | 
 | sites/slots/hostNameBindings | 아닙니다. | 
 | sites/slots/instances | 아닙니다. | 
 | sites/slots/instances/extensions | 아닙니다. | 

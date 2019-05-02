@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291218"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708308"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
@@ -143,7 +143,7 @@ Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Gr
 6. 특성 매핑 "참조" 특성이 들어 있는 경우 서비스를 만들고 참조 된 개체를 연결할 대상 시스템에 대 한 추가 업데이트를 수행 합니다. 예를 들어 대상 시스템에 있는 한 사용자의 “Manager” 특성이 대상 시스템에서 생성된 다른 사용자에 연결되어 있을 수 있습니다.
 7. 나중에 증분 동기화의 시작점을 제공 하는 초기 동기화 후에 워터 마크를 저장 합니다.
 
-ServiceNow, Google Apps, Box 등의 일부 애플리케이션은 사용자 프로비저닝뿐 아니라 그룹 및 해당 멤버 프로비저닝도 지원합니다. 그룹 프로 비전을 활성화 한 경우 이러한 경우에는 [매핑을](customize-application-attributes.md), 프로 비전 서비스 사용자 및 그룹을 동기화 하 고 다음 나중에 동기화 그룹 멤버 자격. 
+사용자 프로비저닝 뿐 아니라 그룹 및 해당 멤버 프로비저닝도 ServiceNow, G Suite 및 Box 지원과 같은 일부 응용 프로그램입니다. 그룹 프로 비전을 활성화 한 경우 이러한 경우에는 [매핑을](customize-application-attributes.md), 프로 비전 서비스 사용자 및 그룹을 동기화 하 고 다음 나중에 동기화 그룹 멤버 자격. 
 
 ### <a name="incremental-syncs"></a>증분 동기화
 
@@ -196,7 +196,7 @@ ServiceNow, Google Apps, Box 등의 일부 애플리케이션은 사용자 프�
 
 **증분 동기화**의 경우, 작업 시간은 해당 동기화 주기에서 검색된 변경 수에 따라 달라집니다. 사용자 또는 그룹 멤버 자격 변경이 5,000개 미만인 경우, 단일 증분 동기화 주기 내에 작업이 완료될 수 있습니다. 
 
-다음 표에는 일반적인 프로비저닝 시나리오의 동기화 시간이 요약되어 있습니다. 이러한 시나리오에서 원본 시스템은 Azure AD이고, 대상 시스템은 SaaS 애플리케이션입니다. 동기화 시간은 SaaS 애플리케이션인 ServiceNow, Workplace, Salesforce 및 Google Apps에 대한 동기화 작업의 통계 분석에서 파생된 것입니다.
+다음 표에는 일반적인 프로비저닝 시나리오의 동기화 시간이 요약되어 있습니다. 이러한 시나리오에서 원본 시스템은 Azure AD이고, 대상 시스템은 SaaS 애플리케이션입니다. 동기화 시간 ServiceNow, 작업 공간 연결, Salesforce 및 G Suite SaaS 응용 프로그램에 대 한 동기화 작업의 통계 분석에서 파생 됩니다.
 
 
 | 범위 구성 | 범위 내 사용자, 그룹 및 멤버 | 초기 동기화 시간 | 증분 동기화 시간 |

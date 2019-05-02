@@ -36,6 +36,8 @@
       href: relay-authentication-and-authorization.md
     - name: 하이브리드 연결 프로토콜
       href: relay-hybrid-connections-protocol.md
+    - name: Azure 공통 보안 특성
+      href: service-bus-relay-security-attributes.md
 - name: 방법
   items:
     - name: 계획 및 디자인

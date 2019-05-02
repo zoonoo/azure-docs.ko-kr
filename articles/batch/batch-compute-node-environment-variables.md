@@ -1,6 +1,6 @@
 ---
-title: 컴퓨팅 노드 환경 변수 - Azure Batch | Microsoft Docs
-description: Azure Batch 분석에 대한 Compute 노드 환경 변수 참조입니다.
+title: 작업 런타임 환경 변수-Azure Batch | Microsoft Docs
+description: 작업 런타임 환경 변수 지침 및 Azure Batch 분석에 대 한 참조입니다.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874764"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575569"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 계산 노드 환경 변수
+# <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 런타임 환경 변수
 
 [Azure Batch 서비스](https://azure.microsoft.com/services/batch/)는 계산 노드에 다음과 같은 환경 변수를 설정합니다. 태스크 명령줄과 명령줄로 실행되는 프로그램 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다.
 
@@ -28,6 +28,12 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 ## <a name="environment-variable-visibility"></a>환경 변수 이름 표시
 
 이러한 환경 변수는 **태스크 사용자**, 즉 태스크가 실행되는 노드의 사용자 계정의 컨텍스트에서만 표시됩니다. RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 통해 계산 노드에 *원격으로 연결*하고 환경 변수를 나열하는 경우 이를 확인할 수 [없습니다](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) . 원격 연결에 사용되는 사용자 계정이 태스크에서 사용하는 계정과 동일하지 않기 때문입니다.
+
+시작 환경 변수의 현재 값을 검색할 `cmd.exe` 는 Windows 계산 노드 또는 `/bin/sh` Linux 노드 상의:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>환경 변수의 명령줄 확장
 

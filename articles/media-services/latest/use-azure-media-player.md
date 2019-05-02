@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896996"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926522"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player 개요
 
@@ -24,7 +24,7 @@ Azure Media Player는 다양한 브라우저 및 디바이스의 Microsoft Azure
 
 Microsoft Azure Media Services에서 콘텐츠를 HLS, DASH, 부드러운 스트리밍 형식으로 제공하여 재생할 수 있습니다. Azure Media Player는 이러한 다양한 형식을 고려하여 플랫폼/브라우저 기능에 따라 최상의 링크를 자동으로 재생합니다. Media Services에서 PlayReady 암호화 또는 AES 128비트 봉투 암호화로 자산의 동적 암호화를 사용할 수 있습니다. 적절하게 구성된 경우 Azure Media Player를 사용하여 PlayReady의 및 AES 128 비트 암호화된 콘텐츠를 암호 해독할 수 있습니다. 
 
-[평가판 시작](https://azure.microsoft.com/en-us/pricing/free-trial/)
+[평가판 시작](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Azure Media Player 데모 페이지 사용
 

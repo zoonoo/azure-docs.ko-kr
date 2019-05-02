@@ -2,23 +2,19 @@
 title: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 editor: ''
-ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
-ms.workload: key-vault
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: dd1d2af174f93cceabccd62a78d45a0e4fbed502
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9346f3f9bd9395ac863af87d05724a76ae83fb2f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305444"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702326"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 
@@ -44,7 +40,7 @@ Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플�
   * 암호 해독
   * 래핑
   * 래핑 취소
-  * 확인
+  * Verify
   * 로그인
   * Backup
 * 장애 조치가 장애 복구되면 모든 요청 유형( 읽기 *및* 쓰기 요청 포함)을 사용할 수 있습니다.

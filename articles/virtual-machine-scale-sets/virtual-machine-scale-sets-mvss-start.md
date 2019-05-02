@@ -1,10 +1,10 @@
 ---
 title: 가상 머신 확장 집합 템플릿에 대해 알아보기 | Microsoft Docs
-description: 가상 머신 확장 집합에 대한 실행 가능한 최소 확장 집합 템플릿을 만드는 방법 알아보기
+description: 가상 머신 확장 집합에 대 한 기본 확장 집합 템플릿을 만드는 방법 알아보기
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008409"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868920"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
-[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 실행 가능한 최소 확장 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다. 
+[Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 기본 확장 집합 템플릿을 만드는 방법 및 다양 한 시나리오에 맞게이 템플릿을 수정 하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다.
 
 이 템플릿은 간단하게 제작되었습니다. 확장 집합 템플릿의 전체 예제를 보려면 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 참조하고 문자열 `vmss`가 포함된 폴더를 검색하세요.
 
 템플릿 생성에 익숙한 경우 "다음 단계" 섹션으로 건너뛰어 템플릿을 수정하는 방법을 볼 수 있습니다.
-
-## <a name="review-the-template"></a>템플릿 검토
-
-GitHub를 사용하여 실행 가능한 최소 확장 집합 템플릿 [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)을 검토합니다.
-
-이 자습서에서는 diff(`git diff master minimum-viable-scale-set`)를 검토하여 실행 가능한 최소 확장 집합 템플릿을 하나씩 만듭니다.
 
 ## <a name="define-schema-and-contentversion"></a>$schema 및 contentVersion 정의
 먼저 템플릿에서 `$schema` 및 `contentVersion`을 정의합니다. `$schema` 요소는 템플릿 언어의 버전을 정의하고 Visual Studio 구문 강조 표시 및 유사한 유효성 검사 기능에 사용됩니다. `contentVersion` 요소는 Azure에 사용되지 않습니다. 대신 템플릿 버전을 추적하는 데 도움이 됩니다.
@@ -43,6 +37,7 @@ GitHub를 사용하여 실행 가능한 최소 확장 집합 템플릿 [azuredep
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>매개 변수 정의
 다음으로 두 개의 매개 변수인 `adminUsername` 및 `adminPassword`를 정의합니다. 매개 변수는 배포 시 사용자가 지정하는 값입니다. `adminUsername` 매개 변수는 단순히 `string` 형식이지만 `adminPassword`가 비밀이기 때문에 `securestring` 형식을 부여합니다. 이러한 매개 변수는 나중에 확장 집합 구성에 전달됩니다.
 
@@ -70,13 +65,13 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
    "resources": [
 ```
 
-모든 리소스에는 `type`, `name`, `apiVersion` 및 `location` 속성이 필요합니다. 이 예제의 첫 번째 리소스는 형식이 [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)이고, 이름은 `myVnet`이며, apiVersion은 `2016-03-30`입니다. (리소스 형식에 대한 최신 API 버전을 찾으려면 [Azure Resource Manager 템플릿 참조](/azure/templates/)를 확인하세요.)
+모든 리소스에는 `type`, `name`, `apiVersion` 및 `location` 속성이 필요합니다. 이 예제의 첫 번째 리소스는 형식이 [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)이고, 이름은 `myVnet`이며, apiVersion은 `2018-11-01`입니다. (리소스 형식에 대한 최신 API 버전을 찾으려면 [Azure Resource Manager 템플릿 참조](/azure/templates/)를 확인하세요.)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>위치 지정
@@ -117,7 +112,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
 ```
 
 ### <a name="choose-type-of-updates"></a>업데이트 유형 선택
-또한 확장 집합은 확장 집합의 업데이트 처리 방법을 알아야 합니다. 현재 `Manual` 및 `Automatic`의 두 가지 옵션이 있습니다. 두 옵션 사이의 차이점에 대한 자세한 내용은 [확장 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md)에 대한 설명서를 참조하세요.
+또한 확장 집합은 확장 집합의 업데이트 처리 방법을 알아야 합니다. 현재는 세 가지 옵션을 `Manual`하십시오 `Rolling` 및 `Automatic`합니다. 두 옵션 사이의 차이점에 대한 자세한 내용은 [확장 집합을 업그레이드하는 방법](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)에 대한 설명서를 참조하세요.
 
 ```json
        "properties": {

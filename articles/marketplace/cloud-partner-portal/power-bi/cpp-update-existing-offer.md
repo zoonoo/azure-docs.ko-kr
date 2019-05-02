@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace에는 Power BI 앱 제안을-업데이트 | Microsoft Docs
+title: Power BI 앱 제품 업데이트 | Azure Marketplace
 description: Power BI 앱 제안을 Microsoft AppSource Marketplace에 게시한 후에 업데이트합니다.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 953c53b4ef2244b3444abb745f52e125306468f2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.author: pabutler
+ms.openlocfilehash: aaeb347c5b8ba6cd992054cd6ab5464f44b3a08c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807119"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942037"
 ---
 # <a name="update-a-power-bi-app-offer"></a>Power BI 앱 제품 업데이트
 

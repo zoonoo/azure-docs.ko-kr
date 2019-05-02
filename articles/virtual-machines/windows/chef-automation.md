@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb7172fb529d8f0cd8650db7c06a78176ef342d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012335"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729545"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 머신 배포 자동화
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -134,7 +134,9 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 
 knife.rb에 다음 정보를 추가합니다.
 
-validation_client_name   "myorg-validator" validation_key           ""#{current_dir}/myorg.pem"
+validation_client_name   "myorg-validator"
+
+validation_key           "#{current_dir}/myorg.pem"
 
 또한 Azure 게시 설정 파일의 이름을 나타내는 다음 줄을 추가합니다.
 

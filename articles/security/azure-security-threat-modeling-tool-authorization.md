@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888471"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935877"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 문서 |
@@ -280,7 +280,7 @@ WHERE userID=:id < - session var
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - 테이블 |
 | **참조**              | [SAS를 사용하여 Azure 저장소 계정의 개체에 대한 액세스 권한을 위임하는 방법](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 저장해야 할 수 있습니다. 이러한 경우 사용자가 특정 국가의 특정 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정하여 SAS 서명을 구성할 수 있습니다.| 
+| **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 예를 들어, 중요 한 데이터와 관련 된 다른 국가/지역입니다. 이러한 경우 사용자는 특정 국가/지역에 고유한 데이터를 액세스할 수 있도록 SAS 서명을 파티션 및 행 키 범위를 지정 하 여 생성할 수 있습니다.| 
 
 ## <a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure 저장소 계정에 역할 기반 Access Control(RBAC)을 사용하도록 설정
 

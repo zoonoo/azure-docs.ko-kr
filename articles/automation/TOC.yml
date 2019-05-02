@@ -59,7 +59,7 @@
     - name: 변경 내용 추적
       items:
         - name: 변경 내용 추적 개요
-          href: automation-change-tracking.md
+          href: change-tracking.md
           displayName: 'wildcard, recursion, environment variables, registry'
         - name: 추적된 파일의 파일 콘텐츠 보기
           href: change-tracking-file-contents.md

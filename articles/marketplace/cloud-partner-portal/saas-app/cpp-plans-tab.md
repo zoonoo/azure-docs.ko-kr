@@ -1,25 +1,18 @@
 ---
-title: Azure SaaS 애플리케이션 제품 플랜 | Microsoft Docs
+title: Azure SaaS 응용 프로그램 제품 계획 | Azure Marketplace
 description: Azure Marketplace에서 SaaS 애플리케이션 제품 플랜을 만듭니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0394fa759f4b6f6af59e075d9bc67668886d8075
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 2ff86b39f67b170ce99b045f5cfa888e06057bbe
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195880"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943336"
 ---
 # <a name="saas-application-plans-tab"></a>SaaS 애플리케이션 플랜 탭
 

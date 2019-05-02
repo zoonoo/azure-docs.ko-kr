@@ -10,11 +10,11 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713080"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(사용되지 않음) CoScale을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
 
@@ -25,7 +25,7 @@ ms.locfileid: "53000191"
 
 ## <a name="about-coscale"></a>CoScale 정보 
 
-CoScale은 여러 오케스트레이션 플랫폼의 모든 컨테이너에서 메트릭 및 이벤트를 수집하는 모니터링 플랫폼입니다. CoScale은 Kubernetes 환경에 대한 전체 스택 모니터링을 제공합니다. 여기에는 스택의 모든 계층, 즉 OS, Kubernetes, Docker 및 컨테이너 내에서 실행되는 응용 프로그램에 대한 시각화 및 분석을 제공합니다. CoScale은 몇 가지 기본 제공 모니터링 대시보드를 제공하며 운영자 및 개발자가 인프라 및 응용 프로그램 문제를 빠르게 찾을 수 있도록 하는 기본 제공 비정상 감지 기능을 제공합니다.
+CoScale은 여러 오케스트레이션 플랫폼의 모든 컨테이너에서 메트릭 및 이벤트를 수집하는 모니터링 플랫폼입니다. CoScale은 Kubernetes 환경에 대한 전체 스택 모니터링을 제공합니다. 여기에는 스택의 모든 계층, 즉 OS, Kubernetes, Docker 및 컨테이너 내에서 실행되는 애플리케이션에 대한 시각화 및 분석을 제공합니다. CoScale은 몇 가지 기본 제공 모니터링 대시보드를 제공하며 운영자 및 개발자가 인프라 및 애플리케이션 문제를 빠르게 찾을 수 있도록 하는 기본 제공 비정상 감지 기능을 제공합니다.
 
 ![CoScale UI](./media/container-service-kubernetes-coscale/coscale.png)
 

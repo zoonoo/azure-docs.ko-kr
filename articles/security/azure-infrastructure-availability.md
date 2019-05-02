@@ -1,6 +1,6 @@
 ---
-title: Azure 인프라 가용성
-description: 이 아티클에서는 고객 데이터의 최대 가용성을 제공하는 중복성 수준을 설명합니다.
+title: Azure 인프라 가용성-Azure 보안
+description: 이 문서에서는 Microsoft가 Azure 인프라를 보호 하 고 고객 데이터의 최대 가용성을 제공 하는 항목에 대 한 정보를 제공 합니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105878"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872617"
 ---
 # <a name="azure-infrastructure-availability"></a>Azure 인프라 가용성
-Azure에서는 가상화 기술을 사용하여 수행된 광범위한 중복성을 기반으로 강력한 가용성을 제공합니다. Azure에서는 고객 데이터의 최대 가용성을 제공하는 다양한 중복성 수준을 제공합니다.
+이 문서에서는 Microsoft가 Azure 인프라를 보호 하 고 고객 데이터의 최대 가용성을 제공 하는 항목에 대 한 정보를 제공 합니다. Azure에서는 가상화 기술을 사용하여 수행된 광범위한 중복성을 기반으로 강력한 가용성을 제공합니다.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>임시 작동 중단 및 자연 재해
 Microsoft 클라우드 인프라 및 운영 팀은 클라우드 인프라를 디자인하고, 빌드하고, 운영하고, 보안을 개선합니다. 이 팀은 Azure 인프라가 고가용성 및 안정성, 고효율, 스마트한 확장성을 제공하도록 노력합니다. 이 팀은 보다 안전하고 사적이고 신뢰할 수 있는 클라우드를 제공합니다.

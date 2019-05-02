@@ -11,30 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360182"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574101"
 ---
-# <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 구매 모델
+# <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>vCore와 DTU 구매 모델 중에서 선택
 
 Azure SQL Database를 사용하면 성능 및 비용 요구에 적합한 완벽히 관리되는 PaaS 데이터베이스 엔진을 손쉽게 구매할 수 있습니다. Azure SQL Database의 배포 모델에 따라 필요에 맞는 구매 모델을 선택할 수 있습니다.
-
-- [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)(권장)을 사용하면 워크로드에 필요한 스토리지 용량 및 컴퓨팅의 정확한 양을 선택할 수 있습니다.
-- [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하면 일반적인 워크로드에 맞게 부하가 분산되어 번들로 제공되는 컴퓨팅 및 스토리지 패키지를 선택할 수 있습니다.
 
 Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 있습니다.
 
 - [Azure SQL Database](sql-database-technical-overview.md)의 [단일 데이터베이스](sql-database-single-databases-manage.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 배포 옵션은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다.
 - Azure SQL Database의 [관리형 인스턴스](sql-database-managed-instance.md) 배포 옵션은 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)만 제공합니다.
 
-> [!IMPORTANT]
-> [하이퍼스케일 서비스 계층(미리 보기)](sql-database-service-tier-hyperscale.md)은 vCore 구매 모델을 사용하는 단일 데이터베이스에 대해서만 공개 미리 보기로 제공됩니다.
 
-다음 표와 차트에서는 이 두 가지 구매 모델을 비교하고 대조합니다.
+다음 테이블 및 차트와 비교는 vCore와 DTU 구매 모델을 비교해 보세요.
 
 |**구매 모델**|**설명**|**적합한 대상**|
 |---|---|---|
@@ -46,7 +41,10 @@ Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 
 
 ## <a name="compute-costs"></a>컴퓨팅 비용
 
-계산 비용은 애플리케이션에 프로비전되는 총 계산 용량을 반영합니다. 중요 비즈니스용 서비스 계층에서는 3개 이상의 복제본이 자동으로 할당됩니다. 이러한 컴퓨팅 리소스의 추가 할당을 반영하기 위해 vCore 기반 구매 모델의 가격은 중요 비즈니스용 서비스 계층이 범용 서비스 계층보다 약 2.7배 높습니다. 같은 이유로, 중요 비즈니스용 서비스 계층에서 GB당 스토리지 가격이 높을수록 SSD 스토리지의 IO가 높고 대기 시간이 짧습니다. 하지만 두 경우 모두 표준 스토리지 클래스를 사용하므로 백업 스토리지 비용은 두 서비스 계층 간에 다르지 않습니다.
+### <a name="provisioned-compute-costs"></a>프로 비전 된 계산 비용
+
+프로 비전 된 계산 계층의 계산 비용은 응용 프로그램에 대 한 프로 비전 되는 총 계산 용량을 반영 합니다.  중요 비즈니스용 서비스 계층에서는 3개 이상의 복제본이 자동으로 할당됩니다. 이러한 컴퓨팅 리소스의 추가 할당을 반영하기 위해 vCore 기반 구매 모델의 가격은 중요 비즈니스용 서비스 계층이 범용 서비스 계층보다 약 2.7배 높습니다. 같은 이유로, 중요 비즈니스용 서비스 계층에서 GB당 스토리지 가격이 높을수록 SSD 스토리지의 IO가 높고 대기 시간이 짧습니다. 하지만 두 경우 모두 표준 스토리지 클래스를 사용하므로 백업 스토리지 비용은 두 서비스 계층 간에 다르지 않습니다.
+
 
 ## <a name="storage-costs"></a>저장소 비용
 
@@ -78,7 +76,7 @@ vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스를 
 
 ## <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
-DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 다양한 수준의 애플리케이션 성능을 구동하기 위해 계산 리소스 및 포함된 스토리지를 미리 구성된 번들로 묶은 집합을 제공합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
+DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 계산 리소스의 미리 구성 된 번들의 집합을 제공 및 드라이브 서로 다른 수준의 응용 프로그램 성능에 대 한 저장소를 포함 합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
 
 ### <a name="database-transaction-units-dtus"></a>DTU(데이터베이스 트랜잭션 단위)
 
@@ -110,7 +108,7 @@ SQL Database에 항상 필요하지 않을 수도 있는데 항상 사용할 수
 
 풀은 특정 사용 패턴을 가진 많은 데이터베이스에 적합합니다. 지정된 데이터베이스에서 이 패턴은 평균 사용률이 낮고, 사용률 급증이 비교적 드문 데이터베이스를 나타냅니다. SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 리소스 사용률을 자동으로 평가하고 Azure Portal의 적절한 풀 구성을 권장합니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)를 참조하세요.
 
-## <a name="purchase-model-frequently-asked-questions-faq"></a>구매 모델 관련 FAQ(질문과 대답)
+## <a name="purchase-models-frequently-asked-questions-faq"></a>구매 모델: 질문과 대답 (FAQ)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU 기반 데이터베이스에서 vCore 기반 서비스 계층으로 변환하려면 애플리케이션을 오프라인으로 전환해야 하나요?
 

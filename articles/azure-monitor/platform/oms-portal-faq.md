@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b353e3c0ed14c7ae42e6b1f2c8a92904bf0befd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453185"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916288"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -97,9 +97,9 @@ Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 �
 | 사용자 지정 로그                  | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | syslog                       | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | Application Insights         | Log Analytics와 Application Insights가 같은 데이터 엔진을 공유하므로 현재는 이 솔루션을 사용하지 않습니다.  |
-| Windows 파일 추적        | Azure Automation의 **변경 내용 추적** 메뉴입니다. 자세한 내용은 [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/automation-change-tracking.md)을 참조하세요. |
-| Windows 레지스트리 추적        | Azure Automation의 **변경 내용 추적** 메뉴입니다. 자세한 내용은 [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/automation-change-tracking.md)을 참조하세요. |
-| Linux 파일 추적          | Azure Automation의 **변경 내용 추적** 메뉴입니다. 자세한 내용은 [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/automation-change-tracking.md)을 참조하세요. |
+| Windows 파일 추적        | Azure Automation의 **변경 내용 추적** 메뉴입니다. 자세한 내용은 [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/change-tracking.md)을 참조하세요. |
+| Windows 레지스트리 추적        | Azure Automation의 **변경 내용 추적** 메뉴입니다. 자세한 내용은 [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/change-tracking.md)을 참조하세요. |
+| Linux 파일 추적          | Azure Automation의 **변경 내용 추적** 메뉴입니다. 자세한 내용은 [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/change-tracking.md)을 참조하세요. |
 
 ### <a name="solutions"></a>솔루션
 작업 영역에 대한 **솔루션** 메뉴에서 솔루션을 관리합니다. 

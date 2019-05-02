@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008316"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702421"
 ---
 # <a name="how-an-application-gateway-works"></a>Application gateway의 작동 원리
 
@@ -26,7 +26,7 @@ ms.locfileid: "60008316"
 
 2. Azure DNS는 application gateway의 프런트 엔드 IP 주소는 클라이언트에 IP 주소를 반환 합니다.
 
-3. Application gateway에는 하나 이상의 수신기에서 들어오는 트래픽을 허용합니다. 수신기는 연결 요청을 확인 하는 논리 엔터티입니다. 프런트 IP 주소, 프로토콜 및 application gateway에 대 한 클라이언트에서 연결에 대 한 포트 번호를 사용 하 여 구성 됩니다.
+3. Application gateway에는 하나 이상의 수신기에서 들어오는 트래픽을 허용합니다. 수신기는 연결 요청을 확인 하는 논리 엔터티입니다. 프런트 엔드 IP 주소, 프로토콜 및 application gateway에 대 한 클라이언트에서 연결에 대 한 포트 번호를 사용 하 여 구성 됩니다.
 
 4. WAF 규칙에 대해 있는 경우 웹 응용 프로그램 방화벽 (WAF)를 사용 하 여 application gateway 요청 헤더 및 본문을 확인 합니다. 이 작업 유효한 요청 또는 보안 위협이 요청 인지 여부를 확인 합니다. 요청이 유효 하면 백 엔드에 라우팅됩니다. 요청이 유효 하지 않으면 보안 위협으로 차단 됩니다.
 

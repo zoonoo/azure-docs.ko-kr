@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 9c48703676dad16f5f86035400056a8c90f28f60
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681576"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873110"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -60,7 +60,7 @@ Azure Search에서 서비스 수명 동안 수정되는 가격 책정 계층 또
 
 ## <a name="how-billing-works"></a>청구 방법
 
-Azure search에서 비용이 Aure 검색에서 발생 하는 방법은 세 가지가 있습니다 및 고정 및 변수 구성 요소가 있습니다. 이 섹션에서는 각 청구 구성 요소에서 다시 살펴봅니다.
+Azure search에서 Azure search에서 비용이 발생 하는 방법은 세 가지가 있습니다 및 고정 및 변수 구성 요소가 있습니다. 이 섹션에서는 각 청구 구성 요소에서 다시 살펴봅니다.
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1. 핵심 서비스 비용 (고정 및 변수)
 

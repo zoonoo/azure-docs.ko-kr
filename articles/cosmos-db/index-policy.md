@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
-ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005097"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872677"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -68,6 +68,8 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원합니다.
 
 - 인덱싱할 필요가 없는 경로 선택적으로 제외할 루트 경로 포함 합니다. 이 권장 되는 방법으로 Azure Cosmos DB를 사전에 모델을 추가할 수 있는 새 속성을 인덱싱할 수 있습니다.
 - 선택적으로 인덱싱해야 하는 경로 포함 하려면 루트 경로 제외 합니다.
+
+- 포함 하는 일반 문자를 사용 하 여 경로 대 한: 영숫자 문자 및 _ (밑줄), 큰따옴표 (예를 들어, "/ 경로 /?")는 경로 문자열을 이스케이프 필요가 없습니다. 기타 특수 문자를 사용 하 여 경로 큰따옴표는 경로 문자열을 이스케이프 해야 (예를 들어, "/\"경로 abc\"/?"). 경로에 특수 문자를 예상 하는 경우 보안에 대 한 모든 경로 이스케이프할 수 있습니다. 기능적으로 하지 않는 것 간 차이 및 특수 문자가 있는 뿐 모든 경로 이스케이프 합니다.
 
 참조 [이 섹션에서는](how-to-manage-indexing-policy.md#indexing-policy-examples) 인덱싱 정책 예제에 대 한 합니다.
 

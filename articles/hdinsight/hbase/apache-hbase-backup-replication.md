@@ -1,7 +1,6 @@
 ---
 title: Apache HBase 및 Apache Phoenix 백업 및 복제 설정 - Azure HDInsight
 description: HBase 및 Phoenix에 대한 백업 및 복제를 설정합니다.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: d182d23bf4b3f4dc1ed42a737e8fe8b753c035ae
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: e60aef7b1848197f41f96a1b5f5414bb0c8f4a15
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340741"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696372"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 

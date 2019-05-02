@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682205"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572604"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
 
@@ -28,11 +28,14 @@ ms.locfileid: "59682205"
 여러 가지 방법으로 인터넷 액세스를 제한할 수 있습니다.
 
 * [IP 제한을](../app-service/app-service-ip-restrictions.md): IP 범위에서 함수 앱에 인바운드 트래픽을 제한 합니다.
+    * IP 제한에서 있습니다도 구성할 수 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)는 특정 가상 네트워크에서 인바운드 트래픽을 허용 하도록 함수를 제한 합니다.
 * 모든 HTTP 트리거를 제거 합니다. 일부 응용 프로그램에서는 이것 만으로도 단순히 HTTP 트리거를 방지 하 고 다른 이벤트 소스를 사용 하 여 함수를 트리거합니다.
 
 Azure portal 편집기 실행 중인 함수에 대 한 직접 액세스 해야 한다는 것을 염두에 두십시오. Azure portal 통해 코드 변경에는 해당 IP 허용 목록에 추가 하도록 포털을 찾아볼 하는 데 사용할 장치를 해야 합니다. 하지만 네트워크 제한을 플랫폼 기능 탭에서 아무 것도 사용할 수 있습니다.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>가상 네트워크에 함수 앱 내 제한 하는 어떻게 하나요?
+
+제한 수 **인바운드** 함수 앱을 사용 하 여 가상 네트워크에 대 한 트래픽을 [서비스 끝점](./functions-networking-options.md#private-site-access)합니다. 이 구성은 인터넷에 아웃 바운드 호출을 위해 함수 앱을으로 있습니다.
 
 모든 트래픽이 가상 네트워크를 통과 되도록 함수를 전체적으로 제한 하는 유일한 방법은 내부적으로 부하 분산 된 App Service Environment를 사용 하는 것입니다. 이 옵션 가상 네트워크 내에서 전용된 인프라에서 사이트를 배포 하 고 모든 트리거 및 가상 네트워크를 통해 트래픽을 보냅니다. 
 
@@ -48,8 +51,11 @@ App Service Environment를 사용 하 여 자세한 내용은 문서를 사용 �
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>가상 네트워크의 리소스에서 함수를 트리거할 수는 방법
 
-함수 앱 App Service Environment에 배포 해야만 리소스 가상 네트워크에서 함수를 트리거할 수 있습니다. App Service Environment를 사용 하 여 세부 정보를 참조 하세요 [만들기 및 App Service Environment를 사용 하 여 내부 부하 분산 장치를 사용 하 여](../app-service/environment/create-ilb-ase.md)입니다.
+HTTP 트리거 사용 하 여 가상 네트워크에서 호출할 수 있도록 수 있습니다 [서비스 끝점](./functions-networking-options.md#private-site-access)합니다. 
 
+App Service Environment에 함수 앱을 배포 하 여 가상 네트워크의 리소스에서 함수를 트리거할 수도 있습니다. App Service Environment를 사용 하 여 세부 정보를 참조 하세요 [만들기 및 App Service Environment를 사용 하 여 내부 부하 분산 장치를 사용 하 여](../app-service/environment/create-ilb-ase.md)입니다.
+
+Premium 및 App Service 계획 지원 HTTP 트리거만 App Service environment 가상 네트워크에서 가상 네트워크를 통해 다른 모든 함수 트리거 유형은 지원합니다.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>가상 네트워크에서 함수 앱을 배포 하려면 어떻게 해야 하나요?
 

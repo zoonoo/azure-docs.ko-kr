@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013968"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574296"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
 사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure Active Directory 인증 토큰을 사용 하 여 AKS 클러스터에 서명할 수 있습니다. 또한 클러스터 관리자는 사용자의 id 또는 directory 그룹 멤버 자격에 따라 Kubernetes 역할 기반 액세스 제어 (RBAC)를 구성할 수 있습니다.
 
-이 문서에서는 AKS 및 Azure AD에 대 한 필수 구성 요소를 배포 하는 방법을 다음 Azure AD 사용이 가능한 클러스터를 배포 하 고 AKS 클러스터에서 기본 RBAC 역할을 만드는 방법을 보여 줍니다.
+이 문서에서는 AKS 및 Azure AD에 대 한 필수 구성 요소를 배포 하는 방법을 다음 Azure AD 사용이 가능한 클러스터를 배포 하 고 Azure portal을 사용 하 여 AKS 클러스터에서 기본 RBAC 역할을 만드는 방법을 보여 줍니다. 할 수도 있습니다 [Azure CLI를 사용 하 여 이러한 단계를 완료할][azure-ad-cli]합니다.
 
 다음 제한 사항이 적용됩니다.
 
@@ -46,7 +46,7 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
 2. **매니페스트**를 선택하고 `groupMembershipClaims` 값을 `"All"`로 편집합니다.
 
-   완료되면 업데이트를 저장합니다.
+   **저장** 완료 되 면 업데이트 합니다.
 
    ![그룹 멤버 자격을 모두로 업데이트](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
    ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/read-directory.png)
 
-6. **위임된 사용 권한**  아래에서 **로그인 및 사용자 프로필 읽기** 및 **디렉터리 데이터 읽기** 옆을 체크합니다. 완료되면 업데이트를 저장합니다.
+6. **위임된 사용 권한**  아래에서 **로그인 및 사용자 프로필 읽기** 및 **디렉터리 데이터 읽기** 옆을 체크합니다. 선택할 **선택** 에 업데이트를 저장 합니다.
 
    ![애플리케이션 그래프 사용 권한 설정](media/aad-integration/delegated-permissions.png)
 
-   **완료**를 선택합니다.
+   그런 다음 선택 **수행**합니다.
 
 7. API 목록에서 *Microsoft Graph*를 선택한 다음, **권한 부여**를 선택합니다. 현재 계정이 테넌트 관리자가 아닌 경우 이 단계가 실패합니다.
 
@@ -96,11 +96,13 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
    ![애플리케이션 사용 권한 구성](media/aad-integration/select-api.png)
 
-3. 애플리케이션 옆에 확인 표시를 두고 **선택**을 클릭합니다.
+    서버 응용 프로그램을 선택 하 고 선택 **선택**합니다.
+
+3. 다시 합니다 *API 액세스 추가* 창에서 선택 **권한을 선택**합니다. 아래에 있는 확인 표시 하세요 합니다 *위임 된 권한* 응용 프로그램에 대 한 액세스를 위한 선택한 **선택**합니다.
 
    ![AKS AAD 서버 애플리케이션 엔드포인트 선택](media/aad-integration/select-server-app.png)
 
-   **완료**를 선택합니다.
+   다시 합니다 *API 액세스 추가* 창에서 **수행**합니다.
 
 4. 목록에서 서버 API를 선택한 다음, **권한 부여**를 선택합니다.
 
@@ -259,3 +261,4 @@ Id 및 리소스 제어에 대 한 모범 사례를 참조 하세요 [인증 및
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

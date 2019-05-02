@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498420"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728013"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -238,7 +238,7 @@ Azure Migrate에서 수집되는 VMware 카운터의 전체 목록은 아래와 
 
 ## <a name="os-license-in-the-collector-vm"></a>Collector VM의 OS 라이선스
 
-Collector는 180일 동안 유효한 Windows Server 2012 R2 평가 라이선스와 함께 제공됩니다. Collector VM의 평가 기간이 만료되면 새 OVA를 다운로드하여 새 어플라이언스를 만드는 것이 좋습니다.
+수집기는 180 일 동안 유효 하는 Windows Server 2016 평가판 라이선스로 제공 됩니다. Collector VM의 평가 기간이 만료되면 새 OVA를 다운로드하여 새 어플라이언스를 만드는 것이 좋습니다.
 
 ## <a name="updating-the-os-of-the-collector-vm"></a>Collector VM의 OS 업데이트
 

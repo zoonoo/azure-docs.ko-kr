@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 2f3a8237fff052779afee718837e2b72fc33d9a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.openlocfilehash: 83c5401298d2682328da4e45d150d2d0416601fc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532156"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691945"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Azure DB for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -25,6 +25,10 @@ ms.locfileid: "60532156"
 ## <a name="online-migration-configuration"></a>온라인 마이그레이션 구성
 - 원본 PostgreSQL Server는 버전 9.5.11, 9.6.7 또는 10.3 이상을 실행해야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
 - 같은 버전의 마이그레이션만 지원됩니다. 예를 들어 PostgreSQL 9.5.11을 Azure Database for PostgreSQL 9.6.7로 마이그레이션할 수는 없습니다.
+
+    > [!NOTE]
+    > PostgreSQL 버전 10에 대 한 현재 DMS 지원 PostgreSQL 용 Azure 데이터베이스로 10.3 버전의 마이그레이션. 가능한 한 빨리 최신 버전의 PostgreSQL 지원 하도록 계획 합니다.
+
 - **원본 PostgreSQL postgresql.conf** 파일에서 논리 복제를 사용하도록 설정하려면 다음 매개 변수를 설정합니다.
     - **wal_level** = logical
     - **max_replication_slots** = [마이그레이션할 데이터베이스의 최대 수]. 데이터베이스 4개를 마이그레이션하려면 값을 4로 설정합니다.

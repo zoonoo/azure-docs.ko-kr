@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790232"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916997"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Project Acoustics Unity 음향 효과 베이킹 자습서
 이 자습서에서는 Unity에서 Project Acoustics를 사용하는 음향 효과 베이킹에 대해 설명합니다.
 
 소프트웨어 요구 사항:
-* [Windows용 Unity 2018.2 이상](http://unity3d.com)
+* [Windows용 Unity 2018.2 이상](https://unity3d.com)
 * [Unity 프로젝트에 통합된 Project Acoustics 플러그 인](unity-integration.md) 또는 [Project Acoustics Unity 콘텐츠 샘플](unity-quickstart.md)
 * 선택 사항: 클라우드 컴퓨팅을 사용하여 베이킹을 가속화하는 [Azure Batch 계정](create-azure-account.md)
 

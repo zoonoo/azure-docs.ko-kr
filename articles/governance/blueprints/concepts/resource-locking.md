@@ -3,17 +3,17 @@ title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호하기 위한 잠금 옵션에 대해 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788625"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719741"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -53,6 +53,13 @@ ms.locfileid: "59788625"
 할당에서 **읽기 전용** 또는 **삭제 안 함** 옵션을 선택한 경우 RBAC [거부 할당](../../../role-based-access-control/deny-assignments.md) 거부 동작이 청사진 할당 중에 아티팩트 리소스에 적용됩니다. 거부 동작은 청사진 할당의 관리 ID를 통해 추가되며 같은 관리 ID를 통해서만 아티팩트 리소스에서 제거할 수 있습니다. 이 보안 조치는 잠금 메커니즘을 적용하고, Blueprints 외부에서 청사진을 제거하지 못하도록 합니다.
 
 ![청사진은 리소스 그룹에 할당 거부](../media/resource-locking/blueprint-deny-assignment.png)
+
+합니다 [할당 속성 거부](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) 각 모드는 다음과 같습니다.
+
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|읽기 전용 |**\*** |**\*/read** |시스템 정의 (Everyone) |blueprint 할당 하 고에서 사용자 정의 **excludedPrincipals** |리소스 그룹- _true_; 리소스- _false_ |
+|삭제 안 함 |**\*/delete** | |시스템 정의 (Everyone) |blueprint 할당 하 고에서 사용자 정의 **excludedPrincipals** |리소스 그룹- _true_; 리소스- _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager는 최대 30분 동안 역할 할당 정보를 캐시합니다. 결과적으로, 청사진 리소스에 대한 거부 할당 거부 동작은 즉시 완전히 적용되지는 않을 수도 있습니다. 이 기간 동안 청사진 잠금으로 보호해야 하는 리소스가 삭제될 수도 있습니다.

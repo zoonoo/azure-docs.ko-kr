@@ -1,25 +1,18 @@
 ---
-title: Azure 및 AppSource Marketplace 제품 관리 | Microsoft Docs
+title: Azure를 관리 하 고 AppSource Marketplace 제품 | Azure Marketplace
 description: Azure 및 AppSource Marketplace의 제품 관리
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fa5280fd834d6defaf2816167a73bf72dc3d0a1c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355355"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943353"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Azure 및 AppSource Marketplace 제품 관리
 

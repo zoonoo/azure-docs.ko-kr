@@ -1,20 +1,18 @@
 ---
 title: 스크립트 작업 - Azure HDInsight에서 Jupyter를 사용해 Python 패키지 설치
 description: 스크립트 작업을 사용하여 HDInsight Spark 클러스터와 함께 제공되는 Jupyter 노트북에서 외부 python 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다.
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 8bc44949d804349de37796a2695edbdc64693edf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/22/2019
+ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518680"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574654"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 스크립트 작업을 사용하여 Jupyter Notebook용 외부 python 패키지 설치
 > [!div class="op_single_selector"]
@@ -76,10 +74,10 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. **만들기**를 선택합니다.  [사용자 지정 스크립트 작업을 사용하는 방법](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에 대한 설명서를 참조하세요.
+5. **만들기**를 선택합니다.  [사용자 지정 스크립트 작업을 사용하는 방법](../hdinsight-hadoop-customize-cluster-linux.md)에 대한 설명서를 참조하세요.
 
 6. 스크립트가 완료 될 때까지 기다립니다.  합니다 **스크립트 동작** 창의 상태는 **현재 클러스터 작업이 완료 된 후 새 스크립트 작업을 제출할 수 있습니다** 스크립트를 실행 하는 동안.  Ambari UI에서 진행률 표시줄을 볼 수 있습니다 **백그라운드 작업** 창입니다.
 
