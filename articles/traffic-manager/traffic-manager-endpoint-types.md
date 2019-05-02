@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188716"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916650"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 애플리케이션 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 애플리케이션 배포를 Traffic Manager에서 '엔드포인트'로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 엔드포인트를 선택합니다. Traffic Manager는 현재 엔드포인트 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)을 참조하세요.
@@ -63,7 +63,7 @@ Azure 엔드포인트를 사용하는 경우 Traffic Manager는 '클래식' IaaS
 
 Traffic Manager에서 엔드포인트로 Web Apps를 구성하는 경우 몇 가지 추가 고려 사항이 적용됩니다.
 
-1. '표준' SKU 이상에서의 Web Apps만 Traffic Manager와 함께 사용할 수 있습니다. 더 낮은 SKU의 웹앱을 추가하려는 시도는 실패합니다. 기존 웹앱의 SKU를 다운그레이드하면 Traffic Manager는 해당 웹앱에 더 이상 트래픽을 전송하지 않게 됩니다. 지원되는 계획에 대한 자세한 내용은 [App Service 계획](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)을 참조하세요.
+1. '표준' SKU 이상에서의 Web Apps만 Traffic Manager와 함께 사용할 수 있습니다. 더 낮은 SKU의 웹앱을 추가하려는 시도는 실패합니다. 기존 웹앱의 SKU를 다운그레이드하면 Traffic Manager는 해당 웹앱에 더 이상 트래픽을 전송하지 않게 됩니다. 지원되는 계획에 대한 자세한 내용은 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/plans/)을 참조하세요.
 2. 엔드포인트에서 HTTP 요청을 받으면 요청의 '호스트' 헤더를 사용하여 요청을 처리해야 하는 웹앱을 결정합니다. 호스트 헤더는 요청을 시작하는 데 사용된 DNS 이름을 포함합니다(예: 'contosoapp.azurewebsites.net'). 웹앱에 다른 DNS 이름을 사용하려면 DNS 이름은 앱에 대한 사용자 지정 도메인 이름으로 등록되어야 합니다. Azure 엔드포인트로 Web App 엔드포인트를 추가하면 Traffic Manager 프로필 DNS 이름은 앱에 대해 자동으로 등록됩니다. 이 등록은 엔드포인트가 삭제될 때 자동으로 제거됩니다.
 3. 각 Traffic Manager 프로필은 각 Azure 지역에서 최대 하나의 웹앱 엔드포인트를 가질 수 있습니다. 이 제약 조건을 해결하려면 웹앱을 외부 엔드포인트로 구성할 수 있습니다. 자세한 내용은 [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)을 참조하세요.
 

@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426446"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924780"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 튜닝 TCP/IP 성능
 
@@ -304,7 +304,7 @@ Azure는 다양 한 VM 크기 및 유형, 다양 한 성능 기능을 사용 하
 
 Azure 가상 머신은 여기에 연결 된 하나 이상의 네트워크 인터페이스를 갖습니다. 몇 가지 해야 할 수 있습니다. 가상 머신에 할당 된 대역폭을 컴퓨터에 연결 하는 모든 네트워크 인터페이스를 통해 모든 아웃 바운드 트래픽의 합계가 표시 됩니다. 즉, 대역폭을 컴퓨터에 연결 된 네트워크 인터페이스 개수에 관계 없이 가상 컴퓨터 별로 할당 됩니다.
 
-예상 되는 아웃 바운드 처리량 및 각 VM 크기에서 지 원하는 네트워크 인터페이스의 수에 자세히 나와 [Azure에서 가상 컴퓨터 크기에 대 한 Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)합니다. 최대 처리량을 확인 하려면 유형의 같은 선택한 **범용**, 한 다음 결과 페이지 (예를 들어, "Dv2 시리즈")에서 크기 계열에 대 한 섹션을 찾습니다. 각 계열에 대 한은 테이블의 마지막 열 제목은 네트워킹 사양을 제공 하는 "최대 Nic / 예상 네트워크 대역폭 (Mbps)입니다."
+예상 되는 아웃 바운드 처리량 및 각 VM 크기에서 지 원하는 네트워크 인터페이스의 수에 자세히 나와 [Azure에서 가상 컴퓨터 크기에 대 한 Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)합니다. 최대 처리량을 확인 하려면 유형의 같은 선택한 **범용**, 한 다음 결과 페이지 (예를 들어, "Dv2 시리즈")에서 크기 계열에 대 한 섹션을 찾습니다. 각 계열에 대 한은 테이블의 마지막 열 제목은 네트워킹 사양을 제공 하는 "최대 Nic / 예상 네트워크 대역폭 (Mbps)입니다."
 
 처리량 제한은 가상 컴퓨터에 적용됩니다. 처리량은 이러한 요인에 의해 영향을 받지 않습니다.
 
@@ -388,4 +388,4 @@ NTttcp를 Linux 또는 Windows VM의 TCP 성능 테스트에 대 한 도구 이�
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 기타 고려 사항에 대 한 읽기 하려는 Azure Vm에 대 한 TCP/IP 성능 조정에 대 한 알아보았습니다 했으므로 [가상 네트워크 계획 수립](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) 또는 [연결한 가상 네트워크를 구성 하는 방법에 대 한 자세한 정보 ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+에 대 한 기타 고려 사항에 대 한 읽기 하려는 Azure Vm에 대 한 TCP/IP 성능 조정에 대 한 알아보았습니다 했으므로 [가상 네트워크 계획 수립](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 또는 [연결한 가상 네트워크를 구성 하는 방법에 대 한 자세한 정보 ](https://docs.microsoft.com/azure/virtual-network/).

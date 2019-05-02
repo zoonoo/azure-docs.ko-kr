@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727609"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922383"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure CDN 프로필 및 엔드포인트 만들기
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 이 단계에서는 리소스를 배포하는 템플릿 파일을 만듭니다.
 
-이 예제에서는 일반 웹 사이트 가속 시나리오를 안내하고 있지만, 구성 가능한 많은 기타 설정이 있습니다. 이러한 설정은 Azure Resource Manager 템플릿 참조에서 사용 가능합니다. [CDN 프로필](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) 및 [CDN 프로필 엔드포인트](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)에 대한 참조를 참고하세요.
+이 예제에서는 일반 웹 사이트 가속 시나리오를 안내하고 있지만, 구성 가능한 많은 기타 설정이 있습니다. 이러한 설정은 Azure Resource Manager 템플릿 참조에서 사용 가능합니다. [CDN 프로필](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) 및 [CDN 프로필 엔드포인트](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)에 대한 참조를 참고하세요.
 
 Microsoft CDN은 콘텐츠 형식 목록 수정을 지원하지 않습니다.
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>참조
 
-* CDN 프로필 - [Azure Resource Manager 템플릿 참조](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN 엔드포인트 - [Azure Resource Manager 템플릿 참조 설명서](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN 프로필 - [Azure Resource Manager 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN 엔드포인트 - [Azure Resource Manager 템플릿 참조 설명서](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,25 +1,18 @@
 ---
-title: 시작 | Microsoft Docs
+title: 시작 하기 | Azure Marketplace
 description: 클라우드 파트너 포털 사용을 시작하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807220"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935731"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>클라우드 파트너 포털 시작
 
@@ -51,7 +44,7 @@ ms.locfileid: "48807220"
 ![제품 페이지](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 제품 페이지에서는 다음 작업을 수행할 수 있습니다.
-- 두 가지 최상위 수준 모드인 **편집기**와 **상태** 간을 전환하면서 콘텐츠를 추가하거나 제품 상태를 확인할 수 있습니다.
+- 콘텐츠 추가 또는 두 가지 최상위 수준 모드 간에 전환 하 여 제품의 상태를 확인 합니다. **편집기** 하 고 **상태**합니다.
 - **작업 모음**을 통해 입력을 저장하고 삭제하여 제품의 변경 내용을 명시적으로 관리할 수 있습니다.
 - 제품 설정을 변경할 때 각 제품의 필수 **양식** 간을 이동할 수 있습니다.
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 381ecd4681bf1d7abfc8939e256bf84db9bc2172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ab3c680f7279ff78e0319f28f67c1cc8c203b47
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460596"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708026"
 ---
 # <a name="diagnose-and-troubleshoot"></a>진단 및 문제 해결
 
@@ -109,7 +109,8 @@ ms.locfileid: "60460596"
 ## <a name="next-steps"></a>다음 단계
 
 - [시계열 모델 작업](./time-series-insights-update-how-to-tsm.md)을 읽습니다.
-- [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 읽습니다.
+
+- 에 대 한 자세한 [JSON 셰이프 지원](./how-to-shape-query-json.md)합니다.
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png

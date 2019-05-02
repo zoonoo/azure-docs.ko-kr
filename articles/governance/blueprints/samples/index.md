@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 03/14/2019
+ms.date: 04/22/2019
 ms.author: dacoulte
-ms.openlocfilehash: ed7afa695ab13540f5f571d94b23133133ffe59f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03813bb440e90dd7a1d2caec543756f7fffc221b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59255957"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685576"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
-다음 표에는 Azure Blueprints의 샘플에 대한 링크가 포함되어 있습니다.
+다음 표에는 Azure Blueprints의 샘플에 대한 링크가 포함되어 있습니다. 각 샘플은 프로덕션 품질이며 지금 바로 배포하여 다양한 규정 준수 요구 사항을 충족할 수 있습니다.
 
 ## <a name="standards-based-blueprint-samples"></a>표준 기반 Blueprint 샘플
 

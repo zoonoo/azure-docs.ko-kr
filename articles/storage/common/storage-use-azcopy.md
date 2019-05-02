@@ -2,35 +2,41 @@
 title: Windows에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs
 description: Windows에서 AzCopy 유틸리티를 사용하여 Blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: seguler
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881735"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572941"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
+
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 스토리지에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 
-두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Windows의 AzCopy는 Windows 스타일 명령줄 옵션을 제공합니다. [Linux의 AzCopy](storage-use-azcopy-linux.md)는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Windows에서 AzCopy를 설명합니다.
+> [!IMPORTANT]
+> 이 문서에서는 이전 버전의 AzCopy 설명 합니다.
+>Azcopy 최신 버전을 설치 하려면 [AzCopy v10](storage-use-azcopy-v10.md)합니다.
 
-## <a name="download-and-install-azcopy-on-windows"></a>Windows에서 AzCopy 다운로드 및 설치
+이전 버전의 AzCopy (AzCopy v8.1)를 설치 하려는 경우 다음 버전이 여러 개를 다운로드할 수 있습니다. Windows의 AzCopy는 Windows 스타일 명령줄 옵션을 제공합니다. [Linux의 AzCopy](storage-use-azcopy-linux.md)는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Windows에서 AzCopy를 설명합니다.
 
-### <a name="latest-version-v81"></a>최신 버전(v8.1)
-[최신 버전의 Windows에서 AzCopy](https://aka.ms/downloadazcopy)를 다운로드합니다.
+## <a name="download-and-install-azcopy-v81-on-windows"></a>AzCopy 다운로드 및 설치 (v8.1) Windows에서
+
+다운로드 합니다 [Windows에서 AzCopy (v8.1)](https://aka.ms/downloadazcopy)합니다.
 
 #### <a name="azcopy-on-windows-81-release-notes"></a>Windows의 AzCopy 8.1 릴리스 정보
+
 - Table service는 최신 버전에서 더 이상 지원되지 않습니다. 테이블 내보내기 기능을 사용하는 경우 AzCopy 7.3 버전을 다운로드합니다.
 - .NET Core 2.1을 사용하여 빌드한 모든 .NET Core 종속성은 이제 설치에서 패키징됩니다.
 - OAuth 인증 지원을 추가했습니다. Azure Active Directory를 사용하여 로그온하려면 ```azcopy login```을 사용합니다.
 
 ### <a name="azcopy-with-table-support-v73"></a>테이블 지원이 있는 Azcopy(v7.3)
+
 [테이블 지원이 있는 AzCopy 7.3](https://aka.ms/downloadazcopynet)을 다운로드합니다.
 
 ### <a name="post-installation-step"></a>설치 후 단계

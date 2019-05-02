@@ -1,25 +1,18 @@
 ---
-title: Azure 컨테이너 제품 필수 구성 요소 | Microsoft Docs
+title: 필수 구성 요소를 제공 하는 azure 컨테이너 | Azure Marketplace
 description: Azure 컨테이너를 게시하기 위한 필수 구성 요소입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 09c9afcf3126f7f84c20f5514bc038a65b2ea1b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 87727d23b407853aa9dad8a52c0a1cea446353bd
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990719"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942568"
 ---
 # <a name="container-publishing-prerequisites"></a>컨테이너 게시 필수 구성 요소
 

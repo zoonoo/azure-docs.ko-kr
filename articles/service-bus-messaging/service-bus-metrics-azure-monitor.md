@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308659"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716108"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
 
@@ -83,14 +83,14 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 |보내는 메시지(미리 보기)|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
 | 메시지(미리 보기) | 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
 | ActiveMessages(미리 보기) | 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
+| 배달 못한 메시지 (미리 보기) | 큐/항목의 배달 못한 메시지 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균 <br/>차원: EntityName |
+| 예약 된 메시지 (미리 보기) | 큐/토픽에 있는 예약 된 메시지의 수입니다. <br/><br/> 단위: 카운트 <br/> 집계 유형: 평균  <br/> 차원: EntityName |
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
 |ActiveConnections(미리 보기)|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|열린 연결(미리 보기)|열린 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName|
-|닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 카운트 <br/> 집계 유형: 합계 <br/> 차원: EntityName |
 
 ## <a name="resource-usage-metrics"></a>리소스 사용량 메트릭
 
@@ -115,7 +115,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
 1. **Service Bus 네임스페이스** 페이지의 **메트릭** 탭에서 **경고 구성**을 선택합니다. 
 
     ![메트릭 페이지 - 경고 메뉴 구성](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. **대상 선택**을 선택하고, **리소스 선택** 페이지에서 다음 작업을 수행합니다. 
+2. 선택 된 **대상 선택** 옵션을 선택한 다음 작업을 수행 합니다 **리소스를 선택** 페이지: 
     1. **리소스 종류별로 필터링** 필드에서 **Service Bus 네임스페이스**를 선택합니다. 
     2. **구독별로 필터링** 필드에서 구독을 선택합니다.
     3. 목록에서 **Service Bus 네임스페이스**를 선택합니다. 

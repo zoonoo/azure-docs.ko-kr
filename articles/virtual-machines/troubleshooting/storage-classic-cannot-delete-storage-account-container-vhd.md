@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078162"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926240"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
 이 문서에서는 Azure 클래식 Storage 계정, 컨테이너 또는 *.vhd 페이지 Blob 파일을 삭제하려고 할 때 다음 오류 중 하나가 발생할 경우의 문제 해결 지침을 제공합니다. 
@@ -37,7 +37,7 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/wi
 3. 디스크 임대가 중단되면 페이지 Blob 자체를 삭제할 수 있습니다. 스토리지 계정 또는 컨테이너는 포함된 모든 "디스크" 리소스가 삭제되면 삭제할 수 있습니다.
 
 >[!NOTE] 
->사용자가 VM은 삭제하고 VHD는 삭제하지 않으면 페이지 blob *.vhd 파일에 대해 스토리지 요금이 계속 부과됩니다. 요금은 스토리지 계정 유형에 따라 좌우됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/storage/)를 참조하세요. 사용자가 더 이상 VHD를 사용하지 않을 예정이면 향후에 요금이 부과되지 않도록 삭제합니다. 
+>사용자가 VM은 삭제하고 VHD는 삭제하지 않으면 페이지 blob *.vhd 파일에 대해 스토리지 요금이 계속 부과됩니다. 요금은 스토리지 계정 유형에 따라 좌우됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요. 사용자가 더 이상 VHD를 사용하지 않을 예정이면 향후에 요금이 부과되지 않도록 삭제합니다. 
 
 ## <a name="unable-to-delete-storage-account"></a>스토리지 계정을 삭제할 수 없음 
 

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59786475"
@@ -498,7 +498,7 @@ Elastic Database 작업은 비동기 작업 삭제를 지원합니다. 작업을
 
 ### <a name="cost"></a>비용
 
-Elastic Database 쿼리 기능을 사용 하는 것은 무료입니다. 단, 현재 이 기능은 프리미엄 및 중요 비즈니스용 데이터베이스 및 탄력적 풀을 끝점으로 사용할 수 있지만 분할은 모든 서비스 계층이 될 수 있습니다.
+Elastic Database 쿼리 기능을 사용 하는 것은 무료입니다. 단, 현재 이 기능은 프리미엄 및 중요 비즈니스용 데이터베이스 및 탄력적 풀을 엔드포인트로 사용할 수 있지만 분할은 모든 서비스 계층이 될 수 있습니다.
 
 가격 정보는 [SQL Database 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 

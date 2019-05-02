@@ -158,7 +158,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 | longRetryInterval |TimeSpan |00:00:00 |긴 다시 시도 간의 지연 |
 
 ## <a name="sample-copy-pipeline"></a>샘플 복사 파이프라인
-다음 샘플 파이프라인에는 **Copy** in the **활동** 유형의 하나의 활동이 있습니다. 샘플에서 [복사 활동](data-factory-data-movement-activities.md)은 Azure Blob Storage의 데이터를 Azure SQL Database에 복사합니다.
+다음 샘플 파이프라인에는 **Copy** in the **활동** 유형의 하나의 활동이 있습니다. 샘플에서 [복사 활동](data-factory-data-movement-activities.md)은 Azure Blob 스토리지의 데이터를 Azure SQL 데이터베이스에 복사합니다.
 
 ```json
 {

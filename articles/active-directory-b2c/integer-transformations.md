@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대�
 description: Azure Active Directory B2C의 ID 환경 프레임워크 스키마에 대한 정수 클레임 변환 예입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 358ee07b8fd32edded084d406e490cae9f557fdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20c109f188acfe37292aa31dfe057ced8b73199b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397144"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694741"
 ---
 # <a name="integer-claims-transformations"></a>정수 클레임 변환
 
@@ -30,7 +30,7 @@ long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | 문자열로 변환할 ClaimType입니다. |
-| OutputClaim | outputClaim | string | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
+| OutputClaim | outputClaim | 문자열 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 이 예제에서는 값 형식이 long인 `numericUserId` 클레임이 값 형식이 문자열인 `UserId` 클레임으로 변환됩니다.
 

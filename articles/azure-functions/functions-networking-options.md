@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698204"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575610"
 ---
 # <a name="azure-functions-networking-options"></a>Azure 네트워킹 옵션 함수
 
@@ -31,15 +31,14 @@ ms.locfileid: "59698204"
 
 ## <a name="matrix-of-networking-features"></a>네트워킹 기능 매트릭스
 
-|                |[소비 계획](functions-scale.md#consumption-plan)|⚠ [프리미엄 요금제](functions-scale.md#premium-plan-public-preview)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
+|                |[소비 계획](functions-scale.md#consumption-plan)|[프리미엄 계획 (미리 보기)](functions-scale.md#premium-plan-public-preview)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[인바운드 IP 제한](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[아웃 바운드 IP 제한](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[가상 네트워크 통합](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[가상 네트워크 통합 (Azure ExpressRoute 및 서비스 끝점)의 미리 보기](#preview-version-of-virtual-network-integration)|❌No|⚠예|⚠예|✅Yes|
+|[가상 네트워크 통합 미리 보기 (Azure ExpressRoute 및 서비스 끝점의 아웃 바운드)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[VNet](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[개인 사이트 액세스](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ 이 미리 보기 기능을 사용 하 여 프로덕션에 없습니다.
+|[개인 사이트 액세스](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
 
@@ -49,6 +48,10 @@ ms.locfileid: "59698204"
 > Azure portal 편집기를 사용 하려면 포털을 실행 중인 함수 앱에 직접 액세스할 수 있어야 합니다. 또한 포털에 액세스 하려면 사용 중인 장치에 해당 IP 허용 목록에 있어야 합니다. 네트워크 제한 사항이 사용 하 여 액세스할 수 있습니다 기능에는 **플랫폼 기능** 탭 합니다.
 
 자세한 내용은 참조 하세요 [Azure App Service에 정적 액세스 제한](../app-service/app-service-ip-restrictions.md)합니다.
+
+## <a name="outbound-ip-restrictions"></a>아웃 바운드 IP 제한
+
+아웃 바운드 IP 제한만 App Service Environment에 배포 하는 함수에 대 한 제공 됩니다. App Service Environment를 배포할 가상 네트워크에 대 한 아웃 바운드 제한을 구성할 수 있습니다.
 
 ## <a name="virtual-network-integration"></a>가상 네트워크 통합
 
@@ -88,7 +91,10 @@ Azure Functions를 사용 하는 대로 각 하이브리드 연결은 단일 TCP
 
 ## <a name="private-site-access"></a>개인 사이트 액세스
 
-개인 사이트 액세스 로부터 개인 네트워크와 같은 Azure virtual network 내 에서만에서 액세스할 수 있는 앱을 만드는 가리킵니다. 개인 사이트 액세스는 내부 부하 분산 장치 (ILB)를 사용 하 여 구성 된 App Service Environment에만 사용할 수 있습니다. 자세한 내용은 [만들기 및 App Service Environment를 사용 하 여 내부 부하 분산 장치를 사용 하 여](../app-service/environment/create-ilb-ase.md)입니다.
+개인 사이트 액세스 로부터 개인 네트워크와 같은 Azure virtual network 내 에서만에서 액세스할 수 있는 앱을 만드는 가리킵니다. 
+* 개인 사이트 액세스는 프리미엄 및 App Service에서 사용할 수 있는 시점을 계획 **서비스 끝점** 구성 됩니다. 자세한 내용은 참조 하세요. [virtual network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * 서비스 끝점을 사용 하 여 함수 여전히에 인터넷에 대 한 모든 아웃 바운드 액세스도 구성 하는 VNET 통합을 사용 하 여 염두에 두어야 합니다.
+* 개인 사이트 액세스는 내부 부하 분산 장치 (ILB)를 사용 하 여 구성 된 App Service Environment에만 사용할 수 있습니다. 자세한 내용은 [만들기 및 App Service Environment를 사용 하 여 내부 부하 분산 장치를 사용 하 여](../app-service/environment/create-ilb-ase.md)입니다.
 
 여러 가지 방법으로 다른 호스팅 옵션에 대 한 가상 네트워크 리소스에 액세스할 수 있습니다. 하지만 App Service Environment 가상 네트워크를 통해 발생 하는 함수에 대 한 트리거를 허용 하는 유일한 방법은 됩니다.
 

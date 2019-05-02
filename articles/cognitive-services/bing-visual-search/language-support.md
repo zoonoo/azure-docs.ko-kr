@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 511a95eaea65c1a0e67973ef56942bc05bb43f81
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002790"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866241"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing Visual Search API에 대한 언어 및 지역 지원
 
@@ -34,7 +34,7 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 > - 레시피, 쇼핑 및 페이지 포함 인사이트는 en-US 시장에서만 사용할 수 있습니다.
 
 
-## <a name="countries"></a>국가
+## <a name="countriesregions"></a>국가/지역
 
 |국가/지역|코드|
 |-------|----|

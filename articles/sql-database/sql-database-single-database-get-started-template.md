@@ -1,6 +1,6 @@
 ---
 title: 'Azure Resource Manager: 단일 데이터베이스 만들기 - Azure SQL Database | Microsoft Docs'
-description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
+description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 단일 데이터베이스는 두 [구매 모델](sql-database-purchase-models.md) 중 하나를 사용하여 컴퓨팅, 메모리, IO 및 스토리지 리소스 세트가 정의됩니다. 단일 데이터베이스를 만들 때 지정된 Azure 지역의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [SQL Database 서버](sql-database-servers.md)도 정의합니다.
 
-다음 JSON 파일은 이 문서에 사용되는 템플릿입니다. 템플릿은 Azure Storage 계정에 저장됩니다. Azure SQL Database 템플릿 샘플을 더 보려면 [여기](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)에서 확인할 수 있습니다.
+다음 JSON 파일은 이 문서에 사용되는 템플릿입니다. 템플릿은 Azure Storage 계정에 저장됩니다. Azure SQL 데이터베이스 템플릿 샘플을 더 보려면 [여기](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)에서 확인할 수 있습니다.
 
 ```json
 {
@@ -154,7 +154,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 2. 다음 값을 선택하거나 입력합니다.  
 
-    ![Resource Manager 템플릿에서 azure sql database 생성](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
+    ![Resource Manager 템플릿에서 azure sql 데이터베이스 생성](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
 
     지정되지 않은 경우 기본값을 사용합니다.
 

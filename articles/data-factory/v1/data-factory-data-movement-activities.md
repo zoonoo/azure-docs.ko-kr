@@ -212,5 +212,5 @@ Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 
 네이티브 형식 시스템에서 데이터 저장소용 .NET 형식으로의 매핑은 각 데이터 저장소 문서에 있습니다. (지원되는 데이터 저장소 테이블에서 해당 링크를 클릭하세요.) 복사 활동에서 적절한 변환을 수행하도록 이러한 매핑을 사용하여 테이블을 만드는 동안 적절한 형식을 결정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 복사 작업에 대해 자세히 알아보려면 [Azure Blob Storage에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+* 복사 작업에 대해 자세히 알아보려면 [Azure Blob 스토리지에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 * 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 이동하는 방법에 대해 알아보려면 [온-프레미스에서 클라우드 데이터 저장소로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Database 관리되는 인스턴스 보안 | Microsoft Docs
-description: Azure SQL Database에서 관리되는 인스턴스를 보호하고 Azure AD 서버 보안 주체(로그인)를 사용하는 기술 및 기능에 대해 알아봅니다.
+title: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Database 관리형 인스턴스 보안 | Microsoft Docs
+description: Azure SQL Database에서 관리형 인스턴스를 보호하고 Azure AD 서버 보안 주체(로그인)를 사용하는 기술 및 기능에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882058"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리되는 인스턴스 보안
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리형 인스턴스 보안
 
 관리되는 인스턴스는 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진의 보안 기능을 거의 대부분 제공합니다.
 
@@ -40,15 +40,15 @@ ms.locfileid: "58882058"
 > [!NOTE]
 > 관리되는 인스턴스에 대한 Azure AD 서버 보안 주체(로그인)는 **공개 미리 보기**에 있습니다.
 
-자세한 내용은 [Azure SQL Database 관리되는 인스턴스 개요](sql-database-managed-instance-index.yml) 및 [기능](sql-database-managed-instance.md) 문서를 참조하세요.
+자세한 내용은 [Azure SQL Database 관리형 인스턴스 개요](sql-database-managed-instance-index.yml) 및 [기능](sql-database-managed-instance.md) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 필수 조건이 충족되어야 합니다.
 
 - [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)
-- Azure SQL Database 관리되는 인스턴스
-  - 다음 문서를 수행합니다. [빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md)
+- Azure SQL Database 관리형 인스턴스
+  - 다음 문서를 수행합니다. [빠른 시작: Azure SQL Database 관리형 인스턴스 만들기](sql-database-managed-instance-get-started.md)
 - 관리되는 인스턴스에 액세스하여 [관리되는 인스턴스에 대한 Azure AD 관리자를 프로비저닝](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)할 수 있습니다. 자세한 내용은 다음을 참조하세요.
     - [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 
     - [관리되는 인스턴스 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)

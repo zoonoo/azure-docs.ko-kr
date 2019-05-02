@@ -3,8 +3,8 @@ title: Azure Network Watcher에서 보안 그룹 보기 소개 | Microsoft Docs
 description: 이 페이지는 Network Watcher 보안 보기 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: jdial
-ms.openlocfilehash: 15f6bd0d7da63924e52db8ec7e2cbb0ee7483f82
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: ed0ad244a758b92f5ccba5785184190b030c306c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391541"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722585"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Azure Network Watcher에서 네트워크 보안 그룹 보기 소개
 

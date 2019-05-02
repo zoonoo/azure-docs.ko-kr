@@ -1,9 +1,8 @@
 ---
-title: Azure 네트워크 보안 모범 사례 | Microsoft Docs
+title: 네트워크 보안-Microsoft Azure에 대 한 모범 사례
 description: 이 문서에서는 기본 제공 Azure 기능을 사용한 네트워크 보안 모범 사례를 제공합니다.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118414"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872554"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 네트워크 보안 모범 사례
-[Azure VM(가상 머신)](https://azure.microsoft.com/services/virtual-machines/) 및 어플라이언스를 [Azure 가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 배치하여 네트워크에 연결된 기타 장치에 연결할 수 있습니다. 즉, 가상 네트워크 인터페이스 카드를 가상 네트워크에 연결하여 네트워크 지원 디바이스 간에 TCP/IP 통신을 허용할 수 있습니다. Azure 가상 네트워크에 연결된 가상 머신은 동일한 가상 네트워크, 다른 가상 네트워크, 인터넷 또는 사용자 고유의 온-프레미스 네트워크에 있는 디바이스에 연결할 수 있습니다.
-
 이 문서에서는 Azure 네트워크 보안 모범 사례 컬렉션에 대해 설명합니다. 이러한 모범 사례는 Azure 네트워킹에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
 
 각 모범 사례에 대해 문서에 설명된 사항:
@@ -35,8 +32,6 @@ ms.locfileid: "56118414"
 * 해당 모범 사례를 사용하는 방법을 알아보는 방법
 
 이 Azure 네트워크 보안 모범 사례 문서는 이 문서가 작성될 당시의 합의된 의견과 Azure 플랫폼 기능 및 특징 집합을 기반으로 합니다. 이 문서는 시간이 지남에 따라 변화하는 의견 및 기술을 반영하도록 주기적으로 업데이트 됩니다.
-
-다음 섹션에서는 네트워크 보안 모범 사례를 설명합니다.
 
 ## <a name="logically-segment-subnets"></a>서브넷을 논리적으로 분할
 Azure 가상 네트워크는 온-프레미스 네트워크의 LAN과 비슷합니다. 단일 개인 IP 주소 공간 기반 네트워크를 만들어서 모든 Azure 가상 머신을 배치하는 것이 Azure 가상 네트워크의 기본 개념입니다. 사용 가능한 개인 IP 주소 공간은 클래스 A(10.0.0.0/8), 클래스 B(172.16.0.0/12) 및 클래스 C(192.168.0.0/16) 범위에 있습니다.

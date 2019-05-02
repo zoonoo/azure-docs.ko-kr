@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239178"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698482"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -68,15 +68,15 @@ ms.locfileid: "60239178"
 * Azure Monitor 로그
 * Azure Relay
 * Azure Stack - 등록
-* 일괄 처리
+* Batch
 * BizTalk Services
-* Bot Service
+* Bot 서비스
 * CDN
 * Cloud Services - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
-* 컨테이너 레지스트리
+* Container Registry
 * Content Moderator
-* 비용 관리
+* Cost Management
 * Customer Insights
 * Data Catalog
 * Data Factory
@@ -105,7 +105,7 @@ ms.locfileid: "60239178"
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
 * Recovery Services 자격 증명 모음 - [미리 보기](#recovery-services-limitations)에 등록합니다.
 * Azure의 SAP HANA
-* 스케줄러
+* Scheduler
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
 * Service Bus
 * Service Fabric
@@ -135,17 +135,17 @@ ms.locfileid: "60239178"
 * Azure Firewall
 * AKS(Azure Kubernetes Service)
 * Azure Migrate
-* Azure NetApp 파일
+* Azure NetApp Files
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * 클래식 애플리케이션
-* 컨테이너 인스턴스
+* Container Instances
 * 컨테이너 서비스
 * Data Box
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
 * Lab Services-클래스 룸 랩에 새 리소스 그룹 또는 구독으로 이동할 수 없습니다. DevTest Labs는 동일한 구독에 있지만 구독 전체가 아닌 새 리소스 그룹으로 이동할 수 있습니다.
-* 관리 애플리케이션
+* Managed Applications
 * Microsoft Genomics
 * 보안
 * Site Recovery
@@ -222,6 +222,22 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
 - 리소스 그룹의 모든 App Service 리소스는 함께 이동해야 합니다.
 - App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래의 리소스 그룹에 더 이상 없으면 먼저 원래의 리소스 그룹으로 다시 이동해야 합니다. 그런 다음 구독 간에 App Service 리소스를 이동하면 됩니다.
 
+원래 리소스 그룹을 기억 하지 못하는 경우에 진단을 통해 찾을 수 있습니다. 웹 앱 선택 **진단 및 문제 해결**합니다. 그런 다음 선택 **구성 및 관리**합니다.
+
+![진단 선택](./media/resource-group-move-resources/select-diagnostics.png)
+
+선택 **마이그레이션 옵션**합니다.
+
+![마이그레이션 옵션을 선택 합니다.](./media/resource-group-move-resources/select-migration.png)
+
+웹 앱을 이동 하는 권장된 단계에 대 한 옵션을 선택 합니다.
+
+![권장된 단계를 선택 합니다.](./media/resource-group-move-resources/recommended-steps.png)
+
+리소스를 이동 하기 전에 수행할 권장된 작업을 표시 합니다. 정보는 웹 앱에 대 한 원래 리소스 그룹을 포함합니다.
+
+![권장 사항](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>App Service Certificate 제한 사항
 
 App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다. App Service Certificate가 웹앱에 바인딩되어 있으면 리소스를 새 구독으로 이동하기 전에 몇 가지 단계를 수행해야 합니다. 리소스를 이동하기 전에 웹앱에서 SSL 바인딩 및 개인 인증서를 삭제합니다. App Service Certificate를 삭제할 필요가 없고 웹앱의 개인 인증서만 삭제하면 됩니다.
@@ -251,7 +267,7 @@ App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 �
 * 대상 구독은 다른 어떠한 클래식 리소스도 포함할 수 없습니다.
 * 이동은 클래식 이동에 대한 별도의 REST API를 통해서만 요청할 수 있습니다. 클래식 리소스를 새 구독으로 이동할 경우 표준 Resource Manager 이동 명령은 작동하지 않습니다.
 
-클래식 리소스를 새 구독으로 이동하려면 클래식 리소스와 관련된 REST 작업을 사용합니다. REST를 사용하려면 다음 단계를 수행합니다.
+클래식 리소스를 새 구독으로 이동하려면 클래식 리소스와 관련된 REST 작업을 사용합니다. REST를 사용 하려면 다음 단계를 수행 합니다.
 
 1. 원본 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
 

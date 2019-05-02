@@ -3,8 +3,8 @@ title: Azure 트래픽 분석 | Microsoft Docs
 description: 트래픽 분석을 사용하여 Azure 네트워크 보안 그룹 흐름 로그를 분석하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;jdial
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: yagup;kumud
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430130"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939885"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -176,7 +176,7 @@ New-AzStorageAccount `
 
     ![저장소 계정 선택, Log Analytics 작업 영역 및 트래픽 분석 사용](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터는 작업 영역으로 전송되므로 작업 영역이 있는 지역에 데이터를 저장하는 것을 현지 법률 및 규정에서 허용하는지 확인해야 합니다.
+트래픽 분석을 사용할 다른 NSG에 대해 이전 단계를 반복합니다. 흐름 로그의 데이터 작업 영역으로 전송 됩니다, 그리고 하므로 현지법 및 규정 국가/지역에서 작업 영역이 있는 지역에 데이터 저장을 허용 하는지 확인 하세요.
 
 사용 하 여 트래픽 분석을 구성할 수도 있습니다는 [집합 AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Azure PowerShell의 PowerShell cmdlet. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
@@ -270,11 +270,11 @@ New-AzStorageAccount `
 
     ![트래픽 분포를 보여주는 대시보드](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- 지역 지도에는 데이터 센터(배포된/배포되지 않은/활성/비활성/트래픽 분석 사용/트래픽 분석 사용 안 함) 같은 매개 변수 그리고 활성 배포에 대한 무해/악성 트래픽에 기여하는 국가를 선택할 수 있는 상단 리본이 표시됩니다.
+- 지역 지도 데이터 센터와 같은 매개 변수를 선택할 수 있는 상단 리본을 보여 줍니다 (배포 된/없는-배포/활성/비활성/트래픽 분석 사용/트래픽 분석 사용 안 함) 및 국가/지역을 활성 무해/악성 트래픽에 기여 배포:
 
     ![활성 배포를 표시하는 지역 지도 보기](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- 지역 지도에는 데이터 센터와 통신하는 국가 및 대륙의 트래픽 분포가 파란색(무해 트래픽)과 빨간색(악성 트래픽) 선으로 표시됩니다.
+- 지역 지도 데이터 센터에 국가 및 대륙에 파란색 (무해 트래픽) 및 빨간색 (악성 트래픽) 선 색이 지정 된 통신에서 트래픽 분포를 보여 줍니다.
 
     ![국가 및 대륙의 트래픽 분포를 보여주는 지역 지도 보기](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 

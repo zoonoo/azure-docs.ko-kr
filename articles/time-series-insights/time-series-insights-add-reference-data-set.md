@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17ba15ea12efc80dcc830f6338a837d1abb77a71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101230"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708854"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -97,5 +97,7 @@ ms.locfileid: "58101230"
     이 페이지에서는 완료된 업로드를 확인하고 **데이터 세트가 업로드됨** 메시지를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.
+
 * 전체 API 참조는 [참조 데이터 API](/rest/api/time-series-insights/ga-reference-data-api) 문서를 참조하세요.

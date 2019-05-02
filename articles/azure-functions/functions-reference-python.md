@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438700"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571164"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -28,7 +28,7 @@ ms.locfileid: "58438700"
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
-Azure 함수는 입력을 처리하고 출력을 생성하는 Python 스크립트의 상태 비저장 메서드여야 합니다. 기본적으로 런타임은 `__init__.py` 파일에서 `main()`이라는 전역 메서드로 구현될 것으로 예상합니다.
+Azure 함수는 입력을 처리하고 출력을 생성하는 Python 스크립트의 상태 비저장 메서드여야 합니다. 기본적으로 런타임에 메서드를 호출 하는 전역 방법으로 구현 해야 `main()` 에 `__init__.py` 파일입니다.
 
 `function.json` 파일에 `scriptFile` 및 `entryPoint` 속성을 지정하여 기본 구성을 변경할 수 있습니다. 예를 들어 아래의 _function.json_은 _main.py_ 파일의 _customentry()_ 메서드를 Azure 함수의 진입점으로 사용하도록 런타임에 지시합니다.
 
@@ -40,7 +40,7 @@ Azure 함수는 입력을 처리하고 출력을 생성하는 Python 스크립�
 }
 ```
 
-트리거 및 바인딩의 데이터는 `function.json` 구성 파일에 정의된 `name` 속성을 사용하여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어 아래의 _function.json_은 `req`라는 HTTP 요청에 의해 트리거되는 단순 함수를 설명합니다.
+트리거 및 바인딩의 데이터는 `function.json` 구성 파일에 정의된 `name` 속성을 사용하여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어 합니다 _function.json_ 라는 HTTP 요청에 의해 트리거되는 간단한 함수에 설명 합니다 `req`:
 
 ```json
 {
@@ -109,15 +109,16 @@ Python Functions 프로젝트의 폴더 구조는 다음과 같습니다.
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Functions 런타임에서 사용되는 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고, 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 Azure Functions Core Tools를 사용하여 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-azure-functions-core-tools)해야 합니다. 
+Functions 런타임에서 사용되는 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고, 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 Azure Functions Core Tools를 사용하여 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)해야 합니다. 
 
 Azure의 함수 앱에 Functions 프로젝트를 배포할 때 FunctionApp 폴더의 전체 내용을 패키지에 포함해야 하지만 폴더 자체는 포함하지 않습니다.
 
-## <a name="inputs"></a>입력
+## <a name="triggers-and-inputs"></a>트리거 및 입력
 
-입력은 Azure Functions에서 트리거 입력과 추가 입력의 두 가지 범주로 나뉩니다. `function.json`에서는 서로 다르지만, Python 코드에서는 사용법이 동일합니다. 예를 들어 다음 코드 조각을 살펴보겠습니다.
+입력은 Azure Functions에서 트리거 입력과 추가 입력의 두 가지 범주로 나뉩니다. `function.json`에서는 서로 다르지만, Python 코드에서는 사용법이 동일합니다.  트리거 및 입력 원본에 대 한 연결 문자열의 값에 매핑하는 `local.settings.json` 파일을 로컬로 및 Azure에서 실행 하는 경우 응용 프로그램 설정 합니다. 예를 들어 다음 코드 조각을 살펴보겠습니다.
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Azure의 함수 앱에 Functions 프로젝트를 배포할 때 FunctionApp 폴�
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _id_를 기반으로 Azure Blob Storage에서 검색되고 함수 본문에서 `obj`로 제공됩니다.
+함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 기준으로 Azure Blob 저장소에서 항목을 검색할를 _ID_ 경로 url로 사용할 수 있게 `obj` 함수 본문의 합니다.  여기서 저장소 계정 연결 문자열에 위치한 지정 `AzureWebJobsStorage` 는 함수 앱에서 사용 하는 동일한 저장소 계정입니다.
+
 
 ## <a name="outputs"></a>outputs
 

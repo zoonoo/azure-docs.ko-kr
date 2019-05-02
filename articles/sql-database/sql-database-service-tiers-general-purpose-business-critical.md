@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 067ea8eee297eb8572bd37e240b8d13afe458ca7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2230bc8adf13825692f93b1e2bc33a4b79076e2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331862"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574360"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
@@ -63,5 +63,5 @@ MDF 및 LDF의 현재 총 크기를 모니터링하려면 [sp_spaceused](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-- 범용 및 중요 비즈니스용 서비스 계층의 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 사항에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
-- 범용 및 중요 비즈니스용 서비스 계층의 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 사항에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조하세요.
+- 범용 및 중요 비즈니스용 서비스 계층의 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 사항에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+- 범용 및 중요 비즈니스용 서비스 계층의 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 스토리지 크기 선택 사항에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.

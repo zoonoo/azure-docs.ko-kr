@@ -2,19 +2,17 @@
 title: 표준 계약 | Azure
 description: Azure Marketplace 및 AppSource에서 표준 계약
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3c3b3c3af3dbe78bd08a0803c7fc2a37f554e4d7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 13f1fb79babf98673c49c417576f16d6d106f2d2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57250824"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937764"
 ---
 # <a name="standard-contract"></a>표준 계약
 

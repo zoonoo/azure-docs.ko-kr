@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919098"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "60381961"
 ## <a name="define-an-integration-strategy"></a>통합 전략 정의
 Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3개의 주요 통합 시나리오가 있습니다.  이러한 통합 전략 중 하나를 채택하도록 계획해야 합니다.  어떤 사용자 환경을 제공할 것인지, 기존 인프라가 있는지, 가장 비용 효과적인 방법은 무엇인지에 따라 선택하는 전략이 달라질 수 있습니다.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![통합 시나리오](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 위의 그림에 정의된 시나리오는 다음과 같습니다.
 
@@ -68,7 +68,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 웹 브라우저 |양식 기반 인증  |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
 | Outlook |자격 증명 확인 |자격 증명 확인 |
 | 비즈니스용 Skype(Lync) |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
-| 비즈니스용 OneDrive |자격 증명 확인 |Single Sign-On |
+| OneDrive for Business |자격 증명 확인 |Single Sign-On |
 | Office Pro Plus 구독 |자격 증명 확인 |Single Sign-On |
 
 **외부 또는 신뢰할 수 없는 원본**:
@@ -111,14 +111,14 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 ### <a name="supported-topologies"></a>지원되는 토폴로지
 동기화 전략을 정의할 때 사용되는 토폴로지를 결정해야 합니다. 2단계에서 확인된 정보에 따라 어떤 토폴로지를 사용하는 것이 적절한지를 결정할 수 있습니다. 단일 포리스트, 단일 Azure AD 토폴로지는 가장 일반적이고 단일 Active Directory 포리스트 및 Azure AD의 단일 인스턴스를 구성합니다.  이 시나리오 대부분에서 사용되며 아래 그림에 표시된 대로 Azure AD Connect Express 설치를 사용하는 경우 예상되는 토폴로지입니다.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) 단일 포리스트 시나리오는 그림 5와 같이 다중 포리스트가 있는 크고 작은 조직에서 일반적입니다.
+![지원 되는 토폴로지](./media/plan-hybrid-identity-design-considerations/single-forest.png) 단일 포리스트 시나리오는 것이 일반적 다중 포리스트가 있는 크고 작은 조직에 대 한 그림 5에 표시 된 대로 합니다.
 
 > [!NOTE]
 > Azure AD connect 동기화를 사용하여 다른 온-프레미스 및 Azure AD 토폴로지에 대한 자세한 정보는 [Azure AD Connect에 대한 토폴로지](plan-connect-topologies.md)문서를 읽습니다.
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![다중 포리스트 토폴로지](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 다중 포리스트 시나리오
 
@@ -140,7 +140,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 위의 조건이 충족되지 않고 둘 이상의 활성 계정 또는 둘 이상의 사서함이 있으면 Azure AD Connect는 하나를 선택하고 다른 하나는 무시합니다.  다른 계정이 없고 연결된 사서함만 있는 경우 이러한 계정은 Azure AD로 내보내지 않고 해당 사용자는 그룹의 멤버가 되지 않습니다.  DirSync를 사용과 관련하여 과거와 이러한 점이 다르며 이러한 다중 포리스트 시나리오를 더 지원하려고 합니다. 다중 포리스트 시나리오는 아래 그림에 표시됩니다.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![여러 Azure AD 테 넌 트](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **다중 포리스트 여러 Azure AD 시나리오**
 
@@ -148,7 +148,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 아래 그림에 표시된 대로 여러 Azure AD 디렉터리에 하나의 Active Directory의 온-프레미스 인스턴스를 연결하는 것이 가능하며 지원됩니다.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![단일 포리스트 필터링](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **단일 포리스트 필터링 시나리오**
 
@@ -158,7 +158,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * DNS 도메인은 단일 Azure AD Directory에만 등록될 수 있으므로, 온-프레미스 AD 내의 사용자 UPN도 별도의 네임스페이스를 사용해야 합니다.
 * Azure AD의 한 인스턴스에서 사용자가 해당 인스턴스에서 사용자를 확인할 수 있습니다.  다른 인스턴스에 있는 사용자를 확인할 수 없습니다.
 * 하나의 Azure AD Directory만 온-프레미스 AD를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
-* 상호 배타성은 쓰기 저장에도 적용됩니다.  이렇게 하면 단일 온-프레미스 구성으로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다.  다음을 포함합니다.
+* 상호 배타성은 쓰기 저장에도 적용됩니다.  이렇게 하면 단일 온-프레미스 구성으로 가정되므로 일부 쓰기 저장 기능이 이 토폴로지로 지원되지 않습니다.  다음 내용이 포함됩니다.
   * 기본 구성으로 쓰기 저장 그룹화
   * 디바이스 쓰기 저장
 

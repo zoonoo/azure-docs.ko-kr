@@ -103,7 +103,7 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
     - 이 CA는 통과 인증 기능에만 사용됩니다. 이 CA는 인증 에이전트 등록 시 CSR에 서명하는 데만 사용됩니다.
     -  다른 Azure AD 서비스는 이 CA를 사용하지 않습니다.
     - 인증서의 제목(고유 이름 또는 DN)은 테넌트 ID로 설정됩니다. DN은 테넌트를 고유하게 식별하는 GUID입니다. DN은 인증서가 해당 테넌트에만 사용되도록 범위를 지정합니다.
-6. Azure AD는 인증 에이전트의 공개 키를 Azure AD만 액세스할 수 있는 Azure SQL Database에 저장합니다.
+6. Azure AD는 인증 에이전트의 공개 키를 Azure AD만 액세스할 수 있는 Azure SQL 데이터베이스에 저장합니다.
 7. 5단계에서 발급된 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) 위치)의 온-프레미스 서버에 저장됩니다. 저장소는 인증 에이전트와 업데이트 애플리케이션이 모두 사용합니다.
 
 ### <a name="authentication-agent-initialization"></a>인증 에이전트 초기화
@@ -136,7 +136,7 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 4. 사용자가 **사용자 로그인** 페이지에 사용자 이름을 입력하고 **다음** 단추를 선택합니다.
 5. 사용자가 **사용자 로그인** 페이지에 암호를 입력하고 **로그인** 단추를 선택합니다.
 6. 사용자 이름 및 암호가 HTTPS POST 요청을 통해 Azure AD STS로 전송됩니다.
-7. Azure AD STS가 Azure SQL Database에서 해당 테넌트에 등록된 모든 인증 에이전트의 공개 키를 가져온 다음 가져온 공개 키를 사용하여 암호를 암호화합니다.
+7. Azure AD STS가 Azure SQL 데이터베이스에서 해당 테넌트에 등록된 모든 인증 에이전트의 공개 키를 가져오고 가져온 공개 키를 사용하여 암호를 암호화합니다.
     - 해당 테넌트에 등록된 “N”개의 인증 에이전트에 대해 “N”개의 암호화된 암호 값을 생성합니다.
 8. Azure AD STS가 사용자 이름과 암호화된 암호 값으로 구성된 암호 유효성 검사 요청을 해당 테넌트의 Service Bus 큐에 배치합니다.
 9. 초기화된 인증 에이전트는 Service Bus 큐에 영구적으로 연결되므로 사용 가능한 인증 에이전트 중 하나가 암호 유효성 검사 요청을 가져옵니다.
@@ -174,7 +174,7 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 6. 기존 인증서가 만료된 경우 Azure AD는 테넌트의 등록된 인증 에이전트 목록에서 인증 에이전트를 삭제합니다. 이때 전역 관리자가 새 인증 에이전트를 수동으로 설치하고 등록해야 합니다.
     - Azure AD 루트 CA를 사용하여 인증서에 서명합니다.
     - 인증서의 제목(고유 이름 또는 DN)을 해당 테넌트를 고유하게 식별하는 GUID인 테넌트 ID로 설정합니다. DN은 인증서가 해당 테넌트에만 사용되도록 범위를 지정합니다.
-6. Azure AD가 인증 에이전트의 새로운 공개 키를 Azure AD만 액세스할 수 있는 Azure SQL Database에 저장하고 인증 에이전트에 연결되었던 이전 공개 키를 무효화합니다.
+6. Azure AD는 인증 에이전트의 새로운 공개 키를 Azure AD만 액세스할 수 있는 Azure SQL 데이터베이스에 저장합니다. 인증 에이전트에 연결되었던 이전 공개 키를 무효화합니다.
 7. 5단계에서 발급된 새 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) 위치)의 서버에 저장됩니다.
     - 신뢰 갱신 절차는 전역 관리자의 개입 없이 비대화형으로 이루어지기 때문에 인증 에이전트는 더 이상 CERT_SYSTEM_STORE_LOCAL_MACHINE 위치에 있는 기존 인증서를 업데이트할 액세스 권한이 없습니다. 
     

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351867"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725776"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>자습서: Windows ML을 통해 Custom Vision에서 ONNX 모델 사용(미리 보기)
 
@@ -85,4 +85,4 @@ Custom Vision 모델을 내보내고 사용하는 다른 방법을 알아보려�
 * [Swift iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Xamarin을 사용하는 iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-Windows ML을 통한 ONNX 모델 사용에 대한 더 자세한 내용은 [Windows ML을 통해 앱에 모델 통합](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) 문서를 참조하세요.
+Windows ML을 통한 ONNX 모델 사용에 대한 더 자세한 내용은 [Windows ML을 통해 앱에 모델 통합](/windows/ai/windows-ml/integrate-model) 문서를 참조하세요.

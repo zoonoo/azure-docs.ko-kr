@@ -1,25 +1,18 @@
 ---
-title: Azure IoT Edge 모듈 제안 게시 | Microsoft Docs
+title: Azure IoT Edge 모듈 제품을 게시 | Azure Marketplace
 description: IoT Edge 모듈 제안을 게시하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: dfa512a26334567301812ecefd8c5673b0ea4094
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: c853bd3bad9f02f6824c26fb5d18e9e59d921fe8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955903"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942058"
 ---
 # <a name="publish-iot-edge-module-offer"></a>IoT Edge 모듈 제안 게시
 

@@ -51,7 +51,7 @@ Azure Stream Analytics는 사용하기 쉽고 유연하며 안정적이고 작�
 
 Azure Stream Analytics는 시작하기 쉽습니다. 몇 번의 클릭으로 여러 원본 및 싱크에 연결하고 종단 간 파이프라인을 만듭니다. Stream Analytics는 스트리밍 데이터 수집을 위해 [Azure Event Hubs](/azure/event-hubs/), [Azure IoT Hub](/azure/iot-hub/)에 연결할 수 있습니다. 기록 데이터를 수집하는 [Azure Blob Storage](/azure/storage/storage-introduction) 서비스에 연결할 수도 있습니다. 이벤트 허브의 데이터를 다른 데이터 원본 및 처리 엔진과 결합할 수 있습니다. 작업 입력은 정적이거나 느리게 변하는 데이터인 참조 데이터를 포함할 수도 있으며 조회 작업을 수행하기 위해 이 참조 데이터에 스트리밍 데이터를 조인할 수 있습니다.
 
-Stream Analytics는 [Azure Blob](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) 또는 [Azure Cosmos DB](/azure/cosmos-db/introduction)와 같은 많은 저장소 시스템에 작업 출력을 라우팅할 수 있습니다. 저장한 후 Azure HDInsight를 사용하여 일괄 처리 분석을 실행하거나 소비를 위해 이벤트 허브와 같은 다른 서비스 또는 Power Bi 스트리밍 API를 사용하여 실시간 시각화를 위해 [Power BI](https://docs.microsoft.com/power-bi/)에 출력을 전송할 수 있습니다.
+Stream Analytics는 [Azure Blob](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) 또는 [Azure Cosmos DB](/azure/cosmos-db/introduction)와 같은 많은 스토리지 시스템에 작업 출력을 라우팅할 수 있습니다. 저장한 후 Azure HDInsight를 사용하여 일괄 처리 분석을 실행하거나 소비를 위해 이벤트 허브와 같은 다른 서비스 또는 Power Bi 스트리밍 API를 사용하여 실시간 시각화를 위해 [Power BI](https://docs.microsoft.com/power-bi/)에 출력을 전송할 수 있습니다.
 
 ## <a name="programmer-productivity"></a>프로그래머 생산성
 

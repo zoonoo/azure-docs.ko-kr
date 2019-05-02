@@ -1,8 +1,7 @@
 ---
-title: 'Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법 | Microsoft Docs'
-description: 이 항목은 Azure AD 서비스 계정을 복원하는 방법을 설명합니다.
+title: Azure AD 커넥터 계정 암호 변경 | Microsoft Docs
+description: 이 항목에서는 Azure AD 커넥터 계정 복원 하는 방법을 설명 합니다.
 services: active-directory
-keywords: AADSTS70002, AADSTS50054, Azure AD Connect 동기화 커넥터 서비스 계정의 암호를 재설정하는 방법
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -13,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351014"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571409"
 ---
-# <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법
-Azure AD Connector가 사용하는 서비스 계정은 무료입니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어 전역 관리자가 PowerShell을 사용하여 실수로 서비스 계정의 암호를 재설정한 경우입니다.
+# <a name="change-the-azure-ad-connector-account-password"></a>Azure AD 커넥터 계정 암호 변경
+Azure AD 커넥터 계정 서비스 체험 간주 됩니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어, 실수로 전역 관리자가 PowerShell을 사용 하 여 계정의 암호를 다시 설정 합니다.
 
 ## <a name="reset-the-credentials"></a>자격 증명 다시 설정
-인증 문제로 인해 Azure AD Connector에서 정의된 서비스 계정으로 Azure AD에 연결할 수 없다면 암호를 재설정할 수 있습니다.
+Azure AD 커넥터 계정 인증 문제로 인해 Azure AD에 연결할 수 없는 경우에 암호를 재설정할 수 있습니다.
 
 1. Azure AD Connect 동기화 서버에 로그인하고 PowerShell을 시작합니다.
 2. `Add-ADSyncAADServiceAccount`.  
@@ -38,7 +37,7 @@ Azure AD Connector가 사용하는 서비스 계정은 무료입니다. 자격 �
 이 cmdlet은 서비스 계정의 암호를 재설정하고 Azure AD와 동기화 엔진에서 암호를 업데이트합니다.
 
 ## <a name="known-issues-these-steps-can-solve"></a>이 단계에서 해결할 수 있다고 알려진 문제
-이 섹션은 Azure AD 서비스 계정에서 다시 설정된 자격 증명에 의해 수정된 고객이 보고한 오류 목록입니다.
+이 섹션은 Azure AD 커넥터 계정에서 다시 설정 하는 자격 증명으로 해결 된 고객이 보고 한 오류 목록입니다.
 
 - - -
 이벤트 6900  

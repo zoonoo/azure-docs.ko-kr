@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361950"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570648"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -76,7 +76,7 @@ Azure용 NPS 확장을 NPS와 통합한 경우 성공적인 인증 흐름 결과
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 섹션에서는 MFA와 원격 데스크톱 게이트웨이를 통합하기 전에 완료해야 하는 필수 조건에 대해 자세히 설명합니다. 이 문서를 시작하기 전에 다음과 같은 필수 조건이 있어야 합니다.
+이 섹션에서는 VPN을 사용 하 여 MFA를 통합 하기 전에 완료 해야 하는 필수 구성 요소를 자세히 설명 합니다. 이 문서를 시작하기 전에 다음과 같은 필수 조건이 있어야 합니다.
 
 * VPN 인프라
 * 네트워크 정책 및 액세스 서비스 역할
@@ -338,7 +338,7 @@ NPS 확장 구성의 일환으로 Azure AD 테넌트의 관리자 자격 증명�
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 
-NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고 설계상 RADIUS 서버로 작동하는 서버에 설치해야 합니다. NPS 확장을 원격 데스크톱 서버에 설치하지 *마세요*.
+NPS 확장은 네트워크 정책 및 액세스 서비스 역할이 설치되고 설계상 RADIUS 서버로 작동하는 서버에 설치해야 합니다. 수행할 *되지* VPN 서버에서 NPS 확장을 설치 합니다.
 
 1. [Microsoft 다운로드 센터](https://aka.ms/npsmfa)에서 NPS 확장을 다운로드합니다.
 

@@ -1,25 +1,18 @@
 ---
-title: 기존 Azure SaaS 애플리케이션 제품 업데이트 | Microsoft Docs
+title: 기존 Azure SaaS 응용 프로그램 제품 업데이트 | Azure Marketplace
 description: Azure Marketplace에서 기존 SaaS 애플리케이션 제품을 업데이트하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9d490a0ec09e351e4cee00e7c30c9161bdfac3e6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 8817c8aa7d5d589be5e03cdd04e3a505d7e2be21
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196500"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941656"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>기존 SaaS 애플리케이션 제품 업데이트
 
@@ -87,4 +80,4 @@ ms.locfileid: "53196500"
 
 ## <a name="next-steps"></a>다음 단계
 
-[SaaS 응용 프로그램 제품](./cpp-saas-offer.md)
+[SaaS 애플리케이션 제품](./cpp-saas-offer.md)

@@ -14,7 +14,7 @@ ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361479"
@@ -25,7 +25,7 @@ ms.locfileid: "59361479"
 
 [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md)에서는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스트하기 위해 Azure SQL Database 서버를 사용하여 Azure-SSIS IR을 만드는 방법을 보여줍니다. 이 문서는 자습서를 확장하고 다음 작업을 수행하는 방법을 보여줍니다.
 
-- 필요에 따라 Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/Managed Instance와 함께 사용하여 SSISDB를 호스팅합니다. SSISDB를 호스트할 데이터베이스 서버의 유형 선택 관련 지침은 [Azure SQL Database 단일 데이터베이스/탄력적 풀 및 Managed Instance 비교](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. 필수 구성 요소로 Azure-SSIS IR을 가상 네트워크에 조인하고 필요에 따라 가상 네트워크 사용 권한/설정을 구성해야 합니다. [Azure-SSIS IR을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
+- 필요에 따라 Azure SQL Database 서버를 가상 네트워크 서비스 엔드포인트/Managed Instance와 함께 사용하여 SSISDB를 호스팅합니다. SSISDB를 호스트할 데이터베이스 서버 유형을 선택하는 지침은 [Azure SQL Database 단일 데이터베이스/탄력적 풀과 Managed Instance 비교](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요. 필수 구성 요소로 Azure-SSIS IR을 가상 네트워크에 조인하고 필요에 따라 가상 네트워크 사용 권한/설정을 구성해야 합니다. [Azure-SSIS IR을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
 
 - 필요에 따라 ADF에서 데이터베이스 서버에 연결되도록 관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용합니다. 필수 요소로, Azure SQL Database 서버/Managed Instance에서 SSISDB를 생성할 수 있는 포함된 데이터베이스 사용자로서 ADF에 대한 관리 ID를 추가해야 합니다. [Azure-SSIS IR을 위한 AAD 인증 사용](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)을 참조하세요.
 

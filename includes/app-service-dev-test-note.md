@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 0046b7fcad663187f660d6a65652eab5884eee23
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832555"
 ---
 > [!NOTE]
 > App Service 체험 및 공유(미리 보기) 호스팅 플랜은 다른 App Service 앱과 동일한 Azure 가상 머신에서 실행되는 기본 계층입니다. 일부 앱은 다른 고객에게 속할 수 있습니다. 이러한 계층은 개발 및 테스트 목적으로만 사용할 수 있습니다.

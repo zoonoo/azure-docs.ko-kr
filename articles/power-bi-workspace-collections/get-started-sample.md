@@ -3,17 +3,17 @@ title: 샘플 시작
 description: 이 문서에서 Power BI 작업 영역 컬렉션 시작 샘플을 소개합니다.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 6c80dc2ca4d0062fcb98aeb6431566ce6ca39411
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714497"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 작업 영역 컬렉션 시작 샘플
 
@@ -209,7 +209,7 @@ public ActionResult Reports()
 }
 ```
 
-작업<ActionResult> 보고서(문자열 reportId)
+작업\<ActionResult > 보고서 (문자열 reportId)
 
 ```csharp
 public async Task<ActionResult> Report(string reportId)

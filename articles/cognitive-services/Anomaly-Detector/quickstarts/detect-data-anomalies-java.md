@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1b52e578afb505c87c4084684e345b7aff6a4362
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547042"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922420"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>빠른 시작: 비정상 탐지기 REST API 및 Java를 사용 하 여 시계열 데이터에서 변칙을 검색 합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "59547042"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 합니다 [Java&trade; 개발 Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
+- 합니다 [Java&trade; 개발 Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상.
 
 - Maven 리포지토리에서 이러한 라이브러리 가져오기
     - [Java에서 JSON](https://mvnrepository.com/artifact/org.json/json) 패키지

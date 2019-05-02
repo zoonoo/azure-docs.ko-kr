@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548407"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682528"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>얼굴 데이터를 다른 Face 구독으로 마이그레이션
 
 이 가이드에서는 스냅숏 기능을 사용하여 얼굴 데이터(예: 저장된 얼굴의 **PersonGroup**)를 다른 Face API 구독으로 이동하는 방법을 보여 줍니다. 이렇게 하면 작업을 이동하거나 확장할 때 **PersonGroup** 또는 **FaceList**를 반복해서 구축하고 학습할 필요가 없습니다. 예를 들어, 평가판 구독을 사용하여 **PersonGroup**을 만들었으며, 현재 유료 구독으로 마이그레이션하려고 하거나 대규모 엔터프라이즈 작업을 위해 지역 간에 얼굴 데이터를 동기화해야 할 수 있습니다.
 
-이러한 동일한 마이그레이션 전략이 **LargePersonGroup** 및 **LargeFaceList** 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 [용어집](../Glossary.md)에서 해당 정의를 참조하세요. 이 가이드에서는 C#에서 Face API .NET 클라이언트 라이브러리를 사용합니다.
+이러한 동일한 마이그레이션 전략이 **LargePersonGroup** 및 **LargeFaceList** 개체에도 적용됩니다. 이 가이드의 개념을 잘 모르는 경우 해당 정의 참조 합니다 [얼굴 인식 개념](../concepts/face-recognition.md) 가이드입니다. 이 가이드에서는 C#에서 Face API .NET 클라이언트 라이브러리를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -29,15 +29,13 @@ ms.locfileid: "59548407"
 - 대상 구독에 해당하는 Face API 구독 ID 문자열(Azure Portal의 **개요** 블레이드에 있음) 
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 
-
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
 이 가이드에서는 간단한 콘솔 앱을 사용하여 얼굴 데이터 마이그레이션을 실행합니다. 전체 구현에 대해서는 GitHub에서 [Face API 스냅숏 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)을 참조하세요.
 
-1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **FaceApiSnapshotSample**로 이름을 지정합니다. 
+1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **FaceApiSnapshotSample**로 이름을 지정합니다.
 1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭을 클릭하고 **시험판 포함**을 선택한 후, 다음 패키지를 설치합니다.
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>얼굴 클라이언트 만들기
 
@@ -226,7 +224,9 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>관련 항목
+## <a name="next-steps"></a>다음 단계
+
+다음으로, 관련 API 참조 설명서를 참조 스냅숏 기능을 사용 하는 샘플 앱을 탐색 하거나 여기 언급 된 다른 API 작업을 사용 하 여 시작 하는 방법 지침을 따릅니다.
 
 - [스냅숏 참조 설명서(.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Face API 스냅숏 예제](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

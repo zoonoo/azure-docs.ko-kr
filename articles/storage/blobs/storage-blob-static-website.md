@@ -5,22 +5,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472772"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925272"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
 
 정적 웹 사이트 호스팅과는 반대로, 서버 쪽 코드에 의존하는 동적 사이트는 [Azure App Service](/azure/app-service/overview)를 사용하여 호스팅하는 것이 가장 좋습니다.
 
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-does-it-work"></a>어떻게 작동합니까?
 저장소 계정에서 정적 웹 사이트를 호스팅하도록 설정하는 경우 기본 파일의 이름을 선택하고 필요에 따라 사용자 지정 404 페이지의 경로를 제공합니다. 기능이 활성화되면 *$web*이라는 컨테이너가 생성됩니다(아직 없는 경우).
 
 *$web* 컨테이너에 포함된 파일은 다음과 같은 특징이 있습니다.
@@ -52,16 +52,21 @@ https://contoso.z4.web.core.windows.net/image.png
 
 ## <a name="cdn-and-ssl-support"></a>CDN 및 SSL 지원
 
-HTTPS를 통해 정적 웹 사이트 파일을 제공하려면 [Azure CDN을 사용하여 HTTPS를 통해 사용자 지정 도메인으로 Blob에 액세스](storage-https-custom-domain-cdn.md)를 참조하세요. 이 프로세스의 일부로, Blob 엔드포인트와는 반대로 *CDN이 웹 엔드포인트를 가리키도록 지정*해야 합니다. CDN 구성이 즉시 실행되지 않으므로 콘텐츠가 표시될 때까지 잠시 기다려야 합니다.
+정적 웹 사이트 파일을 사용할 수 있도록 사용자 지정 도메인 및 HTTPS를 통해 참조 [HTTPS를 통한 사용자 지정 도메인을 사용 하 여 blob 액세스를 Azure CDN을 사용 하 여](storage-https-custom-domain-cdn.md)입니다. 이 프로세스의 일부로, Blob 엔드포인트와는 반대로 *CDN이 웹 엔드포인트를 가리키도록 지정*해야 합니다. CDN 구성이 즉시 실행되지 않으므로 콘텐츠가 표시될 때까지 잠시 기다려야 합니다.
 
 정적 웹 사이트를 업데이트 하는 경우에 CDN 끝점을 제거 하 여 CDN에 지 서버에 캐시 된 콘텐츠를 선택 취소 해야 합니다. 자세한 내용은 [Azure CDN 엔드포인트 제거](../../cdn/cdn-purge-endpoint.md)를 참조하세요.
+
+> [!NOTE]
+> HTTPS는 계정 웹 끝점을 통해 고유 하 게 지원 됩니다. 이 이번에 Azure CDN를 사용이 해야 하는 HTTPS 통해 사용자 지정 도메인을 사용 합니다. 
+>
+> HTTPS 통해 웹 끝점을 공용 계정: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>사용자 지정 도메인 이름
 
 [Azure Storage 계정에 대한 사용자 지정 도메인 이름을 구성](storage-custom-domain-name.md)하여 사용자 지정 도메인을 통해 정적 웹 사이트를 제공할 수 있습니다. Azure에 도메인을 호스팅하는 방법에 대한 자세한 내용은 [Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)를 참조하세요.
 
 ## <a name="pricing"></a>가격
-정적 웹 사이트 호스팅은 추가 비용 없이 제공됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
+정적 웹 사이트 호스팅 사용 하도록 설정 하는 것은 무료입니다. 고객 사용량된 blob 저장소 및 운영 비용에 대 한 요금이 청구 됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
 ## <a name="quickstart"></a>빠른 시작
 
@@ -159,7 +164,10 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 예, 새 웹 엔드포인트는 저장소 계정에 대해 구성된 VNET 및 방화벽 규칙을 따릅니다.
 
 **웹 엔드포인트는 대/소문자를 구분하나요?**  
-예, 웹 엔드포인트는 Blob 엔드포인트처럼 대/소문자를 구분합니다. 
+예, 웹 엔드포인트는 Blob 엔드포인트처럼 대/소문자를 구분합니다.
+
+**웹 끝점은 HTTP 및 HTTPS를 통해 액세스할 수 있습니다?**
+예, 웹 끝점은 HTTP 및 HTTPS를 통해 액세스할 수 있습니다. 그러나 저장소 계정이 HTTPS를 통해 보안 전송 필요 하도록 구성 된, 경우 다음 사용자가 사용 해야 합니다 HTTPS 끝점입니다. 자세한 내용은 [Azure Storage에서 보안 전송 필요](../common/storage-require-secure-transfer.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스](storage-https-custom-domain-cdn.md)

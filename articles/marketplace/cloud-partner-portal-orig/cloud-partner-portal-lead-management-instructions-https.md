@@ -1,25 +1,18 @@
 ---
-title: HTTPS 엔드포인트 | Microsoft Docs
+title: HTTPS Endpoint | Azure Marketplace
 description: HTTPS 엔드포인트에 대한 잠재 고객 관리 구성
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.author: pabutler
+ms.openlocfilehash: 058ab30358811cb66ae033fb464974639569ae18
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648353"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935273"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>HTTPS 엔드포인트를 사용하여 잠개 고객 관리 구성
 

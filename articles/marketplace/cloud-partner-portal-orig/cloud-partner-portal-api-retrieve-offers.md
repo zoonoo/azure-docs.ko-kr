@@ -1,25 +1,18 @@
 ---
-title: 제품 API 검색 | Microsoft Docs
+title: 검색 API를 제공 합니다. | Azure Marketplace
 description: API는 게시자 네임스페이스에서 요약된 제품 목록을 검색합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.author: pabutler
+ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591553"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935339"
 ---
 <a name="retrieve-offers"></a>제품 검색
 ===============
@@ -34,7 +27,7 @@ ms.locfileid: "56591553"
 
 | **Name**         |  **설명**                         |  **데이터 형식** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | 게시자 식별자입니다(예: `contoso`). |   문자열    |
+|  publisherId     | 게시자 식별자입니다(예: `contoso`). |   String    |
 |  api-version     | 최신 버전 API                    |    Date        |
 |  |  |
 

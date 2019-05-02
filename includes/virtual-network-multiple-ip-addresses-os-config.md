@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a877dde5602553cb98d440a860c3eb8bb30487e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58115197"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929418"
 ---
 ## <a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
@@ -51,7 +51,7 @@ ping -S 10.0.0.5 hotmail.com
 >[!NOTE]
 >보조 IP 구성의 경우 구성에 공용 IP 주소가 연결된 경우에만 인터넷에 ping할 수 있습니다. 기본 IP 구성의 경우 공용 IP 주소가 인터넷에 ping되지 않아도 됩니다.
 
-### <a name="linux-ubuntu"></a>Linux(Ubuntu)
+### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
 
 1. 터미널 창을 엽니다.
 2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.

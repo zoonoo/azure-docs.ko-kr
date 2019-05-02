@@ -47,7 +47,7 @@ Azure Cloud Services 애플리케이션은 사용자가 사용할 수 있도록 
 ## <a name="monitoring"></a>모니터링
 Azure Cloud Services는 모니터링도 제공합니다. Virtual Machines처럼 오류가 발생한 물리적 서버를 검색하여 해당 서버에서 실행 중이었던 VM을 새 컴퓨터에서 다시 시작합니다. 하지만 Azure Cloud Services는 하드웨어 오류뿐만 아니라 오류가 발생한 VM과 애플리케이션도 검색합니다. Virtual Machines와 달리 클라우드 서비스에는 각 웹 역할 및 작업자 역할 내에 에이전트가 있어서 오류가 발생할 때 새 VM 및 애플리케이션 인스턴스를 시작할 수 있습니다.
 
-Azure Cloud Services의 PaaS 특성에는 다른 것도 있습니다. 가장 중요한 것 중 하나는 웹 역할 또는 작업자 역할 인스턴스에 오류가 발생할 때 이 기술로 빌드된 애플리케이션이 제대로 실행되도록 작성되어야 한다는 점입니다. 이렇게 하려면 Azure Cloud Services 애플리케이션이 자체 VM의 파일 시스템 상태를 관리해서는 안 됩니다. Virtual Machines를 사용하여 만든 VM의 경우와 달리 Azure Cloud Services VM에 대해 실행된 쓰기는 영구적이지 않습니다. Virtual Machines 데이터 디스크와 같은 것도 없습니다. 대신 Azure Cloud Services 애플리케이션은 Azure SQL Database, Blob, 테이블 또는 일부 기타 외부 저장소에 모든 상태를 명확하게 작성해야 합니다. 이 방법으로 애플리케이션을 빌드하면 더 쉽게 확장하고 오류를 방어할 수 있습니다. 이 두 가지는 모두 Azure Cloud Services의 중요한 목표입니다.
+Azure Cloud Services의 PaaS 특성에는 다른 것도 있습니다. 가장 중요한 것 중 하나는 웹 역할 또는 작업자 역할 인스턴스에 오류가 발생할 때 이 기술로 빌드된 애플리케이션이 제대로 실행되도록 작성되어야 한다는 점입니다. 이렇게 하려면 Azure Cloud Services 애플리케이션이 자체 VM의 파일 시스템 상태를 관리해서는 안 됩니다. Virtual Machines를 사용하여 만든 VM의 경우와 달리 Azure Cloud Services VM에 대해 실행된 쓰기는 영구적이지 않습니다. Virtual Machines 데이터 디스크와 같은 것도 없습니다. 대신 Azure Cloud Services 애플리케이션은 Azure SQL Database, Blob, 테이블 또는 일부 기타 외부 스토리지에 모든 상태를 명확하게 작성해야 합니다. 이 방법으로 애플리케이션을 빌드하면 더 쉽게 확장하고 오류를 방어할 수 있습니다. 이 두 가지는 모두 Azure Cloud Services의 중요한 목표입니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [.NET으로 클라우드 서비스 앱 만들기](cloud-services-dotnet-get-started.md) 

@@ -9,15 +9,15 @@ ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54357032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403880"
 ---
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-2. **Azure 함수 앱**을 선택하고, **새로 만들기**를 선택한 다음, **게시**를 선택합니다.
+2. **Azure Function App**을 선택하고, **새로 만들기**를 선택한 다음, **게시**를 선택합니다.
 
     ![게시 대상 선택](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 

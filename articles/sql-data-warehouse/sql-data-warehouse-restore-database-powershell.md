@@ -159,7 +159,7 @@ $GeoRestoredDatabase.status
 원본 데이터베이스가 TDE를 사용할 수 있는 경우 복구된 데이터베이스도 TDE를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure SQL Database 버전의 무중단 업무 방식 기능에 대해 알아보려면 [Azure SQL Database 무중단 업무 방식 개요][Azure SQL Database business continuity overview]를 읽으세요.
+Azure SQL Database 버전의 비즈니스 연속성 기능에 대해 알아보려면 [Azure SQL Database 비즈니스 연속성 개요][Azure SQL Database business continuity overview]를 읽으세요.
 
 <!--Image references-->
 

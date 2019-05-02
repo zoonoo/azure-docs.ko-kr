@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787734"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681839"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -31,7 +31,7 @@ Azure Backup에서 수동으로 트리거된 모든 작업을 표시 합니다 *
 > 합니다 **백업 작업** 포털 예약 된 백업 작업을 표시 하지 않습니다. SQL Server Management Studio를 사용하면 다음 섹션에서 설명하는 대로 예약된 백업 작업을 모니터링할 수 있습니다.
 >
 
-모니터링 시나리오에 대 한 내용은로 이동 [Azure Portal에서 모니터링](backup-azure-monitoring-built-in-monitor.md) 하 고 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)합니다.  
+모니터링 시나리오에 대 한 내용은로 이동 [Azure portal에서 모니터링](backup-azure-monitoring-built-in-monitor.md) 하 고 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)합니다.  
 
 
 ## <a name="view-backup-alerts"></a>백업 경고 보기
@@ -129,9 +129,9 @@ SQL database에 대 한 보호를 다시 시작 합니다.
 
 3. **보호된 서버**에서 등록을 취소할 서버를 선택합니다. 자격 증명 모음을 삭제하려면 모든 서버의 등록을 취소해야 합니다.
 
-4. 보호 된 서버를 마우스 오른쪽 단추로 누르고 **삭제**합니다.
+4. 보호 된 서버를 마우스 오른쪽 단추로 누르고 **등록 취소**합니다.
 
-   ![삭제 선택](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![삭제 선택](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>SQL Server VM에서 확장 다시 등록
 

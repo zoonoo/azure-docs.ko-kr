@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450977"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925376"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning AKS 및 ACI 서비스 배포 문제 해결
 
@@ -307,7 +307,7 @@ Azure Kubernetes Service 배포에 복제본 추가 부하를 지원 하기 위�
     > [!NOTE]
     > 요청 급증을 처리할 수 있는 새 최소 복제본 보다 더 큰 경우에 따라 503s 다시 나타날 수 있습니다. 예를 들어,에 서비스 증가 트래픽으로 최소 복제본을 높이기 위해 해야 할 수 있습니다.
 
-설정에 대 한 자세한 내용은 `autoscale_target_utilization`, `autoscale_max_replicas`, 및 `autoscale_min_replicas` 를 참조 합니다 [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 모듈 참조.
+설정에 대 한 자세한 내용은 `autoscale_target_utilization`, `autoscale_max_replicas`, 및 `autoscale_min_replicas` 를 참조 합니다 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 모듈 참조.
 
 
 ## <a name="next-steps"></a>다음 단계

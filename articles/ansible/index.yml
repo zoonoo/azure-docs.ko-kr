@@ -10,7 +10,7 @@ metadata:
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 08/27/2018
+  ms.date: 04/22/2019
 abstract:
   description: '<a href="https://www.ansible.com">Ansible</a>을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화합니다.'
 sections:
@@ -27,7 +27,7 @@ sections:
             href: /azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
           - image:
               src: /azure/media/index/VirtualMachine.svg
-            text: Linux VM 만들기
+            text: Linux VM 구성
             href: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
           - image:
               src: /azure/media/index/VirtualMachine.svg

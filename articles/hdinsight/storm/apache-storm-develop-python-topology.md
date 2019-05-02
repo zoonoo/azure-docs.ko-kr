@@ -1,7 +1,6 @@
 ---
-title: Python 구성 요소를 사용하는 Apache Storm - Azure HDInsight
+title: Python 구성 요소-Azure HDInsight를 사용 하 여 Apache Storm
 description: Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm python
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634595"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694399"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
@@ -148,5 +147,4 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 HDInsight와 함께 Python을 사용하는 다른 방법은 다음 문서를 참조하세요.
 
-* [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](../hadoop/apache-hadoop-streaming-python.md)
 * [Apache Pig 및 Apache Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](../hadoop/python-udf-hdinsight.md)

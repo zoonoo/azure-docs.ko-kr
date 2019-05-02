@@ -10,16 +10,16 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3b802573bfc1eba74217d01005a2f232ff575fda
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990482"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730405"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 
-Azure SQL Database는 Microsoft Cloud(Azure)의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 사용하는 방법을 알아봅니다.
+Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Azure Portal 및 SSMS[(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 사용하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - Azure Portal을 사용하여 단일 데이터베이스 만들기*
@@ -70,9 +70,9 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
     | 설정       | 제안 값 | 설명 |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
-    | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
+    | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 사용해야 합니다. |
-    | **위치**: | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -138,7 +138,7 @@ SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방�
 
     ![서버에서 db에 연결](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-4. **Connect**를 클릭합니다. SSMS에서 **개체 탐색기** 창이 열립니다.
+4. **연결**을 클릭합니다. SSMS에서 **개체 탐색기** 창이 열립니다.
 
 5. **개체 탐색기**에서 **데이터베이스**를 확장한 다음, *yourDatabase*를 확장하여 샘플 데이터베이스에 있는 개체를 봅니다.
 
@@ -227,10 +227,10 @@ SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방�
 4. 다음 명령을 실행하여 테이블에 샘플 데이터를 삽입하고 *서버*, *데이터베이스*, *사용자* 및 *암호* 값을 해당 환경에 맞는 값으로 바꿉니다.
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 이제 앞에서 만든 테이블에 샘플 데이터가 로드되었습니다.

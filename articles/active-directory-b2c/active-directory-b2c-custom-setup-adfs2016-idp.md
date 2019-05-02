@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 
 description: Azure Active Directory B2C에서 SAML 프로토콜 및 사용자 지정 정책을 사용하 여 ADFS 2016 설정
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 85a339d2638e2223815a4ae539f37c439a4eac91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91db42a003bdbb7614faba2122c30826b62ee20f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387104"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698652"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -170,7 +170,7 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
     | LDAP 특성 | 나가는 클레임 형식 |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
-    | 성 | family_name |
+    | Surname | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | 이메일 |
     | Display-Name | 이름 |

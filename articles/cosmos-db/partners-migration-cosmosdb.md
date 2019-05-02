@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: f3b744f676dd352bb38e5cbca6e532c650617816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 45fd716ad8542f86e4c58bb559a3745c2e61776f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880613"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867690"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 
@@ -19,14 +19,14 @@ NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다�
 
 ## <a name="migration-tools"></a>마이그레이션 도구
 
-|**파트너**  |**기능 및 경험**  |**지원되는 국가**  |**연락처**  |
+|**파트너**  |**기능 및 경험**  |**지원 되는 국가/지역**  |**연락처**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | MongoDB에서 Azure Cosmos DB로의 [데이터 마이그레이션](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)입니다. <br/> Imanis Data를 사용하면 글로벌 기업이 온-프레미스 또는 클라우드 MongoDB 데이터베이스를 Azure Cosmos DB로 빠르고 쉽게 마이그레이션할 수 있습니다. Imanis Data는 MongoDB 데이터 저장소에 대해 에이전트 없는 영구 증분 방식의 클라우드 마이그레이션 방법을 제공하여 마이그레이션을 간소화하고 가동 중지 시간을 훨씬 단축합니다.|  미국  |   [웹 사이트](http://www.imanisdata.com/)      |
 |![Striim][2]    |  광범위한 데이터 원본에서 [Azure Cosmos DB로 실시간 데이터를 이동](https://www.striim.com/striim-for-azure-cosmos-db/)합니다. <br/> Striim를 실시간으로 수집 하 고 다양 한 Azure Cosmos DB로 엔터프라이즈 문서 및 관계형 데이터베이스, 센서 및 로그 파일을 비롯 한 온-프레미스 원본에서에서 데이터 이동을 간소화 합니다. |   미국   |  [웹 사이트](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>시스템 통합자 파트너
 
-|**파트너**  |**기능 및 경험**  |**지원되는 국가**  |**연락처**  |
+|**파트너**  |**기능 및 경험**  |**지원 되는 국가/지역**  |**연락처**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL 마이그레이션, 새로운 앱 개발 | 미국 | [웹 사이트](https://www.10thmagnitude.com/)|
 |![Altoros Development LLC][3]    |  NoSQL 마이그레이션, <br/> 앱 혁신(기존 앱), <br/> 새로운 앱 개발 |   미국, 노르웨이, 핀란드, 벨로루시, 아르헨티나 |  [웹 사이트](https://www.altoros.com/)     |

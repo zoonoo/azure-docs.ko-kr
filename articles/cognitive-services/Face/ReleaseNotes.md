@@ -8,18 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/28/2019
 ms.author: yluiu
-ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f705061db7c89a80578e741d02ab8f8b1041c2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544553"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917094"
 ---
 # <a name="face-api-release-notes"></a>Face API 릴리스 정보
 
 이 문서는 Face API 서비스 버전 1.0에 적용됩니다.
+
+### <a name="release-changes-in-april-2019"></a>변경 내용을 2019 년 4 월 릴리스
+
+* 전체적인 정확도 향상 합니다 `age` 고 `headPose` 특성입니다. 합니다 `headPose` 특성으로 업데이트 됨도 `pitch` 이제 사용 하도록 설정 하는 값입니다. 에 지정 하 여 이러한 특성을 사용 합니다 `returnFaceAttributes` 의 매개 변수 [얼굴 감지-](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` 매개 변수입니다. 
+
+* 속도 향상 [직면-검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)를 [LargeFaceList-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup 사람-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 및 [ LargePersonGroup 사람-추가 얼굴](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)합니다.
 
 ### <a name="release-changes-in-march-2019"></a>변경 내용을 2019 년 3 월 릴리스
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861247"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875704"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>QnA Maker에서 대화형으로 기술 자료 테스트
 
@@ -24,8 +24,8 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 ## <a name="test-answer-matching"></a>응답 일치 테스트
 
-1.   **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
-2.  테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트** 를 선택합니다.
+1.  **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
+2.  테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트**를 선택합니다.
 
     ![테스트 패널 액세스](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,17 +35,17 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 ## <a name="clear-test-panel"></a>테스트 패널 지우기
 
-테스트 콘솔에서 입력된 테스트 쿼리 및 해당 결과를 모두 지우려면 테스트 패널의 왼쪽 위 모서리에 있는 **다시 시작** 을 선택합니다.
+테스트 콘솔에서 입력된 테스트 쿼리 및 해당 결과를 모두 지우려면 테스트 패널의 왼쪽 위 모서리에 있는 **다시 시작**을 선택합니다.
 
 ## <a name="close-test-panel"></a>테스트 패널 닫기
 
-테스트 패널을 닫으려면 **테스트** 단추를 다시 선택합니다. 테스트 패널이 열려 있는 동안 기술 자료 콘텐츠를 편집할 수 없습니다.
+테스트 패널을 닫으려면 **테스트** 단추를 다시 선택합니다. 테스트 패널이 열려 있는 동안 기술 자료 콘텐츠를 편집할 수 없습니다.
 
 ## <a name="inspect-score"></a>점수 검사
 
 검사 패널에서 테스트 결과의 세부 정보를 검사합니다.
 
-1.  테스트 슬라이드 아웃 패널이 열려 있을 때 해당 응답에 대한 자세한 내용에 대한  **검사** 를 선택합니다.
+1.  테스트 슬라이드 아웃 패널이 열려 있을 때 해당 응답에 대한 자세한 내용에 대한 **검사**를 선택합니다.
 
     ![응답 검사](../media/qnamaker-how-to-test-kb/inspect.png)
 

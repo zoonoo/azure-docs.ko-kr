@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024823"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -49,7 +49,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
--  https://portal.azure.com에서 Azure Portal에 로그인합니다.
+-  [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
@@ -65,7 +65,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 **예산 만들기** 창에서 예산 이름 및 예산 금액을 입력합니다. 그런 다음 월별, 분기별 또는 연간 기간 중에서 선택합니다. 다음으로, 종료 날짜를 선택합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 메일 알림은 일반적으로 8시간 이내에 수신됩니다. 알림에 대한 자세한 내용은 [비용 경고 사용](cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
 
-종 량 제, MSDN 또는 Visual Studio 구독이 있는 경우에 청구서는 청구 기간 월에 정렬 되지 않습니다. 구독 및 리소스 그룹의 해당 형식에 대 한 달력 월 또는 송장 기간에 정렬 되는 예산 범위를 만들 수 있습니다. 송장 기간에 정렬 하는 예산 범위를 만들려면 재설정 청구 월, 청구 분기 또는 연도 청구 기간을 선택 합니다. 월에 정렬 하는 예산 범위를 만들려면 재설정 기간 매월, 분기별 또는 매년 선택 합니다.
+종량제, MSDN 또는 Visual Studio 구독이 있는 경우 송장 청구 기간이 달력상 월과 다를 수 있습니다. 구독 및 리소스 그룹의 해당 형식에 대 한 달력 월 또는 송장 기간에 정렬 되는 예산 범위를 만들 수 있습니다. 송장 기간에 정렬 하는 예산 범위를 만들려면 재설정 청구 월, 청구 분기 또는 연도 청구 기간을 선택 합니다. 월에 정렬 하는 예산 범위를 만들려면 재설정 기간 매월, 분기별 또는 매년 선택 합니다.
 
 예로, 월별 4,500달러의 예산을 만들어 보겠습니다. 예산의 90%에 도달하면 이메일 경고가 생성됩니다.
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658038"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에 명명된 값을 사용하는 방법
 API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변경하도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 명명된 값을 사용하여 생성할 수 있습니다. 
@@ -36,7 +36,7 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 속성 값은 리터럴 문자열 및 [정책 식](/azure/api-management/api-management-policy-expressions)을 포함할 수 있습니다. 예를 들어 `ExpressionProperty` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `ContosoHeaderValue` 속성은 암호 표식이 있으므로 해당 값이 표시되지 않습니다.
 
-| name | 값 | Secret | 태그들 |
+| 이름 | 값 | Secret | 태그들 |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |거짓 |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |

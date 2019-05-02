@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692428"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714139"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights 환경의 크기를 조정하는 방법
 
@@ -60,5 +60,5 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 4. **저장**을 선택하여 환경을 확장할 수 있습니다. 진행률 표시기에는 변경 내용이 커밋될 때까지 일시적으로 표시됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
-> [!div class="nextstepaction"]
-> [새 용량이 제한을 방지하기에 충분한지 확인합니다](time-series-insights-diagnose-and-solve-problems.md).
+
+- 새 용량 인지 확인 [제한을 방지 하기에 충분 한](time-series-insights-diagnose-and-solve-problems.md)합니다.

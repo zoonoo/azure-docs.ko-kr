@@ -4,15 +4,15 @@ description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699392"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722492"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -47,9 +47,8 @@ ms.locfileid: "59699392"
 
 ### <a name="important-facts-about-the-root-management-group"></a>루트 관리 그룹에 대한 중요한 사실
 
-- 기본적으로 루트 관리 그룹의 이름 및 ID가 제공됩니다. 표시 이름은 언제든지 Azure Portal 내에서 다른 이름을 표시하도록 업데이트할 수 있습니다. [이름을 변경](manage.md#change-the-name-of-a-management-group)하려면 루트 관리 그룹에 소유자 또는 기여자 역할이 할당되어야 합니다.
-  - 이름은 "테넌트 루트 그룹"입니다.
-  - ID는 Azure Active Directory ID입니다.
+- 기본적으로 루트 관리 그룹의 표시 이름은 **테넌트 루트 그룹**입니다. ID는 Azure Active Directory ID입니다.
+- 표시 이름을 변경하려면 계정에 루트 관리 그룹의 소유자 또는 기여자 역할이 할당되어야 합니다. 이름을 변경하는 단계는 [관리 그룹의 이름 변경](manage.md#change-the-name-of-a-management-group)을 참조하세요.
 - 루트 관리 그룹은 다른 관리 그룹과는 다르게 이동하거나 삭제할 수 없습니다.  
 - 모든 구독 및 관리 그룹은 디렉터리 내의 한 루트 관리 그룹까지 접을 수 있습니다.
   - 디렉터리의 모든 리소스는 전역 관리를 위해 루트 관리 그룹까지 접을 수 있습니다.

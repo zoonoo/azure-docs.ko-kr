@@ -15,7 +15,7 @@ ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59786713"
@@ -77,7 +77,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 2. **작업** 도구 상자에서 **일반**을 펼치고, **저장 프로시저** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 
 
     ![저장 프로시저 작업 끌어서 놓기](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. 저장 프로시저 작업에 대한 속성 창에서 **SQL 계정** 탭으로 전환한 후 **+ 새로 만들기**를 클릭합니다. SSIS 카탈로그를 호스트하는 Azure SQL Database(SSIDB 데이터베이스)에 대한 연결을 만듭니다. 
+3. 저장 프로시저 작업에 대한 속성 창에서 **SQL 계정** 탭으로 전환한 후 **+ 새로 만들기**를 클릭합니다. SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스(SSIDB 데이터베이스)에 대한 연결을 만듭니다. 
    
     ![새 연결된 서비스 단추](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
 4. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 

@@ -1,5 +1,5 @@
 ---
-title: CLI 예제 Azure SQL Database 이동 SQL 탄력적 풀 | Microsoft Docs
+title: CLI 예제 Azure SQL 데이터베이스 이동 SQL 탄력적 풀 | Microsoft Docs
 description: SQL 탄력적 풀에서 SQL Database를 이동하는 Azure CLI 예제 스크립트
 services: sql-database
 ms.service: sql-database
@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357581"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL Database 이동
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL 데이터베이스 이동
 
-이 Azure CLI 스크립트 예제는 두 개의 탄력적 풀을 만들고 한 SQL 탄력적 풀에서 다른 SQL 탄력적 풀로 Azure SQL Database를 이동한 다음, 탄력적 풀의 데이터베이스를 단일 데이터베이스 컴퓨팅 크기로 이동합니다.
+이 Azure CLI 스크립트 예제는 두 개의 탄력적 풀을 만들고 한 SQL 탄력적 풀에서 다른 SQL 탄력적 풀로 Azure SQL 데이터베이스를 이동한 다음, 탄력적 풀의 데이터베이스를 단일 데이터베이스 컴퓨팅 크기로 이동합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

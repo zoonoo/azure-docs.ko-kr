@@ -1,25 +1,19 @@
 ---
-title: 게시 포털에서 애플리케이션 설정 | Microsoft Docs
+title: 게시 포털에서 애플리케이션 설정
 description: 클라우드 게시 포털에서 애플리케이션을 설정하는 방법에 대한 지침입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483231"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943547"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 애플리케이션 설정
 
@@ -59,7 +53,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 이 드롭다운 목록을 사용하여 이 제품을 게시할 게시자 프로필을 선택할 수 있습니다. 이 필드는 제품이 라이브 상태가 되면 잠깁니다.
 
-### <a name="name"></a>Name
+### <a name="name"></a>이름
 
 제품에 대한 표시 이름입니다. [AppSource](https://appsource.microsoft.com/)에 표시할 이름입니다. 최대 50문자를 포함할 수 있습니다.
 
@@ -88,7 +82,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 ### <a name="crm-package-availability"></a>CRM 패키지 가용성
 
-이 섹션에서는 패키지를 사용할 수 있는 CRM의 패키지 지역을 선택합니다. 어떤 지역에서 어떤 국가를 제공하는지에 대한 자세한 내용은 [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/) 링크를 참조하세요.
+이 섹션에서는 패키지를 사용할 수 있는 CRM의 패키지 지역을 선택합니다. 국가/지역 정보는 CRM에서 지역은 역할에 대 한 링크를 참조 하세요. [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 참고: 독일 “자치 및 미국 정부 클라우드” 자치에 배포하려면 인증 중에 특수 권한 및 유효성 검사가 필요합니다.
 

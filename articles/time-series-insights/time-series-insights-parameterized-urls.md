@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487875"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728152"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -63,13 +63,13 @@ Time Series Insights 탐색기는 URL에서 바로 환경의 보기를 지정할
 
 `timeSeriesDefinitions=<collection of term objects>` 매개 변수는 Time Series Insights 보기의 조건을 지정하며, 여기서 각 항목은 다음과 같습니다.
 
-- "name":"<string>"
+- "name":"\<string>"
   - *조건*의 이름입니다.
-- "splitBy":"<string>"
+- "splitBy":"\<string>"
   - *분할의 기준*이 되는 열 이름입니다.
-- "measureName":"<string>"
+- "measureName":"\<string>"
   - *측정값*의 열 이름입니다.
-- "predicate":"<string>"
+- "predicate":"\<string>"
   - 서버 쪽 필터링에 대한 *where* 절입니다.
 - "useSum":"true"
   - 이는 측정값에 대한 합계를 사용하도록 지정하는 선택적 매개 변수입니다.  "이벤트"가 선택된 측정값이면 count가 기본적으로 선택됩니다.  "이벤트"가 선택되지 않으면 average가 기본적으로 선택됩니다.  
@@ -121,4 +121,5 @@ Time Series Insights 탐색기를 사용하여 위의 URL이 설명하는 보기
 ![차트 보기](media/parameterized-url/url2.png)
 
 ## <a name="next-steps"></a>다음 단계
-[C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)
+
+- 설명 하는 방법 [쿼리 데이터를 사용 하 여 C# ](time-series-insights-query-data-csharp.md)합니다.

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74be798106ef5d028f3ad497a6e726439e86ad51
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863766"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714726"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3로 라이브 스트리밍
 
@@ -182,6 +182,10 @@ az group delete --name amsResourceGroup
 
 > [!IMPORTANT]
 > 라이브 이벤트가 계속 실행되도록 두면 비용이 청구됩니다. 프로젝트/프로그램이 충돌하거나 어떤 이유로 닫힌 경우 라이브 이벤트가 청구 상태에서 계속 실행될 수 있습니다.
+
+## <a name="provide-feedback"></a>피드백 제공
+
+[Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

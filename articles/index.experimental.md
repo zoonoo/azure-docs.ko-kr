@@ -1,8 +1,14 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
-description: 'Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.'
+description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
+ms.openlocfilehash: 936200f304a1c2f923797b3664e4b2ecd9799e65
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425681"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1427,7 +1433,7 @@ description: 'Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>빅 데이터 분석 작업을 위한 대규모 저장소</p>
+                                                    <p>빅 데이터 분석 작업을 위한 하이퍼스케일 리포지토리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2174,7 +2180,7 @@ description: 'Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>빅 데이터 분석 작업을 위한 대규모 저장소</p>
+                                                    <p>빅 데이터 분석 작업을 위한 하이퍼스케일 리포지토리</p>
                                                 </div>
                                             </div>
                                         </div>

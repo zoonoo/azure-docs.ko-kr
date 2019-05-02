@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 데이터 가장자리가 상자의 장치 액세스, 기능 및 연결 모드 | Microsoft Docs
+title: Azure 데이터 가장자리가 상자의 장치 액세스, 기능 및 연결 모드 | Microsoft Docs
 description: 액세스, 기능 및 Azure로 데이터를 전송 하는 데 도움이 됩니다 Azure 데이터 상자 Edge 장치에 대 한 연결 모드를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417805"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924360"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure 데이터 상자의 가장자리에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -92,4 +92,4 @@ ms.locfileid: "58417805"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 설명 하는 방법 [공유 관리](data-box-edge-manage-shares.md)합니다.
+- [공유 관리](data-box-edge-manage-shares.md) 방법에 대해 알아봅니다.

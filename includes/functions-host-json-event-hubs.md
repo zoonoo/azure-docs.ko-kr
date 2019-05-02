@@ -1,15 +1,10 @@
 ---
-author: ggailey777
-ms.service: azure-functions
-ms.topic: include
-ms.date: 09/04/2018
-ms.author: glenga
 ms.openlocfilehash: b5d8f67a70961aab21312b6f241081dcb33f66fb
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104452"
 ---
 ```json
 {
@@ -21,8 +16,9 @@ ms.locfileid: "50134145"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|자산  |Default | 설명 |
 |---------|---------|---------| 
 |maxBatchSize|64|수신 루프 당 받은 최대 이벤트 수입니다.|
 |prefetchCount|해당 없음|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.| 
 |batchCheckpointFrequency|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.| 
+

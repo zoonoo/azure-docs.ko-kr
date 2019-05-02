@@ -1,25 +1,18 @@
 ---
-title: Azure SaaS 애플리케이션 제안 만들기 | Microsoft Docs
+title: Azure SaaS 응용 프로그램 제품 만들기 | Azure Marketplace
 description: SaaS 애플리케이션 제안을 Azure Marketplace에 만드는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: 246dd77c8e92a36e0601aba7d1b851efb7e7fb9a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880282"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943541"
 ---
 # <a name="create-a-new-saas-application-offer"></a>새 SaaS 애플리케이션 제안 만들기
 

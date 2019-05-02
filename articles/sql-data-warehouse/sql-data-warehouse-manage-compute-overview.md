@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748937"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 계산 관리
 Azure SQL Data Warehouse에서 계산 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 
@@ -32,7 +32,7 @@ SQL Data Warehouse는 크기 조정 작업을 수행하기 위해 먼저 들어�
 
 다음 표에서는 데이터 웨어하우스 단위를 변경할 때 계산 노드당 배포 수가 변경되는 방식을 보여 줍니다.  6,000DWU는 60개 계산 노드를 제공하며, 100DWU보다 훨씬 높은 쿼리 성능을 달성합니다. 
 
-| DWU(데이터 웨어하우스 단위)  | \#(계산 노드 수) | 노드당 배포 수 \# |
+| DWU(데이터 웨어하우스 단위)  | \#의 계산 노드 | 노드당 배포 수 \# |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |

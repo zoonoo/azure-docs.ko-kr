@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005736"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916393"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 애플리케이션이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -67,7 +67,7 @@ ms.locfileid: "59005736"
 
     **HTTP 응답**: 성공으로 계산되어 반환된 상태 코드입니다. 200은 일반적인 웹 페이지의 반환을 나타내는 코드입니다.
 
-    "Welcome!"과 같은 **콘텐츠 일치** 문자열. 정확한 대/소문자 구분 일치가 모든 응답에서 발생하는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다.
+    "Welcome!"과 같은 **콘텐츠 일치** 문자열. 정확한 대/소문자 구분 일치가 모든 응답에서 발생하는지 테스트합니다. 와일드카드 없는 일반 문자열이어야 합니다. 페이지 내용이 변경되면 업데이트해야 할 수 있습니다. **콘텐츠 일치를 사용 하 여 현재 영어 문자만 사용할 수 있습니다.** 
 
 * **경고 위치 임계값**: 최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 사이의 최적 관계는 **경고 위치 임계값** = **테스트 위치 수** - 2이고, 최소 테스트 위치 수는 5입니다.
 
@@ -92,7 +92,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
     ![Visual Studio Enterprise 버전에서 웹 성능 및 부하 테스트 템플릿으로 프로젝트를 만듭니다.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *웹 성능 및 부하 테스트 템플릿이 보이지 않으십니까?* - Visual Studio Enterprise를 닫습니다. **Visual Studio 설치 관리자**를 열고 Visual Studio Enterprise 설치를 수정합니다. **개별 구성 요소** 아래에서 **웹 성능 및 부하 테스트 도구**를 선택합니다.
+ * *웹 성능 및 부하 테스트 템플릿이 보이지 않으십니까?* - Visual Studio Enterprise를 닫습니다. **Visual Studio 설치 관리자**를 열고 Visual Studio Enterprise 설치를 수정합니다. **개별 구성 요소** 아래에서 **웹 성능 및 부하 테스트 도구**를 선택합니다.
 
 2. .webtest 파일을 열고 기록을 시작합니다.
 
@@ -273,6 +273,9 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
   (Visual Studio는 테스트를 매개 변수화하려고 하지만 올바르게 토큰을 매개 변수화하지 않습니다.)
 
 ## <a name="performance-tests"></a>성능 테스트
+> [!NOTE]  
+> 클라우드 기반 부하 테스트 서비스를 사용 하는 사용 되지 않습니다. 사용 중단, 서비스 가용성 및 다른 서비스에 대 한 자세한 정보를 찾을 수 있습니다 [여기](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops)합니다.
+
 웹 사이트에 부하 테스트를 실행할 수 있습니다. 가용성 테스트와 같이 전 세계의 이 지점에서 간단한 요청 또는 다단계 요청을 보낼 수 있습니다. 가용성 테스트와는 달리 많은 요청이 전송되어 여러 동시 사용자를 시뮬레이션합니다.
 
 **구성** 아래에서 **성능 테스트**로 이동한 후 새로 만들기를 클릭하여 테스트를 만듭니다.

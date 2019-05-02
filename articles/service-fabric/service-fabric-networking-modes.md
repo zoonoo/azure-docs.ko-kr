@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668129"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926125"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -30,7 +30,7 @@ ms.locfileid: "58668129"
 컨테이너 서비스가 다시 시작되거나 클러스터의 다른 노드로 이동하면 IP 주소가 변경됩니다. 따라서 동적으로 할당된 IP 주소를 사용하여 컨테이너 서비스를 검색하는 것을 좋지 않습니다. 서비스 검색에는 Service Fabric 명명 서비스 또는 DNS 서비스 만 사용해야 합니다. 
 
 >[!WARNING]
->Azure 가상 네트워크 당 총 65, 356 Ip의 허용 됩니다. 노드 수 및 컨테이너 서비스 인스턴스 (오픈 모드를 사용 하는) 숫자의 합계는 가상 네트워크 내에서 65, 356 Ip를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다. 또한 부하 분산 장치와 같은 다른 종속성을 갖습니다 다른 [제한 사항](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) 고려해 야 합니다. 노드당 50 Ip은 현재 테스트 되었으며 안정적인 입증 합니다. 
+>Azure 가상 네트워크 당 총 65, 356 Ip의 허용 됩니다. 노드 수 및 컨테이너 서비스 인스턴스 (오픈 모드를 사용 하는) 숫자의 합계는 가상 네트워크 내에서 65, 356 Ip를 초과할 수 없습니다. 고밀도 시나리오의 경우 nat 네트워킹 모드를 사용하는 것이 좋습니다. 또한 부하 분산 장치와 같은 다른 종속성을 갖습니다 다른 [제한 사항](https://docs.microsoft.com/azure/azure-subscription-service-limits) 고려해 야 합니다. 노드당 50 Ip은 현재 테스트 되었으며 안정적인 입증 합니다. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>오픈 네트워킹 모드 설정
@@ -203,11 +203,11 @@ ms.locfileid: "58668129"
    |설정 |값 | |
    | --- | --- | --- |
    |우선 순위 |2000 | |
-   |name |Custom_Dns  | |
+   |이름 |Custom_Dns  | |
    |원본 |VirtualNetwork | |
    |대상 | VirtualNetwork | |
    |서비스 | DNS(UDP/53) | |
-   |조치 | 허용  | |
+   |액션(Action) | 허용  | |
    | | |
 
 4. 각 서비스에 대해 애플리케이션 매니페스트에서 네트워킹 모드를 지정합니다. `<NetworkConfig NetworkType="Open">` **오픈** 네트워킹 모드에서는 서비스가 전용 IP 주소를 갖게 됩니다. 모드를 지정하지 않으면 서비스는 기본적으로 **nat** 모드가 됩니다. 다음 매니페스트 예제에서 `NodeContainerServicePackage1` 및 `NodeContainerServicePackage2` 서비스는 동일한 포트에서 각각 수신 대기할 수 있습니다(두 서비스는 모두 `Endpoint1`에서 수신 대기 중). 오픈 네트워킹 모드를 지정하면 `PortBinding` 구성을 지정할 수 없습니다.

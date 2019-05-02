@@ -2,18 +2,19 @@
 title: '자습서: Azure HDInsight에서 Apache Hive를 사용하여 ETL(추출, 변환, 로드) 작업 수행'
 description: 이 자습서에서는 원시 CSV 데이터 세트에서 데이터를 추출하고, Azure HDInsight에서 Apache Hive를 사용하여 데이터를 변환한 다음, Sqoop을 사용하여 변환된 데이터를 Azure SQL Database로 로드하는 방법을 알아봅니다.
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
-ms.author: jamesbak
-ms.openlocfilehash: a5e7fd200617661c38b65ebbd4473a1a729de457
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682358"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939201"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
@@ -38,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     [빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal)을 참조하세요.
 
-* **Azure SQL Database**: Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database가 없는 경우 [Azure Portal에서 Azure SQL Database 만들기](../../sql-database/sql-database-get-started.md)를 참조하세요.
+* **Azure SQL Database**: Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [Azure Portal에서 Azure SQL 데이터베이스 만들기](../../sql-database/sql-database-get-started.md)를 참조하세요.
 
 * **Azure CLI**: 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 

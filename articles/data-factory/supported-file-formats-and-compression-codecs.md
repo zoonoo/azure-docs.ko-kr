@@ -3,18 +3,18 @@ title: Azure Data Factory에서 지원되는 파일 형식 | Microsoft Docs
 description: 이 항목에서는 Azure Data Factory에서 파일 기반 커넥터가 지원하는 파일 형식 및 압축 코드를 설명합니다.
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394435"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925147"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -29,9 +29,12 @@ ms.locfileid: "60394435"
 * [Avro 형식](#avro-format)
 
 > [!TIP]
-> 파일 형식 설정에 따라 메타데이터가 결정되는 방법과 [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) 섹션을 지정해야 하는 경우에 대한 팁을 비롯하여 복사 작업이 [복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)에서 싱크로 원본 데이터를 매핑하는 방법을 알아봅니다.
+> 파일 형식 설정에 따라 메타데이터가 결정되는 방법과 [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema) 섹션을 지정해야 하는 경우에 대한 팁을 비롯하여 복사 작업이 [복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)에서 싱크로 원본 데이터를 매핑하는 방법을 알아봅니다.
 
 ## <a name="text-format"></a>텍스트 형식
+
+>[!NOTE]
+>새로 도입 된 data Factory 구분 텍스트 형식으로 데이터 집합을 참조 하십시오 [구분 기호로 분리 된 텍스트 형식으로](format-delimited-text.md) 세부 정보가 포함 된 문서입니다. 파일 기반 데이터 저장소 데이터 집합의 다음 구성으로 계속 지원-이전 버전과 compabitility입니다. 앞으로 새 모델을 사용 하도록 제안 됩니다.
 
 텍스트 파일을 읽거나 텍스트 파일에 쓰려면 데이터 세트의 `format` 섹션에서 `type` 속성을 **TextFormat**으로 지정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [TextFormat 예제](#textformat-example) 섹션을 참조하세요.
 
@@ -97,7 +100,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 | nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아닙니다. |
 
 >[!NOTE]
->경우 여러 개의 행으로 배열에 있는 데이터 간-적용 (사례 1-샘플 2의 > [JsonFormat 예제](#jsonformat-example)), 확장 속성을 사용 하 여 단일 배열에만 선택할 수 있습니다 `jsonNodeReference`합니다. 
+>경우 여러 개의 행으로 배열에 있는 데이터 간-적용 (사례 1-샘플 2의 > [JsonFormat 예제](#jsonformat-example)), 확장 속성을 사용 하 여 단일 배열에만 선택할 수 있습니다 `jsonNodeReference`합니다.
 
 ### <a name="json-file-patterns"></a>JSON 파일 패턴
 
@@ -196,7 +199,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 **샘플 1: 개체 및 배열에서 데이터 추출**
 
-이 샘플에서는 테이블 형식 결과에서 하나의 루트 JSON 개체를 하나의 레코드로 매핑하는 것이 예상됩니다. 다음 내용을 포함하는 JSON 파일이 있고  
+이 샘플에서는 테이블 형식 결과에서 하나의 루트 JSON 개체를 하나의 레코드로 매핑하는 것이 예상됩니다. 다음 내용을 포함하는 JSON 파일이 있고
 
 ```json
 {
@@ -408,6 +411,9 @@ SQL Database에 다음 테이블이 있는 경우:
 
 ## <a name="parquet-format"></a>Parquet 형식
 
+>[!NOTE]
+>Data Factory 소개 새 Parquet 형식으로 데이터 집합을 참조 하십시오 [Parquet 형식](format-delimited-text.md) 세부 정보가 포함 된 문서입니다. 파일 기반 데이터 저장소 데이터 집합의 다음 구성으로 계속 지원-이전 버전과 compabitility입니다. 앞으로 새 모델을 사용 하도록 제안 됩니다.
+
 Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 
 ```json
@@ -426,13 +432,13 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 > [!IMPORTANT]
 > 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
-자체 호스팅 IR에서 Parquet 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다. 
+자체 호스팅 IR에서 Parquet 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
 
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 >[!TIP]
->자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다. 
+>자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
 
 ![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -483,7 +489,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 > [!IMPORTANT]
 > 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 ORC 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
 
-자체 호스팅 IR에서 ORC 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다. 
+자체 호스팅 IR에서 ORC 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
 
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
@@ -533,12 +539,12 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터를 지원합니다. 입력 데이터 세트에서 `compression` 속성을 지정하는 경우 복사 작업은 원본에서 압축된 데이터를 읽고 압축을 풉니다. 출력 데이터 세트에서 속성을 지정하는 경우 복사 작업은 데이터를 압축하고 싱크에 작성합니다. 다음은 몇 가지 샘플 시나리오입니다.
 
-* Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL Database에 결과 데이터를 작성합니다. `compression``type` 속성인 입력 Azure Blob 데이터 세트를 GZIP으로 정의합니다.
+* Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 Azure SQL 데이터베이스에 결과 데이터를 작성합니다. `compression``type` 속성인 입력 Azure Blob 데이터 세트를 GZIP으로 정의합니다.
 * 온-프레미스 파일 시스템에서 일반 텍스트 파일에서 데이터를 읽고 GZip 형식을 사용하여 압축하고 Azure Blob에 압축된 데이터를 작성합니다. `compression``type` 속성인 출력 Azure Blob 데이터 세트를 GZIP으로 정의합니다.
 * FTP 서버에서 .zip 파일을 읽고, 압축을 풀어서 내부에 있는 파일을 가져오고, Azure Data Lake Store에 해당 파일을 보관합니다. `compression``type` 속성인 입력 FTP 데이터 세트를 ZipDeflate으로 정의합니다.
 * Azure Blob에서 GZIP 압축 데이터를 읽고 압축을 풀고 BZIP2를 사용하여 압축하고 Azure Blob에 결과 데이터를 작성합니다. `compression``type` 집합인 입력 Azure Blob 데이터 세트를 GZIP으로 정의하고 `compression``type` 집합인 출력 데이터 세트를 BZIP2로 정의합니다.
 
-데이터 세트에 대한 압축을 지정하려면 다음 예제와 같이 데이터 세트 JSON의 **압축** 속성을 사용합니다.   
+데이터 세트에 대한 압축을 지정하려면 다음 예제와 같이 데이터 세트 JSON의 **압축** 속성을 사용합니다.
 
 ```json
 {
@@ -579,11 +585,12 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>지원 되지 않는 파일 형식 및 압축 형식
 
-지원 되지 않는 파일을 변환 하 여 Azure Data Factory의 확장 기능을 사용할 수 있습니다. Azure Batch를 사용 하 여 Azure Functions 및 사용자 지정 태스크를 포함 하는 두 가지 옵션입니다.
+지원 되지 않는 파일을 변환 하 여 Azure Data Factory의 확장 기능을 사용할 수 있습니다.
+Azure Batch를 사용 하 여 Azure Functions 및 사용자 지정 태스크를 포함 하는 두 가지 옵션입니다.
 
 Azure 함수를 사용 하는 샘플을 볼 수 있습니다 [tar 파일의 압축을 풉니다](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)합니다. 자세한 내용은 [Azure Functions 활동](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)합니다.
 
-또한 사용자 지정 dotnet 작업을 사용 하 여이 기능을 빌드할 수 있습니다. 추가 정보가 [여기](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+또한 사용자 지정 dotnet 작업을 사용 하 여이 기능을 빌드할 수 있습니다. 추가 정보가 [여기](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>다음 단계
 

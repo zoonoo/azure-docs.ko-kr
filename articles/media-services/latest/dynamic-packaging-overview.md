@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886457"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869669"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
-Microsoft Azure Media Services를 사용하여 많은 미디어 소스 파일 형식, 미디어 스트리밍 형식 및 콘텐츠 보호 형식을 다양한 클라이언트 기술(예: iOS, XBOX)에 제공할 수 있습니다. 이러한 클라이언트는 여러 가지 프로토콜을 이해합니다. 예를 들어 iOS에는 HLS(HTTP 라이브 스트리밍) 형식이 필요하고, Xbox에는 부드러운 스트리밍이 필요합니다. 적응 비트 전송률 (다중 비트 전송률) 집합이 있는 경우 MP4 동적 활용을 걸릴 수 있습니다 (ISO 기본 미디어 14496-12) 파일, HLS, MPEG DASH 또는 부드러운 스트리밍을 이해 하는 클라이언트 제공 하려는 적응 비트 전송률 부드러운 스트리밍 파일 집합 패키지입니다. 패키징이 비디오 해상도를 알 수 없는, SD/HD/초과-4k 지원 됩니다.
+Microsoft Azure Media Services를 사용하여 많은 미디어 소스 파일 형식, 미디어 스트리밍 형식 및 콘텐츠 보호 형식을 다양한 클라이언트 기술(예: iOS, XBOX)에 제공할 수 있습니다. 이러한 클라이언트는 여러 가지 프로토콜을 이해합니다. 예를 들어 iOS에는 HLS(HTTP 라이브 스트리밍) 형식이 필요하고, Xbox에는 부드러운 스트리밍이 필요합니다. 적응 비트 전송률 (다중 비트 전송률) 집합이 있으면 MP4 활용을 걸릴 수 있습니다 (ISO 기본 미디어 14496-12) 파일, HLS, MPEG DASH 또는 부드러운 스트리밍을 이해 하는 클라이언트 제공 하려는 적응 비트 전송률 부드러운 스트리밍 파일 집합이  **동적 패키징**합니다. 패키징이 비디오 해상도를 알 수 없는, SD/HD/초과-4k 지원 됩니다.
 
-[스트리밍 끝점](streaming-endpoint-concept.md) 는 미디어 콘텐츠를 클라이언트 플레이어를 제공 하는 데 사용 하는 Media Services의 동적 패키징 서비스입니다. 모든 표준 제공 되는 기능은 동적 패키징 **스트리밍 끝점** (표준 또는 프리미엄). 
+Media Services에는 [스트리밍 끝점](streaming-endpoint-concept.md) 를 클라이언트 플레이어 응용 프로그램에 직접, 일반적인 스트리밍 중 하나를 사용 하 여 라이브 및 주문형 콘텐츠를 배달할 수 있는 동적 (-just-in-time) 패키징 및 원본 서비스를 나타냅니다 미디어 프로토콜 (HLS 또는 DASH)입니다. 모든 표준 제공 되는 기능은 동적 패키징 **스트리밍 끝점** (표준 또는 프리미엄). 
 
 활용 하기 위해 **동적 패키징**를 할 수는 **자산** 적응 비트 전송률 MP4 파일 집합과 Media Services 동적 패키징에 필요한 스트리밍 구성 파일을 사용 하 여 합니다. 파일을 얻는 한 가지 방법은 Media Services를 사용하여 mezzanine(원본) 파일을 인코딩하는 것입니다. 비디오 인코딩된 자산에서 사용할 수 있도록 재생에 대 한 클라이언트를 만들 필요가 **스트리밍 로케이터** 스트리밍 Url 작성 하 고 있습니다. 그런 다음 지정된 된 형식에 스트리밍 클라이언트 매니페스트 (HLS, DASH 또는 부드러운 스트리밍)에 따라 있습니다 스트림을 받을 사용자가 선택한 프로토콜로 합니다.
 
@@ -77,7 +77,7 @@ Media Encoder Standard 형식 및 코덱 목록은 참조 하세요. [형식 및
 
 ## <a name="delivery-protocols"></a>배달 프로토콜
 
-|프로토콜|예|
+|Protocol|예|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
@@ -197,6 +197,10 @@ DASH 매니페스트 예는 다음과 같습니다.
 
 > [!NOTE]
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
+
+## <a name="provide-feedback"></a>피드백 제공
+
+[Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

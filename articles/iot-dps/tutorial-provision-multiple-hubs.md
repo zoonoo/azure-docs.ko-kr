@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248167"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>부하가 분산된 IoT Hub 간 디바이스 프로비전
 
@@ -26,7 +26,7 @@ ms.locfileid: "41919831"
 > * Device Provisioning Service 할당 정책을 **균등하게 배포**로 설정
 > * Device Provisioning Service에 새 IoT Hub 연결
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="use-the-azure-portal-to-provision-a-second-device-to-a-second-iot-hub"></a>Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 디바이스를 프로비전
 
-[허브에 장치 프로비전](tutorial-provision-device-to-hub.md) 자습서의 단계를 수행하여 다른 IoT Hub에 두 번째 장치를 프로비전합니다.
+[허브에 디바이스 프로비전](tutorial-provision-device-to-hub.md) 자습서의 단계를 수행하여 다른 IoT Hub에 두 번째 디바이스를 프로비전합니다.
 
 ## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>두 번째 디바이스에 등록 목록 항목 추가
 
@@ -46,11 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Device Provisioning Service 할당 정책 설정
 
-할당 정책은 IoT Hub에 디바이스를 할당하는 방법을 결정하는 Device Provisioning Service 설정입니다. 세 가지의 지원되는 할당 정책이 있습니다. 
+할당 정책은 IoT Hub에 디바이스를 할당하는 방법을 결정하는 Device Provisioning Service 설정입니다. 세 가지의 지원되는 할당 정책이 있습니다. 
 
-1. **최소 대기 시간**: 장치가 대기 시간이 가장 낮은 허브를 기준으로 IoT Hub에 프로비전됩니다.
-2. **균등 가중치 배포**(기본값): 연결된 IoT Hub들은 동일하게 해당 허브에 프로비전된 장치를 갖게 됩니다. 기본 설정입니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
-3. **등록 목록을 통한 고정 구성**: 등록 목록에서 원하는 IoT Hub의 사양을 Device Provisioning Service 수준 할당 정책보다 우선합니다.
+1. **최소 대기 시간**: 디바이스에 대한 대기 시간이 가장 짧은 허브에 기반하여 해당 디바이스가 IoT Hub로 프로비저닝됩니다.
+2. **동일 가중 배포**(기본값): 연결된 IoT Hub에서 디바이스를 프로비저닝하는 가능성이 동일합니다. 기본 설정입니다. 디바이스를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
+3. **등록 목록을 통해 정적 구성**: 등록 목록에 지정된 원하는 IoT Hub는 Device Provisioning Service 수준 할당 정책보다 우선 순위가 높습니다.
 
 할당 정책을 설정하려면 다음 단계를 수행합니다.
 

@@ -1,25 +1,19 @@
 ---
-title: 애플리케이션 큐레이션을 위한 필수 구성 요소 | Microsoft Docs
+title: 애플리케이션 큐레이션을 위한 필수 구성 요소
 description: 애플리케이션 큐레이션을 위한 필수 구성 요소 목록을 제공합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: a4596b711cd90610051faee0d09501c075548062
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: 0219d7e8a94dd6710c553f2133442867e39f6870
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991896"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935538"
 ---
 # <a name="prerequisites-for-application-curation"></a>애플리케이션 큐레이션을 위한 필수 구성 요소
 
