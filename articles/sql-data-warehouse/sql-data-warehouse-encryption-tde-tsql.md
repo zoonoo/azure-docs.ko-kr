@@ -33,7 +33,7 @@ TDE(투명한 데이터 암호화)를 사용하려면 관리자 또는 dbmanager
 ## <a name="enabling-encryption"></a>암호화 설정
 SQL Data Warehouse에 대한 TDE를 사용하려면 다음 단계를 따르세요.
 
-1. 마스터 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 데이터베이스를 호스팅하는 서버의 **마스터** 데이터베이스에 연결
+1. master 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 데이터베이스를 호스팅하는 서버의 **master** 데이터베이스에 연결합니다.
 2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
 
 ```sql
@@ -43,8 +43,8 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ## <a name="disabling-encryption"></a>암호화 비활성화
 SQL Data Warehouse에 대한 TDE를 사용하지 않으려면 다음 단계를 따르세요.
 
-1. 마스터 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **마스터** 데이터베이스에 연결
-2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
+1. master 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **master** 데이터베이스에 연결합니다
+2. 다음 문을 실행하여 데이터베이스 암호화를 비활성화합니다.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
@@ -58,8 +58,8 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ## <a name="verifying-encryption"></a>암호화 확인
 SQL Data Warehouse에 대한 암호화 상태를 확인하려면 다음 단계를 따르세요.
 
-1. 마스터 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **마스터** 또는 인스턴스 데이터베이스에 연결
-2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
+1. master 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **master** 또는 인스턴스 데이터베이스에 연결합니다
+2. 다음 문을 실행하여 데이터베이스 암호화를 확인합니다.
 
 ```sql
 SELECT
