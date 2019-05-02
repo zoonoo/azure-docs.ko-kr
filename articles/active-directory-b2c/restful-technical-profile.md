@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 RESTful 기�
 description: Azure Active Directory B2C의 사용자 지정 정책에서 RESTful 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418304"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705311"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
@@ -33,7 +33,7 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 - **유효성 검사 기술 프로필** - 유효성 검사 기술 프로필은 RESTful 서비스를 호출합니다. 유효성 검사 기술 프로필은 사용자 경험이 계속되기 전에 사용자가 제공한 데이터의 유효성을 검사합니다. 유효성 검사 기술 프로필을 사용하면 오류 메시지가 자체 어설션된 페이지에 표시되고 출력 클레임에 반환됩니다.
 - **클레임 교환** - 오케스트레이션 단계를 통해 RESTful 서비스가 호출됩니다. 이 시나리오에서는 오류 메시지를 렌더링하는 사용자 인터페이스가 없습니다. REST API가 오류를 반환하는 경우 오류 메시지와 함께 사용자가 신뢰 당사자 애플리케이션으로 다시 리디렉션됩니다.
 
-## <a name="protocol"></a>프로토콜
+## <a name="protocol"></a>Protocol
 
 **Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 Azure AD B2C에서 사용되는 프로토콜 처리기 어셈블리의 정규화된 이름을 포함해야 합니다. `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -85,8 +85,8 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ServiceUrl | 예. | REST API 엔드포인트의 URL입니다. | 
-| AuthenticationType | 예. | RESTful 클레임 공급자가 수행하는 인증 형식입니다. 가능한 값은 `None`, `Basic` 또는 `ClientCertificate`입니다. `None` 값은 REST API가 익명이 아님을 나타냅니다. `Basic` 값은 REST API가 HTTP 기본 인증으로 보호됨을 나타냅니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. `ClientCertificate`(권장) 값은 REST API가 클라이언트 인증서 인증을 사용한 액세스를 제한함을 나타냅니다. Azure AD B2C와 같은 적절한 인증서를 가진 서비스만 사용자 서비스에 액세스할 수 있습니다. | 
+| ServiceUrl | 예 | REST API 엔드포인트의 URL입니다. | 
+| AuthenticationType | 예 | RESTful 클레임 공급자가 수행하는 인증 형식입니다. 가능한 값은 `None`, `Basic` 또는 `ClientCertificate`입니다. `None` 값은 REST API가 익명이 아님을 나타냅니다. `Basic` 값은 REST API가 HTTP 기본 인증으로 보호됨을 나타냅니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. `ClientCertificate`(권장) 값은 REST API가 클라이언트 인증서 인증을 사용한 액세스를 제한함을 나타냅니다. Azure AD B2C와 같은 적절한 인증서를 가진 서비스만 사용자 서비스에 액세스할 수 있습니다. | 
 | SendClaimsIn | 아닙니다. | 입력 클레임이 RESTful 클레임 공급자에게 전송되는 방법을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 입력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 입력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 입력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 입력 클레임입니다. | 
 | ClaimsFormat | 아닙니다. | 출력 클레임의 형식을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 출력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 출력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 출력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 출력 클레임입니다. | 
 | DebugMode | 아닙니다. | 디버그 모드에서 기술 프로필을 실행합니다. 디버그 모드에서 REST API는 자세한 정보를 반환할 수 있습니다. 오류 메시지 반환 섹션을 참조하세요. | 
@@ -111,8 +111,8 @@ Azure AD(Active Directory) B2C에서는 고유한 RESTful 서비스를 지원합
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | 예. | 인증에 사용되는 사용자 이름입니다. | 
-| BasicAuthenticationPassword | 예. | 인증에 사용되는 암호입니다. |
+| BasicAuthenticationUsername | 예 | 인증에 사용되는 사용자 이름입니다. | 
+| BasicAuthenticationPassword | 예 | 인증에 사용되는 암호입니다. |
 
 다음 예제는 기본 인증을 사용하는 기술 프로필을 보여 줍니다.
 
@@ -159,11 +159,11 @@ REST API가 'CRM 시스템에서 사용자를 찾을 수 없습니다.'와 같�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 버전 | 예. | 1.0.0 | 
+| 버전 | 예 | 1.0.0 | 
 | status | 예 | 409 | 
 | 코드 | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 오류 코드입니다. | 
 | requestId | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는 RESTful 엔드포인트 공급자의 요청 식별자입니다. | 
-| userMessage | 예. | 사용자에게 표시되는 오류 메시지입니다. | 
+| userMessage | 예 | 사용자에게 표시되는 오류 메시지입니다. | 
 | developerMessage | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는, 문제점 및 해결 방법에 대한 자세한 설명입니다. | 
 | moreInfo | 아닙니다. | `DebugMode`를 사용으로 설정한 경우에 표시되는, 추가 정보를 가리키는 URI입니다. | 
 

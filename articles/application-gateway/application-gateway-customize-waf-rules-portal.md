@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733719"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720389"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Azure Portal을 통해 웹 애플리케이션 방화벽 규칙 사용자 지정
 
@@ -33,11 +33,14 @@ Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리
 
 ## <a name="search-for-rules-to-disable"></a>사용하지 않을 규칙 검색
 
-**웹 애플리케이션 방화벽 설정** 블레이드는 텍스트 검색으로 규칙을 필터링하는 기능을 제공합니다. 검색 텍스트가 포함된 규칙 그룹 및 규칙만 결과에 표시됩니다.
+합니다 **웹 응용 프로그램 방화벽 설정** 페이지 텍스트 검색을 통해 규칙을 필터링 하는 기능을 제공 합니다. 검색 텍스트가 포함된 규칙 그룹 및 규칙만 결과에 표시됩니다.
 
 ![규칙 검색][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>규칙 그룹 및 규칙을 사용하지 않도록 설정
+
+> [!IMPORTANT]
+> 모든 규칙 그룹 또는 규칙을 사용 하지 않도록 설정 하는 경우에 주의 해야 합니다. 이 향상 된 보안 위험에 노출 될 수 있습니다.
 
 규칙을 비활성화 하는 경우에 하나 이상의 규칙 그룹에서 특정 규칙 또는 규칙 그룹 전체를 비활성화할 수 있습니다. 
 
@@ -51,7 +54,9 @@ Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리
 
 ## <a name="mandatory-rules"></a>필수 규칙
 
-다음 목록에는 WAF (검색 모드에서 예외로 기록 됩니다) 방지 모드에서 요청을 차단 하는 조건이 포함 됩니다. 이러한 구성 하거나 비활성화할 수 있습니다.
+다음은 WAF 방지 모드에서 요청을 차단 하도록 유도 하는 조건을 포함 합니다. 검색 모드에서 예외로 기록한 것입니다.
+
+이러한 구성 하거나 비활성화할 수 있습니다.
 
 * 요청 본문을 구문 분석 하지 못하면 차단 되 고 요청에 본문 검사 됩니다 (XML, JSON, 양식 데이터)를 해제 하지 않는다면
 * 요청 본문 (파일 없음)와 데이터 길이 구성된 된 제한 보다 큽니다.

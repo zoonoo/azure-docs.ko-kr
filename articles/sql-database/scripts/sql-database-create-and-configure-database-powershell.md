@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59356674"
 ---
-# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 SQL Database 서버 방화벽 규칙 구성
+# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>PowerShell을 사용하여 단일 Azure SQL 데이터베이스 만들기 및 SQL Database 서버 방화벽 규칙 구성
 
-이 PowerShell 스크립트 예제는 Azure SQL Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. 스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 SQL Database에 액세스할 수 있습니다.
+이 PowerShell 스크립트 예제는 Azure SQL 데이터베이스를 만들고 서버 수준 방화벽 규칙을 구성합니다. 스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 SQL Database에 액세스할 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

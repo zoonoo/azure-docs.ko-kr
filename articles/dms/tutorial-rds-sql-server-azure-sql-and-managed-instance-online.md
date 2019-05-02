@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59998977"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 RDS SQL Server를 Azure SQL Database 관리형 인스턴스로 온라인 마이그레이션
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 RDS SQL Server를 Azure SQL Database 또는 Azure SQL Database 관리형 인스턴스 온라인으로 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 RDS SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 또는 [Azure SQL Database 관리형 인스턴스](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)로 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2012 이상의 RDS SQL Server 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database 또는 Azure SQL Database 관리형 인스턴스로 마이그레이션합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -99,12 +99,12 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 DMA를 사용하여 Azure SQL Database로 스키마를 마이그레이션합니다.
 
 > [!NOTE]
-> DMA에서 마이그레이션 프로젝트를 만들기 전에 필수 구성 요소에서 설명한 대로 Azure SQL Database를 이미 프로비전했는지 확인합니다. 이 자습서에서는 Azure SQL Database 이름이 **AdventureWorks2012**라고 가정하지만, 본인이 원하는 이름으로 지정해도 됩니다.
+> DMA에서 마이그레이션 프로젝트를 만들기 전에 필수 구성 요소에서 설명한 대로 Azure SQL 데이터베이스를 이미 프로비전했는지 확인합니다. 이 자습서에서는 Azure SQL Database 이름이 **AdventureWorks2012**라고 가정하지만, 본인이 원하는 이름으로 지정해도 됩니다.
 
 **AdventureWorks2012** 스키마를 Azure SQL Database로 마이그레이션하려면 다음 단계를 수행합니다.
 
 1.  Data Migration Assistant에서 새로 만들기(+) 아이콘을 선택하고 **속성 유형**에서 **마이그레이션**을 선택합니다.
-2.  프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **SQL Server**를 선택하고, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Database**를 선택합니다.
+2.  프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **SQL Server**를 선택한 다음, **대상 서버 유형** 텍스트 상자에서 **Azure SQL Database**를 선택합니다.
 3.  **마이그레이션 범위**에서 **스키마만**을 선택합니다.
 
     이전 단계가 수행되면 다음 그래픽과 같이 DMA 인터페이스가 표시됩니다.

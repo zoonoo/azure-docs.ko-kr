@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681457"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876843"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -21,7 +21,7 @@ ms.locfileid: "59681457"
 
 ## <a name="supported-region"></a>지원 되는 지역
 
-Recovery Services 자격 증명은 오스트레일리아 동부, 오스트레일리아 남동부, 캐나다 중부, 캐나다 동부, 동남 아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 동부 2에서 지원에 대 한 리소스 이동 남 중앙 미국 중서부, 미국 중서부 US2, 미국 서 부, 인도 중부, 인도 남부, 일본 동부, 일본 서 부, 한국 중부, 대한민국 남부, 북유럽, 유럽 서 부, 남아프리카 공화국 북부, 남아프리카 공화국 서 부, 영국 남부, 영국 서 부, 아랍에미리트 중부 및 아랍에미리트 북부 합니다.
+Recovery Services 자격 증명은 오스트레일리아 동부, 오스트레일리아 남동부, 캐나다 중부, 캐나다 동부, 동남 아시아, 동아시아, 미국 중부, 미국 중 북부, 미국 동부, 미국 동부 2에서 지원에 대 한 리소스 이동 남 중앙 미국 중서부, 미국 중서부 US2, 미국 서 부, 인도 중부, 인도 남부, 일본 동부, 일본 서 부, 한국 중부, 대한민국 남부, 북유럽, 유럽 서 부, 남아프리카 공화국 북부, 남아프리카 공화국 서 부, 영국 남부 및 영국 서 부입니다.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 이동에 대 한 필수 구성 요소
 

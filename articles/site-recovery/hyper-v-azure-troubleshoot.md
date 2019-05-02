@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149091"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719830"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -129,7 +129,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 2. VM에 대한 VSS 스냅숏을 생성하려면 VM에서 Hyper-V Integration Services가 설치되어 있는지와 Backup(VSS) Integration Services가 사용되도록 설정되어 있는지 확인합니다.
     - Integration Services VSS 서비스/디먼이 게스트에서 실행되고 있는지와 **정상** 상태인지 확인합니다.
-    - Hyper-V 호스트의 관리자 권한 PowerShell 세션에서 **et-VMIntegrationService -VMName<VMName>-Name VSS** 명령을 사용하여 이 내용을 확인할 수 있습니다. 게스트 VM에 로그인하여 이 정보를 가져올 수도 있습니다. [자세히 알아보기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - 명령 사용 하 여 Hyper-v 호스트에서 관리자 권한 PowerShell 세션에서이 확인할 수 있습니다 **Et-vmintegrationservice-VMName\<VMName >-Name VSS** 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아보기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - VM에서 Backup/VSS Integration Services가 실행되고 있는지와 정상 상태인지 확인합니다. 그렇지 않은 경우, 이러한 서비스와 Hyper-V 호스트 서버의 Hyper-V 볼륨 섀도 복사본 요청자 서비스를 다시 시작합니다.
 
 ### <a name="common-errors"></a>일반 오류

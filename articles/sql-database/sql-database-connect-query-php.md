@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58448942"
 ---
-# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL Database 쿼리
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL 데이터베이스 쿼리
 
 이 문서에서는 [PHP](https://php.net/manual/en/intro-whatis.php)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
 

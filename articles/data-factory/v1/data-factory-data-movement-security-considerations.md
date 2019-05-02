@@ -155,7 +155,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 | `*.servicebus.windows.net` | 443, 80 | Data Factory에서 데이터 이동 서비스에 연결하기 위해 게이트웨이가 필요합니다. |
 | `*.core.windows.net` | 443 | [복사 준비](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용할 때 게이트웨이가 Azure Storage 계정에 연결하는 데 사용합니다. | 
 | `*.frontend.clouddatahub.net` | 443 | Azure Data Factory 서비스에 연결하기 위해 게이트웨이가 필요합니다. | 
-| `*.database.windows.net` | 1433   | (선택 사항) 목적지가 Azure SQL Database/Azure SQL Data Warehouse 인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database/Azure SQL Data Warehouse에 데이터를 복사합니다. | 
+| `*.database.windows.net` | 1433   | (선택 사항) 목적지가 Azure SQL Database/Azure SQL Data Warehouse인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database/Azure SQL Data Warehouse에 데이터를 복사합니다. | 
 | `*.azuredatalakestore.net` | 443 | (선택 사항) 목적지가 Azure Data Lake 매장인 경우 필요 | 
 
 > [!NOTE] 

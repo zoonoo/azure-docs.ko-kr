@@ -1,19 +1,18 @@
 ---
 title: Apache Kafka HDInsight 클러스터에 대 한 성능 최적화
 description: Azure HDInsight에서 Apache Kafka 워크 로드를 최적화 하기 위한 기술의 개요를 제공 합니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576761"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689348"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Apache Kafka HDInsight 클러스터에 대 한 성능 최적화
 

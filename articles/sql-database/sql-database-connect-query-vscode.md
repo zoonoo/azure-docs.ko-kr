@@ -22,7 +22,7 @@ ms.locfileid: "59357124"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio Code를 사용하여 Azure SQL Database 연결 및 쿼리
 
-[Visual Studio Code](https://code.visualstudio.com/docs)는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원합니다. 이 빠른 시작에서는 Visual Studio Code를 사용하여 Azure SQL Database에 연결한 다음, Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다.
+[Visual Studio Code](https://code.visualstudio.com/docs)는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원합니다. 이 빠른 시작에서는 Visual Studio Code를 사용하여 Azure SQL 데이터베이스에 연결한 다음, Transact-SQL 문을 실행하여 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

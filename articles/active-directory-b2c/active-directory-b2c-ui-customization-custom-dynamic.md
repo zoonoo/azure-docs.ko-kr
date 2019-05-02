@@ -3,19 +3,19 @@ title: 사용자 지정 정책을 사용하여 동적으로 Azure Active Directo
 description: 런타임 시 동적으로 변경되는 HTML5/CSS 콘텐츠로 여러 브랜딩 환경을 지원합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c655a1ed7cefcc7af8a22ed1d869b1a2e8b81715
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316804"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708883"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 

@@ -11,7 +11,7 @@ ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
 ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2019
 ms.locfileid: "57588723"
@@ -21,7 +21,7 @@ ms.locfileid: "57588723"
 Azure Stream Analytics 작업은 Azure Portal, Azure PowerShell, .Net 또는 REST API용 Azure SDK를 통해 쉽게 삭제될 수 있습니다. 삭제 된 후에 Stream Analytics 작업을 복구할 수 없습니다.
 
 >[!NOTE] 
->Stream Analytics 작업을 중지한 경우 Event Hubs 또는 Azure SQL Database와 같은 입력 및 출력 저장소에서만 데이터가 유지됩니다. Azure에서 데이터를 제거해야 하는 경우 Stream Analytics 작업의 입력 및 출력 리소스에 대해 제거 프로세스를 수행해야 합니다.
+>Stream Analytics 작업을 중지한 경우 Event Hubs 또는 Azure SQL Database와 같은 입력 및 출력 스토리지에서만 데이터가 유지됩니다. Azure에서 데이터를 제거해야 하는 경우 Stream Analytics 작업의 입력 및 출력 리소스에 대해 제거 프로세스를 수행해야 합니다.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Azure Portal에서 작업 중지
 

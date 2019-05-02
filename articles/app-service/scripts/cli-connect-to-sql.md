@@ -25,7 +25,7 @@ ms.locfileid: "53634255"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>CLI를 사용하여 SQL Database에 App Service 앱 연결
 
-이 샘플 스크립트는 Azure SQL Database 및 App Service 앱을 만듭니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
+이 샘플 스크립트는 Azure SQL 데이터베이스 및 App Service 앱을 만듭니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

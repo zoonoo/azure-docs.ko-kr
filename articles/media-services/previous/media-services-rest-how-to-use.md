@@ -14,15 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293620"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687052"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
+
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
 
 **Media Services Operations REST** API는 Media Services 계정에서 작업, 자산, 라이브 채널 및 기타 리소스를 만드는 데 사용됩니다. 자세한 내용은 [Media Services Operations REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요.
 
@@ -78,15 +80,15 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 | Accept-Charset |"UTF-8"과 같은 문자 집합 유형 |기본값은 UTF-8입니다. |
 | X-HTTP-Method |HTTP 메서드 |PUT 또는 DELETE와 같이 HTTP 메서드를 지원하지 않는 클라이언트나 방화벽이 GET 호출을 통해 터널링된 이러한 메서드를 사용하도록 허용합니다. |
 | 콘텐츠 형식 |콘텐츠 형식 |PUT 또는 POST 요청에서 요청 본문의 콘텐츠 형식입니다. |
-| client-request-id |문자열 |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
+| client-request-id |String |지정된 요청을 식별하는 호출자 정의 값입니다. 지정된 경우 이 값은 요청을 매핑하는 방법으로 응답 메시지에 포함됩니다. <p><p>**중요**<p>값은 2096b(2k)에서 제한되어야 합니다. |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
 | 헤더 | Type | 값 |
 | --- | --- | --- |
-| request-id |문자열 |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
-| client-request-id |문자열 |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
+| request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
+| client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
 | Date |RFC 1123 날짜 |요청이 처리된 날짜/시간입니다. |
 | 콘텐츠 형식 |다름 |응답 본문의 콘텐츠 형식입니다. |
 | Content-Encoding |다름 |Gzip 또는 deflate를 적절하게 합니다. |

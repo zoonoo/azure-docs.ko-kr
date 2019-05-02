@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800052"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -88,10 +88,10 @@ Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage �
 | (선택 사항) AADClientCertificate | thumbprint | 문자열 |
 | EncryptionOperation | EnableEncryption | 문자열 | 
 | KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | 문자열 |
-| KeyEncryptionKeyURL | URL | 문자열 |
+| KeyEncryptionKeyURL | url | 문자열 |
 | KeyVaultResourceId | 리소스 uri | 문자열 |
 | KekVaultResourceId | 리소스 uri | 문자열 |
-| KeyVaultURL | URL | 문자열 |
+| KeyVaultURL | url | 문자열 |
 | SequenceVersion | uniqueidentifier | 문자열 |
 | VolumeType | OS, Data, All | 문자열 |
 

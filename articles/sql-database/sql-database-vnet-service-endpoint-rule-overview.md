@@ -232,7 +232,7 @@ PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database Blob 감사
 
-Blob 감사는 사용자 고유의 스토리지 계정에 감사 로그를 푸시합니다. 이 저장소 계정에서 VNet 서비스 엔드포인트 기능을 사용하는 경우 Azure SQL Database에서 저장소 계정으로의 연결이 끊어집니다.
+Blob 감사는 사용자 고유의 스토리지 계정에 감사 로그를 푸시합니다. 이 저장소 계정에서 VNet 서비스 엔드포인트 기능을 사용하는 경우 Azure SQL Database에서 스토리지 계정으로의 연결이 끊어집니다.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNet 서비스 엔드포인트를 켜지 않고 서버에 VNet 방화벽 규칙 추가
 

@@ -19,4 +19,4 @@ ms.locfileid: "55105054"
 
 |  |  |
 |---------|---------|
-| [가상 네트워크 엔드포인트에 대한 자격 증명 모음 감사 없음](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Key Vault 자격 증명 모음을 감사하여 가상 네트워크 엔드포인트가 없는 인스턴스를 검색합니다. |
+| [가상 네트워크 엔드포인트에 대한 자격 증명 모음 감사 없음](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Key Vault 자격 증명 모음을 감사하여 가상 네트워크 서비스 엔드포인트가 없는 인스턴스를 검색합니다. |

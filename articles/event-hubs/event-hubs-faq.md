@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162648"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690282"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -50,6 +50,47 @@ Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니�
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>내 Event Hubs를 모니터링하려면 어떻게 할까요?
 Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태를 제공하는 자세한 메트릭을 내보냅니다. 또한 네임스페이스 수준뿐만 아니라 엔터티 수준에서도 Event Hubs 서비스의 전반적인 상태를 평가할 수 있습니다. [Azure Event Hubs](event-hubs-metrics-azure-monitor.md)에 제공되는 모니터링에 대해 알아보세요.
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>어떤 포트가 방화벽에서 열려는 하나요? 
+Azure Service Bus를 사용 하 여 메시지를 수신 하는 다음 프로토콜을 사용할 수 있습니다.
+
+- AMQP(고급 메시지 큐 프로토콜)
+- HTTP
+- Apache Kafka
+
+Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 사용 하 여 필요한 아웃 바운드 포트 다음 표를 참조 하세요. 
+
+| Protocol | 포트 | 세부 정보 | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 및 5672 | 참조 [AMQP 프로토콜 가이드](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | 참조 [Kafka 응용 프로그램에서 사용 하 여 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>어떤 IP 주소를 화이트 리스트 하나요?
+연결에 대 한 허용 목록에 올바른 IP 주소를 찾으려면 다음이 단계를 수행 합니다.
+
+1. 명령 프롬프트에서 다음 명령을 실행 합니다. 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 이 IP 주소는 정적입니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
+
+네임 스페이스에 대 한 영역 중복을 사용 하는 경우에 몇 가지 추가 단계를 수행 해야 합니다. 
+
+1. 첫째, 네임 스페이스에서 nslookup을 실행합니다.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. 이름 적어 합니다 **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. 접미사 s1, s2 및 s3 세 가용성 영역에서 실행 중인 모든 세 인스턴스의 IP 주소를 사용 하 여 각각에 대해 nslookup을 실행 합니다. 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka 통합
 

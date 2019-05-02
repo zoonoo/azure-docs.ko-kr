@@ -2,24 +2,17 @@
 title: 클라우드 마켓플레이스의 리드 관리 | Azure Marketplace 및 AppSource
 description: Azure Marketplace 및 AppSource에 제안 및 기술 아티팩트를 게시하는 것과 관련된 다양한 주제의 개요
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nunoc
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 810298fc45becf132da6f082df7ad33e7af828aa
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4055b1a30c1868f701de281b5de8d648d576219e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735544"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937896"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>클라우드 마켓플레이스의 리드 관리
 
@@ -138,7 +131,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|\<Offer Name> 
 
 oid = 00Do0000000ZHog 
 

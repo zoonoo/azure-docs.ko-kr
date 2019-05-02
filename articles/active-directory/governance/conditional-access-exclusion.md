@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351603"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571370"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>조건부 액세스 정책에서 제외 된 사용자 관리를 사용 하 여 Azure AD 액세스 검토
 
@@ -36,9 +36,9 @@ IT 관리자 권한으로 [Azure AD 조건부 액세스](../conditional-access/o
 
 또 다른 예로 조건부 액세스에서 [명명된 위치](../conditional-access/location-condition.md)를 사용하여 사용자가 해당 테넌트에 액세스할 수 있도록 하지 않으려는지방 및 지역 집합을 구성할 수 있습니다.
 
-![이름 지정된 위치](./media/conditional-access-exclusion/named-locations.png)
+![명명된 위치](./media/conditional-access-exclusion/named-locations.png)
 
-그러나 경우에 따라 사용자에게는 이러한 차단된 국가에서 로그인할 정당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장이나 개인적인 여행 중일 수도 있습니다. 이 예제에서 이러한 국가를 차단하는 조건부 액세스 정책에는 정책에서 제외된 사용자 전용 클라우드 보안 그룹이 있을 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
+그러나 경우에 따라 사용자가이 차단 된 국가/지역에서 로그인 하는 정당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장이나 개인적인 여행 중일 수도 있습니다. 이 예제에서 이러한 국가/지역 차단 하는 조건부 액세스 정책을 정책에서 제외 된 사용자에 대 한 전용된 클라우드 보안 그룹을 가질 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
 
 또 다른 예로 [대부분의 사용자에 대해 레거시 인증을 차단하는](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/) 조건부 액세스 정책이 있는 경우를 들 수 있습니다. 보안 태세를 개선하기 위해 테넌트에서 레거시 프로토콜의 사용을 차단하는 것이 좋습니다. 그러나 일부 사용자가 반드시 레거시 인증 방법을 사용하여 Office 2010 또는 POP/IMAP/SMTP 기반 클라이언트를 통해 리소스에 액세스해야 하는 경우 이러한 사용자를 레거시 인증 방법을 차단하는 정책에서 제외할 수 있습니다.
 
@@ -97,9 +97,9 @@ Azure AD에서는 사용자 집합에 조건부 액세스 정책의 범위를 �
 
 조건부 액세스 정책에서 제외를 관리하기 위해 액세스 검토를 사용할 수 있는 두 가지 예제를 살펴보겠습니다.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>예제 1: 차단된 국가에서 액세스하는 사용자에 대한 액세스 검토
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>예제 1: 차단 된 국가/지역에서 액세스 하는 사용자에 대 한 액세스 검토
 
-특정 국가로부터 액세스를 차단하는 조건부 액세스 정책이 있다고 가정하겠습니다. 여기에는 정책에서 제외된 그룹이 포함됩니다. 그룹의 멤버를 검토하는 권장되는 액세스 검토는 다음과 같습니다.
+조건부 액세스 정책을 특정 국가/지역에서 액세스 하는 요소를 있다고 가정해 보겠습니다. 여기에는 정책에서 제외된 그룹이 포함됩니다. 그룹의 멤버를 검토하는 권장되는 액세스 검토는 다음과 같습니다.
 
 > [!NOTE]
 > 액세스 검토를 만들려면 전역 관리자 또는 사용자 관리자 역할 필요 합니다.
@@ -110,9 +110,9 @@ Azure AD에서는 사용자 집합에 조건부 액세스 정책의 범위를 �
 
 3. 이 그룹의 모든 멤버는 검토할 범위에 있습니다.
 
-4. 각 사용자는 이렇게 차단된 국가에서 액세스되어야 하는지를 스스로 증명해야 하므로 그룹의 멤버여야 합니다.
+4. 각 사용자는 자체는이 차단 된 국가/지역에서 액세스할 수 있도록 해야 할, 따라서 해야 할 그룹의 구성원 이어야를 증명 해야 합니다.
 
-5. 사용자가 검토 요청에 응답하지 않는 경우 그룹에서 자동으로 제거됩니다. 따라서 이 국가를 여행하는 동안 테넌트에 더 이상 액세스할 수 없습니다.
+5. 사용자 검토 요청에 응답 하지 않습니다 그룹에서 자동으로 제거 되 고 따라서 더 이상 액세스할 수는 테 넌 트가 국가/지역으로 이동 하는 동안 해당 합니다.
 
 6. 사용자가 액세스 검토의 시작 및 완료를 알 수 있도록 메일 알림을 사용합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 520961fb4bd126ef878a779c10fb5689b8692c73
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392922"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683738"
 ---
 # <a name="eventstore-service-overview"></a>EventStore 서비스 개요
 
@@ -89,7 +89,7 @@ EventStore 서비스에는 클러스터의 이벤트 간에 상관 관계를 지
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
-              }
+              },
               {
                 "name": "PlacementConstraints",
                 "value": "(NodeType==<node_type_name_here>)"

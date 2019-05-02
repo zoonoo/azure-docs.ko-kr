@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804633"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733746"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "59804633"
 > [!NOTE]
 > 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. 최대 한도 열이 없는 경우 리소스에 조정 가능한 제한이 없습니다. 한도 이전에 지원 하 여 증가 하 고 다음 테이블에서 업데이트 된 한도 표시 되지 않는 경우 [무료로 온라인 고객 지원 요청을 개설](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| 리소스 | 기본 제한 | 
+| 리소스 | 기본 제한/최대 제한 | 
 | --- | --- |
 | 가상 네트워크 |1,000 |
 | 가상 네트워크당 서브넷 |3,000 |

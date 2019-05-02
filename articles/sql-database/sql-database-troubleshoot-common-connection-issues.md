@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database에 대한 일반적인 연결 문제 해결
-description: Azure SQL Database에 대한 일반적인 연결 오류를 확인 및 해결하는 단계
+description: Azure SQL Database에 대한 일반적인 연결 오류를 확인 및 해결하는 단계.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -48,7 +48,7 @@ Azure SQL Database에 대한 연결이 실패하면 [오류 메시지](sql-datab
 
 ## <a name="troubleshoot-transient-errors"></a>일시적인 오류 문제 해결
 
-애플리케이션이 Azure SQL Database에 연결할 때 다음 오류 메시지가 표시됩니다.
+애플리케이션이 Azure SQL 데이터베이스에 연결할 때 다음 오류 메시지가 표시됩니다.
 
 ```
 Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"
@@ -71,7 +71,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 ## <a name="troubleshoot-persistent-errors"></a>영구 오류 문제 해결
 애플리케이션이 Azure SQL Database 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.
 
-* 방화벽 구성. Azure SQL Database 또는 클라이언트 쪽 방화벽이 Azure SQL Database에 대한 연결을 차단하고 있습니다.
+* 방화벽 구성. Azure SQL 데이터베이스 또는 클라이언트 쪽 방화벽이 Azure SQL Database에 대한 연결을 차단하고 있습니다.
 * 클라이언트 쪽 네트워크 재구성: 예를 들어 새 IP 주소 또는 프록시 서버.
 * 사용자 오류: 예를 들어 연결 문자열에서 서버 이름과 같이 연결 매개 변수를 잘못 입력했습니다.
 

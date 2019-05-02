@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
 ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57576891"
@@ -110,7 +110,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | sparkVersion                 | 클러스터 형식이 "Spark"인 경우 Spark 버전입니다. | 아닙니다.       |
 | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다.  이러한 저장소 계정은 linkedServiceName에 지정된 저장소 계정과 동일한 지역에 생성된 HDInsight 클러스터와 동일한 지역에 있어야 합니다. | 아닙니다.       |
 | osType                       | 운영 체제 유형입니다. 허용되는 값은 다음과 같습니다. Linux 및 Windows(HDInsight 3.3에만 해당) 기본값은 Linux입니다. | 아닙니다.       |
-| hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL Database를 metastore로 사용하여 만들어집니다. | 아닙니다.       |
+| hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 metastore로 사용하여 만들어집니다. | 아닙니다.       |
 | connectVia                   | 이 HDInsight 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. 주문형 HDInsight 연결된 서비스의 경우 Azure 통합 런타임만 지원합니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아닙니다.       |
 | clusterUserName                   | 클러스터에 액세스하기 위한 사용자 이름입니다. | 아닙니다.       |
 | clusterPassword                   | 클러스터에 액세스하기 위한 보안 문자열 형식의 암호입니다. | 아닙니다.       |

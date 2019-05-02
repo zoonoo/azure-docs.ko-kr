@@ -1,6 +1,6 @@
 ---
-title: PowerShell 예제 - 여러 Azure SQL Database 간 동기화 | Microsoft Docs
-description: 이 문서에서는 여러 Azure SQL Database 간의 동기화를 수행하는 Azure PowerShell 예제 스크립트를 제공합니다.
+title: PowerShell 예제 - 여러 Azure SQL 데이터베이스 간 동기화 | Microsoft Docs
+description: 이 문서에서는 여러 Azure SQL 데이터베이스 간의 동기화를 수행하는 Azure PowerShell 예제 스크립트를 제공합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,16 +12,16 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: b3a9be13a05ac2e5c42abb4848d9933983112dc6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: de11144680b253ac74f19e6545851b0f9e879c3b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387896"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>PowerShell을 사용하여 여러 SQL Databases 간 동기화
  
-이 PowerShell 예제는 여러 Azure SQL Database 간에 동기화를 수행하도록 데이터 동기화를 구성합니다.
+이 PowerShell 예제는 여러 Azure SQL 데이터베이스 간에 동기화를 수행하도록 데이터 동기화를 구성합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -32,7 +32,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 현재 Azure SQL 데이터 동기화는 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
+> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

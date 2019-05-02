@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: cb5676b2609ffb16dd1ef5454ee443bc69fab782
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 60f677c994eb3a30f9dcfb4c341a242b46960c94
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182322"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916601"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>빠른 시작: Translator Text API를 사용하여 Go를 통해 텍스트 언어 검색
 
@@ -164,7 +164,7 @@ go run detect-language.go
 
 ## <a name="sample-response"></a>샘플 응답
 
-국가 약어는 이 [언어 목록](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)에서 확인하세요.
+국가 약어는 이 [언어 목록](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)에서 확인하세요.
 
 ```json
 [

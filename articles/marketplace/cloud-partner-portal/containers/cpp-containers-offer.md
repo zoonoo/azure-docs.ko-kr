@@ -1,25 +1,18 @@
 ---
-title: Azure Container 이미지 제품 | Microsoft Docs
+title: Azure 컨테이너 이미지 제품 | Azure Marketplace
 description: Azure Marketplace에서 컨테이너 제안을 게시하는 프로세스에 대한 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/02/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e40e83e16ab2bfd43c3bb5fa38e52a778694e90e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 9617380822f5814d1cbd2bd2b69eac72722fe813
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980428"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942742"
 ---
 # <a name="containers"></a>컨테이너
 

@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288383"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717955"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>콘텐츠를 인식 하는 인코딩 사전 설정을 실험적에 있었음
 
-배달 하기 위해 콘텐츠를 준비 하기 위해 [적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), 비디오를 다중 비트 전송률 (낮은 높음)에서 인코딩할 수 해야 합니다. 정상적인 저하 품질을 보장 하기 위해 비트 전송률을 줄일 수 있으므로 비디오의 해상도입니다. 이 인해 소위 인코딩 사다리 – 테이블의 해상도 및 비트 전송률을 알 수 있듯이 고정된이 인코딩 사전 설정 중 일부와 같은 [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md)합니다.
+배달 하기 위해 콘텐츠를 준비 하기 위해 [적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), 비디오를 다중 비트 전송률 (낮은 높음)에서 인코딩할 수 해야 합니다. 정상적인 저하 품질을 보장 하기 위해 비트 전송률을 줄일 수 있으므로 비디오의 해상도입니다. 이 인해 소위 인코딩 사다리 – 해상도 및 비트 전송률로; 목차 Media Services를 참조 하세요 [기본 제공 인코딩 기본 설정은](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)합니다.
 
 ## <a name="overview"></a>개요
 

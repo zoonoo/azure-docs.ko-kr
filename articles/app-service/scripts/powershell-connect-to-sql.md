@@ -25,7 +25,7 @@ ms.locfileid: "56106208"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>SQL Database에 App Service 앱 연결
 
-이 시나리오에서는 Azure SQL Database 및 App Service 앱을 만드는 방법을 알아봅니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
+이 시나리오에서는 Azure SQL 데이터베이스 및 App Service 앱을 만드는 방법을 알아봅니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
 
 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 

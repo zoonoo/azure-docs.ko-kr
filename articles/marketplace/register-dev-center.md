@@ -2,24 +2,18 @@
 title: Dev Center에 등록 | Azure
 description: Dev Center(개발자 센터)에 등록하는 방법.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889746"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937594"
 ---
 # <a name="register-in-dev-center"></a>Dev Center에 등록  
 개인 브라우저 계정에 로그인되지 않았는지 확인하려면 새 Internet Explorer InPrivate 또는 Chrome Incognito 브라우징 세션을 엽니다.  
@@ -34,7 +28,7 @@ ms.locfileid: "57889746"
     ![국가/하위 지역에 대한 정보를 포함한 계정 정보](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Azure Marketplace에서 서비스를 판매하려면 승인된 *판매* 국가 중 한 곳에 사용자의 등록 법인이 속해 있는지 확인해야 합니다. 위치 제한은 지급액 및 세금을 위해 필요합니다. 
+    >Azure Marketplace에서 서비스를 판매 하는 승인 된 중 하나에서 등록 된 법인 인지를 확인 *판매처* 국가/지역입니다. 위치 제한은 지급액 및 세금을 위해 필요합니다. 
     >*   자세한 내용은 [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)에 있는 Azure Marketplace 참가 정책 페이지를 참조하세요.  
 
 4.  *계정 유형*의 경우 `Company` 라디오 단추를 선택합니다.  

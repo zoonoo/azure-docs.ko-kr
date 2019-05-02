@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406756"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922976"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
 [Azure Functions](functions-overview.md) 기본 제공 통합을 제공 하며 [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) 함수를 모니터링 합니다. 이 문서에서는 로그 파일 시스템에서 생성 된 Application Insights로 보내도록 Azure Functions를 구성 하는 방법을 보여 줍니다.
 
-Application Insights를 사용 하 여 로그, 성능 및 오류 데이터를 수집 하는 것이 좋습니다. 자동으로 성능 이상을 감지 하 고 문제를 진단할 수 있도록 하는 함수를 사용 하는 방법을 이해 하는 강력한 분석 도구가 포함 되어 있습니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 로컬 함수 앱 프로젝트를 개발 하는 동안 Application Insights를 사용할 수도 있습니다. 자세한 내용은 참조 하세요. [Application Insights 란?](../azure-monitor/app/app-insights-overview.md)
+Application Insights를 사용 하 여 로그, 성능 및 오류 데이터를 수집 하는 것이 좋습니다. 자동으로 성능 이상을 감지 하 고 문제를 진단할 수 있도록 하는 함수를 사용 하는 방법을 이해 하는 강력한 분석 도구가 포함 되어 있습니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. 로컬 함수 앱 프로젝트를 개발 하는 동안 Application Insights를 사용할 수도 있습니다. 자세한 내용은 [Application Insights 란?](../azure-monitor/app/app-insights-overview.md)합니다.
 
 Application Insights 계측 기능은 필요한 Azure Functions에 빌드될 때 함수 앱에 Application Insights 리소스에 연결할 올바른 계측 키를 하기만 하면 됩니다.
 
@@ -626,7 +626,7 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ### <a name="azure-cli"></a>Azure CLI
 
-스트리밍 로그를 사용 하 여 설정할 수 있습니다.는 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/install-azure-cli)합니다. Azure cli 명령을 사용 하 여 다음 로그인, 로그 파일을 스트리밍합니다 고 구독을 선택 합니다.
+스트리밍 로그를 사용 하 여 설정할 수 있습니다.는 [Azure CLI](/cli/azure/install-azure-cli)합니다. 다음 명령을 사용 하 여 로그인, 로그 파일을 스트리밍합니다 고 구독을 선택 합니다.
 
 ```azurecli
 az login

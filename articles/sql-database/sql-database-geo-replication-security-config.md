@@ -14,12 +14,12 @@ manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60341950"
 ---
-# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치를 위해 Azure SQL Database 보안 구성 및 관리
+# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치(failover)를 위해 Azure SQL Database 보안 구성 및 관리
 
 이 문서에서는 [활성 지역 복제](sql-database-active-geo-replication.md)와 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 구성하고 제어하는 인증 요구 사항을 설명합니다. 보조 데이터베이스에 대한 사용자 액세스를 설정하는 데 필요한 단계도 제공합니다. 마지막으로, [지역 복원](sql-database-recovery-using-backups.md#geo-restore)을 사용한 후에 복구된 데이터베이스에 대한 액세스를 활성화하는 방법도 설명합니다. 복구 옵션에 대한 자세한 내용은 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 

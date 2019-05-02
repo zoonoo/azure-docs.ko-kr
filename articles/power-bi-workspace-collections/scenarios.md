@@ -8,12 +8,12 @@ ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 0e111c40df79d236bad6130338d021f76587dde4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc298eb8757ec4b3aa968c0790b72e24cc3d1143
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699526"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>일반적인 Power BI 작업 영역 컬렉션 시나리오
 

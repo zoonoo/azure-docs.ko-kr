@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350326"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918845"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>SQL Server Express에서 SQL Server로 Azure AD Connect 데이터베이스 이동 
 
@@ -25,7 +25,7 @@ ms.locfileid: "60350326"
 ## <a name="about-this-scenario"></a>이 시나리오 정보
 다음은 이 시나리오에 대한 간략한 정보입니다.  이 시나리오에서 Azure AD Connect 버전(1.1.819.0)을 단일 Windows Server 2016 도메인 컨트롤러에 설치합니다.  해당 데이터베이스에 대해 기본 제공 SQL Server 2012 Express Edition을 사용합니다.  데이터베이스는 SQL Server 2017 서버로 이동됩니다.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![시나리오 아키텍처](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Azure AD Connect 데이터베이스 이동
 다음 단계를 사용하여 원격 SQL Server로 Azure AD Connect 데이터베이스를 이동합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "60350326"
 5. 원격 SQL server에서 SQL Server Management Studio를 엽니다.
 6. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 연결을 선택합니다.
 7. **데이터베이스 연결** 화면에서 **추가**를 클릭하고 ADSync.mdf 파일로 이동합니다.  **확인**을 클릭합니다.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![데이터베이스 연결](media/how-to-connect-install-move-db/move2.png)
 
 8. 데이터베이스가 연결되면 Azure AD Connect 서버로 다시 이동하고 Azure AD Connect를 설치합니다.
 9. MSI 설치가 완료되면 Azure AD Connect 마법사가 기본 모드 설치를 시작합니다. 종료 아이콘을 클릭하여 화면을 닫습니다.

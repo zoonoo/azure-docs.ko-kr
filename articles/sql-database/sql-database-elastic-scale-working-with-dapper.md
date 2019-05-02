@@ -160,7 +160,7 @@ Microsoft Patterns &amp; Practices 팀은 애플리케이션 개발자들이 클
 * 요청이 있는 경우 모든 데이터베이스 처리가 요청에서 제공된 분할 키로 식별되는 단일 분할된 데이터베이스에 포함된다고 가정합니다. 그러나 분할 키를 제공할 수 없는 등의 경우도 있으므로 이 가정이 항상 적용되는 것은 아닙니다. 이를 해결하려면 탄력적 데이터베이스 클라이언트 라이브러리가 [MultiShardQuery class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx)를 포함해야 합니다. 이 클래스는 여러 분할된 데이터베이스에 대한 쿼리를 위해 연결 추상화를 구현합니다. MultiShardQuery와 Dapper를 함께 사용하는 방법에 대해서는 이 문서에서 설명하지 않습니다.
 
 ## <a name="conclusion"></a>결론
-Dapper 및 DapperExtensions를 사용하는 애플리케이션에서는 Azure SQL Database의 Elastic Database 도구를 쉽게 활용할 수 있습니다. 이 문서에서 대략적으로 설명한 단계를 수행하면 이러한 애플리케이션은 새로운 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 개체를 만들고 열 때 탄력적 데이터베이스 클라이언트 라이브러리의 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 호출을 사용하도록 변경하여 도구의 데이터 종속 라우팅 기능을 사용할 수 있습니다. 이 경우 애플리케이션에서 새 연결을 만들고 여는 위치에서만 해당 호출을 사용하도록 변경하면 됩니다. 
+Dapper 및 DapperExtensions를 사용하는 애플리케이션에서는 Azure SQL Database의 탄력적 데이터베이스 도구를 쉽게 활용할 수 있습니다. 이 문서에서 대략적으로 설명한 단계를 수행하면 이러한 애플리케이션은 새로운 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 개체를 만들고 열 때 탄력적 데이터베이스 클라이언트 라이브러리의 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 호출을 사용하도록 변경하여 도구의 데이터 종속 라우팅 기능을 사용할 수 있습니다. 이 경우 애플리케이션에서 새 연결을 만들고 여는 위치에서만 해당 호출을 사용하도록 변경하면 됩니다. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

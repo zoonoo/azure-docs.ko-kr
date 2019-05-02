@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415857"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694760"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
-Azure AD 암호 보호 기능은 조직에서 암호 정책을 강화 합니다. 온-프레미스 배포 암호 보호는 두 전역 및 사용자 지정 차단 암호 목록을 Azure AD에 저장 된 사용 합니다. 동일한 검사 온-프레미스 클라우드 기반 변경에 대 한 Azure AD로 수행합니다.
+Azure AD 암호 보호 기능은 조직에서 암호 정책을 강화 합니다. 암호 보호 온-프레미스 배포에는 두 전역 및 사용자 지정 차단 암호 목록을 Azure AD에 저장 된 사용 합니다. 동일한 검사 온-프레미스 클라우드 기반 변경에 대 한 Azure AD로 수행합니다.
 
 ## <a name="design-principles"></a>디자인 원칙
 

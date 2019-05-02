@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 �
 description: Azure Active Directory B2C의 사용자 지정 정책에서 클레임 해결 프로그램을 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f4bb5deb0c30ba113f315c69393e92bddfe0d27
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313837"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703471"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -43,14 +43,14 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 
 다음 섹션은 사용 가능한 클레임 해결 프로그램을 나열합니다.
 
-### <a name="culture"></a>Culture
+### <a name="culture"></a>문화권
 
 | 클레임 | 설명 | 예 |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | ko-KR |
-| {Culture:LCID}   | 언어 코드의 LCID | 18 |
+| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
+| {Culture:LCID}   | 언어 코드의 LCID | 1033 |
 | {Culture:RegionName} | 지역에 대한 2자 ISO 코드 | US |
-| {Culture:RFC5646} | RFC5646 언어 코드 | ko-KR |
+| {Culture:RFC5646} | RFC5646 언어 코드 | en-US |
 
 ### <a name="policy"></a>정책
 

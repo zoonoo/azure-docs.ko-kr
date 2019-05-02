@@ -11,19 +11,19 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771853"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725044"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Azure SQL Database (미리 보기)에서 Machine Learning Services 및 SQL Server 간의 주요 차이점
 
 (R)을 사용한 Azure SQL Database Machine Learning 서비스 (미리 보기) 기능은 비슷합니다 [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)합니다. 다음은 몇 가지 주요 차이점입니다.
 
 > [!IMPORTANT]
-> Azure SQL Database Machine Learning Services 현재 공개 미리 보기 중입니다.
+> Azure SQL Database Machine Learning Services는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -61,6 +61,6 @@ R에 대 한 사용 가능한 메모리가 부족 하 여 있으면 오류 메�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 일반 정보는 [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics) 설명서를 참조하세요.
-- Azure SQL Database에서 Machine Learning Services(R 포함)를 사용하는 방법을 알아보려면 [빠른 시작 가이드](sql-database-connect-query-r.md)를 참조하세요.
-- 자세한 내용은 [SQL Server R 언어 자습서](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)를 참조하세요.
+- 개요를 참조 하세요 [R (미리 보기)를 사용 하 여 Azure SQL Database Machine Learning Services](sql-database-machine-learning-services-overview.md)합니다.
+- Azure SQL Database Machine Learning 서비스 (미리 보기) 쿼리를 R을 사용 하는 방법에 알아보려면 참조를 [빠른 시작 가이드](sql-database-connect-query-r.md)합니다.
+- 시작 하기 위한 몇 가지 간단한 R 스크립트를 참조 하세요 [만들기 및 Azure SQL Database Machine Learning 서비스 (미리 보기)에서 간단한 R 스크립트 실행된](sql-database-quickstart-r-create-script.md)합니다.

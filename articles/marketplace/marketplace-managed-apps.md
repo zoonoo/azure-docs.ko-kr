@@ -2,24 +2,18 @@
 title: Azure 애플리케이션 관리되는 애플리케이션 제품 게시 가이드
 description: 이 아티클에서는 관리되는 애플리케이션을 Marketplace에 게시하기 위한 요구 사항을 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 15c559bb8b357b7776c101f88db8316b05edb677
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213163"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937794"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure 애플리케이션: 관리형 애플리케이션 제품 게시 가이드
 

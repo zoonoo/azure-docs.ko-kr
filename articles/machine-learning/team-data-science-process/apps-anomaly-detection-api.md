@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326583"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926178"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 
 > [!NOTE]
-> 이 항목은 유지 관리 합니다. 사용 하 여 것이 좋습니다 합니다 [비정상 탐지기 API 서비스](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) Azure Cognitive Services에서 비즈니스, 운영, 비정상 및 IoT 메트릭을 검색 하는 갤러리의 Machine Learning 알고리즘에서 제공 합니다.
+> 이 항목은 유지 관리 합니다. 사용 하 여 것이 좋습니다 합니다 [비정상 탐지기 API 서비스](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) Azure Cognitive Services에서 비즈니스, 운영, 비정상 및 IoT 메트릭을 검색 하는 갤러리의 Machine Learning 알고리즘에서 제공 합니다.
 
 ## <a name="overview"></a>개요
 [이상 감지 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)는 Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다.

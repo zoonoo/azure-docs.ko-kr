@@ -2,24 +2,18 @@
 title: Azure Active Directory를 사용하여 Microsoft AppSource와 Azure Marketplace 목록을 사용하도록 설정 | Azure
 description: 앱 및 서비스 게시자의 Azure Marketplace와 AppSource에서 Azure Active Directory를 사용하여 열거 형식을 사용하도록 설정합니다.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732331"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938096"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
 
@@ -41,12 +35,12 @@ AppSource 및 Azure Marketplace에 대한 다양한 [목록 옵션 및 제품 �
 | **제품 유형**    | **Azure AD SSO 필수 여부**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | 연락처 | 평가판 | 시험 사용 | 거래 |
-| Virtual Machine | 해당 없음 | 아니요 | 아니요 | 아니요 |
-| Azure 앱(솔루션 템플릿)  | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
-| 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
-| SaaS  | 아니요 | 예 | 예 | 예 |
-| 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
-| 컨설팅 서비스  | 아니요 | 해당 없음 | 해당 없음 | 해당 없음 |
+| Virtual Machine | N/A | 아닙니다. | 아니요 | 아닙니다. |
+| Azure 앱(솔루션 템플릿)  | N/A | 해당 사항 없음 | 해당 사항 없음 | N/A |
+| 관리되는 앱  | N/A | 해당 사항 없음 | N/A | 아닙니다. |
+| SaaS  | 아닙니다. | 예 | 예 | 예 |
+| 컨테이너  | N/A | 해당 사항 없음 | N/A | 아닙니다. |
+| 컨설팅 서비스  | 아닙니다. | N/A | 해당 사항 없음 | N/A |
 
 SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 애플리케이션 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조하세요.
 

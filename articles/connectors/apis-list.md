@@ -9,18 +9,18 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895886"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722980"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
 다른 앱, 서비스, 시스템, 프로토콜 및 플랫폼을 통해 이벤트, 데이터 및 작업을 Azure Logic Apps에서 빠른 액세스를 제공 하는 커넥터. 커넥터를 논리 앱에서 사용 하 여 만들고 이미 보유 하는 데이터를 사용 하 여 작업을 수행 하 여 클라우드 및 온-프레미스 앱에 대 한 기능을 확장 합니다.
 
-Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors)를 제공하지만, 이 문서에서는 수천 개의 앱 및 수백만 개의 실행에서 데이터와 정보를 처리하는 데 성공적으로 사용되는 매우 일반적이며 인기 있는 커넥터에 대해 설명합니다. 참조 페이지 아래에서 트리거, 동작 및 제한, 커넥터를 검토 같은 커넥터 전체 목록과 각 커넥터의 참조 정보를 찾고 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 또한에 대 한 자세한 [트리거 및 작업](#triggers-actions)합니다.
+Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors)를 제공하지만, 이 문서에서는 수천 개의 앱 및 수백만 개의 실행에서 데이터와 정보를 처리하는 데 성공적으로 사용되는 매우 일반적이며 인기 있는 커넥터에 대해 설명합니다. 커넥터 및 트리거, 동작 및 제한 등 각 커넥터의 참조 정보는 전체 목록을 찾으려면 아래의 커넥터 참조 페이지를 검토 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 또한에 대 한 자세한 [트리거 및 작업](#triggers-actions)합니다.
 
 > [!NOTE]
 > 서비스 또는 커넥터가 없는 API를 사용 하 여 통합을 직접 HTTP와 같은 프로토콜을 통해 서비스를 호출 하거나 만드는 [사용자 지정 커넥터](#custom)합니다.
@@ -29,27 +29,32 @@ Logic Apps는 [200개 이상의 커넥터](https://docs.microsoft.com/connectors
 
 * [**Built-ins**](#built-ins): 이러한 기본 제공 작업 및 트리거 "기본" Azure Logic Apps 및 사용자 지정 일정에 따라 실행, 다른 끝점과 통신, 수신 및 요청에 응답 및 Azure functions, Azure API 앱 (웹 앱), 사용자 고유의 Api를 호출 하는 논리 앱을 만드는 데 도움이 됩니다. 관리 되 고 사용 하 여 게시 된 Azure API Management 및 요청을 받을 수 있는 중첩 된 논리 앱. 또한 논리 앱의 워크플로를 구성 및 제어하고, 데이터를 사용하는 데 도움이 되는 기본 제공 작업을 사용할 수도 있습니다.
 
-* **관리형 커넥터**: 배포 된 Microsoft에서 관리 하 고 이러한 커넥터 트리거 및 다른 서비스 및 Office 365, Azure Blob Storage, SQL Server, Salesforce 등과 같은 시스템에 액세스 하기 위한 작업을 제공 합니다. 일부 커넥터는 Azure Logic Apps에서 관리 되는 연결을 만들려면 먼저는 필요 합니다. 관리되는 커넥터는 다음과 같은 그룹으로 구성됩니다.
+* **관리형 커넥터**: 배포 된 Microsoft에서 관리 하 고 이러한 커넥터 트리거 및 cloud services, 온-프레미스 시스템 또는 Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint 등을 포함 하 여 둘 다에 액세스 하기 위한 작업을 제공 합니다. 일부 커넥터는 특히 기업 간 B2B 통신 시나리오를 지원 하며 필요는 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 논리 앱에 연결 되어 있는 합니다. 특정 커넥터를 사용 하기 전에 먼저 Azure Logic Apps에서 관리 되는 연결을 만들어야 할 수도 있습니다. 
+
+  예를 들어 Microsoft BizTalk Server를 사용 하는 경우 논리 앱에 연결할를 사용 하 여 BizTalk Server와 통신 합니다 [BizTalk Server 온-프레미스 커넥터](#on-premises-connectors)합니다. 
+  그런 다음, [통합 계정 커넥터](#integration-account-connectors)를 사용하여 논리 앱에서 BizTalk와 비슷한 작업을 확장하거나 수행할 수 있습니다.
+
+  커넥터는 Standard 또는 Enterprise로 분류 됩니다. 
+  [엔터프라이즈 커넥터](#enterprise-connectors) 추가 비용을 3270 IBM, SAP 및 IBM MQ 등 엔터프라이즈 시스템에 대 한 액세스를 제공 합니다. 커넥터를 Standard 또는 Enterprise 인지를 확인 하려면 각 커넥터의 참조 페이지에서 기술 세부 정보를 보려면 [커넥터 개요](https://docs.microsoft.com/connectors)합니다. 
+  
+  일부 커넥터는 여러 범주를 넘을 수 있지만 이러한 범주를 사용 하 여 커넥터를 식별할 수도 있습니다. 
+  예를 들어, SAP는 엔터프라이즈 커넥터 및 온-프레미스 커넥터는:
 
   |   |   |
   |---|---|
-  | [**관리되는 API 커넥터**](#managed-api-connectors) | Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online 등과 같은 서비스를 사용하는 논리 앱을 만듭니다. | 
-  | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]가 설치 및 설정되면, 이러한 커넥터를 통해 논리 앱에서 온-프레미스 시스템(예: SQL Server, SharePoint Server, Oracle DB, 파일 공유 등)에 액세스할 수 있습니다. | 
-  | [**통합 계정 커넥터**](#integration-account-connectors) | 통합 계정을 만들고 지불할 때 사용할 수 있는 이러한 커넥터는 AS2, EDIFACT 및 X12 프로토콜을 사용하여 XML 변환 및 유효성 검사, 플랫 파일 인코딩 및 디코딩, B2B(Business-to-Business) 메시지 처리를 수행합니다. | 
-  | [**엔터프라이즈 커넥터**](#enterprise-connectors) | 추가 비용을 부담하면 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스할 수 있습니다. |
-  ||| 
-
-  예를 들어 Microsoft BizTalk Server를 사용하는 경우 [BizTalk Server 커넥터](#on-premises-connectors)를 사용하여 논리 앱에서 BizTalk Server와 연결하여 통신할 수 있습니다. 
-  그런 다음, [통합 계정 커넥터](#integration-account-connectors)를 사용하여 논리 앱에서 BizTalk와 비슷한 작업을 확장하거나 수행할 수 있습니다. 
+  | [**관리되는 API 커넥터**](#managed-api-connectors) | Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online 등과 같은 서비스를 사용하는 논리 앱을 만듭니다. |
+  | [**온-프레미스 커넥터**](#on-premises-connectors) | [온-프레미스 데이터 게이트웨이][gateway-doc]가 설치 및 설정되면, 이러한 커넥터를 통해 논리 앱에서 온-프레미스 시스템(예: SQL Server, SharePoint Server, Oracle DB, 파일 공유 등)에 액세스할 수 있습니다. |
+  | [**통합 계정 커넥터**](#integration-account-connectors) | 통합 계정을 만들고 지불할 때 사용할 수 있는 이러한 커넥터는 AS2, EDIFACT 및 X12 프로토콜을 사용하여 XML 변환 및 유효성 검사, 플랫 파일 인코딩 및 디코딩, B2B(Business-to-Business) 메시지 처리를 수행합니다. |
+  |||
 
 > [!NOTE]
-> 커넥터의 전체 목록과 Swagger 설명으로 정의되는 작업 및 트리거와 같은 각 커넥터의 참조 정보 및 제한은 [커넥터 개요](/connectors/)에서 전체 목록을 확인할 수 있습니다. 가격 책정 정보는 [Logic Apps 가격 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/) 및 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조하세요. 
+> OpenAPI로 정의 됨 커넥터 및 트리거, 작업 등의 각 커넥터의 참조 정보를의 전체 목록은 (이전의 Swagger) 설명과 어떠한 제한도에서 전체 목록을 찾을 수 있습니다는 [커넥터 개요 ](/connectors/). 가격 책정 정보는 [Logic Apps 가격 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/) 및 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md)을 참조하세요. 
 
 <a name="built-ins"></a>
 
 ## <a name="built-ins"></a>기본 제공 커넥터
 
-Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기반 워크플로를 만들고, 논리 앱에서 다른 앱 및 서비스와 통신하고, 논리 앱을 통해 워크플로를 제어하고, 데이터를 관리하거나 조작할 수 있습니다. 
+Logic Apps는 기본 제공 트리거 및 작업을 제공하므로 일정 기반 워크플로를 만들고, 논리 앱에서 다른 앱 및 서비스와 통신하고, 논리 앱을 통해 워크플로를 제어하고, 데이터를 관리하거나 조작할 수 있습니다.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -117,7 +122,7 @@ Azure에서 EIP(엔터프라이즈 통합 팩)를 통해 사용할 수 있는 [�
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API 아이콘][as2-icon]<br/>**AS2</br> 디코딩**][as2-decode-doc] | [![API 아이콘][as2-icon]<br/>**AS2</br> 인코딩**][as2-encode-doc] | [![API 아이콘][edifact-icon]<br/>**EDIFACT</br> 디코딩**][edifact-decode-doc] | [![API 아이콘][edifact-icon]<br/>**EDIFACT</br> 인코딩**][edifact-encode-doc] | 
+| [![API 아이콘][as2-icon]<br/>**AS2</br> 디코딩**][as2-doc] | [![API 아이콘][as2-icon]<br/>**AS2</br> 인코딩**][as2-doc] | [![API 아이콘][edifact-icon]<br/>**EDIFACT</br> 디코딩**][edifact-decode-doc] | [![API 아이콘][edifact-icon]<br/>**EDIFACT</br> 인코딩**][edifact-encode-doc] | 
 | [![API 아이콘][flat-file-decode-icon]<br/>**플랫 파일</br> 디코딩**][flat-file-decode-doc] | [![API 아이콘][flat-file-encode-icon]<br/>**플랫 파일</br> 인코딩**][flat-file-encode-doc] | [![API 아이콘][integration-account-icon]<br/>**통합<br/>계정**][integration-account-doc] | [![API 아이콘][liquid-icon]<br/>**Liquid**</br>**변환**][json-liquid-transform-doc] | 
 | [![API 아이콘][x12-icon]<br/>**X12</br> 디코딩**][x12-decode-doc] | [![API 아이콘][x12-icon]<br/>**X12</br> 인코딩**][x12-encode-doc] | [![API 아이콘][xml-transform-icon]<br/>**XML**</br>**변환**][xml-transform-doc] | [![API 아이콘][xml-validate-icon]<br/>**XML <br/>유효성 검사**][xml-validate-doc] |  
 ||||| 
@@ -128,10 +133,10 @@ Azure에서 EIP(엔터프라이즈 통합 팩)를 통해 사용할 수 있는 [�
 
 논리 앱은 SAP 및 IBM MQ와 같은 엔터프라이즈 시스템에 액세스할 수 있습니다.
 
-|   |   | 
-|---|---| 
-| [![API 아이콘][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API 아이콘][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![API icon][ibm-3270-icon]<br/>**IBM 3270**][ibm-3270-doc] | [![API 아이콘][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API 아이콘][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -156,9 +161,9 @@ Azure Logic Apps에서 제공 하는 트리거의 일반적인 종류는 다음�
 
 각 커넥터의 트리거 및 작업을 구성할 수에 대 한 자신의 속성을 제공 합니다. 많은 커넥터를 처음 만들 필요는 *연결* 대상 서비스 또는 시스템 및 논리 앱에서 트리거 또는 동작을 사용 하기 전에 인증 자격 증명 또는 기타 구성 세부 정보를 제공 합니다. 예를 들어 데이터에 액세스 하거나 사용자를 대신해 게시할 Twitter 계정에 대 한 연결 권한을 부여 해야 합니다. 
 
-OAuth를 사용 하는 커넥터에 대 한 연결을 만드는 의미, Office 365, Salesforce 또는 GitHub에서 액세스 토큰은 암호화 하 고 안전 하 게 Azure 암호 저장소에 저장 된 같은 서비스에 로그인 합니다. SQL, FTP 등의 다른 커넥터 서버 주소, 사용자 이름 및 암호와 같은 구성 세부 정보를 포함 하는 연결이 필요 합니다. 이 연결 구성 세부 정보 또한 암호화 되 고 안전 하 게 저장 합니다. 
+OAuth를 사용 하는 커넥터에 대 한 연결을 만드는 의미, Office 365, Salesforce 또는 GitHub에서 액세스 토큰은 암호화 하 고 안전 하 게 Azure 암호 저장소에 저장 된 같은 서비스에 로그인 합니다. SQL, FTP 등의 다른 커넥터 서버 주소, 사용자 이름 및 암호와 같은 구성 세부 정보를 포함 하는 연결이 필요 합니다. 이러한 연결 구성 세부 정보 또한 암호화된 후 안전하게 저장됩니다. 
 
-연결 하면 해당 서비스 또는 시스템으로 대상 서비스 또는 시스템에 액세스할 수 있습니다. Office 365, Dynamics 등의 Azure AD (Active Directory) OAuth 연결을 사용 하는 서비스에 대 한 Azure Logic Apps를 새로 고칩니다 액세스 토큰을 무기한. 다른 서비스 Azure Logic Apps는 토큰을 사용 하 여 새로 고치지 않고는 시간 제한을 설정 될 수 있습니다. 일반적으로 일부 작업에는 암호를 변경 하는 등의 모든 액세스 토큰을 무효화 합니다.
+연결 하면 해당 서비스 또는 시스템으로 대상 서비스 또는 시스템에 액세스할 수 있습니다. Office 365, Dynamics 등의 Azure AD (Active Directory) OAuth 연결을 사용 하는 서비스에 대 한 Azure Logic Apps를 새로 고칩니다 액세스 토큰을 무기한. 다른 서비스는 Azure Logic Apps가 새로 고치지 않고 토큰을 사용할 수는 기간에 제한이 있을 수 있습니다. 일반적으로 일부 작업에는 암호를 변경 하는 등의 모든 액세스 토큰을 무효화 합니다.
 
 <a name="custom"></a>
 
@@ -222,6 +227,7 @@ Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Google 드라이브에 연결하여 데이터를 사용할 수 있습니다."
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Google Sheets에 연결하여 시트를 수정할 수 있습니다."
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Google 작업에 연결하여 태스크를 관리할 수 있습니다."
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "IBM 메인프레임에서 3270 응용 프로그램 연결"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "클라우드 또는 온-프레미스에서 IBM DB2에 연결합니다. 행 업데이트, 테이블 가져오기 등"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "클라우드 또는 온-프레미스에서 Informix에 연결합니다. 행 읽기, 테이블 나열 등"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "온-프레미스 또는 Azure에서 IBM MQ에 연결하여 메시지 송수신"
@@ -257,8 +263,6 @@ Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "엔터프라이즈 통합 AS2에 대해 알아봅니다."
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "엔터프라이즈 통합 AS2 디코딩에 대해 알아봅니다."
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "엔터프라이즈 통합 AS2 인코딩에 대해 알아봅니다."
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "엔터프라이즈 통합 EDIFACT 디코딩에 대해 알아봅니다."
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "엔터프라이즈 통합 EDIFACT 인코딩에 대해 알아봅니다."
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "엔터프라이즈 통합 플랫 파일에 대해 알아봅니다."
@@ -330,6 +334,7 @@ Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png

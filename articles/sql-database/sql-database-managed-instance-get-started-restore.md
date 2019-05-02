@@ -21,7 +21,7 @@ ms.locfileid: "59356831"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>빠른 시작: 데이터베이스를 Managed Instance로 복원
 
-이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure Blob Storage에서 Azure SQL Database [Managed Instance](sql-database-managed-instance.md)로 데이터베이스(Wide World Importers - Standard 백업 파일)를 복원합니다.
+이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure Blob 스토리지에서 Azure SQL Database [Managed Instance](sql-database-managed-instance.md)로 데이터베이스(Wide World Importers - Standard 백업 파일)를 복원합니다.
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
@@ -92,4 +92,4 @@ SSMS에서 이러한 단계를 사용하여 Managed Instance로 Wide World Impor
 
 - URL에 대한 백업과 관련된 문제를 해결하려면 [URL에 대한 SQL Server 백업 - 모범 사례 및 문제 해결](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting)을 참조하세요.
 - 앱 연결 옵션의 개요는 [애플리케이션을 Managed Instance에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
-- 즐겨찾는 도구 또는 언어를 사용하여 쿼리하려면 [빠른 시작: Azure SQL Database 연결 및 쿼리](sql-database-connect-query.md)를 참조하세요.
+- 즐겨찾는 도구 또는 언어를 사용하여 쿼리하려면 [빠른 시작: Azure SQL Database 연결 및 쿼리](sql-database-connect-query.md).

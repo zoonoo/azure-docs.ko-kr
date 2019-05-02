@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164578"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122737"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 애플리케이션 구성
 Storage 서비스에 액세스하려면 애플리케이션을 인증하는 두 가지 방법이 있습니다.
 
-* 공유 키: 테스트 목적으로만 공유 키 사용
-* SAS(공유 액세스 서명): 프로덕션 애플리케이션에 대해 SAS 사용
+* 공유 키: 테스트 목적 으로만 공유 키를 사용 합니다.
+* 공유 액세스 서명 (SAS): 프로덕션 응용 프로그램에 대 한 SAS를 사용 합니다.
 
 ### <a name="shared-key"></a>공유 키
 공유 키 인증은 애플리케이션이 계정 이름과 계정 키를 사용하여 Storage 서비스에 액세스하는 것을 의미합니다. 이 시작 설명서에서는 이 라이브러리를 사용하는 방법을 신속하게 표시하는 용도로 공유 키 인증을 사용합니다.
@@ -49,5 +49,5 @@ Storage 서비스에 액세스하려면 애플리케이션을 인증하는 두 �
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-위에 표시된 것처럼 SAS를 사용하는 경우, 애플리케이션에서 계정 키가 노출되지 않습니다. [공유 액세스 서명: SAS 모델 이해](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)를 확인하여 SAS 및 SAS 사용 모범 사례에 대해 자세히 알아볼 수 있습니다.
+위에 표시된 것처럼 SAS를 사용하는 경우, 애플리케이션에서 계정 키가 노출되지 않습니다. SAS 및 SAS를 사용 하 여 체크 아웃 하 여에 대 한 모범 사례에 대 한 자세히 알아볼 수 있습니다 [공유 액세스 서명: SAS 모델 이해](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)합니다.
 

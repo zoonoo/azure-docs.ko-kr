@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: c1096567a42845a0be327edfb1be67838936a057
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a3e0300fdc2ce67d508f8caccbaa5fcbc37e2182
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859514"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>API Management에 대한 Azure PowerShell 샘플
 
@@ -32,7 +32,7 @@ ms.locfileid: "37434592"
 |[APIM 서비스 만들기](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|개발자 SKU API Management 서비스를 만듭니다.|
 |[서비스 복원](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|APIM 서비스를 백업 및 복원합니다.|
 |[APIM 서비스 크기 조정](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|APIM 서비스의 크기를 조정하고 영역을 추가합니다.|
-|[사용자 지정 도메인 설정](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|API Management 서비스의 프록시 및 포털 끝점에 사용자 지정 도메인을 설정합니다.|
+|[사용자 지정 도메인 설정](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|API Management 서비스의 프록시 및 포털 엔드포인트에 사용자 지정 도메인을 설정합니다.|
 |**API 정의**||
 |[API 가져오기](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|API를 가져오고 APIM 제품에 추가합니다.|
 |**보안**||

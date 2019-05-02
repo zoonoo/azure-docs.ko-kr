@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308570"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947137"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>자습서: 웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기
 
 웹 애플리케이션 액세스 향상과 관련된 IT 관리자인 경우 고객의 요구 사항에 따라 크기를 조정하고 여러 가용성 영역을 확장할 수 있도록 애플리케이션 게이트웨이를 최적화할 수 있습니다. 이 자습서는 자동 크기 조정, 영역 중복 및 예약된 VIP(고정 IP)와 같은 Azure Application Gateway 기능을 구성하는 데 도움이 됩니다. Azure PowerShell cmdlet과 Azure Resource Manager 배포 모델을 사용하여 문제를 해결합니다.
-
-> [!IMPORTANT] 
-> 자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU는 현재 공개 미리 보기로 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

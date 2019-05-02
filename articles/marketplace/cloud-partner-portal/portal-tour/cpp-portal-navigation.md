@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace에 대한 Cloud 파트너 포털 탐색 | Microsoft Docs
-description: .
+title: 클라우드 파트너 포털 탐색 Azure Marketplace에 대 한
+description: Azure Marketplace에 대 한 클라우드 파트너 포털 내에서 탐색 설명 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e963734af450a96ac08830769560a2b5e8eef9c6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ef329bfef9dc4f98dfd975a33c190f0b1825df4e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266528"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942069"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Cloud 파트너 포털 탐색
 

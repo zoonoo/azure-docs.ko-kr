@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525129"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919965"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -136,7 +136,7 @@ const io = require('socket.io')(server,{
 
 **사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시할 수 있나요?**
 
-현재 둘 이상의 포트 노출을 지원하지 않습니다.
+둘 이상의 포트를 노출할 수 없습니다.
 
 **사용자 고유의 저장소를 가져올 수 있나요?**
 
@@ -154,11 +154,11 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 
 아니요. 플랫폼에서는 공유 프런트 엔드에서 HTTPS 종료를 처리합니다.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Docker Compose 및 Kubernetes를 사용한 다중 컨테이너
+## <a name="multi-container-with-docker-compose"></a>다중 컨테이너 docker Compose
 
 **다중 컨테이너를 사용하도록 ACR(Azure Container Registry)을 구성하려면 어떻게 할까요?**
 
-다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 위치하면 애플리케이션 설정을 만든 다음, Docker Compose 또는 Kubernetes 구성 파일을 업데이트하여 ACR 이미지 이름을 포함해야 합니다.
+다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에가 응용 프로그램 설정 작성 하 고 다음 ACR 이미지 이름을 포함 하는 Docker Compose 구성 파일을 업데이트 해야 합니다.
 
 다음 애플리케이션 설정을 만듭니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530742"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866540"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -109,7 +109,7 @@ Microsoft Word에서 스크립트를 작성할 수 있습니다. 스크립트는
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|저작권 없는 작품 중에서 음성 합성 프로젝트에 고유하게 사용할 1100개 정도의 문장을 선택했습니다. 이 원본으로 시작하면 좋습니다.|
 |저작권이<br>없는 작품|일반적으로 1923년 이전에 출판된 작품입니다. 영어의 경우 [Project Gutenberg](https://www.gutenberg.org/)에 이러한 수만 가지 작품을 제공하고 있습니다. 언어는 최신 영어에 더 가까우므로 최신 작품에 좀 더 주력하려고 할 수 있습니다.|
-|정부 소유 &nbsp;작품|미국 정부가 제작한 작품의 경우 다른 국가에서는 미국 정부가 저작권을 주장할 수 있지만 미국 내에서는 저작권이 없습니다.|
+|정부 소유 &nbsp;작품|정부 다른 국가/지역에 저작권을 주장할 수 있지만 미국에서 미국 정부 기관에서 생성 하는 Works 저작권 보호 되지 않습니다.|
 |공용 도메인|저작권이 명시적으로 거부되었거나 공용 도메인에 헌정된 작품입니다. 일부 관할지에서는 저작권을 완전히 포기하지 못할 수도 있습니다.|
 |사용이 허가된 작품|Creative Commons 또는 GFDL(GNU Free Documentation License)과 같은 라이선스에 따라 배포된 작품입니다. Wikipedia는 GFDL을 사용합니다. 그러나 일부 라이선스는 사용이 허가된 콘텐츠의 퍼포먼스를 제한하여 사용자 지정 음성 모델 생성에 영향을 줄 수 있으므로 라이선스를 잘 확인해야 합니다.|
 

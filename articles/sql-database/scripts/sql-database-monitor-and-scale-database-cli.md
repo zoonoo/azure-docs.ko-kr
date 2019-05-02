@@ -1,6 +1,6 @@
 ---
-title: CLI 예제 모니터링 크기 조정 단일 SQL Database | Microsoft Docs
-description: 단일 Azure SQL Database를 모니터링하고 크기를 조정하는 Azure CLI 예제 스크립트
+title: CLI 예제 모니터링 크기 조정 단일 Azure SQL 데이터베이스 | Microsoft Docs
+description: 단일 Azure SQL 데이터베이스를 모니터링하고 크기를 조정하는 Azure CLI 예제 스크립트
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -21,7 +21,7 @@ ms.locfileid: "59361596"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정
 
-이 Azure CLI 스크립트 예제는 데이터베이스의 크기 정보를 쿼리한 후에 단일 Azure SQL 데이터베이스를 다양한 계산 크기로 확장합니다.
+이 Azure CLI 스크립트 예제는 데이터베이스의 크기 정보를 쿼리한 후에 단일 Azure SQL 데이터베이스를 다양한 컴퓨팅 크기로 확장합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,7 +53,7 @@ az group delete --name myResourceGroup
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 및 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
 | [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | 단일 또는 풀링된 데이터베이스의 크기 사용량 정보가 표시됩니다. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 데이터베이스 속성(예: 서비스 계층 또는 계산 크기)을 업데이트하거나 데이터베이스 정보를 탄력적 풀 간에 이동합니다. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | 데이터베이스 속성(예: 서비스 계층 또는 컴퓨팅 크기)을 업데이트하거나 데이터베이스 정보를 탄력적 풀 간에 이동합니다. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59799272"
@@ -29,11 +29,11 @@ ms.locfileid: "59799272"
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-다음 단계에서는 Azure SQL Database에 연결하는 방법을 설명합니다.
+다음 단계에서는 Azure SQL 데이터베이스에 연결하는 방법을 설명합니다.
 
 - 클라이언트는 공용 IP 주소를 가지며 포트 1433에서 수신 대기하는 게이트웨이에 연결합니다.
 - 효과적인 연결 정책에 따라 게이트웨이는 트래픽을 올바른 데이터베이스 클러스터로 리디렉션 또는 프록시합니다.
-- 데이터베이스 내에서 클러스터 트래픽은 해당 Azure SQL Database로 전달됩니다.
+- 데이터베이스 내에서 클러스터 트래픽은 해당 Azure SQL 데이터베이스로 전달됩니다.
 
 ## <a name="connection-policy"></a>연결 정책
 
@@ -57,7 +57,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
-온-프레미스 리소스에서 Azure SQL Database에 연결하려면 Azure 지역의 Azure SQL Database 게이트웨이에 아웃바운드 네트워크 트래픽을 허용하도록 해야 합니다. 온-프레미스 리소스에서 연결할 때 기본 설정인 `Proxy` 모드에서는 연결할 경우 연결은 게이트웨이를 통합니다.
+온-프레미스 리소스에서 Azure SQL 데이터베이스에 연결하려면 Azure 지역의 Azure SQL Database 게이트웨이에 아웃바운드 네트워크 트래픽을 허용하도록 해야 합니다. 온-프레미스 리소스에서 연결할 때 기본 설정인 `Proxy` 모드에서는 연결할 경우 연결은 게이트웨이를 통합니다.
 
 다음 표에서는 모든 데이터 지역에 있는 Azure SQL Database 게이트웨이의 기본 및 보조 IP를 나열합니다. 일부 지역에는 두 개의 IP 주소가 있습니다. 이러한 지역에서 기본 IP 주소는 게이트웨이의 현재 IP 주소이고 두 번째 IP 주소는 장애 조치 IP 주소입니다. 장애 조치 주소는 높은 서비스 가용성을 유지하기 위해 서버를 이동할 수 있는 주소입니다. 이러한 지역의 경우 두 IP 주소에 아웃바운드를 허용하는 것이 좋습니다. 두 번째 IP 주소는 Microsoft가 소유하고 있으며 Azure SQL Database에서 연결을 허용하기 위해 활성화될 때까지 어떤 서비스도 수신하지 않습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 비정상 탐지기 API를 사용 하는 경우 모범 사례
+title: Anomaly Detector API를 사용하는 경우 모범 사례
 description: 비정상 탐지기 API를 사용 하 여 변칙을 검색 하는 경우 모범 사례에 알아봅니다.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484044"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692209"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>비정상 탐지기 API를 사용 하 여에 대 한 모범 사례
 
@@ -25,6 +25,29 @@ ms.locfileid: "58484044"
 * API 요청에 대 한 데이터 요소의 수입니다. 
 
 이 문서를 사용 하 여 최상의 결과 얻는 데이터에 대 한 API를 사용 하 여에 대 한 모범 사례를 알아봅니다. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>일괄 처리 (전체) 또는 최신 버전을 사용 하는 경우 (마지막) 변칙 검색 지점
+
+비정상 탐지기 API 일괄 처리 검색 끝점 전체 시간 시계열 데이터를 통해 문제를 검색할 수 있습니다. 이 검색 모드에서는 단일 통계 모델 생성 되어 데이터 집합의 각 요소에 적용 합니다. 시계열에 있으면는 특성을 아래 일괄 검색을 사용 하 여 단일 API 호출에서 데이터를 미리 보려면 권장 합니다.
+
+* 가끔 잘못 된 부분을 사용 하 여 계절성 시계열입니다.
+* 플랫 추세 시계열 간헐적 급증/급락을 사용 하 여 합니다. 
+
+모니터링 또는 사용 하 여 특성 위에 없는 시계열 데이터에서 실시간 데이터에 대 한 일괄 처리 변칙 검색을 사용 하 여 없는 것이 좋습니다. 
+
+* 일괄 검색을 만들고 모델 하나만 적용, 각 지점에 대 한 검색 전체 시리즈의 컨텍스트에서 수행 됩니다. 계절성, 일부 지점 없이 위아래로 시간 시계열 데이터 추세 (dip 및 급격히 증가 하는 데이터)를 변경 하는 경우 모델에서 누락 될 수 있습니다. 마찬가지로, 데이터 집합의 뒷부분에 나오는 것 보다 덜 중요 한 일부 변경 지점 모델을 통합할 수 있을 만큼 중요 한 항목으로 계산 되지 않습니다 수 있습니다.
+
+* 일괄 처리 검색 분석 중인 지점의 수 때문에 실시간 데이터 모니터링을 수행할 때 최신 지점의 비정상 상태를 검색 하는 보다 느립니다.
+
+실시간 데이터 모니터링에 대 한 최신 데이터 요소만의 비정상 상태를 검색 하는 것이 좋습니다. 최신 지점 검색을 지속적으로 적용 하면 데이터 모니터링 스트리밍 가능 보다 효율적이 고 정확 하 게 합니다.
+
+아래 예제에서는 이러한 검색 모드 성능이 될 수 있으므로 영향을 설명 합니다. 첫 번째 그림 28에 이전에 데이터 요소에 따라 변칙 상태 최신 지점을 지속적으로 검색 결과 보여 줍니다. 빨간색 지점은 예외입니다.
+
+![최신 지점을 사용 하 여 변칙 검색을 보여 주는 이미지](../media/last.png)
+
+다음은 일괄 처리 변칙 검색을 사용 하 여 동일한 데이터 집합입니다. 작업에 대해 작성 된 모델 사각형으로 표시 된 몇 가지 예외를 무시 했습니다.
+
+![일괄 처리 메서드를 사용 하 여 변칙 감지를 보여 주는 이미지](../media/entire.png)
 
 ## <a name="data-preparation"></a>데이터 준비
 

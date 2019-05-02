@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 17b712afff293dba8c353767fc326761bcb53ba3
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57860740"
@@ -48,7 +48,7 @@ ms.locfileid: "57860740"
 - Cmdlet 사용 하 여 azure PowerShell 모듈 **새로 만들기-AzSqlServerDNSAlias**합니다.
   - 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치][install-Az-ps-84p]를 참조하세요.
   - powershell\_ise.exe에서 `Get-Module -ListAvailable Az;`을 실행합니다.
-- 2개의 Azure SQL Database 서버
+- 두 개의 Azure SQL Database 서버.
 
 ## <a name="code-example"></a>코드 예제
 

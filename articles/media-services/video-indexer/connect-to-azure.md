@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796548"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715094"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -103,7 +103,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 1. [Azure](https://portal.azure.com/) Portal을 사용하여 [계정 만들기](../previous/media-services-portal-create-account.md)에 설명된 대로 Azure Media Services 계정을 만듭니다.
 
-    Media Services 계정에 대한 스토리지 계정을 만들 때 계정 종류로 **StorageV2**를 선택하고 복제 필드로 **RGS(지역 중복)** 를 선택합니다.
+    Media Services 계정에 대 한 저장소 계정을 만들 때 선택할 **StorageV2** 계정 종류 및 **지역 중복 (GRS)** 복제 필드에 대 한 합니다.
 
     ![새 AMS 계정](./media/create-account/create-ams-account1.png)
 

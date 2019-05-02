@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553837"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733773"
 ---
 Azure Data Factory는 다른 사용자의 워크 로드에서 고객 구독이 보호 되도록 되어에서 다음과 같은 기본 제한이 있는 다중 테 넌 트 서비스입니다. 구독에 대 한 최대 한도 발생 시키려면 지원에 문의 합니다.
 
@@ -26,7 +26,7 @@ Azure Data Factory는 다른 사용자의 워크 로드에서 고객 구독이 �
 | 하나의 구독으로 Azure SSIS Integration Runtime에 대 한 총 CPU 코어 | 256 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 공장에서 모든 파이프라인 간에 공유 되는 데이터 팩터리 당 동시 파이프라인 실행 | 10000  | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 컨테이너에 대 한 내부 활동을 포함 하는 파이프라인 당 최대 작업 | 40 | 40 |
-| 최대 단일 자체 호스팅된 통합 런타임에 대해 만들 수 있는 연결 된 통합 런타임 | 20 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| 최대 단일 자체 호스팅된 통합 런타임에 대해 만들 수 있는 연결 된 통합 런타임 | 100 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 파이프라인 당 최대 매개 변수 | 50 | 50 |
 | ForEach 항목 | 100,000 | 100,000 |
 | ForEach 병렬 처리 | 20 | 50 |

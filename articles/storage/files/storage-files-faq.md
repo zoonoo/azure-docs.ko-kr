@@ -2,18 +2,18 @@
 title: Azure Files에 대한 FAQ(질문과 대답) | Microsoft Docs
 description: Azure Files에 대한 질문과 대답을 확인합니다.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.date: 01/02/2019
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995856"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917603"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -249,7 +249,7 @@ ms.locfileid: "57995856"
 * <a id="port-445-blocked"></a>
 **내 ISP 또는 Azure Files를 실패 하는 IT 블록 포트 445 탑재 합니다. 어떻게 해야 하나요?**
 
-    알아볼 수 있습니다 [차단 문제를 해결 하려면 다양 한 포트 445 여기](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)합니다. Azure Files에서 SMB 3.0을 사용 하 여 (암호화 지원과) 연결만 허용 지역 또는 데이터 센터 외부입니다. SMB 3.0 프로토콜은 매우 안전한 인터넷을 통해 사용 하는 채널 암호화를 비롯 한 여러 보안 기능을 도입 했습니다. 그러나 포트 445는 수는 더 낮은 SMB 버전에서 발견 된 취약점의 기록 이유로 인해 차단 되었습니다. 이상적인 경우 포트에 대 한 SMB 1.0 트래픽에 대해서만 차단 해야 하 고 모든 클라이언트에서 SMB 1.0를 해제 해야 합니다.
+    알아볼 수 있습니다 [차단 문제를 해결 하려면 다양 한 포트 445 여기](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)합니다. Azure Files에서 SMB 3.0을 사용 하 여 (암호화 지원과) 연결만 허용 지역 또는 데이터 센터 외부입니다. SMB 3.0 프로토콜은 매우 안전한 인터넷을 통해 사용 하는 채널 암호화를 비롯 한 여러 보안 기능을 도입 했습니다. 그러나 포트 445는 수는 더 낮은 SMB 버전에서 발견 된 취약점의 기록 이유로 인해 차단 되었습니다. 이상적인 경우 포트에 대 한 SMB 1.0 트래픽에 대해서만 차단 해야 하 고 모든 클라이언트에서 SMB 1.0를 해제 해야 합니다.
 
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure 파일 동기화를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  

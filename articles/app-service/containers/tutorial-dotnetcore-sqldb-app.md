@@ -90,7 +90,7 @@ dotnet run
 
 이 단계에서는 Azure에 SQL Database를 만듭니다. Azure에 앱을 배포하면 이 클라우드 데이터베이스가 사용됩니다.
 
-SQL Database의 경우 이 자습서에서는 [Azure SQL Database](/azure/sql-database/)를 사용합니다.
+SQL Database의 경우 이 자습서에서는 [Azure SQL 데이터베이스](/azure/sql-database/)를 사용합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ecc63cac56c9aeb3d1dd3875134d53cb481e6a5c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009006"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708198"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 애플리케이션을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -40,7 +40,7 @@ Service Fabric은 필요에 따라 작은 규모로 시작하여 수백 또는 �
 
 오늘날 인터넷 범위의 서비스는 마이크로 서비스를 토대로 빌드됩니다. 마이크로 서비스의 예로는 프로토콜 게이트웨이, 사용자 프로필, 쇼핑 카트, 인벤토리 처리, 큐, 캐시 등을 들 수 있습니다. Service Fabric은 모든 마이크로 서비스(또는 컨테이너)에 상태 비저장 또는 상태 저장 중 하나일 수 있는 고유한 이름을 제공하는 마이크로 서비스 플랫폼입니다.
 
-Service Fabric은 이러한 마이크로 서비스로 구성된 애플리케이션에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 컴퓨터로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
+Service Fabric은 이러한 마이크로 서비스로 구성된 애플리케이션에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 머신으로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
 
 마이크로 서비스 접근 방식에 대한 자세한 내용은 [애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 

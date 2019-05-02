@@ -1,7 +1,6 @@
 ---
 title: HBase .NET SDK 사용 - Azure HDInsight
 description: HBase.NET SDK를 사용하여 테이블을 만들고 삭제하며 데이터 읽기 및 쓰기를 할 수 있습니다.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 27a013bee98447de591d373917c2cbaae7ca08b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857660"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720307"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용.NET SDK를 사용 합니다.
 
@@ -117,7 +116,7 @@ HBase는 데이터 형식이 다음처럼 표시되도록 [Cloud BigTable](https
 
 ![클러스터 사용자 역할이 있는 사용자](./media/apache-hbase-rest-sdk/table.png)
 
-## <a name="select-data"></a>데이터 선택
+## <a name="select-data"></a>데이터를 선택합니다.
 
 HBase 테이블에서 데이터를 읽으려면 테이블 이름과 행 키를 `CellSet`를 반환하는 `GetCellsAsync` 메서드로 전달합니다.
 

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537652"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569644"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>기본 명령줄 작업을 재정의 하려면 컨테이너 인스턴스에서 명령줄 설정
 
@@ -24,7 +24,15 @@ ms.locfileid: "60537652"
 
 * 기본적으로 명령줄 지정는 *없이 셸을 시작 하는 프로세스를 단일* 컨테이너에서. 예를 들어 Python 스크립트 또는 실행 파일을 명령줄 실행 될 수 있습니다. 
 
-* 명령을 여러 개를 실행 하려면 명령줄 셸 환경 컨테이너 운영 체제에서 설정 하 여 시작 합니다 (예: `bin/sh`, `/bin/bash`, `cmd`). 셸의 순서로 실행할 여러 명령을 결합 하는 규칙을 따릅니다.
+* 여러 명령을 실행 하려면 컨테이너 운영 체제에서 지원 되는 셸 환경을 설정 하 여 명령줄을 시작 합니다. 예제:
+
+  |운영 체제  |기본 셸  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  |Windows     |    `cmd`     |
+
+  셸의 순서로 실행할 여러 명령을 결합 하는 규칙을 따릅니다.
 
 * 컨테이너 구성에 따라 전체 경로 명령줄 실행 파일 또는 인수를 설정 해야 합니다.
 

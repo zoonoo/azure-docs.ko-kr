@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 JWT 토큰 �
 description: Azure Active Directory B2C의 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필을 정의합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396770"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683794"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필 정의
 
@@ -23,7 +23,7 @@ ms.locfileid: "60396770"
 
 Azure AD(Azure Active Directory) B2C는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. JWT 토큰 발급자의 기술 프로필은 다시 신뢰 당사자 애플리케이션으로 반환되는 JWT 토큰을 내보냅니다. 일반적으로 이 기술 프로필은 사용자 경험의 마지막 오케스트레이션 단계입니다.
 
-## <a name="protocol"></a>프로토콜
+## <a name="protocol"></a>Protocol
 
 **Protocol** 요소의 **Name** 특성은 `None`로 설정해야 합니다. **OutputTokenFormat** 요소를 `JWT`로 설정합니다.
 
@@ -62,7 +62,7 @@ CryptographicKeys 요소에는 다음 특성이 포함됩니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| issuer_secret | 예. | JWT 토큰에 서명하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenSigningKeyContainer`에서 구성한 ](active-directory-b2c-get-started-custom.md) 키입니다. | 
+| issuer_secret | 예 | JWT 토큰에 서명하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenSigningKeyContainer`에서 구성한 ](active-directory-b2c-get-started-custom.md) 키입니다. | 
 | issuer_refresh_token_key | 예 | 새로 고침 토큰을 암호화하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenEncryptionKeyContainer`에서 ](active-directory-b2c-get-started-custom.md) 키를 구성했습니다. |
 
 

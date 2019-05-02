@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor에서 azure SQL Analytics 솔루션 | Microsoft Docs
-description: Azure SQL 분석 솔루션을 통해 Azure SQL Database 관리
+description: Azure SQL 분석 솔루션을 통해 Azure SQL 데이터베이스 관리
 services: log-analytics
 ms.service: log-analytics
 ms.custom: ''
@@ -10,18 +10,18 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: c68c278b2a7afa8287845c452e3bec5380cf05c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498619"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923027"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
 ![Azure SQL 분석 기호](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL 분석은 단일 창을 통해 여러 구독 간 규모에 맞게 Azure SQL Database, Elastic Pool 및 Managed Instance의 성능을 모니터링하기 위한 고급 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다.
+Azure SQL 분석은 단일 창을 통해 여러 구독 간 규모에 맞게 Azure SQL 데이터베이스, 탄력적 풀 및 Managed Instance의 성능을 모니터링하기 위한 고급 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다.
 
 솔루션으로 수집한 메트릭을 사용하여 사용자 지정 모니터링 규칙 및 경고를 만들 수 있습니다. 솔루션은 애플리케이션 스택의 각 계층에서 문제를 식별할 수 있습니다. 단일 Log Analytics 작업 영역에서 관리 되는 인스턴스에서 모든 Azure SQL 데이터베이스, 탄력적 풀 및 데이터베이스에 대 한 데이터를 제공 하기 위해 Azure 진단 메트릭을 Azure Monitor 뷰를 함께 사용 합니다. Azure Monitor를 통해 수집, 상호 연결 및 구조적 및 비구조적 데이터를 시각화할 수 있습니다.
 
@@ -32,7 +32,7 @@ Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적
 
 ## <a name="connected-sources"></a>연결된 소스
 
-Azure SQL 분석은 단일, 풀링, Managed Instance 데이터베이스 등 Azure SQL Database에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 전용 모니터링 솔루션입니다. 솔루션 Azure Monitor에 연결할 에이전트를 사용 하지 않으므로, 솔루션 호스팅되는 SQL Server 온-프레미스 또는 Vm에서 모니터링을 지원, 아래 호환성 표를 참조 하지 않습니다.
+Azure SQL Analytics는 단일, 풀링, Managed Instance 데이터베이스 등 Azure SQL 데이터베이스에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 전용 모니터링 솔루션입니다. 솔루션 Azure Monitor에 연결할 에이전트를 사용 하지 않으므로, 솔루션 호스팅되는 SQL Server 온-프레미스 또는 Vm에서 모니터링을 지원, 아래 호환성 표를 참조 하지 않습니다.
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Azure SQL 분석은 단일, 풀링, Managed Instance 데이터베이스 등 Azur
 ## <a name="configuration"></a>구성
 설명한 프로세스를 사용 하 여 [솔루션 갤러리에서 Azure Monitor 추가 솔루션](../../azure-monitor/insights/solutions.md) Log Analytics 작업 영역에 Azure SQL Analytics (미리 보기) 솔루션을 추가 합니다.
 
-### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>진단 원격 분석을 스트림하기 위해 Azure SQL Database, 탄력적 풀 및 Managed Instances 구성
+### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>진단 원격 분석을 스트림하기 위해 Azure SQL Databases, 탄력적 풀 및 Managed Instances 구성
 
 작업 영역에 Azure SQL 분석 솔루션을 만든 후에는 모니터링하려는 각 리소스를 **구성**하여 해당 진단 원격 분석을 솔루션으로 스트리밍해야 합니다. 이 페이지에서 자세한 지침을 따르세요.
 
@@ -99,7 +99,7 @@ Managed Instance 보기를 선택하면 Managed Instance 사용률, 포함된 �
 
 ### <a name="perspectives"></a>큐브 뷰
 
-아래 표에서는 Azure SQL Database 및 탄력적 풀에 대한 큐브 뷰 및 Managed Instance에 대한 큐브 뷰와 같이 두 버전의 대시보드에 지원되는 큐브 뷰에 대해 설명합니다.
+아래 표에서는 Azure SQL 데이터베이스 및 탄력적 풀에 대한 큐브 뷰 및 Managed Instance에 대한 큐브 뷰와 같이 두 버전의 대시보드에 지원되는 큐브 뷰에 대해 설명합니다.
 
 | 관점 | 설명 | SQL Database 및 탄력적 풀 지원 | Managed Instance 지원 |
 | --- | ------- | ----- | ----- |
@@ -287,7 +287,7 @@ AzureDiagnostics
 
 ### <a name="pricing"></a>가격
 
-솔루션은 무료로 사용할 수 있지만 매월 할당되는 무료 데이터 수집 단위를 초과하는 진단 원격 분석 데이터에는 요금이 청구됩니다. [Log Analytics 가격 책정](https://azure.microsoft.com/en-us/pricing/details/monitor)을 참조하세요. 제공되는 데이터 수집 무료 단위만큼 매월 여러 데이터베이스를 무료로 모니터링할 수 있습니다. 워크로드가 많은 활성 데이터는 유휴 데이터베이스보다 더 많은 데이터를 수집합니다. Azure SQL 분석의 탐색 메뉴에서 OMS 작업 영역을 선택한 다음, [사용량 및 예상 비용]을 선택하여 솔루션에서 데이터 수집 사용량을 쉽게 모니터링할 수 있습니다.
+솔루션은 무료로 사용할 수 있지만 매월 할당되는 무료 데이터 수집 단위를 초과하는 진단 원격 분석 데이터에는 요금이 청구됩니다. [Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor)을 참조하세요. 제공되는 데이터 수집 무료 단위만큼 매월 여러 데이터베이스를 무료로 모니터링할 수 있습니다. 워크로드가 많은 활성 데이터는 유휴 데이터베이스보다 더 많은 데이터를 수집합니다. Azure SQL 분석의 탐색 메뉴에서 OMS 작업 영역을 선택한 다음, [사용량 및 예상 비용]을 선택하여 솔루션에서 데이터 수집 사용량을 쉽게 모니터링할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight에서 Hive 쿼리를 최적화
 description: 이 문서에서는 HDInsight에서 Hadoop에 대한 Apache Hive 쿼리를 최적화하는 방법을 설명합니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 63def1464c3c219b5181a31bf19cc80a1e487025
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521740"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701693"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 

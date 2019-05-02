@@ -1,25 +1,18 @@
 ---
-title: 마켓플레이스 제품 업데이트 - Azure Marketplace | Microsoft Docs
+title: Marketplace 제품 업데이트 | Azure Marketplace
 description: Cloud 파트너 포털을 이용하여 Azure 및 AppSource Marketplace에서 제품 업데이트
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: 73e2812c678dca7e21089ee9cc091db756d7e25a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102148"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942403"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 업데이트
 

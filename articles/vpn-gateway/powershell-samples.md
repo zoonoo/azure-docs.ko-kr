@@ -3,8 +3,8 @@ title: VPN Gateway에 대한 Azure PowerShell 샘플 | Microsoft Docs
 description: VPN Gateway에 대한 Azure PowerShell 샘플
 services: vpn-gateway
 documentationcenter: ''
-author: cherylmc
-manager: jeconnoc
+author: WenJason
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/25/2018
-ms.author: cherylmc
-ms.openlocfilehash: f577edc4c60164d3fb56d13f201854797962ecf3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+origin.date: 04/25/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.openlocfilehash: bdc9fd503f3ae1a3ededb9eba71268765c8801aa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539624"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>VPN Gateway에 대한 Azure PowerShell 샘플
 
@@ -33,4 +34,4 @@ ms.locfileid: "34271762"
 | [VPN Gateway 및 P2S 구성 만들기 - 인증서 인증](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md) | 네이티브 Azure 인증서 인증을 사용하는 경로 기반 VPN Gateway 및 P2S 구성을 만듭니다. |
 | [VPN Gateway 및 사이트 간 연결 만들기](./scripts/vpn-gateway-sample-site-to-site-powershell.md) | 경로 기반 VPN Gateway 및 S2S 연결을 만듭니다. |
 | [vnet 간 연결 만들기](./scripts/vpn-gateway-sample-vnet-vnet-powershell.md) | vnet 간 연결을 만듭니다. |
-| [VPN 장치 템플릿 다운로드](./scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md) | VPN 디바이스 템플릿을 다운로드합니다. |
+| [VPN 디바이스 템플릿 다운로드](./scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md) | VPN 디바이스 템플릿을 다운로드합니다. |

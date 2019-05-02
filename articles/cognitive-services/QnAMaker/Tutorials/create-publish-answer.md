@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 355c11d4f8ae0089527a9f0d21af7c4d6070f73a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877281"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922364"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>자습서: C#을 사용하여 기술 자료를 만든 후 질문에 답변하기
 
@@ -185,7 +185,7 @@ KB 세부 정보를 가져오려면 다음 메서드를 추가합니다. 이러�
   "name": "QnA Maker FAQ from quickstart",
   "userId": "AAAc3841df0b42cdb00f53a49d51a89c",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
@@ -224,10 +224,10 @@ QnA Maker의 기본 엔드포인트를 가져오려면 다음 메서드를 추�
       "questions": [
         "Does QnA Maker support non-English languages?"
       ],
-      "answer": "See more details about [supported languages](https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
+      "answer": "See more details about [supported languages](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
       "score": 82.19,
       "id": 11,
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "metadata": []
     }
   ]

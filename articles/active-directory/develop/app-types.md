@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411205"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917293"
 ---
 # <a name="application-types-in-v10"></a>v1.0의 애플리케이션 유형
 
@@ -63,7 +63,7 @@ Azure AD로 인증을 아웃소싱하는 애플리케이션을 디렉터리에 �
   * **키** - Azure AD를 인증하여 웹 API를 호출하면 애플리케이션 ID와 함께 보내지는 키입니다.
 * Azure AD는 애플리케이션에 디렉터리 데이터, 조직의 다른 애플리케이션 등에 액세스하는 데 필요한 권한이 있는지 확인해야 합니다.
 
-자세한 내용은 [Azure AD v1.0 엔드포인트에 앱을 등록](quickstart-v1-add-azure-ad-app.md)하는 방법을 참조하세요.
+자세한 내용은 [앱 등록](quickstart-register-app.md)방법을 참조하세요.
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>단일 테넌트 및 다중 테넌트 앱
 

@@ -136,7 +136,7 @@ Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Editio
 
 메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 세트 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 주체가 지원되므로 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지하는 유연성을 제공합니다. 
 
-DirectQuery 모드*는 저장소 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server 데이터 웨어하우스, Azure SQL Database, Azure SQL Data Warehouse, Oracle 및 Teradata 데이터 원본에서 초대량의 데이터 집합이 지원됩니다. 백 엔드 데이터 집합은 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
+DirectQuery 모드*는 저장소 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server 데이터 웨어하우스, Azure SQL Database, Azure SQL Data Warehouse, Oracle 및 Teradata 데이터 원본에서 초대량의 데이터 세트가 지원됩니다. 백 엔드 데이터 집합은 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
 
 \* 기능 가용성은 계층에 따라 다릅니다.
 

@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/30/2018
+ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 844e4a0d2715799b808f2c7630c201f6e792bd63
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d20e266d1331fc15e65b2d119468483ff53a4c06
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124423"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951548"
 ---
-| 리소스 | 기본 | 표준 | 프리미엄 |
+| 리소스 | Basic | 표준 | Premium |
 |---|---|---|---|
 | Storage<sup>1</sup> | 10GiB | 100GiB| 500GiB |
-| 최대 이미지 계층 크기 | 20GiB | 20GiB | 50GiB |
+| 최대 이미지 계층 크기 | 200 GiB | 200 GiB | 200 GiB |
 | 분당 ReadOps<sup>2, 3</sup> | 1,000 | 3,000 | 10000 |
 | 분당 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | 다운로드 대역폭 MBps<sup>2</sup> | 30 | 60 | 100 |
 | 업로드 대역폭 MBps<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
-| 지역에서 복제 | 해당 없음 | 해당 없음 | [지원됨][geo-replication] |
-| 콘텐츠 신뢰(미리 보기) | 해당 없음 | 해당 없음 | [지원됨][content-trust] |
+| Webhook | 2 | 10 | 100 |
+| 지역에서 복제 | N/A | N/A | [지원됨][geo-replication] |
+| 콘텐츠 신뢰(미리 보기) | N/A | N/A | [지원됨][content-trust] |
 
 <sup>1</sup>지정 된 저장소 제한은 양을 *포함* 각 계층에 대 한 저장소입니다. 이러한 한도 초과 이미지 저장소에 대해 GiB당 추가 일별 요금이 청구됩니다. 환율 정보를 참조 하세요. [Azure Container Registry 가격 책정][pricing]합니다.
 

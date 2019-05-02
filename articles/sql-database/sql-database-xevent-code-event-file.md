@@ -244,7 +244,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했습니다. 이러한 값을 사용하려면 Transact-SQL 스크립트를 편집해야 합니다. Transact-SQL 스크립트에서 **TODO** 를 찾아 편집점을 찾습니다.
 
 1. SQL Server Management Studio(ssms.exe)를 엽니다.
-2. Azure SQL Database에 연결합니다.
+2. Azure SQL Database 데이터베이스에 연결합니다.
 3. 클릭하여 새 쿼리 창을 엽니다.
 4. 쿼리 창에 다음 Transact-SQL 스크립트를 붙여 넣습니다.
 5. 스크립트의 모든 **TODO** 를 찾고 적절히 편집합니다.

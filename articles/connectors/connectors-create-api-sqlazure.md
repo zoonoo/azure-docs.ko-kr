@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544026"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696412"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Azure Logic Apps에서 SQL Server 또는 Azure SQL Database에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "38544026"
 
 SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이벤트로 트리거될 때 실행할 수 있는 논리 앱을 만들 수 있습니다. 논리 앱은 기존 SQL 쿼리 및 저장 프로시저를 사용하여 데이터를 가져오고 삽입하고 삭제할 수 있습니다. 예를 들어 Dynamics CRM Online에서 새 레코드를 자동으로 확인하고, 새 레코드에 대한 항목을 SQL 데이터베이스에 추가한 다음, 이메일 경고를 보내는 논리 앱을 만들 수 있습니다.
 
-Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다. 커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 커넥터 참조</a>를 참조하세요.
+Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 커넥터 참조</a>를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -56,7 +56,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 2. 검색 상자에서 "sql server"를 필터로 입력합니다. 트리거 목록에서 원하는 SQL 트리거를 선택합니다. 
 
-   이 예에서는 **SQL Server - 항목이 만들어지는 경우** 트리거를 선택합니다.
+   예를 들어이 트리거를 선택 합니다. **SQL Server-항목이 만들어진 경우**
 
    !["SQL Server - 항목이 만들어진 경우" 트리거 선택](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -94,7 +94,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 2. 검색 상자에서 "sql server"를 필터로 입력합니다. 작업 목록에서 원하는 SQL 작업을 선택합니다. 
 
-   이 예에서는 단일 레코드를 가져오는 **SQL Server - 행 가져오기** 작업을 선택합니다. 
+   예를 들어 단일 레코드를 가져옵니다.이 작업을 선택 합니다. **SQL Server-행 가져오기**
 
    !["sql server" 입력, "SQL Server - 행 가져오기" 선택](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
@@ -116,23 +116,26 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>대량 데이터 처리
+## <a name="handle-bulk-data"></a>대량 데이터를 처리 합니다.
 
-커넥터에서 모든 결과를 동시에 반환할 수 없을 만큼 너무 큰 결과 집합을 사용하거나 결과 집합의 크기와 구조를 더 효율적으로 제어하려는 경우 결과를 더 작은 집합으로 관리하는 데 유용한 *페이지 매김*을 사용할 수 있습니다. 
+경우에 따라 커넥터는 동시에 모든 결과 반환 하지 않습니다 또는 결과 집합에 대 한 더 나은 제어 구조와 크기를 원하는 너무 큰 결과 집합을 사용 해야 합니다. 이러한 큰 결과 집합을 처리할 수 있도록 몇 가지는 다음과 같습니다.
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* 를 더 작은 집합으로 결과 관리할 수 있도록 하려면 켜 *페이지 매김*합니다. 자세한 내용은 [대량 데이터 가져오기, 레코드 및 항목 페이지 매김을 사용 하 여](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>저장 프로시저 만들기
+* 원하는 방식으로 결과 구성 하는 저장된 프로시저를 만듭니다.
 
-여러 행을 가져오거나 삽입하는 경우 논리 앱은 이 [제한](../logic-apps/logic-apps-limits-and-config.md) 내에서 [*until 루프*](../logic-apps/logic-apps-control-flow-loops.md#until-loop)를 사용하여 이러한 항목을 반복할 수 있습니다. 하지만 논리 앱에서 수천 또는 수백만 개의 행과 같이 너무 큰 레코드 집합을 사용하여 데이터베이스 호출 비용을 최소화하려는 경우가 있습니다. 
+  논리 앱에 가져오거나 여러 행을 삽입할 때 사용 하 여 이러한 행을 반복할 수 있는 [ *until 루프* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 이러한 [제한](../logic-apps/logic-apps-limits-and-config.md)합니다. 
+  그러나 경우 논리 앱 작업 하는 레코드 집합 너무 수천 또는 수백만 개의 행, 예를 들어 데이터베이스에 대 한 호출에서 발생 하는 비용을 최소화 하려면.
 
-대신 SQL 인스턴스에서 실행되는 <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*저장 프로시저*</a>를 만들고, **SELECT - ORDER BY** 문을 사용하여 원하는 방식으로 결과를 구성할 수 있습니다. 이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다. 
+  원하는 방식으로 결과 구성 하기 위해 만들 수 있습니다는 [ *저장 프로시저* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) SQL 인스턴스에서 실행 되 고 사용 하는 **SELECT-ORDER BY** 문입니다. 
+  이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 
+  논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다.
 
-솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
+  솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">Logic Apps를 사용한 대량 데이터 전송에 대한 SQL 페이지 매김</a>
+  * [Logic Apps를 사용한 대량 데이터 전송에 대한 SQL 페이지 매김](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY 절</a>
+  * [SELECT - ORDER BY 절](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 

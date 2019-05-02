@@ -84,7 +84,7 @@ Azure Database Migration Service 인스턴스를 만든 후 마이그레이션 �
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>원본 및 대상 연결에 대한 데이터베이스 연결 정보 개체 만들기
 `New-AzDmsConnInfo` cmdlet을 사용하여 데이터베이스 연결 정보 개체를 만들 수 있습니다. 이 cmdlet에는 다음 매개 변수가 필요합니다.
 - *ServerType*. SQL, Oracle 또는 MySQL 등 요청된 데이터베이스 연결 유형입니다. SQL Server 및 Azure SQL에 대해 SQL을 사용합니다.
-- *DataSource*. SQL Server 인스턴스 또는 Azure SQL Database의 이름 또는 IP입니다.
+- *DataSource*. SQL Server 인스턴스 또는 Azure SQL 데이터베이스의 이름 또는 IP입니다.
 - *AuthType*. 연결에 대한 인증 유형이며 SqlAuthentication 또는 WindowsAuthentication일 수 있습니다.
 - *TrustServerCertificate* 매개 변수는 인증서 체인 검사를 무시할 때 채널의 암호화 여부를 나타내는 값을 설정하여 신뢰의 유효성을 검사합니다. 값은 True 또는 False일 수 있습니다.
 
@@ -97,7 +97,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-다음 예에서는 sql 인증을 사용하여 SQLAzureTarget이라는 Azure SQL 데이터베이스 서버에 대한 연결 정보를 만드는 방법을 보여줍니다.
+다음 예제에서는 sql 인증을 사용하여 SQLAzureTarget이라는 Azure SQL 데이터베이스 서버에 대한 연결 정보를 만드는 방법을 보여줍니다.
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `

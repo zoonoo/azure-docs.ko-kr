@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 일�
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 일반 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a9a819e75e487999a2b50ae758b8d9c6c716a4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 831ecf2924ab6c321f69bb50c4a95a4156482585
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397161"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683951"
 ---
 # <a name="general-claims-transformations"></a>일반 클레임 변환
 
@@ -58,10 +58,10 @@ ms.locfileid: "60397161"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | 일반 텍스트(plaintext) | string | 암호화할 입력 클레임입니다. |
-| InputClaim | salt | string | 솔트 매개 변수입니다. `CreateRandomString` 클레임 변환을 사용하여 임의 값을 만들 수 있습니다. |
-| InputParameter | randomizerSecret | string | 기존 Azure AD B2C **정책 키**를 가리킵니다. 새로 만들려면: Azure AD B2C 테넌트에서 **B2C 설정 > ID 경험 프레임워크**를 선택합니다. 테넌트에 사용 가능한 키를 보려면 **정책 키**를 선택합니다. **추가**를 선택합니다. **옵션**에서 **수동**을 선택합니다. 이름을 입력합니다. B2C_1A_ 접두사가 자동으로 추가될 수 있습니다. 비밀 상자에 사용하려는 비밀을 1234567890과 같이 입력합니다. 키 사용에서 **비밀**을 선택합니다. **만들기**를 선택합니다. |
-| OutputClaim | 해시 | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. `plaintext` inputClaim에구성 된 클레임입니다. |
+| InputClaim | plaintext | 문자열 | 암호화할 입력 클레임입니다. |
+| InputClaim | salt | 문자열 | 솔트 매개 변수입니다. `CreateRandomString` 클레임 변환을 사용하여 임의 값을 만들 수 있습니다. |
+| InputParameter | randomizerSecret | 문자열 | 기존 Azure AD B2C **정책 키**를 가리킵니다. 새로 만들려면: Azure AD B2C 테넌트에서 **B2C 설정 > ID 경험 프레임워크**를 선택합니다. 테넌트에 사용 가능한 키를 보려면 **정책 키**를 선택합니다. **추가**를 선택합니다. **옵션**에서 **수동**을 선택합니다. 이름을 입력합니다. B2C_1A_ 접두사가 자동으로 추가될 수 있습니다. 비밀 상자에 사용하려는 비밀을 1234567890과 같이 입력합니다. 키 사용에서 **비밀**을 선택합니다. **만들기**를 선택합니다. |
+| OutputClaim | hash | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. `plaintext` inputClaim에구성 된 클레임입니다. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

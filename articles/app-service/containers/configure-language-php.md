@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551339"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920425"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux PHP 앱 구성
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서 수행할 수 있습니다 [앱 설정을](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) 코드 외부에서 앱. 표준을 사용 하 여 액세스할 수 있습니다 [getenv ()](https://secure.php.net/manual/function.getenv.php) 패턴입니다. 예를 들어 앱 설정 `DB_HOST`에 액세스하려면 다음 코드를 사용합니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)을 지정할 수 있습니다. 표준을 사용 하 여 액세스할 수 있습니다 [getenv ()](https://secure.php.net/manual/function.getenv.php) 패턴입니다. 예를 들어 앱 설정 `DB_HOST`에 액세스하려면 다음 코드를 사용합니다.
 
 ```php
 getenv("DB_HOST")
@@ -141,7 +141,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 ## <a name="customize-phpini-settings"></a>Php.ini 설정을 사용자 지정
 
-PHP 설치를 변경 하는 경우 중 하나를 변경할 수 있습니다 합니다 [php.ini 지시문](http://www.php.net/manual/ini.list.php) 에서 다음 단계를 수행 합니다.
+PHP 설치를 변경 하는 경우 중 하나를 변경할 수 있습니다 합니다 [php.ini 지시문](https://www.php.net/manual/ini.list.php) 에서 다음 단계를 수행 합니다.
 
 > [!NOTE]
 > PHP 버전 및 현재 참조 하는 가장 좋은 방법은 *php.ini* 구성을 호출 하는 것 [phpinfo ()](https://php.net/manual/function.phpinfo.php) 앱에서.
@@ -149,7 +149,7 @@ PHP 설치를 변경 하는 경우 중 하나를 변경할 수 있습니다 합�
 
 ### <a name="customize-non-phpinisystem-directives"></a>비 PHP_INI_SYSTEM 지시문을 사용자 지정
 
-PHP_INI_USER, PHP_INI_PERDIR, 및 PHP_INI_ALL 지시문에 맞게 (참조 [php.ini 지시문](http://www.php.net/manual/ini.list.php)), 추가 *.htaccess* 파일을 앱의 루트 디렉터리입니다.
+PHP_INI_USER, PHP_INI_PERDIR, 및 PHP_INI_ALL 지시문에 맞게 (참조 [php.ini 지시문](https://www.php.net/manual/ini.list.php)), 추가 *.htaccess* 파일을 앱의 루트 디렉터리입니다.
 
 에 *.htaccess* 파일을 사용 하 여 지시문을 추가 합니다 `php_value <directive-name> <value>` 구문입니다. 예를 들면 다음과 같습니다.
 
@@ -165,11 +165,11 @@ php_value upload_max_filesize 10M
 
 변경 내용으로 앱을 다시 배포 하 고 다시 시작 합니다. Kudu를 사용 하 여 배포 하는 경우 (예를 들어,를 사용 하 여 [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json))를 자동으로 배포 후 다시 시작 합니다.
 
-사용 하 여 대 안으로 *.htaccess*를 사용할 수 있습니다 [ini_set ()](http://www.php.net/manual/function.ini-set.php) 이러한 비 PHP_INI_SYSTEM 지시문을 사용자 지정 앱에서.
+사용 하 여 대 안으로 *.htaccess*를 사용할 수 있습니다 [ini_set ()](https://www.php.net/manual/function.ini-set.php) 이러한 비 PHP_INI_SYSTEM 지시문을 사용자 지정 앱에서.
 
 ### <a name="customize-phpinisystem-directives"></a>PHP_INI_SYSTEM 지시문을 사용자 지정
 
-PHP_INI_SYSTEM 지시문에 맞게 (참조 [php.ini 지시문](http://www.php.net/manual/ini.list.php))를 사용할 수 없습니다는 *.htaccess* 접근 방식입니다. App Service를 사용 하 여 별도 메커니즘을 제공 합니다 `PHP_INI_SCAN_DIR` 앱 설정 합니다.
+PHP_INI_SYSTEM 지시문에 맞게 (참조 [php.ini 지시문](https://www.php.net/manual/ini.list.php))를 사용할 수 없습니다는 *.htaccess* 접근 방식입니다. App Service를 사용 하 여 별도 메커니즘을 제공 합니다 `PHP_INI_SCAN_DIR` 앱 설정 합니다.
 
 첫째,에서 다음 명령을 실행 합니다 [Cloud Shell](https://shell.azure.com) 이라는 앱 설정을 추가 하려면 `PHP_INI_SCAN_DIR`:
 
@@ -232,12 +232,12 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 
 작업 중인 PHP 앱이 App Service에서 다르게 동작 또는 오류가 하는 경우 다음과 같이 하세요.
 
-- [로그 스트림 액세스](#access-diagnostic-logs)합니다.
+- [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
 - 프로덕션 모드에서 앱을 로컬로 테스트 합니다. App Service는 프로젝트가 프로덕션 모드로 로컬로 예상 대로 작동 하는지 확인 해야 하므로 프로덕션 모드에서 Node.js 앱을 실행 합니다. 예를 들면 다음과 같습니다.
     - 에 따라 프로그램 *composer.json*, 프로덕션 모드에 대 한 서로 다른 패키지를 설치할 수 있습니다 (`require` 비교 `require-dev`).
     - 특정 웹 프레임 워크는 다르게 프로덕션 모드에서에서 정적 파일을 배포할 수 있습니다.
     - 프로덕션 모드에서 실행 하는 경우 특정 웹 프레임 워크에서 사용자 지정 시작 스크립트를 사용할 수 있습니다.
-- App Service에서 앱을 디버그 모드에서 실행 합니다. 예를 들어 [Laravel](http://meanjs.org/), 하 여 프로덕션 환경에서 디버그 메시지를 출력 하도록 앱을 구성할 수 있습니다 [설정 합니다 `APP_DEBUG` 앱 설정을 `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)합니다.
+- App Service에서 앱을 디버그 모드에서 실행 합니다. 예를 들어 [Laravel](https://meanjs.org/), 하 여 프로덕션 환경에서 디버그 메시지를 출력 하도록 앱을 구성할 수 있습니다 [설정 합니다 `APP_DEBUG` 앱 설정을 `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)합니다.
 
 ### <a name="robots933456"></a>robots933456
 
@@ -252,7 +252,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: MySQL 사용 하 여 PHP 앱](tutorial-php-mysql-app.md)
+> [자습서: MySQL을 사용하는 PHP 앱](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](app-service-linux-faq.md)

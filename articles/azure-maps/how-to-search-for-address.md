@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785579"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572379"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소 찾기
 
@@ -68,7 +68,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
     "pizza"라는 모호한 쿼리 문자열을 사용하면 "pizza"(피자)와 "restaurant"(음식점)에 속한 범주의 [POI(관심 지점)](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) 결과 10개가 반환되었습니다. 각 결과는 위치에 대한 도로 주소, 위도 / 경도 값, 뷰 포트 및 진입점을 반환합니다.
   
-    결과는 특정 기준 위치에 연결되지 않고 이 쿼리에 대해 변화됩니다. 기본 동작이 전체 세계를 검색하여 불필요한 결과를 반환할 가능성이 높기 때문에 **countrySet** 매개 변수를 사용하여 애플리케이션에 적용 범위가 필요한 국가만 지정할 수 있습니다.
+    결과는 특정 기준 위치에 연결되지 않고 이 쿼리에 대해 변화됩니다. 사용할 수는 **countrySet** 기본 동작을 잠재적으로 불필요 한 결과 반환 하는 전체 세계를 검색 하는 만큼만 국가/지역에 일일이 검사를 지정 하려면 매개 변수입니다.
 
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 

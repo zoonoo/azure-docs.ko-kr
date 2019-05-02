@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d146027ea3a21ab8df3750014c02893bc2f50dd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097732"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711562"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임을 위한 사용자 지정 설치
 
@@ -82,7 +82,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
       ![Blob 컨테이너 만들기](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. 새 컨테이너를 선택하고 사용자 지정 설정 스크립트와 관련 파일을 업로드합니다. 폴더가 아니라 컨테이너의 최상위 수준에 `main.cmd`를 업로드해야 합니다. 또한 컨테이너에 필요한 사용자 지정 설치 파일만 포함되어 있는지 확인합니다. 그러면 나중에 Azure-SSIS IR에 다운로드하는 데 시간이 오래 걸리지 않습니다.
+   1. 새 컨테이너를 선택하고 사용자 지정 설정 스크립트와 관련 파일을 업로드합니다. 폴더가 아니라 컨테이너의 최상위 수준에 `main.cmd`를 업로드해야 합니다. 또한 컨테이너에 필요한 사용자 지정 설치 파일만 포함되어 있는지 확인합니다. 그러면 나중에 Azure-SSIS IR에 다운로드하는 데 시간이 오래 걸리지 않습니다. 사용자 지정 설치에 대 한 최대 기간 제한 시간이 초과 되기 전에 컨테이너에서 모든 파일을 다운로드 하 고 AZURE-SSIS ir 설치 시간이 여기에 45 분에 현재 설정 오랜 기간 동안 필요한 경우 지원 티켓을 제기해 주세요.
 
       ![Blob 컨테이너에 파일 업로드](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 

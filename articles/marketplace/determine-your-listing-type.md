@@ -2,24 +2,18 @@
 title: Azure Marketplace에서 게시 옵션 결정 | Azure
 description: 이 문서에서는 Azure Marketplace의 앱을 게시하는 방법을 이해하려는 파트터의 자격 기준 및 게시 요구 사항에 대해 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734043"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938105"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 제안에 대해 선택한 게시 옵션은 적격성 요구 사항 및 마켓플레이스 GTM 혜택 모두와 직접 관련이 있습니다. 무엇보다도 Cloud 파트너 포털에서 게시 옵션 및 제품 유형의 선택은 사용자가 귀하의 마켓플레이스 제안과 상호 작용하는 방법을 정의합니다.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931214"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java의 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -39,7 +39,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="how-to-use-the-javaxmail-libraries"></a>방법: javax.mail 라이브러리 사용
+## <a name="how-to-use-the-javaxmail-libraries"></a>방법: Javax.mail 라이브러리 사용
 javax.mail 라이브러리를 가져오고(예: <https://www.oracle.com/technetwork/java/javamail>에서) 코드로 가져옵니다. 상위 수준에서, javax.mail 라이브러리를 사용하여 SMTP를 통해 전자 메일을 보내는 프로세스는 다음과 같습니다.
 
 1. SMTP 서버를 포함한 SMTP 값을 지정합니다. SendGrid는 smtp.sendgrid.net입니다.
@@ -80,8 +80,8 @@ javax.mail 라이브러리를 가져오고(예: <https://www.oracle.com/technetw
 
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
-3. 메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#how-to-create-an-email) 섹션에 나와 있습니다.
-4. *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][#how-to-send-an-email] 섹션에 나와 있습니다.
+3. 메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. 이에 표시 됩니다는 [방법: 전자 메일 만들기](#how-to-create-an-email) 섹션입니다.
+4. *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. 같으며이 [방법: 전자 메일 보내기] [# 방법-송신-전자 메일] 섹션입니다.
 
 ## <a name="how-to-create-an-email"></a>방법: 전자 메일 만들기
 다음은 메일 값을 지정하는 방법을 보여 줍니다.
@@ -130,7 +130,7 @@ javax.mail 라이브러리를 가져오고(예: <https://www.oracle.com/technetw
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>방법: 필터를 사용 하 여 바닥글, 추적 및 분석을 사용 하도록 설정 하려면
 SendGrid는 *필터*사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][Filter Settings](영문)을 참조하십시오.
 
 * 다음은 보내는 전자 메일 아래쪽에 HTML 텍스트가 표시되도록 하는 바닥글 필터 삽입 방법을 보여 줍니다.
@@ -179,7 +179,7 @@ SendGrid는 Azure 애플리케이션에서 추가 SendGrid 기능을 활용하�
 ## <a name="next-steps"></a>다음 단계
 SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가세요.
 
-* Azure 배포에서 SendGrid를 사용하는 방법을 보여 주는 샘플: [Azure 배포에서 Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](store-sendgrid-java-how-to-send-email-example.md)
+* Azure 배포에서 SendGrid를 사용 하는 방법을 보여 주는 샘플: [Azure 배포에서 Java의에서 SendGrid를 사용 하 여 메일을 보내는 방법](store-sendgrid-java-how-to-send-email-example.md)
 * SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API 설명서: <https://sendgrid.com/docs/API_Reference/index.html>
 * Azure 고객을 위한 SendGrid 특별 제공: <https://sendgrid.com/windowsazure.html>

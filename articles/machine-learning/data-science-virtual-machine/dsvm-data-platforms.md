@@ -57,7 +57,7 @@ SQL Server Management Studio를 실행하려면 프로그램 목록에서 "SQL S
 
 기본 데이터베이스 인스턴스가 장착된 데이터베이스 서버는 기본적으로 자동 실행됩니다. Microsoft SQL Server 데이터베이스에 로컬로 액세스하려면 VM에서 SQL Server Management Studio와 같은 도구를 사용할 수 있습니다. 로컬 관리자 계정에는 데이터베이스에 관리자 액세스할 권한이 있습니다. 
 
-또한 DSVM은 Python, R을 포함하여 여러 언어로 작성된 애플리케이션에서 Microsoft SQL Server 및 Azure SQL databases, Microsoft Azure SQL Data Warehouse와 통신하는 ODBC 드라이버와 JDBC 드라이버가 함께 제공됩니다. 
+또한 DSVM은 Python, R을 포함하여 여러 언어로 작성된 애플리케이션에서 Microsoft SQL Server 및 Azure SQL 데이터베이스, Microsoft Azure SQL Data Warehouse와 통신하는 ODBC 드라이버와 JDBC 드라이버가 함께 제공됩니다. 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>DSVM에 구성/설치 방법 
 

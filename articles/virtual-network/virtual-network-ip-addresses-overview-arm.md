@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Azure의 공용 및 개인 IP 주소에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.author: kumud
+ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652028"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726657"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -78,6 +79,9 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
  
 > [!NOTE]
 > [네트워크 보안 그룹](security-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.
+
+> [!NOTE]
+> 사용 하는 경우 기본 SKU 사용 하 여 공용 IP 주소를 사용할 수만 [인스턴스 메타 데이터 서비스 IMDS](../virtual-machines/windows/instance-metadata-service.md)합니다. 표준 SKU는 지원 되지 않습니다.
 
 ### <a name="allocation-method"></a>할당 방법
 

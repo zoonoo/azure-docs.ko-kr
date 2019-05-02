@@ -1,25 +1,19 @@
 ---
-title: 마켓플레이스에서 상점의 게시자 되기 | Azure
+title: Marketplace에서 상점에서 게시자가 되려면 | Azure Marketplace
 description: 이 문서에서는 마켓플레이스에서 게시자가 되는 방법에 대해 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5dcde10430308eaa1df0e6cca279803c3f7f5fe1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620158"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935661"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 

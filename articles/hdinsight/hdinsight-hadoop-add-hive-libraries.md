@@ -1,7 +1,6 @@
 ---
 title: HDInsight 클러스터를 만드는 동안 Apache Hive 라이브러리 추가 - Azure
 description: 클러스터를 만드는 동안 HDInsight 클러스터에 Apache Hive 라이브러리(jar 파일)를 추가하는 방법을 알아봅니다.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897591"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687222"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가
 

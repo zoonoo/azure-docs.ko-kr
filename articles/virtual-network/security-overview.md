@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
 ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731694"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -32,10 +32,10 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
 |자산  |설명  |
 |---------|---------|
-|Name|네트워크 보안 그룹 내에서 고유한 이름입니다.|
+|이름|네트워크 보안 그룹 내에서 고유한 이름입니다.|
 |우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
 |원본 또는 대상| 아무 또는 개별 IP 주소, CIDR(클래스 없는 도메인 간 라우팅) 블록(예: 10.0.0.0/24), [서비스 태그](#service-tags) 또는 [애플리케이션 보안 그룹](#application-security-groups)입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 사설 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 사설 IP 주소로 변환한 후에, 그리고 Azure가 사설 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. Azure [IP 주소](virtual-network-ip-addresses-overview-arm.md)에 대해 자세히 알아보세요. 범위, 서비스 태그 또는 애플리케이션 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정하는 기능(여러 서비스 태그 또는 애플리케이션 그룹을 지정할 수 없음)은 [보강된 보안 규칙](#augmented-security-rules)이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다. [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.|
-|프로토콜     | TCP, UDP 또는 Any(제한되지는 않지만 TCP, UDP 및 ICMP 포함)입니다. ICMP를 단독으로 지정할 수 없으므로 ICMP가 필요한 경우 다른 것과 함께 사용해야 합니다. |
+|Protocol     | TCP, UDP 또는 Any(제한되지는 않지만 TCP, UDP 및 ICMP 포함)입니다. ICMP를 단독으로 지정할 수 없으므로 ICMP가 필요한 경우 다른 것과 함께 사용해야 합니다. |
 |Direction| 규칙이 인바운드 또는 아웃바운드 트래픽에 적용되는지 여부입니다.|
 |포트 범위     |개별 포트나 포트의 범위를 지정할 수 있습니다. 예를 들어 80 또는 10000-10005과 같이 지정할 수 있습니다. 범위를 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 동일한 보안 규칙에 여러 개의 포트 또는 포트 범위를 지정할 수 없습니다.   |
 |액션(Action)     | 허용 또는 거부        |
@@ -63,7 +63,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 * **AzureCloud**(Resource Manager만 해당): 이 태그는 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)를 포함한 Azure에 대한 IP 주소 공간을 나타냅니다. 값으로 *AzureCloud*를 지정하는 경우 트래픽은 Azure 공용 IP 주소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCloud에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure AzureCloud에 액세스를 허용하려는 경우 *AzureCloud.EastUS*를 서비스 태그로 지정할 수 있습니다. 
 * **AzureTrafficManager**(Resource Manager만 해당): 이 태그는 Azure Traffic Manager 프로브 IP 주소에 대한 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다. 
 * **Storage**(Resource Manager만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. 
-* **Sql**(Resource Manager만 해당): 이 태그는 Azure SQL Database, Azure Database for MySQL, PostgreSQL 용 Azure Database의 주소 접두사 및 Azure SQL Data Warehouse 서비스입니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Sql에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL Database 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 
+* **Sql**(Resource Manager만 해당): 이 태그는 Azure SQL Database, Azure Database for MySQL, PostgreSQL 용 Azure Database의 주소 접두사 및 Azure SQL Data Warehouse 서비스입니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Sql에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 
 * **AzureCosmosDB**(Resource Manager만 해당): 이 태그는 Azure Cosmos Database 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureCosmosDB*를 지정하는 경우 트래픽은 AzureCosmosDB에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCosmosDB 액세스를 허용하려면 AzureCosmosDB.[region name] 형식으로 지역을 지정하면 됩니다. 
 * **AzureKeyVault**(Resource Manager만 해당): 이 태그는 Azure KeyVault 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureKeyVault*를 지정하는 경우 트래픽은 AzureKeyVault에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureKeyVault 액세스를 허용하려면 AzureKeyVault.[region name] 형식으로 지역을 지정하면 됩니다. 
 * **EventHub**(Resource Manager만 해당): 이 태그는 Azure EventHub 서비스의 주소 접두사를 나타냅니다. 값으로 *EventHub*를 지정하는 경우 트래픽은 EventHub에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 EventHub 액세스를 허용하려면 다음과 같은 EventHub.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 
@@ -96,19 +96,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
+|우선 순위|원본|원본 포트|대상|대상 포트|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|모두|허용|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
+|우선 순위|원본|원본 포트|대상|대상 포트|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|모두|허용|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
+|우선 순위|원본|원본 포트|대상|대상 포트|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|모두|거부|
 
@@ -116,19 +116,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 모두 | 허용 |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | 인터넷 | 0-65535 | 모두 | 허용 |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 모두 | 거부 |
 
@@ -148,7 +148,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 이 규칙은 인터넷에서 웹 서버로 가는 트래픽을 허용하기 위해 필요합니다. 인터넷의 인바운드 트래픽을 [DenyAllInbound](#denyallinbound) 기본 보안 규칙에서 거부하기 때문에 *AsgLogic* 또는 *AsgDb* 애플리케이션 보안 그룹에 대한 규칙을 추가하지 않아도 됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | 인터넷 | * | AsgWeb | 80 | TCP | 허용 |
 
@@ -156,7 +156,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 [AllowVNetInBound](#allowvnetinbound) 기본 보안 규칙은 동일한 가상 네트워크의 리소스 간 통신을 모두 허용하므로, 모든 리소스에서 들어오는 트래픽을 거부하려면 이 규칙이 필요합니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 모두 | 거부 |
 
@@ -164,7 +164,7 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 이 규칙은 *AsgLogic* 애플리케이션 보안 그룹에서 *AsgDb* 애플리케이션 보안 그룹으로 가는 트래픽을 허용합니다. 이 규칙의 우선 순위는 *Deny-Database-All* 규칙의 우선 순위보다 높습니다. 결과적으로 이 규칙이 *Deny-Database-All* 규칙보다 먼저 처리되므로 *AsgLogic* 애플리케이션 보안 그룹의 트래픽은 허용되는 반면, 그 외의 트래픽은 모두 차단됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | 허용 |
 

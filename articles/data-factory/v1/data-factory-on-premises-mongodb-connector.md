@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824187"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |type 속성을 다음으로 설정해야 합니다. **OnPremisesMongoDb** |예 |
+| type |type 속성을 다음으로 설정해야 합니다. **OnPremisesMongoDb** |예 |
 | 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |선택 사항, 기본값: 27017 |
 | authenticationType |Basic 또는 Anonymous입니다. |예 |
@@ -296,13 +296,13 @@ MongoDB에 데이터를 이동하는 경우 MongoDB 형식에서 .NET 형식으�
 | MongoDB 형식 | .NET Framework 형식 |
 | --- | --- |
 | 이진 |Byte[] |
-| BOOLEAN |BOOLEAN |
-| Date |Datetime |
+| Boolean |Boolean |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |문자열 |
-| 문자열 |문자열 |
+| ObjectID |String |
+| 문자열 |String |
 | UUID |Guid |
 | Object |중첩 구분 기호로 “_”를 사용한 평면화된 열에 다시 정규화 |
 

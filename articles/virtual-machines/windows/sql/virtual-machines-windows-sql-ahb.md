@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578246"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926243"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법
 이 문서에서는 새 SQL VM 리소스 공급자(**Microsoft.SqlVirtualMachine**)를 사용하여 Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법에 대해 설명합니다. 두 개의 SQL Server-종 량 제를 호스팅하는 가상 머신 (VM)에 대 한 모델 라이선스 및 라이선스 (BYOL). 이제 Azure portal, Azure CLI 또는 PowerShell을 사용 하 여 수정할 수 있습니다 SQL Server VM을 사용 하는 라이선스 모델을 
@@ -33,10 +33,13 @@ ms.locfileid: "59578246"
 
 ## <a name="remarks"></a>설명
 
+
  - CSP 고객은 먼저 종량제 VM을 배포한 후 사용자 라이선스 필요로 변환하여 AHB 혜택을 활용할 수 있습니다. 
  - SQL Server VM 이미지를 사용자 지정 리소스 공급자에 등록 하는 경우 'AHUB' = 라이선스 유형을 지정 합니다. 라이선스 종료 빈 값으로 입력 하거나 '종 량 제'를 지정 하면 등록이 실패 합니다. 
  - SQL Server VM 리소스를 삭제 하면 이동 하 게 다시 이미지의 하드 코드 된 라이선스 설정 합니다. 
+ - SQL Server VM을 가용성 집합에 추가 VM을 다시 필요 합니다. 이러한 모든 vm을 가용성에 추가 집합은 기본 종 량 제 라이선스 형식 돌아가서 AHB 다시 사용 하도록 설정 해야 합니다. 
  - 라이선스 모델을 변경 하는 기능에는 SQL VM 리소스 공급자의 기능입니다. Azure portal 통해 marketplace 이미지를 자동으로 배포 리소스 공급자를 사용 하 여 SQL Server VM을 등록 합니다. 그러나 SQL Server 설치 하는 자체 고객 해야 수동으로 [SQL Server VM을 등록](#register-sql-server-vm-with-the-sql-vm-resource-provider)합니다. 
+ 
 
  
 ## <a name="limitations"></a>제한 사항
@@ -172,7 +175,7 @@ az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
-New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Proper
+New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
 
@@ -190,7 +193,7 @@ SQL IaaS 확장은 SQL VM 리소스 공급자에 SQL Server VM을 등록하는 �
   > SQL IaaS 확장을 설치하면 SQL Server 서비스가 다시 시작되고, 유지 관리 기간 동안에만 이러한 설치를 수행해야 합니다. 자세한 내용은 [SQL IaaS 확장 설치](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation)를 참조하세요. 
 
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>리소스 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/ < 리소스 그룹 >' 리소스 그룹 ' < 리소스 그룹 >'을 찾을 수 없습니다. 이 개체의 'sqlServerLicenseType' 속성을 찾을 수 없습니다. 속성이 있고 설정할 수 있는지 확인 합니다.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>리소스 ' Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<리소스 그룹 >' 리소스 그룹 '\<리소스 그룹 >'를 찾을 수 없습니다. 이 개체의 'sqlServerLicenseType' 속성을 찾을 수 없습니다. 속성이 있고 설정할 수 있는지 확인 합니다.
 이 오류는 SQL 리소스 공급자를 사용 하 여 등록 되지 않은 SQL Server VM의 라이선스 모델을 변경 하려고 할 때 발생 합니다. 리소스 공급자를 등록 해야 하 [구독](#register-sql-vm-resource-provider-with-subscription), 다음 SQL을 사용 하 여 SQL Server VM을 등록 [리소스 공급자](#register-sql-server-vm-with-sql-resource-provider)합니다. 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>'Sku' 매개 변수의 인수가 유효한지 확인할 수 없음

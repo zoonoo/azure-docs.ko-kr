@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0dd8d7c1e004472d230337b72d55ac7ced905b41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 965d1ace2afdad21a069193b508fc2b10fdf4700
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490931"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697223"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -68,6 +68,10 @@ ms.locfileid: "59490931"
 
 
 ## <a name="payload-schema"></a>페이로드 스키마
+
+> [!NOTE]
+> 사용할 수도 있습니다는 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs)확장할 수 있는 단일 장점이 제공 하는, 및 웹 후크 통합에 대 한 Azure Monitor에서 모든 경고에서 경고 페이로드 통합된 서비스입니다. [일반 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 POST 작업에는 적절히 구성된 [작업 그룹](../../azure-monitor/platform/action-groups.md)이 사용될 때 모든 최신 메트릭 경고에 대해 다음과 같은 JSON 페이로드와 스키마가 포함됩니다.
 

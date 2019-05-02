@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58449023"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>빠른 시작: Ruby를 사용하여 Azure SQL Database 쿼리
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>빠른 시작: Ruby를 사용하여 Azure SQL 데이터베이스 쿼리
 
-이 빠른 시작에서는 [Ruby](https://www.ruby-lang.org)를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여줍니다.
+이 빠른 시작에서는 [Ruby](https://www.ruby-lang.org)를 사용하여 Azure SQL 데이터베이스에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

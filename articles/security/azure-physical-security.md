@@ -1,6 +1,6 @@
 ---
-title: Azure 시설, 프레미스 및 물리적 보안 | Microsoft Docs
-description: 이 문서에서는 물리적 인프라, 보안 및 규정 준수 제안을 포함하여 Azure 데이터 센터에 대해 설명합니다.
+title: Azure 데이터 센터-Microsoft Azure의 물리적 보안 | Microsoft Docs
+description: 문서는 Microsoft가 실제 인프라, 보안 및 규정 준수 제품을 포함 하 여 Azure 데이터 센터를 보호 하는 새로운 설명 합니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112047"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939840"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 시설, 구역 및 물리적 보안
+이 문서에서는 Azure 인프라 보호를 위해 Microsoft가 설명 합니다.
+
+## <a name="datacenter-infrastructure"></a>데이터 센터 인프라
 Azure는 전 세계적으로 수천 개의 온라인 서비스를 지원하고 100개가 넘는 고도의 보안 시설에 걸쳐 있는 [글로벌로 분산된 데이터 센터 인프라](https://azure.microsoft.com/global-infrastructure/)로 구성되어 있습니다.
 
-이 인프라는 전 세계 사용자에게 애플리케이션을 더 가까이 제공하는 데 필요한 확장성을 제공하고, 데이터 상주를 유지하고, 고객에게 포괄적인 준수 및 복원력 옵션을 제공하도록 디자인되어 있습니다. Azure는 전 세계 52개 지역을 포함하며 140개 국가에서 사용할 수 있습니다.
+이 인프라는 전 세계 사용자에게 애플리케이션을 더 가까이 제공하는 데 필요한 확장성을 제공하고, 데이터 상주를 유지하고, 고객에게 포괄적인 준수 및 복원력 옵션을 제공하도록 디자인되어 있습니다. Azure에는 52 지역 전 세계 및 140 국가/지역에서 사용할 수 있습니다.
 
 지역은 대규모의 복원력 있는 네트워크를 통해 상호 연결된 데이터 센터 집합입니다. 네트워크에는 기본적으로 콘텐츠 배포, 부하 분산, 중복성 및 암호화가 포함되어 있습니다. 다른 클라우드 공급자보다 많은 글로벌 지역을 제공하는 Azure는 필요한 곳에 응용 프로그램을 유연하게 배포할 수 있습니다.
 
@@ -66,10 +69,10 @@ Microsoft는 [NIST 800-88 규격](https://csrc.nist.gov/publications/detail/sp/8
 ## <a name="equipment-disposal"></a>장비 폐기
 시스템의 수명이 다하면 Microsoft 운영 담당자가 엄격한 데이터 처리 및 하드웨어 폐기 절차에 따라 고객 데이터를 포함하는 하드웨어를 신뢰할 수 없는 사용자가 사용할 수 없도록 합니다. 하드 드라이브에는 지원되는 안전한 지우기 방법이 사용됩니다. 초기화할 수 없는 하드 드라이브의 경우 드라이브를 파기하여 정보를 복구할 수 없게 렌더링하는 파기 프로세스가 사용됩니다. 파기 프로세스로는 분해, 파쇄, 분쇄 또는 소각 등이 있습니다. 폐기 방법은 자산 유형에 따라 결정됩니다. 파기 기록은 유지됩니다. 모든 Azure 서비스는 승인된 미디어 저장소 및 폐기 관리 서비스를 사용합니다.
 
-## <a name="compliance"></a>규정 준수
-Microsoft는 광범위한 국제 및 산업별 준수 표준(예: ISO 27001, HIPAA, FedRAMP, SOC 1 및 SOC 2)을 충족하도록 Azure 인프라를 디자인하고 관리합니다. 호주 IRAP, UK G-Cloud 및 싱가포르 MTCS를 비롯한 국가별 표준도 준수합니다. 영국 표준 협회 등의 엄격한 타사 감사를 통해 이러한 표준에 규정된 엄격한 보안 제어 정책의 준수 여부를 검사합니다.
+## <a name="compliance"></a>준수
+Microsoft는 광범위한 국제 및 산업별 준수 표준(예: ISO 27001, HIPAA, FedRAMP, SOC 1 및 SOC 2)을 충족하도록 Azure 인프라를 디자인하고 관리합니다. 또한 호주 IRAP, UK G-cloud 및 싱가포르 MTCS를 비롯 한 국가 또는 지역별 표준을 충족 합니다. 영국 표준 협회 등의 엄격한 타사 감사를 통해 이러한 표준에 규정된 엄격한 보안 제어 정책의 준수 여부를 검사합니다.
 
-Azure가 준수하는 전체 규정 준수 표준 목록은 [규정 준수 제안](https://www.microsoft.com/trustcenter/compliance/complianceofferings)을 참조하세요. 
+Azure가 준수하는 전체 규정 준수 표준 목록은 [규정 준수 제안](https://www.microsoft.com/trustcenter/compliance/complianceofferings)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 인프라를 보호하기 위해 Microsoft에서 수행하는 작업에 대해 자세히 알아보려면 다음을 참조하세요.

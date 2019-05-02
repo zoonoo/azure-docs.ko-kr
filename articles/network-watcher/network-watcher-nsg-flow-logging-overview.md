@@ -3,8 +3,8 @@ title: Azure Network Watcher를 사용하여 네트워크 보안 그룹에 대�
 description: 이 문서에서는 Azure Network Watcher의 NSG 흐름 로그 기능을 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.author: kumud
+ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547025"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925424"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -91,7 +91,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **리소스에 연결된 모든 NSG에서 NSG 흐름 로깅 사용**: Azure의 흐름 로깅은 NSG 리소스에서 구성됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 모든 NSG가 활용되는 시나리오에서는 리소스의 서브넷 또는 네트워크 인터페이스가 적용된 모든 NSG에서 NSG 흐름 로깅을 사용하도록 설정하여 모든 트래픽이 기록되도록 하는 것이 좋습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [트래픽 평가 방식](../virtual-network/security-overview.md#how-traffic-is-evaluated)참조하세요. 
 
-**흐름 로깅 비용**: NSG 흐름 로그는 생성된 로그 양에 따라 요금이 청구됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격 책정](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/en-us/pricing/details/storage/)을 참조하세요.
+**흐름 로깅 비용**: NSG 흐름 로그는 생성된 로그 양에 따라 요금이 청구됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 **공용 Ip 없이 Vm을 인터넷 Ip에서에서 로그온 흐름 인바운드**: Vm 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 IP 주소를 통해 할당 된 공용 IP가 없는 또는 기본 부하 분산 장치 백 엔드 풀을 사용 하 여의 일부인 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) 에서 할당 된 IP 주소가 및 아웃 바운드 연결을 위해 azure를 제공 합니다. 흐름의 흐름 로그 항목이 표시 될 수는 결과적으로, 인터넷에서 IP 주소, 포트 할당 snat 포트의 범위에 흐름을 대상으로 하는 경우. Azure VM에 이러한 흐름을 허용 하지 않습니다 하는 동안 시도가 기록 되 고 디자인 하 여 Network Watcher NSG 흐름 로그에 표시 됩니다. NSG를 사용 하 여 원치 않는 인바운드 인터넷 트래픽을 명시적으로 차단 하는 것이 좋습니다.
 

@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/11/2019
 ms.locfileid: "59495040"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
-이 빠른 시작에서는 Azure Portal에서 Azure SQL Database [관리되는 인스턴스](sql-database-managed-instance.md)를 만드는 방법을 안내합니다.
+이 빠른 시작에서는 Azure Portal에서 Azure SQL Database [관리형 인스턴스](sql-database-managed-instance.md)를 만드는 방법을 안내합니다.
 
 > [!IMPORTANT]
 > 제한 사항은 [지원되는 지역](sql-database-managed-instance-resource-limits.md#supported-regions)과 [지원되는 구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)을 참조하세요.
@@ -112,4 +112,4 @@ ms.locfileid: "59495040"
   - Azure 가상 머신에서 관리되는 인스턴스에 연결하는 방법을 보여주는 빠른 시작은 [Azure 가상 머신 연결 구성](sql-database-managed-instance-configure-vm.md)을 참조하세요.
   - 온-프레미스 클라이언트 컴퓨터에서 지점 및 사이트 간 연결을 사용하여 관리되는 인스턴스에 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 - 온-프레미스의 기존 SQL Server 데이터베이스를 Managed Instance로 복원하려면 [마이그레이션용 Azure DMS(Database Migration Service)](../dms/tutorial-sql-server-to-managed-instance.md)를 사용하여 데이터베이스 백업 파일에서 복원하거나 [T-SQL RESTORE 명령](sql-database-managed-instance-get-started-restore.md)을 사용하여 데이터베이스 백업 파일에서 복원하면 됩니다.
-- 기본 제공 문제 해결 인텔리전스를 사용하는 Managed Instance 데이터베이스 성능의 고급 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Database 모니터링](../azure-monitor/insights/azure-sql.md)을 참조하세요.
+- 기본 제공 문제 해결 인텔리전스를 사용하는 관리형 인스턴스 데이터베이스 성능의 고급 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Database 모니터링](../azure-monitor/insights/azure-sql.md)을 참조하세요.
