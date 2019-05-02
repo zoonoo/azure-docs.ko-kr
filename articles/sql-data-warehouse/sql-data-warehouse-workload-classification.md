@@ -1,6 +1,6 @@
 ---
 title: SQL Data Warehouse 분류 | Microsoft Docs
-description: 분류를 사용 하 여 동시성, 중요성, 관리 및 Azure SQL Data Warehouse의 쿼리에 대 한 리소스를 계산 하는 지침입니다.
+description: 분류를 사용하여 동시성, 중요성, 관리 및 Azure SQL Data Warehouse의 쿼리에 대한 리소스를 계산하는 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61474830"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse 작업 분류 (미리 보기)
+# <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse 워크로드 분류 (미리 보기)
 
-이 문서는 들어오는 요청에 리소스 클래스와 중요도 할당 하는 SQL Data Warehouse 워크 로드 분류 프로세스를 설명 합니다.
+이 문서는 들어오는 요청에 리소스 클래스와 중요도를 할당하는 SQL Data Warehouse 워크로드 분류 프로세스를 설명합니다.
 
 > [!Note]
 > 워크로드 분류는 SQL Data Warehouse Gen2에서 미리 보기로 제공됩니다. 워크로드 관리 분류 및 중요도 미리 보기는 2019년 4월 9일 이후 릴리스를 사용한 빌드를 위한 것입니다.  사용자는 워크로드 관리 테스트를 위해 이 날짜 이전에는 빌드를 사용하지 않는 것이 좋습니다.  자신의 빌드에서 워크로드 관리가 가능한지 알아보려면 SQL Data Warehouse 인스턴스에 연결된 경우 @@version을 선택하여 실행합니다.
