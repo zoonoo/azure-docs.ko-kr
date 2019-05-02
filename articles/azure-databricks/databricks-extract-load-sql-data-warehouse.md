@@ -31,12 +31,12 @@ ms.locfileid: "57855693"
 > [!div class="checklist"]
 > * Azure Databricks 서비스 만들기
 > * Azure Databricks에 Spark 클러스터 만들기
-> * Data Lake Storage Gen2 계정에서 파일 시스템을 만듭니다.
-> * Azure Data Lake Storage Gen2 계정에 샘플 데이터를 업로드합니다.
-> * 서비스 주체를 만듭니다.
-> * Azure Data Lake Storage Gen2 계정에서 데이터를 추출합니다.
+> * Data Lake Storage Gen2 계정에서 파일 시스템 만들기
+> * Azure Data Lake Storage Gen2 계정에 샘플 데이터 업로드
+> * 서비스 주체 만들기
+> * Azure Data Lake Storage Gen2 계정에서 데이터 추출
 > * Azure Databricks에서 데이터 변환
-> * Azure SQL Data Warehouse에 데이터를 로드합니다.
+> * Azure SQL Data Warehouse에 데이터 로드
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
-   * 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **스토리지 Blob 데이터 기여자** 역할을 서비스 주체에 할당해야 합니다.
+   * 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
 
      > [!IMPORTANT]
      > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
@@ -226,7 +226,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 원시 샘플 데이터 **small_radio_json.json** 파일은 라디오 방송국의 대상을 캡처하며, 다양한 열을 갖고 있습니다. 이 섹션에서는 데이터 세트의 특정 열만 검색하도록 데이터를 변환합니다.
 
-1. 먼저 앞에서 만든 데이터 프레임에서 **이름**, **성**, **성별**, **위치** 및 **수준** 열만 검색합니다.
+1. 먼저 앞에서 만든 데이터 프레임에서 **firstname**, **lastname**, **gender**, **location** 및 **level** 열만 검색합니다.
 
    ```scala
    val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
@@ -262,7 +262,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    +---------+----------+------+--------------------+-----+
    ```
 
-2. 열 **수준**을 **subscription_type**으로 지정하도록 이 데이터를 추가로 변환할 수 있습니다.
+2. 열 **level**을 **subscription_type**으로 지정하도록 이 데이터를 추가로 변환할 수 있습니다.
 
    ```scala
    val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
