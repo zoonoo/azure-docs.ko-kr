@@ -26,7 +26,7 @@ ms.locfileid: "60403747"
 
 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) 문은 사용할 수 있는 T-SQL 기능에서 가장 중요한 구문 중의 하나입니다. CTAS는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 병렬 작업입니다. CTAS는 단일 명령을 사용하여 테이블로 데이터를 삽입하고 생성하는 간단하고 가장 빠른 방법입니다.
 
-## <a name="selectinto-vs-ctas"></a>선택... Vs에. CTAS
+## <a name="selectinto-vs-ctas"></a>SELECT...INTO Vs. CTAS
 
 [SELECT... INTO](/sql/t-sql/queries/select-into-clause-transact-sql) 문의 더 사용자 지정 가능한 버전이 CTAS 입니다.
 
@@ -353,7 +353,7 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 * ISNULL의 두 번째 부분은 상수 0입니다.
 
 > [!NOTE]
-> 가 올바르게 설정 되어 null 허용 여부, 것 ISNULL과 COALESCE 하지 사용 해야 합니다. COALESCE는 결정적 함수 및 따라서 식의 결과 항상 null을 허용 합니다. ISNULL은 다릅니다. 결정적입니다. 그러므로 ISNULL 함수의 두 번째 부분은 상수 또는 리터럴, 결과 값 됩니다 NOT NULL입니다.
+> null 허용 여부를 올바르게 설정하려면, COALESCE가 아닌 ISNULL을 필수로 사용해야 합니다. COALESCE는 결정적 함수가 아니므로 식의 결과는 항상 null을 허용합니다. 이와 달리 ISNULL은 결정적입니다. 그러므로 ISNULL 함수의 두 번째 부분이 상수 또는 리터럴일 경우 결과 값은 NOT NULL입니다.
 
 계산의 무결성을 보장하는 것은 테이블 파티션 전환에서 또한 중요합니다. 팩트 테이블로 정의된 다음 테이블이 있다고 가정해 보겠습니다.
 
