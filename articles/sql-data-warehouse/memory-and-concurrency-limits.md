@@ -70,7 +70,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 | DW6000            | 60            | 1                              | 1,440                           |
 
 ## <a name="concurrency-maximums"></a>동시성 최대값
-각 쿼리에 효율적으로 실행할 수 있을 만큼 충분한 리소스가 있는지 확인하기 위해 SQL Data Warehouse는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯 수에 따라 큐에 쿼리를 추가 합니다. 쿼리 큐에서 기다립니다 충분 한 동시성 슬롯을 사용할 수 있습니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) 동시성 슬롯 CPU 우선 순위를 결정 합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
+각 쿼리에 효율적으로 실행할 수 있을 만큼 충분한 리소스가 있는지 확인하기 위해 SQL Data Warehouse는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯 수에 따라 큐에 쿼리를 추가합니다. 충분한 동시성 슬롯을 사용할 수 있을 때까지 쿼리는 큐에서 기다립니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance)와 동시성 슬롯은 CPU 우선 순위를 결정합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
 
 ### <a name="gen2"></a>2세대
  
