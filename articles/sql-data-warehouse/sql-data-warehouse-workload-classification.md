@@ -1,4 +1,4 @@
----
+﻿---
 title: SQL Data Warehouse 분류 | Microsoft Docs
 description: 분류를 사용하여 동시성, 중요성, 관리 및 Azure SQL Data Warehouse의 쿼리에 대한 리소스를 계산하는 지침입니다.
 services: sql-data-warehouse
@@ -84,4 +84,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Data Warehouse 작업 분류 및 중요도 대 한 자세한 내용은 참조 하세요. [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md) 하 고 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+SQL Data Warehouse 워크로드 분류 및 중요도에 대한 자세한 내용은 [워크로드 분류자 생성](quickstart-create-a-workload-classifier-tsql.md)과 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)를 참조하세요. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
