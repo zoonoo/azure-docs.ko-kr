@@ -11,18 +11,18 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b6d7f791300a970e71fda4f1d56354a45d07afd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029897"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035441"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>작성 및 자동화 된 machine learning 실험 (미리 보기)는 Azure 포털을 탐색 합니다.
 
- 이 문서에서는 만들고, 실행, 자동화 된 machine learning 실험 코드를 전혀 없이 Azure portal에서 탐색 하는 방법을 알아봅니다. 자동화 된 기계 학습 machine learning 모델을 신속 하 게 생성할 수 있습니다 특정 데이터에 사용할 최상의 알고리즘 선택 프로세스를 자동화 합니다. [자동화 된 기계 학습에 자세히 알아보려면](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml)합니다.
+ 이 문서에서는 만들고, 실행, 자동화 된 machine learning 실험 코드를 전혀 없이 Azure portal에서 탐색 하는 방법을 알아봅니다. 자동화 된 기계 학습 machine learning 모델을 신속 하 게 생성할 수 있습니다 특정 데이터에 사용할 최상의 알고리즘 선택 프로세스를 자동화 합니다. [자동화 된 기계 학습에 자세히 알아보려면](concept-automated-ml.md)합니다.
 
- 자세한 코드 기반 환경을 원한다 면 수도 있습니다 [자동화 된 machine learning 실험에서 Python 구성](how-to-configure-auto-train.md) 사용 하 여 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다.
+ 많은 코드를 기반으로 하는 환경을 원한다 면 수도 있습니다 [자동화 된 machine learning 실험에서 Python 구성](how-to-configure-auto-train.md) 사용 하 여 합니다 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,7 +40,7 @@ ms.locfileid: "65029897"
 
 ![Azure 포털 실험 방문 페이지](media/how-to-create-portal-experiments/landing-page.png)
 
-그렇지 않으면 모든 자동화 된 기계 학습 실험 및 SDK를 사용 하 여 실행 되는 것을 포함 하 여 실행에 대 한 개요를 사용 하 여 자동화 된 machine learning 대시보드에 표시 됩니다. 다음 필터링 할 수 있습니다 및 날짜별으로 실행 하 고 탐색, 이름, 실험 및 상태를 실행 합니다.
+그렇지 않으면 모든 자동화 된 기계 학습 실험을 비롯 한 SDK를 사용 하 여 실행 되는 것에 대 한 개요를 사용 하 여 자동화 된 machine learning 대시보드에 표시 됩니다. 다음 필터링 할 수 있습니다 및 날짜별으로 실행 하 고 탐색, 이름, 실험 및 상태를 실행 합니다.
 
 ![Azure 포털 실험 대시보드](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -148,8 +148,6 @@ ms.locfileid: "65029897"
 
 * **첨도**: 열의 첨도 합니다. 빈 항목 형식과 관련이 없는 기능에 대 한 표시 됩니다.
 
-또한 포함 하거나 특정 열을 제외할 것인지 여부를 결정 합니다. 이러한 통계를 사용할 수 있습니다. 각 열에 있는 선택기를 전환 하 여 자동화 된 기계 학습 실험에서에서는 열이 사용 됩니다 범위를 제어할 수 있습니다.
-
 <a name="preprocess"></a>
 
 ### <a name="advanced-preprocessing"></a>전처리 고급
@@ -168,72 +166,24 @@ ms.locfileid: "65029897"
 |증명 정보 (슬픔)의 가중치|슬픔의 대상 열에 범주 열 상관 관계는 측정값으로 계산합니다. 클래스에서 vs 클래스 아웃 확률의 비율에 대 한 로그로 계산 됩니다. 이 단계는 클래스당 하나의 숫자 기능 열을 출력 하 고 누락 값 및 이상 값 처리를 명시적으로 돌립니다 필요가 없습니다.|
 |클러스터 거리|모든 숫자 열에서 k-means 클러스터링 모델을 학습합니다.  출력 k 새로운 기능을 각 클러스터의 중심에 각 샘플의 거리를 클러스터당 새로운 숫자 기능 중 하나입니다.|
 
-## <a name="run-experiment"></a>실험 실행
+## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 
-실험을 실행 하려면 시작 단추를 클릭 합니다.
-  
-프로세스를 준비 하 고 실험에는 몇 분 정도 걸립니다.
+실험을 실행 하려면 시작을 클릭 합니다. 프로세스를 준비 하 고 실험에는 몇 분 정도 걸립니다.
 
-## <a name="view-results"></a>결과 보기
+### <a name="view-experiment-details"></a>실험 세부 정보 보기
 
-실험 준비 단계 완료 되 면 실행된 세부 정보 화면이 표시 됩니다. 이렇게 만든 모델의 전체 목록을 제공 됩니다. 기본적으로 가장 높은 점수를 매기는 모델에 따라 매개 변수 목록의 맨 위에 있는 됩니다. 교육 작업 모델을 더 아웃 시도, 목록 및 차트에 추가 하 고 표시 됩니다.
-차트를 사용 하 여 지금까지 생성 된 모델에 대 한 메트릭의 빠른 비교를 가져오려고 합니다.
-
-![실행된 세부 정보 대시보드](media/how-to-create-portal-experiments/run-details.png)
-
-성능과 배포 차트 및 메트릭을 포함 하 여 해당 모델의 세부 정보는 출력 모델 중 하나에서 드릴 다운할 수 있습니다. [차트에 자세히 알아보려면](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts)합니다.
-
-![반복 세부 정보](media/how-to-create-portal-experiments/dashboard.png)
+실험 준비 단계 완료 되 면 실행 세부 정보 화면이 표시 됩니다. 만든 모델의 전체 목록을 제공 합니다. 기본적으로 가장 높은 점수를 매기는 모델 기반 매개 변수 목록의 위쪽에 있습니다. 자세한 모델 아웃 교육 작업 시도 반복 목록 및 차트에 추가 됩니다. 반복 차트를 사용 하 여 지금까지 생성 된 모델에 대 한 메트릭의 빠른 비교를 가져오려고 합니다.
 
 학습 작업 실행을 완료 하려면 각 파이프라인에 대해 잠시를 걸릴 수 있습니다.
 
-## <a name="deploy-model"></a>모델 배포
+![실행된 세부 정보 대시보드](media/how-to-create-portal-experiments/run-details.png)
 
-에 가장 적합 한 모델을 만든 후 새 데이터에 예측 웹 서비스로 배포 하는 차례입니다.
+### <a name="view-training-run-details"></a>교육 실행 세부 정보 보기
 
-자동화 된 기계 학습을 지 원하는 코드를 작성 하지 않고 모델을 배포 합니다.
+성능 메트릭 및 배포 차트와 같은 실행된 세부 정보를 학습을 보려면 출력 모델 중 하나에서 드릴 다운 합니다. [차트에 자세히 알아보려면](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts)합니다.
 
-1. 오른쪽에 실행 요약 창에서 "모델을 등록 합니다."를 선택 합니다.
-
-    ![모델 등록](media/how-to-create-portal-experiments/register-model.png)
-
-1. 모델 등록 되 면 배포 하는 동안 사용할 점수 매기기 스크립트를 다운로드할 수 있습니다.
-
-    ![점수 매기기 스크립트 다운로드](media/how-to-create-portal-experiments/download-scoring-script.png)
-
-1. "Models" 페이지로 이동 하는 점수 매기기 스크립트를 만든 후 (왼쪽된 탐색 창의 **자산**).
-
-    ![모델 탐색 창](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. 모델 등록, 옆의 확인란을 선택 하 고 "이미지 만들기"를 선택 합니다.
-
-    형식은 실행된 ID 및 반복 횟수를 포함 하는 해당 설명에 따라 모델을 식별할 수 있습니다: **< Run_ID > _ < Iteration_number > (_m)** 합니다.
-
-1. 이미지의 이름을 입력 하 고 이전에 다운로드 한 점수 매기기 파일을 업로드 합니다. [스크립트 점수 매기기에 대해 자세히 알아보려면](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script)합니다.
-
-    사용자 고유의 점수 매기기 스크립트 및 Conda 파일을 사용할 수 있습니다. Conda 파일인 없다면 [나만의 사이트 생성](tutorial-deploy-models-with-aml.md#create-environment-file) 하 고 사용 하려는 다른 추가 파일과 함께 업로드 합니다.
-
-    ![이미지 폼 만들기](media/how-to-create-portal-experiments/create-image.png)
-
-1. 이미지 만들기를 시작 하려면 "만들기" 단추를 선택 합니다. 완료 되 면 완료 하는 데 몇 분 걸립니다, 그리고 위쪽 막대에서 메시지가 나타납니다.
-
-1. "이미지" 탭으로 이동한 배포 하려는 이미지 옆의 확인란을 "배포 만들기"를 선택 합니다.
-
-    ![이미지 배포 화면 만들기](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. 고유한 배포 이름을 입력 합니다.
-
-1. (선택 사항) 배포에 대 한 설명을 입력 합니다.
-
-1. 사용할 대상 계산 유형을 선택 합니다. 
-
-    ![배포 형식 만들기](media/how-to-create-portal-experiments/create-deployment.png)
-
-1. 배포 프로세스를 시작 하려면 "만들기"를 선택, 완료 하는 데 몇 분 정도 걸립니다.
-
-1. 이것으로 끝입니다. 운영 웹 서비스를 예측을 생성 해야 합니다.
+![반복 세부 정보](media/how-to-create-portal-experiments/iteration-details.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [배포 된 모델을 사용 하는 방법을](how-to-consume-web-service.md)합니다.
-* [프로덕션 환경에서 모델에 대 한 데이터 수집](how-to-enable-data-collection.md)합니다.
+* [자동화 된 기계 학습에 자세히 알아보려면](concept-automated-ml.md) 및 Azure Machine Learning입니다.
