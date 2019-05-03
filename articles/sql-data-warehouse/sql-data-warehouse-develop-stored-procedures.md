@@ -71,7 +71,7 @@ SQL Data Warehouse는 INSERT 문을 사용하여 저장된 프로시저의 결�
 ## <a name="limitations"></a>제한 사항
 SQL Data Warehouse에서 구현되지 않은 TRANSACT-SQL 저장된 프로시저의 일부 측면이 있습니다.
 
-아래에 나와 있습니다.
+구현되지 않은 것은 다음과 같습니다.
 
 * 임시 저장 프로시저
 * 숫자가 매겨진 저장 프로시저
