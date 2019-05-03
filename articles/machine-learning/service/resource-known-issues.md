@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752339"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021102"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
 이 문서는 Azure Machine Learning 서비스를 사용할 때 발생한 오류 또는 장애를 찾아서 수정하는 데 도움을 줍니다.
+
+## <a name="visual-interface-issues"></a>시각적 인터페이스 문제
+
+기계 학습 서비스 문제에 대 한 시각적 인터페이스입니다.
+
+### <a name="long-compute-preparation-time"></a>긴 준비 시간을 계산
+
+새 계산 만들기 또는 그대로 유지 되어 계산 시간을 위해 호출할 몇 분 또는 그 이상 수 있습니다. 최적화를 위해 최선을 다하고 있습니다.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>없습니다 실험 실행만 데이터 집합 포함 
+
+실행 하려는 실험만 데이터 집합을 시각화 하는 데이터 집합을 포함 합니다. 그러나 실행 될 수 없습니다는 실험만에 데이터 집합이 현재 합니다. 적극적으로이 문제를 해결 된 것입니다.
+ 
+오류를 해결 하기 전에 원하는 데이터 변환 모듈 (데이터 집합, 메타 데이터 편집, 분할 데이터 등의 열 선택)에 데이터 집합을 연결 하 고 실험을 실행할 수 있습니다. 그런 다음 데이터 집합을 시각화할 수 있습니다. 
+
+아래 방법을 이미지: ![visulize 데이터](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK 설치 문제
 

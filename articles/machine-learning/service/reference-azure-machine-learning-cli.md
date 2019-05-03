@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916986"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023376"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
 
@@ -80,7 +80,6 @@ az extension remove -n azure-cli-ml
     ```
 
 + 작업 영역 구성 컨텍스트 인식 CLI를 사용 하도록 설정 하려면 폴더에 연결 합니다.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ az extension remove -n azure-cli-ml
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + 계산 대상으로 AKS 클러스터를 연결 합니다.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ 새 AMLcompute 대상 만들기
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>실험 실행
-
-+ 작업 영역 구성 컨텍스트 인식 CLI를 사용 하도록 설정 하려면 폴더에 연결 합니다.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * 실험 실행을 시작합니다. 이 명령을 사용할 때는 runconfig 파일의 이름을 지정 (앞에 있는 텍스트 \*.runconfig 파일 시스템에서 찾으려는 경우)-c 매개 변수에 대 한 합니다.
 
@@ -123,7 +110,7 @@ az extension remove -n azure-cli-ml
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>모델 등록, 프로 파일링, 배포
+## <a name="model-registration-profiling--deployment"></a>모델 등록, 프로 파일링 및 배포
 
 다음 명령은 학습된 모델을 등록한 후 프로덕션 서비스로 배포하는 방법을 보여 줍니다.
 

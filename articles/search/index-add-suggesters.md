@@ -1,7 +1,7 @@
 ---
 title: -Azure Search 인덱스에 미리 입력 쿼리를 추가 합니다.
 description: 확인 기를 만들고 쿼리 용어를 autosuggested 또는 자동 완성을 호출 하는 요청을 공식화 하 여 Azure Search의 미리 입력 쿼리 작업을 사용 합니다.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844448"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021888"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Azure Search의 미리 입력에 대 한 인덱스를 확인 기 추가
 
@@ -39,9 +39,6 @@ Azure Search에서 이러한 동작을 구현 하는 인덱스 및 쿼리 구성
 + 인덱스 구성 요소는 확인 기는 합니다. Suggester를 만들려면 포털, REST API 또는.NET SDK를 사용할 수 있습니다. 
 
 + 쿼리 구성 요소에는 쿼리 요청 (제안 또는 자동 완성 작업)에 지정 된 동작입니다. 
-
-> [!Important]
-> 자동 완성은 현재 미리 보기 REST Api에서에서 사용할 수 있는 미리 보기 및.NET SDK입니다. 프로덕션 응용 프로그램에는 것이 아닙니다. 
 
 검색---입력할 때 지원 필드 별로에 사용 됩니다. 원하는 환경을 스크린샷에 표시 된 것과 비슷한 경우 동일한 검색 솔루션 내에서 모두 미리 입력 동작을 구현할 수 있습니다. 두 요청 대상 합니다 *문서* 특정 인덱스 및 응답의 컬렉션을 사용자가 최소한 세 개의 입력된 문자열을 제공한 후에 반환 됩니다.
 
@@ -106,7 +103,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 |자산      |설명      |
 |--------------|-----------------|
-|`name`        |확인 기의 이름입니다. 호출할 때 suggester의 이름을 사용 합니다 [제안 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 또는 [REST API (미리 보기) 자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete)합니다.|
+|`name`        |확인 기의 이름입니다. 호출할 때 suggester의 이름을 사용 합니다 [제안 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 하거나 [자동 완성 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)합니다.|
 |`searchMode`  |후보 구를 검색하는 데 사용되는 전략입니다. 현재 지원되는 모드는 `analyzingInfixMatching`뿐입니다. 이 모드에서는 문장 시작 부분이나 중간에서 유동적 구 일치를 수행합니다.|
 |`sourceFields`|제안 내용의 원본인 하나 이상의 필드 목록입니다. 형식이 `Edm.String` 및 `Collection(Edm.String)`인 필드만 제안 원본으로 사용할 수 있습니다. 또한 사용자 지정 언어 분석기가 설정되지 않은 필드만 사용할 수 있습니다.<p/>드롭다운 목록 또는 검색 표시줄에서 완료 된 문자열 인지를 예상 하 고 적절 한 응답을 하는 필드에만 지정 합니다.<p/>호텔 이름 정밀도 있기 때문에 적합 합니다. 설명 및 설명 같은 세부 정보 표시 필드는 답답한입니다. 마찬가지로, 범주 / 태그 등의 반복 필드는 떨어집니다. 예제에서는 포함 "category" 그래도 여러 필드를 포함할 수 있는지를 보여 줍니다. |
 
@@ -120,7 +117,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 에서 설명한 대로 제안 된 쿼리, 자동 완성, 또는 둘 다 suggester를 사용할 수 있습니다. 
 
-Suggester 작업에서는 요청에 대해 참조 됩니다. 예를 들어 위한 GET REST 호출에서 하나를 지정 `suggest` 또는 `autocomplete` 문서 컬렉션에 있습니다. Rest의 경우 suggester를 만든 후 사용 합니다 [제안 API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 또는 [자동 완성 API (미리 보기)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 쿼리 논리에서입니다.
+Suggester 작업에서는 요청에 대해 참조 됩니다. 예를 들어 위한 GET REST 호출에서 하나를 지정 `suggest` 또는 `autocomplete` 문서 컬렉션에 있습니다. Rest의 경우 suggester를 만든 후 사용 합니다 [제안 API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 또는 [자동 완성 API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 쿼리 논리에서입니다.
 
 For.NET을 사용 하 여 [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) 하거나 [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet)합니다.
 

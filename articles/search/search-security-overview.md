@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283427"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024510"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure Search의 보안 및 데이터 프라이버시
 
@@ -43,11 +43,8 @@ Azure Search는 [2018년 6월에 발표](https://azure.microsoft.com/blog/azure-
 | 보안 계층 | 설명 |
 |----------------|-------------|
 | 전송 중 암호화 <br>(HTTPS/SSL/TLS) | Azure Search는 HTTPS 포트 443에서 수신 대기합니다. 플랫폼 전체에서 Azure 서비스에 대한 연결이 암호화됩니다. <br/><br/>모든 클라이언트-서비스 Azure Search 상호 작용에는 SSL/TLS 1.2가 지원됩니다.  서비스에 SSL을 연결하려면 TLSv1.2를 사용해야 합니다.|
-| 휴지 상태의 암호화 | 암호화는 인덱싱 시간 완료 또는 인덱스 크기에 측정 가능한 영향을 주지 않고 인덱싱 프로세스에 완벽하게 내부화됩니다. 완전하게 암호화되지 않은 인덱스(2018년 1월 전에 생성됨)에 대한 증분 업데이트를 비롯한 모든 인덱싱에서 자동으로 수행됩니다.<br><br>내부적으로 암호화는 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 [Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 기반으로 합니다.|
-
-암호화는 Microsoft에서 내부적으로 관리하고 전역적으로 적용되는 인증서 및 암호화 키를 사용하여 Azure Search에 포함됩니다. 포털에서 또는 프로그래밍 방식으로 암호화를 켜고 끄거나, 고유한 키를 관리하고 대체하거나, 암호화 설정을 볼 수 없습니다. 
-
-미사용 암호화는 2018년 1월 24일에 발표되었으며 공유(체험) 서비스를 포함하여 모든 지역에서 모든 서비스 계층에 적용됩니다. 전체 암호화의 경우 해당 날짜 이전에 만든 인덱스를 삭제하고 암호화를 수행하기 위해 다시 빌드해야 합니다. 그렇지 않으면 1월 24일 이후에 추가된 새 데이터만이 암호화됩니다.
+| 휴지 상태의 암호화 <br>Microsoft 관리 키 | 암호화는 인덱싱 시간 완료 또는 인덱스 크기에 측정 가능한 영향을 주지 않고 인덱싱 프로세스에 완벽하게 내부화됩니다. 완전하게 암호화되지 않은 인덱스(2018년 1월 전에 생성됨)에 대한 증분 업데이트를 비롯한 모든 인덱싱에서 자동으로 수행됩니다.<br><br>내부적으로 암호화는 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 [Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 기반으로 합니다.<br><br> 암호화는 Microsoft에서 내부적으로 관리하고 전역적으로 적용되는 인증서 및 암호화 키를 사용하여 Azure Search에 포함됩니다. 포털에서 또는 프로그래밍 방식으로 암호화를 켜고 끄거나, 고유한 키를 관리하고 대체하거나, 암호화 설정을 볼 수 없습니다.<br><br>미사용 암호화는 2018년 1월 24일에 발표되었으며 공유(체험) 서비스를 포함하여 모든 지역에서 모든 서비스 계층에 적용됩니다. 전체 암호화의 경우 해당 날짜 이전에 만든 인덱스를 삭제하고 암호화를 수행하기 위해 다시 빌드해야 합니다. 그렇지 않으면 1월 24일 이후에 추가된 새 데이터만이 암호화됩니다.|
+| 휴지 상태의 암호화 <br>고객 관리 키 | 고객 관리 키를 사용 하 여 암호화 되는 **미리 보기** 무료로 사용할 수 있는 기능을 서비스 합니다. 유료 서비스에만 사용할 수 있기에 만든 검색 서비스에 대 한 또는 2019 년 1 월, 후 최신을 사용 하 여 미리 보기 api-버전 (api-버전 = 2019-05-06-미리 보기).<br><br>Azure Search 인덱스와 동의어 맵을 이제 미사용 고객 Azure Key Vault에서 키 관리 키를 사용 하 여 암호화할 수 있습니다. 자세한 내용은 참조 하세요 [Azure Search에서 암호화 키를 관리](search-security-manage-encryption-keys.md)합니다.<br>이 기능은 미사용 기본 암호화를 대체 하지는 하지만 대신 것 외에도 적용 합니다.<br>이 기능을 사용 하면 인덱스 크기 증가 쿼리 성능을 저하 시킬 합니다. 누계 관찰을 기반 예상할 수 있습니다 쿼리 시간 증가의 30% ~ 60%에 있지만 실제 성능은 인덱스 정 및 쿼리의 종류에 따라 달라 집니다. 이 성능에 영향이 발생만 사용할 수 있도록 실제로 필요로 하는 인덱스에서이 기능 하는 것이 좋습니다.
 
 ## <a name="azure-wide-user-access-controls"></a>Azure 전체 사용자 액세스 제어
 

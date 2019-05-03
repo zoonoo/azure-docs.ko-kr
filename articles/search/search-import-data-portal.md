@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871117"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024771"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure Search의 데이터 가져오기 마법사
 
@@ -27,7 +27,7 @@ Azure Portal에는 인덱스에 데이터를 로드하기 위한 **데이터 가
 
 마법사는 미리 정의된 인덱스에 연결하거나 기존 인덱서를 실행할 수 없지만, 마법사 내에서 필요한 구조 및 동작을 지원하도록 새 인덱스 또는 인덱서를 구성할 수 있습니다.
 
-Azure Search를 처음 사용하세요? [빠른 시작: 포털 도구를 사용하여 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md)를 단계별로 진행하여 **데이터 가져오기** 및 기본 제공 realestate 샘플 데이터 세트로 가져오기 및 인덱싱을 시험 사용해봅니다.
+Azure Search를 처음 사용하세요? [빠른 시작: 가져오기, 인덱싱 및 포털 도구를 사용 하 여 쿼리할](search-get-started-portal.md) 가져오기 및 사용 하 여 인덱싱 시험 사용할 수 있도록 **데이터 가져오기** 및 기본 제공 부동산 샘플 데이터 집합입니다.
 
 ## <a name="start-importing-data"></a>데이터 가져오기 시작
 
@@ -77,14 +77,14 @@ Azure Search를 처음 사용하세요? [빠른 시작: 포털 도구를 사용�
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)([Cognitive Search](cognitive-search-concept-intro.md) 파이프라인에 대해 지원되지 않음)
 
-일반 데이터 세트는 필수 입력입니다. 단일 테이블, 데이터베이스 뷰 또는 동등한 데이터 구조에서만 가져올 수 있습니다. 
+구조는 계층적 또는 중첩 된 하위 구조체를 포함할 수 있지만 단일 테이블, 데이터베이스 뷰 또는 동등한 데이터 구조에서 가져올 수 있습니다. 자세한 내용은 [복잡 한 형식을 모델링 하는 방법을](search-howto-complex-data-types.md)합니다.
 
 마법사를 실행 하기 전에이 데이터 구조를 만들어야 하 고 콘텐츠를 포함 해야 합니다. 실행 되지 않고 합니다 **데이터 가져오기** 빈 데이터 원본에 대해 마법사.
 
 |  선택 | 설명 |
 | ---------- | ----------- |
 | **기존 데이터 원본** |검색 서비스에 정의된 인덱서가 이미 있는 경우 다른 가져오기에 기존 데이터 원본 정의를 선택할 수 있습니다. Azure Search에서 데이터 원본 개체는 인덱서에서만 사용됩니다. 데이터 원본 개체는 프로그래밍 방식으로 또는 **데이터 가져오기** 마법사를 통해 만들 수 있습니다.|
-| **샘플**| Azure Search는 Azure Search의 가져오기 및 쿼리 요청을 배우는 데 사용할 수 있는 무료 공용 Azure SQL Database를 포함합니다. [빠른 시작: 포털 도구를 사용하여 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md) 자습서에서 자세한 설명을 참고하세요. |
+| **샘플**| Azure Search는 Azure Search에서 가져오기 및 쿼리 요청에 대 한 익히는 데 사용할 수 있는 무료 전역 Azure SQL 데이터베이스를 호스팅합니다. [빠른 시작: 포털 도구를 사용하여 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md) 자습서에서 자세한 설명을 참고하세요. |
 | **Azure SQL Database** |읽기 권한이 포함된 데이터베이스 사용자에 대한 서비스 이름, 자격 증명 및 데이터베이스 이름은 페이지에 또는 ADO.NET 연결 문자열을 통해 지정될 수 있습니다. 연결 문자열 옵션을 선택하여 속성을 보거나 사용자 지정합니다. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
 | **Azure VM에서 SQL Server** |정규화된 서비스 이름, 사용자 ID와 암호 및 데이터베이스를 연결 문자열로 지정합니다. 이 데이터 원본을 사용하려면 연결을 암호화하는 로컬 저장소에 미리 인증서를 설치해야 합니다. 자세한 내용은 [Azure Search에 SQL VM 연결](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조하세요. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
 | **Cosmos DB** |요구 사항은 계정, 데이터베이스 및 컬렉션을 포함합니다. 컬렉션의 모든 문서는 인덱스에 포함됩니다. 평면화 하거나 행 집합을 필터링 하는 쿼리를 정의할 수도 있고 쿼리를 비워 둡니다. 이 마법사에서 쿼리를 필요 하지 않습니다.|

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344549"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024594"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
@@ -28,8 +28,7 @@ AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때는 청구 가능 Cognitive Services 리소스를 연결해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 실행 [기본 제공 cognitive 기술](cognitive-search-predefined-skills.md) 실행에 따라 청구 됩니다 합니다 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services)에서 작업을 직접 수행 해야 하는 경우 동일한 비율입니다. 이미지 추출은에 반영 하 여 Azure Search 비용이 합니다 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
-
+> 기본 제공 기술 실행은 기존 부과 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 에 설명 된 대로 이미지 추출 가격을 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
 
 ## <a name="use-free-resources"></a>무료 리소스 사용
 
@@ -100,7 +99,7 @@ Cognitive Services API를 호출하는 기술에 대해서만 요금이 청구�
 다음 예제는 이러한 패턴을 보여줍니다. 정의 맨 아래에 있는 cognitiveServices 섹션에 유의하세요.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -110,7 +109,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -142,7 +141,7 @@ Content-Type: application/json
 + 페이지당 이미지 하나(이미지 6000개)
 + 페이지당 3000자
 
-이미지 및 텍스트 추출, 이미지에 대한 OCR(광학 문자 인식) 및 조직의 명명된 엔터티 인식을 사용하여 각 PDF를 해독하는 문서로 구성된 파이프라인이 있다고 가정합니다. 
+이미지 및 텍스트 추출, OCR (광학 문자 인식) 이미지를 사용 하 여 각 PDF 문서 해독 및 조직의 엔터티 인식으로 구성 된 파이프라인을 가정 합니다. 
 
 이 연습에서는 트랜잭션당 가장 비싼 가격을 사용합니다. 실제 가격은 누진 가격 책정으로 인해 낮아질 수 있습니다. [Cognitive Services 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services)을 참조하세요.
 
