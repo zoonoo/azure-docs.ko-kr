@@ -44,15 +44,15 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼
 3. **SQL Server 추가** 아이콘을 클릭합니다.
    
     ![SQL Server 추가][2]
-4. 서버 창에 연결에서 필드를 입력합니다.
+4. 서버에 연결 창에서 필드를 입력합니다.
    
     ![서버에 연결][3]
    
    * **서버 이름**. 이전에 식별한 **서버 이름** 을 입력합니다.
    * **인증**. **SQL Server 인증** 또는 **Active Directory 통합 인증**을 선택합니다.
    * **사용자 이름** 및 **암호**. 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
-   * **Connect**를 클릭합니다.
-5. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
+   * **연결**을 클릭합니다.
+5. 탐색하려면 Azure SQL Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
    
     ![AdventureWorksDW 탐색하기][4]
 
@@ -63,7 +63,7 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼
 2. **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
    
     ![새 쿼리][5]
-3. 이 TSQL 쿼리를 쿼리 창에 복사합니다.
+3. 다음 T-SQL 쿼리를 쿼리 창에 복사합니다.
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
@@ -76,7 +76,7 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼
     ![쿼리 결과][7]
 
 ## <a name="next-steps"></a>다음 단계
-이제 연결 및 쿼리할 수 있으므로 [PowerBI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
 
 Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Warehouse에 대한 인증][Authenticate to SQL Data Warehouse]을 참조하세요.
 
