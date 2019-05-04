@@ -51,7 +51,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기**페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
 
     ![데이터 웨어하우스 만들기](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
@@ -71,9 +71,9 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
     | 설정 | 제안 값 | Description | 
     | ------- | --------------- | ----------- |
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. | 
-    | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
+    | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-    | **위치**: | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![데이터베이스 서버 만들기](media/load-data-wideworldimportersdw/create-database-server.png)
 
@@ -81,12 +81,12 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 6. **성능 계층**을 클릭하여 데이터 웨어하우스가 탄력성 또는 계산 중에서 어떤 측면에 맞춰 최적화될지와 데이터 웨어하우스 단위 수를 지정합니다. 
 
-7. 이 자습서의 경우 **탄력성에 최적화됨** 서비스 계층을 선택합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서의 경우 **탄력성에 최적화됨** 서비스 계층을 선택합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다.  오른쪽 왼쪽으로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. **적용**을 클릭합니다.
-9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
+9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
 
 11. 이제 SQL Database 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
@@ -98,7 +98,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되지 않도록 방지하는 서버 수준에 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준에서 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
 
 > [!NOTE]
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
@@ -106,7 +106,7 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 
 1. 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스**를 클릭한 다음, **SQL 데이터베이스** 페이지에서 **SampleDW**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열리고, 정규화된 서버 이름(예: **sample-svr.database.windows.net**)을 표시하고, 추가 구성 옵션을 제공합니다. 
 
-2. 후속 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는 데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 서버 설정을 열려면 서버 이름을 클릭합니다.
+2. 뒷부분의 빠른 시작에서 서버 및 해당 데이터베이스에 연결하는데 사용하기 위해 이 정규화된 서버 이름을 복사합니다. 서버 설정을 열려면 서버 이름을 클릭합니다.
 
     ![서버 이름 찾기](media/load-data-wideworldimportersdw/find-server-name.png) 
 
@@ -135,7 +135,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20171113.database.windows.net입니다. 
+3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20171113.database.windows.net입니다. 
 
     ![연결 정보](media/load-data-wideworldimportersdw/find-server-name.png)  
 
@@ -151,13 +151,13 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 예를 들어 **sample-svr.database.windows.net**은 정규화된 서버 이름입니다. |
-    | Authentication | 공개 | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
+    | 인증 | SQL Server 인증 | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
     | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
     | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 
     ![서버 연결](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. **Connect**를 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
+4. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
 
 5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **mySampleDatabase**를 확장하여 새 데이터베이스의 개체를 표시합니다.
 
@@ -208,7 +208,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 2. 정규화된 서버 이름을 입력하고, **LoaderRC60**을 로그인으로 입력합니다.  LoaderRC60에 대한 암호를 입력합니다.
 
-3. **Connect**를 클릭합니다.
+3. **연결**을 클릭합니다.
 
 4. 연결이 준비되면 개체 탐색기에서 2개의 서버 연결이 표시됩니다. 하나는 ServerAdmin 권한으로 연결되고, 다른 하나는 LoaderRC60 권한으로 연결되었습니다.
 
@@ -232,7 +232,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. 외부 택시 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. WideWorld Importers 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -550,7 +550,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 이 섹션에서는 방금 정의한 외부 테이블을 사용하여 샘플 데이터를 Azure Blob에서 SQL Data Warehouse로 로드합니다.  
 
 > [!NOTE]
-> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 준비 테이블에 로드합니다. 데이터가 준비 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 준비 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
+> 이 자습서에서는 최종 테이블에 직접 데이터를 로드합니다. 프로덕션 환경에서는 일반적으로 CREATE TABLE AS SELECT를 사용하여 스테이징 테이블에 로드합니다. 데이터가 스테이징 테이블에 있는 동안에는 필요한 모든 변환을 수행할 수 있습니다. 스테이징 테이블의 데이터를 프로덕션 테이블에 추가하려면 INSERT...SELECT 문을 사용합니다. 자세한 내용은 [프로덕션 테이블에 데이터 삽입](guidance-for-loading-data.md#inserting-data-into-a-production-table)을 참조하세요.
 > 
 
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택할 경우 SQL Data Warehouse는 데이터를 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
