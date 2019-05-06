@@ -33,12 +33,12 @@ ms.locfileid: "59790675"
     ```
 
 ## <a name="pause-sql-data-warehouse-example"></a>SQL Data Warehouse 일시 중지 예제
-"Server01."라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1."이라는 Azure 리소스 그룹 내에 있습니다.
+"Server01"라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1"이라는 Azure 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-변형인이 예제이에서는 검색된 된 개체를 파이프 [Suspend AzSqlDatabase][Suspend-AzSqlDatabase]합니다.  그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
+이 예제에서는 검색된 개체를 [Suspend-AzSqlDatabase][Suspend-AzSqlDatabase]으로 전달합니다.  그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -47,13 +47,13 @@ $resultDatabase
 ```
 
 ## <a name="start-sql-data-warehouse-example"></a>SQL Data Warehouse 시작 예제
-"Server01."이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1."이라는 리소스 그룹 내에 있습니다.
+"Server01"이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1"이라는 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-변형인 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 검색된 된 개체를 파이프 [Resume AzSqlDatabase][Resume-AzSqlDatabase]합니다.
+이 예제에서는 "ResourceGroup1"이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 검색된 개체를  [Resume-AzSqlDatabase][Resume-AzSqlDatabase]으로 전송합니다.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
