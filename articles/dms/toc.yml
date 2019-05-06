@@ -22,8 +22,12 @@
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: MySQL을 Azure DB for MySQL로 온라인 마이그레이션
       href: tutorial-mysql-azure-mysql-online.md
+    - name: RDS MySQL을 Azure DB for MySQL로 온라인 마이그레이션
+      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
     - name: PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
       href: tutorial-postgresql-azure-postgresql-online.md
+    - name: RDS PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
+      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: MongoDB를 Azure Cosmos DB Mongo API로 오프라인 마이그레이션
       href: tutorial-mongodb-cosmos-db.md
     - name: MongoDB를 Azure Cosmos DB Mongo API로 온라인 마이그레이션

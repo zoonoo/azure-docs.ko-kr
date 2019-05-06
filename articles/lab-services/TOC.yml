@@ -107,7 +107,7 @@
               href: image-factory-save-distribute-custom-images.md
             - name: 보존 정책 설정 및 정리 스크립트 실행
               href: image-factory-set-retention-policy-cleanup.md
-        - name: 기업에서 DevTest Labs 인프라 설정
+        - name: 기업의 DevTest Labs
           href: devtest-lab-guidance-prescriptive-adoption.md
           items:
             - name: 참조 아키텍처

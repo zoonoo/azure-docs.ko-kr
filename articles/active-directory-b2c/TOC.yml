@@ -56,6 +56,8 @@
           href: active-directory-b2c-overview-custom.md
         - name: 사용자 액세스
           href: manage-user-access.md
+    - name: JavaScript 및 페이지 계약
+      href: user-flow-javascript-overview.md
     - name: OAuth 2.0
       href: active-directory-b2c-reference-oauth-code.md
     - name: OpenId Connect
@@ -70,8 +72,6 @@
       href: manage-user-data.md
     - name: 사용자 흐름
       href: active-directory-b2c-reference-policies.md
-    - name: JavaScript를 사용하는 사용자 흐름
-      href: user-flow-javascript-overview.md
     - name: 사용자 인터페이스 사용자 지정
       href: customize-ui-overview.md
 - name: 방법 가이드

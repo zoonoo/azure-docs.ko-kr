@@ -34,6 +34,10 @@
           href: assign-access-acm-data.md
         - name: 비용 경고 사용
           href: cost-mgt-alerts-monitor-usage-spending.md
+        - name: AWS 통합 설정 및 구성
+          href: aws-integration-set-up-configure.md
+        - name: AWS 비용 및 사용량 관리
+          href: aws-integration-manage.md
     - name: 참고 자료
       items:
         - name: Azure Cost Management REST API
