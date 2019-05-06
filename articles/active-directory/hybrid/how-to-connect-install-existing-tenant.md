@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349563"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571361"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: 기존 테넌트가 있는 경우
 Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Azure AD 테넌트로 시작하고 여기에는 사용자 또는 다른 개체가 없다고 가정하고 있습니다. 그러나 이미 Azure AD 테넌트로 시작하여 사용자와 다른 개체를 제공한 후에 Connect를 사용하려는 경우 이 문서가 도움이 됩니다.
@@ -58,6 +58,15 @@ Connect를 새로 설치하는 경우 소프트 일치와 하드 일치 사이�
 
 ### <a name="other-objects-than-users"></a>사용자 이외의 다른 개체
 메일이 설정된 그룹 및 연락처의 경우 proxyAddresses에 따라 소프트 매치를 수행할 수 있습니다. 하드 매치는 사용자 전용의 sourceAnchor/immutableID(PowerShell 사용)만을 업데이트할 수 있으므로 적용되지 않습니다. 메일이 사용되지 않는 그룹의 경우 현재 소프트 매치 또는 하드 매치가 지원되지 않습니다.
+
+### <a name="admin-role-considerations"></a>관리자 역할 고려 사항
+모든 관리자 역할이 있는 cloud 사용자와 일치 하는에서 신뢰할 수 없는 온-프레미스 사용자를 방지 하려면 Azure AD Connect 관리자 역할이 있는 개체를 사용 하 여 온-프레미스 사용자 개체를 일치 하지 않습니다. 기본적으로 이것이입니다. 문제를 해결 하려면이 동작은 다음을 수행할 수 있습니다.
+
+1.  클라우드 전용 사용자 개체에서 디렉터리 역할을 제거 합니다.
+2.  동기화 트리거
+3.  일치 하는 발생 한 후 필요에 따라 디렉터리 역할의 클라우드 사용자 개체에 다시 추가 합니다.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Azure AD의 데이터에서 새로운 온-프레미스 Active Directory 만들기
 일부 고객은 Azure AD를 사용하는 클라우드 전용 솔루션으로 시작하고 온-프레미스 AD를 사용하지 않습니다. 나중에 온-프레미스 리소스를 사용하지만 Azure AD 데이터를 기반으로 하는 온-프레미스 AD를 구축하려고 합니다. 이 시나리오에서는 Azure AD Connect가 도움이 되지 않습니다. 온-프레미스 사용자를 만들지 않으며 온-프레미스 암호를 Azure AD에서와 동일하게 설정할 수 있는 기능이 없습니다.

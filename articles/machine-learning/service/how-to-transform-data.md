@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817549"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023780"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
 이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 변환 하는 다양 한 방법을 알아봅니다. SDK는 간단 하 게 열 추가, 불필요 한 행 또는 열을 필터링 하 고 누락 값을 대체 하는 함수를 제공 합니다. SDK에 대 한 참조 설명서를 참조 합니다 [개요](https://aka.ms/data-prep-sdk)합니다.
+
+> [!Important]
+> 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)를 사용자 데이터를 스냅숏 데이터를 변환 하 여 버전이 지정 된 데이터 집합 정의 저장 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다.
 
 이 방법에서는 다음 작업에 대 한 예제를 보여 줍니다.
 
@@ -35,7 +38,7 @@ ms.locfileid: "60817549"
 
 Azure Machine Learning Data Prep SDK에는 기존 열에서 값을 계산한 다음 새 열에 해당 값을 입력하는 데 사용할 수 있는 `substring` 식이 포함되어 있습니다. 이 예제에서는 데이터를 로드하고 해당 입력 데이터에 열을 추가해 보겠습니다.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 `substring(start, length)` 식을 사용하여 새 열 `Case Category`에서 접두사를 추출한 다음, 새 열 Case Category에 해당 문자열을 입력합니다. `substring_expression` 변수를 `expression` 매개 변수에 전달하면 각 레코드에 대해 식을 실행하는 새 계산 열이 만들어집니다.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-
 `substring(start)` 식을 사용하여 Case Number 열에서 숫자만 추출한 다음, 새 열을 만듭니다. `to_number()` 함수를 사용하여 숫자 데이터 형식으로 변환한 후 문자열 열 이름을 매개 변수로 전달합니다.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54cb8c3017b2b0a4c476095ba639985fb9418441
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411741"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917326"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
 
@@ -46,7 +46,7 @@ ms.locfileid: "60411741"
 정책이 작동되려면 다음을 구성해야 합니다.
 
 
-| 내용:           | 방법                                  | 이유 |
+| 대상           | 방법                                  | 이유 |
 | :--            | :--                                  | :-- |
 | **클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있도록 하는 것입니다.|
 | **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
@@ -109,7 +109,7 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>조건부 액세스가 Exchange ActiveSync에서 작동합니까?
 
-예, 일부를 사용 하 여 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다 [제한 사항](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync)합니다. 
+예, 일부를 사용 하 여 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다 [제한 사항](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync)합니다. 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Office 365 앱을 사용 하 여 조건부 액세스를 어떻게 구성 해야?
 

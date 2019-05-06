@@ -1,24 +1,22 @@
 ---
 title: Azure 예약 자동화용 API | Microsoft Docs
 description: 프로그래밍 방식으로 예약 정보를 가져오는 데 사용할 수 있는 Azure API에 대해 알아봅니다.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371209"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702615"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -32,7 +30,38 @@ Azure API를 사용하여 프로그래밍 방식으로 Azure 서비스 또는 �
 
 ## <a name="buy-a-reservation"></a>예약 구입
 
-현재는 예약을 프로그래밍 방식으로 구입할 수 없습니다. 예약을 구입하려면 다음 문서를 참조하세요.
+REST Api를 사용 하 여 Azure 예약 및 소프트웨어 계획을 프로그래밍 방식으로 구입할 수 있습니다. 자세한 내용은 참조 하세요 [순 예약 구매 API](/rest/api/reserved-vm-instances/reservationorder/purchase)합니다.
+
+다음은 REST API를 사용 하 여 구매 하는 샘플 요청이입니다.
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+본문 요청:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+Azure portal에서 예약을 구입할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 서비스 플랜:
 - [가상 머신](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

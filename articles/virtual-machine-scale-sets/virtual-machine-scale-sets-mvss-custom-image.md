@@ -4,7 +4,7 @@ description: 기존 Azure Virtual Machine Scale Set 템플릿에 사용자 지�
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,23 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 04/26/2018
+ms.author: manayar
+ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108380"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869104"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가
 
-이 문서에서는 사용자 지정 이미지에서 배포할 [실행 가능한 최소 크기 집합 템플릿](./virtual-machine-scale-sets-mvss-start.md)을 수정하는 방법을 보여 줍니다.
+이 문서를 수정 하는 방법을 보여 줍니다 합니다 [기본 확장 집합 템플릿](virtual-machine-scale-sets-mvss-start.md) 사용자 지정 이미지에서 배포 하도록 합니다.
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
-
-실행 가능한 최소 확장 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 사용자 지정 이미지에서 확장 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)에 있습니다. 이 템플릿(`git diff minimum-viable-scale-set custom-image`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
+에 [이전 문서](virtual-machine-scale-sets-mvss-start.md) 기본 확장 집합 템플릿을 작성 합니다. 이제 이전 템플릿을 사용 하 여 하 고 수정 하 여 사용자 지정 이미지에서 확장 집합을 배포 하는 템플릿을 만듭니다.  
 
 ### <a name="creating-a-managed-disk-image"></a>Managed Disk 이미지 만들기
 
@@ -59,7 +57,7 @@ ms.locfileid: "62108380"
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -84,7 +82,7 @@ ms.locfileid: "62108380"
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -119,5 +117,3 @@ ms.locfileid: "62108380"
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

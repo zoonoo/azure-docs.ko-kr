@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389720"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702696"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -31,6 +31,8 @@ ms.locfileid: "60389720"
 * 리소스 종류에 대한 유효한 API 버전 보기
 
 Azure portal, Azure PowerShell 또는 Azure CLI를 통해 이러한 단계를 수행할 수 있습니다.
+
+Azure 서비스에 리소스 공급자를 매핑하는 목록은 참조 하세요 [Azure 서비스에 대 한 리소스 공급자](azure-services-resource-providers.md)합니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -291,5 +293,5 @@ West US
 
 * 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. 
 * 리소스 공급자 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조하세요.
-* 리소스 배포에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
+* Azure 서비스에 리소스 공급자를 매핑하는 목록은 참조 하세요 [Azure 서비스에 대 한 리소스 공급자](azure-services-resource-providers.md)합니다.
 * 리소스 공급자에 대한 작업을 보려면 [Azure REST API](/rest/api/)를 참조하세요.

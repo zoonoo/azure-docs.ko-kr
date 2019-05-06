@@ -1,25 +1,18 @@
 ---
-title: Azure 애플리케이션 제품 게시 - Azure Marketplace | Microsoft Docs
+title: Azure 응용 프로그램 제품을 게시 | Azure Marketplace
 description: Azure 애플리케이션 제품을 Azure Marketplace에 게시하는 프로세스 및 단계를 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 2326ce1a591d1276dbaf9c7f3238f7214e5134ab
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740259"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942904"
 ---
 # <a name="publish-azure-application-offer"></a>Azure 애플리케이션 제품 게시
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311644"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716759"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -66,7 +66,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-모든 Azure Policy 샘플은 [정책 샘플](../samples/index.md)에 있습니다.
+모든 Azure Policy 샘플은 [Azure Policy 샘플](../samples/index.md)합니다.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
   - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
   - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
+  - `assignPermissions`: (선택 사항) 로 _true_ 정책 할당 하는 동안 역할 할당을 만들거나 Azure portal이 있어야 합니다. 이 속성은 할당 범위를 벗어나는 사용 권한을 할당 하려는 경우에 유용 합니다. 첫 번째 역할 할당 정책에서 역할 정의 (또는 이니셔티브 정책의 모든 역할 정의 단위) 있습니다. 매개 변수 값은 유효한 리소스 또는 범위 여야 합니다.
 - `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다. 할당된 기존 정책 정의를 업데이트할 때 필요합니다.
 - `allowedValues`: (선택 사항) 매개 변수에 할당 하는 동안 허용 하는 값의 배열을 제공 합니다.
 
@@ -148,6 +149,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="effect"></a>결과
 
-정책은 다음과 같은 형식의 결과 지원합니다.
+Azure Policy에는 다음과 같은 형식의 결과 지원합니다.
 
 - **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
 - **Audit**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
@@ -410,7 +412,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-각 효과, 평가 순서, 속성 및 예제에 대한 자세한 내용은 [정책 효과 이해](effects.md)를 참조하세요.
+각 효과 평가, 속성 및 예제를 순서에 대 한 자세한 내용은 참조 하세요. [이해 Azure 정책 효과](effects.md)합니다.
 
 ### <a name="policy-functions"></a>정책 함수
 
@@ -593,9 +595,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
+- 예제를 검토 [Azure Policy 샘플](../samples/index.md)합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성](../how-to/programmatically-create.md)하는 방법을 이해합니다.
-- [규정 준수 데이터를 가져오는 방법](../how-to/getting-compliance-data.md)을 알아봅니다.
-- [비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
-- [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.
+- 이해 하는 방법 [프로그래밍 방식으로 정책 만들기](../how-to/programmatically-create.md)합니다.
+- 에 대해 알아봅니다 하는 방법 [규정 준수 데이터를 가져올](../how-to/getting-compliance-data.md)합니다.
+- 설명 하는 방법 [비준수 리소스를 수정](../how-to/remediate-resources.md)합니다.
+- 사용 하 여 관리 그룹은 검토 [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)합니다.

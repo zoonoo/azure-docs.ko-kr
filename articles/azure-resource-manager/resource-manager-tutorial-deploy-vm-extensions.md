@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5657ebb2a5b29e4ec5360480c1fef6cb92dad9c8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388536"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 배포
 

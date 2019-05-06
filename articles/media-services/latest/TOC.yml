@@ -47,7 +47,7 @@
       items:
         - name: 개요
           href: encoding-concept.md
-          displayName: Presets
+          displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transform 및 Job
           href: transforms-jobs-concept.md
         - name: Media Encoder Standard 형식
@@ -56,14 +56,19 @@
         - name: Autogen 적응 비트 전송률 사다리
           href: autogen-bitrate-ladder.md
         - name: 콘텐츠 인식 인코딩
+          displayName: 'content, aware, cae'
           href: cae-experimental.md
+        - name: 작업 오류 코드
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: 미디어 분석
       items:
         - name: 개요
           href: analyzing-video-audio-files-concept.md
-          displayName: Presets
+          displayName: 'analyzing, presets, jobs'
         - name: Transform 및 Job
           href: transforms-jobs-concept.md
+        - name: 작업 오류 코드
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: '패키징, 배달, 보호'
       items:
         - name: 패키징
@@ -100,6 +105,8 @@
           href: streaming-policy-concept.md
         - name: 콘텐츠 키 정책
           href: content-key-policy-concept.md
+        - name: 원래 오류 코드
+          href: origin-error-codes.md
     - name: 라이브 스트리밍
       items:
         - name: 개요
@@ -138,6 +145,12 @@
           href: entities-overview.md
         - name: RBAC
           href: rbac-overview.md
+        - name: 오류 코드
+          items:
+            - name: 원래 오류 코드
+              href: origin-error-codes.md
+            - name: 작업 오류 코드
+              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
     - name: v2에서 v3로의 마이그레이션 지침
       href: migrate-from-v2-to-v3.md
 - name: 방법 가이드
@@ -240,6 +253,12 @@
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.media/allversions
+    - name: 오류 코드
+      items:
+        - name: 원래 오류 코드
+          href: origin-error-codes.md
+        - name: 작업 오류 코드
+          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
 - name: 리소스
   items:
     - name: Azure Media Services 커뮤니티

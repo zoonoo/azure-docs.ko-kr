@@ -93,9 +93,11 @@
           href: vmware-azure-about-disaster-recovery.md
         - name: 일반적인 질문
           href: vmware-azure-common-questions.md
-        - name: VMware/Physical 서버에서 Azure로 지원 매트릭스
+        - name: VMware/물리적 서버에서 Azure로 지원 매트릭스
           href: vmware-physical-azure-support-matrix.md
-        - name: 구성 서버 배포에 대한 지원 요구 사항
+        - name: Site Recovery 구성 요소(구성/프로세스/마스터 대상 서버) 정보
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: 구성 및 프로세스 서버의 지원 요구 사항
           href: vmware-azure-configuration-server-requirements.md
         - name: VMware에서 Azure로 아키텍처
           href: vmware-azure-architecture.md
@@ -113,7 +115,7 @@
           href: hyper-v-azure-architecture.md
     - name: Azure로 물리적 서버 재해 복구 정보
       items:
-        - name: VMware/Physical 서버에서 Azure로 지원 매트릭스
+        - name: VMware/물리적 서버에서 Azure로 지원 매트릭스
           href: vmware-physical-azure-support-matrix.md
         - name: 물리적 서버에서 Azure로 아키텍처
           href: physical-azure-architecture.md
@@ -197,6 +199,8 @@
               items:
                 - name: 개요 및 필수 구성 요소
                   href: site-recovery-deployment-planner.md
+                - name: Deployment Planner 버전 기록
+                  href: site-recovery-deployment-planner-history.md
                 - name: Deployment Planner 도구 실행
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: 생성된 보고서 분석
@@ -319,6 +323,8 @@
               items:
                 - name: 개요 및 필수 구성 요소
                   href: hyper-v-deployment-planner-overview.md
+                - name: Deployment Planner 버전 기록
+                  href: site-recovery-deployment-planner-history.md
                 - name: Deployment Planner 도구 실행
                   href: hyper-v-deployment-planner-run.md
                 - name: 생성된 보고서 분석
@@ -425,10 +431,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: VMware/물리적 서버
       items:
+        - name: 프로세스 서버 모니터링
+          href: vmware-physical-azure-monitor-process-server.md
         - name: VMware에서 Azure로 복제 문제 해결
           href: vmware-azure-troubleshoot-replication.md
         - name: 구성 서버 문제 해결
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: 프로세스 서버 문제 해결
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: VMware VM/물리적 서버에 대한 모바일 서비스 푸시 설치 문제 해결
           href: vmware-azure-troubleshoot-push-install.md
         - name: Azure에 대한 장애 조치(failover) 문제 해결

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248737"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918408"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -31,7 +31,7 @@ Azure 구독을 구독 사용자, 서비스 및 장치를 인증 하려면 Azure
 > [!Important]
 > 다른 디렉터리 역할을 사용 하 여 할당 된 사용자에 대 한 구독을 연결할 때 [역할 기반 액세스 제어 (RBAC)](../../role-based-access-control/role-assignments-portal.md) 액세스가 손실 됩니다. 클래식 구독 관리자 (서비스 관리자 및 공동 관리자)에 액세스할 수 없게 됩니다.
 > 
-> 또한 Azure Kubernetes Service (AKS) 클러스터를 다른 구독으로 이동 하거나 새 테 넌 트를 클러스터 소유 구독을 이동 하면 클러스터가 손실된 역할 할당 및 서비스 보안 주체 사용 권한으로 인해 기능이 손실 합니다. AKS에 대 한 자세한 내용은 참조 하세요. [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)합니다.
+> 또한 Azure Kubernetes Service (AKS) 클러스터를 다른 구독으로 이동 하거나 새 테 넌 트를 클러스터 소유 구독을 이동 하면 클러스터가 손실된 역할 할당 및 서비스 보안 주체 사용 권한으로 인해 기능이 손실 합니다. AKS에 대 한 자세한 내용은 참조 하세요. [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/)합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

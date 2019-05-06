@@ -8,18 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005964"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021517"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
-개발자는 Azure Cognitive Services의 컨테이너 지원을 통해 Azure에서 사용할 수 있는 동일한 여러 API를 사용할 수 있으며 [Docker 컨테이너](https://www.docker.com/what-container)에 제공되는 서비스를 유연하게 배포 및 호스트할 수 있습니다. 현재 컨테이너 지원은 [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Text Analytics](text-analytics/overview.md) 및 [LUIS(Language Understanding)](LUIS/luis-container-howto.md)를 비롯한 Azure Cognitive Services 하위 집합에 미리 보기로 제공됩니다.
+개발자는 Azure Cognitive Services의 컨테이너 지원을 통해 Azure에서 사용할 수 있는 동일한 여러 API를 사용할 수 있으며 [Docker 컨테이너](https://www.docker.com/what-container)에 제공되는 서비스를 유연하게 배포 및 호스트할 수 있습니다. 컨테이너 지원은 현재 부분을 포함 하 여 Azure Cognitive Services의 하위 집합에 대 한 미리 보기로 제공:
+
+* [이상 감지기](Anomaly-Detector/overview.md)
+* [Computer Vision](Computer-vision/Home.md)
+* [Face](Face/Overview.md)
+* [폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
+* [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [텍스트 분석](text-analytics/overview.md)
 
 컨테이너화는 종속성 및 구성을 포함한 애플리케이션 또는 서비스가 컨테이너 이미지로 패키징되는 소프트웨어 배포 방법입니다. 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 서로 그리고 기본 운영 체제와 격리되며, 가상 머신보다 공간을 적게 차지합니다. 단기 작업용 컨테이너 이미지에서 컨테이너화를 시작하고, 더 이상 필요 없으면 제거할 수 있습니다.
 
@@ -27,7 +35,7 @@ ms.locfileid: "60005964"
 
 [![Cognitive Services에 대한 컨테이너 데모](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
-[Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), [Text Analytics](text-analytics/overview.md) 및 [LUIS(Language Understanding)](LUIS/what-is-luis.md) 서비스는 [Microsoft Azure](https://azure.microsoft.com)에서 사용할 수 있습니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 이러한 서비스에 사용할 수 있는 Azure 리소스를 만들고 살펴보세요.
+Cognitive Services 리소스에서 사용할 수 있는 [Microsoft Azure](https://azure.microsoft.com)합니다. [Azure Portal](https://portal.azure.com/)에 로그인하여 이러한 서비스에 사용할 수 있는 Azure 리소스를 만들고 살펴보세요.
 
 ## <a name="features-and-benefits"></a>기능 및 혜택
 
@@ -43,14 +51,23 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 
 | 서비스 | 지원 되는 가격 책정 계층 | 컨테이너 | 설명 |
 |---------|----------|----------|-------------|
+|[이상 감지기](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**이상 감지기** |비정상 탐지기 API를 사용 하면 모니터링 및 기계 학습을 사용 하 여 시계열 데이터에서 변칙을 수 있습니다.<br>[액세스 요청](https://aka.ms/adcontainer)|
 |[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**텍스트 인식** |영수증, 포스터, 명함과 같은 여러 가지 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 추출합니다.<br/><br/>**중요:** 텍스트 인식 컨테이너는 현재 영어로만 작동합니다.<br>[액세스 요청](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204))|LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다.|
-|[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757)) |핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 핵심 발화 지점을 반환합니다. |
-|[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759)) |최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
-|[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**감정 분석**([이미지](https://go.microsoft.com/fwlink/?linkid=2018654)) |원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다. 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](./text-analytics/language-support.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 애플리케이션에 직접 결과를 반환할 수 있습니다. |
+|[폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**폼 인식기** |양식 이해를 식별 하 여 폼에서 테이블과 키-값 쌍을 추출 하는 기계 학습 기술을 적용 됩니다.<br>[액세스 요청](https://aka.ms/FormRecognizerContainerRequestAccess)|
+|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다.|
+|[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Speech-to-text** |연속적인 실시간 음성을 텍스트로 변환합니다.<br>[액세스 요청](https://aka.ms/speechcontainerspreview/)|
+|[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Text-to-speech** |텍스트를 자연스럽게 들리는 음성으로 변환합니다.<br>[액세스 요청](https://aka.ms/speechcontainerspreview/)|
+|[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 핵심 발화 지점을 반환합니다. |
+|[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
+|[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**감정 분석**([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 API는 각 문서에 대해 0과 1 사이의 감점 점수를 반환합니다. 여기서 1이 가장 긍정적인 것입니다. 분석 모델은 Microsoft의 포괄적인 텍스트 본문 및 자연어 기술을 사용하여 미리 학습됩니다. 이 API는 [선택된 언어](./text-analytics/language-support.md)에 대해 사용자가 제공하는 원시 텍스트를 분석하고 점수를 매겨 호출 애플리케이션에 직접 결과를 반환할 수 있습니다. |
 
-컨테이너는 Cognitive Services에서 지원 되는 또한 [하나로 모든 제품](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 하나의 단일 Cognitive Services에서는 올인원 리소스를 만들고 위에서 언급 한 모든 컨테이너 유형에 대해 동일한 청구 키를 사용할 수 있습니다.
+일부 컨테이너는 Cognitive Services에서 지원 되는 또한 [ **하나로 모든 제품** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 리소스 키입니다. 하나의 단일 Cognitive Services에서는 올인원 리소스를 만들고 동일한 청구 키를 사용 하 여 다음 서비스에 대 한 지원 되는 서비스 전반에 걸쳐 수 있습니다.
+
+* Computer Vision
+* Face
+* LUIS
+* 텍스트 분석
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 가용성
 
@@ -81,7 +98,10 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하고 탐색합니다.
 
-* [Computer Vision 컨테이너 설치 및 사용](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Face 컨테이너 설치 및 사용](Face/face-how-to-install-containers.md)
-* [Text Analytics 컨테이너 설치 및 사용](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [LUIS(Language Understanding) 컨테이너 설치 및 사용](LUIS/luis-container-howto.md)
+* [비정상 탐지기 컨테이너](Anomaly-Detector/anomaly-detector-container-howto.md)
+* [컴퓨터 비전 컨테이너](Computer-vision/computer-vision-how-to-install-containers.md)
+* [얼굴 컨테이너](Face/face-how-to-install-containers.md)
+* [인식기 컨테이너 구성](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [언어 이해 (LUIS) 컨테이너](LUIS/luis-container-howto.md)
+* [음성 서비스 API 컨테이너](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [텍스트 분석 컨테이너](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

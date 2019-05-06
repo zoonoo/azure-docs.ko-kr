@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60529413"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723632"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -79,12 +79,12 @@ ms.locfileid: "60529413"
 
 변경 내용이 저장되면 지정된 Azure AD 인스턴스의 사용자는 [Azure AD 계정을 사용하여 개발자 포털에 로그인](#log_in_to_dev_portal)의 단계를 수행하여 개발자 포털에 로그인할 수 있습니다.
 
-
 ## <a name="add-an-external-azure-ad-group"></a>외부 Azure AD 그룹 추가
 
 Azure AD 인스턴스에서 사용자에 대한 액세스를 활성화한 후에 API Management에서 Azure AD 그룹을 추가할 수 있습니다. 그런 다음, 원하는 제품과 그룹 개발자의 연결을 보다 쉽게 관리할 수 있습니다.
 
-외부 Azure AD 그룹을 구성하려면 이전 섹션의 프로시저를 수행하여 **ID** 탭에서 먼저 Azure AD 인스턴스를 구성해야 합니다. 
+ > [!IMPORTANT]
+ > 외부를 추가 하려면 Azure AD 그룹을 먼저 구성 해야 Azure AD 인스턴스로에 **Identities** 이전 섹션의 절차를 수행 하 여 탭 합니다. 또한 응용 프로그램 권한을 부여 해야 사용 하 여 Azure AD Graph api `Directory.Read.All` 권한. 
 
 API Management 인스턴스의 **그룹** 탭에 외부 Azure AD 그룹을 추가합니다.
 

@@ -152,6 +152,8 @@
         - name: vCPU 할당량
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: 확장 집합 FAQ
+      href: virtual-machine-scale-sets-faq.md
 - name: 방법
   items:
     - name: 계획 및 디자인
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: 고급 자동 크기 조정
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: 자동 크기 조정 문제 해결
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: 크기 집합의 애플리케이션
           href: virtual-machine-scale-sets-deploy-app.md
         - name: 확장 집합의 확장
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Azure CLI 사용
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: 확장 시퀀싱을 사용하여 디스크 암호화
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: 큰 확장 집합으로 작업
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 확장 집합 템플릿을 변환하여 관리 디스크 사용
@@ -247,14 +255,6 @@
         - name: 확장 집합 자동 크기 조정
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: 문제 해결
-      items:
-        - name: 자동 크기 조정
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: FAQ
-      items:
-        - name: 확장 집합 FAQ
-          href: virtual-machine-scale-sets-faq.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

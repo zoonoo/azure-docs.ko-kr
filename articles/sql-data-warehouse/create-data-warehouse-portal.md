@@ -42,7 +42,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기**페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
 
     ![빈 데이터 웨어하우스 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 

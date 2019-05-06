@@ -27,13 +27,13 @@ ms.locfileid: "60402340"
 이들 옵션은
 
 * GROUP BY with ROLLUP
-* 그룹화 집합
+* GROUPING SETS
 * GROUP BY with CUBE
 
-## <a name="rollup-and-grouping-sets-options"></a>롤업 및 그룹화 집합 옵션
+## <a name="rollup-and-grouping-sets-options"></a>ROLLUP 및 GROUPING SETS 옵션
 여기서 가장 간단한 옵션은 명시적 구문에 의존하는 대신 UNION ALL을 사용하여 롤업을 수행하는 것입니다. 결과는 완전히 동일합니다.
 
-다음은 ROLLUP 옵션과 함께GROUP BY 문을 사용하는 예제입니다.
+다음은 ROLLUP 옵션과 함께 GROUP BY 문을 사용하는 예제입니다.
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -82,7 +82,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 GROUPING SETS를 바꾸려면 샘플 원칙이 적용됩니다. 보려는 집계 수준에 대한 UNION ALL 섹션만 만들면 됩니다.
 
-## <a name="cube-options"></a>큐브 옵션
+## <a name="cube-options"></a>CUBE 옵션
 UNION ALL 접근방식을 사용하여 GROUP BY WITH CUBE를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화하기 위해 보다 발전된 접근 방식을 사용할 수 있습니다.
 
 위의 예제를 사용해 보겠습니다.

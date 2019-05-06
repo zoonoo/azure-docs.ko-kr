@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772073"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570585"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>명령 실행을 사용하여 Linux VM에서 셸 스크립트 실행
 
@@ -78,9 +78,9 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="limiting-access-to-run-command"></a>명령 실행에 대한 액세스 제한
 
-명령 실행을 나열하거나 명령의 세부 정보를 보여주는 것은 기본 제공 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할 이상이 가진 `Microsoft.Compute/locations/runCommands/read`의 사용 권한이 필요합니다.
+실행된 명령 나열 또는 명령의 세부 정보를 표시 해야 합니다 `Microsoft.Compute/locations/runCommands/read` 구독 수준에서 권한을 기본 제공 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할 있고 이상.
 
-명령 실행은 [기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 이상이 가진 `Microsoft.Compute/virtualMachines/runCommand/action`의 권한이 필요합니다.
+명령을 실행 하려면 필요 합니다 `Microsoft.Compute/virtualMachines/runCommand/action` 구독 수준에서 권한을를 [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 이상 있고.
 
 명령 실행을 사용하려면 [기본 제공](../../role-based-access-control/built-in-roles.md) 역할 중 하나를 사용하거나 [사용자 지정](../../role-based-access-control/custom-roles.md) 역할을 만들 수 있습니다.
 

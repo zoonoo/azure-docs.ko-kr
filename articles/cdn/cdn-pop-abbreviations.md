@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: magattus
-ms.openlocfilehash: eac699a68558f0a8c9f94f0a8b75aabee561ebb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 3de7f36228bba4cfc84e17dd056683a1a76df684
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113888"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869624"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP 위치 약어
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ AMS | 암스테르담, 네덜란드 | 유럽
 ARN | 스톡홀름, 스웨덴 | 유럽
 ATL | 애틀랜타, 조지아, USA | 북아메리카: 미국 동부 해안
 BAQ | 바랑키야, 콜롬비아 | 라틴 아메리카
-BLR | 방갈로르, 인도 | 아시아
+BLR | Bengaluru (방갈로 르), 인도 | 아시아
 BNJ | 뉴어크, 뉴저지, 미국 | 북아메리카: 미국 동부 해안
 BOS | 보스턴, 매사추세츠, 미국 | 북아메리카: 미국 동부 해안
 BTH | 바탐, 인도네시아 | 아시아

@@ -2,17 +2,17 @@
 title: HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 description: HDInsight 4.0 HDInsight 3.6의 Apache Hive 워크 로드를 마이그레이션하는 방법에 알아봅니다.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
-ms.openlocfilehash: 144e0ada0ce3a15a5dcd13b31f46f50162750a74
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126565"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707004"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -98,6 +98,8 @@ HDInsight 4.0에서는 HiveCLI Beeline을 사용 하 여 대체 되었습니다.
 HDInsight 3.6의 경우 Hive 서버와 상호 작용에 대 한 GUI 클라이언트에서는 Ambari Hive 보기입니다. 4.0 HDInsight Hive 보기 사용 하 여 Hortonworks Analytics Studio DAS (Data)를 대체합니다. DAS는 HDInsight 클러스터의 기본 제공 하지 않습니다 하 고 공식적으로 지원 되는 패키지를 않습니다. 그러나 DAS 설치할 수 있습니다 클러스터에서 다음과 같습니다.
 
 실행에 대 한 노드 형식으로 "헤드 노드"를 사용 하 여 클러스터에 대 한 스크립트 작업을 시작 합니다. 다음 URI는 "Bash 스크립트 URI"로 표시 된 텍스트 상자에 붙여 넣습니다. https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+URL을 사용 하 여 데이터 분석 Studio를 시작할 수 있습니다: https://<clustername>.azurehdinsight.net/das/
 
 
 

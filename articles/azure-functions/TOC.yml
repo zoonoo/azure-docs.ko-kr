@@ -19,6 +19,8 @@
       href: functions-create-first-java-maven.md
     - name: 함수 만들기 - Python
       href: functions-create-first-function-python.md
+    - name: 함수 만들기 - PowerShell
+      href: functions-create-first-function-powershell.md
     - name: 함수 만들기 - Azure CLI
       href: functions-create-first-azure-function-azure-cli.md
     - name: 함수 만들기 - 포털
@@ -39,7 +41,9 @@
       items:
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
-        - name: Storage
+        - name: 스토리지 - Python
+          href: functions-add-output-binding-storage-queue-python.md
+        - name: 스토리지 - 포털
           href: functions-integrate-storage-queue-output-binding.md
 - name: 자습서
   items:
@@ -100,6 +104,8 @@
           href: functions-reference-node.md
         - name: 자바
           href: functions-reference-java.md
+        - name: PowerShell
+          href: functions-reference-powershell.md
         - name: Python
           href: functions-reference-python.md
     - name: 진단
@@ -134,6 +140,8 @@
           href: functions-create-maven-eclipse.md
         - name: Linux 함수 앱 만들기
           href: create-function-app-linux-app-service-plan.md
+        - name: 로컬 PowerShell 함수 디버그
+          href: functions-debug-powershell-local.md
         - name: 연결 관리
           href: manage-connections.md
         - name: 오류 처리
@@ -148,6 +156,8 @@
       items:
         - name: 연속 배포
           href: functions-continuous-deployment.md
+        - name: Azure Pipelines을 사용하여 빌드 및 배포
+          href: functions-how-to-azure-devops.md
         - name: Zip 배포
           href: deployment-zip-push.md
         - name: 패키지에서 실행

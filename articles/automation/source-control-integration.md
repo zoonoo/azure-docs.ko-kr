@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880367"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574111"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -52,14 +52,16 @@ Automation 계정 내에서 선택 **소스 제어** 를 클릭 하 고 **+ 추�
 |리포지토리     | 리포지토리 또는 프로젝트의 이름입니다. 처음 200 개 리포지토리 반환 됩니다. 리포지토리를 검색 하려면 필드에 이름을 입력 하 고 클릭 **GitHub에 대 한 검색**합니다.|
 |Branch     | 소스 파일을 끌어올 분기입니다. 분기를 대상으로 하는 TFVC 소스 제어 형식에 대해 사용할 수 없습니다.          |
 |폴더 경로     | 동기화할 Runbook이 포함된 폴더입니다. 예: /Runbooks </br>*지정 된 폴더에만 runbook이 동기화 됩니다. 재귀 지원 되지 않습니다.*        |
-|자동 동기화     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
+|Auto Sync<sup>1</sup>     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
 |Runbook 게시     | 경우로 **에서**runbook은 자동으로 게시 될 수는 소스 제어에서 동기화 한 후, 합니다.         |
 |설명     | 추가 정보를 제공하는 텍스트 필드        |
+
+<sup>1</sup> Azure 리포지토리를 사용 하 여 원본 제어 통합을 구성 하는 경우에 자동 동기화를 사용 하도록 설정, 프로젝트 관리자 여야 합니다.
 
 ![소스 제어 요약](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> 소스 제어를 구성할 때는 올바른 계정을 사용하여 로그인해야 합니다. 계정이 올바른지 확실치 않으면 브라우저에서 새 탭을 열고 visualstudio.com 또는 github.com에서 로그아웃한 다음 소스 제어를 다시 연결해 봅니다.
+> 소스 제어 리포지토리에 대 한 로그인은 Azure portal에 대 한 로그인 보다 달라질 수 있습니다. 로그인 하는 올바른 계정을 소스 제어 리포지토리에 대 한 소스 제어를 구성 하는 경우를 확인 합니다. 계정이 올바른지 확실치 않으면 브라우저에서 새 탭을 열고 visualstudio.com 또는 github.com에서 로그아웃한 다음 소스 제어를 다시 연결해 봅니다.
 
 ## <a name="configure-source-control---powershell"></a>소스 제어-PowerShell 구성
 

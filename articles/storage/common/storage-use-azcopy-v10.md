@@ -1,23 +1,23 @@
 ---
-title: V10 AzCopy를 사용 하 여 Azure Storage에 데이터를 이동 또는 복사 (미리 보기) | Microsoft Docs
-description: AzCopy v10를 사용 하 여 이동 하거나 blob에서 data lake 및 파일 콘텐츠에서 데이터를 복사 하려면 명령줄 유틸리티 (미리 보기). 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
+title: V10 AzCopy를 사용 하 여 Azure Storage에 데이터를 이동 또는 복사 | Microsoft Docs
+description: 이동 하거나 blob에서 data lake 및 파일 콘텐츠에서 데이터를 복사 하려면 AzCopy 명령줄 유틸리티를 사용 합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278431"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723173"
 ---
-# <a name="transfer-data-with-azcopy-v10-preview"></a>V10 AzCopy 사용 하 여 데이터 전송 (미리 보기)
+# <a name="transfer-data-with-azcopy-v10"></a>AzCopy v10을 사용하여 데이터 전송
 
-AzCopy v10 (미리 보기)는 Microsoft Azure Blob 및 File storage 간에 데이터를 복사 하기 위한 명령줄 유틸리티입니다. 신뢰할 수 있는 데이터에 대 한 새로운 아키텍처를 전송 및 AzCopy v10 다시 디자인 된 명령줄 인터페이스를 제공 합니다. AzCopy를 사용 하 여 파일 시스템 및 저장소 계정 간에 또는 storage 계정 간에 데이터를 복사할 수 있습니다.
+AzCopy는 Microsoft Azure Blob 및 File storage 간에 데이터를 복사 하기 위한 명령줄 유틸리티입니다. 신뢰할 수 있는 데이터에 대 한 새로운 아키텍처를 전송 및 AzCopy는 다시 디자인 된 명령줄 인터페이스를 제공 합니다. AzCopy를 사용 하 여 파일 시스템 및 저장소 계정 간에 또는 storage 계정 간에 데이터를 복사할 수 있습니다.
 
 ## <a name="whats-new-in-azcopy-v10"></a>AzCopy v10의 새로운 기능
 
@@ -33,28 +33,24 @@ AzCopy v10 (미리 보기)는 Microsoft Azure Blob 및 File storage 간에 데�
 
 ## <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치
 
-### <a name="latest-preview-version-v10"></a>최신 미리 보기 버전(v10)
+### <a name="latest-production-version-v10"></a>최신 프로덕션 버전이 (v10)
 
-AzCopy의 최신 미리 보기 버전을 다운로드합니다.
+최신 버전의 AzCopy 다운로드 합니다.
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-production-version-v81"></a>최신 프로덕션 버전(v8.1)
-
-[Windows용 AzCopy의 최신 프로덕션 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
-
-### <a name="azcopy-supporting-table-storage-service-v73"></a>Table Storage 서비스(v7.3)를 지원하는 AzCopy
+### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>테이블 저장소 서비스 (v7.3)를 지 원하는 최신 AzCopy
 
 [Microsoft Azure Table Storage 서비스와 데이터 복사를 지원하는 AzCopy v7.3](https://aka.ms/downloadazcopynet)을 다운로드합니다.
 
 ## <a name="post-installation-steps"></a>설치 후 단계
 
-AzCopy v10 설치가 필요 하지 않습니다. 선호 하는 명령줄 응용 프로그램을 열고 폴더를 찾은 위치 `azcopy.exe` 위치한 합니다. 필요한 경우에 사용 편의성을 위해 시스템 경로 AzCopy 폴더 위치를 추가할 수 있습니다.
+AzCopy 설치가 필요 하지 않습니다. 선호 하는 명령줄 응용 프로그램을 열고 폴더를 찾은 위치 `azcopy.exe` 위치한 합니다. 필요한 경우에 사용 편의성을 위해 시스템 경로 AzCopy 폴더 위치를 추가할 수 있습니다.
 
 ## <a name="authentication-options"></a>인증 옵션
 
-AzCopy v10에서는 Azure Storage를 사용 하 여 인증 하는 경우 다음 옵션을 지원 합니다.
+AzCopy는 Azure Storage를 사용 하 여 인증 하는 경우 다음 옵션을 지원 합니다.
 - **Azure Active Directory** (지원 **Blob 및 Data Lake 저장소 Gen2 서비스**). 사용 하 여 ```.\azcopy login``` Azure Active Directory에 로그인 합니다.  사용자에 게 ["Storage Blob 데이터 기여자" 역할이 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) Azure Active Directory 인증을 사용 하 여 Blob storage에 쓸 수 있습니다. Azure 리소스에 대 한 관리 되는 id 통해 인증을 사용 하 여 `azcopy login --identity`입니다.
 - **공유 액세스 서명 토큰 [Blob 및 파일 서비스에 대 한 지원 되는]** 합니다. 공유 액세스 서명 (SAS) 토큰을 사용 하려면 명령줄에서 blob 경로에 추가 합니다. Azure portal 사용 하 여 SAS 토큰을 생성할 수 있습니다 [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), 또는 기타 도구를 선택 합니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)를 참조하세요.
 
@@ -198,7 +194,7 @@ Blob 컨테이너에 다른 Blob 컨테이너를 복사 하려면 다음 명령�
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-이 명령은 마지막으로 수정 된 타임 스탬프에 따라 대상에 소스를 증분 방식으로 동기화 합니다. 원본에서 파일이 추가 또는 삭제되면 AzCopy v10이 대상에서 똑같은 작업을 수행합니다. 삭제 하기 전에 AzCopy 것인지 묻습니다.
+이 명령은 마지막으로 수정 된 타임 스탬프에 따라 대상에 소스를 증분 방식으로 동기화 합니다. 을 추가 하거나 원본 파일을 삭제 하는 경우 AzCopy는 대상에 동일한 수행 합니다. 삭제 하기 전에 AzCopy 것인지 묻습니다.
 
 ## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Amazon Web Services (AWS) S3에서 데이터 복사
 
@@ -283,7 +279,7 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
 ## <a name="troubleshooting"></a>문제 해결
 
-AzCopy v10까지 모든 작업에 대 한 계획 파일과 로그 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 로그에는 실패 상태(UPLOADFAILED, COPYFAILED 및 DOWNLOADFAILED), 전체 경로, 실패 이유가 포함됩니다. 작업 로그 및 플랜 파일은 Windows의 %USERPROFILE\\.azcopy 폴더 또는 Mac 및 Linux의 $HOME\\.azcopy 폴더에 있습니다.
+AzCopy 로그 파일 및 모든 작업에 대 한 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 로그에는 실패 상태(UPLOADFAILED, COPYFAILED 및 DOWNLOADFAILED), 전체 경로, 실패 이유가 포함됩니다. 작업 로그 및 플랜 파일은 Windows의 %USERPROFILE\\.azcopy 폴더 또는 Mac 및 Linux의 $HOME\\.azcopy 폴더에 있습니다.
 
 > [!IMPORTANT]
 > Microsoft 지원 (또는 제 3 자에 관련 된 문제 해결)에 요청을 제출 하는 경우 실행 하려는 명령의 교정된 버전을 공유 합니다. 그러면 SAS가 모든 사용자와 실수로 공유 되지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322705"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706158"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 질문과 대답
 
@@ -41,6 +41,10 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 ### <a name="how-does-pagination-work"></a>페이지 매김은 어떻게 작동하나요?
 
 페이지 매김을 사용할 때는 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다. 자세한 내용과 예제는 [필터링, 정렬, 페이징](entities-overview.md)을 참조하세요.
+
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>어떤 기능은 아직 Azure Media Services v3에서 사용할 수 있습니까?
+
+세부 정보를 참조 하세요 [v2 Api와 관련 하 여 간격을 기능](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis)합니다.
 
 ## <a name="live-streaming"></a>라이브 스트리밍 
 

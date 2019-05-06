@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78db7d21774750892c831ac220244c54594b78f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cedd45d4142633e48d0d9dd41870f57c16d860c8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817729"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023831"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 Keras와 TensorFlow 모델 학습
 
@@ -185,6 +185,10 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="export-to-onnx"></a>ONNX 내보내려면
+
+사용 하 여 최적화 된 추론을 가져오려고 합니다 [ONNX 런타임](concept-onnx.md), TensorFlow 모델 학습된을 ONNX 형식으로 변환할 수 있습니다. [예제](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py)를 참조하세요.
 
 ## <a name="examples"></a>예
 

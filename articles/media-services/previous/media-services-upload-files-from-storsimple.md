@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8a2972b8fbc31a3f945f40949128b3f37f2f4b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60544951"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868308"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드  
 
-이 문서에서는 Azure StorSimple 데이터 관리자를 간략하게 설명합니다. 또한 이 문서는 StorSimple에서 데이터를 추출하고 이 데이터를 AMS(Azure Media Services) 계정에 자산으로 업로드하는 방법을 보여 주는 자습서로 연결됩니다.
-
-> 
 > [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+>
+> 
 > 현재 Azure StorSimple 데이터 관리자는 비공개 미리 보기 상태입니다. 
 > 
 

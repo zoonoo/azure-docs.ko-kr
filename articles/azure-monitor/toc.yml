@@ -129,6 +129,8 @@
           href: platform/activity-log-alerts.md
         - name: 일반 경고 스키마
           href: platform/alerts-common-schema.md
+        - name: 작업 규칙
+          href: platform/alerts-action-rules.md
     - name: 데이터 가상화
       href: visualizations.md
     - name: 파트너 통합
@@ -309,6 +311,29 @@
                   href: app/asp-net.md
                 - name: 상태 모니터
                   href: app/monitor-performance-live-website-now.md
+                - name: 상태 모니터 v2
+                  href: app/status-monitor-v2-overview.md
+                  items:
+                    - name: 시작
+                      href: app/status-monitor-v2-get-started.md
+                    - name: 자세한 지침
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: 문제 해결 및 알려진 문제
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: API Disable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                    - name: API Disable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-disable-monitoring.md
+                    - name: API Enable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                    - name: API Enable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-enable-monitoring.md
+                    - name: API Get-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-get-config.md
+                    - name: API Get-ApplicationInsightsMonitoringStatus
+                      href: app/status-monitor-v2-api-get-status.md
+                    - name: API Set-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-set-config.md
                 - name: Windows 서비스
                   href: app/windows-services.md
                 - name: Windows 데스크톱
@@ -558,8 +583,10 @@
                   href: insights/container-insights-troubleshoot.md
             - name: Docker 및 Windows 컨테이너 모니터링
               href: insights/containers.md
-            - name: Docker 응용 프로그램 모니터링
+            - name: Docker 애플리케이션 모니터링
               href: app/docker.md
+            - name: Kubernetes용 Application Insights
+              href: app/kubernetes.md
         - name: 리소스 그룹 모니터링
           href: insights/resource-group-insights.md
         - name: 데이터베이스 모니터링
@@ -684,6 +711,8 @@
               href: platform/metrics-charts.md
             - name: 메트릭 차트의 예
               href: platform/metric-chart-samples.md
+            - name: 메트릭 차트 문제 해결
+              href: platform/metrics-troubleshoot.md
         - name: 로그
           items:
             - name: 로그 쿼리

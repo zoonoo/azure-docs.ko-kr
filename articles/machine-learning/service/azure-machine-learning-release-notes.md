@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e79e610638b5ff271607da2e8855003707ea5932
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4d22764cfb038bc2021b99d0743f3cbac17d91d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821302"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024919"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -23,10 +23,24 @@ ms.locfileid: "60821302"
 + Azure Machine Learning의 [**Python용 기본 SDK**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2019-05-02"></a>2019-05-02
+
+### <a name="azure-portal"></a>Azure portal
+
++ 포털에서 자동화 된 기계 학습 실험을 만듭니다.
+
 
 ## <a name="2019-04-22"></a>2019-04-22
 
 ### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning Python v1.0.30 for SDK
++ **새로운 기능**
+  + 데이터 세트
+
++ **버그 수정 및 향상 된 기능**
+  + 없음
+
 
 ## <a name="2019-04-17"></a>2019-04-17
 
@@ -69,7 +83,7 @@ ms.locfileid: "60821302"
 + **새로운 기능**
   + Azure Machine Learning SDK는 이제 Python 3.7을 지원합니다.
   + Azure Machine Learning DNN 추정은 이제 기본 제공 다중 버전 지원을 제공합니다. 예를 들어 `TensorFlow`  평가기 받으므로 `framework_version` 매개 변수 및 사용자 버전 '1.10' 또는 '1.12'를 지정할 수 있습니다. 에서 현재 사용 중인 SDK 버전에서 지원 되는 버전 목록은 호출 `get_supported_versions()` 원하는 프레임 워크 클래스 (예: `TensorFlow.get_supported_versions()`).
-  최신 SDK 버전에서 지원 되는 버전 목록은 참조 하세요. 합니다 [DNN 스 티 메이 터 설명서](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py)합니다.
+  최신 SDK 버전에서 지원 되는 버전 목록은 참조 하세요. 합니다 [DNN 스 티 메이 터 설명서](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py)합니다.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning 데이터 준비 SDK v 1.1.1
 
@@ -143,13 +157,13 @@ ms.locfileid: "60821302"
 
 + **새로운 기능**
 
-  + Azure Machine Learning은 이제 인기 있는 DNN 프레임 워크 Chainer에 대 한 최고 수준의 지원을 제공합니다. 사용 하 여 [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스 사용자가 쉽게 학습를 Chainer 모델을 배포 합니다.
+  + Azure Machine Learning은 이제 인기 있는 DNN 프레임 워크 Chainer에 대 한 최고 수준의 지원을 제공합니다. 사용 하 여 [ `Chainer` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스 사용자가 쉽게 학습를 Chainer 모델을 배포 합니다.
     + 자세한 방법 [ChainerMN를 사용 하 여 분산된 교육 실행](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
     + 자세한 방법 [HyperDrive를 사용 하 여 Chainer를 사용 하 여 하이퍼 매개 변수 튜닝 실행](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning 파이프라인 파이프라인 실행 데이터 저장소, 수정을 기반으로 하는 기능 트리거를 추가 합니다. 파이프라인 [일정 notebook](https://aka.ms/pl-schedule) 이 기능을 소개 하도록 업데이트 됩니다.
 
 + **버그 수정 및 향상 된 기능**
-  + 지원이 추가 되었습니다 Azure Machine Learning 파이프라인 (예: blob storage) 원하는 데이터 저장소로 source_directory_data_store 속성을 설정 하는 것에 대 한 온 [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) 에 제공 되는 여 [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)합니다. 기본적으로 단계는 많은 수의 단계를 동시에 실행할 때 제한 문제를 겪을 수 있는 백업 데이터 저장소로 Azure 파일 저장소를 사용 합니다.
+  + 지원이 추가 되었습니다 Azure Machine Learning 파이프라인 (예: blob storage) 원하는 데이터 저장소로 source_directory_data_store 속성을 설정 하는 것에 대 한 온 [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) 에 제공 되는 여 [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py)합니다. 기본적으로 단계는 많은 수의 단계를 동시에 실행할 때 제한 문제를 겪을 수 있는 백업 데이터 저장소로 Azure 파일 저장소를 사용 합니다.
 
 ### <a name="azure-portal"></a>Azure portal
 

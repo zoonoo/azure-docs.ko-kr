@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466378"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725645"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -53,10 +53,27 @@ kured 사용에 대한 자세한 내용은 [AKS에서 노드에 보안 및 커�
 
 각 AKS 배포는 두 리소스 그룹에 걸쳐 있습니다.
 
-- 첫 번째 리소스 그룹은 사용자가 생성하며 Kubernetes 서비스 리소스만 포함합니다. AKS 리소스 공급자는 배포 중에 자동으로 두 번째 리소스 그룹(예: *MC_myResourceGroup_myAKSCluster_eastus*)을 만듭니다.
+- 첫 번째 리소스 그룹은 사용자가 생성하며 Kubernetes 서비스 리소스만 포함합니다. AKS 리소스 공급자는 배포 중에 자동으로 두 번째 리소스 그룹(예: *MC_myResourceGroup_myAKSCluster_eastus*)을 만듭니다. 이 두 번째 리소스 그룹의 이름을 지정 하는 방법에 대 한 내용은 다음 섹션을 참조 합니다.
 - 이 두 번째 리소스 그룹(예: *MC_myResourceGroup_myAKSCluster_eastus*)에는 클러스터와 연결된 모든 인프라 리소스가 포함됩니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 저장소가 포함됩니다. 이 별도의 리소스 그룹은 리소스 정리를 간소화하기 위해 생성됩니다.
 
 저장소 계정 또는 예약된 공용 IP 주소와 같이 AKS 클러스터와 함께 사용할 리소스를 만드는 경우 자동으로 생성된 리소스 그룹에 배치합니다.
+
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>나만의 AKS 인프라 리소스 그룹의 이름을 제공할 수 있습니까?
+
+예. 기본적으로 AKS 리소스 공급자를 자동으로 보조 리소스 그룹을 만듭니다 배포 하는 동안 같은 *MC_myResourceGroup_myAKSCluster_eastus*합니다. 회사 정책을 준수 하는 관리 되는이 클러스터에 대 한 고유한 이름을 제공할 수 있습니다 (*MC_*) 리소스 그룹입니다.
+
+고유한 리소스 그룹 이름을 지정 하려면 다음을 설치 합니다 [aks 미리 보기] [ aks-preview-cli] Azure CLI 확장 버전 *평면이 0.3.2* 이상. 사용 하 여 AKS 클러스터를 만들 때를 [az aks 만들기] [ az-aks-create] 명령에 사용 합니다 *-노드 리소스 그룹* 매개 변수 리소스 그룹의 이름을 지정 합니다. 경우 있습니다 [Azure Resource Manager 템플릿을 사용 하 여] [ aks-rm-template] 사용 하 여 리소스 그룹 이름을 정의할 수 있습니다 AKS 클러스터를 배포 하려면 합니다 *nodeResourceGroup* 속성입니다.
+
+* 이 리소스 그룹 사용자의 구독에서 Azure 리소스 공급자에 의해 자동으로 만들어집니다.
+* 클러스터를 만들 때에 사용자 지정 리소스 그룹 이름을 지정할 수 있습니다.
+
+다음 시나리오는 지원 되지 않습니다.
+
+* 에 대 한 기존 리소스 그룹을 지정할 수 없습니다 *MC_* 그룹입니다.
+* 다른 구독을 지정할 수 없습니다는 *MC_* 리소스 그룹입니다.
+* 변경할 수 없습니다는 *MC_* 클러스터가 만들어진 후 리소스 그룹 이름입니다.
+* 내에서 관리 되는 리소스에 대 한 이름을 지정할 수 없습니다는 *MC_* 리소스 그룹입니다.
+* 수정 하거나 내에서 관리 되는 리소스의 태그를 삭제할 수 없습니다는 *MC_* 리소스 그룹 (다음 섹션에서 추가 정보 참조).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>MC_* 리소그스 룹에서 태그 및 AKS 리소스의 다른 속성을 수정할 수 있나요?
 
@@ -93,13 +110,16 @@ SLA(서비스 수준 계약)에서, 공급자는 게시된 서비스 수준이 �
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -108,4 +128,3 @@ SLA(서비스 수준 계약)에서, 공급자는 게시된 서비스 수준이 �
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

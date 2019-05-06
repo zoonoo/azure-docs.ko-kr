@@ -186,7 +186,7 @@
           href: how-to-connect-configure-ad-ds-connector-account.md
         - name: Azure AD 동기화 서비스 계정 암호 변경
           href: how-to-connect-sync-change-serviceacct-pass.md
-        - name: Azure AD Connect 계정 변경
+        - name: Azure AD Connect 계정 암호 변경
           href: how-to-connect-azureadaccount.md
         - name: AD DS Connect 계정 암호 변경
           href: how-to-connect-sync-change-addsacct-pass.md

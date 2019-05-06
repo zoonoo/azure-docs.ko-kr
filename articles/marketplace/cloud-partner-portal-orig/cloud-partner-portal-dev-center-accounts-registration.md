@@ -1,25 +1,18 @@
 ---
-title: Microsoft 개발자 계정 만들기 | Microsoft Docs
+title: Microsoft 개발자 계정 만들기 | Azure Marketplace
 description: Microsoft 개발자 계정을 만들기 위한 요구 사항 및 단계입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326841"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935857"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 ====================================
@@ -106,7 +99,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
    ![국가/지역 선택](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >“판매” 국가: Azure Marketplace에서 서비스를 판매하려면 등록된 법인이 드롭다운 목록에 표시된 승인된 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 Marketplace 참가 정책을 참조하세요.
+    >국가/지역 "판매처": Azure Marketplace에서 서비스를 판매 하기 위해 등록 된 법인은 승인 된 "판매처" 국가/지역 드롭다운 목록에 표시 된 것 중 하나에서 가능 해야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 Marketplace 참가 정책을 참조하세요.
 
 5. **회사**를 “계정 유형”으로 선택하고 **다음**을 선택합니다.
 

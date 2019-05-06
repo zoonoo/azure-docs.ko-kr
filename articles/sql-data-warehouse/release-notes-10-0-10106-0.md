@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 10d703ad613a340a0f99c4d5dd8f4c748ff3e6bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475102"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917237"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
@@ -26,12 +26,12 @@ ms.locfileid: "61475102"
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**Gen2 미리 보기에 사용할 수 있는 워크 로드 중요도**|워크 로드 중요도 데이터 엔지니어 중요도 사용 하 여 요청을 분류 하는 기능을 제공 합니다. 높은 중요도 사용 하 여 요청에는 Sla를 충족 하는 데 도움이 되는 리소스에 빠르게 액세스할을 보장 됩니다.  워크 로드 중요도 더 적은 리소스를 사용 하 여 공유 환경에서 Sla를 충족 하기 위해 높은 비즈니스 값 작업을 허용 합니다.<br/><br/>워크 로드 관리 분류 및 중요도 미리 보기는 2019 년 4 월 9 일 이상 릴리스 날짜를 사용 하 여 빌드입니다. 사용자는 워크로드 관리 테스트를 위해 이 날짜 이전에는 빌드를 사용하지 않는 것이 좋습니다. 실행 빌드 수 있는 워크 로드 관리 인지를 확인 하려면 `select @@version` SQL Data Warehouse 인스턴스에 연결 합니다.</br></br>워크 로드 중요도에 대 한 자세한 내용은 참조 하세요.는 [분류](sql-data-warehouse-workload-classification.md) 하 고 [중요도](sql-data-warehouse-workload-importance.md) 문서의 개요 문서입니다. 체크 아웃 합니다 [워크 로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 문서도 합니다.<br/><br/>실행 중인 워크 로드 중요도 참조는 아래 비디오:<br/>[워크 로드 관리 개념](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
-|**데이터 검색 및 분류**|이제 Azure SQL Data Warehouse에서 데이터 검색 및 분류를 공개 미리 보기로 사용할 수 있습니다. 중요 한 데이터 및 고객의 개인 정보를 보호 하는 것이 반드시 합니다. 비즈니스 및 고객 데이터 자산이 증가 함에 따라 검색, 분류 및 데이터를 보호 하는 것이 어려워집니다. Azure SQL Data Warehouse를 사용 하 여 고유 하 게 도입 하는 데이터 검색 및 분류 기능 보다 관리가 용이한 데이터 보호를 확인 하는 데 도움이 됩니다. 이 기능의 전체적인 이점은 다음과 같습니다.<br/>&bull; &nbsp; 모임 데이터 프라이버시 표준 및 규정 준수 요구 사항<br/>&bull; &nbsp; 에 대 한 액세스를 제한 하 고 데이터의 보안을 강화 웨어하우스에 매우 중요 한 데이터가 들어 있는입니다.<br/>&bull; &nbsp; 모니터링 및 중요 한 데이터에 대 한 비정상적인 액세스 경고 합니다.<br/>&bull; &nbsp; Azure portal에서는 중앙 대시보드에 중요 한 데이터 시각화. </br></br>데이터 검색 및 분류는 모든 Azure 지역에서 Azure SQL Data Warehouse에 대 한 사용 가능한 취약점 평가 및 위협 검색을 포함 하 여 고급 데이터 보안의 일부입니다. 데이터 검색 및 분류 하는 방법에 대 한 자세한 내용은 참조는 [블로그 게시물](https://azure.microsoft.com/en-us/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) 및 온라인 [설명서](/azure/sql-database/sql-database-data-discovery-and-classification)합니다.|
+|**데이터 검색 및 분류**|이제 Azure SQL Data Warehouse에서 데이터 검색 및 분류를 공개 미리 보기로 사용할 수 있습니다. 중요 한 데이터 및 고객의 개인 정보를 보호 하는 것이 반드시 합니다. 비즈니스 및 고객 데이터 자산이 증가 함에 따라 검색, 분류 및 데이터를 보호 하는 것이 어려워집니다. Azure SQL Data Warehouse를 사용 하 여 고유 하 게 도입 하는 데이터 검색 및 분류 기능 보다 관리가 용이한 데이터 보호를 확인 하는 데 도움이 됩니다. 이 기능의 전체적인 이점은 다음과 같습니다.<br/>&bull; &nbsp; 모임 데이터 프라이버시 표준 및 규정 준수 요구 사항<br/>&bull; &nbsp; 에 대 한 액세스를 제한 하 고 데이터의 보안을 강화 웨어하우스에 매우 중요 한 데이터가 들어 있는입니다.<br/>&bull; &nbsp; 모니터링 및 중요 한 데이터에 대 한 비정상적인 액세스 경고 합니다.<br/>&bull; &nbsp; Azure portal에서는 중앙 대시보드에 중요 한 데이터 시각화. </br></br>데이터 검색 및 분류는 모든 Azure 지역에서 Azure SQL Data Warehouse에 대 한 사용 가능한 취약점 평가 및 위협 검색을 포함 하 여 고급 데이터 보안의 일부입니다. 데이터 검색 및 분류 하는 방법에 대 한 자세한 내용은 참조는 [블로그 게시물](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) 및 온라인 [설명서](/azure/sql-database/sql-database-data-discovery-and-classification)합니다.|
 |**그룹 롤업**|Azure Data Warehouse에서 지원 되는 GROUP BY 옵션 롤업 됩니다.   GROUP BY ROLLUP 열 식의 각 조합에 대 한 그룹을 만듭니다. GROUP BY도 "롤업" 결과 부분합 및 총합계를 합니다. GROUP BY 함수는 오른쪽에서 왼쪽으로 집계를 만드는 그룹과 줄입니다 열 식의 수를 줄이거나에서 처리 합니다.  열 순서는 ROLLUP 출력에 영향을 줍니다 및 결과 집합의 행 수에 영향을 줄 수 있습니다.<br/><br/>GROUP BY ROLLUP에 대 한 자세한 내용은 참조 하세요. [GROUP BY (TRANSACT-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**DWU 사용 됨 및 CPU 포털 메트릭에 대 한 정확성 향상된**|SQL Data Warehouse에는 Azure portal에서 메트릭 정확도 크게 향상 됩니다.  이 릴리스에서 모든 계산 노드에서 워크 로드를 올바르게 반영 하기 위해 CPU 및 DWU에 사용 되는 메트릭 정의 대 한 수정은 포함 되어 있습니다. 이 문제가 해결 되기 전에 메트릭 값 dereported 되기 때문입니다. 사용 되는 DWU 증가 및 Azure portal에서 CPU 메트릭을 볼 수 있어야 합니다. |
 |**행 수준 보안**|2017 년 11 월에에서 행 수준 보안 기능을 도입 했습니다. 이제 외부 테이블에이 지원을 확장 했습니다 했습니다. 또한 인라인 테이블 반환 함수 (인라인 Tvf) 보안 필터 조건자를 정의 하는 데 필요한 비 결정적인 함수 호출에 대 한 지원을 추가 했습니다. 이 추가 사용 하면 IS_ROLEMEMBER(), 보안 필터 조건자에 user_name ()과 등을 지정할 수 있습니다. 자세한 내용은 나와 있는 예제를 참조 하십시오 합니다 [행 수준 보안 설명서](/sql/relational-databases/security/row-level-security)합니다.|
 |**추가 T-SQL 지원**|SQL Data Warehouse의 T-SQL 언어 노출 영역에 대 한 지원을 포함 하도록 확장 되었습니다 [STRING_SPLIT (TRANSACT-SQL)](/sql/t-sql/functions/string-split-transact-sql)합니다.
-|**쿼리 최적화 프로그램 향상** |쿼리 최적화는 모든 데이터베이스의 주요 구성 요소입니다. 최상의 쿼리를 실행 하는 방법에 대 한 최적의 선택을 향상 시킬 수 있습니다.  분산된 환경에서 복잡 한 분석 쿼리를 실행 하는 경우 작업 수가 문제를 실행 합니다. 향상 된 품질 계획을 생성 하 여 쿼리 성능이 향상 되었습니다. 비용이 많이 드는 데이터 전송 작업을 최소화 하는 이러한 계획 및 중복 계산와 같은 하위 쿼리를 반복 합니다. 자세한 내용은이 Azure SQL Data Warehouse를 참조 하세요 [블로그 게시물](https://azure.microsoft.com/en-us/blog/smarter-faster-safer-azure-sql-data-warehouse-is-simply-unmatched/)합니다.|
+|**쿼리 최적화 프로그램 향상** |쿼리 최적화는 모든 데이터베이스의 주요 구성 요소입니다. 최상의 쿼리를 실행 하는 방법에 대 한 최적의 선택을 향상 시킬 수 있습니다.  분산된 환경에서 복잡 한 분석 쿼리를 실행 하는 경우 작업 수가 문제를 실행 합니다. 향상 된 품질 계획을 생성 하 여 쿼리 성능이 향상 되었습니다. 비용이 많이 드는 데이터 전송 작업을 최소화 하는 이러한 계획 및 중복 계산와 같은 하위 쿼리를 반복 합니다. 자세한 내용은이 Azure SQL Data Warehouse를 참조 하세요 [블로그 게시물](https://azure.microsoft.com/blog/smarter-faster-safer-azure-sql-data-warehouse-is-simply-unmatched/)합니다.|
 | | |
 
 ### <a name="documentation-improvements"></a>설명서 개선

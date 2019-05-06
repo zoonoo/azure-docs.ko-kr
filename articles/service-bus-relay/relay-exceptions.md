@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 0fe30fe95e77adceaa5013f89206b08daf2a58a2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749039"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
 
@@ -29,18 +29,18 @@ ms.locfileid: "43702098"
 
 Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합니다. 예외를 해결하기 위해 수행할 수 있는 권장 조치를 모두 나열합니다.
 
-*   **사용자 코딩 오류**: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **사용자 코딩 오류**: System.ArgumentException, [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx) 
 
-    **일반 조치**: 코드를 수정한 후 계속합니다.
+    **일반 조치**: 계속 진행 하기 전에 코드를 수정 하려고 합니다.
 *   **설치/구성 오류**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **일반 조치**: 구성을 검토합니다. 필요에 따라 구성을 변경합니다.
+    **일반 조치**: 구성을 검토 합니다. 필요에 따라 구성을 변경합니다.
 *   **일시적 예외**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
-    **일반 조치**: 작업을 다시 시도하거나 사용자에게 알립니다.
+    **일반 조치**: 작업을 다시 시도 하거나 사용자에 게 알립니다.
 *   **다른 예외**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **일반 작업**: 예외 형식에 따라 다릅니다. 다음 섹션에 있는 표를 참조하세요. 
+    **일반 조치**: 예외 형식에 따라 다릅니다. 다음 섹션에 있는 표를 참조하세요. 
 
 ## <a name="exception-types"></a>예외 유형
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344162"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023622"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>예제: Translator Text API를 사용하여 사용자 지정 기술 만들기
 
@@ -243,7 +243,7 @@ POST https://localhost:7071/api/Translate
 
 1. 화면에 표시되는 메시지를 따릅니다. 사용할 Azure 계정, 리소스 그룹, 호스팅 플랜 및 저장소 계정을 지정하라는 메시지가 표시됩니다. 아직 없는 경우 새 리소스 그룹, 새 호스팅 플랜 및 저장소 계정을 만들 수 있습니다. 작업을 마쳤으면 **만들기**를 선택합니다.
 
-1. 배포가 완료된 후 사이트 URL을 적어둡니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
+1. 배포가 완료 되 면 사이트 URL을 확인할 수 있습니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동한 다음, 게시한 Translate Function을 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.  
 
@@ -282,7 +282,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [

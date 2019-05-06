@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008495"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916827"
 ---
 # <a name="what-is-speech-to-text"></a>음성-텍스트 란?
 
-를 표시 하 고 명령 입력으로 작업을 수행 하는 음성-텍스트에서 Azure 라고도 음성-텍스트를 음성 응용 프로그램, 도구 또는 장치에서 사용할 수 있는 텍스트로 오디오 스트림의 수 있도록 실시간 기록 서비스입니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 대 한 사용 및 텍스트 음성 변환 번역와 원활 하 게 작동 하는 동일한 인식 기술을 통해 구현 됩니다.  사용 가능한 음성-텍스트 언어의 전체 목록을 참조 하세요 [지원 되는 언어](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text)합니다.
+를 표시 하 고 명령 입력으로 작업을 수행 하는 음성-텍스트에서 Azure 라고도 음성-텍스트를 음성 응용 프로그램, 도구 또는 장치에서 사용할 수 있는 텍스트로 오디오 스트림의 수 있도록 실시간 기록 서비스입니다. 이 서비스는 Microsoft Cortana 및 Office 제품에 대 한 사용 및 텍스트 음성 변환 번역와 원활 하 게 작동 하는 동일한 인식 기술을 통해 구현 됩니다.  사용 가능한 음성-텍스트 언어의 전체 목록을 참조 하세요 [지원 되는 언어](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text)합니다.
 
 기본적으로 음성-텍스트를 범용 언어 모델을 사용합니다. 이 Microsoft에서 소유한 데이터를 사용 하 여 학습 된 모델과 클라우드에 배포 합니다. 적합 한 대화형 및 받아쓰기 시나리오입니다. 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. 
 

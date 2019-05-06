@@ -44,7 +44,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성을 다음으로 설정해야 합니다. **GoogleAdWords** | 예 |
+| type | 형식 속성을 다음으로 설정해야 합니다. **GoogleAdWords** | 예 |
 | clientCustomerID | 보고서 데이터를 가져올 AdWords 계정의 클라이언트 고객 ID입니다.  | 예 |
 | developerToken | AdWords API에 대한 액세스 권한을 부여하는 데 사용하는 관리자 계정과 연관된 개발자 토큰입니다.  이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
 | authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 IR에서만 사용할 수 있습니다. <br/>허용되는 값은 다음과 같습니다. **ServiceAuthentication**, **UserAuthentication** | 예 |

@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759781"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712858"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정
 Microsoft Azure AD는 Salesforce, G Suite 등과 같은 타사 SaaS 응용 프로그램에 사용자 프로 비전에 대 한 지원을 제공 합니다. 타사 SaaS 응용 프로그램에 대 한 사용자 프로 비전을 사용 하는 경우 Azure portal 특성 매핑을 통해 그 특성 값을 제어 합니다.

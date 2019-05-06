@@ -1,25 +1,18 @@
 ---
-title: Salesforce | Microsoft Docs
-description: Salesforce의 잠재 고객 관리를 구성합니다.
+title: Salesforce에 대 한 리드 관리 구성 | Azure Marketplace
+description: Salesforce에서 Azure Marketplace 고객에 대 한 리드 관리를 구성 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2f2a96e46b76ce41131b8e745075648bf0c68716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 0be5cd84e9ed8314584b5cea064b5c0241db1ab5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777519"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935123"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Salesforce의 잠재 고객 관리 구성
 

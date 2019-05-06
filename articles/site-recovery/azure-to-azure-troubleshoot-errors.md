@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789903"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699089"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -221,7 +221,17 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 문제가 계속되면 지원에 문의하세요.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>하나 이상의 디스크 (오류 코드 153039) 보호를 위해 사용할 수 있습니다.
+- **가능한 원인** </br>
+  - 하나 이상의 디스크가 보호 후 가상 컴퓨터에 최근에 추가 되었습니다 하는 경우. 
+  - 가상 머신의 보호 한 후 나중에 하나 이상의 디스크 초기화 되었습니다 하는 경우.
 
+### <a name="fix-the-problem"></a>문제 해결
+디스크 보호 또는 복제 상태의 VM 다시 정상 되도록 경고를 무시 하거나 선택할 수 있습니다.</br>
+1. 디스크를 보호 합니다. 복제 된 항목으로 이동 > VM > 디스크 > 보호 되지 않는 디스크에 클릭 > 복제를 사용 하도록 설정 합니다.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. 경고를 해제 합니다. 복제 된 항목으로 이동 > VM > 개요 섹션에서 해제 경고를 클릭 합니다.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>"복제를 사용하도록 설정"에서 선택할 Azure VM을 표시할 수 없음
 
  **원인 1:  리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>

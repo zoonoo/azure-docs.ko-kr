@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 부�
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 부울 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fea0f8c2c2bcab94202916594e66514f2ec87396
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8afe530a2194fd8c2137f6d4aa7ac97fa8ed9a53
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60314638"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695101"
 ---
 # <a name="boolean-claims-transformations"></a>부울 클레임 변환
 

@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564785"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035360"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search에서 리소스 사용량 및 쿼리 작업 모니터링
 
@@ -114,7 +114,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
 | resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
 | operationName |문자열 |"Query.Search" |작업 이름 |
-| operationVersion |문자열 |"2017-11-11" |사용된 api-version |
+| operationVersion |문자열 |"2019-05-06" |사용된 api-version |
 | category |문자열 |"OperationLogs" |constant |
 | resultType |문자열 |"Success" |가능한 값은 다음과 같습니다. Success 또는 Failure |
 | resultSignature |int |200 |HTTP 결과 코드 |
@@ -126,7 +126,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 | 이름 | Type | 예 | 메모 |
 | --- | --- | --- | --- |
 | 설명 |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
-| 쿼리 |문자열 |"?search=AzureSearch&$count=true&api-version=2017-11-11" |쿼리 매개 변수 |
+| 쿼리 |문자열 |"?search=AzureSearch&$count=true&api-version=2019-05-06" |쿼리 매개 변수 |
 | 문서 |int |42 |처리된 문서 수 |
 | IndexName |문자열 |"testindex" |작업과 연결된 인덱스의 이름 |
 

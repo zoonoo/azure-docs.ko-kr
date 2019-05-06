@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000932"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575410"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps 지오코딩 검사
 
@@ -44,7 +44,6 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 캐나다                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 케이맨 제도                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | 칠레                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| 클리퍼턴 섬                                   |                 |                |              |      ✓     |                    |
 | 콜롬비아                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 코스타리카                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | 쿠바                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -98,12 +97,12 @@ Azure Maps에서 위치를 검색하면 검색 서비스는 검색 용어를 사
 | 영국령 인도양 식민지                      |                 |                |              |      ✓     |          ✓         |
 | 브루나이                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | 캄보디아                                            |                 |                |              |      ✓     |          ✓         |
-| 중국                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| 중국                                               |                 |                |              |      ✓     |          ✓         |
 | 크리스마스 섬                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | 코코스 제도                             |                 |                |              |      ✓     |          ✓         |
 | 코모로                                             |                 |                |              |      ✓     |          ✓         |
 | 쿡 제도                                        |                 |                |              |      ✓     |          ✓         |
-| 피지                                                |                  |                |              |      ✓     |          ✓         |
+| 피지                                                |                  |                |              |      ✓     |          ✓        |
 | 프랑스령 폴리네시아                                    |                 |                |              |      ✓     |          ✓         |
 | 허드 섬 및 맥도널드 제도                   |                 |                |              |      ✓     |          ✓         |
 | 홍콩 특별 행정구                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

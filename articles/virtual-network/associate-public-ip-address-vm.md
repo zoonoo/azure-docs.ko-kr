@@ -4,24 +4,24 @@ titlesuffix: Azure Virtual Network
 description: 가상 머신에 공용 IP 주소를 연결 하는 방법에 알아봅니다.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083218"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692004"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>가상 머신에 공용 IP 주소를 연결 합니다.
 
-이 문서에서는 기존 가상 컴퓨터 (VM)에 공용 IP 주소를 연결 하는 방법을 알아봅니다. 인터넷에서 VM에 연결 하려는 경우 VM에 연결 된 공용 IP가 있어야 합니다. 공용 IP 주소를 사용 하 여 새 VM을 만들려는 경우 사용 하 여 수행할 수 있습니다 합니다 [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)의 [Azure CLI (명령줄 인터페이스)](virtual-network-deploy-static-pip-arm-cli.md), 또는 [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)합니다. 공용 IP 주소에는 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)을 참조하세요. 구독 당 사용할 수 있는 공용 IP 주소의 수에 제한이 있습니다. 자세한 내용은 참조 하세요 [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits-1)합니다.
+이 문서에서는 기존 가상 컴퓨터 (VM)에 공용 IP 주소를 연결 하는 방법을 알아봅니다. 인터넷에서 VM에 연결 하려는 경우 VM에 연결 된 공용 IP가 있어야 합니다. 공용 IP 주소를 사용 하 여 새 VM을 만들려는 경우 사용 하 여 수행할 수 있습니다 합니다 [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)의 [Azure CLI (명령줄 인터페이스)](virtual-network-deploy-static-pip-arm-cli.md), 또는 [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)합니다. 공용 IP 주소에는 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)을 참조하세요. 구독 당 사용할 수 있는 공용 IP 주소의 수에 제한이 있습니다. 자세한 내용은 참조 하세요 [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)합니다.
 
 사용할 수 있습니다는 [Azure portal](#azure-portal), Azure [명령줄 인터페이스](#azure-cli) (CLI) 또는 [PowerShell](#powershell) VM에 공용 IP 주소를 연결 합니다.
 

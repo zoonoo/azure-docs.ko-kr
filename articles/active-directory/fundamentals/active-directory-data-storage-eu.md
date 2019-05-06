@@ -12,53 +12,41 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249726"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875632"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
-Azure AD(Azure Active Directory)를 통해 사용자 ID를 관리하고 인텔리전스 기반 액세스 정책을 만들어 조직의 리소스를 보호할 수 있습니다. ID 데이터는 서비스를 구독할 때 조직에서 제공한 주소에 기반된 위치에 저장됩니다. 예를 들어 Office 365 또는 Azure를 구독하는 경우입니다. ID 데이터를 저장하는 위치에 대한 특정 정보는 Microsoft 보안 센터의 [데이터를 어디에 배치하나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
+Id 데이터는 Azure AD에서 Office 365 및 Azure 같은 Microsoft 온라인 서비스를 구독 하는 경우 조직에서 제공한 주소를 기반으로 하는 지리적 위치에 저장 됩니다. Id 데이터 저장 위치에 대 한 정보를 사용할 수 있습니다 합니다 [데이터가 어디에 있는?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Microsoft 보안 센터의 섹션입니다.
 
-대부분의 Azure AD 관련 유럽 id 데이터는 유럽 데이터 센터에 유지, 보통에 필요한 몇 가지 작업, 서비스 관련 데이터는 미국에 저장 되 고 개인 데이터를 포함 하지 않습니다는 Azure AD 작업 합니다.
+유럽에 있는 주소를 제공 하는 고객의 경우 Azure AD는 대부분의 유럽 데이터 센터 내에서 id 데이터를 유지 합니다. 이 문서에서는 Azure AD 서비스에서 유럽의 외부에 저장 되는 데이터에 대해 설명 합니다.
 
-## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>유럽 데이터 센터 외부에 저장된 유럽 고객의 데이터
-
-유럽 기반 주소를 사용하는 조직의 경우 대부분의 Azure AD 관련 유럽 ID 데이터는 유럽 데이터 센터에 유지됩니다. 유럽 데이터 센터에 저장되고 미국 데이터 센터에도 복제되는 Azure AD 데이터에는 다음이 포함됩니다.
-
-- **Microsoft Azure MFA(Azure Multi-Factor Authentication) 및 Azure AD SSPR(셀프 서비스 암호 재설정)**
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication (MFA)
     
-    MFA는 모든 유휴 사용자 데이터를 유럽 데이터 센터에 저장합니다. 그러나 다음을 비롯한 일부 MFA 서비스 관련 데이터는 미국에 저장됩니다.
+- 전화 통화를 사용 하 여 모든 2 단계 인증 또는 SMS 미국 데이터 센터에서 시작 하 고 전역 공급자도 라우팅됩니다.
+- 미국 데이터 센터에서 앱 시작 Microsoft Authenticator를 사용 하 여 알림을 푸시하십시오. 또한 장치 공급 업체 특정 서비스 play 및 유럽 외부 아마도 이러한 서비스에도 가져올 수 있습니다.
+- OATH 코드는 미국에서 항상 유효성이 검사됩니다. 
+
+## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
+
+Azure AD B2C 정책 구성 데이터 및 키 컨테이너는 미국 데이터 센터에 저장 됩니다. 이러한 사용자 개인 데이터가 없습니다. 정책 구성에 대한 자세한 내용은 [Azure Active Directory B2C: 기본 제공 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) 문서를 참조하세요.
+
+## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    - MFA 또는 SSPR을 사용 중인 경우 2단계 인증 및 관련된 개인 데이터는 미국에 저장될 수 있습니다.
+사용 하는 azure AD B2B 저장소 초대 연결 하 고 미국 데이터 센터에서 URL 정보를 리디렉션합니다. 또한 B2B 초대 수신을 구독 취소 하는 사용자의 전자 메일 주소 미국 데이터 센터에도 저장 됩니다.
 
-        - 전화 통화 또는 SMS를 사용하는 모든 2단계 인증은 미국 이동 통신 사업자에 의해 완료될 수 있습니다.
-    
-        - Microsoft Authenticator 앱을 사용하는 푸시 알림에는 유럽 외부에 있을 수 있는 제조업체 알림 서비스(Apple 또는 Google)의 알림이 필요합니다.
-    
-        - OATH 코드는 미국에서 항상 유효성이 검사됩니다. 
-    
-    - 일부 MFA 및 SSPR 로그는 인증 유형에 관계 없이 30일 동안 미국에 저장됩니다.
+## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
-- **Microsoft Azure AD B2C(Azure Active Directory B2C)**
+Azure AD DS는 고객이 선택한 Azure Virtual Network와 동일한 위치에 사용자 데이터를 저장합니다. 따라서 네트워크가 유럽 밖에 있는 경우 데이터가 유럽 외부에 복제되고 저장됩니다.
 
-    Azure AD B2C는 모든 유휴 사용자 데이터를 유럽 데이터 센터에 저장합니다. 그러나 개인 데이터를 제거한 작업 로그는 사용자가 서비스에 액세스하는 위치에 유지됩니다. 예를 들어 B2C 사용자가 미국에 있는 서비스에 액세스하는 경우 작업 로그는 미국에 유지됩니다. 또한 개인 데이터를 포함하지 않는 모든 정책 구성 데이터는 미국에만 저장됩니다. 정책 구성에 대한 자세한 내용은 [Azure Active Directory B2C: 기본 제공 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) 문서를 참조하세요.
+## <a name="other-considerations"></a>기타 고려 사항
 
-- **Microsoft Azure AD B2B(Azure Active Directory B2B)** 
-    
-    Azure AD B2B는 모든 유휴 사용자 데이터를 유럽 데이터 센터에 저장합니다. 그러나 B2B는 미국 데이터 센터 내의 테이블에 해당 개인 메타데이터를 저장합니다. 이 표에는 redeemUrl, invitationTicket, 리소스 테넌트 ID, InviteRedirectUrl 및 InviterAppId와 같은 필드가 포함됩니다.
+서비스 및 Azure AD와 통합 되는 응용 프로그램 id 데이터에 액세스할 수 있으며 각 서비스 및 해당 특정 서비스 및 응용 프로그램에서 id 데이터 처리 방법 및 회사 데이터에 대 한 저장소 요구 사항에 맞는지 여부를 결정 하는 데 사용할 응용 프로그램을 평가 합니다.
 
-- **Microsoft Azure AD DS(Azure Active Directory Domain Services)**
-
-    Azure AD DS는 고객이 선택한 Azure Virtual Network와 동일한 위치에 사용자 데이터를 저장합니다. 따라서 네트워크가 유럽 밖에 있는 경우 데이터가 유럽 외부에 복제되고 저장됩니다.
-
-- **Azure AD와 통합된 서비스 및 앱**
-
-    Azure AD와 통합되는 모든 서비스 및 앱은 ID 데이터에 대한 액세스 권한이 있습니다. 각 서비스 및 앱을 평가하여 해당 특정 서비스 및 앱에서 ID 데이터를 처리하는 방법 및 회사의 데이터 저장소 요구 사항을 충족하는지를 결정합니다.
-
-    Microsoft 서비스의 데이터 상주에 대한 자세한 내용은 Microsoft 보안 센터의 [데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 참조하세요.
+Microsoft 서비스의 데이터 상주에 대한 자세한 내용은 Microsoft 보안 센터의 [데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 위에서 설명한 특징 및 기능에 대한 자세한 내용은 다음과 같은 문서를 참조하세요.

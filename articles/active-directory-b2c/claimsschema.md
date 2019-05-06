@@ -3,19 +3,19 @@ title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ClaimsSchema 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487824"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721757"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,7 +65,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| 프로토콜 | 0:n | 기본 파트너 클레임 형식 이름이 포함된 프로토콜 목록입니다. |
+| Protocol | 0:n | 기본 파트너 클레임 형식 이름이 포함된 프로토콜 목록입니다. |
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
@@ -161,7 +161,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
+| Text | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
 |값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
 | SelectByDefault | 아닙니다. | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 다음과 같습니다. True 또는 False입니다. |
 

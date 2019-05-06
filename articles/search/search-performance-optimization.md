@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283577"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024559"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>배포 전략 및 Azure Search에서 성능 최적화에 대 한 모범 사례
 
@@ -81,7 +81,7 @@ Search 서비스의 지리적으로 분산 된 집합의 목적은 사용자가�
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>여러 서비스에서 콘텐츠를 업데이트 하는 것에 대 한 인덱서를 사용 합니다.
 
-한 서비스에 인덱서를 이미 사용 하는, 하는 경우 동일한 위치에서 데이터를 끌어오는 두 번째 인덱서를 동일한 데이터 원본 개체를 사용 하기 위해 두 번째 서비스에 구성할 수 있습니다. 각 지역의 각 서비스에 자체 인덱서 및 대상 인덱스 (검색 코 퍼스를 공유 하지 않으면 즉, 데이터가 중복), 하지만 각 인덱서는 동일한 데이터 원본을 참조 합니다.
+한 서비스에 인덱서를 이미 사용 하는, 하는 경우 동일한 위치에서 데이터를 끌어오는 두 번째 인덱서를 동일한 데이터 원본 개체를 사용 하기 위해 두 번째 서비스에 구성할 수 있습니다. 각 지역의 각 서비스에 자체 인덱서 및 대상 인덱스 (검색 인덱스를 공유 하지 않으면 즉, 데이터가 중복), 하지만 각 인덱서는 동일한 데이터 원본을 참조 합니다.
 
 아키텍처에는 모양을 높은 수준의 시각적 개체는 다음과 같습니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484223"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926496"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 
@@ -23,7 +23,7 @@ Azure Storage를 위한 Advanced Threat Protection은 스토리지 계정에 대
 
 > [!NOTE]
 > * Azure Storage에 대 한 advanced Threat Protection은 현재 Blob 저장소에 대해서만 사용할 수 있습니다.
-> * 세부 정보를 30 일 무료 평가판을 비롯 한 가격 책정에 대 한 참조를 [Azure Security Center 가격 책정 페이지]( https://azure.microsoft.com/en-us/pricing/details/security-center/)합니다.
+> * 세부 정보를 30 일 무료 평가판을 비롯 한 가격 책정에 대 한 참조를 [Azure Security Center 가격 책정 페이지]( https://azure.microsoft.com/pricing/details/security-center/)합니다.
 > * Azure storage 기능에 대 한 ATP는 현재 소 버린 클라우드 지역 및 Azure government에서 사용할 수 없습니다.
 
 Azure Storage에 대 한 advanced Threat Protection 읽기, 쓰기 및 삭제 요청 위협 요소 탐지에 대 한 Blob storage로의 진단 로그를 수집합니다. Advanced Threat Protection에서 경고를 조사 하려면 저장소 분석 로깅을 사용 하 여 관련된 저장소 작업을 볼 수 있습니다. 자세한 내용은 참조 하는 방법 [저장소 분석 로깅을 구성](storage-monitor-storage-account.md#configure-logging)합니다.

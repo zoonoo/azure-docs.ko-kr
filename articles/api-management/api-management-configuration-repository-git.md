@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5bf778f06ff0223fd48a1282aadf223ff032b0f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657924"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919847"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -173,9 +173,9 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 > [!NOTE]
 > 다음 엔터티는 Git 리포지토리에 포함되지 않으며 Git를 사용하여 구성할 수 없습니다.
 >
-> * [사용자](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
-> * [구독](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
-> * [명명 된 값](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
+> * [사용자](https://docs.microsoft.com/rest/api/apimanagement/user)
+> * [구독](https://docs.microsoft.com/rest/api/apimanagement/subscription)
+> * [명명 된 값](https://docs.microsoft.com/rest/api/apimanagement/property)
 > * 스타일 이외의 개발자 포털 엔터티
 >
 

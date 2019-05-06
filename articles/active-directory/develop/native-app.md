@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e37e40cd0dbba7961cbde75b5dde44f2666dc21
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443905"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918607"
 ---
 # <a name="native-apps"></a>네이티브 앱
 
@@ -52,7 +52,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 ## <a name="app-registration"></a>앱 등록
 
-Azure AD v1.0 엔드포인트에 애플리케이션을 등록하려면 [Azure AD v1.0 엔드포인트에 앱 등록](quickstart-v1-add-azure-ad-app.md)을 참조하세요.
+Azure AD의 v1.0 끝점을 사용 하 여 응용 프로그램을 등록, 참조 [앱을 등록](quickstart-register-app.md)합니다.
 
 * 단일 테넌트 - 네이티브 애플리케이션과 웹 API를 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 네이티브 애플리케이션의 액세스를 제한하기 위해 사용됩니다. 그런 다음, 클라이언트 애플리케이션이 Azure Portal의 "다른 애플리케이션에 대한 권한" 드롭다운 메뉴에서 원하는 권한을 선택합니다.
 * 다중 테넌트 - 먼저, 네이티브 애플리케이션만 개발자 또는 게시자의 디렉터리에 등록됩니다. 그런 다음, 네이티브 애플리케이션이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 애플리케이션에 동의하여 애플리케이션을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 애플리케이션에는 조직의 모든 사용자가 동의할 수 있는 사용자 수준 권한만 필요합니다. 또 일부 애플리케이션에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 애플리케이션에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 웹 API만 이들의 디렉터리에 등록됩니다. 

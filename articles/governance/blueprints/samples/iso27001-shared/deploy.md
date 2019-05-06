@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792404"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926296"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 배포
 
@@ -99,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 모든 매개 변수를 입력한 후에는 페이지 아래쪽에서 **할당**을 선택합니다. 청사진 할당이 생성되고 아티팩트 배포가 시작됩니다. 배포에는 약 1 시간이 걸립니다. 배포의 상태를 확인하려면 청사진 할당을 엽니다.
 
 > [!WARNING]
-> Azure Blueprints 서비스 및 기본 제공 청사진 샘플은 **무료**입니다. Azure 리소스는 [제품별로 가격이 책정](https://azure.microsoft.com/en-us/pricing/)됩니다. 이 청사진 샘플에서 배포되는 리소스를 실행하는 비용을 추정하려면 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용합니다.
+> Azure Blueprints 서비스 및 기본 제공 청사진 샘플은 **무료**입니다. Azure 리소스는 [제품별로 가격이 책정](https://azure.microsoft.com/pricing/)됩니다. 이 청사진 샘플에서 배포되는 리소스를 실행하는 비용을 추정하려면 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용합니다.
 
 ## <a name="artifact-parameters-table"></a>아티팩트 매개 변수 테이블
 
@@ -107,10 +107,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
 |-|-|-|-|
-|[미리 보기]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
-|[미리 보기]: Linux VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
-|[미리 보기]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
-|[미리 보기]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
+|\[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
+|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
+|\[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
+|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|(선택 사항) 기본값은 _["없음"]_ 입니다.|
 |허용되는 리소스 유형|정책 할당|허용되는 리소스 유형|배포할 수 있는 리소스 종류 목록입니다. 이 목록은 Shared Services에 배포된 모든 리소스 종류로 구성 됩니다.|
 |허용되는 저장소 계정 SKU|정책 할당|허용되는 스토리지 SKU|허용되는 진단 로그 스토리지 계정 SKU의 목록입니다. 기본값은 _["Standard_LRS"]_ 입니다.|
 |허용되는 가상 머신 SKU|정책 할당|배포할 수 있는 가상 머신 SKU의 목록입니다. 기본값은 _["Standard_DS1_v2", "Standard_DS2_v2"]_ 입니다.|

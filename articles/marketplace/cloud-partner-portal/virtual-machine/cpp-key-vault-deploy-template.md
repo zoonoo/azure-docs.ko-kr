@@ -1,25 +1,18 @@
 ---
-title: Azure Key Vault 배포 템플릿 | Microsoft Docs
+title: Azure Key Vault 배포 템플릿 | Azure Marketplace
 description: 새 Azure Key Vault 인스턴스를 배포하는 데 필요한 Azure Resource Manager 템플릿을 나열합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 01aedadfed1ce24b8b6ae75a9163dfe0629ac7c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 053a9f8ddfcc523532597d9e73aa095bf9110d72
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844128"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938614"
 ---
 # <a name="key-vault-deployment-template"></a>Key Vault 배포 템플릿
 

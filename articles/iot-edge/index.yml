@@ -43,15 +43,13 @@ sections:
       - type: paragraph
         text: 'IoT Edge를 설치 및 구성하고, 모듈을 배포하고, 에지에tj Stream Analytics 및 Custom Vision과 같은 Azure 서비스를 활용하는 방법에 대해 알아봅니다.'
       - type: list
-        style: unordered
+        style: ordered
         items:
+          - html: 개발 머신을 설정하고 <a href="/azure/iot-edge/tutorial-develop-for-linux">Linux 디바이스</a> 또는 <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows 디바이스</a>용 IoT Edge 모듈에 대해 알아봅니다.
+          - html: '<a href="/azure/iot-edge/tutorial-c-module">C</a>, <a href="/azure/iot-edge/tutorial-csharp-module">C#</a>, <a href="/azure/iot-edge/tutorial-python-module">Python</a>, <a href="/azure/iot-edge/tutorial-node-module">Node.js</a> 또는 <a href="/azure/iot-edge/tutorial-java-module">Java</a>로 Linux 디바이스용 사용자 지정 코드 모듈을 개발합니다.'
+          - html: '<a href="/azure/iot-edge/tutorial-c-module-windows">C</a> 또는 <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a>으로 Windows 디바이스용 사용자 지정 코드 모듈을 개발합니다.'
           - html: <a href="/azure/iot-edge/tutorial-deploy-function">Azure Functions로 메시지 필터링</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Azure Stream Analytics를 모듈로 사용하여 평균 찾기</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Azure Machine Learning을 모듈로 사용하여 데이터 채점</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Custom Vision 서비스를 모듈로 사용하여 이미지 분류</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">C# 모듈을 사용하여 데이터 필터링</a>'
-          - html: <a href="/azure/iot-edge/tutorial-python-module">Python 모듈을 사용하여 데이터 필터링</a>
-          - html: <a href="/azure/iot-edge/tutorial-node-module">Node.js 모듈을 사용하여 데이터 필터링</a>
-          - html: <a href="/azure/iot-edge/tutorial-java-module">Java 모듈을 사용하여 데이터 필터링</a>
-          - html: '<a href="/azure/iot-edge/tutorial-c-module">C# 모듈을 사용하여 데이터 필터링</a>'
           - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">SQL Server를 사용하여 에지에 데이터 저장</a>

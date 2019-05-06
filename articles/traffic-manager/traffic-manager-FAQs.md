@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b89e9a48ce20c7c00bd3282623919b8066e34b25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803045"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717066"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -320,7 +320,7 @@ Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 �
 Traffic Manager는 다음을 포함하는 인증서 유효성 검사를 제공할 수 없습니다.
 
 * 서버 쪽 인증서의 유효성이 검사되지 않습니다.
-* SNI 서버 쪽 인증서가 지원되지 않습니다.
+* SNI 서버 쪽 인증서 유효성이 검사 되지 않습니다.
 * 클라이언트 인증서는 지원되지 않습니다.
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>엔드포인트를 추가할 때 IP 주소 또는 DNS 이름을 사용하나요?

@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291242"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707182"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>SaaS 클라우드 응용 프로그램에 대 한 액세스를 관리 하는 데 사용 하 여 테 넌 트 제한
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD)에 대 한 해가이 문제는 테 넌 트 제
 
 3. **클라이언트 소프트웨어**: 테 넌 트 제한을 지원 하려면 클라이언트 소프트웨어 토큰을 요청 해야 Azure AD에서 직접 프록시 인프라 트래픽을 가로챌 수 있도록 합니다. 브라우저 기반 Office 365 응용 프로그램 (예: OAuth 2.0) 최신 인증을 사용 하는 Office 클라이언트와 마찬가지로 현재 테 넌 트 제한을 지원 합니다.
 
-4. **최신 인증**: 클라우드 서비스 테 넌 트 제한을 사용 하 여 모든 허용 되지 않는 테 넌 트에 대 한 액세스를 차단 하 최신 인증을 사용 해야 합니다. 기본적으로 최신 인증 프로토콜을 사용 하려면 Office 365 클라우드 서비스를 구성 해야 합니다. 최신 인증에 대한 Office 365 지원과 관련된 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조하세요.
+4. **최신 인증**: 클라우드 서비스 테 넌 트 제한을 사용 하 여 모든 허용 되지 않는 테 넌 트에 대 한 액세스를 차단 하 최신 인증을 사용 해야 합니다. 기본적으로 최신 인증 프로토콜을 사용 하려면 Office 365 클라우드 서비스를 구성 해야 합니다. 최신 인증에 대한 Office 365 지원과 관련된 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조하세요.
 
 다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. 테 넌 트 제한을 트래픽 Office 365 클라우드 서비스가 아니라 Azure AD에 대 한 SSL 검사를 해야 합니다. Azure AD에 인증을 위해 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 응용 프로그램에 대 한 트래픽 볼륨 보다 훨씬 낮은 이므로 이러한 구분은 중요 합니다.
 
@@ -107,7 +107,7 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 응용 프로그램, 클라이언트 또는 상태에서 필터링 할 수 있습니다. 선택 하는 경우는 **열** 단추, 다음 필드의 조합 사용 하 여 데이터를 표시 하도록 선택할 수 있습니다.
 
-- **사용자**
+- **User**
 - **애플리케이션**
 - **상태**
 - **Date**
@@ -128,7 +128,7 @@ Office 365 응용 프로그램에 완벽 하 게 테 넌 트 제한을 지원 �
 1. 사용 하는 클라이언트는 최신 인증을 지원 합니다.
 2. 최신 인증이 클라우드 서비스에 대한 기본 인증 프로토콜로 사용되어야 합니다.
 
-현재 최신 인증을 지원하는 Office 클라이언트에 대한 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조하세요. 해당 페이지에는 특정 Exchange Online 및 비즈니스용 Skype Online 테넌트에 대해 최신 인증을 사용하도록 설정하기 위한 지침으로 연결되는 링크도 포함되어 있습니다. SharePoint Online 이미 최신 인증 기본적으로 사용 합니다.
+현재 최신 인증을 지원하는 Office 클라이언트에 대한 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조하세요. 해당 페이지에는 특정 Exchange Online 및 비즈니스용 Skype Online 테넌트에 대해 최신 인증을 사용하도록 설정하기 위한 지침으로 연결되는 링크도 포함되어 있습니다. SharePoint Online 이미 최신 인증 기본적으로 사용 합니다.
 
 Office 365 브라우저 기반 응용 프로그램 (Office 포털, Yammer, SharePoint 사이트, 웹의 Outlook) 현재 테 넌 트 제한을 지원 합니다. 씩 클라이언트 (Outlook, Skype for Business, Word, Excel, PowerPoint 등)는 최신 인증을 사용 하는 경우에 테 넌 트 제한을 적용할 수 있습니다.  
 
@@ -136,7 +136,7 @@ Outlook 및 Skype 테 넌 트 제한을 효과적으로 우회할에 최신 인�
 
 Windows의 Outlook에서 고객은 최종 사용자가 프로필에 승인되지 않은 메일 계정을 추가하는 것을 방지하는 제한을 구현하도록 선택할 수 있습니다. 예제를 보려면 [비기본 Exchange 계정 추가 금지](https://gpsearch.azurewebsites.net/default.aspx?ref=1) 그룹 정책 설정을 참조하세요.
 
-## <a name="testing"></a>테스트하는 중
+## <a name="testing"></a>테스트
 
 전체 조직에 대 한 구현 하기 전에 테 넌 트 제한을 사용해 하려는 경우 두 가지 옵션이 있습니다: 프록시 설정의 단계별된 롤아웃 또는 Fiddler와 같은 도구를 사용 하는 호스트 기반 방식입니다.
 
@@ -185,5 +185,5 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처**�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [업데이트된 Office 365 최신 인증](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) 참조
+- [업데이트된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) 참조
 - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 검토

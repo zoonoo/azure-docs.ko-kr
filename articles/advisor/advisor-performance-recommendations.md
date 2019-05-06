@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 6cca6692da37714c76f5241ed14e24c967b00563
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467700"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920441"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
 
@@ -88,11 +88,11 @@ Azure 지역에는 최대 구독 당 storage 계정 250 개 지원할 수 있습
 적은 캐시 적중률 보다 높아진된 IOPS 및 쿼리 성능이 저하 될 수 있습니다. 잘못 된 쿼리 계획이 나 메모리 집약적인 워크 로드를 실행 하는 때문일 수 있습니다. 쿼리 계획을 수정 하거나 [메모리를 늘리면](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) Azure MariaDB, PostgreSQL 데이터베이스 서버 및 Azure MySQL 데이터베이스 서버에 Azure Database의 서버를 최적화할 수 있도록 데이터베이스 워크 로드를 실행 합니다. Azure Advisor는 높은 버퍼 풀 이탈이로 인해 영향을 받는 서버를 식별 하 고 쿼리 계획을 수정 하거나 더 많은 메모리를 사용 하 여 더 높은 SKU를 이동 하거나 더 많은 IOPS를 얻으려면 저장소 크기를 늘리는 것이 좋습니다.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Azure MySQL 또는 PostgreSQL Read Replica Azure를 사용 하 여 읽기 집약적인 워크 로드에 대 한 읽기 규모를 확장 하려면
-Azure Advisor는 읽기 쓰기 서버에서 읽기 집약적인 워크 로드를 식별 하는 지난 7 일간의 비율과 같은 워크 로드 기반 추론을 활용 합니다. PostgreSQL 리소스에 대 한 Azure 데이터베이스 또는 MySQL 리소스를 매우 높은 읽기/쓰기 비율이 대 한 Azure database CPU 및/또는 메모리 경합 앞에 쿼리 성능이 저하 될 수 있습니다. 추가 된 [복제본](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 주 서버에서 CPU 및/또는 메모리 제약 조건을 방지를 복제본 서버로 읽기 복제본 확장 하는 데 도움이 됩니다. 관리자는 이러한 높은 읽기 집약적인 워크 로드를 사용 하 여 서버를 식별 하 고 추가 권장을 [읽기 복제본](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) 읽기 작업의 일부를 오프 로드 합니다.
+Azure Advisor는 읽기 쓰기 서버에서 읽기 집약적인 워크 로드를 식별 하는 지난 7 일간의 비율과 같은 워크 로드 기반 추론을 활용 합니다. PostgreSQL 리소스에 대 한 Azure 데이터베이스 또는 MySQL 리소스를 매우 높은 읽기/쓰기 비율이 대 한 Azure database CPU 및/또는 메모리 경합 앞에 쿼리 성능이 저하 될 수 있습니다. 추가 된 [복제본](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 주 서버에서 CPU 및/또는 메모리 제약 조건을 방지를 복제본 서버로 읽기 복제본 확장 하는 데 도움이 됩니다. 관리자는 이러한 높은 읽기 집약적인 워크 로드를 사용 하 여 서버를 식별 하 고 추가 권장을 [읽기 복제본](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 읽기 작업의 일부를 오프 로드 합니다.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Azure MySQL, PostgreSQL Azure 또는 Azure MariaDB 서버 연결 제약 조건을 방지 하기 위해 더 높은 SKU 크기 조정
-일부 메모리를 차지 하는 데이터베이스 서버에 각 새 연결 합니다. 때문에 실패 하는 서버에 연결 하는 경우 데이터베이스 서버의 성능이 저하 되는 [상한값](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) 메모리에 있습니다. Azure Advisor는 많은 연결 실패를 사용 하 여 실행 하는 서버를 식별 하 고 업그레이드 하는 서버의 연결 제한은 계산 확장 하거나 메모리 액세스에 최적화 된 Sku는 코어당 더 많은 계산을 사용 하 여 서버에 더 많은 메모리를 제공 하는 것이 좋습니다.
+일부 메모리를 차지 하는 데이터베이스 서버에 각 새 연결 합니다. 때문에 실패 하는 서버에 연결 하는 경우 데이터베이스 서버의 성능이 저하 되는 [상한값](https://docs.microsoft.com/azure/postgresql/concepts-limits) 메모리에 있습니다. Azure Advisor는 많은 연결 실패를 사용 하 여 실행 하는 서버를 식별 하 고 업그레이드 하는 서버의 연결 제한은 계산 확장 하거나 메모리 액세스에 최적화 된 Sku는 코어당 더 많은 계산을 사용 하 여 서버에 더 많은 메모리를 제공 하는 것이 좋습니다.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor에서 성능 권장 사항에 액세스하는 방법
 

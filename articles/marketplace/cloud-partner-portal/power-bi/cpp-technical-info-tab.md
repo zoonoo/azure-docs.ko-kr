@@ -1,25 +1,18 @@
 ---
-title: Power BI 앱 제안에 대한 기술 정보 - Azure Marketplace | Microsoft Docs
+title: Power BI 앱 제품에 대 한 기술 정보 | Azure Marketplace
 description: Microsoft AppSource Marketplace의 Power BI 앱 제안에 대한 기술 정보 필드를 구성합니다.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: pbutlerm
-ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 15f4e2a76724a70c15411dea767cc9bc433e4d4a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725768"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943228"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI 앱 기술 정보 탭
 
@@ -34,7 +27,7 @@ ms.locfileid: "60725768"
 
 |        필드          |  설명                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **설치 관리자 URL**     | Power BI 앱을 게시 하 고 프로덕션으로 승격 하는 경우이 URL을 생성 합니다.  자세한 내용은 [Power BI에서 대시보드 및 보고서를 사용 하 여 앱을 게시](https://docs.microsoft.com/power-bi/service-create-distribute-apps)합니다.  |
+| **설치 관리자 URL\***     | Power BI 앱을 게시 하 고 프로덕션으로 승격 하는 경우이 URL을 생성 합니다.  자세한 내용은 [Power BI에서 대시보드 및 보고서를 사용 하 여 앱을 게시](https://docs.microsoft.com/power-bi/service-create-distribute-apps)합니다.  |
 |  **유효성 검사 지침**  |  원한다 면 Microsoft 유효성 검사 팀 구성, 연결 및 응용 프로그램을 테스트 하는 지침 (최대 3000 자)를 추가 합니다. 일반적인 구성 설정, 계정, 매개 변수 또는 테스트 데이터 연결 옵션을 사용할 수 있는 기타 정보를 포함 합니다. 이 정보는 유효성 검사 팀에만 표시 하 고 유효성 검사 목적 으로만 사용 됩니다.  |
 | **이 앱은 Power BI 콘텐츠 팩으로 만들어집니까?** | 현재이 필드는 내부적 으로만 사용 됩니다. 기본 설정을 그대로 **No**합니다. 설정을 변경 하면 **예**, 게시 프로세스를 중지할 수 있습니다.  |  
 |  |  |

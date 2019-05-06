@@ -49,6 +49,8 @@
       href: batch-pool-vm-sizes.md
     - name: 고가용성 및 재해 복구
       href: high-availability-disaster-recovery.md
+    - name: 작업 런타임 환경 변수
+      href: batch-compute-node-environment-variables.md
 - name: 방법 가이드
   items:
     - name: Batch 계정 관리
@@ -199,8 +201,6 @@
           href: batch-task-complete-event.md
         - name: 태스크 실패 이벤트
           href: batch-task-fail-event.md
-    - name: Batch 계산 노드 환경 변수
-      href: batch-compute-node-environment-variables.md
 - name: 리소스
   items:
     - name: Azure 로드맵

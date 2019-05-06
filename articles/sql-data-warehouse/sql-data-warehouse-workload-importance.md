@@ -40,6 +40,7 @@ ms.locfileid: "61474705"
 
 ### <a name="locking"></a>잠금
 
+
 읽기 및 쓰기에 대한 잠금 액세스는 자연스런 경합의 한 영역입니다. [파티션 전환을](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) 또는 [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) 같은 활동은 상승된 잠금이 필요합니다. 워크로드 중요도가 없으면, SQL Data Warehouse는 처리량에 대해 최적화합니다. 처리량을 최적화하는 것은, 실행 및 대기 중인 요청이 동일한 잠금이 필요하고 리소스를 사용할 수 있을 때, 대기 요청은 먼저 요청 큐에 도착한 높은 잠금 요구 요청을 무시할 수 있다는 것을 의미합니다. 워크로드 중요도는 높은 잠금을 사용하는 요청에 적용됩니다. 높은 중요도를 가진 요청은 낮은 중요도를 가진 요청보다 먼저 실행됩니다.
 
 다음 예제를 살펴보세요.

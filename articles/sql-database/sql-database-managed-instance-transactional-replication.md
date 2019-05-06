@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61313670"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917025"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제
 
@@ -79,7 +79,7 @@ ms.locfileid: "61313670"
   > - 이전 버전을 사용하여 복제를 구성하는 시도는 오류 번호 MSSQL_REPL20084(프로세스가 구독자에 연결할 수 없습니다.) 및 MSSQ_REPL40532(로그인에서 요청한 서버 \<이름>을 열 수 없습니다. 로그인이 실패했습니다.)가 발생할 수 있습니다.
   > - Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 및 [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용해야 합니다.
   
-  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>인스턴스 데이터베이스, 온-프레미스 시스템에 대 한 Supportabilty 매트릭스
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>인스턴스 데이터베이스, 온-프레미스 시스템에 대 한 지원 매트릭스
   예를 들어 데이터베이스와 동일 온-프레미스 SQL Server에 대 한 복제 지원 가능성 행렬입니다. 
   
   | **게시자**   | **배포자** | **구독자** |
@@ -140,7 +140,7 @@ ms.locfileid: "61313670"
 
 ## <a name="next-steps"></a>다음 단계
 
-1. [Managed Instance에 대해 트랜잭션 복제 구성](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example)합니다. 
+1. [Managed Instance에 대해 트랜잭션 복제 구성](replication-with-sql-database-managed-instance.md)합니다. 
 1. [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 1. 구독자로 Azure SQL Database 서버 이름(예: `N'azuresqldbdns.database.windows.net`) 및 대상 데이터베이스로 Azure SQL Database 이름(예: **Adventureworks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription). )
 

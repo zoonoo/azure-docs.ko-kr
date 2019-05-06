@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 72059862b3faf155bf08c5e2ca643fc32582c6a1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 8c0a27ff623626b5a5ceb1897fa0f9f60ad80a3c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696146"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705109"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리
 
@@ -456,5 +456,5 @@ namespace TimeSeriesInsightsQuerySample
 ```
 
 ## <a name="next-steps"></a>다음 단계
-> [!div class="nextstepaction"]
-> [쿼리 API 참조](/rest/api/time-series-insights/ga-query-api).
+
+- 쿼리에 대 한 자세한 내용은 참조는 [쿼리 API 참조](/rest/api/time-series-insights/ga-query-api)합니다.

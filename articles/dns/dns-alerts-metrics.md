@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683038"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699144"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 메트릭 및 경고
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. 이 문서에서는 Azure DNS 서비스에 대한 메트릭 및 경고를 설명합니다.
@@ -36,7 +36,7 @@ Azure Monitor 설명서 페이지에서 [이러한 메트릭의 정의](../azure
 >[!NOTE]
 > 이때 이러한 메트릭은 Azure DNS에서 호스트되는 공용 DNS 영역에만 사용할 수 있습니다. Azure DNS에서 호스트되는 개인 영역을 사용하는 경우 이러한 메트릭은 해당 영역에 대한 데이터를 제공하지 않습니다. 또한 메트릭 및 경고 기능은 Azure 공용 클라우드에서만 지원됩니다. 소버린 클라우드에 대한 지원은 나중에 제공될 예정입니다. 
 
-이러한 메트릭에 대한 세분화된 수준의 차원은 DNS 영역입니다.
+에 대 한 메트릭을 볼 수 있는 가장 세분화 된 요소에는 DNS 영역입니다. 현재 영역 내의 개별 리소스 레코드에 대 한 메트릭을 볼 수 없습니다.
 
 ### <a name="query-volume"></a>쿼리 볼륨
 

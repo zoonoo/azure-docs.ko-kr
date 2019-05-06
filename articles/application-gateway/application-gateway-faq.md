@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682954"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947080"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -119,7 +119,7 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 ### <a name="does-application-gateway-support-autoscaling"></a>Application Gateway에 자동 크기 조정을 지원 하나요?
 
-예. Application Gateway v2 SKU는 자동 크기 조정을 지원합니다. 자세한 내용은 [자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 (공개 미리 보기)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)합니다.
+예. Application Gateway v2 SKU는 자동 크기 조정을 지원합니다. 자세한 내용은 [자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이](application-gateway-autoscaling-zone-redundant.md)합니다.
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>수동 확장 또는 규모 축소 원인 가동 중지 시간?
 
@@ -267,7 +267,7 @@ Application Gateway는 최대 10 개의 인증 인증서를 지원 합니다. �
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Application Gateway를 Azure Key Vault를 사용 하 여 고유 하 게 통합은?
 
-아니요.
+예, Application Gateway v2 SKU는 키 자격 증명 모음을 지원합니다. 자세한 내용은 [Key Vault 인증서를 사용 하 여 SSL 종료](key-vault-certs.md)합니다.
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>.Com 및.net 사이트에 대 한 HTTPS 수신기를 구성 하려면 어떻게 해야 하나요? 
 

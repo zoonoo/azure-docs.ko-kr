@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108087"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867976"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
 
 > [!NOTE]
-> Azure Monitor 데이터 플랫폼은 두 가지 기본 데이터 형식을 기반으로 합니다. 메트릭 및 로그 합니다. 이 문서에는 메트릭을 설명합니다. 가리킵니다 [Azure Monitor의 로그](data-platform-logs.md) 로그와 자세한 설명은 [Azure Monitor 데이터 platforn](data-platform.md) 두 비교 합니다.
+> Azure Monitor 데이터 플랫폼은 두 가지 기본 데이터 형식을 기반으로 합니다. 메트릭 및 로그 합니다. 이 문서에는 메트릭을 설명합니다. 가리킵니다 [Azure Monitor의 로그](data-platform-logs.md) 로그와 자세한 설명은 [Azure Monitor 데이터 플랫폼](data-platform.md) 두 비교 합니다.
 
 Azure Monitor의 메트릭은 간단 하 고 거의 실시간 시나리오에 특히 유용 있도록를 지원할 수 있는 문제의 경고 하 고 빠르게 검색 합니다. 이 문서에서는 메트릭 구조화는 방식과,를 사용 하 여 수행할 수 있는 작업에 대해 설명 하 고 메트릭에서 데이터를 저장 하는 다양 한 데이터 소스를 식별 합니다.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325993"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571736"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
 
@@ -145,7 +145,7 @@ ms.locfileid: "60325993"
 
 가급적 클라이언트 연결 문자열을 업데이트하여 `MultiSubnetFailover=Yes`를 설정합니다. [MultiSubnetFailover로 연결](https://msdn.microsoft.com/library/gg471494#Anchor_0)을 참조하세요.
 
-연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [다중 서브넷 가용성 그룹의 연결 시간 제한](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)을 참조하세요.
+연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. 참조 [시간 초과 오류가 발생 하는 다중 서브넷 환경에서 SQL Server 2012 AlwaysOn 가용성 그룹 수신기에 연결할 수 없습니다](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)합니다.
 
 ## <a name="fail-over-to-remote-region"></a>원격 지역으로 장애 조치
 
@@ -168,8 +168,8 @@ ms.locfileid: "60325993"
 | Location | 서버 인스턴스 | 역할 | 가용성 모드 | 장애 조치(Failover) 모드
 | ----- | ----- | ----- | ----- | -----
 | 주 데이터 센터 | SQL-1 | 보조 | 동기 | 자동
-| 주 데이터 센터 | SQL-2 | 보조 | 동기 | 자동
-| 보조 또는 원격 데이터 센터 | SQL-3 | 보조 | 비동기 | 설명서
+| 주 데이터 센터 | SQL-2 | 주 | 동기 | 자동
+| 보조 또는 원격 데이터 센터 | SQL-3 | 주 | 비동기 | 설명서
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>계획된 및 강제 수동 장애 조치에 대한 자세한 내용

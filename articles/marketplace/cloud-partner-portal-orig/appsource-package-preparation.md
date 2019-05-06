@@ -1,25 +1,19 @@
 ---
-title: AppSource 패키지 준비 | Microsoft Docs
+title: AppSource 패키지 준비 | Azure Marketplace
 description: AppSource 패키지를 준비 및 빌드하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625476"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935642"
 ---
 # <a name="appsource-package-preparation"></a>AppSource 패키지 준비
 
@@ -117,7 +111,7 @@ input.xml의 예제 코드는 다음과 같습니다. 정의는 아래 표를 �
 |SolutionAnchorName |솔루션 자산의 표시 이름과 설명에 사용되는 Package Deployer의 솔루션 zip 파일 이름입니다.|
 | StartDate| 솔루션 패키지를 제공할 날짜입니다. MM/DD/YYYY 형식입니다.|
 |EndDate|솔루션 패키지 제공을 중지할 날짜입니다. MM/DD/YYYY 형식입니다. |
-|SupportedCountries |이 패키지를 표시할 국가의 쉼표로 구분된 목록입니다. 모든 현재 국가 코드의 목록을 확인하려면 온라인 서비스에 문의하세요. 동시에이 문서가 작성 목록이 했습니다. AE, AL, AM, AO, 아르헨티나, AT "," 오스트레일리아, AZ "," BA "," BB "," BD, 수, BG, BH, BM, BN, BO, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, 수행, DZ, EC, EE, 브라질, 예를 들어, ES, FI, FR, GB, GE, GH, GR, GT, HK HN, HR, HU, ID, IE, IL, IN, IQ, 인 것, JM, JO, JP, KE, KG, KN, 한국, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, 월, MT, MU, MX, MY, NG, NI, NL, 아니요, NZ OM, PA, PE, PH PK, PL, PR, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, 미국, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |이 패키지를 참조 해야 하는 국가/지역의 쉼표로 구분 된 목록입니다. 모든 현재 국가 코드의 목록을 확인하려면 온라인 서비스에 문의하세요. 동시에이 문서가 작성 목록이 했습니다. AE, AL, AM, AO, 아르헨티나, AT "," 오스트레일리아, AZ "," BA "," BB "," BD, 수, BG, BH, BM, BN, BO, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, 수행, DZ, EC, EE, 브라질, 예를 들어, ES, FI, FR, GB, GE, GH, GR, GT, HK HN, HR, HU, ID, IE, IL, IN, IQ, 인 것, JM, JO, JP, KE, KG, KN, 한국, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, 월, MT, MU, MX, MY, NG, NI, NL, 아니요, NZ OM, PA, PE, PH PK, PL, PR, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, 미국, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | 이 패키지의 추가 정보 페이지 URL입니다. |
 |Locales|기본 설정 솔루션 UX에서 지원할 각 UX 언어에 대해 이 노드 인스턴스를 하나씩 생성합니다. 이 노드에는 각 언어의 로캘, 로고 및 용어를 설명하는 하위 요소가 포함됩니다.|
 |로캘: PackageLocale.Code|이 노드의 언어 LCID입니다. 예제: 영어 (미국)가 1033|

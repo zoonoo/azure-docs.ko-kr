@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services 개념-Azure | Microsoft Docs
-description: 이 항목에서는 Azure Media Services 개념의 간략 한 개요를 제공 하 고 세부 정보에 대 한 링크를 제공 합니다.
+title: Azure Media Services 용어 및 개념-Azure | Microsoft Docs
+description: 이 항목에서는 Azure Media Services 용어 및 개념의 간략 한 개요를 제공 하 고 자세한 세부 정보에 대 한 링크를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103854"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867075"
 ---
 # <a name="media-services-concepts"></a>Media Services 개념
 
-이 항목에서는 Azure Media Services 개념의 간략 한 개요를 제공 하 고 심층적인 설명은 Media Services v3 개념 및 기능을 사용 하 여 문서에 대 한 링크를 제공 합니다. 이 항목에는 개발을 시작하기 전에 검토해야 하는 기본 개념이 설명되어 있습니다.
+이 항목에서는 Azure Media Services 용어 및 개념의 간략 한 개요를 제공 합니다. 이 문서는 또한 심층적인 설명은 Media Services v3 개념 및 기능을 사용 하 여 문서에 대 한 링크를 제공합니다. 
+
+이 항목에는 개발을 시작하기 전에 검토해야 하는 기본 개념이 설명되어 있습니다.
 
 > [!NOTE]
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](developers-guide.md) 중 하나를 사용하세요.
 
+## <a name="terminology"></a>용어
+
+이 섹션에서는 몇 가지 일반적인 업계 용어 Media Services v3 API를 매핑하는 방법을 보여 줍니다.
+
+### <a name="live-event"></a>라이브 이벤트
+
+A **라이브 이벤트** 은 수집, 코드 변환 (선택 사항), 비디오, 오디오 및 실시간 메타 데이터의 라이브 스트림을 패키징 한 파이프라인을 나타냅니다.
+
+Media Services v2 Api에서 마이그레이션하는 고객에 대 한 합니다 **라이브 이벤트** 대체 합니다 **채널** v2의 엔터티. 자세한 내용은 [v2에서 v3로 마이그레이션](migrate-from-v2-to-v3.md)합니다.
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>스트리밍 끝점 (패키징 및 원본)
+
+A **스트리밍 끝점** 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 응용 프로그램은 일반적인 스트리밍 미디어 프로토콜 (HLS 중 하나를 사용 하 여에 직접 제공할 수 있는 동적 (-just-in-time) 패키징 및 원본 서비스를 나타냅니다 또는 DASH)입니다. 또한 합니다 **스트리밍 끝점** 업계 최고의 Drm에 동적 (-just-in-time) 암호화를 제공 합니다.
+
+업계 스트리밍 미디어에이 서비스는 일반적으로 라고 한 **Packager** 또는 **원본**합니다.  이 기능에 대 한 업계의 다른 일반적인 용어 JITP (Just-에-시간-packager) 또는 JITE (Just-에-시간-암호화)를 포함 합니다. 
+ 
 ## <a name="cloud-upload-and-storage"></a>클라우드 업로드 및 저장
 
 관리, 암호화, 인코딩, 분석 및 Azure에서 미디어 콘텐츠 스트리밍을 시작 하려면 Media Services 계정을 만들고에 디지털 파일을 업로드할 **자산**합니다.
@@ -52,7 +70,7 @@ Media Services v3을 사용 하 여 인코딩할 만들 필요가 **변형** 하
 
 ## <a name="packaging-delivery-protection"></a>패키징, 배달, 보호
 
-콘텐츠 인코딩 되 면 있습니다 활용할 수 있습니다 **동적 패키징**합니다. **스트리밍 끝점** 는 미디어 콘텐츠를 클라이언트 플레이어를 제공 하는 데 사용 하는 Media Services의 동적 패키징 서비스입니다. 비디오 출력 자산에 사용할 수 있도록 재생에 대 한 클라이언트를 만들 필요가 **스트리밍 로케이터** 후 스트리밍 Url을 작성 합니다. 
+콘텐츠 인코딩 되 면 있습니다 활용할 수 있습니다 **동적 패키징**합니다. Media Services에는 **스트리밍 끝점**  /원본 미디어 콘텐츠를 클라이언트 플레이어를 제공 하는 데 동적 패키징 서비스. 비디오 출력 자산에 사용할 수 있도록 재생에 대 한 클라이언트를 만들 필요가 **스트리밍 로케이터** 후 스트리밍 Url을 작성 합니다. 
 
 만들 때 합니다 **스트리밍 로케이터**, 자산의 이름 외에도 지정 해야 **스트리밍 정책**합니다. **정책 스트리밍** 사용 하면 스트리밍 프로토콜을 정의 하 고 암호화 옵션 (있는 경우)에 **스트리밍 로케이터**합니다.
 

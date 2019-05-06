@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906107"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875598"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Security Center에서 SQL 정보 보호 정책 사용자 지정
  
@@ -41,12 +41,11 @@ Information Protection은 기본적으로 사용되는 레이블 및 정보 형�
 ## <a name="customize-the-information-protection-policy"></a>정보 보호 정책 사용자 지정
 Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면 [테넌트의 루트 관리 그룹에 대한 관리 권한](security-center-management-groups.md)이 있어야 합니다. 
  
-1. Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
-2. **계층 구조 보기(미리 보기)** 를 선택한 다음, **테넌트 루트 그룹**을 선택하고, **설정 편집**을 클릭합니다.
- 
+1. 보안 주 메뉴를 아래 가운데 **리소스 보안 관리** 로 이동 **데이터 및 저장소** 를 클릭 합니다 **SQL Information Protection** 단추.
+
    ![정보 보호 정책 구성](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. **정책 구성 요소** 아래에서 **정보 보호**를 클릭합니다. **정보 보호 설정** 페이지에서 현재 레이블 집합을 볼 수 있습니다. 데이터의 민감도 수준을 분류하는 데 사용되는 주요 분류 속성입니다. 여기에서부터 테넌트에 대한 **정보 보호 레이블** 및 **정보 형식**을 구성할 수 있습니다. 
+2. 에 **SQL Information Protection** 페이지에서 현재 레이블 집합을 볼 수 있습니다. 데이터의 민감도 수준을 분류하는 데 사용되는 주요 분류 속성입니다. 여기에서부터 테넌트에 대한 **정보 보호 레이블** 및 **정보 형식**을 구성할 수 있습니다. 
  
 ### <a name="customizing-labels"></a>레이블 사용자 지정
  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918791"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570990"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>다른 제안으로 Azure 종량제 구독 변경
 
@@ -86,7 +86,7 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>"귀하의 지역 또는 국가에는 현재 사용 가능한 제안이 없습니다."가 표시되는 이유는 무엇입니까?
 
 * 제품 전환이 불가능할 수 있습니다. [전환할 수 있는 사용 가능한 제품 목록](#whats-supported)을 확인하고 Visual Studio 또는 Bizspark를 사용하여 올바른 혜택을 활성화했는지 확인합니다.
-* 일부 제품의 경우 일부 국가에서만 사용 가능할 수 있습니다.
+* 모든 국가/지역의 일부 제품을 사용 하지 못할 수도 있습니다.
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Azure 제품을 전환할 경우 내 서비스 및 요금 청구는 어떻게 되나요?
 

@@ -45,6 +45,8 @@
       href: container-instances-region-availability.md
     - name: 오케스트레이터와의 관계
       href: container-instances-orchestrator-relationship.md
+    - name: 보안 고려 사항
+      href: container-instances-image-security.md
 - name: 방법 가이드
   items:
     - name: 배포
@@ -69,6 +71,8 @@
           href: container-instances-managed-identity.md
         - name: GPU 리소스 사용(미리 보기)
           href: container-instances-gpu.md
+        - name: SSL 엔드포인트 사용
+          href: container-instances-container-group-ssl.md
     - name: 데이터 볼륨 탑재
       items:
         - name: Azure 파일 공유

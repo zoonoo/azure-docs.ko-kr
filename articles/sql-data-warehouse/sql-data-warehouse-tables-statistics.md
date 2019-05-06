@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474949"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937267"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 통계
 
@@ -24,70 +24,70 @@ Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 �
 
 ## <a name="why-use-statistics"></a>통계를 사용 하는 이유
 
-Azure SQL Data Warehouse에서 데이터에 대해 더 많이 알수록 데이터에 대한 쿼리를 더 빠르게 실행할 수 있습니다. SQL Data Warehouse로 데이터를 로드 한 후 데이터에 통계를 수집 중 하나인 가장 중요 한 사항은 쿼리 최적화를 수행할 수 있습니다. SQL Data Warehouse 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양 한 쿼리 계획의 비용과 비교 하 고 순위가 가장 낮은 계획을 선택 합니다. 대부분의 경우에서 가장 빠르게 실행 하는 계획을 선택 합니다. 예를 들어 최적화 프로그램이 쿼리에서 필터링은 날짜가 하나의 행을 반환 하는 예상 하는 경우 계획을 하나를 선택 합니다. 선택한 날짜는 1 백만 행을 반환을 예상할 경우 다른 계획을 반환 합니다.
+Azure SQL Data Warehouse에서 데이터에 대해 더 많이 알수록 데이터에 대한 쿼리를 더 빠르게 실행할 수 있습니다. SQL Data Warehouse로 데이터를 로드한 후 데이터에 대한 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 일 중 하나입니다. SQL Data Warehouse 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교하고 비용이 가장 낮은 계획을 선택합니다. 대부분의 경우 가장 빠르게 실행하는 계획을 선택합니다. 예를 들어 최적화 프로그램이 쿼리에서 날짜를 필터링하여 하나의 행을 반환하는 것을 예상하는 경우 계획 하나를 선택 합니다. 선택한 날짜가 1백만 행을 반환할 것을 예상하는 경우, 다른 계획을 반환합니다.
 
-## <a name="automatic-creation-of-statistic"></a>통계의 자동 만들기
+## <a name="automatic-creation-of-statistic"></a>통계 자동 생성
 
-AUTO_CREATE_STATISTICS 옵션이 데이터베이스의 경우 SQL Data Warehouse는 누락 된 통계에 대 한 들어오는 사용자 쿼리를 분석 합니다. 통계가 누락 된 경우 쿼리 최적화 프로그램이 쿼리 계획에 대 한 카디널리티 예상치 정확도 높이려면 쿼리 조건자 또는 조인 조건의 개별 열에서 통계를 만듭니다. 통계 자동 생성은 현재 기본적으로 설정됩니다.
+데이터베이스에서 AUTO_CREATE_STATISTICS 옵션이 설정된 경우, SQL Data Warehouse는 누락된 통계에 대해 들어오는 사용자 쿼리를 분석합니다. 통계가 누락된 경우, 쿼리 최적화 프로그램이 쿼리 계획에 대한 카디널리티 예상치 정확도 높이기 위해 쿼리 조건자 또는 조인 조건의 개별 열에서 통계를 만듭니다. 통계 자동 생성은 현재 기본적으로 설정됩니다.
 
-데이터 웨어하우스가 AUTO_CREATE_STATISTICS 다음 명령을 실행 하 여 구성 되어 있는지 확인할 수 있습니다.
+다음 명령을 실행하여 데이터 웨어하우스가 AUTO_CREATE_STATISTICS로 구성되어 있는지 확인할 수 있습니다.
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-데이터 웨어하우스가 구성 AUTO_CREATE_STATISTICS에 없는 경우에 다음 명령을 실행 하 여이 속성을 사용 하는 것이 좋습니다.
+데이터 웨어하우스가 AUTO_CREATE_STATISTICS로 구성되지 않는 경우, 다음 명령을 실행하여 이 속성을 사용하는 것이 좋습니다.
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-이러한 문은 자동 통계 작성이 트리거됩니다.
+이러한 문은 자동 통계 작성을 트리거합니다.
 
 - SELECT
 - INSERT-SELECT
 - CTAS
 - UPDATE
-- 삭제
-- 검색 되는 조인 또는 조건자의 현재 상태를 포함 하는 경우에 대해 설명
+- DELETE
+- 조인 포함 또는 조건자의 존재가 확인되는 경우의 EXPLAIN
 
 > [!NOTE]
-> 통계 자동 생성은 임시 또는 외부 테이블에 만들어집니다.
+> 통계 자동 생성은 임시 또는 외부 테이블에 생성되지 않습니다.
 
-통계 자동 작성 동기적으로 수행 되므로 열에 통계가 누락 된 경우 성능이 약간 저하 된 쿼리 성능에 발생할 수 있습니다. 단일 열에 대 한 통계를 만들려는 경우 테이블의 크기에 따라 달라 집니다. 성능 벤치 마크, 특히 성능이 크게 저하를 방지 하려면 시스템을 프로 파일링 하기 전에 벤치 마크 워크 로드를 실행 하 여 통계 먼저 생성 된 확인 해야 합니다.
+통계 자동 작성은 동기적으로 수행되므로 열에 통계가 누락된 경우 약간의 쿼리 성능 저하가 발생할 수 있습니다. 단일 열에 대한 통계를 작성하는 시간은 테이블의 크기에 따라 달라집니다. 특히 성능 벤치 마크에서 성능의 큰 저하를 방지하려면 시스템을 프로파일링하기 전에 벤치마크 워크로드를 실행하여 먼저 통계가 작성되었는지 확인해야 합니다.
 
 > [!NOTE]
-> 통계 생성에 기록 됩니다 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) 다른 사용자 컨텍스트에서 합니다.
+> 통계 생성은 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)에 기록됩니다.
 
-생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 실행 하 여 이미 생성 된 통계를 볼 수 있습니다 합니다 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) 명령:
+생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID><16진수 8자리 테이블 ID>입니다. [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) 명령을 실행하여 이미 생성된 통계를 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-Table_name에 표시할 통계가 들어 있는 테이블의 이름입니다. 외부 테이블은 사용할 수 없습니다. 대상에는 대상 인덱스, 통계 또는 통계 정보를 표시 하는 열의 이름입니다.
+Table_name은 표시할 통계가 들어 있는 테이블의 이름입니다. 외부 테이블은 사용할 수 없습니다. 대상은 대상 인덱스, 통계 또는 통계 정보를 표시하는 열의 이름입니다.
 
 ## <a name="updating-statistics"></a>통계 업데이트
 
-모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로, 값 분포는 일반적으로 변경되지 않기 때문에 고객 테이블의 국가 열에 대한 통계는 업데이트할 필요가 없습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 하나의 국가만 포함되어 있고 새 국가에서 데이터를 가져와서 여러 국가의 데이터가 저장되는 경우 국가 열에 대한 통계를 업데이트해야 합니다.
+모범 사례 중 하나는 새로운 날짜가 추가되는 날마다 날짜 열에 통계를 업데이트하는 것입니다. 새 행이 데이터 웨어하우스에 로드될 때마다 새 부하 날짜나 트랜잭션 날짜가 추가됩니다. 이렇게 하면 데이터 분포가 변경되며 통계는 최신 상태가 아닙니다. 반대로, 고객 테이블의 국가/지역 열에 대 한 통계 수 필요가 없습니다 업데이트할 수 값의 분포 일반적으로 변경 하지 않습니다. 고객 간의 배포가 상수라고 가정하는 경우, 테이블 변형에 새 행을 추가하면 데이터 배포를 변경하지 않습니다. 그러나 데이터 웨어하우스에 하나의 국가/지역 포함 하는 경우 새 국가/지역에서 데이터를가지고 국가/지역 열에서 통계를 업데이트 해야 합니다 저장 하는 경우 여러 국가/지역에서 데이터를 생성 합니다.
 
 통계를 업데이트하는 권장 사항은 다음과 같습니다.
 
 |||
 |-|-|
 | **통계 업데이트의 빈도**  | 일반: 매일 </br> 데이터 로드 또는 변환 후 |
-| **샘플링** |  1 십억 보다 작은 행을 기본 샘플링 (20%)을 사용 합니다. </br> 1 십억 개 이상의 행이 있는 2 %의 샘플링을 사용 합니다. |
+| **샘플링** | 십억 개보다 적은 행이 있는 경우, 기본 샘플링(20%)을 사용합니다. </br> 십억 개 이상의 행이 있는 경우, 2%의 샘플링을 사용합니다. |
 
 쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 
 이 질문은 데이터의 기간에 따라 응답할 수 있는 질문은 아닙니다. 기본 데이터에 중대한 변경이 없는 경우 최신 통계 개체가 오래되었을 수 있습니다. 행 수가 상당히 변경되었거나 열에 대한 값의 분포에 중대한 변경이 있는 경우 *통계를 업데이트해야 하는 시간*입니다.
 
-통계를 마지막으로 업데이트 된 이후 테이블의 데이터가 변경 되었는지 여부를 확인 하려면 동적 관리 뷰가 있습니다. 통계의 보존 기간을 알면 일부를 사용 하 여 제공할 수 있습니다. 다음 쿼리를 사용하여 각 테이블에서 통계가 마지막으로 업데이트된 시간을 확인할 수 있습니다.
+통계가 마지막으로 업데이트된 이후 테이블의 데이터가 변경되었는지 여부를 확인하는 동적 관리 뷰는 없습니다. 통계의 보존 기간을 알면 일부를 알 수 있습니다. 다음 쿼리를 사용하여 각 테이블에서 통계가 마지막으로 업데이트된 시간을 확인할 수 있습니다.
 
 > [!NOTE]
-> 열에 대 한 값의 분포에 중대 한 변경이 있으면 업데이트 된 마지막 시간에 관계 없이 통계를 업데이트 해야 합니다.
+> 열에 대한 값의 분포에 중대한 변경이 있으면 업데이트된 마지막 시간에 관계 없이 통계를 업데이트해야 합니다.
 
 ```sql
 SELECT
@@ -332,7 +332,7 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-기본값을 사용 하 여 테이블의 모든 열에서 통계를 만들려면 저장된 프로시저를 실행 합니다.
+기본값을 사용하여 테이블의 모든 열에서 통계를 만들려면 저장 프로시저를 실행합니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
@@ -377,7 +377,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 
 ### <a name="update-all-statistics-on-a-table"></a>테이블에 있는 모든 통계 업데이트
 
-테이블의 모든 통계 개체를 업데이트 하는 간단한 방법을 다음과 같습니다.
+테이블의 모든 통계 개체를 업데이트하는 간단한 방법은 다음과 같습니다.
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -389,7 +389,7 @@ UPDATE STATISTICS [schema_name].[table_name];
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS 문을 사용 하기 쉬운 경우 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능 문제가 없는 경우이 방법이 가장 쉽고 완벽 통계가 최신 인지 되도록 합니다.
+UPDATE STATISTICS 문은 사용하기 쉽습니다. 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다. 성능 문제가 없는 경우, 이 방법은 가장 쉽고 완벽하게 통계가 최신이 되도록 할 수 있습니다.
 
 > [!NOTE]
 > 테이블에 대한 모든 통계를 업데이트하는 경우 SQL Data Warehouse는 각 통계 개체에 대한 테이블을 검색하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.
@@ -408,13 +408,13 @@ UPDATE STATISTICS 문을 사용 하기 쉬운 경우 테이블에 대한 *모든
 
 | 카탈로그 뷰 | 설명 |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |각 열에 대해 한 행입니다. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |데이터베이스의 각 개체에 대해 한 행입니다. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |데이터베이스의 각 스키마에 대해 한 행입니다. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |각 통계 개체에 대해 한 행입니다. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |각 테이블에 대해 한 행입니다(외부 테이블 포함). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |각 데이터 유형에 대해 한 행입니다. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |각 열에 대한 하나의 행입니다. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |데이터베이스의 각 개체에 대한 하나의 행입니다. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |데이터베이스의 각 스키마에 대한 하나의 행입니다. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |각 통계 개체에 대한 하나의 행입니다. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |통계 개체의 각 열에 대한 하나의 행입니다. sys.columns에 다시 연결합니다. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |각 테이블에 대한 하나의 행입니다(외부 테이블 포함). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |각 데이터 유형에 대한 하나의 행입니다. |
 
 ### <a name="system-functions-for-statistics"></a>통계에 대한 시스템 함수
 
@@ -517,4 +517,4 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL Data Warehouse에서 �
 
 ## <a name="next-steps"></a>다음 단계
 
-쿼리 성능 추가 향상은 [작업 모니터링](sql-data-warehouse-manage-monitor.md) 참조
+쿼리 성능 추가 향상은 [작업 모니터링](sql-data-warehouse-manage-monitor.md)을 참조합니다.

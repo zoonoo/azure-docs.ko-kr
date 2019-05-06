@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 05/02/2019
+ms.openlocfilehash: 4386420a56b3543ac6c5f5934f963e56bc674873
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820031"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025003"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측된 모델을 자동-학습
 
@@ -24,6 +24,8 @@ ms.locfileid: "60820031"
 * 시계열 모델링에 대 한 데이터 준비
 * 특정 시계열 매개 변수에서 구성 된 [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) 개체
 * 시계열 데이터를 사용 하 여 예측을 실행 합니다.
+
+> [!VIDEO https://www.youtube.com/embed/mGr_c2UnOUI]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -67,7 +69,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > 미래 가치를 예측 하는 것에 대 한 모델을 학습할 때 의도 한 시야에 대 한 예측을 실행 하는 경우 학습에 사용 되는 기능을 사용할 수 모두를 확인 합니다. 예를 들어, 한 수요 예측을 만들 때 현재 주가 대 한 기능을 포함 하 여 증가할 수 있습니다 대규모 학습 정확도입니다. 그러나 긴 기간을 사용 하 여 예측 하려는 경우 향후 시계열 지점에 해당 주식 값을 정확 하 게 예측할 수 있습니다 및 모델 정확도 저하 될 수 있습니다.
 
-## <a name="configure-experiment"></a>실험 구성
+## <a name="configure-and-run-experiment"></a>구성 하 고 실험 실행
 
 작업 예측에 대 한 자동화 된 기계 학습에서는 시계열 데이터에만 적용 되는 전처리, 예측 단계를 사용 합니다. 전처리 단계 실행 됩니다.
 
@@ -126,6 +128,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > 교차 유효성 검사 (CV) 프로시저에 대 한 자동화 된 기계 학습을 만드는 롤링 원점 유효성 검사 절차를 구현 하므로 시계열 데이터 정식 K 접기 교차 유효성 검사 전략의 기본 통계 가정을 위반할 수 있습니다. 시계열 데이터에 대 한 교차 유효성 검사 접기 합니다. 이 절차를 사용 하려면 지정 합니다 `n_cross_validations` 의 매개 변수는 `AutoMLConfig` 개체입니다. 유효성 검사 및 유효성 검사를 직접 사용 하 여 집합을 사용 하 여 무시할 수 있습니다 합니다 `X_valid` 고 `y_valid` 매개 변수입니다.
 
+### <a name="view-feature-engineering-summary"></a>기능 엔지니어링 요약 보기
+
+자동화 된 machine learning에서 시계열 작업 형식에 대 한 기능 엔지니어링 프로세스의에서 세부 정보를 볼 수 있습니다. 다음 코드는 다음과 같은 특성이 함께 원시 각 기능을 보여 줍니다.
+
+* 원시 기능 이름
+* 이 원시 기능에서 다양 한 엔지니어링 된 기능 구성
+* 검색 유형
+* 기능이 삭제 되었고 여부
+* 원시 기능에 대 한 기능 변환의 목록
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>최상의 모델을 사용 하 여 예측
 
 테스트 데이터 집합에 대 한 값을 예측 하는 가장 좋은 모델 반복을 사용 합니다.
@@ -133,6 +149,16 @@ best_run, fitted_model = local_run.get_output()
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+사용할 수 있습니다 합니다 `forecast()` 함수 대신 `predict()`, 예측을 시작 하는 경우의 사양을 수 있는 합니다. 다음 예제에서는 먼저 모든 값이 바꿉니다 `y_pred` 사용 하 여 `NaN`입니다. 예측된 원본 됩니다 학습 데이터의 끝에이 예에서 사용 하는 경우 일반적으로 것 처럼 `predict()`합니다. 그러나의 두 번째 절반만 대체 하는 경우 `y_pred` 사용 하 여 `NaN`, 수정 되지 않고 있지만 예측 함수는 처음 절반에서 숫자 값 남을 수는 `NaN` 하반기에는 값입니다. 함수는 예측된 값 및 정렬된 기능을 모두 반환합니다.
+
+사용할 수도 있습니다는 `forecast_destination` 의 매개 변수는 `forecast()` 지정된 된 날짜까지 값을 예측 하는 함수입니다.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 계산 RMSE (제곱 평균 오차) 간에 `y_test` 에 예측 된 값과 실제 값을 `y_pred`.

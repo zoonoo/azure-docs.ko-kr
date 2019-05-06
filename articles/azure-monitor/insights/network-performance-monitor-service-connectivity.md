@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119338"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719297"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -59,7 +59,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하기 위한 테스트를 만들기 시작합니다.
 
 1. **서비스 연결 모니터** 탭을 선택합니다.
-2. **테스트 추가**를 선택하고 테스트 이름 및 설명을 입력합니다. 
+2. **테스트 추가**를 선택하고 테스트 이름 및 설명을 입력합니다. 작업 영역당 최대 450 테스트를 만들 수 있습니다. 
 3. 테스트 유형을 선택합니다.<br>
 
     * **웹**을 선택하여 HTTP/S 요청에 응답하는 서비스(예: outlook.office365.com 또는 bing.com)에 대한 연결을 모니터링합니다.<br>

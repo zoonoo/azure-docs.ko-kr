@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741665"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922876"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 System Center Configuration Manager 환경의 장치 컬렉션 데이터를 동기화 하려면 Azure Monitor에 연결할 수 있으며 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -67,7 +67,7 @@ Log Analytics 연결을 추가하려면 구성 관리자 환경에 온라인 모
    
 2. **일반** 화면에서 아래의 작업을 완료했는지와 각 항목에 대한 상세 정보가 있는지 확인하고 **다음**을 선택합니다.
 
-   1. Azure Portal에서 구성 관리자를 웹 애플리케이션 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md)가 있는지 여부
+   1. Azure Portal에서 구성 관리자를 웹 애플리케이션 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../../active-directory/develop/quickstart-register-app.md)가 있는지 여부
    2. Azure Portal에서 Azure Active Directory에 등록된 앱의 앱 비밀 키를 만들었는지 여부  
    3. Azure portal에서 Azure Monitor에서 Log Analytics 작업 영역에 대 한 액세스 권한이 있는 등록된 된 웹 앱을 제공 했습니다.  
       ![Log Analytics 마법사 일반 페이지에 연결](./media/collect-sccm/sccm-console-general01.png)

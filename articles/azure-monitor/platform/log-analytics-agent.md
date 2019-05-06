@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782019"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916372"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 로그 데이터 수집
 
@@ -38,7 +38,7 @@ System Center Operations Manager 2012 R2 이상과 함께 컴퓨터를 모니터
 
 Windows 에이전트는 최대 4개의 Log Analytics 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
 
-Linux 및 Windows 용 에이전트는 Azure Monitor로 연결에 대해서만, Azure Automation Hybrid Runbook worker 역할 및 기타 서비스와 같은 호스트에 지원 [변경 내용 추적](../../automation/automation-change-tracking.md) 고 [업데이트관리](../../automation/automation-update-management.md). Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
+Linux 및 Windows 용 에이전트는 Azure Monitor로 연결에 대해서만, Azure Automation Hybrid Runbook worker 역할 및 기타 서비스와 같은 호스트에 지원 [변경 내용 추적](../../automation/change-tracking.md) 고 [업데이트관리](../../automation/automation-update-management.md). Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
@@ -101,7 +101,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 
 |자산| 설명 |
 |--------|-------------|
-|프로토콜 | https |
+|Protocol | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
 |암호 | 프록시 인증을 위한 선택적 암호 |
 |proxyhost | 프록시 서버/Log Analytics 게이트웨이의 주소 또는 FQDN |

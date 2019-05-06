@@ -68,6 +68,8 @@
       href: resource-group-delete.md
     - name: Resource Manager 및 클래식 배포
       href: resource-manager-deployment-model.md
+    - name: Azure 공통 보안 특성
+      href: azure-resource-manager-security-attributes.md
 - name: 방법
   items:
     - name: 템플릿 만들기
@@ -225,6 +227,8 @@
           href: move-support-resources.md
         - name: 태그 지원
           href: tag-support.md
+    - name: 서비스별 리소스 공급자
+      href: azure-services-resource-providers.md
     - name: REST - Resource Manager
       href: /rest/api/resources/
     - name: REST - 배포 관리자

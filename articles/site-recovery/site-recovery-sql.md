@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471726"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924860"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -170,7 +170,7 @@ SQL Server가 고가용성을 위해 고가용성 그룹(또는 FCI)을 사용�
 
 이 시나리오에서 SQL Server 컴퓨터를 보호하기 위해 Site Recovery 복제를 사용하는 것이 좋습니다. 정확한 단계는 SQL Server가 VM 또는 물리적 서버인지에 따라, Azure 또는 보조 온-프레미스 사이트로 복제하려는지에 따라 달라집니다. [Site Recovery 시나리오](site-recovery-overview.md)에 대해 자세히 알아봅니다.
 
-## <a name="protect-a-sql-server-cluster-standard-editionwindows-server-2008-r2"></a>SQL Server 클러스터 보호(표준 에디션/Windows Server 2008 R2)
+## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>SQL Server 클러스터 (표준 에디션/SQL Server 2008 R2) 보호
 
 SQL Server Standard 에디션 또는 SQL Server 2008 R2를 실행하는 클러스터의 경우 SQL Server를 보호하기 위해 Site Recovery 복제를 사용하는 것이 좋습니다.
 

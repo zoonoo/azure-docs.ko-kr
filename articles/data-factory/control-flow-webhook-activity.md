@@ -59,7 +59,7 @@ ms.locfileid: "60764308"
 이름 | 웹 후크 작업의 이름 | String | 예 |
 형식 | 로 설정 되어야 합니다 **웹 후크**합니다. | String | 예 |
 메서드 | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. 지원되는 형식: ' POST' | 예 |
-URL | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). | 예 |
+url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). | 예 |
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어와 유형을 설정 하려면: "헤더": {"수용 언어": "en-우리", "Content-type": "application/json"을 (를). | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. "headers":{ "Content-Type":"application/json"} |
 본문 | 엔드포인트에 전송된 페이로드를 나타냅니다. | 본문 다시 호출에 다시 전달 된 URI는 유효한 JSON 이어야 합니다. [요청 페이로드 스키마](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) 섹션에서 요청 페이로드의 스키마를 참조하세요. | 예 |
 인증 | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원 되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아닙니다. |
