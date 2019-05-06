@@ -24,7 +24,7 @@ Azure SQL Data Warehouse는 Azure Portal 내에 다양한 모니터링 환경을
 SQL Data Warehouse용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)를 통해 나타납니다.
 
 > [!NOTE]
-> 현재 노드 수준 CPU 및 IO 메트릭은 데이터 웨어하우스 사용을 올바르게 반영 하지 않습니다. 이러한 메트릭은 SQL Data Warehouse에 대한 모니터링 및 문제 해결 경험을 개선함에 따라 가까운 장래에 제거 될 것입니다. 
+> 현재 노드 수준 CPU 및 IO 메트릭은 데이터 웨어하우스 사용을 올바르게 반영하지 않습니다. 이러한 메트릭은 SQL Data Warehouse에 대한 모니터링 및 문제 해결 경험을 개선함에 따라 가까운 장래에 제거될 것입니다. 
 
 | 메트릭 이름                           | 설명     | 집계 형식 |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -46,7 +46,7 @@ T-SQL을 통해 SQL Data Warehouse를 모니터링할 때의 프로그래밍 방
 SQL Data Warehouse에서 제공하는 DMV 목록을 보려면 [이 설명서](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs)를 참조하세요. 
 
 ## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅
-메트릭 및 로그를 Azure Monitor 특히 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 구성 요소 에 모두 내보낼 수 있으며 [로그 쿼리](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)를 통해 프로그래밍 방식으로 액세스할 수 있습니다. SQL Data Warehouse의 로그 대기 시간은 약 10 ~ 15 분입니다. 대기 시간에 영향을 주는 요인에 대한 자세한 내용은 다음 문서를 참조 하세요.
+메트릭 및 로그는 모두 Azure Monitor 특히 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 구성 요소에 내보낼 수 있으며 [로그 쿼리](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)를 통해 프로그래밍 방식으로 액세스할 수 있습니다. SQL Data Warehouse의 로그 대기 시간은 약 10~15분입니다. 대기 시간에 영향을 주는 요인에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
