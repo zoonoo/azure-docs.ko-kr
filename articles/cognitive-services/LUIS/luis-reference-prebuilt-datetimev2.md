@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b4c3f7445d18ab1548fd63b1f4d12c5901cf949
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 5e646c8c73d3a4cf8c6e5ba35a374b5aa376ca20
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339524"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069192"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
@@ -216,6 +216,74 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
       }
     }
   ]
+```
+
+## <a name="preview-api-version-3x"></a>미리 보기 API 버전 3.x
+
+DatetimeV2 JSON 응답은 API V3에서 변경 되었습니다. 
+
+API V2에서 변경 내용:
+* `datetimeV2.timex.type` 속성은 부모 수준에서 반환 되기 때문에 더 이상 반환 `datetimev2.type`합니다. 
+* 합니다 `datetimeV2.timex` 속성으로 바뀌었습니다 `datetimeV2.value`합니다.
+
+Utterance에 대 한 `8am on may 2nd 2017`, V3 DatetimeV2 버전이:
+
+```JSON
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "timex": [
+                        "2017-05-02T08"
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+다음 JSON을 사용 하는 것은 `verbose` 매개 변수 설정 `false`:
+
+```json
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "timex": [
+                        "2017-05-02T08"
+                    ]
+                }
+            ],
+            "$instance": {
+                "datetimeV2": [
+                    {
+                    "type": "builtin.datetimeV2.datetime",
+                    "text": "8am on may 2nd 2017",
+                    "startIndex": 0,
+                    "length": 19,
+                    "modelTypeId": 2,
+                    "modelType": "Prebuilt Entity Extractor"
+                }
+            ],
+        }
+    }
+}
 ```
 
 ## <a name="deprecated-prebuilt-datetime"></a>미리 작성된 날짜/시간 사용되지 않음

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: ad0676cbfdcd708b0d51752522d16956bd0c6c9e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523140"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073713"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
@@ -28,7 +28,7 @@ ms.locfileid: "59523140"
 
 * 테스트당 최대 1000개 발언 
 * 중복되지 않습니다. 
-* 허용되는 엔터티 형식: 기계 학습된 단순, 계층 구조(부모만) 및 복합 엔터티만. 일괄 테스트는 기계 학습된 의도 및 엔터티에만 유용합니다.
+* 허용 되는 엔터티 유형의: 컴퓨터에서 학습 엔터티만 단순 및 복합 합니다. 일괄 테스트는 기계 학습된 의도 및 엔터티에만 유용합니다.
 
 이 자습서 이외의 앱을 사용할 때에는 의도에 이미 추가된 발언 예제를 사용하지 *마세요*. 
 
@@ -95,7 +95,7 @@ ms.locfileid: "59523140"
 
 ## <a name="review-batch-results"></a>일괄 처리 결과 검토
 
-일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 기본적으로 필터는 목록의 첫 번째 의도로 설정됩니다. 필터에는 모든 의도와 단순, 계층 구조(부모만) 및 복합 엔터티만 포함합니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다. 
+일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 기본적으로 필터는 목록의 첫 번째 의도로 설정됩니다. 필터는 모든 의도만 간단 하 고 복합 엔터티를 포함합니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다. 
 
 차트 위로 마우스를 가져간 후 마우스 휠로 차트의 발언을 확대하거나 축소할 수 있습니다. 차트에 많은 점이 밀집되어 있을 때 이렇게 하면 편리합니다. 
 
@@ -169,7 +169,7 @@ ms.locfileid: "59523140"
 
 ## <a name="create-batch-file-with-entities"></a>엔터티를 사용하여 일괄 처리 파일 만들기 
 
-일괄 테스트에서 엔터티를 확인하려면 일괄 처리 JSON 파일에서 엔터티에 레이블이 지정되어 있어야 합니다. 기계 학습 엔터티인 단순, 계층 구조(부모만) 및 복합 엔터티만 사용됩니다. 기계 학습되지 않은 엔터티는 정규식 또는 명시적인 텍스트 일치를 통해 항상 확인되므로 추가할 필요가 없습니다.
+일괄 테스트에서 엔터티를 확인하려면 일괄 처리 JSON 파일에서 엔터티에 레이블이 지정되어 있어야 합니다. 컴퓨터에서 학습 하는 엔터티만 사용 됩니다: 단순 및 복합 엔터티. 기계 학습되지 않은 엔터티는 정규식 또는 명시적인 텍스트 일치를 통해 항상 확인되므로 추가할 필요가 없습니다.
 
 전체 단어에 대한 엔터티 변형([토큰](luis-glossary.md#token)) 개수는 예측 품질에 영향을 줄 수 있습니다. 레이블이 지정된 발언과 함께 의도에 제공된 학습 데이터에 다양한 길이의 엔터티가 포함되는지 확인합니다. 
 

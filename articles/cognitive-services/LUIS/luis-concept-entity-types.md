@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 0ba700285a4af6e28b7788016d4842de1aa61417
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528036"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073061"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
@@ -97,7 +97,6 @@ LUIS는 다양한 형식의 엔터티를 제공합니다. 데이터를 추출해
 |기계 학습|표시할 수 있음|자습서|예<br>response|엔터티 형식|목적|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**복합**](#composite-entity)|엔터티 형식에 관계없이 엔터티 그룹화|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**계층적**](#hierarchical-entity)|단순 엔터티의 그룹화|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**목록**](#list-entity)|정확한 텍스트 일치 항목을 사용하여 추출된 항목 및 동의어 목록|
 |혼합||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|엔터티의 끝을 확인하기 어려운 엔터티|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**미리 빌드됨**](#prebuilt-entity)|다양한 종류의 데이터를 추출하도록 이미 학습됨|
@@ -112,7 +111,7 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 
 ## <a name="composite-entity"></a>복합 엔터티
 
-복합 엔터티는 미리 빌드된 엔터티, 단순, 정규식, 목록 및 계층적 엔터티 등 다른 엔터티로 구성됩니다. 개별 엔터티가 전체 엔터티를 형성합니다. 
+복합 엔터티는 이루어져 미리 작성 된 엔터티를 같은 다른 엔터티를 단순 목록 엔터티와 정규식 있습니다. 개별 엔터티가 전체 엔터티를 형성합니다. 
 
 데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.
 
@@ -126,18 +125,6 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 
 [자습서](luis-tutorial-composite-entity.md)<br>
 [엔터티에 대한 JSON 응답 예제](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>계층적 엔터티
-
-**계층적 엔터티는 결국 사용 중단 됩니다. 사용 하 여 [엔터티 역할](luis-concept-roles.md) 계층적 엔터티 대신 엔터티 하위 형식 확인 하려면.**
-
-계층 구조 엔터티는 자식이라고 하는 컨텍스트에 따라 학습된 단순 엔터티의 범주입니다.
-
-![계층적 엔터티](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>역할 및 계층 구조 엔터티
-
-[역할](luis-concept-roles.md) 계층적 엔터티는 하지만 모든 엔터티 형식에 적용 하는 대로 동일한 문제를 해결 합니다.  
 
 ## <a name="list-entity"></a>목록 엔터티
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: f40e53c67f099fea739e45f6bdc6963ee1e235cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: 024ceb83ab338e4fb7d68f32a46d3ceab1a5d20b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026757"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073571"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>사용자 지정 음성-첫 번째 가상 도우미 미리 보기 정보
 
@@ -33,7 +33,7 @@ Azure 음성 서비스를 사용 하 여 사용자 지정 가상 도우미 하�
 |[사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md) | "Hey Contoso."와 같은 사용자 지정 키워드를 사용 하 여 봇을 사용 하 여 대화를 시작 하려면 사용자가 설정할 수 있습니다. 이 작업은 사용자 지정 절전 모드 해제 단어로 구성 될 수 있는 음성 SDK에서 사용자 지정 절전 모드 해제 단어 엔진을 사용 하 여 수행 됩니다 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)합니다. 직접 줄 음성 채널 및 단독으로 장치 절전 모드 해제 word 활성화의 정확도 개선 하는 서비스 쪽 절전 모드 해제 word 확인을 포함 합니다.
 |[음성을 텍스트로 변환](speech-to-text.md) | 인식 된 텍스트를 사용 하 여 실시간으로 기록 오디오를 포함 하는 직접 줄 음성 채널 [음성-텍스트](speech-to-text.md) Azure 음성 서비스에서입니다. 이 텍스트는 감정과 대로 봇을 클라이언트 응용 프로그램에 사용할 수 있습니다.
 |[텍스트 음성 변환](text-to-speech.md) | 사용 하 여 봇의 응답을 텍스트를 합성 됩니다 [text to speech](text-to-speech.md) Azure 음성 서비스에서입니다. 이 합성 한 후 제공 될 예정 오디오 스트림으로 클라이언트 응용 프로그램입니다. Microsoft는 직접 구축 하는 기능을 제공 [사용자 지정, 고품질 신경망 TTS 음성](https://aka.ms/customneuraltts) 음성으로 브랜드를 제공 합니다.
-|[직접 회선 음성](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md) | Bot Framework 내에서 채널로 직접 줄 통해 클라이언트 응용 프로그램, 호환 봇의 경우와 Azure 음성 서비스의 기능 간에 원활 하 게 연결 합니다. 직접 줄 음성 채널을 사용 하면 봇이 마치를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [Bot Framework 설명서에서 해당 페이지](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)합니다.
+|[직접 회선 음성](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Bot Framework 내에서 채널로 직접 줄 통해 클라이언트 응용 프로그램, 호환 봇의 경우와 Azure 음성 서비스의 기능 간에 원활 하 게 연결 합니다. 직접 줄 음성 채널을 사용 하면 봇이 마치를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [Bot Framework 설명서에서 해당 페이지](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)합니다.
 
 ## <a name="sample-code"></a>샘플 코드
 
