@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/18/2019
-ms.openlocfilehash: 471ded9cd94623929630155f1a3c613bf00576a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 4288eb7d051c44149a6f1970430dc8c409ca957d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331845"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572872"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
-이 문서에서는 Azure SQL Database에서 단일 데이터베이스에 사용할 수 있는 계산 및 스토리지 리소스의 크기를 조정하는 방법을 설명합니다.
+이 문서에서는 프로 비전 된 계산 계층에서 단일 데이터베이스에 대 한 사용 가능한 계산 및 저장소 리소스를 확장 하는 방법을 설명 합니다. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

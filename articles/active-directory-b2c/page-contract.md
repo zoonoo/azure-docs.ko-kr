@@ -1,30 +1,30 @@
 ---
-title: Azure Active Directory B2C에서 페이지 계약 선택 | Microsoft Docs
+title: 계약을 선택 페이지-Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 페이지 계약을 선택하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cd29df19179f07fd9b61a2f484b1d49cc05c4cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361050"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570571"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>사용자 지정 정책을 사용하여 Azure Active Directory B2C에서 페이지 계약 선택
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-사용자 흐름 또는 사용자 지정 정책을 사용하든 관계 없이 Azure AD(Azure Active Directory) B2C 정책에서 JavaScript 클라이언트 쪽 코드를 사용하도록 설정할 수 있습니다. 이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에서 구성하여 Azure AD B2C에서 페이지 계약을 선택하는 방법을 설명합니다. 페이지 계약은 Azure AD B2C에서 제공하는 요소와 사용자가 제공하는 콘텐츠를 합한 것입니다. [Javascript](javascript-samples.md)를 사용하려면 사용자 지정 정책의 모든 콘텐츠 정의에 대해 페이지 계약 버전을 정의해야 합니다.
+사용자 흐름 또는 사용자 지정 정책을 사용하든 관계 없이 Azure AD(Azure Active Directory) B2C 정책에서 JavaScript 클라이언트 쪽 코드를 사용하도록 설정할 수 있습니다. JavaScript 응용 프로그램을 사용 하려면 요소를 추가 해야 하 [사용자 지정 정책](active-directory-b2c-overview-custom.md), 페이지 계약을 선택 하 고 사용 하 여 [b2clogin.com](b2clogin.md) 요청에서. 페이지 계약은 Azure AD B2C에서 제공하는 요소와 사용자가 제공하는 콘텐츠를 합한 것입니다. 이 문서에서는 사용자 지정 정책에서 구성 하 여 Azure AD B2C에서 페이지 계약을 선택 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 사용자 흐름에 대해 JavaScript를 사용하도록 설정하려는 경우 [사용자 흐름에서 JavaScript 및 페이지 계약 버전 사용 정보](user-flow-javascript-overview.md)를 참조하세요.
+> 사용자 흐름에 대 한 JavaScript를 사용 하도록 설정 하려는 경우 참조 [JavaScript 및 페이지에는 Azure Active Directory B2C에서 버전 계약](user-flow-javascript-overview.md)합니다.
 
 ## <a name="replace-datauri-values"></a>DataUri 값 바꾸기
 

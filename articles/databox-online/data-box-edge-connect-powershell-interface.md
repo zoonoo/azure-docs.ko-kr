@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791578"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717493"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure 데이터 상자 Edge 장치를 관리 합니다.
 
@@ -24,7 +24,6 @@ Azure 데이터 가장자리가 상자의 솔루션을 사용 하 여 데이터�
 이 문서는 다음 절차에 포함 됩니다.
 
 - PowerShell 인터페이스에 연결
-- 지원 세션 시작
 - 지원 패키지 만들기
 - 인증서 업로드
 - 장치 재설정
@@ -59,7 +58,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 로 이동 하는 인증서에 대 한 자세한 내용은 [Azure IoT Edge 인증서](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) 하거나 [게이트웨이에서 인증서를 설치](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway)합니다.
 
 ## <a name="view-device-information"></a>장치 정보 보기
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -90,6 +88,9 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## <a name="exit-the-remote-session"></a>원격 세션을 종료
+
+원격 PowerShell 세션을 종료 하려면 PowerShell 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

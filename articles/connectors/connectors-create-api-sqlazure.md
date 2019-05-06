@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541160"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696412"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Azure Logic Apps에서 SQL Server 또는 Azure SQL Database에 연결
 
@@ -116,23 +116,26 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>대량 데이터 처리
+## <a name="handle-bulk-data"></a>대량 데이터를 처리 합니다.
 
-커넥터에서 모든 결과를 동시에 반환할 수 없을 만큼 너무 큰 결과 집합을 사용하거나 결과 집합의 크기와 구조를 더 효율적으로 제어하려는 경우 결과를 더 작은 집합으로 관리하는 데 유용한 *페이지 매김*을 사용할 수 있습니다. 
+경우에 따라 커넥터는 동시에 모든 결과 반환 하지 않습니다 또는 결과 집합에 대 한 더 나은 제어 구조와 크기를 원하는 너무 큰 결과 집합을 사용 해야 합니다. 이러한 큰 결과 집합을 처리할 수 있도록 몇 가지는 다음과 같습니다.
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* 를 더 작은 집합으로 결과 관리할 수 있도록 하려면 켜 *페이지 매김*합니다. 자세한 내용은 [대량 데이터 가져오기, 레코드 및 항목 페이지 매김을 사용 하 여](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>저장 프로시저 만들기
+* 원하는 방식으로 결과 구성 하는 저장된 프로시저를 만듭니다.
 
-여러 행을 가져오거나 삽입하는 경우 논리 앱은 이 [제한](../logic-apps/logic-apps-limits-and-config.md) 내에서 [*until 루프*](../logic-apps/logic-apps-control-flow-loops.md#until-loop)를 사용하여 이러한 항목을 반복할 수 있습니다. 하지만 논리 앱에서 수천 또는 수백만 개의 행과 같이 너무 큰 레코드 집합을 사용하여 데이터베이스 호출 비용을 최소화하려는 경우가 있습니다. 
+  논리 앱에 가져오거나 여러 행을 삽입할 때 사용 하 여 이러한 행을 반복할 수 있는 [ *until 루프* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 이러한 [제한](../logic-apps/logic-apps-limits-and-config.md)합니다. 
+  그러나 경우 논리 앱 작업 하는 레코드 집합 너무 수천 또는 수백만 개의 행, 예를 들어 데이터베이스에 대 한 호출에서 발생 하는 비용을 최소화 하려면.
 
-대신 SQL 인스턴스에서 실행되는 <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*저장 프로시저*</a>를 만들고, **SELECT - ORDER BY** 문을 사용하여 원하는 방식으로 결과를 구성할 수 있습니다. 이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다. 
+  원하는 방식으로 결과 구성 하기 위해 만들 수 있습니다는 [ *저장 프로시저* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) SQL 인스턴스에서 실행 되 고 사용 하는 **SELECT-ORDER BY** 문입니다. 
+  이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 
+  논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다.
 
-솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
+  솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">Logic Apps를 사용한 대량 데이터 전송에 대한 SQL 페이지 매김</a>
+  * [Logic Apps를 사용한 대량 데이터 전송에 대한 SQL 페이지 매김](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY 절</a>
+  * [SELECT - ORDER BY 절](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 

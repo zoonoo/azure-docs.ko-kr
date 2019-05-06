@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281780"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025163"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>예제: C#에서 Azure Search에 대한 동의어 추가
 
@@ -23,13 +23,15 @@ ms.locfileid: "61281780"
 Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*을 통해 *동의어 맵*에 정의됩니다. 이 예제에서는 추가 및 기존 인덱스와 동의어를 사용 하기 위한 필수 단계를 다룹니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 매핑 규칙을 만들고 게시하여 동의어를 사용하도록 설정 
-> * 쿼리 문자열에서 동의어 맵 참조
+> * 사용 하 여 동의어 맵 합니다 [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) 클래스입니다. 
+> * 설정 된 [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) 동의어를 통해 쿼리 확장을 지원 해야 하는 필드의 속성입니다.
+
+평소 대로 동의어 지원 필드를 쿼리할 수 있습니다. 동의어에 액세스 하는 데 필요한 추가 쿼리 구문은 없습니다.
 
 여러 동의어 맵을 만들고 모든 인덱스에 사용할 수 있는 서비스 전반 리소스로 게시한 다음 필드 수준에서 사용할 용어를 참조합니다. Azure Search에서는 쿼리 시 인덱스를 검색하는 것 외에도 용어가 쿼리에서 사용되는 필드에 지정된 경우 동의어 맵에서 조회를 수행합니다.
 
 > [!NOTE]
-> 동의어는 최신 API 및 SDK 버전에서 지원됩니다(api-버전=2017-11-11, SDK 버전 5.0.0). 지금은 Azure Portal 지원이 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
+> 동의어를 프로그래밍 방식으로 만들 수 있지만 포털에는 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -172,7 +174,7 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 예에서는 합니다 [동의어 REST API](https://aka.ms/rgm6rq) 에서 C# 를 만들고 및 매핑 규칙을 게시 한 다음 쿼리에서 동의어 맵을 호출 하는 코드입니다. 추가 정보는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 참조 설명서에서 찾을 수 있습니다.
+이 예제에서 동의어 기능을 보여 줍니다 C# 를 만들고 및 매핑 규칙을 게시 한 다음 쿼리에서 동의어 맵을 호출 하는 코드입니다. 추가 정보는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 참조 설명서에서 찾을 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Search에서 동의어를 사용하는 방법](search-synonyms.md)

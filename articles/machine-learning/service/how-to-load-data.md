@@ -10,22 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819235"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024010"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 로드 및 읽기
-
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>로드 하 고 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 읽거나
 이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 로드 하는 다양 한 방법을 알아봅니다. SDK에 대 한 참조 설명서를 참조 합니다 [개요](https://aka.ms/data-prep-sdk)합니다. SDK는 다음을 비롯한 여러 데이터 수집 기능을 지원합니다.
 
 * 구문 분석 매개 변수 유추(인코딩, 구분 기호, 헤더)를 사용하여 다양한 파일 형식에서 로드
 * 파일 로드 동안 유추를 사용한 형식 변환
 * MS SQL Server 및 Azure Data Lake Storage에 대한 연결 지원
+
+> [!Important]
+> 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)는 데이터 탐색 및 준비 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다.
 
 다음 표에서 다양 한 일반적인 파일 형식에서 데이터를 로드 하기 위한 사용 되는 함수를 보여 줍니다.
 

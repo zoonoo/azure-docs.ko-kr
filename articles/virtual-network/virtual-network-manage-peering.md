@@ -3,8 +3,8 @@ title: Azure Virtual Network 피어링 만들기, 변경 또는 삭제 | Microso
 description: 가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524050"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925910"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -112,7 +112,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 - <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 다른 지역의 가상 네트워크 피어 링은 라고도 *글로벌 VNet 피어 링*합니다. 
 - 전역 피어 링을 만들면 피어 링된 된 가상 네트워크는 모든 Azure 공용 클라우드 지역, 중국 클라우드 지역 또는 Government 클라우드 지역에서 존재할 수 있습니다. 클라우드 간에 피어 링 할 수 없습니다. 예를 들어, Azure 중국 클라우드에서 VNet에 Azure 공용 클라우드에서 VNet 피어 링 될 수 없습니다.
-- 하나의 가상 네트워크의 리소스는 전역적으로 피어 링된 된 가상 네트워크의 기본 내부 부하 분산 장치의 프런트 엔드 IP 주소를 사용 하 여 통신할 수 없습니다. 동일한 지역 내에서 기본 Load Balancer에 대 한 지원만 존재합니다. 표준 Load Balancer에 대 한 지원, VNet 피어 링 및 글로벌 VNet 피어 링에 대 한 존재합니다.
+- 하나의 가상 네트워크의 리소스는 전역적으로 피어 링된 된 가상 네트워크의 기본 내부 부하 분산 장치의 프런트 엔드 IP 주소를 사용 하 여 통신할 수 없습니다. 동일한 지역 내에서 기본 Load Balancer에 대 한 지원만 존재합니다. 표준 Load Balancer에 대 한 지원, VNet 피어 링 및 글로벌 VNet 피어 링에 대 한 존재합니다. 글로벌 VNet 피어 링을 통해 작동 하지 것입니다는 기본 load balancer를 사용 하는 서비스 나와 [여기 있습니다.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - 원격 게이트웨이 사용할 수도 있고 전역적으로 피어 링 된 가상 네트워크 및 로컬 피어 링 된 가상 네트워크 게이트웨이 전송 허용.
 - 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다. 다른 구독에서 가상 네트워크를 피어링하는 경우 두 구독이 같은 Azure Active Directory 테넌트에 연결되어 있을 수도 있고 다른 테넌트에 연결되어 있을 수도 있습니다. AD 테 넌 트가 없는 경우 [만드십시오](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)합니다. Portal에서는 다른 Azure Active Directory 테넌트에 연결된 구독의 가상 네트워크에 대한 피어링이 지원되지 않습니다. CLI, PowerShell 또는 템플릿을 사용할 수는 있습니다.
 - 피어링하는 가상 네트워크에 겹치지 않는 IP 주소 공간이 있어야 합니다.
@@ -142,7 +142,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 계정이 이전 역할 중 하나에 할당되지 않은 경우 다음 표에서 필요한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 할당되어야 합니다.
 
-| 조치                                                          | 이름 |
+| 액션(Action)                                                          | 이름 |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | 가상 네트워크 A에서 가상 네트워크 B로의 피어링을 만들어야 합니다. 가상 네트워크 A는 가상 네트워크(Resource Manager)이어야 함          |
 | Microsoft.Network/virtualNetworks/peer/action                   | 가상 네트워크 B(Resource Manager)에서 가상 네트워크 A로의 피어링을 만들어야 함                                                       |

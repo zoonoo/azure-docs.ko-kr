@@ -14,20 +14,14 @@
         - name: 애플리케이션 구성
           items:
             - name: 앱 등록
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: 앱 업데이트
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: 앱 제거
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: 앱 등록(미리 보기)
               href: quickstart-register-app.md
-            - name: 웹 API에 액세스하도록 앱 구성(미리 보기)
+            - name: 웹 API에 액세스하도록 앱 구성
               href: quickstart-configure-app-access-web-apis.md
-            - name: 웹 API를 노출하도록 앱 구성(미리 보기)
+            - name: 웹 API를 공개하도록 앱 구성
               href: quickstart-configure-app-expose-web-apis.md
-            - name: 앱에서 지원되는 계정 수정(미리 보기)
+            - name: 앱에서 지원되는 계정 수정
               href: quickstart-modify-supported-accounts.md
-            - name: 앱 제거(미리 보기)
+            - name: 앱 제거
               href: quickstart-remove-app.md
         - name: 단일 페이지 앱
           items:
@@ -81,7 +75,7 @@
               href: native-app.md
             - name: 디먼 또는 서버 애플리케이션
               href: service-to-service.md
-        - name: Authentication
+        - name: 인증
           items:
             - name: 인증 기본 사항
               href: authentication-scenarios.md
@@ -142,7 +136,7 @@
           href: authentication-national-cloud.md
     - name: 방법 가이드
       items:
-        - name: Authentication
+        - name: 인증
           items:
             - name: Single Sign-On 구성
               displayName: SSO
@@ -243,20 +237,14 @@
         - name: 애플리케이션 구성
           items:
             - name: 앱 등록
-              href: quickstart-v2-register-an-app.md
-            - name: 앱 업데이트
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: 앱 제거
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: 앱 등록(미리 보기)
               href: quickstart-register-app.md
-            - name: 웹 API에 액세스하도록 앱 구성(미리 보기)
+            - name: 웹 API에 액세스하도록 앱 구성
               href: quickstart-configure-app-access-web-apis.md
-            - name: 웹 API를 노출하도록 앱 구성(미리 보기)
+            - name: 웹 API를 공개하도록 앱 구성
               href: quickstart-configure-app-expose-web-apis.md
-            - name: 앱에서 지원되는 계정 수정(미리 보기)
+            - name: 앱에서 지원되는 계정 수정
               href: quickstart-modify-supported-accounts.md
-            - name: 앱 제거(미리 보기)
+            - name: 앱 제거
               href: quickstart-remove-app.md
         - name: 단일 페이지 앱
           items:
@@ -320,7 +308,7 @@
           href: azure-ad-endpoint-comparison.md
         - name: 애플리케이션 형식
           href: v2-app-types.md
-        - name: Authentication
+        - name: 인증
           items:
             - name: 인증 기본 사항
               href: authentication-scenarios.md
@@ -350,6 +338,8 @@
               href: active-directory-certificate-credentials.md
         - name: 애플리케이션 구성
           items:
+            - name: 앱 등록 가이드 학습
+              href: app-registrations-training-guide.md
             - name: 애플리케이션 및 서비스 주체
               href: app-objects-and-service-principals.md
             - name: 단일 테넌트 및 다중 테넌트 앱
@@ -367,7 +357,7 @@
           href: authentication-national-cloud.md
     - name: 방법 가이드
       items:
-        - name: Authentication
+        - name: 인증
           items:
             - name: 역할 클레임 구성
               href: active-directory-enterprise-app-role-management.md

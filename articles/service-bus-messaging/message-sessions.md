@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403769"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569799"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
@@ -79,8 +79,7 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 ## <a name="next-steps"></a>다음 단계
 
-- .NET Standard 라이브러리를 사용하여 Service Bus 큐에서 세션 기반 메시지를 주고 받는 [전체 예제](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient).
-- 세션 인식 메시지를 처리하기 위해 .NET Framework 클라이언트를 사용하는 [샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions). 
+- 참조를 [Microsoft.Azure.ServiceBus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) 또는 [Microsoft.ServiceBus.Messaging 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) 세션 인식 메시지를 처리 하는.NET Framework 클라이언트를 사용 하는 예입니다. 
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 

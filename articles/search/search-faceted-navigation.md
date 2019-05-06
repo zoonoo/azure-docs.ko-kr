@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291662"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023950"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Search에서 패싯 탐색을 구현하는 방법
 패싯 탐색은 검색 애플리케이션에서 자기 주도형 드릴다운 탐색을 제공하는 필터링 메커니즘입니다. '패싯 탐색'이라는 용어가 낯설 수도 있지만 아마도 이전에 사용해 보셨을 것입니다. 다음 예제와 같이 패싯 탐색은 결과를 필터링하는 데 사용되는 범주일 뿐입니다.
 
  ![Azure Search 작업 포털 데모][1]
 
-패싯 탐색은 검색의 대체 진입점입니다. 복잡한 검색 식을 직접 입력할 수 있는 편리한 대안을 제공합니다. 패싯을 사용하면 원하는 항목을 쉽게 찾을 수 있으며 항상 결과를 얻을 수 있습니다. 개발자는 패싯을 통해 검색 모음을 탐색하는 데 가장 유용한 검색 조건을 노출할 수 있습니다. 온라인 소매 애플리케이션에서는 종종 브랜드, 부서(어린이 신발), 크기, 가격, 인기도 및 등급에 대한 패싯 탐색이 작성됩니다. 
+패싯 탐색은 검색의 대체 진입점입니다. 복잡한 검색 식을 직접 입력할 수 있는 편리한 대안을 제공합니다. 패싯을 사용하면 원하는 항목을 쉽게 찾을 수 있으며 항상 결과를 얻을 수 있습니다. 개발자는 패싯을 검색 인덱스를 탐색 하기 위한 가장 유용한 검색 조건을 노출할 수 있습니다. 온라인 소매 애플리케이션에서는 종종 브랜드, 부서(어린이 신발), 크기, 가격, 인기도 및 등급에 대한 패싯 탐색이 작성됩니다. 
 
 패싯 탐색의 구현은 검색 기술에 따라 다릅니다. Azure Search에서는 이전에 스키마에서 특성을 지정한 필드를 사용하여 쿼리 시 패싯 탐색이 작성됩니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "61291662"
 ## <a name="sample-code-and-demo"></a>샘플 코드 및 데모
 이 문서에서는 구직 검색 포털을 예로 사용합니다. 이 예제는 ASP.NET MVC 애플리케이션으로 구현됩니다.
 
--   [Azure Search 구직 포털 데모](http://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
+-   [Azure Search 구직 포털 데모](https://azjobsdemo.azurewebsites.net/)에서 온라인으로 작업 데모를 살펴보고 테스트하세요.
 
 -   [GitHub의 Azure 샘플 리포지토리](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)에서 코드를 다운로드하세요.
 

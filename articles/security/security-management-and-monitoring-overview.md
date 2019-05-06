@@ -1,10 +1,10 @@
 ---
-title: Azure 보안 관리 및 모니터링 개요 | Microsoft Docs
+title: 관리 및 보안 기능-Microsoft Azure 모니터링 | Microsoft Docs
 description: 이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: barbkess
 editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597912"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872081"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
+이 문서에서는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 Azure에서 제공하는 보안 기능 및 서비스에 대한 개요를 제공합니다.
 
-Azure는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다. 문서에는 각 문서에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.
+## <a name="shared-responsibility"></a>공동 책임
 
 Microsoft 클라우드 서비스의 보안은 사용자와 Microsoft 간의 파트너십과 공동 책임입니다. Microsoft는 Azure 플랫폼과 해당 데이터 센터의 물리적 보안을 담당합니다(잠금식 배지 출입구, 펜스 및 경비원 등의 보안 보호 조치 사용). Azure는 고객의 보안, 개인 정보 및 규정 준수 요구 사항을 충족하는 소프트웨어 계층에서 강력한 수준의 클라우드 보안을 제공합니다.
 
@@ -64,7 +65,7 @@ SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합�
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication은 두 가지 이상의 확인 방법을 사용하도록 요구하는 인증 방법입니다. 사용자 로그인 및 트랜잭션에 중요한 두 번째 보안 계층을 추가합니다. 
+Azure Multi-Factor Authentication은 두 가지 이상의 확인 방법을 사용하도록 요구하는 인증 방법입니다. 사용자 로그인 및 트랜잭션에 중요한 두 번째 보안 계층을 추가합니다.
 
 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OATH 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
@@ -80,7 +81,7 @@ Azure ExpressRoute를 사용하여 연결 공급자에서 쉽게 처리된 전�
 
 * 모든 대상 간(IP VPN) 네트워크
 * 지점 간 이더넷 네트워크
-* 공동 배치 시설에서 연결 공급자를 통한 가상 교차 연결 
+* 공동 배치 시설에서 연결 공급자를 통한 가상 교차 연결
 
 ExpressRoute 연결은 공용 인터넷을 사용하지 않습니다. Express 경로는 일반적인 인터넷을 통한 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
@@ -99,7 +100,7 @@ Azure Virtual Network 게이트웨이라는 VPN Gateway는 가상 네트워크�
 
 ## <a name="privileged-identity-management"></a>권한 있는 ID 관리
 
-경우에 따라 사용자는 Azure 리소스 또는 기타 SaaS 애플리케이션에서 권한 있는 작업을 수행해야 합니다. 이는 보통 조직이 사용자에게 Azure AD(Azure Active Directory)에서 영구 권한 있는 액세스를 제공함을 의미합니다. 
+경우에 따라 사용자는 Azure 리소스 또는 기타 SaaS 애플리케이션에서 권한 있는 작업을 수행해야 합니다. 이는 보통 조직이 사용자에게 Azure AD(Azure Active Directory)에서 영구 권한 있는 액세스를 제공함을 의미합니다.
 
 조직은 사용자가 권한 있는 액세스 권한으로 수행하는 작업을 충분히 모니터링할 수 없으므로 클라우드에 호스트된 리소스의 보안 위험이 증가합니다. 또한 권한 있는 액세스가 있는 사용자 계정이 손상되면 이로 인해 조직의 전반적인 클라우드 보안에 영향을 줄 수 있습니다. Azure AD Privileged Identity Management는 권한의 노출 시간을 낮추고 사용에 대한 가시성을 높여 이러한 위험을 해결하는 데 도움이 됩니다.  
 
@@ -150,4 +151,3 @@ Intelligent Security Graph는 Microsoft 제품 및 서비스에서 실시간 위
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

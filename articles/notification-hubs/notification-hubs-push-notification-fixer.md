@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458720"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925832"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Azure Notification Hubs의 삭제 된 알림 진단
 
@@ -123,7 +123,7 @@ Notification Hubs에서 알림이 삭제의 근본 원인을 진단 하는 경�
 
 #### <a name="push-notification-service-developer-portal"></a>푸시 알림 서비스 개발자 포털 ####
 
-각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)에서 만든 솔루션을 엽니다.
+각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)에서 만든 솔루션을 엽니다.
 
 #### <a name="azure-portal"></a>Azure portal ####
 
@@ -180,7 +180,7 @@ Visual Studio에서 테스트 알림을 보낼 수도 있습니다.
 
 Visual Studio 서버 탐색기에서 Notification Hubs를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Notification hubs에 대 한 장치 등록을 보는 방법](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [Notification hubs에 대 한 장치 등록을 보는 방법](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [심층 조사: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]
 * [Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]
 
@@ -261,7 +261,7 @@ The Token obtained from the Token Provider is wrong
 
 #### <a name="programmatic-access"></a>프로그래밍 방식 액세스 ####
 
-프로그래밍 방식 액세스에 대 한 자세한 내용은 참조 하세요. [프로그래밍 방식 액세스](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100))합니다.
+프로그래밍 방식 액세스에 대 한 자세한 내용은 참조 하세요. [프로그래밍 방식 액세스](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100))합니다.
 
 > [!NOTE]
 > API를 통해 등록 및 원격 분석 액세스 내보내기 및 가져오기 같은 여러 원격 분석 관련 기능은 표준 서비스 계층에서만 사용할 수 있습니다. 이러한 기능을 무료에서 또는 기본 서비스 계층을 사용 하려는 경우 SDK를 사용 하는 경우에 예외 메시지를 얻습니다. REST Api에서 직접이 기능을 사용 하는 경우 HTTP 403 (금지 됨) 오류가 표시 됩니다.

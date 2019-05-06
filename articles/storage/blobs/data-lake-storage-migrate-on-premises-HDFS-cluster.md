@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708682"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939245"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure Data Box를 사용 하 여 Azure Storage에 온-프레미스 HDFS 저장소에서 데이터를 마이그레이션하려면
 
@@ -70,14 +70,32 @@ Data Box 장치에 온-프레미스 HDFS 저장소에서 데이터를 복사, �
     ```
     DNS에 대 한 일부 다른 메커니즘을 사용 해야 하는 Data Box 끝점을 해결할 수 있습니다.
     
-3. 셸 변수를 설정 `azjars` 를 가리키도록 합니다 `hadoop-azure` 고 `microsoft-windowsazure-storage-sdk` jar 파일입니다. 이러한 파일은 Hadoop 설치 디렉터리 (이 명령을 사용 하 여 이러한 파일이 존재 하는 경우를 확인할 수 있습니다 `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` 여기서 `<hadoop_install_dir>` Hadoop를 설치한 디렉터리) 전체 경로 사용 합니다. 
+4. 셸 변수를 설정 `azjars` 를 가리키도록 합니다 `hadoop-azure` 고 `microsoft-windowsazure-storage-sdk` jar 파일입니다. 이러한 파일은 Hadoop 설치 디렉터리 (이 명령을 사용 하 여 이러한 파일이 존재 하는 경우를 확인할 수 있습니다 `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` 여기서 `<hadoop_install_dir>` Hadoop를 설치한 디렉터리) 전체 경로 사용 합니다. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
     # azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar
     ```
 
-4. Hadoop HDFS에서 데이터 상자 Blob storage로 데이터를 복사 합니다.
+5. 데이터 복사에 사용 하려는 저장소 컨테이너를 만듭니다. 또한이 명령의 일부로 대상 폴더를 지정 해야 합니다. 이 시점에서 더미 대상 폴더를 수 있습니다.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -mkdir -p  wasb://[container_name]@[blob_service_endpoint]/[destination_folder]
+    ```
+
+6. 컨테이너 및 폴더에 만들어졌는지 확인 하는 목록 명령을 실행 합니다.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -ls -R  wasb://[container_name]@[blob_service_endpoint]/
+    ```
+
+7. 이전에 만든 컨테이너에 데이터 상자 Blob storage로 Hadoop HDFS에서 데이터를 복사 합니다. 폴더에 복사 하는 항목이 없을 경우 명령이 자동으로 만듭니다.
 
     ```
     # hadoop distcp \

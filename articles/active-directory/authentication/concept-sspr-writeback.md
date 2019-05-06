@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415007"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694824"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -85,9 +85,6 @@ ms.locfileid: "60415007"
    * Active Directory 커넥터 개체에서 MV로의 링크에는 동기화 규칙 `Microsoft.InfromADUserAccountEnabled.xxx`이 있어야 합니다.
    
    클라우드에서 호출이 들어오면 동기화 엔진은 **cloudAnchor** 특성을 사용하여 Azure Active Directory 커넥터 공간 개체를 조회합니다. 그런 후 다시 링크를 따라 MV 개체로 이동한 후 Active Directory 개체로 이동합니다. 동일한 사용자에 대해 여러 Active Directory 개체(다중 포리스트)가 있을 수 있기 때문에 동기화 엔진은 `Microsoft.InfromADUserAccountEnabled.xxx` 링크에 의존하여 정확한 개체를 선택합니다.
-
-   > [!Note]
-   > 이 논리의 결과로 비밀번호 쓰기 저장이 작동하려면 Azure AD Connect는 PDC(주 도메인 컨트롤러) 에뮬레이터와 통신할 수 있어야 합니다. 이 기능을 수동으로 사용하도록 설정하려면 PDC 에뮬레이터에 Azure AD Connect를 연결할 수 있습니다. Active Directory 동기화 커넥터의 **속성**을 마우스 오른쪽 단추로 클릭하고 **디렉터리 파티션 구성**을 선택합니다. 여기에서 **도메인 컨트롤러 연결 설정** 섹션을 찾고 **기본 설정 도메인 컨트롤러만 사용** 확인란을 선택합니다. 기본 설정된 도메인 컨트롤러가 PDC 에뮬레이터가 아닌 경우더라도 Azure AD Connect는 비밀번호 쓰기 저장의 PDC에 연결을 시도합니다.
 
 1. 사용자 계정을 찾은 후에는 적절한 Active Directory 포리스트에서 직접 암호를 재설정하려는 시도가 수행됩니다.
 1. 암호 설정 작업이 성공하면 사용자에게 암호가 변경되었음을 알려줍니다.

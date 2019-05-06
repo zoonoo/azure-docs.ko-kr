@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438540"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925684"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>설정 하는 응용 프로그램 개발자가 제어 배포 (ADCD) IBM zD & T v1
 
@@ -187,7 +187,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 다음 단계는 IBM �
 - [메인프레임 마이그레이션: 허구와 팩트](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Azure에서 IBM DB2 pureScale](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
 - [문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Azure로 마이그레이션 메인프레임 익히기](https://azure.microsoft.com/en-us/resources/demystifying-mainframe-to-azure-migration/)
+- [Azure로 마이그레이션 메인프레임 익히기](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

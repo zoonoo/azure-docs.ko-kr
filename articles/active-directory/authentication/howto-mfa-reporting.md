@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64d4c48697d38cfa5942e09cb672af37c27eede2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358806"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688682"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
 Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azure Portal을 통해 액세스하고 사용할 수 있는 다양한 보고서를 제공합니다. 다음 표에는 사용 가능한 보고서가 나와 있습니다.
 
-| 보고 | Location | 설명 |
+| 보고서 | Location | 설명 |
 |:--- |:--- |:--- |
 | 차단된 사용자 기록 | Azure AD > MFA 서버 > 사용자 차단/차단 해제 | 사용자를 차단 또는 차단 해제하도록 요청한 기록이 표시됩니다. |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
 | 온-프레미스 구성 요소의 사용량 | Azure AD > MFA 서버 > 작업 보고서 | NPS 확장, ADFS 및 MFA 서버를 통해 MFA의 전체 사용량에 대한 정보를 제공합니다. |
-| 바이패스된 사용자 기록 | Azure AD > MFA 서버 > 일회성 바이패스 | 사용자의 Multi-Factor Authentication을 바이패스하는 요청 기록을 제공합니다. |
+| 무시된 사용자 기록 | Azure AD > MFA 서버 > 일회성 바이패스 | 사용자의 Multi-Factor Authentication을 바이패스하는 요청 기록을 제공합니다. |
 | 서버 상태 | Azure AD > MFA 서버 > 서버 상태 | 계정에 연결된 Multi-Factor Authentication 서버의 상태가 표시됩니다. |
 
 ## <a name="view-mfa-reports"></a>MFA 보고서 보기
@@ -118,11 +118,13 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
 **조건부 액세스** 다음을 포함하여 로그인 시도에 영향을 미친 조건부 액세스 정책에 대한 정보를 찾아보세요.
 
 - 정책 이름
-- 컨트롤 권한 부여
+- 권한 부여 컨트롤
 - 세션 컨트롤
 - 결과
 
-## <a name="powershell-reporting"></a>PowerShell 보고
+## <a name="powershell-reporting-on-users-registered-for-mfa"></a>MFA에 등록 하는 사용자에 게 보고 하는 PowerShell
+
+먼저 했는지를 확인 합니다 [MSOnline V1 PowerShell 모듈](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) 설치 합니다.
 
 다음에 나오는 PowerShell을 사용하여 MFA에 등록한 사용자를 식별합니다.
 

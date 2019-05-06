@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60909623"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917644"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -77,7 +77,7 @@ Security Center는 Azure virtual machines (Vm), 가상 머신 확장 집합 (VMS
 
 - Microsoft Monitoring Agent 확장이 VM에 현재 설치되어 있지 않습니다.
 - VM이 실행 중인 상태입니다.
-- Windows 또는 Linux [Azure Virtual Machine 에이전트](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) 설치 됩니다.
+- Windows 또는 Linux [Azure Virtual Machine 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 설치 됩니다.
 - VM이 웹 애플리케이션 방화벽이나 차세대 방화벽과 같은 어플라이언스로 사용되지 않습니다.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?

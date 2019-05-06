@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799337"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691426"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석의 스키마 및 데이터 집계
 
@@ -35,7 +35,7 @@ ms.locfileid: "59799337"
 1. 모든 "FlowIntervalStartTime_t" 및 "FlowIntervalEndTime_t" 간에 NSG 흐름 로그는 트래픽 분석에서 처리 되기 전에 blob으로 1 분 간격으로 저장소 계정에 캡처됩니다. 
 2. 트래픽 분석의 기본 처리 간격은 60 분입니다. 따라서 집계에 대 한 저장소에서 blob을 선택 하는 트래픽 분석 60 분 마다.
 3. 동일한 원본 IP, 대상 IP, 대상 포트, NSG 이름, NSG 규칙, 흐름 방향 및 전송 있는 흐름 (TCP 또는 UDP) 프로토콜 계층 (참고: 원본 포트는 집계 제외)에서 트래픽 분석을 단일 흐름으로 clubbed 됩니다
-4. 이 단일 레코드는 데코레이팅된 (아래 섹션에서 세부 정보) 및 트래픽 분석 하 여 Log Analytics에서 수집 합니다.
+4. 이 단일 레코드는 트 데코 레이 된 (아래 섹션의 세부 정보) 및에서 수집 된 로그 분석 트래픽 Analytics.This 프로세스로 수 최대 1 시간이 최대입니다.
 5. FlowStartTime_t 필드 흐름 로그 처리 간격 "FlowIntervalStartTime_t" 및 "FlowIntervalEndTime_t"에서 맨 처음 발견 되는 이러한 집계 된 흐름 (동일한 4-튜플)를 나타냅니다. 
 6. 테이블에서 모든 리소스에 대 한 UI에 표시 된 흐름은 NSG를 표시 하는 총 흐름 하지만 로그 Anlaytics 사용자 단일 고 줄어든 레코드만 표시 됩니다. 모든 흐름을 보려면 저장소에서 참조할 수 있는 blob_id 필드를 사용 합니다. 레코드는 blob에 표시 하는 개별 흐름을 일치에 대 한 총 흐름 수입니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "59799337"
 | SrcIP_s | 원본 IP 주소 | AzurePublic 시 비어 있게 됩니다 및 ExternalPublic 흐름 |
 | DestIP_s | 대상 IP 주소  | AzurePublic 시 비어 있게 됩니다 및 ExternalPublic 흐름 |
 | VMIP_s | VM의 IP | AzurePublic 및 ExternalPublic 흐름에 사용 되는 |
-| PublicIP_S | 공용 IP 주소 | AzurePublic 및 ExternalPublic 흐름에 사용 되는 |
+| PublicIP_s | 공용 IP 주소 | AzurePublic 및 ExternalPublic 흐름에 사용 되는 |
 | DestPort_d | 대상 포트 | 트래픽을 수신 되는 포트 | 
 | L4Protocol_s  | * T <br> * U  | 전송 프로토콜입니다. T = TCP <br> U = UDP | 
 | L7Protocol_s  | 프로토콜 이름 | 대상 포트에서 파생 |
@@ -121,6 +121,7 @@ ms.locfileid: "59799337"
 1. 다른 IP 주소는 Azure에서 되지 및 처리 간격에 대 한 트래픽 분석을 사용 하는 ASC 피드의 악성으로 보고 되는 공용 IP를 azure 가상 네트워크에 속한 IP 주소 중 하나로 MaliciousFlow " FlowIntervalStartTime_t"및"FlowIntervalEndTime_t"입니다. 
 1. 다른 IP 주소로 RFC 1918에 정의 된 대로 개인 IP 범위에 속하는 고객 소유 사이트 또는 Azure Virtual Network 트래픽 분석 하 여 매핑할 수 없습니다 하는 동안 Azure Virtual Network에 속한 IP 주소 중 하나 UnknownPrivate-합니다.
 1. 알 수 없음-IP 중 하나에 매핑할 수 없습니다 Azure에서 고객 토폴로지를 사용 하 여 흐름에서 주소 뿐만 아니라 온-프레미스 (사이트).
+1. 일부 필드 이름은 _s _d에 추가 됩니다. 이러한 수행을 나타내지 원본 및 대상입니다.
 
 ### <a name="next-steps"></a>다음 단계
 자주 묻는 질문과 대답을 참조 하세요 [트래픽 분석 FAQ](traffic-analytics-faq.md) 기능에 대 한 세부 정보를 보려면 [트래픽 분석 설명서](traffic-analytics.md)

@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344548"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021777"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
 
-인식 검색은 데이터를 추출하고 보강하여 Azure Search에서 검색 가능하게 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술 집합은 [미리 정의된 기술](cognitive-search-predefined-skills.md) 또는 사용자 정의 기술을 사용할 수 있습니다(자세한 내용은 [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)를 참조합니다).
+인식 검색은 데이터를 추출하고 보강하여 Azure Search에서 검색 가능하게 합니다. 인덱싱 동안 참조된 *기술 집합*에 결합된 추출 및 보강 단계를 *인식 기술*이라고 합니다. 기술 집합을 사용할 수 있습니다 [기본 제공 기술을](cognitive-search-predefined-skills.md) 또는 사용자 지정 기술 (참조 [예제: 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md) 자세한).
 
 이 문서에서는 사용하려는 기술에 대한 보강 파이프라인을 만드는 방법을 알아 봅니다. 기술 집합은 Azure Search [인덱서](search-indexer-overview.md)에 첨부되어 있습니다. 이 문서에서 다루는 파이프라인 디자인의 한 부분은 기술 집합 자체를 생성하는 것입니다. 
 
@@ -57,7 +57,7 @@ ms.locfileid: "61344548"
 기술 집합은 기술의 배열로서 정의됩니다. 각 기술은 해당 입력의 원본 및 생성된 출력의 이름을 정의합니다. [기술 집합 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-skillset)를 사용하여 이전 다이어그램에 해당하는 기술 집합을 정의할 수 있습니다. 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -69,7 +69,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -138,11 +138,11 @@ Content-Type: application/json
 }
 ```
 
-기술 집합의 다음 부분은 기술 배열입니다. 각 기술을 보강의 기본 형식으로 생각할 수 있습니다. 각 기술은 이 보강 파이프라인에서 작은 작업을 수행합니다. 각 기술은 입력(또는 입력의 집합)을 사용하고 일부 출력을 반환합니다. 다음 몇 개 섹션은 입력 및 출력 참조를 통해 기술을 함께 연결하여 미리 정의된 사용자 지정 기술을 지정하는 방법에 집중합니다. 입력은 원본 데이터 또는 다른 기술에서 올 수 있습니다. 출력은 검색 인덱스의 필드에 매핑되거나 다운스트림 기술에 대한 입력으로 사용될 수 있습니다.
+기술 집합의 다음 부분은 기술 배열입니다. 각 기술을 보강의 기본 형식으로 생각할 수 있습니다. 각 기술은 이 보강 파이프라인에서 작은 작업을 수행합니다. 각 기술은 입력(또는 입력의 집합)을 사용하고 일부 출력을 반환합니다. 다음 섹션에서는 몇 가지 기본 제공 및 사용자 지정 기술, 입력 및 출력 참조를 통해 기술을 함께 연결을 지정 하는 방법에 집중 합니다. 입력은 원본 데이터 또는 다른 기술에서 올 수 있습니다. 출력은 검색 인덱스의 필드에 매핑되거나 다운스트림 기술에 대한 입력으로 사용될 수 있습니다.
 
-## <a name="add-predefined-skills"></a>미리 정의된 기술 추가
+## <a name="add-built-in-skills"></a>기본 제공 기술을 추가합니다
 
-첫 번째 기술인 미리 정의된 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)을 살펴보겠습니다.
+기본 제공 되는 첫 번째 기술에 살펴보겠습니다 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
@@ -165,11 +165,11 @@ Content-Type: application/json
     }
 ```
 
-* 모든 미리 정의된 기술에는 `odata.type`, `input` 및 `output` 속성이 있습니다. 기술 관련 속성은 해당 기술에 적용 가능한 추가 정보를 제공합니다. 엔터티 인식의 경우 `categories`은 미리 학습된 모델이 인식할 수 있는 엔터티 형식의 고정 집합 중 한 엔터티입니다.
+* 모든 기본 제공 기술에 `odata.type`하십시오 `input`, 및 `output` 속성입니다. 기술 관련 속성은 해당 기술에 적용 가능한 추가 정보를 제공합니다. 엔터티 인식의 경우 `categories`은 미리 학습된 모델이 인식할 수 있는 엔터티 형식의 고정 집합 중 한 엔터티입니다.
 
-* 각 기술에는 ```"context"```이 있어야 합니다. 컨텍스트는 작업을 수행할 수준을 나타냅니다. 위의 기술에서 컨텍스트는 전체 문서로서 명명된 엔터티 인식 기술이 문서당 한 번씩 호출됩다는 의미입니다. 출력은 또한 해당 수준에서 생성됩니다. 보다 구체적으로, ```"organizations"```은 ```"/document"```의 구성원으로 생성됩니다. 다운스트림 기술에서 새로 만든 이 정보를 ```"/document/organizations"```로 언급할 수 있습니다.  ```"context"``` 필드가 명시적으로 설정되지 않은 경우 기본 컨텍스트는 문서입니다.
+* 각 기술에는 ```"context"```이 있어야 합니다. 컨텍스트는 작업을 수행할 수준을 나타냅니다. 위의 기술에는 컨텍스트가 엔터티 인식 기술 문서 마다 한 번씩 호출 되는 의미 하는 전체 문서를 합니다. 출력은 또한 해당 수준에서 생성됩니다. 보다 구체적으로, ```"organizations"```은 ```"/document"```의 구성원으로 생성됩니다. 다운스트림 기술에서 새로 만든 이 정보를 ```"/document/organizations"```로 언급할 수 있습니다.  ```"context"``` 필드가 명시적으로 설정되지 않은 경우 기본 컨텍스트는 문서입니다.
 
-* 기술에는 원본 입력이 ```"/document/content"```로 설정된 "텍스트"라는 하나의 입력이 있습니다. (명명된 엔터티 인식) 기술은 Azure BLOB 인덱서에서 만든 표준 필드인 각 문서의 *콘텐츠* 필드에서 작동합니다. 
+* 기술에는 원본 입력이 ```"/document/content"```로 설정된 "텍스트"라는 하나의 입력이 있습니다. 기술 (엔터티 인식)에서 작동 합니다 *콘텐츠* Azure blob 인덱서를에서 만든 표준 필드는 각 문서의 필드. 
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
@@ -229,13 +229,13 @@ Content-Type: application/json
     }
 ```
 
-이 정의는 보강 절차의 일부로 웹 API를 호출하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)입니다. 명명된 엔터티 인식에서 식별한 각 조직의 경우 이 기술은 웹 API가 해당 조직에 대한 설명을 찾도록 호출합니다. 웹 API를 호출할 때 및 받은 정보를 이동하는 방법의 오케스트레이션은 보강 엔진에서 내부적으로 처리합니다. 그러나 이 사용자 지정 API를 호출하는 데 필요한 초기화는 JSON(예: uri, httpHeaders 및 예상 입력)에서 제공되어야 합니다. 보강 파이프라인에 대한 사용자 지정 웹 API를 만드는 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)을 참조합니다.
+이 정의는 보강 절차의 일부로 웹 API를 호출하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)입니다. 이 기술 엔터티 인식 하 여 식별 된 각 조직에 대 한 web API는 조직에 대 한 설명을 찾을 수를 호출 합니다. 웹 API를 호출할 때 및 받은 정보를 이동하는 방법의 오케스트레이션은 보강 엔진에서 내부적으로 처리합니다. 그러나 이 사용자 지정 API를 호출하는 데 필요한 초기화는 JSON(예: uri, httpHeaders 및 예상 입력)에서 제공되어야 합니다. 보강 파이프라인에 대한 사용자 지정 웹 API를 만드는 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)을 참조합니다.
 
 별표를 사용하여 "컨텍스트" 필드가 ```"/document/organizations/*"```로 설정되는 것은 보강 단계가 ```"/document/organizations"```에서 *각 조직에 대해* 호출된다는 의미입니다. 
 
 회사 설명의 경우 출력은 식별된 각 조직에 대해 생성됩니다. 다운스트림 단계에서 설명을 언급할 때(예: 핵심 구문 추출) 그렇게 하려면 경로 ```"/document/organizations/*/description"```을 사용합니다. 
 
-## <a name="enrichments-create-structure-out-of-unstructured-information"></a>보강은 구조화되지 않은 정보에서 구조를 만듬
+## <a name="add-structure"></a>구조를 추가 합니다.
 
 기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예제를 살펴보세요.
 
@@ -245,9 +245,38 @@ Content-Type: application/json
 
 ![샘플 출력 구조](media/cognitive-search-defining-skillset/enriched-doc.png "샘플 출력 구조")
 
-이 구조체는 내부용입니다. 실제로 코드에서 이 그래프를 검색할 수 없습니다.
+지금까지이 구조에 내부 전용, 메모리 내 전용 및 Azure Search 인덱스에만 사용 되었습니다. 기술 저장소의 추가 검색 외부에서 사용할 모양의 강화를 저장 하는 방법을 제공 합니다.
+
+## <a name="add-a-knowledge-store"></a>기술 저장소 추가
+
+[기술 저장소](knowledge-store-concept-intro.md) 풍부한 문서를 저장 하기 위한 Azure Search의 미리 보기 기능입니다. 사용자가 만든 기술 저장소는 Azure storage 계정에 지는 풍부한 데이터 도착 위치 리포지토리입니다. 
+
+기술 저장소 정의 기술 집합에 추가 됩니다. 전체 프로세스의 연습을 참조 하세요 [지식 저장소를 사용 하 여 시작 하는 방법을](knowledge-store-howto.md)합니다.
+
+```json
+"knowledgeStore": {
+  "storageConnectionString": "<an Azure storage connection string>",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
+        {
+          "storageContainer": "containername",
+          "source": "/document/EnrichedShape/",
+          "key": "/document/Id"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Blob storage에서 JSON 문서 또는 유지 하는 계층 관계를 사용 하 여 테이블로 풍부한 문서를 저장할 수 있습니다. 기술 기술 중 하나에서 출력 프로젝션에 대 한 입력으로 제공 될 수 있습니다. 데이터에 특정 프로젝트를 찾으려는 경우 셰이프를 업데이트 [쉐이 퍼 기술](cognitive-search-skill-shaper.md) 복합 형식을 사용 하 여에 대 한 모델 이제 수 있습니다. 
 
 <a name="next-step"></a>
+
 ## <a name="next-steps"></a>다음 단계
 
 보강 파이프라인 및 기술 집합에 익숙하므로 [기술 집합에서 주석을 참조하는 방법](cognitive-search-concept-annotations-syntax.md) 또는 [ 인덱스에서 필드에 출력을 매핑하는 방법](cognitive-search-output-field-mapping.md)을 계속 사용합니다. 

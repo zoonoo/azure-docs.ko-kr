@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258363"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918946"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>백업 및 PowerShell 사용 하 여 Azure 파일 복원
 
@@ -241,7 +241,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 사용 하 여 [백업 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) 보호 된 Azure 파일 공유에 대 한 주문형 백업을 실행할 합니다.
 
 1. 검색을 사용 하 여 백업 데이터를 보유 하는 자격 증명 모음에서 컨테이너에서 저장소 계정 및 파일 공유 [Get AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer)합니다.
-2. 백업 작업을 시작 하려면 사용 하 여 VM에 대 한 내용은 받아야 [Get AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem)합니다.
+2. 백업 작업을 시작하려면 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem)을 사용하여 VM에 대한 정보를 가져옵니다.
 3. 사용 하 여 주문형 백업을 실행할[백업 AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem)합니다.
 
 다음과 같이 주문형 백업을 실행 합니다.
@@ -317,7 +317,7 @@ BackupManagementType : AzureStorage
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Azure 파일 공유를 대체 위치로 복원
 
-사용 합니다 [복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) 선택한 복구 지점으로 복원 합니다. 대체 위치를 식별 하려면 이러한 매개 변수를 지정 합니다. 
+사용 합니다 [복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) 선택한 복구 지점으로 복원 합니다. 대체 위치를 식별 하려면 이러한 매개 변수를 지정 합니다. 
 
 - **TargetStorageAccountName**: 백업된 콘텐츠가 복원되는 스토리지 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
 - **TargetFileShareName**: 백업된 콘텐츠가 복원되는 대상 스토리지 계정 내의 파일 공유입니다.
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Azure 파일을 대체 위치로 복원
 
-사용 합니다 [복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) 선택한 복구 지점으로 복원 합니다. 대체 위치를 확인 하 고 고유 하 게 복원 하려는 파일을 식별 하려면 이러한 매개 변수를 지정 합니다.
+사용 합니다 [복원 AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) 선택한 복구 지점으로 복원 합니다. 대체 위치를 확인 하 고 고유 하 게 복원 하려는 파일을 식별 하려면 이러한 매개 변수를 지정 합니다.
 
 * **TargetStorageAccountName**: 백업된 콘텐츠가 복원되는 스토리지 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
 * **TargetFileShareName**: 백업된 콘텐츠가 복원되는 대상 스토리지 계정 내의 파일 공유입니다.

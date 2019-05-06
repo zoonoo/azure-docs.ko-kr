@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: 기본 설정 관리
           href: howto-manage-preferences.md
+        - name: 라이브 채팅 토글
+          href: howto-show-hide-chat.md
 - name: 관련 항목
   items:
     - name: 솔루션

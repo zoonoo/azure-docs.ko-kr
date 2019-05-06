@@ -143,17 +143,6 @@
             - name: 인덱싱 정책
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: 변경 피드
-          items:
-            - name: 개요
-              href: change-feed.md
-            - name: 변경 피드 읽기
-              href: read-change-feed.md
-            - name: 변경 피드 프로세서
-              href: change-feed-processor.md
-            - name: Azure Functions 트리거
-              displayName: change feed
-              href: change-feed-functions.md
         - name: TTL(Time to live)
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: 인덱싱 정책 관리
           href: how-to-manage-indexing-policy.md
+        - name: SQL 하위 쿼리 예제
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: 피드 변경
       items:
         - name: 여러 Azure Cosmos DB 트리거

@@ -70,41 +70,10 @@
           href: analysis-services-deploy.md
         - name: REST API를 사용하여 새로 고침
           href: analysis-services-async-refresh.md
-        - name: Visual Studio에서 데이터 모델링 - Adventure Works(1400) 자습서
-          href: tutorials/aas-adventure-works-tutorial.md
-          items:
-            - name: 1 - 테이블 형식 모델 프로젝트 만들기
-              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-            - name: 2 - 데이터 가져오기
-              href: tutorials/aas-lesson-2-get-data.md
-            - name: 3 - 날짜 테이블로 표시
-              href: tutorials/aas-lesson-3-mark-as-date-table.md
-            - name: 4 - 관계 만들기
-              href: tutorials/aas-lesson-4-create-relationships.md
-            - name: 5 - 계산된 열 만들기
-              href: tutorials/aas-lesson-5-create-calculated-columns.md
-            - name: 6 - 측정값 만들기
-              href: tutorials/aas-lesson-6-create-measures.md
-            - name: 7 - 핵심 성과 지표 만들기
-              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-            - name: 8 - 큐브 뷰 만들기
-              href: tutorials/aas-lesson-8-create-perspectives.md
-            - name: 9 - 계층 구조 만들기
-              href: tutorials/aas-lesson-9-create-hierarchies.md
-            - name: 10 - 파티션 만들기
-              href: tutorials/aas-lesson-10-create-partitions.md
-            - name: 11 - 역할 만들기
-              href: tutorials/aas-lesson-11-create-roles.md
-            - name: 12 - Excel에서 분석
-              href: tutorials/aas-lesson-12-analyze-in-excel.md
-            - name: 13 - 배포
-              href: tutorials/aas-lesson-13-deploy.md
-            - name: 추가 단원 - 세부 정보 행
-              href: tutorials/aas-supplemental-lesson-detail-rows.md
-            - name: 추가 단원 - 동적 보안
-              href: tutorials/aas-supplemental-lesson-dynamic-security.md
-            - name: 추가 단원 - 불규칙한 계층 구조
-              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+        - name: Logic Apps를 사용하여 새로 고침
+          href: analysis-services-refresh-logic-app.md
+        - name: Azure Automation을 사용하여 새로 고침
+          href: analysis-services-refresh-azure-automation.md
     - name: 보안
       items:
         - name: 데이터베이스 사용자 관리

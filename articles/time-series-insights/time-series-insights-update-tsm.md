@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: eeab01146c938ec118deae08a30af85af4186a2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507827"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714068"
 ---
 # <a name="time-series-model"></a>시계열 모델
 
@@ -203,9 +203,9 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Time Series Insights 미리 보기 스토리지 및 수신](./time-series-insights-update-storage-ingress.md)에 대해 알아보세요.
+- [Azure Time Series Insights 미리 보기 스토리지 및 수신](./time-series-insights-update-storage-ingress.md)에 대해 알아보세요.
 
-새로운 [시계열 모델](https://docs.microsoft.com/rest/api/time-series-insights/preview-model)에 대해 알아보세요.
+- 새로운 [시계열 모델](https://docs.microsoft.com/rest/api/time-series-insights/preview-model)에 대해 알아보세요.
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373626"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569609"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
 
@@ -159,7 +159,7 @@ CPU 성능의 그리드 시각화를 제공하기 위해 통합 문서로 가져
 
   |         |          |
    | ---------------- |:-----|
-   | **텍스트 모드**    | 사용자가 텍스트 상자를 편집하고 필요에 따라 쿼리를 제공하여 기본 값을 입력할 수 있습니다. |
+   | **Text**    | 사용자가 텍스트 상자를 편집하고 필요에 따라 쿼리를 제공하여 기본 값을 입력할 수 있습니다. |
    | **드롭다운** | 사용자는 값 집합 중에서 선택합니다. |
    | **시간 범위 선택기**| 사용자는 미리 정의된 시간 범위 값 집합 중에서 선택하거나 사용자 지정 시간 범위 중에서 선택합니다.|
    | **리소스 선택기** | 사용자는 통합 문서에 대해 선택한 리소스 중에서 선택합니다.|
@@ -206,7 +206,7 @@ datatable( column1:string, column2:string )
 
 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/011-data-table.png)
 
-적용 가능한 예제는 이름별로 국가 집합에서 선택한 드롭다운을 사용합니다.
+더 적용 하는 예제는 이름으로 국가/지역 집합에서 선택 드롭다운을 사용 합니다.
 
 ```
 customEvents

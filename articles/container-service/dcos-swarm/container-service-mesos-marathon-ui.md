@@ -55,7 +55,7 @@ Marathon을 사용하여 새 컨테이너를 배포하려면, **애플리케이�
 | Image |nginx |
 | 네트워크 |Bridged |
 | 호스트 포트 |80 |
-| 프로토콜 |TCP |
+| Protocol |TCP |
 
 ![새 애플리케이션 UI--일반](./media/container-service-mesos-marathon-ui/dcos4.png)
 

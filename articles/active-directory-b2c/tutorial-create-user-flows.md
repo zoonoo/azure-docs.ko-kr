@@ -3,19 +3,19 @@ title: Tutorial - 사용자 흐름 만들기 - Azure Active Directory B2C | Micr
 description: Azure Portal를 사용하여 Azure Active Directory B2C에서 애플리케이션의 사용자 흐름을 만드는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b76d56b17973c04992a8855917c814ced649bd0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418843"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711514"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 

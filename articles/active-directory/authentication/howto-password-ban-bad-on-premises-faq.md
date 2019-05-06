@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358160"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917652"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -42,7 +42,7 @@ ms.locfileid: "60358160"
 
 관리자가 대체는 계정의 암호를 새 암호를 사용 하 여 예를 들어 Active Directory 사용자 및 컴퓨터 관리 도구를 사용 하 여 때 (암호 재설정을 라고도 함) 암호 집합을 표시 합니다. 이 작업을 수행 하려면 높은 수준의 권한 (일반적으로 도메인 관리자), 했으며 일반적으로 작업을 수행 하는 사람에 이전 암호를 알고 있어야 합니다. 지원 센터 시나리오 종종 그렇게 예를 들어 경우 암호를 잊어버린 경우에 사용자를 지원 합니다. 암호는 새로운 사용자 계정 암호를 사용 하 여 처음으로 만들어질 때 이벤트를 설정도 표시 됩니다.
 
-암호 유효성 검사 정책을 암호 변경 또는 집합 수행 되는 여부에 관계 없이 동일 하 게 동작 합니다. 암호 변경 여부를 사용자에 게 알리는 다른 이벤트를 기록 하는 Azure AD 암호 보호 DC 에이전트 서비스를 않습니다 또는 설정 작업이 완료 되었습니다.  참조 [Azure AD 암호 보호 모니터링 및 로깅](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)합니다.
+암호 유효성 검사 정책을 암호 변경 또는 집합 수행 되는 여부에 관계 없이 동일 하 게 동작 합니다. 암호 변경 여부를 사용자에 게 알리는 다른 이벤트를 기록 하는 Azure AD 암호 보호 DC 에이전트 서비스를 않습니다 또는 설정 작업이 완료 되었습니다.  참조 [Azure AD 암호 보호 모니터링 및 로깅](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)합니다.
 
 **Q: Azure AD 암호 보호는 다른 암호 필터 기반 제품과 함께 설치할 수 있나요?**
 

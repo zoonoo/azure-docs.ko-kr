@@ -51,7 +51,7 @@
         - name: ID 거버넌스
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
-        - name: 응용 프로그램 관리
+        - name: 애플리케이션 관리
           tocHref: /azure/active-directory/manage-apps/
           topicHref: /azure/active-directory/manage-apps/
           items:
@@ -105,6 +105,9 @@
     - name: Automation
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure Blockchain 서비스
+      tocHref: /azure/blockchain/service
+      topicHref: /azure/blockchain/service
     - name: Azure Databricks
       tocHref: /azure/azure-databricks/
       topicHref: /azure/azure-databricks/
@@ -145,6 +148,9 @@
     - name: Azure NetApp Files
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
+    - name: CloudSimple의 Azure VMware 솔루션
+      tocHref: /azure/vmware-cloudsimple/
+      topicHref: /azure/vmware-cloudsimple/
     - name: Azure Portal 사용자 지정
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
@@ -476,6 +482,10 @@
         - name: 서비스
           tocHref: /azure/machine-learning/service
           topicHref: /azure/machine-learning/service/
+          items:
+            - name: 알고리즘 및 모듈 참조
+              tocHref: /azure/machine-learning/algorithm-module-reference
+              topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
         - name: 스튜디오
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/
@@ -532,6 +542,9 @@
     - name: Notification Hubs
       tocHref: /azure/notification-hubs/
       topicHref: /azure/notification-hubs/
+    - name: 공개 데이터 세트
+      tocHref: /azure/open-datasets/
+      topicHref: /azure/open-datasets/
     - name: Operations Management Suite
       tocHref: /azure/operations-management-suite/
       topicHref: /azure/operations-management-suite/

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
-ms.openlocfilehash: f4e76121f7815702270d6601413ff7a4c2c25839
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270305"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692229"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Atlassian Cloud 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "59270305"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 >
-> 이 커넥터는 현재 공개 미리 보기로 제공 됩니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [사용 특약 조건의 Microsoft Azure 미리 보기에 대 한](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
+> 이 커넥터는 현재 공개 미리 보기로 있습니다. 일반적인 Microsoft Azure 사용 약관 미리 보기 기능에 대 한 자세한 내용은 참조 하세요. [사용 특약 조건의 Microsoft Azure 미리 보기에 대 한](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,7 +37,7 @@ ms.locfileid: "59270305"
 
 * Azure AD 테넌트
 * [Atlassian Cloud 테 넌 트](https://www.atlassian.com/licensing/cloud)
-* 관리자 권한으로 Atlassian Cloud의 사용자 계정.
+* 관리자 권한으로 Atlassian Cloud에서 사용자 계정.
 
 > [!NOTE]
 > Azure AD 프로 비전 통합에 의존 합니다 **Atlassian Cloud SCIM API**, Atlassian Cloud 팀에 사용할 수 있는 합니다.

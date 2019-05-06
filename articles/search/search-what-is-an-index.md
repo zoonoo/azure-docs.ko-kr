@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308247"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024438"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search에서 기본 인덱스 만들기
 
@@ -54,7 +54,7 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
 
 아래 그림과 같이 Azure Search 인덱스는 다음 요소로 구성됩니다. 
 
-일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에는 [제안](#suggesters), [점수 매기기 프로필](#scoring-profiles), 사용자 지정을 지원하는 구성 요소 파트가 있는 [분석기](#analyzers), [CORS](#cors) 옵션 등이 있습니다.
+일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에 포함 [suggesters](#suggesters)를 [점수 매기기 프로필](#scoring-profiles)합니다 [분석기](#analyzers) 사용자 지정을 지원 하도록 구성 요소를 사용 하 여 [CORS](#cors) 및 [암호화 키](#encryption-key) 옵션입니다.
 
 ```json
 {
@@ -126,6 +126,15 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -153,7 +162,7 @@ Azure Search의 [지원되는 데이터 형식에 대한 자세한 내용은 여
 ### <a name="index-attributes"></a>인덱스 특성
 | 특성 | 설명 |
 | --- | --- |
-| *Key* |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
+| *키* |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
 | *조회 가능* |검색 결과에서 필드를 반환할 수 있는지 여부를 지정합니다. |
 | *필터링 가능* |필드를 필터 쿼리에 사용하도록 허용합니다. |
 | *정렬 가능* |쿼리에서 이 필드를 사용하여 검색 결과를 정렬할 수 있습니다. |
@@ -166,7 +175,7 @@ Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/
 
 선택하는 특성은 스토리지에 영향을 줍니다. 다음 스크린샷은 다양한 특성을 조합한 인덱스 스토리지 패턴을 보여줍니다.
 
-인덱스는 포털에서 인덱싱 및 쿼리할 수 있는 [기본 제공 realestate 샘플](search-get-started-portal.md) 데이터 원본을 기반으로 합니다. 인덱스 스키마는 표시되지 않지만, 인덱스 이름을 보고 특성을 유추할 수 있습니다. 예를 들어 *realestate-searchable* 인덱스에서는 **searchable** 특성만 선택되었고 그 외에는 아무 것도 선택되지 않았으며, *realestate-retrievable* 인덱스에서는 **retrievable** 특성만 선택되었고 그 외에는 아무 것도 선택되지 않았습니다.
+인덱스를 기반으로 합니다 [기본 제공 부동산 샘플](search-get-started-portal.md) 인덱싱할 수 있는 데이터 원본 및 포털에서 쿼리 합니다. 인덱스 스키마는 표시되지 않지만, 인덱스 이름을 보고 특성을 유추할 수 있습니다. 예를 들어 *realestate-searchable* 인덱스에서는 **searchable** 특성만 선택되었고 그 외에는 아무 것도 선택되지 않았으며, *realestate-retrievable* 인덱스에서는 **retrievable** 특성만 선택되었고 그 외에는 아무 것도 선택되지 않았습니다.
 
 ![특성 선택에 따른 인덱스 크기](./media/search-what-is-an-index/realestate-index-size.png "특성 선택에 따른 인덱스 크기")
 
@@ -182,7 +191,7 @@ Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/
 
 제안기에 추가된 필드는 검색어 미리 입력 기능을 빌드하는 데 사용됩니다. 모든 검색어는 인덱싱 중에 생성되어 별도로 저장됩니다. 제안기 구조체를 만드는 방법에 대한 자세한 내용은 [제안기 추가](index-add-suggesters.md)를 참조하세요.
 
-## <a name="scoring-profiles"></a>채점 프로필
+## <a name="scoring-profiles"></a>점수 매기기 프로필
 
 [점수 매기기 프로필](index-add-scoring-profiles.md)은 검색 결과에서 더 위쪽에 표시할 항목을 제어할 수 있는 사용자 지정 채점 동작을 정의하는 스키마 섹션입니다. 점수 매기기 프로필은 필드 가중치와 함수로 구성됩니다. 사용하려면 쿼리 문자열에서 이름별로 프로필을 지정합니다.
 
@@ -203,6 +212,10 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
   모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. 프로덕션 검색 서비스에는 권장되지 않지만 개발 및 디버깅에 유용한 경우가 많습니다.
 
 + **maxAgeInSeconds**(선택 사항): 브라우저는 이 값을 사용하여 CORS 실행 전 응답을 캐시할 기간(초)을 결정합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
+
+## <a name="encryption-key"></a>암호화 키
+
+Microsoft 관리 키를 사용 하 여 기본적으로 모든 Azure search 인덱스를 암호화 하는 동안 인덱스를 사용 하 여 암호화를 구성할 수 있습니다 **고객 관리 키** 키 자격 증명 모음에 있습니다. 자세한 내용은 참조 하세요 [Azure Search에서 암호화 키를 관리](search-security-manage-encryption-keys.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

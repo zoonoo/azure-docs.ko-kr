@@ -88,10 +88,10 @@ Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage �
 | (선택 사항) AADClientCertificate | thumbprint | 문자열 |
 | EncryptionOperation | EnableEncryption | 문자열 | 
 | KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | 문자열 |
-| KeyEncryptionKeyURL | URL | 문자열 |
+| KeyEncryptionKeyURL | url | 문자열 |
 | KeyVaultResourceId | 리소스 uri | 문자열 |
 | KekVaultResourceId | 리소스 uri | 문자열 |
-| KeyVaultURL | URL | 문자열 |
+| KeyVaultURL | url | 문자열 |
 | SequenceVersion | uniqueidentifier | 문자열 |
 | VolumeType | OS, Data, All | 문자열 |
 

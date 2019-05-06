@@ -3,19 +3,19 @@ title: Azure Active Directory B2C 코드 샘플 | Microsoft Docs
 description: Azure Active Directory B2C 모바일, 데스크톱, 웹 및 단일 페이지 애플리케이션에 대한 샘플 코드입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8f736c6f48251c4a6cf312b4945e48b73d807db1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ba3994f49f1d73aad1a5cf8211063f41d224c3d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160800"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704076"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 

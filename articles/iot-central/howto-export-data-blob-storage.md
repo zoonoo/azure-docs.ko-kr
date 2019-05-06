@@ -4,16 +4,16 @@ description: Azure IoT Central 애플리케이션에서 Azure Blob Storage에 �
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/07/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f6e44b21a2a2e174ffa49073fdeb8cc96910a69e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295082"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682026"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 

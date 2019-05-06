@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 4/23/2019
 ms.author: b-juche
-ms.openlocfilehash: fc748ee993855c77f25f9b115ea472df4281acec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764367"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719427"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 만들기
 
@@ -44,7 +44,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
-        이름은 각 리소스 그룹 내에서 고유해야 합니다. 3자 이상이어야 합니다.  영숫자 문자를 사용할 수 있습니다.
+        볼륨 이름을 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 영숫자 문자를 사용할 수 있습니다.
 
     * **용량 풀**  
         만들 볼륨 용량 풀을 지정 합니다.
@@ -72,7 +72,9 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 4. 클릭 **프로토콜**을 선택한 후 **NFS** 볼륨에 대 한 프로토콜 유형으로 합니다.   
     * 지정 된 **file-path** 새 볼륨에 대 한 내보내기 경로 만드는 데 사용할 합니다. 내보내기 경로는 볼륨을 탑재하고 액세스하는 데 사용됩니다.
 
-        파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다.  
+        파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다. 
+
+        파일 경로 각 구독 및 각 지역 내에서 고유 해야 합니다. 
 
     * 필요에 따라 [NFS 볼륨에 대 한 내보내기 정책을 구성 합니다.](azure-netapp-files-configure-export-policy.md)
 
@@ -89,6 +91,33 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 Azure NetApp 파일은 SMBv3 볼륨을 지원합니다. SMB 볼륨을 추가 하기 전에 Active Directory 연결을 생성 해야 합니다. 
 
 ### <a name="create-an-active-directory-connection"></a>Active Directory 연결 만들기
+
+1. 다음 requiements 충족 하는지 확인 합니다. 
+
+    * 사용할 관리자 계정을 지정 하는 조직 구성 단위 (OU) 경로에 컴퓨터 계정을 만들 수 있어야 합니다.
+    * 적절 한 포트를 해당 하는 Windows Active Directory (AD) 서버에 열려 있어야 합니다.  
+        필요한 포트는 다음과 같습니다. 
+
+        |     서비스           |     포트     |     Protocol     |
+        |-----------------------|--------------|------------------|
+        |    AD 웹 서비스    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    N/A       |    Echo Reply    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    NetBIOS 이름       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    보안 LDAP        |    636       |    TCP           |
+        |    보안 LDAP        |    3269      |    TCP           |
+        |    w32time            |    123       |    UDP           |
+
 
 1. NetApp 계정에서 클릭 **Active Directory 연결**, 클릭 **조인**합니다.  
 
@@ -134,12 +163,7 @@ Azure NetApp 파일은 SMBv3 볼륨을 지원합니다. SMB 볼륨을 추가 하
     * **볼륨 이름**      
         만들고 있는 볼륨의 이름을 지정합니다.   
 
-        이름은 각 리소스 그룹 내에서 고유해야 합니다. 3자 이상이어야 합니다.  영숫자 문자를 사용할 수 있습니다.
-
-    * **파일 경로**  
-        새 볼륨에 대한 내보내기 경로를 만드는 데 사용할 파일 경로를 지정합니다. 내보내기 경로는 볼륨을 탑재하고 액세스하는 데 사용됩니다.   
-     
-        파일 경로 이름에는 문자, 숫자 및 하이픈("-")만 포함할 수 있습니다. 이름은 16자~40자여야 합니다.  
+        볼륨 이름을 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 영숫자 문자를 사용할 수 있습니다.
 
     * **용량 풀**  
         만들 볼륨 용량 풀을 지정 합니다.

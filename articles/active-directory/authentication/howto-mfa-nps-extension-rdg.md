@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44cd18be888b18e8b045114b420ddd48ec909e3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361033"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873418"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -37,7 +37,7 @@ NPS(네트워크 정책 및 액세스 서비스)는 조직에 다음과 같은 �
 
 일반적으로 조직 간소화 하 고 VPN 정책 관리를 중앙 집중화 NPS (RADIUS)를 사용 합니다. 그러나 많은 조직에서는 NPS를 사용하여 RD CAP(원격 데스크톱 연결 권한 부여 정책) 관리를 단순화하고 중앙 집중화합니다.
 
-또한 조직에서는 NPS를 Azure MFA와 통합하여 보안을 향상시키고 높은 수준의 규정을 제공할 수도 있습니다. 이렇게 하면 사용자가 원격 데스크톱 게이트웨이에 로그인하기 위한 2단계 인증을 설정할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 정보와 함께 사용자 이름/암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하며, 휴대폰 번호, 유선 전화 번호, 모바일 장치의 애플리케이션 등과 같이 쉽게 복제할 수 없습니다. 지원되는 인증 방법에 대한 자세한 내용은 [사용자가 사용할 수 있는 인증 방법을 결정](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use) 섹션을 참조하세요.
+또한 조직에서는 NPS를 Azure MFA와 통합하여 보안을 향상시키고 높은 수준의 규정을 제공할 수도 있습니다. 이렇게 하면 사용자가 원격 데스크톱 게이트웨이에 로그인하기 위한 2단계 인증을 설정할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 정보와 함께 사용자 이름/암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하며, 휴대폰 번호, 유선 전화 번호, 모바일 장치의 애플리케이션 등과 같이 쉽게 복제할 수 없습니다. RDG 현재 2FA을 위한 전화 통화 및 Microsoft authenticator 앱 방법의 푸시 알림을 지원합니다. 지원되는 인증 방법에 대한 자세한 내용은 [사용자가 사용할 수 있는 인증 방법을 결정](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use) 섹션을 참조하세요.
 
 Azure용 NPS 확장을 사용하기 전에 통합된 NPS 및 Azure MFA 환경에 대한 2단계 인증을 구현하려는 고객은 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](howto-mfaserver-nps-rdg.md)에서 설명한 대로 온-프레미스 환경에서 별도의 MFA 서버를 구성하고 유지 관리해야 했습니다.
 
@@ -154,7 +154,7 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 
 사용자 고유의 인증서를 사용하려면 인증서의 공개 키를 Azure AD의 서비스 주체 등에 연결해야 합니다.
 
-스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 다음을 수행 합니다.
+스크립트를 사용하려면 이전에 복사한 Azure AD 관리자 자격 증명과 Azure AD 테넌트 ID를 확장에 제공합니다. NPS 확장을 설치한 각 NPS 서버에서 스크립트를 실행합니다. 그런 다음 아래 작업을 수행합니다.
 
 1. 관리 Windows PowerShell 프롬프트를 엽니다.
 1. PowerShell 프롬프트에서 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`를 입력하고 **Enter** 키를 누릅니다.
@@ -202,7 +202,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
    ![트러스트를 설정 하려면 공유 비밀 만들기](./media/howto-mfa-nps-extension-rdg/image11.png)
 
-1. **확인** 을 클릭하여 대화 상자를 닫습니다.
+1. **확인**을 클릭하여 대화 상자를 닫습니다.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>원격 데스크톱 게이트웨이 NPS에서 RADIUS 시간 제한 값 구성
 
@@ -242,7 +242,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 
    ![서버 그룹을 지정 하는 인증 설정을 구성 합니다.](./media/howto-mfa-nps-extension-rdg/image15.png)
 
-1. 클릭 **취소**합니다.
+1. **취소**를 클릭합니다.
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>NPS 확장이 설치된 서버에 NPS 구성
 

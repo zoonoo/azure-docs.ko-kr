@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456210"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924804"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
@@ -38,7 +38,7 @@ ms.locfileid: "60456210"
 ### <a name="new"></a>새로 만들기
 
 * 이제 소유자 및 그룹을 소유 하는 ADLS Gen2 컨테이너, 파일 또는 폴더에 대 한 액세스를 관리 하는 경우 변경할 수 있습니다.
-* Windows, 제품 내에서 Storage 탐색기 업데이트는 이제는 증분 설치입니다. 빠른 업데이트 환경에서 이렇게 해야 합니다. 을 새로 설치 하려는 경우 다운로드할 수 있습니다는 [installer](https://azure.microsoft.com/en-us/features/storage-explorer/) 직접 다음 수동으로 설치 하십시오. #1089
+* Windows, 제품 내에서 Storage 탐색기 업데이트는 이제는 증분 설치입니다. 빠른 업데이트 환경에서 이렇게 해야 합니다. 을 새로 설치 하려는 경우 다운로드할 수 있습니다는 [installer](https://azure.microsoft.com/features/storage-explorer/) 직접 다음 수동으로 설치 하십시오. #1089
 
 ### <a name="preview-features"></a>미리 보기 기능
 
@@ -59,7 +59,7 @@ ms.locfileid: "60456210"
 
 ### <a name="known-issues"></a>알려진 문제
 
-* RBAC를 사용 하는 경우 Storage 탐색기에 저장소 리소스에 액세스 하기 위해 일부 관리 계층 권한이 필요 합니다. 참조 된 [문제 해결 가이드](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) 자세한 정보에 대 한 합니다.
+* RBAC를 사용 하는 경우 Storage 탐색기에 저장소 리소스에 액세스 하기 위해 일부 관리 계층 권한이 필요 합니다. 참조 된 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) 자세한 정보에 대 한 합니다.
 * 프록시 뒤에 있을 때는 ADLS Gen2 Blob에 액세스 하는 동안 실패할 수 있습니다.
 * Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
 * Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.

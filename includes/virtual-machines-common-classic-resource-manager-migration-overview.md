@@ -5,15 +5,15 @@ services: virtual-machines
 author: jpconnock
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
+ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542941"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929421"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션
 이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 
@@ -74,7 +74,20 @@ Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보�
 
 > [!NOTE]
 > Resource Manager 배포 모델에는 기본 이미지 및 디스크 개념이 적용되지 않습니다. 저장소 계정이 마이그레이션되면 클래식 이미지와 디스크가 Resource Manager 스택에 표시되지 않지만 백업 VHD는 저장소 계정에 남아 있습니다.
->
+
+다음 스크린샷은 Azure portal을 사용 하 여 Azure Resource Manager 저장소 계정에는 클래식 저장소 계정을 업그레이드 하는 방법을 보여 줍니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 저장소 계정으로 이동합니다.
+3. 에 **설정을** 섹션에서 클릭 **ARM 마이그레이션**합니다.
+4. 클릭할 **유효성 검사** 마이그레이션 적합성을 확인 하려면.
+5. 유효성 검사에 통과 하는 경우 클릭 **준비** 마이그레이션된 저장소 계정을 만들 수 있습니다.
+6. 형식 **yes** 마이그레이션을 확인 하 고 클릭 **커밋** 마이그레이션을 완료 하려면.
+
+    ![저장소 계정의 유효성을 검사합니다](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![저장소 계정 준비](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![저장소 계정 마이그레이션 완료](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>연결되지 않은 리소스 마이그레이션
 연결된 디스크 또는 Virtual Machines 데이터가 없는 저장소 계정은 독립적으로 마이그레이션할 수 있습니다.
@@ -102,7 +115,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 
 | 서비스 | 구성 | 권장 사항 |
 | --- | --- | --- |
-| Resource Manager |클래식 리소스에 대한 RBAC(역할 기반 Access Control) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
+| Resource Manager |역할 기반 Access Control (RBAC) 클래식 리소스에 대 한 |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
 | 컴퓨팅 |VM과 연결된 여러 서브넷 |한 서브넷만 참조하도록 서브넷 구성을 업데이트합니다. 이를 위해 VM에서 보조 NIC(다른 서브넷 의미)를 제거하고 마이그레이션이 완료되면 다시 연결해야 할 수 있습니다. |
 | 컴퓨팅 |가상 네트워크에 속하지만 명시적 서브넷이 할당되지 않은 가상 머신 |VM을 삭제할 수 있습니다(선택 사항). |
 | 컴퓨팅 |경고, 자동 크기 조정 정책이 있는 가상 머신 |마이그레이션이 진행되고 이러한 설정은 삭제됩니다. 따라서 마이그레이션 전에 환경을 평가하는 것이 좋습니다. 또는 마이그레이션이 완료된 다음 경고 설정을 다시 구성할 수 있습니다. |

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920163"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -69,7 +69,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 > * 만료를 처음 설정할 경우 만료 간격보다 오래된 모든 그룹은 만료되기 전까지 30일로 설정됩니다. 하루 이내로 첫 번째 갱신 알림 전자 메일이 전송됩니다. 예를 들어 그룹 A가 400일 전에 만들어졌으며 만료 기간은 180일로 설정됩니다. 만료 설정을 적용하면 그룹 A는 소유자가 갱신하지 않는 한 삭제되기 전에 30일이 있습니다.
 > * 동적 그룹이 삭제되고 복원되는 경우 새 그룹으로 표시되며 규칙에 따라 다시 채워집니다. 이 프로세스는 최대 24시간까지 걸릴 수 있습니다.
 
-## <a name="email-notifications"></a>메일 알림
+## <a name="email-notifications"></a>전자 메일 알림
 
 이와 같은 전자 메일 알림은 그룹의 만료 30일, 15일 및 1일 전에 Office 365 그룹 소유자에게 전송됩니다. 이메일의 언어는 그룹 소유자의 기본 설정 언어 또는 테넌트 언어에 따라 결정됩니다. 그룹 소유자가 기본 설정 언어를 정의했거나 여러 소유자가 동일한 기본 설정 언어를 사용하는 경우 해당 언어가 사용됩니다. 다른 모든 경우에는 테넌트 언어가 사용됩니다.
 
@@ -86,7 +86,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 복원하는 그룹에 문서, SharePoint 사이트 또는 기타 영구 개체가 포함된 경우 그룹 및 해당 내용을 완전히 복원하는 데 최대 24시간이 걸릴 수 있습니다.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Office 365 그룹 만료 날짜를 검색 하는 방법
-사용자가 마지막 갱신된 날짜 및 만료 날짜를 포함 하는 그룹 세부 정보를 볼 수 있는 액세스 패널 외에도 Microsoft Graph REST API의 베타 버전에서 Office 365 그룹의 만료 날짜를 검색할 수 있습니다. Microsoft Graph 베타에서 expirationDateTime 그룹 속성으로 설정 되었습니다. GET 요청을 사용 하 여 검색할 수 있습니다. 자세한 내용은를 참조 하십시오 [이 예제에서는](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example)합니다.
+사용자가 마지막 갱신된 날짜 및 만료 날짜를 포함 하는 그룹 세부 정보를 볼 수 있는 액세스 패널 외에도 Microsoft Graph REST API의 베타 버전에서 Office 365 그룹의 만료 날짜를 검색할 수 있습니다. Microsoft Graph 베타에서 expirationDateTime 그룹 속성으로 설정 되었습니다. GET 요청을 사용 하 여 검색할 수 있습니다. 자세한 내용은를 참조 하십시오 [이 예제에서는](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example)합니다.
 
 > [!NOTE]
 > 액세스 패널에서 그룹 멤버 자격을 관리 하려면 "그룹 액세스 패널에 액세스 제한" Azure Active Directory 그룹 일반 설정에서 "아니요"로 설정 해야 합니다.
@@ -101,10 +101,10 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 ## <a name="powershell-examples"></a>PowerShell 예제
 PowerShell cmdlet을 사용하여 테넌트의 Office 365 그룹에 대해 만료 설정을 구성하는 방법의 예는 다음과 같습니다.
 
-1. PowerShell v 2.0 Preview 모듈(2.0.0.137)를 설치하고 PowerShell 프롬프트에 로그인합니다.
+1. PowerShell v 2.0 모듈을 설치 하 고 PowerShell 프롬프트에 로그인 합니다.
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. 만료 설정 구성 New-AzureADMSGroupLifecyclePolicy:  이 cmdlet은 테넌트의 모든 Office 365 그룹에 대한 수명을 365일로 설정합니다. 소유자 없는 Office 365 그룹에 대한 갱신 알림은 'emailaddress@contoso.com'으로 전송됩니다.
   

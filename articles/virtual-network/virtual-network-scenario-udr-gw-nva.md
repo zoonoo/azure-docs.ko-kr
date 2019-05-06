@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034160"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575597"
 ---
 # <a name="virtual-appliance-scenario"></a>가상 어플라이언스 시나리오
 대규모 Azure 고객 간에 일반적인 시나리오는 온-프레미스 데이터 센터에서 후면 계층에 액세스를 허용하는 동안 인터넷에 노출된 2계층 애플리케이션을 제공해야 하는 경우입니다. 이 문서에서는 UDR(사용자 정의 경로), VPN Gateway 및 네트워크 가상 어플라이언스를 사용하여 다음 요구 사항을 충족하는 2계층 환경을 배포하는 시나리오를 설명합니다.
@@ -30,14 +30,14 @@ ms.locfileid: "61034160"
 * 애플리케이션 서버로 이동하는 모든 트래픽은 방화벽 가상 어플라이언스를 통해야 합니다. 이 가상 어플라이언스는 백 엔드 서버에 대한 액세스 및 VPN Gateway를 통해 온-프레미스 네트워크에서 들어오는 액세스에 사용됩니다.
 * 관리자는 관리 목적으로 독점적으로 사용된 세 번째 방화벽 가상 어플라이언스를 사용하여 온-프레미스 컴퓨터에서 방화벽 가상 어플라이언스를 관리할 수 있어야 합니다.
 
-이는 DMZ 및 보호된 네트워크를 사용한 표준 DMZ 시나리오입니다. NSG, 방화벽 가상 어플라이언스 또는 둘의 조합을 사용하여 Azure에서 이러한 시나리오를 생성할 수 있습니다. 아래 표에서는 NSG와 방화벽 가상 어플라이언스 간의 장단점 중 일부를 보여 줍니다.
+DMZ 및 보호 된 네트워크를 사용 하 여 표준 경계 네트워크 (DMZ로도 knowns) 시나리오입니다. Nsg, 방화벽 가상 어플라이언스 또는 둘의 조합을 사용 하 여 Azure에서 이러한 시나리오를 생성할 수 있습니다. 아래 표에서는 NSG와 방화벽 가상 어플라이언스 간의 장단점 중 일부를 보여 줍니다.
 
 |  | 장점 | 단점 |
 | --- | --- | --- |
-| NSG |무료입니다. <br/>Azure RBAC에 통합됩니다. <br/>ARM 템플릿에서 규칙을 만들 수 있습니다. |대규모 환경에서 복잡성이 달라질 수 있습니다. |
+| NSG |무료입니다. <br/>Azure RBAC에 통합됩니다. <br/>Azure Resource Manager 템플릿에서 규칙을 만들 수 있습니다. |대규모 환경에서 복잡성이 달라질 수 있습니다. |
 | 방화벽 |데이터 평면을 완벽히 제어합니다. <br/>방화벽 콘솔을 통해 중앙에서 관리합니다. |방화벽 어플라이언스의 비용이 듭니다. <br/>Azure RBAC와 통합되지 않습니다. |
 
-아래 솔루션은 방화벽 가상 어플라이언스를 사용하여 DMZ/보호된 네트워크 시나리오를 구현합니다.
+아래 솔루션 방화벽 가상 어플라이언스를 사용 하 여 경계 네트워크 (DMZ)를 구현/네트워크 시나리오를 보호 합니다.
 
 ## <a name="considerations"></a>고려 사항
 다음과 같이 현재 사용할 수 있는 다양한 기능을 사용하여 Azure에서 위에 설명된 환경을 배포할 수 있습니다.
@@ -167,5 +167,5 @@ AZF2는 다음 규칙을 포함하는 Azure 가상 어플라이언스를 나타�
 2. 온-프레미스 네트워크를 가장하는 VNet을 배포하려는 경우 **ONPREMRG**에 포함된 리소스를 프로비전합니다.
 3. **AZURERG**에 포함된 리소스를 프로비전합니다.
 4. **onpremvnet**에서 **azurevnet**으로 터널을 프로비전합니다.
-5. 모든 리소스를 프로비전한 후 **onpremvm2** 로그온하고 10.0.3.101을 ping하여 **onpremsn2**와 **azsn3** 사이의 연결을 테스트합니다.
+5. 모든 리소스를 프로 비전에 로그인 **onpremvm2** 간의 연결을 테스트 10.0.3.101을 ping **onpremsn2** 하 고 **azsn3**합니다.
 

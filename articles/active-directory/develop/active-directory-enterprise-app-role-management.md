@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412276"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723292"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 역할 클레임 구성
 
@@ -152,7 +152,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 8. **특성** 테이블을 업데이트하여 역할 클레임의 사용자 지정된 매핑을 정의합니다.
 
-9. **Single Sign-On** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 이미지에 표시된 대로 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+9. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
     | 특성 이름 | 특성 값 |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
     >[!NOTE]
     >역할 클레임 값이 null 인 경우 다음 Azure AD는 보내지이 값이 토큰에 및 디자인에 따라 기본입니다.
 
-    a. **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+    a. 클릭 **편집할** 열려면 아이콘 **사용자 특성 및 클레임** 대화 합니다.
 
       !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. **특성 추가**를 선택하여 **사용자 클레임 관리** 창을 엽니다.
+    b. 에 **사용자 클레임을 관리할** 대화 상자에서 클릭 하 여 SAML 토큰 특성을 추가할 **추가 새 클레임**.
 
       !["특성 추가" 단추](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

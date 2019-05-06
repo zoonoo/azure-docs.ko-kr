@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126962"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024403"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search의 API 버전
 Azure Search는 정기적으로 기능 업데이트를 공개합니다. 항상 그렇지는 않지만 경우에 따라 이러한 업데이트에는 이전 버전과 호환성을 유지하기 위해 API의 새 버전이 필요하기도 합니다. 새 버전을 게시하면 코드에서 검색 서비스 업데이트를 통합 하는 시기와 방법을 제어할 수 있습니다.
@@ -30,18 +29,19 @@ SDK 업데이트와 동일한 규칙이 적용됩니다. Azure Search SDK는 버
 ## <a name="snapshot-of-current-versions"></a>현재 버전의 스냅숏
 아래는 Azure Search에 대한 모든 프로그래밍 인터페이스의 현재 버전의 스냅숏입니다.
 
+
 | 인터페이스 | 가장 최근의 주 버전 | 상태 |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |5.0 |일반 공급, 2018년 4월 릴리스됨 |
-| [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |4.0.1-preview |미리 보기, 2017년 5월 릴리스 |
-| [서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |일반 공급 |
-| [서비스 REST API 2017-11-11-Preview](search-api-2017-11-11-preview.md) |\2017-11-11-Preview |미리 보기 |
-| [.NET 관리 SDK](https://aka.ms/search-mgmt-sdk) |2.0 |일반 공급 |
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |일반적으로 사용 가능, 2019 년 5 월 릴리스. 콘텐츠는 준비 중입니다.  |
+| [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |8.0.0-preview |미리 보기, 2019 년 4 월을 릴리스 합니다. 콘텐츠는 준비 중입니다.|
+| [서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |일반 공급 |
+| [서비스 REST API 2019-05-06-미리 보기](search-api-preview.md) |2019-05-06-미리 보기 |미리 보기 |
+| [.NET 관리 SDK](https://aka.ms/search-mgmt-sdk) |3.0 |일반 공급 |
 | [관리 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |일반 공급 |
 
 REST API의 경우 각 호출의 `api-version` 을 포함해야 합니다. `api-version`을 사용하면 API 미리 보기 등 특정 버전을 대상으로 하기 쉽습니다. 다음 예제에서는 `api-version` 매개 변수를 지정하는 방법을 보여 줍니다.
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
+    GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
 
 > [!NOTE]
 > 각 요청에는 `api-version`이 있지만, 모든 API 요청에 대해 동일한 버전을 사용하는 것이 좋습니다. 새 API 버전이 이전 버전에서 인식 하지 못하는 특성 또는 작업을 도입하는 경우 특히 유용합니다. 혼합 API 버전에는 의도하지 않은 결과가 있을 수 있기 때문에 사용하지 말아야 합니다.

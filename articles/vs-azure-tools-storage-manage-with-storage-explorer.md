@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4ee91a91a20cbffebf7453ba573266962aa35806
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128282"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924731"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage 탐색기 시작
 
@@ -55,7 +55,7 @@ Azure Storage 탐색기는 다음 Linux 배포에서 지원됩니다.
 
 Azure Storage 탐색기는 다른 배포에서 작동할 수도 있지만 위에 나열된 항목만 공식적으로 지원됩니다.
 
-Linux에서 Storage 탐색기를 설치 하는 자세한 도움말을 참조 하세요. 합니다 [문제 해결 가이드](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies)합니다.
+Linux에서 Storage 탐색기를 설치 하는 자세한 도움말을 참조 하세요. 합니다 [문제 해결 가이드](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies)합니다.
 
 Azure Storage 탐색기 [릴리스 정보](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)는 일부 배포에 대한 특정 단계를 포함합니다.
 

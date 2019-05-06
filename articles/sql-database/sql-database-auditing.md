@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database 감사 시작 | Microsoft Docs
 description: Azure SQL 데이터베이스 감사를 사용하여 데이터베이스 이벤트를 감사 로그로 추적합니다.
 services: sql-database
@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418492"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924753"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -90,7 +90,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 5. **새로 만들기** - 이제 감사 로그 작성에 관한 구성에 대한 여러 옵션이 있습니다. Azure Storage 계정에, Azure Monitor 로그 사용에 대해 Log Analytics 작업 영역에 또는 이벤트 허브 사용에 대해 이벤트 허브에 로그를 작성할 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
 
    > [!WARNING]
-   > Log Analytics에 감사를 사용 하면 수집 속도에 따른 요금이 부과 됩니다. 이 사용 하 여 관련된 비용에 주의 하세요 [옵션](https://azure.microsoft.com/en-us/pricing/details/monitor/), 또는 Azure storage 계정에 로그인 감사를 저장 하는 것이 좋습니다.
+   > Log Analytics에 감사를 사용 하면 수집 속도에 따른 요금이 부과 됩니다. 이 사용 하 여 관련된 비용에 주의 하세요 [옵션](https://azure.microsoft.com/pricing/details/monitor/), 또는 Azure storage 계정에 로그인 감사를 저장 하는 것이 좋습니다.
 
     ![저장소 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680535"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936018"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
 
@@ -76,7 +76,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
 1. 지역 지도
 
-    이 창에서는 각 국가의 트래픽 볼륨 크기에 따라 색깔이 표시된 네트워크 트래픽의 지도 보기를 제공합니다. 강조 표시된 국가를 선택하면 해당 국가의 IP에서 주고 받은 데이터 비율 같은 추가 흐름 통계를 볼 수 있습니다.
+    이 창을 사용 하면 각 국가/지역의 트래픽 볼륨을 확장 하는 색을 사용 하 여 네트워크 트래픽의 지도 보기를 사용 하 여 할 수 있습니다. 해당 국가/지역의 Ip에서 보내거나 받는 데이터 비율 같은 추가 흐름 통계를 보는 데 강조 표시 된 국가 선택할 수 있습니다.
 
     ![지역 지도][8]
 

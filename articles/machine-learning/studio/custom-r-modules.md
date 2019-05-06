@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 R 모듈 정의
 titleSuffix: Azure Machine Learning Studio
-description: 이 토픽에서는 Azure Machine Learning Studio에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다.
+description: 이 항목에서는 작성 하 고는 사용자 지정 R Studio를 배포 하는 방법을 설명 합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751220"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025057"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio에 사용할 사용자 지정 R 모듈 정의
 
-이 토픽에서는 Azure Machine Learning Studio에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
+이 항목에서는 작성 하 고는 사용자 지정 R Studio를 배포 하는 방법을 설명 합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
 
 
@@ -159,7 +159,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-사용자 지정 R 모듈의 경우 Zip 포트에 대한 ID는 R 함수의 매개 변수와 일치할 필요가 없습니다. zip 파일은 R 작업 디렉터리에 자동으로 추출되기 때문입니다.
+사용자 지정 R 모듈의 경우 Zip 포트에 대 한 ID는 R 함수의 매개 변수와 일치할 필요가 없습니다. zip 파일은 R 작업 디렉터리에 자동으로 추출되기 때문입니다.
 
 **입력 규칙:**
 
@@ -225,7 +225,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 ### <a name="arguments"></a>인수
 **Arguments** 요소에 정의된 모듈 매개 변수를 통해 R 함수에 추가 데이터를 전달할 수 있습니다. 이러한 매개 변수는 모듈을 선택한 경우 Machine Learning UI의 맨 오른쪽 속성 창에 표시됩니다. 인수는 지원되는 형식 중 하나이거나, 필요한 경우 사용자 지정 열거형을 만들 수 있습니다. **Ports** 요소와 마찬가지로, **Arguments** 요소에는 매개 변수 이름 위에 마우스를 놓으면 표시되는 텍스트를 지정하는 선택적 **Description** 요소가 있을 수 있습니다.
 defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Properties** 요소의 특성으로 인수에 추가할 수 있습니다. **Properties** 요소의 유효한 속성은 인수 형식에 따라 다르며, 아래 섹션의 지원되는 인수 형식에 설명되어 있습니다. **"true"** 로 설정된 **isOptional** 속성을 가진 인수는 사용자가 값을 입력하지 않아도 됩니다. 인수에 값을 입력하지 않으면 진입점 함수에 전달되지 않습니다. 예: 선택적인 진입점 함수의 인수는 함수에 의해 명시적으로 처리되어야 합니다(예: 진입점 함수 정에서 할당된 NULL의 기본값). 선택적 인수는 사용자가 값을 제공하는 경우 다른 인수 제약 조건(즉, min 또는 max)을 적용합니다.
-입력 및 출력과 마찬가지로 각 매개 변수에는 고유한 ID 값이 연결되어 있어야 합니다. 이 빠른 시작 예제에서 연결된 ID/매개 변수는 *swap*입니다.
+이 입력 및 출력과 마찬가지로 각 매개 변수에 고유한 ID 값이 연결 되어 있는 중요 합니다. 연결된 id/매개 변수를 빠른 시작 예제에서 *스왑*합니다.
 
 ### <a name="arg-element"></a>Arg 요소
 모듈 매개 변수는 XML 정의 파일에서 **Arguments** 섹션의 **Arg** 자식 요소를 사용하여 정의됩니다. **Ports** 섹션의 하위 요소와 마찬가지로 **Arguments** 섹션의 매개 변수 순서는 UX 레이아웃을 정의합니다. 매개 변수는 XML 파일에 정의된 순서대로 위에서 아래로 UI에 표시됩니다. Machine Learning에서 지원하는 매개 변수 형식은 다음과 같습니다. 
@@ -270,7 +270,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 
 * *선택적 속성*: **default** 및 **isOptional**
 
-**ColumnPicker**: 열 선택 매개 변수입니다. 이 형식은 UX에서 열 선택기로 렌더링됩니다. 여기에서 **Property** 요소는 열을 선택할 포트의 ID를 지정하는 데 사용되며, 대상 포트 형식은 *DataTable*이어야 합니다. 열 선택의 결과는 선택한 열 이름이 포함된 문자열 목록으로 R 함수에 전달됩니다. 
+**ColumnPicker**: 열 선택 매개 변수입니다. 이 형식은 UX에서 열 선택기로 렌더링됩니다. 합니다 **속성** 요소는 열을 선택 하면 대상 포트 형식은 이어야 합니다. 여기서 포트의 ID를 지정 합니다. 여기서는 *DataTable*합니다. 열 선택의 결과는 선택한 열 이름이 포함된 문자열 목록으로 R 함수에 전달됩니다. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
         </Arg>
 
 
-* *필수 속성*: **portId** - 형식이 *DataTable*인 Input 요소의 ID와 일치합니다.
+* *필수 속성*: **portId** -Input 요소의 ID 형식과 일치 *DataTable*합니다.
 * *선택적 속성*:
   
   * **allowedTypes** - 선택할 수 있는 열 형식을 필터링합니다. 유효한 값은 다음과 같습니다. 
@@ -286,7 +286,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     * Numeric
     * Boolean
     * 범주
-    * String
+    * 문자열
     * 레이블
     * 기능
     * Score
@@ -327,7 +327,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     </Arg>    
 
 * *선택적 속성*:
-  * **default** - 기본 속성 값은 **Item** 요소 중 하나의 id 값에 해당해야 합니다.
+  * **기본** -기본 속성 값 중 하나를 사용 하는 ID 값을 사용 하 여 일치 해야 합니다 **항목** 요소입니다.
 
 ### <a name="auxiliary-files"></a>보조 파일
 사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 따라서 파일 소싱이 로컬과 Azure Machine Learning Studio 실행에서 동일하게 작동합니다. 

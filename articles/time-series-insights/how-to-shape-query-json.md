@@ -10,11 +10,11 @@ ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
 ms.openlocfilehash: 2d42b7ebdee291e7c71351fa2c3a5583a121b79e
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760669"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712763"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>JSON을 셰이핑하여 쿼리 성능을 극대화하는 방법 
 
@@ -200,4 +200,4 @@ Time Series Insights 이벤트 테이블(평면화 이후):
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 지침을 사용하려면 [Azure Time Series Insights 쿼리 구문](/rest/api/time-series-insights/ga-query-syntax)을 참조하여 TSI 데이터 액세스 REST API의 쿼리 구문에 대해 자세히 알아봅니다.
+- 이러한 지침을 사용하려면 [Azure Time Series Insights 쿼리 구문](/rest/api/time-series-insights/ga-query-syntax)을 참조하여 TSI 데이터 액세스 REST API의 쿼리 구문에 대해 자세히 알아봅니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services의 스트리밍 엔드포인트 | Microsoft Docs
-description: 이 문서에서는 스트리밍 엔드포인트란 무엇이고 Azure Media Services가 어떤 스트리밍 엔드포인트를 사용하는지 설명합니다.
+title: 스트리밍 끝점 (원점) Azure Media Services의 | Microsoft Docs
+description: Azure Media Services 스트리밍 끝점 (원점)는 동적 패키징 및 또는 추가 배포를 위해 콘텐츠 배달 네트워크 (CDN)를 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125426"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867605"
 ---
-# <a name="streaming-endpoints"></a>스트리밍 엔드포인트
+# <a name="streaming-endpoints-origin"></a>스트리밍 끝점 (원본)
 
-Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints) 엔터티는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 애플리케이션에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. **스트리밍 엔드포인트** 서비스의 아웃바운드 스트림은 라이브 스트림 또는 Media Services 계정에 주문형 비디오 자산이 될 수 있습니다. Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트가 중지됨 상태로 만들어집니다. **기본** 스트리밍 엔드포인트는 삭제할 수 없습니다. 계정에서 추가 스트리밍 엔드포인트를 만들 수 있습니다. 
+Microsoft Azure Media services에서는 [스트리밍 끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 응용 프로그램 중 하나를 사용 하 여에 직접 제공할 수 있는 동적 (-just-in-time) 패키징 및 원본 서비스를 나타냅니다는 일반적인 스트리밍 미디어 프로토콜 (HLS 또는 DASH). 또한 합니다 **스트리밍 끝점** 업계 최고의 Drm에 동적 (-just-in-time) 암호화를 제공 합니다.
+
+Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트가 중지됨 상태로 만들어집니다. **기본** 스트리밍 엔드포인트는 삭제할 수 없습니다. 계정 추가 스트리밍 끝점을 만들 수 있습니다 (참조 [할당량 및 제한 사항](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > 비디오 스트리밍을 시작하려면 비디오를 스트리밍하려는 **스트리밍 엔드포인트**를 시작해야 합니다. 
@@ -35,33 +37,37 @@ Microsoft AMS(Azure Media Services)에서 [스트리밍 엔드포인트](https:/
 
 ## <a name="types"></a>형식  
 
-**스트리밍 엔드포인트**의 유형으로는 **표준** 및 **프리미엄** 두 가지가 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다. 
+**스트리밍 엔드포인트**의 유형으로는 **표준** (미리 보기) 및 **Premium**합니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다. 
 
 다음 표에 해당 유형이 설명되어 있습니다.  
 
 |type|배율 단위|설명|
 |--------|--------|--------|  
-|**표준 스트리밍 엔드포인트**(권장)|0|기본 스트리밍 끝점은는 **표준** 하지만 프리미엄 유형으로 변경할 수 있습니다.<br/> 표준 형식에는 거의 모든 스트리밍 시나리오 및 대상 크기에 대 한 권장 되는 옵션입니다. **표준** 유형은 아웃바운드 대역폭을 자동으로 확장합니다. 이 유형의 스트리밍 끝점에서 처리량이 최대 600mbps입니다. CDN에 캐시할 비디오 조각을 스트리밍 끝점 대역폭을 사용 하지 마십시오.<br/>요구 사항이 매우 까다로운 고객을 위해, Media Services는 가장 규모가 큰 인터넷 대상 사용자를 위해 용량을 스케일 아웃할 수 있는 **프리미엄** 스트리밍 엔드포인트를 제공합니다. 큰 대상 그룹 및 동시 시청자를 예상 하는 경우에 문의 amsstreaming\@이동 해야 하는지 여부에 대 한 지침은 microsoft.com 합니다 **Premium** 형식입니다. |
-|**프리미엄 스트리밍 엔드포인트**|>0|**프리미엄** 스트리밍 엔드포인트는 고급 워크로드에 적합하며, 확장성 있는 전용 대역폭 용량을 제공합니다. `scaleUnits`를 조정하여 **프리미엄** 유형으로 이동합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용할 경우 설정된 각 단위가 애플리케이션에 대한 추가 대역폭 용량을 제공합니다. |
- 
-## <a name="comparing-streaming-types"></a>스트리밍 유형 비교
+|**Standard**|0|기본 스트리밍 끝점은는 **표준** 입력, 조정 하 여 프리미엄 유형을 변경할 수 있습니다 `scaleUnits`합니다.|
+|**Premium**|>0|**Premium** 스트리밍 끝점은 고급 워크 로드에 적합 하 고 확장 가능한 전용 대역폭 용량을 제공 합니다. 이동 하는 **Premium** 조정 하 여 형식 `scaleUnits` (스트리밍 단위)입니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용할 경우 설정된 각 단위가 애플리케이션에 대한 추가 대역폭 용량을 제공합니다. |
 
-### <a name="features"></a>기능
+> [!NOTE]
+> 고객용 큰 인터넷 대상에 콘텐츠를 배달 하려는 스트리밍 끝점에서 CDN을 사용 하는 것이 좋습니다.
+
+SLA 정보를 참조 하세요 [가격 책정 및 SLA](https://azure.microsoft.com/pricing/details/media-services/)합니다.
+
+## <a name="comparing-streaming-types"></a>스트리밍 유형 비교
 
 기능|Standard|Premium
 ---|---|---
-처음 15일 무료| 예 |아닙니다.
-처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용하여 크기를 조정합니다.
+처음 15 일 무료 <sup>1</sup>| 예 |아닙니다.
+처리량 |600 mbps 및 CDN을 사용 하는 경우 훨씬 높은 효과적인 처리량을 제공할 수 있습니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용 하는 경우에 훨씬 높은 효과적인 처리량을 제공할 수 있습니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN 없음.|Azure CDN, 타사 CDN 또는 CDN 없음.
 청구를 계산합니다.| 매일|매일
 동적 암호화|예|예
 동적 패키징|예|예
-확장|대상 처리량까지 자동으로 확장합니다.|추가 스트리밍 단위
-IP 필터링 G20/사용자 지정 호스트 <sup>1</sup>|예|예
+확장|대상 처리량까지 자동으로 확장합니다.|추가 Su
+IP 필터링 G20/사용자 지정 호스트 <sup>2</sup>|예|예
 점진적 다운로드|예|예
-권장 사용량 |대부분의 스트리밍 시나리오에 권장됩니다.|전문 사용량입니다.<br/>필요한 경우 표준 이상이 필요할 수 있습니다. 동시 뷰어의 규모가 50,000명을 초과할 것으로 예상되는 경우 문의하세요(amsstreaming@microsoft.com).
+권장 사용량 |대부분의 스트리밍 시나리오에 권장됩니다.|전문 사용량입니다.
 
-<sup>1</sup> 만 CDN 끝점에서 사용 하지 않는 경우 스트리밍 끝점에서 직접 사용 합니다.
+<sup>1</sup> 무료 평가판에만 적용 됩니다 새로 만든된 media services 계정 및 기본 스트리밍 끝점.<br/>
+<sup>2</sup> 만 CDN 끝점에서 사용 하지 않는 경우 스트리밍 끝점에서 직접 사용 합니다.<br/>
 
 ## <a name="properties"></a>properties 
 

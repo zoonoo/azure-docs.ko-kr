@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360152"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919718"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
 
@@ -40,7 +40,7 @@ ms.locfileid: "61360152"
   >[!Note]
   > 보안 메시지에 IoT Hub 할당량 사용도 발생 합니다.
 
-자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/en-us/pricing/details/security-center/)합니다.
+자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)합니다.
 
 ## <a name="associated-costs"></a>관련 된 비용
 
@@ -65,7 +65,7 @@ IoT 용 ASC에 두 가지 유형의 관련된 비용을 직접 가격의 일부�
 |     | 사용 현황 | 주석 |
 | --- | --- | --- |
 | **IoT Hub 할당량 사용** |  |
-| [장치를 내보내기](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) 작업 (쌍 내보내기) | 하루 한 번 | 사용 하지 않도록 설정 _쌍 메타 데이터 컬렉션_ |
+| [장치를 내보내기](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) 작업 (쌍 내보내기) | 하루 한 번 | 사용 하지 않도록 설정 _쌍 메타 데이터 컬렉션_ |
 | **Log Analytics 저장소** |  |
 | 장치 권장 사항 및 경고| 보안 권장 사항 및 서비스에 의해 생성 된 경고 | 필수 |
 | 원시 보안 데이터| 보안 에이전트에 의해 수집 된 IoT 장치에서 원시 보안 데이터 | 사용 하지 않도록 설정 _원시 장치 보안 이벤트를 저장 합니다._ |

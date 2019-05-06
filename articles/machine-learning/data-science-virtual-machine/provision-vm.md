@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896265"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712425"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 
@@ -69,7 +69,7 @@ DSVM을 사용하면 분석 프로젝트가 바로 시작됩니다. R, Python, S
 * [Linux CentOS](linux-dsvm-intro.md) 이미지.
 * Data Science Virtual Machine의 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)입니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있습니다. 그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
 
-## <a name="prerequisite"></a>필수 구성 요소
+## <a name="prerequisite"></a>필수 요소
 
 Microsoft Data Science Virtual Machine를 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판](https://azure.com/free)을 참조하세요.
 
@@ -116,7 +116,7 @@ Machine Learning Server 디벨로퍼 버전이 VM에 설치되었으므로 분�
 
 Machine Learning Server는 다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 작업을 지원합니다. 탐색, 분석, 시각화 및 모델링 등 모든 범위의 분석을 지원합니다. 오픈 소스 R 및 Python을 사용하고 확장함으로써 Machine Learning Server는 R 및 Python 스크립트 및 함수와 호환됩니다. 또한 CRAN, pip 및 Conda 패키지와 호환되어 엔터프라이즈 규모의 데이터를 분석할 수 있습니다.
 
-Machine Learning Server는 데이터에 대한 병렬 및 청크 분할 처리를 추가하여 오픈 소스 R의 메모리 내 한도를 해결합니다. 따라서 주 메모리에 적합한 것보다 훨씬 더 큰 빅 데이터에 대한 분석을 실행할 수 있습니다. Visual Studio Community는 VM에 포함되어 있습니다. R 또는 Python을 통해 작업할 수 있는 완벽한 IDE를 제공하는 Visual Studio용 R 도구와 PTVS(Visual Studio용 Python Tools) 확장이 있습니다. 또한 [RStudio](http://www.rstudio.com) 및 [PyCharm Community 버전](https://www.jetbrains.com/pycharm/)과 같은 다른 IDE도 VM에 제공됩니다.
+Machine Learning Server는 데이터에 대한 병렬 및 청크 분할 처리를 추가하여 오픈 소스 R의 메모리 내 한도를 해결합니다. 따라서 주 메모리에 적합한 것보다 훨씬 더 큰 빅 데이터에 대한 분석을 실행할 수 있습니다. Visual Studio Community는 VM에 포함되어 있습니다. R 또는 Python을 통해 작업할 수 있는 완벽한 IDE를 제공하는 Visual Studio용 R 도구와 PTVS(Visual Studio용 Python Tools) 확장이 있습니다. 또한 [RStudio](https://www.rstudio.com) 및 [PyCharm Community 버전](https://www.jetbrains.com/pycharm/)과 같은 다른 IDE도 VM에 제공됩니다.
 
 ### <a name="python"></a>Python
 

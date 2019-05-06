@@ -120,7 +120,9 @@
   items:
     - name: 파이프라인 및 활동
       href: concepts-pipelines-activities.md
-    - name: 데이터 세트 및 연결된 서비스
+    - name: 연결된 서비스
+      href: concepts-linked-services.md
+    - name: 데이터 세트
       href: concepts-datasets-linked-services.md
     - name: 파이프라인 실행 및 트리거
       href: concepts-pipeline-execution-triggers.md
@@ -130,8 +132,6 @@
       items:
         - name: Data Flow 개념 매핑
           href: concepts-data-flow-overview.md
-        - name: Data Flow 데이터 세트
-          href: concepts-data-flow-datasets.md
         - name: 디버그 모드
           href: concepts-data-flow-debug-mode.md
         - name: 스키마 드리프트
@@ -216,6 +216,8 @@
           href: connector-couchbase.md
         - name: DB2
           href: connector-db2.md
+        - name: 구분된 텍스트 형식
+          href: format-delimited-text.md
         - name: Drill
           href: connector-drill.md
         - name: Dynamics 365
@@ -283,6 +285,8 @@
           href: connector-oracle-responsys.md
         - name: Oracle Service Cloud
           href: connector-oracle-service-cloud.md
+        - name: Parquet 형식
+          href: format-parquet.md
         - name: Paypal
           href: connector-paypal.md
         - name: Phoenix
@@ -582,6 +586,8 @@
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
     - name: FAQ
       href: frequently-asked-questions.md
+    - name: 백서
+      href: whitepapers.md
     - name: 로드맵
       href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: 가격

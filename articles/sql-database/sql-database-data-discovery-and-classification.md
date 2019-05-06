@@ -89,7 +89,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
    ![Excel로 내보내기](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
-5. <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류 탭**을 클릭합니다.
+5. <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류** 탭을 클릭합니다.
 
     ![데이터 분류](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 

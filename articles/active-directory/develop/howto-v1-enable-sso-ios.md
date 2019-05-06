@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299620"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917225"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO 사용
 
@@ -44,7 +44,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
-* Azure AD에 대한 레거시 포털을 사용하여 앱 프로비전 자세한 내용은 [Azure AD v1.0 엔드포인트에 앱 등록](quickstart-v1-add-azure-ad-app.md)을 참조하세요.
+* Azure AD에 대한 레거시 포털을 사용하여 앱 프로비전 자세한 내용은 참조 하세요. [앱 등록](quickstart-register-app.md)
 * [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc)와 애플리케이션 통합
 
 ## <a name="single-sign-on-concepts"></a>Single Sign-On 개념
@@ -240,7 +240,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > 애플리케이션에서 키 집합을 공유하는 경우 모든 애플리케이션은 사용자를 삭제하거나 더 심한 경우 애플리케이션에서 모든 토큰을 삭제할 수 있습니다. 백그라운드 작업을 하기 위해 토큰을 사용하는 애플리케이션이 있는 경우에 특히 미치는 영향이 커집니다. 키 집합을 공유하면 ID SDK를 통한 모든 제거 작업에 특히 주의해야 합니다.
 
-정말 간단하죠. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
+이것으로 끝입니다. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>브로커 지원 SSO에 대한 SSO 설정
 

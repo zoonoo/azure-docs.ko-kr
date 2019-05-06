@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096175"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919177"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Azure AD Connect에 사용되는 계정
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![계정 개요](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect는 온-프레미스 또는 Windows Server Active Directory의 정보를 Azure Active Directory와 동기화하기 위해 3개의 계정을 사용합니다.  이러한 계정은 다음과 같습니다.
 
@@ -111,10 +111,10 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 | 동기화 서비스, 서비스 계정 옵션을 설치합니다. |AD 또는 로컬 사용자 계정 자격 증명 |사용자, 권한은 설치 마법사에서 부여됩니다. |관리자가 계정을 지정하는 경우, 이 계정은 동기화 서비스에 대한 서비스 계정으로 사용됩니다. |
 | Azure에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용되는 Azure AD Connect 계정을 만듭니다.</li> |
 | 디렉터리에 연결 |Azure AD에 연결되는 각 포리스트의 온-프레미스 Active Directory 자격 증명 |사용 권한은 어떤 기능을 사용하는지에 따라 달라지며 AD DS Connector 계정 만들기에서 찾을 수 있음 |계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다. |
-| AD FS 서버 |목록의 각 서버에 대해, 마법사를 실행하는 사용자의 로그온 자격 증명이 연결하기에 충분하지 않으면 마법사는 자격 증명을 수집합니다. |도메인 관리자 |AD FS 서버 역할 설치 및 구성 |
-| 웹 애플리케이션 프록시 서버 |목록의 각 서버에 대해, 마법사를 실행하는 사용자의 로그온 자격 증명이 연결하기에 충분하지 않으면 마법사는 자격 증명을 수집합니다. |대상 컴퓨터의 로컬 관리자 |WAP 서버 역할 설치 및 구성 |
+| AD FS 서버 |목록의 각 서버에 대해 마법사 자격 증명을 수집 마법사를 실행 하는 사용자의 로그인 자격 증명이 연결 하기에 충분 하지 않은 경우 |도메인 관리자 |AD FS 서버 역할 설치 및 구성 |
+| 웹 애플리케이션 프록시 서버 |목록의 각 서버에 대해 마법사 자격 증명을 수집 마법사를 실행 하는 사용자의 로그인 자격 증명이 연결 하기에 충분 하지 않은 경우 |대상 컴퓨터의 로컬 관리자 |WAP 서버 역할 설치 및 구성 |
 | 프록시 트러스트 자격 증명 |페더레이션 서비스 자격 증명(FS에서 프록시가 신뢰 인증서를 등록하는 데 사용하는 자격 증명) |AD FS 서버의 로컬 관리자인 도메인 계정 |FS-WAP 신뢰 인증서의 초기 등록. |
-| AD FS 서비스 계정 페이지에서 "도메인 사용자 계정 옵션 사용" |AD 사용자 계정 자격 증명 |도메인 사용자 |해당 자격 증명을 제공하는 AD 사용자 계정이 AD FS 서비스의 로그온 계정으로 사용됩니다. |
+| AD FS 서비스 계정 페이지에서 "도메인 사용자 계정 옵션 사용" |AD 사용자 계정 자격 증명 |도메인 사용자 |해당 자격 증명을 제공 하는 Azure AD 사용자 계정은 AD FS 서비스의 로그인 계정으로 사용 됩니다. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>AD DS Connect 계정 만들기
 
@@ -239,6 +239,11 @@ Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계�
 Azure AD에서 동기화 서비스 계정은 20개로 제한됩니다. Azure AD에서 기존 Azure AD 서비스 계정의 목록을 가져오려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 사용하지 않는 Azure AD 서비스 계정을 제거하려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>위의 PowerShell 명령을 사용 하려면 먼저 설치 해야 합니다는 [그래프 모듈에 대 한 Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) 사용 하 여 Azure AD의 인스턴스에 연결 하 고 [Connect-azuread](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+관리 또는 Azure AD 커넥터 계정 암호를 재설정 하는 방법에 대 한 추가 정보를 참조 하세요. [Azure AD Connect 계정 관리](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>관련 설명서
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다.

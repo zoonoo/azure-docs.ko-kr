@@ -1,24 +1,24 @@
 ---
-title: Azure Maps에서 Android 맵 컨트롤을 사용 하는 방법 | Microsoft Docs
+title: Azure Maps에서 Android 맵 컨트롤을 사용 하 여 시작 | Microsoft Docs
 description: Azure Maps에서 Android 지도 컨트롤입니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010670"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869810"
 ---
-# <a name="how-to-use-the-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하는 방법
+# <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 시작
 
-Azure Maps Android SDK는 Android에 대 한 벡터 맵 라이브러리. 이 문서에서는 Azure Maps Android SDK를 설치 하 고 맵을 로드 pin 지도에 배치 프로세스를 안내 합니다.
+Azure Maps Android SDK는 Android에 대 한 벡터 맵 라이브러리. 이 문서에서는 Azure Maps Android SDK를 설치 하 고 맵을 로드 프로세스를 안내 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +55,7 @@ AVD를 설정 하는 방법에 대 한 자세히 알아볼 수 있습니다 합�
 
 응용 프로그램을 빌드한 다음 단계는 Azure Maps Android SDK를 설치 하는 것입니다. SDK를 설치 하려면 다음이 단계를 완료 합니다.
 
-1. 다음 코드를 추가 합니다 **모든 프로젝트**를 **리포지토리** 블록에 **build.gradle** 파일입니다.
+1. 최상위 엽니다 **build.gradle** 파일을 다음 코드를 추가 합니다 **모든 프로젝트**, **리포지토리** 섹션을 차단:
 
     ```
     maven {
@@ -64,8 +64,10 @@ AVD를 설정 하는 방법에 대 한 자세히 알아볼 수 있습니다 합�
     ```
 
 2. 업데이트 프로그램 **app/build.gradle** 다음 코드를 추가 합니다.
+    
+    1. 했는지 프로젝트의 **minSdkVersion** 또는 API 21 이상이 됩니다.
 
-    1. Android 블록에 다음 코드를 추가 합니다.
+    2. Android 섹션에 다음 코드를 추가 합니다.
 
         ```
         compileOptions {
@@ -73,24 +75,16 @@ AVD를 설정 하는 방법에 대 한 자세히 알아볼 수 있습니다 합�
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. 종속성 블록을 업데이트 하 고 다음 코드를 추가 합니다.
+    3. 종속성 블록을 업데이트 하 고 최신 Azure Maps Android SDK의 새 구현을 종속성 줄을 추가 합니다.
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
-3. 다음 XML을 추가 하 여 사용 권한을 설정 하면 **AndroidManifest.xml** 파일:
+    > [!Note]
+    > Azure Maps Android SDK를 정기적으로 업그레이드 하 고 향상 합니다. 볼 수 있습니다 합니다 [Android 맵 컨트롤을 사용 하 여 시작](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 설명서, 최신 Azure Maps 구현 버전 번호를 가져옵니다. 또한 버전 번호를 "0.2"에서 "0 +" 항상 최신 버전을 가리키도록 설정할 수 있습니다.
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest>
-        ...
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        ...
-    </manifest>
-    ```
-
-4. 편집할 **res** > **레이아웃** > **activity_main.xml** 이 XML 같이 표시 됩니다.
+3. 편집할 **res** > **레이아웃** > **activity_main.xml** 다음으로 바꿉니다.
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,16 +99,20 @@ AVD를 설정 하는 방법에 대 한 자세히 알아볼 수 있습니다 합�
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
             />
-
     </FrameLayout>
     ```
 
-5. **MainActivity.java**를 편집하여 지도 보기 작업 클래스를 만듭니다. 을 편집 하면이 클래스와 같아야 합니다.
+4. 에 **MainActivity.java** 파일 해야 합니다.
+    
+    * Azure Maps SDK에 대 한 가져오기를 추가합니다
+    * Azure Maps 인증 정보를 설정 합니다.
+    * 맵 컨트롤 인스턴스를 참여 합니다 **onCreate** 메서드
 
+    전역적으로 setSubscriptionKey 또는 setAadProperties 메서드를 사용 하 여 AzureMaps 클래스에 인증 정보를 설정 있도록 없으므로 모든 보기에서 인증 정보를 추가 하는 것이 없습니다. 맵 컨트롤을 포함 하는 작업에서 직접 호출 해야 하는 Android의 OpenGL 수명 주기를 관리 하기 위한 자체 수명 주기 메서드를 포함 합니다. 지도 컨트롤의 수명 주기 메서드를 올바르게 호출 하려면 앱에 대 한 순서 대로 맵 컨트롤을 포함 하는 작업의 다음 수명 주기 메서드를 재정의 하 고 해당 지도 컨트롤 메서드를 호출 해야 합니다. 
+
+    편집 된 **MainActivity.java** 다음과 같이 파일:
+    
     ```java
     package com.example.myapplication;
 
@@ -129,7 +127,7 @@ AVD를 설정 하는 방법에 대 한 자세히 알아볼 수 있습니다 합�
     public class MainActivity extends AppCompatActivity {
         
         static {
-            AzureMaps.setSubscriptionKey("{subscription-key}");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
 
         MapControl mapControl;
@@ -197,97 +195,21 @@ AVD를 설정 하는 방법에 대 한 자세히 알아볼 수 있습니다 합�
 
 Android Studio에는 응용 프로그램을 빌드하려면 몇 초가 걸립니다. 빌드를 완료 한 후 에뮬레이트된 Android 장치에서 응용 프로그램을 테스트할 수 있습니다. 다음과 같은 맵을 표시 됩니다.
 
-![Android 지도](./media/how-to-use-android-map-control-library/android-map.png)
+<center>
 
-## <a name="add-a-marker-to-the-map"></a>지도에 표식 추가
+![Android 맵](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
-표식 지도 추가 하려면 추가 합니다 `mapView.getMapAsync()` 함수를 `MainActivity.java`입니다. 최종 `MainActivity.java` 코드 다음과 같아야 합니다.
+## <a name="next-steps"></a>다음 단계
 
-```java
-package com.example.myapplication;
+항목에 지도를 추가 하려면 다음을 참조 하세요.
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.Point;
-import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-import com.microsoft.azure.maps.mapcontrol.MapControl;
-import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-public class MainActivity extends AppCompatActivity {
-    
-    static{
-            AzureMaps.setSubscriptionKey("{subscription-key}");
-        }
+> [!div class="nextstepaction"]
+> [Android 맵에 기호 계층을 추가 합니다.](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
 
-    MapControl mapControl;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+> [!div class="nextstepaction"]
+> [Android 맵에 도형 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
-        mapControl = findViewById(R.id.mapcontrol);
+> [!div class="nextstepaction"]
+> [Android maps에서 맵 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
 
-        mapControl.onCreate(savedInstanceState);
 
-        mapControl.getMapAsync(map -> {
-            DataSource dataSource = new DataSource();
-            dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-
-            SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-            symbolLayer.setOptions(iconImage("my-icon"));
-
-            map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-            map.sources.add(dataSource);
-            map.layers.add(symbolLayer);
-        });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mapControl.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapControl.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapControl.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapControl.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapControl.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapControl.onDestroy();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapControl.onSaveInstanceState(outState);
-    }
-}
-```
-
-응용 프로그램을 다시 실행 합니다. 다음과 같이 표식 지도에 표시 됩니다.
-
-![Android 지도 핀](./media/how-to-use-android-map-control-library/android-map-pin.png)

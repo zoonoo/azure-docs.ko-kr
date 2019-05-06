@@ -3,19 +3,19 @@ title: 사용자 지정 정책-Azure Active Directory B2C에 대 한 개발자 �
 description: 사용자 지정 정책으로 Azure AD B2C를 구성 및 유지 관리하는 개발자를 위한 정보
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cf9c6f6a54c38f00e477e2a9d62e72ab5faccdef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1093f1882328604819d5fbab33d87b26f1af2886
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317975"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703254"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책에 대 한 개발자 노트
 

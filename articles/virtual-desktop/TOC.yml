@@ -44,6 +44,18 @@
       href: delegated-access-virtual-desktop.md
     - name: 호스트 풀 부하 분산 메서드
       href: host-pool-load-balancing.md
+- name: 문제 해결
+  items:
+    - name: '문제 해결 개요, 피드백 및 지원'
+      href: troubleshoot-set-up-overview.md
+    - name: 테넌트 및 호스트 풀 만들기
+      href: troubleshoot-set-up-issues.md
+    - name: 세션 호스트 가상 머신 구성
+      href: troubleshoot-vm-configuration.md
+    - name: 원격 데스크톱 클라이언트 연결
+      href: troubleshoot-client-connection.md
+    - name: Windows Virtual Desktop PowerShell
+      href: troubleshoot-powershell.md
 - name: 참고 자료
   items:
     - name: PowerShell

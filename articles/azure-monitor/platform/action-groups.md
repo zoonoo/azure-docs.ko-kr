@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778379"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919084"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -78,7 +78,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 하나의 작업 그룹에 전자 메일 작업 수가 제한 해야 합니다. [속도 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조하세요.
 
-**ITSM** -작업 그룹의 ITSM 작업의 제한 된 수 제한 된 수를 사용 해야 합니다. ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-monitor/platform/itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
+**ITSM** -작업 그룹에서 제한 된 수의 ITSM 작업을 할 수 있습니다. ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-monitor/platform/itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
 
 **논리 앱** -작업 그룹에서 제한 된 수의 논리 앱 작업을 할 수 있습니다.
 
@@ -105,15 +105,12 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
  - 51.5.148.86
  - 51.5.149.19
 
-수신 하려면 변경 된 것을 권장 합니다 이러한 IP 주소에 대 한 업데이트 구성 [서비스 상태 경고를 작업 그룹 서비스에 대 한 정보 알림을 모니터링 합니다.
-
+이러한 IP 주소 변경에 대 한 업데이트를 받으려면 작업 그룹 서비스에 대 한 정보 알림을 모니터링 하는 서비스 상태 경고를 구성 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계 ##
-
 * [SMS 경고 동작](../../azure-monitor/platform/alerts-sms-behavior.md)에 대해 자세히 알아보세요.  
 * [활동 로그 경고 웹후크 스키마의 이해](../../azure-monitor/platform/activity-log-alerts-webhook.md)를 확인해 보세요.  
 * [ITSM 커넥터](../../azure-monitor/platform/itsmc-overview.md)에 대해 자세히 알아보세요.
 * 경고의 [속도 제한](../../azure-monitor/platform/alerts-rate-limiting.md)에 대해 자세히 알아보세요.
 * [활동 로그 경고의 개요](../../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [서비스 상태 알림이 게시될 때마다 경고를 구성](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)하는 방법을 알아보세요.
-

@@ -84,8 +84,8 @@ Linux용 Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, S
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
-| KeyEncryptionKeyURL | URL | 문자열 |
-| KeyVaultURL | URL | 문자열 |
+| KeyEncryptionKeyURL | url | 문자열 |
+| KeyVaultURL | url | 문자열 |
 | 암호 | 암호 | 문자열 | 
 | SequenceVersion | uniqueidentifier | 문자열 |
 | VolumeType | OS, Data, All | 문자열 |

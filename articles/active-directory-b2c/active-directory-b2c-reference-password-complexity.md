@@ -3,19 +3,19 @@ title: 암호 복잡성 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 소비자가 제공한 암호에 복잡성 요구 사항을 구성하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1d7874d7c8d04e3d3565cdfe2e52e49c538b3091
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c47a22883de4a3b28a42b390ef78368277e22be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316989"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703735"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호에 복잡성 요구 사항 구성
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory) B2C는 계정을 만들 때 최종 사용자가
 
 | 복잡성 | 설명 |
 | --- | --- |
-| 단순 | 암호는 적어도 8~64자입니다. |
+| 간단한 | 암호는 적어도 8~64자입니다. |
 | 강력 | 암호는 적어도 8~64자입니다. 소문자, 대문자, 숫자 또는 기호와 같은 4개 항목 중 3가지가 필요합니다. |
 | 사용자 지정 | 이 옵션을 통해 암호 복잡성 규칙을 대부분 제어할 수 있습니다.  사용자 지정 길이를 구성할 수 있습니다.  숫자 전용 암호(PIN)를 허용할 수 있습니다. |
 

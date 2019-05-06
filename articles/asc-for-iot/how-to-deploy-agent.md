@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0a5e04b91d79b99935b52fd7f24752fb5d1b115
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61358406"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919630"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>선택 하 고 IoT 장치의 보안 에이전트 배포
 
@@ -49,7 +49,7 @@ C 기반 보안 에이전트 낮은 메모리 점유율, 고 사용 가능한 �
 | 공개 소스 | 사용할 수 있습니다 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 [Github](https://aka.ms/iot-security-github-cs) | 사용할 수 있습니다 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 [Github](https://aka.ms/iot-security-github-c) |
 | 개발 언어    | C | C# |
 | 지원 되는 Windows 플랫폼? | 아닙니다. | 예 |
-| Windows 필수 구성 요소 | --- | [WMI](https://docs.microsoft.com/en-us/windows/desktop/wmisdk/) |
+| Windows 필수 구성 요소 | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | 지원 되는 Linux 플랫폼? | 예, x64 및 x86 | 예, x64만 해당 |
 | Linux 필수 구성 요소 | libunwind8 libcurl3, uuid 런타임, auditd, audispd 플러그 인 | libunwind8 libcurl3, uuid 런타임, auditd, audispd 플러그 인, sudo, netstat, iptables |
 | 디스크 공간 | 10.5MB | 90MB |

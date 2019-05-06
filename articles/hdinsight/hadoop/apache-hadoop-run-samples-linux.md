@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 04/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5fd2d27533d725102a4c334f1e8a1abed6cd78cc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121897"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706671"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>HDInsight에 포함된 MapReduce 예제 실행
 
@@ -24,12 +24,9 @@ HDInsight의 Apache Hadoop에 포함된 MapReduce 예제를 실행하는 방법�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight 클러스터**: [Linux HDInsight에서 Apache Hive와 Apache Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight에서 Apache Hadoop 클러스터를 합니다. 참조 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)합니다.
 
-    > [!IMPORTANT]  
-    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
-
-* **SSH 클라이언트**: 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="the-mapreduce-examples"></a>MapReduce 예제
 
@@ -64,7 +61,11 @@ HDInsight의 Apache Hadoop에 포함된 MapReduce 예제를 실행하는 방법�
 
 ## <a name="run-the-wordcount-example"></a>wordcount 예제 실행
 
-1. SSH를 사용하여 HDInsight에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+1. SSH를 사용하여 HDInsight에 연결합니다. 대체 `CLUSTER` 클러스터의 이름으로 다음 명령을 입력 합니다.
+
+    ```cmd
+    ssh sshuser@CLUSTER-ssh.azurehdinsight.net
+    ```
 
 2. `username@#######:~$` 프롬프트에서 다음 명령을 사용하여 샘플을 나열합니다.
 
@@ -86,7 +87,7 @@ HDInsight의 Apache Hadoop에 포함된 MapReduce 예제를 실행하는 방법�
 
     이 메시지는 원본 문서에 대해 여러 입력 경로를 제공할 수 있음을 나타냅니다. 최종 경로는 출력(원본 문서의 단어 수)이 저장되는 곳입니다.
 
-4. 다음을 사용하여 클러스터와 함께 샘플 데이터로 제공되는 Notebooks of Leonardo Da Vinci의 모든 단어 수를 계산할 수 있습니다.
+4. 다음에는 노트북의 Leonardo da Vinci 클러스터를 사용 하 여 샘플 데이터로 제공 되는 모든 단어 수 계산을 사용:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -162,11 +163,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 이 명령에서 반환되는 값은 **3.14159155000000000000**과 유사합니다. 참고로, Pi의 소수점 이하 10자리는 3.1415926535입니다.
 
-## <a name="10-gb-greysort-example"></a>10GB Greysort 예제
+## <a name="10-gb-graysort-example"></a>10GB GraySort 예제
 
 GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반적으로 최소 100TB의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)입니다.
 
-이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. Owen O'Malley와 Arun Murthy가 개발한 MapReduce 애플리케이션을 사용합니다. 이 애플리케이션은 0.578TB/분(100TB 정렬에 173분 소요)의 속도로, 2009년 연간 범용("daytona") 테라바이트 정렬 벤치마크로 선정되었습니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](https://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
+이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. Owen O'Malley와 Arun Murthy가 개발한 MapReduce 애플리케이션을 사용합니다. 이러한 응용 프로그램이은 0.578 0.578tb/ 분 (분에 100TB))의 속도로 2009 년 연간 범용 ("Daytona") 테라바이트 정렬 벤치 마크를 했습니다. 이 및 다른 정렬 벤치 마크에 대 한 자세한 내용은 참조는 [정렬 벤치 마크](https://sortbenchmark.org/) 사이트입니다.
 
 이 샘플에서는 세 가지 집합의 MapReduce 프로그램을 사용합니다.
 
@@ -211,7 +212,3 @@ GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반
 * [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-introduction]:apache-hadoop-introduction.md
-

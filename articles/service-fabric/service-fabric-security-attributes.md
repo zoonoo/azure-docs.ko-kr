@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765747"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719395"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 일반적인 보안 특성
 
@@ -27,7 +27,7 @@ ms.locfileid: "63765747"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 | 클러스터 및 가상 머신 확장 집합에 클러스터가 작성 된 고객을 소유 합니다. 가상 머신 확장 집합에서 azure 디스크 암호화를 사용할 수 있습니다. |
-| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 |  |
+| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예 |  |
 | 암호화 키 처리 (예: CMK, BYOK)| 예 | 클러스터 및 가상 머신 확장 집합에 클러스터가 작성 된 고객을 소유 합니다. 가상 머신 확장 집합에서 azure 디스크 암호화를 사용할 수 있습니다. |
 | 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 | Service Fabric API 호출은 Azure Resource Manager를 통해 수행됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다. |
@@ -37,7 +37,7 @@ ms.locfileid: "63765747"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 서비스 끝점 지원| 예 |  |
-| vNET 삽입 지원| 예 |  |
+| VNet 삽입 지원| 예 |  |
 | 네트워크 격리 및 방화벽 지원| 예 | NSG(네트워크 보안 그룹) 사용 |
 | 강제 터널링 지원| 예 | Azure 네트워킹은 강제 터널링을 제공합니다. |
 

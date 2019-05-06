@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766819"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939662"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -39,13 +39,13 @@ ms.locfileid: "63766819"
 
 후속 스케일 아웃 작업을 수행할 때 예를 들어 2 ~ 5 쿼리 풀에 있는 복제본의 수를 늘리면 새 복제본은 하이드레이션 blob 저장소에서 파일의 두 번째 집합에서 데이터를 사용 하 여 합니다. 동기화가 없습니다. 다음을 수행 하려는 경우 규모를 쿼리 풀에서 새 복제본 후 동기화를 두 번 중복 하이드레이션을 하이드레이션 합니다. 후속 스케일 아웃 작업을 수행할 때 반드시 염두에서에 둡니다.
 
-* 동기화를 수행 *스케일 아웃 작업 전에* 추가 복제본의 중복 하이드레이션 하지 않아도 됩니다.
+* 동기화를 수행 *스케일 아웃 작업 전에* 추가 복제본의 중복 하이드레이션 하지 않아도 됩니다. 동시 동기화와 동시에 실행 되는 스케일 아웃 작업 허용 되지 않습니다.
 
 * 모두 처리를 자동화 하는 경우 *고* 스케일 아웃 작업을 반드시 먼저 주 서버에서 데이터를 처리 하 고 동기화를 수행한 다음 스케일 아웃 작업을 수행 합니다. 이 시퀀스 보장 QPU 및 메모리 리소스에 미치는 영향을 최소화 합니다.
 
 * 쿼리 풀의 복제본이 없는 경우에 동기화가 허용 됩니다. 주 서버에서 처리 작업에서 새 데이터를 사용 하 여 하나 이상의 복제본에 0에서 확장 하는 경우 쿼리 풀에서 복제본이 없는 동기화를 먼저 수행 하 고 스케일 아웃 합니다. 스케일 아웃 하기 전에 동기화 새로 추가 된 복제본의 중복 하이드레이션 피할 수 있습니다.
 
-* 주 서버에서 모델 데이터베이스를 삭제 하는 경우이 자동으로 삭제 되지 쿼리 풀의 복제본에서. 사용 하 여 동기화 작업을 수행 해야 합니다 [동기화 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스에 대 한 파일/s를 제거 하 고 다음 모델을 삭제 하는 PowerShell 명령 쿼리 풀에서 복제본의 데이터베이스입니다.
+* 주 서버에서 모델 데이터베이스를 삭제 하는 경우이 자동으로 삭제 되지 쿼리 풀의 복제본에서. 사용 하 여 동기화 작업을 수행 해야 합니다 [동기화 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스에 대 한 파일/s를 제거 하 고 다음 모델을 삭제 하는 PowerShell 명령 쿼리 풀에서 복제본의 데이터베이스입니다. 모델 데이터베이스를 주 서버에는 없지만 쿼리 풀에서 복제본에 있는지를 확인 하려면 다음을 확인 합니다 **쿼리 풀에서 처리 서버 분리** 설정은 하는 것 **예**합니다. 다음 SSMS를 사용 하 여 사용 하 여 주 서버에 연결 하는 `:rw` 한정자 데이터베이스가 있는지 확인 합니다. 다음 없이 연결 하 여 쿼리 풀에서 복제본에 연결는 `:rw` 한정자를 동일한 데이터베이스도 있는지 확인 합니다. 주 서버에는 없지만 쿼리 풀의 복제본에서 데이터베이스가 있는 경우 동기화 작업을 실행 합니다.   
 
 * 주 서버에서 데이터베이스의 이름을 바꾸면 데이터베이스 복제본을 동기화 제대로 확인 하는 데 필요한 추가 단계가 있습니다. 이름 바꾸기 후 동기화를 사용 하 여 수행 합니다 [동기화 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 명령을 지정 하는 `-Database` 이전 데이터베이스 이름 가진 매개 변수입니다. 이 동기화 모든 복제본에서 데이터베이스 및 이전 이름 가진 파일을 제거합니다. 그런 다음 다른 동기화 지정을 수행 합니다 `-Database` 매개 변수를 새 데이터베이스 이름입니다. 두 번째 동기화 파일의 두 번째 집합에 새로 명명된 된 데이터베이스를 복사 하 고 모든 복제본을 하이드레이션 합니다. 포털에서 동기화 모델 명령을 사용 하 여 이러한 동기화를 수행할 수 없습니다.
 
@@ -58,6 +58,8 @@ ms.locfileid: "63766819"
 서버의 규모 확장이 필요한지 확인하려면 메트릭을 사용하여 Azure Portal에서 서버를 모니터링하십시오. QPU가 정기적으로 최대로 출력되는 지점까지 증가하는 경우 모델에 대한 쿼리 수가 계획의 QPU 한도를 초과하고 있음을 의미합니다. 쿼리 풀 작업 큐 길이 메트릭은 쿼리 스레드 풀 큐의 쿼리 수가 사용 가능한 QPU를 초과하면 증가합니다. 
 
 보기를 다른 좋은 메트릭은 ServerResourceType에서 평균 QPU를입니다. 이 메트릭은 쿼리 풀의를 사용 하 여 주 서버에 대 한 평균 QPU를 비교합니다. 
+
+![메트릭 쿼리 확장](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>QPU ServerResourceType 여를 구성 하려면
 1. 메트릭 꺾은선형 차트를 클릭 **메트릭을 추가**합니다. 
@@ -146,6 +148,8 @@ SSMS, SSDT, PowerShell의 연결 문자열, Azure Function 앱 및 AMO의 경우
 **문제:** 사용자는 **연결 모드 'ReadOnly'에서 '\<서버 이름>' 서버 인스턴스를 찾을 수 없습니다.** 라는 오류를 받게 됩니다.
 
 **해결 방법:** 선택 하는 경우는 **쿼리 풀에서 처리 서버 분리** 옵션을 기본 연결 문자열을 사용 하 여 클라이언트 연결 (없이 `:rw`) 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결 실패를 방지하려면 동기화를 수행할 때 쿼리 풀에 두 개 이상의 서버가 있어야 합니다. 다른 서버가 온라인 상태로 유지되는 동안 각 서버는 개별적으로 동기화됩니다. 처리 중에 쿼리 풀에 처리 서버가 없도록 선택한 경우 처리를 위한 풀에서 처리 서버를 제거한 다음, 처리가 완료된 후 동기화되기 전, 다시 풀에 추가하도록 선택할 수 있습니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
+
+
 
 ## <a name="related-information"></a>관련 정보
 

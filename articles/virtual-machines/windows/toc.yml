@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - 고가용성 VM
       href: tutorial-availability-sets.md
-    - name: 6 - VM 확장 집합 만들기
+    - name: 6 - 확장 집합 만들기
       href: tutorial-create-vmss.md
     - name: 7 - VM 부하 분산
       href: tutorial-load-balancer.md
@@ -251,6 +251,8 @@
               href: shared-images.md
             - name: CLI를 사용하여 공유 이미지 만들기
               href: ../linux/shared-images.md
+            - name: 포털
+              href: shared-images-portal.md
             - name: 공유 이미지 문제 해결
               href: troubleshooting-shared-images.md
         - name: 이미지 검색 및 사용

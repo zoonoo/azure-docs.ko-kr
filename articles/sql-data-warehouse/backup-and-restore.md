@@ -25,7 +25,7 @@ Azure SQL Data Warehouse를 백업하고 복원하는 방법을 알아봅니다.
 
 *데이터 웨어하우스 스냅숏*은 데이터 웨어하우스를 이전 상태로 복구하거나 복사하는 데 활용할 수 있는 복원 지점을 만듭니다.  SQL Data Warehouse가 분산 시스템이므로 데이터 웨어하우스 스냅숏은 Azure 저장소에 있는 여러 파일로 구성됩니다. 스냅숏은 데이터 웨어하우스에 저장된 데이터의 증분 변경 내용을 캡처합니다.
 
-*데이터 웨어하우스 복원*은 기존 데이터 웨어하우스 또는 삭제된 데이터 웨어하우스의 복원 지점에서 만들어지는 새 데이터 웨어하우스입니다. 데이터 웨어하우스 복원은 데이터가 실수로 손상되거나 삭제된 후 데이터를 다시 만들기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 또한 데이터 웨어하우스는 테스트 또는 개발 용도로 데이터 웨어하우스의 복사본을 만드는 강력한 메커니즘입니다. SQL Data Warehouse 복원 속도는 원본 및 대상 데이터 웨어하우스의 위치와 데이터베이스 크기에 따라 달라질 수 있습니다. 동일한 지역 내에서 평균적으로 복원에는 일반적으로 약 20분이 걸립니다.
+*데이터 웨어하우스 복원*은 기존 데이터 웨어하우스 또는 삭제된 데이터 웨어하우스의 복원 지점에서 만들어지는 새 데이터 웨어하우스입니다. 데이터 웨어하우스 복원은 데이터가 실수로 손상되거나 삭제된 후 데이터를 다시 만들기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 또한 데이터 웨어하우스는 테스트 또는 개발 용도로 데이터 웨어하우스의 복사본을 만드는 강력한 메커니즘입니다.  SQL Data Warehouse 복원 속도는 원본 및 대상 데이터 웨어하우스의 위치와 데이터베이스 크기에 따라 달라질 수 있습니다. 동일한 지역 내에서 평균적으로 복원에는 일반적으로 약 20분이 걸립니다. 
 
 ## <a name="automatic-restore-points"></a>자동 복원 지점
 
@@ -44,7 +44,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>사용자 정의 복원 지점
 
-이 기능을 이용하여 대규모 수정 전후의 데이터 웨어하우스의 복원 지점을 만들도록 스냅숏을 수동으로 트리거할 수 있습니다. 이 기능은 빠른 복구 시간 동안 작업 중단 또는 사용자 오류 발생 시 추가 데이터 보호를 제공하는 복원 지점이 논리적으로 일관되도록 합니다. 사용자 정의 복원 지점은 7일 동안 사용할 수 있으며 자동으로 삭제됩니다. 사용자 정의 복원 지점의 보존 기간은 변경할 수 없습니다. 어떤 시점에서든 **42개의 사용자 정의 복원 지점**만 지원되므로 다른 복원 지점을 만들기 전에 [삭제](https://go.microsoft.com/fwlink/?linkid=875299)해야 합니다. 사용자 정의 복원 지점은 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) 또는 Azure Portal을 통해 스냅숏을 트리거하여 만들 수 있습니다. 
+이 기능을 이용하여 대규모 수정 전후의 데이터 웨어하우스의 복원 지점을 만들도록 스냅숏을 수동으로 트리거할 수 있습니다. 이 기능은 빠른 복구 시간 동안 작업 중단 또는 사용자 오류 발생 시 추가 데이터 보호를 제공하는 복원 지점이 논리적으로 일관되도록 합니다. 사용자 정의 복원 지점은 7일 동안 사용할 수 있으며 자동으로 삭제됩니다. 사용자 정의 복원 지점의 보존 기간은 변경할 수 없습니다. 어떤 시점에서든 **42개의 사용자 정의 복원 지점**만 지원되므로 다른 복원 지점을 만들기 전에 [삭제](https://go.microsoft.com/fwlink/?linkid=875299)해야 합니다. 사용자 정의 복원 지점은 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) 또는 Azure Portal을 통해 스냅숏을 트리거하여 만들 수 있습니다.
 
 > [!NOTE]
 > 7일보다 더 긴 복원 시점이 필요한 경우 [여기서](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 데이터 웨어하우스가 온라인 상태가 되며, 이를 무기한 일시 중지하여 계산 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 복원된 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
@@ -97,7 +97,7 @@ SQL Data Warehouse 가격 책정에 대한 자세한 내용은 [SQL Data Warehou
 
 ## <a name="cross-subscription-restore"></a>교차 구독 복원
 
-구독에서 직접 복원해야 할 경우 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)서 이 기능에 투표합니다. 다른 논리 서버로 복원하고 구독 간 복원을 수행하는 구독에서 서버를 ['이동'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)합니다 .
+구독에서 직접 복원해야 할 경우 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)서 이 기능에 투표합니다. 다른 논리 서버로 복원하고 구독 간 복원을 수행하는 구독에서 서버를 ['이동'](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)합니다 . 
 
 ## <a name="geo-redundant-restore"></a>지역 중복 복원
 

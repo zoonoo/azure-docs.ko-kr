@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291418"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918546"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -128,7 +128,7 @@ Azure AD와 호환성을 위해 SCIM 끝점을 구현 하는 경우 다음 일�
      - `and`
 * 대/소문자 구분 일치를 사용 하는 특정 패치에 SCIM의 구조적 요소 필요가 `op` 에 정의 된 작업 값 https://tools.ietf.org/html/rfc7644#section-3.5.2합니다. Azure AD로 'op'의 값을 내보냅니다 `Add`하십시오 `Replace`, 및 `Remove`합니다.
 * Microsoft Azure AD를 사용 하면 끝점 및 자격 증명이 유효한 지 확인 합니다. 임의 사용자 및 그룹을 가져올 요청 합니다. 일부로 수행 됩니다 **연결 테스트** 흐름에 [Azure portal](https://portal.azure.com)합니다. 
-* 리소스에 쿼리할 수 있는 특성을 응용 프로그램에서 일치 하는 특성으로 설정 해야 합니다 [Azure portal](https://portal.azure.com)합니다. 자세한 내용은 참조 하세요. [사용자 지정 사용자 프로 비전 특성 매핑](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* 리소스에 쿼리할 수 있는 특성을 응용 프로그램에서 일치 하는 특성으로 설정 해야 합니다 [Azure portal](https://portal.azure.com)합니다. 자세한 내용은 참조 하세요. [사용자 지정 사용자 프로 비전 특성 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
 ### <a name="user-provisioning-and-de-provisioning"></a>사용자 프로비저닝 및 프로비전 해제
 다음 그림에서는 응용 프로그램의 id 저장소에 사용자의 수명 주기를 관리 하려면 Azure Active Directory가 SCIM 서비스를는 메시지를 보여 줍니다.  
@@ -624,7 +624,7 @@ Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어
 * ASP.NET framework 4.5를 SCIM 엔드포인트로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
 * [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 
-### <a name="getting-started"></a>시작
+### <a name="getting-started"></a>시작하기
 Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트를 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
 
 #### <a name="to-create-a-sample-scim-endpoint"></a>샘플 SCIM 엔드포인트를 만들려면
@@ -1234,9 +1234,9 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| 관리자 |manager |
+| manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
@@ -1252,11 +1252,11 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| 구성원 |구성원 |
+| members |members |
 | objectId |ID |
-| ProxyAddresses |emails[type eq "other"].Value |
+| proxyAddresses |emails[type eq "other"].Value |
 
 
 ## <a name="related-articles"></a>관련 문서

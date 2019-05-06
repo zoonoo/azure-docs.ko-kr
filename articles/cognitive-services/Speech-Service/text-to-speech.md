@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578787"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020375"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환 이란?
 
@@ -32,7 +32,9 @@ Azure Speech Services에서 text to speech는 서비스에 응용 프로그램, 
 
 신경망 음성 스트레스 및 음성된 언어 및 컴퓨터 음성에 음성의 단위를 취합 억양의 패턴 일치에서 기존 텍스트 음성 변환 시스템의 한계를 극복 하기 위해 심층 신경망을 사용 합니다. 표준 텍스트 음성 변환 prosody 음향 예측 단계 독립적인 모델에 의해 제어 되는 별도 언어 분석을 분류 합니다. muffled buzzy 음성 합성 될 수 있습니다. 우리의 신경망 기능이 않습니다 prosody 예측 및 음성 합성 동시에 더 유연 하 고 자연 발음이 음성 결과입니다.
 
-인공신경망 음성을 사용하여 챗봇 및 가상 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, 전자책 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연 스러운 prosody와 단어 지우기 할 신경망 음성을 크게 줄일 수신 피로 AI 시스템과 상호 작용 하는 경우. 인공신경망 음성에 대한 자세한 내용은 [지원되는 언어](language-support.md#text-to-speech)를 참조하세요.
+인공신경망 음성을 사용하여 챗봇 및 가상 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, 전자책 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연 스러운 prosody와 단어 지우기 할 신경망 음성을 크게 줄일 수신 피로 AI 시스템과 상호 작용 하는 경우. 
+
+신경망 음성 중립 등 게 다양 한 스타일을 지원합니다. 예를 들어 제사 (EN-US) 음성 말할 수 있는 cheerfully, 웜, 만족 대화에 최적화 된 합니다. 어조, 피치와 같은 음성 출력을 조정 하 고 사용 하 여 속도 높일 수 [Speech Synthesis Markup Language](speech-synthesis-markup.md)합니다. 사용할 음성의 전체 목록을 참조 하세요 [지원 되는 언어](language-support.md#text-to-speech)합니다.
 
 신경망 음성의 이점에 대 한 자세한 내용은 참조 하세요 [Microsoft의 새 신경망 텍스트 음성 변환 서비스는 다른 사람들 처럼 말하는 컴퓨터](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/)합니다.
 

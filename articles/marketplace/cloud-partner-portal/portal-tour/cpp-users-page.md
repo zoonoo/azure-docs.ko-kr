@@ -1,25 +1,18 @@
 ---
-title: Azure Marketplace에 대한 사용자 페이지 | Microsoft Docs
-description: .
+title: Azure Marketplace에 대 한 사용자 페이지
+description: Azure Marketplace에 대 한 클라우드 파트너 포털에서 사용자 페이지의 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 22768e90a419e7a5c3c9e286953afbf3ba2ab311
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 1c420a275efa4bb45ba952a04faafe25e30d64ef
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825584"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943394"
 ---
 # <a name="users-page"></a>사용자 페이지
 

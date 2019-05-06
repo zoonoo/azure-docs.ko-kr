@@ -13,25 +13,27 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36bfd1787e9f35ac4eaa8b8418df1e592386e8f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d2f16b2c4133e40c7f77390e83504397c47980
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61243353"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868147"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>기존 Blob을 Media Services 자산으로 복사
+
+> [!NOTE]
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+
 이 문서에서는 [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/)를 사용하여 저장소 계정에서 새로운 AMS(Azure Media Services) 자산으로 Blob을 복사하는 방법을 보여줍니다.
+
+Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
 
 확장 메서드는 다음에서 작동합니다.
 
 - 일반 자산
 - 라이브 보관 자산(FragBlob 형식)
 - 다른 Media Services 계정에 속하는 원본 및 대상 자산(다른 데이터 센터 사이인 경우 포함) 하지만 이 경우 요금이 발생할 수 있습니다. 가격 책정에 대한 자세한 내용은 [데이터 전송](https://azure.microsoft.com/pricing/#header-11)을 참조하세요.
-
-> [!NOTE]
-> Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
-> 
 
 문서에는 두 개의 코드 예제가 나와 있습니다.
 

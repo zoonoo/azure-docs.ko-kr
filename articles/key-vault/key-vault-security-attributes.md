@@ -2,19 +2,18 @@
 title: Azure Key Vault에 대 한 일반적인 보안 특성
 description: Azure Key Vault를 평가하기 위한 일반적인 보안 특성 검사 목록
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461423"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691819"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Azure Key Vault에 대 한 일반적인 보안 특성
 
@@ -27,7 +26,7 @@ ms.locfileid: "60461423"
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 | 모든 개체가 암호화됩니다. |
-| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 | 모든 통신은 암호화된 API 호출을 통해 수행됩니다. |
+| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>VNet 암호화</li><li>VNet 간 암호화</ul>| 예 | 모든 통신은 암호화된 API 호출을 통해 수행됩니다. |
 | 암호화 키 처리 (예: CMK, BYOK)| 예 | 고객 키 자격 증명 모음에 있는 모든 키를 제어합니다. 하드웨어 보안 모듈 (HSM) 지원 키를 지정한 경우에 FIPS 수준 2 HSM 키, 인증서 또는 암호를 보호 합니다. |
 | 열 수준 암호화 (Azure Data Services)| N/A |  |
 | API 호출 암호화| 예 | HTTPS를 사용합니다. |
@@ -36,9 +35,9 @@ ms.locfileid: "60461423"
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
-| 서비스 끝점 지원| 예 | Vnet(Virtual Network) 서비스 엔드포인트를 사용합니다. |
-| vNET 삽입 지원| 아닙니다. |  |
-| 네트워크 격리 및 방화벽 지원| 예 | Vnet 방화벽 규칙을 사용합니다. |
+| 서비스 끝점 지원| 예 | 가상 네트워크 (VNet) 서비스 끝점을 사용합니다. |
+| VNet 삽입 지원| 아닙니다. |  |
+| 네트워크 격리 및 방화벽 지원| 예 | VNet 방화벽 규칙을 사용합니다. |
 | 강제 터널링 지원| 아닙니다. |  |
 
 ## <a name="detection"></a>감지

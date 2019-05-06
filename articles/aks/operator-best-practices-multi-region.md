@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cac42505cd015cb018664b765e88f40667b1759
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464601"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920471"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -33,7 +33,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케�
 
 AKS 클러스터는 단일 Azure 지역에 배포됩니다. Azure 지역 장애로부터 보호하려면 애플리케이션을 여러 Azure 지역의 여러 AKS 클러스터에 배포하세요. AKS 클러스터를 배포할 Azure 지역에 대한 계획을 작성할 때 다음 사항을 고려해야 합니다.
 
-* [AKS 지역 가용성](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [AKS 지역 가용성](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * 사용자에게 가까운 Azure 지역을 선택합니다. AKS는 지속적으로 새 Azure 지역으로 확장 중입니다.
 * [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * 지리적 영역으로는 서로 쌍을 이루는 두 Azure 지역을 선택합니다. 이러한 Azure 지역은 플랫폼 업데이트를 조정하고, 필요한 경우 복구 활동의 우선 순위를 지정합니다.
@@ -62,7 +62,7 @@ Traffic Manager는 DNS 조회를 수행하여 사용자에게 가장 적합한 �
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Azure Front Door를 사용한 레이어 7 애플리케이션 라우팅
 
-Azure Traffic Manager는 DNS(레이어 3)를 사용하여 트래픽을 셰이핑합니다. [(현재 미리 보기)는에서 azure 프런트 도어](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS (계층 7) 라우팅 옵션을 제공 합니다. Front Door의 추가 기능으로는 SSL 종료, 사용자 지정 도메인, 웹 애플리케이션 방화벽, URL 재작성 및 세션 선호도가 포함됩니다.
+Azure Traffic Manager는 DNS(레이어 3)를 사용하여 트래픽을 셰이핑합니다. [Azure 프런트 도어](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS (계층 7) 라우팅 옵션을 제공 합니다. Front Door의 추가 기능으로는 SSL 종료, 사용자 지정 도메인, 웹 애플리케이션 방화벽, URL 재작성 및 세션 선호도가 포함됩니다.
 
 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
 

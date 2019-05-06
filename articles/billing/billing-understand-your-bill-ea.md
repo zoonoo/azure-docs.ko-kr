@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370036"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571198"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure Enterprise Agreement 청구서 이해
 
@@ -29,7 +29,7 @@ ms.locfileid: "60370036"
 
 ## <a name="invoices-for-most-customers"></a>대부분의 고객의 청구서
 
-이 섹션에서는 Azure 고객에 게 오스트레일리아, 일본 또는 싱가포르에 적용 되지 않습니다. 있는 경우 해당 국가 중 하나를 참조 하세요 [다른 고객의 청구서](#invoices-for-other-customers)합니다.
+이 섹션에서는 Azure 고객에 게 오스트레일리아, 일본 또는 싱가포르에 적용 되지 않습니다. 있는 경우 해당 국가/지역 중 하나를 참조 하세요 [다른 고객의 청구서](#invoices-for-other-customers)합니다.
 
 다음 중 하나가 청구 기간 동안 발생 하는 경우 Azure 청구서를 나타납니다.
 
@@ -113,8 +113,8 @@ ms.locfileid: "60370036"
 |총 확장 금액|총 사용량|차변이 적용되기 전, 특정 기간에 대한 총 세전 사용량 요금입니다.|
 |약정 사용량|약정 사용량|해당 특정 기간에 적용된 크레딧입니다.|
 |총 판매|총 초과분|크레딧 금액을 초과하는 총 사용량 요금입니다. 이 금액에는 세금이 포함되어 있지 않습니다.|
-|세액|적용할 수 없음|특정 기간의 총 판매 금액에 적용되는 세금입니다.|
-|총 금액|적용할 수 없음|크레딧이 적용되고 세금이 추가된 후 청구서의 지불액입니다.|
+|세액|해당 없음|특정 기간의 총 판매 금액에 적용되는 세금입니다.|
+|총 금액|해당 없음|크레딧이 적용되고 세금이 추가된 후 청구서의 지불액입니다.|
 
 ### <a name="marketplace-invoice"></a>Marketplace 청구서
 

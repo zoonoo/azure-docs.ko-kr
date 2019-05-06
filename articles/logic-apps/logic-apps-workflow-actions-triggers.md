@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844180"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691923"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic apps 워크플로 정의 언어에서 트리거 및 작업 형식에 대 한 참조
 
@@ -2301,6 +2301,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | `runtimeConfiguration.concurrency.runs` | 정수  | 변경 된 [ *기본 제한* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 동시에, 또는 병렬로 실행할 수 있는 워크플로 인스턴스의 수에 합니다. 이 값은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다. <p>`runs` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 [트리거 동시성 변경](#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](#sequential-trigger)를 참조하세요. | 모든 트리거 | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | 정수  | 변경 된 [ *기본 제한* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 워크플로 최대 동시 인스턴스를 이미 실행 중인 경우 실행 하기까지 대기할 수 있는 워크플로 인스턴스의 수에 합니다. `concurrency.runs` 속성에서 동시성 제한을 변경할 수 있습니다. <p>기본 제한을 변경하려면 [대기 실행 제한 변경](#change-waiting-runs)을 참조하세요. | 모든 트리거 | 
 | `runtimeConfiguration.concurrency.repetitions` | 정수  | 동시에 또는 병렬로 실행할 수 있는 "for each" 루프 반복 수에 대한 [*기본 제한*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 변경합니다. <p>`repetitions` 속성을 `1`로 설정하면 `operationOptions` 속성을 `SingleInstance`로 설정할 때와 같은 결과가 나타납니다. 두 속성 중 하나만 설정할 수 있습니다. <p>기본 제한을 변경하려면 ["for each" 동시성 변경](#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](#sequential-for-each)을 참조하세요. | 작업: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | 정수  | 특정 작업의 설정 페이지 매김 및 지 원하는 경우이 값을 지정 합니다 *최소* 검색할 결과 수입니다. <p>참조 페이지 매김을 켜려면 [페이지 매김을 사용 하 여 데이터를 대량으로, 항목 또는 결과 가져오기](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | 작업: 다양 한 |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2651,7 +2652,7 @@ Azure Active Directory를 사용한 [인정서 기반 인증](../active-director
 
 [Azure AD OAuth 인증](../active-directory/develop/authentication-scenarios.md)의 경우 트리거나 작업 정의에 `authentication` JSON 개체를 포함할 수 있습니다. 여기에는 다음 표에 지정된 속성을 포함합니다. 런타임 시 매개 변수 값에 액세스하려면 [워크플로 정의 언어](https://aka.ms/logicappsdocs)에 제공되는 `@parameters('parameterName')` 식을 사용하면 됩니다.
 
-| 자산 | 필수 | Value | 설명 |
+| 자산 | 필수 | 값 | 설명 |
 |----------|----------|-------|-------------|
 | **type** | 예 | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" |
 | **authority** | 아닙니다. | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |

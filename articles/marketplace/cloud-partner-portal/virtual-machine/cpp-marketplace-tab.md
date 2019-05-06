@@ -1,64 +1,60 @@
 ---
-title: Cloud 파트너 포털의 Azure에 대한 가상 머신 Marketplace 탭 | Microsoft Docs
+title: Azure Marketplace에 대 한 Cloud 파트너 포털의 virtual machine Marketplace 탭
 description: Azure Marketplace VM 제안을 만드는 데 사용되는 Marketplace 탭에 대해 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332758"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938198"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>가상 머신 Marketplace 탭
 
-**새 제품** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 형식 4 개의 섹션으로 구분 됩니다. **개요**, **아티팩트 마케팅**합니다 **잠재 고객 관리**, 및 **법적**합니다. 
+**새 제품** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 형식 4 개의 섹션으로 구분 됩니다. **개요**, **아티팩트 마케팅**합니다 **잠재 고객 관리**, 및 **법적**합니다.
+
 
 ## <a name="overview-section"></a>개요 섹션
 이 섹션에서는 Azure Marketplace 제품에 대한 일반적인 정보를 입력합니다.  필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
 
-![가상 머신에 대한 새 제안 양식에 있는 Marketplace 탭의 개요 섹션](./media/publishvm_008.png)
+![가상 머신에 대 한 Marketplace 탭의 개요 섹션](./media/publishvm_008.png)
 
-다음 표에서는 이러한 필드의 용도와 내용을 설명합니다.
+다음 표에서는 이러한 필드의 용도와 내용을 설명합니다. 필수 필드는 별표(*)로 표시됩니다.
 
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Title**                 | 제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다.  최대 길이는 50자입니다. |
-| **요약**               | 솔루션에 대한 간략한 목적 또는 기능입니다.  최대 길이는 100자입니다. |
-| **긴 요약**          | 솔루션에 대한 목적 또는 기능입니다.  최대 길이는 256자입니다. |
-| **설명**           | 솔루션에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다. |
-| **Microsoft CSP 재판매인 채널** | 클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다. |
-| **마케팅 식별자**  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예를 들면 다음과 같습니다. <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **미리 보기 구독 ID** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
+| **제목\***                 | 제안의 제목이며. 종종 긴 정식 이름입니다. 이 제목은 마켓플레이스에서 눈에 띄게 표시됩니다.  최대 길이는 50자입니다. |
+| **요약\***               | 솔루션에 대한 간략한 목적 또는 기능입니다.  최대 길이는 100자입니다. |
+| **긴 요약\***          | 솔루션에 대한 목적 또는 기능입니다.  최대 길이는 256자입니다. |
+| **설명\***           | 솔루션에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다. |
+| **Microsoft CSP 재판매인 채널\*** | 클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다. |
+| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예를 들면 다음과 같습니다. <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **미리 보기 구독 Id\*** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
 | **유용한 링크**          | 설명서, 릴리스 정보, FAQ 등에 URL을 추가합니다. |
-| **권장 범주(최대 5개)** | 제품이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 5개까지 허용됩니다.  |
+| **제안 범주 (최대 5 개)\*** | 제품이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 5개까지 허용됩니다.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>마케팅 아티팩트 섹션
 
-이 두 번째 섹션은 세 하위 섹션에서: **로고**하십시오 **스크린 샷**, 및 **비디오**합니다. 로고는 유일하게 필요한 마케팅 아티팩트이지만, 모든 아티팩트가 고객에게 가장 적절하게 호소하는 데 권장됩니다.
+이 두 번째 섹션은 세 하위 섹션에서: **로고**하십시오 **스크린 샷**, 및 **비디오**합니다. 로고는 유일하게 필요한 마케팅 아티팩트이지만, 모든 아티팩트가 고객에게 가장 적절하게 호소하는 데 권장됩니다. 
 
 ![가상 머신에 대한 새 제안 양식에 있는 Marketplace 탭의 마케팅 아티팩트 섹션](./media/publishvm_009.png)
+
+다음 표에서는 이러한 필드의 용도와 내용을 설명합니다. 필수 필드는 별표(*)로 표시됩니다.
 
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |
 | *로고*  |  |
-| **작은**                 | 40x40 픽셀.ico 비트맵                                                      |
-| **보통**                | 90x90 픽셀.ico 비트맵                                                      |
-| **큰**                 | 115x115 픽셀.ico 비트맵                                                   |
-| **넓게**                  | 255x115 픽셀.ico 비트맵                                                    |
+| **작음\***                 | 40x40 픽셀.ico 비트맵                                                      |
+| **중간\***                | 90x90 픽셀.ico 비트맵                                                      |
+| **큼\***                 | 115x115 픽셀.ico 비트맵                                                   |
+| **와이드\***                  | 255x115 픽셀.ico 비트맵                                                    |
 | **대표**                  | 815x290 픽셀 비트맵  선택 사항이지만, 일단 업로드되면 대표 로고를 삭제할 수 없습니다. |
 | *스크린샷*  | 선택 사항이지만, SKU당 최대 5개의 스크린샷을 제공합니다. |
 | **이름**                  | 이름 또는 제목 <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ ms.locfileid: "60332758"
 | **이름**                  | 이름 또는 제목  <!-- TODO - max char length? -->                              |
 | **링크**                  | YouTube 또는 Vimeo에서 호스팅되는 비디오 URL입니다.                                        |
 | **썸네일**             | 533x324 픽셀 비트맵                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>로고 지침
 
@@ -105,7 +100,6 @@ Cloud 파트너 포털에 업로드되는 모든 로고는 다음 지침을 따�
 
 
 ## <a name="lead-management-section"></a>잠재 고객 관리 섹션
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 세 번째 섹션에서는 Azure Marketplace 제안에서 창출된 잠재 고객을 수집할 수 있습니다. 이 잠재 고객 정보에 대한 드롭다운 목록에서 제공하는 저장소 옵션은 다음과 같습니다.
 
@@ -122,15 +116,16 @@ Cloud 파트너 포털에 업로드되는 모든 로고는 다음 지침을 따�
 
 ## <a name="legal-section"></a>법적 정보 섹션
 
-이 마지막 섹션을 사용 하면 각 제품에 필요한 두 법률 문서는를 제공할 수 있습니다. 개인정보처리방침 및 사용 약관을 제공할 수 있습니다.
+이 마지막 섹션에는 각 제품에 필요한 필수 법률 문서는 제공할 수 있습니다.  
 
-|  **필드**                |     **설명**                                                          |
-|  ---------                |     ---------------                                                          |
-| **개인정보처리방침 URL**    | 게시된 개인정보처리방침에 대한 URL                                            |
-| **사용 약관**          | 일반 텍스트 또는 단순 HTML 형식으로 작성된 정책입니다.  <!-- TODO - max char length? -->       |
+|  **필드**                    |     **설명**                                        |
+|  ---------                    |     ---------------                                        |
+| **개인정보 처리 방침 URL\***      | 게시된 개인정보처리방침에 대한 URL                          |
+| **표준 계약 사용\***  |   |
+| **사용 약관\***            | 일반 텍스트 또는 단순 HTML 형식으로 작성된 정책입니다.                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>다음 단계
 
 다음 [지원](./cpp-support-tab.md) 탭에서는 제안에 대한 기술 및 사용자 지원 리소스를 제공합니다.
-

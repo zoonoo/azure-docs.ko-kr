@@ -8,16 +8,20 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.custom: seodec2018
-ms.openlocfilehash: 369e5283d7350729e0d8cc44f94f1f2e71b133c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/02/2019
+ms.openlocfilehash: 62c2ed555fcac56677f4950c10d38ded8fb0649d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817002"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025184"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Azure Search .NET Management SDK 버전 2로 업그레이드
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Azure Search.NET Management SDK 버전으로 업그레이드 
+
+> [!Important]
+> 이 콘텐츠는 준비 중입니다. Azure Search 관리.NET SDK의 버전 3.0은 NuGet에서 사용할 수 있습니다. 이 마이그레이션 가이드는 새 버전으로 업그레이드 하는 방법에 설명 업데이트 노력 합니다. 
+>
+
 버전 1.0.2 또는 이전 버전의 [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk)를 사용하는 경우 이 문서를 통해 버전 2로 애플리케이션을 업그레이드할 수 있습니다.
 
 Azure Search .NET Management SDK 버전 2에는 이전 버전에서 변경된 사항이 일부 포함되어 있습니다. 대부분 소소한 변경이므로 코드를 변경하는 데 최소한의 작업만 필요합니다. 새 SDK 버전을 사용하는 코드를 변경하는 방법에 대한 지침은 [업그레이드 단계](#UpgradeSteps) 를 참조하세요.

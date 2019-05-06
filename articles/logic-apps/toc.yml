@@ -61,6 +61,8 @@
           href: logic-apps-scenario-function-sb-trigger.md
         - name: '논리 앱 호출, 트리거 또는 중첩'
           href: logic-apps-http-endpoint.md
+        - name: 페이지 매김을 사용하여 대량의 데이터 가져오기
+          href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: 메시지 일괄 처리
           href: logic-apps-batch-process-send-receive-messages.md
         - name: JSON 정의 작성
@@ -103,11 +105,8 @@
           href: logic-apps-enterprise-integration-b2b.md
         - name: AS2 메시지 교환
           href: logic-apps-enterprise-integration-as2.md
-          items:
-            - name: AS2 인코딩
-              href: logic-apps-enterprise-integration-as2-encode.md
-            - name: AS2 디코딩
-              href: logic-apps-enterprise-integration-as2-decode.md
+        - name: AS2 메시지 설정
+          href: logic-apps-enterprise-integration-as2-message-settings.md
         - name: EDIFACT 메시지 교환
           href: logic-apps-enterprise-integration-edifact.md
           items:

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125365"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>IaaS 리소스를 클래식 배포 모델에서 Azure 리소스 관리자로 마이그레이션
 먼저 서비스(IaaS) 리소스로서 인프라의 데이터 평면과 관리 평면 간의 차이점을 이해해야 합니다.
 
 * *관리/제어 평면*은 리소스를 수정하기 위해 관리/제어 평면 또는 API로 들어오는 호출을 설명합니다. 예를 들어 VM을 만들고, VM을 다시 시작하고, 새 서브넷을 사용하여 가상 네트워크를 업데이트하는 등의 작업은 실행 중인 리소스를 관리합니다. VM을 연결하는 데 직접적으로 영향을 주지 않습니다.
-* *데이터 평면*(응용 프로그램)은 응용 프로그램 자체의 런타임을 설명하고, Azure API를 통과하지 않는 인스턴스와의 상호 작용을 포함합니다. 예를 들어 웹 사이트에 액세스하거나 실행 중인 SQL Server 인스턴스 또는 MongoDB 서버에서 데이터를 가져오는 것은 데이터 평면 또는 애플리케이션 상호 작용입니다. 다른 예로 저장소 계정에서 Blob을 복사하고 가상 머신에 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 사용하기 위해 공용 IP 주소에 액세스하는 경우가 있습니다. 이러한 작업은 계산, 네트워킹, 스토리지에서 애플리케이션을 계속 실행하는 상태에서 수행합니다.
+* *데이터 평면*(애플리케이션)은 애플리케이션 자체의 런타임을 설명하고, Azure API를 통과하지 않는 인스턴스와의 상호 작용을 포함합니다. 예를 들어 웹 사이트에 액세스하거나 실행 중인 SQL Server 인스턴스 또는 MongoDB 서버에서 데이터를 가져오는 것은 데이터 평면 또는 애플리케이션 상호 작용입니다. 다른 예로 저장소 계정에서 Blob을 복사하고 가상 머신에 RDP(원격 데스크톱 프로토콜) 또는 SSH(Secure Shell)를 사용하기 위해 공용 IP 주소에 액세스하는 경우가 있습니다. 이러한 작업은 계산, 네트워킹, 스토리지에서 애플리케이션을 계속 실행하는 상태에서 수행합니다.
 
 데이터 평면은 클래식 배포 모델 및 리소스 관리자 스택 간에 동일합니다. 차이점은 마이그레이션 프로세스 중에 Microsoft에서 클래식 배포 모델의 리소스 표현을 리소스 관리자 스택의 표현으로 변환한다는 것입니다. 결과적으로 새 도구, API 및 SDK를 사용하여 리소스 관리자 스택에서 리소스를 관리해야 합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 746551cf05634427f839bf33af641bc4615179fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884944"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916903"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Java를 사용하여 기술 자료에서 질문에 대한 답변 얻기
 
@@ -24,7 +24,7 @@ ms.locfileid: "58884944"
 ## <a name="prerequisites"></a>필수 조건
 
 * [JDK SE](https://aka.ms/azure-jdks)(Java Development Kit, Standard Edition)
-* 이 샘플에서는 HTTP 구성 요소의 Apache [HTTP 클라이언트](http://hc.apache.org/httpcomponents-client-ga/)를 사용합니다. 프로젝트에 다음 Apache HTTP 클라이언트 라이브러리를 추가해야 합니다. 
+* 이 샘플에서는 HTTP 구성 요소의 Apache [HTTP 클라이언트](https://hc.apache.org/httpcomponents-client-ga/)를 사용합니다. 프로젝트에 다음 Apache HTTP 클라이언트 라이브러리를 추가해야 합니다. 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1838dbb627a6dec46f817101fc1d0cca0961ef77
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929453"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574191"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
@@ -47,9 +47,9 @@ Azure에서 MySQL 호스팅에 대한 몇 가지 다른 옵션이 있습니다.
 기본 데이터베이스 옵션은 3.50달러인 Titan입니다. 데이터베이스를 만드는 동안 비용이 표시되지 않으므로 의도하지 않은 데이터베이스를 실수로 구매할 수도 있습니다. 환경을 개선할 방법을 찾으려고 노력하고 있습니다. 그 전까지는 **만들기**를 클릭하고 리소스를 배포하기 전에 웹앱 및 데이터베이스에 대해 선택한 가격 책정 계층을 모두 확인해야 합니다.
 
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Azure 가상 머신에서 MySQL을 실행하고 있습니다. Azure 웹앱을 내 데이터베이스에 연결할 수 있나요?
-예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 MySQL 설치](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
+예. Azure VM에서 웹앱으로 원격 액세스할 수 있으면 웹앱을 데이터베이스에 연결할 수 있습니다. 자세한 내용은 [가상 머신에 MySQL 설치](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>ClearDB 프리미엄 MySQL 클러스터가 지원되는 국가는 어디인가요?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>국가/지역 ClearDB 프리미엄 MySQL 클러스터가 지원 되는?
 ClearDB 프리미엄 MySQL 클러스터는 인도, 오스트레일리아, 브라질 남부 및 중국을 제외한 전 세계 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>ClearDB 프리미엄 클러스터 솔루션을 사용하여 데이터베이스를 만들기 전에 새 클러스터를 만들 수 있나요?
@@ -68,7 +68,7 @@ Web Apps의 경우 기본이나 더 높은 가격 책정 계층을 사용합니�
 [Azure Portal](https://portal.azure.com)의 경우 ClearDB 공유 호스팅 데이터베이스를 강화할 수 있습니다. 자세한 내용은 이 [문서](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/)를 참조하세요. 현재는 Azure Portal에서 ClearDB 프리미엄 클러스터에 대한 업그레이드를 지원하지 않습니다.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Azure Portal에서 내 ClearDB 데이터베이스를 볼 수 없나요?
-클래식에서 ClearDB 데이터베이스를 만든 경우 [Azure Portal](https://portal.azure.com)에서 데이터베이스를 볼 수 없습니다. 이 시나리오의 경우 해결 방법이 없습니다.
+클래식에서 ClearDB 데이터베이스를 만든 경우 있습니다 됩니다 수 없습니다에서 데이터베이스를 [Azure portal](https://portal.azure.com)합니다. 이 시나리오의 경우 해결 방법이 없습니다.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>데이터베이스가 다운되었을 때 지원을 받으려면 누구에게 문의해야 하나요?
 데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support) 에 문의하세요. Azure 구독 정보를 제공해야 하므로 준비합니다.

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348178"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868117"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory Mapping Data Flow 조회 변환
 
@@ -25,6 +25,10 @@ ms.locfileid: "61348178"
 수신 스트림 필드와 참조 원본 필드 간의 일치에 사용할 키 필드를 선택합니다. Data Flow 디자인 캔버스에서 조회의 오른쪽 항목으로 사용할 새 원본을 먼저 만들어야 합니다.
 
 일치 항목이 발견되면 참조 원본의 결과 행과 열이 데이터 흐름에 추가됩니다. Data Flow의 끝에서 싱크에 포함할 관심 필드를 선택할 수 있습니다.
+
+## <a name="match--no-match"></a>일치 / 일치
+
+여 조회 변환 후 후속 변환 하 여 식 함수를 사용 하 여 각 일치 항목 행의 결과 검사할 `isMatch()` 여부 조회 일치 하는 행의에서 발생 여부에 따라 논리에서 추가 선택을 할 수 있습니다.
 
 ## <a name="optimizations"></a>최적화
 

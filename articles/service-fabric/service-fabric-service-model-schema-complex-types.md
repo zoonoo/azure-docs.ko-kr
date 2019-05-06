@@ -3065,12 +3065,12 @@ X509 인증서의 지문입니다.
 |이름|포트|
 |형식|xs:string|
 
-#### <a name="protocol"></a>프로토콜
+#### <a name="protocol"></a>Protocol
 엔드포인트의 프로토콜입니다. 서비스 매니페스트의 값을 재정의합니다. HTTPS 엔드포인트에는 애플리케이션 매니페스트에 선언된 EndpointCertificate 및 EndpointBindingPolicy도 있어야 합니다. 프로토콜은 나중에 애플리케이션 업그레이드 시 변경할 수 없습니다. 
 
 |특성|값|
 |---|---|
-|이름|프로토콜|
+|이름|Protocol|
 |형식|xs:string|
 |use|선택 사항|
 
@@ -3198,12 +3198,12 @@ URI 서비스 매니페스트의 값을 재정의합니다. 체계입니다(예:
 |이름|이름|
 |use|필수|
 
-#### <a name="protocol"></a>프로토콜
+#### <a name="protocol"></a>Protocol
 http, https, tcp, udp 등의 엔드포인트 프로토콜입니다. HTTPS 엔드포인트에는 애플리케이션 매니페스트에 선언된 EndpointCertificate 및 EndpointBindingPolicy도 있어야 합니다. 프로토콜은 나중에 애플리케이션 업그레이드 시 변경할 수 없습니다. 
 
 |특성|값|
 |---|---|
-|이름|프로토콜|
+|이름|Protocol|
 |use|선택 사항|
 |기본값|tcp|
 
@@ -4626,11 +4626,11 @@ NodeTypes 섹션에 정의된 노드 유형의 이름입니다.
 |형식|xs:positiveInteger|
 |use|필수|
 
-#### <a name="protocol"></a>프로토콜
+#### <a name="protocol"></a>Protocol
 
 |특성|값|
 |---|---|
-|이름|프로토콜|
+|이름|Protocol|
 |use|선택 사항|
 |기본값|tcp|
 
@@ -4669,11 +4669,11 @@ NodeTypes 섹션에 정의된 노드 유형의 이름입니다.
 |형식|xs:positiveInteger|
 |use|필수|
 
-#### <a name="protocol"></a>프로토콜
+#### <a name="protocol"></a>Protocol
 
 |특성|값|
 |---|---|
-|이름|프로토콜|
+|이름|Protocol|
 |use|선택 사항|
 |기본값|tcp|
 

@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1cce7598a315a1c6ef9565633918ba2e4a849ce2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a10e4fc96f475fe26ca27ddec2e805086d661a50
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196683"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929415"
 ---
 | **배포 모델/방법** | **Azure Portal** | **PowerShell** | 
 | --- | --- | --- |
-| 리소스 관리자 | **지원되지 않음** | [문서](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
-| 클래식 | **지원되지 않음** | [문서](../articles/expressroute/expressroute-howto-coexist-classic.md) |
+| 리소스 관리자 | **지원됨** | [자습서](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
+| 클래식 | **지원되지 않음** | [자습서](../articles/expressroute/expressroute-howto-coexist-classic.md) |

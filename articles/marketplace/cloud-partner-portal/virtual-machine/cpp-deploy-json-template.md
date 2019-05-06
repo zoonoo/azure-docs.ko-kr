@@ -1,25 +1,18 @@
 ---
-title: Azure VHD 배포 템플릿 | Microsoft Docs
+title: Azure VHD 배포 템플릿 | Azure Marketplace
 description: 사용자 가상 하드 디스크에서 새 Azure 가상 머신을 배포하는 데 필요한 Azure Resource Manager 템플릿을 나열합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b122d12394fe39990e359a3192e1ec5b68f17515
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 73f53f72d4db88bc0487999165d25fc952cf4a20
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938282"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>가상 하드 디스크 배포 템플릿 
 

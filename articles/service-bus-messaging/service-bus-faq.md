@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus FAQ | Microsoft Docs
-description: Azure Service Bus에 대한 일부 자주 묻는 질문을 답변합니다.
+description: Azure Service Bus에 대 한 일부 자주 묻는 질문을 답변합니다.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311032"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707142"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -41,6 +41,48 @@ ms.locfileid: "60311032"
 분할된 엔터티를 사용하는 경우 순서는 보장할 수 없습니다. 파티션을 사용할 수 없는 이벤트에서도 여전히 메세지를 보내고 다른 파티션에서 메시지를 수신할 수 있습니다.
 
  분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>어떤 포트가 방화벽에서 열려는 하나요? 
+Azure Service Bus를 사용 하 여 메시지를 수신 하는 다음 프로토콜을 사용할 수 있습니다.
+
+- AMQP(고급 메시지 큐 프로토콜)
+- SBMP(Service Bus 메시징 프로토콜)
+- HTTP
+
+Azure Event Hubs를 사용 하 여 통신 하도록 이러한 프로토콜을 사용 하 여 필요한 아웃 바운드 포트 다음 표를 참조 하세요. 
+
+| Protocol | 포트 | 세부 정보 | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 및 5672 | 참조 [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 ~ 9354 | 참조 [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>어떤 IP 주소를 화이트 리스트 하나요?
+연결에 대 한 허용 목록에 올바른 IP 주소를 찾으려면 다음이 단계를 수행 합니다.
+
+1. 명령 프롬프트에서 다음 명령을 실행 합니다. 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. 반환 된 IP 주소를 적어둡니다 `Non-authoritative answer`합니다. 이 IP 주소는 정적입니다. 유일한 시점을 변경할 경우 다른 클러스터에 네임 스페이스를 복원 하는 경우
+
+네임 스페이스에 대 한 영역 중복을 사용 하는 경우에 몇 가지 추가 단계를 수행 해야 합니다. 
+
+1. 첫째, 네임 스페이스에서 nslookup을 실행합니다.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. 이름 적어 합니다 **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. 접미사 s1, s2 및 s3 세 가용성 영역에서 실행 중인 모든 세 인스턴스의 IP 주소를 사용 하 여 각각에 대해 nslookup을 실행 합니다. 
+
 
 ## <a name="best-practices"></a>모범 사례
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure Service Bus 모범 사례는 무엇인가요?

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626482"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951547"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>처음부터 IoT(사물 인터넷) 보안
 
@@ -33,7 +33,7 @@ ms.locfileid: "60626482"
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>처음부터 보안 인프라
 
-[Microsoft Cloud](https://azure.microsoft.com) 인프라는 127개 국가에서 10억 명 이상의 고객을 지원합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
+합니다 [Microsoft Cloud](https://azure.microsoft.com) 인프라는 127 국가/지역의 한 십억 개 이상의 고객을 지원 합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
 
 [SDL(보안 개발 수명 주기)](https://www.microsoft.com/sdl/)은 보안 요구 사항을 전체 소프트웨어 수명 주기에 포함하는 전사적인 필수 개발 프로세스를 제공합니다. 동일한 보안 실무 수준에 따라 운영 활동이 진행되도록 하기 위해, SDL은 Microsoft의 OSA(운영 보안 보증) 프로세스에 따른 엄격한 보안 지침을 사용합니다. 또한 Microsoft는 규정 준수 의무를 충족하는지 지속적으로 확인하기 위해 타사 감사 업체와도 협력하며 Microsoft Digital Crimes Unit, Microsoft 보안 대응 센터 및 Microsoft 맬웨어 보호 센터를 비롯한 우수한 센터를 만들어 광범위한 보안 작업에 참여하고 있습니다.
 

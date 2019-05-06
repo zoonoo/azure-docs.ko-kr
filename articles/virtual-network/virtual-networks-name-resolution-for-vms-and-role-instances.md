@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640460"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925245"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -96,7 +96,7 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다. 
   * **/etc/sysconfig/network/config**를 편집하고 *NETCONFIG_DNS_FORWARDER=""* 를 *dnsmasq*로 변경합니다.
   * 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf를 `netconfig update`로 업데이트합니다.
-* **OpenLogic(NetworkManager 사용)**:
+* **CentOS (NetworkManager 사용)**:
   * `sudo yum install dnsmasq`를 사용하여 dnsmasq 패키지를 설치합니다.
   * `systemctl enable dnsmasq.service`를 사용하여 dnsmasq 서비스를 사용하도록 설정합니다.
   * `systemctl start dnsmasq.service`를 사용하여 dnsmasq 서비스를 시작합니다.
@@ -129,7 +129,7 @@ resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 �
 * **SUSE** (netconf 사용):
   1. *timeout:1 attempts:5*를 **/etc/sysconfig/network/config**의 **NETCONFIG_DNS_RESOLVER_OPTIONS=""** 매개 변수에 추가합니다.
   2. `netconfig update`를 실행하여 업데이트합니다.
-* **OpenLogic** (NetworkManager 사용):
+* **CentOS** (NetworkManager 사용):
   1. *echo "options timeout:1 attempts:5"* 를 **/etc/NetworkManager/dispatcher.d/11-dhclient**에 추가합니다.
   2. `service network restart`로 업데이트합니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290068"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939864"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search에서 패싯 필터를 작성하는 방법 
 
@@ -35,7 +35,7 @@ ms.locfileid: "61290068"
 
 ## <a name="choose-fields"></a>필드 선택
 
-패싯은 단일 값 필드 및 컬렉션을 통해 계산할 수 있습니다. 패싯 탐색에서 가장 잘 작동하는 필드는 카디널리티가 낮습니다. 즉, 검색 코퍼스의 문서 전체에서 반복되는 고유한 값(예 : 색, 국가 또는 브랜드 이름 목록)이 적습니다. 
+패싯은 단일 값 필드 및 컬렉션을 통해 계산할 수 있습니다. 필드 패싯 탐색에서 가장 잘 작동 하는 카디널리티가 낮습니다: 소수의 (예를 들어, 색, 국가/지역 또는 브랜드 이름 목록) 검색 코 퍼스의 문서 전체에서 반복 되는 고유 값입니다. 
 
 패싯은 다음 특성을 TRUE로 설정하여 인덱스를 만들 때 필드별로 활성화됩니다. (`filterable`, `facetable`). 필터링 가능한 필드만 패싯이 가능합니다.
 

@@ -1,25 +1,18 @@
 ---
-title: Azure 및 Dynamics 365 컨설팅 서비스 제품 - 상점 세부 정보 입력 | Microsoft Docs
-description: Cloud 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품의 상점 세부 정보 정의에 대한 가이드입니다.
+title: 상점 세부 정보 컨설팅 제품에 대 한 입력 | Azure Marketplace
+description: Azure 또는 Dynamics 365 컨설팅 서비스 제품 Cloud 파트너 포털에서에서 상점 세부 정보를 정의 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865382"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942707"
 ---
 # <a name="storefront-details-tab"></a>상점 세부 정보 탭
 
@@ -32,14 +25,16 @@ ms.locfileid: "60865382"
 
 ![새 컨설팅 서비스 제품 만들기 - 상점 세부 정보 탭](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>제품 세부 정보
 
 **제품 세부 정보** 섹션에는 다음 상자가 포함되어 있습니다.
 
--   **제품 요약**
--   **제품 설명**
+-   **제품 요약\***
+-   **제품 설명\***
 
-### <a name="offer-summary"></a>제품 요약
+
+### <a name="offer-summary"></a>제품 요약\*
 
 제품 요약은 제품 이름 바로 아래에 표시되는 제품의 간략한 설명입니다. 일반 텍스트를 사용하여 줄 바꿈 없이 제품 요약을 입력합니다. 아래에는 해당 제품 이름에 적합한 제품 요약의 예제가 나와 있습니다.
 
@@ -68,7 +63,8 @@ ms.locfileid: "60865382"
 -   **제품 이름**: Dynamics 및 프로젝트: 3일 평가
 -   **제품 요약**: 전문 서비스 업체 및 프로젝트 중심 기업용 ERP 솔루션에 대한 요구 사항 수집 및 평가를 진행합니다.
 
-### <a name="offer-description"></a>제품 설명
+
+### <a name="offer-description"></a>제품 설명\*
 
 **제품 설명** 상자에 컨설팅 서비스 제품에 대한 설명을 입력합니다. 적절한 제품 설명에는 컨설팅 과정의 정확한 세부 정보와 고객에게 제공되는 최종 결과물 관련 정보가 포함됩니다. 또한 고객이 제공받을 서비스를 명확하게 파악할 수 있어야 합니다. 귀하의 제품이 컨설팅 서비스를 제공하는 Microsoft 제품과 어떤 관련이 있는지가 포함됩니다.
 
@@ -144,6 +140,7 @@ ms.locfileid: "60865382"
 제품을 라이브로 전환하기 전에 AppSource에서 미리 보는 데 사용할 비밀 키를 입력합니다.
 이 식별자는 암호가 아닙니다.
 
+
 ## <a name="listing-details"></a>목록 세부 정보
 
 **컨설팅 서비스 유형**
@@ -166,7 +163,7 @@ Microsoft는 고정 범위, 고정 기간, 예상/고정 가격 또는 무료 �
 컨설팅 서비스 제품을 제공할 국가와 지역을 선택합니다. 한 제품을 여러 국가나 지역에 게시할 수는 없습니다. 각 국가나 지역에 새 제품을 만들어야 합니다.
 
 >[!Note]
->AppSource 컨설팅 서비스는 현재 미국, 영국 및 캐나다에서 실시간으로 제공됩니다. 아직 실시간으로 지원되지 않는 국가를 위해 제품을 제출할 수 있습니다. 이러한 제품을 검토한 후 실시간으로 제공될 준비를 진행하게 됩니다. 실시간으로 제공되지 않는 국가에서 서비스를 시작하기 위해 최소 수의 제품을 실시간으로 제공할 수 있게 준비해야 합니다.
+>AppSource 컨설팅 서비스는 현재 미국, 영국 및 캐나다에서 실시간으로 제공됩니다. 라이브 아직 없는 국가/지역에 대 한 제품을 제출할 수 있습니다 및 검토 및 가동할 준비가 됩니다. 최소한의 제품을 라이브로 전환 준비가 라이브 없는 국가/지역에 대 한 제품을 사용 하는 것이 좋습니다 새 국가/지역, 여는 데 필요 합니다.
 
 **산업**
 
@@ -207,6 +204,7 @@ AppSource에 게시하려면 기본 제품으로 **Dynamics 365**, **Power BI** 
 **스크린샷(5개로 제한)**
 
 제품, 해당 결과물 또는 회사에 대한 추가 정보를 제공하는 이미지를 5개까지 업로드합니다. 마케팅 브로슈어의 일부분, 프레젠테이션의 관련 슬라이드 또는 회사의 주요 연혁이나 전문 지식을 소개하는 이미지가 예제에 해당합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

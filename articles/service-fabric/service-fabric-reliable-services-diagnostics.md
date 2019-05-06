@@ -106,7 +106,7 @@ Reliable Services 런타임은 `Service Fabric Transactional Replicator` 범주 
 | --- | --- |
 | Begin Txn Operations/sec | 초당 만들어진 새 쓰기 트랜잭션의 수입니다.|
 | Txn Operations/sec | 초당 신뢰할 수 있는 컬렉션에 대해 수행된 추가/업데이트/삭제 작업의 수입니다.|
-| 로그 플러시 바이트/초 | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
+| Log Flush Bytes/sec | 트랜잭션 복제기가 초당 디스크에 플러시하는 바이트 수입니다. |
 | Throttled Operations/sec | 제한 때문에 트랜잭션 복제기가 초당 거부한 작업 수입니다. |
 | 평균 Transaction ms/Commit | 트랜잭션당 평균 커밋 대기 시간(밀리초)입니다. |
 | 평균 Flush Latency (ms) | 트랜잭션 복제기가 시작한 디스크 플러시 작업의 평균 지속 시간(밀리초)입니다. |

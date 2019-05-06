@@ -3,8 +3,8 @@ title: Azure 트래픽 분석 질문과 대답 | Microsoft Docs
 description: 트래픽 분석에 대해 자주 묻는 질문에 대한 대답을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236612"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939902"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -241,7 +241,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>트래픽 분석 데이터를 처리 하는 빈도
 
-참조 된 [데이터 집계 섹션](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) 트래픽 분석 스키마 및 데이터 집계 문서
+참조 된 [데이터 집계 섹션](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) 트래픽 분석 스키마 및 데이터 집계 문서
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>어떻게 않습니다 트래픽 분석 결정 악성 IP는? 
 
@@ -253,14 +253,14 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 트래픽 분석에 Log Analytics에 대 한 짧은 링크를 사용할 수 있습니다. 
 - 사용 하 여는 [스키마에는 설명한](traffic-analytics-schema.md) 쿼리를 작성 하려면 
 - "새 경고 규칙"를 클릭 합니다. 경고를 만들려면
-- 가리킵니다 [로그 경고 설명서](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) 경고 만들기
+- 가리킵니다 [로그 경고 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 경고 만들기
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 
 지역 지도 페이지에는 두 개의 기본 섹션이 있습니다.
     
-- **배너**: 지역 지도 위쪽에 있는 배너는 트래픽 분포 필터(예: 배포, 국가의 트래픽 및 악성)를 선택하는 단추를 제공합니다. 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
-- **지도**: 배너 아래의 지도 섹션에는 Azure 데이터 센터와 국가 간의 트래픽 분포가 표시됩니다.
+- **배너**: 지역 지도의 맨 위에 있는 배너는 트래픽 분포 필터 (예를 들어, 배포, 국가/지역의 트래픽 및 악성)를 선택 하는 단추를 제공 합니다. 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
+- **지도**: 배너 아래의 지도 섹션 Azure 데이터 센터 및 국가/지역 간 트래픽 분포를 보여 줍니다.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>배너에서 키보드 탐색
     

@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637521"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021944"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>사용되지 않는 인식 검색 기술
 
@@ -31,7 +31,7 @@ ms.locfileid: "60637521"
 
 ### <a name="last-available-api-version"></a>사용 가능한 마지막 api 버전
 
-2017-11-11-preview
+2019-05-06-미리 보기
 
 ### <a name="end-of-support"></a>지원 종료
 
@@ -43,7 +43,8 @@ ms.locfileid: "60637521"
 
 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)로 마이그레이션하려면 기술 정의에 다음 변경 사항 중 하나 이상을 수행해야 합니다. [기술 세트 API 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-skillset)를 사용하여 기술 정의를 업데이트할 수 있습니다.
 
-_참고_: 현재 개념으로서 신뢰도 점수는 지원되지 않습니다. 신뢰도 점수는 나중에 지원될 예정입니다. `minimumPrecision` 매개 변수는 향후 사용 및 이전 버전과의 호환성을 위해 `EntityRecognitionSkill`에 있습니다.
+> [!NOTE]
+> 현재 개념으로서 신뢰도 점수는 지원되지 않습니다. `minimumPrecision` 매개 변수는 향후 사용 및 이전 버전과의 호환성을 위해 `EntityRecognitionSkill`에 있습니다.
 
 1. *(필수)* `@odata.type`을 `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"`에서 `"#Microsoft.Skills.Text.EntityRecognitionSkill"`로 변경
 

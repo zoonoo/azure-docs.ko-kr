@@ -2,23 +2,19 @@
 title: 방화벽 뒤에 있는 Key Vault에 액세스 - Azure Key Vault | Microsoft Docs
 description: 방화벽 뒤에 있는 애플리케이션에서 Azure Key Vault에 액세스하는 방법을 알아봅니다
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc6315f5ab264108369410b73a667fa1e07e1e44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305427"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689953"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 
@@ -52,7 +48,7 @@ ms.locfileid: "60305427"
 
 Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증명 모음 클라이언트 애플리케이션은 Azure Resource Manager 엔드포인트에 액세스해야 합니다.  
 
-| 작업의 형식 | 엔드포인트:포트 |
+| 작업의 유형 | 엔드포인트:포트 |
 | --- | --- |
 | Key Vault 제어 평면 작업<br> - Azure Resource Manager 사용 |**전역:**<br> management.azure.com:443<br><br> **Azure 중국:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 |
 | Azure Active Directory Graph API |**전역:**<br> graph.windows.net:443<br><br> **Azure 중국:**<br> graph.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> graph.windows.net:443<br><br> **Azure 독일:**<br>  graph.cloudapi.de:443 |
@@ -61,7 +57,7 @@ Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증�
 
 모든 주요 자격 증명 모음 개체(키와 암호) 관리 및 암호화 작업의 경우 주요 자격 증명 모음 클라이언트는 주요 자격 증명 모음 엔드포인트에 액세스해야 합니다. 엔드포인트 DNS 접미사는 주요 자격 증명 모음의 위치에 따라 다릅니다. 주요 자격 증명 모음 엔드포인트는 다음 테이블에 설명된 대로 *vault-name*.*region-specific-dns-suffix* 형식입니다.  
 
-| 작업의 형식 | 엔드포인트:포트 |
+| 작업의 유형 | 엔드포인트:포트 |
 | --- | --- |
 | 키에 대한 암호화 작업을 포함하는 작업, 키 및 암호 만들기, 읽기, 업데이트 및 삭제, 키 자격 증명 모음 개체(키 또는 암호)의 태그 및 기타 특성 설정 또는 가져오기 |**전역:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure 중국:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure 미국 정부:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 

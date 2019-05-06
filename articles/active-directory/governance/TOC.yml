@@ -1,26 +1,57 @@
 - name: Azure AD ID 거버넌스 설명서
   href: index.yml
 - name: 개요
-  expanded: false
+  expanded: true
   items:
     - name: ID 거버넌스란?
       href: identity-governance-overview.md
+    - name: 권한 관리란? (미리 보기)
+      href: entitlement-management-overview.md
     - name: 액세스 검토란?
       href: access-reviews-overview.md
-- name: 개념
-  expanded: false
+- name: 자습서
+  expanded: true
   items:
-    - name: 검토를 사용하여 게스트 액세스 관리
-      href: manage-guest-access-with-access-reviews.md
-    - name: 검토로 사용자 액세스 관리
-      href: manage-user-access-with-access-reviews.md
-    - name: 프로그램 및 해당 컨트롤 관리
-      href: manage-programs-controls.md
-    - name: 조건부 액세스에서 제외된 사용자 관리
-      href: conditional-access-exclusion.md
+    - name: 첫 번째 액세스 패키지 만들기
+      href: entitlement-management-access-package-first.md
+- name: 개념
+  expanded: true
+  items:
+    - name: 권한 관리
+      items:
+        - name: 요청 프로세스 및 이메일
+          href: entitlement-management-process.md
+    - name: 액세스 검토
+      items:
+        - name: 검토를 사용하여 게스트 액세스 관리
+          href: manage-guest-access-with-access-reviews.md
+        - name: 검토로 사용자 액세스 관리
+          href: manage-user-access-with-access-reviews.md
+        - name: 프로그램 및 해당 컨트롤 관리
+          href: manage-programs-controls.md
+        - name: 조건부 액세스에서 제외된 사용자 관리
+          href: conditional-access-exclusion.md
 - name: 방법 가이드
   expanded: true
   items:
+    - name: 권한 관리
+      items:
+        - name: 일반적인 시나리오
+          href: entitlement-management-scenarios.md
+        - name: 새 액세스 패키지 만들기
+          href: entitlement-management-access-package-create.md
+        - name: 액세스 패키지 편집
+          href: entitlement-management-access-package-edit.md
+        - name: 카탈로그 만들기
+          href: entitlement-management-catalog-create.md
+        - name: 액세스 요청
+          href: entitlement-management-request-access.md
+        - name: 요청 승인
+          href: entitlement-management-request-approve.md
+        - name: 보고서 및 로그 보기
+          href: entitlement-management-reports.md
+        - name: 문제 해결
+          href: entitlement-management-troubleshoot.md
     - name: 액세스 검토
       items:
         - name: 그룹 및 앱

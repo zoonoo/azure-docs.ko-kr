@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559849"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712361"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -41,31 +41,25 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 현재 두 개의 계산 세대, 4세대 및 5세대에서 선택할 수 있습니다. 4세대 논리적 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. Gen 4 및 Gen 5는 다음 지역에서 사용할 수 있습니다(“X”는 사용할 수 있음을 나타냄). 
 
-> [!IMPORTANT]
-> 2018년 12월 12일부터, 신규 고객은 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 미국 동부 2, 인도 중부, 인도 서부, 일본 서부, 미국 중북부, 미국 서부에서 컴퓨팅 4세대 서버를 프로비전할 수 없습니다. 이전에 만들어진 컴퓨팅 4세대 서버는 이러한 지역에서 2019년 2월 1일부터 컴퓨팅 5세대로 마이그레이션됩니다.
->
-> [!IMPORTANT]
-> 2019 년 2 월 19 일 시작 신규 고객에 게 되지 미국 중부, 미국 동부, 일본 동부, 북유럽, 미국 중남부, 동남 아시아, 유럽 서 부에 계산 4 세대 서버를 프로 비전 할 수 있습니다. 이전에 만든 4 대의 서버로 마이그레이션되고 이러한 지역의 2019 년 4 월 1 일을 시작 하는 5 세대 계산 세대 계산 합니다.
-
 | **Azure 지역** | **4세대** | **5세대** |
 |:---|:----------:|:--------------------:|
 | 미국 중부 |  | X |
 | 미국 동부 |  | X |
 | 미국 동부 2 |  | X |
 | 미국 중북부 |  | X |
-| 미국 중남부 | X | X |
+| 미국 중남부 |  | X |
 | 미국 서부 |  | X |
 | 미국 서부 2 |  | X |
 | 브라질 남부 |  | X |
 | 캐나다 중부 |  | X |
 | 캐나다 동부 |  | X |
-| 북유럽 | X | X |
+| 북유럽 |  | X |
 | 서유럽 |  | X |
 | 프랑스 중부 |  | X |
 | 영국 남부 |  | X |
 | 영국 서부 |  | X |
 | 동아시아 |  | X |
-| 동남아시아 | X | X |
+| 동남아시아 |  | X |
 | 오스트레일리아 동부 |  | X |
 | 오스트레일리아 중부 |  | X |
 | 오스트레일리아 중부 2 |  | X |
@@ -73,7 +67,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 인도 중부 |  | X |
 | 인도 남부 |  | X |
 | 인도 서부 |  | X |
-| 일본 동부 | X | X |
+| 일본 동부 |  | X |
 | 일본 서부 |  | X |
 | 한국 중부 |  | X |
 | 한국 남부 |  | X |
