@@ -19,7 +19,7 @@ ms.locfileid: "61475250"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 제품 설치 안내서
 
-이 빠른 SQL Data Warehouse의 기존 인스턴스가 이미 있다고 가정합니다.
+이 빠른 시작에서는 SQL Data Warehouse의 기존 인스턴스가 이미 있다고 가정합니다.
 
 Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQL Data Warehouse (Staged)(SQL Data Warehouse로의 데이터 통합용 Striim(미리 구성)) 옵션을 선택합니다. 
 
@@ -29,13 +29,13 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 구성][configure]
 
-배포 되 면 클릭 \<VM 이름 >-Connect를 클릭 하 고 VM 로컬 계정을 사용 하 여 로그인을 복사 하는 Azure portal에서 masternode 
+배포되면 Azure portal에서 \<VM 이름>-masternode를  클릭하고, 연결를 클릭하고 VM 로컬 계정을 사용하여 로그인을 복사합니다.   
 
 ![SQL Data Warehouse에 Striim 연결][connect]
 
 <https://www.microsoft.com/en-us/download/details.aspx?id=54671>의 sqljdbc42.jar을 로컬 머신에 다운로드합니다. 
 
-명령줄 창을 열고 JDBC jar를 다운로드한 위치로 디렉터리를 변경합니다. SCP를 통해 jar 파일을 Striim VM으로 전송하고 Azure Portal에서 주소 및 암호 가져오기
+명령줄 창을 열고 JDBC jar를 다운로드한 위치로 디렉터리를 변경합니다. SCP를 통해 jar 파일을 Striim VM으로 전송하고 Azure Portal에서 주소 및 암호를 가져옵니다.
 
 ![VM에 jar 파일 복사][copy-jar]
 
@@ -55,7 +55,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 클러스터 시작][start-striim]
 
-이제 선호 하는 브라우저를 열고 이동할 \<DNS 이름 >: 9080
+이제 선호 하는 브라우저를 열고 \<DNS 이름 >: 9080으로 이동합니다.
 
 ![로그인 화면으로 이동][navigate]
 
