@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5e646c8c73d3a4cf8c6e5ba35a374b5aa376ca20
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069192"
+ms.locfileid: "65148647"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
@@ -31,16 +31,16 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 ```json
 "entities": [
   {
-    "entity": "8am on may 2nd 2017",
+    "entity": "8am on may 2nd 2019",
     "type": "builtin.datetimeV2.datetime",
     "startIndex": 0,
     "endIndex": 18,
     "resolution": {
       "values": [
         {
-          "timex": "2017-05-02T08",
+          "timex": "2019-05-02T08",
           "type": "datetime",
-          "value": "2017-05-02 08:00:00"
+          "value": "2019-05-02 08:00:00"
         }
       ]
     }
@@ -82,7 +82,7 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 |속성 이름|속성 설명|
 |--|--|
 |timex|[ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601) 뒤에 오는 TIMEX 형식으로 표현된 시간, 날짜 또는 날짜 범위와 TimeML 언어를 사용하는 주석에 대한 TIMEX3 특성입니다. 이 주석은 [TIMEX 지침](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf)에 설명됩니다.|
-|형식|하위 형식은 날짜/시간, 날짜, 시간, 날짜 범위, 시간 범위, 날짜/시간 범위, 기간, 집합과 같은 항목 중 하나가 될 수 있습니다.|
+|형식|다음 항목 중 하나일 수 있는 하위 형식: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`합니다.|
 |값|**선택** yyyy:MM:dd(날짜), HH:mm:ss(시간) yyyy:MM:dd HH:mm:ss(날짜/시간) 형식의 날짜/시간 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
 
 ## <a name="valid-date-values"></a>유효한 날짜 값
@@ -116,12 +116,12 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2017-05-02"
+            "value": "2019-05-02"
           },
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2018-05-02"
+            "value": "2020-05-02"
           }
         ]
       }
@@ -145,14 +145,8 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
           {
             "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
             "type": "daterange",
-            "start": "2017-05-02",
-            "end": "2017-05-05"
-          },
-          {
-            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-            "type": "daterange",
-            "start": "2018-05-02",
-            "end": "2018-05-05"
+            "start": "2019-05-02",
+            "end": "2019-05-05"
           }
         ]
       }
@@ -176,14 +170,8 @@ DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
           {
             "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
             "type": "daterange",
-            "start": "2017-06-13",
-            "end": "2017-06-15"
-          },
-          {
-            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-            "type": "daterange",
-            "start": "2017-06-20",
-            "end": "2017-06-22"
+            "start": "2019-04-30",
+            "end": "2019-05-02"
           }
         ]
       }
@@ -234,12 +222,20 @@ Utterance에 대 한 `8am on may 2nd 2017`, V3 DatetimeV2 버전이:
     "prediction": {
         "normalizedQuery": "8am on may 2nd 2017",
         "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
         "entities": {
             "datetimeV2": [
                 {
                     "type": "datetime",
-                    "timex": [
-                        "2017-05-02T08"
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
                     ]
                 }
             ]
@@ -265,22 +261,29 @@ Utterance에 대 한 `8am on may 2nd 2017`, V3 DatetimeV2 버전이:
             "datetimeV2": [
                 {
                     "type": "datetime",
-                    "timex": [
-                        "2017-05-02T08"
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
                     ]
                 }
             ],
             "$instance": {
                 "datetimeV2": [
                     {
-                    "type": "builtin.datetimeV2.datetime",
-                    "text": "8am on may 2nd 2017",
-                    "startIndex": 0,
-                    "length": 19,
-                    "modelTypeId": 2,
-                    "modelType": "Prebuilt Entity Extractor"
-                }
-            ],
+                        "type": "builtin.datetimeV2.datetime",
+                        "text": "8am on may 2nd 2017",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
         }
     }
 }

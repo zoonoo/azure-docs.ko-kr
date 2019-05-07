@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 80bc1e6558a9c68d92ce13f8f4c991699d61b9d3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: d0b5537f31edf330b54b91ddf7268338df0c0a6b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074521"
+ms.locfileid: "65148268"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>미리 보기: API 버전으로 마이그레이션하기 LUIS 앱에 대 한 3.x
 
@@ -42,7 +42,7 @@ ms.locfileid: "65074521"
 
 * Bing Spell Check v7 알아보기
 
-[참조 설명서](https://aka.ms/luis-preview-api-v3) V3에서 사용할 수 있습니다.
+[참조 설명서](https://aka.ms/luis-api-v3) V3에서 사용할 수 있습니다.
 
 ## <a name="prebuilt-domains-with-new-models-and-language-coverage"></a>새 모델 및 언어 범위를 사용 하 여 미리 작성 된 도메인
 
@@ -50,21 +50,7 @@ ms.locfileid: "65074521"
 
 ## <a name="prebuilt-entities-with-new-json"></a>새 JSON 사용 하 여 미리 작성 된 엔터티
 
-다음 미리 빌드된 엔터티로 V3 API에 대 한 JSON 스키마 변경에
-
-* [Age](luis-reference-prebuilt-age.md#preview-api-version-3x)
-* [통화 (금액)](luis-reference-prebuilt-currency.md#preview-api-version-3x)
-* [DateTimeV2](luis-reference-prebuilt-datetimev2.md#preview-api-version-3x)
-* [Dimension](luis-reference-prebuilt-dimension.md#preview-api-version-3x)
-* [Email](luis-reference-prebuilt-email.md#preview-api-version-3x)
-* [GeographyV2](luis-reference-prebuilt-geographyv2.md#preview-api-version-3x)
-* [Number](luis-reference-prebuilt-number.md#preview-api-version-3x)
-* [Ordinal](luis-reference-prebuilt-ordinal.md#preview-api-version-3x)
-* [Percentage](luis-reference-prebuilt-percentage.md#preview-api-version-3x)
-* [PersonName](luis-reference-prebuilt-person.md#preview-api-version-3x)
-* [Phonenumber](luis-reference-prebuilt-phonenumber.md#preview-api-version-3x)
-* [온도](luis-reference-prebuilt-temperature.md#preview-api-version-3x)
-* [URL](luis-reference-prebuilt-url.md#preview-api-version-3x)
+V3 응답 개체 변경 내용을 포함 [미리 빌드된 엔터티로](luis-reference-prebuilt-entities.md)합니다. 
 
 ## <a name="request-changes"></a>변경 내용 요청 
 
@@ -74,7 +60,7 @@ V3 API에 다양 한 쿼리 문자열 매개 변수가 있습니다.
 
 |매개 변수 이름|Type|Version|목적|
 |--|--|--|--|
-|`query`|string|V3만|**V2에서**, 예측할 utterance 중인는 `q` 매개 변수입니다. <br><br>**V3에서**, 기능에 전달 되는 `query` 매개 변수입니다.|
+|`query`|문자열|V3만|**V2에서**, 예측할 utterance 중인는 `q` 매개 변수입니다. <br><br>**V3에서**, 기능에 전달 되는 `query` 매개 변수입니다.|
 |`show-all-intents`|부울|V3만|해당 점수를 사용 하 여 모든 의도 반환 합니다 **prediction.intents** 개체입니다. 인 텐트에서 부모 개체로 반환 되므로 `intents` 개체입니다. 배열에서 의도 찾는 하지 않고도 프로그래밍 방식으로 액세스할 수 있게: `prediction.intents.give`합니다. V2에서는 이러한 배열에서 반환 되었습니다. |
 |`verbose`|부울|V2 & V3|**V2의**로 설정할 경우 true이 고, 모든 예측 의도 된 반환 합니다. 모든 예측된 의도 해야 하는 경우의 V3 매개 변수를 사용 하 여 `show-all-intents`입니다.<br><br>**V3에서**,이 매개 변수 제공 엔터티 엔터티 예측의 메타 데이터 정보입니다.  |
 
@@ -241,48 +227,57 @@ V3을 사용 하 여 결과 동일 합니다 `verbose` 엔터티 메타 데이�
 
 엔터티를 쿼리 예측 런타임에만 사용할 수 있는 데이터에 유용 합니다. 이러한 종류의 데이터에 예가 사용자 당 또는 데이터에 지속적으로 변경 됩니다. 사용자의 연락처 목록에서 외부 정보를 사용 하 여 LUIS 연락처 엔터티를 확장할 수 있습니다. 
 
-`Send Hazem a new message`여기서 `Hazem` 직접 사용자의 연락처 중 하 나와 일치 합니다.
+### <a name="entity-already-exists-in-app"></a>엔터티 앱에 이미 있습니다.
 
-<!--
+변수의 `entityName` 끝점 요청 POST 본문에에서 전달 하는 외부 엔터티를 이미 있어야 학습 되 고 게시 된 앱에서 요청 시에 대 한 합니다. 엔터티의 형식이 중요 하지 않습니다, 그리고 모든 형식이 지원 됩니다.
 
-In a [multi-intent](#detect-multiple-intents-within-single-utterance) utterance, you can use the external entity data to help with secondary references. For example, in the utterance `Send Hazem a new message, and let him know about the party.`, two segments of the utterance are predicted:
+### <a name="first-turn-in-conversation"></a>대화의 첫 번째 설정
 
-* `Send Hazem a new message, and`
-* `let him know about the party.`
+사용자가 다음 불완전 한 정보를 입력 하는 채팅 봇 대화의 첫 번째 utterance 고려해 야 합니다.
 
-The first segment can correctly predict Hazem when the external entity is sent with the prediction request. The second segment won't know that `him` is a secondary reference to the same data unless you send it with the request and mark it as the same entity.
+`Send Hazem a new message`
 
--->
+LUIS 채팅 봇의 요청에 대 한 POST 본문에 대 한 정보를 전달할 수 `Hazem` 문자열이 사용자의 연락처 중 하나로 직접 일치 하도록 합니다.
 
-### <a name="external-entities-json-request-body"></a>외부 엔터티 JSON 요청 본문 
-
-사용자의 이름, 표시 하려면 다음 JSON 본문에 보낼 `Hazem`를 사용 하 여 외부 엔터티는 `POST` 쿼리 예측 요청:
-
-```JSON
-{
-    "query": "Send Hazem a new message.",
-    "options":{
-        "timezoneOffset": "-8:00"
-    },
+```json
     "externalEntities": [
         {
-            "entityName":"my-entity-name-already-in-LUIS-app",
+            "entityName":"contacts",
             "startIndex": 5,
             "entityLength": 5,
             "resolution": {
-                "employee": "program manager",
-                "type": "individual contributor"
+                "employeeID": "05013",
+                "preferredContactType": "TeamsChat"
             }
         }
     ]
-}
 ```
 
 예측 응답은 요청에 정의 되어 있으므로 모든는 다른 엔터티와의 예측 하는 외부 엔터티를 포함 합니다.  
 
-#### <a name="entity-already-exists-in-app"></a>엔터티 앱에 이미 있습니다.
+### <a name="second-turn-in-conversation"></a>두 번째 대화의 설정
 
-엔터티 이름을 `my-entity-name-already-in-LUIS-app`, 학습 및 게시 된 앱에서 요청 시 존재 합니다. 엔터티의 형식이 중요 하지 않습니다, 그리고 모든 형식이 지원 됩니다.
+채팅 봇에 다음 사용자 utterance 더 모호한 용어를 사용합니다.
+
+`Send him a calendar reminder for the party.`
+
+utterance 사용 된 이전 utterance `him` 에 대 한 참조로 `Hazem`합니다. 대화형 채팅 봇의 POST 본문에 매핑할 수 있습니다 `him` 는 첫 번째 utterance에서 추출 된 엔터티 값 `Hazem`합니다.
+
+```json
+    "externalEntities": [
+        {
+            "entityName":"contacts",
+            "startIndex": 5,
+            "entityLength": 3,
+            "resolution": {
+                "employeeID": "05013",
+                "preferredContactType": "TeamsChat"
+            }
+        }
+    ]
+```
+
+예측 응답은 요청에 정의 되어 있으므로 모든는 다른 엔터티와의 예측 하는 외부 엔터티를 포함 합니다.  
 
 #### <a name="resolution"></a>해결 방법
 
@@ -297,24 +292,17 @@ The first segment can correctly predict Hazem when the external entity is sent w
 * 12345 
 * ["a", "b", "c"]
 
-<!--
-Returned JSON response is:
-
-```JSON
-not sure what to do here
-```
--->
 
 ## <a name="dynamic-lists-passed-in-at-prediction-time"></a>동적 목록은 예측 시에 전달합니다.
 
-동적 목록을 업데이트 하 고 LUIS 앱에서 이미 기존 학습된 및 게시 된 엔터티를 확장 할 수 있습니다. 
+동적 목록을 통해 LUIS 앱에서 이미 기존 학습된 및 게시 된 엔터티를 확장할 수 있습니다. 
 
-목록 엔터티 값을 주기적으로 변경 해야 하는 경우이 기능을 사용 합니다. 이 기능을 사용 하면 이미 학습된 및 게시 된 엔터티를 업데이트할 수 있습니다.
+목록 엔터티 값을 주기적으로 변경 해야 하는 경우이 기능을 사용 합니다. 이 기능을 사용 하면 이미 학습된 및 게시 된 엔터티를 확장할 수 있습니다.
 
 * 쿼리 예측 끝점 요청 시.
 * 단일 요청 합니다.
 
-목록 엔터티 LUIS 앱 비어 있을 수 있습니다 되었지만 존재 합니다. 
+목록 엔터티 LUIS 앱 비어 있을 수 있습니다 되었지만 존재 합니다. LUIS 앱에서 목록 엔터티가 변경 되지 않습니다 하지만 끝점에서 예측 기능 약 1,000 개 항목을 사용 하 여 최대 2 개의 그룹을 포함 하도록 확장 되었습니다.
 
 ### <a name="dynamic-list-json-request-body"></a>동적 목록 JSON 요청 본문
 
@@ -347,100 +335,11 @@ not sure what to do here
 
 예측 응답은 요청에 정의 되어 있으므로 모든는 다른 엔터티와의 예측 하는 목록 엔터티를 포함 합니다. 
 
-<!--
+## <a name="timezoneoffset-renamed-to-datetimereference"></a>TimezoneOffset datetimeReference로 변경
 
+**V2에서**서 `timezoneOffset` [매개 변수](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) 요청은 GET 또는 POST 요청으로 전송 하는 경우와 상관 없이 쿼리 문자열 매개 변수를 예측 요청에 전송 됩니다. 
 
-## Detect multiple intents within single utterance
-
-This feature identifies multiple intents from an utterance, enabling better understanding of complex and compound utterances that include more than one action. There is not prerequisite, or change needed to support this, in the LUIS app for this feature to work. It happens at the query prediction runtime if the associated query string parameter is passed in. 
-
-The V3 query prediction endpoint supports multi-intent query predictions if `multiple-segments=true` is passed in the query string. This means each sentence can have its own intent prediction.
-
-You can use `multiple-segments=true` with `verbose=true` to get the entity metadata for each individual segment.
-
-If multiple segments are not identified, value of the `MultipleSegments` property in the response is `none`.
-
-In **Review endpoint utterances**, the segments are displayed and not the whole query.
-
-In the endpoint logs, an additional boolean column indicates if the query is a multi-intent prediction.
-
-In the V2 endpoint success response, the entire utterance is predicted to a single intent.
-
-### Multiple intents JSON response
-
-In the V3 endpoint success response, each segment is predicted including entities:
-
-```json
-{
-    "query": "Carol goes to Cairo and Mohamed attends the meeting",
-    "prediction": {
-        "normalizedQuery": "carol goes to cairo and mohamed attends the meeting",
-        "topIntent": "Meetings",
-        "intents": {
-            "Travel": {
-                "score": 0.6123635
-            },
-            "MultipleSegments": {
-                "segments": [
-                    {
-                        "normalizedQuery": "Carol goes to Cairo and",
-                        "topIntent": "Travel",
-                        "intents": {
-                            "Travel": {
-                                "score": 0.6826963
-                            }
-                        },
-                        "entities": {
-                            "geographyV2": [
-                                "Cairo"
-                            ],
-                            "personName": [
-                                "Carol"
-                            ]
-                        }
-                    },
-                    {
-                        "normalizedQuery": "and Mohamed attends the meeting",
-                        "topIntent": "Meetings",
-                        "intents": {
-                            "Meetings": {
-                                "score": 0.7100854
-                            }
-                        },
-                        "entities": {
-                            "personName": [
-                                "Mohamed"
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        "entities": {
-            "geographyV2": [
-                "Cairo"
-            ],
-            "personName": [
-                "Carol",
-                "Mohamed"
-            ]
-        }
-    }
-}
-```
-
-### Segment splitting tokens
-
-Segments are split based on tokens such as:
-
-Verbs are the primary splitting tokens. For example, where N represents a noun and V represents a verb, and you have an utterance schema that can be defined as `N V N N V N N`, the two segments will be `N V N N`, and `V N N`. 
-
-LUIS doesn't split into segments when:
-
-* Utterance has consecutive verbs. 
-* Entity is at the end of the utterance.
-
---->
+**V3에서**, POST 본문 매개 변수를 사용 하 여 동일한 기능을 제공 하는 `datetimeReference`합니다. 
 
 ## <a name="marking-placement-of-entities-in-utterances"></a>길이 발언의 엔터티 배치를 표시합니다.
 

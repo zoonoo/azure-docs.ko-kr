@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 26d677df81df6e10fae8d63362d49deee2cd0aca
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f8e057bf2e71d5a00c1e2a8ef72a5c9415a5a207
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870749"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145114"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>상태 문제 해결 모니터링 v2
 
@@ -200,3 +200,9 @@ Bin 디렉터리에 있는 경우 이러한 Dll에 대 한 모든 모니터링 �
 4. 앱으로 이동 하려고 합니다.
 5. 앱 로드가 완료 되 면 PerfView 돌아가서 "컬렉션 중지"를 클릭 합니다.
 
+
+
+## <a name="next-steps"></a>다음 단계
+
+- 검토 우리의 [API 참조](status-monitor-v2-overview.md#powershell-api-reference) 하지 않았을 수 있습니다 매개 변수를 찾을 수 있습니다.
+- 여기에 나열 되지 문제에서 제공 하는 경우 연락할 수 주세요 [여기](https://github.com/Microsoft/ApplicationInsights-Home/issues)합니다.

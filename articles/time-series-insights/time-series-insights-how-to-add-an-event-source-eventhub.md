@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702627"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147597"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 이벤트 허브 이벤트 원본 추가
 
@@ -27,9 +27,9 @@ ms.locfileid: "64702627"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Time Series Insights 환경을 만듭니다. 자세한 내용은 [Azure Time Series Insights 환경 만들기](./time-series-insights-update-create-environment.md)를 참조하세요.
-- 이벤트 허브를 만듭니다. Event Hubs에 대한 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요.
-- 이벤트 허브에는 전송된 활성 메시지 이벤트가 있어야 합니다. 자세한 내용은 [.NET Framework를 사용하여 Azure Event Hubs로 이벤트 전송](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)을 참조하세요.
+- 에 설명 된 대로 Time Series Insights 환경 만들기 [Azure Time Series Insights 환경을 만드는](./time-series-insights-update-create-environment.md)합니다.
+- 이벤트 허브를 만듭니다. 참조 [Event Hubs 네임 스페이스를 만들고 Azure portal을 사용 하 여 이벤트 허브](../event-hubs/event-hubs-create.md)합니다.
+- 이벤트 허브에는 전송된 활성 메시지 이벤트가 있어야 합니다. 설명 하는 방법 [.NET Framework를 사용 하 여 Azure Event Hubs로 이벤트 전송](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Time Series Insights 환경에서 사용할 수 있는 전용 소비자 그룹을 이벤트 허브에 만듭니다. 각 Time Series Insights 이벤트 원본에는 다른 소비자와 공유되지 않은 전용 소비자 그룹 자체가 있어야 합니다. 같은 소비자 그룹에서 여러 읽기 권한자가 이벤트를 소비하는 경우 모든 읽기 권한자에게 오류가 표시될 수 있습니다. 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 자세한 내용은 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조하세요.
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>이벤트 허브에 소비자 그룹 추가
@@ -42,7 +42,7 @@ ms.locfileid: "64702627"
 
 1. **엔터티**에서 **소비자 그룹**을 선택한 다음, **소비자 그룹**을 선택합니다.
 
-   ![이벤트 허브 - 소비자 그룹 추가](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![이벤트 허브-소비자 그룹 추가](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. **소비자 그룹** 페이지에서 **이름**에 대해 고유한 새 값을 입력합니다.  Time Series Insights 환경에서 새 이벤트 원본을 만들 때 이 동일한 이름을 사용합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "64702627"
 
 1. **환경 토폴로지**에서 **이벤트 원본**을 선택한 다음, **추가**를 선택합니다.
 
-   ![이벤트 원본에서 추가 단추를 선택합니다.](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![이벤트 원본에서 추가 단추를 선택 합니다.](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. 이 Time Series Insights 환경에 고유한 값(예: **event-stream**)을 **이벤트 원본 이름**에 대해 입력합니다.
 
@@ -66,11 +66,11 @@ ms.locfileid: "64702627"
    - 구독 중 하나에 기존 이벤트 허브가 있는 경우 **사용 가능한 구독의 이벤트 허브 사용**을 선택합니다. 이 옵션이 가장 쉬운 방법입니다.
    - 이벤트 허브가 구독 외부에 있거나 고급 옵션을 선택하려는 경우 **수동으로 이벤트 허브 설정 제공**을 선택합니다.
 
-   ![새 이벤트 원본 창에서 처음 세 개의 매개 변수 값을 입력합니다.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![새 이벤트 원본 창에 있는 처음 세 매개 변수에 대 한 값 입력](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. 다음 표에서는 **사용 가능한 구독의 이벤트 허브 사용** 옵션에 필요한 속성을 설명합니다.
 
-   ![구독 및 이벤트 허브 정보](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![구독 및 이벤트 허브 세부 정보](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | 자산 | 설명 |
    | --- | --- |
@@ -101,7 +101,7 @@ ms.locfileid: "64702627"
 
 1. **만들기**를 선택합니다.
 
-   ![만들기 선택](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![만들기 선택](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    이벤트 원본이 생성되면 Time Series Insights가 자동으로 데이터를 환경으로 스트리밍하기 시작합니다.
 

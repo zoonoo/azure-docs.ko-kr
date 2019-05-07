@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 131d62fd2cea3ed76342f0fd179b7a9e0fd673e5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925257"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148513"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -170,7 +170,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 아니요. MAC 주소를 정적으로 구성할 수 없습니다.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>MAC 주소가 만들어진 후 VM에 대해 동일하게 유지됩니까?
-예, MAC 주소는 삭제될 때까지 리소스 관리자 또는 클래식 배포 모델을 통해 배포된 VM에 대해 동일하게 유지됩니다. 이전에 MAC 주소는 VM이 중지(할당 취소)되는 경우에 해제되었지만 이제 VM이 할당 취소된 상태에 있을 때에도 MAC 주소는 유지됩니다.
+예, MAC 주소는 삭제될 때까지 리소스 관리자 또는 클래식 배포 모델을 통해 배포된 VM에 대해 동일하게 유지됩니다. 이전에 MAC 주소는 VM이 중지(할당 취소)되는 경우에 해제되었지만 이제 VM이 할당 취소된 상태에 있을 때에도 MAC 주소는 유지됩니다. 네트워크 인터페이스를 삭제하거나 기본 네트워크 인터페이스의 기본 IP 구성에 할당된 개인 IP 주소를 변경할 때까지 MAC 주소는 네트워크 인터페이스에 할당된 상태로 유지됩니다. 
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>VNet의 VM에서 인터넷에 연결할 수 있습니까?
 예. VNet 내에 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 인터넷에 연결할 수 있습니다.

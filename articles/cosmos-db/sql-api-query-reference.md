@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145189"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 언어 참조 
 
@@ -31,7 +31,8 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
  **주의**  
@@ -42,6 +43,8 @@ SELECT <select_specification>
 -   [FROM 절](#bk_from_clause)    
 -   [WHERE 절](#bk_where_clause)    
 -   [ORDER BY 절](#bk_orderby_clause)  
+-   [오프셋 LIMIT 절](#bk_offsetlimit_clause)
+
   
 SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. 선택적 절 중 하나는 생략할 수 있습니다. 그러나 선택적 절이 사용되면 올바른 순서로 표시되어야 합니다.  
   
@@ -52,7 +55,8 @@ SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. �
 1.  [FROM 절](#bk_from_clause)  
 2.  [WHERE 절](#bk_where_clause)  
 3.  [ORDER BY 절](#bk_orderby_clause)  
-4.  [SELECT 절](#bk_select_query)  
+4.  [SELECT 절](#bk_select_query)
+5.  [오프셋 LIMIT 절](#bk_offsetlimit_clause)
 
 이 순서는 구문에 표시되는 순서와 다릅니다. 순서를 지정하면 처리된 절에서 도입된 새로운 모든 기호가 표시되고, 나중에 처리되는 절에서 사용될 수 있습니다. 예를 들어 FROM 절에 선언된 별칭은 WHERE 절과 SELECT 절에서 액세스할 수 있습니다.  
 
@@ -76,8 +80,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -101,7 +105,11 @@ SELECT <select_specification>
 - `VALUE`  
 
   완전한 JSON 개체 대신 JSON 값을 검색하도록 지정합니다. 이것은 `<property_list>`와 달리 개체에 프로젝션된 값을 래핑하지 않습니다.  
+ 
+- `DISTINCT`
   
+  프로젝션 된 속성의 중복을 제거 해야 한다는 것을 지정 합니다.  
+
 - `<scalar_expression>`  
 
   계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
@@ -341,23 +349,23 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **인수**  
   
 - `<sort_specification>`  
   
-   쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열은 이름 또는 열 별칭으로 지정할 수 있습니다.  
+   쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열의 이름 또는 속성 별칭으로 지정할 수 있습니다.  
   
-   여러 정렬 열을 지정할 수 있습니다. 열 이름은 고유해야 합니다. ORDER BY 절의 정렬 열 순서는 정렬되는 결과 집합의 구성을 정의합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
+   여러 속성을 지정할 수 있습니다. 속성 이름은 고유 해야 합니다. ORDER BY 절에서 정렬 속성의 순서 정렬된 된 결과 집합의 구조를 정의합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
   
-   ORDER BY 절에서 참조되는 열 이름은 선택 목록의 열 이름 또는 FROM 절에 지정된 테이블에 정의된 열 이름과 정확히 일치해야 합니다.  
+   Select 목록에 속성 또는 속성을 정확 하 게 from 절에 지정 된 컬렉션에 정의 된 ORDER BY 절에서 참조 된 속성 이름은 일치 해야 합니다.  
   
 - `<sort_expression>`  
   
-   쿼리 결과 집합을 정렬할 단일 속성 또는 식을 지정합니다.  
+   하나 이상의 속성 또는 쿼리 결과 집합을 정렬 하는 식을 지정 합니다.  
   
 - `<scalar_expression>`  
   
@@ -369,8 +377,34 @@ ORDER BY <sort_specification>
   
   **주의**  
   
-  쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
+   ORDER BY 절은 인덱싱 정책을 정렬할 필드에 대 한 인덱스를 포함 해야 합니다. Azure Cosmos DB 쿼리 런타임의 속성 이름에 대해 계산 된 속성 대해서가 아니라 정렬 지원 합니다. Azure Cosmos DB는 여러 ORDER BY 속성을 지원합니다. 여러 ORDER BY 속성을 사용 하 여 쿼리를 실행 하기 위해 정의 해야 하는 [복합 인덱스](index-policy.md#composite-indexes) 정렬 하 고 필드에 합니다.
+
+
+##  <a name=bk_offsetlimit_clause></a> 오프셋 LIMIT 절
+
+건너뛴 항목의 수 및 반환 되는 항목 수를 지정 합니다. 예를 들어 참조 [오프셋 제한 절 예제](how-to-sql-query.md#OffsetLimitClause)
   
+ **구문**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **인수**  
+ 
+- `<offset_amount>`
+
+   쿼리 결과 건너뛰어야 하는 항목의 정수를 지정 합니다.
+
+
+- `<limit_amount>`
+  
+   쿼리 결과 포함 해야 하는 항목의 정수를 지정 합니다.
+
+  **주의**  
+  
+  오프셋 LIMIT 절 사용에 오프셋 개수와 수를 제한 해야 합니다. 선택 사항인 `ORDER BY` 절을 사용, 건너뛰기 순서가 지정 된 값에 대해 수행 하 여 결과 집합 생성 됩니다. 이 고, 그렇지 쿼리는 고정된 값 순서를 반환 합니다.
+
 ##  <a name="bk_scalar_expressions"></a> 스칼라 식  
  스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 간단한 식은 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출일 수 있으며, 연산자를 사용하여 복잡한 식으로 결합될 수 있습니다. 예를 들어 [스칼라 식 예제](how-to-sql-query.md#scalar-expressions)를 참조하세요.
   
@@ -681,7 +715,8 @@ ORDER BY <sort_specification>
 |[수치 연산 함수](#bk_mathematical_functions)|수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다.|  
 |[형식 검사 함수](#bk_type_checking_functions)|형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 검사할 수 있습니다.|  
 |[문자열 함수](#bk_string_functions)|문자열 함수는 문자열 입력 값에 대한 연산을 수행하고, 문자열, 숫자 또는 부울 값을 반환합니다.|  
-|[배열 함수](#bk_array_functions)|배열 함수는 배열 입력 값에 대한 연산을 수행하고, 숫자, 부울 또는 배열 값을 반환합니다.|  
+|[배열 함수](#bk_array_functions)|배열 함수는 배열 입력 값에 대한 연산을 수행하고, 숫자, 부울 또는 배열 값을 반환합니다.|
+|[날짜 및 시간 함수](#bk_date_and_time_functions)|날짜 및 시간 함수를 사용 하면 두 가지 형태로; 현재 UTC 날짜 및 시간을 가져오려면 Unix epoch 시간 (밀리초) 또는 ISO 8601 형식을 준수 하는 문자열 값인 숫자 타임 스탬프입니다.|
 |[공간 함수](#bk_spatial_functions)|공간 함수는 공간 개체 입력 값에 대한 연산을 수행하고, 숫자 또는 부울 값을 반환합니다.|  
   
 ###  <a name="bk_mathematical_functions"></a> 수치 연산 함수  
@@ -2363,13 +2398,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- 결과 집합은 다음과 같습니다.
+결과 집합은 다음과 같습니다.
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- 다음은 잘못 된 입력의 예입니다. 
+다음은 잘못 된 입력의 예입니다. 
    
  배열 내에서 작은따옴표는 유효한 JSON이 없습니다.
 쿼리 내에서 유효한 지, 경우에 이러한 구문 분석 하지 않습니다 유효한 배열입니다. 문자열 배열의 문자열 내의 이스케이프 되어야 하거나 "[\\"\\"]" 주변 따옴표는 하나 여야 합니다 또는 ' [""]'.
@@ -2379,13 +2414,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- 결과 집합은 다음과 같습니다.
+결과 집합은 다음과 같습니다.
 
 ```
 [{}]
 ```
 
- 잘못 된 입력의 예는 다음과 같습니다.
+잘못 된 입력의 예는 다음과 같습니다.
    
  JSON 배열로 전달 되는 식 구문 분석 됩니다. 배열 형식과 따라서 undefined를 반환 하려면 다음 평가 하지 않습니다.
    
@@ -2398,7 +2433,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- 결과 집합은 다음과 같습니다.
+결과 집합은 다음과 같습니다.
 
 ```
 [{}]
@@ -2429,7 +2464,7 @@ StringToBoolean(<expr>)
  
  유효한 입력을 사용 하는 예제는 다음과 같습니다.
 
- 이전 또는 이후에 "true"/ "false"만 공백이 허용 됩니다.
+이전 또는 이후에 "true"/ "false"만 공백이 허용 됩니다.
 
 ```  
 SELECT 
@@ -2444,8 +2479,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- 잘못 된 입력의 예는 다음과 같습니다.
- 
+잘못 된 입력의 예는 다음과 같습니다.
+
  부울 대/소문자 구분 되며 모든 소문자 예: "true" 및 "false"를 사용 하 여 작성 해야 합니다.
 
 ```  
@@ -2454,15 +2489,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- 결과 집합은 다음과 같습니다.  
+결과 집합은 다음과 같습니다.  
   
 ```  
 [{}]
 ``` 
 
- 전달 되는 식, 부울 식으로 구문 분석 됩니다. 부울 값을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+전달 되는 식, 부울 식으로 구문 분석 됩니다. 부울 값을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2471,7 +2506,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- 결과 집합은 다음과 같습니다.  
+결과 집합은 다음과 같습니다.  
   
 ```  
 [{}]
@@ -2500,8 +2535,8 @@ StringToNull(<expr>)
   
   다음 예제에서는 StringToNull 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
 
- 유효한 입력을 사용 하는 예제는 다음과 같습니다.
- 
+유효한 입력을 사용 하는 예제는 다음과 같습니다.
+
  이전 또는 "null" 이후에는 공백이 허용 됩니다.
 
 ```  
@@ -2517,9 +2552,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- 잘못 된 입력의 예는 다음과 같습니다.
+잘못 된 입력의 예는 다음과 같습니다.
 
- Null은 대/소문자 구분 및 "null" 즉, 모든 소문자 문자를 사용 하 여 작성 해야 합니다.
+Null은 대/소문자 구분 및 "null" 즉, 모든 소문자 문자를 사용 하 여 작성 해야 합니다.
 
 ```  
 SELECT    
@@ -2533,7 +2568,7 @@ SELECT
 [{}]
 ```  
 
- 전달 되는 식, null 식으로 구문 분석 됩니다. null을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
+전달 되는 식, null 식으로 구문 분석 됩니다. null을 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
 
 ```  
 SELECT    
@@ -2572,8 +2607,8 @@ StringToNumber(<expr>)
   
   다음 예제에서는 StringToNumber 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
 
- 만 전이나 후에 공백이 허용 됩니다.
- 
+만 전이나 후에 공백이 허용 됩니다.
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2588,8 +2623,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- 올바른 숫자를 이어야 합니다 하는 JSON 될 정수 또는 부동 소수점 숫자입니다.
- 
+올바른 숫자를 이어야 합니다 하는 JSON 될 정수 또는 부동 소수점 숫자입니다.
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2601,7 +2636,7 @@ SELECT
 {{}}
 ```  
 
- 전달 되는 식은 후행 숫자 식입니다. 이러한 입력 번호를 입력 하 고 따라서 undefined를 반환 하는 평가 하지 않습니다. 
+전달 되는 식은 후행 숫자 식입니다. 이러한 입력 번호를 입력 하 고 따라서 undefined를 반환 하는 평가 하지 않습니다. 
 
 ```  
 SELECT 
@@ -2643,7 +2678,7 @@ StringToObject(<expr>)
   다음 예제에서는 StringToObject 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
   
  유효한 입력을 사용 하는 예제는 다음과 같습니다.
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2652,7 +2687,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- 결과 집합은 다음과 같습니다.
+결과 집합은 다음과 같습니다.
 
 ```
 [{"obj1": {}, 
@@ -2660,40 +2695,40 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  잘못 된 입력의 예는 다음과 같습니다.
 쿼리 내에서 유효한 지, 경우에 이러한 구문 분석 하지 않습니다 유효한 개체입니다. 문자열 개체의 문자열 내의 이스케이프 되어야 하거나 "{\\"는\\":\\" str\\"}" 주변 따옴표는 하나 여야 합니다 또는 ' {"a": "str"}'.
 
- 속성 이름을 둘러싸는 작은따옴표는 유효한 JSON이 없습니다.
+속성 이름을 둘러싸는 작은따옴표는 유효한 JSON이 없습니다.
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- 결과 집합은 다음과 같습니다.
+결과 집합은 다음과 같습니다.
 
 ```  
 [{}]
 ```  
 
- 주변 따옴표 없이 속성 이름은 유효한 JSON 하지 않습니다.
+주변 따옴표 없이 속성 이름은 유효한 JSON 하지 않습니다.
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- 결과 집합은 다음과 같습니다.
+결과 집합은 다음과 같습니다.
 
 ```  
 [{}]
 ``` 
 
- 잘못 된 입력의 예는 다음과 같습니다.
- 
+잘못 된 입력의 예는 다음과 같습니다.
+
  JSON 개체로 전달 되는 식 구문 분석 됩니다. 개체를 입력 하 고 따라서 undefined를 반환 하는 이러한 입력 평가 하지 않습니다.
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2798,20 +2833,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- 결과 집합은 다음과 같습니다.  
+결과 집합은 다음과 같습니다.  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 다음 입력을 지정합니다.
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- 다음 예제에서는 REPLACE와 같은 다른 문자열 함수를 사용하여 ToString을 사용할 수 있는 방법을 보여줍니다.   
+다음 예제에서는 REPLACE와 같은 다른 문자열 함수를 사용하여 ToString을 사용할 수 있는 방법을 보여줍니다.   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2819,14 +2854,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- 결과 집합은 다음과 같습니다.  
+결과 집합은 다음과 같습니다.  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> TRIM  
  선행 및 후행 공백을 제거한 후에 문자열 식을 반환합니다.  
@@ -2937,7 +2972,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다. 명령 내에서 부울 식을 사용하여 개체의 부분 또는 전체 일치를 확인할 수 있습니다. 
 
- **구문**  
+**구문**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2977,7 +3012,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- 다음 예제에서는 ARRAY_CONTAINS를 사용하여 JSON의 부분 일치를 확인하는 방법을 보여 줍니다.  
+다음 예제에서는 ARRAY_CONTAINS를 사용하여 JSON의 부분 일치를 확인하는 방법을 보여 줍니다.  
   
 ```  
 SELECT  
@@ -3085,7 +3120,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> 날짜 및 시간 함수
+ 다음 스칼라 함수를 사용 하면 두 가지 형태로; 현재 UTC 날짜 및 시간을 가져오려면 Unix epoch 시간 (밀리초) 또는 ISO 8601 형식을 준수 하는 문자열 값인 숫자 타임 스탬프입니다. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ 현재 UTC 날짜 및 시간을 ISO 8601 문자열을 반환합니다.
+  
+ **구문**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **반환 형식**
+  
+  현재 UTC 날짜 및 시간 ISO 8601 문자열 값을 반환 합니다. 
+
+  YYYY-MM-DDThh:mm:ss.sssZ 형태로 표현 됩니다 여기서:
+  
+  |||
+  |-|-|
+  |YYYY|4 자리 연도|
+  |MM|두 자리 월 (01 년 1 월, = 등.)|
+  |DD|월 (01-31)의 2 자리 숫자 일|
+  |T|시간 요소의 시작 부분에 대 한 signifier|
+  |hh|두 자리 시간 (00-23)|
+  |MM|이 분 (00-59)|
+  |ss|두 자리 초 (00-59)|
+  |.sss|3 초의 소수 자릿수|
+  |Z|UTC (협정 세계시) 지정자||
+  
+  ISO 8601 형식에 대 한 자세한 내용은 참조 하세요. [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **주의**
+
+  GetCurrentDateTime 비결 정적 함수입니다. 
+  
+  반환 된 결과 UTC (협정 세계시)입니다.
+
+  **예**  
+  
+  다음 예제에는 GetCurrentDateTime 기본 제공 함수를 사용 하 여 현재 UTC 날짜 시간을 가져오는 방법을 보여 줍니다.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ 결과 집합 예제는 다음과 같습니다.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ 00시: 00 1970 년 1 월 1 일 목요일 이후 경과 된 시간을 밀리초 단위로 반환 합니다. 
+  
+ **구문**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **반환 형식**  
+  
+  숫자 값, 경과 된 Unix epoch 이후의 예: 00시: 00 1970 년 1 월 1 일 목요일 이후 경과 된 시간을 밀리초 단위로 시간 (밀리초)의 현재 수를 반환 합니다.
+
+  **주의**
+
+  GetCurrentTimestamp 비결 정적 함수입니다. 
+  
+  반환 된 결과 UTC (협정 세계시)입니다.
+
+  **예**  
+  
+  다음 예제에는 GetCurrentTimestamp 기본 제공 함수를 사용 하 여 현재 타임 스탬프를 가져오는 방법을 보여 줍니다.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ 결과 집합 예제는 다음과 같습니다.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> 공간 함수  
  다음 스칼라 함수는 공간 개체 입력 값에 대한 연산을 수행하고, 숫자 또는 부울 값을 반환합니다.  
   
@@ -3292,7 +3420,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## <a name="next-steps"></a>다음 단계  
 
 - [Cosmos DB에 대한 SQL 구문 및 SQL 쿼리](how-to-sql-query.md)

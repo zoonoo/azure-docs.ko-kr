@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026717"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148002"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>텍스트 음성 변환 출력을 미세 조정
 
@@ -43,7 +43,7 @@ Azure 음성 서비스를 사용 하면 속도, 발음, 볼륨, 피치 및 사�
    * 찾기 및 선택 **모든 구독**합니다.  
    * **기존 구독 연결**을 선택합니다.  
      ![기존 구독을 연결](./media/custom-voice/custom-voice-connect-subscription.png)합니다.
-   * Azure portal에서 Azure 음성 서비스 구독 키를 입력 한 다음 선택 **추가**합니다. 구독 키는 리소스 관리 창에서 Azure portal에서 사용할 수 있습니다.  음성 조정 portal 구독 목록에서 키를 가져올 수도 있습니다.
+   * 사용자 Azure 음성 서비스의 구독 키를 입력 하 고 선택 **추가**합니다. 구독 키를 사용자 지정 음성 포털에서 사용할 수는 [구독 페이지](https://go.microsoft.com/fwlink/?linkid=2090458)합니다. 리소스 관리 창에서 키를 가져올 수도 있습니다는 [Azure portal](https://portal.azure.com/)합니다. 
    * 사용 하려는 음성 서비스 구독이 둘 이상인 경우 각 구독에 대해 이러한 단계를 반복 합니다.
 
 ## <a name="customize-the-text-to-speech-output"></a>텍스트 음성 변환 출력을 사용자 지정

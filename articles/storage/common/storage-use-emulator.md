@@ -2,18 +2,19 @@
 title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs
 description: Azure Storage 에뮬레이터는 Azure Storage 애플리케이션에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 애플리케이션에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5f55228c80142b2a21af585cb04d16f148460af0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125527"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149093"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 

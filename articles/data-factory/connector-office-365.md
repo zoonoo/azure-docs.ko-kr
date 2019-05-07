@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Office 365에서 데이터 복사(미리 보기) | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 Office 365에서 데이터 복사 | Microsoft Docs
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Office 365에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 05/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8ffeb505f7d0978a736190b3d38c0246a38ebc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405973"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144994"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Office 365에서 Azure로 데이터 복사 
 
@@ -79,11 +79,11 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성을 다음으로 설정해야 합니다. **Office365** | 예. |
-| office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예. |
-| servicePrincipalTenantId | Azure AD 웹 애플리케이션이 상주하는 테넌트 정보를 지정합니다. | 예. |
+| type | 형식 속성을 다음으로 설정해야 합니다. **Office365** | 예 |
+| office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예 |
+| servicePrincipalTenantId | Azure AD 웹 애플리케이션이 상주하는 테넌트 정보를 지정합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. | 예. |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 Integration Runtime입니다.  지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아닙니다. |
 
 >[!NOTE]
@@ -119,7 +119,7 @@ Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **Office365Table** | 예. |
+| type | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **Office365Table** | 예 |
 | tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets)를 참조하세요. | 예 |
 | 조건자 | Office 365에서 추출하기 위해 특정 행을 필터링하는 데 사용할 수 있는 조건자 식입니다.  각 테이블에 대한 조건자 필터링 및 필터 식 형식에 사용할 수 있는 열을 알아보려면 [여기](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters)를 참조하세요. | 아닙니다.<br>(조건자가 지정되지 않는 경우 기본값은 최근 30일 동안의 데이터를 추출하는 것입니다.) |
 

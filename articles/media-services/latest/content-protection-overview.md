@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684576"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150425"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -206,7 +206,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 로 끝나는 오류가 발생할 경우 `_NOT_SPECIFIED_IN_URL`를 확인 하는 암호화 형식을 URL에 지정 해야 합니다. 예: `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)` 참조 [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)합니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
