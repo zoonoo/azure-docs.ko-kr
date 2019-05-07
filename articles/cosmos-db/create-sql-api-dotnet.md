@@ -29,9 +29,9 @@ ms.locfileid: "59280845"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 Azure Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하는 키/값 데이터베이스, 문서 데이터베이스 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컬렉션을 만들고 컬렉션에 데이터를 추가하는 방법을 보여줍니다. 그런 다음, [SQL.NET SDK](sql-api-sdk-dotnet.md) 웹앱을 사용하여 컬렉션에 더 많은 데이터를 추가합니다. 
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컬렉션을 만들고 컬렉션에 데이터를 추가하는 방법을 보여줍니다. 그런 다음, [SQL .NET SDK](sql-api-sdk-dotnet.md) 웹앱을 사용하여 컬렉션에 더 많은 데이터를 추가합니다. 
 
-이 빠른 시작에서는 Azure Portal에서 Azure Data Explorer를 사용하여 데이터베이스 및 컬렉션을 만듭니다. 또한 .NET 샘플 코드를 사용하여 데이터베이스 및 컬렉션을 만들 수도 있습니다. 자세히 알아보려면 [.NET 코드 검토](#review-the-net-code)를 참조하세요. 
+이 빠른 시작에서는 Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스 및 컬렉션을 만듭니다. 또한 .NET 샘플 코드를 사용하여 데이터베이스 및 컬렉션을 만들 수도 있습니다. 자세히 알아보려면 [.NET 코드 검토](#review-the-net-code)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,9 +50,9 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 <a id="create-collection-database"></a>
 ## <a name="add-a-database-and-a-collection"></a>데이터베이스 및 컬렉션 추가 
 
-Azure Portal에서 Azure Data Explorer를 사용하여 데이터베이스 및 컬렉션을 만들 수 있습니다. 
+Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스 및 컬렉션을 만들 수 있습니다. 
 
-1.  Azure Cosmos DB 계정 페이지의 왼쪽 탐색 모음에서 **Azure Data Explorer**를 선택한 다음, **새 컬렉션**을 선택합니다. 
+1.  Azure Cosmos DB 계정 페이지의 왼쪽 탐색 모음에서 **데이터 탐색기**를 선택한 다음, **새 컬렉션**을 선택합니다. 
     
     **컬렉션 추가** 영역을 보려면 오른쪽으로 스크롤해야 할 수도 있습니다.
     
@@ -63,7 +63,7 @@ Azure Portal에서 Azure Data Explorer를 사용하여 데이터베이스 및 �
     |설정|제안 값|설명
     |---|---|---|
     |**데이터베이스 ID**|ToDoList|새 데이터베이스의 이름으로 *ToDoList*를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다.|
-    |**컬렉션 ID**|항목|새 컬렉션의 이름으로 *항목*을 입력입니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
+    |**컬렉션 ID**|Items|새 컬렉션의 이름으로 *Items*를 입력입니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
     |**파티션 키**| /category| 이 문서에 설명된 샘플은 파티션 키로 */category*를 사용합니다.|
     |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.| 
     
@@ -76,9 +76,9 @@ Azure Portal에서 Azure Data Explorer를 사용하여 데이터베이스 및 �
 
 ## <a name="add-data-to-your-database"></a>데이터베이스에 데이터 추가
 
-Azure Data Explorer를 사용하여 새 데이터베이스에 데이터를 추가합니다.
+데이터 탐색기를 사용하여 새 데이터베이스에 데이터를 추가합니다.
 
-1. **Azure Data Explorer**에서 새 데이터는 **컬렉션** 창에 나타납니다. **ToDoList** 데이터베이스를 확장하고 **항목** 컬렉션을 확장하고 **문서**를 선택한 다음, **새 문서**를 선택합니다. 
+1. **데이터 탐색기**에서 새 데이터는 **컬렉션** 창에 나타납니다. **ToDoList** 데이터베이스를 확장하고 **Items** 컬렉션을 확장하고 **문서**를 선택한 다음, **새 문서**를 선택합니다. 
    
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -112,7 +112,7 @@ Azure Cosmos DB 데이터를 프로그래밍 방식으로 작동하기가 얼마
 
 ### <a name="clone-the-sample-app"></a>샘플 앱 복제
 
-먼저 GitHub에서 C# [SQL API 앱](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)을 복젭합니다. 
+먼저 GitHub에서 C# [SQL API 앱](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)을 복제합니다. 
 
 1. Git 터미널 창(예: Git Bash)을 열고 *git-samples*라는 새 디렉터리를 만들고 해당 디렉터리로 변경합니다. 
    
@@ -173,7 +173,7 @@ Azure Cosmos DB 데이터를 프로그래밍 방식으로 작동하기가 얼마
 
    ![샘플 데이터를 사용한 Todo 앱](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
-Azure Portal에서 Azure Data Explorer로 다시 이동하고 새 데이터를 사용하여 쿼리, 수정 및 작업할 수 있습니다. 
+Azure Portal에서 데이터 탐색기로 다시 이동하고 새 데이터를 사용하여 쿼리, 수정 및 작업할 수 있습니다. 
 
 ## <a name="review-the-net-code"></a>.NET 코드 검토
 
@@ -226,7 +226,7 @@ Azure Portal에서 Azure Data Explorer로 다시 이동하고 새 데이터를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, Azure Data Explorer를 사용하여 데이터베이스 및 컬렉션을 만들고, .NET 웹앱을 실행하여 데이터를 업데이트하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 데이터베이스 및 컬렉션을 만들고, .NET 웹앱을 실행하여 데이터를 업데이트하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 데이터 가져오기](import-data.md)
