@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728749"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199258"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -140,6 +140,20 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 **Azure 디스크에서 GPT 분할을 사용할 수 있나요?**
 
 GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
+
+## <a name="uploading-to-a-managed-disk"></a>관리 디스크를 업로드합니다.
+
+**기존 관리 디스크에 데이터를 업로드할 수 있나요?**
+
+아니요, 업로드만 사용할 수 있는 새 빈 디스크를 만드는 동안 합니다 **ReadyToUpload** 상태입니다.
+
+**연결할 수 있나요 디스크를 VM에 업로드 상태에서 이지만?**
+
+아니요.
+
+**관리 디스크의 스냅숏을 업로드 상태를 가져올 수 있나요?**
+
+아니요.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
