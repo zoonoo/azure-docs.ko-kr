@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126376"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152723"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치
 
@@ -22,7 +22,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-이 문서에서는 Linux ARM32v7/armhf IoT Edge 장치에서 Azure IoT Edge 런타임을 설치 하는 단계를 나열 합니다. 예를 들어 다음 단계는 Raspberry Pi 디바이스에서 작동합니다. 지원 되는 ARM32 운영 체제의 목록을 참조 하세요 [Azure IoT Edge 지원](support.md#operating-systems)합니다. 
+이 문서에서는 Linux ARM32v7/armhf IoT Edge 장치에서 Azure IoT Edge 런타임을 설치 하는 단계를 나열 합니다. 예를 들어 다음 단계는 Raspberry Pi 디바이스에서 작동합니다. 지원 되는 ARM32 운영 체제의 목록을 참조 하세요. [지원 되는 Azure IoT Edge 체제](support.md#operating-systems)합니다. 
 
 >[!NOTE]
 >Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.

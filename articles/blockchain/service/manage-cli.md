@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 100d50443c7ed839e57d80ceea3b8b86904e4ba7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154447"
 ---
 # <a name="manage-azure-blockchain-service-with-azure-cli"></a>Azure CLI 사용 하 여 Azure Blockchain 서비스 관리
 
@@ -30,7 +30,7 @@ Azure portal 외에도 신속 하 게 만들고 관리 blockchain 멤버 및 트
 예제에서는 새 컨소시엄에 쿼럼 원장 프로토콜을 실행 하는 Azure Blockchain Service에서 blockchain 멤버를 만듭니다.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "<myBlockchainLocation>", "properties": {"password": "<myStrongPassword>", "protocol": "Quorum", "consortium": "<myConsortiumName>", "consortiumManagementAccountPassword": "<myConsortiumManagementAccountPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] }, "sku": { "name": "<skuName>" } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"<myBlockchainLocation>\", \"properties\": {\"password\": \"<myStrongPassword>\", \"protocol\": \"Quorum\", \"consortium\": \"<myConsortiumName>\", \"consortiumManagementAccountPassword\": \"<myConsortiumManagementAccountPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] }, \"sku\": { \"name\": \"<skuName>\" } }"
 ```
 
 | 매개 변수 | 설명 |
@@ -38,7 +38,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 | **resource-group** | Azure Blockchain 서비스 리소스가 만들어지는 리소스 그룹 이름입니다. |
 | **name** | Azure Blockchain Service blockchain 멤버를 식별 하는 고유 이름입니다. 공용 끝점 주소에 대 한 이름이 사용 됩니다. 예: `myblockchainmember.blockchain.azure.com`. |
 | **위치** | Azure blockchain 구성원을 만들 지역입니다. 예: `eastus`. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
-| **암호** | 멤버 계정 암호입니다. 기본 인증을 사용 하 여 blockchain 멤버의 공용 끝점을 인증할 수 멤버 계정 암호가 사용 됩니다. 암호는 다음 네 가지 요구 사항 중 3을 충족 해야 합니다. (억음 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 \`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
+| **암호** | 멤버 계정 암호입니다. 기본 인증을 사용 하 여 blockchain 멤버의 공용 끝점을 인증할 수 멤버 계정 암호가 사용 됩니다. 암호는 다음 네 가지 요구 사항을 세 가지를 충족 해야 합니다: 억음 악센트 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 (\`), quote("), 단일 작은, 대시 (-) 및 semicolumn(;)를 두 번|
 | **protocol** | 공개 미리 보기는 쿼럼을 지원 합니다. |
 | **consortium** | 만들거나 조인 consortium의 이름입니다. |
 | **consortiumManagementAccountPassword** | 컨소시엄 관리 암호입니다. 암호는 컨소시엄을 조인 하는 데 사용 됩니다. |
@@ -58,7 +58,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Azure Blockchain 서비스 리소스가 만들어지는 리소스 그룹 이름입니다. |
 | **name** | Azure Blockchain 서비스 멤버를 식별 하는 이름입니다. |
-| **암호** | 멤버 계정 암호입니다. 암호는 다음 네 가지 요구 사항 중 3을 충족 해야 합니다. (억음 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 \`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
+| **암호** | 멤버 계정 암호입니다. 암호는 다음 네 가지 요구 사항을 세 가지를 충족 해야 합니다: 억음 악센트 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 (\`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
 
 
 ## <a name="create-transaction-node"></a>트랜잭션 노드 만들기
@@ -66,7 +66,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 기존 블록 체인 멤버 내에서 트랜잭션 노드를 만듭니다. 트랜잭션 노드를 추가 하 여 보안 격리 높이고 부하 분산할 수 있습니다. 예를 들어, 여러 클라이언트 응용 프로그램에 대 한 트랜잭션 노드 끝점이 있을 수 있습니다.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties '{ "location": "<myRegion>", "properties": { "password": "<myStrongPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties "{ \"location\": \"<myRegion>\", \"properties\": { \"password\": \"<myStrongPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] } }"
 ```
 
 | 매개 변수 | 설명 |
@@ -74,7 +74,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 | **resource-group** | Azure Blockchain 서비스 리소스가 만들어지는 리소스 그룹 이름입니다. |
 | **name** | 새 트랜잭션 노드 이름을 포함 하는 Azure Blockchain 서비스 blockchain 멤버의 이름입니다. |
 | **위치** | Azure blockchain 구성원을 만들 지역입니다. 예: `eastus`. 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다. |
-| **암호** | 트랜잭션 노드 암호입니다. 암호는 다음 네 가지 요구 사항 중 3을 충족 해야 합니다. (억음 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 \`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
+| **암호** | 트랜잭션 노드 암호입니다. 암호는 다음 네 가지 요구 사항을 세 가지를 충족 해야 합니다: 억음 악센트 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 (\`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
 | **ruleName** | 허용 목록 IP 주소 범위에 대 한 규칙 이름입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |
 | **startIpAddress** | 허용 목록에 대 한 IP 주소 범위의 시작입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다. |
 | **endIpAddress** | 허용 목록에 대 한 IP 주소 범위의 끝입니다. 방화벽 규칙에 대 한 선택적 매개 변수입니다.|
@@ -91,7 +91,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 |---------|-------------|
 | **resource-group** | Azure Blockchain 서비스 리소스가 있는 리소스 그룹 이름입니다. |
 | **name** | 새 트랜잭션 노드 이름을 포함 하는 Azure Blockchain 서비스 blockchain 멤버의 이름입니다. |
-| **암호** | 트랜잭션 노드 암호입니다. 암호는 다음 네 가지 요구 사항 중 3을 충족 해야 합니다. (억음 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 \`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
+| **암호** | 트랜잭션 노드 암호입니다. 암호는 다음 네 가지 요구 사항을 세 가지를 충족 해야 합니다: 억음 악센트 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 (\`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
 
 ## <a name="change-consortium-management-account-password"></a>컨소시엄 관리 계정 암호 변경
 
@@ -105,12 +105,12 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Azure Blockchain 서비스 리소스가 만들어지는 리소스 그룹 이름입니다. |
 | **name** | Azure Blockchain 서비스 멤버를 식별 하는 이름입니다. |
-| **consortiumManagementAccountPassword** | 컨소시엄 관리 계정 암호입니다. 암호는 다음 네 가지 요구 사항 중 3을 충족 해야 합니다. (억음 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 \`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
+| **consortiumManagementAccountPassword** | 컨소시엄 관리 계정 암호입니다. 암호는 다음 네 가지 요구 사항을 세 가지를 충족 해야 합니다: 억음 악센트 길이 요구 사항 12 & 72 자, 소문자 1 자, 1 개의 대문자, 숫자 및 번호가 아닌 sign(#) percent(%), 쉼표 (,), star(*)에는 특수 문자 1 사이 여야 (\`), quote("), 단일 작은, 대시 (-) 및 세미콜론 (;)를 두 번입니다. |
   
 ## <a name="update-firewall-rules"></a>방화벽 규칙 업데이트
 
 ```azurecli
-az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules='[ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ]' --remove properties.consortiumManagementAccountAddress
+az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
 ```
 
 | 매개 변수 | 설명 |

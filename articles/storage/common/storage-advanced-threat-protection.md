@@ -2,18 +2,18 @@
 title: Advanced Threat Protection for Azure Storage
 description: 계정 작업에서 잘못된 부분을 검색하여 잠재적으로 해로운 계정 액세스 시도에 대해 알리도록 Azure Storage Advanced Threat Protection을 구성합니다.
 services: storage
-author: rmatchoro
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: monhaber
-ms.manager: shaik
-ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: tamram
+ms.reviewer: cbrooks
+ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926496"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153963"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection for Azure Storage
 

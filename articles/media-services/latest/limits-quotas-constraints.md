@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: juliako
-ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42b8c4caa53ffa6b3bc1148544c75602597ac452
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322569"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153837"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
 
@@ -36,26 +36,36 @@ ms.locfileid: "60322569"
 | 작업 열거|응답 페이지 매기기, 페이지당 작업 500건|
 | Media Services 계정당 Live Events |5|
 | 단일 구독의 Media Services 계정 | 25(고정) |
-| 라이브 이벤트 당 실행 중인 라이브 출력 |3|
+| 라이브 이벤트 당 라이브 출력 |3 <sup>(3)</sup> |
 | 라이브 출력 최대 기간 | 25 시간 |
-| 저장소 계정 | 100<sup>(4)</sup>(고정) |
+| Storage 계정 | 100<sup>(4)</sup>(고정) |
 | Media Services 계정당 스트리밍 엔드포인트(중지됨 또는 실행 중)|2 (고정)|
-| 스트리밍 정책 | 100 <sup>(3)</sup> |
+| 스트리밍 정책 | 100 <sup>(5)</sup> |
 | Media Services 계정당 변환 | 100(고정)|
-| 한번에 자산과 연결된 고유 스트리밍 로케이터 | 100<sup>(5)</sup>(수정됨) |
+| 한번에 자산과 연결된 고유 스트리밍 로케이터 | 100<sup>(6)</sup> (고정) |
 | 콘텐츠 키 정책 |30 | 
 
-<sup>1</sup> 현재 Azure Blob Storage에서 단일 blob에 대해 지원되는 최대 크기는 최대 5TB입니다. 그러나 서비스에서 사용되는 VM 크기에 따라 Azure Media Services에 추가 제한이 적용됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 260GB 제한보다 큰 4K 콘텐츠가 있는 경우 시나리오 지원을 위해 amshelp@microsoft.com에 잠재적인 완화 방법을 문의하세요.
+<sup>1</sup> 현재 Azure Blob Storage에서 단일 blob에 대해 지원되는 최대 크기는 최대 5TB입니다. Media services 서비스에서 사용 되는 VM 크기에 따라 추가 제한이 적용 됩니다. 크기 제한에 업로드 하는 파일 및 처리 (인코딩 또는 분석) 하는 Media Services의 결과로 생성 된 파일에 적용 됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 
+
+다음 표에서 미디어 예약 단위 S1, S2 및 S3에서 제한을 보여 줍니다. 원본 파일이 표에 정의 된 제한 보다 큰 경우 인코딩 작업이 실패 합니다. 4k 확인 원본을 긴 기간을 인코딩하면 필요한 성능을 얻기 위해 S3 미디어 예약 단위를 사용 해야 하 고 있습니다. S3 미디어 예약 단위에 대 한 260 10GB 제한을 보다 큰 4k 콘텐츠가 경우 문의 amshelp@microsoft.com 에 잠재적인 완화 방법을 시나리오를 지원 하도록 합니다.
+
+|미디어 예약 단위 유형   |최대 입력된 크기 (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|
 
 <sup>2</sup> 이 번호에 대기 중, 완료, 활성 및 취소된 작업도 포함됩니다. 삭제된 작업은 포함되지 않습니다. 
 
 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 자동으로 삭제됩니다. 
 
-<sup>3</sup> 사용자 지정 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 스트리밍 로케이터에 다시 사용해야 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
+<sup>3</sup> live 출력 생성에서 시작 하 고 삭제 하는 경우 중지 합니다.
 
 <sup>4</sup> 저장소 계정은 동일한 Azure 구독에 속해 있어야 합니다.
 
-<sup>5</sup> 스트리밍 로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다.
+<sup>5</sup> 사용자 지정을 사용 하는 경우 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies), 미디어 서비스 계정에 이러한 정책의 제한 된 집합을 설계 하 고 다시 동일한 암호화 옵션 및 프로토콜 때마다 Streaminglocator에 사용 필요 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
+
+<sup>6</sup> 스트리밍 로케이터는 사용자별 액세스 제어를 관리 하도록 설계 되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다.
 
 ## <a name="support-ticket"></a>지원 티켓
 
