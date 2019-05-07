@@ -32,11 +32,11 @@ sections:
             text: MetaMask를 사용하여 연결
             href: /azure/blockchain/service/connect-metamask
           - image:
-              src: ./media/index/multi-connect.svg
+              src: ./media/index/cligeneric.svg
             text: geth를 사용하여 연결
             href: /azure/blockchain/service/connect-geth
           - image:
-              src: ./media/index/multi-connect.svg
+              src: ./media/index/code-blocks.svg
             text: Truffle을 사용하여 연결
             href: /azure/blockchain/service/connect-truffle
   - title: 단계별 자습서
@@ -47,3 +47,11 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/blockchain/service/send-transaction">Azure Blockchain Service 멤버를 만들고 트랜잭션 보내기</a>
+  - title: 참고 자료
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST (영문)
+            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>'

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: df3db534550e709e40cc94d5f951056d93a1003e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2a120a59a58eb8d7a017cce0dd85c21038bdcf51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026645"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143210"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -73,13 +73,7 @@ Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작�
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안
 
-서비스는 [온라인 서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)에 따라 Azure 서비스의 [미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다. 데이터 소유권은 유지하지만, 해당 데이터는 계약에서 설명한 대로 온라인 서비스를 제공하는 데만 사용합니다.
-
-### <a name="processing-of-customer-data-ownership"></a>고객 데이터 처리, 소유권
-
-고객 데이터는 온라인 서비스의 제공과 호환되는 목적을 포함하여 고객에게 이러한 서비스를 제공하기 위해서만 사용되거나 처리됩니다. Microsoft는 광고 또는 이와 비슷한 상업적 목적으로 고객 데이터를 사용하거나 달리 처리하거나 이로부터 정보를 파생시키지 않습니다. 고객은 당사자 간에 고객 데이터에 대한 모든 권리, 소유권 및 이권을 보유합니다. Microsoft는 고객에게 온라인 서비스를 제공하기 위해 Microsoft에 부여한 권리 이외의 고객 데이터에 대한 어떠한 권리도 취득하지 않습니다.
-
-모든 Cognitive Services와 마찬가지로 Form Recognizer 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft의 정책을 알고 있어야 합니다. Microsoft Trust Center의 [Cognitive Services 페이지](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)에서 자세히 알아보세요.
+서비스는 [온라인 서비스 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)에 따라 Azure 서비스의 [미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다. 모든 Cognitive Services와 마찬가지로 Form Recognizer 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft의 정책을 알고 있어야 합니다. Microsoft Trust Center의 [Cognitive Services 페이지](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
