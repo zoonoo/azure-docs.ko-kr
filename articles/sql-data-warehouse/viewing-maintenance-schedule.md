@@ -1,11 +1,11 @@
 ---
-title: Azure 유지 관리 일정 | Microsoft Docs
+title: Azure 유지 관리 일정(미리 보기) | Microsoft Docs
 description: 고객은 유지 관리 예약 기능을 사용하여 Azure SQL Data Warehouse 서비스에서 새 기능, 업그레이드 및 패치를 출시하는 데 사용하는 필요한 예약된 유지 관리 이벤트를 계획할 수 있습니다.
 services: sql-data-warehouse
 author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual일ㅈ
+ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
@@ -26,8 +26,8 @@ ms.locfileid: "61474883"
 데이터 웨어하우스에 적용된 유지 관리 일정을 확인하려면 다음 단계를 완료합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  확인하려는 데이터 웨어하우스를 선택합니다.  외
-3.  개요 블레이드에서 선택한 데이터 웨어하우스가 열립니다. 데이터 웨어하우스에 적용되어 있는 유지 관리 일정이 **유지 관리 일정** 아래에 표시됩니다.
+2.  확인하려는 데이터 웨어하우스를 선택합니다. 
+3.  개요 블레이드에서 선택한 데이터 웨어하우스가 열립니다. 데이터 웨어하우스에 적용되어 있는 유지 관리 일정이 **유지 관리 일정(미리 보기)** 아래에 표시됩니다.
 
 ![개요 블레이드](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
