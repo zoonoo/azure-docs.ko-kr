@@ -2,22 +2,22 @@
 title: Azure 파일 성능 문제 해결 가이드
 description: 알려진 Azure premium 파일 공유 (미리 보기) 및 관련된 해결 방법을 사용 하 여 성능 문제입니다.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577917"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190046"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
-이 문서에서는 Microsoft Azure premium 파일 공유 (미리 보기)와 관련 된 몇 가지 일반적인 문제를 나열 합니다. 이러한 문제가 발생 하는 경우 잠재적 원인 및 해결 방법을 제공 합니다.
+이 문서에서는 프리미엄 Azure 파일 공유 (미리 보기)와 관련 된 몇 가지 일반적인 문제를 나열 합니다. 이러한 문제가 발생 하는 경우 잠재적 원인 및 해결 방법을 제공 합니다.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>높은 대기 시간, 낮은 처리량 및 일반적인 성능 문제
 
@@ -80,7 +80,7 @@ ms.locfileid: "64577917"
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>클라이언트는 네트워크에서 지 원하는 최대 처리량을 달성할 수 없습니다.
 
-한 가지이 원인은 부족 fo SMB 다중 채널 지원 합니다. 현재 premium 파일 지원 단일 채널 이므로 서버에 클라이언트 VM에서에서 하나의 연결 합니다. 이 단일 연결에서 단일 코어 VM에서 달성 가능한 최대 처리량 바인딩되어 있으므로 클라이언트 VM에서 단일 코어에 측정값이 한 됩니다.
+한 가지이 원인은 부족 fo SMB 다중 채널 지원 합니다. 현재 Azure 파일 공유 지원 단일 채널 이므로 서버에 클라이언트 VM에서에서 하나의 연결 합니다. 이 단일 연결에서 단일 코어 VM에서 달성 가능한 최대 처리량 바인딩되어 있으므로 클라이언트 VM에서 단일 코어에 측정값이 한 됩니다.
 
 ### <a name="workaround"></a>해결 방법
 
@@ -137,7 +137,7 @@ Linux SMB 클라이언트의 구현 사용 하 여 알려진된 문제입니다.
 
 ### <a name="cause"></a>원인
 
-DirectoryOpen/DirectoryClose 통화 건수가 상위 API 호출 간에 많은 호출 Azue 클라이언트 VM에 설치 된 바이러스 백신을 사용 하 여 문제 수 수 있도록 클라이언트 하지 않을 경우.
+DirectoryOpen/DirectoryClose 통화 건수가 상위 API 호출 간에 많은 호출을 Azure 클라이언트 VM에 설치 된 바이러스 백신을 사용 하 여 문제 수 수 있도록 클라이언트 하지 않을 경우.
 
 ### <a name="workaround"></a>해결 방법
 

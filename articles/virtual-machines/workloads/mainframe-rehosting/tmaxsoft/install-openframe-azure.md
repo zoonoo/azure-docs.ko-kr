@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7e6e7e2023c333207a3a17c3b6711d92de7d044
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800869"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187801"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Azure에서 TmaxSoft OpenFrame 설치
 
@@ -102,7 +102,7 @@ Windows에 대 한 eclipse: TmaxSoft에서 지 원하는 개발 플랫폼<br/>
 
 시작 하기 전에 다음을 수행 합니다.
 
-- TmaxSoft에서 OpenFrame 설치 미디어를 가져옵니다. 기존 TmaxSoft 고객 인 경우 사용이 허가 된 복사본이 TmaxSoft 담당자에 게 문의 합니다. 그렇지 않으면에서 평가판을 요청 [TmaxSoft](http://www.tmaxsoft.com/contact/)합니다.
+- TmaxSoft에서 OpenFrame 설치 미디어를 가져옵니다. 기존 TmaxSoft 고객 인 경우 사용이 허가 된 복사본이 TmaxSoft 담당자에 게 문의 합니다. 그렇지 않으면에서 평가판을 요청 [TmaxSoft](https://www.tmaxsoft.com/contact/)합니다.
 
 - 전자 메일을 전송 하 여 OpenFrame 설명서 요청 <support@tmaxsoft.com>합니다.
 

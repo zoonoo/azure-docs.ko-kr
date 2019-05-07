@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
-ms.author: ryanwi
+ms.date: 05/06/2019
+ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350cb3fec4d325d6cf5848733c0bae18d5efacca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076842"
+ms.locfileid: "65190979"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>웹 브라우저를 사용 하 여 MSAL.NET에서
 웹 브라우저는 대화형 인증을 위해 필요 합니다. MSAL.NET 기본적으로 지원 합니다 [시스템 웹 브라우저](#system-web-browser-on-xamarinios-and-xamarinandroid) Xamarin.iOS에서 및 [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser)합니다. 하지만 [포함 된 웹 브라우저를 사용할 수도 있습니다](#enable-embedded-webviews) (UX에서 single sign-on (SSO)를 보안에 대 한 필요)의 요구 사항에 따라 [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) 하 고 [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) 앱입니다. 및 수도 있습니다 [동적으로 선택](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) Chrome 또는 Android에서 Chrome 사용자 지정 탭을 지 원하는 브라우저의 존재를 기반으로 웹 브라우저를 사용 합니다.
@@ -40,7 +40,7 @@ ms.locfileid: "65076842"
 
 ## <a name="system-web-browser-on-xamarinios-and-xamarinandroid"></a>Xamarin.iOS 및 Xamarin.Android에서 시스템 웹 브라우저
 
-기본적으로 MSAL.NET는 Xamarin.iOS 및 Xamarin.Android에서 시스템 웹 브라우저를 지원합니다. STS와의 상호 작용을 호스팅하려면 ADAL.NET만 사용 합니다 **embedded** 웹 브라우저입니다. UI (즉,.NET Core 아님)를 제공 하는 모든 플랫폼에 대해 대화 상자는 웹 브라우저 컨트롤을 포함 하는 라이브러리에서 제공 됩니다. 또한 MSAL.NET의 UWP 플랫폼에 대 한 포함 된 웹 보기를 WAB.NET 데스크톱을 사용합니다. 그러나 기본적으로 활용 하는 **시스템 웹 브라우저** Xamarin iOS 및 Xamarin Android 응용 프로그램에 대 한 합니다. IOS에서도 운영 체제의 버전에 따라 사용 하도록 웹 뷰를 선택 (iOS12, iOS11, 및 이전 버전).
+기본적으로 MSAL.NET는 Xamarin.iOS 및 Xamarin.Android에서 시스템 웹 브라우저를 지원합니다. UI (즉,.NET Core 아님)를 제공 하는 모든 플랫폼에 대해 대화 상자는 웹 브라우저 컨트롤을 포함 하는 라이브러리에서 제공 됩니다. 또한 MSAL.NET의 UWP 플랫폼에 대 한 포함 된 웹 보기를 WAB.NET 데스크톱을 사용합니다. 그러나 기본적으로 활용 하는 **시스템 웹 브라우저** Xamarin iOS 및 Xamarin Android 응용 프로그램에 대 한 합니다. IOS에서도 운영 체제의 버전에 따라 사용 하도록 웹 뷰를 선택 (iOS12, iOS11, 및 이전 버전).
 
 Broker를 사용 하지 않고도 다른 응용 프로그램 및 웹 응용 프로그램을 사용 하 여 SSO 상태를 공유의 중요 한 이점이 시스템 브라우저를 사용 하 여 (회사 포털 / Authenticator). 시스템 브라우저 사용한, Xamarin iOS 및 Xamarin Android 플랫폼에 대 한 MSAL.NET에서 기본적으로 하기 때문에 이러한 플랫폼에서는 시스템 웹 브라우저를 전체 화면을 차지 하며 사용자 환경을 더 합니다. 시스템 웹 보기 대화 상자를 구분 하지 않습니다. Ios, 그러나 사용자 할 번거로울 수 있는 응용 프로그램을 다시 호출 브라우저에 대 한 동의 제공 합니다.
 
@@ -70,49 +70,55 @@ Xamarin을 대상으로 하는 MSAL.NET을 사용 하 여 개발자가 포함 �
 
 MSAL.NET을 사용 하 여 개발자는 몇 가지 옵션이 있습니다 STS에서 대화형 대화 상자를 표시 합니다.
 
-- **시스템 브라우저입니다.** 시스템 브라우저는 라이브러리에 기본적으로 설정 됩니다. Android를 사용 하는 경우 읽을 [시스템 브라우저](msal-net-system-browser-android-considerations.md) 인증에 대 한 지원 되는 브라우저에 대 한 특정 정보에 대 한 합니다. Android에서 시스템 브라우저를 사용 하는 경우에 장치에 사용자 지정 탭 Chrome을 지 원하는 브라우저 하는 것이 좋습니다.  그렇지 않으면 인증이 실패할 수 있습니다. 
-- **포함 된 웹 보기입니다.** Webview MSAL.NET 묶인만 사용 하는 오버 로드는 `UIParent()` Android 및 iOS에 대해 사용할 수 있는 생성자.
+- **시스템 브라우저입니다.** 시스템 브라우저는 라이브러리에 기본적으로 설정 됩니다. Android를 사용 하는 경우 읽을 [시스템 브라우저](msal-net-system-browser-android-considerations.md) 인증에 대 한 지원 되는 브라우저에 대 한 특정 정보에 대 한 합니다. Android에서 시스템 브라우저를 사용 하는 경우에 장치에 사용자 지정 탭 Chrome을 지 원하는 브라우저 하는 것이 좋습니다.  그렇지 않으면 인증이 실패할 수 있습니다.
+- **포함 된 웹 보기입니다.** Webview MSAL.NET을 포함 하는 전용을 사용 하는 `AcquireTokenInteractively` 매개 변수 작성기 포함을 `WithUseEmbeddedWebView()` 메서드.
 
-    iOS:
+    iOS
 
     ```csharp
-    public UIParent(bool useEmbeddedWebview)
+    AuthenticationResult authResult;
+    authResult = app.AcquireTokenInteractively(scopes)
+                    .WithUseEmbeddedWebView(useEmbeddedWebview)
+                    .ExecuteAsync();
     ```
 
     Android:
 
     ```csharp
-    public UIParent(Activity activity, bool useEmbeddedWebview)
+    authResult = app.AcquireTokenInteractively(scopes)
+                .WithParentActivityOrWindow(activity)
+                .WithUseEmbeddedWebView(useEmbeddedWebview)
+                .ExecuteAsync();
     ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>포함 된 웹 브라우저 또는 Xamarin.iOS에서 시스템 브라우저 간의 선택
 
-IOS 앱에서의 `AppDelegate.cs` 시스템 브라우저 또는 포함 된 웹 보기를 사용할 수 있습니다.
+IOS 앱에서의 `AppDelegate.cs` 초기화할 수 있습니다 합니다 `ParentWindow` 에 `null`입니다. IOS에서 사용 되지 않습니다.
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(true);
-
-// Use only system browser
-App.UIParent = new UIParent();
+App.ParentWindow = null; // no UI parent on iOS
 ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>포함 된 웹 브라우저 또는 Xamarin.Android에서 시스템 브라우저 간의 선택
 
-Android 앱에서의 `MainActivity.cs` webview 옵션을 구현 하는 방법을 결정할 수 있습니다.
+Android 앱에서의 `MainActivity.cs` 을 인증 결과를 다시 가져오도록 부모 활동을 설정할 수 있습니다.
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
+ App.ParentWindow = this;
+```
 
-// or
-// Use only system browser
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
+그런 다음는 `MainPage.xaml.cs`:
+
+```csharp
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(true)
+                      .ExecuteAsync();
 ```
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Xamarin.Android의 사용자 지정 탭의 존재를 검색합니다.
 
-호출 하 여 결정 하는 옵션이 있는 시스템 웹 브라우저를 사용 하 여 브라우저에서 실행 되는 앱을 사용 하 여 SSO를 사용 하도록 설정 하려면 지원 사용자 지정 탭을 사용 하 여 브라우저를가지고 있지 않은 경우 Android 장치에 대 한 사용자 환경에 걱정 하는 경우는 `IsSystemWebViewAvailable()` 에서 메서드 < c 2 > `UIParent` 합니다. 이 메서드는 반환 `true` PackageManager를 사용자 지정 탭을 검색 하는 경우 및 `false` 장치에서 검색 되지 않은 경우.
+호출 하 여 결정 하는 옵션이 있는 시스템 웹 브라우저를 사용 하 여 브라우저에서 실행 되는 앱을 사용 하 여 SSO를 사용 하도록 설정 하려면 지원 사용자 지정 탭을 사용 하 여 브라우저를가지고 있지 않은 경우 Android 장치에 대 한 사용자 환경에 걱정 하는 경우는 `IsSystemWebViewAvailable()` 에서 메서드 < c 2 > `IPublicClientApplication` 합니다. 이 메서드는 반환 `true` PackageManager를 사용자 지정 탭을 검색 하는 경우 및 `false` 장치에서 검색 되지 않은 경우.
 
 이 메서드를 요구 하 여 반환 된 값에 따라 의사 결정을 수행할 수 있습니다.
 
@@ -122,23 +128,16 @@ App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
 아래 코드에 포함 된 웹 보기 옵션을 보여 줍니다.
 
 ```csharp
-bool useSystemBrowser = UIParent.IsSystemWebviewAvailable();
-if (useSystemBrowser)
-{
-    // A browser with custom tabs is present on device, use system browser
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
-}
-else
-{
-    // A browser with custom tabs is not present on device, use embedded webview
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
-}
+bool useSystemBrowser = app.IsSystemWebviewAvailable();
 
-// Alternative:
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, !useSystemBrowser);
-
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(!useSystemBrowser)
+                      .ExecuteAsync();
 ```
 
-## <a name="net-core-does-not-support-interactive-authentication"></a>.NET core는 대화형 인증을 지원 하지 않습니다.
+## <a name="net-core-does-not-support-interactive-authentication-out-of-the-box"></a>.NET core는 기본적으로 대화형 인증을 지원 하지 않습니다.
 
 .NET Core에 대 한 토큰의 획득 대화형으로 사용할 수 없는 경우 실제로.NET Core는 UI을 아직 제공 하지 않습니다. .NET Core 응용 프로그램에 대화형 로그인을 제공 하려는 경우 하도록 허용할 수 있습니다는 코드와 URL을 대화형으로 로그인으로 사용자에 게 표시 합니다 (참조 [장치 코드 흐름](msal-authentication-flows.md#device-code)).
+
+또는 구현할 수는 [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) 인터페이스 및 고유한 브라우저를 제공 합니다.

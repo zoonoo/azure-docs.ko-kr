@@ -2,18 +2,19 @@
 title: Azure 빠른 시작 - PHP를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
 description: PHP를 사용하여 Azure Blob Storage에서 개체를 전송하는 방법을 신속하게 알아봅니다.
 services: storage
-author: roygara
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: rogarana
-ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 790c6a372021542daa1098e94209c91b7bcecfd5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014780"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149451"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP를 사용하여 Azure Blob Storage에서 개체 전송
 이 빠른 시작에서 PHP를 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다. 

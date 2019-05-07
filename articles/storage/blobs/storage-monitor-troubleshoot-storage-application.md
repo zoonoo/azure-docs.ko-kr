@@ -2,18 +2,19 @@
 title: Azure에서 클라우드 저장소 애플리케이션 모니터링 및 문제 해결 | Microsoft Docs
 description: 진단 도구, 메트릭 및 경고를 사용하여 클라우드 애플리케이션 문제를 해결하고 모니터링합니다.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: fryu
 ms.custom: mvc
-ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1383ccd570e23d80343ccdfd586d08ee25ebbc8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259992"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148233"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 저장소 애플리케이션 모니터링 및 문제 해결
 
@@ -27,7 +28,7 @@ ms.locfileid: "51259992"
 > * 잘못된 SAS 토큰을 사용하여 테스트 트래픽 실행
 > * 로그 다운로드 및 분석
 
-[Azure Storage 분석](../common/storage-analytics.md)은 저장소 계정에 대한 로깅 및 메트릭 데이터를 제공합니다. 이 데이터는 저장소 계정 상태에 대한 정보를 제공합니다. Azure 저장소 분석에서 데이터를 수집하기 위해 로깅, 메트릭 및 경고를 구성할 수 있습니다. 이 프로세스 동안 로깅 켜기, 메트릭 구성 및 경고 설정이 진행됩니다.
+[Azure Storage 분석](../common/storage-analytics.md)은 스토리지 계정에 대한 로깅 및 메트릭 데이터를 제공합니다. 이 데이터는 저장소 계정 상태에 대한 정보를 제공합니다. Azure 저장소 분석에서 데이터를 수집하기 위해 로깅, 메트릭 및 경고를 구성할 수 있습니다. 이 프로세스 동안 로깅 켜기, 메트릭 구성 및 경고 설정이 진행됩니다.
 
 저장소 계정의 로깅 및 메트릭은 Azure Portal의 **진단** 탭에서 사용하도록 설정합니다. 저장소 로깅을 통해 저장소 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 Azure 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업의 세부 정보를 볼 수 있습니다. 또한 시간 초과, 제한 및 권한 부여 오류와 같은 실패한 요청의 이유를 볼 수 있습니다.
 
@@ -87,7 +88,7 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 ### <a name="download-microsoft-message-analyzer"></a>Microsoft Message Analyzer 다운로드
 
-[Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)를 다운로드하고 설치합니다.
+[Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226)를 다운로드하고 애플리케이션을 설치합니다.
 
 이 애플리케이션을 시작하고 **파일** > **열기** > **기타 파일 원본**을 선택합니다.
 
@@ -105,7 +106,7 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
 ![Microsoft Message Analyzer - 에이전트 보기](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[저장소 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 저장소 계정과 상호 작용하는 데 사용할 수 있는 또 다른 도구로, **$logs** 컨테이너 및 해당 로그를 포함합니다.
+[Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 스토리지 계정과 상호 작용하는 데 사용할 수 있는 또 다른 도구로, **$logs** 컨테이너 및 해당 로그를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
