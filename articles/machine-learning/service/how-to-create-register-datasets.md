@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 4b3fa69156146037ff59a41eab8c8373f6e01dc4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029117"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205032"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>만들기 및 Azure Machine Learning 데이터 집합 (미리 보기)를 등록 합니다.
 
@@ -44,7 +44,7 @@ Azure Machine Learning 데이터 집합 (미리 보기) 쉽게 액세스 하 여
 * 유추 하 고 열 데이터 형식으로 변환 합니다.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
@@ -60,7 +60,9 @@ Azure 데이터 저장소에서 데이터 집합을 만들려면 야 합니다.
 * 가져오기의 [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 하 고 [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) 및 `Dataset` SDK에서 패키지 합니다.
 
 ```Python
-from azureml.core import Workspace, Datastore, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.datastore import Datastore
+from azureml.core.dataset import Dataset
 
 datastore_name = 'your datastore name'
 
@@ -74,7 +76,7 @@ workspace = Workspace.from_config()
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-사용 된 `from_delimited_files()` 메서드를 구분 기호로 분리 된 파일에서 읽고 메모리 내 데이터 집합을 만듭니다.
+사용 된 `from_delimited_files()` 메서드를 구분 기호로 분리 된 파일에서 읽기 및 등록 되지 않은 데이터 집합을 만듭니다.
 
 ```Python
 # create an in-memory Dataset on your local machine
@@ -98,23 +100,22 @@ dataset.head(5)
 사용 합니다 [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) 메서드를 공유 하는 것에 대 한 작업 영역에 데이터 집합을 등록 하 고 조직 내에서 및 다양 한 실험에서 다시 사용 합니다.
 
 ```Python
-dataset = dataset.register(workspace = 'workspace_name',
-                           name = "dataset_crime",
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
+
                            description = 'Training data',
                            exist_ok = False
                            )
 ```
 
 >[!NOTE]
-> 에 대 한 기본 매개 변수 설정은 `register()` 는 ' exist_ok = False'. 이 설정을 변경 하지 않고 동일한 이름의 데이터 집합을 등록 하려고 하면 오류가 발생 합니다.
+> 에 대 한 기본 매개 변수 설정과 `register()` 는 `exist_ok = False`합니다. 이 설정을 변경 하지 않고 동일한 이름의 데이터 집합을 등록 하려고 하면 오류가 발생 합니다.
 
-합니다 `register()` 매개 변수 설정을 사용 하 여 이미 등록 된 데이터 집합의 정의 업데이트 하는 메서드 `exist_ok = True`합니다.
+합니다 `register()` 메서드 매개 변수 설정 사용 하 여 이미 등록 된 데이터 집합을 반환 합니다. `exist_ok = True`합니다.
 
 ```Python
-dataset = dataset.register(workspace = workspace_name,
-                           name = "dataset_crime",
-                           description = 'Training data',
-                           exist_ok = True)
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
 ```
 
 사용 하 여 `list()` 모든 작업 영역에서 등록 된 데이터 집합을 볼 수 있습니다.
@@ -137,7 +138,7 @@ Dataset.list(workspace_name)
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.Datasets['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## <a name="next-steps"></a>다음 단계

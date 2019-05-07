@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/03/2019
+ms.date: 5/06/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918546"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191552"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -31,7 +31,7 @@ SCIM에 표준화 된 프로토콜 이며 드라이브 identities 시스템 전�
 
 Azure AD 지 원하는 응용 프로그램의 많은 [미리 통합 된 자동 사용자 프로 비전](../saas-apps/tutorial-list.md) SCIM 사용자를 수신 하는 방법을 변경 알림을 구현 합니다.  이 외에도 고객의 특정 프로필을 지 원하는 응용 프로그램을 연결할 수는 [SCIM 2.0 프로토콜 사양](https://tools.ietf.org/html/rfc7644) Azure portal에서 제네릭 "비 갤러리" 통합 옵션을 사용 합니다. 
 
-이 기사의 초점은 비 갤러리 응용 프로그램에 대 한 제네릭 SCIM 커넥터의 일부분으로 Azure AD를 구현 하는 SCIM 2.0의 프로필 켜져 있습니다. 그러나 응용 프로그램의 테스트 성공 SCIM을 지 일반 Azure AD를 사용 하 여 커넥터는 사용자 프로 비전을 지 원하는 것으로 Azure AD 갤러리에 나열 된 앱을 시작 하는 단계입니다. Azure AD 응용 프로그램 갤러리에 나열 된 응용 프로그램을 가져오는 방법에 대 한 자세한 내용은 참조는 [Microsoft 응용 프로그램 네트워크](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)합니다.
+이 기사의 초점은 비 갤러리 응용 프로그램에 대 한 제네릭 SCIM 커넥터의 일부분으로 Azure AD를 구현 하는 SCIM 2.0의 프로필 켜져 있습니다. 그러나 응용 프로그램의 테스트 성공 SCIM을 지 일반 Azure AD를 사용 하 여 커넥터는 사용자 프로 비전을 지 원하는 것으로 Azure AD 갤러리에 나열 된 앱을 시작 하는 단계입니다. Azure AD 응용 프로그램 갤러리에 나열 된 응용 프로그램을 가져오는 방법에 대 한 자세한 내용은 참조 하세요. [방법: Azure AD 응용 프로그램 갤러리에 응용 프로그램 나열](../develop/howto-app-gallery-listing.md)합니다.
  
 
 >[!IMPORTANT]

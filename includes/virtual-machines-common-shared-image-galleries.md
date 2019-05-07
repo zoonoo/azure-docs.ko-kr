@@ -5,22 +5,21 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: fd1dd1f8af8fee9b1fecb05405381dba879facde
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149797"
+ms.locfileid: "65192384"
 ---
 공유 이미지 갤러리는 사용자 지정 관리형 VM 이미지를 기준으로 구조와 조직을 구축하는 데 사용할 수 있는 서비스입니다. 공유 이미지 갤러리를 제공합니다.
 
 - 이미지의 글로벌 복제를 관리 합니다.
 - 버전 관리 및 관리 간소화 하기 위해 이미지의 그룹화 합니다.
-- 더 높은 한도 확장합니다. 1,000 개 동시 Vm에 대 한 공유 이미지 갤러리를 허용 하는 동안 동시 Vm이 600 개에 대 한 사용자 지정 이미지 수 있습니다.
-- 영역 중복 저장소를 사용 하 여 항상 사용 가능한 이미지입니다. 데이터 센터 중단 되 면 경우에 해당 지역에서 이미지에 대 한 액세스를 해야 합니다.
+- 가용성 영역을 지 원하는 지역에서 영역 중복 저장소 (ZRS) 계정으로 항상 사용 가능한 이미지를 확인 합니다. ZRS는 영역 오류에 대 한 더 나은 복원 력을 제공합니다.
 - 구독 간에 및 RBAC를 사용 하 여 테 넌 트 간에 공유 합니다.
 
 공유 이미지 갤러리를 사용하면 조직 내의 여러 사용자, 서비스 주체 또는 AD 그룹에게 이미지를 공유할 수 있습니다. 배포의 크기를 더 빠르게 조정하기 위해 여러 지역에 공유 이미지를 복제할 수 있습니다.
@@ -92,12 +91,10 @@ ms.locfileid: "65149797"
 
 ## <a name="limits"></a>제한 
 
-관리 되는 이미지를 사용 하 여 공유 이미지 갤러리를 사용 하 여 이미지, 당 동시 Vm이 600 개를 하나만 지정할 수 있습니다,이 이미지 버전 당 1,000 개 동시 Vm 증가 합니다.
-
 공유 이미지 갤러리를 사용 하 여 리소스를 배포 하기 위한 구독 당 제한이 있습니다.
-- 지역당, 구독당 공유 이미지 갤러리 10개
-- 지역당, 구독당 이미지 정의 200개
-- 지역당, 구독당 이미지 버전 2000개
+- 지역당 구독 당 100 공유 이미지 갤러리
+- 지역당 구독 당 1,000 이미지 정의
+- 지역당 구독 당 10,000 이미지 버전
 
 자세한 내용은 [제한에 대 한 리소스 사용량 확인](https://docs.microsoft.com/azure/networking/check-usage-against-limits) 현재 사용량을 확인 하는 방법에 대 한 예제입니다.
  

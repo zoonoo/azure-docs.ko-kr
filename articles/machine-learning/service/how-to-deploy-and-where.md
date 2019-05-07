@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1da232c2a81c9989cc78eccf1be97b5d75a48666
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024479"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205074"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -193,7 +193,7 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 
 이 예제에서는 구성에는 다음 항목이 포함 됩니다.
 
-* 추론을 수행 하는 데 필요한 자산을 포함 하는 디렉터리
+* 유추 하는 데 필요한 자산을 포함 하는 디렉터리
 * 이 모델에서는 Python는
 * 합니다 [엔트리 스크립트가](#script), 배포 된 서비스에 전송 하는 웹 요청을 처리 하는 데 사용 되는
 * 유추를 실행 하는 데 필요한 Python 패키지를 설명 하는 conda 파일

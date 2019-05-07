@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160037"
+ms.locfileid: "65205844"
 ---
 # <a name="create-containers-with-large-partition-key"></a>큰 파티션 키를 사용 하 여 컨테이너 만들기
 
@@ -43,6 +43,17 @@ database,
 Azure portal을 사용 하 여 새 컨테이너를 만들어야 하는 동안 많은 파티션 키를 만들려면 합니다 **내 파티션 키가 100 바이트 보다 큰** 옵션입니다. 기본적으로 모든 새 컨테이너는 큰 파티션 키를 사용 하 여 옵트인 합니다. 큰 파티션 키 필요가 없는 경우 또는 1.18 이전 Sdk 버전을 실행 하는 응용 프로그램이 있는 경우 확인란을 선택 취소 합니다.
 
 ![Azure portal을 사용 하 여 큰 파티션 키를 만들려면](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## <a name="supported-sdk-versions"></a>지원되는 SDK 버전
+
+큰 파티션 키가 다음 최소 버전의 Sdk 사용 하 여 지원 됩니다.
+
+|SDK 유형  | 최소 버전   |
+|---------|---------|
+|.Net     |    1.18     |
+|Java 동기화     |   2.4.0      |
+|Java Async   |  2.5.0        |
  
 ## <a name="next-steps"></a>다음 단계
 

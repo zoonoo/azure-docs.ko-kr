@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148895"
+ms.locfileid: "65202903"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 
 
@@ -22,6 +22,8 @@ Application Gateway 및 웹 응용 프로그램 방화벽 (WAF) Standard_v2 및 
 
 - **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 true 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에 Application Gateway에 고정 된 용량 (사용 하지 않도록 설정 자동 크기 조정)와 사용 하도록 설정 하는 자동 크기 조정 모드에서 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드 응용 프로그램 트래픽에서 분산을 참조 하는 응용 프로그램에 유용 합니다.
 - **영역 중복**: Application Gateway 또는 WAF 배포를 확장할 수 있습니다 여러 가용성 영역을 Traffic Manager와 함께 각 영역에서 별도 Application Gateway 인스턴스를 프로 비전 할 필요성을 제거. 선택할 수 있습니다 단일 영역 또는 Application Gateway 인스턴스 배포 되는 위치, 여러 영역 영역 오류 복원 력이 있습니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
+
+  영역 중복은 Azure 영역 사용할 수 있는 사용할 수 있습니다. 다른 지역의 다른 모든 기능이 지원 됩니다. 자세한 내용은 참조 하세요. [azure에서 가용성 영역은 무엇입니까?](../availability-zones/az-overview.md#services-support-by-region)
 - **정적 VIP**: Application gateway v2 SKU에서 정적 VIP를 단독으로 입력합니다. 이 응용 프로그램 게이트웨이에 연결 된 VIP를 다시 시작 후에 배포 수명 주기 동안 변경 되지 않는지 확인 합니다.
 - **헤더 재작성**: Application Gateway를 사용 하면 추가, 제거 또는 v2 SKU를 사용 하 여 HTTP 요청 및 응답 헤더를 업데이트할 수 있습니다. 자세한 내용은 참조 하세요. [Application Gateway를 사용 하 여 다시 작성 하는 HTTP 헤더](rewrite-http-headers.md)
 - **Key Vault 통합 (미리 보기)**: 응용 프로그램 게이트웨이 v2 사용 하도록 설정 하는 HTTPS 수신기에 연결 된 서버 인증서 (공개 미리 보기)에서 Key Vault를 사용 하 여 통합을 지원 합니다. 자세한 내용은 [Key Vault 인증서를 사용 하 여 SSL 종료](key-vault-certs.md)합니다.

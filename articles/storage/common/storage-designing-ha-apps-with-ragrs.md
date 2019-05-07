@@ -1,5 +1,5 @@
 ---
-title: RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 고가용성 애플리케이션 설계 | Microsoft Docs
+title: 읽기 액세스 지역 중복 저장소 (RA-GRS)를 사용 하 여 항상 사용 가능한 응용 프로그램 설계 | Microsoft Docs
 description: Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 애플리케이션을 설계하는 방법입니다.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139336"
+ms.locfileid: "65205493"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 고가용성 애플리케이션 설계
 
@@ -148,7 +148,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
 
 보조 지역으로 전환하고 애플리케이션을 읽기 전용 모드에서 실행하도록 변경할 때를 결정하기 위해 주 지역에서 재시도 빈도를 모니터링하는 주요 옵션은 세 가지입니다.
 
-*   저장소 요청에 전달하는 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 개체의 [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 엔드포인트에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
+*   저장소 요청에 전달하는 [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) 개체의 [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 엔드포인트에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
     };
     ```
 
-*   사용자 지정 다시 시도 정책의 [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
+*   사용자 지정 다시 시도 정책의 [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

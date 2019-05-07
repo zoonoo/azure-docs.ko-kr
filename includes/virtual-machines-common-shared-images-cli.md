@@ -8,23 +8,22 @@ ms.topic: include
 ms.date: 04/30/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7e4ca54d8f97646192d19d5923bee24a906e8df7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 9647cdd584b53f581f46f728ca2d08f9a113ce92
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149695"
+ms.locfileid: "65199304"
 ---
+## <a name="before-you-begin"></a>시작하기 전에
+
+이 문서의 예제를 완료하려면 일반화된 VM의 기존 관리 이미지가 있어야 합니다. 자세한 내용은 [자습서: Azure CLI 2.0을 사용하여 Azure VM의 사용자 지정 이미지 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 데이터 디스크를 포함 하는 관리 되는 이미지, 데이터 디스크 크기가 1TB 보다 더 지정할 수 없습니다.
+
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
-
-## <a name="before-you-begin"></a>시작하기 전에
-
-이 문서의 예제를 완료하려면 일반화된 VM의 기존 관리 이미지가 있어야 합니다. 자세한 내용은 [자습서: Azure CLI 2.0을 사용하여 Azure VM의 사용자 지정 이미지 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
-
 
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기 
 
@@ -77,3 +76,6 @@ az sig image-version create \
 
 > [!NOTE]
 > 이미지 버전을 빌드하고 같은 관리 되는 이미지를 사용 하 여 다른 이미지 버전을 만들려면 전에 복제를 완전히 완료 될 때까지 기다리는 해야 합니다.
+>
+> 이미지 버전을 저장할 수도 있습니다 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 추가 하 여 `--storage-account-type standard_zrs` 이미지 버전을 만들 때.
+>

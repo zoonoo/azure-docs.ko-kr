@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a4f3b37b0dc4d74b03ffcfa61c97fbb571d57f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaaaa5c2fe87b419bf38d6e6522ef745476ac1ad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465595"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204951"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -563,7 +563,7 @@ _**그림 2:** 공유 디스크를 사용하지 않는 Azure에서 Windows Serve
 2. 두 가상 컴퓨터 노드에서 SIOS DataKeeper Cluster Edition을 실행합니다.
 3. 원본 가상 머신의 추가 VHD 연결 볼륨의 콘텐츠를 대상 가상 머신의 추가 VHD 연결 볼륨에 미러링하는 방식으로 SIOS DataKeeper Cluster Edition을 구성합니다. SIOS DataKeeper는 원본 및 대상 로컬 볼륨을 추상화한 다음 Windows Server 장애 조치 클러스터링에 단일 공유 디스크로 제공합니다.
 
-[SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
+[SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
 
 ![그림 3: SIOS DataKeeper를 사용하는 Azure의 Windows Server 장애 조치(Failover) 클러스터링 구성][sap-ha-guide-figure-1002]
 

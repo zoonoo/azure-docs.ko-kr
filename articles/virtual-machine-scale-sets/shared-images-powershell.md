@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 44cb068f1aa40169e728fc28787990b161e148ae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: ff8d94213e4e07b6597f6195126116a607c18bf7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150072"
+ms.locfileid: "65191733"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 세트용 공유 이미지 만들기 및 사용
 
@@ -48,7 +48,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 아래 단계에서는 기존 VM을 가져와서 새 VM 인스턴스를 만드는 데 사용할 수 있는 재사용 가능 사용자 지정 이미지로 변환하는 방법을 자세히 설명합니다.
 
-이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용](tutorial-use-custom-image-powershell.md)에 따라 이미지를 만들 수 있습니다. 이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
+이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용](tutorial-use-custom-image-powershell.md)에 따라 이미지를 만들 수 있습니다. 데이터 디스크를 포함 하는 관리 되는 이미지, 데이터 디스크 크기가 1TB 보다 더 지정할 수 없습니다.
+
+이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-ps](../../includes/virtual-machines-common-shared-images-powershell.md)]

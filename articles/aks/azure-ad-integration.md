@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138474"
+ms.locfileid: "65192119"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -244,6 +244,7 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 성공적으로 로그인한 후에 권한 부여 오류 메시지가 표시되는 경우 다음 사항에 해당하는지 여부를 확인합니다.
 1. 사용자 로그인 하는 그대로 (이 시나리오는 경우 다른 디렉터리에서 페더레이션된 계정을 사용 하는 경우) Azure AD 인스턴스에서 게스트 없습니다.
 2. 사용자는 200개가 넘는 그룹의 멤버가 아닙니다.
+3. 서버에 대 한 응용 프로그램 등록에서 정의 하는 암호-aad 서버-앱 암호를 사용 하 여 구성 값이 일치 하지 않습니다.
 
 ```console
 error: You must be logged in to the server (Unauthorized)

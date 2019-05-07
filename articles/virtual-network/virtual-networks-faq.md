@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148513"
+ms.locfileid: "65205710"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -67,7 +67,7 @@ VNet을 다음에 사용합니다.
 예. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)을 참조하세요. 서브넷 주소 공간은 서로 겹칠 수 없습니다.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?
-예. Azure는 각 서브넷 내의 일부 IP 주소를 예약합니다. 서브넷마다 첫 번째와 마지막 IP 주소가 Azure 서비스에 사용되는 각 서브넷의 x.x.x.1-x.x.x.3 주소와 함께 프로토콜 적합성을 위해 예약됩니다.
+예. Azure는 각 서브넷 내에서 5개의 IP 주소를 예약합니다. 서브넷마다 첫 번째와 마지막 IP 주소가 Azure 서비스에 사용되는 각 서브넷의 x.x.x.1-x.x.x.3 주소와 함께 프로토콜 적합성을 위해 예약됩니다.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 및 서브넷은 얼마나 크고 얼마나 작을 수 있습니까?
 지원되는 가장 작은 서브넷은 /29이며 가장 큰 서브넷은 /8(CIDR 서브넷 정의 사용)입니다.
@@ -231,7 +231,7 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워크에 연결할 수 있습니다. 가상 네트워크 간의 VNet 피어링 연결을 사용하면 IPv4 주소를 통해 개인적으로 가상 네트워크 간의 트래픽을 라우팅할 수 있습니다. 피어링된 VNet에서 가상 머신은 동일한 네트워크 내에 있는 것처럼 서로 통신할 수 있습니다. 이러한 가상 네트워크는 동일한 지역 또는 서로 다른 지역에 있을 수 있습니다(글로벌 VNet 피어링으로도 알려짐). Azure 구독 간에 VNet 피어링 연결을 만들 수도 있습니다.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>다른 지역의 VNet에 피어로 연결할 수 있나요?
-예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어링은 모든 Azure 공용 지역 및 중국 클라우드 지역에서 사용할 수 있습니다. Azure 공용 지역에서 국가별 클라우드 지역으로 전역적으로 피어링할 수 없습니다. 글로벌 피어링은 현재 국가별 클라우드에서 제공되지 않습니다.
+예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어 링은 모든 Azure 공용 지역, 중국 클라우드 지역 및 Government 클라우드 지역에서 사용할 수 있습니다. 전 세계 국가 클라우드 지역에 Azure 공용 지역에서 피어 수 없습니다.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>글로벌 VNet 피어 링 및 부하 분산 장치 관련 된 제약 조건 이란?
 두 가상 네트워크가 다른 지역 (글로벌 VNet 피어 링)에 있는 경우에 기본 Load Balancer를 사용 하는 리소스에 연결할 수 없습니다. 표준 Load Balancer를 사용 하는 리소스에 연결할 수 있습니다.
@@ -241,7 +241,6 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL Always on
 - SQL MI
 - API 관리
 - Active Directory 도메인 서비스 (추가)

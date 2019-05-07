@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148915"
+ms.locfileid: "65205479"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -71,7 +71,7 @@ ms.locfileid: "65148915"
     * Streaming Locator는 Locator를 대체합니다.
     * Live Event는 Channel을 대체합니다.<br/>라이브 이벤트 요금은 라이브 채널 미터를 기반으로 청구됩니다. 자세한 내용은 [대금 청구](live-event-states-billing.md) 및 [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
     * Live Output은 Program을 대체합니다.
-* 라이브 출력은 명시적으로 시작할 필요가 없습니다. 생성 시 시작되고 삭제 시 중지됩니다. v2 API에서는 프로그램이 다르게 작동했습니다. 생성 후 시작해야 했습니다.
+* 라이브 출력은 생성과 동시에 시작되고 삭제되면 중지됩니다. v2 API에서는 프로그램이 다르게 작동했습니다. 생성 후 시작해야 했습니다.
 *  작업에 대 한 정보를 가져오려면 작업이 생성 된 변환 이름을 몰라도 지정 해야 합니다. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>v2 API와 관련된 기능 격차
