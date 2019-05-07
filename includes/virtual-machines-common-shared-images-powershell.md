@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/10/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d4be0bf52fd925e22e40e98258082304a25a111
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188323"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148782"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -21,17 +21,6 @@ Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용�
 
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
-
-## <a name="preview-register-the-feature"></a>미리 보기: 기능 등록
-
-공유 이미지 갤러리는 미리 보기 상태이지만 기능을 등록해야 사용할 수 있습니다. 공유 이미지 갤러리 기능을 등록하려면:
-
-```azurepowershell-interactive
-Register-AzProviderFeature `
-   -FeatureName GalleryPreview `
-   -ProviderNamespace Microsoft.Compute
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## <a name="get-the-managed-image"></a>관리되는 이미지 가져오기
 
@@ -45,7 +34,9 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기 
 
-이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름은 구독 내에서 고유해야 합니다. [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery)를 사용하여 이미지 갤러리를 만듭니다. 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery*라는 갤러리를 만듭니다.
+이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름 대시를 포함할 수 없습니다. 갤러리 이름은 구독 내에서 고유해야 합니다. 
+
+[New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery)를 사용하여 이미지 갤러리를 만듭니다. 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery*라는 갤러리를 만듭니다.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -60,7 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
-[New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 갤러리 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지의 이름은 *myGalleryImage*입니다.
+이미지 정의는 이미지에 대 한 논리적 그룹화를 만듭니다. 내에서 만든 이미지 버전에 대 한 정보를 관리 하려면 사용 됩니다. 대문자 또는 소문자, 숫자, 점, 대시 및 마침표의 이미지 정의 이름은 가능 합니다. 이미지 정의에 지정할 수 있는 값에 대 한 자세한 내용은 참조 하세요. [정의 이미지](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)합니다.
+
+사용 하 여 이미지 정의 만듭니다 [새로 만들기-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)합니다. 이 예제에서 갤러리 이미지의 이름은 *myGalleryImage*입니다.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -74,30 +67,15 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-### <a name="using-publisher-offer-and-sku"></a>게시자, 제품 및 SKU를 사용 하 여 
-공유 이미지를 구현 하려는 고객을 위한 **예정 된 릴리스에서**, 개인 정의 사용할 수 있습니다 **-게시자**에 **-제공** 및 **-Sku** 값을 찾을 이미지 정의 지정 하 고 일치 하는 최신 이미지 버전을 사용 하 여 VM을 만들 이미지 정의 합니다. 예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
 
-|이미지 정의|게시자|제안|SKU|
-|---|---|---|---|
-|myImage1|myPublisher|myOffer|mySku|
-|myImage2|myPublisher|standardOffer|mySku|
-|myImage3|테스트|standardOffer|testSku|
-
-이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다. **향후 릴리스에서**, 특정 이미지의 최신 버전을 요청 하기 위해 이러한 값을 결합 하는 일을 할 수 있습니다. **현재 릴리스에서 작동 하지**, 하지만 나중에 사용할 수 있습니다. 원본 이미지를 설정 하려면 다음 구문을 사용 하 여를 사용 해야 릴리스되면 *myImage1* 위 테이블에서.
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName myPublisher `
-   -Offer myOffer `
-   -Skus mySku 
-```
-
-지정 하는 방법을 현재 사용 하 여 게시자, 제품 및 SKU에 대 한 비슷합니다 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md) Marketplace 이미지의 최신 버전을 가져올 수 있습니다. 이러한 사실을 토대로, 각 이미지 정의에는 이러한 값의 고유한 세트를 지정해야 합니다.  
 
 ## <a name="create-an-image-version"></a>이미지 버전 만들기
 
-[New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 관리되는 이미지에서 이미지 버전을 만듭니다. 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다.
+이미지 버전을 사용 하 여 관리 되는 이미지 만들기 [새로 만들기-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)합니다. 
+
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
+
+이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제에 대 한 대상 영역을 선택할 때 기억할는 포함 해야 합니다 *원본* 지역 복제에 대 한 대상으로 합니다.
 
 
 ```azurepowershell-interactive
@@ -122,3 +100,5 @@ $job = $imageVersion = New-AzGalleryImageVersion `
 $job.State
 ```
 
+> [!NOTE]
+> 이미지 버전을 빌드하고 같은 관리 되는 이미지를 사용 하 여 다른 이미지 버전을 만들려면 전에 복제를 완전히 완료 될 때까지 기다리는 해야 합니다.
