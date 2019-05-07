@@ -55,7 +55,9 @@
           href: logic-apps-create-variables-store-values.md
         - name: 데이터 작업 수행
           href: logic-apps-perform-data-operations.md
-        - name: Azure Functions를 사용하여 사용자 지정 코드 추가
+        - name: 인라인 코드로 코드 조각 추가 및 실행
+          href: logic-apps-add-run-inline-code.md
+        - name: Azure Functions를 사용하여 코드 추가 및 실행
           href: logic-apps-azure-functions.md
         - name: Azure Functions를 사용하여 논리 앱 호출
           href: logic-apps-scenario-function-sb-trigger.md

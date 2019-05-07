@@ -18,9 +18,9 @@
   items:
     - name: Windows Virtual Desktop 리소스에 연결
       items:
-        - name: Windows 7 및 Windows 10을 사용하여 연결
+        - name: Windows 10 또는 Windows 7에서 연결
           href: connect-windows-7-and-10.md
-        - name: 웹 클라이언트를 사용하여 연결
+        - name: 웹 브라우저에서 연결
           href: connect-web.md
     - name: Azure Resource Manager 템플릿으로 호스트 풀 만들기
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: 마스터 VHD 이미지 준비 및 사용자 지정
       href: set-up-customize-master-image.md
+    - name: Windows Virtual Desktop용 GPU 구성
+      href: configure-vm-gpu.md
     - name: 세션 호스트 자동 크기 조정
       href: set-up-scaling-script.md
 - name: 개념

@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: DTU 서비스 계층
           href: sql-database-service-tiers-dtu.md
+        - name: 서버리스 컴퓨팅 계층
+          href: sql-database-serverless.md
         - name: 예약된 용량 선불
           href: sql-database-reserved-capacity.md
         - name: 프리미엄 RS 서버 계층에서 마이그레이션

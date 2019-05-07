@@ -326,6 +326,8 @@
           href: detach-disk.md
         - name: 템플릿을 사용하여 디스크 배포
           href: using-managed-disks-template-deployments.md
+        - name: 디스크에 VHD 업로드 - PowerShell
+          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: 디스크 크기 조정
           href: expand-os-disk.md
         - name: 디스크 스냅숏

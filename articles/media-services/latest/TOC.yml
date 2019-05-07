@@ -26,8 +26,10 @@
     - name: 비디오 분석 - .NET
       displayName: 'job, transform'
       href: analyze-videos-tutorial-with-api.md
-    - name: AES-128 동적 암호화 - .NET
+    - name: AES-128로 동적으로 암호화 - .NET
       href: protect-with-aes128.md
+    - name: DRM으로 동적으로 암호화 - .NET
+      href: protect-with-drm.md
 - name: 샘플
   items:
     - name: Azure 코드 샘플
@@ -56,10 +58,9 @@
         - name: Autogen 적응 비트 전송률 사다리
           href: autogen-bitrate-ladder.md
         - name: 콘텐츠 인식 인코딩
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: 작업 오류 코드
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 미디어 분석
       items:
         - name: 개요
@@ -68,7 +69,7 @@
         - name: Transform 및 Job
           href: transforms-jobs-concept.md
         - name: 작업 오류 코드
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: '패키징, 배달, 보호'
       items:
         - name: 패키징
@@ -150,7 +151,7 @@
             - name: 원래 오류 코드
               href: origin-error-codes.md
             - name: 작업 오류 코드
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: v2에서 v3로의 마이그레이션 지침
       href: migrate-from-v2-to-v3.md
 - name: 방법 가이드
@@ -215,8 +216,6 @@
       items:
         - name: 콘텐츠 키 정책 가져오기 - .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: DRM 동적 암호화 - .NET
-          href: protect-with-drm.md
         - name: iOS용 오프라인 FairPlay
           href: offline-fairplay-for-ios.md
         - name: Android용 오프라인 Widevine
@@ -258,7 +257,7 @@
         - name: 원래 오류 코드
           href: origin-error-codes.md
         - name: 작업 오류 코드
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: 리소스
   items:
     - name: Azure Media Services 커뮤니티

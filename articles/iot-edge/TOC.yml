@@ -109,8 +109,14 @@
           href: how-to-install-iot-edge-linux-arm.md
         - name: Windows X64
           href: how-to-install-iot-edge-windows.md
+        - name: Windows X64의 Linux 컨테이너
+          href: how-to-install-iot-edge-windows-with-linux.md
+        - name: Windows Server VM
+          href: how-to-install-iot-edge-windows-server-vm.md
         - name: Ubuntu VM
           href: how-to-install-iot-edge-ubuntuvm.md
+        - name: kubernetes
+          href: how-to-install-iot-edge-kubernetes.md
         - name: 런타임 버전 업데이트
           href: how-to-update-iot-edge.md
     - name: DPS와 함께 큐 자동 프로비전
