@@ -48,7 +48,7 @@ Authorization: Bearer
 |요청 헤더|설명|
 |--------------------|-----------------|
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
+|*Authorization:*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
 ## <a name="response"></a>response
 
