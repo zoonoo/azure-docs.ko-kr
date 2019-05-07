@@ -2,18 +2,19 @@
 title: Azure 페이지 Blob의 개요 | Microsoft Docs
 description: 샘플 스크립트를 통한 사용 사례를 포함한 Azure 페이지 Blob의 개요 및 해당 이점
 services: storage
-author: anasouma
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: wielriac
+ms.author: tamram
+ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a0fc9a8356f4a322ae81a668515a6a60c6001011
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61428391"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141250"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 

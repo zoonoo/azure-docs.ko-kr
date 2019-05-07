@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925792"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143003"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -87,6 +87,9 @@ SAP NetWeaver의 가용성을 높이려면 공유 저장소가 필요합니다. 
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
 
+> [!IMPORTANT]
+> 다중 SID 클러스터링의 SAP ASCS/ERS Red Hat Linux를 사용 하 여 Azure Vm에서 게스트 운영 체제가 **지원 되지 않습니다**합니다. 다중 SID 클러스터링 하나의 Pacemaker 클러스터에서 다른 Sid 사용 하 여 여러 SAP ASCS/ERS 인스턴스 설치를 설명 합니다.
+
 ### <a name="ascs"></a>(A)SCS
 
 * 프런트 엔드 구성
@@ -113,6 +116,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -128,7 +132,7 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 
 ### <a name="deploy-linux-via-azure-template"></a>Azure 템플릿을 통해 Linux 배포
 
-Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 Red Hat Enterprise Linux용 이미지가 있습니다. Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
+Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 Red Hat Enterprise Linux용 이미지가 있습니다. GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
 
 1. Azure Portal에서 [ASCS/SCS 템플릿][template-multisid-xscs]을 엽니다.  
 1. 다음 매개 변수를 입력합니다.
@@ -145,7 +149,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    1. 시스템 가용성 -  
       HA를 선택합니다.
    1. 관리자 사용자 이름, 관리자 암호 또는 SSH 키  
-      컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
+      새 사용자가 만들어진 컴퓨터에 로그인 할 수 있습니다.
    1. 서브넷 ID  
    서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;** 과 같은 형식입니다.
 
@@ -194,7 +198,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
       1. TCP: 32**00**(ASCS용)
-         1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정한 다음, 추가 클릭
+         1. 부하 분산 장치를 열고, 부하 분산 규칙을 선택 및 추가 클릭
          1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb-3200**)
          1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **nw1-ascs-frontend**)
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
@@ -457,7 +461,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 연결 끊김을 방지하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정하고 Linux 시스템 설정을 변경해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이 방지 하려면 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정 하 고 Linux 시스템 설정을 변경 해야 합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
    ASCS/SCS profile 매개 변수 enque/encni/set_so_keepalive는 마지막 단계에서 이미 추가된 상태입니다.
 
@@ -527,7 +531,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 sap 참고 참조 [2641322](https://launchpad.support.sap.com/#/notes/2641322)합니다. 
+   이전 버전에서 업그레이드 하 고 큐에 넣기 서버 2로 전환 하는 경우 참조 SAP 참고 [2641322](https://launchpad.support.sap.com/#/notes/2641322)합니다. 
 
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
 

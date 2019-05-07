@@ -2,18 +2,19 @@
 title: Azure Storage Blob에 대한 변경 불가능한 스토리지 | Microsoft Docs
 description: Azure Storage는 사용자가 지정한 간격 동안 지울 수 없고 수정할 수 없는 상태로 데이터를 저장할 수 있게 하는 Blob(개체) 스토리지에 대한 WORM(Write Once, Read Many) 지원을 제공합니다.
 services: storage
-author: xyh1
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2019
-ms.author: hux
+ms.author: tamram
+ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 716c6dfb613db2fa460c8d669bbb8addc73ea2e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996033"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141228"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 

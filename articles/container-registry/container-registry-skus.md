@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582824"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069053"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -22,7 +22,7 @@ ACR(Azure Container Registry)은 다중 서비스 계층(즉, SKU)에서 사용 
 | --- | :-------: | ----------- |
 | **Basic** | 예 | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. 기본 레지스트리는 Standard 및 Premium으로 동일한 프로그래밍 기능 (예: Azure Active Directory [인증 통합](container-registry-authentication.md#individual-login-with-azure-ad)를 [삭제 이미지][container-registry-delete], 및 [웹 후크][container-registry-webhook]). 그렇지만 포함된 저장소 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
 | **Standard** | 예 | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 포함된 저장소 제한과 이미지 처리량은 더 높습니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
-| **Premium** | 예 | Premium 레지스트리는 포함된 저장소 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. 더 높은 이미지 처리량 뿐만 아니라 프리미엄 추가 기능을 포함 하 여 [함깨 geo-replication] [ container-registry-geo-replication] 여러 지역에서 단일 레지스트리를 관리 하는 것에 대 한 [신뢰 (미리 보기)콘텐츠](container-registry-content-trust.md) 서명에 이미지 태그, 및 [방화벽 및 virtual networks (미리 보기)](container-registry-vnet.md) 레지스트리에 대 한 액세스를 제한 하려면. |
+| **Premium** | 예 | Premium 레지스트리는 포함된 저장소 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. 더 높은 이미지 처리량 뿐만 아니라 프리미엄 추가 기능을 포함 하 여 [함깨 geo-replication] [ container-registry-geo-replication] 여러 지역에서 단일 레지스트리를 관리 하는 것에 대 한 [신뢰 콘텐츠](container-registry-content-trust.md) 이미지 태그 서명에 및 [방화벽 및 virtual networks (미리 보기)](container-registry-vnet.md) 에 레지스트리에 대 한 액세스를 제한 합니다. |
 |  클래식 (*2019 년 4 월 후 사용할 수 없는*) | 아닙니다. | SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. |
 
 > [!IMPORTANT]
