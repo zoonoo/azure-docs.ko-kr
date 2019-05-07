@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869551"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150895"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -176,12 +176,14 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 | DataRead | 원본에서 읽은 데이터 크기 | Int64 값(**바이트**) |
 | DataWritten | 싱크에 쓴 데이터 크기 | Int64 값(**바이트**) |
 | filesRead | 파일 저장소에서 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
-| fileScanned | 원본 파일 스토리지에서 검색 중인 파일 수입니다. | Int64 값(단위 없음) |
 | filesWritten | 파일 저장소로 데이터를 복사할 경우 복사되는 파일 수입니다. | Int64 값(단위 없음) |
-| rowsCopied | 복사된 행 수(이진 복사에 적용되지 않음) | Int64 값(단위 없음) |
+| rowsRead | 원본 (이진 복사에는 적용 되지 않음)에서 읽어오는 행 수입니다. | Int64 값(단위 없음) |
+| rowsCopied | 싱크 (이진 복사에는 적용 되지 않음)에 복사 되는 행 수입니다. | Int64 값(단위 없음) |
 | rowsSkipped | 생략되는 비호환 행 수. "enableSkipIncompatibleRow"를 true로 설정하여 이 기능을 실행할 수 있습니다. | Int64 값(단위 없음) |
-| throughput | 데이터 전송 비율 | 부동 소수점 숫자(**KB/s**) |
-| copyDuration | 복사본의 기간 | Int32 값(초) |
+| throughput | 데이터 전송 되는 비율입니다. | 부동 소수점 숫자(**KB/s**) |
+| copyDuration | 복사본의 기간입니다. | Int32 값(초) |
+| sourcePeakConnections | 복사 중에 원본 데이터 저장소를 설정 하는 동시 연결의 최대 수입니다. | Int32 값 |
+| sinkPeakConnections| 싱크 데이터 저장소로 복사 하는 동안 설정 하는 동시 연결의 최대 수입니다.| Int32 값 |
 | sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용합니다. | Boolean |
 | redshiftUnload | 데이터를 Redshift로부터 복사할 때 UNLOAD를 사용합니다. | Boolean |
 | hdfsDistcp | 데이터를 HDFS로부터 복사할 때 DistCp를 사용합니다. | Boolean |

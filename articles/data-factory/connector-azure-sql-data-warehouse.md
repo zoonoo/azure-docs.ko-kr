@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926614"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153431"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -229,9 +229,9 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
-Azure SQL Data Warehouse에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 **AzureSqlDWTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+또는 Azure SQL Data Warehouse로 데이터를 복사 하는 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | 예 |
 | tableName | 연결된 서비스가 참조하는 Azure SQL Data Warehouse 인스턴스의 테이블 또는 뷰 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -248,6 +248,7 @@ Azure SQL Data Warehouse에서 데이터를 복사하려면 데이터 세트의 
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -375,7 +376,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | rejectType | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 아니오 |
 | rejectSampleValue | PolyBase가 거부된 행의 백분율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2 등입니다. | **rejectType**이 **percentage**인 경우 예 |
 | useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니오 |
-| writeBatchSize | 버퍼 크기가 **writeBatchSize**에 도달하면 SQL 테이블에 데이터를 삽입합니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. | 아니요. 기본값은 10000입니다. |
+| writeBatchSize | SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행의 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아닙니다. |
 | writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예제: “00:30:00”(30분) | 아닙니다. |
 | preCopyScript | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아닙니다. |
 
@@ -423,12 +424,13 @@ SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake 저장소 Gen1 및 Az
 
 2. 합니다 **원본 데이터 형식이** 입니다 **Parquet**를 **ORC**, 또는 **구분 된 텍스트**, 다음 구성을 통해:
 
-   1. `folderPath` 및 `fileName` 와일드 카드 필터를 포함 하지 않습니다.
-   2. `rowDelimiter`는 **\n**이어야 합니다.
-   3. `nullValue`는 **빈 문자열**("")로 설정되거나 기본값으로 남아 있고, `treatEmptyAsNull`은 기본값으로 남아 있거나 true로 설정됩니다.
-   4. `encodingName`이 기본값인 **utf-8**로 설정되어 있습니다.
-   5. `escapeChar`, `quoteChar` 및 `skipLineCount`는 지정되지 않습니다. PolyBase 지원은 ADF에서 `firstRowAsHeader`로 구성될 수 있는 머리글 행을 건너뜁니다.
-   6. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
+   1. 폴더 경로 와일드 카드 필터를 포함 하지 않습니다.
+   2. 파일 이름을 단일 파일을 가리키도록 아니거나 `*` 또는 `*.*`합니다.
+   3. `rowDelimiter`는 **\n**이어야 합니다.
+   4. `nullValue`는 **빈 문자열**("")로 설정되거나 기본값으로 남아 있고, `treatEmptyAsNull`은 기본값으로 남아 있거나 true로 설정됩니다.
+   5. `encodingName`이 기본값인 **utf-8**로 설정되어 있습니다.
+   6. `quoteChar`를 `escapeChar`, 및 `skipLineCount` 지정 되지 않습니다. PolyBase 지원은 ADF에서 `firstRowAsHeader`로 구성될 수 있는 머리글 행을 건너뜁니다.
+   7. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
 
 ```json
 "activities":[

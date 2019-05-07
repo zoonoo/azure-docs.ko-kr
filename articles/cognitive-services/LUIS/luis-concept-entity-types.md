@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0ba700285a4af6e28b7788016d4842de1aa61417
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073061"
+ms.locfileid: "65141036"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
@@ -158,10 +158,10 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 
 |발화|
 |--|
-|The Man Who Mistook His Wife for a Hat and Other Clinical Tales는 올해 미국에서 저술되었나요?<br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales**는 올해 미국에서 저술되었나요?|
-|Half Asleep in Frog Pajamas는 올해 미국에서 저술되었나요?<br>**Half Asleep in Frog Pajamas**는 올해 미국에서 저술되었나요?|
-|The Particular Sadness of Lemon Cake: A Novel은 올해 미국에서 저술되었나요?<br>**The Particular Sadness of Lemon Cake: A Novel**은 올해 미국에서 저술되었나요?|
-|There's A Wocket In My Pocket! 은 올해 미국에서 저술되었나요?<br>**There's A Wocket In My Pocket!** 은 올해 미국에서 저술되었나요?|
+|' Hat 및 기타 임상 이야기는 American이 올해 저술한 The Man는 잘못 검색 His 아내가?<br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales**는 올해 미국에서 저술되었나요?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
 
 ## <a name="prebuilt-entity"></a>미리 빌드된 엔터티
 

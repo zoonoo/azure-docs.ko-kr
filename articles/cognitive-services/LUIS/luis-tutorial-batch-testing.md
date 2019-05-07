@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: ad0676cbfdcd708b0d51752522d16956bd0c6c9e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073713"
+ms.locfileid: "65146153"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
@@ -205,11 +205,11 @@ ms.locfileid: "65073713"
 
 ## <a name="review-entity-batch-results"></a>엔터티 일괄 처리 결과 검토
 
-모든 의도가 올바르게 예측된 차트가 열립니다. 오른쪽 필터에서 아래로 스크롤하여 잘못된 엔터티 예측을 찾습니다. 
+모든 의도가 올바르게 예측된 차트가 열립니다. 오류를 사용 하 여 엔터티 예측을 찾으려면 오른쪽에 있는 필터를 아래로 스크롤하십시오. 
 
 1. 필터에서 **Job** 엔터티를 선택합니다.
 
-    ![필터의 잘못된 엔터터 예측](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![필터에서 오류 엔터티 예측](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     엔터티 예측을 표시하도록 차트가 변경됩니다. 
 

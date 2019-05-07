@@ -4,17 +4,17 @@ description: Azure IoT Edge 디먼 및 런타임을 실행할 수 있는 운영 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5bc133e81f9917aafb406a6bfb27922cdba48ef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1db999f5d3172734311ecc7dbec72214a1e07e91
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612217"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137819"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -60,14 +60,15 @@ Azure IoT Edge; 컨테이너를 실행할 수 있는 대부분의 운영 체제�
 | Raspbian-stretch | 아닙니다. | 예|
 | Ubuntu Server 16.04 | 예 | 아닙니다. |
 | Ubuntu Server 18.04 | 예 | 아닙니다. |
+| Windows 10 IoT Enterprise 17763 빌드 | 예 | 아닙니다. |
 
 공개 미리 보기
 
 | 운영 체제 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core, 17763 빌드 | 예 | 아닙니다. |
-| Windows 10 IoT Enterprise 17763 빌드 | 예 | 아닙니다. |
-| Windows Server 2019 | 예 | 아닙니다. |
+| Windows Server 2019, 17763 빌드 | 예 | 아닙니다. |
+| Windows Server IoT 2019 17763 빌드 | 예 | 아닙니다. |
 
 위에 나열 된 Windows 운영 체제는 Windows에서 Windows 컨테이너를 실행 하는 장치에 대 한 요구 사항입니다. 이 구성은 프로덕션 환경에만 지원 되는 구성이입니다. Windows에서 Linux 컨테이너의 사용을 허용 하는 Windows에 대 한 Azure IoT Edge 설치 패키지 그러나이 구성은 개발 및 테스트 전용입니다. Windows에서 Linux 컨테이너를 사용하는 것은 프로덕션에서 지원되는 구성이 아닙니다. 이 개발 시나리오에서는 Windows 10 빌드 14393 이상 및 Windows Server 2016 이상의 임의 버전을 사용할 수 있습니다.
 

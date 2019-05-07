@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777375"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138138"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Azure Monitor에 Windows 컴퓨터 연결
 
@@ -31,16 +31,18 @@ ms.locfileid: "60777375"
 * 수동 설치. 설치 프로그램은 설치 마법사를 사용하여 컴퓨터에서 실행하거나, 명령줄에서 실행하거나, 기존 소프트웨어 배포 도구를 사용하여 배포할 수 있습니다.
 * Azure Automation DSC(Desired State Configuration). 환경에 이미 배포된 Windows 컴퓨터용 스크립트를 사용하여 Azure Automation에서 DSC 사용.  
 * PowerShell 스크립트.
-* Azure Stack에서 Windows 온-프레미스를 실행하는 가상 머신의 Resource Manager 템플릿.  
+* Azure Stack에서 Windows 온-프레미스를 실행하는 가상 머신의 Resource Manager 템플릿. 
 
 >[!NOTE]
 >Azure Security Center (ASC) Microsoft Monitoring Agent (Log Analytics Windows 에이전트 라고도 함)에 따라 달라 집니다 및는 설치 하 고 해당 배포의 일부로 Log Analytics 작업 영역에 보고 하도록 구성 합니다. ASC는 구독의 모든 Vm에 Log Analytics Windows 에이전트의 자동 설치를 사용 하도록 설정 하 고 특정 작업 영역에 보고 하도록 구성 하는 자동 프로 비전 옵션을 포함 합니다. 이 옵션에 대 한 자세한 내용은 참조 하세요. [Log Analytics 에이전트의 자동 프로 비전 사용](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-)합니다.
 >
 
+둘 이상의 작업 영역에 보고 하도록 에이전트를 구성 해야 할 경우이 수행할 수 없습니다만 나중에서 설정을 업데이트 하는 제어판 또는 PowerShell에서에 설명 된 대로 초기 설정 중 [를 추가 하거나 제거 하려면 작업 영역](agent-manage.md#adding-or-removing-a-workspace).  
+
 지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-agent.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent.md#network-firewall-requirements)을 검토합니다.
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
-Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 구성 하 고 Azure Monitor에서 Azure 상용 및 미국 정부 클라우드를 사용 하 여 성공적으로 통신할 수 있는지 확인 하려면 각 설치 방법에서 설치 하는 동안 필요 합니다.  
+Windows용 Log Analytics 에이전트를 설치하려면 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 구성 하 고 Azure Monitor에서 Azure 상용 및 미국 정부 클라우드를 사용 하 여 성공적으로 통신할 수 있는지 확인 하려면 각 설치 방법에서 설치 하는 동안 필요 합니다. 
 
 1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 에이전트가 보고할 작업 영역을 선택합니다.

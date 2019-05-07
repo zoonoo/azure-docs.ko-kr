@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37f16ab914fe4062bc9720ae9cc0139c573fb93
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778289"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154272"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최댓값입니다.
@@ -54,7 +54,7 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 ## <a name="loads"></a>로드
 | Category | 설명 | 최대 |
 |:--- |:--- |:--- |
-| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1MB보다 작은 행으로만 로드되고 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)로 로드될 수 없습니다.<br/><br/> |
+| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1MB 보다 작은 행을 로드 합니다.<br/><br/> |
 
 ## <a name="queries"></a>쿼리
 | Category | 설명 | 최대 |

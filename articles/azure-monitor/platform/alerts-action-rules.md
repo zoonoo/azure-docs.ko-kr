@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922759"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138122"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -184,8 +184,8 @@ Contoso 정의한 [구독 수준에서 메트릭 경고를](https://docs.microso
 
 * Q. 두 개의 별도 작업 규칙에서 모니터링 하는 리소스를 질문이 있으면 어떻게 되나요? 하나 또는 두 개의 알림을 가져오나 요? 예를 들어가이 시나리오에서는 'VM2'을 선택 합니다.
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     a. 'VM1' 및 'vm3 은'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 한 번입니다. 'VM2'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 두 번 (**작업 규칙 작업을 취소 중복 되지 않는**). 
 
@@ -198,9 +198,10 @@ Contoso 정의한 [구독 수준에서 메트릭 경고를](https://docs.microso
 
 * Q. 경고 규칙 및 동일한 리소스 호출 하는 다른 작업 그룹에 대해 정의 된 작업 규칙 질문이 있으면 어떻게 되나요? 예를 들어,이 시나리오에서는 ' VM1'.
 
-     경고 규칙 'rule1' 'VM1'에서 작업 그룹 'AG2' 작업 규칙을 사용 하 여 작업 그룹 'AG1'으로 'VM1'에 대해 정의 된 'AR1'  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    a. 'VM1'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 한 번입니다. 경고 규칙 'rule1' 트리거될 때마다도 트리거합니다 'AG2를' 또한. (**작업 규칙 및 경고 규칙 내에 정의 된 그룹 독립적으로 작동할 수 없는 중복 제거를 사용 하 여 작업**) 
+    a. 'VM1'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 한 번입니다. 경고 규칙 'rule1' 트리거될 때마다도 트리거합니다 'AG2를' 또한. **작업 규칙 내에 정의 된 작업 그룹 및 경고 규칙 독립적으로 작동할 수 없는 중복 제거를 사용 하 여**입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
