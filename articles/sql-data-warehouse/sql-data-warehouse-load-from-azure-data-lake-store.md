@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > Azure 데이터 레이크 저장소 Gen1에서 로드 하는 경우 클라이언트 ID, 키 및 SQL Data Warehouse에서 저장소 계정에 연결할 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값 필요 합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
 > 
 
-* Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.
+* Azure SQL Data Warehouse. [Azure SQL Data Warehouse 만들기 및 쿼리](create-data-warehouse-portal.md)를 참조합니다.
 
 * Data Lake Storage 계정입니다. 참조 [Azure Data Lake Storage를 사용 하 여 시작](../data-lake-store/data-lake-store-get-started-portal.md)합니다. 
 
@@ -115,8 +115,8 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>데이터 형식 구성
-Data Lake Storage에서 데이터를 가져오려면 외부 파일 형식을 지정 해야 합니다. 이 개체는 Data Lake Storage에 파일을 쓰는 방법을 정의 합니다.
-전체 목록은 [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서 참조
+Data Lake Storage Gen1에서 데이터를 가져오려면 외부 파일 형식을 지정해야 합니다. 이 개체는 Data Lake Storage Gen1에 파일을 쓰는 방법을 정의합니다.
+전체 목록은 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서를 참조합니다.
 
 ```sql
 -- D: Create an external file format
@@ -137,7 +137,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>외부 테이블 만들기
-이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. 위치 매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
+이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. LOCATION  매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
 
 ```sql
 -- D: Create an External Table
@@ -173,7 +173,7 @@ WITH
 
 REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어야 하는 행 수 또는 데이터의 비율을 정의할 수 있습니다. 로드 중 거부 값에 도달하는 경우 로드는 실패합니다. 거부된 행의 가장 일반적인 원인은 스키마 정의 불일치입니다. 예를 들어 파일의 데이터가 문자열일 때 열이 int의 스키마로 잘못 지정된 경우 모든 행을 로드하지 못합니다.
 
-Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 위치 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
+Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 LOCATION 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
 Data Lake Storage 사용에서 데이터를 로드 하는 [CREATE TABLE AS SELECT (TRANSACT-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문입니다. 
@@ -206,7 +206,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>통계를 최적화합니다.
 로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 통계에 대한 몇 가지 선택 사항이 있습니다. 예를 들어 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다. 쿼리 조건자에 위치하지 않을 특정 열에 대해 알고 있다면 이들 열에 대한 통계 생성 과정은 건너뛸 수 있습니다.
 
-단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서에 저장된 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
+단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서의 저장 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
 
 다음 예제는 통계를 만들기 위한 좋은 출발점이 됩니다. 차원 테이블의 각 열과 팩트 테이블의 각 조인 열의 단일 열 통계를 생성합니다. 이후 언제라도 다른 팩트 테이블 열에 단일 또는 여러 열 통계를 추가할 수 있습니다.
 
