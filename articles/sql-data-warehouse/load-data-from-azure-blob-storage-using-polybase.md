@@ -80,7 +80,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 6. **성능 수준**을 클릭하여 데이터 웨어하우스가 Gen1 또는 Gen2 중 어느 것인지와 데이터 웨어하우스 단위의 수를 지정합니다. 
 
-7. 이 자습서에서는 **Gen2** SQL Data Warehouse의 합니다. 그 슬라이더는 기본적으로 **DW1000c**으로 설정 되어 있습니다. 슬라이더를 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 **Gen2** SQL Data Warehouse를 선택합니다. 해당 슬라이더는 기본적으로 **DW1000c**로 설정되어 있습니다. 슬라이더를 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -97,7 +97,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준에서 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준의 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
 
 > [!NOTE]
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
@@ -187,7 +187,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![예제 데이터 웨어하우스에 대한 새 쿼리](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한은 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
+5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다. 이러한 권한 부여는 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
