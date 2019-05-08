@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect 동기화: 아키텍처 이해 | Microsoft Docs'
+title: 'Azure AD Connect 동기화: Azure-아키텍처 이해'
 description: 이 항목에서는 Azure AD Connect 동기화의 아키텍처와 사용되는 용어에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a648b24ad16c1b5ea404b5ad9f1f18fd5041da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245895"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138596"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect 동기화: 아키텍처 이해
 이 항목에서는 Azure AD Connect 동기화의 기본 아키텍처에 대해 설명합니다. 다양한 측면에서 이전 버전의 MIIS 2003, ILM 2007 및 FIM 2010과 비슷합니다. Azure AD Connect 동기화는 이러한 기술이 진화된 모습입니다. 이러한 앞의 기술에 대해 잘 알고 있다면 이 항목의 내용 역시 이해하기 쉽습니다. 동기화를 처음 접하는 경우 이 항목이 도움이 될 것입니다. 하지만 Azure AD Connect 동기화(이 토픽에서는 동기화 엔진이라고 함)를 성공적으로 사용자 지정하기 위해 이 항목의 세부 내용을 알 필요는 없습니다.

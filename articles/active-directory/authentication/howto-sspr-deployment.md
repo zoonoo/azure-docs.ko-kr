@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358001"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190359"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 
@@ -32,6 +32,10 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
    * 등록 및 재설정을 위한 URL을 제공했나요?
       * 등록: https://aka.ms/ssprsetup
       * 재설정: https://aka.ms/sspr
+
+   > [!WARNING]
+   > 확인란의 "반드시 암호 변경 다음 로그온 할 때" Active Directory 사용자 및 컴퓨터 또는 Active Directory 관리 센터와 같은 온-프레미스 Active Directory 관리 도구에서 사용 하 여 지원 되지 않습니다. 암호를 변경 하는 경우 온-프레미스가이 옵션을 선택 하지 마십시오. 
+
 1. 사용자를 교육합니다.
    * 이 문서의 다음 섹션에서는 암호 포털로 가서 등록을 적용하고 인증 데이터를 채우는 샘플 커뮤니케이션을 진행합니다.
    * Azure Active Directory 제품 그룹에서는 조직에서 이 사이트의 설명서와 함께 비즈니스 사례를 만들고 셀프 서비스 암호 재설정 배포를 계획하는 데 사용할 수 있는 [단계별 배포 계획](https://aka.ms/SSPRDeploymentPlan)을 만들었습니다.

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729290"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987935"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>데이터 웨어하우스를 Gen2로 업그레이드
 
@@ -67,7 +67,7 @@ Microsoft는 데이터 웨어하우스를 실행 하는 초급 수준 비용을 
 
 ## <a name="automatic-upgrade-process"></a>자동 업그레이드 프로세스
 
-위의 가용성 차트에 따라에서는 됩니다 수 예약 Gen1 인스턴스에 대 한 자동된 업그레이드 합니다. 데이터 웨어하우스의 가용성이 예기치 않게 중단되는 것을 방지하기 위해 자동 업그레이드가 유지 관리 일정 중에 예약됩니다. 일정에 대한 자세한 내용은 [유지 관리 일정 보기](viewing-maintenance-schedule.md)를 참조하세요.
+위의 가용성 차트에 따라에서는 됩니다 수 예약 Gen1 인스턴스에 대 한 자동된 업그레이드 합니다. 데이터 웨어하우스의 가용성이 예기치 않게 중단되는 것을 방지하기 위해 자동 업그레이드가 유지 관리 일정 중에 예약됩니다. Gen2로 자동 업그레이드 중 지역에서 새 Gen1 인스턴스를 만들 수 없게 됩니다. 일정에 대한 자세한 내용은 [유지 관리 일정 보기](viewing-maintenance-schedule.md)를 참조하세요.
 
 업그레이드 프로세스에서는 데이터 웨어하우스를 다시 시작 하는 대로 연결 (약 5 분)에 대 한 간략 한 drop을 포함 됩니다.  데이터 웨어하우스를 다시 시작하면 완전히 사용할 수 있게 됩니다. 그러나 백그라운드에서 데이터 파일을 업그레이드 하려면 업그레이드 프로세스 계속 되는 동안 성능 저하를 발생할 수 있습니다. 총 성능 저하 시간은 데이터 파일의 크기에 따라 달라집니다.
 

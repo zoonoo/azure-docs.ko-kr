@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL에서 서버를 복원하는 방법
-description: 이 문서에서는 Azure Portal을 사용하여 PostgreSQL용 Azure Database에서 서버를 복원하는 방법을 설명합니다.
+title: PostgreSQL-단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
+description: 이 문서에서는 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1950b43e0922eebe34463c06db9a5d67dce76f56
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420543"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068870"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>백업 및 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database에서 서버를 복원 하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
@@ -33,7 +33,7 @@ Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창�
 만드는 중에 이러한 값을 설정하는 방법에 대한 자세한 내용은 [Azure Database for PostgreSQL 서버 빠른 시작](quickstart-create-server-database-portal.md)을 참조하세요.
 
 서버의 백업 보존 기간은 다음 단계를 통해 변경할 수 있습니다.
-1. [Azure 포털](https://portal.azure.com/)할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Database for PostgreSQL 서버를 선택합니다. 이 작업은 **개요** 페이지를 엽니다.
 3. **설정** 아래의 메뉴에서 **가격 책정 계층**을 선택합니다. 슬라이더를 사용하여 **백업 보존 기간**을 7일에서 35일까지 원하는 대로 변경할 수 있습니다.
 아래 스크린샷에서는 34일로 늘렸습니다.

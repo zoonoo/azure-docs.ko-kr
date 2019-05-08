@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545232"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035466"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -54,16 +54,16 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
 
-* [Azure Notebooks](#azure) 사용
+* [작업 영역에서 클라우드 Notebook 서버](#azure) 사용 
 * [사용자 고유의 Notebook 서버](#server) 사용
 
-### <a name="azure"></a>Azure Notebooks 사용: 클라우드의 무료 Jupyter Notebook
+### <a name="azure"></a>작업 영역에서 클라우드 Notebook 서버 사용
 
-Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)는 [Azure Notebooks](https://notebooks.azure.com/)에 이미 설치 및 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
-
-아래 단계를 완료한 후에는 **시작** 프로젝트의 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
+사용자 고유의 클라우드 기반 Notebook 서버를 쉽게 시작할 수 있습니다. 이 클라우드 리소스를 만들면 [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)가 이미 설치 및 구성되어 있습니다.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Notebook 웹 페이지를 시작한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
 
 ### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
 
@@ -101,7 +101,7 @@ import os
 
 ### <a name="configure-workspace"></a>작업 영역 구성
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
+기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
 
 `Workspace.from_config()`는 **config.json** 파일을 읽고, 세부 정보를 `ws`라는 개체에 로드합니다.  `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
 

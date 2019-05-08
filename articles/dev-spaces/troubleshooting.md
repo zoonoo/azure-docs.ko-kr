@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761410"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728820"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -157,7 +157,7 @@ azds.exe가 설치되지 않았거나 올바르게 구성되지 않은 경우 �
 
 ### <a name="try"></a>다음을 시도해 보세요.
 
-1. azds.exe에 대한 위치인 %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI(미리 보기)를 확인합니다. 위치가 있는 경우 해당 위치를 PATH 환경 변수에 추가합니다.
+1. Azds.exe에 대 한 위치 %ProgramFiles%/Microsoft SDKs\Azure\Azure 개발 공간 CLI를 확인 합니다. 위치가 있는 경우 해당 위치를 PATH 환경 변수에 추가합니다.
 2. azds.exe가 설치되어 있지 않으면 다음 명령을 실행합니다.
 
     ```cmd
@@ -292,6 +292,16 @@ Dev Spaces를 통해 빌드/디버그하려는 서비스가 VM 노드에서 실�
 
 ### <a name="try"></a>다음을 시도해 보세요.
 클러스터에서 에이전트 노드를 다시 시작하면 대체로 이 문제가 해결됩니다.
+
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"오류: 릴리스 azds-\<식별자\>-\<spacename\>-\<servicename\> 실패 했습니다: 서비스\<servicename\>' 이미 "또는" 액세스가 거부 되었습니다 끌어오기 \<servicename\>, 리포지토리에 존재 하지 않거나 'docker login' 해야 합니다. "
+
+### <a name="reason"></a>이유
+Helm 명령을 직접 실행을 혼합 하면 이러한 오류가 발생할 수 있습니다 (같은 `helm install`, `helm upgrade`, 또는 `helm delete`) 개발 공간 명령을 사용 하 여 (같은 `azds up` 및 `azds down`) 동일한 개발 공간 내에서. 개발 공간 인스턴스가 자체 Tiller를 동일한 개발 공간에서 실행 되는 고유한 Tiller 인스턴스와 충돌 때문에 발생 합니다.
+
+### <a name="try"></a>다음을 시도해 보세요.
+Helm 명령과 동일한 AKS 클러스터에 대해 개발 공간 명령을 사용 하는 것 이지만 하나 또는 다른 각 개발 공간 사용이 가능한 네임 스페이스 사용 해야 합니다.
+
+예를 들어, Helm 명령을 사용 하 여 부모 개발 공간에서 전체 응용 프로그램을 실행 합니다. 자식 해당 부모 해제 개발 공간을 만들 지정, 개발 공간을 사용 하 여 개발 공간 자식 내에서 개별 서비스를 실행 하 및 서비스를 함께 테스트 합니다. 변경 내용을 체크 인할에서 준비가 때 명령을 사용 하 여 Helm 부모 개발 공간에 업데이트 된 코드를 배포 합니다. 사용 하지 않는 `azds up` 서비스를 실행 하도록 업데이트 된 부모에서 개발 공간은 처음에 Helm을 사용 하 여를 실행 하는 서비스를 사용 하 여 충돌이 있습니다.
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev Spaces 프록시는 개발 공간에서 실행되는 다른 Pod를 방해할 수 있습니다.
 

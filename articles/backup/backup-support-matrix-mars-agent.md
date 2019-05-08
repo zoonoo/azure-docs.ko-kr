@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894396"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922996"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -24,14 +24,14 @@ ms.locfileid: "57894396"
 Azure 백업은 백업 Recovery Services 자격 증명 모음 Azure에서 온-프레미스 컴퓨터 및 Azure Vm에서 데이터를 백업 하려면 MARS 에이전트를 사용 합니다. MARS 에이전트는 다음 작업을 수행할 수 있습니다.
 - Azure에서 백업 Recovery Services 자격 증명에 직접 백업할 수 있도록 온-프레미스 Windows 컴퓨터에서 실행 합니다.
 - 자격 증명 모음에 직접 백업할 수 있도록 Windows Vm에서 실행 합니다.
-- Microsoft Azure Backup Server (MABS) 또는 System Center Data Protection Manager (DPM) 서버에서 실행 합니다. 이 시나리오에서는 컴퓨터 및 워크 로드를 백업 또는 DPM 서버에서 MABS로 합니다. MARS 에이전트는 다음 Azure에서 자격 증명 모음에이 서버를 백업 합니다. 
+- Microsoft Azure Backup Server (MABS) 또는 System Center Data Protection Manager (DPM) 서버에서 실행 합니다. 이 시나리오에서는 컴퓨터 및 워크 로드를 백업 또는 DPM 서버에서 MABS로 합니다. MARS 에이전트는 다음 Azure에서 자격 증명 모음에이 서버를 백업 합니다.
 
 백업 옵션에는 에이전트가 설치 된 위치에 따라 달라 집니다. 자세한 내용은 [MARS 에이전트를 사용 하 여 Azure Backup 아키텍처](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)합니다. DPM 및 MABS 백업 아키텍처에 대 한 정보를 참조 하세요 [DPM 또는 MABS 백업](backup-architecture.md#architecture-back-up-to-dpmmabs)합니다. 도 참조 하세요 [요구 사항](backup-support-matrix-mabs-dpm.md) 백업 아키텍처에 대 한 합니다.
 
 **설치** | **세부 정보**
 --- | ---
 최신 MARS 에이전트 다운로드 | 자격 증명 모음에서 최신 버전의 에이전트를 다운로드하거나 [직접 다운로드](https://aka.ms/azurebackup_agent)할 수 있습니다.
-컴퓨터에 직접 설치 | 온-프레미스 Windows 서버에서 직접 또는 중 하나를 실행 하는 Windows VM에서 MARS 에이전트를 설치할 수 있습니다 합니다 [지원 되는 운영 체제](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)합니다.
+컴퓨터에 직접 설치 | 온-프레미스 Windows 서버에서 직접 또는 중 하나를 실행 하는 Windows VM에서 MARS 에이전트를 설치할 수 있습니다 합니다 [지원 되는 운영 체제](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)합니다.
 백업 서버에 설치 | Azure에 백업하도록 DPM 또는 MABS를 설정할 때 MARS 에이전트를 서버에 다운로드하여 설치합니다. 에이전트에 설치할 수 있습니다 [지원 되는 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) 백업 서버 지원 매트릭스에 있습니다.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ MARS 에이전트를 사용 하 여 데이터를 백업 하는 경우 에이전�
 
 **캐시** | **세부 정보**
 --- | ---
-크기 |  캐시 폴더의 사용 가능한 공간에는 백업 데이터의 전체 크기의 5 ~ 10% 이상 이어야 합니다. 
-위치 | 캐시 폴더는 백업 되는 컴퓨터에 로컬로 저장 해야 하 고 온라인 상태 여야 합니다. 네트워크 공유, 이동식 미디어 또는 볼륨을 오프 라인 캐시 폴더 아니어야 합니다. 
+크기 |  캐시 폴더의 사용 가능한 공간에는 백업 데이터의 전체 크기의 5 ~ 10% 이상 이어야 합니다.
+Location | 캐시 폴더는 백업 되는 컴퓨터에 로컬로 저장 해야 하 고 온라인 상태 여야 합니다. 네트워크 공유, 이동식 미디어 또는 볼륨을 오프 라인 캐시 폴더 아니어야 합니다.
 폴더 | 캐시 폴더를 압축 하는 스파스, 재분석 지점이 있는 폴더 또는 중복 제거 된 볼륨에서 암호화 되어야 합니다.
 위치 변경 | 백업 엔진을 중지 하 여 캐시 위치를 변경할 수 있습니다 (`net stop bengine`) 및 캐시 폴더를 새 드라이브로 복사 합니다. (새 드라이브에 공간이 충분 한지 확인 합니다.) 그런 다음 아래에 있는 두 개의 레지스트리 항목을 업데이트 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** 고 **구성/CloudBackupProvider/ScratchLocation**)를 새 위치와 엔진 다시 시작 합니다.
 
@@ -103,9 +103,9 @@ Windows 7   | 1,700 GB
 
 ## <a name="supported-file-types-for-backup"></a>백업에 지원되는 파일 형식
 
-**형식** | **지원** 
---- | --- 
-암호화   |  지원됩니다. 
+**형식** | **지원**
+--- | ---
+암호화   |  지원됩니다.
 압축 |  지원됩니다.
 스파스 |  지원됩니다.
 압축 및 스파스 |  지원됩니다.
@@ -114,7 +114,7 @@ Windows 7   | 1,700 GB
 암호화 및 스파스 |  지원되지 않습니다. 건너뛰었습니다.
 압축된 스트림   | 지원되지 않습니다. 건너뛰었습니다.
 스파스 스트림   | 지원되지 않습니다. 건너뛰었습니다.
-OneDrive (동기화 된 파일이 스파스 스트림)  | 지원되지 않습니다. 
+OneDrive (동기화 된 파일이 스파스 스트림)  | 지원되지 않습니다.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>지원 되는 드라이브 또는 백업 볼륨
 

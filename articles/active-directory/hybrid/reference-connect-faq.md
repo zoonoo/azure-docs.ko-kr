@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137794"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -78,6 +78,47 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 
 간단히 하려면 SQL의 시스템 관리자로 Azure AD Connect를 설치하는 것이 좋습니다. 그러나 최신 빌드를 사용하면 이제 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)에서 설명한 대로 SQL 위임된 관리자를 사용할 수 있습니다.
 
+**Q: 일부 필드에서 모범 사례는 무엇 인가요?**  
+
+다음 엔지니어링을 지 원하는 몇 가지 모범 사례를 제공 하는 정보 제공 용 이므로 문서를 이며 당사의 컨설턴트 년간 개발 했습니다.  이 신속 하 게 참조할 수 있는 글머리 기호 목록에 표시 됩니다.  이 목록에 포괄적 하려고 하지만 하지 수행이 목록에 아직 추가 모범 사례 있을 수 있습니다.
+
+- 로컬 두어야 하는 다음 전체 SQL을 사용 하는 경우 원격 비교
+    - 홉이 적기
+    - 보다 쉽게 해결할 수
+    - 보다 간편 하 게
+    - SQL 리소스를 지정 하 고 Azure AD Connect 및 OS에 대 한 오버 헤드를 허용 해야
+- 가능한 경우 프록시 사용 안 함, 시간 제한 값을 5 분 보다 크면 되도록 한 다음 프록시를 우회 하도록 수 없는 경우.
+- Machine.config 파일에 프록시를 추가 해야 합니다 프록시가 필요한 경우
+- 로컬 SQL 작업 및 유지 관리 및 어떤 영향을 미치는지 특히 인덱싱을 다시 수행 하 여 Azure AD Connect-인식
+- DNS를 외부적으로 해결할 수 있습니다 보다 확인
+- 했는지 [서버 사양](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) 실제 또는 가상 서버를 사용 하는 여부는 권장 기준
+- 필요한 리소스는 전용 가상 서버를 사용 하는 경우 확인
+- 디스크 및 SQL Server에 대 한 모범 사례를 충족 하는 디스크 구성 했는지 확인
+- 설치 하 고 모니터링 하는 것에 대 한 Azure AD Connect Health 구성
+- Azure AD Connect로 빌드되는 삭제 임계값을 사용 합니다.
+- 모든 변경 내용과 추가 될 수 있는 새 특성에 대 한 준비가 릴리스 업데이트 신중 하 게 검토
+- 모든 백업
+    - 키 백업
+    - 백업 동기화 규칙
+    - 백업 서버 구성
+    - SQL Database 백업
+- SQL VSS 기록기 (타사 파티 스냅숏 사용 하 여 가상 서버에서 공통) 하지 않고 SQL 백업 하는 타사 파티 백업 에이전트가 없습니다 있는지 확인
+- 복잡성 추가 하는 대로 사용 되는 사용자 지정 동기화 규칙의 양을 제한합니다
+- Azure AD 처리 계층 0 서버 서버 연결
+- 영향 및 적절 한 비즈니스 드라이버의 훌륭한 이해 하지 않고 클라우드 동기화 규칙을 수정 하는 거듭 수
+- 올바른 URL 및 방화벽 포트를 열고 Azure AD Connect 및 Azure AD Connect Health에 대 한 지원 되는지 확인
+- 클라우드를 활용 하 여 문제를 해결 하 고 가상 개체를 방지 하는 특성 필터링
+- 스테이징 서버를 사용 하 여 서버 간에 일관성을 위해 Azure AD Connect 구성 구조를 사용 하 고 있는지 확인
+- 스테이징 서버가 별도 데이터 센터 (물리적 위치에에서 있어야 합니다.
+- 준비 서버는 고가용성 솔루션을 사용할 계획이 없는 있을 수 없지만 여러 준비 서버
+- 오류 발생 시 일부 잠재적인 가동 중지 시간을 완화할 수 "지연" 스테이징 서버를 소개 합니다.
+- 테스트 및 스테이징 서버에서 모든 업그레이드를 먼저 유효성 검사
+- 항상 내보내기가 비즈니스 영향을 줄이기 위해 전체 가져오기 및 전체 동기화에 대 한 스테이징 서버 준비 serverLeverage를 전환 하기 전에 유효성 검사
+- Azure AD Connect 서버 간 버전 일관성을 최대한 유지 
+
+**Q: Azure AD Connect 작업 그룹 컴퓨터에 Azure AD 커넥터 계정 만들기를 허용 합니까?**
+아니요.  Azure AD Connect를 Azure AD 커넥터 계정 자동 만들기를 허용 하기 위해 도메인에 가입 된 컴퓨터 여야 합니다.  
+
 ## <a name="network"></a>네트워크
 **Q: 방화벽, 네트워크 디바이스 또는 연결을 네트워크에서 열려 있는 상태로 유지할 수 있는 시간을 제한하는 다른 요소가 있습니다. Azure AD Connect를 사용하는 경우 클라이언트 쪽 시간 제한 임계값은 어떻게 되나요?**  
 모든 네트워킹 소프트웨어, 물리적 디바이스 또는 열린 상태로 유지할 수 있는 최대 연결 시간을 제한하는 다른 요소는 Azure AD Connect 클라이언트를 설치한 서버와 Azure Active Directory 간의 연결에 대해 최소 5분(300초)의 임계값을 사용해야 합니다. 이 권장 사항은 이전에 릴리스된 모든 Microsoft ID 동기화 도구에도 적용됩니다.
@@ -107,6 +148,9 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 ## <a name="environment"></a>Environment
 **Q: Azure AD Connect가 설치되면 서버 이름을 바꿀 수 있나요?**  
 아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
+
+**Q: 다음 세대 암호화 (NGC) 동기화 규칙 FIPS 사용 컴퓨터에서 지원 되나요?**  
+아니요.  지원 되지 않습니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  

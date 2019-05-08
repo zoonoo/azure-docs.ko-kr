@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682158"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153074"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -34,9 +34,19 @@ ms.locfileid: "64682158"
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
 
+## <a name="may-2019"></a>2019 년 5 월
+
+### <a name="performance-improvements"></a>성능 개선
+
+* 처리를 위해 지원 되는 최대 파일 크기 업데이트 되었습니다. 하세요 [할당량 및 제한 사항](limits-quotas-constraints.md)합니다.
+* [인코딩 속도 향상](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)합니다.
+
 ## <a name="april-2019"></a>2019 년 4 월
 
-[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) 기본 제공 분석기 미리 설정에 추가 되었습니다.
+### <a name="new-presets"></a>새 사전 설정
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) 기본 제공 분석기 미리 설정에 추가 되었습니다.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) 기본 제공 인코더 사전 설정에 추가 되었습니다. 자세한 내용은 [콘텐츠를 인식 인코딩](cae-experimental.md)합니다. 
 
 ## <a name="march-2019"></a>2019 년 3 월
 
@@ -205,7 +215,7 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 * 작업을 제출할 때는 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일의 경로를 사용하여 원본 비디오를 수집하도록 지정할 수 있습니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

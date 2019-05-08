@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782993"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
 
@@ -75,7 +75,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |
@@ -186,10 +186,10 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
-| yesOutput | 문자열 | 예 |
-| noOutput | 문자열 | no |
+| yesOutput | String | 예 |
+| noOutput | String | no |
 | objectOutput | Object | { "test": "value1" } |
 
 다음 [예제 템플릿](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 만 조건에 따라 사용할 수 있는 식을 사용 하 여이 함수를 사용 하는 방법을 보여 줍니다.
@@ -284,7 +284,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |
@@ -308,7 +308,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True  |
 
@@ -358,7 +358,7 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 위 예제의 출력은 다음과 같습니다.
 
-| name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True  |

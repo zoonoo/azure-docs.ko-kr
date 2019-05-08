@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819425"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023968"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제 
 
@@ -231,3 +231,29 @@ Azure Machine Learning Services에서 개인 데이터는 실행 기록 문서�
 데이터 원본은 다음을 통해 가져올 수 있습니다.
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>시각적 인터페이스 자산 삭제
+
+실험을 만든 visual 인터페이스에서 개별 자산을 삭제 합니다.
+
+1. 왼쪽에서 삭제 하려는 자산의 종류를 선택 합니다.
+
+    ![자산 삭제](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. 목록에서 삭제 하려면 개별 자산을 선택 합니다.
+
+1. 맨 아래에서 선택 **삭제**합니다.
+
+## <a name="export-visual-interface-data"></a>시각적 인터페이스 데이터 내보내기
+
+실험을 만든 시각적 인터페이스를 추가한 데이터를 내보냅니다.
+
+1. 왼쪽에서 선택 **데이터**입니다.
+
+1. 바탕 화면에서 선택 **내 데이터 집합** 또는 **샘플** 내보낼 데이터를 찾으려고 합니다.
+
+    ![데이터 다운로드](media/how-to-export-delete-data.md/download-data.png)
+
+1. 목록에서 내보낼 개별 데이터 집합을 선택 합니다.
+
+1. 맨 아래에서 선택 **다운로드**합니다.

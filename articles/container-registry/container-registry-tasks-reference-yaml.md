@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827258"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192261"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
 
@@ -83,7 +83,7 @@ az configure --defaults acr=myregistry
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | 문자열 | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 최신 버전으로 기본값은입니다. | 아닙니다. | 없음 |
 | `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 기본 설정 작업에 속성을 지정 하는 경우 `timeout` 모든 단계의 속성입니다. 경우는 `timeout` 속성이 지정 단계를 작업에 의해 제공 되는 속성을 재정의 합니다. | 예 | 600(10분) |
-| `workingDirectory` | 문자열 | 예 | 런타임 동안 컨테이너의 작업 디렉터리입니다. 기본 설정 작업에 속성을 지정 하는 경우 `workingDirectory` 모든 단계의 속성입니다. 단계를 지정 하는 경우 태스크에서 제공 되는 속성 보다 우선 합니다. | 예 | `$HOME` |
+| `workingDirectory` | string | 예 | 런타임 동안 컨테이너의 작업 디렉터리입니다. 기본 설정 작업에 속성을 지정 하는 경우 `workingDirectory` 모든 단계의 속성입니다. 단계를 지정 하는 경우 태스크에서 제공 되는 속성 보다 우선 합니다. | 예 | `$HOME` |
 | `env` | [string, string, ...] | 예 |  배열에서 문자열의 `key=value` 작업에 대 한 환경 변수를 정의 하는 형식입니다. 기본 설정 작업에 속성을 지정 하는 경우 `env` 모든 단계의 속성입니다. 단계를 지정 하는 경우 태스크에서 상속 되며, 환경 변수 재정의 합니다. | 없음 |
 | `secrets` | [secret, secret, ...] | 예 | 배열을 [비밀](#secret) 개체입니다. | 없음 |
 | `networks` | [network, network, ...] | 예 | 배열을 [네트워크](#network) 개체입니다. | 없음 |
@@ -94,9 +94,9 @@ az configure --defaults acr=myregistry
 
 | 자산 | Type | 옵션 | 설명 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | 문자열 | 아닙니다. | 비밀의 식별자입니다. | 없음 |
+| `id` | string | 아닙니다. | 비밀의 식별자입니다. | 없음 |
 | `akv` | 문자열 | 예 | Azure Key Vault (AKV) 비밀 URL입니다. | 없음 |
-| `clientID` | 문자열 | 예 | 사용자 할당의 클라이언트 ID는 Azure 리소스에 대 한 id를 관리 합니다. | 없음 |
+| `clientID` | string | 예 | 사용자 할당의 클라이언트 ID는 Azure 리소스에 대 한 id를 관리 합니다. | 없음 |
 
 ### <a name="network"></a>네트워크
 
@@ -149,7 +149,7 @@ steps:
 | -------- | ---- | -------- |
 | `detach` | bool | 옵션 |
 | `disableWorkingDirectoryOverride` | bool | 옵션 |
-| `entryPoint` | 문자열 | 옵션 |
+| `entryPoint` | string | 옵션 |
 | `env` | [string, string, ...] | 옵션 |
 | `expose` | [string, string, ...] | 옵션 |
 | `id` | 문자열 | 옵션 |
@@ -166,7 +166,7 @@ steps:
 | `startDelay` | int(초) | 옵션 |
 | `timeout` | int(초) | 옵션 |
 | `when` | [string, string, ...] | 옵션 |
-| `workingDirectory` | 문자열 | 옵션 |
+| `workingDirectory` | string | 옵션 |
 
 ### <a name="examples-build"></a>예: build
 
@@ -271,7 +271,7 @@ steps:
 | `expose` | [string, string, ...] | 옵션 |
 | `id` | 문자열 | 옵션 |
 | `ignoreErrors` | bool | 옵션 |
-| `isolation` | 문자열 | 옵션 |
+| `isolation` | string | 옵션 |
 | `keep` | bool | 옵션 |
 | `network` | object | 옵션 |
 | `ports` | [string, string, ...] | 옵션 |
@@ -385,7 +385,7 @@ steps:
 | `timeout` | int(초) | 예 | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. | 600 |
 | [`when`](#example-when) | [string, string, ...] | 예 | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. | 없음 |
 | `user` | 문자열 | 예 | 사용자 이름 또는 컨테이너의 UID | 없음 |
-| `workingDirectory` | 문자열 | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `$HOME` |
+| `workingDirectory` | string | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `$HOME` |
 
 ### <a name="examples-task-step-properties"></a>예제: 작업 단계 속성
 
@@ -452,8 +452,10 @@ ACR 작업에는 실행 시 작업 단계에서 사용할 수 있는 기본 변�
 * `Run.ID`
 * `Run.Registry`
 * `Run.Date`
+* `Run.Commit`
+* `Run.Branch`
 
-### <a name="run46id"></a>Run&#46;ID
+### <a name="runid"></a>Run.ID
 
 `az acr run`을 통한 각 Run이나 `az acr task create`를 통해 만든 작업의 트리거 기반 실행에는 고유 ID가 있습니다. ID는 현재 실행 중인 Run을 나타냅니다.
 
@@ -478,6 +480,14 @@ steps:
 ### <a name="rundate"></a>Run.Date
 
 실행이 시작된 현재 UTC 시간입니다.
+
+### <a name="runcommit"></a>Run.Commit
+
+에 대 한 GitHub 리포지토리에 커밋 식별자 커밋에 의해 트리거되는 작업입니다.
+
+### <a name="runbranch"></a>Run.Branch
+
+에 대 한 GitHub 리포지토리를 분기 이름에는 커밋에 의해 트리거되는 작업입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

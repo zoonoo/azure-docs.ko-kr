@@ -8,12 +8,12 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002678"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727400"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 데이터 카탈로그 개발자 개념
 Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라우드소싱 데이터 원본 메타데이터에 대한 기능을 제공하는 완전히 관리되는 클라우드 서비스입니다. 개발자는 REST API를 통해 서비스를 사용할 수 있습니다. 서비스에서 구현되는 개념을 이해 하는 것은 개발자가 **Azure 데이터 카탈로그**를 성공적으로 통합하는 데 중요합니다.
@@ -174,9 +174,9 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocol</td><td>문자열</td><td>필수 사항입니다. 데이터 원본과 통신하는 데 사용되는 프로토콜을 설명합니다. 예: SQl Server의 경우 "tds", Oracle의 경우 "oracle" 등. 현재 지원되는 프로토콜의 목록은 <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">데이터 원본 참조 사양 - DSL 구조</a>를 참조하세요.</td></tr>
-<tr><td></td><td>address</td><td>Dictionary<string, object></td><td>필수 사항입니다. 주소는 참조되는 데이터 원본을 식별하는 데 사용되는 프로토콜에 해당하는 데이터 집합입니다. 주소 데이터는 특정 프로토콜로 범위가 지정됩니다. 즉, 프로토콜을 모르면 의미가 없습니다.</td></tr>
+<tr><td></td><td>address</td><td>사전&lt;문자열, 개체&gt;</td><td>필수 사항입니다. 주소는 참조되는 데이터 원본을 식별하는 데 사용되는 프로토콜에 해당하는 데이터 집합입니다. 주소 데이터는 특정 프로토콜로 범위가 지정됩니다. 즉, 프로토콜을 모르면 의미가 없습니다.</td></tr>
 <tr><td></td><td>인증</td><td>문자열</td><td>선택 사항입니다. 데이터 원본과의 통신에 사용되는 인증 체계입니다. 예: windows, oauth, 등.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Dictionary<string, object></td><td>선택 사항입니다. 데이터 원본에 연결하는 방법에 대한 추가적인 정보입니다.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>사전&lt;문자열, 개체&gt;</td><td>선택 사항입니다. 데이터 원본에 연결하는 방법에 대한 추가적인 정보입니다.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>백 엔드는 게시하는 동안 AAD에 대해 제공되는 속성의 유효성 검사를 수행하지 않습니다.</td></tr>
 <tr><td></td><td>upn</td><td>문자열</td><td>사용자의 고유한 전자 메일 주소입니다. objectId가 제공되지 않거나 "lastRegisteredBy" 속성의 컨텍스트에 있는 경우 지정되어야 합니다. 그렇지 않은 경우 선택 사항입니다.</td></tr>

@@ -4,6 +4,8 @@
   items:
     - name: Notification Hubs 정보
       href: notification-hubs-push-notification-overview.md
+    - name: App Service Mobile Apps와 통합
+      href: notification-hubs-app-service.md
 - name: 빠른 시작
   items:
     - name: 알림 허브 만들기 - Azure Portal

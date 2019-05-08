@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818362"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024568"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 PyTorch 모델 학습
 
@@ -102,6 +102,10 @@ import horovod
 ```Python
 run = exp.submit(pt_est)
 ```
+
+## <a name="export-to-onnx"></a>ONNX 내보내려면
+
+사용 하 여 최적화 된 추론을 가져오려고 합니다 [ONNX 런타임](concept-onnx.md), PyTorch 학습 된 모델을 ONNX 형식 변환할 수 있습니다. 참조 된 [자습서](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) 예입니다.
 
 ## <a name="examples"></a>예
 

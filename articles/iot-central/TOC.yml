@@ -47,6 +47,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: Windows IoT Core 디바이스 준비 및 연결
           href: howto-connect-windowsiotcore.md
+        - name: SensorTile.box 디바이스 준비 및 연결
+          href: howto-connect-sensortile.md
         - name: 명령줄을 사용하여 디바이스 연결 모니터링
           href: howto-use-iotc-explorer.md
     - name: 디바이스 관리
@@ -113,6 +115,8 @@
           href: howto-personalize-dashboard.md
         - name: 기본 설정 관리
           href: howto-manage-preferences.md
+        - name: 라이브 채팅 토글
+          href: howto-show-hide-chat.md
 - name: 관련 항목
   items:
     - name: 솔루션

@@ -2,19 +2,20 @@
 title: Azure Blob Storage 이벤트를 웹 엔드포인트에 전송 - PowerShell | Microsoft Docs
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다.
 services: storage,event-grid
-author: david-stanford
-ms.author: dastanfo
+author: normesta
+ms.author: normesta
+ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: 3e1a482cc59d951fbe6b25fcf0bfc4a967222839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143378"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
 

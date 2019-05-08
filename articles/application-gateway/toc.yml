@@ -45,6 +45,8 @@
           href: application-gateway-components.md
         - name: 구성 개요
           href: configuration-overview.md
+    - name: v2 SKU 자동 크기 조정
+      href: application-gateway-autoscaling-zone-redundant.md
     - name: 라우팅
       items:
         - name: 다중 사이트 호스팅
@@ -77,8 +79,6 @@
           href: application-gateway-probe-overview.md
         - name: 진단
           href: application-gateway-diagnostics.md
-    - name: 자동 크기 조정 및 영역 중복
-      href: application-gateway-autoscaling-zone-redundant.md
     - name: App Service 웹앱 및 다중 테넌트 지원
       href: application-gateway-web-app-overview.md
     - name: WebSocket 지원
@@ -183,6 +183,8 @@
           href: rewrite-http-headers-portal.md
         - name: Azure PowerShell
           href: add-http-header-rewrite-rule-powershell.md
+        - name: HTTP 헤더 만들기 및 다시 쓰기
+          href: tutorial-http-header-rewrite-powershell.md
     - name: App Service 웹앱 및 다중 테넌트 서비스 구성
       items:
         - name: 포털

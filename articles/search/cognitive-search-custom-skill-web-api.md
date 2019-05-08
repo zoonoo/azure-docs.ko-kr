@@ -8,19 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343344"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023848"
 ---
 # <a name="custom-web-api-skill"></a>사용자 지정 Web API 기술
 
-**사용자 지정 Web API** 기술을 사용하면 사용자 지정 작업을 제공하는 Web API 엔드포인트를 호출하여 Cognitive Search를 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라, 인덱서가 실행될 때 Web API는 JSON 페이로드를 수신하고, 성공 상태 코드와 함께 JSON 페이로드를 응답으로 출력합니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
+합니다 **사용자 지정 Web API** 기술에서는 사용자 지정 작업을 제공 하는 Web API 끝점을 호출 하 여 cognitive search를 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라에 Web API가 받은 JSON 페이로드 인덱서가 실행 될 때 및 성공 상태 코드와 함께 응답을 JSON 페이로드 출력이 포함 됩니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
 
 JSON 페이로드의 구조는 이 문서 뒷부분에서 좀 더 자세히 설명합니다.
 
@@ -38,7 +38,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 | 매개 변수 이름     | 설명 |
 |--------------------|-------------|
-| uri | _JSON_ 페이로드를 보낼 Web API의 URI입니다. **https** URI 체계만 허용됩니다. |
+| uri | 웹 API의 URI를 _JSON_ 페이로드를 받게 됩니다. **https** URI 체계만 허용됩니다. |
 | httpMethod | 페이로드를 보내는 데 사용하는 메서드입니다. 허용되는 메서드는 `PUT` 또는 `POST`입니다. |
 | httpHeaders | 키-값 쌍 컬렉션입니다. 여기서 키는 헤더 이름을 나타내고, 값은 페이로드와 함께 Web API로 보낼 헤더 값을 나타냅니다. 헤더 `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`는 이 컬렉션에서 금지됩니다. |
 | 시간 제한 | (선택 사항) 지정할 경우 API 호출을 수행하는 http 클라이언트에 대한 시간 제한을 나타냅니다. 형식은 XSD "dayTimeDuration" 값( [ISO 8601 기간](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 예를 들어, 60초인 경우 `PT60S`입니다. 설정하지 않으면 기본값 30초가 선택됩니다. 시간 제한은 최대 90초, 최소 1초로 설정할 수 있습니다. |
@@ -139,10 +139,10 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="sample-output-json-structure"></a>샘플 출력 JSON 구조
 
-“출력”은 Web API에서 반환되는 응답에 해당합니다. 이 웹 API는 _JSON_ 페이로드(`Content-Type` 응답 헤더를 보면 확인 가능)만 반환하고 다음 제약 조건을 충족해야 합니다.
+"Output" Web API에서 반환 하는 응답에 해당 합니다. Web API만 반환 해야는 _JSON_ 페이로드 (확인 하 여 확인을 `Content-Type` 응답 헤더) 다음과 같은 제약 조건을 충족 해야:
 
 * 개체 배열에 해당하는 `values`라는 최상위 엔터티가 있어야 합니다.
-* 배열의 개체 수는 웹 API로 보낸 개체 수와 같아야 합니다.
+* 배열의 개체 수가 웹 API에 전송 하는 개체의 수와 같아야 합니다.
 * 각 개체에는 다음이 지정되어야 합니다.
    * `recordId` 속성
    * `data` 속성: 필드가 `output`의 “names”와 일치하는 강화에 해당하는 개체이며, 해당 값이 보강으로 간주됩니다.

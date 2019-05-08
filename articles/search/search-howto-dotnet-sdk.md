@@ -7,17 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871300"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025139"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>.NET 애플리케이션에서 Azure Search를 사용하는 방법
+
+> [!Important]
+> 이 콘텐츠는 준비 중입니다. Azure Search.NET SDK의 버전 9.0은 NuGet에서 사용할 수 있습니다. 이 마이그레이션 가이드는 새 버전으로 업그레이드 하는 방법에 설명 업데이트 노력 합니다. 기대해 주세요.
+>
+
 이 문서는 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 준비하여 실행하기 위한 연습입니다. Azure Search를 사용하여 애플리케이션에서 풍부한 검색 환경을 구현하는 .NET SDK를 사용할 수 있습니다.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Azure Search SDK의 주요 기능
@@ -38,7 +42,7 @@ SDK의 다른 NuGet 패키지는 다음과 같습니다.
 
 Azure Search .NET SDK의 현재 버전이 이제 일반 공급됩니다. 다음 버전에 반영하기 위한 피드백을 제공하려는 경우 [피드백 페이지](https://feedback.azure.com/forums/263029-azure-search/)를 방문하세요.
 
-.NET SDK는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)의 `2017-11-11` 버전을 지원합니다. 이 버전에는 동의어에 대한 지원뿐 아니라 인덱서의 점진적인 개선 사항도 포함되었습니다. 이 버전에 포함되지 *않은* 미리 보기 기능(예: JSON 배열 및 CSV 파일의 인덱싱 지원)은 [미리 보기](search-api-2016-09-01-preview.md)로 제공되며 [4.0 미리 보기 버전의 .NET SDK](https://aka.ms/search-sdk-preview)를 통해 사용할 수 있습니다.
+.NET SDK는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)의 `2017-11-11` 버전을 지원합니다. 이 버전에는 동의어에 대한 지원뿐 아니라 인덱서의 점진적인 개선 사항도 포함되었습니다. 
 
 이 SDK는 Search 서비스 생성 및 확장, API 키 관리 등의 [관리 작업](https://docs.microsoft.com/rest/api/searchmanagement/)을 지원하지 않습니다. .NET 애플리케이션에서 Search 리소스를 관리해야 하는 경우 [Azure Search .NET 관리 SDK](https://aka.ms/search-mgmt-sdk)를 사용할 수 있습니다.
 
@@ -392,7 +396,7 @@ public partial class Hotel
 유의해야 할 첫 번째 사항은 `Hotel`의 각 공용 속성이 인덱스 정의의 필드에 해당하지만 한 가지 중요한 차이점이 있다는 것입니다. 각 필드의 이름은 소문자(“카멜 대/소문자”)로 시작하는 반면, `Hotel`의 각 공용 속성 이름은 대문자(“파스칼식 대/소문자”)로 시작합니다. 이것은 대상 스키마가 애플리케이션 개발자의 제어 범위를 벗어난 데이터 바인딩을 수행하는 .NET 애플리케이션의 일반적인 시나리오입니다. 카멜식 대/소문자 속성으로 이름을 지정하면 .NET 이름 지정 지침을 위반하지 않고 속성 이름을 자동으로 `[SerializePropertyNamesAsCamelCase]` 특성을 지닌 카멜식 대/소문자에 매핑하도록 SDK에 명령할 수 있습니다.
 
 > [!NOTE]
-> Azure Search .NET SDK는 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 라이브러리를 사용하여 사용자 지정 모델 개체를 JSON과 직렬화 및 deserialize합니다. 필요한 경우 직렬화를 사용자 지정할 수 있습니다. 자세한 내용은 [JSON.NET으로 직렬화 사용자 지정](#JsonDotNet)를 참조하세요.
+> Azure Search .NET SDK는 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 라이브러리를 사용하여 사용자 지정 모델 개체를 JSON과 직렬화 및 deserialize합니다. 필요한 경우 직렬화를 사용자 지정할 수 있습니다. 자세한 내용은 [JSON.NET으로 직렬화 사용자 지정](#JsonDotNet)합니다.
 > 
 > 
 

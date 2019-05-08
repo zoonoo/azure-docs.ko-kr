@@ -118,7 +118,7 @@
           href: samples/enforce-data-lake-store-encryption.md
     - name: 게스트 구성
       items:
-        - name: Linux에 설치된 애플리케이션 감사
+        - name: 감사 애플리케이션이 Linux에 설치되어 있지 않음
           displayName: 'audit, vm'
           href: samples/guest-configuration-applications-installed-linux.md
     - name: Key Vault

@@ -15,18 +15,21 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 52d46009464c7417d5b525154fdac09c030aabe7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708018"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203944"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
 *이벤트 허브 클러스터* 스트리밍 가장 까다로운 요구를 사용 하 여 고객에 대 한 단일 테 넌 트 배포를 제공 합니다. 이 단일 테 넌 트 제품 보장 된 99.99 %SLA 있으며이 전용 가격 책정 계층 에서만 사용할 수 있습니다. 클러스터를 Event Hubs 이벤트는 보장 된 용량 및 1 초 미만의 대기 시간으로 초당 수백만 개의 수신 수 있습니다. 전용된 클러스터 내에서 만든 네임 스페이스 및 이벤트 허브 수신에 제한이 없이 Standard 제품 등의 모든 기능을 포함 합니다. 또한 인기 있는 [Event Hubs 캡처](event-hubs-capture-overview.md) 기능은 추가 비용 없이 자동으로 일괄 처리 및 로그 데이터 스트림을 Azure Storage 또는 Azure Data Lake에 있습니다. 
 
-전용된 클러스터를 프로 비전 되 고 기준으로 청구 됩니다 **용량 단위 (Cu)**, CPU 및 메모리 리소스를 미리 할당 된 크기입니다. 각 클러스터에 대 한 1, 2, 4, 8, 12, 16 또는 20 Cu를 구입할 수 있습니다. 다양 한 요인에 따라 달라 집니다 수집 하 고 CU 당 스트림 수 얼마나 생산자와 소비자에 게 제공 되는 페이로드 셰이프에 송신 수와 같은 (자세한 내용은 아래 벤치 마크 결과 참조)을 평가 합니다. 
+클러스터 프로 비전 되 고 기준으로 청구 됩니다 **용량 단위 (Cu)**, CPU 및 메모리 리소스를 미리 할당 된 크기입니다. 각 클러스터에 대 한 1, 2, 4, 8, 12, 16 또는 20 Cu를 구입할 수 있습니다. 다양 한 요인에 따라 달라 집니다 수집 하 고 CU 당 스트림 수 얼마나 생산자와 소비자에 게 제공 되는 페이로드 셰이프에 송신 수와 같은 (자세한 내용은 아래 벤치 마크 결과 참조)을 평가 합니다. 
+
+> [!NOTE]
+> 모든 Event Hubs 클러스터 기본적으로 Kafka를 사용할 수 있고 사용할 수 있는 Kafka 끝점을 지원 하 여 기존 Kafka 기반 응용 프로그램입니다. Kafka에서 사용할 수 있는 클러스터에 Kafka 아닌 사용 사례; 영향을 주지 않습니다 옵션 또는 클러스터에서 Kafka를 사용 하지 않도록 설정할 필요가 없습니다 있습니다.
 
 ## <a name="why-dedicated"></a>전용 하는 이유?
 
@@ -43,23 +46,39 @@ Dedicated Event Hubs는 엔터프라이즈 수준 용량 필요한 고객에 대
 높은 수신 볼륨이 (> 100 Tu), 클러스터 비용 보다 훨씬 적습니다 시간당 비슷한 양의 Standard 제품의 처리량 단위를 구입 합니다.
 
 
-## <a name="event-hubs-standard-vs-dedicated"></a>Event Hubs 표준 vs입니다. 전용
+## <a name="event-hubs-dedicated-quotas-and-limits"></a>Event Hubs Dedicated 할당량 및 제한
 
-다음은 Event Hubs에 제공되는 서비스 계층을 비교한 표입니다. Event Hubs Dedicated 제품은 사용 표준의 대부분의 기능에 대 한 가격 책정과 비교해 고정된 된 월간 가격으로 요금이 청구 됩니다. Dedicated 계층은 표준 요금제의 모든 기능을 제공합니다. 하지만 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량을 제공합니다. 
+Event Hubs Dedicated 제품은 최소 4 시간의 사용량을 사용 하 여 고정된 된 월간 가격으로 청구 됩니다. Dedicated 계층 까다로운 워크 로드를 사용 하 여 고객을 위한 엔터프라이즈급 용량 및 제한 하지만 표준 요금제의 모든 기능을 제공합니다. 
 
 | 기능 | Standard | 전용 |
 | --- |:---:|:---:|
+| 대역폭 | 20 Tu (최대 40 Tu) | 20 Cu |
+| 네임스페이스 |  1 | CU 당 50 |
+| Event Hubs |  10 | 제한 없음 |
 | 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
-| 처리량 단위(1MB/초 수신, 2MB/초 송신) | 시간당 요금 부과 | 포함됨 |
-| 메시지 크기 | 1MB | 1MB |
-| 파티션 | 네임 스페이스 당 40 | CU 당 2000 |
-| 소비자 그룹 | 이벤트 허브 당 20 | 이벤트 허브 당 1000 |
-| 최대 대역폭 | 20 Tu (최대 40 Tu)    | 20 Cu |
+| 메시지 크기 | 1 백만 바이트 | 1 백만 바이트 |
+| 파티션 | 네임 스페이스 당 40 | 이벤트 허브 당 1024, CU 당 2000 |
+| 소비자 그룹 | 이벤트 허브 당 20 | 제한 없음, CU 당 event hub 당 1000 |
 | 조정된 연결 | 1,000개 포함 | 100,000개 포함 |
-| 메시지 보존 | 1일 포함 | 최대 7일 포함 |
+| 메시지 보존 | 7 일, 84GB TU 당 포함 된 | CU 당 포함 된 10TB 90 일 |
 | 캡처 | 시간당 요금 부과 | 포함 |
 
-## <a name="what-can-i-achieve-with-a-cluster"></a>클러스터를 얻을 수 있습니까?
+## <a name="how-to-onboard"></a>등록 방법
+
+셀프 서비스 전용으로 온 보 딩에 대 한 환경은 미리 보기에서 1을 만들 수 있는 CU 다음 지역에서 클러스터:
+  - 캐나다 중부
+  - 서유럽
+  - 미국 중부
+  - 미국 동부
+  - 미국 동부 2
+  - 미국 중북부
+  - 미국 서부
+
+적극적으로 새 지역에 추가 하는 것 하지만 그동안 원하는 지역 목록에 없는 경우 하세요 지원 요청을 제출 하는 [Event Hubs 팀](https://ms.portal.azure.com/#create/Microsoft.Support) 아래에서 *기술 > Event Hubs > 할당량 >에 대 한 요청 SKU를 전용*합니다. Dedicated 요금제는 Event Hubs 제품 팀의 실습 온보딩을 통해 고객에게 적합하도록 유연한 배포가 가능하다는 고유의 장점이 있습니다. 
+
+## <a name="faqs"></a>FAQ
+
+#### <a name="what-can-i-achieve-with-a-cluster"></a>클러스터를 얻을 수 있습니까?
 
 Event Hubs 클러스터의 경우 수집 하 고 스트림 수 얼마나에 생산자, 소비자, 속도는 수집 되며, 처리 등 같은 다양 한 요인에 따라 다릅니다. 
 
@@ -77,9 +96,21 @@ Event Hubs 클러스터의 경우 수집 하 고 스트림 수 얼마나에 생�
 - 수집에 사용된 이벤트 허브에는 200개의 파티션이 있었습니다. 
 - 데이터는 모든 파티션으로부터 받는 두 개의 수신기 애플리케이션에서 수집되었습니다.
 
-## <a name="how-to-onboard"></a>등록 방법
+#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>어떻게 만드나요 클러스터 1 보다 큰 CU?
 
-이 SKU를 사용하려면 [청구 지원](https://ms.portal.azure.com/#create/Microsoft.Support) 또는 Microsoft 담당자에게 문의하세요. 언제든지 요구 사항에 맞게 CU를 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. Dedicated 요금제는 Event Hubs 제품 팀의 실습 온보딩을 통해 고객에게 적합하도록 유연한 배포가 가능하다는 고유의 장점이 있습니다. 
+셀프 서비스 경험의 미리 보기 릴리스에서 클러스터를 만든 후 클러스터를 강화 하도록 요청할 수 있습니다. 1 CU 클러스터를 만든 후에 문의 Event Hubs 지원 작성 하 여는 [지원 요청](https://ms.portal.azure.com/#create/Microsoft.Support) 아래에서 *기술 > 할당량 > 강화 또는 전용 클러스터 아래쪽 크기 조정 요청을*입니다. GA 릴리스에서 포털을 통해 직접 클러스터를 확장할 수 됩니다. 
+
+#### <a name="can-i-scale-down-my-cluster"></a>내 클러스터를 축소할 수 있습니까?
+
+클러스터를 만든 후 4 시간 동안의 사용량이 최소 요금이 청구 됩니다. 셀프 서비스 경험의 미리 보기 릴리스에서 제출할 수 있습니다는 [지원 요청](https://ms.portal.azure.com/#create/Microsoft.Support) 아래에서 Event Hubs 팀 *기술 > 할당량 > 강화 또는 전용 클러스터 아래쪽 크기 조정 요청을*입니다. 클러스터 크기를 조정 하는 요청을 완료 하려면 최대 7 일이 걸릴 수 있습니다. 
+
+#### <a name="how-will-geo-dr-work-with-my-cluster"></a>지리적 DR은 클러스터가 사용?
+
+지역 쌍에서 전용 계층 클러스터를 다른 네임 스페이스를 사용 하 여 전용 계층 클러스터에서 네임 스페이스 수 있습니다. 당사의 표준 제품, 처리량 한도 호환 되지 않을 수 있는 오류가 발생 하므로 네임 스페이스를 사용 하 여 전용 계층 네임 스페이스 쌍이 좋습니다 하지 않습니다. 
+
+
+#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>전용 계층 클러스터에 속한 내 표준 네임 스페이스를 마이그레이션할 수 있나요?
+에서는 현재 지원 하지 않는 자동된 마이그레이션 프로세스는 하나의 전용으로 표준 네임 스페이스에서 event hubs 데이터를 마이그레이션하기 위한 합니다. 전용 계층 클러스터로 마이그레이션하려면 표준 계층 event hubs에 남아 있는 모든 메시지를 드레이닝 및 전용 네임 스페이스는 연결 끝점 바꾸기는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

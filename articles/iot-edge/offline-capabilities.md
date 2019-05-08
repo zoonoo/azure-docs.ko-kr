@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998533"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148110"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IoT Edge 디바이스, 모듈 및 자식 디바이스용 확장 오프라인 기능(미리 보기)을 이해합니다.
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
 
 Azure IoT Edge는 IoT Edge 디바이스에서 확장된 오프라인 작업을 지원하고, 비 Edge 자식 디바이스에서도 오프라인 작업을 지원합니다. IoT Edge 디바이스를 IoT Hub에 연결할 수 있는 한, 해당 디바이스 및 자식 디바이스는 일시적으로 인터넷에 연결하여 또는 인터넷 연결 없이 계속 작동할 수 있습니다. 
 
->[!NOTE]
->IoT Edge에 대한 오프라인 지원은 현재 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)입니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -61,24 +59,49 @@ IoT Edge 디바이스의 확장된 오프라인 기능을 자식 IoT 디바이�
 
 ### <a name="assign-child-devices"></a>자식 디바이스 할당
 
-동일한 IoT Hub에 등록된 모든 비 Edge 디바이스는 자식 디바이스가 될 수 있습니다. 새 디바이스를 만들 때나 부모 IoT Edge 디바이스 또는 자식 IoT 디바이스의 디바이스 세부 정보 페이지에서 부모-자식 관계를 관리할 수 있습니다. 
+동일한 IoT Hub에 등록된 모든 비 Edge 디바이스는 자식 디바이스가 될 수 있습니다. 부모 디바이스는 여러 자식 디바이스를 가질 수 있지만, 자식 디바이스는 한 부모만 가질 수 있습니다. Edge 장치에 자식 장치를 설정 하는 방법은 세 가지가 있습니다.
+
+#### <a name="option-1-iot-hub-portal"></a>옵션 1: IoT Hub 포털로
+
+ 새 디바이스를 만들 때나 부모 IoT Edge 디바이스 또는 자식 IoT 디바이스의 디바이스 세부 정보 페이지에서 부모-자식 관계를 관리할 수 있습니다. 
 
    ![IoT Edge 디바이스 세부 정보 페이지에서 자식 디바이스 관리](./media/offline-capabilities/manage-child-devices.png)
 
-부모 디바이스는 여러 자식 디바이스를 가질 수 있지만, 자식 디바이스는 한 부모만 가질 수 있습니다.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>옵션 2: 사용 된 `az` 명령줄 도구
+
+사용 하 여는 [Azure 명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 사용 하 여 [IoT 확장](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 이상)를 사용 하 여 부모 자식 관계를 관리할 수 있습니다 합니다 [장치 id](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 하위 명령을 합니다. 아래 예제에서는 IoT Edge 장치의 자식 장치로 아닌 모든 IoT Edge 허브에서 장치를 할당 하려면 쿼리를 실행 합니다. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+수정할 수 있습니다 합니다 [쿼리](../iot-hub/iot-hub-devguide-query-language.md) 장치의 다른 하위 집합을 선택 합니다. 이 명령은 다양 한 장치를 지정 하는 경우 몇 초 정도 걸릴 수 있습니다.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>옵션 3: IoT Hub 서비스 SDK를 사용 합니다. 
+
+마지막으로 사용 하 여 프로그래밍 방식으로 부모 자식 관계를 관리할 수 있습니다 C#, Java 또는 Node.js IoT Hub 서비스 SDK. 다음은 [자식 장치를 할당 하는 예제](https://aka.ms/set-child-iot-device-c-sharp) 를 사용 하 여는 C# SDK.
 
 ### <a name="specifying-dns-servers"></a>DNS 서버 지정 
 
-견고성을 향상시키려면 환경에서 사용되는 DNS 서버 주소를 지정하는 것이 좋습니다. 예를 들어 Linux에서 다음이 포함되도록 **/etc/docker/daemon.json**을 업데이트합니다(파일을 만들어야 할 수도 있음).
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-로컬 DNS 서버를 사용하는 경우 1.1.1.1을 로컬 DNS 서버의 IP 주소로 바꿉니다. 변경 내용이 적용되도록 Docker 서비스를 다시 시작합니다.
-
+견고성을 향상 시키려면 사용자 환경에서 사용할 DNS 서버 주소를 지정할 것이 좋습니다. 하십시오 합니다 [문제 해결 문서에서이 작업을 수행 하는 두 가지](troubleshoot.md#resolution-7)합니다.
 
 ## <a name="optional-offline-settings"></a>선택적 오프라인 설정
 
@@ -86,7 +109,7 @@ IoT Edge 디바이스의 확장된 오프라인 기능을 자식 IoT 디바이�
 
 ### <a name="time-to-live"></a>TTL(Time to live)
 
-TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 있는 시간의 양(초)입니다. 기본값은 7200초(2시간)입니다. 
+TTL(Time to Live) 설정은 메시지가 만료되기 전까지 대기할 수 있는 시간의 양(초)입니다. 기본값은 7200초(2시간)입니다. 최 댓 값 약 2 십억 인 정수 변수의 최대값에 의해서만 제한 됩니다. 
 
 이 설정은 모듈 쌍에 저장되는 IoT Edge 허브의 desired 속성입니다. Azure Portal의 **고급 Edge 런타임 설정 구성** 섹션에서 또는 배포 매니페스트에서 직접 구성할 수 있습니다. 
 

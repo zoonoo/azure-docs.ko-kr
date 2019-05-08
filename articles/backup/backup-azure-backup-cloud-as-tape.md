@@ -1,20 +1,18 @@
 ---
 title: Azure Backup을 사용하여 테이프 인프라 대체
 description: Azure Backup이 Azure에서 데이터를 백업하고 복원할 수 있도록 하는 테이프와 같은 의미 체계를 제공하는 방법을 알아봅니다.
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646963"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146016"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>장기 저장소를 테이프에서 Azure 클라우드로 이동
 Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다.
@@ -59,8 +57,7 @@ Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수�
 복구 지점의 총 수는 56개입니다.
 
 > [!NOTE]
-> Azure 백업은 복구 지점 개수에 대한 제한이 없습니다.
->
+> Azure Backup을 사용 하 여 보호 된 인스턴스당 최대 9999 개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure로 백업하는 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다.
 >
 
 ## <a name="advanced-configuration"></a>고급 구성

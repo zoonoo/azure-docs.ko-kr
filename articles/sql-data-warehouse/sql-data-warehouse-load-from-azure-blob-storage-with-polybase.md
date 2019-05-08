@@ -19,7 +19,7 @@ ms.locfileid: "64875670"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 Contoso 소매 데이터 로드
 
-이 자습서에서는 PolyBase와 T-SQL 명령을 사용하여 Azure SQL Data Warehouse로 Contoso 소매 데이터의 두 테이블을 로드하는 것을 배웁니다.  
+이 자습서에서는 PolyBase와 T-SQL 명령을 사용하여 Azure SQL Data Warehouse로 Contoso 소매 데이터의 두 테이블을 로드하는 것을 배웁니다. 
 
 이 자습서에서는 다음 작업을 수행합니다.
 

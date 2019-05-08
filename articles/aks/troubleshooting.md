@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031408"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192286"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -94,3 +94,27 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>이동할 수 있습니까 클러스터 내 다른 구독 또는 구독에 새 테 넌 트 내 클러스터를 사용 하 여?
 
 AKS 클러스터를 다른 구독에 새 테 넌 트 구독을 소유 하는 클러스터를 이동 하면 클러스터 서비스 보안 주체 권한과 손실 역할 할당으로 인해 기능이 손실 됩니다. **AKS 구독 또는 테 넌 트 간에 이동 클러스터를 지원 하지 않습니다** 이 인해 제약 조건입니다.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 필요로 하는 기능을 사용 하는 동안 오류가 발생 했습니다.
+
+*이 문제 해결 지원은 aka.ms/aks-vmss-구현에서 전달 됩니다.*
+
+AKS 클러스터 켜져 있지 않으면 다음 예와 같이 가상 머신 확장 집합을 나타내는 오류가 나타날 수 있습니다.
+
+**AgentPool 'agentpool' 설정으로 자동 크기 조정 설정에 있지만 가상 머신 확장 집합에 없는**
+
+다중 노드 클러스터 autoscaler 등 기능을 사용 하려면 풀, 가상 머신 확장 집합을 사용 하는 AKS 클러스터를 만들 수 있어야 합니다. 일반, 비-가상 머신 확장 집합 AKS 클러스터를 대상 및 가상 머신 확장 집합에 종속 된 기능을 사용 하려고 하면 오류가 반환 됩니다. 가상 머신 확장 집합 지원이 현재 AKS에서 미리 보기 중입니다.
+
+수행 합니다 *시작 하기 전에* 올바르게 가상 머신 확장 집합 기능을 등록 하려면 적절 한 문서에서 단계 미리 보기 및 AKS 클러스터 만들기:
+
+* [클러스터 autoscaler를 사용 합니다.](cluster-autoscaler.md)
+* [만들고 여러 노드 풀을 사용 하 여](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>AKS 리소스 및 매개 변수는 명명 제한 사항 적용 됩니까?
+
+*이 문제 해결 지원은 aka.ms/aks-명명-규칙에서 전달 됩니다.*
+
+명명 제한 사항은 AKS와 Azure 플랫폼에서 구현 됩니다. 리소스 이름 또는 매개 변수는 이러한 제한 중 하나를 중단 하는 경우 다른 입력을 제공 하 라는 메시지가 표시 오류가 반환 됩니다. 다음 일반적인 명명 지침에는 다음이 적용 됩니다.
+
+* AKS *MC_* 리소스 이름과 리소스 그룹 이름은 리소스 그룹 이름을 결합 합니다. 자동 생성 구문을 `MC_resourceGroupName_resourceName_AzureRegion` 80 자 보다 크지 않아야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름을의 길이 줄입니다.
+* 합니다 *dnsPrefix* 시작 하 고 영숫자 값을 사용 하 여 종료 해야 합니다. 유효한 문자에는 영숫자 값 및 하이픈 (-)이 포함 됩니다. 합니다 *dnsPrefix* 마침표 (.) 등의 특수 문자를 포함할 수 없습니다.

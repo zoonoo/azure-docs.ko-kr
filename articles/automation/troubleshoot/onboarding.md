@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119132"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145157"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
@@ -78,6 +78,36 @@ The solution cannot be enabled on this VM because the permission to read the wor
   * 정책이 거부하도록 구성된 리소스 집합을 수정합니다.
 
 Azure portal의 오른쪽 위 모서리에서 알림을 확인 또는 선택한 automation 계정에 포함 된 리소스 그룹으로 이동 **배포** 아래에서 **설정** 장애를 보려면 배포 합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
+
+### <a name="unlink"></a>시나리오: 작업 공간 연결을 해제 하는 동안 오류가 발생
+
+#### <a name="issue"></a>문제
+
+작업 영역 연결 해제 하려고 할 때 다음 오류가 표시:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 여전히 솔루션이 있는 현재 Log Analytics 작업 영역에 연결 되 고 Automation 계정 및 로그 분석 작업 영역에 종속 된 경우 발생 합니다.
+
+### <a name="resolution"></a>해결 방법
+
+이 해결 하려면 사용 하는 경우 작업 영역에서 다음 솔루션을 제거 해야 합니다.
+
+* 업데이트 관리
+* 변경 내용 추적
+* 작업이 없는 동안 VM 시작/중지
+
+솔루션을 제거 하면 작업 영역 연결을 해제할 수 있습니다. 작업 영역 및 Automation 계정에서 솔루션도에서 기존 아티팩트를 정리 하는 것이 반드시 합니다.  
+
+* 업데이트 관리
+  * Automation 계정에서 업데이트 배포 (일정)을 제거 합니다.
+* 작업이 없는 동안 VM 시작/중지
+  * 자동화 계정에서 제거 하는 솔루션 구성 요소에 대 한 모든 잠금을 **설정을** > **잠금을**합니다.
+  * 작업이 없는 동안 Vm 시작/중지를 제거 하는 추가 단계에 대 한 내용은 [작업이 없는 동안 VM 시작/중지 제거](../automation-solution-vm-management.md##remove-the-solution)합니다.
 
 ## <a name="mma-extension-failures"></a>MMA 확장 오류
 

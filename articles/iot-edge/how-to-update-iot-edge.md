@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125936"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152624"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -50,25 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Windows 디바이스
 
-Windows 디바이스에서는 PowerShell 스크립트를 사용하여 보안 디먼을 제거했다가 다시 설치합니다. 설치 스크립트는 최신 버전의 보안 디먼을 자동으로 끌어옵니다. 
-
-관리자 PowerShell 세션에서 보안 디먼을 제거합니다. 
+Windows 장치에서 PowerShell 스크립트를 사용 하 여 보안 디먼을 업데이트 합니다. 스크립트는 자동으로 보안 디먼의 최신 버전을 가져옵니다. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-실행 된 `Uninstall-SecurityDaemon` 명령 매개 변수 없이 두 개의 런타임 컨테이너 이미지와 함께 장치에서 보안 디먼 제거 합니다. config.yaml 파일뿐 아니라 Moby 컨테이너 엔진의 데이터도 디바이스에서 유지됩니다. 연결 문자열 또는 다시 설치 과정에서 장치에 대 한 Device Provisioning Service 정보를 제공 하지 않아도 구성 정보 즉 유지 합니다. 
+두 런타임 컨테이너 이미지와 함께 장치에서 보안 디먼을 제거 업데이트 IoTEdge 명령을 실행 합니다. Config.yaml 파일 (Windows 컨테이너를 사용 하는) 경우 모 비 컨테이너 엔진에서 데이터 뿐만 아니라 장치에 유지 됩니다. 연결 문자열이 나 다시 업데이트 과정에서 장치에 대 한 Device Provisioning Service 정보를 제공 하지 않아도 구성 정보 즉 유지 합니다. 
 
-IoT Edge 디바이스가 Windows 컨테이너를 사용하는지 또는 Linux 컨테이너를 사용하는지에 따라 보안 디먼을 다시 설치합니다. 구 바꿉니다 **\<Windows 또는 Linux\>** 적절 한 컨테이너 운영 체제입니다. **-ExistingConfig** 플래그를 사용하여 디바이스의 기존 config.yaml 파일을 가리킵니다. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-특정 버전의 보안 디먼을 설치하려면 [IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)에서 적절한 iotedged-windows.zip 파일을 다운로드합니다. 그런 다음, `-OfflineInstallationPath` 매개 변수를 사용하여 파일 위치를 가리킵니다. 자세한 내용은 [오프라인 설치](how-to-install-iot-edge-windows.md#offline-installation)를 참조하세요.
+보안 디먼의 특정 버전을 설치 하려는 경우에서 적절 한 Microsoft-Azure-IoTEdge.cab 파일을 다운로드 [IoT Edge 해제](https://github.com/Azure/azure-iotedge/releases)합니다. 그런 다음, `-OfflineInstallationPath` 매개 변수를 사용하여 파일 위치를 가리킵니다. 자세한 내용은 [오프라인 설치](how-to-install-iot-edge-windows.md#offline-installation)를 참조하세요.
 
 ## <a name="update-the-runtime-containers"></a>런타임 컨테이너 업데이트
 

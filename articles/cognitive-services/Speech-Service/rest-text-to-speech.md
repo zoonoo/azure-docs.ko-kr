@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660972"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020449"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -56,7 +56,7 @@ ms.locfileid: "58660972"
 | 일본 동부 | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 한국 중부 | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 미국 중북부 | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 북유럽 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 유럽 북부 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 미국 중남부 | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 동남아시아 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 영국 남부 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
@@ -204,7 +204,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+    name='en-US-JessaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```

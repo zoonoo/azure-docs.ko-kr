@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39e0547421c446c1ee48b93b30487ccb9358de02
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466564"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192084"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -62,16 +62,16 @@ AKS 클러스터에서 노드당 최대 Pod 수는 110개입니다. 노드당 *�
 
 | 배포 방법 | Kubenet 기본 | Azure CNI 기본 | 배포 시 구성 가능 |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | 예(최대: 110개) |
-| Resource Manager 템플릿 | 110 | 30 | 예(최대: 110개) |
+| Azure CLI | 110 | 30 | 예 (최대 250) |
+| Resource Manager 템플릿 | 110 | 30 | 예 (최대 250) |
 | 포털 | 110 | 30 | 아닙니다. |
 
 ### <a name="configure-maximum---new-clusters"></a>최댓값 구성 - 새 클러스터
 
-*클러스터 배포 시간에만* 노드당 최대 Pod 수를 구성할 수 있습니다. Azure CLI 또는 Resource Manager 템플릿을 사용하여 배포하는 경우 노드당 최대 Pod 수를 최대 110으로 설정할 수 있습니다.
+*클러스터 배포 시간에만* 노드당 최대 Pod 수를 구성할 수 있습니다. Azure CLI 또는 Resource Manager 템플릿을 사용 하 여 배포 하는 경우에 250으로 노드 값 당 최대 pod를 설정할 수 있습니다.
 
-* **Azure CLI**: [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포할 때 `--max-pods` 인수를 지정합니다. 최댓값은 110입니다.
-* **Resource Manager 템플릿**: Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 [ManagedClusterAgentPoolProfile] 개체에 `maxPods` 속성을 지정합니다. 최댓값은 110입니다.
+* **Azure CLI**: [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포할 때 `--max-pods` 인수를 지정합니다. 최대값은 250입니다.
+* **Resource Manager 템플릿**: Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 [ManagedClusterAgentPoolProfile] 개체에 `maxPods` 속성을 지정합니다. 최대값은 250입니다.
 * **Azure 포털**: Azure Portal을 사용하여 클러스터를 배포하는 경우 노드당 최대 Pod 수를 변경할 수 없습니다. Azure Portal을 사용하여 배포하는 경우 Azure CNI 네트워킹 클러스터는 노드당 30개 Pod로 제한됩니다.
 
 ### <a name="configure-maximum---existing-clusters"></a>최댓값 구성 - 기존 클러스터
@@ -143,7 +143,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 * *Pod별 네트워크 정책을 구성할 수 있나요?*
 
-  Kubernetes 네트워크 정책은 현재 AKS에서 미리 보기 기능으로 사용할 수입니다. 시작 하려면 참조 [AKS에 네트워크 정책을 사용 하 여 pod 간에 트래픽을 보호][network-policy]합니다.
+  예, Kubernetes 네트워크 정책에는 AKS에서 사용할 수 있습니다. 시작 하려면 참조 [AKS에 네트워크 정책을 사용 하 여 pod 간에 트래픽을 보호][network-policy]합니다.
 
 * *구성 가능한 노드로 배포할 수 있는 Pod의 최대 수는 얼마나 되나요?*
 

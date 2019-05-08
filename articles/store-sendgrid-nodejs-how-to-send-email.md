@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931720"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Node.js에서 SendGrid를 사용하여 메일을 보내는 방법
 
@@ -59,7 +59,7 @@ var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
 SendGrid 모듈은 **SendGrid** 및 **Email** 함수를 내보냅니다.
 **SendGrid**는 Web API를 통해 전자 메일을 보내는 역할을 맡고, **Email**은 전자 메일 메시지를 캡슐화합니다.
 
-## <a name="how-to-create-an-email"></a>방법: 전자 메일 만들기
+## <a name="how-to-create-an-email"></a>방법: 이메일 만들기
 
 SendGrid 모듈을 사용하여 전자 메일 메시지를 만들려면 먼저 Email 함수로 전자 메일 메시지를 만든 후, SendGrid 함수를 사용하여 이 메시지를 보내면 됩니다. 다음 예제는 Email 함수를 사용하여 새 메시지를 만드는 과정을 보여 줍니다.
 
@@ -82,7 +82,7 @@ html: This is a sample <b>HTML<b> email message.
 
 Email 함수에서 지원하는 모든 속성에 대한 자세한 내용은 [sendgrid-nodejs][sendgrid-nodejs]를 참조하세요.
 
-## <a name="how-to-send-an-email"></a>방법: 전자 메일 보내기
+## <a name="how-to-send-an-email"></a>방법: 이메일 보내기
 
 Email 함수를 사용하여 전자 메일 메시지를 만든 후에는 SendGrid에서 제공하는 Web API를 사용하여 해당 메시지를 보낼 수 있습니다. 
 
@@ -135,7 +135,7 @@ sendgrid.send({
 > 
 > 
 
-## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>방법: 필터를 사용하여 바닥글 및 추적을 사용하도록 설정
+## <a name="how-to-use-filters-to-enable-footers-and-tracking"></a>방법: 필터를 사용 하도록 설정 바닥글 및 추적 사용
 
 SendGrid는 필터 사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][Filter Settings](영문)을 참조하십시오.
 

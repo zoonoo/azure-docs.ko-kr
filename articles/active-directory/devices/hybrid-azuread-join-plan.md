@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352000"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190497"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -41,7 +41,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
 
 > [!NOTE]
-> 최소는 하이브리드 Azure AD 가입 Windows 10은 Windows Server 2008 R2에 대 한 기능 도메인 및 포리스트 기능 수준이 필요 합니다. 낮은 버전에서 사용자 얻지 못할 수도 기본 새로 고침 토큰을 LSA 문제로 인해 Windows 로그온 하는 동안.
+> 최소는 하이브리드 Azure AD 가입 Windows 10은 Windows Server 2008 R2에 대 한 기능 도메인 및 포리스트 기능 수준이 필요 합니다.
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
@@ -121,6 +121,9 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 
 - PTA(통과 인증)
 - PHS(암호 해시 동기화)
+
+> [!NOTE]
+> Azure AD 관리 되는 도메인에서 스마트 카드 또는 인증서를 지원 하지 않습니다.
 
 버전 1.1.819.0부터 Azure AD Connect는 하이브리드 Azure AD 조인을 구성하는 마법사를 제공합니다. 마법사를 사용하면 구성 프로세스를 크게 간소화할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 

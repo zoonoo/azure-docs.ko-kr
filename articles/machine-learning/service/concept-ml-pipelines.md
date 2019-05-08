@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 12/4/2018
+ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3f1dd0921153d6b65bdc257f91019483adbb18fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9049e22d15dacb91e86fd0ba623d69c9d17c789
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821060"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024831"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 기계 학습 파이프라인 빌드
 

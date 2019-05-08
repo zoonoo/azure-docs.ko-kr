@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5a24d83faef5a895317f162178f8bd588a1466d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af61d975b540787b9b54d9fdea66773c10aeb6ac
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620149"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020772"
 ---
 1. Visual Studio 2017을 시작합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "60620149"
     ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > Cognitive Services 음성 SDK의 현재 버전은 `1.4.0`입니다.
+    > Cognitive Services 음성 SDK의 현재 버전은 `1.5.0`입니다.
 
 1. NuGet 패키지를 설치하려면 표시된 라이선스에 동의합니다.
 

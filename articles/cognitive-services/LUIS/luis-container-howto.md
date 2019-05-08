@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000269"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072999"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -337,19 +337,28 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](luis-container-configuration.md)을 참조하세요.
 
-## <a name="unsupported-dependencies"></a>지원되지 않는 종속성
+## <a name="supported-dependencies-for-latest-container"></a>지원에 대 한 종속성 `latest` 컨테이너
+
+2019 때 해제 하 고 최신 컨테이너를 / / 빌드, 지원 됩니다.
+
+* Bing spell check: 쿼리 예측 끝점에 요청 된 `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` 쿼리 문자열 매개 변수입니다. 사용 된 [Bing Spell Check v7 자습서](luis-tutorial-bing-spellcheck.md) 자세한 합니다. 이 기능을 사용 하는 경우 컨테이너를 utterance Bing Spell Check V7 리소스에 보냅니다.
+* [새 미리 빌드된 도메인](luis-reference-prebuilt-domains.md): 이러한 엔터프라이즈에 초점을 맞춘 도메인 엔터티, 예제 길이 발언 및 패턴을 포함 합니다. 직접 사용 하기 위해 이러한 도메인을 확장 합니다. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>종속성에 대 한 지원 되지 않는 `latest` 컨테이너
+
+LUIS 앱 종속성 지원 되지 않는 경우 할 수 없습니다 [컨테이너에 대 한 내보내기](#export-packaged-app-from-luis) 지원 되지 않는 기능을 제거 해야 합니다. 컨테이너에 대 한 내보내기 하려고 할 때 LUIS 포털을 제거 하는 데 필요한 지원 되지 않는 기능을 보고 합니다.
 
 다음 종속성 중 하나도 **포함하지 않는** 경우 LUIS 애플리케이션을 사용할 수 있습니다.
 
 지원되지 않는 앱 구성|세부 정보|
 |--|--|
-|지원되지 않는 컨테이너 문화권| 독일어(de-DE)<br>네덜란드어(nl-NL)<br>일본어(ja-JP)<br>|
-|지원되지 않는 도메인|미리 빌드된 도메인 의도 및 엔터티를 포함하여 미리 작성된 도메인입니다.|
+|지원되지 않는 컨테이너 문화권| 네덜란드어(nl-NL)<br>일본어(ja-JP)<br>독일어는 에서만 지원 합니다 [1.0.1 토크 나이저 이상](luis-language-support.md#custom-tokenizer-versions)합니다.|
 |모든 문화권에 지원되지 않는 엔터티|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) 모든 문화권에 미리 빌드된 엔터티|
 |영어(en-US) 문화권에 지원되지 않는 엔터티|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 미리 빌드된 엔터티|
 |음성 초기화|컨테이너에서 외부 종속성은 지원되지 않습니다.|
 |정서 분석|컨테이너에서 외부 종속성은 지원되지 않습니다.|
-|Bing 맞춤법 검사|컨테이너에서 외부 종속성은 지원되지 않습니다.|
 
 ## <a name="summary"></a>요약
 

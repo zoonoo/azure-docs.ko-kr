@@ -11,17 +11,17 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091582"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073699"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>자습서: 관련된 데이터 그룹화 및 추출
 이 자습서에서는 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
 
-복합 엔터티의 용도는 관련된 엔터티를 부모 범주 엔터티로 그룹화하것는 입니다. 복합이 만들어지기 전에 정보가 개별 엔터티로 존재합니다. 계층 구조 엔터티와 유사하지만 다른 형식의 엔터티를 포함할 수 있습니다. 
+복합 엔터티의 용도는 관련된 엔터티를 부모 범주 엔터티로 그룹화하것는 입니다. 복합이 만들어지기 전에 정보가 개별 엔터티로 존재합니다. 
 
 복합 엔터티는 다음과 같은 데이터로 인해 이 형식의 데이터에 적합합니다.
 

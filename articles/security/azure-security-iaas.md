@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586533"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145214"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
+이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
+
+모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 시간이 지남에 따라 의견 및 기술이 변경될 수 있으므로 이 문서는 해당 변경 내용을 반영하도록 업데이트됩니다.
 
 대부분 IaaS(Infrastructure as a Service) 시나리오에서 [Azure VM(가상 머신)](https://docs.microsoft.com/azure/virtual-machines/)은 클라우드 컴퓨팅을 사용하는 조직에 주요 워크로드입니다. 이 사실은 조직이 워크로드를 클라우드에 천천히 마이그레이션하고 싶은 [하이브리드 시나리오](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)에서 명백합니다. 이러한 시나리오에서 [IaaS에 대한 일반적인 보안 고려 사항](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)을 따르고 모든 VM에 보안 모범 사례를 적용합니다.
 
+## <a name="shared-responsibility"></a>공동 책임
 보안에 대한 사용자의 책임은 클라우드 서비스의 형식에 기반합니다. 다음 차트에는 Microsoft와 여러분 모두에 대한 책임의 균형이 요약되어 있습니다.
 
 ![책임 영역](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 보안 요구 사항은 다양한 워크로드 유형을 포함한 여러 요인에 따라 달라집니다. 이러한 모범 사례 중 어떤 것도 혼자서는 시스템 보안을 유지할 수는 없습니다. 보안의 다른 요소와 마찬가지로, 적절한 옵션을 선택하고 각 솔루션의 간극을 해소하면서 서로 어떻게 보완할 수 있는지 파악해야 합니다.
 
-이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
-
-모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 시간이 지남에 따라 의견 및 기술이 변경될 수 있으므로 이 문서는 해당 변경 내용을 반영하도록 업데이트됩니다.
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>인증 및 액세스 제어를 사용하여 VM 보호
 VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정하고 VM에 액세스할 수 있게 하는 것입니다.
+
+> [!NOTE]
+> Azure에서 Linux Vm의 보안을 강화 하려면 Azure AD 인증을 사용 하 여 통합할 수 있습니다. 사용 하는 경우 [Linux Vm에 대 한 Azure AD 인증](../virtual-machines/linux/login-using-aad.md)를 중앙에서 제어 하 고 허용 하거나 Vm에 대 한 액세스를 거부 하는 정책을 적용 합니다.
+>
+>
 
 **모범 사례**: VM 액세스 제어   
 **세부 정보**: [Azure 정책](../azure-policy/azure-policy-introduction.md)을 사용하여 조직의 리소스에 대한 규칙을 설정하고 사용자 지정된 정책을 만듭니다. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)과 같은 리소스에 이러한 정책을 적용합니다. 리소스 그룹에 속한 VM에서 해당 정책을 상속합니다.
@@ -102,6 +107,9 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 **모범 사례**: OS의 새 버전을 강제로 적용하기 위해 주기적으로 VM 다시 배포   
 **세부 정보**: [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
 
+**모범 사례**: Vm에 보안 업데이트를 신속 하 게 적용 됩니다.   
+**세부 정보**: Azure Security Center (무료 계층 또는 표준 계층)를 사용 [누락 된 보안 업데이트를 식별 하 고 적용할](../security-center/security-center-apply-system-updates.md)합니다.
+
 **모범 사례**: 최신 보안 업데이트 설치   
 **세부 정보**: 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure VM이 인터넷에 액세스할 수 있어야 하는 애플리케이션 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 파트너 애플리케이션의 취약점을 패치하지 않으면 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
 
@@ -165,6 +173,18 @@ Azure Disk Encryption을 적용할 때 다음 비즈니스 요구 사항을 충�
 
 - IaaS VM은 업계 표준 암호화 기술을 통해 미사용 시 보호되어 조직의 보안 및 규정 준수 요구 사항을 처리합니다.
 - IaaS VM은 고객이 제어하는 키 및 정책에 따라 시작되고, 키 자격 증명 모음에서 이러한 사용을 감사할 수 있습니다.
+
+## <a name="restrict-direct-internet-connectivity"></a>인터넷에 직접 연결 제한
+모니터링 하 고 VM 직접 인터넷 연결을 제한 합니다. 공격자는 지속적으로 개방형 관리 포트에 대 한 공용 IP 범위를 검색 하 고 일반적인 암호 및 패치가 적용 되지 않은 알려진된 취약성 등 "쉽게" 공격을 시도 합니다. 다음 표에서 이러한 공격 으로부터 보호 하는 데 유용한 정보를 나열 합니다.
+
+**모범 사례**: 네트워크 라우팅 및 보안에 실수로 노출 되지 않도록 합니다.   
+**세부 정보**: RBAC를 사용 하 여 그룹에만 중앙 네트워킹 네트워킹 리소스에 있는 권한이 있는지 확인 합니다.
+
+**모범 사례**: 식별 하 고 "임의" 원본 IP 주소에서 액세스를 허용 하는 노출 된 Vm을 수정 합니다.   
+**세부 정보**: Azure Security Center를 사용 합니다. Security Center는 네트워크 보안 그룹에 하나 이상의 인바운드 규칙 "임의" 원본 IP 주소에서 액세스를 허용 하는 경우 인터넷 연결 끝점을 통한 액세스를 제한 하는 것을 권장 합니다. Security Center는 이러한 인바운드 규칙을 편집 하는 것을 권장 [대 한 액세스 제한](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) 실제로 액세스가 필요한 원본 IP 주소입니다.
+
+**모범 사례**: 관리 포트 (RDP, SSH)를 제한 합니다.   
+**세부 정보**: [시간 (JIT) VM 액세스](../security-center/security-center-just-in-time.md) 필요할 때 Vm에 연결할 쉽게 액세스 하는 동안 공격에 대 한 노출을 줄이는 Azure Vm에 대 한 인바운드 트래픽을 잠그는 데 사용할 수 있습니다. JIT를 사용 하는 경우 Security Center 인바운드 트래픽을 잠급니다 Azure Vm에 네트워크 보안 그룹 규칙을 만들어 합니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 JIT 솔루션에 의해 제어 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.

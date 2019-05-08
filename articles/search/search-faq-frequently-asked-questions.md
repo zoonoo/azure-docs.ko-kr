@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290451"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023989"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - FAQ(질문과 대답)
 
@@ -64,7 +64,7 @@ Azure Search에서는 여러 데이터 원본, [다국어 언어 분석](https:/
 
 아니요. 이 작업은 지원되지 않습니다. 검색 범위는 항상 단일 인덱스입니다.
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>사용자 ID로 검색 모음 액세스를 제한할 수 있나요?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>사용자 id 별로 검색 인덱스 액세스를 제한할 수 있습니까?
 
 `search.in()` 필터를 사용하여 [보안 필터](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)를 구현할 수 있습니다. 이 필터는 [AAD(Azure Active Directory) 등의 ID 관리 서비스](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad)를 사용하여 정의된 사용자 그룹 멤버 자격에 따라 검색 결과를 자릅니다.
 

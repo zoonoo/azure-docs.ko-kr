@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b9234814404194364f775add87f865170747220a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b36302e349327354e31ef4ea5adb9842d04ed4f1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471072"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149361"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -434,6 +434,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/cyclecloud/">
                                                 <img src="media/index/logo_cyclecloud.svg" alt="" />
                                                 <p>CycleCloud</p>
+                                            </a>
+                                        </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>CloudSimple의 Azure VMware 솔루션</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1018,6 +1024,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <p>Bing Image Search API</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/open-datasets">
+                                                <img src="media/index/open-data.svg" alt="" />
+                                                <p>공개 데이터 세트</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>마이그레이션</h3>
                                     <ul>
@@ -1254,6 +1266,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                        <a href="/azure/open-datasets">
+                                            <img src="media/index/open-data.svg" alt="" />
+                                            <p>공개 데이터 세트</p>
+                                        </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
@@ -2076,6 +2094,44 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>CloudSimple의 Azure VMware 솔루션</h3>
+                                                    <p>Azure에서 VMware 플랫폼 실행</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>Red Hat과 공동 운영되는 완전 관리형 OpenShift 서비스</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2421,7 +2477,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>빅 데이터 분석 작업을 위한 대규모 저장소</p>
+                                                    <p>빅 데이터 분석 작업을 위한 하이퍼스케일 리포지토리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3032,6 +3088,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>Red Hat과 공동 운영되는 완전 관리형 OpenShift 서비스</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3605,7 +3680,26 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>빅 데이터 분석 작업을 위한 대규모 저장소</p>
+                                                    <p>빅 데이터 분석 작업을 위한 하이퍼스케일 리포지토리</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/open-data.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>공개 데이터 세트</h3>
+                                                    <p>기계 학습 모델을 강화하기 위한 큐레이팅된 공용 데이터 세트</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3785,6 +3879,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
                                                     <p>완전히 관리되는 SaaS(Search-as-a-Service)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/open-data.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>공개 데이터 세트</h3>
+                                                    <p>기계 학습 모델을 강화하기 위한 큐레이팅된 공용 데이터 세트</p>
                                                 </div>
                                             </div>
                                         </div>

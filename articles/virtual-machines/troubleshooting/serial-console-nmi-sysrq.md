@@ -1,6 +1,6 @@
 ---
 title: SysRq 및 NMI 호출에 대한 Azure 직렬 콘솔 | Microsoft Docs
-description: Azure Virtual Machines에서 SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
+description: Azure Virtual Machines에서 SysRq 및 NMI 호출에 대한 직렬 콘솔 사용입니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 8ae9062a5e154f457f86dd7f3fbed7bda8580c88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad29bbd038c8982778f2dbca63756f6995077dce
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306936"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204912"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 

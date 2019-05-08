@@ -59,6 +59,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>임시 테이블
+
 임시 테이블은 세션 기간 동안만 유지됩니다. 다른 사용자가 임시 결과를 보지 못하도록 하고 또한 정리에 대한 필요성을 줄이기 위해 임시 테이블을 사용할 수 있습니다.  임시 테이블은 빠른 성능을 제공하기 위해 로컬 저장소를 활용합니다.  자세한 내용은 [임시 테이블](sql-data-warehouse-tables-temporary.md)을 참조하세요.
 
 ### <a name="external-table"></a>외부 테이블
