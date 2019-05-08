@@ -44,7 +44,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 SQL Data Warehouse에 대한 TDE를 사용하지 않으려면 다음 단계를 따르세요.
 
 1. master 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **master** 데이터베이스에 연결합니다
-2. 다음 문을 실행하여 데이터베이스 암호화를 비활성화합니다.
+2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
@@ -58,7 +58,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ## <a name="verifying-encryption"></a>암호화 확인
 SQL Data Warehouse에 대한 암호화 상태를 확인하려면 다음 단계를 따르세요.
 
-1. master 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **master** 또는 인스턴스 데이터베이스에 연결합니다
+1. master 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버 로그인을 사용하여 **master** 또는 인스턴스 데이터베이스에 연결합니다.
 2. 다음 문을 실행하여 데이터베이스 암호화를 확인합니다.
 
 ```sql
