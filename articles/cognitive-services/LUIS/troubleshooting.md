@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894460"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072761"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -282,27 +282,19 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 예, 사용량을 산정하는 데 필요한 연결이 있는 경우 이러한 시나리오에 LUIS [컨테이너](luis-container-howto.md)를 사용할 수 있습니다. 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Build 2018 Conference에서 Language Understanding 기능이나 데모에 대해 들어보았으나 어떻게 지칭하는지 기억이 나지 않습니다.
+## <a name="migrating-to-the-next-version"></a>다음 버전으로 마이그레이션
 
-Build 2018 Conference에서는 다음 기능이 발표되었습니다.
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>V3 API 미리 보기를 마이그레이션하려면 어떻게 하나요? 
 
-|name|Content|
-|--|--|
-|향상된 기능|[정규식](luis-concept-data-extraction.md##regular-expression-entity-data) 엔터티 및 [핵심 구](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) 엔터티
-|패턴|패턴 [개념](luis-concept-patterns.md), [자습서](luis-tutorial-pattern.md), [방법](luis-how-to-model-intent-pattern.md)<br>예외에 대한 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 포함하는 [Patterns.Any](luis-concept-entity-types.md) 엔터티<br>[역할](luis-concept-roles.md) 개념|
-|통합|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)과 [감정 분석](luis-how-to-publish-app.md#enable-sentiment-analysis) 통합<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech)에 [Speech SDK](https://aka.ms/SpeechSDK)와 음성 초기화 통합|
-|Dispatch 도구|[BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools)의 일부로서, 봇에서의 더 나은 의도 인식을 위해 여러 LUIS 및 QnA Maker 앱을 단일 LUIS 앱에 결합하기 위한 Dispatch 명령줄 [도구](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)
+참조 [LUIS 앱에 대 한 API v2-v3 마이그레이션 가이드](luis-migration-api-v3.md)
 
-추가적인 작성 [API 경로](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)가 포함되었습니다.
+## <a name="build-2019-conference-announcements"></a>빌드 2019 컨퍼런스에서 발표
 
-비디오:
-* [Azure Friday(빌드 2018): Cognitive Services - 언어(LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - Language Understanding Service의 새로운 기능](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 Session - 봇 인텔리전스, 음성 기능 및 NLU 모범 사례](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS 업데이트](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+다음 기능은 빌드 2019 컨퍼런스에서 발표 된:
 
-프로젝트:
-* [Contoso Cafe 봇](https://github.com/botbuilderbuild2018/build2018demo) 데모 - GitHub의 소스 코드
+* [V3 API 마이그레이션 가이드의 미리 보기](luis-migration-api-v3.md)
+* [향상 된 분석 대시보드](luis-how-to-use-dashboard.md)
+* [미리 빌드된 도메인 향상](luis-reference-prebuilt-domains.md) V2 및 V3 Api를 사용 하 여 작업
 
 ## <a name="next-steps"></a>다음 단계
 

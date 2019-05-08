@@ -61,7 +61,7 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 통계 생성은 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)에 기록됩니다.
 
-생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 실행 하 여 이미 생성 된 통계를 볼 수 있습니다 합니다 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) 명령:
+생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID><16진수 8자리 테이블 ID>입니다. [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) 명령을 실행하여 이미 생성된 통계를 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -78,7 +78,7 @@ Table_name은 표시할 통계가 들어 있는 테이블의 이름입니다. �
 |||
 |-|-|
 | **통계 업데이트의 빈도**  | 일반: 매일 </br> 데이터 로드 또는 변환 후 |
-| **샘플링** |  십억 개보다 적은 행이 있는 경우, 기본 샘플링(20%)을 사용합니다. </br> 십억 개 이상의 행이 있는 경우, 2%의 샘플링을 사용합니다. |
+| **샘플링** | 십억 개보다 적은 행이 있는 경우, 기본 샘플링(20%)을 사용합니다. </br> 십억 개 이상의 행이 있는 경우, 2%의 샘플링을 사용합니다. |
 
 쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 
@@ -389,7 +389,7 @@ UPDATE STATISTICS [schema_name].[table_name];
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS 문을 사용 하기 쉬운 경우 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능 문제가 없는 경우이 방법이 가장 쉽고 완벽 통계가 최신 인지 되도록 합니다.
+UPDATE STATISTICS 문은 사용하기 쉽습니다. 테이블에 대한 *모든* 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다. 성능 문제가 없는 경우, 이 방법은 가장 쉽고 완벽하게 통계가 최신이 되도록 할 수 있습니다.
 
 > [!NOTE]
 > 테이블에 대한 모든 통계를 업데이트하는 경우 SQL Data Warehouse는 각 통계 개체에 대한 테이블을 검색하여 샘플링합니다. 테이블이 크고 많은 열과 통계가 있는 경우 필요에 따라 개별 통계를 업데이트하는 것이 더 효율적일 수 있습니다.

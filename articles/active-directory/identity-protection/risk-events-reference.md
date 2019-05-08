@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709599"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191534"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory ID Protection 위험 이벤트 참조
 
@@ -80,7 +80,9 @@ ms.locfileid: "64709599"
 
 ## <a name="unfamiliar-sign-in-properties"></a>익숙하지 않은 로그인 속성
 
-**검색 유형:** 실시간 **이전 이름:** 알 수 없는 위치에서 로그인
+**검색 유형:** 실시간  
+**이전 이름:** 알 수 없는 위치에서 로그인
+
 
 이 위험 이벤트 유형은 이전 로그인 기록을 고려 (IP, 위도 / 경도 및 ASN) anomalous sign ins를 찾도록 합니다. 시스템은 사용자가 사용한 이전 위치에 대한 정보를 저장하고 이러한 "익숙한" 위치를 고려합니다. 로그인이 익숙한 위치 목록에 없는 위치에서 발생하는 경우 위험 이벤트가 트리거됩니다. 새로 만든된 사용자 됩니다 "학습 모드" 기간에 대 한 알 수 없는 로그인 속성에서 위험 이벤트 해제 됩니다 있지만 당사 알고리즘, 사용자의 동작에 알아봅니다. 학습 모드 기간 동적 및 종속 사용자의 로그인 패턴에 대 한 충분 한 정보를 수집 하는 알고리즘에 얼마나 많은 시간이 걸리는 합니다. 최소 기간은 5 일입니다. 사용자 모드 긴 비활성 기간 후 학습으로 돌아와서 수 있습니다. 또한 시스템은 익숙한 디바이스 및 익숙한 위치에 지리적으로 가까운 위치에서 시도한 로그인을 무시합니다. 
 

@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526710"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023658"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 이전 모델 레지스트리에 등록된 모델을 계속 사용하려면 새 작업 영역으로 마이그레이션해야 합니다. 모델을 마이그레이션하려면 모델을 다운로드하여 새 작업 영역에 다시 등록합니다. 
 
-이전 이미지 레지스트리에 만든 이미지를 계속 사용하려면 새 작업 영역에서 다시 만들어야 합니다. 이러한 이미지는 [이미지 구성 및 만들기](how-to-deploy-and-where.md#configureimage) 섹션에 따라 다시 만들 수 있습니다. 
+이전 이미지 레지스트리에서 만든 이미지를 새 작업 영역으로 직접 마이그레이션할 수 없습니다. 대부분은 이미지를 만들 필요 없이 모델을 배포할 수 있습니다. 필요하다면 새 작업 영역에서 모델의 이미지를 만들 수 있습니다. 자세한 내용은 [기계 학습 모델 관리, 등록, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
 ## <a name="what-about-deployed-web-services"></a>배포된 웹 서비스는 어떻게 되나요?
 

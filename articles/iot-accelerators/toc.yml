@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: 원격 분석 탐색
           items:
-            - name: PowerBI를 사용하여 원격 분석 시각화
+            - name: Power BI를 사용하여 원격 분석 시각화
               href: iot-accelerators-integrate-data-powerbi.md
             - name: 원격 모니터링과 Azure Time Series Insights 통합
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: 산업용 IoT란?
           href: overview-iot-industrial.md
-        - name: OPC 쌍
-          items:
-            - name: OPC 쌍이란?
-              href: overview-opc-twin.md
-            - name: OPC 쌍 아키텍처
-              href: overview-opc-twin-architecture.md
-        - name: OPC 자격 증명 모음
-          items:
-            - name: OPC 자격 증명 모음이란?
-              href: overview-opc-vault.md
-        - name: 연결된 팩터리
-          items:
-            - name: 연결된 팩터리 개요
-              href: iot-accelerators-connected-factory-features.md
-            - name: 연결된 팩터리 아키텍처
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: OPC 쌍이란?
+          href: overview-opc-twin.md
+        - name: OPC 자격 증명 모음이란?
+          href: overview-opc-vault.md
+        - name: 연결된 팩터리란?
+          href: iot-accelerators-connected-factory-features.md
     - name: 빠른 시작
       items:
         - name: 연결된 팩터리 솔루션 사용
           href: quickstart-connected-factory-deploy.md
+    - name: 개념
+      items:
+        - name: OPC 쌍 아키텍처
+          href: overview-opc-twin-architecture.md
+        - name: 연결된 팩터리 아키텍처
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: 방법 가이드
       items:
         - name: 연결된 팩터리

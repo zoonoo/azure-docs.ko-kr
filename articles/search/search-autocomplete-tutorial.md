@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126745"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025148"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>예제: Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
 
@@ -23,7 +23,7 @@ ms.locfileid: "61126745"
 
 + *제안* 제안 결과가 입력할 때 각 제안이 지금까지 입력 한 내용을 일치 하는 인덱스에서 단일 결과 생성 합니다. 
 
-+ *자동 완성*, [미리 보기 기능](search-api-preview.md)를 "완료" 단어 또는 구 사용자가 현재 입력입니다. 결과 반환 하는 대신 실행할 결과 반환할 수 있습니다 하는 쿼리를 완료 합니다. 제안 사항이 있는 경우와 마찬가지로 완료 된 단어 또는 구 쿼리에서 않음에서 서술 된 인덱스에서 일치 항목을 합니다. 서비스는 인덱스에 0 개 결과 반환 하는 쿼리를 제공 하지 않습니다.
++ *자동 완성* "완료" 단어 또는 구 사용자가 현재 입력입니다. 결과 반환 하는 대신 실행할 결과 반환할 수 있습니다 하는 쿼리를 완료 합니다. 제안 사항이 있는 경우와 마찬가지로 완료 된 단어 또는 구 쿼리에서 않음에서 서술 된 인덱스에서 일치 항목을 합니다. 서비스는 인덱스에 0 개 결과 반환 하는 쿼리를 제공 하지 않습니다.
 
 다운로드 하 고 샘플 코드 실행할 수 **DotNetHowToAutocomplete** 이러한 기능을 평가 합니다. 채워진 미리 작성 된 인덱스를 대상으로 하는 샘플 코드 [NYCJobs 데모 데이터](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)입니다. NYCJobs 인덱스에 포함 되어는 [Suggester 구문을](index-add-suggesters.md), 제안 또는 자동 완성을 사용 하 여에 대 한 요구 사항인 합니다. 샌드박스 서비스에서 호스트 되는 준비 된 인덱스를 사용할 수 있습니다 또는 [고유한 인덱스를 채우지](#configure-app) NYCJobs 샘플 솔루션에서 데이터 로더를 사용 합니다. 
 

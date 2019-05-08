@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1553bede87aab118b1fdddae20201a5d283a7b24
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 2a8ab0d22321be0095743228463ac859925f0847
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870464"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147494"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v021-alpha"></a>상태 모니터 v2 API: Get-ApplicationInsightsMonitoringStatus (v0.2.1 알파)
 
@@ -129,3 +129,7 @@ Application Insights SDK를 포함 하 여 모든 DLL의 버전을 식별 하는
 **옵션**. InspectProcess 함께만 사용합니다. 이 스위치는 추가 도구를 다운로드 하려면 사용자 프롬프트를 건너뜁니다.
 
 
+## <a name="next-steps"></a>다음 단계
+
+ 상태 모니터 v2 사용 하 여 더 수행 합니다.
+ - 가이드를 사용 하 여 [문제 해결](status-monitor-v2-troubleshoot.md) v2 상태 모니터입니다.

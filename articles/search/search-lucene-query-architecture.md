@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198821"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024615"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -54,7 +54,7 @@ ms.locfileid: "60198821"
 다음 예제는 [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 사용하여 Azure Search로 보낼 수 있는 검색 요청입니다.  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2017-11-11 
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -270,7 +270,7 @@ Spacious,||air-condition*+"Ocean view"
 | 용어 | 문서 목록 |
 |------|---------------|
 | air | 3
-| 및 | 4
+| and | 4
 | beach | 1
 | conditioned | 3
 | comfortable | 3
@@ -281,7 +281,7 @@ Spacious,||air-condition*+"Ocean view"
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
-| 날짜 |2
+| on |2
 | quiet | 4
 | rooms  | 1, 3
 | secluded | 4
@@ -291,7 +291,7 @@ Spacious,||air-condition*+"Ocean view"
 | to | 1
 | view | 1, 2, 3
 | walking | 1
-| 포함 문자열 | 3
+| 다음으로 바꿀 수 있습니다. | 3
 
 
 **쿼리 용어를 인덱싱된 용어와 연결**

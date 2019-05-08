@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: cc333cc1a46d6d7e72faeeb8a4e59a70cc0f27ed
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 84821a24ceb8624a1a7033c43c44548fe5eff315
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925540"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993133"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -640,6 +640,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+여기서 중간 인증서를 다운로드할 수 없는 네트워크 제약 조건으로 인해 유효성 검사 중의 경우, 중간 인증서를 고정할 수 있습니다. 그러나 Azure 표준 PKI 연습에 따라 인증서를 롤오버 됩니다. 고정 된 인증서 롤오버가 발생 하는 경우 업데이트 해야 합니다. 계획 된 중간 인증서를 업데이트 하는 변경 될 때마다 Azure 블로그 업데이트 되 고 Azure 고객에 게 알림이 표시 됩니다. 중간 인증서를 찾을 수 있습니다 [여기](https://www.microsoft.com/pki/mscorp/cps/default.htm)합니다. 각 지역에 대 한 중간 인증서는 다를 수 있습니다.
+
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server의 장애 조치(failover) 클러스터링
 
 특정 시나리오에서 장애 조치(failover) 클러스터링을 사용하여 Instance Metadata Service를 쿼리할 때 라우팅 테이블에 경로를 추가해야 합니다.
@@ -688,11 +690,13 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ### <a name="custom-data"></a>사용자 지정 데이터
 Instance Metadata Service는 사용자 지정 데이터에 액세스할 수 있도록 VM에 대 한 기능을 제공 합니다. 이진 데이터 64KB 보다 작은 해야 하 고 base64 인코딩 양식에서 VM에 제공 됩니다. 사용자 지정 데이터를 사용 하 여 VM을 만드는 방법에 대 한 세부 정보를 참조 하세요 [CustomData 사용 하 여 가상 머신을 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)합니다.
 
+사용자 지정 데이터를 VM에서 실행 중인 모든 프로세스에 사용할 수 있습니다. 고객은 사용자 지정 데이터를 비밀 정보를 삽입 하지 않습니다 하는 것이 좋습니다.
+
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>가상 컴퓨터에서 사용자 지정 데이터를 검색합니다.
 Instance Metadata Service는 base64로 인코딩된 양식에서 VM에 사용자 지정 데이터를 제공합니다. 다음 예에서는 base64로 인코딩된 문자열을 디코딩합니다.
 
 > [!NOTE]
-> 이 예제에서는 사용자 지정 데이터는 데이터를 읽는, "내 super 암호."를 ASCII 문자열로 해석 됩니다.
+> 이 예제에서는 사용자 지정 데이터는 데이터를 읽는, "내 사용자 지정 합니다."를 ASCII 문자열로 해석 됩니다.
 
 **요청**
 
@@ -703,7 +707,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **응답**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM 내의 서로 다른 언어를 사용하여 메타데이터 서비스를 호출하는 예

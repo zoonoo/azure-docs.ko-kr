@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010195"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020979"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
-Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](speech-devices-sdk-qsg.md) 또는 [REST API](rest-apis.md)를 사용하여 애플리케이션, 도구 및 디바이스에 음성을 쉽게 추가할 수 있습니다.
+Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart) 또는 [REST API](rest-apis.md)를 사용하여 애플리케이션, 도구 및 디바이스에 음성을 쉽게 추가할 수 있습니다.
 
 > [!IMPORTANT]
 > Speech Services는 Bing Speech API, Translator Speech 및 Custom Speech 대신 사용되었습니다. 마이그레이션 지침에 대해서는 *방법 가이드 > 마이그레이션*을 참조하세요.
@@ -30,6 +30,7 @@ Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 �
 |---------|---------|-------------|-----|------|
 | [음성 텍스트 변환](speech-to-text.md) | 음성 텍스트 변환 | 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. [LUIS(Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [일괄 처리 기록](batch-transcription.md) | 일괄 처리 기록을 사용하면 대량의 비동기 음성 텍스트 변환 기록을 수행할 수 있습니다. 이 서비스는 사용자 지정 및 모델 관리와 같은 엔드포인트를 사용하는 REST 기반 서비스입니다. | 아니요 | [예](https://westus.cris.ai/swagger/ui/index) |
+| | [대화 전사 서비스](conversation-transcription-service.md) | 실시간 음성 인식, 화자 식별 및 다이어리화를 가능하게 해줍니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다. | 예 | 아니요 |
 | | [사용자 지정](#customize-your-speech-experience) | 고유한 환경에서 인식 및 기록을 위해 음성 텍스트 변환을 사용하는 경우 사용자 지정 음향, 언어 및 발음 모델을 만들고 학습하여 주변 소음 또는 산업용 어휘를 처리할 수 있습니다. | 아니요 | [예](https://westus.cris.ai/swagger/ui/index) |
 | [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [사용자 지정](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 아니요 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -39,7 +40,8 @@ Azure Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 �
 
 Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
-* 2019년 4월 - Windows 및 Linux에서 C++, C# 및 Java용 텍스트 음성 변환(베타)을 지원하는 Speech SDK 1.4.0을 출시했습니다. 또한 SDK는 이제 Linux에서 C++ 및 C#용 MP3 및 Opus/Ogg 오디오 형식을 지원합니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요. 
+* 2019년 5월 - Speech SDK 1.5.0이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
+* 2019년 4월 - Windows 및 Linux에서 C++, C# 및 Java용 텍스트 음성 변환(베타)을 지원하는 Speech SDK 1.4.0을 출시했습니다. 또한 SDK는 이제 Linux에서 C++ 및 C#용 MP3 및 Opus/Ogg 오디오 형식을 지원합니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2019년 3월 - 특정 지역에서 사용할 수 있는 전체 음성 목록을 반환하는 새로운 TTS(텍스트 음성 변환) 엔드포인트가 제공됩니다. 또한 새로운 지역에서 TTS가 지원됩니다. 자세한 내용은 [Text-to-speech API 참조(REST)](rest-text-to-speech.md)를 참조하세요.
 * 2019년 2월 - [Unity(베타)](quickstart-csharp-unity.md) 지원을 포함하는 Speech SDK 1.3.0을 출시했습니다. 오디오에 대한 스트리밍 원본을 선택할 수 있는 `AudioInput` 클래스에 대한 지원이 추가되었습니다. 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
 * 2018년 12월 - [Python](quickstart-python.md) 및 [Node.js](quickstart-js-node.md) 뿐만 아니라 Ubuntu 18.04 LTS 지원을 포함하는 Speech SDK 1.2.0을 출시했습니다. 자세한 내용은 [릴리스 정보](releasenotes.md)를 참조하세요.

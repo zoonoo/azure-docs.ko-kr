@@ -1,7 +1,7 @@
 ---
 title: 필터 및 order-by 절의 OData 식 구문 - Azure Search
 description: Azure Search 쿼리의 필터 및 order-by 식 OData 구문입니다.
-ms.date: 03/27/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1f77a9e0a3308098e5f6c699f2fc79e5c437f17
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317103"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024269"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Azure Search에서 필터 및 order-by 절의 OData 식 구문
 
@@ -36,7 +36,7 @@ Azure Search는 **$filter** 및 **$orderby** 식에 대해 OData 식 구문 하�
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
     }
@@ -45,7 +45,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 다른 일반적인 사용 사례는 필터 조합 패싯입니다. 여기서 필터는 사용자 기반의 패싯 탐색 선택에 따라 쿼리 노출 영역을 줄여줍니다.
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "search": "test",
       "facets": [ "tags", "baseRate,values:80|150|220" ],

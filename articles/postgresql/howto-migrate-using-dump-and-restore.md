@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL에서 덤프 및 복원 방법
-description: Azure Database for PostgreSQL에서 PostgreSQL 데이터베이스를 덤프 파일로 추출하고 pg_dump에 의해 생성된 파일에서 복원하는 방법을 설명합니다.
+title: 덤프 및 Azure Database for PostgreSQL-단일 서버 복원 하는 방법
+description: PostgreSQL 데이터베이스를 덤프 파일로 추출 하 고 PostgreSQL-단일 서버에 대 한 Azure Database에서 pg_dump에 의해 생성 된 파일에서 복원 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2018
-ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420345"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066976"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html)를 사용하여 PostgreSQL 데이터베이스를 덤프 파일로 추출하고 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html)를 사용하여 pg_dump에 의해 생성된 보관 파일에서 PostgreSQL 데이터베이스를 복원할 수 있습니다.

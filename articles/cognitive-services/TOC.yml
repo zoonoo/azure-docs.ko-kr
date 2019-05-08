@@ -13,7 +13,7 @@
   items:
     - name: 계정 만들기
       href: cognitive-services-apis-create-account.md
-    - name: Authentication
+    - name: 인증
       href: authentication.md
 - name: 리소스
   items:
@@ -27,6 +27,8 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: 제품 사용자 의견 제공
+      href: 'https://cognitive.uservoice.com/'
     - name: 준수 사항
       href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
     - name: 기술 자료

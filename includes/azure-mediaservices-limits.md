@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557161"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150320"
 ---
 >[!NOTE]
 >고정 되지 않는 리소스에 대 한 할당량 증가 요청 하려면 지원 티켓을 엽니다. 더 높은 한도 가져오려고 시도할 때 추가 Azure Media Services 계정을 만들지 마세요.
@@ -50,12 +50,12 @@ ms.locfileid: "60557161"
 >[!NOTE]
 > 항상 동일한 날짜를 사용 하 고 액세스 권한, 하는 경우 동일한 정책 ID을 사용 합니다. 정보 및 예제를 참조 하세요 [Media Services.NET SDK를 사용 하 여 자산 관리](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies)합니다.
 
-<sup>7</sup>처리 서비스에서 미디어 프로세서 중 하나를 사용 하 여 Media Services에서 자산에 콘텐츠를 업로드 하는 경우 지원 되는 최대 파일 크기를 확인 합니다. 같은 미디어 인코더 표준 인코더 및 미디어 인코더 Premium 워크플로 또는 분석 엔진 Face Detector와 같은 자산에 포함 됩니다.
+<sup>7</sup>단일 blob은 현재 최대 5TB Azure Blob Storage에 대 한 지원 되는 최대 크기입니다. Media services 서비스에서 사용 되는 VM 크기에 따라 추가 제한이 적용 됩니다. 크기 제한에 업로드 하는 파일 및 처리 (인코딩 또는 분석) 하는 Media Services의 결과로 생성 된 파일에 적용 됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 
 
-단일 blob에 대해 지원 되는 최대 크기는 현재 최대 5TB Azure Blob Storage에 있습니다. Media services 서비스에서 사용 되는 VM 크기에 따라 추가 제한이 적용 됩니다. 다음 표에서 미디어 예약 단위 S1, S2 및 S3에서 제한을 보여 줍니다. 원본 파일이 표에 정의 된 제한 보다 큰 경우 인코딩 작업이 실패 합니다. 4k 확인 원본을 긴 기간을 인코딩하면 필요한 성능을 얻기 위해 S3 미디어 예약 단위를 사용 해야 하 고 있습니다. S3 미디어 예약 단위에 대 한 260 10GB 제한을 보다 큰 4k 콘텐츠가 경우 문의 amshelp@microsoft.com 에 잠재적인 완화 방법을 시나리오를 지원 하도록 합니다.
+다음 표에서 미디어 예약 단위 S1, S2 및 S3에서 제한을 보여 줍니다. 원본 파일이 표에 정의 된 제한 보다 큰 경우 인코딩 작업이 실패 합니다. 4k 확인 원본을 긴 기간을 인코딩하면 필요한 성능을 얻기 위해 S3 미디어 예약 단위를 사용 해야 하 고 있습니다. S3 미디어 예약 단위에 대 한 260 10GB 제한을 보다 큰 4k 콘텐츠가 경우 문의 amshelp@microsoft.com 에 잠재적인 완화 방법을 시나리오를 지원 하도록 합니다.
 
-| 미디어 예약 단위 유형 | 최대 입력된 크기 (GB)| 
-| --- | --- | 
-|S1 | 325|
-|S2 | 640|
-|S3 | 260|
+|미디어 예약 단위 유형   |최대 입력된 크기 (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|

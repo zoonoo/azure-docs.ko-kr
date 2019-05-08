@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678992"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144985"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용 하 여 기술 자료를 개선 하기 위해
 
@@ -75,7 +75,7 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 ## <a name="add-active-learning-suggestion-to-knowledge-base"></a>기술 자료에 활성 학습 제안 추가
 
-1. 제안된 질문을 확인하려면 **편집** 기술 자료 페이지에서 **제안 표시**를 선택합니다. 
+1. 제안 된 질문을 확인 하기 위해 합니다 **편집** 기술 자료 페이지에서 **보기 옵션**을 선택한 후 **활성 학습 제안 표시**합니다. 
 
     [![포털의 편집 섹션에서 활성 학습의 새로운 질문 대안을 확인 하기 위해 제안 표시를 선택 합니다.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
@@ -169,12 +169,12 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|Name|Type|목적|
+|HTTP 요청 속성|이름|Type|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |호스트 하위 도메인|QnAMaker 리소스 이름|문자열|Azure 구독에서 QnA Maker에 대 한 호스트 이름입니다. 기술 자료를 게시 한 후 설정 페이지에서 제공 됩니다. |
 |헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은입니다. `application/json`|
-|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|헤더|권한 부여|string|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |Post 본문|JSON 개체|JSON|교육 피드백|
 
 JSON 본문을 몇 가지 설정은 다음과 같습니다.

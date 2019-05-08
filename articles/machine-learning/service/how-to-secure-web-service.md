@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: ece32754ae51bde5db52d20ab44f0d748bf46533
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 50e42172af6ca6b966f9f60d3e037f9ae3dc5cbe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943932"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023773"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL을 사용하여 Azure Machine Learning 서비스로 웹 서비스 보호
 
@@ -72,7 +72,36 @@ TLS 및 SSL 둘 다 __디지털 인증서__, 암호화 및 id 확인을 수행 �
 
 Ssl 사용 서비스를 배포 (또는 다시 배포)를 설정 합니다 `ssl_enabled` 매개 변수를 `True`해당 되는, 합니다. `ssl_certificate` 매개 변수를 __인증서__ 파일의 값으로 설정하고 `ssl_key`를 __키__ 파일의 값으로 설정합니다.
 
-+ **AKS(Azure Kubernetes Service)에서 배포**
++ **시각적 인터페이스-보안 Azure Kubernetes Service (AKS) 배포에 대 한 만들기** 
+    
+    시각적 인터페이스에 대 한 안전한 배포 계산을 만들려면 하려는 경우이를 참조 하세요. AKS 클러스터를 프로 비전 할 때 SSL 관련 매개 변수에 대 한 값을 입력 한 다음 새 AKS를 만듭니다.  코드 조각은 아래를 참조 하세요.
+    
+
+    > [!TIP]
+    >  시작 하는 Python SDK를 사용 하 여 잘 모르는 경우 [Azure Machine Learning Python SDK 개요.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+
+
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+
+    # Provide SSL-related parameters when provisioning the AKS cluster
+    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
+ 
+    aks_name = 'secure-aks'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace = ws,
+                                        name = aks_name,
+                                        provisioning_configuration = prov_config)
+    
+    # Wait for the create process to complete
+    aks_target.wait_for_completion(show_output = True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
+    
+   
+
++ **Azure Kubernetes Service (AKS)에서 배포 및 FPGA**
 
   AKS에 배포 하는 경우 새 AKS 클러스터를 생성 하거나 기존 연결 합니다. 새 클러스터를 사용 하 여 만드는 [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) 사용 하 여 기존 클러스터를 연결 하는 동안 [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)합니다. 에 구성 개체를 반환 하는 둘 다는 `enable_ssl` 메서드.
 
@@ -142,6 +171,8 @@ Ssl 사용 서비스를 배포 (또는 다시 배포)를 설정 합니다 `ssl_e
   아래 그림과 같이 AKS 클러스터 "공용 IP 주소"의 "구성" 탭에서 DNS를 업데이트합니다. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함하는 리소스 그룹 아래에 생성된 리소스 종류 중 하나로 표시됩니다.
 
   ![Azure Machine Learning 서비스: SSL로 웹 서비스 보호](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+
 
 ## <a name="next-steps"></a>다음 단계
 방법 배우기:

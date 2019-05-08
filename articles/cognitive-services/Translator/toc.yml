@@ -228,6 +228,8 @@
           href: custom-translator/how-to-manage-settings.md
         - name: 허브에서 마이그레이션
           href: custom-translator/how-to-migrate.md
+        - name: 지원되지 않는 언어 배포
+          href: custom-translator/unsupported-language-deployments.md
     - name: 리소스
       items:
         - name: 언어 지원

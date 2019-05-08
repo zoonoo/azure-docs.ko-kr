@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112201"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190829"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -249,6 +249,10 @@ client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type �
 | `timestamp` | 오류가 발생한 시간입니다. |
 | `trace_id` | 진단에 도움이 되는 요청에 대한 고유 식별자입니다. |
 | `correlation_id` | 전체 구성 요소에서 진단에 도움이 되는 요청에 대한 고유 식별자입니다. |
+
+> [!NOTE]
+> V2 토큰을 받을 수 있는 응용 프로그램을 위해에서 azure portal 내의 응용 프로그램의 매니페스트 파일을 업데이트할 수 있습니다. 특성을 추가할 수 있습니다 `accessTokenAcceptedVersion` 값을 2로 설정 하 고 `"accessTokenAcceptedVersion": 2`입니다. 문서를 확인 하십시오 [응용 프로그램 매니페스트](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) 동일한 자세히 파악할 수 있습니다. 응용 프로그램이 기본적으로 현재 v1 토큰을 받습니다. 매니페스트에서이 특성에 대 한 값이 1로 설정 하는 응용 프로그램/웹 API 매니페스트 내에서 정의 되지 않은이 고 따라서 응용 프로그램은 v1 토큰을 수신 합니다.  
+
 
 ## <a name="use-a-token"></a>토큰 사용
 

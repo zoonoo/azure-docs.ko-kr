@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL의 백업 및 복원
-description: Azure Database for PostgreSQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
+title: 백업 및 Azure Database for PostgreSQL-단일 서버 복원
+description: 자동 백업 및 복원에 Azure Database for PostgreSQL 서버-단일 서버에 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456260"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068864"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 백업 및 복원
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>백업 및 Azure Database for PostgreSQL-단일 서버 복원
 
 Azure Database for PostgreSQL은 자동으로 서버 백업을 만들어 사용자가 로컬로 구성한 중복 저장소 또는 지역 중복 저장소에 저장합니다. 백업을 사용하여 특정 시점의 서버를 복원할 수 있습니다. 백업 및 복원은 실수로 인한 손상이나 삭제로부터 데이터를 보호하므로 비즈니스 연속성 전략의 필수적인 부분입니다.
 

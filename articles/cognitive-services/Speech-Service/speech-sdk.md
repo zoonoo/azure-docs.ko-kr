@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: wolfma
-ms.openlocfilehash: bb28972469ca33a7fb33a50a8ce2e9bf326222b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a16874dc9536518874fb6a9d1f219b3b31e16364
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425800"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020419"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -33,27 +33,36 @@ Windows의 경우 다음 언어를 지원합니다.
 
 * C#(UWP 및 .NET), C++: 최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. 이 패키지에는 관리(.NET) 라이브러리 외에도 32비트 및 64비트 클라이언트 라이브러리가 포함되어 있습니다. SDK는 NuGet을 사용하여 Visual Studio에서 설치할 수 있습니다. **Microsoft.CognitiveServices.Speech**를 검색합니다.
 
-* Java: 최신 버전의 Speech SDK Maven 패키지를 참조 및 사용할 수 있으며, 이 패키지는 Windows x64만 지원합니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`을 종속성으로 참조합니다.
+* Java: 최신 버전의 Speech SDK Maven 패키지를 참조 및 사용할 수 있으며, 이 패키지는 Windows x64만 지원합니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`을 종속성으로 참조합니다.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> 현재는 PC에서 Ubuntu 16.04 및 18.04만 지원됩니다(C++ 개발용은 x86 또는 x64, .NET Core, Java 및 Python용은 x64).
+> 현재 PC에서 Ubuntu 16.04, Ubuntu 18.04 및 Debian 9 지원 (x86 또는 x64에 대 한 C++ 개발 및.NET Core, Java 및 Python에 대 한 x64).
 
-다음 셸 명령을 실행하여 필수 컴파일러 및 라이브러리가 설치되어 있는지 확인합니다.
+다음 셸 명령을 실행 하 여 설치 하 여 필요한 라이브러리 했는지 확인 합니다.
+
+Ubuntu에서:
 
 ```sh
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+Debian 9:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 * C#: 최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.4.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.5.0" />
   ```
 
-* Java: 최신 버전의 Speech SDK Maven 패키지를 참조 및 사용할 수 있습니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`을 종속성으로 참조합니다.
+* Java: 최신 버전의 Speech SDK Maven 패키지를 참조 및 사용할 수 있습니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`을 종속성으로 참조합니다.
 
 * C++: SDK를 [.tar package](https://aka.ms/csspeech/linuxbinary)로 다운로드하고 원하는 디렉터리에 파일의 압축을 풉니다. 다음 표는 SDK 폴더 구조를 보여줍니다.
 
@@ -69,7 +78,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2
 
 ### <a name="android"></a>Android
 
-Android용 Java SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다. `https://csspeechstorage.blob.core.windows.net/maven/`의 Maven 리포지토리에서 패키지 `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`로 호스트됩니다.
+Android용 Java SDK는 필요한 라이브러리와 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다. `https://csspeechstorage.blob.core.windows.net/maven/`의 Maven 리포지토리에서 패키지 `com.microsoft.cognitiveservices.speech:client-sdk:1.5.0`로 호스트됩니다.
 
 Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이 변경합니다.
 
@@ -82,7 +91,7 @@ Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이
 * 모듈 수준의 build.gradle 파일에서 `dependencies` 섹션에 다음을 추가합니다.
 
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.4.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.5.0'
   ```
 
 Java SDK는 [Speech Devices SDK](speech-devices-sdk.md)에도 포함됩니다.

@@ -1,21 +1,21 @@
 ---
-title: Azure Database for PostgreSQL의 Query Performance Insight
-description: 이 문서에서는 Azure Database for PostgreSQL의 Query Performance Insight 기능을 설명합니다.
+title: Azure Database for PostgreSQL-단일 서버에서에서 query Performance Insight
+description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 Query Performance Insight 기능을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.openlocfilehash: 56abdd819e78312e64209078c3966826385df7bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564410"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067552"
 ---
 # <a name="query-performance-insight"></a>쿼리 
 
-**적용 대상:** Azure Database for PostgreSQL 9.6 및 10
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 9.6 및 10
 
 Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼리, 쿼리가 시간의 경과에 따라 변경되는 방식 및 쿼리에 영향을 주는 대기 등을 빠르게 파악할 수 있습니다.
 

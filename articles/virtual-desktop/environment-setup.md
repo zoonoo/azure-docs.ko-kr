@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870322"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142378"
 ---
 # <a name="windows-virtual-desktop-preview-environment"></a>Windows 가상 데스크톱 미리 보기 환경
 
@@ -63,5 +63,5 @@ Windows Virtual Desktop 테 넌 트를 설정 하는 방법에 알아보려면 �
 
 Windows 가상 데스크톱에 연결 하는 방법에 알아보려면 다음 문서 중 하나를 참조 하세요.
 
-- [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](connect-windows-7-and-10.md)
-- [Windows Virtual Desktop 미리 보기 웹 클라이언트에 연결](connect-web.md)
+- [Windows 10 또는 Windows 7에서 연결](connect-windows-7-and-10.md)
+- [웹 브라우저에서 연결](connect-web.md)

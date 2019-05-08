@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925147"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142364"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -412,7 +412,7 @@ SQL Database에 다음 테이블이 있는 경우:
 ## <a name="parquet-format"></a>Parquet 형식
 
 >[!NOTE]
->Data Factory 소개 새 Parquet 형식으로 데이터 집합을 참조 하십시오 [Parquet 형식](format-delimited-text.md) 세부 정보가 포함 된 문서입니다. 파일 기반 데이터 저장소 데이터 집합의 다음 구성으로 계속 지원-이전 버전과 compabitility입니다. 앞으로 새 모델을 사용 하도록 제안 됩니다.
+>Data Factory 소개 새 Parquet 형식으로 데이터 집합을 참조 하십시오 [Parquet 형식](format-parquet.md) 세부 정보가 포함 된 문서입니다. 파일 기반 데이터 저장소 데이터 집합의 다음 구성으로 계속 지원-이전 버전과 compabitility입니다. 앞으로 새 모델을 사용 하도록 제안 됩니다.
 
 Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
 

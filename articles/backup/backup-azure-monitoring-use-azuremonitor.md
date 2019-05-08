@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60700246"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190516"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Azure Monitor를 사용 하 여 모니터링
 
@@ -109,7 +109,7 @@ Azure Monitor에서는 수행할 수 있는 최신 작업 영역에서 자신의
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-필요한 경우 Kusto 쿼리를 편집, 오른쪽 임계값 (경고 발생 수를 결정 합니다)를 선택, 올바른 기간 (시간 쿼리를 실행할 창)와 빈도입니다. 에 대 한 예를 들어: 임계값은 0 보다 큰, 기간은 5 분이 고 빈도가 5 분, 다음 규칙은 번역으로 "지난 5 분 동안 5 분 마다 쿼리를 실행 및 결과 수가 0 보다 큰 경우 선택한 작업 그룹을 통해 알림"
+필요한 경우 Kusto 쿼리를 편집, 오른쪽 임계값 (경고 발생 수를 결정 합니다)를 선택, 올바른 기간 (시간 쿼리를 실행할 창)와 빈도입니다. 예를 들면 다음과 같습니다. 임계값은 0 보다 큰, 기간은 5 분이 고 빈도가 5 분, 다음 규칙은 번역으로 "지난 5 분 동안 5 분 마다 쿼리를 실행 및 결과 수가 0 보다 큰 경우 선택한 작업 그룹을 통해 알림"
 
 #### <a name="action-group-integration"></a>작업 그룹 통합
 

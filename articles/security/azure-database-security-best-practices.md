@@ -1,9 +1,9 @@
 ---
-title: Azure 데이터베이스 보안 모범 사례 | Microsoft Docs
+title: 데이터베이스 보안 모범 사례-Microsoft Azure
 description: 이 문서에서는 Azure 데이터베이스 보안을 위한 일단의 모범 사례를 제공합니다.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -13,27 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: terrylan
+ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587536"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187754"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 데이터베이스 보안 모범 사례
+이 문서에서는 데이터베이스 보안 모범 사례를 설명 합니다.
+
+모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 의견 및 기술은 시간이 지남에 따라 변경 하 고이 문서를 정기적으로 변경 내용을 반영 하도록 업데이트 됩니다.
+
+## <a name="secure-databases"></a>데이터베이스 보안
 보안은 데이터베이스 관리에서 가장 중요하며 항상 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)의 최우선 순위였습니다. HIPAA, ISO 27001/27002, PCI DSS 수준 1을 포함한 대부분의 규정 또는 보안 요구 사항을 충족할 수 있도록 데이터베이스를 철저히 보호할 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure 보안 센터 사이트](https://azure.microsoft.com/support/trust-center/services/)에서 제공합니다. 또한 규정 요구 사항에 따라 특정 Azure 데이터 센터에 데이터베이스를 배치하도록 선택할 수도 있습니다.
-
-이 문서에서는 Azure 데이터베이스 보안 모범 사례 모음에 대해 설명합니다. 이러한 모범 사례는 Azure 데이터베이스 보안 경험과 여러분과 같은 고객의 경험에서 얻은 것입니다.
-
-각 모범 사례에 대해 다음과 같이 설명합니다.
-
--   각 모범 사례
--   해당 모범 사례를 사용해야 하는 이유
--   해당 모범 사례를 사용하지 않을 경우에 발생할 수 있는 결과
--   해당 모범 사례를 사용하는 방법을 알아보는 방법
-
-이 Azure 데이터베이스 보안 모범 사례 문서는 이 문서가 작성된 당시에 있었던 합의된 의견과 Azure 플랫폼 기능 및 특징 집합을 기반으로 합니다. 이 문서는 시간이 지남에 따라 변화하는 의견 및 기술을 반영하도록 주기적으로 업데이트 됩니다.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>방화벽 규칙을 사용하여 데이터베이스 액세스 제한
 Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 애플리케이션의 관계형 데이터베이스 서비스를 제공합니다. 액세스 보안을 제공하기 위해 SQL Database는 다음을 사용하여 액세스를 제어합니다.

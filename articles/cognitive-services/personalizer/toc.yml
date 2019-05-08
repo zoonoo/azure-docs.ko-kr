@@ -1,0 +1,70 @@
+- name: Personalizer 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Personalizer란?
+      href: what-is-personalizer.md
+      displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+- name: 빠른 시작
+  items:
+    - name: 피드백 루프 만들기 및 사용
+      href: csharp-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, c#'
+- name: 개념
+  items:
+    - name: Personalizer의 작동 원리
+      href: how-personalizer-works.md
+      displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
+    - name: Personalizer는 어디서 사용할 수 있나요?
+      href: where-can-you-use-personalizer.md
+      displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: 윤리 및 사용 책임
+      href: ethics-responsible-use.md
+      displayName: 'best practice, design'
+    - name: 기본 개념
+      items:
+        - name: '기능: 작업 및 컨텍스트'
+          href: concepts-features.md
+          displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: 보충 학습
+          href: concepts-reinforcement-learning.md
+          displayName: 'RL, contextual bandits, Vowpal Wabbit'
+    - name: 분석
+      items:
+        - name: 오프라인 평가
+          href: concepts-offline-evaluation.md
+          displayName: 'learning policy, Counterfactual, features'
+- name: 방법 가이드
+  items:
+    - name: Personalizer 구성
+      href: how-to-settings.md
+      displayName: 'azure, portal, settings, evaluation, offline, policy'
+    - name: 분석
+      items:
+        - name: 오프라인 평가
+          href: how-to-offline-evaluation.md
+- name: 참고 자료
+  items:
+    - name: 샘플
+      href: 'https://aka.ms/personalizer-samples'
+    - name: REST API 참조
+      href: 'https://aka.ms/personalizer-rest-api-docs'
+    - name: SDK
+      items:
+        - name: .Net SDK 참조
+          href: 'https://aka.ms/personalizer-dotnet-sdk-docs'
+        - name: NuGet 패키지
+          href: 'https://aka.ms/personalizer-nuget-sdk'
+- name: 리소스
+  items:
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 로드맵
+      href: 'https://aka.ms/personalizer-roadmap'
+    - name: 가격
+      href: 'https://aka.ms/personalizer-pricing'
+    - name: 스택 오버플로
+      href: 'https://aka.ms/personalizer-stackoverflow'
+    - name: UserVoice
+      href: 'https://aka.ms/personalizer-uservoice'

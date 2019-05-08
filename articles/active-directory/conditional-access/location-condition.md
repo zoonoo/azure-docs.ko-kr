@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917675"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190193"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건이란? 
 
@@ -56,7 +56,7 @@ Azure AD는 장치에 앱에서 single sign-on을 사용 하도록 설정 하 �
 - **국가/지역** - 이 옵션을 사용하여 명명된 위치를 정의할 하나 이상의 국가를 선택할 수 있습니다.
 - **알 수 없는 영역 포함** - 일부 IP 주소는 특정 국가에 매핑되지 않습니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
 
-구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 조직에서는 최대 90 lamed 위치를 구성할 수, 각 최대 12000 IP 범위를 사용 하 여 구성 합니다.
+구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 조직은 최대 90 명명 된 위치를 구성할 수 있습니다, 그리고 각 최대 12000 IP 범위를 사용 하 여 구성 합니다.
 
 IPv4 및 IPv6 트래픽에 조건부 액세스 정책이 적용 됩니다. 현재 명명 된 위치에서 구성 하는 IPv6 범위를 허용 하지 않습니다. 이 제한은 다음과 같은 상황을 발생 시킵니다.
 

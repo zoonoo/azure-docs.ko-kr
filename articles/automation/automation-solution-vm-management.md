@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/31/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306869"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146035"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -46,6 +46,50 @@ ms.locfileid: "61306869"
 이 솔루션에 대한 Runbook은 [Azure 실행 계정](automation-create-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.
 
 VM 시작/중지 솔루션에 대 한 별도 Automation 계정을 사용 하는 것이 좋습니다. 즉 Azure 모듈 버전이 자주 업그레이드 하 고 해당 매개 변수 변경 될 수 있습니다. VM 시작/중지 솔루션 사용 되는 cmdlet의 최신 버전을 사용할 수 없습니다 있도록 동일한 주기로 업그레이드 되지 않습니다. Automation 계정을 테스트에서 프로덕션 Automation 계정에에서 가져오기 전에 모듈 업데이트를 테스트 하는 것이 좋습니다.
+
+### <a name="permissions-needed-to-deploy"></a>배포 하는 데 필요한 사용 권한
+
+특정 권한은 사용자 시간 솔루션 하는 동안 Vm 시작/중지를 배포 해야 합니다. 이러한 권한은 미리 작성된 된 Automation 계정 및 Log Analytics 작업 영역을 사용 하는 경우 또는 배포 하는 동안 새로 만들기.
+
+#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>기존 Automation 계정 및 Log Analytics 계정
+
+Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 다음 권한이 필요 합니다. 시간 솔루션 하는 동안 Vm 시작/중지를 배포 하는 **리소스 그룹**합니다. 역할에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)입니다.
+
+| 사용 권한 | 범위|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/variables/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/schedules/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/runbooks/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/connections/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/certificates/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/modules/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/modules/read | 리소스 그룹 |
+| Microsoft.automation/automationAccounts/jobSchedules/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/jobs/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/jobs/read | 리소스 그룹 |
+| Microsoft.OperationsManagement/solutions/write | 리소스 그룹 |
+| Microsoft.OperationalInsights/workspaces/* | 리소스 그룹 |
+| Microsoft.Insights/diagnosticSettings/write | 리소스 그룹 |
+| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | 리소스 그룹 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 |
+| Microsoft.Resources/deployments/* | 리소스 그룹 |
+
+### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>새 Automation 계정 및 새 Log Analytics 작업 영역
+
+배포 시간 동안 Vm 시작/중지 솔루션 새 Automation 계정 및 Log Analytics 작업 영역에 솔루션을 배포 하는 사용자 다음 사용 권한 뿐만 아니라 이전 섹션에 정의 된 권한이 있어야 합니다.
+
+- 공동 관리자 구독-해야 하는 클래식 실행 계정 만들기
+- 일부 여야 합니다 **응용 프로그램 개발자** 역할입니다. 실행 계정 구성에 대 한 자세한 내용은 참조 하세요. [실행 계정을 구성 하는 권한을](manage-runas-account.md#permissions)합니다.
+
+| 사용 권한 |범위|
+| --- | --- |
+| Microsoft.Authorization/roleAssignments/read | 구독 |
+| Microsoft.Authorization/roleAssignments/write | 구독 |
+| Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/write | 리소스 그룹 |
+| Microsoft.OperationalInsights/workspaces/write | 리소스 그룹 |
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
@@ -292,8 +336,8 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 |쿼리 | 설명|
 |----------|----------|
-|성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
+|성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="viewing-the-solution"></a>솔루션 보기
 

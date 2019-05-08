@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577227"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190214"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 인증 세션 관리를 구성 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "64577227"
 조건부 액세스는 Azure AD Premium 기능 및 프리미엄 라이선스가 필요 합니다. 조건부 액세스에 대해 자세히 알아보려는 경우 [Azure Active Directory의 조건부 액세스란?](overview.md#license-requirements-for-using-conditional-access)을 참조하세요.
 
 > [!WARNING]
-> 사용 중인 경우는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 현재 공개 미리 보기 기능, 동일한 사용자 또는 앱 조합에 대 한 두 개의 서로 다른 정책 만들기는 지원 되지 않습니다는 점에 유의 하십시오:이 기능 및 사용 하 여 다른 구성 가능한 토큰 수명 기능입니다. Microsoft는 11 월 1 일에서 구성 가능한 토큰 수명 기능을 사용 중지 및 조건부 액세스 인증 세션 관리 기능을 사용 하 여 대체 계획입니다.  
+> 사용 중인 경우는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 현재 공개 미리 보기 기능, 동일한 사용자 또는 앱 조합에 대 한 두 개의 서로 다른 정책 만들기는 지원 되지 않습니다는 점에 유의 하십시오:이 기능 및 사용 하 여 다른 구성 가능한 토큰 수명 기능입니다. Microsoft는 10 월 15에서 구성 가능한 토큰 수명 기능을 사용 중지 및 조건부 액세스 인증 세션 관리 기능을 사용 하 여 대체 계획입니다.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>정책 1: 로그인 빈도 컨트롤
 

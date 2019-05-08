@@ -12,22 +12,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f17df53c1ea77bf99ab86329fe914d058eb00f64
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574101"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072698"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>vCore와 DTU 구매 모델 중에서 선택
 
 Azure SQL Database를 사용하면 성능 및 비용 요구에 적합한 완벽히 관리되는 PaaS 데이터베이스 엔진을 손쉽게 구매할 수 있습니다. Azure SQL Database의 배포 모델에 따라 필요에 맞는 구매 모델을 선택할 수 있습니다.
+
+- [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) (권장). 이 구매 모델 (미리 보기) 서버 리스 계산 계층 고 프로 비전 된 계산 계층 중에서 선택할을 제공합니다. 프로 비전 된 계산 계층을 사용 하 여 워크 로드에 항상 프로 비전 된 계산의 정확한 크기를 선택 합니다. 서버 리스 계산 계층을 사용 하 여 구성한는 자동 크기 조정 계산의 구성 가능한 계산 범위에 대해 합니다. 이 계산 계층을 자동으로 일시 중지 하 고 워크 로드 동작을 기준으로 데이터베이스를 다시 시작 하는 옵션이 있어야 합니다. 시간 단위당 vCore 단가 프로 비전 된 계산 계층은 서버 리스 계산 계층 보다 낮습니다.
+- [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)합니다. 이 구매 모델 일반적인 워크 로드에 대 한 분산 된 계산 및 저장소 번들된 패키지를 제공 합니다.
 
 Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 있습니다.
 
 - [Azure SQL Database](sql-database-technical-overview.md)의 [단일 데이터베이스](sql-database-single-databases-manage.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 배포 옵션은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다.
 - Azure SQL Database의 [관리형 인스턴스](sql-database-managed-instance.md) 배포 옵션은 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)만 제공합니다.
 
+
+- 합니다 [하이퍼 스케일 서비스 계층](sql-database-service-tier-hyperscale.md) 를 사용 하 여 단일 데이터베이스에 대 한 현재 사용할 수는[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)합니다.
 
 다음 테이블 및 차트와 비교는 vCore와 DTU 구매 모델을 비교해 보세요.
 
@@ -45,6 +50,9 @@ Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 
 
 프로 비전 된 계산 계층의 계산 비용은 응용 프로그램에 대 한 프로 비전 되는 총 계산 용량을 반영 합니다.  중요 비즈니스용 서비스 계층에서는 3개 이상의 복제본이 자동으로 할당됩니다. 이러한 컴퓨팅 리소스의 추가 할당을 반영하기 위해 vCore 기반 구매 모델의 가격은 중요 비즈니스용 서비스 계층이 범용 서비스 계층보다 약 2.7배 높습니다. 같은 이유로, 중요 비즈니스용 서비스 계층에서 GB당 스토리지 가격이 높을수록 SSD 스토리지의 IO가 높고 대기 시간이 짧습니다. 하지만 두 경우 모두 표준 스토리지 클래스를 사용하므로 백업 스토리지 비용은 두 서비스 계층 간에 다르지 않습니다.
 
+### <a name="serverless-compute-costs"></a>서버 리스 계산 비용
+
+서버 리스 계산 계층에 대 한 참조 [SQL Database 서버 리스 (미리 보기)](sql-database-serverless.md) 계산 용량을 정의 하는 방법에 대 한 설명 및 비용 계산 됩니다.
 
 ## <a name="storage-costs"></a>저장소 비용
 
@@ -56,7 +64,7 @@ Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 
 
 ## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
-가상 코어는 하드웨어 세대와 하드웨어의 물리적 특성(예: 코어의 수, 메모리, 저장소 크기) 간에 선택할 수 있는 옵션이 함께 제공되는 논리적 CPU를 나타냅니다. vCore 기반 구매 모델은 개별 리소스 사용에 대한 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 스토리지를 선택할 수 있습니다. vCore 기반 구매 모델에서는 [단일 데이터베이스](sql-database-single-database-scale.md), [탄력적 풀](sql-database-elastic-pool.md) 및 [관리되는 인스턴스](sql-database-managed-instance.md)에 대해 [범용](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 및 [중요 비즈니스](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 서비스 계층 중에서 선택할 수 있습니다. 단일 데이터베이스의 경우 [하이퍼스케일 서비스 계층(미리 보기)](sql-database-service-tier-hyperscale.md)을 선택할 수도 있습니다.
+가상 코어는 하드웨어 세대와 하드웨어의 물리적 특성(예: 코어의 수, 메모리, 저장소 크기) 간에 선택할 수 있는 옵션이 함께 제공되는 논리적 CPU를 나타냅니다. vCore 기반 구매 모델은 개별 리소스 사용에 대한 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 스토리지를 선택할 수 있습니다. vCore 기반 구매 모델에서는 [단일 데이터베이스](sql-database-single-database-scale.md), [탄력적 풀](sql-database-elastic-pool.md) 및 [관리되는 인스턴스](sql-database-managed-instance.md)에 대해 [범용](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 및 [중요 비즈니스](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 서비스 계층 중에서 선택할 수 있습니다. 단일 데이터베이스에 대해 선택할 수도 있습니다는 [하이퍼 스케일 서비스 계층](sql-database-service-tier-hyperscale.md)합니다.
 
 vCore 기반 구매 모델을 사용하면 계산 및 스토리지 리소스를 독립적으로 선택하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. vCore 기반 구매 모델에서 고객이 지불하는 비용은 다음과 같습니다.
 

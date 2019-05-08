@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914911"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021668"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 사용자 지정 분석기 추가
 
@@ -300,7 +300,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |[mapping](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|매핑 옵션을 사용하여 정의된 매핑을 적용하는 문자 필터입니다. 일치는 greedy 방식을 따릅니다(지정된 지점에서 가장 긴 패턴 일치가 검색됨). 빈 문자열로 대체될 수 있습니다.<br /><br /> **옵션**<br /><br /> mappings (type: string array) - "a=>b" 형식의 매핑 목록입니다(문자 "a"가 나오는 모든 경우는 문자 "b"로 바뀜). 필수 사항입니다.|  
 |[pattern_replace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|입력 문자열에서 문자를 대체하는 문자 필터입니다. 정규식을 사용하여 보존할 문자 시퀀스를 식별하고, 대체 패턴을 사용하여 대체할 문자를 식별합니다. 예를 들어, 입력 텍스트 = "aa  bb aa bb", 패턴 ="(aa)\\\s+(bb)" 대체 ="$1#$2", 결과 = "aa#bb aa#bb"와 같습니다.<br /><br /> **옵션**<br /><br /> pattern (type: string) - 필수 항목입니다.<br /><br /> replacement (type: string) - 필수 항목입니다.|  
 
- <sup>1</sup> 문자 필터 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "MappingCharFilter"는 실제로 "#Microsoft.Azure.Search.MappingCharFilter"로 지정됩니다. 테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다. 사용자 지정할 수 있는 필터에만 char_filter_type이 제공됩니다. html_strip을 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
+ <sup>1</sup> 문자 필터 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "MappingCharFilter"는 실제로 "#Microsoft.Azure.Search.MappingCharFilter"로 지정됩니다. 테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다. 해당 char_filter_type 사용자 지정할 수 있는 필터에만 제공 됩니다 알 수 있습니다. html_strip을 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
 
 <a name="Tokenizers"></a>
 
@@ -324,7 +324,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URL과 이메일을 하나의 토큰으로 토큰화합니다.<br /><br /> **옵션**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. Default: 255, 최대: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(형식은 옵션이 사용 가능할 때만 적용됨) |공백에서 텍스트를 나눕니다. 255자보다 긴 토큰은 분할됩니다.|  
 
- <sup>1</sup> 토크나이저 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "ClassicTokenizer"는 실제로 "#Microsoft.Azure.Search.ClassicTokenizer"로 지정됩니다. 테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다. 사용자 지정할 수 있는 토크나이저에만 tokenizer_type이 제공됩니다. 문자 토크나이저를 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
+ <sup>1</sup> 토크나이저 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "ClassicTokenizer"는 실제로 "#Microsoft.Azure.Search.ClassicTokenizer"로 지정됩니다. 테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다. 해당 tokenizer_type만 지정할 수 있는 토크 나이저에 대 한 제공 알 수 있습니다. 문자 토크나이저를 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
 
 <a name="TokenFilters"></a>
 

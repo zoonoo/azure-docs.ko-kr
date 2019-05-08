@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339814"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153826"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
 
@@ -62,9 +62,6 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     ![새 함수 앱 설정 정의](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. **리소스로 이동**을 선택하여 함수 앱을 봅니다.
-
-> [!TIP]
-> 포털에서 함수 앱을 찾는 데 문제가 있는 경우 [Azure Portal에서 즐겨찾기에 Function App을 추가](functions-how-to-use-azure-function-app-settings.md#favorite)합니다.
 
 다음으로 새 함수 앱에서 함수를 만듭니다. Function App을 사용할 수 있게 된 이후에도 완전히 초기화될 때까지 몇 분 정도 걸릴 수 있습니다.
 

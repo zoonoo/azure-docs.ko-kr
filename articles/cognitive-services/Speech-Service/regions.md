@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578191"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020655"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
@@ -28,9 +28,9 @@ ms.locfileid: "59578191"
 
 [음성 SDK](speech-sdk.md)에서 지역을 문자열로 지정합니다(예를 들어, C#용 Speech SDK에서 `SpeechConfig.FromSubscription`에 대한 매개 변수로 지정).
 
-### <a name="speech-recognition-and-translation"></a>음성 인식 및 번역
+### <a name="speech-to-text-text-to-speech-and-translation"></a>음성-텍스트, 텍스트 음성 변환, 및 변환
 
-**음성 인식** 및 **번역**에 대해 이러한 지역에서 음성 SDK를 사용할 수 있습니다.
+에 대 한 이러한 지역에서 Speech SDK를 사용할 수 **음성 인식**를 **text to speech**, 및 **번역**:
 
   지역 | 음성 SDK 매개 변수 | 음성 사용자 지정 포털
  ------|-------|--------

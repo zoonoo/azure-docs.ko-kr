@@ -45,14 +45,22 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+- name: 개념
+  items:
+    - name: 얼굴 감지
+      href: concepts/face-detection.md
+    - name: 얼굴 인식
+      href: concepts/face-recognition.md
 - name: 방법 가이드
   items:
     - name: 얼굴 감지
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: 얼굴 인식
+    - name: 얼굴 식별
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: 얼굴 추가
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: HeadPose를 사용하여 사각형 회전
+      href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: 얼굴 인식 모델 지정
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: 대규모 기능 사용
@@ -69,10 +77,6 @@
           href: face-resource-container-config.md
     - name: Face API 연결 서비스 사용
       href: vs-face-connected-service.md
-- name: 샘플
-  items:
-    - name: 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: 참고 자료
   items:
     - name: Face API
@@ -93,10 +97,10 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: 리소스
   items:
-    - name: 용어
-      href: Glossary.md
-    - name: FAQ
-      href: FAQ.md
+    - name: 샘플
+      items:
+        - name: Face API 샘플
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice

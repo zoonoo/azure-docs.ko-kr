@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: ea865fe246bcb414dd1ab3f83b7135989bc0adf3
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: fbbbf22af5d9ae6ca44acf20e21ce1752852aef8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894909"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150839"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 애플리케이션 데이터에 대한 액세스 보호
 

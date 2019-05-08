@@ -40,10 +40,10 @@
       href: best-practices.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
-    - name: Exchange Online 및 SharePoint Online에 대한 액세스 제어
-      href: conditional-access-for-exo-and-spo.md
     - name: 클래식 정책 마이그레이션
       href: policy-migration.md
+    - name: 로그인 빈도 및 브라우저 지속성 컨트롤
+      href: howto-conditional-access-session-lifetime.md
     - name: 승인된 클라이언트 앱 필요
       href: app-based-conditional-access.md
     - name: 앱 보호 정책 필요

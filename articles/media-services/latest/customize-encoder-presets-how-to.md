@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/11/2019
+ms.date: 05/03/2019
 ms.author: juliako
-ms.openlocfilehash: ed2ae50aa9d7a26ed6e0569264ee981f7be35525
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2167a74dc81bdbb2562211cf5c0195a755941d9d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733677"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148329"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>사용자 지정 변환-.NET을 사용 하 여 인코딩하는 방법
 
@@ -32,7 +32,7 @@ Azure Media Services로 인코딩 되 면 시작할 수 있습니다 신속 하 
 
 ## <a name="prerequisites"></a>필수 조건 
 
-[Media Services 계정 만들기](create-account-cli-how-to.md) <br/>리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
+[Media Services 계정 만들기](create-account-cli-how-to.md)
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -46,7 +46,7 @@ Azure Media Services로 인코딩 되 면 시작할 수 있습니다 신속 하 
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>사용자 지정 미리 설정을 사용하여 변환 만들기 
 
-새 [Transform](https://docs.microsoft.com/rest/api/media/transforms)을 만드는 경우 출력으로 생성하려는 것을 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) 개체입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. **Preset**은 원하는 **TransformOutput**을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 다음 **TransformOutput**은 사용자 지정 코덱 및 레이어 출력 설정을 만듭니다.
+새 [Transform](https://docs.microsoft.com/rest/api/media/transforms)을 만드는 경우 출력으로 생성하려는 것을 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) 개체입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. 합니다 **사전 설정** 원하는 생성 하는 데는 비디오 및/또는 오디오 처리 작업에 대 한 단계별 지침에 설명 합니다 **TransformOutput**합니다. 다음 **TransformOutput**은 사용자 지정 코덱 및 레이어 출력 설정을 만듭니다.
 
 [Transform](https://docs.microsoft.com/rest/api/media/transforms)을 만드는 경우 먼저 **Get** 메서드를 사용하여 해당 Transform이 이미 있는지 확인해야 합니다. 아래 코드를 참조하세요. Media Services v3에서 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드에서 **null**을 반환합니다(이름에서 대/소문자를 구분하지 않음).
 
