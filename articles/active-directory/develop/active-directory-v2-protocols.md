@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8d509e9f3cabcd588d539d42b8cce022e17a1222
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917337"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139205"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
 
@@ -45,7 +45,7 @@ Identity-as a service 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0�
 
 ## <a name="app-registration"></a>앱 등록
 
-새로운 모두 개인 및 회사 또는 학교 계정에 적용 하려는 모든 앱을 등록 해야 합니다 **앱 등록 (미리 보기)** 환경을 합니다 [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 전에 이러한 사용자가 로그인 할 수 있으므로 OAuth 2.0 또는 OpenID Connect를 사용합니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
+모두 개인 및 회사 또는 학교 계정에 적용 하려는 모든 앱을 통해 등록 되어야 합니다는 **앱 등록** 환경을 합니다 [Azure portal](https://aka.ms/appregistrations) OAuth 2.0을 사용 하 여 이러한 사용자를 로그인 할 수 전에 또는 OpenID Connect입니다. 앱 등록 프로세스는 몇 개의 값을 수집하고 앱에 할당합니다.
 
 * 앱을 고유하게 식별하는 **애플리케이션 ID**
 * 응답을 다시 앱으로 보내는 데 사용할 수 있는 **리디렉션 URI** 또는 **패키지 식별자**

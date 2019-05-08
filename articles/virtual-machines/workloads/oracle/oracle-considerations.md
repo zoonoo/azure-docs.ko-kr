@@ -16,11 +16,11 @@ ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
 ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835416"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure의 Oracle 솔루션 및 배포
 이 문서에서는 Microsoft Azure에서 여러 Oracle 솔루션을 성공적으로 배포하는 데 필요한 정보를 알아봅니다. 이러한 솔루션은 Oracle이 Azure Marketplace에 게시한 Virtual Machine 이미지를 기반으로 합니다. 현재 사용할 수 있는 이미지 목록을 가져오려면 다음 명령을 실행합니다.

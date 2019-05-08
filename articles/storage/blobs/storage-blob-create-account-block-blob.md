@@ -1,20 +1,21 @@
 ---
 title: Azure Storage-블록 blob storage 계정 만들기 | Microsoft Docs
 description: 프리미엄 성능 특성을 사용 하 여 Azure 블록 blob 저장소 계정을 만드는 방법을 보여 줍니다.
+author: tamram
+services: storage
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
-author: twooley
-ms.author: twooley
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141008"
 ---
-# <a name="create-a-block-blob-storage-account"></a>블록 blob 저장소 계정 만들기
+# <a name="create-a-block-blob-storage-account"></a>블록 Blob 스토리지 계정 만들기
 
 블록 blob storage 계정 유형을 premium 성능 특성을 사용 하 여 블록 blob을 만들 수 있습니다. 이 유형의 저장소 계정이 높은 트랜잭션 속도 사용 하 여 워크 로드에 최적화 된 또는 필요로 하는 매우 빠른 액세스 시간입니다. 이 문서에서는 Azure portal, Azure CLI 또는 Azure PowerShell을 사용 하 여 블록 blob 저장소 계정을 만드는 방법을 보여 줍니다.
 
@@ -121,6 +122,6 @@ Azure CLI를 사용 하 여 블록 blob 계정을 만들려면 먼저 Azure CLI 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요.
+- 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요.
 
 - 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.

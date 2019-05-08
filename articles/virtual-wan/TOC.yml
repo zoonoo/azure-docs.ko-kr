@@ -16,6 +16,8 @@
   items:
     - name: 위치 및 파트너
       href: virtual-wan-locations-partners.md
+    - name: 글로벌 네트워크 전송 아키텍처
+      href: virtual-wan-global-transit-architecture.md
     - name: Virtual WAN의 Office 365 제어판
       href: virtual-wan-office365-overview.md
 - name: 방법 가이드

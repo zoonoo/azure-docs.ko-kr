@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962029"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020402"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -49,19 +49,26 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 ## <a name="linux"></a>Linux
 
-Speech SDK는 현재 Ubuntu 16.04 및 18.04 배포를 지원합니다.
+Speech SDK는 현재 Ubuntu 16.04, Ubuntu 18.04 및 Debian 9 배포판을 지원합니다.
 네이티브 애플리케이션의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
 애플리케이션과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
 * GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
-* OpenSSL 라이브러리(`libssl.so.1.0.0`)
+* OpenSSL 라이브러리 (`libssl.so.1.0.0` 또는 `libssl.so.1.0.2`)
 * ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
 
 Ubuntu에는 GNU C 라이브러리가 기본적으로 이미 설치되어 있습니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+Debian 9에 이러한 패키지를 설치 합니다.
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>다음 단계

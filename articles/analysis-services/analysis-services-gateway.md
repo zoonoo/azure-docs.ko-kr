@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497410"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141168"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 온-프레미스 데이터 원본에 연결
 온-프레미스 데이터 게이트웨이를 사용하면 온-프레미스 데이터 원본과 클라우드의 Azure Analysis Services 서버 사이에서 데이터를 안전하게 전송할 수 있습니다. 동일한 지역에서 여러 Azure Analysis Services 서버를 사용하는 것 외에도 최신 버전의 게이트웨이는 Azure Logic Apps, Power BI, Power Apps, Microsoft Flow와도 작동합니다. 단일 게이트웨이 통해 동일한 구독과 지역에서 여러 서비스를 연결할 수 있습니다. 
@@ -176,30 +176,9 @@ ms.locfileid: "60497410"
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>이벤트 로그
 
 데이터 관리 게이트웨이 및 PowerBIGateway 로그를 **애플리케이션 및 서비스 로그** 아래에서 찾을 수 있습니다.
-
-
-## <a name="telemetry"></a>원격 분석
-원격 분석은 모니터링 및 문제 해결에 사용할 수 있습니다. 기본적으로
-
-**원격 분석을 켜려면**
-
-1.  컴퓨터에서 온-프레미스 데이터 게이트웨이 클라이언트 디렉터리를 확인합니다. 일반적으로 **%systemdrive%\Program Files\On-premises data gateway**입니다. 또는 서비스 콘솔을 열고 실행 파일의 경로인 온-프레미스 데이터 게이트웨이 서비스의 속성을 확인할 수 있습니다.
-2.  클라이언트 디렉터리의 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 파일에서 SendTelemetry 설정을 true로 변경합니다.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  변경 내용을 저장하고 Windows 서비스인 온-프레미스 데이터 게이트웨이 서비스를 다시 시작합니다.
-
-
-
 
 ## <a name="next-steps"></a>다음 단계
 * [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)   

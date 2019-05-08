@@ -12,18 +12,20 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb628358c91d80a3117b065cadb284fd1665daa3
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573373"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073678"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
 
 |Context|용어|자세한 정보|
 |:---|:---|:---|
 |Azure 서비스 이름|Azure SQL Database 또는 SQL Database|[Azure SQL Database 서비스](sql-database-technical-overview.md)|
+|컴퓨팅 계층|서버 (미리 보기)|[서버 리스 계산 계층](sql-database-serverless.md)
+||프로비전됨|[서버 리스 계산 계층](sql-database-serverless.md)
 |배포 옵션 |단일 데이터베이스|[단일 데이터베이스](sql-database-single-database.md)|
 ||탄력적 풀|[탄력적 풀](sql-database-elastic-pool.md)|
 ||Managed Instance|[관리되는 인스턴스](sql-database-managed-instance.md)|

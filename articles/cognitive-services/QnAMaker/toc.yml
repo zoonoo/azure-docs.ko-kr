@@ -79,37 +79,40 @@
       displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: 방법 가이드
   items:
+    - name: 기술 자료 편집
+      items:
+        - name: 기술 자료 편집
+          href: How-To/edit-knowledge-base.md
+        - name: 후속 프롬프트로 다중 턴 대화 만들기
+          href: How-To/multiturn-conversation.md
+          displayName: 'multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question'
+        - name: 잡담 추가
+          href: How-to/chit-chat-knowledge-base.md
+        - name: 보안 SharePoint 파일 추가
+          href: How-To/add-sharepoint-datasources.md
+          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
     - name: 기술 자료 관리
       items:
         - name: 기술 자료 만들기 및 게시
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: 기술 자료에 chit-chat 추가
-          href: How-to/chit-chat-knowledge-base.md
-        - name: 기술 자료 마이그레이션
-          href: Tutorials/migrate-knowledge-base.md
-        - name: 기술 자료 편집
-          href: How-To/edit-knowledge-base.md
-          displayName: 'metadata, pair'
-        - name: 보안 SharePoint 파일 추가
-          href: How-To/add-sharepoint-datasources.md
-          displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
-        - name: 기술 자료에 대한 공동 작업
-          href: How-To/collaborate-knowledge-base.md
+        - name: 답변 구하기
+          href: How-To/metadata-generateanswer-usage.md
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+        - name: 기술 자료를 사용하는 봇 만들기
+          href: Tutorials/integrate-qnamaker-luis.md
         - name: 다른 언어로 된 기술 자료 만들기
           href: How-To/language-knowledge-base.md
+        - name: 기술 자료 마이그레이션
+          href: Tutorials/migrate-knowledge-base.md
+          displayName: 'metadata, pair'
+        - name: 기술 자료에 대한 공동 작업
+          href: How-To/collaborate-knowledge-base.md
         - name: 기술 자료 테스트
           href: How-To/test-knowledge-base.md
         - name: 활성 학습을 사용하여 기술 자료 개선
           href: How-to/improve-knowledge-base.md
           displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning'
-    - name: 기술 자료 사용
-      items:
-        - name: GenerateAnswer API로 메타데이터 사용
-          href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters'
-        - name: 봇 사용
-          href: Tutorials/integrate-qnamaker-luis.md
     - name: 서비스 관리
       items:
         - name: QnA Maker 서비스 설정
@@ -154,7 +157,7 @@
     - name: 샘플
       items:
         - name: QnA Maker 도움말 봇
-          href: 'https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot'
+          href: 'https://aka.ms/qnamakerhelpbotsample'
     - name: SDK
       items:
         - name: 'C#'

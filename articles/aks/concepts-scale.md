@@ -2,18 +2,17 @@
 title: 개념 - AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 description: Horizontal Pod Autoscaler, 클러스터 자동 크기 조정기 및 Azure Container Instances 커넥터를 포함하는 AKS(Azure Kubernetes Service)의 크기 조정에 대해 알아봅니다.
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: zarhoads
+ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466957"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074033"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -57,6 +56,8 @@ Pod 요구 사항 변경에 응답 하려면 Kubernetes 노드 풀의 요청 된
 ![Kubernetes 클러스터 자동 크기 조정기](media/concepts-scale/cluster-autoscaler.png)
 
 클러스터 자동 크기 조정기는 일반적으로 Horizontal Pod Autoscaler와 함께 사용됩니다. 이러한 기능을 함께 사용할 경우 Horizontal Pod Autoscaler는 애플리케이션 요구를 기준으로 Pod의 수를 늘리거나 줄이고, 클러스터 자동 크기 조정기는 해당 추가 Pod를 실행하는 데 필요한 만큼 노드 수를 조정합니다.
+
+Autoscaler 클러스터는 단일 노드 풀을 사용 하 여 AKS 클러스터에 미리 보기에만 테스트 해야 합니다.
 
 AKS에서 클러스터 크기 조정기를 시작하려면 [AKS의 클러스터 자동 크기 조정기][aks-cluster-autoscaler]를 참조하세요.
 

@@ -8,29 +8,34 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
-ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120164"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136779"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
-이 문서에서는 SAP ECC(ERP Central Component) 커넥터를 사용하여 논리 앱 내부에서 온-프레미스 SAP 리소스에 액세스할 수 있는 방법을 보여줍니다. 커넥터는 온-프레미스 ECC 및 S/4 HANA 시스템을 사용 하 여 작동합니다. SAP ECC 커넥터는 IDoc(Intermediate Document) 또는 BAPI(비즈니스 애플리케이션 프로그래밍 인터페이스) 또는 RFC(원격 함수 호출)를 통해 SAP Netweaver 기반 시스템과의 메시지 또는 데이터 통합을 지원합니다.
+이 문서에서는 SAP 커넥터를 사용 하 여 논리 앱 내에서 온-프레미스 SAP 리소스에 액세스할 수 있습니다. 커넥터 works with SAP의 고전 이러한 R/3 ECC 시스템 온-프레미스를 해제합니다. 커넥터에도 통합할 수 있습니다 SAP를 사용 하 여의 최신 HANA 기반 SAP 시스템 S/4 HANA와 같은 호스팅된-온-프레미스 또는 클라우드에 위치 합니다.
+SAP 커넥터를 비즈니스 응용 프로그램 프로그래밍 인터페이스 (BAPI) Intermediate Document (IDoc) 또는 원격 함수 호출 (RFC)을 통해 SAP Netweaver 기반 시스템에서 메시지 또는 데이터 통합을 지원합니다.
 
-SAP ECC 커넥터는 사용 된 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP.NET Connector (NCo) 라이브러리</a> 하 고 이러한 작업 또는 동작이 제공:
+SAP 커넥터를 사용 합니다 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP.NET Connector (NCo) 라이브러리</a> 하 고 이러한 작업 또는 동작이 제공:
 
 - **SAP로 보내기**: SAP 시스템의 tRFC를 통해 IDoc를 보내거나 BAPI 함수를 호출합니다.
 - **SAP에서 수신**: SAP 시스템의 tRFC를 통해 IDoc 또는 BAPI 함수 호출을 수신합니다.
 - **스키마 생성**: IDoc, BAPI 또는 RFC에 대한 SAP 아티팩트의 스키마를 생성합니다.
 
+위의 모든 작업에 대 한 SAP 커넥터는 사용자 이름 및 암호를 통해 기본 인증을 지원합니다. 커넥터에서는 <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> 보안 네트워크 통신 (SNC)</a>에 대 한 SAP Netweaver에서 Single Sign-on 또는 외부 보안 제품에서 제공 하는 추가 보안 기능에 대해 사용할 수 있습니다. 
+
 SAP 커넥터는 [온-프레미스 데이터 게이트웨이](https://www.microsoft.com/download/details.aspx?id=53127)를 통해 온-프레미스 SAP 시스템과 통합됩니다. 예를 들어 보내기 시나리오에서 Logic Apps의 메시지를 SAP 시스템으로 보낼 때 데이터 게이트웨이는 RFC 클라이언트 역할을 하여 Logic Apps에서 받은 요청을 SAP로 전달합니다.
 마찬가지로 수신 시나리오에서 데이터 게이트웨이는 SAP에서 요청을 수신하여 논리 앱에 전달하는 RFC 서버 역할을 합니다. 
 
 이 문서에서는 앞에서 설명한 통합 시나리오를 다루면서 SAP와 통합되는 논리 앱 예제를 만드는 방법을 보여줍니다.
+
+<a name="pre-reqs"></a>
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -43,6 +48,12 @@ SAP 커넥터는 [온-프레미스 데이터 게이트웨이](https://www.micros
 * <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 애플리케이션 서버</a> 또는 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 메시지 서버</a>
 
 * 온-프레미스 컴퓨터에서 최신 [온-프레미스 데이터 게이트웨이](https://www.microsoft.com/download/details.aspx?id=53127)를 다운로드하여 설치합니다. 계속 진행하기 전에 Azure Portal에서 게이트웨이를 설정하세요. 게이트웨이는 온-프레미스의 데이터 및 리소스에 안전하게 액세스하는 데 도움이 됩니다. 자세한 내용은 [Azure Logic Apps용 온-프레미스 데이터 게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md)를 참조하세요.
+
+* SNC 사용 하 여 Single Sign-on (SSO)을 사용할 경우 게이트웨이 SAP 사용자에 대해 매핑되는 사용자로 실행 되 고 있는지 확인 합니다. 기본 계정을 변경 하려면 선택 **계정을 변경** 사용자 자격 증명을 입력 합니다.
+
+   ![게이트웨이 계정 변경](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* 외부 보안 제품을 사용 하 여 SNC를 사용 하는 경우 SNC 라이브러리 또는 게이트웨이가 설치 되어 있는 동일한 컴퓨터에 파일을 복사 합니다. SNC 제품의 몇 가지 예로 <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, 등입니다.
 
 * 현재 <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">Microsoft .NET Framework 4.0 및 Windows 64비트(x64)용 SAP Connector(NCo) 3.0.21.0</a>인 최신 SAP 클라이언트 라이브러리를 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에서 다운로드하여 설치합니다. 이 버전 이상을 설치해야 하는 이유는 다음과 같습니다.
 
@@ -114,7 +125,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
       **Logon Type** 속성을 **Group**으로 설정하면 다음 속성이 필요합니다(보통은 선택 사항). 
 
       ![SAP 메시지 서버 연결 만들기](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. 작업을 완료하면 **만들기**를 선택합니다. 
    
       Logic Apps는 연결을 설정하고 테스트하여 제대로 작동되는지 확인합니다.
@@ -375,23 +386,45 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 2. 실행이 성공하면 통합 계정으로 이동하여 생성된 스키마가 있는지 확인합니다.
 
+## <a name="enable-secure-network-communications-snc"></a>SNC ()는 보안 네트워크 통신을 사용 하도록 설정
+
+시작 하기 전에 앞에 나열 된 충족 했는지 확인 하십시오 [필수 구성 요소](#pre-reqs):
+
+* 온-프레미스 데이터 게이트웨이 SAP 시스템으로 동일한 네트워크에 있는 컴퓨터에 설치 됩니다.
+
+* 에 대 한 Single Sign-on, 게이트웨이 SAP 사용자에 매핑되는 사용자로 실행 중입니다.
+
+* 데이터 게이트웨이 동일한 컴퓨터에 설치한 추가 보안 기능을 제공 하는 SNC 라이브러리입니다. 일부의 예제를 포함 <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, 등입니다.
+
+SNC SAP 시스템의 요청에 사용 하려면 선택 합니다 **SNC 사용** SAP 연결에 대 한 확인란을 고 이러한 속성을 제공 합니다.
+
+   ![SAP SNC 연결 구성](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | 자산   | 설명 |
+   |------------| ------------|
+   | **SNC 라이브러리** | SNC 라이브러리 이름 또는 NCo 설치 위치에 상대적인 경로 또는 절대 경로입니다. 예제 sapsnc.dll 또는.\security\sapsnc.dll 또는 c:\security\sapsnc.dll  | 
+   | **SNC SSO** | SNC 통해 시 SNC id는 호출자를 인증 하는 것에 대 한 일반적으로 사용 됩니다. 호출자를 인증 하는 것에 대 한 사용자/암호 정보를 사용할 수 있지만 줄은 여전히 암호화 되도록 재정의 하는 방법도 있습니다.|
+   | **SNC 내 이름** | 대부분의 경우에서이 생략할 수 있습니다. 설치 된 SNC 솔루션에는 일반적으로 자체 SNC 이름을 알고 있습니다. "여러 id"를 지 원하는 솔루션에 대해서만이 특정 대상/서버에 사용 되는 id를 지정 해야 |
+   | **SNC 파트너 이름** | 백 엔드의 SNC 이름 |
+   | **SNC 보호 품질이** | 이 특정 대상/서버의 SNC 통신에 사용될 서비스 품질입니다. 기본값은 백 엔드 시스템에 의해 정의 됩니다. SNC에 사용 되는 보안 제품에 의해 정의 된 최 댓 값 |
+   |||
+
+   > [!NOTE]
+   > SNC_LIB 및 SNC_LIB_64 환경 변수 하지 설정할 컴퓨터에 있는 경우 데이터 게이트웨이 및 SNC 라이브러리입니다. 경우 설정에 우선 커넥터를 통해 전달 된 SNC 라이브러리 값입니다.
+   >
+
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
 다음은 SAP 커넥터에 대해 현재 알려진 문제와 제한 사항입니다.
+
+* SAP로 보내기 호출 또는 메시지 중 오직 하나만 tRFC에서 작동합니다. BAPI(비즈니스 애플리케이션 프로그래밍 인터페이스) 커밋 패턴(예: 동일한 세션에서 여러 tRFC 호출 만들기)은 지원되지 않습니다.
 
 * SAP 트리거가 SAP에서 일괄 처리 IDOC 수신을 지원하지 않습니다. 이 작업은 SAP 시스템과 데이터 게이트웨이 간의 RFC 연결 오류로 이어질 수 있습니다.
 
 * SAP 트리거가 데이터 게이트웨이 클러스터를 지원하지 않습니다. 일부 장애 조치(failover)의 경우 SAP 시스템과 통신하는 데이터 게이트웨이 노드가 활성 노드와 달라서 예기치 않은 동작이 발생할 수 있습니다. 보내기 시나리오의 경우 데이터 게이트웨이 클러스터가 지원됩니다.
 
-* 수신 시나리오에서는 null이 아닌 응답 반환이 지원되지 않습니다. 트리거 및 응답 작업을 사용하는 논리 앱이 예기치 않은 동작으로 이어집니다. 
-
-* SAP로 보내기 호출 또는 메시지 중 오직 하나만 tRFC에서 작동합니다. BAPI(비즈니스 애플리케이션 프로그래밍 인터페이스) 커밋 패턴(예: 동일한 세션에서 여러 tRFC 호출 만들기)은 지원되지 않습니다.
-
-* 첨부 파일이 포함된 RFC는 SAP로 보내기 및 스키마 생성 작업을 지원하지 않습니다.
-
 * 현재 SAP 커넥터는 SAP 라우터 문자열을 지원하지 않습니다. 온-프레미스 데이터 게이트웨이가 연결하려는 SAP 시스템과 동일한 LAN에 있어야 합니다.
 
-* DATS 및 TIMS SAP 필드에 대한 없는 값(null), 빈 값, 최솟값 및 최댓값 변환은 온-프레미스 데이터 게이트웨이의 이후 업데이트에서 변경될 수 있습니다.
 
 ## <a name="get-support"></a>지원 받기
 

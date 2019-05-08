@@ -5,6 +5,7 @@
     - name: Azure Cache for Redis 소개
       href: cache-overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: ASP.NET 앱 만들기
       href: cache-web-app-howto.md

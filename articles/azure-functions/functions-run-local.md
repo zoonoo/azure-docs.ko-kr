@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 14990cd4a066c126b5e4d498c5a109dac1b8820a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875935"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140931"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -186,7 +186,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 
 | 설정      | 설명                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | 로 설정 하면 `true`, 모든 값은 로컬 컴퓨터 키를 사용 하 여 암호화 됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `false`입니다. |
+| **`IsEncrypted`** | 로 설정 하면 `true`, 모든 값은 로컬 컴퓨터 키를 사용 하 여 암호화 됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `true`입니다. 때 `true`를 사용 하 여 추가 하는 모든 설정을 `func settings add` 로컬 컴퓨터 키를 사용 하 여 암호화 됩니다. 이 함수 앱 설정을 Azure에 응용 프로그램 설정에 어떻게 저장 되는지 미러링합니다. 로컬 설정 값을 암호화를 제공 중요 한 데이터에 대 한 추가 보호 local.settings.json 공개적으로 노출 해야 합니다.  |
 | **`Values`** | 로컬에서 실행될 때 사용되는 연결 문자열 및 애플리케이션 설정의 컬렉션입니다. 이러한 값과 같은 Azure에서 함수 앱의 앱 설정에 해당 [ `AzureWebJobsStorage` ]합니다. 많은 트리거와 바인딩에 같은 연결 문자열 앱 설정 참조 속성이 `Connection` 에 대 한 합니다 [Blob storage 트리거](functions-bindings-storage-blob.md#trigger---configuration)합니다. 이러한 속성에 정의 된 응용 프로그램 설정 해야 합니다 `Values` 배열입니다. <br/>[`AzureWebJobsStorage`] HTTP 이외의 트리거에 대 한 필수 앱 설정입니다. <br/>버전의 Functions 런타임 2.x 필요 합니다 [ `FUNCTIONS_WORKER_RUNTIME` ] 핵심 도구 프로젝트에 대해 생성 되는 설정입니다. <br/> 경우는 [Azure storage 에뮬레이터](../storage/common/storage-use-emulator.md) 로컬로 설치를 설정할 수 있습니다 [ `AzureWebJobsStorage` ] 를 `UseDevelopmentStorage=true` 핵심 도구 에뮬레이터를 사용 합니다. 개발 중에 유용하지만 배포 전에 실제 저장소 연결을 테스트해야 합니다. |
 | **`Host`** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. |
 | **`LocalHttpPort`** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |

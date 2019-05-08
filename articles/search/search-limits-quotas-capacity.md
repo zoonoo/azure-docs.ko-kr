@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193154"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024630"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크 로드 및 인덱스, 문서, 수량에 대 한 최대 제한은 및 다른 개체가 있는지 여부에 종속 되어 있습니다 [Azure Search를 프로 비전](search-create-service-portal.md) 에 **무료**, **기본**합니다  **표준**, 또는 **저장소에 최적화 된** 가격 책정 계층입니다.
@@ -50,7 +50,10 @@ ms.locfileid: "60193154"
 | 리소스 | 무료 | 기본&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | 최대 인덱스 |3 |5 또는 15 |50 |200 |200 |파티션당 1000 또는 서비스당 3000 |10 |10 |
-| 인덱스당 최대 필드 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| 인덱스 당 최대 간단한 필드 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| 인덱스 당 최대 복잡 한 컬렉션 필드 |40 |40 |40 |40 |40 |40 |40 |40 |
+| 각 문서에 있는 모든 복잡 한 컬렉션에서 최대 요소 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| 복잡 한 필드의 최대 깊이 |10 |10 |10 |10 |10 |10 |10 |10 |
 | 인덱스당 최대 [확인기](https://docs.microsoft.com/rest/api/searchservice/suggesters) |1 |1 |1 |1 |1 |1 |1 |1 |
 | 인덱스당 [최대 점수 매기기](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) 프로필 |100 |100 |100 |100 |100 |100 |100 |100 |
 | 프로필당 최대 함수 |8 |8 |8 |8 |8 |8 |8 |8 |

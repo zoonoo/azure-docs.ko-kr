@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/25/2018
+ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 5070b6ced29599660afa28308239e1ba07c2cbd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cecafb013b5d22557961e98935fc9a2fee2a79b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710892"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199292"
 ---
 1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 선택한 다음, **계산** > **Function App**을 차례로 선택합니다.
 
@@ -42,6 +42,3 @@ ms.locfileid: "60710892"
     ![새 함수 앱 설정 정의](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
 5. **리소스로 이동**을 선택하여 함수 앱을 봅니다.
-
-> [!TIP]
-> 포털에서 함수 앱을 찾는 데 문제가 있는 경우 [Azure Portal에서 즐겨찾기에 Function App을 추가](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)합니다.

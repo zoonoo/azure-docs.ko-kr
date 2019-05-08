@@ -4,7 +4,7 @@ description: Azure Search에서 사용되는 전체 Lucene 구문에 대한 참�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317586"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024238"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search의 Lucene 쿼리 구문
 특수한 쿼리 형식을 위한 풍부한 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문(예: 와일드카드, 유사 항목 검색, 근접 검색, 정규식)을 기준으로 Azure Search에 대한 쿼리를 작성할 수 있습니다. Lucene 쿼리 파서 구문의 상당 부분이 [Azure Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다. 물론, Azure Search에서 `$filter` 식을 통해 생성되는 *범위 검색*과 같은 예외도 있습니다. 
@@ -42,13 +42,13 @@ ms.locfileid: "61317586"
 `searchMode=all` 매개 변수가 이 예제에 해당 합니다. 쿼리에서 연산자를 사용할 때마다 일반적으로 `searchMode=all`을 설정하여 *모든* 조건이 일치하는지 확인해야 합니다.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
  또는 다음과 같이 POST를 사용합니다.  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2015-02-28
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",

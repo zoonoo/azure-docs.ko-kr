@@ -7,11 +7,16 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: AKS 클러스터 만들기 - CLI
-      href: kubernetes-walkthrough.md
-    - name: AKS 클러스터 만들기 - 포털
-      href: kubernetes-walkthrough-portal.md
-    - name: 응용 프로그램 개발
+    - name: AKS 클러스터 만들기
+      expanded: true
+      items:
+        - name: Azure CLI 사용
+          href: kubernetes-walkthrough.md
+        - name: Azure Portal 사용
+          href: kubernetes-walkthrough-portal.md
+        - name: Resource Manager 템플릿 사용
+          href: kubernetes-walkthrough-rm-template.md
+    - name: 애플리케이션 개발
       expanded: true
       items:
         - name: Java 사용(VS Code 및 CLI)
@@ -87,7 +92,7 @@
             - name: Pod 보안
               href: developer-best-practices-pod-security.md
     - name: 할당량 및 국가별 제한
-      href: container-service-quotas.md
+      href: quotas-skus-regions.md
     - name: ACS에서 AKS로 마이그레이션
       href: acs-aks-migration.md
     - name: 지원되는 Kubernetes 버전

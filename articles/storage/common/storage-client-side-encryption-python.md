@@ -2,19 +2,20 @@
 title: Microsoft Azure Storage용 Python을 사용하는 클라이언트 쪽 암호화 | Microsoft Docs
 description: Python용 Azure Storage 클라이언트 라이브러리는 Azure Storage 애플리케이션의 보안을 최대화하기 위해 클라이언트 쪽 암호화를 지원합니다.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011129"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146906"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Python을 이용한 클라이언트쪽 암호화
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ KEK는 데이터를 성공적으로 암호화하기 위해 다음 메서드를 �
   * 키 확인자는 키를 가져오기 위해 지정된 경우 호출됩니다. 확인자를 지정 하 고 키 식별자에 대한 매핑이 없는 경우, 오류가 전달됩니다.
   * 확인자는 지정하지 않고 키는 지정한 경우 해당 식별자가 필요한 키 식별자와 일치하는 경우 키가 사용됩니다. 식별자가 일치하지 않으면 오류가 throw됩니다.
 
-    azure.storage.samples의 암호화 샘플은 <fix URL>Blob, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여 줍니다.
+    Azure.storage.samples의 암호화 샘플은 blob, 큐 및 테이블에 대 한 보다 자세한 종단 간 시나리오를 보여 줍니다.
       KEK 및 키 확인자의 샘플 구현은 예제 파일에 각각 KeyWrapper 및 KeyResolver로 제공됩니다.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 모드

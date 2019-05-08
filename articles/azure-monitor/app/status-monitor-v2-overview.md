@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870449"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145038"
 ---
 # <a name="status-monitor-v2"></a>상태 모니터 v2
 
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - 사용을 확인 하는 방법을 성공적으로?
 
    해당 사용 성공 했는지 확인 하려면 cmdlet이 없었습니다. 사용 하는 것이 좋습니다 [라이브 메트릭](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) 신속 하 게 하는 경우 응용 프로그램은 보내는 원격 분석을 확인할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+원격 분석 보기:
+
+* [메트릭을 탐색하여](../../azure-monitor/app/metrics-explorer.md) 성능 및 사용량을 모니터링합니다.
+* [검색 이벤트 및 로그](../../azure-monitor/app/diagnostic-search.md) 문제 진단
+* [분석](../../azure-monitor/app/analytics.md)을 통해 고급 쿼리를 수행합니다.
+* [대시보드를 만듭니다](../../azure-monitor/app/app-insights-dashboards.md).
+
+원격 분석 더 추가:
+
+* [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되도록 합니다.
+* [웹 클라이언트 원격 분석 추가](../../azure-monitor/app/javascript.md) 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 삽입할 수 있도록 합니다.
+* [코드에 Application Insights SDK 추가](../../azure-monitor/app/asp-net.md) 추적을 삽입 하 고 호출을 기록할 수 있도록
+

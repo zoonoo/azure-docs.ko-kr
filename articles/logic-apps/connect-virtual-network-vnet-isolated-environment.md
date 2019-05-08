@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511306"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150661"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
-
-> [!NOTE]
-> 이 기능은 [ *공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
 논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE에는 전용된 저장소 및 공용 또는 "전역" Logic Apps 서비스를 별도로 보관 되는 기타 리소스를 사용 하는 개인 및 격리 된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. ISE를 Azure 가상 네트워크에 *삽입*한 다음, Logic Apps 서비스를 사용자의 가상 네트워크에 배포합니다. 논리 앱 또는 통합 계정을 만들 때 해당 위치로 이 ISE를 선택합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다.
 
@@ -101,13 +98,11 @@ ISE 프로그램을 배포 하는 가상 네트워크의 서브넷 간 트래픽
 ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)의 기본 Azure 메뉴에서 **리소스 만들기**를 선택합니다.
+검색 상자에서 필터로 "통합 서비스 환경"을 입력합니다.
 
    ![새 리소스 만들기](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. 검색 상자에서 필터로 "통합 서비스 환경"을 입력합니다.
-결과 목록에서 **통합 서비스 환경(미리 보기)** 을 선택한 다음, **만들기**를 선택합니다.
-
-   !["통합 서비스 환경" 선택](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. 통합 서비스 환경 만들기 창에서 선택 **만들기**합니다.
 
    !["만들기" 선택](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -121,8 +116,8 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
    | **통합 서비스 환경 이름** | 예 | <*environment-name*> | 환경에 부여할 이름 |
    | **위치**: | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
-   | **추가 용량** | 예 | 0, 1, 2, 3 | 이 ISE 리소스에 사용할 처리 단위의 수입니다. 참조를 만든 후 용량을 추가 [용량 추가](#add-capacity)합니다. |
-   | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 여기서 만들 수 있습니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. 그러나이 관계를 만들기 전에 이미 설정한 역할 기반 액세스 제어 가상 네트워크에서 Azure Logic Apps에 대 한 있는지 확인 합니다. |
+   | **추가 용량** | 예 | 0 ~ 10 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 참조를 만든 후 용량을 추가 [ISE 추가 용량](#add-capacity)합니다. |
+   | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크에 없는 경우 [Azure virtual network를 먼저 만들어야](../virtual-network/quick-create-portal.md)합니다. <p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. |
    | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들기 위해 4개의 *빈* 서브넷이 필요합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet).  |
    |||||
 
@@ -172,6 +167,9 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    1. 세 개 이상의 서브넷에 대해 이 단계를 반복합니다.
 
+      > [!NOTE]
+      > 만들려고 시도 하면 서브넷 유효 하지 않으면 Azure 포털 메시지를 표시 하지만 진행률을 차단 하지 않습니다.
+
 1. 예를 들어 Azure에서 성공적으로 ISE 정보의 유효성 검사를 완료하면 **만들기**를 선택합니다.
 
    ![유효성 검사에 성공하면 "만들기" 선택](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    ![배포 성공](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   그렇지 않으면, 배포 문제 해결에 대 한 Azure portal 지침을 따릅니다.
+
    > [!NOTE]
-   > 배포가 실패하거나 ISE를 삭제하는 경우 Azure에서 서브넷을 릴리스하기까지 최대 1시간이 걸릴 *수* 있습니다. 따라서 다른 ISE에서 해당 서브넷을 다시 사용하기 전에 대기해야 할 수 있습니다.
+   > 배포가 실패 하거나 프로그램 ISE를 삭제 하는 경우 Azure가 서브넷을 해제 하기 전에 한 시간 걸릴 수 있습니다. 이 지연 다른 ISE에서 해당 서브넷을 다시 사용 하기 전에 대기 해야 하는 수단을 의미 합니다. 
+   >
+   > 가상 네트워크를 삭제 하면 Azure 일반적으로 서브넷, 등록을 해제 하기 전에 최대 2 시간이 걸리지만이 작업은 오래 걸릴 수 있습니다. 
+   > 가상 네트워크를 삭제 하는 경우 리소스가 아직 연결 되어 있는지 확인 합니다. 참조 [가상 네트워크 삭제](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)합니다.
 
 1. 배포가 완료된 후에 Azure가 환경으로 자동으로 이동하지 않는 경우 환경을 보려면 **리소스로 이동**을 선택합니다.  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>용량 추가
-
-ISE 기본 단위는 용량을 수정 하므로 더 많은 처리량을 할 경우 배율 단위를 더 추가할 수 있습니다. 성능 메트릭에 따라 또는 처리 단위 수에 따라 자동 크기 조정을 수 있습니다. 메트릭을 기반으로 하는 자동 크기 조정 하면 다양 한 조건에서 선택 하 고 해당 조건을 충족 하는 것에 대 한 임계값 조건을 지정할 수 있습니다.
-
-1. Azure portal에서 사용자 ISE를 찾습니다.
-
-1. ISE의 주 메뉴에 ISE에 대 한 성능 메트릭을 보려면 **개요**합니다.
-
-1. 아래에 있는 자동 크기 조정을 설정 하려면 **설정**를 선택 **확장**합니다. 에 **구성** 탭에서 **자동 크기 조정 사용**합니다.
-
-1. 에 **기본** 섹션을 선택 **메트릭에 따라 크기 조정** 또는 **특정 인스턴스 수로 크기 조정**합니다.
-
-1. 인스턴스 기반을 선택 하면 까지입니다 처리 단위 수가 0에서 3 사이 입력 합니다. 메트릭 기반 후속 작업을 위해이 고, 그렇지이 단계:
-
-   1. 에 **기본** 섹션을 선택 **규칙을 추가**합니다.
-
-   1. 에 **크기 조정 규칙** 창, 조건 및 작업 규칙이 트리거되면을 설정 합니다.
-
-   1. 완료 되 면 선택 **추가**합니다.
-
-1. 이 과정을 완료 하는 경우 변경 내용을 저장 해야 합니다.
+서브넷을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [가상 네트워크 서브넷을 추가](../virtual-network/virtual-network-manage-subnet.md)합니다.
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ ISE를 사용하는 통합 계정을 만들려면 현재 **통합 서비스 환�
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>지원 받기
+<a name="add-capacity"></a>
 
-* 질문이 있는 경우 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 포럼</a>을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 사용자 의견 사이트</a>를 방문하세요.
+## <a name="add-ise-capacity"></a>ISE 용량 추가
+
+ISE 기본 단위는 용량을 수정 하므로 더 많은 처리량을 할 경우 배율 단위를 더 추가할 수 있습니다. 성능 메트릭에 따라 또는 추가 처리 단위 수에 따라 자동 크기 조정을 수 있습니다. 메트릭을 기반으로 하는 자동 크기 조정 하면 다양 한 조건에서 선택 하 고 해당 조건을 충족 하는 것에 대 한 임계값 조건을 지정할 수 있습니다.
+
+1. Azure portal에서 사용자 ISE를 찾습니다.
+
+1. ISE의 주 메뉴에 ISE에 대 한 사용 현황 및 성능 메트릭을 검토 하려면 **개요**합니다.
+
+   ![ISE에 대 한 사용 현황 보기](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. 아래에 있는 자동 크기 조정을 설정 하려면 **설정**를 선택 **확장**합니다. 에 **구성** 탭에서 **자동 크기 조정 사용**합니다.
+
+   ![자동 크기 조정 설정](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. 에 대 한 **자동 크기 조정 설정 이름**, 설정에 대 한 이름을 제공 합니다.
+
+1. 에 **기본** 섹션을 선택 **메트릭에 따라 크기 조정** 또는 **특정 인스턴스 수로 크기 조정**합니다.
+
+   * 인스턴스 기반을 선택 하면 까지입니다 처리 단위 수가 0과 10 사이의 입력 합니다.
+
+   * 메트릭 기반을 선택 하면 다음이 단계를 수행 합니다.
+
+     1. 에 **규칙** 섹션을 선택 **규칙을 추가**합니다.
+
+     1. 에 **크기 조정 규칙** 창, 조건 및 작업 규칙이 트리거되면을 설정 합니다.
+
+     1. 완료 되 면 선택 **추가**합니다.
+
+1. 완료 되 면 자동 크기 조정 설정을 사용 하 여, 변경 내용을 저장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

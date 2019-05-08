@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871368"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025333"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Azure Search에서 동시성을 관리하는 방법
 
@@ -170,7 +170,7 @@ ms.locfileid: "60871368"
 
 낙관적 동시성 구현을 위한 디자인 패턴에는 액세스 조건 확인을 다시 시도하는 루프와 액세스 조건에 대한 테스트를 포함해야 하며, 필요에 따라 변경 내용을 다시 적용하기 전에 업데이트된 리소스를 검색하는 과정을 포함할 수 있습니다.
 
-다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 합니다 [동의어 (미리 보기) C# Azure Search에 대 한 예제](search-synonyms-tutorial-sdk.md)합니다.
+다음 코드 조각은 이미 있는 인덱스에 synonymMap을 추가하는 방법을 보여 줍니다. 이 코드는 합니다 [동의어 C# Azure Search에 대 한 예제](search-synonyms-tutorial-sdk.md)합니다.
 
 해당 코드 조각은 "hotels" 인덱스를 가져와 업데이트 작업의 개체 버전을 확인한 다음 조건이 실패하면 예외를 throw합니다. 그런 후에 작업을 최대 3회까지 다시 시도하는데, 이때 먼저 서버에서 인덱스를 검색하여 최신 버전을 가져옵니다.
 

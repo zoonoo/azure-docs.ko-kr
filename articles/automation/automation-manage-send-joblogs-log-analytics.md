@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 로그에 Azure Automation 작업 데이터 전달
-description: 이 문서에서는 통찰력 및 관리 하려면 Azure Azure Monitor 로그로 작업 상태 및 runbook 작업 스트림을 보낼 하는 방법에 설명 합니다.
+description: 이 문서에서는 통찰력 및 관리 하려면 Azure Monitor 로그로 작업 상태 및 runbook 작업 스트림을 보내는 방법을 보여 줍니다.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739140"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200599"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달
 

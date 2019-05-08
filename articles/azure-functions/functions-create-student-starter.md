@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344100"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143093"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Azure for Students Starter를 사용하여 함수 만들기
 
@@ -76,8 +76,6 @@ Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 �
 
 8. **리소스로 이동**을 선택하여 함수 앱을 봅니다.
 
-> [!TIP]
-> 포털에서 함수 앱을 찾는 데 문제가 있는 경우 [Azure Portal에서 즐겨찾기에 Function App을 추가](./functions-how-to-use-azure-function-app-settings.md#favorite)합니다.
 다음으로 새 함수 앱에서 함수를 만듭니다.
 
 ## <a name="create-function"></a>HTTP 트리거 함수 만들기

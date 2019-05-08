@@ -1,7 +1,6 @@
 ---
 title: HDInsight에서 Apache Hadoop과 MapReduce
 description: HDInsight 클러스터의 Apache Hadoop에서 MapReduce 작업을 실행하는 방법을 알아봅니다.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521203"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707955"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 사용
 
@@ -49,15 +48,13 @@ Hadoop 스트리밍은 STDIN 및 STDOUT을 통해 매퍼 및 리듀서와 통신
 
 자세한 내용은 [Hadoop 스트리밍](https://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하세요.
 
-HDInsight에서 Hadoop 스트리밍을 사용하는 예를 보려면 다음 문서를 참조하세요.
+Hadoop HDInsight를 사용 하 여 스트리밍 사용의 예제를 다음 문서를 참조 합니다.
 
 * [C# MapReduce 작업 개발](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Python MapReduce 작업 개발](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>예제 데이터
 
-HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 저장소에 있습니다. 이 문서에서는 `/example/data/gutenberg/davinci.txt` 파일을 사용합니다. 이 파일에는 레오나르도 다빈치의 메모장이 포함되어 있습니다.
+HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 저장소에 있습니다. 이 문서에서는 `/example/data/gutenberg/davinci.txt` 파일을 사용합니다. 이 파일 Leonardo da Vinci의 노트북을 포함합니다.
 
 ## <a id="job"></a>예제 MapReduce
 
@@ -137,11 +134,9 @@ public class WordCount {
 }
 ```
 
-고유한 MapReduce 애플리케이션을 쓰는 지침은 다음 문서를 참조하세요.
+고유한 MapReduce 응용 프로그램을 작성 하는 내용은 다음 문서를 참조 합니다.
 
 * [HDInsight용 Java MapReduce 애플리케이션 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [HDInsight용 Python MapReduce 애플리케이션 개발](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>MapReduce 실행
 
@@ -158,8 +153,6 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 HDInsight에서 데이터를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](apache-hadoop-streaming-python.md)
 
 * [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
 

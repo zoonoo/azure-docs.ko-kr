@@ -2,19 +2,20 @@
 title: iOS에서 개체(Blob) 저장소를 사용하는 방법 - Azure | Microsoft Docs
 description: Azure Blob Storage(개체 스토리지)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
 services: storage
-author: michaelhauss
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: michaelhauss
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 87651aa1fd44a831e94a00b5871faaae51f2f6a7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122746"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148303"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 

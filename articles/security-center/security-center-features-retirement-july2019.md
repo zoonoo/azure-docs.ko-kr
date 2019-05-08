@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875581"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147920"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Security Center의 사용 중지 기능 (2019 년 7 월)
 
@@ -155,7 +155,7 @@ Azure Security Center는 방화벽, 감사, 암호 정책 등과 관련된 규�
 
 ### <a name="edit-security-configurations---new-experience"></a>새 환경 보안 구성 편집
 
-Security Center는 지원 합니다 [게스트 내 에이전트](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) 가까운 미래에 보다 다양 한 기능 집합을-추가 운영 체제 및 게스트 구성 (게스트 내 Azure 정책 사용 하 여와 통합에 대 한 지원을 비롯 하 여 허용 정책)입니다. 이렇게 하면 규모에서 제어 하 고 새 리소스에 자동으로 적용 하는 기능을 제공 됩니다.
+Security Center는 지원 합니다 [게스트 구성 에이전트가](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) 가까운 미래에 보다 다양 한 기능 집합을-추가 운영 체제 및 Azure 정책 (게스트 구성 사용 하 여 통합에 대 한 지원을 비롯 하 여 허용 게스트 내 정책)입니다. 이렇게 하면 규모에서 제어 하 고 새 리소스에 자동으로 적용 하는 기능을 제공 됩니다.
 
 ## Log Analytics 작업 영역에 대 한 보안 및 감사 대시보드 (원래 OMS 포털에서 사용)<a name="menu_securityomsdashboard"></a>
 

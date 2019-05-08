@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926055"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205524"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 출력 유형을 설명 합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용 하 여 수행할 수 있습니다 비즈니스 분석 및 데이터 웨어하우징 데이터를 추가 합니다.
@@ -228,7 +228,7 @@ Stream Analytics 작업을 만들거나 마지막으로 인증 한 후 Power BI 
 | 테이블 이름 |테이블의 이름입니다. 테이블에 존재 하지 않는 경우 만들어집니다. |
 | 파티션 키 |파티션 키가 포함 된 출력 열의 이름입니다. 파티션 키는 엔터티의 기본 키의 첫 번째 부분을 구성 하는 테이블 내 파티션에 대 한 고유 식별자입니다. 크기가 최대 1KB 일 수 있는 문자열 값입니다. |
 | 행 키. |행 키가 포함 된 출력 열의 이름입니다. 행 키는 파티션 내 엔터티의 고유 식별자입니다. 엔터티의 기본 키에서 두 번째 부분을 형성합니다. 행 키는 크기가 최대 1KB 일 수 있습니다 하는 문자열 값입니다. |
-| Batch 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 참조 된 [테이블 Batch 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) 이 설정을 수정 하는 대 한 자세한 내용은 합니다. |
+| Batch 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 참조 된 [테이블 Batch 작업 사양](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) 이 설정을 수정 하는 대 한 자세한 내용은 합니다. |
 
 ## <a name="service-bus-queues"></a>Service Bus 큐
 [Service Bus 큐](https://msdn.microsoft.com/library/azure/hh367516.aspx) 하나 이상의 경쟁 소비자에 게 FIFO 메시지 배달을 제공 합니다. 일반적으로 메시지를 받아서 큐에 추가 된 임시 순서로 수신자에에서 의해 처리 됩니다. 각 메시지를 받고 하나의 메시지 소비자에 의해 처리 됩니다.

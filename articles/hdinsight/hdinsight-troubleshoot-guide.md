@@ -7,11 +7,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/2/2017
 ms.openlocfilehash: f7ac4b7434c56d356fa7e88de39e819a112ae234
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764026"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723381"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 문제 해결
 

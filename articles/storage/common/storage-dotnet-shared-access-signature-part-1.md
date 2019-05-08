@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001590"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154422"
 ---
 # <a name="using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명) 사용
 
@@ -115,9 +116,9 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | 시작 시간 |`st=2015-04-29T22%3A18%3A26Z` |UTC 시간으로 지정됩니다. SAS를 즉시 유효화하려면 시작 시간을 생략하십시오. |
 | 만료 시간 |`se=2015-04-30T02%3A23%3A26Z` |UTC 시간으로 지정됩니다. |
 | 리소스 |`sr=b` |Blob의 리소스입니다. |
-| 사용 권한 |`sp=rw` |SAS에서 부여하는 권한에는 읽기 및 쓰기가 포함됩니다. |
+| 권한 |`sp=rw` |SAS에서 부여하는 권한에는 읽기 및 쓰기가 포함됩니다. |
 | IP 범위 |`sip=168.1.5.60-168.1.5.70` |요청을 수락할 IP 주소 범위입니다. |
-| 프로토콜 |`spr=https` |HTTPS를 사용하는 요청만 허용됩니다. |
+| Protocol |`spr=https` |HTTPS를 사용하는 요청만 허용됩니다. |
 | 서명 |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Blob에 대한 액세스 권한을 부여하는 데 사용합니다. 이 서명은 SHA256 알고리즘을 사용하여 서명할 문자열과 키를 통해 계산되고 Base64 인코딩을 사용하여 인코드되는 HMAC입니다. |
 
 ### <a name="account-sas-uri-example"></a>계정 SAS URI 예
@@ -133,7 +134,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 | 리소스 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |서비스 속성을 가져오거나(GET으로 호출할 경우) 서비스 속성을 설정하기 위한(SET으로 호출하는 경우) 매개 변수를 사용하는 Blob service 엔드포인트입니다. |
 | Services |`ss=bf` |SAS는 Blob 및 파일 서비스에 적용됩니다. |
 | 리소스 유형 |`srt=s` |SAS는 서비스 수준 작업에 적용됩니다. |
-| 사용 권한 |`sp=rw` |사용 권한으로 읽기 및 쓰기 작업에 대한 액세스 권한을 부여합니다. |
+| 권한 |`sp=rw` |사용 권한으로 읽기 및 쓰기 작업에 대한 액세스 권한을 부여합니다. |
 
 사용 권한이 서비스 수준으로 제한된 경우 이 SAS로 액세스 가능한 작업은 **Blob service 속성 가져오기**(읽기) 및 **Blob service 속성 설정**(쓰기)입니다. 하지만 다른 리소스 URI를 사용하면 동일한 SAS 토큰을 사용하여 **Blob 서비스 통계 가져오기** (읽기)에 대한 액세스 권한을 위임할 수도 있습니다.
 
@@ -235,7 +236,7 @@ catch (StorageException e)
 
 SAS를 만들고 테스트하는 방법을 보여 주는 추가 예제는 [저장소에 대한 Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage)을 참조하세요.
 
-### <a name="example-create-and-use-an-account-sas"></a>예: SAS 계정 만들기 및 사용
+### <a name="example-create-and-use-an-account-sas"></a>예제: SAS 계정 만들기 및 사용
 다음 코드 예제는 Blob 및 파일 공유에 유효한 계정 SAS를 만들며 클라이언트가 읽기, 쓰기, 목록 권한을 사용하여 서비스 수준 API에 액세스할 수 있는 권한을 부여합니다. 계정 SAS는 프로토콜을 HTTPS로 제한하므로 반드시 HTTPS로 요청해야 합니다.
 
 ```csharp
@@ -302,7 +303,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-### <a name="example-create-a-stored-access-policy"></a>예: 저장된 액세스 정책 만들기
+### <a name="example-create-a-stored-access-policy"></a>예제: 저장된 액세스 정책 만들기
 다음 코드는 컨테이너에 저장된 액세스 정책을 만듭니다. 액세스 정책을 사용하여 컨테이너나 해당 Blob에 서비스 SAS에 대한 제약 조건을 지정할 수 있습니다.
 
 ```csharp
@@ -328,7 +329,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-container"></a>예: 컨테이너에 서비스 SAS 만들기
+### <a name="example-create-a-service-sas-on-a-container"></a>예제: 컨테이너에 서비스 SAS 만들기
 다음 코드는 컨테이너에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책 없음 제공 코드 컨테이너에서 임시 SAS을 만듭니다.
 
 ```csharp
@@ -371,7 +372,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-blob"></a>예: Blob에 서비스 SAS 만들기
+### <a name="example-create-a-service-sas-on-a-blob"></a>예제: Blob에 서비스 SAS 만들기
 다음 코드는 Blob에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책이 제공 코드 blob에서 임시 SAS을 만듭니다.
 
 ```csharp

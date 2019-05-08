@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653664"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070807"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>수동으로 중지 하거나 Azure Container Instances에서 컨테이너를 시작 합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "60653664"
 
 *중지 됨 상태로 전환 하는 컨테이너 그룹을 종료 하 고 그룹의 모든 컨테이너를 재활용 합니다. 컨테이너 상태를 유지 하지 않습니다.*
 
-중지 됨 컨테이너 그룹의 컨테이너는 재활용 합니다 [리소스](container-instances-container-groups.md#resource-allocation) 사용에 대 한 할당 된 상태로 유지 합니다. 따라서 청구를 중지 컨테이너 그룹에 대 한 계속합니다.
+컨테이너 재활용 되 면 합니다 [리소스](container-instances-container-groups.md#resource-allocation) 할당이 취소 되 고 중지 컨테이너 그룹에 대 한 청구 합니다.
 
 컨테이너 그룹에서 이미 종료 하는 경우 중지 작업은 효과가 없습니다 (성공 또는 실패 상태의 됩니다). 예를 들어, 성공 상태가 성공적으로 실행 하는 한 번 실행 컨테이너 작업을 사용 하 여 컨테이너 그룹을 종료 합니다. 상태는 상태를 변경 하지는 그룹을 중지 하려고 합니다. 
 

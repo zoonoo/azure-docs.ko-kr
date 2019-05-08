@@ -16,32 +16,68 @@
       href: setup-create-workspace.md
 - name: 빠른 시작
   items:
-    - name: 클라우드 Notebook으로 실험
-      displayName: workspace
-      href: quickstart-run-cloud-notebook.md
-    - name: 로컬 Notebook으로 실험
-      displayName: 'workspace, install, sdk'
-      href: quickstart-run-local-notebook.md
+    - name: Python SDK
+      items:
+        - name: 클라우드에서 실험 실행
+          displayName: workspace
+          href: quickstart-run-cloud-notebook.md
+        - name: 로컬로 실험 실행
+          displayName: 'workspace, install, sdk'
+          href: quickstart-run-local-notebook.md
+    - name: 시각적 인터페이스
+      items:
+        - name: 데이터 준비 및 시각화
+          displayName: experiment drag-and-drop
+          href: ui-quickstart-run-experiment.md
 - name: 자습서
   items:
-    - name: 이미지 분류(MNIST 데이터)
+    - name: Python SDK
       items:
-        - name: 1. 모델 학습
-          displayName: build modeling
-          href: tutorial-train-models-with-aml.md
-        - name: 2. 모델 배포
-          href: tutorial-deploy-models-with-aml.md
-    - name: 회귀(NYC 택시 데이터)
+        - name: 이미지 분류(MNIST 데이터)
+          items:
+            - name: 1. 모델 학습
+              displayName: build modeling
+              href: tutorial-train-models-with-aml.md
+            - name: 2. 모델 배포
+              href: tutorial-deploy-models-with-aml.md
+        - name: 회귀(NYC 택시 데이터)
+          items:
+            - name: 1. 모델링을 위한 데이터 준비
+              displayName: data prep
+              href: tutorial-data-prep.md
+            - name: 2. ML 모델 자동 학습
+              displayName: 'automl, automated, auto ml,'
+              href: tutorial-auto-train-models.md
+    - name: 시각적 인터페이스
       items:
-        - name: 1. 모델링을 위한 데이터 준비
-          displayName: data prep
-          href: tutorial-data-prep.md
-        - name: 2. ML 모델 자동 학습
-          displayName: 'automl, automated, auto ml,'
-          href: tutorial-auto-train-models.md
+        - name: 회귀 모델 학습
+          displayName: experiment drag-and-drop visual interface Tutorial 1
+          href: ui-tutorial-automobile-price-train-score.md
+        - name: 회귀 모델 배포
+          displayName: experiment drag-and-drop visual interface Tutorial 2
+          href: ui-tutorial-automobile-price-deploy.md
 - name: 샘플
-  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
-  href: samples-notebooks.md
+  items:
+    - name: Notebooks
+      displayName: 'example, examples, jupyter, azure notebooks, python, notebook, github'
+      href: samples-notebooks.md
+    - name: 시각적 인터페이스 실험
+      items:
+        - name: 가격 예측
+          displayName: 'Sample 1, training, regression'
+          href: ui-sample-regression-predict-automobile-price-basic.md
+        - name: 가격 예측(고급)
+          displayName: 'Sample 2, training, regression'
+          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
+        - name: 신용 위험 예측
+          displayName: 'Sample 3, training, classification'
+          href: ui-sample-classification-predict-credit-risk-basic.md
+        - name: 신용 위험 예측(고급)
+          displayName: 'Sample 4, training, classification'
+          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
+        - name: 이탈 예측
+          displayName: 'Sample 5, training, CRM, classification'
+          href: ui-sample-classification-predict-churn.md
 - name: 개념
   items:
     - name: 서비스의 작동 방식
@@ -50,14 +86,16 @@
     - name: 자동화된 기계 학습
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: 모델 관리
-      displayName: 'deploy, deployment'
+    - name: 모델 관리(MLOps)
+      displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
     - name: 모델 해석력
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
     - name: FPGA를 사용하여 가속화
       href: concept-accelerate-with-fpgas.md
+    - name: ONNX 및 ONNX 런타임 최적화
+      href: concept-onnx.md
     - name: 기계 학습 파이프라인
       href: concept-ml-pipelines.md
     - name: 보안
@@ -85,24 +123,40 @@
         - name: 개발 환경 구성
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Visual Studio Code 확장 사용
+        - name: 로깅 사용
+          displayName: 'troubleshoot, log, files, tracing'
+          href: how-to-enable-logging.md
+        - name: VS Code 확장 사용
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
     - name: 데이터 작업
-      displayName: 'data prep, ETL, ELT, data preparation'
       items:
-        - name: 데이터 탐색 및 준비
-          displayName: 'data prep, ETL, ELT, data preparation'
+        - name: 데이터 세트 추가 및 등록
+          displayName: 'data, dataset'
+          href: how-to-create-register-datasets.md
+        - name: azureml.dataprep를 사용하여 준비
           items:
             - name: 데이터 로드
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-load-data.md
             - name: 데이터 변환
+              displayName: 'data, etl, dataprep, data prep'
               href: how-to-transform-data.md
             - name: 데이터 쓰기
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-    - name: 데이터 저장소에서 데이터 가져오기
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
+        - name: 데이터 세트(미리 보기)를 사용하여 준비
+          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: 데이터 정의 버전 관리 및 관리
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: 데이터 스냅숏 만들기
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: 데이터 저장소에서 데이터 가져오기
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
     - name: 모델 학습
       items:
         - name: 학습 환경 설정
@@ -130,21 +184,24 @@
         - name: 자동화된 ML 사용(Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
+        - name: 자동화된 ML 사용(Azure Portal)
+          href: how-to-create-portal-experiments.md
         - name: 원격 계산 대상 사용
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: 예측 모델 자동 학습
           displayName: time series
           href: how-to-auto-train-forecast.md
-    - name: ONNX 모델
-      href: how-to-build-deploy-onnx.md
-    - name: 모델 배포
+    - name: 모델 배포 및 제공
       items:
         - name: 배포 위치 및 방법
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
         - name: FPGA
           href: how-to-deploy-fpga-web-service.md
+        - name: IoT Edge
+          href: ../../iot-edge/tutorial-deploy-machine-learning.md
+          maintainContext: true
         - name: 문제 해결
           href: how-to-troubleshoot-deployment.md
     - name: 웹 서비스 사용
@@ -162,31 +219,118 @@
           href: how-to-enable-data-collection.md
         - name: Application Insights로 모니터링
           href: how-to-enable-app-insights.md
-    - name: 첫 번째 파이프라인 만들기
-      href: how-to-create-your-first-pipeline.md
-    - name: 로깅 사용
-      displayName: logging
-      href: how-to-enable-logging.md
+    - name: 재사용 가능한 워크플로 만들기
+      displayName: pipelines
+      items:
+        - name: ML 파이프라인 만들기
+          href: how-to-create-your-first-pipeline.md
     - name: 리소스 할당량 관리
       displayName: limits
       href: how-to-manage-quotas.md
-    - name: Machine Learning CLI 사용
-      displayName: cli extension command line command-line az ci/cd automate automated
-      href: reference-azure-machine-learning-cli.md
     - name: 데이터 내보내기 및 삭제
       displayName: GDPR
       href: how-to-export-delete-data.md
 - name: 참고 자료
   items:
     - name: Machine Learning SDK
-      displayName: api core package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
     - name: 데이터 준비 SDK
-      displayName: api preparation package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/data-prep-sdk'
     - name: 모니터링 SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
+    - name: Machine Learning CLI
+      displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
+      href: reference-azure-machine-learning-cli.md
+    - name: 시각적 인터페이스 모듈
+      displayName: module reference
+      items:
+        - name: 모듈 참조 개요
+          href: ../algorithm-module-reference/module-reference.md
+        - name: 데이터 형식 변환
+          items:
+            - name: CSV로 변환
+              href: ../algorithm-module-reference/convert-to-csv.md
+        - name: 데이터 입력 및 출력
+          items:
+            - name: 데이터 가져오기
+              href: ../algorithm-module-reference/import-data.md
+            - name: 데이터 내보내기
+              href: ../algorithm-module-reference/export-data.md
+            - name: 수동으로 데이터 입력
+              href: ../algorithm-module-reference/enter-data-manually.md
+        - name: 데이터 변환
+          items:
+            - name: 데이터 세트의 열 선택
+              href: ../algorithm-module-reference/select-columns-in-dataset.md
+            - name: 메타데이터 편집
+              href: ../algorithm-module-reference/edit-metadata.md
+            - name: 누락 데이터 정리
+              href: ../algorithm-module-reference/clean-missing-data.md
+            - name: 열 추가
+              href: ../algorithm-module-reference/add-columns.md
+            - name: 행 추가
+              href: ../algorithm-module-reference/add-rows.md
+            - name: 중복 행 제거
+              href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: 데이터 분할
+              href: ../algorithm-module-reference/split-data.md
+            - name: 데이터 정규화
+              href: ../algorithm-module-reference/normalize-data.md
+            - name: 파티션 및 샘플
+              href: ../algorithm-module-reference/partition-and-sample.md
+        - name: Machine Learning
+          items:
+            - name: 모델 채점
+              href: ../algorithm-module-reference/score-model.md
+            - name: 클러스터에 데이터 할당
+              href: ../algorithm-module-reference/assign-data-to-clusters.md
+            - name: 모델 학습
+              href: ../algorithm-module-reference/train-model.md
+            - name: 클러스터링 모델 학습
+              href: ../algorithm-module-reference/train-clustering-model.md
+            - name: 모델 평가
+              href: ../algorithm-module-reference/evaluate-model.md
+            - name: 변환 적용
+              href: ../algorithm-module-reference/apply-transformation.md
+            - name: Linear Regression
+              href: ../algorithm-module-reference/linear-regression.md
+            - name: 신경망 회귀
+              href: ../algorithm-module-reference/neural-network-regression.md
+            - name: 의사 결정 포리스트 회귀
+              href: ../algorithm-module-reference/decision-forest-regression.md
+            - name: 향상된 의사 결정 트리 회귀
+              href: ../algorithm-module-reference/boosted-decision-tree-regression.md
+            - name: 2클래스 향상된 의사 결정 트리
+              href: ../algorithm-module-reference/two-class-boosted-decision-tree.md
+            - name: 2클래스 로지스틱 회귀
+              href: ../algorithm-module-reference/two-class-logistic-regression.md
+            - name: 다중 클래스 로지스틱 회귀
+              href: ../algorithm-module-reference/multiclass-logistic-regression.md
+            - name: 다중 클래스 인공신경망
+              href: ../algorithm-module-reference/multiclass-neural-network.md
+            - name: 다중 클래스 의사 결정 포리스트
+              href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: 2클래스 평균 퍼셉트론
+              href: ../algorithm-module-reference/two-class-averaged-perceptron.md
+            - name: 2클래스 의사 결정 포리스트
+              href: ../algorithm-module-reference/two-class-decision-forest.md
+            - name: 2클래스 신경망
+              href: ../algorithm-module-reference/two-class-neural-network.md
+            - name: 2클래스 Support Vector Machine
+              href: ../algorithm-module-reference/two-class-support-vector-machine.md
+            - name: K-평균 클러스터링
+              href: ../algorithm-module-reference/k-means-clustering.md
+        - name: Python 언어 모듈
+          items:
+            - name: Python 스크립트 실행
+              href: ../algorithm-module-reference/execute-python-script.md
+            - name: Python 모델 만들기
+              href: ../algorithm-module-reference/create-python-model.md
+        - name: 오류 메시지 및 코드
+          href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: 리소스
   items:
     - name: 릴리스 정보

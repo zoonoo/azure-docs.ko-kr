@@ -1,19 +1,18 @@
 ---
 title: Azure HDInsight의 Spark 문제 해결
 description: Apache Spark 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: aad35aa7a958e8bdaf1479d1ffbbad5bf213d46a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339247"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721161"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7cbcc8ac05e4541406abd08c14006a8abc0c91ca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 501af75edfe764a81ac09d61c1f1f9e6a45bca3c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699301"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205050"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -25,22 +25,22 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 
 |애플리케이션 |클러스터 유형 | 설명 |
 |---|---|---|
-|AtScale 인텔리전스 플랫폼 |Hadoop은 |AtScale 쿼리에 수십억 이미, 소유 익숙하고 즐겨 사용 – Microsoft Excel, Powerbi, Tableau 소프트웨어에서 qlikview까지에서 BI 도구를 사용 하 여 대화형으로 데이터의 행 수를 확장 OLAP 서버로, HDInsight 클러스터를 설정 합니다. |
-|CDAP 4.2 HDInsight에 대 한 4.3 |HBase |CDAP는 셀프 서비스 데이터를 제공 하는 Hadoop 및을 사용 하면 IT에 대 한 시간 값을 가속화 하는 빅 데이터에 대 한 첫 번째 통합 플랫폼입니다. 오픈 소스 확장 가능 하며 CDAP 혁신 장벽을 제거 합니다. Requirements: 4 개의 영역 노드를 최소 D3 v2 합니다. |
-|Datameer |Hadoop은 |Datameer의 셀프 서비스 확장성이 뛰어난 플랫폼 준비에 대 한 탐색 및 분석용 데이터 관리에 복잡 한 다중 원본 데이터는 엔터프라이즈급 규모에서 빠르고 스마트 하 게 정보를 제공 하는 중요 한 업무용으로 적합 정보로 전환 가속화 합니다. |
-|HDInsight의 Dataiku DSS |Hadoop, Spark |Dataiku DSS를 사용 하면 데이터 과학자와 데이터 분석가 엔터프라이즈 데이터 과학 플랫폼에서 공동 작업을 수행할 디자인 하 고 새 데이터 제품 및 서비스를 보다 효율적으로 실행 원시 데이터를 영향력이 강한 예측으로 설정 합니다. |
-|WANdisco Fusion HDI 앱-2.12.3, 2.12.1 2.11.2 |Hadoop, Spark,HBase,Storm,Kafka |데이터 분산된 환경에서 일관성을 유지 하는 것은 대규모 데이터 작업 문제입니다. WANdisco Fusion 엔터프라이즈급 소프트웨어 플랫폼을 모든 환경에서 구조화 되지 않은 데이터 일관성을 사용 하 여이 문제를 해결 합니다. |
-|HDInsight에 대 한 H2O SparklingWater |Spark |H2O Sparkling Water는 다음과 같은 분산된 알고리즘을 지원합니다. GLM, 원시 Bayes, 분산 임의 포리스트, 그라데이션 승격 컴퓨터, Deep Neural Networks, 심층 학습에서 k-means PCA, 낮은 순위 모델 일반화, 이상 탐지, Autoencoders 합니다. |
-|Striim HDInsight에 실시간 데이터 통합 |Hadoop, HBase, Storm, Spark, Kafka |Striim (발음된 "스트림")는--종단 간 데이터 통합 + 인텔리전스 플랫폼 스트리밍, 연속 수집, 처리 및 서로 다른 데이터 스트림 분석을 사용 하도록 설정 됩니다. |
-|HDInsight에 대 한 Jumbune |Hadoop, Spark |높은 수준에서 Jumbune 1 씩 엔터프라이즈를 지원합니다. MapReduce 및 Spark 엔진에 Hive에서 Java, Scala 워크 로드 성능 기반 Tez를 가속화 합니다. 2. 자동 관리 Hadoop 클러스터를 모니터링, 3입니다. 분산된 파일 시스템에서 데이터 품질 관리를 설정 합니다. |
-|Kyligence Enterprise |Hadoop,HBase,Spark |Kyligence Enterprise을 Apache Kylin에서 제공 하는, 빅 데이터 BI을 사용 하도록 설정 합니다. Hadoop에서 enterprise OLAP 엔진으로 Kyligence Enterprise를 사용 하면 산업 표준 데이터 웨어하우스 및 BI 방법론을 사용 하 여 Hadoop에서 BI를 설계 하는 비즈니스 분석가가 있습니다. |
-|KNIME Spark Executor 용 Spark 작업 서버 |Spark |KNIME Spark Executor 용 Spark 작업 서버는 KNIME Analytics Platform을 HDInsight 클러스터에 연결 됩니다. |
-|Azure HDInsight, 별 Presto v0.213-e ()에서 Presto 것임 |Hadoop은 |Presto 빠르고 확장성 있는 분산 된 SQL 쿼리 엔진이입니다. 스토리지 및 계산을 분리하기 위해 설계된 Presto는 Azure Data Lake Storage, Azure Blob Storage, SQL 및 NoSQL 데이터베이스와 기타 데이터 원본의 데이터를 쿼리하는 데 이상적입니다. |
-|클라우드 HDInsight 용 StreamSets 데이터 수집기 |Hadoop,HBase,Spark,Kafka |StreamSets 데이터 수집기는 데이터를 실시간으로 스트리밍하는 간단 하 고 강력한 엔진. 데이터 스트림에서 데이터를 경로 및 프로세스 데이터 수집기를 사용 합니다. 30 일 평가판 라이선스로 제공 됩니다. |
-|[Trifacta Wrangler Enterprise](https://www.trifacta.com/) |Hadoop, Spark,HBase |HDInsight에 대 한 Trifacta Wrangler Enterprise 기업 전체의 데이터에 대 한 모든 규모의 데이터 랭 글 링을 지원 합니다. Trifacta Azure에서 실행 하는 비용에 Trifacta 구독 비용 및 가상 컴퓨터에 대 한 Azure 인프라 비용의 조합입니다. |
-|Unifi 데이터 플랫폼 3.1 |Hadoop, HBase, Storm, Spark |Unifi 데이터 플랫폼은을 원활 하 게 통합된 도구 제품군 인 셀프 서비스 데이터 궁극적인 목표는 비즈니스 사용자 데이터 문제를 해결 하는 드라이브 증분 수익, 비용 또는 운영 복잡성을 줄이고 하도록 설계 되었습니다. |
-|Unraveldata APM |Spark |HDInsight Spark 클러스터에 대 한 데이터 앱 하기가 너무 어려운 합니다. |
-|워터 라인 데이터 카탈로그 |Spark |워터 라인 카탈로그 정리 하며 비즈니스 용어를 사용 하 여 자동 태그 데이터를 AI를 사용 하 여 데이터를 제어 합니다. Waterline의 비즈니스에 익숙한 카탈로그는 셀프 서비스 분석, 규정 준수 및 거버넌스, IT 관리 이니셔티브에 중요한 성공 구성 요소입니다. |
+|[AtScale 인텔리전스 플랫폼](https://azuremarketplace.microsoft.com/marketplace/apps/atscale.atscale) |Hadoop은 |AtScale 쿼리에 수십억 이미, 소유 익숙하고 즐겨 사용 – Microsoft Excel, Powerbi, Tableau 소프트웨어에서 qlikview까지에서 BI 도구를 사용 하 여 대화형으로 데이터의 행 수를 확장 OLAP 서버로, HDInsight 클러스터를 설정 합니다. |
+|[HDInsight에 대 한 CDAP](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP는 셀프 서비스 데이터를 제공 하는 Hadoop 및을 사용 하면 IT에 대 한 시간 값을 가속화 하는 빅 데이터에 대 한 첫 번째 통합 플랫폼입니다. 오픈 소스 확장 가능 하며 CDAP 혁신 장벽을 제거 합니다. Requirements: 4 개의 영역 노드를 최소 D3 v2 합니다. |
+|[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop은 |Datameer의 셀프 서비스 확장성이 뛰어난 플랫폼 준비에 대 한 탐색 및 분석용 데이터 관리에 복잡 한 다중 원본 데이터는 엔터프라이즈급 규모에서 빠르고 스마트 하 게 정보를 제공 하는 중요 한 업무용으로 적합 정보로 전환 가속화 합니다. |
+|[HDInsight의 Dataiku DSS](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS를 사용 하면 데이터 과학자와 데이터 분석가 엔터프라이즈 데이터 과학 플랫폼에서 공동 작업을 수행할 디자인 하 고 새 데이터 제품 및 서비스를 보다 효율적으로 실행 원시 데이터를 영향력이 강한 예측으로 설정 합니다. |
+|[WANdisco Fusion HDI 앱](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark,HBase,Storm,Kafka |데이터 분산된 환경에서 일관성을 유지 하는 것은 대규모 데이터 작업 문제입니다. WANdisco Fusion 엔터프라이즈급 소프트웨어 플랫폼을 모든 환경에서 구조화 되지 않은 데이터 일관성을 사용 하 여이 문제를 해결 합니다. |
+|[HDInsight에 대 한 H2O SparklingWater](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water는 다음과 같은 분산된 알고리즘을 지원합니다. GLM, 원시 Bayes, 분산 임의 포리스트, 그라데이션 승격 컴퓨터, Deep Neural Networks, 심층 학습에서 k-means PCA, 낮은 순위 모델 일반화, 이상 탐지, Autoencoders 합니다. |
+|[Striim HDInsight에 실시간 데이터 통합](https://azuremarketplace.microsoft.com/marketplace/apps/striim.hdinsightintegration) |Hadoop, HBase, Storm, Spark, Kafka |Striim (발음된 "스트림")는--종단 간 데이터 통합 + 인텔리전스 플랫폼 스트리밍, 연속 수집, 처리 및 서로 다른 데이터 스트림 분석을 사용 하도록 설정 됩니다. |
+|[Jumbune Enterprise 가속화 BigData 분석](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |높은 수준에서 Jumbune 1 씩 엔터프라이즈를 지원합니다. MapReduce 및 Spark 엔진에 Hive에서 Java, Scala 워크 로드 성능 기반 Tez를 가속화 합니다. 2. 자동 관리 Hadoop 클러스터를 모니터링, 3입니다. 분산된 파일 시스템에서 데이터 품질 관리를 설정 합니다. |
+|[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop,HBase,Spark |Kyligence Enterprise을 Apache Kylin에서 제공 하는, 빅 데이터 BI을 사용 하도록 설정 합니다. Hadoop에서 enterprise OLAP 엔진으로 Kyligence Enterprise를 사용 하면 산업 표준 데이터 웨어하우스 및 BI 방법론을 사용 하 여 Hadoop에서 BI를 설계 하는 비즈니스 분석가가 있습니다. |
+|[KNIME Spark Executor 용 Spark 작업 서버](https://azuremarketplace.microsoft.com/marketplace/apps/knime.spark-job-server-for-knime-spark-executor) |Spark |KNIME Spark Executor 용 Spark 작업 서버는 KNIME Analytics Platform을 HDInsight 클러스터에 연결 됩니다. |
+|[Azure HDInsight에 대 한 Presto 것임](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop은 |Presto 빠르고 확장성 있는 분산 된 SQL 쿼리 엔진이입니다. 스토리지 및 계산을 분리하기 위해 설계된 Presto는 Azure Data Lake Storage, Azure Blob Storage, SQL 및 NoSQL 데이터베이스와 기타 데이터 원본의 데이터를 쿼리하는 데 이상적입니다. |
+|[클라우드 HDInsight 용 StreamSets 데이터 수집기](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |StreamSets 데이터 수집기는 데이터를 실시간으로 스트리밍하는 간단 하 고 강력한 엔진. 데이터 스트림에서 데이터를 경로 및 프로세스 데이터 수집기를 사용 합니다. 30 일 평가판 라이선스로 제공 됩니다. |
+|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop, Spark,HBase |HDInsight에 대 한 Trifacta Wrangler Enterprise 기업 전체의 데이터에 대 한 모든 규모의 데이터 랭 글 링을 지원 합니다. Trifacta Azure에서 실행 하는 비용에 Trifacta 구독 비용 및 가상 컴퓨터에 대 한 Azure 인프라 비용의 조합입니다. |
+|[Unifi 데이터 플랫폼](https://azuremarketplace.microsoft.com/marketplace/apps/unifi-software.unifi-data-platform) |Hadoop, HBase, Storm, Spark |Unifi 데이터 플랫폼은을 원활 하 게 통합된 도구 제품군 인 셀프 서비스 데이터 궁극적인 목표는 비즈니스 사용자 데이터 문제를 해결 하는 드라이브 증분 수익, 비용 또는 운영 복잡성을 줄이고 하도록 설계 되었습니다. |
+|[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |HDInsight Spark 클러스터에 대 한 데이터 앱 하기가 너무 어려운 합니다. |
+|[워터 라인 AI 기반 데이터 카탈로그](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |워터 라인 카탈로그 정리 하며 비즈니스 용어를 사용 하 여 자동 태그 데이터를 AI를 사용 하 여 데이터를 제어 합니다. Waterline의 비즈니스에 익숙한 카탈로그는 셀프 서비스 분석, 규정 준수 및 거버넌스, IT 관리 이니셔티브에 중요한 성공 구성 요소입니다. |
 
 이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure 클래식 CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 

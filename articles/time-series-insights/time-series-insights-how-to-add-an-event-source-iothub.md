@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 258b603b8cd2e0cdfcc72ca17cd3cb0d034caf5b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692113"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143359"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본 추가
 
@@ -42,7 +42,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
 1. 메뉴의 **설정** 아래에서 **기본 제공 엔드포인트**를 선택한 후 **이벤트** 엔드포인트를 선택합니다.
 
-   ![기본 제공 엔드포인트 페이지에서 이벤트 단추 선택][1]
+   [![기본 제공 끝점 페이지에서 이벤트 단추를 선택 합니다.](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
 1. **소비자 그룹**에 소비자 그룹의 고유한 이름을 입력합니다. 새 이벤트 원본을 만들 때 Time Series Insights 환경에서 이 동일한 이름을 사용합니다.
 
@@ -54,9 +54,9 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
-1. **환경 토폴로지** 아래에서 **이벤트 원본**을 선택한 후 **추가**를 선택합니다.
+1. **환경 토폴로지**에서 **이벤트 원본**을 선택한 다음, **추가**를 선택합니다.
 
-   ![이벤트 원본을 선택한 후 추가 단추 선택][2]
+   [![이벤트 소스를 선택한 다음 추가 단추를 선택](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png#lightbox)
 
 1. **새 이벤트 원본** 창에서 **이벤트 원본 이름**으로 이 Time Series Insights 환경에 고유한 이름을 입력합니다. 예를 들어, **event-stream**을 입력합니다.
 
@@ -67,11 +67,11 @@ IoT Hub에 새 소비자 그룹을 추가하려면
    * 구독 중 하나에 IoT Hub가 이미 있는 경우 **사용 가능한 구독에서 IoT Hub 사용**을 선택합니다. 이 옵션이 가장 쉬운 방법입니다.
    * IoT Hub가 구독 외부에 있거나 고급 옵션을 선택하려는 경우 **수동으로 IoT Hub 설정 제공**을 선택합니다.
 
-   ![새 이벤트 원본 창에서 옵션 선택][3]
+   [![새 이벤트 원본 창에서 옵션을 선택 합니다.](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
 1. 다음 표에서는 **사용 가능한 구독에서 IoT Hub 사용** 옵션에 필요한 속성에 대해 설명합니다.
 
-   ![새 이벤트 원본 창 - 사용 가능한 구독에서 IoT Hub 사용에서 설정하는 속성][4]
+   [![새 이벤트 원본 창-사용 가능한 구독 옵션에서 사용 하 여 IoT Hub에 설정할 속성](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
    | 자산 | 설명 |
    | --- | --- |
@@ -100,7 +100,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
 1. **만들기**를 선택합니다.
 
-   ![만들기 단추][5]
+   [![만들기 단추](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png#lightbox)
 
 1. 이벤트 원본을 만들면 Time Series Insights가 자동으로 데이터를 환경으로 스트리밍하기 시작합니다.
 
@@ -111,10 +111,3 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 * 이벤트 원본으로 [이벤트 전송](time-series-insights-send-events.md)
 
 * [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 환경에 액세스
-
-<!-- Images -->
-[1]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png
-[2]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png
-[3]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png
-[4]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png
-[5]: media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821263"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025230"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -68,7 +68,7 @@ Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 
 다음은 작업 영역의 분류 체계를 보여주는 다이어그램입니다.
 
-[![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>실험
 
@@ -106,6 +106,16 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 
 실행 구성 예제는 [모델 학습을 위한 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
 
+## <a name="dataset"></a>데이터 세트
+
+Azure Machine Learning 데이터 집합 (미리 보기) 쉽게 액세스 하 여 데이터를 사용 하 여 작업 합니다. 데이터 집합은 모델 학습 등의 다양 한 시나리오에서 데이터 관리 및 파이프라인 만들기. Azure Machine Learning SDK를 사용 하 수 기본 저장소 액세스, 탐색 및 데이터 준비, 다른 데이터 집합 정의의 수명 주기 관리과 비교 하면 프로덕션 환경에서 학습에 사용 되는 데이터 집합 간에 합니다.
+
+사용 하는 등의 인기 있는 형식에서 데이터로 작업 하기 위한 메서드를 제공 하는 데이터 집합 `from_delimited_files()` 또는 `to_pandas_dataframe()`합니다.
+
+자세한 내용은 [만들기 및 Azure Machine Learning 데이터 집합 등록](how-to-create-register-datasets.md)합니다.
+
+데이터 집합을 사용 하 여 예제를 참조 하세요. 합니다 [샘플 notebook](https://aka.ms/dataset-tutorial)합니다.
+
 ## <a name="datastore"></a>데이터 저장소
 
 데이터 저장소는 Azure Storage 계정을 통한 스토리지 추상화입니다. 데이터 저장소는 Azure Blob 컨테이너 또는 Azure 파일 공유 중 하나를 백 엔드 스토리지로 사용할 수 있습니다. 각 작업 영역에는 기본 데이터 저장소가 있으며 추가 데이터 저장소를 등록할 수 있습니다.
@@ -127,7 +137,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Field-programmable Gate Array) | &nbsp; | ✓ |
+| FPGA(Field-programmable Gate Array) | &nbsp; | ✓ |
 
 계산 대상은 작업 영역에 연결됩니다. 작업 영역의 사용자가 로컬 머신 이외의 계산 대상을 공유합니다.
 
@@ -189,8 +199,6 @@ Azure Machine Learning은 다음과 같은 두 가지 유형의 이미지를 만
 * **Docker 이미지**: FPGA 이외의 컴퓨팅 대상에 배포할 때 사용됩니다. 예제로는 Azure Container Instances 및 Azure Kubernetes Service가 있습니다.
 
 Azure Machine Learning 서비스는 기본적으로 사용 되는 기본 이미지를 제공 합니다. 또한 사용자 고유의 사용자 지정 이미지를 제공할 수 있습니다.
-
-자세한 내용은 [모델 배포](how-to-deploy-and-where.md#configureimage)의 이미지 구성 및 등록 섹션을 참조하세요.
 
 이미지를 만드는 예제는 [Azure Container Instance에 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조하세요.
 

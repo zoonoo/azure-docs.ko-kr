@@ -20,6 +20,14 @@
   items:
     - name: 데이터에서 변칙 식별
       href: how-to/identify-anomalies.md
+    - name: 컨테이너 사용
+      items:
+        - name: 컨테이너 설치 및 실행
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: anomaly-detector-container-howto.md
+        - name: 컨테이너 구성
+          href: anomaly-detector-container-configuration.md
+          displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
 - name: 개념
   items:
     - name: Anomaly Detection API 모범 사례
@@ -34,6 +42,10 @@
           href: 'https://aka.ms/anomaly-detector-dotnet-ref'
         - name: Go
           href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
+        - name: Python
+          href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
+        - name: Node.js
+          href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
 - name: 리소스
   items:
     - name: 가격

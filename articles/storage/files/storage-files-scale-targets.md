@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd60d6453b71387578b880ad580fb1741e6e512b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697917"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190026"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -34,15 +34,15 @@ Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니�
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
 
-### <a name="premium-files-scale-targets"></a>프리미엄 파일 확장 대상
+### <a name="premium-scale-targets"></a>프리미엄 크기 조정 목표
 
-세 가지 종류의 프리미엄 파일용 고려할 제한 사항: 저장소 계정, 공유 및 파일입니다.
+세 가지 종류의 프리미엄 파일 공유에 대해 고려해 야 할 제한 사항: 저장소 계정, 공유 및 파일입니다.
 
 예를 들면 다음과 같습니다. 단일 공유 100,000 IOPS를 달성할 수 있습니다 및 단일 파일에서 최대 5,000 개의 IOPS를 확장할 수 있습니다. 따라서 예를 들어, 하나의 공유에 3 개의 파일에 있는 경우 해당 공유에서 가져올 수 있습니다 최대 IOPS는 15,000입니다.
 
-### <a name="premium-filestorage-account-limits"></a>프리미엄 filestorage 계정 제한
+### <a name="premium-filestorage-account-limits"></a>프리미엄 FileStorage 계정 제한
 
-프리미엄 파일 라는 고유한 저장소 계정 사용 **filestorage (미리 보기)**,이 계정에는 표준 파일에서 사용 하는 저장소 계정 보다 약간 다른 크기 조정 목표입니다. 저장소 계정 크기 조정 목표에 대 한 참조 테이블에 [Azure storage 계정 크기 조정 목표](#azure-storage-account-scale-targets) 섹션입니다.
+프리미엄 파일 공유는 라는 특별 한 저장소 계정에 프로 비전 **filestorage (미리 보기)** 합니다. 이 계정에는 표준 파일 공유에 사용 되는 저장소 계정 보다 약간 다른 크기 조정 목표입니다. 저장소 계정 크기 조정 목표에 대 한 참조 테이블에 [Azure storage 계정 크기 조정 목표](#azure-storage-account-scale-targets) 섹션입니다.
 
 > [!IMPORTANT]
 > 저장소 계정 한도 모든 공유에 적용 됩니다. 최대 저장소 계정에 대 한 최대 크기 조정은 경우 저장소 계정당 하나의 공유 달성 합니다.

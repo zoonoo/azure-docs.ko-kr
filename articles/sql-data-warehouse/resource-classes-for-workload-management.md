@@ -1,4 +1,4 @@
----
+﻿---
 title: 워크로드 관리를 위한 리소스 클래스 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
 services: sql-data-warehouse

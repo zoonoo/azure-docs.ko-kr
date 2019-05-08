@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e4bb7622fe51c0cab4fc45e945e5bb07b1d32f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076856"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925848"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
 [Azure Database for MySQL REST API](https://docs.microsoft.com/rest/api/mysql/)를 사용하면 DevOps 엔지니어가 Azure에서 관리형 MySQL 서버 및 데이터베이스의 프로비저닝, 구성 및 작업을 자동화하고 통합할 수 있습니다.  API를 통해 Azure Database for MySQL 서비스에서 MySQL 서버 및 데이터베이스를 생성, 열거, 관리 및 삭제할 수 있습니다.
 
-Azure Resource Manager는 기본 REST API를 활용하여 규모에 맞게 배포하는 데 필요한 Azure 리소스를 코드 개념으로 인프라에 맞춰 선언하고 프로그래밍합니다. 템플릿은 Azure 리소스 이름, SKU, 네트워크, 방화벽 구성 및 설정을 매개변수화하면서 템플릿을 한 번 만들어 여러 번 사용할 수 있게 합니다.  [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) 또는 [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI)를 사용하면 Azure Resource Manager 템플릿을 쉽게 만들 수 있습니다. 이 템플릿을 통해 애플리케이션 패키징, 표준화 및 배포 자동화를 사용할 수 있으며, DevOps CI/CD 파이프라인에 통합할 수 있습니다.  예를 들어 Azure Database for MySQL 백 엔드를 통해 웹앱을 신속하게 배포하려면 GitHub 갤러리에서 [빠른 시작 템플릿](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/)을 사용하여 엔드투엔드 배포를 수행할 수 있습니다.
+Azure Resource Manager는 기본 REST API를 활용하여 규모에 맞게 배포하는 데 필요한 Azure 리소스를 코드 개념으로 인프라에 맞춰 선언하고 프로그래밍합니다. 템플릿은 Azure 리소스 이름, SKU, 네트워크, 방화벽 구성 및 설정을 매개변수화하면서 템플릿을 한 번 만들어 여러 번 사용할 수 있게 합니다.  [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) 또는 [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI)를 사용하면 Azure Resource Manager 템플릿을 쉽게 만들 수 있습니다. 이 템플릿을 통해 애플리케이션 패키징, 표준화 및 배포 자동화를 사용할 수 있으며, DevOps CI/CD 파이프라인에 통합할 수 있습니다.  예를 들어 Azure Database for MySQL 백 엔드를 통해 웹앱을 신속하게 배포하려면 GitHub 갤러리에서 [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/)을 사용하여 엔드투엔드 배포를 수행할 수 있습니다.
 
 이 자습서에서는 Azure Resource Manager 템플릿 및 다른 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB 데이터 원본 인덱싱 - Azure Search
 description: Azure Cosmos DB 데이터 원본을 크롤링하고 Azure Search의 전체 텍스트 검색 가능 인덱스에 데이터를 수집합니다. 인덱서는 Azure Cosmos DB와 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871724"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024707"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search 인덱서를 사용 하 여 Cosmos DB를 인덱싱하는 방법
 
@@ -122,9 +122,8 @@ MongoDB를 평가 하는 경우에 데이터 원본을 만들려면 REST API를 
 
 Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 여부를 선택할 수 있습니다. 기본적으로 모든 문서는 자동으로 인덱싱되지만 자동 인덱싱을 해제할 수도 있습니다. 인덱싱을 해제하면 자체 링크를 통해서나 문서 ID를 사용한 쿼리로만 문서에 액세스할 수 있습니다. Azure Search를 사용하려면 Azure Search로 인덱싱할 컬렉션에서 Cosmos DB 자동 인덱싱이 설정되어 있어야 합니다. 
 
-> [!NOTE]
-> Azure Cosmos DB는 DocumentDB의 다음 세대입니다. 제품 이름이 변경되었지만 Azure Search 인덱서의 `documentdb` 구문은 이전 버전과의 호환성을 위해 Azure Search API와 포털 페이지 둘 다에 계속 존재합니다. 인덱서를 구성할 때 이 문서에 설명된 대로 `documentdb` 구문을 지정해야 합니다.
-
+> [!WARNING]
+> Azure Cosmos DB는 DocumentDB의 다음 세대입니다. API 버전을 사용 하 여 이전에 **2017 년 11 월 11** 사용할 수는 `documentdb` 구문입니다. 즉, 데이터 원본 유형의으로 지정할 수 있습니다 `cosmosdb` 또는 `documentdb`합니다. API 버전부터 **2019-05-06** Azure Search Api와 포털만 지원 합니다 `cosmosdb` 이 문서에 설명 된 대로 구문입니다. 즉, 데이터 원본 유형이 있어야 합니다 `cosmosdb` Cosmos DB 끝점에 연결 하려는 경우.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-요청에 대 한 입력을 조합 합니다.
 
@@ -150,13 +149,13 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 
 데이터 원본을 만들려면 POST 요청을 작성 합니다.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
@@ -172,7 +171,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 | 필드   | 설명 |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타내는 데 모든 이름을 선택 합니다. |
-|**type**| 필수 사항입니다. `documentdb`이어야 합니다. |
+|**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
 |**credentials** | 필수 사항입니다. Cosmos DB 연결 문자열 이어야 합니다.<br/>SQL 컬렉션에 대 한 연결 문자열이이 형식에 있습니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>MongoDB 컬렉션에 대 한 추가 **ApiKind = MongoDb** 연결 문자열:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>엔드포인트 URL에는 포트 번호를 사용하지 않습니다. 포트 번호를 포함하는 경우 Azure Search는 Azure Cosmos DB 데이터베이스를 인덱싱할 수 없습니다.|
 | **container** | 다음 요소가 포함 됩니다. <br/>**name**: 필수 사항입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정 합니다.<br/>**query**: 선택 사항입니다. 추상 JSON 문서를 Azure Search가 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.<br/>MongoDB 컬렉션의 경우 쿼리가 지원되지 않습니다. |
 | **dataChangeDetectionPolicy** | 권장됩니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.|
@@ -193,7 +192,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
             "lastName": "hoh"
         },
         "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
+        "tags": ["azure", "cosmosdb", "search"]
     }
 
 필터 쿼리:
@@ -219,7 +218,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 
 [대상 Azure Search 인덱스를 만들](/rest/api/searchservice/create-index) 있습니다 아직 없는 경우. 다음 예제에서는 ID 및 설명 필드를 사용 하 여 인덱스를 만듭니다.
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -253,7 +252,7 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 | Bool |Edm.Boolean, Edm.String |
 | 정수와 같이 보이는 숫자 |Edm.Int32, Edm.Int64, Edm.String |
 | 부동소수점처럼 보이는 숫자 |Edm.Double, Edm.String |
-| String |Edm.String |
+| 문자열 |Edm.String |
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
 | GeoJSON 개체(예: { “type”: “Point”, “coordinates”: [long, lat] } |Edm.GeographyPoint |
@@ -263,13 +262,13 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 
 인덱스와 데이터 원본이 만들어지면 인덱서를 만들 준비가 된 것입니다.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
     {
-      "name" : "mydocdbindexer",
-      "dataSourceName" : "mydocdbdatasource",
+      "name" : "mycosmosdbindexer",
+      "dataSourceName" : "mycosmosdbdatasource",
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
@@ -334,17 +333,17 @@ Cosmos DB 계정에서 모든 문서를 자동으로 인덱싱하도록 할지 �
 
 다음 예제에서는 일시 삭제 정책을 사용하여 데이터 원본을 만듭니다.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId" },
+        "container": { "name": "myCosmosDbCollectionId" },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"
