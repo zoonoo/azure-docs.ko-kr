@@ -65,7 +65,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. 쿼리를 실행합니다. 이렇게 하려면 `실행`을 클릭하거나 다음 바로 가기(`F5`)를 사용합니다.
+4. 쿼리를 실행합니다. 이렇게 하려면 `실행`을 클릭하거나 바로 가기(`F5`)를 사용합니다.
    
     ![쿼리 실행][5]
 5. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.
