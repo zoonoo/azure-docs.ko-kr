@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2793f64528baa2b9a84c671fc73bbe399e2387ea
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885036"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411605"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시
 
@@ -40,7 +40,7 @@ ms.locfileid: "57885036"
 > * 테스트 푸시 알림 보내기
 > * 앱에 알림을 수신되는지 확인
 
-이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)에서 찾을 수 있습니다. 
+이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)에서 찾을 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

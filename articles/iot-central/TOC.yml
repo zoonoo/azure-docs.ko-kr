@@ -99,6 +99,10 @@
           href: howto-administer.md
         - name: 이미지 준비 및 업로드
           href: howto-prepare-images.md
+        - name: 애플리케이션 대시보드 구성
+          href: howto-configure-homepage.md
+        - name: 애플리케이션 UI 사용자 지정
+          href: howto-customize-ui.md
         - name: Azure Portal에서 관리
           href: howto-manage-iot-central-from-portal.md
         - name: Azure CLI에서 관리
@@ -106,9 +110,7 @@
         - name: Azure PowerShell에서 관리
           href: howto-manage-iot-central-from-powershell.md
         - name: CSP가 애플리케이션을 만들고 관리할 때
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: 애플리케이션 대시보드 구성
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: 개인 설정
       items:
         - name: 개인 대시보드 만들기

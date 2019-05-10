@@ -462,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: 관리되는 인스턴스용 기존 VNet 및 서브넷 구성
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: 관리형 인스턴스를 삭제한 후 서브넷 삭제
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: 사용자 지정 DNS 구성
           href: sql-database-managed-instance-custom-dns.md
         - name: 네트워크 구성 동기화

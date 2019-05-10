@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143260"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235750"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database 서버 리스 (미리 보기)
 
@@ -52,8 +52,8 @@ SQL Database 서버 리스 (미리 보기)는 시간을 초 단위로에서 단�
 |---|---|---|
 |**일반적인 사용 시나리오**|비활성 기간을 사용 하 여 섞어서 버스 티, 예측할 수 없는 사용 데이터베이스|데이터베이스 또는 탄력적 풀 보다 일반적인 사용|
 |**성능 관리 노력**|낮은|더 높음|
-|**크기 조정 계산**|자동|설명서|
-|**응답 속도 계산 합니다.**|비활성 기간 후 낮은|즉시|
+|**크기 조정 계산**|자동|수동|
+|**응답 속도 계산 합니다.**|비활성 기간 후 낮은|직접 실행|
 |**청구 세분성**|초당|시간당|
 |
 
@@ -72,9 +72,9 @@ SQL Database 서버 리스 (미리 보기)는 시간을 초 단위로에서 단�
 
 ## <a name="purchasing-model-and-service-tier"></a>모델 및 서비스 계층을 구입
 
-서버 리스 SQL Database는 현재 5 세대 하드웨어 구매 모델은 vcore에서 범용 계층 에서만 지원 됩니다.
+서버 리스 SQL Database는 현재 5 세대 하드웨어 구매 모델은 vCore에서 범용 계층 에서만 지원 됩니다.
 
-## <a name="autoscaling"></a>자동 확장
+## <a name="autoscaling"></a>자동 크기 조정
 
 ### <a name="scaling-responsiveness"></a>응답성을 크기 조정
 

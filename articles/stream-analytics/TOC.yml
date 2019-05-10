@@ -4,6 +4,8 @@
   items:
     - name: Stream Analytics란 무엇인가요?
       href: stream-analytics-introduction.md
+    - name: 엔드투엔드 솔루션 범위
+      href: stream-analytics-solution-patterns.md
 - name: 빠른 시작
   items:
     - name: 작업 만들기 - Azure Portal
@@ -12,6 +14,8 @@
       href: stream-analytics-quick-create-powershell.md
     - name: 작업 만들기 - Visual Studio
       href: stream-analytics-quick-create-vs.md
+    - name: 작업 만들기 - Visual Studio Code
+      href: quick-create-vs-code.md
 - name: 자습서
   items:
     - name: 1 - 작업 만들기/관리
@@ -143,7 +147,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: IoT Edge 작업용 API 사용
           href: stream-analytics-cicd-api.md
-    - name: Visual Studio 도구
+    - name: Visual Studio 및 VS Code
       items:
         - name: 도구 설치
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -159,6 +163,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: 에지용 .NET UDF 작성
           href: stream-analytics-edge-csharp-udf-methods.md
+        - name: VS Code로 Stream Analytics 탐색
+          href: vs-code-how-to.md
     - name: 문제 해결
       items:
         - name: 입력

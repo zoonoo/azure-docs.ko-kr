@@ -58,6 +58,8 @@
       items:
         - name: 데이터 수집
           href: security-center-enable-data-collection.md
+        - name: IaaS를 위한 고급 데이터 보안
+          href: security-center-iaas-advanced-data.md
         - name: 기본 제공 보안 정책
           href: security-center-policy-definitions.md
         - name: 전자 메일 알림
@@ -168,6 +170,8 @@
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: 기능 및 API 사용 중지(2019년 7월)
+      href: security-center-features-retirement-july2019.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
