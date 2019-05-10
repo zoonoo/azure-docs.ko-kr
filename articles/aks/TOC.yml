@@ -140,6 +140,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure Files - Static
           href: azure-files-volume.md
+        - name: NFS Server - Static
+          href: azure-nfs-volume.md
     - name: 네트워킹 구성
       items:
         - name: 기존 가상 네트워크 만들기 또는 사용

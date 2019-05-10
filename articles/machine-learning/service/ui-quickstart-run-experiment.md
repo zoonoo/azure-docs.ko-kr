@@ -9,16 +9,16 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 985ad59a1ffa5bd68f97824f7f50af604174b543
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030061"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65440942"
 ---
-# <a name="quickstart-prepare-and-visualize-data-without-writing-code"></a>빠른 시작: 코드를 작성하지 않고 데이터 준비 및 시각화
+# <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>빠른 시작: Azure Machine Learning에서 코드를 작성하지 않고 데이터 준비 및 시각화
 
-끌어서 놓기 사용자 인터페이스를 사용하여 데이터를 준비하고 시각화합니다. 사용할 데이터에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 다양한 개별 자동차에 대한 항목이 포함되어 있습니다.  
+Azure Machine Learning을 위해 끌어서 놓기 그래픽 인터페이스(미리 보기)에서 데이터를 준비하고 시각화합니다. 사용할 데이터에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 다양한 개별 자동차에 대한 항목이 포함되어 있습니다.  
 
 이 빠른 시작에서는 다음 작업을 수행하여 데이터를 검색하고 준비합니다.
 

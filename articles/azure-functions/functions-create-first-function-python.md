@@ -1,144 +1,126 @@
 ---
-title: Azure에서 첫 번째 Python 함수 만들기
+title: Azure에서 HTTP 트리거 함수 만들기
 description: Azure에서 Azure Functions Core Tools 및 Azure CLI를 사용하여 첫 번째 Azure 함수를 만드는 방법을 알아봅니다.
 services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 08/29/2018
+ms.date: 04/24/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: af684a4fcc3a70326c1a57cb10a39204b4fd12dc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438753"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143065"
 ---
-# <a name="create-your-first-python-function-in-azure-preview"></a>Azure에서 첫 번째 Python 함수 만들기(미리 보기)
+# <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-이 빠른 시작 문서에서는 Azure CLI를 사용하여 Linux에서 실행되는 첫 번째 [서버리스](https://azure.com/serverless) Python 함수 앱을 만드는 방법을 안내합니다. [Azure Functions Core Tools](functions-run-local.md)를 사용하여 함수 코드를 로컬로 만든 후 Azure에 배포합니다. Linux에서 함수 앱을 실행하기 위한 미리 보기 고려 사항에 대해 자세히 알아보려면 [이 Linux의 함수 문서](https://aka.ms/funclinux)를 참조하세요.
+이 문서에서는 명령줄 도구를 사용하여 Azure Functions에서 실행되는 Python 프로젝트를 만드는 방법을 보여줍니다. 만드는 함수는 HTTP 요청에 의해 트리거됩니다. 마지막으로, Azure에서 [서버리스 함수](functions-scale.md#consumption-plan)로 실행되도록 프로젝트를 게시합니다.
 
-다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다.
+이 문서는 Azure Functions에 대한 두 편의 빠른 시작 중 첫 번째입니다. 이 문서를 완료한 후에는 함수에 [Azure Storage 큐 출력 바인딩](functions-add-output-binding-storage-queue-python.md)을 추가합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-빌드하고 로컬로 테스트하려면 다음을 수행해야 합니다.
+시작하려면 다음 조건을 충족해야 합니다.
 
 + [Python 3.6](https://www.python.org/downloads/)을 설치합니다.
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 2.2.70 이상을 설치합니다(.NET Core 2.x SDK 필요).
++ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상을 설치합니다.
 
-Azure에서 게시 및 실행하려면:
++ [Azure CLI](/cli/azure/install-azure-cli) 버전 2.x 이상을 설치합니다.
 
-+ [Azure CLI]( /cli/azure/install-azure-cli) 버전 2.x 이상을 설치합니다.
++ 활성 Azure 구독.
 
-+ 활성 상태인 Azure 구독이 필요합니다.
-  [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-and-activate-a-virtual-environment"></a>가상 환경 만들기 및 활성화
 
-함수 프로젝트를 만들려면 Python 3.6 가상 환경에서 작업해야 합니다. 다음 명령을 실행하여 `.env`라는 가상 환경을 만들고 활성화합니다.
+Python 함수를 로컬로 개발하고 테스트하려면 Python 3.6 환경을 사용해야 합니다. 다음 명령을 실행하여 `.env`라는 가상 환경을 만들고 활성화합니다.
+
+### <a name="bash-or-a-terminal-window"></a>Bash 또는 터미널 창:
 
 ```bash
-# In Bash
 python3.6 -m venv .env
 source .env/bin/activate
+```
 
-# In PowerShell
+### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell 또는 Windows 명령 프롬프트:
+
+```powershell
 py -3.6 -m venv .env
 .env\scripts\activate
 ```
 
+나머지 명령은 가상 환경 내에서 실행됩니다.
+
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
-이제 로컬 Functions 프로젝트를 만들 수 있습니다. 이 디렉터리는 Azure의 Function App에 해당합니다. 동일한 로컬 및 호스팅 구성을 공유하는 함수를 여러 개 포함할 수 있습니다.
+Functions 프로젝트는 Azure의 함수 앱에 해당합니다. 동일한 로컬 및 호스팅 구성을 공유하는 함수를 여러 개 포함할 수 있습니다.
 
-터미널 창 또는 명령 프롬프트에서 다음 명령을 실행합니다.
+가상 환경에서 다음 명령을 실행하고, 작업자 런타임으로 **python**을 선택합니다.
 
-```bash
+```command
 func init MyFunctionProj
 ```
 
-원하는 런타임으로 **python**을 선택합니다.
+_MyFunctionProj_라는 폴더가 만들어지며, 이 폴더에는 다음과 같은 세 개 파일이 포함되어 있습니다.
 
-```output
-Select a worker runtime:
-1. dotnet
-2. node
-3. python
-```
+* `local.settings.json` 파일은 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다.
+* `requirements.txt` 파일에는 Azure에 게시할 때 설치되는 패키지 목록이 포함되어 있습니다.
+* `host.json` 파일에는 함수 앱의 모든 함수에 영향을 주는 글로벌 구성 옵션이 포함되어 있습니다. 이 파일은 Azure에 게시됩니다.
 
-다음 출력과 유사한 출력이 표시됩니다.
+다음과 같이 새 MyFunctionProj 폴더로 이동합니다.
 
-```output
-Installing wheel package
-Installing azure-functions package
-Installing azure-functions-worker package
-Running pip freeze
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Writing /MyFunctionProj/.vscode/extensions.json
-```
-
-_MyFunctionProj_라는 새 폴더가 만들어집니다. 계속하려면 이 폴더로 디렉터리를 변경합니다.
-
-```bash
+```command
 cd MyFunctionProj
 ```
 
+다음으로, 확장 번들을 사용하도록 host.json 파일을 업데이트합니다.  
+
+## <a name="reference-bindings"></a>바인딩 참조
+
+확장 번들을 사용하면 향후 쉽게 바인딩 확장을 추가할 수 있습니다. 또한 .NET Core 2.x SDK를 설치할 필요가 없습니다. 확장 번들을 사용하려면 Core Tools 2.6.1071 이상 버전이 필요합니다. 
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+이제 프로젝트에 함수를 추가할 수 있습니다.
+
 ## <a name="create-a-function"></a>함수 만들기
 
-함수를 만들려면 다음 명령을 실행합니다.
+프로젝트에 함수를 추가하려면 다음 명령을 실행합니다.
 
-```bash
+```command
 func new
 ```
 
-템플릿으로 `HTTP Trigger`를 선택하고 `HttpTrigger`의 **함수 이름**을 제공합니다.
+**HTTP 트리거** 템플릿을 선택하고 함수 이름으로 `HttpTrigger`를 입력한 다음, Enter 키를 누릅니다.
 
-```output
-Select a template:
-1. Blob trigger
-2. Cosmos DB trigger
-3. Event Grid trigger
-4. Event Hub trigger
-5. HTTP trigger
-6. Queue trigger
-7. Service Bus Queue trigger
-8. Service Bus Topic trigger
-9. Timer trigger
+_HttpTrigger_라는 하위 폴더가 만들어지며, 이 폴더에는 다음 파일이 포함되어 있습니다.
 
-Choose option: 5
-Function name: HttpTrigger
-```
+* **function.json**: 함수, 트리거 및 기타 바인딩을 정의하는 구성 파일입니다. 이 파일을 검토하여 `scriptFile` 값이 함수가 들어 있는 파일을 가리키는지 확인할 수 있으며, 호출 트리거 및 바인딩은 `bindings` 배열에 정의됩니다.
 
-다음 출력과 유사한 출력이 표시됩니다.
+  각 바인딩에는 명령, 형식 및 고유한 이름이 필요합니다. HTTP 트리거의 입력 바인딩은 [`httpTrigger`](functions-bindings-http-webhook.md#trigger) 형식이고, 출력 바인딩은 [`http`](functions-bindings-http-webhook.md#output) 형식입니다.
 
-```output
-Writing /MyFunctionProj/HttpTrigger/sample.dat
-Writing /MyFunctionProj/HttpTrigger/__init__.py
-Writing /MyFunctionProj/HttpTrigger/function.json
-The function "HttpTrigger" was created successfully from the "HTTP trigger" template.
-```
+* **__init__.py**: HTTP 트리거 함수인 스크립트 파일입니다. 이 스크립트를 검토하여 기본값 `main()`이 포함되어 있는지 확인할 수 있습니다. 트리거의 HTTP 데이터는 `req`라는 바인딩 매개 변수를 사용하여 이 함수에 전달됩니다. function.json에 정의되는 `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. 
 
-_HttpTrigger_라는 하위 폴더가 만들어집니다. 여기에 기본 스크립트 파일인 `__init__.py` 및 함수에서 사용되는 트리거 및 바인딩을 설명하는 `function.json` 파일이 포함됩니다. 프로그래밍 모델에 대해 자세히 알아보기 위해 [Azure Functions Python 개발자 가이드](functions-reference-python.md)를 참조할 수 있습니다.
+    function.json에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](functions-bindings-http-webhook.md)을 참조하세요.
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
-다음 명령을 사용하여 Functions 호스트를 로컬로 실행합니다.
+다음 명령은 Azure에 있는 동일한 Azure Functions 런타임을 사용하여 로컬로 실행되는 함수 앱을 시작합니다.
 
 ```bash
 func host start
 ```
 
-Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다. (가독성을 위해 전체 출력이 잘렸습니다.)
+Functions 호스트가 시작되면 다음과 같이 보기 편하도록 분할된 출력이 표시됩니다.
 
 ```output
 
@@ -153,84 +135,57 @@ Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니
            @@    %%      @@
                 %%
                 %
+
 ...
+
+Content root path: C:\functions\MyFunctionProj
 Now listening on: http://0.0.0.0:7071
 Application started. Press Ctrl+C to shut down.
+
 ...
 
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
+        HttpTrigger: http://localhost:7071/api/MyHttpTrigger
+
+[8/27/2018 10:38:27 PM] Host started (29486ms)
+[8/27/2018 10:38:27 PM] Job host started
 ```
 
-출력에서 함수의 URL을 복사하고 브라우저의 주소 표시줄에 붙여넣습니다. 이 URL에 쿼리 문자열 `?name=<yourname>`을 추가하고 요청을 실행합니다.
+런타임 출력에서 `HttpTrigger` 함수의 URL을 복사하고 브라우저의 주소 표시줄에 붙여넣습니다. 이 URL에 쿼리 문자열 `?name=<yourname>`을 추가하고 요청을 실행합니다. 다음은 로컬 함수에서 반환된 GET 요청에 대한 브라우저의 응답을 보여줍니다.
 
-    http://localhost:7071/api/HttpTrigger?name=<yourname>
+![브라우저에서 로컬로 테스트](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-다음 스크린샷에서는 브라우저에서 트리거될 때 함수의 응답을 보여줍니다.
-
-![test](./media/functions-create-first-function-python/function-test-local-browser.png)
-
-이제 Function App 및 Azure에 게시하기 위해 필요한 기타 리소스를 만들 준비가 되었습니다.
+이제 함수를 로컬로 실행했으므로 Azure에서 함수 앱 및 기타 필요한 리소스를 만들 수 있습니다.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-function-app-in-azure"></a>Azure에서 Linux 함수 앱 만들기
+## <a name="create-a-function-app-in-azure"></a>Azure에서 함수 앱 만들기
 
-함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. [az functionapp create](/cli/azure/functionapp) 명령을 사용하여 **Linux에서 실행되는 Python 함수 앱**을 만듭니다.
+함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다.
 
-`<app_name>` 자리 표시자 및 `<storage_name>`의 스토리지 계정 이름을 대신하여 고유한 함수 앱 이름을 사용하여 다음 명령을 실행합니다. `<app_name>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 이 이름은 Azure의 모든 앱에서 고유해야 합니다.
+`<APP_NAME>` 자리 표시자 및 `<STORAGE_NAME>`의 스토리지 계정 이름을 대신하여 고유한 함수 앱 이름을 사용하여 다음 명령을 실행합니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 이 이름은 Azure의 모든 앱에서 고유해야 합니다.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
---name <app_name> --storage-account  <storage_name>
+--name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
 
 > [!NOTE]
-> Linux가 아닌 App Service 앱이 포함된 `myResourceGroup`이라는 기존 리소스 그룹이 있는 경우 다른 리소스 그룹을 사용해야 합니다. Windows 앱과 Linux 앱을 동일한 리소스 그룹에 호스팅할 수 없습니다.  
+> Linux 및 Windows 앱을 동일한 리소스 그룹에 호스트할 수 없습니다. Windows 함수 앱 또는 웹앱이 포함된 `myResourceGroup`이라는 기존 리소스 그룹이 있는 경우 다른 리소스 그룹을 사용해야 합니다.
 
-함수 앱이 만들어지면 다음 메시지가 표시됩니다.
+이제 로컬 함수 프로젝트를 Azure의 함수 앱에 게시할 준비가 되었습니다.
 
-```output
-Your serverless Linux function app 'myfunctionapp' has been successfully created.
-To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
-```
-
-이제 Azure에서 Function App에 로컬 함수 프로젝트를 게시할 준비가 되었습니다.
-
-## <a name="deploy-the-function-app-project-to-azure"></a>함수 앱 프로젝트를 Azure에 배포
-
-Azure Functions Core Tools를 사용하여 다음 명령을 실행합니다. `<app_name>`을 이전 단계의 앱 이름으로 바꿉니다.
-
-```bash
-func azure functionapp publish <app_name>
-```
-
-다음 출력과 같이 보기 편하도록 나눠서 표시됩니다.
-
-```output
-Getting site publishing info...
-
-...
-
-Preparing archive...
-Uploading content...
-Upload completed successfully.
-Deployment completed successfully.
-Syncing triggers...
-```
+[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
-[!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
-
 ## <a name="next-steps"></a>다음 단계
 
-Python을 사용하여 Azure Functions 개발에 대해 자세히 알아봅니다.
+HTTP 트리거 함수를 사용하여 Python 함수 프로젝트를 만들고, 로컬 머신에서 실행하고, Azure에 배포했습니다. 이제 아래 방법으로 함수를 확장하겠습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Functions Python 개발자 가이드](functions-reference-python.md)
-> [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+> [Azure Storage 큐 출력 바인딩 추가](functions-add-output-binding-storage-queue-python.md)

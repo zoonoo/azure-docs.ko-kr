@@ -105,7 +105,7 @@
       items:
         - name: 제작 주기
           href: luis-concept-app-iteration.md
-        - name: 공동 작업
+        - name: 협업
           displayName: 'shared, transfer, ownership, author, access, import'
           href: luis-concept-collaborator.md
         - name: 버전 관리

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d0b5537f31edf330b54b91ddf7268338df0c0a6b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148268"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233555"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>미리 보기: API 버전으로 마이그레이션하기 LUIS 앱에 대 한 3.x
 
@@ -43,10 +43,6 @@ ms.locfileid: "65148268"
 * Bing Spell Check v7 알아보기
 
 [참조 설명서](https://aka.ms/luis-api-v3) V3에서 사용할 수 있습니다.
-
-## <a name="prebuilt-domains-with-new-models-and-language-coverage"></a>새 모델 및 언어 범위를 사용 하 여 미리 작성 된 도메인
-
-검토 합니다 [V3 API 미리 작성 된 도메인 목록을](luis-reference-prebuilt-domains.md)합니다. 이러한 도메인은 모델 및 언어 범위 모두에서 완료 더 합니다. 
 
 ## <a name="prebuilt-entities-with-new-json"></a>새 JSON 사용 하 여 미리 작성 된 엔터티
 

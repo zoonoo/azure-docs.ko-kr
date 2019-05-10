@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: b4d67b64d8fc7c5063e96ed2a2502e9cbecd6065
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876020"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229874"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
 > [!NOTE]
 > 이 문서는 별도로 명시된 곳을 제외하고 Azure 공용 클라우드 및 정부 클라우드 모두에 적용됩니다.
 
-**Azure 공용 클라우드에 대 한 OMS 포털 공식적으로 사용 중지 되었습니다. OMS 포털 Azure US Government Azure 클라우드는 2019 년 5 월 15 일에 공식적으로 사용 되지 것입니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 모든 질문, 피드백 또는 문제를 보낼 **LAUpgradeFeedback\@microsoft.com**합니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
+**Azure 공용 클라우드에 대 한 OMS 포털 공식적으로 사용 중지 되었습니다. Azure US Government 클라우드에 대 한 OMS 포털 2019 년 5 월 15 일에 공식적으로 사용 되지 것입니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 모든 질문, 피드백 또는 문제를 보낼 **LAUpgradeFeedback\@microsoft.com**합니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
 
 Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위한 대시보드, 리소스를 찾기 위한 지능형 검색, 리소스 관리를 위한 태그 지정 같은 기능을 통해 다양한 관리 환경을 제공합니다. 모니터링 및 관리 워크플로를 간소화하고 통합하기 위해 Azure Portal에 OMS 포털 기능을 추가하기 시작했습니다. OMS 포털의 모든 기능은 이제 Azure Portal의 일부입니다. 사실, 트래픽 분석 같은 새 기능 중 일부는 Azure Portal에서만 사용할 수 있습니다. Azure Portal 등을 사용하여 OMS 포털에서 하던 모든 것을 수행할 수 있습니다. 아직 그렇게 하지 않은 경우 지금 Azure Portal의 사용을 시작하는 것이 좋습니다!
 

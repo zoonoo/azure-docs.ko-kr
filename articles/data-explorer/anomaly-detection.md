@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 934dfd3334b6f433c7acdf9816a3fb5e24f0430f
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872002"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233531"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>변칙 검색 및 Azure 데이터 탐색기에서 예측
 
@@ -119,7 +119,7 @@ demo_make_series2
 
 ## <a name="summary"></a>요약
 
-이 문서는 기반이 되는 기본 분해 모델을 크게 향상 시켜 주는 시계열 변칙 검색 및 예측에 대 한 네이티브 Azure 데이터 탐색기 함수 설명 합니다. 변칙 검색 각 원래 시계열 분해 하 고 예측 수행 됩니다. 시간 시계열 변칙 검색 및 예측 기능 거의 요청, 오류 감지 및 예측 유지 관리 등의 실시간 모니터링 시나리오에 사용 됩니다 하 고 예측을 로드 합니다.
+이 문서는 시계열 변칙 검색 및 예측에 대 한 네이티브 Azure 데이터 탐색기 함수를 설명합니다. 각 원본 시계열 변칙 검색 및/또는 예측에 대 한 계절성, 추세 및 나머지 구성으로 분해 됩니다. 이러한 기능은 거의 요청, 오류 감지 및 예측 유지 관리 등의 실시간 모니터링 시나리오에 사용할 수 있습니다 하 고 예측을 로드 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
