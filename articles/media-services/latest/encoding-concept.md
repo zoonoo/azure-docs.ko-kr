@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153388"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472447"
 ---
 # <a name="encoding-with-media-services"></a>Media Services를 사용하여 인코딩
 
@@ -87,11 +87,15 @@ Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위�
 - [CLI 사용 하 여 사전 설정 사용자 지정](custom-preset-cli-howto.md)
 - [REST 사용 하 여 사전 설정 사용자 지정](custom-preset-rest-howto.md)
 
+## <a name="preset-schema"></a>기본 설정된 스키마
+
+Media Services v3에서는 사전 설정에는 API 자체의 강력한 형식의 엔터티. 이러한 개체에 대 한 "schema" 정의 찾을 수 있습니다 [Open API Specification (또는 Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)합니다. 미리 설정 된 정의 볼 수도 있습니다 (같은 **StandardEncoderPreset**)에 [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)에 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (또는 다른 Media Services v3 SDK 참조 설명서).
+
 ## <a name="scaling-encoding-in-v3"></a>v3에서 인코딩 크기 조정
 
 미디어 처리 크기를 조정 하려면 참조 [CLI 사용 하 여 Scale](media-reserved-units-cli-how-to.md)합니다.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 의견, 업데이트 받기
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

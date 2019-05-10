@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943912"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410445"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure에서 심층 학습 Virtual Machine 프로비전 
 
@@ -68,7 +68,7 @@ VM이 만들어지면 이전의 **기본 사항** 섹션에서 구성한 관리�
 
 ### <a name="linux-edition"></a>Linux 버전
 
-VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 만든 계정 자격 증명을 사용 합니다 [ **기본 사항** ](#basics) 텍스트 셸 인터페이스에 대해 3 단계의 섹션입니다. Azure Vm에 SSH 연결에 대 한 자세한 내용은 참조 하세요. [를 설치 하 고 Azure에서 Linux VM에 연결 하려면 원격 데스크톱 구성](/azure/virtual-machines/linux/use-remote-desktop)합니다. Windows 클라이언트와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다 [Putty](http://www.putty.org)합니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다. 
+VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 만든 계정 자격 증명을 사용 합니다 [ **기본 사항** ](#basics) 텍스트 셸 인터페이스에 대해 3 단계의 섹션입니다. Azure Vm에 SSH 연결에 대 한 자세한 내용은 참조 하세요. [를 설치 하 고 Azure에서 Linux VM에 연결 하려면 원격 데스크톱 구성](/azure/virtual-machines/linux/use-remote-desktop)합니다. Windows 클라이언트와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다 [Putty](https://www.putty.org)합니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다. 
 
 > [!NOTE]
 > 테스트한 결과 X2Go 클라이언트의 성능이 X11 전달보다 더 우수했습니다. 그래픽 데스크톱 인터페이스에서는 X2Go 클라이언트를 사용하는 것이 좋습니다.

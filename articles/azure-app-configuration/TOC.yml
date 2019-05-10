@@ -66,7 +66,7 @@
         - name: Java Spring 구성 공급자
           href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
         - name: .NET Azure SDK
-          href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: REST (영문)
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: 기능 관리
@@ -74,7 +74,9 @@
         - name: .NET Core 라이브러리
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: ASP.NET Core 라이브러리
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091410'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: .NET Core 필터 라이브러리
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: 리소스
   items:
     - name: 시작 비디오

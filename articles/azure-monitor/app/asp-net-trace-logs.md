@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150710"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472063"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 추적 로그 검색
 
@@ -177,8 +177,8 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 [Java 로그 어댑터](../../azure-monitor/app/java-trace-logs.md)를 사용합니다.
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>프로젝트 상황에 맞는 메뉴에 Application Insights 옵션이 없습니다.
-* 개발 컴퓨터에서 Application Insights Tools가 설치 되었는지 확인 합니다. Visual Studio에서 **도구가** > **확장 및 업데이트**, 검색할 **Application Insights Tools**합니다. 에 없으면를 **설치 됨** 탭을 열고 합니다 **온라인** 탭 하 고 설치 합니다.
-* Application Insights 도구를 지원 하지 않는 프로젝트 형식 수 있습니다. [수동 설치](#manual-installation)를 사용합니다.
+* Developer Analytics Tools 개발 컴퓨터에 설치 되어 있는지 확인 합니다. Visual Studio에서 **도구가** > **확장 및 업데이트**, 검색할 **Developer Analytics Tools**합니다. 에 없으면를 **설치 됨** 탭을 열고 합니다 **온라인** 탭 하 고 설치 합니다.
+* Devloper 분석 도구를 지원 하지 않는 프로젝트 형식 수 있습니다. [수동 설치](#manual-installation)를 사용합니다.
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>구성 도구에 로그 어댑터 옵션이 없습니다.
 * 먼저 로깅 프레임 워크를 설치 합니다.

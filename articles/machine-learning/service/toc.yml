@@ -224,7 +224,8 @@
       items:
         - name: ML 파이프라인 만들기
           href: how-to-create-your-first-pipeline.md
-        - name: Azure Pipelines를 사용하여 ML 모델 학습 및 배포
+        - name: Azure Pipelines를 사용한 ML 워크플로의 CI/CD
+          displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
           mainContext: true
     - name: 리소스 할당량 관리
@@ -238,9 +239,6 @@
     - name: Machine Learning SDK
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: 데이터 준비 SDK
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: 모니터링 SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'

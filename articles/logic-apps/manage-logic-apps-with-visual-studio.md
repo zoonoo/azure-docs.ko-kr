@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
-ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/07/2019
+ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136506"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467413"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
@@ -36,8 +36,7 @@ ms.locfileid: "65136506"
   이 빠른 시작에서는 무료로 제공되는 Visual Studio Community 2017을 사용합니다.
 
     > [!IMPORTANT]
-    > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
-    > 자세한 내용은 [Visual Studio 클라우드 탐색기에서 Azure 계정과 연결 된 리소스를 관리할](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)합니다.
+    > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다. Visual Studio 2019의 경우 클라우드 탐색기는 Azure Portal의 논리 앱 디자이너를 열 수 있지만 사용자는 포함된 논리 앱 디자이너를 열 수 없습니다. 자세한 내용은 [Visual Studio 클라우드 탐색기에서 Azure 계정과 연결 된 리소스를 관리할](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)합니다.
 
     Visual Studio 2015 용 클라우드 탐색기를 설치 하려면 [Visual Studio Marketplace에서 클라우드 탐색기를 다운로드](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)합니다. 
     자세한 내용은 [Visual Studio 클라우드 탐색기 (2015)에 대 한 Azure 계정과 연결 된 리소스를 관리할](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)합니다.
@@ -105,6 +104,9 @@ Visual Studio에서 Azure Portal을 통해 직접 또는 Visual Studio에서 Azu
 [Azure Portal](https://portal.azure.com)에서 논리 앱을 다운로드하여 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿으로 저장할 수 있습니다. 그런 다음, Visual Studio를 사용하여 로컬로 템플릿을 편집하고 다른 배포 환경에 적합하도록 사용자 지정할 수 있습니다. 논리 앱을 자동으로 다운로드하면 해당 정의가 [Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md#template-deployment) 내에서 *매개 변수화*되며, 템플릿도 JSON(JavaScript Object Notation)을 사용합니다.
 
 1. Visual Studio에서 클라우드 탐색기를 열고, Azure에서 다운로드하려는 논리 앱을 찾아서 선택합니다.
+
+   > [!NOTE]
+   > Visual Studio 2019 클라우드 탐색기 Azure portal에서 논리 앱 디자이너를 열 수 있지만 논리 앱을 다운로드 하는 것에 대 한 포함 된 논리 앱 디자이너를 열고 아직 없습니다.
 
 2. 해당 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기**를 선택합니다.
 

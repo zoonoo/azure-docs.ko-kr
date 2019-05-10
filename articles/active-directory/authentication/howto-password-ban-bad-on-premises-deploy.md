@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414831"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506867"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -39,6 +39,9 @@ ms.locfileid: "60414831"
 * Windows Server 2012를 실행 해야 설치 하는 Azure AD 암호 보호에 대 한 서비스 이상 DC 에이전트를 받는 모든 도메인 컨트롤러입니다. 이 요구 사항은 Active Directory 도메인 또는 포리스트에 Windows Server 2012 도메인 또는 포리스트 기능 수준에서 수도 있어야 하는 것을 의미 하지 않습니다. 설명 했 듯이 [디자인 원칙](concept-password-ban-bad-on-premises.md#design-principles), 최소 DFL 또는 중 하나는 DC 에이전트 또는 프록시 소프트웨어를 실행 하는 데 필요한 FFL 필요 하지 않습니다.
 * DC 에이전트 서비스가 설치 되어 있는 모든 컴퓨터에.NET 4.5가 설치 되어 있어야 합니다.
 * 설치 하는 Azure AD 암호 보호는 Windows Server 2012 R2를 실행 해야 하는 한 서비스 이상 프록시를 받는 모든 컴퓨터입니다.
+   > [!NOTE]
+   > 프록시 서비스 배포는 도메인 컨트롤러 수 아웃 바운드 인터넷에 직접 연결 하는 경우에 Azure AD 암호 보호를 배포 하기 위한 필수 요구 사항입니다. 
+   >
 * Azure AD 암호 보호 프록시 서비스를 설치할 모든 컴퓨터에 설치 하는.NET 4.7 있어야 합니다.
   .NET 4.7 완전히 업데이트 된 Windows 서버에 이미 설치 되어야 합니다. 없는 경우 다운로드 하 고 있는 설치 관리자를 실행 [The.NET Framework 4.7 오프 라인 설치 관리자에서 Windows에 대 한](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)합니다.
 * 모든 컴퓨터에 설치 된 유니버설 C 런타임 가져올 Azure AD 암호 보호 구성 요소를 설치 하는 도메인 컨트롤러를 포함 하 여 있어야 합니다. 런타임은 Windows Update에서 모든 업데이트가 있는지 확인 하 여 가져올 수 있습니다. 또는 OS 특정 업데이트 패키지에서 가져올 수 있습니다. 자세한 내용은 [Windows의 유니버설 C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)합니다.

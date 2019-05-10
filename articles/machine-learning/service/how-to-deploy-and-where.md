@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205074"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506999"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -26,7 +26,7 @@ ms.locfileid: "65205074"
 | ----- | ----- | ----- |
 | [로컬 웹 서비스](#local) | 테스트/디버그 | 제한 된 테스트 및 문제 해결에 적합 합니다.
 | [AKS(Azure Kubernetes Service)](#aks) | 실시간 유추 | 확장성이 뛰어난 프로덕션 배포에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다. |
-| [ACI(Azure Container Instances)](#aci) | 테스트 | 낮은 등급, CPU 기반 워크 로드에 적합 합니다. |
+| [ACI(Azure Container Instances)](#aci) | 테스트하는 중 | 낮은 등급, CPU 기반 워크 로드에 적합 합니다. |
 | [Azure Machine Learning 컴퓨팅](how-to-run-batch-predictions.md) | (미리 보기) 일괄 처리 유추 | 서버 리스 계산에서 점수 매기기 일괄 처리를 실행 합니다. 일반 및 낮은 우선 순위 Vm 지원합니다. |
 | [Azure IoT Edge](#iotedge) | (미리 보기) IoT 모듈 | 배포 및 IoT 장치에서 기계 학습 모델을 제공 합니다. |
 
@@ -42,7 +42,7 @@ ms.locfileid: "65205074"
 
 ## <a name="prerequisites-for-deployment"></a>배포 필수 구성 요소
 
-- 모델. 학습된 된 모델이 없는, 모델을 사용할 수 있습니다 & 종속성 파일에서 제공 [이 자습서](http://aka.ms/azml-deploy-cloud)합니다.
+- 모델. 학습된 된 모델이 없는, 모델을 사용할 수 있습니다 & 종속성 파일에서 제공 [이 자습서](https://aka.ms/azml-deploy-cloud)합니다.
 
 - 합니다 [Machine Learning 서비스에 대 한 Azure CLI extension](reference-azure-machine-learning-cli.md), 또는 [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk)합니다.
 
@@ -210,8 +210,8 @@ InferenceConfig 기능에 대 한 내용은 참조는 [고급 구성](#advanced-
 
 | 계산 대상 | 배포 구성 예제 |
 | ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 다음 섹션에서는 배포 구성 만들기를 사용 하 여 웹 서비스를 배포 하는 방법을 보여 줍니다.
@@ -458,7 +458,7 @@ Azure Machine Learning Compute 목표 생성 및 Azure Machine Learning 서비�
 연습은 사용 하 여 Azure Machine Learning Compute batch 유추 읽기를 [일괄 처리 예측을 실행 하는 방법을](how-to-run-batch-predictions.md) 문서.
 
 ## <a id="iotedge"></a> IoT Edge의 유추
-에 지에 배포 하는 것에 대 한 지원은 미리 보기로 제공 됩니다. 자세한 내용은 참조는 [IoT Edge 모듈로 Azure Machine Learning 배포](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) 문서.
+에 지에 배포 하는 것에 대 한 지원은 미리 보기로 제공 됩니다. 자세한 내용은 참조는 [IoT Edge 모듈로 Azure Machine Learning 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) 문서.
 
 ## <a name="next-steps"></a>다음 단계
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)

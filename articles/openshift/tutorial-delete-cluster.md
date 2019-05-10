@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/06/2019
-ms.openlocfilehash: ce4142bdcdfb7a9ab687bb60dca91d6aab00c7bd
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 679be645f3c97d30df65c9f410d286d243bca73b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079418"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466570"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 삭제
 
@@ -78,4 +78,4 @@ az openshift delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
 > [!div class="checklist"]
 > * Azure Red Hat OpenShift 클러스터 삭제
 
-공식 [Red Hat OpenShift 설명서](https://access.redhat.com/documentation/openshift_dedicated/3/)를 통해 OpenShift 사용에 관해 자세히 알아봅니다.
+공식 [Red Hat OpenShift 설명서](https://docs.openshift.com/aro/welcome/index.html)를 통해 OpenShift 사용에 관해 자세히 알아봅니다.

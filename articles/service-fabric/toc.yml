@@ -643,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: 클러스터 노드 패치(Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: 클러스터 노드 패치(Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: 디스크 암호화 사용(Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: 디스크 암호화 사용(Linux)

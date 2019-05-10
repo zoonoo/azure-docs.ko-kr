@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712610"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470240"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -334,7 +334,6 @@ Service Fabric SDK를 제거하려면 다음 명령을 실행합니다.
 * [Windows에서 Linux 개발 환경 준비](service-fabric-local-linux-cluster-windows.md)
 * [Service Fabric CLI를 사용하여 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows 및 Linux 차이점](service-fabric-linux-windows-differences.md)
-* [Linux 클러스터에서 운영 체제 패치 자동화](service-fabric-patch-orchestration-application-linux.md)
 * [Service Fabric CLI 시작](service-fabric-cli.md)
 
 <!-- Links -->

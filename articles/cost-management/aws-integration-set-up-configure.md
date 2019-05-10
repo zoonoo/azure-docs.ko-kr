@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205693"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409205"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>설정 하 고 AWS 비용 및 사용 현황 보고서 통합 구성
 
@@ -38,7 +38,7 @@ Amazon 웹 서비스 비용 및 사용 현황 보고서 통합 기능을 모니�
 7. 에 대 한 **지원할지**, 선택 영역이 없는 필요 합니다.
 8. 에 대 한 **데이터 새로 고침 설정**를 선택 **비용을 자동으로 새로 고침 &amp; 사용 현황 보고서를 사용 하 여 이전 달에 대 한 요금이 감지 되 면 청구서 닫힌**합니다.
 9. **다음**을 클릭합니다.
-10. 에 대 한 **Amazon S3 버킷의**보고서를 배달 하려는 Amazon S3 버킷의 이름을 입력 하 고 클릭 **확인**합니다. 버킷 유효 하려면 적절 한 권한이 있어야 합니다. 버킷에 권한을 추가 하는 방법에 대 한 자세한 내용은 참조 하세요. [설정은 버킷 및 개체 액세스 권한은](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)합니다.
+10. 에 대 한 **Amazon S3 버킷의**보고서를 배달 하려는 Amazon S3 버킷의 이름을 입력 하 고 클릭 **확인**합니다. 버킷 유효 하려면 적절 한 권한이 있어야 합니다. 버킷에 권한을 추가 하는 방법에 대 한 자세한 내용은 참조 하세요. [설정은 버킷 및 개체 액세스 권한은](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)합니다.
 11. 에 대 한 **보고서 경로 접두사**, 보고서의 이름에 추가 하려는 보고서 경로 접두사를 입력 합니다.
 12. 에 대 한 **압축**를 선택 **GZIP**합니다.
 13. **다음**을 클릭합니다.

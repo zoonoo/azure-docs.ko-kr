@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73be313daa3b45cabc2adb07bb3d2592c7d307e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725464"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471638"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Azure Time Series 미리 보기 프로비전 및 관리
 
@@ -33,7 +33,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
 [환경을 계획하는 방법](./time-series-insights-update-plan.md)을 알아봅니다.
 
 >[!IMPORTANT]
-> 미리 보기의 경우는 Azure Storage의 범용 v1 사용 중인지 확인 (GPv1) 계정을 합니다.  GPv2 이상용 지원 가까운 시일 안에 추가 됩니다.  
+> 미리 보기의 경우는 Azure Storage의 범용 v1 사용 중인지 확인 (GPv1) 계정을 합니다.
 
 경우에 따라 각 Azure Time Series Insights 미리 보기 환경을 이벤트 원본에 연결할 수 있습니다. 자세한 내용은 [이벤트 허브 원본 추가](./time-series-insights-how-to-add-an-event-source-eventhub.md) 및 [IoT Hub 원본 추가](./time-series-insights-how-to-add-an-event-source-iothub.md)를 참조하세요. 이 단계 중에 타임스탬프 ID 속성 및 고유한 소비자 그룹을 제공합니다. 이렇게 하면 환경에서 적합한 이벤트에 액세스할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
 
 1. **SKU** 메뉴 아래의 **PAYG** 단추를 선택합니다. 환경 이름을 제공하고 사용할 구독 그룹 및 리소스 그룹을 선택합니다. 그런 다음, 환경을 호스트할 지원되는 위치를 선택합니다.
 
-   ![Azure Time Series Insights 인스턴스를 만듭니다.][1]
+   [![Azure Time Series Insights 인스턴스를 만듭니다.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 1. 시계열 ID를 입력합니다.
 
@@ -56,7 +56,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
 
 1. Azure Storage 계정 이름을 선택하고 복제 선택을 지정하여 스토리지 계정을 만듭니다. 이렇게 하면 Azure Storage 범용 v1 계정이 자동으로 만들어집니다. 이전에 선택한 Azure Time Series Insights 미리 보기 환경과 동일한 Azure 지역에서 만들어집니다.
 
-    ![인스턴스의 Azure Storage 계정 만들기][5]
+    [![인스턴스에 대 한 Azure storage 계정 만들기](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
 
 1. 선택적으로 이벤트 원본을 추가할 수 있습니다.
 
@@ -67,11 +67,11 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
      > [!TIP]
      > 메시지를 큐에 넣은 시간은 일괄 처리 이벤트 또는 기록 데이터 업로드 시나리오에서 사용하기에 가장 적합한 구성 설정이 아닐 수 있습니다. 이러한 경우 타임스탬프 속성을 사용하거나 사용하지 않는 결정을 확인합니다.
 
-     ![이벤트 원본 탭][2]
+     [![이벤트 원본 탭](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
 
 1. 사용자 환경이 원하는 설정으로 프로비전되었는지 확인합니다.
 
-    ![리뷰 + 만들기 탭][3]
+    [![검토 + 만들기 탭](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 ## <a name="manage-the-environment"></a>환경 관리
 
@@ -88,7 +88,7 @@ Azure Portal을 사용하여 Azure Time Series Insights 미리 보기 환경을 
 
 * 참조 데이터가 PAYG 환경의 구성 요소가 아니므로 Azure Portal **참조 데이터** 블레이드는 Azure Time Series Insights 미리 보기에서 제거되었습니다.
 
-![Azure Portal의 Time Series Insights 미리 보기 환경][4]
+[![Azure portal에서 time Series Insights 미리 보기 환경](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -97,10 +97,3 @@ Azure Portal을 사용하여 Azure Time Series Insights 미리 보기 환경을 
 - 설명 하는 방법 [이벤트 허브 원본을 추가](./time-series-insights-how-to-add-an-event-source-eventhub.md)합니다.
 
 - 구성할 [IoT hub 소스를](./time-series-insights-how-to-add-an-event-source-iothub.md)입니다.
-
-<!-- Images -->
-[1]: media/v2-update-manage/manage_one.PNG
-[2]: media/v2-update-manage/manage_two.PNG
-[3]: media/v2-update-manage/manage_three.PNG
-[4]: media/v2-update-manage/manage_four.PNG
-[5]: media/v2-update-manage/manage_five.PNG

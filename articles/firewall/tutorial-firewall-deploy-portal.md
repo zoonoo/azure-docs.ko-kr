@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492317"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405675"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -236,12 +236,12 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 1. Azure portal에서 **Srv-Work** 가상 머신에 대한 네트워크 설정을 검토하고 개인 IP 주소를 참고합니다.
 2. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 **Srv-Work** 개인 IP 주소로 엽니다.
 
-3. Internet Explorer를 열고 http://www.google.com을 찾습니다.
+3. Internet Explorer를 열고 https://www.google.com을 찾습니다.
 4. Internet Explorer 보안 경고에서 **확인** > **닫기**를 선택합니다.
 
    Google 홈 페이지가 나타납니다.
 
-5. http://www.microsoft.com로 이동합니다.
+5. https://www.microsoft.com로 이동합니다.
 
    방화벽에서 차단해야 합니다.
 
