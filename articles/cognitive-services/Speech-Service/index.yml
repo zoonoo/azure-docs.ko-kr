@@ -18,7 +18,19 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 'Speech Services 및 Speech SDK를 사용하여 앱에 음성 지원 기능을 추가하는 방법을 알아봅니다. Speech SDK를 사용하여 <i>음성 텍스트 변환</i>(음성 인식/SR), <i>의도</i>, <i>번역</i> 및 <i>텍스트 음성 변환</i>(TTS) 기능을 앱에 추가할 수 있습니다. Speech Services에는 HTTP 요청을 수행할 수 있는 프로그래밍 언어에서 작동하는 REST API도 있습니다.'
+  description: |
+    REST API 또는 Speech SDK와 함께 Speech Services를 사용하여 앱에 음성 지원 기능을 추가하는 방법을 알아봅니다. Speech SDK를 사용하여 앱에 다음과 같은 기능 추가&colon; 
+    <div class="row" style="font-size:16px"><div class="column"><ul>
+    <li><b><a href="speech-to-text.md">음성 텍스트 변환</a></b>(음성 인식/SR)</li>
+    <li><b><a href="speech-devices-sdk-create-kws.md">사용자 지정 절전 모드 해제 단어</a></b>(키워드 스포터/KWS)</li>
+    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">의도</a></b></li>
+    <li><b><a href="speech-translation.md">번역</a></b></li>
+    <li><b><a href="speech-container-howto.md">온-프레미스 컨테이너</a></b></li></ul></div><div class="column"><ul>
+    <li><b><a href="text-to-speech.md">텍스트 음성 변환</a></b>(TTS)</li>
+    <li><b><a href="conversation-transcription-service.md">대화 전사</a></b>(CTS)</li>
+    <li><b><a href="how-to-phrase-lists.md">구문 목록 개인 설정</a>/<a href="how-to-custom-speech.md">사용자 지정 음성 적응</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">음성 우선 가상 도우미</a></b></li>
+    <li><b><a href="call-center-transcription.md">호출 센터 전사</a></b></li></ul></div></div>
 sections:
   - items:
       - type: list
@@ -44,7 +56,7 @@ sections:
   - title: 5분 빠른 시작
     items:
       - type: paragraph
-        text: '화살표 링크를 선택하여 SDK를 다운로드하고, 설치하고, 사용하는 방법 알아보기 <img src="media/index/link.jpg" height="15" width="15"></img>.'
+        text: '화살표 링크를 선택하여 SDK를 다운로드하고, 설치하고, 사용하는 방법 알아보기 <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>모든 화살표 링크 <img src="media/index/link.jpg" height="15" width="15"></img> 기본값은 음성 텍스트 변환 빠른 시작입니다. 여기에서 텍스트 음성 변환 또는 음성 우선 가상 도우미와 같은 빠른 시작(<a href="scenario-availability.md">사용 가능한 경우</a>)을 선택할 수 있습니다.'
       - type: table
         style: dataMatrix
         columns:

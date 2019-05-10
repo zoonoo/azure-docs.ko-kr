@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204952"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409833"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>탐색 하 고 데이터 집합 클래스 (미리 보기)를 사용 하 여 데이터 준비
 
@@ -35,7 +35,7 @@ ms.locfileid: "65204952"
 
 * Python 용 Azure Machine Learning SDK (버전 1.0.21 이상). 를 설치 하거나 SDK의 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
 
-* Azure Machine Learning 데이터 준비 SDK입니다. 를 설치 하거나 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트를 데이터 준비 SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)합니다.
+* Azure Machine Learning 데이터 준비 SDK입니다. 를 설치 하거나 최신 버전으로 업데이트를 참조 하세요 [설치 또는 데이터 준비 SDK 업데이트](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)합니다.
 
 * 예제를 따라가려면 샘플 파일을 다운로드 합니다. [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) 하 고 [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json)합니다.
 

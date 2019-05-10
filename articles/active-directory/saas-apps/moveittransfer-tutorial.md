@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a491cd303cccd94cbb489654890d55c03912a63
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259408"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>자습서: Azure Active Directory와 MOVEit Transfer 통합 - Azure AD 통합
 
@@ -174,7 +174,7 @@ MOVEit Transfer - Azure AD 통합에서 Azure AD Single Sign-On을 구성하려�
     
     b. **전체 이름**으로 **기타**를 선택하고 **특성 이름** 텍스트 상자에 `http://schemas.microsoft.com/identity/claims/displayname` 값을 입력합니다.
     
-    다. **전자 메일**로 **기타**를 선택하고 **특성 이름** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 입력합니다.
+    다. **전자 메일**로 **기타**를 선택하고 **특성 이름** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 입력합니다.
     
     d. **SignOn에서 계정 자동 만들기**로 **예**를 선택합니다.
     

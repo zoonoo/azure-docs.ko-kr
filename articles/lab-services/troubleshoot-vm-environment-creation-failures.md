@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
-ms.openlocfilehash: a653a785e99619c3e256613d6a4d2c7592f54c8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848492"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410311"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>가상 머신 (VM) 및 Azure DevTest Labs에서 환경 만들기 실패 문제 해결
 DevTest Labs는 랩 정책을 위반 하려는 경우 또는 컴퓨터 이름에 유효 하지 않은 경우 경고를 제공 합니다. 빨간색 표시 하는 경우가 `X` 랩 VM 또는 환경 상태 문제가 발생 했음을 알리는 옆에 있는 합니다.  이 문서에서는 기본 문제를 찾고 다행히 나중에 이러한 문제를 방지 하는 데 사용할 수 있는 몇 가지 트릭을 제공 합니다.
@@ -44,7 +44,7 @@ VM의 환경 만들기를 시도 이후에 오류를 조사 하는 경우 활동
     ```json
     "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"OperationNotAllowed\",\"message\":\"Operation results in exceeding quota limits of Core. Maximum allowed: 100, Current in use: 100, Additional requested: 8. Please read more about quota increase at http://aka.ms/corequotaincrease.\"}]}}",
+        "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"OperationNotAllowed\",\"message\":\"Operation results in exceeding quota limits of Core. Maximum allowed: 100, Current in use: 100, Additional requested: 8. Please read more about quota increase at https://aka.ms/corequotaincrease.\"}]}}",
     },
     ```
 

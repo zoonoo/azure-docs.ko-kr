@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187754"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409819"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 데이터베이스 보안 모범 사례
 이 문서에서는 데이터베이스 보안 모범 사례를 설명 합니다.
@@ -60,7 +60,7 @@ SQL Database는 두 가지 인증 유형, 즉 SQL Server 인증 및 Azure AD 인
 
 - SQL Database에서 모든 사용자가 Windows 도메인을 통해 인증되지 않는 혼합 운영 체제 환경을 지원할 수 있습니다.
 - SQL Database에서 SQL Server 인증이 필요한 이전 애플리케이션 및 파트너 제공 애플리케이션을 지원할 수 있습니다.
-- 사용자가 알 수 없거나 신뢰할 수 없는 도메인에서 연결합니다. 기존 고객이 할당된 SQL Server 로그인을 사용해 연결하여 주문 상태를 수신하는 애플리케이션을 예로 들 수 있습니다.
+- 사용자가 알려지지 않았거나 신뢰할 수 없는 도메인에서 연결할 수 있게 해 줍니다. 기존 고객이 할당된 SQL Server 로그인을 사용해 연결하여 주문 상태를 수신하는 애플리케이션을 예로 들 수 있습니다.
 - SQL Database에서 사용자가 자신의 ID를 만드는 웹 기반 애플리케이션을 지원할 수 있습니다.
 - 소프트웨어 개발자가 미리 설정된 SQL Server 로그인을 기반으로 복잡한 권한 계층 구조를 사용하여 애플리케이션을 배포합니다.
 
@@ -127,7 +127,7 @@ Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Da
 [Azure SQL Database를 사용하여 투명한 데이터 암호화](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) 문서에서 SQL Database 투명한 데이터 암호화에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="enable-database-auditing"></a>데이터베이스 감사 사용
-SQL Server Database Engine 또는 개별 데이터베이스의 인스턴스를 감사하는 작업에는 이벤트를 추적하고 기록하는 작업이 포함됩니다. SQL Server의 경우 서버 수준 이벤트의 사양과 데이터베이스 수준 이벤트의 사양을 포함하는 감사를 만들 수 있습니다. 감사 이벤트는 이벤트 로그 또는 감사 파일에 기록될 수 있습니다.
+SQL Server Database Engine 또는 개별 데이터베이스의 인스턴스를 감사하는 작업에는 이벤트를 추적하고 기록하는 작업이 포함됩니다. SQL Server의 경우 서버 수준 이벤트의 사양과 데이터베이스 수준 이벤트의 사양을 포함하는 감사를 만들 수 있습니다. 감사된 이벤트는 이벤트 로그 또는 감사 파일에 쓸 수 있습니다.
 
 설치에 대한 정부 또는 표준 요구 사항에 따라 SQL Server에 대한 여러 수준의 감사가 있습니다. SQL Server 감사는 다양한 서버 및 데이터베이스 개체에 대한 감사를 사용, 저장 및 확인하는 데 필요한 도구와 프로세스를 제공합니다.
 

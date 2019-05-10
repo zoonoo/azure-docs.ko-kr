@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151059"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233866"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>자습서: Azure 스토리지 큐 작업
 
@@ -206,7 +206,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 ## <a name="insert-messages-into-the-queue"></a>큐에 메시지 삽입
 
-큐에 메시지를 보내는 새 메서드를 만듭니다. **Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 큐 참조를 가져온 다음, 기존 큐가 없으면 [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet)를 호출하여 새 큐를 만듭니다. 그런 다음, [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet)를 호출하여 메시지를 큐에 추가합니다.
+큐에 메시지를 보내는 새 메서드를 만듭니다. **Program** 클래스에 다음 메서드를 추가합니다. 이 메서드는 큐 참조를 가져온 다음, 기존 큐가 없으면 [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet)를 호출하여 새 큐를 만듭니다. 그런 다음, [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet)를 호출하여 메시지를 큐에 추가합니다.
 
 1. **Program** 클래스에 다음 **SendMessageAsync** 메서드를 추가합니다.
 
@@ -229,7 +229,7 @@ Azure Queue storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 ## <a name="dequeue-messages"></a>큐에서 메시지 제거
 
-**ReceiveMessageAsync**라는 새 메서드를 만듭니다. 이 메서드는 [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet)를 호출하여 큐에서 메시지를 받습니다. 메시지가 성공적으로 수신되면 메시지가 여러 번 처리되지 않도록 큐에서 삭제해야 합니다. 메시지가 수신된 후 [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet)를 호출하여 큐에서 메시지를 삭제합니다.
+**ReceiveMessageAsync**라는 새 메서드를 만듭니다. 이 메서드는 [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet)를 호출하여 큐에서 메시지를 받습니다. 메시지가 성공적으로 수신되면 메시지가 여러 번 처리되지 않도록 큐에서 삭제해야 합니다. 메시지가 수신된 후 [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet)를 호출하여 큐에서 메시지를 삭제합니다.
 
 1. **Program** 클래스에 다음 **ReceiveMessageAsync** 메서드를 추가합니다.
 

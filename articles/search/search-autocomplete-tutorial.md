@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025148"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466426"
 ---
-# <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>예제: Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
+# <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Azure Search 응용 프로그램에 제안 사항 또는 자동 완성 기능 추가
 
 이 문서의 사용 방법 알아보기 [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions) 및 [자동 완성](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 검색---입력할 때 동작을 지 원하는 강력한 검색 상자를 빌드할 수 있습니다.
 
@@ -123,7 +123,7 @@ F5를 눌러 애플리케이션을 시작합니다.
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 http://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#example2").autocompleteInline({
         appendMethod: "replace",

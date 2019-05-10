@@ -11,14 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074100"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465638"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>빠른 시작: Speech SDK UWP를 사용하여 음성 우선 가상 도우미 만들기
+
+빠른 시작은 [음성 텍스트 변환](quickstart-csharp-uwp.md) 및 [음성 번역](quickstart-translate-speech-uwp.md)에도 사용할 수 있습니다.
 
 이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 개발할 것입니다. 이 프로그램은 이전에 클라이언트 애플리케이션의 음성 우선 가상 도우미 환경을 사용하도록 만들고 구성한 봇에 연결됩니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
 
@@ -80,16 +82,16 @@ ms.locfileid: "65074100"
             <MediaElement x:Name="mediaElement"/>
         </Grid>
     </Page>
-        ```
+    ```
 
-1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
+1. `MainPage.xaml.cs` 코드 숨김 원본 파일을 엽니다. `MainPage.xaml` 아래에 그룹화되어 있습니다. 내용을 아래 코드로 바꿉니다. 이 샘플에서 다루는 내용은 다음과 같습니다. 
 
-    * Using statements for the Speech and Speech.Dialog namespaces
-    * A simple implementation to ensure microphone access, wired to a button handler
-    * Basic UI helpers to present messages and errors in the application
-    * A landing point for the initialization code path that will be populated later
-    * A helper to play back text-to-speech (without streaming support)
-    * An empty button handler to start listening that will be populated later
+    * Speech 및 Speech.Dialog 네임스페이스에 대한 using 문
+    * 단추 처리기에 연결된 마이크 액세스를 보장하는 간단한 구현
+    * 애플리케이션에서 메시지 및 오류를 표시하는 기본 UI 도우미
+    * 나중에 채울 초기화 코드 경로에 대한 시작 지점
+    * 텍스트 음성 변환을 재생할 수 있는 도우미(스트리밍 지원 없음)
+    * 나중에 채울 수신 대기를 시작하는 빈 단추 처리기
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -239,7 +241,7 @@ ms.locfileid: "65074100"
             }
         }
     }
-     ```
+    ```
 
 1. 다음으로, 구독 정보를 사용하여 `SpeechBotConnector`를 만듭니다. 다음을 `InitializeBotConnector`의 메서드 본문에 추가하고, `YourChannelSecret`, `YourSpeechSubscriptionKey` 및 `YourServiceRegion` 문자열을 사용자 고유의 봇, 음성 구독 및 [Azure 지역](regions.md) 값으로 바꿉니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: 73eaef1c9c8a9359ab931dbbe50496dc41a6f337
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 730f0604d0c292764aaee6e0ffb8ef95d90be5f2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148968"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410283"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Azure Cosmos DB에서 요청 단위 요금 알아보기
 
@@ -199,7 +199,7 @@ double requestCharge = (double)stats["RequestCharge"];
 ### <a name="use-the-mongodb-java-driver"></a>MongoDB Java 드라이버 사용
 
 
-[공식 MongoDB Java 드라이버](http://mongodb.github.io/mongo-java-driver/)를 사용하는 경우 `MongoDatabase` 개체에서 `runCommand` 메서드를 호출하여 명령을 실행할 수 있습니다.
+[공식 MongoDB Java 드라이버](https://mongodb.github.io/mongo-java-driver/)를 사용하는 경우 `MongoDatabase` 개체에서 `runCommand` 메서드를 호출하여 명령을 실행할 수 있습니다.
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));

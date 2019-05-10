@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025300"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510424"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning 서비스란?
 
@@ -38,7 +38,7 @@ Azure Machine Learning Service는 머신 러닝 모델의 데이터 준비, 교�
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스로 무엇을 할 수 있나요?
 
-<a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a>를 오픈 소스 Python 패키지와 함께 사용하거나 [시각적 인터페이스(미리 보기)](ui-quickstart-run-experiment.md)를 사용하면 Azure Machine Learning Service 작업 영역에서 직접 매우 정확한 기계 학습 및 딥 러닝 모델을 빌드하고 학습시킬 수 있습니다.
+<a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a>를 오픈 소스 Python 패키지에 사용하거나 [그래픽 인터페이스(미리 보기)](ui-quickstart-run-experiment.md)를 사용하여 Azure Machine Learning Service 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드하고 학습시킬 수 있습니다.
 
 오픈 소스 Python 패키지에 제공되는 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, <a href="https://mxnet.io" target="_blank">MXNet</a> 등의 여러 기계 학습 구성 요소 중에 선택할 수 있습니다.
 
@@ -106,8 +106,6 @@ Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧�
 - 다음 전체 자습서를 따릅니다. 
   + [Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 
   + [데이터를 준비하고 자동화된 머신 러닝을 사용하여 회귀 모델 자동 학습](tutorial-data-prep.md)
-
-- [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)를 사용하여 데이터를 준비합니다.
 
 - 머신 러닝 시나리오를 작성, 최적화 및 관리하는 [머신 러닝 파이프라인](/azure/machine-learning/service/concept-ml-pipelines)에 대해 알아보세요.
 

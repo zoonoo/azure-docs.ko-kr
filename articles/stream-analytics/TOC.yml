@@ -442,6 +442,9 @@
             - name: 연속 창
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
               maintainContext: true
+            - name: 집계 창 함수
+              href: /stream-analytics-query/windows-azure-stream-analytics
+              maintainContext: true
     - name: 데이터 형식
       items:
         - name: 데이터 형식 개요

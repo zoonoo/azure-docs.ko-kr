@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149838"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510625"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>빠른 시작: 클라우드 기반 Notebook 서버를 사용하여 Azure Machine Learning 시작
 
 클라우드 기반 Notebook 서버를 만들고 사용합니다.  이 빠른 시작에서는 값을 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md)에 기록하는 Python 코드를 실행합니다. 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용하는 클라우드의 기본 블록입니다. 
 
 이 빠른 시작에서는 Azure Machine Learning을 실행하는 데 필요한 Python 환경으로 구성된 Azure Machine Learning 작업 영역에서 클라우드 리소스를 만드는 방법을 보여 줍니다. 대신 사용자 고유의 환경을 사용하려면 [빠른 시작: 사용자 고유의 Notebook 서버를 사용하여 Azure Machine Learning 시작](quickstart-run-local-notebook.md)을 참조하세요.  
- 
+
 이 빠른 시작에서 수행하는 작업은 다음과 같습니다.
 
 * 작업 영역에서 새 클라우드 기반 Notebook 서버를 만듭니다.
 * Jupyter 웹 인터페이스를 시작합니다.
 * pi를 추정하는 코드를 포함하고 각 반복에서 오류를 기록하는 Notebook을 엽니다.
 * Notebook을 실행합니다.
-* 작업 영역의 기록된 오류 값을 확인합니다. 이 예제는 작업 영역으로 스크립트에서 생성된 정보를 추적하는 방법을 보여줍니다. 
+* 작업 영역의 기록된 오류 값을 확인합니다. 이 예제는 작업 영역으로 스크립트에서 생성된 정보를 추적하는 방법을 보여줍니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="create-a-workspace"></a>작업 영역 만들기
 
-- Azure Machine Learning 작업 영역  작업 영역이 없는 경우 지금 [작업 영역을 만듭니다](setup-create-workspace.md#portal).
+Azure Machine Learning Service 작업 영역이 있으면 [다음 섹션](#create-a-cloud-based-notebook-server)으로 건너뜁니다. 그렇지 않으면 지금 작업 영역을 새로 만듭니다.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>클라우드 기반 Notebook 서버 만들기
 
@@ -57,7 +59,6 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
     ![새 VM 만들기](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. 상태가 **실행 중**으로 변경될 때까지 약 4~5분을 기다립니다.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Jupyter 웹 인터페이스 시작
 
@@ -102,10 +103,9 @@ pi를 추정하고 오류를 작업 영역에 기록하는 Notebook을 실행합
 
     가장 큰 코드 셀에는 여러 위치에서 사용되는 `run.log`가 표시됩니다. 각 `run.log`에서 해당 값을 작업 영역에 추가합니다.
 
-
 ## <a name="view-logged-values"></a>기록된 값 보기
 
-1. `run` 셀의 출력은 작업 영역에서 실험 결과를 보기 위해 Azure Portal로 다시 돌아가는 링크를 포함합니다. 
+1. `run` 셀의 출력은 작업 영역에서 실험 결과를 보기 위해 Azure Portal로 다시 돌아가는 링크를 포함합니다.
 
     ![실험 보기](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ pi를 추정하고 오류를 작업 영역에 기록하는 Notebook을 실행합
 
 Pi 근삿값을 계산하는 코드에서 임의 값을 사용하므로 도면에 여러 값이 표시됩니다.  
 
-## <a name="clean-up-resources"></a>리소스 정리 
+## <a name="clean-up-resources"></a>리소스 정리
 
 ### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146441"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413710"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight 클러스터 (미리 보기)를 자동으로 조정
 
@@ -21,14 +21,17 @@ Azure HDInsight 클러스터 크기 조정 기능 자동으로 조정 작업자 
 
 ## <a name="cluster-compatibility"></a>클러스터 호환성
 
+> [!Important]
+> 2019 년 5 월에에서 기능 일반 공급 후에 만든 클러스터에 대 한 자동 크기 조정 기능 에서만 작동 합니다. 기존 클러스터에 대 한 작동 하지 않습니다.
+
 다음 표에서 클러스터 형식 및 크기 조정 기능을 사용 하 여 호환 되는 버전을 설명 합니다.
 
-| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Hive | LLAP | Hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 ESP 없이 | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
-| ESP 없이 4.0 HDInsight | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
-| ESP 사용 하 여 HDInsight 3.6 | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
-| ESP 사용 하 여 HDInsight 3.6 | 예 | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| ESP 없이 4.0 HDInsight | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| ESP 사용 하 여 HDInsight 3.6 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
+| ESP 사용 하 여 HDInsight 3.6 | 예. | 예 | 아니오 | 아니요 | 아니요 | 아니요 | 아닙니다. |
 
 ## <a name="how-it-works"></a>작동 방법
 
