@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 65b701ffd9bf1465cbbafcfff3b00095281c50e4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: a1bd8ba36f208936ce52b3a46a72516da89a0e9a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468311"
+ms.locfileid: "65507870"
 ---
 # <a name="scenario-availability"></a>가용성 시나리오
 
