@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440829"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406782"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Identities 확장과 Azure Instance Metadata Service를 사용 하 여 시작을 관리 하는 가상 머신 사용을 중지 하는 방법
 
@@ -35,7 +35,7 @@ ms.locfileid: "60440829"
 
 ### <a name="provision-the-extension"></a>확장을 프로 비전 
 
-선택적 할 가상 머신 또는 가상 머신 확장 집합을 관리 되는 id를 구성할 때 필요에 따라 사용 하 여 Azure 리소스 VM 확장에 대 한 관리 되는 id를 프로 비전 할 수도 있습니다, 선택는 `-Type` 매개 변수는 [ 집합 AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. 전달할 수 있습니다 `ManagedIdentityExtensionForWindows` 나 `ManagedIdentityExtensionForLinux`, 가상 컴퓨터의 유형에 따라 및 이름을 사용 하 여는 `-Name` 매개 변수입니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
+가상 컴퓨터 또는 관리 되는 id를 사용 하도록 설정 하는 가상 머신 확장을 구성할 때 필요에 따라 하도록 선택할 수 있습니다 사용 하 여 Azure 리소스 VM 확장에 대 한 관리 되는 id를 프로 비전 합니다 `-Type` 매개 변수는 [ 집합 AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. 전달할 수 있습니다 `ManagedIdentityExtensionForWindows` 나 `ManagedIdentityExtensionForLinux`, 가상 컴퓨터의 유형에 따라 및 이름을 사용 하 여는 `-Name` 매개 변수입니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -166,7 +166,7 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-위치: 
+각 항목이 나타내는 의미는 다음과 같습니다. 
 - 확장 이름 및 Windows에 대 한 형식 다음과 같습니다. `ManagedIdentityExtensionForWindows`
 - 확장 이름 및 Linux에 대 한 형식 다음과 같습니다. `ManagedIdentityExtensionForLinux`
 

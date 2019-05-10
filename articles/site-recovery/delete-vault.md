@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784763"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412834"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Site Recovery Services 자격 증명 모음 삭제
 
@@ -22,6 +22,10 @@ ms.locfileid: "59784763"
 
 ## <a name="delete-a-site-recovery-vault"></a>Site Recovery 자격 증명 모음 삭제 
 자격 증명 모음을 삭제하려면 시나리오에 맞는 권장 단계를 따릅니다.
+### <a name="azure-vms-to-azure"></a>Azure VM에서 Azure로
+
+1. [VMware에 대한 보호 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure)의 단계에 따라 보호되는 VM을 모두 삭제합니다.
+2. 자격 증명 모음을 삭제합니다.
 
 ### <a name="vmware-vms-to-azure"></a>VMware VM에서 Azure로
 

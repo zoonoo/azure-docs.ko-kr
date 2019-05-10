@@ -9,12 +9,12 @@ ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 7c5fbf135c02abf04e90865e20e902a95174598c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3c265d6695af7ba1bc5833db59966a626cb29cb9
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078117"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416050"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
 
@@ -80,7 +80,13 @@ az --version
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Microsoft.ContainerService 리소스 공급자의 등록을 새로 고칩니다.
+5. Microsoft.KeyVault 공급자를 등록 합니다.
+
+    ```bash
+    az provider register -n Microsoft.KeyVault --wait
+    ```
+
+6. Microsoft.ContainerService 리소스 공급자의 등록을 새로 고칩니다.
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

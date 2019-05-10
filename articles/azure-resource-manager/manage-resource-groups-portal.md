@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551283"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507219"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure portal을 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "60551283"
 
 ## <a name="what-is-a-resource-group"></a>리소스 그룹이란?
 
-리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 솔루션에 대한 모든 리소스 또는 그룹으로 관리하려는 해당 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 리소스 그룹에 리소스를 어떻게 할당할지 결정합니다. 일반적으로 쉽게 배포, 업데이트하고 그룹으로 삭제할 수 있도록 동일한 리소스 그룹에 대해 동일한 수명 주기를 공유하는 리소스를 추가합니다.
+리소스 그룹은 Azure 솔루션에 대한 관련 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 솔루션에 대한 모든 리소스 또는 그룹으로 관리하려는 해당 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 리소스 그룹에 리소스를 어떻게 할당할지 결정합니다. 일반적으로 쉽게 배포, 업데이트하고 그룹으로 삭제할 수 있도록 동일한 리소스 그룹에 대해 동일한 수명 주기를 공유하는 리소스를 추가합니다.
 
 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 따라서 리소스 그룹의 위치를 지정하면 메타데이터가 저장된 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "60551283"
 
     ![리소스 그룹으로 이동](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
-## <a name="list-resource-groups"></a>리소스 그룹 나열
+## <a name="list-resource-groups"></a>리소스 그룹 목록 표시
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 리소스 그룹을 나열 하려면 선택 **리소스 그룹**
@@ -108,64 +108,7 @@ Resource Manager 템플릿을 만든 후에 Azure 리소스를 배포 하려면 
 
 ## <a name="export-resource-groups-to-templates"></a>리소스 그룹 템플릿 내보내기
 
-리소스 그룹을 성공적으로 설정한 후 리소스 그룹에 대 한 Resource Manager 템플릿을 볼 수는 것이 좋습니다. 템플릿을 내보내면 다음과 같은 두 가지 이점이 있습니다.
-
-- 템플릿에 모든 인프라가 포함 되어 있으므로 향후 솔루션 배포를 자동화 합니다.
-- 에 개체 JSON (JavaScript Notation) 솔루션을 나타내는 확인 하 여 템플릿 구문에 알아봅니다.
-
-두 가지 방법으로 템플릿을 내보낼 수 있습니다.
-
-- 배포에 사용 된 실제 템플릿을 내보낼 수 있습니다. 내보낸 템플릿은 원본 템플릿에 나타난 대로 모든 매개 변수 및 변수를 포함합니다. 이 방법은 포털을 통해 리소스를 배포하고 해당 리소스를 만드는 템플릿을 확인하려는 경우에 유용합니다. 이 템플릿은 곧 사용할 수 있습니다. 
-- 리소스 그룹의 현재 상태를 나타내는 생성 된 템플릿을 내보낼 수 있습니다. 내보낸 템플릿은 배포에 사용된 템플릿에 기초하지 않습니다. 대신 리소스 그룹의 “스냅숏” 또는 “백업”인 템플릿을 만듭니다. 내보낸 템플릿에는 하드 코드된 값이 많으며 일반적으로 정의된 경우와 같이 매개 변수가 많이 포함되지 않습니다. 동일한 리소스 그룹에 리소스를 다시 배포하려면 이 옵션을 사용합니다. 다른 리소스 그룹에 이 템플릿을 사용하려면 크게 수정해야 할 수 있습니다.
-
-### <a name="export-templates-from-deployment-history"></a>배포 기록에서 템플릿 내보내기
-
-이 메서드는 특정 배포에 대 한 템플릿을 내보냅니다. 여러 배포에서 리소스를 추가/제거를 포털에서 리소스를 변경한 경우 참조 [리소스 그룹에서 템플릿을 내보낼](#export-templates-from-resource-groups)합니다.
-
-1. 내보내려는 리소스 그룹을 엽니다.  참조 [리소스 그룹을 열고](#open-resource-groups)합니다.
-2. 왼쪽 창에서 **배포**를 선택하거나 **배포** 아래에 있는 링크를 선택합니다.  다음 스크린샷에서 보여 줍니다 **4 성공** 네 개의 서로 다른 배포 이름으로 구분 된 4 개의 배포 되어 있습니다. 표시 될 수 있습니다 **1 성공**합니다.
-
-    ![azure 리소스 그룹 내보내기 템플릿](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. 목록에서 배포 중 하나를 선택 합니다.
-4. 왼쪽된 창에서 선택 **템플릿**합니다. Resource Manager는 다음 6개의 파일을 검색합니다.
-
-   - **템플릿** - 솔루션의 인프라를 정의하는 템플릿입니다. 포털을 통해 저장소 계정을 만들 때 Resource Manager는 템플릿을 사용하여 배포하고 나중에 참조할 수 있도록 해당 템플릿을 저장했습니다.
-   - **매개 변수** - 배포하는 동안 값을 전달하는 데 사용할 수 있는 매개 변수 파일. 첫 번째 배포 중에 제공되는 값을 포함합니다. 템플릿을 다시 배포할 때 이러한 값을 변경할 수 있습니다.
-   - **CLI** - 템플릿 배포에 사용할 수 있는 Azure CLI 스크립트 파일.
-   - **PowerShell** - 템플릿 배포에 사용할 수 있는 Azure PowerShell 스크립트 파일.
-   - **.NET** - 템플릿 배포에 사용할 수 있는 .NET 클래스.
-   - **Ruby** - 템플릿 배포에 사용할 수 있는 Ruby 클래스.
-
-     기본적으로 포털에 템플릿이 표시됩니다.
-
-5. 선택 **다운로드** 로컬 컴퓨터에 템플릿을 내보낼 수 있습니다.
-
-    ![azure 리소스 그룹 내보내기 템플릿](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>리소스 그룹에서 템플릿 내보내기
-
-하면 포털에서 리소스를 변경 했으므로, 여러 배포에서 리소스를 추가/제거 하는 경우 배포 기록에서 템플릿을 검색 리소스 그룹의 현재 상태를 반영 하지 않습니다. 이 섹션에서는 리소스 그룹의 현재 상태를 반영하는 템플릿을 내보내는 방법을 보여줍니다. 동일한 리소스 그룹에 다시 배포하는 데 사용할 수 있는 리소스 그룹의 스냅숏으로 사용됩니다. 다른 솔루션에 내보낸 템플릿을 사용하려면 대폭 수정해야 합니다.
-
-1. 내보내려는 리소스 그룹을 엽니다.  참조 [리소스 그룹을 열고](#open-resource-groups)합니다.
-2. 왼쪽된 창에서 선택 **템플릿 내보내기**합니다. Resource Manager는 다음 6개의 파일을 검색합니다.
-
-   - **템플릿** - 솔루션의 인프라를 정의하는 템플릿입니다. 포털을 통해 저장소 계정을 만들 때 Resource Manager는 템플릿을 사용하여 배포하고 나중에 참조할 수 있도록 해당 템플릿을 저장했습니다.
-   - **매개 변수** - 배포하는 동안 값을 전달하는 데 사용할 수 있는 매개 변수 파일. 첫 번째 배포 중에 제공되는 값을 포함합니다. 템플릿을 다시 배포할 때 이러한 값을 변경할 수 있습니다.
-   - **CLI** - 템플릿 배포에 사용할 수 있는 Azure CLI 스크립트 파일.
-   - **PowerShell** - 템플릿 배포에 사용할 수 있는 Azure PowerShell 스크립트 파일.
-   - **.NET** - 템플릿 배포에 사용할 수 있는 .NET 클래스.
-   - **Ruby** - 템플릿 배포에 사용할 수 있는 Ruby 클래스.
-
-     기본적으로 포털에 템플릿이 표시됩니다.
-3. 선택 **다운로드** 로컬 컴퓨터에 템플릿을 내보낼 수 있습니다.
-
-일부 내보낸된 템플릿에서 사용할 수 있으려면 먼저 일부 편집 해야 합니다. 템플릿을 개발 하는 방법에 알아보려면 참조를 [단계별 자습서](/azure/azure-resource-manager/)합니다.
-
-### <a name="export-template-before-deploying"></a>배포 하기 전에 템플릿 내보내기
-
-리소스를 정의 하는 포털을 사용할 수 있습니다.  리소스를 배포 하기 전에 볼 수 있으며 템플릿을 내보낼 수 있습니다. 지침은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요.
+템플릿 내보내기에 대 한 자세한 내용은 [템플릿의 경우-포털에 단일 및 다중 리소스 내보내기](export-template-portal.md)합니다.
 
 ### <a name="fix-export-issues"></a>내보내기 문제 수정
 

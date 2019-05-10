@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160007"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416329"
 ---
 조직이 클라우드로 마이그레이션하고 배포 일관성을 확인 수 있게 하는 표준화 된 가상 머신 (VM) 이미지입니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 됩니다. 시간, 인프라 및 설치 프로그램을 고유한 이미징 파이프라인을 설정 하려면 필요 하지만 Azure VM 이미지 작성기를 사용 하 여 이미지를 설명 하는 간단한 구성을 제공, 서비스에 제출 및 이미지를 작성 및 배포 합니다.
  
@@ -95,7 +95,7 @@ az role assignment create \
  
 이미지 작성기는 VM에 대 한 필요한 네트워킹 및 D1v2 VM 크기와 저장소를 사용 하 여 VM을 만듭니다. 이러한 리소스는 빌드 프로세스의 기간 동안 지속 및 Image Builder에서 이미지 만들기를 완료 한 후 삭제 됩니다. 
  
-Azure 이미지 작성기는 이미지를 배포를 선택한 영역에는 네트워크 송신 요금이 발생할 수 있습니다.
+Azure 이미지 작성기는 네트워크 송신 요금이 발생할 수 있음에 선택한 지역에 이미지를 배포 합니다.
  
 ## <a name="next-steps"></a>다음 단계 
  

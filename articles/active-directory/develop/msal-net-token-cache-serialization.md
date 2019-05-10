@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f259d8438b7500d5d007bbb972f859e187ccd08a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1e9a48b114d328e0405a2f03764df4ce29b166
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079931"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407054"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>MSAL.NET에서 토큰 캐시 직렬화
 [획득한 토큰](msal-acquire-cache-tokens.md)은 MSAL(Microsoft 인증 라이브러리)을 사용하여 캐시됩니다.  애플리케이션 코드는 캐시에서 토큰을 가져오려고 시도한 후 다른 방법으로 토큰을 획득해야 합니다.  이 문서에서는 MSAL.NET에서 제공하는 토큰 캐시의 기본 및 사용자 지정 직렬화에 대해 설명합니다.
@@ -290,5 +290,5 @@ namespace CommonCacheMsalV3
 
 | 샘플 | 플랫폼 | 설명|
 | ------ | -------- | ----------- |
-|[active-directory-dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | 데스크톱(WPF) | Microsoft Graph API를 호출하는 Windows 데스크톱 .NET(WPF) 애플리케이션 ![토폴로지](media/msal-net-token-cache-serialization/topology.png)|
+|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | 데스크톱(WPF) | Microsoft Graph API를 호출하는 Windows 데스크톱 .NET(WPF) 애플리케이션 ![토폴로지](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | 데스크톱(콘솔) | Azure AD v1.0 애플리케이션(ADAL.NET 사용)을 컨버지드 애플리케이션이라고도 하는 Azure AD v2.0 애플리케이션(MSAL.NET 사용)으로 마이그레이션, 특히 [토큰 캐시 마이그레이션](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)하는 방법을 보여주는 Visual Studio 솔루션 세트|

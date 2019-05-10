@@ -1,24 +1,26 @@
 ---
-title: '빠른 시작: 스토리지 계정 만들기 - Azure Storage'
-description: 이 빠른 시작에서는 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 저장소 계정을 만드는 것에 대해 알아봅니다. Azure Storage 계정은 Azure Storage에서 만든 데이터 개체의 저장 및 액세스를 위해 Microsoft Azure의 고유한 네임스페이스를 제공합니다.
+title: 스토리지 계정 만들기 - Azure Storage
+description: 이 방법 문서에서는 Azure portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 저장소 계정을 만들려면 배웁니다. Azure Storage 계정은 Azure Storage에서 만든 데이터 개체의 저장 및 액세스를 위해 Microsoft Azure의 고유한 네임스페이스를 제공합니다.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 09/18/2018
+ms.topic: article
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862950"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234157"
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 사용하여 저장소 계정을 만드는 것에 대해 알아봅니다.  
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정에서 액세스할 수 있는 아무 곳 이나 전 세계에서 HTTP 또는 HTTPS를 통해 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는에서 내구성 및 고가용성, 안전 하 고 대규모로 확장 가능한 경우
+
+이 방법 문서에서는 사용 하 여 저장소 계정을 만드는 방법 합니다 [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)합니다 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), 또는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md)합니다.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -32,28 +34,28 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-이 빠른 시작에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
+이 방법 문서는 Azure PowerShell 모듈 버전 0.7 이상 Az 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
 
-- Azure Cloud Shell의 Azure Portal에서 CLI 명령 실행 
-- CLI를 설치하고 로컬에서 CLI 실행  
+- Azure Cloud Shell에서 Azure portal 내에서 CLI 명령을 실행할 수 있습니다.
+- CLI를 설치 하 고 CLI 명령을 로컬로 실행할 수 있습니다.
 
 ### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
-Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Portal 오른쪽 위에 있는 메뉴에서 **Cloud Shell** 버튼을 클릭합니다.
+Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI는 미리 설치 된 및 계정을 사용 하 여 사용 하도록 구성 합니다. 클릭 합니다 **Cloud Shell** Azure portal의 오른쪽 위 섹션에서 메뉴의 단추:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-이 단추는 이 빠른 시작의 단계를 실행하는 데 사용할 수 있는 대화형 셸을 시작합니다.
+단추에는이 방법 문서에서 설명 된 단계를 실행 하는 데 사용할 수 있는 대화형 셸을 시작 합니다.
 
 [![포털에서 Cloud Shell 창을 보여 주는 스크린샷](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 
-Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법 문서는 Azure CLI 버전 2.0.4 중인지 필요 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
@@ -61,7 +63,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른
 
 ---
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
@@ -77,9 +79,9 @@ Connect-AzAccount
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+Azure Cloud Shell을 시작 하려면에 로그인 합니다 [Azure portal](https://portal.azure.com)합니다.
 
-CLI의 로컬 설치를 사용해 로그인하려면 로그인 명령을 실행합니다.
+CLI의 로컬 설치에 로그인 하려면를 실행 합니다 [az 로그인](/cli/azure/reference-index#az-login) 명령:
 
 ```cli
 az login
@@ -87,7 +89,7 @@ az login
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 
@@ -95,9 +97,9 @@ az login
 
 이제 저장소 계정을 만들 준비가 되었습니다.
 
-모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 저장소 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 빠른 시작에는 새 리소스 그룹을 만드는 방법을 보여줍니다. 
+모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 저장소 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 아티클에서 새 리소스 그룹을 만드는 방법에 설명 합니다.
 
-**범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.   
+**범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 여기에 나오는 단계는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정 만드는 단계는 유사 합니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
@@ -105,48 +107,48 @@ az login
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 PowerShell을 통해 새 리소스 그룹을 만듭니다. 
+먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 PowerShell을 통해 새 리소스 그룹을 만듭니다.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
-# without hardcoding it repeatedly
-$resourceGroup = "storage-quickstart-resource-group"
-New-AzResourceGroup -Name $resourceGroup -Location $location 
+# without hard-coding it repeatedly
+$resourceGroup = "storage-resource-group"
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 `-Location` 매개 변수에 어떤 지역을 지정할지 확실하지 않으면 [Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용하여 해당 구독에 대해 지원되는 지역 목록을 검색할 수 있습니다.
 
 ```powershell
-Get-AzLocation | select Location 
+Get-AzLocation | select Location
 $location = "westus"
 ```
 
-다음으로, LRS(로컬 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만듭니다. [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령 사용: 
+다음으로 읽기 액세스 지역 중복 저장소 (RA-GRS) 범용 v2 저장소 계정을 사용 하 여 작성 합니다 [새로 만들기-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령입니다. 저장소 계정 이름을 Azure 전체에서 고유 해야, 대괄호 안의 자리 표시자 값을 자신의 고유한 값으로 대체 해야 합니다는 기억해 야 합니다.
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
-  -Name "storagequickstart" `
+  -Name <account-name> `
   -Location $location `
-  -SkuName Standard_LRS `
+  -SkuName Standard_RAGRS `
   -Kind StorageV2 
 ```
 
-ZRS(영역 중복 저장소)(미리 보기), GRS(지역 중복 저장소) 또는 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **SkuName**매개 변수에 대해 원하는 값을 대체합니다. 
+다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 원하는 값을 대체 합니다 **SkuName** 매개 변수입니다.
 
 |복제 옵션  |SkuName 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소)     |Standard_LRS         |
-|ZRS(영역 중복 저장소)     |Standard_ZRS         |
-|GRS(지역 중복 저장소)     |Standard_GRS         |
+|LRS(로컬 중복 저장소)     |Standard-LRS         |
+|ZRS(영역 중복 스토리지)     |Standard_ZRS         |
+|GRS(지역 중복 스토리지)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-먼저 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 Azure CLI를 통해 새 리소스 그룹을 만듭니다. 
+먼저 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 Azure CLI를 통해 새 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
-    --name storage-quickstart-resource-group \
+    --name storage-resource-group \
     --location westus
 ```
 
@@ -158,29 +160,29 @@ az account list-locations \
     --out table
 ```
 
-다음으로, 로컬 중복 저장소를 사용하여 범용 v2 저장소 계정을 만듭니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
+다음으로 읽기 액세스 지역 중복 저장소는 범용 v2 저장소 계정을 사용 하 여 작성 합니다 [az storage 계정 만들기](/cli/azure/storage/account#az_storage_account_create) 명령입니다. 저장소 계정 이름을 Azure 전체에서 고유 해야, 대괄호 안의 자리 표시자 값을 자신의 고유한 값으로 대체 해야 합니다는 기억해 야 합니다.
 
 ```azurecli-interactive
 az storage account create \
-    --name storagequickstart \
-    --resource-group storage-quickstart-resource-group \
+    --name <account-name> \
+    --resource-group storage-resource-group \
     --location westus \
-    --sku Standard_LRS \
+    --sku Standard_RAGRS \
     --kind StorageV2
 ```
 
-영역 중복 저장소(ZRS 미리 보기), GRS(지역 중복 저장소) 또는 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **sku**매개 변수에 대해 원하는 값을 대체합니다. 
+다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 원하는 값을 대체 합니다 **sku** 매개 변수입니다.
 
 |복제 옵션  |sku 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소)     |Standard_LRS         |
-|ZRS(영역 중복 저장소)     |Standard_ZRS         |
-|GRS(지역 중복 저장소)     |Standard_GRS         |
+|LRS(로컬 중복 저장소)     |Standard-LRS         |
+|ZRS(영역 중복 스토리지)     |Standard_ZRS         |
+|GRS(지역 중복 스토리지)     |Standard_GRS         |
 |읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
-Azure PowerShell 또는 Azure CLI를 사용하여 스토리지 계정을 만드는 Resource Manager 템플릿을 배포할 수 있습니다. 이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-storage-account-create/)에서 나온 것입니다. 스크립트를 실행하려면 **사용해 보세요.** 를 선택하여 Azure Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+Azure PowerShell 또는 Azure CLI를 사용하여 스토리지 계정을 만드는 Resource Manager 템플릿을 배포할 수 있습니다. 이 방법 문서에 사용 되는 서식 파일은 [Azure Resource Manager 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-storage-account-create/)합니다. 스크립트를 실행하려면 **사용해 보세요.** 를 선택하여 Azure Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -211,7 +213,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 리소스를 정리하려면 간단히 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 연결된 저장소 계정과 기타 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
+이 방법 문서에서 만든 리소스를 정리 하려면 리소스 그룹을 삭제할 수 있습니다. 리소스 그룹을 삭제하면 연결된 저장소 계정과 기타 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
@@ -223,7 +225,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-새 스토리지 계정을 포함하여 리소스 그룹 및 관련 리소스를 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다. 
+새 스토리지 계정을 포함하여 리소스 그룹 및 관련 리소스를 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -234,7 +236,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 새 저장소 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다.
 
 ```azurecli-interactive
-az group delete --name storage-quickstart-resource-group
+az group delete --name storage-resource-group
 ```
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
@@ -256,7 +258,7 @@ az group delete --name $resourceGroupName
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 범용 v2 표준 스토리지 계정을 만들었습니다. 스토리지 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob Storage 빠른 시작을 진행합니다.
+이 방법 문서에서는 범용 v2 표준 저장소 계정을 만들었습니다. 업로드 및 blob 저장소 계정에서 다운로드 하는 방법에 알아보려면 Blob 저장소 빠른 시작 중 하나를 계속 합니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 

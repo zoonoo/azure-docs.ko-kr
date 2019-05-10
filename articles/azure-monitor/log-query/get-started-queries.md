@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520031"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415891"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리 시작
 
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize: 행 그룹 집계
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>시간 열별 요약
 결과 그룹화는 time 열 또는 다른 연속 값을 기준으로 할 수도 있습니다. 그러나 간단히 `by TimeGenerated`를 요약하면 이는 고유한 값이므로 시간 범위 동안 모든 단일 밀리초에 대한 그룹을 만듭니다. 
 
-연속 값에 따라 그룹을 만들려면 **bin**을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 각 기간 동안의 평균 값을 계산합니다. 1시간인 경우 지난 7일을 계산합니다.
+연속 값에 따라 그룹을 만들려면 **bin**을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 지난 7 일 동안 1 시간 동안 각의 평균 값을 계산 합니다.
 
 ```Kusto
 Perf 

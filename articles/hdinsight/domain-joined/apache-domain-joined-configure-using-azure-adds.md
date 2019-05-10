@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: ed2611896f2c23a3cf1d2fec5d9e711f518a65c6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926345"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415475"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -22,7 +22,7 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 이 문서에서는 Azure AD DS(Azure Active Directory Domain Services)를 사용하여 ESP로 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
 
 > [!NOTE]  
-> ESP는 클러스터 형식에 대 한 HDI 3.6에서 일반 공급: 대화형, Apache Spark 및 Apache Hadoop입니다. Apache HBase 및 Apache Kafka 클러스터 유형에 대한 ESP는 미리 보기입니다.
+> ESP는 HDInsight 3.6 클러스터 형식에 대 한 4.0에 일반적으로 제공 됩니다. Apache Spark, 대화형, Apache Hadoop 및 HBase 합니다. ESP Apache Kafka 클러스터 형식에 대 한 미리 보기입니다.
 
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 

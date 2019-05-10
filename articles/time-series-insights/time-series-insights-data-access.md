@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716704"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236382"
 ---
 # <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
@@ -34,11 +34,11 @@ ms.locfileid: "64716704"
 
 1. **데이터 액세스 정책**을 선택한 다음, **+ 추가**를 선택합니다.
 
-    ![Data-access-one][1]
+    [![Data-access-one](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. **사용자 선택**을 선택합니다. 사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다.
 
-    ![Data-access-two][2]
+    [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. **역할 선택**을 선택합니다. 사용자에 대한 적절한 액세스 역할을 선택합니다.
 
@@ -48,37 +48,37 @@ ms.locfileid: "64716704"
 
    **확인**을 선택하여 역할 선택을 확인합니다.
 
-    ![Data-access-three][3]
+    [![Data-access-three](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
 
-    ![Data-access-four][4]
+    [![Data-access-four](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. **데이터 액세스 정책** 페이지에 사용자 및 각 사용자의 역할이 표시되는지 확인합니다.
 
-    ![Data-access-five][5]
+    [![Data-access-five](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>다른 AAD 테 넌 트에서 게스트 액세스를 제공 합니다.
 
-`Guest`는 관리 역할이 아니라 특정 테넌트에서 다른 테넌트로 초대된 계정에 사용되는 용어입니다. 게스트 계정을 테넌트의 디렉터리에 초대한 후에는 다른 계정과 동일한 액세스 제어가 적용될 수 있습니다. 액세스 제어(IAM) 블레이드를 사용하여 Time Series Insights 환경에 대한 관리 액세스 권한을 부여할 수 있습니다. 또는 데이터 액세스 정책 블레이드를 통해 환경의 데이터에 대한 액세스 권한을 부여할 수 있습니다. Azure AD(Azure Active Directory) 테넌트 게스트 액세스에 대한 자세한 내용은 [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)를 참조하세요.
+`Guest`는 관리 역할이 아니라 특정 테넌트에서 다른 테넌트로 초대된 계정에 사용되는 용어입니다. 게스트 계정을 테넌트의 디렉터리에 초대한 후에는 다른 계정과 동일한 액세스 제어가 적용될 수 있습니다. 액세스 제어(IAM) 블레이드를 사용하여 Time Series Insights 환경에 대한 관리 액세스 권한을 부여할 수 있습니다. 또는 데이터 액세스 정책 블레이드를 통해 환경의 데이터에 대한 액세스 권한을 부여할 수 있습니다. Azure AD(Azure Active Directory) 테넌트 게스트 액세스에 대한 자세한 내용은 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)를 참조하세요.
 
 다른 테넌트의 Azure AD 사용자에게 Time Series Insights 환경에 대한 게스트 액세스 권한을 부여하려면 다음 단계를 수행합니다.
 
 1. **데이터 액세스 정책**을 선택한 다음, **+ 초대**를 선택합니다.
 
-    ![Data-access-six][6]
+    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. 초대할 사용자의 메일 주소를 입력합니다. 이 메일 주소는 Azure AD와 연결되어야 합니다. 필요한 경우 초대에 개인 메시지를 포함할 수 있습니다.
 
-    ![Data-access-seven][7]
+    [![Data-access-seven](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. 화면에 표시되는 확인 거품을 찾습니다.
 
-    ![Data-access-eight][8]
+    [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. **사용자 선택**을 선택합니다. 초대한 게스트 사용자의 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다.
 
-    ![Data-access-nine][9]
+    [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. **역할 선택**을 선택합니다. 게스트 사용자의 적절한 액세스 역할을 선택합니다.
 
@@ -88,29 +88,29 @@ ms.locfileid: "64716704"
 
    **확인**을 선택하여 역할 선택을 확인합니다.
 
-    ![Data-access-ten][10]
+    [![Data-access-ten](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
 
 1. **데이터 액세스 정책** 페이지에 게스트 사용자 및 각 게스트 사용자의 역할이 표시되는지 확인합니다.
 
-    ![Data-access-eleven][11]
+    [![Data-access-eleven](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. 이제 게스트 사용자가 초대를 받은 Azure 테넌트에 있는 환경에 액세스하기 위한 단계를 따라야 합니다. 먼저 전송된 초대를 수락합니다. 이 초대는 5단계에서 사용된 메일 주소로 메일을 통해 전송됩니다. **시작**을 선택하여 수락합니다.
 
-    ![Data-access-twelve][12]
+    [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. 다음으로, 게스트 사용자가 관리자 조직과 연결된 사용 권한을 수락합니다.
 
-    ![Data-access-thirteen][13]
+    [![Data-access-thirteen](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. 초대하는 데 사용된 메일 주소에 게스트 사용자가 로그인하고 초대를 수락하면 insights.azure.com으로 이동됩니다. 이 페이지에서 화면 오른쪽 위의 메일 주소 옆에 있는 아바타를 선택합니다.
 
-    ![Data-access-fourteen][14]
+    [![Data-access-fourteen](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. 다음으로, 게스트 사용자가 디렉터리 드롭다운 메뉴에서 Azure 테넌트를 선택합니다. 이 테넌트는 초대 받은 테넌트입니다.
 
-    ![Data-access-fifteen][15]
+    [![Data-access-fifteen](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 게스트 사용자가 테넌트를 선택하면 액세스 권한이 부여된 Time Series Insights 환경이 표시됩니다. 이제 사용자가 제공한에 사용 하 여 역할에 연결 된 모든 기능을 갖습니다 **5 단계**합니다.
 
@@ -121,20 +121,3 @@ ms.locfileid: "64716704"
 * [이벤트 원본으로 이벤트를 전송](./time-series-insights-send-events.md)합니다.
 
 * [Time Series Insights 미리 보기 탐색기에서 사용자 환경을 봅니다](./time-series-insights-update-explorer.md).
-
-<!-- Images -->
-[1]: media/data-access/data-access-one.png
-[2]: media/data-access/data-access-two.png
-[3]: media/data-access/data-access-three.png
-[4]: media/data-access/data-access-four.png
-[5]: media/data-access/data-access-five.png
-[6]: media/data-access/data-access-six.png
-[7]: media/data-access/data-access-seven.png
-[8]: media/data-access/data-access-eight.png
-[9]: media/data-access/data-access-nine.png
-[10]: media/data-access/data-access-ten.png
-[11]: media/data-access/data-access-eleven.png
-[12]: media/data-access/data-access-twelve.png
-[13]: media/data-access/data-access-thirteen.png
-[14]: media/data-access/data-access-fourteen.png
-[15]: media/data-access/data-access-fifteen.png

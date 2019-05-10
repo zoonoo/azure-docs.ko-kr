@@ -3,7 +3,7 @@ title: 보안 정책 작업 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center에서 보안 정책을 사용하는 방법을 설명합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111513"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236312"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -110,6 +110,9 @@ REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털
    ![정책 관리](./media/tutorial-security-policy/policy-management.png)
 
 2. 권장 사항을 사용 하지 않도록 설정 하려는 구독 또는 관리 그룹을 클릭 합니다.
+
+   > [!Note]
+   > 해당 구독에 관리 그룹에 해당 정책을 적용 됩니다는 기억 합니다. 따라서 구독의 정책을 사용 하지 않도록 설정 하 고 구독이 계속 동일한 정책을 사용 하는 관리 그룹에 속하는 경우 다음은 계속 나타나면 정책 권장 사항입니다. 정책 관리 수준에서 적용 됩니다 및 권장 사항을 여전히 생성 됩니다.
 
 1. 할당된 정책을 클릭 합니다.
 
@@ -233,7 +236,7 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 |적응형 애플리케이션 제어 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
 |네트워크 보안 그룹 |Azure Security Center에서 관대한 네트워크 액세스 모니터링 |networkSecurityGroupsMonitoringEffect| 
 |보안 구성 |Azure Security Center에서 OS 취약성 모니터링 |systemConfigurationsMonitoringEffect| 
-|Endpoint Protection |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
+|엔드포인트 보호 |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
 |디스크 암호화 |Azure Security Center에서 암호화되지 않은 VM 디스크 모니터링 |diskEncryptionMonitoringEffect|
 |취약점 평가 |Azure Security Center에서 VM 취약성 모니터링 |vulnerabilityAssessmentMonitoringEffect|
 |웹 애플리케이션 방화벽 |Azure Security Center에서 보호되지 않은 웹 애플리케이션 모니터링 |webApplicationFirewallMonitoringEffect |

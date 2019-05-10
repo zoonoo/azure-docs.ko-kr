@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143034"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507797"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Form Recognizer 컨테이너 설치 및 실행
 Form Recognizer는 기계 학습 기술을 적용하여 양식에서 키-값 쌍과 테이블을 식별하고 추출합니다. 값과 테이블 항목을 연결한 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 복잡성을 줄이고 워크플로 자동화 프로세스 또는 다른 애플리케이션에 쉽게 통합할 수 있도록 간단한 REST API를 사용하여 사용자 지정 Form Recognizer 모델을 호출할 수 있습니다. 5개의 문서(또는 빈 양식)만 필요하므로 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 결과를 빠르고 정확하게 얻을 수 있습니다. 데이터 레이블 지정 또는 데이터 주석은 필요하지 않습니다.
@@ -150,7 +150,7 @@ FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
-5001 포트에서 두 번째 컨테이너를 실행합니다.
+포트 5001에서 두 번째 컨테이너를 실행합니다.
 
 
 ```bash 
@@ -261,7 +261,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-컨테이너는 REST 엔드포인트 API를 제공합니다. 이 API는 [여기](https://docs.microsoft.com/azure/cognitive-services/formrecognizer-service/rest-apis#formrecognier-api)서 찾을 수 있으며, 샘플은 [여기](https://azure.microsoft.com/resources/samples/cognitive-formrecognizer)서 찾을 수 있습니다.
+컨테이너는 [여기](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel)에 있는 REST 엔드포인트 API를 제공합니다.
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

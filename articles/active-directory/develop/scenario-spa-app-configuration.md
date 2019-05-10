@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6236f0fa2400113225e04ffd4884cf743d1e250a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b71454fc553a0f81c26426a6a9588f15d5311e38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138281"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406428"
 ---
 # <a name="single-page-application---code-configuration"></a>단일 페이지 응용 프로그램 코드 구성
 
@@ -47,7 +47,7 @@ MSAL 라이브러리에 라이브러리를 초기화 하는 동안 구성으로 
 // Configuration object constructed.
 const config = {
     auth: {
-        clientID: 'your_app_id',
+        clientId: 'your_app_id',
         redirectUri: "your_app_redirect_uri" //defaults to application start page
     }
 }
@@ -63,7 +63,7 @@ const userAgentApplication = new UserAgentApplication(config);
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id'
+                clientId: 'your_app_id'
             })]
          })
 
