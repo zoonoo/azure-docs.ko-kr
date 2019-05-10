@@ -27,9 +27,9 @@ ms.locfileid: "60549088"
 Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로드하면 다음과 같은 이점이 있습니다.
 
 * **간편한 설정**: 스크립팅이 필요 없는 직관적인 5 단계 마법사.
-* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소에 대한 기본 지원을 제공합니다. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
-* **보안 및 규정 준수**: 데이터는 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
-* **PolyBase를 사용하여 뛰어난 성능 제공**: Polybase는 Azure SQL Data Warehouse로 데이터를 이동하는 데 있어 가장 효율적인 방법입니다. 스테이징 Blob 기능을 사용하여 Azure Blob Storage 및 Data Lake Store를 포함하여 모든 유형의 데이터 스토리지에서 높은 로드 속도를 얻습니다. (Polybase는 기본적으로 Azure Blob Storage 및 Data Lake Store를 지원합니다.) 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
+* **다양 한 데이터 저장소 지원**: 다양 한 온-프레미스 및 클라우드 기반 데이터 저장소에 대 한 기본 제공 지원 합니다. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+* **보안 및 규정 준수**: 데이터가는 HTTPS 또는 ExpressRoute를 통해 전송 됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
+* **PolyBase를 사용 하 여 뛰어난된 성능을**: Polybase는 Azure SQL Data Warehouse로 데이터 이동에 대 한 가장 효율적인 방법입니다. 스테이징 Blob 기능을 사용하여 Azure Blob Storage 및 Data Lake Store를 포함하여 모든 유형의 데이터 스토리지에서 높은 로드 속도를 얻습니다. (Polybase는 기본적으로 Azure Blob Storage 및 Data Lake Store를 지원합니다.) 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
 
 이 문서에서는 Data Factory 데이터 복사 도구를 사용하여 _Azure SQL Database의 데이터를 Azure SQL Data Warehouse로 로드_하는 방법을 설명합니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
 
@@ -40,8 +40,8 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure SQL Data Warehouse: 데이터 웨어하우스 SQL 데이터베이스에서 복사 된 데이터를 보유 합니다. Azure SQL Data Warehouse가 아직 없는 경우 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조하세요.
-* Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터를 사용하여 Azure SQL database에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다.
-* Azure 저장소 계정: Azure 저장소는 대량 복사 작업에서 _준비_ blob으로 사용됩니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터를 사용 하 여 Azure SQL database에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다. 
+* Azure 저장소 계정: Azure 저장소로 사용 되는 _준비_ 대량 복사 작업에서 blob입니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 

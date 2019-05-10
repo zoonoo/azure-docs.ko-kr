@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992782"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190856"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>빠른 시작: JavaScript SPA(단일 페이지 애플리케이션)에서 사용자를 로그인하고 액세스 토큰 획득
 
@@ -37,7 +37,7 @@ ms.locfileid: "64992782"
 * node.js 서버를 사용하여 프로젝트를 실행하려면
     * [Node.js](https://nodejs.org/en/download/)
     * 프로젝트 파일을 편집하려면 [Visual Studio Code](https://code.visualstudio.com/download)를 설치합니다.
-* 프로젝트를 Visual Studio 솔루션으로 실행하려면 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)을 설치합니다.
+* 프로젝트를 Visual Studio 솔루션으로 실행하려면 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)를 설치합니다.
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>빠른 시작 애플리케이션 등록 및 다운로드
@@ -147,16 +147,16 @@ var msalConfig = {
 MSAL은 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 라이브러리입니다. 빠른 시작의 *index.html*에는 라이브러리에 대한 참조가 포함됩니다.
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > 위의 버전을 최근에 출시된 [MSAL.js 릴리스](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases) 버전으로 바꿀 수 있습니다.
 
 
-또는 Node가 설치된 경우 다음과 같이 npm을 통해 최신 미리 보기 버전을 다운로드할 수 있습니다.
+또는 Node가 설치된 경우 다음과 같이 npm을 통해 최신 버전을 다운로드할 수 있습니다.
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>MSAL 초기화
@@ -192,11 +192,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 다음 코드 조각에서는 사용자에게 로그인하는 방법을 보여줍니다.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,11 +219,11 @@ MSAL에는 토큰을 획득하는 데 사용되는 세 가지 메서드인 `acqu
 `acquireTokenSilent` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. `loginRedirect` 또는 `loginPopup` 메서드가 처음으로 실행된 후에 후속 호출 시 보호되는 리소스에 액세스하는 데 사용되는 토큰을 가져오는 데 일반적으로 사용되는 메서드가 `acquireTokenSilent`입니다. 요청 또는 갱신 토큰에 대한 호출은 자동으로 수행됩니다.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -247,11 +247,11 @@ myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
 `acquireTokenPopup`을 호출하면 로그인하라는 팝업 창이 표시되며(또는 `acquireTokenRedirect`를 호출하면 사용자가 Microsoft ID 플랫폼 엔드포인트로 리디렉션됨), 이때 사용자는 자격 증명을 확인하고 필수 리소스에 동의하거나 2단계 인증을 완료하는 방식으로 상호 작용해야 합니다.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

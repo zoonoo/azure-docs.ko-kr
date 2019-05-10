@@ -4,14 +4,14 @@ description: Azure Cosmos DB의 충돌을 관리하는 방법 알아보기
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997022"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068746"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 
@@ -86,16 +86,16 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>저장 프로시저를 사용하여 사용자 지정 충돌 해결 정책 만들기
 
-다음 샘플은 저장 프로시저가 포함된 사용자 지정 충돌 해결 정책을 사용하여 충돌을 해결하는 컨테이너 설정 방법을 보여줍니다. 저장 프로시저에 오류가 없으면 이러한 충돌이 충돌 피드에 표시되지 않습니다. 컨테이너를 사용하여 정책을 만든 후에는 저장 프로시저를 만들어야 합니다. 아래의 .NET SDK 샘플은 그 예를 보여줍니다. 이 정책은 Core(SQL) Api에서만 지원됩니다.
+다음 샘플은 저장 프로시저가 포함된 사용자 지정 충돌 해결 정책을 사용하여 충돌을 해결하는 컨테이너 설정 방법을 보여줍니다. 저장 프로시저에 오류가 없으면 이러한 충돌이 충돌 피드에 표시되지 않습니다. 컨테이너를 사용하여 정책을 만든 후에는 저장 프로시저를 만들어야 합니다. 아래의 .NET SDK 샘플은 예를 보여줍니다. 이 정책은 Core(SQL) Api에서만 지원됩니다.
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>사용자 지정 충돌 해결 저장 프로시저 샘플
 
 사용자 지정 충돌 해결 저장 프로시저는 아래에 표시된 함수 시그니처를 사용하여 구현해야 합니다. 함수 이름은 저장 프로시저를 컨테이너에 등록할 때 사용한 이름과 일치하지 않아도 되지만, 이 방법이 간단합니다. 다음은 이 저장 프로시저에 대해 구현해야 하는 매개 변수에 대한 설명입니다.
 
 - **incomingItem**: 커밋에서 삽입 또는 업데이트되는 항목이며, 이 항목 때문에 충돌이 발생합니다. 삭제 작업에 대해 Null입니다.
-- **existingItem**: 현재 커밋된 항목입니다. 이 값은 업데이트에서는 Null이 아니고, 삽입 또는 삭제에서는 Null입니다.
+- **existingItem**: 현재 커밋된 항목입니다. 이 값은 업데이트에서는 null이 아니고, 삽입 또는 삭제에서는 null입니다.
 - **isTombstone**: incomingItem이 이전에 삭제된 항목과 충돌하는지 여부를 나타내는 부울입니다. true이면 existingItem도 Null입니다.
-- **conflictingItems**: id의 incomingItem 또는 다른 고유 인덱스 속성과 충돌하는 컨테이너 내 모든 항목의 커밋된 버전 배열입니다.
+- **conflictingItems**: ID 또는 기타 고유 인덱스 속성에서 incomingItem과 충돌하는 컨테이너 내 모든 항목의 커밋된 버전의 배열입니다.
 
 > [!IMPORTANT]
 > 저장 프로시저와 마찬가지로, 사용자 지정 충돌 해결 프로시저는 파티션 키가 동일한 모든 데이터에 액세스하여 충돌 해결을 위한 삽입, 업데이트 또는 삭제 작업을 수행할 수 있습니다.
@@ -361,7 +361,7 @@ while conflict:
 
 * [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
 * [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
-* [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
 * [분할 및 데이터 배포](partition-data.md)

@@ -115,7 +115,7 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>데이터 형식 구성
-Data Lake Storage Gen1에서 데이터를 가져오려면 외부 파일 형식을 지정해야 합니다. 이 개체는 Data Lake Storage Gen1에 파일을 쓰는 방법을 정의합니다.
+Data Lake Storage에서 데이터를 가져오려면 외부 파일 형식을 지정 해야 합니다. 이 개체는 Data Lake Storage에 파일을 쓰는 방법을 정의 합니다.
 전체 목록은 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서를 참조합니다.
 
 ```sql

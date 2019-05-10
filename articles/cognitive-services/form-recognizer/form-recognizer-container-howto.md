@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d4374b329049e2e55966a28567c5232be77abda
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026643"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143034"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Form Recognizer 컨테이너 설치 및 실행
 Form Recognizer는 기계 학습 기술을 적용하여 양식에서 키-값 쌍과 테이블을 식별하고 추출합니다. 값과 테이블 항목을 연결한 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 복잡성을 줄이고 워크플로 자동화 프로세스 또는 다른 애플리케이션에 쉽게 통합할 수 있도록 간단한 REST API를 사용하여 사용자 지정 Form Recognizer 모델을 호출할 수 있습니다. 5개의 문서(또는 빈 양식)만 필요하므로 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 결과를 빠르고 정확하게 얻을 수 있습니다. 데이터 레이블 지정 또는 데이터 주석은 필요하지 않습니다.
@@ -34,7 +34,7 @@ Form Recognizer 컨테이너를 사용하려면 먼저 다음 필수 조건을 �
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
 |Azure CLI| [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)는 호스트에 설치해야 합니다.|
-|Computer Vision API 리소스| 스캔한 문서와 이미지를 처리하려면 **Computer Vision 리소스**가 필요합니다. **텍스트 인식** 기능에 Azure 리소스(REST API 또는 SDK) 또는 `cognitive-services-recognize-text` 컨테이너로 액세스할 수 있습니다. 일반 청구 요금이 적용됩니다. <br><br>특정 Computer Vision 리소스(Azure 클라우드 또는 Cognitive Services 컨테이너)에 대한 키 및 청구 엔드포인트를 모두 전달해야 합니다. 이 키 및 청구 엔드포인트를 {COMPUTER_VISION_API_KEY} 및 {COMPUTER_VISION_BILLING_ENDPOINT_URI}로 사용합니다.<br><br> **`cognitive-services-recognize-text` 컨테이너**를 사용하는 경우 다음을 확인합니다.<br><br>* Form Recognizer 컨테이너의 Computer Vision 키는 `cognitive-services-recognize-text` 컨테이너에 대한 `docker run` Computer Vision 명령에 지정된 키입니다.<br>* 청구 엔드포인트는 컨테이너의 엔드포인트(예: `https://localhost:5000`)입니다. Computer Vision 및 Form Recognizer 컨테이너를 동일한 호스트에서 함께 사용하면 두 컨테이너 모두를 `5000` 기본 포트에서 시작할 수 없습니다.  |  
+|Computer Vision API 리소스| 스캔한 문서와 이미지를 처리하려면 **Computer Vision 리소스**가 필요합니다. **텍스트 인식** 기능에 Azure 리소스(REST API 또는 SDK) 또는 `cognitive-services-recognize-text` [컨테이너](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)로 액세스할 수 있습니다. 일반 청구 요금이 적용됩니다. <br><br>특정 Computer Vision 리소스(Azure 클라우드 또는 Cognitive Services 컨테이너)에 대한 키 및 청구 엔드포인트를 모두 전달해야 합니다. 이 키 및 청구 엔드포인트를 {COMPUTER_VISION_API_KEY} 및 {COMPUTER_VISION_BILLING_ENDPOINT_URI}로 사용합니다.<br><br> **`cognitive-services-recognize-text` 컨테이너**를 사용하는 경우 다음을 확인합니다.<br><br>* Form Recognizer 컨테이너의 Computer Vision 키는 `cognitive-services-recognize-text` 컨테이너에 대한 `docker run` Computer Vision 명령에 지정된 키입니다.<br>* 청구 엔드포인트는 컨테이너의 엔드포인트(예: `https://localhost:5000`)입니다. Computer Vision 및 Form Recognizer 컨테이너를 동일한 호스트에서 함께 사용하면 두 컨테이너 모두를 `5000` 기본 포트에서 시작할 수 없습니다.  |  
 |Form Recognizer 리소스 |이러한 컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>연결된 청구 키 및 청구 엔드포인트 URI를 가져오는 _Form Recognizer_ Azure 리소스입니다. 두 값은 모두 Azure Portal의 **Form Recognizer** 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작하는 데 필요합니다.<br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
@@ -65,13 +65,19 @@ Form Recognizer 컨테이너를 사용하려면 먼저 다음 필수 조건을 �
 > [!Note]
 > 최소 및 추천 값은 호스트 머신 리소스가 *아니라* Docker 제한을 기반으로 합니다.
 
-## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
+## <a name="get-the-container-image-with-docker-pull-command"></a>docker pull 명령으로 컨테이너 이미지 가져오기
 
 Form Recognizer에 대한 컨테이너 이미지를 사용할 수 있습니다.
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
 | cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+
+Form Recognizer 서비스 대신 `cognitive-services-recognize-text` [컨테이너](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull)를 사용하려면 `docker pull` 명령을 올바른 컨테이너 이름과 함께 사용해야 합니다. 
+
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

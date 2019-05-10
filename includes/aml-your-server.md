@@ -9,24 +9,34 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8d21e41ad487ad17598f2320fab5eebae02309e8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395513"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021723"
 ---
-1. [Azure Machine Learning Service 작업 영역 만들기](../articles/machine-learning/service/setup-create-workspace.md#portal)의 지침을 사용하여 Miniconda 환경을 만들고, 작업 영역을 만들고, 작업 영역 구성 파일(**aml_config/config.json**)을 씁니다.
-
+1. [Azure Machine Learning Service 작업 영역 만들기](../articles/machine-learning/service/setup-create-workspace.md#portal)의 지침에 따라 다음 작업을 수행합니다.
+    * Miniconda 환경 만들기
+    * Python용 Azure Machine Learning SDK 설치
+    * 작업 영역 만들기
+    * 작업 영역 구성 파일(**aml_config/config.json**)을 작성합니다.
+    
 1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
 
     ```
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
-1. 다음 방법 중 하나를 사용하여 작업 영역 구성 파일을 추가합니다.
-    * 필수 구성 요소 빠른 시작을 사용하여 만든 **aml_config\config.json** 파일을 복제된 디렉터리에 복사합니다.
+1. 다음 방법을 사용하여 작업 영역 구성 파일을 추가합니다.
+    * 1단계에서 만든 **aml_config/config.json** 파일을 복제된 디렉터리에 복사합니다.
+
+    * [Azure Portal](https://ms.portal.azure.com)에서, 해당 작업 영역의 **개요** 섹션에서 **config.json 다운로드**를 선택합니다. 
+
+    ![config.json 다운로드](./media/aml-dsvm-server/download-config.png)
+
     * [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb)의 코드를 사용하여 새 작업 영역을 만듭니다.
+
 1. 복제된 디렉터리에서 노트북 서버를 시작합니다.
     
     ```shell

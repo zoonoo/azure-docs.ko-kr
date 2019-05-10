@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149512"
+ms.locfileid: "65209511"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>빠른 시작-Azure에서 VMware Vm 사용
 
@@ -46,7 +46,7 @@ VCenter UI에서에서 사설 클라우드에서 가상 컴퓨터를 만듭니�
     | 사설 클라우드 | 가상 머신을 만들려는 CloudSimple 사설 클라우드입니다. |
     | 리소스 풀 | VM에 대 한 매핑된 리소스 풀입니다. 사용 가능한 리소스 풀에서 선택 합니다. |
     | vSphere 템플릿 | VM에 대 한 vSphere 템플릿입니다.  |
-    | 사용자 이름 | VM 관리자 사용자 이름 (예: Windows 템플릿)|
+    | 사용자 계정 | VM 관리자 사용자 이름 (예: Windows 템플릿)|
     | 암호 |  (예: Windows 템플릿) VM 관리자 암호입니다. |
     | 암호 확인 | 암호 확인 |
 
@@ -82,5 +82,5 @@ VCenter UI에서에서 사설 클라우드에서 가상 컴퓨터를 만듭니�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [CloudSimple 가상 머신의 목록 보기](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [Azure에서 CloudSimple 가상 머신을 관리합니다](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [CloudSimple 가상 머신의 목록 보기](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Azure에서 CloudSimple 가상 머신을 관리합니다](https://docs.azure.cloudsimple.com/azure-manage-vm/)

@@ -165,7 +165,7 @@ ms.locfileid: "62107077"
 
 |자산  |Default | 설명 |
 |---------|---------|---------| 
-|사용|true|기능의 사용 여부를 지정합니다. | 
+|enabled|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
 |healthCheckWindow|2분|`healthCheckThreshold` 설정과 함께 사용되는 슬라이딩 시간 범위| 
 |healthCheckThreshold|6|호스트 재생이 시작되기 전에 상태 검사 실패가 용인되는 최대 횟수| 

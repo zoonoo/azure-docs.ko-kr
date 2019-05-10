@@ -16,16 +16,24 @@
   items:
     - name: Android
       items:
-        - name: Firebase Cloud Messaging을 사용하여 푸시 알림
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: Google Cloud Messaging을 사용하여 푸시 알림
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: 특정 디바이스에 푸시 알림
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: 특정 사용자에게 푸시 알림
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: Xamarin Android 앱에 푸시 알림
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Firebase Cloud 메시징
+          items:
+            - name: 모든 등록에 푸시 알림
+              href: notification-hubs-android-push-notification-google-fcm-get-started.md
+            - name: 특정 디바이스에 푸시 알림
+              href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+            - name: 특정 사용자에게 푸시 알림
+              href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+            - name: Xamarin Android 앱에 푸시 알림
+              href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Google Cloud Message(사용되지 않음)
+          items:
+            - name: 모든 등록에 푸시 알림
+              href: notification-hubs-android-push-notification-google-gcm-get-started.md
+            - name: 특정 디바이스에 푸시 알림
+              href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+            - name: 특정 사용자에게 푸시 알림
+              href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: Baidu
       items:
         - name: Baidu 클라우드 푸시를 사용하여 푸시 알림

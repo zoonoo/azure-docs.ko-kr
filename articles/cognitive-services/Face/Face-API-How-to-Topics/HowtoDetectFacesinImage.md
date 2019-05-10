@@ -1,7 +1,7 @@
 ---
 title: Face API는 이미지에서 얼굴 감지
 titleSuffix: Azure Cognitive Services
-description: 얼굴 감지 기능에 의해 반환 되는 다양 한 데이터를 사용 하는 방법에 알아봅니다.
+description: 얼굴 감지 기능에 의해 반환되는 다양한 데이터를 사용하는 방법에 알아봅니다.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -12,14 +12,14 @@ ms.date: 02/22/2019
 ms.author: sbowles
 ms.openlocfilehash: bf3af8f5d1d2f063199a8275c2f49c70140e8732
 ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2019
 ms.locfileid: "57588774"
 ---
-# <a name="get-face-detection-data"></a>얼굴 검색 데이터 가져오기
+# <a name="get-face-detection-data"></a>얼굴 감지 데이터 가져오기
 
-이 가이드에서는 특성을 추출할 성별, 연령 또는 자세와 같은 지정된 된 이미지에서 얼굴 감지를 사용 하는 방법을 보여 줍니다. 이 가이드에서 코드 조각을 작성 된 C# 를 통해 사용할 수는 동일한 기능을 Face API 클라이언트 라이브러리를 사용 하는 [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+이 가이드에서는 지정된 이미지에서 성별, 연령 또는 자세와 같은 특성을 추출하기 위해 얼굴 감지를 사용하는 방법을 보여줍니다. 이 가이드에서 코드 조각은 Face API 클라이언트 라이브러리를 사용하여 C#을 통해 작성되었으며, 동일한 기능이 [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 통해 가능합니다.
 
 이 가이드에 표시 됩니다 하는 방법에:
 

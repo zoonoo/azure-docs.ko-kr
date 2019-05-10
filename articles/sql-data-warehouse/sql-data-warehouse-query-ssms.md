@@ -65,7 +65,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. 쿼리를 실행합니다. 이렇게 하려면 `실행`을 클릭하거나 바로 가기(`F5`)를 사용합니다.
+4. 쿼리를 실행합니다. 이렇게 하려면 `Execute`을 클릭하거나 바로 가기(`F5`)를 사용합니다.
    
     ![쿼리 실행][5]
 5. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.
@@ -73,7 +73,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
     ![쿼리 결과][6]
 
 ## <a name="next-steps"></a>다음 단계
-이제 연결 및 쿼리할 수 있으므로 [Power BI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [PowerBI로 데이터 시각화][visualizing the data with PowerBI]를 시도해 보세요.
 
 Azure Active Directory 인증을 위한 환경을 구성하려면 [SQL Data Warehouse에 대한 인증][Authenticate to SQL Data Warehouse]을 참조하세요.
 

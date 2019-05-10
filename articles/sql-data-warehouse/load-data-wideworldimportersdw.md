@@ -51,7 +51,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기**페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
 
     ![데이터 웨어하우스 만들기](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
@@ -81,7 +81,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 6. **성능 계층**을 클릭하여 데이터 웨어하우스가 탄력성 또는 계산 중에서 어떤 측면에 맞춰 최적화될지와 데이터 웨어하우스 단위 수를 지정합니다. 
 
-7. 이 자습서의 경우 **탄력성에 최적화됨** 서비스 계층을 선택합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다. 오른쪽 왼쪽으로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서의 경우 **탄력성에 최적화됨** 서비스 계층을 선택합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다.  오른쪽 왼쪽으로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-wideworldimportersdw/configure-performance.png)
 
@@ -98,7 +98,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준에서의 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준에서의 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
 
 > [!NOTE]
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
@@ -232,7 +232,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     CREATE MASTER KEY;
     ```
 
-4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. WideWorld Importers 데이터의 위치입니다. 쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
+4. 다음 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 문을 실행하여 Azure Blob의 위치를 정의합니다. WideWorld Importers 데이터의 위치입니다.  쿼리 창에 추가한 명령을 실행하려면 실행하려는 명령을 강조 표시하고 **실행**을 클릭합니다.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage

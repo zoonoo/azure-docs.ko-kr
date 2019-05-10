@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60838714"
@@ -264,7 +264,7 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 * **자세한 오류 메시지 로그**<br/>
   웹 서버는 실패한 HTTP 요청(상태 코드 400 이상을 발생하는 요청)에 대해 일부 추가 정보가 수록된 HTML 페이지를 생성합니다.
 * **실패한 요청 추적 로그**<br/>
-   웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
+  웹 서버는 실패한 HTTP 요청에 대한 자세한 추적 정보가 수록된 XML 파일을 생성합니다. 또한 웹 서버는 브라우저에서 XML 파일 형식으로 지정할 수 있도록 XSL 파일도 제공합니다.
 
 로깅 기능을 사용하면 앱 성능에 영향을 미칠 수 있으므로 Azure에서는 필요에 따라 각 로그 유형을 사용 또는 사용하지 않도록 설정할 수 있는 기능이 제공됩니다. 애플리케이션 로그의 경우 특정 심각도 수준 이상의 로그만 작성되도록 지정할 수 있습니다. 새 앱을 만들 때 기본적으로 모든 로깅은 사용하지 않도록 설정됩니다.
 
@@ -649,9 +649,9 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
 현재 인터넷에서 ASP.NET 추적과 관련하여 완벽한 최신 소개 정보를 제공하는 곳이 없습니다. 최상의 방법은 MVC가 아직 출시되지 않은 시점에 Web Forms용으로 작성된 기존 소개 자료를 먼저 참조한 후, 특정 문제에 주력하는 최신 블로그 게시물의 정보로 보충하는 것입니다. 시작하기에 유용한 리소스 위치는 다음과 같습니다.
 
 * [모니터링 및 원격 분석(Azure에서 실제 클라우드 앱 빌드)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)<br>
-  Azure 클라우드 애플리케이션에서 추적을 권장하는 전자책의 한 챕터
+  Azure 클라우드 애플리케이션에서 추적을 권장하는 eBook 챕터.
 * [ASP.NET 추적](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-   오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
+  오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
 * [추적 수신기](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener)를 언급하지 않습니다.
 * [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](/previous-versions/b0ectfxd(v=vs.140))<br/>
@@ -686,7 +686,7 @@ catch (Exception ex)
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [IIS 성능 문제 또는 LogParser를 사용 하 여 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-   웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
+  웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
 * [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)
 

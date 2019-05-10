@@ -113,7 +113,7 @@
         - name: AKS 클러스터 삭제
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: 가상 노드 만들기(미리 보기)
+        - name: 가상 노드 만들기
           items:
             - name: Azure CLI
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: 클러스터 Autoscaler 사용(미리 보기)
           href: cluster-autoscaler.md
+        - name: 여러 노드 풀 사용(미리 보기)
+          href: use-multiple-node-pools.md
         - name: Terraform을 사용하여 AKS 배포
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Kubernetes 대시보드 사용
+          href: kubernetes-dashboard.md
     - name: 데이터 볼륨 구성
       items:
         - name: Azure Disk - Dynamic
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: 클러스터 구성 파일에 대한 액세스 제한
           href: control-kubeconfig-access.md
-        - name: 네트워크 정책을 사용하여 Pod 트래픽 보안(미리보기)
+        - name: 네트워크 정책을 사용하여 Pod 트래픽 보안
           href: use-network-policies.md
         - name: Pod 보안 정책(미리 보기) 사용
           href: use-pod-security-policies.md
+        - name: API 서버 권한이 부여된 IP 범위 정의(미리 보기)
+          href: api-server-authorized-ip-ranges.md
         - name: 클러스터 서비스 주체 자격 증명 업데이트
           href: update-credentials.md
+        - name: 클러스터 송신 트래픽 제한 및 제어
+          href: limit-egress-traffic.md
         - name: Azure Active Directory 통합 사용
           items:
             - name: Azure CLI 사용
@@ -285,10 +293,6 @@
         - name: Azure DevOps 프로젝트
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Kubernetes 기본 사항
-      items:
-        - name: Kubernetes 대시보드 사용
-          href: kubernetes-dashboard.md
     - name: 문제 해결
       items:
         - name: 일반적인 문제

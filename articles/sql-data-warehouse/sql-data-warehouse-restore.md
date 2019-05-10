@@ -35,7 +35,7 @@ ms.locfileid: "60310420"
 ## <a name="restore-through-powershell"></a>PowerShell을 통해 복원
 
 ## <a name="install-powershell"></a>PowerShell 설치 
-SQL Data warehouse에서 Azure PowerShell을 사용 하려면 Azure PowerShell을 설치 해야 합니다.  실행 하 여 버전을 확인할 수 있습니다 **Get-module-ListAvailable-Name Az**합니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][How to install and configure Azure PowerShell]을 참조하세요.
+SQL Data Warehouse에서 Azure PowerShell을 사용하려면 Azure PowerShell을 설치해야 합니다.  **Get-module-ListAvailable-Name Az**를 실행하여 버전을 확인할 수 있습니다. 최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][How to install and configure Azure PowerShell]을 참조하세요.
 
 ## <a name="restore-an-active-or-paused-database-using-powershell"></a>PowerShell을 사용한 활성 또는 일시 중지된 데이터베이스 복원
 복원 지점 사용에서 데이터베이스를 복원 하는 [복원 AzSqlDatabase] [ Restore-AzSqlDatabase] PowerShell cmdlet.
