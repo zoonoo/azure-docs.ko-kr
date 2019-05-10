@@ -101,6 +101,8 @@
           href: search-get-started-java.md
         - name: SDK 업그레이드
           items:
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
             - name: .NET SDK 5.0
               href: search-dotnet-sdk-migration-version-5.md
             - name: .NET SDK 3.0
@@ -129,7 +131,7 @@
           items:
             - name: 제안기 만들기
               href: index-add-suggesters.md
-            - name: '예제(제안 사항, 자동 완성)'
+            - name: 제안 또는 자동 완성 추가
               href: search-autocomplete-tutorial.md
         - name: 동의어
           items:

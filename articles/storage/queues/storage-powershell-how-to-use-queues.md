@@ -9,12 +9,12 @@ ms.date: 09/14/2017
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: db366fea96967559c65559864ff8e367fa12ad65
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: dbaaade278073613a62eaf350146360651350244
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142582"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510220"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>큐에 메시지 추가
 
-큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 저장소 클라이언트 라이브러리를 사용합니다. 메시지 큐에 추가할 메시지 개체의 새 인스턴스를 만듭니다 [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.-ctor?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueueMessage__ctor_System_Byte___) 클래스입니다. 그런 다음, [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
+큐의 실제 메시지에 영향을 미치는 작업은 PowerShell에 노출된 대로 .NET 저장소 클라이언트 라이브러리를 사용합니다. 큐에 메시지를 추가하려면 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) 클래스의 새 메시지 개체 인스턴스를 만듭니다. 그런 다음, [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 메서드를 호출합니다. 문자열(UTF-8 형식) 또는 바이트 배열에서 CloudQueueMessage를 만들 수 있습니다.
 
 다음 예제에서는 큐에 메시지를 추가하는 방법을 보여 줍니다.
 
@@ -131,7 +131,7 @@ $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 이 **표시 안 함 시간 제한**은 메시지를 다시 처리할 수 있을 때까지 해당 메시지를 표시하지 않을 시간을 정의합니다. 기본값은 30초입니다. 
 
-코드는 2단계를 거쳐 큐에서 메시지를 읽습니다. 호출 하는 경우는 [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_GetMessage_System_Nullable_System_TimeSpan__Microsoft_WindowsAzure_Storage_Queue_QueueRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 큐에서 다음 메시지를 가져옵니다 메서드. **GetMessage** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 큐에서 메시지 제거를 완료 하려면 호출을 [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?redirectedfrom=MSDN&view=azure-dotnet#overloads) 메서드. 
+코드는 2단계를 거쳐 큐에서 메시지를 읽습니다. [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) 메서드를 호출하면 큐에서 다음 메시지를 가져옵니다. **GetMessage** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) 메서드를 호출합니다. 
 
 다음 예제에서는 세 개의 큐 메시지를 통해 읽은 후 10초(표시 안 함 시간 제한) 동안 대기합니다. 그런 다음 세 개의 메시지를 다시 읽으면 **DeleteMessage**를 호출하여 읽은 후 메시지가 삭제됩니다. 메시지를 삭제한 후에 큐를 읽으려고 하면 $queueMessage가 NULL로 반환됩니다.
 

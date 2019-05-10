@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.date: 04/29/2019
+ms.openlocfilehash: b422718a1eaec483acdc2c8ab37442b9aea78aaa
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "61425011"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510814"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
 
-이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL 서비스의 마스터와 같은 Azure 지역 내에서 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다. 해당 기능은 현재 공개 미리 보기로 제공됩니다.
+이 문서를 만들고 Azure portal을 사용 하 여 MySQL 용 Azure 데이터베이스에 읽기 복제본을 관리 하는 방법을 배웁니다.
+
+> [!IMPORTANT]
+> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,9 +41,15 @@ ms.locfileid: "61425011"
 
    ![Azure Database for MySQL - 복제](./media/howto-read-replica-portal/add-replica.png)
 
-5. 복제본 서버의 이름을 입력하고 **확인**을 클릭하여 복제본 만들기를 확인합니다.
+5. 복제본 서버의 이름을 입력 합니다.
 
-   ![Azure Database for MySQL - 복제본 만들기](./media/howto-read-replica-portal/create-replica.png)
+    ![Azure Database for MySQL-복제본 이름](./media/howto-read-replica-portal/replica-name.png)
+
+6. 복제본 서버의 위치를 선택 합니다. 모든 Azure 지역에서 복제본을 만들 수 있습니다. 기본 위치는 마스터 서버와 동일
+
+    ![Azure Database for MySQL-복제본 위치](./media/howto-read-replica-portal/replica-location.png)
+
+7. 선택 **확인** 복제본 만들기를 확인 합니다.
 
 > [!NOTE]
 > 읽기 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본이 마스터와 동일한 성능을 유지할 수 있도록 복제본 서버의 구성은 마스터의 구성 값 이상으로 유지하는 것이 좋습니다.
@@ -115,7 +124,7 @@ Azure Portal에서 마스터 서버를 삭제하려면 다음 단계를 수행�
 
 2. 사이드바의 **모니터링** 섹션에서 **메트릭**을 선택합니다.
 
-3. 사용 가능한 메트릭의 드롭다운 목록에서 **복제 지연 시간(초)** 를 선택합니다. 
+3. 사용 가능한 메트릭의 드롭다운 목록에서 **복제 지연 시간(초)** 를 선택합니다.
 
    ![복제 지연 시간 선택](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

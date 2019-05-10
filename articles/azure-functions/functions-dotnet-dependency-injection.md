@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074592"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408458"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 사용 하 여 종속성 주입
 
@@ -65,7 +65,7 @@ Azure 함수 앱 제공으로 동일한 서비스 수명 [ASP.NET 종속성 주�
 
 Singleton 수명 서비스 연결 및 클라이언트에 대 한 예를 들어 권장 되는 `SqlConnection`, `CloudBlobClient`, 또는 `HttpClient`합니다.
 
-보기 또는 다운로드 한 [다양 한 서비스 수명이 샘플](http://aka.ms/functions/di-sample)합니다.
+보기 또는 다운로드 한 [다양 한 서비스 수명이 샘플](https://aka.ms/functions/di-sample)합니다.
 
 ## <a name="logging-services"></a>로깅 서비스
 

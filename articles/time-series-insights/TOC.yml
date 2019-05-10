@@ -52,7 +52,7 @@
           href: time-series-insights-update-tsm.md
         - name: 데이터 쿼리
           href: time-series-insights-update-tsq.md
-        - name: 탐색기에서 데이터 시각화 업데이트
+        - name: 탐색기 미리 보기에서 데이터 시각화
           href: time-series-insights-update-explorer.md
     - name: 개발
       items:

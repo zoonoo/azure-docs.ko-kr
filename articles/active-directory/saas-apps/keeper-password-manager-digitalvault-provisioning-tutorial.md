@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: b7b096bd1ecf0a4df37ed4de0cf618216dccc2bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159467"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508509"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Keeper Password Manager & Digital Vault 구성
 
@@ -84,7 +84,7 @@ Keeper Password Manager & Digital Vault와 Azure AD 자동 사용자 프로 비�
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Azure AD에 Keeper Password Manager & Digital Vault에 대 한 자동 사용자 프로 비전을 구성 합니다.
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 선택한 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**를 선택 하 고 **Keeper Password Manager & Digital 자격 증명 모음**합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 선택 **엔터프라이즈 응용 프로그램**을 선택한 후 **모든 응용 프로그램**합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -104,19 +104,19 @@ Keeper Password Manager & Digital Vault와 Azure AD 자동 사용자 프로 비�
 
 6. 에 로그인 하 여 [Keeper 관리 콘솔](https://keepersecurity.com/console/#login)합니다. 클릭할 **관리자** 및 기존 노드를 선택 하거나 새로 만듭니다. 로 이동 합니다 **프로 비전** 탭을 선택한 **메서드 추가**합니다.
 
-    ![Keeper 관리 콘솔](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Keeper 관리 콘솔](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
     선택 **SCIM (System for Cross-domain Identity Management**합니다.
 
-    ![Keeper SCIM 추가](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![Keeper SCIM 추가](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
     클릭 **토큰을 프로 비전 만들기**합니다.
 
-    ![Keeper 끝점 만들기](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Keeper 끝점 만들기](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
     값을 복사 **URL** 하 고 **토큰** 붙여 넣으면 **테 넌 트 URL** 및 **비밀 토큰** Azure AD에서. 클릭 **저장할** Keeper에 프로 비전 설치를 완료 합니다.
 
-    ![Keeper 토큰 만들기](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Keeper 토큰 만들기](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
 7. 5 단계에서에서 표시 된 필드를 채우면 클릭 **연결 테스트** 를 azure AD는 Keeper Password Manager & Digital Vault에 연결할 수 있습니다. 연결에 실패 하면 Keeper Password Manager & Digital Vault 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
@@ -130,19 +130,19 @@ Keeper Password Manager & Digital Vault와 Azure AD 자동 사용자 프로 비�
 
 10. 아래는 **매핑을** 섹션에서 **동기화 할 Azure Active Directory 사용자를 Keeper Password Manager & Digital Vault**합니다.
 
-    ![Keeper 사용자 매핑](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Keeper 사용자 매핑](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
 11. Keeper Password Manager & Digital Vault에서 Azure AD에서 동기화 되는 사용자 특성을 검토 합니다 **특성 매핑** 섹션입니다. 으로 선택한 특성 **일치** 속성은 업데이트 작업에 대 한 Keeper Password Manager & Digital Vault에서 사용자 계정을 일치 하는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Keeper 사용자 특성](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Keeper 사용자 특성](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
 12. 아래는 **매핑을** 섹션에서 **Azure Active Directory 그룹 동기화 Keeper Password Manager & Digital Vault**합니다.
 
-    ![Keeper 그룹 매핑](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Keeper 그룹 매핑](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
 13. Keeper Password Manager & Digital Vault에서 Azure AD에서 동기화 되는 그룹 특성을 검토 합니다 **특성 매핑** 섹션입니다. 으로 선택한 특성 **일치** 속성 업데이트 작업을 위해 Keeper Password Manager & Digital Vault에서 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Keeper 그룹 특성](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-attributes.png)
+    ![Keeper 그룹 특성](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
 14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -176,7 +176,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

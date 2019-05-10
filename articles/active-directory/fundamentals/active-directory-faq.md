@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f29ab7b908184533885929040ca8eccf56cda92d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249558"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464410"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -210,4 +210,4 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q:  Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:**  아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다. 그러나 Azure AD Domain Services를 사용하여 보안 LDAP를 구성할 수 있습니다.
+**A:**  아니요. Azure AD 액세스 프로토콜 LDAP (Lightweight Directory) 프로토콜을 지원 하지 않습니다. 그러나 LDAP 연결을 위해 Azure Networking을 통해 올바르게 구성 된 네트워크 보안 그룹을 사용 하 여 Azure AD Domain Services (Azure AD DS)를 사용 하는 것이 같습니다. 자세한 내용은 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap을 참조하세요.
