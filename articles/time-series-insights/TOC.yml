@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: 데이터 보존의 이해
           href: time-series-insights-concepts-retention.md
+        - name: 개발
+          items:
+            - name: 인증 및 권한 부여
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'C#을 사용하여 데이터 쿼리'
+              href: time-series-insights-query-data-csharp.md
+            - name: 'C#으로 작성된 참조 데이터 관리'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: 사용자 지정 보기 공유
+              href: time-series-insights-parameterized-urls.md
     - name: Azure Time Series Insights 미리 보기
       items:
         - name: 환경 계획
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: 탐색기 미리 보기에서 데이터 시각화
           href: time-series-insights-update-explorer.md
-    - name: 개발
-      items:
-        - name: 인증 및 권한 부여
-          href: time-series-insights-authentication-and-authorization.md
-        - name: 'C#을 사용하여 데이터 쿼리'
-          href: time-series-insights-query-data-csharp.md
-        - name: 'C#으로 작성된 참조 데이터 관리'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: 사용자 지정 보기 공유
-          href: time-series-insights-parameterized-urls.md
+        - name: 개발
+          items:
+            - name: 인증 및 권한 부여
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'C#을 사용하여 데이터 쿼리'
+              href: time-series-insights-update-query-data-csharp.md
 - name: 방법 가이드
   items:
     - name: 데이터 액세스 권한 부여
