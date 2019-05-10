@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: d201c0ae04e677a140e575910ff84c9d5a4dca9e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ff23e5e2c4f0b55121d5310c7fbf99b3ee3b1087
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148532"
+ms.locfileid: "65209663"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -57,8 +57,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-* 명령줄에서 작동할 수 있게 [Maven](http://maven.apache.org/download.cgi) 설치 및 구성
-* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 설치 및 구성
+* 명령줄에서 작동할 수 있게 [Maven](https://maven.apache.org/download.cgi) 설치 및 구성
+* [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 설치 및 구성
 
 ---
 
@@ -210,7 +210,7 @@ Visual Studio에서 **F5** 키를 누르거나 **시작**을 클릭하여 애플
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
-샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
+샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 저장소 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext?view=azure-dotnet)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -282,7 +282,7 @@ Cleaning up the sample and exiting!
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `OperationContextRetrying` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)가 `SecondaryOnly`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 끝점에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -310,7 +310,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
 
-이미지 다운로드가 성공하면 `OperationContextRequestCompleted` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 끝점을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)를 `PrimaryThenSecondary`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
+이미지 다운로드가 성공하면 `OperationContextRequestCompleted` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 끝점을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 끝점을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode)를 `PrimaryThenSecondary`로 다시 설정하고 기본 끝점을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

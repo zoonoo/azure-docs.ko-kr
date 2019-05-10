@@ -16,7 +16,7 @@ ms.locfileid: "60674226"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso 마이그레이션:  Team Foundation Server 배포를 Azure DevOps Services로 리팩터링
 
-이 문서에서는 Contoso가 Azure에서 온-프레미스 TFS(Team Foundation Server) 배포를 Azure DevOps Services로 마이그레이션하여 리팩터링하는 방법을 보여 줍니다. Contoso의 개발 팀은 지난 5년 동안 TFS를 팀 공동 작업 및 소스 제어에 사용했습니다. 이제 Contoso는 개발 및 테스트 작업과 소스 제어에 클라우드 기반 솔루션을 사용하도록 바꾸려고 합니다. Contoso가 Azure DevOps 모델로 전환하고 새로운 클라우드 네이티브 앱을 개발하는 과정에서 Azure DevOps Services가 역할을 합니다.
+이 문서에서는 Contoso가 Azure에서 온-프레미스 TFS(Team Foundation Server) 배포를 Azure DevOps Services로 마이그레이션하여 리팩터링하는 방법을 보여 줍니다. Contoso의 개발 팀은 지난 5년 동안 TFS를 팀 협업 및 소스 제어에 사용했습니다. 이제 Contoso는 개발 및 테스트 작업과 소스 제어에 클라우드 기반 솔루션을 사용하도록 바꾸려고 합니다. Contoso가 Azure DevOps 모델로 전환하고 새로운 클라우드 네이티브 앱을 개발하는 과정에서 Azure DevOps Services가 역할을 합니다.
 
 이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 보여주는 문서 시리즈 중 하나입니다. 시리즈에는 배경 정보 및 마이그레이션 인프라를 설정하고 다양한 유형의 마이그레이션을 실행하는 방법을 보여 주는 시나리오가 포함되어 있습니다. 시나리오가 복잡해지고 있으며, 앞으로 계속해서 문서가 추가될 것입니다.
 

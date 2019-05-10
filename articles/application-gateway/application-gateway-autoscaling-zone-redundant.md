@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202903"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510828"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>자동 크기 조정 및 영역 중복 응용 프로그램 게이트웨이 
 
@@ -62,9 +62,9 @@ V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니�
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-합니다 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
+합니다 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
 
-**예 1**
+**예제 1**
 
 응용 프로그램 게이트웨이 Standard_v2 고정된 용량의 5 개의 인스턴스를 사용 하 여 수동 크기 조정 모드에서 자동 크기 조정 없이 프로 비전 됩니다.
 
@@ -73,7 +73,7 @@ V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니�
 
 총 요금 = $148.8 + $297.6 $446.4 =
 
-**예 2**
+**예제 2**
 
 한 달에 대 한 프로 비전 되는 Application Gateway standard_v2 및 25 새로운 SSL 연결/sec 8.88-Mbps 데이터 전송의 평균을 받으면이 시간 동안입니다. 연결은 수명이 짧으며 가정 하 고, 가격을 사용할 수도 있습니다.
 
@@ -93,7 +93,7 @@ V2 SKU를 사용 하 여 가격 책정 모델을 소비에 의해 좌우 됩니�
 
 총 요금 = $267.84 + $85.71 $353.55 =
 
-합니다 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
+합니다 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/) 2019 년 5 월 14 일에 지역 가격을 반영 하도록 업데이트 됩니다. 청구는 2019 년 6 월 1 일에 시작 되도록 예약 됩니다.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>크기 조정 응용 프로그램 게이트웨이 및 WAF v2
 
@@ -108,7 +108,7 @@ Application Gateway 및 WAF를 구성할 수 있습니다 두 가지 모드 규�
 
 |                                                   | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
-| 자동 확장                                       |          | &#x2713; |
+| 자동 크기 조정                                       |          | &#x2713; |
 | 영역 중복                                   |          | &#x2713; |
 | 정적 VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service (AKS) 수신 컨트롤러 |          | &#x2713; |

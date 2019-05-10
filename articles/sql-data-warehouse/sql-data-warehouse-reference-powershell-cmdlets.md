@@ -33,7 +33,7 @@ ms.locfileid: "65205171"
     ```
 
 ## <a name="pause-sql-data-warehouse-example"></a>SQL Data Warehouse 일시 중지 예제
-"Server01."라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1."이라는 Azure 리소스 그룹 내에 있습니다.
+"Server01"라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1"이라는 Azure 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -47,7 +47,7 @@ $resultDatabase
 ```
 
 ## <a name="start-sql-data-warehouse-example"></a>SQL Data Warehouse 시작 예제
-"Server01."이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1."이라는 리소스 그룹 내에 있습니다.
+"Server01"이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1"이라는 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"

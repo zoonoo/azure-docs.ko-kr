@@ -4,7 +4,7 @@ description: 이 문서에서는 데이터를 추적 하기 위해 Azure Sentine
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1a438b9645dbb37d852eb0092355850d816872d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596938"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207457"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>사냥 하는 동안 데이터 한 추적
 
@@ -74,7 +74,7 @@ Hunting 책갈피 관련 하다 고 간주 하는 쿼리 결과 함께 Log Analy
 
 Log Analytics에서 책갈피에 추가 된 데이터를 볼 수는 방법은 여러 가지가 있습니다. 
 
-원하는 책갈피를 선택 하 여 쉽게 책갈피에 추가 된 쿼리, 결과 나 기록을 볼 수는 합니다 **책갈피** 테이블과 세부 정보 창에 제공 된 링크를 사용 합니다. 옵션은 다음과 같습니다. 
+원하는 책갈피를 선택 하 여 쉽게 책갈피에 추가 된 쿼리, 결과 나 기록을 볼 수는 합니다 **책갈피** 테이블과 세부 정보 창에 제공 된 링크를 사용 합니다. 다음 옵션을 사용할 수 있습니다. 
 - 클릭할 **쿼리 보기** Log Analytics의 원본 쿼리를 봅니다.  
 - 클릭할 **책갈피 기록 보기** 를 비롯 한 메타 데이터를 책갈피 모든: 업데이트, 업데이트 된 값 및 업데이트가 발생 한 시간을 변경한 사용자입니다. 
 

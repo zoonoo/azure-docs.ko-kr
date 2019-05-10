@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142835"
+ms.locfileid: "65204010"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>샘플 - Linux VM 내에 지정된 애플리케이션이 설치되어 있지 않은 경우 감사
 
@@ -108,7 +108,7 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ### <a name="create-copy-of-audit-definition"></a>audit 정의의 복사본 만들기
 
-[![Azure에 Policy 샘플 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![Azure Gov에 Policy 샘플 배포](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 이 단추를 사용하여 포털을 통해 배포하면 **audit** 정책 정의의 복사본이 만들어집니다.
@@ -116,7 +116,7 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>deployIfNotExists 정의의 복사본 만들기
 
-[![Azure에 Policy 샘플 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Azure에 Policy 샘플 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![Azure Gov에 Policy 샘플 배포](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 이 단추를 사용하여 포털을 통해 배포하면 **deployIfNotExists** 정책 정의의 복사본이 만들어집니다. 쌍을 이루는 **audit** 정책 정의가 없으면 게스트 구성이 제대로 작동하지 않습니다.

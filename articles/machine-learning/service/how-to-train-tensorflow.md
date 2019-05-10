@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192344"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442356"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 Keras와 TensorFlow 모델 학습
 
@@ -24,11 +24,11 @@ Azure 계산에서 TensorFlow 교육 작업을 쉽게 실행할 수 있습니다
 
 `TensorFlow` 스 티 메이 터 학습 스크립트를 변경 하지 않고 다른 계산 대상에 대해 매개 변수가 있는 실행을 쉽게 구성할 수 있습니다 즉 실행에 비해 추상화 계층도 제공 합니다.
 
-## <a name="getting-started"></a>시작
+## <a name="get-started"></a>시작하기
 
-사용 하 여 작업을 제출 합니다 `TensorFlow` 스 티 메이 터 자료를 사용 하는 것과 비슷합니다 [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)합니다. 되므로 참조 하 여 시작 하는 것이 좋습니다는 [기본 스 티 메이 터 방법 문서](how-to-train-ml-models.md) 먼저 가장 중요 한 개념을 이해 합니다.
+하므로 `TensorFlow` 스 티 메이 터 클래스는 기본 비슷합니다 [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), 좋습니다, 첫 번째 읽기를 [기본 스 티 메이 터 방법 문서](how-to-train-ml-models.md) 가장 중요 한 개념을 이해 합니다.
 
-Azure Machine Learning 서비스를 시작 하려는 경우 [빠른 시작을 완료](quickstart-run-cloud-notebook.md)합니다. 모든 로드 작업 환경을 사용 하는 것이 [샘플 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)합니다.
+Azure Machine Learning 서비스를 시작 하기 [빠른 시작을 완료](quickstart-run-cloud-notebook.md)합니다. 완료 되 면 해야는 [Azure Machine Learning 작업 영역](concept-azure-machine-learning-architecture.md#workspace) 및 모든 우리의 [노트북 샘플](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) Keras와 TensorFlow를 사용 하 여 학습 Dnn를 포함 하 여.
 
 ## <a name="single-node-training"></a>단일 노드 학습
 

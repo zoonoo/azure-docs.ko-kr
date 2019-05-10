@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: c500a744cd2c001d3d9d65363319d396f04e4626
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0e1127d90aeb4c59687ac4df7fb7ebae1901cee8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876143"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228433"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,12 +52,12 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **FtpServer**. | 예 |
-| host | FTP 서버의 이름 또는 IP 주소를 지정합니다. | 예 |
+| type | type 속성을 다음으로 설정해야 합니다. **FtpServer**. | 예. |
+| host | FTP 서버의 이름 또는 IP 주소를 지정합니다. | 예. |
 | port | FTP 서버가 수신 대기하는 포트를 지정합니다.<br/>허용되는 값은 정수이며 기본값은 **21**입니다. | 아닙니다. |
 | enableSsl | SSL/TLS 채널을 통해 FTP를 사용할지 여부를 지정합니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아닙니다. |
 | enableServerCertificateValidation | SSL/TLS 채널을 통해 FTP를 사용할 때 서버 SSL 인증서 유효성 검사를 사용할지 여부를 지정합니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아닙니다. |
-| authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 다음과 같습니다. **기본**, **익명** | 예 |
+| authenticationType | 인증 유형을 지정합니다.<br/>허용되는 값은 다음과 같습니다. **기본**, **익명** | 예. |
 | userName | FTP 서버에 액세스하는 사용자를 지정합니다. | 아닙니다. |
 | password | 사용자(사용자 이름)의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아닙니다. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
@@ -127,7 +127,7 @@ FTP에서 데이터를 복사 **Parquet 또는 구분 기호로 분리 된 텍�
 
 | 자산   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | Type 속성은 아래 `location` 데이터 집합에서으로 설정 되어 있어야 **FtpServerLocation**합니다. | 예      |
+| type       | Type 속성은 아래 `location` 데이터 집합에서으로 설정 되어 있어야 **FtpServerLocation**합니다. | 예.      |
 | folderPath | 폴더 경로입니다. 와일드 카드 필터 폴더로 사용 하려는 경우이 설정은 건너뛰고 활동 원본 설정에서 지정 합니다. | 아닙니다.       |
 | fileName   | 지정 된 folderPath에서 파일 이름입니다. 와일드 카드를 사용 하 여 파일을 필터링 하려는 경우이 설정은 건너뛰고 활동 원본 설정에서 지정 합니다. | 아닙니다.       |
 
@@ -222,7 +222,7 @@ FTP에서 데이터를 복사 **Parquet 또는 구분 기호로 분리 된 텍�
 
 | 자산                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | 아래에 있는 type 속성은 `storeSettings` 으로 설정 되어 있어야 **FtpReadSetting**합니다. | 예                                           |
+| type                     | 아래에 있는 type 속성은 `storeSettings` 으로 설정 되어 있어야 **FtpReadSetting**합니다. | 예.                                           |
 | recursive                | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. 허용되는 값은 **true**(기본값) 및 **false**입니다. | 아닙니다.                                            |
 | wildcardFolderPath       | 소스 폴더를 필터링 하려면 와일드 카드 문자를 사용 하 여 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 아닙니다.                                            |
 | wildcardFileName         | 필터 소스 파일에 지정 된 folderPath/wildcardFolderPath에서 와일드 카드 문자를 사용 하 여 파일 이름입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 경우에 예 `fileName` 데이터 집합에 지정 되지 않은 |
@@ -232,7 +232,7 @@ FTP에서 데이터를 복사 **Parquet 또는 구분 기호로 분리 된 텍�
 | maxConcurrentConnections | Storage 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다.                                            |
 
 > [!NOTE]
-> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **FileSystemSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성을 위해서입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
+> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **FileSystemSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
 
 **예제:**
 
