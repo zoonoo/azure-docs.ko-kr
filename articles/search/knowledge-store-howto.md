@@ -6,20 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: 2a904cfb049af413887798c8aab449561bc2b73f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030051"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471750"
 ---
 # <a name="how-to-get-started-with-knowledge-store"></a>지식 저장소 시작 방법
 
 [지식 저장소](knowledge-store-concept-intro.md)는 다른 앱의 기술 마이닝을 위해 인덱싱 파이프라인에서 만들어진 AI 강화를 저장하는 Azure Search의 새로운 미리 보기 기능입니다. 또한 저장된 강화를 사용하여 Azure Search 인덱싱 파이프라인을 이해하고 구체화할 수 있습니다.
 
-지식 저장소는 기술 집합으로 정의됩니다. 일반적인 Azure Search 전체 텍스트 검색 시나리오의 경우 기술 집합의 목적은 콘텐츠를 더 쉽게 검색할 수 있도록 AI 강화를 제공하는 것입니다. 지식 저장소 시나리오의 경우 기술 집합의 역할은 기술 마이닝에 대한 여러 데이터 구조를 만들고 채우는 것입니다.
+지식 저장소는 기술 집합으로 정의됩니다. 일반적인 Azure Search 전체 텍스트 검색 시나리오의 경우 기술 집합의 목적은 콘텐츠를 더 쉽게 검색할 수 있도록 AI 강화를 제공하는 것입니다. 기술 마이닝 시나리오의 경우 기술 집합의 역할은 다른 앱 및 프로세스에서 분석하거나 모델링하기 위해 여러 데이터 구조를 만들, 채우고, 저장하는 것입니다.
 
 이 연습에서는 샘플 데이터, 서비스 및 도구로 시작하여 기술 집합을 정의하는 데 집중하면서 첫 번째 지식 저장소를 만들고 사용하는 기본 워크플로에 대해 알아봅니다.
 
@@ -29,13 +29,13 @@ ms.locfileid: "65030051"
 
 + [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 
 
-+ 샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 지식 저장소는 Azure 스토리지에 있습니다.
++ 샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 지식 저장소는 Azure 스토리지에 있습니다. 
 
-+ AI 강화에서 사용되는 모든 기술에 광범위하게 액세스할 수 있도록 S0 종량제 계층에서 [Cognitive Services 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
++ AI 강화에서 사용되는 모든 기술에 광범위하게 액세스할 수 있도록 S0 종량제 계층에서 [Cognitive Services 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). 이 리소스와 Azure Search 서비스는 동일한 지역에 있어야 합니다.
 
 + [Postman 데스크톱 앱](https://www.getpostman.com/)은 요청을 Azure Search에 보내는 데 사용됩니다.
 
-+ [Postman 컬렉션](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw)에는 데이터 원본, 인덱스, 기술 집합 및 인덱서를 만들기 위해 준비된 요청이 포함되어 있습니다. 몇 가지 개체 정의는 너무 길어 이 문서에 포함될 수 없습니다. 인덱스 및 기술 집합 정의 전체를 보려면 이 컬렉션을 가져와야 합니다.
++ [Postman 컬렉션](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw)에는 데이터 원본, 인덱스, 기술 집합 및 인덱서를 만들기 위해 준비된 요청이 포함되어 있습니다. 몇 가지 개체 정의는 너무 길어 이 문서에 포함될 수 없습니다. 인덱스 및 기술 집합 정의 전체를 보려면 이 컬렉션을 가져와야 합니다.
 
 + [Caselaw 샘플 데이터](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw)는 [Caselaw Access Project](https://case.law/bulk/download/) 공용 대량 데이터 다운로드 페이지에서 가져온 것입니다. 특히 이 연습에서는 첫 번째 다운로드(Arkansas)의 처음 10개 문서를 사용합니다. 이 연습을 위해 10개의 문서 샘플을 GitHub에 업로드했습니다.
 
@@ -55,7 +55,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Storage 계정으로 이동한 후 **Blobs**를 클릭하고 **+ 컨테이너**를 클릭합니다.
 
-1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값 중 하나에 대한 공용 액세스 수준을 설정할 수 있습니다.
+1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). "caselaw-test"라는 컨테이너 이름을 사용합니다. 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
 
 1. 컨테이너를 만들었으면 연 다음, 명령 모음에서 **업로드**를 선택합니다.
 
@@ -66,19 +66,19 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="set-up-postman"></a>Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-fiddler.md)를 참조하세요.
+Postman을 시작하고 Caselaw Postman 컬렉션을 가져옵니다. 또는 일련의 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-fiddler.md)를 참조하세요.
 
-+ 이 연습의 모든 호출에 대한 요청 메서드는 **POST**입니다.
++ 이 연습의 모든 호출에 대한 요청 메서드는 **PUT** 또는 **POST**입니다.
 + 요청 헤더(2)에는 "application/json"으로 설정된 Content-type, "관리자 키"(검색 기본 키의 자리 표시자)로 설정된 "api-key"가 각각 포함됩니다. 
 + 요청 본문은 호출의 실제 콘텐츠를 배치하는 영역입니다. 
 
   ![반구조화된 검색](media/search-semi-structured-data/postmanoverview.png)
 
-Postman을 사용하여 데이터 원본, 인덱스, 기술 집합 및 인덱서를 만들어 검색 서비스에 대한 4개의 API 호출을 수행합니다. 데이터 원본에는 스토리지 계정 및 JSON 데이터에 대한 포인터가 포함됩니다. 검색 서비스는 데이터를 가져올 때 연결을 만듭니다.
+Postman을 사용하여 검색 서비스에 대한 4개의 API 호출을 수행하여 데이터 원본, 인덱스, 기술 집합 및 인덱서를 이 순서대로 만듭니다. 데이터 원본에는 Azure 스토리지 계정 및 JSON 데이터에 대한 포인터가 포함됩니다. 검색 서비스는 데이터를 가져올 때 연결을 만듭니다.
 
 [기술 집합 만들기](#create-skillset)는 이 연습의 중점 사항으로, 보강 단계와 지식 저장소에서 데이터가 유지되는 방법을 지정합니다.
 
-URL 엔드포인트는 api-version을 지정해야 하며, 각 호출에서 **201 만들어짐**을 반환해야 합니다. 지식 저장소 지원을 통해 기술 집합을 만드는 미리 보기 api-version은 `2019-05-06-Preview`입니다.
+URL 엔드포인트는 api-version을 지정해야 하며, 각 호출에서 **201 만들어짐**을 반환해야 합니다. 지식 저장소 지원이 있는 기술 집합을 만드는 미리 보기 api-version은 `2019-05-06-Preview`(대/소문자 구분)입니다.
 
 REST 클라이언트에서 다음 API 호출을 실행합니다.
 
@@ -101,10 +101,10 @@ REST 클라이언트에서 다음 API 호출을 실행합니다.
         "type": "azureblob",
         "subtype": null,
         "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
         },
         "container": {
-            "name": "<your blob container name>",
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
             "query": null
         },
         "dataChangeDetectionPolicy": null,
@@ -318,24 +318,23 @@ REST 클라이언트에서 다음 API 호출을 실행합니다.
    }
    ```
 
-3. 먼저 `cognitiveServices` 및 `knowledgeStore` 키와 연결 문자열을 설정합니다. 다음 예제에서 이러한 문자열은 기술 집합 정의 뒤에 나오는 요청 본문의 끝부분에 있습니다.
+3. 먼저 `cognitiveServices` 및 `knowledgeStore` 키와 연결 문자열을 설정합니다. 다음 예제에서 이러한 문자열은 기술 집합 정의 뒤에 나오는 요청 본문의 끝부분에 있습니다. Azure Search와 동일한 지역에 있는 S0 계층에서 프로비저닝되는 Cognitive Services 리소스를 사용합니다.
 
     ```json
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "<your cognitive services resource name>",
-        "key": "<your cognitive services key>"
+        "description": "YOUR-SAME-REGION-S0-COGNITIVE-SERVICES-RESOURCE",
+        "key": "YOUR-COGNITIVE-SERVICES-KEY"
     },
     "knowledgeStore": {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+        "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
 3. 기술 컬렉션, 특히 85번 줄 및 170번 줄의 쉐이퍼 기술을 각각 검토합니다. 쉐이퍼 기술은 기술 마이닝에 필요한 데이터 구조를 어셈블하므로 중요합니다. 기술 집합을 실행하는 동안 이러한 구조는 메모리 내에만 있지만, 다음 단계로 이동하면 추가 검색을 위해 이 출력을 지식 저장소에 저장하는 방법을 확인할 수 있습니다.
 
-   다음 코드 조각은 207번 줄에서 가져온 것입니다. 
+   다음 코드 조각은 217번 줄에서 가져온 것입니다. 
 
     ```json
-    {
     "name": "Opinions",
     "source": null,
     "sourceContext": "/document/casebody/data/opinions/*",
@@ -361,44 +360,46 @@ REST 클라이언트에서 다음 API 호출을 실행합니다.
                     "name": "EntityType",
                     "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
                 }
-             ]
-          }
-     ]
-   }
+            ]
+        }
+    ]
    . . .
    ```
 
-3. 253번 줄에서 시작하는 `knowledgeStore`의 `projections` 요소를 검토합니다. 프로젝션은 지식 저장소 구성을 지정합니다. 프로젝션이 테이블-개체 쌍으로 지정되지만 현재는 한 번에 하나씩만 지정됩니다. 첫 번째 프로젝션에서 알 수 있듯이 `tables`가 지정되었지만 `objects`는 지정되지 않았습니다. 두 번째 프로젝션의 경우 반대입니다.
+3. 262번 줄에서 시작하는 `knowledgeStore`의 `projections` 요소를 검토합니다. 프로젝션은 지식 저장소 구성을 지정합니다. 프로젝션이 테이블-개체 쌍으로 지정되지만 현재는 한 번에 하나씩만 지정됩니다. 첫 번째 프로젝션에서 알 수 있듯이 `tables`가 지정되었지만 `objects`는 지정되지 않았습니다. 두 번째 프로젝션의 경우 반대입니다.
 
    Azure 스토리지의 경우 생성한 각 테이블에 대한 Table 스토리지에 테이블이 만들어지고, 각 개체에서 컨테이너를 Blob 스토리지에 가져옵니다.
 
-   개체에는 일반적으로 강화의 전체 식이 포함됩니다. 테이블에는 일반적으로 특정 용도로 배열하는 부분 강화가 포함됩니다. 다음 예제에서는 Cases 테이블을 표시하지만, Entities, Judges 및 Opinions와 같은 다른 테이블은 표시하지 않습니다.
+   Blob 개체에는 일반적으로 농축의 전체 식이 포함됩니다. 테이블에는 일반적으로 특정 용도로 배열하는 부분 강화가 포함됩니다. 다음 예제에서는 Cases 테이블과 Opinions 테이블을 표시하지만, Entities, Attorneys, Judges 및 Parties와 같은 다른 테이블은 표시하지 않습니다.
 
     ```json
     "projections": [
-    {
-        "tables": [
-            {
-              "tableName": "Opinions",
-              "generatedKeyName": "OpinionId",
-              "source": "/document/Case/OpinionsSnippets/*"
-            },
-          . . . 
-        ],
-        "objects": []
-    },
-    {
-        "tables": [],
-        "objects": [
-            {
-                "storageContainer": "enrichedcases",
-                "key": "/document/CaseFull/Id",
-                "source": "/document/CaseFull"
-            }
-          ]
+        {
+            "tables": [
+                {
+                    "tableName": "Cases",
+                    "generatedKeyName": "CaseId",
+                    "source": "/document/Case"
+                },
+                {
+                    "tableName": "Opinions",
+                    "generatedKeyName": "OpinionId",
+                    "source": "/document/Case/OpinionsSnippets/*"
+                }
+            ],
+            "objects": []
+        },
+        {
+            "tables": [],
+            "objects": [
+                {
+                    "storageContainer": "enrichedcases",
+                    
+                    "source": "/document/CaseFull"
+                }
+            ]
         }
-      ]
-    }
+    ]
     ```
 
 5. 요청을 보냅니다. 응답은 **201**이어야 하며, 응답의 처음 부분을 보여 주는 다음 예제와 비슷합니다.

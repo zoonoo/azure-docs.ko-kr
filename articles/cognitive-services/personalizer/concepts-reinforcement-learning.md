@@ -10,15 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 30f009f76c25d80281d748e1e484175380ca9743
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026673"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506881"
 ---
 # <a name="what-is-reinforcement-learning"></a>보충 학습이란?
-
 
 보충 학습은 사용 피드백을 받아서 동작을 학습하는 기계 학습 방법입니다.
  
@@ -64,7 +63,7 @@ John은 이전에도 Joint Prediction(ICML 2015), Contextual Bandit Theory(NIPS 
 
 * [기술적인 문제가 적도록 상황에 맞는 결정 내리기](https://arxiv.org/abs/1606.03966)
 * [공정 분류에 대한 축소 접근 방식](https://arxiv.org/abs/1803.02453)
-* [움직이는 세계에서 효율적인 Contextual Bandits](https://arxiv.org/abs/1708.01799ds)
+* [움직이는 세계에서 효율적인 Contextual Bandits](https://arxiv.org/abs/1708.01799)
 * [잔여 손실 예측: 보충: 증분 피드백 없이 학습](https://openreview.net/pdf?id=HJNMYceCW)
 * [보충 학습을 사용하여 지침 및 시각적 관찰 결과를 작업에 매핑](https://arxiv.org/abs/1704.08795)
 * [선생님보다 검색을 더 잘하는 방법 배우기](https://arxiv.org/abs/1502.02206)
