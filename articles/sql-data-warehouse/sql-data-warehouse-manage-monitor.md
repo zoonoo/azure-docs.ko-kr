@@ -71,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 **일시 중단**된 쿼리는 활성 실행 중인 쿼리 수가 많아져서 상태 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 형식으로 [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 대기 쿼리에도 나타납니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](performance-tiers.md) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources]를 참조하세요.
 
-쿼리 조회를 간소화 하는 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 사용 하 여 [레이블] [ LABEL] 주석을 sys.dm_pdw_exec_에서 조회할 수 있는 쿼리를 할당 하려면 요청 보기입니다.
+[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화하려면, [LABEL]을 사용하여 sys.dm_pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당합니다.
 
 ```sql
 -- Query with Label
@@ -134,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * *total_elapsed_time* 열을 검사하여 특정 분산에서 데이터 이동 시간이 다른 분산보다 오래 걸리는지 확인합니다.
 * 장기 실행 분산의 경우 *rows_processed* 열을 검사하여 해당 분산에서 이동되는 행 수가 다른 분산보다 훨씬 큰지 확인합니다. 그렇다면 이 결과는 기본 데이터의 왜곡을 나타낼 수 있습니다.
 
-쿼리가 실행되고 있으면 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]을 사용하여 특정 배포 내에서 현재 실행 중인 SQL 단계에 대한 SQL Server 계획 캐시에서 SQL Server 예상 계획을 검색할 수 있습니다.
+쿼리가 실행되고 있으면 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]을 사용하여 특정 분산 내에서 현재 실행 중인 SQL 단계에 대한 SQL Server 계획 캐시에서 SQL Server 예상 계획을 검색할 수 있습니다.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
