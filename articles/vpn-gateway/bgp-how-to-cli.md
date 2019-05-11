@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390648"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209525"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI를 사용하여 Azure VPN Gateway에서 BGP를 구성하는 방법
 
@@ -131,7 +131,7 @@ az network vnet-gateway list -g TestBGPRG1 
 이 연습에서는 다이어그램에 표시된 구성을 계속 빌드합니다. 값을 구성에 사용할 값으로 바꾸어야 합니다. 로컬 네트워크 게이트웨이로 작업하는 경우 다음 사항을 염두에 두어야 합니다.
 
 * 로컬 네트워크 게이트웨이는 VPN 게이트웨이와 같은 위치 및 리소스 그룹에 있을 수도 있고 다른 위치 및 리소스 그룹에 있을 수도 있습니다. 이 예제에서는 다른 위치의 다른 리소스 그룹에 게이트웨이를 표시됩니다.
-* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 최소 접두사는 VPN 디바이스의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우에는 10.52.255.254/32의 접두사 /32입니다.
+* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 최소 접두사는 VPN 디바이스의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우이 10.51.255.254/32의 접두사입니다.
 * 다시 확인하면 온-프레미스 네트워크와 Azure Virtual Network 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 디바이스가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
 
 계속하기 전에 이 연습의 [VPN Gateway에 대해 BGP를 사용하도록 설정](#enablebgp) 섹션을 완료했는지 그리고 구독 1에 여전히 연결되어 있는지 확인합니다. 참고로 이 예제에서는 새 리소스 그룹 만듭니다. 또한 로컬 네트워크 게이트웨이에 대한 두 개의 추가 매개 변수(`Asn` 및 `BgpPeerAddress`)를 확인합니다.

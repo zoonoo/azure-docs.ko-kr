@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489772"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143297"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -205,8 +205,8 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 ### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성
 HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 경우 게이트웨이는 diahost.exe.config 및 diawp.exe.config의 프록시 설정을 사용합니다. diahost.exe.config 및 diawp.exe.config에 프록시가 지정되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.
 
-1. 파일 탐색기에서 원본 파일을 백업할 C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config의 안전한 복사본을 만듭니다.
-2. 관리자 권한으로 Notepad.exe 실행을 시작하고 텍스트 파일 “C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config”를 엽니다. 다음 코드와 같이 system.net에 대한 기본 태그를 찾습니다.
+1. 파일 탐색기에서의 안전한 복사본을 만듭니다 *c:\\\\Program Files\\Microsoft 데이터 관리 게이트웨이\\2.0\\공유\\diahost.exe.config* 를 원래 파일을 백업 합니다.
+2. 관리자 권한으로 Notepad.exe 실행을 시작 하 고 텍스트 파일을 엽니다 *c:\\\\Program Files\\Microsoft 데이터 관리 게이트웨이\\2.0\\공유\\ diahost.exe.config*합니다. 다음 코드와 같이 system.net에 대한 기본 태그를 찾습니다.
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 [단일 노드 게이트웨이의 경우]
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 폴더로 전환합니다.
+2. 으로 전환 합니다 *c:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  폴더입니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     ```powershell
@@ -293,7 +293,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
     ```
    [다중 노드 고가용성 및 확장성 있는 게이트웨이의 경우](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 폴더로 전환합니다.
+2. 으로 전환 합니다 *c:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  폴더입니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
     고가용성 기능이 있는 게이트웨이의 경우, 추가 AuthKey 매개 변수가 필요합니다.
@@ -310,7 +310,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다.
-2. **ConfigManager.exe**라는 실행 파일을 실행합니다. 이 파일은 다음 폴더에 있습니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. *ConfigManager.exe*라는 실행 파일을 실행합니다. 이 파일은 다음 폴더에 있습니다. *C:\\\\프로그램 파일\\Microsoft 데이터 관리 게이트웨이\\2.0\\공유*합니다.
 
 ### <a name="home-page"></a>홈 페이지
 홈 페이지를 통해 다음 작업을 수행할 수 있습니다.
@@ -511,7 +511,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell에서 폴더로 전환 합니다. **C:\\Files\Microsoft Data Management Gateway\2.0\PowerShellScript 프로그래밍\\**합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 **RegisterGateway.ps1** 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
+1. Azure PowerShell에서 폴더로 전환 합니다. *C:\\\\프로그램 파일\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key** 와 연결된 *RegisterGateway.ps1* 을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

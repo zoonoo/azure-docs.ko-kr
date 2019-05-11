@@ -1,10 +1,10 @@
 ---
-title: 국가별 클라우드에서 Azure AD를 사용하여 인증
+title: National 클라우드에서 Azure Active Directory를 사용 하 여 인증
 description: 국가별 클라우드의 앱 등록 및 인증 엔드포인트에 관해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: negoe
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/20/2018
+ms.date: 05/07/2019
 ms.author: negoe
-ms.reviewer: negoe,andret,saeeda,CelesteDG
+ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0d4586df23548854f4acbfefd32081a36906097
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067914"
 ---
-# <a name="national-clouds"></a>국가별 클라우드
+# <a name="national-clouds"></a>내셔널 클라우드
 
-국가별 클라우드(소버린 클라우드라고도 함)는 물리적으로 분리된 Azure 인스턴스입니다. 이러한 Azure 지역은 지리적 경계 내에서 데이터 상주, 주권 및 준수 요구 사항이 적용되도록 설계되었습니다.
+내셔널 클라우드는 Azure의 물리적으로 격리 된 인스턴스입니다. 이러한 Azure 지역은 지리적 경계 내에서 데이터 상주, 주권 및 준수 요구 사항이 적용되도록 설계되었습니다.
 
 글로벌 클라우드를 포함하여 Azure Active Directory는 다음 국가별 클라우드에 배포됩니다.  
 
@@ -38,16 +38,16 @@ ms.locfileid: "60411116"
 
 ## <a name="app-registration-endpoints"></a>앱 등록 엔드포인트
 
-각 국가별 클라우드용 개별 Azure Portal이 제공됩니다. 국가별 클라우드에서 Microsoft Identity 플랫폼과 애플리케이션을 통합하려면 환경별 각 Azure Portal에서 애플리케이션을 개별적으로 등록해야 합니다.
+내셔널 클라우드 중 각각에 대해 별도 Azure 포털을 있습니다. 국가별 클라우드에서 Microsoft Identity 플랫폼과 애플리케이션을 통합하려면 환경별 각 Azure Portal에서 애플리케이션을 개별적으로 등록해야 합니다.
 
 다음 표에는 각 국가별 클라우드에 대한 애플리케이션을 등록하는 데 사용되는 Azure AD(Azure Active Directory) 엔드포인트에 대한 기본 URL이 나열되어 있습니다.
 
-| 국가별 클라우드 | Azure AD 포털 엔드포인트
-| --- | --- |
-| 미국 정부의 Azure AD |`https://portal.azure.us`
-|Azure AD Germany |`https://portal.microsoftazure.de`
-|21Vianet으로 운영되는 Azure AD China |`https://portal.azure.cn`
-|Azure AD(글로벌 서비스)|`https://portal.azure.com` 
+| 국가별 클라우드 | Azure AD 포털 엔드포인트 |
+|----------------|--------------------------|
+| 미국 정부의 Azure AD | `https://portal.azure.us` |
+| Azure AD Germany | `https://portal.microsoftazure.de` |
+| 21Vianet으로 운영되는 Azure AD China | `https://portal.azure.cn` |
+| Azure AD(글로벌 서비스) |`https://portal.azure.com` |
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD 인증 엔드포인트
 
@@ -55,12 +55,12 @@ ms.locfileid: "60411116"
 
 다음 표에는 각 국가별 클라우드용 토큰을 얻는 데 사용되는 Azure AD(Azure Active Directory) 엔드포인트의 기본 URL이 나와 있습니다.
 
-| 국가별 클라우드 | Azure AD 인증 엔드포인트
-| --- | --- |
-| 미국 정부의 Azure AD |`https://login.microsoftonline.us`
-|Azure AD Germany| `https://login.microsoftonline.de`
-|21Vianet으로 운영되는 Azure AD China | `https://login.chinacloudapi.cn`
-|Azure AD(글로벌 서비스)|`https://login.microsoftonline.com`
+| 국가별 클라우드 | Azure AD 인증 엔드포인트 |
+|----------------|-------------------------|
+| 미국 정부의 Azure AD | `https://login.microsoftonline.us` |
+| Azure AD Germany| `https://login.microsoftonline.de` |
+| 21Vianet으로 운영되는 Azure AD China | `https://login.chinacloudapi.cn` |
+| Azure AD(글로벌 서비스)| `https://login.microsoftonline.com` |
 
 - Azure AD 권한 부여 또는 토큰 엔드포인트에 대한 요청은 적절한 지역별 기본 URL을 사용하여 구성할 수 있습니다. 예를 들어 Azure Germany의 경우
 
@@ -69,21 +69,23 @@ ms.locfileid: "60411116"
 
 - 단일 테넌트 애플리케이션의 경우 위의 URL에서 common을 테넌트 ID 또는 이름(예: `https://login.microsoftonline.de/contoso.com`)으로 바꿉니다.
 
->[!NOTE]
+> [!NOTE]
 > [Azure AD v2.0 권한 부여]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) 및 토큰 엔드포인트는 글로벌 서비스에만 사용할 수 있습니다. 아직 국가별 클라우드 배포에는 지원되지 않습니다.
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 국가별 클라우드 환경에서 Microsoft Graph API를 호출하는 방법을 알아보려면 [국가별 클라우드의 Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/deployments)를 참조하세요.
 
-
-
 > [!IMPORTANT]
 > 글로벌 서비스의 특정 지역에서 제공되는 특정 서비스와 기능이 모든 국가별 클라우드에서 제공되지는 않을 수도 있습니다. 사용 가능한 서비스를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)을 참조하세요.
 
+이 따라 [Microsoft 인증 라이브러리 (MSAL) 자습서](msal-national-cloud.md) 에 Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 빌드하는 방법을 알아봅니다. 특히이 앱 사용자를 로그인 하는 Microsoft Graph API를 호출할 액세스 토큰을 가져옵니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)에 대해 자세히 알아봅니다.
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)에 대해 자세히 알아봅니다.
-- [Azure Germany](https://docs.microsoft.com/azure/germany/)에 대해 자세히 알아봅니다.
-- Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아봅니다.
+다음에 대해 자세히 알아봅니다.
+
+- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
+- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure 독일](https://docs.microsoft.com/azure/germany/)
+- [Azure AD 인증 기본 사항](authentication-scenarios.md)

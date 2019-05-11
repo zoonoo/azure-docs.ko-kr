@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270101"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408070"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>자습서: QuickHelp와 Azure Active Directory 통합
 
@@ -150,11 +150,11 @@ QuickHelp에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
    
     b. 다운로드한 Azure 메타데이터 파일을 업로드하려면 **찾아보기**를 클릭하여 파일로 이동한 다음 **메타데이터 업로드**를 클릭합니다.
    
-    다. **전자 메일 주소** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    다. **전자 메일 주소** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
    
-    d. **이름** 텍스트 상자에 `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
+    d. **이름** 텍스트 상자에 `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
    
-    e. **성** 텍스트 상자에 `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
+    e. **성** 텍스트 상자에 `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
    
     f. **작업 모음**에서 **저장**을 클릭합니다.
 

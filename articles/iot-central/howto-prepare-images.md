@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519093"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236472"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드
 
@@ -74,7 +74,7 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 
 ![애플리케이션 이미지 업로드](media/howto-prepare-images/uploadapplicationmanager.png)
 
-준비 이미지를 업로드 하려면 응용 프로그램 이미지 타일을 선택 (268 x 160 px) 로컬 컴퓨터에서.
+선택 된 **응용 프로그램 이미지** 타일 이미지를 업로드 하려면 (268 x 160 px) 로컬 컴퓨터에서.
 
 ### <a name="application-dashboard"></a>애플리케이션 대시보드
 
@@ -82,7 +82,7 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 
 ![대시보드에 이미지를 업로드 합니다.](media/howto-prepare-images/uploadhomepage.png)
 
-이미지 구성에서 로컬 컴퓨터에서 준비 된 이미지를 업로드할 이미지 타일을 선택 합니다. 최소 타일 크기는 200x200픽셀이고, 작은 타일 여러 개를 정사각형 또는 직사각형 모양으로 이어 붙여서 큰 파일을 만들 수 있습니다. 예를 들어 200x400픽셀, 400x200픽셀 또는 400x400픽셀 타일을 만들 수 있습니다.
+**구성 이미지**를 선택 합니다 **이미지** 타일을 로컬 컴퓨터에서 이미지를 업로드 합니다. 최소 타일 크기는 200x200픽셀이고, 작은 타일 여러 개를 정사각형 또는 직사각형 모양으로 이어 붙여서 큰 파일을 만들 수 있습니다. 예를 들어 200x400픽셀, 400x200픽셀 또는 400x400픽셀 타일을 만들 수 있습니다.
 
 업로드된 이미지를 **저장**합니다. 편집 모드에서 크기를 조정할 수 있습니다. 선택 **수행** 완료 합니다.
 
@@ -92,7 +92,7 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 
 ![디바이스 템플릿 이미지 업로드](media/howto-prepare-images/uploaddevicetemplate.png)
 
-준비 이미지를 업로드할 이미지 타일을 선택 (64 x 64 픽셀) 로컬 컴퓨터에서.
+이미지를 업로드할 이미지 타일을 선택 (64 x 64 픽셀) 로컬 컴퓨터에서.
 
 ### <a name="device-dashboard"></a>디바이스 대시보드
 
@@ -100,7 +100,7 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 
 ![디바이스 대시보드 이미지 업로드](media/howto-prepare-images/uploaddevicedashboard.png)
 
-이미지 구성에서 이미지 타일을 선택 하 고 로컬 컴퓨터에서 업로드할 파일을 선택 합니다. 최소 타일 크기는 200x200픽셀이고, 작은 타일 여러 개를 정사각형 또는 직사각형 모양으로 이어 붙여서 큰 파일을 만들 수 있습니다. 예를 들어 200x400픽셀, 400x200픽셀 또는 400x400픽셀 타일을 만들 수 있습니다.
+아래 **구성 이미지**를 선택 합니다 **이미지** 타일을 선택한 후 로컬 컴퓨터에서 업로드할 파일입니다. 최소 타일 크기는 200x200픽셀이고, 작은 타일 여러 개를 정사각형 또는 직사각형 모양으로 이어 붙여서 큰 파일을 만들 수 있습니다. 예를 들어 200x400픽셀, 400x200픽셀 또는 400x400픽셀 타일을 만들 수 있습니다.
 
 업로드된 이미지를 **저장**합니다. 편집 모드에서 크기와 위치를 조정할 수 있습니다. 선택 **수행** 완료 합니다.
 
@@ -110,13 +110,14 @@ Azure IoT Central 애플리케이션에서 다음 위치에 사용자 지정 이
 
 ![디바이스 집합 대시보드 이미지 업로드](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-이미지 구성에서 로컬 컴퓨터에서 준비 된 이미지를 업로드할 이미지 타일을 선택 합니다. 최소 타일 크기는 200x200픽셀이고, 작은 타일 여러 개를 정사각형 또는 직사각형 모양으로 이어 붙여서 큰 파일을 만들 수 있습니다. 예를 들어 200x400픽셀, 400x200픽셀 또는 400x400픽셀 타일을 만들 수 있습니다.
+**구성 이미지**를 선택 합니다 **이미지** 타일을 로컬 컴퓨터에서 이미지를 업로드 합니다. 최소 타일 크기는 200x200픽셀이고, 작은 타일 여러 개를 정사각형 또는 직사각형 모양으로 이어 붙여서 큰 파일을 만들 수 있습니다. 예를 들어 200x400픽셀, 400x200픽셀 또는 400x400픽셀 타일을 만들 수 있습니다.
 
 업로드된 이미지를 **저장**합니다. 편집 모드에서 크기와 위치를 조정할 수 있습니다. 선택 **수행** 완료 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+이제 준비 하 고 Azure IoT Central 응용 프로그램에 이미지를 업로드 하는 방법을 배웠으므로 제안 된 다음 단계는 다음과 같습니다.
 
-> [!div class="nextstepaction"]
-> [Azure IoT Central 애플리케이션에서 장치 관리](howto-manage-devices.md)
+* [Azure IoT Central UI를 사용자 지정](./howto-customize-ui.md)
+* [응용 프로그램 대시보드를 구성 합니다.](./howto-configure-homepage.md)
+* [Azure IoT Central 애플리케이션에서 장치 관리](howto-manage-devices.md)

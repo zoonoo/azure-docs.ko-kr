@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
-ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403455"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142648"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Database 및 SQL Data Warehouse 데이터 검색 및 분류
 
@@ -89,7 +89,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
    ![Excel로 내보내기](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
-5. <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류** 탭을 클릭합니다.
+5. <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류 탭**을 클릭합니다.
 
     ![데이터 분류](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
@@ -127,7 +127,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 ![감사 로그](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>자동/프로그래밍 방식 분류
+## <a id="subheading-4"></a>T-SQL을 사용 하 여 데이터 분류를 관리 합니다.
 
 T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이스에 대한 모든 분류를 검색할 수 있습니다.
 
@@ -146,7 +146,26 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 - [데이터베이스별 최신 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
 - [데이터베이스에서 권장 되는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -지정된 된 데이터베이스의 권장 되는 민감도 레이블을 가져옵니다.
 
+## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>데이터 검색 및 Azure PowerShell을 사용 하 여 분류 관리
+
+PowerShell을 사용 하 여 Azure SQL database 관리 되는 인스턴스에 권장 되는 모든 열을 가져올 수 있습니다.
+
+### <a name="powershell-cmdlets-for-azure-sql-database"></a>Azure SQL database에 대 한 PowerShell Cmdlet
+
+- [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+
+### <a name="powershell-cmdlets-for-managed-instance"></a>관리 되는 인스턴스에 대 한 PowerShell Cmdlet
+
+- [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+
 ## <a name="permissions"></a>권한
+
 다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 읽을 수 있습니다: `Owner`, `Reader`, `Contributor`, `SQL Security Manager`와 `User Access Administrator`
 
 다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 수정할 수 있습니다: `Owner`, `Contributor`, `SQL Security Manager`

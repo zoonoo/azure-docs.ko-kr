@@ -1,19 +1,20 @@
 ---
-title: Azure Storage 수명 주기 관리
+title: Azure 저장소 수명 주기 관리
 description: 오래된 데이터를 핫에서 쿨로 전환하고 계층을 보관하는 수명 주기 정책 규칙을 만드는 방법을 알아봅니다.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.author: yzheng
+ms.author: mhopkins
+ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938563"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409973"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
 
@@ -86,7 +87,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -156,7 +157,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 | 매개 변수 이름 | 매개 변수 형식 | 메모 | 필수 |
 |----------------|----------------|-------|----------|
 | 이름           | String |규칙 이름은 최대 256 개의 영숫자 문자를 포함할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True  |
-| 사용 | Boolean | 두 일 하는 규칙을 허용 하는 선택적 부울을 사용할 수 없습니다. 기본값은 설정 되어 있지 않으면 true입니다. | 거짓 | 
+| enabled | Boolean | 두 일 하는 규칙을 허용 하는 선택적 부울을 사용할 수 없습니다. 기본값은 설정 되어 있지 않으면 true입니다. | 거짓 | 
 | 형식           | 열거형 값 | 현재 유효한 형식이 `Lifecycle`합니다. | True  |
 | 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True  |
 
@@ -207,9 +208,9 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 유효한 필터는 다음과 같습니다.
 
-| 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
+| 필터 이름 | 필터 형식 | 메모 | 필수 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서 지원 `blockBlob`합니다. | 예 |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서 지원 `blockBlob`합니다. | 예. |
 | prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어, "https://myaccount.blob.core.windows.net/container1/foo/..." 아래의 모든 Blob을 일치시키려는 경우 규칙에 대한 prefixMatch는 `container1/foo`입니다. | PrefixMatch를 정의 하지 않으면 규칙 저장소 계정 내 모든 blob에 적용 됩니다.  | 아닙니다. |
 
 ### <a name="rule-actions"></a>규칙 작업

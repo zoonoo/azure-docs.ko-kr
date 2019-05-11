@@ -4,7 +4,7 @@ description: Azure DNS 및 Traffic Manager를 사용한 재해 복구 솔루션�
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507748"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501730"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS 및 Traffic Manager를 사용하여 재해 복구
 
@@ -141,7 +141,8 @@ Azure Traffic Manager로 장애 조치(failover)를 구성하는 단계는 다�
 이름이 contoso123인 새 Azure Traffic Manager 프로필을 만들고 라우팅 방법을 우선 순위로 선택합니다. 연결할 기존 리소스 그룹이 있는 경우 기존 리소스 그룹을 선택하고, 없는 경우에는 새 리소스 그룹을 만듭니다.
 
 ![Traffic Manager 프로필 만들기](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
- *‘그림 - Traffic Manager 프로필 만들기’*
+
+*그림-Traffic Manager 프로필 만들기*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>2단계: Traffic Manager 프로필 내에서 엔드포인트 만들기
 

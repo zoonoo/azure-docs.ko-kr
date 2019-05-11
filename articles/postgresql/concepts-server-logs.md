@@ -1,19 +1,19 @@
 ---
-title: PostgreSQL용 Azure 데이터베이스의 서버 로그
-description: 이 문서에서는 Azure Database for PostgreSQL에서 쿼리 및 오류 로그를 생성하는 방법과 로그 보존을 구성하는 방법을 설명합니다.
+title: PostgreSQL-단일 서버에 대 한 Azure Database에서 서버 로그
+description: 이 문서에서는 PostgreSQL 용 Azure 데이터베이스를 설명 합니다.-단일 서버 쿼리 및 오류 로그 및 로그 보존을 구성 하는 방법을 생성 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871538"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067401"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 서버 로그 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>서버에서 Azure Database for PostgreSQL-단일 서버 로그
 Azure Database for PostgreSQL에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
 
 ## <a name="configure-logging"></a>로깅 구성 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685630"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148862"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용 하도록 설정 하려면 컨테이너에 대 한 Azure Monitor를 업데이트 하는 방법
 컨테이너에 대 한 azure Monitor는 Azure Kubernetes 서비스 (AKS) 클러스터 노드 및 pod에서 메트릭을 수집 하 고 Azure Monitor 메트릭 저장소에 쓰기에 대 한 지원을 소개 합니다. Azure portal 대시보드에서 성능 차트를 고정 하는 지원의 성능 차트에서 집계 계산 (Avg, Count, Max, Min, Sum)를 표시할 때 향상 된 적시성을 제공 하 고 메트릭 경고를 지원 합니다.이 변경이 됩니다.
@@ -55,7 +55,7 @@ Azure 명령 Shell의 Bash를 사용 하 여 구독에서 모든 클러스터를
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
     구성 변경을 완료 하려면 몇 초 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.

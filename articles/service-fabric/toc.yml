@@ -97,6 +97,8 @@
       href: service-fabric-best-practices-infrastructure-as-code.md
     - name: 모니터링 및 진단
       href: service-fabric-best-practices-monitoring.md
+    - name: 애플리케이션 설계
+      href: service-fabric-best-practices-applications.md
     - name: 프로덕션 준비 검사 목록
       href: service-fabric-production-readiness-checklist.md
 - name: 샘플
@@ -609,6 +611,8 @@
                   href: service-fabric-cluster-azure-deployment-preparation.md
                 - name: Azure Portal에서 만들기
                   href: service-fabric-cluster-creation-via-portal.md
+                - name: 가용성 영역에서 Azure Service Fabric 클러스터 배포
+                  href: service-fabric-cross-availability-zones.md
                 - name: Azure Active Directory 인증 설정
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: 사용자 지정 클러스터 템플릿 만들기
@@ -639,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: 클러스터 노드 패치(Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: 클러스터 노드 패치(Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: 디스크 암호화 사용(Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: 디스크 암호화 사용(Linux)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693188"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509980"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -68,7 +68,7 @@ ms.locfileid: "60693188"
 
 ### <a name="go-to-details"></a>세부 정보로 이동
 
-**세부 정보로 이동**을 선택하여 호출 스택 수준으로 수행된 보기를 제공할 수 있는 엔드 투 엔드 트랜잭션 환경을 탐색합니다.
+선택 **세부 정보로** 호출 스택 수준까지 뷰를 제공할 수 있는 종단 간 트랜잭션 경험을 소개 합니다.
 
 ![세부 정보로 이동 단추 스크린샷](media/app-map/go-to-details.png)
 

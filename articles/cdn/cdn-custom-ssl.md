@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150863"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -90,10 +90,10 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 활성화](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> 이 옵션은 **Microsoft의 Azure CDN 표준** 프로필에서만 사용할 수 있습니다. 
+> 이 옵션은 **Microsoft의 Azure CDN** 및 **Verizon의 Azure CDN** 프로필에서만 사용할 수 있습니다. 
 >
  
-사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요.
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요. **Verizon의 Azure CDN**의 경우 유효한 CA가 허용됩니다. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  

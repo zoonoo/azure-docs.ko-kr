@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 계정에 대해 IP 방화벽 구성
 description: Azure Cosmos DB 데이터베이스 계정에서 방화벽을 지원하도록 IP 액세스 제어 정책을 구성하는 방법을 알아봅니다.
-author: kanshiG
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: govindk
-ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: sample
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61060868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068730"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 
@@ -32,7 +32,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 > [!NOTE]
 > Azure Cosmos DB 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정한 후에는 허용되는 IP 주소 범위 목록 이외의 머신에서 시도하는 Azure Cosmos DB 계정에 대한 모든 요청이 거부됩니다. 액세스 제어의 무결성을 보장하기 위해 포털에서 Azure Cosmos DB 리소스를 찾아보는 기능도 차단됩니다.
 
-### <a name="allow-requests-from-the-azure-portal"></a>Azure Portal의 요청 허용 
+### <a name="allow-requests-from-the-azure-portal"></a>Azure Portal의 요청 허용
 
 프로그래밍 방식으로 IP 액세스 제어 정책을 사용하도록 설정할 경우 Azure Portal의 IP 주소를 **ipRangeFilter** 속성에 추가해야 액세스가 유지됩니다. 포털 IP 주소는 다음과 같습니다.
 
@@ -138,6 +138,37 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
+## <a id="configure-ip-firewall-ps"></a>PowerShell을 사용하여 IP 액세스 제어 정책 구성
+
+다음 스크립트는 IP 액세스 제어를 사용하여 Azure Cosmos DB 계정을 만드는 방법을 보여줍니다.
+
+```azurepowershell-interactive
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
+
+# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
+$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
+
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "ipRangeFilter"=$ipRangeFilter
+}
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
 ## <a id="troubleshoot-ip-firewall"></a>IP 액세스 제어 정책 관련 문제 해결
 
 다음 옵션을 사용하여 IP 액세스 제어 정책 관련 문제를 해결할 수 있습니다. 
@@ -161,5 +192,4 @@ Azure Cosmos DB 계정에 대한 가상 네트워크 서비스 엔드포인트�
 
 * [Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 액세스 제어](vnet-service-endpoint.md)
 * [Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 기반 액세스 구성](how-to-configure-vnet-service-endpoint.md)
-
 

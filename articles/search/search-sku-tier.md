@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024307"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472713"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -89,7 +89,7 @@ Azure search에서 Azure search에서 비용이 발생 하는 방법은 세 가�
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI 보강 Cognitive Services를 사용 하 여 인덱싱
 
-에 대 한 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md), 가격 책정 계층에 대 한 종 량 제 처리는 S0에서 청구 가능한 Cognitive Services 리소스에 연결 계획 해야 합니다. 비용은 없습니다 "고정" 연결 된 Cognitive Services에 연결 합니다. 필요한 처리에 대해서만 지불 합니다.
+에 대 한 [Cognitive Services를 사용 하 여 AI 인덱싱](cognitive-search-concept-intro.md), 종 량 제 처리용 S0 가격 책정 계층에서 Azure Search와 동일한 지역에 청구 가능한 Cognitive Services 리소스에 연결 계획 해야 합니다. 비용은 없습니다 "고정" 연결 된 Cognitive Services에 연결 합니다. 필요한 처리에 대해서만 지불 합니다.
 
 문서 해독 하는 동안 이미지 추출은 청구 하 여 Azure Search 비용이 문서에서 추출 된 이미지의 수를 기반으로 합니다. 텍스트 추출은 현재 무료입니다. 
 

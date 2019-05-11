@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198589"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. [Azure VNet(Virtual Network)][VNETOverview]을 사용하면 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. 그러면 이러한 네트워크가 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. 
@@ -271,9 +271,9 @@ VNet이 온-프레미스 네트워크에 이미 연결되어 있는 경우 VNet 
 * VNet에 연결된 ExpressRoute와의 통합을 제외하고는 추가 구성 없이 ExpressRoute 연결을 통해 리소스에 액세스할 수 있습니다.
 * 앱과 VNet은 동일한 지역에 있어야 합니다.
 * 새 기능을 사용하려면 Resource Manager VNet에서 사용되지 않는 서브넷이 필요합니다.
+* 앱은 프리미엄 v2까지 확장할 수 있는 Azure App Service 배포에 있어야 합니다.
 * App Service 계획은 표준, 프리미엄 또는 프리미엄 V2 요금제여야 합니다.
 * 새 기능이 미리 보기에 있는 동안에는 프로덕션 워크로드가 지원되지 않습니다.
-* 앱은 프리미엄 v2까지 확장할 수 있는 Azure App Service 배포에 있어야 합니다.
 * 새 VNet 통합 기능은 App Service Environment의 앱에서 작동하지 않습니다.
 * VNet은 통합된 앱을 사용하여 삭제할 수 없습니다.  
 * 경로 테이블과 글로벌 피어링은 새 VNet 통합에서 아직 사용할 수 없습니다.  

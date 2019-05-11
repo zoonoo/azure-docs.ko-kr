@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics 에이전트 관리 | Microsoft Docs
-description: 이 문서에서는 컴퓨터에 배포된 MMA(Microsoft Monitoring Agent)의 수명 주기 동안 일반적으로 수행하는 여러 관리 작업에 대해 설명합니다.
+description: 이 문서에서는 Log Analytics Windows 또는 Linux 에이전트 컴퓨터에 배포의 수명 주기 동안 일반적으로 수행 하는 다른 관리 작업을 설명 합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730280"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139258"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -40,7 +40,7 @@ Windows VM에 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 다음 단계를 수행 하 여 Log Analytics 작업 영역에서 Windows 에이전트의 최신 버전을 다운로드할 수 있습니다.
 
-1. Azure 포털에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
@@ -91,6 +91,7 @@ Windows VM에 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 ## <a name="adding-or-removing-a-workspace"></a>작업 영역 추가 또는 제거
 
 ### <a name="windows-agent"></a>Windows 에이전트
+이 섹션의 단계는 필요한 뿐만 아니라 다른 작업 영역에 보고 하거나, 해당 구성에서 작업 영역을 제거 하려면 Windows 에이전트를 다시 구성 하려는 경우 또한 (일반적으로 둘 이상의 작업 영역에 보고 하도록 에이전트를 구성 하려는 경우 라고 멀티 호 밍) 합니다. 아래에 설명 된 메서드를 사용 하 여 에이전트의 초기 설치 후 여러 작업 영역에 보고 하도록 Windows 에이전트 구성만 수행할 수 있습니다.    
 
 #### <a name="update-settings-from-control-panel"></a>제어판에서 설정 업데이트
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux 에이전트
-다음 단계는 다른 작업 영역으로 등록하거나 해당 구성에서 작업 영역을 제거하려는 경우 Linux 에이전트를 다시 구성하는 방법을 설명합니다.
+다음 단계를 다른 작업 영역을 사용 하 여 등록 또는 해당 구성에서 작업 영역을 제거 하려는 경우 Linux 에이전트를 다시 구성 하는 방법을 보여 줍니다.
 
 1. 작업 영역에 등록되었는지 확인하려면 다음 명령을 실행합니다.
 
@@ -160,7 +161,7 @@ $mma.ReloadConfiguration()
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. 변경 내용이 적용되었는지 확인하려면 다음 명령을 실행합니다.
+4. 변경 내용이 영향을 확인 하려면 다음 명령을 실행 합니다.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -231,7 +232,7 @@ Linux 컴퓨터가 프록시 서버 또는 Log Analytics 게이트웨이를 통�
     ```
 
 ## <a name="uninstall-agent"></a>에이전트 제거
-다음 절차 중 하나에 따라 명령줄이나 설치 마법사를 사용하여 Windows 또는 Linux 에이전트를 제거합니다.
+명령줄 또는 설치 마법사를 사용 하 여 Windows 또는 Linux 에이전트를 제거 하려면 다음 절차 중 하나를 사용 합니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트
 

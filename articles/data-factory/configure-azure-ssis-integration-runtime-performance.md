@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 271da0a6ff443fcee28bc870821f4222b3018c91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42c69653a002446552da998320a43730dfdaadf5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262239"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232511"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
 
@@ -29,31 +29,40 @@ ms.locfileid: "61262239"
 구성 스크립트의 다음 부분은 Azure-SSIS Integration Runtime을 만들 때 구성할 수 있는 속성을 보여줍니다. 전체 PowerShell 스크립트 및 설명은 [Azure에 SQL Server Integration Services 패키지 배포](tutorial-deploy-ssis-packages-azure-powershell.md)를 참조하세요.
 
 ```powershell
-$SubscriptionName = "<Azure subscription name>"
-$ResourceGroupName = "<Azure resource group name>"
-# Data factory name. Must be globally unique
-$DataFactoryName = "<Data factory name>" 
-$DataFactoryLocation = "EastUS" 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$"
+$SubscriptionName = "[your Azure subscription name]"
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
+$DataFactoryLocation = "EastUS"
 
-# Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
-$AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
-$AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# Only EastUS, NorthEurope, and WestEurope are supported.
-$AzureSSISLocation = "EastUS" 
-# Only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
-$AzureSSISNodeSize = "Standard_D3_v2"
-# Only 1-10 nodes are supported.
-$AzureSSISNodeNumber = 2 
-# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
-$AzureSSISMaxParallelExecutionsPerNode = 2 
+### Azure-SSIS integration runtime information - This is a Data Factory compute resource for running SSIS packages
+$AzureSSISName = "[specify a name for your Azure-SSIS IR]"
+$AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
+$AzureSSISLocation = "EastUS"
+# For supported node sizes, see https://azure.microsoft.com/pricing/details/data-factory/ssis/
+$AzureSSISNodeSize = "Standard_D8_v3"
+# 1-10 nodes are currently supported
+$AzureSSISNodeNumber = 2
+# Azure-SSIS IR edition/license info: Standard or Enterprise
+$AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
+# Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+# For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to max(2 x number of cores, 8) are currently supported
+$AzureSSISMaxParallelExecutionsPerNode = 8
+# Custom setup info
+$SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your Managed Instance
 
-# SSISDB info
-$SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
-$SSISDBServerAdminUserName = "<Azure SQL server - user name>"
-$SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Database Managed Instance
-# This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
-$SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
+### SSISDB info
+$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+# Authentication info: SQL or Azure Active Directory (AAD)
+$SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
+$SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
@@ -66,25 +75,39 @@ Azure-SSIS IR을 포함하여 Data Factory는 다음 옵션을 지원합니다.
 -   Standard\_D1\_v2
 -   Standard\_D2\_v2
 -   Standard\_D3\_v2
--   Standard\_D4\_v2.
+-   Standard\_D4\_v2
+-   Standard\_D2\_v3
+-   표준\_D4\_v3
+-   Standard\_D8\_v3
+-   Standard\_D16\_v3
+-   표준\_D32\_v3
+-   표준\_D64\_v3
+-   Standard\_E2\_v3
+-   표준\_E4\_v3
+-   Standard\_E8\_v3
+-   Standard\_E16\_v3
+-   표준\_E32\_v3
+-   Standard\_E64\_v3
 
 SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈가 A 시리즈보다 SSIS 패키지 실행에 더 적합합니다.
 
--   D 시리즈의 성능/가격 비율은 A 시리즈보다 높습니다.
--   D 시리즈의 처리량은 같은 가격으로 A 시리즈보다 높습니다.
+-   D 시리즈의 성능/가격 비율은 A 시리즈 보다 높습니다. 이며 v3 시리즈의 성능/가격 비율은 v2 시리즈 보다 높습니다.
+-   D 시리즈에 대 한 처리량은 동일한 가격으로 A 시리즈 보다 더 하 고 v3 시리즈에 대 한 처리량은 동일한 가격 v2 시리즈 보다 높습니다.
+-   AZURE-SSIS IR의 v2 시리즈 노드에 사용자 지정 설치에 적합 하지 않은 있도록 v3 시리즈 노드를 대신 사용 하세요. V2 시리즈 노드를 이미 사용 하는 경우 가능한 한 빨리 v3 시리즈 노드를 사용 하도록 전환 하세요.
+-   E 시리즈는 메모리 액세스에 최적화 된 다른 컴퓨터 보다 더 높은 메모리 대 CPU 비율을 제공 하는 VM 크기입니다. 패키지에 필요한 많은 양의 메모리를 E 시리즈 VM을 선택할 것을 고려할 수 있습니다.
 
 ### <a name="configure-for-execution-speed"></a>실행 속도 구성
 실행할 패키지가 많지 않고 패키지를 신속하게 실행하려면 다음 차트의 정보를 사용하여 시나리오에 적합한 가상 머신 유형을 선택합니다.
 
-이 데이터는 단일 작업자 노드에서 단일 패키지 실행을 나타냅니다. 이 패키지는 Azure Blob Storage의 성 및 이름 열이 있는 1,000만개의 레코드를 로드하여 전체 이름 열을 생성하고 전체 이름이 20자 이상인 레코드를 Azure Blob Storage에 씁니다.
+이 데이터는 단일 작업자 노드에서 단일 패키지 실행을 나타냅니다. 패키지 전체 이름 열을 생성 하며 Azure Blob Storage에 20 자 보다 긴 전체 이름을 가진 레코드를 쓰기 Azure Blob Storage에서 첫 번째 이름과 마지막 이름 열을 사용 하 여 3 백만 레코드를 로드 합니다.
 
-![SSIS Integration Runtime 패키지 실행 속도](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speed.png)
+![SSIS Integration Runtime 패키지 실행 속도](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>전체 처리량에 대한 구성
 
 실행할 패키지가 많고 전체 처리량을 가장 중요하게 생각하는 경우 다음 차트의 정보를 사용하여 시나리오에 적합한 가상 머신 유형을 선택합니다.
 
-![SSIS Integration Runtime 최대 전체 처리량](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughput.png)
+![SSIS Integration Runtime 최대 전체 처리량](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
@@ -92,7 +115,7 @@ SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈�
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. Standard_D1_v2 노드의 경우 노드당 1-4개의 병렬 실행이 지원되며, 다른 모든 유형의 노드의 경우 노드당 1-8개의 병렬 실행이 지원됩니다.
+이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode**를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. Standard_D1_v2 노드의 경우 노드당 1-4개의 병렬 실행이 지원되며, 다른 모든 형식의 노드의 경우 노드당 병렬 실행 1 max(2 x number of cores, 8) 지원 됩니다. 원하면 **AzureSSISMaxParallelExecutionsPerNode** 에서는 지원 되는 최대값을 초과 지원 티켓을 열 수 있으며 Azure Powershell을 사용 하 여 업데이트 해야 하는 최대 값 하기 전후의 늘릴 수 있습니다  **AzureSSISMaxParallelExecutionsPerNode**합니다.
 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/windows/sizes-general.md)를 참조하세요.
 
 | 크기             | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 성능(Mbps) |
@@ -103,6 +126,18 @@ SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈�
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16x500                       | 8 / 6000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
+| Standard\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
+| 표준\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
+| Standard\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
+| Standard\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/ 48x500                        | 8 / 8000                                       |
+| 표준\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| 표준\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
+| Standard\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
+| 표준\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
+| Standard\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
+| Standard\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32 / 48x500                       | 8 / 8000                                       |
+| 표준\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
 
 다음은 **AzureSSISMaxParallelExecutionsPerNode** 속성에 올바른 값을 설정하는 지침입니다. 
 
@@ -117,6 +152,8 @@ SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈�
 -   패키지 실행을 큐에 넣는 속도 및 실행 로그를 로드하는 속도가 중요하지 않은 경우 가장 낮은 데이터베이스 가격 책정 계층을 선택할 수 있습니다. 기본 가격을 사용하는 Azure SQL Database는 통합 런타임 인스턴스에 8명의 작업자를 지원합니다.
 
 -   작업자 수가 8 이상이거나 코어 수가 50을 넘는 경우 기본보다 더 강력한 데이터베이스를 선택합니다. 그렇지 않으면 데이터베이스가 통합 런타임 인스턴스의 병목 상태가 되어 전반적인 성능에 부정적인 영향을 미칩니다.
+
+-   로깅 수준을 verbose로 설정 된 경우에 s3와 같이 더 강력한 데이터베이스를 선택 합니다. 비공식 사내 테스트에 따라, s3 가격 책정 계층 2 노드, 128 병렬 개수 및 자세한 로깅 수준을 사용 하 여 SSIS 패키지 실행을 지원할 수 있습니다.
 
 Azure Portal에서 사용할 수 있는 DTU([데이터베이스 트랜잭션 단위](../sql-database/sql-database-what-is-a-dtu.md)) 사용량 정보를 기반으로 데이터베이스 가격 책정 계층을 조정할 수도 있습니다.
 

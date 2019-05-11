@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업을 위한 셀프 서비스 등록 포털 - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
+title: B2B 협업을 위한 셀프 서비스 등록 포털 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B 협업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2019
 ms.locfileid: "56674279"
 ---
-# <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Azure AD B2B 공동 작업 등록을 위한 셀프 서비스 포털
+# <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Azure AD B2B 협업 등록을 위한 셀프 서비스 포털
 
 고객은 최종 사용자를 위한 [Azure Portal](https://portal.azure.com) 및 [응용 프로그램 액세스 패널](https://myapps.microsoft.com)을 통해 제공되는 기본 제공 기능으로 많은 작업을 수행할 수 있습니다. 하지만 B2B 사용자가 조직의 요구에 맞출 수 있도록 온보딩 워크플로를 사용자 지정해야 할 수도 있습니다. 이러한 작업은 [초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 수행할 수 있습니다.
 

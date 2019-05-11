@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126316"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152858"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
@@ -23,7 +23,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 자세한 내용은 참조 하세요 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)합니다.
 
-이 문서에서는 Ubuntu Linux x64 (Intel/AMD)에 Azure IoT Edge 런타임을 설치 하는 단계를 나열 합니다. IoT Edge 장치입니다. 가리킵니다 [Azure IoT Edge 지원](support.md#operating-systems) AMD64 운영 체제의 목록은 합니다.
+이 문서에서는 Ubuntu Linux x64 (Intel/AMD)에 Azure IoT Edge 런타임을 설치 하는 단계를 나열 합니다. IoT Edge 장치입니다. 가리킵니다 [지원 되는 Azure IoT Edge 체제](support.md#operating-systems) AMD64 운영 체제의 목록은 합니다.
 
 > [!NOTE]
 > Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.

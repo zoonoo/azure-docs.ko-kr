@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363411"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205746"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -211,10 +211,10 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 | Perf |모든 성능 데이터 |
 | Perf &#124; where Computer == "MyComputer" |특정 컴퓨터의 모든 성능 데이터 |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |특정 컴퓨터에 대한 모든 성능 데이터 |
-| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |모든 컴퓨터의 평균 CPU 사용률 |
-| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |모든 컴퓨터의 최대 CPU 사용률 |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
-| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
+| 성능 &#124; 여기서 ObjectName "프로세서" 고 CounterName = = "% Processor Time" 및 InstanceName = = "_Total" = = &#124; 요약 AVGCPU 컴퓨터별 avg (countervalue) = |모든 컴퓨터의 평균 CPU 사용률 |
+| 성능 &#124; 여기서 CounterName = = "% Processor Time" &#124; summarize AggregatedValue = 컴퓨터별 max(CounterValue) |모든 컴퓨터의 최대 CPU 사용률 |
+| 성능 &#124; 여기서 ObjectName = = "LogicalDisk" and CounterName = = "Current Disk Queue Length" and 컴퓨터 "MyComputerName" = = &#124; summarize AggregatedValue = instancename avg (countervalue) |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
+| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |모든 컴퓨터에서 시간별 평균 CPU 사용량 |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 특정 컴퓨터에 대한 % 백분율 카운터당 시간별 70백분위수 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |특정 컴퓨터의 시간별 평균, 최소, 최대, 75백분위수 CPU 사용량 |

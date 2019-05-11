@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024970"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471591"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -283,7 +283,7 @@ Azure Machine Learning 서비스를 사용 하 여 Azure Databricks 작동 방�
 
 이러한 설정을 사용 합니다.
 
-| 설정 |적용 대상| 값 |
+| 설정 |적용 대상| Value |
 |----|---|---|
 | 클러스터 이름 |항상| yourclustername |
 | Databricks 런타임 |항상| 모든 비 ML 런타임(비 ML 4.x, 5.x) |
@@ -299,7 +299,7 @@ Azure Machine Learning 서비스를 사용 하 여 Azure Databricks 작동 방�
 
 1. 선택할 **하나만** 옵션 (다른 SDK가 설치 되지 않습니다 지원 됨)
 
-   |SDK&nbsp;package&nbsp;extras|원본|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks에 대 한| Python 업로드 Egg 또는 PyPI | azureml-sdk[databricks]|
    |-사용 하 여-Databricks에 대 한<br> 자동화 된 기계 학습 기능| Python 업로드 Egg 또는 PyPI | azureml-sdk[automl_databricks]|
@@ -344,7 +344,7 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 * Azure Machine Learning SDK가 이미 설치되어 있습니다.
 * Azure Portal에서 Azure Machine Learning Service 작업 영역을 만든 후에는 단추를 클릭하여 작업 영역과 함께 작동하도록 자동으로 Azure Notebook 환경을 구성할 수 있습니다.
 
-사용 된 [Azure portal](https://portal.azure.com) Azure notebooks 시작 하려면.  작업 영역을 열고 들어오고 합니다 **개요** 섹션에서 **Azure Notebooks 시작**합니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 Azure Notebooks를 시작합니다.  작업 영역을 열고 들어오고 합니다 **개요** 섹션에서 **Azure Notebooks 시작**합니다.
 
 기본적으로 Azure Notebooks는 메모리 4GB, 데이터 1GB로 제한되는 무료 서비스 계층을 사용합니다. 하지만 Data Science Virtual Machine 인스턴스를 Azure Notebooks 프로젝트에 연결하여 이 제한을 제거할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)을 참조하세요.
 
@@ -368,7 +368,7 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 
 * **단계를 따릅니다 [Azure Machine Learning 서비스 작업 영역을 만듭니다](setup-create-workspace.md#sdk)**: *config.json* 파일은 Azure Notebooks 라이브러리에 만들어집니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
-* **파일 다운로드**: 에 [Azure portal](https://ms.portal.azure.com)를 선택 **config.json 다운로드** 에서 **개요** 영역의 섹션입니다.
+* **파일 다운로드**: Azure Portal에서, 해당 작업 영역의 **개요** 섹션에서 [config.json 다운로드](https://ms.portal.azure.com)를 선택합니다.
 
      ![Azure portal](./media/how-to-configure-environment/configure.png)
 
@@ -396,5 +396,5 @@ Databricks에 대 한 SDK **WITH** machine learning 자동화 된 ![SDK를 사�
 
 - MNIST 데이터 세트를 사용하여 Azure Machine Learning에서 [모델 학습](tutorial-train-models-with-aml.md)
 - [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 참조 보기
-- [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)에 대해 알아보기
+- 에 대 한 자세한는 [Azure Machine Learning 용 데이터 준비 패키지](https://aka.ms/data-prep-sdk)
 - 

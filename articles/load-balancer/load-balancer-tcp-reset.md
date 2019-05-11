@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2019
+ms.date: 05/03/2019
 ms.author: kumud
-ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736850"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413853"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>유휴 시 TCP 재설정이 포함된 Load Balancer(공개 미리 보기)
 
@@ -74,6 +74,7 @@ API 버전 2018-07-01을 사용하면 개별 규칙을 기반으로 유휴 시�
 ## <a name="limitations"></a>제한 사항
 
 - 포털은 TCP 재설정을 구성하거나 보는 데 사용할 수 없습니다.  대신 템플릿, REST API, Az CLI 2.0 또는 PowerShell을 사용하세요.
+- TCP RST만 설정 되었음 상태의 TCP 연결 하는 동안 전송 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

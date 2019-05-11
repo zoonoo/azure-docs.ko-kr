@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: 라우팅 검사
           href: routing-coverage.md
-    - name: 지원되는 언어
+    - name: 지역화 지원
       href: supported-languages.md
     - name: 지원되는 맵 스타일
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: 지도 컨트롤
           items:
-            - name: 지도 컨트롤 사용
+            - name: 웹 지도 컨트롤 시작
               href: how-to-use-map-control.md
             - name: 맵 만들기
               href: map-create.md
-            - name: 맵 스타일 선택
+            - name: 맵 스타일 변경
               href: choose-map-style.md
             - name: 맵에 컨트롤 추가
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: Android SDK를 사용하여 개발
       items:
-        - name: Android 맵 컨트롤을 사용하는 방법
+        - name: Android 지도 컨트롤 시작
           href: how-to-use-android-map-control-library.md
+        - name: 기호 계층 추가
+          href: how-to-add-symbol-to-android-map.md
+        - name: 셰이프 추가
+          href: how-to-add-shapes-to-android-map.md
+        - name: 맵 스타일 변경
+          href: set-android-map-styles.md
 - name: 참고 자료
   items:
     - name: API 및 매개 변수 확장

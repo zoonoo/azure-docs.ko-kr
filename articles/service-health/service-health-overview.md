@@ -9,14 +9,14 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620807"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442408"
 ---
-# <a name="service-health"></a>서비스 상태
+# <a name="service-health"></a>Service Health
 서비스 상태에서는 사용하는 영역에 있는 Azure 서비스의 상태를 추적하는 사용자 지정 가능한 대시보드를 제공합니다. 이 대시보드에서 지속적인 서비스 문제, 계획된 향후 유지 관리 또는 관련 상태 공지와 같은 활성 이벤트를 추적할 수 있습니다. 이벤트가 비활성화되면, 최대 90일 동안 상태 기록에 배치됩니다. 마지막으로 Service Health 대시보드를 사용하여 서비스 문제로 인해 영향이 발생할 경우 사전에 알리는 서비스 상태 경고를 만들고 관리할 수 있습니다.
 
 ## <a name="service-health-events"></a>Service Health 이벤트
@@ -60,5 +60,7 @@ Service Health를 필터링하여 업무상 중요한 구독, 지역 및 리소�
 ## <a name="configure-service-health-alerts"></a>Service Health 경고 구성
 Service Health는 Azure Monitor와 통합되어 업무상 중요한 리소스가 영향을 받는 경우 이일, 문자 메시지 및 웹후크 알림을 통해 경고합니다. 적절한 Service Health 이벤트에 대한 활동 로그 경고를 설정합니다. 작업 그룹을 사용하여 조직 내의 해당하는 사람들에게 해당 경고를 라우팅합니다. 자세한 내용은 [Service Health에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 참조하세요.
 
-# <a name="next-steps"></a>다음 단계
-상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 참조하세요. 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>다음 단계
+상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Azure 서비스 상태 경고를 설정 하는 것에 대 한 유용한](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s)합니다. 

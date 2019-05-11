@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight Go SDK
-description: Azure HDInsight Go SDK 참조
+title: Azure HDInsight SDK for Go
+description: Azure HDInsight SDK for Go에 대 한 참조
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700616"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466212"
 ---
-# <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 관리 SDK 미리 보기
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (미리 보기)
 
 ## <a name="overview"></a>개요
-HDInsight Go SDK는 HDInsight 클러스터 관리를 위한 클래스 및 함수를 제공합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업을 포함합니다.
+HDInsight SDK for Go는 HDInsight 클러스터를 관리할 수는 클래스와 함수를 제공 합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업을 포함합니다.
 
 > [!NOTE]  
 >이 SDK에 대한 GoDoc 참조 자료도 [여기](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)서 사용할 수 있습니다.
@@ -31,7 +31,7 @@ HDInsight Go SDK는 HDInsight 클러스터 관리를 위한 클래스 및 함수
 
 GOPATH 위치에서 `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight` 실행
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 완료되면 관리 작업 수행을 위해 사용할 수 있는 여러 함수(아래 섹션 참조)가 포함된 `ClustersClient` 인스턴스가 준비됩니다.
 

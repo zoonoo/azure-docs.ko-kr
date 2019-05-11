@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637757"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409606"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637757"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -341,6 +342,16 @@ _**그림 1**: 관리 디스크를 사용 하 여 스케일 아웃 파일 서버
 _**그림 2**: Managed disks가 없는 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면_
 
 **스토리지 계정 형식** 상자에서 **Premium Storage**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
+
+## <a name="adjust-cluster-timeout-settings"></a>클러스터 시간 제한 설정을 조정 합니다.
+
+Windows 스케일 아웃 파일 서버 클러스터를 성공적으로 설치한 후 Azure의에서 상태 검색 장애 조치에 대 한 제한 시간 임계값을 조정 합니다. 변경할 매개 변수는 [장애 조치(failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명되어 있습니다. 동일한 서브넷에 있는 클러스터 된 Vm을 만든다고 가정 이러한 값에 다음 매개 변수를 변경 합니다.
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+이러한 설정은 고객과 함께 테스트되어 도출된 합리적인 타협안입니다. 충분 한 복원 력을 아니지만 제공 빠른 실제 오류 상태 또는 VM 오류 데 충분 한 장애 조치 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

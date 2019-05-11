@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021102"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149766"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -69,6 +69,9 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 Tensor Flow 자동화 된 기계 학습 tensor flow 버전 1.13 현재 지원 하지 않습니다. 이 버전을 설치 하면 패키지 종속성 작동을 중지 합니다. 이후 릴리스에서이 문제를 해결 하기 위해 노력 중입니다. 
 
+### <a name="experiment-charts"></a>실험 차트
+
+자동화 된 기계 학습 실험 반복에 표시 된 이진 분류 차트 (ROC, 정밀도-리콜 곡선 등을 얻을 수)는 4 월 12부터 하지 사용자 인터페이스에서 올바르게 렌더링 합니다. 차트 그림 이며 현재 역 결과 표시 하는, 더 낮은 결과 사용 하 여 보다 나은 성능의 모델 표시 되어 있는 해결 방법을 조사 중입니다.
 
 ## <a name="databricks"></a>Databricks
 

@@ -3,26 +3,26 @@ title: '빠른 시작: C#을 사용하여 텍스트 분석 API 호출'
 titleSuffix: Azure Cognitive Services
 description: 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 구합니다.
 services: cognitive-services
-author: ashmaka
+author: raymondl
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/12/2019
+ms.date: 04/29/2019
 ms.author: assafi
-ms.openlocfilehash: 7051f1c1ce43be7dce5d88a06fccee9d876a70f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e7b07472623cc459c31906aeaa6ccfb4388b4b50
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010180"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146097"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: C#을 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
 
-이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 C#을 사용하여 언어 감지, 감정 분석 및 핵심 구 추출을 수행하는 방법을 보여 줍니다. 코드는 외부 라이브러리에 대한 최소한의 참조를 사용하여 .NET Core 애플리케이션에서 작동하도록 작성되었으므로 Linux 또는 MacOS에서도 실행할 수 있습니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics)에서 확인할 수 있습니다.
+이 빠른 시작을 사용하여 C#용 Text Analytics SDK를 통해 언어 분석을 시작합니다. [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API는 대부분의 프로그래밍 언어와 호환되는 반면, SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics)에서 확인할 수 있습니다.
 
-API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
+API 기술 문서는 [API 정의](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,203 +30,254 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 
 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다.
 
-## <a name="install-the-nuget-sdk-package"></a>NuGet SDK 패키지 설치
-1. Visual Studio에서 `.netcoreapp2.0` 이상을 사용하여 새 콘솔 솔루션을 만듭니다.
-1. 솔루션을 마우스 오른쪽 단추로 클릭한 다음, **솔루션용 NuGet 패키지 관리**를 클릭합니다.
-1. **찾아보기** 탭을 선택하고 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**를 검색합니다.
-
 > [!Tip]
->  C#에서 직접 [HTTP 엔드포인트](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)를 호출할 수 있지만, Microsoft.Azure.CognitiveServices.Language SDK에서는 JSON 직렬화 및 역직렬화를 걱정하지 않고도 서비스를 훨씬 더 쉽게 호출할 수 있습니다.
+>  C#에서 직접 [HTTP 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)를 호출할 수 있지만, Microsoft.Azure.CognitiveServices.Language SDK에서는 JSON 직렬화 및 역직렬화를 걱정하지 않고도 서비스를 훨씬 더 쉽게 호출할 수 있습니다.
 >
 > 몇 가지 유용한 링크:
 > - [SDK Nuget 페이지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK 코드](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
+> - [SDK 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-## <a name="call-the-text-analytics-api-using-the-sdk"></a>SDK를 사용하여 텍스트 분석 API 호출
+## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>Visual Studio 솔루션 만들기 및 SDK 설치
 
-1. Program.cs를 아래에 제공된 코드로 바꿉니다. 이 프로그램은 3개 섹션(언어 추출, 키 구문 추출 및 감정 분석)에서 텍스트 분석 API의 기능을 보여줍니다.
-1. `Ocp-Apim-Subscription-Key` 헤더 값을 구독에 유효한 액세스 키로 바꿉니다.
-1. `Endpoint`의 지역을 바꿉니다. 엔드포인트는 [Azure Portal](<https://ms.portal.azure.com>)에 있는 Text Analytics 리소스의 개요 섹션에서 찾을 수 있습니다. 엔드포인트의 "https://[region].api.cognitive.microsoft.com" 부분만 포함합니다.
-1. 프로그램을 실행합니다.
+1. 새로운 콘솔 앱(.NET Core) 프로젝트 [Visual Studio](https://visualstudio.microsoft.com/vs/)를 만듭니다.
+1. 솔루션을 마우스 오른쪽 단추로 클릭한 다음, **솔루션용 NuGet 패키지 관리**를 클릭합니다.
+1. **찾아보기** 탭을 선택하고 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**를 검색합니다.
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
+## <a name="authenticate-your-credentials"></a>자격 증명 인증
 
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-using Microsoft.Rest;
+1. 다음과 같은 `using` 문을 기본 클래스 파일(기본적으로 `Program.cs`)에 추가합니다.
 
-namespace ConsoleApp1
-{
-    class Program
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+    using Microsoft.Rest;
+    ```
+
+2. 새 `ApiKeyServiceClientCredentials` 클래스를 만들어 자격 증명을 저장하고 각 요청에 대해 추가합니다.
+
+    ```csharp
+    /// <summary>
+    /// Allows authentication to the API using a basic apiKey mechanism
+    /// </summary>
+    class ApiKeyServiceClientCredentials : ServiceClientCredentials
     {
-        private const string SubscriptionKey = ""; //Insert your Text Anaytics subscription key
+        private readonly string subscriptionKey;
 
-        private class ApiKeyServiceClientCredentials : ServiceClientCredentials
+        /// <summary>
+        /// Creates a new instance of the ApiKeyServiceClientCredentails class
+        /// </summary>
+        /// <param name="subscriptionKey">The subscription key to authenticate and authorize as</param>
+        public ApiKeyServiceClientCredentials(string subscriptionKey)
         {
-            public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-            {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                return base.ProcessHttpRequestAsync(request, cancellationToken);
-            }
+            this.subscriptionKey = subscriptionKey;
         }
 
-        static async Task Main(string[] args)
+        /// <summary>
+        /// Add the Basic Authentication Header to each outgoing request
+        /// </summary>
+        /// <param name="request">The outgoing request</param>
+        /// <param name="cancellationToken">A token to cancel the operation</param>
+        public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-
-            // Create a client.
-            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
+            if (request == null)
             {
-                Endpoint = "https://westus.api.cognitive.microsoft.com"
-            }; //Replace 'westus' with the correct region for your Text Analytics subscription
-
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            // Extracting language
-            Console.WriteLine("===== LANGUAGE EXTRACTION ======");
-
-            var langResults = await client.DetectLanguageAsync(
-                false,
-                new LanguageBatchInput(
-                    new List<LanguageInput>
-                        {
-                          new LanguageInput(id: "1", text: "This is a document written in English."),
-                          new LanguageInput(id: "2", text: "Este es un document escrito en Español."),
-                          new LanguageInput(id: "3", text: "这是一个用中文写的文件")
-                        }));
-
-            // Printing language results.
-            foreach (var document in langResults.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} , Language: {document.DetectedLanguages[0].Name}");
+                throw new ArgumentNullException("request");
             }
 
-            // Getting key-phrases
-            Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
-
-            var kpResults = await client.KeyPhrasesAsync(
-                false,
-                new MultiLanguageBatchInput(
-                    new List<MultiLanguageInput>
-                    {
-                        new MultiLanguageInput("ja", "1", "猫は幸せ"),
-                        new MultiLanguageInput("de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
-                        new MultiLanguageInput("en", "3", "My cat is stiff as a rock."),
-                        new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
-                    }));
-
-            // Printing keyphrases
-            foreach (var document in kpResults.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} ");
-
-                Console.WriteLine("\t Key phrases:");
-
-                foreach (string keyphrase in document.KeyPhrases)
-                {
-                    Console.WriteLine($"\t\t{keyphrase}");
-                }
-            }
-
-            // Extracting sentiment
-            Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
-
-            var sentimentResults = await client.SentimentAsync(
-                false,
-                new MultiLanguageBatchInput(
-                    new List<MultiLanguageInput>
-                    {
-                        new MultiLanguageInput("en", "1", "I had the best day of my life."),
-                        new MultiLanguageInput("en", "2", "This was a waste of my time. The speaker put me to sleep."),
-                        new MultiLanguageInput("es", "3", "No tengo dinero ni nada que dar..."),
-                        new MultiLanguageInput("it", "4", "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
-                    }));
-
-
-            // Printing sentiment results
-            foreach (var document in sentimentResults.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} , Sentiment Score: {document.Score:0.00}");
-            }
-
-
-            // Identify entities
-            Console.WriteLine("\n\n===== ENTITIES ======");
-
-            var entitiesResult = await client.EntitiesAsync(
-                false,
-                new MultiLanguageBatchInput(
-                    new List<MultiLanguageInput>()
-                    {
-                        new MultiLanguageInput("en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
-                        new MultiLanguageInput("es", "2", "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.")
-                    }));
-
-            // Printing entities results
-            foreach (var document in entitiesResult.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} ");
-
-                Console.WriteLine("\t Entities:");
-
-                foreach (var entity in document.Entities)
-                {
-                    Console.WriteLine($"\t\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
-                    foreach (var match in entity.Matches)
-                    {
-                        Console.WriteLine($"\t\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
-                    }
-                }
-            }
-
-            Console.ReadLine();
+            request.Headers.Add("Ocp-Apim-Subscription-Key", this.subscriptionKey);
+            return base.ProcessHttpRequestAsync(request, cancellationToken);
         }
     }
-}
+    ```
+
+3. `Program` 클래스를 업데이트하고 Text Analytics 구독 키 및 서비스 엔드포인트에 대한 상수 멤버를 추가합니다. Text Analytics 구독에 대한 올바른 Azure 지역을 사용해야 합니다.
+
+    ```csharp
+    private const string SubscriptionKey = "enter-your-key-here";
+
+    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://westus.api.cognitive.microsoft.com";
+    ```
+> [!Tip]
+> 프로덕션 시스템에서의 안전한 비밀 배포를 위해 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)를 사용하는 것이 좋습니다.
+>
+
+## <a name="create-a-text-analytics-client"></a>Text Analytics 클라이언트 만들기
+
+프로젝트의 `Main` 함수에서 호출하려는 샘플 메서드를 호출하고, 사용자가 정의한 `Endpoint` 및 `SubscriptionKey` 매개 변수를 전달합니다.
+
+```csharp
+    public static void Main(string[] args)
+    {
+        var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
+        var client = new TextAnalyticsClient(credentials)
+        {
+            //Replace 'westus' with the correct region for your Text Analytics subscription
+            Endpoint = "https://westus.api.cognitive.microsoft.com"
+        };
+
+        // Change console encoding to display non-ASCII characters
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        SentimentAnalysisExample(client).Wait();
+        // DetectLanguageExample(client).Wait();
+        // RecognizeEntitiesExample(client).Wait();
+        // KeyPhraseExtractionExample(client).Wait();
+        Console.ReadLine();
+    }
 ```
 
-## <a name="application-output"></a>애플리케이션 출력
+다음 섹션에서는 각 API 기능을 호출하는 방법을 설명합니다.
 
-애플리케이션에는 다음 정보가 표시됩니다.
+## <a name="sentiment-analysis"></a>정서 분석
+
+1. 이전에 만든 클라이언트를 사용하는 `SentimentAnalysisExample()`이라는 새 함수를 만듭니다.
+2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 분석하려는 문서가 포함된 `MultiLanguageInput` 개체 목록을 생성합니다.
+
+    ```csharp
+    public static async Task SentimentAnalysisExample(string endpoint, string key)
+    {
+        var credentials = new ApiKeyServiceClientCredentials(key);
+        var client = new TextAnalyticsClient(credentials)
+        {
+            Endpoint = endpoint
+        };
+
+        // The documents to be analyzed. Add the language of the document. The ID can be any value.
+        var inputDocuments = new MultiLanguageBatchInput(
+            new List<MultiLanguageInput>
+            {
+                new MultiLanguageInput("en", "1", "I had the best day of my life."),
+                new MultiLanguageInput("en", "2", "This was a waste of my time. The speaker put me to sleep."),
+                new MultiLanguageInput("es", "3", "No tengo dinero ni nada que dar..."),
+                new MultiLanguageInput("it", "4", "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
+            });
+        //...
+    }
+    ```
+
+3. 동일한 함수에서 `client.SentimentAsync()`를 호출하고 결과를 확인합니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 감정 점수를 인쇄합니다. 점수가 0에 가까울수록 부정적인 감정을 나타내고, 1에 가까울수록 긍정적인 감정을 나타냅니다.
+
+    ```csharp
+    var result = await client.SentimentAsync(false, inputDocuments);
+
+    // Printing sentiment results
+    foreach (var document in result.Documents)
+    {
+        Console.WriteLine($"Document ID: {document.Id} , Sentiment Score: {document.Score:0.00}");
+    }
+    ```
+
+### <a name="output"></a>출력
+
+```console
+Document ID: 1 , Sentiment Score: 0.87
+Document ID: 2 , Sentiment Score: 0.11
+Document ID: 3 , Sentiment Score: 0.44
+Document ID: 4 , Sentiment Score: 1.00
+```
+
+## <a name="language-detection"></a>언어 검색
+
+1. 이전에 만든 클라이언트를 사용하는 `DetectLanguageExample()`이라는 새 함수를 만듭니다.
+2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 사용자의 문서가 포함된 `LanguageInput` 개체 목록을 생성합니다.
+
+    ```csharp
+    public static async Task DetectLanguageExample(string endpoint, string key)
+    {
+        var credentials = new ApiKeyServiceClientCredentials(key);
+        var client = new TextAnalyticsClient(credentials)
+        {
+            Endpoint = endpoint
+        };
+
+        // The documents to be submitted for language detection. The ID can be any value.
+        var inputDocuments = new LanguageBatchInput(
+                new List<LanguageInput>
+                    {
+                        new LanguageInput(id: "1", text: "This is a document written in English."),
+                        new LanguageInput(id: "2", text: "Este es un document escrito en Español."),
+                        new LanguageInput(id: "3", text: "这是一个用中文写的文件")
+                    });
+        //...
+    }
+    ```
+
+3. 동일한 함수에서 `client.DetectLanguageAsync()`를 호출하고 결과를 확인합니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 처음 반환된 언어를 인쇄합니다.
+
+    ```csharp
+    var langResults = await client.DetectLanguageAsync(false, inputDocuments);
+
+    // Printing detected languages
+    foreach (var document in langResults.Documents)
+    {
+        Console.WriteLine($"Document ID: {document.Id} , Language: {document.DetectedLanguages[0].Name}");
+    }
+    ```
+
+### <a name="output"></a>출력
 
 ```console
 ===== LANGUAGE EXTRACTION ======
 Document ID: 1 , Language: English
 Document ID: 2 , Language: Spanish
 Document ID: 3 , Language: Chinese_Simplified
+```
 
+## <a name="entity-recognition"></a>엔터티 인식
 
-===== KEY-PHRASE EXTRACTION ======
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                rock
-Document ID: 4
-         Key phrases:
-                fútbol
+1. 이전에 만든 클라이언트를 사용하는 `RecognizeEntitiesExample()`이라는 새 함수를 만듭니다.
+2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 사용자의 문서가 포함된 `MultiLanguageBatchInput` 개체 목록을 생성합니다.
 
+    ```csharp
+    public static async Task RecognizeEntitiesExample(string endpoint, string key)
+    {
+        var credentials = new ApiKeyServiceClientCredentials(key);
+        var client = new TextAnalyticsClient(credentials)
+        {
+            Endpoint = endpoint
+        };
 
-===== SENTIMENT ANALYSIS ======
-Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
+        // The documents to be submitted for entity recognition. The ID can be any value.
+        var inputDocuments = new MultiLanguageBatchInput(
+            new List<MultiLanguageInput>
+            {
+                new MultiLanguageInput("en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
+                new MultiLanguageInput("es", "2", "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.")
+            });
+        //...
+    }
+    ```
 
+3. 동일한 함수에서 `client.EntitiesAsync()`를 호출하고 결과를 확인합니다. 그런 다음, 결과를 반복하고 각 문서의 ID를 인쇄합니다. 검색된 각 엔터티의 경우 원본 텍스트의 위치뿐만 아니라 wikipedia 이름, 형식 및 하위 형식(존재하는 경우)을 인쇄합니다.
 
-===== ENTITIES ======
+    ```csharp
+    var entitiesResult = await client.EntitiesAsync(false, inputDocuments);
+
+    // Printing recognized entities
+    foreach (var document in entitiesResult.Documents)
+    {
+        Console.WriteLine($"Document ID: {document.Id} ");
+
+        Console.WriteLine("\t Entities:");
+        foreach (var entity in document.Entities)
+        {
+            Console.WriteLine($"\t\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
+            foreach (var match in entity.Matches)
+            {
+                Console.WriteLine($"\t\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
+            }
+        }
+    }
+    ```
+
+### <a name="output"></a>출력
+
+```console
 Document ID: 1
          Entities:
                 Name: Microsoft,        Type: Organization,     Sub-Type: N/A
@@ -255,12 +306,78 @@ Document ID: 2
                         Offset: 88,     Length: 7,      Score: 1.000
 ```
 
+## <a name="key-phrase-extraction"></a>핵심 문구 추출
+
+1. 이전에 만든 클라이언트를 사용하는 `KeyPhraseExtractionExample()`이라는 새 함수를 만듭니다.
+2. `ApiKeyServiceClientCredentials`를 매개 변수로 사용하여 새 `TextAnalyticsClient` 개체를 만든 다음, 사용자의 문서가 포함된 `MultiLanguageBatchInput` 개체 목록을 생성합니다.
+
+    ```csharp
+    public static async Task KeyPhraseExtractionExample(string endpoint, string key)
+    {
+        var credentials = new ApiKeyServiceClientCredentials(key);
+        var client = new TextAnalyticsClient(credentials)
+        {
+            Endpoint = endpoint
+        };
+
+        var inputDocuments = new MultiLanguageBatchInput(
+                    new List<MultiLanguageInput>
+                    {
+                        new MultiLanguageInput("ja", "1", "猫は幸せ"),
+                        new MultiLanguageInput("de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
+                        new MultiLanguageInput("en", "3", "My cat might need to see a veterinarian."),
+                        new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
+                    });
+        //...
+    }
+    ```
+
+3. 동일한 함수에서 `client.KeyPhrasesAsync()`를 호출하고 결과를 확인합니다. 그런 다음, 결과를 반복하고 각 문서의 ID 및 검색된 주요 문구를 인쇄합니다.
+
+    ```csharp
+    var kpResults = await client.KeyPhrasesAsync(false, inputDocuments);
+
+    // Printing keyphrases
+    foreach (var document in kpResults.Documents)
+    {
+        Console.WriteLine($"Document ID: {document.Id} ");
+
+        Console.WriteLine("\t Key phrases:");
+
+        foreach (string keyphrase in document.KeyPhrases)
+        {
+            Console.WriteLine($"\t\t{keyphrase}");
+        }
+    }
+    ```
+
+### <a name="output"></a>출력
+
+```console
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+                Fahrt
+                Fu
+Document ID: 3
+         Key phrases:
+                cat
+                veterinarian
+Document ID: 4
+         Key phrases:
+                fútbol
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [텍스트 분석 및 Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>참고 항목
 
- [Text Analytics 개요](../overview.md) [FAQ(질문과 대답)](../text-analytics-resource-faq.md)
+* [Text Analytics 개요](../overview.md)
+* [FAQ(질문과 대답)](../text-analytics-resource-faq.md)
 

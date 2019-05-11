@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Sentinel hunting 기능을 사용 하 여
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: ae9d52e4a26825e4318a6afb8aadc86ac29fa2b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffe3ae5b6aa26d154928a74e51864a0574b82c68
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403117"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228626"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Jupyter Notebook을 사용 하 여 보안 위협에 대 한 사냥 하
 

@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Open Datasets 미리 보기 설명서
+metadata:
+  title: 'Azure Open Datasets 미리 보기 설명서 – 자습서, API 참조 | Microsoft Docs'
+  description: '최소한의 준비만 해서 사용할 수 있도록 큐레이팅 및 정리된 Azure Open Datasets를 사용하는 방법을 알아봅니다. Open Datasets는 날씨, 인구, 휴일처럼 기계 학습 모델을 보강할 수 있는 공용 데이터입니다. 자습서, 예제 및 API 참조 문서는 방법을 보여줍니다.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: '최소한의 준비만 해서 사용할 수 있도록 큐레이팅 및 정리된 Azure Open Datasets를 사용하는 방법을 알아봅니다. Open Datasets는 날씨, 인구, 휴일처럼 기계 학습 모델을 보강할 수 있는 공용 데이터를 포함합니다. 자습서, 예제 및 API 참조 문서는 방법을 보여줍니다.'
+sections:
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">자동화된 기계 학습을 사용하여 회귀 모델 빌드</a>
+  - title: 샘플
+    items:
+      - type: paragraph
+        text: <a href="samples">데이터 세트를 보강하는 Notebook</a>
+  - title: 참고 자료
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">API 참조</a>'

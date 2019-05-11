@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924780"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410055"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Azure Vm에 대 한 튜닝 TCP/IP 성능
 
@@ -240,7 +240,7 @@ Set-NetTCPSetting
 |사용 안 함|없음|없음|창 크기|
 |제한|4|2^4|창 크기 * (2 ^4)|
 |매우 제한|2|2^2|창 크기 * (2 ^2)|
-|정상|8|2^8|창 크기 * (2 ^8)|
+|보통|8|2^8|창 크기 * (2 ^8)|
 |실험적|14|2^14|창 크기 * (2 ^14)|
 
 이러한 설정은 가능성이 가장 TCP 성능에 영향을 하지만 Azure의 컨트롤 외부에서 인터넷을 통해 다른 요인 TCP 성능 영향을 줄 수도 있습니다.
@@ -276,7 +276,7 @@ Set-NetTCPSetting
 
 수신 측 배율 (RSS)는 네트워크 드라이버 기술을 배포 하 여 네트워크 트래픽의 수신을 보다 효율적으로 배포 하는 다중 프로세서 시스템에서 여러 Cpu에서 처리를 수신 합니다. 간단히 말해 RSS 하나가 아닌 모든 사용 가능한 Cpu를 사용 하기 때문에 더 수신된 트래픽을 처리 하는 시스템 수 있습니다. 에 대 한 보다 기술적인 설명은 RSS 참조 하세요 [수신측 배율 소개](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)합니다.
 
-가속화 된 네트워킹을 VM에서 사용 하는 경우 최상의 성능을 얻으려면, RSS를 사용 하도록 설정 해야 합니다. RSS는 가속화 된 네트워킹을 사용 하지 않는 Vm에 혜택을 제공할 수도 있습니다. RSS를 사용할 수 있는지 확인 하는 방법 및 사용 하도록 설정 하는 방법의 개요를 참조 하세요 [Azure virtual machines에 대 한 네트워크 처리량 최적화](http://aka.ms/FastVM)합니다.
+가속화 된 네트워킹을 VM에서 사용 하는 경우 최상의 성능을 얻으려면, RSS를 사용 하도록 설정 해야 합니다. RSS는 가속화 된 네트워킹을 사용 하지 않는 Vm에 혜택을 제공할 수도 있습니다. RSS를 사용할 수 있는지 확인 하는 방법 및 사용 하도록 설정 하는 방법의 개요를 참조 하세요 [Azure virtual machines에 대 한 네트워크 처리량 최적화](https://aka.ms/FastVM)합니다.
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT 및 TIME_WAIT 암살
 
@@ -316,13 +316,13 @@ Azure 가상 머신은 여기에 연결 된 하나 이상의 네트워크 인터
 
 - **프로토콜**: 모든 프로토콜을 통한 모든 아웃 바운드 트래픽을 제한에 대해 계산 됩니다.
 
-자세한 내용은 [가상 머신 네트워크 대역폭](http://aka.ms/AzureBandwidth)합니다.
+자세한 내용은 [가상 머신 네트워크 대역폭](https://aka.ms/AzureBandwidth)합니다.
 
 ### <a name="internet-performance-considerations"></a>인터넷 성능 고려 사항
 
 이 문서 전체에서 설명 했 듯이 요소 인터넷과 Azure의 컨트롤 외부의 네트워크 성능이 저하 될 수 있습니다. 이러한 요인은 다음과 같습니다.
 
-- **Latency**: 중간 네트워크 문제, "가장 짧은" 거리 경로 갖지 않는 트래픽 및 최적이 아닌 피어 링 경로 의해 두 대상 간에 왕복 시간을 달라질 수 있습니다.
+- **대기 시간**: 중간 네트워크 문제, "가장 짧은" 거리 경로 갖지 않는 트래픽 및 최적이 아닌 피어 링 경로 의해 두 대상 간에 왕복 시간을 달라질 수 있습니다.
 
 - **패킷 손실**: 패킷 손실 실적이 네트워크 장치, 네트워크 정체 및 실제 경로 문제를 발생할 수 있습니다.
 
@@ -362,7 +362,7 @@ TCP 성능 RTT 및 패킷 손실에 크게 의존 합니다. Windows 및 Linux�
 
 ### <a name="measure-actual-throughput-of-a-tcp-connection"></a>TCP 연결의 실제 처리량 측정
 
-NTttcp를 Linux 또는 Windows VM의 TCP 성능 테스트에 대 한 도구 이며 다양 한 TCP 설정 변경 하 고 NTttcp를 사용 하 여 혜택을 테스트할 수 있습니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요. 
+NTttcp를 Linux 또는 Windows VM의 TCP 성능 테스트에 대 한 도구 이며 다양 한 TCP 설정 변경 하 고 NTttcp를 사용 하 여 혜택을 테스트할 수 있습니다. 자세한 내용은 다음 리소스를 참조하십시오.
 
 - [대역폭/처리량 테스트 (NTttcp)](https://aka.ms/TestNetworkThroughput)
 

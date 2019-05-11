@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269353"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198572"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 종단 간 SSL 구성
 
@@ -174,7 +174,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    ```
 
    > [!NOTE]
-   > 이 단계에서 제공하는 인증서는 백 엔드에 있는 .pfx 인증서의 공개 키이어야 합니다. 백 엔드 서버에 설치된 인증서(루트 인증서 제외)를 CER(Claim, Evidence, Reasoning) 형식으로 내보내고 이 단계에서 사용합니다. 이 단계에서는 Application Gateway를 통해 백 엔드를 허용 목록에 추가합니다.
+   > 이전 단계에서 제공 하는 인증서는 백 엔드에 있는.pfx 인증서의 공개 키 있어야 합니다. 백 엔드 서버에 설치된 인증서(루트 인증서 제외)를 CER(Claim, Evidence, Reasoning) 형식으로 내보내고 이 단계에서 사용합니다. 이 단계에서는 Application Gateway를 통해 백 엔드를 허용 목록에 추가합니다.
 
    Application Gateway v2 SKU를 사용하는 경우 인증 인증서 대신 신뢰할 수 있는 루트 인증서를 만듭니다. 자세한 내용은 [Application Gateway의 종단 간 SSL 개요](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)를 참조하세요.
 

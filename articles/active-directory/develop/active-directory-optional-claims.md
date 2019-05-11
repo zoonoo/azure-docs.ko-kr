@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713348"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139236"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 대 한 선택적 클레임을 제공 합니다.
 
@@ -70,7 +70,8 @@ ms.locfileid: "64713348"
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us"). |
 | `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다. 형식이 지정된 LL("en"). |
 | `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 디바이스 ID |
-| `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, AAD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|  
+| `email`                    | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | MSA, AAD | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.| 
+| `groups`| 그룹 클레임에 대 한 서식 지정 옵션 |JWT, SAML| |GroupMembershipClaims 설정과 함께 사용 합니다 [응용 프로그램 매니페스트](reference-app-manifest.md)에 설정 해야 합니다. 자세한 내용은 참조 하십시오 [클레임 그룹](#Configuring-group-optional claims) 아래. 그룹 클레임에 대 한 자세한 내용은 참조 하세요. [그룹 클레임을 구성 하는 방법](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | 테넌트의 사용자 계정 상태입니다. | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `upn`                      | UserPrincipalName 클레임입니다. | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
 
@@ -91,7 +92,6 @@ ms.locfileid: "64713348"
 | `family_name` | 성                       | 사용자 개체에 정의 된 대로 마지막 이름, 성 또는 사용자의 패밀리 이름을 제공 합니다. <br>"family_name":"Miller" | MSA 및 AAD에서 지원   |
 | `given_name`  | 이름                      | 첫 번째 제공 또는 "지정 된" 사용자의 이름을 사용자 개체에 설정 합니다.<br>"given_name": "Frank"                   | MSA 및 AAD에서 지원  |
 | `upn`         | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. |
-
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
 
@@ -131,24 +131,24 @@ ms.locfileid: "64713348"
 ```json
 "optionalClaims":  
    {
-       "idToken": [
-             { 
-                   "name": "auth_time", 
-                   "essential": false
-              }
-        ],
- "accessToken": [ 
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": false
+             }
+      ],
+      "accessToken": [
              {
                     "name": "ipaddr", 
                     "essential": false
               }
-        ],
-"saml2Token": [ 
-              { 
+      ],
+      "saml2Token": [
+              {
                     "name": "upn", 
                     "essential": false
                },
-               { 
+               {
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
                     "essential": false
@@ -187,7 +187,7 @@ ms.locfileid: "64713348"
 표준 선택적 클레임 집합 외에 디렉터리 스키마 확장을 포함 하는 토큰을 구성할 수 있습니다. 자세한 내용은 참조 하세요. [디렉터리 스키마 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)합니다. 이 기능은 앱이 사용할 수 있는 추가 사용자 정보(예: 추가 식별자 또는 사용자가 설정한 중요 구성 옵션)를 추가하는 데 유용합니다. 
 
 > [!Note]
-> 디렉터리 스키마 확장은 AAD 전용 기능이므로, 프로그램 매니페스트가 사용자 지정 확장을 요청하고, MSA 사용자가 앱에 로그인하는 경우 이러한 확장이 반환되지 않습니다. 
+> 디렉터리 스키마 확장은 AAD 전용 기능이므로, 프로그램 매니페스트가 사용자 지정 확장을 요청하고, MSA 사용자가 앱에 로그인하는 경우 이러한 확장이 반환되지 않습니다.
 
 ### <a name="directory-extension-formatting"></a>서식 지정 하는 디렉터리 확장
 
@@ -196,6 +196,98 @@ ms.locfileid: "64713348"
 JWT 내에서 이러한 클레임은 `extn.<attributename>` 이름 형식을 사용하여 내보내집니다.
 
 SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/identity/claims/extn.<attributename>` URI 형식을 사용하여 내보내집니다.
+
+## <a name="configuring-group-optional-claims"></a>그룹 선택적 클레임 구성
+
+   > [!NOTE]
+   > 사용자와 온-프레미스에서 동기화 그룹에 대 한 그룹 이름을 내보내는 기능은 공개 미리 보기
+
+이 섹션에서는 온-프레미스 Windows Active Directory에서 동기화 된 특성에 기본 그룹의 objectID에서 그룹 클레임에 사용 된 그룹 특성 변경에 대 한 선택적 클레임의 구성 옵션
+> [!IMPORTANT]
+> 참조 [Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임을 구성](../hybrid/how-to-connect-fed-group-claims.md) 온-프레미스 특성에서 그룹 클레임의 공개 미리 보기에 대 한 중요 한 주의 비롯 한 자세한 내용은 합니다.
+
+1. 포털에서 Azure Active Directory-> 응용 프로그램-> 등록 선택-> 응용 프로그램 매니페스트->
+
+2. groupMembershipClaim 변경 하 여 그룹 구성원 자격 클레임을 사용 하도록 설정
+
+   유효한 값은:
+
+   - "All"
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
+
+   예를 들면 다음과 같습니다.
+
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
+
+   그룹의 그룹 Objectid를 내보낼 수는 기본적으로 클레임 값입니다.  역할 클레임 형식을 변경 하려면 또는 온 프레미스 그룹 특성을 포함 하는 클레임 값을 수정 하려면 OptionalClaims 구성을 같이 사용 합니다.
+
+3. 그룹 이름을 구성에 대 한 선택적 클레임을 설정 합니다.
+
+   하려는 경우 토큰에서 그룹에 선택적 클레임 섹션에서 AD 그룹 특성 지정에 토큰 유형이 선택적 클레임을 적용 해야 하는 온-프레미스에서 요청한 선택적 클레임 및 필요한 추가 속성의 이름을 포함 합니다.  여러 토큰 형식은 나열할 수 있습니다.
+
+   - OIDC ID 토큰에 대 한 idToken
+   - OAuth/OIDC 액세스 토큰에 대 한 accessToken
+   - SAML 토큰에 대 한 Saml2Token 합니다.
+
+   > [!NOTE]
+   > 형식 토큰 SAML1.1 및 SAML2.0 둘 다에 적용 됩니다 Saml2Token 형식은
+
+   각 관련 토큰 형식에 대 한 매니페스트에서 OptionalClaims 섹션을 사용 하려면 그룹 클레임을 수정 합니다. OptionalClaims 스키마는 다음과 같습니다.
+
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
+
+   | 선택적 클레임 스키마 | 값 |
+   |----------|-------------|
+   | **name:** | "Groups" 해야 합니다. |
+   | **source:** | 사용되지 않습니다. 생략 하거나 null을 지정 |
+   | **essential:** | 사용되지 않습니다. 생략 하거나 false를 지정 합니다. |
+   | **additionalProperties:** | 추가 속성 목록입니다.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
+
+   AdditionalProperties "sam_account_name", "dns_domain_and_sam_account_name" 중 하나에 "netbios_domain_and_sam_account_name"는 필요 합니다.  둘 이상 있으면 첫 번째 사용 되 고 나머지는 무시 됩니다.
+
+   일부 응용 프로그램은 역할 클레임에 사용자의 그룹 정보가 필요 합니다.  그룹에서 역할 클레임에 클레임을 클레임 유형을 변경 하려면 "emit_as_roles" 추가 속성을 추가 합니다.  그룹 값은 역할 클레임에 발생 합니다.
+
+   > [!NOTE]
+   > "Emit_as_roles"을 사용 하는 경우 사용자가 할당 되는 모든 응용 프로그램 역할 구성 역할 클레임에 표시 되지 않습니다
+
+**예제:** 그룹 dnsDomainName\sAMAccountName 형태로 OAuth 액세스 토큰에서 그룹 이름으로 내보내기
+
+```json
+"optionalClaims": {
+    "accessToken": [{
+        "name": "groups",
+        "additionalProperties": ["dns_domain_and_sam_account_name"]
+    }]
+}
+ ```
+
+SAML 및 OIDC ID 토큰에서 역할 클레임으로 netbiosDomain\sAMAccountName 형식으로 반환 될 그룹 이름을 내보낼:
+
+```json
+"optionalClaims": {
+    "saml2Token": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }],
+
+    "idToken": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }]
+ }
+
+ ```
 
 ## <a name="optional-claims-example"></a>선택적 클레임 예제
 
@@ -213,7 +305,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 1. 애플리케이션 페이지에서 **매니페스트**를 클릭하여 인라인 매니페스트 편집기를 엽니다. 
 1. 이 편집기를 사용하여 매니페스트를 직접 편집할 수 있습니다. 매니페스트는 [애플리케이션 엔터티](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)의 스키마를 따르며, 저장된 매니페스트의 서식을 자동으로 지정합니다. 새 요소가 `OptionalClaims` 속성에 추가됩니다.
 
-      ```json
+    ```json
       "optionalClaims": 
       {
             "idToken": [ 
@@ -223,13 +315,13 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
                         "additionalProperties": [ "include_externally_authenticated_upn"]  
                   }
             ],
-      "accessToken": [ 
+            "accessToken": [ 
                   {
                         "name": "auth_time", 
                         "essential": false
                   }
             ],
-      "saml2Token": [ 
+            "saml2Token": [ 
                   { 
                         "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                         "source": "user", 
@@ -237,8 +329,10 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
                   }
             ]
       }
-      ```
-      이 경우에는 애플리케이션에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다. 이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`). 다른 클라이언트가 이 애플리케이션용으로 요청하는 액세스 토큰에는 이제 auth_time 클레임이 포함됩니다. SAML 토큰은 skypeId 디렉터리 스키마 확장을 포함합니다(이 예제에서 이 앱의 앱 ID는 ab603c56068041afb2f6832e2a17e237임). SAML 토큰은 Skype ID를 `extension_skypeId`로 노출합니다.
+
+    ```
+
+    이 경우에는 애플리케이션에서 수신할 수 있는 각 토큰 유형에 서로 다른 선택적 클레임이 추가되었습니다. 이제 ID 토큰에는 페더레이션 사용자의 UPN이 전체 형식으로 포함됩니다(`<upn>_<homedomain>#EXT#@<resourcedomain>`). 다른 클라이언트가 이 애플리케이션용으로 요청하는 액세스 토큰에는 이제 auth_time 클레임이 포함됩니다. SAML 토큰은 skypeId 디렉터리 스키마 확장을 포함합니다(이 예제에서 이 앱의 앱 ID는 ab603c56068041afb2f6832e2a17e237임). SAML 토큰은 Skype ID를 `extension_skypeId`로 노출합니다.
 
 1. 매니페스트 업데이트가 끝나면 **저장**을 클릭하여 매니페스트를 저장합니다.
 

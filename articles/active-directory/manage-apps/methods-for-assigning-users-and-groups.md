@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291282"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441413"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당
 이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션에 사용자나 그룹을 할당하는 방법을 설명합니다. 사용자를 먼저 애플리케이션에 할당해야 관리자가 해당 사용자에게 다음 작업을 수행할 권한을 부여할 수 있습니다.
@@ -31,6 +31,8 @@ ms.locfileid: "60291282"
 -   [애플리케이션 액세스 패널](https://myapps.microsoft.com/) 또는 모바일 애플리케이션에 애플리케이션이 나타나는지 확인합니다.
 
 -   [Office 365 애플리케이션 시작 관리자](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)에 애플리케이션이 나타나는지 확인합니다.
+
+그룹 기반 할당의 가용성은 사용권 계약에 의해 결정 됩니다. 그룹 기반 할당은 보안 그룹에 지원 하 고 중첩된 그룹 구성원을 현재 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 애플리케이션에 사용자 및 그룹을 할당하기 전에 사용자 할당을 요구해야 합니다. 사용자를 할당해야 하도록 설정하려면 다음을 수행합니다.

@@ -2,18 +2,19 @@
 title: Azure Storage에서 정적 웹 사이트 호스팅
 description: 최신 웹 애플리케이션을 호스팅하는 비용 효율적이고 확장 가능한 솔루션을 제공하는 정적 웹 사이트 호스팅입니다.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
+ms.author: normesta
+ms.reviewer: seguler
 ms.date: 04/29/2019
-ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cd1fa71cb2a10c7e61f76bdd224ba6d0f039346f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925272"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148468"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
-title: v2.0 정보 | Azure
-description: v2.0 엔드포인트 및 플랫폼에 관해 알아봅니다.
+title: Microsoft ID 플랫폼(v2.0) 개요 - Azure
+description: Microsoft ID 플랫폼(v2.0) 엔드포인트와 플랫폼에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,55 +12,71 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb269df035bcc11583ebb7cff7d1ee2c3f6d8bca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208302"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231082"
 ---
-# <a name="about-v20"></a>v2.0 정보
+# <a name="microsoft-identity-platform-v20-overview"></a>Microsoft ID 플랫폼(v2.0) 개요
 
-v2.0 엔드포인트와 플랫폼은 미리 보기 상태였으며 지속적으로 향상되었습니다. 현재 JavaScript 단일 페이지 애플리케이션(SPA) 시나리오는 기능이 완료되었으므로 MSAL.js를 사용하여 브라우저 기반 응용 프로그램을 빌드하고, 당사에서 GA(General Availability)로 상태를 업데이트할 수 있게 피드백을 제공하도록 사용자를 초대합니다.
+Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph와 같은 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. Microsoft ID 플랫폼은 다음으로 구성됩니다.
 
-> [!NOTE]
-> MSAL Android, iOS 및 .NET에는 개발 중인 기능이 있습니다. 해당 기능을 사용하여 애플리케이션을 빌드하고 피드백을 보낼 수 있습니다.
+- **OAuth 2.0 및 OpenID Connect 표준 규격 인증 서비스**: 개발자가 다음을 비롯한 Microsoft ID를 인증할 수 있습니다.
+  - 회사 또는 학교 계정(Azure AD를 통해 프로비저닝됨)
+  - 개인 Microsoft 계정(예: Skype, Xbox 및 Outlook.com)
+  - 소셜 또는 로컬 계정(Azure AD B2C를 통함)
+- **오픈 소스 라이브러리**: MSAL(Microsoft 인증 라이브러리) 및 기타 표준 규격 라이브러리 지원
+- **애플리케이션 관리 포털**: 다른 모든 Azure 관리 기능과 함께 Azure Portal에 구축된 등록 및 구성 환경입니다.
+- **애플리케이션 구성 API 및 PowerShell**: REST API(Microsoft Graph 및 Azure Active Directory Graph 1.6)와 PowerShell을 통해 프로그래밍 방식으로 애플리케이션을 구성할 수 있기 때문에 DevOps 작업을 자동화할 수 있습니다.
+- **개발자 콘텐츠**: 개념 및 참조 설명서, 빠른 시작 샘플, 코드 샘플, 자습서 및 방법 가이드입니다.
 
-Azure Portal [앱 등록(미리 보기)](quickstart-register-app.md) 환경은 이제 ADAL 또는 MSAL로 빌드된 모든 애플리케이션을 포함하고 사용성을 향상시키기 위해 대폭 업데이트되었습니다.
+Microsoft ID 플랫폼은 개발자를 위해 ID 및 보안 공간의 혁신(예: 암호 없는 인증, 스텝업 인증 및 조건부 액세스)에 완벽하게 통합됩니다.  이러한 기능을 직접 구현할 필요가 없습니다. Microsoft ID 플랫폼에 통합된 애플리케이션은 이러한 기술 혁신의 이점을 기본적으로 활용합니다.
 
-과거 Azure Active Directory(Azure AD)에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 애플리케이션 개발자는 별도의 두 시스템과 통합해야 했습니다. v2.0 엔드포인트와 플랫폼에서는 이 프로세스를 단순화하는 인증 API 버전을 제공합니다. 여기에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있습니다. 또한 v2.0 엔드포인트를 사용하는 애플리케이션은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://developer.microsoft.com/graph)의 REST API를 사용할 수 있습니다.
+Microsoft ID 플랫폼에서는 코드를 한 번에 작성하여 사용자를 연결할 수 있습니다. 앱을 한 번에 작성하여 여러 플랫폼에서 작동하거나, 클라이언트는 물론 리소스 애플리케이션(API)으로 작동하는 앱을 빌드할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
-다음 목록에서 즐겨 찾는 플랫폼을 선택하여 Microsoft 오픈 소스 라이브러리 및 프레임워크를 사용하여 애플리케이션을 빌드합니다.
+ID 관련 작업이 어려울 필요는 없습니다. 내게 맞는 시나리오를 선택하면 됩니다. 각 시나리오 경로는 빠른 시작과 개요 페이지로 연결되기 때문에 몇 분 안에 작동과 실행이 가능합니다.
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [단일 페이지 앱 빌드](scenario-spa-overview.md)
+- [사용자가 로그인하는 웹앱 빌드](scenario-web-app-sign-user-overview.md)
+- [Web API를 호출하는 웹앱 빌드](scenario-web-app-call-api-overview.md)
+- [보호된 웹 API 빌드](scenario-protected-web-api-overview.md)
+- [웹 API를 호출하는 웹 API 빌드](scenario-web-api-call-api-overview.md)
+- [데스크톱 앱 빌드](scenario-desktop-overview.md)
+- [디먼 앱 빌드](scenario-daemon-overview.md)
+- [모바일 앱 빌드](scenario-mobile-overview.md)
 
-## <a name="learn-more-about-the-v20-endpoint-and-platform"></a>v2.0 엔드포인트와 플랫폼에 대해 자세히 알아보세요.
+다음 차트는 일반적인 인증 앱 시나리오를 간략하게 보여줍니다. 이 차트는 Microsoft ID 플랫폼을 앱과 통합할 때 참조할 수 있습니다.
 
-Azure AD v2.0 엔드포인트로 수행할 수 있는 작업에 대해 자세히 알아봅니다.
+[![Microsoft ID 플랫폼의 애플리케이션 시나리오](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-* [Azure AD v2.0 엔드포인트로 빌드할 수 있는 애플리케이션 유형](v2-app-types.md)을 검색합니다.
-* Azure AD v2.0 엔드포인트에 대한 [제한, 제한 사항 및 제약 조건](active-directory-v2-limitations.md)을 이해합니다.
+## <a name="next-steps"></a>다음 단계
 
-## <a name="additional-resources"></a>추가 리소스
+핵심적인 인증 개념에 대해 자세히 알아보려면 다음 항목을 시작하는 것이 좋습니다.
 
-v2.0에 관한 자세한 정보를 살펴보세요.
+- [인증 기본 사항](authentication-scenarios.md)
+- [애플리케이션 및 서비스 주체](app-objects-and-service-principals.md)
+- [대상 그룹](v2-supported-account-types.md)
+- [권한 및 동의](v2-permissions-and-consent.md)
+- [ID 토큰](id-tokens.md) 및 [액세스 토큰](access-tokens.md)
 
-* [Microsoft ID 플랫폼 정보](about-microsoft-identity-platform.md)
-* [v2.0 프로토콜 참조](active-directory-v2-protocols.md)
-* [액세스 토큰 참조](access-tokens.md)
-* [ID 토큰 참조](id-tokens.md)
-* [v2.0 인증 라이브러리 참조](reference-v2-libraries.md)
-* [v2.0의 권한 및 동의](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://developer.microsoft.com/graph)
+[Microsoft Graph](https://docs.microsoft.com/graph/overview)를 호출하는 데이터가 풍부한 애플리케이션을 빌드합니다.
 
-> [!NOTE]
-> Azure Active Directory에서 회사 계정과 학교 계정에만 로그인해야 하는 경우 [개발자용 Azure AD 가이드](v1-overview.md)를 시작합니다. v2.0 엔드포인트는 Microsoft 개인 계정에 명시적으로 로그인해야 하는 개발자가 사용하기 위한 것입니다.
+**프로덕션 환경**에서 앱을 시작할 준비가 되면, 다음과 같은 모범 사례를 검토하세요.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+- 애플리케이션에 [로그인이 가능하도록 설정](msal-logging.md)합니다.
+- 애플리케이션에 원격 분석이 가능하도록 설정합니다.
+- [프록시를 사용하도록 설정하고 HTTP 클라이언트를 사용자 지정](msal-net-provide-httpclient.md)합니다.
+- [Microsoft ID 플랫폼 통합 검사 목록](identity-platform-integration-checklist.md)에 따라 통합을 테스트합니다.
+
+## <a name="learn-more"></a>자세한 정보
+
+소셜 및 로컬 ID로 로그인하는 고객용 애플리케이션을 빌드할 계획이면 [Azure AD B2C 개요](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)를 참조하세요.

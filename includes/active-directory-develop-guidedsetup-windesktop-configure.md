@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799543"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199284"
 ---
 ## <a name="register-your-application"></a>애플리케이션 등록
 
@@ -43,7 +43,9 @@ ms.locfileid: "59799543"
    - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
    - **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-1. **리디렉션 URI** 섹션에서 **공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션을 찾고 **"urn:ietf:wg:oauth:2.0:oob**를 선택합니다.
+   1. **리디렉션 URI** 섹션의 리디렉션 URI 목록에서 다음을 수행합니다.
+   1. **TYPE** 열에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다.
+   1. **리디렉션 URI** 열에 `urn:ietf:wg:oauth:2.0:oob`를 입력합니다.
 1. **저장**을 선택합니다.
 1. Visual Studio로 이동하고, *App.xaml.cs* 파일을 열고, `Enter_the_Application_Id_here`을 방금 등록하고 복사한 애플리케이션 ID로 바꿉니다.
 

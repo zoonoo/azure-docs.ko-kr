@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474705"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154147"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>SQL Data Warehouse 워크로드 중요도 (미리 보기)
+# <a name="sql-data-warehouse-workload-importance"></a>SQL Data Warehouse 워크 로드 중요도
 
 이 문서에서는 워크로드 중요도가 SQL Data Warehouse 요청에 대한 실행 순서에 영향을 줄 수 있는 방법을 설명합니다.
-
-> [!Note]
-> 워크로드 분류는 SQL Data Warehouse Gen2에서 미리 보기로 제공됩니다. 워크로드 관리 분류 및 중요도 미리 보기는 2019년 4월 9일 이후 릴리스를 사용한 빌드를 위한 것입니다.  사용자는 워크로드 관리 테스트를 위해 이 날짜 이전의 빌드를 사용하지 않는 것이 좋습니다.  자신의 빌드에서 워크로드 관리가 가능한지 알아보려면 SQL Data Warehouse 인스턴스에 연결된 경우 select @@version을 실행합니다.
 
 ## <a name="importance"></a>중요도
 
@@ -64,4 +61,4 @@ Q5가 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Data Warehouse 워크 로드 분류에 대 한 자세한 내용은 참조 하세요. [SQL 데이터 웨어하우스 워크 로드 분류](sql-data-warehouse-workload-classification.md) 하 고 [워크 로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 워크로드 분류에 대한 자세한 내용은 [SQL Data Warehouse 워크로드 분류](sql-data-warehouse-workload-classification.md).  와 [워크로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)를 참조하세요. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

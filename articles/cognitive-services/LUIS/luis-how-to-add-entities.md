@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522353"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148721"
 ---
 # <a name="create-entities-without-utterances"></a>발화 없는 엔터티 만들기
 
@@ -66,29 +66,6 @@ ms.locfileid: "59522353"
 
     이 정규식 리터럴 문자와 대응 `hrf-`, 인적 자원 폼에는 폼에 다음 6 자리 숫자입니다.
 
-## <a name="add-hierarchical-entities"></a>계층 구조 엔터티 추가
-
-계층 구조 엔터티는 컨텍스트에 따라 학습되고 개념적으로 관련이 있는 엔터티의 범주입니다. 다음 예제에서는 엔터티에는 출발지 및 목적지 위치가 포함되어 있습니다. 
-
-발언 `Move John Smith from Seattle to Cairo`에서 Seattle은 출발지 위치이고 Cairo는 목적지 위치입니다. 각 위치는 컨텍스트가 다르며, 발언의 단어 순서 및 단어 선택에서 학습됩니다.
-
-계층 구조 엔터티를 추가하려면 다음 단계를 수행합니다. 
-
-1. 앱의 왼쪽 탐색 영역에서 **엔터티**를 선택하고 **새 엔터티 만들기**를 선택합니다.
-
-1. 팝업 대화 상자의 **엔터티 이름** 상자에 `Location`을 입력하고 **엔터티 형식** 목록에서 **계층 구조**를 선택합니다.
-
-    ![계층적 엔터티 추가](./media/add-entities/hier-location-entity-creation.png)
-
-1. **자식 추가**를 선택한 다음, **자식 #1 상자**에 `Origin`을 입력합니다. 
-
-1. **자식 추가**를 선택한 다음, **자식 #2 상자**에 `Destination`을 입력합니다. **완료**를 선택합니다.
-
-    >[!CAUTION]
-    >자식 엔터티 이름은 단일 앱의 모든 엔터티에서 고유해야 합니다. 서로 다른 두 계층 구조 엔터티는 이름이 같은 자식 엔터티를 포함할 수 없습니다. 
-
-    이 엔터티를 만든 후 엔터티를 포함하는 예제 발화가 있는 모든 의도로 이동합니다. 예제 발화에서 텍스트를 선택하고 엔터티로 텍스트를 표시합니다. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>부모-자식 관계를 그룹화 하려면 복합 엔터티 추가
@@ -137,9 +114,7 @@ ms.locfileid: "59522353"
 
 역할은 컨텍스트를 기반으로 명명 된 하위 형식입니다. 미리 빌드된 및 기계 학습 되지 않은 엔터티를 포함 하 여 모든 엔터티에서 제공 됩니다. 
 
-원본 및 대상 도시의 계층 구조 엔터티로 동일한 예제를 사용하면 차이는 계층 구조 자식 대신에 역할이 원본으로 명명된다는 점입니다. 
-
-역할 구문은 **{Entityname:Rolename}** 입니다. 즉, 엔터티 이름 뒤에 콜론이 오고 이어 역할 이름이 나옵니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+역할에 대 한 구문은 **`{Entityname:Rolename}`** 콜론을 역할 이름으로 엔터티 이름 뒤에 위치 합니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
 

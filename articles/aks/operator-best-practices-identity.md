@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726618"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074156"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -88,7 +88,7 @@ RBAC를 사용 하 여 Kubernetes 리소스에 대 한 액세스를 제어 하�
 
 ## <a name="use-pod-identities"></a>Pod ID 사용
 
-**모범 사례 가이드** - 고정된 자격 증명은 노출이나 남용의 위험이 있으므로 Pod 또는 컨테이너 이미지 내에서 사용하지 마세요. 대신 Pod ID를 사용하여 중앙 Azure AD ID 솔루션을 통해 액세스를 자동으로 요청합니다.
+**모범 사례 가이드** - 고정된 자격 증명은 노출이나 남용의 위험이 있으므로 Pod 또는 컨테이너 이미지 내에서 사용하지 마세요. 대신 Pod ID를 사용하여 중앙 Azure AD ID 솔루션을 통해 액세스를 자동으로 요청합니다. Pod identities Linux pod 및 컨테이너 이미지에 대해서만 사용 하기 위한 것입니다.
 
 Pod가 Cosmos DB, Key Vault 또는 Blob Storage와 같은 다른 Azure 서비스에 액세스해야 하는 경우 Pod에는 액세스 자격 증명이 필요합니다. 이러한 액세스 자격 증명은 컨테이너 이미지를 사용하여 정의하거나 Kubernetes 비밀로 삽입할 수 있지만, 수동으로 만들고 할당해야 합니다. 대개 인증서는 Pod 전체에 재사용되며 정기적으로 회전되지 않습니다.
 

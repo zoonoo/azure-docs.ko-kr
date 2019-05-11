@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL Data Warehouse 분류 | Microsoft Docs
 description: 분류를 사용하여 동시성, 중요성, 관리 및 Azure SQL Data Warehouse의 쿼리에 대한 리소스를 계산하는 지침입니다.
 services: sql-data-warehouse
@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474830"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154202"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>SQL Data Warehouse 워크로드 분류 (미리 보기)
+# <a name="sql-data-warehouse-workload-classification"></a>SQL Data Warehouse 작업 분류
 
 이 문서는 들어오는 요청에 리소스 클래스와 중요도를 할당하는 SQL Data Warehouse 워크로드 분류 프로세스를 설명합니다.
-
-> [!Note]
-> 워크로드 분류는 SQL Data Warehouse Gen2에서 미리 보기로 제공됩니다. 워크로드 관리 분류 및 중요도 미리 보기는 2019년 4월 9일 이후 릴리스를 사용한 빌드를 위한 것입니다.  사용자는 워크로드 관리 테스트를 위해 이 날짜 이전의 빌드를 사용하지 않는 것이 좋습니다.  자신의 빌드에서 워크로드 관리가 가능한지 알아보려면 SQL Data Warehouse 인스턴스에 연결된 경우 select  @@version을 실행합니다.
 
 ## <a name="classification"></a>분류
 
@@ -63,10 +60,10 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 다음과 같은 시나리오를 고려해 보세요.
 
-• 기존 데이터 웨어하우스에는 largerc 리소스 클래스 역할에 할당된 DBAUser 데이터베이스 사용자가 있습니다. 리소스 클래스 할당은 sp_addrolemember를 사용하여 수행되었습니다.
-• 이제 데이터 웨어하우스는 워크로드 관리를 사용하여 업데이트됩니다.
-• 새로운 분류 구문을 테스트하기 위해, DBARole 데이터베이스 역할에는(DBAUser가 소속된) 이들을 높은 중요도와 mediumrc로 매핑하기 위해 만든 분류자가 있습니다.
-• DBAUser로 로그인하고 쿼리를 실행하는 경우, 쿼리는 largerc에 할당됩니다. 사용자가 역할 멤버 자격보다 우선 순위가 높기 때문입니다.
+- 기존 데이터 웨어하우스에 데이터베이스 사용자 DBAUser largerc 리소스 클래스 역할을 할당 합니다. 리소스 클래스 할당은 sp_addrolemember를 사용하여 수행되었습니다.
+- 데이터 웨어하우스 워크 로드 관리를 사용 하 여 이제 업데이트 됩니다.
+- 새 분류 구문을 테스트 하려면 데이터베이스 역할 (즉 DBAUser 소속) DBARole, 생성 되 게 mediumrc와 높은 중요도로 매핑하면 분류자를 있습니다.
+- DBAUser 로그인 하 고 쿼리를 실행 하는 경우 쿼리는 largerc에 할당 됩니다. 사용자가 역할 멤버 자격보다 우선 순위가 높기 때문입니다.
 
 오분류 문제를 간단히 해결하려면, 워크로드 분류자를 만들때 리소스 클래스 역할 매핑을 제거하는 것이 좋습니다.  아래 코드는 기존 리소스 클래스의 역할 멤버 자격을 반환합니다.  [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)를 실행하여 각 멤버 이름을 해당 리소스 클래스에서 반환합니다.
 
@@ -84,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Data Warehouse 워크로드 분류 및 중요도에 대한 자세한 내용은 [워크로드 분류자 생성](quickstart-create-a-workload-classifier-tsql.md)과 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)를 참조하세요. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 작업 분류 및 중요도 대 한 자세한 내용은 참조 하세요. [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md) 하 고 [SQL Data Warehouse 중요도](sql-data-warehouse-workload-importance.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

@@ -12,20 +12,20 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 4288eb7d051c44149a6f1970430dc8c409ca957d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074252"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
-이 문서에서는 프로 비전 된 계산 계층에서 단일 데이터베이스에 대 한 사용 가능한 계산 및 저장소 리소스를 확장 하는 방법을 설명 합니다. 
+이 문서에서는 프로 비전 된 계산 계층에서 단일 데이터베이스에 대 한 사용 가능한 계산 및 저장소 리소스를 확장 하는 방법을 설명 합니다. 또는 합니다 [(미리 보기) 서버 리스 계산 계층](sql-database-serverless.md) 계산 자동 크기 조정 및 사용 된 계산에 대 한 초당 청구를 제공 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL 데이터베이스에서 계속 지원되지만 향후 모든 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 ## <a name="change-compute-size-vcores-or-dtus"></a>계산 크기를 변경 (Dtu 또는 vcore 수)
 

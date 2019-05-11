@@ -12,19 +12,19 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023780"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471827"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
-이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 변환 하는 다양 한 방법을 알아봅니다. SDK는 간단 하 게 열 추가, 불필요 한 행 또는 열을 필터링 하 고 누락 값을 대체 하는 함수를 제공 합니다. SDK에 대 한 참조 설명서를 참조 합니다 [개요](https://aka.ms/data-prep-sdk)합니다.
+이 문서에서는 사용 하 여 데이터를 변환 하는 다양 한 방법을 알아봅니다는 `azureml-dataprep` 패키지 있습니다. 패키지는 열을 추가, 불필요 한 행 또는 열을 필터링 및 누락 값 대체를 간단 하 게 하는 함수를 제공 합니다. 에 대 한 전체 참조 설명서를 참조 합니다 [azureml dataprep 패키지로](https://aka.ms/data-prep-sdk)합니다.
 
 > [!Important]
-> 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)를 사용자 데이터를 스냅숏 데이터를 변환 하 여 버전이 지정 된 데이터 집합 정의 저장 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다.
+> 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)를 사용자 데이터를 스냅숏 데이터를 변환 하 여 버전이 지정 된 데이터 집합 정의 저장 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다. 사용 하는 경우는 `azureml-dataprep` 변환을 사용 하는 대신를 사용 하 여 데이터 흐름을 만들려면 패키지를 `azureml-datasets` 데이터 집합을 만들려면 패키지를 스냅숏 또는 버전이 있는 데이터 집합을 나중에 사용할 수 없습니다.
 
 이 방법에서는 다음 작업에 대 한 예제를 보여 줍니다.
 
@@ -270,7 +270,7 @@ dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtering
+## <a name="filtering"></a>필터링
 
 메서드를 포함 하는 SDK [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) 하 고 [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) 수 있도록 열 또는 행을 필터링 합니다.
 
@@ -413,8 +413,8 @@ dflow.head(2)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|ALABAMA|1|101710|Hale County|10171002158| |
-|1|ALABAMA|1|101710|Hale County|10171002162| |
+|0|앨라배마|1|101710|Hale County|10171002158| |
+|1|앨라배마|1|101710|Hale County|10171002162| |
 
 데이터 집합 다운 트리밍하고 열을 제거, 값 바꾸기, 형식 변환 등 몇 가지 기본 변환을 수행 합니다.
 
@@ -427,8 +427,8 @@ dflow.head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|없음|
-|1|ALABAMA|Hale County|1.017100e+10|없음|
+|0|앨라배마|Hale County|1.017100e+10|없음|
+|1|앨라배마|Hale County|1.017100e+10|없음|
 
 다음 필터를 사용하여 null 값을 찾습니다.
 
@@ -438,8 +438,8 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|없음|
-|1|ALABAMA|Hale County|1.017100e+10|없음|
+|0|앨라배마|Hale County|1.017100e+10|없음|
+|1|앨라배마|Hale County|1.017100e+10|없음|
 
 ### <a name="transform-partition"></a>파티션 변환
 
@@ -458,8 +458,8 @@ df.head(2)
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|1.017100e+10|0.0|
+|0|앨라배마|Hale County|1.017100e+10|0.0|
+|1|앨라배마|Hale County|1.017100e+10|0.0|
 
 ### <a name="new-script-column"></a>새 스크립트 열
 
@@ -477,8 +477,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|0|앨라배마|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|1|앨라배마|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 
 ### <a name="new-script-filter"></a>새 스크립트 필터
 
@@ -495,10 +495,9 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
-|1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
+|0|앨라배마|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
+|1|앨라배마|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
 
 ## <a name="next-steps"></a>다음 단계
 
-* SDK를 참조 하세요 [개요](https://aka.ms/data-prep-sdk) 디자인 패턴 및 사용 예제
 * Azure Machine Learning 데이터 준비 SDK 참조 [자습서](tutorial-data-prep.md) 특정 시나리오를 해결 하는 예

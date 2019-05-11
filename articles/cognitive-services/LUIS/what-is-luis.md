@@ -95,7 +95,7 @@ LUIS 모델이 게시되고 실제 사용자 발언이 수신되면, LUIS는 엔
 <a name="using-luis"></a>
 
 ## <a name="development-lifecycle"></a>개발 수명 주기
-LUIS는 클라이언트 애플리케이션 및 언어 모델 수준에서 전체 개발 수명 주기에 통합될 수 있는 도구, 버전 관리 및 다른 LUIS 작성자와의 공동 작업을 제공합니다. 
+LUIS는 클라이언트 애플리케이션 및 언어 모델 수준에서 전체 개발 수명 주기에 통합될 수 있는 도구, 버전 관리 및 다른 LUIS 작성자와의 협업을 제공합니다. 
 
 ## <a name="implementing-luis"></a>LUIS 구현
 LUIS는 REST API로써 HTTP 요청을 만드는 모든 제품, 서비스 또는 프레임워크에 사용할 수 있습니다. 다음 목록은 LUIS에 가장 많이 사용되는 Microsoft 제품 및 서비스입니다.

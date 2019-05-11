@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470058"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407853"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
@@ -233,13 +233,13 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
--ObjectId 매개 변수는 소유자를 추가하려는 그룹의 ObjectID이며, -RefObjectId는 그룹에 소유자로 추가하려는 사용자의 ObjectID입니다.
+-ObjectId 매개 변수는 소유자를 추가 하려는 그룹의 ObjectID 이며-RefObjectId는 사용자 또는 서비스 그룹의 소유자로 추가 하려는 사용자의 ObjectID입니다.
 
 그룹의 소유자를 검색하려면 Get-AzureADGroupOwner cmdlet을 사용합니다.
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-이 cmdlet을 실행하면 지정된 그룹에 대한 소유자 목록이 반환됩니다.
+Cmdlet은 지정된 된 그룹에 대 한 소유자 (사용자 및 서비스 주체) 목록을 반환합니다.
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------

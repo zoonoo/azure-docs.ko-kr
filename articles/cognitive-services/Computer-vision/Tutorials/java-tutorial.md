@@ -1,5 +1,5 @@
 ---
-title: '자습서: 이미지 작업 수행 - Java'
+title: 이미지 작업 수행 - Java
 titlesuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 Computer Vision API를 사용하는 기본 Java Swing 앱을 살펴봅니다. OCR를 수행하고, 썸네일을 만들고, 이미지의 시각적 기능으로 작업합니다.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
+ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
-ms.date: 09/21/2017
-ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 04/30/2019
+ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868092"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232638"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>자습서: Computer Vision API Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>REST API 및 Java를 사용 하 여 컴퓨터 비전 기능을 사용 합니다.
 
 이 자습서에서는 Azure Cognitive Services Computer Vision REST API의 기능을 보여 줍니다.
 
@@ -34,7 +34,7 @@ Computer Vision REST API를 사용하는 Java Swing 애플리케이션을 탐색
 > * 이미지에서 인쇄 텍스트 읽기
 > * 이미지에서 필기 텍스트 읽기
 
-Java Swing 양식 애플리케이션은 이미 작성되어 있지만 기능이 없습니다. 이 자습서에서는 Computer Vision REST API 관련 코드를 추가하여 애플리케이션의 기능을 완성합니다.
+Java 스윙 form 응용 프로그램 이미 작성 되었지만 기능이 없습니다. 이 자습서에서는 Computer Vision REST API 관련 코드를 추가하여 애플리케이션의 기능을 완성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,13 +42,13 @@ Java Swing 양식 애플리케이션은 이미 작성되어 있지만 기능이 
 
 이 자습서는 NetBeans IDE를 사용하여 개발되었습니다. 특히 [여기에서 다운로드](https://netbeans.org/downloads/index.html)할 수 있는 NetBeans의 **Java SE** 버전.
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Computer Vision API 구독 및 구독 키 가져오기 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Computer Vision API 구독 및 구독 키 가져오기
 
-예제를 만들기 전에 먼저 Azure Cognitive Services의 일부인 Computer Vision API를 구독해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 기본 및 보조 키는 모두 이 자습서에서 사용할 수 있습니다. 
+예제를 만들기 전에 Azure Cognitive Services의 일부인 Computer Vision API에 등록 해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 기본 및 보조 키는 모두 이 자습서에서 사용할 수 있습니다.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>완료되지 않은 자습서 프로젝트 획득
+## <a name="acquire-incomplete-tutorial-project"></a>불완전 한 tutorial 프로젝트를 획득 합니다.
 
-### <a name="download-the-tutorial-project"></a>자습서 프로젝트 다운로드
+### <a name="download-the-project"></a>프로젝트를 다운로드합니다.
 
 1. [Cognitive Services Java Computer Vision 자습서](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) 리포지토리로 이동합니다.
 1. **복제 또는 다운로드** 단추를 클릭합니다.
@@ -78,7 +78,7 @@ NetBeans는 .zip 파일에서 프로젝트를 가져오므로 .zip 파일의 콘
 
 1. 자습서 애플리케이션을 종료합니다.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>프로젝트에 자습서 코드 추가
+## <a name="add-tutorial-code-to-the-project"></a>자습서 코드 프로젝트에 추가
 
 Java Swing 애플리케이션은 6개의 탭으로 설치됩니다. 각 탭은 Computer Vision의 서로 다른 함수(분석, OCR 등)를 보여줍니다. 6개의 자습서 섹션이 서로 독립적이므로 한 섹션을 추가할 수도 있고, 6개 섹션을 모두 추가할 수도 있고, 하위 집합을 추가할 수도 있습니다. 또한 섹션을 순서에 관계없이 추가할 수 있습니다.
 
@@ -88,7 +88,7 @@ Computer Vision의 [분석] 기능은 이미지를 검사하여 2,000개가 넘�
 
 자습서 애플리케이션의 [분석] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>분석 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
 
 **analyzeImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **AnalyzeImage** 메서드를 호출하여 이미지를 분석합니다. **AnalyzeImage**가 반환되면 메서드는 **응답** 텍스트 영역에 형식 지정된 JSON 응답을 표시하고, **JSONObject**에서 첫 번째 캡션을 추출하고, 캡션 및 캡션이 올바른 신뢰도 수준을 표시합니다.
 
@@ -202,7 +202,7 @@ Computer Vision의 [분석] 기능은 이미지를 검사하여 2,000개가 넘�
     }
  ```
 
-#### <a name="run-the-application"></a>애플리케이션 실행
+#### <a name="run-the-analyze-function"></a>분석 함수를 실행 합니다.
 
 **F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -326,7 +326,7 @@ Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은
     }
 ```
 
-#### <a name="run-the-application"></a>애플리케이션 실행
+#### <a name="run-the-landmark-function"></a>랜드마크 함수 실행
 
 **F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **랜드마크** 탭을 클릭하고, 랜드마크 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -336,7 +336,7 @@ Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지�
 
 자습서 애플리케이션의 [유명 인사] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>유명인 200,000 명 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
 
 **celebritiesImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **CelebritiesImage** 메서드를 호출하여 이미지를 분석합니다. **CelebritiesImage**가 반환되면 메서드는 **응답** 텍스트 영역에 형식 지정된 JSON 응답을 표시하고, **JSONObject**에서 첫 번째 유명인 이름을 추출하고, 유명인이 올바르게 식별된 신뢰도 수준과 함께 이름을 창에 표시합니다.
 
@@ -450,7 +450,7 @@ Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지�
     }
 ```
 
-#### <a name="run-the-application"></a>애플리케이션 실행
+#### <a name="run-the-celebrities-function"></a>유명인 200,000 명 함수 실행
 
 **F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **유명인** 탭을 클릭하고, 유명인 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -460,7 +460,7 @@ Computer Vision의 [썸네일] 기능은 이미지에서 썸네일을 생성합�
 
 자습서 애플리케이션의 [썸네일] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>축소판 그림 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
 
 **thumbnailImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **getThumbnailImage** 메서드를 호출하여 썸네일을 만듭니다. **getThumbnailImage**가 반환되면 메서드는 생성된 썸네일을 표시합니다.
 
@@ -573,7 +573,7 @@ Computer Vision의 [썸네일] 기능은 이미지에서 썸네일을 생성합�
     }
 ```
 
-#### <a name="run-the-application"></a>애플리케이션 실행
+#### <a name="run-the-thumbnail-function"></a>미리 보기 함수 실행
 
 **F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **썸네일** 탭을 클릭하고, 이미지의 URL을 입력한 다음, **썸네일 생성** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -583,7 +583,7 @@ Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지
 
 자습서 애플리케이션의 OCR 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>OCR 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
 
 **ocrImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **OcrImage** 메서드를 호출하여 이미지를 분석합니다. **OcrImage**가 반환되면 메서드는 **응답** 텍스트 영역에 검색된 텍스트를 형식 지정된 JSON으로 표시합니다.
 
@@ -684,7 +684,7 @@ Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지
     }
 ```
 
-#### <a name="run-the-application"></a>애플리케이션 실행
+#### <a name="run-the-ocr-function"></a>OCR 함수 실행
 
 **F6** 키를 눌러 애플리케이션을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **OCR** 탭을 클릭하고, 인쇄 텍스트 이미지의 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
@@ -694,7 +694,7 @@ Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미�
 
 자습서 애플리케이션의 [필기 인식] 기능을 완성하려면 다음 단계를 수행합니다.
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>필기 단추에 대 한 이벤트 처리기 코드를 추가 합니다.
 
 **handwritingImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **HandwritingImage** 메서드를 호출하여 이미지를 분석합니다. **HandwritingImage**가 반환되면 메서드는 **응답** 텍스트 영역에 검색된 텍스트를 형식 지정된 JSON으로 표시합니다.
 
@@ -842,11 +842,12 @@ Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미�
     }
 ```
 
-#### <a name="run-the-application"></a>애플리케이션 실행
+#### <a name="run-the-handwriting-function"></a>필기 함수 실행
 
 애플리케이션을 실행하려면 **F6** 키를 누릅니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **필기 텍스트 읽기** 탭을 클릭하고, 필기 텍스트 이미지의 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Computer Vision API C# 자습서](CSharpTutorial.md)
-- [Computer Vision API Python 자습서](PythonTutorial.md)
+이 가이드에서는 다양 한 사용 가능한 이미지 분석 기능을 테스트 하려면 Java를 사용 하 여 컴퓨터 비전 REST API를 사용 합니다. 다음으로, 관련 Api에 대 한 자세한 내용을 알아보려면 참조 설명서를 참조 하십시오.
+
+- [Computer Vision REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

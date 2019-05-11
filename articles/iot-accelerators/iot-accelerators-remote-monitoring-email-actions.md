@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445668"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466905"
 ---
 # <a name="add-an-email-action"></a>이메일 작업 추가
 
@@ -102,11 +102,11 @@ ms.locfileid: "61445668"
 
 1. **office365-connector**를 클릭합니다.
 
-    ![API 연결](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API 연결](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. 권한 부여 프로세스를 시작할 배너를 클릭합니다.
 
-    ![권한 부여](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![권한 부여](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. **권한 부여**를 클릭합니다. 로그인하라는 메시지가 나타납니다. 로그인하는 데 사용하는 계정은 애플리케이션이 이메일 알림을 보내는 데 사용하는 이메일 주소여야 합니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "61445668"
 
 1. 알림이 전송되는 원본 이메일 주소를 변경하려면 **API 연결 편집**을 클릭합니다.
 
-    ![이메일 변경](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![이메일 변경](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>소유자 역할 Outlook 설정
 
@@ -142,7 +142,7 @@ ms.locfileid: "61445668"
 
 기본 제공된 원격 모니터링 솔루션 가속기는 작업 이메일에 대한 기본 HTML 템플릿을 제공합니다. 이메일 템플릿은 이메일 작업 설정의 값을 사용합니다. 예를 들면 다음과 같습니다.
 
-![이메일 예제](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![이메일 예제](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 다음 단계에서는 HTML 이메일 템플릿을 편집하는 방법을 보여 줍니다. 예를 들어 자세한 정보를 포함하거나 사용자 지정 이미지를 추가할 수 있습니다.
 

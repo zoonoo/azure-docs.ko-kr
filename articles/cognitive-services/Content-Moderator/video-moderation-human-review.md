@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867718"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228120"
 ---
 # <a name="video-moderation-with-human-review"></a>사용자 검토를 사용한 비디오 조정
 
-Content Moderator의 컴퓨터 지원 [비디오 조정](video-moderation-api.md) 및 [사용자 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인물(노골적) 및 선정적(외설적) 콘텐츠에 대한 비디오 및 대본을 조정하면 비즈니스를 위한 최상의 결과를 얻을 수 있습니다.
+사용 하 여 Content Moderator의 기계 지원 [비디오 조정](video-moderation-api.md) 하 고 [사용자 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 비디오 조정 및 성인 (명시적)에 대 한 기록 및에 대 한 최상의 결과 얻으려면 외설 (추천) 콘텐츠 비즈니스입니다.
 
 ## <a name="video-trained-classifier-preview"></a>비디오 학습 분류자(미리 보기)
 
@@ -28,52 +28,53 @@ Content Moderator의 컴퓨터 지원 [비디오 조정](video-moderation-api.md
 ## <a name="shot-detection"></a>샷 검색
 
 분류 세부 정보를 출력할 때 추가 비디오 인텔리전스는 비디오를 좀 더 유연하게 분석할 수 있게 도와줍니다. Microsoft의 비디오 조정 서비스는 단순히 프레임만 출력하지 않고 샷 수준 정보를 제공합니다. 이제 샷 수준 및 프레임 수준에서 비디오를 분석하는 옵션이 생겼습니다.
- 
+
 ## <a name="key-frame-detection"></a>키 프레임 검색
 
 비디오 조정 서비스는 정기적으로 프레임을 출력하는 대신 잠재적으로 완전한(양호한) 프레임만 식별하여 출력합니다. 이 기능을 통해 프레임 수준 성인물 및 음란물 분석을 위한 효율적인 프레임을 생성할 수 있습니다.
 
 다음 추출물은 잠재적 샷, 키 프레임, 성인물 및 음란물 점수를 이용한 부분 응답을 보여줍니다.
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>사용자 검토에 대한 시각화
 
@@ -101,10 +102,7 @@ Content Moderator의 컴퓨터 지원 [비디오 조정](video-moderation-api.md
 
 ## <a name="next-steps"></a>다음 단계
 
-[비디오 조정 빠른 시작](video-moderation-api.md)을 시작합니다. 
-
-조정된 출력에서 사용자 검토자의 [비디오 검토](video-reviews-quickstart-dotnet.md)를 생성하는 방법을 알아봅니다.
-
-[비디오 대본 검토](video-transcript-reviews-quickstart-dotnet.md)를 비디오 검토에 추가합니다.
-
-[완전한 비디오 조정 솔루션](video-transcript-moderation-review-tutorial-dotnet.md)을 개발하는 방법에 대한 자세한 자습서를 살펴봅니다. 
+- [비디오 조정 빠른 시작](video-moderation-api.md)을 시작합니다.
+- 조정된 출력에서 사용자 검토자의 [비디오 검토](video-reviews-quickstart-dotnet.md)를 생성하는 방법을 알아봅니다.
+- [비디오 대본 검토](video-transcript-reviews-quickstart-dotnet.md)를 비디오 검토에 추가합니다.
+- [완전한 비디오 조정 솔루션](video-transcript-moderation-review-tutorial-dotnet.md)을 개발하는 방법에 대한 자세한 자습서를 살펴봅니다.

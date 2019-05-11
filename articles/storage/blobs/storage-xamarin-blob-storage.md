@@ -3,17 +3,18 @@ title: Xamarin에서 개체(Blob) 저장소를 사용하는 방법 | Microsoft D
 description: Xamarin용 Azure Storage 클라이언트 라이브러리를 사용하면 개발자들이 기본 사용자 인터페이스를 가진 iOS, Android 및 Windows Store 앱을 만들 수 있습니다. 이 스토리지를 만든 후에 쉽게 액세스할 수 있도록 하려면 Azure File Storage 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다.
 services: storage
 documentationcenter: xamarin
-author: michaelhauss
+author: mhopkins-msft
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: michaelhauss
-ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 1953a0af89e5ea018bd3654c3b82087331b3d565
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098085"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141275"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Xamarin에서 Blob Storage를 사용하는 방법
 

@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728582"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143286"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 
@@ -28,7 +28,7 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>미리 보기에 참여하는 비용은 얼마인가요?
 
-현재 Mesh 미리 보기에 애플리케이션 또는 컨테이너를 배포하기 위한 요금은 없습니다. 그러나 의견을 교환하실 수 리소스를 배포 하 고 하지 그대로 삭제 적극적으로 테스트 하는 경우가 아니면 실행 합니다.
+메시 미리 보기에 응용 프로그램 또는 컨테이너 배포는 청구 되지 않습니다. 청구에 사용할 수 있도록 5 월에 업데이트를 시청 하세요. 그러나 의견을 교환하실 수 리소스를 배포 하 고 하지 그대로 삭제 적극적으로 테스트 하는 경우가 아니면 실행 합니다.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>코어 수와 RAM의 할당량 제한이 있나요?
 
@@ -88,10 +88,15 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 다음 컨테이너 OS 이미지를 사용하여 서비스를 배포할 수 있습니다.
 
 - Windows - windowsservercore 및 nanoserver
-    - Windows Server 버전 1709
-    - Windows Server 버전 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - 알려진 제한 사항 없음
+
+> [!NOTE]
+> Visual Studio 메시에 대 한 도구 지원 하지 않습니다 아직 Windows Server 2019 1809 컨테이너를 배포 합니다.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>어떤 유형의 응용 프로그램을 배포할 수 있습니까? 
 
@@ -138,6 +143,10 @@ CPU 가용성 및 한도가 모든 애플리케이션에서 고정될 수 있습
 단일 노드 클러스터에 여러 애플리케이션을 배포할 수 없습니다. 문제를 완화하려면 다음을 수행합니다.
 - 로컬 클러스터에 여러 앱을 배포하는 경우 5노드 클러스터를 사용합니다.
 - 현재 테스트하지 않는 앱을 제거합니다.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Windows 컨테이너에 대 한 지원이 제한적으로 VS 도구
+
+Visual Studio 도구는 현재 Windows Server 1709 및 1803의 기본 OS 버전을 사용 하 여 Windows 컨테이너를 배포만 지원 합니다. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>기능 차이 및 기타 알려진 문제
 

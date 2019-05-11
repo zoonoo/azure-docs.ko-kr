@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694824"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190722"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -165,6 +165,9 @@ ms.locfileid: "64694824"
 * **지원되지 않는 관리자 작업**
    * [Office 관리 포털](https://portal.office.com)에서 관리자 시작 최종 사용자 암호 재설정
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
+
+> [!WARNING]
+> 확인란의 "반드시 암호 변경 다음 로그온 할 때" Active Directory 사용자 및 컴퓨터 또는 Active Directory 관리 센터와 같은 온-프레미스 Active Directory 관리 도구에서 사용 하 여 지원 되지 않습니다. 암호를 변경 하는 경우 온-프레미스가이 옵션을 선택 하지 마십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 

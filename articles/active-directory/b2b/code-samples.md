@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업 코드 및 PowerShell 샘플 - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업을 위한 코드 및 PowerShell 샘플
+title: B2B 협업 코드 및 PowerShell 샘플 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B 협업을 위한 코드 및 PowerShell 샘플
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58088879"
 ---
-# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 공동 작업 코드 및 PowerShell 샘플
+# <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 협업 코드 및 PowerShell 샘플
 
 ## <a name="powershell-example"></a>PowerShell 예제
 .CSV 파일로 저장한 전자 메일 주소에서 외부 사용자를 대량으로 조직에 초대할 수 있습니다.

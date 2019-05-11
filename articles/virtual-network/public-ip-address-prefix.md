@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474439"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154476"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
@@ -29,9 +29,6 @@ ms.locfileid: "61474439"
 공용 IP 주소는 각 Azure 지역의 주소 풀에서 할당됩니다. Azure에서 각 지역에 사용하는 범위 목록을 [다운로드](https://www.microsoft.com/download/details.aspx?id=56519)할 수 있습니다. 예를 들어 40.121.0.0/16은 Azure에서 미국 동부 지역에 사용되는 100개가 넘는 범위 중 하나입니다. 범위에는 사용 가능한 주소(40.121.0.1 - 40.121.255.254)가 포함됩니다.
 
 이름을 지정하고 접두사에 포함시킬 주소의 수를 지정하여 Azure 지역 및 구독에 공용 IP 주소 접두사를 만듭니다. 예를 들어 공용 IP 주소 접두사 /28을 만들면 Azure에서 범위 중 하나에서 16개의 주소가 할당됩니다. 범위를 만들 때까지는 Azure에서 할당될 범위를 알 수 없지만 주소는 연속적입니다. 공용 IP 주소 접두사에는 요금이 부과됩니다. 자세한 내용은 [공용 IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses)을 참조하세요.
-
-> [!IMPORTANT]
-> 공용 IP 접두사는 제한된 지역에서 공개 미리 보기 상태입니다. [미리 보기 상태의 의미](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 알아볼 수 있습니다. 공용 IP 접두사는 현재 미국 중서부, 미국 서부, 미국 서부 2, 미국 중부, 북유럽, 유럽 서부 및 동남 아시아에서 사용할 수 있습니다. 업데이트된 지역 목록은 [Azure 업데이트](https://azure.microsoft.com/updates/?product=virtual-network)에서 확인하세요.
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>공용 IP 주소 접두사를 만드는 이유
 
@@ -58,6 +55,7 @@ ms.locfileid: "61474439"
 ## <a name="constraints"></a>제약 조건
 
 - 접두사에 대한 IP 주소를 지정할 수 없습니다. 사용자가 지정한 크기에 따라 접두사에 대한 IP 주소가 Azure에서 할당됩니다.
+- 접두사의 기본 크기는 / 28 또는 16 공용 IP 주소입니다.
 - 접두사를 만든 후에는 범위를 변경할 수 없습니다.
 - 범위는 IPv4 주소에만 적용됩니다. 범위에는 IPv6 주소가 포함되지 않습니다.
 - 표준 SKU로 만든 고정 공용 IP 주소만 접두사의 범위에서 할당할 수 있습니다. 공용 IP 주소 SKU에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.

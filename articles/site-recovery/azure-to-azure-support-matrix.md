@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926584"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412770"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>다른 지역 간에 Azure Vm을 복제 하기 위한 지원 매트릭스
 
@@ -47,7 +47,7 @@ ms.locfileid: "64926584"
 **지리적 클러스터** | **Azure 지역**
 -- | --
 아메리카 | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-유럽 | 영국 서부, 영국 남부, 북유럽, 유럽 서부, 프랑스 중부, 프랑스 남부
+유럽 | 영국 서 부, 영국 남부, 북유럽, 서유럽, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 공화국 북부
 아시아 | 인도 남부, 인도 중부, 동남 아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부, 한국 남부
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 정부, 미국 애리조나 주 정부, 미국 텍사스 주 정부, US DoD 동부, US DoD 중부
@@ -156,6 +156,7 @@ Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운�
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM 또는 물리적 컴퓨터가 Site Recovery를 사용하여 Azure에 마이그레이션되면 컴퓨터에서 실행되는 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
 RBAC 정책 | 지원되지 않음 | 역할 기반 액세스 제어 (RBAC) 정책을 Vm에 장애 조치 대상 지역에서 VM에 복제 되지 않습니다.
+확장 | 지원되지 않음 | 장애 조치 대상 지역에서 VM에 확장 복제 되지 않습니다. 장애 조치 후 수동으로 설치 해야 합니다.
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
 

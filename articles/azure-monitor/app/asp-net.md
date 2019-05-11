@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691603"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472034"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -29,7 +29,7 @@ Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. �
 Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수행해야 합니다.
 
 - 다음 워크로드와 함께 [Windows용 Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
-    - ASP.NET 및 웹 개발
+    - ASP.NET 및 웹 개발 (선택 취소 하지 선택적 구성 요소)
     - Azure 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
