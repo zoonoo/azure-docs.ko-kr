@@ -20,10 +20,10 @@ Azure Database for MySQL용 Advanced Threat Protection은 비정상적이며 유
 > [!NOTE]
 > Advanced Threat Protection 공개 미리 보기로 제공 됩니다.
 
-Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. Advanced Threat Protection를 액세스 하 고를 통해 관리할 수는 [Azure portal](https://portal.azure.com) 알거나 [REST API](/rest/api/mysql/serversecurityalertpolicies)합니다. 기능은 범용 및 메모리 액세스에 최적화 된 서버에 대해 사용할 수 있습니다.
+Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. [Azure portal](https://portal.azure.com) 이나 [REST API](/rest/api/mysql/serversecurityalertpolicies)를 통해 Advanced Threat Protection를 액세스하고   관리할 수 있습니다. 기능은 범용 및 메모리 액세스에 최적화된 서버에 대해 사용할 수 있습니다.
 
 > [!NOTE]
-> 다음 Azure Government 및 소버린 클라우드 지역에서는 Advanced Threat Protection 기능을 사용할 수 **없습니다**. US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
+> 다음 Azure Government 및 소버린 클라우드 지역에서는 Advanced Threat Protection 기능을 사용할 수 **없습니다**: US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
 
 
 ## <a name="what-is-advanced-threat-protection"></a>Advanced Threat Protection 소개
