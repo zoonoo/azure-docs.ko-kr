@@ -1,6 +1,6 @@
 ---
 title: 작업 모니터링-Azure portal | Microsoft Docs
-description: Azure portal을 사용하여 Azure SQL Data Warehouse를 모니터링 합니다.
+description: Azure portal을 사용하여 Azure SQL Data Warehouse를 모니터링합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -19,16 +19,16 @@ ms.locfileid: "60748910"
 ---
 # <a name="monitor-workload---azure-portal"></a>작업 모니터링-Azure portal
 
-이 문서에서는 워크로드를 모니터링 하기위해 Azure portal을 사용하는 방법을 설명합니다. 여기에서 [Azure SQL Data Warehouse](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)용 log analytics를 사용하여 쿼리 실행 및 작업 추세를 조사하기 위해 Azure Monitor 로그 설정을 포함합니다.
+이 문서에서는 워크로드를 모니터링하기 위해 Azure portal을 사용하는 방법을 설명합니다. 여기에는 [Azure SQL Data Warehouse](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)용 log analytics를 사용하여 쿼리 실행 및 작업 추세를 조사하기 위한 Azure Monitor 로그 설정이 포함됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Azure SQL Data Warehouse: SQL data warehouse에 대한 로그가 수집 됩니다. 프로비전 된 SQL data warehouse가 없는 경우, [SQL Data Warehouse 만들기](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial) 지침을 참조하세요.
+- Azure SQL Data Warehouse: SQL data warehouse에 대한 로그가 수집됩니다. 프로비전된 SQL data warehouse가 없는 경우, [SQL Data Warehouse 만들기](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial) 지침을 참조하세요.
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-Log Analytics 작업 영역에 대한 찾아보기 블레이드로 이동 하고 작업 영역을 만듭니다. 
+Log Analytics 작업 영역에 대한 찾아보기 블레이드로 이동하고 작업 영역을 만듭니다. 
 
 ![Log Analytics 작업 영역](media/sql-data-warehouse-monitor/log_analytics_workspaces.png)
 
@@ -40,7 +40,7 @@ Log Analytics 작업 영역에 대한 찾아보기 블레이드로 이동 하고
 
 ## <a name="turn-on-diagnostic-logs"></a>진단 로그 켜기 
 
-SQL data warehouse에서 로그를 내보내기 위한 진단 설정을 구성 합니다. 로그는 SQL Data Warehouse에 대한 가장 일반적으로 사용되는 성능 문제 해결 DMV에 해당 하는 데이터 웨어하우스의 원격 분석 뷰로 구성됩니다. 현재 다음과 같은 뷰가 지원 됩니다.
+SQL data warehouse에서 로그를 내보내기 위한 진단 설정을 구성합니다. 로그는 SQL Data Warehouse에 대한 가장 일반적으로 사용되는 성능 문제 해결 DMV에 해당 하는 데이터 웨어하우스의 원격 분석 뷰로 구성됩니다. 현재 다음과 같은 뷰가 지원됩니다.
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)
@@ -59,7 +59,7 @@ Azure Storage, Stream Analytics 또는 Log Analytics로 로그를 내보낼 수 
 
 Log Analytics 작업 영역으로 이동하여 다음을 수행할 수 있습니다.
 
-- 로그 쿼리를 사용하여 로그를 분석하고 다시 사용할 수 있도록 쿼리를 저장 합니다.
+- 로그 쿼리를 사용하여 로그를 분석하고 다시 사용할 수 있도록 쿼리를 저장합니다.
 - 재사용을 위해 쿼리를 저장 합니다.
 - 로그 경고 만들기
 - 쿼리 결과 대시보드에 고정
@@ -99,4 +99,4 @@ AzureDiagnostics
 ```
 ## <a name="next-steps"></a>다음 단계
 
-Azure monitor 로그를 설정하고 구성 했으므로 [Azure 대시보드를 사용자 지정](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)하여 팀 전체에 공유할 수 있습니다.
+Azure monitor 로그를 설정하고 구성했으므로 [Azure 대시보드를 사용자 지정](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)하여 팀 전체에 공유할 수 있습니다.
