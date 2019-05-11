@@ -64,26 +64,34 @@
   items:
     - name: 클래스룸 랩
       items:
-        - name: 랩 계정 관리
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: 클래스룸 랩 관리
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: 템플릿 설정 및 게시
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: 사용량 구성 및 제어
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: 클래스룸 랩 액세스
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: 일정 만들기 및 관리
-          href: classroom-labs/how-to-create-schedules.md
-        - name: 템플릿 VM 내에서 여러 VM이 있는 환경 만들기
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: 피어 가상 네트워크에 랩 연결
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: 공유 이미지 갤러리 연결 및 사용
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Linux에 대한 원격 데스크톱 연결을 사용하도록 설정
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: 랩 계정 만들기 및 구성
+          items:
+            - name: 랩 계정 만들기 및 관리
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: 랩 계정 구성
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: 피어 가상 네트워크에 랩 연결
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: 공유 이미지 갤러리 연결 또는 분리
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: '클래스룸 랩 만들기, 구성 및 사용'
+          items:
+            - name: 클래스룸 랩 만들기 및 관리
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: 템플릿 설정 및 게시
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: 사용량 구성 및 제어
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: 클래스룸 랩 액세스
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: 일정 만들기 및 관리
+              href: classroom-labs/how-to-create-schedules.md
+            - name: 템플릿 VM 내에서 여러 VM이 있는 환경 만들기
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: 공유 이미지 갤러리 사용
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Linux에 대한 원격 데스크톱 연결을 사용하도록 설정
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: 랩 가상 머신에 대한 리소스 그룹 지정
@@ -107,7 +115,7 @@
               href: image-factory-save-distribute-custom-images.md
             - name: 보존 정책 설정 및 정리 스크립트 실행
               href: image-factory-set-retention-policy-cleanup.md
-        - name: 기업에서 DevTest Labs 인프라 설정
+        - name: 기업의 DevTest Labs
           href: devtest-lab-guidance-prescriptive-adoption.md
           items:
             - name: 참조 아키텍처
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Azure DevOps CI/CD 파이프라인에 환경 통합
               href: integrate-environments-devops-pipeline.md
+            - name: PaaS(Platform-as-a-Service) 서비스 사용
+              href: use-paas-services.md
         - name: 랩에 대한 보안 액세스
           items:
             - name: 랩 소유자 및 사용자 추가
               href: devtest-lab-add-devtest-user.md
             - name: 사용자 지정 역할로 권한 사용자 지정
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: 랩 사용자 추가 자동화
+              href: automate-add-lab-user.md
         - name: 랩 구성
           items:
             - name: 정책 및 일정 설정

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 988acec8d7044afe87523637e46c9a4deb92b55e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51d572ac324d0bc875e7ed81879f2456eeea4fbb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477739"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506608"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 애플리케이션 패턴 및 개발 전략
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -271,7 +271,7 @@ Azure에서 다계층 SQL Server 기반 애플리케이션을 구현하려면 �
 | **크로스 프레미스 연결** |Azure Virtual Network를 사용하여 온-프레미스에 연결할 수 있습니다. |Azure Virtual Network를 사용하여 온-프레미스에 연결할 수 있습니다. |Azure Virtual Network가 지원됩니다. 자세한 내용은 [Web Apps Virtual Network 통합](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 참조하세요. |
 | **확장성** |가상 머신 크기를 늘리거나 디스크를 더 추가하면 확장이 가능합니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.<br/><br/>**데이터베이스 서버의 경우**: 데이터베이스 분할 기법 및 SQL Server AlwaysOn 가용성 그룹을 통한 스케일 아웃이 가능합니다.<br/><br/>많은 읽기 작업의 경우 여러 보조 노드 뿐만 아니라 SQL Server 복제에서 [AlwaysOn 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 사용할 수 있습니다.<br/><br/>많은 쓰기 작업의 경우 애플리케이션 확장을 제공하는 여러 물리적 서버에서 수평 분할 데이터를 구현할 수 있습니다.<br/><br/>또한 [데이터 종속 라우팅으로 SQL Server](https://technet.microsoft.com/library/cc966448.aspx)를 사용하여 확장을 구현할 수 있습니다. 데이터 종속적 라우팅(DDR)에서는 데이터베이스 요청을 여러 SQL Server 노드로 라우팅하기 위해 일반적으로 비즈니스 계층의 클라이언트 애플리케이션에서 분할 메커니즘을 구현해야 합니다. 비즈니스 계층에는 데이터의 분할 방법과 데이터를 포함하는 노드에 대한 매핑이 포함됩니다.<br/><br/>가상 머신을 실행 중인 애플리케이션을 확장할 수 있습니다. 자세한 내용은 [애플리케이션 크기를 조정하는 방법](../../../cloud-services/cloud-services-how-to-scale-portal.md)을 참조하세요.<br/><br/>**중요 참고**: Azure의 **자동 크기 조정** 기능을 사용하면 애플리케이션에서 사용하는 Virtual Machines를 자동으로 늘리거나 줄일 수 있습니다. 이 기능은 사용량이 많은 기간 동안 최종 사용자 환경에 부정적인 영향이 발생하지 않도록 하며 수요가 낮을 때는 VM이 종료됩니다. SQL Server VM이 포함된 경우에는 클라우드 서비스에 자동 크기 조정 옵션을 설정하지 않는 것이 좋습니다. 자동 크기 조정 기능을 설정하면 Azure가 가상 머신의 CPU 사용량이 일부 임계값보다 높으면 해당 VM을 켜고 CPU 사용량이 그보다 낮아지면 가상 머신을 끌 수 있기 때문입니다. 자동 크기 조정 기능은 웹 서버처럼 VM이 이전 상태를 참조하지 않고 워크로드를 관리할 수 있는 비저장 애플리케이션에 유용합니다. 그러나 SQL Server처럼 한 인스턴스만 데이터베이스 쓰기를 허용하는 상태 저장 애플리케이션에는 자동 크기 조정 기능이 유용하지 못합니다. |여러 웹 및 작업자 역할을 사용하면 확장이 가능합니다. 웹 역할 및 작업자 역할의 가상 머신 크기에 대한 자세한 내용은 [Cloud Services에 대한 크기 구성](../../../cloud-services/cloud-services-sizes-specs.md)을 참조하세요.<br/><br/>**Cloud Services**를 사용할 때는 처리 분산과 유연한 애플리케이션 확장을 위해 여러 역할을 정의할 수 있습니다. 각각의 클라우드 서비스는 각기 고유한 애플리케이션 파일 및 구성을 포함하는 하나 이상의 웹 역할 및/또는 작업자 역할을 포함합니다. 역할에 대해 배포한 역할 인스턴스(가상 머신)의 수를 늘려 클라우드 서비스를 수직 확장하고 역할 인스턴스의 수를 줄여 클라우드 서비스를 수평 확장할 수 있습니다. 자세한 내용은 [Azure 실행 모드](../../../cloud-services/cloud-services-choose-me.md)를 참조하세요.<br/><br/>확장은 [Cloud Services, Virtual Machines 및 Virtual Network Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) 및 부하 분산 장치를 통한 기본 제공 Azure 고가용성 지원을 통해 사용 가능합니다.<br/><br/>다중 계층 애플리케이션의 경우 Azure Virtual Network를 통해 웹/작업자 역할 애플리케이션을 데이터베이스 서버에 연결하는 것이 좋습니다. 또한 Azure는 동일한 클라우드 서비스에서 여러 VM의 부하를 분산하여 사용자 요청을 VM 간에 분배합니다. 이러한 방식으로 연결된 가상 머신은 Azure 데이터 센터 내의 로컬 네트워크를 통해 서로 직접 통신할 수 있습니다.<br/><br/>Azure Portal과 예약 시간에 **자동 크기 조정**을 설정할 수 있습니다. 자세한 내용은 [포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법](../../../cloud-services/cloud-services-how-to-scale-portal.md)을 참조하세요. |**강화 및 축소**: 웹 사이트에 예약된 인스턴스(VM)의 크기를 증가/감소시킬 수 있습니다.<br/><br/>확장: 웹 사이트에 예약된 인스턴스(VM)를 더 많이 추가할 수 있습니다.<br/><br/>Azure 클래식 포털과 예약 시간에 **자동 크기 조정** 을 설정할 수 있습니다. 자세한 내용은 [Web Apps 크기를 조정하는 방법](../../../app-service/web-sites-scale.md)을 참조하세요. |
 
-프로그래밍 방법 선택과 관련한 자세한 내용은 [Azure Web Apps, Cloud Services 및 VM: 사용하는 경우](../../../app-service/overview-compare.md)를 참조하세요.
+프로그래밍 방법 선택과 관련한 자세한 내용은 [Azure Web Apps, Cloud Services 및 VM: 사용하는 경우](/azure/architecture/guide/technology-choices/compute-decision-tree)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.

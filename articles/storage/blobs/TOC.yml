@@ -13,9 +13,6 @@
           href: storage-blobs-introduction.md
     - name: 빠른 시작
       items:
-        - name: 저장소 계정 만들기
-          displayName: 'resource manager, resource manager template, template, ARM'
-          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 코드 없이 Blob 관리
           items:
             - name: Azure portal
@@ -80,6 +77,8 @@
               href: storage-create-geo-redundant-storage.md
             - name: 2 - RA-GRS 저장소를 사용하여 오류 시뮬레이션
               href: storage-simulate-failure-ragrs-account-app.md
+        - name: Azure Key Vault를 사용하여 Blob 암호화 및 암호 해독
+          href: storage-encrypt-decrypt-blobs-key-vault.md
         - name: 비정형 데이터 검색
           href: storage-unstructured-search.md
     - name: 샘플
@@ -98,6 +97,10 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 보안
           items:
+            - name: 보안 개요
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 스토리지 서비스 암호화
+              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 권한 부여
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
@@ -109,24 +112,10 @@
                   href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Blob에 대한 익명 액세스
                   href: storage-manage-access-to-resources.md
-            - name: 보안 지침
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 방화벽 및 가상 네트워크 구성
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 미사용 데이터 암호화
-              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 고객 키로 미사용 데이터 암호화
-              href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure CDN을 사용하여 HTTPs를 통한 사용자 지정 도메인으로 Blob 액세스
-              href: storage-https-custom-domain-cdn.md
             - name: 변경이 불가능한 Blob
               href: storage-blob-immutable-storage.md
-            - name: 고급 위협 보호
+            - name: Advanced Threat Protection
               href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
-              href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 보안 전송 필요
-              href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure 공통 보안 특성
               href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 데이터 중복
@@ -288,15 +277,18 @@
           href: storage-blob-pageblob-overview.md
     - name: 방법
       items:
-        - name: Storage 계정
+        - name: 저장소 계정 만들기 및 관리
           items:
+            - name: 범용 저장소 계정 만들기
+              displayName: 'resource manager, resource manager template, template, ARM'
+              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 블록 Blob 스토리지 계정 만들기
               href: storage-blob-create-account-block-blob.md
             - name: 저장소 계정 관리
               href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 저장소 계정 업그레이드
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 보안
+        - name: Blob 데이터 보호
           items:
             - name: Blob 데이터에 대한 액세스 권한 부여
               items:
@@ -304,16 +296,16 @@
                   items:
                     - name: 포털
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI 또는 PowerShell
+                    - name: PowerShell 또는 Azure CLI
                       href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: RBAC를 사용하여 액세스 권한 관리
                   items:
                     - name: 포털
                       href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI
-                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: PowerShell
                       href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Azure CLI
+                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Azure AD를 사용하여 인증
                   items:
                     - name: 관리 ID로 인증
@@ -323,14 +315,18 @@
                 - name: 공유 키로 권한 부여
                   items:
                     - name: 연결 문자열 구성
-                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Azure Storage REST API 사용
                       href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 방화벽 및 가상 네트워크 구성
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Azure Key Vault를 사용하여 Blob 암호화 및 암호 해독
-              href: storage-encrypt-decrypt-blobs-key-vault.md
-            - name: 클라이언트 쪽 암호화
+            - name: 서비스 엔드포인트에 대한 고객 관리형 키 구성
+              items:
+                - name: 포털
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 클라이언트 쪽 암호화 구성
               items:
                 - name: .NET
                   href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -338,10 +334,14 @@
                   href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Python
                   href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
-              href: ../common/storage-security-tls.md
-            - name: 보안 전송 필요
-              href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: 네트워크 보안 구성
+              items:
+                - name: 방화벽 및 가상 네트워크 구성
+                  href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 보안 전송 필요
+                  href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 전송 계층 보안 사용
+                  href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 재해 복구
           items:
             - name: 계정 장애 조치(failover) 시작
@@ -354,6 +354,8 @@
           href: storage-properties-metadata.md
         - name: 정적 웹 사이트 호스트
           href: storage-blob-static-website.md
+        - name: HTTPS를 통해 액세스할 수 있도록 Azure CDN을 사용자 지정 도메인에 매핑
+          href: storage-https-custom-domain-cdn.md
         - name: 사용자 지정 도메인 구성
           href: storage-custom-domain-name.md
         - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
@@ -411,7 +413,7 @@
             - name: 'Blob, 큐, 테이블 및 파일'
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
             - name: 데이터 이동
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
             - name: 리소스 관리자
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: 자바
@@ -486,7 +488,7 @@
                 - name: 'Blob, 큐, 테이블 및 파일'
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
                 - name: 데이터 이동
-                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
                 - name: 리소스 관리자
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
             - name: 자바
@@ -557,12 +559,12 @@
           href: data-lake-storage-best-practices.md
         - name: 보안
           items:
-            - name: 빅 데이터 분석 보안 가이드
-              href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Storage 암호화
-              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Storage 보안 개요
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Access Control
               href: data-lake-storage-access-control.md
+        - name: 이벤트 처리
+          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 방법
       items:
         - name: 데이터 수집
@@ -575,16 +577,22 @@
           items:
             - name: 방화벽 및 가상 네트워크 구성
               href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure Storage 암호화를 위한 사용자 지정 키 관리
-              href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 서비스 엔드포인트에 대한 고객 관리형 키 구성
+              items:
+                - name: 포털
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: RBAC를 사용하여 액세스 권한 관리
               items:
                 - name: 포털
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: CLI
-                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 파일 및 디렉터리 수준 사용 권한 설정
               href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
         - name: Azure 서비스와 통합

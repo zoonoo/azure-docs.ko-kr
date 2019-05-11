@@ -137,7 +137,7 @@ Azure Automation의 진단은 Azure Monitor 로그의 두 가지 범주의 레�
 | HostName_s | 관리되는 노드의 이름입니다. |
 | IPAddress | 관리되는 노드의 IPv4 주소입니다. |
 | Category | DscNodeStatus |
-| 리소스 | Azure Automation 계정의 이름입니다. |
+| Resource | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | NodeId_g |관리되는 노드를 식별하는 GUID입니다. |
 | DscReportId_g |보고서를 식별하는 GUID입니다. |
@@ -163,7 +163,7 @@ Azure Automation의 진단은 Azure Monitor 로그의 두 가지 범주의 레�
 | ResultType |리소스가 규정을 준수하는지 여부입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
 | Category | DscNodeStatus |
-| 리소스 | Azure Automation 계정의 이름입니다. |
+| Resource | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | NodeId_g |관리되는 노드를 식별하는 GUID입니다. |
 | DscReportId_g |보고서를 식별하는 GUID입니다. |

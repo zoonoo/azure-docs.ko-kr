@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b4ebf1740ec2b0288d8052cb075a61b720b031a2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 67e54f10074ee566ce974dbd27485904bfe0a653
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028337"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411539"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>승격 된 의사 결정 트리 회귀 모듈
 
@@ -45,7 +45,7 @@ Bagging, 임의 포리스트 등과 함께 앙상블 모델을 만드는 여러 
 
     다음 Wikipedia 문서 그라데이션 부스 팅에 승격 된 트리에 관한 몇 가지 배경 지식을 제공합니다. 
   
--  [http://research.microsoft.com/apps/pubs/default.aspx?id=132652](http://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
+-  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
     Microsoft Research: Ranknet, lambdarank 및 LambdaMART: 개요입니다. By J.C. Burges입니다.
 

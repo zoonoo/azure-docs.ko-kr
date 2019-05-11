@@ -2,19 +2,19 @@
 title: .NET을 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 services: storage
-author: seguler
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
-ms.author: seguler
+ms.date: 05/03/2019
+ms.author: mhopkins
 ms.subservice: common
-ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101392"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209700"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET을 사용한 Azure Storage 샘플
 
@@ -26,7 +26,7 @@ ms.locfileid: "62101392"
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Blob 추가</td> 
-<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference 메서드 예제</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">BLOB 시작</a></td> 
 </tr> 
 <tr> 
 <td>블록 Blob</td>

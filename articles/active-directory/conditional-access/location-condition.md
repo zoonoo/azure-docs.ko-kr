@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917675"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227913"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건이란? 
 
@@ -32,9 +32,9 @@ Azure AD는 장치에 앱에서 single sign-on을 사용 하도록 설정 하 �
 - 서비스에 액세스하는 사용자가 회사 네트워크 외부에 있는 경우 다단계 인증을 요구합니다.
 - 특정 국가 또는 지역에서 서비스에 액세스하는 사용자에 대한 액세스 차단
 
-위치는 명명된 위치 또는 다단계 인증의 신뢰할 수 있는 IP를 나타내는 네트워크 위치에 대한 레이블입니다.
+위치는 명명 된 위치 또는 multi-factor authentication 신뢰할 수 있는 Ip 나타내는 네트워크 위치에 대 한 레이블입니다.
 
-## <a name="named-locations"></a>명명된 위치
+## <a name="named-locations"></a>이름 지정된 위치
 
 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가 및 지역의 논리적 그룹을 만들 수 있습니다.
 
@@ -54,9 +54,9 @@ Azure AD는 장치에 앱에서 single sign-on을 사용 하도록 설정 하 �
 
 - **신뢰할 수 있는 위치로 표시** - 신뢰할 수 있는 위치를 나타내기 위해 명명된 위치에 대해 설정할 수 있는 플래그입니다. 일반적으로 신뢰할 수 있는 위치는 IT 부서에서 제어하는 네트워크 영역입니다. 신뢰할 수 있는 명명된 위치는 조건부 액세스뿐만 아니라, Azure ID 보호 및 Azure AD 보안 보고서에서 [거짓 긍정](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)을 줄이는 데도 사용됩니다.
 - **국가/지역** - 이 옵션을 사용하여 명명된 위치를 정의할 하나 이상의 국가를 선택할 수 있습니다.
-- **알 수 없는 영역 포함** - 일부 IP 주소는 특정 국가에 매핑되지 않습니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
+- **알 수 없는 영역 포함** -일부 IP 주소는 특정 국가 또는 지역에 매핑되지 않습니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
 
-구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 조직에서는 최대 90 lamed 위치를 구성할 수, 각 최대 12000 IP 범위를 사용 하 여 구성 합니다.
+구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 조직은 최대 90 명명 된 위치를 구성할 수 있습니다, 그리고 각 최대 12000 IP 범위를 사용 하 여 구성 합니다.
 
 IPv4 및 IPv6 트래픽에 조건부 액세스 정책이 적용 됩니다. 현재 명명 된 위치에서 구성 하는 IPv6 범위를 허용 하지 않습니다. 이 제한은 다음과 같은 상황을 발생 시킵니다.
 
@@ -67,9 +67,9 @@ IPv4 및 IPv6 트래픽에 조건부 액세스 정책이 적용 됩니다. 현�
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
 
-[다단계 인증 서비스 설정](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)에서 조직의 로컬 인트라넷을 나타내는 IP 주소 범위를 구성할 수도 있습니다. 이 기능을 사용하면 최대 50개의 IP 주소 범위를 구성할 수 있습니다. IP 주소 범위는 CIDR 형식입니다. 자세한 내용은 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 참조하세요.  
+[다단계 인증 서비스 설정](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)에서 조직의 로컬 인트라넷을 나타내는 IP 주소 범위를 구성할 수도 있습니다. 이 기능을 사용하면 최대 50개의 IP 주소 범위를 구성할 수 있습니다. IP 주소 범위는 CIDR 형식입니다. 자세한 내용은 [신뢰할 수 있는 Ip](../authentication/howto-mfa-mfasettings.md#trusted-ips)입니다.  
 
-신뢰할 수 있는 IP를 구성한 경우 위치 조건에 대한 위치 목록에서 **MFA에서 신뢰할 수 있는 IP**로 표시됩니다.
+신뢰할 수 있는 Ip 구성에 있는 경우로 표시 됩니다 **MFA에서 신뢰할 수 있는 IP** 위치 조건에 대 한 위치 목록에 있습니다.
 
 ### <a name="skipping-multi-factor-authentication"></a>다단계 인증 건너뛰기
 
@@ -98,7 +98,7 @@ IPv4 및 IPv6 트래픽에 조건부 액세스 정책이 적용 됩니다. 현�
 
 기본적으로 **모든 위치**를 선택하면 정책이 모든 IP 주소(인터넷의 모든 주소)에 적용됩니다. 이 설정은 명명된 위치로 구성한 IP 주소로 제한되지 않습니다. **모든 위치**를 선택해도 정책에서 특정 위치를 제외할 수 있습니다. 예를 들어, 신뢰할 수 있는 위치를 제외한 모든 위치에 정책을 적용하여, 회사 네트워크를 제외한 모든 위치로 범위를 설정할 수 있습니다.
 
-### <a name="all-trusted-locations"></a>신뢰할 수 있는 모든 위치
+### <a name="all-trusted-locations"></a>모든 신뢰된 위치
 
 이 옵션은 다음에 적용됩니다.
 

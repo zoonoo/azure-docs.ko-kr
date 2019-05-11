@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2B 공동 작업 사용자에 대 한 조건부 액세스 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업 기능은 회사 애플리케이션에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
+description: Azure Active Directory B2B 협업 기능은 회사 애플리케이션에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -18,10 +18,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60355814"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대한 조건부 액세스
+# <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 협업 사용자에 대한 조건부 액세스
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>B2B 사용자에 대한 다단계 인증
-Azure AD B2B 공동 작업을 통해 조직에서는 B2B 사용자에 대한 MFA(Multi-Factor Authentication) 정책을 적용할 수 있습니다. 조직의 전일제 직원과 구성원에 대해 이러한 정책을 사용하는 것과 같은 방법으로 이러한 정책을 테넌트, 앱 또는 개별 사용자 수준에서 적용할 수 있습니다. MFA 정책은 리소스 조직에서 적용됩니다.
+Azure AD B2B 협업을 통해 조직에서는 B2B 사용자에 대한 MFA(Multi-Factor Authentication) 정책을 적용할 수 있습니다. 조직의 전일제 직원과 구성원에 대해 이러한 정책을 사용하는 것과 같은 방법으로 이러한 정책을 테넌트, 앱 또는 개별 사용자 수준에서 적용할 수 있습니다. MFA 정책은 리소스 조직에서 적용됩니다.
 
 예제:
 1. 회사 A의 관리자 또는 정보 근로자가 회사 B의 사용자를 회사 A의 *Foo* 애플리케이션에 초대합니다.
@@ -33,8 +33,8 @@ Azure AD B2B 공동 작업을 통해 조직에서는 B2B 사용자에 대한 MFA
 
 파트너 조직에 MFA 기능이 있더라도 초대하는 테넌시는 항상 파트너 조직 사용자의 MFA를 책임집니다.
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대한 MFA 설정
-B2B 공동 작업 사용자에 대한 MFA를 설정하는 작업이 얼마나 간단한지 알아보려면 다음 비디오를 시청하세요.
+### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>B2B 협업 사용자에 대한 MFA 설정
+B2B 협업 사용자에 대한 MFA를 설정하는 작업이 얼마나 간단한지 알아보려면 다음 비디오를 시청하세요.
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
@@ -43,8 +43,8 @@ B2B 공동 작업 사용자에 대한 MFA를 설정하는 작업이 얼마나 �
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대해 다시 설정된 MFA
-현재 관리자는 다음 PowerShell cmdlet을 사용하여 B2B 공동 작업 사용자에게 다시 입증하도록 요구할 수 있습니다.
+### <a name="mfa-reset-for-b2b-collaboration-users"></a>B2B 협업 사용자에 대해 다시 설정된 MFA
+현재 관리자는 다음 PowerShell cmdlet을 사용하여 B2B 협업 사용자에게 다시 입증하도록 요구할 수 있습니다.
 
 1. Azure AD에 연결
 
@@ -63,7 +63,7 @@ B2B 공동 작업 사용자에 대한 MFA를 설정하는 작업이 얼마나 �
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. 특정 사용자에 대한 MFA 방법을 다시 설정하여 B2B 공동 작업 사용자가 증명 방법을 다시 설정하도록 합니다. 예제:
+3. 특정 사용자에 대한 MFA 방법을 다시 설정하여 B2B 협업 사용자가 증명 방법을 다시 설정하도록 합니다. 예제:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
@@ -103,7 +103,7 @@ B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다음 문서를 살펴보세요.
+Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 * [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
 * [Azure AD B2B 공동 작업 라이선스](licensing-guidance.md)

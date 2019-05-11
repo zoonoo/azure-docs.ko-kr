@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cfe21d2119b92665c5950d792dec6500257c6316
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024176"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149604"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 FPGA에 웹 서비스로 모델 배포
 
@@ -31,20 +31,31 @@ ms.locfileid: "65024176"
 
 Fpga는 이러한 Azure 지역에서 사용할 수 있습니다.
   - 미국 동부
-  - 미국 서부 2
-  - 서유럽
   - 동남아시아
+  - 서유럽
+  - 미국 서부 2
 
 > [!IMPORTANT]
 > 대기 시간 및 처리량을 최적화 하려면 FPGA 모델에 데이터를 보내는 클라이언트 (모델을 배포한 하나) 위에 지역 중 하나에 있어야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+- Azure 구독.  하나 없으면 먼저 무료 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+
+- FPGA 할당량입니다.  Azure CLI를 사용 하 여 할당량이 있는지 확인 합니다.
+    ```shell
+    az vm list-usage --location "eastus" -o table
+    ```
+
+    다른 위치는 ``southeastasia``, ``westeurope``, 및 ``westus2``합니다.
+
+    "Name" 열 아래의 "표준 PBS 제품군 Vcpu"에 대 한 확인 하 고 "CurrentValue."에서 6 개 이상의 Vcpu가 있는지 확인
+
+    할당량이 없는 경우 다음 요청 양식을 제출 [여기](https://aka.ms/accelerateAI)합니다.
 
 - Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
  
-  - 하드웨어 가속 모델에 대 한 Python SDK를 설치 합니다.
+- 하드웨어 가속 모델에 대 한 Python SDK:
 
     ```shell
     pip install --upgrade azureml-accel-models
@@ -52,7 +63,7 @@ Fpga는 이러한 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="sample-notebooks"></a>샘플 Notebook
 
-사용자 편의 위해 [샘플 notebook](https://aka.ms/aml-notebooks) 예를 들어 아래와 다른 예제 외에도 사용할 수 있습니다.  가속화 된 모델에 대 한 방법으로-사용-azureml 및 배포 폴더에서 찾습니다.
+사용자 편의 위해 [샘플 notebook](https://aka.ms/aml-accel-models-notebooks) 아래 예제에서는 다른 예제를 사용할 수 있습니다.
 
 ## <a name="create-and-containerize-your-model"></a>만들고 모델을 컨테이너 화
 
@@ -61,6 +72,7 @@ Fpga는 이러한 Azure 지역에서 사용할 수 있습니다.
 지침에 따라 다음을 수행합니다.
 
 * TensorFlow 모델 정의
+* 모델 변환
 * 모델 배포
 * 배포된 모델 사용
 * 배포된 서비스 삭제
@@ -74,7 +86,7 @@ import os
 import tensorflow as tf
  
 from azureml.core import Workspace
- 
+
 ws = Workspace.from_config()
 print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
 ```
@@ -86,6 +98,8 @@ print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
 ```python
 # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
 import azureml.accel.models.utils as utils
+tf.reset_default_graph()
+
 in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
@@ -124,15 +138,47 @@ print(classifier_output)
 
 ```python
 model_name = "resnet50"
-model_def_path = os.path.join(save_path, model_name)
-print("Saving model in {}".format(model_def_path))
+model_save_path = os.path.join(save_path, model_name)
+print("Saving model in {}".format(model_save_path))
 
 with tf.Session() as sess:
     model_graph.restore_weights(sess)
-    tf.saved_model.simple_save(sess, model_def_path,
+    tf.saved_model.simple_save(sess, model_save_path,
                                    inputs={'images': in_images},
                                    outputs={'output_alias': classifier_output})
 ```
+
+### <a name="save-input-and-output-tensors"></a>입력 및 출력 tensors 저장
+전처리 및 분류자 단계 중 생성 된 입력 및 출력 tensors 모델 변환 및 유추에 필요 합니다.
+
+```python
+input_tensors = in_images.name
+output_tensors = classifier_output.name
+
+print(input_tensors)
+print(output_tensors)
+```
+
+> [!IMPORTANT]
+> 입력을 저장 하 고 모델 변환 및 추론 요청에 대 한 필요 하기 때문에 tensors를 출력 합니다.
+
+사용 가능한 모델 및 해당 기본 분류자는 양만큼 추론 하는 동안 기본 분류자를 사용 하는 경우는 아래 tensors는 출력입니다.
+
++ Resnet50, QuantizedResnet50 ``
+output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
+``
++ Resnet152, QuantizedResnet152 ``
+output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
+``
++ Densenet121, QuantizedDensenet121 ``
+output_tensors = "classifier/densenet121/predictions/Softmax:0"
+``
++ Vgg16, QuantizedVgg16 ``
+output_tensors = "classifier/vgg_16/fc8/squeezed:0"
+``
++ SsdVgg, QuantizedSsdVgg ``
+output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
+``
 
 ### <a name="register-model"></a>모델 등록
 
@@ -141,8 +187,8 @@ with tf.Session() as sess:
 ```python
 from azureml.core.model import Model
 
-registered_model = Model.register(workspace = ws
-                                  model_path = model_def_path,
+registered_model = Model.register(workspace = ws,
+                                  model_path = model_save_path,
                                   model_name = model_name)
 
 print("Successfully registered: ", registered_model.name, registered_model.description, registered_model.version, sep = '\t')
@@ -160,44 +206,39 @@ print(registered_model.name, registered_model.description, registered_model.vers
 
 ### <a name="convert-model"></a>모델 변환
 
-TensorFlow 그래프를 열고 신경망 네트워크 교환 형식으로 변환 해야 합니다. ([ONNX](https://onnx.ai/)).  입력 및 출력 tensors의 이름을 제공 해야 하 고 웹 서비스를 사용 하는 경우 이러한 이름이 클라이언트에서 사용 됩니다.
+TensorFlow 그래프를 열고 신경망 네트워크 교환 형식으로 변환 ([ONNX](https://onnx.ai/)).  입력 및 출력 tensors의 이름을 제공 해야 하 고 웹 서비스를 사용 하는 경우 이러한 이름이 클라이언트에서 사용 됩니다.
 
 ```python
-input_tensor = in_images.name
-output_tensors = classifier_output.name
+from azureml.accel import AccelOnnxConverter
 
-print(input_tensor)
-print(output_tensors)
+convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensors, output_tensors)
 
-
-from azureml.accel.accel_onnx_converter import AccelOnnxConverter
-
-convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensor, output_tensors)
-convert_request.wait_for_completion(show_output=True)
+# If it fails, you can run wait_for_completion again with show_output=True.
+convert_request.wait_for_completion(show_output = False)
 
 # If the above call succeeded, get the converted model
 converted_model = convert_request.result
-print(converted_model.name, converted_model.url, converted_model.version, converted_model.id,converted_model.created_time)
+print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version, 
+      converted_model.id, converted_model.created_time, '\n')
 ```
 
 ### <a name="create-docker-image"></a>Docker 이미지 만들기
 
-변환 된 모델 및 모든 종속성을 Docker 이미지에 추가 됩니다.  이 Docker 이미지 수 다음 배포 하 고 클라우드 또는 지원 되는 edge 장치에서 같은 인스턴스화 [Azure 데이터 가장자리가 상자의](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)합니다.  등록 된 Docker 이미지에 대 한 태그 및 설명을 추가할 수 있습니다.
+변환 된 모델 및 모든 종속성을 Docker 이미지에 추가 됩니다.  그런 다음이 Docker 이미지 배포 고 인스턴스화할 수 있습니다.  지원 되는 배포 대상 클라우드 또는 지 장치에서와 같은 AKS을 포함할 [Azure 데이터 가장자리가 상자의](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)합니다.  등록 된 Docker 이미지에 대 한 태그 및 설명을 추가할 수 있습니다.
 
 ```python
 from azureml.core.image import Image
-from azureml.accel.accel_container_image import AccelContainerImage
+from azureml.accel import AccelContainerImage
 
 image_config = AccelContainerImage.image_configuration()
+# Image name must be lowercase
 image_name = "{}-image".format(model_name)
 
 image = Image.create(name = image_name,
                      models = [converted_model],
                      image_config = image_config, 
                      workspace = ws)
-
-
-image.wait_for_creation(show_output = True)
+image.wait_for_creation(show_output = False)
 ```
 
 태그로 이미지를 나열 하 고 모든 디버깅에 대 한 자세한 로그를 가져옵니다.
@@ -214,34 +255,44 @@ for i in Image.list(workspace = ws):
 모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI 또는 Azure portal을 사용 하 여 새로 만들 수 있습니다.
 
 ```python
-# Use the default configuration (can also provide parameters to customize)
-prov_config = AksCompute.provisioning_configuration()
+from azureml.core.compute import AksCompute, ComputeTarget
 
-aks_name = 'my-aks-9' 
+# Specify the Standard_PB6s Azure VM
+prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
+                                                    agent_count = 1)
+
+aks_name = 'my-aks-cluster'
 # Create the cluster
 aks_target = ComputeTarget.create(workspace = ws, 
                                   name = aks_name, 
                                   provisioning_configuration = prov_config)
+```
 
-%%time
+AKS 배포는 15 분 정도 걸릴 수 있습니다.  배포 성공 여부를 확인 합니다.
+
+```python
 aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
+```
 
-#Set the web service configuration (using default here)
-aks_config = AksWebservice.deploy_configuration()
+AKS 클러스터에 컨테이너를 배포 합니다.
+```python
+from azureml.core.webservice import Webservice, AksWebservice
 
-%%time
-aks_service_name ='aks-service-1'
+# For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
+                                                num_replicas=1,
+                                                auth_enabled = False)
 
-aks_service = Webservice.deploy_from_image(workspace = ws, 
+aks_service_name ='my-aks-service'
+
+aks_service = Webservice.deploy_from_image(workspace = ws,
                                            name = aks_service_name,
                                            image = image,
                                            deployment_config = aks_config,
                                            deployment_target = aks_target)
 aks_service.wait_for_deployment(show_output = True)
-print(aks_service.state)
-print(aks_service.scoring_uri)
 ```
 
 #### <a name="test-the-cloud-service"></a>클라우드 서비스를 테스트 합니다.
@@ -252,12 +303,30 @@ Docker 이미지는 gRPC 및 TensorFlow 제공 "예측" API를 지원 합니다.
 TensorFlow 서비스를 사용 하려는 경우 [샘플 클라이언트 다운로드](https://www.tensorflow.org/serving/setup)합니다.
 
 ```python
+# Using the grpc client in Azure ML Accelerated Models SDK package
+from azureml.accel.client import PredictionClient
+
+address = aks_service.scoring_uri
+ssl_enabled = address.startswith("https")
+address = address[address.find('/')+2:].strip('/')
+port = 443 if ssl_enabled else 80
+
+# Initialize AzureML Accelerated Models client
+client = PredictionClient(address=address,
+                          port=port,
+                          use_ssl=ssl_enabled,
+                          service_name=aks_service.name)
+```
+
+이 분류자에 교육 받았습니다 있으므로 합니다 [ImageNet](http://www.image-net.org/) 데이터 집합, 사람이 읽을 수 있는 레이블로 클래스 매핑.
+
+```python
 import requests
 classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
 
-# Score image using input and output tensor names
+# Score image with input and output tensor names
 results = client.score_file(path="./snowleopardgaze.jpg", 
-                             input_name=input_tensor, 
+                             input_name=input_tensors, 
                              outputs=output_tensors)
 
 # map results [class_id] => [confidence]
@@ -274,6 +343,7 @@ for top in sorted_results[:5]:
 
 ```python
 aks_service.delete()
+aks_target.delete()
 image.delete()
 registered_model.delete()
 converted_model.delete()
@@ -287,3 +357,7 @@ converted_model.delete()
 ## <a name="secure-fpga-web-services"></a>보안 FPGA 웹 서비스
 
 FPGA 웹 서비스 보안에 대한 자세한 내용은 [웹 서비스 보호](how-to-secure-web-service.md) 문서를 참조하세요.
+
+## <a name="pbs-family-vms"></a>PBS 제품군 Vm
+
+Azure Vm의 PBS 제품군 Intel Arria 10 Fpga를 포함합니다.  "표준 PBS 제품군 Vcpu"로 표시 됩니다 할당 된 Azure 할당량을 선택 하면 됩니다.  PB6 VM Vcpu 6 개 있고 하나의 FPGA 및 FPGA에 모델을 배포 하는 일환으로 Azure 기계 학습에서 자동으로 프로 비전 됩니다.  Azure ML에만 사용 하 고 임의의 bitstreams 실행할 수 없습니다.  예를 들어, 암호화, 인코딩 등을 위해 bitstreams 사용 하 여 FPGA 플래시 수 없습니다. 

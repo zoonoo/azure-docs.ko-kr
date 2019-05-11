@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448493"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464892"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>디바이스 시뮬레이션 솔루션 가속기 개요
 
@@ -38,7 +38,7 @@ IoT Hub에 연결된 디바이스 한 대에서 수천 대에 대한 시뮬레�
 
 디바이스 시뮬레이션을 배포하면 몇 가지 샘플 시뮬레이션 및 샘플 디바이스가 제공됩니다. 이러한 샘플을 사용하여 디바이스 시뮬레이션 사용 방법을 배울 수 있습니다. 시작하려면 [트럭 10대를 시뮬레이트하는 샘플 시뮬레이션](quickstart-device-simulation-deploy.md)을 실행합니다. [제공된 많은 샘플 디바이스 중 하나를 사용하여 사용자 고유의 시뮬레이션을 만들](iot-accelerators-device-simulation-create-simulation.md) 수도 있습니다.
 
-![시뮬레이션 구성](media/iot-accelerators-device-simulation-overview/SampleSimulation.png)
+![시뮬레이션 구성](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
 ## <a name="custom-simulated-devices"></a>사용자 지정 시뮬레이트된 디바이스
 

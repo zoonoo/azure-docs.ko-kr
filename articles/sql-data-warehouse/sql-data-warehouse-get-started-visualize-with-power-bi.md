@@ -60,7 +60,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
    
     ![Power BI 맵](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png)
 
-2. 이 단계에서는 고객 수익당 매출액을 보여주는 막대 그래프를 만듭니다. 막대 그래프를 만들려면 확장된 AggregateSales 보기로 이동합니다. SalesAmount 필드를 클릭합니다. 고객 수익 필드를 왼쪽으로 끌어 축에 놓습니다.
+2. 이 단계에서는 고객 수익당 매출액을 보여주는 막대 그래프를 만듭니다. 막대 그래프를 만들려면 확장된 AggregateSales 보기로 이동합니다. SalesAmount 필드를 클릭합니다. CustomerIncome 필드를 왼쪽으로 끌어 축에 놓습니다.
    
     ![Power BI가 축 선택](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png)
    

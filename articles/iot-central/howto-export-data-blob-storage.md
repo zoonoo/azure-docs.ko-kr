@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682026"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464637"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 
@@ -38,7 +38,7 @@ ms.locfileid: "64682026"
 
 1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. [Azure Storage 문서](https://aka.ms/blobdocscreatestorageaccount)에서 자세히 알아볼 수 있습니다.
 2. 계정 유형은 **범용** 또는 **Blob Storage** 중에 선택합니다.
-3. 구독을 선택합니다. 
+3. 구독을 선택하세요. 
 
     > [!Note] 
     > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
@@ -57,14 +57,14 @@ ms.locfileid: "64682026"
     > [!Note]
     > 왼쪽 메뉴에 연속 데이터 내보내기가 표시되지 않는 경우 앱의 관리자가 아닌 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu.PNG)
+    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu1.png)
 
 3. 선택 된 **+ 새로 만들기** 오른쪽 위에 있는 단추입니다. 선택할 **Azure Blob Storage** 내보내기의 대상으로 합니다. 
 
     > [!NOTE] 
     > 앱당 최대 내보내기 수는 5개입니다. 
 
-    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new.PNG)
+    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new1.png)
 
 4. 드롭다운 목록 상자에서 선택 하 **저장소 계정의 네임 스페이스**합니다. **연결 문자열 입력**인 목록의 마지막 옵션을 선택할 수도 있습니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "64682026"
 
 6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다. **저장**을 선택합니다.
 
-  ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob.png)
+   ![연속 데이터 내보내기 구성](media/howto-export-data/export-list-blob.png)
 
 7. 몇 분 후에 데이터가 선택한 대상에 표시됩니다.
 

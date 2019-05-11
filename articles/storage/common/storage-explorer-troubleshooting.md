@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710871"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154184"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -235,7 +235,7 @@ SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경
 
 일반적으로 Linux에서 Storage 탐색기를 실행 하려면 다음 패키지가 필요 합니다.
 
-* [.NET core 2.0 런타임](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET core 2.0 런타임](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) 참고 합니다. Storage 탐색기 1.7.0 버전 및 이전.NET Core 2.0을 필요로 합니다. 최신 버전의.NET Core가 설치 되어 있는 경우 Storage 탐색기 (아래 참조)을 패치 해야 합니다. Storage 탐색기 1.8.0 또는 큰 다음 실행 하는 경우를.NET Core 2.2 사용할 수 있어야 합니다. 버전 2.2 이상 지금은 작업을 확인 하지 않았습니다.
 * `libgnome-keyring-common` 및 `libgnome-keyring-dev`
 * `libgconf-2-4`
 

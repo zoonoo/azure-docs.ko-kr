@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875938"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234051"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -58,10 +58,10 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **type** 속성은 **HttpServer**로 설정해야 합니다. | 예 |
-| url | 웹 서버의 기본 URL입니다. | 예 |
+| 형식 | **type** 속성은 **HttpServer**로 설정해야 합니다. | 예. |
+| url | 웹 서버의 기본 URL입니다. | 예. |
 | enableServerCertificateValidation | HTTP 엔드포인트에 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false**로 설정합니다. | 아닙니다.<br /> (기본값: **true**) |
-| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예 |
+| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
@@ -71,7 +71,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
-| 암호 | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
+| password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예. |
 
 **예제**
 
@@ -105,7 +105,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 |:--- |:--- |:--- |
 | embeddedCertData | Base64로 인코딩된 인증서 데이터입니다. | **embeddedCertData** 또는 **certThumbprint**를 지정합니다. |
 | certThumbprint | 자체 호스팅 통합 런타임 머신의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅 형식의 통합 런타임이 **connectVia** 속성에 지정된 경우에만 적용됩니다. | **embeddedCertData** 또는 **certThumbprint**를 지정합니다. |
-| 암호 | 인증서와 연결된 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 아닙니다. |
+| password | 인증서와 연결된 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 아닙니다. |
 
 인증에 **certThumbprint**를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 자체 호스팅 통합 런타임에 읽기 권한을 부여합니다.
 
@@ -212,12 +212,12 @@ HTTP에서 데이터를 복사 **ORC/Avro/JSON/이진 형식**, 다음 속성이
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 **type** 속성을 **HttpFile**로 설정해야 합니다. | 예 |
+| 형식 | 데이터 세트의 **type** 속성을 **HttpFile**로 설정해야 합니다. | 예. |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아닙니다. |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아닙니다. |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아닙니다. |
 | requestBody | HTTP 요청의 본문입니다. | 아닙니다. |
-| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 세트 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** **형식**에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format)을 참조하세요. |아닙니다. |
+| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 세트 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat**입니다. **형식**에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format)을 참조하세요. |아닙니다. |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/><br/>지원되는 형식: **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은  **최적** 및 **가장 빠름**입니다. |아닙니다. |
 
 > [!NOTE]
@@ -279,7 +279,7 @@ HTTP에서 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 �
 
 | 자산                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| 형식                     | 아래에 있는 type 속성은 `storeSettings` 으로 설정 되어 있어야 **HttpReadSetting**합니다. | 예      |
+| 형식                     | 아래에 있는 type 속성은 `storeSettings` 으로 설정 되어 있어야 **HttpReadSetting**합니다. | 예.      |
 | requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아닙니다.       |
 | addtionalHeaders         | 추가 HTTP 요청 헤더입니다.                             | 아닙니다.       |
 | requestBody              | HTTP 요청의 본문입니다.                               | 아닙니다.       |
@@ -287,7 +287,7 @@ HTTP에서 데이터를 복사할 **Parquet 또는 구분 기호로 분리 된 �
 | maxConcurrentConnections | Storage 저장소에 동시에 연결할 연결 횟수입니다. 데이터 저장소에 대 한 동시 연결을 제한 하려는 경우에 지정 합니다. | 아닙니다.       |
 
 > [!NOTE]
-> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **HttpSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성을 위해서입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
+> Parquet/구분 기호로 분리 된 텍스트 형식에 대 한 **HttpSource** 다음 섹션에 언급 된 형식 복사 활동 원본으로 계속 지원 됩니다-이전 버전과 호환성입니다. 앞으로이 새 모델을 사용 하도록 제안 된 및 UI를 작성 하는 ADF 이러한 새 형식 생성로 전환 되었습니다.
 
 **예제:**
 
@@ -336,7 +336,7 @@ HTTP에서 데이터를 복사할 **ORC/Avro/JSON/이진 파일 형식**를 복�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **type** 속성을 **HttpSource**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 원본의 **type** 속성을 **HttpSource**로 설정해야 합니다. | 예. |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아닙니다. |
 
 **예제**

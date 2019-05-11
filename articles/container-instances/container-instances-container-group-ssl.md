@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 10c015a9aee4ed8be54805f7adaae5bb4b5c422f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870389"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411394"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>컨테이너 그룹의 SSL 끝점을 사용 하도록 설정
 
@@ -66,7 +66,7 @@ code nginx.conf
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -128,7 +128,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Base64로 인코딩한 비밀 및 구성 파일
 
-Base64로 인코딩할 Nginx 구성 파일, SSL 인증서 및 SSL 키입니다. Nginx 컨테이너를 구성 하는 인코딩된 콘텐츠를 사용 합니다.
+Base64로 인코딩할 Nginx 구성 파일, SSL 인증서 및 SSL 키입니다. 다음 섹션에서는 컨테이너 그룹을 배포 하는 데 사용 하는 YAML 파일에서 인코딩된 내용을 입력할 수 있습니다.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -148,7 +148,7 @@ cat ssl.key | base64 -w 0 > base64-ssl.key
 code deploy-aci.yaml
 ```
 
-Base64로 인코딩된 내용을 입력 파일을 아래 표시 된 위치 `secret`합니다. 배포 하는 동안 이러한 파일에 추가 되는 [비밀 볼륨](container-instances-volume-secret.md) 컨테이너 그룹에서입니다. 이 예제에서는 Nginx 컨테이너로 비밀 볼륨 탑재 됩니다.
+Base64로 인코딩된 내용을 입력 파일을 아래 표시 된 위치 `secret`합니다. 예를 들어 `cat` 각 base64로 인코딩된 파일의 내용을 확인 합니다. 배포 하는 동안 이러한 파일에 추가 되는 [비밀 볼륨](container-instances-volume-secret.md) 컨테이너 그룹에서입니다. 이 예제에서는 Nginx 컨테이너로 비밀 볼륨 탑재 됩니다.
 
 ```YAML
 api-version: 2018-10-01
@@ -181,9 +181,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:

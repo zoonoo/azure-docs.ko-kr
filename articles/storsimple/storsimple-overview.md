@@ -207,9 +207,9 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 | 시나리오 | 워크로드 | 지원됨 | 제한 | Version |
 | --- | --- | --- | --- | --- |
-| 공동 작업 |파일 공유 |예 | |모든 버전 |
-| 공동 작업 |분산 파일 공유 |예 | |모든 버전 |
-| 공동 작업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
+| 협업 |파일 공유 |예 | |모든 버전 |
+| 협업 |분산 파일 공유 |예 | |모든 버전 |
+| 협업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 보관 |단순 파일 보관 |예 | |모든 버전 |
 | 가상화 |가상 머신 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 데이터베이스 |SQL |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
@@ -249,7 +249,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 | Backup 대상 |Veeam |Veeam v 9 이상 |[Veaam에서 백업 대상인 StorSimple](storsimple-configure-backup-target-veeam.md)|
 | Backup 대상 |Veritas Backup Exec |Backup Exec 16 이상 |[Backup Exec에서 백업 대상으로 StorSimple 구성](storsimple-configure-backup-target-using-backup-exec.md)|
 | Backup 대상 |Veritas NetBackup |NetBackup 7.7.x 이상  |[NetBackup에서 백업 대상인 StorSimple](storsimple-configure-backuptarget-netbackup.md)|
-| 전역 파일 공유 <br></br> 공동 작업 |Talon  |[Talon을 사용하는 StorSimple](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| 전역 파일 공유 <br></br> 협업 |Talon  |[Talon을 사용하는 StorSimple](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>StorSimple 용어
 Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정의를 검토하는 것이 좋습니다.

@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388746"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073457"
 ---
-# <a name="accelerated-database-recovery-preview"></a>가속 데이터베이스 복구(미리 보기)
+# <a name="accelerated-database-recovery"></a>가속화 된 데이터베이스 복구
 
 **ADR(가속 데이터베이스 복구)** 은 SQL 데이터베이스 엔진 복구 프로세스를 다시 설계하여 특히 장기 실행 트랜잭션이 있는 경우 데이터베이스 가용성을 크게 향상하는 새로운 SQL 데이터베이스 엔진 기능입니다. 현재 Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스와 Azure SQL Data Warehouse의 데이터베이스에 ADR을 사용할 수 있습니다. ADR의 주요 이점은 다음과 같습니다.
 
@@ -65,7 +65,7 @@ ADR은 다음과 같이 SQL 데이터베이스 엔진 복구 프로세스를 완
 - 가장 오래된 활성 트랜잭션의 시작 부분에서/으로 로그를 검색하지 않도록 방지하여 일정한/즉각적인 프로세스를 만듭니다. ADR을 사용 하 여 트랜잭션 로그가 마지막으로 성공한 검사점 (또는 가장 오래 된 더티 페이지 로그 시퀀스 번호 (LSN))만 처리 됩니다. 결과적으로 복구 시간이 장기 실행 트랜잭션의 영향을 받지 않습니다.
 - 전체 트랜잭션에 대한 로그를 처리할 필요가 없으므로 필요한 트랜잭션 로그 공간이 최소화됩니다. 결과적으로 검사점 및 백업이 발생할 때 트랜잭션 로그를 적극적으로 자를 수 있습니다.
 
-간략하게 살펴보자면, ADR은 모든 물리적 데이터베이스 수정의 버전을 관리하고 논리 작업만 실행 취소하여 빠른 데이터베이스 복구를 달성하며, 논리 작업은 제한적이고 거의 즉시 실행 취소할 수 있습니다. 크래시 당시 활성 상태였던 트랜잭션은 중단된 것으로 표시되며, 따라서 이러한 트랜잭션을 통해 생성된 버전을 동시 사용자 쿼리에서 무시할 수 있습니다.
+높은 수준에서 ADR 모든 물리적 데이터베이스 수정 및만 취소 논리는 작업을 제한 되며 실행 취소할 수 거의 즉시 버전 관리를 통해 빠른 데이터베이스 복구를 달성 합니다. 크래시 당시 활성 상태였던 트랜잭션은 중단된 것으로 표시되며, 따라서 이러한 트랜잭션을 통해 생성된 버전을 동시 사용자 쿼리에서 무시할 수 있습니다.
 
 ADR 복구 프로세스는 현재 복구 프로세스와 동일한 세 단계로 구성됩니다. 이러한 단계가 ADR에서 작동하는 원리는 다음 다이어그램에 표시되어 있으며, 그 뒤에 자세한 설명이 이어집니다.
 
@@ -128,6 +128,3 @@ ADR의 네 가지 주요 구성 요소는 다음과 같습니다.
 - 활성 트랜잭션 때문에 트랜잭션 로그가 엄청나게 커지는 것을 목격한 고객  
 - SQL Server 장기 실행 복구(예: 예기치 않은 SQL Server 다시 시작 또는 수동 트랜잭션 롤백) 때문에 데이터베이스를 장기간 사용할 수 없었던 고객
 
-## <a name="to-enable-adr-during-this-preview-period"></a>이 미리 보기 기간에 ADR을 사용하려면
-
-이 기능의 미리 보기 기간에 [adr@microsoft.com](mailto:adr@microsoft.com)으로 이메일을 보내 ADR(가속 데이터베이스 복구)에 대해 자세히 알아보고 사용해 보세요. SQL Database의 단일 데이터베이스와 풀링된 데이터베이스 및 Azure Data Warehouse의 데이터베이스의 경우 메일에 SQL Database 서버의 이름을 포함합니다. 이 기능은 미리 보기이므로 테스트 서버가 비-프로덕션 서버여야 합니다.

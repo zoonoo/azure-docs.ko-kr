@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657563"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141067"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
@@ -44,7 +44,7 @@ ms.locfileid: "60657563"
 
 Azure AD에서 API를 보호하려는 경우 첫 번째 단계는 API를 나타내는 애플리케이션을 Azure AD에서 등록하는 것입니다. 
 
-1. Azure AD 테넌트로 이동한 다음, **앱 등록**으로 이동합니다.
+1. Azure AD 테 넌 트로 이동 하 고 이동할 **앱 등록 (레거시)** 합니다.
 
 2. **새 애플리케이션 등록**을 선택합니다. 
 
@@ -62,7 +62,7 @@ Azure AD에서 API를 보호하려는 경우 첫 번째 단계는 API를 나타�
 
 API를 호출하는 모든 클라이언트 애플리케이션을 Azure AD에서도 애플리케이션으로 등록해야 합니다. 이 예제에서 샘플 클라이언트 애플리케이션은 API Management 개발자 포털의 개발자 콘솔입니다. 다음은 개발자 콘솔을 나타내기 위해 Azure AD에 다른 애플리케이션을 등록하는 방법입니다.
 
-1. **새 애플리케이션 등록**을 선택합니다. 
+1. 에 있는 동안 **앱 등록 (레거시)** 를 선택 **새 응용 프로그램 등록**합니다. 
 
 2. 애플리케이션 이름을 지정합니다. (이 예제에서는 이름이 `client-app`입니다.)
 
@@ -86,7 +86,7 @@ API를 호출하는 모든 클라이언트 애플리케이션을 Azure AD에서�
 
 API 및 개발자 콘솔을 나타내는 두 개의 애플리케이션을 등록했으니 client-app가 backend-app를 호출할 수 있도록 권한을 부여해야 합니다.  
 
-1. **애플리케이션 등록**으로 이동합니다. 
+1. 이동할 **응용 프로그램 등록 (레거시)** 합니다. 
 
 2. `client-app`을 선택하고 **설정**으로 이동합니다.
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Database for PostgreSQL의 서버 개념
-description: 이 문서에서는 Azure Database for PostgreSQL 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다.
+title: Azure Database for PostgreSQL-단일 서버에서에서 서버 개념
+description: 이 문서에서는 고려 사항 및 구성 하 고 Azure Database for PostgreSQL-단일 서버 관리에 대 한 지침을 제공 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422102"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067151"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 서버
-이 문서에서는 Azure Database for PostgreSQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버
+이 문서에서는 Azure Database for PostgreSQL-단일 서버 작업에 대 한 고려 사항 및 지침을 제공 합니다.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버란?
-PostgreSQL용 Azure 데이터베이스 서버는 여러 데이터베이스에 대한 중앙 관리 지점입니다. 온-프레미스 환경에서도 익숙할 수 있는 동일한 PostgreSQL 서버 구문입니다. 특히, PostgreSQL 서비스는 관리되며, 성능 보장을 제공하고, 서버 수준에서 액세스 권한 및 기능을 노출합니다.
+Azure Database for PostgreSQL-단일 서버 배포 옵션의에서 서버는 여러 데이터베이스에 대 한 중앙의 관리 지점. 온-프레미스 환경에서도 익숙할 수 있는 동일한 PostgreSQL 서버 구문입니다. 특히, PostgreSQL 서비스는 관리되며, 성능 보장을 제공하고, 서버 수준에서 액세스 권한 및 기능을 노출합니다.
 
 PostgreSQL용 Azure 데이터베이스 서버:
 

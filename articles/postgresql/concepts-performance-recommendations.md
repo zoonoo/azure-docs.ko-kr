@@ -1,21 +1,21 @@
 ---
-title: Azure Database for PostgreSQL의 성능 권장 사항
-description: 이 문서에서는 PostgreSQL 용 Azure Database에서 성능 권장 사항 기능을 설명 합니다.
+title: 단일 서버-PostgreSQL 용 Azure Database에서 성능 권장 사항
+description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 성능 권장 사항 기능을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
-ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564461"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068836"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 성능 권장 사항
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대 한 Azure Database에서 성능 권장 사항
 
-**적용 대상:** Azure Database for PostgreSQL 9.6 및 10
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 9.6 및 10
 
 데이터베이스 성능 향상된을 위해 사용자 지정 된 제안 만들기를 분석 하는 성능 권장 사항 기능을 합니다. 권장을 생성 하려면 분석 스키마를 포함 하 여 다양 한 데이터베이스 특성에 살펴봅니다. 사용 하도록 설정 [쿼리 저장소](concepts-query-store.md) 성능 권장 사항 기능을 완벽 하 게 활용 하 여 서버의 합니다. 성능 권장 사항을 구현한 후 이러한 변경의 영향을 평가 하는 성능을 테스트 해야 합니다. 
 

@@ -37,7 +37,7 @@ MSRC는 이러한 전문가들이 어떤 작업을 어떻게 진행하는지를 
 
 ## <a name="security-researcher-engagement-and-bounty-programs"></a>보안 연구원 참여 및 포상 프로그램
 
-MSRC는 Microsoft 제품 보안을 증진하기 위해 전세계 보안 연구원들과 공동 작업 및 관계를 지원합니다.
+MSRC는 Microsoft 제품 보안을 증진하기 위해 전세계 보안 연구원들과 협업 및 관계를 지원합니다.
 
 Microsoft 포상 프로그램은 다음과 같은 부문에서 연구원에게 포상금을 지급하고 있습니다.
 

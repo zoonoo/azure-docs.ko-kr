@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483660"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236743"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. Azure Storage 계정의 데이터는 지속성 있고 안전하며 가용성과 확장성이 높으며 전세계 어디서나 HTTP 또는 HTTPS를 통해 액세스할 수 있습니다.
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정에서 액세스할 수 있는 아무 곳 이나 전 세계에서 HTTP 또는 HTTPS를 통해 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는에서 내구성 및 고가용성, 안전 하 고 대규모로 확장 가능한 경우
 
 Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 

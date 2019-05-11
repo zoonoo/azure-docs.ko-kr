@@ -2,18 +2,17 @@
 title: Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용
 description: Linux 기반 HDInsight에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 97e1836952020723c1043617d74a96471ae07aad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724170"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142823"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -38,13 +37,8 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 * **Azure SQL Database**합니다.  참조 [Azure portal에서 Azure SQL database 만들기](../sql-database/sql-database-get-started.md)합니다.  이 문서에서는 라는 데이터베이스 `oozietest`합니다.
 
-* **저장소 구성에 대 한 변경 되었을 수 있습니다.**  참조 [저장소 구성](#storage-configuration) 저장소 계정 종류를 사용 하는 경우 `BlobStorage`합니다.
+* 합니다 [URI 체계](./hdinsight-hadoop-linux-information.md#URI-and-scheme) 클러스터 기본 저장소에 대 한 합니다. 이 됩니다 `wasb://` Azure Storage에 대 한 `abfs://` 에 대 한 Azure Data Lake 저장소 Gen2 또는 `adl://` Azure 데이터 레이크 저장소 Gen1에 대 한 합니다. URI는 것에 대해 Azure Storage 또는 Data Lake 저장소 Gen2 전송 보안을 사용 하는 경우 `wasbs://` 또는 `abfss://`각각 참고 [보안 전송](../storage/common/storage-require-secure-transfer.md)합니다.
 
-## <a name="storage-configuration"></a>Storage 구성
-조치가 필요한 경우 사용 된 저장소 계정의 종류입니다 `Storage (general purpose v1)` 또는 `StorageV2 (general purpose v2)`합니다.  문서의 프로세스는 출력에 적어도 `/mapreducestaging`합니다.  기본 hadoop 구성이 포함 됩니다 `/mapreducestaging` 에 `fs.azure.page.blob.dir` 에서 구성 변수 `core-site.xml` 서비스용 `HDFS`합니다.  이 구성에는 저장소 계정 종류에 대 한 지원 되지 않는 페이지 blob를 디렉터리에 출력 하면 `BlobStorage`합니다.  사용 하도록 `BlobStorage` 이 문서에 대 한 제거 `/mapreducestaging` 에서 `fs.azure.page.blob.dir` 구성 변수입니다.  구성에서 액세스할 수 합니다 [Ambari UI](hdinsight-hadoop-manage-ambari.md)합니다.  그렇지 않으면 오류 메시지가 표시 됩니다. `Page blob is not supported for this account type.`
-
-> [!NOTE]  
-> 이 문서에 사용 되는 저장소 계정에 [보안 전송](../storage/common/storage-require-secure-transfer.md) 사용 하도록 설정 되므로 `wasbs` 대신 `wasb` 문서 전체에서 사용 됩니다.
 
 ## <a name="example-workflow"></a>예제 워크플로
 
@@ -451,7 +445,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 5. 바꾸려면 아래 코드를 편집 `<JOBID>` 이전에 반환 된 id입니다.  작업을 시작하려면 다음 명령을 사용합니다.
 
     ```bash
-    oozie job -start JOBID
+    oozie job -start <JOBID>
     ```
 
     이 명령 후에 상태를 확인하면 실행 중 상태가 표시되고 작업 내 동작에 대한 정보를 반환합니다.  작업을 완료 하려면 몇 분 정도 걸립니다.

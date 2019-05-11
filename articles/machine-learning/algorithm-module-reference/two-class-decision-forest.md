@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3e7cab6e33fa9373095441685f6ecb04f1d91a5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029372"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411502"
 ---
 # <a name="two-class-decision-forest-module"></a>2 클래스 의사 결정 포리스트 모듈
 
@@ -46,7 +46,7 @@ ms.locfileid: "65029372"
 
 그러나 간단한 의사 결정 트리 데이터를 바로 잡음 수 되며 트리 앙상블 보다 덜 생길 수 있습니다.
 
-자세한 내용은 [의사 결정 포리스트](http://go.microsoft.com/fwlink/?LinkId=403677)합니다.  
+자세한 내용은 [의사 결정 포리스트](https://go.microsoft.com/fwlink/?LinkId=403677)합니다.  
 
 ## <a name="how-to-configure"></a>구성 방법
   

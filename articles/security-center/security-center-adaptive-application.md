@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910467"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143443"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Security Center의 적응형 애플리케이션 제어
 이 연습을 통해 Azure Security Center에서 애플리케이션 컨트롤을 구성하는 방법에 대해 알아봅니다.
@@ -154,6 +154,22 @@ Security Center는 안정적인 애플리케이션의 집합을 실행하는 가
 
 Azure Security Center를 사용하면 권장되지 않는 VM 그룹에서도 애플리케이션 허용 목록 정책을 정의할 수 있습니다. 해당 그룹에서도 애플리케이션 허용 목록 정책을 구성하려면 이전에 설명한 동일한 원칙을 따릅니다.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>특정 그룹에서 VM 이동
+
+ 다른 한 그룹에서 VM을 이동 하는 경우 적용할 응용 프로그램 제어 정책 변경 그룹의 설정에는로 이동 합니다. 이전에 VM에 적용 된 모든 응용 프로그램 제어 정책을 제거 하는 구성 되지 않은 그룹에 구성 된 그룹에서 VM를 이동할 수 있습니다.
+
+ 1. **적응형 응용 프로그램 제어** 페이지에서를 **구성 된** 탭 이동 될 현재 VM이 속한 그룹을 클릭 합니다.
+1. 클릭 **Vm 및 컴퓨터 구성**합니다.
+1. VM 이동 하 고 클릭의 줄에 있는 세 점을 클릭 **이동**합니다. 합니다 **서로 다른 그룹에 이동 컴퓨터** 창이 열립니다.
+
+    ![보호](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. 그룹에 VM을 이동 하 고 클릭을 선택 **이동 컴퓨터**, 클릭 **저장**합니다.
+
+    ![보호](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> 클릭 해야 **저장할** 를 클릭 한 후 **이동 컴퓨터**합니다. 클릭 하지 않은 경우 **저장할**, 다음 컴퓨터를 이동 하지 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure 및 비 Azure Vm에서 실행 되는 허용 목록에 추가 응용 프로그램에 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하는 방법을 알아보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.

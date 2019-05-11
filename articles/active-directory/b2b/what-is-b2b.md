@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory B2B 공동 작업이란? - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업은 외부 파트너와 안전하게 리소스를 공유하고 공동으로 작업할 수 있도록 게스트 사용자 액세스를 지원합니다.
+title: Azure Active Directory B2B 협업이란? - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B 협업은 외부 파트너와 안전하게 리소스를 공유하고 공동으로 작업할 수 있도록 게스트 사용자 액세스를 지원합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -21,7 +21,7 @@ ms.locfileid: "58293637"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
-Azure AD(Azure Active Directory) B2B(business-to-business) 공동 작업을 사용하여 회사의 애플리케이션과 서비스를 다른 조직의 게스트 사용자와 안전하게 공유하면서 자체 회사 데이터에 대한 제어를 유지할 수 있습니다. Azure AD 또는 IT 부서가 없는 경우에도 크든 작든, 외부 파트너와 안전하게 작업하세요. 간단한 초대 및 사용 프로세스를 통해 파트너는 자체 자격 증명을 사용하여 회사 리소스에 액세스할 수 있습니다. 개발자는 Azure AD B2B API를 사용하여 초대 프로세스를 사용자 지정하거나 셀프 서비스 등록 포털과 같은 애플리케이션을 작성할 수 있습니다.
+Azure AD(Azure Active Directory) B2B(business-to-business) 협업을 사용하여 회사의 애플리케이션과 서비스를 다른 조직의 게스트 사용자와 안전하게 공유하면서 자체 회사 데이터에 대한 제어를 유지할 수 있습니다. Azure AD 또는 IT 부서가 없는 경우에도 크든 작든, 외부 파트너와 안전하게 작업하세요. 간단한 초대 및 사용 프로세스를 통해 파트너는 자체 자격 증명을 사용하여 회사 리소스에 액세스할 수 있습니다. 개발자는 Azure AD B2B API를 사용하여 초대 프로세스를 사용자 지정하거나 셀프 서비스 등록 포털과 같은 애플리케이션을 작성할 수 있습니다.
 
 자체 ID를 사용하여 회사의 앱 및 서비스에 로그인하도록 초대하여 게스트 사용자와 안전하게 공동 작업하는 방법을 알아보는 비디오를 시청하세요.
 

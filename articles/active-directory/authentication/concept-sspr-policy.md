@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d99169fc38f3976b35a0ebbdd6605450fbd3e2e9
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359027"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412871"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -110,24 +110,51 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 1. 사용자 관리자 또는 회사 관리자 자격 증명을 사용 하 여 Windows PowerShell에 연결 합니다.
 1. 다음 중 하나의 명령을 실행합니다.
 
-   * 사용자의 암호가 만료 되지 않도록 설정 하는 경우를 확인 하려면 다음 cmdlet을 UPN을 사용 하 여 실행 합니다 (예를 들어 *aprilr\@contoso.onmicrosoft.com*) 하거나 확인 하려는 사용자의 사용자 ID: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
-   * 모든 사용자에 대한 **암호 사용 기간 제한 없음** 설정을 보려면 `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}` cmdlet을 실행합니다.
+   * 사용자의 암호가 만료 되지 않도록 설정 하는 경우를 확인 하려면 다음 cmdlet을 UPN을 사용 하 여 실행 합니다 (예를 들어 *aprilr\@contoso.onmicrosoft.com*) 하거나 확인 하려는 사용자의 사용자 ID:
+
+   ```powershell
+   Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+   ```
+
+   * 참조 하는 **암호 사용 기간 제한 없음** 다음 cmdlet을 실행 모든 사용자에 대 한 설정:
+
+   ```powershell
+   Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+   ```
 
 ### <a name="set-a-password-to-expire"></a>암호가 만료되도록 설정
 
 1. 사용자 관리자 또는 회사 관리자 자격 증명을 사용 하 여 Windows PowerShell에 연결 합니다.
 1. 다음 중 하나의 명령을 실행합니다.
 
-   * 특정 사용자의 암호가 만료되도록 설정하려면 해당 사용자의 UPN 또는 사용자 ID를 사용하여 `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None` cmdlet을 실행합니다.
-   * 조직의 모든 사용자 암호가 만료되도록 설정하려면 다음 cmdlet을 사용합니다. `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
+   * 암호가 만료 되도록 한 사용자의 암호를 설정 하려면 UPN 또는 사용자의 사용자 ID를 사용 하 여 다음 cmdlet을 실행 합니다.
+
+   ```powershell
+   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
+   ```
+
+   * 만료 되도록 조직의 모든 사용자의 암호를 설정 하려면 다음 cmdlet을 사용 합니다.
+
+   ```powershell
+   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
+   ```
 
 ### <a name="set-a-password-to-never-expire"></a>암호가 만료되지 않도록 설정
 
 1. 사용자 관리자 또는 회사 관리자 자격 증명을 사용 하 여 Windows PowerShell에 연결 합니다.
 1. 다음 중 하나의 명령을 실행합니다.
 
-   * 특정 사용자의 암호가 만료되지 않도록 설정하려면 해당 사용자의 UPN 또는 사용자 ID를 사용하여 `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration` cmdlet을 실행합니다.
-   * 조직의 모든 사용자 암호가 만료되지 않도록 설정하려면 `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
+   * 만료 되지 않도록 한 사용자의 암호를 설정 하려면 다음 cmdlet을 UPN 이나 사용자의 사용자 ID를 사용 하 여 실행 합니다.
+
+   ```powershell
+   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
+   ```
+
+   * 만료 되지 않도록 조직의 모든 사용자의 암호를 설정 하려면 다음 cmdlet을 실행 합니다.
+
+   ```powershell
+   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
+   ```
 
    > [!WARNING]
    > `-PasswordPolicies DisablePasswordExpiration`로 설정된 암호는 계속해서 `pwdLastSet` 특성에 따라 사용 기간이 계산됩니다. 사용자 암호가 만료되지 않도록 설정하고 90일이 넘어가면 암호가 만료됩니다. `pwdLastSet` 특성에 따라, 만료를 `-PasswordPolicies None`로 변경한 경우 `pwdLastSet`이 90일보다 오래된 모든 암호는 다음 번에 로그인할 때 변경해야 합니다. 이 변경으로 많은 사용자가 영향을 받을 수 있습니다. 

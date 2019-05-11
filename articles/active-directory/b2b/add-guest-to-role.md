@@ -21,7 +21,7 @@ ms.locfileid: "60414146"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 파트너 조직의 사용자에게 권한 부여
 
-Azure AD(Azure Active Directory) B2B 공동 작업 사용자가 디렉터리에 게스트 사용자로 추가되고 디렉터리의 게스트 사용 권한이 기본적으로 제한되지만 기업은 조직의 추가 권한 역할을 채우기 위해 게스트 사용자가 필요할 수 있습니다. 높은 권한 역할 정의를 지원하기 위해 조직의 요구에 따라 원하는 역할에 게스트 사용자를 추가할 수 있습니다.
+Azure AD(Azure Active Directory) B2B 협업 사용자가 디렉터리에 게스트 사용자로 추가되고 디렉터리의 게스트 사용 권한이 기본적으로 제한됩니다. 기업은 조직의 추가 권한 역할을 채우기 위해 게스트 사용자가 필요할 수 있습니다. 높은 권한 역할 정의를 지원하기 위해 조직의 요구에 따라 원하는 역할에 게스트 사용자를 추가할 수 있습니다.
 
 ## <a name="default-role"></a>기본 역할
 

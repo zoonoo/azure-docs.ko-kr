@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
-ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 503bd6cfee1c19d2342ec9f535b3945178ab3ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691923"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136609"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic apps 워크플로 정의 언어에서 트리거 및 작업 형식에 대 한 참조
 
@@ -804,6 +804,8 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
   * [**Response**](#response-action): 요청에 응답하는 데 사용됩니다.
 
+  * [**JavaScript 코드를 실행할** ](#run-javascript-code) JavaScript를 실행 하기 위한 코드 조각
+
   * [**Function**](#function-action): Azure Functions를 호출하는 데 사용됩니다.
 
   * [**Join**](#join-action), [**Compose**](#compose-action), [**Table**](#table-action), [**Select**](#select-action)와 같은 데이터 작업 및 다양한 입력에서 데이터를 만들거나 변형하는 기타 작업
@@ -821,6 +823,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | 작업 유형 | 설명 | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | 입력에서 단일 출력을 만듭니다. 다양한 형식을 가질 수 있습니다. | 
+| [**JavaScript 코드를 실행 합니다.**](#run-javascript-code) | 특정 조건에 맞지는 JavaScript 코드 조각을 실행 합니다. 코드 요구 사항 및 자세한 내용은 참조 하세요 [추가 및 인라인 코드를 사용 하 여 실행된 코드 조각](../logic-apps/logic-apps-add-run-inline-code.md)합니다. |
 | [**Function**](#function-action) | Azure 함수를 호출합니다. | 
 | [**HTTP**](#http-action) | HTTP 끝점을 호출합니다. | 
 | [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
@@ -1047,6 +1050,81 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 이 작업이 만드는 출력은 다음과 같습니다.
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### <a name="execute-javascript-code-action"></a>JavaScript 코드 작업 실행
+
+JavaScript 코드 조각이 실행 하 고을 통해 결과 반환 하는이 작업을 `Result` 후속 동작을 참조할 수 있는 토큰입니다.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*필수*
+
+| 값 | Type | 설명 |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | 다름 | JavaScript 코드를 실행 하려면입니다. 코드 요구 사항 및 자세한 내용은 참조 하세요 [추가 및 인라인 코드를 사용 하 여 실행된 코드 조각](../logic-apps/logic-apps-add-run-inline-code.md)합니다. <p>에 `code` 특성을 읽기 전용 코드 조각을 사용할 수 있습니다 `workflowContext` 입력 개체입니다. 이 개체에는 트리거 및 워크플로에서 이전 작업에서 결과에 액세스 코드를 제공 하는 하위 속성이 포함 합니다. 에 대 한 자세한 내용은 합니다 `workflowContext` 개체를 참조 하십시오 [코드에서 트리거 및 작업 결과 참조](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)합니다. |
+||||
+
+*일부 경우에 필요*
+
+`explicitDependencies` 특성 트리거, 이전 작업 또는 코드 조각에 대 한 종속성으로 둘 다에서 결과 명시적으로 포함 되도록 지정 합니다. 이러한 종속성을 추가 하는 방법에 대 한 자세한 내용은 참조 하세요. [인라인 코드에 대 한 매개 변수 추가](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters)합니다. 
+
+에 대 한 합니다 `includeTrigger` 특성을 지정할 수 있습니다 `true` 또는 `false` 값입니다.
+
+| 값 | Type | 설명 |
+|-------|------|-------------|
+| <*previous-actions*> | 문자열 배열 | 지정 된 작업 이름 배열입니다. 작업 이름은 밑줄 (_), 공백 없이 사용 하는 위치에 해당 워크플로 정의에 표시 되는 작업의 이름을 사용 하 여 (""). |
+||||
+
+*예 1*
+
+이 작업은 논리 앱의 이름을 가져옵니다 결과로 텍스트 "Hello world < 논리 앱 이름 >"를 반환 하는 코드를 실행 합니다. 이 예제에서는 코드에 액세스 하 여 워크플로의 이름을 참조를 `workflowContext.workflow.name` 읽기 전용 속성이 `workflowContext` 개체입니다. 사용에 대 한 자세한 내용은 합니다 `workflowContext` 개체를 참조 하십시오 [코드에서 트리거 및 작업 결과 참조](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)합니다.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*예 2*
+
+이 작업 트리거 때 새 전자 메일을 Office 365 Outlook 계정에서 도착 하는 논리 앱에서 코드를 실행 합니다. 논리 앱에는 또한 승인 요청을 함께 받은 전자 메일의 콘텐츠를 전달 하는 송신 승인 전자 메일 작업을 사용 합니다. 
+
+트리거의에서 전자 메일 주소를 추출 하는 코드 `Body` 속성와 함께 해당 전자 메일 주소를 반환 하 고는 `SelectedOption` 승인 작업에서 속성 값입니다. 작업 승인 전자 메일 보내기 작업의 종속성을 명시적으로 포함 된 `explicitDependencies`  >  `actions` 특성입니다.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -2652,7 +2730,7 @@ Azure Active Directory를 사용한 [인정서 기반 인증](../active-director
 
 [Azure AD OAuth 인증](../active-directory/develop/authentication-scenarios.md)의 경우 트리거나 작업 정의에 `authentication` JSON 개체를 포함할 수 있습니다. 여기에는 다음 표에 지정된 속성을 포함합니다. 런타임 시 매개 변수 값에 액세스하려면 [워크플로 정의 언어](https://aka.ms/logicappsdocs)에 제공되는 `@parameters('parameterName')` 식을 사용하면 됩니다.
 
-| 자산 | 필수 | 값 | 설명 |
+| 자산 | 필수 | Value | 설명 |
 |----------|----------|-------|-------------|
 | **type** | 예 | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" |
 | **authority** | 아닙니다. | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |

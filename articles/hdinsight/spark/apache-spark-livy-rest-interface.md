@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570489"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228109"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
@@ -21,7 +21,7 @@ Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용�
 
 Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 엔드포인트에 대한 REST API를 호출합니다.
 
-**필수 조건:**
+**사전 요구 사항:**
 
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -153,13 +153,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>HDInsight 버전 3.5로 시작하는 Livy 구성에 대한 업데이트
 
-기본적으로 HDInsight 클러스터 3.5 이상은 로컬 파일 경로를 사용하여 샘플 데이터 파일이나 jar를 액세스하지 못하도록 합니다. 클러스터에서 jar 또는 샘플 데이터 파일에 액세스하는 대신 `wasb://` 경로를 사용하는 것이 좋습니다. 로컬 경로를 사용하려면 이에 따라 Ambari 구성을 적절하게 업데이트해야 합니다. 이렇게 하려면 다음을 수행합니다.
-
-1. 클러스터에 대한 Ambari 포털로 이동합니다. Ambari 웹 UI는 https://**CLUSTERNAME**.azurehdidnsight.net의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 CLUSTERNAME은 클러스터 이름입니다.
-
-2. 왼쪽의 탐색 창에서 **Livy**를 클릭한 다음 **구성**을 클릭합니다.
-
-3. **livy-default** 아래에서 `livy.file.local-dir-whitelist` 속성 이름을 추가하고 파일 시스템에 대한 전체 액세스를 허용하려면 값을 **"/"**(슬래시)로 설정합니다. 특정 디렉터리에 대한 액세스만 허용하려면 해당 디렉터리에 대한 경로를 값으로 제공합니다.
+기본적으로 HDInsight 클러스터 3.5 이상은 로컬 파일 경로를 사용하여 샘플 데이터 파일이나 jar를 액세스하지 못하도록 합니다. 클러스터에서 jar 또는 샘플 데이터 파일에 액세스하는 대신 `wasb://` 경로를 사용하는 것이 좋습니다. 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 클러스터에 대한 Livy 작업 제출
 

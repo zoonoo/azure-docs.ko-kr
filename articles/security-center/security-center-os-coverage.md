@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703577"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233607"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -78,9 +78,9 @@ ms.locfileid: "60703577"
 |Windows Defender ATP 통합|✔(지원되는 버전에서만)|✔|X|X|
 |누락된 패치|✔|✔|✔|✔|
 |보안 구성|✔|✔|✔|✔|
-|Endpoint Protection|✔|✔|X|X|
+|엔드포인트 보호|✔|✔|X|X|
 |JIT VM 액세스|✔|X|✔|X|
-|적응형 애플리케이션 제어|✔|X|X|X|
+|적응형 애플리케이션 제어|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |디스크 암호화|✔|X|✔|X|
 |타사 배포|✔|X|✔|X|
@@ -96,13 +96,13 @@ ms.locfileid: "60703577"
  - Azure Security Center를 사용하여 각 솔루션을 자동으로 설치할 수 있는지 여부
  - Security Center에서 검색할 수 있는 Endpoint Protection 솔루션. 이러한 Endpoint Protection 솔루션 중 하나가 검색되더라도 Security Center에 솔루션을 설치하는 것이 좋다는 메시지가 표시되지는 않습니다.
 
-| 엔드포인트 보호| 플랫폼 | Security Center 설치 | Security Center 검색 |
+| Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
 | System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| Trend Micro - 모든 버전 | Windows Server 제품군  | 아닙니다. | 예 |
-| Symantec v12.1.1100+| Windows Server 제품군  | 아닙니다. | 예 |
-| McAfee v10+ | Windows Server 제품군  | 아닙니다. | 예 |
+| Trend Micro - 모든 버전 | Windows Server 제품군  | 아닙니다. | 예. |
+| Symantec v12.1.1100+| Windows Server 제품군  | 아닙니다. | 예. |
+| McAfee v10+ | Windows Server 제품군  | 아닙니다. | 예. |
 | Kaspersky| Windows Server 제품군  | 아닙니다. | 아닙니다.  |
 | Sophos| Windows Server 제품군  | 아닙니다. | 아닙니다.  |
 
@@ -120,7 +120,7 @@ ms.locfileid: "60703577"
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
 |Azure Blob Storage 계정*|✔| ✔|
-|App Services|✔| ✔|
+|앱 서비스|✔| ✔|
 |Cloud Services|✔| X|
 |VNet|✔| 해당 없음|
 |서브넷|✔| 해당 없음|

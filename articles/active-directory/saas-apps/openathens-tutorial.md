@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847351"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>자습서: OpenAthens와 Azure Active Directory 통합
 
@@ -143,11 +143,11 @@ OpenAthens에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     a. **표시 이름 매핑**에서 **특성 사용**을 선택합니다.
 
-    b. **표시 이름 특성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 값을 입력합니다.
+    b. **표시 이름 특성** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 값을 입력합니다.
     
     다. **고유의 사용자 매핑**에서 **특성 사용**을 선택합니다.
 
-    d. **고유의 사용자 특성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 값을 입력합니다.
+    d. **고유의 사용자 특성** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 값을 입력합니다.
 
     e. **상태**에서 확인란 세 개를 모두 선택합니다.
 

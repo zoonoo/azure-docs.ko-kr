@@ -148,6 +148,8 @@
             - name: Apache Ambari REST API 사용
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: 가속화된 쓰기
+          href: ../hbase/apache-hbase-accelerated-writes.md
         - name: HDInsight 클러스터 확장
           href: ../hdinsight-scaling-best-practices.md
           maintainContext: true

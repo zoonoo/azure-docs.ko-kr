@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cba01b5ad5c2cfea32f1faa6cb67c5ce7ee98fcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 136141f5b598fd080edf3254fd01200f2742c763
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024913"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235822"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -90,7 +90,7 @@ Azure Machine Learning을 사용 하 여 자동화 된 기계 학습 Python 모�
 ## <a name="automated-ml-across-microsoft"></a>Microsoft에서 자동화 된 기계 학습
 
 자동화 된 기계 학습은 같은 다른 Microsoft 솔루션에서 사용할 수 있는:
-+ Visual Studio 및 사용 하 여 Visual Studio Code를 사용 하 여.NET 앱에서 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ Visual Studio 및 사용 하 여 Visual Studio Code를 사용 하 여.NET 앱에서 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
 + [HDInsight에서](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), 병렬로 HDInsight 클러스터에서 spark ML에 자동화 된 교육 작업을 수평 위치 합니다. 
 + [In Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 

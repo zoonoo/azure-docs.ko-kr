@@ -4,7 +4,7 @@ description: Azure Security Center 데이터 Azure Sentinel를 연결 하는 방
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: bd6fe027da8c16157c7fce6c348e49c0a6b73ea3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f2f85f8b68efadf1dc0a35d1a8e6bda2655f53b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596611"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207291"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Azure Security Center에서 데이터 연결
 
@@ -45,7 +45,7 @@ Azure Sentinel에서 경고를 연결할 수 있게 해 [Azure Security Center](
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Azure Security Center** 바둑판식으로 배열 합니다.
 1. 오른쪽 클릭 **Connect** 옆에 있는 각 구독에 Azure Sentinel 스트리밍 하려는 경고가 포함 합니다. 각 구독은 Azure Sentinel에 경고를 스트림 하려면 Azure Security Center 표준 계층으로 업그레이드 해야 합니다.
 
-3. **Connect**를 클릭합니다.
+3. **연결**을 클릭합니다.
 
 4. Azure Security Center 경고에 대 한 Log Analytics에서 관련 스키마를 사용, 검색 **SecurityEvent**합니다.
 

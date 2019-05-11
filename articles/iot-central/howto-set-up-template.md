@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097142"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466494"
 ---
 # <a name="set-up-a-device-template"></a>디바이스 템플릿 설정
 
@@ -68,10 +68,9 @@ ms.locfileid: "62097142"
 
 > [!NOTE]
 > 실제 장치를 연결할 때 원격 분석 측정값이 애플리케이션에 표시되려면 장치 템플릿의 필드 이름이 해당 장치 코드의 속성 이름과 일치해야 합니다. 다음 섹션에서 디바이스 템플릿 정의를 계속하면서 설정, 디바이스 속성 및 명령을 구성할 때도 동일하게 수행합니다.
+.png 예를 들어 새 온도 원격 분석 값을 추가할 수 있습니다.
 
-예를 들어 새로운 온도 원격 분석 측정값을 추가할 수 있습니다.
-
-| 표시 이름        | 필드 이름    |  Units    | Min   |max|
+| 표시 이름        | 필드 이름    |  Units    | 최소   |최대값|
 | --------------------| ------------- |-----------|-------|---|
 | 온도         | temp          |  degC     |  0    |100|
 
@@ -142,7 +141,7 @@ ms.locfileid: "62097142"
 
 선택 하 여 새 팬 속도 설정을 추가할 수는 예를 들어 **설정을** 하 고 새 입력 **번호** 설정:
 
-| 표시 이름  | 필드 이름    |  Units  | 10진수 |Initial|
+| 표시 이름  | 필드 이름    |  Units  | 10진수 |초기|
 | --------------| ------------- |---------| ---------|---- |
 | 팬 속도     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -239,7 +238,7 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
 | --------------| -----------|---------------- | --------- |
 | Echo 명령  | echo       |  30             | text      |
 
-![Echo에 대한 세부 정보가 있는 "명령 구성" 양식](./media/howto-set-up-template/commandsecho.png)
+![Echo에 대한 세부 정보가 있는 "명령 구성" 양식](./media/howto-set-up-template/commandsecho1.png)
 
 **저장**을 선택하면 **Echo** 명령이 타일로 표시되며, 실제 디바이스가 연결되면 **Device Explorer**에서 사용할 수 있습니다. 명령을 실행하려면 명령의 필드 이름이 해당 디바이스 코드의 속성 이름과 일치해야 합니다.
 
@@ -255,7 +254,7 @@ IoT Central 애플리케이션에서 Azure Maps를 사용하여 애플리케이�
 
 예를 들어 **설정 및 속성** 타일을 추가하면 **대시보드** 탭을 선택하고 라이브러리에서 타일을 선택하여 현재 설정 및 속성 값의 선택 항목을 표시할 수 있습니다.
 
-![설정 및 속성에 대한 세부 정보가 있는 "디바이스 세부 정보 구성" 양식](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![설정 및 속성에 대한 세부 정보가 있는 "디바이스 세부 정보 구성" 양식](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 이제 운영자가 **Device Explorer**에서 대시보드를 보면 타일이 표시됩니다.
 

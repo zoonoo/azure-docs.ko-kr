@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: f2441d5660ed84a8680c1861e2e20a1a17ee4762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026715"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511090"
 ---
 # <a name="what-is-custom-speech"></a>사용자 지정 음성 란?
 
@@ -43,7 +43,7 @@ ms.locfileid: "65026715"
 
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
-사용자 지정 음성 포털을 사용 하 여 사용자 지정 모델을 만들기 전에 음성 서비스 구독이 필요 합니다. 표준 음성 서비스 구독을 만들려면 이러한 지침을 따릅니다. [음성 구독 만들기](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#new-azure-account)합니다.
+사용자 지정 음성 포털을 사용 하 여 사용자 지정 모델을 만들기 전에 음성 서비스 구독이 필요 합니다. 표준 음성 서비스 구독을 만들려면 이러한 지침을 따릅니다. [음성 구독 만들기](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account)합니다.
 
 > [!NOTE]
 > 표준 (S0) 구독을 만드는 해야 합니다 (F0) 무료 평가판 구독은 지원 되지 않습니다.

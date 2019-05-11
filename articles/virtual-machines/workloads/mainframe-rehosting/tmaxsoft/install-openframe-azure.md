@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69ded2591478a477cd142decb39218841c9ac62
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800869"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410118"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Azure에서 TmaxSoft OpenFrame 설치
 
@@ -102,7 +102,7 @@ Windows에 대 한 eclipse: TmaxSoft에서 지 원하는 개발 플랫폼<br/>
 
 시작 하기 전에 다음을 수행 합니다.
 
-- TmaxSoft에서 OpenFrame 설치 미디어를 가져옵니다. 기존 TmaxSoft 고객 인 경우 사용이 허가 된 복사본이 TmaxSoft 담당자에 게 문의 합니다. 그렇지 않으면에서 평가판을 요청 [TmaxSoft](http://www.tmaxsoft.com/contact/)합니다.
+- TmaxSoft에서 OpenFrame 설치 미디어를 가져옵니다. 기존 TmaxSoft 고객 인 경우 사용이 허가 된 복사본이 TmaxSoft 담당자에 게 문의 합니다. 그렇지 않으면에서 평가판을 요청 [TmaxSoft](https://www.tmaxsoft.com/contact/)합니다.
 
 - 전자 메일을 전송 하 여 OpenFrame 설명서 요청 <support@tmaxsoft.com>합니다.
 
@@ -116,7 +116,7 @@ Windows에 대 한 eclipse: TmaxSoft에서 지 원하는 개발 플랫폼<br/>
 
 **VM을 만들려면**
 
-1. Azure portal로 이동 <http://portal.azure.com> 계정에 로그인 합니다.
+1. Azure portal로 이동 <https://portal.azure.com> 계정에 로그인 합니다.
 
 2. **가상 머신**을 클릭합니다.
 
@@ -779,13 +779,13 @@ TACF 관리자는 시스템 및 RACF 보안을 통해 리소스에 대 한 사�
      TACF_TABLE_CREATE=YES
      ```
 
-4. TACF 설치 관리자를 완료 한 후 TACF 환경 변수를 적용 합니다. 명령 프롬프트에 다음을 입력합니다.
+4. TACF 설치 관리자를 완료 한 후 TACF 환경 변수를 적용 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      source \~/.bash\_profile
      ```
 
-5. TACF 설치 관리자를 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
+5. TACF 설치 관리자를 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      ./OpenFrame_Tacf7_0_Fix2_Linux_x86_64.bin -f tacf.properties
@@ -911,13 +911,13 @@ ProSort는 데이터 정렬에 대 한 일괄 처리 트랜잭션에서 사용 �
 
 1. 성공적으로 일괄 처리 설치 되었는지 확인 하 고 있는지를 확인 합니다 **bin을 prosort prosort\_linux64 2123 opt.tar.gz 2sp3** 설치 관리자 파일이 있습니다.
 
-2. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
+2. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      tar -zxvf prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz
      ```
 
-3. 홈 위치로 prosort 디렉터리를 이동 합니다. 명령 프롬프트에 다음을 입력합니다.
+3. 홈 위치로 prosort 디렉터리를 이동 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      mv prosort /opt/tmaxapp/prosort
@@ -1018,7 +1018,7 @@ OFCOBOL은 OpenFrame 컴파일러는 메인프레임 COBOL 프로그램을 해�
      ```
 
 5. Vi에서 bash 프로필을 엽니다 (`vi .bash_profile`)는 OFCOBOL 변수를 사용 하 여 업데이트 되었는지 확인 합니다.
-6. Bash 프로필을 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
+6. Bash 프로필을 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
       source ~/.bash_profile

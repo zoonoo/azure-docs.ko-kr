@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282664"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024758"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![인식 기술 단계 건너뛰기](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> [인식 검색 빠른 시작](cognitive-search-quickstart-blob.md) 또는 [자습서](cognitive-search-tutorial-blob.md)에서 Azure Search를 위한 새로운 인식 검색 미리 보기 기능을 사용해 볼 수 있습니다.
+> [빠른 시작](cognitive-search-quickstart-blob.md) 또는 [자습서](cognitive-search-tutorial-blob.md)에서 모든 AI 인덱싱 예제를 단계별로 실행할 수 있습니다.
 
 ### <a name="step-3---configure-index"></a>3단계: 인덱스 구성
 
@@ -154,7 +154,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![검색 탐색기 명령](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. *realestate-us-sample*로 변경하려면 명령 모음에서 **인덱스 변경**을 클릭합니다. 어떤 REST API가 제공되는지 확인하려면 명령 모음에서 **API 버전 설정**을 클릭합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2017-11-11)을 사용합니다.
+2. *realestate-us-sample*로 변경하려면 명령 모음에서 **인덱스 변경**을 클릭합니다. 어떤 REST API가 제공되는지 확인하려면 명령 모음에서 **API 버전 설정**을 클릭합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2019-05-06)을 사용합니다.
 
    ![인덱스 및 API 명령](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

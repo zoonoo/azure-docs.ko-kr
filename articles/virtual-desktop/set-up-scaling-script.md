@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870726"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410578"
 ---
 # <a name="automatically-scale-session-hosts"></a>세션 호스트 자동 크기 조정
 
@@ -26,9 +26,9 @@ Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 �
 
 - Windows 가상 데스크톱 테 넌 트 및 계정 또는 해당 테 넌 트 (예: RDS 참가자)을 쿼리할 수 있는 권한이 있는 서비스 주체.
 - 세션 호스트 풀 Vm 구성 및 가상 데스크톱 Windows 서비스를 등록 합니다.
-- 추가 scaler 하 고 작업 일정을 통해 예약된 된 작업을 실행 하는 VM에 네트워크 액세스 세션 호스트 합니다.
-- 예약된 된 작업을 실행 하는 VM에 설치 된 Microsoft Azure Resource Manager PowerShell 모듈입니다.
-- 예약된 된 작업을 실행 하는 VM에 설치 된 Windows 가상 데스크톱 PowerShell 모듈입니다.
+- 추가 가상 컴퓨터를 작업 스케줄러를 통해 예약 된 작업을 실행 하며 세션 호스트에 대 한 네트워크 액세스를 포함 합니다. 이 문서 뒷부분에서에 reffered scaler VM으로 됩니다 수 있습니다.
+- 합니다 [Microsoft Azure Resource Manager PowerShell 모듈](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 예약된 된 작업을 실행 하는 VM에 설치 합니다.
+- 합니다 [Windows 가상 데스크톱 PowerShell 모듈](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 예약된 된 작업을 실행 하는 VM에 설치 합니다.
 
 ## <a name="recommendations-and-limitations"></a>권장 사항 및 제한 사항
 
@@ -37,7 +37,7 @@ Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 �
 - 이 크기 조정 하는 스크립트 크기 조정 스크립트를 실행 하는 예약된 된 작업의 인스턴스당 하나의 호스트 풀을 처리할 수 있습니다.
 - 크기 조정 스크립트를 실행 하는 예약된 된 작업이 항상 켜져 있는 VM에 있어야 합니다.
 - 크기 조정 스크립트 및 해당 구성의 각 인스턴스에 대해 별도 폴더를 만듭니다.
-- 이 스크립트는 multi-factor authentication 계정을 지원 하지 않습니다. 서비스 주체를 사용 하 여 Windows 가상 데스크톱 서비스 및 Azure에 액세스 하는 것이 좋습니다.
+- 이 스크립트는 multi-factor authentication 인증을 필요로 하는 Azure AD 사용자 계정 사용 하 여 Windows 가상 데스크톱에 관리자로 로그인을 지원 하지 않습니다. 서비스 주체를 사용 하 여 Windows 가상 데스크톱 서비스 및 Azure에 액세스 하는 것이 좋습니다. 따릅니다 [이 자습서](create-service-principal-role-powershell.md) 서비스 주체를 만들고 PowerShell을 사용 하 여 역할 할당 합니다.
 - Azure의 SLA를 보장 가용성 집합의 Vm에만 적용 됩니다. 현재 버전의 문서에는 가용성 요구 사항을 충족 하지 않을 수 있습니다는 단일 vm 확장을 수행 하는 환경을 설명 합니다.
 
 ## <a name="deploy-the-scaling-script"></a>크기 조정 스크립트 배포
@@ -48,26 +48,34 @@ Azure에서 많은 가상 데스크톱 미리 보기 Windows 배포의 경우 �
 
 먼저 크기 조정 스크립트에 대 한 환경 준비:
 
-1. VM에 로그인 (**VM 크기 조정**) 도메인 관리 계정을 사용 하 여 예약 된 작업이 실행 되는 합니다.
-2. 크기 조정 vm을 크기 조정 스크립트와 해당 구성을 저장할 폴더를 만듭니다 (예를 들어 **c:\\크기 조정 HostPool1**).
-3. 다운로드 합니다 **basicScaler.ps1**를 **Config.xml**, 및 **함수 PSStoredCredentials.ps1** 파일 및 **PowershellModules** 폴더를 [스크립트 리포지토리를 크기 조정](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) 2 단계에서 만든 폴더에 복사 합니다.
+1. 도메인 관리자 계정을 사용 하 여 예약 된 작업을 실행 하는 VM (scaler VM)에 로그인 합니다.
+2. Scaler 크기 조정 스크립트와 해당 구성을 보유 하는 VM에 폴더를 만듭니다 (예를 들어 **c:\\크기 조정 HostPool1**).
+3. 다운로드 합니다 **basicScale.ps1**를 **Config.xml**, 및 **함수 PSStoredCredentials.ps1** 파일 및 **PowershellModules** 폴더를 [스크립트 리포지토리를 크기 조정](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) 2 단계에서 만든 폴더에 복사 합니다. 두 가지 기본 scaler VM에 복사 하기 전에 파일을 다운로드 합니다.
+    - 로컬 컴퓨터에 git 리포지토리를 복제 합니다.
+    - 보기는 **Raw** 각 파일의 버전 및 텍스트 편집기를 각 파일의 내용을 붙여 복사한 다음 해당 파일 이름 및 파일 형식을 사용 하 여 파일을 저장 합니다. 
 
 ### <a name="create-securely-stored-credentials"></a>안전 하 게 저장 된 자격 증명 만들기
 
 다음으로, 안전 하 게 저장된 된 자격 증명을 만들려면 해야 합니다.
 
 1. 관리자 권한으로 PowerShell ISE를 엽니다.
-2. 편집 창을 열고 부하 합니다 **함수 PSStoredCredentials.ps1** 파일입니다.
-3. 다음 cmdlet을 실행합니다.
+2. 다음 cmdlet을 실행 하 여 RDS PowerShell 모듈을 가져옵니다.
+
+    ```powershell
+    Install-Module Microsoft.RdInfra.RdPowershell
+    ```
+    
+3. 편집 창을 열고 부하 합니다 **함수 PSStoredCredentials.ps1** 파일입니다.
+4. 다음 cmdlet을 실행합니다.
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
     예를 들어 **Set-variable-KeyPath 이름-범위 전역-값 "c:\\확장 HostPool1"**
-4. 실행 합니다 **새로 만들기-StoredCredential KeyPath \$KeyPath** cmdlet. 메시지가 표시 되 면 호스트 풀을 쿼리할 수 있는 권한이 있는 Windows 가상 데스크톱 자격 증명을 입력 합니다. (호스트 풀에 지정 된 된 **config.xml**).
+5. 실행 합니다 **새로 만들기-StoredCredential KeyPath \$KeyPath** cmdlet. 메시지가 표시 되 면 호스트 풀을 쿼리할 수 있는 권한이 있는 Windows 가상 데스크톱 자격 증명을 입력 합니다. (호스트 풀에 지정 된 된 **config.xml**).
     - 표준 계정 또는 다른 서비스 주체를 사용 하는 경우 실행 합니다 **새로 만들기-StoredCredential KeyPath \$KeyPath** 로컬 만들려는 각 계정에 대 한 자격 증명을 저장 한 후 cmdlet.
-5. 실행 **Get StoredCredentials-목록** 자격 증명 생성 되었는지 확인 합니다.
+6. 실행 **Get StoredCredentials-목록** 자격 증명 생성 되었는지 확인 합니다.
 
 ### <a name="configure-the-configxml-file"></a>Config.xml 파일 구성
 
@@ -87,7 +95,7 @@ Config.xml에서 크기 조정 스크립트 설정을 업데이트 하려면 다
 | BeginPeakTime                 | 최대 사용량 시간 시작 될 때                                                            |
 | EndPeakTime                   | 최대 사용 시간이 종료 될 때                                                              |
 | TimeDifferenceInHours         | 시간에서 현지 시간과 UTC 사이의 시간 차이                                   |
-| SessionThresholdPerCPU        | 새 RDSH 서버를 최대 사용 시간 동안 시작 해야 하는 경우를 결정 하는 데 사용 된 CPU 임계값 당 세션의 최대 수입니다.  |
+| SessionThresholdPerCPU        | 새 세션 호스트 VM이 사용량이 적은 시간 동안 시작 해야 할 경우를 결정 하는 데 사용 된 CPU 임계값 당 세션의 최대 수입니다.  |
 | MinimumNumberOfRDSH           | 호스트 풀 사용량이 시간 동안 계속 실행 하는 Vm의 최소 수             |
 | LimitSecondsToForceLogOffUser | 사용자가 로그 아웃을 강제 적용 하기 전에 대기할 시간 (초) 수입니다. 사용자가 0으로 설정 로그 아웃을 강제 적용 되지 않습니다.  |
 | LogOffMessageTitle            | 로그 아웃 해야 하는 전에 사용자에 게 보내는 메시지의 제목                  |
@@ -111,11 +119,11 @@ Config.xml에서 크기 조정 스크립트 설정을 업데이트 하려면 다
 
 이 크기 조정 스크립트 시작 및 끝 하루 동안 최대 사용 기간을 포함 하 여 config.xml 파일에서 설정을 읽습니다.
 
-최대 사용량 시간 동안 스크립트를 현재 세션 수와 각 컬렉션에 대해 현재 실행 중인 RDSH 용량을 확인합니다. 실행 중인 RDSH 서버 config.xml 파일에 정의 된 SessionThresholdPerCPU 매개 변수에 따라 기존 세션을 지원 하도록 충분 한 용량이 있으면 계산 합니다. 그렇지 않은 경우 스크립트 컬렉션에 RDSH 서버 추가 시작 합니다.
+최대 사용량 시간 동안 스크립트를 현재 세션 수와 각 호스트 풀에 대 한 현재 실행 중인 RDSH 용량을 확인합니다. 실행 중인 세션 호스트 Vm config.xml 파일에 정의 된 SessionThresholdPerCPU 매개 변수에 따라 기존 세션을 지원 하도록 충분 한 용량이 있으면 계산 합니다. 그렇지 않은 경우 스크립트 호스트 풀에서 Vm을 호스트 추가 세션을 시작 합니다.
 
-사용량이 시간 동안 스크립트는 config.xml 파일에서 MinimumNumberOfRDSH 매개 변수를 기반으로 하는 RDSH 서버를 종료 해야 확인 합니다. 스크립트를 호스트에 연결 하는 새 세션을 방지 하는 모드를 비우기 위해 RDSH 서버를 설정 합니다. 설정한 경우에 **LimitSecondsToForceLogOffUser** 0이 아닌 양수 값으로 config.xml 파일에서 매개 변수를 스크립트에 그 사실을 알리는 작업을 저장 하 고 구성 된 기간 동안 대기 합니다. 그런 다음 적용할에 현재 로그인 된는 사용자가 로그 아웃 합니다. 모든 사용자 세션 RDSH 서버에서 서명 된, 일단 스크립트 서버가 종료 됩니다.
+스크립트는 사용량 사용량이 적은 시간 동안 Vm을 종료 해야 config.xml 파일에서 MinimumNumberOfRDSH 매개 변수에 따라 세션 호스트를 결정 합니다. 스크립트를 호스트에 연결 하는 새 세션을 방지 하는 모드를 비우기 위해 호스트 Vm 세션을 설정 합니다. 설정한 경우에 **LimitSecondsToForceLogOffUser** 0이 아닌 양수 값으로 config.xml 파일에서 매개 변수를 스크립트에 그 사실을 알리는 작업을 저장 하 고 구성 된 기간 동안 대기 합니다. 그런 다음 적용할에 현재 로그인 된는 사용자가 로그 아웃 합니다. 세션 호스트 VM에서 서명 된 모든 사용자 세션, 후 스크립트 서버가 종료 됩니다.
 
-설정 하는 경우는 **LimitSecondsToForceLogOffUser** 0 config.xml 파일의 매개 변수를 스크립트 하면 세션 구성 설정의 컬렉션 속성을 사용자 세션을 승인 처리 합니다. RDSH 서버에서 모든 세션이 있는 경우 실행 RDSH 서버를 남습니다. 모든 세션 없으면 스크립트 RDSH 서버 종료 됩니다.
+설정한 경우에 **LimitSecondsToForceLogOffUser** 0 config.xml 파일의 매개 변수를 스크립트를 사용 하면 호스트에서 세션 구성 설정이 사용자 세션을 승인 처리에 대 한 풀 속성입니다. 세션 호스트 VM 그대로 남아 있으면 모든 세션 세션 호스트 VM에서 실행 합니다. 모든 세션 없으면 스크립트 세션 호스트 VM 종료 됩니다.
 
 스크립트는 작업 스케줄러를 사용 하 여 scaler VM 서버의 주기적으로 실행 되도록 설계 되었습니다. 원격 데스크톱 서비스 환경의 크기에 따라 적절 한 시간 간격을 선택 하 고 시작 하 고 가상 컴퓨터를 종료 시간이 걸릴 수 합니다. 15 분 마다 크기 조정 스크립트를 실행 하는 것이 좋습니다.
 
@@ -125,6 +133,6 @@ Config.xml에서 크기 조정 스크립트 설정을 업데이트 하려면 다
 
 합니다 **WVDTenantUsage.log** 파일은 기록 active 코어 수 및 가상 컴퓨터의 현재 수 크기 조정 스크립트를 실행할 때마다 합니다. Microsoft Azure Vm 및 비용의 실제 사용량을 예측 하려면이 정보를 사용할 수 있습니다. 다음 정보를 포함 하는 각 항목을 사용 하 여 파일을 쉼표로 구분 된 값으로 형식이:
 
->시간, 컬렉션, 코어, Vm
+>Vm 코어 시간, 호스트 풀
 
 파일 이름 확장명이.csv, Microsoft Excel에 로드 하 고 분석을 수정할 수도 있습니다.

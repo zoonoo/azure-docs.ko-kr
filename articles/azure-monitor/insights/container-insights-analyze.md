@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497374"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148840"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해 
 컨테이너용 Azure Monitor를 사용하면 성능 차트 및 상태 정보를 통해 AKS(Azure Kubernetes Service) 클러스터의 워크로드를 모니터링할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 특정 AKS 클러스터를 모니터링할 때에도 ACI(Azure Container Instances)를 볼 수 있습니다.
@@ -27,7 +27,19 @@ ms.locfileid: "60497374"
 
 컨테이너용 Azure Monitor를 사용하도록 설정하는 방법은 [컨테이너용 Azure Monitor 등록](container-insights-onboard.md)을 참조하세요.
 
-Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되는 AKS 클러스터를 보여주는 다중 클러스터 보기를 제공합니다.  솔루션에서 모니터링되지 않는 것으로 식별된 AKS 클러스터도 보여줍니다. 즉시 클러스터 상태를 이해할 수 있으며, 여기서 노드 및 컨트롤러 성능 페이지로 드릴다운하거나 클러스터의 성능 차트로 이동할 수 있습니다.  모니터링되지 않는 것으로 식별된 AKS 클러스터의 경우 언제든지 해당 클러스터에 모니터링을 사용할 수 있습니다.  
+> [!IMPORTANT]
+> Windows Server 2019를 실행 하는 AKS 클러스터를 모니터링 하려면 컨테이너 지원에 대 한 azure Monitor는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+Azure Monitor는 Linux 및 Windows Server 2019 여러 구독에서 리소스 그룹 배포를 실행 하는 모든 모니터링 대상된 AKS 클러스터의 상태를 표시 하는 다중 클러스터 보기를 제공 합니다.  솔루션에서 모니터링되지 않는 것으로 식별된 AKS 클러스터도 보여줍니다. 즉시 클러스터 상태를 이해할 수 있으며, 여기서 노드 및 컨트롤러 성능 페이지로 드릴다운하거나 클러스터의 성능 차트로 이동할 수 있습니다.  모니터링되지 않는 것으로 식별된 AKS 클러스터의 경우 언제든지 해당 클러스터에 모니터링을 사용할 수 있습니다.  
+
+Linux 클러스터에 비해 컨테이너에 대 한 Azure Monitor를 사용 하 여 Windows Server 클러스터를 모니터링 하는 주요 차이점 다음과 같습니다.
+
+- 메모리 RSS 메트릭을 Windows 노드 및 컨테이너가 사용할 수 없습니다. 
+- 디스크 저장소 용량 정보는 Windows 노드 사용할 수 없습니다.
+- Windows 컨테이너 로그를 제외 하 고 라이브 로그가 지원이 됩니다.
+- 만 환경 모니터링 되는 pod, Docker 환경에 없습니다.
+- 미리 보기 릴리스에서 최대 30 Windows Server 컨테이너 지원 됩니다. Linux 컨테이너에는이 제한이 적용 되지 않습니다.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
@@ -35,7 +47,7 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Azure Monitor에서 다중 클러스터 보기 
 배포된 모든 AKS 클러스터의 상태를 보려면 Azure Portal의 왼쪽 창에서 **모니터**를 선택합니다.  **인사이트** 섹션에서 **컨테이너**를 선택합니다.  
 
-![Azure Monitor 다중 클러스터 대시보드 예제](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Azure Monitor 다중 클러스터 대시보드 예제](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 **모니터링되는 클러스터** 탭에서 다음 정보를 살펴볼 수 있습니다.
 
@@ -128,11 +140,11 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>노드, 컨트롤러 및 컨테이너 상태를 분석 합니다.
 
-**노드**, **컨트롤러** 및 **컨테이너** 탭으로 전환하면 속성 창이 페이지의 오른쪽에 자동으로 표시됩니다.  Kubernetes 개체를 구성 하 고 정의한 레이블을 포함 하는 항목이 선택의 속성이 표시 됩니다. 창을 표시하거나 숨기려면 창에서 **>>** 링크를 클릭합니다.  
+**노드**, **컨트롤러** 및 **컨테이너** 탭으로 전환하면 속성 창이 페이지의 오른쪽에 자동으로 표시됩니다. Kubernetes 개체를 구성 하 고 정의한 레이블을 포함 하는 항목이 선택의 속성이 표시 됩니다. Linux 노드를 선택 하는 경우 또한 보여 줍니다 섹션 **로컬 디스크 용량** 노드로 표시 되는 각 디스크에 사용 되는 비율과 사용 가능한 디스크 공간입니다. 창을 표시하거나 숨기려면 창에서 **>>** 링크를 클릭합니다. 
 
 ![Kubernetes 큐브 뷰 속성 창 예제](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-계층 구조에서 개체를 펼치면 선택한 개체에 따라 속성 창이 업데이트됩니다. 이 창에서 창 위쪽의 **Kubernetes 이벤트 로그 보기** 링크를 클릭하여 미리 정의된 로그 검색을 통해 Kubernetes 이벤트를 볼 수도 있습니다. Kubernetes 로그 데이터를 보는 방법에 대한 자세한 내용은 [로그를 검색하여 데이터 분석](container-insights-log-search.md)을 참조하세요. **컨테이너** 보기에서 컨테이너를 검토할 때 컨테이너 로그를 실시간으로 볼 수 있습니다. 이 기능 및 액세스 권한을 부여하고 제어하는 데 필요한 구성에 대한 자세한 내용은 [컨테이너용 Azure Monitor를 사용하여 실시간으로 컨테이너 로그를 보는 방법](container-insights-live-logs.md)을 참조하세요. 
+계층 구조에서 개체를 펼치면 선택한 개체에 따라 속성 창이 업데이트됩니다. 이 창에서 창 위쪽의 **Kubernetes 이벤트 로그 보기** 링크를 클릭하여 미리 정의된 로그 검색을 통해 Kubernetes 이벤트를 볼 수도 있습니다. Kubernetes 로그 데이터를 보는 방법에 대한 자세한 내용은 [로그를 검색하여 데이터 분석](container-insights-log-search.md)을 참조하세요. 클러스터 리소스를 검토 하는 컨테이너 로그 및 이벤트를 실시간으로 볼 수 있습니다. 이 기능 및 권한을 부여 하 고 액세스를 제어 하는 데 필요한 구성에 대 한 자세한 내용은 참조 하세요. [보는 방법 컨테이너에 대 한 Azure Monitor를 사용 하 여 실시간으로 로그](container-insights-live-logs.md)합니다. 
 
 사용 하 여는 **+ 필터 추가** 하 여 뷰에 대 한 결과 필터링 할 옵션 페이지의 맨 위에서 **Service**, **노드**, **Namespace**, 또는  **노드 풀** 선택한 필터 범위를 선택한 후 다음에 표시 된 값 중 하나는 **값을 선택** 필드입니다.  필터가 구성되면 AKS 클러스터의 측면을 살펴볼 때 필터가 전역적으로 적용됩니다.  수식은 등호만 지원됩니다.  첫 번째 필터에 필터를 추가하여 결과를 더 좁힐 수 있습니다.  예를 들어 **노드**로 필터를 지정한 경우 두 번째 필터는 **서비스** 또는 **네임스페이스**만 선택할 수 있습니다.  
 
@@ -143,6 +155,10 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 **노드** 탭으로 전환하면 행 계층 구조는 클러스터의 노드로 시작하는 Kubernetes 개체 모델을 따릅니다. 노드를 확장하면 노드에서 실행 중인 하나 이상의 창을 볼 수 있습니다. 하나 이상의 컨테이너가 Pod로 그룹화된 경우 계층 구조에서 마지막 행으로 표시됩니다. 호스트에 프로세서 또는 메모리 부족 문제가 있는 경우 호스트에서 실행 중인 Pod와 관련되지 않은 워크로드의 수를 볼 수도 있습니다.
 
 ![성능 보기의 Kubernetes 노드 계층 예제](./media/container-insights-analyze/containers-nodes-view.png)
+
+Windows Server 2019 OS를 실행 하는 Windows Server 컨테이너의 모든 목록에서 Linux 기반 노드 뒤에 표시 됩니다. Windows Server 노드를 확장 하면 하나 이상의 pod 및 노드에서 실행 되는 컨테이너를 볼 수 있습니다. 노드가 선택 될 때 속성 창에 Windows 서버 노드에서 에이전트를 설치 없으므로 에이전트 정보를 제외 하 고 버전 정보를 보여 줍니다.  
+
+![나열 된 Windows 서버 노드를 사용 하 여 예제 노드 계층 구조](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서 마지막 AKS 클러스터 노드 뒤에 표시됩니다.  ACI 가상 노드를 확장하면 해당 노드에서 실행되는 하나 이상의 ACI Pod 및 컨테이너를 볼 수 있습니다.  노드가 아닌 Pod에 대한 메트릭만 수집 및 보고됩니다.
 
@@ -173,7 +189,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| Name | 호스트의 이름입니다. |
+| 이름 | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
 | 평균, 최소, 최대, 50번째, 90번째 | 선택한 기간 동안 백분위를 기준으로 하는 평균 노드 실제 값입니다. 평균 값은 노드에 대해 설정된 CPU/메모리 제한에서 측정됩니다. Pod 및 컨테이너의 경우에는 호스트에서 보고된 평균 값입니다. |
@@ -202,7 +218,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| Name | 컨트롤러의 이름입니다.|
+| 이름 | 컨트롤러의 이름입니다.|
 | 상태 | *확인*, *종료됨*, *실패함*, *중지됨* 또는 *일시 정지됨*과 같은 상태로 실행이 완료된 컨테이너의 롤업 상태입니다. 컨테이너가 실행 중이지만 상태가 제대로 표시되지 않았거나 에이전트에 의해 선택되지 않았고 30분 넘게 응답하지 않은 경우 상태는 *알 수 없음*이 됩니다. 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 각 엔터티에 선택한 메트릭 및 백분위 수의 평균 백분율의 평균을 롤업 합니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -239,7 +255,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| Name | 컨트롤러의 이름입니다.|
+| 이름 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |

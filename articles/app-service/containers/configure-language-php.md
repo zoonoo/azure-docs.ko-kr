@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920425"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407579"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux PHP 앱 구성
 
@@ -187,7 +187,7 @@ Linux 컨테이너를 사용 하 여 웹 SSH 세션으로 이동 (`https://cepha
 > App Service에서 기본 제공 Linux 컨테이너에서 *home/* 지속형된 공유 저장소로 사용 됩니다. 
 >
 
-예를 들어의 값을 변경 하려면 [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) 다음 명령을 실행 합니다.
+예를 들어의 값을 변경 하려면 [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) 다음 명령을 실행 합니다.
 
 ```bash
 cd /home/site

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862088"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071325"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>지 속성 함수 패턴 및 기술 개념 (Azure Functions)
 
@@ -219,9 +219,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-> [!WARNING]
-> 개발 하는 경우 로컬에서 메서드를 사용 하려면 javascript에서 `DurableOrchestrationClient`, 환경 변수를 설정 해야 합니다 `WEBSITE_HOSTNAME` 하 `localhost:<port>` (예를 들어 `localhost:7071`). 이 요구 사항에 대 한 자세한 내용은 참조 하세요. [GitHub 문제 28](https://github.com/Azure/azure-functions-durable-js/issues/28)합니다.
-
 .NET에서 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` 매개 변수는 Durable Functions 확장의 일부인 `orchestrationClient` 출력 바인딩의 값입니다. JavaScript에서 이 개체는 `df.getClient(context)`를 호출하여 반환됩니다. 이러한 개체에는 새로운 또는 기존 오 케 스트레이 터 함수 인스턴스에 대 한 시작, 이벤트 보내기, 종료 및 쿼리를 사용할 수 있습니다 하는 방법을 제공 합니다.
 
 앞의 예제는 HTTP 트리거 함수는를 `functionName` 값은 들어오는 URL에서 값을 전달 [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)합니다. 합니다 [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) 포함 하는 응답을 반환 API를 다음 바인딩를 `Location` 헤더 및 인스턴스에 대 한 추가 정보. 시작된 하는 인스턴스 상태를 조회 하거나 인스턴스를 종료 하는 정보를 나중에 사용할 수 있습니다.
@@ -377,6 +374,63 @@ module.exports = async function (context) {
 };
 ```
 
+## <a name="pattern-6-aggregator-preview"></a>패턴 #6: Aggregator (미리 보기)
+
+여섯 번째 패턴은을 주소 지정이 가능한 단일 시간 동안의 이벤트 데이터를 집계 하는 방법에 대 한 *엔터티*합니다. 이 패턴에서 집계 되는 데이터를 여러 원본에서 가져올 수 있습니다, 일괄 처리로 전달 될 수 있습니다 또는 장기-기간 동안에 분산 될 수 있습니다. 수집기 도착 하 고 집계 된 데이터를 쿼리할 해야 외부 클라이언트 이벤트 데이터에서 작업을 수행 해야 합니다.
+
+![Aggregator 다이어그램](./media/durable-functions-concepts/aggregator.png)
+
+일반을 사용 하 여이 패턴을 구현 하는 동안 까다로운 점은, 상태 비저장 함수 동시성 제어에서 큰 문제점이 되는 것입니다. 뿐 아니라 여러 스레드가 동시에 같은 데이터 수정에 대해 걱정할 필요가 집계만 단일 VM에 한 번에 실행 되도록 하는 방법에 대 한 걱정 해야 합니다.
+
+사용 하는 [지속형 엔터티 함수](durable-functions-preview.md#entity-functions),이 패턴을 쉽게 단일 함수로 구현할 수 있습니다.
+
+```csharp
+public static async Task Counter(
+    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+    int operand = ctx.GetInput<int>();
+
+    switch (ctx.OperationName)
+    {
+        case "add":
+            currentValue += operand;
+            break;
+        case "subtract":
+            currentValue -= operand;
+            break;
+        case "reset":
+            await SendResetNotificationAsync();
+            currentValue = 0;
+            break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+클라이언트에서 큐에 넣을 수 있습니다 *operations* (라고도 "신호")에 대 한 사용 하 여 엔터티 함수는 `orchestrationClient` 바인딩.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData,
+    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityId("Counter", metricType);
+    await entityClient.SignalEntityAsync(entityId, "add", delta);
+}
+```
+
+마찬가지로, 클라이언트 상태에서 메서드를 사용 하는 엔터티 함수를 쿼리할 수는 `orchestrationClient` 바인딩.
+
+> [!NOTE]
+> 엔터티 함수 현재에 제공 되는 [영 속 Functions 2.0 미리 보기](durable-functions-preview.md)합니다.
+
 ## <a name="the-technology"></a>기술
 
 내부적으로 지 속성 함수 확장의 맨 위에 빌드되는 [지 속성 작업 프레임 워크](https://github.com/Azure/durabletask), 지 속성 작업 오케스트레이션을 만드는 데 사용 되는 GitHub에서 오픈 소스 라이브러리를 합니다. Azure Functions를 Azure WebJobs의 서버 리스 발전와 같은 지 속성 함수는 지 속성 작업 프레임 워크의 서버 리스 진화 합니다. Microsoft 및 기타 조직 사용 하 여 지 속성 작업 프레임 워크 광범위 하 게 중요 프로세스를 자동화할 수 있습니다. 이는 서버를 사용하지 않는 Azure Functions 환경에 적합합니다.
@@ -423,7 +477,7 @@ Storage blob 주로 여러 Vm에서 오케스트레이션 인스턴스 확장을
 
 ![Azure Storage 탐색기의 스크린샷](./media/durable-functions-concepts/storage-explorer.png)
 
-> [!WARNING]
+> [!NOTE]
 > 쉽고 편리 하 게 테이블 저장소의 실행 기록을 확인 하는 아니지만이 테이블에 종속성 확인 하지 마십시오. 테이블 지 속성 함수 확장이 진화 함에 따라 변경 될 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제

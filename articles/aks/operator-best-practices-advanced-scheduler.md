@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074195"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -30,6 +30,8 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 
 **모범 사례 가이드** - 수신 컨트롤러와 같은 리소스 집약적 애플리케이션의 액세스를 특정 노드로 제한합니다. 노드 리소스가 필요한 워크로드에 노드 리소스를 계속 사용하도록 하고, 노드에서 다른 워크로드의 예약을 허용하지 않습니다.
 
 AKS 클러스터를 만들 경우 GPU 지원 또는 많은 강력한 CPU를 사용하여 노드를 배포할 수 있습니다. 이러한 노드는 ML(기계 학습) 또는 AI와 같은 대규모 데이터 처리 워크로드에 자주 사용됩니다. 이 유형의 하드웨어는 일반적으로 배포에 비용이 많이 드는 노드 리소스이므로 이러한 노드에서 예약할 수 있는 워크로드를 제한하세요. 대신 클러스터의 일부 노드를 수신 서비스 실행에만 사용하도록 하고 다른 워크로드를 차단할 수 있습니다.
+
+서로 다른 노드에 대해이 지원은 여러 노드 풀을 사용 하 여 제공 됩니다. AKS 클러스터를 하나 이상의 노드 풀을 제공합니다. AKS에서 여러 노드 풀에 대 한 지원은 현재 미리 보기로 제공에서 됩니다.
 
 Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ spec:
 Taint를 적용할 경우 애플리케이션 개발자 및 소유자와 협력하여 해당 배포에서 필요한 toleration을 정의하도록 할 수 있습니다.
 
 taint 및 toleration에 대한 자세한 내용은 [taint 및 toleration 적용][k8s-taints-tolerations]을 참조하세요.
+
+AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [만들기 및 AKS 클러스터에 대 한 여러 노드 풀 관리][use-multiple-node-pools]합니다.
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Taints 및 AKS에서 tolerations의 동작
 
@@ -195,3 +199,4 @@ Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가�
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896424"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510158"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 메시지 통합 개요
 
@@ -116,7 +116,7 @@ Blockchain Workbench의 성공적인 **사용자 만들기** 응답 예:
 | requestId            | 클라이언트 제공 GUID입니다. |
 | userChainIdentifier  | 블록체인 네트워크에서 생성된 사용자의 주소입니다. Ethereum에서 이 주소는 **체인 내** 주소입니다. |
 | applicationName      | 애플리케이션의 이름입니다. |
-| 버전              | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
+| version              | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
 | workflowName         | 워크플로의 이름입니다. |
 | 매개 변수           | 계약 생성을 위한 매개 변수 입력입니다. |
 | connectionId         | 블록체인 연결에 대한 고유 식별자입니다. |
@@ -158,7 +158,7 @@ Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 | connectionId             | 블록체인 연결에 대한 고유 식별자입니다.                               |
 | messageSchemaVersion     | 메시징 스키마 버전입니다.                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
-| status                   | 계약 생성 요청의 상태입니다.  가능한 값은 다음과 같습니다. **제출**, **커밋됨**, **실패**  |
+| status                   | 계약 생성 요청의 상태입니다.  가능한 값: **제출**, **커밋됨**, **실패**  |
 | additionalInformation    | 상태에 따라 제공되는 추가 정보입니다.                              |
 
 Blockchain Workbench의 제출된 **계약 만들기** 응답 예:
@@ -220,7 +220,7 @@ Blockchain Workbench의 커밋된 **계약 만들기** 응답 예:
 | requestId                | 클라이언트 제공 GUID입니다. |
 | userChainIdentifier      | 블록체인 네트워크에서 생성된 사용자의 주소입니다. Ethereum에서 이 주소는 **체인 내** 주소입니다. |
 | contractLedgerIdentifier | 원장의 계약 주소입니다. |
-| 버전                  | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
+| version                  | 애플리케이션의 버전입니다. 여러 버전의 애플리케이션을 사용하도록 설정한 경우 필요합니다. 그렇지 않은 경우 version은 선택 사항입니다. 애플리케이션 버전 관리에 대한 자세한 내용은 [Azure Blockchain Workbench 애플리케이션 버전 관리](version-app.md)를 참조하세요. |
 | workflowFunctionName     | 워크플로 함수의 이름입니다. |
 | 매개 변수               | 계약 생성을 위한 매개 변수 입력입니다. |
 | connectionId             | 블록체인 연결에 대한 고유 식별자입니다. |
@@ -261,7 +261,7 @@ Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 | connectionId          | 블록체인 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion  | 메시징 스키마 버전입니다. |
 | messageName           | **CreateContractActionUpdate** |
-| status                | 계약 작업 요청의 상태입니다. 가능한 값은 다음과 같습니다. **제출**, **커밋됨**, **실패**                         |
+| status                | 계약 작업 요청의 상태입니다. 가능한 값: **제출**, **커밋됨**, **실패**                         |
 | additionalInformation | 상태에 따라 제공되는 추가 정보입니다. |
 
 Blockchain Workbench의 제출된 **계약 작업 만들기** 응답 예:
@@ -383,7 +383,7 @@ Service Bus 토픽을 사용하여 Blockchain Workbench에서 발생하는 이�
 
 | 이름 | 설명 |
 |------|-------------|
-| block | [블록 정보](#block-information)를 포함합니다. |
+| 차단 | [블록 정보](#block-information)를 포함합니다. |
 | 트랜잭션 | 블록에 대한 컬렉션 [트랜잭션 정보](#transaction-information)를 포함합니다. |
 | connectionId | 연결에 대한 고유 식별자입니다. |
 | messageSchemaVersion | 메시징 스키마 버전입니다. |
@@ -563,7 +563,7 @@ Blockchain Workbench에서 *ContractMessage*의 예제:
 | 이름 | 설명 |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| caller                      | [호출자 정보](#caller-information) |
+| 호출자                      | [호출자 정보](#caller-information) |
 | contractId                  | Azure Blockchain Workbench 내 계약에 대한 고유 식별자입니다. |
 | contractLedgerIdentifier    | 원장에서 계약에 대한 고유 식별자입니다. |
 | functionName                | 함수의 이름 |

@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
-또한 **Main** 메서드에서 다음 코드를 추가하여 새로 생성된 Face 클라이언트를 사용하여 원격 및 로컬 이미지에서 얼굴을 감지합니다. 검지 메서드는 다음에 정의합니다. 
+또한 **Main** 메서드에서 다음 코드를 추가하여 새로 생성된 Face 클라이언트를 사용하여 원격 및 로컬 이미지에서 얼굴을 감지합니다. 감지 메서드는 다음에 정의합니다. 
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 

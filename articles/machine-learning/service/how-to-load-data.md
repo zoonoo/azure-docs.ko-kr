@@ -12,15 +12,15 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7c330846cd907f35bb23ae5e453383d7c35222e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024010"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471889"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>로드 하 고 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 읽거나
-이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 로드 하는 다양 한 방법을 알아봅니다. SDK에 대 한 참조 설명서를 참조 합니다 [개요](https://aka.ms/data-prep-sdk)합니다. SDK는 다음을 비롯한 여러 데이터 수집 기능을 지원합니다.
+이 문서에서는 Azure Machine Learning 데이터 준비 SDK를 사용 하 여 데이터를 로드 하는 다양 한 방법을 알아봅니다.  SDK는 다음을 비롯한 여러 데이터 수집 기능을 지원합니다.
 
 * 구문 분석 매개 변수 유추(인코딩, 구분 기호, 헤더)를 사용하여 다양한 파일 형식에서 로드
 * 파일 로드 동안 유추를 사용한 형식 변환
@@ -28,6 +28,7 @@ ms.locfileid: "65024010"
 
 > [!Important]
 > 새 솔루션을 작성 하는 경우는 [Azure Machine Learning 데이터 집합](how-to-explore-prepare-data.md) (미리 보기)는 데이터 탐색 및 준비 합니다. 데이터 집합은 다음 버전의 데이터 준비 SDK, AI 솔루션에서 데이터 집합을 관리 하기 위한 확장된 기능을 제공 합니다.
+> 사용 하는 경우는 `azureml-dataprep` 변환을 사용 하는 대신를 사용 하 여 데이터 흐름을 만들려면 패키지를 `azureml-datasets` 데이터 집합을 만들려면 패키지를 스냅숏 또는 버전이 있는 데이터 집합을 나중에 사용할 수 없습니다.
 
 다음 표에서 다양 한 일반적인 파일 형식에서 데이터를 로드 하기 위한 사용 되는 함수를 보여 줍니다.
 
@@ -67,7 +68,7 @@ dflow = dprep.read_lines(path='./data/text_lines.txt')
 dflow.head(5)
 ```
 
-||꺾은선형|
+||줄|
 |----|-----|
 |0|날짜 \|\| 최소 온도 \|\| 최대 온도|
 |1|2015-07-1 \|\|  -4.1 \|\|  10.0|
@@ -92,8 +93,8 @@ dflow.head(5)
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|1|ALABAMA|1|101710|Hale County|10171002158| |
-|2|ALABAMA|1|101710|Hale County|10171002162| |
+|1|앨라배마|1|101710|Hale County|10171002158| |
+|2|앨라배마|1|101710|Hale County|10171002162| |
 
 
 로드하는 동안 줄을 제외하려면 `skip_rows` 매개 변수를 정의합니다. 이 매개 변수는 CSV 파일에서 내림차순으로(1부터 시작하는 인덱스 사용) 행 로드를 건너뜁니다.
@@ -106,8 +107,8 @@ dflow.head(5)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|ALABAMA|1|101710|Hale County|10171002158|29|
-|1|ALABAMA|1|101710|Hale County|10171002162|40 |
+|0|앨라배마|1|101710|Hale County|10171002158|29|
+|1|앨라배마|1|101710|Hale County|10171002162|40 |
 
 다음 코드를 실행하여 열 데이터 형식을 표시합니다.
 
@@ -161,7 +162,7 @@ dflow.head(5)
 |0|없음|없음|없음|없음|없음|없음|없음|없음|없음| |
 |1|없음|없음|없음|없음|없음|없음|없음|없음|없음| |
 |2|없음|없음|없음|없음|없음|없음|없음|없음|없음| |
-|3|RANK|제목|스튜디오|전 세계|국내 / %|열1|해외 / %|열2|연도 ^| |
+|3|순위|제목|Studio|전 세계|국내 / %|열1|해외 / %|열2|연도 ^| |
 |4|1|아바타|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 출력은 두 번째 시트의 데이터에서 머리글 앞의 3개 행이 비어 있음을 보여줍니다. `read_excel()` 함수는 행을 건너뛰고 헤더를 사용하기 위한 선택적 매개 변수를 포함합니다. 다음 코드를 실행하여 처음 세 개의 행을 건너뛰고 네 번째 행을 머리글로 사용합니다.
@@ -170,7 +171,7 @@ dflow.head(5)
 dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||RANK|제목|스튜디오|전 세계|국내 / %|열1|해외 / %|열2|연도 ^|
+||순위|제목|Studio|전 세계|국내 / %|열1|해외 / %|열2|연도 ^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|아바타|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
 |1|2|타이타닉|Par.|2186.8|658.7|0.301|1528.1|0.699|1997^|
@@ -229,9 +230,9 @@ dflow.head(5)
 
 | |ProductID|이름|ProductNumber|색|StandardCost|ListPrice|크기|무게|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
-|0|680|HL Road Frame - Black, 58|FR-R92B-58|검정|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
-|1|706|HL Road Frame - Red, 58|FR-R92R-58|빨강|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
-|2|707|Sport-100 Helmet, Red|HL-U509-R|빨강|13.0863|34.99|없음|없음|35|33|2005-07-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
+|0|680|HL Road Frame - Black, 58|FR-R92B-58|검은색|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
+|1|706|HL Road Frame - Red, 58|FR-R92R-58|빨간색|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
+|2|707|Sport-100 Helmet, Red|HL-U509-R|빨간색|13.0863|34.99|없음|없음|35|33|2005-07-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
 
 
 ## <a name="use-azure-data-lake-storage"></a>Azure Data Lake Storage 사용
@@ -305,7 +306,7 @@ dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azur
 dflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Website|street|city|국가|
+||FMID|MarketName|웹 사이트|street|city|군|
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonia Farmers Market Association - Danville|https://sites.google.com/site/caledoniafarmers... ||댄빌|칼레도니아|
 |1|1011871|Stearns Homestead Farmers' Market|http://Stearnshomestead.com |6975 Ridge Road|파르마|카이어호가|
@@ -315,5 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>다음 단계
 
-* SDK를 참조 하세요 [개요](https://aka.ms/data-prep-sdk) 디자인 패턴 및 사용 예제
 * Azure Machine Learning 데이터 준비 SDK 참조 [자습서](tutorial-data-prep.md) 특정 시나리오를 해결 하는 예

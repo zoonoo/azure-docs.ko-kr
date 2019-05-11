@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917225"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190197"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO 사용
 
@@ -165,7 +165,7 @@ SDK가 broker 애플리케이션과 함께 작동하여 SSO를 사용하도록 �
 
 소유하고 있는 애플리케이션에서 SSO를 활성화하려면 다음을 수행해야 합니다.
 
-1. 모든 애플리케이션 사용자가 동일한 클라이언트 ID 또는 애플리케이션 ID인지 확인합니다.
+1. 모든 응용 프로그램 사용 된 동일한 클라이언트 ID 또는 응용 프로그램 id입니다.
 2. 모든 애플리케이션이 키 집합을 공유할 수 있도록 Apple에서 동일한 서명 인증서를 공유하는지 확인합니다.
 3. 각 애플리케이션에 대한 동일한 키 집합 권한 부여를 요청합니다.
 4. SDK에 사용했으면 하는 공유 키 집합을 제공합니다.

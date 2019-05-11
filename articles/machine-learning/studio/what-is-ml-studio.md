@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683004"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024210"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 Microsoft Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. Machine Learning Studio는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
@@ -29,7 +29,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 
 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>Machine Learning Studio 대화형 작업 영역
-예측 분석 모델을 개발하려면 일반적으로 원본 하나 이상의 데이터를 사용하고, 다양한 데이터 조작과 통계 함수를 통해 해당 데이터를 변환 및 분석하고, 결과 집합을 생성합니다. 이와 같은 모델을 개발하는 과정은 반복 프로세스이며, 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다.
+예측 분석 모델을 개발하려면 일반적으로 하나 이상의 소스에서 얻은 데이터를 사용하고, 다양한 데이터 조작과 통계 함수를 통해 해당 데이터를 변환 및 분석하고, 결과 세트를 생성합니다. 이와 같은 모델을 개발하는 과정은 반복 프로세스이며, 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다.
 
 **Azure Machine Learning Studio**에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 세트***와 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning 스튜디오에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
 
@@ -44,7 +44,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 ![Microsoft Azure Machine Learning Studio 기능 개요](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio 시작
-[Machine Learning Studio](https://studio.azureml.net)를 처음 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 동영상, 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
+Machine Learning Studio(https://studio.azureml.net)를 처음으로 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 동영상, 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
 
 왼쪽 위 메뉴를 클릭합니다. ![메뉴](./media/what-is-ml-studio/menu.png) 몇 가지 옵션이 표시됩니다.
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
@@ -87,7 +87,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 * **유방암 데이터** - 유방암 진단 데이터
 * **산불 데이터** - 포르투갈 북동부에서 발생한 산불 규모
 
-실험을 빌드할 때 캔버스의 왼쪽에서 사용할 수 있는 데이터 세트의 목록에서 선택할 수 있습니다.
+실험을 빌드할 때 캔버스의 왼쪽에 제공되는 데이터 세트 목록에서 선택할 수 있습니다.
 
 Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure Machine Learning Studio에서 예제 데이터 세트 사용](use-sample-datasets.md)을 참조하세요.
 
@@ -111,14 +111,22 @@ Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure
 <a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Azure Machine Learning Service는 Machine Learning Studio와 어떻게 다른가요?
 
-[Azure Machine Learning Service](../service/overview-what-is-azure-ml.md)는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 SDK 및 서비스를 제공합니다. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요. 
+[Azure Machine Learning Service](../service/overview-what-is-azure-ml.md)는 신속하게 데이터를 준비하고 기계 학습 모델을 학습 및 배포할 수 있도록 SDK **및** 시각적 인터페이스(미리 보기)를 모두 제공합니다. 이 시각적 인터페이스(미리 보기)는 Studio와 유사한 끌어서 놓기 환경을 제공합니다. 그러나 Studio 전용 컴퓨팅 플랫폼과는 달리, 시각적 인터페이스는 사용자 고유의 컴퓨팅 리소스를 사용하며 Azure Machine Learning Service에 완전히 통합됩니다.
 
-머신 러닝 모델을 쉽고 빠르게 실험하고 솔루션에 기본 제공 머신 러닝 알고리즘으로 충분한 경우 Machine Learning Studio를 사용합니다.
+다음은 간략하게 비교한 내용입니다.
 
-Python 환경에서 작업하거나, 머신 러닝 알고리즘에 대한 제어 수준을 높이려 하거나, 오픈 소스 머신 러닝 라이브리러를 사용하려는 경우 머신 러닝 서비스를 사용합니다.
+|| Machine Learning Studio | Azure Machine Learning 서비스:<br/>시각적 인터페이스|
+|---| --- | --- |
+|| GA(일반 공급) | 미리 보기|
+|인터페이스용 모듈| 다수 | 인기 있는 초기 모듈 세트|
+|컴퓨팅 대상 학습| 전용 컴퓨팅 대상, CPU만 지원| Azure Machine Learning 컴퓨팅, GPU 또는 CPU 지원<br/>(다른 컴퓨팅은 SDK에서 지원)|
+|컴퓨팅 대상 배포| 전용 웹 서비스 형식, 사용자 지정 불가능 | 엔터프라이즈 보안 옵션 및 Azure Kubernetes Service <br/>([다른 컴퓨팅](../service/how-to-deploy-and-where.md)은 SDK에서 지원) |
+|자동화된 모델 학습 및 하이퍼 매개변수 튜닝 | 아니요 | 시각적 인터페이스에서는 아직 미지원 <br/> (SDK 및 Azure Portal에서는 지원) | 
+
+[빠른 시작: 코드를 작성하지 않고 데이터 준비 및 시각화](../service/ui-quickstart-run-experiment.md)를 통해 시각적 인터페이스(미리 보기)를 사용해보세요.
 
 > [!NOTE]
-> Azure Machine Learning Studio에서 만든 모델은 Azure Machine Learning Service로 배포하거나 관리할 수 없습니다.
+> Studio에서 만든 모델은 Azure Machine Learning Service로 배포하거나 관리할 수 없습니다. 하지만 서비스 시각적 인터페이스에서 만든 모델은 Azure Machine Learning Service 작업 영역을 통해 관리할 수 있습니다.
 
 ## <a name="free-trial"></a>평가판
 

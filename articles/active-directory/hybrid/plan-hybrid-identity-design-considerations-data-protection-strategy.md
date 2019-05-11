@@ -63,7 +63,7 @@ ms.locfileid: "64918421"
 
 데이터 정보 보호를 우려하는 조직은 일반적으로 해당 솔루션에 대한 데이터 분류가 필요합니다. 현재 온-프레미스 인프라가 이미 데이터 분류를 사용하고 있는 경우 사용자의 ID에 대한 주 리포지토리로 Azure AD를 활용하는 것이 가능합니다. 데이터 분류 호출에 사용되는 온-프레미스인 일반적인 도구는 Windows Server 2012 R2에 대한 [데이터 분류 도구 키트](https://msdn.microsoft.com/library/Hh204743.aspx) 라고 합니다. 이 도구는 사설 클라우드에서 파일 서버에 데이터를 식별, 분류 및 보호할 수 있습니다. 또한 이 작업을 수행하기 위해 Windows Server 2012에서 [자동 파일 분류](https://technet.microsoft.com/library/hh831672.aspx) 를 활용할 수 있습니다.
 
-조직이 준비된 데이터 분류가 없지만 새 서버 온-프레미스를 추가하지 않고 중요한 파일을 보호해야 하는 경우 Microsoft [Azure Rights Management 서비스](https://technet.microsoft.com/library/JJ585026.aspx)를 사용할 수 있습니다.  Azure RMS는 암호화, ID 및 권한 부여 정책을 사용하여 파일 및 전자 메일을 보호하고 이는 휴대폰, 태블릿 및 PC와 같은 여러 디바이스에서 작동합니다. Azure RMS는 클라우드 서비스이기 때문에 서로 보호된 콘텐츠를 공유할 수 있기 전에 다른 조직과 트러스트를 명시적으로 구성할 필요가 없습니다. Office 365 또는 Azure AD 디렉터리가 이미 있는 경우 조직 간에 공동 작업은 자동으로 지원됩니다. 또한 Azure Active Directory 동기화 서비스(AAD 동기화) 또는 Azure AD Connect을 사용하여 Azure RMS가 온-프레미스 Active Directory 계정에 대한 공용 ID를 지원하기 위해 필요로 하는 디렉터리 특성을 동기화할 수 있습니다.
+조직이 준비된 데이터 분류가 없지만 새 서버 온-프레미스를 추가하지 않고 중요한 파일을 보호해야 하는 경우 Microsoft [Azure Rights Management 서비스](https://technet.microsoft.com/library/JJ585026.aspx)를 사용할 수 있습니다.  Azure RMS는 암호화, ID 및 권한 부여 정책을 사용하여 파일 및 전자 메일을 보호하고 이는 휴대폰, 태블릿 및 PC와 같은 여러 디바이스에서 작동합니다. Azure RMS는 클라우드 서비스이기 때문에 서로 보호된 콘텐츠를 공유할 수 있기 전에 다른 조직과 트러스트를 명시적으로 구성할 필요가 없습니다. Office 365 또는 Azure AD 디렉터리가 이미 있는 경우 조직 간에 협업은 자동으로 지원됩니다. 또한 Azure Active Directory 동기화 서비스(AAD 동기화) 또는 Azure AD Connect을 사용하여 Azure RMS가 온-프레미스 Active Directory 계정에 대한 공용 ID를 지원하기 위해 필요로 하는 디렉터리 특성을 동기화할 수 있습니다.
 
 콘텐츠 관리의 핵심은 누가 어떤 리소스에 액세스하지 이해하는 것입니다. 따라서 풍부한 로깅 기능은 ID 관리 솔루션에서 중요합니다. Azure AD에서는 다음을 포함하여 30일 이상 로그를 제공합니다.
 

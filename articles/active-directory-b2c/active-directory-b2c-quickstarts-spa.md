@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 51e0f6b7162c9bfa6c34f091bdce2b896bd5e284
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688956"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190397"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
@@ -25,7 +25,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
 - [Node.js](https://nodejs.org/en/download/)
 - Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다.
 - GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)하거나 샘플 웹앱을 복제합니다.
@@ -64,7 +64,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
     ![로그인 또는 등록 공급자](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 응용 프로그램이 사용자의 소셜 계정에서 정보를 읽도록 권한을 부여합니다. 액세스를 부여하면 응용 프로그램은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
+    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 사용자의 소셜 계정에서 정보를 읽도록 애플리케이션에 권한을 부여합니다. 액세스를 부여하면 애플리케이션은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
 
 3. ID 공급자에 대한 로그인 프로세스를 완료합니다.
 
@@ -82,7 +82,12 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 샘플 단일 페이지 응용 프로그램을 사용하여 사용자 지정 로그인 페이지에 로그인하고, 소셜 ID 공급자에 로그인하고, Azure AD B2C 계정을 만들고, Azure AD B2C로 보호되는 웹 API를 호출했습니다. 
+이 빠른 시작에서는 샘플 단일 페이지 애플리케이션을 사용하여 다음 작업을 수행합니다.
+
+* 사용자 지정 로그인 페이지를 사용하여 로그인
+* 소셜 ID 공급자를 사용하여 로그인
+* Azure AD B2C 계정 만들기
+* Azure AD B2C로 보호되는 웹 API 호출
 
 사용자 고유의 Azure AD B2C 테넌트 만들기를 시작하세요.
 

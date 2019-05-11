@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869863"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408283"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -206,6 +206,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 * 확장이 **이름을** 매개 변수는 확장의 이전 배포와 동일 합니다.
 * 구성을 업데이트 합니다 그렇지 않은 경우 명령을 다시 실행 되지 않습니다. 타임스탬프와 같은 명령으로 동적 속성을 추가할 수 있습니다.
+
+설정할 수 있습니다 합니다 [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) 속성을 **true**합니다.
+
+### <a name="using-invoke-webrequest"></a>Invoke-webrequest를 사용 하 여
+
+사용 중인 경우 [Invoke-webrequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) 스크립트에서 매개 변수를 지정 해야 `-UseBasicParsing` 자세한 상태를 확인할 때 다음 오류가 표시 됩니다 그렇지 않으면:
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
 
 ## <a name="classic-vms"></a>클래식 VM
 

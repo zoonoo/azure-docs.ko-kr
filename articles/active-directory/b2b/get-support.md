@@ -1,6 +1,6 @@
 ---
 title: B2B 공동 작업-Azure Active Directory에 대 한 지원 받기 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업에 대한 지원 환경이란?
+description: Azure Active Directory B2B 협업에 대한 지원 환경이란?
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60413720"
 ---
-# <a name="getting-support-for-b2b-collaboration"></a>B2B 공동 작업에 대한 지원 받기
+# <a name="getting-support-for-b2b-collaboration"></a>B2B 협업에 대한 지원 받기
 
 설명서를 읽고 올바르게 수행했지만 여전히 기능을 작동시킬 수 없으신가요? 지원 티켓을 엽니다(지원 계획 필요).
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127984"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412779"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Azure 백 엔드를 사용하여 Windows 앱 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "62127984"
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Windows 10.
-* [Visual Studio Community 2017].
+* [Visual Studio Community].
 * UWP 앱 개발 경험. [UWP 자습서](https://docs.microsoft.com/windows/uwp/)를 방문하여 UWP 앱을 빌드하기 위한 [설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) 방법을 알아보세요.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>새 Azure 모바일 앱 백 엔드 만들기
@@ -70,7 +70,7 @@ ms.locfileid: "62127984"
     Azure에 호스트된 새 모바일 앱 백 엔드에 POST 요청이 전송됩니다.
 
 > [!TIP]
-> .NET 백 엔드를 사용하는 경우 서버 프로젝트와 동일한 솔루션에 UWP 앱 프로젝트를 추가할 수 있습니다. 이렇게 하면 동일한 Visual Studio 솔루션에서 앱 및 백 엔드 모두를 디버그하고 테스트할 수 있습니다. UWP 앱 프로젝트를 백 엔드 솔루션에 추가하려면 Visual Studio 2017을 사용해야 합니다.
+> .NET 백 엔드를 사용하는 경우 서버 프로젝트와 동일한 솔루션에 UWP 앱 프로젝트를 추가할 수 있습니다. 이렇게 하면 동일한 Visual Studio 솔루션에서 앱 및 백 엔드 모두를 디버그하고 테스트할 수 있습니다. 백 엔드 솔루션에 UWP 앱 프로젝트를 추가 하려면 Visual Studio 2017 이상을 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -86,4 +86,4 @@ ms.locfileid: "62127984"
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

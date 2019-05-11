@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 5/7/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bcbbb63206a443d87afa656ace6f141c6567d17d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903525"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192677"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -65,11 +65,13 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 
 3. **확인**을 선택하여 **설정** 페이지로 돌아갑니다.
 
-4. **프런트 엔드 IP 구성**을 선택합니다. **프런트 엔드 IP 구성** 아래에서 **IP 주소 유형**이 **공용**으로 설정되었는지 확인합니다. **공용 IP 주소** 아래에서 **새로 만들기**가 선택되었는지 확인합니다. <br>사용 사례에 따라 프런트 엔드 IP를 공용 또는 개인 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다. 
+4. **프런트 엔드 IP 구성**을 선택합니다. **프런트 엔드 IP 구성** 아래에서 **IP 주소 유형**이 **공용**으로 설정되었는지 확인합니다. **공용 IP 주소** 아래에서 **새로 만들기**가 선택되었는지 확인합니다. <br>사용 사례에 따라 프런트 엔드 IP를 공용 또는 개인 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다.
+   > [!NOTE]
+   > Application Gateway v2 SKU의 경우 **공용** 프런트 엔드 IP 구성만 선택할 수 있습니다. 개인 프런트 엔드 IP 구성은 현재 v2 SKU에서 사용할 수 없습니다.
 
 5. 공용 IP 주소 이름으로 *myAGPublicIPAddress*를 입력합니다. 
 
-6. 다른 설정은 기본값을 적용하고 **확인**을 선택합니다.<br>간단하게 이 문서에서는 기본값을 선택하지만, 사용 사례에 따라 기타 설정에 사용자 지정 값을 구성할 수 있습니다. 
+6. 다른 설정은 기본값을 적용하고 **확인**을 선택합니다.<br>이 문서에서는 간단한 설명을 위해 기본값을 선택하지만, 사용 사례에 따라 기타 설정에 사용자 지정 값을 구성할 수 있습니다. 
 
 ### <a name="summary-page"></a>요약 페이지
 
@@ -77,12 +79,14 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 
 ## <a name="add-backend-pool"></a>백 엔드 풀 추가
 
-백 엔드 풀은 요청에 대응할 백 엔드 서버로 요청을 라우팅하는 데 사용됩니다. 백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 백 엔드 풀에 백 엔드 대상을 추가해야 합니다.
+백 엔드 풀은 요청을 처리하는 백 엔드 서버로 요청을 라우팅하는 데 사용됩니다. 백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 백 엔드 풀에 백 엔드 대상을 추가합니다.
 
-이 예제에서는 가상 머신을 대상 백 엔드로 사용합니다. 기존 가상 머신을 사용하거나 새 가상 머신을 만들 수 있습니다. 이 예제에서는 Azure에서 애플리케이션 게이트웨이의 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다. 이를 위해서 다음 사항을 수행합니다.
+이 예제에서는 가상 머신을 대상 백 엔드로 사용합니다. 기존 가상 머신을 사용해도 되고 새로 만들어도 됩니다. Azure에서 애플리케이션 게이트웨이의 백 엔드 서버로 사용할 두 개의 가상 머신을 만듭니다.
 
-1. 새 VM이 만들어질 새 서브넷 *myBackendSubnet*을 만듭니다. 
-2. 백 엔드 서버로 사용할 두 개의 새 VMS, *myVM* 및 *myVM2*를 만듭니다.
+이 작업을 수행하려면 다음이 필요합니다.
+
+1. 새 VM이 만들어질 새 서브넷 *myBackendSubnet*을 만듭니다.
+2. 백 엔드 서버로 사용할 VM 2개, *myVM* 및 *myVM2*를 만듭니다.
 3. 애플리케이션 게이트웨이가 성공적으로 만들어졌는지 확인하기 위해 가상 머신에 IIS를 설치합니다.
 4. 백 엔드 서버를 백 엔드 풀에 추가합니다.
 
@@ -110,14 +114,14 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
     - **암호**: 관리자 암호로 *Azure123456!* 를 입력합니다.
 4. 나머지는 기본값으로 두고 **다음: 디스크**를 선택합니다.  
 5. **디스크** 탭을 기본값으로 두고 **다음: 네트워킹**을 선택합니다.
-6. **네트워킹** 탭에서 **가상 네트워크**로 **myVNet**이 선택되었고 **서브넷**이 **myBackendSubnet**으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리**를 선택합니다.<br>Application Gateway는 가상 네트워크 외부의 인스턴스와 통신할 수 있지만, IP 연결이 있는지 확인해야 합니다. 
+6. **네트워킹** 탭에서 **가상 네트워크**로 **myVNet**이 선택되었고 **서브넷**이 **myBackendSubnet**으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리**를 선택합니다.<br>Application Gateway는 가상 네트워크 외부의 인스턴스와 통신할 수 있지만, IP가 연결되어야 합니다.
 7. **관리** 탭에서 **부트 진단**을 **해제**합니다. 나머지는 기본값으로 두고 **검토 + 만들기**를 선택합니다.
 8. **검토 + 만들기** 탭에서 설정을 검토하고, 유효성 검사 오류를 수정하고, **만들기**를 선택합니다.
 9. 가상 머신 만들기가 완료되기를 기다렸다가 계속합니다.
 
 ### <a name="install-iis-for-testing"></a>테스트를 위해 IIS 설치
 
-이 예제에서는 Azure에서 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하는 것 뿐만 아니라 가상 머신에 IIS를 설치하려고 합니다. 
+이 예제에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지만 확인할 목적으로 가상 머신에 IIS를 설치합니다.
 
 1. [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)을 엽니다. 이렇게 하려면 Azure Portal의 위쪽 탐색 모음에서 **Cloud Shell**을 선택한 다음, 드롭다운 목록에서 **PowerShell**을 선택합니다. 
 
@@ -159,10 +163,9 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 
 애플리케이션 게이트웨이를 만들려면 반드시 IIS가 필요한 것은 아니지만, 이 빠른 시작에서는 Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다. IIS를 사용하여 애플리케이션 게이트웨이 테스트:
 
-1. **개요** 페이지에서 애플리케이션 게이트웨이에 대한 공용 IP 주소를 찾습니다.![애플리케이션 게이트웨이 공용 IP 주소 기록](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)또는, **모든 리소스**를 선택하고 검색 상자에 *myAGPublicIPAddress*를 입력한 후 검색 결과에서 선택합니다. Azure는 공용 IP 주소를 **개요** 페이지에 표시합니다.
+1. **개요** 페이지에서 애플리케이션 게이트웨이에 대한 공용 IP 주소를 찾습니다.![애플리케이션 게이트웨이 공용 IP 주소를 기록](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)하거나, **모든 리소스**를 선택하고 검색 상자에 *myAGPublicIPAddress*를 입력한 후 검색 결과에서 선택합니다. Azure는 공용 IP 주소를 **개요** 페이지에 표시합니다.
 2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
-3. 응답을 확인합니다. 유효한 응답은 Application Gateway가 성공적으로 만들어졌는지와 백 엔드에 성공적으로 연결될 수 있는지 확인합니다.![애플리케이션 게이트웨이 테스트](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
-
+3. 응답을 확인합니다. 응답이 유효하면 애플리케이션 게이트웨이가 성공적으로 만들어졌으며 백 엔드에 성공적으로 연결할 수 있다는 의미입니다.![애플리케이션 게이트웨이 테스트](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

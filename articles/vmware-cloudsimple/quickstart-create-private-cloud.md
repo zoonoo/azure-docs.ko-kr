@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577662"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209549"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>빠른 시작-사설 클라우드 환경 구성
 
@@ -135,7 +135,7 @@ VLAN/서브넷이 생성 됩니다.  이제 사설 클라우드 vCenter에서 �
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>환경의 Azure virtual network에 연결
 
-CloudSimple 사설 클라우드를 위한 ExpressRoute 회로 제공합니다. Azure에서 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다. 단계에 따라 전체에 대 한 내용은 연결 설정 [ExpressRoute를 사용 하 여 Azure 가상 네트워크 연결](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple 사설 클라우드를 위한 ExpressRoute 회로 제공합니다. Azure에서 가상 네트워크를 ExpressRoute 회로에 연결할 수 있습니다. 단계에 따라 전체에 대 한 내용은 연결 설정 [ExpressRoute를 사용 하 여 Azure 가상 네트워크 연결](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>VCenter에 로그인
 

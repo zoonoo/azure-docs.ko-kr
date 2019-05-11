@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118981"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467731"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -233,7 +233,7 @@ Microsoft는 고객에게 할당된 HSM에 연결할 수 없습니다. 따라서
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q: 내 HSM 다시 부팅 해야 하는 경우에 어떻게 합니까?
 
- HSM 명령줄 다시 부팅 옵션을 있으며이 "하드 재부팅" 옵션을 사용 해야 함을 유의 해야 합니다. 어떤 이유로 든 실패 하면 microsoft 지원 요청을 발생 시키고 실제로 다시 부팅 장치가 있을 수 있습니다. 
+그러나 HSM 명령줄 다시 부팅 옵션, 다시 부팅 중단 문제가 간헐적으로 발생 하 고 가장 안전한 방법에 대 한는 것이 좋습니다. 이러한 이유로 장치를 물리적으로 다시 부팅 하려면 microsoft 지원 요청을 발생 하는 다시 부팅 됩니다. 
 
 ## <a name="cryptography-and-standards"></a>암호화 및 표준
 
