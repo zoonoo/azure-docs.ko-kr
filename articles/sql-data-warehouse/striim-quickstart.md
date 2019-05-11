@@ -29,7 +29,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 구성][configure]
 
-배포 되 면 클릭 \<VM 이름 >-Connect를 클릭 하 고 VM 로컬 계정을 사용 하 여 로그인을 복사 하는 Azure portal에서 masternode 
+배포되면 Azure portal에서 \<VM 이름>-masternode를  클릭하고, 연결를 클릭하고 VM 로컬 계정을 사용하여 로그인을 복사합니다.   
 
 ![SQL Data Warehouse에 Striim 연결][connect]
 
@@ -55,7 +55,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 클러스터 시작][start-striim]
 
-이제 선호 하는 브라우저를 열고 이동할 \<DNS 이름 >: 9080
+이제 선호하는 브라우저를 열고 \<DNS 이름 >: 9080으로 이동합니다.
 
 ![로그인 화면으로 이동][navigate]
 
