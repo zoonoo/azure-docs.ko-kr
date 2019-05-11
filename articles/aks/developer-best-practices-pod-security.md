@@ -2,18 +2,17 @@
 title: 개발자 모범 사례 - AKS(Azure Kubernetes Services)의 pod 보안
 description: AKS(Azure Kubernetes Services)에서 pod 보안을 유지하는 방법에 대한 개발자 모범 사례 알아보기
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: zarhoads
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466887"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073981"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -32,7 +31,9 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 및 실행할 �
 
 **모범 사례 지침** - 다른 사용자 또는 그룹 권한으로 실행하고 기본 노드 프로세스 및 서비스에 대한 액세스를 제한하려면 pod 보안 컨텍스트 설정을 정의합니다. 필요한 최소 권한 수를 할당합니다.
 
-애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup*와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. 루트가 아닌 사용자 권한으로 실행하면 컨테이너는 1024 미만의 권한 있는 포트에 바인딩할 수 없습니다. 이 시나리오에서는 Kubernetes 서비스를 사용하여 앱이 특정 포트에서 실행되고 있는 것처럼 가장할 수 있습니다.
+애플리케이션이 제대로 실행되려면 pod를 *루트* 권한이 아닌 정의된 사용자 또는 그룹 권한으로 실행해야 합니다. pod 또는 컨테이너에 대한 `securityContext`를 사용하여 *runAsUser* 또는 *fsGroup*와 같은 설정을 정의함으로써 해당 권한을 가정할 수 있습니다. 필요한 사용자 또는 그룹 권한만 할당하고, 추가 권한을 가정하는 수단으로 보안 컨텍스트를 사용하지 않도록 합니다. 합니다 *runAsUser*, 권한 상승 및 다른 Linux 기능 설정 에서만 사용할 Linux 노드 및 pod입니다.
+
+루트가 아닌 사용자 권한으로 실행하면 컨테이너는 1024 미만의 권한 있는 포트에 바인딩할 수 없습니다. 이 시나리오에서는 Kubernetes 서비스를 사용하여 앱이 특정 포트에서 실행되고 있는 것처럼 가장할 수 있습니다.
 
 또한 pod 보안 컨텍스트는 프로세스 및 서비스에 액세스하기 위한 추가 기능 또는 권한을 정의할 수도 있습니다. 다음과 같은 일반적인 보안 컨텍스트 정의를 설정할 수 있습니다.
 
@@ -54,7 +55,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: dockerhub.azk8s.cn/nginx:1.15.5
+      image: nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -67,7 +68,7 @@ spec:
 
 ## <a name="limit-credential-exposure"></a>자격 증명 노출 제한
 
-**모범 사례 지침** - 애플리케이션 코드에서 자격 증명을 정의하지 않도록 합니다. Azure 리소스에 대해 관리 ID를 사용하여 pod가 다른 리소스에 대한 액세스를 요청하도록 합니다. 또한 Azure Key Vault와 같은 디지털 자격 증명 모음을 사용하여 디지털 키 및 자격 증명을 저장하고 검색하는 것이 좋습니다.
+**모범 사례 지침** - 애플리케이션 코드에서 자격 증명을 정의하지 않도록 합니다. Azure 리소스에 대해 관리 ID를 사용하여 pod가 다른 리소스에 대한 액세스를 요청하도록 합니다. 또한 Azure Key Vault와 같은 디지털 자격 증명 모음을 사용하여 디지털 키 및 자격 증명을 저장하고 검색하는 것이 좋습니다. 관리 되는 pod identities Linux pod 및 컨테이너 이미지에 대해서만 사용 됩니다.
 
 애플리케이션 코드에 자격 증명이 노출될 위험을 제한하려면 고정 또는 공유 자격 증명을 사용하지 않도록 합니다. 자격 증명 또는 키를 코드에 직접 포함하면 안 됩니다. 이러한 자격 증명이 노출되면 애플리케이션을 업데이트하고 다시 배포해야 합니다. 더 나은 방법은 pod에 고유한 ID를 부여하고 스스로 인증을 받는 방법을 제공하거나 디지털 자격 증명 모음에서 자격 증명을 자동으로 검색하는 것입니다.
 
@@ -97,6 +98,8 @@ pod 관리 ID는 지원하는 Azure 서비스에서 인증을 받을 때 사용�
 ![pod 관리 ID를 사용하여 Key Vault에서 자격 증명을 검색 하기 위한 간소화된 워크플로](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증서와 같은 암호를 저장하고 정기적으로 순환합니다. FlexVolume을 사용하여 AKS 클러스터에 Azure Key Vault를 통합할 수 있습니다. FlexVolume 드라이버를 사용하면 AKS 클러스터가 기본적으로 Key Vault에서 자격 증명을 검색한 후 요청 pod에만 안전하게 제공할 수 있습니다. 클러스터 운영자와 함께 Key Vault FlexVol 드라이버를 AKS 노드에 배포합니다. pod 관리 ID를 사용하여 Key Vault에 대한 액세스를 요청하고 FlexVolume 드라이버를 통해 필요한 자격 증명을 검색할 수 있습니다.
+
+FlexVol 사용 하 여 azure Key Vault은 사용 하 여 응용 프로그램 및 Linux pod 및 노드에서 실행 되는 서비스를 사용 하 여 위한 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

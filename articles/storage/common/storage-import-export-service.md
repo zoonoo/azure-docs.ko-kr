@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478798"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413901"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
@@ -160,7 +160,7 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 
 **트랜잭션 비용**
 
-데이터를 Azure Storage로 가져올 때 표준 스토리지 트랜잭션 비용 이외에 필요한 트랜잭션 비용은 없습니다. Blob Storage에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
+[표준 저장소 트랜잭션 요금](https://azure.microsoft.com/pricing/details/storage/) 가져오기 뿐만 아니라 데이터의 내보내기 중에 적용 합니다. Azure Storage에서 데이터를 내보낼 때는 표준 송신 요금이 함께 storage 트랜잭션 요금이 적용 됩니다. 송신 비용에 대 한 자세한 내용은 참조 하세요. [데이터 전송 가격 책정.](https://azure.microsoft.com/pricing/details/data-transfers/)합니다.
 
 
 

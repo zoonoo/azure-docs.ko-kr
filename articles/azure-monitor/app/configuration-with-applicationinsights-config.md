@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 1a5b6d435dcc82b59c30302f9cd711975864594c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149860"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정하여 모듈을 활성화하거나 비활성화하고 이 중 일부 모듈의 매개 변수를 설정할 수 있습니다.
@@ -79,13 +79,13 @@ HTTP 요청의 [응답 시간 및 결과 코드](../../azure-monitor/app/asp-net
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지.
 
 ### <a name="eventsource-tracking"></a>EventSource 추적
-`EventSourceTelemetryModule`을 사용하여 Application Insights에 전송될 EventSource 이벤트를 구성할 수 있습니다. EventSource 이벤트 추적에 대한 자세한 내용은 [EventSource 이벤트 사용](../../azure-monitor/app/asp-net-trace-logs.md#using-eventsource-events)을 참조하세요.
+`EventSourceTelemetryModule`을 사용하여 Application Insights에 전송될 EventSource 이벤트를 구성할 수 있습니다. EventSource 이벤트 추적에 대한 자세한 내용은 [EventSource 이벤트 사용](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)을 참조하세요.
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
 * [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### <a name="etw-event-tracking"></a>ETW 이벤트 추적
-`EtwCollectorTelemetryModule`을 사용하여 Application Insights에 추적으로 전송할 ETW 공급자의 이벤트를 구성할 수 있습니다. ETW 이벤트 추적에 대한 자세한 내용은 [ETW 이벤트 사용](../../azure-monitor/app/asp-net-trace-logs.md#using-etw-events)을 참조하세요.
+`EtwCollectorTelemetryModule`을 사용하여 Application Insights에 추적으로 전송할 ETW 공급자의 이벤트를 구성할 수 있습니다. ETW 이벤트 추적에 대한 자세한 내용은 [ETW 이벤트 사용](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events)을 참조하세요.
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 

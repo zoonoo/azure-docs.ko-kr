@@ -29,9 +29,9 @@ ms.locfileid: "60354539"
 
 조건부 액세스 정책과 함께 작동하는 애플리케이션에 대한 자세한 내용은 [Azure Active Directory에서 조건부 액세스 규칙을 사용하는 애플리케이션 및 브라우저](technical-reference.md)를 참조하세요.
 
-## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>B2B 공동 작업과 게스트 사용자에게 조건부 액세스 정책이 적용됩니까?
+## <a name="are-conditional-access-policies-enforced-for-b2b-collaboration-and-guest-users"></a>B2B 협업과 게스트 사용자에게 조건부 액세스 정책이 적용됩니까?
 
-B2B(Business-to-Business) 공동 작업 사용자에 대한 정책이 적용됩니다. 그러나 경우에 따라 사용자가 정책 요구 사항을 충족하지 못할 수 있습니다. 예를 들어 게스트 사용자의 조직이 다단계 인증을 지원하지 않는 경우가 있습니다. 
+B2B(Business-to-Business) 협업 사용자에 대한 정책이 적용됩니다. 그러나 경우에 따라 사용자가 정책 요구 사항을 충족하지 못할 수 있습니다. 예를 들어 게스트 사용자의 조직이 다단계 인증을 지원하지 않는 경우가 있습니다. 
 
 
 

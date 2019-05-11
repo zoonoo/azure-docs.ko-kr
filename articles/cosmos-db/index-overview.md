@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44706e5ebe2442dcb45dfc45e2c322938cf7dca9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61051888"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068649"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB-개요의 인덱싱
 
@@ -66,19 +66,41 @@ Azure Cosmos DB는 현재 두 가지 유형의 인덱스를 지원합니다.
 
 합니다 **범위** 인덱스 종류에 사용 됩니다.
 
-- 같음 쿼리: `SELECT * FROM container c WHERE c.property = 'value'`
-- 범위 쿼리: `SELECT * FROM container c WHERE c.property > 'value'` (적합 `>`, `<`, `>=`합니다 `<=`, `!=`)
-- `ORDER BY` 쿼리: `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` 쿼리: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- 같음 쿼리: 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- 쿼리 범위: 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (적합 `>`, `<`를 `>=`합니다 `<=`, `!=`)
+
+- `ORDER BY` 쿼리:
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` 쿼리: 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 스칼라 값 (문자열 또는 숫자)에 대해 범위 인덱스를 사용할 수 있습니다.
 
 합니다 **공간** 인덱스 종류에 사용 됩니다.
 
-- 지리 공간적 거리 쿼리: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- 쿼리 내에서 지리 공간: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- 지리 공간적 거리 쿼리: 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- 쿼리 내에서 지리 공간: 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 형식이 올바르게 지정에서 공간 인덱스를 사용할 수 있습니다 [GeoJSON](geospatial.md) 개체입니다. Points, LineStrings 및 Polygons는 현재 지원 됩니다.
+
+합니다 **복합** 인덱스 종류에 사용 됩니다.
+
+- `ORDER BY` 여러 속성에 대해 쿼리 합니다. 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>인덱스를 사용한 쿼리
 
@@ -89,7 +111,7 @@ Azure Cosmos DB는 현재 두 가지 유형의 인덱스를 지원합니다.
 ![트리 내에서 특정 경로 일치 하는](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> `ORDER BY` 절 *항상* 범위 필요한 인덱스 및 참조 경로가 없는 경우 실패 합니다.
+> `ORDER BY` 단일 속성으로 정렬 하는 절 *항상* 범위 필요한 인덱스 및 참조 경로가 없는 경우 실패 합니다. 마찬가지로, 다중 `ORDER BY` 쿼리 *항상* 복합 인덱스를 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

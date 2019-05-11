@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615870"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232468"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>청구 및 비용 관리 자동화 시나리오
 
@@ -63,7 +63,7 @@ ms.locfileid: "60615870"
 
 ## <a name="api-summaries"></a>API 요약
 
-### <a name="consumption"></a>Consumption
+### <a name="consumption"></a>소비
 Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모든 API를 사용할 수 있습니다.
 
 -   [예산 API](https://docs.microsoft.com/rest/api/consumption/budgets)(*기업 고객만*): 리소스, 리소스 그룹 또는 청구 측정 단위에 대한 비용 또는 사용 예산을 만들 수 있습니다. 예산을 만들면 정의한 예산 임계값을 초과했을 때 알리도록 경고를 구성할 수 있습니다. 예산액에 도달하면 작업이 진행되도록 구성할 수도 있습니다.
@@ -85,9 +85,9 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 -   [요금 미지정 사용량 API](/previous-versions/azure/reference/mt219003(v=azure.100)): Azure가 계량/청구를 수행하기 이전의 원시 사용량 정보를 가져옵니다.
 
 ### <a name="billing"></a>결제
--   [청구 기간 API](https://docs.microsoft.com/rest/api/billing/billingperiods): 해당 기간의 청구서 ID와 함께 분석할 청구 기간을 결정합니다. 청구서 API와 청구서 ID를 사용할 수 있습니다.
+-   [청구 기간 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): 해당 기간의 청구서 ID와 함께 분석할 청구 기간을 결정합니다. 청구서 API와 청구서 ID를 사용할 수 있습니다.
 
--   [청구서 API](https://docs.microsoft.com/rest/api/billing/invoices): 청구 기간에 대한 청구서의 다운로드 URL을 PDF 형식으로 가져옵니다.
+-   [청구서 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): 청구 기간에 대한 청구서의 다운로드 URL을 PDF 형식으로 가져옵니다.
 
 ### <a name="enterprise-consumption"></a>기업 소비량
 다음 API는 기업 전용입니다.
@@ -126,7 +126,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>청구서 API와 사용량 세부 정보 API 간의 차이는 무엇인가요?
 이러한 API는 동일한 데이터의 다른 보기를 제공합니다.
 
-- [청구서 API](https://docs.microsoft.com/rest/api/billing/invoices)는 Web Direct 고객 전용입니다. 이 API는 각 요금제 유형의 집계 요금을 기준으로 청구액의 월별 롤업을 제공합니다. 
+- [청구서 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices)는 Web Direct 고객 전용입니다. 이 API는 각 요금제 유형의 집계 요금을 기준으로 청구액의 월별 롤업을 제공합니다. 
 
 - [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usagedetails)는 각 날짜에 대한 사용량/비용 레코드의 세부적인 보기를 제공합니다. 기업 및 Web Direct 고객 둘 다 이 API를 사용할 수 있습니다.
 

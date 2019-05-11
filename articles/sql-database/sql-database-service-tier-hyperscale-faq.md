@@ -3,7 +3,7 @@ title: Azure SQL Database 하이퍼스케일 FAQ | Microsoft Docs
 description: 일반적으로 하이퍼스케일 데이터베이스라고 하는 하이퍼스케일 서비스 계층의 Azure SQL 데이터베이스에 대해 고객이 하는 일반적인 질문에 대한 답변입니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: 679de1d5accbd0f4f955bf5af95bc8dcc97e3b78
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574281"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236022"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
-이 문서에서는 일반적으로 하이퍼스케일 데이터베이스(현재 공개 미리 보기로 제공됨)라고 하는 Azure SQL Database 하이퍼스케일 서비스 계층의 데이터베이스를 고려하는 고객을 위해 FAQ에 대한 답변을 제공합니다. 이 문서에서는 하이퍼스케일 지원 및 교차 기능 서비스가 SQL Database 하이퍼스케일과 일반적으로 호환되는 시나리오를 설명합니다.
+이 문서에서는 Azure SQL Database 대규모 서비스 계층의 경우 일반적으로 대규모 데이터베이스 라는 데이터베이스를 고려 하는 고객에 대 한 자주 묻는 질문에 대 한 답변을 제공 합니다. 이 문서에서는 하이퍼스케일 지원 및 교차 기능 서비스가 SQL Database 하이퍼스케일과 일반적으로 호환되는 시나리오를 설명합니다.
 
 - 이 FAQ는 하이퍼스케일 서비스 계층에 대해 간략히 이해하고 있으며 특정 질문 및 문제에 대한 답변을 원하는 독자를 대상으로 합니다.
 - 이 FAQ는 가이드 북이 아니며, SQL Database 하이퍼스케일 데이터베이스를 사용하는 방법에 대한 질문에 답변을 제공하도록 준비된 문서가 아닙니다. 이를 위해서는 [Azure SQL Database 하이퍼스케일](sql-database-service-tier-hyperscale.md) 설명서를 참조하는 것이 좋습니다.
@@ -45,7 +45,7 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 - 중요 비즈니스용 서비스 계층은 IO 대기 시간이 최우선인 비즈니스 워크로드에 적합합니다.
 
 | | 리소스 종류 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
-|:---|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** |모두|  대부분의 비즈니스 워크로드. 예산 중심의 균형 잡힌 계산 및 스토리지 옵션을 제공합니다. | 대용량 데이터 요구 사항 및 유동적인 스토리지 크기 자동 조정 및 계산 규모 조정 기능이 있는 데이터 애플리케이션. | 트랜잭션 속도가 높고 지연 시간이 적은 OLTP 애플리케이션. 다수의 격리된 복제본을 사용하여 장애에 대해 최고의 복원력을 제공합니다.|
 |  **리소스 종류** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **계산 크기**|단일 데이터베이스/탄력적 풀* | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
@@ -56,7 +56,7 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 | **IO 처리량** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | 아직 알 수 없음 | 5000 IOPS(최대 200,000 IOPS)|
 | | Managed Instance | 파일의 크기에 따라 다름 | N/A | Managed Instance: 파일의 크기에 따라 다름|
 |**가용성**|모두|복제본 1개, 읽기 확장 없음, 로컬 캐시 없음 | 복제본 여러 개, 읽기 확장 최대 15, 부분 로컬 캐시 | 복제본 3개, 읽기 확장 1개, 영역 중복 HA, 전체 로컬 캐시 |
-|**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7-35일(기본값: 7일), 일정 시간 PITR(point-in-time recovery) | RA-GRS, 7-35일(기본값: 7일) |
+|**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7-35 일 (기본적으로 7 일) 일정 한 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
 
 \* 하이퍼스케일 서비스 계층에는 탄력적 풀이 지원되지 않습니다.
 
@@ -73,15 +73,15 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 
 ### <a name="what-regions-currently-support-hyperscale"></a>현재 하이퍼스케일이 지원되는 지역
 
-현재 하이퍼스케일은 다음 지역의 단일 데이터베이스에 사용할 수 있습니다.  서 부 US1, 미국 서 부 2, 동부 US1, 미국 중부, 유럽 서 부, 북유럽, 동남 아시아, 일본 동부, 한국 중부, 오스트레일리아 남동부 및 오스트레일리아 동부입니다.
+아래에 나열 된 지역에서 Azure SQL Database 대규모 계층은 현재 제공 [Azure SQL Database 대규모 개요](sql-database-service-tier-hyperscale.md#regions)합니다.
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>SQL Database 서버에 대해 여러 개의 하이퍼스케일 데이터베이스를 만들 수 있나요?
+### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>논리 서버에 대해 여러 개의 하이퍼스케일 데이터베이스를 만들 수 있나요?
 
-예. SQL Database 서버별 하이퍼스케일 데이터베이스 수에 대한 제한과 자세한 내용은 [SQL Database 서버의 단일 및 풀링된 데이터베이스에 대한 SQL Database 리소스 제한](sql-database-resource-limits-database-server.md)을 참조하세요.
+예. 논리 서버별 하이퍼스케일 데이터베이스 수에 대한 제한과 자세한 내용은 [논리 서버의 단일 및 풀링된 데이터베이스에 대한 SQL Database 리소스 제한](sql-database-resource-limits-logical-server.md)을 참조하세요.
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>하이퍼스케일 데이터베이스의 성능 특성은 무엇인가요?
 
-SQL Database 하이퍼스케일 아키텍처는 높은 성능과 처리량을 제공하면서 대용량 데이터베이스를 지원합니다. 공개 미리 보기 중에는 정확한 성능 프로필과 특징이 제공되지 않습니다.
+SQL Database 하이퍼스케일 아키텍처는 높은 성능과 처리량을 제공하면서 대용량 데이터베이스를 지원합니다. 
 
 ### <a name="what-is-the-scalability-of-a-hyperscale-database"></a>하이퍼스케일 데이터베이스의 확장성은 어떻게 되나요?
 
@@ -98,7 +98,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
 
 ## <a name="deep-dive-questions"></a>심층적인 질문
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>SQL Database 서버에 하이퍼스케일과 단일 데이터베이스를 혼합할 수 있나요?
+### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>단일 논리 서버에서 단일 데이터베이스 및 대규모를 혼합할 수 있나요
 
  예, 할 수 있습니다.
 
@@ -116,7 +116,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
 
 ### <a name="what-kind-of-workloads-is-sql-database-hyperscale-designed-for"></a>어떤 종류의 워크로드에 맞게 SQL Database 하이퍼스케일이 설계되었나요?
 
-SQL Database 하이퍼스케일은 모든 SQL Server 워크로드를 지원하지만 주로 OLTP에 최적화되어 있습니다. 하이브리드 및 분석(데이터 마트) 워크로드를 가져올 수도 있습니다.
+SQL Database 하이퍼스케일은 모든 SQL Server 워크로드를 지원하지만 주로 OLTP에 최적화되어 있습니다. 혼합 (HTAP) 및 분석 (데이터 마트) 워크 로드도 가져올 수 있습니다.
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Azure SQL Data Warehouse와 SQL Database 하이퍼스케일 중에 무엇을 선택해야 하나요?
 
@@ -128,11 +128,11 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="can-i-pause-my-compute-at-any-time"></a>계산을 아무 때나 일시 중지할 수 있나요?
 
-아니요.
+하지만이 이때 아닐 아래로 복제본의 수 고 계산을 확장할 수 있습니다 사용량이 많지 않은 시간 동안 비용 절감.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>메모리 사용량이 많은 워크로드를 위해 계산에 추가 RAM을 프로비전할 수 있나요?
 
-아니요. RAM을 더 확보하려면 더 큰 계산 크기로 업그레이드해야 합니다. Gen4 하드웨어는 Gen5 하드웨어에 비해 더 많은 RAM을 제공합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 계산 크기](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요.
+아니요. RAM을 더 확보하려면 더 큰 계산 크기로 업그레이드해야 합니다. 자세한 내용은 [하이퍼스케일 스토리지 및 계산 크기](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier)를 참조하세요.
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>크기가 다른 계산 노드를 여러 개 프로비저닝할 수 있나요?
 
@@ -140,11 +140,11 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>읽기-확장 복제본이 몇 개나 지원되나요?
 
-공개 미리 보기에서 하이퍼스케일 데이터베이스는 읽기-확장 복제본 하나(총 2개의 복제본)로 생성됩니다. 읽기-확장 복제본을 추가 또는 제거하려면 Azure Portal을 사용하여 지원 요청을 제출하세요.
+기본적으로 대규모 데이터베이스를 읽기-배율 복제본 하나 (총에서 두 개의 복제본)를 사용 하 여 만들어집니다. 0 사이의 4를 사용 하 여 읽기 전용 복제본의 수를 조정할 수는 [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) 하거나 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)...
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>고가용성을 위해 계산 노드를 추가로 프로비저닝해야 하나요?
 
-하이퍼스케일 데이터베이스에서는 고가용성이 저장소 수준에서 제공됩니다. 고가용성을 제공하려면 복제본이 하나만 있으면 됩니다. 계산 복제본이 다운되면 데이터가 손실되지 않고 새로운 복제본이 자동으로 생성됩니다.
+대규모 데이터베이스의 복원 력은 저장소 수준에서 제공 됩니다. 복원 력을 제공 하는 하나의 복제본만 하면 됩니다. 계산 복제본이 다운되면 데이터가 손실되지 않고 새로운 복제본이 자동으로 생성됩니다.
 
 단, 복제본이 하나만 있으면 장애 조치(failover) 후 새 복제본에 로컬 캐시를 구축하는 데 약간의 시간이 걸릴 수 있습니다. 캐시를 재구축하는 단계에서 데이터베이스가 페이지 서버에서 데이터를 직접 가져오기 때문에 IOPS 및 쿼리 성능이 저하됩니다.
 
@@ -158,7 +158,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="what-is-the-size-of-the-transaction-log-with-hyperscale"></a>하이퍼스케일의 트랜잭션 로그 크기는 얼마인가요?
 
-하이퍼스케일의 트랜잭션 로그는 사실상 무한합니다. 로그 처리량이 많은 시스템에서 로그 공간 부족을 걱정할 필요가 없습니다. 단, 지속적이고 공격적인 워크로드에 대해서는 로그 생성 속도가 제한될 수 있습니다. 최대 및 평균 로그 생성 속도는 아직 알 수 없습니다(아직 미리 보기 상태임).
+하이퍼스케일의 트랜잭션 로그는 사실상 무한합니다. 로그 처리량이 많은 시스템에서 로그 공간 부족을 걱정할 필요가 없습니다. 단, 지속적이고 공격적인 워크로드에 대해서는 로그 생성 속도가 제한될 수 있습니다. 최대 지속된 로그 생성 속도 약 100 MB/sec.
 
 ### <a name="does-my-temp-db-scale-as-my-database-grows"></a>데이터베이스가 커지면 임시 DB 규모가 커지나요?
 
@@ -170,7 +170,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="what-is-the-smallest-database-size-that-sql-database-hyperscale-supports-or-starts-with"></a>SQL Database 하이퍼스케일을 사용할 수 있는 또는 지원되는 최소 데이터베이스 크기는 얼마인가요?
 
-5GB
+10 GB
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>데이터베이스가 증가하는 증분의 크기는 얼마인가요?
 
@@ -208,15 +208,15 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="can-i-move-my-existing-azure-sql-databases-to-the-hyperscale-service-tier"></a>기존 Azure SQL 데이터베이스를 하이퍼스케일 서비스 계층으로 이동할 수 있나요?
 
-예. 기존 Azure SQL 데이터베이스를 하이퍼스케일로 이동할 수 있습니다. 공개 미리 보기에서는 단방향 마이그레이션입니다. 하이퍼스케일에서 또 다른 서비스 계층으로 데이터베이스를 이동할 수는 없습니다. 프로덕션 데이터베이스의 복사본을 만들어서 POC(개념 증명)용으로 하이퍼스케일에 마이그레이션하는 것이 좋습니다.
+예. 기존 Azure SQL 데이터베이스를 하이퍼스케일로 이동할 수 있습니다. 이 단방향 마이그레이션입니다. 하이퍼스케일에서 또 다른 서비스 계층으로 데이터베이스를 이동할 수는 없습니다. 프로덕션 데이터베이스의 복사본을 만들어서 POC(개념 증명)용으로 하이퍼스케일에 마이그레이션하는 것이 좋습니다.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>하이퍼스케일 데이터베이스를 다른 버전으로 이동할 수 있나요?
 
-아니요. 공개 미리 보기에서는 하이퍼스케일 데이터베이스를 다른 서비스 계층으로 이동할 수 없습니다.
+아니요. 이때 다른 서비스 계층으로 대규모 데이터베이스를 이동할 수 없습니다.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>하이퍼스케일 서비스 계층으로 마이그레이션한 후에 손실되는 기능이 있나요?
 
-예. 공개 미리 보기 중 Azure SQL Database의 장기 보존 백업은 대규모에서 지원 되지 않습니다. 대규모로 데이터베이스를 마이그레이션한 후이 기능에 작동이 중지 됩니다.
+예. Azure SQL Database 기능 중 일부에서 지원 되지 않는 대규모 아직 포함 하 여 장기 보존 백업을 용어 제한 되지 않음. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.  이러한 제한은 임시 예정입니다.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>온-프레미스 SQL Server 데이터베이스나 SQL Server 가상 머신 데이터베이스를 하이퍼스케일로 이동할 수 있나요?
 
@@ -229,13 +229,13 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>양이 X인 데이터를 SQL Database 하이퍼스케일로 가져오는 데 시간이 얼마나 걸리나요?
 
-아직 알려지지 않음(아직 미리 보기 중임)
+대규모는 100 m B/초/변경할 새 데이터의 사용 수 있습니다.
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Blob Storage의 데이터를 읽을 수 있고 빠른 로딩(Polybase 및 SQL Data Warehouse와 같은)이 가능한가요?
 
 Azure Storage의 데이터를 읽을 수 있고 하이퍼스케일 데이터베이스에 데이터를 로드할 수 있습니다(일반 단일 데이터베이스를 사용하는 것처럼). Azure SQL Database에서는 현재 Polybase가 지원되지 않습니다. [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)를 사용하거나 [SQL용 Spark 커넥터](sql-database-spark-connector.md)를 사용하여 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/)에서 Spark 작업을 실행하여 Polybase를 수행할 수 있습니다. SQL에 대한 Spark 커넥터는 대량 삽입을 지원합니다.
 
-하이퍼스케일에서는 단순 복구 또는 대량 로깅 모델이 지원되지 않습니다. 고가용성을 제공하려면 전체 복구 모델이 필요합니다. 하지만 하이퍼스케일은 새로운 로그 아키텍처 때문에 단일 데이터베이스에 비해 빠른 데이터 수집 속도를 제공합니다.
+하이퍼스케일에서는 단순 복구 또는 대량 로깅 모델이 지원되지 않습니다. 고가용성을 제공하려면 전체 복구 모델이 필요합니다. 하지만 하이퍼스케일은 새로운 로그 아키텍처 때문에 단일 Azure SQL 데이터베이스에 비해 빠른 데이터 삽입 속도를 제공합니다.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>SQL Database 하이퍼스케일로 대량의 데이터를 수집하기 위해 여러 노드를 프로비전할 수 있나요?
 
@@ -253,7 +253,7 @@ SQL Server 2005입니다. 자세한 내용은 [단일 데이터베이스 또는 
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>하이퍼스케일 데이터베이스에 어떤 SLA가 지원되나요?
 
-일반적으로 공개 미리 보기 중에는 SLA가 제공되지 않습니다. 단 하이퍼스케일은 현재 SQL DB와 동일한 수준의 고 가용성을 제공합니다. [SLA](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
+주 읽기 가능한 보조 복제본 1 개 및 기본 SLA는 99.95%의 가용성입니다.  더 많은 복제본을 사용 하 여 SLA를 최대 99.99%까지 이동합니다.  
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 서비스에서 데이터베이스 백업이 관리되나요?
 
@@ -269,7 +269,7 @@ SQL Database 하이퍼스케일 데이터베이스에는 기존의 전체, 차�
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>SQL Database 하이퍼스케일에서 백업/복원의 RPO(복구 지점 목표)/RTO(복구 시간 목표)는 무엇인가요?
 
-RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10분 미만입니다. 단, 공개 미리 보기 중에는 복원 시간이 더 오래 걸릴 수 있습니다.
+RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10분 미만입니다. 
 
 ### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>큰 데이터베이스를 백업하면 주 노드의 계산 성능에 영향을 주나요?
 
@@ -277,15 +277,15 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="can-i-perform-geo-restore-with-a-sql-database-hyperscale-database"></a>SQL Database 하이퍼스케일 데이터베이스로 지역 복원을 수행할 수 있나요?
 
-아니요, 공개 미리 보기 중에는 가능하지 않습니다.
+예.  지역에서 복원은 완전히 지원 됩니다.
 
 ### <a name="can-i-setup-geo-replication-with-sql-database-hyperscale-database"></a>SQL Database 하이퍼스케일 데이터베이스로 지역에서 복제를 설정할 수 있나요?
 
-아니요, 공개 미리 보기 중에는 가능하지 않습니다.
+지금은 없습니다.
 
 ### <a name="do-my-secondary-compute-nodes-get-geo-replicated-with-sql-database-hyperscale"></a>보조 계산 노드가 SQL Database 하이퍼스케일을 통해 지역에서 복제되나요?
 
-아니요, 공개 미리 보기 중에는 가능하지 않습니다.
+지금은 없습니다.
 
 ### <a name="can-i-take-a-sql-database-hyperscale-database-backup-and-restore-it-to-my-on-premises-server-or-sql-server-in-vm"></a>SQL Database 하이퍼스케일 데이터베이스 백업을 가져와서 온-프레미스 서버나 VM의 SQL Server에 복원할 수 있나요?
 
@@ -295,7 +295,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>하이퍼스케일 서비스 계층으로 마이그레이션한 후에 손실되는 기능이 있나요?
 
-예. 공개 미리 보기 중 Azure SQL Database의 장기 보존 백업은 대규모에서 지원 되지 않습니다. 대규모로 데이터베이스를 마이그레이션한 후이 기능에 작동이 중지 됩니다.
+예. Azure SQL Database 기능 중 일부는 하이퍼 스케일, 포함 하지만 제한 되지 않는 장기 보존 백업에서에서 지원 되지 않습니다. 하이퍼스케일로 데이터베이스를 마이그레이션한 후에는 해당 기능이 작동을 중지합니다.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>Polybase가 SQL Database 하이퍼스케일과 작동이 되나요?
 
@@ -313,11 +313,11 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="how-much-throughput-can-i-push-on-the-largest-sql-database-hyperscale-compute"></a>최대 SQL Database 하이퍼스케일 계산에 푸시할 수 있는 처리량은 얼마인가요?
 
-아직 알려지지 않음(아직 미리 보기 중임)
+우리가 살펴본 (트랜잭션 로그 데이터 생성) 변경 데이터의 일관 된 100 m B/초
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-sql-database-hyperscale-compute"></a>최대 SQL Database 하이퍼스케일 계산에 지원되는 IOPS는 얼마나 되나요?
 
-아직 알려지지 않음(아직 미리 보기 중임)
+IO 대기 시간 및 IOPS 워크 로드 패턴에 따라 달라 집니다.  필요에 액세스할 수 데이터가 계산의 캐시로 로컬 경우 로컬 SSD로 동일한 IO 패턴 됩니다.   
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>처리량이 백업의 영향을 받나요?
 
@@ -325,13 +325,13 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-nodes"></a>계산 노드를 추가로 프로비저닝할 때 처리량이 영향을 받나요?
 
-스토리지가 공유되고 기본 계산 노드와 보조 계산 노드 간에 직접적인 물리적 복제가 발생하지 않기 때문에 기술적으로, 읽기-확장 노드를 추가하면 기본 노드의 처리량이 영향을 받습니다. 하지만 지속적이며 공격적인 워크로드를 제한하여 보조 노드와 페이지 서버에서 로그 적용을 따라 잡아서 보조 노드의 잘못된 읽기 성능을 방지할 수 있습니다.
+저장소 공유 되 고 복제가 없습니다 직접 실제 기본 및 보조 계산 노드 사이 발생 하기 때문에 기술적으로 주 노드에 대 한 처리량을 받지 않습니다 읽기-배율 노드를 추가 하 여 합니다. 하지만 지속적이며 공격적인 워크로드를 제한하여 보조 노드와 페이지 서버에서 로그 적용을 따라 잡아서 보조 노드의 잘못된 읽기 성능을 방지할 수 있습니다.
 
 ## <a name="scalability-questions"></a>확장성 질문
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-node"></a>계산 노드를 강화 및 축소하는 데 시간이 얼마나 걸리나요?
 
-몇 분 정도
+계산을 확장 하거나 축소 데이터 크기에 관계 없이 5 ~ 10 분이 소요 됩니다.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>강화 및 축소 작업을 진행하는 동안 데이터베이스는 오프라인 상태인가요?
 
@@ -357,7 +357,7 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="how-many-secondary-compute-nodes-can-i-provision"></a>프로비전이 가능한 보조 계산 노드의 수는 얼마나 되나요?
 
-공개 미리 보기에서는 하이퍼스케일 데이터베이스에 대해 기본적으로 2개의 복제본이 생성됩니다. 복제본의 수를 조정하려면 Azure Portal을 사용하여 지원 요청을 제출하세요.
+기본적으로 대규모 데이터베이스에 대 한 복제본 2 개 만듭니다. 복제본의 수를 조정 하려는 경우 사용 하 여 수행할 수 있습니다 [Azure portal](https://portal.azure.com)합니다.
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>보조 계산 노드에 어떻게 연결하나요?
 
@@ -365,19 +365,19 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>읽기-확장 복제본 전용 엔드포인트를 만들 수 있나요?
 
-아니요. 공개 미리 보기에서는 `ApplicationIntent=ReadOnly`를 지정하여 읽기-확장 복제본에 연결만 가능합니다.
+아니요. 지정 하 여 읽기-배율 복제본에 연결할 수 있습니다 `ApplicationIntent=ReadOnly`합니다.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>시스템에서 읽기 워크로드에 대한 지능적인 부하 분산이 수행되나요?
 
-아니요. 미리 보기에서는 읽기 전용 워크로드가 임의의 읽기-확장 복제본으로 리디렉션됩니다.
+아니요. 읽기 전용 워크 로드는 임의 읽기-배율 복제본으로 리디렉션됩니다.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>보조 계산 노드를 기본 계산 노드와 독립적으로 강화/축소할 수 있나요?
 
-아니요, 공개 미리 보기 중에는 가능하지 않습니다.
+아니요. 보조 계산 노드는 장애 조치의 경우와 동일한 구성을 해야 하므로 HA에도 사용 됩니다.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>기본 계산 노드와 추가적인 보조 계산 노드에 대해 temp db 크기가 달라지나요?
 
-아니요. `tempdb`는 계산 크기 프로비전을 기반으로 구성되며 공개 미리 중에 보조 계산 노드는 기본 계산 노드와 크기가 같습니다.
+아니요. 프로그램 `tempdb` 구성 된 프로 비전 된 계산 크기에 따라 보조 계산 노드는 동일한 크기의 기본 계산 합니다.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>보조 계산 노드에 인덱스와 보기를 추가할 수 있나요?
 
@@ -389,4 +389,4 @@ RPO는 0분입니다. RTO 목표는 데이터베이스 크기에 관계없이 10
 
 ## <a name="next-steps"></a>다음 단계
 
-하이퍼스케일 서비스 계층에 대한 자세한 내용은 [하이퍼스케일 서비스 계층(미리 보기)](sql-database-service-tier-hyperscale.md)을 참조하세요.
+대규모 서비스 계층에 대 한 자세한 내용은 참조 하세요. [하이퍼 스케일 서비스 계층](sql-database-service-tier-hyperscale.md)합니다.

@@ -3,8 +3,7 @@ title: Azure 가상 컴퓨터 네트워크 처리량 | Microsoft Docs
 description: Azure 가상 머신 네트워크 처리량에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689244"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153719"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>가상 머신 네트워크 대역폭
 
@@ -43,6 +42,30 @@ Azure 가상 머신은 하나지만 여기에 연결된 네트워크 인터페�
 - **가속화 된 네트워킹**: 기능 게시 된 제한에 달성 하는 데 도움이 될 수 있습니다, 있지만 한계는 변경 되지 않습니다.
 - **트래픽 대상**: 아웃 바운드 제한에 대해 모든 대상 수입니다.
 - **프로토콜**: 모든 프로토콜을 통한 모든 아웃 바운드 트래픽을 제한에 대해 계산 됩니다.
+
+## <a name="network-flow-limits"></a>네트워크 흐름 제한
+
+대역폭을 외에도 언제 든 지 VM에 있는 네트워크 연결 수가 네트워크 성능을 달라질 수 있습니다. Azure 네트워킹 스택에서 '흐름'를 호출 하는 데이터 구조에서 TCP/UDP 연결의 각 방향에 대 한 상태를 유지 관리 합니다. 일반 TCP/UDP 연결을 생성, 인바운드 및 아웃 바운드 방향에 대해 다른 2 개의 흐름을 갖게 됩니다. 
+
+끝점 간의 데이터 전송의 데이터 전송을 수행 하는 것 외에도 몇 가지 흐름 만들기에 필요 합니다. 몇 가지 예로 DNS 확인을 위해 만든 흐름 및 부하 분산 장치 상태 프로브에 대 한 만든 흐름. 또한 네트워크 게이트웨이, 프록시, 방화벽 가상 어플라이언스 (Nva)는 기기에서 종료 되 고 어플라이언스에 의해 시작 된 연결에 대해 생성 되는 흐름 표시 됩니다. 
+
+![전달 어플라이언스를 통해 TCP 대화에 대 한 흐름 수](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>흐름 제한 및 권장 사항
+
+현재 Azure 네트워킹 스택에서 250k 총 네트워크 흐름 지원 뛰어난 성능으로 Vm에 대 한 CPU 코어가 8 개 CPU 코어가 8 개 미만의 개를 사용 하 여 Vm에 대 한 뛰어난 성능으로 k 총 흐름 100 보다 크고를 사용 하 여 합니다. 이 제한 네트워크 지난 성능이 저하 됩니다 정상적으로 추가 흐름 1m의 하드 한계까지 총 인바운드 및 500 500k 흐름에 대 한 추가 배치 되는 삭제 후 아웃 바운드 K.
+
+||사용 하 여 Vm < CPU 코어가 8 개|8 + CPU 코어를 사용 하 여 Vm|
+|---|---|---|
+|<b>고성능</b>|100k 흐름 |25만 개 흐름|
+|<b>성능 저하</b>|100k 위에서 흐름|250k 위에서 흐름|
+|<b>흐름 제한</b>|1m 흐름|1m 흐름|
+
+사용할 수 있는 메트릭이 [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) VM 또는 VMSS 인스턴스에서 네트워크 흐름과 흐름 만들기 속도의 수를 추적 하 합니다.
+
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+연결 설정 및 종료 요금도 연결 설정 및 종료 공유로 CPU 패킷 처리 루틴을 사용 하 여 네트워크 성능에 영향을 줄 수 있습니다. 수 작업 부하의 벤치 예상된 트래픽 패턴 및 워크 로드 확장에 대해 적절 하 게 성능 요구 사항을 충족 하는 것이 좋습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

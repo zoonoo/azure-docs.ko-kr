@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a27f7597ddc934b925d63507a816ac5816b682d6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733507"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151041"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Media Services API 액세스
  
@@ -54,7 +54,11 @@ Azure Media Services API에 연결 하려면 Azure AD 서비스 주체 인증을
 - [EventGrid 만들기 - CLI](./scripts/cli-create-event-grid.md)
 - [자산 게시 - CLI](./scripts/cli-publish-asset.md)
 - [필터링 - CLI](filters-dynamic-manifest-cli-howto.md)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+콘텐츠를 스트림할 하려는 스트리밍 끝점은 실행 상태에서 여야 합니다. 다음 CLI 명령을 기본 스트리밍 끝점을 시작합니다.
+
+
+`az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`

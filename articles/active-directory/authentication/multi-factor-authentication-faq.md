@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570825"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228174"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -146,11 +146,11 @@ MFA 공급자를 만들면 Azure Active Directory 또는 "Azure AD 테 넌 트�
 
 **Q: 사용자가 간혹 문자 메시지를 받지 못하거나 양방향 문자 메시지에 회신했는데 확인 시간이 초과된 것으로 표시된다고 합니다.**
 
-서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요소가 있기 때문에 양방향 SMS에서 텍스트 메시지 전달 및 응답 수신이 보장되지 않습니다. 이러한 요소에는 대상 국가, 휴대폰 통신사 및 신호 강도가 포함됩니다.
+서비스의 안정성에 영향을 줄 수 있는 제어할 수 없는 요소가 있기 때문에 양방향 SMS에서 텍스트 메시지 전달 및 응답 수신이 보장되지 않습니다. 이러한 요소에는 대상 국가, 휴대폰 통신사 및 신호 강도가 포함 됩니다.
 
 사용자에게 문자 메시지를 안정적으로 수신하는 데 문제가 있는 경우 대신 모바일 앱 또는 휴대폰 전화 방법을 사용하도록 지시합니다. 모바일 앱은 셀룰러 및 Wi-Fi 연결 모두를 통해 알림을 받을 수 있습니다. 또한 디바이스에 신호가 전혀 없는 경우에도 모바일 앱은 인증 코드를 생성할 수 있습니다. [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
-텍스트 메시지를 사용해야 하는 경우 가능하면 양방향 SMS보다는 단방향 SMS를 사용하는 것이 좋습니다. 단방향 SMS는 보다 안정적이며 다른 국가에서 전송된 문자 메시지에 응답할 때 발생하는 전역 SMS 요금이 부과되지 않도록 합니다.
+텍스트 메시지를 사용해야 하는 경우 가능하면 양방향 SMS보다는 단방향 SMS를 사용하는 것이 좋습니다. 단방향 SMS 안정적 이며 사용자에서 다른 국가/지역에서 전송 된 문자 메시지에 회신에서 전역 SMS 요금이 부과 되지 않습니다.
 
 **Q: 시스템 시간이 초과되기 전에 사용자가 문자 메시지를 통해 확인 코드를 입력해야 하는 시간을 변경할 수 있나요?**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310879"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413726"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
 
@@ -37,6 +37,20 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 - 복구를 트리거하려면 클러스터에 _FAS(Fault Analysis Service)_ 를 사용하도록 설정해야 합니다.
 - _BRS(Backup Restore Service)_ 가 백업을 생성합니다.
 - 복원은 파티션에서만 트리거할 수 있습니다.
+- 구성을 호출 하는 것에 대 한 Microsoft.ServiceFabric.Powershell.Http 모듈 [미리 보기]를 설치 합니다.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- 클러스터를 사용 하 여 연결 되어 있는지 확인 합니다 `Connect-SFCluster` Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 모든 구성 요청을 수행 하기 전에 명령입니다.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggered-restore"></a>트리거된 복원
 
@@ -50,6 +64,15 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 전체 Service Fabric 클러스터가 손실된 경우 Reliable Stateful 서비스 및 Reliable Actors의 파티션에 대한 데이터를 복원할 수 있습니다. [백업 스토리지 세부 정보가 포함된 GetBackupAPI](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation)를 사용하는 경우 목록에서 원하는 백업을 선택할 수 있습니다. 백업은 애플리케이션, 서비스 또는 파티션에 대해 열거할 수 있습니다.
 
 다음 예제의 경우 손실된 클러스터가 [Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)에서 참조되는 클러스터와 동일하다고 가정합니다. 이 경우 `SampleApp`이 사용하도록 설정된 백업 정책과 함께 배포되고 복구가 Azure Storage에 구성됩니다.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell
+
+```powershell
+Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 rest 호출
 
 REST API를 사용하는 PowerShell 스크립트를 실행하여 `SampleApp` 애플리케이션 내의 모든 파티션에 대해 생성된 백업 목록을 반환합니다. API에서 사용할 수 있는 백업을 나열하려면 백업 스토리지 정보가 필요합니다.
 
@@ -142,12 +165,30 @@ FailureError            :
 
 _이름 지정된 분할_의 경우 이름 값을 비교하여 대체 클러스터의 대상 파티션을 식별합니다.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell
+
+```powershell
+
+Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 rest 호출
+
 다음 [복원 API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)를 사용하여 백업 클러스터 파티션에 대해 복원을 요청합니다.
 
 ```powershell
+
+$StorageInfo = @{
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
+    ContainerName = 'backup-container'
+    StorageKind = 'AzureBlobStore'
+}
+
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+    BackupStorage  = $StorageInfo
 }
 
 $body = (ConvertTo-Json $RestorePartitionReference) 
@@ -184,6 +225,16 @@ FailureError            :
 
 복원 API의 경우 _BackupId_ 및 _BackupLocation_ 세부 정보를 제공합니다. 클러스터에서 백업이 설정되었기 때문에 Service Fabric _BRS(Backup Restore Service)_ 는 연결된 백업 정책에서 올바른 스토리지 위치를 식별합니다.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell
+
+```powershell
+Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 rest 호출
+
 ```powershell
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
@@ -201,6 +252,14 @@ TrackRestoreProgress를 사용하여 복원의 진행률을 추적할 수 있습
 ## <a name="track-restore-progress"></a>복원 진행률 추적
 
 Reliable Stateful 서비스 또는 Reliable Actor의 파티션은 한 번에 하나의 복원 요청만 수락합니다. 파티션은 현재 복원 요청이 완료된 후에만 다른 요청을 수락합니다. 여러 복원 요청은 다른 파티션에서 동시에 트리거될 수 있습니다.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용 하 여 Powershell
+
+```powershell
+    Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+```
+
+#### <a name="rest-call-using-powershell"></a>Powershell을 사용 하 여 rest 호출
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"

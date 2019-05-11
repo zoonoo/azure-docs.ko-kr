@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: kumud
-ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728351"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203515"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-ddos-protection-plan"></a>DDoS 보호 계획 만들기
 
-DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도록 설정된 일단의 가상 네트워크를 정의합니다. 조직에 대해 하나의 DDoS 보호 계획을 구성하고 여러 구독의 가상 네트워크를 동일한 계획에 연결할 수 있습니다. 또한 DDoS 보호 계획 자체는 계획을 만드는 중에 선택한 구독과도 연결됩니다. 보호된 공용 IP 주소의 수가 100개를 초과하는 경우 계획이 연결된 구독에 따라 계획에 대한 월별 정기 요금과 초과분 요금이 부과됩니다. DDoS 가격 책정에 대한 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/ddos-protection/)를 참조하세요.
+DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도록 설정된 일단의 가상 네트워크를 정의합니다. 조직에 대해 하나의 DDoS 보호 계획을 구성하고 여러 구독의 가상 네트워크를 동일한 계획에 연결할 수 있습니다. 또한 DDoS 보호 계획 자체는 계획을 만드는 중에 선택한 구독과도 연결됩니다. DDoS 보호 계획에 지역 및 구독에서 작동합니다. 예제-테 넌 트의 지역 미국 동부에 구독 1에 연결 계획을 만들 수 있습니다. 동일한 계획을 연결할 수 있습니다 가상 네트워크에 다른 지역의 다른 구독에서 테 넌 트 간에. 보호된 공용 IP 주소의 수가 100개를 초과하는 경우 계획이 연결된 구독에 따라 계획에 대한 월별 정기 요금과 초과분 요금이 부과됩니다. DDoS 가격 책정에 대한 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/ddos-protection/)를 참조하세요.
 
 대부분의 조직에서는 둘 이상의 계획을 만들 필요가 없습니다. 계획은 구독 간에 이동할 수 없습니다. 계획이 속한 구독을 변경하려면 [기존 계획을 삭제](#work-with-ddos-protection-plans)하고 새 계획을 만들어야 합니다.
 
@@ -127,6 +127,7 @@ DDoS 공격을 시뮬레이션하여 경고의 유효성을 검사하려면 [DDo
 4. 원격 분석하려는 공용 IP 주소가 포함된 **구독** 및 **리소스 그룹**을 선택합니다.
 5. **리소스 종류**에 대해 **공용 IP 주소**를 선택한 다음, 원격 분석하려는 특정 공용 IP 주소를 선택합니다.
 6. 일련의 **사용 가능한 메트릭**이 화면 왼쪽에 표시됩니다. 이러한 메트릭을 선택할 경우 개요 화면의 **Azure Monitor 메트릭 차트**에 그래프로 표시됩니다.
+7. 선택 된 **집계** 으로 입력 **최대**
 
 메트릭 이름은 다양한 패킷 유형과 바이트 및 패킷을 나타내며, 각 메트릭에서 태그 이름의 기본 구조는 다음과 같습니다.
 
@@ -138,7 +139,7 @@ DDoS 공격을 시뮬레이션하여 원격 분석의 유효성을 검사하려�
 
 ## <a name="view-ddos-mitigation-policies"></a>DDoS 완화 정책 보기
 
-DDoS 보호 표준은 DDoS를 사용하도록 설정된 가상 네트워크에서 보호되는 리소스의 각 공용 IP 주소에 대해 자동 조정된 세 가지 완화 정책(TCP SYN, TCP 및 UDP)을 적용합니다. 다음 그림과 같이 **DDoS 완화를 트리거하는 인바운드 TCP 패킷** 및 **DDoS 완화를 트리거하는 인바운드 UDP 패킷** 메트릭을 선택하여 정책 임계값을 볼 수 있습니다.
+DDoS 보호 표준은 DDoS를 사용하도록 설정된 가상 네트워크에서 보호되는 리소스의 각 공용 IP 주소에 대해 자동 조정된 세 가지 완화 정책(TCP SYN, TCP 및 UDP)을 적용합니다. 선택 하 여 정책 임계값을 볼 수는 **DDoS 완화를 트리거하는 인바운드 TCP 패킷** 하 고 **DDoS 완화를 트리거하는 인바운드 UDP 패킷** 메트릭 **집계** 다음 그림에 나와 있는 것 처럼 'Max'로 입력 합니다.
 
 ![완화 정책 보기](./media/manage-ddos-protection/view-mitigation-policies.png)
 

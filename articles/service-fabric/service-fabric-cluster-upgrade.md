@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711617"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472774"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트
 
@@ -99,7 +99,7 @@ Service Fabric은 클러스터 노드 간 통신을 보호하도록 클러스터
 클러스터에서 클러스터 및 노드 속성의 안정성 수준과 같은 다양한 다른 구성 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Service Fabric 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)을 참조하세요.
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>클러스터 노드에서 OS 패치
-POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Service Fabric 애플리케이션입니다. [Windows용 패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application.md) 또는 [Linux용 패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application-linux.md)을 오케스트레이션된 방식으로 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 
+POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Service Fabric 애플리케이션입니다. [Windows용 패치 오케스트레이션 애플리케이션](service-fabric-patch-orchestration-application.md)을 오케스트레이션된 방식으로 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

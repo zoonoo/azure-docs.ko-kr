@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067333"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070860"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
-이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다.
+이 아티클에서는 컨테이너를 관리하거나 Azure Container Instances에 배포하는 경우 일반적인 문제를 해결하는 방법을 보여줍니다. 참고 항목 [질문과 대답](container-instances-faq.md)합니다.
 
 ## <a name="naming-conventions"></a>명명 규칙
 
@@ -46,11 +46,7 @@ Azure Container Instances에서 지원되지 않는 이미지를 지정하면 `O
 }
 ```
 
-이 오류는 SAC(반기 채널) 릴리스 기반의 Windows 이미지를 배포할 때 가장 자주 발생합니다. 예를 들어 Windows 1709 및 1803 버전은 SAC 릴리스이고, 배포 시 이 오류를 생성합니다.
-
-Azure Container Instances는 현재 **Windows Server 2016 LTSC(장기 서비스 채널)** 릴리스 기반의 Windows 이미지만 지원합니다. Windows 컨테이너를 배포할 때 항상 Windows Server 2016(LTSC) 기반 이미지를 배포하면 이 문제를 완화할 수 있습니다. Windows Server 2019(LTSC) 기반 이미지는 지원되지 않습니다.
-
-Windows LTSC 및 SAC 버전에 대한 자세한 내용은 [Windows Server 반기 채널 개요][windows-sac-overview]를 참조하세요.
+1709 또는 지원 되지 않는 1803 반기 채널을 기반으로 하는 Windows 이미지 배포를 해제 하는 경우이 오류가 가장 자주 발생 합니다. Azure Container Instances에서 지원 되는 Windows 이미지를 참조 하세요 [질문과 대답](container-instances-faq.md#what-windows-base-os-images-are-supported)합니다.
 
 ## <a name="unable-to-pull-image"></a>이미지를 풀링할 수 없음
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ Azure Container Instances에서 컨테이너 시작 시간에 영향을 주는 �
 * [이미지 크기](#image-size)
 * [이미지 위치](#image-location)
 
-Windows 이미지에는 [추가 고려 사항](#cached-windows-images)이 있습니다.
+Windows 이미지에는 [추가 고려 사항](#cached-images)이 있습니다.
 
 ### <a name="image-size"></a>이미지 크기
 
@@ -176,14 +172,12 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 컨테이너 시작 시간에 이미지 풀의 영향을 줄이는 다른 방법은 Container Instances를 배포하려는 곳과 동일한 지역의 [Azure Container Registry](/azure/container-registry/)에서 컨테이너 이미지를 호스팅하는 것입니다. 이를 통해 컨테이너 이미지가 이동해야 하는 네트워크 경를 단축하여 다운로드 시간을 크게 줄여 줍니다.
 
-### <a name="cached-windows-images"></a>캐시된 Windows 이미지
+### <a name="cached-images"></a>캐시 된 이미지
 
-Azure Container Instances는 일반적인 Windows 및 Linux 이미지를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간 속도를 캐싱 메커니즘을 사용 합니다. 자세한 목록을 캐시 된 이미지 및 태그를 사용 합니다 [캐시 된 이미지 나열] [ list-cached-images] API.
+Azure Container Instances는 캐싱 메커니즘을 기반으로 일반적인 이미지에 대 한 컨테이너 시작 시간 속도를 사용 하 여 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)등 `nanoserver:1809`합니다 `servercore:ltsc2019`, 및 `servercore:1809`합니다. 일반적으로 사용 되는 Linux 이미지와 같은 `ubuntu:1604` 고 `alpine:3.6` 캐시 됩니다. 최신 목록을 캐시 된 이미지 및 태그를 사용 합니다 [캐시 된 이미지 나열] [ list-cached-images] API.
 
-Windows 컨테이너 시작 시간을 단축하려면 다음과 같은 **두 개의 이미지**에서 **세 개의 최근** 버전 중 하나를 기본 이미지로 사용합니다.
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC에만 해당)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> 사용 하 여 Azure Container Instances에서 Windows Server 2019 기반 이미지의 미리 보기입니다.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows 컨테이너 느린 네트워크 준비
 

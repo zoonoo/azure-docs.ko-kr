@@ -59,7 +59,7 @@ B2B 공동 작업을 사용 하면 게스트로 조직 외부 사용자를 초�
 
 1. **외부 공동 작업 설정 관리**를 클릭합니다.
 
-    ![외부 공동 작업 설정](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![외부 협업 설정](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
 1. **관리자 및 게스트 초대자 역할의 사용자가 초대할 수 있음** 스위치를 **예**로 설정합니다.
 

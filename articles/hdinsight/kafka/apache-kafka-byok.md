@@ -1,32 +1,30 @@
 ---
-title: Azure HDInsight의 Apache Kafka에 대한 Bring Your Own Key(미리 보기)
+title: Azure HDInsight에서 Apache Kafka에 대 한 고유한 키 가져오기
 description: 이 문서에서는 Azure Key Vault에서 사용자 고유의 키를 사용하여 Azure HDInsight의 Apache Kafka에 저장된 데이터를 암호화하는 방법을 설명합니다.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ce9df58e9640cab2e6ba50fce772f1e30739dc5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 6108bfd9e39b37507ec7e113bf2c489e890f0ca0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714843"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233571"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 고유한 키 가져오기
 
-Azure HDInsight에는 Apache Kafka에 대한 BYOK(Bring Your Own Key) 지원이 포함됩니다. 이 기능을 사용하면 미사용 데이터를 암호화하는 데 사용되는 키를 소유하고 관리할 수 있습니다. 
+Azure HDInsight에는 Apache Kafka에 대한 BYOK(Bring Your Own Key) 지원이 포함됩니다. 이 기능을 사용하면 미사용 데이터를 암호화하는 데 사용되는 키를 소유하고 관리할 수 있습니다.
 
-HDInsight의 모든 관리 디스크는 Azure SSE(저장소 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. BYOK를 사용하도록 설정한 경우 HDInsight에 대한 암호화 키를 제공하여 Azure Key Vault를 통해 사용하고 관리합니다. 
+HDInsight의 모든 관리 디스크는 Azure SSE(저장소 서비스 암호화)로 보호됩니다. 기본적으로 해당 디스크의 데이터는 Microsoft 관리 키를 사용하여 암호화됩니다. BYOK를 사용하도록 설정한 경우 HDInsight에 대한 암호화 키를 제공하여 Azure Key Vault를 통해 사용하고 관리합니다.
 
 BYOK 암호화는 추가 비용 없이 클러스터를 만드는 동안 처리되는 1단계 프로세스입니다. Azure Key Vault를 통해 HDInsight를 관리 ID로 등록하고 클러스터를 만들 때 암호화 키를 추가하면 됩니다.
 
 Kafka에 대한 모든 메시지(Kafka에서 유지 관리되는 복제본 포함)는 대칭 DEK(데이터 암호화 키)로 암호화됩니다. DEK는 Key Vault의 KEK(Key Encryption Key)를 사용하여 보호됩니다. 암호화 및 암호 해독 프로세스는 전적으로 Azure HDInsight에 의해 처리됩니다. 
 
 Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 회전할 수 있습니다. 키가 회전될 때 HDInsight Kafka 클러스터는 몇 분 안에 새 키를 사용하기 시작합니다. 랜 섬 웨어 시나리오 및 실수로 인 한 삭제를 방지 하려면 "일시 삭제" 키 보호 기능을 사용 하도록 설정 합니다. 이 보호 기능은 지원 되지 않습니다 하지 않고 키를 자격 증명 모음입니다.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>BYOK 시작
 만들려는 BYOK를 사용 하도록 Kafka 클러스터 설정, 다음 단계를 거치게 됩니다.
@@ -121,9 +119,9 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
    No, all managed disks in the cluster are encrypted by the same key.
 
 **What happens if the cluster loses access to the key vault or the key?**
-   If the cluster loses access to the key, warnings will be shown in the Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, ambari warnings will go away and operations such as key rotation can be successfully performed.
+   If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
 
-   ![Kafka key access ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Kafka key access Ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **How can I recover the cluster if the keys are deleted?**
 

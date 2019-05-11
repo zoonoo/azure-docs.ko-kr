@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528053"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025079"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
@@ -267,7 +267,7 @@ Azure Portal의 검색 서비스 개요 페이지에서 맨 위에 있는 **검�
 
 ## <a name="next-steps"></a>다음 단계
 
-AI 지원 알고리즘을 인덱서 파이프라인에 연결할 수 있습니다. 다음 단계로 다음 자습서를 계속 진행합니다.
+AI 보강 알고리즘을 인덱서 파이프라인에 연결할 수 있습니다. 다음 단계로 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Blob Storage에서 문서 인덱싱](search-howto-indexing-azure-blob-storage.md)

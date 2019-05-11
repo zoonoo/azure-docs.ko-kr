@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 8a9d4699ba625f575cdcba2a85af900a7c04843e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 379d3076559643b1445412074ed689e2e94a5ab2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924472"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408785"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -59,7 +59,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 | 기술 | 아키텍처의 예 |
 | --- | --- |
 | **가용성 그룹** |재해 복구를 위해 가용성 복제본을 Azure VM의 여러 데이터 센터에서 실행합니다. 이렇게 여러 영역에 나누어 실행되는 솔루션은 완전한 사이트 중단이 발생해도 데이터를 보호할 수 있습니다. <br/> ![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>한 영역 내의 모든 복제본은 동일한 클라우드 서비스 및 동일한 VNet 내에 있어야 합니다. 각 영역에 별도의 VNet이 있으므로, 이러한 솔루션은 VNet 사이의 연결이 필요합니다. 자세한 내용은 [Azure Portal에서 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조하세요. 자세한 지침은 [다른 지역의 Azure Virtual Machines에서 SQL Server 가용성 그룹 구성](virtual-machines-windows-portal-sql-availability-group-dr.md)을 참조하세요.|
-| **데이터베이스 미러링** |재해 복구를 위해 주 서버와 미러 서버를 다른 데이터 센터에서 실행합니다. 서버 인증서를 사용 하 여 배포 해야 합니다. <br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
+| **데이터베이스 미러링** |재해 복구를 위해 주 서버와 미러 서버를 다른 데이터 센터에서 실행합니다. 서버 인증서를 사용 하 여 배포 해야 합니다. SQL Server 2008 및 Azure VM에서 SQL Server 2008 R2에 대 한 SQL Server 데이터베이스 미러링을 지원 되지 않습니다. <br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Azure Blob Storage 서비스로 백업 및 복원** |File Storage에서 파일 복사<br/>![Backup 및 복원](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>자세한 내용은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. |
 | **Azure Site Recovery를 사용하여 SQL Server를 Azure에 복제 및 장애 조치(Failover)** |재해 복구를 위해 한 Azure 데이터 센터의 프로덕션 SQL Server가 다른 Azure 데이터 센터의 Azure Storage에 직접 복제되었습니다.<br/>![Azure Site Recovery를 사용하여 복제](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>자세한 내용은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](../../../site-recovery/site-recovery-sql.md)를 참조하세요. |
 
@@ -70,7 +70,7 @@ Azure에서 지원하는 SQL Server HADR 기술은 다음과 같습니다.
 | 기술 | 아키텍처의 예 |
 | --- | --- |
 | **가용성 그룹** |사이트간 재해 복구를 위해 일부 가용성 복제본은 Azure VM에서 실행되고 다른 복제본은 온-프레미스에서 실행됩니다. 프로덕션 사이트는 온-프레미스와 Azure 데이터 센터 어디에도 있을 수 있습니다.<br/>![가용성 그룹](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>모든 가용성 복제본이 동일한 장애 조치 클러스터에 있어야 하므로, 장애 조치 클러스터는 두 네트워크(다중 서브넷 장애 조치 클러스터)에 걸쳐 있어야 합니다. 이 구성은 Azure와 온-프레미스 네트워크 간의 VPN 연결이 필요합니다.<br/><br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다.<br/><br/>SSMS에서 복제본 추가 마법사를 사용하여 Azure 복제본을 기존 Always On 가용성 그룹에 추가할 수도 있습니다. 자세한 내용은 자습서를 참조 하세요. Always On 가용성 그룹을 Azure로 확장 합니다. |
-| **데이터베이스 미러링** |서버 인증서를 사용한 사이트 간 재해 복구를 위해 한 파트너는 Azure VM에서 실행하고 다른 파트너는 온-프레미스에서 실행합니다. 파트너는 동일한 Active Directory 도메인에 속할 필요가 없으며 VPN 연결도 필요하지 않습니다.<br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>또 다른 데이터베이스 미러링 시나리오로는 사이트 간 재해 복구를 위해 한 파트너가 Azure VM에서 실행되고 다른 파트너가 동일한 Active Directory 도메인의 온-프레미스에서 실행되는 경우를 들 수 있습니다. [Azure 가상 네트워크와 온-프레미스 네트워크 간의 VPN 연결](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)이 필요합니다.<br/><br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다. |
+| **데이터베이스 미러링** |서버 인증서를 사용한 사이트 간 재해 복구를 위해 한 파트너는 Azure VM에서 실행하고 다른 파트너는 온-프레미스에서 실행합니다. 파트너는 동일한 Active Directory 도메인에 속할 필요가 없으며 VPN 연결도 필요하지 않습니다.<br/>![데이터베이스 미러링](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>또 다른 데이터베이스 미러링 시나리오로는 사이트 간 재해 복구를 위해 한 파트너가 Azure VM에서 실행되고 다른 파트너가 동일한 Active Directory 도메인의 온-프레미스에서 실행되는 경우를 들 수 있습니다. [Azure 가상 네트워크와 온-프레미스 네트워크 간의 VPN 연결](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)이 필요합니다.<br/><br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다. SQL Server 2008 및 Azure VM에서 SQL Server 2008 R2에 대 한 SQL Server 데이터베이스 미러링을 지원 되지 않습니다. |
 | **로그 전달** |사이트 간 재해 복구를 위해 한 서버는 Azure VM에서 실행하고 다른 서버는 온-프레미스에서 실행합니다. 로그 전달은 Windows 파일 공유를 사용하므로 Azure 가상 네트워크와 온-프레미스 네트워크 간의 VPN 연결이 필요합니다.<br/>![로그 전달](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>데이터베이스의 성공적인 재해 복구를 위해서는 재해 복구 사이트에 복제 도메인 컨트롤러도 설치해야 합니다. |
 | **Azure Blob Storage 서비스로 백업 및 복원** |Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다.<br/>![Backup 및 복원](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>자세한 내용은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md)을 참조하세요. |
 | **Azure Site Recovery를 사용하여 SQL Server를 Azure에 복제 및 장애 조치(Failover)** |재해 복구를 위해 온-프레미스 프로덕션 SQL Server가 Azure Storage에 직접 복제되었습니다.<br/>![Azure Site Recovery를 사용하여 복제](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>자세한 내용은 [SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호](../../../site-recovery/site-recovery-sql.md)를 참조하세요. |

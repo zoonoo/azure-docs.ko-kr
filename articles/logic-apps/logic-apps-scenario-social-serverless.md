@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508028"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464426"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
 
@@ -98,6 +98,9 @@ Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션�
 Visual Studio 또는 Azure Portal에서 이전 실행 내역을 보려면 다음을 수행합니다. 
 
 * Visual Studio 클라우드 탐색기를 엽니다. 논리 앱을 찾아 앱의 바로 가기 메뉴를 엽니다. **실행 기록 열기**를 선택합니다.
+
+  > [!NOTE]
+  > Visual Studio 2019에 대 한 클라우드 탐색기 수 Azure portal에서 논리 앱 디자이너를 열고 하지만 아직 포함 된 논리 앱 디자이너를 열거나 실행할 수 없습니다 기록 합니다.
 
 * Azure Portal에서 논리 앱을 찾습니다. 논리 앱의 메뉴에서 **개요**를 선택합니다. 
 

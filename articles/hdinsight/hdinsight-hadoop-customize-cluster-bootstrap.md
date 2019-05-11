@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: b1bc0a68a9cf52e886c0664a474a4dbb75126698
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735966"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203717"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -55,7 +55,7 @@ HDInsight 클러스터가 만들어질 때 구성 파일 설정을 설정 하는
 다음 PowerShell 코드는 [Apache Hive](https://hive.apache.org/) 구성을 사용자 지정합니다.
 
 > [!IMPORTANT]  
-> 매개 변수 `Spark2Defaults` 사용 해야 할 수 있습니다 [추가-AzHDInsightConfigValues](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalues)합니다. 아래 코드 예제에 표시 된 대로 매개 변수에 빈 값을 전달할 수 있습니다.
+> 매개 변수 `Spark2Defaults` 사용 해야 할 수 있습니다 [추가-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue)합니다. 아래 코드 예제에 표시 된 대로 매개 변수에 빈 값을 전달할 수 있습니다.
 
 
 ```powershell
@@ -66,7 +66,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 
@@ -243,7 +243,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 

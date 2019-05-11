@@ -1,5 +1,5 @@
 ---
-title: v1.0 정보 | Azure
+title: Azure Active Directory에 대 한 개발자 (v1.0) 개요
 description: 이 문서에서는 Azure Active Directory v1.0 엔드포인트 및 플랫폼을 사용하여 Microsoft 회사 및 학교 계정에 로그인하는 방법의 개요를 제공합니다.
 services: active-directory
 author: CelesteDG
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd39ee1dc22fb6143a8d098276172c453388170b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2af95d979e90f25c013f5112322d830232199a4b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297176"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067655"
 ---
-# <a name="about-v10"></a>v1.0 정보
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory에 대 한 개발자 (v1.0) 개요
 
 Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 계정으로 사용자를 안전하게 로그인하는 앱을 빌드할 수 있는 클라우드 ID 서비스입니다. Azure AD는 단일 테넌트 및 기간 업무 앱을 모두 빌드하는 개발자와 다중 테넌트 앱을 개발하는 개발자를 지원합니다. 기본 로그인 외에도, Azure AD는 앱에서 [Microsoft Graph](https://docs.microsoft.com/graph/overview) 같은 Microsoft API와 Azure AD 플랫폼에서 빌드되는 사용자 지정 API를 호출하는 것을 허용합니다. 이 설명서에서는 OAuth2.0 및 OpenID Connect 같은 산업 표준 프로토콜을 사용하여 애플리케이션에 Azure AD 지원을 추가하는 방법을 보여줍니다.
 

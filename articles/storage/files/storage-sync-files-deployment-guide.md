@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2213cf30384f7069b3862ddd61aceae1bd46d82d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fa7c3d8bbbca5457a194c414863682050dfec9d7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707216"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190004"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -21,28 +21,30 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure 파일 동기화를 배포하려는 영역과 동일한 영역에 Azure 저장소 계정 및 Azure 파일 공유가 있어야 합니다. 자세한 내용은 다음을 참조하세요.
+* Azure File Sync를 배포 하려는 동일한 지역에 Azure 파일 공유 합니다. 자세한 내용은 다음을 참조하세요.
     - [지역 가용성](storage-sync-files-planning.md#region-availability)에서 Azure 파일 동기화를 참조하세요.
-    - [저장소 계정 만들기](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)에서 저장소 계정을 만드는 방법에 대한 단계별 설명을 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
 * Azure 파일 동기화와 동기화할 Windows Server 또는 Windows Server 클러스터의 지원되는 인스턴스가 하나 이상 있어야 합니다. 지원되는 Windows Server 버전에 대한 자세한 내용은 [Windows Server와의 상호 운용성](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)을 참조하세요.
-* Windows Server에 PowerShell 5.1이 설치되어 있어야 합니다. Windows Server 2012 R2를 사용하는 경우 적어도 PowerShell 5.1.\*을 실행하는지 확인합니다. PowerShell 5.1이 기본 버전이므로 Windows Server 2016에서 이 검사를 안전하게 건너뛸 수 있습니다. Windows Server 2012 R2에서 **$PSVersionTable** 개체의 **PSVersion** 속성 값을 확인하여 PowerShell 5.1.\*을 실행하고 있는지 확인할 수 있습니다.
+* Az PowerShell 모듈을 PowerShell 5.1 또는 PowerShell 6 +를 사용 하 여 사용할 수 있습니다. 하지만 서버 등록 cmdlet을 등록 하는 Windows Server 인스턴스에서 항상 실행 해야 비 Windows 시스템을 비롯 한 모든 지원 되는 시스템에서 Azure File sync Az PowerShell 모듈을 사용할 수 있습니다. Windows Server 2012 R2에서 확인할 수 있습니다를 실행 하는 최소 PowerShell 5.1. \* 의 값을 확인 하 여 합니다 **PSVersion** 의 속성을 **$PSVersionTable** 개체:
 
     ```powershell
     $PSVersionTable.PSVersion
     ```
 
-    Windows Server 2012 R2를 처음 설치하면 대부분이 그렇듯이, PSVersion 값이 5.1.\*보다 낮으면 [WMF(Windows Management Framework) 5.1](https://www.microsoft.com/download/details.aspx?id=54616)을 다운로드한 후 설치하여 쉽게 업그레이드할 수 있습니다. Windows Server 2012 R2에 대해 다운로드하고 설치할 적절한 패키지는 **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**입니다.
+    Windows Server 2012 R2를 처음 설치하면 대부분이 그렇듯이, PSVersion 값이 5.1.\*보다 낮으면 [WMF(Windows Management Framework) 5.1](https://www.microsoft.com/download/details.aspx?id=54616)을 다운로드한 후 설치하여 쉽게 업그레이드할 수 있습니다. Windows Server 2012 R2에 대해 다운로드하고 설치할 적절한 패키지는 **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**입니다. 
 
-    > [!Note]  
-    > Azure 파일 동기화는 Windows Server 2012 R2 또는 Windows Server 2016에서 PowerShell 6+를 아직 지원하지 않습니다.
-* Az 및 AzureRM PowerShell 모듈이 있어야 합니다.
-    - Az 모듈은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다. 
-    - AzureRM PowerShell 모듈은 다음 PowerShell cmdlet을 실행하여 설치할 수 있습니다.
-    
-        ```powershell
-        Install-Module AzureRM
-        ```
+    PowerShell 6 + 지원 되는 모든 시스템에서 사용할 수 있으며를 통해 다운로드할 수 해당 [GitHub 페이지](https://github.com/PowerShell/PowerShell#get-powershell)합니다. 
+
+    > [!Important]  
+    > PowerShell에서 직접 등록 하는 것이 아니라 서버 등록 UI를 사용 하려는 경우 PowerShell 5.1을 사용 해야 합니다.
+
+* PowerShell 5.1을 사용 하 여에서 확인을 선택한 경우 최소한.NET 4.7.2 설치 됩니다. 에 대해 자세히 알아보세요 [.NET Framework 버전 및 종속성](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) 시스템에 있습니다.
+* Az PowerShell 모듈을 여기의 지침에 따라 설치할 수 있습니다. [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다. 
+* Az.StorageSync 모듈을 현재 Az 모듈 독립적으로 설치 합니다.
+
+    ```PowerShell
+    Install-Module Az.StorageSync -AllowClobber
+    ```
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Azure 파일 동기화에 사용할 Windows Server 준비
 장애 조치(failover) 클러스터의 각 서버 노드를 포함하여 Azure 파일 동기화에 사용할 각 서버에 대해 **Internet Explorer 보안 강화 구성**을 사용하지 않도록 설정합니다. 초기 서버 등록에만 필요합니다. 서버가 등록된 후에 사용하도록 다시 설정할 수 있습니다.
@@ -97,26 +99,9 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 Azure 파일 동기화 관리 cmdlet과 상호 작용하려면 DLL을 가져오고 Azure 파일 동기화 관리 컨텍스트를 만들어야 합니다. Azure 파일 동기화 관리 cmdlet은 아직 Azure PowerShell 모듈의 일부가 아니기 때문입니다.
 
-> [!Note]  
-> Azure 파일 동기화 관리 cmdlet을 포함하고 있는 StorageSync.Management.PowerShell.Cmdlets.dll 패키지는 승인되지 않은 동사(`Login`)를 사용하는 cmdlet을 (의도적으로) 포함합니다. `Login-AzureStorageSync` 이름은 Azure PowerShell 모듈의 `Login-AzAccount` cmdlet 별칭과 일치시키기 위해 선택되었습니다. Azure 파일 동기화 에이전트가 Azure PowerShell 모듈에 추가되면 이 오류 메시지(및 cmdlet)가 제거됩니다.
 
 ```powershell
-$acctInfo = Login-AzAccount
-
-# The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
-# agent to a non-standard location, please update this path.
-$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
-
-# Import the Azure File Sync management cmdlets
-Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
-
-# this variable stores your subscription ID 
-# get the subscription ID by logging onto the Azure portal
-$subID = $acctInfo.Context.Subscription.Id
-
-# this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
-$tenantID = $acctInfo.Context.Tenant.Id
+Connect-AzAccount
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into
@@ -148,21 +133,8 @@ if ($resourceGroups -notcontains $resourceGroup) {
     New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
-# the following command creates an AFS context 
-# it enables subsequent AFS cmdlets to be executed with minimal 
-# repetition of parameters or separate authentication 
-Login-AzureRmStorageSync `
-    -SubscriptionId $subID `
-    -ResourceGroupName $resourceGroup `
-    -TenantId $tenantID `
-    -Location $region
-```
-
-`Login-AzureRmStorageSync` 을 사용하여 Azure 파일 동기화 컨텍스트를 만든 후에는 저장소 동기화 서비스를 만들 수 있습니다. `<my-storage-sync-service>`를 원하는 저장소 동기화 서비스 이름으로 바꿔야 합니다.
-
-```powershell
 $storageSyncName = "<my-storage-sync-service>"
-New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
+$storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 
 ---
@@ -193,31 +165,29 @@ Azure 파일 동기화 에이전트 설치를 마치면 서버 등록 UI가 자�
 $osver = [System.Environment]::OSVersion.Version
 
 # Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
+if ($osver.Equals([System.Version]::new(10, 0, 17763, 0))) {
     Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+        -Uri https://aka.ms/afs/agent/Server2019 `
+        -OutFile "StorageSyncAgent.msi" 
+} elseif ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
     Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
-        -OutFile "StorageSyncAgent.exe" 
+        -Uri https://aka.ms/afs/agent/Server2016 `
+        -OutFile "StorageSyncAgent.msi" 
+} elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+    Invoke-WebRequest `
+        -Uri https://aka.ms/afs/agent/Server2012R2 `
+        -OutFile "StorageSyncAgent.msi" 
+} else {
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019")
 }
-else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
-}
-
-# Extract the MSI from the install package
-$tempFolder = New-Item -Path "afstemp" -ItemType Directory
-Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
 
 # Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
 # Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
-Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
+Start-Process -FilePath "StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 
 # Note that this cmdlet will need to be run in a new session based on the above comment.
 # You may remove the temp folder containing the MSI and the EXE installer
-Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
+Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 ```
 
 ---
@@ -243,7 +213,7 @@ Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
-$registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
+$registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
 
 ---
@@ -273,7 +243,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 
 ```powershell
 $syncGroupName = "<my-sync-group>"
-New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
+$syncGroup = New-AzStorageSyncGroup -ParentObject $storageSync -Name $syncGroupName
 ```
 
 동기화 그룹이 만들어지면 클라우드 엔드포인트를 만들 수 있습니다. `<my-storage-account>` 및 `<my-file-share>`를 예상 값으로 바꿉니다.
@@ -306,11 +276,11 @@ if ($fileShare -eq $null) {
 }
 
 # Create the cloud endpoint
-New-AzureRmStorageSyncCloudEndpoint `
-    -StorageSyncServiceName $storageSyncName `
-    -SyncGroupName $syncGroupName ` 
+New-AzStorageSyncCloudEndpoint `
+    -Name $fileShare.Name `
+    -ParentObject $syncGroup `
     -StorageAccountResourceId $storageAccount.Id `
-    -StorageAccountShareName $fileShare.Name
+    -AzureFileShareName $fileShare.Name
 ```
 
 ---
@@ -349,20 +319,19 @@ if ($cloudTieringDesired) {
     }
 
     # Create server endpoint
-    New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $storageSyncName `
-        -SyncGroupName $syncGroupName `
-        -ServerId $registeredServer.Id `
+    New-AzStorageSyncServerEndpoint `
+        -Name $registeredServer.FriendlyName `
+        -SyncGroup $syncGroup `
+        -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
-        -CloudTiering $true `
+        -CloudTiering `
         -VolumeFreeSpacePercent $volumeFreeSpacePercentage
-}
-else {
+} else {
     # Create server endpoint
-    New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $storageSyncName `
-        -SyncGroupName $syncGroupName `
-        -ServerId $registeredServer.Id `
+    New-AzStorageSyncServerEndpoint `
+        -Name $registeredServer.FriendlyName `
+        -SyncGroup $syncGroup `
+        -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath 
 }
 ```

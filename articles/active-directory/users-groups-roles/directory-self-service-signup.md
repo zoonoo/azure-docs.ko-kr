@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472271"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501889"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 
@@ -52,7 +52,7 @@ ms.locfileid: "60472271"
 AllowEmailVerifiedUsers 및 AllowAdHocSubscriptions는 관리 또는 관리되지 않는 디렉터리에 적용할 수 있는 디렉터리 전체 설정입니다. 예제는 다음과 같습니다.
 
 * contoso.com과 같은 확인된 도메인을 사용하여 디렉터리를 관리합니다.
-* 다른 디렉터리에서 B2B 공동 작업을 사용하여 constoso.com의 홈 디렉터리에 존재하지 않는 사용자를 초대합니다(userdoesnotexist@contoso.com).
+* 다른 디렉터리에서 B2B 공동 작업을 사용 하 여 이미 존재 하지 않는 사용자를 초대 하기 (userdoesnotexist@contoso.com)에서 contoso.com의 홈 디렉터리
 * 홈 디렉터리에는 AllowEmailVerifiedUsers가 설정되어 있습니다.
 
 이전 조건이 true인 경우, 멤버 사용자는 홈 디렉터리에서 생성되고, B2B 게스트 사용자는 초대 디렉터리에서 생성됩니다.

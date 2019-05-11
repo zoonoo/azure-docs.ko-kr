@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325464"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148812"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
@@ -37,7 +37,7 @@ ms.locfileid: "60325464"
 
 ### <a name="experimental-languages"></a>실험적 언어
 
-버전 1.x에서 실험적 언어는 제대로 확장되지 않고 모든 바인딩을 지원하지도 않습니다. 예를 들어, 1.x의 PowerShell에 대한 실험적 지원은 버전 5.1로 제한됩니다. 이 버전이 함수 앱이 실행되는 VM에 기본적으로 설치되는 버전이기 때문입니다. PowerShell 스크립트를 실행하려면 [Azure Automation](https://azure.microsoft.com/services/automation/)을 고려합니다.
+버전 1.x에서 실험적 언어는 제대로 확장되지 않고 모든 바인딩을 지원하지도 않습니다.
 
 실험적 기능에 대해서는 공식적인 지원이 없으므로 기반으로 사용하지 말아야 합니다. 실험적 언어 관련 문제에 대한 지원 사례를 열 수는 없습니다. 
 

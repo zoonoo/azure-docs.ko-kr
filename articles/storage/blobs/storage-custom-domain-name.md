@@ -2,22 +2,23 @@
 title: Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성 | Microsoft Docs
 description: Azure Portal을 사용하여 고유한 CNAME(정식 이름)을 Azure 스토리지 계정의 Blob 스토리지 또는 웹 엔드포인트에 매핑합니다.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112639"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148923"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성
 
-Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Azure Blob 스토리지에 대한 기본 엔드포인트는 *\<storage-account-name>.blob.core.windows.net*입니다. [정적 웹 사이트 기능(미리 보기)](storage-blob-static-website.md)의 일부로 생성되는 웹 엔드포인트를 사용할 수도 있습니다. 와 같은 사용자 지정 도메인과 하위 도메인을 매핑하는 경우 *www\.contoso.com*, 저장소 계정의 blob 또는 웹 끝점으로 사용자에 게 저장소 계정의 blob 데이터에 액세스 하려면 해당 도메인을 사용할 수 있습니다.
+Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Azure Blob 스토리지에 대한 기본 엔드포인트는 *\<storage-account-name>.blob.core.windows.net*입니다. 일부로 생성 되는 웹 끝점을 사용할 수도 있습니다는 [정적 웹 사이트 기능](storage-blob-static-website.md)합니다. 와 같은 사용자 지정 도메인과 하위 도메인을 매핑하는 경우 *www\.contoso.com*, 저장소 계정의 blob 또는 웹 끝점으로 사용자에 게 저장소 계정의 blob 데이터에 액세스 하려면 해당 도메인을 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure Storage는 아직 기본적으로 사용자 지정 도메인으로 HTTPS를 지원하지 않습니다. 현재 [Azure CDN을 사용하여 HTTP를 통해 사용자 지정 도메인으로 Blob에 액세스](storage-https-custom-domain-cdn.md)할 수 있습니다.

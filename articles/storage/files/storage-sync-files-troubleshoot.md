@@ -2,18 +2,18 @@
 title: Azure 파일 동기화 문제 해결 | Microsoft Docs
 description: Azure 파일 동기화와 관련된 일반적인 문제를 해결합니다.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 53297a16889190383e0455c484339adc049c1cb1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700374"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510849"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -23,8 +23,6 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 1. [Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)
 3. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택합니다.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>서버의 Azure 파일 동기화에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -66,7 +64,7 @@ Reset-StorageSyncServer
 > [!Note]  
 > 서버가 클러스터에 속할 경우 선택적 *Reset-StorageSyncServer -CleanClusterRegistration* 매개 변수를 사용하여 클러스터 등록도 제거합니다.
 
-<a id="web-site-not-trusted"></a>**서버를 등록할 때 "웹 사이트를 신뢰할 수 없습니다." 응답이 여러 번 표시됩니다. 그 이유는 무엇일까요?**  
+<a id="web-site-not-trusted"></a>**서버를 등록할 때 "웹 사이트를 신뢰할 수 없습니다." 응답이 여러 번 표시됩니다. 이유**  
 이 문제는 서버 등록 중에 **Internet Explorer 보안 강화** 정책이 사용되도록 설정되었기 때문에 발생합니다. **Internet Explorer 보안 강화** 정책을 사용하지 않도록 적절히 설정하는 방법에 대한 자세한 내용은 [Azure 파일 동기화와 함께 사용하도록 Windows Server 준비](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 ## <a name="sync-group-management"></a>동기화 그룹 관리
@@ -114,18 +112,17 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 이 문제는 서버 엔드포인트에서 관리 작업이 실패하는 경우 발생합니다. Azure Portal에서 서버 엔드포인트 속성 페이지가 열리지 않는 경우, 서버에서 PowerShell 명령을 사용하여 서버 엔드포인트를 업데이트하면 이 문제가 해결될 수 있습니다. 
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
 Get-AzStorageSyncServerEndpoint `
-    -SubscriptionId mysubguid `
     -ResourceGroupName myrgname `
     -StorageSyncServiceName storagesvcname `
-    -SyncGroupName mysyncgroup
+    -SyncGroupName mysyncgroup | `
+Tee-Object -Variable serverEndpoint
 
 # Update the free space percent policy for the server endpoint
 Set-AzStorageSyncServerEndpoint `
-    -Id serverendpointid `
-    -CloudTiering true `
+    -InputObject $serverEndpoint
+    -CloudTiering `
     -VolumeFreeSpacePercent 60
 ```
 <a id="server-endpoint-noactivity"></a>**서버 엔드포인트가 "활동 없음" 또는 "보류 중" 상태이며, 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"**  
@@ -247,14 +244,14 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 | HRESULT | HRESULT(10진) | 오류 문자열 | 문제 | 재구성 |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | 종속 폴더가 아직 동기화되지 않아 파일 또는 디렉터리 변경 내용을 동기화할 수 없습니다. 이 항목은 종속 변경 내용이 동기화된 후 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
+| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | 종속 폴더가 아직 동기화되지 않아 파일 또는 디렉터리 변경 내용을 동기화할 수 없습니다. 이 항목은 종속 변경 내용이 동기화된 후 동기화됩니다. | 필요한 조치가 없습니다. |
 | 0x7b | 123 | ERROR_INVALID_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 자세한 내용은 [지원되지 않는 문자 처리](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)를 참조하세요. |
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | 파일 또는 디렉터리 이름이 잘못되었습니다. | 의심스러운 파일 또는 디렉터리 이름을 변경하세요. 자세한 내용은 [지원되지 않는 문자 처리](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters)를 참조하세요. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅숏을 만듭니다. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 파일이 변경되었지만 아직 동기화에서 변경 내용을 발견하지 못했습니다. 이 변경 내용이 발견되면 동기화가 복구됩니다. | 아무 조치도 취할 필요가 없습니다. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | 파일이 변경되었지만 아직 동기화에서 변경 내용을 발견하지 못했습니다. 이 변경 내용이 발견되면 동기화가 복구됩니다. | 필요한 조치가 없습니다. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure 파일 공유 제한에 도달하여 파일을 동기화할 수 없습니다. | 이 문제를 해결하려면 문제 해결 가이드의 [Azure 파일 공유 스토리지 용량 한도에 도달했습니다](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) 섹션을 참조하세요. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | 이 오류는 다음과 같은 이유로 발생할 수 있습니다. (예: NTFS EFS) 지원 되지 않는 솔루션으로 파일은 암호화, 파일이 삭제 보류 중 상태 또는 파일은 Dfs-r 읽기 전용 복제 폴더에 있습니다 | 파일은 지원 되지 않는 솔루션으로 암호화 하는 경우 파일의 암호 해독 및 지원 되는 암호화 솔루션을 사용 합니다. 지원 솔루션의 목록은 계획 가이드의 [암호화 솔루션](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions)을 참조하세요. 파일이 삭제 보류 중 상태인 경우 열린 파일 핸들이 모두 닫히면 파일이 삭제됩니다. 파일을를 Dfs-r 읽기 전용 복제 폴더에 있는 경우에 Azure File Sync는 Dfs-r 읽기 전용 복제 폴더에 서버 끝점을 지원 하지 않습니다. 참조 [계획 가이드](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) 자세한 내용은 합니다.
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | 파일이 사용 중이므로 동기화할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 필요한 조치가 없습니다. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 동기화 중에 파일이 변경되었으므로 다시 동기화해야 합니다. | 아무 조치도 취할 필요가 없습니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
@@ -289,7 +286,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **HRESULT** | 0x80072ee7 |
 | **HRESULT(10진)** | -2147012889 | 
 | **오류 문자열** | WININET_E_NAME_NOT_RESOLVED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -311,7 +308,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **HRESULT** | 0x80c8305f |
 | **HRESULT(10진)** | -2134364065 |
 | **오류 문자열** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 이 오류는 Azure 파일 동기화 에이전트가 Azure 파일 공유에 액세스할 수 없어서 발생하며, 액세스할 수 없는 이유는 Azure 파일 공유 또는 Azure 파일 공유를 호스팅하는 저장소 계정이 더 이상 존재하지 않기 때문입니다. 다음 단계를 진행하여 이 오류를 해결할 수 있습니다.
 
@@ -327,7 +324,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **HRESULT** | 0x80C83060 |
 | **HRESULT(10진)** | -2134364064 |
 | **오류 문자열** | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 1. 서버에서 저장소 DNS 이름을 확인할 수 있는지 확인합니다.
 
@@ -355,7 +352,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **HRESULT** | 0x80C8306B |
 | **HRESULT(10진)** | -2134364053 |
 | **오류 문자열** | ECS_E_AGENT_VERSION_BLOCKED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 서버에 설치된 Azure 파일 동기화 에이전트 버전이 지원되지 않으면 이 오류가 발생합니다. 이 문제를 해결하려면 [지원되는 에이전트 버전]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)으로 [업그레이드]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths)합니다.
 
@@ -366,7 +363,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **HRESULT** | 0x80c8603e |
 | **HRESULT(10진)** | -2134351810 |
 | **오류 문자열** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 이 오류는 Azure 파일 공유 저장소 한도에 도달한 경우에 발생하며, Azure 파일 공유에 할당량이 적용되거나 사용량이 Azure 파일 공유의 한도를 초과할 때 발생할 수 있습니다. 자세한 내용은 [Azure 파일 공유의 현재 한도](storage-files-scale-targets.md)를 참조하세요.
 
@@ -392,7 +389,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **HRESULT** | 0x80c86030 |
 | **HRESULT(10진)** | -2134351824 |
 | **오류 문자열** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 이 오류는 Azure 파일 공유에 액세스할 수 없을 때 발생합니다. 문제 해결 방법:
 
@@ -408,7 +405,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80C83076 |
 | **HRESULT(10진)** | -2134364042 |
 | **오류 문자열** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 이 오류는 Azure 구독이 일시 중단되면 발생합니다. Azure 구독이 복원되면 동기화가 다시 활성화됩니다. 자세한 내용은 [내 Azure 구독이 비활성화된 이유 및 다시 활성화하는 방법은 무엇인가요?](../../billing/billing-subscription-become-disable.md)를 참조하세요.
 
@@ -419,7 +416,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c8306c |
 | **HRESULT(10진)** | -2134364052 |
 | **오류 문자열** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 이 오류는 저장소 계정 방화벽 때문에 또는 저장소 계정이 가상 네트워크에 속하기 때문에 Azure 파일 공유에 액세스할 수 없을 때 발생합니다. Azure 파일 동기화는 아직 이 기능을 지원하지 않습니다. 문제 해결 방법:
 
@@ -476,7 +473,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80072ee2 |
 | **HRESULT(10진)** | -2147012894 |
 | **오류 문자열** | WININET_E_TIMEOUT |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -487,7 +484,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c80300 |
 | **HRESULT(10진)** | -2134375680 |
 | **오류 문자열** | ECS_E_SERVER_CREDENTIAL_NEEDED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 이 오류는 다음과 같은 이유로 인해 발생할 수 있습니다.
 
@@ -504,9 +501,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 2. 서버에서 다음 PowerShell 명령을 실행합니다.
 
     ```powershell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-    Login-AzStorageSync -SubscriptionID <guid> -TenantID <guid>
-    Reset-AzStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**서버 엔드포인트가 있는 볼륨의 디스크 공간이 부족합니다.**  
@@ -521,7 +516,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c8031a |
 | **HRESULT(10진)** | -2134375654 |
 | **오류 문자열** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 이 오류는 볼륨이 꽉 찼기 때문에 발생합니다. 이 오류는 일반적으로 서버 엔드포인트 외부의 파일이 볼륨의 공간을 모두 사용할 때 발생합니다. 서버 엔드포인트를 추가하거나, 파일을 다른 볼륨으로 이동하거나, 서버 엔드포인트가 있는 볼륨의 크기를 늘려서 볼륨의 공간을 확보해야 합니다.
 
@@ -545,17 +540,17 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c8023b |
 | **HRESULT(10진)** | -2134364145 |
 | **오류 문자열** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT(10진)** | -2134375908 |
 | **오류 문자열** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 | | |
 | **HRESULT** | 0x80c80253 |
 | **HRESULT(10진)** | -2134375853 |
 | **오류 문자열** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **재구성 필요** | 예 |
+| **재구성 필요** | 예. |
 
 파일별 동기화 오류가 많은 경우 동기화 세션이 시작되지 않을 수 있습니다. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
@@ -618,26 +613,13 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
-$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 $region = "<Az_Region>"
 $resourceGroup = "<RG_Name>"
 $syncService = "<storage-sync-service>"
 $syncGroup = "<sync-group>"
 
-# Import the Azure File Sync management cmdlets
-Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
-
-# Log into the Azure account and put the returned account information
-# in a reference variable.
-$acctInfo = Connect-AzAccount
-
-# this variable stores your subscription ID 
-# get the subscription ID by logging onto the Azure portal
-$subID = $acctInfo.Context.Subscription.Id
-
-# this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
-$tenantID = $acctInfo.Context.Tenant.Id
+# Log into the Azure account
+Connect-AzAccount
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
@@ -653,7 +635,7 @@ if ($regions -notcontains $region) {
         " selected Azure Region or the region is mistyped.")
 }
 
-# Check to ensure resource group exists and create it if doesn't
+# Check to ensure resource group exists
 $resourceGroups = [System.String[]]@()
 Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
@@ -663,24 +645,15 @@ if ($resourceGroups -notcontains $resourceGroup) {
     throw [System.Exception]::new("The provided resource group $resourceGroup does not exist.")
 }
 
-# the following command creates an AFS context 
-# it enables subsequent AFS cmdlets to be executed with minimal 
-# repetition of parameters or separate authentication 
-Login-AzStorageSync `
-    –SubscriptionId $subID `
-    -ResourceGroupName $resourceGroup `
-    -TenantId $tenantID `
-    -Location $region
-
 # Check to make sure the provided Storage Sync Service
 # exists.
 $syncServices = [System.String[]]@()
 
 Get-AzStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
-    $syncServices += $_.DisplayName
+    $syncServices += $_.StorageSyncServiceName
 }
 
-if ($storageSyncServices -notcontains $syncService) {
+if ($syncServices -notcontains $syncService) {
     throw [System.Exception]::new("The provided Storage Sync Service $syncService does not exist.")
 }
 
@@ -688,7 +661,7 @@ if ($storageSyncServices -notcontains $syncService) {
 $syncGroups = [System.String[]]@()
 
 Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
-    $syncGroups += $_.DisplayName
+    $syncGroups += $_.SyncGroupName
 }
 
 if ($syncGroups -notcontains $syncGroup) {
@@ -698,16 +671,16 @@ if ($syncGroups -notcontains $syncGroup) {
 # Get reference to cloud endpoint
 $cloudEndpoint = Get-AzStorageSyncCloudEndpoint `
     -ResourceGroupName $resourceGroup `
-    -StorageSyncServiceName $storageSyncService `
+    -StorageSyncServiceName $syncService `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
 if ($storageAccount -eq $null) {
-    Write-Host "The storage account referenced in the cloud endpoint does not exist."
+    throw [System.Exception]::new("The storage account referenced in the cloud endpoint does not exist.")
 }
 ```
 ---
@@ -722,7 +695,7 @@ if ($storageAccount -eq $null) {
 ```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
-    Write-Host ("The storage account referenced contains network " + `
+    throw [System.Exception]::new("The storage account referenced contains network " + `
         "rules which are not currently supported by Azure File Sync.")
 }
 ```
@@ -737,12 +710,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
-    $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
+    $_.Name -eq $cloudEndpoint.AzureFileShareName -and
     $_.IsSnapshot -eq $false
 }
 
 if ($fileShare -eq $null) {
-    Write-Host "The Azure file share referenced by the cloud endpoint does not exist"
+    throw [System.Exception]::new("The Azure file share referenced by the cloud endpoint does not exist")
 }
 ```
 ---
@@ -763,22 +736,10 @@ if ($fileShare -eq $null) {
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
-$foundSyncPrincipal = $false
-Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
-    if ($_.DisplayName -eq "Hybrid File Sync Service") {
-        $foundSyncPrincipal = $true
-        if ($_.RoleDefinitionName -ne "Reader and Data Access") {
-            Write-Host ("The storage account has the Azure File Sync " + `
-                "service principal authorized to do something other than access the data " + `
-                "within the referenced Azure file share.")
-        }
+$role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Hybrid File Sync Service" }
 
-        break
-    }
-}
-
-if (!$foundSyncPrincipal) {
-    Write-Host ("The storage account does not have the Azure File Sync " + `
+if ($role -eq $null) {
+    throw [System.Exception]::new("The storage account does not have the Azure File Sync " + `
                 "service principal authorized to access the data within the " + ` 
                 "referenced Azure file share.")
 }

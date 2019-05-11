@@ -16,16 +16,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482048"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506836"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
 
-Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](../../app-service/overview-compare.md) 중 하나입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 VM을 선택합니다. 이 문서에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법에 대해 설명합니다.
+Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](/azure/architecture/guide/technology-choices/compute-decision-tree) 중 하나입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 VM을 선택합니다. 이 문서에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법에 대해 설명합니다.
 
 Azure VM은 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 하지만 가상 컴퓨터에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
 
@@ -103,11 +103,11 @@ VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 
 | 리소스 | 필수 | 설명 |
 | --- | --- | --- |
-| [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
-| [Storage 계정](../../storage/common/storage-create-storage-account.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
-| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
+| [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) |예. |VM은 리소스 그룹에 포함되어야 합니다. |
+| [저장소 계정](../../storage/common/storage-create-storage-account.md) |예. |가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다. |
+| [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예. |VM은 가상 네트워크의 구성원이어야 합니다. |
 | [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |아닙니다. |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
-| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
+| [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예. |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
 | [데이터 디스크](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |아닙니다. |VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>첫 번째 VM을 만드는 방법

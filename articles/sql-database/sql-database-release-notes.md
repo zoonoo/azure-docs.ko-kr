@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717436"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406575"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -25,6 +25,7 @@ ms.locfileid: "64717436"
 
 | 기능 | 세부 정보 |
 | ---| --- |
+| 서버리스 컴퓨팅 계층 | 정보를 참조 하세요 [SQL Database 서버 리스 (미리 보기)](sql-database-serverless.md)합니다.|
 | 탄력적 데이터베이스 작업 | 내용은 [만들기, 구성 및 탄력적 작업 관리](elastic-jobs-overview.md) |
 | 탄력적 트랜잭션 | [클라우드 데이터베이스의 분산 트랜잭션](sql-database-elastic-transactions-overview.md) |
 | 탄력적 쿼리 | 내용은 [탄력적 쿼리 개요](sql-database-elastic-query-overview.md) |
@@ -45,6 +46,16 @@ ms.locfileid: "64717436"
 |SQL 분석|내용은 [Azure SQL 분석](../azure-monitor/insights/azure-sql.md)|
 | 관리 되는 인스턴스에 대 한 표준 시간대 지원|자세한 내용은 참조 하세요. [Azure SQL Database Managed Instance의 표준 시간대](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>2019 년 5 월
+
+### <a name="service-improvements"></a>서비스 개선 사항
+
+| 서비스 개선 사항 | 세부 정보 |
+| --- | --- |
+|하이퍼스케일 서비스 계층| 자세한 내용은 [최대 100TB의 대규모 서비스 계층](sql-database-service-tier-hyperscale.md)합니다.|
+|서버리스 컴퓨팅 계층| 자세한 내용은 [SQL Database 서버 리스 (미리 보기)](sql-database-serverless.md)합니다.|
+
 
 ## <a name="april-2019"></a>2019 년 4 월
 

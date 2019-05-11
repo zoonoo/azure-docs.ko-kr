@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550907"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466549"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Azure 배포 관리자(개인용 미리 보기)로 안전한 배포 사례 사용
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (공개 미리 보기) 사용 하 여 안전한 배포 사례를 사용 하도록 설정
 
 여러 지역에서 서비스를 배포하고 각 지역에서 예상대로 실행되고 있는지 확인하려면 Azure 배포 관리자를 사용하여 서비스의 단계적 롤아웃을 조정할 수 있습니다. Azure 배포의 경우와 마찬가지로 [Resource Manager 템플릿](resource-group-authoring-templates.md)에서 서비스의 리소스를 정의합니다. 템플릿을 만든 후에는 배포 관리자를 사용하여 서비스의 토폴로지와 롤아웃 방식을 설명합니다.
 
@@ -200,7 +200,9 @@ ID는 배포 관리자를 위해 지원되는 위치 중 하나에 있어야 하
 
 ### <a name="steps"></a>단계
 
-배포 작업 전후에 수행할 단계를 정의할 수 있습니다. 현재, `wait` 단계만 사용할 수 있습니다. 대기 단계는 계속하기 전에 배포를 일시 중지합니다. 다음 서비스 단위를 배포하기 전에 서비스가 예상대로 실행되고 있는지 확인할 수 있습니다. 다음 예제에서는 대기 단계의 일반 형식을 보여 줍니다.
+배포 작업 전후에 수행할 단계를 정의할 수 있습니다. 현재만 `wait` 단계 및 'healthCheck' 단계를 사용할 수 있습니다. 
+
+대기 단계는 계속하기 전에 배포를 일시 중지합니다. 다음 서비스 단위를 배포하기 전에 서비스가 예상대로 실행되고 있는지 확인할 수 있습니다. 다음 예제에서는 대기 단계의 일반 형식을 보여 줍니다.
 
 ```json
 {
@@ -219,7 +221,7 @@ ID는 배포 관리자를 위해 지원되는 위치 중 하나에 있어야 하
 
 지속 기간 속성은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Durations)을 사용합니다. 이전 예제는 1분 대기를 지정합니다.
 
-자세한 내용은 [단계 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/steps)를 참조하세요.
+상태 확인 단계에 대 한 자세한 내용은 참조 하세요. [ ]() 하 고 [ ]() 자세한 내용은 참조 하십시오 [템플릿 참조 단계](/azure/templates/Microsoft.DeploymentManager/steps)합니다.
 
 ### <a name="rollouts"></a>출시
 

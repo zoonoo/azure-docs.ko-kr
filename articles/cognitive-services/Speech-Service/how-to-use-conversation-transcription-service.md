@@ -1,21 +1,21 @@
 ---
 title: Speech SDK-음성 서비스를 사용 하 여 다중 참가자 대화 기록
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용 하 여 대화 기록 서비스를 사용 하는 방법에 알아봅니다. 에 사용할 수 있는 C++, C#, 및 Java 합니다.
+description: Speech SDK를 사용 하 여 대화 기록을 사용 하는 방법에 알아봅니다. 에 사용할 수 있는 C++, C#, 및 Java 합니다.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: jhakulin
-ms.openlocfilehash: 73ab4cfa92a1efc49dea16ba2941cf16b7a1cf3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026709"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190146"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Speech SDK를 사용 하 여 다중 참가자 대화 기록
 
@@ -24,7 +24,7 @@ Speech SDK **ConversationTranscriber** API를 사용 하면 추가, 제거 및 �
 ## <a name="limitations"></a>제한 사항
 
 * 대화 필기 인식기 대해서는 C++, C#, 및 Windows, Linux 및 Android에서 Java 합니다.
-* ROOBO DevKit는 순환 다중 마이크 배열 화자 식별에 대 한 대화 기록 서비스에서 효율적으로 활용할 수 있는 기능을 제공 하는 대화를 만들기 위한 지원 되는 하드웨어 환경입니다. [자세한 내용은 음성 장치 SDK를 참조 하세요.](speech-devices-sdk.md)합니다. 
+* ROOBO DevKit는 순환 다중 마이크 배열 화자 식별에 대 한 대화 기록 서비스에서 효율적으로 활용할 수 있는 기능을 제공 하는 대화를 만들기 위한 지원 되는 하드웨어 환경입니다. [자세한 내용은 음성 장치 SDK를 참조 하세요.](speech-devices-sdk.md)합니다.
 * Speech SDK 지원은 오디오 끌어오기를 사용 하 여 PCM 오디오 8 채널을 사용 하 여 모드 스트림을 푸시 제한 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -78,7 +78,7 @@ class Program
 
 여러 참가자와 대화를 촬영할 수 만들기는 `ConversationTranscriber` 연관 된 개체를 `AudioConfig` conversation 세션 및 스트림에 오디오를 사용 하 여 만든 개체 `PullAudioInputStream` 또는 `PushAudioInputStream`.
 
-호출 ConversationTranscriber 클래스가 있다고 가정해 보겠습니다 `MyConversationTranscriber`합니다. 코드는이 처럼 보일 수 있습니다. 
+호출 ConversationTranscriber 클래스가 있다고 가정해 보겠습니다 `MyConversationTranscriber`합니다. 코드는이 처럼 보일 수 있습니다.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -97,7 +97,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.

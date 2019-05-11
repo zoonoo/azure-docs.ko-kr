@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911547"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234077"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -46,12 +46,18 @@ Azure Security Center에서는 다음 소스의 데이터를 분석하여 보안
 
 **작업 영역**: 작업 영역은 크래시 덤프 및 일부 유형의 경고 데이터를 포함하여 다음 지역 및 Azure 가상 머신에서 수집된 데이터에 대해 지정되며 가장 가까운 작업 영역에 저장됩니다.
 
-| VM 지역                        | 작업 영역 지역 |
-|-------------------------------|---------------|
-| 미국, 브라질, 캐나다 | 미국 |
-| 유럽, 영국        | 유럽        |
-| 아시아 태평양, 일본, 인도    | 아시아 태평양  |
-| 오스트레일리아                     | 오스트레일리아     |
+| VM 지역                              | 작업 영역 지역 |
+|-------------------------------------|---------------|
+| 미국, 브라질, 남아프리카 공화국 | 미국 |
+| 캐나다                              | 캐나다        |
+| 유럽 (United Kingdom 제외)   | 유럽        |
+| 영국                      | 영국 |
+| 아시아 (인도, 일본, 한국, 중국 제외)   | 아시아 태평양  |
+| 한국                              | 아시아 태평양  |
+| 인도                               | 인도         |
+| 일본                               | 일본         |
+| 중국                               | 중국         |
+| 오스트레일리아                           | 오스트레일리아     |
 
 
 VM 디스크 스냅숏은 VM 디스크와 동일한 저장소 계정에 저장됩니다.

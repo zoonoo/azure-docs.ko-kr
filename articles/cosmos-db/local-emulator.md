@@ -3,15 +3,15 @@ title: Azure Cosmos Emulator로 로컬에서 개발
 description: Azure Cosmos Emulator를 사용하면 Azure 구독을 구입하지 않고도 로컬에서 무료로 애플리케이션을 개발하고 테스트할 수 있습니다.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 03/14/2019
+ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925495"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205777"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 

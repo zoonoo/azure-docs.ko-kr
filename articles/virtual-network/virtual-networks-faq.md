@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 131d62fd2cea3ed76342f0fd179b7a9e0fd673e5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925257"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508418"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -67,7 +67,9 @@ VNet을 다음에 사용합니다.
 예. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)을 참조하세요. 서브넷 주소 공간은 서로 겹칠 수 없습니다.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?
-예. Azure는 각 서브넷 내의 일부 IP 주소를 예약합니다. 서브넷마다 첫 번째와 마지막 IP 주소가 Azure 서비스에 사용되는 각 서브넷의 x.x.x.1-x.x.x.3 주소와 함께 프로토콜 적합성을 위해 예약됩니다.
+예. Azure는 각 서브넷 내에서 5개의 IP 주소를 예약합니다. 이들은 x.x.x.0-x.x.x.3와 서브넷의 마지막 주소입니다.    
+- 프로토콜 적합성 x.x.x.0 및 서브넷의 마지막 주소가 예약 되어 있습니다.
+- Azure 서비스에 대 한 각 서브넷의 x.x.x.1-x.x.x.3 예약 되어 있습니다.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 및 서브넷은 얼마나 크고 얼마나 작을 수 있습니까?
 지원되는 가장 작은 서브넷은 /29이며 가장 큰 서브넷은 /8(CIDR 서브넷 정의 사용)입니다.
@@ -170,7 +172,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 아니요. MAC 주소를 정적으로 구성할 수 없습니다.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>MAC 주소가 만들어진 후 VM에 대해 동일하게 유지됩니까?
-예, MAC 주소는 삭제될 때까지 리소스 관리자 또는 클래식 배포 모델을 통해 배포된 VM에 대해 동일하게 유지됩니다. 이전에 MAC 주소는 VM이 중지(할당 취소)되는 경우에 해제되었지만 이제 VM이 할당 취소된 상태에 있을 때에도 MAC 주소는 유지됩니다.
+예, MAC 주소는 삭제될 때까지 리소스 관리자 또는 클래식 배포 모델을 통해 배포된 VM에 대해 동일하게 유지됩니다. 이전에 MAC 주소는 VM이 중지(할당 취소)되는 경우에 해제되었지만 이제 VM이 할당 취소된 상태에 있을 때에도 MAC 주소는 유지됩니다. 네트워크 인터페이스를 삭제하거나 기본 네트워크 인터페이스의 기본 IP 구성에 할당된 개인 IP 주소를 변경할 때까지 MAC 주소는 네트워크 인터페이스에 할당된 상태로 유지됩니다. 
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>VNet의 VM에서 인터넷에 연결할 수 있습니까?
 예. VNet 내에 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 인터넷에 연결할 수 있습니다.
@@ -231,7 +233,7 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워크에 연결할 수 있습니다. 가상 네트워크 간의 VNet 피어링 연결을 사용하면 IPv4 주소를 통해 개인적으로 가상 네트워크 간의 트래픽을 라우팅할 수 있습니다. 피어링된 VNet에서 가상 머신은 동일한 네트워크 내에 있는 것처럼 서로 통신할 수 있습니다. 이러한 가상 네트워크는 동일한 지역 또는 서로 다른 지역에 있을 수 있습니다(글로벌 VNet 피어링으로도 알려짐). Azure 구독 간에 VNet 피어링 연결을 만들 수도 있습니다.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>다른 지역의 VNet에 피어로 연결할 수 있나요?
-예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어링은 모든 Azure 공용 지역 및 중국 클라우드 지역에서 사용할 수 있습니다. Azure 공용 지역에서 국가별 클라우드 지역으로 전역적으로 피어링할 수 없습니다. 글로벌 피어링은 현재 국가별 클라우드에서 제공되지 않습니다.
+예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어 링은 모든 Azure 공용 지역, 중국 클라우드 지역 및 Government 클라우드 지역에서 사용할 수 있습니다. 전 세계 국가 클라우드 지역에 Azure 공용 지역에서 피어 수 없습니다.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>글로벌 VNet 피어 링 및 부하 분산 장치 관련 된 제약 조건 이란?
 두 가상 네트워크가 다른 지역 (글로벌 VNet 피어 링)에 있는 경우에 기본 Load Balancer를 사용 하는 리소스에 연결할 수 없습니다. 표준 Load Balancer를 사용 하는 리소스에 연결할 수 있습니다.
@@ -241,15 +243,14 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL Always on
 - SQL MI
-- API 관리
+- API Management
 - Active Directory 도메인 서비스 (추가)
 - Logic Apps
 - HD Insight
 -   Azure Batch
 - AKS
-- App Service 환경
+- App Service Environment
 
 VNet 대 VNet을 통해 VNet 게이트웨이 또는 ExpressRoute를 통해 이러한 리소스에 연결할 수 있습니다.
 
@@ -282,6 +283,9 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>피어링 연결에 대역폭 제한이 있나요?
 아니요. 로컬이든 글로벌이든 VNet 피어링에는 대역폭 제한이 없습니다. 대역폭은 VM 또는 계산 리소스에 의해서만 제한됩니다.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>VNet 피어 링 하는 문제를 해결 하려면 어떻게 해야 합니까?
+[문제 해결사 가이드] 다음과 같습니다 (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) 시도할 수 있습니다.
 
 ## <a name="virtual-network-tap"></a>가상 네트워크 TAP
 

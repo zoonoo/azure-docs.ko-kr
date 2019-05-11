@@ -4,17 +4,17 @@ description: 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 �
 author: moderakh
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/28/2018
+ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0dc45f104e05fde083489604865aaae8282d6a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404674"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146203"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정에서 Java 비동기 SDK를 사용하는 경우 발생하는 문제 해결
 이 문서에서는 Azure Cosmos DB SQL API 계정으로 [Java 비동기 SDK](sql-api-sdk-async-java.md)를 사용할 때 일반적인 문제, 해결, 진단 단계 및 도구를 설명합니다.
@@ -57,6 +57,16 @@ ulimit -a
 
     서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
 * Azure VM에 공용 IP를 할당합니다.
+
+##### <a name="cant-connect"></a>이 서비스에 도달할 수 없습니다.-방화벽
+``ConnectTimeoutException`` SDK 서비스를 연결할 수 없습니다 나타냅니다.
+직접 모드를 사용 하는 경우 오류를 다음과 유사한 나타날 수 있습니다.
+```
+GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
+```
+
+앱에서 사용 하는 컴퓨터에서 실행 되는 방화벽이 있는 경우 10,000 20,000 대 직접 모드에서 사용 되는 포트 범위를 엽니다.
+또한 따릅니다 합니다 [호스트 컴퓨터에서 연결 제한을](#connection-limit-on-host)합니다.
 
 #### <a name="http-proxy"></a>HTTP 프록시
 

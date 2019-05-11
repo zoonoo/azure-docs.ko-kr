@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611244"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153234"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
-
-많은 사람이 ID를 기존 네트워크 중심 관점에서 역할을 대신하는 보안에 대한 새로운 경계 계층으로 생각하고 있습니다. 보안 주의 및 투자를 중심으로 하는 이러한 진화는 네트워크 경계에 점점 더 많은 구멍이 생기고 경계 방어가 [BYOD](https://aka.ms/byodcg) 장치 및 클라우드 애플리케이션이 급증하기 전만큼 효과적일 수 없다는 사실에 기인합니다.
-
 이 문서에서는 Azure ID 관리 및 액세스 제어 보안 모범 사례 컬렉션에 대해 설명합니다. 이러한 모범 사례는 [Azure AD](../active-directory/fundamentals/active-directory-whatis.md)에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
 
 각 모범 사례에 대해 다음과 같이 설명합니다.
@@ -41,6 +38,7 @@ ms.locfileid: "60611244"
 
 * 기본 보안 경계로 ID 처리
 * ID 관리 중앙 집중화
+* 연결 된 테 넌 트 관리
 * Single Sign-On 사용
 * 조건부 액세스 설정
 * 암호 관리 사용
@@ -48,30 +46,55 @@ ms.locfileid: "60611244"
 * 역할 기반 액세스 제어 사용
 * 권한 있는 계정의 낮은 노출
 * 리소스가 있는 위치 제어
+* 저장소 인증에 대 한 Azure AD를 사용 합니다.
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>기본 보안 경계로 ID 처리
 
 다수가 ID를 보안에 대한 기본 경계라고 간주합니다. 기존 네트워크 보안에서 집중한 부분에서 전환되었습니다. 네트워크 경계에 더 많은 더 구멍이 생기고, 해당 경계 방어가 [BYOD](https://aka.ms/byodcg) 디바이스 및 클라우드 애플리케이션이 급증하기 전처럼 효과적일 수 없습니다.
+
 [Azure AD(Azure Active Directory)](../active-directory/active-directory-whatis.md)는 ID 및 액세스 관리를 위한 Azure 솔루션입니다. Azure AD는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 여기에서는 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호를 하나의 솔루션으로 결합합니다.
 
 다음 섹션에서는 Azure AD를 사용하여 ID 및 액세스 보안에 대한 모범 사례를 나열합니다.
 
 ## <a name="centralize-identity-management"></a>ID 관리 중앙 집중화
 
-[하이브리드 ID](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) 시나리오에서 온-프레미스와 클라우드 디렉터리를 통합하는 것이 좋습니다. 통합을 사용하면 IT 팀이 계정을 만든 위치에 관계 없이 하나의 단일 위치에서 계정을 관리할 수 있습니다. 통합을 통해 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하여 사용자가 더 생산성을 높일 수 있습니다.
+[하이브리드 ID](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) 시나리오에서 온-프레미스와 클라우드 디렉터리를 통합하는 것이 좋습니다. 통합 IT 팀을 계정을 만든 위치에 관계 없이 하나의 위치에서 계정을 관리할 수 있습니다. 통합에는 또한 사용자가 클라우드 및 온-프레미스 리소스에 액세스 하기 위한 공통 id를 제공 하 여 생산성을 높일 수 있습니다.
 
+**모범 사례**: 단일 설정 Azure AD 인스턴스. 일관성 및 단일를 신뢰할 수 있는 원본은 쉽게 구별할 수 있도록 늘리고 인적 오류에서 구성이 복잡해 보안 위험을 줄입니다.
+**세부 정보**: 지정 된 단일 Azure AD 기업 및 조직 계정에 대 한 믿을 만한 원본으로 디렉터리입니다.
 
 **모범 사례**: Azure AD와 온-프레미스 디렉터리를 통합합니다.  
 **세부 정보**: [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md)를 사용하여 온-프레미스 디렉터리를 클라우드 디렉터리와 동기화합니다.
 
-**모범 사례**: 암호 해시 동기화를 켭니다.  
-**세부 정보**: 암호 해시 동기화는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화하는 데 사용되는 기능입니다.
+> [!Note]
+> 가지 [Azure AD Connect의 성능에 영향을 주는 요인](../active-directory/hybrid/plan-connect-performance-factors.md)합니다. Azure AD Connect에서 보안과 생산성을 저하 시 키 지 시스템 성적이 유지 하려면 충분 한 용량이 있는지 확인 합니다. 대규모 또는 복잡 한 조직 (100,000 개 이상의 개체를 프로 비전 하는 조직)을 따라야 합니다 [권장 사항](../active-directory/hybrid/whatis-hybrid-identity.md) 구현과 Azure AD Connect를 최적화 하기 위해.
 
-AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도 온-프레미스 서버가 실패하거나 일시적으로 사용할 수 없게 되므로 필요에 따라 암호 해시 동기화를 백업으로 설정할 수 있습니다. 이렇게 하면 사용자가 온-프레미스 Active Directory 인스턴스에 로그인하는 데 사용하는 것과 동일한 암호를 사용하여 서비스에 로그인할 수 있습니다. 또한 사용자가 Azure AD에 연결되지 않은 다른 서비스에서 동일한 이메일 주소와 암호를 사용하면 Identity Protection에서 암호 해시와 손상된 것으로 알려진 암호를 비교하여 손상된 자격 증명을 검색할 수 있습니다.
+**모범 사례**: 기존 Active Directory 인스턴스에 대 한 높은 권한이 있는 계정을 Azure AD에 동기화 안 함.
+**세부 정보**: 기본값을 변경 하지 마세요 [Azure AD Connect 구성을](../active-directory/hybrid/how-to-connect-sync-configure-filtering.md) 는 이러한 계정을 필터링 합니다. 이 구성은 (주요 인시던트를 만들 수)는 온-프레미스 자산에 클라우드를 피벗 하는 악의적 사용자의 위험을 완화 합니다.
+
+**모범 사례**: 암호 해시 동기화를 켭니다.  
+**세부 정보**: 암호 해시 동기화는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure 사용자 암호 해시 동기화에 사용 되는 기능은 AD 인스턴스. 이 동기화 이전 공격 으로부터 재생 중인 유출 된 자격 증명에 대해 보호할 수 있습니다.
+
+AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도 온-프레미스 서버가 실패하거나 일시적으로 사용할 수 없게 되므로 필요에 따라 암호 해시 동기화를 백업으로 설정할 수 있습니다. 이 동기화가 온-프레미스 Active Directory 인스턴스에 로그인을 사용 하는 동일한 암호를 사용 하 여 서비스에 로그인 할 수 있습니다. Id 보호 사용자가 사용 하는 경우 동일한 전자 메일 주소와 암호를 Azure AD에 연결 되지 않은 다른 서비스에서 손상 된 것으로 알려진 암호를 사용 하 여 동기화 된 암호 해시를 비교 하 여 손상 된 자격 증명을 검색할 수도 있습니다.
 
 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)을 참조하세요.
 
+**모범 사례**: 새 응용 프로그램 개발에 대 한 인증을 위해 Azure AD를 사용 합니다.
+**세부 정보**: 인증을 지원 하려면 올바른 기능을 사용 합니다.
+
+  - 직원에 대 한 azure AD
+  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) 게스트 사용자 및 외부 파트너에 대 한
+  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) 어떻게 고객 등록을 제어 하려면 로그인 하 고 응용 프로그램을 사용할 경우 해당 프로필을 관리 합니다.
+
 클라우드 ID와 해당 온-프레미스 ID를 통합하지 않는 조직은 계정을 관리하는 데 추가 오버헤드가 발생할 수 있습니다. 이 오버헤드는 실수 및 보안 위반의 가능성을 증가시킵니다.
+
+> [!Note]
+> 중요 계정에는 기존 또는 새 클라우드 서비스에서 관리 하는 데 사용 하는 관리 워크스테이션 인지를 처리 하는 디렉터리를 선택 해야 합니다. 기존 관리 및 프로비저닝 프로세스 id를 사용 하는 위험을 줄일 수 있습니다 하지만 온-프레미스 계정을 손상 시 키 지 및 클라우드를 피벗 하는 공격자의 위험을 만들 수도 있습니다. 다른 역할 (예를 들어, 비즈니스 단위 관리자 및 IT 관리자)에 대 한 다른 전략을 사용 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다. 첫 번째 방법은 온-프레미스 Active Directory 인스턴스와 동기화 되지 않았습니다 하는 Azure AD 계정을 만듭니다. 관리 워크스테이션 관리 및 Microsoft Intune을 사용 하 여 패치할 수 있는 Azure AD에 조인 합니다. 두 번째 옵션은 온-프레미스 Active Directory에 동기화 하 여 기존 관리자 계정을 사용 합니다. 관리 및 보안에 대 한 Active Directory 도메인에 기존 워크스테이션을 사용 합니다.
+
+## <a name="manage-connected-tenants"></a>연결 된 테 넌 트 관리
+조직의 보안 위험을 평가 하 고, 조직 및 규정 요구 사항을 모두의 정책 적용 되는지 여부를 확인 하려면 표시를 해야 합니다. 보안 조직의 프로덕션 환경 및 네트워크에 연결 하는 모든 구독에 대 한 가시성에 있는지 확인 해야 (통해 [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 하거나 [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). [전역 관리자/회사 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) Azure AD에 대 한 액세스를 승격할 수 있습니다 합니다 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 역할 및 모든 구독 및 사용자 환경에 연결 된 관리 그룹을 참조 하세요.
+
+참조 [모든 Azure 구독 및 관리 그룹 관리에 대 한 액세스 권한 상승](../role-based-access-control/elevate-access-global-admin.md) 환경과 연결 된 모든 구독 또는 관리 그룹을 보안 그룹에 볼 수 있도록 합니다. 위험 평가한 후에이 관리자 권한 액세스를 제거 해야 합니다.
 
 ## <a name="enable-single-sign-on"></a>Single Sign-On 사용
 
@@ -88,12 +111,15 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 
 ## <a name="turn-on-conditional-access"></a>조건부 액세스 설정
 
-사용자가 다양한 디바이스와 앱을 사용하여 어디서나 조직의 리소스에 액세스할 수 있습니다. IT 관리자로서 이러한 디바이스가 보안 및 규정 준수에 대한 표준을 충족하는지 확인하려고 합니다. 리소스에 액세스할 수 있는 사용자에게만 초점을 맞추는 것은 더 이상 충분하지 않습니다.
+사용자가 다양한 디바이스와 앱을 사용하여 어디서나 조직의 리소스에 액세스할 수 있습니다. IT 관리자의 경우 이러한 장치 보안 및 규정 준수에 대 한 표준을 충족 하는지 확인 하려고 합니다. 리소스에 액세스할 수 있는 사용자에게만 초점을 맞추는 것은 더 이상 충분하지 않습니다.
 
-보안과 생산성을 조정하려면 액세스 제어를 결정하기 전에 리소스에 액세스하는 방법에 대해 고려해야 합니다. Azure AD 조건부 액세스를 사용하면 이 요구 사항을 처리할 수 있습니다. 조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 만들 수 있습니다.
+보안 및 생산성을 조정 하려면 액세스 제어에 대 한 결정을 내릴 수 전에 리소스에 액세스 하는 방법에 대 한 생각해 야 합니다. Azure AD 조건부 액세스를 사용하면 이 요구 사항을 처리할 수 있습니다. 조건부 액세스를 사용 하 여 클라우드 앱에 액세스 하기 위한 조건에 따라 자동화 된 액세스 제어 결정을 만들 수 있습니다.
 
 **모범 사례**: 회사 리소스에 대한 액세스를 관리 및 제어합니다.  
 **세부 정보**: SaaS 앱 및 Azure AD 연결 앱에 대한 그룹, 위치 및 애플리케이션 민감도에 따라 Azure AD [조건부 액세스](../active-directory/active-directory-conditional-access-azure-portal.md)를 구성합니다.
+
+**모범 사례**: 레거시 인증 프로토콜을 차단 합니다.
+**세부 정보**: 공격자는 특히 암호 스프레이 공격에 대 한 매일 이전 프로토콜의 약점을 이용 합니다. 레거시 프로토콜을 차단 하도록 조건부 액세스를 구성 합니다. 비디오를 참조 하세요. [Azure AD: 일과](https://www.youtube.com/watch?v=wGk0J4z90GI) 자세한 내용은 합니다.
 
 ## <a name="enable-password-management"></a>암호 관리 사용
 
@@ -105,6 +131,9 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 **모범 사례**: SSPR을 실제로 사용하는 방법 또는 그러한 경우를 모니터링합니다.  
 **세부 정보**: Azure AD [암호 재설정 등록 작업 보고서](../active-directory/active-directory-passwords-get-insights.md)를 사용하여 등록하는 사용자를 모니터링합니다. Azure AD에서 제공하는 보고 기능은 미리 작성된 보고서를 사용하여 질문에 대답하도록 도와줍니다. 적절히 라이선스를 받은 경우 사용자 지정 쿼리를 만들 수도 있습니다.
 
+**모범 사례**: 온-프레미스 인프라에 클라우드 기반 암호 정책을 확장 합니다.
+**세부 정보**: 클라우드 기반 암호 변경의 경우와 마찬가지로 온-프레미스 암호 변경에 대 한 동일한 검사를 수행 하 여 조직에서 암호 정책을 강화 합니다. 설치할 [Azure AD 암호 보호](../active-directory/authentication/concept-password-ban-bad.md) Windows Server Active Directory 에이전트 온-프레미스를 기존 인프라에 금지 된 암호 목록을 확장 합니다. 사용자 및 관리자에 게 변경 집합 또는 클라우드 전용 사용자와 동일한 암호 정책을 준수 하는 데 필요한 온-프레미스 암호를 다시 설정.
+
 ## <a name="enforce-multi-factor-verification-for-users"></a>사용자에 대한 다단계 인증 적용
 
 모든 사용자에 대해 2단계 인증을 요구하는 것이 좋습니다. 해당 계정이 노출될 경우 상당한 영향을 미칠 수 있는 조직의 관리자 및 다른 사용자가 포함됩니다(예: 재무 책임자).
@@ -115,6 +144,8 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 
 **옵션 1**: [사용자 상태를 변경하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-userstates.md).   
 **혜택**: 2단계 인증을 요구하는 기존 메서드입니다. 이 기능은 [클라우드의 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버](../active-directory/authentication/concept-mfa-whichversion.md)에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 때마다 2단계 인증을 수행해야 하며, 조건부 액세스 정책을 재정의합니다.
+
+Multi-factor Authentication를 사용 해야 하는 위치를 확인 하려면 참조 [의 Azure MFA 버전 내 조직에 적합 한?](../active-directory/authentication/concept-mfa-whichversion.md)합니다.
 
 **옵션 2**: [조건부 액세스 정책을 사용하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-getstarted.md).
 **혜택**: 이 옵션을 사용하면 [조건부 액세스](../active-directory/active-directory-conditional-access-azure-portal.md)를 사용하여 특정 조건에서 2단계 인증을 묻는 메시지를 표시할 수 있습니다. 특정 조건이란 위험한 것으로 간주하는 다른 위치, 신뢰할 수 없는 디바이스 또는 애플리케이션에서 사용자 로그인이 될 수 있습니다. 2단계 인증이 필요한 특정 조건을 정의하면 번거로운 사용자 환경일 수 있는 지속적인 메시지를 사용자에게 표시하지 않도록 할 수 있습니다.
@@ -135,11 +166,34 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 
 2단계 인증과 같은 추가적인 ID 보호 계층을 추가하지 않는 조직은 자격 증명 도난 공격에 취약합니다. 자격 증명 도난 공격으로 인해 데이터 손상이 발생할 수 있습니다.
 
-## <a name="use-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어) 사용
+## <a name="use-role-based-access-control"></a>역할 기반 액세스 제어 사용
+클라우드 리소스에 대 한 액세스 관리 클라우드를 사용 하는 모든 조직에 대 한 중요 한 경우 [역할 기반 액세스 제어 (RBAC)](../role-based-access-control/overview.md) Azure 리소스에 대 한 액세스 권한이 있는 사용자, 해당 리소스를 사용 하 여 수행할 수 있는 이러한 작업 및 액세스할 수 있는 영역을 관리할 수 있습니다.
 
-[알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다. [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 사용 권한을 할당할 수 있습니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다.
+그룹 또는 개별 역할에 Azure에서 특정 함수에 대 한 책임 지정 혼동 시킬 수 있는 사용자 및 보안 위험에 만든 automation 오류를 방지할 수 있습니다. [알아야 할 사항](https://en.wikipedia.org/wiki/Need_to_know) 및 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙을 기반으로 액세스를 제한하는 것은 데이터 액세스에 보안 정책을 적용하고자 하는 조직의 경우 필수입니다.
 
-Azure의 [기본 제공 RBAC](../role-based-access-control/built-in-roles.md) 역할을 사용하여 사용자에게 권한을 할당할 수 있습니다. RBAC와 같은 기능을 사용하여 데이터 액세스 제어를 적용하지 않는 조직은 해당 사용자에게 필요 이상으로 많은 권한을 부여하게 될 수 있습니다. 이로 인해 사용자가 없어야 했던 특정 형식의 데이터(예: 높은 비즈니스 영향)에 액세스할 수 있도록 함으로써 데이터 손상을 초래할 수 있습니다.
+보안 팀을 평가 하 고 위험을 해결 하기 위해 Azure 리소스에 대 한 가시성을 해야 합니다. 보안 팀은 운영의 책임에 추가 권한을 해당 작업을 수행 해야 합니다.
+
+사용할 수 있습니다 [RBAC](../role-based-access-control/overview.md) 사용자, 그룹 및 특정 범위의 응용 프로그램에 권한을 할당 합니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다.
+
+**모범 사례**: 팀 내에서 직무를 분리 하 고 해당 작업을 수행 하는 데 필요한 사용자에 게 만큼의 액세스를 부여 합니다. Azure 구독 또는 리소스에 무제한 권한이 모든 사람에 게 제공 하는 대신 특정 범위에서 특정 작업만 허용 합니다.
+**세부 정보**: 사용 하 여 [기본 제공 RBAC 역할](../role-based-access-control/built-in-roles.md) azure에 사용자에 게 권한을 할당 합니다.
+
+> [!Note]
+> 특정 권한을 불필요 한 복잡성과 혼동을 누적 작업 분리 될 걱정 없이 해결 하기 어려울 정도로 "레거시" 구성으로 만듭니다. 리소스에 한정 사용 권한이 하지 마세요. 대신, 엔터프라이즈 수준의 사용 권한 및 구독 내에서 사용 권한에 대 한 리소스 그룹에 대 한 관리 그룹을 사용 합니다. 사용자별 권한 방지 합니다. 대신, Azure AD에서 그룹에 대 한 액세스를 할당 합니다.
+
+**모범 사례**: 평가 하 고 위험을 재구성할 수 있도록 Azure 리소스를 보려면 Azure 책임 액세스를 사용 하 여 보안 팀에 권한을 부여 합니다.
+**세부 정보**: RBAC 보안 팀에 권한을 부여할 [보안 읽기 권한자](../role-based-access-control/built-in-roles.md#security-reader) 역할입니다. 책임의 범위에 따라 루트 관리 그룹 또는 세그먼트 관리 그룹을 사용할 수 있습니다.
+
+- **루트 관리 그룹** 팀 모두 엔터프라이즈 리소스 작업을 담당 합니다.
+- **관리 그룹 세그먼트** (일반적으로 규정 또는 기타 조직의 경계)으로 인해 제한 된 범위를 사용 하 여 팀을 위한
+
+**모범 사례**: 직접 작업 해야 하는 보안 팀에 적절 한 권한을 부여 합니다.
+**세부 정보**: 적절 한 역할 할당에 대 한 기본 제공 RBAC 역할을 검토 합니다. 기본 제공 역할 조직의 특정 요구 사항을 충족 하지 않습니다, 경우 만들 수 있습니다 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)입니다. 로 기본 제공 역할을 사용 하 여 사용자 지정 역할을 사용자, 그룹 및 구독, 리소스 그룹 및 리소스 범위에서 서비스 주체를 할당할 수 있습니다.
+
+**모범 사례**: 필요로 하는 보안 역할에 대 한 권한 부여 Azure Security Center 액세스 합니다. Security Center는 신속 하 게 식별 하 고 위험을 수정 하려면 보안 팀을 허용 합니다.
+**세부 정보**: RBAC에 이러한 요구를 사용 하 여 보안 팀을 추가 [보안 관리자](../role-based-access-control/built-in-roles.md#security-admin) 역할 보안 정책 보기, 보안 상태 보기, 보안 정책, 경고 보기 및 권장 사항을 편집 하 고 수 있도록 경고 및 권장 사항을 해제 합니다. 책임의 범위에 따라 루트 관리 그룹 또는 세그먼트 관리 그룹을 사용 하 여이 수행할 수 있습니다.
+
+RBAC는 사용자에 게 필요한 것 보다 더 많은 권한이 부여 될 수와 같은 기능을 사용 하 여 데이터 액세스 제어를 적용 하지 않는 조직은 합니다. 이 수로 인해 데이터가 손상 사용자를 허용 하 여 없어야 했던 (예: 높은 비즈니스 영향) 데이터 형식에 액세스 합니다.
 
 ## <a name="lower-exposure-of-privileged-accounts"></a>권한 있는 계정의 낮은 노출
 
@@ -153,6 +207,12 @@ Azure의 [기본 제공 RBAC](../role-based-access-control/built-in-roles.md) �
 
 **모범 사례**: 권한 있는 계정에 대한 액세스를 관리, 제어 및 모니터링합니다.   
 **세부 정보**: [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md)를 켭니다. Privileged Identity Management가 설정되면 권한 있는 액세스 역할 변경에 대한 알림 이메일 메시지를 받게 됩니다. 이러한 알림에서는 디렉터리에서 권한이 높은 역할에 추가 사용자가 추가될 때 조기 경고를 제공합니다.
+
+**모범 사례**: 모든 중요 한 관리자 계정 관리는 Azure AD 계정.
+**세부 정보**: 중요 한 관리자 역할 (예를 들어, hotmail.com, live.com, outlook.com 등 Microsoft 계정)에서 소비자 계정을 제거 합니다.
+
+**모범 사례**: 모든 중요 한 관리자 역할 피싱 및 관리 권한이 손상 시키는 기타 공격을 방지 하기 위해 관리 작업에 대 한 별도 계정이 있는 것을 확인 합니다.
+**세부 정보**: 관리 작업을 수행 하는 데 필요한 권한이 할당 된 별도 관리자 계정을 만듭니다. Microsoft Office 365 전자 메일 또는 임의의 웹 검색 등의 일일 생산성 도구에 대 한 이러한 관리 계정의 사용을 차단 합니다.
 
 **모범 사례**: 권한이 높은 역할이 있는 계정을 식별 및 분류합니다.   
 **세부 정보**: Azure AD Privileged Identity Management를 설정하면 글로벌 관리자, 권한 있는 역할 관리자 및 기타 권한이 높은 관리자에 속한 사용자를 확인합니다. 이러한 역할에 더 이상 필요하지 않은 계정을 제거하고 관리자 역할에 할당된 나머지 계정은 다음과 같이 분류합니다.
@@ -173,10 +233,27 @@ Azure의 [기본 제공 RBAC](../role-based-access-control/built-in-roles.md) �
 **모범 사례**: 둘 이상의 응급 액세스 계정을 정의합니다.   
 **세부 정보**: 응급 액세스 계정을 사용하면 조직이 기존 Azure Active Directory 환경 내에서 권한 있는 액세스를 제한할 수 있습니다. 이러한 계정은 높은 권한을 부여받으며 특정 개인에게 할당되지 않습니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 시나리오로 제한됩니다. 조직에서는 응급 계정의 사용량을 필요한 기간으로만 제한해야 합니다.
 
-전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. `*.onmicrosoft.com` 도메인을 사용하여 클라우드 전용 계정(응급 액세스용)이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 Azure AD에서 응급 액세스 관리 계정의 관리를 참조하세요.
+전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. `*.onmicrosoft.com` 도메인을 사용하여 클라우드 전용 계정(응급 액세스용)이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](../active-directory/users-groups-roles/directory-emergency-access.md)를 참조하세요.
 
-**모범 사례**: Multi-Factor Authentication을 켜고, 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정을 등록합니다.  
-**세부 정보**: 로그인 시 Azure AD 관리자 역할(글로벌 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자) 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에 대해 Azure Multi-Factor Authentication을 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 Multi-Factor Authentication](../active-directory/authentication/howto-mfa-userstates.md)을 사용하도록 설정하고, 해당 사용자가 모두 [등록](https://aka.ms/mfasetup)되었는지 확인합니다.
+**모범 사례**: "비상" 프로세스는 응급 위치에 있습니다.
+**세부 정보**: 단계를 따릅니다 [권한 있는 액세스 보안 하이브리드 및 클라우드 배포에 대 한 Azure AD에서](../active-directory/users-groups-roles/directory-admin-roles-secure.md)합니다.
+
+**모범 사례**: 암호 없는 되도록 모든 중요 한 관리자 계정 (권장) 하거나 Multi-factor Authentication 요구 합니다.
+**세부 정보**: 사용 된 [Microsoft Authenticator 앱](../active-directory/authentication/howto-authentication-phone-sign-in.md) 암호를 사용 하지 않고 모든 Azure AD 계정으로 로그인 합니다. 와 같은 [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator 키 기반 인증을 사용 하 여 장치에 연결 되는 생체 인식 인증 또는 PIN을 사용 하 여 사용자 자격 증명을 사용 하도록 설정 합니다.
+
+하나 이상의 Azure AD 관리자 역할에 영구적으로 할당 된 모든 개별 사용자에 대 한 로그인에 Azure Multi-factor Authentication을 요구 합니다. 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자를 선택 합니다. 사용 하도록 설정 [관리자 계정에 대 한 Multi-factor Authentication](../active-directory/authentication/howto-mfa-userstates.md) 관리자 계정 사용자가 등록 되었는지 확인 합니다.
+
+**모범 사례**: 중요 한 관리자 계정에 대 한 프로덕션 작업 (예를 들어, 검색 및 전자 메일) 허용 되지 않습니다 여기서는 관리 워크스테이션 경우 이 관리자 계정 찾아보기 및 전자 메일을 사용 하 고 매우 저렴 한 주요 인시던트 위험이 공격 벡터 로부터 보호 합니다.
+**세부 정보**: 관리 워크스테이션을 사용 합니다. 워크스테이션 보안 수준을 선택 합니다.
+
+- 보안 수준이 높은 생산성 장치 검색에 대 한 고급 보안 및 기타 생산성 작업을 제공합니다.
+- [Privileged Access Workstation (Paw)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) 인터넷 공격 및 중요 한 작업에 대 한 위협 벡터 로부터 보호 되는 전용된 운영 체제를 제공 합니다.
+
+**모범 사례**: 직원이 조직을 떠날 때에 관리자 계정을 프로 비전 해제 합니다.
+**세부 정보**: 프로세스를 사용 하지 않도록 설정 하거나 직원이 조직을 떠날 때 관리자 계정을 삭제 하는 위치에 있습니다.
+
+**모범 사례**: 현재 공격 기술을 사용 하 여 관리자 계정을 정기적으로 테스트 합니다.
+**세부 정보**: Office 365 공격 시뮬레이터 또는 타사 조직에서 실제 공격 시나리오를 실행 하려면 제품을 사용 합니다. 이 실제 공격을 발생 하기 전에 취약 한 사용자를 찾을 수 있습니다.
 
 **모범 사례**: 가장 많이 사용되는 공격 기술을 완화하는 단계를 수행합니다.  
 **세부 정보**: [직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별](../active-directory/users-groups-roles/directory-admin-roles-secure.md#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
@@ -232,6 +309,11 @@ Azure의 [기본 제공 RBAC](../role-based-access-control/built-in-roles.md) �
 **세부 정보**: [Azure AD ID Protection](../active-directory/active-directory-identityprotection.md)을 사용하여 자체 대시보드에 현재 위험을 플래그로 표시하고 이메일을 통해 일일 요약 알림을 보냅니다. 조직의 ID를 보호하려면 지정된 위험 수준에 도달했을 때 검색된 문제에 자동으로 대응하는 위험 기반 정책을 구성할 수 있습니다.
 
 해당 ID 시스템을 적극적으로 모니터링하지 않는 조직은 사용자 자격 증명이 손상될 위험에 직면합니다. 이러한 자격 증명을 통해 의심스러운 활동이 일어나고 있다는 것을 알아야 이 형식의 위협을 완화시킬 수 있습니다.
+
+## <a name="use-azure-ad-for-storage-authentication"></a>저장소 인증에 대 한 Azure AD를 사용 합니다.
+[Azure Storage](../storage/common/storage-auth-aad.md) Blob storage 및 Queue storage에 대 한 인증 및 Azure AD 사용 하 여 권한 부여를 지원 합니다. Azure AD 인증을 사용 하 여 사용자, 그룹 및 개별 blob 컨테이너 또는 큐의 범위까지 응용 프로그램에 특정 권한을 부여 하는 Azure 역할 기반 액세스 제어를 사용할 수 있습니다.
+
+사용 하는 것이 좋습니다 [저장소에 대 한 액세스를 인증 하기 위해 Azure AD](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)합니다.
 
 ## <a name="next-step"></a>다음 단계
 

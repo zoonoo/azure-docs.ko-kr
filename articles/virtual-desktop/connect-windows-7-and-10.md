@@ -1,20 +1,20 @@
 ---
-title: Windows 가상 데스크톱 미리 보기 Windows 7 및 Windows 10-Azure에 연결
-description: Windows 7 또는 Windows 10을 사용 하 여 Windows 가상 데스크톱 미리 보기 서비스에 연결 하는 방법입니다.
+title: Windows 10 또는 Windows 7-Azure에서 Windows 가상 데스크톱 미리 보기에 연결
+description: Windows 10 또는 Windows 7에서 Windows 가상 데스크톱 미리 보기에 연결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/27/2019
+ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328853"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145981"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Windows 7 및 Windows 10을 사용하여 연결
+# <a name="connect-from-windows-10-or-windows-7"></a>Windows 10 또는 Windows 7에서 연결
 
 > 적용 대상 Windows 7 및 Windows 10입니다.
 
@@ -25,11 +25,11 @@ ms.locfileid: "60328853"
 
 ## <a name="install-the-client"></a>클라이언트 설치
 
-[다운로드](https://go.microsoft.com/fwlink/?linkid=2068602) 로컬 pc에 클라이언트를 설치 합니다. 이 관리자 권한이 필요합니다.
+[다운로드](https://go.microsoft.com/fwlink/?linkid=2068602) 로컬 pc에 클라이언트를 설치 합니다. 설치에는 관리자 권한이 필요합니다.
 
 ## <a name="subscribe-to-a-feed"></a>피드 구독
 
-관리자가 제공 하는 피드를 구독 하 여 로컬 PC에서을 사용할 수 있는 리소스의 목록 가져오기
+관리자가 제공 하는 피드를 구독 하 여를 사용할 수 있는 관리 되는 리소스의 목록 가져오기 구독 리소스를 사용할 수 있도록 로컬 PC에 있습니다.
 
 피드를 구독 합니다.
 
@@ -44,6 +44,33 @@ ms.locfileid: "60328853"
 - 클라이언트의 기본 페이지에서 응용 프로그램을 시작 하는 리소스를 두 번 클릭 합니다.
 - 시작 메뉴에서 다른 앱 평소와 같이 리소스를 시작 합니다.
   - 검색 표시줄에서 앱에 대 한 검색할 수 있습니다.
+
+피드를 구독 한 후 피드의 콘텐츠는 정기적으로 자동으로 업데이트 됩니다. 리소스는 추가, 변경 또는 관리자가 변경에 따라 제거 될 수 있습니다.
+
+## <a name="view-the-details-of-a-feed"></a>피드 세부 정보를 보려면
+
+를 구독 한 후 세부 정보 창에 액세스 하 여 피드에 대 한 추가 정보를 볼 수 있습니다.
+
+1. 클라이언트의 기본 페이지에서 줄임표를 선택 (**...** ) 피드 이름 오른쪽에 있습니다.
+1. 드롭다운 메뉴에서 선택 **세부 정보**합니다.
+1. 세부 정보 창 클라이언트의 오른쪽에 표시 됩니다.
+
+피드에 대 한 유용한 정보를 포함 하는 세부 정보 창:
+
+- URL 및 구독 하는 데 사용 하는 사용자 이름
+- 앱 및 데스크톱의 수
+- 마지막 업데이트 날짜/시간
+- 마지막 업데이트의 상태
+
+필요한 경우에 선택 하 여 수동 업데이트를 시작할 수 있습니다 **지금 업데이트**합니다.
+
+## <a name="unsubscribe-from-a-feed"></a>피드를 구독 취소
+
+이 섹션에서 피드를 구독 취소 하는 방법을 배우게 됩니다. 다른 계정을 사용 하 여 다시 등록 하거나 시스템에서 리소스를 제거 하도록 구독을 취소할 수 있습니다.
+
+1. 클라이언트의 기본 페이지에서 줄임표를 선택 (**...** ) 피드 이름 오른쪽에 있습니다.
+1. 드롭다운 메뉴에서 선택 **Unsubscribe**합니다.
+1. 검토 및 선택 **계속** 대화 상자에서.
 
 ## <a name="update-the-client"></a>클라이언트 업데이트
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521745"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148156"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
@@ -42,16 +42,25 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
     LUIS는 모든 발화를 소문자로 변환하고 하이픈과 같은 토큰 주위에 공백을 추가합니다.
 
-## <a name="intent-prediction-discrepancy-errors"></a>의도 예측 불일치 오류 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-의도의 발화에서 선택한 의도와 예측 점수 간의 의도 예측 불일치가 발생할 수 있습니다. LUIS는 예제 발화 행의 **레이블 지정 의도** 주위에 빨간색 상자를 표시하여 이러한 불일치를 나타냅니다. 
+## <a name="intent-prediction-errors"></a>의도 예측 오류 
 
-![발언 예측 불일치 오류가 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+의도에 예제 utterance 예제 utterance 중인 의도 및 학습 중에 결정 예측 의도 간에 의도 예측 오류가 있을 수 있습니다. 
 
-맨 위 탐색에서 **학습**을 선택합니다. 이제 예측 불일치가 사라졌습니다.
+Utterance 예측 오류에서 검색 하 고 해결 하려면 사용 합니다 **필터** 옵션의 **평가** 잘못 된 및 Unclear의 옵션을 함께 합니다 **보기** 옵션**자세하게**합니다. 
 
-> [!Note]
-> 빨간색 선은 단어나 구를 예제 utterance에서 관리 되는 경우는 [엔터티 예측 오차](luis-how-to-add-example-utterances.md#entity-status-predictions) 발생 했습니다. 수정 해야 합니다. 
+![Utterance 예측 오류에서 검색 하 고 해결 하려면 필터 옵션을 사용 합니다.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+보기 및 필터를 적용 하 고 오류를 사용 하 여 예제 길이 발언이 문제와 대상이 눈에 띄도록 예제 utterance 목록 표시 됩니다.
+
+![! [보기 및 필터를 적용 되 고 오류로 예제 길이 발언을 예제 utterance 목록은 대상이 눈에 띄도록 및 문제입니다.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+각 행에는 현재 교육의 예측 점수를 예제 utterance, 이러한 두 점수에 차이가 있는 가장 가까운 경쟁 대상의 점수를 보여 줍니다. 
+
+### <a name="fixing-intents"></a>의도 수정합니다.
+
+의도 예측 오류를 해결 하는 방법에 알아보려면 사용 합니다 [요약 대시보드](luis-how-to-use-dashboard.md)합니다. 요약 대시보드는 현재 사용 중인 버전의 마지막 교육에 대 한 분석을 제공 하 고 모델을 해결 하려면 상위 제안 제공 합니다.  
 
 ## <a name="add-a-custom-entity"></a>사용자 지정 엔터티 추가
 

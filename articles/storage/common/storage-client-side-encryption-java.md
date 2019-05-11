@@ -2,19 +2,20 @@
 title: Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 | Microsoft Docs
 description: Java용 Azure Storage 클라이언트 라이브러리는 Azure Storage 애플리케이션의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure Key Vault와의 통합을 지원합니다.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992464"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147019"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 및 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -118,7 +119,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 1. 암호를 오프라인으로 만들고 키 자격 증명 모음에 업로드 합니다.  
 2. 비밀의 기본 식별자를 현재 버전의 암호화에 대한 암호를 풀기 위해 매개변수로 사용하고 이 정보를 로컬로 캐시합니다. CachingKeyResolver를 사용합니다. 사용자는 자체 캐싱 논리가 구현되지 않는 것을 예상합니다.  
 3. 암호화 정책을 생성하는 동안 캐싱 확인자를 입력으로 사용합니다.
-   주요 자격 증명 모음 사용법에 대한 자세한 내용은 암호화 코드 샘플에서 찾을 있습니다. <fix URL>  
+   주요 자격 증명 모음 사용법에 대한 자세한 내용은 암호화 코드 샘플에서 찾을 있습니다.
 
 ## <a name="best-practices"></a>모범 사례
 암호화 지원은 Java용 저장소 클라이언트 라이브러리에만 사용할 수 있습니다.
@@ -142,7 +143,7 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
   * 키 확인자는 키를 가져오기 위해 지정된 경우 호출됩니다. 확인자를 지정 하 고 키 식별자에 대한 매핑이 없는 경우, 오류가 전달됩니다.  
   * 확인자는 지정하지 않고 키는 지정한 경우 해당 식별자가 필요한 키 식별자와 일치하는 경우 키가 사용됩니다. 식별자가 일치하지 않으면 오류가 throw됩니다.  
     
-    [암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)<fix URL>은 Key Vault 통합과 함께 BLOB, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여 줍니다.
+    [암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) 은 주요 자격 증명 모음 통합과 함께 BLOB, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여 줍니다.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 모드
 사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **requireEncryption** 플래그가 이 동작을 제어합니다. 애플리케이션이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **requireEncryption** 속성을 설정할 수 있습니다.   

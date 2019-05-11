@@ -1,25 +1,28 @@
 ---
 title: 미사용 데이터에 대 한 azure Storage 암호화 | Microsoft Docs
-description: Azure Storage는 자동으로 암호화 하 여 데이터를 보호 하기 전에 클라우드로 유지 합니다. Azure Storage에 모든 데이터 blob, 디스크, 파일, 큐 또는 테이블의 암호화는 256 비트 AES 암호화를 사용 하 여 투명 하 게 해독 및 FIPS 140-2를 준수 하는 합니다.
+description: Azure Storage는 자동으로 암호화 하 여 데이터를 보호 하기 전에 클라우드로 유지 합니다. Azure Storage에서 모든 데이터 암호화는 256 비트 AES 암호화를 사용 하 여 투명 하 게 해독 및 FIPS 140-2를 준수 하는 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730834"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153081"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대 한 azure Storage 암호화
 
 Azure Storage는 클라우드에 유지 하는 경우 자동으로 데이터를 암호화 합니다. 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정에 맞게 수 있도록 합니다. Azure Storage의 데이터는 암호화 되며 투명 하 게 256 비트를 사용 하 여 해독 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)중 가장 강력한 블록 암호화를 사용할 수 고 FIPS 140-2를 준수 하는 합니다. Azure Storage 암호화는 Windows에서 BitLocker 암호화와 비슷합니다.
 
-Azure Storage 암호화는 모든 신규 및 기존 저장소 계정에 대해 활성화 되 고 비활성화할 수 없습니다. 데이터를 기본적으로 보호 하기 때문에 코드 또는 Azure Storage 암호화를 활용 하는 응용 프로그램을 수정할 필요가 없습니다. 해당 성능 계층 (standard 또는 premium) 또는 (Azure Resource Manager 또는 클래식) 배포 모델에 관계 없이 저장소 계정 암호화 됩니다. 모든 Azure Storage 중복 옵션에는 암호화를 지원 하며 저장소 계정의 모든 복사본이 암호화 됩니다. 모든 Azure Storage 리소스 blob, 디스크, 파일, 큐 및 테이블을 포함 하 여 암호화 됩니다.
+Azure Storage 암호화는 모든 신규 및 기존 저장소 계정에 대해 활성화 되 고 비활성화할 수 없습니다. 데이터를 기본적으로 보호 하기 때문에 코드 또는 Azure Storage 암호화를 활용 하는 응용 프로그램을 수정할 필요가 없습니다. 
+
+해당 성능 계층 (standard 또는 premium) 또는 (Azure Resource Manager 또는 클래식) 배포 모델에 관계 없이 저장소 계정 암호화 됩니다. 모든 Azure Storage 중복 옵션에는 암호화를 지원 하며 저장소 계정의 모든 복사본이 암호화 됩니다. 모든 Azure Storage 리소스 blob, 디스크, 파일, 큐 및 테이블을 포함 하 여 암호화 됩니다. 모든 개체 메타 데이터도 암호화 됩니다.
 
 암호화에는 Azure Storage 성능 영향을 주지 않습니다. Azure Storage 암호화에 대 한 추가 비용은 없습니다.
 

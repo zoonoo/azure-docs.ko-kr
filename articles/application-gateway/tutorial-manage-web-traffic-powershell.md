@@ -4,27 +4,29 @@ description: Azure PowerShell을 사용하여 가상 머신 확장 집합으로 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 3/20/2019
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 83719ce0cddf3d77325b26fa40dd3cb2decaf921
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b1bf91a13d3327873efab475067029ee4ce47639
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294810"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145900"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Azure PowerShell을 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리
 
 애플리케이션 게이트웨이는 사용자가 유지 관리하는 서버로 전송되는 웹 트래픽을 관리하고 보호하는 데 사용 됩니다. Azure PowerShell을 사용하여 백 엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 웹 트래픽을 관리하는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
 > * 애플리케이션 게이트웨이 만들기
 > * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+
+원하는 경우 [Azure CLI](tutorial-manage-web-traffic-cli.md)를 사용하여 이 절차를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -32,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-이 자습서에서 PowerShell을 로컬로 설치하고 사용하려면 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -255,12 +257,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * 네트워크 설정
-> * 애플리케이션 게이트웨이 만들기
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
-
-> [!div class="nextstepaction"]
-> [웹 애플리케이션 방화벽으로 웹 트래픽 제한](./tutorial-restrict-web-traffic-powershell.md)
+[웹 애플리케이션 방화벽으로 웹 트래픽 제한](./tutorial-restrict-web-traffic-powershell.md)

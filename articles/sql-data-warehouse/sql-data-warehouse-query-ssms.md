@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61476556"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SSM(SQL Server Management Studio)를 사용하여 SQL Data Warehouse에 연결
+# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -33,7 +33,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * 기존 SQL 데이터 웨어하우스. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
-* SSMS(SQL Server Management Studio) 설치됨. 아직 없는 경우 무료로 [SSMS를 설치][Install SSMS]합니다.
+* SSMS(SQL Server Management Studio) 설치. 아직 없는 경우 무료로 [SSMS를 설치][Install SSMS]합니다.
 * 정규화된 SQL 서버 이름. 이를 찾으려면 [SQL Data Warehouse에 연결][Connect to SQL Data Warehouse]을 참조하세요.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL Data Warehouse에 연결
@@ -48,7 +48,7 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
    * **서버 이름**. 이전에 식별한 **서버 이름** 을 입력합니다.
    * **인증**. **SQL Server 인증** 또는 **Active Directory 통합 인증**을 선택합니다.
    * **사용자 이름** 및 **암호**. 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
-   * **Connect**를 클릭합니다.
+   * **연결**을 클릭합니다.
 4. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
    
     ![AdventureWorksDW 탐색하기][3]
@@ -60,12 +60,12 @@ SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Data Warehouse에 �
 2. **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
    
     ![새 쿼리][4]
-3. 이 TSQL 쿼리를 쿼리 창에 복사합니다.
+3. 다음 T-SQL 쿼리를 쿼리 창에 복사합니다.
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. 쿼리를 실행합니다. 이렇게 하려면 `Execute`를 클릭하거나 다음 바로 가기(`F5`)를 사용합니다.
+4. 쿼리를 실행합니다. 이렇게 하려면 `Execute`을 클릭하거나 바로 가기(`F5`)를 사용합니다.
    
     ![쿼리 실행][5]
 5. 쿼리 결과를 봅니다. 이 예에서 FactInternetSales 테이블에는 60398 행이 있습니다.

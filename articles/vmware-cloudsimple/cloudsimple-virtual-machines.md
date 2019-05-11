@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 59f5438bbedea2ff7793a5df95f1d3df58b9bba6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 77a2901ae2d81f42780110b1576c1f32c7ff397b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576987"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209499"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>CloudSimple virtual machines 개요
 
@@ -37,4 +37,4 @@ Azure 포털에서 가상 머신을 CloudSimple VMware 가상 머신을 만들�
 ## <a name="next-steps"></a>다음 단계
 
 * 에 대해 알아봅니다 방법 [Azure에서 VMware Vm 사용](quickstart-create-vmware-virtual-machine.md)
-* 에 대해 알아봅니다 방법 [Azure 구독에 매핑](https://docs.azure.cloudsimple.com/azuresubscriptionmapping/)
+* 에 대해 알아봅니다 방법 [Azure 구독에 매핑](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)

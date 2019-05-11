@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530333"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230082"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure Functions를 로컬로 디버그
 
@@ -97,7 +97,7 @@ if($name) {
 
 Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 Visual Studio Code에 대 한 다음 확장 해야 합니다.
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 PowerShell 및 Azure Functions 확장을 설치한 후 기존 함수 앱 프로젝트를 로드 합니다. 할 수도 있습니다 [Functions 프로젝트 만들기](functions-create-first-function-vs-code.md)합니다.
@@ -189,7 +189,7 @@ pwsh            88785 None
 다음 코드 조각을 실행 합니다.
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

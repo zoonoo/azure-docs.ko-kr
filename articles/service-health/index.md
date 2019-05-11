@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506937"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441650"
 ---
 # <a name="azure-service-health-documentation"></a>Azure Service Health 설명서
 
@@ -25,6 +25,11 @@ Azure에서는 서비스에 영향을 주는 이벤트, 계획된 유지 관리 
 **[Azure Resource Health](resource-health-overview.md)** 에서는 특정 가상 머신 인스턴스와 같은 개별 클라우드 리소스 상태에 대한 정보를 제공합니다. Azure Monitor를 사용하여 클라우드 리소스의 가용성 변경을 알리는 경고를 구성할 수도 있습니다. Azure Monitor 알림과 함께 Azure Resource Health를 통해 분 단위로 리소스의 가용성에 대해 계속 알려주고, 문제가 사용자 쪽에 있는지 아니면 Azure 플랫폼 이벤트로 인해 발생했는지를 신속하게 평가하는 데 도움을 줄 수 있습니다.
 
 이러한 환경은 함께 가장 관련 있는 세분성에서 Azure의 상태에 대한 종합적인 보기를 제공합니다.
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>Azure 상태 페이지, Azure Service Health 및 Azure Resource Health의 개요 보기
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>

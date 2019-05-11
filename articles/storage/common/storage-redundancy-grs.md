@@ -2,18 +2,19 @@
 title: Azure Storage에서 지역 간 내구성을 위한 GRS(지역 중복 스토리지) | Microsoft Docs
 description: GRS(지역 중복 저장소)는 매우 멀리 떨어진 두 지역 간에 데이터를 복제합니다. GRS는 데이터센터의 하드웨어 오류뿐 아니라 지역적인 재해로부터 보호합니다.
 services: storage
-author: tolandmike
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09b553f3ca64d8f5217f023c776ec848215366f9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516285"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151003"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(지역 중복 스토리지): Azure Storage의 지역 간 복제
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]

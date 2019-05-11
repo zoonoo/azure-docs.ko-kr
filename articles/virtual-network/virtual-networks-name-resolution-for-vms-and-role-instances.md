@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925245"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411368"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -169,11 +169,11 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 * 외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
 
 > [!NOTE]
-> 최상의 성능을 위해 Azure VM을 DNS 서버로 사용할 경우 IPv6를 사용하지 않도록 설정해야 합니다. [공용 IP](virtual-network-public-ip-address.md)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용할 때의 추가 성능 분석 및 최적화는 [재귀적 Windows DNS Server 2012 R2의 이름 확인 성능](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)을 참조하세요.
+> 최상의 성능을 위해 Azure VM을 DNS 서버로 사용할 경우 IPv6를 사용하지 않도록 설정해야 합니다. [공용 IP](virtual-network-public-ip-address.md)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용할 때의 추가 성능 분석 및 최적화는 [재귀적 Windows DNS Server 2012 R2의 이름 확인 성능](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)을 참조하세요.
 > 
 > 
 
-### <a name="web-apps"></a>웹 앱
+### <a name="web-apps"></a>웹앱
 가상 네트워크 또는 동일한 가상 네트워크의 VM에 연결된 App Service를 사용하여 빌드된 웹앱에서 이름 확인을 수행해야 한다고 가정합니다. Azure(가상 IP 168.63.129.16)로 쿼리를 전달하는 DNS 전달자가 있는 사용자 지정 DNS 서버를 설정하는 것 외에 다음 단계를 수행합니다.
 1. [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 설명한 대로 웹앱에 대해 가상 네트워크 통합을 사용하도록 설정합니다(아직 수행하지 않은 경우).
 2. Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹**의 **가상 네트워크 통합**에서 **네트워크 동기화**를 선택합니다.

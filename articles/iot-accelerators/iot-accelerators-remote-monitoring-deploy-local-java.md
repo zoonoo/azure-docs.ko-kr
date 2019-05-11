@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450817"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412709"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - IntelliJ
 
@@ -100,9 +100,9 @@ ms.locfileid: "61450817"
     * WebService(services\iothub-manager)
     * WebService(services\storage-adapter)
 
-예를 들어 다음 이미지에서는 서비스에 대한 구성 추가를 보여줍니다.
+예를 들어 다음 이미지는 서비스에 대 한 구성을 추가 합니다.
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>복합 구성 만들기
@@ -111,14 +111,11 @@ ms.locfileid: "61450817"
 1. **이름** 입력 및 **sbt 작업 추가**
 1. **적용 > 확인**을 클릭하여 선택한 내용을 저장합니다.
 
-예를 들어 다음 이미지에서는 단일 구성에 대한 모든 sbt 작업 추가를 보여줍니다.
+예를 들어 다음 이미지는 단일 구성으로 모든 sbt 작업 추가 보여 줍니다.
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. **실행**을 클릭하여 로컬 머신에서 웹 서비스를 빌드하고 실행합니다.
+**실행**을 클릭하여 로컬 머신에서 웹 서비스를 빌드하고 실행합니다.
 
 각 웹 서비스는 명령 프롬프트 및 웹 브라우저 창을 엽니다. 실행 중인 서비스의 출력이 명령 프롬프트에 표시되고, 브라우저 창을 통해 상태를 모니터링할 수 있습니다. 명령 프롬프트 또는 웹 페이지를 닫지 마세요. 닫으면 웹 서비스가 중지됩니다.
 
@@ -135,7 +132,7 @@ ms.locfileid: "61450817"
 다음 단계에 따라 Stream Analytics 작업을 시작합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트**를 실행할 때 선택한 솔루션의 이름입니다.
+1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
 1. 리소스 목록에서 **Stream Analytics 작업**을 클릭합니다.
 1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작**을 클릭하여 지금 작업을 시작합니다.
 

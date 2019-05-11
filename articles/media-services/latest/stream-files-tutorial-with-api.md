@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 53f69b6b8eb6cbbb8082ea0777af9dbceb7bdba1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699700"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149155"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>자습서: .NET을 사용하여 비디오 업로드, 인코딩 및 스트리밍
 
@@ -198,7 +198,7 @@ az group delete --name amsResourceGroup
 
 Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다중 스레드 애플리케이션으로 개발하는 경우, 스레드마다 새로운 AzureMediaServicesClient 개체를 생성하고 사용해야 합니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 

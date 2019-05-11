@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485649"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190323"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>메인프레임 계산을 Azure로 이동
 
@@ -47,7 +47,7 @@ IBM 메인프레임 최대 240 개 코어 (단일 시스템에 대 한 현재 z1
 
 CF는 계산 클러스터를 직접 액세스를 사용 하 여 데이터를 공유할 수 있습니다. 잠금 정보를 캐시 정보 및 공유 데이터 리소스 목록에 사용 됩니다. 하나 이상의 CFs를 사용 하 여 병렬 Sysplex는 생각할 수 있습니다는 "공유" 모든 항목으로 스케일 아웃 계산 클러스터. 이러한 기능에 대 한 자세한 내용은 참조 하세요. [IBM Z에 병렬 Sysplex](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) IBM 웹 사이트입니다.
 
-응용 프로그램 스케일 아웃 성능과 고가용성을 제공 하 이러한 기능을 사용할 수 있습니다. CICS 병렬 Sysplex을 사용 하 여 CF를 사용 하 여는 방법에 대 한 내용은 다운로드는 [IBM CICS 및 결합 기능: 향상 된 기능](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) 레드북 합니다.
+응용 프로그램 스케일 아웃 성능과 고가용성을 제공 하 이러한 기능을 사용할 수 있습니다. CICS 병렬 Sysplex을 사용 하 여 CF를 사용 하 여는 방법에 대 한 내용은 다운로드는 [IBM CICS 및 결합 기능: 향상 된 기능](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) 레드북 합니다.
 
 ## <a name="azure-compute-at-a-glance"></a>한 눈에 azure 계산
 
@@ -121,10 +121,10 @@ Azure 아키텍처에서 처리의 각 계층을 최적화할 수 있습니다. 
 ### <a name="ibm-resources"></a>IBM 리소스
 
 - [IBM Z에 병렬 Sysplex](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS 및 결합 기능: 향상 된 기능](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS 및 결합 기능: 향상 된 기능](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Db2 pureScale 기능 설치에 대한 필수 사용자 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - 인스턴스 명령 만들기](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale 클러스터형 데이터베이스 솔루션](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale 클러스터형 데이터베이스 솔루션](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

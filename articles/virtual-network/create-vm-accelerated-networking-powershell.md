@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192908"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190287"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 Windows 가상 머신 만들기
 
@@ -230,7 +230,7 @@ Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설
 먼저 VM을 중지/할당 취소하거나, 가용성 집합인 경우 집합에 포함된 모든 VM을 중지/할당 취소합니다.
 
 ```azurepowershell
-Stop-AzVM -ResourceGroup "myResourceGroup" `
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -239,18 +239,18 @@ Stop-AzVM -ResourceGroup "myResourceGroup" `
 VM이 중지되면 해당 VM의 NIC에서 가속 네트워킹을 사용하도록 설정합니다.
 
 ```azurepowershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzNetworkInterface
+$nic | Set-AzureRMNetworkInterface
 ```
 
 집합의 모든 Vm은 가용성 집합에 VM 또는 다시 시작 하 고 가속화 된 네트워킹을 사용할 수 있는지 확인 합니다.
 
 ```azurepowershell
-Start-AzVM -ResourceGroup "myResourceGroup" `
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

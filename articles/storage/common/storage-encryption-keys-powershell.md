@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 01d5226a2d6f4c4e2e376803a3f0a25d2d5b0fd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61593564"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233687"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>PowerShell에서 Azure Storage 암호화에 대 한 고객 관리 키를 구성 합니다.
 
@@ -74,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 기본적으로 Azure Storage 암호화는 Microsoft 관리 키를 사용합니다. 이 단계에서는 고객 관리 키를 사용 하 여 저장소 계정에 연결 하는 키를 지정 하 여 Azure Storage 계정을 구성 합니다.
 
-호출 [집합 AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) 저장소 계정의 암호화 설정을 업데이트 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿉니다 하 고 이전 예제에서 정의 된 변수를 사용 해야 합니다.
+호출 [집합 AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 저장소 계정의 암호화 설정을 업데이트 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿉니다 하 고 이전 예제에서 정의 된 변수를 사용 해야 합니다.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -87,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>키 버전 업데이트
 
-키의 새 버전을 만들면 새 버전을 사용 하 여 저장소 계정을 업데이트 해야 합니다. 먼저 호출 [Get AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) 키의 최신 버전을 가져올 수 있습니다. 그런 다음 호출 [집합 AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) 이전 섹션에 표시 된 대로 키의 새 버전을 사용 하도록 저장소 계정의 암호화 설정을 업데이트 합니다.
+키의 새 버전을 만들면 새 버전을 사용 하 여 저장소 계정을 업데이트 해야 합니다. 먼저 호출 [Get AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) 키의 최신 버전을 가져올 수 있습니다. 그런 다음 호출 [집합 AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) 이전 섹션에 표시 된 대로 키의 새 버전을 사용 하도록 저장소 계정의 암호화 설정을 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

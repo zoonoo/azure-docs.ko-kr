@@ -5,13 +5,13 @@
   expanded: false
   items:
     - name: 고급 위협 검색
-      displayName: 'vulnerability, virus, ids, incident'
+      displayName: 'vulnerability, virus, IDs, incident'
       href: azure-threat-detection.md
     - name: Azure 로깅 및 감사
       displayName: incident
       href: azure-log-audit.md
     - name: Azure 네트워크 보안
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
       href: abstract-azure-network-security.md
     - name: Azure 서버를 사용하지 않는 플랫폼 보안
       href: abstract-serverless-platform-security.md
@@ -50,7 +50,7 @@
         - name: IaaS VM용 디스크 암호화
           items:
             - name: Azure Disk Encryption 정보
-              displayName: 'bitlocker, bek'
+              displayName: 'Bitlocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: 빠른 시작
               items:
@@ -67,27 +67,29 @@
                 - name: VMSS 확장 시퀀싱을 사용하여 디스크 암호화
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: 디스크 암호화에 대한 부록
-              href: azure-security-disk-encryption-appendix.md
-            - name: 디스크 암호화 FAQ
-              href: azure-security-disk-encryption-faq.md
-            - name: 문제 해결
-              href: azure-security-disk-encryption-tsg.md
-            - name: Azure AD 앱(이전 릴리스)을 포함한 Azure Disk Encryption
-              displayName: active directory
-              items:
-                - name: Azure AD 앱 필수 구성 요소를 포함한 디스크 암호화
+                  href: azure-security-disk-encryption-appendix.md
+                - name: 디스크 암호화 FAQ
+                  href: azure-security-disk-encryption-faq.md
+                - name: 문제 해결
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Azure AD 앱(이전 릴리스)을 포함한 Azure Disk Encryption
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: Windows VM용 Azure AD 앱을 포함한 디스크 암호화
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: Linux VM용 Azure AD 앱을 포함한 디스크 암호화
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: Azure AD 앱 필수 구성 요소를 포함한 디스크 암호화
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: Windows VM용 Azure AD 앱을 포함한 디스크 암호화
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: Linux VM용 Azure AD 앱을 포함한 디스크 암호화
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Azure Storage 보안
       href: security-storage-overview.md
     - name: 저장소 보안 지침
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: 고객 Lockbox
+      href: azure-customer-lockbox-overview.md
 - name: 플랫폼 및 인프라
   items:
     - name: 인프라 보안
@@ -141,7 +143,7 @@
           displayName: identity
           href: azure-security-global-admin.md
     - name: 네트워크 보안
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
       href: security-network-overview.md
       items:
         - name: 모범 사례
@@ -270,6 +272,11 @@
           href: ./blueprints/pcidss-iaaswa-overview.md
         - name: PaaS 웹 애플리케이션
           href: ./blueprints/pcidss-paaswa-overview.md
+    - name: SCCA
+      displayName: 'blueprint, privacy, certifications'
+      items:
+        - name: Azure 컴퓨팅 아키텍처 보안
+          href: ./compliance/secure-azure-computing-architecture.md
     - name: TIC
       displayName: 'blueprint, privacy, certifications'
       items:
@@ -327,20 +334,20 @@
         - name: 릴리스
           href: azure-security-threat-modeling-tool-releases.md
           items:
-            - name: 위협 모델링 도구 GA 릴리스 7.1.5091.2 - 2018/9/12
+            - name: Threat Modeling Tool GA 릴리스 7.1.5091.2 - 2018년 9월 12일
               href: azure-security-threat-modeling-tool-releases-71509112.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.51023.1 - 2018/11/1
+            - name: Threat Modeling Tool 업데이트 릴리스 7.1.51023.1 - 2018년 11월 1일
               href: azure-security-threat-modeling-tool-releases-71510231.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019/1/29
+            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019년 1월 29일
               href: azure-security-threat-modeling-tool-releases-71601261.md
-            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60408.1 - 2019/4/09
+            - name: Threat Modeling Tool 업데이트 릴리스 7.1.60408.1 - 2019년 4월 9일
               href: azure-security-threat-modeling-tool-releases-71604081.md
         - name: 해결 방법
           href: azure-security-threat-modeling-tool-mitigations.md
           items:
             - name: 감사 및 로깅
               href: azure-security-threat-modeling-tool-auditing-and-logging.md
-            - name: Authentication
+            - name: 인증
               href: azure-security-threat-modeling-tool-authentication.md
             - name: 권한 부여
               href: azure-security-threat-modeling-tool-authorization.md

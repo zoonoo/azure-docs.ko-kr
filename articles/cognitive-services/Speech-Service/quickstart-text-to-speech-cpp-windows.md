@@ -10,18 +10,20 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: d818f8a8fc813d3da5eea4d8ef9cd2f4fd18bb53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7e9aebd3a49182f84e05473da9ed166499f34a28
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688515"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465703"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows에서 C++로 음성 합성
 
+빠른 시작은 [음성 인식](quickstart-cpp-windows.md) 및 [음성 번역](quickstart-translate-speech-cpp-windows.md)에도 사용할 수 있습니다.
+
 이 문서에서는 Windows용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 텍스트를 음성으로 합성하여 PC 스피커에서 재생합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
 
-이 문서에 설명된 기능은 [Speech SDK 1.4.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.4.0)에서 사용할 수 있습니다.
+이 문서에 설명된 기능은 [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0)에서 사용할 수 있습니다.
 
 음성 합성에 사용할 수 있는 전체 언어/음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
 

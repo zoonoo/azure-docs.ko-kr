@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487545"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233514"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
 
@@ -37,11 +37,11 @@ Azure SQL Database Managed Instance는 두 가지 하드웨어 세대(Gen4 및 G
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 NVMe SSD, vCore = 1LP(하이퍼스레드) |
-| 컴퓨팅 | 8, 16, 24개 vCore | 8, 16, 24, 32, 40, 64, 80개 vCore |
+| vCore 수 | 8, 16, 24개 vCore | 8, 16, 24, 32, 40, 64, 80개 vCore |
 | 메모리 | vCore당 7GB | vCore당 5.1GB |
-| 메모리 내 OLTP 메모리 | vCore당 3GB | vCore당 2.6GB |
-| 최대 스토리지 크기(범용) |  8 TB | 8 TB |
-| 최대 저장소 크기(중요 비즈니스용) | 1TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
+| 최대 메모리 내 OLTP 메모리 | vCore당 3GB | vCore당 2.6GB |
+| 최대 인스턴스 저장소 (범용) |  8 TB | 8 TB |
+| 최대 인스턴스 저장소 (비즈니스 위험) | 1TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성
 
@@ -50,12 +50,12 @@ Managed Instance에는 범용 및 중요 비즈니스용의 두 가지 서비스
 | **기능** | **범용** | **중요 비즈니스** |
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| 메모리 | Gen4: 56GB~168GB<br/>Gen5: 40.8GB~408GB<br/>\*vCore 수에 정비례 | Gen4: 56GB~168GB <br/> Gen5: 40.8GB~408GB<br/>\*vCore 수에 정비례 |
-| 최대 저장소 크기 | 8 TB | Gen4: 1TB <br/> Gen5: <br/>- 1TB(8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
+| 메모리 | Gen4: 56GB-168GB (7GB/vCore)<br/>Gen5: 40.8 GB-408 GB (5.1 GB/vCore) | Gen4: 56GB-168GB (7GB/vCore)<br/>Gen5: 40.8 GB-408 GB (5.1 GB/vCore) |
+| 최대 인스턴스 저장소 크기 | 8 TB | Gen4: 1TB <br/> Gen5: <br/>- 1TB(8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
 | 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
-| 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11K~110K(vCore당 1,375) |
+| 데이터/로그 IOPS(근사치) | 파일당 500~7,500<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K (1375/vCore) |
 | 로그 처리량 | 인스턴스당 22MB/초 | vCore당 3MB/초<br/>인스턴스당 최대 48 MB/s|
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | vCore당 24~48MB/초 |
 | IO 대기 시간(근사치) | 5~10ms | 1~2ms |

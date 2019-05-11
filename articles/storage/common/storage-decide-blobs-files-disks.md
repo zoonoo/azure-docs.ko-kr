@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f66a2699b6d29f10633b4853801240f0590ff918
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483420"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147637"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장 및 액세스하기 위한 여러 가지 기능을 제공합니다. 이 문서에서는 Azure 파일, Blob 및 디스크에 대해 설명하고 이러한 기능 중에서 선택하는 데 도움이 되도록 작성되었습니다.
@@ -56,7 +56,7 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 |범위|단일 가상 머신에 배타적으로 적용|여러 가상 머신 간에 공유 액세스|  
 |스냅숏 및 복사|예|예|  
 |구성|가상 컴퓨터 시작 시 연결됨|가상 컴퓨터가 시작된 후 연결됨|  
-|Authentication|기본 제공|net use로 설정|  
+|인증|기본 제공|net use로 설정|  
 |REST를 사용하여 액세스|VHD 내의 파일에 액세스할 수 없음|공유에 저장된 파일에 액세스할 수 있음|  
 |최대 크기|4TiB 디스크|공유 내 5TiB 파일 공유 및 1TiB 파일|  
 |최대 IOps|500IOps|1000IOps|  

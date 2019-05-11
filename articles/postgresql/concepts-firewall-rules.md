@@ -1,20 +1,20 @@
 ---
-title: PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙
-description: 이 문서에서는 Azure Database for PostgreSQL 서버의 방화벽 규칙에 대해 설명합니다.
+title: Azure Database for PostgreSQL-단일 서버에서에서 방화벽 규칙
+description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에 대 한 방화벽 규칙을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 793a68ee829d87a8433d5bdd77fe7b43e2f3af19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560250"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073579"
 ---
-# <a name="azure-database-for-postgresql-server-firewall-rules"></a>PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙
-Azure Database for PostgreSQL 서버 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서에서 방화벽 규칙
+Azure Database for PostgreSQL 서버 방화벽 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대 한 모든 액세스를 방지 합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
 방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 수준의 방화벽 규칙을 만들 수 있습니다.
 
 **방화벽 규칙:** 이 규칙은 모든 Azure Database for PostgreSQL 서버, 즉, 동일한 논리 서버 내의 모든 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. Azure Portal 또는 Azure CLI 명령을 사용하여 서버 수준 방화벽 규칙을 구성할 수 있습니다. 서버 수준 방화벽 규칙을 만들려면 구독 소유자 또는 구독 참가자여야 합니다.

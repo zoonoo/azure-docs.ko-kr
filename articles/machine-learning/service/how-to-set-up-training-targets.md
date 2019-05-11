@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819338"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236957"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정
 
@@ -38,7 +38,7 @@ Azure Machine Learning SDK, Azure Portal 또는 Azure CLI를 사용하여 컴퓨
 Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양한 지원이 있습니다. 일반적인 모델 개발 수명 주기는 작은 양의 데이터에 대한 개발/실험으로 시작합니다. 이 단계에서는 로컬 환경을 사용하는 것이 좋습니다. 예를 들어 로컬 컴퓨터 또는 클라우드 기반 VM입니다. 더 큰 데이터 세트를 기반으로 학습을 확장하거나 분산 학습을 수행할 경우 Azure Machine Learning 컴퓨팅을 사용하여 실행을 제출할 때마다 자동 크기 조정되는 단일 또는 다중 노드 클러스터를 만드는 것이 좋습니다. 다음 설명대로 다양한 시나리오 지원이 달라질 수는 있지만 고유한 컴퓨팅 리소스를 연결할 수도 있습니다.
 
 
-|학습용 컴퓨팅 대상| GPU 가속 | 자동<br/> 하이퍼 매개 변수 튜닝 | 자동</br> Machine Learning | Azure Machine Learning 파이프라인 |
+|학습용 컴퓨팅 대상| GPU 가속 | 자동화됨<br/> 하이퍼 매개 변수 튜닝 | 자동화됨</br> Machine Learning | Azure Machine Learning 파이프라인 |
 |----|:----:|:----:|:----:|:----:|
 |[로컬 컴퓨터](#local)| 가능할 수도 있음 | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning 컴퓨팅](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -430,6 +430,7 @@ Azure Machine Learning Service용 [CLI 확장](reference-azure-machine-learning-
 ## <a name="next-steps"></a>다음 단계
 
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)은 모델 학습에 관리되는 컴퓨팅 대상을 사용합니다.
+* 에 대해 알아봅니다 하는 방법 [하이퍼 매개 변수를 효율적으로 조정](how-to-tune-hyperparameters.md) 더 나은 모델을 작성 합니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
 * [RunConfiguration 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 참조를 확인합니다.
 * [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)

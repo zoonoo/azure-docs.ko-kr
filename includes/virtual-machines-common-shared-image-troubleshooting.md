@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418656"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149648"
 ---
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. CLI로 **-debug** 스위치를 전달하고 PowerShell로 **-Debug** 스위치를 전달하여 디버그 모드가 활성화됩니다. 오류를 찾은 후에는 이 문서의 지침에 따라 오류를 해결합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "60418656"
 
 *갤러리 이름을 올바르지 않습니다.*
 
-갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에 대시를 사용할 수 없습니다. 갤러리 이름을 변경하고 다시 시도하세요. 
+갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름 대시를 포함할 수 없습니다. 갤러리 이름을 변경하고 다시 시도하세요. 
 
 *갤러리 이름이 구독 내에서 고유하지 않습니다.*
 
@@ -37,7 +37,7 @@ ms.locfileid: "60418656"
 
 *이미지 정의 이름이 올바르지 않습니다.*
 
-이미지 정의에 허용되는 문자는 대문자 또는 소문자, 숫자, 점, 대시 및 마침표입니다. 이미지 정의 이름을 변경하고 다시 시도하세요.
+이미지 정의 대 한 허용 되는 문자는 대문자 또는 소문자, 숫자, 점, 대시 및 마침표 됩니다. 이미지 정의 이름을 변경하고 다시 시도하세요.
 
 *이미지 정의를 만들기 위한 필수 속성이 채워지지 않았습니다.*
 
@@ -62,20 +62,7 @@ ms.locfileid: "60418656"
 
 원본 관리 이미지의 프로비전 상태가 **성공함**인지 확인하세요.
 
-*아직 원본 지역이 지원되지 않습니다.*
-
-아래 표를 사용하여 의도한 원본 지역이 지원되는지 확인하세요.
-<br>
-
-| 갤러리를 만들거나 "원본 지역"   | 버전 또는 "대상 하위 지역" 복제 |
-|----------------------------------------|-------------------------------------------|
-| 미국 중서부                        | 모든 Azure 공용 클라우드 지역            |
-| 미국 중남부                       |                                           |
-| 미국 동부 2                              |                                           |
-| 동남아시아                         |                                           |
-| 서유럽                            |                                           |
-
-<br>
+*대상 지역 목록에는 원본 지역을 포함 되지 않습니다.*
 
 대상 지역 목록은 이미지 버전의 원본 지역을 포함해야 합니다. Azure가 이미지 버전을 복제할 대상 지역 목록에 원존 지역이 포함되었는지 확인하세요.
 
@@ -101,7 +88,7 @@ VM 또는 가상 머신 확장 집합을 만들려는 이미지 버전의 **OSTy
 
 ## <a name="unable-to-share-resources"></a>리소스를 공유할 수 없음
 
-[RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)를 사용하여 구독 간에 공유 이미지 갤러리, 이미지 정의 및 이미지 버전 리소스를 공유하도록 설정되었습니다. 
+사용 하 여 활성화가 구독에서 공유 이미지 갤러리, 이미지 정 및 이미지 버전 리소스 공유 [역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>복제 속도가 느림
 

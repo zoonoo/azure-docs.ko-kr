@@ -2,18 +2,19 @@
 title: V10 AzCopy를 사용 하 여 Azure Storage에 데이터를 이동 또는 복사 | Microsoft Docs
 description: 이동 하거나 blob에서 data lake 및 파일 콘텐츠에서 데이터를 복사 하려면 AzCopy 명령줄 유틸리티를 사용 합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-author: seguler
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723173"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149030"
 ---
 # <a name="transfer-data-with-azcopy-v10"></a>AzCopy v10을 사용하여 데이터 전송
 

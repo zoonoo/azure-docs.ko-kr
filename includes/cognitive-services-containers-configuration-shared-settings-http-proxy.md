@@ -3,20 +3,24 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2019
-ms.openlocfilehash: 2d3d7b37721ca1b19f5d73133352cabdbffe6d68
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 05/07/2019
+ms.openlocfilehash: fe1b4699a300831294c26b103d322fb83ad87d3b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886853"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151090"
 ---
 아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성해야 하는 경우 다음 두 인수를 사용합니다.
 
 | Name | 데이터 형식 | 설명 |
 |--|--|--|
-|HTTP_PROXY|문자열|사용할 프록시. 예: `http://proxy:8888`|
-|HTTP_PROXY_CREDS|문자열|프록시를 인증하는 데 필요한 자격 증명. 예: username:password|
+|HTTP_PROXY|string|사용할 프록시(예: `http://proxy:8888`)<br><proxy-url>|
+|HTTP_PROXY_CREDS|string|프록시를 인증하는 데 필요한 자격 증명(예: username:password).|
+|`<proxy-user>`|string|프록시 사용자입니다.|
+|`proxy-password`|string|프록시에 대해 `<proxy-user>`에 연결된 암호입니다.|
+||||
+
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -26,6 +30,6 @@ docker run --rm -it -p 5000:5000 \
 Eula=accept \
 Billing=<billing-endpoint> \
 ApiKey=<api-key> \
-HTTP_PROXY=http://190.169.1.6:3128 \
-HTTP_PROXY_CREDS=jerry:123456 \
+HTTP_PROXY=<proxy-url> \
+HTTP_PROXY_CREDS=<proxy-user>:<proxy-password> \
 ```

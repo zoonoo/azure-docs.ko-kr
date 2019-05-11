@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886640"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510335"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 장치 연결
 
@@ -98,17 +98,17 @@ IoT Central 응용 프로그램에서 몇 분 후 장치에서 원격 분석 데
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| Display name | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | 초기 |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>properties
 
-| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| Type            | Display name | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
-| 디바이스 속성 | 다이 번호   | dieNumber  | number    |
+| 디바이스 속성 | 다이 번호   | dieNumber  | 번호    |
 | Text            | Location     | location   | N/A       |
 
 ## <a name="next-steps"></a>다음 단계
 
-제안 된 다음 단계에 알아보려면는 이제 Azure IoT Central 응용 프로그램을 Raspberry Pi를 연결 하는 방법을 배웠으므로 하는 방법 [템플릿으로 사용자 지정 장치 설정](howto-set-up-template.md) 사용자 고유의 IoT 장치에 대 한 합니다.
+제안 된 다음 단계에 알아보려면는 이제 Windows IoT Core 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 배웠으므로 하는 방법 [템플릿으로 사용자 지정 장치 설정](howto-set-up-template.md) 사용자 고유의 IoT 장치에 대 한 합니다.

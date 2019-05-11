@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 21374e20a2ba2c9134ed12e4b1072ff5c320c75e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024403"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149774"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search의 API 버전
 Azure Search는 정기적으로 기능 업데이트를 공개합니다. 항상 그렇지는 않지만 경우에 따라 이러한 업데이트에는 이전 버전과 호환성을 유지하기 위해 API의 새 버전이 필요하기도 합니다. 새 버전을 게시하면 코드에서 검색 서비스 업데이트를 통합 하는 시기와 방법을 제어할 수 있습니다.
@@ -32,8 +32,8 @@ SDK 업데이트와 동일한 규칙이 적용됩니다. Azure Search SDK는 버
 
 | 인터페이스 | 가장 최근의 주 버전 | 상태 |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |9.0 |일반적으로 사용 가능, 2019 년 5 월 릴리스. 콘텐츠는 준비 중입니다.  |
-| [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |8.0.0-preview |미리 보기, 2019 년 4 월을 릴리스 합니다. 콘텐츠는 준비 중입니다.|
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |일반 공급, 2019 년 5 월 릴리스됨 |
+| [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |8.0.0-preview |미리 보기, 2019 년 4 월 릴리스 |
 | [서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |일반 공급 |
 | [서비스 REST API 2019-05-06-미리 보기](search-api-preview.md) |2019-05-06-미리 보기 |미리 보기 |
 | [.NET 관리 SDK](https://aka.ms/search-mgmt-sdk) |3.0 |일반 공급 |
@@ -57,6 +57,6 @@ Azure Search는 항상 REST API를 통해 실험 기능을 미리 공개한 다�
 
 이러한 이유로 미리 보기 버전에 종속된 프로덕션 코드를 작성하지 않는 것이 좋습니다. 이전 미리 보기 버전을 사용하는 경우 일반 공급(GA) 버전으로 마이그레이션하는 것이 좋습니다.
 
-.NET SDK: 코드 마이그레이션 지침은 [.NET SDK 업그레이드](search-dotnet-sdk-migration.md)에서 확인할 수 있습니다.
+.NET SDK: 코드 마이그레이션 지침은 [.NET SDK 업그레이드](search-dotnet-sdk-migration-version-9.md)에서 확인할 수 있습니다.
 
 일반 공급은 Azure Search가 현재 SLA(서비스 수준 계약) 하에 있다는 의미입니다. SLA는 [Azure Search 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에서 찾을 수 있습니다.

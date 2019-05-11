@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086f5773a8ae4085a8e5bc0637bdebe5f2df4fb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838997"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203342"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -37,7 +37,7 @@ App Service는 Platform-as-a-Service입니다. 이것은 OS 및 애플리케이�
 
 Azure는 App Service 리소스를 실행하는 2개의 수준, 즉 물리적 서버와 게스트 VM(가상 컴퓨터)의 OS 패치를 관리합니다. 둘 다 매월 업데이트되며, 월별 [화요일 패치](https://technet.microsoft.com/security/bulletins.aspx) 일정에 맞춰집니다. 이러한 업데이트는 Azure SLA의 고가용성을 보장하는 방식으로 자동으로 적용됩니다. 
 
-업데이트가 적용되는 방식에 대한 자세한 내용은 [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/)(App Service OS 업데이트의 마법 분석)를 참조하세요.
+업데이트가 적용되는 방식에 대한 자세한 내용은 [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html)(App Service OS 업데이트의 마법 분석)를 참조하세요.
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Azure에서 중요한 취약점을 처리하는 방법
 
