@@ -23,7 +23,7 @@ Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 
 
 ## <a name="why-upgrade"></a>업그레이드가 필요한 이유
 
-이제 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 Azure Portal에서 SQL Data Warehouse 컴퓨팅 최적화 Gen2 계층으로 원활하게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 비롯한 향상된 스토리지 아키텍처의 최신 세대를 활용하세요. 
+이제 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 Azure Portal에서 SQL Data Warehouse 컴퓨팅 최적화 Gen2 계층으로 원활하게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 포함하는 향상된 스토리지 아키텍처의 최신 세대를 활용하세요. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
@@ -36,7 +36,7 @@ Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 
 1. 사용자의 [지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에서 GEN1-GEN2 마이그레이션이 지원되는지 확인합니다. 자동 마이그레이션 날짜를 기록해 둡니다. 자동 프로세스 충돌을 방지하려면 자동 프로세스 시작 날짜 전에 수동 마이그레이션을 진행하도록 계획합니다.
 2. 아직 지원되지 않는 지역에 있는 경우, 지역이 추가되는지 여부를 계속 확인하거나 [복원을 사용하여 지원되는 지역으로 업그레이드](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal)합니다.
 3. 사용자의 지역이 지원되는 경우, [Azure Portal을 통해 업그레이드](#upgrade-in-a-supported-region-using-the-azure-portal)합니다.
-4. 데이터 웨어하우스에 대한 **제안된 성능 수준** 선택은 아래에 있는 매핑을 사용하여 계산에 최적화된 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
+4. 데이터 웨어하우스에 대한 **제안된 성능 수준 선택**은 아래에 있는 매핑을 사용하여 계산에 최적화된 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
 
    | 컴퓨팅 최적화 Gen1 계층 | 컴퓨팅 최적화 Gen2 계층 |
    | :-------------------------: | :-------------------------: |
@@ -63,7 +63,7 @@ Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Azure portal 통해 Gen1에서 Gen2로 마이그레이션은 영구적입니다. Gen1으로 되돌리기 위한 프로세스가 아닙니다.  
+> Azure portal 통해 Gen1에서 Gen2로의 마이그레이션은 영구적입니다. Gen1으로 되돌리기 위한 프로세스는 없습니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -76,7 +76,7 @@ Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 
 
 2. 몇 분 정도의 가동 중지 시간에 대비합니다. 
 
-3. 컴퓨팅 최적화 Gen1 성능 수준에 대한 코드 참조를 식별하고, 동등한 컴퓨팅 최적화 Gen2 성능 수준으로 수정합니다. 아래에는 업그레이드 전에 코드 참조를 업데이트해야 는 두 가지 예제입니다.
+3. 컴퓨팅 최적화 Gen1 성능 수준에 대한 코드 참조를 식별하고, 동등한 컴퓨팅 최적화 Gen2 성능 수준으로 수정합니다. 아래는 업그레이드 전에 코드 참조를 업데이트해야 하는 두 가지 예제입니다.
 
    원래 Gen1 PowerShell 명령:
 
