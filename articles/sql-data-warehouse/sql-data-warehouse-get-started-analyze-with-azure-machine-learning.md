@@ -46,7 +46,7 @@ ms.locfileid: "61439976"
 3. 실험의 이름을 Targeted Marketing으로 입력합니다.
 4. **Data Input and Output** 아래의 **Import Data** 모듈을 모듈 창에서 캔버스로 끌기합니다.
 5. 속성 창에서 SQL Data Warehouse 데이터베이스에 대한 세부 정보를 지정합니다.
-6. 관련 데이터를 읽을 **Database query**를 지정합니다.
+6. 관련 데이터를 읽을 데이터베이스 **쿼리** 를 지정합니다.
 
 ```sql
 SELECT [CustomerKey]
@@ -78,7 +78,7 @@ FROM [dbo].[vTargetMail]
 데이터를 정리하려면 모델에 관련되지 않은 일부 열을 삭제합니다. 다음을 수행합니다.
 
 1. **Data Transformation < Manipulation** 아래의 **Select Columns in Dataset** 모듈을 캔버스로 끌기합니다. 이 모듈을 **Import Data** 모듈로 연결합니다.
-2. 속성 창에서 **Launch column selector** 을 클릭하여 삭제하려는 열을 지정합니다.
+2. 속성 창에서 **Launch column selector**을 클릭하여 삭제하려는 열을 지정합니다.
    ![프로젝트 열][4]
 3. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다.
    ![불필요한 열 제거][5]
@@ -90,9 +90,9 @@ FROM [dbo].[vTargetMail]
 2. 속성 창에서 첫 번째 출력 데이터 집합의 행 분수에 대해 0.8을 입력 합니다.
    ![훈련 및 테스트 집합으로 데이터 분할][6]
 3. **Two-Class Boosted Decision Tree** 모듈을 캔버스로 끌어서 놓습니다.
-4. **Train Model** 모듈을 캔버스로 끌기하여 입력을 **Two-Class Boosted Decision Tree** (ML 알고리즘) 및 **Split Data** (알고리즘을 학습할 데이터) 모듈로 연결합니다. 
+4. **Train Model** 모듈을 캔버스로 끌기하여 입력을 **Two-Class Boosted Decision Tree**(ML 알고리즘) 및 **Split Data**(알고리즘을 학습할 데이터) 모듈로 연결합니다. 
      ![모델 학습 모듈 연결][7]
-5. 그런 다음 속성 창에서 **Launch column selector** 을 클릭합니다. **BikeBuyer** 열을 예측할 열로 선택합니다.
+5. 그런 다음 속성 창에서 **Launch column selector**를 클릭합니다. **BikeBuyer** 열을 예측할 열로 선택합니다.
    ![예측할 열 선택][8]
 
 ## <a name="4-score-the-model"></a>4. 모델 점수 매기기
@@ -100,10 +100,10 @@ FROM [dbo].[vTargetMail]
 
 1. **Score Model** 모듈을 캔버스로 끌기하여 **Train Model**과 **Split Data** 모듈로 연결합니다.
    ![모델 점수 매기기][9]
-2. **Two-Class Bayes Point Machine** 를 실험 캔버스로 끌어서 놓습니다. Two-Class Boosted Decision Tree와 비교하여 이 알고리즘이 수행하는 방법을 비교합니다.
-3. 캔버스에서 Train Model 및 Score Model 모듈을 복사하고 붙여 넣습니다.
+2. **Two-Class Bayes Point Machine**을 실험 캔버스로 끌어서 놓습니다. Two-Class Boosted Decision Tree와 비교하여 이 알고리즘이 수행하는 방법을 비교합니다.
+3. 캔버스에서 Train Model 및 Score Model 모듈을 복사하고 붙여넣습니다.
 4. **Evaluate Model** 모듈을 캔버스로 끌어서 놓아 두 알고리즘을 비교합니다.
-5. **Run**을 클릭하여 실험을 실행 합니다.
+5. **Run**을 클릭하여 실험을 실행합니다.
    ![실험 실행][10]
 6. 모델 평가 모듈의 아래쪽에서 출력 포트를 클릭하고 Visualize를 클릭합니다.
    ![평가 결과 시각화][11]
@@ -114,7 +114,7 @@ FROM [dbo].[vTargetMail]
 테스트 데이터 세트에 두 개의 열이 추가됩니다.
 
 * Scored Probabilities: 고객이 자전거 구매자일 가능성입니다.
-* Scored Labels: 모델에 의해 자전거 구매자(1) 혹은 아님(0)로 분류가 실행되었습니다. 레이블 지정에 대한 확률 임계값은 50%로 설정되고 조정할 수 있습니다.
+* Scored Labels: 모델에 의해 자전거 구매자(1) 혹은 아님(0)으로 분류가 실행되었습니다. 레이블 지정에 대한 확률 임계값은 50%로 설정되고 조정할 수 있습니다.
 
 Scored Labels(예측)로 열 BikeBuyer(실제) 비교를 통해 모델이 얼마나 잘 실행했는지 확인할 수 있습니다. 다음 단계로 이 모델을 사용하여 새 고객에 대한 예측을 수행하고 이 모델을 웹 서비스로 게시하거나 SQL Data Warehouse에 결과를 다시 작성할 수 있습니다.
 
