@@ -71,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 **일시 중단**된 쿼리는 활성 실행 중인 쿼리 수가 많아져서 상태 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 형식으로 [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 대기 쿼리에도 나타납니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](performance-tiers.md) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources]를 참조하세요.
 
-[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화하려면, [ LABEL]을 사용하여 sys.dm_pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당합니다.
+[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화하려면, [LABEL]을 사용하여 sys.dm_pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당합니다.
 
 ```sql
 -- Query with Label
@@ -171,10 +171,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
 
 ## <a name="monitor-tempdb"></a>tempdb 모니터링
-Tempdb는 쿼리를 실행 하는 동안 중간 결과를 저장 하는데 사용 됩니다. Tempdb 데이터베이스의 높은 사용률은 쿼리 성능을 저하 시킬 수 있습니다. Azure SQL Data Warehouse의 각 노드는 약 1TB의 tempdb에 대 한 원시 공간에 있습니다. 다음은 tempdb 사용량을 모니터링하고 쿼리에서 tempdb 사용량 감소에 대한 팁입니다. 
+Tempdb는 쿼리를 실행하는 동안 중간 결과를 저장하는 데 사용됩니다. Tempdb 데이터베이스의 높은 사용률은 쿼리 성능을 저하시킬 수 있습니다. Azure SQL Data Warehouse의 각 노드는 약 1TB의 tempdb에 대한 원시 공간에 있습니다. 다음은 tempdb의 사용량 모니터링 및 쿼리에서의 tempdb 사용량 감소에 대한 팁입니다. 
 
 ### <a name="monitoring-tempdb-with-views"></a>뷰를 사용하여 tempdb 모니터링
-Tempdb 사용량을 모니터링 하려면, 먼저 [SQL Data Warehouse에 대한 Microsoft 도구 키트](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring) 에서 [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 뷰를 설치합니다. 그런 다음 모든 실행된 쿼리에 대한 노드당 tempdb 사용량을 보려면 다음 쿼리를 실행할 수 있습니다.
+Tempdb 사용량을 모니터링하려면, 먼저 [SQL Data Warehouse에 대한 Microsoft 도구 키트](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)에서 [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 뷰를 설치합니다. 그런 다음 모든 실행된 쿼리에 대한 노드당 tempdb 사용량을 보려면 다음 쿼리를 실행할 수 있습니다.
 
 ```sql
 -- Monitor tempdb
@@ -206,9 +206,9 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-쿼리에서 많은 양의 메모리를 소비 하거나 tempdb의 할당에 관련 된 오류 메시지를 받은 경우, 매우 많은 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 하거나 [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문 실행이 최종 데이터 이동 작업에 실패하게 되면 종종 나타납니다. 이것은 일반적으로 최종 INSERT SELECT 직전 분산된 쿼리 계획 ShuffleMove 작업으로 식별할 수 있습니다.
+쿼리에서 많은 양의 메모리를 소비하거나 tempdb의 할당에 관련된 오류 메시지를 받은 경우, 이는 종종 매우 많은 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문이나 [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문 실행이 최종 데이터 이동 작업에 실패하게 되면 발생합니다. 이것은 일반적으로 최종 INSERT SELECT 직전 분산된 쿼리 계획 ShuffleMove 작업으로 식별할 수 있습니다.
 
-가장 일반적인 완화 방법은 데이터 볼륨이 tempdb 노드 제한당 1TB를 초과 하지 않도록  CTAS 또는 INSERT SELECT 문을 여러 load 문으로 분해 하는 것입니다. 또한 각 개별 노드에서 tempdb를 줄여 더 많은 노드에 tempdb 크기를 분산 하여 더 큰 크기로 클러스터를 확장할 수 있습니다. 
+가장 일반적인 완화 방법은 데이터 볼륨이 tempdb 노드 제한당 1TB를 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 load 문으로 분해하는 것입니다. 또한 각 개별 노드에서 tempdb를 줄여 더 많은 노드에 tempdb 크기를 분산하여 더 큰 크기로 클러스터를 확장할 수 있습니다. 
 
 ## <a name="monitor-memory"></a>메모리 모니터링
 
@@ -237,7 +237,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>트랜잭션 로그 크기 모니터링
-다음 쿼리는 각 에서 트랜잭션 로그 크기를 반환합니다. 로그 파일 중 하나가 160GB에 도달하는 경우 인스턴스를 확장하거나 트랜잭션 크기를 제한해야 합니다. 
+다음 쿼리는 각 분산에서 트랜잭션 로그 크기를 반환합니다. 로그 파일 중 하나가 160GB에 도달하는 경우 인스턴스를 확장하거나 트랜잭션 크기를 제한해야 합니다. 
 ```sql
 -- Transaction log size
 SELECT
