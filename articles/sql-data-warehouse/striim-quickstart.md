@@ -55,7 +55,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 ![Striim 클러스터 시작][start-striim]
 
-이제 선호 하는 브라우저를 열고 \<DNS 이름 >: 9080으로 이동합니다.
+이제 선호하는 브라우저를 열고 \<DNS 이름 >: 9080으로 이동합니다.
 
 ![로그인 화면으로 이동][navigate]
 
