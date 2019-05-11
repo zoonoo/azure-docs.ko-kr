@@ -61,7 +61,7 @@ SQL Database를 선택 합니다.
 ### <a name="step-4"></a>4단계:
 확인 단추를 클릭하여 이 작업 출력을 추가하고 Stream Analytics가 데이터베이스에 성공적으로 연결될 수 있는지 확인합니다.
 
-데이터베이스로 연결에 성공 하면 포털에서 알림이 표시 됩니다. 데이터베이스로 연결을 테스트 하려면 테스트를 클릭할 수 있습니다.
+데이터베이스 연결에 성공하면 포털에서 알림이 표시됩니다. 데이터베이스 연결을 테스트하려면 테스트를 클릭할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 통합 개요는 [SQL Data Warehouse 통합 개요][SQL Data Warehouse integration overview]를 참조하세요.
