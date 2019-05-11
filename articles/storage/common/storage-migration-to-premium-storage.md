@@ -2,18 +2,19 @@
 title: VM을 Azure Premium Storage로 마이그레이션 | Microsoft Docs
 description: 기존 VM을 Azure Premium Storage로 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372321"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153775"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage로 마이그레이션(관리되지 않는 디스크)
 
@@ -74,7 +75,7 @@ Premium Storage 사양에 대한 자세한 내용은 [Azure Storage 확장성 �
 #### <a name="disk-caching-policy"></a>디스크 캐싱 정책
 기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. 기존 데이터 디스크의 캐시 설정을 사용 하 여 업데이트할 수는 [Azure portal](https://portal.azure.com) 또는 *-HostCaching* 의 매개 변수는 *Set-azuredatadisk* cmdlet.
 
-#### <a name="location"></a>위치
+#### <a name="location"></a>Location
 Azure Premium Storage를 사용할 수 있는 위치를 선택합니다. 사용 가능한 위치에 대한 최신 정보는 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services)를 참조하세요. VM에 대한 디스크를 저장하는 Storage 계정과 동일한 지역에 있는 VM은 별도 영역에 있는 경우보다 훨씬 우수한 성능을 제공합니다.
 
 #### <a name="other-azure-vm-configuration-settings"></a>기타 Azure VM 구성 설정
@@ -255,7 +256,7 @@ VHD를 유지 관리하기 위한 저장소 계정을 만듭니다. VHD를 저�
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-예제 <Uri>도 ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"*** 일 수 있습니다. <FileInfo>의 예로 ***"C:\path\to\upload.vhd"*** 를 들 수 있습니다.
+예로 \<Uri > 않을 ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"*** 합니다. 예로 \<FileInfo > 않을 ***"C:\path\to\upload.vhd"*** 합니다.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>옵션 2: AzCopy를 사용하여 .vhd 파일 업로드
 AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습니다. 소요되는 시간은 VHD의 크기에 따라 다를 수 있습니다. 이 옵션을 사용하는 경우 저장소 계정 송/수신 제한을 확인해야 합니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md)를 참조하세요.

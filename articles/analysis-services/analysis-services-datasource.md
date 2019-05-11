@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327142"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506827"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -23,12 +23,12 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 |데이터 소스  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
-|Azure SQL 데이터 웨어하우스     |   예      |   예       |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예.      |    예      |
+|Azure SQL 데이터 웨어하우스     |   예      |   예.       |
 |Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예.       |    아닙니다.      |
 |Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예.       |    아닙니다.      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예.        |  아닙니다.        |
-|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예       |    아닙니다.      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아닙니다.        |
+|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예.       |    아닙니다.      |
 |Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예.     |   아닙니다.       |
 |Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아닙니다.       |
 ||||
@@ -52,7 +52,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server 데이터 웨어하우스 |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| Oracle |Microsoft OLE DB Provider for Oracle, Oracle Data Provider for .NET |.NET용 Oracle Data Provider |
+| Oracle | OLE DB Provider for Oracle에서 Oracle Data Provider for.NET |.NET용 Oracle Data Provider |
 | Teradata |Teradata용 OLE DB Provider, .NET용 Teradata Data Provider |.NET용 Teradata Data Provider |
 | | | |
 

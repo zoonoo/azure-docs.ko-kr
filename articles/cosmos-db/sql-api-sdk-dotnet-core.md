@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626828"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510630"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -50,6 +50,20 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 * 스트림 지원
 * 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage
 
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* NuGet 패키지에 정의 된 SDK의 System.Net.Http 버전 일치
+* LINQ 쿼리에 대 한 전체 자릿수 크기를 늘렸습니다.
+* CompositePath "," CompositePathSortOrder "," SpatialSpec "," SpatialType "및" PartitionKeyDefinitionVersion 새 클래스 추가
+* DocumentCollection에 추가 된 TimeToLivePropertyPath
+* 추가 CompositeIndexes 및 SpatialIndexes IndexPolicy
+* PartitionKeyDefinition에 버전 추가
+* PartitionKey를 None 추가
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * 추가 IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection 및 MaxTcpConnectionsPerEndpoint ConnectionPolicy에 있습니다.
+ 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
 * 진단 개선 사항
@@ -237,6 +251,8 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | Version | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |2019 년 5 월 5 일 |--- |
+| [2.3.0](#2.3.0) |2019 년 4 월 4 일 |--- |
 | [2.2.3](#2.2.3) |2019 년 3 월 11 일 |--- |
 | [2.2.2](#2.2.2) |2019 년 2 월 6 일 |--- |
 | [2.2.1](#2.2.1) |2018년 12월 24일 |--- |

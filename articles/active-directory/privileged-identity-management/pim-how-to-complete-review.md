@@ -1,6 +1,6 @@
 ---
-title: PIM-Azure Active Directory에서에서 Azure AD 역할에 대 한 액세스 검토 완료 | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 액세스 검토를 완료 하 고 결과 확인 하는 방법을 알아봅니다
+title: PIM-Azure Active Directory에서에서 Azure AD 역할의 액세스 검토 완료 | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할의 액세스 검토를 완료 하 고 결과 확인 하는 방법을 알아봅니다
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288302"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140986"
 ---
-# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 액세스 검토 완료
+# <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할의 액세스 검토를 완료 합니다.
 [액세스 검토가 시작](pim-how-to-start-security-review.md)되면 권한 있는 역할 관리자가 권한이 있는 액세스를 검토할 수 있습니다. Azure Active Directory (Azure AD) Privileged Identity Management (PIM)에서는 사용자가 자신의 액세스를 검토 하도록 요청 하는 메일 자동으로 보냅니다. 사용자가 메일을 받지 못한 경우 [액세스 검토를 수행하는 방법](pim-how-to-perform-security-review.md)에 대한 지침을 보낼 수 있습니다.
 
 액세스 검토 기간이 끝나거나 모든 사용자가 자체 검토를 완료하면 이 문서의 단계에 따라 검토를 관리하고 결과를 표시합니다.

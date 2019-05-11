@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922759"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227982"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -46,7 +46,7 @@ ms.locfileid: "64922759"
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>범위
+### <a name="scope"></a>Scope
 
 먼저 범위, 즉, 대상 리소스, 리소스 그룹 또는 구독을 선택 합니다. 해야 다중 선택 하는 기능 (내에서 단일 구독) 위 조합 합니다. 
 
@@ -142,11 +142,11 @@ Contoso 정의한 [구독 수준에서 메트릭 경고를](https://docs.microso
 
 ## <a name="best-practices"></a>모범 사례
 
-로그 경고를 사용 하 여 만든 합니다 ['결과 수'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) 옵션 생성 **단일 경고 인스턴스** (수 있는 여러 컴퓨터에서 예를 들어) 전체 검색 결과 사용 하 여 합니다. 이 시나리오에서는 작업 규칙을 ' 경고 컨텍스트 (페이로드)' 필터를 사용 하는 경우 작동 경고 인스턴스에서으로 일치 하는 것입니다. 시나리오 2 ' 컴퓨터-01' 및 ' 컴퓨터-02'에서 생성 된 로그 경고에 대 한 검색 결과 포함 하는 경우 이전에 설명 된 대로 전체 알림이 표시 되지 않습니다 (즉,가 전혀 생성 ' 컴퓨터-02'에 대 한 알림 없음).
+로그 경고를 사용 하 여 만든 합니다 ['결과 수'](alerts-unified-log.md) 옵션 생성 **단일 경고 인스턴스** (수 있는 여러 컴퓨터에서 예를 들어) 전체 검색 결과 사용 하 여 합니다. 이 시나리오에서는 작업 규칙을 ' 경고 컨텍스트 (페이로드)' 필터를 사용 하는 경우 작동 경고 인스턴스에서으로 일치 하는 것입니다. 시나리오 2 ' 컴퓨터-01' 및 ' 컴퓨터-02'에서 생성 된 로그 경고에 대 한 검색 결과 포함 하는 경우 이전에 설명 된 대로 전체 알림이 표시 되지 않습니다 (즉,가 전혀 생성 ' 컴퓨터-02'에 대 한 알림 없음).
 
 ![작업 규칙 및 로그 경고 (결과 수)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-작업 규칙을 사용 하 여 최상의 활용 하 여 로그 경고로 좋습니다 로그 경고를 만들 수는 ['메트릭 측정'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) 옵션입니다. 이 옵션을 사용 하 여 별도 경고 인스턴스 정의 된 그룹 필드를 기반으로 생성 됩니다. 다음 시나리오 2에서는 ' 컴퓨터-01' 및 ' 컴퓨터-02'에 대 한 별도 경고 인스턴스가 생성 됩니다. 시나리오에서 설명한 작업 규칙을 사용 하 여 ' 컴퓨터-01'에 대 한 알림만 표시 하지 않을 ' 컴퓨터-02'에 대 한 알림을 계속 정상적으로 실행 됩니다.
+작업 규칙을 사용 하 여 최상의 활용 하 여 로그 경고로 좋습니다 로그 경고를 만들 수는 ['메트릭 측정'](alerts-unified-log.md) 옵션입니다. 이 옵션을 사용 하 여 별도 경고 인스턴스 정의 된 그룹 필드를 기반으로 생성 됩니다. 다음 시나리오 2에서는 ' 컴퓨터-01' 및 ' 컴퓨터-02'에 대 한 별도 경고 인스턴스가 생성 됩니다. 시나리오에서 설명한 작업 규칙을 사용 하 여 ' 컴퓨터-01'에 대 한 알림만 표시 하지 않을 ' 컴퓨터-02'에 대 한 알림을 계속 정상적으로 실행 됩니다.
 
 ![작업 규칙 및 로그 경고 (결과 수)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -184,8 +184,8 @@ Contoso 정의한 [구독 수준에서 메트릭 경고를](https://docs.microso
 
 * Q. 두 개의 별도 작업 규칙에서 모니터링 하는 리소스를 질문이 있으면 어떻게 되나요? 하나 또는 두 개의 알림을 가져오나 요? 예를 들어가이 시나리오에서는 'VM2'을 선택 합니다.
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     a. 'VM1' 및 'vm3 은'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 한 번입니다. 'VM2'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 두 번 (**작업 규칙 작업을 취소 중복 되지 않는**). 
 
@@ -198,9 +198,10 @@ Contoso 정의한 [구독 수준에서 메트릭 경고를](https://docs.microso
 
 * Q. 경고 규칙 및 동일한 리소스 호출 하는 다른 작업 그룹에 대해 정의 된 작업 규칙 질문이 있으면 어떻게 되나요? 예를 들어,이 시나리오에서는 ' VM1'.
 
-     경고 규칙 'rule1' 'VM1'에서 작업 그룹 'AG2' 작업 규칙을 사용 하 여 작업 그룹 'AG1'으로 'VM1'에 대해 정의 된 'AR1'  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    a. 'VM1'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 한 번입니다. 경고 규칙 'rule1' 트리거될 때마다도 트리거합니다 'AG2를' 또한. (**작업 규칙 및 경고 규칙 내에 정의 된 그룹 독립적으로 작동할 수 없는 중복 제거를 사용 하 여 작업**) 
+    a. 'VM1'에서 모든 경고에 대 한 작업 그룹 'AG1' 트리거될 수 한 번입니다. 경고 규칙 'rule1' 트리거될 때마다도 트리거합니다 'AG2를' 또한. **작업 규칙 내에 정의 된 작업 그룹 및 경고 규칙 독립적으로 작동할 수 없는 중복 제거를 사용 하 여**입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

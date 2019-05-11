@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect 동기화:  Azure AD Connect 동기화 서비스 계정 변경 | Microsoft Docs'
+title: 'Azure AD Connect 동기화:  ADSync 서비스 계정 변경 | Microsoft Docs'
 description: 이 항목 문서는 암호화 키 및 암호가 변경된 후 암호화 키를 제거하는 방법을 설명합니다.
 services: active-directory
 keywords: Azure AD 동기화 서비스 계정, 암호
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241677"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139386"
 ---
-# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect 동기화 서비스 계정 암호 변경
-Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
+# <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
+ADSync 서비스 계정 암호를 변경 하면 동기화 서비스 됩니다 시작할 수 올바르게 암호화 키를 제거 하 고 ADSync 서비스 계정 암호를 다시 초기화 될 때까지. 
 
-Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용하여 AD DS 및 Azure AD 서비스 계정의 암호를 저장합니다.  이러한 계정은 데이터베이스에 저장되기 전에 암호화됩니다. 
+Azure AD Connect 동기화 서비스의 일부로 사용 하 여 암호화 키를 AD DS 커넥터 계정 및 ADSync 서비스 계정의 암호를 저장.  이러한 계정은 데이터베이스에 저장되기 전에 암호화됩니다. 
 
-사용된 암호화 키는 [Windows 데이터 보호(DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 보호됩니다. DPAPI는 **Azure AD Connect 동기화 서비스 계정의 암호**를 사용하여 암호화 키를 보호합니다. 
+사용된 암호화 키는 [Windows 데이터 보호(DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 보호됩니다. DPAPI를 사용 하 여 암호화 키 보호 합니다 **ADSync 서비스 계정**합니다. 
 
-서비스 계정 암호를 변경해야 하는 경우 [Azure AD Connect 동기화 암호화 키 제거](#abandoning-the-azure-ad-connect-sync-encryption-key)의 절차를 사용하여 작업을 수행할 수 있습니다.  이러한 절차는 어떤 이유로든 암호화 키를 제거해야 하는 경우에 사용되어야 합니다.
+서비스 계정 암호를 변경 해야 하는 경우의 절차를 사용할 수 있습니다 [ADSync 서비스 계정 암호화 키 제거](#abandoning-the-adsync-service-account-encryption-key) 에이 작업을 수행 합니다.  이러한 절차는 어떤 이유로든 암호화 키를 제거해야 하는 경우에 사용되어야 합니다.
 
 ## <a name="issues-that-arise-from-changing-the-password"></a>암호 변경으로 인해 발생하는 문제
 서비스 계정 암호를 변경하는 경우 두 가지 작업을 수행해야 합니다.
@@ -48,9 +48,9 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 - Windows 서비스 제어 관리자에서 동기화 서비스를 시작하려고 하면 암호화 키를 검색할 수 없는 경우 다음과 같은 오류로 인해 실패합니다. “<strong>Windows에서 로컬 컴퓨터의 Microsoft Azure AD 동기화를 시작하지 못했습니다. 자세한 정보는 시스템 이벤트 로그를 참조하십시오. Microsoft 서비스가 아닌 경우, 서비스 공급업체에 문의하는 경우 -21451857952 서비스 특정 오류를 참조하십시오</strong>.”
 - Windows 이벤트 뷰어의 응용 프로그램 이벤트 로그에 사용 하 여 오류가 **이벤트 ID 6028** 오류 메시지 및 *"서버 암호화 키를 액세스할 수 없습니다."*
 
-이러한 오류가 표시되지 않도록 하려면 암호를 변경할 때 [Azure AD Connect 동기화 암호화 키 제거](#abandoning-the-azure-ad-connect-sync-encryption-key)의 절차를 따르십시오.
+이러한 오류를 수신 하지 않습니다을 보장 하려면의 절차에 따라 [ADSync 서비스 계정 암호화 키 중단](#abandoning-the-adsync-service-account-encryption-key) 암호를 변경 하는 경우.
  
-## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>Azure AD Connect 동기화 암호화 키 제거
+## <a name="abandoning-the-adsync-service-account-encryption-key"></a>ADSync 서비스 계정 암호화 키 제거
 >[!IMPORTANT]
 >다음 절차를 Azure AD Connect 빌드 1.1.443.0 이전 빌드에만 적용됩니다.
 
@@ -64,9 +64,9 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 
 1. [기존 암호화 키 제거](#abandon-the-existing-encryption-key)
 
-2. [AD DS 계정의 암호 제공](#provide-the-password-of-the-ad-ds-account)
+2. [AD DS 커넥터 계정 암호를 제공 합니다.](#provide-the-password-of-the-ad-ds-connector-account)
 
-3. [Azure AD 동기화 계정의 암호를 다시 초기화](#reinitialize-the-password-of-the-azure-ad-sync-account)
+3. [ADSync 서비스 계정의 암호를 다시 초기화](#reinitialize-the-password-of-the-adsync-service-account)
 
 4. [동기화 서비스 시작](#start-the-synchronization-service)
 
@@ -80,7 +80,7 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 #### <a name="abandon-the-existing-encryption-key"></a>기존 암호화 키 제거
 새 암호화 키를 만들 수 있도록 기존 암호화 키를 제거합니다.
 
-1. 관리자 권한으로 Azure AD Connect 서버에 로그인합니다.
+1. Azure AD Connect 서버에 관리자로 로그인 합니다.
 
 2. 새 PowerShell 세션을 시작합니다.
 
@@ -90,8 +90,8 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 
 ![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-account"></a>AD DS 계정의 암호 제공
-데이터베이스 내에 저장된 기존 암호를 더 이상 해독할 수 없으므로 동기화 서비스에 AD DS 계정의 암호를 제공해야 합니다. 동기화 서비스는 새 암호화 키를 사용하여 암호를 암호화합니다.
+#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>AD DS 커넥터 계정 암호를 제공 합니다.
+데이터베이스 내에 저장 하는 기존 암호를 더 이상 해독할 수 AD DS 커넥터 계정 암호를 사용 하 여 동기화 서비스를 제공 해야 합니다. 동기화 서비스는 새 암호화 키를 사용하여 암호를 암호화합니다.
 
 1. Synchronization Service Manager를 시작합니다(시작 → 동기화 서비스).
 </br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
@@ -103,7 +103,7 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 7. **확인**을 클릭하여 새 암호를 저장하고 팝업 대화 상자를 닫습니다.
 ![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
-#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>Azure AD 동기화 계정의 암호를 다시 초기화
+#### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>ADSync 서비스 계정의 암호를 다시 초기화
 Azure AD 서비스 계정의 암호를 동기화 서비스에 직접 제공할 수 없습니다. 대신 cmdlet **Add-ADSyncAADServiceAccount**을 사용하여 Azure AD 서비스 계정을 다시 초기화해야 합니다. cmdlet은 계정 암호를 다시 설정하여 동기화 서비스에 사용할 수 있게 합니다.
 
 1. Azure AD Connect 서버에서 새 PowerShell 세션을 시작합니다.

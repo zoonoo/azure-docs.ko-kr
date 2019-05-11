@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/31/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306869"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501969"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -47,6 +47,74 @@ ms.locfileid: "61306869"
 
 VM 시작/중지 솔루션에 대 한 별도 Automation 계정을 사용 하는 것이 좋습니다. 즉 Azure 모듈 버전이 자주 업그레이드 하 고 해당 매개 변수 변경 될 수 있습니다. VM 시작/중지 솔루션 사용 되는 cmdlet의 최신 버전을 사용할 수 없습니다 있도록 동일한 주기로 업그레이드 되지 않습니다. Automation 계정을 테스트에서 프로덕션 Automation 계정에에서 가져오기 전에 모듈 업데이트를 테스트 하는 것이 좋습니다.
 
+### <a name="permissions-needed-to-deploy"></a>배포 하는 데 필요한 사용 권한
+
+특정 권한은 사용자 시간 솔루션 하는 동안 Vm 시작/중지를 배포 해야 합니다. 이러한 권한은 미리 작성된 된 Automation 계정 및 Log Analytics 작업 영역을 사용 하는 경우 또는 배포 하는 동안 새로 만들기.
+
+#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>기존 Automation 계정 및 Log Analytics 계정
+
+Automation 계정과 Log Analytics 솔루션을 배포 하는 사용자에는 다음 권한이 필요 합니다. 시간 솔루션 하는 동안 Vm 시작/중지를 배포 하는 **리소스 그룹**합니다. 역할에 대 한 자세한 내용은 참조 하세요 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)입니다.
+
+| 사용 권한 | Scope|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/variables/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/schedules/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/runbooks/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/connections/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/certificates/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/modules/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/modules/read | 리소스 그룹 |
+| Microsoft.automation/automationAccounts/jobSchedules/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/jobs/write | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/jobs/read | 리소스 그룹 |
+| Microsoft.OperationsManagement/solutions/write | 리소스 그룹 |
+| Microsoft.OperationalInsights/workspaces/* | 리소스 그룹 |
+| Microsoft.Insights/diagnosticSettings/write | 리소스 그룹 |
+| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | 리소스 그룹 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 |
+| Microsoft.Resources/deployments/* | 리소스 그룹 |
+
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>새 Automation 계정 및 새 Log Analytics 작업 영역
+
+배포 시간 동안 Vm 시작/중지 솔루션 새 Automation 계정 및 Log Analytics 작업 영역에 솔루션을 배포 하는 사용자 다음 사용 권한 뿐만 아니라 이전 섹션에 정의 된 권한이 있어야 합니다.
+
+- 공동 관리자 구독-해야 하는 클래식 실행 계정 만들기
+- 일부 여야 합니다 **응용 프로그램 개발자** 역할입니다. 실행 계정 구성에 대 한 자세한 내용은 참조 하세요. [실행 계정을 구성 하는 권한을](manage-runas-account.md#permissions)합니다.
+
+| 사용 권한 |Scope|
+| --- | --- |
+| Microsoft.Authorization/roleAssignments/read | 구독 |
+| Microsoft.Authorization/roleAssignments/write | 구독 |
+| Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
+| Microsoft.Automation/automationAccounts/write | 리소스 그룹 |
+| Microsoft.OperationalInsights/workspaces/write | 리소스 그룹 |
+
+### <a name="region-mappings"></a>지역 매핑
+
+작업 시간 외 Vm 시작/중지를 사용 하는 경우 Log Analytics 작업 영역 및 Automation 계정 연결에 대 한 특정 지역 에서만 지원 됩니다.
+
+다음 표에 지원되는 매핑이 나와 있습니다.
+
+|**Log Analytics 작업 영역 지역**|**Azure Automation 지역**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP 및 EastUS 매핑을 Automation 계정과 Log Analytics 작업 영역에 대 한 정확한 지역 매핑이 되지 않지만 올바른 매핑이 있습니다.
+
+<sup>2</sup> 용량 제한으로 인해 지역을 사용할 수 없는 새 리소스를 만들 때. Automation 계정 및 Log Analytics 작업 영역을 포함 합니다. 그러나 지역에서 기존 연결 된 리소스는 계속 작동 합니다.
+
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
 작업 시간 외 VM 시작/중지 솔루션을 Automation 계정에 추가하고 솔루션을 사용자 지정하도록 변수를 구성하려면 다음 단계를 수행합니다.
@@ -57,6 +125,7 @@ VM 시작/중지 솔루션에 대 한 별도 Automation 계정을 사용 하는 
 
    > [!NOTE]
    > Azure Portal의 어디서나 **리소스 만들기**를 클릭하여 만들 수도 있습니다. Marketplace 페이지에서 **시작** 또는 **시작/중지**와 같은 키워드를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. 또는 솔루션의 전체 이름에서 하나 이상의 키워드를 입력한 다음 Enter 키를 누를 수도 있습니다. 검색 결과에서 **작업 시간 외 VM 시작/중지**를 선택합니다.
+
 2. 선택한 솔루션에 대한 **작업 시간 외 VM 시작/중지** 페이지에서 요약 정보를 검토한 다음, **만들기**를 클릭합니다.
 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
@@ -232,7 +301,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 일정 작업이 겹칠 수 있기 때문에 모든 일정을 사용하도록 설정해서는 안 됩니다. 그에 맞게 수행하고 수정할 최적화를 결정하는 것이 가장 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
-|일정 이름 | Frequency(빈도) | 설명|
+|일정 이름 | 빈도 | 설명|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | AutoStop_CreateAlert_Parent Runbook을 8시간 간격으로 실행합니다. 그러면 Azure Automation 변수에서 External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames 및 External_ExcludeVMNames에서 VM 기반 값이 중지됩니다. 또는 VMList 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수 있습니다.|
 |Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 자산 변수를 통해 정의된 규칙을 충족하는 모든 VM이 자동으로 중지됩니다. 관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|
@@ -251,7 +320,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
 |Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
 |CorrelationId | Runbook 작업의 상관 관계 ID인 GUID입니다.|
-|JobId | Runbook 작업의 ID인 GUID입니다.|
+|JobID | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
 |resourceId | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
@@ -271,7 +340,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |----------|----------|
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
 |Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
-|JobId | Runbook 작업의 ID인 GUID입니다.|
+|JobID | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
 |resourceId | Azure의 리소스 ID를 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
@@ -292,8 +361,8 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 |쿼리 | 설명|
 |----------|----------|
-|성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
+|성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="viewing-the-solution"></a>솔루션 보기
 

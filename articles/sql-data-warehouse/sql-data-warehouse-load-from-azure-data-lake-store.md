@@ -1,28 +1,28 @@
 ---
-title: '자습서: Azure Data Lake Storage Gen1에서 Azure SQL Data Warehouse로 로드 | Microsoft Docs'
-description: PolyBase 외부 테이블을 사용하여 Azure Data Lake Storage Gen1에서 Azure SQL Data Warehouse로 데이터를 로드합니다.
+title: '자습서: Azure Data Lake 저장소에서 Azure SQL Data Warehouse에 로드 | Microsoft Docs'
+description: Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터 로드를 PolyBase 외부 테이블을 사용 합니다.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b5083d6b4cf6758997e4e0551e5f3c2968a31c1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476139"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145976"
 ---
-# <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Azure Data Lake Storage Gen1에서 SQL Data Warehouse로 데이터 로드
-PolyBase 외부 테이블을 사용하여 Azure Data Lake Storage Gen1에서 Azure SQL Data Warehouse로 데이터를 로드합니다. Data Lake Storage Gen1에 저장된 데이터에서 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
+# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse로 데이터 로드
+Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터 로드를 PolyBase 외부 테이블을 사용 합니다. Data Lake Storage에 저장 된 데이터에서 임시 쿼리를 실행할 수 있습니다, 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
 
 > [!div class="checklist"]
-> * Data Lake Storage Gen1에서 로드하려면 데이터베이스 개체를 만들어야 합니다.
-> * Data Lake Storage Gen1 디렉터리에 연결합니다.
+> * 데이터 레이크 저장소에서 로드 하는 데 필요한 데이터베이스 개체를 만듭니다.
+> * 데이터 레이크 저장소 디렉터리에 연결 합니다.
 > * Azure SQL Data Warehouse에 데이터를 로드합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -32,20 +32,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
-* 서비스 간 인증에 사용할 Azure Active Directory 애플리케이션. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
+* Azure Active Directory 응용 프로그램 Gen1에서 로드 하는 경우 서비스 간 인증에 사용 하도록 합니다. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
 >[!NOTE] 
-> SQL Data Warehouse에서 Data Lake Storage Gen1 계정에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 엔드포인트 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
+> Azure 데이터 레이크 저장소 Gen1에서 로드 하는 경우 클라이언트 ID, 키 및 SQL Data Warehouse에서 저장소 계정에 연결할 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값 필요 합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
 > 
 
-* Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.
+* Azure SQL Data Warehouse. [Azure SQL Data Warehouse 만들기 및 쿼리](create-data-warehouse-portal.md)를 참조합니다.
 
-* Data Lake Storage Gen1 계정. [Azure Data Lake Storage Gen1 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요. 
+* Data Lake Storage 계정입니다. 참조 [Azure Data Lake Storage를 사용 하 여 시작](../data-lake-store/data-lake-store-get-started-portal.md)합니다. 
 
 ##  <a name="create-a-credential"></a>자격 증명 만들기
-Data Lake Storage Gen1 계정에 액세스하려면 다음 단계에서 사용되는 자격 증명 비밀을 암호화하는 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음, AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Miscrosoft Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
+Data Lake Storage 계정에 액세스 하려면 다음 단계에서 사용 하 여 자격 증명 비밀을 암호화 하려면 데이터베이스 마스터 키 만들기 해야 합니다. 데이터베이스 범위 자격 증명을 만들 있습니다. Gen1에 대 한 데이터베이스 범위 자격 증명 설정 AAD에서 서비스 주체 자격 증명을 저장 합니다. Gen2의 데이터베이스 범위 자격 증명의 저장소 계정 키를 사용 해야 합니다. 
 
-Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
+Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 애플리케이션을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 애플리케이션에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -56,19 +56,29 @@ Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 응�
 CREATE MASTER KEY;
 
 
--- B: Create a database scoped credential
+-- B (for Gen1): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
-CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;
 
--- It should look something like this:
-CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
+-- B (for Gen2): Create a database scoped credential
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- SECRET: Provide your Azure storage account key.
+
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
+WITH
+    IDENTITY = 'user',
+    SECRET = '<azure_storage_account_key>'
+;
+
+-- It should look something like this for Gen1:
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
     SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
@@ -79,22 +89,34 @@ WITH
 이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 명령을 사용하여 데이터의 위치를 저장합니다. 
 
 ```sql
--- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage Gen1.
+-- C (for Gen1): Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage.
 -- LOCATION: Provide Data Lake Storage Gen1 account name and URI
 -- CREDENTIAL: Provide the credential created in the previous step.
 
-CREATE EXTERNAL DATA SOURCE AzureDataLakeStorageGen1
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
     LOCATION = 'adl://<datalakestoregen1accountname>.azuredatalakestore.net',
-    CREDENTIAL = ADLSG1Credential
+    CREDENTIAL = ADLSCredential
+);
+
+-- C (for Gen2): Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage.
+-- LOCATION: Provide Data Lake Storage Gen2 account name and URI
+-- CREDENTIAL: Provide the credential created in the previous step.
+
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
+WITH (
+    TYPE = HADOOP,
+    LOCATION='abfs://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    CREDENTIAL = ADLSCredential
 );
 ```
 
 ## <a name="configure-data-format"></a>데이터 형식 구성
-Data Lake Storage Gen1에서 데이터를 가져오려면 외부 파일 형식을 지정해야 합니다. 이 개체는 Data Lake Storage Gen1에 파일을 쓰는 방법을 정의합니다.
-전체 목록은 [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서 참조
+Data Lake Storage에서 데이터를 가져오려면 외부 파일 형식을 지정 해야 합니다. 이 개체는 Data Lake Storage에 파일을 쓰는 방법을 정의 합니다.
+전체 목록은 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서를 참조합니다.
 
 ```sql
 -- D: Create an external file format
@@ -115,11 +137,11 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>외부 테이블 만들기
-이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. 위치 매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
+이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. LOCATION  매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
 
 ```sql
 -- D: Create an External Table
--- LOCATION: Folder under the Data Lake Storage Gen1 root folder.
+-- LOCATION: Folder under the Data Lake Storage root folder.
 -- DATA_SOURCE: Specifies which Data Source Object to use.
 -- FILE_FORMAT: Specifies which File Format Object to use
 -- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
@@ -134,7 +156,7 @@ CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
 WITH
 (
     LOCATION='/DimProduct/'
-,   DATA_SOURCE = AzureDataLakeStorageGen1
+,   DATA_SOURCE = AzureDataLakeStorage
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
 ,   REJECT_VALUE = 0
@@ -151,12 +173,12 @@ WITH
 
 REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어야 하는 행 수 또는 데이터의 비율을 정의할 수 있습니다. 로드 중 거부 값에 도달하는 경우 로드는 실패합니다. 거부된 행의 가장 일반적인 원인은 스키마 정의 불일치입니다. 예를 들어 파일의 데이터가 문자열일 때 열이 int의 스키마로 잘못 지정된 경우 모든 행을 로드하지 못합니다.
 
-Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 위치 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
+Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 LOCATION 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
-Data Lake Storage Gen1에서 데이터를 로드하려면 [CREATE TABLE AS SELECT(Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문을 사용합니다. 
+Data Lake Storage 사용에서 데이터를 로드 하는 [CREATE TABLE AS SELECT (TRANSACT-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 문입니다. 
 
-CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
+CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
 이 예제에서는 외부 테이블 DimProduct_external에서 DimProduct라는 해시 분산 테이블을 만듭니다.
 
@@ -184,7 +206,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>통계를 최적화합니다.
 로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 통계에 대한 몇 가지 선택 사항이 있습니다. 예를 들어 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다. 쿼리 조건자에 위치하지 않을 특정 열에 대해 알고 있다면 이들 열에 대한 통계 생성 과정은 건너뛸 수 있습니다.
 
-단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서에 저장된 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
+단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서의 저장 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
 
 다음 예제는 통계를 만들기 위한 좋은 출발점이 됩니다. 차원 테이블의 각 열과 팩트 테이블의 각 조인 열의 단일 열 통계를 생성합니다. 이후 언제라도 다른 팩트 테이블 열에 단일 또는 여러 열 통계를 추가할 수 있습니다.
 

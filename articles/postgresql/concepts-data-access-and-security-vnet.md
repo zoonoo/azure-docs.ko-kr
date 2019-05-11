@@ -1,20 +1,19 @@
 ---
-title: Azure Database for PostgreSQL 서버 VNet 서비스 엔드포인트 개요
-description: Azure Database for PostgreSQL 서버에서 VNET 서비스 엔드포인트가 작동하는 방법을 알아봅니다.
-author: WenJason
-ms.author: v-jay
+title: PostgreSQL-단일 서버에 대 한 가상 네트워크 (VNet) services Azure Database에서 끝점 개요
+description: PostgreSQL-단일 서버에 대 한 가상 네트워크 (VNet) 서비스 끝점 Azure Database에 대해 작동 하는 방법을 알아봅니다.
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560136"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073471"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대 한 Azure Database에 대 한 Virtual Network 서비스 끝점 및 규칙 사용
 
 *가상 네트워크 규칙*은 Azure Database for PostgreSQL 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 아티클에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for PostgreSQL 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
 

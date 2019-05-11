@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.openlocfilehash: a04f6fab26a47b87bf55f1714522cad648dc5fad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951440"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205917"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -54,7 +54,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 | SMT 사용자 지정 | 예   | 아닙니다. |
 | NMT 사용자 지정 | 아닙니다.    | 예 |
 | 새로운 통합 Speech Service 사용자 지정 | 아닙니다.    | 예 |
-| [추적 없음](https://www.aka.ms/notrace) | 예  | 예 |
+| [추적 없음](https://www.aka.ms/notrace) | 예  | 예. |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
 

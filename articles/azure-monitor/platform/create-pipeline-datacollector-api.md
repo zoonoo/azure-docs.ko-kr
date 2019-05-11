@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 데이터 수집기 API를 사용하여 데이터 파이프라인 만들기 | Microsoft Docs
+title: Azure Monitor 데이터 수집기 API를 사용 하 여 데이터 파이프라인 만들기 | Microsoft Docs
 description: REST API를 호출할 수 있는 모든 클라이언트에서 Azure Monitor HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 작업 영역에 추가할 수 있습니다. 이 아티클에서는 자동화된 방식으로 파일에 저장된 데이터를 업로드하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60200047"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205955"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 

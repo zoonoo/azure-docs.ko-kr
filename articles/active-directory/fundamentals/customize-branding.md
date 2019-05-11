@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247834"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441646"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Office 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
@@ -70,7 +70,7 @@ ms.locfileid: "60247834"
 
         - **로그인 페이지 배경색** 낮은 대역폭 연결 상황에서 배경 이미지 대신 표시되는 16진수 색(예: 흰색 #FFFFFF)을 지정합니다. 배너 로고 또는 조직 색의 기본 색을 사용하는 것이 좋습니다.
 
-        - **사각형 로고 이미지** 기본 설정된 .png 또는.jpg 이미지의 조직 로고를 선택하여 새 Windows 10 Enterprise 디바이스에 대한 설정 프로세스 중에 사용자에게 표시합니다. 이 이미지는 Windows 인증에만 사용하고, 다른 Windows 10 환경의 배포 또는 암호 항목 페이지에 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)을 사용하는 테넌트에만 나타납니다.
+        - **사각형 로고 이미지** 기본 설정된 .png 또는.jpg 이미지의 조직 로고를 선택하여 새 Windows 10 Enterprise 디바이스에 대한 설정 프로세스 중에 사용자에게 표시합니다. 이 이미지는 Windows 인증에만 사용하고, 다른 Windows 10 환경의 배포 또는 암호 항목 페이지에 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)을 사용하는 테넌트에만 나타납니다. 일부 경우에는 승인 대화 상자에 나타날 수 있습니다 것.
         
             이미지는 크기가 240x240픽셀보다 클 수 없고 파일 크기가 10KB 미만이어야 합니다. 배경이 로고 배경과 일치하지 않을 수 있으므로 투명 이미지를 사용하는 것이 좋습니다. 이미지 주위에 패딩을 추가하지 않는 것이 좋습니다. 그렇지 않으면 로고가 작게 보입니다.
     

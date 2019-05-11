@@ -3,17 +3,17 @@ title: Azure Maps에서 지원되는 지도 스타일 | Microsoft Docs
 description: Azure Maps에서 지원되는 지도 스타일
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767215"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230836"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
 Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타일을 지원합니다.
@@ -56,6 +56,17 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 **적용 가능한 API:**
 * JS 지도 컨트롤 
 * Android 지도 컨트롤
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**회색조 light** 도 지도 스타일의 간단한 버전입니다.
+
+![회색조 light](./media/supported-map-styles/grayscale_light.png)
+
+**적용 가능한 API:**
+* JS 지도 컨트롤
+* Android 지도 컨트롤
+
 
 ## <a name="night"></a>야간
 **야간**은 색이 지정된 도로 및 기호가 포함된 어두운 버전의 도로 지도 스타일입니다.

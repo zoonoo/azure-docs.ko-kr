@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648791"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236906"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드 계획 및 배포 검사 목록 
 
@@ -140,9 +140,10 @@ ms.locfileid: "60648791"
       2. 온-프레미스에 배포된 SAP GUI 인터페이스와 Azure에 배포된 SAP 애플리케이션 계층 간의 GUI 시간 초과를 방지하기 위해 다음 매개 변수가 default.pfl에 설정되어 있는지 또는 인스턴스 프로필에 설정되어 있는지를 확인합니다.
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. Windows 장애 조치(failover) 클러스터 구성을 사용하는 경우 무대응 노드에 반응하는 시간이 Azure에 대해 올바르게 설정되어 있는지 확인합니다. Microsoft의 문서 [장애 조치(Failover) 클러스터 네트워크 임계값 조정](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/)에는 매개 변수와 해당 매개 변수가 장애 조치(Failover) 민감도에 미치는 영향이 나와 있습니다. 나열된 매개 변수 중에서 다음 2개의 매개 변수를 다음 값으로 설정해야 합니다.
-         1.   SameSubNetDelay = 2
+      3. Windows 장애 조치(failover) 클러스터 구성을 사용하는 경우 무대응 노드에 반응하는 시간이 Azure에 대해 올바르게 설정되어 있는지 확인합니다. Microsoft의 문서 [장애 조치(Failover) 클러스터 네트워크 임계값 조정](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834)에는 매개 변수와 해당 매개 변수가 장애 조치(Failover) 민감도에 미치는 영향이 나와 있습니다. 클러스터 노드가 동일한 서브넷에 있는 경우, 다음 매개 변수를 변경 해야 합니다.
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. 고가용성 및 재해 복구 절차 테스트
    1. 장애 조치(failover) 구성이 디자인한 대로 작동하는지 여부를 파악하기 위해 VM을 종료하거나(Windows 게스트 OS) 운영 체제를 비상 모드로 전환하여(Linux 게스트 OS) 장애 조치(Failover) 상황을 시뮬레이트합니다. 
    2. 장애 조치(failover)를 실행하는 데 걸리는 시간을 측정합니다. 시간이 너무 오래 걸리면 다음을 고려합니다.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026759"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153061"
 ---
 # <a name="install-and-run-speech-service-containers"></a>설치 하 고 음성 서비스 컨테이너를 실행 합니다.
 
@@ -178,7 +178,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. 명령은 다음 매개 변수를 사용합니다.
 
-**비공개 미리 보기 동안**, 청구 설정을 컨테이너를 시작 하려면 유효 해야 합니다. 하지만 사용에 대 한 요금이 청구 되지 않습니다.
+**미리 보기 동안**, 청구 설정을 컨테이너를 시작 하려면 유효 해야 합니다. 하지만 사용에 대 한 요금이 청구 되지 않습니다.
 
 | Placeholder | 값 |
 |-------------|-------|
@@ -226,7 +226,7 @@ ApiKey={BILLING_KEY}
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 
-컨테이너 websocket 기반 쿼리 끝점을 통해 액세스 되는 Api를 제공 [Speech services SDK 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/)합니다.
+컨테이너 websocket 기반 쿼리 끝점을 통해 액세스 되는 Api를 제공 합니다 [Speech SDK](index.yml)합니다.
 
 기본적으로 Speech SDK 온라인 음성 서비스를 사용합니다. 컨테이너를 사용 하려면 초기화 메서드를 변경 해야 합니다. 아래 예제를 참조 하세요.
 

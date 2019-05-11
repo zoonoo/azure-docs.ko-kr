@@ -2,18 +2,19 @@
 title: ZRS(영역 중복 스토리지)에서 고가용성 Azure Storage 응용 프로그램 빌드 | Microsoft Docs
 description: ZRS(영역 중복 저장소)는 고가용성 애플리케이션을 빌드하는 간단한 방법을 제공합니다. ZRS는 데이터센터의 하드웨어 오류뿐 아니라 일부 지역적인 재해로부터 보호합니다.
 services: storage
-author: tolandmike
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: ab3984b29b3bdfac7599c68c14bd6cc5b671cdf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146194"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]

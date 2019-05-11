@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a4f3b37b0dc4d74b03ffcfa61c97fbb571d57f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465595"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409956"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -563,7 +563,7 @@ _**그림 2:** 공유 디스크를 사용하지 않는 Azure에서 Windows Serve
 2. 두 가상 컴퓨터 노드에서 SIOS DataKeeper Cluster Edition을 실행합니다.
 3. 원본 가상 머신의 추가 VHD 연결 볼륨의 콘텐츠를 대상 가상 머신의 추가 VHD 연결 볼륨에 미러링하는 방식으로 SIOS DataKeeper Cluster Edition을 구성합니다. SIOS DataKeeper는 원본 및 대상 로컬 볼륨을 추상화한 다음 Windows Server 장애 조치 클러스터링에 단일 공유 디스크로 제공합니다.
 
-[SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
+[SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
 
 ![그림 3: SIOS DataKeeper를 사용하는 Azure의 Windows Server 장애 조치(Failover) 클러스터링 구성][sap-ha-guide-figure-1002]
 
@@ -1229,9 +1229,10 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(failover) 클러스터
 
    _**그림 38:** 클러스터를 다시 구성했는지 확인_
 
-Windows 장애 조치(failover) 클러스터를 성공적으로 설치한 후 장애 조치(failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경될 매개 변수는 이 블로그에 나와 있습니다. https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.
-- SameSubNetDelay = 2
-- SameSubNetThreshold = 15
+Windows 장애 조치(failover) 클러스터를 성공적으로 설치한 후 장애 조치(failover) 검색이 Azure의 상태에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 매개 변수를 변경할 수를이 블로그에 설명 되어 있습니다: [ https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834 ](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834)합니다. ASCS/SCS에 대한 Windows 클러스터 구성을 빌드하는 2개의 VM이 동일한 서브넷에 있다고 가정할 경우 다음 매개 변수를 다음과 같은 값으로 변경해야 합니다.  
+- SameSubNetDelay = 2000  
+- SameSubNetThreshold = 15  
+- RoutingHistoryLength = 30  
 
 이러한 설정은 고객과 함께 테스트되었으며 어떤 면에서는 충분히 복원력이 있는 좋은 타협안을 제공했으나 다른 측면에서는 SAP 소프트웨어 또는 노드/VM 장애의 실제 오류 상태에서 충분히 빠른 장애 조치(failover)를 제공했습니다. 
 

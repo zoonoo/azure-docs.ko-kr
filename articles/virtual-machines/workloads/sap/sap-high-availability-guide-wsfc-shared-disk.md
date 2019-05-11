@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 987cd1e5860b0fe340ba8a5163d844bec29b541c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205112"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -264,7 +264,7 @@ _**그림 4:** 공유 디스크를 사용 하 여 SAP ASCS/SCS HA 아키텍처_
 2. 두 가상 머신 노드에서 SIOS DataKeeper Cluster Edition을 실행합니다.
 3. 원본 가상 머신의 추가 디스크 연결 볼륨의 콘텐츠를 대상 가상 머신의 추가 디스크 연결 볼륨에 미러링하는 방식으로 SIOS DataKeeper Cluster Edition을 구성합니다. SIOS DataKeeper는 원본 및 대상 로컬 볼륨을 추상화한 다음 Windows Server 장애 조치(Failover) 클러스터링에 단일 공유 디스크로 제공합니다.
 
-[SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
+[SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
 
 ![그림 5: Windows Server 장애 조치 클러스터링 SIOS DataKeeper를 사용 하 여 Azure에서 구성][sap-ha-guide-figure-1002]
 

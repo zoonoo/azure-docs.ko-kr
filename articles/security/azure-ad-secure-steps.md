@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587876"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236786"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -59,12 +59,12 @@ ms.locfileid: "60587876"
 
 많은 조직에서는 (특수 문자, 숫자, 대문자 및 소문자가 필요한) 기존의 복잡성 및 암호 만료 규칙을 사용합니다. [Microsoft 연구](https://aka.ms/passwordguidance) 결과를 보면, 이러한 정책은 사용자가 쉽게 추측할 수 있는 암호를 선택하게 만드는 것으로 나타났습니다.
 
-Azure AD의 [동적으로 금지된 암호](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) 기능은 현재 공격자 동작을 사용하여 사용자가 쉽게 추측할 수 있는 암호를 설정하지 못하도록 합니다. 이 기능은 클라우드에서 사용자를 만들 때 항상 사용되며, 이제는 하이브리드 조직에서 [Windows Server Active Directory용 Azure AD 암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)를 배포할 때에도 사용할 수 있습니다. Azure AD 암호 보호는 사용자가 이처럼 일반적인 암호를 선택하지 못하게 차단하며 관리자가 지정하는 사용자 지정 키워드가 포함된 암호를 차단하도록 확장할 수 있습니다. 예를 들어 사용자가 회사의 제품 이름 또는 로컬 스포츠 팀이 포함된 암호를 선택하지 못하게 막을 수 있습니다.
+Azure AD의 [동적으로 금지된 암호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) 기능은 현재 공격자 동작을 사용하여 사용자가 쉽게 추측할 수 있는 암호를 설정하지 못하도록 합니다. 이 기능은 클라우드에서 사용자를 만들 때 항상 사용되며, 이제는 하이브리드 조직에서 [Windows Server Active Directory용 Azure AD 암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)를 배포할 때에도 사용할 수 있습니다. Azure AD 암호 보호는 사용자가 이처럼 일반적인 암호를 선택하지 못하게 차단하며 관리자가 지정하는 사용자 지정 키워드가 포함된 암호를 차단하도록 확장할 수 있습니다. 예를 들어 사용자가 회사의 제품 이름 또는 로컬 스포츠 팀이 포함된 암호를 선택하지 못하게 막을 수 있습니다.
 
 Microsoft에서는 [NIST 지침](https://pages.nist.gov/800-63-3/sp800-63b.html)에 따라 다음과 같은 최신 암호 정책을 도입할 것을 권장합니다.
 
 1. 8자 이상의 암호가 필요합니다. 사용자가 예측 가능한 암호를 선택하거나, 파일에 암호를 저장하거나, 적어둘 수 있으므로 긴 암호가 반드시 더 나은 것은 아닙니다.
-2. **Summer2018!** 처럼 사용자가 암호를 쉽게 추측할 수 있는 만료 규칙을 사용하지 않습니다.
+2. 사용자 드라이브와 같은 어려운된 암호를 만료 규칙을 사용 하지 않도록 설정 **Spring2019!**
 3. 사용자가 암호에 예측 가능한 문자 대용을 선택할 수 있으므로 문자 조합을 요구 사항을 사용하지 않고, 사용자가 일반적으로 공격 받는 암호를 선택하지 않도록 합니다.
 
 Azure AD에서 직접 ID를 만드는 경우 사용자의 [암호가 만료되지 않도록 PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy)을 사용할 수 있습니다. 하이브리드 조직에서는 [도메인 그룹 정책 설정](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) 또는 [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy)을 사용하여 이러한 정책을 구현해야 합니다.
@@ -132,7 +132,7 @@ Azure Active Directory에는 검색 및 응답 사이의 대기 시간을 제거
 
 사용자 위험은 사용자의 ID가 손상되었다는 가능성을 나타내며, 사용자의 ID와 연결된 [사용자 위험 이벤트](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)를 기반으로 계산됩니다. 사용자 위험 정책은 특정 사용자 또는 그룹에 대해 위험 수준을 평가하는 조건부 액세스 정책입니다. 낮음, 보통, 높음 위험 수준에 따라 액세스를 차단하거나 다단계 인증을 사용한 보안 암호 변경을 요구하도록 정책을 구성할 수 있습니다. Microsoft의 권장 사항은 높은 위험 수준에 있는 사용자의 경우 보안 암호 변경이 필요합니다.
 
-![위험에 대한 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps1.png)
+![위험 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Azure AD Identity Protection을 사용하여 로그인 위험 정책 구현
 
@@ -162,11 +162,11 @@ Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중�
 1. 위험한 로그인 보고서는 로그인한 사람이 정당한 소유자가 아닐 가능성이 있으므로 조사가 필요한 사용자 로그인 활동을 보여줍니다.
 2. 위험한 사용자 보고서는 유출된 자격 증명 발견, 여러 위치에서 로그인하여 불가능한 이동 이벤트를 발생시킨 사용자처럼 손상 가능성이 있는 사용자 계정을 보여줍니다. 
 
-![위험에 대한 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps3.png)
+![위험 플래그가 지정된 사용자](media/azure-ad/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>감사 앱 및 승인된 권한
 
-손상된 웹 사이트 또는 앱으로 이동하도록 사용자를 속여서 프로필 정보나 이메일 같은 사용자 데이터를 획득할 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자가 제공한 권한을 [검토 및 감사](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/)해야 합니다.
+손상된 웹 사이트 또는 앱으로 이동하도록 사용자를 속여서 프로필 정보나 이메일 같은 사용자 데이터를 획득할 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자가 제공한 권한을 [검토 및 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)해야 합니다.
 
 ## <a name="step-5---enable-end-user-self-help"></a>5단계 - 최종 사용자 자가 진단 사용
 

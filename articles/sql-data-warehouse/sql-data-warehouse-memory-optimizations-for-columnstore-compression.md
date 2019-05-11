@@ -19,7 +19,8 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60748795"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
-행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 사용 가능한 메모리를 늘리면 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화할 수 있습니다. 이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
+
+행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 사용 가능한 메모리를 늘리면 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화할 수 있습니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
 
 ## <a name="why-the-rowgroup-size-matters"></a>행 그룹 크기가 중요한 이유
 columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 테이블을 검색하므로 각 행 그룹에서 행 수를 최대화하면 쿼리 성능이 향상됩니다. 행 그룹에 행 수가 많은 경우 데이터 압축이 향상되며 따라서 디스크에서 읽어올 데이터가 줄어듭니다.
@@ -39,7 +40,7 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>행 그룹 품질을 모니터링 하는 방법
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)는 SQL Data Warehouse에 SQL DB를 매칭하는 뷰 정의 포함)는 행 그룹이 잘렸다면 잘린 이유와 행 그룹의 행 수와 같은 유용한 정보를 노출합니다. 다음 뷰를 만들어 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) 는 SQL Data Warehouse에 SQL DB를 매칭하는 뷰 정의 포함) 는 행 그룹이 잘렸다면 잘린 이유와 행 그룹의 행 수와 같은 유용한 정보를 노출합니다. 다음 뷰를 만들어 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
 
 ```sql
 create view dbo.vCS_rg_physical_stats

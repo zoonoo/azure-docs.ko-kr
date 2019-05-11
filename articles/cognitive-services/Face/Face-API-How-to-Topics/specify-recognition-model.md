@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 33348e637143b923719425b9674f99a475d848d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58806680"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411463"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -52,7 +52,7 @@ AI 얼굴 감지 및 id의 개념을 잘 알고 있어야 합니다. 가 아닌 
 경우 두면 할당 하지 않은 경우 기본 모델 버전 (_recognition_01_) 사용 됩니다. .NET 클라이언트 라이브러리에 대 한 다음 코드 예제를 참조 하세요.
 
 ```csharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 

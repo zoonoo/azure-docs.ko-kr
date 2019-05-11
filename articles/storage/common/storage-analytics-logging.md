@@ -2,18 +2,19 @@
 title: Azure 저장소 분석 로깅
 description: Azure Storage에 대 한 요청에 대 한 세부 정보를 기록 하는 방법에 알아봅니다.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: fryu
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3daea17a491af8950b38f1e3183583fef63751e2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a77cf20be30361abf6590dbd53bdb07c327eb9d8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926484"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204981"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 저장소 분석 로깅
 

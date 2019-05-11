@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: c97d4a373970514b920581aa258b61c1b1cb978c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7c6d5034335a455d24b1f22919b672e2ead2810d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684007"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510851"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -115,7 +115,7 @@ code pom.xml
 mvn package azure-webapp:deploy
 ```
 
-배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 애플리케이션으로 이동합니다(예: `http://<webapp>.azurewebsites.net/helloworld`). 
+배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 애플리케이션으로 이동합니다(예: `http://<webapp>.azurewebsites.net`). 
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-java/java-hello-world-in-browser-curl.png)
 

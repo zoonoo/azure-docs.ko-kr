@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 350aef037f019733e02331623758c14a3c64ab50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386978"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136480"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
@@ -188,7 +188,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Service Fabric 애플리케이션 코드에서 아래와 전부 유사한 REST를 만들어 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.
+Service Fabric 응용 프로그램 코드에서 [액세스 토큰을 가져올](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) REST 모든 다음과 유사 하 게 하 여 Azure Resource Manager 용:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")

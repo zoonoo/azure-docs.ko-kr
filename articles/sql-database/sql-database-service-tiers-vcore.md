@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572687"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235890"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>VCore 서비스 계층 간에 선택 하 고 DTU 서비스 계층에서 마이그레이션
 
@@ -38,14 +38,16 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 
 다음 표는 이러한 세 계층 간의 차이점을 이해하는 데 도움이 됩니다.
 
-||**범용**|**중요 비즈니스**|**하이퍼스케일(미리 보기)**|
+||**범용**|**중요 비즈니스**|**Hyperscale**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 스토리지 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 애플리케이션입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
-|CPU|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore<br/>**서버 리스 계산**<br/>Gen5: 0.5 - 4 vCore|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|
-|메모리|**계산을 프로 비전**:<br/>Gen4: 코어당 7GB<br/>Gen5: 코어당 5.1GB<br/>**서버 리스 계산**<br/>Gen5: 코어당 3GB|**계산을 프로 비전**:<br/>Gen4: 코어당 7GB<br/>Gen5: 코어당 5.1GB |**계산을 프로 비전**:<br/>Gen4: 코어당 7GB<br/>Gen5: 코어당 5.1GB|
+|컴퓨팅|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: vCore 2 ~ 80<br/>**서버 리스 계산**<br/>Gen5: 0.5 - 4 vCore|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: vCore 2 ~ 80|**계산을 프로 비전**:<br/>Gen4: 1-24개 vCore<br/>Gen5: vCore 2 ~ 80|
+|메모리|**계산을 프로 비전**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB<br/>**서버 리스 계산**<br/>Gen5: vCore당 3GB|**계산을 프로 비전**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB |**계산을 프로 비전**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB|
 |Storage|원격 스토리지를 사용합니다.<br/>**계산을 프로 비전 된 단일 데이터베이스**:<br/>5GB~4TB<br/>**단일 데이터베이스 서버 리스 계산**:<br/>5GB-1TB<br/>**관리 되는 인스턴스**: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>**계산을 프로 비전 된 단일 데이터베이스**:<br/>5GB~4TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
+|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB|
+|Storage|원격 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
 |IO 처리량(근사치)|단일 데이터베이스: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|TBD|
-|가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|?|
+|가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|1 읽기/쓰기 복제본 plus 0-4 [읽기-배율 복제본](sql-database-read-scale-out.md)|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 및 복원은 빠른 복구를 위한 이러한 스냅숏을 사용합니다. 백업은 즉각적이며 IO 계산 성능에 영향을 주지 않습니다. 데이터 작업의 크기가 아닙니다(몇 시간 또는 며칠 대신 몇 분이 소요됨).|
 |메모리 내|지원되지 않음|지원됨|지원되지 않음|
 |||
@@ -56,8 +58,6 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 - 자세한 내용은 [단일 데이터베이스의 vCore 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 및 [Managed Instance의 vCore 리소스 제한](sql-database-managed-instance.md#vcore-based-purchasing-model)을 참조하세요.
 - 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용 및 중요 비즈니스용 서비스 계층](sql-database-service-tiers-general-purpose-business-critical.md)을 참조하세요.
 - vCore 기반 구매 모델의 하이퍼스케일 서비스 계층에 대한 자세한 내용은 [하이퍼스케일 서비스 계층](sql-database-service-tier-hyperscale.md)을 참조하세요.  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Azure 하이브리드 혜택
 

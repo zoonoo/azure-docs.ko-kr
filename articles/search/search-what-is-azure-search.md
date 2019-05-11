@@ -1,47 +1,64 @@
 ---
 title: Azure Search 서비스란? - Azure Search 서비스
-description: Azure Search는 완벽하게 관리되는 Microsoft의 호스트된 클라우드 Search 서비스입니다. 기능 설명, 개발 워크플로, Azure Search 및 다른 Microsoft 검색 제품 비교, 시작하는 방법을 검토합니다.
+description: Azure Search는 Microsoft에서 제공하는 완전 관리형 호스트 클라우드 검색 서비스입니다. 기능 설명, 개발 워크플로, Azure Search 및 다른 Microsoft 검색 제품 비교, 시작하는 방법을 검토합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 02/01/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8893d8a55f77b54c9327e913af192ad39df46ba2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090018"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467074"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
 Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.
 
-+ 여러 콘텐츠 형식 및 플랫폼에서 소싱된 데이터만 포함하는 검색 모음을 빌드합니다. 
-+ AI 기반 인덱싱을 활용하여 이미지 파일에서 텍스트 및 기능 또는 원시 텍스트에서 엔터티 및 키를 추출합니다.
-+ 자동 수정된 검색 용어 "did you mean"에 대한 패싯 탐색 및 필터, 동의어, 자동 완성 및 텍스트 분석을 사용하여 직관적인 검색 환경을 만듭니다.
-+ "내 주변 찾기"에 대해 지역 검색, 영어가 아닌 전체 텍스트 검색에 대해 언어 분석기 및 검색 순위에 대해 점수 매기기 논리를 추가합니다.
++ 여러 콘텐츠 형식 및 플랫폼에서 얻은 데이터만 포함하는 검색 인덱스를 빌드합니다. 
+
++ AI 보강을 활용하여 이미지 파일에서 텍스트 및 기능을 추출하거나 원시 텍스트에서 엔터티 및 핵심 구를 추출합니다.
+
++ 검색어 자동 수정 "did you mean"에 대한 패싯 탐색 및 필터, 동의어, 자동 완성 및 텍스트 분석을 사용하여 직관적인 검색 환경을 만듭니다. 함수 및 부스팅 논리를 통해 관련성을 튜닝합니다.
+
++ 특정 사용 사례에 대한 검색 앱을 만듭니다. 지리적 검색은 "내 주변 찾기" 환경을 지원합니다. 다국어 검색은 언어 분석기를 통해 영어 이외 언어의 전체 텍스트 검색을 지원합니다.
 
 기능은 정보 검색의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. API 외에도 Azure Portal에서 운영 및 콘텐츠 관리 지원과 인덱스 프로토타입 및 쿼리를 위한 도구를 제공합니다. 이 서비스는 클라우드에서 실행되므로 인프라 및 가용성은 Microsoft에서 관리합니다.
 
 <a name="feature-drilldown"></a>
 
-## <a name="feature-summary"></a>기능 요약
+## <a name="feature-descriptions"></a>기능 설명
 
-| Category | 기능 |
-|----------|----------|
-|전체 텍스트 검색 및 텍스트 분석 | [전체 텍스트 검색](search-lucene-query-architecture.md)은 대부분의 검색 기반 앱에서 기본적으로 사용되는 검색 방식입니다. 쿼리는 지원되는 구문을 사용하여 작성할 수 있습니다. <br/><br/>[**간단한 쿼리 구문**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)은 논리 연산자, 구 검색 연산자, 후위 연산자, 선행 연산자를 제공합니다.<br/><br/>[**Lucene 쿼리 구문**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)에는 간단한 구문의 모든 연산이 포함되며 유사 항목 검색, 근접 검색, 용어 상승 및 정규식에 대한 확장이 포함됩니다.|
-|인지 검색(미리 보기) | 이미지 및 텍스트 분석을 위한 [AI 지원 알고리즘](cognitive-search-concept-intro.md)은 인덱싱 파이프라인에 적용되어 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. |
-| 데이터 통합 | Azure Search 인덱스는 JSON 데이터 구조로 제출되기만 하면 모든 원본의 데이터를 수용합니다. <br/><br/> 필요에 따라 Azure에서 지원되는 데이터 원본에 대해 [**인덱서**](search-indexer-overview.md)를 사용해 기본 데이터 저장소에서 검색 가능한 콘텐츠에 대해 자동으로 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)를 크롤링합니다. Azure Blob 인덱서는 Microsoft Office, PDF 및 HTML 문서를 비롯한 [주요 파일 형식에서 텍스트를 추출](search-howto-indexing-azure-blob-storage.md)하기 위해 *문서 크래킹*을 수행할 수 있습니다. |
-| 언어 분석 | 분석기는 인덱싱 및 검색 작업 중 텍스트 처리에 사용되는 구성 요소입니다. 두 가지 형식이 있습니다. <br/><br/>[**사용자 지정 어휘 분석기**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)는 표기 일치 및 정규식을 사용하는 복잡한 검색 쿼리에 사용됩니다. <br/><br/>Lucene 또는 Microsoft의 [**언어 분석기**](https://docs.microsoft.com/rest/api/searchservice/language-support)는 동사 시제, 성, 불규칙 복수 명사(예: ‘mouse’와 ‘mice’), 단어 분해, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 비롯한 언어별 언어 체계를 지능적으로 처리할 수 있습니다. |
+| 핵심&nbsp;검색&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
+|-------------------|----------|
+|자유 형식 텍스트 검색 | [**전체 텍스트 검색**](search-lucene-query-architecture.md)은 대부분의 검색 기반 앱에서 기본적으로 사용되는 검색 방식입니다. 쿼리는 지원되는 구문을 사용하여 작성할 수 있습니다. <br/><br/>[**간단한 쿼리 구문**](query-simple-syntax.md)은 논리 연산자, 구 검색 연산자, 후위 연산자, 선행 연산자를 제공합니다.<br/><br/>[**Lucene 쿼리 구문**](query-lucene-syntax.md)에는 간단한 구문의 모든 연산이 포함되며 유사 항목 검색, 근접 검색, 용어 상승 및 정규식에 대한 확장이 포함됩니다.|
+| 관련성 | [**간단한 점수 매기기**](index-add-scoring-profiles.md)는 Azure Search의 주요 이점입니다. 점수 매기기 프로필은 문서 자체의 값에 대한 함수로서 관련성을 모델링하는 데 사용됩니다. 예를 들어 최신 제품 또는 할인 제품을 검색 결과의 더 높은 부분에 나타내려고 할 수 있습니다. 또한 따로 추적하고 저장한 고객 검색 기본 설정에 따라 개인화된 점수에 태그를 사용하여 점수 매기기 프로필을 만들 수도 있습니다. |
 | 지리적 검색 | Azure Search는 지리적 위치를 처리하고, 필터링하고, 표시합니다. 이 기능을 통해 사용자는 실제 위치에 대한 검색 결과의 근접도에 따라 데이터를 검색할 수 있습니다. [이 동영상을 시청](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)하거나 [이 예제를 검토](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)하여 자세히 알아보세요. |
-| 사용자 환경 기능 | [**자동 완성(미리 보기)**](search-autocomplete-tutorial.md)은 검색 창의 자동 완성 쿼리에 사용할 수 있습니다. <br/><br/>[**검색 제안**](https://docs.microsoft.com/rest/api/searchservice/suggesters) 도 검색 표시줄 결과에서 일부 텍스트 입력에서 작동에 실제 문서 쿼리를 사용 하지 않고 인덱스 사용 약관이 있습니다. <br/><br/>[**동의어**](search-synonyms.md)는 사용자가 대체 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. <br/><br/>[**패싯 탐색**](search-faceted-navigation.md)은 단일 쿼리 매개 변수를 통해 사용하도록 설정됩니다. Azure Search는 자기 주도형 필터링(예: 가격 범위 또는 브랜드별로 카탈로그 항목 필터링)을 위해 코드 숨김 카탈로그 목록으로 사용할 수 있는 패싯 탐색 구조를 반환합니다. <br/><br/> [**필터**](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)를 사용하여 패싯 탐색을 애플리케이션 UI에 통합하고, 쿼리 작성을 향상하고, 사용자 또는 개발자가 지정한 기준에 따라 필터링할 수 있습니다. OData 구문을 사용하여 필터를 만듭니다.<br/><br/> [**적중 항목 강조 표시**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)는 검색 결과의 일치하는 키워드에 텍스트 서식을 적용합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.<br/><br/>[**정렬**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)은 인덱스 스키마를 통해 여러 필드에 제공된 후 쿼리 시 단일 검색 매개 변수를 통해 전환됩니다.<br/><br/> 검색 결과 [**페이징**](search-pagination-page-layout.md) 및 제한은 Azure Search에서 검색 결과에 대해 제공하는 세밀하게 조정된 컨트롤을 사용하여 손쉽게 적용할 수 있습니다.  
-| 관련성 | [**간단한 점수 매기기**](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)는 Azure Search의 주요 이점입니다. 점수 매기기 프로필은 문서 자체의 값에 대한 함수로서 관련성을 모델링하는 데 사용됩니다. 예를 들어 최신 제품 또는 할인 제품을 검색 결과의 더 높은 부분에 나타내려고 할 수 있습니다. 또한 따로 추적하고 저장한 고객 검색 기본 설정에 따라 개인화된 점수에 태그를 사용하여 점수 매기기 프로필을 만들 수도 있습니다. |
-| 모니터링 및 보고 | [**검색 트래픽 분석**](search-traffic-analytics.md)을 수집하고 분석하여 사용자가 검색 상자에 입력하는 내용으로부터 정보를 얻을 수 있습니다. <br/><br/>필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다. 인덱스 및 문서 수를 쉽게 모니터링할 수 있으므로 필요에 따라 용량을 조정할 수 있습니다. 자세한 내용은 [서비스 관리](search-manage.md)를 참조하세요. |
+| 필터 및 패싯 | [**패싯 탐색**](search-faceted-navigation.md)은 단일 쿼리 매개 변수를 통해 사용하도록 설정됩니다. Azure Search는 자기 주도형 필터링(예: 가격 범위 또는 브랜드별로 카탈로그 항목 필터링)을 위해 코드 숨김 카탈로그 목록으로 사용할 수 있는 패싯 탐색 구조를 반환합니다. <br/><br/> [**필터**](query-odata-filter-orderby-syntax.md)를 사용하여 패싯 탐색을 애플리케이션 UI에 통합하고, 쿼리 작성을 향상하고, 사용자 또는 개발자가 지정한 기준에 따라 필터링할 수 있습니다. OData 구문을 사용하여 필터를 만듭니다. |
+| 사용자 환경 기능 | [**자동 완성**](search-autocomplete-tutorial.md)은 검색 창의 자동 완성 쿼리에 사용할 수 있습니다. <br/><br/>[**검색 제안**](https://docs.microsoft.com/rest/api/searchservice/suggesters) 도 검색 표시줄 결과에서 일부 텍스트 입력에서 작동에 실제 문서 쿼리를 사용 하지 않고 인덱스 사용 약관이 있습니다. <br/><br/>[**동의어**](search-synonyms.md)는 사용자가 대체 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. <br/><br/>[**적중 항목 강조 표시**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)는 검색 결과의 일치하는 키워드에 텍스트 서식을 적용합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.<br/><br/>[**정렬**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)은 인덱스 스키마를 통해 여러 필드에 제공된 후 쿼리 시 단일 검색 매개 변수를 통해 전환됩니다.<br/><br/> 검색 결과 [**페이징**](search-pagination-page-layout.md) 및 제한은 Azure Search에서 검색 결과에 대해 제공하는 세밀하게 조정된 컨트롤을 사용하여 손쉽게 적용할 수 있습니다.  <br/><br/>|
+
+| AI&nbsp;보강&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | 기능 |
+|-------------------|----------|
+|AI 보강 문서 | 이미지 및 텍스트 분석을 위한 [**Cognitive Search**](cognitive-search-concept-intro.md)는 인덱싱 파이프라인에 적용하여 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. |
+| 분석 및 소비용으로 저장된 보강| [**지식 저장소(미리 보기)**](knowledge-store-concept-intro.md)는 AI 기반 인덱싱의 확장입니다. Azure 스토리지를 백 엔드로 사용하면 인덱싱 중에 만들어진 보강 내용을 저장할 수 있습니다. 이러한 아티팩트를 사용하면 보다 나은 기술을 디자인하거나, 확실하지 않은 또는 모호한 데이터로 도형 또는 구조체를 만들 수 있습니다. 특정 워크로드 또는 사용자를 대상으로 하는 이러한 구조체의 프로젝션을 만들 수 있습니다. 추출된 데이터를 직접 분석하거나 다른 앱에 로드할 수도 있습니다.<br/><br/> |
+
+| 데이터&nbsp;가져오기/인덱싱 | 기능 |
+|----------------------------------|----------|
+| 데이터 원본 | Azure Search 인덱스는 JSON 데이터 구조로 제출되기만 하면 모든 원본의 데이터를 수용합니다. <br/><br/> [**인덱서**](search-indexer-overview.md)는 지원되는 Azure 데이터 원본의 데이터 수집을 자동화하고 JSON serialization을 처리합니다. [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob 스토리지](search-howto-indexing-azure-blob-storage.md)에 연결하여 주 데이터 저장소에서 검색 가능한 콘텐츠를 추출합니다. Azure Blob 인덱서는 Microsoft Office, PDF 및 HTML 문서를 비롯한 [주요 파일 형식에서 텍스트를 추출](search-howto-indexing-azure-blob-storage.md)하기 위해 *문서 크래킹*을 수행할 수 있습니다. |
+| 계층형 및 중첩 데이터 구조 | [**복합 형식**](search-howto-complex-data-types.md) 및 컬렉션을 사용하면 거의 모든 유형의 JSON 구조를 Azure Search 인덱스로 모델링할 수 있습니다. 일대다 및 다대다 카디널리티는 컬렉션, 복합 형식 및 복합 형식 컬렉션을 통해 고유하게 표현할 수 있습니다.|
+| 언어 분석 | 분석기는 인덱싱 및 검색 작업 중 텍스트 처리에 사용되는 구성 요소입니다. 두 가지 형식이 있습니다. <br/><br/>[**사용자 지정 어휘 분석기**](index-add-custom-analyzers.md)는 표기 일치 및 정규식을 사용하는 복잡한 검색 쿼리에 사용됩니다. <br/><br/>Lucene 또는 Microsoft의 [**언어 분석기**](index-add-language-analyzers.md)는 동사 시제, 성, 불규칙 복수 명사(예: ‘mouse’와 ‘mice’), 단어 분해, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 비롯한 언어별 언어 체계를 지능적으로 처리할 수 있습니다. <br/><br/>|
+
+
+| 플랫폼&nbsp;수준&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 기능 |
+|-------------------|----------|
 | 프로토타입 및 검사용 도구 | 포털에서 [**데이터 가져오기 마법사**](search-import-data-portal.md)를 사용하여 인덱서를 구성하고, 인덱스 디자이너를 사용하여 인덱스를 나타내고, [**검색 탐색기**](search-explorer.md)를 사용하여 쿼리를 테스트하고 점수 매기기 프로필을 구체화할 수 있습니다. 인덱스를 열어 해당 스키마를 볼 수도 있습니다. |
-| 인프라 | **가용성이 높은 플랫폼**은 매우 안정적인 검색 서비스 환경을 보장합니다. 규모를 적절하게 조정하면 [Azure Search는 99.9%의 SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.<br/><br/> **완벽하게 관리 및 확장되는** 종합 솔루션인 Azure Search는 인프라 관리가 전혀 필요 없습니다. 더 많은 문서 저장소, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 서비스를 맞춤 구성할 수 있습니다.
+| 모니터링 및 진단 | 포털에 항상 표시되는 단순한 메트릭 이상을 원하신다면 [**모니터링 기능을 사용하세요**](search-monitor-usage.md). 필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다. <br/><br/>[**검색 트래픽 분석**](search-traffic-analytics.md)은 서버 쪽 및 클라이언트 쪽 데이터를 수집하고 분석하여 사용자가 검색 상자에 입력하는 내용에 대한 인사이트를 얻을 수 있는 또 다른 모니터링 대안입니다. |
+| 서버 쪽 암호화 | [**Microsoft 관리형 저장 데이터 암호화**](search-security-overview.md#encrypted-transmission-and-storage)는 내부 스토리지 레이어에 내장되어 있으며 취소할 수 없습니다. 필요에 따라 [**고객 관리 암호화 키(미리 보기)**](search-security-manage-encryption-keys.md)를 사용하여 기본 암호화를 보완할 수 있습니다. 고객이 Azure Key Vault에서 만들고 관리하는 키는 Azure Search에서 인덱스 및 동의어 맵을 암호화하는 데 사용됩니다. |
+| 인프라 | **가용성이 높은 플랫폼**은 매우 안정적인 검색 서비스 환경을 보장합니다. 규모를 적절하게 조정하면 [Azure Search는 99.9%의 SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.<br/><br/> **완벽하게 관리 및 확장되는** 종합 솔루션인 Azure Search는 인프라 관리가 전혀 필요 없습니다. 더 많은 문서 저장소, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 서비스를 맞춤 구성할 수 있습니다.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Azure Search를 사용하는 방법
 ### <a name="step-1-provision-service"></a>1단계: 서비스 프로비전

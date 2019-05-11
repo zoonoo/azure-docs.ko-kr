@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49d44fa0926afac917ae0ba355d37f13a354f432
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b8b9076c0a4b1fddda4ab0bcfe9f104d7dcf8a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887937"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>자습서: Atlassian Cloud와 Azure Active Directory 통합
 
@@ -38,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Atlassian Cloud와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Atlassian Cloud Single Sign-On을 사용하도록 설정된 구독
 * Atlassian Cloud 제품에 SAML(Security Assertion Markup Language) Single Sign-On을 사용하도록 설정하려면 Atlassian Access를 설정해야 합니다. [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager)에 대해 자세히 알아보세요.
 
@@ -115,7 +116,7 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     d. **릴레이 상태** 텍스트 상자에서 `https://<instancename>.atlassian.net` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값은 이 자습서의 뒷부분에 설명된 Atlassian Cloud SAML 구성 화면에서 얻습니다.
+    > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값은 이 자습서의 뒷부분의 **Atlassian Cloud Single Sign-On 구성**에 설명된 **Atlassian Cloud SAML 구성** 화면에서 얻을 수 있습니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
@@ -146,33 +147,41 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="configure-atlassian-cloud-single-sign-on"></a>Atlassian Cloud Single Sign-On 구성
 
-1. 애플리케이션에 SSO를 구성하려면 관리자 자격 증명을 사용하여 Atlassian Portal에 로그인합니다.
+1. Atlassian Cloud 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. Single Sign-On을 구성하기 전에 도메인을 확인해야 합니다. 자세한 내용은 [Atlassian 도메인 확인](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) 문서를 참조하세요.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
 
-3. 왼쪽 창에서 **SAML Single Sign-On**을 선택합니다. 아직 하지 않는 경우 Atlassian Identity Manager를 구독합니다.
+2. 브라우저에 확장을 추가한 후 **Atlassian Cloud 설정**을 클릭하면 Atlassian Cloud 애플리케이션으로 이동됩니다. 여기에서 관리자 자격 증명을 입력하여 Atlassian Cloud에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Atlassian Cloud를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Atlassian Cloud 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
+
+4. Single Sign-On을 구성하기 전에 도메인을 확인해야 합니다. 자세한 내용은 [Atlassian 도메인 확인](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) 문서를 참조하세요.
+
+5. 왼쪽 창에서 **SAML Single Sign-On**을 선택합니다. 아직 하지 않는 경우 Atlassian Identity Manager를 구독합니다.
 
     ![Single Sign-On 구성](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-4. **Add SAML configuration**(SAML 구성 추가) 창에서 다음을 수행합니다.
+6. **Add SAML configuration**(SAML 구성 추가) 창에서 다음을 수행합니다.
 
     ![Single Sign-On 구성](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. **Identity provider Entity ID**(ID 공급자 엔터티 ID) 상자에 Azure Portal에서 복사한 SAML 엔터티 ID를 붙여넣습니다.
+    a. **Identity provider Entity ID**(ID 공급자 엔터티 ID) 상자에 Azure Portal에서 복사한 **Azure AD 식별자**를 붙여넣습니다.
 
-    b. **ID 공급자 SSO URL** 상자에 Azure Portal에서 복사한 SAML Single Sign-On 서비스 URL을 붙여넣습니다.
+    b. **Identity provider SSO URL**(ID 공급자 SSO URL) 상자에 Azure Portal에서 복사한 **로그인 URL**을 붙여넣습니다.
 
     다. Azure Portal에서 .txt 파일로 다운로드한 인증서를 열고 값(*시작 인증서* 및 *끝 인증서* 행 제외)을 복사하여 **공용 X509 인증서** 상자에 붙여넣습니다.
 
     d. **구성 저장**을 클릭하십시오.
 
-5. 올바른 URL을 설정했는지 확인하려면 다음을 수행하여 Azure AD 설정을 업데이트합니다.
+7. 올바른 URL을 설정했는지 확인하려면 다음을 수행하여 Azure AD 설정을 업데이트합니다.
 
     ![Single Sign-On 구성](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. SAML 창에서 **SP Identity ID**(SP ID)를 복사한 후 Azure Portal의 Atlassian Cloud **도메인 및 URL** 아래에서 **식별자** 상자에 붙여넣습니다.
+    a. SAML 창에서 **SP Identity ID**(SP ID)를 복사한 후 Azure Portal의 Atlassian Cloud **기본 SAML 구성** 아래에 있는 **식별자** 상자에 붙여넣습니다.
 
-    b. SAML 창에서 **SP Assertion Consumer Service URL**을 복사한 후 Azure Portal의 Atlassian Cloud **도메인 및 URL** 아래에서 **회신 URL** 상자에 붙여넣습니다. [로그인 URL]은 Atlassian Cloud의 테넌트 URL입니다.
+    b. SAML 창에서 **SP Assertion Consumer Service URL**을 복사한 후 Azure Portal의 Atlassian Cloud **기본 SAML 구성** 아래에 있는 **회신 URL** 상자에 붙여넣습니다. [로그인 URL]은 Atlassian Cloud의 테넌트 URL입니다.
 
     > [!NOTE]
     > 기존 고객인 경우 Azure Portal에서 **SP Identity ID**(SP ID) 및 **SP Assertion Consumer Service URL** 값을 업데이트한 후 **Yes, update configuration**(예, 구성 업데이트)을 선택합니다. 새 고객인 경우 이 단계를 건너뛸 수 있습니다.

@@ -27,16 +27,16 @@ API Management 정책은 구성을 통해 Azure Portal에서 API 동작을 변�
 
 | 특성 | Type | 설명 |
 | --- | --- | --- |
-| 표시 이름 |문자열 |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
-| 값 |문자열 |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
+| Display name |문자열 |정책의 속성을 참조하는 데 사용되는 영숫자 문자열입니다. |
+| Value |문자열 |속성의 값입니다. 비워 두거나 공백만으로 구성될 수 없습니다. |
 |Secret|부울|값이 암호인지, 그리고 암호화해야 하는지 여부를 결정합니다.|
-| 태그들 |문자열의 배열 |제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
+| Tags |문자열의 배열 |제공된 경우 속성 목록을 필터링하는 데 사용할 수 있는 선택적 태그입니다. |
 
 ![명명된 값](./media/api-management-howto-properties/named-values.png)
 
 속성 값은 리터럴 문자열 및 [정책 식](/azure/api-management/api-management-policy-expressions)을 포함할 수 있습니다. 예를 들어 `ExpressionProperty` 값은 현재 날짜 및 시간이 포함된 문자열을 반환하는 정책 식입니다. `ContosoHeaderValue` 속성은 암호 표식이 있으므로 해당 값이 표시되지 않습니다.
 
-| 이름 | 값 | Secret | 태그들 |
+| 이름 | Value | Secret | Tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |거짓 |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |

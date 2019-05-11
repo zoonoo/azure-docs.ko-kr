@@ -19,11 +19,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60355576"
 ---
-# <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 공동 작업 사용자 속성
+# <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
 이 문서에서는 초대 상환 전후 속성 및 Azure Active Directory (Azure AD)에서 B2B 게스트 사용자 개체의 상태를 설명 합니다. Azure AD 기업 간 B2B 공동 작업 사용자가 사용자 usertype = Guest 합니다. 이 게스트 사용자는 일반적으로 파트너 조직에 소속되어 있으며, 기본적으로 초대 디렉터리에서 제한된 권한을 가집니다.
 
-초대 조직의 요구에 따라 Azure AD B2B 공동 작업 사용자는 다음 계정 상태 중 하나일 수 있습니다.
+초대 조직의 요구에 따라 Azure AD B2B 협업 사용자는 다음 계정 상태 중 하나일 수 있습니다.
 
 - 상태 1: Azure AD의 외부 인스턴스에 속하며 초대하는 조직의 게스트 사용자로 표시됩니다. 이 경우 B2B 사용자는 초대된 테넌트에 속한 Azure AD 계정을 사용하여 로그인합니다. 파트너 조직이 Azure AD를 사용하지 않는 경우에도 Azure AD에서 게스트 사용자는 여전히 생성됩니다. 단, 본인의 초대를 사용해야 합니다. Azure AD에서는 해당 사용자의 전자 메일 주소를 확인합니다. 이것을 JIT(Just In Time) 테넌트 또는 “바이럴” 테넌트라고도 합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "60355576"
   ![네 개의 사용자 상태를 보여 주는 다이어그램](media/user-properties/redemption-diagram.png)
 
 
-이제 Azure AD에서 Azure AD B2B 공동 작업 사용자가 어떻게 보이는지 살펴보겠습니다.
+이제 Azure AD에서 Azure AD B2B 협업 사용자가 어떻게 보이는지 살펴보겠습니다.
 
 ### <a name="before-invitation-redemption"></a>초대 상환 전
 
@@ -58,7 +58,7 @@ ms.locfileid: "60355576"
 
 상태 3 및 상태 4의 게스트 사용자의 경우 **원본** 속성은 다음 섹션에 설명된 대로 **Azure Active Directory** 또는 **Windows Server Active Directory**로 설정됩니다.
 
-## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B 공동 작업 사용자의 주요 속성
+## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Azure AD B2B 협업 사용자의 주요 속성
 ### <a name="usertype"></a>UserType
 이 속성은 사용자와 호스트 테넌트 사이의 관계를 나타냅니다. 이 속성에는 다음 두 가지 값이 사용될 수 있습니다.
 - 구성원: 이 값은 호스트 조직의 직원과 조직의 급여 부서에 있는 사용자를 나타냅니다. 예를 들어 이 사용자는 내부 전용 사이트에 대한 액세스 권한을 요구합니다. 이 사용자는 외부 공동 작업자로 간주되지 않습니다.
@@ -84,7 +84,7 @@ ms.locfileid: "60355576"
   > Source와 UserType은 독립적인 속성입니다. Source의 값은 UserType에 대한 특정 값을 의미하지 않습니다.
 
 ## <a name="can-azure-ad-b2b-users-be-added-as-members-instead-of-guests"></a>Azure AD B2B 사용자를 게스트 대신 구성원으로 추가할 수 있습니까?
-일반적으로 Azure AD B2B 사용자와 게스트 사용자는 동의어입니다. 따라서 Azure AD B2B 공동 작업 사용자는 기본적으로 UserType = Guest인 사용자로 추가됩니다. 그러나 경우에 따라 파트너 조직은 호스트 조직이 속한 더 큰 조직의 구성원일 수 있습니다. 만약 그렇다면 호스트 조직에서 파트너 조직의 사용자를 게스트가 아닌 구성원으로 처리하려 할 수 있습니다. Azure AD B2B 초대 관리자 API를 사용하여 호스트 조직에 파트너 조직의 사용자를 구성원으로 추가하거나 초대합니다.
+일반적으로 Azure AD B2B 사용자와 게스트 사용자는 동의어입니다. 따라서 Azure AD B2B 협업 사용자는 기본적으로 UserType = Guest인 사용자로 추가됩니다. 그러나 경우에 따라 파트너 조직은 호스트 조직이 속한 더 큰 조직의 구성원일 수 있습니다. 만약 그렇다면 호스트 조직에서 파트너 조직의 사용자를 게스트가 아닌 구성원으로 처리하려 할 수 있습니다. Azure AD B2B 초대 관리자 API를 사용하여 호스트 조직에 파트너 조직의 사용자를 구성원으로 추가하거나 초대합니다.
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>디렉터리의 게스트 사용자 필터링
 

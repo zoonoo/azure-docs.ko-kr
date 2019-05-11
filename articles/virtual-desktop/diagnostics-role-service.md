@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870492"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234020"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>진단 기능을 사용하여 문제 식별
 
@@ -118,7 +118,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 오류 시나리오는 서비스의 내부 및 외부 Windows 가상 데스크톱에 분류 되어 있습니다.
 
-* 내부 문제: 테 넌 트 관리자가 완화 될 수 없습니다 및 지원 문제를 해결 해야 하는 시나리오를 지정 합니다. 티켓을 발생 시키는 제공할 때 작업 ID, 테 넌 트 이름 및 대략적인 시간 문제가 발생 했습니다.
+* 내부 문제: 테 넌 트 관리자가 완화 될 수 없습니다 및 지원 문제를 해결 해야 하는 시나리오를 지정 합니다. 통해 피드백을 제공 하는 경우는 [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)에서 동작 ID를 포함 하 고 대략적인 문제가 발생 한 경우의 시간 프레임입니다.
 * 외부 문제: 시스템 관리자가 완화 될 수 있는 시나리오와 관련이 있습니다. 이들은 Windows 가상 데스크톱에 외부입니다.
 
 다음 표에서 관리자 발생할 수 있는 일반적인 오류를 나열 합니다.

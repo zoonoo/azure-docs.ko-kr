@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 683f916596b4c77ec1dbc2acf1f91876c0752c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028832"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409833"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>탐색 하 고 데이터 집합 클래스 (미리 보기)를 사용 하 여 데이터 준비
 
@@ -35,7 +35,7 @@ ms.locfileid: "65028832"
 
 * Python 용 Azure Machine Learning SDK (버전 1.0.21 이상). 를 설치 하거나 SDK의 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
 
-* Azure Machine Learning 데이터 준비 SDK입니다. 를 설치 하거나 최신 버전으로 업데이트를 참조 하세요 [설치 또는 업데이트를 데이터 준비 SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)합니다.
+* Azure Machine Learning 데이터 준비 SDK입니다. 를 설치 하거나 최신 버전으로 업데이트를 참조 하세요 [설치 또는 데이터 준비 SDK 업데이트](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)합니다.
 
 * 예제를 따라가려면 샘플 파일을 다운로드 합니다. [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) 하 고 [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json)합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "65028832"
 초기 데이터 아키텍처 및 콘텐츠를 파악 하기 위해 데이터의 샘플을 사용 합니다. 이번에 [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) Dataset 클래스 메서드에서 Top N, 간단한 임의 및 Stratified 샘플링 전략을 지원 합니다.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -109,7 +109,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|THEFT|...
 
-
 ## <a name="explore-with-summary-statistics"></a>요약 통계를 사용 하 여 탐색
 
  누락 된 값을 문제를 감지 하거나 오류를 사용 하 여 계산 된 [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) 메서드. 이 함수는 프로필을 가져옵니다 및 요약 통계에 도움이 되는 데이터를 적용 하는 데 필요한 데이터 준비 작업을 확인 합니다.
@@ -152,7 +151,7 @@ Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7
 먼저, 사용 하 여 데이터 집합의 최신 정의 가져옵니다 [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) 사용 하 여 데이터를 줄이려면 및 [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow)이므로 주소 하고자 하는 열만 봅니다.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -222,7 +221,6 @@ ds_def.head(3)
 1|10516598|거짓|41.744107|-87.664494
 2|10519196|거짓|41.780049|-87.000000
 
-
 를 사용 하 여 데이터 집합 정의 업데이트할 [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) 수행된 변환 단계를 유지 하 합니다.
 
 ```Python
@@ -240,12 +238,13 @@ dataset.head(3)
 
 데이터 작업을 정리 하는 동안 및 프로덕션에 필요한 총 데이터의 일부만 데이터 준비는 경우가 많습니다. 결과적으로, false로 판명 있도록 하는 정리의 일부로 가정 중 일부가 될 수 있습니다. 예를 들어 지속적으로 업데이트 하는 데이터 집합에서 원래 숫자가 특정 범위 내에 포함 하는 열 광범위 한 나중에 실행할 때 값을 포함할 수 있습니다. 이러한 오류 끊어진된 파이프라인 또는 잘못 된 데이터에서 일으키는 경우가 많습니다.
 
-데이터 집합 만들기 어설션 파이프라인 실행 될 때 평가 되는 데이터를 지원 합니다. 이러한 어설션은 계속 작동 하는지 확인 데이터에 대해 가정 정확한 수 있도록 하 고, 그렇지 않은 경우 오류를 적절 하 게 처리 하도록 합니다.
+파이프라인 실행 될 때 평가 되는 데이터에 대해 어설션을 만드는 데이터 집합 지원 합니다. 이러한 어설션은 계속 작동 하는지 확인 데이터에 대해 가정 정확한 수 있도록 하 고, 그렇지 않은 경우 오류를 적절 하 게 처리 하도록 합니다.
 
 예를 들어 제한 하려는 `Latitude` 및 `Longitude` 특정 숫자 범위를 데이터 집합의 값을 [ `assert_value()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) 메서드를 사용 하면이 경우 항상 합니다.
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -282,7 +281,7 @@ print(error.originalValue)
 데이터 집합에 대 한 고급 도구 중 하나는 원하는 결과의 예제를 사용 하 여 열을 파생 시키는 기능입니다. 이렇게 하면 의도 한 변환을 수행 하는 코드를 생성할 수 있도록 SDK 예제를 제공할 수 있습니다.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -302,8 +301,8 @@ dataset.head(3)
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -329,7 +328,7 @@ dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 예를 들어 열 `inspections.business.city` 여러 형태의 도시 이름 "San Francisco"를 포함 합니다.
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor-Application Insights 서비스를 사용 하 여 Kubernetes에 대 한 메시 Istio | Microsoft Docs
-description: Kubernetes에 대 한 application Insight는 라는 서비스 메시 기술을 활용 하 여 Kubernetes 클러스터에서 실행 되는 pod에서 들어오고 나가는 요청에 관련 된 Application Insights 원격 분석을 수집 하도록 허용 하는 모니터링 솔루션 Istio 합니다.
+title: Azure Monitor-0 계측 응용 프로그램 Kubernetes에 대 한 호스 티 드 앱 모니터링 | Microsoft Docs
+description: 0 계측 응용 프로그램 호스트 된 Kubernetes 앱에 대 한 모니터링은 모니터링 솔루션에서 Kubernetes 클러스터에서 실행 되는 pod에서 들어오고 나가는 요청에 관련 된 Application Insights 원격 분석을 수집할 수입니다. 서비스 메시 기술을 활용 하 여 Istio 호출 됩니다.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,17 +8,17 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: f3b278c2678542ec127c1c644cc0267622ca39fa
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870689"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408219"
 ---
-# <a name="application-insights-for-kubernetes-with-service-mesh"></a>서비스 메시를 사용 하 여 Kubernetes 용 application Insights
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>호스 티 드 앱 Kubernetes 0 계측 응용 프로그램 모니터링
 
 > [!IMPORTANT]
-> 서비스 메시를 통해 Kubernetes에 대 한 application Insights는 현재 공개 미리 보기로 제공 됩니다.
+> 이 기능은 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -36,7 +36,7 @@ Azure Monitor는 이제 호스트 된 Kubernetes 앱에 대해 상자 응용 프
 
 ## <a name="capabilities"></a>기능
 
-호스트 된 Kubernetes 앱에 대 한 Application Insights를 통해 사용할 수 있습니다.
+Kubernetes에 대 한 호스 티 드 앱 모니터링 0 계측 응용 프로그램을 사용 하 여 사용할 수 있습니다.
 
 - [애플리케이션 맵](../../azure-monitor/app/app-map.md)
 - [라이브 Stream 메트릭](../../azure-monitor/app/live-stream.md)
@@ -71,9 +71,9 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 - 응용 프로그램을 배포 *my-앱-네임 스페이스* 네임 스페이스입니다. Istio 해당 사이드카; 삽입 되도록 pod를 다시 만들 필요가 응용 프로그램을 이미 배포한 경우 위에서 설명한 자동 사이드카 삽입 메서드를 수행한 롤링 업데이트를 시작 또는 개별 pod를 삭제 및 다시 생성 하기 위해 대기 합니다.
 - 응용 프로그램 준수 확인 [Istio 요구 사항](https://istio.io/docs/setup/kubernetes/prepare/requirements/)합니다.
 
-### <a name="deploy-application-insights-for-kubernetes"></a>Kubernetes에 대 한 Application Insights를 배포 합니다.
+### <a name="deploy-zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Kubernetes에 대 한 호스 티 드 앱 모니터링 0 계측 응용 프로그램 배포
 
-1. 다운로드 하 고 추출 된 [ *Kubernetes에 대 한 Application Insights* 릴리스](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/)합니다.
+1. 다운로드 하 고 추출 된 [ *Application Insights 어댑터* 릴리스](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/)합니다.
 2. 이동할 */srckubernetes/* 릴리스 폴더 안에 있습니다.
 3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
     - 값을 편집할 *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 원격 분석을 포함 하는 Azure portal에서 Application Insights 리소스의 계측 키를 포함 하는 환경 변수입니다.
@@ -84,9 +84,9 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
    kubectl apply -f .
    ```
 
-### <a name="verify-application-insights-for-kubernetes-deployment"></a>Kubernetes 배포에 대 한 Application Insights를 확인 하십시오.
+### <a name="verify-deployment"></a>배포 확인
 
-- Kubernetes 어댑터에 대 한 Application Insights가 배포 되었는지 확인 합니다.
+- Application Insights 어댑터 배포 되었는지 확인 합니다.
 
   ```console
   kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
@@ -113,7 +113,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
    ```
    라는 컨테이너가 있는지 확인 하십시오 *istio 프록시* pod를 실행 합니다.
 
-5. 뷰 *Kubernetes에 대 한 Application Insights* 어댑터의 추적 합니다.
+5. Application Insights 어댑터의 추적을 보고 합니다.
 
    ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"

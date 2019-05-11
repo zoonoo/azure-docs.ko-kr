@@ -1,6 +1,6 @@
 ---
 title: 감사 및 Azure Active Directory B2B 공동 작업 사용자-보고 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업에서 구성 가능한 게스트 사용자 속성
+description: Azure Active Directory B2B 협업에서 구성 가능한 게스트 사용자 속성
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60357191"
 ---
-# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 공동 작업 사용자 감사 및 보고
+# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 협업 사용자 감사 및 보고
 게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 
 
 ## <a name="access-reviews"></a>액세스 검토

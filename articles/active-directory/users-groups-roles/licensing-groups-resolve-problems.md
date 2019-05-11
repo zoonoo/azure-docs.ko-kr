@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470280"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466279"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -107,9 +107,15 @@ Exchange Online을 사용하는 경우 테넌트의 일부 사용자가 동일�
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](https://technet.microsoft.com/library/jj984289.aspx)에 대한 정보도 포함됩니다. [Azure AD에 proxyAddresses 특성을 채우는 방법](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)에 대한 자세한 내용은 이 문서를 참조하세요.
+> 이 문제에 대한 자세한 내용은 [Exchange Online에서 "프록시 주소를 이미 사용 중입니다."라는 오류 메시지](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)가 표시됩니다. 문서에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](https://technet.microsoft.com/library/jj984289.aspx)에 대한 정보도 포함됩니다.
 
 영향을 받는 사용자에 대한 프록시 주소 문제를 해결한 후에 그룹에 대해 강제로 라이선스 처리를 수행하여 라이선스가 적용될 수 있게 합니다.
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD 메일 및 ProxyAddresses 특성 변경
+
+**문제:** 사용자 또는 그룹에 라이선스 할당을 업데이트 하는 동안 일부 사용자의 Azure AD 메일 및 ProxyAddresses 특성 증명이 변경 되었는지 확인할 수 있습니다.
+
+프록시 주소 트리거될 수를 계산 하는 사용자 원인에 대 한 라이선스 할당을 업데이트 하는 사용자 특성을 변경할 수 있습니다. 변경의 정확한 이유를 이해 하 고 문제를 해결 하려면이 문서를 참조 [Azure AD에서 proxyAddresses 특성이 채워지는 방법을](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)합니다.
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>한 그룹에 두 개 이상의 제품 라이선스가 있으면 어떻게 되나요?
 

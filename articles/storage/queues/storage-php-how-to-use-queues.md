@@ -1,21 +1,21 @@
 ---
-title: Python에서 Queue Storage를 사용하는 방법 | Microsoft Docs
+title: PHP-Azure Storage에서에서 큐 저장소를 사용 하는 방법
 description: Azure Queue Storage를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다.
 services: storage
-author: roygara
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: rogarana
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 0f9cc11e64e2517ef7aff0cd51705c39bf212b37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109872"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410460"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -419,7 +419,7 @@ catch(ServiceException $e){
 자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
 [download]: https://github.com/Azure/azure-storage-php
-[require_once]: http://www.php.net/manual/en/function.require-once.php
+[require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 [composer-phar]: https://getcomposer.org/composer.phar
 

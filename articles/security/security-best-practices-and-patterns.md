@@ -1,6 +1,6 @@
 ---
-title: Azure 보안 모범 사례 및 패턴 | Microsoft Docs
-description: 이 문서에서는 다양한 Azure 리소스의의 Azure 보안 모범 사례와 패턴을 확인할 수 있습니다.
+title: 보안 모범 사례 및 패턴-Microsoft Azure | Microsoft Docs
+description: 이 문서에서는 다양 한 Azure 리소스에 대 한 패턴과 보안 모범 사례를 안내합니다.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: e607c1ce032972c62f4e70e9cb620e83e57a881b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff6a09f75a46eee0d95b9a995c4986a981f25b9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150096"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
 

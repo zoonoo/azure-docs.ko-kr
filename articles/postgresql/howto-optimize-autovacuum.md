@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL 서버에서 자동 진공 최적화
-description: 이 문서에서는 Azure Database for PostgreSQL 서버에서 자동 진공을 최적화하는 방법을 설명합니다.
+title: Autovacuum에서 Azure Database for PostgreSQL-단일 서버 최적화
+description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 autovacuum를 최적화 하는 방법을 설명 합니다.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420273"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069109"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 자동 진공 최적화 
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Autovacuum에서 Azure Database for PostgreSQL-단일 서버 최적화
 이 문서에서는 Azure Database for PostgreSQL 서버에서 자동 진공을 효과적으로 최적화하는 방법을 설명합니다.
 
 ## <a name="overview-of-autovacuum"></a>자동 진공 개요

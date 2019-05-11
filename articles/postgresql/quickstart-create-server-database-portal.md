@@ -1,18 +1,18 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 만들기
-description: Azure Portal 사용자 인터페이스를 사용하여 PostgreSQL 서버용 Azure Database를 만들고 관리하기 위한 빠른 시작 가이드입니다.
+title: 빠른 시작 - Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
+description: Azure Portal 사용자 인터페이스를 사용하여 Azure Database for PostgreSQL - 단일 서버를 만들고 관리하기 위한 빠른 시작 가이드입니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.date: 05/06/2019
+ms.openlocfilehash: af1918b24afafce076f6d1efa5fd00b6df1ac537
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524211"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073231"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 PostgreSQL 서버용 Azure Database 만들기
 
@@ -32,23 +32,27 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
 
 2. **데이터베이스** > **PostgreSQL용 Azure Database**를 차례로 선택합니다.
 
-    ![[PostgreSQL용 Azure Database] 옵션](./media/quickstart-create-database-portal/1-create-database.png)
+    ![메뉴의 "Azure Database for PostgreSQL"](./media/quickstart-create-database-portal/1-create-database.png)
 
-3. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
+3. **단일 서버** 배포 옵션을 선택합니다.
 
-    ![서버 만들기](./media/quickstart-create-database-portal/3-create.png)
+   ![Azure Database for PostgreSQL - 단일 서버 배포 옵션 선택](./media/quickstart-create-database-portal/select-deployment-option.png)
+
+4. 다음 정보로 **기본 사항** 양식을 입력합니다.
+
+    ![서버 만들기](./media/quickstart-create-database-portal/create-basics.png)
 
     설정|제안 값|설명
     ---|---|---
-    서버 이름 |*mydemoserver*|PostgreSQL 서버용 Azure Database를 식별하는 고유한 이름입니다. 사용자가 제공한 서버 이름에 *postgres.database.azure.com* 도메인 이름이 추가됩니다. 서버는 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자 이상이어야 합니다.
     구독|구독 이름|서버에 사용할 Azure 구독입니다. 구독이 여러 개인 경우 해당 리소스에 대해 요금이 청구되는 적절한 구독을 선택합니다.
     리소스 그룹|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
-    원본 선택 | *비어 있음* | 새 서버를 처음부터 만들려면 *비어 있음*을 선택합니다. (기존 Azure Database for PostgreSQL 서버의 지역 백업에서 서버를 만든 경우 *백업*을 선택합니다).
-    서버 관리자 로그인 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** 또는 **public**이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
+    서버 이름 |*mydemoserver*|PostgreSQL 서버용 Azure Database를 식별하는 고유한 이름입니다. 사용자가 제공한 서버 이름에 *postgres.database.azure.com* 도메인 이름이 추가됩니다. 서버는 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자 이상이어야 합니다.
+    데이터 원본 | *없음* | 새 서버를 처음부터 만들려면 *없음*을 선택합니다. (기존 Azure Database for PostgreSQL 서버의 지역 백업에서 서버를 만든 경우 *백업*을 선택합니다).
+    관리자 사용자 이름 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** 또는 **public**이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
     암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     위치|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.
     버전|최신 주 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 주 버전입니다.
-    가격 책정 계층  | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *5세대*, *vCore 2개*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **스토리지** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+    컴퓨팅 + 스토리지 | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **서버 구성**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *5세대*, *vCore 4개*, *100GB* 및 *7일*은 **세대 계산**, **vCore**, **스토리지** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
    > [!NOTE]
    > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
@@ -56,9 +60,9 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
 
     ![[가격 책정 계층] 창](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-4. **만들기**를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+5. **검토 + 만들기**를 선택하여 선택 사항을 검토합니다. **만들기**를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
-5. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** 아이콘(벨)을 선택합니다. 배포가 완료되면 Azure Portal 대시보드에서 이 서버에 대한 타일을 서버의 **개요** 페이지에 대한 바로 가기로 만드는 **대시보드에 고정**을 선택할 수 있습니다. **리소스로 이동** 옵션을 선택하면 서버의 **개요** 페이지가 열립니다.
+6. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** 아이콘(벨)을 선택합니다. 배포가 완료되면 Azure Portal 대시보드에서 이 서버에 대한 타일을 서버의 **개요** 페이지에 대한 바로 가기로 만드는 **대시보드에 고정**을 선택할 수 있습니다. **리소스로 이동** 옵션을 선택하면 서버의 **개요** 페이지가 열립니다.
 
     ![[알림] 창](./media/quickstart-create-database-portal/3-notifications.png)
    

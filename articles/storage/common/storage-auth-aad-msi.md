@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9209161f9c9e34320b1388e0e1edbd5069e73727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438293"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507887"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 blob 및 Azure Active Directory 및 관리 되는 id를 사용 하 여 큐에 대 한 액세스 인증
 
@@ -47,7 +48,7 @@ RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 다음 문서
 
 앱 인증 클라이언트 라이브러리는 자동으로 인증을 관리합니다. 라이브러리는 개발자의 자격 증명을 사용 하 여 로컬 개발 동안 인증. 로컬 개발 동안 개발자 자격 증명을 사용하는 것이 Azure AD 자격 증명을 만들거나 개발자 간에 자격 증명을 공유할 필요가 없으므로 더 안전합니다. 나중에 Azure에는 솔루션을 배포한 경우 응용 프로그램 자격 증명을 사용 하 여 라이브러리를 자동으로 전환 합니다.
 
-Azure Storage 응용 프로그램에서 앱 인증 라이브러리를 사용 하려면에서 최신 미리 보기 패키지를 설치 [Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)), 최신 버전의 뿐만 아니라 합니다 [.NET 용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)합니다. 다음을 추가 합니다 **를 사용 하 여** 문을 코드에:
+Azure Storage 응용 프로그램에서 앱 인증 라이브러리를 사용 하려면에서 최신 미리 보기 패키지를 설치 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), 최신 버전의 뿐만 아니라 합니다 [.NET 용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)합니다. 다음을 추가 합니다 **를 사용 하 여** 문을 코드에:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;

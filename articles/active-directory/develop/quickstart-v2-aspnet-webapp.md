@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682562"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190894"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -68,13 +68,14 @@ ms.locfileid: "59682562"
 
 #### <a name="step-2-download-your-project"></a>2단계: 프로젝트 다운로드
 
-[Visual Studio 2017 솔루션 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Visual Studio 2019 솔루션 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 
 1. Zip 파일을 루트 폴더에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio(AppModelv2-WebApp-OpenIDConnect-DotNet.sln)에서 솔루션 열기
 1. Visual Studio 버전에 따라 프로젝트 `AppModelv2-WebApp-OpenIDConnect-DotNet` 및 **NuGet 패키지 복원**을 마우스 오른쪽 단추로 클릭해야 할 수 있습니다.
+1. 패키지 관리자 콘솔(보기 -> 다른 Windows -> 패키지 관리자 콘솔)을 열고 `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`을 실행합니다.
 1. **Web.config**를 편집하고 매개 변수 `ClientId` 및 `Tenant`를 다음으로 바꿉니다.
 
     ```xml
@@ -95,7 +96,7 @@ ms.locfileid: "59682562"
 
 ## <a name="more-information"></a>자세한 정보
 
-이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이는 작동 방식과 기본 인수를 이해하고 기존 ASP.NET 애플리케이션에 로그인을 추가하려는 경우에도 유용합니다.
+이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이 개요는 코드가 작동하는 방식과 기본 인수를 이해하려는 경우뿐만 아니라 기존 ASP.NET 애플리케이션에 로그인을 추가하려는 경우에도 유용할 수 있습니다.
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN 미들웨어 NuGet 패키지
 
@@ -109,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN 시작 클래스
 
-OWIN 미들웨어는 호스팅 프로세스를 초기화하는 경우 실행되는 *시작 클래스*(빠른 시작의 경우, 루트 폴더의 *startup.cs* 파일)를 사용합니다. 다음 코드는 빠른 시작에서 사용하는 매개 변수를 보여줍니다.
+OWIN 미들웨어는 호스팅 프로세스가 초기화될 때 실행되는 *시작 클래스*를 사용합니다. 이 빠른 시작에서 *startup.cs* 파일은 루트 폴더에 있습니다. 다음 코드는 빠른 시작에서 사용하는 매개 변수를 보여줍니다.
 
 ```csharp
 public void Configuration(IAppBuilder app)

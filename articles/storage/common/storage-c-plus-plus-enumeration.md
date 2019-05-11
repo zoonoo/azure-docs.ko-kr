@@ -2,18 +2,19 @@
 title: Storage Client Library for C++을 사용하여 Azure Storage 리소스 나열 | Microsoft Docs
 description: Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다.
 services: storage
-author: dineshmurthy
+author: mhopkins-msft
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dineshm
+ms.author: mhopkins
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146873"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
 목록 작업은 Azure Storage를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 스토리지에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.

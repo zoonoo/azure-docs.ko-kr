@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업 사용자 일괄 초대 자습서 - Azure Active Directory | Microsoft Docs
-description: 이 자습서에서는 PowerShell 및 CSV 파일을 사용하여 외부 Azure AD B2B 공동 작업 사용자에게 일괄 초대를 보내는 방법을 알아봅니다.
+title: B2B 협업 사용자 일괄 초대 자습서 - Azure Active Directory | Microsoft Docs
+description: 이 자습서에서는 PowerShell 및 CSV 파일을 사용하여 외부 Azure AD B2B 협업 사용자에게 일괄 초대를 보내는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58009138"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: Azure AD B2B 공동 작업 사용자 일괄 초대
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: Azure AD B2B 협업 사용자 일괄 초대
 
-Azure AD(Azure Active Directory) B2B 공동 작업을 사용하여 외부 파트너와 함께 작업하는 경우 동시에 여러 게스트 사용자를 조직에 초대할 수 있습니다. 이 자습서에서는 PowerShell을 사용하여 외부 사용자에게 일괄 초대를 보내는 방법을 알아봅니다. 특히 다음을 수행합니다.
+Azure AD(Azure Active Directory) B2B 협업을 사용하여 외부 파트너와 함께 작업하는 경우 동시에 여러 게스트 사용자를 조직에 초대할 수 있습니다. 이 자습서에서는 PowerShell을 사용하여 외부 사용자에게 일괄 초대를 보내는 방법을 알아봅니다. 특히 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 사용자 정보가 포함된 .csv(쉼표로 구분된 값) 파일 준비

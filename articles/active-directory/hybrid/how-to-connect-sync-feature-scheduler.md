@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347926"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139282"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: 스케줄러
-이 토픽은 Azure AD Connect 동기화(동기화 엔진이라고도 함)의 기본 제공 스케줄러를 설명합니다.
+# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
+이 항목에서는 Azure AD Connect 동기화 (동기화 엔진)의 기본 제공 스케줄러를 설명 합니다.
 
 이 기능은 빌드 1.1.105.0(2016년 2월에 발표됨)에서 도입되었습니다.
 
@@ -92,29 +92,62 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 ## <a name="start-the-scheduler"></a>스케줄러 시작
 스케줄러는 기본적으로 30분마다 실행됩니다. 경우에 따라 예약된 주기 사이에서 동기화 주기를 실행하려고 하거나 다른 유형을 실행해야 할 수도 있습니다.
 
-**델타 동기화 주기**  
+### <a name="delta-sync-cycle"></a>델타 동기화 주기
  델타 동기화 주기에는 다음 단계가 포함됩니다.
 
-* 모든 커넥터에서 델타 가져오기
-* 모든 커넥터에서 델타 동기화
-* 모든 커넥터에서 내보내기
 
-즉시 동기화되어야 하는 긴급한 변경 사항이 있을 수 있습니다. 이것이 주기를 수동으로 실행해야 하는 이유입니다. 수동으로 주기를 실행해야 하는 경우 PowerShell에서 `Start-ADSyncSyncCycle -PolicyType Delta`를 실행합니다.
+- 모든 커넥터에서 델타 가져오기
+- 모든 커넥터에서 델타 동기화
+- 모든 커넥터에서 내보내기
 
-**전체 동기화 주기**  
-다음 구성 변경 사항 중 하나를 수행한 경우 전체 동기화 주기(초기화라고도 함)를 실행해야 합니다.
+### <a name="full-sync-cycle"></a>전체 동기화 주기
+전체 동기화 주기에는 다음 단계가 포함됩니다.
 
-* 소스 디렉터리에서 가져올 더 많은 개체 및 특성 추가
-* 동기화 규칙 변경
-* 다른 수의 개체가 포함되도록 [필터링](how-to-connect-sync-configure-filtering.md) 변경
+- 모든 커넥터에서 전체 가져오기
+- 모든 커넥터에서 전체 동기화
+- 모든 커넥터에서 내보내기
 
-이러한 변경 사항 중 하나를 수행한 경우 전체 동기화 주기를 실행하여 동기화 엔진이 커넥터 공간을 다시 병합할 수 있도록 해야 합니다. 전체 동기화 주기에는 다음 단계가 포함됩니다.
+즉시 동기화되어야 하는 긴급한 변경 사항이 있을 수 있습니다. 이것이 주기를 수동으로 실행해야 하는 이유입니다. 
 
-* 모든 커넥터에서 전체 가져오기
-* 모든 커넥터에서 전체 동기화
-* 모든 커넥터에서 내보내기
+수동으로 동기화 주기를 실행 하는 PowerShell에서 다음 실행 해야 할 경우 `Start-ADSyncSyncCycle -PolicyType Delta`합니다.
 
-전체 동기화 주기를 시작하려면 PowerShell 프롬프트에서 `Start-ADSyncSyncCycle -PolicyType Initial`을 실행합니다. 이 명령은 전체 동기화 주기를 시작합니다.
+전체 동기화 주기를 시작하려면 PowerShell 프롬프트에서 `Start-ADSyncSyncCycle -PolicyType Initial`을 실행합니다.   
+
+이 프로세스를 최적화 하는 방법을 알아보려면 다음 섹션을 참조에서 전체 동기화 주기 실행 많은 시간이 소요 될 수 있습니다.
+
+### <a name="sync-steps-required-for-different-configuration-changes"></a>다른 구성 변경 하는 데 필요한 단계를 동기화 합니다.
+다른 구성 변경에는 변경 내용이 모든 개체에 올바르게 적용 되도록 다른 동기화 단계가 필요 합니다.
+
+- 더 많은 개체 및 (동기화 규칙을 추가/수정)에서 원본 디렉터리에서 가져올 특성 추가
+    - 원본 디렉터리에 대 한 커넥터에서 전체 가져오기는 필요
+- 동기화 규칙 변경
+    - 변경 된 동기화 규칙에 대 한 커넥터에 전체 동기화가 필요
+- 다른 수의 개체가 포함되도록 [필터링](how-to-connect-sync-configure-filtering.md) 변경
+    - 전체 가져오기는 커넥터에서 각 AD 커넥터에 대 한 사용 하는 경우 특성 기반 필터링에 따라 필요한 동기화 엔진에 이미 가져온 되는 특성
+
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>오른쪽 조합 델타 및 전체 동기화 단계를 실행 하는 동기화 주기를 사용자 지정
+전체 동기화 주기를 실행 하지 않으려면 다음 cmdlet을 사용 하 여 전체 단계를 실행 하는 특정 커넥터를 표시할 수 있습니다.
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullSyncRequired $true`
+
+`Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
+
+예제:  다음 실행을 가져올 새 특성이 필요 하지 않은 "AD 포리스트 A" 커넥터에 대 한 동기화 규칙에 변경한 경우 델타 동기화를 실행 하는 cmdlet도 않았습니다 전체 동기화 단계는 커넥터에 대 한 순환 합니다.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
+예제:  변경한 경우 동기화 규칙 "AD 포리스트 A" 커넥터에 대 한 필요한 이제 새 특성을 가져올 수 있도록 전체 가져오기를 해당 커넥터에 대 한 전체 동기화 단계도 않았습니다는 델타 동기화 주기를 실행 하려면 다음 cmdlet을 실행 합니다.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
 
 ## <a name="stop-the-scheduler"></a>스케줄러 중지
 스케줄러가 현재 동기화 주기를 실행 중인 경우 중지해야 합니다. 예를 들어 설치 마법사를 시작하는 경우 이 오류가 발생합니다.

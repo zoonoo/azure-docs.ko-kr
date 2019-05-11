@@ -2,18 +2,19 @@
 title: '자습서: AzCopy를 사용하여 Azure Storage로 온-프레미스 데이터 마이그레이션 | Microsoft Docs'
 description: 이 자습서에서는 AzCopy를 사용하여 Blob, 테이블 및 파일 콘텐츠 간 데이터를 마이그레이션하거나 복사합니다. 로컬 스토리지에서 Azure Storage로 데이터를 쉽게 마이그레이션합니다.
 services: storage
-author: roygara
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c10edc4f11aad23801045011b67592b6cc537e4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877501"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149071"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 

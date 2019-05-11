@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199636"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
@@ -133,8 +133,8 @@ ASE를 만든 후에 도메인 이름은 지정된 도메인을 표시합니다.
 
 ILB ASE에는 유효한 SSL 인증서가 필요합니다. 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용합니다. SSL 인증서의 소스에 관계 없이 다음과 같은 인증서 특성을 올바르게 구성해야 합니다.
 
-* **주체**: 이 특성은 *.your-root-domain-here로 설정되어야 합니다.
-* **주체 대체 이름**: 이 특성에는 **.your-root-domain-here* 및 **.scm.your-root-domain-here*가 둘 다 포함되어야 합니다. 각 앱과 연결된 SCM/Kudu 사이트에 대한 SSL 연결은 *your-app-name.scm.your-root-domain-here* 양식의 주소를 사용합니다.
+* **주체**: 이 특성은 *\.your-root-domain-here로 설정해야 합니다.
+* **주체 대체 이름**: 이 특성에는 *.your-root-domain-here*와 *.scm.your-root-domain-here*가 둘 다 포함되어야 합니다. 각 앱과 연결된 SCM/Kudu 사이트에 대한 SSL 연결은 *your-app-name.scm.your-root-domain-here* 양식의 주소를 사용합니다.
 
 SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든 중간 인증서와 루트 인증서가 포함되어야 합니다. 암호로 인증서를 보호합니다.
 

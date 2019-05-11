@@ -1,21 +1,21 @@
 ---
-title: Azure Database for PostgreSQL의 쿼리 저장소
-description: 이 문서에서는 Azure Database for PostgreSQL의 쿼리 저장소 기능을 설명합니다.
+title: Azure Database for PostgreSQL-단일 서버에서에서 쿼리 저장소
+description: 이 문서에서는 PostgreSQL-단일 서버에 대 한 Azure Database에서 쿼리 저장소 기능을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564007"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067192"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
-**적용 대상:** Azure Database for PostgreSQL 9.6 및 10
+**적용 대상:** Azure Database for PostgreSQL-단일 서버 9.6 및 10
 
 Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys**라는 데이터베이스에 저장됩니다.
 

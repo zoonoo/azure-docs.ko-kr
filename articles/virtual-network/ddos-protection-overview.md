@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: c639bc1edceba9c9da08ee6bcc54c860f857cd33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696028"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209451"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
@@ -29,7 +29,7 @@ DDoS(배포된 서비스 거부) 공격은 고객이 애플리케이션을 클�
 애플리케이션 설계 모범 사례와 결합된 Azure DDoS Protection은 DDoS 공격에 대한 방어 기능을 제공합니다. Azure DDoS 보호는 다음과 같은 서비스 계층을 제공합니다.
 
 - **기본**: Azure 플랫폼의 일부로 자동으로 설정 합니다. 일반적인 네트워크 수준 공격에 대한 항시 트래픽 모니터링과 실시간 완화는 Microsoft의 온라인 서비스에서 활용하는 것과 동일한 방어를 제공합니다. Azure 글로벌 네트워크의 전체 규모를 활용하여 전체 지역에서 공격 트래픽을 분산하고 완화할 수 있습니다. IPv4 및 IPv6 Azure [공용 IP 주소](virtual-network-public-ip-address.md)에 대해 보호가 제공됩니다.
-- **표준**: Azure Virtual Network 리소스에 맞게 조정 되는 Basic 서비스 계층을 통해 추가적인 완화 기능을 제공 합니다. DDoS Protection 표준은 간단히 사용하도록 설정할 수 있고 애플리케이션을 변경할 필요가 없습니다. 보호 정책은 전용 트래픽 모니터링 및 기계 학습 알고리즘을 통해 조정됩니다. 정책은 Azure Load Balancer, Azure Application Gateway 및 Azure Service Fabric 인스턴스 같은 가상 네트워크에 배포된 리소스에 연결된 공용 IP 주소에 적용되지만, 이 보호는 App Service 환경에 적용되지 않습니다. 공격을 받고 있을 때 기록을 위해 Azure Monitor 뷰를 통해 실시간 원격 분석을 사용할 수 있습니다. 진단 설정을 통해 다양한 공격 완화 분석을 사용할 수 있습니다. [Azure Application Gateway 웹 애플리케이션 방화벽](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 또는 Azure Marketplace에서 타사 방화벽을 설치하여 애플리케이션 계층 보호를 추가할 수 있습니다. IPv4 Azure [공용 IP 주소](virtual-network-public-ip-address.md)에 대해 보호가 제공됩니다.
+- **표준**: Azure Virtual Network 리소스에 맞게 조정 되는 Basic 서비스 계층을 통해 추가적인 완화 기능을 제공 합니다. DDoS Protection 표준은 간단히 사용하도록 설정할 수 있고 애플리케이션을 변경할 필요가 없습니다. 보호 정책은 전용 트래픽 모니터링 및 기계 학습 알고리즘을 통해 조정됩니다. 정책은 Azure Load Balancer, Azure Application Gateway 및 Azure Service Fabric 인스턴스 같은 가상 네트워크에 배포된 리소스에 연결된 공용 IP 주소에 적용되지만, 이 보호는 App Service 환경에 적용되지 않습니다. 공격을 받고 있을 때 기록을 위해 Azure Monitor 뷰를 통해 실시간 원격 분석을 사용할 수 있습니다. 진단 설정을 통해 다양한 공격 완화 분석을 사용할 수 있습니다. [Azure Application Gateway 웹 애플리케이션 방화벽](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 또는 Azure Marketplace에서 타사 방화벽을 설치하여 애플리케이션 계층 보호를 추가할 수 있습니다. IPv4 및 IPv6 Azure [공용 IP 주소](virtual-network-public-ip-address.md)에 대해 보호가 제공됩니다.
 
 ![Azure DDoS Protection Basic 대 Standard](./media/ddos-protection-overview/ddoscomparison.png)
 

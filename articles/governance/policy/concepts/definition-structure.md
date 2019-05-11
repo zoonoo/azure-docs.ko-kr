@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716759"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506701"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -46,7 +46,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -114,7 +114,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
@@ -416,15 +420,25 @@ Azure Policy에는 다음과 같은 형식의 결과 지원합니다.
 
 ### <a name="policy-functions"></a>정책 함수
 
-정책 규칙 내에서 다음 함수를 제외한 모든 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md)를 사용할 수 있습니다.
+모든 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md) 다음 함수와 사용자 정의 함수를 제외 하 고 정책 규칙에서 사용할 수 있습니다.
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+다음 함수는 정책 규칙을 사용 하지만 Azure Resource Manager 템플릿에서 사용 하 여에서 다를 수 있습니다.
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: 범용 ISO 8601 날짜/시간 형식에서 문자열 [필수] 문자열 ' yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [필수] 정수-추가할 일 수
+- utcnow ()-는 Resource Manager와는 달리 템플릿에서 defaultValue 밖에 사용할 수 있습니다.
+  - 현재 날짜 및 시간을 유니버설 ISO 8601 날짜/시간 형식으로 설정 된 문자열을 반환 합니다 ' yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 `field` 함수도 정책 규칙에 사용할 수 있습니다. `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 

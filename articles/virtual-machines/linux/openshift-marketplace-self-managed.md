@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773557"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233090"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
 
@@ -39,8 +39,8 @@ Azure에서 자체 관리 되는 OpenShift Container Platform 클러스터를 �
 - **디스크 유형**: Managed Disks가 사용됩니다.
 - **네트워킹**: 신규 또는 기존 네트워크와 CIDR 범위를 사용자 지정을 지원 합니다.
 - **CNS**: CNS를 사용하도록 설정할 수 있습니다.
-- **메트릭**: 메트릭을 사용하도록 설정할 수 있습니다.
-- **로깅**: 로깅을 사용하도록 설정할 수 있습니다.
+- **메트릭**: Hawkular 메트릭을 사용할 수 있습니다.
+- **로깅**: EFK 로깅을 사용할 수 있습니다.
 - **Azure 클라우드 공급 기업**: 기본적으로 사용을 비활성화할 수 있습니다.
 
 Azure portal의 왼쪽 위를 클릭 **리소스 만들기**'openshift container platform' 검색 상자에 입력 하 고 Enter 키를 누릅니다.
@@ -81,7 +81,7 @@ Azure portal의 왼쪽 위를 클릭 **리소스 만들기**'openshift container
 
 | 매개 변수를 입력 합니다. | 매개 변수 설명 |
 |-----------------------|-----------------|
-| OCP 클러스터 이름 접두사 | 모든 VM 인스턴스에서 만들어질 관리자 사용자 |
+| OCP 클러스터 이름 접두사 | 모든 노드에 대 한 호스트 이름을 구성 하는 데 사용 되는 접두사를 클러스터 합니다. 1 ~ 20 자 사이의 |
 | 마스터 노드 크기 | 기본 VM 크기를 그대로 사용 하거나 클릭 **크기를 변경** 다른 VM 크기를 선택 합니다.  작업 부하에 대 한 적절 한 VM 크기 선택 |
 | 인프라 노드 크기 | 기본 VM 크기를 그대로 사용 하거나 클릭 **크기를 변경** 다른 VM 크기를 선택 합니다.  작업 부하에 대 한 적절 한 VM 크기 선택 |
 | 응용 프로그램 노드 수 | 기본 VM 크기를 그대로 사용 하거나 클릭 **크기를 변경** 다른 VM 크기를 선택 합니다.  작업 부하에 대 한 적절 한 VM 크기 선택 |

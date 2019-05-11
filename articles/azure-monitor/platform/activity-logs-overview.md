@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995662"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138228"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -63,6 +63,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * Power BI를 사용 하 여 분석 합니다 [ **Power BI 콘텐츠 팩**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)합니다.
 * [보관 또는 수동 검사를 위해 **Storage 계정**에 저장합니다](../../azure-monitor/platform/archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * PowerShell Cmdlet, CLI 또는 REST API를 통해 쿼리합니다.
+* 보기는 [변경 내용](#view-change-history) 특정 이벤트
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Azure Portal에서 활동 로그 쿼리
 
@@ -183,6 +184,20 @@ CLI를 사용하여 모니터 프로필을 만드는 방법에 대한 전체 설
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>변경 기록 보기
+
+활동 로그를 검토 하는 경우 도움이 변경 하는 동안 발생 하는 한 해당 이벤트 시간입니다. 변경 기록 사용 하 여이 정보를 볼 수 있습니다.
+
+포털의 왼쪽에 메뉴를 사용 하 여 활동 로그로 이동 합니다. 에 대 한 자세한 확인 하려는 활동 로그에서 이벤트를 선택 합니다. 선택 된 **변경 내용 (미리 보기)** 를 보려면 탭 이벤트를 사용 하 여 변경 내용을 연결 합니다.
+
+![이벤트에 대 한 변경 기록 목록](./media/activity-logs-overview/change-history-event.png)
+
+이벤트와 연결 된 변경의 경우 선택할 수 있는 변경 내용 목록이 표시 됩니다. 열립니다는 **변경 내용 (미리 보기)** 페이지입니다. 이 페이지는 리소스 변경 내용을 볼 수 있습니다. 다음 예제에서 보듯이에서는 VM 크기, 하지만 변경 전의 이전 VM 크기 및에 변경 된 내용을 변경 되었는지 확인할 수 있습니다.
+
+![차이점을 표시 하는 변경 기록 페이지](./media/activity-logs-overview/change-history-event-details.png)
+
+변경 내용에 대 한 자세한 내용은 참조 하세요 [리소스 변경 내용을 가져오려면](../../governance/resource-graph/how-to/get-resource-changes.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

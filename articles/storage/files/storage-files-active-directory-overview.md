@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687134"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209736"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Files용 SMB를 통한 Azure Active Directory 인증(미리 보기) 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Azure Files용 SMB를 통한 Azure AD 인증을 사용하는 방법을 알아보려면 [Enable Azure Active Directory authentication over SMB for Azure Files(Preview)](storage-files-active-directory-enable.md)(Azure Files용 SMB를 통한 Azure Active Directory 인증(미리 보기) 사용)를 참조하세요.
 
-## <a name="glossary"></a>용어 
+## <a name="glossary"></a>용어집 
 Azure Files용 SMB를 통한 Azure AD 인증과 관련된 몇 가지 핵심 용어를 알고 있는 것이 좋습니다.
 
 -   **Azure AD(Azure Active Directory)**  
@@ -45,13 +45,13 @@ Azure Files용 SMB를 통한 Azure AD 인증은 공유 키 인증을 사용하�
     애플리케이션을 클라우드로 “전환”하고 기존 파일 서버를 Azure Files로 바꿀 계획인 경우 애플리케이션이 Azure AD로 인증하여 파일 데이터에 액세스하기를 원할 수 있습니다. Azure Files는 Azure AD 자격 증명을 사용하여 도메인 가입 VM에서 SMB를 통해 파일 공유, 디렉터리 또는 파일에 액세스하는 것을 지원합니다. 모든 온-프레미스 Active Directory 개체를 Azure AD에 동기화하여 사용자 이름, 암호 및 기타 그룹 할당을 유지하도록 선택할 수도 있습니다.
 
 -   **Azure 파일 공유에 대한 세부적인 액세스 제어 적용**  
-    SMB를 통한 Azure AD 인증을 사용하면 공유, 디렉터리 또는 파일 수준에서 특정 ID에 사용 권한을 부여할 수 있습니다. 예를 들어 프로젝트 공동 작업을 위해 단일 Azure 파일 공유를 사용하는 여러 팀이 있다고 가정할 수 있습니다. 이런 경우 중요하지 않은 디렉터리에 대한 액세스 권한은 모든 팀에 부여하면서 중요한 재무 데이터가 포함된 디렉터리에 대한 액세스 권한은 재무 팀으로만 제한할 수 있습니다. 
+    SMB를 통한 Azure AD 인증을 사용하면 공유, 디렉터리 또는 파일 수준에서 특정 ID에 사용 권한을 부여할 수 있습니다. 예를 들어 프로젝트 협업을 위해 단일 Azure 파일 공유를 사용하는 여러 팀이 있다고 가정할 수 있습니다. 이런 경우 중요하지 않은 디렉터리에 대한 액세스 권한은 모든 팀에 부여하면서 중요한 재무 데이터가 포함된 디렉터리에 대한 액세스 권한은 재무 팀으로만 제한할 수 있습니다. 
 
 -   **데이터와 함께 ACL 백업**  
     Azure Files를 사용하여 기존 온-프레미스 파일 공유를 백업할 수 있습니다. SMB를 통해 Azure Files로 파일 공유를 백업하는 경우 Azure Files에서는 데이터와 함께 ACL이 유지됩니다.
 
 ## <a name="how-it-works"></a>작동 방법
-Azure Files는 Azure AD Domain Services를 사용하여 도메인 가입 VM의 Azure AD 자격 증명을 사용한 Kerberos 인증을 지원합니다. Azure Files에서 Azure AD를 사용하려면 먼저 Azure AD Domain Services를 사용하도록 설정하고 파일 데이터에 액세스하려는 VM에서 도메인에 가입해야 합니다. 도메인 가입 VM은 Azure AD Domain Services와 동일한 VNET(가상 네트워크)에 있어야 합니다. 
+Azure Files는 Azure AD Domain Services를 사용하여 도메인 가입 VM의 Azure AD 자격 증명을 사용한 Kerberos 인증을 지원합니다. Azure Files에서 Azure AD를 사용하려면 먼저 Azure AD Domain Services를 사용하도록 설정하고 파일 데이터에 액세스하려는 VM에서 도메인에 가입해야 합니다. 도메인에 가입 된 VM은 Azure AD Domain Services와 동일한 가상 네트워크 (VNET)에 있어야 합니다. 
 
 VM에서 실행 중인 애플리케이션과 연결된 ID가 Azure Files의 데이터에 액세스하려고 시도하면 ID를 인증하도록 Azure AD Domain Services로 요청이 전송됩니다. 인증에 성공하면 Azure AD Domain Services가 Kerberos 토큰을 반환합니다. 애플리케이션에서 Kerberos 토큰이 포함된 요청을 보내면 Azure Files에서 해당 토큰을 사용하여 요청에 권한을 부여합니다. Azure Files는 토큰만 받고 Azure AD 자격 증명은 유지하지 않습니다.
 

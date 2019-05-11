@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 0d0626c48ecebdead604aab93ab0602c698d0d77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed19083c6a4245a1b4bf7af166ae965d956c9e37
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421451"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067132"
 ---
-# <a name="configure-server-parameters-in-azure-portal"></a>Azure Portal에서 서버 매개 변수 구성
+# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>PostgreSQL-Azure portal 통해 단일 서버에 대 한 Azure Database에서 서버 매개 변수 구성 
 Azure Portal을 통해 Azure Database for PostgreSQL에 대한 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건

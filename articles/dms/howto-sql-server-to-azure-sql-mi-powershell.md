@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867911"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233722"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>SQL Server 온-프레미스 Azure PowerShell을 사용 하 여 Azure SQL Database 관리 되는 인스턴스로 마이그레이션
 이 문서에서는 마이그레이션 합니다 **Adventureworks2016** 데이터베이스 SQL Server 2005의 온-프레미스 인스턴스로 복원 하거나 위의 Azure SQL Database 관리 되는 인스턴스 Microsoft Azure PowerShell을 사용 하 여 합니다. 사용 하 여 Azure SQL Database 관리 되는 인스턴스에 데이터베이스를 온-프레미스 SQL Server 인스턴스에서 마이그레이션할 수는 `Az.DataMigration` Microsoft Azure PowerShell 모듈.
@@ -86,7 +86,7 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 > 아래 코드 조각 프리미엄 SKU에 따라 Azure Database Migration Service의 인스턴스를 요구 하지 않는 오프 라인 마이그레이션,입니다. 온라인 마이그레이션에 대 한-Sku 매개 변수 값에는 Premium SKU를 포함 해야 합니다.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

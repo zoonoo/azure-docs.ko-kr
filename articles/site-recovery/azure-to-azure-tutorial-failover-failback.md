@@ -6,21 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797570"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153801"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>지역 간 Azure VM의 장애 조치(failover) 및 다시 보호
 
-[Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.
-
-이 자습서에서는 Azure VM을 보조 Azure 지역에 장애 조치(failover)하는 방법을 설명합니다. 장애 조치한 후 VM을 다시 보호합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 보조 Azure 지역으로 Azure VM(가상 머신)을 장애 조치(failover)하는 방법을 설명합니다. 장애 조치한 후 VM을 다시 보호합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure VM 장애 조치(failover)
@@ -29,8 +27,10 @@ ms.locfileid: "59797570"
 > [!NOTE]
 > 이 자습서에는 기본 설정과 최소 사용자 지정을 포함하는 가장 간단한 경로가 포함되어 있습니다. 더 복잡한 시나리오의 경우 Azure VM에 대한 ‘방법’에 있는 문서를 사용합니다.
 
+
 ## <a name="prerequisites"></a>필수 조건
 
+- 시작하기 전에 장애 조치(failover)에 대한 [질문과 대답](site-recovery-faq.md#failover)을 검토합니다.
 - [재해 복구 드릴](azure-to-azure-tutorial-dr-drill.md)을 완료하여 모든 항목이 예상대로 작동하는지 확인합니다.
 - 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인합니다. VM은 [Azure 요구 사항](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)을 준수해야 합니다.
 
@@ -55,6 +55,11 @@ ms.locfileid: "59797570"
 6. 장애 조치된 가상 머신에 만족하면 장애 조치를 **커밋**할 수 있습니다.
    커밋하면 서비스와 함께 사용할 수 있는 모든 복구 지점이 삭제됩니다. 이제 복구 지점을 변경할 수 없습니다.
 
+> [!NOTE]
+> VM에 대한 복제를 설정한 후 추가할 VM을 장애 조치(failover)할 때 복제 지점은 복구에 사용할 수 있는 디스크를 표시합니다. 예를 들어, VM에 단일 디스크가 있고 새로운 디스크를 추가하는 경우, 디스크를 추가하기 전에 생성한 복제 지점은 “2개 디스크 중 하나”로 구성된 복제 지점을 표시합니다.
+
+![추가된 디스크를 사용하여 장애 조치(failover)](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+
 ## <a name="reprotect-the-secondary-vm"></a>보조 VM 다시 보호
 
 VM의 장애 조치(failover) 후 주 지역에 다시 복제되도록 다시 보호해야 합니다.
@@ -69,5 +74,5 @@ VM의 장애 조치(failover) 후 주 지역에 다시 복제되도록 다시 �
 4. **확인**을 클릭하여 다시 보호 작업을 트리거합니다. 이 작업은 최신 데이터로 대상 사이트를 시드합니다. 그런 다음 델타를 주 지역에 복제합니다. 이제 VM이 보호된 상태입니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 다시 보호를 수행한 후, 가능한 경우 주 지역으로 장애 조치(Failover)하는 [방법을 알아봅니다](azure-to-azure-tutorial-failback.md).
+- 다시 보호를 수행한 후, 가능한 경우 주 지역으로 장애 복구(failback)하는 [방법을 알아봅니다](azure-to-azure-tutorial-failback.md).
 - 다시 보호 흐름에 대해 [자세히 알아봅니다](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916393"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205384"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 애플리케이션이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -274,7 +274,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 ## <a name="performance-tests"></a>성능 테스트
 > [!NOTE]  
-> 클라우드 기반 부하 테스트 서비스를 사용 하는 사용 되지 않습니다. 사용 중단, 서비스 가용성 및 다른 서비스에 대 한 자세한 정보를 찾을 수 있습니다 [여기](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops)합니다.
+> 클라우드 기반 부하 테스트 서비스를 사용 하는 사용 되지 않습니다. 사용 중단, 서비스 가용성 및 다른 서비스에 대 한 자세한 정보를 찾을 수 있습니다 [여기](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops)합니다.
 
 웹 사이트에 부하 테스트를 실행할 수 있습니다. 가용성 테스트와 같이 전 세계의 이 지점에서 간단한 요청 또는 다단계 요청을 보낼 수 있습니다. 가용성 테스트와는 달리 많은 요청이 전송되어 여러 동시 사용자를 시뮬레이션합니다.
 

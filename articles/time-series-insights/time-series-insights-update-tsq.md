@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722165"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205028"
 ---
 # <a name="data-querying"></a>데이터 쿼리
 
@@ -35,9 +35,9 @@ Time Series Insights에서 사용할 수 있는 세 가지 기본 API 범주는 
 
 다음과 같은 핵심 API가 지원됩니다.
 
-![tsq][1]
+[![시간 시계열 쿼리 개요](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>Environment API
+## <a name="environment-apis"></a>Environment API
 
 다음과 같은 Environment API를 사용할 수 있습니다.
 
@@ -45,7 +45,7 @@ Time Series Insights에서 사용할 수 있는 세 가지 기본 API 범주는 
 * [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): 이벤트 타임스탬프 `$ts`에 따른 이벤트 수의 분포를 반환합니다. 이 API는 이벤트가 있는 경우 이벤트 수를 반환하여 타임스탬프에 이벤트가 있는지 확인합니다.
 * [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): 지정된 검색 범위의 이벤트 스키마 메타데이터를 반환합니다. 이 API는 지정된 검색 범위의 스키마에서 사용 가능한 모든 메타데이터 및 속성을 검색할 수 있습니다.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>TSM-Q(Time Series Model-Query) API
+## <a name="time-series-model-query-tsm-q-apis"></a>TSM-Q(Time Series Model-Query) API
 
 다음과 같은 Time Series Model-Query API를 사용할 수 있습니다.
 
@@ -54,7 +54,7 @@ Time Series Insights에서 사용할 수 있는 세 가지 기본 API 범주는 
 * [Hierarchies API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Time Series 계층 구조 및 관련 필드 경로에 대한 CRUD가 가능합니다.
 * [Instances API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Time Series 인스턴스 및 관련 인스턴스 필드에 대한 CRUD가 가능합니다.
 
-### <a name="time-series-query-tsq-apis"></a>TSQ(Time Series Query) API
+## <a name="time-series-query-tsq-apis"></a>TSQ(Time Series Query) API
 
 다음과 같은 Time Series Query API를 사용할 수 있습니다.
 
@@ -80,6 +80,3 @@ Time Series Insights에서 사용할 수 있는 세 가지 기본 API 범주는 
 - Time Series Insights 미리 보기를 읽을 [데이터 모델링](./time-series-insights-update-tsm.md) 문서.
 
 - 검색할 [시간 계열 ID를 선택할 때 모범 사례](./time-series-insights-update-how-to-id.md)합니다.
-
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png

@@ -11,17 +11,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623071"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465547"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="april-2019-guest-os"></a>2019 년 4 월 게스트 OS
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Windows 10 보안 | 6.6 | 2019년 4월 9일 |
+| Rel 19-04 | [4493470] | Windows 10 보안 | 5.30 | 2019년 4월 9일 |
+| Rel 19-04 | [4493467] | Windows 보안 | 4.65 | 2019년 4월 9일 |
+| Rel 19-04 | [4493450] | Windows 보안 | 3.72 | 2019년 4월 9일 |
+| Rel 19-04 | [4493448] | Windows 보안 | 2.85 | 2019년 4월 9일 |
+| Rel 19-04 | [4493478] | 깜박임 | 3.72, 4.65, 5.30, 6.6 | 2019년 4월 9일 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 2019년 4월 9일 |
+| Rel 19-04 | [KB4490628] | 서비스 스택 업데이트 | 2.85 | 2019년 3월 12일 |
+| Rel 19-04 | [KB4474419] | SHA2 지원 | 2.85 | 2019년 3월 12일 |
+| Rel 19-04 | [KB4489878] | 3 월 비보안 롤업 | 2.85 | 2019년 3월 12일 |
+| Rel 19-04 | [KB4489891] | 3 월 비보안 롤업 | 3.72 | 2019년 3월 12일 |
+| Rel 19-04 | [KB4489881] | 3 월 비보안 롤업 | 4.65 | 2019년 3월 12일 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>2019 년 3 월 게스트 OS
 

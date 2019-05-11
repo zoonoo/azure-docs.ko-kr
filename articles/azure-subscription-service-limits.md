@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717451"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233696"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록 확장 되며 더 많은 서비스에 맞게 업데이트 합니다.
@@ -123,6 +123,13 @@ Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한
 다음과 같은 제한이 Azure Resource Manager 및 Azure 리소스 그룹을 사용할 때 적용 됩니다. Azure Resource Manager를 변경 하지 않은 한도 표시 되지 않습니다. 이러한 제한 이전 표를 참조 하세요.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+#### <a name="shared-image-gallery-limits"></a>이미지 갤러리 제한 공유
+
+공유 이미지 갤러리를 사용 하 여 리소스를 배포 하기 위한 구독 당 제한이 있습니다.
+- 지역당 구독 당 100 공유 이미지 갤러리
+- 지역당 구독 당 1,000 이미지 정의
+- 지역당 구독 당 10,000 이미지 버전
 
 ### <a name="virtual-machine-scale-sets-limits"></a>가상 머신 확장 집합 제한
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

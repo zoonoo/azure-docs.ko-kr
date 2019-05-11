@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992933"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508188"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
@@ -45,7 +45,7 @@ Linux에서 예약된 이벤트에 대한 자세한 내용은 [Linux VM에 예�
 예약된 이벤트를 사용하면 애플리케이션에서 유지 관리가 발생하는 시간을 검색하고 이로 인한 영향을 제한하는 작업을 트리거할 수 있습니다. 예약된 이벤트를 사용하면 유지 관리 작업을 수행하기 전에 가상 머신에게 최소 시간을 부여할 수 있습니다. 자세한 내용은 아래 이벤트 예약 섹션을 참조하세요.
 
 예약된 이벤트는 다음과 같은 경우에 이벤트를 제공합니다.
-- [플랫폼 시작 유지 관리](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (예를 들어, VM 다시 부팅, 실시간 마이그레이션 또는 호스트에 대 한 업데이트를 유지 하는 메모리)
+- [플랫폼 시작 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (예를 들어, VM 다시 부팅, 실시간 마이그레이션 또는 호스트에 대 한 업데이트를 유지 하는 메모리)
 - 성능이 저하 된 하드웨어
 - 사용자가 시작하는 유지 관리(예: 사용자가 VM을 다시 시작하거나 다시 배포)
 - [우선 순위가 낮은 VM 제거](https://azure.microsoft.com/blog/low-priority-scale-sets) 크기 조정 설정
@@ -119,19 +119,19 @@ DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 
 |자산  |  설명 |
 | - | - |
 | EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 머신은 몇 초간 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결을 일시 중단할 수 있습니다, 있지만 메모리 나 열린 파일에 영향을 주지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 우선 순위가 낮은 가상 컴퓨터를 삭제 하는 중 (임시 디스크 손실 됨).|
-| ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>`VirtualMachine`|
+| 이벤트 유형 | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값: <br><ul><li> `Freeze`: 가상 머신은 몇 초간 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결을 일시 중단할 수 있습니다, 있지만 메모리 나 열린 파일에 영향을 주지 않습니다. <li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 우선 순위가 낮은 가상 컴퓨터를 삭제 하는 중 (임시 디스크 손실 됨).|
+| ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값: <ul><li>`VirtualMachine`|
 | 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 최대 하나의 [업데이트 도메인](manage-availability.md)에 있는 컴퓨터를 포함하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| 이벤트 상태 | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공된 적이 없습니다. 이벤트가 완료되면 더 이상 이벤트가 반환되지 않습니다.
+| 이벤트 상태 | 이 이벤트의 상태입니다. <br><br> 값: <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공된 적이 없습니다. 이벤트가 완료되면 더 이상 이벤트가 반환되지 않습니다.
 | NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>이벤트 예약
 각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 `NotBefore` 속성에 반영됩니다. 
 
-|EventType  | 최소 공지 |
+|이벤트 유형  | 최소 공지 |
 | - | - |
 | 중지| 15분 |
-| Reboot | 15분 |
+| 다시 부팅 | 15분 |
 | 재배포 | 10분 |
 | 선점 | 30초 |
 

@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693589"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467940"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
@@ -43,7 +43,7 @@ IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스�
 
 1. 에 대 한 액세스를 있고이 IoT Central 규칙에 연결 된 워크플로 tha 목록이 표시 됩니다. 클릭 **템플릿을 살펴봅니다** 하거나 **새로 만들기 > 템플릿에서 만들기** 사용 가능한 템플릿 중 하나에서 선택할 수 있습니다. 
 
-    ![사용 가능한 Microsoft Flow 템플릿](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![사용 가능한 Microsoft Flow 템플릿](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. 선택한 템플릿에 있는 커넥터에 로그인 하 라는 메시지가 표시 됩니다. 커넥터에 로그인 되 면 워크플로 작성 하는 디자이너에서 이동 합니다. 워크플로에는 애플리케이션 및 규칙이 이미 채워져 있는 IoT Central 트리거가 있습니다.
 
@@ -52,7 +52,7 @@ IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스�
     > [!NOTE]
     > 선택 된 **자세히 보기** 규칙을 트리거한 측정 및 속성 값을 가져오려면 동적 콘텐츠 창의 텍스트입니다.
 
-    ![동적 창을 열어 흐름 편집 작업](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![동적 창을 열어 흐름 편집 작업](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. 완료 되 면 선택 작업을 편집 **저장할**합니다. 워크플로의 개요 페이지로 이동됩니다. 여기에서 실행 기록을 보고 다른 동료와 공유할 수 있습니다.
 
@@ -79,7 +79,7 @@ Microsoft Flow 직접 IoT Central 커넥터를 사용 하 여 워크플로 빌�
 
 1. 디바이스 이름 필드를 선택합니다. 동적 콘텐츠 창에서 **디바이스 이름**을 선택합니다. 이 값은 사용자는 모바일 앱을 통해 입력 하 고 IoT Central에 새 장치 이름 입력에서 전달 됩니다. 이 예제에서 유일한 필수 필드는 빨간색 별표로 표시되는 디바이스 이름입니다. 다른 디바이스 템플릿에는 새 디바이스를 만들기 위해 채워야 하는 여러 개의 필수 필드가 있을 수 있습니다.
 
-    ![흐름 만들기 디바이스 작업 동적 창](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![흐름 만들기 디바이스 작업 동적 창](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (선택 사항) 새 디바이스를 만드는 데 적합한 대로 다른 필드를 채웁니다.
 
@@ -110,7 +110,7 @@ Microsoft Flow 직접 IoT Central 커넥터를 사용 하 여 워크플로 빌�
 
 1. 디바이스 이름을 업데이트할 수 있습니다. 디바이스의 속성 및 설정 중 하나를 업데이트하려면 **디바이스 템플릿** 드롭다운에서 업데이트하려는 디바이스의 디바이스 템플릿을 선택해야 합니다. 작업 타일은 업데이트할 수 있는 모든 속성 및 설정을 표시하도록 확장됩니다.
 
-    ![흐름 업데이트 디바이스 워크플로](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![흐름 업데이트 디바이스 워크플로](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. 업데이트하려는 각 속성 및 설정을 선택합니다. 동적 콘텐츠 창에서 트리거의 해당 입력을 선택합니다. 이 예제에서 위치 값은 디바이스의 위치 속성을 업데이트하도록 아래로 전파됩니다.
 
@@ -126,7 +126,7 @@ Microsoft Flow 직접 IoT Central 커넥터를 사용 하 여 워크플로 빌�
 
 장치 이름과 장치 템플릿 이름, 속성 값을 이후 작업 워크플로에 전달할 설정 값 같은 정보를 가져올 수 있습니다. Microsoft Teams 장치에서 Customer Name 속성 값을 전달 하는 예제 워크플로에 다음과 같습니다.
 
-   ![흐름 get 장치 워크플로](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![흐름 get 장치 워크플로](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>워크플로에서 장치에서 명령 실행
@@ -137,7 +137,7 @@ Microsoft Flow 직접 IoT Central 커넥터를 사용 하 여 워크플로 빌�
     
 실행 하 고이 동작을 통해 명령의 매개 변수를 전달 하는 명령을 선택할 수 있습니다. Microsoft Flow 모바일 앱에서 단추에서 장치 다시 부팅 명령을 실행 하는 예제 워크플로에 다음과 같습니다.
 
-   ![흐름 get 장치 워크플로](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![흐름 get 장치 워크플로](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>워크플로에서 디바이스 삭제
 

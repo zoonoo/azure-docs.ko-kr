@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270050"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413876"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
 
@@ -47,7 +47,7 @@ ms.locfileid: "61270050"
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Visual Studio에서 App Service로 ASP.NET 애플리케이션을 배포하려면 어떻게 하나요?
 <a id="deployasp"></a>
 
-[Azure에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet.md) 자습서에서는 Visual Studio 2017을 사용하여 ASP.NET 웹 애플리케이션을 Azure App Service의 웹앱에 배포하는 방법을 보여줍니다.
+이 자습서 [5 분 안에 Azure에 첫 번째 ASP.NET 웹 앱을 만드는](app-service-web-get-started-dotnet.md) Visual Studio를 사용 하 여 App Service에서 웹 앱에 ASP.NET 웹 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>배포 자격 증명 형식에는 무엇이 있나요?
 

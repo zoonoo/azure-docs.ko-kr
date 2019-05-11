@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: rayne
-ms.openlocfilehash: 926e5b685369f8660daf6221f818734f6f12d2b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0383226853ed86943b73d2b8740825967f3124c9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928409"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411520"
 ---
 # <a name="troubleshoot-the-process-server"></a>프로세스 서버 문제 해결
 
@@ -51,14 +51,14 @@ ms.locfileid: "64928409"
 
 **경고 유형** | **오류** | **문제 해결**
 --- | --- | --- 
-![Healthy][green] | 없음  | 프로세스 서버가 연결 되어 있고 정상입니다.
+![정상][green] | 없음  | 프로세스 서버가 연결 되어 있고 정상입니다.
 ![Warning][yellow] | 지정 된 서비스가 실행 되지 않습니다. | 1. 서비스가 실행 중인지 확인 합니다.<br/> 2. 서비스가 예상 대로 실행 되는 경우 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.
 ![Warning][yellow]  | 지난 15 분 동안 CPU 사용률이 > 80%입니다. | 1. 새 컴퓨터를 추가 하지 마세요.<br/>2. 프로세스 서버를 사용 하 여 Vm의 수를 정렬 하는 check [제한을 정의](site-recovery-plan-capacity-vmware.md#capacity-considerations), 설정을 고려 하 고는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.
-![중요][red] |  지난 15 분 동안 CPU 사용률이 > 95%입니다. | 1. 새 컴퓨터를 추가 하지 마세요.<br/>2. 프로세스 서버를 사용 하 여 Vm의 수를 정렬 하는 check [제한을 정의](site-recovery-plan-capacity-vmware.md#capacity-considerations), 설정을 고려 하 고는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.<br/> 4. 문제가 지속 되 면 실행 합니다 [Deployment Planner](http://aka.ms/asr-v2a-deployment-planner) VMware/물리적 서버 복제에 대 한 합니다.
+![중요][red] |  지난 15 분 동안 CPU 사용률이 > 95%입니다. | 1. 새 컴퓨터를 추가 하지 마세요.<br/>2. 프로세스 서버를 사용 하 여 Vm의 수를 정렬 하는 check [제한을 정의](site-recovery-plan-capacity-vmware.md#capacity-considerations), 설정을 고려 하 고는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.<br/> 4. 문제가 지속 되 면 실행 합니다 [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) VMware/물리적 서버 복제에 대 한 합니다.
 ![Warning][yellow] | 지난 15 분 동안 > 80%를 사용 하는 메모리입니다. |  1. 새 컴퓨터를 추가 하지 마세요.<br/>2. 프로세스 서버를 사용 하 여 Vm의 수를 정렬 하는 check [제한을 정의](site-recovery-plan-capacity-vmware.md#capacity-considerations), 설정을 고려 하 고는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/>3. 경고와 관련 된 지침을 따릅니다.<br/> 4. 문제가 지속 되 면 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.
-![중요][red] | 지난 15 분 동안 > 95%를 사용 하는 메모리입니다. | 1. 새 컴퓨터를 추가 하지 마세요 및 설정을 고려 하는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/> 2. 경고와 관련 된 지침을 따릅니다.<br/> 3. 4. 문제가 지속 되는 경우 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.<br/> 4. 문제가 지속 되 면 실행 합니다 [Deployment Planner](http://aka.ms/asr-v2a-deployment-planner) VMware/물리적 서버 복제 문제에 대 한 합니다.
+![중요][red] | 지난 15 분 동안 > 95%를 사용 하는 메모리입니다. | 1. 새 컴퓨터를 추가 하지 마세요 및 설정을 고려 하는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/> 2. 경고와 관련 된 지침을 따릅니다.<br/> 3. 4. 문제가 지속 되는 경우 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.<br/> 4. 문제가 지속 되 면 실행 합니다 [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) VMware/물리적 서버 복제 문제에 대 한 합니다.
 ![Warning][yellow] | 폴더 사용 가능한 공간이 < 30% 지난 15 분 동안 캐시 하 고 있습니다. | 1. 새 컴퓨터를 추가 하 고 설정 고려 하지는 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)합니다.<br/>2. 확인 프로세스 서버를 사용 하 여 Vm의 수를 맞추는 [지침](site-recovery-plan-capacity-vmware.md#capacity-considerations)합니다.<br/> 3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.
-![중요][red] |  최근 15 분 동안 사용 가능한 공간이 < 25% | 1. 이 문제에 대 한 경고와 관련 된 지침을 따릅니다.<br/> 2. 3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.<br/> 3. 문제가 지속 되 면 실행 합니다 [Deployment Planner](http://aka.ms/asr-v2a-deployment-planner) VMware/물리적 서버 복제에 대 한 합니다.
+![중요][red] |  최근 15 분 동안 사용 가능한 공간이 < 25% | 1. 이 문제에 대 한 경고와 관련 된 지침을 따릅니다.<br/> 2. 3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.<br/> 3. 문제가 지속 되 면 실행 합니다 [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) VMware/물리적 서버 복제에 대 한 합니다.
 ![중요][red] | 15 분 이상에 대 한 프로세스 서버에서 하트 비트가 없습니다. Tmansvs 서비스는 구성 서버와 통신 하지 못합니다. | 1) 프로세스 서버가 실행 되 고 있는지 확인 합니다.<br/> 2. tmassvc 프로세스 서버에서 실행 되 고 있는지 확인 합니다.<br/> 3. 아래 지침에 따라 [연결 및 복제 문제를 해결](#check-connectivity-and-replication)합니다.
 
 

@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711893"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153030"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK의 릴리스 정보
 
 다음 섹션에는 최신 릴리스의 변경 내용이 나와 있습니다.
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Cognitive Services Speech Devices SDK 1.5.0: 2019 월 릴리스
+
+*   음성 장치 SDK는 이제 GA 및 제어 된 체크 인된 미리 보기가 더 이상.
+*   업데이트를 [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 1.5.0 버전 구성 요소입니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요.
+*   절전 모드 해제 단어 신기술 상당한 품질 향상을 제공 하 고 주요 변경 내용을 참조 하십시오.
+*   향상 된 끝 필드 인식에 대 한 새 오디오 처리 파이프라인.
+
+**주요 변경 내용**
+
+*   새 인해 wake word 기술 향상 된 절전 모드 해제 단어 포털에서 절전 모드 해제 하는 모든 단어를 다시 만들어야 합니다. 완전히 제거 하려면 장치에서 이전 키워드는 기존 앱을 제거 합니다.
+    - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Cognitive Services Speech Devices SDK 1.4.0: 2019 년-4 월 릴리스 
 
