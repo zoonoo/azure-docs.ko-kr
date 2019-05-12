@@ -111,13 +111,13 @@ Vector faceDirection = new Vector(
 
 얼굴 감지 API는 얼굴 사각형 및 랜드마크 외에도 얼굴의 몇 가지 개념적 특성을 분석할 수 있습니다. 내용은 다음과 같습니다.
 
-- Age
+- 나이
 - 성별
 - 웃는 정도
-- 얼굴의 털
+- 수염
 - 안경
 - 3D 머리 포즈
-- Emotion
+- 감정
 
 > [!IMPORTANT]
 > 이러한 특성을 예측 하는 통계 알고리즘을 사용 하 여 항상 정확 하지 않을 하며 특성 데이터를 기반으로 결정을 내릴 경우에 주의 해야 합니다.
@@ -138,7 +138,7 @@ var requiredFaceAttributes = new FaceAttributeType[] {
 var faces = await faceClient.DetectWithUrlAsync(imageUrl, true, false, requiredFaceAttributes);
 ```
 
-그런 다음 반환된 된 데이터에 대 한 참조를 가져오고 추가로 수행 필요에 따라 작업 합니다.
+그런 다음, 반환된 데이터에 대한 참조를 가져오고 추가로 필요에 따라 작업을 수행합니다.
 
 ```csharp
 foreach (var face in faces)
@@ -154,11 +154,11 @@ foreach (var face in faces)
 }
 ```
 
-각 특성에 대 한 자세한 내용은 참조는 [용어집](../Glossary.md)합니다.
+각 특성에 대한 자세한 내용은 [용어집](../Glossary.md)을 참조합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드의 얼굴 감지의 다양 한 기능을 사용 하는 방법을 알아보았습니다. 다음으로, 참조를 [용어집](../Glossary.md) 세부 정보를 보려면 검색 한 얼굴 데이터에 대 한 합니다.
+이 가이드에서는 얼굴 감지의 다양한 기능을 사용하는 방법을 알아보았습니다. 다음으로, 검색한 얼굴 데이터에서 자세한 정보를 보려면 [용어집](../Glossary.md)을 참조합니다.
 
 ## <a name="related-topics"></a>관련 항목
 
