@@ -105,7 +105,7 @@ Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 
 3. 더 세부적인 종속성을 보려면 시간 범위를 클릭하여 수정합니다. 범위는 기본적으로 1시간입니다. 시간 범위를 수정하거나 시작 및 종료 날짜와 기간을 지정할 수 있습니다.
 
    > [!NOTE]
-   >    현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 로그를 사용 하 여 Azure Monitor [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) 더 긴 기간 동안.
+   >    현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 더 긴 기간의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-a-group)하려면 Azure Monitor 로그를 사용합니다.
 
 4. 종속 컴퓨터와 각 컴퓨터 내에서 실행 중인 프로세스를 확인하고 그룹에서 추가하거나 제거할 컴퓨터를 식별합니다.
 5. <Ctrl> 키를 누른 채로 클릭하여 맵에서 그룹에 추가하거나 제거할 컴퓨터를 선택합니다.
