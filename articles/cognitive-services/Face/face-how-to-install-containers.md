@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64682678"
 ---
-# <a name="install-and-run-face-containers"></a>설치 하 고 얼굴 컨테이너 실행
+# <a name="install-and-run-face-containers"></a>얼굴 컨테이너 설치 및 실행
 
 Face는 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별하는 Face라는 표준화된 Docker용 Linux 컨테이너를 제공합니다. Face는 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.
 
@@ -32,7 +32,7 @@ Face API 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족�
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 값이 모두 리소스에 대 한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요한. 추가 해야 합니다 `face/v1.0` BILLING_ENDPOINT_URI 예제에 나와 있는 것 처럼 끝점 URI로 라우팅할 합니다. <br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|Azure `Cognitive Services` 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>A _Cognitive Services_ Azure 리소스 및 관련된 청구 키 청구 끝점 URI입니다. 두 값은 리소스에 대한 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요합니다. BILLING_ENDPOINT_URI 예제에 나와 있는 것처럼 `face/v1.0` 라우팅을 끝점 URI로 추가 해야 합니다. <br><br>**{BILLING_KEY}**: 리소스 키<br><br>**{BILLING_ENDPOINT_URI}**: 엔드포인트 URI 예제: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 ## <a name="request-access-to-the-private-container-registry"></a>개인 컨테이너 레지스트리에 대한 액세스 요청
 
@@ -72,7 +72,7 @@ Face API용 컨테이너 이미지를 사용할 수 있습니다.
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
-## <a name="how-to-use-the-container"></a>컨테이너사용 방법
+## <a name="how-to-use-the-container"></a>컨테이너 사용 방법
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
@@ -85,12 +85,12 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 | Placeholder | 값 |
 |-------------|-------|
-|{BILLING_KEY} | 이 키 컨테이너를 시작 하는 데 사용 되 고 Azure에서 사용할 수 있습니다 `Cognitive Services` [키] 페이지입니다.  |
-|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure에서 사용할 수 있는 `Cognitive Services` 개요 페이지. 예제가입니다. `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | 이 키는 컨테이너를 시작하는 데 사용되고 Azure `Cognitive Services` [키] 페이지에서 확인할 수 있습니다.  |
+|{BILLING_ENDPOINT_URI} | 청구 끝점 URI 값은 Azure `Cognitive Services` 개요 페이지에서 확인할 수 있습니다. 예제입니다. `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-추가 해야 합니다 `face/v1.0` BILLING_ENDPOINT_URI 앞의 예제에 표시 된 대로 끝점 URI로 라우팅할 합니다. 
+앞의 BILLING_ENDPOINT_URI 예제에 표시된 대로 `face/v1.0` 라우팅을 끝점 URI로 추가 해야 합니다. 
 
-다음 예`docker run`에서 매개 변수를 사용자 고유값으로 바꿉니다.
+다음 예제 `docker run` 명령에서 매개 변수를 사용자 고유값으로 바꿉니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -103,8 +103,8 @@ ApiKey={BILLING_KEY}
 이 명령은 다음을 수행합니다.
 
 * 컨테이너 이미지에서 Face 컨테이너를 실행합니다.
-* 1개 CPU 코어 및 4GB 메모리 할당
-* 5000 TCP 포트 표시 및 컨테이너에 의사-TTY 할당
+* 1개 CPU 코어 및 4GB 메모리를 할당합니다.
+* TCP 5000 포트를 공개하고 컨테이너에 의사-TTY를 할당합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
 
 `docker run` 명령의 자세한 [예제](./face-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
@@ -154,7 +154,7 @@ Face API 컨테이너는 Azure 계정의 _Face API_ 리소스를 사용하여 �
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]
-> Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
+> Cognitive Services 컨테이너는 계량을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
