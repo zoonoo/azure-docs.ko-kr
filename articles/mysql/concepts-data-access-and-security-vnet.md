@@ -24,7 +24,7 @@ ms.locfileid: "60614853"
 
 > [!NOTE]
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for MySQL이 배포된 모든 Azure 지역에서 사용할 수 있습니다.
-> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for MySQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
+> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure VM(가상 머신)이 Azure Database for MySQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -54,7 +54,7 @@ ms.locfileid: "60614853"
 
 ### <a name="a-allow-access-to-azure-services"></a>a. Azure 서비스에 대한 액세스 허용
 
-연결 보안 창에는 **Azure 서비스에 대한 액세스 허용**이라고 표시된 **켜기/끄기** 단추가 있습니다. **켜기** 설정은 모든 Azure IP 주소와 모든 Azure 서브넷에서 보낸 통신을 허용합니다. 이러한 Azure IP 또는 서브넷은 사용자가 소유할 수 없습니다. 이 **켜기** 설정은 Azure Database for MySQL에 필요한 것보다 더 개방적일 수 있습니다. 가상 네트워크 규칙 기능으로 훨씬 더 세밀하게 제어할 수 있습니다.
+연결 보안 창에는 **Azure 서비스 방문 허용**이라고 표시된 **켜기/끄기** 단추가 있습니다. **켜기** 설정은 모든 Azure IP 주소와 모든 Azure 서브넷에서 보낸 통신을 허용합니다. 이러한 Azure IP 또는 서브넷은 사용자가 소유할 수 없습니다. 이 **켜기** 설정은 Azure Database for MySQL에 필요한 것보다 더 개방적일 수 있습니다. 가상 네트워크 규칙 기능으로 훨씬 더 세밀하게 제어할 수 있습니다.
 
 ### <a name="b-ip-rules"></a>B. IP 규칙
 
