@@ -17,5 +17,5 @@ ms.locfileid: "56741039"
 
 |필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|아닙니다.| `InstrumentationKey` | 문자열 | 컨테이너에 대한 원격 분석 데이터가 전송되는 Application Insights 인스턴스의 계측 키입니다. 자세한 내용은 [ASP.NET Core용 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core)를 참조하세요. <br><br>예제:<br>`InstrumentationKey=123456789`|
+|아니오| `InstrumentationKey` | 문자열 | 컨테이너에 대한 원격 분석 데이터가 전송되는 Application Insights 인스턴스의 계측 키입니다. 자세한 내용은 [ASP.NET Core용 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core)를 참조하세요. <br><br>예제:<br>`InstrumentationKey=123456789`|
 
