@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "60118735"
 ---
-합니다 **호스트** 는 docker 컨테이너를 실행 하는 x64 기반 컴퓨터입니다. 다음을 포함하여 Azure에서 컴퓨터 온-프레미스 또Docker 호스팅 서비스일 수 있습니다.
+**호스트** 는 docker 컨테이너를 실행 하는 x64 기반 컴퓨터입니다. 다음을 포함하여 Azure에서 Docker 호스팅 서비스 또는 온-프레미스 컴퓨터일 수 있습니다.
 
 * [Azure Kubernetes Service](../articles/aks/index.yml)
 * [Azure Container Instances](../articles/container-instances/index.yml)
