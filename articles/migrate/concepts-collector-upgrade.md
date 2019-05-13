@@ -66,7 +66,7 @@ SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 ### <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>일회성 검색(현재 사용 중단): 이전 업그레이드 버전
 
 > [!NOTE]
-> 이 방법은 성능 데이터 요소 가용성 및 수집 된 평균 성능 카운터에 대한 vCenter Server의 통계 설정을 사용하여 Azure로 마이그레이션하기 위해 VM의 규모를 줄이는 결과를 낳기 때문에 일회성 검색 어플라이언스는 이제 더 이상 사용되지 않습니다.
+> 이 방법은 성능 데이터 요소 가용성 및 수집된 평균 성능 카운터에 대한 vCenter Server의 통계 설정을 사용하여 Azure로 마이그레이션하기 위해 VM의 규모를 줄이는 결과를 낳기 때문에 일회성 검색 어플라이언스는 이제 더 이상 사용되지 않습니다.
 
 #### <a name="version-10916-released-on-10292018"></a>버전 1.0.9.16(2018년 10월 29 출시)
 
