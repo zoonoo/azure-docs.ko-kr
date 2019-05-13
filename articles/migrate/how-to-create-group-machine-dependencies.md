@@ -46,7 +46,7 @@ Azure Migrate는 컴퓨터의 종속성 시각화를 사용 하도록 설정 하
 4. 작업 영역 ID와 키를 복사합니다. 이 옵션은 온-프레미스 컴퓨터에 MMA를 설치할 때 필요합니다.
 
 > [!NOTE]
-> 에이전트의 설치를 자동화하려면 System Center Configuration Manager와 같은 배포 도구를 사용하거나 Azure Migrate용 에이전트 배포 솔루션이 들어 있는 파트너 도구, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration)를 사용할 수 있습니다.
+> 에이전트의 설치를 자동화하려면 System Center Configuration Manager와 같은 배포 도구를 사용하거나 Azure Migrate용 에이전트 배포 솔루션이 들어있는 파트너 도구, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration)를 사용할 수 있습니다.
 
 ### <a name="install-the-mma"></a>MMA 설치
 
@@ -60,7 +60,7 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
-명령줄 또는 System Center Configuration Manager와 같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent).
+명령줄 또는 System Center Configuration Manager와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent).
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>Linux 머신에 에이전트 설치
 
@@ -79,7 +79,7 @@ System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신�
 
 
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
-1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 두 x 누르고 마법사를 따릅니다.
+1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 더블 클릭한 후 마법사를 따릅니다.
 2. Linux 컴퓨터에 종속성 에이전트를 설치하려면 다음 명령을 사용하여 루트로 설치합니다.
 
     ```sh InstallDependencyAgent-Linux64.bin```
@@ -135,11 +135,11 @@ Kusto 쿼리를 실행 합니다.
 
 ### <a name="sample-azure-monitor-logs-queries"></a>샘플 Azure Monitor 로그 쿼리
 
-다음은 샘플 쿼리 종속성 데이터를 추출 하는 데 사용할 수 있습니다. 에 기본 데이터 요소를 추출 하기 위해 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 제품은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)합니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)합니다.
+다음 샘플 쿼리는 종속성 데이터를 추출하는데 사용할 수 있습니다. 원하는 데이터 요소를 추출하기위해 해당 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)에서 확인할 수 있습니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)를 확인합니다.
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
 
-연결 메트릭, VMConnection, 테이블에 레코드를 개별 물리적 네트워크 연결을 나타내지 않으면 참고 합니다. 여러 실제 네트워크 연결 연결을 논리적으로 그룹화 됩니다. [자세한](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) VMConnection의 단일 논리적 레코드에 데이터를 집계 하는 방법의 실제 네트워크 연결에 대 한 합니다. 
+연결 메트릭에 대한 테이블의 레코드 인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections)알아보십시오.
 
 ```
 // the machines of interest
