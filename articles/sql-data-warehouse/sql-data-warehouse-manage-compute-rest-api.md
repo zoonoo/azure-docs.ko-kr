@@ -57,7 +57,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="get-maintenance-schedule"></a>유지 관리 일정 가져오기
-데이터 웨어하우스에 대한 설정된 유지 관리 일정을 확인 합니다. 
+데이터 웨어하우스에 대해 설정된 유지 관리 일정을 확인합니다. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -65,7 +65,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="set-maintenance-schedule"></a>유지 관리 일정 설정
-기존 데이터 웨어하우스의 유지 관리 일정을 설정하고 업데이트 합니다.
+기존 데이터 웨어하우스의 유지 관리 일정을 설정하고 업데이트합니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
