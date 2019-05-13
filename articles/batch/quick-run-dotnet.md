@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6c332861bcaf228e4c1e0a619cf4f84e3be0ba15
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679922"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204171"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 `BatchDotNetQuickstart.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예를 들면 다음과 같습니다.
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
 
 ```csharp
 // Batch account credentials
@@ -70,7 +70,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 * 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
-그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 풀, 계산 노드, 작업 및 태스크를 모니터링합니다.
+그런 다음 실행합니다. 샘플 애플리케이션을 실행하는 경우 콘솔 출력은 다음과 유사합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 Batch 계정으로 이동하여 풀, 계산 노드, 작업 및 태스크를 모니터링합니다.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -113,7 +113,7 @@ stderr:
 
 ### <a name="preliminaries"></a>준비 단계
 
-스토리지 계정과 상호 작용하기 위해 앱에서 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만들고, 이 참조로부터 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient)를 만듭니다.
+스토리지 계정과 상호 작용하기 위해 앱에서 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)를 사용하여 계정에 대한 참조를 만들고, 이 참조로부터 [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)를 만듭니다.
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

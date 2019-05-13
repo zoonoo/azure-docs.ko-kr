@@ -55,7 +55,7 @@ Azure AD 권한 관리, 이제 공개 미리 보기로 제공에서 하는 데 �
 
 **유형:** 새 기능  
 **서비스 범주:** 그룹 관리  
-**제품 기능:** 공동 작업
+**제품 기능:** 협업
 
 관리자 Azure AD 포털을 사용 하 여 Office 365 그룹에 대 한 명명 정책 이제 구성할 수 있습니다. 이 변경은 조직의 사용자가 생성 하거나 편집한 Office 365 그룹에 대 한 일관성 있는 명명 규칙을 적용할 수 있습니다. 
 
@@ -229,7 +229,7 @@ Azure AD single sign-on 및 조건부 액세스에 대 한 새로운 지원 제�
 
 **유형:** 새 기능  
 **서비스 범주:** 그룹 관리  
-**제품 기능:** 공동 작업
+**제품 기능:** 협업
 
 이제 확인 하 고 Azure AD 포털에서 삭제 된 Office 365 그룹을 관리할 수 있습니다. 이 변경을 사용 하는 그룹은 복원, 영구적으로 수와 함께 조직에서 필요 하지 않은 모든 그룹을 삭제 하는 데 수를 확인할 수 있습니다.
 
@@ -451,7 +451,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 ## <a name="january-2019"></a>2019년 1월
 
-### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>일회용 암호 인증을 사용하여 Active Directory B2B 공동 작업(공용 미리 보기)
+### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>일회용 암호 인증을 사용하여 Active Directory B2B 협업(공용 미리 보기)
 
 **유형:** 새 기능  
 **서비스 범주:** B2B  
@@ -459,7 +459,7 @@ SAML 토큰 암호화를 구성 하는 방법에 대 한 자세한 내용은 참
 
 Azure AD MSA(Microsoft 계정) 또는 Google 페더레이션 등의 다른 수단을 통해 인증할 수 없는 B2B 게스트 사용자를 위해 OTP(일회용 암호 인증)를 도입했습니다. 이 새로운 인증 방법을 사용하면 게스트 사용자가 새 Microsoft 계정을 만들 필요가 없습니다. 그 대신 초대를 사용하거나 공유 리소스에 액세스하는 동안 게스트 사용자는 임시 코드를 이메일 주소로 보내 줄 것을 요청할 수 있습니다. 게스트 사용자는 이 임시 코드를 사용하여 계속 로그인할 수 있습니다.
 
-자세한 내용은 [이메일 일회용 암호 인증(미리 보기)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) 및 [Azure AD가 계정이 있는 모든 사용자가 원활하게 공유 및 공동 작업하도록 해](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949) 블로그를 참조하세요.
+자세한 내용은 [이메일 일회용 암호 인증(미리 보기)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) 및 [Azure AD가 계정이 있는 모든 사용자가 원활하게 공유 및 협업하도록 하는](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949) 블로그를 참조하세요.
 
 ### <a name="new-azure-ad-application-proxy-cookie-settings"></a>새 Azure AD 애플리케이션 프록시 쿠키 설정
 

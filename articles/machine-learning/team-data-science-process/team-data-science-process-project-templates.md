@@ -54,7 +54,7 @@ Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이�
 
 ## <a name="repository-template"></a>리포지토리 템플릿
 
-이 [프로젝트 템플릿 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 사용하여 프로젝트 실행 및 공동 작업을 효율적으로 지원합니다. 이 리포지토리에서는 고유한 TDSP 프로젝트에 대해 사용할 수 있는 표준화된 디렉터리 구조 및 문서 템플릿을 제공합니다.
+이 [프로젝트 템플릿 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 사용하여 프로젝트 실행 및 협업을 효율적으로 지원합니다. 이 리포지토리에서는 고유한 TDSP 프로젝트에 대해 사용할 수 있는 표준화된 디렉터리 구조 및 문서 템플릿을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

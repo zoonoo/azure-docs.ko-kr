@@ -2,18 +2,19 @@
 title: '빠른 시작: .NET을 사용하여 Azure Storage에 큐 만들기'
 description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 큐를 만들고 메시지를 큐에 추가하는 방법을 알아봅니다. 그런 다음, 큐에서 메시지를 읽고 처리하는 방법을 알아봅니다.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009311"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232604"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>빠른 시작: .NET을 사용하여 Azure Storage에 큐 만들기
 
@@ -144,7 +145,7 @@ Press any key to delete the sample queue.
 
 ### <a name="try-parsing-the-connection-string"></a>연결 문자열 구문 분석 시도
 
-샘플에서는 먼저 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하기 위해, 샘플은 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
+샘플에서는 먼저 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하기 위해, 샘플은 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored

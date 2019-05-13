@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/17/2018
+ms.date: 04/30/2019
 ms.author: kavithaj
-ms.reviewer: igorstan
-ms.openlocfilehash: be31547e8f4063a1b1fe225420fb6c06d9a1588b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: rortloff
+ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439450"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143168"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>SQL Data Warehouse에서 투명한 데이터 암호화(TDE) 시작
 > [!div class="op_single_selector"]

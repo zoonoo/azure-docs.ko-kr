@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: 6eaad301f3b3ea00639ddb3f4c9d22b28d8d7b88
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4126f27156ed8a75abebe02e5d67f35695f5235f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692706"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205546"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
@@ -39,7 +39,7 @@ NSG 흐름 로그는 스토리지 계정의 [블록 Blob](https://docs.microsoft
 
 ## <a name="retrieve-the-block-list"></a>블록 목록 검색
 
-다음 PowerShell은 NSG 흐름 로그 Blob를 쿼리하는 데 필요한 변수를 설정하고 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) 블록 Blob 내의 블록을 나열합니다. 실제 환경에서 사용되는 값을 포함하여 스크립트를 업데이트하세요.
+다음 PowerShell은 NSG 흐름 로그 Blob를 쿼리하는 데 필요한 변수를 설정하고 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) 블록 Blob 내의 블록을 나열합니다. 실제 환경에서 사용되는 값을 포함하여 스크립트를 업데이트하세요.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -116,7 +116,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>블록 Blob 읽기
 
-다음으로는 `$blocklist` 변수를 읽어 데이터를 검색해야 합니다. 이 예제에서는 블록 목록을 반복 검색하면서 각 블록의 바이트를 읽어 배열에 저장합니다. 이때 [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 데이터를 검색합니다.
+다음으로는 `$blocklist` 변수를 읽어 데이터를 검색해야 합니다. 이 예제에서는 블록 목록을 반복 검색하면서 각 블록의 바이트를 읽어 배열에 저장합니다. 이때 [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 메서드를 사용하여 데이터를 검색합니다.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

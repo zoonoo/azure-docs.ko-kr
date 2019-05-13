@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717715"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408768"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717715"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -562,7 +562,7 @@ SAP ASCS/SCS 인스턴스의 두 클러스터 노드에 대해 레지스트리 �
 
 그런 다음 SAP ASCS/SCS에 대한 두 Windows 클러스터 노드에 대해 다음 Windows 레지스트리 항목을 추가합니다.
 
-| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | 변수 이름 |`KeepAliveInterval` |
 | 변수 유형 |REG_DWORD(10진수) |
@@ -739,8 +739,9 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
 Windows 장애 조치(Failover) 클러스터를 성공적으로 설치한 다음에는 장애 조치(Failover) 검색이 Azure의 조건에 맞게 조정되도록 일부 임계값을 변경해야 합니다. 변경할 매개 변수는 [장애 조치(failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명되어 있습니다. ASCS/SCS의 Windows 클러스터 구성에 포함된 2개의 VM이 동일한 서브넷에 있다는 전제하에, 매개 변수 값을 다음과 같이 변경합니다.
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 이러한 설정은 고객과 함께 테스트되어 도출된 합리적인 타협안입니다. 충분한 복원력을 갖고 있으며, SAP 소프트웨어에서 실제 오류가 발생했거나 노드 또는 VM에 장애가 발생한 경우 일정 정도로 빠른 장애 조치(Failover)를 제공합니다.
 

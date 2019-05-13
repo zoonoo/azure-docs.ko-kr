@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809036"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236440"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드를 모니터링합니다.
 
@@ -49,7 +49,7 @@ Azure Backup은 기본 제공 모니터링 및 경고는 Azure Backup으로 보�
 다음 시나리오는 경고 시나리오도 서비스에 의해 정의 됩니다.
 
   - 백업/복원 실패
-  - 백업 성공, 경고 있음
+  - Azure Backup 에이전트 (MAB)에 대 한 경고를 사용 하 여 백업 성공
   - 데이터 삭제를 사용 하 여 데이터/중지 보호를 유지 하는 사용 하 여 보호 중지
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>예외는 경고가 발생 하는 경우
@@ -92,7 +92,7 @@ Azure Backup은 기본 제공 모니터링 및 경고는 Azure Backup으로 보�
 빈도 매시간 다이제스트로 설정 된 경고가 발생 되 고 1 시간 이내에 확인을 예정 된 시간별 요약 포함 되지 않습니다.
 
 > [!NOTE]
-> 
+>
 > * 와 같은 작업을 하는 경우 **데이터 삭제를 사용 하 여 보호를 중지** 는 수행 하 고, 경고가 발생 하 고 복구 서비스에 대 한 알림을 구성 되지 않은 경우에 구독 소유자, 관리자 및 공동 관리자 전자 메일이 전송 됩니다 자격 증명 모음입니다.
 > * 성공한 작업 사용에 대 한 알림을 구성할 [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace)합니다.
 

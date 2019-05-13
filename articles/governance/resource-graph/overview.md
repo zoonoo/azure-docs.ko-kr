@@ -3,35 +3,35 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스가 어떻게 대규모의 복잡한 리소스 쿼리를 지원하는지 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d76a5b32403bd14f18181580f891925130808922
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002887"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137773"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
-Azure Resource Graph는 모든 구독 및 관리 그룹에서 대규모로 쿼리를 수행할 수 있는 효율적인 고성능 리소스 탐색 기능을 제공하여 작업 환경을 효과적으로 관리할 수 있도록 Azure 리소스 관리를 확장할 수 있게 디자인된 Azure의 서비스입니다. 이러한 쿼리는 다음 기능을 제공합니다.
+Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수행할 수 있는 효율적인 고성능 리소스 탐색 기능을 제공하여 작업 환경을 효과적으로 관리할 수 있도록 Azure Resource Management를 확장할 수 있게 디자인된 Azure의 서비스입니다. 이러한 쿼리는 다음 기능을 제공합니다.
 
 - 리소스 속성별로 복합 필터링, 그룹화 및 정렬을 사용하여 리소스를 쿼리하는 기능
-- 거버넌스 요구 사항에 따라 리소스를 반복적으로 탐색하고 결과 식을 정책 정의로 변환하는 기능
+- 거버넌스 요구 사항에 따라 반복적으로 리소스를 살펴보는 기능.
 - 광범위한 클라우드 환경에서 정책을 적용할 때 미치는 영향을 평가하는 기능
 - [리소스 속성에 대한 세부 변경 내용](./how-to/get-resource-changes.md)(미리 보기)에 대한 기능.
 
 이 설명서에서는 각 기능을 자세히 설명합니다.
 
 > [!NOTE]
-> Azure Resource Graph는 Azure Portal의 새로운 찾아보기 '모든 리소스' 탐색 환경과 Azure Policy의 [변경 내역](../policy/how-to/determine-non-compliance.md#change-history-preview)에서 사용됩니다.
-> _시각적 개체 차이_. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
+> Azure Resource Graph는 Azure Portal의 검색 창, 새로운 찾아보기 ‘모든 리소스’ 환경 및 Azure Policy의 [변경 내용](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> _visual diff_에서 사용됩니다. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph가 Azure Resource Manager를 보완하는 방법
 
-Azure Resource Manager는 현재 여러 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치를 제공하는 제한된 리소스 캐시로 데이터를 보냅니다. 이전에는 다양한 리소스 속성으로 작업하려는 경우 각 개별 리소스 공급자를 호출하고 각 리소스에 대한 요청 속성 세부 정보를 호출해야 했습니다.
+Azure Resource Manager는 현재 기본 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치에서 쿼리를 지원합니다. 또한 Resource Manager는 한 번에 하나의 리소스에 대한 세부 속성을 위해 개별 리소스 공급 기업을 호출하는 기능을 제공합니다.
 
 Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다.
 
@@ -39,6 +39,11 @@ Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 
 - 각 리소스 공급자를 별도로 호출하지 않고 리소스 공급자가 반환하는 속성에 액세스합니다.
 - 리소스에 대한 지난 14일 동안의 변경 기록을 보고 변경된 속성과 시기를 확인합니다. (미리 보기)
+
+## <a name="how-resource-graph-is-kept-current"></a>Resource Graph가 최신 상태를 유지하는 방식
+
+Azure 리소스가 업데이트되면 Resource Graph는 Resource Manager로부터 변경 알림을 받습니다.
+그런 다음, Resource Graph는 해당 데이터베이스를 업데이트합니다. Resource Graph는 또한 일반 _전체 검색_을 수행합니다. 이 검사는 알림을 놓치거나 Resource Manager 외부에서 리소스가 업데이트될 때 Resource Graph 데이터가 최신 상태인지 확인합니다.
 
 ## <a name="the-query-language"></a>쿼리 언어
 
@@ -58,7 +63,9 @@ Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 
 
 ## <a name="throttling"></a>제한
 
-Resource Graph에 대한 쿼리는 모든 고객에게 최상의 경험과 응답 시간을 제공하도록 제한됩니다. 자주 수행되는 대규모 쿼리에 Resource Graph API를 사용하려는 조직은 Resource Graph 페이지의 '피드백' 포털을 사용하세요. 비즈니스 사례를 제공하고, 연락을 받을 수 있도록 '피드백과 관련하여 Microsoft에서 이메일을 보내도 좋습니다' 확인란을 선택해야 합니다.
+무료 서비스로서, Resource Graph에 대한 쿼리는 모든 고객에게 최상의 경험과 응답 시간을 제공하도록 제한됩니다. 자주 수행되는 대규모 쿼리에 Resource Graph API를 사용하려는 조직은 Resource Graph 페이지의 ‘피드백’ 포털을 사용하세요. 비즈니스 사례를 제공하고, 연락을 받을 수 있도록 '피드백과 관련하여 Microsoft에서 이메일을 보내도 좋습니다' 확인란을 선택해야 합니다.
+
+Resource Graph는 테넌트 수준에서 제한합니다. 서비스는 테넌트 내에서 사용자가 사용할 수 있는 나머지 쿼리를 나타내기 위해 `x-ms-ratelimit-remaining-tenant-reads` 응답 헤더를 재정의하고 설정합니다. Resource Graph는 매시간이 아닌 5초마다 할당량을 다시 설정합니다. 자세한 내용은 [Resource Manager 요청 제한](../../azure-resource-manager/resource-manager-request-limits.md)을 참조하세요.
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 

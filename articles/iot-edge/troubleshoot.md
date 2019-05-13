@@ -4,27 +4,53 @@ description: 이 문서에서는 구성 요소 상태 및 로그 검색과 같�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612247"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142855"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
-작업 환경에서 Azure IoT Edge를 실행하는 동안 문제가 발생할 경우 이 문서에서 문제 해결 방법을 참조하세요. 
+작업 환경에서 Azure IoT Edge를 실행하는 동안 문제가 발생할 경우 이 문서에서 문제 해결 방법을 참조하세요.
 
-## <a name="standard-diagnostic-steps"></a>표준 진단 단계 
+## <a name="run-the-iotedge-check-command"></a>'확인' 명령 iotedge 실행
 
-문제가 발생하는 경우 디바이스 간에 전달되는 메시지 및 컨테이너 로그를 검토하여 IoT Edge 디바이스의 상태를 자세히 알아봅니다. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다. 
+IoT Edge 문제를 해결할 때 첫 번째 단계를 사용 해야는 `check` 일반적인 문제에 대 한 테스트 구성 및 연결의 컬렉션을 수행 하는 명령입니다. 합니다 `check` 에서 사용할 [1.0.7 릴리스](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IoT Edge 보안 관리자의 상태 및 해당 로그를 확인합니다.
+실행할 수 있습니다는 `check` 다음과 같은 명령을 선택 하거나 포함 된 `--help` 플래그 옵션의 전체 목록을 보려면:
+
+* Linux에서:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* Windows에서:
+
+  ```powershell
+  iotedge check
+  ```
+
+도구에서 실행 하는 검사의 유형으로 분류할 수 있습니다.
+
+* 구성 확인: Edge 장치를 사용 하 여 문제를 포함 하 여 클라우드로 연결에 방해가 될 수 있는 세부 정보를 검사 *config.yaml* 및 컨테이너 엔진입니다.
+* 연결을 확인합니다. IoT Edge 런타임을 호스트 장치에 있는 포트를 액세스할 수 있으며 모든 IoT Edge 구성 요소는 IoT Hub에 연결할 수를 확인 합니다.
+* 프로덕션 준비를 확인합니다. 장치 인증서 기관 (CA) 인증서 및 로그 파일 구성 모듈의 상태와 같은 권장 되는 프로덕션 모범 사례를 찾습니다.
+
+진단 검사의 전체 목록은 참조 하세요 [기능을 해결 하는 기본 제공](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)합니다.
+
+## <a name="standard-diagnostic-steps"></a>표준 진단 단계
+
+문제가 발생 하는 경우 자세한 내용은 IoT Edge 장치의 상태에 대 한 컨테이너 로그 및 전달 되는 메시지를 장치에서 검토 하 여 합니다. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다.
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IoT Edge 보안 관리자 및 해당 로그의 상태를 확인 합니다.
 
 Linux에서:
 - IoT Edge 보안 관리자의 상태를 보려면:
@@ -72,20 +98,13 @@ Windows에서:
 - IoT Edge 보안 관리자의 로그를 보려면:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IoT Edge 보안 관리자가 실행되지 않는 경우 yaml 구성 파일을 확인합니다.
 
 > [!WARNING]
-> YAML 파일은 들여쓰기로 탭을 포함할 수 없습니다. 2 공백을 대신 사용합니다.
+> YAML 파일 들여쓰기도 탭을 포함할 수 없습니다. 2 공백을 대신 사용합니다.
 
 Linux에서:
 

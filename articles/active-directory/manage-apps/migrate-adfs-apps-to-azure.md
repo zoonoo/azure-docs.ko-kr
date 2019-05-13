@@ -50,7 +50,7 @@ ms.locfileid: "60291846"
 - 위험한 트래픽을 식별하는 기계 학습 및 추론에 따라 위협을 탐지하고 로그온을 보호하려면 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용합니다.
 
 **Azure AD B2B 공동 작업**
-- SaaS 앱에 대한 로그온이 Azure AD를 기반으로 하는 경우 [Azure AD B2B 공동 작업](../b2b/what-is-b2b.md)을 사용하여 클라우드 리소스에 대한 액세스 권한을 파트너에 부여할 수 있습니다.
+- SaaS 앱에 대한 로그온이 Azure AD를 기반으로 하는 경우 [Azure AD B2B 협업](../b2b/what-is-b2b.md)을 사용하여 클라우드 리소스에 대한 액세스 권한을 파트너에 부여할 수 있습니다.
 
 **더 쉬운 관리 환경 및 Azure AD의 추가 기능**
 - Azure AD는 SaaS 앱에 대한 ID 공급자로서 다음과 같은 추가 기능을 지원합니다.

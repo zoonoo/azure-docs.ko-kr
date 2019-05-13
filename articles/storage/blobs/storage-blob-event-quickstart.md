@@ -2,19 +2,20 @@
 title: Azure Blob Storage 이벤트를 웹 엔드포인트에 전송 - Azure CLI | Microsoft Docs
 description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다. 웹 애플리케이션에서 이벤트를 처리합니다.
 services: storage,event-grid
-author: cbrooksmsft
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d92614556fdc6822f749002d2e5a8fc92946d0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756379"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141123"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
 

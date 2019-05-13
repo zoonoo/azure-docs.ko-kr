@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17bc1d2b7a08314f19f1bf8f87d0c774afc37500
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725645"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508173"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -107,6 +107,19 @@ Windows Server 컨테이너를 실행하려면 Windows Server 기반 노드를 �
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS는 서비스 수준 계약을 제공합니까?
 
 SLA(서비스 수준 계약)에서, 공급자는 게시된 서비스 수준이 충족되지 않을 경우 고객에게 서비스 비용을 배상하는 것에 동의합니다. AKS 자체는 무료이므로 배상할 비용이 없으며 따라서 공식 SLA가 없습니다. 그러나 AKS는 Kubernetes API 서버의 가용성을 99.5% 이상으로 유지하기 위해 노력하고 있습니다.
+
+## <a name="why-can-i-not-set-maxpods-below-30"></a>이유 있습니까 설정할 수 없습니다 `maxPods` 30 아래?
+
+AKS 설정을 지 원하는 `maxPods` Azure CLI 및 Azure Resource Manager 템플릿을 통해 클러스터를 만들 때에는 값입니다. 그러나를 *최소값* (생성 시 유효성 검사) 아래 Kubenet 및 Azure CNI 경우:
+
+| 네트워킹 | 최소 | 최대 |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+AKS 관리 되는 서비스 이므로 추가 기능 및 pod를 배포 하 고 클러스터의 일부로 관리 제공 합니다. 과거에는 사용자가 정의할 수는 `maxPods` 실행 하려면 관리 되는 pod에 필요한 값 보다 낮은 값 (예: 30) AKS를 통해 pod의 최소 수를 계산 합니다. ((maxPods 또는 (maxPods * vm_count)) > 관리 되는 추가 기능 pod 최소입니다.
+
+사용자는 최소 우선 `maxPods` 유효성 검사 합니다.
 
 <!-- LINKS - internal -->
 

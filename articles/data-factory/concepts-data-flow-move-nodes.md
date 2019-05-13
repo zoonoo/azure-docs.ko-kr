@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: d82b32e876144a626333f3df1481c5fce9862067
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c41ab1c0c8a26488c476d187fbc1bcac2e624ac8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61268644"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472020"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Mapping Data Flow 노드 이동
 
@@ -24,7 +24,7 @@ Azure Data Factory 데이터 흐름 디자인 화면은 데이터 흐름을 위�
 
 따라서 끌어서 놓기 패러다임을 사용하지 않고 변환 노드를 “이동”하는 방법은 들어오는 스트림을 변경하는 것입니다. 대신 “들어오는 스트림”변경하여 변환을 이동하게 됩니다.
 
-Azure Data Factory 데이터 흐름에서 스트림은 데이터의 흐름을 나타냅니다. 변환 설정 창에 “들어오는 스트림” 필드가 표시됩니다. 이는 들어오는 데이터 스트림이 해당 변환에 공급되었음을 나타냅니다. 들어오는 스트림 이름을 클릭하고 다른 데이터 스트림을 선택하면 그래프에 있는 변환 노드의 실제 위치를 변경할 수 있습니다. 현재 변환아 해당 스트림의 모든 후속 변환과 함께 새 위치로 이동합니다.
+Azure Data Factory 데이터 흐름에서 스트림은 데이터의 흐름을 나타냅니다. 변환 설정 창에서 "들어오는 Stream" 필드를 표시 됩니다. 이는 들어오는 데이터 스트림이 해당 변환에 공급되었음을 나타냅니다. 들어오는 스트림 이름을 클릭하고 다른 데이터 스트림을 선택하면 그래프에 있는 변환 노드의 실제 위치를 변경할 수 있습니다. 현재 변환아 해당 스트림의 모든 후속 변환과 함께 새 위치로 이동합니다.
 
 그 후 하나 이상의 변환으로 변환을 이동하면 데이터 흐름의 새 위치가 새 분기를 통해 조인됩니다.
 

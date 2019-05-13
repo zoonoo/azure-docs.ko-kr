@@ -2,18 +2,19 @@
 title: Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs
 description: 스토리지 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103862"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192161"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -425,7 +426,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 **PercentThrottlingError**는 저장소 요청 수가 증가할 때 함께 증가하거나, 처음으로 애플리케이션의 부하를 테스트할 때 증가하는 경우가 많습니다. 또한 이 오류는 저장소 작업에서 "503 서버 사용 중" 또는 "500 작업 시간 초과" HTTP 상태 메시지로 클라이언트에 표시될 수도 있습니다.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>일시적인 PercentThrottlingError 증가
-애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 스토리지 클라이언트 라이브러리를 사용하여 다시 시도 정책을 구현하는 방법에 대한 자세한 내용은 [Microsoft.WindowsAzure.Storage.RetryPolicies 네임스페이스](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx)를 참조하세요.
+애플리케이션의 작업량이 많은 기간에 **PercentThrottlingError** 값도 급증하는 경우에는 클라이언트의 다시 시도에 지수(선형이 아닌) 백오프 전략을 구현합니다. 백오프 재시도는 파티션의 순간적인 부하를 줄이고 애플리케이션에서 트래픽 급증을 완화시키는 데 도움이 됩니다. 스토리지 클라이언트 라이브러리를 사용하여 다시 시도 정책을 구현하는 방법에 대한 자세한 내용은 [Microsoft.WindowsAzure.Storage.RetryPolicies 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy)를 참조하세요.
 
 > [!NOTE]
 > 애플리케이션의 작업량이 많지 않은 기간에도 **PercentThrottlingError** 값이 급증할 수 있습니다. 이러한 현상이 발생하는 경우 부하 분산을 개선하기 위해 저장소 서비스가 파티션을 이동 중일 가능성이 높습니다.

@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f3dd4d20c6455e97b566ed435b14437d614e25b4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009430"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466438"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>빠른 시작: .NET Core용 Speech SDK를 사용하여 음성 인식
 
+빠른 시작은 [음성 변환](quickstart-translate-speech-dotnetcore-windows.md)에도 사용할 수 있습니다.
+
+원하는 경우 다른 프로그래밍 언어 및/또는 환경을 선택합니다.<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 Windows 또는 macOS에서 .NET Core용 C# 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 이 애플리케이션은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.

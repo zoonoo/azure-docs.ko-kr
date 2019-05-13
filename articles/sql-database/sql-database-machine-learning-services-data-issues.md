@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 069a2a5b3b26bf517b57034f05ab7080ab392319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702523"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232622"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning 서비스 (미리 보기)에서 R 및 SQL 데이터 작업
 
@@ -59,7 +59,7 @@ OutputDataSet <- as.data.frame(mytextvariable);
     , @input_data_1 = N'';
 ```
 
-**예 2**
+**예제 2**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -300,4 +300,4 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 - 문제를 방지하려면 입력 데이터를 준비할 때 필요에 따라 명시적 Cast를 수행합니다.
 - 오류를 유발하거나 모델링에 유용하지 않은 데이터 열(예: GUID 또는 rowguids)은 전달하지 않습니다. 
 
-지원 되거나 지원 되지 않는 R 데이터 형식에 대 한 자세한 내용은 참조 하세요. [R 라이브러리 및 데이터 형식](/sql/advanced-analytics/r/r-libraries-and-data-types.md)합니다.
+지원 되거나 지원 되지 않는 R 데이터 형식에 대 한 자세한 내용은 참조 하세요. [R 라이브러리 및 데이터 형식](/sql/advanced-analytics/r/r-libraries-and-data-types)합니다.

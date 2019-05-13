@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL에서 방화벽 규칙 만들기 및 관리
-description: Azure Portal을 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리
+title: 만들기 및 PostgreSQL-단일 서버에 대 한 Azure Database에서 방화벽 규칙 관리
+description: 만들기 및 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database에 대 한 방화벽 규칙 관리
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421044"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069013"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>만들기 및 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database에 대 한 방화벽 규칙 관리
 서버 수준 방화벽 규칙은 지정된 된 IP 주소 또는 IP 주소 범위에서 PostgreSQL 서버용 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다.
 
 Virtual Network (VNet) 규칙은 서버에 대 한 액세스를 보호 하려면 데도 사용할 수 있습니다. 에 대해 자세히 알아보세요 [만들기 및 관리 가상 네트워크 서비스 끝점 및 Azure portal을 사용 하 여 규칙](howto-manage-vnet-using-portal.md)합니다.

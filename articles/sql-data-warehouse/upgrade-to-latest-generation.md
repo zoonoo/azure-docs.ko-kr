@@ -1,6 +1,6 @@
 ---
 title: 최신 세대 Azure SQL Data Warehouse로 업그레이드 | Microsoft Docs
-description: Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키텍처로 업그레이드합니다.
+description: Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처의 최신 세대로 업그레이드합니다.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -19,11 +19,11 @@ ms.locfileid: "60310326"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Data Warehouse를 업그레이드하여 성능 최적화
 
-Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키텍처로 업그레이드합니다.
+Azure SQL Data Warehouse를 Azure 하드웨어와 저장소 아키텍처 최신 세대로 업그레이드합니다.
 
 ## <a name="why-upgrade"></a>업그레이드가 필요한 이유
 
-이제 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 Azure Portal에서 SQL Data Warehouse 컴퓨팅 최적화 Gen2 계층으로 원활하게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 최신 세대 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 비롯한 향상된 스토리지 아키텍처를 활용하세요. 
+이제 [지원되는 지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)의 Azure Portal에서 SQL Data Warehouse 컴퓨팅 최적화 Gen2 계층으로 원활하게 업그레이드할 수 있습니다. 지역이 자체 업그레이드를 지원하지 않는 경우 지원되는 지역으로 업그레이드하거나, 지역에서 자체 업그레이드를 사용할 수 있게 될 때까지 기다릴 수 있습니다. 지금 바로 업그레이드하여 Azure 하드웨어와 더 빠른 성능, 더 높은 확장성, 무제한 열 형식 스토리지를 포함하는 향상된 스토리지 아키텍처의 최신 세대를 활용하세요. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
@@ -34,8 +34,8 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1. 사용자의 [지역](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)에서 GEN1-GEN2 마이그레이션이 지원되는지 확인합니다. 자동 마이그레이션 날짜를 기록해 둡니다. 자동 프로세스 충돌을 방지하려면 자동 프로세스 시작 날짜 전에 수동 마이그레이션을 진행하도록 계획합니다.
-2. 아직 지원되지 않는 지역에 있는 경우 지역이 추가되는지 여부를 계속 확인하거나 [복원을 사용하여 지원되는 지역으로 업그레이드](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal)합니다.
-3. 사용자의 지역이 지원되는 [Azure Portal을 통해 업그레이드](#upgrade-in-a-supported-region-using-the-azure-portal)합니다.
+2. 아직 지원되지 않는 지역에 있는 경우, 지역이 추가되는지 여부를 계속 확인하거나 [복원을 사용하여 지원되는 지역으로 업그레이드](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal)합니다.
+3. 사용자의 지역이 지원되는 경우, [Azure Portal을 통해 업그레이드](#upgrade-in-a-supported-region-using-the-azure-portal)합니다.
 4. 데이터 웨어하우스에 대한 **제안된 성능 수준 선택**은 아래에 있는 매핑을 사용하여 계산에 최적화된 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
 
    | 컴퓨팅 최적화 Gen1 계층 | 컴퓨팅 최적화 Gen2 계층 |
@@ -63,7 +63,7 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Azure portal 통해 Gen2로 Gen1에서 마이그레이션은 영구적입니다. Gen1를 반환 하기 위해 프로세스가 아닙니다.  
+> Azure portal 통해 Gen1에서 Gen2로의 마이그레이션은 영구적입니다. Gen1으로 되돌리기 위한 프로세스는 없습니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -76,7 +76,7 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
 2. 몇 분 정도의 가동 중지 시간에 대비합니다. 
 
-3. 컴퓨팅 최적화 Gen1 성능 수준에 대한 코드 참조를 식별하고, 동등한 컴퓨팅 최적화 Gen2 성능 레벨로 수정합니다. 아래에는 업그레이드 전에 코드 참조를 업데이트해야 는 두 가지 예제입니다.
+3. 컴퓨팅 최적화 Gen1 성능 수준에 대한 코드 참조를 식별하고, 동등한 컴퓨팅 최적화 Gen2 성능 수준으로 수정합니다. 아래는 업그레이드 전에 코드 참조를 업데이트해야 하는 두 가지 예제입니다.
 
    원래 Gen1 PowerShell 명령:
 
@@ -117,7 +117,7 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
     > [작업] 탭 아래 **Gen2로 업그레이드** 카드가 표시되지 않으면 구독 유형이 현재 지역으로 제한됩니다.
     > [지원 티켓을 제출](sql-data-warehouse-get-started-create-support-ticket.md)하여 구독을 허용 목록으로 가져옵니다.
 
-3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. 데이터 웨어하우스가 컴퓨팅 최적화 Gen2 계층 데이터 웨어하우스로 다시 온라인 상태가 되기 전에 몇 분 동안 가동 중지 시간이 발생합니다. **업그레이드를 선택합니다**.
+3. 업그레이드 전에 워크로드가 실행이 완료되고 정지되었는지 확인합니다. 데이터 웨어하우스가 컴퓨팅 최적화 Gen2 계층 데이터 웨어하우스로 다시 온라인 상태가 되기 전에 몇 분 동안 가동 중지 시간이 발생합니다. **업그레이드를 선택합니다**.
 
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
@@ -125,7 +125,7 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
 
-   비율 크기 조정 작업(“업그레이드 - 오프라인”)을 통해 업그레이드 프로세스의 첫 단계가 진행됩니다. 여기서는 모든 세션이 종료되며 연결이 삭제됩니다. 
+   크기 조정 작업(“업그레이드 - 오프라인”)을 통해 업그레이드 프로세스의 첫 단계가 진행됩니다. 여기서는 모든 세션이 종료되며 연결이 삭제됩니다. 
 
    업그레이드 프로세스의 두 번째 단계는 데이터 마이그레이션(“업그레이드 - 온라인”)입니다. 데이터 마이그레이션은 지속적인 온라인 백그라운드 프로세스입니다. 이 프로세스는 로컬 SSD 캐시를 활용하여 열 형식의 데이터가 이전 스토리지 아키텍처에서 새로운 스토리지 아키텍처로 느리게 이동합니다. 이 시간 동안 데이터 웨어하우스는 쿼리 및 로딩을 위해 온라인 상태가 됩니다. 데이터는 마이그레이션 여부에 관계 없이 쿼리에 사용할 수 있습니다. 데이터 마이그레이션은 데이터 크기, 성능 수준 및 columnstore 세그먼트의 수에 따라 다양한 속도로 발생합니다. 
 
@@ -215,7 +215,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-데이터베이스를 복구 하려면 사용 합니다 [복원 AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet.
+데이터베이스를 복구 하려면 [복원 AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet을 사용합니다.
 
 > [!NOTE]
 > 지역 복원을 Gen2로 수행할 수 있습니다! 이렇게 하려면 Gen2 ServiceObjectiveName(예: DW1000**c**)을 선택적 매개 변수로 지정하세요.

@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d297addbeffcc530ba676e4132f9f0ebdceac3c9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008750"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467005"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>빠른 시작: .NET Framework(Windows)에 대한 Speech SDK를 사용하여 음성 인식
 
+빠른 시작은 [텍스트 음성 변환](quickstart-text-to-speech-dotnet-windows.md) 및 [음성 번역](quickstart-translate-speech-dotnetframework-windows.md)에도 사용할 수 있습니다.
+
+원하는 경우 다음과 같은 다른 프로그래밍 언어 및/또는 환경을 선택하세요.<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 가이드에 따라 Windows용 .NET Framework 및 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만들 수 있습니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.

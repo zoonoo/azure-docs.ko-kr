@@ -1,5 +1,5 @@
 ---
-title: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결 - Azure HDInsight
+title: HDInsight 클러스터-Azure HDInsight에서 속도가 느리거나 오류가 발생 작업 문제 해결
 description: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 진단 및 해결
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708904"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203620"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생 작업 문제 해결
 
-HDInsight 클러스터가 느리게 실행되거나 오류 코드와 함께 실패하는 경우 여러 가지 문제 해결 옵션이 있습니다. 작업 실행 시간이 예상보다 오래 걸리거나 응답 시간이 대체적으로 느려진 경우 클러스터가 실행되는 서비스처럼 클러스터에서 위로 올라가는 업스트림 오류가 있을 수 있습니다. 그러나 이러한 성능 저하의 가장 일반적인 원인은 부족한 크기 조정입니다. 새 HDInsight 클러스터를 만들 때 적절 한 선택 [가상 머신 크기](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)합니다.
+HDInsight 클러스터에서 데이터를 느리게 실행 되거나 오류 코드로 실패 하는 응용 프로그램 처리를 하는 경우 몇 가지 문제 해결 옵션이 있습니다. 작업 실행 시간이 예상보다 오래 걸리거나 응답 시간이 대체적으로 느려진 경우 클러스터가 실행되는 서비스처럼 클러스터에서 위로 올라가는 업스트림 오류가 있을 수 있습니다. 그러나 이러한 성능 저하의 가장 일반적인 원인은 부족한 크기 조정입니다. 새 HDInsight 클러스터를 만들 때 적절 한 선택 [가상 머신 크기](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)합니다.
 
 속도가 느리거나 오류가 발생하는 클러스터를 진단하려면 관련된 Azure Services, 클러스터 구성, 작업 실행 정보 등 환경의 모든 측면에 대한 정보를 수집합니다. 다른 클러스터에서 오류 상태를 재현해 보면 진단에 도움이 됩니다.
 

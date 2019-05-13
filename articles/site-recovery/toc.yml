@@ -167,6 +167,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: S2D VM에 대한 Azure간 복제 활성화
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: 추가된 디스크에 대한 복제 활성화
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: 디스크 제외
               href: azure-to-azure-exclude-disks.md
             - name: 장애 조치(failover) 후 Azure VM 다시 보호

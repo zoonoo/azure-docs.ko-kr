@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695469"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410944"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>설정 하 고 Azure Lab Services의 랩에 Linux 가상 머신에 대 한 원격 데스크톱 사용
 이 문서에서는 다음 태스크를 수행 하는 방법을 보여 줍니다.
@@ -64,7 +64,7 @@ ms.locfileid: "60695469"
 ## <a name="students-connecting-to-the-student-vm"></a>학생 학생 VM에 연결
 학생 랩 소유자 (교사/교수) 후에 Linux Vm에 RDP 수 **게시** 템플릿을 RDP 및 GUI 패키지를 사용 하 여 VM 컴퓨터에 설치 합니다. 단계는 다음과 같습니다. 
 
-1. 학생 로그인 경우 Labs 포털로 직접 (`http://labs.azure.com`) 또는 등록 링크를 사용 하 여 (`http://labs.azure.com/register/<registrationCode>`), 타일 학생이 각 랩에 대 한 액세스에 대 한 표시 됩니다. 
+1. 학생 로그인 경우 Labs 포털로 직접 (`https://labs.azure.com`) 또는 등록 링크를 사용 하 여 (`https://labs.azure.com/register/<registrationCode>`), 타일 학생이 각 랩에 대 한 액세스에 대 한 표시 됩니다. 
 2. 타일을 선택 **시작** VM이 중지 하는 경우. 
 3. **연결**을 선택합니다. 이 작업에는 컴퓨터에 RDP 파일을 다운로드합니다. 저장 하 고 RDP 통해 Linux 컴퓨터에 연결을 엽니다. 
 

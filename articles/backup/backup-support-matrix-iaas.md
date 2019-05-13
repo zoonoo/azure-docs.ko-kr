@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685943"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471642"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 사용할 수는 [Azure Backup 서비스](backup-overview.md) 온-프레미스 컴퓨터 및 워크 로드 및 Azure virtual machines (Vm)를 백업 합니다. 이 문서에서는 Azure Backup을 사용 하 여 Azure Vm을 백업할 때 지원 설정 및 제한 사항 요약입니다.
@@ -41,9 +41,9 @@ Azure Vm (Windows만 해당)의 직접 백업  | 특정 파일/폴더/볼륨을 
 **작업** | **지원**
 --- | ---
 Microsoft Azure VM을 만들 때 백업 사용 | 지원 대상:  Windows Server 2019 (데이터 센터/Datacenter Core), Windows Server 2016 (데이터 센터/데이터 센터 코어); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM 및 SP1)
-Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> - Ubuntu Server: 1710, 1704, 1604(LTS), 1404(LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> - Ubuntu Server: 18.04 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 VM 종료/오프 라인 상태인 VM 백업 |  지원됩니다.<br/><br/> 스냅숏이 충돌 일치 특성만 있고 앱 일치 특성은 없습니다.
-디스크 관리로 마이그레이션 후 디스크 백업 |  지원됩니다.<br/><br/> 백업이 계속 작동합니다. 추가적인 조치가 필요하지 않습니다.
+디스크 관리로 마이그레이션 후 디스크 백업 |  지원됩니다.<br/><br/> 백업이 계속 작동합니다. 별도의 작업이 필요 없습니다.
 리소스 그룹 잠금을 사용하도록 설정한 후 Managed Disks를 백업합니다. | 지원되지 않습니다.<br/><br/> 백업 복원 지점 중 최대 제한에 도달한 경우 실패 하기 시작 하 고 azure Backup은 이전 리소스 요소를 삭제할 수 없습니다.
 VM의 백업 정책 수정 |  지원됩니다.<br/><br/> 새 정책의 일정 및 보존 설정을 사용 하 여 VM 백업 됩니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 절감 하는 경우 기존 복구 지점이 다음 정리 작업에서 정리 되며 결과적으로 삭제 합니다.
 백업 작업 취소 | 스냅숏 프로세스 동안 지원됩니다.<br/><br/> 스냅숏이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
@@ -139,7 +139,7 @@ VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로
 
 ## <a name="vm-compute-support"></a>VM 컴퓨팅 지원
 
-**Compute** | **지원**
+**계산** | **지원**
 --- | ---
 VM 크기 |   CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM<br/><br/> [자세한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets)의 VM 백업 |  지원됩니다.<br/><br/> 신속 하 게 VM을 만드는 옵션을 사용 하 여 사용 가능한 집합에 VM을 복원할 수 없습니다. 대신 VM을 복원할 때 디스크를 복원 하 고 VM을 배포 또는 디스크 복원 및 기존 디스크 대신 사용할 사용 합니다.
@@ -150,6 +150,7 @@ Vm에 배포 되는 백업 된 [확장 집합](https://docs.microsoft.com/azure/
 사용자 지정 이미지 (타사)에서 배포 된 Vm 백업 |    지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 Azure로 마이그레이션된 Vm 백업  |  지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
 다중 VM 일관성을 백업 | Azure Backup은 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.
+사용 하 여 백업 [진단 설정](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | 지원 안 됨 <br/><br/> 진단 설정 사용 하 여 Azure VM의 복원을 사용 하 여 트리거되어 [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션 복원이 실패 합니다.
 
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
@@ -214,10 +215,10 @@ Azure로의 네트워크 트래픽:
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예][green] | ![예][green]
-Azure VM | ![예][green] | ![예][green]
-온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
-온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예.][green] | ![예][green]
+Azure VM | ![예][green] | ![예.][green]
+온-프레미스/Azure VM(DPM 사용) | ![예.][green] | ![예.][green]
+온-프레미스/Azure VM(MABS 사용) | ![예.][green] | ![예.][green]
 
 
 
@@ -230,10 +231,10 @@ Azure VM | ![예][green] | ![예][green]
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음 (HTTPS)에 압축**
 --- | --- | ---
-온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![예][green]
+온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | 해당 없음 | ![예.][green]
 Azure VM | 해당 없음 | 해당 없음
-온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
-온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
+온-프레미스/Azure VM(DPM 사용) | ![예.][green] | ![예.][green]
+온-프레미스/Azure VM(MABS 사용) | ![예.][green] | ![예][green]
 
 
 ## <a name="next-steps"></a>다음 단계

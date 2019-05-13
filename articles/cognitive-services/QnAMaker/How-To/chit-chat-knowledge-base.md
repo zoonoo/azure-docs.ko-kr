@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/07/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573506"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153702"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -54,10 +54,12 @@ KB를 편집할 때 선택된 성격에 따라 잡담의 새 원본이 표시됩
 
 ![잡담 QnA 편집](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
+메타 데이터를 보려면 선택 **보기 옵션** 도구 모음에서 선택한 **메타 데이터 표시**합니다.
+
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>잡담 질문과 답변 추가
 미리 정의된 집합에 없는 새로운 잡담 QnA를 추가할 수 있습니다. 잡담 집합에 이미 포함된 QnA 쌍을 복제하지 않도록 하세요. 새로운 잡담 QnA를 추가하면 **Editorial** 원본에 추가됩니다. 평가자가 잡담이라고 이해할 수 있도록 다음 이미지에 보이는 것과 같이 메타데이터 키/값 쌍 "Editorial: 잡담"을 추가하세요.
    
-![잡담 QnA 추가](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)
+![![Add chit-chat QnAs](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>기존 KB에서 잡담 삭제
 KB를 선택하고 **설정** 페이지로 이동합니다. 특정 잠담 원본은 선택된 성격 이름과 함께 파일로 나열됩니다. 이 원본 파일을 삭제할 수 있습니다.

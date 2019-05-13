@@ -66,6 +66,10 @@
       items:
         - name: 샘플 데이터 수집
           href: ingest-sample-data.md
+    - name: 배포
+      items:
+        - name: DevOps 작업
+          href: devops.md
     - name: 쿼리 데이터
       items:
         - name: 쿼리 쓰기

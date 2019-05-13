@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021517"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147575"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
@@ -26,6 +26,7 @@ ms.locfileid: "65021517"
 * [Face](Face/Overview.md)
 * [폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Language Understanding](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [텍스트 분석](text-analytics/overview.md)
 
@@ -56,6 +57,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**폼 인식기** |양식 이해를 식별 하 여 폼에서 테이블과 키-값 쌍을 추출 하는 기계 학습 기술을 적용 됩니다.<br>[액세스 요청](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([이미지](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer는 실시간 동작에서 배움 사용자에 게 표시할 최상의 환경을 선택할 수 있도록 하는 클라우드 기반 API 서비스.|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Speech-to-text** |연속적인 실시간 음성을 텍스트로 변환합니다.<br>[액세스 요청](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Text-to-speech** |텍스트를 자연스럽게 들리는 음성으로 변환합니다.<br>[액세스 요청](https://aka.ms/speechcontainerspreview/)|
 |[텍스트 분석](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 핵심 발화 지점을 반환합니다. |
@@ -103,5 +105,6 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 * [얼굴 컨테이너](Face/face-how-to-install-containers.md)
 * [인식기 컨테이너 구성](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [언어 이해 (LUIS) 컨테이너](LUIS/luis-container-howto.md)
+* [Personalizer 컨테이너](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [음성 서비스 API 컨테이너](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [텍스트 분석 컨테이너](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

@@ -2,18 +2,19 @@
 title: Azure Storage에서 보안 전송 필요 | Microsoft Docs
 description: Azure Storage에 대한 "보안 전송 필요" 기능과 이 기능을 사용하도록 설정하는 방법에 대해 알아봅니다.
 services: storage
-author: fhryo-msft
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 06/20/2017
-ms.author: fryu
+ms.author: tamram
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e75cd873b780f514b24ee254dd491b6aa779c420
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7239e7fbe1221acc3c302260045d6fc510db2cbe
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101927"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148567"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Storage에서 보안 전송 필요
 

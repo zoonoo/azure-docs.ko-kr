@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 05/07/2019
 ms.author: genli
-ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107996"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416023"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 주소 168.63.129.16
 
@@ -28,14 +28,17 @@ IP 주소 168.63.129.16은 Azure 플랫폼 리소스에 대한 통신 채널을 
 
 - VM 에이전트가 Azure 플랫폼과 통신하여 "준비" 상태임을 알릴 수 있습니다.
 - 사용자 지정 DNS 서버가 없는 VM 등의 리소스에 필터링된 이름 확인 기능을 제공하기 위해 DNS 가상 서버와 통신할 수 있습니다. 이 필터링을 통해 고객은 리소스의 호스트 이름만 확인할 수 있습니다.
-- 부하 분산된 세트의 VM 성능 상태를 확인하기 위해 부하 분산 장치에서 상태 프로브를 사용할 수 있습니다.
+- 사용 하도록 설정 [Azure 부하 분산 장치에서 상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md) Vm의 상태를 확인 하려면.
+- VM이 Azure의 DHCP 서비스에서 동적 IP 주소를 가져올 수 있도록 합니다.
 - PaaS 역할에 대해 게스트 에이전트 하트비트 메시지를 사용할 수 있습니다.
 
 ## <a name="scope-of-ip-address-1686312916"></a>IP 주소 168.63.129.16의 범위
 
-가상 공용 IP 주소 168.63.129.16은 모든 지역과 모든 국가별 클라우드에서 사용됩니다. 이 특수 공용 IP 주소는 변경되지 않으며 기본 네트워크 보안 그룹 규칙을 통해 허용됩니다. 모든 로컬 방화벽 정책에서 이 IP 주소를 허용하는 것이 좋습니다. 이 IP 주소에서는 내부 Azure 플랫폼만이 메시지 원본을 제공할 수 있으므로, 이 특수 IP 주소와 리소스 간의 통신은 안전합니다. 이 주소가 차단되면 여러 시나리오에서 예기치 않은 동작이 발생할 수 있습니다.
+공용 IP 주소 168.63.129.16은 모든 지역 및 국가 클라우드의 모든에서 사용 됩니다. 이 특별 한 공용 IP 주소는 Microsoft가 소유 및 변경 되지 않습니다. 기본 네트워크 보안 그룹 규칙을 통해 허용됩니다. 모든 로컬 방화벽 정책에서 이 IP 주소를 허용하는 것이 좋습니다. 이 IP 주소에서는 내부 Azure 플랫폼만이 메시지 원본을 제공할 수 있으므로, 이 특수 IP 주소와 리소스 간의 통신은 안전합니다. 이 주소가 차단되면 여러 시나리오에서 예기치 않은 동작이 발생할 수 있습니다.
 
-또한 트래픽은 가상 공용 IP 주소 168.63.129.16에서 [부하 분산 장치 상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md)용으로 구성된 엔드포인트로 전송됩니다. 가상 네트워크 이외의 시나리오에서는 상태 프로브 원본이 개인 IP에서 제공됩니다. 
+[Azure Load Balancer 상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md) 이 IP 주소에서 시작 합니다. 이 IP 주소를 차단 하는 경우에 프로브 실패 합니다.
+
+비가상 네트워크 시나리오에서 상태 프로브에서 개인 IP를 원본으로 사용 되 고 168.63.129.16 사용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

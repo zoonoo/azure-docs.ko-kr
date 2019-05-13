@@ -1,4 +1,4 @@
-﻿---
+---
 title: AAD 다단계 인증을 사용 하 여 Azure SQL Database 및 Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Database 및 Azure SQL Data Warehouse는 Active Directory 유니버설 인증을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다.
 services: sql-database
@@ -54,7 +54,7 @@ Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authenti
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 기업 간 지원   
-Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자([Azure B2B 공동 작업이란?](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 참조)는 현재 Azure AD에서 만들어진 그룹의 구성원으로만 해당 데이터베이스에서 Transact-SQL `CREATE USER` 문을 통해 수동으로 매핑된 SQL Database 및 SQL Data Warehouse에 연결할 수 있습니다. 예를 들어 `steve@gmail.com`이 Azure AD `contosotest`(Azure Ad 도메인 `contosotest.onmicrosoft.com`)에 초대된 경우 Azure AD 그룹(예: `usergroup`)은 `steve@gmail.com` 구성원을 포함하는 Azure AD에 만들어져야 합니다. 그런 다음, Azure AD SQL 관리자 또는 Azure AD DBO가 `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` TRANSACT-SQL 구문을 실행하여 특정 데이터베이스(즉, MyDatabase)를 위해 이 그룹을 생성합니다. 데이터베이스 사용자가 만들어지면 `steve@gmail.com` 사용자는 `Active Directory – Universal with MFA support` SSMS 인증 옵션을 사용하여 `MyDatabase`에 로그인할 수 있습니다. 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여받아야 합니다. 게스트 사용자인 `steve@gmail.com` 사용자는 확인란을 선택하고 SSMS **연결 속성** 대화 상자에서 `contosotest.onmicrosoft.com` AD 도메인 이름을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
+Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자([Azure B2B 협업이란?](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 참조)참조)는 현재 Azure AD에서 만들어진 그룹의 구성원으로만 해당 데이터베이스에서 Transact-SQL `CREATE USER` 문을 통해 수동으로 매핑된 SQL Database 및 SQL Data Warehouse에 연결할 수 있습니다. 예를 들어 `steve@gmail.com`이 Azure AD `contosotest`(Azure Ad 도메인 `contosotest.onmicrosoft.com`)에 초대된 경우 Azure AD 그룹(예: `usergroup`)은 `steve@gmail.com` 구성원을 포함하는 Azure AD에 만들어져야 합니다. 그런 다음, Azure AD SQL 관리자 또는 Azure AD DBO가 `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` TRANSACT-SQL 구문을 실행하여 특정 데이터베이스(즉, MyDatabase)를 위해 이 그룹을 생성합니다. 데이터베이스 사용자가 만들어지면 `steve@gmail.com` 사용자는 `Active Directory – Universal with MFA support` SSMS 인증 옵션을 사용하여 `MyDatabase`에 로그인할 수 있습니다. 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여받아야 합니다. 게스트 사용자인 `steve@gmail.com` 사용자는 확인란을 선택하고 SSMS **연결 속성** 대화 상자에서 `contosotest.onmicrosoft.com` AD 도메인 이름을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증 제한 사항
 - SSMS 및 SqlPackage.exe는 현재 Active Directory 유니버설 인증을 통해 MFA에서 사용할 수 있는 유일한 도구입니다.

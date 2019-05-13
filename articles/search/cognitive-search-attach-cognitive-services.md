@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024594"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472476"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
@@ -28,7 +28,7 @@ AI 알고리즘 드라이브는 [cognitive 인덱싱 파이프라인](cognitive-
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때는 청구 가능 Cognitive Services 리소스를 연결해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술 실행은 기존 부과 [종 량 Cognitive Services 가격 이동](https://azure.microsoft.com/pricing/details/cognitive-services/)합니다. 에 설명 된 대로 이미지 추출 가격을 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)합니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정 정보는 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
 ## <a name="use-free-resources"></a>무료 리소스 사용
 
@@ -60,7 +60,7 @@ Cognitive Services API를 호출하는 기술에 대해서만 요금이 청구�
 
    ![Cognitive Services 리소스 만들기](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Cognitive Services 리소스 만들기")
 
-1. 위치에 지역 간 아웃 바운드 대역폭 요금을 방지 하려면 Azure Search와 같은 영역을 선택 합니다.
+1. 위치에서 Azure Search와 같은 영역을 선택 합니다. 이 성능상의 이유로 필요 하지만 또한 아웃 바운드 대역폭 요금은 지역에 걸쳐 적용 되지 않습니다.
 
 1. 가격 책정 계층 선택 **S0** Cognitive Services 기능을 Azure Search에서 사용 하는 미리 정의 된 기술을 다시 비전 및 언어 기능을 포함 하 여 모든 통합 된 단일 컬렉션을 가져옵니다. 
 

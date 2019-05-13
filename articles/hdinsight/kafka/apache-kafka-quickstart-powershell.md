@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
-ms.openlocfilehash: c86e5faa212fb6458326e00cba02fbe2ea83c8f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/02/2019
+ms.openlocfilehash: 8a0397440e2b10bf1ad6b4f1be999888e09bad8f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850330"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148140"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
@@ -30,40 +30,35 @@ ms.locfileid: "58850330"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-* Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-az-ps) 문서를 참조하세요.
+* PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)이 설치되었습니다.
 
-* SSH 클라이언트. 이 문서의 단계는 SSH를 사용하여 클러스터에 연결합니다.
+* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-    `ssh` 명령은 Linux, Unix 및 macOS 시스템에서 기본적으로 제공됩니다. Windows 10에서 다음 방법 중 하나를 사용하여 `ssh` 명령을 설치합니다.
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-  * [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)을 사용합니다. Cloud Shell은 `ssh` 명령을 제공하며, 셸 환경으로 Bash 또는 PowerShell을 사용하도록 구성할 수 있습니다.
+`Connect-AzAccount` cmdlet으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
-  * [Linux용 Windows 하위 시스템을 설치](https://docs.microsoft.com/windows/wsl/install-win10)합니다. Microsoft Store를 통해 사용할 수 있는 Linux 배포판은 `ssh` 명령을 제공합니다.
+```azurepowershell-interactive
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
 
-    > [!IMPORTANT]  
-    > 이 문서의 단계는 사용자가 위에서 언급한 SSH 클라이언트 중 하나를 사용한다고 가정합니다. 다른 SSH 클라이언트를 사용하는 중에 문제가 발생하는 경우에는 SSH 클라이언트에 대한 설명서를 참조하세요.
-    >
-    > 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
-
-## <a name="log-in-to-azure"></a>Azure에 로그인
-
-`Login-AzAccount` cmdlet으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
-
-```powershell
-Login-AzAccount
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 이름과 위치를 묻는 메시지를 표시한 다음 새 리소스 그룹을 만듭니다.
 
-```powershell
-$resourceGroup = Read-Input -Prompt "Enter the resource group name"
-$location = Read-Input -Prompt "Enter the Azure region to use"
+```azurepowershell-interactive
+$resourceGroup = Read-Host -Prompt "Enter the resource group name"
+$location = Read-Host -Prompt "Enter the Azure region to use"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -72,19 +67,24 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 HDInsight의 Kafka는 Azure Managed 디스크를 사용하여 Kafka 데이터를 저장하는 한편 클러스터는 Azure Storage를 사용하여 로그와 같은 정보를 저장합니다. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용하여 새 스토리지 계정을 만듭니다.
 
-```powershell
+> [!IMPORTANT]  
+> 스토리지 계정 종류 `BlobStorage`는 HDInsight 클러스터의 보조 스토리지로만 사용할 수 있습니다.
+
+```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
 New-AzStorageAccount `
-        -ResourceGroupName $resourceGroup `
-        -Name $storageName `
-        -Type Standard_LRS `
-        -Location $location
+    -ResourceGroupName $resourceGroup `
+    -Name $storageName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 ```
 
 HDInsight는 BLOB 컨테이너의 저장소 계정에 데이터를 저장합니다. [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer)를 사용하여 새 컨테이너를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
 
 $storageKey = (Get-AzStorageAccountKey `
@@ -93,28 +93,27 @@ $storageKey = (Get-AzStorageAccountKey `
 $storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzStorageContainer -Name $containerName -Context $storageContext 
+
+New-AzStorageContainer -Name $containerName -Context $storageContext
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka 클러스터 만들기
 
 [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster)를 사용하여 HDInsight 클러스터에 Apache Kafka를 만듭니다.
 
-```powershell
-# Create a Kafka 1.0 cluster
+```azurepowershell-interactive
+# Create a Kafka 1.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
-$httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
-    -UserName "admin"
-$sshCredentials = Get-Credential -Message "Enter the SSH user credentials"
+$httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
+$sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
 $clusterVersion = "3.6"
 $clusterType="Kafka"
-$clusterOS="Linux"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "1.0")
+$kafkaConfig.Add("kafka", "1.1")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ New-AzHDInsightCluster `
         -Location $location `
         -ClusterSizeInNodes $numberOfWorkerNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
@@ -336,7 +335,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
 더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹, HDInsight 및 모든 관련 리소스를 제거할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 

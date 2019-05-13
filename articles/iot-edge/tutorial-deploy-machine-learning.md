@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078315"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142754"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
+
+Azure Notebooks를 사용하여 기계 학습 모듈을 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다. 
 
 비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure Machine Learning 서비스에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
 
@@ -51,58 +53,12 @@ Azure IoT Edge 디바이스:
    * 작업 영역 이름, 리소스 그룹 및 구독 ID를 적어둡니다. 이러한 값은 모두 Azure Portal의 작업 영역 개요에서 확인할 수 있습니다. 이 값은 자습서의 뒷부분에서 Azure Notebook을 작업 영역 리소스에 연결하는 데 사용됩니다. 
 
 
-### <a name="disable-process-identification"></a>프로세스 식별 사용 안 함
-
->[!NOTE]
->
-> 미리 보기로 있는 동안 Azure Machine Learning은 IoT Edge에서 기본적으로 사용하도록 설정된 프로세스 식별 보안 기능을 지원하지 않습니다.
-> 이를 사용하지 않도록 설정하는 단계는 다음과 같습니다. 그러나 프로덕션 환경에서 사용하는 경우 이러한 단계는 적합하지 않습니다. 이 단계는 Linux 디바이스에만 필요합니다. 
-
-IoT Edge 디바이스에서 프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **연결** 섹션에서 **workload_uri** 및 **management_uri**의 IP 주소와 포트를 입력해야 합니다.
-
-먼저 IP 주소를 가져옵니다. 명령줄에 `ifconfig`를 입력하고 **docker0** 인터페이스의 IP 주소를 복사합니다.
-
-IoT Edge 디먼 구성 파일을 편집합니다.
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-구성의 **connect** 섹션을 해당 IP 주소로 업데이트합니다. 예를 들면 다음과 같습니다.
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-구성의 **listen** 섹션에 동일한 주소를 입력합니다. 예를 들면 다음과 같습니다.
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-구성 파일을 저장하고 닫습니다.
-
-management_uri 주소를 사용하여 IOTEDGE_HOST 환경 변수를 만듭니다(영구적으로 설정하려면 `/etc/environment`에 추가). 예를 들면 다음과 같습니다.
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-변경 내용이 적용되도록 IoT Edge 서비스를 다시 시작합니다.
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
-
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Azure Machine Learning 모듈 만들기 및 배포
 
 이 섹션에서는 학습된 기계 학습 모델 파일을 Azure Machine Learning Service 컨테이너로 변환합니다. Docker 이미지에 필요한 모든 구성 요소는 [Azure IoT Edge용 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에 있습니다. 다음 단계에 따라 Microsoft Azure Notebook에 해당 리포지토리를 업로드하고 컨테이너를 만들어서 Azure Container Registry에 푸시합니다.
 
 
-1. Azure Notebooks 프로젝트로 이동합니다. [Azure Portal](https://portal.azure.com)의 Azure Machine Learning Service 작업 영역에서 또는 Azure 계정으로 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects)에 로그인하여 해당 위치로 이동할 수 있습니다.
+1. Azure Notebooks 프로젝트로 이동합니다. [Azure Portal](https://portal.azure.com)의 Azure Machine Learning Service 작업 영역에서 또는 Azure 계정으로 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects)에 로그인하여 가져올 수 있습니다.
 
 2. **GitHub 리포지토리 업로드**를 선택합니다.
 
@@ -131,11 +87,11 @@ sudo systemctl restart iotedge
     >[!TIP]
     >변칙 검색 자습서 Notebook의 일부 셀은 선택 사항입니다. IoT Hub처럼 일부 사용자에게 있거나 없을 수 있는 리소스를 생성하기 때문입니다. 첫 번째 셀에 기존 리소스 정보를 넣으면 Azure에서 중복 리소스를 만들지 않기 때문에 새 리소스를 만드는 셀을 실행하면 오류가 발생합니다. 이것은 문제가 되지 않으며, 오류를 무시하거나 선택적 섹션을 전체를 건너뛸 수 있습니다. 
 
-Notebook의 모든 단계를 완료하면, 변칙 검색 모델이 학습되어 Docker 컨테이너 이미지로 작성되고 이 이미지가 Azure Container Registry에 푸시됩니다. 그런 다음, 모델을 테스트하고 마지막으로 IoT Edge 디바이스에 배포합니다. 
+Notebook의 모든 단계를 완료하여 변칙 검색 모델을 학습하고, Docker 컨테이너 이미지로 빌드하고, 해당 이미지를 Azure Container Registry에 푸시했습니다. 그런 다음, 모델을 테스트하고 마지막으로 IoT Edge 디바이스에 배포합니다. 
 
 ## <a name="view-container-repository"></a>컨테이너 리포지토리 보기
 
-컨테이너 이미지가 성공적으로 만들어지고 기계 학습 환경과 연결된 Azure Container Registry에 저장되었는지 확인합니다. 이전 섹션에서 사용한 노트북이 컨테이너 이미지와 레지스트리 자격 증명을 IoT Edge 디바이스에 자동으로 제공했지만, 나중에 직접 정보를 찾을 수 있도록 저장 위치를 알아야 합니다. 
+컨테이너 이미지가 성공적으로 생성되어 기계 학습 환경과 연결된 Azure 컨테이너 레지스트리에 저장되었는지 확인합니다. 이전 섹션에서 사용한 노트북이 컨테이너 이미지와 레지스트리 자격 증명을 IoT Edge 디바이스에 자동으로 제공했지만, 나중에 직접 정보를 찾을 수 있도록 저장 위치를 알아야 합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 Machine Learning 서비스 작업 영역으로 이동합니다. 
 
@@ -151,7 +107,7 @@ Notebook의 모든 단계를 완료하면, 변칙 검색 모델이 학습되어 
 
    이러한 자격 증명은 레지스트리에서 컨테이너 이미지를 가져올 수 있는 액세스 권한을 IoT Edge 디바이스에 부여하기 위해 배포 매니페스트에 포함될 수 있습니다. 
 
-이제 Machine Learning 컨테이너 이미지가 저장된 위치를 알 수 있습니다. 다음 섹션에서는 컨테이너 이미지가 사용자의 IoT Edge 디바이스에서 배포된 모듈로 어떻게 수행되는지를 단계별로 설명합니다. 
+이제 Machine Learning 컨테이너 이미지가 저장된 위치를 알 수 있습니다. 다음 섹션에서는 IoT Edge 디바이스에서 모듈로 실행 중인 컨테이너를 보기 위해 단계별로 설명합니다. 
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 

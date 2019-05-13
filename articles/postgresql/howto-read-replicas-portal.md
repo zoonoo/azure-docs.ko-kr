@@ -1,21 +1,24 @@
 ---
-title: Azure Portal에서 Azure Database for PostgreSQL의 읽기 복제본 관리
-description: Azure Portal에서 Azure Database for PostgreSQL 읽기 복제본을 관리하는 방법을 알아봅니다.
+title: PostgreSQL-Azure portal에서 단일 서버에 대 한 Azure Database에 대 한 읽기 복제본 관리
+description: 읽기 복제본 Azure Database for PostgreSQL-Azure portal에서 단일 서버 관리 하는 방법에 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420811"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510374"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Azure Portal에서 읽기 복제본을 만들기 및 관리
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>만들기 및 Azure 데이터베이스의 읽기 복제본 PostgreSQL-Azure portal에서 단일 서버 관리
 
 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL의 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
+
+> [!IMPORTANT]
+> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -58,9 +61,15 @@ ms.locfileid: "60420811"
 
    ![복제본 추가](./media/howto-read-replicas-portal/add-replica.png)
 
-4. 읽기 복제본의 이름을 입력합니다. **확인**을 선택하여 복제본 만들기를 확인합니다.
+4. 읽기 복제본의 이름을 입력합니다. 
 
-   ![복제본 이름 지정](./media/howto-read-replicas-portal/name-replica.png) 
+    ![복제본 이름 지정](./media/howto-read-replicas-portal/name-replica.png)
+
+5. 복제본에 대 한 위치를 선택 합니다. 모든 Azure 지역에서 복제본을 만들 수 있습니다. 기본 위치는 마스터 서버와 동일 합니다.
+
+    ![(위치 선택)](./media/howto-read-replicas-portal/location-replica.png)
+
+6. **확인**을 선택하여 복제본 만들기를 확인합니다.
 
 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 생성, vCores, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우 이외의 다른 방식으로 독립적으로 변경할 수 있습니다.
 

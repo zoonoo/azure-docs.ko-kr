@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029432"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411467"
 ---
 # <a name="multiclass-decision-forest-module"></a>다중 클래스 의사 결정 포리스트 모듈
 
@@ -36,7 +36,7 @@ ms.locfileid: "65029432"
 + 이러한 통합된 기능 선택 및 분류를 수행 합니다.
 + 잡음 기능이 있는 경우 복원이 됩니다.
 
-Azure Machine Learning에서 의사 결정 포리스트 분류자의 의사 결정 트리 앙상블으로 구성 됩니다. 일반적으로 앙상블 모델 검사 및 단일 의사 결정 트리에 비해 정확성 향상을 제공합니다. 자세한 내용은 [의사 결정 트리](http://go.microsoft.com/fwlink/?LinkId=403677)합니다.
+Azure Machine Learning에서 의사 결정 포리스트 분류자의 의사 결정 트리 앙상블으로 구성 됩니다. 일반적으로 앙상블 모델 검사 및 단일 의사 결정 트리에 비해 정확성 향상을 제공합니다. 자세한 내용은 [의사 결정 트리](https://go.microsoft.com/fwlink/?LinkId=403677)합니다.
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>다중 클래스 의사 결정 포리스트를 구성 하는 방법
 

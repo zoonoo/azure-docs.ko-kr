@@ -4,14 +4,14 @@ description: 구성 하 고 인덱싱 정책을 자동 인덱싱 및 Azure Cosmo
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872677"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068599"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -72,6 +72,36 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원합니다.
 - 포함 하는 일반 문자를 사용 하 여 경로 대 한: 영숫자 문자 및 _ (밑줄), 큰따옴표 (예를 들어, "/ 경로 /?")는 경로 문자열을 이스케이프 필요가 없습니다. 기타 특수 문자를 사용 하 여 경로 큰따옴표는 경로 문자열을 이스케이프 해야 (예를 들어, "/\"경로 abc\"/?"). 경로에 특수 문자를 예상 하는 경우 보안에 대 한 모든 경로 이스케이프할 수 있습니다. 기능적으로 하지 않는 것 간 차이 및 특수 문자가 있는 뿐 모든 경로 이스케이프 합니다.
 
 참조 [이 섹션에서는](how-to-manage-indexing-policy.md#indexing-policy-examples) 인덱싱 정책 예제에 대 한 합니다.
+
+## <a name="composite-indexes"></a>복합 인덱스
+
+쿼리에 `ORDER BY` 두 개 이상의 속성에 복합 인덱스는 필요 합니다. 다중에서 복합 인덱스만 사용 되는 현재 `ORDER BY` 쿼리 합니다. 기본적으로 복합 인덱스가 정의 되지 않았습니다 있어야 [복합 인덱스를 추가할](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) 필요에 따라 합니다.
+
+복합 인덱스를 정의한 다음 항목을 지정 합니다.
+
+- 두 개 이상의 속성 경로입니다. 속성 경로 시퀀스는 문제를 정의 합니다.
+- 순서 (오름차순 또는 내림차순)입니다.
+
+복합 인덱스를 사용 하는 경우 다음 고려 사항은 사용 됩니다.
+
+- 복합 인덱스 경로 ORDER BY 절에 있는 속성의 시퀀스를 일치 하지 않으면, 다음 복합 인덱스를 지원할 수 없는 쿼리
+
+- 복합 인덱스 경로 (오름차순 또는 내림차순)의 순서 ORDER BY 절의 순서를 동일 해야 합니다.
+
+- 복합 인덱스는 또한 모든 경로에 반대 순서를 사용 하 여 ORDER BY 절을 지원합니다.
+
+복합 인덱스 속성에 정의 되어 있는 다음 예제에서는 a, b 및 c:
+
+| **복합 인덱스**     | **샘플 `ORDER BY` 쿼리**      | **인덱스를 지원 합니까?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+필요한 모든 제공할 수 있습니다 있도록 인덱싱 정책 사용자 지정 해야 `ORDER BY` 쿼리 합니다.
 
 ## <a name="modifying-the-indexing-policy"></a>인덱싱 정책 수정
 

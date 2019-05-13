@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/7/2019
+ms.date: 5/7/2019
 ms.author: borisb
-ms.openlocfilehash: 018ad851b223caa4017d544ca12e2a6397654205
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7909ee1dc3980a5a4ff2418d4d6790361a66a65e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799204"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410729"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
 
-RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세스하도록 미리 구성됩니다. 추가 구성은 필요하지 않습니다. 최신 업데이트를 가져오려면 RHEL 인스턴스가 준비된 후 `sudo yum update`를 실행합니다. 이 서비스는 RHEL PAYG 소프트웨어 요금의 일부로 포함됩니다.
+RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세스하도록 미리 구성됩니다. 추가적인 구성은 필요하지 않습니다. 최신 업데이트를 가져오려면 RHEL 인스턴스가 준비된 후 `sudo yum update`를 실행합니다. 이 서비스는 RHEL PAYG 소프트웨어 요금의 일부로 포함됩니다.
 
 게시 및 재방문 주기 정책을 포함하여 Azure에서 RHEL 이미지에 추가 정보가 [여기](./rhel-images.md)에 제공됩니다.
 
@@ -190,12 +190,12 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
     - RHEL 6의 경우:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.2-74.noarch.rpm
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/Packages/r/rhui-azure-rhel6-2.2-74.noarch.rpm
         ```
 
     - RHEL 7의 경우:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.2-74.noarch.rpm
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/Packages/r/rhui-azure-rhel7-2.2-74.noarch.rpm
         ```
 
    b. 확인
@@ -204,7 +204,7 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
    rpm -Kv azureclient.rpm
    ```
 
-   다. 출력을 확인하여 패키지의 서명이 정상인지 확인합니다.
+   c. 출력을 확인하여 패키지의 서명이 정상인지 확인합니다.
 
    ```bash
    azureclient.rpm:

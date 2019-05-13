@@ -9,7 +9,7 @@
     - name: App Service Environment 정보
       href: environment/intro.md
     - name: 호스팅 옵션 비교
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: 빠른 시작
   expanded: true
   items:

@@ -1,21 +1,24 @@
 ---
-title: Azure CLI에서 PostgreSQL 용 Azure Database에 대 한 읽기 복제본 관리
-description: Azure CLI에서 복제본을 읽기는 PostgreSQL 용 Azure Database를 관리 하는 방법에 알아봅니다.
+title: PostgreSQL-Azure CLI에서 단일 서버에 대 한 Azure Database에 대 한 읽기 복제본 관리
+description: PostgreSQL-Azure CLI에서 단일 서버에 대 한 Azure 데이터베이스의 읽기 복제본을 관리 하는 방법에 알아봅니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420243"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510245"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>만들기 및 Azure CLI에서 읽기 복제본 관리
 
 이 문서에서는 만들기 및 Azure CLI에서 PostgreSQL 용 Azure 데이터베이스의 읽기 복제본을 관리 하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-read-replicas.md)를 참조하세요.
+
+> [!NOTE]
+> Azure CLI 마스터 서버에서 다른 지역에 만들 복제본을 아직 지원 하지 않습니다. 교차 지역 복제본을 만들려면 사용 합니다 [Azure portal](howto-read-replicas-portal.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 - 마스터 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md)

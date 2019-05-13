@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726657"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236350"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -43,7 +43,7 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 
 * 가상 머신 네트워크 인터페이스
 * 인터넷 연결 부하 분산 장치
-* VPN 게이트웨이
+* VPN Gateway
 * 애플리케이션 게이트웨이
 
 ### <a name="ip-address-version"></a>IP 주소 버전
@@ -105,11 +105,14 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 호스트 이름 확인
-Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*location*.cloudapp.azure.com 매핑을 만드는 공용 IP 리소스에 대한 DNS 도메인 이름 레이블을 지정할 수 있습니다. 예를 들어 **미국 서부** Azure *위치*에서 *domainnamelabel*로 **contoso**를 사용하여 공용 IP 리소스를 만들면 FQDN(정규화된 도메인 이름) **contoso.westus.cloudapp.azure.com**이 리소스의 공용 IP 주소로 결정됩니다. FQDN을 사용하여 Azure의 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들 수 있습니다. 기본 접미사로 DNS 이름 레이블을 사용하는 것 대신 또는 그 외에 Azure DNS 서비스를 사용하여 공용 IP 주소로 확인하는 사용자 지정 접미사로 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure 공용 IP 주소로 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.
+Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*location*.cloudapp.azure.com 매핑을 만드는 공용 IP 리소스에 대한 DNS 도메인 이름 레이블을 지정할 수 있습니다. 예를 들어 **미국 서부** Azure *위치*에서 *domainnamelabel*로 **contoso**를 사용하여 공용 IP 리소스를 만들면 FQDN(정규화된 도메인 이름) **contoso.westus.cloudapp.azure.com**이 리소스의 공용 IP 주소로 결정됩니다.
 
 > [!IMPORTANT]
 > 생성된 각 도메인 이름은 Azure 위치 내에서 고유해야 합니다.  
 >
+
+### <a name="dns-best-practices"></a>DNS에 대 한 유용한 정보
+다른 지역으로 마이그레이션 해야 하는 경우 공용 IP 주소의 FQDN을 마이그레이션할 수 없습니다. 모범 사례로, Azure에서 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들려면 FQDN을 사용할 수 있습니다. 다른 공용 IP를 이동 해야 할 경우 수동으로 새 주소로 FQDN을 업데이트 하는 대신 CNAME 레코드를 업데이트를 해야 합니다. 사용할 수 있습니다 [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 DNS 레코드에 대 한 외부 DNS 공급자입니다. 
 
 ### <a name="virtual-machines"></a>가상 머신
 
@@ -119,7 +122,7 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 
 공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [SKU](#sku) 또는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 시나리오를 구현할 수도 있습니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-### <a name="vpn-gateways"></a>VPN 게이트웨이
+### <a name="vpn-gateways"></a>VPN Gateway
 
 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)는 Azure 가상 네트워크를 다른 Azure 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다. 공용 IP 주소를 VPN Gateway에 할당하여 원격 네트워크와의 통신을 구현할 수 있습니다. VPN Gateway에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
 
@@ -132,9 +135,9 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 
 | 최상위 리소스 | IP 주소 연결 | 동적 | 공용 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |예 |예 |
-| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
-| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |예 |
+| 가상 머신 |Linux |예. |예. |
+| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예. |예. |
+| VPN Gateway |게이트웨이 IP 구성 |예. |아닙니다. |
 | 애플리케이션 게이트웨이 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
@@ -180,9 +183,9 @@ Azure 관리 DNS 서버를 사용하여 구성된 가상 머신은 동일한 가
 
 | 최상위 리소스 | IP 주소 연결 | 않는 | 공용 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |예 |예 |
-| 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
-| 애플리케이션 게이트웨이 |프런트 엔드 구성 |예 |예 |
+| 가상 머신 |Linux |예. |예 |
+| 부하 분산 장치 |프런트 엔드 구성 |예 |예. |
+| 애플리케이션 게이트웨이 |프런트 엔드 구성 |예. |예 |
 
 ## <a name="limits"></a>제한
 IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 전체 집합에 나와 있습니다. 제한은 지역별, 구독별로 적용됩니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하세요.

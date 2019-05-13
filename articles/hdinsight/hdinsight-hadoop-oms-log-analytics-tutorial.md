@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight 클러스터 모니터링을 사용 하 여 Azure Monitor 로그
-description: Azure Monitor를 Azure 로그를 사용 하 여 HDInsight 클러스터에서 실행 하는 작업을 모니터링 하는 방법을 알아봅니다.
+description: Azure Monitor 로그를 사용 하 여 HDInsight 클러스터에서 실행 하는 작업을 모니터링 하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0c37ff3c62817d238a94d5bbeae90c67663a6029
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689852"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203672"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>HDInsight 클러스터 모니터링을 사용 하 여 Azure Monitor 로그
 

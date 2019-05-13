@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292602"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506651"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스 
 
@@ -43,6 +43,8 @@ Azure AD 애플리케이션 프록시는:
 * ADAL(Active Directory 인증 라이브러리)과 통합되는 리치 클라이언트 앱
 
 애플리케이션 프록시는 Single Sign-On을 지원합니다. 지원되는 방법에 대한 자세한 내용은 [Single Sign-On 방법 선택](what-is-single-sign-on.md#choosing-a-single-sign-on-method)을 참조하세요.
+
+내부 리소스에 외부 원격 사용자가 액세스할 수 있도록 하는 것에 대 한 응용 프로그램 프록시를 사용 하는 것이 좋습니다. 응용 프로그램 프록시를 VPN 또는 역방향 프록시에 대 한 필요성을 대체합니다. 회사 네트워크에서 내부 사용자는 것이 아닙니다.  불필요 하 게 응용 프로그램 프록시를 사용 하는 내부 사용자는 예기치 않은 또는 원하지 않는 성능 문제가 발생할 수 있습니다.
 
 ## <a name="how-application-proxy-works"></a>애플리케이션 프록시의 작동 원리
 

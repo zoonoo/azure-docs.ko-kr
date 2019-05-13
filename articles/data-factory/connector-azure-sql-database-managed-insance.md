@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093950"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153350"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
 
@@ -142,9 +142,9 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 Azure SQL Database Managed Instance 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Azure SQL Database Managed Instance 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **SqlServerTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+에 Azure SQL Database Managed Instance에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예. |
 | tableName |이 속성은 연결된 서비스가 참조하는 데이터베이스 인스턴스의 테이블이나 뷰 이름입니다. | 값은 원본의 경우 No이고 싱크의 경우 Yes입니다. |
@@ -161,6 +161,7 @@ Azure SQL Database Managed Instance 간에 데이터를 복사하려면 데이�
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -282,7 +283,7 @@ Azure SQL Database Managed Instance에 데이터를 복사하려면 복사 작�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **SqlSink**로 설정해야 합니다. | 예. |
-| writeBatchSize |SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. |아니요(기본값: 10,000) |
+| writeBatchSize |SQL 테이블에 삽입 하는 행 수가 **일괄 처리당**합니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. 기본적으로 Data Factory는 행의 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다.  |아닙니다. |
 | writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)을 지정할 수 있습니다. |아니요. |
 | preCopyScript |이 속성은 Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업용 SQL 쿼리를 지정하며 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요. |
 | sqlWriterStoredProcedureName |원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 고유한 비즈니스 논리를 사용하여 upsert 또는 변환을 수행하는 프로시저를 예로 들 수 있습니다. <br/><br/>이 저장 프로시저는 *배치마다 호출*됩니다. 한 번만 실행되며 원본 데이터와 아무런 관련이 없는 작업(예: 삭제/자르기)을 수행하려는 경우 `preCopyScript` 속성을 사용합니다. |아니요. |

@@ -13,7 +13,7 @@ ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905259"
@@ -60,7 +60,7 @@ Data Factory UI에서 Azure Repos GIT 통합을 사용하도록 설정한 후에
 
 1.  그런 다음, 개발자는 파이프라인 등의 리소스를 수정할 수 있습니다. 수정하는 경우 **디버그**를 선택하여 가장 최근 변경 내용을 사용하여 파이프라인을 실행하는 방법을 확인할 수 있습니다.
 
-1.  개발자가 해당 변경 내용을 충족하면 해당 분기에서 마스터 분기(또는 공동 작업 분기)로 끌어오기 요청을 만들어서 피어에서 해당 변경 내용을 검토할 수 있습니다.
+1.  개발자가 해당 변경 내용을 충족하면 해당 분기에서 마스터 분기(또는 협업 분기)로 끌어오기 요청을 만들어서 피어에서 해당 변경 내용을 검토할 수 있습니다.
 
 1.  변경 내용이 마스터 분기에 있다면 **게시**를 선택하여 개발 팩터리에 게시할 수 있습니다.
 

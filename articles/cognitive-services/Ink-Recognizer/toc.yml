@@ -1,0 +1,54 @@
+- name: Ink Recognizer 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Ink Recognizer API란?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: REST API
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: 자바
+          href: quickstarts/java.md
+        - name: JavaScript
+          href: quickstarts/javascript.md
+- name: 개념
+  items:
+    - name: Ink Recognizer API에 잉크 데이터 보내기
+      href: concepts/send-ink-data.md
+- name: 샘플
+  items:
+    - name: 'C# 및 UWP(유니버설 Windows 플랫폼)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
+    - name: 'C# 및 WPF(Windows Presentation Foundation)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
+    - name: Javascript 웹 브라우저 앱
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
+    - name: Java 및 Android 모바일 앱
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
+    - name: Swift 및 iOS 모바일 앱
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
+- name: 참고 자료
+  items:
+    - name: REST API 참조
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
+    - name: PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: 언어 지원
+      href: language-support.md
+    - name: 영역
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+- name: 리소스
+  items:
+    - name: 가격 책정 및 제한
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: 개인정보처리방침
+      href: 'https://privacy.microsoft.com/privacystatement'

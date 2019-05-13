@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719297"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509795"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -64,6 +64,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
     * **웹**을 선택하여 HTTP/S 요청에 응답하는 서비스(예: outlook.office365.com 또는 bing.com)에 대한 연결을 모니터링합니다.<br>
     * **네트워크**를 선택하여 TCP 요청에 응답하지만 HTTP/S 요청에 응답하지 않는 서비스(예: SQL Server, FTP 서버 Ehsms SSH 포트)에 대한 연결을 모니터링합니다. 
+    * 예를 들면 다음과 같습니다. Blob 저장소 계정에 웹 테스트를 만들려면 **웹** 다른 이름으로 대상 입력 *yourstorageaccount*. blob.core.windows.net 합니다. 마찬가지로 다른 table storage, queue storage 및 Azure Files를 사용 하 여에 대 한 테스트를 만들 수 있습니다 [이 링크 합니다.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. 네트워크 대기 시간, 패킷 손실 및 토폴로지 검색과 같은 네트워크 측정을 수행하지 않으려는 경우 **네트워크 측정 수행** 확인란의 선택을 취소합니다. 이 기능을 최대한 활용하기 위해 이 옵션을 선택해 둡니다. 
 5. **대상**에서 네트워크 연결을 모니터링하려는 URL/FQDN/IP 주소를 입력합니다.
 6. **포트 번호**에서 대상 서비스의 포트 번호를 입력합니다. 
@@ -127,6 +128,16 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 * 애플리케이션이 느리게 실행되는 경우 애플리케이션 성능 저하가 네트워크 때문인지 또는 애플리케이션 공급자 끝의 문제 때문인지 확인합니다.
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>미국 정부 기관 고객용 GCC Office Url
+미국 버지니아 주 정부 지역에 대 한 DOD Url만 NPM 기본 제공 됩니다. GCC Url을 사용 하 여 고객에 게 사용자 지정 테스트를 만들어 각 URL 안정성이 추가 해야 합니다.
+
+| 필드 | GCC |
+|:---   |:--- |
+| Office 365 포털 및 공유 | portal.apps.mil |
+| Office 365 인증 및 id | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline 오류가 |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365 net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS 팀 | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>다음 단계
 자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 수행합니다.

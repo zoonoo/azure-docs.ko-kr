@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5064f47444b4ca6d9194ed66144938e6e3d51a4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051886f98d6d35594336291bbb2defb2a4acdfc5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261965"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233057"
 ---
-# <a name="what-are-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 매핑은 무엇인가요?
+# <a name="what-are-mapping-data-flows"></a>매핑 데이터 흐름은 무엇 인가요?
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-데이터 흐름 매핑은 데이터 엔지니어가 코드를 작성하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있도록 합니다. 결과 데이터 흐름은 스케일 아웃 Azure Databricks 클러스터를 사용하여 Azure Data Factory 파이프라인 내 작업으로 실행됩니다.
+매핑 데이터 흐름은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환 합니다. 데이터 흐름 데이터 엔지니어가 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 스케일 아웃 Azure Databricks 클러스터를 사용하여 Azure Data Factory 파이프라인 내 작업으로 실행됩니다.
 
 Azure Data Factory 데이터 흐름의 목적은 코딩할 필요 없이 완전 시각적 환경을 제공하는 것입니다. 데이터 흐름은 스케일 아웃 데이터 처리에 대해 사용자의 고유한 실행 클러스터에서 실행됩니다. Azure Data Factory는 모든 코드 변환, 경로 최적화 및 데이터 흐름 작업의 실행을 처리합니다.
 

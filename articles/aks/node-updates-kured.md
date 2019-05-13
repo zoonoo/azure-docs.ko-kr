@@ -1,24 +1,26 @@
 ---
-title: AKS(Azure Kubernetes Service)에서 kured를 사용하여 노드 업데이트 및 다시 부팅
-description: 노드를 업데이트하고 AKS(Azure Kubernetes Service)에서 kured를 사용하여 자동으로 다시 부팅하는 방법을 알아봅니다.
+title: 업데이트 및 kured Azure Kubernetes Service (AKS)에서 사용 하 여 Linux 노드를 다시 부팅
+description: Linux 노드를 업데이트 하 고 자동으로 kured Azure Kubernetes Service (AKS)에서 사용 하 여 다시 부팅 하는 방법을 알아봅니다
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b426399f73375618a2084eff82abba5d4934b914
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465009"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074217"
 ---
-# <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 노드에 보안 및 커널 업데이트 적용
+# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Linux 노드에 Azure Kubernetes Service (AKS)에서 보안 및 커널 업데이트 적용
 
-클러스터를 보호하기 위해 보안 업데이트가 AKS의 노드에 자동으로 적용됩니다. 이러한 업데이트는 OS 보안 수정 사항 또는 커널 업데이트를 포함합니다. 이러한 업데이트의 일부는 프로세스를 완료하도록 노드를 다시 부팅해야 합니다. AKS는 업데이트 프로세스를 완료하기 위해 노드를 자동으로 다시 부팅하지 않습니다.
+클러스터를 보호 하려면 보안 업데이트가 AKS의 Linux 노드를 자동으로 적용 됩니다. 이러한 업데이트는 OS 보안 수정 사항 또는 커널 업데이트를 포함합니다. 이러한 업데이트의 일부는 프로세스를 완료하도록 노드를 다시 부팅해야 합니다. AKS는 업데이트 프로세스를 완료 하려면 이러한 Linux 노드를 자동으로 재부팅 하지 않습니다.
 
-이 문서에서는 오픈 소스 [kured(KUbernetes REboot 디먼)][kured]를 사용하여 다시 부팅이 필요한 노드를 살펴본 다음, 실행 중인 Pod의 다시 예약 및 노드 다시 부팅 프로세스를 자동으로 처리하는 방법을 보여줍니다.
+(현재 AKS에서 미리 보기)는에서 Windows 서버 노드를 최신 상태로 유지 하는 프로세스는 약간 다릅니다. Windows Server 노드에 매일 업데이트를 수신 하지 않습니다. 대신 최신 기본 Windows Server 이미지 및 패치를 사용 하 여 새 노드를 배포 하는 AKS 업그레이드를 수행 합니다. Windows 서버 노드를 사용 하는 AKS 클러스터를 참조 하세요 [AKS에 노드 풀을 업그레이드][nodepool-upgrade]합니다.
+
+이 문서에서는 오픈 소스를 사용 하는 방법을 보여 줍니다 [(KUbernetes 재부팅 디먼) kured] [ kured] Linux 노드를 다시 부팅 해야 하는 자동으로 처리 pod 및 노드를 실행 하는 디스플레이 창에 대 한 조사 하려면 프로세스를 다시 부팅 합니다.
 
 > [!NOTE]
 > `Kured`는 Weaveworks에서 제공되는 오픈 소스 프로젝트입니다. AKS에서 이 프로젝트에 대한 지원은 최상의 노력을 기준으로 제공됩니다. 추가 지원은 #weave 커뮤니티 slack 채널에서 찾을 수 있습니다.
@@ -35,9 +37,9 @@ AKS 클러스터에서 Kubernetes 노드는 Azure VM(가상 머신)으로 실행
 
 ![kured를 사용하여 AKS 노드 업데이트 및 프로세스 다시 부팅](media/node-updates-kured/node-reboot-process.png)
 
-커널 업데이트와 같은 일부 보안 업데이트에서는 프로세스를 완료하기 위해 노드를 다시 부팅해야 합니다. 다시 부팅해야 하는 노드는 */var/run/reboot-required*라는 파일을 만듭니다. 이 다시 부팅 프로세스는 자동으로 발생하지 않습니다.
+커널 업데이트와 같은 일부 보안 업데이트에서는 프로세스를 완료하기 위해 노드를 다시 부팅해야 합니다. 다시 부팅 해야 하는 Linux 노드 라는 파일을 만듭니다 */var/run/reboot-required*합니다. 이 다시 부팅 프로세스는 자동으로 발생하지 않습니다.
 
-사용자 고유의 워크플로 및 프로세스를 사용하여 노드 다시 부팅을 처리하거나 `kured`를 사용하여 프로세스를 오케스트레이션할 수 있습니다. `kured`를 사용하여 클러스터의 각 노드에서 Pod를 실행하는 [DaemonSet][DaemonSet]이 배포됩니다. DaemonSet의 이러한 Pod는 */var/run/reboot-required* 파일의 존재 여부를 살펴본 다음, 프로세스를 시작하여 노드를 다시 부팅합니다.
+사용자 고유의 워크플로 및 프로세스를 사용하여 노드 다시 부팅을 처리하거나 `kured`를 사용하여 프로세스를 오케스트레이션할 수 있습니다. 사용 하 여 `kured`, [DaemonSet] [ DaemonSet] 배포 된 클러스터의 각 Linux 노드에서 pod를 실행 하는 합니다. DaemonSet의 이러한 Pod는 */var/run/reboot-required* 파일의 존재 여부를 살펴본 다음, 프로세스를 시작하여 노드를 다시 부팅합니다.
 
 ### <a name="node-upgrades"></a>노드 업그레이드
 
@@ -62,7 +64,7 @@ Prometheus 또는 Slack과 통합과 같은 `kured`에 대한 추가 매개 변�
 
 ## <a name="update-cluster-nodes"></a>클러스터 노드 업데이트
 
-기본적으로 AKS 노드는 매일 저녁 업데이트를 확인합니다. 기다리지 않으려는 경우 `kured`가 올바르게 실행되는지 확인하도록 업데이트를 수동으로 수행할 수 있습니다. 먼저 단계에 따라 [AKS 노드 중 하나에 SSH][aks-ssh]합니다. 노드에 대한 SSH 연결을 만든 후 업데이트를 확인하고 다음과 같이 적용합니다.
+AKS의 Linux 노드는 기본적으로 매일 저녁 업데이트에 대 한 확인합니다. 기다리지 않으려는 경우 `kured`가 올바르게 실행되는지 확인하도록 업데이트를 수동으로 수행할 수 있습니다. 먼저 단계에 따라 [AKS 노드 중 하나에 SSH][aks-ssh]합니다. Linux 노드에 SSH 연결을 만든 후 업데이트 확인 하 고 다음과 같이 적용 합니다.
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
@@ -91,7 +93,9 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 `kured`를 사용하여 보안 업데이트 프로세스의 일부로 노드를 자동으로 다시 부팅하는 방법을 자세히 설명했습니다. Kubernetes의 최신 버전으로 업그레이드하려면 [AKS 클러스터를 업그레이드][aks-upgrade]할 수 있습니다.
+이 문서에 사용 하는 방법을 자세히 설명 `kured` Linux 노드를 보안 업데이트 프로세스의 일부로 자동으로 다시 부팅 합니다. Kubernetes의 최신 버전으로 업그레이드하려면 [AKS 클러스터를 업그레이드][aks-upgrade]할 수 있습니다.
+
+Windows 서버 노드를 사용 하는 AKS 클러스터를 참조 하세요 [AKS에 노드 풀을 업그레이드][nodepool-upgrade]합니다.
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
@@ -105,3 +109,4 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

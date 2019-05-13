@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fffaa266a29a500f27759adb7526d1aa6d61ccd0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 211e11b5bfd6a8bb7b1d61fec120566d60b9c5c0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915240"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>자습서: Cherwell와 Azure Active Directory 통합
 
@@ -38,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Azure AD와 Cherwell 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Cherwell Single Sign-On을 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -67,7 +68,7 @@ Azure AD으로 Cherwell 통합을 구성하려면 갤러리의 Cherwell을 관�
 
 4. 검색 상자에서 **Cherwell**을 입력하고, 결과 패널에서 **Cherwell**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Cherwell](common/search-new-app.png)
+    ![결과 목록의 Cherwell](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -126,7 +127,7 @@ Cherwell에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="configure-cherwell-single-sign-on"></a>Cherwell Single Sign-On 구성
 
-**Cherwell** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Cherwell 지원 팀](https://csm.cherwell.com/contact)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Cherwell** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Cherwell 지원 팀](https://cherwellsupport.com/CherwellPortal)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!NOTE]
 > Cherwell 지원팀은 실제 SSO 구성을 수행해야 합니다. 구독에 SSO를 사용하도록 설정하면 알림을 받을 수 있습니다.
@@ -149,10 +150,9 @@ Cherwell에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. **사용자 이름** 필드에 `brittasimon\@yourcompanydomain.extension`을 입력합니다. 예: BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -184,7 +184,7 @@ Cherwell에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 ### <a name="create-cherwell-test-user"></a>Cherwell 테스트 사용자 만들기
 
-Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell로 프로비전되어야 합니다. Cherwell의 경우 사용자 계정을 [Cherwell 지원팀](https://csm.cherwell.com/contact)에서 작성해야 합니다.
+Azure AD 사용자가 Cherwell에 로그인할 수 있도록 하려면 Cherwell에 프로비저닝되어야 합니다. Cherwell의 경우 사용자 계정을 [Cherwell 지원팀](https://cherwellsupport.com/CherwellPortal)에서 작성해야 합니다.
 
 > [!NOTE]
 > Cherwell에서 제공하는 다른 Cherwell 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.

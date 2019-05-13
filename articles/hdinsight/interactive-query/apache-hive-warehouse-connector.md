@@ -2,17 +2,17 @@
 title: Hive 웨어하우스 커넥터를 사용 하 여 Apache Hive 및 Apache Spark 통합
 description: Azure HDInsight에서 Hive Warehouse 커넥터를 사용 하 여 Apache Spark 및 Apache Hive를 통합 하는 방법에 알아봅니다.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+author: nakhanha
+ms.author: nakhanha
+ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 04/18/2019
-ms.openlocfilehash: b450fe763104adbbd08e4b5f362bd51ffbf82c81
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/29/2019
+ms.openlocfilehash: b2b3d1ac0a7c0e917f87be1dd131120f63a70f8e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729052"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142805"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Hive 웨어하우스 커넥터를 사용 하 여 Apache Hive 및 Apache Spark 통합
 

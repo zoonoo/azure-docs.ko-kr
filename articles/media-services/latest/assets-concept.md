@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734357"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235669"
 ---
 # <a name="assets"></a>자산
 
@@ -33,6 +33,9 @@ Azure Media Services의 [자산](https://docs.microsoft.com/rest/api/media/asset
 ## <a name="upload-digital-files-into-assets"></a>자산에 디지털 파일 업로드
 
 일반적인 Media Services 워크플로 중 하나는 파일 업로드, 인코딩 및 스트리밍입니다. 이 섹션에서는 일반 단계를 간략하게 설명합니다.
+
+> [!TIP]
+> 개발을 시작 하기 전에 검토 [Media Services v3 Api를 사용 하 여 개발](media-services-apis-overview.md) (Api, 명명 규칙, 액세스에 대 한 정보를 포함 합니다.)
 
 1. Media Services v3 API를 사용하여 새 "입력" 자산을 만듭니다. 이 작업은 Media Services 계정과 연결된 스토리지 계정에 컨테이너를 만듭니다. API는 컨테이너 이름을 반환합니다(예: `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    

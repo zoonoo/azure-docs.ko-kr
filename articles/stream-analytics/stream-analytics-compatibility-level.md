@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2019
-ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/2/2019
+ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771710"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205468"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -25,8 +25,8 @@ ms.locfileid: "60771710"
 
 Azure Stream Analytics는 현재 세 가지 호환성 수준을 지원합니다.
 
-* 1.0-기본 수준
-* 1.1-현재 릴리스 동작
+* 1.0-이전 동작
+* 1.1-기본 동작
 * 1.2 (미리 보기)-평가의 향상 된 최신 기능을 사용 하 여 최신 동작
 
 1.0 호환성 수준 몇 년 전 Azure Stream Analytics의 일반 공급 때 도입 되었습니다.
@@ -49,7 +49,7 @@ Azure portal에서 작업의 호환성 수준을 업데이트 합니다.
 
 호환성 수준을 업데이트하면 T-SQL 컴파일러는 선택된 호환성 수준에 해당하는 구문을 사용하여 작업의 유효성을 검사합니다.
 
-## <a name="compatibility-level-12"></a>호환성 수준 1.2
+## <a name="compatibility-level-12-preview"></a>호환성 수준 1.2 (미리 보기)
 
 주요 변경 내용은 호환성 수준 1.2에에서 도입 된:
 

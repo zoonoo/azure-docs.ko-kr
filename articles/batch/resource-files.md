@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616554"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405648"
 ---
 # <a name="creating-and-using-resource-files"></a>만들기 및 리소스 파일 사용
 
@@ -38,7 +38,7 @@ Azure Batch 작업을 특정 형태의 데이터 처리를 종종 필요 합니�
 
 ### <a name="storage-container-url"></a>저장소 컨테이너 URL
 
-저장소 컨테이너 URL을 사용 하 여 Azure에서 모든 저장소 컨테이너에 파일에 액세스할 수 있습니다 하는 것을 의미 합니다. 적절 한 권한이 있는
+저장소 컨테이너 URL을 사용 하 여 적절 한 권한이 있는 Azure의 모든 저장소 컨테이너에 파일에 액세스할 수 있습니다 하는 것을 의미 합니다.
 
 이 C# 예제에서는 파일이 blob 저장소로 Azure storage 컨테이너에 이미 업로드 되었습니다. 리소스 파일을 만드는 데 필요한 데이터에 액세스 하려면 먼저 저장소 컨테이너에 대 한 액세스를 가져올 해야 합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0e5dc73c1f24ccbc2032cecbb857587eb20c6806
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026773"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409071"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>디바이스: Roobo 스마트 오디오 Dev 키트
 
@@ -69,7 +69,7 @@ ms.locfileid: "65026773"
 
 ## <a name="audio"></a>오디오
 
-Roobo 모든 오디오 플래시 메모리를 캡처하는 도구를 제공 합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. 에 [Roobo 사이트](http://ddk.roobo.com/)장치를 선택한 다음 선택 합니다 **Roobo 도구** 페이지의 맨 아래에 링크.
+Roobo 모든 오디오 플래시 메모리를 캡처하는 도구를 제공 합니다. 이는 오디오 문제를 해결하는 데 도움이 될 수 있습니다. 이 도구 버전이 각 개발 키트 구성에 제공됩니다. 에 [Roobo 사이트](https://ddk.roobo.com/)장치를 선택한 다음 선택 합니다 **Roobo 도구** 페이지의 맨 아래에 링크.
 
 ## <a name="next-steps"></a>다음 단계
 

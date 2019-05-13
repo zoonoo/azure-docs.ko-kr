@@ -1,37 +1,35 @@
 ---
-title: Azure Functions를 사용하여 Azure Logic Apps에서 사용자 지정 코드 추가 및 실행 | Microsoft Docs
-description: Azure Functions를 사용하여 Azure Logic Apps에서 사용자 지정 코드 조각을 추가 및 실행하는 방법 알아보기
+title: 추가 하 고 Azure Functions를 사용 하 여 Azure Logic Apps에서 코드를 실행 합니다.
+description: 추가 하 고 Azure Functions를 사용 하 여 Azure Logic Apps에서 코드를 실행 합니다.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687690"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142318"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Logic Apps에서 사용자 지정 코드 조각을 추가 및 실행
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>추가 하 고 Azure Logic Apps에서 Azure Functions를 사용 하 여 코드를 실행 합니다.
 
-논리 앱에서 특정 작업을 수행하는 충분한 코드만 실행하려는 경우 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 자체 함수를 만들 수 있습니다. 이 서비스는 Node.js, C# 및 F # 코드 조각을 만드는 데 도움을 주어, 완전한 앱 또는 코드를 실행하기 위한 인프라를 빌드할 필요가 없도록 합니다. Azure Functions는 클라우드에서 서버리스 컴퓨팅을 제공하며, 다음 예제와 같은 작업을 수행하는 데 유용합니다.
+논리 앱에서 특정 작업을 수행 하는 코드를 실행 하려는 경우 사용 하 여 사용자 고유의 함수를 만들 수 있습니다 [Azure Functions](../azure-functions/functions-overview.md)합니다. 이 서비스를 사용 하면 Node.js를 만들어 C#, 및 F# 코드 하므로 완전 한 앱 또는 코드를 실행 하기 위한 인프라를 빌드할 필요가 없습니다. [Azure Functions에서 논리 앱을 호출](#call-logic-app)할 수도 있습니다.
+Azure Functions는 클라우드에서 서버리스 컴퓨팅을 제공하며, 다음 예제와 같은 작업을 수행하는 데 유용합니다.
 
 * Node.js 또는 C#의 함수를 사용하여 논리 앱의 동작을 확장합니다.
 * 논리 앱 워크플로에서 계산을 수행합니다.
 * 논리 앱에서 고급 서식 지정 또는 계산 필드를 적용합니다.
 
-[Azure Functions에서 논리 앱을 호출](#call-logic-app)할 수도 있습니다.
+Azure functions를 만들지 않고 코드 조각을 실행 하려면 하는 방법 [추가 하 고 인라인 코드를 실행할](../logic-apps/logic-apps-add-run-inline-code.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에 따라 작업하려면 다음과 같은 항목이 필요합니다.
-
-* 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * Azure Functions 및 Azure 함수에 대한 컨테이너인 Azure 함수 앱. 함수 앱이 없는 경우 [함수 앱을 먼저 만듭니다](../azure-functions/functions-create-first-azure-function.md). 그런 후 [논리 앱과는 별도로](#create-function-external) 또는 Logic Apps 디자이너의 [논리 앱 내에서](#create-function-designer) 함수를 만들 수 있습니다.
 
@@ -58,7 +56,7 @@ ms.locfileid: "60687690"
 
 ## <a name="create-functions-outside-logic-apps"></a>논리 앱 외부에 함수 만들기
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 논리 앱과 동일한 Azure 구독이 있어야 하는 Azure 함수 앱을 만든 후 Azure 함수를 만듭니다.
+[Azure Portal](https://portal.azure.com)에서 논리 앱과 동일한 Azure 구독이 있어야 하는 Azure 함수 앱을 만든 후 Azure 함수를 만듭니다.
 Azure Functions를 처음 만드는 경우 논리 앱에서 호출할 수 있는 함수를 만들기 위한 다음 요구 사항에 유의하면서 [Azure Portal에서 첫 번째 함수를 만드는](../azure-functions/functions-create-first-azure-function.md) 방법을 알아봅니다.
 
 * **JavaScript** 또는 **C#** 둘 다에 대해 **HTTP 트리거** 함수를 선택해야 합니다.
@@ -116,7 +114,7 @@ function convertToDateString(request, response){
 
 Logic Apps 디자이너의 논리 앱 내에서 시작하는 Azure 함수를 만들려면 먼저 함수에 대한 컨테이너에 해당하는 Azure 함수 앱이 있어야 합니다. 함수 앱이 없는 경우 함수 앱을 먼저 만듭니다. [Azure Portal에서 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요. 
 
-1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 Logic Apps 디자이너에서 논리 앱을 엽니다. 
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다. 
 
 2. 함수를 만들고 추가하려면 시나리오에 적용되는 단계를 따릅니다.
 
@@ -176,7 +174,7 @@ Logic Apps 디자이너의 논리 앱 내에서 시작하는 Azure 함수를 만
 
 논리 앱에서 기존 Azure 함수를 호출하려면 Logic Apps 디자이너에서 다른 작업처럼 Azure 함수를 추가할 수 있습니다. 
 
-1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 Logic Apps 디자이너에서 논리 앱을 엽니다. 
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다. 
 
 2. 함수를 추가하려는 단계에서 **새 단계** > **작업 추가**를 선택합니다. 
 

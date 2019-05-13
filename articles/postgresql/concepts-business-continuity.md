@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL의 비즈니스 연속성 개요
+title: Azure Database for PostgreSQL-단일 서버를 사용 하 여 비즈니스 연속성 개요
 description: Azure Database for PostgreSQL의 비즈니스 연속성 개요입니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a31112f3b6f7bd79785f89822e2881b152708254
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456277"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068924"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 비즈니스 연속성 개요
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버를 사용 하 여 비즈니스 연속성 개요
 
 이 개요에서는 Azure Database for PostgreSQL에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 애플리케이션을 사용할 수 없게 될 수 있는 중단 이벤트로부터 복구하는 옵션에 대해 알아봅니다. 사용자 또는 애플리케이션 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 애플리케이션에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
 

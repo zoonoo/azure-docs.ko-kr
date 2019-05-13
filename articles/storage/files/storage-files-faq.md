@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917603"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190060"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -145,7 +145,7 @@ ms.locfileid: "64917603"
 
 * <a id="afs-os-support"></a>
   **Windows Server 2008 R2, Linux 또는 NAS(Network Attached Storage) 디바이스와 함께 Azure 파일 동기화를 사용할 수 있습니까?**  
-    현재, Azure 파일 동기화는 Windows Server 2016 및 Windows Server 2012 R2만 지원합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 알려주세요.
+    현재 Azure File Sync는 Windows Server 2019, Windows Server 2016, Windows Server 2012 R2만 지원합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 알려주세요.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **계층화된 파일이 서버 엔드포인트 네임스페이스 외부에 존재하는 이유는 무엇인가요?**  
@@ -222,7 +222,7 @@ ms.locfileid: "64917603"
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
 
-    Azure Storage 서비스는 암호화는 모든 지역에서 기본적으로 활성화되도록 처리되고 있습니다. 이런 지역에서는 암호화를 사용하기 위해 아무런 작업도 수행할 필요가 없습니다. 다른 지역의 경우 [서버 쪽 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
+    예. 자세한 내용은 참조 [Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)합니다.
 
 * <a id="access-via-browser"></a>
 **웹 브라우저를 사용하여 특정 파일에 대한 액세스를 제공하려면 어떻게 해야 하나요?**  

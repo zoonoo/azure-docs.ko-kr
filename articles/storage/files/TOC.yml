@@ -168,7 +168,7 @@
         - name: 'Blob, 큐, 테이블 및 파일'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: 데이터 이동
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
         - name: 리소스 관리자
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: 자바

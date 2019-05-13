@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474847"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154258"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 문제 해결
 이 문서에서는 일반적인 문제 해결 질문을 나열합니다.
@@ -57,8 +57,9 @@ ms.locfileid: "61474847"
 ## <a name="polybase"></a>Polybase
 | 문제                                           | 해결 방법                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| 대용량 행으로 인해 로드 실패                | 현재 대용량 행 지원은 Polybase에서 사용할 수 없습니다.  즉, 테이블에 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)가 포함되어 있으면 데이터를 로드하는 데 외부 테이블을 사용할 수 없습니다.  대용량 행의 로드는 현재 Azure Data Factory(BCP 포함), Azure Stream Analytics, SSIS, BCP 또는 .NET SQLBulkCopy 클래스를 통해서만 지원됩니다. 대용량 행에 대한 PolyBase 지원은 후속 릴리스에 추가될 예정입니다. |
-| MAX 데이터 형식을 갖는 테이블의 bcp 로드 실패 | 일부 시나리오에서는 테이블의 끝에 VARCHAR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)를 배치하도록 요구하는 알려진 문제가 있습니다.  MAX 열을 테이블 끝으로 이동해보세요. |
+| TINYINT 및 날짜 형식으로 내보내기 실패             | 날짜 형식 값을 1970-01-01 사이 여야 Parquet 및 ORC 파일 형식에 대해 01:00:00 UTC와 2038-01-19 03시 14분: 07입니다. TINYINT 형식 값은 0 ~ 127 사이 여야 합니다.    |
+| Parquet 10 진수 형식 사용 하 여 문제: DecimalType(18,4) Spark에서 작성 형식과 double 또는 실수 형식의 열에 가져오는 제공 "오류: java.base/java.lang.Long java.base/java.lang.Float 캐스팅할 수 없습니다". | Bigint 가져올 하 고 10000 또는 사용 하 여 분할 해야 합니다 [Databricks] SQL DW 커넥터. |
+| Parquet 문제가 날짜 형식: Spark 형식 날짜에서에서 작성 및 열 가져오기 입력 날짜 또는 datetime 제공 "오류: java.base/java.lang.Integer parquet.io.api.Binary 캐스팅할 수 없습니다". | 다른 Spark 종류 (int)를 사용 하 고 날짜를 계산 하거나 사용 해야 합니다 [Databricks] SQL DW 커넥터. |
 
 ## <a name="differences-from-sql-database"></a>SQL Database와의 차이점
 | 문제                                 | 해결 방법                                                   |
@@ -132,3 +133,4 @@ ms.locfileid: "61474847"
 [Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 01a64345285149a50c226ebb344982425a813156
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/01/2019
+ms.openlocfilehash: 862592ed142da0c2f7bf753716fe6604da9a8fb0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995084"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153333"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
 Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션할 수 있습니다.
@@ -84,9 +84,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 
     비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
 
-    적합한 Azure Database Migration Service 계층을 선택하는 데 도움이 필요하면 [여기](https://go.microsoft.com/fwlink/?linkid=861067)의 블로그 게시물에 나와 있는 추천 사항을 참조하세요.  
-
-     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
+    ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
 
 7.  **만들기**를 선택하여 서비스를 만듭니다.
 

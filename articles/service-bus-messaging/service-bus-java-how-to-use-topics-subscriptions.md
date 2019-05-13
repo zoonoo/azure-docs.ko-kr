@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 0771656358503afc91bab7523d0c835e0050c2bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46891a60e6fd36ec0bc19d4b52de87d18e2b6793
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311099"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510288"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -458,8 +458,8 @@ Message sending: Id = 9
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Service Bus 큐, 토픽 및 구독][Service Bus queues, topics, and subscriptions]을 참조하세요.
 
-[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression

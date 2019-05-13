@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429242"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406969"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory와 E Sales Manager Remix 통합
 
@@ -105,7 +105,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     b. **식별자** 상자에 *https://\<Server-Based-URL>/\<sub-domain>/* 형식으로 URL을 입력합니다.
 
-    다. 이 자습서의 뒷부분에서 사용할 수 있게 **식별자** 값을 적어둡니다.
+    c. 이 자습서의 뒷부분에서 사용할 수 있게 **식별자** 값을 적어둡니다.
     
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트합니다. 값을 얻으려면 [E Sales Manager Remix 고객 지원 팀](mailto:esupport@softbrain.co.jp)에 문의하세요.
@@ -158,7 +158,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
     
     b. **공동 작업 항목** 섹션의 드롭다운 목록에서 **이메일**을 선택합니다.
 
-    다. **공동 작업 항목** 상자에 이전에 Azure Portal에서 복사한 클레임 값을 붙여넣습니다(즉, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. **공동 작업 항목** 상자에 이전에 Azure Portal에서 복사한 클레임 값을 붙여넣습니다(즉, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. **발급자(엔터티 ID)** 상자에 이전에 Azure Portal의 **E Sales Manager Remix 도메인 및 URL** 섹션에서 복사한 식별자 값을 붙여넣습니다.
 
@@ -202,7 +202,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 선택합니다.
  
@@ -226,7 +226,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     b. 나머지 필수 필드를 완료합니다.
     
-    다. SAML을 사용하도록 설정하면 관리자는 로그인 페이지에서 로그인할 수 없습니다. **관리자 로그인** 확인란을 선택하여 관리자에게 사용자에 대한 로그인 권한을 부여합니다.
+    c. SAML을 사용하도록 설정하면 관리자는 로그인 페이지에서 로그인할 수 없습니다. **관리자 로그인** 확인란을 선택하여 관리자에게 사용자에 대한 로그인 권한을 부여합니다.
 
     d. **등록**을 선택합니다.
 

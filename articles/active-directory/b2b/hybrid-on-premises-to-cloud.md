@@ -1,6 +1,6 @@
 ---
 title: 로컬 파트너 계정을 클라우드 B2B 사용자-Azure Active Directory로 동기화 | Microsoft Docs
-description: Azure AD B2B 공동 작업과 동일한 자격 증명을 사용하여 로컬로 관리되는 외부 파트너에게 로컬 및 클라우드 리소스에 대한 액세스 권한을 부여합니다.
+description: Azure AD B2B 협업과 동일한 자격 증명을 사용하여 로컬로 관리되는 외부 파트너에게 로컬 및 클라우드 리소스에 대한 액세스 권한을 부여합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60355236"
 ---
-# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B 공동 작업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여
+# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B 협업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여
 
 Azure AD(Azure Active Directory) 이전에는 온-프레미스 ID 시스템이 있는 조직은 일반적으로 온-프레미스 디렉터리에서 파트너 계정을 관리해왔습니다. 이러한 조직에서 Azure AD에 앱을 이동하기 시작하면 파트너가 필요한 리소스에 액세스할 수 있도록 해야 합니다. 리소스가 온-프레미스에 있는지 아니면 클라우드에 있는지 여부는 중요하지 않습니다. 또한 파트너 사용자가 온-프레미스와 Azure AD 리소스 모두에 대해 동일한 로그인 자격 증명을 사용할 수 있도록 해야 합니다. 
 
@@ -38,7 +38,7 @@ UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 온-�
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>클라우드로 사용자를 동기화하도록 Azure AD Connect 구성
 
-고유한 특성을 식별한 다음 클라우드에 이러한 사용자를 Azure AD B2B 사용자로 동기화하도록 Azure AD Connect를 구성할 수 있습니다(즉, UserType이 게스트인 사용자). 권한 부여라는 관점에서 이러한 사용자는 Azure AD B2B 공동 작업 초대 프로세스를 통해 만든 B2B 사용자와 구분될 수 없습니다.
+고유한 특성을 식별한 다음 클라우드에 이러한 사용자를 Azure AD B2B 사용자로 동기화하도록 Azure AD Connect를 구성할 수 있습니다(즉, UserType이 게스트인 사용자). 권한 부여라는 관점에서 이러한 사용자는 Azure AD B2B 협업 초대 프로세스를 통해 만든 B2B 사용자와 구분될 수 없습니다.
 
 구현 지침은 [UserType의 동기화 사용](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요.
 

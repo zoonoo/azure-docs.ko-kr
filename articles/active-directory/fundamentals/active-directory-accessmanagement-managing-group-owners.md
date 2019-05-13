@@ -12,20 +12,20 @@ ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2541a1d76b56f92b250fb422951769db7877213e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd684e1bd48f877a74280b33b4df65d7baaa0fe7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249870"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507184"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
-Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 그룹 및 해당 멤버를 관리하기 위해 리소스 소유자(관리자)에게 할당됩니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다. 그룹 소유자가 할당된 후에는 리소스 소유자만 소유자를 추가하거나 제거할 수 있습니다.
+Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자 사용자 또는 서비스 주체를 수 있으며 멤버를 포함 한 그룹을 관리할 수 있습니다. 기존 그룹 소유자 또는 관리자 그룹 관리 그룹 onwers를 할당할 수 있습니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다.
 
-일부 경우에 관리자 권한으로 그룹 소유자를 할당하지 않도록 결정할 수도 있습니다. 이 경우 해당 관리자는 그룹 소유자가 됩니다. 또한 그룹 설정에서 이를 제한하지 않는 한, 소유자는 다른 소유자를 해당 그룹에 할당할 수 있습니다.
+그룹 소유자가 없는 경우 관리자 그룹 관리 그룹을 관리할 수 있습니다.
 
 ## <a name="add-an-owner-to-a-group"></a>그룹에 소유자 추가
-Azure AD를 사용하여 그룹에 추가 그룹 소유자를 추가합니다.
+다음 그룹에 소유자는 사용자를 추가 하기 위한 지침 사용 하는 Azure AD 포털입니다. 그룹의 소유자로 서 서비스 주체를 추가 하려면 지침에 따라 이렇게 사용 하 여 [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0)합니다.
 
 ### <a name="to-add-a-group-owner"></a>그룹 소유자를 추가하려면
 1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.

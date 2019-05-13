@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916650"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508427"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 애플리케이션 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 애플리케이션 배포를 Traffic Manager에서 '엔드포인트'로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 엔드포인트를 선택합니다. Traffic Manager는 현재 엔드포인트 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)을 참조하세요.
 
 Traffic Manager에서 지원되는 엔드포인트에는 세 가지 종류가 있습니다.
 * **Azure 엔드포인트** 는 Azure에서 호스팅되는 서비스에 사용됩니다.
-* **외부 엔드포인트**는 IPv4/IPv6 주소나 Azure 외부에서 호스팅되는 서비스(온-프레미스 또는 다른 호스팅 공급자의 서비스일 수 있음)에 사용됩니다.
+* **외부 끝점** IPv4/IPv6 주소, Fqdn 또는 다른 호스팅 공급자 또는 온-프레미스 수 있는 Azure 외부에서 호스팅되는 서비스에 대 한 사용 됩니다.
 * **중첩 엔드포인트** 는 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 Traffic Manager 프로필을 결합하는 데 사용됩니다.
 
 단일 Traffic Manager 프로필에서 서로 다른 유형의 엔드포인트를 결합하는 방법에는 제한이 없습니다. 각 프로필은 모든 엔드포인트 유형의 혼합을 포함할 수 있습니다.
@@ -46,7 +46,7 @@ Azure 엔드포인트를 사용하는 경우 Traffic Manager는 '클래식' IaaS
 
 ## <a name="external-endpoints"></a>외부 엔드포인트
 
-외부 엔드포인트는 IPv4/IPv6 주소 또는 Azure 외부 서비스에 사용됩니다. IPv4/IPv6 주소 엔드포인트를 사용하는 경우 Traffic Manager가 엔드포인트의 DNS 이름 없이도 엔드포인트 상태를 확인할 수 있습니다. 따라서 Traffic Manager는 응답에서 해당 엔드포인트를 반환할 때 A/AAAA 레코드로 쿼리에 응답할 수 있습니다. Azure 외부 서비스에는 온-프레미스에서 호스팅되는 서비스나 다른 공급자의 서비스가 포함될 수 있습니다. 외부 엔드포인트는 개별적으로 사용할 수도 있고, 동일한 Traffic Manager 프로필에서 Azure 엔드포인트와 결합될 수도 있습니다. 단, IPv4 또는 IPv6 주소로 지정된 엔드포인트는 반드시 외부 엔드포인트여야 합니다. 외부 엔드포인트와 Azure 엔드포인트를 결합하여 다양한 시나리오를 사용할 수 있습니다.
+외부 끝점에는 두 IPv4/IPv6 주소, Fqdn 또는 Azure 외부 서비스에 대해 사용 됩니다. IPv4/IPv6 주소 엔드포인트를 사용하는 경우 Traffic Manager가 엔드포인트의 DNS 이름 없이도 엔드포인트 상태를 확인할 수 있습니다. 따라서 Traffic Manager는 응답에서 해당 엔드포인트를 반환할 때 A/AAAA 레코드로 쿼리에 응답할 수 있습니다. Azure 외부 서비스에는 온-프레미스에서 호스팅되는 서비스나 다른 공급자의 서비스가 포함될 수 있습니다. 외부 엔드포인트는 개별적으로 사용할 수도 있고, 동일한 Traffic Manager 프로필에서 Azure 엔드포인트와 결합될 수도 있습니다. 단, IPv4 또는 IPv6 주소로 지정된 엔드포인트는 반드시 외부 엔드포인트여야 합니다. 외부 엔드포인트와 Azure 엔드포인트를 결합하여 다양한 시나리오를 사용할 수 있습니다.
 
 * Azure를 사용하는 활성-활성 또는 활성-수동 장애 조치(failover) 모델에서 기존 온-프레미스 애플리케이션의 백업 기능을 개선할 수 있습니다. 
 * DNS 이름이 연결되어 있지 않은 엔드포인트로 트래픽을 라우팅할 수 있습니다. 또한 두 번째 DNS 쿼리를 실행하여 반환되는 DNS 이름의 IP 주소를 가져올 필요가 없으므로 전체 DNS 조회 대기 시간도 줄일 수 있습니다. 

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525350"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024379"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 자습서: Azure Search에서 반구조적 데이터(JSON blob) 인덱싱 및 검색
 
@@ -27,9 +27,6 @@ Azure Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-
 > * 검색 가능한 콘텐츠를 포함하는 Azure Search 인덱스 만들기
 > * 컨테이너를 읽고 Azure Blob Storage에서 검색 가능한 콘텐츠를 추출하기 위한 인덱서 구성 및 실행
 > * 방금 만든 인덱스 검색
-
-> [!NOTE]
-> 이 자습서에서는 현재 Azure Search의 미리 보기 기능인 JSON 배열 지원을 사용합니다. 포털에서는 사용할 수 없습니다. 이러한 이유로 이 기능을 제공하는 미리 보기 REST API와 API를 호출하는 REST 클라이언트 도구가 사용됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -81,7 +78,7 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
 Postman을 통해 데이터 원본, 인덱스 및 인덱서를 만들기 위해 검색 서비스에 대한 API 호출을 세 번 수행합니다. 데이터 원본은 저장소 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
 
-쿼리 문자열에는 미리 보기 API(예: **api-version=2017-11-11-Preview**)가 포함되어 있어야 하며, 각 호출은 **201 Created**를 반환해야 합니다. 일반적으로 사용할 수 있는 api-version에는 아직 JSON을 jsonArray로 처리할 수 있는 기능이 없고 현재는 미리 보기 api-version만 있습니다.
+쿼리 문자열은 api-version을 지정해야 하며, 각 호출에서 **201 생성됨**을 반환해야 합니다. JSON 배열을 사용할 수 있도록 일반 공급되는 api-version은 `2019-05-06`입니다.
 
 REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
@@ -89,7 +86,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 [데이터 원본 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)는 인덱스할 데이터를 지정하는 Azure Search 개체를 만듭니다.
 
-이 호출의 엔드포인트는 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다. 
+이 호출의 엔드포인트는 `https://[service name].search.windows.net/datasources?api-version=2019-05-06`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다. 
 
 이 호출의 경우 요청 본문에 스토리지 계정 이름, 스토리지 계정 키 및 blob 컨테이너 이름을 포함해야 합니다. 스토리지 계정 키는 Azure Portal에서 스토리지 계정의 **액세스 키** 내에서 찾을 수 있습니다. 위치가 다음 그림에 표시됩니다.
 
@@ -132,7 +129,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
     
 두 번째 호출은 [인덱스 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)이며 검색 가능한 모든 데이터를 저장하는 Azure Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
 
-이 호출에 대한 URL은 `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
+이 호출에 대한 URL은 `https://[service name].search.windows.net/indexes?api-version=2019-05-06`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
 먼저 URL을 바꿉니다. 그런 후 다음 코드를 복사하여 본문에 붙여넣고 쿼리를 실행합니다.
 
@@ -222,7 +219,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 인덱서는 데이터 원본을 연결하고, 데이터를 대상 검색 인덱스로 가져오고, 필요에 따라 데이터 새로 고침을 자동화하는 일정을 제공합니다. REST API는 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)입니다.
 
-이 호출에 대한 URL은 `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
+이 호출에 대한 URL은 `https://[service name].search.windows.net/indexers?api-version=2019-05-06`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
 먼저 URL을 바꿉니다. 그런 다음, 다음 코드를 복사하여 본문에 붙여넣고 요청을 전송합니다. 요청은 즉시 처리됩니다. 응답이 돌아오면 전체 텍스트 검색이 가능한 인덱스가 생깁니다.
 
@@ -267,7 +264,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 Azure Portal에서 검색 서비스 **개요** 페이지를 열고 **인덱스** 목록에서 만든 인덱스를 찾습니다.
 
-방금 만든 인덱스를 선택했는지 확인합니다. API 버전은 미리 보기 또는 일반적으로 사용 가능한 버전일 수 있습니다. 미리 보기 요구 사항은 JSON 배열 인덱싱뿐입니다.
+방금 만든 인덱스를 선택했는지 확인합니다. 
 
   ![구조화되지 않은 검색](media/search-semi-structured-data/indexespane.png)
 

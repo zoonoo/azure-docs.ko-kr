@@ -1,31 +1,30 @@
 ---
-title: Azure AD의 v1.0 끝점을 사용 하 여 Microsoft id 플랫폼 (v2.0) 끝점 비교 | Microsoft Docs
-description: Microsoft id 플랫폼 (v2.0) 끝점 및 Azure Active Directory (Azure AD) v1.0 끝점 사이의 차이점을 이해 합니다.
+title: Microsoft id 플랫폼 (v2.0)를 업데이트 하는 이유 | Azure
+description: Microsoft id 플랫폼 (v2.0) 끝점 및 Azure Active Directory (Azure AD) v1.0 끝점 사이의 차이점을 이해 하 고 v2.0 업데이트의 이점을 알아보세요.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dba74735b4c703123f9ff89b63a57d53faa84fde
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410670"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138780"
 ---
-# <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Microsoft id 플랫폼 끝점 및 Azure AD의 v1.0 끝점 비교
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Microsoft id 플랫폼 (v2.0)에 업데이트 이유는?
 
 새 응용 프로그램을 개발할 때에 Microsoft id 플랫폼 (v2.0)와 Azure Active Directory (v1.0) 끝점 간의 차이점을 이해 하는 것이 중요 합니다. 이 문서에서는 Microsoft id 플랫폼에 대 한 기존 몇 가지 제한 사항이 끝점 사이의 주요 차이점을 설명 합니다.
 
@@ -56,7 +55,7 @@ Azure AD v1.0 엔드포인트를 사용하는 앱은 필수 OAuth 2.0 권한을 
 
 * 앱이 액세스할 수도 있는 모든 리소스를 미리 알아야 합니다. 리소스의 임의 개수에 액세스할 수 있는 앱을 만들기 어려웠습니다.
 
-Microsoft id 플랫폼 끝점을 사용 하 여 무시할 수 있습니다에 정의 된 Azure portal 및 요청 사용 권한 앱 등록 정보를 증분 방식으로 대신 정적 권한을 미리 권한의 최소 집합을 완전 묻는 즉 추가 앱 기능을 사용 하는 고객으로 시간이 지남에 따라 더 발생 하며 이렇게 하려면 애플리케이션 등록 정보에 미리 정의할 필요 없이, 액세스 토큰을 요청할 때 `scope` 매개 변수에 새 범위를 포함시켜서 언제든지 앱에 필요한 범위를 지정할 수 있습니다. 사용자가 요청에 추가된 새 범위에 아직 동의하지 않은 경우에는 새 권한에만 동의하라는 메시지가 표시됩니다. 자세한 내용은 [권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요.
+Microsoft id 플랫폼 끝점을 사용 하 여 무시할 수 있습니다에 정의 된 Azure portal 및 요청 사용 권한 앱 등록 정보를 증분 방식으로 대신 정적 권한을 미리 권한의 최소 집합을 완전 묻는 즉 및 추가 앱 기능을 사용 하 여 자세한 고객으로 시간이 지남에 따라 증가 합니다. 이렇게 하려면 애플리케이션 등록 정보에 미리 정의할 필요 없이, 액세스 토큰을 요청할 때 `scope` 매개 변수에 새 범위를 포함시켜서 언제든지 앱에 필요한 범위를 지정할 수 있습니다. 사용자가 요청에 추가된 새 범위에 아직 동의하지 않은 경우에는 새 권한에만 동의하라는 메시지가 표시됩니다. 자세한 내용은 [권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요.
 
 `scope` 매개 변수를 통해 앱이 동적으로 권한을 요청할 수 있도록 허용하면 개발자가 사용자 환경을 완전히 제어할 수 있습니다. 초기 단계에 동의 환경을 배치하고 하나의 초기 권한 부여 요청으로 모든 권한을 요청할 수도 있습니다. 앱이 많은 권한을 요청하는 경우 시간의 경과에 따라 앱의 특정 기능을 사용하도록 시도하는 것처럼 점진적으로 사용자로부터 권한을 수집할 수 있습니다.
 
@@ -69,7 +68,7 @@ v1.0 엔드포인트를 사용하는 앱은 **리소스** 또는 토큰 수신�
 * 리소스 식별자 또는 `AppID URI`: `https://graph.windows.net/`
 * 범위 또는 `oAuth2Permissions`: `Directory.Read`, `Directory.Write` 등
 
-Microsoft id 플랫폼 끝점에는 것과 마찬가지입니다. 앱은 여전히 리소스로 작동하고, 범위를 정의하고, URI로 식별될 수 있습니다. 클라이언트 앱은 여전히 해당 범위에 액세스 요청할 수 있습니다. 그러나 클라이언트가 권한을 요청하는 방식이 변경되었습니다.
+Microsoft id 플랫폼 끝점에는 것과 마찬가지입니다. 앱은 여전히 리소스로 작동하고, 범위를 정의하고, URI로 식별될 수 있습니다. 클라이언트 앱은 여전히 해당 범위에 액세스 요청할 수 있습니다. 그러나 클라이언트가 권한을 요청 하는 방식으로 변경 되었습니다.
 
 v1.0 엔드포인트의 경우, Azure AD에 대한 OAuth 2.0 인증 요청은 다음과 같습니다.
 
@@ -91,7 +90,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-여기서 **scope** 매개 변수는 앱이 권한 부여를 요청하는 리소스와 권한을 나타냅니다. 원하는 리소스는 여전히 요청에 있으며, scope 매개 변수의 각 값에 포함되어 있습니다. 이 방식으로 범위 매개 변수를 사용 하 여 OAuth 2.0 사양에 더 부합 하도록 Microsoft id 플랫폼 끝점 있으며 일반적인 업계 실무와 더욱 긴밀 하 게 맞춥니다. 또한 앱이 [증분식 동의](#incremental-and-dynamic-consent)(미리 요청하는 것이 아니라 애플리케이션에 필요할 때만 권한을 요청)를 수행할 수 있도록 합니다.
+여기서 **scope** 매개 변수는 앱이 권한 부여를 요청하는 리소스와 권한을 나타냅니다. 원하는 리소스는 여전히 요청에 있으며, scope 매개 변수의 각 값에 포함되어 있습니다. 이 방식으로 범위 매개 변수를 사용 하 여 OAuth 2.0 사양에 더 부합 하도록 Microsoft id 플랫폼 끝점 있으며 일반적인 업계 실무와 더욱 긴밀 하 게 맞춥니다. 작업을 수행 하는 앱도 가능 [증분 동의](#incremental-and-dynamic-consent) -사용 권한을 요청 하 여 응용 프로그램에 필요한 경우와 반대로 이러한 최첨단만 합니다.
 
 ## <a name="well-known-scopes"></a>잘 알려진 범위
 
@@ -99,7 +98,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 Microsoft id 플랫폼 끝점을 사용 하 여 앱-앱에 대 한 잘 알려진 새 권한 사용을 해야 할 수 있습니다는 `offline_access` 범위입니다. 모든 앱이 연장된 기간 동안 사용자를 대신하여 리소스에 액세스해야 할 경우, 사용자가 앱을 자주 쓰지 않는 경우에도 이 권한을 요청해야 합니다. `offline_access` 범위는 사용자에게 동의 대화 상자에 **언제든지 데이터에 액세스**로 표시되며 사용자는 여기에 반드시 동의해야 합니다. 요청을 `offline_access` 권한을 수행 하면 웹 앱을 Microsoft id 플랫폼 끝점에서 OAuth 2.0 refresh_token을 받을 수 있습니다. 새로 고침 토큰은 수명이 길며, 오랜 기간 액세스하기 위해 새로운 OAuth 2.0 액세스 토큰으로 교환할 수 있습니다.
 
-앱이 `offline_access` 범위를 요청하지 않으면 새로 고침 토큰을 받지 못합니다. 즉, OAuth 2.0 권한 부여 코드 흐름에서 인증 코드를 사용하면 `/token` 엔드포인트에서 액세스 토큰만 수신하게 됩니다. 이 액세스 토큰은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 인증 코드를 검색해야 합니다. 리디렉션 중에 앱 유형에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
+앱에서 요청 하지 않습니다 하는 경우는 `offline_access` 범위 새로 고침 토큰을 받을 수 없습니다. 즉, OAuth 2.0 권한 부여 코드 흐름에서 인증 코드를 사용하면 `/token` 엔드포인트에서 액세스 토큰만 수신하게 됩니다. 이 액세스 토큰은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 인증 코드를 검색해야 합니다. 리디렉션 중에 앱 유형에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
 
 OAuth 2.0에 자세히 알아보려면 `refresh_tokens`, 및 `access_tokens`, 체크 아웃 합니다 [Microsoft id 플랫폼 프로토콜 참조](active-directory-v2-protocols.md)합니다.
 
@@ -109,8 +108,8 @@ OAuth 2.0에 자세히 알아보려면 `refresh_tokens`, 및 `access_tokens`, �
 
 이제 `openid` 범위를 통해 앱의 액세스가 허용되는 정보가 제한됩니다. `openid` 범위는 앱이 사용자를 로그인하고 해당 사용자의 앱 특정 식별자를 수신하는 작업만 허용합니다. 앱에 있는 사용자의 개인 데이터를 가져오려면 앱이 사용자로부터 추가 권한을 요청해야 합니다. 두 개의 새 범위(`email` 및 `profile` 범위)를 통해 추가 권한을 요청할 수 있습니다.
 
-* `email` 범위는 사용자에게 주소 지정 가능한 메일 주소가 있다고 가정하여 앱이 id_token의 `email` 클레임을 통해 사용자의 기본 메일 주소에 액세스할 수 있도록 해줍니다. 
-* `profile` 범위는 앱이 id_token의 사용자 이름, 기본 설정된 사용자 이름, 개체 ID 등 사용자에 관한 모든 기타 기본 정보에 액세스할 수 있도록 해줍니다.
+* `email` 범위는 사용자에게 주소 지정 가능한 메일 주소가 있다고 가정하여 앱이 id_token의 `email` 클레임을 통해 사용자의 기본 메일 주소에 액세스할 수 있도록 해줍니다.
+* `profile` ID 및 id_token에서 개체 범위가 기본 사용자 이름, 해당 이름과 같은 사용자에 대 한 다른 모든 기본 정보에 대 한 앱 액세스를 허용 합니다.
 
 이러한 범위를 사용하면 최소한의 공개로 앱을 코딩할 수 있으며, 작업 수행에 필요한 정보만 사용자에게 요청할 수 있습니다. 이러한 범위에 대 한 자세한 내용은 참조 하세요. [Microsoft id 플랫폼 범위 참조](v2-permissions-and-consent.md)합니다.
 
@@ -124,7 +123,7 @@ Microsoft id 플랫폼을 사용 하는 경우 알아야 할 몇 가지 제한 �
 
 Microsoft id 플랫폼과 통합 하는 응용 프로그램을 빌드할 때에 Microsoft id 플랫폼 끝점 및 인증 프로토콜 요구 사항을 충족 하는지 여부를 결정 해야 합니다. V1.0 끝점 및 플랫폼은 완벽 하 게 지원 되며, 몇 가지 측면에서 Microsoft id 플랫폼 보다 더 풍부한 기능입니다. 그러나 Microsoft id 플랫폼 [상당한 혜택을 소개](azure-ad-endpoint-comparison.md) 개발자를 위한 합니다.
 
-다음은 현 시점에서 개발자를 위한 간단한 권장 사항입니다.
+개발자를 위한 간소화 된 권장 이제는 다음과 같습니다.
 
 * 응용 프로그램에서 개인 Microsoft 계정을 지원 해야 하거나, 새 응용 프로그램을 작성 하는 경우 Microsoft id 플랫폼을 사용 합니다. 그러나 그 전에 이 문서에 설명된 제한 사항을 이해해야 합니다.
 * 마이그레이션 또는 SAML을 사용 하는 응용 프로그램을 업데이트 하는 경우에 Microsoft id 플랫폼을 사용할 수 없습니다. 대신 참조를 [Azure AD의 v1.0 가이드](v1-overview.md)합니다.
@@ -133,7 +132,7 @@ Microsoft id 플랫폼 끝점 발전는 Microsoft id 플랫폼 끝점을 사용 
 
 ### <a name="restrictions-on-app-registrations"></a>앱 등록에 대한 제한 사항
 
-Microsoft id 플랫폼 끝점을 사용 하 여 통합 하려는 각 앱에 대 한 새 앱 등록을 만들 수 있습니다 [ **앱 등록** 경험](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) Azure portal에서 합니다. 기존 Microsoft 계정 앱 미리 보기 포털을 사용 하 여 호환 되지 않습니다. 하지만 등록 된 경우 또는 위치에 관계 없이 모든 Azure AD 앱 됩니다.
+Microsoft id 플랫폼 끝점을 사용 하 여 통합 하려는 각 앱에 대 한 새 앱 등록을 만들 수 있습니다 [ **앱 등록** 경험](https://aka.ms/appregistrations) Azure portal에서 합니다. 기존 Microsoft 계정 앱에는 포털을 사용 하 여 호환 되지 않습니다. 하지만 등록 된 경우 또는 위치에 관계 없이 모든 Azure AD 앱은입니다.
 
 회사 및 학교 계정과 개인 계정을 지원하는 앱 등록에는 다음과 같은 주의 사항이 있습니다.
 
@@ -168,9 +167,9 @@ Microsoft id 플랫폼에 대해 등록 된 앱 제한 된 리디렉션 URL 값 
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-뒤의 두 개는 첫 번째 리디렉션 URL contoso.com의 하위 도메인이므로 추가할 수 있습니다. 이 제한은 향후 릴리스에서 제거될 예정입니다.
+첫 번째 리디렉션 URL의 하위 도메인 이므로 뒤의 두 개를 추가할 수 있습니다 contoso.com입니다.
 
-또한 특정 애플리케이션의 회신 URL은 20개만 포함할 수 있습니다. 이 제한은 등록이 지원하는 모든 앱 형식(SPA, 네이티브 클라이언트, 웹앱 및 서비스)에 적용됩니다.  
+특정 응용 프로그램에 대 한 20 개의 회신 Url을 할 수 있습니다-등록 지원 (단일 페이지 응용 프로그램 (SPA), 네이티브 클라이언트, 웹 앱 및 서비스)는 모든 앱 유형에 서이 제한이 적용 됩니다.  
 
 Microsoft id 플랫폼에 사용할 앱을 등록 하는 방법에 알아보려면 참조 [새 앱 등록 환경을 사용 하 여 앱을 등록](quickstart-register-app.md)합니다.
 
@@ -178,9 +177,9 @@ Microsoft id 플랫폼에 사용할 앱을 등록 하는 방법에 알아보려�
 
 현재 Microsoft id 플랫폼 끝점에 대 한 라이브러리 지원은 제한적입니다. 프로덕션 응용 프로그램의 Microsoft id 플랫폼 끝점을 사용 하려는 경우 다음이 옵션 해야 합니다.
 
-* 웹 애플리케이션을 작성하는 경우 일반적으로 사용 가능한 서버 쪽 미들웨어를 안전하게 사용하여 로그인 및 토큰 유효성 검사를 수행할 수 있습니다. 여기에는 ASP.NET용 OWIN Open ID Connect 미들웨어 및 Node.js Passport 플러그 인이 포함됩니다. Microsoft 미들웨어를 사용 하는 코드 샘플에 대 한 참조를 [시작 하는 Microsoft id 플랫폼](v2-overview.md#getting-started) 섹션입니다.
-* 데스크톱 또는 모바일 애플리케이션을 작성하는 경우 미리 보기 MSAL(Microsoft 인증 라이브러리) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 프로덕션 지원 미리 보기이므로 프로덕션 애플리케이션에서 안전하게 사용할 수 있습니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](reference-v2-libraries.md)에서 확인할 수 있습니다.
-* Microsoft 라이브러리에서 포함 하지 않는 플랫폼에 대 한 직접 전송 및 응용 프로그램 코드에서 프로토콜 메시지를 수신 하 여 Microsoft id 플랫폼 끝점을 사용 하 여 통합할 수 있습니다. OpenID Connect 및 OAuth 프로토콜 [명시적으로 문서화](active-directory-v2-protocols.md) 이러한 통합을 수행할 수 있도록 합니다.
+* 웹 응용 프로그램을 빌드하는 경우 수행할 로그인 및 토큰 유효성 검사를 일반 공급 서버 쪽 미들웨어를 안전 하 게 사용할 수 있습니다. 여기에는 ASP.NET용 OWIN Open ID Connect 미들웨어 및 Node.js Passport 플러그 인이 포함됩니다. Microsoft 미들웨어를 사용 하는 코드 샘플에 대 한 참조를 [시작 하는 Microsoft id 플랫폼](v2-overview.md#getting-started) 섹션입니다.
+* 데스크톱 또는 모바일 응용 프로그램을 빌드하는 경우에 Microsoft 인증 라이브러리 (MSAL) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 일반적으로 사용할 수 없거나 프로덕션 지원 미리 보기에서 하므로 안전 하 게 프로덕션 응용 프로그램에서 사용할 합니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](reference-v2-libraries.md)에서 확인할 수 있습니다.
+* Microsoft 라이브러리에서 포함 하지 않는 플랫폼에 대 한 직접 전송 및 응용 프로그램 코드에서 프로토콜 메시지를 수신 하 여 Microsoft id 플랫폼 끝점을 사용 하 여 통합할 수 있습니다. OpenID Connect 및 OAuth 프로토콜 [명시적으로 문서화](active-directory-v2-protocols.md) 이러한 통합 작업을 수행할 수 있도록 합니다.
 * 마지막으로, Microsoft id 플랫폼 끝점 통합할 오픈 소스 OpenID Connect 및 OAuth 라이브러리를 사용할 수 있습니다. Microsoft id 플랫폼 끝점은 변경 하지 않고 다양 한 오픈 소스 프로토콜 라이브러리와 호환 되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [OpenID Connect](https://openid.net/connect/) 및 [OAuth 2.0](https://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 자세한 내용은 [Microsoft id 플랫폼 및 인증 라이브러리](reference-v2-libraries.md), 및 오픈 소스 클라이언트 라이브러리 및 Microsoft id 플랫폼 끝점을 사용 하 여 테스트 된 샘플의 목록입니다.
 * 참조에 대 한 합니다 `.well-known` Microsoft id 플랫폼 공용 끝점에 대 한 끝점은 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`합니다. `common`을 테넌트 ID로 바꾸어 테넌트와 관련된 데이터를 가져오세요.  
 
@@ -196,4 +195,4 @@ Microsoft id 플랫폼 끝점에서 지원 되는 프로토콜 기능의 범위�
 
 #### <a name="saml-restrictions"></a>SAML 제한 사항
 
-Windows 애플리케이션에서 ADAL(Active Directory 인증 라이브러리)을 사용한 경우 SAML(Security Assertion Markup Language) 어설션 권한 부여를 사용하는 Windows 통합 인증을 활용했을 수 있습니다. 이 권한 부여를 통해 페더레이션된 Azure AD 테넌트의 사용자는 자격 증명을 입력하지 않고도 해당 온-프레미스 Active Directory 인스턴스로 자동으로 인증할 수 있습니다. SAML 어설션 권한 부여는 Microsoft id 플랫폼 끝점에서 지원 되지 않습니다.
+Windows 응용 프로그램에서 Active Directory 인증 라이브러리 (ADAL)를 사용한 경우 SAML Security Assertion Markup Language () 어설션 권한 부여를 사용 하는 Windows 통합 인증을 활용을 수행 될 수 있습니다. 이 권한 부여를 통해 페더레이션된 Azure AD 테넌트의 사용자는 자격 증명을 입력하지 않고도 해당 온-프레미스 Active Directory 인스턴스로 자동으로 인증할 수 있습니다. SAML 어설션 권한 부여는 Microsoft id 플랫폼 끝점에서 지원 되지 않습니다.

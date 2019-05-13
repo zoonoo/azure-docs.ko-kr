@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 4416c30f57b469ee125400c696e8b34311a94926
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028187"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406416"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service 란?
 
@@ -65,7 +65,7 @@ Azure Log Analytics를 통해 사용자는 쿼럼 원장에 나 트랜잭션 노
 
 ## <a name="develop-using-familiar-development-tools"></a>친숙 한 개발 도구를 사용 하 여 개발
 
-오픈 소스 쿼럼 Ethereum 원장에 따라 개발할 수 있습니다 Azure Blockchain 서비스에 대 한 응용 프로그램 같은 방식으로 기존 Ethereum 응용 프로그램으로. 주요 업계 파트너와 작업을 Azure Blockchain 개발 키트 Visual Studio Code 확장 수 개발자가 smart contracts를 빌드하 Truffle Suite와 같은 친숙 한 도구를 활용할 수 있습니다. Azure Blockchain 개발 키트 확장을 사용 개발자를 만들려면 하거나 연결할 수 있습니다 및 기존 컨소시엄 빌드하고 스마트를 배포할 수 있도록 계약 모두 하나의 IDE에서. Azure Blockchain Visual Studio Code 확장을 사용 만들기 또는 빌드하고 하나의 IDE에서 하 여 smart contracts를 배포할 수 있도록 기존 컨소시엄을 연결할 수 있습니다. 자세한 내용은 [VS Code marketplace에서 Azure Blockchain 개발 키트](http://aka.ms/vscodebcextension) 하며 [Azure Blockchain 개발 키트 사용자 가이드](http://aka.ms/vscodebcextensionwiki )합니다.
+오픈 소스 쿼럼 Ethereum 원장에 따라 개발할 수 있습니다 Azure Blockchain 서비스에 대 한 응용 프로그램 같은 방식으로 기존 Ethereum 응용 프로그램으로. 주요 업계 파트너와 작업을 Azure Blockchain 개발 키트 Visual Studio Code 확장 수 개발자가 smart contracts를 빌드하 Truffle Suite와 같은 친숙 한 도구를 활용할 수 있습니다. Azure Blockchain 개발 키트 확장을 사용 개발자를 만들려면 하거나 연결할 수 있습니다 및 기존 컨소시엄 빌드하고 스마트를 배포할 수 있도록 계약 모두 하나의 IDE에서. Azure Blockchain Visual Studio Code 확장을 사용 만들기 또는 빌드하고 하나의 IDE에서 하 여 smart contracts를 배포할 수 있도록 기존 컨소시엄을 연결할 수 있습니다. 자세한 내용은 [VS Code marketplace에서 Azure Blockchain 개발 키트](https://aka.ms/vscodebcextension) 하며 [Azure Blockchain 개발 키트 사용자 가이드](https://aka.ms/vscodebcextensionwiki )합니다.
 
 ## <a name="support-and-feedback"></a>지원 및 피드백
 

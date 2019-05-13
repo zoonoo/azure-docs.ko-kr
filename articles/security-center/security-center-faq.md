@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a029ad3fc253f35fb34bc2dd0ddbeb9614e5dc33
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917644"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231402"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -323,6 +323,11 @@ Security Center에서 취약점, 업데이트 및 문제를 검색하는 대기 
 - Endpoint Protection 문제 – 데이터가 8시간 이내 업데이트됩니다.
 
 Security Center는 일반적으로 한 시간마다 새 데이터를 검사하며 그에 따라 권장 사항을 새로 고칩니다. 
+
+> [!NOTE]
+> 2017년 6월 초를 시작으로 Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집 및 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환된 후의 Security Center 기능을 나타냅니다.
+>
+>
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM 에이전트가 누락됨" 메시지가 표시되는 이유는 무엇인가요?
 데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.

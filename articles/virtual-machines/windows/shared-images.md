@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/11/2018
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 6ea98792e6a1b7fef32e3be1ddfbb29743f50c6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250768"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235907"
 ---
-# <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>미리 보기: Azure PowerShell을 사용하여 공유 이미지 갤러리 만들기 
+# <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Azure PowerShell을 사용하여 공유 이미지 갤러리 만들기 
 
 [공유 이미지 갤러리](shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 배포 작업에 사용자 지정 이미지를 사용할 수 있습니다. 
 
@@ -44,9 +44,11 @@ ms.locfileid: "60250768"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)에 따라 이미지를 하나 만듭니다. 이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
+이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요한 경우 [자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)에 따라 이미지를 하나 만듭니다. 데이터 디스크를 포함 하는 관리 되는 이미지, 데이터 디스크 크기가 1TB 보다 더 지정할 수 없습니다.
 
-[!INCLUDE [virtual-machines-common-shared-images-ps](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
+
+[!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
 ## <a name="create-vms-from-an-image"></a>이미지에서 VM 만들기
 
@@ -69,15 +71,10 @@ New-AzVm `
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>다음 단계
+[Azure 이미지 작성기 (미리 보기)](image-builder-overview.md) 이미지 버전 생성을 자동화할 수 있습니다, 업데이트도 사용할 수 있습니다 하 고 [기존 이미지 버전에서 새 이미지 버전을 만들](image-builder-gallery-update-image-version.md)합니다. 
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 

@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473982"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65404978"
 ---
 진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 및 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
 ## <a name="diagnostics-and-metrics"></a>진단 및 메트릭 
 
-Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케이션 프로그래밍 인터페이스)에서 [메트릭](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)을 사용하여 [진단 데이터](https://docs.microsoft.com/cli/azure/vm/diagnostics)의 컬렉션을 설정하고 모니터링할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
+Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케이션 프로그래밍 인터페이스)에서 [메트릭](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)을 사용하여 [진단 데이터](https://docs.microsoft.com/cli/azure/vm/diagnostics)의 컬렉션을 설정하고 모니터링할 수 있습니다. 예를 들어 다음 작업을 할 수 있습니다.
 
 - **VM에 대한 기본 메트릭을 관찰합니다.** Azure Portal의 개요 화면에서 표시된 기본 메트릭은 CPU 사용량, 네트워크 사용량, 총 디스크 바이트 및 초당 디스크 작업을 포함합니다.
 
@@ -23,7 +23,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
     VM이 부팅할 때 부트 진단 에이전트에서는 부팅 출력을 캡처하여 Azure 저장소에 저장합니다. 이 데이터는 VM 부팅 문제를 해결하는 데 사용할 수 있습니다. 명령줄 도구에서 VM을 만들 때 부트 진단을 사용하도록 자동으로 설정되지 않습니다. 부팅 진단을 사용하도록 설정하기 전에 먼저 부팅 로그를 저장할 스토리지 계정을 만들어야 합니다. Azure Portal에서 부트 진단을 사용하도록 설정하면 저장소 계정은 자동으로 만들어집니다.
 
-    VM을 만들 때 부트 진단을 활성화하지 않은 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics) 또는 [Azure Resource Manager 템플릿](../articles/virtual-machines/windows/extensions-diagnostics-template.md)을 사용하여 나중에 항상 활성화할 수 있습니다.
+    VM을 만들 때 부트 진단을 활성화하지 않은 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic) 또는 [Azure Resource Manager 템플릿](../articles/virtual-machines/windows/extensions-diagnostics-template.md)을 사용하여 나중에 항상 활성화할 수 있습니다.
 
 - **게스트 OS 진단 데이터의 컬렉션을 활성화합니다.** VM을 만들 때 설정 화면에서 게스트 OS 진단을 활성화하는 기회가 있습니다. 진단 데이터의 컬렉션을 활성화하는 경우 [Linux용 IaaSDiagnostics 확장](../articles/virtual-machines/linux/diagnostic-extension.md) 또는 [Windows용 IaaSDiagnostics 확장](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)이 VM에 추가됩니다. 이를 통해 추가 디스크, CPU 및 메모리 데이터를 수집할 수 있습니다.
 
