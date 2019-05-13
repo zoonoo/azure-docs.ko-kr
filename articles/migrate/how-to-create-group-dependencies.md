@@ -63,7 +63,7 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
-명령줄 또는 System Center Configuration Manager와 같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent).
+명령줄 또는 System Center Configuration Manager와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent).
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>Linux 머신에 에이전트 설치
 
@@ -79,7 +79,7 @@ Linux 컴퓨터에 에이전트를 설치하려면
 Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵에 Operations Manager MMA를 이용하여 필요한 종속성 데이터를 수집하는 Operations Manager와 통합 기능이 있습니다. [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)에서 지침에 따라 통합을 사용하도록 설정할 수 있습니다. 그러나 종속성 에이전트는 해당 머신에 설치해야 합니다.
 
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
-1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 두 x 누르고 마법사를 따릅니다.
+1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 더블 클릭한 후 마법사를 따릅니다.
 2. Linux 컴퓨터에 종속성 에이전트를 설치하려면 다음 명령을 사용하여 루트로 설치합니다.
 
     ```sh InstallDependencyAgent-Linux64.bin```
@@ -105,7 +105,8 @@ Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 
 3. 더 세부적인 종속성을 보려면 시간 범위를 클릭하여 수정합니다. 범위는 기본적으로 1시간입니다. 시간 범위를 수정하거나 시작 및 종료 날짜와 기간을 지정할 수 있습니다.
 
    > [!NOTE]
-   >    현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 로그를 사용 하 여 Azure Monitor [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) 더 긴 기간 동안.
+   >    현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 더 긴 기간의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-a-group)하려면 Azure Monitor 로그를 사용합니다.
+   
 
 4. 종속 컴퓨터와 각 컴퓨터 내에서 실행 중인 프로세스를 확인하고 그룹에서 추가하거나 제거할 컴퓨터를 식별합니다.
 5. <Ctrl> 키를 누른 채로 클릭하여 맵에서 그룹에 추가하거나 제거할 컴퓨터를 선택합니다.
@@ -134,11 +135,11 @@ Kusto 쿼리를 실행 합니다.
 
 ## <a name="sample-azure-monitor-logs-queries"></a>샘플 Azure Monitor 로그 쿼리
 
-다음은 샘플 쿼리 종속성 데이터를 추출 하는 데 사용할 수 있습니다. 에 기본 데이터 요소를 추출 하기 위해 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 제품은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)합니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)합니다.
+다음 샘플 쿼리는 종속성 데이터를 추출하는데 사용할 수 있습니다. 원하는 데이터 요소를 추출하기위해 해당 쿼리를 수정할 수 있습니다. 종속성 데이터 레코드의 필드 목록은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)에서 확인할 수 있습니다. 자세한 샘플 쿼리를 찾으려면 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)를 확인합니다.
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>컴퓨터 집합에서 인바운드 연결 요약
 
-연결 메트릭, VMConnection, 테이블에 레코드를 개별 물리적 네트워크 연결을 나타내지 않으면 참고 합니다. 여러 실제 네트워크 연결 연결을 논리적으로 그룹화 됩니다. [자세한](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) VMConnection의 단일 논리적 레코드에 데이터를 집계 하는 방법의 실제 네트워크 연결에 대 한 합니다. 
+연결 메트릭에 대한 테이블의 레코드 인 VMConnection은 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다. 물리적 네트워크 연결 데이터가 VMConnection의 단일 논리 레코드에 집계되는 방법에 대해 [자세히](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections)알아보십시오.
 
 ```
 let ips=materialize(ServiceMapComputer_CL
