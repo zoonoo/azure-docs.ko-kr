@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0d82a174f9fcfab84b5caf71853242ce68ebb60d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1d2fbe4dbbd7f5549d6c98f8183df58fa3f34e9d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190451"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 ASP.NET 애플리케이션에 대한 로그인 설정
 
@@ -25,7 +25,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 
+- **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/) 
 - Facebook, Google, Microsoft 또는 Twitter의 소셜 계정입니다.
 - GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플 웹 응용 프로그램을 복제합니다.
 
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
     두 프로젝트는 샘플 솔루션에 있습니다.
 
-    - **TaskWebApp** - 작업 목록을 만들고 편집하는 웹 응용 프로그램입니다. 웹 애플리케이션에서 **가입 또는 로그인** 사용자 흐름을 사용하여 사용자를 가입 또는 로그인시킵니다.
+    - **TaskWebApp** - 작업 목록을 만들고 편집하는 웹 애플리케이션입니다. 웹 애플리케이션은 **가입 또는 로그인** 사용자 흐름을 사용하여 사용자 가입 또는 로그인을 수행합니다.
     - **TaskService** - 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹 애플리케이션에서 호출됩니다.
 
 ## <a name="run-the-application-in-visual-studio"></a>Visual Studio에서 애플리케이션 실행
@@ -57,11 +57,11 @@ Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고
 
     이 샘플에서는 소셜 ID 공급자를 사용하거나 이메일 주소를 사용하여 로컬 계정을 만드는 등의 여러 가지 등록 옵션을 지원합니다. 이 빠른 시작에서는 Facebook, Google, Microsoft 또는 Twitter의 소셜 ID 공급자 계정을 사용합니다.
 
-2. Azure AD B2C는 샘플 웹 응용 프로그램용으로 Wingtip Toys라는 가상의 브랜드에 대한 사용자 지정 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
+2. Azure AD B2C는 샘플 웹 애플리케이션용으로 Wingtip Toys라는 가상의 브랜드에 대한 사용자 지정 로그인 페이지를 제공합니다. 소셜 ID 공급자를 사용하여 등록하려면 사용할 ID 공급자의 단추를 클릭합니다.
 
     ![로그인 또는 등록 공급자](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 응용 프로그램이 사용자의 소셜 계정에서 정보를 읽도록 권한을 부여합니다. 액세스를 부여하면 응용 프로그램은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
+    소셜 계정 자격 증명을 사용하여 인증(로그인)하고 사용자의 소셜 계정에서 정보를 읽도록 애플리케이션에 권한을 부여합니다. 액세스를 부여하면 애플리케이션은 이름 및 구/군/시와 같은 소셜 계정의 프로필 정보를 검색할 수 있습니다. 
 
 3. ID 공급자에 대한 로그인 프로세스를 완료합니다.
 
@@ -95,7 +95,12 @@ Azure AD B2C 사용자 계정을 사용하여 Azure AD B2C 보안 웹 API에 대
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 샘플 ASP.NET 응용 프로그램을 사용하여 사용자 지정 로그인 페이지에 로그인하고, 소셜 ID 공급자에 로그인하고, Azure AD B2C 계정을 만들고, Azure AD B2C로 보호되는 웹 API를 호출했습니다. 
+이 빠른 시작에서는 샘플 ASP.NET 애플리케이션을 사용하여 다음 작업을 수행합니다.
+
+* 사용자 지정 로그인 페이지를 사용하여 로그인
+* 소셜 ID 공급자를 사용하여 로그인
+* Azure AD B2C 계정 만들기
+* Azure AD B2C로 보호되는 웹 API 호출
 
 사용자 고유의 Azure AD B2C 테넌트 만들기를 시작하세요.
 

@@ -131,6 +131,8 @@
           href: platform/alerts-common-schema.md
         - name: 작업 규칙
           href: platform/alerts-action-rules.md
+        - name: 변경 분석
+          href: app/change-analysis.md
     - name: 데이터 가상화
       href: visualizations.md
     - name: 파트너 통합
@@ -555,6 +557,8 @@
                   href: app/usage-workbooks.md
             - name: 웹앱 분석 솔루션
               href: insights/azure-web-apps-analytics.md
+            - name: Kubernetes 호스트형 앱
+              href: app/kubernetes.md
         - name: 모니터 컨테이너
           items:
             - name: 컨테이너용 Azure Monitor
@@ -563,13 +567,19 @@
                   href: insights/container-insights-overview.md
                 - name: FAQ
                   href: insights/container-insights-faq.md
-                - name: 등록
-                  href: insights/container-insights-onboard.md
+                - name: 모니터링 사용
+                  items:
+                    - name: 모니터링 사용 개요
+                      href: insights/container-insights-onboard.md
+                    - name: 새 클러스터에 대해 활성화
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: 기존 클러스터에 대해 활성화
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: 분석
                   href: insights/container-insights-analyze.md
                 - name: 모니터링 사용 안 함
                   href: insights/container-insights-optout.md
-                - name: 컨테이너 라이브 로그 보기
+                - name: 라이브 로그 보기
                   href: insights/container-insights-live-logs.md
                 - name: 로그 쿼리를 사용하여 데이터 분석
                   href: insights/container-insights-log-search.md
@@ -583,10 +593,8 @@
                   href: insights/container-insights-troubleshoot.md
             - name: Docker 및 Windows 컨테이너 모니터링
               href: insights/containers.md
-            - name: Docker 애플리케이션 모니터링
+            - name: Docker 응용 프로그램 모니터링
               href: app/docker.md
-            - name: Kubernetes용 Application Insights
-              href: app/kubernetes.md
         - name: 리소스 그룹 모니터링
           href: insights/resource-group-insights.md
         - name: 데이터베이스 모니터링

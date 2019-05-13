@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
-ms.openlocfilehash: 366dec6c687c0b9f40d61e0debb7c15910b9fa99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036145"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468398"
 ---
 ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공합니다. 어떤 SKU가 성능 요구 사항을 충족할 가능성이 높은지 쉽게 식별하도록 합니다.  ACU는 현재 100인 작은(Standard_A1) VM에서 표준화되고 다른 SKU는 모두 SKU가 표준 벤치 마크를 얼마나 빨리 실행할 수 있는지를 나타냅니다. 
 
@@ -46,6 +46,8 @@ ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 계산(CPU) 성능을 비�
 | [G1 - G5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
 | [GS1 - GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290 - 300* | 1:1 |
+| [HB](../articles/virtual-machines/windows/sizes-hpc.md) |199 - 216** | 1:1 |
+| [HC](../articles/virtual-machines/windows/sizes-hpc.md) |297 - 315* | 1:1 |
 | [L4s - L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160 - 180 | 2:1\*\*\* |

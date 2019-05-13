@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358059"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138146"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
@@ -71,6 +71,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 |Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |음성 의도 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |일반 음성 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| 음성 우선 가상 도우미 (미리 보기) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
 
 > [!TIP]
 > Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  

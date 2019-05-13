@@ -14,25 +14,25 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bea0a870a6ef0685f4f4bce5ad3b0d1ff1f616a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250966"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414004"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
 
 Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이션 또는 웹 API 서비스에서 Active Directory 인증을 위한 SSO(Single Sign-on)을 지원할 수 있습니다. Azure AD 인증을 사용하면 사용자가 Azure Active Directory의 자신의 계정을 사용하여 웹 애플리케이션에 연결할 수 있습니다. Azure AD 인증의 장점으로 웹 애플리케이션에서 API를 표시하는 경우 향상된 데이터 보안을 들 수 있습니다. Azure AD를 사용하면, 자체 계정 및 사용자 관리를 사용하는 별도 인증 시스템을 관리할 필요가 없습니다.
 
-이 문서 및 함께 제공되는 문서에서는 Active Directory용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Visual Studio 2017 및 Visual Studio 2015에서 사용할 수 있습니다.
+이 문서 및 함께 제공되는 문서에서는 Active Directory용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 이상 Visual Studio 2015에서 사용할 수 있습니다.
 
 현재 Active Directory 연결된 서비스는 ASP.NET Core 애플리케이션을 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정: Azure 계정이 없는 경우 [평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
-- **Visual Studio 2015** 이상 [Visual Studio 2017 지금 다운로드](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)
+- **Visual Studio 2015** 이상 [Visual Studio를 지금 다운로드](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)합니다.
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>연결된 서비스 대화 상자를 사용하여 Azure Active Directory에 연결
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 397b3ea7fee67e25cd160f6b529a660e18c44046
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 00606ed5cbcd8681748241e9404c6e6e5aa95021
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024755"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147310"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Azure Search에서 복합 데이터 형식을 모델링하는 방법
 
@@ -28,7 +28,7 @@ Azure Search는 복합 형식 및 컬렉션에 고유 하 게 지원합니다. �
 > [!Note]
 > 복합 형식에 대 한 지원은에서 일반 공급 `api-version=2019-05-06`합니다. 
 >
-> 검색 솔루션을 기반으로 컬렉션에서 평면화 된 데이터 집합의 이전 해결 하는 경우 최신 API 버전에서 지원 되는 복잡 한 형식을 포함 하기 위해 인덱스를 변경 해야 합니다. API 버전으로 업그레이드 하는 방법에 대 한 자세한 내용은 참조 하세요. [최신 REST API 버전으로 업그레이드](search-api-migration.md) 하거나 [최신.NET SDK 버전으로 업그레이드](search-dotnet-sdk-migration.md)합니다.
+> 검색 솔루션을 기반으로 컬렉션에서 평면화 된 데이터 집합의 이전 해결 하는 경우 최신 API 버전에서 지원 되는 복잡 한 형식을 포함 하기 위해 인덱스를 변경 해야 합니다. API 버전으로 업그레이드 하는 방법에 대 한 자세한 내용은 참조 하세요. [최신 REST API 버전으로 업그레이드](search-api-migration.md) 하거나 [최신.NET SDK 버전으로 업그레이드](search-dotnet-sdk-migration-version-9.md)합니다.
 
 ## <a name="example-of-a-complex-structure"></a>복잡 한 구조의 예
 

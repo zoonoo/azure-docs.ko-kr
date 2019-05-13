@@ -1,23 +1,19 @@
 ---
-title: PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리
-description: 이 문서에서는 개발자가 PostgreSQL용 Azure 데이터베이스에 연결하고 쿼리하도록 애플리케이션을 코딩할 때 사용할 수 있는 여러 개의 라이브러리 및 드라이버에 대해 설명합니다.
-services: postgresql
-author: WenJason
-ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
+title: Azure Database for PostgreSQL-단일 서버에 대 한 연결 라이브러리
+description: 이 아티클에서 여러 개의 라이브러리 및 드라이버 개발자 때 사용할 수 있는 응용 프로그램을 연결 하 고 Azure Database for PostgreSQL-단일 서버 쿼리를 코딩 합니다.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
-ms.topic: article
-origin.date: 02/28/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 0e762a2d7cf82e2957fb276fcea0a20553f719e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 5/6/2019
+ms.openlocfilehash: 85110126f9bdec225b1644860814cd89832132a1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559775"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073603"
 ---
-# <a name="connection-libraries-for-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리
+# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에 대 한 연결 라이브러리
 이 문서에서는 개발자가 Azure Database for PostgreSQL에 연결하고 쿼리하도록 애플리케이션을 개발하는 데 사용할 수 있는 라이브러리 및 드라이버를 나열합니다.
 
 ## <a name="client-interfaces"></a>클라이언트 인터페이스

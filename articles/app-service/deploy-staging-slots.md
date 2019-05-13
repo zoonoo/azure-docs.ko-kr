@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266208"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137874"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ ms.locfileid: "59266208"
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+새 슬롯은 라우팅 규칙을 지정 하는 데 기본적으로 `0%`, 회색으로 표시 합니다. 이 값을 명시적으로 설정 하 여 `0%` (검은색 텍스트로 표시 됨), 사용자 수 스테이징 슬롯에 직접 액세스를 사용 하 여는 `x-ms-routing-name` 쿼리 매개 변수가 있지만 라우팅되지 것입니다 슬롯에 자동으로 라우팅 백분율은 0으로 설정 되어 있으므로. "을 숨길 수 있는"에 스테이징 슬롯 으로부터 내부 팀 슬롯에 대 한 변경 내용을 테스트할 수 있도록 하는 동안 고급 시나리오입니다.
 
 <a name="Delete"></a>
 

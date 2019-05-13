@@ -63,6 +63,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Web App for Containers에서 다중 컨테이너 앱 만들기</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 배포</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances에 컨테이너 빌드 및 배포</a>
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Azure Red Hat OpenShift 클러스터 만들기</a>
   - title: Microsoft Learn을 통해 기술 쌓기
     items:
       - type: list

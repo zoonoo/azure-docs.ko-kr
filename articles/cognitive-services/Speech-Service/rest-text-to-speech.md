@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020449"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237108"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -44,27 +44,27 @@ ms.locfileid: "65020449"
 
 | 지역 | 엔드포인트 |
 |--------|----------|
-| 오스트레일리아 동부 | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 브라질 남부 | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 캐나다 중부 | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 중부 | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 동아시아 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 동부 | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 동부 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 프랑스 중부 | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 인도 중부 | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 일본 동부 | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 한국 중부 | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 중북부 | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 유럽 북부 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 중남부 | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 동남아시아 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 영국 남부 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 서유럽 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 서부 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 미국 서부 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 캐나다 중부 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 동부 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 인도 중부 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 유럽 북부 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
-### <a name="request-headers"></a>헤더 요청
+### <a name="request-headers"></a>요청 헤더
 
 이 표에서 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 나열합니다.
 
@@ -155,7 +155,7 @@ Authorization: Bearer [Base64 access_token]
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-### <a name="request-headers"></a>헤더 요청
+### <a name="request-headers"></a>요청 헤더
 
 이 표에서 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 나열합니다.
 
@@ -164,7 +164,7 @@ Authorization: Bearer [Base64 access_token]
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
 | `Content-Type` | 제공된 텍스트의 콘텐츠 형식을 지정합니다. 허용되는 값: `application/ssml+xml`. | 필수 |
 | `X-Microsoft-OutputFormat` | 오디오 출력 형식을 지정합니다. 허용되는 값의 전체 목록은 [오디오 출력](#audio-outputs)을 참조하세요. | 필수 |
-| `User-Agent` | 애플리케이션 이름입니다. 제공 된 값은 255 자 미만 이어야 합니다. | 필수 |
+| `User-Agent` | 응용 프로그램 이름입니다. 제공 된 값은 255 자 미만 이어야 합니다. | 필수 |
 
 ### <a name="audio-outputs"></a>오디오 출력
 

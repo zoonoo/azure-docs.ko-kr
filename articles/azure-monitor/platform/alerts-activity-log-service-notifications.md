@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776907"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405690"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -36,6 +36,10 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../../azure-monitor/platform/action-groups.md)를 참조하세요.
 
 Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경고를 구성하는 방법에 대한 자세한 내용은 [ 템플릿](alerts-activity-log.md)을 참조하세요.
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>첫 번째 Azure Service Health 경고 설정에 대 한 비디오를 시청 하세요.
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>Azure Portal을 사용하여 경고 및 새 작업 그룹
 1. [포털](https://portal.azure.com)에서 **서비스 상태**를 선택합니다.
@@ -73,7 +77,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
     b. **작업 유형**: SMS, 메일, 웹후크, Azure 앱 등을 선택합니다.
 
-    다. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
+    c. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
 
 1. **확인**을 선택하여 작업 그룹을 만든 다음, **경고 규칙 만들기**를 선택하여 경고를 완성합니다.
 
@@ -195,6 +199,8 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 * 해당 경고에 대한 알림 수신을 일시적으로 중지하거나 다시 시작하려면 사용 안 함 또는 사용하도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
+- 에 대 한 자세한 [Azure Service Health 경고 설정에 대 한 유용한](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa)합니다.
+- 설명 하는 방법 [Azure Service Health에 대 한 모바일 푸시 알림을 설정](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw)합니다.
 - [기존 문제 관리 시스템에 대한 웹후크 알림 구성](../../service-health/service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
 - [서비스 상태 알림](../../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
 - [알림 속도 제한](../../azure-monitor/platform/alerts-rate-limiting.md)에 대해 자세히 알아보세요.

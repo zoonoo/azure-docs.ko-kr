@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 05/03/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 41311dce20237a300ae57f21bcc969c91da617b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6b4ba902e9951cd04dc282cc2a163200a38607a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708380"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142891"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>빠른 시작: PowerShell을 사용하여 HDInsight에서 Apache Spark 클러스터 만들기
 Azure HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법과 [Apache Hive](https://hive.apache.org/) 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)를 참조하세요.
@@ -23,9 +23,11 @@ Azure HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터를 
 > [!IMPORTANT]  
 > HDInsight 클러스터에 대한 결제는 사용 여부에 관계없이 분당으로 비례 배분됩니다. 사용한 후에 클러스터를 삭제해야 합니다. 자세한 내용은 이 문서의 [리소스 정리](#clean-up-resources) 섹션을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+* PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/overview)이 설치되었습니다.
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터 만들기
 
@@ -46,57 +48,63 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
 |클러스터 로그인 자격 증명 | 빠른 시작의 뒷부분에 나오는 클러스터 대시보드에 연결하려면 이 계정을 사용합니다.|
 |SSH 사용자 자격 증명 | SSH 클라이언트를 HDInsight 클러스터와 함께 원격 명령줄 세션을 만드는 데 사용할 수 있습니다.|
 
+1. 다음 코드 블록이 [Azure Cloud Shell](../../cloud-shell/overview.md)을 열도록 오른쪽 위 모서리에서 **시도**를 선택한 다음, 지침을 수행하여 Azure에 연결합니다.
 
-
-1. 다음 코드 블록이 [Azure Cloud Shell](../../cloud-shell/overview.md)을 열도록 오른쪽 위 모서리에서 **시도**를 클릭하고, 지침을 수행하여 Azure에 연결합니다.
-2. 다음 PowerShell 스크립트를 Cloud Shell에 복사하여 붙여넣습니다. 
+2. 다음 PowerShell 스크립트를 Cloud Shell에 복사하여 붙여넣습니다.
 
     ```azurepowershell-interactive
     ### Create a Spark 2.3 cluster in Azure HDInsight
-        
+
+    # Default cluster size (# of worker nodes), version, and type
+    $clusterSizeInNodes = "1"
+    $clusterVersion = "3.6"
+    $clusterType = "Spark"
+    
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
     $location = Read-Host -Prompt "Enter the Azure region to create resources in, such as 'Central US'"
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    
     $defaultStorageAccountName = Read-Host -Prompt "Enter the default storage account name"
     
-    # Create an Azure storae account and container
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    
+    # Create an Azure storage account and container
+    # Note: Storage account kind BlobStorage can only be used as secondary storage for HDInsight clusters.
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
-        -Type Standard_LRS `
-        -Location $location
+        -Location $location `
+        -SkuName Standard_LRS `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
+
     $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
+    
     $defaultStorageContext = New-AzStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
     # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
+
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
-    # SSH user is used to remotely connect to the cluster using SSH clients
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
     
-    # Default cluster size (# of worker nodes), version, type, and OS
-    $clusterSizeInNodes = "1"
-    $clusterVersion = "3.6"
-    $clusterType = "Spark"
-    $clusterOS = "Linux"
+    # SSH user is used to remotely connect to the cluster using SSH clients
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials" -UserName "sshuser"
     
     # Set the storage container name to the cluster name
     $defaultBlobContainerName = $clusterName
     
     # Create a blob container. This holds the default data store for the cluster.
     New-AzStorageContainer `
-        -Name $clusterName -Context $defaultStorageContext 
+        -Name $clusterName `
+        -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
     $sparkConfig.Add("spark", "2.3")
-    
+
     # Create the HDInsight cluster
     New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
@@ -104,7 +112,7 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
         -Location $location `
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $sparkConfig `
         -HttpCredential $httpCredential `
@@ -113,15 +121,17 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials 
     
-    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    Get-AzHDInsightCluster `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $clusterName
     ```
    클러스터를 만드는 데 약 20분이 걸립니다. 다음 세션을 계속하려면 먼저 클러스터를 만들어야 합니다.
 
-HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
+HDInsight 클러스터를 만드는 데 문제가 발생하는 경우 이를 수행하기 위한 적절한 사용 권한이 없을 수 있습니다. 자세한 내용은 [액세스 제어 요구 사항](../hdinsight-hadoop-customize-cluster-linux.md#access-control)을 참조하세요.
 
 ## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
 
-[Jupyter Notebook](https://jupyter.org/)은 다양한 프로그래밍 언어를 지원하는 대화형 Notebook 환경입니다. Notebook을 사용하면 데이터와 상호 작용하고, 코드를 markdown 텍스트와 결합하고, 간단한 시각화를 수행할 수 있습니다. 
+[Jupyter Notebook](https://jupyter.org/)은 다양한 프로그래밍 언어를 지원하는 대화형 Notebook 환경입니다. Notebook을 사용하면 데이터와 상호 작용하고, 코드를 markdown 텍스트와 결합하고, 간단한 시각화를 수행할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 2. **HDInsight 클러스터**를 선택한 다음, 만든 클러스터를 선택합니다.
@@ -182,7 +192,30 @@ Azure Portal로 다시 전환하고, **삭제**를 선택합니다.
 
 또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제**를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 저장소 계정을 삭제합니다.
 
-## <a name="next-steps"></a>다음 단계 
+### <a name="piecemeal-clean-up-with-powershell-az-module"></a>PowerShell Az 모듈로 부분 정리
+
+```powershell
+# Removes the specified HDInsight cluster from the current subscription.
+Remove-AzHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName
+
+# Removes the specified storage container.
+Remove-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext
+
+# Removes a Storage account from Azure.
+Remove-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName
+
+# Removes a resource group.
+Remove-AzResourceGroup `
+    -Name $resourceGroupName
+```
+
+## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 HDInsight Spark 클러스터를 만들고 기본 Spark SQL 쿼리를 실행하는 방법을 알아보았습니다. 다음 자습서를 진행하여 샘플 데이터에서 대화형 쿼리를 실행하는 데 HDInsight Spark 클러스터를 사용하는 방법에 대해 알아보세요.
 

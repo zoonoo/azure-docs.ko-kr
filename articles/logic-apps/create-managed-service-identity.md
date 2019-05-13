@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428148"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416147"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID로 리소스에 인증 및 액세스
 
@@ -132,7 +132,7 @@ Azure에서 논리 앱이 생성될 때 이 논리 앱의 워크플로 정의에
 
 1. Azure Portal에서 관리 ID에 액세스 권한을 할당하려는 Azure 리소스로 이동합니다. 
 
-1. 리소스의 메뉴에서 **액세스 제어(IAM)**, **역할 할당 추가**를 차례로 선택합니다. 
+1. 리소스 메뉴에서 선택 **액세스 제어 (IAM)** 합니다. 도구 모음에서 선택 **추가** > **역할 할당 추가**합니다.
 
    ![역할 할당 추가](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264032"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471618"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -67,11 +67,13 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 > [!TIP]
 > 리소스 그룹을 삭제하면 그 안의 서비스도 삭제됩니다. 여러 서비스를 이용하는 프로토타입 프로젝트의 경우, 이들을 모두 동일한 리소스 그룹에 배치하면 프로젝트가 종료된 후 쉽게 정리할 수 있습니다.
 
-## <a name="select-a-hosting-location"></a>호스팅 위치 선택
+## <a name="select-a-location"></a>위치 선택
 
 Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅될 수 있습니다. 지역별로 [가격이 다를 수](https://azure.microsoft.com/pricing/details/search/) 있습니다.
 
-Azure 서비스(Azure 스토리지, Azure Cosmos DB, Azure SQL Database)에 있는 콘텐츠를 인덱싱하는 경우 대역폭 요금을 피하기 위해 데이터와 같은 지역에서 Azure Search 서비스를 만듭니다. 서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 없습니다.
+다른 Azure 서비스(Azure Storage, Azure Cosmos DB, Azure SQL Database)에서 제공하는 데이터를 인덱싱하는 경우 대역폭 요금이 발생하지 않도록 Azure Search 서비스를 동일한 지역에 만듭니다. 서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 없습니다.
+
+Cognitive Search AI 강화를 사용하는 경우 서비스를 Cognitive Services 리소스와 동일한 지역에 만듭니다. 서비스의 공동 위치는 AI 강화를 위한 요구 사항입니다.
 
 ## <a name="select-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025318"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506964"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
@@ -57,7 +57,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 모든 호출은 권한 부여 헤더에서 유효한 Azure Active Directory(OAuth 2) 토큰으로 인증되어야 하며 다음과 같은 요구 사항을 충족해야 합니다.
 
@@ -201,42 +201,9 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 1.  리포지토리를 복제하거나 다운로드합니다. RestApiSample 솔루션을 엽니다.
 2.  **client.BaseAddress = …** 줄을 찾은 후 [기준 URL](#base-url)을 제공합니다.
 
-코드 샘플은 대화형 로그인, 사용자 이름/암호 또는 [서비스 사용자](#service-principal)를 사용할 수 있습니다.
+코드 샘플에서는 [서비스 주체](#service-principal) 인증 합니다.
 
-#### <a name="interactive-login-or-usernamepassword"></a>대화형 로그인 또는 사용자 이름/암호
-
-이러한 형식의 인증을 위해서는 필요한 API 사용 권한이 할당된 상태로 Azure 애플리케이션이 생성되어야 합니다. 
-
-1.  Azure Portal에서 **리소스 만들기** > **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 클릭합니다.
-
-    ![새 애플리케이션 등록](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  **만들기**에서 이름을 입력하고 **네이티브** 애플리케이션 유형을 선택합니다. **리디렉션 URI**에 대해 **urn:ietf:wg:oauth:2.0:oob**를 입력하고 **만들기**를 클릭합니다.
-
-    ![설정](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  앱을 선택한 후 **애플리케이션 ID**를 복사하고 저장합니다.
-
-    ![애플리케이션 ID 복사](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  **설정**에서 **필요한 권한** > **추가**를 클릭합니다.
-
-    ![API 액세스 추가](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  **API 선택**의 검색 상자에 **Azure Analysis Services**를 입력한 다음, 선택합니다.
-
-    ![API 선택](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  **모든 모델 읽기 및 쓰기**를 선택하고 **선택**을 클릭합니다. 둘 다 선택되면 **완료**를 클릭하여 사용 권한을 추가합니다. 전파하는 데 몇 분이 걸릴 수 있습니다.
-
-    ![모든 모델 읽기 및 쓰기 선택](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  코드 샘플에서 **UpdateToken()** 메서드를 찾습니다. 이 메서드의 내용을 확인합니다.
-8.  **string clientID = …** 를 찾은 후 3단계에서 복사한 **애플리케이션 ID**를 입력합니다.
-9.  샘플을 실행합니다.
-
-#### <a name="service-principal"></a>서비스 주체
+### <a name="service-principal"></a>서비스 사용자
 
 서비스 주체를 설정하고 Azure AS에서 필요한 사용 권한을 할당하는 방법에 대한 자세한 정보는 [서비스 주체 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) 및 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조하세요. 이 단계를 완료한 다음, 다음과 같은 추가 단계를 완료합니다.
 

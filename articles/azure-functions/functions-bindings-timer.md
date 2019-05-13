@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b4ed6d1ba83e2adb96bcfac986381dccbbef56f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310046"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416184"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -197,7 +197,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> 프로덕션 환경에서는 **runOnStartup**을 `true`로 설정하지 않는 것이 좋습니다. 이 설정을 사용하면 매우 예측할 수 없는 시간에 코드가 실행됩니다. 특정 프로덕션 환경에서 이러한 추가 실행으로 인해 소비 계획에서 호스팅되는 앱의 비용이 상당히 높아질 수 있습니다. 예를 들어 **runOnStartup**을 사용하면 함수 앱의 크기를 조정할 때마다 트리거가 호출됩니다. 프로덕션 환경에서 **runOnStartup**을 사용하도록 설정하기 전에 함수의 프로덕션 동작을 완전히 이해했는지 확인하세요.   
+> 프로덕션 환경에서는 **runOnStartup**을 `true`로 설정하지 않는 것이 좋습니다. 이 설정을 사용하면 매우 예측할 수 없는 시간에 코드가 실행됩니다. 특정 프로덕션 환경에서 이러한 추가 실행으로 인해 소비 계획에서 호스팅되는 앱의 비용이 상당히 높아질 수 있습니다. 예를 들어 **runOnStartup** 트리거는 함수 앱의 크기를 조정 될 때마다 호출 되 고 사용 하도록 설정 합니다. 프로덕션 환경에서 **runOnStartup**을 사용하도록 설정하기 전에 함수의 프로덕션 동작을 완전히 이해했는지 확인하세요.   
 
 ## <a name="usage"></a>사용 현황
 

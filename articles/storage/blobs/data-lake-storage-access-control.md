@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939557"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233969"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -37,7 +37,7 @@ RBAC 역할 할당을 사용 하 여 사용 권한 집합을 효과적으로 적
 보안 주체를 통해 RBAC 데이터 권한을 부여 하면를 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), 사용자 지정 역할을 통해 이러한 사용 권한을 가장 먼저 계산 됩니다 권한 부여 요청 시 또는 합니다. 권한 부여는 즉시 해결 되 고 더 추가 하는 다음 요청된 된 작업의 보안 주체 RBAC 할당에 의해 권한이 부여 된 경우에 ACL 검사가 수행 됩니다. 또는 보안 주체는 RBAC 할당 되지 않은 경우 요청 작업에 할당 된 사용 권한을 맞지 ACL 검사 보안 주체가 요청 된 작업을 수행할 권한이 있는지 확인 하려면 수행 됩니다.
 
 > [!NOTE]
-> 보안 주체에 할당 된 경우는 [저장소 Blob 데이터]() 소유자 기본 제공 역할 할당 후 보안 주체 비율은 *슈퍼 사용자* 모든 변형에 대 한 전체 액세스를 부여 됩니다 디렉터리 또는 파일 뿐만 아니라 Acl의 소유자는 해당 소유자가 파일과 디렉터리에 대 한 설정을 포함 하 여 작업입니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
+> 보안 주체 저장소 Blob 데이터 소유자 기본 제공 역할 할당, 할당 된 경우 보안 주체를 사용 하는 것으로 간주는 *슈퍼 사용자* 설정을 비롯 한 모든 변경 작업에 대 한 모든 권한을 부여 되는 해당 소유자가 파일과 디렉터리에 대 한 Acl 뿐만 아니라 디렉터리 또는 파일의 소유자입니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>공유 키 및 공유 액세스 서명 (SAS) 인증
 
@@ -101,7 +101,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
 | 4            | `R--`        | 읽기                   |
-| 0            | `---`        | 사용 권한 없음         |
+| 0            | `---`        | 권한 없음         |
 
 #### <a name="permissions-inheritance"></a>권한 상속
 

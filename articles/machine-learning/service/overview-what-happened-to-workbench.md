@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 8081be7f411b38d2418d893654a5691bd1ad7cc1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526710"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470623"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -68,7 +68,7 @@ Azure Machine Learning Service의 최신 릴리스에 포함된 기능은 다음
 
 더 이상 Machine Learning Workbench를 사용할 수 없으므로 기존의 데이터 준비 파일은 최신 릴리스로 이식할 수 없습니다. 하지만 여전히 모델링할 데이터 세트를 원하는 크기로 준비할 수 있습니다.   
 
-모든 크기의 데이터 세트에서 Python 코드를 작성하여 모델링하기 전에 빠르게 데이터를 준비하기 위해 [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)를 사용할 수 있습니다. 
+모든 크기의 데이터 세트를 사용하면 [Azure Machine Learning용 데이터 준비 패키지](https://aka.ms/data-prep-sdk)를 사용하여 Python 코드를 작성함으로써 모델링하기 전에 데이터를 빠르게 준비할 수 있습니다. 
 
 Azure Machine Learning 데이터 준비 SDK를 사용하는 방법에 대한 자세한 내용은 [이 자습서](tutorial-data-prep.md)를 참조하세요.
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 이전 모델 레지스트리에 등록된 모델을 계속 사용하려면 새 작업 영역으로 마이그레이션해야 합니다. 모델을 마이그레이션하려면 모델을 다운로드하여 새 작업 영역에 다시 등록합니다. 
 
-이전 이미지 레지스트리에 만든 이미지를 계속 사용하려면 새 작업 영역에서 다시 만들어야 합니다. 이러한 이미지는 [이미지 구성 및 만들기](how-to-deploy-and-where.md#configureimage) 섹션에 따라 다시 만들 수 있습니다. 
+이전 이미지 레지스트리에서 만든 이미지를 새 작업 영역으로 직접 마이그레이션할 수 없습니다. 대부분은 이미지를 만들 필요 없이 모델을 배포할 수 있습니다. 필요하다면 새 작업 영역에서 모델의 이미지를 만들 수 있습니다. 자세한 내용은 [기계 학습 모델 관리, 등록, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조하세요.
 
 ## <a name="what-about-deployed-web-services"></a>배포된 웹 서비스는 어떻게 되나요?
 

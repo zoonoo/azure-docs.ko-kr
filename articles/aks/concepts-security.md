@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466738"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074030"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -34,9 +34,11 @@ AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관
 
 ## <a name="node-security"></a>노드 보안
 
-AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. 노드 모 비 컨테이너 런타임을 사용 하 여 최적화 된 Ubuntu Linux 배포를 실행 합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
+AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. Linux 노드 모 비 컨테이너 런타임을 사용 하 여 최적화 된 Ubuntu 배포를 실행 합니다. 실행 하는 최적화 된 Windows Server 2019 (현재 AKS에서 미리 보기)는에서 Windows Server 노드 릴리스 및도 모 비 컨테이너 런타임을 사용 합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
 
-Azure 플랫폼은 야간에 OS 보안 패치를 노드에 자동으로 적용합니다. OS 보안 업데이트에 호스트 다시 부팅이 필요한 경우에는 다시 부팅이 자동으로 수행되지 않습니다. 노드를 수동으로 다시 부팅하거나 일반적인 방법은 Kubernetes에 대한 오픈 소스 다시 부팅 디먼인 [Kured][kured]를 사용하는 것입니다. Kured는 [DaemonSet][aks-daemonsets]로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
+Azure 플랫폼을 매일 밤 마다 Linux 노드에 OS 보안 패치를 자동으로 적용 합니다. 호스트 다시 부팅 해야 하는 Linux OS 보안 업데이트, 재부팅 자동으로 수행 되지 않습니다. Linux 노드를 수동으로 다시 부팅 수 또는 사용 하는 일반적인 방법은 것 [Kured][kured], kubernetes는 오픈 소스 재부팅 디먼입니다. Kured는 [DaemonSet][aks-daemonsets]로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
+
+(현재 AKS에서 미리 보기)는에서 Windows Server 노드에 대 한 Windows Update는 자동으로 실행 및 최신 업데이트를 적용 합니다. Windows 업데이트 릴리스 주기 및 사용자 고유의 유효성 검사 프로세스 정기적인 일정에 따라 AKS 클러스터에서 Windows Server 노드 풀에서 업그레이드를 수행 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만듭니다 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 참조 하세요. [AKS에 노드 풀을 업그레이드][nodepool-upgrade]합니다.
 
 노드는 공용 IP 주소가 할당되지 않은 상태에서 개인 가상 네트워크 서브넷에 배포됩니다. 문제 해결 및 관리를 목적으로 SSH는 기본적으로 사용하도록 설정됩니다. SSH 액세스는 내부 IP 주소를 사용하는 경우에만 가능합니다.
 
@@ -50,12 +52,12 @@ AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌�
 
 ### <a name="cordon-and-drain"></a>차단 및 드레이닝
 
-업그레이드 프로세스 중에 AKS 노드가 클러스터에서 개별적으로 차단되기 때문에 새로운 Pod가 해당 항목에 대해 예약되지 않습니다. 그런 다음, 노드가 다음과 같이 드레이닝되고 업그레이드됩니다.
+업그레이드 프로세스 중 AKS 노드는 개별적으로 코드화 되는 클러스터에서 하므로 새 pod에 예약 되어 있지 않습니다. 그런 다음, 노드가 다음과 같이 드레이닝되고 업그레이드됩니다.
 
-- 기존 Pod는 정상적으로 종료되고 나머지 노드에서 예약됩니다.
-- 노드가 다시 부팅되고 업그레이드 프로세스가 완료된 다음, AKS 클러스터에 다시 결합됩니다.
-- Pod는 해당 클러스터에서 다시 실행되도록 예약됩니다.
-- 모든 노드가 성공적으로 업그레이드될 때까지 동일한 프로세스를 사용하여 클러스터의 다음 노드가 차단되고 드레이닝됩니다.
+- 새 노드를 노드 풀에 배포 됩니다. 이 노드는 최신 운영 체제 이미지 및 패치를 실행합니다.
+- 업그레이드에 대 한 기존 노드 중 하나를 식별 합니다. 이 노드에서 pod는 정상적으로 종료 되 고 노드 풀의 다른 노드에서 예약 됩니다.
+- 이 기존 노드는 AKS 클러스터에서 삭제 됩니다.
+- 클러스터의 다음 노드로 코드화 되는 및 모든 노드는 업그레이드 프로세스의 일부로 성공적으로 대체 될 때까지 동일한 프로세스를 사용 하 여 종료 합니다.
 
 자세한 내용은 [AKS 클러스터 업그레이드][aks-upgrade-cluster]를 참조하세요.
 
@@ -102,3 +104,4 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

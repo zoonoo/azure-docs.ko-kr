@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: 백업된 SQL Server 데이터베이스 관리
           href: manage-monitor-sql-database-backup.md
+    - name: Azure VM에 SAP HANA 데이터베이스 백업
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: Windows Server 파일 및 폴더 백업

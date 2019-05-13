@@ -16,7 +16,7 @@ ms.locfileid: "61226263"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>MySQL용 Azure Database란?
 
-Azure Database for MySQL은 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스를 [MySQL Community Edition](https://www.mysql.com/products/community/) (GPLv2 라이선스로 사용 가능) 데이터베이스 엔진, 5.6 및 5.7 버전입니다. MySQL용 Azure Database는 다음과 같은 기능을 제공합니다.
+MySQL용 Azure Database는 [MySQL Community Edition](https://www.mysql.com/products/community/)(GPLv2 라이선스로 사용 가능) 데이터베이스 엔진, 5.6 및 5.7 버전을 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. MySQL용 Azure Database는 다음과 같은 기능을 제공합니다.
 
 - 추가 비용 없이 기본 제공되는 고가용성
 - 예측 가능한 성능, 종량제 가격 책정 사용
@@ -57,7 +57,7 @@ Azure Database for MySQL 서비스는 미사용 데이터에 대해 저장소 �
 ## <a name="contacts"></a>연락처
 Azure Database for MySQL 작업에 대해 궁금한 점이나 제안하고 싶은 의견이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))으로 이메일을 보내주세요. 이는 기술 지원 별칭이 아닙니다.
 
-또한 문의의 다음 사항을 적절히 고려해 주세요.
+또한 문의 시 다음 사항을 적절히 고려해 주세요.
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.

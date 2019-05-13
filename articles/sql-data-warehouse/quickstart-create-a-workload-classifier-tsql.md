@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617340"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150378"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>빠른 시작: T-SQL을 사용하여 워크로드 분류자 만들기(미리 보기)
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 워크로드 분류자 만들기
 
 이 빠른 시작에서는 조직의 CEO를 위해 중요도가 높은 워크로드 분류자를 신속하게 만듭니다. 워크로드 분류자를 사용하면 CEO 쿼리가 대기열에서 중요도가 낮은 다른 쿼리보다 우선 적용되도록 할 수 있습니다.
-
-> [!Note]
-> 워크로드 분류는 SQL Data Warehouse Gen2에서 미리 보기로 제공됩니다. 워크로드 관리 분류 및 중요도 미리 보기는 2019년 4월 9일 이후 릴리스를 사용한 빌드를 위한 것입니다.  사용자는 워크로드 관리 테스트를 위해 이 날짜 이전에는 빌드를 사용하지 않는 것이 좋습니다.  자신의 빌드에서 워크로드 관리가 가능한지 알아보려면 SQL Data Warehouse 인스턴스에 연결된 경우 @@version을 선택하여 실행합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

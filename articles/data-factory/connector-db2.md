@@ -62,11 +62,11 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Db2** | 예 |
-| 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`). |예 |
-| 데이터베이스 |DB2 데이터베이스의 이름입니다. |예 |
+| server |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`). |예 |
+| database |DB2 데이터베이스의 이름입니다. |예 |
 | authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic**. |예 |
 | username |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 **예제:**
@@ -133,7 +133,7 @@ DB2에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Relat
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 
@@ -174,11 +174,11 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | DB2 데이터베이스 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | BigInt |Int64 |
-| 이진 |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
 | Char |String |
 | Clob |String |
-| Date |DateTime |
+| Date |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
@@ -186,7 +186,7 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | Double |Double |
 | Float |Double |
 | Graphic |String |
-| 정수  |Int32 |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
@@ -194,7 +194,7 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| 타임 스탬프 |DateTime |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

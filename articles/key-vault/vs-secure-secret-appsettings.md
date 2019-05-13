@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 6b60e03c8888ad2c9726116f1f3b2e49d9a4e1e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722748"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506435"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 
@@ -49,14 +49,16 @@ ms.locfileid: "64722748"
 
     ![Key Vault 비밀 추가](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-4. [Visual Studio용 Azure 서비스 인증 확장](https://go.microsoft.com/fwlink/?linkid=862354)을 설치합니다. 이 확장을 통해 앱은 Visual Studio 로그인 ID를 사용하여 Key Vault에 액세스할 수 있습니다.
-
-5. 다음 NuGet 패키지를 프로젝트에 추가합니다.
+    > [!NOTE] 
+    > Visual Studio 2017 V15.6 하기 전에 Visual Studio 용 Azure 서비스 인증 확장 프로그램을 설치 하는 것이 좋습니다를 사용 했습니다. 사용 되지 않습니다 하지만 이제는 funcionality가 Visual Studio에 통합 합니다. 따라서 이전 버전의 visual Studio 2017를 사용 하는 경우 좋습니다 이상으로 업데이트 하 VS 2017 15.6 이상을 기본적으로이 기능을 사용 하 고 Visual Studio 로그인 Id 자체를 사용 하 여 Key vault에 액세스할 수 있도록 합니다.
+    >
+ 
+4. 다음 NuGet 패키지를 프로젝트에 추가합니다.
 
     ```
     Microsoft.Azure.Services.AppAuthentication
     ```
-6. 다음 코드를 Program.cs 파일에 추가합니다.
+5. 다음 코드를 Program.cs 파일에 추가합니다.
 
     ```csharp
     public static IWebHost BuildWebHost(string[] args) =>
@@ -79,11 +81,11 @@ ms.locfileid: "64722748"
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-7. Key Vault URL을 launchsettings.json 파일에 추가합니다. 환경 변수 이름인 *KEYVAULT_ENDPOINT*는 6단계에서 추가한 코드에서 정의됩니다.
+6. Key Vault URL을 launchsettings.json 파일에 추가합니다. 환경 변수 이름인 *KEYVAULT_ENDPOINT*는 6단계에서 추가한 코드에서 정의됩니다.
 
     ![Key Vault URL을 프로젝트 환경 변수로 추가](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-8. 프로젝트 디버그를 시작합니다. 성공적으로 실행되어야 합니다.
+7. 프로젝트 디버그를 시작합니다. 성공적으로 실행되어야 합니다.
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET 및 .NET 애플리케이션
 

@@ -26,7 +26,7 @@ ms.locfileid: "60350969"
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
 
-Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/what-is-b2b.md)을 통해 조직의 경계를 넘나들며 공동 작업을 쉽게 수행할 수 있습니다. 다른 테넌트의 게스트 사용자는 [관리자](../b2b/add-users-administrator.md) 또는 [다른 사용자](../b2b/what-is-b2b.md)가 초대할 수 있습니다. 이 기능은 Microsoft 계정과 같은 소셜 ID에도 적용됩니다.
+Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/what-is-b2b.md)을 통해 조직의 경계를 넘나들며 협업을 쉽게 수행할 수 있습니다. 다른 테넌트의 게스트 사용자는 [관리자](../b2b/add-users-administrator.md) 또는 [다른 사용자](../b2b/what-is-b2b.md)가 초대할 수 있습니다. 이 기능은 Microsoft 계정과 같은 소셜 ID에도 적용됩니다.
 
 또한 게스트 사용자에게 적절한 액세스 권한을 쉽게 부여할 수도 있습니다. 게스트 본인 또는 의사 결정자에게 액세스 검토에 참여하고 게스트 액세스 권한을 다시 인증(또는 증명)하도록 요청할 수 있습니다. 검토자는 Azure AD에서의 제안 사항을 기반으로 각 사용자의 지속적인 액세스 요구 사항에 대한 입력을 제공할 수 있습니다. 액세스 검토가 완료되면 변경 사항을 적용하거나 액세스가 더 이상 필요 없는 게스트의 액세스를 제거할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../b2b/wh
 
 액세스 검토는 Microsoft Enterprise Mobility + Security, E5에 포함된 Azure AD의 Premium P2 버전에서 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요. 이 기능과 상호 작용하여 검토를 만들거나 검토를 채우거나 검토를 확인하는 각 사용자에게는 라이선스가 필요합니다. 
 
-게스트 사용자에게 자신의 액세스 권한을 검토하도록 요청할 수도 있습니다. 자체 조직의 사용자 중 한 명에게 할당하는 각 유료 Azure AD Premium P2 라이선스에 대해 B2B를 사용하여 외부 사용자 허용에 따라 최대 5명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 공동 작업 라이선스](../b2b/licensing-guidance.md)를 참조하세요.
+게스트 사용자에게 자신의 액세스 권한을 검토하도록 요청할 수도 있습니다. 자체 조직의 사용자 중 한 명에게 할당하는 각 유료 Azure AD Premium P2 라이선스에 대해 B2B를 사용하여 외부 사용자 허용에 따라 최대 5명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 라이선스](../b2b/licensing-guidance.md)를 참조하세요.
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>게스트에 대한 액세스 검토 만들기 및 수행
 

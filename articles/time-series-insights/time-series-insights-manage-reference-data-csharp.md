@@ -10,35 +10,40 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9d0743e30c4ae32c052a9f27c9fa22b1036aead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681723"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510043"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>사용 하 여 Azure Time Series Insights 환경에 대 한 GA 참조 데이터를 관리 합니다.C#
 
 이 아티클에서는 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하기 위해 컴파일할 수 있는 예제 C# 프로젝트에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
+
 1. [참조 데이터 집합을 만듭니다](time-series-insights-add-reference-data-set.md).
 
-2. 애플리케이션에 대한 인증 액세스 토큰을 구성합니다. Azure Active Directory API를 통해 토큰을 가져와야 합니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달합니다. 
- 
+1. 애플리케이션에 대한 인증 액세스 토큰을 구성합니다. Azure Active Directory API를 통해 토큰을 가져와야 합니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달합니다.
+
    비대화형 애플리케이션을 설정하는 방법에 대한 내용은 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조하세요.
 
-3. 샘플 코드를 편집하고 코드 시작 부분의 **#DUMMY#** 에 지정된 예제 상수를 바꿉니다. 
+1. 샘플 코드를 편집하고 코드 시작 부분의 **#DUMMY#** 에 지정된 예제 상수를 바꿉니다.
 
-이 예제 코드는 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)에도 제공됩니다.
+> [!NOTE]
+> GA 샘플 코드를 볼 [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample)합니다.
 
-## <a name="project-references"></a>프로젝트 참조
-이 예제에서는 NuGet 패키지 `Microsoft.IdentityModel.Clients.ActiveDirectory` 및 `Newtonsoft.Json`을 추가합니다. 
+## <a name="project-dependencies"></a>프로젝트 종속성
 
-## <a name="c-sample-code"></a>C# 샘플 코드 
+이 예제에서는 NuGet 패키지 `Microsoft.IdentityModel.Clients.ActiveDirectory` 및 `Newtonsoft.Json`을 추가합니다.
+
+## <a name="c-sample-code"></a>C# 샘플 코드
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -134,7 +139,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-        },
+    },
         ""properties"": [""BladeCount""]
     }]
 }";

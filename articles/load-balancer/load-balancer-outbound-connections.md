@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190165"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -176,13 +176,13 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 
 ### <a name="tcp-snat-port-release"></a>TCP SNAT 포트 해제
 
-- 서버/클라이언트가 둘 다 FIN/ACK를 보내는 경우 240초 후에 SNAT 포트가 해제됩니다.
+- 두 서버/클라이언트 FINACK를 보내는 경우 240 초 후 SNAT 포트가 릴리스됩니다.
 - RST가 표시되는 경우 15초 후에 SNAT 포트가 해제됩니다.
-- 유휴 시간 제한에 도달함
+- 유휴 시간 제한에 도달 하는 경우 포트가 해제 됩니다.
 
 ### <a name="udp-snat-port-release"></a>UDP SNAT 포트 해제
 
-- 유휴 시간 제한에 도달함
+- 유휴 시간 제한에 도달 하는 경우 포트가 해제 됩니다.
 
 ## <a name="problemsolving"></a> 문제 해결 
 

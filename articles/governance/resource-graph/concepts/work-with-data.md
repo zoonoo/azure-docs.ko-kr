@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775900"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137867"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -67,8 +67,18 @@ Search-AzGraph -Query "project name | order by name asc" -Skip 10
 
 **resultTruncated**가 **true**이면 **$skipToken** 속성이 응답에 설정됩니다. 이 값은 동일한 쿼리 및 구독 값과 함께 사용되어 쿼리와 일치하는 다음 레코드 집합을 가져옵니다.
 
+다음 예제에서는 표시 하는 방법 **건너뛸** 첫 번째 돌아가 3000 레코드는 **첫 번째** 1000 개 레코드 된 후 Azure PowerShell 및 Azure CLI를 사용 하 여 건너뛴:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> 페이지 매김이 작동하려면 쿼리가 **ID** 필드를 **project**해야 합니다. 쿼리에서 누락 된 경우 REST API 응답에 포함 되지 않습니다 합니다 **$skipToken**합니다.
+> 페이지 매김이 작동하려면 쿼리가 **ID** 필드를 **project**해야 합니다. 쿼리에서 누락 된 경우 응답에 포함 되지 않습니다 합니다 **$skipToken**합니다.
 
 예제는 REST API 문서에서 [다음 페이지 쿼리](/rest/api/azureresourcegraph/resources/resources#next_page_query)를 참조하세요.
 

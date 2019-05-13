@@ -51,7 +51,7 @@ Azure [SQL Database](sql-database-technical-overview.md), [관리되는 인스�
    ![액세스 권한 부여 선택](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>요약  
-Azure AD Premium을 사용하여 Azure SQL DB/DW에 대한 연결을 허용하는 선택한 애플리케이션(Azure SQL Database)은 이제 선택한 조건부 액세스 정책, **필요한 다단계 인증**을 적용합니다.  
+Azure AD Premium을 사용하여 Azure SQL DB/DW에 대한 연결을 허용하는 선택한 애플리케이션(Azure SQL Database)은 이제 선택한 조건부 액세스 정책, **필요한 다단계 인증**을 적용합니다. 
 다단계 인증 문제에 관한 Azure SQL Database 및 데이터 웨어하우스에 대한 질문은 MFAforSQLDB@microsoft.com에 문의합니다.  
 
 ## <a name="next-steps"></a>다음 단계  

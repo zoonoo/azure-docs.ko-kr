@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2018
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 08c7e84a27a4c8e9527083360dbd08296bd86775
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542485"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236409"
 ---
-# <a name="preview-create-a-shared-image-gallery-with-the-azure-cli"></a>미리 보기: Azure CLI를 사용하여 공유 이미지 갤러리 만들기
+# <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Azure CLI를 사용하여 공유 이미지 갤러리 만들기
 
 [공유 이미지 갤러리](shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
 
@@ -58,10 +58,12 @@ az vm create\
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
-
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>다음 단계
-또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
+[Azure 이미지 작성기 (미리 보기)](image-builder-overview.md) 이미지 버전 생성을 자동화할 수 있습니다, 업데이트도 사용할 수 있습니다 하 고 [기존 이미지 버전에서 새 이미지 버전을 만들](image-builder-gallery-update-image-version.md)합니다. 
+
+또한 템플릿을 사용 하 여 공유 이미지 갤러리 리소스를 만들 수 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
 - [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

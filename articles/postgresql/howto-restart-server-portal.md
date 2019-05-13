@@ -1,19 +1,19 @@
 ---
-title: Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 다시 시작
-description: 이 문서에서는 Azure portal을 사용 하 여 PostgreSQL 서버용 Azure Database를 다시 시작할 수는 방법을 설명 합니다.
+title: Azure Database for PostgreSQL-Azure portal을 사용 하 여 단일 서버 다시 시작
+description: 이 문서에서는 PostgreSQL-Azure portal을 사용 하 여 단일 서버에 대 한 Azure Database를 다시 시작할 수는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420495"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066832"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Azure portal을 사용 하 여 PostgreSQL 서버용 Azure 데이터베이스를 다시 시작
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Database for PostgreSQL-Azure portal을 사용 하 여 단일 서버 다시 시작
 이 항목에서는 Azure Database for PostgreSQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
 
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.

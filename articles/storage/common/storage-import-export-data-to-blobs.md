@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479306"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409372"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -114,7 +114,7 @@ ms.locfileid: "61479306"
 4. **반송 정보**에서:
 
    - 드롭다운 목록에서 운송업체를 선택합니다. 이외의 FedEx/DHL 운송 업체를 사용 하려는 경우 드롭다운 목록에서 기존 옵션을 선택 합니다. 연락처의 Azure 데이터 상자 작업 팀에서 `adbops@microsoft.com` 사용 하려는 운송 업체에 대 한 정보를 사용 하 여 합니다.
-   - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](http://www.dhl.com/) 운송업체 계정을 만듭니다.
+   - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 계정 번호가 없는 경우 [FedEx](https://www.fedex.com/us/oadr/) 또는 [DHL](https://www.dhl.com/) 운송업체 계정을 만듭니다.
    - 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다. 
         
        > [!TIP] 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 0fcd688c9e5164522a482a4375c524a97a48d400
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175627"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467873"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>빠른 시작: Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행
 
@@ -36,7 +36,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 디바이스 시뮬레이션 설명 페이지에서 **지금 사용해보기**를 클릭합니다.
 
-![지금 사용해보기 클릭](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![지금 사용해보기 클릭](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 **디바이스 시뮬레이션 솔루션 만들기** 페이지에서 고유한 **솔루션 이름**을 입력합니다.
 
@@ -58,7 +58,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 처음으로 열리면 **시작** 가이드가 있는 디바이스 시뮬레이션 대시보드가 표시됩니다. 첫 번째 타일을 클릭하여 샘플 시뮬레이션을 엽니다. **시작** 가이드를 닫는 경우 해당 타일을 클릭하여 대시보드에서 **샘플 간단한 시뮬레이션**을 열 수 있습니다.
 
-![솔루션 대시보드](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![솔루션 대시보드](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## <a name="sample-simulation"></a>샘플 시뮬레이션
 
@@ -72,7 +72,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 | 원격 분석 빈도 | 10초                  |
 | 시뮬레이션 기간 | 무기한 실행            |
 
-![시뮬레이션 구성](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![시뮬레이션 구성](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## <a name="run-the-simulation"></a>시뮬레이션 실행
 

@@ -4,14 +4,14 @@ description: Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054125"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148943"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -139,14 +139,14 @@ Azure Cosmos DB SQL 쿼리 언어의 핵심적인 측면을 이해 하려면 JSO
     }]
 ```
 
-다음 쿼리 제품군에서 자식의 모든 지정 된 이름을 반환 합니다. 해당 `id` 일치 `WakefieldFamily`등급으로 정렬 된 합니다.
+다음 쿼리 제품군에서 자식의 모든 지정 된 이름을 반환 합니다. 해당 `id` 일치 `WakefieldFamily`거주 도시의로 정렬 된 합니다.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 결과는 다음과 같습니다.
@@ -314,6 +314,70 @@ VALUE 키워드에만 JSON 값을 반환 하는 방법을 제공 합니다. 예�
     ]
 ```
 
+## <a id="DistinctKeyword"></a>DISTINCT 키워드
+
+DISTINCT 키워드의 쿼리 프로젝션에서 중복 항목을 제거합니다.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+이 예에서 쿼리는 각 성에 대 한 값을 프로젝션합니다.
+
+결과는 다음과 같습니다.
+
+```json
+[
+    "Andersen"
+]
+```
+
+고유한 개체를 프로젝션 할 수도 있습니다. 이 경우 쿼리는 빈 개체를 반환 하므로 lastName 필드를 두 개 문서 중 하나에 존재 하지 않습니다.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+결과는 다음과 같습니다.
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+하위 쿼리 내에서 프로젝션에 DISTINCT은 사용할 수도 있습니다.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+이 쿼리는 중복 제거를 사용 하 여 각 자식의 givenName를 포함 하는 배열을 프로젝션 합니다. 이 배열 ChildNames 별칭이 및 외부 쿼리 프로젝션 합니다.
+
+결과는 다음과 같습니다.
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>별칭 지정
 
 하면 명시적으로 별칭 쿼리에서 값입니다. 쿼리에 동일한 이름 가진 두 속성이 별칭 사용 하 여 프로젝션된 된 결과에서 명확 하 게 하는 되도록 속성 중 하나 또는 모두를 이름을 바꿉니다.
@@ -380,7 +444,7 @@ FROM 절을 더 작은 하위 집합으로 소스를 줄일 수 있습니다. �
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -599,7 +663,7 @@ IN 키워드를 사용 하 여 지정된 된 값 목록에 있는 값이 일치 
 
 ## <a id="TopKeyword"></a>TOP 연산자
 
-TOP 키워드 첫 번째 개체가 반환 `N` 정의 되지 않은 순서로 쿼리 결과의 수입니다. 모범 사례로, 상위 ORDER BY 절을 사용 하 여 첫 번째 결과 제한 하려면 사용 `N` 정렬 된 값의 수입니다. 이러한 두 개의 절을 결합 하는 유일한 방법은 예측 가능한 방식으로 위쪽에 영향을 줍니다는 행을 나타냅니다. 
+TOP 키워드 첫 번째 개체가 반환 `N` 정의 되지 않은 순서로 쿼리 결과의 수입니다. 모범 사례로, 상위 ORDER BY 절을 사용 하 여 첫 번째 결과 제한 하려면 사용 `N` 정렬 된 값의 수입니다. 이러한 두 개의 절을 결합 하는 유일한 방법은 예측 가능한 방식으로 위쪽에 영향을 줍니다는 행을 나타냅니다.
 
 다음 예제와 같이 상수 값, 또는 매개 변수가 있는 쿼리를 사용 하 여 변수 값을 사용 하 여 TOP을 사용할 수 있습니다. 자세한 내용은 참조는 [매개 변수가 있는 쿼리](#parameterized-queries) 섹션입니다.
 
@@ -679,6 +743,65 @@ ANSI SQL 에서처럼 쿼리에 선택적 ORDER BY 절을 포함할 수 있습�
       }
     ]
 ```
+
+또한 여러 속성으로 정렬할 수 있습니다. 여러 속성을 기준으로 정렬 하는 쿼리 필요는 [복합 인덱스](index-policy.md#composite-indexes)합니다. 다음과 같은 쿼리를 고려해 보세요.
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+이 쿼리는 제품군 검색 `id` 군/시의 오름차순입니다. 쿼리를 기준으로 정렬 됩니다 여러 항목에 도시 이름이 같은 경우는 `creationDate` 내림차순으로 정렬 합니다.
+
+## <a id="OffsetLimitClause"></a>오프셋 LIMIT 절
+
+오프셋 제한은 건너뛸 하 고 일부 쿼리에서 값 개수를 수행 하는 선택적 절입니다. 오프셋 LIMIT 절 오프셋 수 및 수를 제한 해야 합니다.
+
+ORDER BY 절과 함께에서 오프셋 제한을 사용할 결과 집합 skip을 수행 하 여 생성 되 고 순서가 지정 된 값입니다. ORDER BY 절 없이 사용 하는 경우 값의 결정적인 순서 대로 발생 합니다.
+
+예를 들어, 다음은 첫 번째 값을 건너뜁니다 (상주 하는 도시의 이름의 순서로) 초 값을 반환 하는 쿼리입니다.
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+결과는 다음과 같습니다.
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+첫 번째 값을 건너뛰고 (순서) 없이 두 번째 값을 반환 하는 쿼리는 다음과 같습니다.
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+결과는 다음과 같습니다.
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>스칼라 식
 
 SELECT 절에 상수, 산술 식 및 논리 식과 같은 스칼라 식도 지원합니다. 다음 쿼리는 스칼라 식:
@@ -1018,7 +1141,7 @@ API는 Udf를 사용 하 여 사용자 지정 응용 프로그램 논리를 지�
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

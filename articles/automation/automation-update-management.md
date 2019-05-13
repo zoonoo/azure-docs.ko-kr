@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919694"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510648"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -226,13 +226,13 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 
 새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. 합니다 **새 업데이트 배포** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
-| 자산 | 설명 |
+| 자산 | Description |
 | --- | --- |
 | Name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
 | 업데이트 그룹 |Azure 컴퓨터에 대 한 배포에 포함 하려면 Azure Vm의 동적 그룹을 만들려는 구독, 리소스 그룹, 위치 및 태그의 조합을 기준으로 쿼리를 정의 합니다. </br></br>비 Azure 컴퓨터에 대 한 기존 저장 된 배포에 포함 하는 비 Azure 컴퓨터의 그룹을 선택 하려면 검색을 선택 합니다. </br></br>자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.|
 | 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
-|업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
+|분류 업데이트|필요한 모든 업데이트 분류를 선택합니다.|
 |업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [포함 동작](automation-update-management.md#inclusion-behavior)을 참조하세요. |
 |일정 설정|시작 시간을 선택하고 되풀이에 대해 [한 번] 또는 [정기]를 선택합니다.|
 | 사전 스크립트 + 사후 스크립트|배포 전후에 실행할 스크립트를 선택합니다.|
@@ -268,7 +268,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 REST API에서 업데이트 배포를 보려면 [소프트웨어 업데이트 구성 실행](/rest/api/automation/softwareupdateconfigurationruns)을 참조하세요.
 
-## <a name="update-classifications"></a>업데이트 분류
+## <a name="update-classifications"></a>분류 업데이트
 
 다음 표에는 각 분류에 대한 정의와 함께 업데이트 관리의 업데이트 분류가 나열됩니다.
 
@@ -584,7 +584,7 @@ Update
 * 구독
 * 리소스 그룹
 * 위치
-* 태그들
+* Tags
 
 ![그룹 선택](./media/automation-update-management/select-groups.png)
 
@@ -634,7 +634,7 @@ Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택�
 
 업데이트 분류에 따라 업데이트를 배포하는 것은 CentOS에서 기본적으로 지원되지 않습니다. CentOS에 대한 업데이트를 제대로 배포하려면 업데이트를 적용할 수 있도록 모든 분류를 선택합니다. SUSE의 경우 분류로 ‘기타 업데이트’*만* 선택하면 zypper(패키지 관리자)와 관련된 보안 업데이트나 해당 종속성이 먼저 필요한 경우에도 일부 보안 업데이트가 설치될 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 경우에 따라 업데이트 배포를 다시 실행해야 할 수도 있습니다. 확인하려면 업데이트 로그를 확인합니다.
 
-## <a name="remove-a-vm-for-update-management"></a>업데이트 관리용 VM 제거
+## <a name="remove-a-vm-from-update-management"></a>업데이트 관리에서 VM을 제거 합니다.
 
 업데이트 관리에서 VM을 제거하려면:
 

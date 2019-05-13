@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386077"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407922"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -368,7 +368,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 .NET 4.7.1 이상을 배포했으면 **[온-프레미스 프로비전 에이전트를 여기에서](https://go.microsoft.com/fwlink/?linkid=847801)** 다운로드하고 아래 제공된 단계에 따라 에이전트 구성을 완료할 수 있습니다.
 
-1. 새 에이전트를 설치하려는 Windows Server에 로그인합니다.
+1. 새 에이전트를 설치 하려는 Windows Server에 로그인 합니다.
 2. 프로비전 에이전트 설치 관리자를 시작하고 동의한 다음, **설치** 단추를 클릭합니다.
 
    ![설치 화면](./media/workday-inbound-tutorial/pa_install_screen_1.png "설치 화면")
@@ -816,7 +816,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>내 프로비전 에이전트의 버전을 어떻게 알 수 있나요?
 
-* 프로비전 에이전트가 설치된 Windows Server에 로그인합니다.
+* 프로 비전 에이전트가 설치 되어 있는 Windows 서버에 로그인 합니다.
 * **제어판** -> **프로그램 제거/변경** 메뉴로 이동
 * **Microsoft Azure AD Connect 프로비전 에이전트** 항목에 해당하는 버전 찾기
 
@@ -867,8 +867,8 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>내 프로비전 에이전트와 연결된 도메인의 등록을 해제하려면 어떻게 할까요?
 
 * Azure Portal에서 Azure AD 테넌트의 ‘테넌트 ID’를 확인합니다.
-* 프로비전 에이전트를 실행하는 Windows Server에 로그인합니다.
-* Windows 관리자로 PowerShell을 엽니다.
+* 프로 비전 에이전트를 실행 하는 Windows 서버에 로그인 합니다.
+* Windows 관리자 권한으로 PowerShell을 엽니다.
 * 등록 스크립트를 포함하는 디렉터리로 변경하고 다음 명령을 실행하여 \[tenant ID\] 매개 변수를 테넌트 ID 값으로 바꿉니다.
 
   ```powershell
@@ -878,7 +878,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
   ```
 
 * 표시되는 에이전트 목록에서 *resourceName*이 AD 도메인 이름과 같은 해당 리소스의 “id” 필드 값을 복사합니다.
-* ID를 이 명령에 붙여넣고 PowerShell에서 실행합니다.
+* 이 명령은 ID 값을 붙여 및 PowerShell에서 명령을 실행 합니다.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>프로비전 에이전트를 제거하려면 어떻게 할까요?
 
-* 프로비전 에이전트가 설치된 Windows Server에 로그인합니다.
+* 프로 비전 에이전트가 설치 되어 있는 Windows 서버에 로그인 합니다.
 * **제어판** -> **프로그램 제거/변경** 메뉴로 이동
 * 다음 프로그램을 제거합니다.
   * Microsoft Azure AD Connect 프로비전 에이전트
@@ -946,9 +946,9 @@ Microsoft Graph API를 사용하여 Workday 사용자 프로비저닝 구성을 
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>사용자의 부서/국가/시/도 특성에 따라 AD에서 표시 이름의 서식을 지정하고 지역별 차이를 처리하려면 어떻게 할까요?
 
-사용자의 부서 및 국가에 대한 정보도 제공하도록 AD에서 *displayName* 특성을 구성하는 것은 일반적인 요구 사항입니다. 예를 들어 John Smith가 미국의 마케팅 부서에서 일하는 경우 *displayName*을 *Smith, John(Marketing-US)* 으로 표시할 수 있습니다.
+일반적인 요구 사항 구성 하는 것은 *displayName* 또한 사용자의 부서 및 국가/지역에 대 한 정보를 제공 하므로 AD의 특성입니다. 예를 들어 John Smith가 미국의 마케팅 부서에서 일하는 경우 *displayName*을 *Smith, John(Marketing-US)* 으로 표시할 수 있습니다.
 
-회사, 사업부, 도시 또는 국가와 같은 특성을 포함하도록 *CN* 또는 *displayName*을 생성하기 위해 해당 요구 사항을 처리하는 방법은 다음과 같습니다.
+생성에 대 한 이러한 요구 사항을 처리 하는 방법을 다음과 같습니다 *CN* 하거나 *displayName* 회사, 사업부, 도시 또는 국가/지역과 같은 특성을 포함 합니다.
 
 * 각 Workday 특성은 **특성 매핑 -> 고급 섹션 -> Workday의 특성 목록 편집**에서 구성할 수 있는 기본 XPATH API 식을 사용하여 검색합니다. Workday *PreferredFirstName*, *PreferredLastName*, *Company* 및 *SupervisoryOrganization* 특성의 기본 XPATH API 식은 다음과 같습니다.
 
@@ -976,7 +976,7 @@ Microsoft Graph API를 사용하여 Workday 사용자 프로비저닝 구성을 
 
   위의 API 식이 Workday 테넌트 구성에 유효한지 Workday 팀에 문의하세요. 필요한 경우 [Workday 사용자 특성 목록 사용자 지정](#customizing-the-list-of-workday-user-attributes) 섹션의 설명대로 편집할 수 있습니다.
 
-* 적절한 특성 매핑 식을 빌드하려면 사용자의 이름, 성, 국가 및 부서를 나타내는 Workday 특성 “authoritatively”를 식별합니다. 특성이 각각 *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* 및 *SupervisoryOrganization*이라고 가정하겠습니다. 이 특성을 사용하여 *Smith, John(Marketing-US)* 과 같은 표시 이름을 가져오는 AD *displayName* 특성 식을 다음과 같이 빌드할 수 있습니다.
+* 올바른 특성 매핑 식을 작성 "정식" Workday 특성을 식별 하려면 사용자의 이름, 마지막 이름, 국가/지역 및 부서를 나타냅니다. 특성이 각각 *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* 및 *SupervisoryOrganization*이라고 가정하겠습니다. 이 특성을 사용하여 *Smith, John(Marketing-US)* 과 같은 표시 이름을 가져오는 AD *displayName* 특성 식을 다음과 같이 빌드할 수 있습니다.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ SelectUniqueValue(
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>에이전트 문제 해결을 위한 Windows 이벤트 뷰어 설정
 
-* 프로비전 에이전트가 배포된 Windows Server 머신에 로그인합니다.
+* 프로 비전 에이전트를 배포 하는 Windows Server 컴퓨터에 로그인
 * **Windows Server 이벤트 뷰어** 데스크톱 앱을 엽니다.
 * **Windows 로그 &gt; 애플리케이션**을 선택합니다.
 * **현재 로그 필터링...** 옵션을 사용하여 **AAD.Connect.ProvisioningAgent** 원본 아래에서 기록된 모든 이벤트를 보고 다음과 같이 필터 “-5”를 지정하여 이벤트 ID “5”가 포함된 이벤트를 제외합니다.
@@ -1236,7 +1236,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
 
 다음과 같은 응답이 제공됩니다. 응답에 있는 “id 특성”을 복사합니다. 이 값은 **ProvisioningJobId**이고 기본 스키마 메타데이터를 검색하는 데 사용됩니다.
 
-   [![프로비전 작업 ID](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![작업 ID를 프로 비전](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>4단계: 프로비전 스키마 다운로드
 

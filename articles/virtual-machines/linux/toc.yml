@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 사용 후 삭제 OS 디스크
+          href: ephemeral-os-disks.md
     - name: 네트워킹
       href: network-overview.md
     - name: 자동 크기 조정 애플리케이션
@@ -253,16 +255,32 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: 이미지 사용
       items:
-        - name: 공유 이미지 갤러리(미리 보기)
+        - name: 공유 이미지 갤러리
           items:
             - name: 개요
               href: shared-image-galleries.md
-            - name: CLI를 사용하여 공유 이미지 만들기
+            - name: CLI
               href: shared-images.md
             - name: 포털
               href: shared-images-portal.md
+            - name: 테넌트 간에 이미지 공유
+              href: share-images-across-tenants.md
             - name: 공유 이미지 문제 해결
               href: troubleshooting-shared-images.md
+        - name: 이미지 작성기(미리 보기)
+          items:
+            - name: 개요
+              href: image-builder-overview.md
+            - name: CLI 사용
+              href: image-builder.md
+            - name: 템플릿 참조
+              href: image-builder-json.md
+            - name: 갤러리를 통해 사용
+              href: image-builder-gallery.md
+            - name: 이미지 버전 업데이트
+              href: image-builder-gallery-update-image-version.md
+            - name: 문제 해결
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: 이미지 검색 및 사용
           href: cli-ps-findimage.md
         - name: 사용자 지정 이미지 만들기

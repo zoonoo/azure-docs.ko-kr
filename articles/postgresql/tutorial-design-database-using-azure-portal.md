@@ -1,20 +1,20 @@
 ---
-title: '자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL 디자인'
-description: 이 자습서에서는 Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL을 디자인하는 방법을 보여 줍니다.
+title: '자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인'
+description: 이 자습서에서는 Azure Portal을 사용하여 첫 번째 Azure Database for PostgreSQL - 단일 서버를 디자인하는 방법을 보여 줍니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
-ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 5/16/2019
+ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119270"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069165"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL 디자인
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인
 
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. Azure Portal을 사용하면 쉽게 서버를 관리하고 데이터베이스를 디자인할 수 있습니다.
 
@@ -31,9 +31,6 @@ PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 Postg
 ## <a name="prerequisites"></a>필수 조건
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
-
 ## <a name="create-an-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database 만들기
 
 Azure Database for PostgreSQL 서버는 정의된 [계산 및 스토리지 리소스](./concepts-compute-unit-and-storage.md) 세트로 만들어집니다. 서버는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에 만들어집니다.
@@ -43,34 +40,40 @@ Azure Database for PostgreSQL 서버는 정의된 [계산 및 스토리지 리�
 2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고, **데이터베이스** 페이지에서 **PostgreSQL용 Azure Database**를 선택합니다.
    ![PostgreSQL용 Azure Database - 데이터베이스 만들기](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
+3. **단일 서버** 배포 옵션을 선택합니다.
 
-   ![서버 만들기](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![Azure Database for PostgreSQL - 단일 서버 배포 옵션 선택](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-   - 서버 이름: **mydemoserver**(서버 이름은 DNS 이름에 매핑되므로 전역적으로 고유해야 함.) 
-   - 구독: 구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다.
-   - 리소스 그룹: **myresourcegroup**
-   - 서버 관리자 로그인 및 선택한 암호
-   - 위치
-   - PostgreSQL 버전
+4. 다음 정보로 **기본 사항** 양식을 입력합니다.
 
-   > [!IMPORTANT]
-   > 여기에 지정하는 서버 관리자 로그인 및 암호는 이 자습서의 뒷부분에서 서버 및 해당 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
+    ![서버 만들기](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-4. **가격 책정 계층**을 클릭하여 새 서버에 대한 가격 책정 계층을 지정합니다. 이 자습서에서는 **범용**, **5세대** 세대 컴퓨팅, 2개 **vCores**, 5GB **스토리지** 및 7일 **백업 보존 기간**을 선택합니다. 서버의 자동 백업을 지역 중복 저장소에 저장하려면 **지역 중복** 백업 중복 옵션을 선택합니다.
-   ![Azure Database for PostgreSQL - 가격 책정 계층 선택](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+    설정|제안 값|설명
+    ---|---|---
+    구독|구독 이름|서버에 사용할 Azure 구독입니다. 구독이 여러 개인 경우 해당 리소스에 대해 요금이 청구되는 적절한 구독을 선택합니다.
+    리소스 그룹|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
+    서버 이름 |*mydemoserver*|PostgreSQL 서버용 Azure Database를 식별하는 고유한 이름입니다. 사용자가 제공한 서버 이름에 *postgres.database.azure.com* 도메인 이름이 추가됩니다. 서버는 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자 이상이어야 합니다.
+    데이터 원본 | *없음* | 새 서버를 처음부터 만들려면 *없음*을 선택합니다. (기존 Azure Database for PostgreSQL 서버의 지역 백업에서 서버를 만든 경우 *백업*을 선택합니다).
+    관리자 사용자 이름 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** 또는 **public**이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
+    암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
+    위치|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.
+    버전|최신 주 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 주 버전입니다.
+    컴퓨팅 + 스토리지 | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **서버 구성**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *5세대*, *vCore 4개*, *100GB* 및 *7일*은 **세대 계산**, **vCore**, **스토리지** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
-5. **Ok**를 클릭합니다.
+   > [!NOTE]
+   > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
+   > 
 
-6. **만들기**를 클릭하여 서버를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다.
+    ![[가격 책정 계층] 창](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-7. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
-   ![PostgreSQL용 Azure Database - 알림 확인](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+5. **검토 + 만들기**를 선택하여 선택 사항을 검토합니다. **만들기**를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
-   > [!TIP]
-   > 배포를 쉽게 추적할 수 있도록 **대시보드에 고정** 옵션을 선택합니다.
+6. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** 아이콘(벨)을 선택합니다. 배포가 완료되면 Azure Portal 대시보드에서 이 서버에 대한 타일을 서버의 **개요** 페이지에 대한 바로 가기로 만드는 **대시보드에 고정**을 선택할 수 있습니다. **리소스로 이동** 옵션을 선택하면 서버의 **개요** 페이지가 열립니다.
 
-   기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 애플리케이션에서 사용하는 기본 데이터베이스입니다. 
+    ![[알림] 창](./media/quickstart-create-database-portal/3-notifications.png)
+   
+   기본적으로 **postgres** 데이터베이스가 서버 아래에 만들어집니다. [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 데이터베이스는 사용자, 유틸리티 및 타사 애플리케이션에서 사용하는 기본 데이터베이스입니다. (다른 기본 데이터베이스는 **azure_maintenance**입니다. 해당 기능은 사용자 작업으로부터 관리되는 서비스 프로세스를 구분하는 것입니다. 이 데이터베이스에 액세스할 수 없습니다.)
+
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 

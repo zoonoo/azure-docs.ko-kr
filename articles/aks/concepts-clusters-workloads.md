@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467462"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230141"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -99,9 +99,11 @@ AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux�
 
 ### <a name="node-pools"></a>노드 풀
 
-동일한 구성의 노드는 모두 *노드 풀*로 그룹화됩니다. Kubernetes 클러스터에는 하나 이상의 노드 풀이 포함됩니다. 노드의 초기 수와 크기는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의됩니다. AKS의 기본 노드 풀에는 에이전트 노드를 실행하는 기본 VM이 포함됩니다.
+동일한 구성의 노드는 모두 *노드 풀*로 그룹화됩니다. Kubernetes 클러스터에는 하나 이상의 노드 풀이 포함됩니다. 노드의 초기 수와 크기는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의됩니다. AKS의 기본 노드 풀에는 에이전트 노드를 실행하는 기본 VM이 포함됩니다. 여러 노드 풀 지원은 현재 AKS에서 미리 보기로 제공 됩니다.
 
-AKS 클러스터를 확장 또는 업그레이드할 때 기본 노드 풀에 대한 작업이 수행됩니다. 업그레이드 작업의 경우, 모든 노드가 성공적으로 업그레이드될 때까지 실행 중인 컨테이너는 노드 풀의 다른 노드에 예약됩니다.
+AKS 클러스터를 확장 또는 업그레이드할 때 기본 노드 풀에 대한 작업이 수행됩니다. 크기를 조정 하거나 특정 노드 풀을 업그레이드할 수도 있습니다. 업그레이드 작업의 경우, 모든 노드가 성공적으로 업그레이드될 때까지 실행 중인 컨테이너는 노드 풀의 다른 노드에 예약됩니다.
+
+AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [만들기 및 AKS 클러스터에 대 한 여러 노드 풀 관리][use-multiple-node-pools]합니다.
 
 ## <a name="pods"></a>Pod
 
@@ -245,3 +247,4 @@ AKS 클러스터를 만들 때 사용할 수 있는 네임스페이스는 다음
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

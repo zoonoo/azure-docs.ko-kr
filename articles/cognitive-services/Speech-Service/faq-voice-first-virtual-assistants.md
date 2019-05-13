@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 16e4bcbb1514cfd5bbddc22b663d636292095231
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026725"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072616"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>음성 우선 가상 도우미 미리 보기: 질문과 대답
 
@@ -29,7 +29,7 @@ ms.locfileid: "65026725"
 
 **Q: 어떻게 시작하나요?**
 
-**A:** 음성 우선 가상 도우미를 만드는 방식으로 시작 하려면 가장은 시작 하기 [기본 Bot Framework 봇 만들기](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)합니다. 다음으로 연결 하면 봇이 마치 합니다 [직접 줄 음성 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)합니다.
+**A:** 음성 우선 가상 도우미를 만드는 방식으로 시작 하려면 가장은 시작 하기 [기본 Bot Framework 봇 만들기](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)합니다. 다음으로 연결 하면 봇이 마치 합니다 [직접 줄 음성 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)합니다.
 
 ## <a name="debugging"></a>디버그
 
@@ -41,7 +41,7 @@ ms.locfileid: "65026725"
 
 **Q: 직접 줄 음성 인식 텍스트 다시 가져오려면 있지만 내 봇에서 '1011' 오류가 발생 하 고 아무 것도 표시 합니다. 그 이유는 무엇일까요?**
 
-**A:** 이 오류는 봇 및 직접 줄 음성 간 통신 문제를 나타냅니다. 되었는지 확인 하십시오 [직접 줄 음성 채널 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)를 [스트리밍 프로토콜 지원이 추가 되었습니다](https://aka.ms/botframework/addstreamingprotocolsupport) (관련된 Websocket 지원 사용), 봇 및 봇을 들어오는에 응답 하는 확인 채널에서 요청 합니다.
+**A:** 이 오류는 봇 및 직접 줄 음성 간 통신 문제를 나타냅니다. 되었는지 확인 하십시오 [직접 줄 음성 채널 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)를 [스트리밍 프로토콜 지원이 추가 되었습니다](https://aka.ms/botframework/addstreamingprotocolsupport) (관련된 Websocket 지원 사용), 봇 및 봇을 들어오는에 응답 하는 확인 채널에서 요청 합니다.
 
 **Q: 이 여전히 작동 하지 않습니다 및/또는 SpeechBotConnector를 사용 하는 경우 다른 오류가 발생 했습니다. 및 무엇을 해야 명확 하지 않습니다. 어떤 *해야* 합니까?**
 

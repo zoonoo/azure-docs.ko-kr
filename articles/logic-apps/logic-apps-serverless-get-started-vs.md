@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/02/2019
-ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61323860"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467441"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps 및 Azure Functions를 사용하여 첫 번째 서버리스 앱 개발 - Visual Studio
 
@@ -25,33 +25,34 @@ Azure에서 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Azure 
 
 Visual Studio에서 서버리스 앱을 빌드하는 데 필요한 항목은 다음과 같습니다.
 
-* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 다음 도구가 없으면 다운로드하여 설치합니다.
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 또는 2015 - Community Edition 이상</a>. 
+  * [Visual Studio 2019, 2017 또는 2015 - Community Edition 이상](https://aka.ms/download-visual-studio). 
   이 빠른 시작에서는 무료로 제공되는 Visual Studio Community 2017을 사용합니다.
 
     > [!IMPORTANT]
     > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
     > Visual Studio 2019의 경우 클라우드 탐색기는 Azure Portal의 논리 앱 디자이너를 열 수 있지만 사용자는 포함된 논리 앱 디자이너를 열 수 없습니다.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">.NET용 Microsoft Azure SDK(2.9.1 이상)</a>. <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>에 대해 자세히 알아보세요.
+  * [.NET용 Microsoft Azure SDK(2.9.1 이상)](https://azure.microsoft.com/downloads/). 
+  [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet)에 대해 자세히 알아보세요.
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * 원하는 Visual Studio 버전용 Azure Logic Apps 도구:
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Visual Studio Marketplace에서 직접 Azure Logic Apps 도구를 다운로드해 설치하거나 <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">Visual Studio 내에서 이 확장을 설치하는 방법</a>을 알아볼 수 있습니다. 
+    Visual Studio Marketplace에서 직접 Azure Logic Apps 도구를 다운로드해 설치하거나 [Visual Studio 내에서 이 확장을 설치하는 방법](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions)을 알아볼 수 있습니다. 
     설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
 
-  * <a href="https://www.npmjs.com/package/azure-functions-core-tools" target="_blank">Azure Functions Core Tools</a>(로컬로 Functions 디버깅용)
+  * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)(로컬로 Functions 디버깅용)
 
 * 임베디드 논리 앱 디자이너를 사용하는 동안 웹에 액세스
 

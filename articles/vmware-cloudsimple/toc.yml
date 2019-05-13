@@ -41,15 +41,15 @@
         - name: 계정 관리
           href: cloudsimple-account.md
         - name: 작업 관리
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-activity/'
+          href: cloudsimple-activity.md
         - name: 사설 클라우드의 VMware
-          href: 'https://docs.azure.cloudsimple.com/vmware-components/'
+          href: vmware-components.md
         - name: 보안 개요
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
         - name: 노드 할당량
-          href: 'https://docs.azure.cloudsimple.com/node-quota/'
+          href: node-quota.md
         - name: 유지 관리 및 업데이트
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/'
+          href: cloudsimple-maintenance-updates.md
         - name: FAQ
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
     - name: 자습서

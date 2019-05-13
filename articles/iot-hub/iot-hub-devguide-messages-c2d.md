@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363719"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472732"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IoT Hub에서 클라우드-장치 메시지 보내기
 
@@ -71,10 +71,11 @@ IoT Hub의 **최대 배달 횟수** 속성은 **큐에 넣음** 및 **숨김** �
 
 ## <a name="message-feedback"></a>메시지 피드백
 
-클라우드-장치 메시지를 보낼 때 서비스는 해당 메시지의 최종 상태에 대한 메시지 단위 피드백을 전달하도록 요청할 수 있습니다.
+클라우드-장치 메시지를 보낼 때 서비스는 해당 메시지의 최종 상태에 대한 메시지 단위 피드백을 전달하도록 요청할 수 있습니다. 이렇게 설정 하면 여 `iothub-ack` 는 C2D 메시지를 다음 값 중 하나에 보내는 응용 프로그램 속성:
 
-| Ack 속성 | 동작 |
+| Ack 속성 값 | 동작 |
 | ------------ | -------- |
+| **없음**     | IoT Hub (기본 동작) 피드백 메시지를 생성 하지 않습니다. |
 | **positive** | 클라우드-장치 메시지가 **완성** 상태인 경우 IoT Hub가 피드백 메시지를 생성합니다. |
 | **negative** | 클라우드-장치 메시지가 **Dead lettered** 상태인 경우 IoT Hub가 피드백 메시지를 생성합니다. |
 | **full**     | IoT Hub는 어떤 경우든 피드백 메시지를 생성합니다. |

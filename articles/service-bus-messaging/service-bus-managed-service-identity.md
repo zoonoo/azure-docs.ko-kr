@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317078"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228405"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus를 통해 Azure 리소스에 관리 ID 사용 
 
@@ -29,7 +29,7 @@ ms.locfileid: "61317078"
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus 역할 및 사용 권한
 
-관리 ID는 Service Bus 네임스페이스의 "소유자" 또는 "참가자" 역할에만 추가할 수 있습니다. 이러한 역할에 ID를 추가하면 네임스페이스의 모든 엔터티에 대한 모든 제어 권한이 ID에 부여됩니다. 그러나 네임스페이스 토폴로지를 변경하는 관리 작업은 처음에는 Azure Resource Manager를 통해서만 지원되고 네이티브 Service Bus REST 관리 인터페이스를 통해서는 지원되지 않습니다. 그러므로 관리 ID 내에서는 .NET Framework 클라이언트 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 개체를 사용할 수 없습니다.
+관리 ID는 Service Bus 네임스페이스의 "소유자" 또는 "참가자" 역할에만 추가할 수 있습니다. 이러한 역할에 ID를 추가하면 네임스페이스의 모든 엔터티에 대한 모든 제어 권한이 ID에 부여됩니다. 그러나 네임스페이스 토폴로지를 변경하는 관리 작업은 처음에는 Azure Resource Manager를 통해서만 지원되고 네이티브 Service Bus REST 관리 인터페이스를 통해서는 지원되지 않습니다. 이 지원은.NET Framework 클라이언트를 사용할 수 없다는 의미 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는.NET Standard 클라이언트 [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) 내의 id 관리 되는 개체입니다.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus를 통해 Azure 리소스에 관리 ID 사용
 

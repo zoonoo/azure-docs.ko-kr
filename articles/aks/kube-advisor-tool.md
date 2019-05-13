@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465383"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073768"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
@@ -21,6 +21,8 @@ ms.locfileid: "60465383"
 ## <a name="about-kube-advisor"></a>kube-advisor에 대한 정보
 
 [kube-advisor 도구][kube-advisor-github]는 클러스터에서 실행되도록 설계된 단일 컨테이너입니다. Kubernetes API 서버에 배포에 대한 정보를 쿼리하여 제안된 개선 사항 집합을 반환합니다.
+
+Kube-관리자 도구 리소스 요청과 PodSpecs에 대 한 Windows 응용 프로그램 뿐만 아니라 Linux 응용 프로그램에서 누락 된 제한에 대해 보고할 수 있지만 kube-관리자 도구 자체 Linux pod에서 예약 해야 합니다. Pod를 사용 하 여 특정 OS를 사용 하 여 노드 풀에서 실행 되도록 예약할 수 있습니다는 [노드 선택기] [ k8s-node-selector] pod 구성에서 합니다.
 
 > [!NOTE]
 > kube-advisor 도구는 최상의 노력을 기준으로 Microsoft에서 지원됩니다. 문제와 제안은 GitHub에 제출해야 합니다.
@@ -73,3 +75,4 @@ RBAC를 사용할 수 없는 클러스터에 대해 도구를 실행하는 경�
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

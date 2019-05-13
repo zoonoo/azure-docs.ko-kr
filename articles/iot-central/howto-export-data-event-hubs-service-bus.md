@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730239"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463957"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IoT Central에서 데이터 내보내기
 
@@ -36,7 +36,7 @@ ms.locfileid: "64730239"
 ## <a name="create-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
 1. [Azure Portal에서 새 Event Hubs 네임스페이스](https://ms.portal.azure.com/#create/Microsoft.EventHub)를 만듭니다. [Azure Event Hubs 문서](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)에서 자세히 알아볼 수 있습니다.
-2. 구독을 선택합니다. 
+2. 구독을 선택하세요. 
 
     > [!Note] 
     > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "64730239"
 ## <a name="create-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
 1. [Azure Portal에서 새 Service Bus 네임스페이스](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)를 만듭니다. [Azure Service Bus 문서](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)에서 자세히 알아볼 수 있습니다.
-2. 구독을 선택합니다. 
+2. 구독을 선택하세요. 
 
     > [!Note] 
     > 이제 종량제 IoT Central 애플리케이션에 대한 구독과 **동일하지 않은** 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
@@ -64,14 +64,14 @@ ms.locfileid: "64730239"
     > [!Note]
     > 왼쪽 메뉴에 연속 데이터 내보내기가 표시되지 않는 경우 앱의 관리자가 아닌 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu.PNG)
+    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_menu1.png)
 
 3. 선택 된 **+ 새로 만들기** 오른쪽 위에 있는 단추입니다. 중 하나를 선택 **Azure Event Hubs** 하거나 **Azure Service Bus** 내보내기의 대상으로 합니다. 
 
     > [!NOTE] 
     > 앱당 최대 내보내기 수는 5개입니다. 
 
-    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new.PNG)
+    ![새 연속 데이터 내보내기 만들기](media/howto-export-data/export_new1.png)
 
 4. 드롭다운 목록 상자에서 선택 하 여 **Event Hubs 네임 스페이스/Service Bus 네임 스페이스**합니다. **연결 문자열 입력**인 목록의 마지막 옵션을 선택할 수도 있습니다. 
 
@@ -81,7 +81,7 @@ ms.locfileid: "64730239"
     > [!NOTE] 
     > 7일 평가판 앱의 경우 연결 문자열을 통해서만 연속 데이터 내보내기를 구성할 수 있습니다. 7일 평가판 앱에는 연결된 Azure 구독이 없기 때문입니다.
 
-    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_create.PNG)
+    ![새 cde 이벤트 허브 만들기](media/howto-export-data/export_create1.png)
 
 5. (선택 사항) **연결 문자열 입력**을 선택한 경우 연결 문자열을 붙여넣을 수 있는 새 상자가 나타납니다. 다음 항목의 연결 문자열을 가져오려면
     - Event Hubs 또는 Service Bus 네임 스페이스에 Azure portal로 이동 합니다.
@@ -95,7 +95,7 @@ ms.locfileid: "64730239"
 
 6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**가 **켬**인지 확인합니다. **저장**을 선택합니다.
 
-  ![연속 데이터 내보내기 구성](media/howto-export-data/export_list.PNG)
+    ![연속 데이터 내보내기 구성](media/howto-export-data/export_list1.png)
 
 7. 몇 분 후에 데이터가 선택한 대상에 표시됩니다.
 

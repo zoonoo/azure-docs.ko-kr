@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998458"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148093"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -186,7 +186,11 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 ### <a name="set-up-logs-and-diagnostics"></a>로그 및 진단 설정
 
-Linux에서 IoT Edge 디먼 로깅 드라이버 기본값으로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다. Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-WinEvent`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈 드라이버를 사용할 JSON 로깅에 대 한 기본값입니다.  
+Linux에서 IoT Edge 디먼 로깅 드라이버 기본값으로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다. Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-IoTEdgeLog`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈 드라이버를 사용할 JSON 로깅에 대 한 기본값입니다.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
 
 IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에 액세스하여 로그를 검색하고 문제를 해결할 수 있습니다. 배포 시나리오에서는 해당 옵션이 없을 수 있습니다. 프로덕션에서 사용자 디바이스에 대한 정보를 수집하는 방법을 고려해 보세요. 한 가지 옵션은 다른 모듈에서 정보를 수집하여 클라우드로 보내는 로깅 모듈을 사용하는 것입니다. 로깅 모듈의 한 가지 예는 [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics)이며, 사용자가 직접 로깅 모듈을 설계할 수도 있습니다. 
 

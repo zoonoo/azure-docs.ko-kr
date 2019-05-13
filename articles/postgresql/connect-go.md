@@ -1,21 +1,21 @@
 ---
-title: Go 언어를 사용하여 Azure Database for PostgreSQL에 연결
-description: 이 빠른 시작에서는 PostgreSQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Go 프로그래밍 언어 샘플을 제공합니다.
+title: Go 언어를 사용하여 Azure Database for PostgreSQL - 단일 서버에 연결
+description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 서버의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Go 프로그래밍 언어 샘플을 제공합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 802d7f200f43c690978f05e2d66be81bd2635e1e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 5/6/2019
+ms.openlocfilehash: 9356379262cc078cd6a62f3280bcb8cc3d315844
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838836"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067339"
 ---
-# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL: Go 언어를 사용하여 데이터 연결 및 쿼리
+# <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL - 단일 서버: Go 언어를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Go](https://golang.org/) 언어(golang)로 작성된 코드를 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 개발자가 Go를 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건

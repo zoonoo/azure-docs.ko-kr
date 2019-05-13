@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9b5a78eb6b07e21c3054aa7e2177ca21b1b1ea1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9b34f124d1260fe17d1f43c6e97f20fd116c5f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715897"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65202850"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>Azure PowerShell을 사용하여 웹 트래픽 관리
 
@@ -55,7 +55,7 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 | [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) | 애플리케이션 게이트웨이에 공용 IP 주소를 할당하는 구성을 만듭니다. |
 | [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) | 애플리케이션 게이트웨이에 액세스하는 데 사용할 포트를 할당합니다. |
 | [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) | 애플리케이션 게이트웨이의 백 엔드 풀을 만듭니다. |
-| [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings) | 백 엔드 풀에 대한 설정을 구성합니다. |
+| [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) | 백 엔드 풀에 대한 설정을 구성합니다. |
 | [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) | 수신기를 만듭니다. |
 | [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | 라우팅 규칙을 만듭니다. |
 | [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | 애플리케이션 게이트웨이의 계층 및 용량을 지정합니다. |

@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 0206fd2b2ea0a7cfaf79aaf19052e0174645780b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506838"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143147"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
-
-> [!NOTE]
-> 이 기능은 [ *공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다.
 
 논리 앱과 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)의 VM(가상 머신) 및 기타 시스템이나 서비스와 같이 보호된 리소스에 액세스해야 하는 경우가 있습니다. 이 액세스를 설정하려면 논리 앱과 통합 계정을 실행하기 위한 [ISE(*통합 서비스 환경*)를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 수 있습니다. ISE를 만들면 Azure 개인 및 격리 된 인스턴스를 Logic Apps 서비스의 Azure 가상 네트워크에 배포 합니다. 이 비공개 인스턴스는 스토리지 등의 전용 리소스를 사용하며, 공용 “글로벌” Logic Apps 서비스와는 별도로 실행됩니다. 다른 Azure 테 넌 트 수 라고도 하는 앱의 성능에 미치는 영향을 줄일 수 있습니다도 격리 된 개인 인스턴스와 공용 전역 인스턴스를 구분 하는 ["시끄러운 이웃" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)합니다.
 
@@ -70,11 +67,6 @@ ISE 커넥터와 기타 커넥터의 차이는 트리거와 작업이 실행되�
 ## <a name="integration-accounts-with-ise"></a>ISE와의 통합 계정
 
 ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사용할 수 있습니다. 그러나 해당 통합 계정은 연결된 논리 앱과 *동일한 ISE*를 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 통합 계정을 만들 때는 통합 계정의 위치로 ISE를 선택할 수 있습니다.
-
-## <a name="get-support"></a>지원 받기
-
-* 질문이 있는 경우 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 포럼</a>을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 사용자 의견 사이트</a>를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

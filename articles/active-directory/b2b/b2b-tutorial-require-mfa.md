@@ -142,4 +142,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 7.  **정책 이름** 목록에서 테스트 정책의 상황에 맞는 메뉴(…)를 선택한 후 **삭제**를 선택합니다. **예**를 선택하여 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 게스트 사용자가 클라우드 앱 중 하나에 로그인할 때 MFA를 사용해야 하는 조건부 액세스 정책을 만들었습니다. 공동 작업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](add-users-administrator.md)를 참조하세요.
+이 자습서에서는 게스트 사용자가 클라우드 앱 중 하나에 로그인할 때 MFA를 사용해야 하는 조건부 액세스 정책을 만들었습니다. 협업을 위해 게스트 사용자를 추가하는 방법을 자세히 알아보려면 [Azure Portal에서 Azure Active Directory B2B 협업 사용자 추가](add-users-administrator.md)를 참조하세요.

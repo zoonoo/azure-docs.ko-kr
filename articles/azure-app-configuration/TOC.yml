@@ -4,23 +4,35 @@
   items:
     - name: Azure App Configuration 정보
       href: overview.md
+    - name: FAQ
+      href: faq.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: ASP.NET Core 앱 만들기
-      href: quickstart-aspnet-core-app.md
-    - name: .NET Core 앱 만들기
-      href: quickstart-dotnet-core-app.md
-    - name: .NET Framework 앱 만들기
-      href: quickstart-dotnet-app.md
-    - name: Azure Function 만들기
-      href: quickstart-azure-function-csharp.md
-    - name: Java Spring 앱 만들기
-      href: quickstart-java-spring-app.md
+    - name: 구성
+      items:
+        - name: ASP.NET Core
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: .NET Core의 Azure 함수
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: 기능 관리
+      items:
+        - name: ASP.NET Core
+          href: quickstart-feature-flag-aspnet-core.md
 - name: 자습서
   items:
     - name: ASP.NET Core에서 동적 구성을 사용하도록 설정
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: .NET Core 앱에서 기능 플래그 사용
+      href: use-feature-flags-dotnet-core.md
+    - name: 기능 플래그 관리
+      href: manage-feature-flags.md
     - name: CI/CD 파이프라인과 통합
       href: integrate-ci-cd-pipeline.md
 - name: 샘플
@@ -33,24 +45,38 @@
       href: concept-key-value.md
     - name: 지정 시간 스냅숏
       href: concept-point-time-snapshot.md
+    - name: 기능 관리
+      href: concept-feature-management.md
 - name: 방법 가이드
   items:
     - name: Azure 관리형 서비스 ID와 통합
       href: howto-integrate-azure-managed-service-identity.md
     - name: 구성 데이터 가져오기 또는 내보내기
       href: howto-import-export-data.md
+    - name: 모범 사례
+      href: howto-best-practices.md
 - name: 참고 자료
   items:
-    - name: .NET Core 구성 공급자
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-    - name: .NET Framework 구성 작성기
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-    - name: Java Spring 구성 공급자
-      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
-    - name: .NET Azure SDK
-      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
-    - name: REST (영문)
-      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: 구성
+      items:
+        - name: .NET Core 구성 공급자
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: .NET Framework 구성 작성기
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Java Spring 구성 공급자
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: .NET Azure SDK
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: REST (영문)
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: 기능 관리
+      items:
+        - name: .NET Core 라이브러리
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: ASP.NET Core 라이브러리
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: .NET Core 필터 라이브러리
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: 리소스
   items:
     - name: 시작 비디오

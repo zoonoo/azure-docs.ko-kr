@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266956"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149910"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>자습서: QnA Maker 포털에서 기술 자료를 만듭니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "59266956"
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |해당 URL의 FAQ 콘텐츠는 질문 다음에 답변이 오는 형식으로 구성됩니다. QnA Maker는 이러한 형식을 해석하여 질문과 관련 답변을 추출할 수 있습니다.|
     |파일 |_이 자습서에서 사용되지 않음_|질문 및 답변 파일을 업로드합니다. |
-    |잡담 개성|친구|일반적인 질문 및 답변에 친숙하고 편안한 개성을 부여합니다. 나중에 이러한 질문 및 답변을 편집할 수 있습니다. |
+    |잡담 개성|친숙한|일반적인 질문 및 답변에 친숙하고 편안한 개성을 부여합니다. 나중에 이러한 질문 및 답변을 편집할 수 있습니다. |
 
     ![KB 생성 프로세스 4단계](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ ms.locfileid: "59266956"
 
 1. 표 하단에서 질문 및 답변의 마지막 페이지를 선택합니다. 이 페이지는 잡담 개성의 질문 및 답변을 보여줍니다. 
 
-1. 질문 및 답변 목록 위의 도구 모음에서 메타데이터 아이콘을 선택합니다. 그러면 각 질문 및 답변에 대한 메타데이터 태그가 표시됩니다. 잡담 질문에는 **editorial: chit-chat** 메타데이터가 이미 설정되어 있습니다. 이 메타데이터는 선택된 답변과 함께 클라이언트 애플리케이션으로 반환됩니다. 챗봇과 같은 클라이언트 애플리케이션은 이 필터링된 메타데이터를 사용하여 추가 처리 또는 사용자와의 상호 작용을 결정할 수 있습니다.
+1. 질문 및 답변 목록 위의 도구 모음에서 **보기 옵션** 아이콘을 선택한 다음, **메타데이터 표시**를 선택합니다. 그러면 각 질문 및 답변에 대한 메타데이터 태그가 표시됩니다. 잡담 질문에는 **editorial: chit-chat** 메타데이터가 이미 설정되어 있습니다. 이 메타데이터는 선택된 답변과 함께 클라이언트 애플리케이션으로 반환됩니다. 챗봇과 같은 클라이언트 애플리케이션은 이 필터링된 메타데이터를 사용하여 추가 처리 또는 사용자와의 상호 작용을 결정할 수 있습니다.
 
-    ![메타데이터 태그 보기](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![![메타데이터 태그 보기](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. 상단 메뉴 모음에서 **저장 및 학습**을 선택합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 215ae29c571e56b7e3af589149123083223023c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889391"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153468"
 ---
 # <a name="work-with-databases-containers-and-items"></a>데이터베이스, 컨테이너 및 항목 작업
 
@@ -77,7 +77,7 @@ Azure Cosmos 컨테이너를 시스템에 정의 된 속성 집합이 있습니�
 
 | **시스템 정의 속성** | **시스템 생성 되거나 사용자 구성 가능** | **목적** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
+|_id | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
 |_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
 |_ts | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |
 |_self | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 아니오 | 아니요 | 아니요 | 아닙니다. |

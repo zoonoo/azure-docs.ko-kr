@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362495"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204258"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 웹 프록시 구성
 
@@ -68,7 +68,7 @@ ms.locfileid: "60362495"
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     기본적으로 TCP 포트 번호 8080가 지정됩니다.
-4. 인증 유형으로 **NTLM**, **기본** 또는 **없음**을 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](http://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](http://hc.apache.org/httpclient-3.x/authentication.html)을 참조하세요. 
+4. 인증 유형으로 **NTLM**, **기본** 또는 **없음**을 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](https://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](https://hc.apache.org/httpclient-3.x/authentication.html)을 참조하세요. 
    
    > [!IMPORTANT]
    > **StorSimple 디바이스 관리자 서비스에서는 해당 디바이스에 대한 프록시 서버 구성에서 기본 또는 NTLM 인증이 사용되면 디바이스 모니터링 차트가 실행되지 않습니다. 작업할 모니터링 차트의 경우 인증이 NONE으로 설정되어 있는지 확인해야 합니다.**
@@ -87,7 +87,7 @@ ms.locfileid: "60362495"
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>cmdlet를 통해 웹 프록시를 구성하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에서 다음을 입력합니다.
+2. 명령 프롬프트에 다음을 입력합니다.
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    

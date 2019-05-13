@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697835"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140953"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-모든 입력 및 출력 데이터를 포함하는 명명된 개체를 반환합니다. 예를 들어 function.json의 다음 바인딩 정의를 통해 `context.bindings.myInput`에서 큐의 콘텐츠에 액세스하고 `context.bindings.myOutput`을 사용하여 출력을 큐에 할당할 수 있습니다.
+읽기 또는 바인딩 데이터 할당에 사용 되는 명명 된 개체를 반환 합니다. 입력 및 트리거 데이터 바인딩 속성에서 참조 하 여 액세스할 수 있습니다 `context.bindings`합니다. 데이터를 추가 하 여 출력 바인딩은 데이터를 할당할 수 있습니다. `context.bindings`
+
+예를 들어 function.json의 다음 바인딩 정의를 통해 `context.bindings.myInput`에서 큐의 콘텐츠에 액세스하고 `context.bindings.myOutput`을 사용하여 출력을 큐에 할당할 수 있습니다.
 
 ```json
 {
@@ -290,7 +292,7 @@ host.json 파일에 [로깅에 대한 추적 수준 임계값을 구성](#config
 
 ## <a name="writing-trace-output-to-the-console"></a>콘솔에 추적 출력 작성 
 
-Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 Function App 수준에서 캡처됩니다. 즉, `console.log`의 출력은 특정 함수 호출에 연결되지 않으며 따라서 특정 함수의 로그에 표시되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
+Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 Function App 수준에서 캡처됩니다. 이 즉, 출력에서 `console.log` 특정 함수 호출에 연결 되지 않습니다 및 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
 
 `context.log()`를 호출하면 메시지를 _정보_ 추적 수준인 기본 추적 수준에서 콘솔에 씁니다. 다음 코드는 정보 추적 수준에서 콘솔에 씁니다.
 

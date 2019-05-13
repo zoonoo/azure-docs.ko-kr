@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834967"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -156,7 +156,7 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하려면 다음 단�
 
     d. Azure Portal에서 복사한 **로그인 URL**의 값을 **보안 토큰 서비스 엔드포인트** 텍스트 상자에 붙여넣습니다.
 
-    e. 사용자 ID 특성 이름 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`을 입력합니다.
+    e. 사용자 ID 특성 이름 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`을 입력합니다.
 
     f. **업로드** 아이콘을 클릭하여 Azure Portal에서 다운로드한 인증서를 업로드합니다.
 

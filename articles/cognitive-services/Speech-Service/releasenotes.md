@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020351"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465611"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -24,7 +24,7 @@ ms.locfileid: "65020351"
 
 **새로운 기능**
 
-* 기능 (KWS)를 발견 하는 키워드는 Windows 및 Linux 용입니다. 하지만 공식 KWS 지원, 모든 마이크 유형과 함께 KWS 기능이 작동 될 수 있습니다 현재 제한 마이크 배열에 있는 Azure Kinect DK 하드웨어 또는 음성 장치 SDK.
+* 절전 모드 해제 (키워드 spotting/KWS) word 기능 Windows 및 Linux에 대 한 출시 되었습니다. 하지만 공식 KWS 지원, 모든 마이크 유형과 함께 KWS 기능이 작동 될 수 있습니다 현재 제한 마이크 배열에 있는 Azure Kinect DK 하드웨어 또는 음성 장치 SDK.
 * 구 힌트 기능은 SDK를 통해 사용할 수 있습니다. 자세한 내용은 [여기](how-to-phrase-lists.md)를 참조하세요.
 * 대화 기록 기능은 SDK를 통해 사용할 수 있습니다. [여기](conversation-transcription-service.md)를 참조하세요.
 * 직접 줄 음성 채널을 사용 하 여 음성 우선 가상 도우미에 대 한 지원을 추가 합니다.
@@ -58,7 +58,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 **새로운 기능** 
 
 * SDK는 이제 베타 버전으로 텍스트 음성 변환 서비스를 지원합니다. Windows 및 Linux 바탕 화면에서 지원 됩니다 C++ 및 C#합니다. 자세한 내용은 다음을 확인 합니다 [텍스트 음성 변환 개요](text-to-speech.md#get-started-with-text-to-speech)합니다.
-* SDK는 이제 스트림에 입력 파일로 저작/Ogg 및 MP3 오디오 파일을 지원합니다. 이 기능은에서 Linux에만 사용할 수 있습니다 C++ 및 C# 는 현재 베타 버전 및 (자세한 내용은 [여기](how-to-use-compressed-audio-input-streams.md)).
+* SDK는 이제 스트림에 입력 파일로 저작/OGG 및 MP3 오디오 파일을 지원합니다. 이 기능은에서 Linux에만 사용할 수 있습니다 C++ 및 C# 는 현재 베타 버전 및 (자세한 내용은 [여기](how-to-use-codec-compressed-audio-input-streams.md)).
 * Java,.NET core 용 음성 SDK는 C++ Objective-c macOS 지원 작업해왔으며 합니다. MacOS 용 Objective-c 지원은 현재 베타 중입니다.
 * iOS: 이제 iOS (Objective-c)에 대 한 음성 SDK는 CocoaPod로도 게시 됩니다.
 * JavaScript: 기본이 아닌 마이크 입력된 장치를 지원 합니다.

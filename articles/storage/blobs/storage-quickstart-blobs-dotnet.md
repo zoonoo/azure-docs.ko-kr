@@ -2,18 +2,19 @@
 title: '빠른 시작: .NET을 사용하여 개체 스토리지에 Blob 만들기 - Azure Storage'
 description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 Blob(개체) Storage에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
-ms.openlocfilehash: 2708efc22d373db6ee55dfee6b8adfa35bd450ef
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924337"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191047"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>빠른 시작: .NET을 사용하여 개체 스토리지에 Blob 만들기
 
@@ -152,7 +153,7 @@ Press any key to delete the sample files and example container.
 
 ### <a name="try-parsing-the-connection-string"></a>연결 문자열 구문 분석 시도
 
-샘플에서 수행하는 첫 번째 작업은 환경 변수가 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열을 포함하는지 확인하는 것입니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
+샘플에서 수행하는 첫 번째 작업은 환경 변수가 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열을 포함하는지 확인하는 것입니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -184,9 +185,9 @@ else
 
 다음으로 샘플은 컨테이너를 만들고 컨테이너의 모든 Blob이 공용이도록 해당 권한을 설정합니다. Blob이 공용인 경우 모든 클라이언트에서 익명으로 액세스할 수 있습니다.
 
-컨테이너를 만들려면 먼저 스토리지 계정의 Blob Storage를 가리키는 [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) 개체의 인스턴스를 만듭니다. 다음으로 [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) 개체의 인스턴스를 만든 다음, 컨테이너를 만듭니다.
+컨테이너를 만들려면 먼저 스토리지 계정의 Blob Storage를 가리키는 [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) 개체의 인스턴스를 만듭니다. 다음으로 [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) 개체의 인스턴스를 만든 다음, 컨테이너를 만듭니다.
 
-이 경우 샘플은 [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) 메서드를 호출하여 컨테이너를 만듭니다. GUID 값은 고유한지 확인하기 위해 컨테이너 이름에 추가됩니다. 프로덕션 환경에서 컨테이너가 존재하지 않는 경우에만 [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) 메서드를 사용하여 컨테이너를 만들고 이름 충돌을 피하는 것이 좋습니다.
+이 경우 샘플은 [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) 메서드를 호출하여 컨테이너를 만듭니다. GUID 값은 고유한지 확인하기 위해 컨테이너 이름에 추가됩니다. 프로덕션 환경에서 컨테이너가 존재하지 않는 경우에만 [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) 메서드를 사용하여 컨테이너를 만들고 이름 충돌을 피하는 것이 좋습니다.
 
 > [!IMPORTANT]
 > 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름 지정에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
@@ -209,7 +210,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
-다음으로 샘플은 블록 Blob에 로컬 파일을 업로드합니다. 코드 예제는 이전 섹션에서 만든 컨테이너에서 [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) 메서드를 호출하여 **CloudBlockBlob** 개체에 대한 참조를 가져옵니다. 그런 다음, [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 메서드를 호출하여 선택한 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
+다음으로 샘플은 블록 Blob에 로컬 파일을 업로드합니다. 코드 예제는 이전 섹션에서 만든 컨테이너에서 [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) 메서드를 호출하여 **CloudBlockBlob** 개체에 대한 참조를 가져옵니다. 그런 다음, [UploadFromFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) 메서드를 호출하여 선택한 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -230,7 +231,7 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-샘플은 [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 메서드를 사용하여 컨테이너에 Blob을 나열합니다. 샘플의 경우 하나의 Blob만 컨테이너에 추가되었으므로 나열된 작업은 하나의 해당 Blob만 반환합니다.
+샘플은 [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 메서드를 사용하여 컨테이너에 Blob을 나열합니다. 샘플의 경우 하나의 Blob만 컨테이너에 추가되었으므로 나열된 작업은 하나의 해당 Blob만 반환합니다.
 
 한 번의 호출에 반환할 너무 많은 Blob이 있는 경우(기본적으로 5000개 초과) **ListBlobsSegmentedAsync** 메서드는 총 결과 집합 및 연속 토큰의 세그먼트를 반환합니다. Blob의 다음 세그먼트를 검색하려면 연속 토큰이 Null이 될 때까지 이전 호출 등에서 반환된 연속 토큰을 제공합니다. Null 연속 토큰은 모든 Blob이 검색되었음을 나타냅니다. 샘플 코드는 모범 사례를 위해 연속 토큰을 사용하는 방법을 보여 줍니다.
 
@@ -253,7 +254,7 @@ do
 
 ### <a name="download-blobs"></a>Blob 다운로드
 
-다음으로 샘플은 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 이전에 만든 Blob을 로컬 파일 시스템에 다운로드합니다. 샘플 코드는 로컬 파일 시스템에서 두 파일을 볼 수 있도록 Blob 이름에 "_DOWNLOADED"의 접미사를 추가합니다.
+다음으로 샘플은 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 이전에 만든 Blob을 로컬 파일 시스템에 다운로드합니다. 샘플 코드는 로컬 파일 시스템에서 두 파일을 볼 수 있도록 Blob 이름에 "_DOWNLOADED"의 접미사를 추가합니다.
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
@@ -265,7 +266,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-샘플은 [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync)를 사용하여 전체 컨테이너를 삭제하여 만든 리소스를 정리합니다. 원하는 경우 로컬 파일을 삭제할 수도 있습니다.
+샘플은 [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)를 사용하여 전체 컨테이너를 삭제하여 만든 리소스를 정리합니다. 원하는 경우 로컬 파일을 삭제할 수도 있습니다.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");

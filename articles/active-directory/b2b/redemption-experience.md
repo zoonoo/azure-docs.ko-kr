@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업의 초대 상환 - Azure Active Directory | Microsoft Docs
-description: 개인 정보 보호 조건에 대한 규약을 비롯한 최종 사용자에 대한 Azure AD B2B 공동 작업 초대 상환 환경을 설명합니다.
+title: B2B 협업의 초대 상환 - Azure Active Directory | Microsoft Docs
+description: 개인 정보 보호 조건에 대한 규약을 비롯한 최종 사용자에 대한 Azure AD B2B 협업 초대 상환 환경을 설명합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -18,9 +18,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60355338"
 ---
-# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 공동 작업 초대 상환
+# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
-Azure AD(Azure Active Directory) B2B 공동 작업을 통해 파트너 조직의 사용자와 공동 작업을 수행하기 위해 게스트 사용자가 공유 앱에 액세스하도록 초대할 수 있습니다. 사용자 인터페이스를 통해 게스트 사용자를 디렉터리에 추가하거나 PowerShell을 통해 사용자를 초대한 후에 게스트 사용자는 [개인 정보 보호 조건](#privacy-policy-agreement)에 동의하는 첫 번째 동의 프로세스를 거쳐야 합니다. 다음 중 한 가지 방법으로 이 프로세스가 수행됩니다.
+Azure AD(Azure Active Directory) B2B 협업을 통해 파트너 조직의 사용자와 협업을 수행하기 위해 게스트 사용자가 공유 앱에 액세스하도록 초대할 수 있습니다. 사용자 인터페이스를 통해 게스트 사용자를 디렉터리에 추가하거나 PowerShell을 통해 사용자를 초대한 후에 게스트 사용자는 [개인 정보 보호 조건](#privacy-policy-agreement)에 동의하는 첫 번째 동의 프로세스를 거쳐야 합니다. 다음 중 한 가지 방법으로 이 프로세스가 수행됩니다.
 
 - 게스트 초대자가 공유 앱에 대한 직접 링크를 보냅니다. 초대 받은 사람은 링크를 클릭하여 로그인하고, 개인 정보 보호 조건을 수락하고, 원활하게 공유 리소스에 액세스합니다. (게스트 사용자가 상환 URL을 포함한 초대 이메일을 계속 받지만 특별한 경우도 이외에는 더 이상 초대 이메일을 사용할 필요가 없습니다.)  
 - 게스트 사용자는 초대 이메일을 수신하고 상환 URL을 클릭합니다. 첫 번째 로그인의 일부로 개인 정보 보호 조건에 동의하라는 메시지가 표시됩니다.

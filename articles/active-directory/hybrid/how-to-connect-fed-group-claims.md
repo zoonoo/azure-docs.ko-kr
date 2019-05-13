@@ -12,38 +12,43 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351292"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138751"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (공개 미리 보기)를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
 Azure Active Directory 응용 프로그램에서 사용할 수 있도록 토큰에 사용자 그룹 멤버 자격 정보를 제공할 수 있습니다.  두 가지 주요 패턴이 지원 됩니다.
 
-- 해당 Azure Active Directory 개체 식별자 (OID) (일반 공급)로 식별 되는 그룹
-- Active Directory (AD) 동기화 그룹 및 사용자 (공개 미리 보기)에 대 한 SAMAccountName 또는 GroupSID로 식별 되는 그룹
+- 해당 Azure Active Directory 개체 식별자 (OID) 특성 (일반 공급)로 식별 되는 그룹
+- SAMAccountName 또는 Active Directory (AD) 동기화 그룹 및 사용자 (공개 미리 보기)에 대 한 GroupSID 특성으로 식별 하는 그룹
 
-> [!Note]
-> 이름 및 온-프레미스 보안 식별자 (Sid) 사용에 대 한 지원은 AD FS에서 기존 응용 프로그램을 이동할 수 있도록 설계 되었습니다.    Azure AD에서 관리 그룹 이러한 클레임을 내보내는 데 필요한 특성을 포함 하지 않습니다.
+> [!IMPORTANT]
+> 이 미리 보기 기능에 대 한 참고 주의 사항이 많습니다.
+>
+>- 온-프레미스에서 동기화에 대 한 sAMAccountName 및 보안 식별자 (SID) 특성의 사용에 대 한 지원은 AD FS 및 다른 id 공급자에서 기존 응용 프로그램을 이동할 수 있도록 설계 되었습니다. Azure AD에서 관리 그룹에는 이러한 클레임을 내보내는 데 필요한 특성이 포함 되지 않습니다.
+>- 대규모 조직에서는 사용자가 멤버인 그룹의 수는 Azure Active Directory 토큰을 추가 하는 한도 초과할 수 있습니다. SAML 토큰 및 JWT 200에 대 한 150 그룹입니다. 이 예상치 못한 결과가 발생할 수 있습니다. 응용 프로그램에 대 한 관련 그룹에 대 한 클레임을 제한할 수 있도록 향상 된 기능 추가 될 때까지 대기 해야 하는 경우 및이 문제가 발생할 경우 테스트는 것이 좋습니다.  
+>- 새 응용 프로그램 개발을 위해 또는 응용 프로그램을 구성할 수 있는 한 및 중첩 된 그룹 지원이 필요 하지 않습니다 하는 경우에서에 앱에서 권한 부여 그룹 보다는 응용 프로그램 역할에 따라 결정 되도록 하는 것이 좋습니다.  이 토큰으로 이동 해야 하는 경우는 더 안전 하 고 앱 구성에서 사용자 할당을 구분 하는 정보의 양을 제한 합니다.
 
-## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-idps"></a>AD FS 및 다른 Idp에서 마이그레이션하는 응용 프로그램에 대 한 그룹 클레임
+## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>AD FS 및 다른 id 공급자에서 마이그레이션하는 응용 프로그램에 대 한 그룹 클레임
 
-AD FS를 사용 하 여 인증 하도록 구성 된 많은 응용 프로그램 그룹 멤버 자격 정보 Windows AD 그룹 특성의 형태로 사용 합니다.   이러한 특성은 도메인에서 정규화 된 이름 수는 SAMAccountName, 그룹 또는 Windows 그룹 SID입니다.  AD FS와 페더레이션 되어 있는 응용 프로그램을 AD FS는 사용자의 그룹 멤버 자격을 검색할 TokenGroups 함수를 사용 합니다.
+AD FS를 사용 하 여 인증 하도록 구성 된 많은 응용 프로그램 그룹 멤버 자격 정보 Windows AD 그룹 특성의 형태로 사용 합니다.   이러한 특성은 도메인에서 정규화 된 이름 또는 Windows 그룹 보안 식별자 (GroupSID) 일 수 있는 그룹 sAMAccountName입니다.  AD FS와 페더레이션 되어 있는 응용 프로그램을 AD FS는 사용자의 그룹 멤버 자격을 검색할 TokenGroups 함수를 사용 합니다.
 
-AD FS에서 앱을 수신할 토큰 맞도록 그룹 및 역할 클레임을 내보낼 수 있습니다 그룹의 Azure Active Directory objectID 아닌 SAMAccountName 정규화 된 도메인을 포함 합니다.
+AD FS에서 앱을 수신할 토큰 맞도록 그룹의 Azure Active Directory objectID 대신 정규화 된 도메인 sAMAccountName 포함 된 그룹 및 역할 클레임을 내보낼 수 있습니다.
 
 그룹 클레임에 대 한 지원 되는 형식은 다음과 같습니다.
 
-- **Azure Active Directory GroupObjectId** (모든 그룹에 대 한 사용 가능)
+- **Azure Active Directory 그룹 ObjectId** (모든 그룹에 대 한 사용 가능)
 - **SAMAccountName** (Active Directory에서 동기화 그룹에 대 한 사용 가능)
-- **NetbiosDomain\samAccountName** (Active Directory에서 동기화 그룹에 대 한 사용 가능)
-- **DNSDomainName\samAccountName** (Active Directory에서 동기화 그룹에 대 한 사용 가능)
+- **NetbiosDomain\sAMAccountName** (Active Directory에서 동기화 그룹에 대 한 사용 가능)
+- **DNSDomainName\sAMAccountName** (Active Directory에서 동기화 그룹에 대 한 사용 가능)
+- **온-프레미스 그룹 보안 식별자** (Active Directory에서 동기화 그룹에 대 한 사용 가능)
 
 > [!NOTE]
-> SAMAccountName 및 OnPremisesGroupSID 특성 에서만 Active Directory에서 동기화 된 그룹 개체에 제공 됩니다.   Azure Active Directory 또는 office 365에서 만든 그룹에 사용할 수 없습니다.   온-프레미스 그룹 특성에 종속 된 응용 프로그램을 이용 하면 동기화 된 그룹에만 얻으십시오.
+> sAMAccountName 및 온-프레미스 그룹 SID 특성은 Active Directory에서 동기화 된 그룹 개체에서 사용할 수만 있습니다.   Azure Active Directory 또는 office 365에서 만든 그룹에 사용할 수 없습니다.   구성 된 응용 프로그램이 Azure Active Directory에서 동기화 된 온-프레미스 그룹 특성을 가져올 수만 동기화 그룹에 대 한 얻으십시오.
 
 ## <a name="options-for-applications-to-consume-group-information"></a>그룹 정보를 사용 하는 응용 프로그램에 대 한 옵션
 
@@ -51,17 +56,17 @@ AD FS에서 앱을 수신할 토큰 맞도록 그룹 및 역할 클레임을 내
 
 그러나 기존 응용 프로그램이 이미 수신한 토큰에 클레임을 통해 그룹 정보를 사용 하는, Azure Active Directory는 다양 한 응용 프로그램의 요구에 맞게 다양 한 클레임 옵션을 사용 하 여 구성할 수 있습니다.  이때 다음 옵션을 사용할 수 있습니다.
 
-- 그룹 멤버 자격을 사용 하 여 (여부 그룹 멤버 자격 가져옴 그래프 또는 토큰에서) 하는 응용 프로그램 권한 부여 목적을 위해 때 변경할 수 없는 및 Azure Active Directory에서 고유 및 모든 그룹에 사용할 수 있는 그룹의 ObjectID를 사용 하는 것이 좋습니다. .
-- 권한 부여에 대 한 그룹 SAMAccountName을 사용 하는 경우 정규화 된 도메인 이름을; 사용  가 발생 하는 경우 가능성이 낮은 있었습니다 이름 충돌 합니다. 자체적으로 SAMAccountName을 Active Directory 도메인 내에서 고유 하지만 둘 이상의 Active Directory 도메인을 Azure Active Directory 테 넌 트와 동기화 되 면 가능성이 있는 이름이 같은 둘 이상의 그룹에 대 한.
+- 응용 프로그램 권한 부여를 위해 그룹 멤버 자격을 사용 하는 경우 변경할 수 없는 및 Azure Active Directory에서 고유 및 모든 그룹에 사용할 수 있는 그룹의 ObjectID를 사용 하는 것이 좋습니다.
+- 권한 부여에 대 한 온-프레미스 그룹 sAMAccountName을 사용 하는 경우 정규화 된 도메인 이름을; 사용  가 발생 하는 경우 가능성이 낮은 있었습니다 이름 충돌 합니다. 자체적으로 SAMAccountName을 Active Directory 도메인 내에서 고유 하지만 둘 이상의 Active Directory 도메인을 Azure Active Directory 테 넌 트와 동기화 되 면 가능성이 있는 이름이 같은 둘 이상의 그룹에 대 한.
 - 사용 하는 것이 좋습니다 [응용 프로그램 역할](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) 그룹 멤버 자격 및 응용 프로그램 간의 간접 참조 계층을 제공 합니다.   그런 다음 응용 프로그램 역할 clams 토큰에 따라 하는 내부 권한 부여 결정을 내립니다.
 - Active Directory에서 동기화 된 그룹 특성을 가져올 응용 프로그램이 구성 되 고 그룹에는 이러한 특성이 포함 되어 있지 않습니다 하는 경우에 클레임에 포함 되지 않습니다.
-- 그룹 클레임 토큰에서 중첩 된 그룹을 포함 합니다.   사용자가 멤버인 알리도록 알리도록 라우팅해야의 멤버인 경우 라우팅해야와 알리도록 사용자에 대 한 그룹 클레임 포함 됩니다. 중첩 된 그룹에 대 한 많은 사용량을 사용 하 여 조직 및 많은 수의 그룹 멤버 자격을 사용 하 여 사용자에 대 한 토큰에 나열 된 그룹 수가 토큰 크기를 증가할 수 있습니다.   Azure Active Directory는 SAML 어설션의 150에서 200 JWT에 대 한 토큰에 내보냅니다 그룹 수를 제한 합니다.
+- 그룹 클레임 토큰에서 중첩 된 그룹을 포함 합니다.   사용자가 멤버인 알리도록 알리도록 라우팅해야의 멤버인 경우 라우팅해야와 알리도록 사용자에 대 한 그룹 클레임 포함 됩니다. 중첩 된 그룹에 대 한 많은 사용량을 사용 하 여 조직 및 많은 수의 그룹 멤버 자격을 사용 하 여 사용자에 대 한 토큰에 나열 된 그룹 수가 토큰 크기를 증가할 수 있습니다.   Azure Active Directory 그룹 내보냅니다 SAML 어설션의 150를 너무 큼 토큰을 방지 하기 위해 JWT는 200 토큰에서 수를 제한 합니다.  그룹 내보내지는 사용자 제한 보다 많은 그룹의 구성원 인 경우 그룹 정보를 가져오는 그래프 끝점에 연결 합니다.
 
 > Active Directory에서 동기화 되는 그룹 특성을 사용 하기 위한 필수 조건:   그룹은 Azure AD Connect를 사용 하 여 Active Directory에서 동기화 되어야 합니다.
 
 Active Directory 그룹에 대 한 그룹 이름을 내보내는 데 Azure Active Directory를 구성 하는 방법은 다음 두 단계가 있습니다.
 
-1. **Active Directory에서 그룹 이름을 동기화** 하기 전에 Azure Active Directory에서 그룹 이름을 내보낼 수 있습니다 또는 온-프레미스 그룹 SID 그룹이 나 역할 클레임, 필수 특성을 Active Directory에서 동기화 해야 합니다.  Azure AD Connect 버전 1.2.70 실행 해야 이상.   이전 버전 1.2.70 Azure AD Connect Active Directory에서 번째 그룹 개체를 동기화 하는 있지만 기본적으로 필요한 그룹 이름 특성을 포함 하지 않습니다.  현재 버전으로 업그레이드 해야 합니다.
+1. **Active Directory에서 그룹 이름을 동기화** 하기 전에 Azure Active Directory에서 그룹 이름을 내보낼 수 있습니다 또는 온-프레미스 그룹 SID 그룹이 나 역할 클레임, 필수 특성을 Active Directory에서 동기화 해야 합니다.  Azure AD Connect 버전 1.2.70 실행 해야 이상.   1.2.70 버전 이전의 Azure AD Connect는 Active Directory에서 그룹 개체를 동기화 하지만 기본적으로 필요한 그룹 이름 특성을 포함 하지 않습니다.  현재 버전으로 업그레이드 해야 합니다.
 
 2. **응용 프로그램 등록 토큰에서 그룹 클레임을 포함 하도록 Azure Active Directory에서 구성** 그룹 클레임 수 갤러리 또는 비 갤러리 SAML SSO 응용 프로그램의 경우 포털의 엔터프라이즈 응용 프로그램 섹션에서 구성 또는 응용 프로그램 등록 섹션에서 응용 프로그램 매니페스트를 사용합니다.  응용 프로그램 매니페스트 참조 "Azure Active Directory 응용 프로그램 등록 그룹 특성에 대 한 구성" 아래에서 그룹 클레임을 구성 합니다.
 
@@ -88,15 +93,15 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내는 데 Azure Activ
 
 ![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
+Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory 특성을 사용 하 여 그룹을 내보낼 드롭다운 목록에서 필요한 형식을 선택 합니다.  이 그룹 이름이 포함 된 문자열 값을 사용 하 여 클레임에 있는 개체 ID를 대체 합니다.   Active Directory에서 동기화 그룹에만 클레임에 포함 됩니다.
+
+![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+
 ### <a name="advanced-options"></a>고급 옵션
 
 그룹 클레임에 내보내지는 서 고급 옵션의 설정을 수정할 수 있습니다.
 
 그룹 클레임 이름의 사용자 지정:  선택 하면 그룹 클레임에 대 한 다른 클레임 유형에 지정할 수 있습니다.   네임 스페이스 필드에서 클레임에 대 한 이름 필드와 선택적 네임 스페이스에 클레임 유형을 입력 합니다.
-
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
-
-Active Directory를 사용 하 여 그룹을 내보낼 Azure AD Objectid 대신 특성 'Id 대신 이름으로 그룹을 반환 합니다.' 상자를 선택한 드롭다운 목록에서 형식을 선택 합니다.  이 그룹 이름이 포함 된 문자열 값을 사용 하 여 클레임에 있는 개체 ID를 대체 합니다.   Active Directory에서 동기화 그룹에만 클레임에 포함 됩니다.
 
 ![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 

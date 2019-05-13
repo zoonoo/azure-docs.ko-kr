@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012504"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148021"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅을 사용 하도록 설정
 
-파일에 로깅은 Speech SDK에 대 한 선택적 기능입니다. 개발 중 로깅은 Speeck SDK의 핵심 구성 요소에서 진단 및 추가 정보를 제공합니다. 속성을 설정 하 여 활성화할 수 있습니다 `Speech_LogFilename` 음성 구성 개체를 로그 파일의 이름과 위치에 있습니다. 로깅과 인식기를 해당 구성에서 만들어지면 전역적으로 활성화할 수 있습니다. 나중에 비활성화할 수 없습니다. 로깅 세션을 실행 하는 동안 로그 파일의 이름을 변경할 수 없습니다.
+파일에 로깅은 Speech SDK에 대 한 선택적 기능입니다. 개발 중 로깅 추가 정보 및 Speech SDK의 핵심 구성 요소에서 진단 정보를 제공합니다. 속성을 설정 하 여 활성화할 수 있습니다 `Speech_LogFilename` 음성 구성 개체를 로그 파일의 이름과 위치에 있습니다. 로깅과 인식기를 해당 구성에서 만들어지면 전역적으로 활성화할 수 있습니다. 나중에 비활성화할 수 없습니다. 로깅 세션을 실행 하는 동안 로그 파일의 이름을 변경할 수 없습니다.
 
 > [!NOTE]
 > 로깅은 프로그래밍 언어, JavaScript 제외 하 고 모든 지원 되는 음성 SDK에서 사용할 수 있습니다.

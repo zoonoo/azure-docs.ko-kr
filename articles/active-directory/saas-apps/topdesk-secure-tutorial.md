@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ca13bdd8e3677f559bac373efa078f3b951be
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920357"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>자습서: TOPdesk - Secure와 Azure Active Directory 통합
 
@@ -184,7 +184,7 @@ TOPdesk - Secure에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     d. TOPdesk 지원팀에서 받은 로고 파일을 업로드하려면 **로고 아이콘**에서 **찾아보기**를 클릭합니다.
 
-    e. **사용자 이름 특성** 텍스트 상자에서 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    e. **사용자 이름 특성** 텍스트 상자에서 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
     f. **이름 표시** 텍스트 상자에 구성할 이름을 입력합니다.
 

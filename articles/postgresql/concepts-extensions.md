@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL에서 PostgreSQL 확장 사용
-description: PostgreSQL용 Azure 데이터베이스에서 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 설명합니다.
+title: Azure Database for PostgreSQL-단일 서버에서에서 사용 하 여 PostgreSQL 확장
+description: PostgreSQL-단일 서버에 대 한 Azure Database의 확장을 사용 하 여 데이터베이스의 기능을 확장 하는 기능을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720597"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410266"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 PostgreSQL 확장
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서에서 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드된 후에 확장은 기본 제공 기능으로 작동할 수 있습니다. PostgreSQL 확장에 대한 자세한 내용은  [관련 개체를 확장으로 패키지](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)를 참조하세요.
 
 ## <a name="how-to-use-postgresql-extensions"></a>PostgreSQL 확장을 사용하는 방법
@@ -27,7 +27,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 자동으로 암호화된 암호에 대한 데이터 형식을 제공합니다. |
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
@@ -54,7 +54,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Lexemes에서 악센트(분음 기호)를 제거하는 텍스트 검색 사전입니다. |
@@ -62,7 +62,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 특정 데이터 형식에 대해 B-트리 유사 동작을 구현하는 샘플 GIN 연산자 클래스를 제공합니다. |
 > | [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | B-트리를 구현하는 GiST 인덱스 연산자 클래스를 제공합니다. |
@@ -70,15 +70,14 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
-> | [plv8](https://plv8.github.io/) | 저장 프로시저, 트리거 등에 사용할 수 있는 PostgreSQL용 Javascript 언어 확장입니다. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | 공유 버퍼 캐시에서 일어나는 작업을 실시간으로 검사하기 위한 수단을 제공합니다. |
 > | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | 관계 데이터를 버퍼 캐시에 로드하는 방법을 제공합니다. |
@@ -93,7 +92,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |
@@ -103,7 +102,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="time-series-extensions"></a>시계열 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [TimescaleDB](https://docs.timescale.com/latest) | 지원 자동화에 대 한 분할을 더 빠르게 수집 하 고 쿼리 하는 시계열 SQL 데이터베이스입니다. 시간 기반 분석 기능을 최적화를 제공 하 고 시계열 워크 로드에 대 한 PostgreSQL을 확장 합니다. TimescaleDB에서 개발 하는 및의 등록된 상표 [시간 간격, Inc.](https://www.timescale.com/) (이 확장에 대한 설명은 아래를 참조하세요.) |
 

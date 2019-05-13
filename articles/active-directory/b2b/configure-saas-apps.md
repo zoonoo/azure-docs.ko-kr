@@ -1,6 +1,6 @@
 ---
 title: B2B 공동 작업-Azure Active Directory SaaS 앱 구성 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업을 위한 코드 및 PowerShell 샘플
+description: Azure Active Directory B2B 협업을 위한 코드 및 PowerShell 샘플
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60414366"
 ---
-# <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 공동 작업을 위한 SaaS 앱 구성
+# <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 협업용 SaaS 앱 구성
 
-Azure AD(Azure Active Directory) B2B 공동 작업은 Azure AD와 통합되는 대부분의 앱에서 작동합니다. 이 섹션에서는 Azure AD B2B와 함께 사용되는 일부 인기 있는 SaaS 앱을 구성하는 지침을 안내합니다.
+Azure AD(Azure Active Directory) B2B 협업은 Azure AD와 통합되는 대부분의 앱에서 작동합니다. 이 섹션에서는 Azure AD B2B와 함께 사용되는 일부 인기 있는 SaaS 앱을 구성하는 지침을 안내합니다.
 
 앱별 지침을 살펴보기 전에 다음과 같이 경험에 근거한 몇 가지 규칙이 있습니다.
 
@@ -100,7 +100,7 @@ Dropbox 초대 대상자와 마찬가지로 Box 초대 대상자는 Box 앱의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다음 문서를 살펴보세요.
+Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
 - [동적 그룹 및 B2B 공동 작업](use-dynamic-groups.md)

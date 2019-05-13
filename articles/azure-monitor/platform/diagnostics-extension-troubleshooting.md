@@ -6,14 +6,14 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395053"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471775"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "60395053"
 다음은 중요한 몇 가지 로그 및 아티팩트에 대한 경로입니다. 문서의 나머지 부분에서 이 정보를 참조합니다.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| 아티팩트 | path |
+| 아티팩트 | Path |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **로그 파일** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ ms.locfileid: "60395053"
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>가상 머신
-| 아티팩트 | path |
+| 아티팩트 | Path |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -48,7 +48,7 @@ ms.locfileid: "60395053"
 | **모니터링 에이전트 구성 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **상태 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure Diagnostics 확장 패키지** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Packages |
+| **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음

@@ -2,20 +2,20 @@
 title: '자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드 | Microsoft Docs'
 description: 이 자습서에서는 Azure Portal 및 SQL Server Management Studio를 사용하여 공용 Azure Blob에서 Azure SQL Data Warehouse로 뉴욕 택시 데이터를 로드합니다.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61078999"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143653"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -50,7 +50,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기**페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
 
     ![데이터 웨어하우스 만들기](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
@@ -80,7 +80,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 6. **성능 수준**을 클릭하여 데이터 웨어하우스가 Gen1 또는 Gen2 중 어느 것인지와 데이터 웨어하우스 단위의 수를 지정합니다. 
 
-7. 이 자습서에서는 **Gen2** SQL Data Warehouse를 선택합니다. 해당 슬라이더는 기본적으로 **DW1000c**로 설정되어 있습니다.  슬라이더를 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 **Gen2** SQL Data Warehouse를 선택합니다. 해당 슬라이더는 기본적으로 **DW1000c**로 설정되어 있습니다. 슬라이더를 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -97,7 +97,7 @@ Azure SQL Database가 정의된 [계산 리소스](memory-and-concurrency-limits
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
-SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준의 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다.  다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
+SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 또는 서버의 데이터베이스에 연결되는 것을 방지하는 서버 수준의 방화벽을 만듭니다. 연결을 사용하려면 특정 IP 주소에 대한 연결을 사용하도록 설정하는 방화벽 규칙을 추가할 수 있습니다. 다음 단계에 따라 클라이언트의 IP 주소에 대해 [서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 
 
 > [!NOTE]
 > SQL Data Warehouse는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
@@ -187,7 +187,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![예제 데이터 웨어하우스에 대한 새 쿼리](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다.  이러한 권한 부여는 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
+5. 다음 T-SQL 명령을 입력하여 LoaderRC20 로그인에 대해 LoaderRC20이라는 데이터베이스 사용자를 만듭니다. 두 번째 줄은 새 데이터 웨어하우스에 대한 제어 권한을 새 사용자에게 부여합니다. 이러한 권한 부여는 해당 사용자를 데이터베이스의 소유자로 만드는 것과 비슷합니다. 세 번째 줄은 staticrc20 [리소스 클래스](resource-classes-for-workload-management.md)의 구성원으로 새 사용자를 추가합니다.
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -561,6 +561,49 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![로드된 테이블 보기](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>(선택 사항) 부하를 관리 되는 id를 사용 하 여 인증
+PolyBase를 사용 하 여 관리 되는 id를 통해 인증 및 로드 하는 가장 안전한 메커니즘 및 Azure storage를 사용 하 여 VNet 서비스 엔드포인트를 활용할 수 있습니다. 
+
+### <a name="prerequisites"></a>필수 조건
+1.  [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
+2.  범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
+3.  Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.
+
+#### <a name="steps"></a>단계
+1. PowerShell에서 AAD(Azure Active Directory)에 **SQL Database 서버를 등록**합니다.
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 사용하여 **범용 v2 스토리지 계정**을 만듭니다.
+
+   > [!NOTE]
+   > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
+    
+1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. 할당할 **Storage Blob 데이터 기여자** SQL Database 서버에 대 한 RBAC 역할입니다.
+
+   > [!NOTE] 
+   > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 참조하세요.
+  
+1. **Azure Storage 계정에 대한 Polybase 연결:**
+    
+   1. 사용 하 여 데이터베이스 범위 자격 증명을 만듭니다 **IDENTITY ' 관리 서비스 Id ' =**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - 이 메커니즘은 내부적으로 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하므로 Azure Storage 액세스 키로 SECRET을 지정할 필요가 없습니다.
+       > - ID 이름 이어야 합니다 **' 관리 서비스 Id '** Azure Storage 계정을 사용 하 여 작업에 대 한 PolyBase 연결에 대 한 합니다.
+    
+   1. 관리 서비스 Id를 사용 하 여 데이터베이스 범위 자격 증명을 지정 하는 외부 데이터 원본을 만듭니다.
+        
+   1. [외부 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)을 사용하여 평소와 같이 쿼리합니다.
+
+다음을 참조 하십시오 [설명서] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) SQL Data Warehouse에 대 한 virtual network 서비스 끝점을 설정 하려는 경우. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

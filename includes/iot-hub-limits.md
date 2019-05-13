@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804650"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150315"
 ---
 다음 표에서 각 서비스 계층 S1, S2, S3 및 F1와 관련 된 한도 나열 합니다. 각각의 비용에 대 한 자세한 *단위* 각 계층에서 참조 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)합니다.
 
@@ -40,9 +40,9 @@ ms.locfileid: "59804650"
 | 클라우드->장치  <br/> 메시지의 최대 전달 수 |100 |
 | 클라우드->장치 메시지에 대한 응답에서 피드백  <br/>  메시지의 최대 전달 수 |100 |
 | 클라우드->장치 메시지에 대한 응답에서 피드백  <br/>  메시지의 최대 TTL |2일 |
-| 디바이스 쌍의 최대 크기 <br/> (태그, reported 속성 및 desired 속성) | 8KB |
+| [장치 쌍의 최대 크기](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (태그, reported 속성 및 desired 속성) | 8KB |
 | 디바이스 쌍 문자열 값의 최대 크기 | 4KB |
-| 디바이스 쌍에서 개체의 최대 깊이 | 5 |
+| [장치 쌍에서 개체의 최대 깊이](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | 직접 메서드 페이로드의 최대 크기 | 128KB |
 | 작업 내역의 최대 보존 | 30일 |
 | 최대 동시 작업 | 10(S3의 경우), 5(S2의 경우), 1(S1의 경우) |
@@ -51,10 +51,8 @@ ms.locfileid: "59804650"
 | 동시에 연결되는 최대 디바이스 스트림 수 | 50(S1, S2, S3 및 F1만 해당) |
 | 최대 디바이스 스트림 데이터 전송 | 하루 300MB(S1, S2, S3 및 F1만 해당) |
 
-
 > [!NOTE]
 > Azure 구독에 50 개가 넘는 유료 IoT hub에 필요한 경우 Microsoft 지원에 문의 합니다.
-
 
 > [!NOTE]
 > 현재 단일 IoT Hub에 연결할 수 있는 디바이스의 최대 수는 1,000,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.

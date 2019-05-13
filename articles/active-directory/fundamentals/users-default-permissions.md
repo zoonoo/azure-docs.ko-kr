@@ -13,22 +13,22 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb05ee4d6e05cb8b56756a761a519e5903b78bbd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246543"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507088"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 유형, [역할 할당](active-directory-users-assign-role-azure-portal.md) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
 
 ## <a name="member-and-guest-users"></a>멤버 및 게스트 사용자
-제공되는 기본 권한 세트는 사용자가 테넌트의 기본 멤버(멤버 사용자)인지 아니면 B2B 공동 작업 게스트(게스트 사용자)로 다른 디렉터리에서 전달되었는지에 따라 달라집니다. 게스트 사용자 추가에 대한 자세한 내용은 [Azure AD B2B 공동 작업이란?](../b2b/what-is-b2b.md)을 참조하세요.
+제공되는 기본 권한 세트는 사용자가 테넌트의 기본 멤버(멤버 사용자)인지 아니면 B2B 협업 게스트(게스트 사용자)로 다른 디렉터리에서 전달되었는지에 따라 달라집니다. 게스트 사용자 추가에 대한 자세한 내용은 [Azure AD B2B 협업이란?](../b2b/what-is-b2b.md)을 참조하세요.
 * 멤버 사용자는 애플리케이션을 등록하고, 자신의 프로필 사진과 휴대전화 번호를 관리하며, 자신의 암호를 변경하고, B2B 게스트를 초대할 수 있습니다. 또한 몇 가지 예외가 있지만 모든 디렉터리 정보를 읽을 수 있습니다. 
 * 게스트 사용자에게는 제한된 디렉터리 권한이 있습니다. 예를 들어 게스트 사용자는 자신의 프로필 정보 밖의 테넌트에서 정보를 찾아볼 수 없습니다. 그러나 게스트 사용자는 사용자 계정 이름이나 objectId를 제공하여 다른 사용자 정보를 검색할 수 있습니다. 게스트 사용자는 **게스트 사용자 권한이 제한됨** 설정과 관계없이 그룹 멤버 자격을 비롯한 소속 그룹 속성을 읽을 수 있습니다. 게스트는 다른 테넌트 개체에 대한 정보를 볼 수 없습니다.
 
-게스트에 대한 기본 권한은 기본적으로 제한적입니다. 게스트를 관리자 역할에 추가할 수 있고, 이 경우 해당 역할에 포함된 전체 읽기 쓰기 권한이 부여됩니다. 게스트가 다른 사용자를 초대하는 기능에도 추가적인 제한이 있습니다. **게스트가 초대할 수 있음**을 **아니요**로 설정하면 게스트가 다른 게스트를 초대할 수 없습니다. 방법은 [B2B 공동 작업에 대한 초대 위임](../b2b/delegate-invitations.md)을 참조하세요. 게스트 사용자에게 기본적으로 멤버 사용자와 같은 권한을 부여하려면 **게스트 사용자 권한이 제한됨**을 **아니요**로 설정합니다. 이 설정은 기본적으로 게스트 사용자에게 모든 멤버 사용자 권한을 부여하며 게스트가 관리자 역할에 추가되는 것도 허용합니다.
+게스트에 대한 기본 권한은 기본적으로 제한적입니다. 게스트를 관리자 역할에 추가할 수 있고, 이 경우 해당 역할에 포함된 전체 읽기 쓰기 권한이 부여됩니다. 게스트가 다른 사용자를 초대하는 기능에도 추가적인 제한이 있습니다. **게스트가 초대할 수 있음**을 **아니요**로 설정하면 게스트가 다른 게스트를 초대할 수 없습니다. 방법은 [B2B 협업에 대한 초대 위임](../b2b/delegate-invitations.md)을 참조하세요. 게스트 사용자에게 기본적으로 멤버 사용자와 같은 권한을 부여하려면 **게스트 사용자 권한이 제한됨**을 **아니요**로 설정합니다. 이 설정은 기본적으로 게스트 사용자에게 모든 멤버 사용자 권한을 부여하며 게스트가 관리자 역할에 추가되는 것도 허용합니다.
 
 ## <a name="compare-member-and-guest-default-permissions"></a>멤버 및 게스트 기본 권한 비교
 
@@ -49,6 +49,8 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 
 사용 권한 | 설정 설명
 ---------- | ------------
+응용 프로그램을 등록할 수 있습니다. | 이 옵션을 아니요로 설정 하면을 응용 프로그램 등록을 만들 수 없습니다. 기능 응용 프로그램 개발자 역할을 추가 하 여 특정 개인에 게 부여할 수 있습니다.
+사용자가 LinkedIn으로 회사 또는 학교 계정에 연결하도록 허용 | 이 옵션을 아니요로 설정 하면을 회사 또는 학교 계정으로 LinkedIn 계정으로 연결할 수 없습니다.  참조 [LinkedIn 계정 연결 데이터 공유 및 동의](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent) 자세한 내용은 합니다.
 보안 그룹 만들기 기능 | 이 옵션을 아니요로 설정하면 사용자가 보안 그룹을 만들 수 없습니다. 전역 관리자 및 사용자 관리자 보안 그룹을 만들 여전히 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)을 참조하세요.
 Office 365 그룹을 만드는 기능 | 이 옵션을 아니요로 설정하면 사용자가 Office 365 그룹을 만들 수 없습니다. 이 옵션을 일부로 설정하면 Office 365 그룹을 만들 수 있는 사용자 집합을 선택할 수 있습니다. 전역 관리자 및 사용자 관리자 Office 365 그룹을 만들 수 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)을 참조하세요.
 Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 설정하면 사용자가 Azure Active Directory에 액세스할 수 없습니다.

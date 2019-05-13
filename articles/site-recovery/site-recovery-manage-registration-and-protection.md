@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277164"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415497"
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 
@@ -150,6 +150,12 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 
 > [!NOTE]
 > 두 옵션 모두에서 모바일 서비스는 보호되는 서버에서 제거되지 않으므로 수동으로 제거해야 합니다. 동일한 구성 서버를 사용하여 서버를 보호하려는 경우 모바일 서비스 제거를 생략할 수 있습니다.
+
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Azure VM (Azure)에 대 한 보호를 사용 하지 않도록 설정
+
+-  **보호된 항목** > **복제된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 클릭합니다.
+> [!NOTE]
+> 보호 된 서버에서 모바일 서비스 제거 되지는 않습니다, 그리고 수동으로 제거 해야 합니다. 서버를 다시 보호 하려는 경우 모바일 서비스 제거를 건너뛸 수 있습니다.
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Hyper-V 가상 머신에 대해 보호 사용 안 함(Hyper-V에서 Azure로)
 

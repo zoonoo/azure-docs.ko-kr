@@ -156,8 +156,8 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure AD B2B의 개요는 [Azure AD B2B 공동 작업이란?](what-is-b2b.md)을 참조하세요.
-- 조건부 액세스 및 B2B 공동 작업에 대한 내용은 [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)를 참조하세요.
+- Azure AD B2B의 개요는 [Azure AD B2B 협업이란?](what-is-b2b.md)을 참조하세요.
+- 조건부 액세스 및 B2B 협업에 대한 내용은 [B2B 협업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.
 
 
 

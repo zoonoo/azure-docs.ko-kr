@@ -25,7 +25,7 @@ ms.locfileid: "60293565"
 ---
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>PingAccess를 사용하도록 애플리케이션 프록시 애플리케이션을 구성하는 방법
 
-이제 PingAccess를 사용하여 애플리케이션 프록시의 이점을 헤더 기반 인증을 사용하는 애플리케이션으로 확장할 수 있습니다. 헤더를 사용하지 않는 애플리케이션의 경우 [Single Sign-on 설명서](application-proxy-configure-single-sign-on-with-kcd.md)에서 다른 옵션을 참조하세요.
+이제 PingAccess와의 협업을 통해 헤더 기반 인증을 사용하여 애플리케이션 프록시의 이점을 애플리케이션으로 확장할 수 있습니다. 헤더를 사용하지 않는 애플리케이션의 경우 [Single Sign-on 설명서](application-proxy-configure-single-sign-on-with-kcd.md)에서 다른 옵션을 참조하세요.
 
 ## <a name="overview-of-steps-and-recommended-documents"></a>단계 개요 및 권장되는 문서
 

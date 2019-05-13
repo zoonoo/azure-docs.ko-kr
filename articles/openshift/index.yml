@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Red Hat OpenShift 서비스
+metadata:
+  document_id: null
+  title: 'Azure Red Hat OpenShift 서비스 설명서 - 자습서, API 참조 | Microsoft Docs'
+  meta.description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
+  services: container-service
+  author: tylermsft
+  manager: jeconnoc
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05-06-2019
+  ms.author: twhitney
+abstract:
+  description: 'Azure Red Hat OpenShift는 Azure에 Red Hat 및 Microsoft가 지원하는 단일 테넌트, 고가용성 Kubernetes 클러스터를 제공합니다.'
+sections:
+  - title: 단계별 자습서
+    items:
+      - type: paragraph
+        text: Azure Red Hat OpenShift 클러스터를 만들고 관리하는 방법을 알아봅니다.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Azure Red Hat OpenShift 클러스터 만들기</a>
+          - html: <a href="/azure/openshift/tutorial-scale-cluster">Azure Red Hat OpenShift 클러스터 크기 조정</a>
+          - html: <a href="/azure/openshift/tutorial-delete-cluster">Azure Red Hat OpenShift 클러스터 삭제</a>
+  - title: 참고 자료
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 명령 줄
+            html: <p><a href="/cli/azure/openshift">Azure CLI</a></p>
+          - title: REST (영문)
+            html: <p><a href="/rest/api/openshift">REST API</a></p>
+          - title: Red Hat 설명서
+            html: '<p><a href="https://docs.openshift.com/aro/welcome/index.html">Red Hat OpenShift 문서</a></p>'
