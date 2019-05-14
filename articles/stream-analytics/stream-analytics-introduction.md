@@ -92,7 +92,7 @@ Azure Stream Analytics는 [Azure 규정 준수 개요](https://gallery.technet.m
 
 Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며 짧은 대기 시간으로 결과를 제공할 수 있습니다.
 복잡한 대규모 실시간 이벤트 처리 애플리케이션을 처리할 수 있도록 스케일 업 및 스케일 아웃할 수 있습니다. Stream Analytics는 성능 분할을 지원하므로 복합 쿼리를 여러 스트리밍 노드에서 병렬로 처리하고 실행할 수 있습니다.
-Azure Stream Analytics는 Microsoft Research와의 공동 작업을 통해 개발된 고성능 메모리 내 스트리밍 분석 엔진인 [Trill](https://github.com/Microsoft/Trill)을 기반으로 합니다. 
+Azure Stream Analytics는 Microsoft Research와의 협업을 통해 개발된 고성능 메모리 내 스트리밍 분석 엔진인 [Trill](https://github.com/Microsoft/Trill)을 기반으로 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

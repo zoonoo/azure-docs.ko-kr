@@ -1,23 +1,23 @@
 ---
 title: '이미지 분류 자습서: 모델 학습'
 titleSuffix: Azure Machine Learning service
-description: 이 자습서에서는 Azure Machine Learning 서비스를 사용하여 Python Jupyter 노트북의 scikit-learn을 통해 이미지 분류 모델을 학습하는 방법을 보여 줍니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
+description: Azure Machine Learning Service를 사용하는 Python Jupyter Notebook에서 scikit-Learn을 사용하여 이미지 분류 모델을 학습시키는 방법을 알아봅니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 097fb3422ce3868d9ef499ad6c92c8b7fa12e852
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021752"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442053"
 ---
-# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
+# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 
 이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter 노트북에서 Azure Machine Learning 서비스(미리 보기)에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 

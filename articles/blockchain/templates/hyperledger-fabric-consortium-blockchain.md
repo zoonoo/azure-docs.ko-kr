@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/23/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690662"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510763"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger 패브릭 컨소시엄 네트워크
 
@@ -99,8 +99,8 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 |---|---|---|
 **네트워크 구성** |새 네트워크를 만들거나 기존 네트워크를 연결하도록 선택할 수 있습니다. ‘기존 네트워크 연결’을 선택하는 경우 추가로 값을 제공해야 합니다. |새 네트워크 <br/> 기존 네트워크 연결 |
 **HLF CA 암호** |배포의 일부로 생성되는 인증 기관에서 생성한 인증서에 사용되는 암호입니다. 암호는 다음 문자 유형 중 세 가지를 포함해야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개.<br /><br />처음에는 모든 가상 머신의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|1-25자 |
-**조직 설정** |조직 이름 및 인증서를 사용자 지정하거나 사용할 기본값을 설정할 수 있습니다.|기본값 <br/> 고급 |
-**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | 예 <br/> 아닙니다. |
+**조직 설정** |조직 이름 및 인증서를 사용자 지정하거나 사용할 기본값을 설정할 수 있습니다.|Default <br/> 고급 |
+**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | 예. <br/> 아닙니다. |
 
 **확인**을 선택합니다.
 

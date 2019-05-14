@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: e526908f5ba9feea53b1c1abebbbfc1bd9a51c54
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d567074a0038915cc43a585b34c9c71ccf3eb1b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147956"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464989"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Secure Sockets Layer (SSL) 암호화 및 Azure HDInsight에서 Apache Kafka에 대 한 인증 설정
 
@@ -57,9 +57,6 @@ Broker 설치를 완료 하려면 다음 자세한 지침을 사용 합니다.
     # Create a new directory 'ssl' and change into it
     mkdir ssl
     cd ssl
-
-    # Export
-    export SRVPASS=MyServerPassword123
     ```
 
 1. 브로커 (작업자 노드 0, 1, 2)의 각 동일한 초기 설치를 수행 합니다.
@@ -68,9 +65,6 @@ Broker 설치를 완료 하려면 다음 자세한 지침을 사용 합니다.
     # Create a new directory 'ssl' and change into it
     mkdir ssl
     cd ssl
-
-    # Export
-    export MyServerPassword123=MyServerPassword123
     ```
 
 1. 작업자 노드 각각에 아래 코드 조각을 사용 하 여 다음 단계를 실행 합니다.
@@ -142,10 +136,10 @@ Truststore를 키 저장소와 각 Kafka broker를 설정 이제 있고 올바�
     sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.key.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.keystore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.key.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
 1. 이전 변경 내용이 올바르게 적용되었는지 확인하기 위해 필요한 경우 Kafka `server.properties` 파일에 다음 줄이 있는지 확인할 수 있습니다.
@@ -153,13 +147,14 @@ Truststore를 키 저장소와 각 Kafka broker를 설정 이제 있고 올바�
     ```bash
     advertised.listeners=PLAINTEXT://10.0.0.11:9092,SSL://10.0.0.11:9093
     ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks
-    ssl.keystore.password=<server_password>
-    ssl.key.password=<server_password>
+    ssl.keystore.password=MyServerPassword123
+    ssl.key.password=MyServerPassword123
     ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks
-    ssl.truststore.password=<server_password>
+    ssl.truststore.password=MyServerPassword123
     ```
 
 1. 모든 Kafka 브로커를 다시 시작합니다.
+1. 생산자와 소비자 모두가 9093 포트에서 작동 하는지 확인 하는 생산자와 소비자 옵션을 사용 하 여 관리 클라이언트를 시작 합니다.
 
 ## <a name="client-setup-with-authentication"></a>클라이언트 설정(인증 포함)
 
@@ -169,39 +164,37 @@ Truststore를 키 저장소와 각 Kafka broker를 설정 이제 있고 올바�
 클라이언트 설정을 완료 하려면 다음 단계를 완료 합니다.
 
 1. 클라이언트 컴퓨터 (hn1)에 로그인 합니다.
-1. 클라이언트 암호를 내보냅니다. `<client_password>`를 Kafka 클라이언트 머신의 실제 관리자 암호로 바꿉니다.
 1. Java 키 저장소를 만들고 서명된 브로커용 인증서를 가져옵니다. 그런 다음, CA가 실행 중인 VM에 인증서를 복사합니다.
 1. 클라이언트 인증서 서명 CA 컴퓨터 (hn0)으로 전환 합니다.
 1. 클라이언트 머신(hn1)으로 이동한 다음, `~/ssl` 폴더로 이동합니다. 서명된 인증서를 클라이언트 머신에 복사합니다.
 
 ```bash
-export CLIPASS=<client_password>
 cd ssl
 
 # Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
 
-keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass $CLIPASS -keypass $CLIPASS -dname "CN=mylaptop1" -alias my-local-pc1 -storetype pkcs12
+keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -dname "CN=mylaptop1" -alias my-local-pc1 -storetype pkcs12
 
-keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS
+keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123"
 
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
 # Switch to the CA machine (hn0) to sign the client certificate.
 cd ssl
-openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
+openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
 # Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store
-keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
 # Import CA cert to key store
-keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
 # Import signed client (cert client-cert-signed1) to keystore
-keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
 마지막으로 `cat client-ssl-auth.properties` 명령을 사용하여 `client-ssl-auth.properties` 파일을 확인합니다. 파일에 다음 줄이 있어야 합니다.
@@ -209,10 +202,10 @@ keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -al
 ```bash
 security.protocol=SSL
 ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-ssl.truststore.password=<client_password>
+ssl.truststore.password=MyClientPassword123
 ssl.keystore.location=/home/sshuser/ssl/kafka.client.keystore.jks
-ssl.keystore.password=<client_password>
-ssl.key.password=<client_password>
+ssl.keystore.password=MyClientPassword123
+ssl.key.password=MyClientPassword123
 ```
 
 ## <a name="client-setup-without-authentication"></a>클라이언트 설정(인증 제외)
@@ -220,7 +213,6 @@ ssl.key.password=<client_password>
 인증 필요가 없는 경우에 SSL 암호화를 설정 하는 단계는:
 
 1. 클라이언트 컴퓨터(hn1)에 로그인한 다음 `~/ssl` 폴더로 이동합니다.
-1. 클라이언트 암호를 내보냅니다. `<client_password>`를 Kafka 클라이언트 머신의 실제 관리자 암호로 바꿉니다.
 1. CA 컴퓨터(wn0)에서 클라이언트 컴퓨터로 서명된 인증서를 복사합니다.
 1. 신뢰 저장소로 CA 인증서를 가져옵니다.
 1. 키 저장소로 CA 인증서를 가져옵니다.
@@ -228,17 +220,16 @@ ssl.key.password=<client_password>
 다음 코드 조각에 이러한 단계가 나와 있습니다.
 
 ```bash
-export CLIPASS=<client_password>
 cd ssl
 
 # Copy signed cert to client machine
 scp -i ~/kafka-security.pem sshuser@wn0-umakaf:/home/sshuser/ssl/ca-cert .
 
 # Import CA cert to truststore
-keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
 # Import CA cert to keystore
-keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass $CLIPASS -keypass $CLIPASS -noprompt
+keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-signed -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
 마지막으로 `cat client-ssl-auth.properties` 명령을 사용하여 `client-ssl-auth.properties` 파일을 확인합니다. 파일에 다음 줄이 있어야 합니다.
@@ -246,7 +237,7 @@ keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file cert-sig
 ```bash
 security.protocol=SSL
 ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-ssl.truststore.password=<client_password>
+ssl.truststore.password=MyClientPassword123
 ```
 
 ## <a name="next-steps"></a>다음 단계

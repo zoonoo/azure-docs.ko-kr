@@ -7,16 +7,16 @@ ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: e9a8a30d9f5f170073c0ad671a248703b1078864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d29fa8700cb1f530cfe85f0bdf6852d75ec1613e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159497"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508164"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Linux 이미지를 만들고 공유 이미지 갤러리에 배포 
 
-이 아티클에서 Azure 이미지 작성기에 이미지 버전을 만들어 사용 하는 방법을 [공유 이미지 갤러리](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries), 전역적으로 이미지를 배포 합니다.
+이 아티클에서 Azure 이미지 작성기에 이미지 버전을 만들어 사용 하는 방법을 [공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), 전역적으로 이미지를 배포 합니다.
 
 
 샘플.json 템플릿 이미지를 구성 하려면 사용 합니다. 사용 하 여.json 파일은 여기: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json)합니다. 

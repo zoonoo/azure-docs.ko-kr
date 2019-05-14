@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935743"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233938"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
+
+> [!NOTE]
+> 아래 이러한 예에서 사용 된 가격은 가상 및 실제 가격 것을 의미 하지 않습니다.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>AWS S3에서 Azure Blob Storage로 매시간 데이터 복사
 
@@ -122,13 +125,13 @@ ms.locfileid: "64935743"
   - 파이프라인 활동 = $0.00003(실행 시간의 1분에 대해 비례합니다. Azure Integration Runtime에서 $0.002/시간)
   - 외부 파이프라인 활동 = $0.000041(실행 시간의 10분에 대해 비례합니다. Azure Integration Runtime에서 $0.00025/시간)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>일반 workday에 대 한 매핑 데이터 흐름 디버그를 사용 하 여
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>(미리 보기 가격)는 일반 workday에 대 한 매핑 데이터 흐름 디버그를 사용 하 여
 
 데이터 엔지니어,으로 디자인, 빌드 및 매일 데이터 흐름 매핑 테스트를 담당 합니다. 아침 ADF UI에 로그인 하 고이 정보를 데이터 흐름에 대 한 디버그 모드를 사용 하도록 설정 합니다. 디버그 세션에 대 한 기본 TTL은 60 분입니다. 디버그 세션을 기간 제한 없음 하므로 10 시간으로 하루 종일 작동 합니다. 따라서 하루에 청구가 됩니다.
 
 **10 (시간) x 8 (코어) x $0.112 $8.96 =**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>데이터 흐름 매핑을 사용 하 여 blob 저장소에서 데이터 변환
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>데이터 흐름 (미리 보기 가격) 매핑을 사용 하 여 blob 저장소에서 데이터 변환
 
 이 시나리오에서는 ADF 매시간 일정에 매핑 데이터 흐름의 시각적으로 Blob 저장소의 데이터를 변환 하려고 합니다.
 

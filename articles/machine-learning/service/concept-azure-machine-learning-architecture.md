@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025230"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502093"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -32,9 +32,7 @@ Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 1. 해당 환경에서 실행하도록 구성된 계산 대상에 **‘스크립트를 제출’** 합니다. 학습 동안 **데이터 저장소**에서 스크립트를 읽거나 쓸 수 있습니다. 또한 실행 레코드는 **작업 영역**에서 **실행**으로 저장되고 **실험** 아래에 그룹화됩니다.
 1. **‘실험을 쿼리’** 하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
 1. 만족스러운 실행이 발견되면 **모델 레지스트리**에 지속되는 모델을 등록합니다.
-1. 점수 매기기 스크립트를 개발합니다.
-1. **이미지를 만들고** **이미지 레지스트리**에 등록합니다.
-1. Azure에서 **‘웹 서비스’** 로 **‘이미지를 배포’** 합니다.
+1. 모델을 사용 하는 점수 매기기 스크립트를 개발 및 **모델을 배포할** 으로 **웹 서비스** Azure에서 또는 **IoT Edge 장치**합니다.
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ Machine learning 워크플로 일반적으로이 순서를 따릅니다.
 
 작업 영역은 모델을 학습시키는 데 사용할 수 있는 컴퓨팅 대상 목록을 유지합니다. 또한 스크립트의 로그, 메트릭, 출력 및 스냅숏을 포함하는 학습 실행 기록을 유지합니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.
 
-모델을 작업 영역에 등록합니다. 등록된 모델 및 점수 매기기 스크립트를 사용하여 이미지를 만듭니다. 이미지를 REST 기반 HTTP 엔드포인트로 Azure Container Instances, Azure Kubernetes Service 또는 FPGA(Field-Programmable Gate Array)에 배포할 수 있습니다. 또한 이미지를 Azure IoT Edge 디바이스에 모듈로 배포할 수도 있습니다.
+모델을 작업 영역에 등록합니다. Azure Container Instances에서 Azure Kubernetes Service를 또는 프로그래밍할 수 필드 FPGA (gate array)는 REST 기반 HTTP 끝점으로 모델을 배포 하는 등록 된 모델 및 점수 매기기 스크립트를 사용 합니다. 또한 이미지를 Azure IoT Edge 디바이스에 모듈로 배포할 수도 있습니다. 내부적으로 배포 된 이미지를 호스팅하는 docker 이미지 생성 됩니다. 필요한 경우 사용자 고유의 이미지를 지정할 수 있습니다.
 
 여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. 작업 영역을 공유 하는 경우에 다음 역할에 사용자를 할당 하 여 액세스를 제어할 수 있습니다.
 
@@ -94,7 +92,7 @@ Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 
 
 모델을 등록할 때 추가 메타데이터 태그를 제공하면 모델을 검색할 때 해당 태그를 사용할 수 있습니다.
 
-이미지에서 사용되는 모델은 삭제할 수 없습니다.
+활성 배포에서 사용 중인 모델을 삭제할 수 없습니다.
 
 모델을 등록하는 예제는 [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)을 참조하세요.
 
@@ -208,11 +206,11 @@ Azure Machine Learning 서비스는 기본적으로 사용 되는 기본 이미�
 
 ## <a name="deployment"></a>배포
 
-배포는 클라우드에서 호스트될 수 있는 웹 서비스 또는 통합형 디바이스 배포를 위한 IoT 모듈로 이미지를 인스턴스화하는 것입니다.
+배포에는 클라우드에서 호스팅하는 웹 서비스 또는 통합된 장치 배포에 대 한 IoT 모듈에 모델의 인스턴스화입니다.
 
 ### <a name="web-service"></a>웹 서비스
 
-배포된 웹 서비스는 Azure Container Instances, Azure Kubernetes Service 또는 FPGA를 사용할 수 있습니다. 서비스는 모델, 스크립트 및 연결된 파일을 캡슐화하는 이미지에서 만듭니다. 이미지에는 웹 서비스에 전송된 점수 매기기 요청을 수신하는 부하 분산된 HTTP 엔드포인트가 있습니다.
+배포된 웹 서비스는 Azure Container Instances, Azure Kubernetes Service 또는 FPGA를 사용할 수 있습니다. 모델, 스크립트 및 관련된 파일에서 서비스를 만듭니다. 이러한 웹 서비스에 대 한 런타임 환경을 제공 하는 이미지에 캡슐화 됩니다. 이미지에는 웹 서비스에 전송된 점수 매기기 요청을 수신하는 부하 분산된 HTTP 엔드포인트가 있습니다.
 
 Azure에서는 이 기능을 사용하도록 선택한 경우 Application Insight 원격 분석 또는 모델 원격 분석을 수집하여 웹 서비스 배포를 모니터링할 수 있습니다. 원격 분석 데이터는 사용자만 액세스할 수 있으며 Application Insights 및 스토리지 계정 인스턴스에 저장됩니다.
 

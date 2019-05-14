@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888334"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>자습서: AirWatch와 Azure Active Directory 통합
 
@@ -207,15 +207,15 @@ AirWatch에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **개체 식별자** 텍스트 상자에 `http://schemas.microsoft.com/identity/claims/objectidentifier`를 입력합니다.
 
-    b. **사용자 이름** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
-    다. **표시 이름** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
+    다. **표시 이름** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
 
-    d. **이름** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
+    d. **이름** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`을 입력합니다.
 
-    e. **성** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
+    e. **성** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`을 입력합니다.
 
-    f. **전자 메일 주소** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
+    f. **전자 메일 주소** 텍스트 상자에 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
 
     g. **저장**을 클릭합니다.
 

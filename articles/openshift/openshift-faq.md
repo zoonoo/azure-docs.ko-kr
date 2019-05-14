@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 77e0e11582808901b10877d0d9284637145aa6f2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/08/2019
+ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078672"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466192"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -25,7 +25,7 @@ ms.locfileid: "65078672"
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>기존 가상 네트워크에 클러스터를 배포할 수 있습니까?
 
-예. 클러스터를 만들 때 기존 가상 네트워크에 Azure Red Hat OpenShift 클러스터를 배포할 수 있습니다. 참조를 [기존 가상 네트워크는 클러스터의 가상 네트워크를 연결할 ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 세부 정보에 대 한 합니다.
+아니요. 하지만 Azure Red Hat OpenShift 클러스터를 피어 링을 통해 기존 VNET을 연결할 수 있습니다. 참조 [기존 가상 네트워크는 클러스터의 가상 네트워크를 연결할 ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 세부 정보에 대 한 합니다.
 
 ## <a name="what-cluster-operations-are-available"></a>클러스터 작업에 사용할 수 있습니까?
 

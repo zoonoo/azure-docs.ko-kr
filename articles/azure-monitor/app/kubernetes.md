@@ -2,18 +2,18 @@
 title: Azure Monitor-0 계측 응용 프로그램 Kubernetes에 대 한 호스 티 드 앱 모니터링 | Microsoft Docs
 description: 0 계측 응용 프로그램 호스트 된 Kubernetes 앱에 대 한 모니터링은 모니터링 솔루션에서 Kubernetes 클러스터에서 실행 되는 pod에서 들어오고 나가는 요청에 관련 된 Application Insights 원격 분석을 수집할 수입니다. 서비스 메시 기술을 활용 하 여 Istio 호출 됩니다.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149887"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408219"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>호스 티 드 앱 Kubernetes 0 계측 응용 프로그램 모니터링
 

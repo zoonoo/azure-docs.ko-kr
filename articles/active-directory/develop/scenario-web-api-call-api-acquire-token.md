@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada4323b0e61c6dc9fb87af133c40ec9c35e3834
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 986e2e0f8a481d61dc870af2548290658b44d2d3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074982"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231104"
 ---
 # <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>웹 Api를 호출 하는 web API 앱에 대 한 토큰을 획득
 
@@ -49,7 +49,7 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` 문서의 살펴봤습니다 비슷합니다 [Web API를 호출 하는 web Api-앱 구성](scenario-web-api-call-api-app-configuration.md)합니다. `BuildConfidentialClient()` 인스턴스화합니다 `IConfidentialClientApplication` 하나의 계정에 대 한 정보만 포함 하는 캐시를 사용 하 여 합니다. 계정이 제공한는 `GetAccountIdentifier` 메서드.
+`BuildConfidentialClient()` 문서의 살펴봤습니다 비슷합니다 [Web API를 호출 하는 web Api-앱 구성](scenario-web-api-call-api-app-configuration.md)합니다. `BuildConfidentialClient()` 인스턴스화합니다 `IConfidentialClientApplication` 하나의 계정에 대 한 정보만 포함 하는 캐시를 사용 하 여 합니다. 계정에서 제공 되는 `GetAccountIdentifier` 메서드.
 
 `GetAccountIdentifier` 메서드는 웹 API는 JWT를 받은 사용자의 id와 연결 된 클레임을 사용 합니다.
 

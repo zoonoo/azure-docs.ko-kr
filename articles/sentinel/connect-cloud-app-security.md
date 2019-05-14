@@ -4,7 +4,7 @@ description: Cloud App Security 데이터 Azure Sentinel를 연결 하는 방법
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: cd9e5e27-fdd4-4717-8924-be4c1c430f23
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5a7dfeed7b52453b38720c21c7d213679b8d2854
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a418bb318654752eaf48ffbdd05b80cabb487ece
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597135"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207560"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security에서 데이터 연결 
 
@@ -41,7 +41,7 @@ Cloud App Security 배포 되 고 데이터를 수집, 경고 데이터를 쉽�
 
 1. Azure Sentinel 선택 **데이터 커넥터** 클릭 하 고는 **Cloud App Security** 바둑판식으로 배열 합니다.
 
-2. **Connect**를 클릭합니다.
+2. **연결**을 클릭합니다.
 
 3. Log Analytics에서 관련 스키마를 사용 하 여 Cloud App Security 경고, 검색 **SecurityAlert**합니다.
 

@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148002"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508399"
 ---
-# <a name="fine-tune-text-to-speech-output"></a>텍스트 음성 변환 출력을 미세 조정
+# <a name="fine-tune-text-to-speech-output"></a>텍스트 음성 변환 출력 미세 조정
 
 Azure 음성 서비스를 사용 하면 속도, 발음, 볼륨, 피치 및 사용 하 여 출력 하는 텍스트 음성 변환의 윤곽선에 맞게 [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)합니다. SSML은 어떤 기능을 조정 해야 하는 방법에 대 한 서비스를 알리기 위해 태그를 사용 하는 XML 기반 태그 언어입니다. SSML 메시지 텍스트 음성 변환 서비스로 각 요청의 본문에 전송 됩니다. 사용자 지정 프로세스를 간단 하 게 Speech Services 이제 제공 된 [음성 튜닝](https://aka.ms/voicetuning) 수 있는 도구를 시각적으로 검사 하 고 미세 조정 텍스트 음성 변환 출력을 실시간으로 합니다.
 
@@ -28,9 +28,9 @@ Azure 음성 서비스를 사용 하면 속도, 발음, 볼륨, 피치 및 사�
 음성 조정 도구를 사용 하 여 텍스트 음성 변환 출력을 미세 조정을 시작 하기 전에 이러한 단계를 완료 해야 합니다.
 
 1. 만들기는 [무료 Microsoft 계정](https://account.microsoft.com/account) 아직 없는 경우.
-2. 만들기는 [무료 Azure 계정](https://azure.microsoft.com/en-us/free/) 아직 없는 경우. 클릭 **무료 시작**, Microsoft 계정을 사용 하는 새 Azure 계정을 만듭니다.
+2. 만들기는 [무료 Azure 계정](https://azure.microsoft.com/free/) 아직 없는 경우. 클릭 **무료 시작**, Microsoft 계정을 사용 하는 새 Azure 계정을 만듭니다.
 
-3. Azure portal에서 음성 서비스 구독을 만듭니다. 에 대 한 단계별 지침은 [음성 리소스를 만드는 방법](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) 사용할 수 있습니다.
+3. Azure portal에서 음성 서비스 구독을 만듭니다. 에 대 한 단계별 지침은 [음성 리소스를 만드는 방법](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) 사용할 수 있습니다.
    >[!NOTE]
    >Azure portal에서 음성 리소스를 만들 때 Azure 위치 정보를 TTS 음성 영역과 일치 해야 합니다. 신경망 TTS 음성 Azure 위치를 하위 집합을 지원합니다. 지원의 전체 목록을 참조 하세요 [지역](regions.md#text-to-speech)합니다.
 
@@ -70,6 +70,6 @@ Azure 음성 서비스를 사용 하면 속도, 발음, 볼륨, 피치 및 사�
 > 음성 조정 도구 기능 및 튜닝 하는 방법에 대 한 컨텍스트 정보를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure에서 음성 리소스 만들기](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Azure에서 음성 리소스 만들기](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [음성 조정 시작](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)

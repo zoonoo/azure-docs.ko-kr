@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025110"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470277"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
-이 자습서에서는 [Python용 Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)를 사용하여 회귀 모델링을 위해 데이터를 준비하는 방법을 배웁니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.
+이 자습서에서는 [Azure Machine Learning용 데이터 준비 패키지](https://aka.ms/data-prep-sdk)를 사용하여 회귀 모델링 데이터를 준비하는 방법에 대해 알아봅니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.
 
 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다. 이 자습서 시리즈를 마치면 데이터 기능에 대해 모델을 학습하여 택시 운행 비용을 예측할 수 있습니다. 이러한 기능으로는 날짜 및 시간, 승객 수, 위치 선택이 포함됩니다.
 

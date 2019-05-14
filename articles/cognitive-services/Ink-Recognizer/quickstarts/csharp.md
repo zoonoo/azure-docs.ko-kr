@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: f03593292289cbc093832667505da2738c2b1633
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: 800cf66e15c25540eac4809a27317598b72b8124
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026785"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406751"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: 잉크 인식기 REST API를 사용 하 여 디지털 잉크를 인식 하 고C#
 
@@ -36,7 +36,7 @@ ms.locfileid: "65026785"
         1. 마우스 오른쪽 단추로 클릭는 **솔루션 관리자**
         2.  **NuGet 패키지 관리...**
         3. 검색할 `Newtonsoft.Json` 패키지 및 설치
-- Linux/MacOS를 사용 하는 경우이 응용 프로그램 실행할 수 있습니다 사용 하 여 [Mono](http://www.mono-project.com/)합니다.
+- Linux/MacOS를 사용 하는 경우이 응용 프로그램 실행할 수 있습니다 사용 하 여 [Mono](https://www.mono-project.com/)합니다.
 
 - 이 빠른 시작 예제 잉크 스트로크 데이터에서 찾을 수 있습니다 [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502)합니다.
 
@@ -167,9 +167,9 @@ public static JObject LoadJson(string fileLocation){
 > [REST API 참조](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-잉크 인식 API를 디지털 잉크 입력 기능 앱에서 작동 하는 방법을 보려면 하려면 GitHub에서 다음 샘플 응용 프로그램에서 확인을 수행 합니다.
-* [C#및 유니버설 Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#및 Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+Ink Recognizer API가 디지털 잉크 입력 앱에서 어떻게 작동하는지 알아보려면 GitHub에서 다음 샘플 애플리케이션을 살펴보세요.
+* [C# 및 UWP(유니버설 Windows 플랫폼)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# 및 WPF(Windows Presentation Foundation)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Javascript 웹 브라우저 앱](https://go.microsoft.com/fwlink/?linkid=2089908)       
 * [Java 및 Android 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089906)
 * [Swift 및 iOS 모바일 앱](https://go.microsoft.com/fwlink/?linkid=2089805)

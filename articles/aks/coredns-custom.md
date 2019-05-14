@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jnoller
-ms.openlocfilehash: 9186c5ff7c6fbc68487a1ccff0fc1d2d1478df79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ff1ee03b8ac170def03576d3bf99c70957b2a8b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466453"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507957"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용 하 여 CoreDNS 사용자 지정
 
@@ -29,48 +29,13 @@ AKS 관리 되는 서비스 이므로 CoreDNS에 대 한 기본 구성을 수정
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터에 필요한 경우 참조 [Azure CLI를 사용 하 여] AKS 빠른 시작 [aks-빠른 시작-cli] [Azure portal을 사용 하 여] 또는 [aks 빠른 시작-포털].
 
-## <a name="change-the-dns-ttl"></a>DNS TTL을 변경
+## <a name="what-is-supportedunsupported"></a>지원/지원 되지 않는 새로운 기능
 
-CoreDNS에서 구성 하려는 경우 시나리오 중 하나를 낮추거나 DNS 이름을 캐시 하는 것에 대 한 TTL (Live) 설정에 시간을 발생 시킵니다. 이 예제에서는 TTL 값을 변경 하겠습니다. 기본적으로이 값은 30 초입니다. DNS 캐시 옵션에 대 한 자세한 내용은 참조는 [공식 CoreDNS docs][dnscache]합니다.
-
-다음 예제 ConfigMap을 `name` 값입니다. 기본적으로 자체 CoreFile를 수정 하는 것이 유형의 사용자 지정 CoreDNS에서는. AKS를 사용 하는 *coredns-사용자 지정* ConfigMap 자신만 구성을 통합 하 고 주 CoreFile 후 로드 됩니다.
-
-다음 예제에서는 CoreDNS 하는 모든 도메인에 대 한 (으로 표시 합니다 `.` 에서 `.:53`), 53 (기본 DNS 포트) 포트, 캐시 TTL 15로 설정 (`cache 15`). 라는 파일을 만들고 `coredns-custom.json` 다음 예제에서는 구성을 붙여 넣습니다.
-
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
-  namespace: kube-system
-data:
-  test.server: | # you may select any name here, but it must end with the .server file extension
-    .:53 {
-        cache 15  # this is our new cache value
-    }
-```
-
-사용 하 여 ConfigMap 만듭니다는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정:
-
-```console
-kubectl apply configmap coredns-custom.json
-```
-
-사용자 지정 항목 적용 되었는지 확인 하려면 사용 합니다 [kubectl get configmaps] [ kubectl-get] 지정에 *coredns-사용자 지정* ConfigMap:
-
-```
-kubectl get configmaps coredns-custom -o yaml
-```
-
-이제 CoreDNS ConfigMap을 다시 로드를 강제 합니다. [kubectl 삭제 pod] [ kubectl delete] 명령을 삭제 되지 않으며 가동 중지 시간이 발생 하지 않습니다. `kube-dns` pod 삭제 되 고 Kubernetes 스케줄러에서 다음 다시 만듭니다. 이러한 새 pod 변경 된 TTL 값을 포함합니다.
-
-```console
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
-```
+모든 기본 제공 CoreDNS 플러그 인이 지원 됩니다. 추가 시/제 3 자 플러그 인을 찾지 지원 됩니다.
 
 ## <a name="rewrite-dns"></a>Rewrite DNS
 
-해야 하는 한 가지 시나리오 즉석에서 DNS 이름을 다시 쓰기를 수행 하는 것입니다. 다음 예제에서는 대체 `<domain to be written>` 사용 하는 정규화 된 도메인 이름입니다. 라는 파일을 만들고 `coredns-custom.json` 다음 예제에서는 구성을 붙여 넣습니다.
+해야 하는 한 가지 시나리오 즉석에서 DNS 이름을 다시 쓰기를 수행 하는 것입니다. 다음 예제에서는 대체 `<domain to be written>` 사용 하는 정규화 된 도메인 이름입니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -88,16 +53,30 @@ data:
     }
 ```
 
-이전 예에서 같이 사용 하 여 ConfigMap을 만들기는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS ConfigMap를 통해 다시 로드를 강제 합니다 [kubectl pod를 삭제] [ kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
+사용 하 여 ConfigMap 만듭니다는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정:
 
 ```console
-kubectl apply configmap coredns-custom.json
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl apply -f corednsms.json
 ```
+
+사용자 지정 항목 적용 되었는지 확인 하려면 사용 합니다 [kubectl get configmaps] [ kubectl-get] 지정에 *coredns-사용자 지정* ConfigMap:
+
+```
+kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
+```
+
+이제 CoreDNS ConfigMap을 다시 로드를 강제 합니다. [kubectl 삭제 pod] [ kubectl delete] 명령을 삭제 되지 않으며 가동 중지 시간이 발생 하지 않습니다. `kube-dns` pod 삭제 되 고 Kubernetes 스케줄러에서 다음 다시 만듭니다. 이러한 새 pod 변경 된 TTL 값을 포함합니다.
+
+```console
+kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+```
+
+> [!Note]
+> 위의 명령을 올바릅니다. 이 예에서는 변경 하는 동안 `coredns`, 배포 중인 합니다 **kube-dns** 이름입니다.
 
 ## <a name="custom-proxy-server"></a>사용자 지정 프록시 서버
 
-네트워크 트래픽에 대 한 프록시 서버를 지정 하는 경우 DNS에 맞게 ConfigMap을 만들 수 있습니다. 다음 예제에서는 업데이트 된 `proxy` 이름 및 고유한 환경에 대 한 값을 사용 하 여 주소입니다. 라는 파일을 만들고 `coredns-custom.json` 다음 예제에서는 구성을 붙여 넣습니다.
+네트워크 트래픽에 대 한 프록시 서버를 지정 하는 경우 DNS에 맞게 ConfigMap을 만들 수 있습니다. 다음 예제에서는 업데이트 된 `proxy` 이름 및 고유한 환경에 대 한 값을 사용 하 여 주소입니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +94,7 @@ data:
 이전 예제에서와 같이 사용 하 여 ConfigMap을 만들기는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS ConfigMap를 통해 다시 로드를 강제 합니다 [kubectl pod를 삭제] [ kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
-kubectl apply configmap coredns-custom.json
+kubectl apply -f corednsms.json
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
@@ -123,7 +102,7 @@ kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 
 내부적으로 확인 될 수만 있는 사용자 지정 도메인을 구성 하려는 경우. 사용자 지정 도메인을 확인 하려는 하는 예를 들어 *puglife.local*, 유효한 최상위 도메인을 아닌 합니다. 사용자 지정 도메인 ConfigMap 없이 AKS 클러스터 주소를 확인할 수 없습니다.
 
-다음 예제에서는 자체 환경에 대 한 값을 사용 하 여에 트래픽을 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `coredns-custom.json` 다음 예제에서는 구성을 붙여 넣습니다.
+다음 예제에서는 자체 환경에 대 한 값을 사용 하 여에 트래픽을 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -143,13 +122,13 @@ data:
 이전 예제에서와 같이 사용 하 여 ConfigMap을 만들기는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS ConfigMap를 통해 다시 로드를 강제 합니다 [kubectl pod를 삭제] [ kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
-kubectl apply configmap coredns-custom.json
+kubectl apply -f corednsms.json
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
 ## <a name="stub-domains"></a>스텁 도메인
 
-CoreDNS 스텁 도메인 구성에 사용할 수 있습니다. 다음 예제에서는 자체 환경에 대 한 값을 사용 하 여 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `coredns-custom.json` 다음 예제에서는 구성을 붙여 넣습니다.
+CoreDNS 스텁 도메인 구성에 사용할 수 있습니다. 다음 예제에서는 자체 환경에 대 한 값을 사용 하 여 사용자 지정 도메인 및 IP 주소를 업데이트 합니다. 라는 파일을 만들고 `corednsms.json` 다음 예제에서는 구성을 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -158,6 +137,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
+  test.server: |
     abc.com:53 {
         errors
         cache 30
@@ -168,13 +148,32 @@ data:
         cache 30
         proxy . 2.3.4.5
     }
+
 ```
 
 이전 예제에서와 같이 사용 하 여 ConfigMap을 만들기는 [kubectl 적용 configmap] [ kubectl-apply] 명령 및 YAML 매니페스트의 이름을 지정 합니다. 그런 다음 CoreDNS ConfigMap를 통해 다시 로드를 강제 합니다 [kubectl pod를 삭제] [ kubectl delete] 다시 만드는 데 Kubernetes 스케줄러에 대 한:
 
 ```console
-kubectl apply configmap coredns-custom.json
+kubectl apply -f corednsms.json
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+```
+
+## <a name="hosts-plugin"></a>호스트 플러그 인
+
+모든 기본 제공 플러그 인 지원 되는 CoreDNS 즉 [호스트] [ coredns hosts] 플러그 인은도 사용자 지정할 수 있습니다.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
+  namespace: kube-system
+data:
+    test.override: |
+          hosts example.hosts example.org { # example.hosts must be a file
+              10.0.0.1 example.org
+              fallthrough
+          }
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -191,6 +190,7 @@ kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[coredns hosts]: https://coredns.io/plugins/hosts/
 
 <!-- LINKS - external -->
 [concepts-network]: concepts-network.md

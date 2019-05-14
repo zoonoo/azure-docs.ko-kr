@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 32870f37781b4161de692af91c79fe47efb3737e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4022c95bfda8cbdaed75876793bfbba4254a5c54
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077322"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410261"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database for PostgreSQL-하이퍼 스케일 (Citus) (미리 보기)의 PostgreSQL 확장
 
@@ -31,7 +31,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
 > | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
@@ -67,7 +67,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 텍스트 검색 사전 템플릿이 확장된 동의어 처리 합니다. |
@@ -76,7 +76,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [bloom](https://www.postgresql.org/docs/current/bloom.html) | Bloom 액세스 방법-서명 파일 기반 인덱스입니다. |
 > | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 특정 데이터 형식에 대해 B-트리 유사 동작을 구현하는 샘플 GIN 연산자 클래스를 제공합니다. |
@@ -85,14 +85,14 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 
 ### <a name="hyperscale-extensions"></a>대규모 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. |
 > | 분할 된 데이터베이스\_rebalancer | 노드 추가 또는 제거 하는 경우 서버 그룹의 데이터를 안전 하 게 리 밸런스 합니다. |
@@ -100,7 +100,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | PostgreSQL에 대 한 관리 기능입니다. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 관계 무결성을 확인 하기 위한 함수입니다. |
@@ -126,9 +126,9 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |
 > | postgis\_sfcgal | PostGIS SFCGAL 함수입니다. |
 > | postgis\_tiger\_geocoder | PostGIS tiger geocoder 및 역방향 geocoder 합니다. |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073367"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232769"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -94,7 +94,7 @@ Azure Backup은 premium 파일 공유에 사용할 수 있는 및 Azure Kubernet
 
 최상의 노력 원칙에 따라 모든 공유는 60분 이상의 기간 동안(공유 크기별로 다름) 프로비전된 저장소 용량(GiB)당 IOPS를 3개까지 버스트할 수 있습니다. 새 공유에는 프로비전된 용량을 기준으로 전체 버스트 크레딧이 초기 제공됩니다.
 
-공유 1 GiB 단위로 프로 비전 되어야 합니다. 최소 크기가 100gib를 다음 크기 101 GIB 등.
+공유 1 GiB 단위로 프로 비전 되어야 합니다. 최소 크기가 100gib를 다음 크기 101 GiB 등.
 
 > [!TIP]
 > 기준 IOPS = 1 * GiB 프로 비전 합니다. (최대 최대 100,000 개의 IOPS).

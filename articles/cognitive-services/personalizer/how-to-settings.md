@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026687"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143254"
 ---
 # <a name="personalizer-settings"></a>Personalizer 설정
 
 서비스 구성에는 서비스의 보상 처리 방법, 서비스의 탐색 빈도, 모델을 다시 학습하는 빈도 및 저장할 데이터의 양이 포함됩니다.
 
+## <a name="create-personalizer-resource"></a>Personalizer 리소스 만들기
+
 각 피드백 루프에 대한 Personalizer 리소스를 만듭니다. 
+
+1. [Azure 포털](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)에 로그인합니다. 이전 링크를 클릭하면 Personlizer 서비스의 **만들기** 페이지로 이동합니다. 
+1. 서비스 이름을 입력하고 구독, 위치, 가격 책정 계층 및 리소스 그룹을 선택합니다.
+1. 확인을 선택하고 **만들기**를 선택합니다.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Azure Portal에서 서비스 설정 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)에 로그인합니다.
 1. Personalizer 리소스를 찾습니다. 
 1. **리소스 관리** 섹션에서 **설정**을 선택합니다.
 
-    ![Azure 포털에 로그인합니다. Personalizer 리소스를 찾습니다. [리소스 관리] 섹션에서 [설정]을 선택합니다.](media/settings/how-to-configure.png)
+    Azure Portal을 벗어나기 전에 **키** 페이지에서 리소스 키 중 하나를 복사합니다. 이 정보는 [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs)를 사용할 때 필요합니다.
 
-### <a name="reward-settings-for-the-feedback-loop"></a>피드백 루프에 대한 보상 설정
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>사용 사례 기반 피드백 루프에 대한 보상 설정 구성
 
 피드백 루프의 보상 사용에 대한 서비스 설정을 구성합니다. 다음 설정을 변경하면 현재 Personalizer 모델이 초기화되고 최근 2일의 데이터로 재학습됩니다.
 
@@ -81,4 +87,4 @@ ms.locfileid: "65026687"
 
 ## <a name="next-steps"></a>다음 단계
 
-[보충 학습](concepts-reinforcement-learning.md) 
+[Personalizer 컨테이너를 사용하는 방법](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

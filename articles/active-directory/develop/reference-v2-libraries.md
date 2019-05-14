@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory v2.0 인증 라이브러리 | Microsoft Docs
-description: Azure Active Directory v2.0 엔드포인트에 대한 호환 가능한 클라이언트 라이브러리 및 서버 미들웨어 라이브러리 및 관련된 라이브러리, 원본 및 샘플 링크.
+title: Microsoft id 플랫폼 인증 라이브러리 | Microsoft Docs
+description: 호환 가능한 클라이언트 라이브러리 및 서버 미들웨어 라이브러리 및 관련된 라이브러리, 원본 및 Microsoft id 플랫폼 끝점에 대 한 샘플 링크.
 services: active-directory
 documentationcenter: ''
 author: negoe
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 05/07/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda17994f0279c975682b52449c71ef88a252401
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e7678969f58e650382ff2ed478784f4d0107f6e0
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139304"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441549"
 ---
-# <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 인증 라이브러리
+# <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft id 플랫폼 인증 라이브러리
 
-[Azure AD(Azure Active Directory) v2.0 엔드포인트](active-directory-v2-compare.md)는 산업 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원합니다. MSAL(Microsoft Authentication Library)은 Azure AD v2.0 엔드포인트에서 작동하도록 설계되었습니다. 또한 OAuth 2.0 및 OpenID Connect 1.0을 지원하는 오픈 소스 라이브러리를 사용할 수도 있습니다.
+합니다 [Microsoft id 플랫폼 끝점](active-directory-v2-compare.md) 은 산업 표준 OAuth 2.0 및 OpenID Connect 1.0 프로토콜을 지원 합니다. Microsoft 인증 라이브러리 (MSAL)는 Microsoft id 플랫폼 끝점을 사용 하 여 작동 하도록 설계 되었습니다. 또한 OAuth 2.0 및 OpenID Connect 1.0을 지원하는 오픈 소스 라이브러리를 사용할 수도 있습니다.
 
 [Microsoft에서 따르는 방법론][Microsoft-SDL]과 같은 SDL(보안 개발 수명 주기) 방법론을 따르는 프로토콜 도메인 전문가가 작성한 라이브러리를 사용하는 것이 좋습니다. 프로토콜에 대한 코드를 직접 지원하려는 경우 Microsoft의 SDL 방법론을 따르고 각 프로토콜에 대한 표준 사양의 보안 고려 사항에 세심한 주의를 기울여야 합니다.
 
 > [!NOTE]
-> ADAL(Azure AD v1.0 라이브러리)에 대한 내용을 찾으시나요? [ADAL 라이브러리 가이드](active-directory-authentication-libraries.md)를 참조하세요.
+> Azure AD 인증 라이브러리 (ADAL)를 찾으시나요? [ADAL 라이브러리 가이드](active-directory-authentication-libraries.md)를 참조하세요.
 
 ## <a name="types-of-libraries"></a>라이브러리 유형
 
-Azure AD v2.0 엔드포인트에서는 두 가지 유형의 라이브러리를 사용할 수 있습니다.
+Microsoft id 플랫폼 끝점 두 가지 유형의 라이브러리를 사용 하 여 작동합니다.
 
 * **클라이언트 라이브러리**: 네이티브 클라이언트 및 서버는 클라이언트 라이브러리를 사용하여 Microsoft Graph와 같은 리소스를 호출하기 위한 액세스 토큰을 가져옵니다.
 * **서버 미들웨어 라이브러리**: 웹앱은 사용자 로그인에 서버 미들웨어 라이브러리를 사용합니다. 웹 API는 서버 미들웨어 라이브러리를 사용하여 네이티브 클라이언트 또는 다른 서버에서 전송되는 토큰의 유효성을 검사합니다.
@@ -46,9 +46,9 @@ Azure AD v2.0 엔드포인트에서는 두 가지 유형의 라이브러리를 �
 라이브러리는 두 지원 범주로 제공됩니다.
 
 * **Microsoft 지원**: Microsoft는 이러한 라이브러리에 대한 수정 프로그램을 제공하며, 이러한 라이브러리에 대한 SDL 실사를 완료했습니다.
-* **호환 가능**: Microsoft는 기본 시나리오에서 이러한 라이브러리를 테스트하고 v2.0 엔드포인트에서 작동하는지를 확인했습니다. Microsoft는 이러한 라이브러리에 대한 수정 사항을 제공하지 않으며 이러한 라이브러리의 검토를 완료하지 않았습니다. 문제 및 기능 요청은 라이브러리의 오픈 소스 프로젝트로 리디렉션되어야 합니다.
+* **호환 가능**: Microsoft가 기본 시나리오에서 이러한 라이브러리를 테스트 하 고 Microsoft id 플랫폼 끝점을 사용 하 여 작동 하는지 확인 합니다. Microsoft는 이러한 라이브러리에 대한 수정 사항을 제공하지 않으며 이러한 라이브러리의 검토를 완료하지 않았습니다. 문제 및 기능 요청은 라이브러리의 오픈 소스 프로젝트로 리디렉션되어야 합니다.
 
-v2.0 엔드포인트를 사용하는 라이브러리 목록은 이 문서의 다음 섹션을 참조하세요.
+에서 Microsoft id 플랫폼 끝점을 사용 하는 라이브러리 목록은이 문서의 다음 섹션을 참조 하세요.
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft 지원 클라이언트 라이브러리
 
@@ -56,10 +56,12 @@ v2.0 엔드포인트를 사용하는 라이브러리 목록은 이 문서의 다
 
 | 플랫폼 | 라이브러리 | 다운로드 | 소스 코드 | 샘플 | 참조 | 개념 문서 | 로드맵 |
 | --- | --- | --- | --- | --- | --- | --- | ---|
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js(미리 보기) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [참조](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)| [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [단일 페이지 앱](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [참조](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [개념 문서](msal-overview.md)| [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular(미리 보기) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
-| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET(미리 보기) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [데스크톱 앱](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [데스크톱 앱](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![Python](media/sample-v2-code/logo_python.png) | MSAL Python (미리 보기) | [PyPI](https://pypi.org/project/msal) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [샘플](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
+| ![자바](media/sample-v2-code/logo_java.png) | MSAL Java (미리 보기) | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | | | [로드맵](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | MSAL obj_c (미리 보기) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 앱](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
 |![Android/Java](media/sample-v2-code/logo_Android.png) | MSAL(미리 보기) | [중앙 리포지토리](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 앱](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
 
@@ -86,16 +88,16 @@ v2.0 엔드포인트를 사용하는 라이브러리 목록은 이 문서의 다
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | ![iOS](media/sample-v2-code/logo_iOS.png) ![Android](media/sample-v2-code/logo_Android.png) | [React Native 앱 인증](https://github.com/FormidableLabs/react-native-app-auth) | [버전 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native 앱 인증](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-표준 준수 라이브러리의 경우 v2.0 끝점을 사용할 수 있으므로 지원하려는 위치를 알아야 합니다.
+모든 표준 호환 라이브러리에 대 한 Microsoft id 플랫폼 끝점을 사용할 수 있으므로 것이 중요 지원을 위해 이동할 위치를 알아야 합니다.
 
 * 라이브러리 코드에서 문제 및 새 기능 요청은 라이브러리 소유자에게 문의합니다.
 * 서비스 측 프로토콜 구현에서 문제 및 새 기능 요청은 Microsoft로 문의합니다.
 * 프로토콜에서 확인하려는 추가 기능에 대한 [기능 요청을 작성합니다](https://feedback.azure.com/forums/169401-azure-active-directory).
-* Azure AD v2.0 엔드포인트가 OAuth 2.0 또는 OpenID Connect 1.0과 호환되지 않는 문제가 발견되면 [지원 요청을 만듭니다](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+* [지원 요청을 만드는](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) Microsoft id 플랫폼 끝점 OAuth 2.0 또는 OpenID Connect 1.0과 호환 되지 않는 문제가 발견 하는 경우.
 
 ## <a name="related-content"></a>관련 콘텐츠
 
-Azure AD v2.0 엔드포인트에 대한 자세한 내용은 [Azure AD 앱 모델 v2.0 개요][AAD-App-Model-V2-Overview]를 참조하세요.
+Microsoft id 플랫폼 끝점에 대 한 자세한 내용은 참조는 [Microsoft id 플랫폼 개요][AAD-App-Model-V2-Overview]합니다.
 
 <!--Image references-->
 

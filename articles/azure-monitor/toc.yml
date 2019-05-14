@@ -131,6 +131,8 @@
           href: platform/alerts-common-schema.md
         - name: 작업 규칙
           href: platform/alerts-action-rules.md
+        - name: 변경 분석
+          href: app/change-analysis.md
     - name: 데이터 가상화
       href: visualizations.md
     - name: 파트너 통합

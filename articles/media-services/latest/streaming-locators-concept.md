@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24ee700e326ef61aa6a93aae725e85e7b4780edf
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466734"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465031"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
@@ -34,7 +34,7 @@ ms.locfileid: "61466734"
 
 ## <a name="associate-filters-with-streaming-locators"></a>스트리밍 로케이터를 사용 하 여 연결 필터
 
-목록을 지정할 수 있습니다 [자산 또는 계정 필터](filters-concept.md)에 적용 되는 것에 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)합니다. 합니다 [동적 packager](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [dyanamic 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 필터를 적용 하 고 싶지만 필터 이름을 URL에 노출 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
+목록을 지정할 수 있습니다 [자산 또는 계정 필터](filters-concept.md)에 적용 되는 것에 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)합니다. 합니다 [동적 packager](dynamic-packaging-overview.md) 이 목록을 함께 클라이언트 URL에 지정 된 필터를 적용 합니다. 이 조합에서는 오류가 발생 하는 [동적 매니페스트](filters-dynamic-manifest-overview.md), URL에 대 한 필터 + 스트리밍 로케이터에 지정 하는 필터를 기준으로 하는 합니다. 필터를 적용 하 고 싶지만 필터 이름을 URL에 노출 하지 않으려는 경우이 기능을 사용 하는 것이 좋습니다.
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>필터, 순서 및 스트리밍 로케이터 엔터티 페이지
 

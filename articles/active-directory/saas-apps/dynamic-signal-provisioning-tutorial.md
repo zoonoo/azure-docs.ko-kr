@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: fec6a7e3433eb5d657deac8c1b2ceb327f8d32e4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159407"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470585"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Dynamic Signal 구성
 
@@ -84,7 +84,7 @@ Dynamic Signal 자동 사용자를 Azure AD를 사용 하 여 프로 비전을 �
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Azure AD에서 Dynamic Signal에 대 한 자동 사용자 프로 비전을 구성 합니다.
 
-1. 에 로그인 합니다 [Azure portal](https://portal.azure.com) 선택한 **엔터프라이즈 응용 프로그램**를 선택 **모든 응용 프로그램**을 선택한 후 **Dynamic Signal**합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 선택 **엔터프라이즈 응용 프로그램**을 선택한 후 **모든 응용 프로그램**합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -104,11 +104,11 @@ Dynamic Signal 자동 사용자를 Azure AD를 사용 하 여 프로 비전을 �
 
 6. Dynamic Signal 관리 콘솔에서로 이동 **관리 > 고급 > API**합니다.
 
-    ![Dynamic Signal 프로 비전](./media/dynamicsignal-provisioning-tutorial/secret-token-1.png)
+    ![Dynamic Signal 프로 비전](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
     복사 합니다 **SCIM API URL** 하 **테 넌 트 URL**합니다. 클릭할 **새 토큰 생성** 생성 하는 **전달자 토큰** 값을 복사한 **비밀 토큰**합니다.
 
-    ![Dynamic Signal 프로 비전](./media/dynamicsignal-provisioning-tutorial/secret-token-2.png)
+    ![Dynamic Signal 프로 비전](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
 7. 5 단계에서에서 표시 된 필드를 채우면 클릭 **연결 테스트** 를 azure AD는 Dynamic Signal에 연결할 수 있습니다. 연결에 실패 하면 Dynamic Signal 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
@@ -122,11 +122,11 @@ Dynamic Signal 자동 사용자를 Azure AD를 사용 하 여 프로 비전을 �
 
 10. 아래는 **매핑을** 섹션에서 **동기화 할 Azure Active Directory 사용자를 Dynamic Signal**합니다.
 
-    ![Dynamic Signal 사용자 매핑](media/dynamicsignal-provisioning-tutorial/user-mappings.png)
+    ![Dynamic Signal 사용자 매핑](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
 11. Dynamic signal에서 Azure AD에서 동기화 되는 사용자 특성을 검토 합니다 **특성 매핑** 섹션입니다. 으로 선택한 특성 **일치** 속성 업데이트 작업에 대 한 Dynamic Signal에서 사용자 계정을 일치 시키는 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Keeper 사용자 특성](media/dynamicsignal-provisioning-tutorial/user-mapping-attributes.png)
+    ![Dynamic Signal 사용자 특성](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -160,7 +160,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

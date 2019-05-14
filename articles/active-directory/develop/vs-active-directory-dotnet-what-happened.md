@@ -13,12 +13,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249804"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413999"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
@@ -145,7 +145,7 @@ ms.locfileid: "60249804"
 
 ### <a name="file-backup-visual-studio-2015"></a>파일 백업(Visual Studio 2015)
 
-Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 파일을 백업합니다. 영향을 받는 모든 파일은 `Backup/AzureAD` 폴더에 저장됩니다. Visual Studio 2017은 백업을 만들지 않습니다.
+Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 파일을 백업합니다. 영향을 받는 모든 파일은 `Backup/AzureAD` 폴더에 저장됩니다. Visual Studio 2017 이상 백업을 만들지 않습니다.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

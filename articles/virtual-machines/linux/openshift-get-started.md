@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ebd10544331d3b7d887124542fe4ee2753c714
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542427"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233148"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
@@ -34,15 +34,15 @@ OpenShift는 컨테이너 오케스트레이션 및 관리를 위한 Kubernetes�
 
 사용할 수는 OpenShift의 여러 버전이 있습니다.  이러한 버전 중 2 개만 고객이 Azure에 배포 하는 데 현재 사용할 수 있습니다. OpenShift Container Platform 및 OKD (이전의 OpenShift Origin).
 
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+Microsoft Azure의 Red Hat OpenShift는 Azure에서 실행 되는 OpenShift의 완전히 관리 되는 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 전체 설명서 수 [여기](https://docs.microsoft.com/azure/openshift/)합니다. 
+
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
 Container Platform은 Red Hat이 제공하고 지원하는 엔터프라이즈급 [상용](https://www.openshift.com) 버전입니다. 이 버전을 통해 고객은 OpenShift Container Platform에 필요한 자격을 구매하고 전체 인프라의 설치 및 관리를 담당합니다.
 
 고객이 전체 플랫폼 "소유" 하기 때문에 해당 온-프레미스 데이터 센터 또는 공용 클라우드 (예: Azure)에서 설치할 수 있습니다.
-
-## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
-
-Azure의 Red Hat OpenShift는 Azure에서 실행 되는 OpenShift의 완전히 관리 되는 제품입니다. 이 서비스는 Microsoft 및 Red Hat에서 공동으로 관리 및 지원합니다. 클러스터는 고객의 Azure 구독에 배포됩니다. 서비스 GA 월 2019 해결 될 예정입니다. 관리 되는 서비스에 대 한 별도 설명서 면 사용할 수는 서비스가 GA입니다.
 
 ## <a name="okd"></a>OKD
 

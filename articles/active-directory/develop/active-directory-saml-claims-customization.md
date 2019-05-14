@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411333"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231336"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -73,7 +73,7 @@ NameIDPolicy 특성에 대 한 자세한 내용은 참조 하세요 [Single Sign
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| Name | 설명 |
+| 이름 | 설명 |
 |------|-------------|
 | Email | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 사용자 계정 이름 (UPN) |
@@ -116,7 +116,7 @@ NameIDPolicy 특성에 대 한 자세한 내용은 참조 하세요 [Single Sign
 | **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
 | **Contains()** | 입력에 지정 된 값과 일치 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어, 클레임 값 인 사용자의 전자 메일 주소 도메인을 포함 하는 경우 내보내려는 하려는 경우 "@contoso.com", 사용자 계정 이름 출력 하려는 경우. 이렇게 하려면 다음 값을 구성할는 있습니다.<br/>*매개 변수 1(input)*: user.email<br/>*값*: "@contoso.com"<br/>매개 변수 (출력) 2: user.email<br/>매개 변수 3 (출력 일치 항목이 없는 경우): user.userprincipalname |
 | **EndWith()** | 지정된 된 값을 사용 하 여 입력이 종료 되는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어, 여기서 값은 사용자의 employeeid employeeid "000"로 끝나는 경우 클레임을 내보낼 하려는 경우이 고, 그렇지 하려는 확장 특성을 출력 합니다. 이렇게 하려면 다음 값을 구성할는 있습니다.<br/>*매개 변수 1(input)*: user.employeeid<br/>*값*: "000"<br/>매개 변수 (출력) 2: user.employeeid<br/>매개 변수 3 (출력 일치 항목이 없는 경우): user.extensionattribute1 |
-| **StartWith()** | 지정된 된 값을 사용 하 여 입력을 시작 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어, 클레임 값 인 사용자의 employeeid 국가 "미국"로 시작 하는 경우 내보내려는 원한다 면이 고, 그렇지 하려는 확장 특성을 출력 합니다. 이렇게 하려면 다음 값을 구성할는 있습니다.<br/>*매개 변수 1(input)*: user.country<br/>*값*: "당사"<br/>매개 변수 (출력) 2: user.employeeid<br/>매개 변수 3 (출력 일치 항목이 없는 경우): user.extensionattribute1 |
+| **StartWith()** | 지정된 된 값을 사용 하 여 입력을 시작 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어, 클레임 값 인 사용자의 employeeid 국가/지역을 "미국"로 시작 하는 경우 내보내려는 원한다 면이 고, 그렇지 하려는 확장 특성을 출력 합니다. 이렇게 하려면 다음 값을 구성할는 있습니다.<br/>*매개 변수 1(input)*: user.country<br/>*값*: "당사"<br/>매개 변수 (출력) 2: user.employeeid<br/>매개 변수 3 (출력 일치 항목이 없는 경우): user.extensionattribute1 |
 | **Extract ()-검색 한 후** | 지정 된 값과 일치 하는 후 부분 문자열을 반환 합니다.<br/>예를 들어, "Finance_BSimon" 입력의 값을 사용 하는 경우 일치 하는 값은 "Finance_" 다음 클레임의 출력은 "예를 들어" 합니다. |
 | **Extract ()-일치 하기 전에** | 지정된 된 값을 찾을 때까지 부분 문자열을 반환 합니다.<br/>예를 들어, "BSimon_US" 입력의 값을 사용 하는 경우 일치 하는 값은 "_US" 다음 클레임의 출력은 "예를 들어" 합니다. |
 | **Extract ()-일치 하는 사이** | 지정된 된 값을 찾을 때까지 부분 문자열을 반환 합니다.<br/>예를 들어, 입력의 값이 "Finance_BSimon_US" 이면 첫 번째 일치 하는 값은 "Finance_" 두 번째 일치 하는 값은 "_US" 차례로 클레임의 출력은 "예를 들어"입니다. |

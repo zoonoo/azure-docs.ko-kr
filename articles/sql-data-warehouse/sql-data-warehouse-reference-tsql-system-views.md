@@ -222,14 +222,14 @@ SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어�
 
 ## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA 보기
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
-* [열](https://msdn.microsoft.com/library/ms188348.aspx)
-* [매개 변수](https://msdn.microsoft.com/library/ms173796.aspx)
-* [루틴](https://msdn.microsoft.com/library/ms188757.aspx)
+* [COLUMNS](https://msdn.microsoft.com/library/ms188348.aspx)
+* [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)
+* [ROUTINES](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMATA](https://msdn.microsoft.com/library/ms182642.aspx)
-* [테이블](https://msdn.microsoft.com/library/ms186224.aspx)
+* [TABLES](https://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
-* [뷰](https://msdn.microsoft.com/library/ms181381.aspx)
+* [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 자세한 참조 정보는 [Azure SQL Data Warehouse의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md) 및 [Azure SQL Data Warehouse의 T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)를 참조하세요.

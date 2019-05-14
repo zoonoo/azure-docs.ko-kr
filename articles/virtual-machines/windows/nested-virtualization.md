@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488371"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510052"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -80,7 +80,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 2. 내부 스위치를 만듭니다.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. 스위치의 속성을 확인하고 새 어댑터에 대한 ifIndex를 기록합니다.

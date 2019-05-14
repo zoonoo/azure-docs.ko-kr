@@ -38,7 +38,7 @@ sections:
             image:
               src: /azure/cdn/media/index/cdn.svg
             title: CDN
-          - href: 'http://amp.azure.net/libs/amp/latest/docs/index.html'
+          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
             html: <p>다양한 브라우저 및 디바이스의 Microsoft Azure Media Services에서 미디어 콘텐츠를 재생할 수 있습니다.</p>
             image:
               src: /azure/media-services/latest/media/index/AMSIcons-Player.svg

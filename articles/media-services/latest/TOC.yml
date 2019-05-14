@@ -24,18 +24,13 @@
     - name: 라이브 스트리밍 - .NET
       href: stream-live-tutorial-with-api.md
     - name: 비디오 분석 - .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
     - name: AES-128로 동적으로 암호화 - .NET
       href: protect-with-aes128.md
     - name: DRM으로 동적으로 암호화 - .NET
+      displayName: 'PlayReady, Widevine'
       href: protect-with-drm.md
-- name: 샘플
-  items:
-    - name: Azure 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure CLI
-      href: cli-samples.md
 - name: 개념
   href: concepts-overview.md
   items:
@@ -52,6 +47,7 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transform 및 Job
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: Media Encoder Standard 형식
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -75,7 +71,7 @@
         - name: 패키징
           items:
             - name: 동적 패키징
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: 동적 매니페스트
               href: filters-dynamic-manifest-overview.md
@@ -84,7 +80,7 @@
         - name: 콘텐츠 보호
           items:
             - name: 스트리밍 프로토콜 및 암호화 유형
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: 액세스 제어를 포함한 다중 DRM 시스템
               href: design-multi-drm-system-with-access-control.md
@@ -97,7 +93,7 @@
                 - name: FairPlay 라이선스 요구 사항
                   href: fairplay-license-overview.md
         - name: 스트리밍 엔드포인트/원본
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: 스트리밍 로케이터
           displayName: URLs
@@ -106,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: 콘텐츠 키 정책
           href: content-key-policy-concept.md
-        - name: 원래 오류 코드
-          href: origin-error-codes.md
+        - name: 스트리밍 엔드포인트 오류 코드
+          href: streaming-endpoint-error-codes.md
     - name: 라이브 스트리밍
       items:
         - name: 개요
@@ -141,6 +137,7 @@
           href: use-azure-media-player.md
     - name: v3 API를 사용하여 개발
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: '엔터티 필터링, 순서 지정 및 페이징'
           href: entities-overview.md
@@ -148,8 +145,8 @@
           href: rbac-overview.md
         - name: 오류 코드
           items:
-            - name: 원래 오류 코드
-              href: origin-error-codes.md
+            - name: 스트리밍 엔드포인트 오류 코드
+              href: streaming-endpoint-error-codes.md
             - name: 작업 오류 코드
               href: job-error-codes.md
     - name: v2에서 v3로의 마이그레이션 지침
@@ -160,10 +157,14 @@
       items:
         - name: 계정 만들기 - CLI
           href: create-account-cli-how-to.md
+        - name: 계정 자격 증명 재설정 - CLI
+          href: cli-reset-account-credentials.md
         - name: API 액세스 - CLI
           href: access-api-cli-how-to.md
         - name: 미디어 예약 단위 크기 조정 - CLI
           href: media-reserved-units-cli-how-to.md
+        - name: 자산 만들기 - CLI
+          href: cli-create-asset.md
         - name: REST를 사용하여 개발
           items:
             - name: Postman으로 연결
@@ -190,6 +191,14 @@
         - name: 로컬 파일에서 - REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: 로컬 파일에서 - CLI
+          href: cli-upload-file-asset.md
+    - name: 변환 및 작업 만들기
+      items:
+        - name: 변환 만들기 - CLI
+          href: cli-create-transform.md
+        - name: 작업 만들기 - CLI
+          href: cli-create-jobs.md
     - name: 콘텐츠 인코딩
       items:
         - name: 작업 입력으로의 HTTPS - .NET
@@ -230,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: CLI 사용
           href: filters-dynamic-manifest-cli-howto.md
+    - name: 콘텐츠 배달
+      items:
+        - name: 자산 게시 - CLI
+          href: cli-publish-asset.md
 - name: 참고 자료
   items:
     - name: OpenAPI 사양(Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST (영문)
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: Azure CLI
@@ -254,8 +268,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: 오류 코드
       items:
-        - name: 원래 오류 코드
-          href: origin-error-codes.md
+        - name: 스트리밍 엔드포인트 오류 코드
+          href: streaming-endpoint-error-codes.md
         - name: 작업 오류 코드
           href: job-error-codes.md
 - name: 리소스
@@ -285,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Azure Media Services 탐색기
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: 릴리스 정보
       href: release-notes.md

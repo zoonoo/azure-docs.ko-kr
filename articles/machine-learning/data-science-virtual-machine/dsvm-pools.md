@@ -25,7 +25,7 @@ ms.locfileid: "60502285"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 
-이 아티클에서는 팀에서 사용할 DSVM(Data Science Virtual Machines)의 공유 풀을 만들 수 있는 방법을 설명합니다. 공유 풀을 사용하는 경우 이점은 리소스 사용률이 개선되고, 공유 및 공동 작업이 원활하고, DSVM 리소스를 더 효과적으로 관리할 수 있다는 것입니다. 
+이 아티클에서는 팀에서 사용할 DSVM(Data Science Virtual Machines)의 공유 풀을 만들 수 있는 방법을 설명합니다. 공유 풀을 사용하는 경우 이점은 리소스 사용률이 개선되고, 공유 및 협업이 원활하고, DSVM 리소스를 더 효과적으로 관리할 수 있다는 것입니다. 
 
 다양한 메서드 및 기술을 사용하여 DSVM의 풀을 만들 수 있습니다. 이 문서에서는 대화형 VM의 풀에 중점을 둡니다. 대체 관리형 컴퓨팅 인프라는 Azure Machine Learning 컴퓨팅입니다. 자세한 내용은 [컴퓨팅 대상 설정](../service/how-to-set-up-training-targets.md#amlcompute)을 참조하세요.
 

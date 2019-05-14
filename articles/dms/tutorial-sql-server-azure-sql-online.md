@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799048"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136635"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>자습서: DMS를 사용하여 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 온라인 마이그레이션
 
@@ -178,7 +178,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
     ![Data Migration Assistant 원본 연결 세부 정보](media/tutorial-sql-server-to-azure-sql-online/dma-source-connect.png)
 
-6. **대상 서버에 연결** 아래에서 **다음**을 선택하고, Azure SQL Database에 대한 대상 연결 세부 정보를 지정하고, **연결**을 선택한 다음, Azure SQL Database에서 미리 프로비전된 **AdventureWorksAzure** 데이터베이스를 선택합니다.
+6. **대상 서버에 연결** 아래에서 **다음**을 선택하고, Azure SQL 데이터베이스에 대한 대상 연결 세부 정보를 지정하고, **연결**을 선택한 다음, Azure SQL Database에서 미리 프로비전된 **AdventureWorksAzure** 데이터베이스를 선택합니다.
 
     ![Data Migration Assistant 대상 연결 세부 정보](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
@@ -234,9 +234,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
     비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
 
-    적합한 Azure Database Migration Service 계층을 선택하는 데 도움이 필요할 경우 [여기](https://go.microsoft.com/fwlink/?linkid=861067)에 있는 게시물에서 권장 사항을 참조하세요.  
-
-     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7.**만들기**를 선택하여 서비스를 만듭니다.
 
@@ -287,7 +285,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1. **저장**을 선택한 다음, **마이그레이션 대상 세부 정보** 화면에서 대상 Azure SQL Database Server에 대한 연결 세부 정보를 지정합니다. 대상은 DMA를 통해 **AdventureWorks2012** 스키마가 배포된 미리 프로비전된 Azure SQL Database입니다.
+1. **저장**을 선택한 다음, **마이그레이션 대상 세부 정보** 화면에서 대상 Azure SQL Database 서버에 대한 연결 세부 정보를 지정합니다. 대상은 DMA를 통해 **AdventureWorks2012** 스키마가 배포된 미리 프로비저닝된 Azure SQL Database입니다.
 
     ![대상 선택](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 

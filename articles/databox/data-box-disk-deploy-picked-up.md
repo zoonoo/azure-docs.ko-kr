@@ -1,20 +1,20 @@
 ---
-title: Microsoft Azure Data Box Disk 반송 | Microsoft Docs
+title: Azure Data Box Disk 반송 자습서 | Microsoft Docs
 description: 이 자습서를 사용하여 Microsoft에 Azure Data Box Disk를 배송하는 방법 알아보기
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425953"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150758"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box Disk 반환 및 Azure에 대한 데이터 업로드 확인
 
@@ -54,7 +54,12 @@ ms.locfileid: "59425953"
     - 디바이스에 레이블을 부착합니다.
 
 2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
-3. UPS를 사용하여 픽업을 예약합니다.
+3. UPS를 사용하여 픽업을 예약합니다. 픽업을 예약하려면 다음을 수행합니다.
+
+    - 로컬 UPS(국가별 무료 전화 번호)에 전화합니다.
+    - 통화에서 인쇄된 레이블에 표시된 대로 역방향 배송 추적 번호를 알려줍니다.
+    - 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
+    - 픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box Disk를 반납할 수도 있습니다.
 
 
 ### <a name="pick-up-in-europe"></a>유럽에서 픽업

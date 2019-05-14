@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522795"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138247"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -334,7 +334,9 @@ ms.locfileid: "59522795"
    - **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. Visual Studio로 돌아가서 **MainPage.xaml.cs** 파일을 열고, ClientId 값을 방금 등록한 애플리케이션 ID로 바꿉니다.
 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-   - **리디렉션 URI** | **공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **urn:ietf:wg:oauth:2.0:oob**를 선택합니다.
+   1. **리디렉션 URI** 섹션의 리디렉션 URI 목록에서 다음을 수행합니다.
+   1. **TYPE** 열에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다.
+   1. **URI 리디렉션** 열에 `urn:ietf:wg:oauth:2.0:oob`를 입력합니다.
 1. **저장**을 선택합니다.
 1. 앱의 페이지 목록에서 **API 권한**을 선택합니다.
    - **권한 추가** 단추를 클릭한 다음,

@@ -6,7 +6,7 @@ metadata:
   description: 'Microsoft ID 플랫폼을 사용하여 모든 Microsoft ID에서 사용자가 안전하게 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져올 수 있는 앱을 빌드하는 방법을 알아봅니다.'
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na

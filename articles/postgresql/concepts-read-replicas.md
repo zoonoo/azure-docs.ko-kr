@@ -6,16 +6,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067431"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510970"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서에서 복제본 읽기
 
-읽기 복제본 기능을 사용하면 Azure Database for PostgreSQL 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 마스터 서버에서 동일한 Azure 지역 내에 있는 최대 5개의 복제본으로 복제할 수 있습니다. 복제본은 PostgreSQL 엔진 기본 복제 기술을 사용하여 비동기식으로 업데이트 됩니다.
+읽기 복제본 기능을 사용하면 Azure Database for PostgreSQL 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 최대 5 개의 복제본으로 마스터 서버에서 복제할 수 있습니다. 복제본은 PostgreSQL 엔진 기본 복제 기술을 사용하여 비동기식으로 업데이트 됩니다.
+
+> [!IMPORTANT]
+> 마스터 서버와 동일한 지역 또는 선택한 다른 Azure 지역에 읽기 복제본을 만들 수 있습니다. 지역 간 복제는 현재 공개 미리 보기로 제공 됩니다.
 
 복제본은 일반 Azure Database for PostgreSQL 서버와 비슷한 방식으로 관리하는 새로운 서버입니다. 읽기 복제본의 경우, vCore 및 스토리지에 프로비저닝된 컴퓨팅에 대한 비용이 GB/월 단위로 청구됩니다.
 
@@ -29,6 +32,8 @@ ms.locfileid: "65067431"
 복제본은 읽기 전용이기 때문에 마스터에 대한 쓰기 용량 부담을 직접적으로 줄이지는 못합니다. 이 기능은 쓰기 작업이 많은 워크로드를 대상으로 하지 않습니다.
 
 읽기 복제본 기능은 PostgreSQL 동기식 복제를 사용합니다. 이 기능은 동기식 복제 시나리오를 위한 것이 아닙니다. 마스터와 복제본 간에는 측정 가능한 지연이 발생합니다. 복제본의 데이터는 결과적으로 마스터의 데이터와 일치하게 됩니다. 이러한 지연 시간을 수용할 수 있는 워크로드에 이 기능을 사용합니다.
+
+읽기 복제본 재해 복구 계획을 향상 시킬 수 있습니다. 먼저 마스터에서 다른 Azure 지역에 복제 하려면 해야 합니다. 지역 재해의 경우에 해당 복제본에 복제를 중지 하 고 워크 로드를 리디렉션할 수 있습니다. 복제 중지 쓰기를 허용 하려면 복제본을 사용 하면으로 읽습니다. 자세한 내용은 합니다 [복제를 중지](#stop-replication) 섹션. 
 
 ## <a name="create-a-replica"></a>복제본 만들기
 마스터 서버는 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 매개 변수가 변경되면, 서버를 다시 시작해야 변경 사항이 적용됩니다. (`azure.replication_support` 매개 변수는 범용 및 메모리 최적화 계층에만 적용됩니다).
@@ -47,7 +52,7 @@ ms.locfileid: "65067431"
 
 복제본은 마스터 서버에서 해당 관리자 계정을 상속합니다. 마스터 서버의 모든 사용자 계정은 읽기 복제본으로 복제됩니다. 마스터 서버에서 사용 가능한 사용자 계정을 사용해야만 읽기 복제본에 연결할 수 있습니다.
 
-일반 Azure Database for PostgreSQL 서버에서처럼 같이 해당 호스트 이름 및 유효한 사용자 계정을 사용하여 복제본에 연결할 수 있습니다. 관리 사용자 이름이 **myadmin**인 **myreplica**라는 서버의 경우 psql:을 사용하여 복제본에 연결할 수 있습니다.
+일반 Azure Database for PostgreSQL 서버에서처럼 같이 해당 호스트 이름 및 유효한 사용자 계정을 사용하여 복제본에 연결할 수 있습니다. 서버에 대해 **내 복제본** 관리자 사용자 이름 **myadmin**, psql을 사용 하 여 복제본에 연결할 수 있습니다.
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -63,7 +68,7 @@ Azure Database for PostgreSQL은 Azure Monitor에 **복제본 지연 시간** �
 메트릭은 `pg_stat_wal_receiver` 보기에서 계산됩니다.
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp())
+EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 지연 시간 메트릭은 마지막으로 재생된 트랜잭션 이후의 시간을 보여 줍니다. 마스터 서버에서 트랜잭션이 발생하지 않으면 메트릭은 이 지연 시간을 반영합니다.
@@ -96,6 +101,8 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 > 읽기 복제본에서 복제를 중지하기 전에 복제본에 필요한 모든 데이터가 있는지 확인하십시오.
 
+복제를 중지 하면 복제본 이전 마스터 및 다른 복제본에 모든 링크가 손실 됩니다. 마스터 및 복제본 간에 자동된 장애 조치가 있습니다. 
+
 [복제본에 대한 복제를 중지](howto-read-replicas-portal.md)하는 방법을 알아봅니다.
 
 
@@ -107,7 +114,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 읽기 복제본을 만들기 전에, 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 매개 변수가 변경되면, 서버를 다시 시작해야 변경 사항이 적용됩니다. `azure.replication_support` 매개 변수는 범용 및 메모리 최적화 계층에만 적용됩니다.
 
 ### <a name="new-replicas"></a>새 복제본
-읽기 복제본은 새로운 Azure Database for PostgreSQL 서버로 생성됩니다. 기존 서버를 복제본으로 만들 수 없습니다. 읽기 복제본은 마스터와 동일한 Azure 지역에서만 만들 수 있습니다. 다른 읽기 복제본의 복제본은 만들 수 없습니다.
+읽기 복제본은 새로운 Azure Database for PostgreSQL 서버로 생성됩니다. 기존 서버를 복제본으로 만들 수 없습니다. 다른 읽기 복제본의 복제본은 만들 수 없습니다.
 
 ### <a name="replica-configuration"></a>복제본 구성
 복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 마스터 서버와는 별도로 컴퓨팅 생성, vCore, 스토리지 및 백업 보존 기간 등의 일부 설정을 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우를 제외하고 독립적으로 변경할 수 있습니다.

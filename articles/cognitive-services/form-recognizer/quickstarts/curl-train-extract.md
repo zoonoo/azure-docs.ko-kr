@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026699"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471898"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -40,7 +40,7 @@ Azure Blob 컨테이너의 문서를 사용하여 Form Recognizer 모델을 학�
 * `<subscription key>`를 구독 키로 바꿉니다.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<SAS URL>\"}"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
 다음 JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다.
@@ -90,14 +90,14 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "C
 
 다음으로, 문서를 분석하고 문서에서 키-값 쌍 및 테이블을 추출할 것입니다. 아래 cURL 명령을 실행하여 **모델 - 분석** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
-* `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 개요 탭에서 찾을 수 있습니다.
+* `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
 * `<modelID>`를 모델 학습의 이전 단계에서 받은 모델 ID로 바꿉니다.
 * `<path to your form>`을 양식의 파일 경로로 바꿉니다.
 * `<subscription key>`를 구독 키로 바꿉니다.
 * `<file type>`을 지원되는 형식의 pdf, 이미지/jpeg, 이미지/png로 바꿉니다.
 
 ```bash
-cURL cmd: curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@<path to your form>;type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>응답 검사

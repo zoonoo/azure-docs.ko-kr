@@ -17,18 +17,18 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190996"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406682"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
 이 문서에서는 Microsoft 인증 라이브러리 (MSAL)에서 제공 하는 다양 한 인증 흐름을 설명 합니다.  이러한 흐름은 다양 한 다른 응용 프로그램 시나리오에서에서 사용할 수 있습니다.
 
-| 흐름 | 설명 | 사용 위치|  
+| 흐름 | 설명 | 사용 대상|  
 | ---- | ----------- | ------- | 
 | [대화형](#interactive) | 팝업 창 또는 브라우저를 통해 자격 증명을 묻는 메시지를 표시 하는 대화형 프로세스를 통해 토큰을 가져옵니다. | [데스크톱 앱](scenario-desktop-overview.md), [모바일 앱](scenario-mobile-overview.md) |
 | [암시적 권한 부여](#implicit-grant) | 응용 프로그램을 백 엔드 서버 자격 증명 교환을 수행 하지 않고 토큰을 가져올 수 있습니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다.| [단일 페이지 응용 프로그램 (SPA)](scenario-spa-overview.md) |
@@ -51,7 +51,7 @@ MSAL.NET을 사용 하 여 대화형으로 특정 플랫폼에서 토큰을 획�
 
 에 대 한 자세한 내용은 MSAL.js의 대화형 호출은, [프롬프트 MSAL.js 대화형 요청에서 동작](msal-js-prompt-behavior.md)
 
-## <a name="implicit-grant"></a>암시적 부여
+## <a name="implicit-grant"></a>암시적 권한 부여
 
 MSAL을 지원 합니다 [암시적 OAuth 2 권한 부여 흐름](v2-oauth2-implicit-grant-flow.md)에서 토큰을 가져오는 Microsoft id 플랫폼 백 엔드 서버를 수행 하지 않고 자격 증명 교환을 앱을 허용 하는 합니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다.
 
@@ -126,7 +126,7 @@ MSAL을 지원 합니다 [OAuth 2 장치 코드 흐름](v2-oauth2-device-code.md
 
 ![디바이스 코드 흐름](media/msal-authentication-flows/device-code.png)
 
-1. 사용자 인증이 필요할 때마다 앱 코드를 제공 하 고 다른 장치 (예: 인터넷에 연결 된 smartphone)를 사용 하 여 URL로 이동 하도록 요청 합니다 (예를 들어 http://microsoft.com/devicelogin)있는 사용자를 될 하 라는 메시지가 표시 코드를 입력 합니다. 완료 웹 페이지 인해 필요한 경우 동의 확인 프롬프트 및 multi-factor authentication을 포함 하는 일반적인 인증 환경 안내 합니다.
+1. 사용자 인증이 필요할 때마다 앱 코드를 제공 하 고 다른 장치 (예: 인터넷에 연결 된 smartphone)를 사용 하 여 URL로 이동 하도록 요청 합니다 (예를 들어 https://microsoft.com/devicelogin)있는 사용자를 될 하 라는 메시지가 표시 코드를 입력 합니다. 완료 웹 페이지 인해 필요한 경우 동의 확인 프롬프트 및 multi-factor authentication을 포함 하는 일반적인 인증 환경 안내 합니다.
 
 2. 인증이 성공 하면 필요한 웹 API 호출을 수행 하는 데 사용할 및 명령줄 앱 인 백 채널을 통해 필요한 토큰을 받게 됩니다.
 
@@ -138,10 +138,10 @@ MSAL을 지원 합니다 [OAuth 2 장치 코드 흐름](v2-oauth2-device-code.md
   - 또는 모든 회사 및 학교 계정 (`https://login.microsoftonline.com/organizations/`).
 - 개인 Microsoft 계정과 Azure AD v2.0 끝점에서 아직 지원 되지 않습니다 (사용할 수 없습니다는 `/common` 또는 `/consumers` 테 넌 트)입니다.
 
-## <a name="integrated-windows-authentication"></a>Windows 통합 인증
+## <a name="integrated-windows-authentication"></a>통합 Windows 인증
 도메인 가입 또는 Azure AD에서 실행 되는 모바일 응용 프로그램에 연결 된 Windows 컴퓨터 또는 MSAL 데스크톱에 대 한 Windows 통합 인증 (IWA)을 지원 합니다. IWA를 사용 하 여 이러한 응용 프로그램 없이 토큰을 자동으로 (사용자의 모든 UI 상호 작용)를 획득할 수 있습니다. 
 
-![Windows 통합 인증](media/msal-authentication-flows/integrated-windows-authentication.png)
+![통합 Windows 인증](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 1. 통합 Windows 인증을 사용 하 여 토큰을 획득 합니다.
 2. 리소스의 요청에 토큰을 사용 합니다.

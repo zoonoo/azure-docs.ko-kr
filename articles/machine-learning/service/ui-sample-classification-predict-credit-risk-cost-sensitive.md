@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 03dfa250091b906ea1496fea3a4dd9b3753e0aaf
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028652"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65440966"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>4-분류 샘플: (중요 한 비용) 신용 위험 예측
 
@@ -52,7 +52,7 @@ ms.locfileid: "65028652"
 
 실험 그래프는 다음과 같습니다.
 
-[ ![실험 그래프](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![실험 그래프](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>데이터 처리
 

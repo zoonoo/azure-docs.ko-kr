@@ -10,18 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 55b19a6cf71730858fcf42880f71a2c9c07a3b31
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683972"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406922"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 
-이 문서에서는 Azure Event Hubs에서 이벤트 허브를 생성 및 구성한 다음, 이벤트를 푸시하는 샘플 애플리케이션을 실행하는 방법을 설명합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우 이 자습서를 건너뛰고 [Azure Time Series Insights](./time-series-insights-update-create-environment.md)에서 환경을 봅니다.
+이 문서를 만들고 Azure Event Hubs에서 이벤트 허브를 구성 하는 방법을 설명 합니다. Azure Time Series Insights에 Event Hubs에서 이벤트를 푸시하는 샘플 응용 프로그램을 실행 하는 방법을 설명 합니다. JSON 형식으로 이벤트를 사용 하 여 기존 이벤트 허브가 있는 경우이 자습서를 건너뛰고에서 환경을 봅니다 [Azure Time Series Insights](./time-series-insights-update-create-environment.md)합니다.
 
 ## <a name="configure-an-event-hub"></a>이벤트 허브 구성
 
@@ -30,14 +30,14 @@ ms.locfileid: "64683972"
 1. 이벤트 허브를 선택합니다.
 1. 이벤트 허브를 만드는 경우 실제로 이벤트 허브 네임스페이스를 만드는 것입니다. 네임스페이스 내에 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티** 아래에서 이벤트 허브를 만듭니다.  
 
-    ![이벤트 허브의 목록][1]
+    [![Event hubs의 목록](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. 이벤트 허브를 만든 후 이벤트 허브의 목록에서 선택합니다.
 1. 메뉴의 **엔터티** 아래에서 **Event Hubs**를 선택합니다.
 1. 구성할 이벤트 허브의 이름을 선택합니다.
 1. **엔터티**에서 **소비자 그룹**을 선택한 다음, **소비자 그룹**을 선택합니다.
 
-    ![소비자 그룹 만들기][2]
+    [![소비자 그룹 만들기](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
 1. Time Series Insights 이벤트 원본에서 단독으로 사용하는 소비자 그룹을 만들어야 합니다.
 
@@ -46,17 +46,17 @@ ms.locfileid: "64683972"
 
 1. 메뉴의 **설정** 아래에서 **공유 액세스 정책**을 선택한 다음, **추가**를 선택합니다.
 
-    ![공유 액세스 정책을 선택한 다음, 추가 단추를 선택합니다.][3]
+    [![공유 액세스 정책을 선택를 선택한 다음 추가 단추](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
 1. **새 공유 액세스 정책 추가** 창에서 **MySendPolicy**라는 공유 액세스를 만듭니다. 이 문서 뒷부분의 C# 예제에서 이벤트를 보내는 데 이 공유 액세스 정책을 사용합니다.
 
-    ![정책 이름 상자에 MySendPolicy 입력][4]
+    [![정책 이름 상자에 입력 MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
 1. **클레임**에서 **보내기** 확인란을 선택합니다.
 
 ## <a name="add-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 추가
 
-Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용하는 샘플 가상 프로젝트에 대한 **시계열 ID**는 **Id**입니다. Time Series Insight 인스턴스 및 **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
+Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 합니다 **시간 시리즈 ID** 샘플 무모가이 문서의 뒷부분에서 사용 하는 프로젝트는 `id`합니다. Time Series Insight 인스턴스 및 **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 
@@ -72,78 +72,44 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
 1. **공유 액세스 정책** > **RootManageSharedAccessKey**로 이동합니다. **연결 문자열-기본 키**의 값을 복사합니다.
 
-    ![기본 키 연결 문자열의 값 복사][5]
+    [![기본 키 연결 문자열 값을 복사](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
 1. https://tsiclientsample.azurewebsites.net/windFarmGen.html로 이동합니다. URL은 시뮬레이션된 가상 디바이스를 실행합니다.
 1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에 [이벤트 푸시](#push-events)에서 복사한 연결 문자열을 붙여넣습니다.
   
-    ![이벤트 허브 연결 문자열 상자에 기본 키 연결 문자열 붙여넣기][6]
+    [![이벤트 허브 연결 문자열 상자에서 기본 키 연결 문자열을 붙여 넣습니다.](media/send-events/updated_two.png)](media/send-events/updated_two.png#lightbox)
 
 1. **시작하려면 클릭**을 선택합니다. 시뮬레이터는 직접 사용할 수 있는 인스턴스 JSON을 생성합니다.
 
-1. Azure Portal에서 이벤트 허브로 돌아갑니다. **개요** 페이지에 이벤트 허브에서 받은 새 이벤트가 표시되어야 합니다.
+1. Azure Portal에서 이벤트 허브로 돌아갑니다. 에 **개요** 페이지에 이벤트 허브에서 받은 새 이벤트를 표시 해야 합니다.
 
-    ![이벤트 허브에 대한 메트릭을 보여주는 이벤트 허브 개요 페이지][7]
+    [![이벤트 허브에 대 한 메트릭을 보여 주는 이벤트 허브 개요 페이지](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 
-<a id="json"></a>
+## <a name="json"></a>지원 되는 JSON 셰이프
 
-## <a name="supported-json-shapes"></a>지원되는 JSON 셰이프
+### <a name="example-one"></a>예제 1
 
-### <a name="sample-1"></a>샘플 1
+* **입력**: 간단한 JSON 개체입니다.
 
-#### <a name="input"></a>입력
-
-간단한 JSON 개체:
-
-```json
-{
-    "id":"device1",
-    "timestamp":"2016-01-08T01:08:00Z"
-}
-```
-
-#### <a name="output-one-event"></a>출력 하나의 이벤트
-
-|id|timestamp|
-|--------|---------------|
-|device1|2016-01-08T01:08:00Z|
-
-### <a name="sample-2"></a>샘플 2
-
-#### <a name="input"></a>입력
-
-두 JSON 개체가 포함된 JSON 배열입니다. 각 JSON 개체는 이벤트로 변환됩니다.
-
-```json
-[
+    ```JSON
     {
         "id":"device1",
         "timestamp":"2016-01-08T01:08:00Z"
-    },
-    {
-        "id":"device2",
-        "timestamp":"2016-01-17T01:17:00Z"
     }
-]
-```
+    ```
 
-#### <a name="output-two-events"></a>출력 두 개의 이벤트
+* **출력**: 하나의 이벤트입니다.
 
-|id|timestamp|
-|--------|---------------|
-|device1|2016-01-08T01:08:00Z|
-|device2|2016-01-08T01:17:00Z|
+    |id|timestamp|
+    |--------|---------------|
+    |device1|2016-01-08T01:08:00Z|
 
-### <a name="sample-3"></a>샘플 3
+### <a name="example-two"></a>예제 2
 
-#### <a name="input"></a>입력
+* **입력**: 두 JSON 개체가 포함된 JSON 배열입니다. 각 JSON 개체는 이벤트로 변환됩니다.
 
-두 JSON 개체가 들어 있는 중첩된 JSON 배열이 포함된 JSON 개체입니다.
-
-```json
-{
-    "location":"WestUs",
-    "events":[
+    ```JSON
+    [
         {
             "id":"device1",
             "timestamp":"2016-01-08T01:08:00Z"
@@ -153,70 +119,83 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
             "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
-}
-```
+    ```
 
-#### <a name="output-two-events"></a>출력 두 개의 이벤트
+* **출력**: 두 이벤트입니다.
 
-**location** 속성은 각 이벤트로 복사됩니다.
+    |id|timestamp|
+    |--------|---------------|
+    |device1|2016-01-08T01:08:00Z|
+    |device2|2016-01-08T01:17:00Z|
 
-|location|events.id|events.timestamp|
-|--------|---------------|----------------------|
-|WestUs|device1|2016-01-08T01:08:00Z|
-|WestUs|device2|2016-01-08T01:17:00Z|
+### <a name="example-three"></a>예제 3
 
-### <a name="sample-4"></a>샘플 4
+* **입력**: 두 JSON 개체가 들어 있는 중첩된 JSON 배열이 포함된 JSON 개체입니다.
 
-#### <a name="input"></a>입력
-
-두 JSON 개체가 들어 있는 중첩된 JSON 배열이 포함된 JSON 개체입니다. 이 입력은 복합 JSON 개체로 글로벌 속성을 표시할 수 있음을 보여줍니다.
-
-```json
-{
-    "location":"WestUs",
-    "manufacturer":{
-        "name":"manufacturer1",
-        "location":"EastUs"
-    },
-    "events":[
-        {
-            "id":"device1",
-            "timestamp":"2016-01-08T01:08:00Z",
-            "data":{
-                "type":"pressure",
-                "units":"psi",
-                "value":108.09
+    ```JSON
+    {
+        "location":"WestUs",
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z"
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z"
             }
+        ]
+    }
+    ```
+
+* **출력**: 두 이벤트입니다. **location** 속성은 각 이벤트로 복사됩니다.
+
+    |location|events.id|events.timestamp|
+    |--------|---------------|----------------------|
+    |WestUs|device1|2016-01-08T01:08:00Z|
+    |WestUs|device2|2016-01-08T01:17:00Z|
+
+### <a name="example-four"></a>예제 4
+
+* **입력**: 두 JSON 개체가 들어 있는 중첩된 JSON 배열이 포함된 JSON 개체입니다. 이 입력은 복합 JSON 개체로 글로벌 속성을 표시할 수 있음을 보여줍니다.
+
+    ```JSON
+    {
+        "location":"WestUs",
+        "manufacturer":{
+            "name":"manufacturer1",
+            "location":"EastUs"
         },
-        {
-            "id":"device2",
-            "timestamp":"2016-01-17T01:17:00Z",
-            "data":{
-                "type":"vibration",
-                "units":"abs G",
-                "value":217.09
+        "events":[
+            {
+                "id":"device1",
+                "timestamp":"2016-01-08T01:08:00Z",
+                "data":{
+                    "type":"pressure",
+                    "units":"psi",
+                    "value":108.09
+                }
+            },
+            {
+                "id":"device2",
+                "timestamp":"2016-01-17T01:17:00Z",
+                "data":{
+                    "type":"vibration",
+                    "units":"abs G",
+                    "value":217.09
+                }
             }
-        }
-    ]
-}
-```
+        ]
+    }
+    ```
 
-#### <a name="output-two-events"></a>출력 두 개의 이벤트
+* **출력**: 두 이벤트입니다.
 
-|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
-|---|---|---|---|---|---|---|---|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
+    |---|---|---|---|---|---|---|---|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>다음 단계
 
 - [환경 보기](https://insights.timeseries.azure.com) Time Series Insights 탐색기에서.
-
-<!-- Images -->
-[1]: media/send-events/updated.png
-[2]: media/send-events/consumer-group.png
-[3]: media/send-events/shared-access-policy.png
-[4]: media/send-events/shared-access-policy-2.png
-[5]: media/send-events/sample-code-connection-string.png
-[6]: media/send-events/updated_two.png
-[7]: media/send-events/telemetry.png

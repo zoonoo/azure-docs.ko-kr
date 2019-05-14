@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072761"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235803"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -294,7 +294,7 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 * [V3 API 마이그레이션 가이드의 미리 보기](luis-migration-api-v3.md)
 * [향상 된 분석 대시보드](luis-how-to-use-dashboard.md)
-* [미리 빌드된 도메인 향상](luis-reference-prebuilt-domains.md) V2 및 V3 Api를 사용 하 여 작업
+* [향상 된 미리 작성 된 도메인](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>다음 단계
 

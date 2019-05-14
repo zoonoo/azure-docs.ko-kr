@@ -80,5 +80,5 @@ Fivetran에 로그인하려면 SQL Data Warehouse에 액세스하는 데 사용�
 * 호스트(서버 이름).
 * 포트.
 * 데이터베이스.
-* 사용자 (사용자 이름은 반드시 **fivetran\@_server_name_**  여기서 *server_name* Azure 호스트 URI의 일부인: ***server_name * 합니다. database.windows.net**).
+* 사용자(사용자 이름은 반드시 **fivetran\@_server_name_**이어야 하며, 여기서 *server_name*은 Azure 호스트 URI의 일부인 ***server_name*.database.windows.net**입니다.)
 * Password.

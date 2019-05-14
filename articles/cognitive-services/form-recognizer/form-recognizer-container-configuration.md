@@ -1,7 +1,7 @@
 ---
 title: 컨테이너 구성 - Form Recognizer
 titleSuffix: Azure Cognitive Services
-description: Form Recognizer 컨테이너를 사용하여 양식 및 테이블 데이터를 구문 분석하는 방법을 알아봅니다.
+description: 양식 및 테이블 데이터를 구문 분석하도록 Form Recognizer 컨테이너를 구성하는 방법을 알아봅니다.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026675"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147461"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form Recognizer 컨테이너 구성
 
@@ -70,7 +70,7 @@ ms.locfileid: "65026675"
 
 바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
 
-Form Recognizer 컨테이너는 입력 및 출력 탑재가 필요합니다. 입력 탑재는 읽기 전용일 수 있으며 학습 및 채점에 사용할 데이터에 액세스할 때 필요합니다. 출력 탑재는 쓰기 가능해야 하며 모델 및 임시 데이터를 저장하는 데 사용됩니다.
+Form Recognizer 컨테이너에는 입력 및 출력 탑재가 필요합니다. 입력 탑재는 읽기 전용일 수 있으며 학습 및 채점에 사용할 데이터에 액세스할 때 필요합니다. 출력 탑재는 쓰기 가능해야 하며 모델 및 임시 데이터를 저장하는 데 사용됩니다.
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](form-recognizer-container-howto.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다.
 

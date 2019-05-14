@@ -4,7 +4,7 @@ description: Check Point 데이터 Azure Sentinel를 연결 하는 방법에 알
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: cfdc6bd0fab1a9156e8b161536b6eae37769e2f2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120929"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228349"
 ---
 # <a name="connect-your-check-point-appliance"></a>Check Point 어플라이언스에서 연결
 

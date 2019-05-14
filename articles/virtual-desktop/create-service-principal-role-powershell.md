@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400022"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146137"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당
 
@@ -111,5 +111,5 @@ PowerShell 세션을 종료하기 전에 자격 증명을 확인하고 나중에
 
 이 자습서에서는 서비스 주체를 만들고 이를 사용하여 Windows Virtual Desktop에 로그인하는 방법을 알아보았습니다. Windows Virtual Desktop에 로그인하는 방법을 자세히 알아보려면 Windows Virtual Desktop 방법에 대한 연결을 계속 진행하세요.
 
-- [Windows 7 및 Windows 10에서 원격 데스크톱 클라이언트에 연결](connect-windows-7-and-10.md)
-- [Windows Virtual Desktop 미리 보기 웹 클라이언트에 연결](connect-web.md)
+- [Windows 10 또는 Windows 7에서 연결](connect-windows-7-and-10.md)
+- [웹 브라우저에서 연결](connect-web.md)

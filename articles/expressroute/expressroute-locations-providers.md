@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.author: pareshmu
-ms.openlocfilehash: af8927ddaac4295a49d46f57a48225435dd59b29
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ac1d5f43d5711e6a688608e4cfc78e39221b8fac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191150"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467786"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -50,9 +50,9 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **인도** | 2 |인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
 | **일본** | 2 |일본 서부, 일본 동부 |오사카, 도쿄 |
 | **대한민국** | 2 |한국 중부, 한국 남부 |부산, 서울|
-| **UAE** | 3 | UAE Central, UAE North | 두바이 |
+| **UAE** | 3 | UAE Central, UAE North | Dubai |
 | **남아프리카 공화국** | 3 |남아프리카 공화국 서 부, 남아프리카 공화국 북부 |케이프타운, 요하네스버그 |
-| **남미** | 3 |브라질 남부 |상파울루 |
+| **남미** | 3 |브라질 남부 |Sao Paulo |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>국내 클라우드에 대한 지역 및 지리적 경계
 아래 표에서는 국가별 클라우드의 지역 및 지정학적 경계에 대한 정보를 제공합니다.
@@ -88,7 +88,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **덴버** | CoreSite | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat 아랍에미리트 | Etisalat 아랍에미리트 |
 | **더블린** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
-| **프랑크푸르트** | Interxion | Interxion |
+| **프랑크푸르트** | Interxion | DE-CIX Interxion |
 | **Hong Kong SAR** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **요하네스버그** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **콸라룸푸르** | TIME dotCom | TIME dotCom |
@@ -105,7 +105,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **뉴욕** | Equinix | Coresite, Equinix, InterCloud, Megaport, 패킷, Zayo 센추리 클라우드 연결 |
 | **뉴포트(웨일스)** | Next Generation Data | British Telecom, Level 3 Communications, Next Generation Data |
 | **오사카** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **파리** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Zayo |
+| **파리** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Zayo Telia 통신사 |
 | **퍼스** | NextDC | Megaport, NextDC |
 | **퀘벡 시티** | 4Degrees | Bell Canada, Megaport |
 | **샌안토니오** | CyrusOne | CenturyLink Cloud Connect, Megaport |
@@ -119,8 +119,8 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **시드니** | Equinix | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
 | **타이베이** | Chief Telecom | 최고 Telecom, FarEasTone |
 | **도쿄** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
-| **토론토** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
-| **워싱턴 DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
+| **토론토** | Cologix | At&t netbond Bell Canada, 센추리 클라우드를 연결 하 고 Cologix, Equinix, IX 연결할 Megaport, Telus, Zayo |
+| **워싱턴 DC** | Equinix | Aryaka 네트워크 AT & T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona 네트워크, NTT 통신, Orange, PacketFabric, 스 프린트, Tata Communications, Telia 통신사 Verizon, Zayo |
 | **워싱턴 DC2** | Coresite | Coresite | 
 | **Zurich** | Interxion | Interxion |
 
@@ -204,7 +204,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 ## <a name="expressroute-system-integrators"></a>ExpressRoute 시스템 통합업체
 사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 ExpressRoute에 등록할 수 있습니다.
 
-| **대륙** | **시스템 통합 업체** |
+| **Continent** | **시스템 통합 업체** |
 | --- | --- |
 | **아시아** |Avanade Inc., OneAs1a |
 | **오스트레일리아** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |

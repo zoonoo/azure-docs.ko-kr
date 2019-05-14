@@ -28,7 +28,7 @@ ms.locfileid: "60502188"
 
 Azure **지리적 AI 데이터 과학 VM**(지리적 DSVM)은 Microsoft 데이터 과학 VM에서 지리 공간적 분석 기능을 제공합니다. 특히, 이 VM은 ESRI의 시장 선도적 [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) 지리 정보 시스템을 추가하여 [데이터 과학 VM](overview.md)에서 AI 및 데이터 과학 도구 키트를 확장합니다.
 
-지리적 AI 데이터 과학 VM은 ESRI와 Microsoft 간의 공동 작업을 통해 구현되는 제품입니다. 결과적으로 다음과 같은 기능을 제공하는 강력한 환경이 제공됩니다.
+지리적 AI 데이터 과학 VM은 ESRI와 Microsoft 간의 협업을 통해 구현되는 제품입니다. 결과적으로 다음과 같은 기능을 제공하는 강력한 환경이 제공됩니다.
 
 - 가장 인기 있는 AI 및 데이터 과학 도구를 사용하여 데이터 탐색
 - 지리적 또는 공간적 측면을 사용하여 데이터에 통계 분석 적용

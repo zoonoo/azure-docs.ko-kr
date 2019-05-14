@@ -40,6 +40,9 @@
     - name: 안전한 배포 사례 사용
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: 배포 관리자에서 상태 검사 사용
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: 템플릿 배포 문제 해결
       href: resource-manager-tutorial-troubleshoot.md
 - name: 샘플
@@ -62,6 +65,9 @@
     - name: 배포 관리자
       displayName: adm
       href: deployment-manager-overview.md
+    - name: 배포 관리자 상태 검사
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: 배포 모드
       href: deployment-modes.md
     - name: 리소스 삭제
@@ -118,6 +124,8 @@
         - name: Azure DevOps Services를 사용하여 지속적인 통합
           href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
           maintainContext: true
+    - name: 템플릿 내보내기
+      href: export-template-portal.md
     - name: 관리
       items:
         - name: 리소스 그룹 관리

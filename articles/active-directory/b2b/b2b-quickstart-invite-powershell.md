@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 게스트 사용자 추가 빠른 시작 - Azure Active Directory | Microsoft Docs
-description: 이 빠른 시작에서는 PowerShell을 사용하여 외부 Azure AD B2B 공동 작업 사용자에게 초대를 보내는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 PowerShell을 사용하여 외부 Azure AD B2B 협업 사용자에게 초대를 보내는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -20,7 +20,7 @@ ms.locfileid: "57854452"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>빠른 시작: PowerShell을 사용하여 게스트 사용자 추가
 
-Azure Active Directory B2B 공동 작업을 사용하여 앱 및 서비스에 외부 파트너를 초대할 수 있는 다양한 방법이 있습니다. 이전 빠른 시작에서는 Azure Active Directory 관리 포털에서 게스트 사용자를 직접 추가하는 방법을 살펴보았습니다. PowerShell을 사용하여 게스트 사용자를 한 번에 한 명씩 또는 일괄로 추가할 수 있습니다. 이 빠른 시작에서는 New-AzureADMSInvitation 명령을 사용하여 게스트 사용자 한 명을 Azure 테넌트에 추가합니다.
+Azure Active Directory B2B 협업을 사용하여 앱 및 서비스에 외부 파트너를 초대할 수 있는 다양한 방법이 있습니다. 이전 빠른 시작에서는 Azure Active Directory 관리 포털에서 게스트 사용자를 직접 추가하는 방법을 살펴보았습니다. PowerShell을 사용하여 게스트 사용자를 한 번에 한 명씩 또는 일괄로 추가할 수 있습니다. 이 빠른 시작에서는 New-AzureADMSInvitation 명령을 사용하여 게스트 사용자 한 명을 Azure 테넌트에 추가합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
 
@@ -108,4 +108,4 @@ Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 이 빠른 시작에서는 PowerShell을 사용하여 디렉터리에 단일 게스트 사용자를 초대하고 추가했습니다. 다음으로, PowerShell을 사용하여 게스트 사용자를 일괄 초대하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure AD B2B 공동 작업 사용자 일괄 초대](tutorial-bulk-invite.md)
+> [자습서: Azure AD B2B 협업 사용자 일괄 초대](tutorial-bulk-invite.md)

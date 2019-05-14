@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159557"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511068"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지 만들기 및 사용자 할당 관리 되는 id를 사용 하 여 Azure Storage에서 파일에 액세스 하려면 
 
 Azure 이미지 작성기 지원 스크립트를 사용 하 여 또는 GitHub와 Azure storage 등와 같은 여러 위치에서 파일을 복사 합니다. 이 사용 하려면 이러한 받아야 Azure 이미지 작성기 외부에서 액세스할 수 있지만 SAS 토큰을 사용 하 여 Azure Storage blob을 보호할 수 있습니다.
 
-이 문서에는 서비스를 사용 하 여 Azure VM 이미지 작성기를 사용 하 여 사용자 지정된 이미지를 만드는 방법을 보여 줍니다는 [사용자 할당 관리 Id](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) 파일에 액세스 하려면 Azure storage에 이미지 사용자 지정 하지 않고 확인 필요 공개적으로 액세스할 수 또는 SAS 토큰 설정 파일입니다.
+이 문서에는 서비스를 사용 하 여 Azure VM 이미지 작성기를 사용 하 여 사용자 지정된 이미지를 만드는 방법을 보여 줍니다는 [사용자 할당 관리 Id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 파일에 액세스 하려면 Azure storage에 이미지 사용자 지정 하지 않고 확인 필요 공개적으로 액세스할 수 또는 SAS 토큰 설정 파일입니다.
 
 아래 예제에서는 두 리소스 그룹을 만들려는, 하나는 사용자 지정 이미지 및 스크립트 파일을 포함 하는 Azure Storage 계정에 호스트 하는 다른 이 있는 빌드 아티팩트 또는 이미지 작성기 외부에서 다른 저장소 계정에서 이미지 파일 실제 시나리오를 시뮬레이트합니다. 사용자 할당 id 다음에 스크립트 파일에 읽기 권한 부여 만들기는 하지만 해당 파일에 대 한 모든 공용 액세스를 설정 하지 않습니다. 셸 사용자 지정 다운로드 하 고 저장소 계정에서 해당 스크립트를 실행 한 다음 사용 합니다.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>사용자 할당 관리 되는 id 만들기
 
-Id를 만들고 스크립트 저장소 계정에 대 한 사용 권한을 할당 합니다. 자세한 내용은 [사용자 할당 관리 Id](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)합니다.
+Id를 만들고 스크립트 저장소 계정에 대 한 사용 권한을 할당 합니다. 자세한 내용은 [사용자 할당 관리 Id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)합니다.
 
 ```azurecli-interactive
 # Create the user assigned identity 

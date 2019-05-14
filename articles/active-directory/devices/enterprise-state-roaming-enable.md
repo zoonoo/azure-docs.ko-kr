@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d0be1dfd77035a3522ef8a6b3f4ac93ae20741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353876"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230936"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
@@ -46,9 +46,9 @@ Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설
 
 국가/지역 값 | 해당 데이터가 다음 지역에서 호스트되는 경우
 ---------------------|-------------------------
-EMEA 국가(예: 프랑스 또는 잠비아) | 유럽 내 하나 이상의 Azure 지역 
-북아메리카 국가(예: 미국 또는 캐나다) | 미국 내 하나 이상의 Azure 지역
-APAC 국가(예: 오스트레일리아 또는 뉴질랜드) | 아시아 내 하나 이상의 Azure 지역
+프랑스 잠비아 등 EMEA 국가/지역 | 유럽 내 하나 이상의 Azure 지역 
+미국 또는 캐나다 등 북아메리카 국가/지역 | 미국 내 하나 이상의 Azure 지역
+오스트레일리아 또는 뉴질랜드 등 APAC 국가/지역 | 아시아 내 하나 이상의 Azure 지역
 남아메리카 및 남극 대륙 지역 | 미국 내 하나 이상의 Azure 지역
 
 국가/지역 값은 Azure AD 디렉터리 생성 프로세스의 일부로 설정되며 나중에 수정할 수 없습니다. 데이터 저장소 위치에 대한 자세한 내용을 보려면 [Azure 지원](https://azure.microsoft.com/support/options/)에서 티켓을 저장하세요.

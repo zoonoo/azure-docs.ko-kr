@@ -1,6 +1,6 @@
 ---
-title: B2B 공동 작업 사용자를 정보 근로자로 추가 - Azure Active Directory | Microsoft Docs
-description: B2B 공동 작업을 사용하여 액세스를 위해 정보 근로자와 앱 소유자가 게스트 사용자를 Azure AD에 추가 | Microsoft Docs
+title: B2B 협업 사용자를 정보 근로자로 추가 - Azure Active Directory | Microsoft Docs
+description: B2B 협업을 사용하여 액세스를 위해 정보 근로자와 앱 소유자가 게스트 사용자를 Azure AD에 추가 | Microsoft Docs
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -115,7 +115,7 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다음 문서를 살펴보세요.
+Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
 - [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](add-users-administrator.md)

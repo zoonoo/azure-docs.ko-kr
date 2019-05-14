@@ -21,7 +21,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 참조 설명서�
 ## <a name="access-server-logs"></a>서버 로그 액세스
 Azure Portal 및 Azure CLI를 사용하여 Azure Database for MySQL 서버 로그를 나열 및 다운로드할 수 있습니다.
 
-Azure Portal에서 Azure Database for MySQL Server를 찾습니다. **모니터링** 머리글 아레에서 **서버 로그** 페이지를 선택합니다.
+Azure Portal에서 Azure Database for MySQL Server를 찾습니다. **모니터링** 머리글 아래에서 **서버 로그** 페이지를 선택합니다.
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 구성 및 액세스](howto-configure-server-logs-in-cli.md)를 참조하세요.
 
@@ -36,7 +36,7 @@ Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 �
 
 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
-- **long_query_time**: 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우 기본값은 10초입니다.
+- **long_query_time**: 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우. 기본값은 10초입니다.
 - **log_slow_admin_statements**: ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
 - **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
 - **log_throttle_queries_not_using_indexes**: 이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 인덱스가 아닌 쿼리 수의 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
@@ -44,10 +44,10 @@ Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 �
 느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요. 
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버의 느린 쿼리 로그를 설정한 후에 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 내보낸에 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/diagnostic-logs-overview.md)의 방법 섹션을 참조하세요.
+Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버의 느린 쿼리 로그를 설정한 후에 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 내보내는 것을 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/diagnostic-logs-overview.md)의 방법 섹션을 참조하세요.
 
 > [!IMPORTANT]
-> 이 진단 서버 로그에 대 한 기능은 사용할 수 있습니다 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)합니다.
+> 서버 로그에 대한 진단 기능은 범용 및 메모리 최적화 [가격 책정 계층](concepts-pricing-tiers.md)에만 사용할 수 있습니다.
 
 아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 

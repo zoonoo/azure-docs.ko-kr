@@ -61,4 +61,4 @@ Q5가 mediumrc이기 때문에 두 개의 동시성 슬롯이 필요합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 워크 로드 분류에 대 한 자세한 내용은 참조 하세요. [SQL 데이터 웨어하우스 워크 로드 분류](sql-data-warehouse-workload-classification.md)합니다.  워크 로드 분류자를 만드는 방법에는 빠른 시작을 참조 하세요 [워크 로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)합니다. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.
+분류자 만들기 시작 하려면 참조는 [워크 로드 분류자 만들기 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)합니다.  SQL Data Warehouse 워크로드 분류에 대한 자세한 내용은 [SQL Data Warehouse 워크로드 분류](sql-data-warehouse-workload-classification.md).  와 [워크로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)를 참조하세요. 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

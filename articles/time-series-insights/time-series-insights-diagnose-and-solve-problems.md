@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 04/09/2018
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad739041ebd20f9940e305efb19807df4c73cb8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725792"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471694"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -24,11 +24,11 @@ ms.locfileid: "64725792"
 
 ## <a name="video"></a>비디오
 
-### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>이 비디오에서는 일반적인 Time Series Insight 고객의 어려움과 문제를 완화하는 방법에 대해 설명합니다.</br>
+### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>일반적인 Time Series Insights 고객 문제 및 완화 방법에 알아봅니다.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-one-no-data-is-shown"></a>문제 1: 데이터가 표시 되지 않음
+## <a name="problem-no-data-is-shown"></a>문제: 데이터가 표시 되지 않음
 
 [Azure Time Series Insights 탐색기](https://insights.timeseries.azure.com)에 데이터가 표시되지 않는 문제는 다음과 같은 몇 가지 일반적인 이유로 인해 발생할 수 있습니다.
 
@@ -40,17 +40,17 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 
 * Azure IoT Hub에 있는 IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다. **iothubowner** 또는 **service** 정책에는 **서비스 연결** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
-   ![IoT Hub 서비스 연결 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   [![IoT Hub 서비스 연결 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Azure Event Hubs의 이벤트 허브에서는 **수신** 권한이 있는 키를 제공해야 합니다. **read** 또는 **manage** 정책에는 **수신** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
-   ![이벤트 허브 수신 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
+   [![이벤트 허브 수신 사용 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>원인 c: 제공 된 소비자 그룹이 Time Series Insights에 단독적 없습니다.
 
 IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사용할 소비자 그룹을 설정해야 합니다. 이 소비자 그룹은 *공유할 수 없습니다*. 소비자 그룹이 공유되면 기본 IoT Hub 또는 이벤트 허브는 자동으로 한 명의 읽기 권한자와의 연결을 임의로 끊습니다. Time Series Insights에서 읽을 고유한 소비자 그룹을 제공합니다.
 
-## <a name="problem-two-some-data-is-shown-but-data-is-missing"></a>문제 2: 일부 데이터는 표시 되지만 데이터가 누락
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>문제: 일부 데이터가 표시 되며, 이지만 데이터 누락
 
 데이터가 부분적으로만 표시되고 지연되는 것처럼 보이면 여러 가지 가능성을 고려해야 합니다.
 
@@ -69,13 +69,13 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 다음 그림에는 SKU S1 및 용량 3을 사용하는 Time Series Insights 환경이 나와 있습니다. 하루에 3백만 개의 이벤트를 수신할 수 있습니다.
 
-![환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
+![환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 예를 들어 이 환경이 이벤트 허브에서 메시지를 수집한다고 가정합니다. 다음 그림에서는 수신 속도를 보여 줍니다.
 
-![이벤트 허브에 대한 예제 수신 속도](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
+[![이벤트 허브에 대 한 예제 수신 속도](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
 
-일일 수신 속도는 67,000개 이하 메시지입니다. 이 속도를 1분마다 약 46개 메시지로 변환합니다. 각 이벤트 허브 메시지가 단일 Time Series Insights 이벤트로 결합되는 경우 제한이 나타나지 않습니다. 각 이벤트 허브 메시지가 100 Time Series Insights 이벤트로 결합되는 경우에는 1분마다 4,600개의 이벤트가 수집되어야 합니다. 용량이 3인 S1 SKU 환경은 1분마다 2,100개 이벤트만 수신할 수 있습니다(일별 1백만개 이벤트 = 3 단위에서 분당 700개 이벤트 = 분당 2,100개 이벤트). 이 설정의 경우 제한으로 인해 지연이 나타납니다. 
+일일 수신 속도는 67,000개 이하 메시지입니다. 이 속도를 1분마다 약 46개 메시지로 변환합니다. 각 이벤트 허브 메시지가 단일 Time Series Insights 이벤트로 결합되는 경우 제한이 나타나지 않습니다. 각 이벤트 허브 메시지가 100 Time Series Insights 이벤트로 결합되는 경우에는 1분마다 4,600개의 이벤트가 수집되어야 합니다. 용량이 3인 S1 SKU 환경은 1분마다 2,100개 이벤트만 수신할 수 있습니다(일별 1백만개 이벤트 = 3 단위에서 분당 700개 이벤트 = 분당 2,100개 이벤트). 이 설정의 경우 제한으로 인해 지연이 나타납니다.
 
 평면화 논리 작동 방식을 깊이 이해하기 위해서는 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
 
@@ -85,24 +85,24 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>원인 b: 기록 데이터의 초기 수집 느려지는 수신
 
-기존 이벤트 원본에 연결하는 경우 이미 IoT Hub 또는 이벤트 허브에 데이터가 있을 수 있습니다. 환경은 이벤트 원본 메시지 보존 기간의 시작 부분에서 데이터 풀링을 시작합니다. 이 작업은 기본 처리로, 재정의할 수 없습니다. 제한을 적용할 수 있습니다. 기록 데이터를 수집하면서 지연을 따라잡기 위해 얼마 동안 제한이 적용될 수 있습니다.
+기존 이벤트 원본에 연결하는 경우 이미 IoT Hub 또는 이벤트 허브에 데이터가 있을 수 있습니다. 환경은 이벤트 원본 메시지 보존 기간의 시작 부분에서 데이터 풀링을 시작합니다. 이 기본 처리를 재정의할 수 없습니다. 제한을 적용할 수 있습니다. 기록 데이터를 수집하면서 지연을 따라잡기 위해 얼마 동안 제한이 적용될 수 있습니다.
 
 #### <a name="recommended-resolutions-for-large-initial-ingestion"></a>대용량 초기 수집에 대한 권장 해결 방법
 
 지연을 해결하려면
 
-1. SKU 용량을 최대 허용 값(이 경우 10)으로 늘립니다. 용량을 늘린 후에는 수신 프로세스가 훨씬 더 빠르게 지연을 따라잡기 시작합니다. 증가한 용량에 대해 요금이 부과됩니다. 지연을 얼마나 빠르게 따라잡는지를 시각화하려면 [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 가용성 차트를 확인할 수 있습니다. 
+1. SKU 용량을 최대 허용 값(이 경우 10)으로 늘립니다. 용량을 늘린 후에는 수신 프로세스가 훨씬 더 빠르게 지연을 따라잡기 시작합니다. 증가한 용량에 대해 요금이 부과됩니다. 지연을 얼마나 빠르게 따라잡는지를 시각화하려면 [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 가용성 차트를 확인할 수 있습니다.
 
 2. 지연을 따라잡으면 SKU 용량을 다시 정상 수신 속도로 줄입니다.
 
-## <a name="problem-three-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>문제 3: 내 이벤트 원본의 타임 스탬프 속성 이름 설정이 작동 하지 않음
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>문제: 내 이벤트 원본의 타임 스탬프 속성 이름 설정이 작동 하지 않음
 
 타임스탬프 속성 이름 및 값이 다음 규칙을 준수하는지 확인합니다.
 
 * 타임스탬프 속성 이름은 대/소문자를 구분합니다.
 * JSON 문자열처럼 이벤트 원본에서 가져오는 타임스탬프 속성 값은 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_ 형식이어야 합니다. 예를 들면 **2008-04-12T12:53Z**와 같습니다.
 
-타임스탬프 속성 이름이 캡처되고 제대로 작동하는지 확인하는 가장 쉬운 방법은 Time Series Insights 탐색기를 사용하는 것입니다. Time Series Insights 탐색기 내에서 차트를 사용하고, 타임스탬프 속성 이름을 제공하기 전에 경과될 기간을 선택합니다. 선택 영역을 마우스 오른쪽 단추로 클릭하고 **이벤트 탐색** 옵션을 선택합니다. 
+타임스탬프 속성 이름이 캡처되고 제대로 작동하는지 확인하는 가장 쉬운 방법은 Time Series Insights 탐색기를 사용하는 것입니다. Time Series Insights 탐색기 내에서 차트를 사용하고, 타임스탬프 속성 이름을 제공하기 전에 경과될 기간을 선택합니다. 선택 영역을 마우스 오른쪽 단추로 클릭하고 **이벤트 탐색** 옵션을 선택합니다.
 
 첫 번째 열 머리글에는 타임스탬프 속성 이름에 있어야 합니다. 단어 **타임스탬프** 옆에는 **($ts)** 가 표시됩니다.
 

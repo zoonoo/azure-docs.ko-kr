@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e235af8ae35a6ff8e310bac802484e6c3d0f5397
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761165"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506931"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
 
@@ -164,7 +164,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services 및 Virtual Machines 비교]: ../app-service/overview-compare.md
+[Azure Websites, Cloud Services 및 Virtual Machines 비교]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [간단한 웹앱 사용]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178

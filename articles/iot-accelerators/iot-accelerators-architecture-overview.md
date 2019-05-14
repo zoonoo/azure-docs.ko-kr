@@ -1,6 +1,6 @@
 ---
 title: IoT 솔루션 가속기 참조 아키텍처 - Azure | Microsoft Docs
-description: Azure IoT 솔루션 가속기 참조 아키텍처에 대해 알아봅니다. 기존 솔루션 가속기는 이 참조 아키텍처를 활용합니다. 고유의 사용자 지정 IoT 솔루션을 빌드할 때 참조 아키텍처를 사용할 수도 있습니다.
+description: Azure IoT 솔루션 가속기 참조 아키텍처에 알아봅니다. 기존 솔루션 가속기는 이 참조 아키텍처를 활용합니다. 고유의 사용자 지정 IoT 솔루션을 빌드할 때 참조 아키텍처를 사용할 수도 있습니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450317"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466449"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IoT 참조 아키텍처 소개
 
@@ -38,7 +38,7 @@ ms.locfileid: "61450317"
 
 참조 아키텍처는 다음 다이어그램에 나온 코어 하위 시스템을 식별합니다.
 
-![코어 하위 시스템](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![코어 하위 시스템](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 다음 섹션에서는 원격 모니터링 솔루션 가속기의 구성 요소가 어떻게 코어 하위 시스템에 매핑되는지 설명합니다.
 

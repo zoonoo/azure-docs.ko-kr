@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924952"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236667"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
@@ -100,17 +100,6 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
    - 다운로드 합니다 [Windows 가상 데스크톱 에이전트 부트로더](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)합니다.
    - 다운로드 한 설치 관리자를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **속성**를 선택 **차단 해제**을 선택한 후 **확인**합니다. 이렇게 하면 설치 관리자를 신뢰 하도록 합니다.
    - 설치 관리자를 실행합니다.
-4. 설치 하거나 가상 데스크톱 Windows side-by-side-스택을 활성화 합니다. 단계는 다를 수는 OS 버전에 따라 가상 컴퓨터를 사용 합니다.
-   - 가상 머신의 OS가 Windows Server 2016 합니다.
-     - 다운로드 합니다 [가상 데스크톱 Windows side-by-side-스택](https://go.microsoft.com/fwlink/?linkid=2084270)합니다.
-     - 다운로드 한 설치 관리자를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **속성**를 선택 **차단 해제**을 선택한 후 **확인**합니다. 이렇게 하면 설치 관리자를 신뢰 하도록 합니다.
-     - 설치 관리자를 실행합니다.
-   - 가상 머신의 OS가 Windows 10 1809 이상 또는 Windows Server 2019 이상:
-     - 다운로드 합니다 [스크립트](https://go.microsoft.com/fwlink/?linkid=2084268) side-by-side-스택을 활성화 합니다.
-     - 다운로드 한 스크립트를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **속성**를 선택 **차단 해제**을 선택한 후 **확인**합니다. 이렇게 하면 스크립트를 신뢰 하도록 합니다.
-     - **시작** 메뉴에서 Windows PowerShell ISE에 대 한 검색을 마우스 오른쪽 단추로 클릭 한 다음 선택 **관리자 권한으로 실행**합니다.
-     - 선택 **파일**, 다음 **열기...** , 한 다음 다운로드 한 파일에서 PowerShell 스크립트를 찾아서 엽니다.
-     - 스크립트를 실행 하려면 녹색 재생 단추를 선택 합니다.
 
 >[!IMPORTANT]
 >Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 사용하는 것이 좋습니다.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347512"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511085"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -217,7 +217,7 @@ Azure portal에서 편집 사용 되는지 여부를 나타냅니다. 유효한 
 
 ## <a name="next-steps"></a>다음 단계
 
-[앱 설정 업데이트 방법 알아보기](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[앱 설정 업데이트 방법 알아보기](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [host.json 파일의 전역 설정 보기](functions-host-json.md)
 

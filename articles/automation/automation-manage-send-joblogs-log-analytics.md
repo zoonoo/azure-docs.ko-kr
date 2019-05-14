@@ -99,7 +99,7 @@ Azure Automation의 진단은 Azure Monitor 로그의 두 가지 유형의 레�
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 신규<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
 | Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다. |
 | OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| 리소스 | Automation 계정의 이름입니다. |
+| Resource | Automation 계정의 이름입니다. |
 | SourceSystem | Azure Monitor 로그 데이터를 수집 하는 방법을 합니다. Azure 진단의 경우 항상 *Azure*입니다. |
 | ResultDescription |runbook 작업 결과 상태를 설명합니다. 가능한 값은 다음과 같습니다.<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다. |
 | CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |
@@ -122,7 +122,7 @@ Azure Automation의 진단은 Azure Monitor 로그의 두 가지 유형의 레�
 | ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 진행 중 |
 | Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다. |
 | OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| 리소스 | Automation 계정의 이름입니다. |
+| Resource | Automation 계정의 이름입니다. |
 | SourceSystem | Azure Monitor 로그 데이터를 수집 하는 방법을 합니다. Azure 진단의 경우 항상 *Azure*입니다. |
 | ResultDescription |runbook의 출력 스트림을 포함합니다. |
 | CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |

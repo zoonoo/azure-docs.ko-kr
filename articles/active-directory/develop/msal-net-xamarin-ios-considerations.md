@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7621b18f32a90b81dc075c534367981cf44f16e0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bb07fa00b9e1d917cb64df18fff6466dd5c0193d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076332"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406975"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 가지 MSAL.NET을 사용 하는 경우 계정에 수행 해야 하는 몇 가지 고려 사항
@@ -108,7 +108,7 @@ MSAL의 2.x 및 ADAL 4.x는 TeamId-간에 single sign-on (SSO) 동일한 게시�
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>keychain-access-groups</key>

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: cf31c08d4192f0405bec99f0370c66ad9698eace
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 032c4af0e36626881b514573cc4a5f966e8c2077
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141596"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510309"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -188,7 +188,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
-[Azure SDK for Java]: https://docs.microsoft.com/en-us/java/api/overview/azure/
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/en-us/java/azure/eclipse/azure-toolkit-for-eclipse
+[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

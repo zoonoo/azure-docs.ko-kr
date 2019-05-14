@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor로 Surface Hub 모니터링 | Microsoft Docs
+title: Azure Monitor를 사용 하 여 Surface Hub 모니터링 | Microsoft Docs
 description: Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 902cf62e53581785caf2730f63af3633d8e1e498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e0dbb4c3cd8ae4bb552e7b7f0748f1bde2f51de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596255"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232792"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Azure Monitor로 Surface Hub를 모니터링하여 상태 추적
 
@@ -67,7 +67,7 @@ Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 
 3. **이 디바이스**를 클릭한 다음, **모니터링**에서 **Log Analytics 설정 구성**을 클릭합니다.
 4. **모니터링 사용**을 선택합니다.
 5. Log Analytics 설정 대화 상자에서 Log Analytics **작업 영역 ID**, **작업 영역 키**를 차례로 입력합니다.  
-   ![설정](./media/surface-hubs/settings.png)
+   ![settings](./media/surface-hubs/settings.png)
 6. **확인**을 클릭하여 구성을 완료합니다.
 
 디바이스에 구성이 성공적으로 적용되었는지 여부를 알리는 확인 메시지가 나타납니다. 성공한 경우에는 에이전트가 Azure Monitor에 올바르게 연결되었다고 알리는 메시지가 나타납니다. 그러면 해당 디바이스에서 데이터를 확인하고 작업할 수 있는 Azure Monitor로 이 데이터를 보내기 시작합니다.

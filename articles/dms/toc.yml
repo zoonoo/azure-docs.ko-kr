@@ -54,6 +54,8 @@
       href: resource-network-topologies.md
     - name: 알려진 문제
       items:
+        - name: 일반적인 문제 및 오류 해결
+          href: known-issues-troubleshooting-dms.md
         - name: 알려진 문제 - Azure SQL DB로 온라인 마이그레이션
           href: known-issues-azure-sql-online.md
         - name: 알려진 문제 - Azure DB for MySQL로 온라인 마이그레이션

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159167"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468397"
 ---
 사용 후 삭제 OS 디스크는 가상 머신 (VM) 저장소에서 생성 되 고 원격 Azure Storage에 유지 되지 않습니다. 사용 후 삭제 OS 디스크는 응용 프로그램의 개별 VM 오류에 대 한 내성을 있지만 대규모 배포에 걸리는 시간 또는 개별 VM 인스턴스를 이미지로 다시 설치 하는 시간에 더 관심이 있는 상태 비저장 워크 로드에 대 한 잘 작동 합니다. Resource Manager 배포 모델로 이동 하는 클래식 배포 모델을 사용 하 여 배포 응용 프로그램에 적합 한 이기도 합니다. 사용 후 삭제 OS 디스크를 사용 하 여 OS 디스크를 VM 이미지로 다시 설치를 더 빠르게 낮은 읽기/쓰기 대기 시간이 관찰 합니다. 또한 사용 후 삭제 OS 디스크는 무료, OS 디스크에 대 한 저장소 비용 없이 발생 합니다. 
  
@@ -30,7 +30,7 @@ ms.locfileid: "65159167"
 |                             | 영구 OS 디스크                          | 사용 후 삭제 OS 디스크                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | OS 디스크의 크기 제한      | 2 TiB                                                                                        | 캐시 VM 크기 또는 2TiB, 크기 중 더 작은 값- [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md)합니다 [M](../articles/virtual-machines/linux/sizes-memory.md)를 [FS](../articles/virtual-machines/linux/sizes-compute.md), 및 [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| 지원 되는 VM 크기          | 모두                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| 지원 되는 VM 크기          | 모두                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | 디스크 형식 지원           | 관리 및 관리 되지 않는 OS 디스크                                                                | 관리 되는 OS 디스크에만 해당                                                               |
 | 지역 지원              | 모든 지역                                                                                  | 모든 지역                              |
 | 데이터 지속성            | OS 디스크에 기록 된 OS 디스크 데이터는 Azure Storage에 저장 됩니다.                                  | OS 디스크에 기록 된 데이터는 로컬 VM 저장소에 저장 되 고 Azure Storage에 유지 되지 않습니다. |
@@ -48,13 +48,13 @@ ms.locfileid: "65159167"
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 확인 하려면 미리 보기에 등록 된 경우:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 확인 하려면 미리 보기에 등록 된 경우:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

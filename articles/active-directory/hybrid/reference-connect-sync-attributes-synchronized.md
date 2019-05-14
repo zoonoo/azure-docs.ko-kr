@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729540"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508104"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
 이 항목에서는 Azure AD Connect 동기화에 의해 동기화되는 특성을 보여 줍니다.  
@@ -48,7 +48,7 @@ ms.locfileid: "64729540"
 | pwdLastSet |X |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 |samAccountName|X| |
 | sourceAnchor |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
-| usageLocation |X |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -87,12 +87,12 @@ ms.locfileid: "64729540"
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | info |X |X |X |이 특성은 현재 그룹에 사용되지 않습니다. |
-| Initials |X |X | | |
-| l |X |X | | |
+| 이니셜 |X |X | | |
+| L |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| 관리자 |X |X | | |
 | member | | |X | |
 | mobile |X |X | | |
 | maDS-HABSeniorityIndex |X |X |X | |
@@ -153,7 +153,7 @@ ms.locfileid: "64729540"
 | pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 동기화 및 페더레이션 모두 사용됩니다. |
 | reportToOriginator | | |X | |
@@ -168,7 +168,7 @@ ms.locfileid: "64729540"
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | userSMIMECertificates |X |X | | |
@@ -211,11 +211,11 @@ ms.locfileid: "64729540"
 | info |X |X |X | |
 | Initials |X |X | | |
 | ipPhone |X |X | | |
-| l |X |X | | |
-| mail |X |X |X | |
+| L |X |X | | |
+| 메일 |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| 관리자 |X |X | | |
 | member | | |X | |
 | middleName |X |X | | |
 | mobile |X |X | | |
@@ -236,7 +236,7 @@ ms.locfileid: "64729540"
 | postalCode |X |X | | |
 | postOfficeBox |X |X | |이 특성은 현재 SharePoint Online에 사용되지 않습니다. |
 | preferredLanguage |X | | | |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
@@ -251,7 +251,8 @@ ms.locfileid: "64729540"
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역
+. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
@@ -270,11 +271,11 @@ ms.locfileid: "64729540"
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | ipPhone |X |X | | |
-| l |X |X | | |
-| mail |X |X |X | |
+| L |X |X | | |
+| 메일 |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| 관리자 |X |X | | |
 | member | | |X | |
 | mobile |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
@@ -290,7 +291,7 @@ ms.locfileid: "64729540"
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
@@ -299,7 +300,7 @@ ms.locfileid: "64729540"
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 | wWWHomePage |X |X | | |
 
@@ -309,13 +310,13 @@ ms.locfileid: "64729540"
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | cn |X | |X |일반 이름 또는 별칭입니다. 대부분 [mail] 값의 접두사입니다. |
 | displayName |X |X |X |이름을 나타내는 문자열로 보통 친숙한 이름(성명)으로 표시됩니다. |
-| mail |X |X |X |메일 주소 전체입니다. |
-| member | | |X | |
+| 메일 |X |X |X |메일 주소 전체입니다. |
+| 멤버 | | |X | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
-| proxyAddresses |X |X |X |기계적 속성입니다. Azure AD에서 사용됩니다. 사용자에 대한 모든 보조 메일 주소를 포함합니다. |
+| ProxyAddresses |X |X |X |기계적 속성입니다. Azure AD에서 사용됩니다. 사용자에 대한 모든 보조 메일 주소를 포함합니다. |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |이 UPN은 사용자용 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="intune"></a>Intune
@@ -326,14 +327,14 @@ ms.locfileid: "64729540"
 | cn |X | |X | |
 | description |X |X |X | |
 | displayName |X |X |X | |
-| mail |X |X |X | |
+| 메일 |X |X |X | |
 | mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -349,9 +350,9 @@ ms.locfileid: "64729540"
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| l |X |X | | |
+| L |X |X | | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| 관리자 |X |X | | |
 | member | | |X | |
 | mobile |X |X | | |
 | objectSID |X | |X |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
@@ -365,7 +366,7 @@ ms.locfileid: "64729540"
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="3rd-party-applications"></a>타사 애플리케이션
@@ -381,17 +382,18 @@ ms.locfileid: "64729540"
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
-| mail |X | |X | |
+| 메일 |X | |X | |
 | managedBy | | |X | |
 | mailNickname |X |X |X | |
 | member | | |X | |
 | objectSID |X | | |기계적 속성입니다. Azure AD와 AD 사이의 동기화를 유지하기 위해 사용되는 AD 사용자 식별자입니다. |
-| proxyAddresses |X |X |X | |
+| ProxyAddresses |X |X |X | |
 | pwdLastSet |X | | |기계적 속성입니다. 이미 발급된 토큰을 무효화하는 경우를 파악하는 데 사용합니다. 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용됩니다. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |기계적 속성입니다. ADDS와 Azure AD 간의 관계를 유지하기 위한 변경할 수 없는 식별자입니다. |
-| usageLocation |X | | |기계적 속성입니다. 사용자의 국가입니다. 라이선스 할당에 사용됩니다. |
+| usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
 ## <a name="windows-10"></a>윈도우 10
@@ -420,7 +422,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 ## <a name="exchange-hybrid-writeback"></a>Exchange 하이브리드 쓰기 저장
 이 특성들은 **Exchange 하이브리드**를 사용하도록 설정할 때 Azure AD에서 온-프레미스 Active Directory로 다시 기록됩니다. Exchange 버전에 따라 더 적은 특성을 동기화 할 수 있습니다.
 
-| 특성 이름(Connect UI) |특성 이름(온-프레미스 AD) | 사용자 | 연락처 | 그룹 | 주석 |
+| 특성 이름(온-프레미스 AD) | 특성 이름(Connect UI) | 사용자 | 연락처 | 그룹 | 주석 |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Azure AD의 cloudAnchor에서 파생됩니다. 이 특성은 Exchange 2016 및 Windows Server 2016 AD의 새로운 기능입니다. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |온라인 보관: 고객이 메일을 보관할 수 있도록 설정합니다. |
@@ -429,7 +431,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |필터링: 온-프레미스 필터링 및 클라이어트에서 안전하게 차단된 보낸 사람의 온라인 데이터를 다시 씁니다. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |UM(통합 메시징) - 온라인 음성 메일 사용: Microsoft Lync Server 통합에서 사용자의 온라인 서비스에 음성 메일이 있음을 Lync Server 온-프레미스에 알리는 데 사용합니다. |
 | msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |소송 보존: 클라우드 서비스에서 소송 보존 상태에 있는 사용자를 확인하도록 설정합니다. |
-| proxyAddresses| proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
+| ProxyAddresses| ProxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에게 SendOnBehalfTo 권한을 부여할 수 있습니다. Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange 메일 공용 폴더
@@ -438,10 +440,10 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | 특성 이름 | PublicFolder | 주석 |
 | --- | :---:| --- |
 | displayName | X |  |
-| mail | X |  |
+| 메일 | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
-| proxyAddresses | X |  |
+| ProxyAddresses | X |  |
 | targetAddress | X |  |
 
 ## <a name="device-writeback"></a>디바이스 쓰기 저장

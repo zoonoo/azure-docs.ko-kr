@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072622"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407698"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
 
@@ -69,7 +69,7 @@ AKS 노드는 공개적으로 인터넷에 노출되지 않습니다. AKS 노드
 [az vm list-ip-addresses][az-vm-list-ip-addresses] 명령을 사용하여 AKS 클러스터 노드의 사설 IP 주소를 확인합니다. 이전 [az-aks-show][az-aks-show] 단계에서 가져온 고유한 AKS 클러스터 리소스 그룹 이름을 입력합니다.
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
 ```
 
 다음 예제 출력에서는 AKS 노드의 사설 IP 주소를 보여줍니다.

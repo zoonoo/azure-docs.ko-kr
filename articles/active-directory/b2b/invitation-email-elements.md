@@ -1,6 +1,6 @@
 ---
 title: B2B 초대 전자 메일-Azure Active Directory 요소의 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업 초대 전자 메일 템플릿
+description: Azure Active Directory B2B 협업 초대 이메일 템플릿
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -19,9 +19,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60412833"
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 협업 초대 이메일의 요소
 
-초대 전자 메일은 온보드의 파트너를 Azure AD에서 B2B 공동 작업 사용자로 불러오기 위한 중요한 구성 요소입니다. 받는 사람의 신뢰를 높이는 데 사용할 수 있습니다. 전자 메일에 적법성과 사회적 증거를 전자 메일에 추가하여 받는 사람이 안심하고 **시작** 단추를 선택하여 초대를 수락할 수 있습니다. 이 신뢰는 공유 마찰을 줄이는 데 핵심적입니다. 또한 이 템플릿을 통해 전자 메일도 보기 좋게 구성할 수 있습니다.
+초대 이메일은 온보드의 파트너를 Azure AD에서 B2B 협업 사용자로 불러오기 위한 중요한 구성 요소입니다. 받는 사람의 신뢰를 높이는 데 사용할 수 있습니다. 전자 메일에 적법성과 사회적 증거를 전자 메일에 추가하여 받는 사람이 안심하고 **시작** 단추를 선택하여 초대를 수락할 수 있습니다. 이 신뢰는 공유 마찰을 줄이는 데 핵심적입니다. 또한 이 템플릿을 통해 전자 메일도 보기 좋게 구성할 수 있습니다.
 
 ![B2B 초대 이메일을 보여 주는 스크린샷](media/invitation-email-elements/invitation-email.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "60412833"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD B2B 공동 작업에 대한 다음 문서를 살펴보세요.
+Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
 - [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
 - [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법은 무엇입니까?](add-users-administrator.md)

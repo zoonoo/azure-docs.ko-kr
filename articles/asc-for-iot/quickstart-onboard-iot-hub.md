@@ -5,21 +5,21 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010563"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192482"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 서비스 사용
 
@@ -39,6 +39,7 @@ ms.locfileid: "60010563"
   - IoT용 ASC는 기본적으로 **보안 경고** 및  **추천 사항**이라는 두 가지 유형의 정보를 Log Analytics 작업 영역에 저장합니다. 
   - 추가 정보 유형인 **원시 이벤트**의 스토리지를 추가하도록 선택할 수 있습니다. **원시 이벤트**를 Log Analytics에 저장하면 추가 스토리지 비용이 발생합니다. 
 - IoT Hub(표준 계층 이상)
+- [서비스 필수 구성 요소](service-prerequisites.md) 모두 충족 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>IoT Hub에서 IoT용 ASC를 사용하도록 설정 
 
@@ -50,8 +51,7 @@ IoT Hub에서 보안을 사용하도록 설정하려면 다음을 수행합니�
 4. Log Analytics 작업 영역 세부 정보를 제공합니다. 
    - **원시 이벤트** 토글을 **켜기**로 전환하여 기본 스토리지 정보 유형 외에도 **원시 이벤트**를 저장하도록 선택합니다. 
    - **컬렉션 쌍** 토글을 **켜기**로 전환하여 **컬렉션 쌍**을 사용하도록 선택합니다. 
-5. **확인**을 클릭합니다. 
-6. **저장**을 클릭합니다. 
+5. **저장**을 클릭합니다. 
 
 축하합니다! IoT Hub에서 IoT용 ASC를 사용하도록 설정했습니다. 
 
