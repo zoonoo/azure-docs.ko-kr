@@ -77,11 +77,11 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> 스냅숏을 만들고 적용하는 프로세스는 원본 또는 대상 **PersonGroup**(또는 **FaceList**)에 대한 정규 호출을 방해하지 않습니다. 그러나, 원본 개체를 변경 하는 동시 호출(예를 들어 [FaceList management](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) 또는 [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) 호출)을 권장 하지는 않습니다, 왜냐하면 스냅숏 작업은 이러한 작업 전후 실행 하거나 오류가 발생할 수 있기 때문입니다.
+> 스냅숏을 만들고 적용하는 프로세스는 원본 또는 대상 **PersonGroup**(또는 **FaceList**)에 대한 정규 호출을 방해하지 않습니다. 그러나, 원본 개체를 변경하는 동시 호출(예를 들어 [FaceList management](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) 또는 [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) 호출)을 권장하지는 않습니다, 왜냐하면 스냅숏 작업은 이러한 작업 전후 실행되거나 오류가 발생할 수 있기 때문입니다.
 
 ## <a name="retrieve-the-snapshot-id"></a>스냅숏 ID 검색
 
-메서드를 수행 하는 스냅숏은 비동기 이므로 해당 완료 (snapshot 작업을 취소할 수 없습니다) 대기 해야 합니다. 이 코드에서 `WaitForOperation` 메서드는 비동기 호출을 모니터링하고 100ms마다 상태를 확인합니다. 작업이 완료되면 작업 ID를 검색할 수 있습니다. `OperationLocation` 필드를 구문 분석하여 작업 ID를 가져올 수 있습니다. 
+스냅숏을 찍는 메서드는 비동기식이므로 완료될 때까지 기다려야 합니다(스냅숏 작업은 취소할 수 없음). 이 코드에서 WaitForOperation 메서드는 비동기 호출을 모니터링하여 100ms마다 상태를 확인합니다. 작업이 완료되면 작업 ID를 검색할 수 있습니다. `OperationLocation` 필드를 구문 분석하여 작업 ID를 가져올 수 있습니다.
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -226,7 +226,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 ## <a name="next-steps"></a>다음 단계
 
-다음으로, 관련 API 참조 설명서를 참조하여 스냅숏 기능을 사용하는 샘플 앱을 탐색하거나 여기 언급된 다른 API 작업을 사용하여 시작하는 방법 지침을 따릅니다.
+다음으로, 관련 API 참조 설명서를 참조하여 스냅숏 기능을 사용하는 샘플 앱을 탐색하거나 여기 언급된 다른 API 작업을 사용하여 시작하는 방법에 대한 지침을 따릅니다.
 
 - [스냅숏 참조 설명서(.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Face API 스냅숏 예제](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
