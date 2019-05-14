@@ -118,8 +118,8 @@
       href: functions-networking-options.md
     - name: IP 주소
       href: ip-addresses.md
-    - name: 온-프레미스 함수
-      href: functions-runtime-overview.md
+    - name: Kubernetes의 Functions
+      href: functions-kubernetes-keda.md
 - name: 방법 가이드
   items:
     - name: 개발
@@ -142,6 +142,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: 로컬 PowerShell 함수 디버그
           href: functions-debug-powershell-local.md
+        - name: 종속성 주입
+          href: functions-dotnet-dependency-injection.md
         - name: 연결 관리
           href: manage-connections.md
         - name: 오류 처리
@@ -173,6 +175,7 @@
       items:
         - name: 함수 앱 관리
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: 런타임 버전 설정
           href: set-runtime-version.md
         - name: 확장 수동 등록

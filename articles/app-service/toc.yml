@@ -76,6 +76,8 @@
           href: overview-authentication-authorization.md
         - name: OS 및 런타임 패치
           href: overview-patch-os-runtime.md
+        - name: 보안 특성
+          href: app-service-security-attributes.md
     - name: 인바운드 및 아웃바운드 IP
       href: overview-inbound-outbound-ips.md
     - name: 하이브리드 연결

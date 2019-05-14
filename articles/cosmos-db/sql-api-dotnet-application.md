@@ -181,9 +181,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***Index***를 입력합니다.
    * **템플릿** 상자에서 ***List***를 선택합니다.
-
-   * **모델 클래스** 상자에서 ***Item(todo.Models)***을 선택합니다.
-
+   * **모델 클래스** 상자에서 ***Item(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
      
    ![뷰 추가 대화 상자를 보여주는 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
@@ -197,7 +195,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***Create***를 입력합니다.
    * **템플릿** 상자에서 ***Create***를 선택합니다.
-   * **모델 클래스** 상자에서 ***Item(todo.Models)***을 선택합니다.
+   * **모델 클래스** 상자에서 ***Item(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
    
@@ -209,7 +207,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***Edit***를 입력합니다.
    * **템플릿** 상자에서 ***Edit***를 선택합니다.
-   * **모델 클래스** 상자에서 ***Item(todo.Models)***을 선택합니다.
+   * **모델 클래스** 상자에서 ***Item(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
 

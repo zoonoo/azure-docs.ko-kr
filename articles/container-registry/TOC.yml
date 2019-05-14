@@ -23,8 +23,10 @@
       items:
         - name: 1 - Azure에서 이미지 빌드
           href: container-registry-tutorial-quick-task.md
-        - name: 2 - 이미지 빌드 자동화
+        - name: 2a - 코드 커밋 시 자동 빌드
           href: container-registry-tutorial-build-task.md
+        - name: 2b - 코드 커밋 시 다단계 작업 실행
+          href: container-registry-tutorial-multistep-task.md
         - name: 3 - 기본 이미지 업데이트 빌드
           href: container-registry-tutorial-base-image-update.md
     - name: 레지스트리 지역 복제
@@ -84,7 +86,7 @@
               href: container-registry-auth-aci.md
             - name: AKS(Azure Kubernetes Service)에서 인증
               href: container-registry-auth-aks.md
-        - name: 콘텐츠 신뢰(미리 보기)
+        - name: 콘텐츠 신뢰
           href: container-registry-content-trust.md
     - name: 빌드 및 패치
       items:

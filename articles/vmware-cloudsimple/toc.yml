@@ -148,10 +148,6 @@
               href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
         - name: VMware 에코시스템
           items:
-            - name: 재해 복구 솔루션
-              href: 'https://docs.azure.cloudsimple.com/zerto-solutionguide/'
-            - name: VMware SRM을 사용하여 재해 복구
-              href: 'https://docs.azure.cloudsimple.com/disaster-recovery-srm/'
             - name: 워크로드 가상 머신 백업
               href: 'https://docs.azure.cloudsimple.com/veeam/'
             - name: VMware Horizon 솔루션 가이드

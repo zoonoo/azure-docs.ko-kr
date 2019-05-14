@@ -314,8 +314,9 @@
                 - name: 상태 모니터
                   href: app/monitor-performance-live-website-now.md
                 - name: 상태 모니터 v2
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: 개요
+                      href: app/status-monitor-v2-overview.md
                     - name: 시작
                       href: app/status-monitor-v2-get-started.md
                     - name: 자세한 지침
@@ -557,7 +558,7 @@
                   href: app/usage-workbooks.md
             - name: 웹앱 분석 솔루션
               href: insights/azure-web-apps-analytics.md
-            - name: Kubernetes 호스트형 앱
+            - name: Kubernetes 애플리케이션 모니터링
               href: app/kubernetes.md
         - name: 모니터 컨테이너
           items:
@@ -631,8 +632,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: FAQ
                   href: insights/vminsights-faq.md
-                - name: 등록
-                  href: insights/vminsights-onboard.md
+                - name: 모니터링 사용
+                  items:
+                    - name: 모니터링 사용 개요
+                      href: insights/vminsights-enable-overview.md
+                    - name: 단일 Azure VM에 사용하도록 설정
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Azure Policy를 사용하여 설정
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Azure PowerShell을 사용하여 사용
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: 하이브리드 환경에서 사용하도록 설정
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: 상태 모니터링
                   href: insights/vminsights-health.md
                 - name: 종속성 매핑

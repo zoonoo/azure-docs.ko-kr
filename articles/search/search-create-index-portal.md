@@ -23,7 +23,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
 인덱스 디자이너는 인덱스를 만들기 위한 유일한 방법입니다. 프로그래밍 방식으로 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만들 수 있습니다.
 
-## <a name="start-index-designer"></a>인덱스 디자이너 시작
+## <a name="start-index-designer"></a>인덱스 디자이너 시작하기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 서비스 대시보드를 엽니다. 표시줄에서 **모든 서비스**를 클릭하면 현재 구독에서 기존 "검색 서비스"를 검색할 수 있습니다. 
 
@@ -37,7 +37,7 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
    * 소문자, 숫자 또는 대시(“-”)만 사용합니다.
    * 이름은 60자로 제한합니다.
 
-## <a name="add-fields"></a>필드 추가
+## <a name="add-fields"></a>필드 추가하기
 
 인덱스 컴퍼지션은 인덱스에서 검색 가능한 데이터를 정의하는 *필드 컬렉션*을 포함합니다. 필드 컬렉션은 모두 개별적으로 업로드하는 문서 구조를 지정합니다. 필드 컬렉션에는 필드가 사용되는 방식을 결정하는 인덱스 특성과 함께 이름 및 형식이 지정된 필수 및 옵션 필드가 포함됩니다.
 
@@ -76,9 +76,9 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Search 인덱스를 만든 후에는 다음 단계로 이동할 수 있습니다. [검색 가능한 데이터를 인덱스에 업로드](search-what-is-data-import.md).
+Azure Search 인덱스를 만든 후에는 [검색 가능한 데이터를 인덱스에 업로드](search-what-is-data-import.md) 단계를 진행할 수 있습니다.
 
-또는 [인덱스를 보다 자세히 살펴볼](search-what-is-an-index.md) 수도 있습니다. 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
+또는 [인덱스를 보다 자세히 살펴볼 수도 있습니다](search-what-is-an-index.md). 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
 
 ## <a name="see-also"></a>참고 항목
 
